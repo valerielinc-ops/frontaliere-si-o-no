@@ -1,7 +1,7 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-10-03T21:09:29.890Z",
+  "generatedAt": "2026-10-04T09:11:46.932Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -14,10 +14,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5235,
-  "avgDurationMs": 5235,
+  "durationMs": 5162,
+  "avgDurationMs": 5162,
   "durationHistory": [
-    5235
+    5162
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5418817008?gh_jid=5418817008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:09:14.542Z",
+      "crawledAt": "2026-10-04T09:11:30.672Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -75,7 +75,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:09:14.487Z",
+      "crawledAt": "2026-10-04T09:11:30.583Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -95,7 +95,6 @@
         "canton": "VS",
         "location": "Visp"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-30T23:25:58.849Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -117,7 +116,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:09:14.549Z",
+      "crawledAt": "2026-10-04T09:11:30.679Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -159,7 +158,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:09:14.496Z",
+      "crawledAt": "2026-10-04T09:11:30.592Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -191,5 +190,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

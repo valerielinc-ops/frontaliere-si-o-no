@@ -19,7 +19,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { execSync } from 'node:child_process';
+import { execFileSync, execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { assertCompatFloor } from './lib/compat-paths-floor-guard.mjs';
 import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
@@ -32,6 +32,7 @@ import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { JOB_BOARD_SEGMENT_RX } from './lib/jobBoardSections.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
+import { isHeldFromPublication, isTranslationHoldCrawlerKey } from './lib/translation-publication-hold.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -139,15 +140,48 @@ function reuseLocalePathsForSlug(entry, newSlug) {
 // Mining sources
 // ══════════════════════════════════════════════════════════
 
-function mineActiveJobs() {
+// Slugs owned ONLY by jobs held out of publication for translation (agency
+// admission threshold, scripts/lib/translation-publication-hold.mjs). Filled by
+// mineActiveJobs — the first source — and subtracted from the sources that
+// carry no evidence of a public URL (the slug registry, which translate-pending
+// fills for every job it touches, and the slice git history). A slug that only
+// a held job ever had was never served: registering it would make
+// jobsSeoPagesPlugin emit an "offerta non più disponibile" soft-landing for it.
+const heldOnlySlugs = new Set();
+const HELD_SLUG_FILTERED_SOURCES = new Set(['Slug registry', 'Git history (removed slugs)']);
+
+function jobRouteSlugs(job) {
+  const out = new Set();
+  const add = (value) => { if (isValidJobSlug(value)) out.add(value); };
+  add(job?.slug);
+  for (const value of Object.values(job?.slugByLocale || {})) add(value);
+  for (const value of job?.previousSlugs || []) add(value);
+  for (const values of Object.values(job?.previousSlugsByLocale || {})) {
+    for (const value of Array.isArray(values) ? values : []) add(value);
+  }
+  return out;
+}
+
+/** True when `slug` belongs only to held jobs and `sourceName` cannot prove it was ever public. */
+function isHeldOnlySlugForSource(sourceName, slug) {
+  return HELD_SLUG_FILTERED_SOURCES.has(sourceName) && heldOnlySlugs.has(slug);
+}
+
+function mineActiveJobs(dir = dataPath('jobs', 'by-crawler')) {
   const slugs = new Map(); // slug → { locales: { it, en, de, fr } }
-  const dir = dataPath('jobs', 'by-crawler');
+  const heldSlugs = new Set();
+  const publishedSlugs = new Set();
 
   for (const f of listSliceFileNames(dir)) {
     try {
       const data = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf-8'));
       const jobs = Array.isArray(data) ? data : (data.jobs || []);
       for (const job of jobs) {
+        if (isHeldFromPublication(job)) {
+          for (const s of jobRouteSlugs(job)) heldSlugs.add(s);
+          continue;
+        }
+        for (const s of jobRouteSlugs(job)) publishedSlugs.add(s);
         const cantonCode = resolveJobCanton({ canton: job?.canton, location: job?.location });
 
         // Main slug. #4593: this branch used to set ONLY `.it` even though
@@ -182,6 +216,8 @@ function mineActiveJobs() {
       }
     } catch {}
   }
+  heldOnlySlugs.clear();
+  for (const s of heldSlugs) if (!publishedSlugs.has(s)) heldOnlySlugs.add(s);
   return slugs;
 }
 
@@ -219,9 +255,9 @@ function mineExpiredJobs() {
   return slugs;
 }
 
-function mineSlugRegistry() {
+function mineSlugRegistry(registryPath = dataPath('slug-registry.json')) {
   const slugs = new Map();
-  const registry = readJson(dataPath('slug-registry.json'));
+  const registry = readJson(registryPath);
   if (!registry) return slugs;
 
   for (const entry of Object.values(registry)) {
@@ -336,20 +372,96 @@ function mineCompatPaths() {
  * title rewording, truncation difference) — exactly the slugs Google
  * indexed but that no longer exist in current data.
  */
-function mineGitRemovedSlugs() {
+// An agency slice (translation admission threshold) whose removed slug lines
+// may belong to a job that was held out of publication when it was removed.
+const GATED_ACTIVE_SLICE_RE = /^data\/jobs\/by-crawler\/([^/]+)\.json$/;
+const NULL_BLOB_RE = /^0+$/;
+
+function gatedActiveSlicePath(filePath) {
+  const m = String(filePath || '').match(GATED_ACTIVE_SLICE_RE);
+  return Boolean(m && isTranslationHoldCrawlerKey(m[1]));
+}
+
+/**
+ * Route slugs that, in one slice version, belong only to jobs held out of
+ * publication. `null` when the blob cannot be read: the caller then keeps the
+ * slug, because hiding a slug that may have been public is the worse error.
+ */
+function heldOnlySlugsInBlob(blob, cwd) {
+  try {
+    const raw = execFileSync('git', ['cat-file', 'blob', blob], {
+      cwd, maxBuffer: 512 * 1024 * 1024, encoding: 'utf8', timeout: 120_000,
+    });
+    const data = JSON.parse(raw);
+    const jobs = Array.isArray(data) ? data : (data?.jobs || []);
+    const held = new Set();
+    const published = new Set();
+    for (const job of jobs) {
+      const target = isHeldFromPublication(job) ? held : published;
+      for (const s of jobRouteSlugs(job)) target.add(s);
+    }
+    for (const s of published) held.delete(s);
+    return held;
+  } catch {
+    return null;
+  }
+}
+
+function mineGitRemovedSlugs({ cwd = ROOT } = {}) {
   const slugs = new Map();
+  // Removed slug lines of an agency slice are judged on the slice version the
+  // commit removed them FROM (its pre-image blob): a slug that belonged only to
+  // a held job there was never served, and the job leaving its slice (or
+  // changing slug while held) is not evidence of a public URL. Deciding from
+  // the commit itself needs no record of departed held jobs: no new data, no
+  // hook at each removal point (crawler merge, cleanup, archive).
+  const gatedRemovals = new Map(); // slug → { data, blobs: Set }
+  // Same semantics as before the held-era filter: a locale line sets that
+  // locale, a top-level `slug` line seeds all four only for a new slug.
+  const addSlug = (target, slug, locale, localePath, fullPaths) => {
+    if (fullPaths) {
+      if (!target.has(slug)) target.set(slug, { locales: { ...fullPaths } });
+      return;
+    }
+    if (!target.has(slug)) target.set(slug, { locales: {} });
+    target.get(slug).locales[locale] = localePath;
+  };
 
   try {
     const diff = execSync(
-      'git log --all -300 -p -- "data/jobs/by-crawler/*.json" "data/jobs/expired/by-crawler/*.json"',
-      { cwd: ROOT, maxBuffer: 500 * 1024 * 1024, encoding: 'utf8', timeout: 180_000 }
+      'git log --all -300 -p --full-index -- "data/jobs/by-crawler/*.json" "data/jobs/expired/by-crawler/*.json"',
+      { cwd, maxBuffer: 500 * 1024 * 1024, encoding: 'utf8', timeout: 180_000 }
     );
 
     let inSlugByLocale = false;
     let braceDepth = 0;
     const localeSlugRe = /"(it|en|de|fr)":\s*"([a-z0-9][a-z0-9-]{10,})"/;
+    let preImageBlob = null;
+    let gatedFile = false;
+    const record = (slug, locale, localePath, fullPaths) => {
+      if (gatedFile && preImageBlob) {
+        if (!gatedRemovals.has(slug)) gatedRemovals.set(slug, { data: new Map(), blobs: new Set() });
+        const pending = gatedRemovals.get(slug);
+        pending.blobs.add(preImageBlob);
+        addSlug(pending.data, slug, locale, localePath, fullPaths);
+        return;
+      }
+      addSlug(slugs, slug, locale, localePath, fullPaths);
+    };
 
     for (const line of diff.split('\n')) {
+      if (line.startsWith('diff --git ')) {
+        const m = line.match(/^diff --git a\/(\S+) b\//);
+        gatedFile = gatedActiveSlicePath(m?.[1]);
+        preImageBlob = null;
+        inSlugByLocale = false;
+        continue;
+      }
+      if (line.startsWith('index ')) {
+        const m = line.match(/^index ([0-9a-f]+)\.\./);
+        preImageBlob = m && !NULL_BLOB_RE.test(m[1]) ? m[1] : null;
+        continue;
+      }
       const raw = (line.startsWith('+') || line.startsWith('-')) ? line.substring(1) : line;
       const trimmed = raw.trim();
 
@@ -372,8 +484,7 @@ function mineGitRemovedSlugs() {
         if (m) {
           const [, locale, slug] = m;
           if (isValidJobSlug(slug) && ['it', 'en', 'de', 'fr'].includes(locale)) {
-            if (!slugs.has(slug)) slugs.set(slug, { locales: {} });
-            slugs.get(slug).locales[locale] = buildLocalePathsForCanton('TI', slug)[locale];
+            record(slug, locale, buildLocalePathsForCanton('TI', slug)[locale], null);
           }
         }
       }
@@ -381,11 +492,33 @@ function mineGitRemovedSlugs() {
       const topMatch = trimmed.match(/^\s*"slug":\s*"([a-z0-9][a-z0-9-]{10,})"/);
       if (topMatch && isValidJobSlug(topMatch[1])) {
         const slug = topMatch[1];
-        if (!slugs.has(slug)) slugs.set(slug, { locales: buildLocalePathsForCanton('TI', slug) });
+        record(slug, null, null, buildLocalePathsForCanton('TI', slug));
       }
     }
   } catch (err) {
     console.warn(`  ⚠️  Git history mining skipped: ${err.message?.substring(0, 80)}`);
+  }
+
+  // A slug removed from a version where it was published (or whose version
+  // cannot be read) is mined; one that was held-only in every version it was
+  // removed from is not.
+  const heldOnlyByBlob = new Map();
+  let heldEraSkipped = 0;
+  for (const [slug, { data, blobs }] of gatedRemovals) {
+    let everPublic = false;
+    for (const blob of blobs) {
+      if (!heldOnlyByBlob.has(blob)) heldOnlyByBlob.set(blob, heldOnlySlugsInBlob(blob, cwd));
+      const heldOnly = heldOnlyByBlob.get(blob);
+      if (!heldOnly || !heldOnly.has(slug)) { everPublic = true; break; }
+    }
+    if (!everPublic) { heldEraSkipped++; continue; }
+    const locales = data.get(slug)?.locales || {};
+    if (!slugs.has(slug)) slugs.set(slug, { locales: {} });
+    const entry = slugs.get(slug);
+    for (const [l, p] of Object.entries(locales)) if (!entry.locales[l]) entry.locales[l] = p;
+  }
+  if (heldEraSkipped > 0) {
+    console.log(`  ⏸️  Git history: ${heldEraSkipped} removed slug(s) belonged only to jobs held for translation — never served, not mined`);
   }
 
   return slugs;
@@ -468,6 +601,48 @@ function fuzzyReconcileOrphans(knownSlugs) {
 // Main
 // ══════════════════════════════════════════════════════════
 
+/**
+ * Merge the mined sources in order. 'Active jobs' must come first: it fills the
+ * held-only slug set the registry and git sources are filtered against.
+ *
+ * @param {{ name: string, fn: () => Map<string, { locales: Record<string, string> }> }[]} sources
+ */
+function mergeMinedSources(sources) {
+  const allSlugs = new Map(); // slug → { locales: { it?, en?, de?, fr? } }
+  // Track slugs seen from any non-git source — used for size-cap pruning below.
+  const nonGitSourceSlugs = new Set();
+  // Track slugs from high-value primary sources (active/expired jobs, slug registry,
+  // orphan data). Used for tier-2 size-cap pruning: compat-path-only echoes that
+  // don't appear in any primary source are the safest entries to drop when the
+  // tracking file grows toward GitHub's 100 MiB limit.
+  const highValueSlugs = new Set();
+  const HIGH_VALUE_SOURCES = new Set(['Active jobs', 'Expired jobs', 'Slug registry', 'Orphan data']);
+
+  let heldSlugsSkipped = 0;
+  for (const { name, fn } of sources) {
+    const mined = fn();
+    const isGit = name === 'Git history (removed slugs)';
+    const isHighValue = HIGH_VALUE_SOURCES.has(name);
+    console.log(`  📦 ${name}: ${mined.size} slugs`);
+    for (const [slug, data] of mined) {
+      if (isHeldOnlySlugForSource(name, slug)) {
+        heldSlugsSkipped++;
+        continue;
+      }
+      if (!isGit) nonGitSourceSlugs.add(slug);
+      if (isHighValue) highValueSlugs.add(slug);
+      if (!allSlugs.has(slug)) {
+        allSlugs.set(slug, { locales: {} });
+      }
+      const entry = allSlugs.get(slug);
+      for (const [l, p] of Object.entries(data.locales)) {
+        if (p && !entry.locales[l]) entry.locales[l] = p;
+      }
+    }
+  }
+  return { allSlugs, nonGitSourceSlugs, highValueSlugs, heldSlugsSkipped };
+}
+
 function main() {
   console.log('⛏️  Mining all job slugs from local data sources...\n');
 
@@ -481,35 +656,11 @@ function main() {
     { name: 'Git history (removed slugs)', fn: mineGitRemovedSlugs },
   ];
 
-  // Merge all mined slugs
-  const allSlugs = new Map(); // slug → { locales: { it?, en?, de?, fr? } }
-  // Track slugs seen from any non-git source — used for size-cap pruning below.
-  const nonGitSourceSlugs = new Set();
-  // Track slugs from high-value primary sources (active/expired jobs, slug registry,
-  // orphan data). Used for tier-2 size-cap pruning: compat-path-only echoes that
-  // don't appear in any primary source are the safest entries to drop when the
-  // tracking file grows toward GitHub's 100 MiB limit.
-  const highValueSlugs = new Set();
-  const HIGH_VALUE_SOURCES = new Set(['Active jobs', 'Expired jobs', 'Slug registry', 'Orphan data']);
+  const { allSlugs, nonGitSourceSlugs, highValueSlugs, heldSlugsSkipped } = mergeMinedSources(sources);
 
-  for (const { name, fn } of sources) {
-    const mined = fn();
-    const isGit = name === 'Git history (removed slugs)';
-    const isHighValue = HIGH_VALUE_SOURCES.has(name);
-    console.log(`  📦 ${name}: ${mined.size} slugs`);
-    for (const [slug, data] of mined) {
-      if (!isGit) nonGitSourceSlugs.add(slug);
-      if (isHighValue) highValueSlugs.add(slug);
-      if (!allSlugs.has(slug)) {
-        allSlugs.set(slug, { locales: {} });
-      }
-      const entry = allSlugs.get(slug);
-      for (const [l, p] of Object.entries(data.locales)) {
-        if (p && !entry.locales[l]) entry.locales[l] = p;
-      }
-    }
+  if (heldOnlySlugs.size > 0) {
+    console.log(`  ⏸️  ${heldOnlySlugs.size} slug(s) of jobs held out of publication for translation — not registered (${heldSlugsSkipped} skipped from registry/git sources)`);
   }
-
   console.log(`\n  📊 Total unique slugs mined: ${allSlugs.size}`);
 
   // Fuzzy reconciliation: recover truncated/changed orphan slugs
@@ -715,4 +866,14 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   main();
 }
 
-export { buildLocalePathsForCanton, buildLocalePathsForJob, fillMissingLocalePaths, mineOrphanData };
+export {
+  buildLocalePathsForCanton,
+  buildLocalePathsForJob,
+  fillMissingLocalePaths,
+  isHeldOnlySlugForSource,
+  mergeMinedSources,
+  mineActiveJobs,
+  mineGitRemovedSlugs,
+  mineOrphanData,
+  mineSlugRegistry,
+};

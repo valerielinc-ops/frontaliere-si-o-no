@@ -84,6 +84,14 @@ import { stampCodeCommit } from './lib/checkout-code-commit.mjs';
 import { decontaminateEntries } from './decontaminate-prev-slugs.mjs';
 import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
 import { migrateLegacyCantonPins } from './lib/job-canton-pin-migration.mjs';
+import {
+  applyTranslationHold,
+  formatTranslationHoldSummary,
+  includeTranslationHeldFromEnv,
+  partitionHeldFromPublication,
+  summarizeTranslationHold,
+} from './lib/translation-publication-hold.mjs';
+import { countPopulationSlots } from './lib/job-locale-population.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -877,15 +885,17 @@ function hashRepoFile(hasher, abs) {
 export function computeAssembleCacheKey({ withStats = false, withSummaries = true, withExpired = true } = {}) {
   const inputFingerprint = computeAssembleInputFingerprint();
   const skipReconciliation = String(process.env.JOBS_SKIP_RECONCILIATION || '0') === '1';
+  const includeHeld = includeTranslationHeldFromEnv();
   // The suffix is part of the key because the snapshot below copies whatever is
   // on disk: a `--no-summaries` run stores the PREVIOUS jobs-crawler-summaries
   // .json, so sharing a key with a full run would let a later full run restore
   // that stale file from cache instead of regenerating it. The active-only
   // mode likewise gets its own key because its snapshot intentionally omits
-  // the expired archive.
+  // the expired archive. The translate-pending projection (held agency jobs
+  // included) must never be restored by a publishing run, hence `_withheld`.
   return {
     inputFingerprint,
-    cacheKey: `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}${withExpired ? '' : '_activeonly'}${skipReconciliation ? '_noreconcile' : ''}`,
+    cacheKey: `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}${withExpired ? '' : '_activeonly'}${skipReconciliation ? '_noreconcile' : ''}${includeHeld ? '_withheld' : ''}`,
   };
 }
 
@@ -2815,6 +2825,20 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     }
   }
 
+  // ── Soglia di ammissione agenzie (decisione del proprietario 2026-10-03) ──
+  // Timbra qui, sui job che stanno davvero per essere scritti e contro lo slice
+  // su disco, chi arriva non tradotto: resta nello slice (coda di
+  // translate-pending) ma l'assemblatore non lo pubblica finché i titoli non
+  // sono tradotti. I job già presenti non vengono mai ritirati. Vedi
+  // scripts/lib/translation-publication-hold.mjs.
+  const hold = applyTranslationHold(crawlerKey, finalJobs, existingSlice?.jobs || []);
+  if (hold.gated) {
+    console.log(
+      `  ⏸️  Soglia di ammissione: ${hold.held} job trattenuti in attesa di traduzione `
+        + `(${hold.newlyHeld} nuovi), ${hold.released} rilasciati, ${hold.admittedOnArrival} ammessi già tradotti`,
+    );
+  }
+
   const payload = {
     crawlerKey,
     assembledAt: new Date().toISOString(),
@@ -4007,12 +4031,23 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
 /**
  * Generate data/jobs-meta.json from the assembled jobs array.
  */
-function generateMeta(jobCount) {
+function generateMeta(jobCount, holdSummary = null) {
   const existing = readJson(DATA_META, {});
   return {
     ...existing,
     lastUpdated: new Date().toISOString(),
     totalJobs: jobCount,
+    // Agency jobs kept out of publication until translated: still inventory
+    // (they stay in their slices), read by check-active-jobs-regression.mjs so
+    // the deploy gate counts published + held. Internal file, never served.
+    translationHold: {
+      held: holdSummary?.held || 0,
+      byCrawler: { ...(holdSummary?.byCrawler || {}) },
+      oldestHeldSince: holdSummary?.oldestHeldSince || null,
+      // Same slot filters as the job-locale ratchets: their population guard
+      // adds these back (tests/job-locale-consistency.test.ts).
+      populationSlots: { ...(holdSummary?.populationSlots || { titles: 0, descriptions: 0 }) },
+    },
     sources: {
       ...(existing.sources || {}),
       arbeitSwiss: 0,
@@ -4142,7 +4177,30 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   const priorJobsSnapshot = readJson(DATA_JOBS, []);
 
   // --- Jobs ---
-  const assembled = await assembleJobs();
+  const assembledAll = await assembleJobs();
+  // ── Soglia di ammissione agenzie (decisione del proprietario 2026-10-03) ──
+  // Il taglio della pubblicazione è QUI: data/jobs.json e public/data/jobs.json
+  // alimentano il build (jobsSeoPagesPlugin, hub, sitemap, conteggi), gli
+  // alert e i feed, quindi un job trattenuto che non c'è non genera niente a
+  // valle per costruzione. I pochi lettori diretti degli slice che pubblicano
+  // (mining degli slug, archivio scaduti, unioni slice dei plugin, fallback)
+  // applicano lo stesso predicato isHeldFromPublication. Restare negli slice lo tiene
+  // nella coda di translate-pending; translate-pending, che legge ANCHE
+  // data/jobs.json (fase 2b, marcatori), lo assembla con
+  // JOBS_INCLUDE_TRANSLATION_HELD=1. Le riconciliazioni con l'archivio degli
+  // scaduti girano sempre sui soli pubblicati: un job trattenuto non è mai
+  // stato pubblico e non deve assorbire né generare route storiche.
+  const includeHeld = includeTranslationHeldFromEnv();
+  let assembled = assembledAll;
+  let publishedJobs = assembledAll;
+  let holdSummary = null;
+  if (assembledAll !== null) {
+    const hold = partitionHeldFromPublication(assembledAll);
+    publishedJobs = hold.published;
+    if (!includeHeld) assembled = hold.published;
+    holdSummary = { ...summarizeTranslationHold(hold.held), populationSlots: countPopulationSlots(hold.held) };
+    console.log(`  ${formatTranslationHoldSummary(holdSummary)}${includeHeld ? ' — inclusi in data/jobs.json per translate-pending' : ''}`);
+  }
   if (assembled !== null) {
     // --- Auto slug-history tracking (translation/hash drift) ---
     const drift = trackSlugHistoryDrift(priorJobsSnapshot, assembled);
@@ -4288,9 +4346,10 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
     }
 
     // --- Meta (derived from assembled jobs) ---
-    const meta = generateMeta(assembled.length);
+    // Meta counts what the site publishes, also in the translate-pending projection.
+    const meta = generateMeta(publishedJobs.length, holdSummary);
     writeJson(DATA_META, meta);
-    console.log(`✅ data/jobs-meta.json generated: ${assembled.length} total jobs`);
+    console.log(`✅ data/jobs-meta.json generated: ${publishedJobs.length} total jobs`);
   }
 
   // --- Expired jobs ---
@@ -4302,7 +4361,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
     if (expiredJobs !== null) {
       // --- Ghost reconciliation: remove expired entries that match active jobs ---
       if (assembled) {
-        const { cleanedExpired, ghostCount, mergedSlugs } = reconcileGhostExpired(assembled, expiredJobs);
+        const { cleanedExpired, ghostCount, mergedSlugs } = reconcileGhostExpired(publishedJobs, expiredJobs);
         if (ghostCount > 0) {
           console.log(`  👻 Ghost reconciliation: removed ${ghostCount} ghost expired entries, merged ${mergedSlugs} slugs into active previousSlugs`);
           // Write back active jobs with merged previousSlugs
@@ -4336,7 +4395,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
             // NON scrivono slice (l'opzione `writeSlices` non è implementata in
             // reconcile-job-slugs.mjs — vi si legge solo { dryRun, verbose, max }).
             // La persistenza canonica è il writeJson sotto, gated su mergedCount.
-            const orphanResult = reconcileOrphanSlugs(assembled, orphanSlugs, enrichedData, { dryRun: false });
+            const orphanResult = reconcileOrphanSlugs(publishedJobs, orphanSlugs, enrichedData, { dryRun: false });
             if (orphanResult.mergedCount > 0) {
               console.log(`  🔗 Orphan reconciliation: ${orphanResult.mergedCount} slugs merged into active jobs' previousSlugs`);
               writeJson(DATA_JOBS, assembled, { compact: true });
@@ -4345,7 +4404,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
           }
 
           // Reconcile expired slugs → merge into active jobs' previousSlugs
-          const expResult = reconcileExpiredSlugs(assembled, cleanedExpired, { dryRun: false });
+          const expResult = reconcileExpiredSlugs(publishedJobs, cleanedExpired, { dryRun: false });
           if (expResult.mergedCount > 0) {
             console.log(`  🔗 Expired reconciliation: ${expResult.mergedCount} slugs merged into active jobs' previousSlugs`);
             writeJson(DATA_JOBS, assembled, { compact: true });

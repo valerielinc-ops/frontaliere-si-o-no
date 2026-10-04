@@ -7673,6 +7673,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.title': 'Ginevra: 1.500 in piazza pro Palestina, chieste sanzioni a Israele',
     'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.excerpt': 'Circa 1.500 manifestanti a Ginevra chiedono blocco relazioni con Israele e arresto Netanyahu. Berna: no fermo per motivi negoziali.',
     'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.imageAlt': 'Manifestazione pro Palestina a Ginevra con bandiere palestinesi e svizzere',
+    'blog.article.swiss-steel-ristrutturazione-germania.title': 'Swiss Steel annuncia ristrutturazione e tagli in Germania',
+    'blog.article.swiss-steel-ristrutturazione-germania.excerpt': 'La multinazionale di Lucerna avvia una riorganizzazione per tornare all\'utile entro il 2028. Sostegno di 17 milioni dal Cantone per la filiale Steeltec.',
+    'blog.article.swiss-steel-ristrutturazione-germania.imageAlt': 'Stabilimento siderurgico svizzero in un contesto industriale',
+    'blog.article.salario-minimo-zurigo-requisiti.title': 'Salario minimo canton Zurigo: requisiti e applicazione',
+    'blog.article.salario-minimo-zurigo-requisiti.excerpt': 'In Svizzera non esiste un salario minimo federale: a Zurigo vanno verificate disciplina cantonale, contratti collettivi, controlli e competenze.',
+    'blog.article.salario-minimo-zurigo-requisiti.imageAlt': 'Documenti sul salario minimo in un ufficio cantonale svizzero',
+    'blog.article.assistenza-sociale-zurigo-domanda.title': 'Assistenza sociale nel canton Zurigo: requisiti e domanda',
+    'blog.article.assistenza-sociale-zurigo-domanda.excerpt': 'Nel canton Zurigo la domanda parte da una condizione di bisogno: ufficio competente, documenti, prestazioni e obblighi di collaborazione.',
+    'blog.article.assistenza-sociale-zurigo-domanda.imageAlt': 'Ufficio comunale svizzero per una domanda di assistenza sociale',
+    'blog.article.imposta-auto-zurigo-pagamento.title': 'Imposta autoveicoli a Zurigo: calcolo e pagamento',
+    'blog.article.imposta-auto-zurigo-pagamento.excerpt': 'Nel Cantone di Zurigo calcolo, scadenze e pagamento dell\'imposta sugli autoveicoli seguono regole cantonali; verifica anche cambio veicolo e indirizzo.',
+    'blog.article.imposta-auto-zurigo-pagamento.imageAlt': 'Imposta sugli autoveicoli: auto e documenti in un ufficio cantonale del Cantone di Zurigo.',
+    'blog.article.incentivi-energetici-zurigo-domanda.title': 'Incentivi energetici a Zurigo: requisiti e domanda',
+    'blog.article.incentivi-energetici-zurigo-domanda.excerpt': 'Zurigo: incentivi energetici per edifici e impianti. Requisiti, importi e termini si verificano prima della domanda, da presentare prima dei lavori.',
+    'blog.article.incentivi-energetici-zurigo-domanda.imageAlt': 'Incentivi energetici per il risanamento di un edificio nel Cantone di Zurigo',
 };
 
 export default blogMetaChIt;

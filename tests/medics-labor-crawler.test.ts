@@ -1,8 +1,10 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   extractReflineJobPostingLocation,
+  parseReflineListing,
 } from '../scripts/lib/refline-common.mjs';
 import { fetchAllMedicsLaborJobs } from '../scripts/lib/medics-labor-job-parser.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 
 function htmlResponse(body: string) {
   return {
@@ -36,6 +38,9 @@ const DETAIL_HTML = `<!doctype html>
 </body></html>`;
 
 const DETAIL_HTML_WITHOUT_POSTAL = DETAIL_HTML.replace(/,"postalCode":"8887"/, '');
+const EMPTY_LISTING_HTML = `<!doctype html><html><body>
+  <div class="searchPageNoResult">Zurzeit haben wir keine Vakanzen.</div>
+</body></html>`;
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -105,6 +110,54 @@ describe('Refline structured job location fallback', () => {
       canton: 'BE',
       postalCode: '3001',
     });
+  });
+});
+
+describe('Refline listing empty-state proof', () => {
+  it('stamps Medics explicit no-result markup and carries it through the factory', async () => {
+    const fetchMock = vi.fn(async () => htmlResponse(EMPTY_LISTING_HTML));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = await fetchAllMedicsLaborJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('scans past unrelated classed containers before the empty-state marker', () => {
+    const jobs = parseReflineListing(
+      '<div class="layout"></div><div class="searchPageNoResult">There are no jobs</div>',
+      { listingHost: 'apply.refline.ch', tenant: '1' },
+    );
+
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+  });
+
+  it('keeps an unrecognised empty Refline page fail-closed', () => {
+    const jobs = parseReflineListing('<main><div class="searchPageNoResult">Please wait</div></main>', {
+      listingHost: 'app.reflinejobs.io',
+      tenant: '1474',
+    });
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('requires a real class attribute and standalone empty-state token', () => {
+    const options = { listingHost: 'app.reflinejobs.io', tenant: '1474' };
+    for (const html of [
+      '<div data-class="searchPageNoResult">There are no jobs</div>',
+      '<div aria-class="searchPageNoResult">There are no jobs</div>',
+      '<div class="searchPageNoResult-hidden">There are no jobs</div>',
+    ]) {
+      expect(isAuthoritativeEmptySnapshot(parseReflineListing(html, options))).toBe(false);
+    }
+
+    expect(isAuthoritativeEmptySnapshot(parseReflineListing(
+      '<div class="notice searchPageNoResult empty">There are no jobs</div>',
+      options,
+    ))).toBe(true);
   });
 });
 

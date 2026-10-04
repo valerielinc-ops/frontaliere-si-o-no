@@ -594,7 +594,7 @@ function renderPage(opts: {
     </section>`;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `<main class="s-xzWvwM cl-fun">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
+  const bodyHtml = `<main class="s-xzWvwM cl-fun">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}</main>`;
 
   const html = buildSeoPageHtml({
     locale,

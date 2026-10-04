@@ -9,7 +9,11 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
 const { handleAssistedApplicationReview, minDateFor } = await import('../functions/src/assistedApplicationReview.js');
 const { mintReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 const { CANDIDATE_REVIEW_MS } = await import('../functions/src/assistedApplicationFlow.js');
-const { MAX_FIT_GAPS, fitNoticeOf } = await import('../functions/src/assistedApplicationFitNotice.js');
+const { MAX_FIT_GAPS, fitNoticeOf, fitNoticeWording } = await import('../functions/src/assistedApplicationFitNotice.js');
+const { default: itCore } = await import('../services/locales/it-core');
+const { default: enCore } = await import('../services/locales/en-core');
+const { default: deCore } = await import('../services/locales/de-core');
+const { default: frCore } = await import('../services/locales/fr-core');
 
 const SECRET = 'r'.repeat(40);
 const T0 = Date.UTC(2026, 8, 30, 10, 0, 0);
@@ -114,6 +118,39 @@ describe('candidate review API', () => {
     const notice = fitNoticeOf({ verdict: 'weak', requirements: many, matches: many.map((_, index) => ({ index, status: index < 3 ? 'partial' : 'missing' })) });
     expect(notice?.gaps).toHaveLength(MAX_FIT_GAPS);
     expect(notice?.gaps.map((gap: any) => `${gap.importance}:${gap.status}`)).toEqual(['critical:missing', 'critical:missing', 'critical:missing', 'critical:partial', 'critical:partial', 'high:missing']);
+  });
+
+  // Close-out of 2026-10-03: a verdict «poor» may come with no gap to list, and a draft may have no
+  // questions; the notice then neither promises a list nor sends the candidate to answers that are not there.
+  it('words the notice for what the page shows: a list only when there is one, the answers only when it asks questions', () => {
+    const gap = { requirement: 'Tedesco fluente', quote: 'Fluent German', importance: 'high', status: 'missing' };
+    expect(fitNoticeWording({ level: 'low', gaps: [] }, { questions: true })).toEqual({ kind: 'far', via: 'answers' });
+    expect(fitNoticeWording({ level: 'low', gaps: [gap] }, { questions: true })).toEqual({ kind: 'low', via: 'answers' });
+    expect(fitNoticeWording({ level: 'partial', gaps: [gap] }, { questions: true })).toEqual({ kind: 'partial', via: 'answers' });
+    // No questions in candidate review: the letter («Modifica») or a new version («Chiedi modifiche»).
+    expect(fitNoticeWording({ level: 'low', gaps: [] }, { questions: false })).toEqual({ kind: 'far', via: 'edit' });
+    expect(fitNoticeWording({ level: 'partial', gaps: [gap] }, { questions: false, edit: true })).toEqual({ kind: 'partial', via: 'edit' });
+    // A portal that asked only for a document: the page offers neither, the notice points to nothing.
+    expect(fitNoticeWording({ level: 'partial', gaps: [gap] }, { questions: false, edit: false })).toEqual({ kind: 'partial', via: null });
+    expect(fitNoticeWording(null, { questions: true })).toBeNull();
+
+    // Every title and sentence the notice can show, in the four languages, naming the page's own buttons.
+    const answersWord: Record<string, string> = { it: 'risposte qui sotto', en: 'answers below', de: 'unten in die Antworten', fr: 'réponses ci-dessous' };
+    const listWord: Record<string, RegExp> = { it: /\brequisito\b/, en: /\brequirement\b/, de: /\bAnforderung\b/, fr: /\bexigence\b/ };
+    for (const [locale, copy] of Object.entries({ it: itCore, en: enCore, de: deCore, fr: frCore }) as Array<[string, Record<string, string>]>) {
+      const key = (name: string) => copy[`jobBoard.assisted.review.fit.${name}`];
+      for (const kind of ['partial', 'low', 'far']) {
+        expect(key(`${kind}Title`), `${locale} ${kind}Title`).toBeTruthy();
+        expect(key(`${kind}Body`), `${locale} ${kind}Body`).toContain(answersWord[locale]);
+        const edit = key(`${kind}BodyEdit`);
+        expect(edit, `${locale} ${kind}BodyEdit`).toBeTruthy();
+        expect(edit).not.toContain(answersWord[locale]);
+        expect(edit).toContain(copy['jobBoard.assisted.review.edit']);
+        expect(edit).toContain(copy['jobBoard.assisted.review.requestChanges']);
+      }
+      // With no gap listed, neither the title nor the sentences name a requirement the page does not show.
+      for (const name of ['farTitle', 'farBody', 'farBodyEdit']) expect(key(name), `${locale} ${name}`).not.toMatch(listWord[locale]);
+    }
   });
 
   it('rejects forged, expired and superseded links', async () => {

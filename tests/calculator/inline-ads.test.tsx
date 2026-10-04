@@ -60,6 +60,17 @@ describe('Homepage calculator — result-first monetization', () => {
   });
 });
 
+describe('Homepage desktop banner — LCP chunk boundary', () => {
+  it('keeps the GPT/manual-ad implementation out of the calculator entry chunk', () => {
+    const source = read('components/tabs/CalcolatoreTabContent.tsx');
+
+    expect(source).not.toMatch(/import\s+DesktopTopBanner\s+from\s+['"]@\/components\/shared\/DesktopTopBanner['"]/);
+    expect(source).toMatch(/const DesktopTopBanner\s*=\s*lazyRetry\(\(\)\s*=>\s*import\(['"]@\/components\/shared\/DesktopTopBanner['"]\)\)/);
+    expect(source).toContain('hidden lg:block w-full text-center mb-4 min-h-[90px]');
+    expect(source).toContain('<DesktopTopBannerSlot />');
+  });
+});
+
 describe('Inline-ad registry invariants', () => {
   it('ARTICLE_INLINE_MOBILE uses the fluid in-article layout', async () => {
     const { AD_SLOTS } = await import('@/services/adsenseSlots');

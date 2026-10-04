@@ -252,8 +252,11 @@ async function listSwissJobs() {
     try {
       html = await fetchHtml(url, { timeoutMs });
     } catch (err) {
-      if (startrow === 0) console.warn(`⚠️ Failed to fetch Jobs2Web listing: ${err.message}`);
-      break;
+      console.warn(`⚠️ Failed to fetch Jobs2Web listing at startrow=${startrow}: ${err.message}`);
+      // A transport/server failure is not an empty listing. Let the standard
+      // crawler pipeline preserve the previous slice and record the real
+      // connection-level/HTTP failure instead of publishing no-jobs-parsed.
+      throw err;
     }
     const { rows, total } = parseSearchPage(html);
     if (page === 0) expectedTotal = total;

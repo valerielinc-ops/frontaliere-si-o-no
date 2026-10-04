@@ -59,6 +59,36 @@ describe('Temenos crawler parser', () => {
     expect(jobs).toEqual([]);
   });
 
+  it('proves empty when the tenant silently ignores its Swiss facet', async () => {
+    const calls = mockTemenosWorkday({
+      faceted: {
+        total: 1,
+        jobPostings: [{
+          title: 'Platform Engineer',
+          locationsText: 'Paris, France',
+          externalPath: '/job/Paris/platform-engineer/123',
+        }],
+      },
+      unfiltered: {
+        total: 16,
+        jobPostings: [],
+        facets: [{
+          facetParameter: 'locationMainGroup',
+          values: [
+            { id: 'paris', descriptor: 'Paris', count: 4 },
+            { id: 'london', descriptor: 'London', count: 3 },
+          ],
+        }],
+      },
+    });
+
+    const jobs = await fetchAllTemenosJobs();
+
+    expect(calls[0].body.appliedFacets).toEqual({ locationMainGroup: [SWISS_ID] });
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect(jobs).toEqual([]);
+  });
+
   it('does not prove empty when a Swiss location descriptor is present', async () => {
     mockTemenosWorkday({
       faceted: { total: 0, jobPostings: [], facets: [] },

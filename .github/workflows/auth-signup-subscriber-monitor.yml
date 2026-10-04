@@ -161,7 +161,7 @@ jobs:
           # piu' giorni commenta la issue canonica invece di aprirne una al giorno.
           node scripts/lib/github-issue-creator.mjs \
             --title "$TITLE" \
-            --description "$(cat /tmp/auth-signup-alert-body.md)" \
+            --description-file /tmp/auth-signup-alert-body.md \
             --priority "$PRIORITY" \
             --label auth-signup-gap \
             --workflow "${{ github.workflow }}"

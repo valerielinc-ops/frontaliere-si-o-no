@@ -586,7 +586,7 @@ async function readBaselineFile(relPath) {
 export function gateClassification(gate) {
   const entry = seoGateClass(gate.gateKey);
   if (!entry) {
-    return { gateKey: gate.gateKey, class: '?', mode: 'blocking', issuePriority: 1 };
+    return { gateKey: gate.gateKey, class: '?', mode: 'unclassified', issuePriority: 1 };
   }
   const mode = /** @type {string} */ (effectiveMode(gate.gateKey));
   return {

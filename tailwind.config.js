@@ -16,6 +16,10 @@ export default {
  // is not a contract: the day a component drops the last use of one, article
  // pages lose it silently. Scanning the source that emits them makes it one.
  "./packages/articles/engine/**/*.{js,ts}",
+ // `.mjs` is not matched by `{js,ts}`, and the engine's shared modules are
+ // `.mjs`: the cover-photo credit (shared/imageCredits.mjs) emits
+ // `mt-8 text-sm text-subtle underline underline-offset-2`.
+ "./packages/articles/engine/**/*.mjs",
  ],
  darkMode: 'class',
  theme: {

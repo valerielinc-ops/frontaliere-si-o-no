@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   SHARED_POOL_BRAND_PATTERNS,
   filterSharedPoolJobsByBrand,
+  hasAuthoritativeSharedPoolEmpty,
   isSharedSwatchPoolJob,
   selectSharedPoolBrandJobs,
 } from '../scripts/lib/swatchgroup-brand-filter.mjs';
@@ -251,6 +252,26 @@ describe('swatchgroup-brand-filter', () => {
       expect(selectSharedPoolBrandJobs('rado', [])).toEqual([]);
       expect(selectSharedPoolBrandJobs('rado', undefined as unknown as [])).toEqual([]);
       expect(selectSharedPoolBrandJobs('eta-sa-swatch-group', null as unknown as [])).toEqual([]);
+    });
+  });
+
+  describe('hasAuthoritativeSharedPoolEmpty', () => {
+    it('proves a brand-empty result only from a current, identifiable pool', () => {
+      expect(hasAuthoritativeSharedPoolEmpty('swatch-group-assembly', REAL_POOL_SAMPLE)).toBe(true);
+      expect(hasAuthoritativeSharedPoolEmpty('swatch-group-assembly', [])).toBe(false);
+      expect(hasAuthoritativeSharedPoolEmpty('swatch-group-assembly', [
+        { url: 'https://www.swatchgroup.com/en/job/1' },
+      ])).toBe(false);
+    });
+
+    it('does not prove empty when the current pool contains a genuine brand posting', () => {
+      expect(hasAuthoritativeSharedPoolEmpty('swatch-group-assembly', [
+        { url: 'https://www.swatchgroup.com/en/job/1', company: 'Swatch Group Assembly SA' },
+      ])).toBe(false);
+    });
+
+    it('does not infer source liveness for own-domain sub-brands', () => {
+      expect(hasAuthoritativeSharedPoolEmpty('eta-sa-swatch-group', REAL_POOL_SAMPLE)).toBe(false);
     });
   });
 });

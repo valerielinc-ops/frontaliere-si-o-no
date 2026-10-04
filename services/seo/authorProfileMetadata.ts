@@ -1,4 +1,4 @@
-import { getAuthorBySlug } from '../../data/authors';
+import { AUTHORS, getAuthorBySlug } from '../../data/authors';
 import { localizeAuthor, type AuthorLocale } from '../../data/authorLocales';
 import { buildAuthorSeo } from './seo-authors';
 
@@ -20,4 +20,15 @@ export function resolveAuthorProfileMetadata(sectionOrPath: string, locale: Auth
       seo.jsonLd,
     ],
   };
+}
+
+/**
+ * Page-table entries (`autore-{slug}`) for every registered author, derived from
+ * the registry. `services/seo/seo-pages.ts` spreads these instead of carrying
+ * hand-written copies, which kept the superseded expertise text after the
+ * registry itself was corrected (PR 11327).
+ */
+export function authorSeoPageEntries(locale: AuthorLocale = 'it') {
+  return Object.fromEntries(AUTHORS.map(author =>
+    [`autore-${author.slug}`, resolveAuthorProfileMetadata(`autore-${author.slug}`, locale)!]));
 }

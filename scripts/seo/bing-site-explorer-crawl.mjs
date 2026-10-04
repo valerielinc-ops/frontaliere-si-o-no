@@ -17,6 +17,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseAttributes } from '../lib/meta-description-extract.mjs';
 import { classifyCanonicalMismatch } from '../lib/canonicalExemptions.mjs';
+import { BING_META_DESCRIPTION_TOO_SHORT, BING_TITLE_TOO_LONG } from './bing-finding-codes.mjs';
 
 export const CRAWLER_SCHEMA_VERSION = 1;
 export const DEFAULT_BASE_URL = 'https://frontaliereticino.ch';
@@ -524,7 +525,7 @@ export function classifyDocument({ url, status, finalUrl = url, headers = {}, co
   if (!title) findings.push(finding('title-missing', url, 'La pagina in sitemap non contiene un <title>.'));
   else if (title.length > TITLE_MAX_CHARS && !hasNewsArticleTitleInvariant(html, title)) {
     findings.push(finding(
-      'title-too-long',
+      BING_TITLE_TOO_LONG,
       url,
       `<title> misura ${title.length} caratteri; limite ${TITLE_MAX_CHARS}.`,
     ));
@@ -533,7 +534,7 @@ export function classifyDocument({ url, status, finalUrl = url, headers = {}, co
     findings.push(finding('meta-description-missing', url, 'La pagina in sitemap non contiene una meta description.'));
   } else if (description.length < META_DESCRIPTION_MIN_CHARS) {
     findings.push(finding(
-      'meta-description-too-short',
+      BING_META_DESCRIPTION_TOO_SHORT,
       url,
       `La meta description misura ${description.length} caratteri; minimo ${META_DESCRIPTION_MIN_CHARS}.`,
     ));

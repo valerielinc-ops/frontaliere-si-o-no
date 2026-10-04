@@ -14,6 +14,8 @@ import {
   probeWithRetries,
   writeJsonStreaming,
 } from './bing-site-explorer-crawl.mjs';
+import { buildTemplateInventory } from './bing-template-inventory.mjs';
+import { BING_META_DESCRIPTION_TOO_SHORT, BING_TITLE_TOO_LONG } from './bing-finding-codes.mjs';
 
 // Re-exported so callers of the report module keep a single import.
 export { writeJsonStreaming };
@@ -21,7 +23,7 @@ export { writeJsonStreaming };
 const ACTIONABLE_CODES = new Set([
   'fetch-error', 'http-error', 'redirect', 'noindex-in-sitemap',
   'canonical-missing', 'canonical-drift', 'soft-404', 'title-missing',
-  'title-too-long', 'meta-description-missing', 'meta-description-too-short',
+  BING_TITLE_TOO_LONG, 'meta-description-missing', BING_META_DESCRIPTION_TOO_SHORT,
   'internal-link-malformed',
 ]);
 
@@ -284,6 +286,7 @@ export function aggregateCrawlReports(reports, manifest = null, options = {}) {
   }
   const findings = [...findingMap.values()].sort((a, b) => `${a.code}${a.url}`.localeCompare(`${b.code}${b.url}`));
   const actionableFindings = findings.filter((item) => ACTIONABLE_CODES.has(item.code));
+  const templateInventory = buildTemplateInventory(actionableFindings);
   return {
     schemaVersion: CRAWLER_SCHEMA_VERSION,
     checkedAt: new Date().toISOString(),
@@ -311,6 +314,7 @@ export function aggregateCrawlReports(reports, manifest = null, options = {}) {
     findings,
     actionableFindings,
     actionableCount: actionableFindings.length,
+    templateInventory,
     discoveredOutOfSitemap: [...discovered].sort(),
     discoveredOutOfSitemapCount: discovered.size,
     unverifiedOutOfSitemap: unverified.sort(),
@@ -350,6 +354,28 @@ export function buildIssueBody(summary, { maxSamples = 80, artifactUrl = '' } = 
   for (const [code, count] of Object.entries(summary.codeCounts)
     .filter(([code]) => ACTIONABLE_CODES.has(code))
     .sort((a, b) => b[1] - a[1])) lines.push(`- \`${code}\`: **${count}**`);
+  const templateInventory = summary.templateInventory;
+  if (templateInventory?.findingCount > 0) {
+    lines.push(
+      '',
+      '### Inventario template per title/meta',
+      '',
+      `- Finding title/meta censiti: **${templateInventory.findingCount}**`,
+      `- Attribuiti a un emitter: **${templateInventory.classifiedFindings}**`,
+      `- Non classificati o ambigui: **${templateInventory.unclassifiedFindings}**`,
+      '',
+      `| Template | Emitter | URL | \`${BING_TITLE_TOO_LONG}\` | \`${BING_META_DESCRIPTION_TOO_SHORT}\` |`,
+      '|---|---|---:|---:|---:|',
+    );
+    for (const family of templateInventory.families) {
+      const source = family.sourcePaths.length > 0 ? family.sourcePaths.map((path) => `\`${path}\``).join('<br>') : '—';
+      lines.push(`| **${family.label}** (\`${family.id}\`) | ${source} | ${family.urlCount} | ${family.codeCounts[BING_TITLE_TOO_LONG] || 0} | ${family.codeCounts[BING_META_DESCRIPTION_TOO_SHORT] || 0} |`);
+      for (const code of [BING_TITLE_TOO_LONG, BING_META_DESCRIPTION_TOO_SHORT]) {
+        const samples = family.samples?.[code] || [];
+        if (samples.length > 0) lines.push(`  - \`${code}\` campioni: ${samples.map((url) => `\`${url}\``).join(', ')}`);
+      }
+    }
+  }
   const byCode = new Map();
   for (const item of summary.actionableFindings) {
     const items = byCode.get(item.code) || [];
@@ -445,6 +471,8 @@ async function main() {
     checkedCount: summary.checkedCount,
     coverageOk: summary.coverageOk,
     actionableCount: summary.actionableCount,
+    templateFamilyCount: summary.templateInventory?.families?.length || 0,
+    unclassifiedTemplateFindingCount: summary.templateInventory?.unclassifiedFindings || 0,
     discoveredOutOfSitemapCount: summary.discoveredOutOfSitemapCount,
     supplementalManifestCount: summary.supplementalManifestCount,
     unverifiedOutOfSitemapCount: summary.unverifiedOutOfSitemapCount,

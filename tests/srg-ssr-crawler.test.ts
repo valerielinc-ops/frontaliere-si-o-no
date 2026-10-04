@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import {
   SRG_SSR_KEY,
@@ -13,6 +14,9 @@ import {
   srgSsrBenefitsText,
 } from '../scripts/lib/srg-ssr-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { hardenJobLocaleFields } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { repairShortDescriptions } from '../scripts/lib/job-locale-slot-repair.mjs';
+import { collectBlockingIssues, LOCALES } from '../scripts/validate-translation-completeness.mjs';
 
 describe('SRG SSR crawler parser', () => {
   // ── Constants ──
@@ -268,6 +272,48 @@ describe('SRG SSR crawler parser', () => {
       expect(repaired.descriptionByLocale.rm).toBe(romanshBody);
       expect(repaired.slug).toBe(historical.slug);
       expect(repaired.slugByLocale).toMatchObject(historical.slugByLocale);
+    });
+
+    it('leaves a Romansh-only record publishable after prepare → hardening → description repair', () => {
+      const title = 'Redactura / Redactur Engiadina';
+      const romanshOnly = {
+        id: 'srg-ssr-rtr-rm-2',
+        url: 'https://jobs.srgssr.ch/rtr/offene-stellen/redactura-redactur-engiadina/def',
+        slug: 'redactura-redactur-engiadina-srg-ssr-zurich',
+        title,
+        description: romanshBody,
+        company: 'SRG SSR',
+        addressLocality: 'Zürich',
+        sourceLang: 'rm',
+        titleByLocale: { rm: title },
+        descriptionByLocale: { rm: romanshBody },
+        slugByLocale: { rm: 'redactura-redactur-engiadina-srg-ssr-zurich' },
+      };
+
+      const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-srg-rm-gate-'));
+      const previousRegistryOverride = process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+      process.env.SLUG_REGISTRY_PATH_OVERRIDE = path.join(tempDir, 'no-slug-registry.json');
+      try {
+        const jobsPath = path.join(tempDir, 'jobs.json');
+        const prepared = prepareSrgSsrExistingJobs([romanshOnly]);
+        fs.writeFileSync(jobsPath, `${JSON.stringify(prepared, null, 2)}\n`, 'utf-8');
+        hardenJobLocaleFields({ dataJobsPath: jobsPath });
+        const { jobs: [job] } = repairShortDescriptions(JSON.parse(fs.readFileSync(jobsPath, 'utf-8')));
+
+        expect(collectBlockingIssues([job])).toEqual([]);
+        expect(job.sourceLang).toBe('rm');
+        expect(job.needsRetranslation).toBe(true);
+        for (const locale of LOCALES) {
+          expect(job.titleByLocale[locale].trim().length, locale).toBeGreaterThanOrEqual(3);
+          // The Romansh source is never published verbatim in a slot.
+          expect(job.titleByLocale[locale], locale).not.toBe(title);
+          expect(job.descriptionByLocale[locale], locale).not.toBe(romanshBody);
+        }
+      } finally {
+        if (previousRegistryOverride === undefined) delete process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+        else process.env.SLUG_REGISTRY_PATH_OVERRIDE = previousRegistryOverride;
+        fs.rmSync(tempDir, { recursive: true, force: true });
+      }
     });
   });
 });

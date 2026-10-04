@@ -1,7 +1,7 @@
 {
   "key": "galderma",
   "label": "Galderma",
-  "generatedAt": "2026-10-03T21:33:38.238Z",
+  "generatedAt": "2026-10-04T09:30:13.953Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -14,10 +14,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 239974,
-  "avgDurationMs": 239974,
+  "durationMs": 8067,
+  "avgDurationMs": 8067,
   "durationHistory": [
-    239974
+    8067
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Group-Commercial-FP-A-Manager_JR020691-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:31:28.059Z",
+      "crawledAt": "2026-10-04T09:30:04.562Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -46,7 +46,9 @@
       "sector": "Pharma / Dermatologia",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-10",
+      "datePosted": "2026-09-11",
+      "postedDate": "2026-09-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Group-Commercial-FP-A-Manager_JR020691-1",
       "jobReqId": "JR020691",
       "firstSeenAt": "2026-09-10T23:24:34.836Z",
@@ -71,7 +73,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Head-of-HR-EMEA---Canada_JR020136-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:32:00.869Z",
+      "crawledAt": "2026-10-04T09:30:05.385Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -83,7 +85,9 @@
       "sector": "Pharma / Dermatologia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-26",
       "postedDate": "2026-08-26",
+      "postingDateSource": "reported",
       "applyUrl": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Head-of-HR-EMEA---Canada_JR020136-1",
       "jobReqId": "JR020136",
       "firstSeenAt": "2026-08-27T00:59:35.365Z",
@@ -108,7 +112,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Lausanne/Medical-Scientific-Liaison-Romandie---Ticino_JR020215-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:32:27.616Z",
+      "crawledAt": "2026-10-04T09:30:06.192Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -120,7 +124,9 @@
       "sector": "Pharma / Dermatologia",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-13",
       "postedDate": "2026-08-13",
+      "postingDateSource": "reported",
       "applyUrl": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Lausanne/Medical-Scientific-Liaison-Romandie---Ticino_JR020215-1",
       "jobReqId": "JR020215",
       "firstSeenAt": "2026-08-13T10:17:26.726Z",
@@ -135,5 +141,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }
