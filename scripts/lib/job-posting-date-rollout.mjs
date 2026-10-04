@@ -8,5 +8,8 @@ export function hasPostingDateProvenance(input) {
 }
 
 export function resolveRolloutPostingDate(input, _legacyDate, now) {
+  // Keep the rollout boundary fail-closed even if a compatibility caller
+  // reaches this wrapper before the stricter validator below.
+  if (input?.postingDateSource !== 'reported') return null;
   return resolveReportedPostingDate(input, now);
 }
