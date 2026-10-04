@@ -37608,6 +37608,16 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'urto-spartitraffico-camorino',
+ category: 'novita',
+ date: '2026-10-04T15:30:36.027Z',
+ image: '/images/blog/urto-spartitraffico-camorino.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
