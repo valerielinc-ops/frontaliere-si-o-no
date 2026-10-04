@@ -17,6 +17,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -187,13 +188,14 @@ function dedupeBitfinexJobs(jobs) {
   jobs.forEach((job, index) => {
     const fp = fingerprint(job);
     const existing = groups.get(fp);
+    const publishedAt = job.postingDateSource === 'reported' ? Date.parse(job.datePosted) : -Infinity;
     if (!existing) {
-      groups.set(fp, { job, index, postedDate: job.datePosted || '' });
+      groups.set(fp, { job, index, publishedAt });
       return;
     }
     // Keep the most-recent posting; tie-break on lowest original index.
-    if ((job.datePosted || '') > existing.postedDate) {
-      groups.set(fp, { job, index, postedDate: job.datePosted || '' });
+    if (publishedAt > existing.publishedAt) {
+      groups.set(fp, { job, index, publishedAt });
     }
   });
 
@@ -310,9 +312,7 @@ export async function fetchAllBitfinexJobs() {
     const employmentType = EMPLOYMENT_TYPE_MAP[offer.employment_type_code] || 'FULL_TIME';
 
     // Date
-    const datePosted = offer.published_at
-      ? String(offer.published_at).slice(0, 10)
-      : new Date().toISOString().slice(0, 10);
+    const publication = sourcePostingDateFields(offer.published_at);
 
     // Build detail + apply URLs
     const detailUrl = `${detailUrlBase}/${offer.slug}`;
@@ -361,8 +361,7 @@ export async function fetchAllBitfinexJobs() {
       sector: 'Fintech / Blockchain',
       currency: 'CHF',
       featured: false,
-      datePosted,
-      postedDate: datePosted,
+      ...publication,
       applyUrl,
       department: offer.department || '',
       requirements: [],
