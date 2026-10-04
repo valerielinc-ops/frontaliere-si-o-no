@@ -108,17 +108,32 @@ export function blockedSince(itemId, markers, dailyKey) {
  * `{status: 'error'}`; un solo `error` rende la risposta `unknown`.
  * @returns {'born'|'not-born'|'unknown'}
  */
-export function tokenBornAt(item, io, fileAt, atIso) {
+export function tokenBornAt(item, _io, fileAt, atIso) {
   if (!atIso || typeof fileAt !== 'function') return 'unknown';
   let failed = false;
+  const historicCache = new Map();
+  const historicRead = (file) => {
+    if (historicCache.has(file)) return historicCache.get(file);
+    let read;
+    try {
+      read = fileAt(file, atIso);
+    } catch {
+      read = { status: 'error' };
+    }
+    const snapshot = read?.status === 'ok' && typeof read.content === 'string'
+      ? { exists: true, content: read.content }
+      : read?.status === 'absent'
+        ? { exists: false, content: null }
+        : { exists: false, content: null, failed: true };
+    if (snapshot.failed) failed = true;
+    historicCache.set(file, snapshot);
+    return snapshot;
+  };
   const historicIo = {
-    fileExists: io?.fileExists,
-    readFile: (file) => {
-      const read = fileAt(file, atIso);
-      if (read?.status === 'ok' && typeof read.content === 'string') return read.content;
-      if (read?.status !== 'absent') failed = true;
-      return null;
-    },
+    // Existence and content MUST come from the same historical snapshot. Using
+    // the current checkout here can hide a file that existed at the birth bound.
+    fileExists: (file) => historicRead(file).exists,
+    readFile: (file) => historicRead(file).content,
   };
   const result = detectAlreadyResolved(item.text, historicIo, { acceptanceToken: item.acceptanceToken });
   if (failed) return 'unknown';

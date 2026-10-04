@@ -17,6 +17,7 @@ import {
   bucketBirthBoundIso,
   bucketStartIso,
   planBlockedRecheck,
+  tokenBornAt,
   unblockedCommentBody,
 } from '../scripts/ci/lib/followup-blocked-recheck.mjs';
 import {
@@ -145,6 +146,15 @@ describe('uscita per token: lo stesso oracolo degli item open, mai su un token n
   it('file assente alla fine del giorno del bucket → il token è nuovo → done', () => {
     const result = plan({ io: ioWith(TODAY_WITH_TOKEN), readers: readers({ historic: null }) });
     expect(result.results[0].outcome).toBe('done');
+  });
+
+  it('usa l’esistenza dello snapshot storico, anche se il file manca nel checkout corrente', () => {
+    const parsed = parseFollowupItems(bucket(item(A)))[0];
+    const fileAt = vi.fn(() => ({ status: 'ok', content: TODAY_WITH_TOKEN }));
+    const currentIo = { fileExists: () => false, readFile: () => null };
+    expect(tokenBornAt(parsed, currentIo, fileAt, BIRTH_BOUND)).toBe('born');
+    expect(fileAt).toHaveBeenCalledTimes(1);
+    expect(fileAt).toHaveBeenCalledWith(TARGET, BIRTH_BOUND);
   });
 
   it('lettura storica fallita → unknown, mai done', () => {
