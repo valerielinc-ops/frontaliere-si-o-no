@@ -151,6 +151,12 @@ function createRunnerVariant(source: string) {
     fs.rmSync(target, { force: true });
     fs.symlinkSync(path.join(ROOT, 'scripts/ci/lib', file), target);
   }
+  // Il perimetro del lint del generatore crawler e' l'elenco condiviso con il
+  // generatore, fuori da scripts/ci.
+  const runtimePathsTarget = path.join(dir, 'scripts/lib/crawler-generation-runtime-paths.mjs');
+  fs.mkdirSync(path.dirname(runtimePathsTarget), { recursive: true });
+  fs.rmSync(runtimePathsTarget, { force: true });
+  fs.symlinkSync(path.join(ROOT, 'scripts/lib/crawler-generation-runtime-paths.mjs'), runtimePathsTarget);
   return dir;
 }
 
@@ -409,6 +415,20 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     // `build-plugins/` non e' nella lista ne' nella chiusura: non lo seleziona.
     expect(selectionFor(['build-plugins/shared/seoPageShell.ts'])).not.toContain(housekeeping);
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(housekeeping);
+  }, 120_000);
+
+  it('un modulo della chiusura del finalizer crawler seleziona il test del generatore', () => {
+    // PR 11262: un import nuovo in crawler-grace-policy.mjs ha allargato la
+    // chiusura del finalizer, ma il test che la confronta con l'elenco
+    // dichiarato dal generatore non e' girato e main e' rimasto rosso in
+    // latenza. Il perimetro e' l'elenco stesso
+    // (scripts/lib/crawler-generation-runtime-paths.mjs).
+    const generatorTest = 'tests/generate-crawler-group-workflows.test.ts';
+    expect(selectionFor(['scripts/lib/crawler-grace-policy.mjs'])).toContain(generatorTest);
+    expect(selectionFor(['scripts/lib/detail-failure-reuse-policy.mjs'])).toContain(generatorTest);
+    expect(selectionFor(['scripts/crawler-group-generation-finalizer.mjs'])).toContain(generatorTest);
+    // Fuori dall'elenco il test, che costa minuti, non viene trascinato.
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(generatorTest);
   }, 120_000);
 
   it('un file scandito dal gate dei segreti lo seleziona, anche se il grafo non lo conosce', () => {
