@@ -1362,13 +1362,26 @@ export class TokenIndex {
       }
     }
 
-    // Full Uint8Array scan was empirically faster than a sort+touched
-    // iteration: V8's Array.prototype.sort with a comparator costs more
-    // than a sequential typed-array walk for the typical small touched
-    // sizes (~100 entries), and the run 26467347040 measurement showed
-    // the sort variant added +11s across 161,542 OR-merge calls vs the
-    // straight scan. Keep the scan; the scratchScores typed array is
-    // cache-friendly and bounded by jobs.length (5819).
+    if (touched.length === 0) return;
+
+    // The old full Uint8Array scan was faster when an OR merge touched most
+    // of the corpus, but it made every sparse merge O(jobs.length): the new
+    // occupation predicate leaves many candidates below the AND cap, so a
+    // 349k-candidate build could scan the whole corpus several times per
+    // candidate. Keep corpus-order output by sorting the touched indexes only
+    // when that is cheaper than scanning every job; retain the dense scan for
+    // genuinely dense merges. The score buckets and accept predicate are
+    // unchanged, so this is an execution-plan fix, not a ranking change.
+    const scoreLevels = fullScore - minScore;
+    if (scoreLevels <= 0) {
+      for (const idx of touched) scores[idx] = 0;
+      touched.length = 0;
+      return;
+    }
+    const touchedSortCost = touched.length > 1 ? Math.ceil(Math.log2(touched.length)) : 0;
+    const useTouchedOrder =
+      touched.length * (scoreLevels + touchedSortCost) < scores.length * scoreLevels;
+    const orderedTouched = useTouchedOrder ? touched.sort((a, b) => a - b) : null;
     // `minScore` is the relevance floor: OR-fill only appends jobs matching at
     // least this many query tokens. For multi-token *content* queries it is 2,
     // so a job matching only the generic role word ("responsabile") but not the
@@ -1377,8 +1390,15 @@ export class TokenIndex {
     // / Vendite listings. For single-content-token queries (e.g. "koch davos",
     // where the city token is droppable) it stays 1 to preserve recovery.
     for (let score = fullScore - 1; score >= minScore && out.length < maxJobs; score--) {
-      for (let idx = 0; idx < scores.length && out.length < maxJobs; idx++) {
-        if (scores[idx] === score && accept(this.jobs[idx])) out.push(idx);
+      if (orderedTouched) {
+        for (const idx of orderedTouched) {
+          if (out.length >= maxJobs) break;
+          if (scores[idx] === score && accept(this.jobs[idx])) out.push(idx);
+        }
+      } else {
+        for (let idx = 0; idx < scores.length && out.length < maxJobs; idx++) {
+          if (scores[idx] === score && accept(this.jobs[idx])) out.push(idx);
+        }
       }
     }
 
