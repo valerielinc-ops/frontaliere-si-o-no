@@ -453,6 +453,35 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(generatorTest);
   }, 120_000);
 
+  it('un modulo nuovo sotto scripts/lib seleziona i gate che eleggono la famiglia da disco', () => {
+    // PR 11308: `scripts/lib/crawler-empty-ok-registry.mjs`, nuovo, era eletto
+    // dal gate di famiglia j2w, che legge `scripts/lib/` per directory e non
+    // importa il modulo. Il diff non lo selezionava e il rosso e' emerso sulla
+    // 11346, che toccava per caso un import del test. Il path qui non esiste:
+    // e' proprio il modulo che nessun grafo conosce ancora.
+    const j2wFamily = 'tests/successfactors-parser-quality.test.ts';
+    const flat = selectionFor(['scripts/lib/future-j2w-tenant-job-parser.mjs']);
+    expect(flat).toContain(j2wFamily);
+    expect(flat).toContain('tests/successfactors-jobs2web-widget-guard.test.ts');
+    expect(flat).toContain('tests/prospective-ch-shared-parser-contract.test.ts');
+    expect(flat).toContain('tests/sanitize-control-chars.test.ts');
+    expect(flat).toContain('tests/score-ledger-persistence.test.ts');
+    expect(flat).toContain('tests/crawler-brand-domain-pairing.test.ts');
+    expect(flat).toContain('tests/listing-url-fallback-audit.test.ts');
+    expect(flat).toContain('tests/bespoke-crawler-slug-boundary.test.ts');
+    expect(flat).toContain('tests/undici-dispatcher-fetch-pairing.test.ts');
+    expect(flat).toContain('tests/is-invoked-directly.test.ts');
+    expect(flat).toContain('tests/translation-protected-tokens.test.ts');
+    expect(flat).toContain('tests/slug-write-encapsulation.test.ts');
+    // Gli scan che leggono anche fuori da scripts/lib.
+    expect(selectionFor(['scripts/update-future-jobs.mjs'])).toContain('tests/bespoke-crawler-slug-boundary.test.ts');
+    expect(selectionFor(['scripts/publish-article-fast.mjs'])).toContain('tests/sanitize-control-chars.test.ts');
+    // Lo scan j2w e' ricorsivo: un parser in una sottocartella non sfugge.
+    expect(selectionFor(['scripts/lib/tenants/future-job-parser.mjs'])).toContain(j2wFamily);
+    expect(selectionFor(['scripts/lib/future-driver.sh'])).toContain('tests/bounded-parallel.test.ts');
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(j2wFamily);
+  }, 120_000);
+
   it('un file scandito dal gate dei segreti lo seleziona, anche se il grafo non lo conosce', () => {
     // PR 10336: una chiave Google Maps di terzi dentro una fixture HTML di
     // `tests/fixtures/`. Il gate la riconosceva, ma un `.html` non è né un
