@@ -221,7 +221,7 @@ describe('tailored CV by type', () => {
     const document = buildCvDocument(cv, { identity, profile: APPRENTICE, language: 'de', type: 'apprentice', sector: 'it' });
     expect(document.sections.map((section: any) => section.kind)).toEqual(['school', 'trial', 'jobs', 'tests', 'skills', 'languages', 'interests', 'references']);
     // The CV's own birth date, read for sure, printed the Swiss way (decision 5).
-    expect(document.personal).toEqual([['Geburtsdatum', '14.03.2010'], ['Nationalität', 'Schweiz / Kroatien']]);
+    expect(document.personal).toEqual([['Geburtsdatum', '14.03.2010'], ['Nationalität', 'Schweiz und Kroatien (EU)']]);
     expect(document.contact[0]).toBe('Musterweg 12, 8400 Winterthur');
     const text = tailoredCvPlainText(cv, { identity, profile: APPRENTICE });
     for (const expected of ['PERSÖNLICHE ANGABEN', 'SCHNUPPERLEHREN', 'NEBENJOBS', 'EIGNUNGSTESTS', 'FREIZEIT UND ENGAGEMENT', 'REFERENZEN', '04.2026', '2025 – heute', 'Multicheck ICT: März 2026, Schulisches Potenzial 78 %', 'Herr Peter Muster']) {

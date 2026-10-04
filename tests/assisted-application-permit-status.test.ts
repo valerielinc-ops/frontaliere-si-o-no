@@ -125,6 +125,9 @@ describe('permit status catalogue (owner decisions 2026-10-03)', () => {
       ['Schweizer/in', 'swiss'], ['Svizzera', 'swiss'], ['Keine', 'none'], ['Kein Ausweis', 'none'], ['Aucun permis', 'none'],
       ['B oder C', ''], ['B/C', ''], ['Keine (Bewilligung wird beantragt)', ''], ['Permesso G da richiedere', ''], ['Ja', ''], ['Nein', ''], ['Yes', ''],
       ['EU/EFTA', ''], ['Ich benötige eine Bewilligung', ''], ['Permis de conduire B', ''], ['Ausweis F', ''], ['Keine Angabe', ''],
+      // The SEM's English labels, and «no» only beside a permit noun (review of #11488).
+      ['L – short-term residents', 'permit_l'], ['B – Resident foreign nationals', 'permit_b'], ['No permit', 'none'], ['No work permit', 'none'],
+      ['No', ''], ['Non', ''],
     ];
     for (const [label, code] of rows) expect([label, permitOptionCode(label)]).toEqual([label, code]);
   });
@@ -192,8 +195,12 @@ describe('nationality table (decision 4)', () => {
     expect(nationalityCvValue('Grecia', { language: 'it' })).toBe('ellenica (UE)');
     expect(nationalityCvValue('olandese', { language: 'it' })).toBe('neerlandese (UE)');
     expect(nationalityCvValue('Liechtensteinerin', { language: 'it' })).toBe('Liechtenstein (AELS)');
-    // Anything else as the candidate wrote it, no tag.
-    for (const text of ['Schweiz / Kroatien', 'britannica', 'albanese']) expect(nationalityCvValue(text, { language: 'de' })).toBe(text);
+    // Two of the table written together: composed in code, Swiss first, each with its tag (review of #11488).
+    expect(nationalityCvValue('Schweiz / Kroatien', { language: 'de' })).toBe('Schweiz und Kroatien (EU)');
+    expect(nationalityCvValue('Kroatien / Schweiz', { language: 'de' })).toBe('Schweiz und Kroatien (EU)');
+    expect(nationalityCvValue('italiana, tedesca e francese', { language: 'it' })).toBe('italiana (UE), tedesca (UE) e francese (UE)');
+    // Anything outside the table as the candidate wrote it, no tag.
+    for (const text of ['britannica', 'albanese', 'italiana e albanese']) expect(nationalityCvValue(text, { language: 'de' })).toBe(text);
     expect(nationalityCvValue('', { language: 'de' })).toBe('');
   });
 
@@ -201,8 +208,10 @@ describe('nationality table (decision 4)', () => {
     expect(['de', 'fr', 'it', 'en'].map((language) => nationalityCvValue('', { status: 'swiss', language }))).toEqual(['Schweiz', 'suisse', 'svizzera', 'Swiss']);
     expect(['de', 'fr', 'it', 'en'].map((language) => nationalityCvValue('italiana', { status: 'swiss', language })))
       .toEqual(['Schweiz und Italien (EU)', 'suisse et italienne (UE)', 'svizzera e italiana (UE)', 'Swiss and Italian (EU)']);
-    // Already said: as written; another status leaves the line alone.
-    expect(nationalityCvValue('Schweiz / Kroatien', { status: 'swiss', language: 'de' })).toBe('Schweiz / Kroatien');
+    // Already said: Swiss once, still first; a part outside the table keeps the text as written.
+    expect(nationalityCvValue('Schweiz / Kroatien', { status: 'swiss', language: 'de' })).toBe('Schweiz und Kroatien (EU)');
+    expect(nationalityCvValue('Italian and Swiss', { status: 'swiss', language: 'en' })).toBe('Swiss and Italian (EU)');
+    expect(nationalityCvValue('Italian and Albanian', { status: 'swiss', language: 'en' })).toBe('Swiss and Italian and Albanian');
     expect(nationalityCvValue('Svizzera', { status: 'swiss', language: 'it' })).toBe('svizzera');
     expect(nationalityCvValue('italiana', { status: 'permit_b', language: 'it' })).toBe('italiana (UE)');
   });

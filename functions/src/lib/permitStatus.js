@@ -266,21 +266,29 @@ const formOf = (code, language) => {
 };
 
 /**
- * The nationality line of the CV (decision 4): one nationality of the table
- * in the CV's language with its EU/EFTA tag, derived in code; anything else
- * as the candidate wrote it, no tag. With the status `swiss`: Swiss when no
- * nationality is given, and Swiss first beside another one (decision of
- * 2026-10-04 on dual nationals).
+ * The nationality line of the CV (decision 4): the nationalities of the table
+ * in the CV's language, each with its EU/EFTA tag, derived in code — one, or
+ * several written together («Italian and Swiss», «Schweiz / Kroatien») — with
+ * Swiss first (decision of 2026-10-04 on dual nationals), and Swiss added for
+ * the status `swiss`. A text with any part outside the table is printed as the
+ * candidate wrote it, no tag, with Swiss in front for the status `swiss` when
+ * the text does not name it.
  */
 export function nationalityCvValue(nationality, { status = '', language = 'it' } = {}) {
   const lang = languageOf(language);
   const text = String(nationality ?? '').replace(/\s+/g, ' ').trim();
-  const own = nationalityOf(text);
-  const printed = own ? formOf(own.code, lang) : text;
-  if (status !== 'swiss') return printed;
-  const swiss = formOf('CH', lang);
-  if (!text || nationalityCodes(text).has('CH')) return printed || swiss;
-  return `${swiss} ${AND[lang]} ${printed}`;
+  const whole = nationalityOf(text);
+  const codes = whole ? [whole.code] : (text ? text.split(NATIONALITY_PARTS).map((part) => nationalityOf(part)?.code ?? null) : []);
+  if (status === 'swiss' || (codes.length > 0 && codes.every(Boolean))) {
+    if (codes.every(Boolean)) {
+      const known = [...new Set(codes)];
+      if (status === 'swiss' && !known.includes('CH')) known.push('CH');
+      const ordered = [...known.filter((code) => code === 'CH'), ...known.filter((code) => code !== 'CH')].map((code) => formOf(code, lang));
+      return ordered.length > 2 ? `${ordered.slice(0, -1).join(', ')} ${AND[lang]} ${ordered[ordered.length - 1]}` : ordered.join(` ${AND[lang]} `);
+    }
+    return nationalityCodes(text).has('CH') ? text : `${formOf('CH', lang)} ${AND[lang]} ${text}`;
+  }
+  return text;
 }
 
 // ── What the CV prints (decisions 2, 3) ──────────────────────────────────
@@ -317,15 +325,18 @@ export function printedPermitText(text) {
 
 // Words every option may carry; for every status but `swiss` the Swiss words too.
 const GENERIC_OPTION_WORDS = new Set(('ausweis bewilligung arbeitsbewilligung permis permesso permit autorisation autorizzazione livret libretto carta typ type tipo '
-  + 'eu efta ue aele aels de di du d per of the a in valid valida valido valable gultig gultige gultiger foreign national nationals status statut stato '
+  + 'eu efta ue aele aels de di du d per of the a in valid valida valido valable gultig gultige gultiger foreign national nationals status statut stato work '
   + 'kategorie category categorie categoria').split(' '));
 const SWISS_WORDS = new Set(['schweizer', 'schweizerin', 'schweizerische', 'swiss', 'svizzero', 'svizzera', 'suisse', 'ch', 'schweiz']);
+// The nouns of a permit, and the «no» that with one of them says «no permit».
+const PERMIT_NOUNS = new Set(['ausweis', 'bewilligung', 'arbeitsbewilligung', 'permis', 'permesso', 'permit', 'autorisation', 'autorizzazione', 'livret', 'libretto']);
+const NO_WORDS = new Set(['no', 'non']);
 // [allowed, identifying]: an option's other words all allowed, one of them identifying.
 const OPTION_WORDS = {
   permit_g: ['cross border', 'g grenzganger grenzgangerin grenzgangerbewilligung frontalier frontaliere frontaliera frontalieri frontaliers frontalieres commuter commuters crossborder'],
-  permit_b: ['aufenthalt residence resident', 'b aufenthaltsbewilligung aufenthalter aufenthalterin sejour dimora'],
+  permit_b: ['aufenthalt residence resident residents', 'b aufenthaltsbewilligung aufenthalter aufenthalterin sejour dimora'],
   permit_c: ['', 'c niederlassungsbewilligung niederlassung niedergelassene niedergelassener etablissement domicilio settlement settled'],
-  permit_l: ['courte duree short stay term', 'l kurzaufenthaltsbewilligung kurzaufenthalt kurzaufenthalter kurzaufenthalterin dimoranti temporanei'],
+  permit_l: ['courte duree short stay term resident residents', 'l kurzaufenthaltsbewilligung kurzaufenthalt kurzaufenthalter kurzaufenthalterin dimoranti temporanei'],
   swiss: [
     'citizen citizenship burger burgerin staatsangehorig staatsangehorige staatsangehoriger staatsangehorigkeit cittadino cittadina citoyen citoyenne nationalite nazionalita nationalitat nationality',
     `${[...SWISS_WORDS].join(' ')} cittadinanza staatsburgerschaft burgerrecht`,
@@ -345,10 +356,13 @@ const OPTION_SETS = Object.fromEntries(Object.entries(OPTION_WORDS).map(([code, 
  */
 export function permitOptionCode(label) {
   const words = fold(String(label ?? '').replace(/\*+/g, ' ')).split(' ').filter(Boolean);
+  // «No permit», «No work permit»: «no» names the status only beside a permit noun; alone it answers a question.
+  const noPermit = words.some((word) => PERMIT_NOUNS.has(word));
   const hits = PERMIT_STATUSES.filter((code) => {
     const rest = words.filter((word) => !GENERIC_OPTION_WORDS.has(word) && (code === 'swiss' || !SWISS_WORDS.has(word)));
     const { allowed, ident } = OPTION_SETS[code];
-    return rest.length > 0 && rest.every((word) => allowed.has(word)) && rest.some((word) => ident.has(word));
+    const identifies = (word) => ident.has(word) || (code === 'none' && noPermit && NO_WORDS.has(word));
+    return rest.length > 0 && rest.every((word) => allowed.has(word) || identifies(word)) && rest.some(identifies);
   });
   return hits.length === 1 ? hits[0] : '';
 }
