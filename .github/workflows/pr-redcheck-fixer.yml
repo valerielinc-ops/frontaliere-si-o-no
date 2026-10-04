@@ -92,13 +92,22 @@ jobs:
           RUN_ID: ${{ github.event.workflow_run.id }}
           RUN_SHA: ${{ github.event.workflow_run.head_sha }}
           RUN_BRANCH: ${{ github.event.workflow_run.head_branch }}
+          RUN_HEAD_REPO: ${{ github.event.workflow_run.head_repository.full_name }}
         run: |
           set -uo pipefail
+          # GitHub API calls are part of the bounded preflight contract. A
+          # transient API/DNS stall must become a fail-closed result before the
+          # five-minute job cap, never consume the whole job silently.
+          GH_CALL_TIMEOUT_SECONDS=30
+          GH_CALL_KILL_AFTER_SECONDS=5
+          gh_bounded() {
+            timeout --kill-after="${GH_CALL_KILL_AFTER_SECONDS}s" "$GH_CALL_TIMEOUT_SECONDS" "$@"
+          }
           skip() { echo "$1"; echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0; }
 
           if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             PR="$DISPATCH_PR"
-            HEAD_SHA=$(gh api "repos/$REPO/pulls/$PR" --jq ".head.sha" 2>/dev/null || echo "")
+            HEAD_SHA=$(gh_bounded gh api "repos/$REPO/pulls/$PR" --jq ".head.sha" 2>/dev/null || echo "")
             if ! [[ "$HEAD_SHA" =~ ^[0-9a-f]{40}$ ]]; then
               echo "::error::HEAD di #$PR illeggibile: senza SHA la ricerca per head_sha restituirebbe le run di qualunque PR."
               exit 1
@@ -107,7 +116,7 @@ jobs:
             # main pusha ogni pochi minuti e una run di ieri ne era gia' fuori,
             # cosi' il dispatch su una PR ferma finiva sempre in no-op (#9695,
             # run rossa 36061365735 del 2026-09-24T23:39Z).
-            if ! RUN_ID=$(gh api "repos/$REPO/actions/workflows/tests.yml/runs?head_sha=$HEAD_SHA&status=failure&per_page=1" \
+            if ! RUN_ID=$(gh_bounded gh api "repos/$REPO/actions/workflows/tests.yml/runs?head_sha=$HEAD_SHA&status=failure&per_page=1" \
               --jq '.workflow_runs[0].id // empty'); then
               echo "::error::Run di tests.yml sulla HEAD di #$PR illeggibili: non le tratto come «nessuna run fallita»."
               exit 1
@@ -117,18 +126,22 @@ jobs:
             fi
           else
             # `pull_requests` del workflow_run e' spesso vuoto: la via robusta e'
-            # cercare la PR aperta con questo head branch.
-            # Niente `--slurp`: il gh reale rifiuta `--slurp` insieme a `--jq`
-            # («the `--slurp` option is not supported with `--jq`»). Con
-            # `2>/dev/null || echo ""` quel rifiuto diventava «nessuna PR» e il
-            # fixer saltava OGNI PR (zero round dal 2026-09-20 al 2026-09-25).
-            # `--jq` gira pagina per pagina e stampa un numero per riga; la
-            # prima riga si prende in bash, non con `| head`, che sotto
-            # `pipefail` farebbe fallire gh per SIGPIPE.
-            if ! PR_MATCHES=$(gh api "repos/$REPO/pulls?state=open&per_page=100" \
-              --paginate \
-              --jq ".[] | select(.head.ref==\"$RUN_BRANCH\") | .number"); then
-              echo "::error::Lista PR aperte illeggibile per il branch '$RUN_BRANCH': non la tratto come «nessuna PR»."
+            # cercare la PR aperta con questo head branch. Il filtro `head` viene
+            # applicato da GitHub prima della risposta: paginare l'intero pool di
+            # PR aperte ha lasciato il preflight bloccato fino al cap di 5 minuti
+            # (issue #7310). `--method GET` + `-f` codifica il branch senza
+            # interpolarlo nella query e `gh_bounded` rende il fallimento esplicito.
+            RUN_HEAD_REPO="${RUN_HEAD_REPO:-}"
+            HEAD_OWNER="${RUN_HEAD_REPO%%/*}"
+            if [ -z "$HEAD_OWNER" ] || [ "$HEAD_OWNER" = "$RUN_HEAD_REPO" ]; then
+              HEAD_OWNER="${REPO%%/*}"
+            fi
+            if ! PR_MATCHES=$(gh_bounded gh api "repos/$REPO/pulls" --method GET \
+              -f state=open \
+              -f head="$HEAD_OWNER:$RUN_BRANCH" \
+              -f per_page=100 \
+              --jq '.[].number'); then
+              echo "::error::Ricerca PR aperta per il branch '$RUN_BRANCH' illeggibile o scaduta: non la tratto come «nessuna PR»."
               exit 1
             fi
             PR="${PR_MATCHES%%$'\n'*}"
@@ -137,7 +150,7 @@ jobs:
             fi
           fi
 
-          pr=$(gh api "repos/$REPO/pulls/$PR" 2>/dev/null || echo "")
+          pr=$(gh_bounded gh api "repos/$REPO/pulls/$PR" 2>/dev/null || echo "")
           if [ -z "$pr" ]; then
             skip "PR #$PR non leggibile → skip (no-op)."
           fi
@@ -186,7 +199,7 @@ jobs:
 
           # La CI corrente deve essere DAVVERO rossa adesso: fra il trigger e qui
           # un re-run puo' aver rimesso verde, e allora non c'e' niente da fixare.
-          if ! rollup=$(gh api "repos/$REPO/commits/$head_sha/check-runs?per_page=100" \
+          if ! rollup=$(gh_bounded gh api "repos/$REPO/commits/$head_sha/check-runs?per_page=100" \
             --jq '[.check_runs[] | select(.conclusion=="failure") | .name] | sort | @json' 2>/dev/null); then
             echo "::error::Check-runs HEAD illeggibili: impossibile verificare quale rosso redcheck dovrebbe riparare."
             exit 1
@@ -210,7 +223,7 @@ jobs:
           # job consolidato, senza steps o senza uno step failure verificabile
           # non autorizza il fixer. Un falso skip lascia il required check
           # visibile; un falso `actionable=true` spende Claude e può pushare.
-          if ! jobs_json=$(gh api "repos/$REPO/actions/runs/$RUN_ID/jobs?filter=latest&per_page=100" \
+          if ! jobs_json=$(gh_bounded gh api "repos/$REPO/actions/runs/$RUN_ID/jobs?filter=latest&per_page=100" \
             --paginate --slurp 2>/dev/null); then
             echo "::error::Jobs API della run tests illeggibile: impossibile distinguere body/review da test failure. Stop fail-closed."
             exit 1
@@ -346,9 +359,16 @@ jobs:
           # nascondere proprio la run in corso. 35 giorni: vita massima di una
           # run, e un ri-lancio conserva il `created_at` originale.
           busy_since="$(jq -rn 'now - (35 * 86400) | strftime("%Y-%m-%d")')"
-          busy=$(gh run list --repo "$REPO" --workflow=pr-redflag-fixer.yml --branch "$head_ref" \
+          if ! busy=$(gh_bounded gh run list --repo "$REPO" --workflow=pr-redflag-fixer.yml --branch "$head_ref" \
             --created ">=$busy_since" \
-            --json status --jq '[.[] | select(.status=="in_progress" or .status=="queued")] | length' 2>/dev/null || echo 0)
+            --json status --jq '[.[] | select(.status=="in_progress" or .status=="queued")] | length' 2>/dev/null); then
+            echo "::error::Stato del 🔴-fixer illeggibile o scaduto: stop fail-closed per evitare una push race."
+            exit 1
+          fi
+          if ! [[ "$busy" =~ ^[0-9]+$ ]]; then
+            echo "::error::Stato del 🔴-fixer non interpretabile: '$busy'"
+            exit 1
+          fi
           if [ "${busy:-0}" -gt 0 ]; then
             skip "Il 🔴-fixer sta gia' girando su '$head_ref' → skip per evitare una push race (no-op, si rivaluta al prossimo rosso)."
           fi
