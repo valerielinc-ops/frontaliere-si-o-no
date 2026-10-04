@@ -123,7 +123,6 @@ interface RegionBucket {
 }
 
 interface AnnualAggregate {
-  totalJobs: number;
   salaryCoverageCount: number | null;
   overallMedian: number;
   overallAvg: number;
@@ -251,7 +250,6 @@ function aggregate(jobs: readonly RawJob[] | null): AnnualAggregate {
   }
 
   return {
-    totalJobs: jobs?.length ?? 0,
     salaryCoverageCount: jobs === null ? null : withSalary.length,
     overallMedian,
     overallAvg,

@@ -144,8 +144,10 @@ function fmtRatio(r: number | null, locale: ComparisonsLocale): string {
 
 // ── Table renderers ──────────────────────────────────────────────
 
-function renderSalaryTable(copy: ComparisonsHubCopy, rows: readonly SalarySectorRow[], locale: ComparisonsLocale): string {
-  const tbody = rows.length > 0
+function renderSalaryTable(copy: ComparisonsHubCopy, rows: readonly SalarySectorRow[] | null, locale: ComparisonsLocale): string {
+  const tbody = rows === null
+    ? `<tr><td class="s-RgFW0A" colspan="5">${esc(copy.salaryUnavailable)}</td></tr>`
+    : rows.length > 0
     ? rows
         .map(
           (r) =>
@@ -158,7 +160,7 @@ function renderSalaryTable(copy: ComparisonsHubCopy, rows: readonly SalarySector
             </tr>`,
         )
         .join('')
-    : `<tr><td class="s-RgFW0A" colspan="5">—</td></tr>`;
+    : '';
   return `<figure class="s-KZc0LQ" data-speakable>
   <figcaption class="s-USTxiS">${esc(copy.tSalaryCaption)}</figcaption>
   <div class="s-hrA9tN">
@@ -334,7 +336,7 @@ interface RenderResult {
 
 function renderPage(opts: {
   locale: ComparisonsLocale;
-  salaryRows: readonly SalarySectorRow[];
+  salaryRows: readonly SalarySectorRow[] | null;
   lamalRows: readonly LamalCantonRow[];
   dateStamp: string;
   distDir?: string;
@@ -669,7 +671,7 @@ export function comparisonsHubPlugin(rootDir: string): Plugin {
       const t0 = Date.now();
       const written = await collector.flush();
       console.log(
-        `\x1b[36m[comparisons-hub]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s · salary rows: ${salaryRows.length}, LAMal cantons: ${lamalRows.length}`,
+        `\x1b[36m[comparisons-hub]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s · salary rows: ${salaryRows?.length ?? 'unavailable'}, LAMal cantons: ${lamalRows.length}`,
       );
 
       // Always-run: comparisons-hub does NOT write into sitemap.xml index

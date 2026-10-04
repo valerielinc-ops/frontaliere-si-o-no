@@ -31,6 +31,7 @@ export interface ComparisonsHubCopy {
 
   // Table captions + headers (one set per table)
   tSalaryCaption: string;
+  salaryUnavailable: string;
   tSalaryColSector: string;
   tSalaryColObservations: string;
   tSalaryColCh: string;
@@ -118,6 +119,7 @@ const IT: ComparisonsHubCopy = {
   disclaimer: `Il panel non contiene osservazioni italiane comparabili: mediana italiana e rapporto IT/CH non sono disponibili. Verificare condizioni contrattuali e requisiti individuali nelle fonti competenti.`,
 
   tSalaryCaption: `Tabella 1 — Salari annui dichiarati nel panel ticinese e disponibilità del confronto italiano`,
+  salaryUnavailable: 'Dati salariali non disponibili: la fonte manca o non è valida.',
   tSalaryColSector: 'Settore',
   tSalaryColObservations: 'Offerte (n)',
   tSalaryColCh: 'Mediana CH (CHF)',
@@ -241,6 +243,7 @@ const EN: ComparisonsHubCopy = {
   disclaimer: `The panel contains no comparable Italian observations: the Italian median and IT/CH ratio are unavailable. Verify contractual terms and individual eligibility with the relevant sources.`,
 
   tSalaryCaption: `Table 1 — Reported annual salaries in the Ticino panel and Italian comparison availability`,
+  salaryUnavailable: 'Salary data unavailable: the source is missing or invalid.',
   tSalaryColSector: 'Sector',
   tSalaryColObservations: 'Listings (n)',
   tSalaryColCh: 'Median CH (CHF)',
@@ -364,6 +367,7 @@ const DE: ComparisonsHubCopy = {
   disclaimer: `Das Panel enthält keine vergleichbaren italienischen Beobachtungen: italienischer Median und Verhältnis IT/CH sind nicht verfügbar. Prüfen Sie Vertragsbedingungen und persönliche Voraussetzungen bei den zuständigen Quellen.`,
 
   tSalaryCaption: `Tabelle 1 — Deklarierte Jahreslöhne im Tessiner Panel und Verfügbarkeit italienischer Vergleichswerte`,
+  salaryUnavailable: 'Lohndaten nicht verfügbar: Die Quelle fehlt oder ist ungültig.',
   tSalaryColSector: 'Branche',
   tSalaryColObservations: 'Inserate (n)',
   tSalaryColCh: 'Median CH (CHF)',
@@ -487,6 +491,7 @@ const FR: ComparisonsHubCopy = {
   disclaimer: `Le panel ne contient pas d’observations italiennes comparables : médiane italienne et ratio IT/CH sont indisponibles. Vérifiez les conditions contractuelles et personnelles auprès des sources compétentes.`,
 
   tSalaryCaption: `Tableau 1 — Salaires annuels déclarés du panel tessinois et disponibilité de la comparaison italienne`,
+  salaryUnavailable: 'Données salariales indisponibles : la source est absente ou invalide.',
   tSalaryColSector: 'Secteur',
   tSalaryColObservations: 'Annonces (n)',
   tSalaryColCh: 'Médiane CH (CHF)',
