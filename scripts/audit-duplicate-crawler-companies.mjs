@@ -55,6 +55,18 @@ export const DUPLICATE_ISSUE_KEY = '[duplicate-crawler]';
 export const COVERAGE_GAP_ISSUE_KEY = '[crawler-coverage-gap]';
 export const STALE_SNAPSHOT_ISSUE_KEY = '[crawler-snapshot-stale]';
 const ISSUE_WORKFLOW = 'audit-duplicate-crawlers';
+const MIN_CRAWLER_SLICES_FOR_COMPARISON = 2;
+
+/**
+ * A single crawler slice cannot prove that cross-crawler findings are absent.
+ * Keep issue state unchanged until the inventory contains a real comparison.
+ *
+ * @param {unknown} slices
+ * @returns {boolean}
+ */
+export function hasCompleteCrawlerInventory(slices) {
+  return Array.isArray(slices) && slices.length >= MIN_CRAWLER_SLICES_FOR_COMPARISON;
+}
 
 function currentRunUrl() {
   return process.env.GITHUB_RUN_ID
@@ -394,6 +406,10 @@ async function main() {
     console.log('\n(report-only: passa --issues per aprire/aggiornare le issue di backlog)');
     return;
   }
+  if (!hasCompleteCrawlerInventory(ownership.slices)) {
+    console.log('\n(issue updates skipped: almeno due slice crawler sono necessarie per una comparazione completa)');
+    return;
+  }
   await reportFindingIssues({ duplicates, gaps, staleSnapshots });
 }
 
@@ -409,8 +425,8 @@ async function main() {
  * incomplete measurement, not a green.
  *
  * `createIssue` / `resolveIssue` default to github-issue-creator.mjs and are
- * injectable for tests. Only reached after main() read at least one slice: an
- * empty or missing checkout exits before any write.
+ * injectable for tests. Only reached after main() read a complete inventory:
+ * an empty, missing, or one-slice checkout exits before any write.
  */
 export async function reportFindingIssues(
   { duplicates, gaps, staleSnapshots },

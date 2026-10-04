@@ -3,6 +3,7 @@ import {
   COVERAGE_GAP_ISSUE_KEY,
   DUPLICATE_ISSUE_KEY,
   STALE_SNAPSHOT_ISSUE_KEY,
+  hasCompleteCrawlerInventory,
   reportFindingIssues,
 } from '../scripts/audit-duplicate-crawler-companies.mjs';
 
@@ -20,6 +21,12 @@ const stale = {
 };
 
 describe('audit-duplicate-crawler-companies reportFindingIssues', () => {
+  it('requires two crawler slices before issue reconciliation is allowed', () => {
+    expect(hasCompleteCrawlerInventory([])).toBe(false);
+    expect(hasCompleteCrawlerInventory([{ key: 'only-crawler' }])).toBe(false);
+    expect(hasCompleteCrawlerInventory([{ key: 'crawler-a' }, { key: 'crawler-b' }])).toBe(true);
+  });
+
   it('closes every family that the audit measures at 0', async () => {
     const createIssue = vi.fn();
     const resolveIssue = vi.fn(() => null);
