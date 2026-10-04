@@ -196,21 +196,27 @@ _publish_cdn_r2() {
   echo "CDN→R2 (rclone --checksum): payload $(du -sh "$stage" | cut -f1) → $bkt"
   _r2_sync() { # <src-dir> <dst-prefix> <cache-control> [json-log] — COPY (additive, no delete)
     [ -d "$1" ] || return 0
+    local sync_status=0
     if [ -n "${4:-}" ]; then
       # Capture WHICH objects actually moved so the caller can purge exactly
       # those at the edge (see the assets/ call below). --log-file swallows
       # rclone's stderr, so the log is echoed back to the deploy output after
       # the run — a sync error must stay visible in the job log.
-      "${RC[@]}" copy "$1" "$bkt/$2" --header-upload "Cache-Control: $3" --stats=0 \
-        -v --use-json-log --log-file="$4" || ok=0
+      if ! "${RC[@]}" copy "$1" "$bkt/$2" --header-upload "Cache-Control: $3" --stats=0 \
+        -v --use-json-log --log-file="$4"; then
+        ok=0
+        sync_status=1
+      fi
       # `if`, not `[ -s … ] && cat`: an EMPTY log (nothing changed — the common
-      # case) would make that the last command and return non-zero from this
-      # function. Harmless today (this file deliberately runs without `set -e`,
-      # see its note near the step runners) but a trap for whoever adds it.
+      # case) is normal and must not alter the sync result returned below.
       if [ -s "$4" ]; then cat "$4"; fi
     else
-      "${RC[@]}" copy "$1" "$bkt/$2" --header-upload "Cache-Control: $3" --stats=0 || ok=0
+      if ! "${RC[@]}" copy "$1" "$bkt/$2" --header-upload "Cache-Control: $3" --stats=0; then
+        ok=0
+        sync_status=1
+      fi
     fi
+    return "$sync_status"
   }
   # assets/ Cache-Control — read this before changing it.
   #
@@ -275,15 +281,31 @@ _publish_cdn_r2() {
   # at most a week". Do NOT raise this back to a year, and do NOT re-add
   # `immutable`.
   local _assets_log="$(mktemp -t r2-assets-XXXXXX.jsonl 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/r2-assets.jsonl")"
+  local assets_sync_ok=0 assets_sync_status=0
   _r2_sync "$stage/assets"    assets    "public,max-age=604800" "$_assets_log"
+  assets_sync_status=$?
+  if [ "$assets_sync_status" -eq 0 ]; then
+    assets_sync_ok=1
+  fi
   _r2_sync "$stage/og"        og        "public,max-age=86400"
   _r2_sync "$stage/images"    images    "public,max-age=86400"
   _r2_sync "$stage/data"      data      "public,max-age=600"
   _r2_sync "$stage/job-canon" job-canon "public,max-age=600"
   "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
     --header-upload "Content-Type: text/html; charset=utf-8" --header-upload "Cache-Control: public,max-age=600" || ok=0
+  _purge_r2_changed_assets() {
+    if [ "$assets_sync_ok" = 1 ] && [ -s "$_assets_log" ]; then
+      node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
+        || echo "::warning::targeted CDN asset purge failed — edge falls back to the 7d max-age"
+    fi
+    rm -f "$_assets_log" 2>/dev/null || true
+  }
   if [ "$ok" != 1 ]; then
     echo "⚠️ R2 payload sync had errors — NOT writing marker (shard gate keeps last good live)"
+    # A later prefix can fail after the assets sync has overwritten stable bundle
+    # URLs. Purge those changed assets before returning, but keep the marker
+    # withheld so other shards continue to gate on the last complete payload.
+    _purge_r2_changed_assets
     return 0
   fi
   # Marker LAST (atomicity #2569): only now is this build's full payload on R2.
@@ -313,11 +335,7 @@ _publish_cdn_r2() {
   # Cache-Control comment for the queue jam that caused it. The jam is fixed;
   # the decoupling stays, because the failure mode it protects against is
   # "the publish chain stopped running", not "this particular bug existed".
-  if [ -s "$_assets_log" ]; then
-    node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
-      || echo "::warning::targeted CDN asset purge failed — edge falls back to the 7d max-age"
-  fi
-  rm -f "$_assets_log" 2>/dev/null || true
+  _purge_r2_changed_assets
   # GC visibility scan (Refs #2886, follow-up of #2883's "GC storage R2
   # (janitor): skippato" deferral). DRY-RUN ONLY at this automatic call site —
   # see _janitor_cdn_r2's header comment for why. This just makes bucket growth
