@@ -5,6 +5,7 @@
  * resolves each Swiss workplace across all 26 cantons, and runs AI localization
  * for SEO-critical fields.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -217,10 +218,6 @@ function isTargetJob(job) {
 
 function jobMatchKey(job) {
   return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
-}
-
-function todayIso() {
-  return new Date().toISOString().slice(0, 10);
 }
 
 function isTrustedDomain(rawUrl = '') {
@@ -450,7 +447,7 @@ async function fetchClerJobs() {
     const empType = inferEmploymentType(title, workload);
 
     // Parse posted date (DD.MM.YYYY → YYYY-MM-DD)
-    let postedDate = todayIso();
+    let postedDate = '';
     if (/^\d{2}\.\d{2}\.\d{4}$/.test(date)) {
       const [d, m, y] = date.split('.');
       postedDate = `${y}-${m}-${d}`;
@@ -487,7 +484,7 @@ async function fetchClerJobs() {
       department: field,
       source: 'cler-dedicated-crawler',
       sourceLang,
-      postedDate,
+      ...sourcePostingDateFields(postedDate),
       validThrough: '',
       employmentType: empType,
       contractType: empType === 'internship' ? 'stage' : 'permanent',
@@ -564,6 +561,7 @@ function mergeJobs(discoveredJobs) {
     const mergedJob = {
       ...prev,
       ...discovered,
+      ...mergeSourcePostingDates(prev, discovered),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, discovered.titleByLocale, 3, discovered.sourceLang),
       // Issue #3453-class: never reset descriptionByLocale to a source-only
       // map on a large content delta — mergeLocaleTextMap's sourceLocale-aware
