@@ -19,6 +19,8 @@
  * carry a JSON-LD `JobPosting` block — the same enrichment pattern used by
  * RSS Surselva.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
@@ -157,22 +159,20 @@ async function fetchDetailPage(detailUrl) {
 export function parseDetailPageJsonLd(html = '') {
   const result = {
     description: '',
-    datePosted: '',
+    ...sourcePostingDateFields(''),
     employmentType: '',
     streetAddress: '',
     addressLocality: '',
     postalCode: '',
     addressRegion: '',
   };
-  const jsonLdMatch = String(html).match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
-  if (!jsonLdMatch) return result;
   try {
-    const data = JSON.parse(jsonLdMatch[1]);
-    if (data['@type'] !== 'JobPosting') return result;
+    const data = extractJobPostingLd(html);
+    if (!data) return result;
     if (data.description) {
       result.description = normalizeSpace(stripHtml(data.description));
     }
-    if (data.datePosted) result.datePosted = data.datePosted;
+    Object.assign(result, sourcePostingDateFields(data.datePosted));
     if (data.employmentType) {
       const types = Array.isArray(data.employmentType) ? data.employmentType : [data.employmentType];
       if (types.includes('FULL_TIME')) result.employmentType = 'FULL_TIME';
@@ -231,7 +231,6 @@ export function parseVistaOstendisJob(entry, detailData = {}) {
   const contract = (pensumMax && pensumMax < 90) ? 'part-time' : 'full-time';
   const sourceLang = detectLang(descriptionText || title, 'de');
   const jobSlug = slugify(`${title} ${VISTA_KEY} ${location}`);
-  const datePosted = detailData.datePosted || new Date().toISOString().slice(0, 10);
 
   return {
     id: `${VISTA_KEY}-${urlHash}`,
@@ -270,7 +269,7 @@ export function parseVistaOstendisJob(entry, detailData = {}) {
     sector: 'Sanità / Ospedali',
     currency: 'CHF',
     featured: false,
-    postedDate: datePosted,
+    ...mergeSourcePostingDates({}, detailData),
     applyUrl,
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },
