@@ -126,9 +126,11 @@ export function isAplusEmptyListingPage(html = '', listings = parseAplusListings
   const emptyStateRe = /^no vacancies available[.!]?$/i;
   return [...(document.body?.querySelectorAll('*') || [])].some((element) => {
     if (element.closest('script, style, noscript, template')) return false;
-    if (element.hasAttribute('hidden') || element.getAttribute('aria-hidden') === 'true') return false;
-    const inlineStyle = element.getAttribute('style') || '';
-    if (/\bdisplay\s*:\s*none\b|\bvisibility\s*:\s*hidden\b/i.test(inlineStyle)) return false;
+    for (let ancestor = element; ancestor; ancestor = ancestor.parentElement) {
+      if (ancestor.hasAttribute('hidden') || ancestor.getAttribute('aria-hidden') === 'true') return false;
+      const inlineStyle = ancestor.getAttribute('style') || '';
+      if (/\bdisplay\s*:\s*none\b|\bvisibility\s*:\s*hidden\b/i.test(inlineStyle)) return false;
+    }
     return emptyStateRe.test(normalizeSpace(element.textContent || ''));
   });
 }

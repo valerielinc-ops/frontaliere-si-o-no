@@ -119,6 +119,8 @@ describe('parseAplusListings', () => {
   it('does not accept an empty-state copy hidden in a template or alongside a live card', () => {
     const hidden = '<template><p>No vacancies available</p></template>';
     expect(isAplusEmptyListingPage(hidden, [])).toBe(false);
+    const hiddenAncestor = '<div hidden><p>No vacancies available</p></div>';
+    expect(isAplusEmptyListingPage(hiddenAncestor, [])).toBe(false);
 
     const live = `${LISTING_HTML}<p>No vacancies available</p>`;
     const rows = parseAplusListings(live);
