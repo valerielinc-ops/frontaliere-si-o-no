@@ -26,8 +26,9 @@ const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..
 const readRepoFile = (rel: string) => fs.readFileSync(path.join(REPO_ROOT, rel), 'utf8');
 
 // Ratchet: misurato allo spostamento della registry fuori dal monitor. Può solo
-// scendere: quando una prova nel parser rende una voce superflua, togli la voce
-// e abbassa questo numero nella stessa PR. Non alzarlo mai.
+// scendere e non va mai alzato. Togliere una voce non richiede di toccare
+// questo numero (`<=` resta vero): lo riallinea la pulizia della registry, così
+// due PR che tolgono voci diverse non si contendono questa riga.
 const EMPTY_OK_CRAWLERS_MAX = 54; // cron-count-ok: ratchet della registry chiusa, scende soltanto
 
 /**
@@ -67,12 +68,19 @@ describe('crawler-empty-ok-registry — la registry è chiusa', () => {
     const monitor = readRepoFile('scripts/check-crawler-health.mjs');
     expect(monitor).toContain("from './lib/crawler-empty-ok-registry.mjs'");
     expect(monitor).not.toMatch(/const\s+(?:EMPTY_OK_CRAWLERS|LEGACY_SOURCE_PROVEN_EMPTY_CRAWLERS)\s*=/);
-    // Nessun Set letterale di slug: la lista non può rientrare con un altro nome.
-    const slugSetLiteral = /new Set\(\[\s*(?:\/\/[^\n]*\n\s*)*'[a-z0-9][a-z0-9-]*'/;
+    // Nessun Set letterale con slug di crawler: la lista non può rientrare con
+    // un altro nome. Un Set di altre stringhe (stati, kind) resta lecito.
+    const known = knownCrawlerKeys();
+    const slugsInSetLiterals: string[] = [];
+    for (const [, body] of monitor.matchAll(/new Set\(\[([\s\S]*?)\]\)/g)) {
+      for (const [, literal] of body.matchAll(/['"`]([a-z0-9][a-z0-9-]*)['"`]/g)) {
+        if (known.has(literal)) slugsInSetLiterals.push(literal);
+      }
+    }
     expect(
-      monitor,
+      slugsInSetLiterals,
       'Registry degli zeri ammessi rientrata nel monitor: serve una prova nel parser, non una voce',
-    ).not.toMatch(slugSetLiteral);
+    ).toEqual([]);
   });
 });
 
