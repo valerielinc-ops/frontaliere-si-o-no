@@ -450,23 +450,17 @@
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
-          "teamleader-elektroschrankmontage-100-agie-charmilles-biel-bienne",
-          "armadio-elettrico-teamleader-100-agie-charmilles-sa-biel-bienne"
+          "teamleader-elektroschrankmontage-100-agie-charmilles-biel-bienne"
         ],
         "en": [
-          "teamleader-electrical-cabinet-assembly-100-agie-charmilles-sa-biel-bienne",
           "teamleader-elektroschrankmontage-100-agie-charmilles-biel-bienne"
         ],
         "fr": [
-          "armoire-electrique-teamleader-100-agie-charmilles-sa-biel-bienne",
           "teamleader-elektroschrankmontage-100-agie-charmilles-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "teamleader-elektroschrankmontage-100-agie-charmilles-biel-bienne",
-        "armadio-elettrico-teamleader-100-agie-charmilles-sa-biel-bienne",
-        "teamleader-electrical-cabinet-assembly-100-agie-charmilles-sa-biel-bienne",
-        "armoire-electrique-teamleader-100-agie-charmilles-sa-biel-bienne"
+        "teamleader-elektroschrankmontage-100-agie-charmilles-biel-bienne"
       ],
       "needsRetranslation": true
     },
@@ -1799,14 +1793,20 @@
       },
       "slugByLocale": {
         "it": "logistiker-d-w-m-100-agie-charmilles-sa-biel-bienne",
-        "en": "logistiker-d-w-m-100-agie-charmilles-biel-bienne",
+        "en": "logistician-d-f-m-100-agie-charmilles-sa-biel-bienne",
         "de": "logistiker-d-w-m-100-agie-charmilles-biel-bienne",
-        "fr": "logistiker-d-w-m-100-agie-charmilles-biel-bienne"
+        "fr": "logisticien-j-f-m-100-agie-charmilles-sa-biel-bienne"
       },
       "id": "agie-charmilles-c6d457cfded6",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-d-w-m-100-agie-charmilles-biel-bienne"
+        ],
+        "en": [
+          "logistiker-d-w-m-100-agie-charmilles-biel-bienne"
+        ],
+        "fr": [
           "logistiker-d-w-m-100-agie-charmilles-biel-bienne"
         ]
       },
@@ -1930,13 +1930,19 @@
       },
       "slugByLocale": {
         "it": "logistiker-d-w-m-agie-charmilles-sa-biel-bienne",
-        "en": "logistiker-d-w-m-agie-charmilles-biel-bienne",
+        "en": "logistician-d-f-m-agie-charmilles-sa-biel-bienne",
         "de": "logistiker-d-w-m-agie-charmilles-biel-bienne",
-        "fr": "logistiker-d-w-m-agie-charmilles-biel-bienne"
+        "fr": "logisticien-d-f-m-agie-charmilles-sa-biel-bienne"
       },
       "id": "agie-charmilles-1619f7d7fab2",
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-d-w-m-agie-charmilles-biel-bienne"
+        ],
+        "en": [
+          "logistiker-d-w-m-agie-charmilles-biel-bienne"
+        ],
+        "fr": [
           "logistiker-d-w-m-agie-charmilles-biel-bienne"
         ]
       },
