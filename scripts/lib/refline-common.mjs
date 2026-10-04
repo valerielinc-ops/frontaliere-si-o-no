@@ -73,10 +73,10 @@ const REFLINE_EMPTY_RESULT_TEXT_RE = /(?:\b(?:zurzeit|derzeit|aktuell)\s+haben\s
  */
 function reflineEmptyListingEvidence(html = '') {
   const match = String(html || '').match(
-    /<([a-z][\w:-]*)\b[^>]*\bclass\s*=\s*["'][^"']*\bsearchPageNoResult\b[^"']*["'][^>]*>([\s\S]*?)<\/\1>/i,
+    /<([a-z][\w:-]*)\b[^>]*?\sclass\s*=\s*(["'])([^"']*)\2[^>]*>([\s\S]*?)<\/\1>/i,
   );
-  if (!match) return null;
-  const text = normalizeSpace(stripHtml(decodeEntities(match[2])));
+  if (!match || !/(?:^|\s)searchPageNoResult(?:\s|$)/i.test(match[3])) return null;
+  const text = normalizeSpace(stripHtml(decodeEntities(match[4])));
   if (!text || !REFLINE_EMPTY_RESULT_TEXT_RE.test(text)) return null;
   return text;
 }

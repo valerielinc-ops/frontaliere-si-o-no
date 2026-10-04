@@ -134,6 +134,22 @@ describe('Refline listing empty-state proof', () => {
     expect(jobs).toEqual([]);
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
   });
+
+  it('requires a real class attribute and standalone empty-state token', () => {
+    const options = { listingHost: 'app.reflinejobs.io', tenant: '1474' };
+    for (const html of [
+      '<div data-class="searchPageNoResult">There are no jobs</div>',
+      '<div aria-class="searchPageNoResult">There are no jobs</div>',
+      '<div class="searchPageNoResult-hidden">There are no jobs</div>',
+    ]) {
+      expect(isAuthoritativeEmptySnapshot(parseReflineListing(html, options))).toBe(false);
+    }
+
+    expect(isAuthoritativeEmptySnapshot(parseReflineListing(
+      '<div class="notice searchPageNoResult empty">There are no jobs</div>',
+      options,
+    ))).toBe(true);
+  });
 });
 
 // Only the posting's own text is published (issue 5253): the shared Refline
