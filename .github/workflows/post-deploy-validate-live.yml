@@ -490,7 +490,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: audit-reports-live-${{ github.run_id }}-${{ github.run_attempt }}
-          path: dist/audit-reports/**
+          path: reports/**
           if-no-files-found: ignore
           retention-days: 7
 
