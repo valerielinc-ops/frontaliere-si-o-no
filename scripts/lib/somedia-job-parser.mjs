@@ -16,6 +16,7 @@
  *   - isTrustedDomain()      — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { identifiedPostingPublication } from './identified-posting-publication.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
@@ -307,7 +308,7 @@ async function fetchJobDetail(detailUrl) {
 /**
  * Build a ParsedJob from JSON-LD data and detail page info.
  */
-function buildJobFromJsonLd(jsonLd, detailUrl, rexxId) {
+function buildJobFromJsonLd(jsonLd, detailUrl, rexxId, html) {
   const title = normalizeSpace(jsonLd.title || '');
   if (!title || title.length < 3) return null;
 
@@ -318,7 +319,8 @@ function buildJobFromJsonLd(jsonLd, detailUrl, rexxId) {
   const jobSlug = slugify(`${title} ${SOMEDIA_KEY} ch`);
   const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
 
-  const postedDate = normalizeSpace(jsonLd.datePosted || '').slice(0, 10);
+  const heading = stripHtml(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || '');
+  const publication = identifiedPostingPublication(html, detailUrl, heading);
   const validThrough = normalizeSpace(jsonLd.validThrough || '').slice(0, 10);
 
   return {
@@ -353,7 +355,7 @@ function buildJobFromJsonLd(jsonLd, detailUrl, rexxId) {
     experienceLevel: detectExperienceLevel(title),
     currency: 'CHF',
     featured: false,
-    postedDate: postedDate || new Date().toISOString().split('T')[0],
+    ...publication,
     validThrough: validThrough || '',
     applyUrl: detailUrl.replace(/-de-j(\d+)\.html$/, `-de-f$1.html`),
     requirements,
@@ -390,14 +392,14 @@ export async function fetchAllSomediaJobs() {
   const jobs = [];
   for (const { rexxId, detailUrl } of jobLinks) {
     try {
-      const { jsonLd } = await fetchJobDetail(detailUrl);
+      const { html, jsonLd } = await fetchJobDetail(detailUrl);
 
       if (!jsonLd) {
         console.warn(`  ⚠️ No JSON-LD found for j${rexxId}: ${detailUrl}`);
         continue;
       }
 
-      const job = buildJobFromJsonLd(jsonLd, detailUrl, rexxId);
+      const job = buildJobFromJsonLd(jsonLd, detailUrl, rexxId, html);
       if (!job) {
         console.warn(`  ⚠️ Could not build job from j${rexxId}: ${detailUrl}`);
         continue;
