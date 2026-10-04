@@ -179,7 +179,7 @@ jobs:
           fi
           node scripts/lib/github-issue-creator.mjs \
             --title "Workflow Failure: Deploy to GitHub Pages" \
-            --description "$(cat alarm-description.md)" \
+            --description-file alarm-description.md \
             --priority 2 \
             --label Bug \
             --workflow "Deploy to GitHub Pages" \

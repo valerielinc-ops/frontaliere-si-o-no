@@ -1717,7 +1717,7 @@ if (isDirectRun) {
 
   const title = get('--title');
   if (!title) {
-    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..."] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N | --no-reopen] [--build-sha SHA] [--consecutive-gate N] [--gate-window-hours H] [--signal-cosa "..."] [--signal-osservato V] [--signal-atteso V] [--signal-comando "..."] [--signal-evidenza "..."]* [--require-persisted] [--resolve [--reason completed|not_planned]]');
+    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..." | --description-file path] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N | --no-reopen] [--build-sha SHA] [--consecutive-gate N] [--gate-window-hours H] [--signal-cosa "..."] [--signal-osservato V] [--signal-atteso V] [--signal-comando "..."] [--signal-evidenza "..."]* [--require-persisted] [--resolve [--reason completed|not_planned]]');
     process.exit(1);
   }
 
@@ -1765,9 +1765,23 @@ if (isDirectRun) {
   const consecutiveGate = rawGate === undefined ? 0 : Number(rawGate);
   const requirePersisted = args.includes('--require-persisted');
 
+  let description = get('--description') || '';
+  const descriptionFile = get('--description-file');
+  if (descriptionFile) {
+    try {
+      // Keep large report bodies out of execve's argv/environment limit. The
+      // creator applies the GitHub body cap after loading the file, preserving
+      // the same truncation semantics as the inline flag.
+      description = fs.readFileSync(descriptionFile, 'utf8');
+    } catch (err) {
+      console.error(`[github-issue-creator] Cannot read --description-file: ${err.message}`);
+      process.exit(1);
+    }
+  }
+
   createGithubIssue({
     title,
-    description: get('--description') || '',
+    description,
     priority: Number(get('--priority') || 3),
     labels: (() => {
       const single = get('--label');

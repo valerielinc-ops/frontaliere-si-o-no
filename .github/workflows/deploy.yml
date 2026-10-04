@@ -2874,7 +2874,7 @@ jobs:
           # esterno o dal reconciler orario.
           node scripts/lib/github-issue-creator.mjs \
             --title "Workflow Failure: ${{ github.workflow }}" \
-            --description "$(cat alarm-description.md)" \
+            --description-file alarm-description.md \
             --priority 2 \
             --label Bug \
             --workflow "${{ github.workflow }}" \

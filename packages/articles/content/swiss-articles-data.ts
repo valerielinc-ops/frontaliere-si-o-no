@@ -23086,6 +23086,16 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'incentivi-energetici-zurigo-domanda',
+    category: 'pratico',
+    date: '2026-10-04T15:55:31.964Z',
+    image: '/images/blog/incentivi-energetici-zurigo-domanda.webp',
+    hasCalculator: true,
+    articleType: 'evergreen',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
