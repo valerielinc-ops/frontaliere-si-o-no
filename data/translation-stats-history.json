@@ -1,88 +1,5 @@
 [
   {
-    "timestamp": "2026-09-12T21:59:47.101Z",
-    "label": "before",
-    "total": 32746,
-    "needsRetranslation": 5585,
-    "suppressed": 141,
-    "incomplete": 6011,
-    "complete": 26735,
-    "slotsPresent": 26735,
-    "flaggedAmongSlotsPresent": 32,
-    "verifiedTranslated": 26703,
-    "sourceCopyExcused": 458,
-    "slotsPresentByLength": 32619,
-    "languageVerified": 27633,
-    "missingByLocale": {
-      "it": 66,
-      "en": 56,
-      "de": 71,
-      "fr": 76
-    },
-    "queueAge": {
-      "count": 5585,
-      "withTimestamp": 5585,
-      "oldestAgeDays": 152.5,
-      "p50AgeDays": 15.7,
-      "p90AgeDays": 71,
-      "buckets": {
-        "0-1d": 52,
-        "1-2d": 187,
-        "2-7d": 1603,
-        "0-7d": 1842,
-        "7-30d": 1943,
-        "30-90d": 1409,
-        "90-180d": 391,
-        "180d+": 0
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "topPending": [
-      {
-        "company": "STA Personal AG",
-        "pending": 1251
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 496
-      },
-      {
-        "company": "Roche",
-        "pending": 467
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 287
-      },
-      {
-        "company": "Sulzer",
-        "pending": 162
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 153
-      },
-      {
-        "company": "PEMSA",
-        "pending": 147
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 131
-      },
-      {
-        "company": "Manor AG",
-        "pending": 84
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 72
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-12T23:32:25.141Z",
     "label": "after",
     "total": 32746,
@@ -19978,8 +19895,7 @@
         "residualRate": null,
         "runs": 0,
         "measured": false,
-        "queueCandidates": 10831,
-        "members": []
+        "queueCandidates": 10831
       }
     },
     "topPending": [
@@ -20116,6 +20032,139 @@
       {
         "company": "PEMSA",
         "pending": 265
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-04T13:38:55.984Z",
+    "label": "after",
+    "total": 31128,
+    "needsRetranslation": 19319,
+    "suppressed": 119,
+    "incomplete": 21246,
+    "complete": 9882,
+    "slotsPresent": 9882,
+    "flaggedAmongSlotsPresent": 240,
+    "verifiedTranslated": 9642,
+    "sourceCopyExcused": 389,
+    "slotsPresentByLength": 31099,
+    "languageVerified": 15911,
+    "missingByLocale": {
+      "it": 5764,
+      "en": 5835,
+      "de": 869,
+      "fr": 5611
+    },
+    "queueAge": {
+      "count": 19319,
+      "withTimestamp": 19319,
+      "oldestAgeDays": 468.6,
+      "p50AgeDays": 10.6,
+      "p90AgeDays": 91.1,
+      "buckets": {
+        "0-1d": 120,
+        "1-2d": 1041,
+        "2-7d": 6186,
+        "0-7d": 7347,
+        "7-30d": 5494,
+        "30-90d": 4523,
+        "90-180d": 1947,
+        "180d+": 8
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 466,
+      "withTimestamp": 466,
+      "oldestAgeDays": 174.1,
+      "p50AgeDays": 38.5,
+      "p90AgeDays": 137.6,
+      "buckets": {
+        "0-1d": 111,
+        "1-2d": 19,
+        "2-7d": 8,
+        "0-7d": 138,
+        "7-30d": 36,
+        "30-90d": 173,
+        "90-180d": 119,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "genderFormRepair": {
+      "measured": false,
+      "status": "partial",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 11526,
+      "sampled": 120,
+      "processed": 10,
+      "residual": 1,
+      "residualRate": 0.1,
+      "window": {
+        "size": 120,
+        "processed": 10,
+        "residual": 1,
+        "residualRate": 0.1,
+        "runs": 1,
+        "measured": false,
+        "queueCandidates": 11526,
+        "members": [
+          "01d827670e2978a9:0",
+          "447373739f946624:0",
+          "4aa1932443c4f122:0",
+          "9bb018668078c9b7:0",
+          "f1c29d9fdd446dcb:0",
+          "577f095a7cf31f1d:0",
+          "cf2c9a40a9c22d45:1",
+          "dc6c3ab1426512b8:0",
+          "bdfca07f0f844e9a:0",
+          "93ce4938d052ef43:0"
+        ]
+      }
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 3307
+      },
+      {
+        "company": "STA Personal AG",
+        "pending": 1740
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1586
+      },
+      {
+        "company": "Stellentreff AG",
+        "pending": 942
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 853
+      },
+      {
+        "company": "Stellenpartner AG",
+        "pending": 794
+      },
+      {
+        "company": "Galaxus",
+        "pending": 576
+      },
+      {
+        "company": "Gourmador frigemo AG Unterseen",
+        "pending": 498
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 370
+      },
+      {
+        "company": "PEMSA",
+        "pending": 262
       }
     ]
   }
