@@ -150,7 +150,12 @@ function modelLike(value) {
   return text(value) && /(?:^|[-_ ])(?:llm|model|ai)(?:$|[-_ ])/i.test(value);
 }
 
-function independentSourceUrlIssue(value) {
+/**
+ * Why a URL is not an independent third-party https source, or null.
+ * Exported so the L6 producer (`scripts/lib/l6-source-check.mjs`) applies the
+ * very rule that validates its rows instead of a copy that could drift.
+ */
+export function independentSourceUrlIssue(value) {
   if (!text(value)) return 'evidence.sourceUrl is missing';
   let url;
   try {
