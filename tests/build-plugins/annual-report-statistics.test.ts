@@ -51,8 +51,6 @@ describe('annual report statistics provenance', () => {
   it('uses only reported annual CHF observations from the report year and canton in HTML, schema and CSV', async () => {
     const eligible = Array.from({ length: 12 }, (_, i) => ({ ...validJob, id: `valid-${i}` }));
     const excluded = [
-      { salaryPeriod: 12 }, { sector: 12 }, { location: 12 }, { company: 12 },
-      { baseSalary: { value: { unitText: 12 } } },
       { salarySource: 'estimated' }, { salarySource: 'existing' }, { salarySource: undefined },
       { currency: 'EUR' }, { currency: undefined }, { salaryPeriod: 'MONTH' },
       { salaryPeriod: undefined }, { datePosted: `${year - 1}-06-15` },
@@ -85,7 +83,7 @@ describe('annual report statistics provenance', () => {
     }
   });
 
-  it.each([undefined, { invalid: 'not an array' }])('does not report zero observations for unavailable source %j', async (source) => {
+  it.each([undefined, { invalid: 'not an array' }, [{ canton: 7 }], [validJob, { ...validJob, company: 12 }]])('does not report zero observations for unavailable source %j', async (source) => {
     const { pages, csv } = await emit(source);
     expect(csv).toContain('overall,All sectors,,,,,');
     for (const { dataset } of pages) expect(dataset.variableMeasured).toEqual([]);

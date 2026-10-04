@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import { createRequire } from 'node:module';
 import os from 'node:os';
 import path from 'node:path';
-import { isReportYearJob } from '../../build-plugins/shared/reportJobPanel';
+import { isReportYearJob, loadReportJobPanel } from '../../build-plugins/shared/reportJobPanel';
 import { marketReportPlugin } from '../../build-plugins/marketReportPlugin';
 import { aggregateSalaryBySector } from '../../build-plugins/comparisonsHubAggregate';
 import { comparisonsHubPlugin } from '../../build-plugins/comparisonsHubPlugin';
@@ -67,8 +67,6 @@ describe('report panel provenance', () => {
       { ...job, company: 'Estimated employer', salarySource: 'estimated', salaryMin: 200000, salaryMax: 300000 },
       { ...job, company: 'Unknown employer', salarySource: 'existing' },
       { ...job, canton: 'ZH', company: 'Zurich employer' },
-      { ...job, salaryPeriod: 12 }, { ...job, company: 12 }, { ...job, location: 12 }, { ...job, sector: 12 },
-      { ...job, baseSalary: { value: { unitText: 12 } } },
       { ...job, datePosted: '2025-06-15', company: 'Old employer' },
     ]);
     expect(pages).toHaveLength(4);
@@ -78,6 +76,11 @@ describe('report panel provenance', () => {
       expect(text).not.toMatch(/Invented employer|Zurich employer|Old employer|bimodal|12[–-]18\s*%|300[–-]400|100\s*%/);
       expect(text).toContain('N/D');
     }
+  });
+  it.each([{ canton: 7 }, { ...job, salaryPeriod: 12 }, { ...job, company: 12 }, { ...job, location: 12 }, { ...job, sector: 12 }, { ...job, baseSalary: { value: { unitText: 12 } } }])('treats a corrupt row as unavailable rather than a valid empty panel: %j', async (invalid) => {
+    const pages = await emit([job, invalid]);
+    expect(pages).toHaveLength(4);
+    for (const { dataset } of pages) expect(dataset.variableMeasured).toEqual([]);
   });
   it('omits unobserved counts and salaries instead of trusting aggregate fallback data', async () => {
     const pages = await emit();
@@ -121,6 +124,38 @@ describe('comparison hub uses observed salaries without synthetic Italian pairin
         expect([...row.querySelectorAll('td')].slice(1).map((cell) => cell.textContent)).toEqual(['N/D', 'N/D', 'N/D']);
       }
       expect(doc.body.textContent).toMatch(/Pagina generata|Page generated|Seite erstellt|Page générée/);
+      dom.window.close();
+    }
+  });
+});
+
+
+describe('comparison source availability', () => {
+  it.each([undefined, [{ canton: 7 }], []])('preserves the unavailable/valid-empty distinction for %j', async (source) => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'comparison-availability-'));
+    roots.push(root);
+    fs.mkdirSync(path.join(root, 'data'));
+    fs.mkdirSync(path.join(root, 'dist'));
+    if (source !== undefined) fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify(source));
+    const validEmpty = Array.isArray(source) && source.length === 0;
+    expect(loadReportJobPanel(root, 2026)).toEqual(validEmpty ? [] : null);
+    expect(aggregateSalaryBySector(root)).toEqual(validEmpty ? [] : null);
+    vi.stubEnv('SKIP_COMPARISONS_HUB', '0');
+    await (comparisonsHubPlugin(root).closeBundle as () => Promise<void>)();
+    const labels = {
+      it: 'Dati salariali non disponibili', en: 'Salary data unavailable',
+      de: 'Lohndaten nicht verfügbar', fr: 'Données salariales indisponibles',
+    };
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const html = fs.readFileSync(path.join(root, 'dist', buildComparisonsHubPath(locale), 'index.html'), 'utf8');
+      const dom = new JSDOM(html);
+      const table = dom.window.document.querySelector('table')!;
+      if (validEmpty) {
+        expect(table.querySelectorAll('tbody tr')).toHaveLength(0);
+        expect(table.textContent).not.toContain(labels[locale]);
+      } else {
+        expect(table.textContent).toContain(labels[locale]);
+      }
       dom.window.close();
     }
   });

@@ -43,8 +43,9 @@ function median(values: readonly number[]): number {
 export function aggregateSalaryBySector(
   rootDir: string,
   topN = 10,
-): readonly SalarySectorRow[] {
-  const jobs = loadReportJobPanel(rootDir, 2026) ?? [];
+): readonly SalarySectorRow[] | null {
+  const jobs = loadReportJobPanel(rootDir, 2026);
+  if (jobs === null) return null;
 
   const withSalary: Array<ReportJob & { mid: number }> = [];
   for (const j of jobs) {
