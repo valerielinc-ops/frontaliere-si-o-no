@@ -1,7 +1,7 @@
 {
   "key": "sune-egge",
   "label": "Fachspital Sune-Egge",
-  "generatedAt": "2026-10-04T09:31:07.513Z",
+  "generatedAt": "2026-10-04T21:37:45.214Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -14,16 +14,16 @@
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6003,
-  "avgDurationMs": 6003,
+  "durationMs": 10515,
+  "avgDurationMs": 10515,
   "durationHistory": [
-    6003
+    10515
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "sune-egge-7c8cadfd59a2",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-60-100-nachtdienst-sune-egge-zurich",
+      "slug": "dipl-infermiera-infermiera-hf-60-100-servizio-notturno-fachspital-sune-egge-zurich",
       "company": "Fachspital Sune-Egge",
       "companyKey": "sune-egge",
       "companyDomain": "swsieber.ch",
@@ -33,7 +33,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2814735",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:30:58.928Z",
+      "crawledAt": "2026-10-04T21:37:34.521Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -46,21 +46,26 @@
       "sector": "Sanità",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-25",
       "postedDate": "2026-09-25",
+      "postingDateSource": "reported",
       "applyUrl": "https://swsieber.jobs.personio.com/job/2814735",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T14:56:13.976Z",
-      "_qualityScore": 89,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     },
     {
       "id": "sune-egge-14ef2fbe3c2b",
-      "slug": "medizinische-r-praxisassistent-in-oder-pflegefachfrau-mann-hf-60-sune-egge-zurich",
+      "slug": "medico-r-assistente-pratico-o-infermieristico-hf-60-fachspital-sune-egge-zurich",
       "company": "Fachspital Sune-Egge",
       "companyKey": "sune-egge",
       "companyDomain": "swsieber.ch",
@@ -70,7 +75,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2805911",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:30:58.327Z",
+      "crawledAt": "2026-10-04T21:37:33.850Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,21 +88,26 @@
       "sector": "Sanità",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-21",
       "postedDate": "2026-09-21",
+      "postingDateSource": "reported",
       "applyUrl": "https://swsieber.jobs.personio.com/job/2805911",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-21T16:11:34.590Z",
-      "_qualityScore": 89,
+      "salaryMin": 54900,
+      "salaryMax": 76800,
+      "salarySource": "estimated",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     },
     {
       "id": "sune-egge-ba1c4fa54db7",
-      "slug": "mitarbeiter-in-technischer-dienst-80-100-bevorzugt-80-sune-egge-zurich",
+      "slug": "servizio-tecnico-dipendente-80-100-preferibilmente-80-fachspital-sune-egge-zurich",
       "company": "Fachspital Sune-Egge",
       "companyKey": "sune-egge",
       "companyDomain": "swsieber.ch",
@@ -107,7 +117,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2773194",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:30:57.777Z",
+      "crawledAt": "2026-10-04T21:37:33.464Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -120,21 +130,26 @@
       "sector": "Sanità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-31",
+      "datePosted": "2026-08-28",
+      "postedDate": "2026-08-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://swsieber.jobs.personio.com/job/2773194",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-31T17:35:07.516Z",
-      "_qualityScore": 89,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     },
     {
       "id": "sune-egge-affdfbd381b4",
-      "slug": "auszubildende-fachfrau-gesundheit-auszubildender-fachmann-gesundheit-sune-egge-zurich",
+      "slug": "trainee-health-professional-trainee-health-professional-fachspital-sune-egge-zurich",
       "company": "Fachspital Sune-Egge",
       "companyKey": "sune-egge",
       "companyDomain": "swsieber.ch",
@@ -144,7 +159,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2763228",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:30:57.550Z",
+      "crawledAt": "2026-10-04T21:37:32.792Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -157,16 +172,21 @@
       "sector": "Sanità",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-21",
       "postedDate": "2026-08-21",
+      "postingDateSource": "reported",
       "applyUrl": "https://swsieber.jobs.personio.com/job/2763228",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T22:11:08.964Z",
-      "_qualityScore": 89,
+      "salaryMin": 82000,
+      "salaryMax": 114500,
+      "salarySource": "estimated",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     },
     {
@@ -181,7 +201,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2729968",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:30:57.326Z",
+      "crawledAt": "2026-10-04T21:37:32.427Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -194,21 +214,26 @@
       "sector": "Sanità",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-07-27",
       "postedDate": "2026-07-27",
+      "postingDateSource": "reported",
       "applyUrl": "https://swsieber.jobs.personio.com/job/2729968",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-27T22:20:30.661Z",
-      "_qualityScore": 89,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     },
     {
       "id": "sune-egge-ddb878d6f929",
-      "slug": "dipl-pflegefachfrau-mann-hf-60-100-tagdienst-sune-egge-zurich",
+      "slug": "infermiere-a-dipl-hf-60-100-turno-diurno-fachspital-sune-egge-zurich",
       "company": "Fachspital Sune-Egge",
       "companyKey": "sune-egge",
       "companyDomain": "swsieber.ch",
@@ -218,7 +243,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2610155",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:30:56.715Z",
+      "crawledAt": "2026-10-04T21:37:31.738Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -231,20 +256,25 @@
       "sector": "Sanità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-20",
+      "datePosted": "2026-09-22",
+      "postedDate": "2026-09-22",
+      "postingDateSource": "reported",
       "applyUrl": "https://swsieber.jobs.personio.com/job/2610155",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-05-20T06:03:29.945Z",
-      "_qualityScore": 89,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }
