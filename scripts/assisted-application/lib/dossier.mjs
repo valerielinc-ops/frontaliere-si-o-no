@@ -134,7 +134,8 @@ export function classifyAdPackaging(instructions, postingText) {
       const clause = clauseBefore(sentence, match.index);
       const after = sentence.slice(match.index + match[0].length);
       const before = lastWords(clause, 6);
-      if (NEGATION.test(before) || PERMISSION.test(before) || DISTRIBUTIVE_BEFORE.test(lastWords(clause, 3)) || DISTRIBUTIVE_AFTER.test(after)) continue;
+      // A permission anywhere in the clause («You can attach your CV and cover letter as a single PDF») is no instruction.
+      if (NEGATION.test(before) || PERMISSION.test(clause) || DISTRIBUTIVE_BEFORE.test(lastWords(clause, 3)) || DISTRIBUTIVE_AFTER.test(after)) continue;
       const whole = WHOLE.test(sentence) || (CV.test(sentence) && LETTER.test(sentence) && !ENCLOSURES_AFTER.test(after));
       if (whole) single ||= match[0];
     }
@@ -146,7 +147,7 @@ export function classifyAdPackaging(instructions, postingText) {
       const clause = clauseBefore(sentence, match.index);
       const after = sentence.slice(match.index + match[0].length);
       const before = lastWords(clause, 6);
-      if (NEGATION.test(before) || PERMISSION.test(before) || LIMIT_BEFORE.test(lastWords(clause, 2)) || DISTRIBUTIVE_BEFORE.test(lastWords(clause, 3))
+      if (NEGATION.test(before) || PERMISSION.test(clause) || LIMIT_BEFORE.test(lastWords(clause, 2)) || DISTRIBUTIVE_BEFORE.test(lastWords(clause, 3))
         || CHOICE_AFTER.test(after) || CHOICE_BEFORE.test(clause) || EACH_AFTER.test(after)) continue;
       separate ||= match[0];
     }

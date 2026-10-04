@@ -66,6 +66,7 @@ const HELD_LABELS: Record<string, string> = {
   portal_needs_candidate: 'il portale richiede il candidato',
   fact_check_not_acknowledged: 'invio fermato dal controllo dei fatti: serve la tua conferma',
   sent_files_not_stored: 'file della candidatura non salvati: l’email non è partita',
+  sent_attempt_not_stored: 'tentativo d’invio non registrato: la candidatura non è partita',
   owner: 'presa in carico manuale',
 };
 

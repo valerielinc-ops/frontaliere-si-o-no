@@ -254,6 +254,15 @@ describe('the posting’s own instruction on the files (the ad wins)', () => {
     expect(classifyAdPackaging(text, `Annuncio. ${text} Fine.`)).toEqual({ instruction: expected, cue });
   });
 
+  it('reads a permission anywhere in the clause before the cue as no instruction (review of #11505)', () => {
+    for (const text of [
+      'You can attach your CV and cover letter as a single PDF',
+      'Sie können Lebenslauf und Motivationsschreiben auch zusammen in einem PDF senden.',
+      'Potete inviare il CV e la lettera di motivazione anche insieme in un unico PDF.',
+      'Vous pouvez envoyer votre CV et votre lettre de motivation ensemble en un seul PDF.',
+    ]) expect([text, classifyAdPackaging(text, text)]).toEqual([text, { instruction: '', cue: '' }]);
+  });
+
   it('counts only a sentence the posting holds, whitespace, case and apostrophes aside', () => {
     // The cue is in the posting, the sentence is not: the model's paraphrase decides nothing.
     expect(classifyAdPackaging('Bitte senden Sie Ihre vollständigen Bewerbungsunterlagen in einem PDF.', 'Wir bieten … Zeugnisse in einem PDF sind willkommen.'))

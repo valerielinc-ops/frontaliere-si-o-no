@@ -173,13 +173,16 @@ export async function submitApplication(ctx) {
   const log = ctx.log || ((...args) => console.log('[assisted-application]', ...args));
   // The record of a send whose outcome may stay unknown, on the draft (agent.mjs: `sentAttempt`), or null
   // once the send failed for certain. It becomes the record of what left when the owner or the employer's
-  // e-mail confirms the send (assistedApplicationAutomation.js confirmSentAttempt). Never fails the run.
+  // e-mail confirms the send (assistedApplicationAutomation.js confirmSentAttempt). Whether it is durable:
+  // without it an unknown outcome could never be confirmed, so the send or the final click waits for it.
   const keepAttempt = async (attempt) => {
-    if (!ctx.keepSentAttempt) return;
+    if (!ctx.keepSentAttempt) return true;
     try {
       await ctx.keepSentAttempt(attempt);
+      return true;
     } catch {
       log('send attempt not kept on the draft');
+      return false;
     }
   };
 
@@ -283,7 +286,11 @@ export async function submitApplication(ctx) {
     }
     // Claimed: from here the outcome may stay unknown, so the record goes on the draft before the send.
     // After the claim, never before: a re-dispatched run that finds the round in flight keeps this one's.
-    await keepAttempt(sentRecord);
+    // Not durable: nothing leaves, and the claim goes back for the retry.
+    if (!(await keepAttempt(sentRecord))) {
+      if (guard) await guard.release('sent_attempt_not_stored', nowMs);
+      return { type: 'submit_failed', error: 'sent_attempt_not_stored' };
+    }
     const { failed, sent } = await sendCascade(
       [{ payload, recipient: { email: to }, meta: { orderId: String(orderId), key: 'employer_application' } }],
       { delayMs: 0, forceProvider: 'resend' },
@@ -353,6 +360,9 @@ export async function submitApplication(ctx) {
     // Set once `clickedAt` is on record, right before the final click.
     let clicked = false;
     let succeeded = false;
+    // The attempt on the draft at the final click: kept, or not durable (then no click).
+    let attemptKept = false;
+    let attemptNotStored = false;
     try {
       dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-'));
       const letter = await letterForSubmission({ bucket, order, orderId, draft, flow, nowMs });
@@ -394,7 +404,7 @@ export async function submitApplication(ctx) {
       // A round the guard releases sent nothing: the attempt recorded at its final click is no record.
       const release = async (reason) => {
         await guard.release(reason);
-        if (clicked) await keepAttempt(null);
+        if (attemptKept) await keepAttempt(null);
       };
       const portalQuestions = (draft.questions || []).filter((question) => question.source === 'portal');
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
@@ -413,11 +423,18 @@ export async function submitApplication(ctx) {
         log,
         dryRun: Boolean(ctx.dryRun),
         onBeforeSubmit: guard ? async (form = {}) => {
+          // From here the outcome may stay unknown: what the form holds goes on the draft first, durably, or
+          // the click does not happen (submitViaPortal does not catch this throw: see the catch below).
+          const attempt = await portalRecord(form.uploads, 'sent').catch(() => null);
+          if (attempt) {
+            if (!(await keepAttempt(attempt))) {
+              attemptNotStored = true;
+              throw new Error('sent_attempt_not_stored');
+            }
+            attemptKept = true;
+          }
           await guard.markClicked(Date.now());
           clicked = true;
-          // From here the outcome may stay unknown: what the form holds goes on the draft first. Never fails the click.
-          const attempt = await portalRecord(form.uploads, 'sent').catch(() => null);
-          if (attempt) await keepAttempt(attempt);
         } : null,
       });
       succeeded = event.type === 'submit_succeeded';
@@ -451,7 +468,10 @@ export async function submitApplication(ctx) {
       // reached the employer, so the claim is released for the retry.
       if (guard && !clicked && !succeeded) {
         await guard.release(`error: ${error instanceof Error ? error.message : String(error)}`).catch(() => {});
+        // An attempt written for a click that never happened is no record.
+        if (attemptKept) await keepAttempt(null);
       }
+      if (attemptNotStored) return { type: 'submit_failed', error: 'sent_attempt_not_stored' };
       throw error;
     } finally {
       if (dir) await rm(dir, { recursive: true, force: true });

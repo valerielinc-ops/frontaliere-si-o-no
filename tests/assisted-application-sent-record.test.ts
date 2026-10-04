@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { readFileSync } from 'node:fs';
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { jsPDF } from 'jspdf';
 import sharp from 'sharp';
@@ -487,6 +488,44 @@ describe('an uncertain send keeps its record until it is confirmed', () => {
     expect(draft().sent).toBeUndefined();
     expect(store.read(`${BASE}/automation/submission`)!.r1).toMatchObject({ state: 'failed', reason: 'email_failed' });
   }, 60_000);
+
+  it('sends nothing and gives the claim back when the attempt cannot be kept on the draft (review of #11505)', async () => {
+    const { store } = await ambiguousSetup();
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend', messageId: 'm1' }] }));
+    const event = await submit({ sendCascade, keepSentAttempt: async () => { throw new Error('firestore unavailable'); }, submissionGuard: submissionGuard(store.db, ORDER, 1) });
+    // Without a durable attempt an unknown outcome could never be confirmed: nothing leaves, the retry is safe.
+    expect(event).toEqual({ type: 'submit_failed', error: 'sent_attempt_not_stored' });
+    expect(sendCascade).not.toHaveBeenCalled();
+    expect(store.read(`${BASE}/automation/submission`)!.r1).toMatchObject({ state: 'failed', reason: 'sent_attempt_not_stored' });
+  }, 60_000);
+
+  it('does not press a portal’s final button when the attempt cannot be kept on the draft (review of #11505)', async () => {
+    const portalDraft = draftFor({ channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/spital/1/apply' } });
+    const uploads = [{ document: 'cv' }, { document: 'cover_letter' }];
+    let pressed = false;
+    const runner = vi.fn(async (ctx: any) => {
+      await ctx.onBeforeSubmit({ uploads });
+      pressed = true;
+      return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [], uploads } };
+    });
+    const { store } = await ambiguousSetup();
+    const event = await submit({ draft: portalDraft, codex: vi.fn(), portalRunner: runner, keepSentAttempt: async () => { throw new Error('firestore unavailable'); }, submissionGuard: submissionGuard(store.db, ORDER, 1) });
+    expect(event).toEqual({ type: 'submit_failed', error: 'sent_attempt_not_stored' });
+    expect(pressed).toBe(false);
+    // Released, not «sending»: nothing reached the employer.
+    expect(store.read(`${BASE}/automation/submission`)!.r1).toMatchObject({ state: 'failed' });
+  }, 60_000);
+
+  it('agent.mjs keeps the record of what left before every other after-send write (review of #11505)', () => {
+    const src = readFileSync('scripts/assisted-application/agent.mjs', 'utf8');
+    const submitAt = src.indexOf('const event = await submitApplication(');
+    const keepAt = src.indexOf('await keepSentRecord(event', submitAt);
+    expect(submitAt).toBeGreaterThan(-1);
+    expect(keepAt).toBeGreaterThan(submitAt);
+    for (const later of ['await scheduleFollowups(', "submissionChannel: 'whatsapp'", 'portalAnswers: event.portalAnswers', 'takeFactCheck(event', 'await report(event)']) {
+      expect([later, src.indexOf(later, submitAt) > keepAt]).toEqual([later, true]);
+    }
+  });
 
   it('records what a portal form held when its final button was pressed, and clears it when the portal says it did not send', async () => {
     const portalDraft = draftFor({ channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/spital/1/apply' } });

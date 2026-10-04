@@ -211,6 +211,10 @@ async function main() {
       // for certain). A dry run sends nothing.
       keepSentAttempt: dryRun ? null : (sentAttempt) => orderRef.collection('ai_drafts').doc('current').set({ sentAttempt }, { merge: true }),
     });
+    // What left (lib/submit.mjs), on the draft first: before the event marks the order sent (whatever it
+    // sets off, the candidate's «inviata» e-mail and the review page, finds it there), and before every
+    // other after-send write, so one of them failing never loses the record of a send that happened.
+    await keepSentRecord(event, { draftRef: orderRef.collection('ai_drafts').doc('current'), dryRun });
     // An application sent by e-mail gets its follow-ups (day 7 and 14); the
     // recipient and subject stay in Firestore, not in the automation event.
     if (event.followup && !dryRun) {
@@ -256,9 +260,6 @@ async function main() {
       await orderRef.collection('ai_drafts').doc('current').set({ questions: [...(previousDraft.questions || []), ...added] }, { merge: true });
       event.questions = event.questions.map((question) => ({ id: question.id }));
     }
-    // What left (lib/submit.mjs), on the draft before the event marks the order sent: whatever the
-    // event sets off (the candidate's «inviata» e-mail, the review page) finds it there.
-    await keepSentRecord(event, { draftRef: orderRef.collection('ai_drafts').doc('current'), dryRun });
     await report(event);
   } catch (error) {
     await report({ type: 'submit_failed', error: safeErrorCode(error) });

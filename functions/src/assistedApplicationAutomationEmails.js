@@ -376,6 +376,7 @@ const RUNNER_ERRORS = [
   [/^portal_validation$/, 'il portale ha rifiutato i dati del modulo'],
   // The runner keeps what leaves next to the order before sending (submit.mjs).
   [/^sent_files_not_stored$/, 'lo Storage non ha salvato i file della candidatura, quindi l’email NON è partita'],
+  [/^sent_attempt_not_stored$/, 'la bozza non ha registrato il tentativo d’invio, quindi la candidatura NON è partita'],
 ];
 const STAGE_LABELS = { draft: 'la bozza non è stata generata', submit: 'l’invio non è riuscito' };
 // Why the portal runner stopped (scripts/assisted-application/lib/portal/portal.mjs).
@@ -409,6 +410,7 @@ const RUNNER_HINTS = {
   fact_check_not_acknowledged: 'Non è partito nulla. Nel pannello della coda trovi i fatti che il controllo non trova nel CV: se sono corretti spunta «Ho verificato», altrimenti correggi i testi e salva le modifiche; poi premi «Riprova l’invio automatico».',
   // The files are kept before the send is claimed: nothing left either.
   sent_files_not_stored: 'Non è partito nulla e non c’è niente da controllare presso il datore: «Riprova l’invio automatico».',
+  sent_attempt_not_stored: 'Non è partito nulla e non c’è niente da controllare presso il datore: «Riprova l’invio automatico».',
 };
 
 /**
