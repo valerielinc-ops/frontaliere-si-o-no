@@ -1,0 +1,2545 @@
+{
+  "_what": "Fotografia aggregata di un esperimento di ordinamento degli annunci nelle email (job alert e newsletter): impression, clic e CTR per variante, superficie, giorno e posizione, più clic per invio e per utente. Solo aggregati: nessun identificativo.",
+  "_how": "node scripts/report-job-email-ranking-experiment.mjs (vedi docblock). Eventi letti per range di occurred_at e classificati nel codice; somme esatte da job_email_ranking_stats; CTR in percentuale con 4 decimali.",
+  "schema_version": 1,
+  "generated_at": "2026-10-03T20:04:38.592Z",
+  "experiment": "Ranking CTR degli annunci nelle email (control contro treatment, PR 7933)",
+  "notes": [
+    "Il trattamento CTR è rimasto attivo dopo la fine del periodo fino alla sostituzione con la variante affinity: i dati successivi non sono in questa fotografia.",
+    "Parametri effettivi = default del codice (JOB_EMAIL_RANKING_DEFAULTS): nel template Remote Config non esiste alcun parametro JOB_EMAIL_RANKING_* (verificato in parameters.remote_config).",
+    "Assegnazione: hash stabile di superficie + campagna + destinatario, quota rollout in treatment; lo stesso utente può cadere in varianti diverse su campagne diverse (per esempio newsletter di settimane diverse).",
+    "I dati grezzi in Firestore hanno TTL di 100 giorni (expires_at): quelli del 2026-09-08 spariscono intorno al 2026-12-17, questa fotografia ne resta l'unica copia.",
+    "Impression: gli eventi del control sono 17 in meno delle stats (397.804 contro 397.821, 0,004%). Lo store scrive un solo documento evento per consegna + annuncio (id deterministico) mentre le stats sommano ogni riga: una consegna registrata due volte, o un annuncio ripetuto nella stessa consegna, conta due nelle stats e uno negli eventi. Clic: eventi e stats coincidono (3.088).",
+    "Filtro dei clic: nessun clic scartato (0 duplicati, 0 raffiche). Verifica incrociata fatta il 2026-10-03 fuori da questo script sugli eventi di click dei subscriber (che portano IP e user-agent): sui 4.048 clic con link di ranking dal 2026-08-04 nessuna consegna supera 4 annunci distinti in 3 secondi, quindi la regola delle raffiche non avrebbe scartato nulla; 32 di quei clic venivano da IP o user-agent di scanner, che i documenti di job_email_ranking_events non permettono di riconoscere (circa 1% dei clic, distribuito su entrambe le varianti).",
+    "Filtro raffiche rifinito dopo il run (review della PR 11258): i clic legacy senza delivery_id ora si raggruppano per utente pseudonimo + superficie + surface_id invece che per solo utente. I numeri di questa fotografia non cambiano: il raggruppamento più grossolano usato nel run non aveva scartato nessun clic (dropped_burst 0), e uno più fine può solo scartarne meno."
+  ],
+  "period": {
+    "from": "2026-09-08T00:00:00.000Z",
+    "to": "2026-10-03T20:04:38.591Z",
+    "requested_to": "2026-10-04T00:00:00.000Z",
+    "truncated_to_run_time": true,
+    "events_window": "occurred_at in [from, to): impression per data di invio, clic per data del clic",
+    "stats_window": "date (giorno UTC) in [2026-09-08, 2026-10-03]"
+  },
+  "ranking_module": {
+    "file": "functions/src/lib/jobEmailRanking.js",
+    "in_force_at_start_commit": null,
+    "changes_during_period": [
+      {
+        "commit": "07fe34acf03aed20b7d325c7d6de56874b803a43",
+        "date": "2026-09-08T09:05:46Z",
+        "subject": "feat: ranking CTR per job alert e newsletter (#7922) (#7933)"
+      },
+      {
+        "commit": "32135e9450d1e297c0d302ddd15a28acf368a973",
+        "date": "2026-09-09T12:59:20Z",
+        "subject": "fix(build): togli node:crypto dal grafo del bundle browser (#8123)"
+      },
+      {
+        "commit": "f06ee2991a9cbd7b0f130076a68547678520faa9",
+        "date": "2026-09-10T19:20:34Z",
+        "subject": "fix(newsletter): keep ranking output and card counts aligned (#8231)"
+      },
+      {
+        "commit": "a4264cca885f60e52e62d5e8826d95bc1c29d96b",
+        "date": "2026-09-11T10:40:18Z",
+        "subject": "fix(ranking): keep browser helpers at leaf boundary (#8304)"
+      },
+      {
+        "commit": "fbb341ab983652aad11796736707fdeff19c63cb",
+        "date": "2026-09-22T12:10:05Z",
+        "subject": "fix(job-alert): diversify equal company ranks (#9533)"
+      }
+    ],
+    "in_force_at_end_commit": "fbb341ab983652aad11796736707fdeff19c63cb"
+  },
+  "parameters": {
+    "code_defaults": {
+      "enabled": true,
+      "rollout": 0.15,
+      "alpha": 0.8,
+      "epsilon": 0.15,
+      "windowDays": 60,
+      "shrinkK": 25,
+      "minImpressions": 50,
+      "newJobBoost": 0.15,
+      "maxConsecutiveExposures": 3
+    },
+    "remote_config": {
+      "checked": true,
+      "template_version": "146",
+      "job_email_ranking_parameters": {}
+    }
+  },
+  "sources": {
+    "stats": "job_email_ranking_stats",
+    "events": "job_email_ranking_events",
+    "deliveries": null,
+    "retention_days": 100
+  },
+  "click_filter": {
+    "dedupe": "una sola volta per consegna + annuncio (delivery_id + job_id); i link legacy senza delivery_id ricadono su utente pseudonimo + superficie + annuncio",
+    "burst": {
+      "rule": "stessa consegna con 5 o più clic (annunci distinti) entro 3 s: tutti i clic della finestra sono scartati",
+      "window_ms": 3000,
+      "min_clicks": 5,
+      "source": "functions/src/lib/syntheticClicks.js (SCAN_BURST_WINDOW_MS, SCAN_BURST_MIN_TARGETS)"
+    },
+    "not_applicable": "IP scanner, user-agent di automazione e link di opt-out: i documenti clic di job_email_ranking_events non portano IP né user-agent e contengono solo link di annunci",
+    "same_for_every_variant": true
+  },
+  "reads": {
+    "events": 471295,
+    "stats": 113454,
+    "deliveries": 0,
+    "total": 584749,
+    "events_documents": 471295,
+    "stats_documents": 113454
+  },
+  "unclassified_events": 0,
+  "click_filter_effect": {
+    "clicks_before_filter": 3088,
+    "dropped_duplicate": 0,
+    "dropped_burst": 0,
+    "clicks_after_filter": 3088
+  },
+  "events": {
+    "variants": [
+      "control",
+      "treatment"
+    ],
+    "totals": {
+      "impressions": 468207,
+      "clicks": 3088,
+      "clicks_before_filter": 3088,
+      "ctr_pct": 0.6595,
+      "ctr_pct_before_filter": 0.6595
+    },
+    "by_variant_surface": {
+      "control": {
+        "all": {
+          "impressions": 397804,
+          "clicks": 2660,
+          "ctr_pct": 0.6687,
+          "clicks_before_filter": 2660,
+          "ctr_pct_before_filter": 0.6687
+        },
+        "job_alert": {
+          "impressions": 299624,
+          "clicks": 2109,
+          "ctr_pct": 0.7039,
+          "clicks_before_filter": 2109,
+          "ctr_pct_before_filter": 0.7039
+        },
+        "newsletter": {
+          "impressions": 98180,
+          "clicks": 551,
+          "ctr_pct": 0.5612,
+          "clicks_before_filter": 551,
+          "ctr_pct_before_filter": 0.5612
+        }
+      },
+      "treatment": {
+        "all": {
+          "impressions": 70403,
+          "clicks": 428,
+          "ctr_pct": 0.6079,
+          "clicks_before_filter": 428,
+          "ctr_pct_before_filter": 0.6079
+        },
+        "job_alert": {
+          "impressions": 53227,
+          "clicks": 349,
+          "ctr_pct": 0.6557,
+          "clicks_before_filter": 349,
+          "ctr_pct_before_filter": 0.6557
+        },
+        "newsletter": {
+          "impressions": 17176,
+          "clicks": 79,
+          "ctr_pct": 0.4599,
+          "clicks_before_filter": 79,
+          "ctr_pct_before_filter": 0.4599
+        }
+      }
+    },
+    "by_variant_surface_day": [
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-08",
+        "impressions": 43,
+        "clicks": 1,
+        "ctr_pct": 2.3256
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-08",
+        "impressions": 13,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-09",
+        "impressions": 14985,
+        "clicks": 66,
+        "ctr_pct": 0.4404
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-09",
+        "impressions": 3660,
+        "clicks": 2,
+        "ctr_pct": 0.0546
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-09",
+        "impressions": 2812,
+        "clicks": 12,
+        "ctr_pct": 0.4267
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-09",
+        "impressions": 636,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-10",
+        "impressions": 14440,
+        "clicks": 82,
+        "ctr_pct": 0.5679
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-10",
+        "impressions": 588,
+        "clicks": 6,
+        "ctr_pct": 1.0204
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-10",
+        "impressions": 2472,
+        "clicks": 14,
+        "ctr_pct": 0.5663
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-10",
+        "impressions": 96,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-11",
+        "impressions": 13205,
+        "clicks": 117,
+        "ctr_pct": 0.886
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-11",
+        "impressions": 372,
+        "clicks": 5,
+        "ctr_pct": 1.3441
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-11",
+        "impressions": 2334,
+        "clicks": 18,
+        "ctr_pct": 0.7712
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-11",
+        "impressions": 60,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-12",
+        "impressions": 2277,
+        "clicks": 28,
+        "ctr_pct": 1.2297
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-12",
+        "impressions": 112,
+        "clicks": 7,
+        "ctr_pct": 6.25
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-12",
+        "impressions": 363,
+        "clicks": 9,
+        "ctr_pct": 2.4793
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-12",
+        "impressions": 32,
+        "clicks": 1,
+        "ctr_pct": 3.125
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-13",
+        "impressions": 2250,
+        "clicks": 37,
+        "ctr_pct": 1.6444
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-13",
+        "impressions": 372,
+        "clicks": 7,
+        "ctr_pct": 1.8817
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-13",
+        "impressions": 407,
+        "clicks": 2,
+        "ctr_pct": 0.4914
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-13",
+        "impressions": 60,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-14",
+        "impressions": 2294,
+        "clicks": 43,
+        "ctr_pct": 1.8745
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-14",
+        "impressions": 4168,
+        "clicks": 16,
+        "ctr_pct": 0.3839
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-14",
+        "impressions": 392,
+        "clicks": 5,
+        "ctr_pct": 1.2755
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-14",
+        "impressions": 772,
+        "clicks": 2,
+        "ctr_pct": 0.2591
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-15",
+        "impressions": 1498,
+        "clicks": 26,
+        "ctr_pct": 1.7356
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-15",
+        "impressions": 376,
+        "clicks": 5,
+        "ctr_pct": 1.3298
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-15",
+        "impressions": 309,
+        "clicks": 3,
+        "ctr_pct": 0.9709
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-15",
+        "impressions": 56,
+        "clicks": 1,
+        "ctr_pct": 1.7857
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-16",
+        "impressions": 371,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-16",
+        "impressions": 12956,
+        "clicks": 97,
+        "ctr_pct": 0.7487
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-16",
+        "impressions": 48,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-16",
+        "impressions": 2376,
+        "clicks": 12,
+        "ctr_pct": 0.5051
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-17",
+        "impressions": 8707,
+        "clicks": 9,
+        "ctr_pct": 0.1034
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-17",
+        "impressions": 12068,
+        "clicks": 76,
+        "ctr_pct": 0.6298
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-17",
+        "impressions": 1540,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-17",
+        "impressions": 2172,
+        "clicks": 11,
+        "ctr_pct": 0.5064
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-18",
+        "impressions": 16373,
+        "clicks": 76,
+        "ctr_pct": 0.4642
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-18",
+        "impressions": 632,
+        "clicks": 14,
+        "ctr_pct": 2.2152
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-18",
+        "impressions": 2608,
+        "clicks": 8,
+        "ctr_pct": 0.3067
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-18",
+        "impressions": 124,
+        "clicks": 2,
+        "ctr_pct": 1.6129
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-19",
+        "impressions": 13105,
+        "clicks": 58,
+        "ctr_pct": 0.4426
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-19",
+        "impressions": 268,
+        "clicks": 11,
+        "ctr_pct": 4.1045
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-19",
+        "impressions": 2282,
+        "clicks": 7,
+        "ctr_pct": 0.3067
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-19",
+        "impressions": 64,
+        "clicks": 2,
+        "ctr_pct": 3.125
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-20",
+        "impressions": 12493,
+        "clicks": 77,
+        "ctr_pct": 0.6163
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-20",
+        "impressions": 312,
+        "clicks": 8,
+        "ctr_pct": 2.5641
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-20",
+        "impressions": 2067,
+        "clicks": 15,
+        "ctr_pct": 0.7257
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-20",
+        "impressions": 28,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-21",
+        "impressions": 4398,
+        "clicks": 59,
+        "ctr_pct": 1.3415
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-21",
+        "impressions": 13168,
+        "clicks": 50,
+        "ctr_pct": 0.3797
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-21",
+        "impressions": 808,
+        "clicks": 10,
+        "ctr_pct": 1.2376
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-21",
+        "impressions": 2160,
+        "clicks": 10,
+        "ctr_pct": 0.463
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-22",
+        "impressions": 3152,
+        "clicks": 39,
+        "ctr_pct": 1.2373
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-22",
+        "impressions": 13100,
+        "clicks": 57,
+        "ctr_pct": 0.4351
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-22",
+        "impressions": 614,
+        "clicks": 9,
+        "ctr_pct": 1.4658
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-22",
+        "impressions": 2232,
+        "clicks": 9,
+        "ctr_pct": 0.4032
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-23",
+        "impressions": 10030,
+        "clicks": 64,
+        "ctr_pct": 0.6381
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-23",
+        "impressions": 3220,
+        "clicks": 19,
+        "ctr_pct": 0.5901
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-23",
+        "impressions": 1848,
+        "clicks": 5,
+        "ctr_pct": 0.2706
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-23",
+        "impressions": 544,
+        "clicks": 1,
+        "ctr_pct": 0.1838
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-24",
+        "impressions": 11687,
+        "clicks": 50,
+        "ctr_pct": 0.4278
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-24",
+        "impressions": 1136,
+        "clicks": 7,
+        "ctr_pct": 0.6162
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-24",
+        "impressions": 2197,
+        "clicks": 8,
+        "ctr_pct": 0.3641
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-24",
+        "impressions": 216,
+        "clicks": 3,
+        "ctr_pct": 1.3889
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-25",
+        "impressions": 18244,
+        "clicks": 103,
+        "ctr_pct": 0.5646
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-25",
+        "impressions": 168,
+        "clicks": 3,
+        "ctr_pct": 1.7857
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-25",
+        "impressions": 3327,
+        "clicks": 20,
+        "ctr_pct": 0.6011
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-25",
+        "impressions": 8,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-26",
+        "impressions": 20247,
+        "clicks": 95,
+        "ctr_pct": 0.4692
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-26",
+        "impressions": 880,
+        "clicks": 7,
+        "ctr_pct": 0.7955
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-26",
+        "impressions": 3715,
+        "clicks": 15,
+        "ctr_pct": 0.4038
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-26",
+        "impressions": 140,
+        "clicks": 2,
+        "ctr_pct": 1.4286
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-27",
+        "impressions": 15006,
+        "clicks": 138,
+        "ctr_pct": 0.9196
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-27",
+        "impressions": 384,
+        "clicks": 3,
+        "ctr_pct": 0.7813
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-27",
+        "impressions": 2517,
+        "clicks": 45,
+        "ctr_pct": 1.7878
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-27",
+        "impressions": 52,
+        "clicks": 2,
+        "ctr_pct": 3.8462
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-28",
+        "impressions": 22524,
+        "clicks": 240,
+        "ctr_pct": 1.0655
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-28",
+        "impressions": 0,
+        "clicks": 2,
+        "ctr_pct": null
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-28",
+        "impressions": 4295,
+        "clicks": 40,
+        "ctr_pct": 0.9313
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-29",
+        "impressions": 17081,
+        "clicks": 184,
+        "ctr_pct": 1.0772
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-29",
+        "impressions": 18988,
+        "clicks": 57,
+        "ctr_pct": 0.3002
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-29",
+        "impressions": 2933,
+        "clicks": 24,
+        "ctr_pct": 0.8183
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-29",
+        "impressions": 3364,
+        "clicks": 8,
+        "ctr_pct": 0.2378
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-30",
+        "impressions": 7912,
+        "clicks": 112,
+        "ctr_pct": 1.4156
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-30",
+        "impressions": 6196,
+        "clicks": 37,
+        "ctr_pct": 0.5972
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-30",
+        "impressions": 1188,
+        "clicks": 20,
+        "ctr_pct": 1.6835
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-30",
+        "impressions": 1144,
+        "clicks": 9,
+        "ctr_pct": 0.7867
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-10-01",
+        "impressions": 26027,
+        "clicks": 151,
+        "ctr_pct": 0.5802
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-10-01",
+        "impressions": 3928,
+        "clicks": 20,
+        "ctr_pct": 0.5092
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-10-01",
+        "impressions": 5066,
+        "clicks": 23,
+        "ctr_pct": 0.454
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-10-01",
+        "impressions": 624,
+        "clicks": 3,
+        "ctr_pct": 0.4808
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-10-02",
+        "impressions": 18334,
+        "clicks": 134,
+        "ctr_pct": 0.7309
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-10-02",
+        "impressions": 632,
+        "clicks": 21,
+        "ctr_pct": 3.3228
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-10-02",
+        "impressions": 3030,
+        "clicks": 27,
+        "ctr_pct": 0.8911
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-10-02",
+        "impressions": 96,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-10-03",
+        "impressions": 22941,
+        "clicks": 120,
+        "ctr_pct": 0.5231
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-10-03",
+        "impressions": 496,
+        "clicks": 14,
+        "ctr_pct": 2.8226
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-10-03",
+        "impressions": 4042,
+        "clicks": 10,
+        "ctr_pct": 0.2474
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-10-03",
+        "impressions": 120,
+        "clicks": 1,
+        "ctr_pct": 0.8333
+      }
+    ],
+    "by_variant_surface_position": [
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "position": "1",
+        "impressions": 36103,
+        "clicks": 777,
+        "ctr_pct": 2.1522
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "position": "2",
+        "impressions": 32798,
+        "clicks": 286,
+        "ctr_pct": 0.872
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "position": "3",
+        "impressions": 31407,
+        "clicks": 197,
+        "ctr_pct": 0.6272
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "position": "4",
+        "impressions": 30550,
+        "clicks": 152,
+        "ctr_pct": 0.4975
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "position": "5",
+        "impressions": 29768,
+        "clicks": 122,
+        "ctr_pct": 0.4098
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "position": "6",
+        "impressions": 29104,
+        "clicks": 116,
+        "ctr_pct": 0.3986
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "position": "7",
+        "impressions": 28451,
+        "clicks": 128,
+        "ctr_pct": 0.4499
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "position": "8",
+        "impressions": 27967,
+        "clicks": 98,
+        "ctr_pct": 0.3504
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "position": "9",
+        "impressions": 27325,
+        "clicks": 122,
+        "ctr_pct": 0.4465
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "position": "10",
+        "impressions": 26151,
+        "clicks": 111,
+        "ctr_pct": 0.4245
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "position": "1",
+        "impressions": 24545,
+        "clicks": 223,
+        "ctr_pct": 0.9085
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "position": "2",
+        "impressions": 24545,
+        "clicks": 132,
+        "ctr_pct": 0.5378
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "position": "3",
+        "impressions": 24545,
+        "clicks": 119,
+        "ctr_pct": 0.4848
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "position": "4",
+        "impressions": 24545,
+        "clicks": 77,
+        "ctr_pct": 0.3137
+      },
+      {
+        "variant": "control",
+        "surface": "all",
+        "position": "1",
+        "impressions": 60648,
+        "clicks": 1000,
+        "ctr_pct": 1.6489
+      },
+      {
+        "variant": "control",
+        "surface": "all",
+        "position": "2",
+        "impressions": 57343,
+        "clicks": 418,
+        "ctr_pct": 0.7289
+      },
+      {
+        "variant": "control",
+        "surface": "all",
+        "position": "3",
+        "impressions": 55952,
+        "clicks": 316,
+        "ctr_pct": 0.5648
+      },
+      {
+        "variant": "control",
+        "surface": "all",
+        "position": "4",
+        "impressions": 55095,
+        "clicks": 229,
+        "ctr_pct": 0.4156
+      },
+      {
+        "variant": "control",
+        "surface": "all",
+        "position": "5",
+        "impressions": 29768,
+        "clicks": 122,
+        "ctr_pct": 0.4098
+      },
+      {
+        "variant": "control",
+        "surface": "all",
+        "position": "6",
+        "impressions": 29104,
+        "clicks": 116,
+        "ctr_pct": 0.3986
+      },
+      {
+        "variant": "control",
+        "surface": "all",
+        "position": "7",
+        "impressions": 28451,
+        "clicks": 128,
+        "ctr_pct": 0.4499
+      },
+      {
+        "variant": "control",
+        "surface": "all",
+        "position": "8",
+        "impressions": 27967,
+        "clicks": 98,
+        "ctr_pct": 0.3504
+      },
+      {
+        "variant": "control",
+        "surface": "all",
+        "position": "9",
+        "impressions": 27325,
+        "clicks": 122,
+        "ctr_pct": 0.4465
+      },
+      {
+        "variant": "control",
+        "surface": "all",
+        "position": "10",
+        "impressions": 26151,
+        "clicks": 111,
+        "ctr_pct": 0.4245
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "position": "1",
+        "impressions": 6381,
+        "clicks": 129,
+        "ctr_pct": 2.0216
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "position": "2",
+        "impressions": 5818,
+        "clicks": 43,
+        "ctr_pct": 0.7391
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "position": "3",
+        "impressions": 5586,
+        "clicks": 26,
+        "ctr_pct": 0.4654
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "position": "4",
+        "impressions": 5443,
+        "clicks": 32,
+        "ctr_pct": 0.5879
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "position": "5",
+        "impressions": 5279,
+        "clicks": 24,
+        "ctr_pct": 0.4546
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "position": "6",
+        "impressions": 5156,
+        "clicks": 20,
+        "ctr_pct": 0.3879
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "position": "7",
+        "impressions": 5031,
+        "clicks": 26,
+        "ctr_pct": 0.5168
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "position": "8",
+        "impressions": 4968,
+        "clicks": 10,
+        "ctr_pct": 0.2013
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "position": "9",
+        "impressions": 4881,
+        "clicks": 22,
+        "ctr_pct": 0.4507
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "position": "10",
+        "impressions": 4684,
+        "clicks": 17,
+        "ctr_pct": 0.3629
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "position": "1",
+        "impressions": 4294,
+        "clicks": 31,
+        "ctr_pct": 0.7219
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "position": "2",
+        "impressions": 4294,
+        "clicks": 17,
+        "ctr_pct": 0.3959
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "position": "3",
+        "impressions": 4294,
+        "clicks": 20,
+        "ctr_pct": 0.4658
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "position": "4",
+        "impressions": 4294,
+        "clicks": 11,
+        "ctr_pct": 0.2562
+      },
+      {
+        "variant": "treatment",
+        "surface": "all",
+        "position": "1",
+        "impressions": 10675,
+        "clicks": 160,
+        "ctr_pct": 1.4988
+      },
+      {
+        "variant": "treatment",
+        "surface": "all",
+        "position": "2",
+        "impressions": 10112,
+        "clicks": 60,
+        "ctr_pct": 0.5934
+      },
+      {
+        "variant": "treatment",
+        "surface": "all",
+        "position": "3",
+        "impressions": 9880,
+        "clicks": 46,
+        "ctr_pct": 0.4656
+      },
+      {
+        "variant": "treatment",
+        "surface": "all",
+        "position": "4",
+        "impressions": 9737,
+        "clicks": 43,
+        "ctr_pct": 0.4416
+      },
+      {
+        "variant": "treatment",
+        "surface": "all",
+        "position": "5",
+        "impressions": 5279,
+        "clicks": 24,
+        "ctr_pct": 0.4546
+      },
+      {
+        "variant": "treatment",
+        "surface": "all",
+        "position": "6",
+        "impressions": 5156,
+        "clicks": 20,
+        "ctr_pct": 0.3879
+      },
+      {
+        "variant": "treatment",
+        "surface": "all",
+        "position": "7",
+        "impressions": 5031,
+        "clicks": 26,
+        "ctr_pct": 0.5168
+      },
+      {
+        "variant": "treatment",
+        "surface": "all",
+        "position": "8",
+        "impressions": 4968,
+        "clicks": 10,
+        "ctr_pct": 0.2013
+      },
+      {
+        "variant": "treatment",
+        "surface": "all",
+        "position": "9",
+        "impressions": 4881,
+        "clicks": 22,
+        "ctr_pct": 0.4507
+      },
+      {
+        "variant": "treatment",
+        "surface": "all",
+        "position": "10",
+        "impressions": 4684,
+        "clicks": 17,
+        "ctr_pct": 0.3629
+      }
+    ],
+    "per_delivery": {
+      "control": {
+        "job_alert": {
+          "deliveries": 36108,
+          "clicks": 2108,
+          "clicks_per_delivery": {
+            "n": 36108,
+            "mean": 0.05838,
+            "sd": 0.306634,
+            "ci95": [
+              0.055218,
+              0.061543
+            ],
+            "se": 0.00161368
+          }
+        },
+        "all": {
+          "deliveries": 60653,
+          "clicks": 2659,
+          "clicks_per_delivery": {
+            "n": 60653,
+            "mean": 0.04384,
+            "sd": 0.265781,
+            "ci95": [
+              0.041724,
+              0.045955
+            ],
+            "se": 0.00107919
+          }
+        },
+        "newsletter": {
+          "deliveries": 24545,
+          "clicks": 551,
+          "clicks_per_delivery": {
+            "n": 24545,
+            "mean": 0.022449,
+            "sd": 0.188341,
+            "ci95": [
+              0.020092,
+              0.024805
+            ],
+            "se": 0.00120216
+          }
+        }
+      },
+      "treatment": {
+        "job_alert": {
+          "deliveries": 6381,
+          "clicks": 349,
+          "clicks_per_delivery": {
+            "n": 6381,
+            "mean": 0.054694,
+            "sd": 0.295714,
+            "ci95": [
+              0.047438,
+              0.061949
+            ],
+            "se": 0.00370193
+          }
+        },
+        "all": {
+          "deliveries": 10675,
+          "clicks": 428,
+          "clicks_per_delivery": {
+            "n": 10675,
+            "mean": 0.040094,
+            "sd": 0.25514,
+            "ci95": [
+              0.035254,
+              0.044934
+            ],
+            "se": 0.00246942
+          }
+        },
+        "newsletter": {
+          "deliveries": 4294,
+          "clicks": 79,
+          "clicks_per_delivery": {
+            "n": 4294,
+            "mean": 0.018398,
+            "sd": 0.176375,
+            "ci95": [
+              0.013122,
+              0.023673
+            ],
+            "se": 0.00269157
+          }
+        }
+      }
+    },
+    "per_user": {
+      "control": {
+        "job_alert": {
+          "clicks_per_user": {
+            "n": 9996,
+            "mean": 0.210884,
+            "sd": 0.954988,
+            "ci95": [
+              0.192163,
+              0.229606
+            ],
+            "se": 0.00955179
+          },
+          "clicks_per_delivery_user_clustered": {
+            "users": 9996,
+            "deliveries": 36108,
+            "clicks": 2108,
+            "clicks_per_delivery": 0.05838,
+            "se": 0.00239186,
+            "ci95": [
+              0.053692,
+              0.063068
+            ]
+          }
+        },
+        "all": {
+          "clicks_per_user": {
+            "n": 11583,
+            "mean": 0.229561,
+            "sd": 0.973336,
+            "ci95": [
+              0.211835,
+              0.247286
+            ],
+            "se": 0.00904383
+          },
+          "clicks_per_delivery_user_clustered": {
+            "users": 11583,
+            "deliveries": 60653,
+            "clicks": 2659,
+            "clicks_per_delivery": 0.04384,
+            "se": 0.00161249,
+            "ci95": [
+              0.040679,
+              0.047
+            ]
+          }
+        },
+        "newsletter": {
+          "clicks_per_user": {
+            "n": 10270,
+            "mean": 0.053651,
+            "sd": 0.317233,
+            "ci95": [
+              0.047516,
+              0.059787
+            ],
+            "se": 0.00313035
+          },
+          "clicks_per_delivery_user_clustered": {
+            "users": 10270,
+            "deliveries": 24545,
+            "clicks": 551,
+            "clicks_per_delivery": 0.022449,
+            "se": 0.00131065,
+            "ci95": [
+              0.01988,
+              0.025017
+            ]
+          }
+        }
+      },
+      "treatment": {
+        "job_alert": {
+          "clicks_per_user": {
+            "n": 4255,
+            "mean": 0.082021,
+            "sd": 0.444994,
+            "ci95": [
+              0.068651,
+              0.095392
+            ],
+            "se": 0.00682188
+          },
+          "clicks_per_delivery_user_clustered": {
+            "users": 4255,
+            "deliveries": 6381,
+            "clicks": 349,
+            "clicks_per_delivery": 0.054694,
+            "se": 0.0044173,
+            "ci95": [
+              0.046036,
+              0.063351
+            ]
+          }
+        },
+        "all": {
+          "clicks_per_user": {
+            "n": 6648,
+            "mean": 0.06438,
+            "sd": 0.386403,
+            "ci95": [
+              0.055092,
+              0.073669
+            ],
+            "se": 0.00473909
+          },
+          "clicks_per_delivery_user_clustered": {
+            "users": 6648,
+            "deliveries": 10675,
+            "clicks": 428,
+            "clicks_per_delivery": 0.040094,
+            "se": 0.00288983,
+            "ci95": [
+              0.03443,
+              0.045758
+            ]
+          }
+        },
+        "newsletter": {
+          "clicks_per_user": {
+            "n": 3688,
+            "mean": 0.021421,
+            "sd": 0.191569,
+            "ci95": [
+              0.015238,
+              0.027604
+            ],
+            "se": 0.00315449
+          },
+          "clicks_per_delivery_user_clustered": {
+            "users": 3688,
+            "deliveries": 4294,
+            "clicks": 79,
+            "clicks_per_delivery": 0.018398,
+            "se": 0.00271196,
+            "ci95": [
+              0.013082,
+              0.023713
+            ]
+          }
+        }
+      }
+    },
+    "comparisons_vs_control": {
+      "treatment_vs_control": {
+        "job_alert": {
+          "clicks_per_delivery_user_clustered": {
+            "diff": -0.003686,
+            "se": 0.0050233,
+            "ci95": [
+              -0.013531,
+              0.006159
+            ],
+            "excludes_zero": false
+          },
+          "clicks_per_delivery_independent": {
+            "diff": -0.003686,
+            "se": 0.00403835,
+            "ci95": [
+              -0.011601,
+              0.004229
+            ],
+            "excludes_zero": false
+          }
+        },
+        "newsletter": {
+          "clicks_per_delivery_user_clustered": {
+            "diff": -0.004051,
+            "se": 0.00301206,
+            "ci95": [
+              -0.009955,
+              0.001853
+            ],
+            "excludes_zero": false
+          },
+          "clicks_per_delivery_independent": {
+            "diff": -0.004051,
+            "se": 0.00294784,
+            "ci95": [
+              -0.009829,
+              0.001727
+            ],
+            "excludes_zero": false
+          }
+        },
+        "all": {
+          "clicks_per_delivery_user_clustered": {
+            "diff": -0.003746,
+            "se": 0.00330927,
+            "ci95": [
+              -0.010232,
+              0.00274
+            ],
+            "excludes_zero": false
+          },
+          "clicks_per_delivery_independent": {
+            "diff": -0.003746,
+            "se": 0.00269494,
+            "ci95": [
+              -0.009028,
+              0.001536
+            ],
+            "excludes_zero": false
+          }
+        }
+      }
+    },
+    "clicks_without_delivery_in_period": 1
+  },
+  "stats_exact": {
+    "documents": 113454,
+    "totals": {
+      "impressions": 468224,
+      "clicks": 3088,
+      "ctr_pct": 0.6595,
+      "impressions_by_variant_sum": 468224,
+      "clicks_by_variant_sum": 3088
+    },
+    "by_variant_surface": {
+      "control": {
+        "all": {
+          "impressions": 397821,
+          "clicks": 2660,
+          "ctr_pct": 0.6686
+        },
+        "job_alert": {
+          "impressions": 299633,
+          "clicks": 2109,
+          "ctr_pct": 0.7039
+        },
+        "newsletter": {
+          "impressions": 98188,
+          "clicks": 551,
+          "ctr_pct": 0.5612
+        }
+      },
+      "treatment": {
+        "all": {
+          "impressions": 70403,
+          "clicks": 428,
+          "ctr_pct": 0.6079
+        },
+        "job_alert": {
+          "impressions": 53227,
+          "clicks": 349,
+          "ctr_pct": 0.6557
+        },
+        "newsletter": {
+          "impressions": 17176,
+          "clicks": 79,
+          "ctr_pct": 0.4599
+        }
+      }
+    },
+    "by_variant_surface_day": [
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-08",
+        "impressions": 43,
+        "clicks": 1,
+        "ctr_pct": 2.3256
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-08",
+        "impressions": 13,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-09",
+        "impressions": 14985,
+        "clicks": 66,
+        "ctr_pct": 0.4404
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-09",
+        "impressions": 3660,
+        "clicks": 2,
+        "ctr_pct": 0.0546
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-09",
+        "impressions": 2812,
+        "clicks": 12,
+        "ctr_pct": 0.4267
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-09",
+        "impressions": 636,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-10",
+        "impressions": 14440,
+        "clicks": 82,
+        "ctr_pct": 0.5679
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-10",
+        "impressions": 588,
+        "clicks": 6,
+        "ctr_pct": 1.0204
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-10",
+        "impressions": 2472,
+        "clicks": 14,
+        "ctr_pct": 0.5663
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-10",
+        "impressions": 96,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-11",
+        "impressions": 13205,
+        "clicks": 117,
+        "ctr_pct": 0.886
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-11",
+        "impressions": 372,
+        "clicks": 5,
+        "ctr_pct": 1.3441
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-11",
+        "impressions": 2334,
+        "clicks": 18,
+        "ctr_pct": 0.7712
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-11",
+        "impressions": 60,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-12",
+        "impressions": 2277,
+        "clicks": 28,
+        "ctr_pct": 1.2297
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-12",
+        "impressions": 112,
+        "clicks": 7,
+        "ctr_pct": 6.25
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-12",
+        "impressions": 363,
+        "clicks": 9,
+        "ctr_pct": 2.4793
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-12",
+        "impressions": 32,
+        "clicks": 1,
+        "ctr_pct": 3.125
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-13",
+        "impressions": 2250,
+        "clicks": 37,
+        "ctr_pct": 1.6444
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-13",
+        "impressions": 372,
+        "clicks": 7,
+        "ctr_pct": 1.8817
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-13",
+        "impressions": 407,
+        "clicks": 2,
+        "ctr_pct": 0.4914
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-13",
+        "impressions": 60,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-14",
+        "impressions": 2294,
+        "clicks": 43,
+        "ctr_pct": 1.8745
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-14",
+        "impressions": 4168,
+        "clicks": 16,
+        "ctr_pct": 0.3839
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-14",
+        "impressions": 392,
+        "clicks": 5,
+        "ctr_pct": 1.2755
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-14",
+        "impressions": 772,
+        "clicks": 2,
+        "ctr_pct": 0.2591
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-15",
+        "impressions": 1498,
+        "clicks": 26,
+        "ctr_pct": 1.7356
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-15",
+        "impressions": 376,
+        "clicks": 5,
+        "ctr_pct": 1.3298
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-15",
+        "impressions": 309,
+        "clicks": 3,
+        "ctr_pct": 0.9709
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-15",
+        "impressions": 56,
+        "clicks": 1,
+        "ctr_pct": 1.7857
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-16",
+        "impressions": 371,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-16",
+        "impressions": 12956,
+        "clicks": 97,
+        "ctr_pct": 0.7487
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-16",
+        "impressions": 48,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-16",
+        "impressions": 2376,
+        "clicks": 12,
+        "ctr_pct": 0.5051
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-17",
+        "impressions": 8707,
+        "clicks": 9,
+        "ctr_pct": 0.1034
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-17",
+        "impressions": 12072,
+        "clicks": 76,
+        "ctr_pct": 0.6296
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-17",
+        "impressions": 1540,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-17",
+        "impressions": 2172,
+        "clicks": 11,
+        "ctr_pct": 0.5064
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-18",
+        "impressions": 16373,
+        "clicks": 76,
+        "ctr_pct": 0.4642
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-18",
+        "impressions": 632,
+        "clicks": 14,
+        "ctr_pct": 2.2152
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-18",
+        "impressions": 2608,
+        "clicks": 8,
+        "ctr_pct": 0.3067
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-18",
+        "impressions": 124,
+        "clicks": 2,
+        "ctr_pct": 1.6129
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-19",
+        "impressions": 13105,
+        "clicks": 58,
+        "ctr_pct": 0.4426
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-19",
+        "impressions": 268,
+        "clicks": 11,
+        "ctr_pct": 4.1045
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-19",
+        "impressions": 2282,
+        "clicks": 7,
+        "ctr_pct": 0.3067
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-19",
+        "impressions": 64,
+        "clicks": 2,
+        "ctr_pct": 3.125
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-20",
+        "impressions": 12493,
+        "clicks": 77,
+        "ctr_pct": 0.6163
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-20",
+        "impressions": 312,
+        "clicks": 8,
+        "ctr_pct": 2.5641
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-20",
+        "impressions": 2067,
+        "clicks": 15,
+        "ctr_pct": 0.7257
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-20",
+        "impressions": 28,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-21",
+        "impressions": 4398,
+        "clicks": 59,
+        "ctr_pct": 1.3415
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-21",
+        "impressions": 13172,
+        "clicks": 50,
+        "ctr_pct": 0.3796
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-21",
+        "impressions": 808,
+        "clicks": 10,
+        "ctr_pct": 1.2376
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-21",
+        "impressions": 2160,
+        "clicks": 10,
+        "ctr_pct": 0.463
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-22",
+        "impressions": 3152,
+        "clicks": 39,
+        "ctr_pct": 1.2373
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-22",
+        "impressions": 13100,
+        "clicks": 57,
+        "ctr_pct": 0.4351
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-22",
+        "impressions": 614,
+        "clicks": 9,
+        "ctr_pct": 1.4658
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-22",
+        "impressions": 2232,
+        "clicks": 9,
+        "ctr_pct": 0.4032
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-23",
+        "impressions": 10030,
+        "clicks": 64,
+        "ctr_pct": 0.6381
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-23",
+        "impressions": 3220,
+        "clicks": 19,
+        "ctr_pct": 0.5901
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-23",
+        "impressions": 1848,
+        "clicks": 5,
+        "ctr_pct": 0.2706
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-23",
+        "impressions": 544,
+        "clicks": 1,
+        "ctr_pct": 0.1838
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-24",
+        "impressions": 11690,
+        "clicks": 50,
+        "ctr_pct": 0.4277
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-24",
+        "impressions": 1136,
+        "clicks": 7,
+        "ctr_pct": 0.6162
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-24",
+        "impressions": 2197,
+        "clicks": 8,
+        "ctr_pct": 0.3641
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-24",
+        "impressions": 216,
+        "clicks": 3,
+        "ctr_pct": 1.3889
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-25",
+        "impressions": 18245,
+        "clicks": 103,
+        "ctr_pct": 0.5645
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-25",
+        "impressions": 168,
+        "clicks": 3,
+        "ctr_pct": 1.7857
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-25",
+        "impressions": 3327,
+        "clicks": 20,
+        "ctr_pct": 0.6011
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-25",
+        "impressions": 8,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-26",
+        "impressions": 20247,
+        "clicks": 95,
+        "ctr_pct": 0.4692
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-26",
+        "impressions": 880,
+        "clicks": 7,
+        "ctr_pct": 0.7955
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-26",
+        "impressions": 3715,
+        "clicks": 15,
+        "ctr_pct": 0.4038
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-26",
+        "impressions": 140,
+        "clicks": 2,
+        "ctr_pct": 1.4286
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-27",
+        "impressions": 15006,
+        "clicks": 138,
+        "ctr_pct": 0.9196
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-27",
+        "impressions": 384,
+        "clicks": 3,
+        "ctr_pct": 0.7813
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-27",
+        "impressions": 2517,
+        "clicks": 45,
+        "ctr_pct": 1.7878
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-27",
+        "impressions": 52,
+        "clicks": 2,
+        "ctr_pct": 3.8462
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-28",
+        "impressions": 22526,
+        "clicks": 240,
+        "ctr_pct": 1.0654
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-28",
+        "impressions": 0,
+        "clicks": 2,
+        "ctr_pct": null
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-28",
+        "impressions": 4295,
+        "clicks": 40,
+        "ctr_pct": 0.9313
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-29",
+        "impressions": 17084,
+        "clicks": 184,
+        "ctr_pct": 1.077
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-29",
+        "impressions": 18988,
+        "clicks": 57,
+        "ctr_pct": 0.3002
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-29",
+        "impressions": 2933,
+        "clicks": 24,
+        "ctr_pct": 0.8183
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-29",
+        "impressions": 3364,
+        "clicks": 8,
+        "ctr_pct": 0.2378
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-09-30",
+        "impressions": 7912,
+        "clicks": 112,
+        "ctr_pct": 1.4156
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-09-30",
+        "impressions": 6196,
+        "clicks": 37,
+        "ctr_pct": 0.5972
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-09-30",
+        "impressions": 1188,
+        "clicks": 20,
+        "ctr_pct": 1.6835
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-09-30",
+        "impressions": 1144,
+        "clicks": 9,
+        "ctr_pct": 0.7867
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-10-01",
+        "impressions": 26027,
+        "clicks": 151,
+        "ctr_pct": 0.5802
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-10-01",
+        "impressions": 3928,
+        "clicks": 20,
+        "ctr_pct": 0.5092
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-10-01",
+        "impressions": 5066,
+        "clicks": 23,
+        "ctr_pct": 0.454
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-10-01",
+        "impressions": 624,
+        "clicks": 3,
+        "ctr_pct": 0.4808
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-10-02",
+        "impressions": 18334,
+        "clicks": 134,
+        "ctr_pct": 0.7309
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-10-02",
+        "impressions": 632,
+        "clicks": 21,
+        "ctr_pct": 3.3228
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-10-02",
+        "impressions": 3030,
+        "clicks": 27,
+        "ctr_pct": 0.8911
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-10-02",
+        "impressions": 96,
+        "clicks": 0,
+        "ctr_pct": 0
+      },
+      {
+        "variant": "control",
+        "surface": "job_alert",
+        "day": "2026-10-03",
+        "impressions": 22941,
+        "clicks": 120,
+        "ctr_pct": 0.5231
+      },
+      {
+        "variant": "control",
+        "surface": "newsletter",
+        "day": "2026-10-03",
+        "impressions": 496,
+        "clicks": 14,
+        "ctr_pct": 2.8226
+      },
+      {
+        "variant": "treatment",
+        "surface": "job_alert",
+        "day": "2026-10-03",
+        "impressions": 4042,
+        "clicks": 10,
+        "ctr_pct": 0.2474
+      },
+      {
+        "variant": "treatment",
+        "surface": "newsletter",
+        "day": "2026-10-03",
+        "impressions": 120,
+        "clicks": 1,
+        "ctr_pct": 0.8333
+      }
+    ]
+  },
+  "by_affinity_profile": null,
+  "consistency": {
+    "by_variant": {
+      "control": {
+        "stats_ctr_pct": 0.6686,
+        "events_ctr_pct_before_filter": 0.6687,
+        "events_ctr_pct_after_filter": 0.6687,
+        "impressions_events_minus_stats": -17,
+        "clicks_before_filter_events_minus_stats": 0,
+        "clicks_dropped_by_filter": 0,
+        "position_sum_impressions": 397804,
+        "position_sum_clicks": 2660,
+        "position_sum_matches_total": true
+      },
+      "treatment": {
+        "stats_ctr_pct": 0.6079,
+        "events_ctr_pct_before_filter": 0.6079,
+        "events_ctr_pct_after_filter": 0.6079,
+        "impressions_events_minus_stats": 0,
+        "clicks_before_filter_events_minus_stats": 0,
+        "clicks_dropped_by_filter": 0,
+        "position_sum_impressions": 70403,
+        "position_sum_clicks": 428,
+        "position_sum_matches_total": true
+      }
+    }
+  }
+}
