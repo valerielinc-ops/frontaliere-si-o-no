@@ -2974,8 +2974,6 @@ Règles :
 
  'seoContent.confronti.title': 'Comparaisons et Comparateurs pour Frontaliers',
  'seoContent.confronti.subtitle': 'Comparez assurances, banques, hypothèques, coût de la vie et taux de change pour des décisions éclairées.',
- 'seoContent.confronti.expertQuote': 'Le choix entre LAMal et le SSN italien peut faire économiser plus de CHF 3 000 par an — mais cela dépend de la composition familiale, du revenu et de la commune de résidence italienne.',
- 'seoContent.confronti.expertName': 'Laura Mantovani, Conseillère en assurance LAMal pour frontaliers',
  'seoContent.confronti.feature1.title': 'Assurance LAMal',
  'seoContent.confronti.feature1.desc': 'Comparez 14 caisses maladie suisses avec les primes réelles par canton.',
  'seoContent.confronti.feature2.title': 'Change CHF-EUR',
