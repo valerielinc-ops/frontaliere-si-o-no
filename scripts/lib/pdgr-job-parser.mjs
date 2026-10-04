@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Psychiatrische Dienste Graubünden (PDGR) job parser — Fetcher and job builder.
  *
@@ -330,13 +332,7 @@ export function parseDetailPage(html = '') {
     result.jobCategory = jobCatMatch[1];
   }
 
-  // Extract datePosted from Yoast JSON-LD
-  const dateMatch = html.match(/"datePosted"\s*:\s*"(\d{4}-\d{2}-\d{2})"/);
-  if (dateMatch) {
-    result.datePosted = dateMatch[1];
-  }
-
-  return result;
+  return { ...result, ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) };
 }
 
 /**
@@ -489,7 +485,7 @@ export async function fetchAllPdgrJobs() {
       sector: 'Sanità / Psichiatria',
       currency: 'CHF',
       featured: false,
-      postedDate: detail.datePosted || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
