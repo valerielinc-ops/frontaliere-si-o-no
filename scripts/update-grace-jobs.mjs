@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -114,10 +115,6 @@ function isTargetJob(job) {
   if (job.companyKey === COMPANY_KEY) return true;
   const cn = normalize(job.company || '');
   return cn.includes('grace') && cn.includes('margna');
-}
-
-function todayIso() {
-  return new Date().toISOString().slice(0, 10);
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -558,7 +555,7 @@ function buildJobFromListing(listing) {
     contractType: empType === 'internship' ? 'stage' : 'permanent',
     sourceLang: srcLang,
     description: '',
-    postedDate: todayIso(),
+    ...sourcePostingDateFields(),
     validThrough: '',
     titleByLocale: { [srcLang]: listing.title },
     descriptionByLocale: {},
@@ -603,7 +600,7 @@ function buildJobFromDetail(listing, detail) {
     contractType: empType === 'internship' ? 'stage' : 'permanent',
     sourceLang: srcLang,
     description: description.substring(0, 5000),
-    postedDate: detail.postedDate || todayIso(),
+    ...sourcePostingDateFields(detail.postedDate),
     validThrough: '',
     titleByLocale: { [srcLang]: title },
     descriptionByLocale: description ? { [srcLang]: description.substring(0, 5000) } : {},
@@ -647,6 +644,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),

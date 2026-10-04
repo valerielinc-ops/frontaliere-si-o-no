@@ -13,6 +13,7 @@
  *   5. Run scoped localization for the Guess company key
  *   6. Validate locale coverage in strict mode
  */
+import { sourcePostingDateCandidatesFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -115,14 +116,6 @@ function readJson(filePath, fallback) {
   } catch {
     return fallback;
   }
-}
-
-function toIsoDate(value = '') {
-  const raw = String(value || '').trim();
-  if (!raw) return new Date().toISOString().slice(0, 10);
-  const parsed = new Date(raw);
-  if (Number.isNaN(parsed.getTime())) return new Date().toISOString().slice(0, 10);
-  return parsed.toISOString().slice(0, 10);
 }
 
 function inferCategory({ title = '', department = [] } = {}) {
@@ -241,7 +234,7 @@ function buildGuessJob(listing, detail) {
   const slug = slugify(`${title} ${COMPANY_NAME} ${safeLocationToken(city, 'Bioggio')} Switzerland`);
   const detailUrl = buildGuessDetailUrl(listing.shortcode);
   const applyUrl = buildGuessApplyUrl(listing.shortcode);
-  const publishedDate = toIsoDate(parsed.publishedDate || listing.published_on || listing.created_at);
+  const postingDates = sourcePostingDateCandidatesFields([parsed.publishedDate, listing.published_on]);
   const sourceLang = guessPostingSourceLang(parsed);
 
   return {
@@ -264,7 +257,7 @@ function buildGuessJob(listing, detail) {
     sector: 'Lusso & Moda',
     source: 'guess-europe-dedicated-crawler',
     sourceLang,
-    postedDate: publishedDate,
+    ...postingDates,
     validThrough: '',
     description: parsed.description,
     // Everything in the posting's own language slot (not a fixed `en`).
@@ -314,6 +307,7 @@ async function mergeJobs(discoveredJobs) {
       const job = {
         ...existingJob,
         ...discovered,
+        ...mergeSourcePostingDates(existingJob, discovered),
         // Fresh text wins in the SOURCE slot only; translations are kept.
         titleByLocale: mergeLocaleTextMap(existingJob.titleByLocale, discovered.titleByLocale, 3, discovered.sourceLang),
         descriptionByLocale: mergeLocaleTextMap(existingJob.descriptionByLocale, discovered.descriptionByLocale, 30, discovered.sourceLang),
@@ -367,7 +361,7 @@ function updateAdapterConfig(discoveredJobs) {
         location: job.location,
         canton: inferAnyCanton(job.location) || DEFAULT_CANTON,
         company: COMPANY_NAME,
-        postedDate: job.postedDate || '',
+        ...mergeSourcePostingDates({}, job),
       },
     ])
   );

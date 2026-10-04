@@ -101,6 +101,18 @@ describe('Bellinzona crawler — generic title guard', () => {
 });
 
 describe('Bellinzona crawler — date parsing', () => {
+  it('rejects invalid calendar dates and partial date strings', () => {
+    for (const raw of ['30.02.2025', '31.13.2025', '01.01.2025junk', 'prefix01.01.2025', '01.01.202']) {
+      expect(parseBellinzonaDate(raw)).toBe('');
+    }
+  });
+
+  it('keeps a valid future deadline without treating it as publication evidence', () => {
+    const deadline = new Date(Date.now() + 30 * 86400000).toISOString().slice(0, 10);
+    const [year, month, day] = deadline.split('-');
+    expect(parseBellinzonaDate(`${day}.${month}.${year}`)).toBe(deadline);
+  });
+
   it('parses short year format (dd.mm.yy)', () => {
     expect(parseBellinzonaDate('06.03.26')).toBe('2026-03-06');
   });
@@ -109,14 +121,12 @@ describe('Bellinzona crawler — date parsing', () => {
     expect(parseBellinzonaDate('27.03.2026')).toBe('2026-03-27');
   });
 
-  it('returns today for empty input', () => {
-    const today = new Date().toISOString().split('T')[0];
-    expect(parseBellinzonaDate('')).toBe(today);
+  it('leaves an empty source date unknown', () => {
+    expect(parseBellinzonaDate('')).toBe('');
   });
 
-  it('returns today for invalid input', () => {
-    const today = new Date().toISOString().split('T')[0];
-    expect(parseBellinzonaDate('not-a-date')).toBe(today);
+  it('leaves an invalid source date unknown', () => {
+    expect(parseBellinzonaDate('not-a-date')).toBe('');
   });
 });
 

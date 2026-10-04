@@ -255,7 +255,8 @@ export function parseEngelvoelkersDetailPage(html = '', fallbackTitle = '') {
   }
 
   const description = richDesc || metaDesc || '';
-  const datePosted = new Date().toISOString().slice(0, 10);
+  // This parser has no source publication timestamp; collection time is not one.
+  const datePosted = '';
 
   return { title, description, datePosted };
 }

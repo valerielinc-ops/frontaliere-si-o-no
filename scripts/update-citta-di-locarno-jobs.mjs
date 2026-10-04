@@ -4,6 +4,7 @@
  *
  * Source: https://www.locarno.ch/it/albo-comunale/assunzioni-personale
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -145,7 +146,7 @@ async function main() {
       location: 'Locarno', canton: HQ.canton, addressLocality: 'Locarno', addressRegion: HQ.addressRegion, addressCountry: 'CH',
       postalCode: HQ.postalCode, streetAddress: 'Piazza Grande 18',
       category: 'public-admin', contract: 'full-time', employmentType: inferEmploymentType(raw.title, raw.description || ''), currency: 'CHF', featured: false,
-      postedDate: raw.datePosted,
+      ...sourcePostingDateFields(raw.datePosted),
       url: raw.url, pdfUrl: raw.pdfUrl, applyUrl: raw.applyUrl,
       source: 'Locarno Dedicated Parser', sourceLang, crawledAt: new Date().toISOString(),
       ...(pdfFailed

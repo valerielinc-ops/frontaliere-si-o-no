@@ -9,6 +9,7 @@
  *
  * Previously used jobopportunity.ch (defunct as of early 2026).
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -103,7 +104,7 @@ export function buildHelsinnJob(listing, body = '') {
     descriptionByLocale: { [sourceLang]: description },
     slug,
     category: detectCategory(listing.title),
-    datePosted: new Date().toISOString().split('T')[0],
+    ...sourcePostingDateFields(),
     source: 'helsinn-careers-crawler', employmentType: inferEmploymentType(listing.title, description),
     sourceLang,
     experienceLevel: detectExperienceLevel(listing.title),

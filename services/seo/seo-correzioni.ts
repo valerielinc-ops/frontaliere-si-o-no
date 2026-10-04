@@ -39,7 +39,8 @@ export function buildCorrezioniSeo(locale: CorrezioniLocale = 'it'): CorrezioniS
     isPartOf: { '@id': `${BASE_URL}/#website` },
     about: {
       '@type': 'CreativeWork',
-      name: 'Editorial corrections policy',
+      name: copy.subtitle,
+      inLanguage: locale,
     },
     publisher: { '@id': `${BASE_URL}/#organization` },
   };

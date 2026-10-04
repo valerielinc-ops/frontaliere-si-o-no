@@ -11,8 +11,23 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
+  BUCKET_ALARM_LABELS,
+  BUCKET_ALARM_TITLE,
+  ISSUE_LIST_FIELDS,
+  applyBucketAlarm,
+  reconcileSummaryLine,
+  safePlanBucketAlarm,
+  bucketAlarmBody,
+  bucketLabelConflicts,
+  bucketStructuralVeto,
   bucketVerifyRequestBody,
   dailyBucketCloseGate,
+  dailyBucketRoundTripReason,
+  decideBucketAlarmAction,
+  isStructuralBucketVeto,
+  parseBodyEditsResponse,
+  planBucketAlarm,
+  shouldAlarmBucket,
   dailyBucketStructureReason,
   dailyBucketSummaryLine,
   dailyBucketGateInputs,
@@ -29,6 +44,9 @@ import {
 import { itemBlockedMarker, itemBornSatisfiedMarker, itemEvidenceMarker, parseItemMarkers } from '../scripts/ci/lib/followup-item-evidence.mjs';
 import { isTrustedAuthor } from '../scripts/ci/route-already-fixed.mjs';
 import { applyBlockedRecheck, planBlockedRecheck, unblockedCommentBody } from '../scripts/ci/lib/followup-blocked-recheck.mjs';
+import { classifyIssue } from '../scripts/lib/classify-issue.mjs';
+import { parseFollowupItems } from '../scripts/ci/followup-resolution-match.mjs';
+import { rebuildDailyBody } from '../scripts/ci/gate-minted-followups.mjs';
 
 describe('alreadyCommented — esito vuoto riuscito distinto dall’errore (#8034)', () => {
   it('tratta stdout vuoto/whitespace come lista commenti vuota, ma null come errore', () => {
@@ -475,5 +493,217 @@ describe('richiesta di verifica per un bucket senza item aperti (FU_BUCKET_VERIF
     expect(shouldEnsureVerifyLabel({ comments: [flag], labelNames: ['follow-up'] })).toBe(false);
     expect(shouldEnsureVerifyLabel({ comments: [flag], labelNames: ['follow-up', 'maybe-resolved'] })).toBe(true);
     expect(shouldEnsureVerifyLabel({ comments: [], labelNames: ['follow-up'] })).toBe(true);
+  });
+});
+
+describe('allarme a titolo stabile per i bucket illeggibili dal parser', () => {
+  const fixture = (name: string) => JSON.parse(fs.readFileSync(
+    path.resolve(process.cwd(), 'tests/fixtures/reconcile-bucket-alarm', name), 'utf8',
+  ));
+  const bucket8705 = fixture('issue-8705.json');
+  const bucket11003 = fixture('issue-11003.json');
+  const hoursAfter = (iso: string, hours: number) => Date.parse(iso) + hours * 3_600_000;
+
+  it('il corpo reale di 8705 (riscritto a mano il 29-09) è un veto strutturale e apre l’allarme', () => {
+    const reason = bucketStructuralVeto(bucket8705);
+    expect(reason).toBe('mismatched-target-repository');
+    expect(isStructuralBucketVeto(reason)).toBe(true);
+    const plan = planBucketAlarm([bucket8705], { now: hoursAfter(bucket8705.createdAt, 72) });
+    expect(plan.unparseable.map((entry) => entry.number)).toEqual([8705]);
+    const [first, ...rest] = plan.unparseable[0].violations;
+    expect(first.where).toBe('titolo');
+    expect(first.why).toContain('status reconciled 2026-09-29');
+    expect(rest.map((violation) => violation.text)).toContain('- State: done.');
+    expect(decideBucketAlarmAction({ ...plan, listComplete: true })).toBe('open');
+  });
+
+  it('un Target repository fra backtick in un item è un veto strutturale e l’allarme ne dice la riga (forma di #11301)', () => {
+    const plain = '- Target repository: valerielinc-ops/frontaliere-si-o-no';
+    const itemAt = bucket11003.body.indexOf(plain, bucket11003.body.indexOf('### FU-'));
+    const quoted = {
+      ...bucket11003,
+      body: `${bucket11003.body.slice(0, itemAt)}- Target repository: \`valerielinc-ops/frontaliere-si-o-no\`${bucket11003.body.slice(itemAt + plain.length)}`,
+    };
+    expect(bucketStructuralVeto(quoted)).toBe('mismatched-target-repository');
+    const [first] = planBucketAlarm([quoted], { now: hoursAfter(quoted.createdAt, 1) }).unparseable[0].violations;
+    expect(first.why).toContain('fra backtick');
+    expect(first.where).toMatch(/^riga \d+$/);
+  });
+
+  it('le attese legittime non sono veti strutturali', () => {
+    for (const waiting of ['valid-item-unconfirmed', 'weak-item-evidence', 'bucket-collecting', 'invalid-item', 'born-satisfied-token', null]) {
+      expect(isStructuralBucketVeto(waiting)).toBe(false);
+    }
+  });
+
+  it('il corpo reale di un bucket sano (11003) non apre l’allarme e regge il round-trip', () => {
+    expect(bucketStructuralVeto(bucket11003)).toBeNull();
+    expect(dailyBucketRoundTripReason(bucket11003.body)).toBeNull();
+    expect(dailyBucketRoundTripReason(bucket8705.body)).toBeNull();
+    const plan = planBucketAlarm([bucket11003], { now: hoursAfter(bucket11003.createdAt, 24 * 30) });
+    expect(plan).toEqual({ unparseable: [], conflicts: [] });
+    expect(decideBucketAlarmAction({ ...plan, listComplete: true })).toBe('resolve');
+    expect(decideBucketAlarmAction({ ...plan, listComplete: false })).toBe('none');
+    expect(decideBucketAlarmAction({ ...plan, listComplete: true, noAutoclose: true })).toBe('none');
+  });
+
+  it('round-trip: il ricostruttore riceve gli item parsati interi (`raw`), non `item.text` (review 5404175898)', () => {
+    // Il corpo minimo del comando di accettazione della review: stabile.
+    const minimal = [
+      '- Daily key: 2026-10-04', '- State: sealed', '- Target repository: owner/repo', '',
+      '### FU-2026-10-04-001 — esempio', '- Target repository: owner/repo', '- State: open',
+    ].join('\n');
+    expect(dailyBucketRoundTripReason(minimal)).toBeNull();
+    const signature = (list: Array<{ id: string | null; state: string | null }>) =>
+      list.map((item) => `${item.id}:${item.state}`);
+    for (const body of [minimal, bucket11003.body, bucket8705.body]) {
+      const items = parseFollowupItems(body);
+      expect(items.length).toBeGreaterThan(0);
+      const head = body.slice(0, items[0].start);
+      // `rebuildDailyBody` legge `item.raw` dagli oggetti: heading compreso.
+      expect(signature(parseFollowupItems(rebuildDailyBody(head, items)))).toEqual(signature(items));
+      // `item.text` comincia DOPO l'heading: ricostruire da li' perde ogni
+      // item, e la guardia classificherebbe `round-trip-unstable` ogni bucket.
+      expect(parseFollowupItems(rebuildDailyBody(head, items.map((item) => item.text)))).toEqual([]);
+    }
+  });
+
+  it('un bucket collecting più giovane di 48 ore con veto strutturale non apre l’allarme', () => {
+    const collecting = {
+      ...bucket11003,
+      // Il titolo dichiara un item in più del corpo: `mismatched-item-count`.
+      title: bucket11003.title.replace(/:\s*(\d+) items/, (_: string, n: string) => `: ${Number(n) + 1} items`),
+      body: bucket11003.body.replace('- State: sealed', '- State: collecting'),
+    };
+    expect(bucketStructuralVeto(collecting)).toBe('mismatched-item-count');
+    const young = { reason: 'mismatched-item-count', body: collecting.body, createdAt: collecting.createdAt };
+    expect(shouldAlarmBucket({ ...young, now: hoursAfter(collecting.createdAt, 2) })).toBe(false);
+    expect(planBucketAlarm([collecting], { now: hoursAfter(collecting.createdAt, 2) }).unparseable).toEqual([]);
+    expect(shouldAlarmBucket({ ...young, now: hoursAfter(collecting.createdAt, 49) })).toBe(true);
+    // Sigillato: allarme subito, a qualunque età.
+    expect(shouldAlarmBucket({ ...young, body: bucket11003.body, now: hoursAfter(collecting.createdAt, 1) })).toBe(true);
+  });
+
+  it('allarme già aperto → aggiornato sullo stesso titolo esatto, mai un secondo titolo; elenco vuoto → chiusura', async () => {
+    const created: Array<Record<string, unknown>> = [];
+    const resolved: Array<[string, Record<string, unknown>]> = [];
+    const deps = {
+      repository: 'valerielinc-ops/frontaliere-si-o-no',
+      listComplete: true,
+      create: async (options: Record<string, unknown>) => { created.push(options); return { number: 1, persisted: true }; },
+      resolve: (title: string, options: Record<string, unknown>) => { resolved.push([title, options]); return null; },
+      log: () => {},
+    };
+    const plan = planBucketAlarm([bucket8705], { now: hoursAfter(bucket8705.createdAt, 72) });
+    await applyBucketAlarm(plan, deps);
+    await applyBucketAlarm({ unparseable: plan.unparseable, conflicts: [{ number: 1, title: 't', conflicts: ['x'] }] }, deps);
+    expect(created.map((options) => options.title)).toEqual([BUCKET_ALARM_TITLE, BUCKET_ALARM_TITLE]);
+    expect(created.every((options) => options.exactTitle === true)).toBe(true);
+    // Il titolo non porta numeri ne' date: il dedup di github-issue-creator lo ritrova a ogni run.
+    expect(BUCKET_ALARM_TITLE).not.toMatch(/\d/);
+    expect(resolved).toEqual([]);
+
+    const empty = await applyBucketAlarm({ unparseable: [], conflicts: [] }, deps);
+    expect(empty.action).toBe('resolve');
+    expect(resolved).toEqual([[BUCKET_ALARM_TITLE, { workflow: 'followup-reconcile', exactTitle: true }]]);
+    expect(created).toHaveLength(2); // cron-count-ok: due chiamate esplicite sopra, nessun dato di cron
+    // Un elenco troncato non prova che i bucket mancanti siano sani: nessuna chiusura.
+    await applyBucketAlarm({ unparseable: [], conflicts: [] }, { ...deps, listComplete: false });
+    expect(resolved).toHaveLength(1);
+    // L'escape hatch vale anche per il percorso applicativo, non solo per la funzione pura.
+    const protectedEmpty = await applyBucketAlarm({ unparseable: [], conflicts: [] }, { ...deps, noAutoclose: true });
+    expect(protectedEmpty.action).toBe('none');
+    expect(resolved).toHaveLength(1);
+  });
+
+  it('titolo e label dell’allarme non producono una route fix/queue', () => {
+    const body = bucketAlarmBody({ unparseable: [], conflicts: [], repository: 'valerielinc-ops/frontaliere-si-o-no' });
+    for (const labels of [[...BUCKET_ALARM_LABELS], [...BUCKET_ALARM_LABELS, 'priority:medium']]) {
+      const verdict = classifyIssue(BUCKET_ALARM_TITLE, labels, body);
+      expect(['fix', 'queue']).not.toContain(verdict.route);
+    }
+    expect(BUCKET_ALARM_LABELS).not.toContain('follow-up');
+    expect(BUCKET_ALARM_LABELS).not.toContain('agent:fix');
+    expect(BUCKET_ALARM_LABELS).not.toContain('agent:fix-queued');
+  });
+
+  it('bucketLabelConflicts: le label reali di 10433 e 8334 sono in conflitto, la sola coda con un item open no', () => {
+    const labels10433 = ['follow-up', 'funnel-monetization', 'funnel-seo', 'funnel-ux', 'agent:triaged', 'maybe-resolved', 'agent:fix-queued', 'fu-prio:high'];
+    expect(bucketLabelConflicts(labels10433, { hasOpenItem: true })).toContain('`maybe-resolved` + `agent:fix-queued`');
+    const labels8334 = ['follow-up', 'agent:triaged', 'fu-parked', 'maybe-resolved', 'fu-attempt:3'];
+    expect(bucketLabelConflicts(labels8334, { hasOpenItem: true })).toContain('`maybe-resolved` con un item ancora `open`');
+    expect(bucketLabelConflicts(['follow-up', 'agent:fix-queued'], { hasOpenItem: true })).toEqual([]);
+    expect(bucketLabelConflicts([{ name: 'decomposed:1' }, { name: 'agent:fix' }])).toEqual(['`decomposed:1` + `agent:fix`']);
+    expect(bucketLabelConflicts(bucket11003.labels, { hasOpenItem: true })).toEqual([]);
+  });
+
+  it('lettura degli edit fallita → allarme aperto con «scrittore non determinato»; riuscita → scrittore nel corpo', async () => {
+    const plan = planBucketAlarm([bucket8705], { now: hoursAfter(bucket8705.createdAt, 72) });
+    const descriptions: string[] = [];
+    const deps = {
+      listComplete: true,
+      create: async (options: { description: string }) => { descriptions.push(options.description); return { number: 1 }; },
+      resolve: () => null,
+      log: () => {},
+    };
+    const failed = await applyBucketAlarm(plan, { ...deps, readBodyEdits: () => { throw new Error('graphql down'); } });
+    expect(failed.action).toBe('open');
+    expect(descriptions[0]).toContain('scrittore non determinato');
+    expect(descriptions[0]).toContain('#8705');
+
+    const edits = parseBodyEditsResponse(fs.readFileSync(
+      path.resolve(process.cwd(), 'tests/fixtures/reconcile-bucket-alarm/edits-8705.graphql.json'), 'utf8',
+    ));
+    expect(edits?.[0]).toEqual({ editedAt: '2026-09-29T12:48:18Z', login: 'valerielinc-ops' });
+    expect(parseBodyEditsResponse('not-json')).toBeNull();
+    expect(parseBodyEditsResponse(null as unknown as string)).toBeNull();
+    await applyBucketAlarm(plan, { ...deps, readBodyEdits: () => edits });
+    expect(descriptions[1]).toContain('2026-09-29T12:48:18Z valerielinc-ops');
+    expect(descriptions[1]).toContain('--title "follow-up(daily:2026-09-15): 7 items — valerielinc-ops/frontaliere-si-o-no"');
+  });
+
+  it('il summary del reconciler porta unparseable_buckets, label_conflicts e bucket_alarm coi valori dati', () => {
+    const line = reconcileSummaryLine({
+      scanned: 18,
+      verifyRequested: 2,
+      unparseableBuckets: 1,
+      labelConflicts: 6,
+      bucketAlarm: 'open',
+      dryRun: true,
+    });
+    expect(line).toContain('scanned 18,');
+    expect(line).toContain('verify_requested=2, unparseable_buckets=1, label_conflicts=6, bucket_alarm=open');
+    expect(line).toContain('(dry-run)');
+    expect(line).not.toContain('(no-autoclose)');
+    expect(reconcileSummaryLine({})).toContain('unparseable_buckets=0, label_conflicts=0, bucket_alarm=none');
+    // createdAt serve alla finestra di 48 ore: senza, ogni bucket collecting giovane andrebbe in allarme.
+    expect(ISSUE_LIST_FIELDS.split(',')).toEqual(expect.arrayContaining(['number', 'title', 'body', 'labels', 'createdAt']));
+  });
+
+  it('un piano che lancia non ferma il reconciler: elenchi vuoti, nessuna scrittura, mai una chiusura', async () => {
+    const logs: string[] = [];
+    const plan = safePlanBucketAlarm([bucket8705], {
+      now: hoursAfter(bucket8705.createdAt, 72),
+      plan: () => { throw new Error('regex esplosa'); },
+      log: (line: string) => { logs.push(line); },
+    });
+    expect(plan.unparseable).toEqual([]);
+    expect(plan.conflicts).toEqual([]);
+    expect(plan.error).toContain('regex esplosa');
+    expect(logs.join('\n')).toContain('piano allarme bucket non calcolabile');
+
+    const calls: string[] = [];
+    const outcome = await applyBucketAlarm(plan, {
+      listComplete: true,
+      create: async () => { calls.push('create'); return null; },
+      resolve: () => { calls.push('resolve'); return null; },
+      log: () => {},
+    });
+    expect(outcome.action).toBe('error');
+    expect(calls).toEqual([]);
+
+    const ok = safePlanBucketAlarm([bucket8705], { now: hoursAfter(bucket8705.createdAt, 72) });
+    expect(ok.error).toBeNull();
+    expect(ok.unparseable.map((entry: { number: number }) => entry.number)).toEqual([8705]);
   });
 });

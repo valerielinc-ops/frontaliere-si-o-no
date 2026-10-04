@@ -86,8 +86,8 @@ export function parseHitachiEnergyListingJson(json) {
       experience: normalizeSpace(item.experience || ''),
       jobFunction: normalizeSpace(item.jobFunction || ''),
       publicationDate: item.publicationDate
-        ? String(item.publicationDate).slice(0, 10)
-        : new Date().toISOString().slice(0, 10),
+        ? String(item.publicationDate)
+        : '',
     });
   }
 

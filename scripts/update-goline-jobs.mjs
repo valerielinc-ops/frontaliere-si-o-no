@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import fs from 'node:fs';
@@ -197,7 +198,7 @@ function buildJob(role) {
     sector: 'Tecnologia & IT',
     source: 'goline-dedicated-crawler',
     sourceLang: 'en',
-    postedDate: new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
@@ -250,7 +251,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: HQ.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   const payload = {

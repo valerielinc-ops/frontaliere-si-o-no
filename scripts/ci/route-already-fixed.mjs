@@ -21,8 +21,11 @@
  *   3. L'evidenza si verifica via API: PR `MERGED` su `main`; commit della fix
  *      raggiungibile da `main`; run `completed/success` su `main`, diversa da
  *      questa run e da un'altra run del fixer, il cui HEAD contiene la fix.
- *      Per i timeout creati da `scan-job-timeouts.mjs`, il run verde deve anche
- *      appartenere allo stesso workflow del run originario segnalato.
+ *      Per le issue di failure (`failureReportBinding`: report dei timeout di
+ *      `scan-job-timeouts.mjs`, titoli `Workflow|CI Failure`) il run verde deve
+ *      anche appartenere allo stesso workflow del run originario citato nel
+ *      corpo ed essere stato creato DOPO l'apertura della issue; senza run
+ *      originaria leggibile, o per `Crawler Failure` (run nel corpus), niente.
  *   4. Solo allora: aggiunge `maybe-resolved` (la label di verifica gia' usata da
  *      reconcile-followups/check-issue-already-resolved), toglie `agent:fix` e
  *      `agent:fix-queued` se presenti, posta il marker
@@ -115,6 +118,17 @@ const EVIDENCE_RE = /<!--\s*FIX_EVIDENCE:([^>]*?)-->/gu;
 const JOB_TIMEOUT_REPORT_SIGNATURE = 'scripts/ci/scan-job-timeouts.mjs';
 const WORKFLOW_FILE_RE = /^\.github\/workflows\/[A-Za-z0-9._/-]+\.ya?ml$/u;
 
+// Il report dei timeout porta la run su una riga `**Run:** <url>` sua; gli altri
+// reporter di failure la scrivono in forme diverse (`**Run:**`, `- **Run:**`,
+// `- run:`), quindi per loro vale il primo link a una run del corpo.
+const TIMEOUT_REPORT_RUN_RE = /^\*\*Run:\*\*\s*https:\/\/github\.com\/([^/\s]+\/[^/\s]+)\/actions\/runs\/([1-9][0-9]*)\s*$/mu;
+const FIRST_RUN_LINK_RE = /https:\/\/github\.com\/([^/\s]+\/[^/\s]+)\/actions\/runs\/([1-9][0-9]*)/u;
+// La famiglia dei titoli di failure il cui guasto e' una run di UN workflow del
+// sito: `Workflow Failure: …`, `CI Failure: …` e `CI Failure (<evento>): …`.
+const WORKFLOW_FAILURE_TITLE_RE = /^(?:Workflow|CI) Failure(?:\s*\([^)]*\))?\s*:/iu;
+// `Crawler Failure: Run <slug>`: la run e' nel corpus, la prova e' lo step del gruppo.
+const CRAWLER_FAILURE_TITLE_RE = /^Crawler Failure\s*:/iu;
+
 /**
  * Extract the original Actions run from a timeout issue emitted by
  * `scan-job-timeouts.mjs`. Those issues need evidence from the same workflow;
@@ -128,7 +142,10 @@ export function timeoutReportSourceRun(issueBody, repo) {
   if (!body.includes(`\`${JOB_TIMEOUT_REPORT_SIGNATURE}\``)) {
     return { required: false, runId: null };
   }
-  const match = /^\*\*Run:\*\*\s*https:\/\/github\.com\/([^/\s]+\/[^/\s]+)\/actions\/runs\/([1-9][0-9]*)\s*$/mu.exec(body);
+  return sourceRunFromMatch(TIMEOUT_REPORT_RUN_RE.exec(body), repo);
+}
+
+function sourceRunFromMatch(match, repo) {
   if (!match) return { required: true, runId: null, reason: 'run-originaria-assente' };
   if (match[1].toLowerCase() !== String(repo ?? '').trim().toLowerCase()) {
     return { required: true, runId: null, reason: 'run-originaria-repo-diverso' };
@@ -136,6 +153,31 @@ export function timeoutReportSourceRun(issueBody, repo) {
   const runId = Number(match[2]);
   if (!Number.isSafeInteger(runId)) return { required: true, runId: null, reason: 'run-originaria-id-invalido' };
   return { required: true, runId };
+}
+
+/**
+ * Legame fra una issue di failure e il workflow del guasto: per queste issue un
+ * `already-fixed` vale solo con una run verde DELLO STESSO workflow della run
+ * originaria (#7421: una run `tests` verde citata come prova di un guasto di
+ * `cathedral-seo-gates-check`, che sulla stessa SHA era fallito).
+ *   - corpo dello scanner dei timeout → `timeoutReportSourceRun`, invariato;
+ *   - titolo `Workflow|CI Failure` (anche `CI Failure (<evento>): …`) → la
+ *     prima run citata nel corpo, dello stesso repo;
+ *   - `Crawler Failure: …` → run nel corpus: mai verificabile da qui;
+ *   - ogni altra issue → nessun legame (comportamento di prima).
+ * `required` con `runId: null` significa: non si muta niente.
+ * @param {string} title
+ * @param {string} issueBody
+ * @param {string} repo owner/name
+ * @returns {{required: false, runId: null, reason: string} | {required: true, runId: number|null, reason?: string}}
+ */
+export function failureReportBinding(title, issueBody, repo) {
+  const timeout = timeoutReportSourceRun(issueBody, repo);
+  if (timeout.required) return timeout;
+  const t = String(title ?? '').trim();
+  if (CRAWLER_FAILURE_TITLE_RE.test(t)) return { required: true, runId: null, reason: 'crawler-run-cross-repo' };
+  if (!WORKFLOW_FAILURE_TITLE_RE.test(t)) return { required: false, runId: null, reason: 'issue-non-di-failure' };
+  return sourceRunFromMatch(FIRST_RUN_LINK_RE.exec(String(issueBody ?? '')), repo);
 }
 
 /** Normalize a REST Actions run path and reject values outside workflow files. */
@@ -259,7 +301,8 @@ const CONTAINS = new Set(['ahead', 'identical']);
  * Verifica l'evidenza con lookup iniettati (ognuno puo' lanciare: e' `unavailable`).
  * @param {{pr: number|null, commit: string|null, run: number}} evidence
  * @param {{ pr: (n: number) => any, run: (id: number) => any, compare: (base: string, head: string) => string,
- *   defaultBranch?: string, currentRunId?: number|null }} deps
+ *   defaultBranch?: string, currentRunId?: number|null, expectedWorkflowPath?: string,
+ *   issueCreatedAt?: string|null }} deps
  * @returns {{ok: true, fixSha: string, runHeadSha: string} | {ok: false, reason: string}}
  */
 export function verifyEvidence(evidence, deps) {
@@ -307,6 +350,16 @@ export function verifyEvidence(evidence, deps) {
         reason: `run-${evidence.run}-workflow-diverso:${actualWorkflowPath}-atteso:${expectedWorkflowPath}`,
       };
     }
+  }
+  // Una run creata prima che il guasto fosse segnalato non puo' provarne la
+  // guarigione. `undefined` = il chiamante non lo chiede; un valore illeggibile
+  // (anche quello della run) e' fail-closed.
+  if (deps.issueCreatedAt !== undefined) {
+    const issueMs = timestampMs(deps.issueCreatedAt);
+    if (issueMs === null) return { ok: false, reason: 'issue-createdAt-non-verificabile' };
+    const runMs = timestampMs(run?.created_at);
+    if (runMs === null) return { ok: false, reason: `run-${evidence.run}-created_at-non-verificabile` };
+    if (runMs <= issueMs) return { ok: false, reason: `run-${evidence.run}-precedente-alla-issue` };
   }
   const runHeadSha = run?.head_sha;
   if (typeof runHeadSha !== 'string' || !/^[0-9a-f]{40}$/u.test(runHeadSha)) return { ok: false, reason: `run-${evidence.run}-senza-head-sha` };
@@ -520,12 +573,13 @@ function setOutput(key, value) {
 }
 
 /**
- * Verifica via API l'evidenza citata (compreso il vincolo di workflow per i
- * report di timeout). `message` e' il log completo quando il motivo riguarda il
- * run originario; altrimenti `reason` e' quello di `verifyEvidence`.
+ * Verifica via API l'evidenza citata (compreso il vincolo di workflow per le
+ * issue di failure, `failureReportBinding`). `message` e' il log completo quando
+ * il motivo riguarda il run originario; altrimenti `reason` e' quello di
+ * `verifyEvidence`.
  */
 function verifyRunEvidence({ repo, view, evidence, withFiles = false }) {
-  const sourceRun = timeoutReportSourceRun(view?.body, repo);
+  const sourceRun = failureReportBinding(view?.title, view?.body, repo);
   let expectedWorkflowPath;
   if (sourceRun.required) {
     if (sourceRun.runId === null) {
@@ -553,13 +607,15 @@ function verifyRunEvidence({ repo, view, evidence, withFiles = false }) {
     defaultBranch: process.env.DEFAULT_BRANCH || 'main',
     currentRunId: process.env.GITHUB_RUN_ID ? Number(process.env.GITHUB_RUN_ID) : null,
     ...(expectedWorkflowPath ? { expectedWorkflowPath } : {}),
+    // Solo per le issue legate a un workflow: la prova deve seguire la segnalazione.
+    ...(sourceRun.required ? { issueCreatedAt: view?.createdAt ?? null } : {}),
     // Per i bucket la stessa lettura porta anche i file toccati (legame con l'item).
     pr: (n) => {
       const pr = JSON.parse(gh(['pr', 'view', String(n), '--repo', repo, '--json', withFiles ? 'state,baseRefName,mergeCommit,files' : 'state,baseRefName,mergeCommit']));
       prFiles = Array.isArray(pr?.files) ? pr.files.map((file) => file?.path).filter(Boolean) : [];
       return pr;
     },
-    run: (id) => JSON.parse(gh(['api', `repos/${repo}/actions/runs/${id}`, '--jq', '{status,conclusion,head_branch,head_sha,path}'])),
+    run: (id) => JSON.parse(gh(['api', `repos/${repo}/actions/runs/${id}`, '--jq', '{status,conclusion,head_branch,head_sha,path,created_at}'])),
     // `per_page=1`: serve solo `.status`, non la lista dei commit fra i due ref.
     compare: (base, head) => gh(['api', `repos/${repo}/compare/${base}...${head}?per_page=1`, '--jq', '.status']).trim(),
   });
@@ -698,7 +754,7 @@ function main() {
   const delivery = normalizeDeliveryEvidence(readJson(process.env.PR_DELIVERY_EVIDENCE_FILE));
   let view;
   try {
-    view = JSON.parse(gh(['issue', 'view', String(issue), '--repo', repo, '--json', 'title,body,comments,labels,state']));
+    view = JSON.parse(gh(['issue', 'view', String(issue), '--repo', repo, '--json', 'title,body,comments,labels,state,createdAt']));
   } catch (e) {
     setOutput('routed', 'false');
     console.log(`::warning::route-already-fixed: lettura issue non disponibile (${String(e?.message ?? e).slice(0, 120)}) — nessuna mutazione.`);

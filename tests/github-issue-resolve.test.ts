@@ -67,6 +67,33 @@ describe('resolveGithubIssue — close canonical issue on green', () => {
     expect(view).toContain('state');
   });
 
+  it('closes the evaluated issue number when a same-title twin appears during resolution', () => {
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') {
+        return JSON.stringify([
+          { number: 102, title: 'CI Failure (push): workflow', url: 'twin-url', state: 'OPEN' },
+          { number: 101, title: 'CI Failure (push): workflow', url: 'evaluated-url', state: 'OPEN' },
+        ]);
+      }
+      if (args[0] === 'issue' && args[1] === 'view') {
+        return JSON.stringify({ state: args[2] === '101' ? 'CLOSED' : 'OPEN' });
+      }
+      return '';
+    });
+
+    const res = resolveGithubIssue('CI Failure (push): workflow', {
+      issueNumber: 101,
+      workflow: 'workflow',
+    });
+
+    expect(res).toMatchObject({ number: 101, persisted: true });
+    const calls = ghCalls();
+    const close = calls.find((a) => a[0] === 'issue' && a[1] === 'close');
+    expect(close?.[2]).toBe('101');
+    expect(calls.some((a) => a[0] === 'issue' && a[1] === 'close' && a[2] === '102')).toBe(false);
+    expect(calls.some((a) => a[0] === 'issue' && a[1] === 'list')).toBe(false);
+  });
+
   it('does not report success when gh issue close is refused', () => {
     mockOpenCanonical({ closeOk: false, viewState: 'OPEN' });
     const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});

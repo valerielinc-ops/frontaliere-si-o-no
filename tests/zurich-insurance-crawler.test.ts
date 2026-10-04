@@ -228,6 +228,20 @@ describe('Zurich Insurance Switzerland crawler', () => {
     expect(calls).toHaveLength(6);
   });
 
+  it.each([
+    ['Sep 28, 2026', '2026-09-28'], ['August 30, 2026', '2026-08-30'],
+    ['', ''], ['Feb 30, 2026', ''], ['Oct 5, 2026', ''], ['Septober 28, 2026', ''],
+  ])('preserves the Date Posted source %j or marks it unknown', async (raw, expected) => {
+    const page = pageWithRows(pageOne, [rowOne.replace('August 30, 2026', raw)], 1);
+    const crawler = await prepareZurichInsuranceCrawler({
+      fetchPage: async (url: string) => new URL(url).pathname.startsWith('/search') ? page : detailPage,
+      detailDelayMs: 0, now: () => new Date('2026-10-03T12:00:00Z'),
+    });
+    const jobs = await crawler.fetchJobs();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ datePosted: expected, postedDate: expected, postingDateSource: expected ? 'reported' : 'unknown' });
+  });
+
   it('builds 45 source-locale jobs from official details with numeric identity and precise locations', async () => {
     const crawler = await prepareZurichInsuranceCrawler({
       fetchPage: fixtureFetch,

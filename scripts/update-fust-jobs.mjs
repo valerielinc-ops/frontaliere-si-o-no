@@ -29,6 +29,7 @@
  * Detail pages live at jobs.fust.ch and contain the authoritative JSON-LD
  * JobPosting payload used for description and work location.
  */
+import { sourcePostingDateCandidatesFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
@@ -248,12 +249,6 @@ function cantonLabel(canton = '') {
   return canton || '';
 }
 
-function dateOnly(raw = '') {
-  const dt = new Date(raw || Date.now());
-  if (Number.isNaN(dt.getTime())) return new Date().toISOString().slice(0, 10);
-  return dt.toISOString().slice(0, 10);
-}
-
 function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
   const attr30 = String(job?.attributes?.['30']?.[0] || '').trim();
   const apiCity = String(job?.location || job?.place || job?.city || job?.address?.city || '').trim();
@@ -275,9 +270,7 @@ function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
     sourceId: String(job?.id || '').trim(),
     ...(company ? { company } : {}),
     ...(contract ? { contract } : {}),
-    ...(job?.date || job?.datePosted
-      ? { postedDate: dateOnly(job?.date || job?.datePosted) }
-      : {}),
+    ...sourcePostingDateCandidatesFields([job?.date, job?.datePosted]),
   };
 }
 

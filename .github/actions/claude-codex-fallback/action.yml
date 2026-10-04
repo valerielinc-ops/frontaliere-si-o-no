@@ -44,6 +44,10 @@ inputs:
     description: "Internal watchdog for the Codex process, in whole minutes (1-300). Default 15 fits reviews; agentic fixers pass a larger value that stays below their step `timeout-minutes`."
     required: false
     default: "15"
+  response_artifact:
+    description: "Optional plain basename of a response file to export from sandbox RUNNER_TEMP before cleanup (regular file, maximum 1 MiB)."
+    required: false
+    default: ""
 
 outputs:
   execution_file:
@@ -292,6 +296,8 @@ runs:
       shell: bash
       env:
         CODEX_ACTION_PATH: ${{ github.action_path }}
+        CODEX_RESPONSE_ARTIFACT: ${{ inputs.response_artifact }}
+        TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
       run: |
         set -euo pipefail
         action_path="${CODEX_ACTION_PATH:?Codex action path unavailable}"
@@ -310,13 +316,16 @@ runs:
         for name in \
           gh-bridge.sh gh-bridge-client.mjs gh-bridge-server.mjs \
           git-bridge.sh git-bridge-client.mjs git-bridge-server.mjs \
-          child-lifecycle.mjs bridge-transport.mjs sanitize-git-config.mjs; do
+          child-lifecycle.mjs bridge-transport.mjs sanitize-git-config.mjs response-artifact.mjs; do
           snapshot_file "$action_path/$name" "$snapshot_root/action/$name"
         done
         snapshot_file "$workspace_root/scripts/ci/claude-codex-fallback.mjs" "$snapshot_root/ci/claude-codex-fallback.mjs"
         snapshot_file "$workspace_root/scripts/ci/claude-rate-limit.mjs" "$snapshot_root/ci/claude-rate-limit.mjs"
         snapshot_file "$workspace_root/scripts/ci/claude-rate-limit-contract.mjs" "$snapshot_root/ci/claude-rate-limit-contract.mjs"
         snapshot_file "$workspace_root/scripts/lib/codex-fallback-contract.mjs" "$snapshot_root/lib/codex-fallback-contract.mjs"
+        if [ -n "$CODEX_RESPONSE_ARTIFACT" ]; then
+          "$TRUSTED_NODE" "$snapshot_root/action/response-artifact.mjs" prepare "$CODEX_RESPONSE_ARTIFACT" "$runner_temp"
+        fi
         printf 'runtime_root=%s\n' "$snapshot_root" >> "$GITHUB_OUTPUT"
 
     - name: Install pinned Codex CLI (primary, without credentials)
@@ -467,6 +476,7 @@ runs:
         CODEX_REVIEW_MARKER: ${{ inputs.review_marker }}
         CODEX_REASONING_EFFORT: ${{ inputs.reasoning_effort }}
         CODEX_EXEC_TIMEOUT_MINUTES: ${{ inputs.exec_timeout_minutes }}
+        CODEX_RESPONSE_ARTIFACT: ${{ inputs.response_artifact }}
         CODEX_OUTPUT: ${{ runner.temp }}/codex-fallback-${{ github.run_id }}-${{ github.run_attempt }}.txt
       run: |
         set -euo pipefail
@@ -1254,6 +1264,11 @@ runs:
         # Stop both host-side bridges before inspecting the result so a
         # request that completed just as Codex exited cannot race the marker.
         stop_bridge
+        # The model's RUNNER_TEMP remains confined to scratch. Export only the
+        # trusted caller's declared response, including when Codex exits nonzero.
+        if [ -n "$CODEX_RESPONSE_ARTIFACT" ]; then
+          "$node_realpath" "$runtime_root/action/response-artifact.mjs" export "$CODEX_RESPONSE_ARTIFACT" "$runner_temp" "$scratch_dir" || codex_status=1
+        fi
         if ! restore_sanitized_git_config; then
           echo '::error::Codex primary cannot continue because Git configuration restoration failed.'
           codex_status=1

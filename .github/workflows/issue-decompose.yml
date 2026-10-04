@@ -104,8 +104,9 @@ jobs:
       # Identità di creazione delle sub-issue. Con l'App token gli eventi
       # `issues:[opened]` delle figlie TRIGGERANO issue-triage (routing
       # immediato in coda); con GITHUB_TOKEN no (anti-ricorsione GitHub) e le
-      # figlie aspetterebbero il cron sweep (≤4h). Se il conio fallisce,
-      # APP_TOKEN resta vuota: il bridge non ricade su GITHUB_TOKEN e l'action
+      # figlie aspetterebbero il cron sweep (≤4h). Se il conio fallisce, il
+      # bridge ricade su GITHUB_PAT caricato da Remote Config (stessa identità
+      # operativa, #9237), mai su GITHUB_TOKEN; senza nessuno dei due l'action
       # rifiuta il run prima di avviare Codex.
       - name: Mint GitHub App token (zero-Claude, pre-npm)
         continue-on-error: true
@@ -133,6 +134,66 @@ jobs:
           CODEX_FALLBACK_MODE: '1'
         run: node scripts/ci/check-quota-backoff.mjs
 
+      # Credenziale del corpus per il bridge host-side: una figlia i cui file
+      # vivono solo in nanakokyobashi-rgb/frontaliere-articles nasce LÌ
+      # (DECISIONS 2026-09-23), e il GITHUB_TOKEN/App del sito non scrive
+      # nel corpus. Stesso schema di post-merge-followup.yml; il PAT resta nel
+      # bridge e non entra mai nell'ambiente di Codex. Se manca, il bridge
+      # rifiuta la creazione nel corpus e il prompt NON ripiega sul sito.
+      - name: Prepare Firebase credentials for corpus routing
+        continue-on-error: true
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::warning::FIREBASE_SERVICE_ACCOUNT_JSON assente: creazione delle figlie nel corpus non disponibile"
+          fi
+
+      - name: Load corpus routing credentials from Remote Config
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      # La chiave del service account (poteri da owner) serve solo al loader:
+      # non resta su disco per tutta la durata di Codex.
+      - name: Cleanup Firebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
+
+      # Fotografia del corpus per il routing delle figlie (zero-Claude). Codex
+      # gira senza rete e il bridge `gh` non legge file del corpus (`gh api`
+      # non ha `--repo`, e senza `--repo` il bridge resta nello scope del
+      # sito): l'unico modo in cui il prompt può sapere se un file vive solo
+      # nel corpus, e leggerlo per verificare la metrica, è questa copia
+      # locale. Il corpus è pubblico: clone anonimo, poco profondo, blobless,
+      # materializzati tutti i sorgenti elencati nell'indice `.paths`, inclusi
+      # content/, public/ e data/. Senza `.git`
+      # la copia è una cartella inerte: niente repository annidato. Si
+      # prepara in RUNNER_TEMP e si sposta nel workspace come ULTIMO comando:
+      # un timeout a metà non lascia nel sito un `.git` annidato senza `.paths`.
+      # Il manifest completo è la fonte comune: ogni path che il prompt può
+      # riconoscere deve essere leggibile per misurare la metrica prima di
+      # creare una figlia nel repository del sito.
+      - name: Snapshot corpus for child routing (zero-Claude)
+        continue-on-error: true
+        timeout-minutes: 2
+        env:
+          CORPUS_SNAPSHOT_DIR: .decompose-corpus
+        run: |
+          set -euo pipefail
+          snap="$RUNNER_TEMP/corpus-snap"
+          rm -rf "$snap" "$CORPUS_SNAPSHOT_DIR"
+          git clone --quiet --depth 1 --filter=blob:none --no-checkout \
+            https://github.com/nanakokyobashi-rgb/frontaliere-articles.git "$snap"
+          git -C "$snap" ls-tree -r --name-only HEAD > "$snap/.paths"
+          git -C "$snap" sparse-checkout set --no-cone --stdin < "$snap/.paths"
+          git -C "$snap" checkout --quiet
+          echo "corpus main @ $(git -C "$snap" rev-parse --short HEAD): $(wc -l < "$snap/.paths") file"
+          rm -rf "$snap/.git"
+          mv "$snap" "$CORPUS_SNAPSHOT_DIR"
+
       - name: Run Codex Luna Max decompose
         # Tetto sullo step: senza, l'unico limite era il cap del job
         # (90min) e la run ci moriva `cancelled` — che NON fa scattare
@@ -159,9 +220,13 @@ jobs:
           # Il bridge host-side può creare sub-issue e il loro evento deve
           # riaprire il triage: usa solo l'identità operativa App/PAT, mai
           # GITHUB_TOKEN (anti-ricorsione GitHub). Se il conio fallisce,
-          # APP_TOKEN resta vuota, il bridge non ricade su GITHUB_TOKEN e
-          # l'action rifiuta il run prima di avviare Codex.
+          # ricade su GITHUB_PAT caricato da Remote Config (passo «Load corpus
+          # routing credentials»); senza nessuno dei due l'action rifiuta il
+          # run prima di avviare Codex.
           codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          # Scope separato del bridge, accettato solo per le issue del corpus
+          # esatto (`gh issue create --repo nanakokyobashi-rgb/frontaliere-articles`).
+          codex_corpus_github_token: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}
           prompt: |
             Sei l'agente di DECOMPOSIZIONE per la issue #${{ github.event.issue.number }} ("${{ github.event.issue.title }}").
             La issue è stata instradata qui perché è troppo grande o eterogenea per un singolo run di fix (max-turns, contenitore di lavoro residuo, o escalation too-large). Il tuo compito NON è implementare: è scorporarla in sub-issue ATOMICHE che il fixer autonomo possa chiudere una alla volta.
@@ -178,8 +243,14 @@ jobs:
 
             **Decomposizione (il caso normale):**
             1. Identifica da 2 a 6 unità di lavoro ATOMICHE: una root cause ciascuna, un insieme di file target ciascuna, indipendenti fra loro dove possibile. Se le unità naturali sono più di 6: crea le 5 di massimo valore (funnel: revenue > SEO > stabilità > resto) più UNA issue-contenitore con l'elenco del residuo — la issue-contenitore NON riceve `from-decompose`, così il ciclo la ri-decompone al giro successivo (convergenza: ogni giro chiude ≥5 unità).
-            2. **Dedup prima di creare**: per ogni unità, `gh issue list --state open --search "<discriminante> in:title" --json number,title --limit 5`. Se un'issue aperta copre già l'unità, NON crearne una nuova: usala come figlia (annota il suo numero).
-            3. Crea ogni sub-issue con `gh issue create` (usa SEMPRE `--body-file` con heredoc quotato, mai `--body` inline). Titolo col DISCRIMINANTE IN TESTA (il dedup taglia a 60 char). Labels: `--label from-decompose` + la priorità ereditata dal padre (`--label "fu-prio:high"` se il padre è high, altrimenti `--label "fu-prio:low"`). NESSUNA label `agent:*`: il triage la instrada da solo. Body:
+            2. **Repository proprietario, prima di tutto il resto** (DECISIONS 2026-09-23: la issue nasce nel repository che possiede il file). Per ogni file che la scheda dell'unità chiederebbe di modificare: `git ls-tree --name-only HEAD -- <path>` (legge solo gli alberi: il checkout è blobless e sparse, `ls` e `cat-file` qui mentono o vanno in rete). Se stampa il path, esiste qui e l'unità è del sito. Se NON esiste qui, controlla il corpus nella sua fotografia locale di `main` (preparata prima di questo run: qui non c'è rete, e `gh api` non raggiunge il corpus): `grep -Fxq -- '<path>' .decompose-corpus/.paths && echo corpus`. `.paths` elenca TUTTI i file del corpus e la fotografia materializza ogni path elencato, inclusi `content/`, `public/` e `data/`. Se esiste solo nel corpus, l'unità è del CORPUS:
+               - leggi il file nella fotografia (`.decompose-corpus/<path>`) e verifica che la metrica non sia già soddisfatta lì; se lo è, NON creare la figlia: annota l'unità nel riepilogo sul padre come «già coperta nel corpus» con la misura;
+               - altrimenti creala nel corpus con `gh issue create --repo nanakokyobashi-rgb/frontaliere-articles` (stesso formato e stesse label del punto 4), dopo il dedup nel corpus (`gh issue list --repo nanakokyobashi-rgb/frontaliere-articles --state open --search "<discriminante> in:title" --json number,title --limit 5`);
+               - se il bridge rifiuta la creazione nel corpus, NON ripiegare sul sito: annota l'unità nel riepilogo come «da aprire nel corpus» con i path.
+               Se `.decompose-corpus/.paths` manca (fotografia fallita), il corpus non è verificabile: crea qui solo le unità i cui file esistono qui o sono dichiaratamente NUOVI; le altre annotale nel riepilogo come «routing non verificabile» con i path, senza crearle.
+               Una figlia nel sito deve nominare file che esistono nel sito o file NUOVI (assenti in entrambi). MAI una scheda il cui FIX è «ritargettare» o «spostare nel repository corretto»: o la crei nel repository giusto, o non la crei. Un passo deterministico dopo questo run (`scripts/ci/decompose-route-check.mjs`) marca e pinna ogni figlia del sito che nomina file presenti solo nel corpus.
+            3. **Dedup prima di creare**: per ogni unità, `gh issue list --state open --search "<discriminante> in:title" --json number,title --limit 5`. Se un'issue aperta copre già l'unità, NON crearne una nuova: usala come figlia (annota il suo numero).
+            4. Crea ogni sub-issue con `gh issue create` (usa SEMPRE `--body-file` con heredoc quotato, mai `--body` inline). Titolo col DISCRIMINANTE IN TESTA (il dedup taglia a 60 char). Labels: `--label from-decompose` + la priorità ereditata dal padre (`--label "fu-prio:high"` se il padre è high, altrimenti `--label "fu-prio:low"`). NESSUNA label `agent:*`: il triage la instrada da solo. Body:
                ```
                ## Scheda
                - CAUSA: <affermazione VERIFICABILE, non il sintomo>
@@ -191,13 +262,14 @@ jobs:
                Parent: #$ISSUE_NUMBER — <una riga: da quale parte dello scope del padre nasce>
                ```
                Senza il COMANDO della metrica la scheda NON è valida: trovalo o dichiara esplicitamente perché non esiste. La CAUSA è un'affermazione verificabile sul codice/dato, mai «X non funziona».
-            4. Sul padre, posta UN commento riepilogativo con: l'elenco delle figlie come checklist (`- [ ] #N — titolo`), le unità eventualmente lasciate nel contenitore residuo, e in fondo — su righe proprie — i due marker:
+               In una figlia creata nel corpus il padre si cita col riferimento completo: `Parent: ${{ github.repository }}#$ISSUE_NUMBER` (un `#N` nudo lì punta a un'altra issue).
+            5. Sul padre, posta UN commento riepilogativo con: l'elenco delle figlie come checklist (`- [ ] #N — titolo`), le unità eventualmente lasciate nel contenitore residuo, e in fondo — su righe proprie — i due marker:
                ```
                <!-- DECOMPOSED_INTO: n1 n2 n3 -->
                <!-- DECOMPOSE_OUTCOME: decomposed-K -->
                ```
-               dove K è il numero di figlie. Il marker DECOMPOSED_INTO è il contratto col PARENT-CLOSE del drainer: elenca TUTTE le figlie (create + riusate + l'eventuale contenitore residuo), solo numeri separati da spazio.
-            5. Chiudi lo stadio sul padre: `gh issue edit $ISSUE_NUMBER --add-label "decomposed:1" --remove-label agent:decompose`. Il padre resta APERTO: lo chiude il drainer quando tutte le figlie sono chiuse.
+               dove K è il numero di figlie. Il marker DECOMPOSED_INTO è il contratto col PARENT-CLOSE del drainer: elenca TUTTE le figlie DI QUESTO REPOSITORY (create + riusate + l'eventuale contenitore residuo), solo numeri separati da spazio. Le figlie create nel corpus NON entrano nel marker (il drainer risolve i numeri solo qui): elencale nel riepilogo col riferimento completo `nanakokyobashi-rgb/frontaliere-articles#N`, insieme alle unità «già coperte nel corpus» o «da aprire nel corpus» del punto 2. Se TUTTE le unità appartengono al corpus, in questo repository non resta scope: invece di `decomposed-K` usa l'uscita **Già risolta** del Triage preliminare (`maybe-resolved`, `<!-- DECOMPOSE_OUTCOME: already-resolved -->`), con il riepilogo dei riferimenti al corpus come evidenza per chiudere il padre. Mai `automation-deferred` per questo caso: rientrerebbe nello sweep e verrebbe ri-decomposto.
+            6. Chiudi lo stadio sul padre: `gh issue edit $ISSUE_NUMBER --add-label "decomposed:1" --remove-label agent:decompose`. Il padre resta APERTO: lo chiude il drainer quando tutte le figlie sono chiuse.
 
             **Vincoli:**
             - NON modificare file del repo, NON aprire PR, NON implementare fix. Solo lettura + issue.
@@ -205,6 +277,21 @@ jobs:
             - Ogni riferimento al padre nelle figlie è `Parent: #N` — MAI `Closes`/`Fixes`/`Resolves` adiacente a `#N` (chiuderebbe il padre al primo merge).
             - Se dopo l'analisi non riesci a produrre NEMMENO una scheda valida (contesto insufficiente, misure irriproducibili), è un handoff tecnico: assicurati che esista la label `automation-deferred` (`gh label create automation-deferred --repo $REPO --color FBCA04 --description "Lavoro automatico differito da policy/capacità; rientra nello sweep" --force`), poi `gh issue edit $ISSUE_NUMBER --add-label automation-deferred --remove-label agent:decompose` e commenta ciò che manca con `<!-- DECOMPOSE_OUTCOME: automation-deferred -->` e `<!-- AUTOMATION_DEFERRED: technical -->`. Non chiedere al proprietario una decisione che i documenti non richiedono.
             - L'ULTIMO commento che posti sul padre deve SEMPRE contenere un marker `<!-- DECOMPOSE_OUTCOME: <code> -->` con `<code>` ∈ `decomposed-K` · `atomic-requeue` · `needs-human-decision` · `automation-deferred` · `already-resolved`.
+
+      # Osservatore del routing (zero-Claude): una figlia aperta qui che nomina
+      # file presenti solo su main del corpus è nel repository sbagliato
+      # (10925/10923, 02-10). La marca DECOMPOSE_MISROUTED, la pinna
+      # `keep-open`, la toglie dalla coda e chiede la migrazione sul digest del
+      # proprietario. Non chiude e non crea issue altrove; esce sempre 0.
+      - name: Check decompose child routing (zero-Claude)
+        id: route_check
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: node scripts/ci/decompose-route-check.mjs
 
       # Backstop deterministico: garantisce che OGNI run lasci un marker
       # DECOMPOSE_OUTCOME interrogabile, anche quando la CLI muore prima di

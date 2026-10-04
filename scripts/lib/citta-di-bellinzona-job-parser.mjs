@@ -104,13 +104,16 @@ export function isTitleTooGeneric(title = '') {
 export function parseBellinzonaDate(dateStr = '') {
   const s = dateStr.trim();
   // Format: dd.mm.yy or dd.mm.yyyy
-  const m = s.match(/(\d{1,2})\.(\d{1,2})\.(\d{2,4})/);
-  if (!m) return new Date().toISOString().split('T')[0];
+  const m = s.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4}|\d{2})$/);
+  if (!m) return '';
   const day = m[1].padStart(2, '0');
   const month = m[2].padStart(2, '0');
   let year = m[3];
   if (year.length === 2) year = `20${year}`;
-  return `${year}-${month}-${day}`;
+  const iso = `${year}-${month}-${day}`;
+  const calendar = new Date(`${iso}T00:00:00Z`);
+  if (!Number.isFinite(calendar.getTime()) || calendar.toISOString().slice(0, 10) !== iso) return '';
+  return iso;
 }
 
 /**
@@ -147,11 +150,11 @@ export function parseBellinzonaListingHtml(html) {
     const contextBlock = html.slice(endIndex, Math.min(nextStart, endIndex + 2000));
 
     // Extract publication date
-    const pubDateMatch = contextBlock.match(/Pubbl\.?\s*(\d{1,2}\.\d{1,2}\.\d{2,4})/i);
-    const datePosted = pubDateMatch ? parseBellinzonaDate(pubDateMatch[1]) : new Date().toISOString().split('T')[0];
+    const pubDateMatch = contextBlock.match(/Pubbl\.?\s*(\d{1,2}\.\d{1,2}\.(?:\d{4}|\d{2}))(?![\d.])/i);
+    const datePosted = pubDateMatch ? parseBellinzonaDate(pubDateMatch[1]) : '';
 
     // Extract deadline
-    const deadlineMatch = contextBlock.match(/Termine\s+(\d{1,2}\.\d{1,2}\.\d{2,4})/i);
+    const deadlineMatch = contextBlock.match(/Termine\s+(\d{1,2}\.\d{1,2}\.(?:\d{4}|\d{2}))(?![\d.])/i);
     const deadline = deadlineMatch ? parseBellinzonaDate(deadlineMatch[1]) : null;
 
     // Extract PDF link (Bando di concorso). The site now serves the bando

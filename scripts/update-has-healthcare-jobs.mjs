@@ -18,6 +18,7 @@
  *   6. Post-process: fix company name, location, canton
  *   7. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import {
@@ -426,12 +427,12 @@ function detectEmploymentType(percentage = '') {
 }
 
 function parseDate(dateStr = '') {
-  // Format: DD.MM.YY
-  const m = dateStr.match(/(\d{2})\.(\d{2})\.(\d{2})/);
-  if (!m) return new Date().toISOString().slice(0, 10);
+  // Source formats: DD.MM.YY or DD.MM.YYYY; never truncate a four-digit year.
+  const m = String(dateStr).trim().match(/^(\d{2})\.(\d{2})\.(\d{4}|\d{2})$/);
+  if (!m) return '';
   const day = m[1];
   const month = m[2];
-  const year = `20${m[3]}`;
+  const year = m[3].length === 4 ? m[3] : `20${m[3]}`;
   return `${year}-${month}-${day}`;
 }
 
@@ -506,7 +507,7 @@ async function fetchJobs(counts) {
       experienceLevel: detectExperienceLevel(listing.title),
       source: 'has-healthcare-crawler',
       sourceLang,
-      postedDate,
+      ...sourcePostingDateFields(postedDate),
       titleByLocale: { [sourceLang]: listing.title },
       descriptionByLocale: { [sourceLang]: description },
       slugByLocale: { [sourceLang]: slug },

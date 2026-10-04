@@ -10,6 +10,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
@@ -194,7 +195,7 @@ async function fetchJobListings() {
       url,
       location: locality || HQ.city,
       description: posting.description || '',
-      postedAt: posting.datePosted || '',
+      ...sourcePostingDateFields(posting.datePosted),
       employmentType: posting.employmentType || '',
       streetAddress: address.streetAddress || '',
       postalCode: address.postalCode || '',
@@ -286,7 +287,7 @@ export async function fetchAllGlobusJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedAt || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
