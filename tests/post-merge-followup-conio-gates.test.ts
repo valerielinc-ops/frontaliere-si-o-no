@@ -102,6 +102,13 @@ describe('post-merge follow-up triage prompt', () => {
     expect(prompt).toContain('route-unverified');
   });
 
+  it('non conia la verifica rinviata alla CI che la run `tests` dell\'head ha già eseguito verde', () => {
+    // Titolo di fallimento: «Triage follow-up: verifica rinviata alla CI
+    // coniata senza leggere la run del merge».
+    expect(prefetch).toMatch(/gh pr view "\$n" --repo "\$REPO" --json [^\n]*\bheadRefOid\b/);
+    expect(prompt).toMatch(/`reason: verified-by-merge-run`[^\n]*NON creare issue[^\n]*`ownVerification\.runId`/);
+  });
+
   it('conia con `State: blocked` i bullet bloccati da una causa non di codice', () => {
     expect(prompt).toMatch(/causa NON è di codice[^\n]*`State: blocked`/);
   });

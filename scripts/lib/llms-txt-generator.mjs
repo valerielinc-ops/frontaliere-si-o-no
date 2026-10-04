@@ -24,6 +24,7 @@
 import path from 'node:path';
 import { isJobBoardSectionPath } from './jobBoardSections.mjs';
 import { discoverSitemapFiles } from '../../build-plugins/sitemapAliasPlugin.ts';
+import { authorSeoPageEntries } from '../../services/seo/authorProfileMetadata.ts';
 
 export const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -183,6 +184,14 @@ export function parseSeoEntries(rootDir, fs) {
     // slash, so keying the raw cp made every curated entry miss at lookup
     // (same slash-divergence class fixed in staticPagesPlugin's seoMap).
     if (title) map.set(cp.replace(/\/+$/, '') || '/', { title, desc });
+  }
+  // Author pages are not literals in seo-pages.ts (it spreads them from the
+  // registry), so the text scan above cannot see them: read the same resolver.
+  for (const entry of Object.values(authorSeoPageEntries())) {
+    map.set(entry.canonicalPath.replace(/\/+$/, '') || '/', {
+      title: entry.title.replace(/\s*\|\s*Frontaliere Ticino$/, '').trim(),
+      desc: entry.description.trim().slice(0, 160),
+    });
   }
   return map;
 }

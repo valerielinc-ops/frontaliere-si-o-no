@@ -31,6 +31,23 @@ export function renderAuthorEditorial(sourcePath: string, locale: AuthorLocale):
   ];
 }
 
+/**
+ * Static roster of every registered author (the /chi-siamo/ "firme" list):
+ * name, role and expertise come from the registry, never from a hand-copied
+ * list that misses new authors and keeps text the registry has corrected.
+ */
+export function renderAuthorRosterItems(locale: AuthorLocale, itemClass: string, linkClass: string): string {
+  return AUTHORS.map(source => {
+    const author = localizeAuthor(source, locale);
+    const href = new URL(buildAuthorSeo(source, locale).canonical).pathname;
+    // A topic the role already names ("Autore ospite — fiscalità
+    // transfrontaliera") is not repeated in the parenthesis.
+    const topics = author.expertise.filter(topic => !author.role.includes(topic));
+    const detail = topics.length ? ` (${escape(topics.join(', '))})` : '';
+    return `<li class="${itemClass}"><a class="${linkClass}" href="${escape(href)}" rel="author">${escape(author.name)}</a> — ${escape(author.role)}${detail}.</li>`;
+  }).join('');
+}
+
 export function resolveAuthorStaticSeo(path: string, locale: AuthorLocale, scriptSeparator: string) {
   const metadata = resolveAuthorProfileMetadata(path, locale);
   return metadata ? { title: metadata.title, desc: metadata.description, ogT: metadata.ogTitle,
