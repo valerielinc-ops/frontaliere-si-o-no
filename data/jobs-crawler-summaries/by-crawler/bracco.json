@@ -1,20 +1,63 @@
 {
   "key": "bracco",
   "label": "Bracco Suisse",
-  "generatedAt": "2026-10-04T09:13:45.804Z",
+  "generatedAt": "2026-10-04T21:15:32.833Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11059,
-  "avgDurationMs": 11059,
+  "durationMs": 11578,
+  "avgDurationMs": 11578,
   "durationHistory": [
-    11059
+    11578
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Cadempino/MEDICAL-DEVICE-SPECIALIST---ACIST-PORTFOLIO_JR100400",
+      "applyUrl": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Cadempino/MEDICAL-DEVICE-SPECIALIST---ACIST-PORTFOLIO_JR100400",
+      "title": "MEDICAL DEVICE SPECIALIST - ACIST PORTFOLIO",
+      "company": "Bracco Suisse S.A.",
+      "companyKey": "bracco",
+      "location": "Cadempino",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "medical-device-specialista-acist-portfolio-bracco-suisse-s-a-cadempino",
+      "category": "general",
+      "datePosted": "2026-09-28",
+      "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
+      "source": "bracco-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sourceLang": "en",
+      "sector": "Healthcare / Imaging diagnostico",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Cadempino"
+      },
+      "jobReqId": "JR100400",
+      "id": "bracco-a02df283e511",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-28T21:11:31.328Z",
+      "crawledAt": "",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Cadempino",
+      "addressRegion": "TI",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 21,
+        "completeness": 16
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }
