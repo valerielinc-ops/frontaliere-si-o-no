@@ -18,7 +18,6 @@ import {
 import AiExtractableTable from '@/components/shared/AiExtractableTable';
 import FaqAccordion from '@/components/shared/FaqAccordion';
 import { SilentErrorBoundary } from '@/components/shared/ErrorBoundary';
-import DesktopTopBanner from '@/components/shared/DesktopTopBanner';
 
 // Eagerly load InputCard in THIS chunk so it parses only when CalcolatoreTabContent loads.
 // This removes InputCard and MobileCalcLayout from the main App bundle.
@@ -40,6 +39,16 @@ const DailyDialectPhrase = lazyRetry(() => import('@/components/vita/DailyDialec
 const SocialProofBadge = lazyRetry(() => import('@/components/shared/SocialProofBadge'));
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 import { AD_SLOTS } from '@/services/adsenseSlots';
+
+// Keep the GPT/manual-ad lifecycle out of the calculator entry chunk. The
+// fallback reserves the same 90px desktop footprint, so the banner remains
+// layout-stable while its independent chunk loads after the shell can paint.
+const DesktopTopBanner = lazyRetry(() => import('@/components/shared/DesktopTopBanner'));
+const DesktopTopBannerSlot = () => (
+ <Suspense fallback={<div aria-hidden="true" className="hidden lg:block w-full text-center mb-4 min-h-[90px] [contain:layout]" />}>
+  <DesktopTopBanner />
+ </Suspense>
+);
 
 
 /* CLS fix (#3529): the ResultsView chunk resolves >500ms after the toggle /
@@ -72,7 +81,7 @@ export default function CalcolatoreTabContent() {
  replaces reliance on the variable-height Auto Ad whose box left a blank
  band above the fold. Outside space-y-8 so the hidden (mobile) slot adds
  no phantom top gap. */}
- <DesktopTopBanner />
+ <DesktopTopBannerSlot />
  <div className="space-y-8">
  {seoLanding === 'new-frontier-over20km' ? (
  <Suspense fallback={<div className="h-64 rounded-3xl bg-surface-raised animate-pulse mb-6" />}>
@@ -388,7 +397,7 @@ export default function CalcolatoreTabContent() {
  if (calcolatoreSubTab === 'payslip') {
  return (
  <>
- <DesktopTopBanner />
+ <DesktopTopBannerSlot />
  <div className="w-full"><PayslipSimulator userProfile={userProfile} />{adBottom}</div>
  </>
  );
@@ -396,7 +405,7 @@ export default function CalcolatoreTabContent() {
  if (calcolatoreSubTab === 'whatif') {
  return (
  <>
- <DesktopTopBanner />
+ <DesktopTopBannerSlot />
  <div className={`w-full transition-opacity duration-200${isResultStale ? ' opacity-50' : ''}`}>
  {result && <WhatIfSimulator baseInputs={inputs} baseResult={result} userProfile={userProfile} />}
  {adBottom}
@@ -407,7 +416,7 @@ export default function CalcolatoreTabContent() {
  if (calcolatoreSubTab === 'ral') {
  return (
  <>
- <DesktopTopBanner />
+ <DesktopTopBannerSlot />
  <div className="max-w-7xl mx-auto"><RalComparator userProfile={userProfile} />{adBottom}</div>
  </>
  );
@@ -415,7 +424,7 @@ export default function CalcolatoreTabContent() {
  if (calcolatoreSubTab === 'bonus') {
  return (
  <>
- <DesktopTopBanner />
+ <DesktopTopBannerSlot />
  <div className="max-w-7xl mx-auto"><BonusCalculator userProfile={userProfile} />{adBottom}</div>
  </>
  );
@@ -423,7 +432,7 @@ export default function CalcolatoreTabContent() {
  if (calcolatoreSubTab === 'parental-leave') {
  return (
  <>
- <DesktopTopBanner />
+ <DesktopTopBannerSlot />
  <div className="max-w-7xl mx-auto"><ParentalLeaveCalculator userProfile={userProfile} />{adBottom}</div>
  </>
  );
@@ -431,7 +440,7 @@ export default function CalcolatoreTabContent() {
  if (calcolatoreSubTab === 'residency') {
  return (
  <>
- <DesktopTopBanner />
+ <DesktopTopBannerSlot />
  <div className="max-w-7xl mx-auto"><ResidencySimulator />{adBottom}</div>
  </>
  );
@@ -439,7 +448,7 @@ export default function CalcolatoreTabContent() {
  if (calcolatoreSubTab === 'salary-quiz') {
  return (
  <>
- <DesktopTopBanner />
+ <DesktopTopBannerSlot />
  <div className="max-w-7xl mx-auto"><SalaryQuiz />{adBottom}</div>
  </>
  );
