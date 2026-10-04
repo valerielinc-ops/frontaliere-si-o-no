@@ -3697,6 +3697,7 @@ const RAW_ARTICLES = [
  id: 'sequestro-cocaina-brogeda-2026',
  category: 'novita',
  date: '2026-03-17T21:08:34.195Z',
+ updatedAt: '2026-10-04T06:20:18Z',
  image: '/images/blog/sequestro-cocaina-brogeda-2026.webp',
  hasCalculator: true,
  authorSlug: 'redazione',

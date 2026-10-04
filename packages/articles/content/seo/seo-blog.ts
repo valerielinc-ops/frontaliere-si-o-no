@@ -5865,25 +5865,25 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-sequestro-cocaina-brogeda-2026': {
- title: '15 kg di cocaina sequestrati a Brogeda | Frontaliere Ticino',
- description: '15 kg di cocaina sequestrati a Brogeda: tempi di attesa, controlli rafforzati e rischi per i 68.000 frontalieri. Guida pratica per non perdere permesso e',
+ title: "Sequestro a Brogeda: notizia e rettifica delle informazioni | Frontaliere Ticino",
+ description: "La notizia ADM del marzo 2026 e la rettifica delle precedenti affermazioni non documentate su controlli, permessi e conseguenze economiche.",
  keywords: 'frontalieri, ticino, svizzera, italia, cocaina, sequestrati, brogeda, cosa',
- ogTitle: 'Cocaina a Brogeda: guida sopravvivenza frontaliere',
- ogDescription: 'Maxi-sequestro al valico: 15 kg di cocaina nascosti sotto il sedile. Cosa cambia per chi attraversa il confine ogni giorno per lavorare.',
+ ogTitle: "Sequestro a Brogeda: notizia e rettifica delle informazioni",
+ ogDescription: "La notizia ADM del marzo 2026 e la rettifica delle precedenti affermazioni non documentate su controlli, permessi e conseguenze economiche.",
  canonicalPath: '/articoli-frontaliere/sequestro-cocaina-brogeda-2026/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Brogeda, 15 kg di cocaina sequestrati: aumentano i controlli sui",
- "description": "15 kg di cocaina sequestrati a Brogeda: tempi di attesa, controlli rafforzati e rischi per i 68.000 frontalieri. Guida pratica per non perdere permesso e",
+ "headline": "Sequestro a Brogeda: notizia e rettifica delle informazioni",
+ "description": "La notizia ADM del marzo 2026 e la rettifica delle precedenti affermazioni non documentate su controlli, permessi e conseguenze economiche.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/sequestro-cocaina-brogeda-2026.webp`,
  "width": 1344,
  "height": 756,
- "caption": "Controllo doganale Brogeda-Chiasso con sequestro record di cocaina"
+ "caption": "Immagine illustrativa del confine di Brogeda"
  },
  "datePublished": "2026-03-17T21:08:34+00:00",
- "dateModified": "2026-03-17T21:08:34+00:00",
+ "dateModified": "2026-10-04T06:20:18Z",
  "inLanguage": "it",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
  "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
