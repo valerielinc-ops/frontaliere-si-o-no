@@ -149,11 +149,13 @@ const sourceTreeLintTests = new Map([
   // Lo scan copre scripts/lib/** piu' un file nominato fuori da lib.
   ['tests/sanitize-control-chars.test.ts', /^scripts\/(?:lib\/.+\.(?:mjs|cjs|js)|publish-article-fast\.mjs)$/],
   ['tests/bounded-parallel.test.ts', /^scripts\/lib\/[^/]+\.sh$/],
-  // Questi tre scandiscono ricorsivamente tutto scripts/, ognuno con le
-  // proprie estensioni; costano pochi secondi.
+  // Questi scandiscono ricorsivamente tutto scripts/, ognuno con le proprie
+  // estensioni; costano pochi secondi.
   ['tests/score-ledger-persistence.test.ts', /^scripts\/.+\.mjs$/],
   ['tests/undici-dispatcher-fetch-pairing.test.ts', /^scripts\/.+\.(?:mjs|js)$/],
   ['tests/is-invoked-directly.test.ts', /^scripts\/.+\.(?:mjs|cjs|js|ts)$/],
+  ['tests/translation-protected-tokens.test.ts', /^scripts\/.+\.mjs$/],
+  ['tests/slug-write-encapsulation.test.ts', /^scripts\/.+\.(?:ts|mjs|js)$/],
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint

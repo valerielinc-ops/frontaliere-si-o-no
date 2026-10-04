@@ -471,6 +471,8 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(flat).toContain('tests/bespoke-crawler-slug-boundary.test.ts');
     expect(flat).toContain('tests/undici-dispatcher-fetch-pairing.test.ts');
     expect(flat).toContain('tests/is-invoked-directly.test.ts');
+    expect(flat).toContain('tests/translation-protected-tokens.test.ts');
+    expect(flat).toContain('tests/slug-write-encapsulation.test.ts');
     // Gli scan che leggono anche fuori da scripts/lib.
     expect(selectionFor(['scripts/update-future-jobs.mjs'])).toContain('tests/bespoke-crawler-slug-boundary.test.ts');
     expect(selectionFor(['scripts/publish-article-fast.mjs'])).toContain('tests/sanitize-control-chars.test.ts');
