@@ -15,6 +15,7 @@
  * (Gynaecology, Urology, ENT, Orthopaedics, Visceral & Hand surgery,
  * Anaesthesia & pain therapy).
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -143,7 +144,6 @@ export async function fetchAllThurklinikJobs() {
   console.log(`  ✓ ${rows.length} concrete PDF postings detected`);
   if (rows.length === 0) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const row = rows[i];
@@ -196,7 +196,8 @@ export async function fetchAllThurklinikJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      // The PDF extraction has no verified publication metadata.
+      ...sourcePostingDateFields(),
       applyUrl: THURKLINIK_CAREERS_URL,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

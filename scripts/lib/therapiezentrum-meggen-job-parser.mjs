@@ -19,6 +19,7 @@
  *
  * Inventory note: 2 PDF Stellenausschreibungen at probe time. Ship anyway.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './pdf-job-content.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -189,7 +190,6 @@ export async function fetchAllTzmJobs() {
     return [];
   }
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const listing of listings) {
     console.log(`  📄 Processing: ${listing.filename}`);
@@ -245,7 +245,8 @@ export async function fetchAllTzmJobs() {
       sector: 'Gesundheitswesen / Psychotherapie',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      // The PDF extraction has no verified publication metadata.
+      ...sourcePostingDateFields(),
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     });
