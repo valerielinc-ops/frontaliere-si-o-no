@@ -1,35 +1,47 @@
 {
-  "generatedAt": "2026-09-27T10:42:30.391Z",
+  "generatedAt": "2026-10-04T11:15:52.685Z",
   "source": {
     "path": "data/jobs.json",
-    "jobCount": 25685
+    "jobCount": 29887
   },
-  "companiesTotal": 589,
-  "withLogo": 564,
-  "missing": 25,
-  "missingJobCount": 140,
+  "companiesTotal": 582,
+  "withLogo": 554,
+  "missing": 28,
+  "missingJobCount": 1021,
   "broken": 0,
   "brokenJobCount": 0,
   "partial": 0,
   "partialJobCount": 0,
   "unverified": 0,
   "unverifiedJobCount": 0,
-  "referenceCount": 563,
-  "validReferenceCount": 563,
+  "lowQuality": 0,
+  "lowQualityJobCount": 0,
+  "qualityUnverified": 0,
+  "qualityUnverifiedJobCount": 0,
+  "referenceCount": 553,
+  "validReferenceCount": 553,
+  "qualityOkReferenceCount": 553,
   "affectedCompanies": [
     {
       "companyKey": "yellowshark",
       "companyName": "yellowshark AG",
-      "jobCount": 32,
-      "missingJobCount": 32,
+      "jobCount": 887,
+      "missingJobCount": 887,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
-      "affectedJobCount": 32,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 887,
+      "affectedJobCount": 887,
       "status": "missing",
-      "exampleUrl": "https://jobs.yellowshark.com/job/sa036579/",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://jobs.yellowshark.com/job/sa068011/",
       "examples": {
-        "missing": "https://jobs.yellowshark.com/job/sa036579/",
-        "broken": null
+        "missing": "https://jobs.yellowshark.com/job/sa068011/",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -40,12 +52,19 @@
       "missingJobCount": 18,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 18,
       "affectedJobCount": 18,
       "status": "missing",
-      "exampleUrl": "https://jobs.dayforcehcm.com/de-DE/bucherer/CANDIDATEPORTAL/jobs/1052",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://jobs.dayforcehcm.com/fr-FR/bucherer/CANDIDATEPORTAL/jobs/1071",
       "examples": {
-        "missing": "https://jobs.dayforcehcm.com/de-DE/bucherer/CANDIDATEPORTAL/jobs/1052",
-        "broken": null
+        "missing": "https://jobs.dayforcehcm.com/fr-FR/bucherer/CANDIDATEPORTAL/jobs/1071",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -56,12 +75,19 @@
       "missingJobCount": 16,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 16,
       "affectedJobCount": 16,
       "status": "missing",
-      "exampleUrl": "https://careers.nordanglia.com/job/Geneva-Nurse-on-call/1441010133/",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://careers.nordanglia.com/job/Aubonne-Learning-Support-Assistants/1079699301/",
       "examples": {
-        "missing": "https://careers.nordanglia.com/job/Geneva-Nurse-on-call/1441010133/",
-        "broken": null
+        "missing": "https://careers.nordanglia.com/job/Aubonne-Learning-Support-Assistants/1079699301/",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -72,12 +98,19 @@
       "missingJobCount": 11,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 11,
       "affectedJobCount": 11,
       "status": "missing",
-      "exampleUrl": "https://grischapersonal.ch/stellen/#job-019125e7f174",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://grischapersonal.ch/stellen/?jobid=019125e7f174#:~:text=GER%C3%9CSTBAUER%20EFZ%20MIT%20LKW%2DF%C3%9CHRERSCHEIN%20(m%2Fw%2Fd)",
       "examples": {
-        "missing": "https://grischapersonal.ch/stellen/#job-019125e7f174",
-        "broken": null
+        "missing": "https://grischapersonal.ch/stellen/?jobid=019125e7f174#:~:text=GER%C3%9CSTBAUER%20EFZ%20MIT%20LKW%2DF%C3%9CHRERSCHEIN%20(m%2Fw%2Fd)",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -88,12 +121,19 @@
       "missingJobCount": 10,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 10,
       "affectedJobCount": 10,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://brefis.ch/Vacancyboard/Detail/46973",
       "examples": {
         "missing": "https://brefis.ch/Vacancyboard/Detail/46973",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -104,12 +144,19 @@
       "missingJobCount": 10,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 10,
       "affectedJobCount": 10,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://parmag.ch/stellen/355?view=joblisting",
       "examples": {
         "missing": "https://parmag.ch/stellen/355?view=joblisting",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -120,28 +167,111 @@
       "missingJobCount": 9,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 9,
       "affectedJobCount": 9,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://endeso.ch/jobs/job-27898-regionalbetreiber-bern/",
       "examples": {
         "missing": "https://endeso.ch/jobs/job-27898-regionalbetreiber-bern/",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
+      },
+      "sourceCrawlers": []
+    },
+    {
+      "companyKey": "integra-biosciences",
+      "companyName": "INTEGRA Biosciences",
+      "jobCount": 9,
+      "missingJobCount": 9,
+      "brokenJobCount": 0,
+      "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 9,
+      "affectedJobCount": 9,
+      "status": "missing",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://jobs.integra-biosciences.com/Vacancies/345/Description/1?lang=ger",
+      "examples": {
+        "missing": "https://jobs.integra-biosciences.com/Vacancies/345/Description/1?lang=ger",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
     {
       "companyKey": "benu",
       "companyName": "benu",
-      "jobCount": 6,
-      "missingJobCount": 6,
+      "jobCount": 8,
+      "missingJobCount": 8,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
-      "affectedJobCount": 6,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 8,
+      "affectedJobCount": 8,
       "status": "missing",
-      "exampleUrl": "https://job.benu.ch/de/jobs/7378437-hr-service-specialist-w-m-60-100",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://job.benu.ch/de/jobs/3292749-senior-controller-w-m-80-100",
       "examples": {
-        "missing": "https://job.benu.ch/de/jobs/7378437-hr-service-specialist-w-m-60-100",
-        "broken": null
+        "missing": "https://job.benu.ch/de/jobs/3292749-senior-controller-w-m-80-100",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
+      },
+      "sourceCrawlers": []
+    },
+    {
+      "companyKey": "pantr-ch",
+      "companyName": "Pantr GmbH",
+      "jobCount": 8,
+      "missingJobCount": 8,
+      "brokenJobCount": 0,
+      "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 8,
+      "affectedJobCount": 8,
+      "status": "missing",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://pantr.ch/jobs/leiter-in-steuerteam-212/",
+      "examples": {
+        "missing": "https://pantr.ch/jobs/leiter-in-steuerteam-212/",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
+      },
+      "sourceCrawlers": []
+    },
+    {
+      "companyKey": "kone",
+      "companyName": "KONE",
+      "jobCount": 5,
+      "missingJobCount": 5,
+      "brokenJobCount": 0,
+      "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 5,
+      "affectedJobCount": 5,
+      "status": "missing",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Lausanne/Conseiller-re-de-vente-Modernisation---Suisse-romande_R0665148",
+      "examples": {
+        "missing": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Lausanne/Conseiller-re-de-vente-Modernisation---Suisse-romande_R0665148",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -152,12 +282,19 @@
       "missingJobCount": 4,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 4,
       "affectedJobCount": 4,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://fisba.com/en/jobs/lernender-feinwerkoptikerin-efz-fur-2027",
       "examples": {
         "missing": "https://fisba.com/en/jobs/lernender-feinwerkoptikerin-efz-fur-2027",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -168,12 +305,42 @@
       "missingJobCount": 4,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 4,
       "affectedJobCount": 4,
       "status": "missing",
-      "exampleUrl": "https://www.hotelcareer.ch/jobs/romantik-hotel-schweizerhof-11933/chef-de-rang-gerne-auch-langfristige-anstellung-3969883?rltr=comp",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://romantikhotels.hcm4all.de/list/18876",
       "examples": {
-        "missing": "https://www.hotelcareer.ch/jobs/romantik-hotel-schweizerhof-11933/chef-de-rang-gerne-auch-langfristige-anstellung-3969883?rltr=comp",
-        "broken": null
+        "missing": "https://romantikhotels.hcm4all.de/list/18876",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
+      },
+      "sourceCrawlers": []
+    },
+    {
+      "companyKey": "blatters-hotel",
+      "companyName": "Blatter",
+      "jobCount": 3,
+      "missingJobCount": 3,
+      "brokenJobCount": 0,
+      "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 3,
+      "affectedJobCount": 3,
+      "status": "missing",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/barpianist-m-w-ab-dezember-f%C3%BCr-die-wintersaison-4033816?rltr=comp",
+      "examples": {
+        "missing": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/barpianist-m-w-ab-dezember-f%C3%BCr-die-wintersaison-4033816?rltr=comp",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -184,28 +351,19 @@
       "missingJobCount": 3,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 3,
       "affectedJobCount": 3,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://mcm-group.ch/jobs/hausaerztin-hausarzt-50-100-1",
       "examples": {
         "missing": "https://mcm-group.ch/jobs/hausaerztin-hausarzt-50-100-1",
-        "broken": null
-      },
-      "sourceCrawlers": []
-    },
-    {
-      "companyKey": "blatters-hotel",
-      "companyName": "Blatter",
-      "jobCount": 2,
-      "missingJobCount": 2,
-      "brokenJobCount": 0,
-      "unverifiedJobCount": 0,
-      "affectedJobCount": 2,
-      "status": "missing",
-      "exampleUrl": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-rang-f%C3%BCr-die-wintersaison-3926747?rltr=comp",
-      "examples": {
-        "missing": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-rang-f%C3%BCr-die-wintersaison-3926747?rltr=comp",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -216,12 +374,42 @@
       "missingJobCount": 2,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 2,
       "affectedJobCount": 2,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://christinavassalli.ch/job/telefonistin-40-wollerau-2-2/",
       "examples": {
         "missing": "https://christinavassalli.ch/job/telefonistin-40-wollerau-2-2/",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
+      },
+      "sourceCrawlers": []
+    },
+    {
+      "companyKey": "clariant",
+      "companyName": "Clariant",
+      "jobCount": 2,
+      "missingJobCount": 2,
+      "brokenJobCount": 0,
+      "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 2,
+      "affectedJobCount": 2,
+      "status": "missing",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://careers.clariant.com/job/Pratteln-Intern-AI-for-Sustainability-reporting/1442415333/",
+      "examples": {
+        "missing": "https://careers.clariant.com/job/Pratteln-Intern-AI-for-Sustainability-reporting/1442415333/",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -232,12 +420,19 @@
       "missingJobCount": 2,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 2,
       "affectedJobCount": 2,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://neoproconseils.ch/emplois/installateur-electricien-h-f-ref-75124/",
       "examples": {
         "missing": "https://neoproconseils.ch/emplois/installateur-electricien-h-f-ref-75124/",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -248,12 +443,19 @@
       "missingJobCount": 1,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
       "affectedJobCount": 1,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur",
       "examples": {
         "missing": "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -264,12 +466,19 @@
       "missingJobCount": 1,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
       "affectedJobCount": 1,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun",
       "examples": {
         "missing": "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -280,12 +489,42 @@
       "missingJobCount": 1,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
       "affectedJobCount": 1,
       "status": "missing",
-      "exampleUrl": "https://apply.refline.ch/968123/1468/pub/de/index.html",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://apply.refline.ch/968123/1468/pub/5/index.html",
       "examples": {
-        "missing": "https://apply.refline.ch/968123/1468/pub/de/index.html",
-        "broken": null
+        "missing": "https://apply.refline.ch/968123/1468/pub/5/index.html",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
+      },
+      "sourceCrawlers": []
+    },
+    {
+      "companyKey": "artificialy",
+      "companyName": "Artificialy",
+      "jobCount": 1,
+      "missingJobCount": 1,
+      "brokenJobCount": 0,
+      "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
+      "affectedJobCount": 1,
+      "status": "missing",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://www.linkedin.com/jobs/view/4465201692/",
+      "examples": {
+        "missing": "https://www.linkedin.com/jobs/view/4465201692/",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -296,12 +535,19 @@
       "missingJobCount": 1,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
       "affectedJobCount": 1,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://atec-personal.ch/stellenangebot/prozessverantwortlicher-pruef-und-messmittel-80-100-a-3186-duedingen/cac94c1f-e85d-40e7-814b-e9f55ab36b29",
       "examples": {
         "missing": "https://atec-personal.ch/stellenangebot/prozessverantwortlicher-pruef-und-messmittel-80-100-a-3186-duedingen/cac94c1f-e85d-40e7-814b-e9f55ab36b29",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -312,28 +558,19 @@
       "missingJobCount": 1,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
       "affectedJobCount": 1,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12473242-produktionsmechaniker-in-efz-wattwil-sg-a-b-buersten-technik-ag",
       "examples": {
         "missing": "https://www.yousty.ch/de-CH/lehrstellen/profile/12473242-produktionsmechaniker-in-efz-wattwil-sg-a-b-buersten-technik-ag",
-        "broken": null
-      },
-      "sourceCrawlers": []
-    },
-    {
-      "companyKey": "clariant",
-      "companyName": "Clariant",
-      "jobCount": 1,
-      "missingJobCount": 1,
-      "brokenJobCount": 0,
-      "unverifiedJobCount": 0,
-      "affectedJobCount": 1,
-      "status": "missing",
-      "exampleUrl": "https://careers.clariant.com/job/Pratteln-%28Senior%29-Manager-National-Tax-&-Tax-Governance/1421384933/",
-      "examples": {
-        "missing": "https://careers.clariant.com/job/Pratteln-%28Senior%29-Manager-National-Tax-&-Tax-Governance/1421384933/",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -344,28 +581,42 @@
       "missingJobCount": 1,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
       "affectedJobCount": 1,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://elprom.ch/job/elektroplaner-3d-bim-m-w-d-80-100-wallisellen/",
       "examples": {
         "missing": "https://elprom.ch/job/elektroplaner-3d-bim-m-w-d-80-100-wallisellen/",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
     {
-      "companyKey": "im-bethesda-spital",
-      "companyName": "& im Bethesda Spital",
+      "companyKey": "farmacia-internazionale-dr-merloni",
+      "companyName": "Farmacia Internazionale dr Merloni",
       "jobCount": 1,
       "missingJobCount": 1,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
       "affectedJobCount": 1,
       "status": "missing",
-      "exampleUrl": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://frontaliereticino.ch/lavoro/farmacista-chiasso-farmacia-internazionale-dr-merloni",
       "examples": {
-        "missing": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html",
-        "broken": null
+        "missing": "https://frontaliereticino.ch/lavoro/farmacista-chiasso-farmacia-internazionale-dr-merloni",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -376,44 +627,42 @@
       "missingJobCount": 1,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
       "affectedJobCount": 1,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/",
       "examples": {
         "missing": "https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
     {
-      "companyKey": "my",
-      "companyName": "Bellevue Parkhotel & Spa",
+      "companyKey": "protectas-sa",
+      "companyName": "Protectas SA",
       "jobCount": 1,
       "missingJobCount": 1,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
       "affectedJobCount": 1,
       "status": "missing",
-      "exampleUrl": "https://my.jobalino.ch/job/ec70e0c43b72e9a77a115bb9c8e77542/fanzun-ag/initiativbewerbung_1048",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000150722610/",
       "examples": {
-        "missing": "https://my.jobalino.ch/job/ec70e0c43b72e9a77a115bb9c8e77542/fanzun-ag/initiativbewerbung_1048",
-        "broken": null
-      },
-      "sourceCrawlers": []
-    },
-    {
-      "companyKey": "premiumpflege24",
-      "companyName": "PremiumPflege24 GmbH",
-      "jobCount": 1,
-      "missingJobCount": 1,
-      "brokenJobCount": 0,
-      "unverifiedJobCount": 0,
-      "affectedJobCount": 1,
-      "status": "missing",
-      "exampleUrl": "https://premiumpflege24.ch/job-registrierung/",
-      "examples": {
-        "missing": "https://premiumpflege24.ch/job-registrierung/",
-        "broken": null
+        "missing": "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000150722610/",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     }
@@ -422,16 +671,23 @@
     {
       "companyKey": "yellowshark",
       "companyName": "yellowshark AG",
-      "jobCount": 32,
-      "missingJobCount": 32,
+      "jobCount": 887,
+      "missingJobCount": 887,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
-      "affectedJobCount": 32,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 887,
+      "affectedJobCount": 887,
       "status": "missing",
-      "exampleUrl": "https://jobs.yellowshark.com/job/sa036579/",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://jobs.yellowshark.com/job/sa068011/",
       "examples": {
-        "missing": "https://jobs.yellowshark.com/job/sa036579/",
-        "broken": null
+        "missing": "https://jobs.yellowshark.com/job/sa068011/",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -442,12 +698,19 @@
       "missingJobCount": 18,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 18,
       "affectedJobCount": 18,
       "status": "missing",
-      "exampleUrl": "https://jobs.dayforcehcm.com/de-DE/bucherer/CANDIDATEPORTAL/jobs/1052",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://jobs.dayforcehcm.com/fr-FR/bucherer/CANDIDATEPORTAL/jobs/1071",
       "examples": {
-        "missing": "https://jobs.dayforcehcm.com/de-DE/bucherer/CANDIDATEPORTAL/jobs/1052",
-        "broken": null
+        "missing": "https://jobs.dayforcehcm.com/fr-FR/bucherer/CANDIDATEPORTAL/jobs/1071",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -458,12 +721,19 @@
       "missingJobCount": 16,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 16,
       "affectedJobCount": 16,
       "status": "missing",
-      "exampleUrl": "https://careers.nordanglia.com/job/Geneva-Nurse-on-call/1441010133/",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://careers.nordanglia.com/job/Aubonne-Learning-Support-Assistants/1079699301/",
       "examples": {
-        "missing": "https://careers.nordanglia.com/job/Geneva-Nurse-on-call/1441010133/",
-        "broken": null
+        "missing": "https://careers.nordanglia.com/job/Aubonne-Learning-Support-Assistants/1079699301/",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -474,12 +744,19 @@
       "missingJobCount": 11,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 11,
       "affectedJobCount": 11,
       "status": "missing",
-      "exampleUrl": "https://grischapersonal.ch/stellen/#job-019125e7f174",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://grischapersonal.ch/stellen/?jobid=019125e7f174#:~:text=GER%C3%9CSTBAUER%20EFZ%20MIT%20LKW%2DF%C3%9CHRERSCHEIN%20(m%2Fw%2Fd)",
       "examples": {
-        "missing": "https://grischapersonal.ch/stellen/#job-019125e7f174",
-        "broken": null
+        "missing": "https://grischapersonal.ch/stellen/?jobid=019125e7f174#:~:text=GER%C3%9CSTBAUER%20EFZ%20MIT%20LKW%2DF%C3%9CHRERSCHEIN%20(m%2Fw%2Fd)",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -490,12 +767,19 @@
       "missingJobCount": 10,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 10,
       "affectedJobCount": 10,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://brefis.ch/Vacancyboard/Detail/46973",
       "examples": {
         "missing": "https://brefis.ch/Vacancyboard/Detail/46973",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -506,12 +790,19 @@
       "missingJobCount": 10,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 10,
       "affectedJobCount": 10,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://parmag.ch/stellen/355?view=joblisting",
       "examples": {
         "missing": "https://parmag.ch/stellen/355?view=joblisting",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -522,28 +813,111 @@
       "missingJobCount": 9,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 9,
       "affectedJobCount": 9,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://endeso.ch/jobs/job-27898-regionalbetreiber-bern/",
       "examples": {
         "missing": "https://endeso.ch/jobs/job-27898-regionalbetreiber-bern/",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
+      },
+      "sourceCrawlers": []
+    },
+    {
+      "companyKey": "integra-biosciences",
+      "companyName": "INTEGRA Biosciences",
+      "jobCount": 9,
+      "missingJobCount": 9,
+      "brokenJobCount": 0,
+      "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 9,
+      "affectedJobCount": 9,
+      "status": "missing",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://jobs.integra-biosciences.com/Vacancies/345/Description/1?lang=ger",
+      "examples": {
+        "missing": "https://jobs.integra-biosciences.com/Vacancies/345/Description/1?lang=ger",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
     {
       "companyKey": "benu",
       "companyName": "benu",
-      "jobCount": 6,
-      "missingJobCount": 6,
+      "jobCount": 8,
+      "missingJobCount": 8,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
-      "affectedJobCount": 6,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 8,
+      "affectedJobCount": 8,
       "status": "missing",
-      "exampleUrl": "https://job.benu.ch/de/jobs/7378437-hr-service-specialist-w-m-60-100",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://job.benu.ch/de/jobs/3292749-senior-controller-w-m-80-100",
       "examples": {
-        "missing": "https://job.benu.ch/de/jobs/7378437-hr-service-specialist-w-m-60-100",
-        "broken": null
+        "missing": "https://job.benu.ch/de/jobs/3292749-senior-controller-w-m-80-100",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
+      },
+      "sourceCrawlers": []
+    },
+    {
+      "companyKey": "pantr-ch",
+      "companyName": "Pantr GmbH",
+      "jobCount": 8,
+      "missingJobCount": 8,
+      "brokenJobCount": 0,
+      "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 8,
+      "affectedJobCount": 8,
+      "status": "missing",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://pantr.ch/jobs/leiter-in-steuerteam-212/",
+      "examples": {
+        "missing": "https://pantr.ch/jobs/leiter-in-steuerteam-212/",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
+      },
+      "sourceCrawlers": []
+    },
+    {
+      "companyKey": "kone",
+      "companyName": "KONE",
+      "jobCount": 5,
+      "missingJobCount": 5,
+      "brokenJobCount": 0,
+      "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 5,
+      "affectedJobCount": 5,
+      "status": "missing",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Lausanne/Conseiller-re-de-vente-Modernisation---Suisse-romande_R0665148",
+      "examples": {
+        "missing": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Lausanne/Conseiller-re-de-vente-Modernisation---Suisse-romande_R0665148",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -554,12 +928,19 @@
       "missingJobCount": 4,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 4,
       "affectedJobCount": 4,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://fisba.com/en/jobs/lernender-feinwerkoptikerin-efz-fur-2027",
       "examples": {
         "missing": "https://fisba.com/en/jobs/lernender-feinwerkoptikerin-efz-fur-2027",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -570,12 +951,42 @@
       "missingJobCount": 4,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 4,
       "affectedJobCount": 4,
       "status": "missing",
-      "exampleUrl": "https://www.hotelcareer.ch/jobs/romantik-hotel-schweizerhof-11933/chef-de-rang-gerne-auch-langfristige-anstellung-3969883?rltr=comp",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://romantikhotels.hcm4all.de/list/18876",
       "examples": {
-        "missing": "https://www.hotelcareer.ch/jobs/romantik-hotel-schweizerhof-11933/chef-de-rang-gerne-auch-langfristige-anstellung-3969883?rltr=comp",
-        "broken": null
+        "missing": "https://romantikhotels.hcm4all.de/list/18876",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
+      },
+      "sourceCrawlers": []
+    },
+    {
+      "companyKey": "blatters-hotel",
+      "companyName": "Blatter",
+      "jobCount": 3,
+      "missingJobCount": 3,
+      "brokenJobCount": 0,
+      "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 3,
+      "affectedJobCount": 3,
+      "status": "missing",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/barpianist-m-w-ab-dezember-f%C3%BCr-die-wintersaison-4033816?rltr=comp",
+      "examples": {
+        "missing": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/barpianist-m-w-ab-dezember-f%C3%BCr-die-wintersaison-4033816?rltr=comp",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -586,28 +997,19 @@
       "missingJobCount": 3,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 3,
       "affectedJobCount": 3,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://mcm-group.ch/jobs/hausaerztin-hausarzt-50-100-1",
       "examples": {
         "missing": "https://mcm-group.ch/jobs/hausaerztin-hausarzt-50-100-1",
-        "broken": null
-      },
-      "sourceCrawlers": []
-    },
-    {
-      "companyKey": "blatters-hotel",
-      "companyName": "Blatter",
-      "jobCount": 2,
-      "missingJobCount": 2,
-      "brokenJobCount": 0,
-      "unverifiedJobCount": 0,
-      "affectedJobCount": 2,
-      "status": "missing",
-      "exampleUrl": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-rang-f%C3%BCr-die-wintersaison-3926747?rltr=comp",
-      "examples": {
-        "missing": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-rang-f%C3%BCr-die-wintersaison-3926747?rltr=comp",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -618,12 +1020,42 @@
       "missingJobCount": 2,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 2,
       "affectedJobCount": 2,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://christinavassalli.ch/job/telefonistin-40-wollerau-2-2/",
       "examples": {
         "missing": "https://christinavassalli.ch/job/telefonistin-40-wollerau-2-2/",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
+      },
+      "sourceCrawlers": []
+    },
+    {
+      "companyKey": "clariant",
+      "companyName": "Clariant",
+      "jobCount": 2,
+      "missingJobCount": 2,
+      "brokenJobCount": 0,
+      "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 2,
+      "affectedJobCount": 2,
+      "status": "missing",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://careers.clariant.com/job/Pratteln-Intern-AI-for-Sustainability-reporting/1442415333/",
+      "examples": {
+        "missing": "https://careers.clariant.com/job/Pratteln-Intern-AI-for-Sustainability-reporting/1442415333/",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -634,12 +1066,19 @@
       "missingJobCount": 2,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 2,
       "affectedJobCount": 2,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://neoproconseils.ch/emplois/installateur-electricien-h-f-ref-75124/",
       "examples": {
         "missing": "https://neoproconseils.ch/emplois/installateur-electricien-h-f-ref-75124/",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -650,12 +1089,19 @@
       "missingJobCount": 1,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
       "affectedJobCount": 1,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur",
       "examples": {
         "missing": "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -666,12 +1112,19 @@
       "missingJobCount": 1,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
       "affectedJobCount": 1,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun",
       "examples": {
         "missing": "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -682,12 +1135,42 @@
       "missingJobCount": 1,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
       "affectedJobCount": 1,
       "status": "missing",
-      "exampleUrl": "https://apply.refline.ch/968123/1468/pub/de/index.html",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://apply.refline.ch/968123/1468/pub/5/index.html",
       "examples": {
-        "missing": "https://apply.refline.ch/968123/1468/pub/de/index.html",
-        "broken": null
+        "missing": "https://apply.refline.ch/968123/1468/pub/5/index.html",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
+      },
+      "sourceCrawlers": []
+    },
+    {
+      "companyKey": "artificialy",
+      "companyName": "Artificialy",
+      "jobCount": 1,
+      "missingJobCount": 1,
+      "brokenJobCount": 0,
+      "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
+      "affectedJobCount": 1,
+      "status": "missing",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://www.linkedin.com/jobs/view/4465201692/",
+      "examples": {
+        "missing": "https://www.linkedin.com/jobs/view/4465201692/",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -698,12 +1181,19 @@
       "missingJobCount": 1,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
       "affectedJobCount": 1,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://atec-personal.ch/stellenangebot/prozessverantwortlicher-pruef-und-messmittel-80-100-a-3186-duedingen/cac94c1f-e85d-40e7-814b-e9f55ab36b29",
       "examples": {
         "missing": "https://atec-personal.ch/stellenangebot/prozessverantwortlicher-pruef-und-messmittel-80-100-a-3186-duedingen/cac94c1f-e85d-40e7-814b-e9f55ab36b29",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -714,28 +1204,19 @@
       "missingJobCount": 1,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
       "affectedJobCount": 1,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12473242-produktionsmechaniker-in-efz-wattwil-sg-a-b-buersten-technik-ag",
       "examples": {
         "missing": "https://www.yousty.ch/de-CH/lehrstellen/profile/12473242-produktionsmechaniker-in-efz-wattwil-sg-a-b-buersten-technik-ag",
-        "broken": null
-      },
-      "sourceCrawlers": []
-    },
-    {
-      "companyKey": "clariant",
-      "companyName": "Clariant",
-      "jobCount": 1,
-      "missingJobCount": 1,
-      "brokenJobCount": 0,
-      "unverifiedJobCount": 0,
-      "affectedJobCount": 1,
-      "status": "missing",
-      "exampleUrl": "https://careers.clariant.com/job/Pratteln-%28Senior%29-Manager-National-Tax-&-Tax-Governance/1421384933/",
-      "examples": {
-        "missing": "https://careers.clariant.com/job/Pratteln-%28Senior%29-Manager-National-Tax-&-Tax-Governance/1421384933/",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -746,28 +1227,42 @@
       "missingJobCount": 1,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
       "affectedJobCount": 1,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://elprom.ch/job/elektroplaner-3d-bim-m-w-d-80-100-wallisellen/",
       "examples": {
         "missing": "https://elprom.ch/job/elektroplaner-3d-bim-m-w-d-80-100-wallisellen/",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
     {
-      "companyKey": "im-bethesda-spital",
-      "companyName": "& im Bethesda Spital",
+      "companyKey": "farmacia-internazionale-dr-merloni",
+      "companyName": "Farmacia Internazionale dr Merloni",
       "jobCount": 1,
       "missingJobCount": 1,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
       "affectedJobCount": 1,
       "status": "missing",
-      "exampleUrl": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://frontaliereticino.ch/lavoro/farmacista-chiasso-farmacia-internazionale-dr-merloni",
       "examples": {
-        "missing": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html",
-        "broken": null
+        "missing": "https://frontaliereticino.ch/lavoro/farmacista-chiasso-farmacia-internazionale-dr-merloni",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
@@ -778,44 +1273,42 @@
       "missingJobCount": 1,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
       "affectedJobCount": 1,
       "status": "missing",
+      "qualityStatus": "not-applicable",
       "exampleUrl": "https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/",
       "examples": {
         "missing": "https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/",
-        "broken": null
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     },
     {
-      "companyKey": "my",
-      "companyName": "Bellevue Parkhotel & Spa",
+      "companyKey": "protectas-sa",
+      "companyName": "Protectas SA",
       "jobCount": 1,
       "missingJobCount": 1,
       "brokenJobCount": 0,
       "unverifiedJobCount": 0,
+      "lowQualityJobCount": 0,
+      "qualityUnverifiedJobCount": 0,
+      "qualityAffectedJobCount": 0,
+      "invalid": 1,
       "affectedJobCount": 1,
       "status": "missing",
-      "exampleUrl": "https://my.jobalino.ch/job/ec70e0c43b72e9a77a115bb9c8e77542/fanzun-ag/initiativbewerbung_1048",
+      "qualityStatus": "not-applicable",
+      "exampleUrl": "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000150722610/",
       "examples": {
-        "missing": "https://my.jobalino.ch/job/ec70e0c43b72e9a77a115bb9c8e77542/fanzun-ag/initiativbewerbung_1048",
-        "broken": null
-      },
-      "sourceCrawlers": []
-    },
-    {
-      "companyKey": "premiumpflege24",
-      "companyName": "PremiumPflege24 GmbH",
-      "jobCount": 1,
-      "missingJobCount": 1,
-      "brokenJobCount": 0,
-      "unverifiedJobCount": 0,
-      "affectedJobCount": 1,
-      "status": "missing",
-      "exampleUrl": "https://premiumpflege24.ch/job-registrierung/",
-      "examples": {
-        "missing": "https://premiumpflege24.ch/job-registrierung/",
-        "broken": null
+        "missing": "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000150722610/",
+        "broken": null,
+        "lowQuality": null,
+        "qualityUnverified": null
       },
       "sourceCrawlers": []
     }
@@ -823,5 +1316,7 @@
   "brokenCompanies": [],
   "partialCompanies": [],
   "unverifiedCompanies": [],
+  "lowQualityCompanies": [],
+  "qualityUnverifiedCompanies": [],
   "references": []
 }
