@@ -1,19 +1,21 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-10-04T09:17:53.085Z",
+  "generatedAt": "2026-10-04T21:25:32.890Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 129195,
-  "avgDurationMs": 129195,
+  "unchangedCount": 5,
+  "durationMs": 136690,
+  "avgDurationMs": 136690,
   "durationHistory": [
-    129195
+    136690
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Consulente tecnico (m/f) - 100%",
       "slug": "consulente-tecnico-m-f-100-amag-group-giubiasco",
@@ -93,6 +95,45 @@
       }
     },
     {
+      "title": "Apprendisti meccatronici d'automobili AFC (m/f) - AMAG Ticino - estate 2027",
+      "slug": "apprendisti-meccatronici-d-automobili-afc-m-f-amag-ticino-estate-2027",
+      "url": "https://jobs.amag-group.ch/Apprendisti-meccatronici-dautomobili-AFC-mf-AMAG-Ticino-es-it-j23683.html",
+      "applyUrl": "https://jobs.amag-group.ch/Apprendisti-meccatronici-dautomobili-AFC-mf-AMAG-Ticino-es-it-f23683.html",
+      "company": "AMAG Group",
+      "companyKey": "amag-group",
+      "companyDomain": "amag-group.ch",
+      "location": "Tutti",
+      "addressLocality": "Tutti",
+      "addressRegion": "JU",
+      "addressCountry": "CH",
+      "canton": "JU",
+      "country": "CH",
+      "category": "apprenticeship",
+      "sector": "Automotive & Mobilità",
+      "source": "amag-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-09-24",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2027-04-01",
+      "id": "amag-group-078b29e50992",
+      "salaryMin": 50500,
+      "salaryMax": 77000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-24T14:26:24.650Z",
+      "sourceIdentity": "url:https://jobs.amag-group.ch/apprendisti-meccatronici-dautomobili-afc-mf-amag-ticino-es-it-j23683.html",
+      "datePosted": "2026-09-24",
+      "postingDateSource": "reported",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
       "title": "Apprendista (magazzino) Impiegato/a del comm. al dettaglio AFC After-Sales Automobile 2027 (m/f) - AMAG Breganzona",
       "slug": "apprendista-magazzino-impiegato-a-del-comm-al-dettaglio-afc-after-sales-automobile-2027-m-f-amag-breganzona",
       "url": "https://jobs.amag-group.ch/Apprendista-magazzino-Impiegatoa-del-comm-al-dettaglio-AFC-it-j23660.html",
@@ -123,6 +164,7 @@
       "sourceIdentity": "url:https://jobs.amag-group.ch/apprendista-magazzino-impiegatoa-del-comm-al-dettaglio-afc-it-j23660.html",
       "datePosted": "2026-09-22",
       "postingDateSource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -162,6 +204,7 @@
       "sourceIdentity": "url:https://jobs.amag-group.ch/apprendista-carrozzierea-verniciatore-trice-afc-mf-estate--it-j20676.html",
       "datePosted": "2026-09-18",
       "postingDateSource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -171,47 +214,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Apprendisti meccatronici d'automobili AFC (m/f) - AMAG Ticino - estate 2027",
-      "slug": "apprendisti-meccatronici-d-automobili-afc-m-f-amag-ticino-estate-2027",
-      "url": "https://jobs.amag-group.ch/Apprendisti-meccatronici-dautomobili-AFC-mf-AMAG-Ticino-es-it-j23683.html",
-      "applyUrl": "https://jobs.amag-group.ch/Apprendisti-meccatronici-dautomobili-AFC-mf-AMAG-Ticino-es-it-f23683.html",
-      "company": "AMAG Group",
-      "companyKey": "amag-group",
-      "companyDomain": "amag-group.ch",
-      "location": "Tutti",
-      "addressLocality": "Tutti",
-      "addressRegion": "JU",
-      "addressCountry": "CH",
-      "canton": "JU",
-      "country": "CH",
-      "category": "apprenticeship",
-      "sector": "Automotive & Mobilità",
-      "source": "amag-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-09-24",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2027-04-01",
-      "id": "amag-group-078b29e50992",
-      "salaryMin": 50500,
-      "salaryMax": 77000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-24T14:26:24.650Z",
-      "sourceIdentity": "url:https://jobs.amag-group.ch/apprendisti-meccatronici-dautomobili-afc-mf-amag-ticino-es-it-j23683.html",
-      "datePosted": "2026-09-24",
-      "postingDateSource": "reported",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }
