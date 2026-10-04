@@ -54,7 +54,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
-import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { extractJobPostingsLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
@@ -451,9 +451,11 @@ export async function fetchAllStadtZuerichJobs() {
 
   const sourceLang = 'de';
   const jobs = [];
+  const publicationByRef = new Map();
   const officialTexts = await fetchOfficialAdTexts(
     new Set(rows.map((r) => r.ref).filter(Boolean)),
     Math.min(delayMs, 300),
+    { publicationByRef },
   );
   let withoutText = 0;
 
@@ -514,7 +516,7 @@ export async function fetchAllStadtZuerichJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, publicationByRef.get(String(row.ref)) || {}),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
