@@ -45,6 +45,8 @@ import { itemBlockedMarker, itemBornSatisfiedMarker, itemEvidenceMarker, parseIt
 import { isTrustedAuthor } from '../scripts/ci/route-already-fixed.mjs';
 import { applyBlockedRecheck, planBlockedRecheck, unblockedCommentBody } from '../scripts/ci/lib/followup-blocked-recheck.mjs';
 import { classifyIssue } from '../scripts/lib/classify-issue.mjs';
+import { parseFollowupItems } from '../scripts/ci/followup-resolution-match.mjs';
+import { rebuildDailyBody } from '../scripts/ci/gate-minted-followups.mjs';
 
 describe('alreadyCommented — esito vuoto riuscito distinto dall’errore (#8034)', () => {
   it('tratta stdout vuoto/whitespace come lista commenti vuota, ma null come errore', () => {
@@ -543,6 +545,27 @@ describe('allarme a titolo stabile per i bucket illeggibili dal parser', () => {
     expect(decideBucketAlarmAction({ ...plan, listComplete: true })).toBe('resolve');
     expect(decideBucketAlarmAction({ ...plan, listComplete: false })).toBe('none');
     expect(decideBucketAlarmAction({ ...plan, listComplete: true, noAutoclose: true })).toBe('none');
+  });
+
+  it('round-trip: il ricostruttore riceve gli item parsati interi (`raw`), non `item.text` (review 5404175898)', () => {
+    // Il corpo minimo del comando di accettazione della review: stabile.
+    const minimal = [
+      '- Daily key: 2026-10-04', '- State: sealed', '- Target repository: owner/repo', '',
+      '### FU-2026-10-04-001 — esempio', '- Target repository: owner/repo', '- State: open',
+    ].join('\n');
+    expect(dailyBucketRoundTripReason(minimal)).toBeNull();
+    const signature = (list: Array<{ id: string | null; state: string | null }>) =>
+      list.map((item) => `${item.id}:${item.state}`);
+    for (const body of [minimal, bucket11003.body, bucket8705.body]) {
+      const items = parseFollowupItems(body);
+      expect(items.length).toBeGreaterThan(0);
+      const head = body.slice(0, items[0].start);
+      // `rebuildDailyBody` legge `item.raw` dagli oggetti: heading compreso.
+      expect(signature(parseFollowupItems(rebuildDailyBody(head, items)))).toEqual(signature(items));
+      // `item.text` comincia DOPO l'heading: ricostruire da li' perde ogni
+      // item, e la guardia classificherebbe `round-trip-unstable` ogni bucket.
+      expect(parseFollowupItems(rebuildDailyBody(head, items.map((item) => item.text)))).toEqual([]);
+    }
   });
 
   it('un bucket collecting più giovane di 48 ore con veto strutturale non apre l’allarme', () => {

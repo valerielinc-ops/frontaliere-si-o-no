@@ -764,6 +764,10 @@ export function dailyBucketRoundTripReason(body) {
   const source = String(body || '');
   const items = parseFollowupItems(source);
   if (!items.length) return null;
+  // Gli oggetti parsati interi, non `item.text`: `rebuildDailyBody` ne legge
+  // `raw` (heading compreso), mentre `text` comincia dopo l'heading e
+  // ricostruirebbe un corpo senza item, cioe' un falso `round-trip-unstable`
+  // su ogni bucket sano (test «round-trip: il ricostruttore riceve...»).
   const again = parseFollowupItems(rebuildDailyBody(source.slice(0, items[0].start), items));
   const signature = (list) => list.map((item) => `${item.id}\0${item.state}`).join('\n');
   return again.length === items.length && signature(again) === signature(items) ? null : 'round-trip-unstable';
