@@ -1,5 +1,5 @@
 import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
-import { resolveSchemaPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 /**
  * healthFacilitiesJobsAggregate.ts — build-time live aggregator for the
  * health-facilities hub (epic #4455 / sub #4457).
@@ -135,7 +135,7 @@ function toFeatured(job: JobRecord, now: number): FacilityFeaturedJob | null {
     salarySource: job.salarySource ?? null,
     currency: job.currency ?? null,
     postingDateSource: job.postingDateSource ?? undefined,
-    datePosted: resolveSchemaPostingDate(job, new Date(now)),
+    datePosted: resolveReportedPostingDate(job, new Date(now)),
     postedDate,
     validThrough: job.validThrough ?? null,
     crawledAt: job.crawledAt ?? null,

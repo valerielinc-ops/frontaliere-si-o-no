@@ -19,27 +19,3 @@ export function resolveReportedPostingDate(input, now = new Date()) {
   }
   return null;
 }
-
-/**
- * Resolve the date used by required JobPosting JSON-LD fields.
- *
- * A source date marked `unknown` is not employer evidence and must remain
- * unknown to freshness/provenance logic. Structured data still requires a
- * non-empty, valid `datePosted`, so use the first stable collection clock
- * (or the supplied build clock) only at this emission boundary.
- */
-export function resolveSchemaPostingDate(input, now = new Date()) {
-  const reported = resolveReportedPostingDate(input, now);
-  if (reported) return reported;
-  if (input?.postingDateSource !== 'unknown' || !Number.isFinite(now.getTime())) return null;
-
-  const nowMs = now.getTime();
-  for (const value of [input?.firstSeenAt, input?.crawledAt, input?.scrapedAt]) {
-    if (typeof value !== 'string' || !value.trim()) continue;
-    const timestamp = Date.parse(value);
-    if (!Number.isFinite(timestamp) || timestamp > nowMs) continue;
-    return new Date(timestamp).toISOString();
-  }
-
-  return now.toISOString();
-}

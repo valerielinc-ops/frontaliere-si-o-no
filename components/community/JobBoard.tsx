@@ -1,5 +1,5 @@
-import { hasPostingDateProvenance, resolveRolloutPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
-import { resolveReportedPostingDate, resolveSchemaPostingDate } from '../../scripts/lib/job-posting-date.mjs';
+import { hasPostingDateProvenance } from '../../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 import { hasActiveSalarySearchIntent } from '../../services/jobSearchIntent';
 import { getJobSearchRoleTokens, matchesJobOccupation } from '../../services/jobSearchRelevance';
 import { jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
@@ -20,7 +20,7 @@ import { cdnImageUrl } from '@/services/cdnImageBase';
 import { resolveJobApplicationUrl } from '@/services/jobApplicationDestination';
 import { requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
 import { baseCompanySlug, rawCompanySlug } from '@/build-plugins/shared/companyProfileSlug.mjs';
-import { firstParsableDateStr, firstParsableMs } from '@/build-plugins/shared/firstParsableDate';
+import { firstParsableMs } from '@/build-plugins/shared/firstParsableDate';
 import { parseJsonResponse } from '@/services/jsonResponseParser';
 const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm'));
 const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobAlertStickyBanner'));
@@ -797,12 +797,11 @@ export function normalizeIncomingJob(raw: any): JobListing {
  ? raw.requirements.map((item: unknown) => String(item || '').trim()).filter(Boolean)
  : [],
  featured: Boolean(raw?.featured),
- // A recrawl must never make an undated listing look newly published. Prefer
- // the source publication date, then the first discovery timestamp; crawledAt
- // is only a last-resort fallback because it changes on every recrawl.
+ // Only verified employer publication dates populate these aliases.
+ // Observation timestamps remain separate and cannot establish publication.
  postingDateSource: raw?.postingDateSource,
- datePosted: resolveSchemaPostingDate(raw || {}) || undefined,
- postedDate: resolveRolloutPostingDate(raw || {}, () => firstParsableDateStr(raw?.postedDate, raw?.firstSeenAt, raw?.crawledAt) || new Date().toISOString().slice(0, 10)) || '',
+ datePosted: resolveReportedPostingDate(raw || {}) || undefined,
+ postedDate: resolveReportedPostingDate(raw || {}) || '',
  // Do not promote job.url (which may be an ATS host) into ownership proof.
  // Static SEO and runtime JSON-LD must both use the crawler's raw domain.
  companyDomain: rawCompanyDomain || undefined,
@@ -5981,7 +5980,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // (e.g., slim index loaded first without description), preserve the
  // static HTML's JobPosting injected by the build plugin. The full data
  // will load shortly and re-trigger this effect with a valid schema.
- if (selectedJob && jobPostings.length === 0 && (!hasPostingDateProvenance(selectedJob) || resolveReportedPostingDate(selectedJob))) {
+ if (selectedJob && jobPostings.length === 0 && resolveReportedPostingDate(selectedJob)) {
  return;
  }
 

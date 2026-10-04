@@ -1,3 +1,4 @@
+import { clampMetaDescription } from '../build-plugins/shared/titleSuffix';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { buildPath, getSeoSection, type AppRoute } from '@/services/router';
 import { loadAllLocaleChunks, setLocale } from '@/services/i18n';
@@ -107,12 +108,13 @@ describe('SEO localization', () => {
     const description = document.querySelector('meta[name="description"]')?.getAttribute('content') || '';
     expect(description).toContain('fondo pensione aziendale');
 
-    // Explicit unknown retains the marker while the schema uses a valid
-    // collection-clock fallback for its mandatory datePosted field.
+    // Explicit unknown retains metadata/FAQ but never revives publication.
+    // Missing markers also lack verified employer publication evidence.
     const graph = [...document.querySelectorAll('script[type="application/ld+json"]')]
       .map((script) => JSON.parse(script.textContent || '{}'));
     const types = JSON.stringify(graph);
-    expect(types).toContain('"@type":"JobPosting"');
+    if (postingDateSource !== 'reported') expect(types).not.toContain('"@type":"JobPosting"');
+    else expect(types).toContain('"@type":"JobPosting"');
     expect(types).toContain('"@type":"FAQPage"');
 
 
@@ -142,5 +144,21 @@ describe('SEO localization', () => {
     expect(breadcrumbCrumb.name).toContain('Zurich');
     expect(breadcrumbCrumb.item).not.toContain('/cerca-lavoro-ticino');
     expect(breadcrumbCrumb.name).not.toContain('Tessin');
+  });
+});
+
+describe('editorial methodology SEO follows the requested locale', () => {
+  it.each(['en', 'de', 'fr'] as const)('localizes methodology metadata and AboutPage in %s', async locale => {
+    const { METHODOLOGY_COPY, METHODOLOGY_PATHS } = await import('../services/editorialMethodology');
+    await loadAllLocaleChunks(locale);
+    setLocale(locale);
+    window.history.replaceState({}, '', METHODOLOGY_PATHS[locale]);
+    await updateMetaTags('metodologia');
+    expect(document.title).toContain(METHODOLOGY_COPY[locale].title);
+    expect(document.querySelector('meta[name="description"]')?.getAttribute('content')).toBe(clampMetaDescription(METHODOLOGY_COPY[locale].description, undefined, locale));
+    const structured = document.querySelector('#dynamic-structured-data')?.textContent || '';
+    expect(structured).toContain(METHODOLOGY_COPY[locale].description);
+    expect(structured).toContain(`https://frontaliereticino.ch${METHODOLOGY_PATHS[locale]}`);
+    expect(structured).not.toContain('Come utilizziamo');
   });
 });
