@@ -22,6 +22,7 @@
  * For each job we tag the canton by inspecting the PDF filename and title
  * (ESTA → BL/Reinach, everything else → BS/Basel).
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -159,7 +160,6 @@ export async function fetchAllSuchthilfeRegionBaselJobs() {
   console.log(`  ✓ ${rows.length} PDF postings detected`);
   if (rows.length === 0) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const row = rows[i];
@@ -213,7 +213,7 @@ export async function fetchAllSuchthilfeRegionBaselJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(''),
       applyUrl: SUCHTHILFE_REGION_BASEL_CAREERS_URL,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
