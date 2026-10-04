@@ -28,6 +28,7 @@
  *   - isTrustedDomain()          — Validate URLs belong to this company
  *   - slugify() / stripHtml()    — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -483,7 +484,7 @@ export async function fetchAllSpitalDavosJobs() {
       sector: 'Sanità / Assistenza',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(''),
       applyUrl: listing.applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
