@@ -1,20 +1,24 @@
 {
   "key": "ail-lugano",
   "label": "AIL SA",
-  "generatedAt": "2026-10-03T21:27:59.420Z",
-  "total": 1,
+  "generatedAt": "2026-10-04T09:20:05.569Z",
+  "total": 0,
+  "discovered": null,
+  "parsed": null,
+  "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
+  "abortKind": null,
+  "written": 0,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5709,
-  "avgDurationMs": 5709,
-  "durationHistory": [
-    5709
-  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "earlyExit": true,
+  "exitCode": 0,
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }
