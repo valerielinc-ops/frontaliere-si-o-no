@@ -1,7 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { keywordPageMatcher, countProfessionPageJobs } from '../scripts/lib/keyword-page-match.mjs';
+import {
+  keywordPageMatcher,
+  countProfessionPageJobs,
+  professionPageIdForJob,
+} from '../scripts/lib/keyword-page-match.mjs';
 import { PROFESSION_TAXONOMY } from '../scripts/lib/profession-taxonomy.mjs';
 
 /**
@@ -54,6 +58,21 @@ describe('keywordPageMatcher — profession pages (professionMatch: true)', () =
     expect(keywordPageMatcher(security)(job, 'it')).toBe(false);
     // ...which the literal rule of a page without the opt-in would list.
     expect(keywordPageMatcher({ filterKeywords: ['sicurezza'] })(job, 'it')).toBe(true);
+  });
+
+  it('rejects the documented neighbouring security and beauty titles', () => {
+    const security = keywordPageMatcher({ professionMatch: true, professionId: 'agente-sicurezza' });
+    for (const title of [
+      'Guardia notturna permanente Dipl. Infermieristica',
+      'ICT Security Officer',
+      'Servicemitarbeiter*in Café & Bar Flughafen Zürich',
+      'Guarda il restauro di SAV',
+    ]) {
+      expect(security({ title }, 'it'), title).toBe(false);
+    }
+
+    const beauty = keywordPageMatcher({ professionMatch: true, professionId: 'estetista' });
+    expect(beauty({ title: 'Verkaufsberater:in Kosmetik 80%' }, 'it')).toBe(false);
   });
 });
 
@@ -129,6 +148,17 @@ describe('countProfessionPageJobs — one definition of "ads the page lists"', (
     expect(countProfessionPageJobs(jobs, '')).toBe(0);
     expect(countProfessionPageJobs(null as unknown as any[], ids[0])).toBe(0);
   });
+
+  it('exposes the same single-winner id used by the aggregate digest pass', () => {
+    const counts = new Map<string, number>();
+    for (const job of jobs) {
+      const id = professionPageIdForJob(job, 'it');
+      if (id) counts.set(id, (counts.get(id) || 0) + 1);
+    }
+    for (const id of ids) {
+      expect(counts.get(id) || 0).toBe(countProfessionPageJobs(jobs, id, 'it'));
+    }
+  });
 });
 
 describe('source contract: digest, feed and plugin share the matcher', () => {
@@ -145,10 +175,12 @@ describe('source contract: digest, feed and plugin share the matcher', () => {
   });
 
   it('the digest gates promotion on the page\'s own count, not a second predicate', () => {
-    expect(DIGEST).toMatch(/\bcountProfessionPageJobs\b[^;]*from\s+['"][^'"]*keyword-page-match\.mjs['"]/);
+    expect(DIGEST).toMatch(/\bprofessionPageIdForJob\b[^;]*from\s+['"][^'"]*keyword-page-match\.mjs['"]/);
     // `feedFilterJobCount` is the JSON field the feed and isPromotable read:
-    // it must come from the page's own counter, whatever the arguments.
-    expect(DIGEST).toMatch(/\bfeedFilterJobCount\s*=\s*countProfessionPageJobs\(/);
+    // it must come from the one-pass per-id map, not a corpus traversal inside
+    // the taxonomy ranking loop.
+    expect(DIGEST).toMatch(/\bprofessionPageJobCounts\.get\(entry\.id\)/);
+    expect(DIGEST).not.toContain('countProfessionPageJobs(jobs, entry.id');
   });
 
   it('the feed opts NEW profession-gap pages in, never the carried ones', () => {

@@ -3,6 +3,7 @@ import {
   PROFESSION_TAXONOMY,
   classifySearchTerm,
   matchProfession,
+  matchProfessionTitle,
   normalizeText,
   stemToken,
 } from '../scripts/lib/profession-taxonomy.mjs';
@@ -59,6 +60,20 @@ describe('matchProfession', () => {
     expect(matchProfession('lugano')).toBeNull();
     expect(matchProfession('ticino')).toBeNull();
     expect(matchProfession('offerte di lavoro')).toBeNull();
+  });
+});
+
+describe('matchProfessionTitle', () => {
+  it('does not use typing-prefix tolerance for landing membership', () => {
+    expect(matchProfessionTitle('Guarda il restauro di SAV')).not.toBe('agente-sicurezza');
+    expect(matchProfessionTitle('Servicemitarbeiter*in Café & Bar Flughafen Zürich')).not.toBe('agente-sicurezza');
+    expect(matchProfessionTitle('Verkaufsberater:in Kosmetik 80%')).not.toBe('estetista');
+  });
+
+  it('rejects generic security aliases while preserving exact profession titles', () => {
+    expect(matchProfessionTitle('Guardia notturna permanente Dipl. Infermieristica')).not.toBe('agente-sicurezza');
+    expect(matchProfessionTitle('ICT Security Officer')).not.toBe('agente-sicurezza');
+    expect(matchProfessionTitle('Kosmetikerin 80-100%')).toBe('estetista');
   });
 });
 

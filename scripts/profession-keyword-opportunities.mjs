@@ -53,7 +53,7 @@ import {
   keywordLandingPath,
   professionKeywordLandingPath,
 } from './lib/keyword-page-paths.mjs';
-import { countProfessionPageJobs } from './lib/keyword-page-match.mjs';
+import { professionPageIdForJob } from './lib/keyword-page-match.mjs';
 import { extractTsStringArray } from './lib/ts-array-extract.mjs';
 import { fetchOnsiteSearchTerms as fetchOnsiteSearchTermsShared } from './lib/posthog-search-terms.mjs';
 import { checkPostHogLiveness, declareNotMeasurable } from './lib/source-liveness.mjs';
@@ -316,6 +316,11 @@ for (const { term, count } of onsiteTerms || []) {
 //    title/description/company/location/titleByLocale. Informational only
 //    (report column), still the listing rule of the pre-#7915 pages.
 const jobsByProfession = new Map();
+// The landing matcher is single-winner, so all Italian page counts can be
+// accumulated while this existing job pass is already in progress. Do not
+// call countProfessionPageJobs() once per taxonomy entry: that would traverse
+// the complete job corpus K times for K professions.
+const professionPageJobCounts = new Map();
 const pluginHaystack = (job) => [
   String(job.title || ''),
   String(job.description || ''),
@@ -324,6 +329,13 @@ const pluginHaystack = (job) => [
   ...Object.values(job.titleByLocale || {}),
 ].join(' ').toLowerCase();
 for (const job of jobs) {
+  const pageProfessionId = professionPageIdForJob(job, 'it');
+  if (pageProfessionId) {
+    professionPageJobCounts.set(
+      pageProfessionId,
+      (professionPageJobCounts.get(pageProfessionId) || 0) + 1,
+    );
+  }
   const id = matchProfession(job.title);
   const haystack = pluginHaystack(job);
   for (const entry of PROFESSION_TAXONOMY) {
@@ -351,7 +363,7 @@ for (const entry of PROFESSION_TAXONOMY) {
   const onsite = onsiteByProfession.get(entry.id) || 0;
   const jobAgg = jobsByProfession.get(entry.id);
   const jobCount = jobAgg ? jobAgg.count : 0;
-  const feedFilterJobCount = countProfessionPageJobs(jobs, entry.id, 'it');
+  const feedFilterJobCount = professionPageJobCounts.get(entry.id) || 0;
   const literalFilterJobCount = jobAgg ? jobAgg.literalCount : 0;
   const gsc = gscByProfession.get(entry.id);
   if (onsite === 0 && jobCount === 0 && feedFilterJobCount === 0 && !gsc) continue;
