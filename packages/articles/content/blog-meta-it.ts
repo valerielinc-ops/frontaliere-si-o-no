@@ -12452,6 +12452,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pizzautobus-varese-inclusione.title': 'PizzAutobus a Varese: quattro autistici al lavoro',
     'blog.article.pizzautobus-varese-inclusione.excerpt': 'Il 3 ottobre Piazza Monte Grappa a Varese ospita la prima uscita del PizzAutobus, food truck di Abad cooperativa sociale con quattro persone autistiche al lavoro, in occasione della Granfondo Tre Valli Varesine.',
     'blog.article.pizzautobus-varese-inclusione.imageAlt': 'PizzAutobus davanti a una piazza ticinese con montagne sullo sfondo',
+    'blog.article.patto-generazionale-avs-ticino.title': 'Una 13esima AVS solidale per i giovani ticinesi',
+    'blog.article.patto-generazionale-avs-ticino.excerpt': 'Il Fondo Patto Generazionale invita i beneficiari AVS a donare parte o tutta la tredicesima per sostenere giovani ticinesi tra 0 e 30 anni.',
+    'blog.article.patto-generazionale-avs-ticino.imageAlt': 'Scena simbolica di solidarietà tra generazioni in Ticino',
 };
 
 export default blogMetaIt;

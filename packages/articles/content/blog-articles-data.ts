@@ -37340,6 +37340,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'patto-generazionale-avs-ticino',
+ category: 'pensione',
+ date: '2026-10-04T00:02:46.900Z',
+ image: '/images/blog/patto-generazionale-avs-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -12451,6 +12451,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pizzautobus-varese-inclusione.title': 'PizzAutobus in Varese: four autistic people at work',
     'blog.article.pizzautobus-varese-inclusione.excerpt': 'On 3 ottobre Piazza Monte Grappa in Varese hosts the first outing of the PizzAutobus, the food truck of Abad cooperativa sociale with four autistic people at work, on the occasion of the Granfondo Tre Valli Varesine.',
     'blog.article.pizzautobus-varese-inclusione.imageAlt': 'PizzAutobus food truck in a Ticino square with Alpine backdrop',
+    'blog.article.patto-generazionale-avs-ticino.title': 'A solidarity 13th AVS payment for young people from Ticino',
+    'blog.article.patto-generazionale-avs-ticino.excerpt': 'The Fondo Patto Generazionale invites AVS beneficiaries to donate part or all of their thirteenth payment to support young people from Ticino aged between 0 and 30.',
+    'blog.article.patto-generazionale-avs-ticino.imageAlt': 'Symbolic scene of solidarity between generations in Ticino',
 };
 
 export default blogMetaEn;

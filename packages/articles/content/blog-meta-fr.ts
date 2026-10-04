@@ -12453,6 +12453,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pizzautobus-varese-inclusione.title': 'PizzAutobus à Varese : quatre personnes autistes au travail',
     'blog.article.pizzautobus-varese-inclusione.excerpt': 'Le 3 octobre, Piazza Monte Grappa à Varese accueille la première sortie du PizzAutobus, le food truck d\'Abad cooperativa sociale où travaillent quatre personnes autistes, à l\'occasion de la Granfondo Tre Valli Varesine.',
     'blog.article.pizzautobus-varese-inclusione.imageAlt': 'Camion pizza PizzAutobus sur une place tessinoise avec fond alpestre',
+    'blog.article.patto-generazionale-avs-ticino.title': 'Un 13e AVS solidaire pour les jeunes Tessinois',
+    'blog.article.patto-generazionale-avs-ticino.excerpt': 'Fondo Patto Generazionale invite les bénéficiaires de l\'AVS à donner une partie ou la totalité de la treizième mensualité afin de soutenir les jeunes tessinois âgés de 0 à 30 ans.',
+    'blog.article.patto-generazionale-avs-ticino.imageAlt': 'Scène symbolique de solidarité entre générations au Tessin',
 };
 
 export default blogMetaFr;
