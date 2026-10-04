@@ -1,4 +1,5 @@
 import { JSDOM } from 'jsdom';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import {
   extractJobPostingAddress,
@@ -26,7 +27,6 @@ const FRESHTEAM_ORIGIN = 'https://klab.freshteam.com';
 const FRESHTEAM_JOB_PATH_RE = /^\/jobs\/([^/]+)(?:\/[^/]+)?\/?$/i;
 const CLOSED_DETAIL_RE = /currently\s+not\s+accepting\s+applications|no\s+longer\s+accepting\s+applications|position\s+has\s+been\s+filled/i;
 const MIN_DESCRIPTION_WORDS = 50;
-const DEFAULT_POSTED_DATE = '2000-01-01';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -78,9 +78,6 @@ function parseDate(value = '') {
   return Number.isNaN(date.getTime()) ? '' : date.toISOString().slice(0, 10);
 }
 
-function normalizeDate(value = '') {
-  return parseDate(value) || DEFAULT_POSTED_DATE;
-}
 
 function isExpiredValidThrough(value = '') {
   const candidate = String(value || '').trim();
@@ -161,18 +158,19 @@ function extractEmploymentType(document, html = '') {
   return normalizeSpace(visible).toLowerCase().replace(/[\s_]+/g, '-') || 'full-time';
 }
 
-function extractPostedDate(document, html = '') {
+function extractPostingDateFields(document, html = '') {
   const candidates = [
     // JobPosting.datePosted is authoritative; generic page timestamps may be
     // application deadlines or publication times for unrelated page content.
     extractJobPostingField(html, 'datePosted'),
     document.querySelector('[itemprop="datePosted"]')?.getAttribute('content'),
     document.querySelector('[itemprop="datePosted"]')?.textContent,
-    document.querySelector('meta[property="article:published_time"]')?.getAttribute('content'),
-    document.querySelector('time[datetime]')?.getAttribute('datetime'),
   ];
-  const raw = candidates.find((candidate) => parseDate(candidate));
-  return normalizeDate(raw);
+  for (const raw of candidates) {
+    const fields = sourcePostingDateFields(raw);
+    if (fields.postingDateSource === 'reported') return fields;
+  }
+  return sourcePostingDateFields('');
 }
 
 function extractDomDescription(document) {
@@ -274,7 +272,7 @@ export function parseKnowledgeLabPublicDetailHtml(html = '', detailUrl = '', fal
     employmentType: extractEmploymentType(document, html),
     applyUrl: detailUrl,
     remote: /remote\s+only/i.test(bodyText),
-    postedDate: extractPostedDate(document, html),
+    ...extractPostingDateFields(document, html),
   };
 }
 
@@ -305,7 +303,8 @@ export function parseKnowledgeLabListingJson(jobs = []) {
         employmentType: normalizeSpace(j.type || 'full_time').replace(/_/g, '-'),
         applyUrl: normalizeSpace(j.applicant_apply_link || ''),
         remote: !!j.remote,
-        postedDate: j.created_at ? j.created_at.slice(0, 10) : new Date().toISOString().slice(0, 10),
+        // Record creation does not establish when the vacancy became public.
+        ...sourcePostingDateFields(''),
       };
     });
 

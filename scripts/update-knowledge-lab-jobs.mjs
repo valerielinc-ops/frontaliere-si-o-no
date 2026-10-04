@@ -18,6 +18,7 @@
  */
 
 import fs from 'node:fs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -229,7 +230,8 @@ function buildKnowledgeLabJob(row) {
     sector: inferSector(),
     source: 'knowledge-lab-dedicated-crawler',
     sourceLang,
-    postedDate: row.postedDate,
+    ...sourcePostingDateFields(row.postingDateSource === 'reported' ? row.datePosted : ''),
+    crawledAt: new Date().toISOString(),
     employmentType: row.employmentType || 'full-time',
     contractType: row.employmentType || 'full-time',
     validThrough: '',
@@ -265,6 +267,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -293,7 +296,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...sourcePostingDateFields(job.postingDateSource === 'reported' ? job.datePosted : ''),
     };
   }
   writeJson(ADAPTER_PATH, {
