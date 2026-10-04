@@ -1,4 +1,3 @@
-import { hasPostingDateProvenance } from '../../scripts/lib/job-posting-date-rollout.mjs';
 import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 import { hasActiveSalarySearchIntent } from '../../services/jobSearchIntent';
 import { getJobSearchRoleTokens, matchesJobOccupation } from '../../services/jobSearchRelevance';
@@ -2085,10 +2084,8 @@ function cachedJobDates(job: JobDateFields): CachedJobDates {
  const cached = jobDateCache.get(objectJob);
  if (cached) return cached;
  const parsed: CachedJobDates = {
-  postedAt: hasPostingDateProvenance(job)
-   ? firstParsableMs(resolveReportedPostingDate(job))
-   : firstParsableMs(job.postedDate, job.firstSeenAt),
-  firstSeenAt: firstParsableMs(job.firstSeenAt, job.postedDate),
+  postedAt: firstParsableMs(resolveReportedPostingDate(job)),
+  firstSeenAt: firstParsableMs(job.firstSeenAt),
  };
  jobDateCache.set(objectJob, parsed);
  return parsed;

@@ -27,6 +27,7 @@ const baseJob: JobCardJob = {
   contract: 'full-time',
   salaryMin: 72000,
   salaryMax: 97000,
+  postingDateSource: 'reported',
   postedDate: '2026-03-07',
 };
 
