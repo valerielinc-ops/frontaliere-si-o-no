@@ -55,7 +55,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { sourcePostingDateFields } from './source-posting-date.mjs';
-import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { extractJobPostingsLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { isSuccessFactorsWidgetText } from './successfactors-jobs2web-widget-guard.mjs';
@@ -324,6 +324,26 @@ export function parseOfficialAdPage(html = '') {
   return { ref, description };
 }
 
+/** Only a unique posting explicitly identifying this fetched ad may date it. */
+function officialAdPublication(html, pageUrl) {
+  const canonical = (value) => {
+    if (typeof value !== 'string' || !value.trim()) return null;
+    try {
+      const url = new URL(value, pageUrl);
+      if (!['https:', 'http:'].includes(url.protocol)) return null;
+      url.hash = '';
+      return url.href.replace(/\/$/, '');
+    } catch { return null; }
+  };
+  const expected = canonical(pageUrl);
+  const matching = extractJobPostingsLd(html).filter((posting) => {
+    const urls = [posting.url, ...(Array.isArray(posting.sameAs) ? posting.sameAs : [posting.sameAs])]
+      .filter((value) => value !== undefined && value !== null);
+    return urls.length > 0 && urls.every((value) => canonical(value) === expected);
+  });
+  return sourcePostingDateFields(matching.length === 1 ? matching[0].datePosted : '');
+}
+
 /**
  * Referenz-Nr. → full vacancy text, read from the city's official ad pages.
  * One search call lists every page; each page is then fetched politely.
@@ -368,7 +388,7 @@ export async function fetchOfficialAdTexts(wantedRefs, delayMs, { unit, publicat
       const parsed = parseOfficialAdPage(html);
       if (parsed && !byRef.has(parsed.ref)) {
         byRef.set(parsed.ref, parsed.description);
-        publicationByRef?.set(parsed.ref, sourcePostingDateFields(extractJobPostingLd(html)?.datePosted));
+        publicationByRef?.set(parsed.ref, officialAdPublication(html, `${OFFICIAL_HOST}${href}`));
       }
     } catch (err) {
       console.warn(`  ⚠️ Official ad page failed: ${href} — ${err?.message || err}`);
