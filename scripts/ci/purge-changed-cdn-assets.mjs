@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * purge-changed-cdn-assets.mjs — targeted Cloudflare purge for the CDN keys an
- * R2 sync actually re-uploaded.
+ * purge-changed-cdn-assets.mjs — targeted Cloudflare purge for the CDN keys whose
+ * R2 bytes the edge has not yet been purged for (ledger diff ∪ this run's
+ * uploads).
  *
  * WHY THIS EXISTS (issues #5034/#5035/#5036/#5052/#5081/#5092/#5093/#5094 —
  * `CF 5xx: cdn.frontaliereticino.ch/assets/*` — and the version-skew family
@@ -348,21 +349,45 @@ export function seedBaseline(current, logKeys) {
 }
 
 /**
+ * A listing that names fewer than half the keys the ledger knows is not trusted
+ * to say what is GONE from R2: `lsjson` can exit 0 on an empty or short LIST
+ * (wrong bucket or prefix, a transient empty page). Merging it as-is would wipe
+ * the ledger, and the next deploy would then purge every assets/ URL at once —
+ * the cold-fill stampede the seed path exists to avoid. What the listing DOES
+ * name is still compared and purged normally; only the "dropped from R2"
+ * inference is suspended (see `keepUnlisted` in `mergeLedger`).
+ *
+ * @param {Record<string,string>|null} current
+ * @param {{ keys?: Record<string,string> }|null} ledger
+ */
+export function listingLooksTruncated(current, ledger) {
+  const known = Object.keys(ledger?.keys || {}).length;
+  if (known === 0) return false;
+  return Object.keys(current || {}).length * 2 < known;
+}
+
+/**
  * The ledger to store after this run. ONLY keys whose purge batch succeeded take
  * their current fingerprint; every other key keeps the fingerprint the edge was
  * last purged for (or stays absent), so it is still dirty for the next run.
- * Keys no longer in R2 drop out.
+ * Keys no longer in R2 drop out — unless `keepUnlisted`, set when the listing
+ * looks truncated, in which case keys the listing does not name keep their
+ * previous fingerprint instead of being forgotten.
  *
  * @param {{ previous: { keys?: Record<string,string> }|null, current: Record<string,string>,
- *           purgedKeys: Iterable<string>, buildId?: string, now: Date }} args
+ *           purgedKeys: Iterable<string>, buildId?: string, now: Date, keepUnlisted?: boolean }} args
  */
-export function mergeLedger({ previous, current, purgedKeys, buildId, now }) {
+export function mergeLedger({ previous, current, purgedKeys, buildId, now, keepUnlisted = false }) {
   const purged = new Set(purgedKeys);
   const prev = previous?.keys || {};
+  const listed = current || {};
+  const names = new Set(Object.keys(listed));
+  if (keepUnlisted) for (const key of Object.keys(prev)) names.add(key);
   /** @type {Record<string,string>} */
   const keys = {};
-  for (const key of Object.keys(current || {}).sort()) {
-    if (purged.has(key)) keys[key] = current[key];
+  for (const key of [...names].sort()) {
+    const inR2 = Object.prototype.hasOwnProperty.call(listed, key);
+    if (inR2 && purged.has(key)) keys[key] = listed[key];
     else if (Object.prototype.hasOwnProperty.call(prev, key)) keys[key] = prev[key];
   }
   return {
@@ -379,11 +404,13 @@ export function mergeLedger({ previous, current, purgedKeys, buildId, now }) {
  *   - no R2 listing            → `log-only`: this run's uploads, no ledger write
  *   - ledger could not be read → `log-only`: same, never clobber unseen state
  *   - ledger absent/corrupt    → `seed`: this run's uploads, ledger seeded
- *   - ledger present           → `ledger`: R2-vs-ledger diff ∪ this run's uploads
+ *   - ledger present           → `ledger`: R2-vs-ledger diff ∪ this run's uploads;
+ *                                `truncated` when the listing names under half the
+ *                                ledger's keys (merge then keeps the unlisted ones)
  *
  * @param {{ logKeys: string[], current: Record<string,string>|null,
  *           ledgerState: 'present'|'absent'|'unreadable', ledger: object|null }} args
- * @returns {{ mode: 'log-only'|'seed'|'ledger', candidates: string[], baseline: object|null }}
+ * @returns {{ mode: 'log-only'|'seed'|'ledger', candidates: string[], baseline: object|null, truncated?: boolean }}
  */
 export function planPurge({ logKeys, current, ledgerState, ledger }) {
   if (!current || ledgerState === 'unreadable') {
@@ -400,7 +427,7 @@ export function planPurge({ logKeys, current, ledgerState, ledger }) {
       candidates.push(key);
     }
   }
-  return { mode: 'ledger', candidates, baseline: ledger };
+  return { mode: 'ledger', candidates, baseline: ledger, truncated: listingLooksTruncated(current, ledger) };
 }
 
 /**
@@ -488,7 +515,12 @@ function main(argv) {
     console.log(`::warning::${tag} purge ledger could not be read — purging this run's uploads only, ledger untouched`);
   }
 
-  const { mode, candidates, baseline } = planPurge({ logKeys: transferred, current, ledgerState, ledger });
+  const { mode, candidates, baseline, truncated } = planPurge({ logKeys: transferred, current, ledgerState, ledger });
+  if (truncated) {
+    console.log(
+      `::warning::${tag} R2 listing names ${Object.keys(current).length} ${keyPrefix}/ key(s) but the ledger knows ${Object.keys(baseline.keys).length} — listing treated as possibly truncated: keys it does not name keep their ledger entry instead of being dropped (if the bucket really shrank, delete ${LEDGER_KEY} to reseed)`,
+    );
+  }
   if (mode === 'seed') {
     console.log(`::notice::${tag} purge ledger seeded: ${Object.keys(baseline.keys).length} key(s) assumed fresh, ${transferred.length} uploaded by this run queued for purge`);
   } else if (mode === 'ledger') {
@@ -504,6 +536,7 @@ function main(argv) {
       purgedKeys,
       buildId: typeof flags['build-id'] === 'string' ? flags['build-id'] : '',
       now: new Date(),
+      keepUnlisted: truncated === true,
     });
     writeFileSync(flags['ledger-out'], `${JSON.stringify(next)}\n`);
     const dirty = diffAgainstLedger(current, next).filter((k) => !SOURCE_MAP_KEY_RE.test(k)).length;
@@ -511,7 +544,11 @@ function main(argv) {
   };
 
   if (candidates.length === 0) {
-    console.log(`${tag} no ${keyPrefix}/ object changed since the last successful purge — edge stays warm, no purge needed`);
+    console.log(
+      mode === 'log-only'
+        ? `${tag} this run uploaded nothing and the ledger was not consulted — no purge`
+        : `${tag} no ${keyPrefix}/ object changed since the last successful purge — edge stays warm, no purge needed`,
+    );
     writeLedger([]);
     return;
   }

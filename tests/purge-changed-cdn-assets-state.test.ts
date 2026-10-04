@@ -8,6 +8,7 @@ import {
   MAX_KEYS_PER_RUN,
   PURGE_BATCH_SIZE,
   diffAgainstLedger,
+  listingLooksTruncated,
   mergeLedger,
   parseLedger,
   parseR2Listing,
@@ -74,7 +75,14 @@ function runOnce({
   const next =
     plan.mode === 'log-only'
       ? null
-      : mergeLedger({ previous: plan.baseline, current, purgedKeys: result.purgedKeys, buildId: 'run', now: NOW });
+      : mergeLedger({
+          previous: plan.baseline,
+          current,
+          purgedKeys: result.purgedKeys,
+          buildId: 'run',
+          now: NOW,
+          keepUnlisted: plan.truncated === true,
+        });
   return { plan, selected, purgeCalls, result, next };
 }
 
@@ -160,6 +168,44 @@ describe('the ledger records only what was actually purged', () => {
       now: NOW,
     });
     expect(Object.keys(next.keys)).toEqual(['assets/kept.js']);
+  });
+});
+
+describe('a short or empty R2 listing never wipes the ledger', () => {
+  const names = ['a.js', 'b.js', 'c.js', 'd.js'];
+  const ledger = ledgerOf(Object.fromEntries(names.map((n) => [`assets/${n}`, SAME])));
+
+  it('empty listing (lsjson exit 0, `[]`) → ledger kept whole, no bucket-wide purge on the next run', () => {
+    const empty = parseR2Listing('[]', 'assets');
+    expect(listingLooksTruncated(empty, ledger)).toBe(true);
+    const first = runOnce({ current: empty, ledgerState: 'present', ledger });
+    expect(first.plan.truncated).toBe(true);
+    expect(first.selected).toEqual([]);
+    expect(first.next!.keys).toEqual(ledger.keys);
+
+    // Next deploy lists the bucket correctly: nothing changed, nothing purged.
+    const full = parseR2Listing(listing(...names.map((n) => ls(n, SAME))), 'assets');
+    const second = runOnce({ current: full, ledgerState: 'present', ledger: first.next });
+    expect(second.selected).toEqual([]);
+  });
+
+  it('listing under half the ledger → listed keys still diffed and purged, unlisted keys kept', () => {
+    const short = parseR2Listing(listing(ls('a.js', NEW)), 'assets');
+    const { plan, selected, next } = runOnce({ current: short, ledgerState: 'present', ledger });
+    expect(plan.truncated).toBe(true);
+    expect(selected).toEqual(['assets/a.js']);
+    expect(next!.keys).toEqual({ ...ledger.keys, 'assets/a.js': NEW });
+  });
+
+  it('a listing with at least half the ledger is trusted: keys gone from R2 drop out', () => {
+    const half = parseR2Listing(listing(ls('a.js', SAME), ls('b.js', SAME)), 'assets');
+    expect(listingLooksTruncated(half, ledger)).toBe(false);
+    const { next } = runOnce({ current: half, ledgerState: 'present', ledger });
+    expect(Object.keys(next!.keys)).toEqual(['assets/a.js', 'assets/b.js']);
+  });
+
+  it('an empty ledger never makes a listing look truncated', () => {
+    expect(listingLooksTruncated({}, ledgerOf({}))).toBe(false);
   });
 });
 
