@@ -61,6 +61,7 @@
  *   - isTrustedDomain()         — Validate URLs belong to this company / ATS host
  *   - HUBER_SUHNER_KEY / _COMPANY_NAME / _COMPANY_DOMAIN
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
@@ -251,7 +252,7 @@ function parseListing(html = '') {
     if (/^(initiativbewerbung|spontanbewerbung|blindbewerbung)$/i.test(title)) continue;
 
     const locMatch = row.match(/tableaslist_element_1152495">&nbsp;\|&nbsp;\s*([^<]*)<\/span>/);
-    const dateMatch = row.match(/Online since:\s*([\d.]+)/);
+    const dateMatch = row.match(/Online since:\s*(\d{1,2}\.\d{1,2}\.\d{4})(?=\s|<|$)/);
 
     seen.add(id);
     out.push({
@@ -343,7 +344,6 @@ export async function fetchAllHuberSuhnerJobs() {
 
   const jobs = [];
   let detailHits = 0;
-  const todayIso = new Date().toISOString().slice(0, 10);
 
   for (const entry of swissEntries) {
     const { detailUrl, applyUrl, spans, sections } = await fetchDetail(entry.id, entry.langCode);
@@ -368,7 +368,7 @@ export async function fetchAllHuberSuhnerJobs() {
     const sourceLang = detectLang(description || entry.title, 'de');
     const jobSlug = slugify(`${entry.title} ${HUBER_SUHNER_KEY} ${city}`);
     const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
-    const postedDate = parseSwissDate(entry.onlineSince) || todayIso;
+    const postingDates = sourcePostingDateFields(parseSwissDate(entry.onlineSince));
 
     const job = {
       // ── Required fields ──
@@ -407,7 +407,7 @@ export async function fetchAllHuberSuhnerJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...postingDates,
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
