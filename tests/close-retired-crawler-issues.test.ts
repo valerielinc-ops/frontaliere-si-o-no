@@ -23,10 +23,12 @@ vi.mock('node:child_process', () => {
 
 const {
   RETIRED_WITHOUT_EVIDENCE_TITLE,
+  countCrawlerGroupWorkflows,
   failureFamilyOf,
   judgeRetiredSlug,
   planRetiredClosures,
   retiredClosureNote,
+  trackerRef,
 } = await import('../scripts/ci/close-retired-crawler-issues.mjs');
 const { automaticRetireReason, decideQuarantine, isAutomaticRetireReason } = await import('../scripts/lib/crawler-quarantine.mjs');
 const { findCrawlerGroupWorkflow } = await import('../scripts/ci/close-recovered-failure-issues.mjs');
@@ -208,6 +210,28 @@ describe('planRetiredClosures', () => {
     const r = plan({ bally: BALLY }, many, { max });
     expect(r.closures).toHaveLength(max);
     expect(r.deferred).toHaveLength(many.length - max);
+  });
+
+  it('roster non leggibile (nessun crawler-group-NN.yml) = zero, non «nessuno slug nel roster»', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'retired-roster-empty-'));
+    try {
+      expect(countCrawlerGroupWorkflows(dir)).toBe(0);
+      expect(countCrawlerGroupWorkflows(path.join(dir, 'missing'))).toBe(0);
+      fs.writeFileSync(path.join(dir, 'crawler-group-07.yml'), 'name: Crawler Group 7 (0 crawlers)\n');
+      fs.writeFileSync(path.join(dir, 'crawler-health-monitor.yml'), 'name: x\n');
+      expect(countCrawlerGroupWorkflows(dir)).toBe(1);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('un ritiro da soglia senza `issue` dice «nessun tracker», non «#undefined»', () => {
+    const { issue: _drop, ...noIssue } = KNOWLEDGE_LAB;
+    const r = plan({ 'knowledge-lab': noIssue }, []);
+    expect(r.warnings[0].kind).toBe('no-evidence');
+    expect(r.warnings[0].warning).toContain('nessun tracker');
+    expect(r.warnings[0].warning).not.toContain('undefined');
+    expect(trackerRef(KNOWLEDGE_LAB)).toBe(`#${KNOWLEDGE_LAB.issue}`);
   });
 
   it('una voce senza retiredAt non chiude', () => {

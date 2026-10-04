@@ -57,6 +57,7 @@ import { findCrawlerGroupWorkflow } from './close-recovered-failure-issues.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const REGISTRY_PATH = path.join(REPO_ROOT, 'data', 'crawler-quarantine.json');
+const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github', 'workflows');
 
 export const MAX_CLOSURES_PER_RUN = 20;
 export const SKIP_LABELS = Object.freeze(['keep-open', 'agent:no-age-out', 'agent:in-progress']);
@@ -68,6 +69,24 @@ export function failureFamilyOf(title, slug) {
   if (title === `Crawler Failure: Run ${slug}`) return 'crawler-failure';
   if (title.startsWith(`[parser-health] ${slug}: `)) return 'parser-health';
   return null;
+}
+
+/**
+ * Quanti `crawler-group-NN.yml` ci sono nel roster. Zero = roster non leggibile
+ * (checkout senza `.github/workflows`): `findCrawlerGroupWorkflow` risponderebbe
+ * `null` per ogni slug e la prova (b) passerebbe per tutti. Fail-closed.
+ */
+export function countCrawlerGroupWorkflows(workflowsDir = WORKFLOWS_DIR) {
+  try {
+    return fs.readdirSync(workflowsDir).filter((f) => /^crawler-group-\d+\.yml$/.test(f)).length;
+  } catch {
+    return 0;
+  }
+}
+
+/** `#N` del tracker del ritiro, o «nessun tracker» se la voce non ne ha uno valido. */
+export function trackerRef(entry) {
+  return Number.isInteger(entry?.issue) && entry.issue > 0 ? `#${entry.issue}` : 'nessun tracker';
 }
 
 /** Un motivo scritto a mano (non vuoto, non quello della soglia automatica) e' evidenza. */
@@ -97,13 +116,15 @@ export function judgeRetiredSlug({ slug, entry, inRoster, trackerState }) {
     };
   }
   if (hasManualRetireReason(entry)) return { slug, closable: true, evidence: 'motivo del ritiro scritto con la fonte, non da soglia automatica' };
-  if (trackerState === 'OPEN') return { slug, closable: true, evidence: `ritiro da soglia automatica con tracker #${entry.issue} aperto` };
-  const tracker = trackerState === 'CLOSED' ? 'chiuso' : 'non leggibile';
+  if (trackerState === 'OPEN') return { slug, closable: true, evidence: `ritiro da soglia automatica con tracker ${trackerRef(entry)} aperto` };
+  const ref = trackerRef(entry);
+  const tracker = ref === 'nessun tracker' ? ref
+    : `tracker ${ref} ${trackerState === 'CLOSED' ? 'chiuso' : 'non leggibile'}`;
   return {
     slug,
     closable: false,
     kind: 'no-evidence',
-    warning: `${slug}: ritiro senza tracker aperto né evidenza — motivo «${entry.reason ?? ''}» da soglia automatica, tracker #${entry.issue} ${tracker}. Le issue di fallimento restano aperte.`,
+    warning: `${slug}: ritiro senza tracker aperto né evidenza — motivo «${entry.reason ?? ''}» da soglia automatica, ${tracker}. Le issue di fallimento restano aperte.`,
   };
 }
 
@@ -162,7 +183,7 @@ export function retiredClosureNote({ slug, entry, evidence }) {
     `Il crawler \`${slug}\` e' ritirato: \`data/crawler-quarantine.json\` → \`retired.${slug}\``,
     `- ritirato il ${entry.retiredAt}`,
     `- motivo: ${entry.reason ?? '(nessuno)'}`,
-    `- tracker del ritiro: #${entry.issue}`,
+    `- tracker del ritiro: ${trackerRef(entry)}`,
     `- prova: ${evidence}; nessuno step \`Run ${slug}\` nei crawler-group-*.yml.`,
     '',
     'Non e\' piu\' schedulato, quindi questo fallimento non puo\' ne\' ripetersi ne\' tornare verde: chiusa come «not planned» da `scripts/ci/close-retired-crawler-issues.mjs`. Per riattivarlo: togliere la voce `retired` e rigenerare i gruppi.',
@@ -216,6 +237,12 @@ function main() {
     console.log('[close-retired] nessun crawler ritirato: niente da fare.');
     return 0;
   }
+  if (countCrawlerGroupWorkflows() === 0) {
+    const msg = `roster non leggibile: nessun crawler-group-NN.yml in ${path.relative(REPO_ROOT, WORKFLOWS_DIR)} — la prova (b) non si puo' fare, nessuna chiusura.`;
+    console.log(`::warning::${msg}`);
+    summary(['### Crawler ritirati: issue di fallimento', '', `- ${msg}`]);
+    return 0;
+  }
   const trackerCache = new Map();
   const plan = planRetiredClosures({
     registry,
@@ -243,6 +270,11 @@ function main() {
 
   let closed = 0;
   let refused = 0;
+  // resolveGithubIssue sceglie la piu' recente fra le aperte con quel titolo,
+  // fondendo listing e indice di ricerca (in ritardo): con due gemelle la
+  // seconda chiamata puo' ricadere su quella appena chiusa. Ogni numero si
+  // commenta e si conta una volta sola.
+  const closedThisRun = new Set();
   for (const item of plan.closures) {
     if (dryRun) {
       console.log(`  #${item.number} WOULD CLOSE (not_planned) — "${item.title}" (${item.evidence})`);
@@ -258,7 +290,13 @@ function main() {
     }
     try {
       const result = resolveGithubIssue(item.title, { workflow, runUrl, exactTitle: true, reason: 'not_planned' });
-      if (result?.persisted) {
+      if (result?.persisted && closedThisRun.has(result.number)) {
+        console.log(`  #${item.number} "${item.title}" — resolve e' ricaduto su #${result.number}, gia' chiusa in questa run (indice in ritardo): resta alla prossima run`);
+      } else if (result?.persisted) {
+        closedThisRun.add(result.number);
+        if (result.number !== item.number) {
+          console.log(`  #${item.number} "${item.title}" — resolve ha chiuso la gemella #${result.number}`);
+        }
         commentOnGithubIssue(result.number, retiredClosureNote(item));
         console.log(`  #${result.number} CLOSED (not_planned) — "${item.title}" (${item.evidence})`);
         closed += 1;
