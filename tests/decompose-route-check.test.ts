@@ -112,6 +112,15 @@ describe('extractRepoPaths', () => {
       'scripts/ci/generator-ci-gate.mjs',
     ]);
   });
+
+  it('vede le cartelle che esistono solo nel corpus (engine/, host/) e services/', () => {
+    const body = 'FIX: `host/site-shell-contract.ts`, engine/render/page.mjs e services/router.ts';
+    expect(extractRepoPaths(body)).toEqual([
+      'engine/render/page.mjs',
+      'host/site-shell-contract.ts',
+      'services/router.ts',
+    ]);
+  });
 });
 
 describe('classifyChildRoute', () => {
@@ -232,6 +241,25 @@ describe('runRouteCheck', () => {
     expect(logs.some((l) => l.includes(OWNER_DIGEST_TITLE))).toBe(true);
   });
 
+  it('una scrittura che fallisce su una figlia non ferma il controllo delle altre', () => {
+    const corpus = new Set([CORPUS_PROBE_PATH, 'scripts/ci/generator-ci-gate.mjs', 'scripts/lib/corpus-floors.mjs']);
+    const { io, writes, logs } = fakeIo({
+      children: [child(10923, BODY_10923, ['agent:fix']), child(10925, BODY_10925, ['agent:fix'])],
+      corpus,
+    });
+    const editLabels = io.editLabels;
+    io.editLabels = (n, change) => {
+      if (n === 10923) throw new Error('HTTP 502');
+      editLabels(n, change);
+    };
+    const result = runRouteCheck({ parentNumber: PARENT, io });
+    expect(result.misrouted.map((m) => m.number)).toEqual([10923, 10925]);
+    // Nessun marker sulla figlia fallita: il ri-lancio la ritenta.
+    expect(writes.some((w) => w.n === 10923)).toBe(false);
+    expect(writes.filter((w) => w.n === 10925).map((w) => w.kind)).toEqual(['labels', 'comment']);
+    expect(logs.some((l) => l.includes('#10923') && l.includes('HTTP 502'))).toBe(true);
+  });
+
   it('dry run: verdetto senza scritture', () => {
     const corpus = new Set([CORPUS_PROBE_PATH, 'scripts/ci/generator-ci-gate.mjs']);
     const { io, writes } = fakeIo({ children: [child(10925, BODY_10925)], corpus });
@@ -285,16 +313,29 @@ describe('contratto di issue-decompose.yml', () => {
     const snapIdx = idx((s) => /Snapshot corpus for child routing/.test(s.name ?? ''));
     expect(snapIdx).toBeGreaterThanOrEqual(0);
     expect(snapIdx).toBeLessThan(agentIdx);
-    const snap = steps[snapIdx];
+    const snap = steps[snapIdx] as (typeof steps)[number] & { 'timeout-minutes'?: number };
     expect(snap['continue-on-error']).toBe(true);
+    expect(snap['timeout-minutes']).toBeLessThanOrEqual(2);
     expect(snap.env?.CORPUS_SNAPSHOT_DIR).toBe('.decompose-corpus');
     const run = String(snap.run ?? '');
     expect(run).toContain('https://github.com/nanakokyobashi-rgb/frontaliere-articles.git');
     expect(run).toContain('--filter=blob:none');
     // L'indice copre TUTTO main, anche i path non materializzati.
     expect(run).toMatch(/ls-tree -r --name-only HEAD/);
-    expect(run).toContain('"$CORPUS_SNAPSHOT_DIR/.paths"');
-    // Niente repository annidato nel workspace del sito.
-    expect(run).toContain('rm -rf "$CORPUS_SNAPSHOT_DIR/.git"');
+    expect(run).toContain('"$snap/.paths"');
+    // Niente repository annidato nel workspace del sito: la copia si prepara
+    // fuori e arriva nel workspace solo a `.git` tolto, come ultimo comando.
+    expect(run).toContain('rm -rf "$snap/.git"');
+    const lines = run.trim().split('\n');
+    expect(lines.at(-1)?.trim()).toBe('mv "$snap" "$CORPUS_SNAPSHOT_DIR"');
+    expect(run.indexOf('rm -rf "$snap/.git"')).toBeLessThan(run.indexOf('mv "$snap"'));
+  });
+
+  it('la chiave del service account non resta su disco durante Codex', () => {
+    const load = idx((s) => s.run === 'node scripts/load-rc-env.mjs');
+    const cleanup = idx((s) => s.run === 'rm -f /tmp/firebase-sa.json');
+    expect(cleanup).toBeGreaterThan(load);
+    expect(cleanup).toBeLessThan(idx((s) => s.id === 'codex_decompose'));
+    expect(steps[cleanup].if).toBe('always()');
   });
 });

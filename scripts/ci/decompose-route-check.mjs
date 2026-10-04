@@ -15,7 +15,9 @@
  * La prevenzione vive nel prompt del decompose (routing nel corpus prima della
  * creazione). Questo script è il backstop che vede la figlia sfuggita:
  *   - legge le figlie dal marker `DECOMPOSED_INTO` del padre (stesso parser del
- *     PARENT-CLOSE del drainer, `decomposedChildNumbers`);
+ *     PARENT-CLOSE del drainer, `decomposedChildNumbers`, importato dal modulo
+ *     puro `lib/parent-close-recurrence.mjs` e non dal drainer: il job
+ *     `decompose` gira senza `npm ci` e con un profilo sparse ristretto);
  *   - estrae dal corpo i token con forma di path del repository (`extractRepoPaths`);
  *   - MISROUTED se e solo se almeno un path è ASSENTE nel sito e PRESENTE su
  *     `main` del corpus, e nessun path nominato esiste nel sito (una figlia
@@ -39,7 +41,7 @@
 import { execFileSync } from 'node:child_process';
 import { appendFileSync, realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
-import { decomposedChildNumbers } from './followup-drainer.mjs';
+import { decomposedChildNumbers } from './lib/parent-close-recurrence.mjs';
 
 export const CORPUS_REPOSITORY = 'nanakokyobashi-rgb/frontaliere-articles';
 /** Path che nel corpus esiste di certo (manifest del mirror): la sonda di leggibilità. */
@@ -48,8 +50,11 @@ export const OWNER_DIGEST_TITLE = '🧭 Decisioni del proprietario — digest';
 export const PIN_LABEL = 'keep-open';
 export const ROUTING_LABELS = Object.freeze(['agent:fix', 'agent:fix-queued', 'agent:decompose-queued']);
 export const MISROUTED_MARKER_RE = /<!--\s*DECOMPOSE_MISROUTED:/;
+// `engine/` e `host/` esistono solo nel corpus (host/ è la metà del
+// SiteShellContract); `services/` esiste in entrambi e decide l'esistenza.
 export const REPO_PATH_PREFIXES = Object.freeze([
   'scripts', '.github', 'tests', 'generator', 'packages', 'functions', 'build-plugins',
+  'engine', 'host', 'services',
 ]);
 
 const PREFIX_ALT = REPO_PATH_PREFIXES.map((p) => p.replace(/\./g, '\\.')).join('|');
@@ -166,15 +171,22 @@ export function runRouteCheck({ parentNumber, io, dryRun = false, corpusRepo = C
     io.log(`#${n}: ${verdict}${corpusOnly.length ? ` (${corpusOnly.join(', ')})` : ''}`);
     if (verdict !== 'misrouted') continue;
     result.misrouted.push({ number: n, paths: corpusOnly });
-    const present = new Set(labelNames(child.labels));
-    const remove = ROUTING_LABELS.filter((l) => present.has(l));
-    write(() => io.editLabels(n, { add: [PIN_LABEL], remove }));
-    const digest = io.findDigest();
-    if (digest) write(() => io.comment(digest, migrationRequestComment(n, corpusOnly, corpusRepo)));
-    else io.log(`digest «${OWNER_DIGEST_TITLE}» assente: richiesta di migrazione per #${n} non postata.`);
-    // Il marker sulla figlia va per ultimo: è il record di «fatto» che rende
-    // idempotente un ri-lancio.
-    write(() => io.comment(n, misroutedComment(corpusOnly, corpusRepo)));
+    // Una scrittura che fallisce (label mancante, 5xx) resta confinata a
+    // questa figlia: le altre vanno comunque controllate, e senza il marker
+    // finale il ri-lancio successivo ritenta da capo.
+    try {
+      const present = new Set(labelNames(child.labels));
+      const remove = ROUTING_LABELS.filter((l) => present.has(l));
+      write(() => io.editLabels(n, { add: [PIN_LABEL], remove }));
+      const digest = io.findDigest();
+      if (digest) write(() => io.comment(digest, migrationRequestComment(n, corpusOnly, corpusRepo)));
+      else io.log(`digest «${OWNER_DIGEST_TITLE}» assente: richiesta di migrazione per #${n} non postata.`);
+      // Il marker sulla figlia va per ultimo: è il record di «fatto» che rende
+      // idempotente un ri-lancio.
+      write(() => io.comment(n, misroutedComment(corpusOnly, corpusRepo)));
+    } catch (e) {
+      io.log(`#${n}: scrittura fallita (${e?.message || e}), proseguo con le altre figlie.`);
+    }
   }
   return result;
 }

@@ -104,8 +104,9 @@ jobs:
       # Identità di creazione delle sub-issue. Con l'App token gli eventi
       # `issues:[opened]` delle figlie TRIGGERANO issue-triage (routing
       # immediato in coda); con GITHUB_TOKEN no (anti-ricorsione GitHub) e le
-      # figlie aspetterebbero il cron sweep (≤4h). Se il conio fallisce,
-      # APP_TOKEN resta vuota: il bridge non ricade su GITHUB_TOKEN e l'action
+      # figlie aspetterebbero il cron sweep (≤4h). Se il conio fallisce, il
+      # bridge ricade su GITHUB_PAT caricato da Remote Config (stessa identità
+      # operativa, #9237), mai su GITHUB_TOKEN; senza nessuno dei due l'action
       # rifiuta il run prima di avviare Codex.
       - name: Mint GitHub App token (zero-Claude, pre-npm)
         continue-on-error: true
@@ -155,6 +156,12 @@ jobs:
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
+      # La chiave del service account (poteri da owner) serve solo al loader:
+      # non resta su disco per tutta la durata di Codex.
+      - name: Cleanup Firebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
+
       # Fotografia del corpus per il routing delle figlie (zero-Claude). Codex
       # gira senza rete e il bridge `gh` non legge file del corpus (`gh api`
       # non ha `--repo`, e senza `--repo` il bridge resta nello scope del
@@ -163,23 +170,28 @@ jobs:
       # locale. Il corpus è pubblico: clone anonimo, poco profondo, blobless,
       # materializzati solo i sorgenti (content/, public/ e data/ restano
       # nell'indice `.paths`, che elenca TUTTI i file di main). Senza `.git`
-      # la copia è una cartella inerte: niente repository annidato.
+      # la copia è una cartella inerte: niente repository annidato. Si
+      # prepara in RUNNER_TEMP e si sposta nel workspace come ULTIMO comando:
+      # un timeout a metà non lascia nel sito un `.git` annidato senza `.paths`.
+      # Il tetto è stretto (~1000 file fuori da content/public/data: secondi)
+      # perché esce dal margine fra il cap del job e quello di Codex.
       - name: Snapshot corpus for child routing (zero-Claude)
         continue-on-error: true
-        timeout-minutes: 5
+        timeout-minutes: 2
         env:
           CORPUS_SNAPSHOT_DIR: .decompose-corpus
         run: |
           set -euo pipefail
-          rm -rf "$CORPUS_SNAPSHOT_DIR"
+          snap="$RUNNER_TEMP/corpus-snap"
+          rm -rf "$snap" "$CORPUS_SNAPSHOT_DIR"
           git clone --quiet --depth 1 --filter=blob:none --no-checkout \
-            https://github.com/nanakokyobashi-rgb/frontaliere-articles.git "$CORPUS_SNAPSHOT_DIR"
-          git -C "$CORPUS_SNAPSHOT_DIR" sparse-checkout set --no-cone '/*' '!/content/' '!/public/' '!/data/'
-          git -C "$CORPUS_SNAPSHOT_DIR" checkout --quiet
-          git -C "$CORPUS_SNAPSHOT_DIR" ls-tree -r --name-only HEAD > "$RUNNER_TEMP/corpus-paths"
-          echo "corpus main @ $(git -C "$CORPUS_SNAPSHOT_DIR" rev-parse --short HEAD): $(wc -l < "$RUNNER_TEMP/corpus-paths") file"
-          rm -rf "$CORPUS_SNAPSHOT_DIR/.git"
-          mv "$RUNNER_TEMP/corpus-paths" "$CORPUS_SNAPSHOT_DIR/.paths"
+            https://github.com/nanakokyobashi-rgb/frontaliere-articles.git "$snap"
+          git -C "$snap" sparse-checkout set --no-cone '/*' '!/content/' '!/public/' '!/data/'
+          git -C "$snap" checkout --quiet
+          git -C "$snap" ls-tree -r --name-only HEAD > "$snap/.paths"
+          echo "corpus main @ $(git -C "$snap" rev-parse --short HEAD): $(wc -l < "$snap/.paths") file"
+          rm -rf "$snap/.git"
+          mv "$snap" "$CORPUS_SNAPSHOT_DIR"
 
       - name: Run Codex Luna Max decompose
         # Tetto sullo step: senza, l'unico limite era il cap del job
@@ -207,8 +219,9 @@ jobs:
           # Il bridge host-side può creare sub-issue e il loro evento deve
           # riaprire il triage: usa solo l'identità operativa App/PAT, mai
           # GITHUB_TOKEN (anti-ricorsione GitHub). Se il conio fallisce,
-          # APP_TOKEN resta vuota, il bridge non ricade su GITHUB_TOKEN e
-          # l'action rifiuta il run prima di avviare Codex.
+          # ricade su GITHUB_PAT caricato da Remote Config (passo «Load corpus
+          # routing credentials»); senza nessuno dei due l'action rifiuta il
+          # run prima di avviare Codex.
           codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           # Scope separato del bridge, accettato solo per le issue del corpus
           # esatto (`gh issue create --repo nanakokyobashi-rgb/frontaliere-articles`).
