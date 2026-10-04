@@ -551,7 +551,7 @@ ${renderTopicNav(locale, section, topicKey, eligible)}`;
   // never carry an ad unit.
   const wordCount = countHtmlBodyWords(body);
   const bodyHtml = `<div class="mx-auto w-full max-w-3xl px-4 py-8">${body}${endOfContentMultiplexHtml(
-    { indexable: wordCount >= MIN_INDEXABLE_WORDS },
+    { indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body },
   )}</div>`;
 
   const breadcrumbLd = {
@@ -745,7 +745,7 @@ ${tiles}
   const wordCount = countHtmlBodyWords(body);
   const indexable = wordCount >= MIN_INDEXABLE_WORDS;
   const bodyHtml = `<div class="mx-auto w-full max-w-3xl px-4 py-8">${body}${endOfContentMultiplexHtml(
-    { indexable },
+    { indexable, contentHtml: body },
   )}</div>`;
 
   const breadcrumbLd = {

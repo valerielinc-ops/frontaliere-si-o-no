@@ -589,7 +589,7 @@ export function renderAboveFloorPage(params: {
   </div>`;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyWithAd = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
+  const bodyWithAd = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}`;
 
   // Budget-aware, keyword-preserving cascade (composePlaceTitle) — three
   // rungs, longest-first (issue #4886): `title` (full sentence) →
@@ -724,7 +724,7 @@ export function renderHubPage(params: { locale: GermanLocale; dateStamp: string;
   </div>`;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyWithAd = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
+  const bodyWithAd = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}`;
 
   const hubHreflang = GERMAN_LOCALES.map(
     (alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${GERMAN_HUB_PATH[alt]}">`,
