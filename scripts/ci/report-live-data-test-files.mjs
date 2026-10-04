@@ -127,6 +127,19 @@ export function planLiveDataFileIssues({ byFile, files, openIssues }) {
     if (result.status !== 'failed') continue;
     report.push({ file, title: issueTitleFor(file), result });
   }
+  // Un file dell'inventario tutto `skipped` o assente dal report non è verde
+  // (vedi l'intestazione): oltre a tenere aperta la sua issue, la deve APRIRE
+  // alla prima run in cui succede, altrimenti un dato che manca da subito
+  // lascerebbe il workflow verde e il file senza proprietario.
+  for (const file of inventory) {
+    const result = byFile.get(file);
+    if (result?.status === 'failed' || result?.status === 'passed') continue;
+    report.push({
+      file,
+      title: issueTitleFor(file),
+      result: result || { status: 'absent', failures: [] },
+    });
+  }
   report.sort((a, b) => a.file.localeCompare(b.file));
 
   const close = [];
@@ -148,10 +161,22 @@ export function planLiveDataFileIssues({ byFile, files, openIssues }) {
   return { report, close, keep };
 }
 
+/** Una riga che dice perché il file non è verde (rosso, tutto saltato, assente). */
+export function nonGreenSummary(file, result) {
+  if (result.status === 'skipped') return `tutti i test saltati in ${file} (dato assente)`;
+  if (result.status === 'absent') return `${file} assente dal report di vitest`;
+  return `${result.failures.length} test rossi in ${file}`;
+}
+
 export function buildFailureDescription({ file, result, runUrl }) {
   const shown = result.failures.slice(0, MAX_FAILURES_PER_ISSUE);
+  const headline = result.status === 'skipped'
+    ? `Il file di test su DATI VIVI \`${file}\` non è verde su \`main\` nel workflow \`${WORKFLOW_NAME}\`: tutti i suoi test si sono saltati, cioè il dato che legge manca.`
+    : result.status === 'absent'
+      ? `Il file di test su DATI VIVI \`${file}\` non è verde su \`main\` nel workflow \`${WORKFLOW_NAME}\`: non compare nel report di vitest (non è stato eseguito o non è stato raccolto).`
+      : `Il file di test su DATI VIVI \`${file}\` è rosso su \`main\` nel workflow \`${WORKFLOW_NAME}\`.`;
   const lines = [
-    `Il file di test su DATI VIVI \`${file}\` è rosso su \`main\` nel workflow \`${WORKFLOW_NAME}\`.`,
+    headline,
     '',
     'Un rosso qui è quasi sempre un **difetto del dato** (slice dei crawler, dataset',
     'assemblato, corpus articoli, farmacie, valichi, registri slug), non di una PR:',
@@ -163,8 +188,7 @@ export function buildFailureDescription({ file, result, runUrl }) {
     '',
     runUrl ? `Run: ${runUrl}` : '',
     '',
-    `## Test rossi (${result.failures.length})`,
-    '',
+    ...(result.failures.length > 0 ? [`## Test rossi (${result.failures.length})`, ''] : []),
   ];
   for (const f of shown) {
     lines.push(`### ${f.name}`, '', '```text', f.message.slice(0, MAX_MESSAGE_CHARS) || '(nessun messaggio)', '```', '');
@@ -213,7 +237,7 @@ export async function runLiveDataFileReporter({ report, files, root = ROOT, runU
         workflow: WORKFLOW_NAME,
         exactTitle: true,
         signals: {
-          cosa: `${item.result.failures.length} test rossi in ${item.file}`,
+          cosa: nonGreenSummary(item.file, item.result),
           comando: `npx vitest run ${item.file}`,
           evidenza: [runUrl || null],
         },

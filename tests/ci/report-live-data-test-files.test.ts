@@ -134,12 +134,27 @@ describe('planLiveDataFileIssues', () => {
     openIssues,
   });
 
-  it('un report per OGNI file rosso, non uno per workflow', () => {
+  it('un report per OGNI file non verde dell\'inventario (rosso, tutto skippato o assente), non uno per workflow', () => {
     expect(plan.report.map((r) => r.file).sort()).toEqual([
+      'tests/all-skipped.test.ts',
       'tests/build-plugins/pharmacyDirectoryPagesPlugin.test.ts',
       'tests/job-locale-consistency.test.ts',
+      'tests/never-ran.test.ts',
     ]);
     for (const r of plan.report) expect(r.title).toBe(issueTitleFor(r.file));
+    const byName = Object.fromEntries(plan.report.map((r) => [r.file, r.result.status]));
+    expect(byName['tests/all-skipped.test.ts']).toBe('skipped');
+    expect(byName['tests/never-ran.test.ts']).toBe('absent');
+  });
+
+  it('il primo skipped o il file assente dal report aprono la loro issue (accettazione della review della PR 11531)', () => {
+    for (const byFile of [
+      new Map(),
+      new Map([['tests/x.test.ts', { status: 'skipped' as const, failures: [] }]]),
+    ]) {
+      const p = planLiveDataFileIssues({ byFile, files: ['tests/x.test.ts'], openIssues: [] });
+      expect(p.report.map((r) => r.file)).toEqual(['tests/x.test.ts']);
+    }
   });
 
   it('chiude la issue di un file verde anche se altri file restano rossi', () => {
@@ -213,9 +228,31 @@ describe('runLiveDataFileReporter', () => {
     expect(created.sort()).toEqual([
       issueTitleFor('tests/build-plugins/pharmacyDirectoryPagesPlugin.test.ts'),
       issueTitleFor('tests/job-locale-consistency.test.ts'),
+      issueTitleFor('tests/never-ran.test.ts'),
     ]);
     expect(resolved).toEqual([[101, issueTitleFor('tests/scripts/prompt-placeholder-guard.test.ts'), 'completed']]);
     expect(res.undelivered).toEqual([]);
+  });
+
+  it('per un file assente dal report apre la issue e il testo dice che non e` stato raccolto', async () => {
+    const created: Array<{ title: string, description: string, cosa: string }> = [];
+    await runLiveDataFileReporter({
+      report: { testResults: [] },
+      files: ['tests/x.test.ts'],
+      root: ROOT,
+      io: {
+        listOpenIssues: () => [],
+        createIssue: async ({ title, description, signals }) => {
+          created.push({ title, description, cosa: signals.cosa });
+          return { number: 2, persisted: true };
+        },
+        resolveByNumber: () => ({ persisted: true }),
+      },
+    });
+    expect(created.map((c) => c.title)).toEqual([issueTitleFor('tests/x.test.ts')]);
+    expect(created[0].description).toContain('non compare nel report di vitest');
+    expect(created[0].description).not.toContain('## Test rossi');
+    expect(created[0].cosa).toBe('tests/x.test.ts assente dal report di vitest');
   });
 
   it('un report non consegnato e` contato, non perso in silenzio', async () => {
