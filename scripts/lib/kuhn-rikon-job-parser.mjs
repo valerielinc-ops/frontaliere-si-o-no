@@ -75,6 +75,7 @@
  * - isTrustedDomain() — Validate URLs belong to Kuhn Rikon / Jobalino
  * - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -275,7 +276,6 @@ export async function fetchAllKuhnRikonJobs() {
 
   const jobs = [];
   const seen = new Set();
-  const todayIso = new Date().toISOString().slice(0, 10);
   let detailHits = 0;
   let failed = 0;
 
@@ -325,9 +325,12 @@ export async function fetchAllKuhnRikonJobs() {
     const employmentType = detectEmploymentType(tile.workload, title);
     const contract = employmentType === 'PART_TIME' ? 'part-time' : 'full-time';
 
-    const postedDate = jsonLd?.datePosted && /^\d{4}-\d{2}-\d{2}/.test(jsonLd.datePosted)
-      ? String(jsonLd.datePosted).slice(0, 10)
-      : todayIso;
+    // Jobalino emits six fractional digits. Remove only redundant zeroes beyond
+    // milliseconds: non-zero excess precision stays unsupported, never rounded.
+    const sourceDate = typeof jsonLd?.datePosted === 'string'
+      ? jsonLd.datePosted.replace(/(\.\d{3})0+(?=Z$|[+-]\d{2}:\d{2}$)/, '$1')
+      : jsonLd?.datePosted;
+    const publication = sourcePostingDateFields(sourceDate);
 
     const jobSlug = slugify(`${title} ${KUHN_RIKON_KEY} ${city}`);
     const urlHash = createHash('sha1').update(`${KUHN_RIKON_KEY}:${tile.id}`).digest('hex').slice(0, 12);
@@ -367,7 +370,7 @@ export async function fetchAllKuhnRikonJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

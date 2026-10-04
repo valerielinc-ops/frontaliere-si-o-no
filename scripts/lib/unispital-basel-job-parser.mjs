@@ -18,6 +18,7 @@
  *   - isTrustedDomain()             — Validate URLs (USB / Prospective tenant)
  *   - UNISPITAL_BASEL_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
@@ -239,12 +240,9 @@ export async function fetchAllUnispitalBaselJobs() {
     const jobSlug = slugify(`${title} ${UNISPITAL_BASEL_KEY} ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    const postedDate = (() => {
-      const raw = listing?.start_date || listing?.last_modification_timestamp || '';
-      const d = new Date(String(raw || ''));
-      if (!Number.isNaN(d.getTime())) return d.toISOString().slice(0, 10);
-      return new Date().toISOString().slice(0, 10);
-    })();
+    // This tenant has no verified listing publication field.
+    // start_date and modification timestamps are not publication evidence.
+    const publication = sourcePostingDateFields();
 
     const job = {
       id: `${UNISPITAL_BASEL_KEY}-${urlHash}`,
@@ -276,7 +274,7 @@ export async function fetchAllUnispitalBaselJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: applyLink || publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
