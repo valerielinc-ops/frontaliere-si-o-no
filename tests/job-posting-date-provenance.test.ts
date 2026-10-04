@@ -4,11 +4,13 @@ import { join } from 'node:path';
 import { HEALTH_FACILITIES } from '../build-plugins/healthFacilitiesData';
 import { aggregateHealthFacilityJobs, _resetHealthFacilityJobsAggregateCache } from '../build-plugins/healthFacilitiesJobsAggregate';
 import { renderFacilityPage } from '../build-plugins/healthFacilitiesPlugin';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 import { buildJobPostingFacts, buildJobPostingSchema } from '../build-plugins/shared/jobPostingSchema';
 import { buildJobPostingFaqPairs } from '../build-plugins/shared/jobPostingFaq';
 import { buildLocaleJobSlim, buildLocaleJob } from '../build-plugins/shared/slimJobIndex';
+
+import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 
 const now = new Date();
 const yesterday = new Date(now.getTime() - 86400000).toISOString().slice(0, 10);
@@ -16,6 +18,12 @@ const options = { locale: 'it', url: 'https://frontaliereticino.ch/jobs/example/
 const job = { company: 'Example SA', title: 'Infermiere', location: 'Lugano', postedDate: yesterday };
 
 describe('employer publication date provenance', () => {
+  it.each([undefined, null, 'unknown', 'existing', 'reported'] as const)('never evaluates the former legacy fallback for %s', (postingDateSource) => {
+    const legacyDate = vi.fn(() => now.toISOString());
+    const input = { ...job, postingDateSource };
+    expect(resolveRolloutPostingDate(input, legacyDate, now)).toBe(postingDateSource === 'reported' ? yesterday : null);
+    expect(legacyDate).not.toHaveBeenCalled();
+  });
   it.each([undefined, 'unknown', 'existing', 'scraped'])('rejects %s provenance despite parseable dates', (postingDateSource) => {
     expect(resolveReportedPostingDate({ ...job, postingDateSource }, now)).toBeNull();
     expect(buildJobPostingSchema({ ...job, postingDateSource }, options)).toBeNull();
@@ -69,12 +77,11 @@ describe('employer publication date provenance', () => {
       const snapshot = aggregateHealthFacilityJobs(root).get(facility.slug)!;
       expect(snapshot.featured[0]?.datePosted).toBe(kind === 'reported' ? yesterday : null);
       expect(snapshot.featured[0]?.postingDateSource).toBe(kind === 'legacy' ? undefined : kind === 'unknown' ? 'unknown' : 'reported');
-      if (kind === 'invalid-reported' || kind === 'unknown') expect(snapshot.featured[0]?.postedDate).toBe('');
+      if (kind !== 'reported') expect(snapshot.featured[0]?.postedDate).toBe('');
       for (const locale of ['it', 'en', 'de', 'fr'] as const) {
         const html = renderFacilityPage(locale, facility, snapshot, today, root).html;
         if (kind === 'reported') expect(html).toMatch(new RegExp(`data-posted=["']?${yesterday}`));
-        if (kind === 'legacy') expect(html).toMatch(new RegExp(`data-posted=["']?${today}`));
-        else expect(html).not.toMatch(new RegExp(`data-posted=["']?${today}`));
+        expect(html).not.toMatch(new RegExp(`data-posted=["']?${today}`));
       }
     } finally {
       rmSync(root, { recursive: true, force: true });

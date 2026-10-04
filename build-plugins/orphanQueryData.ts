@@ -1,4 +1,3 @@
-import { hasPostingDateProvenance } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 import { normalizeJobSearchTokens as normalizeTokens, occupationalRoleTokens, tokenMatchesStem } from '../services/jobSearchRelevance';
 /**
@@ -324,7 +323,7 @@ function getJobIndex(jobs: readonly OrphanCountableJob[]): JobMatchIndex {
     const j = jobs[i];
     entries[i] = {
       // Same call, same argument order as the old inline comparator.
-      postedMs: hasPostingDateProvenance(j) ? firstParsableMs(resolveReportedPostingDate(j)) : firstParsableMs(j?.postedDate, j?.datePosted),
+      postedMs: firstParsableMs(resolveReportedPostingDate(j)),
       activeByLocale: {},
       titleTokensByLocale: {},
     };
