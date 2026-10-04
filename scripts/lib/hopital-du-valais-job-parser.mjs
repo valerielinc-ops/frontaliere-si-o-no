@@ -13,6 +13,7 @@
  * Source: https://vs.service-now.com/x/hdvi2/hvs-ats-portal/landing/params/language/fr/spref/
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
@@ -297,7 +298,8 @@ export function buildJobFromApi(listing, detail) {
     listing.u_tx_occupation_max,
   );
 
-  const postedDate = parseDate(listing.u_date_published || listing.u_date_debut);
+  const published = listing.u_date_published;
+  const publication = sourcePostingDateFields(typeof published === 'string' ? (parseDate(published) || published) : '');
   const detailUrl = buildDetailUrl(sysId, number);
   const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
   const locationForSlug = site || 'valais';
@@ -325,7 +327,7 @@ export function buildJobFromApi(listing, detail) {
     contract: 'full-time',
     employmentType: employmentType || 'OTHER',
     featured: false,
-    postedDate: postedDate || new Date().toISOString().slice(0, 10),
+    ...publication,
     url: detailUrl,
     applyUrl: detailUrl,
     source: 'HVS Dedicated Parser (ServiceNow API)',
