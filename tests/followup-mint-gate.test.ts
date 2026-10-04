@@ -45,6 +45,8 @@ import {
   admissionCounts,
   bornSatisfiedCommentBody,
   bornSatisfiedToMark,
+  mintCheckCounts,
+  targetNoteLines,
 } from '../scripts/ci/gate-minted-followups.mjs';
 import { parseItemMarkers } from '../scripts/ci/lib/followup-item-evidence.mjs';
 import {
@@ -818,6 +820,89 @@ describe('gate sul conio — item nati con il token già vero', () => {
     expect(demotedBlock([item])).toMatch(new RegExp(`^### FU-${DAY}-001 — Proteggi firstGuard\\(\\)\\n- State: open`));
     // Il testo da solo parte dopo l'intestazione: era l'origine di «(senza titolo)».
     expect(itemHeadline(item.text)).toBe('(senza titolo)');
+  });
+});
+
+// Titolo di fallimento: «Conio follow-up: item con bersaglio inesistente o da bullet già
+// chiuso». Il gate ricontrolla al conio lo stato del bullet da cui l'item nasce e il
+// bersaglio secondo il manifest di mirror; il sigillo conserva un `Target file` riscritto.
+describe('gate sul conio — bullet già chiusi e bersagli secondo il manifest', () => {
+  const DAY = '2026-10-04';
+  const TITLE = `follow-up(daily:${DAY}): 3 items — owner/repo`;
+  const CLOSED = 'services/analytics.ts — falso positivo, not the same bug class: l\'import condiviso è già relativo. Motivo: il file non espone l’alias non risolvibile segnalato dal test. Prossimo passo: nessuno.';
+  const OPEN = 'blocked: il controllo manca ancora in scripts/example.mjs; serve un run reale.';
+  const item = (id: string, state: string, target: string, original: string) => [
+    `### ${id} — Item ${id.slice(-3)}`,
+    `- State: ${state}`,
+    '- Sources: PR #10289',
+    `- Target file: \`${target}\``,
+    '- Original text:',
+    `  > ${original}`,
+    `- Suggested action: aggiungi \`guard${id.slice(-3)}()\` in \`${target}\``,
+    `- Acceptance token: \`guard${id.slice(-3)}()\``,
+  ].join('\n');
+  const bucket = (state: 'collecting' | 'sealed', ...items: string[]) => [
+    '## Batch',
+    `- Daily key: ${DAY} (Europe/Zurich)`,
+    `- State: ${state}`,
+    '- Target repository: owner/repo',
+    '',
+    '## Item',
+    ...items.flatMap((entry) => ['', entry]),
+    '',
+  ].join('\n');
+  const io = (files: Record<string, string>) => ({
+    fileExists: (path: string) => path in files,
+    readFile: (path: string) => files[path] ?? null,
+  });
+  const FILES = { 'scripts/example.mjs': 'export const x = 1;\n', 'build-plugins/batchWrite.ts': 'export {}\n' };
+  const mintTarget = {
+    side: 'site',
+    manifestFiles: [{ path: 'host/batchWrite.ts', sitePath: 'build-plugins/batchWrite.ts', mode: 'identical' }],
+    twinIo: io({}),
+  };
+
+  it('bullet già chiuso → demoto con il motivo nel blocco conservato sulla PR; il resto si sigilla', () => {
+    const source = bucket('collecting',
+      item(`FU-${DAY}-001`, 'open', 'scripts/example.mjs', CLOSED),
+      item(`FU-${DAY}-002`, 'open', 'scripts/example.mjs', OPEN));
+    const d = decideDailyMintGate({ title: TITLE, body: source }, { fileIo: io(FILES), mintTarget });
+    expect(d.action).toBe('demote');
+    expect(d.demotedItems.map((entry: { id: string }) => entry.id)).toEqual([`FU-${DAY}-001`]);
+    expect(demotedBlock(d.demotedItems)).toContain('- Demozione al conio: `closed-state-bullet`');
+    expect(d.body).toContain('- State: sealed');
+    expect(d.body).not.toContain(`FU-${DAY}-001`);
+    expect(mintCheckCounts(d.admissions)).toMatchObject({ closedState: 1, targetMissing: 0 });
+  });
+
+  it('il bullet chiuso è demoto anche senza contesto del bersaglio e con l\'io che non risponde', () => {
+    const unknownIo = { status: () => 'unknown', fileExists: () => false, readFile: () => null };
+    const source = bucket('collecting', item(`FU-${DAY}-001`, 'open', 'scripts/example.mjs', CLOSED));
+    const d = decideDailyMintGate({ title: TITLE, body: source }, { fileIo: unknownIo });
+    expect(d.action).toBe('suppress');
+    expect(d.valid).toEqual([]);
+  });
+
+  it('bucket sealed e item done non vengono toccati', () => {
+    const sealed = bucket('sealed', item(`FU-${DAY}-001`, 'open', 'scripts/example.mjs', CLOSED));
+    expect(decideDailyMintGate({ title: TITLE, body: sealed }, { fileIo: io(FILES), mintTarget }).action).toBe('keep');
+    const done = bucket('collecting',
+      item(`FU-${DAY}-001`, 'done', 'scripts/example.mjs', CLOSED),
+      item(`FU-${DAY}-002`, 'open', 'scripts/example.mjs', OPEN));
+    const d = decideDailyMintGate({ title: TITLE, body: done }, { fileIo: io(FILES), mintTarget });
+    expect(d.action).toBe('seal');
+    expect(d.valid).toHaveLength(parseFollowupItems(done).length);
+  });
+
+  it('host/batchWrite.ts riscritto a build-plugins/batchWrite.ts: il sigillo conserva il campo nuovo', () => {
+    const source = bucket('collecting', item(`FU-${DAY}-001`, 'open', 'host/batchWrite.ts', OPEN));
+    const d = decideDailyMintGate({ title: TITLE, body: source }, { fileIo: io(FILES), mintTarget });
+    expect(d.action).toBe('seal');
+    expect(d.body).toContain('- Target file: `build-plugins/batchWrite.ts`');
+    expect(d.body).toContain('- State: sealed');
+    expect(d.rewritten).toEqual([{ id: `FU-${DAY}-001`, from: '`host/batchWrite.ts`', to: '`build-plugins/batchWrite.ts`' }]);
+    expect(targetNoteLines(d.admissions, d.rewritten).join('\n')).toContain('riscritto da `host/batchWrite.ts` a `build-plugins/batchWrite.ts`');
+    expect(mintCheckCounts(d.admissions)).toMatchObject({ targetRewritten: 1, targetMissing: 0 });
   });
 });
 
