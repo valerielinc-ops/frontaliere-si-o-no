@@ -23,6 +23,7 @@ import {
   isStrongAutoCloseEvidence,
   parseIssueCommentsResponse,
   reconcileDailyItems,
+  recheckThenReconcileDailyItems,
   shouldEnsureVerifyLabel,
 } from '../scripts/ci/reconcile-followups.mjs';
 import { itemBlockedMarker, itemBornSatisfiedMarker, itemEvidenceMarker, parseItemMarkers } from '../scripts/ci/lib/followup-item-evidence.mjs';
@@ -438,13 +439,34 @@ describe('richiesta di verifica per un bucket senza item aperti (FU_BUCKET_VERIF
     expect(count).toBeGreaterThan(0);
   });
 
-  it('main rimisura i blocked prima di reconcileDailyItems, e solo su un bucket strutturalmente valido', () => {
-    const source = fs.readFileSync(path.resolve(process.cwd(), 'scripts/ci/reconcile-followups.mjs'), 'utf8');
-    const main = source.slice(source.indexOf('function main()'));
-    const recheckAt = main.indexOf('runBlockedRecheck(');
-    expect(recheckAt).toBeGreaterThan(-1);
-    expect(recheckAt).toBeLessThan(main.indexOf('reconcileDailyItems('));
-    expect(main.slice(0, recheckAt)).toContain('dailyBucketStructureReason(');
+  it('la sequenza per bucket rimisura i blocked PRIMA di reconcileDailyItems e riconcilia il corpo rimisurato', () => {
+    const body = bucket(bucketItem(A, 'blocked'), bucketItem(B, 'done'));
+    const repo = 'valerielinc-ops/frontaliere-si-o-no';
+    const calls: string[] = [];
+    const step = recheckThenReconcileDailyItems(body, io, [DAY, repo, 2, new Set()], (current: string) => {
+      calls.push(current);
+      // Il rientro riporta A a `open`: solo cosi' la riconciliazione lo vede.
+      return { body: applyBlockedRecheck(current, { reentered: [A] }).body, skipIssue: false };
+    });
+    expect(calls).toEqual([body]);
+    // Sul corpo originale A e' blocked e reconcileDailyItems non lo tocca.
+    expect(reconcileDailyItems(body, io, DAY, repo, 2).changes).toEqual([]);
+    expect(step.reconciliation?.changes.map((change: { id: string }) => change.id)).toEqual([A]);
+  });
+
+  it('la sequenza per bucket non rimisura un bucket strutturalmente invalido e si ferma su skipIssue', () => {
+    const repo = 'valerielinc-ops/frontaliere-si-o-no';
+    const collecting = bucket(bucketItem(A, 'blocked')).replace('- State: sealed', '- State: collecting');
+    let called = 0;
+    const invalid = recheckThenReconcileDailyItems(collecting, io, [DAY, repo, 1, new Set()], () => { called += 1; return { body: collecting, skipIssue: false }; });
+    expect(called).toBe(0);
+    expect(invalid.recheck).toBeNull();
+    expect(invalid.reconciliation?.reason).toBe('bucket-collecting');
+    const wrongCount = recheckThenReconcileDailyItems(bucket(bucketItem(A, 'blocked')), io, [DAY, repo, 3, new Set()], () => { called += 1; return { body: '', skipIssue: false }; });
+    expect(called).toBe(0);
+    expect(wrongCount.reconciliation?.reason).toBe('mismatched-item-count');
+    const skipped = recheckThenReconcileDailyItems(bucket(bucketItem(A, 'blocked')), io, [DAY, repo, 1, new Set()], () => ({ body: '', skipIssue: true }));
+    expect(skipped).toEqual({ recheck: { body: '', skipIssue: true }, reconciliation: null });
   });
 
   it('maybe-resolved non viene rimessa dopo un’obiezione umana al flag', () => {

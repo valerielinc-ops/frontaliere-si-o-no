@@ -16,8 +16,9 @@
  *    `detectAlreadyResolved` (lo stesso oracolo e la stessa soglia degli item
  *    `open`) passa a `done` — salvo che il token fosse GIA' vero quando l'item
  *    e' nato. Due modi di saperlo: il marker `FU_ITEM_BORN_SATISFIED` del gate
- *    sul conio, oppure la stessa misura ripetuta sul file com'era all'inizio
- *    del giorno del bucket. Il secondo serve ai bucket coniati prima del
+ *    sul conio, oppure la stessa misura ripetuta sul file com'era alla fine
+ *    del giorno del bucket (limite superiore del conio: il caso ambiguo resta
+ *    `blocked`, mai `done`). Il secondo serve ai bucket coniati prima del
  *    marker: in site#9609 tre token su sei (`writeJobsCrawlerSlice()`,
  *    `validateD18FirstRunEvidence()`, `blockingErrors.length > 0`) stavano gia'
  *    nel file prima che l'item esistesse. Un token nato vero non diventa
@@ -64,6 +65,20 @@ export function bucketStartIso(dailyKey) {
 }
 
 /**
+ * Limite superiore della nascita degli item del bucket: l'inizio del giorno UTC
+ * successivo a `dailyKey`, che cade dopo la fine del giorno di Zurigo e quindi
+ * dopo ogni conio per quella chiave (il triage aggiunge item per tutto il
+ * giorno). Misurare «nato vero» qui e non a mezzanotte fa pendere il caso
+ * ambiguo verso `born-true` (l'item resta `blocked`, il rientro lo copre), mai
+ * verso un `done`. `null` se la chiave non e' valida.
+ */
+export function bucketBirthBoundIso(dailyKey) {
+  const start = bucketStartIso(dailyKey);
+  if (!start) return null;
+  return new Date(Date.parse(start) + DAY_MS).toISOString().replace('.000Z', 'Z');
+}
+
+/**
  * Da quando l'item e' bloccato: `createdAt` del piu' recente `FU_ITEM_BLOCKED`
  * (gia' filtrato per autore fidato) per l'ID; senza marker datato (bloccato
  * dal triage o a mano) l'inizio del giorno del bucket. `reason` e' quella
@@ -86,19 +101,20 @@ export function blockedSince(itemId, markers, dailyKey) {
 }
 
 /**
- * Il token dell'item era gia' vero all'inizio del giorno del bucket? Stessa
- * misura di `detectAlreadyResolved`, sui file letti a quell'istante.
+ * Il token dell'item era gia' vero all'istante `atIso` (il limite superiore
+ * della nascita, `bucketBirthBoundIso`)? Stessa misura di
+ * `detectAlreadyResolved`, sui file letti a quell'istante.
  * `fileAt(path, iso)` → `{status: 'ok', content}` | `{status: 'absent'}` |
  * `{status: 'error'}`; un solo `error` rende la risposta `unknown`.
  * @returns {'born'|'not-born'|'unknown'}
  */
-export function tokenBornAtBucketStart(item, io, fileAt, startIso) {
-  if (!startIso || typeof fileAt !== 'function') return 'unknown';
+export function tokenBornAt(item, io, fileAt, atIso) {
+  if (!atIso || typeof fileAt !== 'function') return 'unknown';
   let failed = false;
   const historicIo = {
     fileExists: io?.fileExists,
     readFile: (file) => {
-      const read = fileAt(file, startIso);
+      const read = fileAt(file, atIso);
       if (read?.status === 'ok' && typeof read.content === 'string') return read.content;
       if (read?.status !== 'absent') failed = true;
       return null;
@@ -120,12 +136,17 @@ function ageDays(atIso, now) {
  * Il piano di rimisura di UN bucket. Non scrive nulla.
  *
  * Esiti per item `blocked` con ID stabile:
- * - `done`: token confermato oggi e NON vero all'inizio del bucket;
- * - `born-true`: token confermato oggi e gia' vero all'inizio del bucket,
+ * - `done`: token confermato oggi e NON vero alla fine del giorno del bucket;
+ * - `born-true`: token confermato oggi e gia' vero alla fine del giorno del bucket,
  *   senza marker: da scrivere il marker; l'item resta `blocked` in questo giro;
  * - `reenter`: commit sul `Target file` dopo il blocco, nessun rientro precedente;
  * - `waiting`: resta `blocked` (`why` dice perche');
  * - `unknown`: una lettura e' fallita, resta `blocked`.
+ *
+ * Se `localRepository` e `targetRepository` sono entrambi dati e diversi, ogni
+ * item e' `unknown` (`foreign-target-repository`): lo stato di oggi si legge
+ * dal checkout locale, quello storico dal repository del bucket, e confrontarli
+ * mescolerebbe due repository.
  *
  * `reentryBudget.remaining` e' il tetto di rientri condiviso dalla run: un
  * item oltre il tetto resta `waiting` (`reentry-cap`) senza spendere letture.
@@ -136,28 +157,36 @@ function ageDays(atIso, now) {
  *   readers: {commitAfter: (path: string, sinceIso: string) => {status: string, commit?: {sha: string, date: string}|null},
  *             fileAt: (path: string, iso: string) => {status: string, content?: string}},
  *   now: number, reentryBudget?: {remaining: number},
+ *   targetRepository?: string, localRepository?: string,
  * }} input
  * @returns {{skipped: string|null, results: Array<object>}}
  */
-export function planBlockedRecheck({ body, labels = [], dailyKey, markers = [], io, readers, now, reentryBudget = { remaining: 0 } }) {
+export function planBlockedRecheck({
+  body, labels = [], dailyKey, markers = [], io, readers, now, reentryBudget = { remaining: 0 },
+  targetRepository = '', localRepository = '',
+}) {
   if ((Array.isArray(labels) ? labels : []).includes(DECOMPOSED_PARENT_LABEL)) return { skipped: 'decomposed', results: [] };
   if (bucketState(body) !== 'sealed') return { skipped: 'not-sealed', results: [] };
-  const startIso = bucketStartIso(dailyKey);
-  if (!startIso) return { skipped: 'invalid-daily-key', results: [] };
+  const birthBoundIso = bucketBirthBoundIso(dailyKey);
+  if (!birthBoundIso) return { skipped: 'invalid-daily-key', results: [] };
   const blocked = parseFollowupItems(body).filter((item) => item.id && item.state === 'blocked');
   if (!blocked.length) return { skipped: 'no-blocked', results: [] };
   const list = Array.isArray(markers) ? markers : [];
+  const target = String(targetRepository ?? '').trim().toLowerCase();
+  const local = String(localRepository ?? '').trim().toLowerCase();
+  const foreign = Boolean(target && local && target !== local);
   const has = (type, id) => list.some((marker) => marker?.type === type && marker.item === id);
   const results = [];
   for (const item of blocked) {
     const since = blockedSince(item.id, list, dailyKey);
     const base = { id: item.id, item, blockedAt: since.at, blockedSource: since.source, reason: since.reason, ageDays: ageDays(since.at, now) };
+    if (foreign) { results.push({ ...base, outcome: 'unknown', why: 'foreign-target-repository' }); continue; }
     const bornMarked = has('born-satisfied', item.id);
     const token = hasFalsifiableAcceptance(item.text)
       ? detectAlreadyResolved(item.text, io, { acceptanceToken: item.acceptanceToken })
       : { resolved: false, evidence: [] };
     if (token.resolved && !bornMarked) {
-      const born = tokenBornAtBucketStart(item, io, readers?.fileAt, startIso);
+      const born = tokenBornAt(item, io, readers?.fileAt, birthBoundIso);
       if (born === 'not-born') results.push({ ...base, outcome: 'done', evidence: token.evidence || [] });
       else if (born === 'born') results.push({ ...base, outcome: 'born-true', evidence: token.evidence || [], why: 'token-vero-al-conio' });
       else results.push({ ...base, outcome: 'unknown', why: 'born-check-unavailable' });
@@ -165,20 +194,20 @@ export function planBlockedRecheck({ body, labels = [], dailyKey, markers = [], 
     }
     if (since.reason === 'awaiting-verification') { results.push({ ...base, outcome: 'waiting', why: 'awaiting-verification' }); continue; }
     if (has('unblocked', item.id)) { results.push({ ...base, outcome: 'waiting', why: 'already-reentered' }); continue; }
-    const target = itemTargetPath(item);
-    if (!target) { results.push({ ...base, outcome: 'waiting', why: 'no-target-file' }); continue; }
+    const targetPath = itemTargetPath(item);
+    if (!targetPath) { results.push({ ...base, outcome: 'waiting', why: 'no-target-file' }); continue; }
     if (!since.at) { results.push({ ...base, outcome: 'unknown', why: 'blocked-at-unknown' }); continue; }
     if (!(Number(reentryBudget?.remaining) > 0)) { results.push({ ...base, outcome: 'waiting', why: 'reentry-cap' }); continue; }
-    const read = typeof readers?.commitAfter === 'function' ? readers.commitAfter(target, since.at) : { status: 'error' };
+    const read = typeof readers?.commitAfter === 'function' ? readers.commitAfter(targetPath, since.at) : { status: 'error' };
     if (read?.status !== 'ok') { results.push({ ...base, outcome: 'unknown', why: 'commit-read-unavailable' }); continue; }
     const commit = read.commit;
     // `since` di GitHub e' inclusivo: un commit allo stesso istante del blocco non e' «dopo».
     if (!commit?.sha || !(Date.parse(String(commit.date ?? '')) > Date.parse(since.at))) {
-      results.push({ ...base, outcome: 'waiting', why: 'no-new-commit', target });
+      results.push({ ...base, outcome: 'waiting', why: 'no-new-commit', target: targetPath });
       continue;
     }
     reentryBudget.remaining -= 1;
-    results.push({ ...base, outcome: 'reenter', target, commit: { sha: String(commit.sha), date: String(commit.date) } });
+    results.push({ ...base, outcome: 'reenter', target: targetPath, commit: { sha: String(commit.sha), date: String(commit.date) } });
   }
   return { skipped: null, results };
 }
@@ -210,13 +239,13 @@ function codeSpan(value) {
   return text ? `\`${text}\`` : '`?`';
 }
 
-/** Commento che registra un token gia' vero all'inizio del bucket (marker in testa). */
-export function bornTrueCommentBody({ id, evidence = [], startIso }) {
+/** Commento che registra un token gia' vero alla nascita dell'item (marker in testa). */
+export function bornTrueCommentBody({ id, evidence = [], atIso }) {
   const found = (Array.isArray(evidence) ? evidence : []).slice(0, 6)
     .map((entry) => `- ${codeSpan(entry.tok)} in ${codeSpan(entry.file)}`);
   return [
     itemBornSatisfiedMarker({ item: id }),
-    `🔎 **Rimisura item bloccato**: il token di accettazione di \`${id}\` era gia' presente nel file all'inizio del giorno del bucket (${startIso}), prima che l'item nascesse. Trovarlo oggi non conferma il lavoro: l'item resta \`blocked\` e non diventa \`done\` per token.`,
+    `🔎 **Rimisura item bloccato**: il token di accettazione di \`${id}\` era gia' presente nel file entro la fine del giorno del bucket (${atIso}), cioe' entro il conio dell'item. Trovarlo oggi non conferma il lavoro: l'item resta \`blocked\` e non diventa \`done\` per token.`,
     ...found,
   ].join('\n');
 }

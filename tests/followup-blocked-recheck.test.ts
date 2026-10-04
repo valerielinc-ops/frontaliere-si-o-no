@@ -14,6 +14,7 @@ import {
   blockedRecheckSummary,
   blockedSince,
   bornTrueCommentBody,
+  bucketBirthBoundIso,
   bucketStartIso,
   planBlockedRecheck,
   unblockedCommentBody,
@@ -29,6 +30,8 @@ import { isTrustedAuthor } from '../scripts/ci/route-already-fixed.mjs';
 
 const DAY = '2026-09-24';
 const START = `${DAY}T00:00:00Z`;
+// Limite superiore del conio: dopo la fine del giorno di Zurigo per DAY.
+const BIRTH_BOUND = '2026-09-25T00:00:00Z';
 const A = `FU-${DAY}-001`;
 const B = `FU-${DAY}-002`;
 const TARGET = 'scripts/update-jysk-jobs.mjs';
@@ -81,7 +84,7 @@ function readers({
   };
 }
 
-function plan(input: { body?: string, comments?: object[], labels?: string[], io?: object, readers?: ReturnType<typeof readers>, budget?: { remaining: number } } = {}) {
+function plan(input: { body?: string, comments?: object[], labels?: string[], io?: object, readers?: { commitAfter: unknown, fileAt: unknown }, budget?: { remaining: number }, targetRepository?: string, localRepository?: string } = {}) {
   return planBlockedRecheck({
     body: input.body ?? bucket(item(A)),
     labels: input.labels ?? ['follow-up'],
@@ -91,16 +94,18 @@ function plan(input: { body?: string, comments?: object[], labels?: string[], io
     readers: input.readers ?? readers(),
     now: NOW,
     reentryBudget: input.budget ?? { remaining: 3 },
+    targetRepository: input.targetRepository,
+    localRepository: input.localRepository,
   });
 }
 
 describe('uscita per token: lo stesso oracolo degli item open, mai su un token nato vero', () => {
-  it('token confermato oggi e assente all’inizio del bucket → done', () => {
+  it('token confermato oggi e assente alla fine del giorno del bucket → done', () => {
     const r = readers({ historic: TODAY_WITHOUT_TOKEN });
     const result = plan({ io: ioWith(TODAY_WITH_TOKEN), readers: r });
     expect(result.results).toHaveLength(1);
     expect(result.results[0]).toMatchObject({ id: A, outcome: 'done' });
-    expect(r.fileAt).toHaveBeenCalledWith(TARGET, START);
+    expect(r.fileAt).toHaveBeenCalledWith(TARGET, BIRTH_BOUND);
     const applied = applyBlockedRecheck(bucket(item(A)), { done: [A] });
     expect(applied.applied.done).toEqual([A]);
     expect(parseFollowupItems(applied.body)[0].state).toBe('done');
@@ -117,17 +122,27 @@ describe('uscita per token: lo stesso oracolo degli item open, mai su un token n
     expect(r.fileAt).not.toHaveBeenCalled();
   });
 
-  it('token già presente all’inizio del bucket e nessun marker → born-true, scrive il marker, resta blocked', () => {
+  it('token già presente alla fine del giorno del bucket e nessun marker → born-true, scrive il marker, resta blocked', () => {
     const result = plan({ io: ioWith(TODAY_WITH_TOKEN), readers: readers({ historic: TODAY_WITH_TOKEN }) });
     expect(result.results[0]).toMatchObject({ id: A, outcome: 'born-true' });
-    const comment = bornTrueCommentBody({ id: A, evidence: result.results[0].evidence, startIso: START });
+    const comment = bornTrueCommentBody({ id: A, evidence: result.results[0].evidence, atIso: BIRTH_BOUND });
     expect(markersOf([bot(comment)])).toEqual([{ type: 'born-satisfied', item: A, createdAt: '2026-09-30T08:00:00Z' }]);
     // Il giro dopo il marker c'è: il token non porta più a done.
     const next = plan({ io: ioWith(TODAY_WITH_TOKEN), comments: [bot(comment)] });
     expect(next.results[0].outcome).not.toBe('done');
   });
 
-  it('file assente all’inizio del bucket → il token è nuovo → done', () => {
+  it('token introdotto il giorno del bucket, prima del conio → born-true, mai done (caso ambiguo fail-closed)', () => {
+    // Mezzanotte: token assente. Fine del giorno: presente. Il triage conia per
+    // tutto il giorno, quindi l'item puo' essere nato DOPO il commit del token.
+    const fileAt = vi.fn((_path: string, iso: string) => ({ status: 'ok', content: iso === START ? TODAY_WITHOUT_TOKEN : TODAY_WITH_TOKEN }));
+    const result = plan({ io: ioWith(TODAY_WITH_TOKEN), readers: { commitAfter: vi.fn(), fileAt } });
+    expect(result.results[0]).toMatchObject({ id: A, outcome: 'born-true' });
+    expect(fileAt).toHaveBeenCalledWith(TARGET, BIRTH_BOUND);
+    expect(fileAt).not.toHaveBeenCalledWith(TARGET, START);
+  });
+
+  it('file assente alla fine del giorno del bucket → il token è nuovo → done', () => {
     const result = plan({ io: ioWith(TODAY_WITH_TOKEN), readers: readers({ historic: null }) });
     expect(result.results[0].outcome).toBe('done');
   });
@@ -231,6 +246,24 @@ describe('perimetro della rimisura', () => {
     expect(plan({ body: bucket(item(A)).replace('- State: sealed', '- State: collecting') }).skipped).toBe('not-sealed');
     expect(plan({ body: bucket(item(A, 'open')) }).skipped).toBe('no-blocked');
     expect(bucketStartIso('2026-13-40')).toBeNull();
+    expect(bucketBirthBoundIso('2026-13-40')).toBeNull();
+    expect(bucketBirthBoundIso('2026-12-31')).toBe('2027-01-01T00:00:00Z');
+  });
+
+  it('bucket che punta a un altro repository → ogni blocked è unknown, nessuna lettura', () => {
+    const r = readers({ commit: { sha: SHA, date: '2026-09-27T13:18:57Z' } });
+    const result = plan({
+      io: ioWith(TODAY_WITH_TOKEN),
+      readers: r,
+      targetRepository: 'valerielinc-ops/frontaliere-si-o-no',
+      localRepository: 'nanakokyobashi-rgb/frontaliere-articles',
+    });
+    expect(result.results).toEqual([expect.objectContaining({ id: A, outcome: 'unknown', why: 'foreign-target-repository' })]);
+    expect(r.commitAfter).not.toHaveBeenCalled();
+    expect(r.fileAt).not.toHaveBeenCalled();
+    // Stesso repository (maiuscole a parte) o repository locale ignoto → rimisura normale.
+    const same = plan({ readers: readers({ commit: null }), targetRepository: 'valerielinc-ops/frontaliere-si-o-no', localRepository: 'Valerielinc-Ops/Frontaliere-Si-O-No' });
+    expect(same.results[0].why).toBe('no-new-commit');
   });
 
   it('applyBlockedRecheck tocca solo item ancora blocked', () => {

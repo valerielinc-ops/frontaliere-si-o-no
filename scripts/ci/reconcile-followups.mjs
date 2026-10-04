@@ -70,7 +70,7 @@ import {
   applyBlockedRecheck,
   blockedRecheckSummary,
   bornTrueCommentBody,
-  bucketStartIso,
+  bucketBirthBoundIso,
   planBlockedRecheck,
   unblockedCommentBody,
 } from './lib/followup-blocked-recheck.mjs';
@@ -466,6 +466,27 @@ export function reconcileDailyItems(
   return { body: nextBody, changed: nextBody !== source, changes, bornSatisfied, evidenceById, reason: null };
 }
 
+/**
+ * La sequenza per bucket giornaliero di `main()`: veto strutturale → rimisura
+ * dei `blocked` → `reconcileDailyItems` sul corpo che la rimisura ha prodotto.
+ * La rimisura (`runRecheck(body)` → `{body, skipIssue, ...}`) gira SOLO su un
+ * bucket strutturalmente valido e sigillato, e sempre PRIMA della
+ * riconciliazione degli item `open`; `skipIssue` ferma il bucket senza
+ * riconciliare (`reconciliation: null`).
+ * @returns {{recheck: object|null, reconciliation: object|null}}
+ */
+export function recheckThenReconcileDailyItems(body, io, gateArgs, runRecheck) {
+  let current = String(body || '');
+  const args = Array.isArray(gateArgs) ? gateArgs : [];
+  let recheck = null;
+  if (!dailyBucketStructureReason(current, ...args.slice(0, 3))) {
+    recheck = runRecheck(current);
+    if (recheck?.skipIssue) return { recheck, reconciliation: null };
+    if (typeof recheck?.body === 'string') current = recheck.body;
+  }
+  return { recheck, reconciliation: reconcileDailyItems(current, io, ...args) };
+}
+
 export const BUCKET_VERIFY_REQUEST_MARKER = 'FU_BUCKET_VERIFY_REQUEST';
 const BUCKET_VERIFY_REQUEST_RE = new RegExp(`<!--\\s*${BUCKET_VERIFY_REQUEST_MARKER}:\\s*items=([^\\s>]*)\\s*-->`, 'gu');
 
@@ -769,7 +790,10 @@ function firstCommitOf(read) {
     if (!Array.isArray(list)) return undefined;
     const head = list[0];
     if (!head) return null;
-    return { sha: String(head.sha ?? ''), date: String(head.commit?.committer?.date ?? '') };
+    // Uno sha anomalo e' «non so», non un commit: il marker FU_ITEM_UNBLOCKED lo rifiuterebbe.
+    const sha = String(head.sha ?? '');
+    if (!/^[0-9a-f]{40}$/u.test(sha)) return undefined;
+    return { sha, date: String(head.commit?.committer?.date ?? '') };
   } catch {
     return undefined;
   }
@@ -871,6 +895,10 @@ function runBlockedRecheck({ iss, daily, itemMarkers, bornSatisfied, labelNames,
     markers: itemMarkers,
     io: diskIo,
     readers: blockedRecheckReaders(daily.targetRepository),
+    // Lo stato di oggi si legge dal disco (il checkout di GH_REPO): un bucket che
+    // punta a un altro repository non si rimisura.
+    targetRepository: daily.targetRepository,
+    localRepository: process.env.GH_REPO || '',
     now: Date.now(),
     reentryBudget,
   });
@@ -881,13 +909,13 @@ function runBlockedRecheck({ iss, daily, itemMarkers, bornSatisfied, labelNames,
     return unchanged;
   }
   const demote = (entry, why) => { entry.outcome = 'unknown'; entry.why = why; };
-  const startIso = bucketStartIso(daily.dailyKey);
+  const birthBoundIso = bucketBirthBoundIso(daily.dailyKey);
 
   for (const entry of results.filter((candidate) => candidate.outcome === 'born-true')) {
-    console.log(`#${iss.number}: item ${entry.id} blocked, token gia' vero all'inizio del bucket → FU_ITEM_BORN_SATISFIED, resta blocked.`);
+    console.log(`#${iss.number}: item ${entry.id} blocked, token gia' vero entro la fine del giorno del bucket → FU_ITEM_BORN_SATISFIED, resta blocked.`);
     if (!DRY_RUN) {
       const posted = gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
-        bornTrueCommentBody({ id: entry.id, evidence: entry.evidence, startIso })], { allowFail: true });
+        bornTrueCommentBody({ id: entry.id, evidence: entry.evidence, atIso: birthBoundIso })], { allowFail: true });
       if (posted === null) { demote(entry, 'born-marker-not-posted'); continue; }
     }
     bornSatisfied.add(entry.id);
@@ -923,7 +951,7 @@ function runBlockedRecheck({ iss, daily, itemMarkers, bornSatisfied, labelNames,
     console.log(`#${iss.number}: item ${entry.id} blocked → open (rientro unico: commit ${entry.commit.sha.slice(0, 12)} su ${entry.target} dopo ${entry.blockedAt}).`);
   }
   for (const entry of done.filter((candidate) => candidate.outcome === 'done')) {
-    console.log(`#${iss.number}: item ${entry.id} blocked → done (token confermato, assente all'inizio del bucket).`);
+    console.log(`#${iss.number}: item ${entry.id} blocked → done (token confermato, assente alla fine del giorno del bucket).`);
   }
   if (nextBody === body) return unchanged;
   const nextLabels = applied.reentered.length ? labelNames.filter((name) => name !== LABEL) : labelNames;
@@ -939,7 +967,7 @@ function runBlockedRecheck({ iss, daily, itemMarkers, bornSatisfied, labelNames,
   }
   for (const entry of done.filter((candidate) => candidate.outcome === 'done')) {
     gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
-      itemDoneCommentBody(entry.id, entry.evidence, ' Era `blocked`: il token non era presente all\'inizio del giorno del bucket.')], { allowFail: true });
+      itemDoneCommentBody(entry.id, entry.evidence, ' Era `blocked`: il token non era presente alla fine del giorno del bucket.')], { allowFail: true });
   }
   if (applied.reentered.length && labelNames.includes(LABEL)) {
     const removed = gh(['issue', 'edit', String(iss.number), ...repoArgs, '--remove-label', LABEL], { allowFail: true });
@@ -1027,17 +1055,20 @@ function main() {
       const { itemMarkers, bornSatisfied } = gateInputs;
       // Rimisura degli item `blocked` (token o un rientro su commit nuovo),
       // PRIMA di reconcileDailyItems e solo su un bucket strutturalmente valido.
-      if (!dailyBucketStructureReason(iss.body || '', ...gateInputs.gateArgs.slice(0, 3))) {
-        const recheck = runBlockedRecheck({ iss, daily, itemMarkers, bornSatisfied, labelNames, reentryBudget });
-        blockedResults.push(...recheck.results);
-        if (recheck.skipIssue) continue;
-        iss = { ...iss, body: recheck.body };
-        labelNames = recheck.labelNames;
-      }
       // Daily buckets are reconciled item-by-item. An issue-wide token hit would let
       // one completed item hide another open item, which is precisely the aggregate
       // closure bug this format removes.
-      const itemReconciliation = reconcileDailyItems(iss.body || '', diskIo, ...gateInputs.gateArgs);
+      const step = recheckThenReconcileDailyItems(iss.body || '', diskIo, gateInputs.gateArgs, () => {
+        const result = runBlockedRecheck({ iss, daily, itemMarkers, bornSatisfied, labelNames, reentryBudget });
+        blockedResults.push(...result.results);
+        return result;
+      });
+      if (step.recheck) {
+        if (step.recheck.skipIssue) continue;
+        iss = { ...iss, body: step.recheck.body };
+        labelNames = step.recheck.labelNames;
+      }
+      const itemReconciliation = step.reconciliation;
       for (const id of itemReconciliation.bornSatisfied || []) {
         console.log(`#${iss.number}: item ${id} token presente ma gia' vero al conio (FU_ITEM_BORN_SATISFIED) → non marcato done.`);
       }
