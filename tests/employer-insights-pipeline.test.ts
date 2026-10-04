@@ -987,6 +987,9 @@ describe('employer insights technical deduplication', () => {
     expect(buildGa4EventQueryBody(summerWindow, { includeEmissionId: true }).dateRanges).toEqual([
       { startDate: '2026-09-09', endDate: '2026-09-11' },
     ]);
+    expect(buildGa4EventQueryBody(summerWindow, { includeEmissionId: true, includeCurrentDate: true }).dateRanges).toEqual([
+      { startDate: '2026-09-09', endDate: '2026-09-12' },
+    ]);
 
     const dstWindow = {
       from: '2026-10-24T00:00:00+02:00',

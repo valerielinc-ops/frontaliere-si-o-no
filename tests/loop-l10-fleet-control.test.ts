@@ -5,6 +5,7 @@ import { describe, expect, it } from 'vitest';
 import {
   DEFAULT_HEALTH_PATH,
   EXPECTED_LOOP_IDS,
+  OPERATIONAL_FIELDS_REQUIRED_FROM,
   runL10,
   validateFleetControl,
 } from '../scripts/ci/loop-l10-fleet-control.mjs';
@@ -187,6 +188,38 @@ function canonicalHealthRow(overrides: Record<string, unknown> = {}) {
   };
 }
 
+// Rows recorded after OPERATIONAL_FIELDS_REQUIRED_FROM must carry the
+// operational columns; NOW predates it, so the gate tests run at this instant.
+const AFTER_CUTOFF_NOW = new Date('2026-10-02T12:00:00.000Z');
+// Last real row without `operationalMetricsComplete` on ledger/loop-fleet.
+const LAST_MEASURED_LEGACY_ROW_AT = '2026-09-14T22:04:45.291Z';
+const OPERATIONAL_COLUMNS = Object.freeze({
+  durationSeconds: 12,
+  retryCount: 1,
+  quotaUnits: 2,
+  collisions: 0,
+  gateBypass: false,
+});
+const OPERATIONAL_FIELDS = Object.freeze({ ...OPERATIONAL_COLUMNS, operationalMetricsComplete: true });
+
+function canonicalHealthRowAt(recordedAt: string, runId: string, overrides: Record<string, unknown> = {}) {
+  const base = canonicalHealthRow({ recordId: `health-${runId}`, ...overrides });
+  return {
+    ...base,
+    recordedAt,
+    execution: { ...base.execution, runId, recordedAt },
+    outcome: { ...base.outcome, recordedAt },
+  };
+}
+
+function validateAfterCutoff(...rows: Record<string, unknown>[]) {
+  return validateFleetControl({
+    registry: registry(),
+    quota: quotaHistory(quotaRow({ tunedAt: '2026-10-02T11:00:00.000Z' })),
+    health: healthHistory(...rows),
+  }, { now: AFTER_CUTOFF_NOW });
+}
+
 function quotaHistory(...rows: Record<string, unknown>[]) {
   return { records: rows.length ? rows : [quotaRow()], parseIssues: [], missing: false };
 }
@@ -227,11 +260,7 @@ describe('L10 Engineering Learning / Fleet Control', () => {
   });
 
   it('valida il formato health canonico senza promuoverlo a outcome completo', () => {
-    const verdict = validateFleetControl({
-      registry: registry(),
-      quota: quotaHistory(),
-      health: healthHistory(canonicalHealthRow()),
-    }, { now: NOW });
+    const verdict = validateAfterCutoff(canonicalHealthRowAt('2026-10-02T10:00:00.000Z', 'run-1'));
     expect(verdict.quality).toBe('partial');
     expect(verdict.snapshot.health).toMatchObject({
       canonical: true,
@@ -290,25 +319,10 @@ describe('L10 Engineering Learning / Fleet Control', () => {
     expect(postCutoff.issues.join(' ')).toContain('canonicalHealth[0]: outcome violates registry');
   });
 
-  it('mantiene esplicita la copertura mista durante la transizione del ledger', () => {
-    const complete = canonicalHealthRow({
-      recordId: 'health-complete',
-      execution: {
-        ...canonicalHealthRow().execution,
-        runId: 'run-complete',
-      },
-      durationSeconds: 12,
-      retryCount: 1,
-      quotaUnits: 2,
-      collisions: 0,
-      gateBypass: false,
-      operationalMetricsComplete: true,
-    });
-    const verdict = validateFleetControl({
-      registry: registry(),
-      quota: quotaHistory(),
-      health: healthHistory(canonicalHealthRow(), complete),
-    }, { now: NOW });
+  it('mantiene esplicita la copertura mista dopo l entrata in vigore dei campi operativi', () => {
+    const incomplete = canonicalHealthRowAt('2026-10-02T09:00:00.000Z', 'run-incomplete');
+    const complete = canonicalHealthRowAt('2026-10-02T10:00:00.000Z', 'run-complete', OPERATIONAL_FIELDS);
+    const verdict = validateAfterCutoff(incomplete, complete);
     expect(verdict.quality).toBe('partial');
     expect(verdict.snapshot.health).toMatchObject({
       operationalMetricsComplete: false,
@@ -321,20 +335,9 @@ describe('L10 Engineering Learning / Fleet Control', () => {
     expect(verdict.issues.join(' ')).toContain('canonical health ledger omits operational fields');
   });
 
-  it('does not promote complete-looking legacy rows without the telemetry marker', () => {
-    const legacyComplete: any = canonicalHealthRow({
-      durationSeconds: 12,
-      retryCount: 1,
-      quotaUnits: 2,
-      collisions: 0,
-      gateBypass: false,
-    });
-    delete legacyComplete.operationalMetricsComplete;
-    const verdict = validateFleetControl({
-      registry: registry(),
-      quota: quotaHistory(),
-      health: healthHistory(legacyComplete),
-    }, { now: NOW });
+  it('does not promote complete-looking rows without the telemetry marker after the cutoff', () => {
+    const unmarked = canonicalHealthRowAt('2026-10-02T10:00:00.000Z', 'run-unmarked', OPERATIONAL_COLUMNS);
+    const verdict = validateAfterCutoff(unmarked);
     expect(verdict.quality).toBe('partial');
     expect(verdict.snapshot.health).toMatchObject({
       operationalMetricsComplete: false,
@@ -345,6 +348,123 @@ describe('L10 Engineering Learning / Fleet Control', () => {
       artifactCollisions: null,
     });
     expect(verdict.issues.join(' ')).toContain('operationalMetricsComplete');
+  });
+
+  describe('righe del ledger anteriori ai campi operativi', () => {
+    const currentRows = () => [
+      canonicalHealthRowAt('2026-10-02T09:00:00.000Z', 'run-current-1', OPERATIONAL_FIELDS),
+      canonicalHealthRowAt('2026-10-02T10:00:00.000Z', 'run-current-2', OPERATIONAL_FIELDS),
+      canonicalHealthRowAt('2026-10-02T11:00:00.000Z', 'run-current-3', OPERATIONAL_FIELDS),
+    ];
+
+    it('fissa il cutoff dopo l ultima riga legacy misurata sul ledger', () => {
+      expect(Number.isFinite(Date.parse(OPERATIONAL_FIELDS_REQUIRED_FROM))).toBe(true);
+      expect(Date.parse(OPERATIONAL_FIELDS_REQUIRED_FROM)).toBeGreaterThan(Date.parse(LAST_MEASURED_LEGACY_ROW_AT));
+    });
+
+    it('esenta dalla completezza le righe senza campi scritte prima del cutoff e le conta a parte', () => {
+      const legacyRows = [
+        canonicalHealthRowAt('2026-09-13T02:57:48.574Z', 'run-legacy-1'),
+        canonicalHealthRowAt('2026-09-14T12:00:00.000Z', 'run-legacy-2'),
+        canonicalHealthRowAt(LAST_MEASURED_LEGACY_ROW_AT, 'run-legacy-3'),
+      ];
+      const current = currentRows();
+      const verdict = validateAfterCutoff(...legacyRows, ...current);
+      expect(verdict.issues.join(' ')).not.toContain('omits operational fields');
+      expect(verdict.snapshot.health).toMatchObject({
+        validRowCount: legacyRows.length + current.length,
+        eligibleRuns: legacyRows.length + current.length,
+        operationalMetricsComplete: true,
+        operationalMetricsCompleteRuns: current.length,
+        operationalMetricsIncompleteRuns: 0,
+        operationalMetricsLegacyRuns: legacyRows.length,
+      });
+    });
+
+    it('non somma retries, quota e collisioni delle righe legacy', () => {
+      const legacy = canonicalHealthRowAt('2026-09-14T12:00:00.000Z', 'run-legacy', {
+        ...OPERATIONAL_COLUMNS,
+        retryCount: 50,
+        quotaUnits: 70,
+        collisions: 9,
+      });
+      const current = currentRows();
+      const verdict = validateAfterCutoff(legacy, ...current);
+      expect(verdict.snapshot.health).toMatchObject({
+        operationalMetricsLegacyRuns: 1,
+        retries: current.length * OPERATIONAL_FIELDS.retryCount,
+        quotaUnits: current.length * OPERATIONAL_FIELDS.quotaUnits,
+        artifactCollisions: 0,
+      });
+    });
+
+    it('confronto stretto: l ultima riga legacy reale e esente, una riga al cutoff no', () => {
+      const lastLegacy = validateAfterCutoff(canonicalHealthRowAt(LAST_MEASURED_LEGACY_ROW_AT, 'run-legacy'), ...currentRows());
+      expect(lastLegacy.issues.join(' ')).not.toContain('omits operational fields');
+      expect(lastLegacy.snapshot.health).toMatchObject({ operationalMetricsLegacyRuns: 1, operationalMetricsIncompleteRuns: 0 });
+
+      const atCutoff = validateAfterCutoff(canonicalHealthRowAt(OPERATIONAL_FIELDS_REQUIRED_FROM, 'run-at-cutoff'), ...currentRows());
+      expect(atCutoff.issues.join(' ')).toContain('canonical health ledger omits operational fields');
+      expect(atCutoff.snapshot.health).toMatchObject({
+        operationalMetricsComplete: false,
+        operationalMetricsLegacyRuns: 0,
+        operationalMetricsIncompleteRuns: 1,
+      });
+    });
+
+    it('una riga senza campi scritta dopo il cutoff resta un errore del ledger', () => {
+      const verdict = validateAfterCutoff(canonicalHealthRowAt('2026-09-20T00:00:00.000Z', 'run-regressed'), ...currentRows());
+      expect(verdict.quality).toBe('partial');
+      expect(verdict.issues.join(' ')).toContain('canonical health ledger omits operational fields');
+      expect(verdict.snapshot.health).toMatchObject({
+        operationalMetricsComplete: false,
+        operationalMetricsLegacyRuns: 0,
+        operationalMetricsIncompleteRuns: 1,
+        retries: null,
+        quotaUnits: null,
+      });
+    });
+
+    it('valuta normalmente una riga anteriore al cutoff che porta il marcatore', () => {
+      const marked = canonicalHealthRowAt('2026-09-14T12:00:00.000Z', 'run-marked', {
+        ...OPERATIONAL_FIELDS,
+        durationSeconds: -1,
+      });
+      const verdict = validateAfterCutoff(marked, ...currentRows());
+      expect(verdict.issues.join(' ')).toContain('canonicalHealth[0]: durationSeconds is not a non-negative number');
+      expect(verdict.snapshot.health).toMatchObject({ operationalMetricsLegacyRuns: 0, invalidRowCount: 1 });
+    });
+
+    it('controlla comunque i valori delle colonne che una riga legacy porta', () => {
+      const legacyBypass = canonicalHealthRowAt('2026-09-14T12:00:00.000Z', 'run-legacy-bypass', { gateBypass: true });
+      const legacyNegative = canonicalHealthRowAt('2026-09-14T13:00:00.000Z', 'run-legacy-negative', { durationSeconds: -1 });
+      const verdict = validateAfterCutoff(legacyBypass, legacyNegative, ...currentRows());
+      expect(verdict.issues.join(' ')).toContain('canonicalHealth[0]: gateBypass must remain false');
+      expect(verdict.issues.join(' ')).toContain('canonicalHealth[1]: durationSeconds is not a non-negative number');
+      expect(verdict.issues.join(' ')).not.toContain('omits operational fields');
+      expect(verdict.snapshot.health).toMatchObject({ operationalMetricsLegacyRuns: 0, invalidRowCount: 2 });
+    });
+
+    it('non tratta come legacy una riga con recordedAt non valido', () => {
+      const undated = canonicalHealthRowAt('not-a-date', 'run-undated');
+      const verdict = validateAfterCutoff(undated, ...currentRows());
+      expect(verdict.issues.join(' ')).toContain('canonicalHealth[0]: recordedAt is missing or invalid');
+      expect(verdict.issues.join(' ')).toContain('canonical health ledger omits operational fields');
+      expect(verdict.snapshot.health).toMatchObject({ operationalMetricsLegacyRuns: 0 });
+    });
+
+    it('lascia le righe legacy soggette a tutte le altre validazioni', () => {
+      const legacyBadSha = canonicalHealthRowAt('2026-09-14T12:00:00.000Z', 'run-legacy-bad-sha', {
+        execution: { ...canonicalHealthRow().execution, sha: 'not-a-sha' },
+      });
+      const current = currentRows();
+      const verdict = validateAfterCutoff(legacyBadSha, ...current);
+      expect(verdict.issues.join(' ')).toContain('canonicalHealth[0]: execution.sha is missing or not a full commit SHA');
+      expect(verdict.snapshot.health).toMatchObject({
+        validRowCount: current.length,
+        operationalMetricsLegacyRuns: 0,
+      });
+    });
   });
 
   it('keeps a missing health ledger unmeasurable instead of counting zero successes', () => {
