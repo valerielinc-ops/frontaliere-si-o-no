@@ -64,6 +64,7 @@
  * - isTrustedDomain() — Validate URLs belong Siemens' domain
  * - SIEMENS_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
@@ -217,16 +218,11 @@ function detectEmploymentType(jobTypeRaw = '') {
 }
 
 // "Posted since" format: "29-Jun-2026" → "2026-06-29"
-const MONTH_ABBR = {
-  jan: '01', feb: '02', mar: '03', apr: '04', may: '05', jun: '06',
-  jul: '07', aug: '08', sep: '09', oct: '10', nov: '11', dec: '12',
-};
 function parsePostedDate(raw = '') {
-  const m = String(raw || '').trim().match(/^(\d{1,2})-([A-Za-z]{3})-(\d{4})$/);
-  if (!m) return '';
-  const mon = MONTH_ABBR[m[2].toLowerCase()];
-  if (!mon) return '';
-  return `${m[3]}-${mon}-${m[1].padStart(2, '0')}`;
+  // The source explicitly labels this field 'Posted since'. Preserve an ISO
+  // timestamp if supplied; normalize the observed DD-MMM-YYYY spelling only.
+  const value = String(raw || '').trim().replace(/^(\d{1,2})-([A-Za-z]{3})-(\d{4})$/, '$1 $2 $3');
+  return sourcePostingDateFields(value);
 }
 
 /* ── Address Resolution ─────────────────────────────────────
@@ -464,8 +460,7 @@ export async function fetchAllSiemensJobs() {
     const jobSlug = slugify(`${stub.title} siemens ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(detail.jobTypeRaw || '');
-    const postedDate =
-      parsePostedDate(detail.postedSinceRaw) || new Date().toISOString().split('T')[0];
+    const publication = parsePostedDate(detail.postedSinceRaw);
     const companyLabel = normalizeSpace(detail.company) || SIEMENS_COMPANY_NAME;
 
     const job = {
@@ -501,7 +496,7 @@ export async function fetchAllSiemensJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       jobReqId: detail.jobId || stub.jobReqId || null,
       hiringOrganizationName: companyLabel,

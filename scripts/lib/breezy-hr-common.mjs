@@ -26,6 +26,7 @@
  *   - hopital-fribourgeois → Hôpital fribourgeois (HFR), Fribourg
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -135,12 +136,6 @@ export function parseBreezyDetail(html) {
         const region = String(loc.addressRegion || '').trim();
         const postalCode = String(loc.postalCode || '').trim();
         const employmentTypeRaw = String(c.employmentType || '').toUpperCase();
-        const postedRaw = c.datePosted ? String(c.datePosted) : '';
-        const postedDate = (() => {
-          if (!postedRaw) return '';
-          const d = new Date(postedRaw);
-          return Number.isNaN(d.getTime()) ? '' : d.toISOString().slice(0, 10);
-        })();
         return {
           title,
           descriptionHtml,
@@ -149,7 +144,7 @@ export function parseBreezyDetail(html) {
           region,
           postalCode,
           employmentTypeRaw,
-          postedDate,
+          ...sourcePostingDateFields(c.datePosted),
         };
       }
     }
@@ -231,7 +226,6 @@ export function createBreezyHrParser(config) {
     }
     console.log(`  ✓ ${listing.length} openings in listing JSON`);
 
-    const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     let failed = 0;
     for (let i = 0; i < listing.length; i += 1) {
@@ -277,8 +271,10 @@ export function createBreezyHrParser(config) {
       const descriptionRaw = detail?.descriptionText || '';
 
       const sourceLang = detectLang(descriptionRaw || title, defaultSourceLang);
-      const postedDate = detail?.postedDate
-        || (item.published_date ? new Date(item.published_date).toISOString().slice(0, 10) : todayIso);
+      const publication = mergeSourcePostingDates(
+        sourcePostingDateFields(item.published_date),
+        detail || {},
+      );
 
       let employmentType = 'OTHER';
       if (/FULL_TIME/.test(detail?.employmentTypeRaw || '')) employmentType = 'FULL_TIME';
@@ -326,7 +322,7 @@ export function createBreezyHrParser(config) {
         sector: 'Sanità / Ospedali',
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...publication,
         applyUrl: detailUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },
