@@ -291,7 +291,12 @@ export function cwvRecoveryVerdict(issue, history) {
   const recovery = evaluateConsecutiveRecovery(weeks, field, threshold, parsed.device);
   const unit = parsed.metric === 'INP' ? 'ms' : '';
   const evidence = `${parsed.metric} p75 field, device ${parsed.device}, ${parsed.path}, soglia ≤ ${threshold}${unit}: `
-    + `${describeWindow(pair.previous, field)}; ${describeWindow(pair.current, field)}`;
+    + `${describeWindow(pair.previous, field)}; ${describeWindow(pair.current, field)}`
+    // Il conio usa solo la forma con il device: una recidiva apre quel titolo,
+    // non riapre questo nella forma precedente.
+    + (parsed.legacy
+      ? `. Titolo nella forma precedente senza device: se il difetto torna sopra soglia il monitor apre \`${cwvIssueTitle({ metric: parsed.metric, device: '<device>', path: parsed.path })}\``
+      : '');
   return {
     clean: recovery !== null,
     complete: true,
@@ -415,7 +420,7 @@ export function buildIssueBody(e) {
           'quando le ultime due finestre registrate sono valide, confrontabili e sotto soglia',
           '(`evaluateConsecutiveRecovery`, stesso device del titolo).',
         ],
-        fallimento: `\`CWV Regression (${e.metric}): ${e.path}\``,
+        fallimento: `\`${cwvIssueTitle({ ...e, device: e.device || 'all' })}\``,
       }),
   ].join('\n');
 }

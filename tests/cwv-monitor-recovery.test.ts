@@ -163,6 +163,10 @@ describe('cwvRecoveryVerdict', () => {
     expect(v.evidence).toContain('432 (n=195, ga4)');
     expect(v.evidence).toContain('384 (n=183, ga4)');
     expect(v.evidence).toContain('soglia ≤ 500ms');
+    // Titolo nella forma precedente: una recidiva apre il titolo con il device.
+    expect(v.evidence).toContain('CWV Regression (INP, <device>): /cerca-lavoro-svizzera/');
+    const current = cwvRecoveryVerdict({ title: 'CWV Regression (INP, all): /cerca-lavoro-svizzera/' }, history);
+    expect(current.evidence).not.toContain('<device>');
   });
 
   it('replay 8868 (CLS /cerca-lavoro-ticino/ 0,286 sopra 0,1) → completo ma non pulito', () => {
