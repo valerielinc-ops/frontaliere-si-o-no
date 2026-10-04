@@ -359,7 +359,7 @@ export function renderProfessionCityPage(opts: {
 
   const header = `<header class="sx-hero"><p class="sx-kick text-sm font-semibold text-accent"><span class="lh-emoji" aria-hidden="true">💼</span>${esc(c.eyebrow)} · ${esc(cityDisplay)}</p><h1 class="text-2xl sm:text-3xl font-display font-bold text-heading mt-2">${esc(h1Display)}</h1><p class="text-base text-body mt-2 max-w-prose">${esc(c.lede(snapshot.liveCount, role, cityDisplay))}</p></header>`;
 
-  const main = `<div class="cl-fun">${breadcrumb}
+  const mainContent = `<div class="cl-fun">${breadcrumb}
 ${header}
 ${tiles}
 ${salary.noteHtml}
@@ -367,7 +367,11 @@ ${DRIVEBY_AD_SNIPPET}
 ${employers}
 <p class="my-4"><a href="${esc(ctaHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta(cityDisplay))} →</a></p>
 ${professionCityInlineAd}
-${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
+${prose}</div>`;
+  const main = mainContent.replace(
+    /<\/div>$/,
+    `${endOfContentMultiplexHtml({ indexable: true, contentHtml: mainContent })}</div>`,
+  );
 
   const breadcrumbLd = {
     '@context': 'https://schema.org',

@@ -54,11 +54,11 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
     // null` on every early exit: the monitor sees a zero with no evidence.
     //
     // RATCHET (two-sided) — measured on origin/main d25732d2cca (2026-10-04),
-    // after the interroll runner was instrumented. The budget must EQUAL the
-    // count: lower it in the same PR that instruments a runner; never raise
-    // it. Reproduce with:
+    // after the interroll runner was instrumented. This PR instruments the
+    // Raiffeisen VC runner too. The budget must EQUAL the count: lower it in
+    // the same PR that instruments a runner; never raise it. Reproduce with:
     //   node -e "const fs=require('fs');let n=0;for(const f of fs.readdirSync('scripts')){if(!/^update-.*-jobs\.mjs$/.test(f))continue;const s=fs.readFileSync('scripts/'+f,'utf8');if([...s.matchAll(/registerCrawlerSummaryGuard\(([^()]*)\)/g)].some(m=>m[1].split(',').filter(a=>a.trim()).length===2))n++}console.log(n)"
-    const TWO_ARGUMENT_GUARD_BUDGET = 109;
+    const TWO_ARGUMENT_GUARD_BUDGET = 108;
     const offenders = customRunners
       .filter(({ source }) => summaryGuardCalls(source).some((args) => args.length === 2))
       .map(({ name }) => name);
@@ -86,7 +86,7 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
     // The budget must EQUAL the count: lower it in the same PR in which a
     // runner starts naming its bail-out; never raise it. Reproduce with:
     //   node -e "const fs=require('fs');let n=0;for(const f of fs.readdirSync('scripts')){if(!/^update-.*-jobs\.mjs$/.test(f))continue;const s=fs.readFileSync('scripts/'+f,'utf8');if(s.includes('registerCrawlerSummaryGuard(')&&!/abortKind\s*[:=]|markCrawlerSummaryAbortKind\(/.test(s))n++}console.log(n)"
-    const NO_ABORT_KIND_BUDGET = 121;
+    const NO_ABORT_KIND_BUDGET = 120;
     const offenders = customRunners
       .filter(({ source }) => !/abortKind\s*[:=]|markCrawlerSummaryAbortKind\(/.test(source))
       .map(({ name }) => name);

@@ -872,7 +872,7 @@ export function renderPage(opts: {
   const wordCount = countHtmlBodyWords(body);
   // buildSeoPageHtml already provides the crawler-facing <main> landmark.
   // Keep this class on a neutral wrapper so the page has one main landmark.
-  const bodyHtml = `<div class="s-EDtWsL">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</div>`;
+  const bodyHtml = `<div class="s-EDtWsL">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}</div>`;
 
   const html = buildSeoPageHtml({
     locale,

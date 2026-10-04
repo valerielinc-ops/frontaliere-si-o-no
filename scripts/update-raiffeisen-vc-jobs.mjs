@@ -502,7 +502,8 @@ function patchDescriptionsFromDetailBodies(detailBodies) {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(RAIFF_KEY, 'Raiffeisen VC');
+  const summaryCounts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
+  registerCrawlerSummaryGuard(RAIFF_KEY, 'Raiffeisen VC', summaryCounts);
   console.log('🏦 Running dedicated Raiffeisen Vedeggio Cassarate jobs crawler...');
   console.log(`   Careers: ${CAREERS_URLS[0]}`);
   console.log(`   Jobs portal: ${RAIFF_JOBS_HOST}`);
@@ -534,6 +535,7 @@ async function main() {
   console.log(`📋 Found ${detailUrls.length} job URLs:`);
   for (const u of detailUrls) console.log(`   ${u}`);
   console.log('');
+  summaryCounts.discovered = detailUrls.length;
 
   // Step 2: Update the adapter with discovered seed URLs
   ensureAdapterSeedUrls(detailUrls);
@@ -563,7 +565,9 @@ async function main() {
   const stats = logStats(_beforeSnapshot);
   const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
-    console.log('ℹ️ No Raiffeisen VC jobs found after crawl. Exiting OK.');
+    summaryCounts.parsed = 0;
+    summaryCounts.abortKind = 'no-jobs-parsed';
+    console.warn('⚠️ Raiffeisen discovery was non-empty, but the crawl produced no publishable jobs; preserving the published slice and recording the fail-closed reason.');
     return;
   }
 
