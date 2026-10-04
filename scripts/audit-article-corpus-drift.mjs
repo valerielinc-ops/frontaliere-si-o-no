@@ -35,11 +35,12 @@
 //     cold start) plus up to 4 locale `curl`s (network-bound, sub-second
 //     each typically) inside check-article-byte-identity.mjs — ~20 articles
 //     keeps one audit run in the low minutes, not hours.
-//   - Method: uniform random sample WITHOUT replacement, drawn from the full
-//     per-section id list (enumerateSectionArticleIds — the SAME
-//     superset-safe enumeration scripts/rerender-article-corpus.mjs uses to
-//     build render batches; issue #4881 Fase 4, AGENTS.md #6: one
-//     implementation, not a second copy). No stratification (e.g. "always
+//   - Method: uniform random sample WITHOUT replacement, drawn from the
+//     renderable per-section id list
+//     (enumerateRenderableSectionArticleIds — the same SEO entry parser used
+//     by the renderer; the corpus rerender keeps a broader body-file superset
+//     for batching; issue #4881 Fase 4, AGENTS.md #6: one implementation, not
+//     a second copy). No stratification (e.g. "always
 //     include the newest N") is applied — kept deliberately simple to avoid
 //     a second, untested dependency on the article registry's date-field
 //     shape. Coverage over time is PROBABILISTIC: run periodically (e.g.
@@ -363,14 +364,14 @@ export function assertHeroImagesOnDisk(rootDir, deps = {}) {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   assertHeroImagesOnDisk(ROOT_DIR);
-  const { ARTICLE_SECTION_DESCRIPTORS, enumerateSectionArticleIds } = await import('../build-plugins/shared/articleSectionDescriptors.ts');
+  const { ARTICLE_SECTION_DESCRIPTORS, enumerateRenderableSectionArticleIds } = await import('../build-plugins/shared/articleSectionDescriptors.ts');
   const sections = ARTICLE_SECTION_DESCRIPTORS.filter((s) => args.section === 'all' || s.name === args.section);
 
   const report = { generatedAt: new Date().toISOString(), sampleSizeRequested: args.sampleSize, sections: {} };
   let anyDivergence = false;
 
   for (const section of sections) {
-    const ids = enumerateSectionArticleIds(section, ROOT_DIR);
+    const ids = enumerateRenderableSectionArticleIds(section, ROOT_DIR);
     const sample = args.onlyIds && args.onlyIds.length
       ? args.onlyIds.filter((id) => ids.includes(id))
       : sampleWithoutReplacement(ids, Math.min(args.sampleSize, ids.length));
