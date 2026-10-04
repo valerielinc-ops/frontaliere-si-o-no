@@ -22,6 +22,7 @@
  * that survived the same Prospective 400 outage by scraping HTML directly).
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -231,10 +232,6 @@ function pickCanton(city) {
   return inferred || 'SG';
 }
 
-function parsePostedDate() {
-  return new Date().toISOString().slice(0, 10);
-}
-
 /* ── Main entry ────────────────────────────────────────────── */
 
 /**
@@ -312,7 +309,8 @@ export async function fetchAllPsgnJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: parsePostedDate(),
+      // This adapter extracts no verified publication date.
+      ...sourcePostingDateFields(),
       applyUrl: url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
