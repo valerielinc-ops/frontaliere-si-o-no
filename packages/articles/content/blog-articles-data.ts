@@ -37618,6 +37618,16 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tassa-salute-frontalieri-ticino-settembre',
+ category: 'fiscale',
+ date: '2026-10-04T18:17:43.880Z',
+ image: '/images/blog/tassa-salute-frontalieri-ticino-settembre.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

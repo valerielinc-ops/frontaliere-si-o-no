@@ -12539,6 +12539,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.urto-spartitraffico-camorino.title': 'Accident à Camorino, une femme blessée en direction de l\'A2',
     'blog.article.urto-spartitraffico-camorino.excerpt': 'Après avoir perdu le contrôle dans un virage, la voiture a heurté un séparateur central et s\'est renversée. L\'entrée vers le sud de l\'A2 est restée fermée pendant plus d\'une heure.',
     'blog.article.urto-spartitraffico-camorino.imageAlt': 'Échangeur de Camorino vers l\'A2 avec séparateur, lieu de l\'accident.',
+    'blog.article.tassa-salute-frontalieri-ticino-settembre.title': 'Taxe santé des frontaliers au Tessin : lancement en septembre ?',
+    'blog.article.tassa-salute-frontalieri-ticino-settembre.excerpt': 'Nouvelle taxe sanitaire pour les frontaliers : entrée en vigueur prévue d’ici septembre, mais les décrets d’application font encore défaut et les paiements n’ont pas encore été recouvrés.',
+    'blog.article.tassa-salute-frontalieri-ticino-settembre.imageAlt': 'Travailleurs frontaliers en transit entre l\'Italie et la Suisse au Tessin',
 };
 
 export default blogMetaFr;
