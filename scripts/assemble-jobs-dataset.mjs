@@ -81,6 +81,7 @@ import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawle
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { stampCodeCommit } from './lib/checkout-code-commit.mjs';
+import { alignSummaryWithPublishedSlice, publishedSliceFor, recordPublishedSlice } from './lib/crawler-summary-partition.mjs';
 import { decontaminateEntries } from './decontaminate-prev-slugs.mjs';
 import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
 import { migrateLegacyCantonPins } from './lib/job-canton-pin-migration.mjs';
@@ -2650,6 +2651,12 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   fs.mkdirSync(JOBS_SLICES_DIR, { recursive: true });
   const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
   const existingSlice = fs.existsSync(slicePath) ? readJson(slicePath) : null;
+  // The slice this process started from, kept untouched for the summary
+  // partition (scripts/lib/crawler-summary-partition.mjs). Only the first
+  // write of a key in a process defines it, so later writes skip the copy.
+  const beforeJobsForSummary = publishedSliceFor(crawlerKey)
+    ? null
+    : structuredClone(Array.isArray(existingSlice?.jobs) ? existingSlice.jobs : []);
   const previousSliceRaw = options.housekeepingProof && fs.existsSync(slicePath)
     ? fs.readFileSync(slicePath, 'utf8')
     : null;
@@ -2876,8 +2883,28 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
       candidateRaw: fs.readFileSync(slicePath, 'utf8'),
     });
   }
+  // `currentEntry.slice.jobs` is the array decontamination rewrote in place:
+  // exactly the jobs now in the slice file.
+  recordPublishedSlice(crawlerKey, { beforeJobs: beforeJobsForSummary, afterJobs: currentEntry.slice.jobs });
   const hardeningSuffix = hardened.updated > 0 ? `, salary hardened ${hardened.updated}` : '';
   console.log(`📂 Wrote jobs slice: data/jobs/by-crawler/${crawlerKey}.json (${finalJobs.length} jobs${hardeningSuffix})`);
+}
+
+function publishedSliceForSummary(summaryKey, publishedSliceKeys) {
+  if (!Array.isArray(publishedSliceKeys)) return publishedSliceFor(summaryKey);
+  const beforeJobs = [];
+  const afterJobs = [];
+  for (const key of publishedSliceKeys) {
+    let record = publishedSliceFor(key);
+    if (!record) {
+      const onDisk = readJson(path.join(JOBS_SLICES_DIR, `${key}.json`), null);
+      const jobs = Array.isArray(onDisk?.jobs) ? onDisk.jobs : [];
+      record = { beforeJobs: jobs, afterJobs: jobs };
+    }
+    beforeJobs.push(...record.beforeJobs);
+    afterJobs.push(...record.afterJobs);
+  }
+  return { beforeJobs, afterJobs };
 }
 
 /**
@@ -2887,8 +2914,14 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
  * can be assembled without clobbering concurrent writes.
  *
  * @param {object} summaryEntry - Summary entry object (key, label, generatedAt, ...)
+ * @param {object} [options]
+ * @param {string[]} [options.publishedSliceKeys] - the job slices this summary
+ *   describes, when they are not just `summaryEntry.key` (an aggregate such as
+ *   `swatchgroup`, or a sub-brand whose slice write may have been refused).
+ *   A listed key this process did not write contributes its slice on disk as
+ *   unchanged: that is exactly what the run left published for it.
  */
-export function writeSummaryCrawlerSlice(summaryEntry) {
+export function writeSummaryCrawlerSlice(summaryEntry, options = {}) {
   _summaryWritten = true;
   if (!summaryEntry?.key || typeof summaryEntry.key !== 'string') {
     throw new TypeError('writeSummaryCrawlerSlice: summaryEntry.key must be a non-empty string');
@@ -2917,7 +2950,20 @@ export function writeSummaryCrawlerSlice(summaryEntry) {
   // `codeCommit`: il commit del checkout che ha prodotto questa summary (anche
   // quando la scrive la guardia di uscita, che passa da qui). Assente se non
   // determinabile.
-  const stripped = stampCodeCommit(summaryEntry);
+  // total/written and new+updated+unchanged describe ONE set: the slice this
+  // process published for the key, whatever set the caller computed its diff
+  // on (L3 Job Quality partition, issue 8407). Without a slice write in this
+  // process the declared values stay as they are.
+  let entryForSlice = summaryEntry;
+  const published = publishedSliceForSummary(summaryEntry.key, options.publishedSliceKeys);
+  if (published) {
+    const aligned = alignSummaryWithPublishedSlice(summaryEntry, published);
+    entryForSlice = aligned.summary;
+    if (aligned.changed.length > 0) {
+      console.log(`  🧮 Summary partition aligned with the published slice of ${summaryEntry.key}: ${aligned.changed.join(', ')}`);
+    }
+  }
+  const stripped = stampCodeCommit(entryForSlice);
   for (const listKey of ['newJobs', 'updatedJobs', 'removedJobs', 'unchangedJobs']) {
     if (Array.isArray(stripped[listKey])) {
       stripped[listKey] = stripped[listKey].map(stripJob);
