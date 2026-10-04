@@ -1,7 +1,7 @@
 {
   "key": "careers",
   "label": "lepatron",
-  "generatedAt": "2026-10-03T09:22:26.266Z",
+  "generatedAt": "2026-10-03T21:17:08.233Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -14,12 +14,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3672,
-  "avgDurationMs": 3672,
+  "durationMs": 3279,
+  "avgDurationMs": 3279,
   "durationHistory": [
-    4015,
-    4108,
-    3672
+    3279
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +33,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Teamleiterin-Anlagenf%C3%BChrerin%2C-100-BL/1434644333/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:22:18.852Z",
+      "crawledAt": "2026-10-03T21:16:59.358Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -49,6 +47,7 @@
       "featured": false,
       "postedDate": "2026-09-08",
       "applyUrl": "https://careers.orior.ch/job/B%C3%B6ckten-Teamleiterin-Anlagenf%C3%BChrerin%2C-100-BL/1434644333/",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-08T13:39:36.514Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -70,7 +69,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Manager-Convenience%2C-80-100-BL/1431816433/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:22:18.850Z",
+      "crawledAt": "2026-10-03T21:16:59.356Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -106,7 +105,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Betriebsmechaniker-in-Instandhaltung%2C-80-100-BL/1402889733/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:22:18.852Z",
+      "crawledAt": "2026-10-03T21:16:59.360Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -135,5 +134,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

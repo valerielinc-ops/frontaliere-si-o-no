@@ -1,6 +1,6 @@
 {
   "crawlerKey": "arsante-clinique-de-carouge",
-  "assembledAt": "2026-10-03T09:11:49.440Z",
+  "assembledAt": "2026-10-03T21:13:51.762Z",
   "jobs": [
     {
       "id": "arsante-clinique-de-carouge-32da6f6e8dee",
@@ -33,7 +33,7 @@
       "url": "https://arsante.ch/emploi/medecin-assistant-en-pediatrie-4",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:43.500Z",
+      "crawledAt": "2026-10-03T21:13:46.140Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -51,11 +51,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medecin-assistant-en-pediatrie-arsante-clinique-de-carouge-onex"
+        "medecin-assistant-en-pediatrie-arsante-clinique-de-carouge-onex",
+        "medico-assistente-in-pediatria-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-assistant-en-pediatrie-arsante-clinique-de-carouge-onex"
+          "medecin-assistant-en-pediatrie-arsante-clinique-de-carouge-onex",
+          "medico-assistente-in-pediatria-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:31.319Z",
@@ -71,8 +73,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-fdb4b1bbe19a",
@@ -105,7 +106,7 @@
       "url": "https://arsante.ch/emploi/medecin-expert-18",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:42.917Z",
+      "crawledAt": "2026-10-03T21:13:45.477Z",
       "addressLocality": "Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -123,11 +124,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medecin-expert-arsante-clinique-de-carouge-lancy"
+        "medecin-expert-arsante-clinique-de-carouge-lancy",
+        "medico-esperto-arsante-clinique-de-carouge-centre-d-expertise-medicale-lancy-lancy"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-expert-arsante-clinique-de-carouge-lancy"
+          "medecin-expert-arsante-clinique-de-carouge-lancy",
+          "medico-esperto-arsante-clinique-de-carouge-centre-d-expertise-medicale-lancy-lancy"
         ],
         "en": [
           "medecin-expert-arsante-clinique-de-carouge-lancy"
@@ -182,7 +185,7 @@
       "url": "https://arsante.ch/emploi/apprenti-e-assistant-e-medical-e-20",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:42.340Z",
+      "crawledAt": "2026-10-03T21:13:44.807Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -270,8 +273,7 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-32c29b4d3f12",
@@ -304,7 +306,7 @@
       "url": "https://arsante.ch/emploi/medecin-interniste-generaliste-fmh-28",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:41.762Z",
+      "crawledAt": "2026-10-03T21:13:44.141Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -336,11 +338,13 @@
         ]
       },
       "previousSlugs": [
-        "medecin-interniste-generaliste-fmh-arsante-clinique-de-carouge-onex"
+        "medecin-interniste-generaliste-fmh-arsante-clinique-de-carouge-onex",
+        "medico-internista-generalista-fmh-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-interniste-generaliste-fmh-arsante-clinique-de-carouge-onex"
+          "medecin-interniste-generaliste-fmh-arsante-clinique-de-carouge-onex",
+          "medico-internista-generalista-fmh-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:28.888Z",
@@ -356,8 +360,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-8b41a33b6156",
@@ -391,7 +394,7 @@
       "url": "https://arsante.ch/emploi/medecin-specialiste-fmh-72",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:41.151Z",
+      "crawledAt": "2026-10-03T21:13:43.434Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -430,7 +433,8 @@
         "medico-specialista-in-diabetologia-ed-endocrinologia-arsante-clinique-de-carouge-centre-medical-de-crissier-carouge",
         "specialist-in-diabetology-and-endocrinology-arsante-clinique-de-carouge-centre-medical-de-crissier-carouge",
         "facharzt-fur-diabetologie-und-endokrinologie-arsante-clinique-de-carouge-centre-medical-de-crissier-carouge",
-        "medecin-specialiste-en-diabetologie-et-endocrinologie-arsante-clinique-de-carouge-carouge"
+        "medecin-specialiste-en-diabetologie-et-endocrinologie-arsante-clinique-de-carouge-carouge",
+        "medico-specialista-fmh-arsante-clinique-de-carouge-centre-medical-de-crissier-carouge"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -442,7 +446,8 @@
           "medico-specialista-in-diabetologia-ed-endocrinologia-arsante-clinique-de-carouge-centre-medical-de-crissier-carouge",
           "specialist-in-diabetology-and-endocrinology-arsante-clinique-de-carouge-centre-medical-de-crissier-carouge",
           "facharzt-fur-diabetologie-und-endokrinologie-arsante-clinique-de-carouge-centre-medical-de-crissier-carouge",
-          "medecin-specialiste-en-diabetologie-et-endocrinologie-arsante-clinique-de-carouge-carouge"
+          "medecin-specialiste-en-diabetologie-et-endocrinologie-arsante-clinique-de-carouge-carouge",
+          "medico-specialista-fmh-arsante-clinique-de-carouge-centre-medical-de-crissier-carouge"
         ],
         "en": [
           "pediatrician-fmh-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge",
@@ -503,7 +508,7 @@
       "url": "https://arsante.ch/emploi/medecin-interniste-generaliste-73",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:40.571Z",
+      "crawledAt": "2026-10-03T21:13:42.753Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -529,7 +534,8 @@
         "medico-internista-generale-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge",
         "general-internal-medicine-physician-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge",
         "facharzt-fur-innere-medizin-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge",
-        "medecin-interniste-generaliste-arsante-clinique-de-carouge-carouge"
+        "medecin-interniste-generaliste-arsante-clinique-de-carouge-carouge",
+        "medico-internista-generale-arsante-clinique-de-carouge-groupe-medical-d-onex-onex"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -537,7 +543,8 @@
           "medico-internista-generale-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge",
           "general-internal-medicine-physician-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge",
           "facharzt-fur-innere-medizin-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge",
-          "medecin-interniste-generaliste-arsante-clinique-de-carouge-carouge"
+          "medecin-interniste-generaliste-arsante-clinique-de-carouge-carouge",
+          "medico-internista-generale-arsante-clinique-de-carouge-groupe-medical-d-onex-onex"
         ],
         "en": [
           "general-internal-medicine-physician-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge"
@@ -562,8 +569,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-474f76316eeb",
@@ -596,7 +602,7 @@
       "url": "https://arsante.ch/emploi/specialiste-en-medecine-interne-generale-74",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:39.986Z",
+      "crawledAt": "2026-10-03T21:13:42.071Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -683,7 +689,7 @@
       "url": "https://arsante.ch/emploi/medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-83",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:39.411Z",
+      "crawledAt": "2026-10-03T21:13:41.400Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -721,11 +727,13 @@
         ]
       },
       "previousSlugs": [
-        "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-arsante-clinique-de-carouge-onex"
+        "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-arsante-clinique-de-carouge-onex",
+        "medico-mebeko-fmh-unita-di-cure-intermedie-uatm-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-arsante-clinique-de-carouge-onex"
+          "medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-arsante-clinique-de-carouge-onex",
+          "medico-mebeko-fmh-unita-di-cure-intermedie-uatm-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:19.321Z",
@@ -775,7 +783,7 @@
       "url": "https://arsante.ch/emploi/un-e-infirmier-iere-responsable-du-service-d-urgences-88",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:38.823Z",
+      "crawledAt": "2026-10-03T21:13:40.721Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -801,7 +809,8 @@
         "infermiere-a-ips-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex",
         "nurse-ips-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex",
         "pflegefachkraft-ips-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex",
-        "infirmier-ere-ips-arsante-clinique-de-carouge-onex"
+        "infirmier-ere-ips-arsante-clinique-de-carouge-onex",
+        "un-infermiera-d-emergenza-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -813,7 +822,8 @@
           "infermiere-a-ips-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex",
           "nurse-ips-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex",
           "pflegefachkraft-ips-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex",
-          "infirmier-ere-ips-arsante-clinique-de-carouge-onex"
+          "infirmier-ere-ips-arsante-clinique-de-carouge-onex",
+          "un-infermiera-d-emergenza-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex"
         ],
         "en": [
           "un-e-infirmier-iere-responsable-du-service-d-urgences-arsante-clinique-de-carouge-onex",
@@ -848,7 +858,7 @@
       "slugByLocale": {
         "it": "capo-arsante-clinique-de-carouge-arsante-carouge",
         "en": "chief-nurse-arsante-clinique-de-carouge-arsante-carouge",
-        "de": "hauptkrankenschwester-arsante-clinique-de-carouge-arsante-carouge",
+        "de": "infirmier-ere-chef-fe-arsante-clinique-de-carouge-arsante-carouge",
         "fr": "infirmier-ere-chef-fe-arsante-clinique-de-carouge-carouge"
       },
       "company": "Arsanté (Clinique de Carouge) — Arsanté",
@@ -873,7 +883,7 @@
       "url": "https://arsante.ch/emploi/infirmier-ere-chef-fe-89",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:38.221Z",
+      "crawledAt": "2026-10-03T21:13:40.054Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -892,17 +902,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infirmier-ere-chef-fe-arsante-clinique-de-carouge-carouge",
+        "hauptkrankenschwester-arsante-clinique-de-carouge-arsante-carouge",
+        "capo-arsante-clinique-de-carouge-arsante-carouge",
         "infirmier-ere-chef-fe-arsante-clinique-de-carouge-arsante-carouge"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-chef-fe-arsante-clinique-de-carouge-carouge"
+          "infirmier-ere-chef-fe-arsante-clinique-de-carouge-carouge",
+          "capo-arsante-clinique-de-carouge-arsante-carouge"
         ],
         "en": [
           "infirmier-ere-chef-fe-arsante-clinique-de-carouge-carouge"
         ],
         "de": [
           "infirmier-ere-chef-fe-arsante-clinique-de-carouge-carouge",
+          "hauptkrankenschwester-arsante-clinique-de-carouge-arsante-carouge",
           "infirmier-ere-chef-fe-arsante-clinique-de-carouge-arsante-carouge"
         ]
       },
@@ -953,7 +967,7 @@
       "url": "https://arsante.ch/emploi/medecin-specialiste-fmh-en-gynecologie-et-obstetrique-90",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:37.574Z",
+      "crawledAt": "2026-10-03T21:13:39.385Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -971,11 +985,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-arsante-clinique-de-carouge-carouge"
+        "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-arsante-clinique-de-carouge-carouge",
+        "specialista-medico-fmh-in-ginecologia-e-ostetricia-arsante-clinique-de-carouge-arsante-carouge"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-arsante-clinique-de-carouge-carouge"
+          "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-arsante-clinique-de-carouge-carouge",
+          "specialista-medico-fmh-in-ginecologia-e-ostetricia-arsante-clinique-de-carouge-arsante-carouge"
         ],
         "en": [
           "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-arsante-clinique-de-carouge-carouge"
@@ -1030,7 +1046,7 @@
       "url": "https://arsante.ch/emploi/pharmacien-ne-92",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:36.982Z",
+      "crawledAt": "2026-10-03T21:13:38.721Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1052,7 +1068,8 @@
         "pharmacist-assistant-80-arsante-clinique-de-carouge-deltapharm-carouge",
         "apotheker-in-assistent-in-80-arsante-clinique-de-carouge-deltapharm-carouge",
         "pharmacien-ne-adjoint-e-a-80-arsante-clinique-de-carouge-carouge",
-        "pharmacien-ne-arsante-clinique-de-carouge-carouge"
+        "pharmacien-ne-arsante-clinique-de-carouge-carouge",
+        "farmaceutici-arsante-clinique-de-carouge-deltapharm-carouge"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1060,7 +1077,8 @@
           "pharmacist-assistant-80-arsante-clinique-de-carouge-deltapharm-carouge",
           "apotheker-in-assistent-in-80-arsante-clinique-de-carouge-deltapharm-carouge",
           "pharmacien-ne-adjoint-e-a-80-arsante-clinique-de-carouge-carouge",
-          "pharmacien-ne-arsante-clinique-de-carouge-carouge"
+          "pharmacien-ne-arsante-clinique-de-carouge-carouge",
+          "farmaceutici-arsante-clinique-de-carouge-deltapharm-carouge"
         ],
         "en": [
           "pharmacist-assistant-80-arsante-clinique-de-carouge-deltapharm-carouge",
@@ -1087,8 +1105,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-6d24d94f6092",
@@ -1122,7 +1139,7 @@
       "url": "https://arsante.ch/emploi/experts-medicaux-93",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:36.397Z",
+      "crawledAt": "2026-10-03T21:13:38.046Z",
       "addressLocality": "Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1144,7 +1161,8 @@
         "fisioterapista-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy",
         "physiotherapist-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy",
         "physiotherapeut-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy",
-        "physiotherapeute-arsante-clinique-de-carouge-lancy"
+        "physiotherapeute-arsante-clinique-de-carouge-lancy",
+        "esperti-medici-arsante-clinique-de-carouge-centre-d-expertise-medicale-lancy-lancy"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1152,7 +1170,8 @@
           "fisioterapista-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy",
           "physiotherapist-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy",
           "physiotherapeut-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy",
-          "physiotherapeute-arsante-clinique-de-carouge-lancy"
+          "physiotherapeute-arsante-clinique-de-carouge-lancy",
+          "esperti-medici-arsante-clinique-de-carouge-centre-d-expertise-medicale-lancy-lancy"
         ],
         "en": [
           "experts-medicaux-arsante-clinique-de-carouge-lancy",
@@ -1196,7 +1215,7 @@
       "title": "Psychologue psychothérapeute FSP",
       "titleByLocale": {
         "it": "Psicologia psicoterapeuta FSP",
-        "en": "Psychologue psychothérapeute FSP",
+        "en": "Psychologist psychotherapist FSP",
         "de": "Psychologe Psychotherapeut FSP",
         "fr": "Psychologue psychothérapeute FSP"
       },
@@ -1212,7 +1231,7 @@
       "url": "https://arsante.ch/emploi/psychologue-psychotherapeute-fsp-94",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:35.817Z",
+      "crawledAt": "2026-10-03T21:13:37.377Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1235,7 +1254,8 @@
         "zugelassene-r-psychologe-psychotherapeut-in-arsante-clinique-de-carouge-clinique-de-carouge-carouge",
         "psychologue-psychotherapeute-diplome-e-arsante-clinique-de-carouge-carouge",
         "psychologue-psychotherapeute-fsp-arsante-clinique-de-carouge-carouge",
-        "psychologue-psychotherapeute-fsp-arsante-clinique-de-carouge-centre-medical-du-lignon-carouge"
+        "psychologue-psychotherapeute-fsp-arsante-clinique-de-carouge-centre-medical-du-lignon-carouge",
+        "psicologia-psicoterapeuta-fsp-arsante-clinique-de-carouge-centre-medical-du-lignon-carouge"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1243,7 +1263,8 @@
           "licensed-psychologist-psychotherapist-arsante-clinique-de-carouge-clinique-de-carouge-carouge",
           "zugelassene-r-psychologe-psychotherapeut-in-arsante-clinique-de-carouge-clinique-de-carouge-carouge",
           "psychologue-psychotherapeute-diplome-e-arsante-clinique-de-carouge-carouge",
-          "psychologue-psychotherapeute-fsp-arsante-clinique-de-carouge-carouge"
+          "psychologue-psychotherapeute-fsp-arsante-clinique-de-carouge-carouge",
+          "psicologia-psicoterapeuta-fsp-arsante-clinique-de-carouge-centre-medical-du-lignon-carouge"
         ],
         "en": [
           "licensed-psychologist-psychotherapist-arsante-clinique-de-carouge-clinique-de-carouge-carouge",
@@ -1271,8 +1292,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-bce6b7cb58d0",
@@ -1306,7 +1326,7 @@
       "url": "https://arsante.ch/emploi/infirmier-ere-pediatrique-95",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:35.238Z",
+      "crawledAt": "2026-10-03T21:13:36.710Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1331,7 +1351,8 @@
         "nurse-ips-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex",
         "pflegefachkraft-ips-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex",
         "infirmier-ere-ips-arsante-clinique-de-carouge-onex",
-        "infirmier-ere-pediatrique-arsante-clinique-de-carouge-onex"
+        "infirmier-ere-pediatrique-arsante-clinique-de-carouge-onex",
+        "infermiere-pediatrico-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1342,7 +1363,8 @@
           "nurse-ips-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex",
           "pflegefachkraft-ips-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex",
           "infirmier-ere-ips-arsante-clinique-de-carouge-onex",
-          "infirmier-ere-pediatrique-arsante-clinique-de-carouge-onex"
+          "infirmier-ere-pediatrique-arsante-clinique-de-carouge-onex",
+          "infermiere-pediatrico-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex"
         ],
         "en": [
           "infirmier-ere-pediatrique-arsante-clinique-de-carouge-onex"
@@ -1397,7 +1419,7 @@
       "url": "https://arsante.ch/emploi/comptable-96",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:34.602Z",
+      "crawledAt": "2026-10-03T21:13:36.037Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1415,11 +1437,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "comptable-arsante-clinique-de-carouge-carouge"
+        "comptable-arsante-clinique-de-carouge-carouge",
+        "contabilita-arsante-clinique-de-carouge-arsante-carouge"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "comptable-arsante-clinique-de-carouge-carouge"
+          "comptable-arsante-clinique-de-carouge-carouge",
+          "contabilita-arsante-clinique-de-carouge-arsante-carouge"
         ],
         "en": [
           "comptable-arsante-clinique-de-carouge-carouge"
@@ -1441,8 +1465,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-49e162f692f7",
@@ -1476,7 +1499,7 @@
       "url": "https://arsante.ch/emploi/conducteur-rice-de-travaux-junior-97",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:34.026Z",
+      "crawledAt": "2026-10-03T21:13:35.368Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1494,11 +1517,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conducteur-rice-de-travaux-junior-arsante-clinique-de-carouge-onex"
+        "conducteur-rice-de-travaux-junior-arsante-clinique-de-carouge-onex",
+        "junior-lavoratore-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conducteur-rice-de-travaux-junior-arsante-clinique-de-carouge-onex"
+          "conducteur-rice-de-travaux-junior-arsante-clinique-de-carouge-onex",
+          "junior-lavoratore-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex"
         ],
         "en": [
           "conducteur-rice-de-travaux-junior-arsante-clinique-de-carouge-onex"
@@ -1553,7 +1578,7 @@
       "url": "https://arsante.ch/emploi/assistant-e-medical-e-98",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:33.444Z",
+      "crawledAt": "2026-10-03T21:13:34.699Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1571,11 +1596,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-medical-e-arsante-clinique-de-carouge-onex"
+        "assistant-e-medical-e-arsante-clinique-de-carouge-onex",
+        "assistente-medico-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-e-arsante-clinique-de-carouge-onex"
+          "assistant-e-medical-e-arsante-clinique-de-carouge-onex",
+          "assistente-medico-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex"
         ],
         "de": [
           "assistant-e-medical-e-arsante-clinique-de-carouge-onex"
@@ -1594,8 +1621,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-f0c8e6e7ec14",
@@ -1628,7 +1654,7 @@
       "url": "https://arsante.ch/emploi/coordinateur-rice-99",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:32.796Z",
+      "crawledAt": "2026-10-03T21:13:34.032Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1646,11 +1672,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "coordinateur-rice-arsante-clinique-de-carouge-carouge"
+        "coordinateur-rice-arsante-clinique-de-carouge-carouge",
+        "coordinatore-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-rice-arsante-clinique-de-carouge-carouge"
+          "coordinateur-rice-arsante-clinique-de-carouge-carouge",
+          "coordinatore-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge"
         ],
         "en": [
           "coordinateur-rice-arsante-clinique-de-carouge-carouge"
@@ -1672,8 +1700,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-230c0865fa50",
@@ -1706,7 +1733,7 @@
       "url": "https://arsante.ch/emploi/assistant-e-medical-e-100",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:32.209Z",
+      "crawledAt": "2026-10-03T21:13:33.368Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1724,11 +1751,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge"
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge",
+        "assistente-medico-arsante-clinique-de-carouge-centre-medical-du-leman-carouge"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-e-arsante-clinique-de-carouge-carouge"
+          "assistant-e-medical-e-arsante-clinique-de-carouge-carouge",
+          "assistente-medico-arsante-clinique-de-carouge-centre-medical-du-leman-carouge"
         ]
       },
       "firstSeenAt": "2026-09-01T14:10:05.504Z",
@@ -1744,8 +1773,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-f9f1efac6b4a",
@@ -1779,7 +1807,7 @@
       "url": "https://arsante.ch/emploi/specialiste-en-medecine-interne-generale-fmh-101",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:31.629Z",
+      "crawledAt": "2026-10-03T21:13:32.697Z",
       "addressLocality": "Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1797,11 +1825,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialiste-en-medecine-interne-generale-fmh-arsante-clinique-de-carouge-lancy"
+        "specialiste-en-medecine-interne-generale-fmh-arsante-clinique-de-carouge-lancy",
+        "specialista-in-medicina-interna-generale-fmh-arsante-clinique-de-carouge-centre-sante-lancy-pont-rouge-lancy"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-en-medecine-interne-generale-fmh-arsante-clinique-de-carouge-lancy"
+          "specialiste-en-medecine-interne-generale-fmh-arsante-clinique-de-carouge-lancy",
+          "specialista-in-medicina-interna-generale-fmh-arsante-clinique-de-carouge-centre-sante-lancy-pont-rouge-lancy"
         ],
         "en": [
           "specialiste-en-medecine-interne-generale-fmh-arsante-clinique-de-carouge-lancy"
@@ -1856,7 +1886,7 @@
       "url": "https://arsante.ch/emploi/assistant-e-medical-e-102",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:31.048Z",
+      "crawledAt": "2026-10-03T21:13:32.000Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1875,12 +1905,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistant-e-medical-e-arsante-clinique-de-carouge-carouge",
-        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-2"
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-2",
+        "assistente-medico-arsante-clinique-de-carouge-centre-medical-de-crissier-carouge"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-e-medical-e-arsante-clinique-de-carouge-carouge",
-          "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-2"
+          "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-2",
+          "assistente-medico-arsante-clinique-de-carouge-centre-medical-de-crissier-carouge"
         ],
         "de": [
           "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-2"
@@ -1899,8 +1931,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }

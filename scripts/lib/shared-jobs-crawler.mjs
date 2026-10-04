@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 /**
  * Ticino Company Careers Crawler
  *
@@ -976,7 +977,8 @@ function normalizeAdapterSeedMeta(rawMeta) {
   const canton = normalizeCantonCode(rawMeta.canton || rawMeta.cantonCode || rawMeta.region || rawMeta.regionCode || '');
   const company = normalizeSpace(rawMeta.company || rawMeta.companyName || rawMeta.brand || '');
   const contract = normalizeSpace(rawMeta.contract || rawMeta.employmentType || '');
-  const postedDate = normalizeSpace(rawMeta.postedDate || rawMeta.datePosted || '');
+  const postingDates = mergeSourcePostingDates({}, rawMeta);
+  const postedDate = postingDates.postedDate;
   const sourceReference = normalizeSpace(rawMeta.sourceReference || '');
   if (!location && !canton && !company && !contract && !postedDate && !sourceReference) return null;
   return {
@@ -984,7 +986,7 @@ function normalizeAdapterSeedMeta(rawMeta) {
     canton,
     company,
     contract,
-    postedDate,
+    ...postingDates,
     ...(sourceReference ? { sourceReference } : {}),
     ...(rawMeta.preferWorkplaceLocation === true || workplaceLocation
       ? { preferWorkplaceLocation: true }
@@ -3639,14 +3641,14 @@ function extractJobTeaserApiUrls(html, baseUrl) {
 
 function parseDdMmYyyy(raw = '') {
   const m = String(raw).match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
-  if (!m) return dateOnly(Date.now());
+  if (!m) return '';
   const d = Number(m[1]);
   const mm = Number(m[2]);
   const y = Number(m[3]);
   const iso = new Date(Date.UTC(y, mm - 1, d));
   // Round-trip: reject calendar-impossible dates (31.04, 31.02) silently
   // overflowed by Date.UTC instead of trusting a misparsed postedDate.
-  if (iso.getUTCDate() !== d || iso.getUTCMonth() !== mm - 1) return dateOnly(Date.now());
+  if (iso.getUTCDate() !== d || iso.getUTCMonth() !== mm - 1) return '';
   return iso.toISOString().slice(0, 10);
 }
 
@@ -3803,15 +3805,9 @@ function parseSmartRecruitersSource(listingUrl) {
 }
 
 function workdayPostedDateToIso(postedOnRaw) {
-  const raw = normalizeSpace(postedOnRaw).toLowerCase();
-  if (!raw) return dateOnly(Date.now());
-  if (raw.includes('today') || raw.includes('oggi') || raw.includes('aujourd')) return dateOnly(Date.now());
-  if (raw.includes('yesterday') || raw.includes('ieri') || raw.includes('hier')) return dateOnly(Date.now() - 86400000);
-  const days = Number(raw.match(/(\d+)\s+day/)?.[1] || raw.match(/(\d+)\s+giorn/)?.[1] || raw.match(/(\d+)\s+jour/)?.[1]);
-  if (Number.isFinite(days) && days >= 0) return dateOnly(Date.now() - days * 86400000);
-  const weeks = Number(raw.match(/(\d+)\s+week/)?.[1] || raw.match(/(\d+)\s+settiman/)?.[1] || raw.match(/(\d+)\s+semain/)?.[1]);
-  if (Number.isFinite(weeks) && weeks >= 0) return dateOnly(Date.now() - weeks * 7 * 86400000);
-  return dateOnly(Date.now());
+  // Relative strings (notably "30+ days ago" or whole weeks) do not prove
+  // an exact employer publication date. Keep only an explicit source ISO.
+  return sourcePostingDateFields(postedOnRaw).postedDate;
 }
 
 async function extractDetailPayload(html, detailUrl) {
@@ -4118,7 +4114,7 @@ async function crawlWorkdayJobs(
         requirements: requirementsSeed,
         requirementsByLocale,
         featured: false,
-        postedDate,
+        ...sourcePostingDateFields(postedDate),
         url: applyUrl || detailUrl,
         source: 'Company Careers Crawler',
       });
@@ -4189,7 +4185,8 @@ async function crawlGreenhouseJobs(company, source) {
       description,
       requirements: extractRequirements(description),
       featured: false,
-      postedDate: dateOnly(j?.updated_at || j?.updatedAt || Date.now()),
+      // Greenhouse exposes first_published separately from updated_at.
+      ...sourcePostingDateFields(j?.first_published),
       url: detailUrl,
       source: 'Company Careers Crawler',
     });
@@ -4245,7 +4242,8 @@ async function crawlLeverJobs(company, source) {
       description,
       requirements: extractRequirements(description),
       featured: false,
-      postedDate: dateOnly(j?.createdAt || j?.updatedAt || Date.now()),
+      // Lever createdAt is posting creation, not evidence of first publication.
+      ...sourcePostingDateFields(''),
       url: detailUrl,
       source: 'Company Careers Crawler',
     });
@@ -4294,7 +4292,7 @@ async function crawlSmartRecruitersJobs(company, source) {
       description,
       requirements: extractRequirements(description),
       featured: false,
-      postedDate: dateOnly(j?.releasedDate || Date.now()),
+      ...sourcePostingDateFields(j?.releasedDate),
       url: detailUrl,
       source: 'Company Careers Crawler',
     });
@@ -4470,7 +4468,7 @@ async function crawlTeaserApiJobs(company, apiUrl) {
       description: cleanDescription(`${title}. ${row?.fieldofactivity || ''}. ${row?.workloadTitle || ''}: ${row?.workload || ''}`),
       requirements: [],
       featured: false,
-      postedDate: parseDdMmYyyy(row?.date || ''),
+      ...sourcePostingDateFields(parseDdMmYyyy(row?.date || '')),
       url: detailUrl,
       source: 'Company Careers Crawler',
     };
@@ -4480,7 +4478,7 @@ async function crawlTeaserApiJobs(company, apiUrl) {
       title: baseJob.title || title,
       location: baseJob.location || locationFromTitle,
       contract: normalizeContract(row?.workload || row?.expiration || '', baseJob.title || title, baseJob.description || ''),
-      postedDate: parseDdMmYyyy(row?.date || baseJob.postedDate || ''),
+      ...mergeSourcePostingDates(baseJob, sourcePostingDateFields(parseDdMmYyyy(row?.date || ''))),
       url: detailUrl,
       source: 'Company Careers Crawler',
     };
@@ -4712,14 +4710,14 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
     description,
     requirements: extractRequirements(description),
     featured: false,
-    postedDate: dateOnly(seedMeta?.postedDate || node.datePosted || Date.now()),
+    ...mergeSourcePostingDates(seedMeta, sourcePostingDateFields(node.datePosted)),
     url,
     // The generic parser exposes the canonical detail URL as the handoff
     // target when JSON-LD does not publish a separate application URL. This
     // is only a navigable handoff; L3 must never count it as an application.
     applyUrl: url,
     source: 'Company Careers Crawler',
-    ...(seedMeta.sourceReference ? { sourceReference: seedMeta.sourceReference } : {}),
+    ...(seedMeta?.sourceReference ? { sourceReference: seedMeta.sourceReference } : {}),
     ...(seedMetaRelevant ? {
       _targetScope: {
         type: 'adapter_seed_meta',
@@ -4965,14 +4963,14 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
       ? requirementsFromMigros
       : extractRequirements(description),
     featured: false,
-    postedDate: dateOnly(seedMeta?.postedDate || Date.now()),
+    ...mergeSourcePostingDates({}, seedMeta),
     url: pageUrl,
     // HTML-only pages have the same explicit handoff contract as JSON-LD
     // pages. The URL is evidence of where a user can continue, not a submit
     // event or a commercial outcome.
     applyUrl: pageUrl,
     source: 'Company Careers Crawler',
-    ...(seedMeta.sourceReference ? { sourceReference: seedMeta.sourceReference } : {}),
+    ...(seedMeta?.sourceReference ? { sourceReference: seedMeta.sourceReference } : {}),
     ...(seedMetaRelevant ? {
       _targetScope: {
         type: 'adapter_seed_meta',

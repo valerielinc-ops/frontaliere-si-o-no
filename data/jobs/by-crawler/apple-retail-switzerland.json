@@ -1,6 +1,6 @@
 {
   "crawlerKey": "apple-retail-switzerland",
-  "assembledAt": "2026-10-03T09:18:35.094Z",
+  "assembledAt": "2026-10-03T21:17:39.029Z",
   "jobs": [
     {
       "id": "apple-retail-switzerland-514c0e1f28a1",
@@ -33,7 +33,7 @@
       "url": "https://jobs.apple.com/en-us/details/200617889/aiml-apple-foundation-models-senior-ml-research-scientist-rl-agentic-reasoning?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:29.440Z",
+      "crawledAt": "2026-10-03T21:17:33.535Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -117,7 +117,7 @@
       "url": "https://jobs.apple.com/en-us/details/200617882/aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:28.058Z",
+      "crawledAt": "2026-10-03T21:17:31.016Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -201,7 +201,7 @@
       "url": "https://jobs.apple.com/en-us/details/200634000/applied-machine-learning-engineer-security?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:26.552Z",
+      "crawledAt": "2026-10-03T21:17:28.446Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -262,7 +262,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "apple-retail-switzerland-a47942b13045",
@@ -295,7 +296,7 @@
       "url": "https://jobs.apple.com/en-us/details/200634821/aiml-senior-ml-rl-training-infrastructure-engineer-afm?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:24.681Z",
+      "crawledAt": "2026-10-03T21:17:25.818Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -374,7 +375,7 @@
       "url": "https://jobs.apple.com/en-us/details/200643040/ai-research-scientist-multimodal-intelligence?team=HRDWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:23.204Z",
+      "crawledAt": "2026-10-03T21:17:23.230Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -406,6 +407,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.772Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -452,7 +454,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664779/aiml-machine-learning-researcher-mlr?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:22.154Z",
+      "crawledAt": "2026-10-03T21:17:21.465Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -528,7 +530,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664795/aiml-research-scientist-health?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:20.763Z",
+      "crawledAt": "2026-10-03T21:17:19.100Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -573,8 +575,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "apple-retail-switzerland-42d907712cae",
@@ -607,7 +608,7 @@
       "url": "https://jobs.apple.com/en-us/details/200672455/research-scientist-llm-efficiency?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:19.314Z",
+      "crawledAt": "2026-10-03T21:17:16.233Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -691,7 +692,7 @@
       "url": "https://jobs.apple.com/en-us/details/200672941/research-scientist-engineer-special-projects?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:17.952Z",
+      "crawledAt": "2026-10-03T21:17:13.216Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -770,7 +771,7 @@
       "url": "https://jobs.apple.com/en-us/details/200679192/content-engineering-author-developer-publications?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:16.023Z",
+      "crawledAt": "2026-10-03T21:17:10.472Z",
       "addressLocality": "Dietlikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -849,7 +850,7 @@
       "url": "https://jobs.apple.com/en-us/details/200679630/aiml-foundation-model-post-training-research-scientist?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:14.408Z",
+      "crawledAt": "2026-10-03T21:17:08.549Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -930,7 +931,7 @@
       "url": "https://jobs.apple.com/en-us/details/200680814/staff-machine-learning-engineer-siri-runtime-systems-and-interaction?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:12.856Z",
+      "crawledAt": "2026-10-03T21:17:06.119Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1003,7 +1004,7 @@
       "url": "https://jobs.apple.com/en-us/details/200683178/aiml-machine-learning-researcher-multimodal-foundation-models?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:11.362Z",
+      "crawledAt": "2026-10-03T21:17:04.657Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1082,7 +1083,7 @@
       "url": "https://jobs.apple.com/en-us/details/200684066/channel-communications-manager-switzerland?team=SLDEV",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:09.928Z",
+      "crawledAt": "2026-10-03T21:17:02.581Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1145,7 +1146,7 @@
       "url": "https://jobs.apple.com/en-us/details/200685035/internship-machine-learning-foundation-models?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:08.476Z",
+      "crawledAt": "2026-10-03T21:16:59.792Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1224,7 +1225,7 @@
       "url": "https://jobs.apple.com/en-us/details/200686097/vulnerability-researcher-sear?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:06.712Z",
+      "crawledAt": "2026-10-03T21:16:58.087Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1302,7 +1303,7 @@
       "url": "https://jobs.apple.com/en-us/details/200686336/internship-computer-vision-machine-learning-research?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:04.997Z",
+      "crawledAt": "2026-10-03T21:16:56.247Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1347,8 +1348,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "apple-retail-switzerland-c03692b941a9",
@@ -1381,7 +1381,7 @@
       "url": "https://jobs.apple.com/en-us/details/200686571/internship-computer-vision-machine-learning-research-llm-efficiency?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:03.549Z",
+      "crawledAt": "2026-10-03T21:16:54.057Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1396,22 +1396,6 @@
       "applyUrl": "https://jobs.apple.com/en-us/details/200686571/internship-computer-vision-machine-learning-research-llm-efficiency?team=MLAI",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-30T21:15:42.786Z",
       "previousSlugs": [
         "internship-computer-vision-machine-learning-research-llm-efficiency-apple-retail",
         "internship-computer-vision-machine-learning-ricerca-llm-efficiency-apple-retail-switzerland-zurich"
@@ -1427,7 +1411,23 @@
         "fr": [
           "internship-computer-vision-machine-learning-research-llm-efficiency-apple-retail"
         ]
-      }
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-30T21:15:42.786Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "apple-retail-switzerland-86f997e905a7",
@@ -1443,7 +1443,7 @@
       "companyDomain": "jobs.apple.com",
       "title": "CH-Operations Expert (m/f/d)",
       "titleByLocale": {
-        "it": "CH-Operations Expert (m/f/d)",
+        "it": "Esperto CH-Operations (m/f/d)",
         "en": "CH-Operations Expert (m/f/d)",
         "de": "CH-Operations Expert (m/w/d)",
         "fr": "Expert en opérations de CH (h/f/d)"
@@ -1460,7 +1460,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438011/ch-operations-expert-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:00.211Z",
+      "crawledAt": "2026-10-03T21:16:51.528Z",
       "addressLocality": "Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -1485,7 +1485,6 @@
           "esperto-ch-operations-m-f-d-apple-retail-switzerland-switzerland"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T21:19:38.757Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1532,7 +1531,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438204/ch-technical-specialist-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:18:02.014Z",
+      "crawledAt": "2026-10-03T21:16:49.654Z",
       "addressLocality": "Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -1604,7 +1603,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438017/ch-specialist-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:17:58.732Z",
+      "crawledAt": "2026-10-03T21:16:47.198Z",
       "addressLocality": "Switzerland",
       "addressCountry": "CH",
       "country": "CH",

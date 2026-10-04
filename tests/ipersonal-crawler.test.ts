@@ -652,7 +652,7 @@ describe('MediPersonal crawler parser', () => {
             <h3>Deine Aufgaben</h3><ul><li>Ergebnisse zuverlässig dokumentieren</li></ul>
           </div></section>`, { status: 200 });
       };
-      const jobs = await runIpersonalSpecInProduction({
+      await expect(runIpersonalSpecInProduction({
         companyKey: 'ipersonal',
         companyName: 'MediPersonal',
         platform: 'med-ipersonal.ch',
@@ -665,24 +665,15 @@ describe('MediPersonal crawler parser', () => {
         lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
         sleepImpl: async () => undefined,
         retries: 0,
-      });
-      const evidence = jobs as typeof jobs & {
-        discoveredCount: number;
-        qualityDroppedCount: number;
-        detailFailureCount: number;
-      };
-      expect(jobs).toHaveLength(1);
-      expect(evidence.discoveredCount).toBe(2);
-      expect(evidence.qualityDroppedCount).toBe(0);
-      expect(evidence.detailFailureCount).toBe(1);
-      expect(() => assertCompleteIpersonalSnapshot(evidence)).toThrow(
-        /detail fetch\/parse failure/,
-      );
+      })).rejects.toThrow(/detail failure\/reuse policy rejected 1\/2/);
     });
 
     it('reuses only the matching rich previous detail after a bounded failure', async () => {
       const seedUrl = 'https://ipersonal-previous-detail.example/';
-      const acceptedUrl = `${seedUrl}jobs/accepted/`;
+      const acceptedUrls = Array.from(
+        { length: 6 },
+        (_, index) => `${seedUrl}jobs/accepted-${index + 1}/`,
+      );
       const failedUrl = `${seedUrl}jobs/temporarily-blocked/`;
       const previousDescription = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.\n• Ergebnisse zuverlässig dokumentieren';
       const fetchImpl = async (input: string | URL | Request) => {
@@ -690,7 +681,8 @@ describe('MediPersonal crawler parser', () => {
         if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
         if (url === seedUrl) {
           return new Response(
-            `<a href="${acceptedUrl}">Fachperson Zürich</a><a href="${failedUrl}">Temporarily blocked role</a>`,
+            acceptedUrls.map((detailUrl) => `<a href="${detailUrl}">Fachperson Zürich</a>`).join('')
+              + `<a href="${failedUrl}">Temporarily blocked role</a>`,
             { status: 200 },
           );
         }
@@ -701,7 +693,7 @@ describe('MediPersonal crawler parser', () => {
             '@context': 'https://schema.org',
             '@type': 'JobPosting',
             title: 'Fachperson Zürich',
-            url: acceptedUrl,
+            url,
             description,
             jobLocation: {
               '@type': 'Place',
@@ -747,7 +739,7 @@ describe('MediPersonal crawler parser', () => {
         previousSnapshotIdentityCollisionCount: number;
       };
 
-      expect(jobs).toHaveLength(2);
+      expect(jobs).toHaveLength(7);
       expect(jobs.find((job) => job.url === failedUrl)?.description).toBe(previousDescription);
       expect(evidence.detailFailureCount).toBe(1);
       expect(evidence.detailFailureUrls).toEqual([failedUrl.replace(/\/$/, '')]);

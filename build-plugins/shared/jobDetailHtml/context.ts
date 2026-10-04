@@ -31,6 +31,8 @@ export interface JobDetailJob {
   readonly category?: string;
   readonly contract?: string;
   readonly featured?: boolean;
+  readonly postingDateSource?: string;
+  readonly datePosted?: string;
   readonly postedDate?: string;
   readonly crawledAt?: string;
   readonly url?: string;

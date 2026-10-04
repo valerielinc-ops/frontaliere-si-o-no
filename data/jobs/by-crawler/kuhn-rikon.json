@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kuhn-rikon",
-  "assembledAt": "2026-10-03T09:25:04.951Z",
+  "assembledAt": "2026-10-03T21:18:08.404Z",
   "jobs": [
     {
       "id": "kuhn-rikon-4edc9ba1b5a5",
@@ -34,7 +34,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:25:00.402Z",
+      "crawledAt": "2026-10-03T21:18:04.007Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -174,7 +174,7 @@
       "url": "https://my.jobalino.ch/job/093cd182d6b09fd293edc53c732daa2d/lehrstelle-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-haushalt",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:24:59.943Z",
+      "crawledAt": "2026-10-03T21:18:03.618Z",
       "addressLocality": "Rikon im Tösstal",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -309,7 +309,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
