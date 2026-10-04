@@ -67,13 +67,14 @@ describe('main data writers use the shared retry contract', () => {
     // writer is scripts/lib/commit-build-history-rows.sh, run once per deploy
     // by the build-history-commit job on a clean sparse checkout, so it
     // regenerates the append on origin/main instead of stashing a dirty tree.
-    const buildHistoryStager = read('scripts/lib/append-build-history-row.sh');
-    expect(buildHistoryStager).not.toMatch(/^\s*git\s/m);
-    expect(buildHistoryStager).not.toContain('git-push-with-retry.sh');
+    // Only the wiring is checked here; the exact behaviour (no git in the
+    // stager, one commit, dedup against main) lives in
+    // tests/build-history-single-writer.test.ts.
+    expect(read('scripts/lib/append-build-history-row.sh')).not.toContain('git-push-with-retry.sh');
     const buildHistoryWriter = read('scripts/lib/commit-build-history-rows.sh');
-    expect(buildHistoryWriter).toContain('git-push-with-retry.sh" --max-attempts 5 --regenerate-cmd "$regenerate_cmd"');
-    expect(buildHistoryWriter).toContain('node scripts/ci/assert-accumulator-write.mjs "$history_path"');
-    expect(buildHistoryWriter).toContain('git commit --only -m "$commit_msg" -- "$history_path"');
+    expect(buildHistoryWriter).toContain('git-push-with-retry.sh');
+    expect(buildHistoryWriter).toContain('--regenerate-cmd');
+    expect(buildHistoryWriter).toContain('scripts/ci/assert-accumulator-write.mjs');
   });
 
   it('routes the exchange snapshot through the protected PR publisher', () => {

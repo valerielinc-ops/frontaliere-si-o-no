@@ -231,50 +231,95 @@ function writeRows(rowsDir: string, artifact: string, file: string, lines: strin
   writeFileSync(join(rowsDir, artifact, file), lines.map((l) => `${l}\n`).join(''));
 }
 
-function runWriter(cwd: string, rowsDir: string) {
+function runWriter(cwd: string, rowsDir: string, extraEnv: Record<string, string> = {}) {
   return spawnSync('bash', ['scripts/lib/commit-build-history-rows.sh'], {
     cwd,
     encoding: 'utf8',
     env: {
       ...process.env,
+      ...extraEnv,
       HISTORY_ROWS_DIR: rowsDir,
       HISTORY_COMMIT_MSG: 'chore(build-history): append rows run 42',
     },
   });
 }
 
+function initRemote(base: string, files: Record<string, string>): string {
+  const remote = join(base, 'remote.git');
+  const seed = join(base, 'seed');
+  mkdirSync(remote);
+  mkdirSync(seed);
+  git(remote, ['init', '-q', '--bare']);
+  git(seed, ['init', '-q']);
+  git(seed, ['config', 'user.email', 'test@example.com']);
+  git(seed, ['config', 'user.name', 'Test']);
+  for (const [rel, content] of Object.entries(files)) {
+    mkdirSync(dirname(join(seed, rel)), { recursive: true });
+    writeFileSync(join(seed, rel), content);
+    git(seed, ['add', rel]);
+  }
+  git(seed, ['commit', '-q', '-m', 'seed']);
+  git(seed, ['remote', 'add', 'origin', remote]);
+  git(seed, ['push', '-q', 'origin', 'HEAD:main']);
+  return remote;
+}
+
+function cloneAt(remote: string, dir: string): void {
+  mkdirSync(dir);
+  git(dir, ['clone', '-q', '--branch', 'main', remote, '.']);
+  git(dir, ['config', 'user.email', 'test@example.com']);
+  git(dir, ['config', 'user.name', 'Test']);
+}
+
+function appendOnMain(dir: string, lines: string[], message: string): void {
+  const path = join(dir, HISTORY);
+  writeFileSync(path, readFileSync(path, 'utf8') + lines.map((l) => `${l}\n`).join(''));
+  git(dir, ['commit', '-q', '-am', message]);
+  git(dir, ['push', '-q', 'origin', 'HEAD:main']);
+}
+
 describe('commit-build-history-rows.sh — un commit per run, idempotente', () => {
   it('unisce le righe di tutte le gambe in un commit, dedup e rigenerazione su main avanzato', () => {
     const base = mkdtempSync(join(tmpdir(), 'bh-commit-'));
-    const remote = join(base, 'remote.git');
-    const seed = join(base, 'seed');
     const runner = join(base, 'runner');
     const rival = join(base, 'rival');
     const rowsDir = join(base, 'rows');
+    const shim = join(base, 'shim');
     try {
-      for (const d of [remote, seed, runner, rival]) mkdirSync(d);
-      git(remote, ['init', '-q', '--bare']);
-      git(seed, ['init', '-q']);
-      git(seed, ['config', 'user.email', 'test@example.com']);
-      git(seed, ['config', 'user.name', 'Test']);
-      mkdirSync(join(seed, 'data/build-history'), { recursive: true });
-      writeFileSync(join(seed, HISTORY), '{"old":1}\n');
-      git(seed, ['add', HISTORY]);
-      git(seed, ['commit', '-q', '-m', 'seed']);
-      git(seed, ['remote', 'add', 'origin', remote]);
-      git(seed, ['push', '-q', 'origin', 'HEAD:main']);
-
+      const remote = initRemote(base, { [HISTORY]: '{"old":1}\n' });
+      mkdirSync(runner);
       cloneWithWriter(remote, runner);
 
-      // Un altro scrittore appende su main DOPO il checkout del job: il primo
-      // push viene respinto e, senza merge=union in questo repo, il rebase va
-      // in conflitto sulla coda del file → ramo --regenerate-cmd.
-      git(rival, ['clone', '-q', '--branch', 'main', remote, '.']);
-      git(rival, ['config', 'user.email', 'test@example.com']);
-      git(rival, ['config', 'user.name', 'Test']);
+      // Un altro scrittore appende su main fra il fetch dello script e il suo
+      // push: un `git` finto nel PATH esegue il fetch vero e poi, una volta
+      // sola, pubblica il commit del rivale. Il primo push viene respinto e,
+      // senza merge=union in questo repo, il rebase va in conflitto sulla coda
+      // del file → ramo --regenerate-cmd.
+      cloneAt(remote, rival);
       writeFileSync(join(rival, HISTORY), '{"old":1}\n{"rival":1}\n');
       git(rival, ['commit', '-q', '-am', 'rival append']);
-      git(rival, ['push', '-q', 'origin', 'HEAD:main']);
+      mkdirSync(shim);
+      const realGit = execFileSync('bash', ['-c', 'command -v git'], { encoding: 'utf8' }).trim();
+      writeFileSync(
+        join(shim, 'git'),
+        [
+          '#!/usr/bin/env bash',
+          '"$BH_REAL_GIT" "$@"; status=$?',
+          'if [ "${1:-}" = fetch ] && [ ! -e "$BH_RACE_MARKER" ]; then',
+          '  : > "$BH_RACE_MARKER"',
+          '  "$BH_REAL_GIT" -C "$BH_RIVAL_DIR" push -q origin HEAD:main >&2',
+          'fi',
+          'exit $status',
+          '',
+        ].join('\n'),
+      );
+      chmodSync(join(shim, 'git'), 0o755);
+      const raceEnv = {
+        PATH: `${shim}:${process.env.PATH ?? ''}`,
+        BH_REAL_GIT: realGit,
+        BH_RACE_MARKER: join(base, 'race-done'),
+        BH_RIVAL_DIR: rival,
+      };
 
       writeRows(rowsDir, 'build-history-rows-it-1', 'build-history-it.jsonl', ['{"locale":"it","m":1}']);
       writeRows(rowsDir, 'build-history-rows-it-1', 'build-history-profile-it.jsonl', [
@@ -287,14 +332,15 @@ describe('commit-build-history-rows.sh — un commit per run, idempotente', () =
       writeRows(rowsDir, 'build-history-rows-de-1', 'build-history-de.jsonl', ['{"old":1}', '{"locale":"de","m":1}']);
 
       const before = Number(git(remote, ['rev-list', '--count', 'main']).trim());
-      const result = runWriter(runner, rowsDir);
+      const result = runWriter(runner, rowsDir, raceEnv);
       expect(result.status, result.stdout + result.stderr).toBe(0);
+      expect(existsSync(raceEnv.BH_RACE_MARKER), 'il rivale deve aver pubblicato').toBe(true);
       expect(result.stderr + result.stdout).toContain('1 riga/e non JSON scartate');
       // Il main avanzato ha fatto passare il push dal ramo di rigenerazione.
       expect(result.stdout).toContain('Rebase conflict; regenerating data on top of new base');
 
       const after = Number(git(remote, ['rev-list', '--count', 'main']).trim());
-      expect(after - before, 'il job deve aggiungere UN commit su main').toBe(1);
+      expect(after - before, 'il job deve aggiungere UN commit su main (piu\' quello del rivale)').toBe(2);
       expect(git(remote, ['log', '-1', '--format=%s', 'main']).trim()).toBe(
         'chore(build-history): append rows run 42',
       );
@@ -312,6 +358,57 @@ describe('commit-build-history-rows.sh — un commit per run, idempotente', () =
       expect(again.status, again.stdout + again.stderr).toBe(0);
       expect(again.stdout).toContain('niente da committare');
       expect(Number(git(remote, ['rev-list', '--count', 'main']).trim())).toBe(after);
+    } finally {
+      rmSync(base, { recursive: true, force: true });
+    }
+  }, 60_000);
+
+  it('dedup contro la punta di main, non contro il checkout vecchio del job (rerun con merge=union)', () => {
+    // Il checkout del job e' github.sha, vecchio di 40-130 minuti. Nel rerun
+    // di una gamba il job riscarica gli artifact del tentativo 1, le cui righe
+    // sono gia' su main ma non nel checkout. Con merge=union il rebase di quei
+    // doppioni non va in conflitto: il dedup deve guardare la punta di main.
+    const base = mkdtempSync(join(tmpdir(), 'bh-commit-stale-'));
+    const runner = join(base, 'runner');
+    const writer = join(base, 'writer');
+    const rowsDir = join(base, 'rows');
+    try {
+      const remote = initRemote(base, {
+        '.gitattributes': `${HISTORY} merge=union\n`,
+        [HISTORY]: '{"old":1}\n',
+      });
+      mkdirSync(runner);
+      cloneWithWriter(remote, runner);
+
+      cloneAt(remote, writer);
+      const attempt1 = ['de', 'en', 'fr', 'it'].map((l) => `{"r":1,"locale":"${l}"}`);
+      appendOnMain(writer, attempt1, 'chore(build-history): append rows run 1 attempt 1');
+      appendOnMain(writer, ['{"r":2,"locale":"de"}'], 'chore(build-history): append rows run 2');
+
+      writeRows(rowsDir, 'build-history-rows-de-1', 'build-history-de.jsonl', [attempt1[0]]);
+      writeRows(rowsDir, 'build-history-rows-de-2', 'build-history-de.jsonl', ['{"r":1,"locale":"de","attempt":2}']);
+      writeRows(rowsDir, 'build-history-rows-en-1', 'build-history-en.jsonl', [attempt1[1]]);
+      writeRows(rowsDir, 'build-history-rows-fr-1', 'build-history-fr.jsonl', [attempt1[2]]);
+      writeRows(rowsDir, 'build-history-rows-it-1', 'build-history-it.jsonl', [attempt1[3]]);
+
+      // Un checkout con modifiche tracciate non e' quello del job: niente reset.
+      writeFileSync(join(runner, HISTORY), '{"old":1}\n{"local":1}\n');
+      const dirty = runWriter(runner, rowsDir);
+      expect(dirty.status).toBe(1);
+      expect(dirty.stdout + dirty.stderr).toContain('rifiuto il reset');
+      expect(readFileSync(join(runner, HISTORY), 'utf8')).toContain('{"local":1}');
+      git(runner, ['checkout', '--', HISTORY]);
+
+      const result = runWriter(runner, rowsDir);
+      expect(result.status, result.stdout + result.stderr).toBe(0);
+      const lines = git(remote, ['show', `main:${HISTORY}`]).trim().split('\n');
+      expect(new Set(lines).size, `righe doppie su main:\n${lines.join('\n')}`).toBe(lines.length);
+      expect(lines).toEqual([
+        '{"old":1}',
+        ...attempt1,
+        '{"r":2,"locale":"de"}',
+        '{"r":1,"locale":"de","attempt":2}',
+      ]);
     } finally {
       rmSync(base, { recursive: true, force: true });
     }

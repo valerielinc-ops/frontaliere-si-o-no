@@ -2422,7 +2422,10 @@ jobs:
   # ───────────────────────────────────────────────────────────────────────
   build-history-commit:
     needs: [build-locale]
-    if: ${{ always() }}
+    # always(): anche con gambe fallite o una run cancellata ci sono righe da
+    # salvare. Ma se build-locale e' stato saltato (run non ammessa, prep
+    # fallito) non esiste nessuna riga: niente runner ne' segreti caricati.
+    if: ${{ always() && needs.build-locale.result != 'skipped' }}
     runs-on: ubuntu-latest
     continue-on-error: true
     timeout-minutes: 10

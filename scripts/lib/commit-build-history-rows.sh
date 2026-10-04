@@ -8,9 +8,14 @@
 #   1. concatena i file di staging in ordine di percorso (deterministico);
 #   2. scarta, dichiarandole, le righe che non sono un oggetto JSON (un
 #      artifact troncato non deve corrompere lo storico);
-#   3. appende solo le righe che lo storico non contiene gia' (riga identica):
-#      il rerun di una gamba riscarica gli artifact delle gambe che non sono
-#      state rifatte, e il loro commit e' gia' su main;
+#   3. riallinea il checkout alla punta ATTUALE di origin/main (fetch +
+#      reset --hard) e appende solo le righe che lo storico non contiene gia'
+#      (riga identica): il rerun di una gamba riscarica gli artifact delle
+#      gambe che non sono state rifatte, e il loro commit e' gia' su main.
+#      Il dedup va fatto contro la punta, non contro github.sha: il checkout
+#      del job e' vecchio di 40-130 minuti, e con merge=union il rebase di
+#      un doppione NON va in conflitto, quindi la rigenerazione non lo
+#      salverebbe;
 #   4. fa UN commit e lo pusha con il retry condiviso. Su conflitto di rebase
 #      l'append viene rifatto da capo su origin/main aggiornato
 #      (--regenerate-cmd), invece di rebasare un checkout sporco.
@@ -60,6 +65,10 @@ if [ "${1:-}" = "append" ]; then
   exit 0
 fi
 
+# Il corpo principale e' una funzione: bash la legge per intero prima di
+# eseguirla, quindi il reset a origin/main che riscrive questo stesso file
+# (se e' cambiato fra github.sha e main) non puo' corrompere l'esecuzione.
+main() {
 rows_dir="${HISTORY_ROWS_DIR:?HISTORY_ROWS_DIR non impostata}"
 commit_msg="${HISTORY_COMMIT_MSG:-chore(build-history): append rows run ${GITHUB_RUN_ID:-local}}"
 
@@ -113,6 +122,17 @@ done | node -e '
 
 git config user.name "build-history-bot"
 git config user.email "build-history-bot@frontaliereticino.ch"
+
+# Il checkout e' dedicato a questo job e pulito: un file tracciato modificato
+# vuol dire che lo script gira altrove (es. in locale) e il reset lo
+# distruggerebbe.
+if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
+  echo "::error::[build-history-commit] checkout con modifiche tracciate: rifiuto il reset a origin/main"
+  git status --short --untracked-files=no | sed 's/^/  dirty: /'
+  exit 1
+fi
+git fetch --no-tags origin main
+git reset --hard FETCH_HEAD
 append_new_rows "$merged"
 
 unexpected_paths="$(git diff --cached --name-only | grep -Fvx -- "$history_path" || true)"
@@ -129,3 +149,6 @@ git commit --only -m "$commit_msg" -- "$history_path"
 
 regenerate_cmd="bash scripts/lib/commit-build-history-rows.sh append $(printf '%q' "$merged")"
 bash "$script_dir/git-push-with-retry.sh" --max-attempts 5 --regenerate-cmd "$regenerate_cmd"
+}
+
+main "$@"
