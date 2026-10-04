@@ -72,13 +72,15 @@ const REFLINE_EMPTY_RESULT_TEXT_RE = /(?:\b(?:zurzeit|derzeit|aktuell)\s+haben\s
  * empty-state wording: a bare parser miss must remain fail-closed.
  */
 function reflineEmptyListingEvidence(html = '') {
-  const match = String(html || '').match(
-    /<([a-z][\w:-]*)\b[^>]*?\sclass\s*=\s*(["'])([^"']*)\2[^>]*>([\s\S]*?)<\/\1>/i,
-  );
-  if (!match || !/(?:^|\s)searchPageNoResult(?:\s|$)/i.test(match[3])) return null;
-  const text = normalizeSpace(stripHtml(decodeEntities(match[4])));
-  if (!text || !REFLINE_EMPTY_RESULT_TEXT_RE.test(text)) return null;
-  return text;
+  const candidateRe = /<([a-z][\w:-]*)\b[^>]*?\sclass\s*=\s*(["'])([^"']*)\2[^>]*>([\s\S]*?)<\/\1>/gi;
+  let match;
+  while ((match = candidateRe.exec(String(html || ''))) !== null) {
+    if (!/(?:^|\s)searchPageNoResult(?:\s|$)/i.test(match[3])) continue;
+    const text = normalizeSpace(stripHtml(decodeEntities(match[4])));
+    if (!text || !REFLINE_EMPTY_RESULT_TEXT_RE.test(text)) continue;
+    return text;
+  }
+  return null;
 }
 
 function normalize(s = '') {

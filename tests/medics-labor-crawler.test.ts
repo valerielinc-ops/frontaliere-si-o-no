@@ -125,6 +125,15 @@ describe('Refline listing empty-state proof', () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
+  it('scans past unrelated classed containers before the empty-state marker', () => {
+    const jobs = parseReflineListing(
+      '<div class="layout"></div><div class="searchPageNoResult">There are no jobs</div>',
+      { listingHost: 'apply.refline.ch', tenant: '1' },
+    );
+
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+  });
+
   it('keeps an unrecognised empty Refline page fail-closed', () => {
     const jobs = parseReflineListing('<main><div class="searchPageNoResult">Please wait</div></main>', {
       listingHost: 'app.reflinejobs.io',
