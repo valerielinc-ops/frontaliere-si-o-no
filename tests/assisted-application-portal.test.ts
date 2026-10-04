@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { SENSITIVE, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
-import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, chooseFiles, findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
+import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateForForm, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
@@ -196,6 +196,31 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(stuck.clock).toBeGreaterThanOrEqual(45_000);
     expect(stuck.clock).toBeLessThan(47_000);
   });
+
+  // The record of what left (submit.mjs `sent`) names the files a form's field received.
+  it('says how many files of a requested document an upload set: all of them in a multiple input, else the first', async () => {
+    const chosen: unknown[] = [];
+    const page = (multiple: boolean) => {
+      const input = {
+        first: () => input,
+        evaluate: async (read: (element: { multiple: boolean }) => boolean) => read({ multiple }),
+        setInputFiles: async (paths: unknown) => { chosen.push(paths); },
+      };
+      const frame = { locator: () => input };
+      return { frames: () => [frame], mainFrame: () => frame, on: () => {}, off: () => {}, waitForTimeout: (ms: number) => new Promise((resolve) => setTimeout(resolve, ms)) };
+    };
+    const fields = [{ id: 'f9', kind: 'file', label: 'Zeugnisse', required: false }];
+    const files = { cv: '/tmp/cv.pdf', cover_letter: '/tmp/letter.pdf', extra_1: ['/tmp/zeugnis-1.pdf', '/tmp/zeugnis-2.jpg'] };
+    const upload = (document: string) => [{ fieldId: 'f9', action: 'upload', value: '', document }];
+    const pause = async () => {};
+    expect(await applyActions(page(true) as any, fields, upload('extra_1'), files, { pause })).toEqual([{ fieldId: 'f9', ok: true, files: 2 }]);
+    expect(chosen.at(-1)).toEqual(['/tmp/zeugnis-1.pdf', '/tmp/zeugnis-2.jpg']);
+    expect(await applyActions(page(false) as any, fields, upload('extra_1'), files, { pause })).toEqual([{ fieldId: 'f9', ok: true, files: 1 }]);
+    expect(chosen.at(-1)).toBe('/tmp/zeugnis-1.pdf');
+    expect(await applyActions(page(false) as any, fields, upload('cv'), files, { pause })).toEqual([{ fieldId: 'f9', ok: true, files: 1 }]);
+    // A document that is not there sets nothing.
+    expect(await applyActions(page(true) as any, fields, upload('extra_2'), files, { pause })).toEqual([{ fieldId: 'f9', ok: false, error: 'document_unavailable' }]);
+  }, 15_000);
 
   it('plans a JOIN date picker from the candidate date and asks when it is absent', () => {
     const date = { id: 'dob', kind: 'date', label: 'Quando sei nato?', required: true, value: '' };

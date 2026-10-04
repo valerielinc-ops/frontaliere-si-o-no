@@ -453,9 +453,9 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  "headline": "Tredicesima AVS: gli Stati propongono una soluzione mista",
  "description": "Il Consiglio degli Stati propone un finanziamento misto per la tredicesima mensilità AVS, con un aumento dell'IVA e dei contributi salariali. Scopri di più su",
  "image": {
- "@type": "ImageObject", "url": `${BASE_URL}/images/blog/tredicesima-avs-soluzione-mista-stati.webp`,
- "width": 1344,
- "height": 756,
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/tredicesima-avs-soluzione-mista-stati-2.webp`,
+ "width": 1200,
+ "height": 675,
  "caption": "Vista del Lago Maggiore e del Castello Visconteo a Locarno."
  },
  "datePublished": "2026-03-19T12:13:35+00:00",
@@ -4938,7 +4938,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  "headline": "Trasporto lacustre Locarno-Magadino",
  "description": "Il servizio di trasporto lacustre tra Locarno e Magadino rischia di essere sospeso. Scopri cosa sta succedendo e come risolvere il problema. Dati aggiornati",
  "image": {
- "@type": "ImageObject", "url": `${BASE_URL}/images/blog/locarno-magadino-trasporto.webp`,
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/locarno-magadino-trasporto-2.webp`,
  "width": 1200,
  "height": 675,
  "caption": "Nave sul Lago Maggiore a Locarno"
