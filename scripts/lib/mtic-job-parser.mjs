@@ -163,8 +163,8 @@ export function parseMticDetailPage(html = '', fallbackTitle = '') {
   // Try to extract location from description text
   const location = extractLocationFromText(description);
 
-  // Date — TYPO3 pages don't have explicit dates; use today
-  const datePosted = new Date().toISOString().slice(0, 10);
+  // This source exposes no publication date; collection time is not one.
+  const datePosted = '';
 
   return { title, location, description, datePosted };
 }

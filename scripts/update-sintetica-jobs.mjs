@@ -6,6 +6,7 @@
  *   https://app.ncoreplat.com/jobboard/1255/sintetica
  * Detail pages at: /jobposition/{id}/{slug}/sintetica
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
@@ -169,7 +170,8 @@ export async function fetchJobs() {
       ...sourceSlotTitleAndSlug(raw.title, slug, sourceLang),
       slug,
       category: detectCategory(raw.title),
-      datePosted: new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(''),
+      crawledAt: new Date().toISOString(),
       source: 'sintetica-careers-crawler', employmentType: inferEmploymentType(raw.title, raw.snippet || ''),
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Farmaceutica',

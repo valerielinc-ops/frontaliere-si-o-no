@@ -68,12 +68,12 @@
     },
     {
       "id": "rfsm-fribourg-9912457d5c76",
-      "slug": "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens",
+      "slug": "interno-legale-interno-legale-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
       "slugByLocale": {
-        "it": "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens",
-        "en": "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens",
         "de": "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens",
-        "fr": "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens"
+        "it": "interno-legale-interno-legale-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "en": "legal-intern-legal-intern-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "fr": "stage-juridique-stage-juridique-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
       "companyKey": "rfsm-fribourg",
@@ -122,15 +122,15 @@
         "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens"
+        ],
         "en": [
           "legal-intern-legal-intern-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
           "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens"
         ],
         "fr": [
           "stagiaire-juridique-stagiaire-juridique-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-          "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens"
-        ],
-        "it": [
           "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens"
         ]
       },
@@ -557,12 +557,12 @@
     },
     {
       "id": "rfsm-fribourg-b0713a2e8644",
-      "slug": "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+      "slug": "imparare-i-dipendenti-swc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
       "slugByLocale": {
-        "it": "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "en": "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-fribourg-marsens",
-        "de": "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-fribourg-marsens",
-        "fr": "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-fribourg-marsens"
+        "fr": "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-fribourg-marsens",
+        "it": "imparare-i-dipendenti-swc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "en": "business-employee-learning-swc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "de": "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-fribourg-marsens"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
       "companyKey": "rfsm-fribourg",
@@ -606,16 +606,19 @@
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-fribourg-marsens",
-          "imparare-i-dipendenti-swc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "imparare-i-dipendenti-swc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+          "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
         ],
         "en": [
-          "business-employee-learning-swc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "business-employee-learning-swc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+          "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-fribourg-marsens"
         ]
       },
       "previousSlugs": [
         "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-fribourg-marsens",
         "imparare-i-dipendenti-swc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "business-employee-learning-swc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        "business-employee-learning-swc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -721,12 +724,12 @@
     },
     {
       "id": "rfsm-fribourg-e2c0aca4e69b",
-      "slug": "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+      "slug": "capo-di-clinica-assistant-rfsm-marsens-unita-luna-rfsm-reseau-fribourgeois-sante-mentale-marsens",
       "slugByLocale": {
-        "it": "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "en": "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-fribourg-marsens",
-        "de": "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-fribourg-marsens",
-        "fr": "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-fribourg-marsens"
+        "fr": "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-fribourg-marsens",
+        "it": "capo-di-clinica-assistant-rfsm-marsens-unita-luna-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "en": "chief-of-clinic-assistant-rfsm-marsens-luna-unit-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "de": "leiter-der-klinik-assistent-rfsm-marsens-einheit-luna-rfsm-reseau-fribourgeois-sante-mentale-marsens"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
       "companyKey": "rfsm-fribourg",
@@ -807,12 +810,12 @@
     },
     {
       "id": "rfsm-fribourg-f9793990597a",
-      "slug": "assistant-e-en-pharmacie-rfsm-marsens-rfsm-fribourg-marsens",
+      "slug": "assistente-farmacia-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
       "slugByLocale": {
-        "it": "assistant-e-en-pharmacie-rfsm-marsens-rfsm-fribourg-marsens",
+        "fr": "assistant-e-en-pharmacie-rfsm-marsens-rfsm-fribourg-marsens",
+        "it": "assistente-farmacia-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "en": "assistant-e-en-pharmacie-rfsm-marsens-rfsm-fribourg-marsens",
-        "de": "assistent-e-en-pharmacie-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "fr": "assistant-e-en-pharmacie-rfsm-marsens-rfsm-fribourg-marsens"
+        "de": "assistent-e-en-pharmacie-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
       "companyKey": "rfsm-fribourg",
@@ -1025,12 +1028,12 @@
     },
     {
       "id": "rfsm-fribourg-2f165bc3fa6f",
-      "slug": "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens",
+      "slug": "addestramento-legale-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
       "slugByLocale": {
-        "it": "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens",
-        "en": "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens",
-        "de": "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens",
-        "fr": "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens"
+        "fr": "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens",
+        "it": "addestramento-legale-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "en": "legal-trainee-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "de": "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
       "companyKey": "rfsm-fribourg",
@@ -1078,15 +1081,15 @@
         "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens"
+        ],
         "en": [
           "legal-intern-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
           "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens"
         ],
         "de": [
           "rechtspraktikant-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-          "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens"
-        ],
-        "it": [
           "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens"
         ]
       },

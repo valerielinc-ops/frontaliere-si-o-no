@@ -23,9 +23,12 @@
       "employmentType": "40 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-10-03T21:23:02.503Z",
-      "slug": "case-manager-in-spital-sozialdienst-kantonsspital-graubunden-chur",
+      "slug": "case-manager-servizio-sociale-ospedaliero-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "case-manager-in-spital-sozialdienst-kantonsspital-graubunden-chur"
+        "de": "case-manager-in-spital-sozialdienst-kantonsspital-graubunden-chur",
+        "it": "case-manager-servizio-sociale-ospedaliero-kantonsspital-graubunden-chur",
+        "en": "case-manager-hospital-social-service-kantonsspital-graubunden-chur",
+        "fr": "gestionnaire-de-cas-service-social-hospitalier-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Case Manager:in Spital-Sozialdienst",
@@ -54,7 +57,15 @@
       "salaryMax": 154000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-10-03T09:23:27.856Z"
+      "firstSeenAt": "2026-10-03T09:23:27.856Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "case-manager-in-spital-sozialdienst-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "case-manager-in-spital-sozialdienst-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10201557",
@@ -113,21 +124,7 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-10-03T09:23:27.856Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur"
-        ],
-        "en": [
-          "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur"
-        ],
-        "fr": [
-          "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur"
-      ]
+      "firstSeenAt": "2026-10-03T09:23:27.856Z"
     },
     {
       "id": "10209576",
