@@ -43,6 +43,8 @@
  *   - isAmsteinWalthertJob()         — Match jobs belonging to this company
  *   - isTrustedDomain()              — Validate URLs belong to this company
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -243,7 +245,7 @@ function parseDetailPage(html = '') {
   const description = parts.join('\n\n');
   const address = parseDetailAddress(document);
 
-  return { description, address };
+  return { description, address, publicationPosting: extractJobPostingLd(html) };
 }
 
 /* ── ParsedJob builder ────────────────────────────────────── */
@@ -314,7 +316,7 @@ function buildParsedJob(listing, detail) {
     sector: SECTOR,
     currency: 'CHF',
     featured: false,
-    postedDate: new Date().toISOString().split('T')[0],
+    ...sourcePostingDateFields(normalizeSpace(detail?.publicationPosting?.title || '').toLowerCase() === title.toLowerCase() ? detail?.publicationPosting?.datePosted : ''),
     applyUrl: publicUrl,
     jobReqId: nativeId || null,
     slugDisambiguator: disambiguator || null,
