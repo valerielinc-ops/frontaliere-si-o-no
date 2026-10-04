@@ -92,7 +92,7 @@ const Z95 = 1.959964;
 export const CLICK_FILTER = Object.freeze({
   dedupe: 'una sola volta per consegna + annuncio (delivery_id + job_id); i link legacy senza delivery_id ricadono su utente pseudonimo + superficie + annuncio',
   burst: {
-    rule: `stessa consegna con ${SCAN_BURST_MIN_TARGETS} o più clic (annunci distinti) entro ${SCAN_BURST_WINDOW_MS / 1000} s: tutti i clic della finestra sono scartati`,
+    rule: `stessa consegna con ${SCAN_BURST_MIN_TARGETS} o più clic (annunci distinti) entro ${SCAN_BURST_WINDOW_MS / 1000} s: tutti i clic della finestra sono scartati; i link legacy senza delivery_id si raggruppano per utente pseudonimo + superficie + surface_id, mai per solo utente`,
     window_ms: SCAN_BURST_WINDOW_MS,
     min_clicks: SCAN_BURST_MIN_TARGETS,
     source: 'functions/src/lib/syntheticClicks.js (SCAN_BURST_WINDOW_MS, SCAN_BURST_MIN_TARGETS)',
@@ -153,7 +153,7 @@ function dayOf(ms) {
  * Gli identificativi (delivery_id, user_id, job_id) restano chiavi di join in
  * memoria e non escono mai nell'output.
  * @returns {null | {kind:'impression'|'click', variant:string, surface:string,
- *   position:string, deliveryKey:string|null, userKey:string|null,
+ *   position:string, deliveryKey:string|null, userKey:string|null, burstKey:string,
  *   dedupeKey:string, ms:number, day:string, affinity:boolean|null}}
  */
 export function classifyRankingEvent(raw) {
@@ -167,9 +167,12 @@ export function classifyRankingEvent(raw) {
   const deliveryKey = raw.delivery_id ? String(raw.delivery_id) : null;
   const userKey = raw.user_id ? String(raw.user_id) : null;
   const jobKey = String(raw.job_id || '');
-  const dedupeKey = deliveryKey
-    ? `d|${deliveryKey}|${jobKey}`
-    : `u|${userKey || ''}|${surface}|${String(raw.surface_id || '')}|${jobKey}`;
+  // Una consegna, oppure, per i link legacy senza delivery_id, l'utente su UNA
+  // superficie/campagna: due invii diversi dello stesso utente non sono una raffica.
+  const burstKey = deliveryKey
+    ? `d|${deliveryKey}`
+    : `u|${userKey || ''}|${surface}|${String(raw.surface_id || '')}`;
+  const dedupeKey = `${burstKey}|${jobKey}`;
   return {
     kind,
     variant: normalizeVariant(raw.ranking_variant),
@@ -177,6 +180,7 @@ export function classifyRankingEvent(raw) {
     position: positionBucket(raw.position),
     deliveryKey,
     userKey,
+    burstKey,
     dedupeKey,
     ms,
     day: dayOf(ms),
@@ -201,10 +205,10 @@ export function filterClicks(clicks, {
     seen.add(c.dedupeKey);
     unique.push(c);
   }
-  // Gruppo della raffica: la consegna; per i link legacy l'utente pseudonimo.
+  // Gruppo della raffica: `burstKey` di classifyRankingEvent.
   const groups = new Map();
   for (const c of unique) {
-    const g = c.deliveryKey ? `d|${c.deliveryKey}` : `u|${c.userKey || ''}`;
+    const g = c.burstKey;
     if (!groups.has(g)) groups.set(g, []);
     groups.get(g).push(c);
   }
@@ -590,6 +594,13 @@ export function parseArgs(argv) {
   const now = Date.now();
   const requestedTo = out.to ? toMillis(out.to) : now;
   if (requestedTo == null) throw new Error(`--to non valido: ${out.to}`);
+  // Le stats sono per giorno UTC intero mentre gli eventi si leggono per
+  // [from, to): estremi a metà giornata farebbero contare alle stats ore fuori
+  // dalla finestra. Unico taglio ammesso a metà giornata: l'ora del run, dove
+  // nessuna delle due fonti ha dati oltre.
+  const midnightUtc = (ms) => ms % 86_400_000 === 0;
+  if (!midnightUtc(fromMs)) throw new Error(`--from deve essere una mezzanotte UTC (es. 2026-09-08T00:00:00Z): ${out.from}`);
+  if (out.to && !midnightUtc(requestedTo)) throw new Error(`--to deve essere una mezzanotte UTC (es. 2026-10-04T00:00:00Z): ${out.to}`);
   out.fromMs = fromMs;
   out.requestedToMs = requestedTo;
   out.toMs = Math.min(requestedTo, now);

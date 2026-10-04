@@ -121,6 +121,21 @@ describe('filtro dei clic non umani', () => {
     expect(filterClicks(legacy).kept).toHaveLength(1);
   });
 
+  it('link legacy: clic dello stesso utente su invii diversi non sono una raffica', () => {
+    const legacy = (position: number, second: number, surfaceId: string) => click('', 'control', position, second, {
+      delivery_id: null,
+      user_id: 'same-user',
+      surface_id: surfaceId,
+    });
+    const clicks = [
+      legacy(1, 100, 'alert-a'), legacy(2, 100.5, 'alert-a'), legacy(3, 101, 'alert-a'),
+      legacy(1, 101.5, 'alert-b'), legacy(2, 102, 'alert-b'),
+    ].map(classifyRankingEvent);
+    const { kept, dropped } = filterClicks(clicks);
+    expect(dropped.burst).toBe(0);
+    expect(kept).toHaveLength(5);
+  });
+
   it('applica la stessa regola a ogni variante e dichiara lo scarto', () => {
     const events = [
       ...impressions('c', 'control', 10),
@@ -205,12 +220,21 @@ describe('nessun identificativo nell\'output', () => {
 });
 
 describe('argomenti', () => {
+  const DAY = 86_400_000;
+  const midnight = (offsetDays: number) => new Date(Math.floor(Date.now() / DAY) * DAY + offsetDays * DAY).toISOString();
+
   it('tronca --to all\'ora del run e rifiuta un periodo vuoto', () => {
-    const future = new Date(Date.now() + 86_400_000).toISOString();
-    const opts = parseArgs(['--from', at(0).toISOString(), '--to', future]);
+    const future = midnight(2);
+    const opts = parseArgs(['--from', midnight(-5), '--to', future]);
     expect(opts.toMs).toBeLessThan(opts.requestedToMs);
-    expect(() => parseArgs(['--from', future, '--to', at(0).toISOString()])).toThrow();
+    expect(() => parseArgs(['--from', future, '--to', midnight(-5)])).toThrow();
     expect(() => parseArgs(['--to', future])).toThrow(/--from/);
+  });
+
+  it('rifiuta estremi non allineati alla mezzanotte UTC, prima di ogni query', () => {
+    expect(() => parseArgs(['--from', '2026-09-08T12:00:00Z', '--to', '2026-09-09T00:00:00Z'])).toThrow(/--from deve essere una mezzanotte UTC/);
+    expect(() => parseArgs(['--from', '2026-09-08T00:00:00Z', '--to', '2026-09-09T06:00:00Z'])).toThrow(/--to deve essere una mezzanotte UTC/);
+    expect(parseArgs(['--from', '2026-09-08T00:00:00Z', '--to', '2026-09-09T00:00:00Z']).toMs).toBe(Date.parse('2026-09-09T00:00:00Z'));
   });
 });
 
