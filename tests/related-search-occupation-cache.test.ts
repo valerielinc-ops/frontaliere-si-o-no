@@ -64,6 +64,35 @@ describe('build-scoped occupational terms', () => {
     expect(cached.matchingOccupationJobs('it', ['a', 'b', 'c'], 4, 1, ['infermier']).map(job => job.id)).toEqual(['4', '8', '5', '6']);
   });
 
+  it('keeps sparse OR merges in score/corpus order without scanning untouched jobs', () => {
+    const corpus = Array.from({ length: 100 }, (_, i) => ({ id: String(i), title: 'Role' }));
+    const index = new TokenIndex(corpus);
+    index.seedPostings('it', [
+      { token: 'a', list: [10, 30, 50] },
+      { token: 'b', list: [20, 30, 40] },
+      { token: 'c', list: [5, 20, 30] },
+    ]);
+
+    // The touched set is deliberately much smaller than the corpus. The
+    // result must still be AND first, then OR score descending with corpus
+    // order as the tie-break (30, 20, then 5, 10, 40, 50).
+    expect(index.matchingOccupationJobs('it', ['a', 'b', 'c'], 6, 1, ['role']).map(job => job.id))
+      .toEqual(['30', '20', '5', '10', '40', '50']);
+  });
+
+  it('clears scratch scores without sorting when the floor leaves no OR levels', () => {
+    const index = new TokenIndex(Array.from({ length: 4 }, (_, i) => ({ id: String(i), title: 'Role' })));
+    index.seedPostings('it', [
+      { token: 'a', list: [3] },
+      { token: 'b', list: [1] },
+    ]);
+    const sort = vi.spyOn(Array.prototype, 'sort');
+
+    expect(index.matchingJobs('it', ['a', 'b'], 30, 2)).toEqual([]);
+    expect(sort).not.toHaveBeenCalled();
+    expect(Array.from(Reflect.get(index, 'scratchScores') as Uint8Array)).toEqual([0, 0, 0, 0]);
+  });
+
   it('prepares once per visited job/locale, skips empty roles, and clears with the index', () => {
     const prepare = vi.spyOn(relevance, 'prepareJobOccupationTerms');
     const index = new TokenIndex(jobs);
