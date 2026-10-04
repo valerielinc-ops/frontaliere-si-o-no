@@ -272,6 +272,7 @@ Write ALL texts in ${language}, formal register (Lei / Sie / vous / you):
 
 Writing rules:
 - NEVER invent experience, employers, degrees, skills, certifications, numbers, dates or durations. Do not compute durations ("5 years of experience") unless the profile states them. Do not claim a missing requirement; express willingness to learn only for non-critical ones.
+- Say a missing tool in a short sentence of its own: that the candidate has not used it yet, or wants to learn it, optionally followed by "but I learn quickly" in the letter's language. Never add to that sentence what the candidate already knows of it, a course, an internship or a comparison: the fact check then reads the whole sentence as a claim.
 - A number of the posting (years asked, team size, workload) is never the candidate's: write it only to quote the requirement, for example to say the candidate does not meet it yet.
 - Never leave a placeholder ("[Name]", "XXX", "…").
 - German: no Konjunktiv in the closing sentence ("Ich freue mich auf …", never "Ich würde mich freuen"). Italian: the first paragraph follows "Gentile …," and starts with a lowercase letter.
