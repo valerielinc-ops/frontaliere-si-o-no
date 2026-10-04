@@ -408,9 +408,9 @@ describe('contratto di sorgente: le famiglie A e B decidono prima di commentare'
     return src.slice(start, end === -1 ? undefined : end);
   };
 
-  for (const [name, marker] of [
-    ['checkTiLegacyProfessions', 'TI_LEGACY_STATE_MARKER'],
-    ['checkTiSectorHubs', 'TI_SECTOR_STATE_MARKER'],
+  for (const [name, marker, validator] of [
+    ['checkTiLegacyProfessions', 'TI_LEGACY_STATE_MARKER', 'isTiLegacyState'],
+    ['checkTiSectorHubs', 'TI_SECTOR_STATE_MARKER', 'isIdSetState'],
   ] as const) {
     it(`${name}: shouldSuppressRecurrence( prima di createIssue(, e il marker nel corpo`, () => {
       const body = fnBody(name);
@@ -419,6 +419,19 @@ describe('contratto di sorgente: le famiglie A e B decidono prima di commentare'
       expect(suppressAt).toBeGreaterThan(-1);
       expect(createAt).toBeGreaterThan(suppressAt);
       expect(body).toContain(`serializeStateMarker(${marker}, state)`);
+    });
+
+    it(`${name}: il lettore usa lo stesso marker e lo stesso validatore dello scrittore`, () => {
+      const body = fnBody(name);
+      const readAt = body.indexOf('readPreviousState({');
+      expect(readAt).toBeGreaterThan(-1);
+      const readCall = body.slice(readAt, body.indexOf('})', readAt));
+      expect(readCall).toContain(`marker: ${marker},`);
+      expect(readCall).toContain(`isValid: ${validator},`);
+      // Un solo marker per famiglia: leggere quello dell'altra famiglia lascerebbe
+      // previous sempre null e il monitor ricommenterebbe a ogni deploy.
+      const other = marker === 'TI_LEGACY_STATE_MARKER' ? 'TI_SECTOR_STATE_MARKER' : 'TI_LEGACY_STATE_MARKER';
+      expect(body).not.toContain(other);
     });
   }
 });
