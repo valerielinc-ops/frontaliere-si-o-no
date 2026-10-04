@@ -254,10 +254,21 @@ export function buildReportIssue(report, escalated, runUrl) {
   );
 
   let description = [...head, ...body, ...tail].join('\n');
+  // `listed` = the findings whose whole block survives in the description:
+  // past MAX_ARTICLES_IN_BODY, or cut by the MAX_BODY_CHARS truncation, a
+  // finding is only a count, never named. main() records as «already
+  // reported» only these, so the rest is listed by the next sync.
+  const listed = [];
+  let end = head.join('\n').length;
+  for (const f of shown) {
+    end += 1 + renderFinding(f).join('\n').length;
+    if (end > MAX_BODY_CHARS) break;
+    listed.push(f);
+  }
   if (description.length > MAX_BODY_CHARS) {
     description = `${description.slice(0, MAX_BODY_CHARS)}\n\n… corpo troncato a ${MAX_BODY_CHARS} caratteri.`;
   }
-  return { title: ISSUE_TITLE, description };
+  return { title: ISSUE_TITLE, description, listed };
 }
 
 /** Job-summary markdown — written on every run, findings or not. */
@@ -502,7 +513,7 @@ export async function main({
       ? `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
       : undefined;
 
-  const { title, description } = buildReportIssue(report, fresh, runUrl);
+  const { title, description, listed } = buildReportIssue(report, fresh, runUrl);
   const filed = await createIssue({
     title,
     description,
@@ -518,7 +529,9 @@ export async function main({
     console.log('::warning::factuality: issue segnalata ma numero non risolto, firme non registrate.');
     return 0;
   }
-  recordSeen(number, [...seen, ...fresh.map(findingSignature)]);
+  // Solo i rilievi che il commento NOMINA: quelli oltre il tetto del body sono
+  // un conteggio, e devono tornare elencati al sync successivo.
+  recordSeen(number, [...seen, ...listed.map(findingSignature)]);
   return 0;
 }
 

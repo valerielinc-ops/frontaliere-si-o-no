@@ -212,6 +212,50 @@ describe('main(): una segnalazione per firma, non per sync', () => {
     expect(comments).toHaveLength(1 + 1);
   });
 
+  // Un rilievo oltre il tetto del commento (MAX_ARTICLES_IN_BODY, o tagliato da
+  // MAX_BODY_CHARS) compare solo come conteggio: se si registrasse come «gia'
+  // segnalato», nessun commento lo nominerebbe mai.
+  const named = (body: string) => [...body.matchAll(/^### \[([a-z]{2})\] `([^`]+)`/gm)].map((m) => `${m[2]}|${m[1]}`);
+
+  it('oltre il tetto del commento: i rilievi non elencati tornano al sync dopo', async () => {
+    const { main } = await load();
+    const findings = Array.from({ length: 30 }, (_, n) => finding(`articolo-${n}`, 'de', ['x']));
+    const all = findings.map((f) => `${f.id}|${f.locale}`);
+
+    await main(deps(findings));
+    expect(comments).toHaveLength(1);
+    const primo = named(comments[0]);
+    expect(primo.length).toBeGreaterThan(0);
+    expect(primo.length).toBeLessThan(findings.length);
+
+    await main(deps(findings));
+    expect(comments).toHaveLength(1 + 1);
+    const secondo = named(comments[1]);
+    expect(secondo.filter((k) => primo.includes(k))).toEqual([]);
+    expect([...primo, ...secondo].sort()).toEqual([...all].sort());
+
+    await main(deps(findings));
+    expect(comments).toHaveLength(1 + 1);
+  });
+
+  it('un rilievo tagliato dal limite di caratteri del body non risulta segnalato', async () => {
+    const { buildReportIssue } = await load();
+    const lungo = (n: number) => ({
+      ...finding(`lungo-${n}`, 'fr', ['x']),
+      issues: [{ code: 'x', severity: 'critical', message: 'm'.repeat(8000), evidence: '' }],
+    });
+    const findings = Array.from({ length: 20 }, (_, n) => lungo(n));
+    const { description, listed } = buildReportIssue(report(findings), findings, undefined);
+    expect(listed.length).toBeGreaterThan(0);
+    expect(listed.length).toBeLessThan(findings.length);
+    expect(named(description).slice(0, listed.length)).toEqual(listed.map((f) => `${f.id}|${f.locale}`));
+    // L'ultimo «elencato» c'e' per intero; il primo escluso no (al piu' monco).
+    const ultimo = description.indexOf(`\`${listed[listed.length - 1].id}\``);
+    expect(description.indexOf('m'.repeat(8000), ultimo)).toBeGreaterThan(ultimo);
+    const escluso = description.indexOf(`\`${findings[listed.length].id}\``);
+    if (escluso >= 0) expect(description.indexOf('m'.repeat(8000), escluso)).toBe(-1);
+  });
+
   it('un marker corrotto nel body fa segnalare tutto (fail-open)', async () => {
     const { main } = await load();
     issue.body = 'Corpo.\n\n<!-- factuality-seen: rotto -->';
