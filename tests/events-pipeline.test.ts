@@ -593,9 +593,13 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     sourceName: 'Tio.ch Agenda',
   };
 
+  // A tio-agenda winner publishes a price only when the assembler gave it a
+  // structured MySwitzerland/Guidle tariff of the same event.
+  const STRUCTURED = { priceSource: 'myswitzerland', priceField: 'offers.price' };
+
   it('emits offers with a real price when event.price has a confident amount', () => {
     const ld = eventLd(
-      { ...baseEvent, price: { amount: 19, currency: 'CHF', isFree: false } },
+      { ...baseEvent, price: { amount: 19, currency: 'CHF', isFree: false, ...STRUCTURED } },
       'it',
       'https://frontaliereticino.ch/eventi/ticino/melide/',
     ) as Record<string, any>;
@@ -619,6 +623,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
         availability: 'https://schema.org/InStock',
         validFrom: '2026-06-01T09:00:00+02:00',
         url: 'https://tickets.example.test/event/19',
+        ...STRUCTURED,
       },
     }, 'it') as Record<string, any>;
     expect(ld.offers).toEqual({
@@ -632,7 +637,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
   });
 
   it('emits numeric price 0 and isAccessibleForFree when event.price is confidently free', () => {
-    const ld = eventLd({ ...baseEvent, price: { amount: 0, currency: 'CHF', isFree: true } }, 'it') as Record<string, any>;
+    const ld = eventLd({ ...baseEvent, price: { amount: 0, currency: 'CHF', isFree: true, priceSource: 'guidle', priceField: 'isAccessibleForFree' } }, 'it') as Record<string, any>;
     expect(ld.offers?.price).toBe(0);
     expect(ld.isAccessibleForFree).toBe(true);
     expect(ld.offers?.availability).toBe('https://schema.org/InStock');
