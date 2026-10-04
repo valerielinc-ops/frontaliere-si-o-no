@@ -47,6 +47,7 @@ import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   parseAplusListings,
   classifyAplusListings,
+  isAplusEmptyListingPage,
   parseAplusJobDetail,
   inferAplusCanton,
   buildAplusLocalizedContent,
@@ -149,13 +150,18 @@ async function fetchListings() {
   console.log(`🔍 Fetching A++ Group jobs from InRecruiting: ${LISTING_URL}`);
   const html = await fetchText(LISTING_URL);
   const all = parseAplusListings(html);
-  const discovery = classifyAplusListings(all);
+  const discovery = classifyAplusListings(all, {
+    sourceEmpty: isAplusEmptyListingPage(html, all),
+  });
   console.log(`📋 Total listing cards: ${discovery.discovered}`);
   console.log(`📋 Swiss-located cards: ${discovery.listings.length}`);
+  if (discovery.authoritativeEmptySnapshot) {
+    console.log('ℹ️ A++ Group listing page explicitly reports no vacancies; publishing a verified empty snapshot.');
+  }
   for (const row of discovery.listings) {
     console.log(`  📄 ${row.title}${row.location ? ` (${row.location})` : ''}`);
   }
-  if (discovery.discovered === 0) {
+  if (discovery.discovered === 0 && !discovery.authoritativeEmptySnapshot) {
     throw new Error('A++ Group listing page produced no vacancy cards; refusing to publish an empty snapshot.');
   }
   return discovery;
@@ -349,7 +355,8 @@ async function main() {
     throw new Error(`Failed to fetch complete A++ Group job details (${skipped}/${listings.length} skipped)`);
   }
 
-  if (jobs.length === 0 && discovery.lastFetchOutcome !== 'filtered_empty') {
+  const verifiedEmpty = discovery.authoritativeEmptySnapshot || discovery.lastFetchOutcome === 'filtered_empty';
+  if (jobs.length === 0 && !verifiedEmpty) {
     console.warn('⚠️  All detail fetches failed — preserving existing data.');
     printCrawlChangeSummary(
       { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 },
@@ -381,11 +388,11 @@ async function main() {
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
   // A non-empty source filtered to zero Swiss rows is a verified geography
-  // result, not a degraded fetch. Allow that explicit empty snapshot through
-  // the generic shrink guard; zero parsed cards still fails in fetchListings()
-  // above.
+  // result, not a degraded fetch. The same exception applies to the source's
+  // explicit company-wide empty marker; a bare parser-empty result still fails
+  // in fetchListings() above.
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs, {
-    skipShrinkGuard: discovery.lastFetchOutcome === 'filtered_empty',
+    skipShrinkGuard: verifiedEmpty,
   });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
@@ -396,6 +403,8 @@ async function main() {
     parsed: summaryCounts.parsed,
     written: _sliceJobs.length,
     lastFetchOutcome: summaryCounts.lastFetchOutcome,
+    authoritativeEmptySnapshot: discovery.authoritativeEmptySnapshot === true,
+    authoritativeSnapshotVerified: discovery.authoritativeEmptySnapshot === true,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,
