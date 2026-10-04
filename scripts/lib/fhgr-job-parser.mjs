@@ -26,6 +26,8 @@
  *   - isTrustedDomain()     — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { extractJsonLd } from './prospector/extract.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -399,10 +401,15 @@ export async function fetchAllFhgrJobs() {
   for (const listing of listings) {
     let descriptionText = '';
     let detailTitle = listing.title;
+    let publication = mergeSourcePostingDates({}, {});
 
     try {
       const detailHtml = await fetchPage(listing.detailUrl);
       const detail = parseFhgrDetailPage(detailHtml, listing.title);
+      const records = extractJsonLd(detailHtml, listing.detailUrl);
+      const record = records.find((candidate) => normalizeSpace(candidate.title).toLowerCase() === normalizeSpace(listing.title).toLowerCase()
+        && (candidate.urlExplicit ? candidate.url === listing.detailUrl : records.length === 1));
+      publication = mergeSourcePostingDates({}, record || {});
       descriptionText = detail.description;
       if (detail.title) detailTitle = detail.title;
     } catch (err) {
@@ -464,7 +471,7 @@ export async function fetchAllFhgrJobs() {
       sector: 'Formazione / Ricerca',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...publication,
       applyUrl: listing.applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
