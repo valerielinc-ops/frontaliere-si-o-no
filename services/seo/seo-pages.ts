@@ -7023,7 +7023,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  'tassa-salute-frontalieri': {
  title: 'Tassa Salute Frontalieri 2026: Importo, Chi Paga e Regole',
  h1: 'Tassa salute frontalieri 2026 — importo, chi paga, norme e applicazione regionale',
- description: 'Tassa salute frontalieri 2026: chi paga il contributo SSN, come si calcola il 3–6% e perché importi e scadenze dipendono dalla Regione.',
+ description: 'Tassa salute frontalieri 2026: chi paga il contributo SSN, come si calcola il 3–6% sul salario netto e perché importi e scadenze dipendono dalla Regione.',
  keywords: 'tassa salute frontalieri, contributo sanitario SSN, vecchi frontalieri, salario netto, quota regionale',
  ogTitle: 'Tassa Salute Frontalieri 2026 — Importo e Chi Paga',
  ogDescription: 'Contributo SSN per frontalieri: chi è interessato, importo 3–6%, diritto d’opzione e attuazione regionale.',
