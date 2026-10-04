@@ -28,7 +28,7 @@ describe('SuccessFactors publication provenance', () => {
   });
 
   it('does not promote unmarked normalized or generic employment dates', () => {
-    const value = extractSuccessFactorsJobIdentity({ title: 'Engineer', postedAt: date, start_date: date });
+    const value = extractSuccessFactorsJobIdentity({ title: 'Engineer', postedAt: date, postedDate: date, start_date: date });
     expect(value).toMatchObject({ postedAt: null, postedDate: '', datePosted: '', postingDateSource: 'unknown' });
   });
 
@@ -54,6 +54,14 @@ describe('SuccessFactors publication provenance', () => {
     for await (const item of fetchSuccessFactorsJobs('https://jobs.mobiliar.ch/job/Engineer/123/', { minDelayMs: 0, maxPages: 1 })) results.push(item);
     expect(results).toHaveLength(1);
     expect(results[0]).toMatchObject({ datePosted: timestamp, postedDate: timestamp, postingDateSource: 'reported' });
+  });
+
+  it('preserves a labeled jobs2web source date through the real fetch and identity boundary', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(`<table><tr><td><a href="/job/Engineer/123/">Engineer</a></td><td class="colDate">${date}</td><td>Lugano</td></tr></table>`)));
+    const results = [];
+    for await (const item of fetchSuccessFactorsJobs('https://careers.oerlikon.com/search/', { minDelayMs: 0, maxPages: 1 })) results.push(item);
+    expect(results).toHaveLength(1);
+    expect(results[0]).toMatchObject({ postedAt: date, postedDate: date, datePosted: date, postingDateSource: 'reported' });
   });
 
   it('preserves explicit OData postingStartDate at the source boundary', async () => {

@@ -347,7 +347,10 @@ export function successFactorsPostingDateFields(rawDate, now = new Date()) {
  * @property {string}      title      Whitespace-normalized title.
  * @property {string}      location   First location string available.
  * @property {string}      company    Company display name (passed by caller, fallback to tenant).
- * @property {string|null} postedAt   ISO date or null.
+ * @property {string|null} postedAt   Validated publication timestamp/day alias, or null.
+ * @property {string}      postedDate Validated original publication value, or empty.
+ * @property {string}      datePosted Same publication value as postedDate.
+ * @property {string}      postingDateSource Explicit reported evidence, otherwise unknown.
  * @property {string}      applyUrl   Best-effort apply URL.
  */
 
@@ -368,9 +371,13 @@ function normalizeSpace(value = '') {
 /**
  * Pull the canonical identity fields out of a raw job object (any flavor).
  * Inputs accepted:
- *   - OData entity     ({ jobReqId, jobTitle, location, postingStartDate, applyUrl, … })
- *   - jobs2web row     ({ title, url, jobId, postedDate, location, … })
+ *   - OData entity after source-boundary normalization (jobReqId, jobTitle, location, applyUrl, publication trio)
+ *   - jobs2web row after labeled publication-cell parsing (title, url, jobId, location, publication trio)
  *   - HTML-career parse ({ title, reqId, area, country, applyHref, … })
+ *
+ * Publication aliases postedDate/postedAt alone are not source evidence. Source
+ * adapters validate their original field and attach the publication trio before
+ * this normalization; explicit JSON-LD datePosted is also accepted.
  *
  * @param {object} rawJob
  * @param {object} [options]
