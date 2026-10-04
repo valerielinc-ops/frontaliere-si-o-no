@@ -519,7 +519,7 @@
         "it": "collaboratore-scientifico-etat-de-fribourg-fribourg-a62cc2",
         "en": "scientific-collaborator-etat-de-fribourg-fribourg-a62cc2",
         "de": "wissenschaftlicher-mitarbeiter-etat-de-fribourg-fribourg-a62cc2",
-        "fr": "collaborateur-trice-scientifique-etat-de-fribourg-ch"
+        "fr": "collaborateur-trice-scientifique-etat-de-fribourg-ch-lc7u6n"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -591,7 +591,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:21:46.330Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -606,7 +605,8 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-39d21b9be757",
@@ -3009,7 +3009,8 @@
       "previousSlugsByLocale": {
         "it": [
           "employe-e-d-administration-etat-de-fribourg-ch-2",
-          "employe-e-d-administration-etat-de-fribourg-ch"
+          "employe-e-d-administration-etat-de-fribourg-ch",
+          "employe-e-d-administration-etat-de-fribourg-ch-zhwlp1"
         ],
         "en": [
           "employe-e-d-administration-etat-de-fribourg-ch-2"
@@ -3761,7 +3762,7 @@
       "companyDomain": "fr.ch",
       "title": "Collaborateur-trice administratif-ve",
       "titleByLocale": {
-        "it": "Collaborateur-trice administratif-ve",
+        "it": "Collaboratore amministrativo",
         "en": "Administrative Collaborator",
         "de": "Verwaltungsmitarbeiter",
         "fr": "Collaborateur-trice administratif-ve"
@@ -3870,7 +3871,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:41:36.656Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -5955,26 +5955,7 @@
       "pensumMin": 90,
       "pensumMax": 100,
       "pensum": "90-100%",
-      "previousSlugs": [
-        "personale-amministrativo-etat-de-fribourg-givisiez",
-        "administrative-staff-etat-de-fribourg-givisiez",
-        "verwaltungspersonal-etat-de-fribourg-givisiez",
-        "employe-e-d-administration-etat-de-fribourg-ch-3"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "personale-amministrativo-etat-de-fribourg-givisiez",
-          "employe-e-d-administration-etat-de-fribourg-ch-3"
-        ],
-        "en": [
-          "administrative-staff-etat-de-fribourg-givisiez"
-        ],
-        "de": [
-          "verwaltungspersonal-etat-de-fribourg-givisiez"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-23T22:26:37.065Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -5988,7 +5969,56 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-07-23T22:26:37.065Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "personale-amministrativo-etat-de-fribourg-givisiez",
+          "employe-e-d-administration-etat-de-fribourg-ch-3",
+          "personale-amministrativo-etat-de-fribourg-chatel-st-denis",
+          "employe-e-d-administration-etat-de-fribourg-ch-2",
+          "administrative-staff-etat-de-fribourg-chatel-st-denis",
+          "verwaltungspersonal-etat-de-fribourg-chatel-st-denis",
+          "personale-amministrativo-etat-de-fribourg-granges-paccot-488926",
+          "administrative-staff-etat-de-fribourg-granges-paccot-488926",
+          "verwaltungspersonal-etat-de-fribourg-granges-paccot",
+          "employe-e-d-administration-etat-de-fribourg-granges-paccot",
+          "registrazione-etat-de-fribourg-bulle",
+          "greffier-ere-stagiaire-etat-de-fribourg-ch",
+          "registrar-etat-de-fribourg-bulle",
+          "personale-amministrativo-etat-de-fribourg-bulle",
+          "administrative-staff-etat-de-fribourg-bulle",
+          "verwaltungspersonal-etat-de-fribourg-bulle",
+          "registrar-e-stagiary-etat-de-fribourg-bulle"
+        ],
+        "en": [
+          "administrative-staff-etat-de-fribourg-givisiez"
+        ],
+        "de": [
+          "verwaltungspersonal-etat-de-fribourg-givisiez"
+        ]
+      },
+      "previousSlugs": [
+        "personale-amministrativo-etat-de-fribourg-givisiez",
+        "administrative-staff-etat-de-fribourg-givisiez",
+        "verwaltungspersonal-etat-de-fribourg-givisiez",
+        "employe-e-d-administration-etat-de-fribourg-ch-3",
+        "personale-amministrativo-etat-de-fribourg-chatel-st-denis",
+        "employe-e-d-administration-etat-de-fribourg-ch-2",
+        "administrative-staff-etat-de-fribourg-chatel-st-denis",
+        "verwaltungspersonal-etat-de-fribourg-chatel-st-denis",
+        "personale-amministrativo-etat-de-fribourg-granges-paccot-488926",
+        "administrative-staff-etat-de-fribourg-granges-paccot-488926",
+        "verwaltungspersonal-etat-de-fribourg-granges-paccot",
+        "employe-e-d-administration-etat-de-fribourg-granges-paccot",
+        "registrazione-etat-de-fribourg-bulle",
+        "greffier-ere-stagiaire-etat-de-fribourg-ch",
+        "registrar-etat-de-fribourg-bulle",
+        "personale-amministrativo-etat-de-fribourg-bulle",
+        "administrative-staff-etat-de-fribourg-bulle",
+        "verwaltungspersonal-etat-de-fribourg-bulle",
+        "registrar-e-stagiary-etat-de-fribourg-bulle"
+      ]
     },
     {
       "id": "etat-de-fribourg-a2e2fe83f8d0",

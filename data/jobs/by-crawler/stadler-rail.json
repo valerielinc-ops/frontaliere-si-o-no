@@ -915,7 +915,6 @@
         ]
       },
       "firstSeenAt": "2026-08-08T09:53:12.905Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -2916,7 +2915,7 @@
       "slugByLocale": {
         "it": "system-ingegnere-cbtc-stadler-rail-wallisellen",
         "en": "system-ingegnere-cbtc-stadler-rail-wallisellen",
-        "de": "system-engineer-cbtc-stadler-rail-ch",
+        "de": "system-engineer-cbtc-stadler-rail-ch-3kv6vv",
         "fr": "system-ingenieur-cbtc-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
@@ -2961,17 +2960,16 @@
       "previousSlugs": [
         "system-engineer-cbtc-stadler-rail-ch",
         "system-engineer-cbtc-stadler-rail-ch-3kv6vv",
-        "system-ingegnere-cbtc-stadler-rail-wallisellen",
-        "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g"
+        "system-ingegnere-cbtc-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-engineer-cbtc-stadler-rail-ch",
-          "system-ingegnere-cbtc-stadler-rail-wallisellen",
-          "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g"
+          "system-ingegnere-cbtc-stadler-rail-wallisellen"
         ],
         "de": [
-          "system-engineer-cbtc-stadler-rail-ch-3kv6vv"
+          "system-engineer-cbtc-stadler-rail-ch-3kv6vv",
+          "system-engineer-cbtc-stadler-rail-ch"
         ]
       },
       "firstSeenAt": "2026-07-15T11:32:23.026Z",
@@ -2987,8 +2985,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-a4df3310694f",
@@ -3066,7 +3063,7 @@
       "slug": "system-engineer-cbtc-stadler-rail-ch-2",
       "slugByLocale": {
         "it": "system-engineer-cbtc-stadler-rail-ch-2",
-        "en": "system-engineer-cbtc-stadler-rail-ch",
+        "en": "system-engineer-cbtc-stadler-rail-ch-3kv656",
         "de": "system-engineer-cbtc-stadler-rail-ch-2",
         "fr": "system-engineer-cbtc-stadler-rail-ch-2"
       },
@@ -3122,7 +3119,8 @@
           "system-ingegnere-cbtc-stadler-rail-wallisellen"
         ],
         "en": [
-          "system-engineer-cbtc-stadler-rail-ch-3kv656"
+          "system-engineer-cbtc-stadler-rail-ch-3kv656",
+          "system-engineer-cbtc-stadler-rail-ch"
         ],
         "fr": [
           "system-ingenieur-cbtc-stadler-rail-wallisellen"
@@ -5682,8 +5680,7 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-546d24f91e04",
@@ -6608,8 +6605,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-8aa4f06b29fb",
@@ -7753,8 +7749,7 @@
           "maxValue": 153000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-8ba2330936b5",
@@ -9562,7 +9557,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-15T11:32:23.026Z"
+      "firstSeenAt": "2026-07-15T11:32:23.026Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g"
+        ]
+      },
+      "previousSlugs": [
+        "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g"
+      ]
     },
     {
       "id": "stadler-rail-bec09f5bef4f",
@@ -12301,8 +12304,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-c10bfd7e451f",
@@ -12379,8 +12381,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-e3e2ec7606fc",

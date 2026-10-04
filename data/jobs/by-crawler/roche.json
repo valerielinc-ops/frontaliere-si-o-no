@@ -8355,7 +8355,6 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:11:15.986Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -8436,7 +8435,6 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:11:15.185Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -8500,14 +8498,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:11:13.192Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "portfolio-manager-liquid-alternatives-roche-ch"
-        ]
-      },
-      "previousSlugs": [
-        "portfolio-manager-liquid-alternatives-roche-ch"
-      ],
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -8521,7 +8511,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "portfolio-manager-liquid-alternatives-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "portfolio-manager-liquid-alternatives-roche-ch"
+      ]
     },
     {
       "id": "roche-cbd0d3cea7c8",
@@ -8643,15 +8641,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-10-03T09:11:11.680Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikum-gmp-compliance-critical-utilities-basel-12-monate-roche-ch"
-        ]
-      },
-      "previousSlugs": [
-        "praktikum-gmp-compliance-critical-utilities-basel-12-monate-roche-ch"
-      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -8665,7 +8654,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-gmp-compliance-critical-utilities-basel-12-monate-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-gmp-compliance-critical-utilities-basel-12-monate-roche-ch"
+      ]
     },
     {
       "id": "roche-d16a272c29fb",
@@ -8713,10 +8710,8 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Data-Science-Intern---Master-Thesis-Student--Basel--6-Monate-_202609-124516",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "data-science-intern-master-thesis-student-basel-6-monate-roche-ch",
-        "data-science-tirocinante-master-thesis-student-basel-6-monate-roche-basel"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:11:10.613Z",
       "previousSlugsByLocale": {
         "it": [
           "data-science-intern-master-thesis-student-basel-6-monate-roche-ch",
@@ -8726,8 +8721,10 @@
           "data-science-intern-master-thesis-student-basel-6-monate-roche-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:11:10.613Z",
+      "previousSlugs": [
+        "data-science-intern-master-thesis-student-basel-6-monate-roche-ch",
+        "data-science-tirocinante-master-thesis-student-basel-6-monate-roche-basel"
+      ],
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -8789,10 +8786,8 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Student-Internship-in-Lab-Automation--Pharma-Research---Early-Development-_202609-124621",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "student-internship-in-lab-automation-pharma-research-early-development-roche-ch",
-        "student-internship-in-lab-automation-pharma-ricerca-early-development-roche-basel"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:11:09.511Z",
       "previousSlugsByLocale": {
         "it": [
           "student-internship-in-lab-automation-pharma-research-early-development-roche-ch",
@@ -8805,8 +8800,10 @@
           "student-internship-in-lab-automation-pharma-research-early-development-roche-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:11:09.511Z",
+      "previousSlugs": [
+        "student-internship-in-lab-automation-pharma-research-early-development-roche-ch",
+        "student-internship-in-lab-automation-pharma-ricerca-early-development-roche-basel"
+      ],
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -8976,8 +8973,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS",
-      "needsRetranslation": true
+      "addressRegion": "BS"
     },
     {
       "id": "roche-160cfcc45a35",

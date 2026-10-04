@@ -135,14 +135,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-10-03T09:11:02.648Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "systemes-rh-seniors-responsables-des-applications-h-f-d-planzer-dallikon"
-        ]
-      },
-      "previousSlugs": [
-        "systemes-rh-seniors-responsables-des-applications-h-f-d-planzer-dallikon"
-      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -155,7 +147,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "fr": [
+          "systemes-rh-seniors-responsables-des-applications-h-f-d-planzer-dallikon"
+        ]
+      },
+      "previousSlugs": [
+        "systemes-rh-seniors-responsables-des-applications-h-f-d-planzer-dallikon"
+      ]
     },
     {
       "id": "planzer-1b4074cbc8bb",

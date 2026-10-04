@@ -4704,7 +4704,7 @@
       "companyDomain": "zurzachcare.ch",
       "title": "Präsenzärztin / Präsenzarzt",
       "titleByLocale": {
-        "it": "Präsenzärztin / Präsenzarzt",
+        "it": "Medico di presenza",
         "en": "Physician in attendance",
         "de": "Präsenzärztin / Präsenzarzt",
         "fr": "Médecin présentiel"
@@ -4735,9 +4735,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-29T00:00:00Z",
       "postedDate": "2026-09-29T00:00:00Z",
-      "postingDateSource": "reported",
       "applyUrl": "https://karriere.zurzachcare.ch/talentcommunity/apply/1442363833/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
@@ -4754,7 +4752,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-29T00:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "zurzach-care-1f68033331ff",

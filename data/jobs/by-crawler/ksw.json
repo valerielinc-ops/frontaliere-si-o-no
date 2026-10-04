@@ -1512,12 +1512,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Klinik für Anästhesiologie",
-      "previousSlugs": [
-        "sala-di-recupero-professionale-infermieristica-kantonsspital-winterthur-ksw-winterthur",
-        "nursing-professional-nursing-professional-recovery-room-kantonsspital-winterthur-ksw-winterthur",
-        "soins-infirmiers-professionnels-salle-de-recuperation-professionnelle-kantonsspital-winterthur-ksw-winterthur",
-        "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-04T11:31:59.582Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
       "previousSlugsByLocale": {
         "it": [
           "sala-di-recupero-professionale-infermieristica-kantonsspital-winterthur-ksw-winterthur",
@@ -1534,21 +1543,12 @@
           "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-04T11:31:59.582Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "sala-di-recupero-professionale-infermieristica-kantonsspital-winterthur-ksw-winterthur",
+        "nursing-professional-nursing-professional-recovery-room-kantonsspital-winterthur-ksw-winterthur",
+        "soins-infirmiers-professionnels-salle-de-recuperation-professionnelle-kantonsspital-winterthur-ksw-winterthur",
+        "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch"
+      ]
     },
     {
       "id": "ksw-75b2c267abf9",

@@ -9674,6 +9674,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-12T21:52:15.729Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
       "previousSlugsByLocale": {
         "it": [
           "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren"
@@ -9687,20 +9700,7 @@
       },
       "previousSlugs": [
         "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "equans-e3f70619b0f2",
@@ -11315,19 +11315,6 @@
       "applyUrl": "https://career55.sapsf.eu/career?company=equans&career_ns=job_application&career_job_req_id=1221",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "hauswart-in-equans-fallanden",
-        "housekeeper-in-equans-switzerland-fallanden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hauswart-in-equans-fallanden",
-          "housekeeper-in-equans-switzerland-fallanden"
-        ],
-        "fr": [
-          "hauswart-in-equans-fallanden"
-        ]
-      },
       "firstSeenAt": "2026-10-03T09:11:24.021Z",
       "salaryMin": 56500,
       "salaryMax": 75500,
@@ -11341,7 +11328,20 @@
           "maxValue": 75500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hauswart-in-equans-fallanden",
+          "housekeeper-in-equans-switzerland-fallanden"
+        ],
+        "fr": [
+          "hauswart-in-equans-fallanden"
+        ]
+      },
+      "previousSlugs": [
+        "hauswart-in-equans-fallanden",
+        "housekeeper-in-equans-switzerland-fallanden"
+      ]
     },
     {
       "id": "equans-f226d6b156e5",

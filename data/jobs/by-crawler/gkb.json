@@ -1946,10 +1946,8 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "specialist-in-payments-services-80-100-gkb-ch",
-        "specialista-in-payments-services-80-100-graubundner-kantonalbank-chur"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:12:40.894Z",
       "previousSlugsByLocale": {
         "it": [
           "specialist-in-payments-services-80-100-gkb-ch",
@@ -1959,8 +1957,10 @@
           "specialist-in-payments-services-80-100-gkb-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:12:40.894Z",
+      "previousSlugs": [
+        "specialist-in-payments-services-80-100-gkb-ch",
+        "specialista-in-payments-services-80-100-graubundner-kantonalbank-chur"
+      ],
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",

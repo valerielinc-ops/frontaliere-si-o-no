@@ -36,9 +36,6 @@
       },
       "category": "general",
       "datePosted": "2025-09-19",
-      "postedDate": "2025-09-19",
-      "postingDateSource": "reported",
-      "crawledAt": "2026-10-04T09:25:58.430Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -68,8 +65,8 @@
           "senior-consultant-sap-for-utilities-swisscom-zurich-aqdb1m"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
+      "crawledAt": "2026-10-04T09:25:58.430Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -84,7 +81,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "postedDate": "2025-09-19",
+      "postingDateSource": "reported"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-Microsoft_R-0005286",
@@ -1208,9 +1207,6 @@
       },
       "category": "technology",
       "datePosted": "2026-09-10",
-      "postedDate": "2026-09-10",
-      "postingDateSource": "reported",
-      "crawledAt": "2026-10-04T09:25:50.173Z",
       "source": "swisscom-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -1234,8 +1230,8 @@
           "it-consulente-full-stack-software-ingegnere-swisscom-sede-ticino-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
+      "crawledAt": "2026-10-04T09:25:50.173Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -1250,7 +1246,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "postedDate": "2026-09-10",
+      "postingDateSource": "reported"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Business-Engineer_R-0006415-1",
