@@ -15,6 +15,7 @@
  *   5. Run base crawler for AI localization
  *   6. Post-process and validate
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -166,7 +167,8 @@ function buildJobFromGreenhouse(parsed) {
     ...sourceSlotTitleAndSlug(parsed.title, slug, sourceLang),
     slug,
     category: detectCategory(parsed.title),
-    datePosted: parsed.datePosted || new Date().toISOString().split('T')[0],
+    ...sourcePostingDateFields(parsed.datePosted),
+    crawledAt: new Date().toISOString(),
     source: 'vir-greenhouse-crawler',
     employmentType: inferEmploymentType(parsed.title, parsed.description),
     experienceLevel: detectExperienceLevel(parsed.title),

@@ -18,6 +18,8 @@
  *   - isTrustedDomain()        — Validate URLs belong to this company
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, fetchJson } from './crawler-template.mjs';
@@ -336,9 +338,11 @@ export async function fetchAllKulmHotelJobs() {
 
     // Fetch detail page for full description
     let detailDescription = '';
+    let sourceDatePosted = '';
     try {
       const detailHtml = await fetchHtml(detailUrl);
       detailDescription = parseDetailPage(detailHtml);
+      sourceDatePosted = extractJobPostingField(detailHtml, 'datePosted');
       if (i < vacancies.length - 1) {
         await new Promise((r) => setTimeout(r, delayMs));
       }
@@ -360,10 +364,7 @@ export async function fetchAllKulmHotelJobs() {
     const workload = vac.workload || '100';
     const { employmentType, contract, contractType, contractLabel } = mapContractDuration(vac.contract_duration, workload);
 
-    // Posted date from contract_starts_at
-    const postedDate = vac.contract_starts_at
-      ? vac.contract_starts_at.slice(0, 10)
-      : new Date().toISOString().split('T')[0];
+
 
     const detailWordCount = detailDescription ? detailDescription.split(/\s+/).length : 0;
     const hasRichDetail = detailWordCount >= 50;
@@ -432,7 +433,8 @@ export async function fetchAllKulmHotelJobs() {
       sector: 'Ospitalità / Hotellerie',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...sourcePostingDateFields(sourceDatePosted),
+      jobStartDate: vac.contract_starts_at || '',
       applyUrl: detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

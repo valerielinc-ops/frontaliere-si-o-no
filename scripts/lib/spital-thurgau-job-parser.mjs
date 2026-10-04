@@ -29,6 +29,7 @@
  *   - isTrustedDomain()            — Validate URLs belong to STGAG
  *   - SPITAL_THURGAU_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { slugify, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets, stripHtml } from './crawler-template.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
@@ -181,11 +182,11 @@ function pickPostalCode(city = '') {
 
 /**
  * Parse "DD.MM.YYYY" into ISO date "YYYY-MM-DD".
- * Returns today's date when input is missing or malformed.
+ * Returns an empty value when the source publication date is missing or malformed.
  */
 function parseSwissDate(raw = '') {
   const m = String(raw || '').match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
-  if (!m) return new Date().toISOString().split('T')[0];
+  if (!m) return '';
   const [, dd, mm, yyyy] = m;
   return `${yyyy}-${mm.padStart(2, '0')}-${dd.padStart(2, '0')}`;
 }
@@ -456,7 +457,7 @@ export async function fetchAllSpitalThurgauJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: parseSwissDate(rec?.publishDate || rec?.onlineSince || ''),
+      ...sourcePostingDateFields(parseSwissDate(rec?.publishDate || rec?.onlineSince || '')),
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

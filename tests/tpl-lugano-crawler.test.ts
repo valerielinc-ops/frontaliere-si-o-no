@@ -400,15 +400,16 @@ describe('TPL source snapshot and adapter boundary', () => {
         en: 'Old description for the stable vacancy kept from the previous localization.',
       },
       slugByLocale: { it: 'addetto-rimessa-tpl-lugano', en: 'old-title-tpl-lugano' },
-      postedDate: '2026-08-01',
+      postedDate: new Date(Date.now() - 40 * 86400000).toISOString().slice(0, 10),
+      postingDateSource: 'reported',
     }];
 
-    const fresh = buildTplJobRow(source[0], '2026-09-12');
+    const fresh = buildTplJobRow(source[0], new Date(Date.now() - 2 * 86400000).toISOString().slice(0, 10));
     expect(fresh.companyKey).toBe('tpl-lugano');
     expect(fresh.description).toContain('Descrizione PDF autorevole');
     expect(fresh.slugByLocale.it).toBe('addetto-a-rimessa-tpl-lugano');
 
-    const result = mergeTplJobRows(source, existing, '2026-09-12');
+    const result = mergeTplJobRows(source, existing, new Date(Date.now() - 2 * 86400000).toISOString().slice(0, 10));
     expect(result).toEqual(expect.objectContaining({ added: 0, updated: 1, removed: 0 }));
     expect(result.jobs[0]).toEqual(expect.objectContaining({
       id: existing[0].id,

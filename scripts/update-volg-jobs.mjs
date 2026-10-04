@@ -26,6 +26,7 @@
  *   5. Merges into data/jobs.json.
  *   6. Translates missing locales.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -686,7 +687,6 @@ export function buildJob(raw) {
   // the wrong language every run).
   const localeFallback = resolveCantonLocale(canton);
   const sourceLang = sourceLangFromDetailUrl(url) || detectLang(title, localeFallback);
-  const today = new Date().toISOString().slice(0, 10);
   // The listing names only the locality: its CAP comes from the official
   // directory of localities or stays empty for the detail page to fill. A
   // hand-kept city table with canton stand-ins published Reiden (LU) as 5000,
@@ -718,7 +718,7 @@ export function buildJob(raw) {
     sector: mapSector(company),
     source: 'volg-fenaco-dedicated-crawler',
     sourceLang,
-    postedDate: today,
+    ...sourcePostingDateFields(''),
     validThrough: '',
     employmentType,
     contractType,
@@ -762,6 +762,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, srcLang),
       descriptionByLocale: descByLocale,
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3, srcLang),

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import path from 'node:path';
@@ -278,7 +279,8 @@ async function buildRittmeyerJob(listing) {
     sector: 'Energia',
     source: 'rittmeyer-dedicated-crawler',
     sourceLang,
-    postedDate: new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(''),
+    crawledAt: new Date().toISOString(),
     employmentType: detail.workload && detail.workload.includes('80') ? 'full-time' : 'other',
     contractType: detail.workload && detail.workload.includes('80') ? 'full-time' : 'other',
     validThrough: '',
@@ -362,6 +364,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -390,7 +393,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...sourcePostingDateFields(job.postingDateSource === 'reported' ? (job.postedDate || job.datePosted) : ''),
     };
   }
   writeJson(ADAPTER_PATH, {

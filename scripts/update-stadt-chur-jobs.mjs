@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourceRssPostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import dns from 'node:dns';
 // `fetch` must come from the same undici copy as `Agent`: Node's bundled fetch
 // rejects an npm-undici 8 dispatcher ("invalid onRequestStart method").
@@ -171,10 +172,6 @@ function isTargetJob(job) {
 
 function jobMatchKey(job) {
   return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
-}
-
-function todayIso() {
-  return new Date().toISOString().slice(0, 10);
 }
 
 function sleep(ms) {
@@ -397,13 +394,6 @@ export function buildJob(entry, detailDescription = null) {
   const category = inferCategory(entry.category, title);
   const empType = mapEmploymentType(title);
 
-  let postedDate = todayIso();
-  if (entry.updated) {
-    try {
-      const d = new Date(entry.updated);
-      if (!isNaN(d.getTime())) postedDate = d.toISOString().slice(0, 10);
-    } catch { /* keep default */ }
-  }
 
   return {
     title,
@@ -424,7 +414,7 @@ export function buildJob(entry, detailDescription = null) {
     department: entry.category || '',
     source: 'stadt-chur-dedicated-crawler',
     sourceLang,
-    postedDate,
+    ...sourceRssPostingDateFields(entry.updated),
     validThrough: '',
     employmentType: empType,
     contractType: empType === 'internship' || empType === 'apprenticeship' ? 'stage' : empType === 'temporary' ? 'temporaneo' : 'permanent',
@@ -476,6 +466,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),

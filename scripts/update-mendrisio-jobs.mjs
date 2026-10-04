@@ -21,6 +21,7 @@
  *   7. Post-process: fix company name, location, canton
  *   8. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -285,7 +286,7 @@ function parseAjaxJobs(html) {
 
     // Extract posted date
     const dateMatch = block.match(/<time\s+datetime="(\d{4}-\d{2}-\d{2})">/);
-    const datePosted = dateMatch ? dateMatch[1] : new Date().toISOString().split('T')[0];
+    const datePosted = dateMatch ? dateMatch[1] : '';
 
     // Extract deadline
     const deadlineMatch = block.match(
@@ -365,7 +366,7 @@ function parseStaticJobs(html) {
     const dateMatch = block.match(/<time\s+datetime="(\d{4}-\d{2}-\d{2}[^"]*)">/);
     const datePosted = dateMatch
       ? dateMatch[1].split(' ')[0]
-      : new Date().toISOString().split('T')[0];
+      : '';
 
     // Extract deadline
     const deadlineMatch = block.match(
@@ -505,7 +506,8 @@ export async function fetchMendrisioJobs() {
       slugByLocale: { it: slug },
       sourceLang: detectLang(description || parsed.title, 'it'),
       category,
-      datePosted: parsed.datePosted,
+      ...sourcePostingDateFields(parsed.datePosted),
+      crawledAt: new Date().toISOString(),
       validThrough: parsed.deadline || undefined,
       source: 'mendrisio-concorsi-crawler',
       employmentType,
@@ -639,6 +641,8 @@ async function mergeMendrisioJobs(discoveredJobs) {
 
       const updatedJob = {
         ...existing,
+        ...mergeSourcePostingDates(existing, discovered),
+        crawledAt: discovered.crawledAt,
         title: discovered.title || existing.title,
         company: MENDRISIO_COMPANY_NAME,
         companyKey: MENDRISIO_KEY,
