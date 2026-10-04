@@ -2328,7 +2328,7 @@
       "slugByLocale": {
         "it": "vendita-cassa-servizi-coop-genossenschaft-zurich",
         "en": "seller-cash-register-services-coop-genossenschaft-zurich",
-        "de": "verkaufer-in-kassen-services-coop-genossenschaft-zurich",
+        "de": "verkaufer-in-kassen-services-coop-genossenschaft-zurich-yzp8qy",
         "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
@@ -2356,7 +2356,8 @@
           "verkaufer-in-kassen-services-coop-genossenschaft-zurich"
         ],
         "de": [
-          "verkaufer-in-kassen-services-coop-zurich-yzp8qy"
+          "verkaufer-in-kassen-services-coop-zurich-yzp8qy",
+          "verkaufer-in-kassen-services-coop-genossenschaft-zurich"
         ],
         "fr": [
           "verkaufer-in-kassen-services-coop-zurich-yzp8qy",
@@ -2467,8 +2468,7 @@
       "postalCode": "8400",
       "streetAddress": "Bahnhofplatz 5",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-rdvm8e",
@@ -3117,8 +3117,7 @@
       "postalCode": "3800",
       "streetAddress": "Untere Bönigstrasse 10",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-sse5hi",
@@ -3196,8 +3195,7 @@
       "postalCode": "4612",
       "streetAddress": "Industriestrasse 17",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-12y81b",
@@ -3697,7 +3695,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-zurich-b15c4e",
         "en": "seller-food-coop-genossenschaft-zurich",
-        "de": "verkaufer-in-food-coop-genossenschaft-zurich",
+        "de": "verkaufer-in-food-coop-genossenschaft-zurich-wfr4nz",
         "fr": "aliments-pour-vendeurs-coop-genossenschaft-zurich-b15c4e"
       },
       "requirementsByLocale": {
@@ -3738,12 +3736,14 @@
           "verkaufer-in-food-coop-city-zurich-wfr4nz"
         ],
         "de": [
-          "verkaufer-in-food-coop-city-zurich-wfr4nz"
+          "verkaufer-in-food-coop-city-zurich-wfr4nz",
+          "verkaufer-in-food-coop-genossenschaft-zurich"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-city-zurich-wfr4nz",
-        "verkaufer-in-food-coop-city-zurich"
+        "verkaufer-in-food-coop-city-zurich",
+        "verkaufer-in-food-coop-genossenschaft-zurich"
       ]
     },
     {
@@ -3998,15 +3998,31 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "vendeuse-vendeur-produits-frais-m-w-d-coop-crans-montana"
+          "vendeuse-vendeur-produits-frais-m-w-d-coop-crans-montana",
+          "venditrice-venditore-produits-frais-f-m-d-coop-genossenschaft-crans-montana",
+          "seller-products-costs-m-f-d-coop-genossenschaft-crans-montana",
+          "verkauferprodukte-kosten-m-w-d-coop-genossenschaft-crans-montana",
+          "vendeuse-vendeur-produits-frais-m-w-d-coop-crans-montana-wxdn6q",
+          "venditrice-venditore-produits-frais-m-w-d-coop-crans-montana-wxdn6q"
         ],
         "fr": [
           "vendeuse-vendeur-produits-frais-m-w-d-coop-crans-montana-yiv7si"
+        ],
+        "en": [
+          "seller-products-costs-m-f-d-coop-genossenschaft-crans-montana"
+        ],
+        "de": [
+          "verkauferprodukte-kosten-m-w-d-coop-genossenschaft-crans-montana"
         ]
       },
       "previousSlugs": [
         "vendeuse-vendeur-produits-frais-m-w-d-coop-crans-montana",
-        "vendeuse-vendeur-produits-frais-m-w-d-coop-crans-montana-yiv7si"
+        "vendeuse-vendeur-produits-frais-m-w-d-coop-crans-montana-yiv7si",
+        "venditrice-venditore-produits-frais-f-m-d-coop-genossenschaft-crans-montana",
+        "seller-products-costs-m-f-d-coop-genossenschaft-crans-montana",
+        "verkauferprodukte-kosten-m-w-d-coop-genossenschaft-crans-montana",
+        "vendeuse-vendeur-produits-frais-m-w-d-coop-crans-montana-wxdn6q",
+        "venditrice-venditore-produits-frais-m-w-d-coop-crans-montana-wxdn6q"
       ]
     },
     {
@@ -8585,7 +8601,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-basel",
         "en": "seller-food-coop-genossenschaft-basel",
-        "de": "verkaufer-in-food-coop-genossenschaft-basel",
+        "de": "verkaufer-in-food-coop-genossenschaft-basel-4f3274",
         "fr": "produits-alimentaires-vendus-coop-genossenschaft-basel"
       },
       "requirementsByLocale": {
@@ -8621,7 +8637,8 @@
           "verkaufer-in-food-coop-genossenschaft-basel"
         ],
         "de": [
-          "verkaufer-in-food-coop-basel-4f3274"
+          "verkaufer-in-food-coop-basel-4f3274",
+          "verkaufer-in-food-coop-genossenschaft-basel"
         ],
         "fr": [
           "verkaufer-in-food-coop-basel-4f3274",
@@ -8857,7 +8874,7 @@
       "slugByLocale": {
         "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bern-9ed05a",
         "en": "butcher-meat-specialist-coop-bern-ropxwh",
-        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern",
+        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern-ropxwh",
         "fr": "boucher-specialiste-de-la-viande-coop-bern-ropxwh"
       },
       "requirementsByLocale": {},
@@ -8886,7 +8903,8 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern"
         ],
         "de": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-bern-ropxwh"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-bern-ropxwh",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern"
         ],
         "fr": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-bern-ropxwh",
@@ -10599,7 +10617,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-koniz-74e4a9",
         "en": "seller-food-coop-genossenschaft-koniz-74e4a9",
-        "de": "verkaufer-in-food-coop-genossenschaft-koniz",
+        "de": "verkaufer-in-food-coop-genossenschaft-koniz-un773y",
         "fr": "aliments-pour-vendeurs-coop-genossenschaft-koniz-74e4a9"
       },
       "requirementsByLocale": {
@@ -10633,7 +10651,8 @@
           "verkaufer-in-food-coop-koniz-un773y"
         ],
         "de": [
-          "verkaufer-in-food-coop-koniz-un773y"
+          "verkaufer-in-food-coop-koniz-un773y",
+          "verkaufer-in-food-coop-genossenschaft-koniz"
         ],
         "fr": [
           "verkaufer-in-food-coop-koniz-un773y"
@@ -10641,7 +10660,8 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-koniz-un773y",
-        "verkaufer-in-food-coop-koniz"
+        "verkaufer-in-food-coop-koniz",
+        "verkaufer-in-food-coop-genossenschaft-koniz"
       ],
       "postalCode": "3084",
       "streetAddress": "Seftigenstrasse 240",
@@ -10970,7 +10990,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-bern-219f48",
         "en": "seller-food-coop-genossenschaft-bern-219f48",
-        "de": "verkaufer-in-food-coop-genossenschaft-bern",
+        "de": "verkaufer-in-food-coop-genossenschaft-bern-hg8x1x",
         "fr": "aliments-pour-vendeurs-coop-genossenschaft-bern-219f48"
       },
       "requirementsByLocale": {
@@ -11011,12 +11031,14 @@
           "verkaufer-in-food-coop-bern-hg8x1x"
         ],
         "de": [
-          "verkaufer-in-food-coop-bern-hg8x1x"
+          "verkaufer-in-food-coop-bern-hg8x1x",
+          "verkaufer-in-food-coop-genossenschaft-bern"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-bern-hg8x1x",
-        "verkaufer-in-food-coop-bern-2"
+        "verkaufer-in-food-coop-bern-2",
+        "verkaufer-in-food-coop-genossenschaft-bern"
       ]
     },
     {
@@ -11061,7 +11083,7 @@
       "slugByLocale": {
         "it": "vendita-cassa-servizi-coop-genossenschaft-zurich-09808e",
         "en": "seller-cash-register-services-coop-genossenschaft-zurich-09808e",
-        "de": "verkaufer-in-kassen-services-coop-genossenschaft-zurich",
+        "de": "verkaufer-in-kassen-services-coop-genossenschaft-zurich-cfhj54",
         "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-zurich-09808e"
       },
       "requirementsByLocale": {},
@@ -11095,12 +11117,14 @@
           "verkaufer-in-kassen-services-coop-zurich-cfhj54"
         ],
         "de": [
-          "verkaufer-in-kassen-services-coop-zurich-cfhj54"
+          "verkaufer-in-kassen-services-coop-zurich-cfhj54",
+          "verkaufer-in-kassen-services-coop-genossenschaft-zurich"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-zurich-cfhj54",
-        "verkaufer-in-kassen-services-coop-zurich-2"
+        "verkaufer-in-kassen-services-coop-zurich-2",
+        "verkaufer-in-kassen-services-coop-genossenschaft-zurich"
       ]
     },
     {
@@ -11710,7 +11734,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-freschi-coop-genossenschaft-zurich-ece7e3",
         "en": "seller-fresh-products-coop-genossenschaft-zurich-ece7e3",
-        "de": "verkaufer-in-frischprodukte-coop-genossenschaft-zurich",
+        "de": "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-bpdmzh",
         "fr": "vendeur-de-produits-frais-coop-genossenschaft-zurich-ece7e3"
       },
       "requirementsByLocale": {
@@ -11744,7 +11768,8 @@
           "verkaufer-in-frischprodukte-coop-zurich-bpdmzh"
         ],
         "de": [
-          "verkaufer-in-frischprodukte-coop-zurich-bpdmzh"
+          "verkaufer-in-frischprodukte-coop-zurich-bpdmzh",
+          "verkaufer-in-frischprodukte-coop-genossenschaft-zurich"
         ],
         "fr": [
           "verkaufer-in-frischprodukte-coop-zurich-bpdmzh"
@@ -11752,7 +11777,8 @@
       },
       "previousSlugs": [
         "verkaufer-in-frischprodukte-coop-zurich-bpdmzh",
-        "verkaufer-in-frischprodukte-coop-zurich"
+        "verkaufer-in-frischprodukte-coop-zurich",
+        "verkaufer-in-frischprodukte-coop-genossenschaft-zurich"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte/8d0762d0-a242-48dc-b771-533f1b0fadc8",
       "postalCode": "8048",
@@ -17501,7 +17527,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-rapperswil-jona",
         "en": "seller-food-coop-genossenschaft-rapperswil-jona",
-        "de": "verkaufer-in-food-coop-genossenschaft-rapperswil-jona",
+        "de": "verkaufer-in-food-coop-genossenschaft-rapperswil-jona-6nkxl6",
         "fr": "aliments-pour-vendeurs-coop-genossenschaft-rapperswil-jona-fcecbe"
       },
       "requirementsByLocale": {
@@ -17546,14 +17572,16 @@
         ],
         "de": [
           "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen-auptcw",
-          "verkaufer-in-food-coop-rapperswil-jona-6nkxl6"
+          "verkaufer-in-food-coop-rapperswil-jona-6nkxl6",
+          "verkaufer-in-food-coop-genossenschaft-rapperswil-jona"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-rapperswil-jona-6nkxl6",
         "verkaufer-in-food-coop-rapperswil-jona-2",
         "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen-auptcw",
-        "produits-alimentaires-vendus-coop-genossenschaft-rapperswil-jona"
+        "produits-alimentaires-vendus-coop-genossenschaft-rapperswil-jona",
+        "verkaufer-in-food-coop-genossenschaft-rapperswil-jona"
       ]
     },
     {
@@ -27815,7 +27843,7 @@
       "slugByLocale": {
         "it": "rayon-conduttore-frutta-verdura-coop-genossenschaft-winterthur",
         "en": "rayon-conductor-fruits-vegetables-coop-genossenschaft-winterthur",
-        "de": "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-winterthur",
+        "de": "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-winterthur-7i5gu4",
         "fr": "fruits-conducteurs-de-rayon-legumes-coop-genossenschaft-winterthur"
       },
       "requirementsByLocale": {
@@ -27849,7 +27877,8 @@
           "rayonleiter-in-fruchte-gemuse-coop-winterthur-7i5gu4"
         ],
         "de": [
-          "rayonleiter-in-fruchte-gemuse-coop-winterthur-7i5gu4"
+          "rayonleiter-in-fruchte-gemuse-coop-winterthur-7i5gu4",
+          "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-winterthur"
         ],
         "fr": [
           "rayonleiter-in-fruchte-gemuse-coop-winterthur-7i5gu4"
@@ -27857,7 +27886,8 @@
       },
       "previousSlugs": [
         "rayonleiter-in-fruchte-gemuse-coop-winterthur-7i5gu4",
-        "rayonleiter-in-fruchte-gemuse-coop-winterthur"
+        "rayonleiter-in-fruchte-gemuse-coop-winterthur",
+        "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-winterthur"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-fruechte-gemuese/48d278f5-a825-416a-8308-db314a440e9e",
       "postalCode": "8400",
@@ -27909,7 +27939,7 @@
       "slugByLocale": {
         "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-winterthur-a55f15",
         "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-winterthur-a55f15",
-        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur",
+        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur-bb1xvi",
         "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-winterthur-a55f15"
       },
       "requirementsByLocale": {
@@ -27943,7 +27973,8 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-bb1xvi"
         ],
         "de": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-bb1xvi"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-bb1xvi",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur"
         ],
         "fr": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-bb1xvi"
@@ -27951,7 +27982,8 @@
       },
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-bb1xvi",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/f1a5e2ea-4ef6-44b0-8d6b-1f786cacfba8",
       "postalCode": "8408",
@@ -32206,7 +32238,7 @@
       "slugByLocale": {
         "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-zurich-ee05a0",
         "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-zurich-ee05a0",
-        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zurich",
+        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zurich-z30for",
         "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-zurich-ee05a0"
       },
       "requirementsByLocale": {},
@@ -32256,7 +32288,8 @@
         "de": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-z30for",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-horgen-zurich-22tiwu",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-regensdorf-zurich-s2h0vx"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-regensdorf-zurich-s2h0vx",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zurich"
         ],
         "fr": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-z30for",
@@ -39715,7 +39748,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-freschi-coop-genossenschaft-kloten-072aea",
         "en": "seller-fresh-products-coop-genossenschaft-kloten-072aea",
-        "de": "verkaufer-in-frischprodukte-coop-genossenschaft-kloten",
+        "de": "verkaufer-in-frischprodukte-coop-genossenschaft-kloten-6vytch",
         "fr": "vendeur-de-produits-frais-coop-genossenschaft-kloten-072aea"
       },
       "requirementsByLocale": {
@@ -39750,7 +39783,8 @@
           "verkaufer-in-frischprodukte-coop-kloten-6vytch"
         ],
         "de": [
-          "verkaufer-in-frischprodukte-coop-kloten-6vytch"
+          "verkaufer-in-frischprodukte-coop-kloten-6vytch",
+          "verkaufer-in-frischprodukte-coop-genossenschaft-kloten"
         ],
         "fr": [
           "verkaufer-in-frischprodukte-coop-kloten-6vytch"
@@ -39759,7 +39793,8 @@
       "previousSlugs": [
         "verkaufer-in-frischprodukte-coop-kloten-6vytch",
         "verkaufer-in-frischprodukte-coop-kloten-2",
-        "verkaufer-in-frischprodukte-coop-kloten"
+        "verkaufer-in-frischprodukte-coop-kloten",
+        "verkaufer-in-frischprodukte-coop-genossenschaft-kloten"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte/10369765-6c72-465f-85c5-a4d933f706f0",
       "postalCode": "8058",
@@ -40810,7 +40845,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-thun-fd856f",
         "en": "seller-food-coop-genossenschaft-thun-fd856f",
-        "de": "verkaufer-in-food-coop-genossenschaft-thun",
+        "de": "verkaufer-in-food-coop-genossenschaft-thun-678kip",
         "fr": "aliments-pour-vendeurs-coop-genossenschaft-thun-fd856f"
       },
       "addressLocality": "Thun",
@@ -40843,12 +40878,14 @@
           "verkaufer-in-food-coop-thun-678kip"
         ],
         "de": [
-          "verkaufer-in-food-coop-thun-678kip"
+          "verkaufer-in-food-coop-thun-678kip",
+          "verkaufer-in-food-coop-genossenschaft-thun"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-thun-678kip",
-        "verkaufer-in-food-coop-thun-2"
+        "verkaufer-in-food-coop-thun-2",
+        "verkaufer-in-food-coop-genossenschaft-thun"
       ]
     },
     {
@@ -52559,8 +52596,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-cpz0qt",
@@ -65365,7 +65401,7 @@
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-luzern",
         "en": "seller-food-coop-genossenschaft-luzern",
         "de": "verkaufer-in-food-coop-luzern-wvnz2q",
-        "fr": "verkaufer-in-food-coop-genossenschaft-luzern"
+        "fr": "verkaufer-in-food-coop-genossenschaft-luzern-wvnz2q"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -65408,11 +65444,13 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-luzern"
+          "produits-alimentaires-vendus-coop-genossenschaft-luzern",
+          "verkaufer-in-food-coop-genossenschaft-luzern"
         ]
       },
       "previousSlugs": [
-        "produits-alimentaires-vendus-coop-genossenschaft-luzern"
+        "produits-alimentaires-vendus-coop-genossenschaft-luzern",
+        "verkaufer-in-food-coop-genossenschaft-luzern"
       ]
     },
     {
@@ -65447,7 +65485,7 @@
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-bern",
         "en": "seller-food-coop-genossenschaft-bern",
         "de": "verkaufer-in-food-coop-bern-kr3ykr",
-        "fr": "verkaufer-in-food-coop-genossenschaft-bern"
+        "fr": "verkaufer-in-food-coop-genossenschaft-bern-kr3ykr"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -65490,11 +65528,13 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-bern"
+          "produits-alimentaires-vendus-coop-genossenschaft-bern",
+          "verkaufer-in-food-coop-genossenschaft-bern"
         ]
       },
       "previousSlugs": [
-        "produits-alimentaires-vendus-coop-genossenschaft-bern"
+        "produits-alimentaires-vendus-coop-genossenschaft-bern",
+        "verkaufer-in-food-coop-genossenschaft-bern"
       ]
     },
     {
@@ -70316,8 +70356,7 @@
       "sourceLang": "it",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/posti-vacanti/assistente-del-commercio-al-dettaglio-cfp/0a527204-e277-4667-9737-feded38feb12",
       "salaryMin": 59000,
-      "salaryMax": 90500,
-      "needsRetranslation": true
+      "salaryMax": 90500
     },
     {
       "id": "company-9og8fs",
@@ -70383,8 +70422,7 @@
       "sourceLang": "it",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/posti-vacanti/assistente-del-commercio-al-dettaglio-cfp/3e3efc09-b497-4bed-84b5-a978dd61a9a8",
       "salaryMin": 59000,
-      "salaryMax": 90500,
-      "needsRetranslation": true
+      "salaryMax": 90500
     },
     {
       "id": "company-5gmuxl",
@@ -70738,8 +70776,7 @@
       "sourceLang": "it",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/posti-vacanti/impegiata-impegiato-in-logistica-afc/d34c7982-75f8-434d-8d21-2fe61ebd4cbc",
       "salaryMin": 59000,
-      "salaryMax": 90500,
-      "needsRetranslation": true
+      "salaryMax": 90500
     },
     {
       "id": "company-4saoy3",
@@ -72671,8 +72708,7 @@
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/171b8524-9a50-480d-9759-6846688c3e60",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/171b8524-9a50-480d-9759-6846688c3e60",
       "salaryMin": 99000,
-      "salaryMax": 174000,
-      "needsRetranslation": true
+      "salaryMax": 174000
     },
     {
       "id": "company-rbla66",
@@ -74573,8 +74609,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-jhnsxu",
@@ -74636,8 +74671,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-qa3qil",
@@ -74699,8 +74733,7 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-u2q5zg",
@@ -74762,8 +74795,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-mv7wu7",
@@ -74951,8 +74983,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-n9a414",
@@ -75014,8 +75045,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-bpn57e",
@@ -77030,8 +77060,7 @@
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/podolog-in-efz/4d19a2b7-a1da-4b27-80d8-28faa1159d65",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/podolog-in-efz/4d19a2b7-a1da-4b27-80d8-28faa1159d65",
       "salaryMin": 107000,
-      "salaryMax": 187500,
-      "needsRetranslation": true
+      "salaryMax": 187500
     },
     {
       "id": "company-21ick7",
@@ -77433,8 +77462,7 @@
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/fahrradmechaniker-in-efz/54ff2cba-6ffc-4203-ab1c-81f6ee4b97fb",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/fahrradmechaniker-in-efz/54ff2cba-6ffc-4203-ab1c-81f6ee4b97fb",
       "salaryMin": 105500,
-      "salaryMax": 185000,
-      "needsRetranslation": true
+      "salaryMax": 185000
     },
     {
       "id": "company-dvao2t",
@@ -80191,8 +80219,7 @@
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/0442c443-54ab-4e4e-a609-d76b8355e99c",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/0442c443-54ab-4e4e-a609-d76b8355e99c",
       "salaryMin": 105500,
-      "salaryMax": 185000,
-      "needsRetranslation": true
+      "salaryMax": 185000
     },
     {
       "id": "company-2iyqf5",
@@ -81950,8 +81977,7 @@
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/systemgastronomiefachfrau-mann-efz/2155bbbb-9019-4c3b-907d-e5ce7ee992f5",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/systemgastronomiefachfrau-mann-efz/2155bbbb-9019-4c3b-907d-e5ce7ee992f5",
       "salaryMin": 105500,
-      "salaryMax": 185000,
-      "needsRetranslation": true
+      "salaryMax": 185000
     },
     {
       "id": "company-abusnc",
@@ -86670,8 +86696,7 @@
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/detailhandelfachfrau-mann-assistent-in/033b1a66-e7cf-4b6c-9a9f-03128bae1e53",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/detailhandelfachfrau-mann-assistent-in/033b1a66-e7cf-4b6c-9a9f-03128bae1e53",
       "salaryMin": 107500,
-      "salaryMax": 188500,
-      "needsRetranslation": true
+      "salaryMax": 188500
     },
     {
       "id": "company-huw267",
@@ -98650,8 +98675,7 @@
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/baecker-in-konditor-in-confiseur-in-efz/695249fc-771c-44a7-8688-1f5d14e4b0fa",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/baecker-in-konditor-in-confiseur-in-efz/695249fc-771c-44a7-8688-1f5d14e4b0fa",
       "salaryMin": 107500,
-      "salaryMax": 188500,
-      "needsRetranslation": true
+      "salaryMax": 188500
     },
     {
       "id": "company-mts7v",
@@ -118232,7 +118256,6 @@
       "sourceLang": "it",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "impiegata-o-del-commercio-al-dettaglio-assistente-del-commercio-al-dettaglio-coop-mendrisio"
@@ -118312,7 +118335,6 @@
       "sourceLang": "it",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "impiegata-o-del-commercio-al-dettaglio-assistente-del-commercio-al-dettaglio-coop-giubiasco"
@@ -118472,7 +118494,6 @@
       "sourceLang": "it",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "impiegata-o-del-commercio-al-dettaglio-assistente-del-commercio-al-dettaglio-coop-bioggio"
@@ -129996,8 +130017,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-2lmvmp",
@@ -131816,8 +131836,7 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-sh0x8k",
@@ -131942,8 +131961,7 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-z4j8au",
@@ -132068,8 +132086,7 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-t7r4s2",
@@ -132194,8 +132211,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-lx8b6n",
@@ -132257,8 +132273,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-s2prjq",
@@ -132320,8 +132335,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-v7v1ky",
@@ -132383,8 +132397,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-q341dj",
@@ -132446,8 +132459,7 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-xiv3v9",
@@ -132509,8 +132521,7 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-dzu4f0",
@@ -132572,8 +132583,7 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-qrm5o6",
@@ -132635,8 +132645,7 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-79gt5n",
@@ -133840,8 +133849,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-wtfji0",
@@ -133903,8 +133911,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-r9834i",
@@ -133966,8 +133973,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-nn2v9w",
@@ -134029,8 +134035,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-fkrutb",
@@ -134092,8 +134097,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-y6o1bd",
@@ -134155,8 +134159,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-46g9zd",
@@ -134218,8 +134221,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-37e1a5",
@@ -134281,8 +134283,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-1qt0sj",
@@ -134344,8 +134345,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-19lm1w",
@@ -134848,8 +134848,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-j334ao",
@@ -134911,8 +134910,7 @@
           "maxValue": 175500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-w874x8",
@@ -134974,8 +134972,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-6tudll",
@@ -135100,8 +135097,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-zfmkoq",
@@ -135163,8 +135159,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-s3dzrq",
@@ -135226,8 +135221,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-mm4j9n",
@@ -135289,8 +135283,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-jebsaj",
@@ -135352,8 +135345,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-ievkk8",
@@ -135415,8 +135407,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-dz5fmr",
@@ -135478,8 +135469,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-jhjc45",
@@ -135541,8 +135531,7 @@
           "maxValue": 175500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-qalqn2",
@@ -135604,8 +135593,7 @@
           "maxValue": 175500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-64myhy",
@@ -135667,8 +135655,7 @@
           "maxValue": 175500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-akvtvb",
@@ -135730,8 +135717,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-4otzb1",
@@ -135793,8 +135779,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-9225y8",
@@ -135856,8 +135841,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-3d3t4a",
@@ -135919,8 +135903,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-w0fqmp",
@@ -135982,8 +135965,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-ubai22",
@@ -136045,8 +136027,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-j6sgfj",
@@ -136108,8 +136089,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-lpp9tb",
@@ -136641,8 +136621,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-scfj",
@@ -136704,8 +136683,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-9z3j1d",
@@ -136767,8 +136745,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-4fhajm",
@@ -136830,8 +136807,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-yfg9nn",
@@ -136893,8 +136869,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-zbmd5a",
@@ -136956,8 +136931,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-nvdi3b",
@@ -137019,8 +136993,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-ejll65",
@@ -137082,8 +137055,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-wj5mzz",
@@ -137145,8 +137117,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-u99xbj",
@@ -137208,8 +137179,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-rz49qq",
@@ -137271,8 +137241,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-686z2h",
@@ -137396,8 +137365,7 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-z979tj",
@@ -137521,8 +137489,7 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-3g9kc7",
@@ -137647,8 +137614,7 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-yddxc4",
@@ -139145,8 +139111,7 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-4c51gc",
@@ -139796,8 +139761,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-31v2q5",
@@ -139859,8 +139823,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-a0z9rq",
@@ -139922,8 +139885,7 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-2xwbnn",
@@ -140552,8 +140514,7 @@
           "maxValue": 188500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-3pfuc4",
@@ -141066,8 +141027,7 @@
       "postalCode": "9630",
       "streetAddress": "Grüenaustrasse 4",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-iqa2ft",
@@ -144825,8 +144785,7 @@
       "postalCode": "7302",
       "streetAddress": "Werkstättestrasse 5",
       "salaryMin": 41600,
-      "salaryMax": 63000,
-      "needsRetranslation": true
+      "salaryMax": 63000
     },
     {
       "id": "company-qf9tbn",
@@ -145065,8 +145024,7 @@
       "postalCode": "7000",
       "streetAddress": "Quaderstrasse 36",
       "salaryMin": 41600,
-      "salaryMax": 63000,
-      "needsRetranslation": true
+      "salaryMax": 63000
     },
     {
       "id": "company-ncbhm0",
@@ -145730,8 +145688,7 @@
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-inventuren/364968b4-76de-4227-b8f0-33216c04d857",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-inventuren/364968b4-76de-4227-b8f0-33216c04d857",
       "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true
+      "salaryMax": 75000
     }
   ]
 }
