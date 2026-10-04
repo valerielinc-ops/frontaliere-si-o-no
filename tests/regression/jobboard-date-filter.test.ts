@@ -42,6 +42,19 @@ describe('JobBoard date filters', () => {
     expect(normalized.postedDate).toBe('2026-08-28T05:27:13.245Z');
   });
 
+  it.each(['unknown', 'reported', undefined] as const)('normalizes mixed provenance %s without promoting collection clocks', (postingDateSource) => {
+    const datePosted = new Date(Date.now() - 3 * 86400000).toISOString().slice(0, 10);
+    const firstSeenAt = new Date(Date.now() - 86400000).toISOString();
+    const normalized = normalizeIncomingJob({
+      id: 'publication-migration', title: 'Infermiere', description: 'Assistenza sanitaria',
+      postingDateSource, datePosted: postingDateSource === 'reported' ? datePosted : '',
+      postedDate: '', firstSeenAt, crawledAt: new Date().toISOString(),
+    });
+    expect(normalized.postingDateSource).toBe(postingDateSource);
+    expect(isJobWithinDateRange(normalized, Date.now() - 7 * 86400000)).toBe(postingDateSource !== 'unknown');
+    expect(normalized.postedDate).toBe(postingDateSource === 'reported' ? datePosted : postingDateSource === 'unknown' ? '' : firstSeenAt);
+  });
+
   it('defines “new” from firstSeenAt, not from a later recrawl', () => {
     const recrawledOldListing = {
       postedDate: '2026-08-28',

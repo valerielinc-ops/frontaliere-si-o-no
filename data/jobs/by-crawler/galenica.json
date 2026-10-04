@@ -2971,7 +2971,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -11165,7 +11166,9 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-391e096b87b7",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng"
+      ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -11181,7 +11184,12 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng"
+        ]
+      }
     },
     {
       "title": "Assistente di farmacia AFC",
