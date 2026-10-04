@@ -12469,6 +12469,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mastini-varese-pergine-hockey.title': 'Varese-pergine mastiffs: challenge to the acinque ice arena',
     'blog.article.mastini-varese-pergine-hockey.excerpt': 'Saturday at 18.30 the Mastiffs host the Pergine. Varese, Pergine and Feltre look for points in the ranking at level 3 on the fourth day of IHL.',
     'blog.article.mastini-varese-pergine-hockey.imageAlt': 'Ice hockey match of Mastini Varese at the Acinque Ice Arena.',
+    'blog.article.asilo-carluccio-como-lettera.title': 'Carluccio Nursery School Como: staff writes to the Municipality',
+    'blog.article.asilo-carluccio-como-lettera.excerpt': 'The staff of the Carluccio preschool on Via Volta writes to the Mayor to oppose the cuts: the school is not a cost, but a community investment.',
+    'blog.article.asilo-carluccio-como-lettera.imageAlt': 'Carluccio kindergarten in Como, Via Volta.',
 };
 
 export default blogMetaEn;

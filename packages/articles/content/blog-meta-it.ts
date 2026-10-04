@@ -12470,6 +12470,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mastini-varese-pergine-hockey.title': 'Mastini varese-pergine: sfida all\'acinque ice arena',
     'blog.article.mastini-varese-pergine-hockey.excerpt': 'Sabato alle 18.30 i Mastini ospitano il Pergine. Varese, Pergine e Feltre cercano punti in classifica a quota 3 nella quarta giornata di IHL.',
     'blog.article.mastini-varese-pergine-hockey.imageAlt': 'Partita di hockey su ghiaccio dei Mastini di Varese all\'Acinque Ice Arena.',
+    'blog.article.asilo-carluccio-como-lettera.title': 'Asilo Carluccio Como: il personale scrive al Comune',
+    'blog.article.asilo-carluccio-como-lettera.excerpt': 'Il personale della scuola dell\'infanzia Carluccio di via Volta scrive al Sindaco contro i tagli: la scuola non è un costo, ma un investimento comunitario.',
+    'blog.article.asilo-carluccio-como-lettera.imageAlt': 'Scuola dell\'infanzia Carluccio di Como, via Volta.',
 };
 
 export default blogMetaIt;

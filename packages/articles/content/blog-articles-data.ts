@@ -37394,6 +37394,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'asilo-carluccio-como-lettera',
+ category: 'novita',
+ date: '2026-10-04T01:35:02.083Z',
+ image: '/images/blog/asilo-carluccio-como-lettera.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

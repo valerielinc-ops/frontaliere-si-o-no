@@ -12471,6 +12471,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mastini-varese-pergine-hockey.title': 'Mastiffs varois-pergine : défi à l\'acinque ice arena',
     'blog.article.mastini-varese-pergine-hockey.excerpt': 'Samedi à 18h30, les Mâtins accueillent la Vierge. Varese, Pergine et Feltre cherchent des points au classement à la cote 3 lors de la quatrième journée d\'IHL.',
     'blog.article.mastini-varese-pergine-hockey.imageAlt': 'Match de hockey sur glace des Mastini Varese à l\'Acinque Ice Arena.',
+    'blog.article.asilo-carluccio-como-lettera.title': 'Asile Carluccio Como : le personnel écrit à la municipalité',
+    'blog.article.asilo-carluccio-como-lettera.excerpt': 'Le personnel de l\'école maternelle Carluccio de la via Volta écrit au maire pour s\'opposer aux coupes budgétaires : l\'école n\'est pas un coût, mais un investissement pour la communauté.',
+    'blog.article.asilo-carluccio-como-lettera.imageAlt': 'École maternelle Carluccio à Côme, Via Volta. (Como)',
 };
 
 export default blogMetaFr;
