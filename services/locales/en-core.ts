@@ -3000,8 +3000,6 @@ Rules:
 
  'seoContent.confronti.title': 'Comparisons and Comparators for Cross-Border Workers',
  'seoContent.confronti.subtitle': 'Compare insurance, banks, mortgages, cost of living and exchange rates to make informed decisions.',
- 'seoContent.confronti.expertQuote': 'Choosing between LAMal and Italy\'s SSN can save over CHF 3,000 per year — but it depends on family composition, income, and your Italian municipality of residence.',
- 'seoContent.confronti.expertName': 'Laura Mantovani, LAMal Insurance Consultant for Cross-Border Workers',
  'seoContent.confronti.feature1.title': 'LAMal insurance',
  'seoContent.confronti.feature1.desc': 'Compare 14 Swiss health insurers with real premiums by canton.',
  'seoContent.confronti.feature2.title': 'CHF-EUR exchange',

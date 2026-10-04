@@ -3089,8 +3089,6 @@ Regole:
 
  'seoContent.confronti.title': 'Confronti e Comparatori per Frontalieri',
  'seoContent.confronti.subtitle': 'Confronta assicurazioni, banche, mutui, costo della vita e cambio valuta per prendere decisioni informate.',
- 'seoContent.confronti.expertQuote': 'La scelta tra LAMal e SSN può far risparmiare oltre CHF 3.000 all\'anno — ma dipende dalla composizione familiare, dal reddito e dal comune di residenza italiano.',
- 'seoContent.confronti.expertName': 'Laura Mantovani, Consulente assicurativa LAMal per frontalieri',
  'seoContent.confronti.feature1.title': 'Assicurazione LAMal',
  'seoContent.confronti.feature1.desc': 'Confronta 14 casse malati svizzere con premi reali per cantone.',
  'seoContent.confronti.feature2.title': 'Cambio CHF-EUR',
