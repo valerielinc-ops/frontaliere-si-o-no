@@ -1,6 +1,10 @@
 import { describe, expect, it } from 'vitest';
 
-import { buildArticleSeoSections, cleanupArticleBodySections } from '@/build-plugins/articleSeoFallback';
+import {
+  buildArticleSeoSections,
+  cleanupArticleBodySections,
+  renderArticleInlineMarkup,
+} from '@/build-plugins/articleSeoFallback';
 import { flattenedSwissBody1, flattenedSwissBody3, flattenedSwissBodies } from './fixtures/flattenedArticleBodies';
 
 const wordCount = (value: string) => value.split(/\s+/).filter(Boolean).length;
@@ -109,6 +113,22 @@ describe('article SEO fallback builder', () => {
     );
     expect(section.html).not.toContain('&lt;a');
     expect(section.html).not.toContain('target=');
+  });
+
+  it('normalizes legacy angle nav markers without exposing malformed URLs', () => {
+    expect(renderArticleInlineMarkup('[LAMal](<nav:health>)')).toBe('LAMal');
+    expect(renderArticleInlineMarkup('[Costo della vita](<nav:cost-of-living>)')).toBe('Costo della vita');
+    expect(renderArticleInlineMarkup('[Calcolatore](<nav:calculator>)')).toBe('Calcolatore');
+    expect(renderArticleInlineMarkup('Usa il <nav:calculator>calcolatore</nav:calculator>.')).toBe('Usa il calcolatore.');
+    expect(renderArticleInlineMarkup('Usa il calcolatore (<nav:calculator>).')).toBe('Usa il calcolatore.');
+    expect(renderArticleInlineMarkup('prefisso(<nav:calculator>)')).toBe('prefisso(&lt;nav:calculator&gt;)');
+    expect(renderArticleInlineMarkup('<nav:calculator>')).toBe('');
+    expect(renderArticleInlineMarkup('<nav:calculator>.')).toBe('.');
+    expect(renderArticleInlineMarkup('<nav:calculator> costo')).toBe('&lt;nav:calculator&gt; costo');
+    expect(renderArticleInlineMarkup('</nav:health>')).toBe('&lt;/nav:health&gt;');
+    expect(renderArticleInlineMarkup('<nav:calculator> costo </nav:health>')).toBe(
+      '&lt;nav:calculator&gt; costo &lt;/nav:health&gt;',
+    );
   });
 
   it('renders markdown links in visible FAQ-style answers with safe URLs', () => {
