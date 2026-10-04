@@ -181,9 +181,21 @@ function calendarMonthsAgo(date, months) {
   );
 }
 
-/** A parsed Date, or null when the value is missing or not a date. */
+const ISO_DATE_PREFIX_RE = /^(\d{4})-(\d{2})-(\d{2})(?=$|T|[ \t])/;
+
+/** A parsed Date, or null when the value is missing, malformed, or not a date. */
 function parseDate(value) {
   if (value === undefined || value === null || value === '') return null;
+  if (typeof value === 'string') {
+    const match = ISO_DATE_PREFIX_RE.exec(value.trim());
+    if (match) {
+      const datePart = match[0];
+      const roundTripped = new Date(`${datePart}T00:00:00.000Z`);
+      if (Number.isNaN(roundTripped.getTime()) || roundTripped.toISOString().slice(0, 10) !== datePart) {
+        return null;
+      }
+    }
+  }
   const d = new Date(value);
   return Number.isNaN(d.getTime()) ? null : d;
 }
