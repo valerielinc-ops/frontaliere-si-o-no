@@ -46,6 +46,25 @@ export interface AtsReportView {
   keywords: { coverage: number | null; present: string[]; thin: string[]; missing: string[]; roleTitle: string; roleTitleFound: boolean | null; ceiling?: number | null; overCeiling?: string[] };
 }
 
+/** What left with the application (scripts/assisted-application/lib/submit.mjs `sent`), each file with a signed link. */
+export interface AutomationSentView {
+  at: number | null;
+  channel: string;
+  packaging: 'separate' | 'single' | 'portal' | 'whatsapp' | null;
+  reason: string | null;
+  ad: '' | 'single' | 'separate';
+  adCue: string;
+  documentsGrouped: boolean;
+  documentsReason: string | null;
+  pages: number | null;
+  bytes: number | null;
+  letterRenderer: 'typst' | 'legacy' | null;
+  /** A send whose outcome was uncertain, confirmed afterwards by the owner or by the employer's e-mail. */
+  confirmedBy?: 'owner' | 'acknowledgement' | null;
+  letterUrl: string | null;
+  files: Array<{ kind: 'letter' | 'cv' | 'dossier' | 'documents' | 'document'; name: string; url: string | null }>;
+}
+
 export interface AssistedApplicationAutomationView {
   /** Employer messages received on the order alias (newest first, max 10). */
   inbox?: Array<{ receivedAt: number | null; from: string; subject: string; category: string; summaryIt: string; interviewWhen: string; forwarded: string | null }>;
@@ -121,6 +140,8 @@ export interface AssistedApplicationAutomationView {
     candidateCvChoice?: 'tailored' | 'original' | 'inplace' | null;
     /** What the portal received, question by question (career-ops application-answers). */
     portalAnswers: { status: string; at: number; answers: Array<{ question: string; answer: string; source: string }> } | null;
+    /** What left with the application, with signed links (null before it left or on an older order). */
+    sent?: AutomationSentView | null;
   } | null;
 }
 

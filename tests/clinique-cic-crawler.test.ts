@@ -59,7 +59,7 @@ describe('clinique CIC crawler', () => {
     expect(fetchMock.mock.calls.filter(([url]) => url.startsWith('https://r.jina.ai/'))).toHaveLength(1);
   });
 
-  it('fails closed when the direct mask and every Jina rescue remain challenged', async () => {
+  it('propagates an exhausted anti-bot fence when the direct mask and every Jina rescue remain challenged', async () => {
     const challengedMask = `${AKAMAI_CHALLENGE}${MASK_HTML}`;
     const fetchMock = vi.fn(async (url: string) => {
       if (url === MASK_URL) {
@@ -74,9 +74,10 @@ describe('clinique CIC crawler', () => {
     });
     global.fetch = fetchMock as typeof fetch;
 
-    const jobs = await fetchAllCicJobs();
-
-    expect(jobs).toEqual([]);
+    await expect(fetchAllCicJobs()).rejects.toMatchObject({
+      message: expect.stringMatching(/Unrecovered anti-bot challenge/),
+      antiBotExhausted: true,
+    });
     expect(fetchMock.mock.calls.filter(([url]) => url === DETAIL_URL)).toHaveLength(0);
     expect(fetchMock.mock.calls.filter(([url]) => url.startsWith('https://r.jina.ai/')).length).toBeGreaterThan(0);
   });

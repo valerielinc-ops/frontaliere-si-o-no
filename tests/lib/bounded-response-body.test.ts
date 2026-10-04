@@ -78,7 +78,7 @@ const json = (value: unknown) => new TextEncoder().encode(JSON.stringify(value))
  * equal parts). A reader that keeps the chunk by reference ends up with the
  * last slice repeated `parts` times.
  */
-function responseReusingBuffer(text: string, parts = 2) {
+function responseReusingBuffer(text: string, parts = 2, { bare = false } = {}) {
   const encoded = new TextEncoder().encode(text);
   const partBytes = Math.ceil(encoded.byteLength / parts);
   const padded = new Uint8Array(partBytes * parts).fill(0x20);
@@ -90,7 +90,9 @@ function responseReusingBuffer(text: string, parts = 2) {
       if (next === parts) return { done: true, value: undefined };
       reused.set(padded.subarray(next * partBytes, (next + 1) * partBytes));
       next += 1;
-      return { done: false, value: reused };
+      // `bare`: a polyfilled body handing back the bare ArrayBuffer, over
+      // which `new Uint8Array(value)` / `Buffer.from(value)` are views.
+      return { done: false, value: bare ? reused.buffer : reused };
     },
     cancel: async () => {},
     releaseLock() {},
@@ -338,5 +340,26 @@ describe('bounded readers keep a copy of every chunk when the reader reuses its 
       fetchImpl,
     })).rejects.toThrow('successor_guard_claim_missing');
     expect(fetchImpl).toHaveBeenCalledTimes(2);
+  });
+});
+
+// Site issue 10283 (FU-2026-09-29-004): the same reuse through a bare
+// ArrayBuffer. `new Uint8Array(value)` and `Buffer.from(value)` copy a
+// Uint8Array but only VIEW an ArrayBuffer, so the #7483 copy did not hold.
+describe('bounded readers copy a bare ArrayBuffer chunk the reader reuses', () => {
+  it('githubWorkflowDispatch parses the whole body', async () => {
+    const response = responseReusingBuffer(JSON.stringify({ workflow_run_id: 12 }), 2, { bare: true });
+    await expect(readBoundedJsonResponse(response, 1_000)).resolves.toEqual({ workflow_run_id: 12 });
+  });
+
+  it('crawler-generation-dispatch parses the whole body', async () => {
+    const response = responseReusingBuffer(JSON.stringify({ ok: 12 }), 2, { bare: true });
+    const request = createGitHubActionsRequester({
+      apiUrl: 'https://api.github.test',
+      token: 't',
+      fetchImpl: async () => response,
+    });
+    await expect(request({ method: 'GET', path: '/repos/o/r/actions/runs/1' }))
+      .resolves.toMatchObject({ status: 200, body: { ok: 12 } });
   });
 });

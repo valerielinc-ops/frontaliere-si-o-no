@@ -6299,7 +6299,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "headline": "Servizio Trasfusionale di Locarno chiude il 24 giugno: do",
  "description": "Dal 24 giugno 2026 il Servizio Trasfusionale di Locarno cesserà l’attività. La scelta, maturata in 4 anni di riflessioni, è dovuta al calo delle entrate dalla v",
  "image": {
- "@type": "ImageObject", "url": `${BASE_URL}/images/blog/servizio-trasfusionale-locarno-chiusura-24-giugno.webp`,
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/servizio-trasfusionale-locarno-chiusura-24-giugno-2.webp`,
  "width": 1200,
  "height": 675,
  "caption": "Servizio Trasfusionale di Locarno con annuncio di chiusura definitivo dal 24 giugno 2026"
@@ -7167,7 +7167,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "headline": "Bibo: il biglietto digitale che si attiva da solo sui mez",
  "description": "Dal 30 aprile 2026 in Svizzera parte il test di Bibo, che fattura i viaggi in automatico senza bisogno di check-in. Ecco come funziona per i pendolari ticinesi",
  "image": {
- "@type": "ImageObject", "url": `${BASE_URL}/images/blog/bibo-sistema-biglietti-digitali-mezzi-2026.webp`,
+ "@type": "ImageObject", "url": `${BASE_URL}/images/blog/bibo-sistema-biglietti-digitali-mezzi-2026-2.webp`,
  "width": 1200,
  "height": 675,
  "caption": "Un pendolare ticinese sale su un treno a Lugano con lo smartphone in mano, pronto a testare il nuovo sistema Bibo"
@@ -8427,7 +8427,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "headline": "Moon&Stars: sconti per residenti con Locarno Card 2026",
       "description": "Locarno Card offre biglietti a 75 CHF per 11 concerti serali e 45 CHF per l'Opening Night del 9 luglio 2026. Vendita online dal 22 aprile al 29 maggio con codic",
       "image": {
-        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/moon-stars-resident-discount-locarno-card.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/moon-stars-resident-discount-locarno-card-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Piazza Grande a Locarno durante il festival Moon&Stars con manifesti e folle di residenti"
@@ -9127,7 +9127,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "headline": "Coppa del Mondo di corsa d'orientamento 2026: Locarno e Ascona si preparano ad accogliere atleti e",
       "description": "Dal 24 al 26 aprile 2026 Locarno e Ascona ospiteranno la prima tappa della Coppa del Mondo di corsa d’orientamento 2026. 250 atleti da 30 Paesi, oltre 1’800",
       "image": {
-        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/coppa-del-mondo-orientamento-locarnese-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/coppa-del-mondo-orientamento-locarnese-2026-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Piazza Grande di Locarno durante la Coppa del Mondo di corsa d'orientamento 2026 con atleti in gara e pubblico"
@@ -10834,7 +10834,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "headline": "Patentino Digitale: via libera in Lombardia",
       "description": "Approvato il primo progetto di legge regionale per l'istituzione del Patentino Digitale per contrastare bullismo e dipendenza tecnologica tra i giovani",
       "image": {
-        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/patentino-digitale-lombardia-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/patentino-digitale-lombardia-2026-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Cerimonia del Patentino Digitale in una scuola del Ticino"
@@ -18990,7 +18990,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "headline": "Locarno smaltisce rifiuti a Landquart: 1000 tonnellate su 156 km",
       "description": "Locarno smaltisce rifiuti vegetali a Landquart, generando 6,5 tonnellate di CO2 annuali. Interrogazione al Municipio per la mancanza di coerenza ambientale.",
       "image": {
-        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/locarno-landquart-rifiuti-1000-tonnellate.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/locarno-landquart-rifiuti-1000-tonnellate-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea di Locarno e del Lago Maggiore, Svizzera, con montagne sullo sfondo"
@@ -19634,7 +19634,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "headline": "Lugano Cultura si rinnova: arriva uno spazio digitale unico",
       "description": "Scopri la nuova piattaforma digitale di Lugano Cultura con eventi, operatori e progetti interdisciplinari. Partecipa alla vita culturale di Lugano.",
       "image": {
-        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/lugano-cultura-digitale-2024.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/lugano-cultura-digitale-2024-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Lugano Cultura digitale: lancio della nuova piattaforma culturale a Lugano"
@@ -21286,7 +21286,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "headline": "Bruno Breguet scomparso: il pretore di Locarno chiude il caso",
       "description": "La giustizia civile ticinese ha ufficializzato la scomparsa di Bruno Breguet, ex terrorista legato a Carlos e forse agente CIA. Dati aggiornati 2026 per",
       "image": {
-        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/bruno-breguet-scomparsa-ufficializzata.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/bruno-breguet-scomparsa-ufficializzata-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Veduta del lungolago di Locarno con palme e montagne"
@@ -34922,7 +34922,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "headline": "Volandia: battesimo del volo in elicottero torna nel 2026",
       "description": "Dal 1 al 3 maggio 2026, Volandia offre voli in elicottero per adulti e bambini, con prezzi fissati a 65 euro per gli adulti e 45 euro per i bambini.",
       "image": {
-        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/volandia-battesimo-volo-elicottero-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/volandia-battesimo-volo-elicottero-2026-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea del Lago di Lugano con un elicottero sopra Volandia"

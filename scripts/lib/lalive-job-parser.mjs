@@ -231,7 +231,10 @@ export async function fetchAllLaliveJobs() {
     });
   } catch (err) {
     console.warn(`⚠️ Personio search.json fetch failed: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   if (!Array.isArray(records)) {
     console.warn(`⚠️ Personio search.json: expected array, got ${typeof records}`);

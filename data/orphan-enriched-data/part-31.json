@@ -8511,7 +8511,7 @@
       "slugByLocale": {
         "it": "assistent-in-filialleitung-denner-4",
         "en": "assistent-in-filialleitung-denner-4",
-        "de": "assistent-in-filialleitung-denner-4",
+        "de": "assistent-in-filialleitung-denner-7z9mhg",
         "fr": "assistent-in-filialleitung-denner-4"
       },
       "localePaths": {
@@ -8526,6 +8526,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -10233,10 +10234,10 @@
       "locale": "fr",
       "path": "/fr/trouver-emploi-appenzell/assurances/",
       "observedPaths": {
+        "it": "/cerca-lavoro-appenzello/assurances",
         "en": "/en/find-jobs-bern/assurances",
         "fr": "/fr/trouver-emploi-berne/assurances",
-        "de": "/de/jobs-im-bern/assurances",
-        "it": "/cerca-lavoro-berna/assurances"
+        "de": "/de/jobs-im-bern/assurances"
       },
       "queries": [
         {
@@ -10256,6 +10257,11 @@
         },
         {
           "query": "offre d'emploi suisse frontalier",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "certificat de gestionnaire en ressources humaines yverdon-les-bains",
           "clicks": 0,
           "impressions": 3
         },
@@ -10291,11 +10297,6 @@
         },
         {
           "query": "travail suisse frontalier",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "certificat de gestionnaire en ressources humaines yverdon-les-bains",
           "clicks": 0,
           "impressions": 2
         },
@@ -10340,7 +10341,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 54,
+      "totalImpressions": 55,
       "totalClicks": 0,
       "topQuery": "postuler en suisse frontalier",
       "title": "Assurances",
@@ -15384,9 +15385,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "chef-de-la-construction-ferroviaire-construction-ferroviaire-80-100-zurich-afry-zurich",
-        "en": "chef-de-la-construction-ferroviaire-construction-ferroviaire-80-100-zurich-afry-zurich",
-        "de": "chef-de-la-construction-ferroviaire-construction-ferroviaire-80-100-zurich-afry-zurich",
+        "it": "capo-della-costruzione-ferroviaria-costruzione-ferroviaria-80-100-zurigo-afry-zurich",
+        "en": "head-of-railway-construction-railway-construction-80-100-zurich-afry-zurich",
+        "de": "leiter-in-abteilung-bahnbau-bahntiefbau-80-100-zurich-afry-zurich",
         "fr": "chef-de-la-construction-ferroviaire-construction-ferroviaire-80-100-zurich-afry-zurich"
       },
       "localePaths": {
@@ -15395,12 +15396,13 @@
         "de": "/de/jobs-im-zurich/chef-de-la-construction-ferroviaire-construction-ferroviaire-80-100-zurich-afry-zurich",
         "fr": "/fr/trouver-emploi-zurich/chef-de-la-construction-ferroviaire-construction-ferroviaire-80-100-zurich-afry-zurich"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://afry.com/en/careers/available-jobs/ref13331f-leiterin-abteilung-bahnbau-bahntiefbau-80-100-zurich",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -20004,9 +20006,9 @@
       "locale": "it",
       "path": "/cerca-lavoro-giura/consulenza/",
       "observedPaths": {
+        "de": "/de/jobs-im-jura/consulenza",
+        "fr": "/fr/trouver-emploi-jura/consulenza",
         "en": "/en/find-jobs-ticino/consulenza",
-        "de": "/de/jobs-im-tessin/consulenza",
-        "fr": "/fr/trouver-emploi-tessin/consulenza",
         "it": "/cerca-lavoro-appenzello/consulenza"
       },
       "queries": [
@@ -22398,7 +22400,7 @@
         {
           "query": "data scientist jobs sankt gallen",
           "clicks": 0,
-          "impressions": 2
+          "impressions": 4
         },
         {
           "query": "data scientist zurich",
@@ -22416,7 +22418,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 17,
+      "totalImpressions": 19,
       "totalClicks": 0,
       "topQuery": "data scientist jobs lugano",
       "title": "Data scientists",
@@ -22473,6 +22475,11 @@
           "impressions": 5
         },
         {
+          "query": "data scientist jobs lugano",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
           "query": "data scientist geneva",
           "clicks": 0,
           "impressions": 2
@@ -22486,14 +22493,9 @@
           "query": "data scientist jobs basel",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "data scientist jobs lugano",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 10,
+      "totalImpressions": 12,
       "totalClicks": 0,
       "topQuery": "data scientist jobs genf",
       "title": "Data scientists",
@@ -22541,10 +22543,10 @@
       "locale": "fr",
       "path": "/fr/trouver-emploi-fribourg/data-scientists/",
       "observedPaths": {
-        "en": "/en/find-jobs-ticino/data-scientists",
+        "en": "/en/find-jobs-fribourg/data-scientists",
+        "it": "/cerca-lavoro-friburgo/data-scientists",
         "de": "/de/jobs-im-tessin/data-scientists",
-        "fr": "/fr/trouver-emploi-tessin/data-scientists",
-        "it": "/cerca-lavoro-ticino/data-scientists"
+        "fr": "/fr/trouver-emploi-tessin/data-scientists"
       },
       "queries": [
         {
@@ -24436,10 +24438,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "dipl-nurse-nurse-specialist-hf-fh-universitatsspital-basel-basel",
+        "it": "dipl-infermiera-infermiera-specialista-hf-fh-universitatsspital-basel-basel",
         "en": "dipl-nurse-nurse-specialist-hf-fh-universitatsspital-basel-basel",
-        "de": "dipl-nurse-nurse-specialist-hf-fh-universitatsspital-basel-basel",
-        "fr": "dipl-nurse-nurse-specialist-hf-fh-universitatsspital-basel-basel"
+        "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
+        "fr": "dipl-infirmiere-infirmiere-specialiste-hf-fh-universitatsspital-basel-basel"
       },
       "localePaths": {
         "it": "/cerca-lavoro-basilea/dipl-nurse-nurse-specialist-hf-fh-universitatsspital-basel-basel",
@@ -24453,6 +24455,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -27336,10 +27339,10 @@
       "locale": "en",
       "path": "/en/find-jobs-aargau/electricians/",
       "observedPaths": {
+        "de": "/de/jobs-im-aargau/electricians",
+        "fr": "/fr/trouver-emploi-argovie/electricians",
         "en": "/en/find-jobs-ticino/electricians",
-        "de": "/de/jobs-im-tessin/electricians",
-        "fr": "/fr/trouver-emploi-tessin/electricians",
-        "it": "/cerca-lavoro-ticino/electricians"
+        "it": "/cerca-lavoro-argovia/electricians"
       },
       "queries": [
         {
@@ -27388,6 +27391,11 @@
           "impressions": 1
         },
         {
+          "query": "i am an electrician from the eu and i want jobs in switzerland with info on diploma recognition german level needed and whether tools are provided",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "ajutor de electrician",
           "clicks": 0,
           "impressions": 1
@@ -27418,7 +27426,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 96,
+      "totalImpressions": 97,
       "totalClicks": 0,
       "topQuery": "can you show electrician jobs in zurich canton with apprenticeship friendly employers.",
       "title": "Electricians",
@@ -36072,9 +36080,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "ingenieur-civil-junior-80-100-zurich-afry-zurich",
-        "en": "ingenieur-civil-junior-80-100-zurich-afry-zurich",
-        "de": "ingenieur-civil-junior-80-100-zurich-afry-zurich",
+        "it": "junior-civil-engineer-80-100-zurigo-afry-zurich",
+        "en": "junior-civil-engineer-80-100-zurich-afry-zurich",
+        "de": "junior-bauingenieur-in-80-100-zurich-afry-zurich",
         "fr": "ingenieur-civil-junior-80-100-zurich-afry-zurich"
       },
       "localePaths": {
@@ -36083,12 +36091,13 @@
         "de": "/de/jobs-in-zurich/ingenieur-civil-junior-80-100-zurich-afry-zurich",
         "fr": "/fr/trouver-emploi-zurich/ingenieur-civil-junior-80-100-zurich-afry-zurich"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://afry.com/en/careers/available-jobs/ref14339y-junior-bauingenieurin-80-100-zurich",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -36133,9 +36142,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "ingenieur-civil-junior-80-100-zurich-afry-zurich",
-        "en": "ingenieur-civil-junior-80-100-zurich-afry-zurich",
-        "de": "ingenieur-civil-junior-80-100-zurich-afry-zurich",
+        "it": "junior-civil-engineer-80-100-zurigo-afry-zurich",
+        "en": "junior-civil-engineer-80-100-zurich-afry-zurich",
+        "de": "junior-bauingenieur-in-80-100-zurich-afry-zurich",
         "fr": "ingenieur-civil-junior-80-100-zurich-afry-zurich"
       },
       "localePaths": {
@@ -36144,12 +36153,13 @@
         "de": "/de/jobs-in-zurich/ingenieur-civil-junior-80-100-zurich-afry-zurich",
         "fr": "/fr/trouver-emploi-zurich/ingenieur-civil-junior-80-100-zurich-afry-zurich"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://afry.com/en/careers/available-jobs/ref14339y-junior-bauingenieurin-80-100-zurich",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -47829,10 +47839,10 @@
         "fr": "mitarbeiter-verkauf-m-w-d-aldi-suisse-9"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-turgovia/mitarbeiter-verkauf-m-w-d-aldi-suisse-9",
-        "en": "/en/find-jobs-thurgau/mitarbeiter-verkauf-m-w-d-aldi-suisse-9",
-        "de": "/de/jobs-im-thurgau/mitarbeiter-verkauf-m-w-d-aldi-suisse-9",
-        "fr": "/fr/trouver-emploi-thurgovie/mitarbeiter-verkauf-m-w-d-aldi-suisse-9"
+        "it": "/cerca-lavoro-zurigo/mitarbeiter-verkauf-m-w-d-aldi-suisse-9",
+        "en": "/en/find-jobs-zurich/mitarbeiter-verkauf-m-w-d-aldi-suisse-9",
+        "de": "/de/jobs-in-zurich/mitarbeiter-verkauf-m-w-d-aldi-suisse-9",
+        "fr": "/fr/trouver-emploi-zurich/mitarbeiter-verkauf-m-w-d-aldi-suisse-9"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -50260,10 +50270,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "operational-person-with-option-teamling-administrative-representation-60-90-stiftung-pigna-kloten",
         "en": "operational-person-with-option-teamling-administrative-representation-60-90-stiftung-pigna-kloten",
-        "de": "operational-person-with-option-teamling-administrative-representation-60-90-stiftung-pigna-kloten",
-        "fr": "operational-person-with-option-teamling-administrative-representation-60-90-stiftung-pigna-kloten"
+        "de": "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten",
+        "fr": "personne-operationnelle-avec-representation-administrative-de-l-equipe-d-option-60-90-stiftung-pigna-kloten"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/operational-person-with-option-teamling-administrative-representation-60-90-stiftung-pigna-kloten",
@@ -50271,12 +50280,13 @@
         "de": "/de/jobs-im-zurich/operational-person-with-option-teamling-administrative-representation-60-90-stiftung-pigna-kloten",
         "fr": "/fr/trouver-emploi-zurich/operational-person-with-option-teamling-administrative-representation-60-90-stiftung-pigna-kloten"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://app.reflinejobs.io/1531/0216/pub/501/index.html",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -50609,6 +50619,83 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "ossingen",
+      "locale": "it",
+      "path": "/cerca-lavoro-zurigo/ossingen/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-zurigo/ossingen/"
+      },
+      "queries": [
+        {
+          "query": "lavori in svizzera per italiani",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "cerco lavoro vicino a me",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "lavorare in svizzera frontaliere",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte di lavoro zurigo",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "volg ossingen",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 7,
+      "totalClicks": 0,
+      "topQuery": "lavori in svizzera per italiani",
+      "title": "Ossingen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "ossingen",
+        "en": "ossingen",
+        "de": "ossingen",
+        "fr": "ossingen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/ossingen",
+        "en": "/en/find-jobs-zurich/ossingen",
+        "de": "/de/jobs-im-zurich/ossingen",
+        "fr": "/fr/trouver-emploi-zurich/ossingen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -61183,7 +61270,12 @@
         {
           "query": "i need jobs in italian speaking switzerland in a restaurant kitchen with split shifts and a seasonal or permanent contract.",
           "clicks": 0,
-          "impressions": 62
+          "impressions": 63
+        },
+        {
+          "query": "si",
+          "clicks": 0,
+          "impressions": 4
         },
         {
           "query": "\"zurich\" surety",
@@ -61192,11 +61284,6 @@
         },
         {
           "query": "i want kitchen helper jobs in italian speaking switzerland.",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "si",
           "clicks": 0,
           "impressions": 3
         },
@@ -61281,7 +61368,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 113,
+      "totalImpressions": 115,
       "totalClicks": 1,
       "topQuery": "i need jobs in italian speaking switzerland in a restaurant kitchen with split shifts and a seasonal or permanent contract.",
       "title": "Restaurants",
@@ -64181,16 +64268,21 @@
       "locale": "fr",
       "path": "/fr/trouver-emploi-bale/secteurs/",
       "observedPaths": {
+        "it": "/cerca-lavoro-basilea/secteurs",
         "fr": "/fr/trouver-emploi-suisse/secteurs",
         "en": "/en/find-jobs-ticino/secteurs",
-        "de": "/de/jobs-im-tessin/secteurs",
-        "it": "/cerca-lavoro-ticino/secteurs"
+        "de": "/de/jobs-im-tessin/secteurs"
       },
       "queries": [
         {
           "query": "emploi uri",
           "clicks": 0,
           "impressions": 18
+        },
+        {
+          "query": "agence interim horlogerie bale",
+          "clicks": 0,
+          "impressions": 1
         },
         {
           "query": "suisse ue",
@@ -64208,7 +64300,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 21,
+      "totalImpressions": 22,
       "totalClicks": 0,
       "topQuery": "emploi uri",
       "title": "Secteurs",
@@ -74226,9 +74318,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-genossenschaft-bern",
-        "en": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-genossenschaft-bern",
-        "de": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-genossenschaft-bern",
-        "fr": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-genossenschaft-bern"
+        "en": "stv-managing-directors-region-visp-brig-zermatt-and-goms-coop-genossenschaft-bern",
+        "de": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-genossenschaft-bern",
+        "fr": "stv-directeurs-regionaux-viege-brig-zermatt-et-goms-coop-genossenschaft-bern"
       },
       "localePaths": {
         "it": "/cerca-lavoro-vallese/stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-genossenschaft-bern",
@@ -74242,6 +74334,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -74277,10 +74370,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "stv-rayonleiter-in-convenience-metzgerei-coop-genossenschaft-muri-ag",
-        "en": "stv-rayonleiter-in-convenience-metzgerei-coop-genossenschaft-muri-ag",
+        "it": "capo-del-negozio-di-cven-try-mutch-coop-genossenschaft-muri-ag",
+        "en": "head-of-the-cven-try-mutch-shop-coop-genossenschaft-muri-ag",
         "de": "stv-rayonleiter-in-convenience-metzgerei-coop-genossenschaft-muri-ag",
-        "fr": "stv-rayonleiter-in-convenience-metzgerei-coop-genossenschaft-muri-ag"
+        "fr": "chef-de-la-boutique-cven-try-mutch-coop-genossenschaft-muri-ag"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/stv-rayonleiter-in-convenience-metzgerei-coop-genossenschaft-muri-ag",
@@ -74294,6 +74387,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -80851,9 +80945,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "vendeur-denner-gossau-zh",
-        "en": "vendeur-denner-gossau-zh",
-        "de": "vendeur-denner-gossau-zh",
+        "it": "venditore-denner-gossau-zh",
+        "en": "shop-assistant-denner-gossau-zh",
+        "de": "verkaufer-in-denner-vxx2vp",
         "fr": "vendeur-denner-gossau-zh"
       },
       "localePaths": {
@@ -80868,6 +80962,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -81562,10 +81657,10 @@
         "fr": "vendeur-se-m-w-d-aldi-suisse-kreuzlingen-tagerwilerstrasse"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-turgovia/vendeur-se-m-w-d-aldi-suisse-kreuzlingen-tagerwilerstrasse",
-        "en": "/en/find-jobs-thurgau/vendeur-se-m-w-d-aldi-suisse-kreuzlingen-tagerwilerstrasse",
-        "de": "/de/jobs-im-thurgau/vendeur-se-m-w-d-aldi-suisse-kreuzlingen-tagerwilerstrasse",
-        "fr": "/fr/trouver-emploi-thurgovie/vendeur-se-m-w-d-aldi-suisse-kreuzlingen-tagerwilerstrasse"
+        "it": "/cerca-lavoro-zurigo/vendeur-se-m-w-d-aldi-suisse-kreuzlingen-tagerwilerstrasse",
+        "en": "/en/find-jobs-zurich/vendeur-se-m-w-d-aldi-suisse-kreuzlingen-tagerwilerstrasse",
+        "de": "/de/jobs-in-zurich/vendeur-se-m-w-d-aldi-suisse-kreuzlingen-tagerwilerstrasse",
+        "fr": "/fr/trouver-emploi-zurich/vendeur-se-m-w-d-aldi-suisse-kreuzlingen-tagerwilerstrasse"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -83731,10 +83826,10 @@
         "it": "venditore-non-alimentare-coop-genossenschaft-aarberg"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/venditore-non-alimentare-coop-genossenschaft-aarberg",
-        "en": "/en/find-jobs-aargau/venditore-non-alimentare-coop-genossenschaft-aarberg",
+        "it": "/cerca-lavoro-zurigo/venditore-non-alimentare-coop-genossenschaft-aarberg",
+        "en": "/en/find-jobs-zurich/venditore-non-alimentare-coop-genossenschaft-aarberg",
         "de": "/de/jobs-im-luzern/venditore-non-alimentare-coop-genossenschaft-aarberg",
-        "fr": "/fr/trouver-emploi-argovie/venditore-non-alimentare-coop-genossenschaft-aarberg"
+        "fr": "/fr/trouver-emploi-zurich/venditore-non-alimentare-coop-genossenschaft-aarberg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -84213,10 +84308,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-koniz",
-        "en": "verkaufer-in-food-coop-genossenschaft-koniz",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-koniz-74e4a9",
+        "en": "seller-food-coop-genossenschaft-koniz-74e4a9",
         "de": "verkaufer-in-food-coop-genossenschaft-koniz",
-        "fr": "verkaufer-in-food-coop-genossenschaft-koniz"
+        "fr": "aliments-pour-vendeurs-coop-genossenschaft-koniz-74e4a9"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/verkaufer-in-food-coop-genossenschaft-koniz",
@@ -84230,6 +84325,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -84579,10 +84675,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-genossenschaft-bachenbulach",
-        "en": "verkaufer-in-frischprodukte-coop-genossenschaft-bachenbulach",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-bachenbulach",
+        "en": "seller-fresh-products-coop-genossenschaft-bachenbulach",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-bachenbulach",
-        "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-bachenbulach"
+        "fr": "vendeur-de-produits-frais-coop-genossenschaft-bachenbulach"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/verkaufer-in-frischprodukte-coop-genossenschaft-bachenbulach",
@@ -84596,6 +84692,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -85005,10 +85102,10 @@
         "fr": "verkaufer-in-lebensmittel-coop-genossenschaft-lotzwil-74d81a"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/verkaufer-in-lebensmittel-coop-genossenschaft-lotzwil-74d81a",
-        "en": "/en/find-jobs-zurich/verkaufer-in-lebensmittel-coop-genossenschaft-lotzwil-74d81a",
-        "de": "/de/jobs-in-zurich/verkaufer-in-lebensmittel-coop-genossenschaft-lotzwil-74d81a",
-        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-lebensmittel-coop-genossenschaft-lotzwil-74d81a"
+        "it": "/cerca-lavoro-san-gallo/verkaufer-in-lebensmittel-coop-genossenschaft-lotzwil-74d81a",
+        "en": "/en/find-jobs-st-gallen/verkaufer-in-lebensmittel-coop-genossenschaft-lotzwil-74d81a",
+        "de": "/de/jobs-in-st-gallen/verkaufer-in-lebensmittel-coop-genossenschaft-lotzwil-74d81a",
+        "fr": "/fr/trouver-emploi-saint-gall/verkaufer-in-lebensmittel-coop-genossenschaft-lotzwil-74d81a"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

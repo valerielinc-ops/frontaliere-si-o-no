@@ -238,7 +238,10 @@ export async function fetchAllVillaImParkJobs() {
       });
     } catch (err) {
       console.warn(`⚠️ SmartRecruiters list fetch failed (offset=${offset}): ${err?.message || err}`);
-      break;
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     }
     totalFound = Number(data?.totalFound) || 0;
     const content = assertJsonListShape(data, { key: 'content', source: 'villa-im-park' });

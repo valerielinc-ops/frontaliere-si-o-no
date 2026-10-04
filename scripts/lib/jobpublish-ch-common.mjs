@@ -306,7 +306,10 @@ export function createJobpublishChParser(config) {
       xml = await fetchJobpublishFeedXml(jobpublishTenant);
     } catch (err) {
       console.warn(`⚠️ JobPublish feed fetch failed: ${err?.message || err}`);
-      return [];
+      // A fetch failure is not an empty listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a cause-less no-jobs-parsed abort.
+      throw err;
     }
     const feed = parseJobpublishFeed(xml);
     if (!feed.length) {
