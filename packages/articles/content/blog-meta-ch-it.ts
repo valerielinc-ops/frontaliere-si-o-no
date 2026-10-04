@@ -7691,6 +7691,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.edilizia-zurigo-permesso-iter.title': 'Autorizzazione edilizia Canton Zurigo: requisiti e procedura',
     'blog.article.edilizia-zurigo-permesso-iter.excerpt': 'Nel Canton Zurigo l\'autorizzazione edilizia coinvolge comune e cantone: requisiti, documenti, opposizioni e ricorsi. I lavori iniziano solo dopo il permesso.',
     'blog.article.edilizia-zurigo-permesso-iter.imageAlt': 'Documenti e piani per un\'autorizzazione edilizia in Svizzera',
+    'blog.article.axa-ue-svizzera-posizione.title': 'Bilaterali UE, il CEO AXA: «importanti, non decisivi»',
+    'blog.article.axa-ue-svizzera-posizione.excerpt': 'Thomas Buberl, CEO di AXA, considera gli accordi bilaterali con l\'UE importanti ma non decisivi per la posizione della Svizzera in Europa.',
+    'blog.article.axa-ue-svizzera-posizione.imageAlt': 'Veduta di Lugano e del paesaggio svizzero in una giornata luminosa.',
 };
 
 export default blogMetaChIt;
