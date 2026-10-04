@@ -275,7 +275,7 @@ describe('eventLd source attribution (#3125)', () => {
   });
 
   it('emits verified price fields for a free event', () => {
-    const freeEvent = { ...EVENT, price: { amount: null, currency: 'CHF', isFree: true } };
+    const freeEvent = { ...EVENT, price: { amount: null, currency: 'CHF', isFree: true, priceSource: 'guidle', priceField: 'isAccessibleForFree' } };
     const ld = eventLd(freeEvent as never, 'it') as Record<string, any>;
     expect(ld.offers).toMatchObject({
       '@type': 'Offer',
@@ -288,7 +288,7 @@ describe('eventLd source attribution (#3125)', () => {
   });
 
   it('emits verified price fields for a paid event', () => {
-    const paidEvent = { ...EVENT, price: { amount: 25, currency: 'CHF', isFree: false } };
+    const paidEvent = { ...EVENT, price: { amount: 25, currency: 'CHF', isFree: false, priceSource: 'myswitzerland', priceField: 'offers.price' } };
     const ld = eventLd(paidEvent as never, 'it') as Record<string, any>;
     expect(ld.offers.price).toBe(25);
     expect(ld.offers.priceCurrency).toBe('CHF');
@@ -733,7 +733,7 @@ describe('renderEventDetailPage nationwide fields (#3125 Task C)', () => {
     ...EVENT,
     id: 'guidle:rich',
     description: 'Descrizione reale raccolta dal crawler, con dettagli sul programma della serata.',
-    price: { amount: 25, currency: 'CHF', isFree: false },
+    price: { amount: 25, currency: 'CHF', isFree: false, priceSource: 'guidle', priceField: 'offers.price' },
     address: { street: 'Piazza Bernardino Luini 6', postalCode: '6900' },
     geo: { lat: 46.005, lng: 8.951 },
     recurring: true,
@@ -786,7 +786,7 @@ describe('renderEventDetailPage nationwide fields (#3125 Task C)', () => {
   });
 
   it('renders "Gratis" for a free event', () => {
-    const freeEvent = { ...EVENT, id: 'guidle:free', price: { amount: null, currency: 'CHF', isFree: true } };
+    const freeEvent = { ...EVENT, id: 'guidle:free', price: { amount: null, currency: 'CHF', isFree: true, priceSource: 'guidle', priceField: 'isAccessibleForFree' } };
     const freePage = renderEventDetailPage({
       locale: 'it',
       event: freeEvent as never,
