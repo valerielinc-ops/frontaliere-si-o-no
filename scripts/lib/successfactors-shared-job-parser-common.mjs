@@ -198,13 +198,8 @@ export function parseCsbSearchResults(html) {
     // CC[,…]"). Cells have already had the marker stripped, so compare them
     // with the equally stripped title to avoid electing a title cell.
     const dateCell = rowHtml.match(/<td[^>]*class=["'][^"']*\b(?:colDate|jobDate)\b[^"']*["'][^>]*>([\s\S]*?)<\/td>/i);
-    const positionalDateCell = cells.length >= 3 ? cells.at(-1) : null;
-    const positionalDate = positionalDateCell && !/\bdeadline\b/i.test(positionalDateCell.className)
-      ? positionalDateCell.raw
-      : '';
-    const publication = successFactorsPostingDateFields(
-      dateCell ? decodeEntities(normalizeSpace(stripHtml(dateCell[1]))) : positionalDate,
-    );
+    // Cell position does not identify publication: it may contain an application deadline.
+    const publication = successFactorsPostingDateFields(dateCell ? decodeEntities(normalizeSpace(stripHtml(dateCell[1]))) : '');
     for (const cell of cells) {
       if (
         !location
