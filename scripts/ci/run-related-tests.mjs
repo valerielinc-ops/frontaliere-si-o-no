@@ -161,6 +161,19 @@ const sourceTreeLintTests = new Map([
   // run del crawler e' morta con ERR_MODULE_NOT_FOUND. Il perimetro e' un
   // path, non un import; il test verifica che la chiusura dei job ci stia.
   ['tests/seo/bing-seo-loop-sparse-closure.test.ts', /^(?:scripts|build-plugins\/shared|packages\/articles\/engine)\/|^\.github\/workflows\/bing-seo-loop\.yml$/],
+  // Grafo di `vite.config.ts`: i due test lo percorrono da disco (walker AST
+  // ed esbuild come lo usa Vite) e non importano i moduli che giudicano. La
+  // PR 11327 ha fatto importare a `build-plugins/shared/authorEditorial.ts`
+  // `services/seo/seo-authors.ts`, che usava `@/data/authors`: il walker
+  // esisteva e falliva, ma il diff non lo selezionava, e la CI delle PR non
+  // carica mai il config. Il deploy e' rimasto fermo dal 03-10 16:59Z. Il
+  // perimetro copre le cartelle da cui il grafo prende moduli oggi (esbuild ~0,4 s).
+  // `tsconfig.json` resta fuori: un alias nuovo diventa un rischio solo quando
+  // un sorgente lo usa, e quel sorgente e' gia' nel perimetro.
+  ...['tests/vite-config-import-graph.test.ts', 'tests/vite-config-graph-no-alias.test.ts'].map((test) => [
+    test,
+    /^(?:vite\.config\.ts|constants\.ts|(?:build-plugins|services|scripts|components|data|functions|infra|packages\/articles)\/.+\.(?:[mc]?[jt]sx?))$/,
+  ]),
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint

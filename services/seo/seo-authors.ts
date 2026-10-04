@@ -11,7 +11,7 @@
  * `knowsAbout` populated from {@link Author.expertise}.
  */
 
-import { AUTHORS, getAuthorBySlug, type Author } from '@/data/authors';
+import { AUTHORS, getAuthorBySlug, type Author } from '../../data/authors';
 import { localizeAuthor } from '../../data/authorLocales';
 import { ORGANIZATION_ID } from './organizationLd';
 
