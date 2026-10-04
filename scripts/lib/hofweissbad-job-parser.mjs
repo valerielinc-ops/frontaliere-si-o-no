@@ -36,6 +36,7 @@
  * - isTrustedDomain() — Validate URLs belong to the company / jobs.ch
  * - HOFWEISSBAD_KEY / HOFWEISSBAD_COMPANY_NAME / HOFWEISSBAD_COMPANY_DOMAIN
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
@@ -52,7 +53,6 @@ import { decodeEntities } from './hospital-custom-html-helpers.mjs';
 export const HOFWEISSBAD_KEY = 'hofweissbad';
 export const HOFWEISSBAD_COMPANY_NAME = 'Resort Hof Weissbad';
 export const HOFWEISSBAD_COMPANY_DOMAIN = 'hofweissbad.ch';
-
 
 // Known jobs.ch company profile for Hof Weissbad AG. The older numeric
 // `134218-hof-weissbad-ag` slug 301-redirects to this canonical UUID one —
@@ -249,12 +249,6 @@ export async function fetchAllHofweissbadJobs({ fetchPage = fetchHtml } = {}) {
       ? posting.employmentType[0]
       : posting.employmentType;
 
-    const postedDate = (() => {
-      const raw = posting.datePosted;
-      if (!raw) return new Date().toISOString().slice(0, 10);
-      const d = new Date(raw);
-      return Number.isNaN(d.getTime()) ? new Date().toISOString().slice(0, 10) : d.toISOString().slice(0, 10);
-    })();
 
     let validThrough;
     if (posting.validThrough) {
@@ -298,7 +292,7 @@ export async function fetchAllHofweissbadJobs({ fetchPage = fetchHtml } = {}) {
       sector: 'Hôtellerie / Sanità',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...sourcePostingDateFields(posting.datePosted),
       ...(validThrough ? { validThrough } : {}),
       applyUrl: sourceUrl,
       requirements: [],
