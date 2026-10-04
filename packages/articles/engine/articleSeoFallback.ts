@@ -157,6 +157,18 @@ const canonicalLegacyAngleNavAction = (action: string): string | null => {
  return LEGACY_ANGLE_NAV_ACTIONS.has(normalized) ? normalized : null;
 };
 
+// An unmatched opening marker is removable only when it is a complete,
+// content-free token. If text or another tag follows it, it may be an opening
+// tag whose closing marker was lost; preserving that sequence avoids changing
+// indexed article copy. Closing markers are never standalone cleanup tokens.
+const isStandaloneLegacyAngleNavOpening = (line: string, start: number, end: number): boolean => {
+ const previous = line[start - 1];
+ if (previous && !(/[\s]/u.test(previous) || '([{\"\'`'.includes(previous))) return false;
+
+ const nextContent = line.slice(end).match(/\S/u)?.[0];
+ return !nextContent || /[.,!?;:)\]}]/u.test(nextContent);
+};
+
 /** Convert only the observed legacy angle aliases to the supported nav marker. */
 const normalizeLegacyAngleNavMarkers = (line: string): string => {
  const protectedResult = protectMismatchedAngleNavSequences(line);
@@ -179,11 +191,12 @@ const normalizeLegacyAngleNavMarkers = (line: string): string => {
   canonicalLegacyAngleNavAction(action) ? '' : whole
  ));
 
- // Only tokens left outside protected malformed sequences reach this cleanup;
- // an allowlisted token is therefore safe to remove only when it is standalone.
- normalized = normalized.replace(ANGLE_NAV_TOKEN_RX, (whole, action: string) => (
-  canonicalLegacyAngleNavAction(action) ? '' : whole
- ));
+ // Only a content-free opening token is safe to remove. An unmatched opening
+ // before prose (or any closing token) is ambiguous and must remain verbatim.
+ normalized = normalized.replace(ANGLE_NAV_TOKEN_RX, (whole, action: string, offset: number, source: string) => {
+  if (!canonicalLegacyAngleNavAction(action) || whole.startsWith('</')) return whole;
+  return isStandaloneLegacyAngleNavOpening(source, offset, offset + whole.length) ? '' : whole;
+ });
 
  return normalized.replace(/\u0000legacy-angle-nav-sequence-(\d+)\u0000/g, (_, index: string) => (
   protectedSequences[Number(index)] ?? _
