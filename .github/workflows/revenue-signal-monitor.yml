@@ -37,7 +37,7 @@ on:
   workflow_dispatch:
     inputs:
       current_hour:
-        description: 'Replay: hour to evaluate as YYYYMMDDHH (Europe/Zurich). Empty = now.'
+        description: 'Replay: hour to evaluate as YYYYMMDDHH (Europe/Zurich). Empty = now. A replay writes only the JSON and the summary, never an issue.'
         required: false
         default: ''
         type: string
@@ -131,15 +131,17 @@ jobs:
             } >> "$GITHUB_STEP_SUMMARY"
           fi
 
+      # A replay (current_hour set) never touches the issue: the hourly runs
+      # judge the real hour, so nothing would resolve an issue a replay opened.
       - name: Open or update the revenue issue
-        if: steps.monitor.outputs.status == 'alarm'
+        if: steps.monitor.outputs.status == 'alarm' && github.event.inputs.current_hour == ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           node scripts/lib/github-issue-creator.mjs \
             --title "Revenue ads: segnali orari sotto la baseline IT+CH" \
-            --description "$(cat revenue-signals-issue.md)" \
+            --description-file revenue-signals-issue.md \
             --priority 1 \
             --label Bug \
             --label revenue \
@@ -149,7 +151,7 @@ jobs:
       # Closing half: only after 24 consecutive runs without an alarm, so the
       # backlog has a day to verify the cause (a fixer may close it earlier).
       - name: Resolve the revenue issue after recovery
-        if: steps.monitor.outputs.status == 'recovered'
+        if: steps.monitor.outputs.status == 'recovered' && github.event.inputs.current_hour == ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
