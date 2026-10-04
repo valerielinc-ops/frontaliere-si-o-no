@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join, resolve } from 'node:path';
+import { spawnSync } from 'node:child_process';
 import {
   auditEvergreen,
   isDatedAnnouncement,
@@ -209,5 +211,217 @@ describe('the audit issue is one issue, with instructions that exist', () => {
 
   it('surfaces the dated-announcement exclusions instead of hiding the drop', () => {
     expect(WORKFLOW).toContain('datedExcludedCount');
+  });
+});
+
+/**
+ * NX-EG-02 (issue 7295). Category says where an article is filed, not whether
+ * it is evergreen: half of a hand-checked stale sample was cronaca filed under
+ * `pratico`/`fiscale`. The registry now carries `articleType` and `verifiedAt`,
+ * and the audit must use them WITHOUT losing anything in silence:
+ *   - typed news leaves the pool but is LISTED (`newsExcluded`);
+ *   - an untyped article stays in the pool and in `stale`
+ *     (`staleByType.unclassified`) — dropping the untyped stock would be an
+ *     alarm switched off, not a classification;
+ *   - a verified-and-unchanged article leaves the list via `verifiedAt`, never
+ *     via a date bump, and a `verifiedAt` from the future clears nothing.
+ */
+describe('auditEvergreen with articleType and verifiedAt', () => {
+  const NOW = new Date('2026-08-05T00:00:00Z');
+  const monthsAgo = (n: number) => {
+    const d = new Date(NOW);
+    d.setUTCMonth(d.getUTCMonth() - n);
+    return d.toISOString().slice(0, 10);
+  };
+  const monthsAhead = (n: number) => monthsAgo(-n);
+
+  type Row = { id: string; [k: string]: unknown };
+  const ids = (rows: Row[]) => rows.map((a) => a.id);
+  const byId = (rows: Row[], id: string) => rows.find((a) => a.id === id);
+
+  const ARTICLES = [
+    { id: 'ristorni-scontro-berna', category: 'pratico', date: monthsAgo(9), articleType: 'news' },
+    { id: 'permesso-g-guida', category: 'pratico', date: monthsAgo(10), articleType: 'evergreen' },
+    { id: 'lamal-vs-cmi', category: 'fiscale', date: monthsAgo(11) },
+    { id: 'aliquote-fonte', category: 'fiscale', date: monthsAgo(12), verifiedAt: monthsAgo(1) },
+    { id: 'riscatto-pilastro', category: 'pensione', date: monthsAgo(14), updatedAt: monthsAgo(8) },
+    {
+      id: 'tredicesima-avs',
+      category: 'pensione',
+      date: monthsAgo(15),
+      updatedAt: monthsAgo(2),
+      verifiedAt: monthsAgo(13),
+    },
+    { id: 'cambio-franco-euro', category: 'fiscale', date: monthsAgo(9), verifiedAt: monthsAhead(2) },
+    { id: 'chiusure-sportelli-31-12-2025', category: 'pratico', date: monthsAgo(8), articleType: 'news' },
+    { id: 'cronaca-del-giorno', category: 'novita', date: monthsAgo(24), articleType: 'news' },
+  ];
+  const inEvergreenCategory = ARTICLES.filter((a) =>
+    ['fiscale', 'pratico', 'pensione'].includes(a.category),
+  ).length;
+
+  it('excludes typed news from the pool but lists it', () => {
+    const r = auditEvergreen(ARTICLES, NOW);
+    expect(ids(r.stale)).not.toContain('ristorni-scontro-berna');
+    expect(ids(r.newsExcluded)).toEqual(['ristorni-scontro-berna']);
+    expect(r.newsExcludedCount).toBe(1);
+    expect(byId(r.newsExcluded, 'ristorni-scontro-berna')).toMatchObject({
+      category: 'pratico',
+      date: monthsAgo(9),
+    });
+  });
+
+  it('keeps a typed evergreen article stale and says it is typed', () => {
+    const r = auditEvergreen(ARTICLES, NOW);
+    expect(byId(r.stale, 'permesso-g-guida')).toMatchObject({
+      articleType: 'evergreen',
+      freshnessSource: 'date',
+    });
+    expect(r.staleByType.evergreen).toBe(1);
+  });
+
+  it('keeps an untyped article in stale, counted as unclassified', () => {
+    const only = [{ id: 'lamal-vs-cmi', category: 'fiscale', date: monthsAgo(11) }];
+    const r = auditEvergreen(only, NOW);
+    expect(r.stale).toHaveLength(only.length);
+    expect(byId(r.stale, 'lamal-vs-cmi')).toMatchObject({ articleType: null });
+    expect(r.staleByType.unclassified).toBe(1);
+    expect(r.staleCount).toBe(1);
+  });
+
+  it('lets a recent verifiedAt clear an old article that has no updatedAt', () => {
+    const r = auditEvergreen(ARTICLES, NOW);
+    expect(ids(r.stale)).not.toContain('aliquote-fonte');
+  });
+
+  it('reports updatedAt as the freshness source when it is the latest date', () => {
+    const r = auditEvergreen(ARTICLES, NOW);
+    expect(byId(r.stale, 'riscatto-pilastro')).toMatchObject({
+      freshnessSource: 'updatedAt',
+      updatedAt: monthsAgo(8),
+      ageMonths: 8,
+    });
+  });
+
+  it('never lets an older verifiedAt regress a newer updatedAt (maximum, not override)', () => {
+    const r = auditEvergreen(ARTICLES, NOW);
+    expect(ids(r.stale)).not.toContain('tredicesima-avs');
+  });
+
+  it('ignores a verifiedAt from the future and reports it', () => {
+    const r = auditEvergreen(ARTICLES, NOW);
+    expect(byId(r.stale, 'cambio-franco-euro')).toMatchObject({ freshnessSource: 'date' });
+    expect(r.invalidVerifiedAt).toEqual(['cambio-franco-euro']);
+  });
+
+  it('accounts for every article in an evergreen category exactly once', () => {
+    const r = auditEvergreen(ARTICLES, NOW);
+    expect(r.totalEvergreen + r.datedExcludedCount + r.newsExcludedCount).toBe(inEvergreenCategory);
+    expect(r.staleByType.evergreen + r.staleByType.unclassified).toBe(r.staleCount);
+    expect(r.stale).toHaveLength(r.staleCount);
+    // A dated slug that is also typed news is counted once, as dated.
+    expect(ids(r.datedExcluded)).toContain('chiusure-sportelli-31-12-2025');
+    expect(ids(r.newsExcluded)).not.toContain('chiusure-sportelli-31-12-2025');
+  });
+
+  it('keeps an article with no usable date on the list instead of calling it fresh', () => {
+    const r = auditEvergreen([{ id: 'senza-data', category: 'pratico', date: 'non-una-data' }], NOW);
+    expect(byId(r.stale, 'senza-data')).toMatchObject({ freshnessSource: null, ageMonths: null });
+  });
+
+  it('keeps the keys that consumers already read on every stale entry', () => {
+    const r = auditEvergreen(ARTICLES, NOW);
+    for (const entry of r.stale) {
+      expect(Object.keys(entry)).toEqual(
+        expect.arrayContaining(['id', 'category', 'date', 'updatedAt', 'ageMonths']),
+      );
+    }
+  });
+});
+
+describe('the audit issue carries counts, not a checklist to decompose', () => {
+  it('reports the typed counts and protects the tracker from age-out', () => {
+    expect(WORKFLOW).toContain('newsExcludedCount');
+    expect(WORKFLOW).toContain('unclassified');
+    expect(WORKFLOW).toContain('--label agent:no-age-out');
+    expect(WORKFLOW).toContain('gh label create "agent:no-age-out"');
+  });
+
+  it('no longer pastes every stale slug as a checklist', () => {
+    expect(WORKFLOW).not.toContain('.stale[] | "- [ ]');
+    expect(WORKFLOW).toContain('.[:15]');
+    expect(WORKFLOW).toContain('actions/upload-artifact@');
+    expect(WORKFLOW).toContain('path: audit-result.json');
+  });
+
+  it('points at the corpus refresh path instead of saying there is none', () => {
+    expect(WORKFLOW).not.toContain('There is no automated path today');
+    expect(WORKFLOW).toContain('data/evergreen-verifications.json');
+    expect(WORKFLOW).toContain('label%3Aevergreen-refresh');
+  });
+});
+
+describe('audit CLI', () => {
+  const SCRIPT = resolve(ROOT, 'scripts/audit-evergreen-articles.mjs');
+  const NOW_ISO = '2026-08-05T00:00:00Z';
+  const old = (months: number) => {
+    const d = new Date(NOW_ISO);
+    d.setUTCMonth(d.getUTCMonth() - months);
+    return d.toISOString();
+  };
+  const REGISTRY = `export const ARTICLES: Article[] = [
+  { id: 'guida-permesso', category: 'pratico', date: '${old(9)}', articleType: 'evergreen' },
+  { id: 'cronaca', category: 'pratico', date: '${old(9)}', articleType: 'news' },
+  { id: 'non-tipizzato', category: 'fiscale', date: '${old(9)}' },
+];
+`;
+  const run = (args: string[]) =>
+    spawnSync(process.execPath, [SCRIPT, ...args], { encoding: 'utf-8' });
+
+  const withRegistry = <T>(fn: (dir: string, file: string) => T): T => {
+    const dir = mkdtempSync(join(tmpdir(), 'evergreen-audit-'));
+    try {
+      const file = join(dir, 'registry.ts');
+      writeFileSync(file, REGISTRY);
+      return fn(dir, file);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  };
+
+  it('reads --registry and --now and prints the typed counts', () => {
+    withRegistry((_dir, file) => {
+      const res = run([`--registry=${file}`, `--now=${NOW_ISO}`]);
+      expect(res.status).toBe(0);
+      const out = JSON.parse(res.stdout);
+      expect(out.staleByType).toEqual({ evergreen: 1, unclassified: 1 });
+      expect(out.newsExcludedCount).toBe(1);
+      expect(out.totalEvergreen + out.newsExcludedCount + out.datedExcludedCount).toBe(3);
+    });
+  });
+
+  it('still prints when run through a symlinked path', () => {
+    // argv[1] keeps the symlink, import.meta.url resolves it: compared
+    // literally, the script exited 0 with no output (macOS /tmp, /var).
+    withRegistry((dir, file) => {
+      const link = join(dir, 'audit-link.mjs');
+      symlinkSync(SCRIPT, link);
+      const res = spawnSync(process.execPath, [link, `--registry=${file}`, `--now=${NOW_ISO}`], {
+        encoding: 'utf-8',
+      });
+      expect(res.status).toBe(0);
+      expect(JSON.parse(res.stdout).staleCount).toBe(2);
+    });
+  });
+
+  it('rejects an invalid --now and a missing --registry', () => {
+    withRegistry((dir, file) => {
+      const badNow = run([`--registry=${file}`, '--now=non-una-data']);
+      expect(badNow.status).not.toBe(0);
+      expect(badNow.stderr).toContain('--now');
+      const missing = run([`--registry=${join(dir, 'inesistente.ts')}`, `--now=${NOW_ISO}`]);
+      expect(missing.status).not.toBe(0);
+      expect(missing.stderr).toContain('--registry');
+    });
   });
 });
