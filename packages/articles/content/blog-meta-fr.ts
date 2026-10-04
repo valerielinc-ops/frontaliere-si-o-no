@@ -12483,6 +12483,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incendio-asso-corda-doppia.title': 'Incendie à Asso : manœuvre sur corde double dans la gorge',
     'blog.article.incendio-asso-corda-doppia.excerpt': 'Incendie de végétation à Asso : les sapeurs-pompiers et le SAF sont intervenus dans une gorge. Environ 100 mètres carrés endommagés.',
     'blog.article.incendio-asso-corda-doppia.imageAlt': 'Pompiers au travail dans une gorge escarpée lors d\'un feu de végétation à Asso',
+    'blog.article.arresto-luino-46enne-violenza-familiare.title': 'Luino : un homme de 46 ans arrêté pour violences et mauvais traitements',
+    'blog.article.arresto-luino-46enne-violenza-familiare.excerpt': 'Les carabiniers de Luino mettent à exécution une mesure de placement en détention provisoire sur ordre du juge des enquêtes préliminaires de Varese. Une arbalète a été trouvée au domicile.',
+    'blog.article.arresto-luino-46enne-violenza-familiare.imageAlt': 'Arbalète saisie par les Carabinieri à Luino lors d\'une opération pour violences conjugales',
 };
 
 export default blogMetaFr;

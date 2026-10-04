@@ -12480,6 +12480,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incendio-asso-corda-doppia.title': 'Brand in Asso: Doppelseilmanöver in der Schlucht',
     'blog.article.incendio-asso-corda-doppia.excerpt': 'Vegetationsbrand in Asso: Feuerwehr und SAF waren in einer Schlucht im Einsatz. Etwa 100 Quadratmeter beschädigt.',
     'blog.article.incendio-asso-corda-doppia.imageAlt': 'Feuerwehrleute arbeiten in einer unwegsamen Schlucht bei einem Vegetationsbrand in Asso',
+    'blog.article.arresto-luino-46enne-violenza-familiare.title': 'Luino: 46-Jähriger wegen Gewalt und Misshandlungen festgenommen',
+    'blog.article.arresto-luino-46enne-violenza-familiare.excerpt': 'Carabinieri von Luino vollziehen eine Untersuchungshaft auf Anordnung des GIP von Varese. Armbrust im Haus gefunden.',
+    'blog.article.arresto-luino-46enne-violenza-familiare.imageAlt': 'Armbrust, die von den Carabinieri in Luino bei einer häuslichen Gewalt ermittelt wurde',
 };
 
 export default blogMetaDe;

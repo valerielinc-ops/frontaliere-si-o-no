@@ -12482,6 +12482,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incendio-asso-corda-doppia.title': 'Incendio ad Asso: manovra su corda doppia nella gola',
     'blog.article.incendio-asso-corda-doppia.excerpt': 'Incendio nella vegetazione ad Asso: Vigili del Fuoco e SAF hanno operato in una gola. Danneggiati circa 100 metri quadrati.',
     'blog.article.incendio-asso-corda-doppia.imageAlt': 'Vigili del Fuoco al lavoro in una gola impervia durante un incendio della vegetazione ad Asso',
+    'blog.article.arresto-luino-46enne-violenza-familiare.title': 'Luino: arrestato 46enne per violenze e maltrattamenti',
+    'blog.article.arresto-luino-46enne-violenza-familiare.excerpt': 'Carabinieri di Luino eseguono misura cautelare in carcere su ordine del GIP di Varese. Trovata balestra in casa.',
+    'blog.article.arresto-luino-46enne-violenza-familiare.imageAlt': 'Balestra a fucile sequestrata dai Carabinieri a Luino durante un\'operazione per violenze in famiglia',
 };
 
 export default blogMetaIt;

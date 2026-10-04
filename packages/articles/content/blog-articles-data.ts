@@ -37430,6 +37430,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'arresto-luino-46enne-violenza-familiare',
+ category: 'novita',
+ date: '2026-10-04T02:36:56.965Z',
+ image: '/images/blog/arresto-luino-46enne-violenza-familiare.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
