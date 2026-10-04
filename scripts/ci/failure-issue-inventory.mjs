@@ -36,9 +36,16 @@
  *   3. Uno step gemello `--resolve` (o questa stessa composite action con
  *      `mode: resolve`) NELLO STESSO workflow, con titolo IDENTICO — modello
  *      `rpm-canary.yml`, step "Resolve open issue on green".
+ *   4. `scripts/ci/scan-job-timeouts.mjs --resolve` — chiude i
+ *      `CI Failure (<evento>): <workflow>` che lo scanner dei timeout conia per
+ *      una run fuori da `main` (`SCOPED_TIMEOUT_TITLE_RE`, eventi in elenco
+ *      chiuso), SOLO se il body porta la firma dello scanner: un opener di
+ *      workflow con quella forma di titolo non la porta, e non lo chiude
+ *      nessuno. Gli opener lato script non sono nell'inventario dei workflow:
+ *      il loro accoppiamento lo enumera `scriptReporterCoverage()`.
  *
- * Non ce ne sono altri. Se un titolo non ricade in nessuno dei tre, nessuno lo
- * chiude: è un fatto, non una stima.
+ * Non ce ne sono altri. Se un titolo non ricade in nessuno dei quattro, nessuno
+ * lo chiude: è un fatto, non una stima.
  *
  * ─── Cosa NON vede (dichiarato, non nascosto) ────────────────────────────
  *
@@ -66,6 +73,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { TITLE_RE } from './close-recovered-failure-issues.mjs';
 import { TITLE_PREFIX } from './report-validate-dist-failure.mjs';
+import { JOB_TIMEOUT_REPORT_SIGNATURE, SCOPED_TIMEOUT_TITLE_RE } from './scan-job-timeouts.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -367,10 +375,66 @@ export function coverageOf(opener, record) {
   if (opener.title.startsWith(TITLE_PREFIX.trimEnd())) {
     return { by: 'report-validate-dist-failure' };
   }
+  if (SCOPED_TIMEOUT_TITLE_RE.test(opener.title)) {
+    // `--resolve` esamina solo le issue con la firma dello scanner nel body.
+    // Un opener che non la dichiara SEMBRA coperto dalla forma del titolo e non
+    // si chiude: lo stesso caso peggiore del nome che `gh run list` non risolve.
+    if (opener.signature === JOB_TIMEOUT_REPORT_SIGNATURE) return { by: SCOPED_TIMEOUT_CLOSER };
+    return {
+      by: SCOPED_TIMEOUT_CLOSER,
+      detail: `titolo della famiglia \`CI Failure (<evento>)\` senza la firma \`${JOB_TIMEOUT_REPORT_SIGNATURE}\` nel body → \`--resolve\` non la tocca`,
+    };
+  }
   if (record.closers.some((c) => c.title === opener.title)) {
     return { by: 'sibling-resolve-step' };
   }
   return null;
+}
+
+/** Il nome del quarto chiuditore, come compare in `coverageOf(...).by`. */
+export const SCOPED_TIMEOUT_CLOSER = 'scan-job-timeouts-resolve';
+
+/**
+ * Gli opener LATO SCRIPT di cui l'accoppiamento è comunque enumerabile: titolo
+ * computato (quindi fuori dal parser dei workflow), ma chiuditore nello stesso
+ * script, attivato da un flag nello stesso workflow che lo apre.
+ */
+export const SCRIPT_REPORTERS = Object.freeze([
+  Object.freeze({
+    script: 'scripts/ci/scan-job-timeouts.mjs',
+    closer: SCOPED_TIMEOUT_CLOSER,
+    resolveFlag: '--resolve',
+    signature: JOB_TIMEOUT_REPORT_SIGNATURE,
+  }),
+]);
+
+/**
+ * Per ogni reporter lato script: gli step di workflow che lo eseguono per APRIRE
+ * e quelli che lo eseguono col flag di chiusura. Un reporter con opener ma senza
+ * closer nello stesso file apre issue che nessuno chiude — il test lo vieta.
+ *
+ * @returns {{ script: string, closer: string, openers: string[], closers: string[] }[]}
+ */
+export function scriptReporterCoverage(dir = WORKFLOWS_DIR) {
+  const files = fs.readdirSync(dir).filter((f) => /\.ya?ml$/.test(f)).sort();
+  return SCRIPT_REPORTERS.map((reporter) => {
+    const openers = [];
+    const closers = [];
+    const escaped = reporter.script.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    // `node <script> <argomenti fino a fine riga>`: gli argomenti dicono se apre o chiude.
+    const invocation = new RegExp(`\\bnode\\s+${escaped}\\b([^\\n]*)`, 'g');
+    for (const file of files) {
+      const source = fs.readFileSync(path.join(dir, file), 'utf8');
+      for (const block of stepBlocks(source)) {
+        for (const m of block.text.matchAll(invocation)) {
+          const where = `${file}:${block.line}`;
+          if (m[1].split(/\s+/).includes(reporter.resolveFlag)) closers.push(where);
+          else openers.push(where);
+        }
+      }
+    }
+    return { script: reporter.script, closer: reporter.closer, openers, closers };
+  });
 }
 
 /** Ogni opener failure-gated, con il suo chiuditore (o `null`). */
