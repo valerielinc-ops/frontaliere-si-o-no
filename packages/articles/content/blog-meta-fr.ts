@@ -12504,6 +12504,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.festa-cairate-2026-monastero.title': 'Fête de Cairate 2026 : art, saveurs et musique au monastère',
     'blog.article.festa-cairate-2026-monastero.excerpt': 'Dimanche 4 octobre 2026 à partir de 10h, la seizième Fête de Cairate se déroule au Monastère de Santa Maria Assunta avec Camminar Gustando (carte 10 € ) et concert le samedi 3 octobre à 21h.',
     'blog.article.festa-cairate-2026-monastero.imageAlt': 'Cloître du monastère de Santa Maria Assunta pendant la fête de Cairate avec stands de nourriture et musique',
+    'blog.article.maga-giornata-contemporaneo.title': 'Au MA*GA de gallarate la journée du contemporain',
+    'blog.article.maga-giornata-contemporaneo.excerpt': 'Samedi 10 octobre au Musée MA*GA de Gallarate entrée gratuite, finissage de trois expositions, livres, vidéos et performances pour la XXIIe Journée du Contemporain.',
+    'blog.article.maga-giornata-contemporaneo.imageAlt': 'Le musée MA*GA de Gallarate pour la Journée de l’art contemporain',
 };
 
 export default blogMetaFr;
