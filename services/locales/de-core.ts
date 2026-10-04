@@ -3003,8 +3003,6 @@ Regeln:
 
  'seoContent.confronti.title': 'Vergleiche und Komparatoren für Grenzgänger',
  'seoContent.confronti.subtitle': 'Vergleichen Sie Versicherungen, Banken, Hypotheken, Lebenshaltungskosten und Wechselkurse für fundierte Entscheidungen.',
- 'seoContent.confronti.expertQuote': 'Die Wahl zwischen KVG und dem italienischen SSN kann über CHF 3.000 pro Jahr sparen — abhängig von Familienzusammensetzung, Einkommen und italienischer Wohngemeinde.',
- 'seoContent.confronti.expertName': 'Laura Mantovani, KVG-Versicherungsberaterin für Grenzgänger',
  'seoContent.confronti.feature1.title': 'KVG-Versicherung',
  'seoContent.confronti.feature1.desc': 'Vergleichen Sie 14 Schweizer Krankenversicherer mit realen Prämien.',
  'seoContent.confronti.feature2.title': 'CHF-EUR Wechsel',
