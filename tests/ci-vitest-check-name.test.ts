@@ -455,7 +455,12 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
     expect(TESTS_YML).toContain('/REVIEW.md');
     expect(TESTS_YML).toContain('/AGENTS.md');
     expect(TESTS_YML).toContain('/firestore.rules');
-    expect(TESTS_YML).toContain('/docs/preferred-sources-checklist.md');
+    // Tutti i markdown di docs/, compreso docs/preferred-sources-checklist.md:
+    // i test li leggono a runtime e un carve-out per file arrivava sempre dopo
+    // il primo ENOENT in CI.
+    expect(TESTS_YML).toContain('/docs/**/*.md');
+    // Non l'intera cartella: 140 MB su 142,8 sono artefatti di docs/newsletter-qa.
+    expect(TESTS_YML).not.toMatch(/^\s+\/docs\/\s*$/m);
     expect(TESTS_YML).toContain('/packages/articles/content/blog-body/*/assistente-ai-frontalieri.ts');
     expect(TESTS_YML).toContain('hard repository-tool budget');
   });
