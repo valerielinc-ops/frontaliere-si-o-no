@@ -40,7 +40,11 @@ export function renderAuthorRosterItems(locale: AuthorLocale, itemClass: string,
   return AUTHORS.map(source => {
     const author = localizeAuthor(source, locale);
     const href = new URL(buildAuthorSeo(source, locale).canonical).pathname;
-    return `<li class="${itemClass}"><a class="${linkClass}" href="${escape(href)}" rel="author">${escape(author.name)}</a> — ${escape(author.role)} (${escape(author.expertise.join(', '))}).</li>`;
+    // A topic the role already names ("Autore ospite — fiscalità
+    // transfrontaliera") is not repeated in the parenthesis.
+    const topics = author.expertise.filter(topic => !author.role.includes(topic));
+    const detail = topics.length ? ` (${escape(topics.join(', '))})` : '';
+    return `<li class="${itemClass}"><a class="${linkClass}" href="${escape(href)}" rel="author">${escape(author.name)}</a> — ${escape(author.role)}${detail}.</li>`;
   }).join('');
 }
 

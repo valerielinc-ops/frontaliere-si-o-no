@@ -39,18 +39,24 @@ describe('author metadata derives from the registry', () => {
       const local = localizeAuthor(author, 'it');
       expect(source, `${rel}: /autori/${author.slug} path`).not.toContain(`/autori/${author.slug}`);
       expect(source, `${rel}: autore-${author.slug} entry`).not.toMatch(new RegExp(`["']autore-${author.slug}["']`));
-      expect(source, `${rel}: role of ${author.slug}`).not.toContain(local.role);
+      // Roster-shaped only (`</a> — <role>`): a generic role such as "Team
+      // editoriale" may legitimately appear in unrelated prose.
+      expect(source, `${rel}: roster line for ${author.slug}`).not.toContain(`</a> — ${local.role}`);
     }
   });
 
   it('the static /chi-siamo/ roster lists every author with registry name, role and expertise', () => {
-    expect(read('build-plugins/staticPagesPlugin.ts')).toContain('renderAuthorRosterItems(');
+    // Wiring: the plugin imports the registry-driven helper (the hand-copied
+    // roster it replaced is caught by the roster-line check above).
+    expect(read('build-plugins/staticPagesPlugin.ts')).toMatch(
+      /import\s*\{[^}]*\brenderAuthorRosterItems\b[^}]*\}\s*from\s*['"]\.\/shared\/authorEditorial['"]/,
+    );
     const roster = renderAuthorRosterItems('it', 'item', 'link');
     expect(roster.match(/<li /g)).toHaveLength(AUTHORS.length);
     for (const source of AUTHORS) {
       const author = localizeAuthor(source, 'it');
-      expect(roster).toContain(`href="/autori/${author.slug}/" rel="author">${html(author.name)}</a>`);
-      expect(roster).toContain(`— ${html(author.role)} (${html(author.expertise.join(', '))}).`);
+      expect(roster).toContain(`href="/autori/${author.slug}/" rel="author">${html(author.name)}</a> — ${html(author.role)}`);
+      for (const topic of author.expertise) expect(roster, `${author.slug}: ${topic}`).toContain(html(topic));
     }
   });
 
