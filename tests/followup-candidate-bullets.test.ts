@@ -637,6 +637,22 @@ describe('I/O iniettato', () => {
     expect(api.mock.calls[0][0].at(-1)).toBe('repos/owner/twin/contents/a/there.ts?ref=main');
   });
 
+  // Review frontaliere-articles#2097: l'API risponde 404 anche a un token senza
+  // accesso al repository. Un 404 è `false` solo se il ref del gemello si legge.
+  it('404 con gemello non leggibile da questo token (404, 403, rete sul ref) → null, mai false', () => {
+    for (const probeError of ['gh: Not Found (HTTP 404)', 'gh: Resource not accessible (HTTP 403)', 'dial tcp: i/o timeout']) {
+      const api = vi.fn((args: string[]) => {
+        const url = args[args.length - 1];
+        if (url === 'repos/owner/twin/commits/main') throw Object.assign(new Error('gh failed'), { stderr: probeError });
+        throw Object.assign(new Error('gh failed'), { stderr: 'gh: Not Found (HTTP 404)' });
+      });
+      const lookup = createTwinLookup({ repo: 'owner/twin', cap: 5, api });
+      expect(lookup('a/missing.ts')).toBeNull();
+      expect(lookup('a/other.ts')).toBeNull();
+      expect(api.mock.calls.filter((call) => call[0].at(-1) === 'repos/owner/twin/commits/main')).toHaveLength(1);
+    }
+  });
+
   it('il manifest letto via API rende `files`, e null su errore o forma inattesa', () => {
     expect(fetchManifestFiles('owner/corpus', () => JSON.stringify({ files: MANIFEST }))).toEqual(MANIFEST);
     expect(fetchManifestFiles('owner/corpus', () => '{"files": "no"}')).toBeNull();
