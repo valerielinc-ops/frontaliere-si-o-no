@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   classifyAplusListings,
+  isAplusEmptyListingPage,
   parseAplusListings,
 } from '../scripts/lib/a-plus-plus-job-parser.mjs';
 
@@ -24,16 +25,32 @@ describe('A++ listing classification', () => {
     expect(result.lastFetchOutcome).toBe('filtered_empty');
   });
 
+  it('reports a source-proven company-wide empty board as ok', () => {
+    const html = '<main><div class="vacancy__empty">No vacancies available</div></main>';
+    const listings = parseAplusListings(html);
+    const result = classifyAplusListings(listings, {
+      sourceEmpty: isAplusEmptyListingPage(html, listings),
+    });
+
+    expect(result.discovered).toBe(0);
+    expect(result.listings).toEqual([]);
+    expect(result.authoritativeEmptySnapshot).toBe(true);
+    expect(result.lastFetchOutcome).toBe('ok');
+  });
+
+  it('keeps an unproven parser-empty result fail-closed', () => {
+    const result = classifyAplusListings([]);
+
+    expect(result.authoritativeEmptySnapshot).toBe(false);
+    expect(result.lastFetchOutcome).toBeNull();
+  });
+
   it('publishes a filtered-empty discovery through the empty merge path', () => {
     const discovery = { discovered: 1, listings: [], lastFetchOutcome: 'filtered_empty' };
     const jobs = discovery.listings;
 
-    expect(APLUS_UPDATER).toContain(
-      "if (jobs.length === 0 && discovery.lastFetchOutcome !== 'filtered_empty') {",
-    );
-    expect(APLUS_UPDATER).toContain(
-      "skipShrinkGuard: discovery.lastFetchOutcome === 'filtered_empty',",
-    );
+    expect(APLUS_UPDATER).toContain('const verifiedEmpty = discovery.authoritativeEmptySnapshot || discovery.lastFetchOutcome === \'filtered_empty\';');
+    expect(APLUS_UPDATER).toContain('skipShrinkGuard: verifiedEmpty,');
     expect(jobs).toEqual([]);
     expect(discovery.lastFetchOutcome).toBe('filtered_empty');
 
