@@ -7,6 +7,8 @@
  * TYPO3-based CMS. Job listings use "Mehr lesen" links to detail pages.
  * Detail pages at /ueber-uns/jobs/jobs/{slug}
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
@@ -194,10 +196,19 @@ export async function fetchAllEngadinTourismusJobs() {
   const jobs = [];
   for (const listing of listings) {
     let description = '';
+    let publication = sourcePostingDateFields();
     if (listing.url) {
       try {
         const detailHtml = await fetchHtml(listing.url);
         description = parseDetailPage(detailHtml);
+        const posting = extractJobPostingLd(detailHtml);
+        const sameTitle = String(posting?.title || '').trim().toLowerCase() === listing.title.toLowerCase();
+        let sameUrl = !posting?.url;
+        if (posting?.url) {
+          try { sameUrl = new URL(posting.url, listing.url).href === new URL(listing.url).href; }
+          catch { sameUrl = false; }
+        }
+        publication = sourcePostingDateFields(sameTitle && sameUrl ? posting?.datePosted : '');
       } catch (err) {
         console.warn(`  Detail fetch failed for ${listing.url}: ${err.message}`);
       }
@@ -244,7 +255,7 @@ export async function fetchAllEngadinTourismusJobs() {
       employmentType: empType,
       experienceLevel: detectExperienceLevel(listing.title),
       featured: false,
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...publication,
       url: listing.url,
       applyUrl: listing.url,
       source: 'Engadin Tourismus Dedicated Parser',

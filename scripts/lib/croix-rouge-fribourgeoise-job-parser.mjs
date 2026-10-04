@@ -66,6 +66,7 @@
  *   - resolveAddress()                      — City-gated HQ address resolution
  *   - slugify() / stripHtml()               — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -416,9 +417,9 @@ function extractJobupDescription(html, posting) {
 }
 
 function normalizePostedDate(rawDate = '') {
-  const value = normalizeSpace(rawDate);
-  if (/^\d{4}-\d{2}-\d{2}/.test(value)) return value.slice(0, 10);
-  return parseSwissShortDate(value);
+  if (typeof rawDate !== 'string') return '';
+  const value = rawDate.trim();
+  return sourcePostingDateFields(parseSwissShortDate(value) || value).postedDate;
 }
 
 function isJobupDetailUrl(rawUrl = '') {
@@ -539,7 +540,7 @@ export async function fetchAllCroixRougeFribourgeoiseJobs() {
     const jobSlug = slugify(`${title} croix-rouge-fribourgeoise ${city}`);
     const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
     const employmentType = sourceEmploymentType || detectEmploymentType(occupationRange, title);
-    const postedDate = datePosted || new Date().toISOString().split('T')[0];
+    const publication = sourcePostingDateFields(datePosted);
 
     const job = {
       // ── Required fields ──
@@ -577,7 +578,7 @@ export async function fetchAllCroixRougeFribourgeoiseJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: applyUrl || detailUrl,
       department: '',
       requirements: [],
