@@ -226,11 +226,12 @@ describe('Croix-Rouge fribourgeoise keeps fetch failure, proven empty and unread
 });
 
 // Static observer for the whole class: a `try` that fetches (any `fetch*(`
-// call) followed by a `catch` that returns `[]` without rethrowing turns a
-// fetch failure into a cause-less "no jobs" result. Every such site in the
-// crawler sources must either propagate the error or carry, inside the catch,
-// `// fetch-failure-empty-ok: <reason>` explaining why an empty batch is the
-// right answer there.
+// call) followed by a `catch` that returns `[]` or `break`s out of the
+// pagination without rethrowing turns a fetch failure into a cause-less "no
+// jobs" (or silently partial) result. Every such site in the crawler sources
+// must either propagate the error or carry, inside the catch,
+// `// fetch-failure-empty-ok: <reason>` explaining why that is the right
+// answer there.
 describe('crawler sources never read a swallowed fetch failure as an empty listing', () => {
   const ROOT = path.resolve(__dirname, '..');
   const MARKER = 'fetch-failure-empty-ok:';
@@ -271,7 +272,8 @@ describe('crawler sources never read a swallowed fetch failure as an empty listi
       const catchOpen = tryEnd + header[0].length - 1;
       const catchBody = src.slice(catchOpen + 1, closeBrace(src, catchOpen) - 1);
       if (!/\bfetch\w*\s*\(/.test(tryBody)) continue;
-      if (!/\breturn\s*\[\s*\]/.test(catchBody) || /\bthrow\b/.test(catchBody)) continue;
+      const swallows = /\breturn\s*\[\s*\]/.test(catchBody) || /\bbreak\b/.test(catchBody);
+      if (!swallows || /\bthrow\b/.test(catchBody)) continue;
       out.push({ line: src.slice(0, match.index).split('\n').length, catchBody });
     }
     return out;
@@ -291,11 +293,14 @@ describe('crawler sources never read a swallowed fetch failure as an empty listi
       'async function b() {',
       '  try { html = await fetchHtml(URL); } catch (err) { throw err; }',
       '}',
+      'async function c() {',
+      '  for (;;) { try { html = await fetchPage(URL); } catch (err) { console.warn(err); break; } }',
+      '}',
     ].join('\n');
-    expect(swallowedFetchCatches(sample).map((hit) => hit.line)).toEqual([2]);
+    expect(swallowedFetchCatches(sample).map((hit) => hit.line)).toEqual([2, 8]);
   });
 
-  it('has no unmotivated catch that turns a fetch failure into []', () => {
+  it('has no unmotivated catch that turns a fetch failure into [] or a silent pagination stop', () => {
     const offenders: string[] = [];
     for (const file of crawlerSourceFiles()) {
       const src = fs.readFileSync(path.join(ROOT, file), 'utf8');

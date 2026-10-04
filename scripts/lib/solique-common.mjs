@@ -844,7 +844,10 @@ export function createSoliqueParser(config) {
               pageRaw = await fetchHtml(`${listingUrl}?page=${page}`);
             } catch (err) {
               console.warn(`⚠️ Solique pagination fetch failed for ${soliqueTenant} (page ${page}): ${err?.message || err}`);
-              break;
+              // A fetch failure is not the end of the listing: let the crawler pipeline
+              // classify it (connection-level soft exit or HTTP error) instead of
+              // publishing a partial or cause-less empty result.
+              throw err;
             }
             const pageTiles = parseSoliqueListing(pageRaw).filter((t) => !seenIds.has(t.id));
             if (!pageTiles.length) break;

@@ -377,7 +377,10 @@ export async function fetchAllLeukerbadClinicJobs() {
       payload = await fetchJsonRetry(url);
     } catch (err) {
       console.warn(`⚠️ Prismic search page ${page} failed: ${err?.message || err}`);
-      break;
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     }
     const results = assertJsonListShape(payload, { key: 'results', source: 'leukerbad-clinic', lang: `page ${page}` });
     allDocs.push(...results);

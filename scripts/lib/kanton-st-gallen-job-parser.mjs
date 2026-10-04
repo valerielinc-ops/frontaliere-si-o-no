@@ -350,7 +350,10 @@ export async function fetchAllKantonStGallenJobs() {
         pageHtml = await fetchPage(pageUrl);
       } catch (err) {
         console.warn(`  ⚠️  Page ${pageNum} fetch failed: ${err?.message || err}`);
-        break;
+        // A fetch failure is not the end of the listing: let the crawler pipeline
+        // classify it (connection-level soft exit or HTTP error) instead of
+        // publishing a partial or cause-less empty result.
+        throw err;
       }
       const added = collectPage(pageHtml);
       if (added === 0) break;
