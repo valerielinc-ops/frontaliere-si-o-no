@@ -12537,6 +12537,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.urto-spartitraffico-camorino.title': 'Accident in Camorino, woman injured near the A2',
     'blog.article.urto-spartitraffico-camorino.excerpt': 'After losing control on a bend, the car hit a median barrier and overturned. The southbound entrance to the A2 remained closed for more than an hour.',
     'blog.article.urto-spartitraffico-camorino.imageAlt': 'Camorino interchange toward the A2 with a traffic divider, scene of the accident.',
+    'blog.article.tassa-salute-frontalieri-ticino-settembre.title': 'Ticino health tax for cross-border workers: starting in September?',
+    'blog.article.tassa-salute-frontalieri-ticino-settembre.excerpt': 'New healthcare tax for cross-border workers: launch expected by September, but implementing decrees are missing and payments have not yet been collected.',
+    'blog.article.tassa-salute-frontalieri-ticino-settembre.imageAlt': 'Cross-border workers commuting between Italy and Switzerland in Ticino',
 };
 
 export default blogMetaEn;

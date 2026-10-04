@@ -98517,6 +98517,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-salute-frontalieri-ticino-settembre': {
+    title: 'Tassa salute frontalieri Ticino: via a settembre?',
+    description: 'Nuova tassa sanitaria per frontalieri: avvio entro settembre, ma mancano decreti attuativi. Lombardia e Piemonte tra le prime coinvolte. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, settembre, nuova',
+    ogTitle: 'Tassa salute frontalieri Ticino: avvio entro settembre',
+    ogDescription: 'Nuova tassa sanitaria per lavoratori frontalieri: avvio amministrativo previsto entro settembre, ma mancano ancora i decretti attuativi definitivi e i pagamenti non sono stati ancora riscossi.',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri-ticino-settembre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa salute frontalieri Ticino: via a settembre?",
+      "description": "Nuova tassa sanitaria per frontalieri: avvio entro settembre, ma mancano decreti attuativi. Lombardia e Piemonte tra le prime coinvolte. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-ticino-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori frontalieri in transito tra Italia e Svizzera nel Canton Ticino"
+      },
+      "datePublished": "2026-10-04T18:17:43+00:00",
+      "dateModified": "2026-10-04T18:17:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-ticino-settembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

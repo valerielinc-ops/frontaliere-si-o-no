@@ -12538,6 +12538,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.urto-spartitraffico-camorino.title': 'Incidente a Camorino, donna ferita verso l\'A2',
     'blog.article.urto-spartitraffico-camorino.excerpt': 'Dopo aver perso il controllo in curva, l\'auto ha urtato uno spartitraffico e si è rovesciata. L\'entrata verso sud dell\'A2 è rimasta chiusa per oltre un\'ora.',
     'blog.article.urto-spartitraffico-camorino.imageAlt': 'Svincolo di Camorino verso l\'A2 con uno spartitraffico, luogo dell\'incidente.',
+    'blog.article.tassa-salute-frontalieri-ticino-settembre.title': 'Tassa salute frontalieri Ticino: via a settembre?',
+    'blog.article.tassa-salute-frontalieri-ticino-settembre.excerpt': 'Nuova tassa sanitaria per frontalieri: avvio previsto entro settembre, ma mancano decreti attuativi e pagamenti non ancora riscossi.',
+    'blog.article.tassa-salute-frontalieri-ticino-settembre.imageAlt': 'Lavoratori frontalieri in transito tra Italia e Svizzera nel Canton Ticino',
 };
 
 export default blogMetaIt;
