@@ -37,6 +37,10 @@ export const CSVP_POSCHIAVO_EMPTY_CATEGORY_RE = /Non ci sono articoli in questa 
 
 const CSVP_POSCHIAVO_CATEGORY_CONTAINER_SELECTOR =
   '.com-content-category-blog, .blog, [itemtype*="schema.org/Blog"]';
+const CSVP_POSCHIAVO_CONTENT_ROOT_SELECTOR =
+  'main, [role="main"], #sp-main-body, #sp-component, .sp-component';
+const CSVP_POSCHIAVO_NON_CONTENT_ANCESTOR_SELECTOR =
+  'header, footer, nav, aside, [role="banner"], [role="navigation"], [role="complementary"], [role="contentinfo"]';
 const CSVP_POSCHIAVO_CATEGORY_TITLE_RE = /^Cerchiamo$/i;
 const CSVP_POSCHIAVO_EMPTY_STATE_SELECTOR = '.alert, [role="alert"], p';
 const CSVP_POSCHIAVO_HIDDEN_CLASS_RE =
@@ -91,8 +95,12 @@ export function isCsvpPoschiavoAuthoritativeEmptyPage(html = '') {
   const dom = new JSDOM(String(html || ''));
   try {
     const { document } = dom.window;
+    // Joomla/YOOtheme renders the category component inside a layout wrapper
+    // rather than a semantic <main> on the live CSVP page. Keep the scope at
+    // the category component itself and exclude navigation/footer modules so
+    // an identical phrase outside the listing cannot prove an empty source.
     const categoryContainers = [...document.querySelectorAll(CSVP_POSCHIAVO_CATEGORY_CONTAINER_SELECTOR)]
-      .filter((node) => node.closest('main, [role="main"]'));
+      .filter(isCsvpPoschiavoListingRoot);
 
     for (const category of categoryContainers) {
       if (!isVisibleCsvpNode(category)) continue;
@@ -131,6 +139,18 @@ export function isCsvpPoschiavoAuthoritativeEmptyPage(html = '') {
   } finally {
     dom.window.close();
   }
+}
+
+function isCsvpPoschiavoListingRoot(node) {
+  if (node.closest(CSVP_POSCHIAVO_NON_CONTENT_ANCESTOR_SELECTOR)) return false;
+
+  // Joomla's concrete category-blog class is the authoritative component
+  // marker, even when the template omits a semantic main/content wrapper.
+  if (node.matches('.com-content-category-blog')) return true;
+
+  // The generic Joomla/YOOtheme markers are valid only inside a known content
+  // root; otherwise a layout module can mimic the same `.blog` markup.
+  return Boolean(node.closest(CSVP_POSCHIAVO_CONTENT_ROOT_SELECTOR));
 }
 
 function isVisibleCsvpNode(node) {
