@@ -49,7 +49,9 @@ import { dirname, join, posix } from 'node:path';
 /** Revisione di riferimento del checker quando la revisione giudicata non lo contiene. */
 export const CHECKER_BASE_REF = 'origin/main';
 
-const RELATIVE_IMPORT_RE = /(?:\bfrom\s*|\bimport\s*\(\s*|\bimport\s+)(['"])(\.{1,2}\/[^'"\n]+)\1/g;
+const BLOB_CONTENT = new Map();
+
+const RELATIVE_IMPORT_RE =/(?:\bfrom\s*|\bimport\s*\(\s*|\bimport\s+)(['"])(\.{1,2}\/[^'"\n]+)\1/g;
 
 /**
  * Specificatori relativi importati da un modulo (statici, dinamici con
@@ -109,11 +111,17 @@ export function readRevisionChecker(cwd, ref, entry) {
       if (path === entry) return undefined;
       continue;
     }
-    let content;
-    try {
-      content = git(cwd, ['cat-file', 'blob', blob]);
-    } catch {
-      return undefined;
+    // Un blob gia' letto (la revisione giudicata e origin/main condividono di
+    // solito quasi tutto il checker) non si rilegge: in un clone parziale
+    // `cat-file` di un blob assente andrebbe in rete dentro un hook.
+    let content = BLOB_CONTENT.get(blob);
+    if (content === undefined) {
+      try {
+        content = git(cwd, ['cat-file', 'blob', blob]);
+      } catch {
+        return undefined;
+      }
+      BLOB_CONTENT.set(blob, content);
     }
     files.push({ path, blob, content });
     for (const spec of relativeImports(content)) {
@@ -251,8 +259,8 @@ export function describeCheckerDivergence(used, base, options = {}) {
     const localHash = localBlob(used.script);
     const baseHash = base?.files.find((f) => f.path === entry)?.blob;
     return (
-      `checker usato: ${used.label} — NON una revisione (nessuna revisione conteneva ${entry}` +
-      `${used.fallbackReason ? `, oppure il suo checker è fallito: ${used.fallbackReason}` : ''}).\n` +
+      `checker usato: ${used.label} — NON una revisione (` +
+      `${used.fallbackReason ? `checker delle revisioni falliti: ${used.fallbackReason}` : `né la revisione giudicata né ${baseRef} contengono ${entry}`}).\n` +
       `  ${entry}: blob locale ${shortBlob(localHash)}, ${baseRef} ${shortBlob(baseHash)}` +
       `${localHash && localHash === baseHash ? ' (file d\'ingresso identico)' : ''}`
     );

@@ -699,6 +699,13 @@ describe('sibling-check-gate — il verdetto viene dal checker della revisione g
     write(VERDICT, verdict([{ file: 'scripts/beta.mjs', tokens: ['sharedComputeHelper'], strength: 'forte' }]));
     git('add', '-A');
     git('commit', '-q', '-m', 'feature con un candidato vero');
+
+    git('checkout', '-q', 'main');
+    git('checkout', '-q', '-b', 'broken-checker');
+    touchAlpha();
+    write(CHECKER, "process.stderr.write('checker rotto\\n');\nprocess.exit(3);\n");
+    git('add', '-A');
+    git('commit', '-q', '-m', 'feature che rompe il checker');
     git('checkout', '-q', 'main');
   });
   afterAll(() => {
@@ -758,6 +765,13 @@ describe('sibling-check-gate — il verdetto viene dal checker della revisione g
     const base = git('rev-parse', `origin/main:${VERDICT}`).slice(0, 10);
     expect(res.stderr).toMatch(/revisione giudicata real-candidate/);
     expect(res.stderr).toContain(`${VERDICT}: blob ${used} (usato) vs ${base} (origin/main)`);
+  });
+
+  it('checker della revisione giudicata rotto → ripiega su origin/main e lo dice, non sul checker locale', () => {
+    const res = runGate('gh pr create --head broken-checker --title x --body "y"');
+    expect(res.status).toBe(0);
+    expect(res.stderr).toMatch(/checker scartati prima di origin\/main @ [0-9a-f]{10}: revisione giudicata broken-checker .*checker rotto/);
+    expect(res.stderr).not.toContain('scripts/gamma.mjs');
   });
 
   it('nessuna revisione contiene il checker → usa quello locale e lo dichiara', () => {
