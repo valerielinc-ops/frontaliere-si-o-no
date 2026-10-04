@@ -23,7 +23,7 @@ import { execFileSync } from 'node:child_process';
 import { memberCrawlStateDir, readMemberCrawlOutcomes } from '../scripts/crawler-group-generation-finalizer.mjs';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource } from '../scripts/generate-crawler-group-workflows.mjs';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation } from '../scripts/generate-crawler-group-workflows.mjs';
 import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
@@ -3817,4 +3817,98 @@ esac
       }
     }
   }, CROSS_REPO_GENERATION_TIMEOUT);
+});
+
+// ── OSSERVATORE: dimensione dei workflow generati (04-10) ─────────────────────
+// GitHub rifiuta un file di workflow oltre ~512.000 byte (misura del 04-10: il
+// gruppo 12 del corpus, 508.926 byte, era valido; il 14, 512.281, no). Dopo il
+// lockstep di cr-04b i gruppi 06 e 14 lo hanno superato e ogni push creava una
+// run fallita «workflow file issue» al posto del crawl. Il budget dichiarato nel
+// generatore tiene ~6% di margine; qui si misurano i file COMMITTATI, cosi' un
+// artefatto rigenerato a mano o da un generatore vecchio non sfugge.
+describe('generated crawler workflows stay under the GitHub size budget', () => {
+  const committedWorkflowFiles = () => [
+    ...fs.readdirSync(path.join(ROOT, '.github/corpus-workflows'))
+      .filter((file) => file.endsWith('.yml'))
+      .map((file) => path.join('.github/corpus-workflows', file)),
+    ...fs.readdirSync(path.join(ROOT, '.github/workflows'))
+      .filter((file) => /^crawler-group-\d+(?:-logic)?\.yml$/.test(file))
+      .map((file) => path.join('.github/workflows', file)),
+  ];
+
+  it('declares a budget with real headroom below the GitHub limit', () => {
+    expect(GITHUB_WORKFLOW_SIZE_LIMIT_BYTES).toBe(512_000);
+    expect(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES).toBeLessThanOrEqual(GITHUB_WORKFLOW_SIZE_LIMIT_BYTES * 0.94);
+  });
+
+  it('every committed generated workflow is within the budget', () => {
+    const files = committedWorkflowFiles();
+    // 24 copie portabili del corpus + 24 gruppi + 24 logic del sito.
+    expect(files.filter((file) => /crawler-group-\d+\.yml$/.test(file)).length).toBeGreaterThanOrEqual(48);
+    const violations = workflowSizeBudgetViolations(
+      files.map((file) => ({ file, content: fs.readFileSync(path.join(ROOT, file), 'utf8') })),
+    );
+    expect(violations.map((violation) => formatWorkflowSizeBudgetViolation(violation))).toEqual([]);
+  });
+
+  it('names the file and the overshoot in bytes', () => {
+    const [violation] = workflowSizeBudgetViolations([{ file: 'x/crawler-group-06.yml', content: 'é'.repeat(5) }], 8);
+    expect(violation).toEqual({ file: 'x/crawler-group-06.yml', bytes: 10, over: 2 });
+    expect(formatWorkflowSizeBudgetViolation(violation, 8)).toBe(
+      `x/crawler-group-06.yml: 10 bytes, 2 over the 8-byte budget (GitHub rejects workflow files above ~${GITHUB_WORKFLOW_SIZE_LIMIT_BYTES})`,
+    );
+  });
+
+  it('the aggregate defines the per-member classification once instead of unrolling it', () => {
+    const slugs = Array.from({ length: 29 }, (_, index) => ({ slug: `member-${index}` }));
+    const body = buildCrawlerAggregateShellBody(slugs as any, 6);
+    expect(body.split(`${AGGREGATE_MEMBER_FUNCTION}() {`)).toHaveLength(2);
+    expect(body.split('no terminal status was published')).toHaveLength(2);
+    for (const { slug } of slugs) expect(body).toContain(`${AGGREGATE_MEMBER_FUNCTION} '${slug}'`);
+    // 29 membri: corpo condiviso + una riga per membro, non ~2,9 KB ciascuno.
+    expect(Buffer.byteLength(body, 'utf8')).toBeLessThan(8_000);
+  });
+
+  it('the shared function classifies several members exactly as the unrolled blocks did', () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-aggregate-multi-'));
+    try {
+      const stateDir = path.join(temp, 'crawler-generation', 'group-06');
+      fs.mkdirSync(stateDir, { recursive: true });
+      fs.writeFileSync(path.join(stateDir, 'ok-a.status'), '0\n');
+      fs.writeFileSync(path.join(stateDir, 'bad-b.status'), '1\n');
+      fs.writeFileSync(path.join(stateDir, 'stop-d.status'), '143\n');
+      fs.writeFileSync(path.join(stateDir, 'slow-e.status'), '124\n');
+      fs.writeFileSync(path.join(stateDir, 'junk-f.status'), 'x\n');
+      const output = path.join(temp, 'output.txt');
+      const summary = path.join(temp, 'summary.md');
+      const members = ['ok-a', 'bad-b', 'gone-c', 'stop-d', 'slow-e', 'junk-f'].map((slug) => ({ slug }));
+      const stdout = execFileSync('bash', ['-e', '-c', buildCrawlerAggregateShellBody(members as any, 6)], {
+        env: { ...process.env, RUNNER_TEMP: temp, GITHUB_OUTPUT: output, GITHUB_STEP_SUMMARY: summary },
+        encoding: 'utf8',
+      });
+      expect(stdout).toContain('::error::bad-b: crawler exited with status 1');
+      expect(stdout).toContain('::warning::gone-c: no terminal status was published');
+      expect(stdout).toContain('::warning::stop-d: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed');
+      expect(stdout).toContain('::error::slow-e: target timeout recorded as an actionable failure (exit 124)');
+      expect(stdout).toContain('::error::junk-f: invalid terminal status: x');
+      expect(fs.readFileSync(summary, 'utf8')).toBe([
+        '### Crawler group 06 outcome',
+        '| Crawler | Outcome |',
+        '| --- | --- |',
+        '| ok-a | success |',
+        '| bad-b | failed (1) |',
+        '| gone-c | missing status |',
+        '| stop-d | systemic runner shutdown (143) |',
+        '| slow-e | target timeout (124) |',
+        '| junk-f | invalid status |',
+        '**Summary:** 1 succeeded, 3 failed, 1 missing, 1 systemic.',
+        '',
+      ].join('\n'));
+      expect(fs.readFileSync(output, 'utf8')).toBe([
+        'success_count=1', 'failure_count=3', 'missing_count=1', 'systemic_count=1', 'wait_outcome=failure', '',
+      ].join('\n'));
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
 });

@@ -26,6 +26,8 @@
  *   - isTrustedDomain()            — Validate URLs belong to this company
  *   - slugify() / stripHtml()      — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
@@ -189,18 +191,6 @@ function microdata(html, prop) {
 }
 
 /**
- * Parse a SuccessFactors "datePosted" microdata value in the observed
- * `Fri Jul 03 00:00:00 UTC 2026` (JS-Date-parseable) form. Falls back to
- * `null` on anything unrecognized so the caller can default to "today".
- */
-function parsePostedDate(raw = '') {
-  const s = String(raw || '').trim();
-  if (!s) return null;
-  const d = new Date(s);
-  return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
-}
-
-/**
  * Parse one career-site listing page into raw listing rows.
  * Each <tr class="data-row"> carries:
  *   - a.jobTitle-link[href=/job/<slug>/<jobId>/]  → title + url + jobReqId
@@ -288,7 +278,7 @@ async function enrichFromDetail(listing, timeoutMs) {
     return {
       locality,
       hiringOrgName: hiringOrgName || '',
-      postedDate: datePosted ? parsePostedDate(datePosted) : null,
+      ...successFactorsPostingDateFields(datePosted),
       descriptionHtml,
     };
   } catch (err) {
@@ -394,8 +384,6 @@ export async function fetchAllPatekPhilippeJobs() {
       ? normalizeDescriptionBullets(descriptionText)
       : `${title} — ${PATEK_PHILIPPE_COMPANY_NAME}, ${city} (${canton}).`;
 
-    const postedDate = (detail && detail.postedDate)
-      || new Date().toISOString().split('T')[0];
 
     const sourceLang = detectLang(descriptionText || title, 'fr');
     const jobSlug = slugify(`${title} patek philippe ${city}`);
@@ -437,7 +425,7 @@ export async function fetchAllPatekPhilippeJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, detail || {}),
       applyUrl: publicUrl,
       jobReqId: listing.jobReqId || null,
       requirements: [],
