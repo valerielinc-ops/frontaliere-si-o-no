@@ -101,7 +101,7 @@ function unavailableRunStats(reason = 'github-api-error') {
  * attempt. `records` is retained only for the bounded job inspection below;
  * no provider, token, or delivery claim is derived from it.
  */
-export function summarizeRunStats(runs, { limit = RUN_LIST_LIMIT } = {}) {
+export function summarizeRunStats(runs, { limit = RUN_LIST_LIMIT, truncated: knownTruncated } = {}) {
   if (!Array.isArray(runs)) return unavailableRunStats('invalid-github-response');
   const by = {};
   for (const run of runs) {
@@ -118,7 +118,11 @@ export function summarizeRunStats(runs, { limit = RUN_LIST_LIMIT } = {}) {
   const unknown = runs.length - terminal.length - running.length;
   const eligible = terminal.filter((run) => !['cancelled', 'skipped'].includes(run.conclusion));
   const fail = eligible.filter((run) => FAILURE_CONCLUSIONS.has(run.conclusion)).length;
-  const truncated = Number.isFinite(limit) && runs.length === limit;
+  // A caller that merged several bounded reads (runStats reads one UTC day at
+  // a time) knows which read hit its limit; the merged length does not.
+  const truncated = typeof knownTruncated === 'boolean'
+    ? knownTruncated
+    : Number.isFinite(limit) && runs.length === limit;
   return {
     measured: true,
     reason: null,
@@ -141,15 +145,75 @@ export function summarizeRunStats(runs, { limit = RUN_LIST_LIMIT } = {}) {
   };
 }
 
-export function runStats(workflow, since, runGh = gh) {
+const DAY_MS = 86_400_000;
+
+/**
+ * The UTC days covered by `--created >since`. GitHub reads a date-only
+ * `>YYYY-MM-DD` as "after that whole UTC day" (measured on 2026-10-03: the
+ * oldest run returned for `>2026-09-26` was created 2026-09-27T02:46Z, and
+ * `--created 2026-09-26` returns exactly that day), so the window starts at
+ * midnight of the following day and ends now.
+ *
+ * @returns {{start: number, days: string[]}|null} null for an unreadable date
+ */
+export function runListWindow(since, now = new Date()) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(since))) return null;
+  const sinceDay = Date.parse(`${since}T00:00:00Z`);
+  const end = now instanceof Date ? now.getTime() : Number(now);
+  if (!Number.isFinite(sinceDay) || !Number.isFinite(end)) return null;
+  const start = sinceDay + DAY_MS;
+  const days = [];
+  for (let t = start; t <= end; t += DAY_MS) days.push(new Date(t).toISOString().slice(0, 10));
+  return { start, days };
+}
+
+/**
+ * One `gh run list` per UTC day of the window, merged.
+ *
+ * A single `--created >since --limit 1000` read was truncated on every busy
+ * workflow from mid-September (issue 1951): two thirds of the issue-fix runs
+ * are `skipped` and they filled the 1000-row cap, so the failure rate stayed
+ * `n/d` for weeks. Reading by day keeps each read under the cap; the result is
+ * declared truncated only when ONE day reaches it. A run seen by two reads is
+ * counted once (by `databaseId`), and a row created before the window start
+ * is dropped so the window stays exactly `--created >since`.
+ */
+export function runStats(workflow, since, runGh = gh, {
+  repo = REPO,
+  now = new Date(),
+  limit = RUN_LIST_LIMIT,
+} = {}) {
+  const window = runListWindow(since, now);
+  if (!window) return unavailableRunStats('invalid-window');
+  const byId = new Map();
+  const withoutId = [];
+  let truncated = false;
   try {
-    const runs = runGh(['run', 'list', '--repo', REPO, '--workflow', workflow,
-      '--created', `>${since}`, '--limit', String(RUN_LIST_LIMIT),
-      '--json', 'databaseId,conclusion,status,createdAt']);
-    return summarizeRunStats(runs);
+    for (const day of window.days) {
+      const rows = runGh(['run', 'list', '--repo', repo, '--workflow', workflow,
+        '--created', day, '--limit', String(limit),
+        '--json', 'databaseId,conclusion,status,createdAt']);
+      if (!Array.isArray(rows)) return unavailableRunStats('invalid-github-response');
+      if (rows.length >= limit) truncated = true;
+      for (const run of rows) {
+        const createdAt = Date.parse(run?.createdAt);
+        if (Number.isFinite(createdAt) && createdAt < window.start) continue;
+        const id = run?.databaseId;
+        if (id === undefined || id === null) withoutId.push(run);
+        else if (!byId.has(String(id))) byId.set(String(id), run);
+      }
+    }
   } catch {
     return unavailableRunStats('github-api-error');
   }
+  // Newest first, like a single `gh run list`: fixerJobStats inspects the
+  // first FIX_JOB_INSPECTION_LIMIT records as "the most recent".
+  const created = (run) => {
+    const t = Date.parse(run?.createdAt);
+    return Number.isFinite(t) ? t : -Infinity;
+  };
+  const runs = [...byId.values(), ...withoutId].sort((a, b) => created(b) - created(a));
+  return summarizeRunStats(runs, { limit, truncated });
 }
 
 function unavailableFixerStats(reason = 'github-api-error') {
@@ -407,21 +471,221 @@ export function zombieStats(runGh = gh, {
   };
 }
 
-export function labelStats(label, runGh = gh, {
+/** Open issues carrying `label`, with the requested `gh issue list` fields. */
+export function labelIssues(label, runGh = gh, {
   repo = REPO,
   limit = LABEL_LIST_LIMIT,
+  fields = ['number'],
 } = {}) {
   try {
     const out = runGh(['issue', 'list', '--repo', repo, '--state', 'open',
-      '--label', label, '--json', 'number', '--limit', String(limit)]);
-    if (!Array.isArray(out)) return { measured: false, value: null, truncated: false };
+      '--label', label, '--json', fields.join(','), '--limit', String(limit)]);
+    if (!Array.isArray(out)) return { measured: false, issues: [], truncated: false };
     if (out.some((issue) => !Number.isInteger(issue?.number) || issue.number <= 0)) {
-      return { measured: false, value: null, truncated: false };
+      return { measured: false, issues: [], truncated: false };
     }
-    return { measured: true, value: out.length, truncated: out.length === limit };
+    return { measured: true, issues: out, truncated: out.length === limit };
   } catch {
-    return { measured: false, value: null, truncated: false };
+    return { measured: false, issues: [], truncated: false };
   }
+}
+
+export function labelStats(label, runGh = gh, options = {}) {
+  const result = labelIssues(label, runGh, options);
+  return result.measured
+    ? { measured: true, value: result.issues.length, truncated: result.truncated }
+    : { measured: false, value: null, truncated: false };
+}
+
+// ── Stadio di chiusura ─────────────────────────────────────────────────────
+// The report counted the entry of the loop (queue, zombies) but not its exit:
+// `maybe-resolved` issues waiting for someone to verify and close them were
+// invisible (38 open on 2026-10-03). The label is a request for verification,
+// never a proof of resolution, so nothing here calls them "to close".
+export const VERIFY_LABEL = 'maybe-resolved';
+export const CLOSING_STALE_HOURS = 72;
+export const CLOSING_STAGE_INSPECTION_LIMIT = 40;
+const CLOSING_OLDEST_SHOWN = 5;
+const RECONCILE_KILL_SWITCH = 'RECONCILE_NO_AUTOCLOSE';
+const PIN_LABELS = ['keep-open', LBL_NO_AGE_OUT];
+const MONITOR_TITLE_PREFIXES = ['[crawler-health]', 'CF 5xx:', 'App Error:', 'CWV Regression'];
+const MONITOR_LABEL = /^loop-l/i;
+
+const labelNames = (issue) => (Array.isArray(issue?.labels) ? issue.labels : [])
+  .map((label) => (typeof label === 'string' ? label : label?.name))
+  .filter((name) => typeof name === 'string');
+
+/**
+ * Who is expected to close a `maybe-resolved` issue other than a human
+ * verifier. `null` = nobody declared: that is what the alarm counts.
+ *
+ * @returns {'pin'|'follow-up'|'monitor'|null}
+ */
+export function closingOwner(issue) {
+  const labels = labelNames(issue);
+  if (labels.some((label) => PIN_LABELS.includes(label))) return 'pin';
+  if (labels.includes('follow-up')) return 'follow-up';
+  const title = String(issue?.title || '');
+  if (MONITOR_TITLE_PREFIXES.some((prefix) => title.startsWith(prefix))
+      || labels.some((label) => MONITOR_LABEL.test(label))) return 'monitor';
+  return null;
+}
+
+/**
+ * When `maybe-resolved` was last applied, from the REST issue events. The
+ * GraphQL `timelineItems` connection is not used on purpose: measured on
+ * 2026-10-03 it returned `totalCount: 0` for 10 of 22 issues in a batched
+ * query and omitted the label event of issue 7421 even when read alone.
+ *
+ * @returns {number|null} epoch ms, or null when unreadable or absent
+ */
+export function verifyLabelAppliedAt(issueNumber, runGh = gh, { repo = REPO } = {}) {
+  let out;
+  try {
+    out = runGh([
+      'api', '--paginate',
+      `repos/${repo}/issues/${issueNumber}/events?per_page=100`,
+      '--jq', `.[] | select(.event == "labeled" and .label.name == "${VERIFY_LABEL}") | .created_at`,
+    ], { json: false });
+  } catch {
+    return null;
+  }
+  const times = String(out || '').split('\n')
+    .map((line) => Date.parse(line.trim().replace(/^"|"$/g, '')))
+    .filter(Number.isFinite);
+  return times.length > 0 ? Math.max(...times) : null;
+}
+
+/**
+ * `vars.RECONCILE_NO_AUTOCLOSE` turns the follow-up auto-close of
+ * followup-reconcile.yml into flag-only. In the workflow the value comes from
+ * `vars` through the environment (GITHUB_TOKEN cannot read repository
+ * variables); locally `gh variable get` is used. Unreadable stays unmeasured:
+ * never a supposed value.
+ *
+ * @returns {{measured: boolean, value: string|null}}
+ */
+export function reconcileKillSwitch(runGh = gh, { repo = REPO, env = process.env } = {}) {
+  if (env.LOOP_HEALTH_VARS_FROM_WORKFLOW === '1') {
+    const value = String(env[RECONCILE_KILL_SWITCH] || '').trim();
+    return { measured: true, value: value || null };
+  }
+  try {
+    const out = runGh(['variable', 'get', RECONCILE_KILL_SWITCH, '--repo', repo], { json: false });
+    const value = String(out || '').trim();
+    return { measured: true, value: value || null };
+  } catch (error) {
+    const text = `${error?.message || ''}\n${error?.stderr || ''}`;
+    if (/was not found|HTTP 404/i.test(text)) return { measured: true, value: null };
+    return { measured: false, value: null };
+  }
+}
+
+function killSwitchLabel(killSwitch) {
+  if (!killSwitch) return null;
+  if (!killSwitch.measured) return `\`vars.${RECONCILE_KILL_SWITCH}\` non misurato`;
+  if (killSwitch.value === null) return `\`vars.${RECONCILE_KILL_SWITCH}\` non impostata`;
+  if (killSwitch.value === '1') return `\`vars.${RECONCILE_KILL_SWITCH}=1\`: auto-close spento, solo flag`;
+  return `\`vars.${RECONCILE_KILL_SWITCH}=${killSwitch.value}\` (spegne l'auto-close solo con \`1\`)`;
+}
+
+/**
+ * Measure the closing stage. Ages are read for at most
+ * CLOSING_STAGE_INSPECTION_LIMIT issues (oldest created first): one events
+ * read per issue, bounded like the zombie check.
+ */
+export function closingStageStats(runGh = gh, {
+  repo = REPO,
+  now = Date.now(),
+  inspectionLimit = CLOSING_STAGE_INSPECTION_LIMIT,
+  env = process.env,
+} = {}) {
+  const list = labelIssues(VERIFY_LABEL, runGh, {
+    repo,
+    fields: ['number', 'title', 'labels', 'createdAt'],
+  });
+  if (!list.measured) return { measured: false, truncated: false, issues: [], killSwitch: null };
+  const ordered = [...list.issues].sort((a, b) => (
+    (Date.parse(a.createdAt) || 0) - (Date.parse(b.createdAt) || 0) || a.number - b.number
+  ));
+  const issues = ordered.map((issue, index) => {
+    const appliedAt = index < inspectionLimit ? verifyLabelAppliedAt(issue.number, runGh, { repo }) : null;
+    return {
+      number: issue.number,
+      title: String(issue.title || ''),
+      owner: closingOwner(issue),
+      inspected: index < inspectionLimit,
+      ageHours: appliedAt === null ? null : Math.max(0, (now - appliedAt) / 3_600_000),
+    };
+  });
+  const killSwitch = issues.some((issue) => issue.owner === 'follow-up')
+    ? reconcileKillSwitch(runGh, { repo, env })
+    : null;
+  return {
+    measured: true,
+    truncated: list.truncated || ordered.length > inspectionLimit,
+    issues,
+    killSwitch,
+  };
+}
+
+const OWNER_TEXT = {
+  'follow-up': 'auto-close a due tier di `followup-reconcile.yml` (cron 06:00Z)',
+  pin: 'pin `keep-open`/`agent:no-age-out`',
+  monitor: 'monitor proprietario (`[crawler-health]`, `CF 5xx:`, `App Error:`, `CWV Regression`, label `loop-l*`)',
+};
+
+function ageLabel(hours) {
+  if (hours === null) return 'età n/d';
+  return hours >= 48 ? `${Math.floor(hours / 24)}g` : `${Math.floor(hours)}h`;
+}
+
+/**
+ * Render the closing-stage section and its single warning. The warning counts
+ * only the issues older than CLOSING_STALE_HOURS with NO declared closer; the
+ * owned ones are listed with their owner and never alarmed.
+ *
+ * @returns {{lines: string[], warnings: string[], incomplete: boolean}}
+ */
+export function renderClosingStage(stats) {
+  const heading = `### Stadio di chiusura (\`${VERIFY_LABEL}\`)`;
+  if (!stats?.measured) {
+    return {
+      lines: [heading, `**${VERIFY_LABEL} aperte:** n/d (lista issue non misurabile).`],
+      warnings: [`stadio di chiusura non misurabile: lista ${VERIFY_LABEL} illeggibile`],
+      incomplete: true,
+    };
+  }
+  const issues = stats.issues;
+  const aged = issues.filter((issue) => issue.ageHours !== null);
+  const unmeasured = issues.length - aged.length;
+  const stale = aged.filter((issue) => issue.ageHours > CLOSING_STALE_HOURS);
+  const staleUnowned = stale.filter((issue) => issue.owner === null);
+  const ref = (issue) => `#${issue.number} (${ageLabel(issue.ageHours)})`;
+  const lines = [heading];
+  lines.push(`**${VERIFY_LABEL} aperte:** ${issues.length} · età della label misurata su ${aged.length}/${issues.length}.`);
+  lines.push(`**${VERIFY_LABEL} aperte da più di ${CLOSING_STALE_HOURS} h: ${stale.length}** · senza un chiuditore dichiarato ${staleUnowned.length}${staleUnowned.length ? ` (${staleUnowned.slice(0, CLOSING_OLDEST_SHOWN).map(ref).join(', ')})` : ''}.`);
+  for (const owner of ['follow-up', 'pin', 'monitor']) {
+    const owned = stale.filter((issue) => issue.owner === owner);
+    if (owned.length === 0) continue;
+    const extra = owner === 'follow-up' ? `, ${killSwitchLabel(stats.killSwitch)}` : '';
+    lines.push(`**Oltre 72 h con chiuditore — ${OWNER_TEXT[owner]}${extra}:** ${owned.length} (${owned.slice(0, CLOSING_OLDEST_SHOWN).map(ref).join(', ')}).`);
+  }
+  const oldest = [...aged].sort((a, b) => b.ageHours - a.ageHours).slice(0, CLOSING_OLDEST_SHOWN);
+  if (oldest.length) {
+    lines.push(`**Le ${oldest.length} con la label più vecchia:** ${oldest.map((issue) => `${ref(issue)} ${issue.title.slice(0, 60)}`).join(' · ')}.`);
+  }
+  lines.push(`_\`${VERIFY_LABEL}\` chiede una verifica, non prova che la issue sia risolta._`);
+  const warnings = [];
+  if (staleUnowned.length > 0) {
+    warnings.push(`${staleUnowned.length} issue ${VERIFY_LABEL} oltre ${CLOSING_STALE_HOURS} h senza un chiuditore dichiarato: verifica da fare`);
+  }
+  if (unmeasured > 0) {
+    warnings.push(`età della label ${VERIFY_LABEL} non misurata su ${unmeasured}/${issues.length} issue`);
+  } else if (stats.truncated) {
+    warnings.push(`stadio di chiusura troncato: lista ${VERIFY_LABEL} oltre il limite di lettura`);
+  }
+  return { lines, warnings, incomplete: unmeasured > 0 || stats.truncated };
 }
 
 /** Tracker issue number (find only — creation stays in the posting path). */
@@ -678,7 +942,7 @@ function main() {
       warns.push(`dati workflow non misurabili su ${wf}: ${s.reason}`);
     } else if (s.truncated) {
       dataIncomplete = true;
-      warns.push(`run list troncata su ${wf} al limite ${RUN_LIST_LIMIT}: failure-rate non completo`);
+      warns.push(`run list troncata su ${wf} al limite ${RUN_LIST_LIMIT} in un giorno: failure-rate non completo`);
     }
     if (s.measured && s.unknown > 0) {
       dataIncomplete = true;
@@ -791,6 +1055,16 @@ function main() {
     queued: queued.measured && !queued.truncated ? queued.value : null,
     priorComments: trackerComments,
   }));
+
+  // Lo stadio di CHIUSURA del ciclo: senza questa sezione il report vedeva
+  // solo l'ingresso (coda, zombie) e non le issue in attesa di verifica.
+  // Resta PRIMA della sezione soglie: warnStreaks legge come avvisi tutti i
+  // bullet che seguono `### ⚠️ Da investigare`.
+  const closing = renderClosingStage(closingStageStats());
+  if (closing.incomplete) dataIncomplete = true;
+  warns.push(...closing.warnings);
+  lines.push('');
+  lines.push(...closing.lines);
 
   // Quanto dura ciascun allarme: una riga di soglia accesa da due mesi senza
   // mai cambiare stato non si legge più. Il conteggio la rende di nuovo
