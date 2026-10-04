@@ -234,6 +234,38 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     }
   });
 
+  it('rebuilds the active allowlist on a cache-hit path before dropping stale foreign details', async () => {
+    const stale = `${BASE}/de/jobs-im-tessin/old-cache-detail/`;
+    const current = `${BASE}/de/jobs-im-tessin/current-cache-detail/`;
+    const currentIt = `${BASE}/cerca-lavoro-ticino/current-cache-detail/`;
+    const shardPath = path.join(dist, 'sitemap-jobs-ticino.xml');
+    fs.writeFileSync(shardPath, wrapJobUrls([stale, current]), 'utf-8');
+    fs.writeFileSync(
+      path.join(dist, 'sitemap-jobs.xml'),
+      `<?xml version="1.0" encoding="UTF-8"?>\n` +
+        `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n` +
+        `  <url><loc>${currentIt}</loc><xhtml:link rel="alternate" hreflang="de" href="${current}" /><priority>0.6</priority></url>\n` +
+        `</urlset>\n`,
+      'utf-8',
+    );
+
+    const previousBuildLocale = process.env.BUILD_LOCALE;
+    process.env.BUILD_LOCALE = 'it';
+    try {
+      vi.resetModules();
+      const shard = await import('../build-plugins/relatedSearchClustersPlugin');
+      const signals = await import('../build-plugins/shared/buildSignals');
+      signals.setActiveJobSitemapLocs(null);
+      await shard.reconcileSitemapJobsWithDist(dist, []);
+      expect(shard.extractSitemapLocs(fs.readFileSync(shardPath, 'utf-8'))).toEqual([current]);
+    } finally {
+      if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousBuildLocale;
+      const signals = await import('../build-plugins/shared/buildSignals');
+      signals.setActiveJobSitemapLocs(null);
+    }
+  });
+
   it('runs the final dist-truth gate for both dynamic sitemap families', async () => {
     const cluster = `${BASE}/fr/trouver-emploi-suisse/recherche-stale/`;
     const clusterPath = path.join(dist, 'sitemap-search-clusters-001.xml');

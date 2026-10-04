@@ -110,7 +110,9 @@ import {
 import {
   getActiveJobSitemapLocs,
   jobsSeoPagesFlushed,
+  setActiveJobSitemapLocs,
 } from './shared/buildSignals';
+import { parseAnnotatedSitemapUrls } from './shared/localeVariantSitemap';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
 import { isJobSitemapShardFilename, isJobSitemapFilename } from '../scripts/lib/sitemap-shard.mjs';
 import { shouldEmitLocale, EMIT_ALL_LOCALES, localeOfDistPath } from './shared/localeEmitFilter';
@@ -3843,6 +3845,48 @@ export function extractSitemapLocs(xml: string): string[] {
 }
 
 /**
+ * Recover the jobs producer's active URL set when a cache-hit path reaches
+ * reconciliation with the shared registry still unset. `sitemap-jobs.xml` is
+ * the producer's persisted decision: its `<loc>` entries and their hreflang
+ * annotations are emitted from the same active, self-canonical job set. Keep
+ * this fallback scoped to the site's own origin so an unexpected annotation
+ * cannot become an allowlist entry.
+ */
+function deriveActiveJobSitemapLocs(
+  files: ReadonlyArray<{ file: string; xml: string }>,
+): ReadonlySet<string> {
+  const legacySitemap = files.find(({ file }) => file === 'sitemap-jobs.xml')?.xml;
+  const active = new Set<string>();
+  if (!legacySitemap) return active;
+
+  const siteOrigin = new URL(BASE_URL).origin;
+  const addSiteUrl = (value: string): void => {
+    const candidate = value.trim();
+    try {
+      if (new URL(candidate).origin === siteOrigin) active.add(candidate);
+    } catch {
+      // Ignore malformed source markup; it cannot safely identify a live URL.
+    }
+  };
+
+  for (const entry of parseAnnotatedSitemapUrls(legacySitemap)) {
+    addSiteUrl(entry.loc);
+    for (const annotation of entry.annotations) addSiteUrl(annotation.href);
+  }
+  return active;
+}
+
+function ensureActiveJobSitemapLocs(
+  files: ReadonlyArray<{ file: string; xml: string }>,
+): ReadonlySet<string> {
+  const active = getActiveJobSitemapLocs();
+  if (active !== null) return active;
+  const recovered = deriveActiveJobSitemapLocs(files);
+  setActiveJobSitemapLocs(recovered);
+  return recovered;
+}
+
+/**
  * Sharded job files contain only job-detail URLs and canton roots. Once the
  * jobs producer has published its source allowlist, a priority-0.6 detail
  * entry that is absent from that allowlist is stale even when its foreign
@@ -4007,7 +4051,11 @@ export async function reconcileSitemapJobsWithDist(
       .map(normalizeLocForCanonicalCmp),
   );
   const unserved = locs.filter((l) => !kept.has(normalizeLocForCanonicalCmp(l)));
-  const sourceStale = staleJobShardLocs(sitemapFiles, getActiveJobSitemapLocs());
+  // A cache HIT can reach this reconciler after the jobs producer's normal
+  // allowlist population was skipped. Recover the current decision before
+  // filtering historical shards; a null registry must never disable this
+  // stale-detail guard.
+  const sourceStale = staleJobShardLocs(sitemapFiles, ensureActiveJobSitemapLocs(sitemapFiles));
   const dropLocs = [...new Set([...unserved, ...mirrorLocs, ...sourceStale])];
   if (dropLocs.length === 0) return;
 
