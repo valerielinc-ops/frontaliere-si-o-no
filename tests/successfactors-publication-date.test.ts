@@ -15,6 +15,13 @@ describe('SuccessFactors publication provenance', () => {
     expect(parseSuccessFactorsPostedDate(timestamp)).toBe(timestamp);
   });
 
+  it('preserves the observed CSB Java timestamp format and rejects calendar rollover', () => {
+    const instant = new Date(`${date}T00:00:00Z`);
+    const month = instant.toLocaleDateString('en-US', { month: 'short', timeZone: 'UTC' });
+    expect(parseSuccessFactorsPostedDate(`Tue ${month} ${instant.getUTCDate()} 00:00:00 UTC ${instant.getUTCFullYear()}`)).toBe(`${date}T00:00:00Z`);
+    expect(parseSuccessFactorsPostedDate('Tue Feb 30 00:00:00 UTC 2025')).toBeNull();
+  });
+
   it('normalizes an explicit English listing date without calendar rollover', () => {
     const human = new Date(`${date}T12:00:00Z`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
     expect(parseSuccessFactorsPostedDate(human)).toBe(date);
