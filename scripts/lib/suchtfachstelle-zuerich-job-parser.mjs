@@ -17,6 +17,8 @@
  * Org HQ: Josefstrasse 91, 8005 Zürich (BS-Quartier, Nähe HB Zürich).
  * Single small org, typically 0-2 open positions at a time.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
@@ -151,7 +153,6 @@ export async function fetchAllSuchtfachstelleZuerichJobs() {
   console.log(`  ✓ ${rows.length} listing rows parsed`);
   if (rows.length === 0) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const row = rows[i];
@@ -159,7 +160,7 @@ export async function fetchAllSuchtfachstelleZuerichJobs() {
     let detail = { title: '', body: '' };
     try {
       const html = await fetchHtml(row.url);
-      detail = parseDetail(html);
+      detail = { ...parseDetail(html), ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) };
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${row.url}: ${err?.message || err}`);
     }
@@ -210,7 +211,7 @@ export async function fetchAllSuchtfachstelleZuerichJobs() {
       sector: 'Suchtberatung / Sozialwesen',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: row.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
