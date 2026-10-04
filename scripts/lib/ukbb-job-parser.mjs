@@ -235,8 +235,11 @@ export async function fetchAllUkbbJobs() {
   try {
     xml = await fetchHtml(SITEMAP_URL);
   } catch (err) {
-    console.warn(`  ⚠️ UKBB sitemap fetch failed: ${err?.message || err}. Returning [].`);
-    return [];
+    console.warn(`  ⚠️ UKBB sitemap fetch failed: ${err?.message || err}.`);
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
 
   const childSitemaps = parseSitemapIndexLocs(xml);

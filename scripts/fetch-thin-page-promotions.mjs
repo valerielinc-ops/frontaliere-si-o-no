@@ -51,7 +51,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 import { fetchGscPageImpressions } from './lib/evidence/gscFetcher.mjs';
 import { GSC_MIN_IMP } from './lib/evidence/constants.mjs';
-import { GA4_READONLY_SCOPE, getServiceAccountToken } from './lib/ga4-service-account.mjs';
+import { GA4_READONLY_SCOPE, getServiceAccountToken, paginateGa4Report } from './lib/ga4-service-account.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -133,24 +133,34 @@ async function fetchGa4(windowHours) {
         stringFilter: { value: 'thin_page_view', matchType: 'EXACT' },
       },
     },
-    limit: 100000,
   };
-  const r = await httpFetchWithRetry(url, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  }, { label: 'ga4 runReport' });
-  if (r.status === 403) {
-    throw new Error(`ga4 access denied (SA needs Viewer on property): ${(await r.text()).slice(0, 200)}`);
-  }
-  if (!r.ok) throw new Error(`ga4 ${r.status}: ${(await r.text()).slice(0, 200)}`);
-  const data = await r.json();
+  // Paginato fino a rowCount: un limit fisso senza offset poteva troncare in
+  // silenzio la coda dei pagePath con la fonte dichiarata completa (stessa
+  // classe della issue 11423). Una coda mancante resta un errore parziale,
+  // come per GSC: gli URL osservati si tengono.
+  const report = await paginateGa4Report({
+    body,
+    fetchPage: async (page) => {
+      const r = await httpFetchWithRetry(url, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify(page),
+      }, { label: 'ga4 runReport' });
+      if (r.status === 403) {
+        throw new Error(`ga4 access denied (SA needs Viewer on property): ${(await r.text()).slice(0, 200)}`);
+      }
+      if (!r.ok) throw new Error(`ga4 ${r.status}: ${(await r.text()).slice(0, 200)}`);
+      return r.json();
+    },
+  });
   const urls = new Set();
-  for (const row of data.rows || []) {
+  for (const row of report.rows) {
     const path = normalizePath(row.dimensionValues?.[0]?.value || '');
     if (path) urls.add(path);
   }
-  return urls;
+  const error = report.complete ? null
+    : `incomplete GA4 response (${report.rows.length}/${report.rowCount ?? 'unknown'} rows)`;
+  return { urls, error };
 }
 
 function fmtDate(d) {
@@ -227,7 +237,15 @@ export async function main() {
   let gsc = new Set();
   try { ph = await fetchPosthog(args.windowHours); console.log(`[thin-promotions] posthog hits: ${ph.size}`); }
   catch (e) { errors.push(`posthog: ${e.message}`); console.error(`[thin-promotions] posthog error: ${e.message}`); }
-  try { ga = await fetchGa4(args.windowHours); console.log(`[thin-promotions] ga4 hits: ${ga.size}`); }
+  try {
+    const result = await fetchGa4(args.windowHours);
+    ga = result.urls;
+    console.log(`[thin-promotions] ga4 hits: ${ga.size}`);
+    if (result.error) {
+      errors.push(`ga4: ${result.error}`);
+      console.error(`[thin-promotions] ga4 error: ${result.error}`);
+    }
+  }
   catch (e) { errors.push(`ga4: ${e.message}`); console.error(`[thin-promotions] ga4 error: ${e.message}`); }
   try {
     const result = await fetchGscImpressions(args.windowHours);

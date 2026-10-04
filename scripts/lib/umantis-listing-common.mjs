@@ -280,6 +280,7 @@ export async function collectUmantisListingPages(firstHtml, listingUrl, fetchPag
     try {
       html = await fetchPage(`${listingUrl}${separator}${query}`);
     } catch (err) {
+      // fetch-failure-empty-ok: page 1 is fetched by the caller, so this is never an empty listing; a later-page failure keeps the partial catalogue for the anti-shrink guard (documented contract above)
       console.warn(`  ⚠️  Umantis listing page ${pages + 1} fetch failed: ${err?.message || err}`);
       break;
     }
