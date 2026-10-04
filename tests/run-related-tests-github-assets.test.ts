@@ -427,6 +427,7 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['scripts/lib/crawler-grace-policy.mjs'])).toContain(generatorTest);
     expect(selectionFor(['scripts/lib/detail-failure-reuse-policy.mjs'])).toContain(generatorTest);
     expect(selectionFor(['scripts/crawler-group-generation-finalizer.mjs'])).toContain(generatorTest);
+    expect(selectionFor(['scripts/lib/crawler-generation-runtime-paths.mjs'])).toContain(generatorTest);
     // Fuori dall'elenco il test, che costa minuti, non viene trascinato.
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(generatorTest);
   }, 120_000);

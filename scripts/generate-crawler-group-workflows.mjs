@@ -3404,6 +3404,9 @@ export function checkGeneratedArtifacts({ profileRenderer = computeProfiledText 
   const groupResults = generate({ profileRenderer, write: false });
   const logicArtifacts = generateCrawlerLogicArtifacts({ groupResults, write: false });
   const committedContract = loadJson(PORTABLE_CONTRACT_PATH);
+  // Lo stesso divieto vale per il contratto gia' committato: `--check` e' il
+  // controllo che si esegue prima del push.
+  assertCommittedContractSource({ sourceCommit: committedContract.sourceCommit, sourceRef: committedContract.sourceRef }, {});
   const cross = generateCrossRepoExecutionArtifacts({
     groupResults,
     outDir: PORTABLE_CORPUS_DIR,
@@ -3663,6 +3666,9 @@ if (isMain) {
   // La generazione per il corpus legge il gruppo locale come sorgente ma non
   // deve riscriverlo: i due repo hanno PR/branch indipendenti e un export non
   // e' autorizzato a portarsi dietro un diff locale accidentale (es. stale pin).
+  // Entrambi i rami scrivono un contratto: nessuno dei due puo' prendere la
+  // provenienza sintetica di una pull request (vedi assertCommittedContractSource).
+  const source = assertCommittedContractSource(resolveCrawlerContractSource());
   const results = generate({ rebalance, write: crossRepoOutAt < 0 });
   generateCrawlerLogicArtifacts({ groupResults: results, write: crossRepoOutAt < 0 });
   if (crossRepoOutAt >= 0) {
@@ -3672,12 +3678,13 @@ if (isMain) {
       groupResults: results,
       outDir,
       contractPath,
+      sourceCommit: source.sourceCommit,
+      sourceRef: source.sourceRef,
     });
     console.log(`Generated ${cross.artifacts.length} standalone corpus workflows -> ${outDir}`);
     console.log(`Cross-repo contract -> ${contractPath}`);
     console.log(`Cross-repo source -> ${cross.contract.sourceRef}@${cross.contract.sourceCommit}`);
   } else {
-    const source = assertCommittedContractSource(resolveCrawlerContractSource());
     const cross = generateCrossRepoExecutionArtifacts({
       groupResults: results,
       outDir: PORTABLE_CORPUS_DIR,

@@ -75,7 +75,12 @@ const testTreeLintTests = new Set([
 // PR 10336 una chiave Google Maps di terzi è entrata in una fixture HTML di
 // `tests/fixtures/`: il gate la riconosceva, ma un `.html` non è né sorgente né
 // asset indicizzato, quindi il diff selezionava zero test e lui non girava.
-const crawlerGenerationRuntimePaths = new Set(CRAWLER_GENERATION_RUNTIME_PATHS);
+// Nel perimetro anche il modulo che definisce l'elenco: cambiarlo cambia la
+// closure dichiarata dal generatore.
+const crawlerGenerationRuntimePaths = new Set([
+  ...CRAWLER_GENERATION_RUNTIME_PATHS,
+  'scripts/lib/crawler-generation-runtime-paths.mjs',
+]);
 const sourceTreeLintTests = new Map([
   ['tests/gh-slurp-jq-guard.test.ts', /^(?:\.github|scripts|bin)\//],
   ['tests/no-hardcoded-secrets.test.ts', isSecretScanned],
