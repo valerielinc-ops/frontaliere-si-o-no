@@ -13,6 +13,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { performance } from 'node:perf_hooks';
 import { fileURLToPath } from 'node:url';
 import {
   validateJobUrls,
@@ -1011,7 +1012,20 @@ main()
     // validate:translation-completeness would block. Report only: no record
     // is removed and the exit code does not change (see the module header).
     if (!SLICE_FILE) {
-      reportBlockingLocaleSlots({ dataJobsPath: DATA_JOBS_PATH, slicesDir: ACTIVE_SLICES_DIR });
+      // Post-merge RSS measure is read from this notice; the threshold is in the PR body.
+      const reparseStartedAt = performance.now();
+      try {
+        reportBlockingLocaleSlots({ dataJobsPath: DATA_JOBS_PATH, slicesDir: ACTIVE_SLICES_DIR });
+      } finally {
+        try {
+          // maxRSS is in kilobytes (libuv) and is the process peak, not a delta.
+          const peakMb = Math.round(process.resourceUsage().maxRSS / 1024);
+          const seconds = ((performance.now() - reparseStartedAt) / 1000).toFixed(1);
+          console.log(`::notice::cleanup-jobs report: peak RSS ${peakMb} MB (reparse ${seconds} s)`);
+        } catch {
+          /* the probe must never change the outcome or the exit code */
+        }
+      }
     }
   })
   .catch((err) => {
