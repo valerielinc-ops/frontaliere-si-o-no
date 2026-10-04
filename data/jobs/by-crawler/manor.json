@@ -1754,7 +1754,6 @@
       },
       "sourceLang": "it",
       "id": "manor-6026e84a6db3",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-30T21:28:02.065Z",
       "crawledAt": "",
       "salaryMin": 37500,
@@ -2358,17 +2357,24 @@
         "fr": "Collaborateur/trice vente (Confection Messieurs) 80%"
       },
       "sourceLang": "fr",
+      "crawledAt": "",
       "id": "manor-fe9b16814351",
-      "previousSlugs": [
-        "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
-        "collaboratore-di-vendita-confezione-signori-80-manor-ag-monthey",
-        "collaboratore-di-vendita-means-80-manor-ag-monthey",
-        "sales-collaborator-means-80-manor-ag-monthey",
-        "sales-collaborator-mittel-80-manor-ag-monthey",
-        "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-2",
-        "collaboratore-di-vendita-means-80-manor-ag-monthey-de8816",
-        "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey"
-      ],
+      "salaryMin": 57600,
+      "salaryMax": 88800,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57600,
+          "maxValue": 88800,
+          "unitText": "YEAR"
+        }
+      },
+      "applyUrl": "https://positions.manor.ch/job/Monthey-Collaborateurtrice-vente-%28Confection-Messieurs%29-80/1370035955/",
+      "firstSeenAt": "2026-09-30T21:28:02.065Z",
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
@@ -2392,24 +2398,17 @@
           "manor-collaborateur-trice-vente-confection-messieurs-80-monthey"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-30T21:28:02.065Z",
-      "crawledAt": "",
-      "salaryMin": 57600,
-      "salaryMax": 88800,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57600,
-          "maxValue": 88800,
-          "unitText": "YEAR"
-        }
-      },
-      "applyUrl": "https://positions.manor.ch/job/Monthey-Collaborateurtrice-vente-%28Confection-Messieurs%29-80/1370035955/"
+      "previousSlugs": [
+        "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
+        "collaboratore-di-vendita-confezione-signori-80-manor-ag-monthey",
+        "collaboratore-di-vendita-means-80-manor-ag-monthey",
+        "sales-collaborator-means-80-manor-ag-monthey",
+        "sales-collaborator-mittel-80-manor-ag-monthey",
+        "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-2",
+        "collaboratore-di-vendita-means-80-manor-ag-monthey-de8816",
+        "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Collaborateur/trice vente (Confection Messieurs) 60%",
@@ -7337,7 +7336,7 @@
         "it": "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve",
         "en": "supermarket-collaborator-charcuteries-fromage-50-manor-ag-geneve",
         "de": "supermarkt-mitarbeiter-charcuteries-fromage-50-manor-ag-geneve",
-        "fr": "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve"
+        "fr": "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve-41fvjn"
       },
       "titleByLocale": {
         "it": "Collaborateur/trice supermarché (Charcuteries/Fromages) 50%",
@@ -7367,7 +7366,8 @@
           "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve"
         ],
         "fr": [
-          "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve-1-collaborateurtrice-supermarche"
+          "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve-1-collaborateurtrice-supermarche",
+          "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve"
         ]
       },
       "needsRetranslation": true,
@@ -11278,7 +11278,6 @@
           "manor-collaboratore-trice-vendita-bigiotteria-40-ascona"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-07T15:20:28.335Z",
       "crawledAt": "",
       "salaryMin": 23600,
@@ -13276,7 +13275,6 @@
           "manor-impiegato-a-del-commercio-dettaglio-afc-confezione-donna-100-lugano"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:20:15.201Z",
       "crawledAt": "",
       "salaryMin": 49500,
@@ -13412,7 +13410,6 @@
           "manor-impiegato-a-del-commercio-dettaglio-afc-confezione-donna-100-ascona"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:20:15.201Z",
       "crawledAt": "",
       "salaryMin": 49500,
@@ -13546,7 +13543,6 @@
           "manor-impiegato-a-del-commercio-dettaglio-afc-100-locarno"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:29:15.749Z",
       "crawledAt": "",
       "salaryMin": 49500,
@@ -13688,7 +13684,6 @@
           "manor-impiegato-a-del-commercio-dettaglio-afc-vezia"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:29:15.749Z",
       "crawledAt": "",
       "salaryMin": 49500,
@@ -16900,7 +16895,6 @@
           "manor-responsable-secteur-pain-patisserie-100-monthey-responsable-secteur-pain"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-22T22:35:47.906Z",
       "crawledAt": "",
       "salaryMin": 83500,
@@ -18099,7 +18093,6 @@
           "assistente-responsabile-piano-bellezza-100-manor-ag-geneve"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T22:19:19.718Z",
       "crawledAt": "",
       "salaryMin": 116500,
@@ -18300,7 +18293,6 @@
           "manor-assistant-e-floor-manager-confection-dames-100-geneve"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 83500,
@@ -18382,8 +18374,7 @@
         }
       },
       "applyUrl": "https://positions.manor.ch/job/Chur-Visual-Merchandising-Manager-100/1353667055/",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "title": "Mitarbeiter*in Supermarkt Bäckerei 40%",
@@ -18801,7 +18792,6 @@
           "cashier-non-alimentare-30-manor-ag-winterthur-kassiererin-non-food"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 24900,

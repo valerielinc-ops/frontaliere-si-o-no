@@ -1,3 +1,5 @@
+import { resolveRolloutPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
+import { firstParsableDateStr } from './firstParsableDate';
 /**
  * Shared HTML renderer for job cards used across SEO landing-page plugins.
  *
@@ -17,7 +19,6 @@
  */
 
 import { escHtml } from './htmlEscape';
-import { firstParsableDateStr } from './firstParsableDate';
 import {
   sanitizeJobTitleForDisplay as sanitizeJobTitleForCard,
   stripLiteralMarkdown as stripLiteralMarkdownFromTitle,
@@ -45,6 +46,7 @@ export interface JobCardJob {
   addressLocality?: string;
   canton?: string;
   contract?: string;
+  postingDateSource?: string;
   postedDate?: string;
   datePosted?: string;
   salaryMin?: number | string | null;
@@ -318,7 +320,7 @@ export function renderJobCardHtml(
   // First PARSEABLE date string, not first truthy: a malformed postedDate must
   // not shadow a valid datePosted and feed "Invalid Date" into the relative
   // label / "new" freshness badge on indexed job cards.
-  const postedRaw = firstParsableDateStr(job.postedDate, job.datePosted).trim();
+  const postedRaw = resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.datePosted).trim()) || '';
   const postedLabel = relativePostedLabel(postedRaw, locale);
   const postedIso = postedRaw.slice(0, 10);
   const fresh = isJobNew(postedRaw);
