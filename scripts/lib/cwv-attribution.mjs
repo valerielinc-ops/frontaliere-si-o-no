@@ -10,7 +10,7 @@
 // A script cannot import the client's `.ts`, so the constants below are a copy
 // that tests/cwv-attribution-report.test.ts compares with the client module.
 // Changing either side without the other turns that test red on purpose.
-import { runGa4Report, weightedQuantile } from './ga4-service-account.mjs';
+import { runGa4Report, runGa4ReportPaged, weightedQuantile } from './ga4-service-account.mjs';
 
 export const ATTRIBUTION_PAGE = 'web_vitals';
 export const ATTRIBUTION_SECTIONS = ['cls', 'inp'];
@@ -108,7 +108,8 @@ function dims(row) {
 }
 
 function truncated(data, rows) {
-  return Boolean(data?.metadata?.dataLossFromOtherRow)
+  return data?.complete === false
+    || Boolean(data?.metadata?.dataLossFromOtherRow)
     || (data?.rowCount != null && data.rowCount > rows.length);
 }
 
@@ -237,10 +238,14 @@ export function invalidDimension(message) {
  */
 export async function fetchAttribution({ token, startDate, endDate, fetchImpl = fetch, propertyId } = {}) {
   const run = (body) => runGa4Report({ token, body, propertyId, fetchImpl });
+  // (a) e (c) sono popolazioni intere: paginate fino a rowCount, altrimenti
+  // un limit fisso senza offset le dichiara troncate (issue 11423).
+  // (b) resta una sola pagina: e' un top-N per costruzione (SELECTOR_LIMIT).
+  const runAll = (body) => runGa4ReportPaged({ token, body, propertyId, fetchImpl });
   const range = { startDate, endDate };
-  const attributionData = await run(attributionRequest(range));
+  const attributionData = await runAll(attributionRequest(range));
   const selectorData = await run(selectorRequest(range));
-  const templateData = await run(templateRequest(range));
+  const templateData = await runAll(templateRequest(range));
   const attribution = parseAttributionRows(attributionData);
   const selectors = parseSelectorRows(selectorData);
   const templates = parseTemplateRows(templateData);

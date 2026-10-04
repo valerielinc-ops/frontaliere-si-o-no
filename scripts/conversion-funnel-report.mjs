@@ -13,7 +13,7 @@ import {
   GA4_READONLY_SCOPE,
   ga4DateRange,
   getServiceAccountToken,
-  runGa4Report,
+  runGa4ReportPaged,
 } from './lib/ga4-service-account.mjs';
 import {
   fmtUtcDate,
@@ -62,15 +62,15 @@ function previousRange(current, days) {
 async function runPeriod({ token, propertyId, range, limit }) {
   const bodies = buildReportBodies({ ...range, limit });
   const reports = {};
-  reports.landingPages = await runGa4Report({ token, propertyId, body: bodies.landingPages });
-  reports.channels = await runGa4Report({ token, propertyId, body: bodies.channels });
+  // Paginato fino a rowCount: con un limit fisso senza offset un landingPage
+  // oltre una pagina da 10000 righe faceva fallire la run come «incomplete»
+  // invece di leggere la coda (stessa classe della issue 11423).
+  const run = (body) => runGa4ReportPaged({ token, propertyId, body, pageSize: limit });
+  reports.landingPages = await run(bodies.landingPages);
+  reports.channels = await run(bodies.channels);
   reports.conversions = {};
   for (const definition of CONVERSION_DEFINITIONS) {
-    reports.conversions[definition.key] = await runGa4Report({
-      token,
-      propertyId,
-      body: bodies.conversions[definition.key],
-    });
+    reports.conversions[definition.key] = await run(bodies.conversions[definition.key]);
   }
   assertCompleteReport(reports.landingPages, limit, 'landingPages');
   assertCompleteReport(reports.channels, limit, 'channels');
