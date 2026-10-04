@@ -33,6 +33,9 @@ import { PUBLIC_CONTACT_EMAIL } from '../services/publicContact';
 // Node ESM.
 import { renderArticleHubCards, renderArticleHubGridBlock } from '../packages/articles/engine/articlesHubCards.ts';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
+import { renderCorrectionsEditorial } from './shared/correctionsEditorial';
+import { buildCorrezioniSeo } from '../services/seo/seo-correzioni';
+import type { CorrectionsLocale } from '../services/editorialCorrections';
 import { routeAwarePreloadChunksFor } from './staticPagePreloadMap';
 import { normalizeArticleStructuredData, normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
@@ -2971,6 +2974,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const pathSegs = ['en', 'de', 'fr'].includes(segs[0]) ? segs.slice(1) : segs;
  const sourcePath = italianPath ?? locPath;
  const sourceCanonicalPath = withTrailingSlash(sourcePath);
+ if (sourceCanonicalPath === '/correzioni/') {
+ const page = buildCorrezioniSeo(locale as CorrectionsLocale);
+ return { title: page.title, desc: page.description, ogT: page.title, ogD: page.description, sd: JSON.stringify([page.jsonLd]) };
+ }
 
  // ── Salary-landing net-comparison pages (4 scenarios × 3 non-IT locales) ──
  // services/seo/seo-landing.ts only ships IT copy for these 4 keys; without
@@ -3440,7 +3447,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // If the entry has an 'it' key, use it instead of the inline chain below.
  const sectionKey = SECTION_EDITORIAL_KEYS
  .find(prefix => italianPath.startsWith(prefix));
- if (sectionKey && SECTION_EDITORIAL[sectionKey]?.[locale]) {
+ if (italianPath.replace(/\/+$/, '') === '/correzioni') {
+ editorialBlocks.push(...renderCorrectionsEditorial(locale as CorrectionsLocale));
+ } else if (sectionKey && SECTION_EDITORIAL[sectionKey]?.[locale]) {
  editorialBlocks.push(...SECTION_EDITORIAL[sectionKey][locale]);
  // SECTION_EDITORIAL short-circuits the `else if` chain that would
  // otherwise hit the section-index navigators (line 2141 etc.). When
@@ -4888,18 +4897,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<p class="s-tTvoK-">Riferimenti: <a class="s-OsohZU" href="/chi-siamo/">Chi Siamo</a> · <a class="s-OsohZU" href="/correzioni/">Correzioni</a></p>`,
  );
  }
- } else if (canonicalPath === '/correzioni' || canonicalPath === '/correzioni/') {
- editorialBlocks.push(
- `<h2 class="s-o3IET6">Correzioni — Politica di rettifica e registro pubblico</h2>`,
- `La trasparenza editoriale è uno dei pilastri di Frontaliere Ticino. Quando un dato numerico, una citazione o un'affermazione pubblicata sulla piattaforma si rivela errata, la correggiamo entro 48 ore dalla segnalazione e ne registriamo la traccia in questa pagina, con data, articolo interessato, tipologia (errore fattuale, refuso, chiarimento) e una descrizione sintetica della modifica. Questo registro pubblico serve sia ai lettori — che possono verificare in qualsiasi momento la nostra storia editoriale — sia ai motori di ricerca che valutano l'affidabilità dei contenuti YMYL (your money your life) nei domini fiscale e previdenziale.`,
- `<h2 class="s-o3IET6">Come segnalare un errore</h2>`,
- `Per segnalare un errore scrivi a <a class="s-OsohZU" href="mailto:redazione@frontaliereticino.ch?subject=Segnalazione%20correzione">redazione@frontaliereticino.ch</a> indicando l'URL della pagina o il titolo dell'articolo, la frase o il dato contestato (citato verbatim) e una fonte ufficiale che dimostri l'errore (link a ESTV, Agenzia delle Entrate, BFS, INPS, gazzetta ufficiale o altra amministrazione competente). Risponderemo entro 48 ore lavorative: se la segnalazione è fondata l'articolo viene aggiornato immediatamente, l'entry viene registrata qui sotto in ordine cronologico inverso e — se la correzione è sostanziale — aggiungiamo una nota visibile in cima all'articolo originale.`,
- `<h2 class="s-o3IET6">Tipologie di correzione accettate</h2>`,
- `Accettiamo tre tipologie di rettifica: <strong>errore fattuale</strong> (dato numerico, citazione o affermazione errata che modifica la sostanza dell'articolo — per esempio un'aliquota fiscale, un parametro contributivo o una scadenza), <strong>refuso</strong> (errore di battitura, ortografico o di formattazione che non modifica il significato del testo) e <strong>chiarimento</strong> (aggiunta di contesto o precisazione che migliora la comprensione senza correggere un errore). Ogni segnalazione fondata viene registrata indipendentemente dalla tipologia, perché anche un refuso può cambiare il senso percepito di una frase.`,
- `<h2 class="s-o3IET6">Indipendenza editoriale</h2>`,
- `Frontaliere Ticino è una piattaforma indipendente: non riceviamo compensi da banche, casse malati o datori di lavoro citati negli articoli. Le correzioni vengono effettuate solo sulla base di prove verificabili. La storia delle modifiche è sempre tracciata in questa pagina pubblica, sincronizzata con il file <code>data/corrections-log.json</code> versionato nel repository pubblico del progetto.`,
- `<p class="s-tTvoK-">Riferimenti: <a class="s-OsohZU" href="/chi-siamo/">Chi Siamo</a> · <a class="s-OsohZU" href="/privacy/">Privacy</a></p>`,
- );
  } else if (canonicalPath === '/metodologia' || canonicalPath === '/metodologia/') {
  editorialBlocks.push(
  `<h2 class="s-o3IET6">Come scriviamo gli articoli — metodologia editoriale</h2>`,
