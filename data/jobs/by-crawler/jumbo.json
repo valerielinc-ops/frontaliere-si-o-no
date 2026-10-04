@@ -1153,7 +1153,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-bachenbulach",
@@ -1256,7 +1255,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-bachenbulach",
@@ -2732,7 +2730,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-hinwil",
@@ -6929,7 +6926,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-stans",
@@ -7212,7 +7208,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "apprentissage-de-gestionnaire-du-commerce-de-detail-jumbo-bulle"
@@ -7499,7 +7494,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "apprentissage-de-gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-3",
@@ -14168,7 +14162,6 @@
           "• Teamarbeit bereitet dir Freude."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-09-23T23:42:44.351Z",
       "salaryMin": 79000,
@@ -17153,8 +17146,8 @@
       "slugByLocale": {
         "fr": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-martigny",
         "it": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-martigny",
-        "en": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-martigny",
-        "de": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-martigny"
+        "en": "sales-advisor-do-it-m-f-d-jumbo-martigny",
+        "de": "verkaufsberater-do-it-m-w-d-jumbo-martigny"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17224,19 +17217,7 @@
         }
       },
       "firstSeenAt": "2026-10-03T09:13:53.666Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "en": [
-          "sales-advisor-do-it-m-f-d-jumbo-martigny"
-        ],
-        "de": [
-          "verkaufsberater-do-it-m-w-d-jumbo-martigny"
-        ]
-      },
-      "previousSlugs": [
-        "sales-advisor-do-it-m-f-d-jumbo-martigny",
-        "verkaufsberater-do-it-m-w-d-jumbo-martigny"
-      ]
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-17d2434a-8e0",
@@ -17244,8 +17225,8 @@
       "slugByLocale": {
         "fr": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey",
         "it": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey",
-        "en": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey",
-        "de": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey"
+        "en": "do-it-sales-advisor-m-f-d-jumbo-conthey",
+        "de": "do-it-verkaufsberater-m-w-d-jumbo-conthey"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17315,16 +17296,31 @@
       },
       "firstSeenAt": "2026-09-06T22:52:27.448Z",
       "previousSlugsByLocale": {
-        "en": [
-          "do-it-sales-advisor-m-f-d-jumbo-conthey"
+        "it": [
+          "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey-0g2696",
+          "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey-2",
+          "do-it-sales-advisor-f-h-d-jumbo-conthey",
+          "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-delemont",
+          "do-it-sales-advisor-f-h-d-jumbo-delemont",
+          "sales-advisor-do-it-m-f-d-jumbo-conthey",
+          "verkaufsberater-do-it-m-w-d-jumbo-conthey",
+          "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey-j99zhp"
         ],
-        "de": [
-          "do-it-verkaufsberater-m-w-d-jumbo-conthey"
+        "fr": [
+          "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey-0g2696"
         ]
       },
       "previousSlugs": [
         "do-it-sales-advisor-m-f-d-jumbo-conthey",
-        "do-it-verkaufsberater-m-w-d-jumbo-conthey"
+        "do-it-verkaufsberater-m-w-d-jumbo-conthey",
+        "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey-0g2696",
+        "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey-2",
+        "do-it-sales-advisor-f-h-d-jumbo-conthey",
+        "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-delemont",
+        "do-it-sales-advisor-f-h-d-jumbo-delemont",
+        "sales-advisor-do-it-m-f-d-jumbo-conthey",
+        "verkaufsberater-do-it-m-w-d-jumbo-conthey",
+        "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey-j99zhp"
       ]
     },
     {

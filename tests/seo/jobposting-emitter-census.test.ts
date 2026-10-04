@@ -6,7 +6,7 @@ import {
   JOBPOSTING_EMITTER_MANIFEST_VERSION,
   JOBPOSTING_PUBLIC_VARIANTS,
 } from '../../scripts/ci/jobposting-emitter-census.mjs';
-import { buildJobPostingSchema } from '../../build-plugins/shared/jobPostingSchema';
+import { buildReportedJobPostingFixture as buildJobPostingSchema } from '../helpers/reported-job-schema';
 import { resolveJobPostingPostalCode } from '../../services/jobLocationSnapshot';
 
 describe('public JobPosting emitter census', () => {

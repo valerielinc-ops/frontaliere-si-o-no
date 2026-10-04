@@ -182,8 +182,10 @@ describe('lab configs stay anti-regression guards, not acceptance criteria', () 
     '%s carves the known-bad page out instead of flattening every threshold to it',
     (file) => {
       const cfg = read(file);
-      const matrix = cfg.ci.assertMatrix;
-      expect(Array.isArray(matrix), `${file} must use assertMatrix`).toBe(true);
+      // LHCI and treosh/lighthouse-ci-action only read ci.assert: a matrix at
+      // ci.assertMatrix is silently never evaluated (2026-08-07 → 2026-10-04).
+      const matrix = cfg.ci.assert?.assertMatrix;
+      expect(Array.isArray(matrix), `${file} must use ci.assert.assertMatrix`).toBe(true);
       const patterns = matrix.map((m: { matchingUrlPattern: string }) => m.matchingUrlPattern);
       // One group excludes /cerca-lavoro-ticino/, one targets it: that split is
       // what lets the healthy pages be gated meaningfully.
@@ -200,7 +202,7 @@ describe('lab configs stay anti-regression guards, not acceptance criteria', () 
 
   it('keeps category-score assertions identical across the two legs so they cannot drift', () => {
     const pick = (cfg: Record<string, any>) =>
-      cfg.ci.assertMatrix.find((m: { matchingUrlPattern: string }) => m.matchingUrlPattern === '.*').assertions;
+      cfg.ci.assert.assertMatrix.find((m: { matchingUrlPattern: string }) => m.matchingUrlPattern === '.*').assertions;
     expect(pick(read('lighthouserc.desktop.json'))).toEqual(pick(read('lighthouserc.json')));
   });
 });

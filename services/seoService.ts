@@ -26,7 +26,7 @@ import {
 import { cdnBlogImage } from './seo/blogImageCdn';
 import { resolveArticleAuthorUrl, loadArticleAuthorRegistry, type ArticleAuthorRegistry } from './seo/articleAuthorUrl';
 import { translateSchema } from './seo/schema-translators';
-import { buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
+import { buildJobPostingFacts, buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
 import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from '../build-plugins/shared/jobPostingFaq';
 import { resolveJobApplicationUrl } from './jobApplicationDestination';
 import { getCantonDisplayName } from '../build-plugins/shared/cantonDisplay';
@@ -483,6 +483,8 @@ async function resolveJobSeoBySlug(
  addressCountry: address.country,
  postalCode: address.postalCode,
  streetAddress: address.streetAddress,
+ postingDateSource: job?.postingDateSource,
+ datePosted: job?.datePosted,
  postedDate: job?.postedDate,
  crawledAt: job?.crawledAt,
  updatedAt: job?.updatedAt,
@@ -526,7 +528,7 @@ async function resolveJobSeoBySlug(
  isTicino,
  isRemote,
  };
- const jobFaqPairs = buildJobPostingFaqPairs(canonicalSchema, faqOpts);
+ const jobFaqPairs = buildJobPostingFaqPairs(buildJobPostingFacts(canonicalInput, locale), faqOpts);
  const faqPageSchema: Record<string, any> | null = jobFaqPairs.length > 0
  ? {
  '@context': 'https://schema.org',
@@ -548,7 +550,7 @@ async function resolveJobSeoBySlug(
  description: localizedDescription,
  keywords: localizedJobKeywords(locale, localizedTitle, String(job?.company || ''), String(job?.location || '')),
  logoUrl,
- structuredData: faqPageSchema ? [canonicalSchema, faqPageSchema] : canonicalSchema,
+ structuredData: [canonicalSchema, faqPageSchema].filter((schema) => schema !== null),
  };
 }
 

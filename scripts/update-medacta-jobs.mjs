@@ -20,6 +20,7 @@
  * Castel San Pietro, Canton Ticino, Switzerland.  Listed on SIX Swiss Exchange.
  * ~2 200 employees globally, ~800 in Ticino.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -540,7 +541,7 @@ async function injectMedactaJobs(alliboJobs) {
       // is preserved in its own `isUrgent` field (feeds the "Ricerca urgente:" intro).
       featured: false,
       isUrgent: Boolean(aj.isUrgent),
-      postedDate: new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(''),
       url,
       source: MEDACTA_DETAIL_SOURCE,
       companyDomain: MEDACTA_COMPANY_HOST,
@@ -580,6 +581,7 @@ async function injectMedactaJobs(alliboJobs) {
     if (existingIdx !== undefined) {
       // Update existing job
       const existing = jobs[existingIdx];
+      Object.assign(existing, mergeSourcePostingDates(existing, jobEntry));
       // Matched via idIndex may carry a rewritten URL (Allibo's DetailLink
       // embeds the title text ahead of the stable id) — refresh it so the
       // stored record doesn't keep pointing at a stale vendor URL.
@@ -602,6 +604,7 @@ async function injectMedactaJobs(alliboJobs) {
     } else if (titleIdx !== undefined) {
       // Update existing job found by title
       const existing = jobs[titleIdx];
+      Object.assign(existing, mergeSourcePostingDates(existing, jobEntry));
       existing.url = url;
       existing.title = aj.title;
       existing.location = aj.location || existing.location;
