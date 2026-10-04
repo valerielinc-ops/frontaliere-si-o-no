@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonova",
-  "assembledAt": "2026-10-03T21:11:22.578Z",
+  "assembledAt": "2026-10-04T09:13:17.884Z",
   "jobs": [
     {
       "id": "sonova-96c3301b33a7",
@@ -33,7 +33,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Product-Cybersecurity-Expert/1416109733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:11:15.806Z",
+      "crawledAt": "2026-10-04T09:13:12.301Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -53,15 +53,19 @@
           "product-cybersecurity-expert-sonova-staefa"
         ],
         "it": [
-          "product-cybersecurity-expert-sonova-ch"
+          "product-cybersecurity-expert-sonova-ch",
+          "prodotto-cybersecurity-expert-sonova-staefa"
         ],
         "en": [
-          "product-cybersecurity-expert-sonova-ch"
+          "product-cybersecurity-expert-sonova-ch",
+          "product-cybersecurity-manager-sonova-ch"
         ]
       },
       "previousSlugs": [
         "product-cybersecurity-expert-sonova-staefa",
-        "product-cybersecurity-expert-sonova-ch"
+        "product-cybersecurity-expert-sonova-ch",
+        "product-cybersecurity-manager-sonova-ch",
+        "prodotto-cybersecurity-expert-sonova-staefa"
       ],
       "firstSeenAt": "2026-09-26T13:55:54.952Z",
       "salaryMin": 73500,
@@ -109,7 +113,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Architect-Charging-Solutions/1436570633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:11:15.798Z",
+      "crawledAt": "2026-10-04T09:13:12.296Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -120,16 +124,18 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-14",
+      "postedDate": "2026-09-14T00:00:00Z",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1436570633/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "architect-charging-solutions-sonova-ch"
+        "architect-charging-solutions-sonova-ch",
+        "architetto-charging-solutions-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "architect-charging-solutions-sonova-ch"
+          "architect-charging-solutions-sonova-ch",
+          "architetto-charging-solutions-sonova-staefa"
         ],
         "de": [
           "architect-charging-solutions-sonova-ch"
@@ -184,7 +190,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Werkzeugmacher-im-Bereich-Montage-WZB-%28mwd%29/1387283333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:11:15.791Z",
+      "crawledAt": "2026-10-04T09:13:12.291Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -200,11 +206,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "werkzeugmacher-im-bereich-montage-wzb-m-w-d-sonova-ch"
+        "werkzeugmacher-im-bereich-montage-wzb-m-w-d-sonova-ch",
+        "macchine-utensili-nel-campo-dell-assemblaggio-wzb-m-f-d-sonova-staefa-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkzeugmacher-im-bereich-montage-wzb-m-w-d-sonova-ch"
+          "werkzeugmacher-im-bereich-montage-wzb-m-w-d-sonova-ch",
+          "macchine-utensili-nel-campo-dell-assemblaggio-wzb-m-f-d-sonova-staefa-switzerland"
         ],
         "en": [
           "werkzeugmacher-im-bereich-montage-wzb-m-w-d-sonova-ch"
@@ -258,7 +266,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Software-Engineer-DSP-Tools-and-Infrastructure-%28mfd%29/1437852833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:11:15.784Z",
+      "crawledAt": "2026-10-04T09:13:12.287Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -269,16 +277,18 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-17",
+      "postedDate": "2026-09-17T00:00:00Z",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1437852833/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-engineer-dsp-tools-and-infrastructure-m-f-d-sonova-ch"
+        "software-engineer-dsp-tools-and-infrastructure-m-f-d-sonova-ch",
+        "software-ingegnere-dsp-tools-and-infrastructure-m-f-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-dsp-tools-and-infrastructure-m-f-d-sonova-ch"
+          "software-engineer-dsp-tools-and-infrastructure-m-f-d-sonova-ch",
+          "software-ingegnere-dsp-tools-and-infrastructure-m-f-d-sonova-staefa"
         ],
         "de": [
           "software-engineer-dsp-tools-and-infrastructure-m-f-d-sonova-ch"
@@ -288,6 +298,7 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:55:54.925Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -333,7 +344,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Hearing-Performance/1413688533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:11:15.775Z",
+      "crawledAt": "2026-10-04T09:13:12.282Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -350,10 +361,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "senior-manager-hearing-performance-sonova-ch"
+          "senior-manager-hearing-performance-sonova-ch",
+          "senior-manager-sound-quality-engineering-sonova-ch"
         ],
         "it": [
-          "senior-manager-hearing-performance-sonova-ch"
+          "senior-manager-hearing-performance-sonova-ch",
+          "senior-manager-performance-uditiva-sonova-staefa"
         ],
         "fr": [
           "senior-manager-hearing-performance-sonova-staefa"
@@ -361,9 +374,12 @@
       },
       "previousSlugs": [
         "senior-manager-hearing-performance-sonova-ch",
-        "senior-manager-hearing-performance-sonova-staefa"
+        "senior-manager-hearing-performance-sonova-staefa",
+        "senior-manager-sound-quality-engineering-sonova-ch",
+        "senior-manager-performance-uditiva-sonova-staefa"
       ],
       "firstSeenAt": "2026-09-26T13:55:54.917Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -409,7 +425,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Power-Management-Engineer-%2880-100%29-%28mfd%29/1417571533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:11:15.763Z",
+      "crawledAt": "2026-10-04T09:13:12.278Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -425,11 +441,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "power-management-engineer-80-100-m-f-d-sonova-ch"
+        "power-management-engineer-80-100-m-f-d-sonova-ch",
+        "power-management-ingegnere-80-100-m-f-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "power-management-engineer-80-100-m-f-d-sonova-ch"
+          "power-management-engineer-80-100-m-f-d-sonova-ch",
+          "power-management-ingegnere-80-100-m-f-d-sonova-staefa"
         ]
       },
       "firstSeenAt": "2026-09-26T13:55:54.907Z",
@@ -478,7 +496,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1407383533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:11:15.756Z",
+      "crawledAt": "2026-10-04T09:13:12.274Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -494,13 +512,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-specialist-production-tsp-m-f-d-sonova-ch"
+        "technical-specialist-production-tsp-m-f-d-sonova-ch",
+        "technical-specialista-production-tsp-m-f-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-specialist-production-tsp-m-f-d-sonova-ch"
+          "technical-specialist-production-tsp-m-f-d-sonova-ch",
+          "technical-specialista-production-tsp-m-f-d-sonova-staefa"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -532,7 +553,7 @@
         "it": "Practical Apprendista - Power Management (m/f/d)",
         "en": "Practical Trainee - Power Management (m/f/d)",
         "de": "Practical Auszubildender - Power Management (m/f/d)",
-        "fr": "Stagiaire pratique - Gestion de l'alimentation (h/f/d)"
+        "fr": "Practical Trainee - Power Management (m/f/d)"
       },
       "description": "Location: Stäfa, Switzerland\n\nFulltime, 6 Months\n\nAt Sonova, we create sense by bringing sound to life. Our innovative hearing care solutions help millions of people reconnect with the sounds that matter most. As a Power Management Trainee, you will support the development and verification of the technologies that power our hearing instruments and chargers, helping us deliver reliable, high-quality solutions that make a real difference in people's everyday lives.\n\nWhat you'll do\n\n• Perform experiments to evaluate battery runtime, power consumption, and charging performance in real-world usage scenarios\n\n• Build, calibrate, maintain, and improve test setups and measurement systems for battery and power-management verification\n\n• Develop and execute automated test scripts and verification frameworks\n\n• Verify the performance of battery and power management systems in hearing devices and chargers\n\n• Analyze measurement data, create visualizations, and prepare technical reports\n\n• Troubleshoot test equipment and continuously improve testing processes\n\n• Collaborate with multidisciplinary engineering teams on power electronics, charger integration, and system-level investigations\n\nWhat you bring\n\n• Currently enrolled in or graduated with a Master's degree in Electrical Engineering, Electronics, Mechatronics, or a related field.\n\n• Basic programming skills in Python. MATLAB or C are a plus\n\n• Interest in automation, testing, verification, and engineering problem-solving.\n\n• Analytical mindset with strong attention to detail\n\n• Ability to work with technical data and measurements\n\n• Experience with battery management systems, power electronics, embedded systems, laboratory equipment, or Li-ion batteries is a plus\n\n• Fluency in English\n\nWhat we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model.\n\nWe can offer you a new challenge, with interesting tasks and much more – including an open corporate culture, flat hierarchies, support for further training and development, opportunities to take on responsibility, and an excellent range of foods, sports and cultural facilities.\n\n• Insights into how hearing instruments and chargers manage power and energy efficiency\n\n• Practical data analysis skills and the opportunity to contribute to engineering decisions through testing results #LI-NB1\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
       "descriptionByLocale": {
@@ -546,7 +567,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Practical-Trainee-Power-Management-%28mfd%29/1418818733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:11:15.749Z",
+      "crawledAt": "2026-10-04T09:13:12.269Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -566,12 +587,14 @@
         "practical-apprendista-power-management-m-f-d-sonova-stafa",
         "stage-pratique-gestion-de-l-energie-m-f-d-sonova-staefa-switzerland",
         "practical-trainee-power-management-m-w-d-sonova-staefa",
-        "practical-trainee-power-management-m-f-d-sonova-staefa"
+        "practical-trainee-power-management-m-f-d-sonova-staefa",
+        "practical-apprendista-power-management-m-f-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "practical-trainee-power-management-m-f-d-sonova-ch",
-          "practical-apprendista-power-management-m-f-d-sonova-stafa"
+          "practical-apprendista-power-management-m-f-d-sonova-stafa",
+          "practical-apprendista-power-management-m-f-d-sonova-staefa"
         ],
         "de": [
           "practical-trainee-power-management-m-f-d-sonova-ch"
@@ -583,6 +606,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:05:37.985Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -593,87 +617,6 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sonova-7467e53a621f",
-      "slug": "designer-di-interazione-sonova-staefa-switzerland",
-      "slugByLocale": {
-        "it": "designer-di-interazione-sonova-staefa-switzerland",
-        "en": "interaction-designer-sonova-ch",
-        "de": "interaction-designer-sonova-ch",
-        "fr": "conception-de-l-interaction-sonova-staefa-switzerland"
-      },
-      "company": "Sonova",
-      "companyKey": "sonova",
-      "companyDomain": "sonova.com",
-      "title": "Interaction Designer",
-      "titleByLocale": {
-        "it": "Designer di interazione",
-        "en": "Interaction Designer",
-        "de": "Interaction Designer",
-        "fr": "Conception de l'interaction"
-      },
-      "description": "Purpose of the Job\n\nAs a Senior Interaction Designer, you will shape the user experience across our ecosystem by acting as the vital bridge between Industrial and Digital Experience Design. Your primary mission is to craft outstanding, state-of-the-art interaction design solutions that deliver a seamless, enjoyable, and accessible user experience across all touchpoints of the hearing care journey—from hearing instruments (HIs) and chargers to mobile apps and software platforms. By harmonizing hardware touchpoints with digital platforms, you will drive ecosystem alignment and ensure consistent, holistic user experience. You will collaborate closely with the Digital Experience and Industrial Design teams, Product Managers, Strategic Marketing, and R&D to design solutions that are simple, intuitive, and meaningful.\n\nTasks & Responsibilities\n\n• Drive a cohesive end-to-end UX/UI experience, ensuring that physical user interactions seamlessly trigger and align with digital workflows across mobile apps and B2B/B2C solutions.\n\n• Apply User-Centered Design (UCD) and Design Thinking methods across the entire design process, from wireframes, storyboards, and user flows to advanced, interactive prototypes. Utilize these tools to map out customer journeys that simulate the physical-to-digital bridge and align seamlessly with the broader experience design strategy.\n\n• Engage in ongoing user research and design validation to ensure a data-informed, hypothesis-driven approach.\n\n• Actively contributes to design guidelines, metrics, and success criteria at the group level.\n\n• Collaborate with Design, PMs, and R&D to ensure seamless integration across the Sonova ecosystem.\n\n• Actively promote design quality, best practices, and a culture of craft within the team.\n\nRequirements\n\n• University degree in Interaction Design, Experience Design, or similar\n\n• 5+ years designing end-to-end digital products for web and mobile (iOS/Android).\n\n• Expertise in UX research and hypothesis-driven, user-centered methodologies.\n\n• Advanced skills in Figma, and modern AI-powered prototyping tools.\n\n• Excellent communication skills with a proven ability to collaborate across cross-functional teams, influence stakeholders at all levels, and mentor junior team members.\n\n• Strong analytical skills with a data-informed approach to decision-making.\n\n• Self-motivated, organized, and highly effective in fast-paced, complex environments with a passion for continuous innovation and quality.\n\n• Fluent in English (written and spoken).\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-      "descriptionByLocale": {
-        "it": "Scopo del lavoro\n\nIn qualità di Senior Interaction Designer, si modella l'esperienza utente attraverso il nostro ecosistema agendo come il ponte vitale tra Industrial e Digital Experience Design. La vostra missione primaria è quella di creare soluzioni di design di interazione all'avanguardia che offrono un'esperienza utente senza soluzione di continuità, piacevole e accessibile in tutti i punti di contatto del viaggio di assistenza all'udito, dagli strumenti acustici (HIs) e dai caricabatterie alle applicazioni mobili e alle piattaforme software. Con l'armonizzazione dei touchpoint hardware con piattaforme digitali, guiderai l'allineamento dell'ecosistema e garantirai un'esperienza utente coerente e olistica. Collaborerai a stretto contatto con i team di Digital Experience e Industrial Design, Product Manager, Strategic Marketing e R&D per progettare soluzioni semplici, intuitive e significative.\n\nCompiti e responsabilità\n\n• Guidare un'esperienza UX/UI coesa e end-to-end, assicurando che le interazioni fisiche dell'utente si inneschino e si allineano con i flussi di lavoro digitali attraverso le applicazioni mobili e le soluzioni B2B/B2C.\n\n• Applicare il design (UCD) e il design del cliente utente Metodi di pensiero attraverso l'intero processo di progettazione, da wireframe, storyboard e flussi utente a prototipi avanzati e interattivi. Utilizzare questi strumenti per mappare i viaggi dei clienti che simulano il ponte fisico-digitale e si allineano senza soluzione di continuità con la più ampia strategia di progettazione dell'esperienza.\n\n• Impegnarsi nella ricerca e nella validazione continua della progettazione degli utenti per garantire un approccio basato su ipotesi.\n\n• Contribuisce attivamente alla progettazione di linee guida, metriche e criteri di successo a livello di gruppo.\n\n• Collabora con Design, PM e R&D per garantire un'integrazione senza soluzione di continuità nell'ecosistema Sonova.\n\n• Promuovi attivamente la qualità del design, le migliori pratiche e una cultura dell'artigianato all'interno del team.\n\nRequisiti\n\n• Laurea in Interazione Design, Design Esperienza, o simili\n\n• 5+ anni progettando prodotti digitali end-to-end per web e mobile (iOS/Android).\n\n• Competenza nella ricerca UX e metodologie basate su ipotesi e centrate sull'utente.\n\n• Competenze avanzate in Figma, e moderni strumenti di prototipazione AI.\n\n• Eccellente capacità di comunicazione con una comprovata capacità di collaborare tra team interfunzionali, influenzare gli stakeholder a tutti i livelli, e membri del team di mentore junior.\n\n• Forte capacità analitiche con un approccio informatizzato ai processi decisionali.\n\n• Self-motivated, organizzato e altamente efficace in ambienti veloci e complessi con la passione per la continua innovazione e qualità.\n\n• Fluente in inglese (scritto e parlato).\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
-        "en": "Purpose of the Job\n\nAs a Senior Interaction Designer, you will shape the user experience across our ecosystem by acting as the vital bridge between Industrial and Digital Experience Design. Your primary mission is to craft outstanding, state-of-the-art interaction design solutions that deliver a seamless, enjoyable, and accessible user experience across all touchpoints of the hearing care journey—from hearing instruments (HIs) and chargers to mobile apps and software platforms. By harmonizing hardware touchpoints with digital platforms, you will drive ecosystem alignment and ensure consistent, holistic user experience. You will collaborate closely with the Digital Experience and Industrial Design teams, Product Managers, Strategic Marketing, and R&D to design solutions that are simple, intuitive, and meaningful.\n\nTasks & Responsibilities\n\n• Drive a cohesive end-to-end UX/UI experience, ensuring that physical user interactions seamlessly trigger and align with digital workflows across mobile apps and B2B/B2C solutions.\n\n• Apply User-Centered Design (UCD) and Design Thinking methods across the entire design process, from wireframes, storyboards, and user flows to advanced, interactive prototypes. Utilize these tools to map out customer journeys that simulate the physical-to-digital bridge and align seamlessly with the broader experience design strategy.\n\n• Engage in ongoing user research and design validation to ensure a data-informed, hypothesis-driven approach.\n\n• Actively contributes to design guidelines, metrics, and success criteria at the group level.\n\n• Collaborate with Design, PMs, and R&D to ensure seamless integration across the Sonova ecosystem.\n\n• Actively promote design quality, best practices, and a culture of craft within the team.\n\nRequirements\n\n• University degree in Interaction Design, Experience Design, or similar\n\n• 5+ years designing end-to-end digital products for web and mobile (iOS/Android).\n\n• Expertise in UX research and hypothesis-driven, user-centered methodologies.\n\n• Advanced skills in Figma, and modern AI-powered prototyping tools.\n\n• Excellent communication skills with a proven ability to collaborate across cross-functional teams, influence stakeholders at all levels, and mentor junior team members.\n\n• Strong analytical skills with a data-informed approach to decision-making.\n\n• Self-motivated, organized, and highly effective in fast-paced, complex environments with a passion for continuous innovation and quality.\n\n• Fluent in English (written and spoken).\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "de": "Zweck des Auftrags\n\nAls Senior Interaction Designer gestalten Sie die Benutzererfahrung in unserem Ökosystem, indem Sie als wichtige Brücke zwischen Industrial und Digital Experience Design fungieren. Ihre Hauptaufgabe ist es, herausragende, hochmoderne Interaktionsdesign-Lösungen zu entwickeln, die eine nahtlose, angenehme und zugängliche Benutzererfahrung über alle Touchpoints der Hörversorgungsreise hinweg bieten - von Hörinstrumenten (HIs) und Ladegeräten bis hin zu mobilen Apps und Softwareplattformen. Durch die Harmonisierung von Hardware-Touchpoints mit digitalen Plattformen fördern Sie die Ausrichtung von Ökosystemen und sorgen für eine konsistente, ganzheitliche Benutzererfahrung. Sie arbeiten eng mit den Teams für Digital Experience und Industrial Design, Produktmanagern, strategischem Marketing und Forschung und Entwicklung zusammen, um Lösungen zu entwickeln, die einfach, intuitiv und sinnvoll sind.\n\nAufgaben & Verantwortlichkeiten\n\n• Führen Sie ein zusammenhängendes Ende-zu-Ende-UX / UI-Erlebnis und stellen Sie sicher, dass physische Benutzerinteraktionen nahtlos digitale Workflows über mobile Apps und B2B / B2C-Lösungen auslösen und ausrichten.\n\n• Anwenden von User-Centered Design (UCD) und Design Denkmethoden über den gesamten Designprozess hinweg, von Wireframes, Storyboards und Benutzerströmen bis hin zu fortschrittlichen, interaktiven Prototypen. Verwenden Sie diese Tools, um Customer Journeys abzubilden, die die physisch-digitale Brücke simulieren und sich nahtlos an die breitere Experience-Design-Strategie anpassen.\n\n• Beteiligen Sie sich an der laufenden Nutzerforschung und Designvalidierung, um einen datengestützten, hypothetischen Ansatz zu gewährleisten.\n\n• Trägt aktiv zu Designrichtlinien, Metriken und Erfolgskriterien auf Gruppenebene bei.\n\n• Arbeiten Sie mit Design, PMs und R&D zusammen, um eine nahtlose Integration in das Sonova-Ökosystem zu gewährleisten.\n\n• Aktive Förderung von Designqualität, Best Practices und einer handwerklichen Kultur im Team.\n\nAnforderungen\n\n• Universitätsabschluss in Interaction Design, Experience Design oder ähnlichem\n\n• 5+ Jahre Design von digitalen End-to-End-Produkten für Web und Mobile (iOS / Android).\n\n• Expertise in UX-Forschung und hypothesengesteuerten, benutzerzentrierten Methoden.\n\n• Fortgeschrittene Fähigkeiten in Figma und moderne KI-basierte Prototyping-Tools.\n\n• Hervorragende Kommunikationsfähigkeiten mit einer nachgewiesenen Fähigkeit, funktionsübergreifende Teams zusammenzuarbeiten, Interessengruppen auf allen Ebenen zu beeinflussen und Junior-Teammitglieder zu betreuen.\n\n• Starke analytische Fähigkeiten mit einem datengestützten Ansatz zur Entscheidungsfindung.\n\n• Selbstmotiviert, organisiert und sehr effektiv in schnelllebigen, komplexen Umgebungen mit einer Leidenschaft für kontinuierliche Innovation und Qualität.\n\n• fließend Englisch (geschrieben und gesprochen).\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !wichtig;\"",
-        "fr": "Objet du travail\n\nEn tant que designer d'interaction senior, vous façonnerez l'expérience utilisateur dans notre écosystème en agissant comme le pont vital entre le design industriel et numérique. Votre mission principale est d'élaborer des solutions de conception d'interactions exceptionnelles et à la fine pointe de la technologie qui offrent une expérience utilisateur transparente, agréable et accessible sur tous les points de contact du parcours auditif, des instruments auditifs aux chargeurs aux applications mobiles et aux plateformes logicielles. En harmonisant les points de contact matériels avec les plateformes numériques, vous piloterez l'alignement des écosystèmes et assurerez une expérience utilisateur cohérente et holistique. Vous collaborerez étroitement avec les équipes Expérience numérique et design industriel, les gestionnaires de produits, le marketing stratégique et la R-D pour concevoir des solutions simples, intuitives et significatives.\n\nTâches et responsabilités\n\n• Conduire une expérience UX/UI de bout en bout cohésive, en veillant à ce que les interactions physiques des utilisateurs déclenchent et s'alignent parfaitement avec les flux de travail numériques des applications mobiles et des solutions B2B/B2C.\n\n• Appliquer la conception basée sur l'utilisateur (UCD) et la conception Méthodes de réflexion sur l'ensemble du processus de conception, des trames filaires, des storyboards et des flux d'utilisateurs aux prototypes avancés et interactifs. Utilisez ces outils pour cartographier les parcours des clients qui simulent le pont physique-numérique et s'harmonisent parfaitement avec la stratégie de conception de l'expérience.\n\n• S'engager dans la recherche continue des utilisateurs et la validation de la conception pour assurer une approche fondée sur les données et les hypothèses.\n\n• Contribuer activement aux lignes directrices, aux mesures et aux critères de réussite au niveau du groupe.\n\n• Collaborer avec la conception, les MP et la R-D pour assurer une intégration transparente dans l'écosystème de Sonova.\n\n• Promouvoir activement la qualité de conception, les meilleures pratiques et une culture de l'artisanat au sein de l'équipe.\n\nExigences\n\n• Diplôme universitaire en conception d'interaction, conception d'expérience, ou similaire\n\n• 5+ années de conception de produits numériques de bout en bout pour le web et mobile (iOS/Android).\n\n• Expertise en recherche UX et en méthodologies axées sur les hypothèses.\n\n• Compétences avancées en Figma et outils modernes de prototypage à l'IA.\n\n• Excellentes compétences en communication avec une capacité éprouvée de collaborer entre les équipes interfonctionnelles, d'influencer les intervenants à tous les niveaux et de guider les membres de l'équipe junior.\n\n• Fortes compétences analytiques avec une approche fondée sur les données pour la prise de décisions.\n\n• Automotivé, organisé et très efficace dans des environnements complexes et rapides avec une passion pour l'innovation et la qualité continues.\n\n• Fluent en anglais (écrit et parlé).\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
-      },
-      "location": "Staefa, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.sonova.com/job/Staefa-Interaction-Designer/1439444733/",
-      "source": "Sonova Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:11:15.741Z",
-      "addressLocality": "Staefa",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-21",
-      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1439444733/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "en": [
-          "interaction-designer-sonova-staefa"
-        ],
-        "it": [
-          "interaction-designer-sonova-ch",
-          "designer-di-interazione-sonova-staefa"
-        ],
-        "fr": [
-          "interaction-designer-sonova-ch",
-          "conception-de-l-interaction-sonova-staefa"
-        ]
-      },
-      "previousSlugs": [
-        "interaction-designer-sonova-ch",
-        "designer-di-interazione-sonova-staefa",
-        "conception-de-l-interaction-sonova-staefa",
-        "interaction-designer-sonova-staefa"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T13:55:54.896Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -709,7 +652,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Procurement-Manager-NPI/1439443733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:11:15.732Z",
+      "crawledAt": "2026-10-04T09:13:12.263Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -720,7 +663,7 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-21",
+      "postedDate": "2026-09-21T00:00:00Z",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1439443733/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -748,6 +691,89 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "sonova-7467e53a621f",
+      "slug": "designer-di-interazione-sonova-staefa-switzerland",
+      "slugByLocale": {
+        "it": "designer-di-interazione-sonova-staefa-switzerland",
+        "en": "interaction-designer-sonova-ch",
+        "de": "interaction-designer-sonova-ch",
+        "fr": "conception-de-l-interaction-sonova-staefa-switzerland"
+      },
+      "company": "Sonova",
+      "companyKey": "sonova",
+      "companyDomain": "sonova.com",
+      "title": "Interaction Designer",
+      "titleByLocale": {
+        "it": "Designer di interazione",
+        "en": "Interaction Designer",
+        "de": "Interaction Designer",
+        "fr": "Conception de l'interaction"
+      },
+      "description": "Purpose of the Job\n\nAs a Senior Interaction Designer, you will shape the user experience across our ecosystem by acting as the vital bridge between Industrial and Digital Experience Design. Your primary mission is to craft outstanding, state-of-the-art interaction design solutions that deliver a seamless, enjoyable, and accessible user experience across all touchpoints of the hearing care journey—from hearing instruments (HIs) and chargers to mobile apps and software platforms. By harmonizing hardware touchpoints with digital platforms, you will drive ecosystem alignment and ensure consistent, holistic user experience. You will collaborate closely with the Digital Experience and Industrial Design teams, Product Managers, Strategic Marketing, and R&D to design solutions that are simple, intuitive, and meaningful.\n\nTasks & Responsibilities\n\n• Drive a cohesive end-to-end UX/UI experience, ensuring that physical user interactions seamlessly trigger and align with digital workflows across mobile apps and B2B/B2C solutions.\n\n• Apply User-Centered Design (UCD) and Design Thinking methods across the entire design process, from wireframes, storyboards, and user flows to advanced, interactive prototypes. Utilize these tools to map out customer journeys that simulate the physical-to-digital bridge and align seamlessly with the broader experience design strategy.\n\n• Engage in ongoing user research and design validation to ensure a data-informed, hypothesis-driven approach.\n\n• Actively contributes to design guidelines, metrics, and success criteria at the group level.\n\n• Collaborate with Design, PMs, and R&D to ensure seamless integration across the Sonova ecosystem.\n\n• Actively promote design quality, best practices, and a culture of craft within the team.\n\nRequirements\n\n• University degree in Interaction Design, Experience Design, or similar\n\n• 5+ years designing end-to-end digital products for web and mobile (iOS/Android).\n\n• Expertise in UX research and hypothesis-driven, user-centered methodologies.\n\n• Advanced skills in Figma, and modern AI-powered prototyping tools.\n\n• Excellent communication skills with a proven ability to collaborate across cross-functional teams, influence stakeholders at all levels, and mentor junior team members.\n\n• Strong analytical skills with a data-informed approach to decision-making.\n\n• Self-motivated, organized, and highly effective in fast-paced, complex environments with a passion for continuous innovation and quality.\n\n• Fluent in English (written and spoken).\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+      "descriptionByLocale": {
+        "it": "Scopo del lavoro\n\nIn qualità di Senior Interaction Designer, si modella l'esperienza utente attraverso il nostro ecosistema agendo come il ponte vitale tra Industrial e Digital Experience Design. La vostra missione primaria è quella di creare soluzioni di design di interazione all'avanguardia che offrono un'esperienza utente senza soluzione di continuità, piacevole e accessibile in tutti i punti di contatto del viaggio di assistenza all'udito, dagli strumenti acustici (HIs) e dai caricabatterie alle applicazioni mobili e alle piattaforme software. Con l'armonizzazione dei touchpoint hardware con piattaforme digitali, guiderai l'allineamento dell'ecosistema e garantirai un'esperienza utente coerente e olistica. Collaborerai a stretto contatto con i team di Digital Experience e Industrial Design, Product Manager, Strategic Marketing e R&D per progettare soluzioni semplici, intuitive e significative.\n\nCompiti e responsabilità\n\n• Guidare un'esperienza UX/UI coesa e end-to-end, assicurando che le interazioni fisiche dell'utente si inneschino e si allineano con i flussi di lavoro digitali attraverso le applicazioni mobili e le soluzioni B2B/B2C.\n\n• Applicare il design (UCD) e il design del cliente utente Metodi di pensiero attraverso l'intero processo di progettazione, da wireframe, storyboard e flussi utente a prototipi avanzati e interattivi. Utilizzare questi strumenti per mappare i viaggi dei clienti che simulano il ponte fisico-digitale e si allineano senza soluzione di continuità con la più ampia strategia di progettazione dell'esperienza.\n\n• Impegnarsi nella ricerca e nella validazione continua della progettazione degli utenti per garantire un approccio basato su ipotesi.\n\n• Contribuisce attivamente alla progettazione di linee guida, metriche e criteri di successo a livello di gruppo.\n\n• Collabora con Design, PM e R&D per garantire un'integrazione senza soluzione di continuità nell'ecosistema Sonova.\n\n• Promuovi attivamente la qualità del design, le migliori pratiche e una cultura dell'artigianato all'interno del team.\n\nRequisiti\n\n• Laurea in Interazione Design, Design Esperienza, o simili\n\n• 5+ anni progettando prodotti digitali end-to-end per web e mobile (iOS/Android).\n\n• Competenza nella ricerca UX e metodologie basate su ipotesi e centrate sull'utente.\n\n• Competenze avanzate in Figma, e moderni strumenti di prototipazione AI.\n\n• Eccellente capacità di comunicazione con una comprovata capacità di collaborare tra team interfunzionali, influenzare gli stakeholder a tutti i livelli, e membri del team di mentore junior.\n\n• Forte capacità analitiche con un approccio informatizzato ai processi decisionali.\n\n• Self-motivated, organizzato e altamente efficace in ambienti veloci e complessi con la passione per la continua innovazione e qualità.\n\n• Fluente in inglese (scritto e parlato).\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
+        "en": "Purpose of the Job\n\nAs a Senior Interaction Designer, you will shape the user experience across our ecosystem by acting as the vital bridge between Industrial and Digital Experience Design. Your primary mission is to craft outstanding, state-of-the-art interaction design solutions that deliver a seamless, enjoyable, and accessible user experience across all touchpoints of the hearing care journey—from hearing instruments (HIs) and chargers to mobile apps and software platforms. By harmonizing hardware touchpoints with digital platforms, you will drive ecosystem alignment and ensure consistent, holistic user experience. You will collaborate closely with the Digital Experience and Industrial Design teams, Product Managers, Strategic Marketing, and R&D to design solutions that are simple, intuitive, and meaningful.\n\nTasks & Responsibilities\n\n• Drive a cohesive end-to-end UX/UI experience, ensuring that physical user interactions seamlessly trigger and align with digital workflows across mobile apps and B2B/B2C solutions.\n\n• Apply User-Centered Design (UCD) and Design Thinking methods across the entire design process, from wireframes, storyboards, and user flows to advanced, interactive prototypes. Utilize these tools to map out customer journeys that simulate the physical-to-digital bridge and align seamlessly with the broader experience design strategy.\n\n• Engage in ongoing user research and design validation to ensure a data-informed, hypothesis-driven approach.\n\n• Actively contributes to design guidelines, metrics, and success criteria at the group level.\n\n• Collaborate with Design, PMs, and R&D to ensure seamless integration across the Sonova ecosystem.\n\n• Actively promote design quality, best practices, and a culture of craft within the team.\n\nRequirements\n\n• University degree in Interaction Design, Experience Design, or similar\n\n• 5+ years designing end-to-end digital products for web and mobile (iOS/Android).\n\n• Expertise in UX research and hypothesis-driven, user-centered methodologies.\n\n• Advanced skills in Figma, and modern AI-powered prototyping tools.\n\n• Excellent communication skills with a proven ability to collaborate across cross-functional teams, influence stakeholders at all levels, and mentor junior team members.\n\n• Strong analytical skills with a data-informed approach to decision-making.\n\n• Self-motivated, organized, and highly effective in fast-paced, complex environments with a passion for continuous innovation and quality.\n\n• Fluent in English (written and spoken).\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "de": "Zweck des Auftrags\n\nAls Senior Interaction Designer gestalten Sie die Benutzererfahrung in unserem Ökosystem, indem Sie als wichtige Brücke zwischen Industrial und Digital Experience Design fungieren. Ihre Hauptaufgabe ist es, herausragende, hochmoderne Interaktionsdesign-Lösungen zu entwickeln, die eine nahtlose, angenehme und zugängliche Benutzererfahrung über alle Touchpoints der Hörversorgungsreise hinweg bieten - von Hörinstrumenten (HIs) und Ladegeräten bis hin zu mobilen Apps und Softwareplattformen. Durch die Harmonisierung von Hardware-Touchpoints mit digitalen Plattformen fördern Sie die Ausrichtung von Ökosystemen und sorgen für eine konsistente, ganzheitliche Benutzererfahrung. Sie arbeiten eng mit den Teams für Digital Experience und Industrial Design, Produktmanagern, strategischem Marketing und Forschung und Entwicklung zusammen, um Lösungen zu entwickeln, die einfach, intuitiv und sinnvoll sind.\n\nAufgaben & Verantwortlichkeiten\n\n• Führen Sie ein zusammenhängendes Ende-zu-Ende-UX / UI-Erlebnis und stellen Sie sicher, dass physische Benutzerinteraktionen nahtlos digitale Workflows über mobile Apps und B2B / B2C-Lösungen auslösen und ausrichten.\n\n• Anwenden von User-Centered Design (UCD) und Design Denkmethoden über den gesamten Designprozess hinweg, von Wireframes, Storyboards und Benutzerströmen bis hin zu fortschrittlichen, interaktiven Prototypen. Verwenden Sie diese Tools, um Customer Journeys abzubilden, die die physisch-digitale Brücke simulieren und sich nahtlos an die breitere Experience-Design-Strategie anpassen.\n\n• Beteiligen Sie sich an der laufenden Nutzerforschung und Designvalidierung, um einen datengestützten, hypothetischen Ansatz zu gewährleisten.\n\n• Trägt aktiv zu Designrichtlinien, Metriken und Erfolgskriterien auf Gruppenebene bei.\n\n• Arbeiten Sie mit Design, PMs und R&D zusammen, um eine nahtlose Integration in das Sonova-Ökosystem zu gewährleisten.\n\n• Aktive Förderung von Designqualität, Best Practices und einer handwerklichen Kultur im Team.\n\nAnforderungen\n\n• Universitätsabschluss in Interaction Design, Experience Design oder ähnlichem\n\n• 5+ Jahre Design von digitalen End-to-End-Produkten für Web und Mobile (iOS / Android).\n\n• Expertise in UX-Forschung und hypothesengesteuerten, benutzerzentrierten Methoden.\n\n• Fortgeschrittene Fähigkeiten in Figma und moderne KI-basierte Prototyping-Tools.\n\n• Hervorragende Kommunikationsfähigkeiten mit einer nachgewiesenen Fähigkeit, funktionsübergreifende Teams zusammenzuarbeiten, Interessengruppen auf allen Ebenen zu beeinflussen und Junior-Teammitglieder zu betreuen.\n\n• Starke analytische Fähigkeiten mit einem datengestützten Ansatz zur Entscheidungsfindung.\n\n• Selbstmotiviert, organisiert und sehr effektiv in schnelllebigen, komplexen Umgebungen mit einer Leidenschaft für kontinuierliche Innovation und Qualität.\n\n• fließend Englisch (geschrieben und gesprochen).\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !wichtig;\"",
+        "fr": "Objet du travail\n\nEn tant que designer d'interaction senior, vous façonnerez l'expérience utilisateur dans notre écosystème en agissant comme le pont vital entre le design industriel et numérique. Votre mission principale est d'élaborer des solutions de conception d'interactions exceptionnelles et à la fine pointe de la technologie qui offrent une expérience utilisateur transparente, agréable et accessible sur tous les points de contact du parcours auditif, des instruments auditifs aux chargeurs aux applications mobiles et aux plateformes logicielles. En harmonisant les points de contact matériels avec les plateformes numériques, vous piloterez l'alignement des écosystèmes et assurerez une expérience utilisateur cohérente et holistique. Vous collaborerez étroitement avec les équipes Expérience numérique et design industriel, les gestionnaires de produits, le marketing stratégique et la R-D pour concevoir des solutions simples, intuitives et significatives.\n\nTâches et responsabilités\n\n• Conduire une expérience UX/UI de bout en bout cohésive, en veillant à ce que les interactions physiques des utilisateurs déclenchent et s'alignent parfaitement avec les flux de travail numériques des applications mobiles et des solutions B2B/B2C.\n\n• Appliquer la conception basée sur l'utilisateur (UCD) et la conception Méthodes de réflexion sur l'ensemble du processus de conception, des trames filaires, des storyboards et des flux d'utilisateurs aux prototypes avancés et interactifs. Utilisez ces outils pour cartographier les parcours des clients qui simulent le pont physique-numérique et s'harmonisent parfaitement avec la stratégie de conception de l'expérience.\n\n• S'engager dans la recherche continue des utilisateurs et la validation de la conception pour assurer une approche fondée sur les données et les hypothèses.\n\n• Contribuer activement aux lignes directrices, aux mesures et aux critères de réussite au niveau du groupe.\n\n• Collaborer avec la conception, les MP et la R-D pour assurer une intégration transparente dans l'écosystème de Sonova.\n\n• Promouvoir activement la qualité de conception, les meilleures pratiques et une culture de l'artisanat au sein de l'équipe.\n\nExigences\n\n• Diplôme universitaire en conception d'interaction, conception d'expérience, ou similaire\n\n• 5+ années de conception de produits numériques de bout en bout pour le web et mobile (iOS/Android).\n\n• Expertise en recherche UX et en méthodologies axées sur les hypothèses.\n\n• Compétences avancées en Figma et outils modernes de prototypage à l'IA.\n\n• Excellentes compétences en communication avec une capacité éprouvée de collaborer entre les équipes interfonctionnelles, d'influencer les intervenants à tous les niveaux et de guider les membres de l'équipe junior.\n\n• Fortes compétences analytiques avec une approche fondée sur les données pour la prise de décisions.\n\n• Automotivé, organisé et très efficace dans des environnements complexes et rapides avec une passion pour l'innovation et la qualité continues.\n\n• Fluent en anglais (écrit et parlé).\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
+      },
+      "location": "Staefa, Switzerland",
+      "canton": "ZH",
+      "url": "https://jobs.sonova.com/job/Staefa-Interaction-Designer/1439444733/",
+      "source": "Sonova Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-04T09:13:12.251Z",
+      "addressLocality": "Staefa",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21T00:00:00Z",
+      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1439444733/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "interaction-designer-sonova-ch",
+        "designer-di-interazione-sonova-staefa",
+        "conception-de-l-interaction-sonova-staefa",
+        "interaction-designer-sonova-staefa",
+        "designer-di-interazione-sonova-staefa-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "interaction-designer-sonova-ch",
+          "designer-di-interazione-sonova-staefa",
+          "designer-di-interazione-sonova-staefa-switzerland"
+        ],
+        "en": [
+          "interaction-designer-sonova-staefa"
+        ],
+        "fr": [
+          "interaction-designer-sonova-ch",
+          "conception-de-l-interaction-sonova-staefa"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:55:54.896Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -783,7 +809,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Product-Quality-%28mfd%29/1411716033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:11:15.723Z",
+      "crawledAt": "2026-10-04T09:13:12.244Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -799,13 +825,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-product-quality-m-f-d-sonova-ch"
+        "senior-manager-product-quality-m-f-d-sonova-ch",
+        "qualita-del-prodotto-m-f-d-sonova-staefa-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-product-quality-m-f-d-sonova-ch"
+          "senior-manager-product-quality-m-f-d-sonova-ch",
+          "qualita-del-prodotto-m-f-d-sonova-staefa-switzerland"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -851,7 +880,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Audiology-Innovation-Manager-%28mfd%29/1440786833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:11:15.714Z",
+      "crawledAt": "2026-10-04T09:13:12.236Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -862,7 +891,7 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "postedDate": "2026-09-24T00:00:00Z",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1440786833/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
@@ -921,7 +950,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Signal-Processing-RIC-and-BTE-%28mfd%29/1409309433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:11:15.700Z",
+      "crawledAt": "2026-10-04T09:13:12.228Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -937,11 +966,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch"
+        "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch",
+        "elaborazione-dei-segnali-ric-e-bte-m-f-d-sonova-staefa-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch"
+          "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch",
+          "elaborazione-dei-segnali-ric-e-bte-m-f-d-sonova-staefa-switzerland"
         ]
       },
       "needsRetranslation": true,
@@ -956,83 +987,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sonova-088c8bab41fe",
-      "slug": "manutenzione-professionale-operante-di-apprendistato-efz-m-f-d-sonova-staefa-switzerland",
-      "slugByLocale": {
-        "it": "manutenzione-professionale-operante-di-apprendistato-efz-m-f-d-sonova-staefa-switzerland",
-        "en": "apprenticeship-professional-female-maintenance-efz-m-f-d-sonova-staefa-switzerland",
-        "de": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch",
-        "fr": "apprentissage-professional-female-maintenance-efz-m-f-d-sonova-staefa-switzerland"
-      },
-      "company": "Sonova",
-      "companyKey": "sonova",
-      "companyDomain": "sonova.com",
-      "title": "Lehrstelle Fachmann/-frau Betriebsunterhalt EFZ (m/f/d)",
-      "titleByLocale": {
-        "it": "Manutenzione professionale/operante di apprendistato EFZ (m/f/d)",
-        "en": "Apprenticeship Professional/Female Maintenance EFZ (m/f/d)",
-        "de": "Lehrstelle Fachmann/-frau Betriebsunterhalt EFZ (m/f/d)",
-        "fr": "Apprentissage Professional/Female Maintenance EFZ (m/f/d)"
-      },
-      "description": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.Weitere Informationen zu deinem Traumberuf als Fachmann/-frau Betriebsunterhalt EFZ (m/w/d) sowie die notwendigen Voraussetzungen findest du auf:\n\nFachmann/-frau Betriebsunterhalt EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-      "descriptionByLocale": {
-        "it": "Giovani talenti volevano per l'inizio dell'insegnamento nell'agosto 2027!\n\nSiamo alla ricerca di giovani motivati e impegnati che vogliono plasmare il futuro con noi.\n• Offriamo ai nostri studenti una formazione ben fondata con un'alta rilevanza pratica, perché sono i nostri specialisti e manager di domani. Ulteriori informazioni sul vostro lavoro da sogno come specialista / manutenzione dipendente EFZ (m/f/d) così come i requisiti necessari possono essere trovati a:\n\nSpecialista/lavoro manutenzione EFZ | Sonova International\n\nAttendiamo con ansia la vostra applicazione online completa, comprese le lettere di motivazione, certificati e test di interlock.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
-        "en": "Young talents wanted for the start of teaching in August 2027!\n\nWe are looking for motivated and committed young people who want to shape the future with us.\n• We offer our learners a well-founded training with a high practical relevance, because they are our specialists and managers of tomorrow.Further information on your dream job as a specialist / employee maintenance EFZ (m/f/d) as well as the necessary prerequisites can be found at:\n\nSpecialist/work maintenance EFZ | Sonova International\n\nWe look forward to your complete online application including letters of motivation, certificates and interlock test.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "de": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.Weitere Informationen zu deinem Traumberuf als Fachmann/-frau Betriebsunterhalt EFZ (m/w/d) sowie die notwendigen Voraussetzungen findest du auf:\n\nFachmann/-frau Betriebsunterhalt EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "fr": "Jeunes talents recherchés pour le début de l'enseignement en août 2027!\n\nNous cherchons des jeunes motivés et engagés qui veulent façonner l'avenir avec nous.\n• Nous offrons à nos apprenants une formation bien fondée avec une grande pertinence pratique, car ils sont nos spécialistes et gestionnaires de demain. Vous trouverez de plus amples informations sur votre travail de rêve en tant que spécialiste/maintenance des employés EFZ (m/f/d) ainsi que les conditions préalables nécessaires à l'emploi à l'adresse suivante:\n\nSpécialiste/entretien du travail EFZ.\n\nNous attendons avec impatience votre demande en ligne complète, y compris les lettres de motivation, les certificats et le test de verrouillage.\n\nSonova AG\n\nLaubsrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
-      },
-      "location": "Staefa, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Fachmann-frau-Betriebsunterhalt-EFZ-%28mfd%29/1421326833/",
-      "source": "Sonova Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:11:15.694Z",
-      "addressLocality": "Staefa",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-31",
-      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421326833/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch",
-        "apprendistato-fachmann-frau-betriebsunterhalt-cfc-m-w-d-sonova-staefa"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch",
-          "apprendistato-fachmann-frau-betriebsunterhalt-cfc-m-w-d-sonova-staefa"
-        ],
-        "en": [
-          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch"
-        ],
-        "fr": [
-          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:06:52.177Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -1068,7 +1022,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Kunststofftechnologe-login-EFZ-%28mwd%29/1421323633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:11:15.684Z",
+      "crawledAt": "2026-10-04T09:13:12.220Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1084,11 +1038,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
+        "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
+        "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
+          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
+          "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa"
         ],
         "en": [
           "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
@@ -1098,6 +1054,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:52.246Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1143,7 +1100,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Logistikerin-EFZ-%28mwd%29/1421325033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:11:15.676Z",
+      "crawledAt": "2026-10-04T09:13:12.213Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1160,12 +1117,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch",
-        "apprendistato-logistiker-in-cfc-m-w-d-sonova-staefa"
+        "apprendistato-logistiker-in-cfc-m-w-d-sonova-staefa",
+        "apprendistato-logistica-efz-m-f-d-sonova-staefa-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch",
-          "apprendistato-logistiker-in-cfc-m-w-d-sonova-staefa"
+          "apprendistato-logistiker-in-cfc-m-w-d-sonova-staefa",
+          "apprendistato-logistica-efz-m-f-d-sonova-staefa-switzerland"
         ],
         "en": [
           "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch"
@@ -1175,6 +1134,87 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:52.194Z",
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "sonova-088c8bab41fe",
+      "slug": "manutenzione-professionale-operante-di-apprendistato-efz-m-f-d-sonova-staefa-switzerland",
+      "slugByLocale": {
+        "it": "manutenzione-professionale-operante-di-apprendistato-efz-m-f-d-sonova-staefa-switzerland",
+        "en": "apprenticeship-professional-female-maintenance-efz-m-f-d-sonova-staefa-switzerland",
+        "de": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch",
+        "fr": "apprentissage-professional-female-maintenance-efz-m-f-d-sonova-staefa-switzerland"
+      },
+      "company": "Sonova",
+      "companyKey": "sonova",
+      "companyDomain": "sonova.com",
+      "title": "Lehrstelle Fachmann/-frau Betriebsunterhalt EFZ (m/f/d)",
+      "titleByLocale": {
+        "it": "Manutenzione professionale/operante di apprendistato EFZ (m/f/d)",
+        "en": "Apprenticeship Professional/Female Maintenance EFZ (m/f/d)",
+        "de": "Lehrstelle Fachmann/-frau Betriebsunterhalt EFZ (m/f/d)",
+        "fr": "Apprentissage Professional/Female Maintenance EFZ (m/f/d)"
+      },
+      "description": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.Weitere Informationen zu deinem Traumberuf als Fachmann/-frau Betriebsunterhalt EFZ (m/w/d) sowie die notwendigen Voraussetzungen findest du auf:\n\nFachmann/-frau Betriebsunterhalt EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+      "descriptionByLocale": {
+        "it": "Giovani talenti volevano per l'inizio dell'insegnamento nell'agosto 2027!\n\nSiamo alla ricerca di giovani motivati e impegnati che vogliono plasmare il futuro con noi.\n• Offriamo ai nostri studenti una formazione ben fondata con un'alta rilevanza pratica, perché sono i nostri specialisti e manager di domani. Ulteriori informazioni sul vostro lavoro da sogno come specialista / manutenzione dipendente EFZ (m/f/d) così come i requisiti necessari possono essere trovati a:\n\nSpecialista/lavoro manutenzione EFZ | Sonova International\n\nAttendiamo con ansia la vostra applicazione online completa, comprese le lettere di motivazione, certificati e test di interlock.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
+        "en": "Young talents wanted for the start of teaching in August 2027!\n\nWe are looking for motivated and committed young people who want to shape the future with us.\n• We offer our learners a well-founded training with a high practical relevance, because they are our specialists and managers of tomorrow.Further information on your dream job as a specialist / employee maintenance EFZ (m/f/d) as well as the necessary prerequisites can be found at:\n\nSpecialist/work maintenance EFZ | Sonova International\n\nWe look forward to your complete online application including letters of motivation, certificates and interlock test.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "de": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.Weitere Informationen zu deinem Traumberuf als Fachmann/-frau Betriebsunterhalt EFZ (m/w/d) sowie die notwendigen Voraussetzungen findest du auf:\n\nFachmann/-frau Betriebsunterhalt EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "fr": "Jeunes talents recherchés pour le début de l'enseignement en août 2027!\n\nNous cherchons des jeunes motivés et engagés qui veulent façonner l'avenir avec nous.\n• Nous offrons à nos apprenants une formation bien fondée avec une grande pertinence pratique, car ils sont nos spécialistes et gestionnaires de demain. Vous trouverez de plus amples informations sur votre travail de rêve en tant que spécialiste/maintenance des employés EFZ (m/f/d) ainsi que les conditions préalables nécessaires à l'emploi à l'adresse suivante:\n\nSpécialiste/entretien du travail EFZ.\n\nNous attendons avec impatience votre demande en ligne complète, y compris les lettres de motivation, les certificats et le test de verrouillage.\n\nSonova AG\n\nLaubsrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
+      },
+      "location": "Staefa, Switzerland",
+      "canton": "ZH",
+      "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Fachmann-frau-Betriebsunterhalt-EFZ-%28mfd%29/1421326833/",
+      "source": "Sonova Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-04T09:13:12.207Z",
+      "addressLocality": "Staefa",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421326833/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch",
+        "apprendistato-fachmann-frau-betriebsunterhalt-cfc-m-w-d-sonova-staefa",
+        "manutenzione-professionale-operante-di-apprendistato-efz-m-f-d-sonova-staefa-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch",
+          "apprendistato-fachmann-frau-betriebsunterhalt-cfc-m-w-d-sonova-staefa",
+          "manutenzione-professionale-operante-di-apprendistato-efz-m-f-d-sonova-staefa-switzerland"
+        ],
+        "en": [
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch"
+        ],
+        "fr": [
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-31T22:06:52.177Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1220,7 +1260,7 @@
       "url": "https://jobs.sonova.com/job/Murten-Manufacturing-System-&-Software-Development-Engineer-%28mfd%29/1441934833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:11:15.665Z",
+      "crawledAt": "2026-10-04T09:13:12.203Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1230,16 +1270,18 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "postedDate": "2026-09-28T00:00:00Z",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1441934833/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manufacturing-system-software-development-engineer-m-f-d-sonova-ch"
+        "manufacturing-system-software-development-engineer-m-f-d-sonova-ch",
+        "manufacturing-system-software-development-ingegnere-m-f-d-sonova-murten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manufacturing-system-software-development-engineer-m-f-d-sonova-ch"
+          "manufacturing-system-software-development-engineer-m-f-d-sonova-ch",
+          "manufacturing-system-software-development-ingegnere-m-f-d-sonova-murten"
         ],
         "de": [
           "manufacturing-system-software-development-engineer-m-f-d-sonova-ch"
@@ -1249,6 +1291,7 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:09:05.057Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -1295,7 +1338,7 @@
       "url": "https://jobs.sonova.com/job/Murten-Quality-Assurance-Manager/1442652933/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:11:15.663Z",
+      "crawledAt": "2026-10-04T09:13:12.201Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1305,16 +1348,18 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "postedDate": "2026-09-30T00:00:00Z",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1442652933/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "quality-assurance-manager-sonova-ch"
+        "quality-assurance-manager-sonova-ch",
+        "gestione-dell-assicurazione-di-qualita-sonova-murten-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quality-assurance-manager-sonova-ch"
+          "quality-assurance-manager-sonova-ch",
+          "gestione-dell-assicurazione-di-qualita-sonova-murten-switzerland"
         ]
       },
       "firstSeenAt": "2026-09-30T21:10:37.776Z",
@@ -1364,7 +1409,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Product-Manager-Hearing-Aids/1443245033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:11:15.660Z",
+      "crawledAt": "2026-10-04T09:13:12.199Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1375,17 +1420,19 @@
       "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "postedDate": "2026-10-01T00:00:00Z",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1443245033/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-de-produits-aides-auditives-sonova-staefa-switzerland",
-        "product-manager-hearing-aids-sonova-ch"
+        "product-manager-hearing-aids-sonova-ch",
+        "product-manager-apparecchi-acustici-sonova-staefa-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-manager-hearing-aids-sonova-ch"
+          "product-manager-hearing-aids-sonova-ch",
+          "product-manager-apparecchi-acustici-sonova-staefa-switzerland"
         ],
         "de": [
           "product-manager-hearing-aids-sonova-ch"
@@ -1396,6 +1443,7 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:12:47.160Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
