@@ -1209,7 +1209,7 @@ describe('runFactualityGates', () => {
     expect(result.passed).toBe(true);
   });
 
-  it('does not let learned institution memory block or learn without a usable source', () => {
+  it('keeps the confirmed denylist but neither suspects nor learns without a usable source', () => {
     const sections = {
       body1: 'Il Dipartimento federale delle cose (XYZ) ha pubblicato una comunicazione.',
     };
@@ -1219,9 +1219,17 @@ describe('runFactualityGates', () => {
       degraded: null,
     };
     const withoutSource = runFactualityGates({ sections, memory, sourceText: '' });
-    expect(codes(withoutSource.issues)).not.toContain('fabricated-institution');
-    expect(codes(withoutSource.issues)).not.toContain('suspected-institution');
+    expect(codes(withoutSource.blocking)).toContain('fabricated-institution');
     expect(withoutSource.observations).toEqual([]);
+
+    const suspectOnly = runFactualityGates({
+      sections,
+      memory: { denylist: new Set(), suspects: new Set(['XYZ']), degraded: null },
+      sourceText: '',
+    });
+    expect(codes(suspectOnly.issues)).not.toContain('suspected-institution');
+    expect(codes(suspectOnly.issues)).not.toContain('fabricated-institution');
+    expect(suspectOnly.observations).toEqual([]);
 
     const withSource = runFactualityGates({
       sections,
