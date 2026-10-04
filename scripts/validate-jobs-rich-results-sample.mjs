@@ -287,11 +287,6 @@ function main() {
       const reportedDate = resolveReportedPostingDate(job);
       if (hasPostingDateProvenance(job) && !reportedDate) {
         report.publicationDateUnverified += 1;
-        if (jobPosting) {
-          report.errors += 1;
-          report.details.push({ slug: job.slug, locale: loc.code, level: 'error', issue: 'jobposting_without_reported_publication_date' });
-        }
-        continue;
       }
       report.eligibleLocaleChecks += 1;
 
@@ -302,7 +297,7 @@ function main() {
         continue;
       }
 
-      if (hasPostingDateProvenance(job) && jobPosting.datePosted !== reportedDate) {
+      if (reportedDate && jobPosting.datePosted !== reportedDate) {
         report.errors += 1;
         report.details.push({ slug: job.slug, locale: loc.code, level: 'error', issue: 'datePosted:source_mismatch' });
       }
@@ -330,7 +325,7 @@ function main() {
   console.log(`Errors: ${report.errors} | Warnings: ${report.warnings}`);
   console.log(`Missing files: ${report.filesMissing}`);
   console.log(`Eligible locale checks: ${report.eligibleLocaleChecks}`);
-  console.log(`Publication date unverified (JobPosting must be absent): ${report.publicationDateUnverified}`);
+  console.log(`Publication date unverified (schema fallback required): ${report.publicationDateUnverified}`);
   console.log(`Missing eligible JobPosting: ${report.jobPostingMissing}`);
   console.log(`JSON-LD parse errors: ${report.parseErrors}`);
 

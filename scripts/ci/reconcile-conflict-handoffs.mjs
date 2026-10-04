@@ -28,14 +28,14 @@
  *      pr-autorebase dopo l'apertura dell'hand-off, cioe' merge-tree pulito) e
  *      nessuna PR la sta riapplicando → chiusa `completed`;
  *   5. la PR di origine e' CLOSED senza merge da piu' di 24 ore e nessuna PR la
- *      riapplica: contenuto su main riga per riga → `completed`; altrimenti
+ *      riapplica: patch applicata su main hunk per hunk → `completed`; altrimenti
  *      `not planned` (superato) solo se l'hand-off non e' instradato e le issue
  *      che l'origine chiudeva non restano orfane (`decideClosedOrigin`);
  *   altrimenti resta aperta: c'e' ancora un contributo da riapplicare.
  * Solo segnali deterministici: stato GitHub della PR, eventi della label
  * `has-conflicts` scritta da merge-tree, keyword di una PR mergiata e, per
- * un'origine chiusa, il confronto esatto di OGNI riga aggiunta con main (mai
- * una soglia). Un hand-off con `agent:in-progress` non si tocca (il
+ * un'origine chiusa, l'applicazione al contrario di OGNI hunk su main (mai
+ * una soglia, mai la sola presenza delle righe). Un hand-off con `agent:in-progress` non si tocca (il
  * fixer ci sta lavorando: decide il tick dopo), e la label si rilegge dal vivo
  * subito prima di chiudere. Qualunque lettura fallita → la issue resta com'e'.
  *
@@ -223,18 +223,148 @@ export function planDuplicateClosures({ origin, duplicates }, openPrs, now = Dat
   return { close, deferred };
 }
 
+const normalizeLine = (line) => String(line).trim().replace(/\s+/g, ' ');
+
+const HUNK_HEADER = /^@@ -\d+(?:,(\d+))? \+\d+(?:,(\d+))? @@/;
+
+/**
+ * Gli hunk di una patch di `pulls/<n>/files`, o `{ error }` se la patch non e'
+ * leggibile per intero. Pura. Per ogni hunk:
+ *   - `newSide`: le righe del NUOVO lato (contesto + aggiunte) nell'ordine,
+ *     normalizzate come `normalizeLine`;
+ *   - `added`: le righe aggiunte non vuote (per il conteggio del commento);
+ *   - `anchorStart`/`anchorEnd`: una rimozione prima della prima (o dopo
+ *     l'ultima) riga del nuovo lato. Senza una riga che la delimiti, la sua
+ *     assenza su main si dimostra solo se l'hunk sta all'inizio (o alla fine)
+ *     del file, come fa `git apply` con un hunk senza contesto su quel lato.
+ * Le righe si contano contro l'intestazione `@@ -a,b +c,d @@`: una patch piu'
+ * corta di quanto dichiara e' troncata, una riga che non e' contesto,
+ * aggiunta, rimozione o `\ No newline…` la rende illeggibile.
+ */
+export function parsePatchHunks(patch) {
+  const hunks = [];
+  let current = null;
+  let oldLeft = 0;
+  let newLeft = 0;
+  let seenRemoval = false;
+  const close = () => {
+    if (current === null) return null;
+    if (oldLeft !== 0 || newLeft !== 0) return `hunk ${hunks.length + 1} troncato (mancano ${oldLeft} righe vecchie e ${newLeft} nuove)`;
+    hunks.push(current);
+    current = null;
+    return null;
+  };
+  // L'intestazione `+++ b/…` puo' stare solo prima del primo `@@` (la patch di
+  // `pulls/<n>/files` non la porta): dentro un hunk ogni `+` e' una riga
+  // aggiunta, anche `++i;` (che diventa `+++i;`).
+  for (const line of String(patch ?? '').split('\n')) {
+    const header = HUNK_HEADER.exec(line);
+    if (header) {
+      const error = close();
+      if (error) return { error };
+      current = { header: line.slice(0, line.indexOf('@@', 2) + 2), newSide: [], added: [], anchorStart: false, anchorEnd: false };
+      oldLeft = header[1] === undefined ? 1 : Number(header[1]);
+      newLeft = header[2] === undefined ? 1 : Number(header[2]);
+      seenRemoval = false;
+      continue;
+    }
+    if (current === null) continue;
+    if (line.startsWith('\\')) continue;
+    if (oldLeft === 0 && newLeft === 0) {
+      // Fine dell'hunk: resta solo il ritorno a capo finale della patch.
+      if (line === '') continue;
+      return { error: `riga oltre la lunghezza dichiarata dall'hunk ${hunks.length + 1}` };
+    }
+    // Una riga vuota dentro l'hunk e' una riga di contesto vuota a cui un
+    // passaggio intermedio ha tolto lo spazio iniziale.
+    const marker = line === '' ? ' ' : line[0];
+    const text = line.slice(1);
+    if (marker === ' ') {
+      if (oldLeft === 0 || newLeft === 0) return { error: `hunk ${hunks.length + 1} piu' lungo di quanto dichiara` };
+      oldLeft -= 1;
+      newLeft -= 1;
+      if (seenRemoval && current.newSide.length === 0) current.anchorStart = true;
+      seenRemoval = false;
+      current.newSide.push(normalizeLine(text));
+    } else if (marker === '+') {
+      if (newLeft === 0) return { error: `hunk ${hunks.length + 1} piu' lungo di quanto dichiara` };
+      newLeft -= 1;
+      if (seenRemoval && current.newSide.length === 0) current.anchorStart = true;
+      seenRemoval = false;
+      const normalized = normalizeLine(text);
+      current.newSide.push(normalized);
+      if (normalized !== '') current.added.push(normalized);
+    } else if (marker === '-') {
+      if (oldLeft === 0) return { error: `hunk ${hunks.length + 1} piu' lungo di quanto dichiara` };
+      oldLeft -= 1;
+      seenRemoval = true;
+    } else {
+      return { error: `riga estranea nell'hunk ${hunks.length + 1}` };
+    }
+    if (oldLeft === 0 && newLeft === 0 && seenRemoval) {
+      if (current.newSide.length === 0) current.anchorStart = true;
+      current.anchorEnd = true;
+    }
+  }
+  const error = close();
+  if (error) return { error };
+  if (hunks.length === 0) return { error: 'nessun hunk @@ nella patch' };
+  return { hunks };
+}
+
+/**
+ * Le righe di un file normalizzate, senza la riga vuota che `split` produce
+ * dopo l'ultimo ritorno a capo (altrimenti un hunk ancorato alla fine non
+ * troverebbe mai la fine). Pura.
+ */
+function fileLines(text) {
+  const lines = String(text).split('\n').map(normalizeLine);
+  if (lines.length > 0 && lines[lines.length - 1] === '' && /\n$/.test(String(text))) lines.pop();
+  return lines;
+}
+
+/**
+ * Il primo indice `>= from` in cui `needle` compare contiguo in `haystack`,
+ * rispettando le ancore, oppure -1. Pura.
+ */
+function findContiguous(haystack, needle, from, { anchorStart, anchorEnd }) {
+  const last = haystack.length - needle.length;
+  for (let i = from; i <= last; i += 1) {
+    if (anchorStart && i !== 0) return -1;
+    if (anchorEnd && i !== last) continue;
+    let ok = true;
+    for (let j = 0; j < needle.length; j += 1) {
+      if (haystack[i + j] !== needle[j]) { ok = false; break; }
+    }
+    if (ok) return i;
+  }
+  return -1;
+}
+
 /**
  * Il contenuto della PR di origine e' su `main`? Pura: `readMainFile(path)`
  * restituisce il testo del file su `main` o `null` (assente o illeggibile).
  *
- * `files` = `[{ filename, status, patch }]` di `pulls/<n>/files`. Provato SOLO
- * se ogni file ha un `patch` leggibile, nessuno e' `removed`, ogni file porta
- * almeno una riga aggiunta non vuota e OGNI riga aggiunta non vuota (`+`
- * dentro un hunk `@@`, quindi mai l'intestazione `+++ b/…`) compare identica fra le righe del file su
- * `main`, a meno dei soli spazi (bordi e sequenze ridotti a uno: misurato sulla
- * PR #10865, una riga di commento con due spazi poi normalizzati da #11201).
- * Niente soglie: o tutto, o non provato. Una rimozione non si puo' dimostrare
- * applicata, come in `fileContentOnMain` di pr-autorebase.
+ * `files` = `[{ filename, status, patch }]` di `pulls/<n>/files`. La prova e'
+ * un'APPLICAZIONE AL CONTRARIO, non una presenza di righe: per ogni file la
+ * patch deve essere leggibile per intero (`parsePatchHunks`: righe contate
+ * contro le intestazioni `@@`, quindi una patch troncata non passa), e il nuovo
+ * lato di OGNI hunk (contesto + aggiunte, nell'ordine) deve comparire CONTIGUO
+ * fra le righe del file su `main`, ogni hunk dopo la fine del precedente:
+ * posizioni distinte, ordine della patch, molteplicita' (due righe identiche
+ * aggiunte chiedono due occorrenze). Il confronto e' a meno dei soli spazi
+ * (bordi e sequenze ridotti a uno: misurato sulla PR #10865, una riga di
+ * commento con due spazi poi normalizzati da #11201). Niente soglie: o tutti
+ * gli hunk, o non provato.
+ *
+ * Prima (fino alla review del corpus sulla PR di trasporto 2090) la prova era
+ * un `Set` delle righe di main: una riga aggiunta presente solo nel contesto di
+ * un altro hunk, o aggiunta due volte e presente una, rendeva «su main» una PR
+ * mai applicata, e l'hand-off si chiudeva `completed`.
+ *
+ * Restano non dimostrabili, quindi non provati: un file `removed`, un file
+ * senza `patch` (binario o troppo grande) e un file senza righe aggiunte non
+ * vuote (sola rimozione).
  *
  * Il marker `ALREADY_FIXED_ROUTED` non e' questa prova: certifica una run verde
  * qualunque su main (#10731: marker presente, 0/56 righe della PR #10467 su
@@ -242,8 +372,6 @@ export function planDuplicateClosures({ origin, duplicates }, openPrs, now = Dat
  *
  * @returns {{ proven: true, checked: number, files: string[] } | { proven: false, reason: string }}
  */
-const normalizeLine = (line) => String(line).trim().replace(/\s+/g, ' ');
-
 export function originContentOnMain(files, readMainFile) {
   if (!Array.isArray(files) || files.length === 0) return { proven: false, reason: 'elenco dei file della PR vuoto o illeggibile' };
   let checked = 0;
@@ -253,18 +381,10 @@ export function originContentOnMain(files, readMainFile) {
     if (!name) return { proven: false, reason: 'file senza nome nella PR' };
     if (String(file?.status || '') === 'removed') return { proven: false, reason: `${name}: rimosso dalla PR, rimozione non dimostrabile` };
     if (typeof file?.patch !== 'string' || file.patch === '') return { proven: false, reason: `${name}: patch assente (binario o troppo grande)` };
-    const added = [];
-    // L'intestazione `+++ b/…` puo' stare solo prima del primo `@@` (la patch
-    // di `pulls/<n>/files` non la porta): dentro un hunk ogni `+` e' una riga
-    // aggiunta, anche `++i;` (che diventa `+++i;`).
-    let inHunk = false;
-    for (const line of file.patch.split('\n')) {
-      if (line.startsWith('@@')) { inHunk = true; continue; }
-      if (!inHunk || !line.startsWith('+')) continue;
-      const text = normalizeLine(line.slice(1));
-      if (text !== '') added.push(text);
-    }
-    if (added.length === 0) return { proven: false, reason: `${name}: nessuna riga aggiunta, rimozione non dimostrabile` };
+    const parsed = parsePatchHunks(file.patch);
+    if (parsed.error) return { proven: false, reason: `${name}: patch illeggibile (${parsed.error})` };
+    const added = parsed.hunks.reduce((n, hunk) => n + hunk.added.length, 0);
+    if (added === 0) return { proven: false, reason: `${name}: nessuna riga aggiunta, rimozione non dimostrabile` };
     let main;
     try {
       main = readMainFile(name);
@@ -272,10 +392,16 @@ export function originContentOnMain(files, readMainFile) {
       main = null;
     }
     if (typeof main !== 'string') return { proven: false, reason: `${name}: assente o illeggibile su main` };
-    const mainLines = new Set(main.split('\n').map(normalizeLine));
-    const missing = added.filter((l) => !mainLines.has(l)).length;
-    if (missing > 0) return { proven: false, reason: `${name}: ${missing}/${added.length} righe aggiunte non su main` };
-    checked += added.length;
+    const mainLines = fileLines(main);
+    let from = 0;
+    for (const [index, hunk] of parsed.hunks.entries()) {
+      const at = hunk.newSide.length === 0 ? -1 : findContiguous(mainLines, hunk.newSide, from, hunk);
+      if (at < 0) {
+        return { proven: false, reason: `${name}: hunk ${index + 1}/${parsed.hunks.length} (${hunk.header}) non applicato su main nell'ordine della patch` };
+      }
+      from = at + hunk.newSide.length;
+    }
+    checked += added;
     names.push(name);
   }
   return { proven: true, checked, files: names };
@@ -314,7 +440,7 @@ export function originClosedPastGrace(origin, now = Date.now()) {
  * l'hand-off restava aperto per sempre (#10960, #10873, #10731). Pura.
  *   - chiusa da meno della grazia, o `closedAt` illeggibile → keep `origin-closed`;
  *   - una PR aperta la sta riapplicando → keep;
- *   - contenuto provato su main riga per riga → close `completed`;
+ *   - patch provata su main hunk per hunk → close `completed`;
  *   - altrimenti l'hand-off e' SUPERATO (close `not planned`) solo se non e'
  *     instradato al fixer e ogni issue che l'origine chiudeva e' chiusa,
  *     instradata o parcheggiata: il lavoro non resta orfano.
@@ -407,8 +533,8 @@ export function closingComment({ reason, pr, originNumber, keeper, contentProof 
     'origin-merged': `la PR di origine **#${originNumber}** è stata mergiata: il conflitto è stato risolto sul suo branch e il contributo è su \`main\`. Una riapplicazione sarebbe un duplicato.`,
     'conflict-resolved': `la PR di origine **#${originNumber}** è di nuovo mergeable sulla stessa HEAD e \`pr-autorebase\` ha tolto \`has-conflicts\` dopo l'apertura di questo hand-off (merge-tree pulito): il conflitto è rientrato e la PR prosegue nel proprio ciclo di review e merge.`,
     'conflict-resolved-new-head': `la PR di origine **#${originNumber}** ha una HEAD nuova, mergeable, e \`pr-autorebase\` ha tolto \`has-conflicts\` dopo l'apertura di questo hand-off (merge-tree pulito): il conflitto è stato risolto sul suo branch, che prosegue nel proprio ciclo di review e merge.`,
-    'origin-closed-content-on-main': `la PR di origine **#${originNumber}** è stata chiusa senza merge da più di ${ORIGIN_CLOSED_GRACE_HOURS} ore, ma il suo contenuto è già su \`main\`: tutte le ${contentProof?.checked ?? '?'} righe aggiunte non vuote dei suoi file (${proofFiles || 'elenco non disponibile'}) compaiono identiche nei file su \`main\`.`,
-    'origin-closed-superseded': `la PR di origine **#${originNumber}** è stata chiusa senza merge da più di ${ORIGIN_CLOSED_GRACE_HOURS} ore e il contenuto della PR di origine NON risulta su main (${contentProof?.reason || 'verifica riga per riga non superata'}): l'hand-off è superato, non completato. Nessuno lo sta riapplicando, non è instradato al fixer e le issue che la PR di origine dichiarava di risolvere non restano orfane: ${issuesList || 'la PR non ne dichiarava'}.`,
+    'origin-closed-content-on-main': `la PR di origine **#${originNumber}** è stata chiusa senza merge da più di ${ORIGIN_CLOSED_GRACE_HOURS} ore, ma il suo contenuto è già su \`main\`: tutte le ${contentProof?.checked ?? '?'} righe aggiunte non vuote dei suoi file (${proofFiles || 'elenco non disponibile'}) compaiono nei file su \`main\` con il loro contesto, hunk per hunk e nell'ordine della patch.`,
+    'origin-closed-superseded': `la PR di origine **#${originNumber}** è stata chiusa senza merge da più di ${ORIGIN_CLOSED_GRACE_HOURS} ore e il contenuto della PR di origine NON risulta su main (${contentProof?.reason || 'verifica hunk per hunk non superata'}): l'hand-off è superato, non completato. Nessuno lo sta riapplicando, non è instradato al fixer e le issue che la PR di origine dichiarava di risolvere non restano orfane: ${issuesList || 'la PR non ne dichiarava'}.`,
   }[reason];
   let outcome = 'Chiusa come **completed**: non resta nessun contributo da riapplicare. Se la PR di origine torna in conflitto su una HEAD nuova, `pr-autorebase` apre un hand-off nuovo.';
   if (reason === 'duplicate') outcome = 'Chiusa come **duplicate**.';

@@ -107,13 +107,12 @@ describe('SEO localization', () => {
     const description = document.querySelector('meta[name="description"]')?.getAttribute('content') || '';
     expect(description).toContain('fondo pensione aziendale');
 
-    // Explicit unknown retains metadata/FAQ but never revives publication.
-    // Missing markers temporarily retain legacy behavior during migration.
+    // Explicit unknown retains the marker while the schema uses a valid
+    // collection-clock fallback for its mandatory datePosted field.
     const graph = [...document.querySelectorAll('script[type="application/ld+json"]')]
       .map((script) => JSON.parse(script.textContent || '{}'));
     const types = JSON.stringify(graph);
-    if (postingDateSource === 'unknown') expect(types).not.toContain('"@type":"JobPosting"');
-    else expect(types).toContain('"@type":"JobPosting"');
+    expect(types).toContain('"@type":"JobPosting"');
     expect(types).toContain('"@type":"FAQPage"');
 
 

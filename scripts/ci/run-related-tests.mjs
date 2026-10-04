@@ -146,6 +146,12 @@ const sourceTreeLintTests = new Map([
   ['tests/listing-url-fallback-audit.test.ts', /^scripts\/lib\/[^/]+-job-parser\.mjs$/],
   // Legge sia i parser sia gli `update-*-jobs.mjs` al primo livello di scripts/.
   ['tests/bespoke-crawler-slug-boundary.test.ts', /^scripts\/(?:update-[^/]*-jobs\.mjs|lib\/[^/]+-job-parser\.mjs)$/],
+  // Il ratchet a due lati dei runner senza contatori conta gli
+  // `update-*-jobs.mjs` leggendoli da disco (piu' il template, letto per
+  // testo): il diff che strumenta, aggiunge o toglie un runner non tocca nessun
+  // import del test. Senza questa voce il budget restava stantio sulla PR che
+  // cambia il conteggio e il rosso `RATCHET STALE` cadeva sulla PR successiva.
+  ['tests/crawler-zero-path-contract.test.ts', /^scripts\/(?:update-[^/]*-jobs\.mjs|lib\/crawler-template\.mjs)$/],
   // Lo scan copre scripts/lib/** piu' un file nominato fuori da lib.
   ['tests/sanitize-control-chars.test.ts', /^scripts\/(?:lib\/.+\.(?:mjs|cjs|js)|publish-article-fast\.mjs)$/],
   ['tests/bounded-parallel.test.ts', /^scripts\/lib\/[^/]+\.sh$/],
@@ -156,11 +162,41 @@ const sourceTreeLintTests = new Map([
   ['tests/is-invoked-directly.test.ts', /^scripts\/.+\.(?:mjs|cjs|js|ts)$/],
   ['tests/translation-protected-tokens.test.ts', /^scripts\/.+\.mjs$/],
   ['tests/slug-write-encapsulation.test.ts', /^scripts\/.+\.(?:ts|mjs|js)$/],
+  // Ratchet sulle chiusure per titolo: legge da disco ogni sorgente che usa
+  // `resolveGithubIssue` e lo confronta con l'elenco dichiarato. Un closer
+  // nuovo non importa il test, quindi senza questa voce entrerebbe senza
+  // farlo partire (stessa lezione della PR 11308). Perimetro = quello dello scan.
+  ['tests/resolve-issue-by-title-ratchet.test.ts', /^(?:scripts\/.+\.mjs|functions\/.+\.(?:js|mjs|ts))$/],
   // Stessa classe per le allow-list sparse di `bing-seo-loop.yml`: PR 10941
   // ha aggiunto un import a `scripts/lib/jobBoardSections.mjs`, verde, e la
   // run del crawler e' morta con ERR_MODULE_NOT_FOUND. Il perimetro e' un
   // path, non un import; il test verifica che la chiusura dei job ci stia.
   ['tests/seo/bing-seo-loop-sparse-closure.test.ts', /^(?:scripts|build-plugins\/shared|packages\/articles\/engine)\/|^\.github\/workflows\/bing-seo-loop\.yml$/],
+  // Grafo di `vite.config.ts`: i due test lo percorrono da disco (walker AST
+  // ed esbuild come lo usa Vite) e non importano i moduli che giudicano. La
+  // PR 11327 ha fatto importare a `build-plugins/shared/authorEditorial.ts`
+  // `services/seo/seo-authors.ts`, che usava `@/data/authors`: il walker
+  // esisteva e falliva, ma il diff non lo selezionava, e la CI delle PR non
+  // carica mai il config. Il deploy e' rimasto fermo dal 03-10 16:59Z. Il
+  // perimetro copre le cartelle da cui il grafo prende moduli oggi (esbuild ~0,4 s).
+  // `tsconfig.json` resta fuori: un alias nuovo diventa un rischio solo quando
+  // un sorgente lo usa, e quel sorgente e' gia' nel perimetro.
+  ...['tests/vite-config-import-graph.test.ts', 'tests/vite-config-graph-no-alias.test.ts'].map((test) => [
+    test,
+    /^(?:vite\.config\.ts|constants\.ts|(?:build-plugins|services|scripts|components|data|functions|infra|packages\/articles)\/.+\.(?:[mc]?[jt]sx?))$/,
+  ]),
+  // I due pin del SiteShellContract (golden delle funzioni e digest degli
+  // scalari) confrontano il bootstrap con file letti da disco che il corpus
+  // asserisce identici. `services/` e `build-plugins/` li raggiungono gia' col
+  // grafo; `data/` invece e' fuori dal grafo (GRAPH_IGNORED_RE), e la chiusura
+  // del bootstrap ne importa moduli: `data/authors.ts` (getAuthorBySlug) e i
+  // JSON dei cantoni e delle professioni. La PR 11327 ha cambiato la bio di
+  // marco-ferrari in `data/authors.ts`, il diff ha selezionato zero test e il
+  // golden e' diventato rosso su main e sulle PR successive (11381).
+  // Perimetro: i file di primo livello di `data/` che un modulo puo'
+  // importare; il test costa meno di un secondo.
+  ['tests/articles-shell-contract-functions.test.ts', /^data\/[^/]+\.(?:[cm]?[jt]sx?|json)$/],
+  ['tests/articles-shell-contract-fingerprint.test.ts', /^data\/[^/]+\.(?:[cm]?[jt]sx?|json)$/],
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint

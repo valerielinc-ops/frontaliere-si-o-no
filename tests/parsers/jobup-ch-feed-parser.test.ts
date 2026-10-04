@@ -1,3 +1,4 @@
+import { buildJobPostingSchema, buildJobPostingFacts } from '../../build-plugins/shared/jobPostingSchema';
 /**
  * Tests for the shared jobup.ch feed parser.
  *
@@ -19,6 +20,7 @@
  *   - Double-decoded HTML entities (jobup returns `&amp;nbsp;` → ` `)
  */
 import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
+import { fetchAllCnpJobs } from '../../scripts/lib/cnp-job-parser.mjs';
 
 // Fallback anti-bot del feed (Jina → Playwright): stub per i test del
 // challenge 200-HTML. Gli altri test non li raggiungono (il feed stub risponde
@@ -567,5 +569,39 @@ describe('createJobupChFeedParser — 200 HTML challenge on the feed', () => {
 
     expect(jobs.map((job) => job.url)).toEqual([JOBUP_DETAIL_URL]);
     expect(launchChromium).not.toHaveBeenCalled();
+  });
+});
+
+
+describe('CNP detail publication provenance', () => {
+  it.each(['past', 'future', 'missing'])('uses %s detail evidence without adopting the discordant feed date', async (kind) => {
+    const sourceDate = kind === 'missing' ? undefined
+      : new Date(Date.now() + (kind === 'future' ? 7 : -7) * 86400000).toISOString();
+    const futureYear = new Date().getUTCFullYear() + 2;
+    const detail = RICH_JOBUP_DETAIL.replace('"title":', `${sourceDate ? `"datePosted":${JSON.stringify(sourceDate)},` : ''}"title":`);
+    stubJobupSource(() => new Response(detail, { status: 200 }), [{ ...JOBUP_FEED_JOB, puddate: `01/10/${futureYear}` }]);
+    const jobs = await fetchAllCnpJobs();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].postingDateSource).toBe(kind === 'past' ? 'reported' : 'unknown');
+    expect(jobs[0].postedDate).toBe(kind === 'past' ? sourceDate : '');
+    expect(jobs[0].datePosted).toBe(jobs[0].postedDate);
+      // Exercise the actual shared consumer: unknown dates keep their marker
+      // while required JobPosting JSON-LD receives a valid fallback date.
+      for (const locale of ['it', 'en', 'de', 'fr']) {
+        const schema = buildJobPostingSchema(jobs[0], { locale, url: jobs[0].url });
+        expect(schema).not.toBeNull();
+        if (kind === 'past') {
+          expect(schema?.datePosted).toBe(jobs[0].datePosted);
+        } else {
+          expect(typeof schema?.datePosted).toBe('string');
+          expect(Number.isFinite(Date.parse(schema?.datePosted || ''))).toBe(true);
+        }
+        expect(schema?.hiringOrganization.name).toBeTruthy();
+        expect(buildJobPostingFacts(jobs[0], locale).hiringOrganization.name).toBeTruthy();
+      }
+      expect(jobs[0].url).toMatch(/^https:\/\//);
+      expect(jobs[0].description).toBeTruthy();
+    expect(Number.isFinite(Date.parse(jobs[0].crawledAt))).toBe(true);
+    expect(fetch).toHaveBeenCalledTimes(2);
   });
 });
