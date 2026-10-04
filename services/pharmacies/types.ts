@@ -7,6 +7,7 @@
  */
 
 import { validatePharmacyReleaseContract } from './release-contract-validator.mjs';
+import { PHARMACY_SOURCE_AUDIT_VERDICTS } from './sourceAudit.mjs';
 
 export { validatePharmacyReleaseContract };
 
@@ -213,7 +214,7 @@ export type PharmacySourceStatus = 'unverified' | 'active' | 'blocked' | 'degrad
  * - `no-machine-readable`: only a phone number, a brochure or an orientation
  *   page.
  */
-export type PharmacySourceAuditVerdict = 'complete-feed' | 'partial-or-proximity' | 'no-machine-readable';
+export type PharmacySourceAuditVerdict = (typeof PHARMACY_SOURCE_AUDIT_VERDICTS)[number];
 
 export interface PharmacySourceAudit {
   verdict: PharmacySourceAuditVerdict;
@@ -305,11 +306,8 @@ const SOURCE_TYPES: readonly PharmacySourceType[] = [
   'directory',
 ];
 const SOURCE_STATUSES: readonly PharmacySourceStatus[] = ['unverified', 'active', 'blocked', 'degraded'];
-export const PHARMACY_SOURCE_AUDIT_VERDICTS: readonly PharmacySourceAuditVerdict[] = [
-  'complete-feed',
-  'partial-or-proximity',
-  'no-machine-readable',
-];
+// Single source shared with scripts/check-pharmacy-data-health.mjs.
+export { PHARMACY_SOURCE_AUDIT_VERDICTS };
 const AUDIT_REASON_MAX_LENGTH = 400;
 const AUDIT_DAY_PATTERN = /^\d{4}-\d{2}-\d{2}T00:00:00\.000Z$/;
 
@@ -319,7 +317,7 @@ function validatePharmacySourceAudit(key: string, audit: unknown, status: unknow
   }
   const a = audit as Record<string, unknown>;
   const errors: string[] = [];
-  if (!PHARMACY_SOURCE_AUDIT_VERDICTS.includes(a.verdict as PharmacySourceAuditVerdict)) {
+  if (!(PHARMACY_SOURCE_AUDIT_VERDICTS as readonly unknown[]).includes(a.verdict)) {
     errors.push(`${key}: invalid audit.verdict "${String(a.verdict)}"`);
   }
   const auditedAt = typeof a.auditedAt === 'string' ? a.auditedAt : '';

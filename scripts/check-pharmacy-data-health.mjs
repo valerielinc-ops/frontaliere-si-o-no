@@ -37,6 +37,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { validateBorderSnapshot, validateBorderSources } from './check-pharmacy-border-data.mjs';
+import { PHARMACY_SOURCE_AUDIT_VERDICTS } from '../services/pharmacies/sourceAudit.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -68,9 +69,6 @@ export const BORDER_SLA_TOLERANCE = 2;
  * niente sullo stato della fonte e va ripetuto.
  */
 export const PHARMACY_AUDIT_MAX_AGE_DAYS = 90;
-// Stessi valori di `PHARMACY_SOURCE_AUDIT_VERDICTS` in `services/pharmacies/types.ts`
-// (lo script gira in node senza toolchain TS): la parità è un test.
-export const PHARMACY_AUDIT_VERDICTS = Object.freeze(['complete-feed', 'partial-or-proximity', 'no-machine-readable']);
 const BORDER_JURISDICTIONS = Object.freeze([
   { key: 'CH-TI', sourceKey: 'ticino-complete', country: 'CH', canton: 'Ticino' },
   { key: 'IT-CO', sourceKey: 'italy-border', country: 'IT', province: 'CO' },
@@ -157,12 +155,14 @@ export function evaluateCoverage(registry, datasets, duties, knownCantonCount) {
       dutyCount: dutyList.length,
       // Esito dell'audit umano della fonte: distingue «mai esaminata» (null) da
       // «esaminata e non pubblicabile» su una fonte non attiva.
-      audit: typeof audit?.verdict === 'string' ? audit.verdict : null,
+      // Un verdetto fuori elenco non vale come audit (il validatore del registry
+      // lo boccia già nei test): resta fra le fonti `unaudited`.
+      audit: PHARMACY_SOURCE_AUDIT_VERDICTS.includes(audit?.verdict) ? audit.verdict : null,
       auditedAt: typeof audit?.auditedAt === 'string' ? audit.auditedAt : null,
     });
   }
   entries.sort((a, b) => a.key.localeCompare(b.key));
-  const auditVerdicts = Object.fromEntries(PHARMACY_AUDIT_VERDICTS.map((verdict) => [verdict, 0]));
+  const auditVerdicts = Object.fromEntries(PHARMACY_SOURCE_AUDIT_VERDICTS.map((verdict) => [verdict, 0]));
   for (const e of entries) {
     if (e.audit !== null) auditVerdicts[e.audit] = (auditVerdicts[e.audit] ?? 0) + 1;
   }
@@ -527,12 +527,16 @@ export function buildReport({ registry, datasets = {}, duties = {}, knownCantonC
     // tavolo. Una fonte non attiva SENZA audit (`coverage.unaudited`) non è un
     // problema qui: la dashboard la conta, il test sul registry la presidia.
     if (e.audit === 'complete-feed' && e.status !== 'active') {
-      problems.push(`fonte ${e.key} ha un feed completo verificato il ${String(e.auditedAt).slice(0, 10)} ma nessun connettore: onboarding da aprire`);
+      problems.push(`fonte ${e.key} ha un feed completo verificato il ${e.auditedAt ? e.auditedAt.slice(0, 10) : 'data ignota'} ma nessun connettore: onboarding da aprire`);
     }
     if (e.audit !== null) {
       const auditedMs = e.auditedAt ? Date.parse(e.auditedAt) : NaN;
       if (!Number.isFinite(auditedMs)) {
         problems.push(`audit ${e.key} scaduto: auditedAt mancante o non parsabile`);
+      } else if (auditedMs - nowMs > 86400e3) {
+        // Una data nel futuro (refuso sull'anno) darebbe un'età negativa e
+        // terrebbe l'audit «fresco» per mesi oltre la scadenza reale.
+        problems.push(`audit ${e.key} nel futuro: auditedAt ${e.auditedAt.slice(0, 10)} è successivo a oggi — correggere la data`);
       } else if (nowMs - auditedMs > PHARMACY_AUDIT_MAX_AGE_DAYS * 86400e3) {
         problems.push(`audit ${e.key} scaduto: eseguito il ${e.auditedAt.slice(0, 10)}, oltre ${PHARMACY_AUDIT_MAX_AGE_DAYS} giorni fa — ripetere la verifica della fonte`);
       }

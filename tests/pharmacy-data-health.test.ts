@@ -19,9 +19,7 @@ import {
   formatReport,
   loadDatasets,
   parseIsoDurationMs,
-  PHARMACY_AUDIT_VERDICTS,
 } from '../scripts/check-pharmacy-data-health.mjs';
-import { PHARMACY_SOURCE_AUDIT_VERDICTS } from '../services/pharmacies/types';
 import ticino from '../data/pharmacies-ticino-complete.json';
 import italy from '../data/pharmacies-italy-border.json';
 import borderSources from '../data/pharmacy-border-sources.json';
@@ -371,8 +369,15 @@ describe('buildReport', () => {
       expect(lines).toContain('Verdetti di audit: complete-feed=0 partial-or-proximity=1 no-machine-readable=0');
     });
 
-    it('uses the same verdict list as the registry validator', () => {
-      expect([...PHARMACY_AUDIT_VERDICTS]).toEqual([...PHARMACY_SOURCE_AUDIT_VERDICTS]);
+    it('flags an audit dated more than a day in the future', () => {
+      expect(build(audited('unverified', 'partial-or-proximity', -30)).problems.join('\n')).toContain('audit vaud nel futuro');
+      expect(build(audited('unverified', 'partial-or-proximity', 0)).problems).toEqual([]);
+    });
+
+    it('does not count an out-of-list verdict as an audit', () => {
+      const coverage = evaluateCoverage(withVaud(audited('unverified', 'looks-fine', 5)), {}, {}, 26);
+      expect(coverage.unaudited).toEqual(['bern', 'vaud']);
+      expect(Object.keys(coverage.auditVerdicts)).toEqual(['complete-feed', 'partial-or-proximity', 'no-machine-readable']);
     });
 
     // giudica il registry reale con l'orologio vero (audit oltre 90 giorni): rosso possibile senza cambi di codice
