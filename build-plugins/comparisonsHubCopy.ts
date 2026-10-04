@@ -111,35 +111,30 @@ const IT: ComparisonsHubCopy = {
   updatedLabel: 'Aggiornato',
   tldrTitle: 'In sintesi',
   tldrParagraphs: [
-    'Un confronto diretto Svizzera vs Italia per chi lavora oltreconfine deve tenere insieme cinque variabili: stipendio lordo, carico fiscale, costo della sanità, contributi sociali e costo della vita. Guardare solo allo stipendio è fuorviante: un impiegato amministrativo con CHF 75.000 lordi in Ticino può finire con meno netto di un italiano residente a Varese se la distanza dal confine supera i 20 km e il nuovo regime fiscale 2026 si applica pienamente.',
-    'Questa pagina mette in fila cinque tabelle compatte con dati 2026: salari mediani per settore da offerte reali pubblicate in Ticino, prelievo fiscale totale in tre scenari di reddito, premi LAMal per cantone contro il finanziamento SSN italiano, prestazioni sociali obbligatorie (AVS/LPP/AD vs INPS), e costo della vita su voci quotidiane. Ogni numero carica una fonte ufficiale: AFC per l\'imposta alla fonte, Agenzia delle Entrate per IRPEF e addizionali, UFSP per i premi LAMal, UST per salari e affitti, ISTAT per i prezzi al consumo italiani.',
-    'L\'obiettivo non è spingere una conclusione: è darvi la base quantitativa per simulare il vostro caso specifico con il calcolatore dedicato, poi fare due conti sul calo o aumento netto mensile. Le tabelle sono deliberatamente dense: sono pensate per essere citate da altri siti, salvate come screenshot, richiamate in discussioni comunitarie e lette anche dai motori di risposta generativa (LLM) che oggi leggono il web.',
+    `Un confronto tra Svizzera e Italia richiede salario, imposte, contributi, sanità, costi di viaggio e condizioni personali. Nessun importo lordo o distanza dal confine dimostra da solo quale offerta sia più conveniente.`,
+    `Il campione salariale deriva dagli annunci ticinesi ammissibili. Un confronto italiano senza osservazioni equivalenti e un prelievo fiscale senza parametri individuali restano non disponibili. Consulta separatamente le fonti e le condizioni di ogni tabella.`,
+    `Usa i dati disponibili come punto di partenza per uno scenario personale riproducibile. Conserva anno, numerosità e limiti del campione quando citi una tabella.`,
   ],
-  disclaimer:
-    'Dati aggiornati al 2026-04-23, verificare sempre presso le fonti ufficiali prima di decisioni fiscali o professionali. Gli stipendi italiani sono stime derivate da ratio di settore pubblicati da SECO, ISTAT e INAPP — non sostituiscono una consulenza individuale.',
+  disclaimer: `Il panel non contiene osservazioni italiane comparabili: mediana italiana e rapporto IT/CH non sono disponibili. Verificare condizioni contrattuali e requisiti individuali nelle fonti competenti.`,
 
-  tSalaryCaption:
-    'Tabella 1 — Stipendi lordi annui mediani per settore: Ticino (CHF) vs Italia (EUR, stima)',
+  tSalaryCaption: `Tabella 1 — Salari annui dichiarati nel panel ticinese e disponibilità del confronto italiano`,
   tSalaryColSector: 'Settore',
   tSalaryColObservations: 'Offerte (n)',
   tSalaryColCh: 'Mediana CH (CHF)',
-  tSalaryColIt: 'Stima IT (EUR)',
+  tSalaryColIt: `Mediana IT (non disponibile)`,
   tSalaryColRatio: 'Ratio IT/CH',
-  tSalaryFooter:
-    'Fonte: aggregazione di data/jobs.json (panel di annunci pubblicati in Ticino), ratio di settore da SECO Struttura dei salari 2024 + ISTAT RSR 2022 + INAPP XXIV Rapporto 2024. Cambio CHF→EUR fissato a 1,04 per conservatività.',
+  tSalaryFooter: `Fonte: panel degli annunci ticinesi del 2026, condiviso con il CSV del report annuale. Solo range dichiarati, CHF e periodo annuale espliciti; almeno dieci osservazioni per settore. Le colonne italiane e il rapporto restano indisponibili senza un panel comparabile. Nessun cambio o rapporto di settore viene presunto.`,
 
-  tTaxCaption:
-    'Tabella 2 — Carico fiscale totale su un frontaliere (3 scenari di reddito): nuovo regime 2026 vs IRPEF piena',
+  tTaxCaption: `Tabella 2 — Scenari da simulare: prelievo fiscale non calcolato in questa tabella`,
   tTaxColScenario: 'Scenario',
   tTaxColChTotal: 'Prelievo CH (imposta alla fonte)',
   tTaxColItTotal: 'Prelievo IT (IRPEF + addizionali, franchigia €10.000)',
   tTaxColNetDelta: 'Delta netto',
-  tTaxFooter:
-    'Fonte: AFC — Tariffario 2026 imposta alla fonte Canton Ticino ([estv.admin.ch](https://www.estv.admin.ch/it)); Agenzia delle Entrate — Convenzione CH-IT del 23/12/2020 art. 3 ([agenziaentrate.gov.it](https://www.agenziaentrate.gov.it/)); Decreto Legge 84/2024 (franchigia €10.000). L\'imposta totale italiana comprende IRPEF nazionale + addizionale regionale + addizionale comunale medie Lombardia.',
+  tTaxFooter: `Le percentuali non sono disponibili senza un calcolo con parametri individuali. Consulta il simulatore e le [FAQ ufficiali AFC](https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf).`,
   tTaxScenarios: [
-    { label: 'Single, CHF 70.000 lordi, residenza Como (<20 km)', chPct: '~18,4%', itPct: '~22,1%', delta: '+€2.850/anno a favore CH' },
-    { label: 'Sposato con 2 figli, CHF 95.000 lordi, residenza Varese (<20 km)', chPct: '~16,2%', itPct: '~24,8%', delta: '+€8.200/anno a favore CH' },
-    { label: 'Single, CHF 120.000 lordi, residenza Milano (>20 km, nuovo regime)', chPct: '~23,5%', itPct: '~31,2%', delta: '+€9.100/anno a favore CH' },
+    { label: 'Single, CHF 70.000 lordi, residenza Como', chPct: 'N/D', itPct: 'N/D', delta: 'N/D' },
+    { label: 'Sposato con 2 figli, CHF 95.000 lordi, residenza Varese', chPct: 'N/D', itPct: 'N/D', delta: 'N/D' },
+    { label: 'Single, CHF 120.000 lordi, residenza Milano', chPct: 'N/D', itPct: 'N/D', delta: 'N/D' },
   ],
 
   tHealthCaption: "Tabella 3 — Premi LAMal per residenti in Svizzera: mediana delle osservazioni cantonali",
@@ -183,10 +178,8 @@ const IT: ComparisonsHubCopy = {
     { item: 'Abbonamento palestra', ch: 'CHF 85-120/mese', it: '€40-65/mese' },
   ],
 
-  salaryIntro:
-    'La Tabella 1 aggrega gli annunci di lavoro pubblicati in Ticino per settore, calcola la mediana lorda 13 mensilità e la affianca a una stima italiana ottenuta applicando il ratio medio di settore da fonti pubbliche. Gli stipendi italiani sono espressi in EUR gross annui equivalenti per un ruolo comparabile — non sono osservazioni dirette ma proiezioni da panel aggregati SECO/ISTAT/INAPP. Conservate il ratio come indicatore di ordine di grandezza, non come numero da sostituire al vostro contratto.',
-  taxIntro:
-    'La Tabella 2 calcola il prelievo totale (imposta alla fonte svizzera + IRPEF italiano dopo franchigia €10.000 del nuovo regime 2026) in tre scenari tipici. Per il vecchio frontaliere (accordi bilaterali 1974-2020) il prelievo italiano non si applica perché lo stipendio è tassato solo in Svizzera. Per il nuovo frontaliere (assunto dopo il 17 luglio 2023) l\'Italia ritiene la differenza fra IRPEF teorico e quanto già versato in Svizzera, concedendo il credito d\'imposta ex art. 165 TUIR ([fonte: Agenzia delle Entrate](https://www.agenziaentrate.gov.it/)).',
+  salaryIntro: `La tabella descrive la mediana dei punti medi dei range salariali ammissibili. Non misura i salari effettivamente versati e non converte importi mensili usando tredicesime presunte. Il confronto con l’Italia richiede osservazioni equivalenti per ruolo, esperienza e orario, assenti nel panel.`,
+  taxIntro: `L’accordo del 2020 è applicabile dal 2024. I nuovi frontalieri fiscali pagano l’80% dell’imposta alla fonte svizzera ordinaria e l’imposta italiana con credito. Il regime transitorio richiede attività fiscale qualificata nel periodo 31 dicembre 2018–17 luglio 2023; non basta la data di assunzione. La qualifica richiede residenza in un comune dell’elenco ufficiale dei 20 km, lavoro in TI/GR/VS e rientro in linea di principio quotidiano. [FAQ AFC](https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf).`,
   healthIntro:
     "La tabella confronta soltanto osservazioni disponibili per residenti in Svizzera. I cantoni senza almeno tre osservazioni standard verificabili non ricevono un prezzo sostitutivo. Il premio personale dipende da assicuratore e regione: per il domicilio italiano usare il comparatore con residenza Italia.",
   healthUnavailable: "Dati cantonali verificabili non disponibili per questo anno. Consulta Priminfo; nessun premio viene stimato in sostituzione.",
@@ -199,13 +192,11 @@ const IT: ComparisonsHubCopy = {
   faqs: [
     {
       question: 'Conviene sempre lavorare in Svizzera rispetto all\'Italia?',
-      answer:
-        'Non sempre. Conviene quando il differenziale netto mensile post-tasse supera €800-1.000, cioè per ruoli qualificati (sanità, ingegneria, ICT, finanza) con esperienza ≥3 anni. Per ruoli base nella ristorazione, retail o pulizie il differenziale lordo di +40-60% viene eroso da pendolarismo, LAMal, cambio valuta e tempi di viaggio: conviene solo se si vive entro 25 km dal confine. Il calcolatore dedicato del sito fa il conto caso per caso.',
+      answer: `Non esiste una soglia universale di convenienza: confronta offerte effettive, imposte, contributi, costi di viaggio e tempo personale. Il solo campione salariale non dimostra il vantaggio individuale.`,
     },
     {
-      question: 'Perché gli stipendi italiani in tabella sono stimati e non osservati?',
-      answer:
-        'Perché non abbiamo un panel rappresentativo di annunci italiani (la nostra base dati è ticinese). Usiamo i ratio di settore pubblicati da SECO "Struttura dei salari 2024", ISTAT "RSR 2022" e INAPP "XXIV Rapporto sul mercato del lavoro 2024" per derivare una mediana italiana equivalente. Il ratio è un numero di ordine di grandezza: il vostro caso specifico può discostarsi del ±15-20% in base a contratto, anzianità e inquadramento.',
+      question: `Perché il confronto salariale italiano non è disponibile?`,
+      answer: `Manca un panel italiano comparabile per ruolo, esperienza e orario. Per questo non pubblichiamo una mediana italiana o un rapporto stimato da costanti.`,
     },
     {
       question: 'La LAMal è davvero obbligatoria per tutti i frontalieri?',
@@ -219,8 +210,7 @@ const IT: ComparisonsHubCopy = {
     },
     {
       question: 'Come si calcola il prelievo fiscale totale del nuovo frontaliere 2026?',
-      answer:
-        'Due step: 1) imposta alla fonte svizzera trattenuta in busta paga secondo il tariffario cantonale (per Ticino vedere ([tariffario AFC 2026](https://www.estv.admin.ch/))); 2) dichiarazione dei redditi italiana con applicazione dell\'aliquota IRPEF piena su tutto il lordo, detrazione della franchigia €10.000, credito d\'imposta ex art. 165 TUIR per l\'imposta svizzera già pagata. Il risultato netto dipende dalla distanza dal confine (dentro/oltre 20 km) e dalla composizione familiare. Il simulatore del sito esegue il calcolo con scaglioni 2026 aggiornati.',
+      answer: `Individua lo status fiscale e applica la tariffa alla fonte svizzera al profilo familiare e reddituale. Per i nuovi frontalieri qualificati calcola poi IRPEF e addizionali italiane considerando deduzioni e franchigia se spettanti, e sottrai il credito applicabile per l’imposta svizzera. Considera anche contributi e costi personali prima di confrontare il netto. Usa il simulatore con tutti i parametri del tuo caso.`,
     },
   ],
 
@@ -244,35 +234,30 @@ const EN: ComparisonsHubCopy = {
   updatedLabel: 'Updated',
   tldrTitle: 'TL;DR',
   tldrParagraphs: [
-    'A meaningful Switzerland vs Italy comparison for a cross-border worker ("frontaliere") must combine five variables: gross salary, tax burden, healthcare cost, social contributions and cost of living. Looking at salary alone is misleading: a CHF 75,000 gross admin job in Ticino can produce less net income than a comparable role in Varese once you factor in the 2026 new-regime tax, LAMal premiums and commuting cost.',
-    'This page lays out five compact tables with 2026 data: median sector salaries from real Ticino job listings, total tax burden in three income scenarios, LAMal monthly premiums per canton vs the Italian NHS financing model, mandatory social benefits (AVS/LPP/AD vs INPS) and a realistic cost-of-living basket. Every number cites an official source — AFC for withholding tax, Agenzia delle Entrate for IRPEF, UFSP for LAMal, UST for salaries and rents, ISTAT for Italian CPI.',
-    'The goal is not to push a conclusion: it is to give you the quantitative base to simulate your specific case in the calculator and run the monthly net delta. The tables are deliberately dense — they are meant to be cited by third parties, screenshotted, referenced in community threads, and parsed by the generative LLMs that now read the web.',
+    `Comparing Switzerland and Italy requires pay, tax, contributions, healthcare, commuting costs and personal circumstances. No gross amount or distance from the border alone establishes which offer is preferable.`,
+    `The salary sample uses eligible Ticino listings. An Italian comparison without equivalent observations and a tax burden without individual inputs remain unavailable. Check the sources and conditions of each table separately.`,
+    `Use available observations as a starting point for a reproducible personal scenario. Preserve the year, sample size and limitations when citing a table.`,
   ],
-  disclaimer:
-    'Data as of 2026-04-23. Always verify against official sources before fiscal or career decisions. Italian salaries are estimates derived from published sector ratios (SECO, ISTAT, INAPP) and are not a substitute for individual advice.',
+  disclaimer: `The panel contains no comparable Italian observations: the Italian median and IT/CH ratio are unavailable. Verify contractual terms and individual eligibility with the relevant sources.`,
 
-  tSalaryCaption:
-    'Table 1 — Median gross annual salary by sector: Ticino (CHF) vs Italy (EUR, estimate)',
+  tSalaryCaption: `Table 1 — Reported annual salaries in the Ticino panel and Italian comparison availability`,
   tSalaryColSector: 'Sector',
   tSalaryColObservations: 'Listings (n)',
   tSalaryColCh: 'Median CH (CHF)',
-  tSalaryColIt: 'Estimate IT (EUR)',
+  tSalaryColIt: `IT median (unavailable)`,
   tSalaryColRatio: 'Ratio IT/CH',
-  tSalaryFooter:
-    'Source: aggregation of data/jobs.json (Ticino job-ad panel), sector ratio from SECO Salary Structure 2024 + ISTAT RSR 2022 + INAPP 2024. CHF→EUR at 1.04 (conservative).',
+  tSalaryFooter: `Source: 2026 Ticino listings, shared with the annual report CSV. Only reported ranges with explicit CHF currency and annual period; at least ten observations per sector. Italian values and ratios remain unavailable without a comparable panel. No exchange rate or sector ratio is assumed.`,
 
-  tTaxCaption:
-    'Table 2 — Total tax burden on a cross-border worker (3 income scenarios): 2026 new regime vs full IRPEF',
+  tTaxCaption: `Table 2 — Scenarios to simulate: tax burden not calculated in this table`,
   tTaxColScenario: 'Scenario',
   tTaxColChTotal: 'CH withholding tax',
   tTaxColItTotal: 'IT (IRPEF + regional/municipal surcharges, €10,000 allowance)',
   tTaxColNetDelta: 'Net delta',
-  tTaxFooter:
-    'Source: AFC/ESTV — 2026 Ticino withholding tariff ([estv.admin.ch](https://www.estv.admin.ch/)); Agenzia delle Entrate — CH-IT agreement 23/12/2020 ([agenziaentrate.gov.it](https://www.agenziaentrate.gov.it/)); Decree 84/2024 (€10,000 allowance). Italian total includes national IRPEF + average Lombardy regional/municipal surcharges.',
+  tTaxFooter: `Percentages are unavailable without an individual calculation. Consult the calculator and [official FTA FAQs](https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf).`,
   tTaxScenarios: [
-    { label: 'Single, CHF 70,000 gross, residence Como (<20 km)', chPct: '~18.4%', itPct: '~22.1%', delta: '+€2,850/year in favour of CH' },
-    { label: 'Married with 2 children, CHF 95,000 gross, Varese (<20 km)', chPct: '~16.2%', itPct: '~24.8%', delta: '+€8,200/year in favour of CH' },
-    { label: 'Single, CHF 120,000 gross, Milan (>20 km, new regime)', chPct: '~23.5%', itPct: '~31.2%', delta: '+€9,100/year in favour of CH' },
+    { label: 'Single, CHF 70,000 gross, residence Como', chPct: 'N/D', itPct: 'N/D', delta: 'N/D' },
+    { label: 'Married with 2 children, CHF 95,000 gross, Varese', chPct: 'N/D', itPct: 'N/D', delta: 'N/D' },
+    { label: 'Single, CHF 120,000 gross, Milan', chPct: 'N/D', itPct: 'N/D', delta: 'N/D' },
   ],
 
   tHealthCaption: "Table 3 — LAMal for Swiss residents: median of observed canton premiums",
@@ -316,10 +301,8 @@ const EN: ComparisonsHubCopy = {
     { item: 'Gym membership', ch: 'CHF 85-120/month', it: '€40-65/month' },
   ],
 
-  salaryIntro:
-    'Table 1 aggregates Ticino job listings by sector, computes the gross median on 13 monthly payments, and pairs it with an Italian estimate derived from the average sector ratio in public sources. Italian figures are gross annual EUR estimates for a comparable role — not direct observations but projections from aggregate panels.',
-  taxIntro:
-    'Table 2 computes the total tax burden (Swiss withholding tax + Italian IRPEF after the €10,000 new-regime allowance) in three typical scenarios. For "old" cross-border workers (bilateral agreements 1974-2020) the Italian levy does not apply; "new" cross-border workers (hired after July 17, 2023) pay the gap between theoretical IRPEF and Swiss withholding, with tax credit under TUIR art. 165 ([source: Agenzia delle Entrate](https://www.agenziaentrate.gov.it/)).',
+  salaryIntro: `The table shows the median of eligible salary-range midpoints. It does not measure salaries actually paid or convert monthly amounts using assumed thirteenth payments. Comparing Italy requires equivalent observations by role, experience and hours, which this panel does not provide.`,
+  taxIntro: `The 2020 agreement applies from 2024. New qualifying cross-border workers pay 80% of ordinary Swiss withholding tax and Italian tax with a credit. Transitional status requires qualifying fiscal employment during 31 December 2018–17 July 2023, not merely an employment start date. Qualification requires residence in an official 20 km municipality, work in TI/GR/VS and return home in principle daily. [FTA FAQs](https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf).`,
   healthIntro:
     "The table compares available observations for Swiss residents only. Cantons without at least three verifiable standard-premium observations receive no substitute price. Personal premiums depend on insurer and region; residents of Italy should select Italy in the comparator.",
   healthUnavailable: "Verifiable canton data is unavailable for this year. Consult Priminfo; no substitute premium is estimated.",
@@ -332,13 +315,11 @@ const EN: ComparisonsHubCopy = {
   faqs: [
     {
       question: 'Is working in Switzerland always better than Italy?',
-      answer:
-        'Not always. It pays off when the monthly post-tax net differential exceeds €800-1,000 — healthcare, engineering, ICT, finance with ≥3 years of experience. For base roles in hospitality, retail or cleaning the +40-60% gross gap is eroded by commuting, LAMal, FX and travel time; it only pays off within 25 km of the border. The calculator runs the case-by-case maths.',
+      answer: `There is no universal break-even threshold: compare actual offers, tax, contributions, travel costs and personal time. This salary sample alone cannot establish individual benefits.`,
     },
     {
-      question: 'Why are Italian salaries estimated and not observed?',
-      answer:
-        'Because our panel is Ticino-based. We use sector ratios from SECO "Salary Structure 2024", ISTAT "RSR 2022" and INAPP "XXIV Labour Market Report 2024" to derive the Italian median. The ratio is an order-of-magnitude indicator: your case can differ by ±15-20% depending on contract, seniority and job grade.',
+      question: `Why is the Italian salary comparison unavailable?`,
+      answer: `There is no Italian panel matched by role, experience and hours. We therefore publish neither an Italian median nor a ratio estimated from constants.`,
     },
     {
       question: 'Is LAMal really mandatory for every cross-border worker?',
@@ -352,8 +333,7 @@ const EN: ComparisonsHubCopy = {
     },
     {
       question: 'How do I compute the total tax burden of a 2026 new cross-border worker?',
-      answer:
-        'Two steps: 1) Swiss withholding tax per the cantonal tariff (Ticino: [AFC 2026 tariff](https://www.estv.admin.ch/)); 2) Italian return with full IRPEF, €10,000 allowance, tax credit under TUIR art. 165 for Swiss tax paid. The net depends on border distance (in/over 20 km) and family composition. The site simulator runs the full math with 2026 brackets.',
+      answer: `Identify fiscal status and apply the Swiss withholding tariff for the income and family profile. For qualifying new cross-border workers, then calculate Italian IRPEF and local surcharges, allowing applicable deductions and allowances, and subtract the permitted Swiss-tax credit. Include contributions and personal costs before comparing net income. Use the calculator with all individual inputs.`,
     },
   ],
 
@@ -377,35 +357,30 @@ const DE: ComparisonsHubCopy = {
   updatedLabel: 'Aktualisiert',
   tldrTitle: 'Zusammenfassung',
   tldrParagraphs: [
-    'Ein aussagekräftiger Vergleich Schweiz vs Italien für Grenzgänger muss fünf Variablen zusammenbringen: Bruttolohn, Steuerlast, Gesundheitskosten, Sozialabgaben und Lebenshaltungskosten. Nur den Lohn zu betrachten ist irreführend: CHF 75.000 brutto im Tessin können weniger Netto liefern als eine vergleichbare Rolle in Varese, sobald das neue Steuerregime 2026, KVG-Prämien und Pendelkosten einberechnet werden.',
-    'Diese Seite legt fünf kompakte Tabellen mit 2026-Daten vor: Medianlöhne pro Branche aus realen Tessiner Stellenanzeigen, Gesamtsteuerlast in drei Einkommensszenarien, KVG-Monatsprämien pro Kanton gegen das italienische NHS-Finanzierungsmodell, obligatorische Sozialleistungen (AHV/BVG/ALV vs INPS) und ein realistischer Warenkorb für Lebenshaltungskosten.',
-    'Jede Zahl zitiert eine offizielle Quelle: ESTV für die Quellensteuer, Agenzia delle Entrate für IRPEF, BAG für KVG, BFS für Löhne und Mieten, ISTAT für italienische VPI-Daten.',
+    `Ein Vergleich Schweiz–Italien verlangt Lohn, Steuern, Beiträge, Gesundheits- und Pendelkosten sowie persönliche Umstände. Weder ein Bruttobetrag noch die Grenzentfernung allein beweist, welches Angebot vorteilhafter ist.`,
+    `Die Lohnstichprobe beruht auf zulässigen Tessiner Anzeigen. Italienvergleiche ohne gleichwertige Beobachtungen und Steuerlasten ohne persönliche Angaben bleiben nicht verfügbar. Prüfen Sie Quellen und Bedingungen jeder Tabelle getrennt.`,
+    `Nutzen Sie vorhandene Beobachtungen als Ausgangspunkt eines nachvollziehbaren persönlichen Szenarios. Nennen Sie Jahr, Stichprobengrösse und Grenzen beim Zitieren.`,
   ],
-  disclaimer:
-    'Stand 2026-04-23. Vor fiskalischen oder beruflichen Entscheidungen stets mit den offiziellen Quellen abgleichen. Italienische Löhne sind Schätzungen aus publizierten Branchen-Verhältnissen (SECO, ISTAT, INAPP) und ersetzen keine individuelle Beratung.',
+  disclaimer: `Das Panel enthält keine vergleichbaren italienischen Beobachtungen: italienischer Median und Verhältnis IT/CH sind nicht verfügbar. Prüfen Sie Vertragsbedingungen und persönliche Voraussetzungen bei den zuständigen Quellen.`,
 
-  tSalaryCaption:
-    'Tabelle 1 — Medianjahresbruttolohn pro Branche: Tessin (CHF) vs Italien (EUR, Schätzung)',
+  tSalaryCaption: `Tabelle 1 — Deklarierte Jahreslöhne im Tessiner Panel und Verfügbarkeit italienischer Vergleichswerte`,
   tSalaryColSector: 'Branche',
   tSalaryColObservations: 'Inserate (n)',
   tSalaryColCh: 'Median CH (CHF)',
-  tSalaryColIt: 'Schätzung IT (EUR)',
+  tSalaryColIt: `IT-Median (nicht verfügbar)`,
   tSalaryColRatio: 'Verhältnis IT/CH',
-  tSalaryFooter:
-    'Quelle: Aggregation von data/jobs.json (Tessiner Stelleninserate-Panel), Branchen-Verhältnis aus SECO Lohnstruktur 2024 + ISTAT RSR 2022 + INAPP 2024. CHF→EUR auf 1,04 fixiert (konservativ).',
+  tSalaryFooter: `Quelle: Tessiner Anzeigen aus 2026, entsprechend dem CSV des Jahresberichts. Nur deklarierte Spannen mit ausdrücklicher CHF-Währung und Jahresperiode; mindestens zehn Beobachtungen je Branche. Italienische Werte und Verhältnisse fehlen ohne vergleichbares Panel. Kein Wechselkurs oder Branchenverhältnis wird unterstellt.`,
 
-  tTaxCaption:
-    'Tabelle 2 — Gesamtsteuerlast auf einen Grenzgänger (3 Einkommensszenarien): neues Regime 2026 vs volle IRPEF',
+  tTaxCaption: `Tabelle 2 — Zu simulierende Szenarien: Steuerlast hier nicht berechnet`,
   tTaxColScenario: 'Szenario',
   tTaxColChTotal: 'CH Quellensteuer',
   tTaxColItTotal: 'IT (IRPEF + Zuschläge, €10.000 Freibetrag)',
   tTaxColNetDelta: 'Nettoveränderung',
-  tTaxFooter:
-    'Quelle: ESTV — Quellensteuertarif Tessin 2026 ([estv.admin.ch](https://www.estv.admin.ch/)); Agenzia delle Entrate — Abkommen CH-IT 23/12/2020 ([agenziaentrate.gov.it](https://www.agenziaentrate.gov.it/)); Dekret 84/2024 (€10.000 Freibetrag). IT-Summe enthält nationale IRPEF + Lombardei-Zuschläge im Durchschnitt.',
+  tTaxFooter: `Ohne individuelle Berechnung sind Prozentsätze nicht verfügbar. Nutzen Sie Rechner und [offizielle ESTV-FAQ](https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf).`,
   tTaxScenarios: [
-    { label: 'Alleinstehend, CHF 70.000 brutto, Wohnsitz Como (<20 km)', chPct: '~18,4%', itPct: '~22,1%', delta: '+€2.850/Jahr zugunsten CH' },
-    { label: 'Verheiratet, 2 Kinder, CHF 95.000 brutto, Varese (<20 km)', chPct: '~16,2%', itPct: '~24,8%', delta: '+€8.200/Jahr zugunsten CH' },
-    { label: 'Alleinstehend, CHF 120.000 brutto, Mailand (>20 km, neu)', chPct: '~23,5%', itPct: '~31,2%', delta: '+€9.100/Jahr zugunsten CH' },
+    { label: 'Alleinstehend, CHF 70.000 brutto, Wohnsitz Como', chPct: 'N/D', itPct: 'N/D', delta: 'N/D' },
+    { label: 'Verheiratet, 2 Kinder, CHF 95.000 brutto, Varese', chPct: 'N/D', itPct: 'N/D', delta: 'N/D' },
+    { label: 'Alleinstehend, CHF 120.000 brutto, Mailand', chPct: 'N/D', itPct: 'N/D', delta: 'N/D' },
   ],
 
   tHealthCaption: "Tabelle 3 — KVG für Schweizer Wohnsitz: Median beobachteter Kantonsprämien",
@@ -449,10 +424,8 @@ const DE: ComparisonsHubCopy = {
     { item: 'Fitnessstudio-Abo', ch: 'CHF 85-120/Monat', it: '€40-65/Monat' },
   ],
 
-  salaryIntro:
-    'Tabelle 1 aggregiert Tessiner Stellenanzeigen pro Branche, berechnet den Bruttomedian auf 13 Monatslöhnen und stellt ihm eine italienische Schätzung gegenüber, die aus dem durchschnittlichen Branchenverhältnis in öffentlichen Quellen abgeleitet wird.',
-  taxIntro:
-    'Tabelle 2 berechnet die Gesamtsteuerlast (CH-Quellensteuer + IT-IRPEF nach €10.000-Freibetrag des neuen Regimes 2026) in drei typischen Szenarien. Alte Grenzgänger (bilaterale Abkommen 1974-2020) zahlen keine IT-Steuer; neue Grenzgänger (Einstellung nach 17.07.2023) zahlen die Differenz mit Steuergutschrift gem. TUIR Art. 165.',
+  salaryIntro: `Die Tabelle zeigt den Median der zulässigen Spannenmittelpunkte. Sie misst keine ausbezahlten Löhne und rechnet Monatsbeträge nicht mit vermuteten dreizehnten Zahlungen um. Ein Italienvergleich benötigt gleichwertige Beobachtungen zu Funktion, Erfahrung und Arbeitszeit, die im Panel fehlen.`,
+  taxIntro: `Das Abkommen von 2020 gilt seit 2024. Neue steuerlich qualifizierte Grenzgänger zahlen 80% der ordentlichen Schweizer Quellensteuer und italienische Steuer mit Anrechnung. Der Übergangsstatus verlangt qualifizierte Tätigkeit zwischen 31. Dezember 2018 und 17. Juli 2023, nicht nur ein Einstellungsdatum. Erforderlich sind Wohnsitz in einer Gemeinde der offiziellen 20-km-Liste, Arbeit in TI/GR/VS und grundsätzlich tägliche Rückkehr. [ESTV-FAQ](https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf).`,
   healthIntro:
     "Die Tabelle vergleicht nur verfügbare Beobachtungen für Personen mit Schweizer Wohnsitz. Für Kantone mit weniger als drei überprüfbaren Standardprämien wird kein Ersatzpreis angezeigt. Persönliche Prämien hängen von Versicherer und Region ab; bei Wohnsitz Italien im Vergleich Italien auswählen.",
   healthUnavailable: "Für dieses Jahr sind keine überprüfbaren Kantonsdaten verfügbar. Priminfo konsultieren; es werden keine Ersatzprämien geschätzt.",
@@ -465,13 +438,11 @@ const DE: ComparisonsHubCopy = {
   faqs: [
     {
       question: 'Lohnt sich Arbeit in der Schweiz immer gegenüber Italien?',
-      answer:
-        'Nicht immer. Es lohnt sich, wenn der monatliche Netto-Mehrwert nach Steuern €800-1.000 übersteigt — qualifizierte Rollen in Gesundheit, Technik, ICT, Finanzen ab 3 Jahren Erfahrung. Bei Grundrollen in Gastgewerbe, Retail, Reinigung wird der +40-60%-Bruttosprung durch Pendelkosten, KVG, FX und Fahrzeit erodiert.',
+      answer: `Es gibt keine allgemeine Vorteilsschwelle: Vergleichen Sie konkrete Angebote, Steuern, Beiträge, Reisekosten und Zeit. Die Lohnstichprobe allein belegt keinen persönlichen Vorteil.`,
     },
     {
-      question: 'Warum sind die italienischen Löhne geschätzt und nicht beobachtet?',
-      answer:
-        'Weil unser Panel tessinisch ist. Wir nutzen Branchen-Verhältnisse aus SECO "Lohnstruktur 2024", ISTAT "RSR 2022" und INAPP "XXIV Arbeitsmarktbericht 2024" für den italienischen Median. Das Verhältnis ist ein Grössenordnungs-Indikator; individuelle Abweichungen ±15-20% sind normal.',
+      question: `Warum ist der italienische Lohnvergleich nicht verfügbar?`,
+      answer: `Es fehlt ein nach Funktion, Erfahrung und Arbeitszeit vergleichbares italienisches Panel. Deshalb veröffentlichen wir weder italienischen Median noch aus Konstanten geschätztes Verhältnis.`,
     },
     {
       question: 'Ist KVG wirklich für jeden Grenzgänger obligatorisch?',
@@ -485,8 +456,7 @@ const DE: ComparisonsHubCopy = {
     },
     {
       question: 'Wie berechne ich die Gesamtsteuerlast eines neuen Grenzgängers 2026?',
-      answer:
-        'Zwei Schritte: 1) CH-Quellensteuer gemäss kantonalem Tarif; 2) IT-Steuererklärung mit voller IRPEF, €10.000 Freibetrag, Steuergutschrift gem. TUIR Art. 165 für die CH-Steuer. Das Nettoergebnis hängt von Grenzentfernung (innerhalb/über 20 km) und Familiensituation ab. Der Site-Simulator rechnet mit 2026-Stufen.',
+      answer: `Bestimmen Sie den steuerlichen Status und wenden Sie den Schweizer Quellensteuertarif auf Einkommen und Familienprofil an. Bei qualifizierten neuen Grenzgängern berechnen Sie danach italienische IRPEF und Zuschläge mit anwendbaren Abzügen und Freibeträgen sowie der zulässigen Anrechnung der Schweizer Steuer. Berücksichtigen Sie Beiträge und persönliche Kosten vor dem Nettovergleich. Nutzen Sie den Rechner mit allen individuellen Angaben.`,
     },
   ],
 
@@ -510,35 +480,30 @@ const FR: ComparisonsHubCopy = {
   updatedLabel: 'Mis à jour',
   tldrTitle: 'Résumé',
   tldrParagraphs: [
-    'Une comparaison Suisse vs Italie significative pour un frontalier doit conjuguer cinq variables : salaire brut, pression fiscale, coût de la santé, cotisations sociales et coût de la vie. Regarder le seul salaire est trompeur : un poste admin à CHF 75.000 brut au Tessin peut donner moins de net qu\'un poste équivalent à Varese, une fois pris en compte le nouveau régime fiscal 2026, les primes LAMal et les coûts de navette.',
-    'Cette page présente cinq tableaux compacts avec des données 2026 : salaires médians par secteur issus d\'offres réelles au Tessin, pression fiscale totale dans trois scénarios de revenu, primes mensuelles LAMal par canton face au modèle italien NHS, prestations sociales obligatoires (AVS/LPP/AC vs INPS) et un panier réaliste de coût de la vie.',
-    'Chaque chiffre cite une source officielle : AFC pour l\'impôt à la source, Agenzia delle Entrate pour l\'IRPEF, OFSP pour LAMal, OFS pour salaires et loyers, ISTAT pour l\'IPC italien.',
+    `Comparer la Suisse et l’Italie exige salaire, impôts, cotisations, santé, trajet et situation personnelle. Aucun montant brut ni distance à la frontière ne démontre seul quelle offre est préférable.`,
+    `L’échantillon salarial utilise les annonces tessinoises admissibles. Une comparaison italienne sans observations équivalentes et une fiscalité sans paramètres individuels restent indisponibles. Vérifiez séparément les sources et conditions de chaque tableau.`,
+    `Utilisez les observations disponibles comme point de départ d’un scénario personnel reproductible. Conservez année, effectifs et limites lorsque vous citez un tableau.`,
   ],
-  disclaimer:
-    'Données au 2026-04-23. Toujours vérifier auprès des sources officielles avant toute décision fiscale ou professionnelle. Les salaires italiens sont des estimations tirées des ratios sectoriels publiés (SECO, ISTAT, INAPP).',
+  disclaimer: `Le panel ne contient pas d’observations italiennes comparables : médiane italienne et ratio IT/CH sont indisponibles. Vérifiez les conditions contractuelles et personnelles auprès des sources compétentes.`,
 
-  tSalaryCaption:
-    'Tableau 1 — Salaire annuel brut médian par secteur : Tessin (CHF) vs Italie (EUR, estimation)',
+  tSalaryCaption: `Tableau 1 — Salaires annuels déclarés du panel tessinois et disponibilité de la comparaison italienne`,
   tSalaryColSector: 'Secteur',
   tSalaryColObservations: 'Annonces (n)',
   tSalaryColCh: 'Médiane CH (CHF)',
-  tSalaryColIt: 'Estimation IT (EUR)',
+  tSalaryColIt: `Médiane IT (indisponible)`,
   tSalaryColRatio: 'Ratio IT/CH',
-  tSalaryFooter:
-    'Source : agrégation de data/jobs.json (panel d\'annonces tessinoises), ratio sectoriel de SECO Structure des salaires 2024 + ISTAT RSR 2022 + INAPP 2024. CHF→EUR fixé à 1,04.',
+  tSalaryFooter: `Source : annonces tessinoises de 2026, identiques au panel du CSV annuel. Uniquement des fourchettes déclarées en CHF et à période annuelle explicites ; au moins dix observations par secteur. Valeurs italiennes et ratios restent indisponibles sans panel comparable. Aucun change ou ratio sectoriel n’est supposé.`,
 
-  tTaxCaption:
-    'Tableau 2 — Pression fiscale totale sur un frontalier (3 scénarios de revenu) : nouveau régime 2026 vs IRPEF plein',
+  tTaxCaption: `Tableau 2 — Scénarios à simuler : fiscalité non calculée dans ce tableau`,
   tTaxColScenario: 'Scénario',
   tTaxColChTotal: 'Impôt à la source CH',
   tTaxColItTotal: 'IT (IRPEF + surtaxes, franchise €10.000)',
   tTaxColNetDelta: 'Delta net',
-  tTaxFooter:
-    'Source : AFC — Tarif 2026 impôt à la source Tessin ([estv.admin.ch](https://www.estv.admin.ch/)) ; Agenzia delle Entrate — Accord CH-IT 23/12/2020 ([agenziaentrate.gov.it](https://www.agenziaentrate.gov.it/)) ; Décret 84/2024 (franchise €10.000).',
+  tTaxFooter: `Les pourcentages sont indisponibles sans calcul individuel. Consultez le simulateur et les [FAQ officielles AFC](https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf).`,
   tTaxScenarios: [
-    { label: 'Célibataire, CHF 70.000 brut, résidence Côme (<20 km)', chPct: '~18,4%', itPct: '~22,1%', delta: '+€2.850/an en faveur CH' },
-    { label: 'Marié 2 enfants, CHF 95.000 brut, Varese (<20 km)', chPct: '~16,2%', itPct: '~24,8%', delta: '+€8.200/an en faveur CH' },
-    { label: 'Célibataire, CHF 120.000 brut, Milan (>20 km, nouveau)', chPct: '~23,5%', itPct: '~31,2%', delta: '+€9.100/an en faveur CH' },
+    { label: 'Célibataire, CHF 70.000 brut, résidence Côme', chPct: 'N/D', itPct: 'N/D', delta: 'N/D' },
+    { label: 'Marié 2 enfants, CHF 95.000 brut, Varese', chPct: 'N/D', itPct: 'N/D', delta: 'N/D' },
+    { label: 'Célibataire, CHF 120.000 brut, Milan', chPct: 'N/D', itPct: 'N/D', delta: 'N/D' },
   ],
 
   tHealthCaption: "Tableau 3 — LAMal pour résidents suisses : médiane des primes cantonales observées",
@@ -582,10 +547,8 @@ const FR: ComparisonsHubCopy = {
     { item: 'Abo salle de sport', ch: 'CHF 85-120/mois', it: '€40-65/mois' },
   ],
 
-  salaryIntro:
-    'Le Tableau 1 agrège les annonces tessinoises par secteur, calcule la médiane brute sur 13 mois et la met en regard d\'une estimation italienne dérivée du ratio moyen de secteur publié.',
-  taxIntro:
-    'Le Tableau 2 calcule la pression totale (impôt à la source CH + IRPEF IT après franchise €10.000 du nouveau régime 2026) dans trois scénarios typiques. L\'ancien frontalier (accords bilatéraux 1974-2020) ne paie pas l\'impôt IT ; le nouveau (embauché après le 17/07/2023) paie la différence avec crédit d\'impôt TUIR art. 165.',
+  salaryIntro: `Le tableau présente la médiane des milieux des fourchettes admissibles. Il ne mesure pas les salaires versés et ne convertit pas les montants mensuels avec un treizième versement supposé. Comparer l’Italie exige des observations équivalentes par rôle, expérience et horaire, absentes du panel.`,
+  taxIntro: `L’accord de 2020 s’applique depuis 2024. Les nouveaux frontaliers fiscaux paient 80% de l’impôt à la source suisse ordinaire et l’impôt italien avec crédit. Le régime transitoire exige une activité fiscale qualifiée entre le 31 décembre 2018 et le 17 juillet 2023, pas seulement une date d’embauche. La qualification exige résidence dans une commune de la liste officielle des 20 km, emploi en TI/GR/VS et retour en principe quotidien. [FAQ AFC](https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf).`,
   healthIntro:
     "Le tableau compare uniquement les observations disponibles pour les résidents suisses. Aucun prix de remplacement n’est attribué aux cantons comptant moins de trois observations standard vérifiables. La prime personnelle dépend de l’assureur et de la région ; les résidents italiens doivent sélectionner Italie dans le comparateur.",
   healthUnavailable: "Les données cantonales vérifiables sont indisponibles pour cette année. Consulter Priminfo ; aucune prime de remplacement n’est estimée.",
@@ -598,13 +561,11 @@ const FR: ComparisonsHubCopy = {
   faqs: [
     {
       question: 'Travailler en Suisse est-il toujours plus avantageux qu\'en Italie ?',
-      answer:
-        'Pas toujours. C\'est avantageux quand le delta net mensuel post-impôt dépasse €800-1.000 — rôles qualifiés en santé, ingénierie, ICT, finance avec ≥3 ans d\'expérience. Pour les rôles de base (restauration, retail, propreté) l\'écart brut +40-60% est érodé par navette, LAMal et change.',
+      answer: `Il n’existe pas de seuil universel de rentabilité : comparez offres réelles, impôts, cotisations, frais de trajet et temps personnel. Le seul échantillon salarial ne démontre pas un avantage individuel.`,
     },
     {
-      question: 'Pourquoi les salaires italiens sont-ils estimés ?',
-      answer:
-        'Parce que notre panel est tessinois. Nous utilisons les ratios sectoriels de SECO "Structure des salaires 2024", ISTAT "RSR 2022" et INAPP "XXIV Rapport marché du travail 2024". Le ratio est un indicateur d\'ordre de grandeur.',
+      question: `Pourquoi la comparaison salariale italienne est-elle indisponible ?`,
+      answer: `Il manque un panel italien comparable par rôle, expérience et horaire. Nous ne publions donc ni médiane italienne ni ratio estimé à partir de constantes.`,
     },
     {
       question: 'LAMal est-elle vraiment obligatoire pour chaque frontalier ?',
@@ -618,8 +579,7 @@ const FR: ComparisonsHubCopy = {
     },
     {
       question: 'Comment calculer la pression totale d\'un nouveau frontalier 2026 ?',
-      answer:
-        'Deux étapes : 1) impôt à la source CH selon le tarif cantonal ; 2) déclaration IT avec IRPEF plein, franchise €10.000, crédit d\'impôt TUIR art. 165 pour l\'impôt CH. Le net dépend de la distance frontière (dans/plus de 20 km) et de la composition familiale.',
+      answer: `Déterminez le statut fiscal et appliquez le barème suisse à la source au revenu et au profil familial. Pour les nouveaux frontaliers qualifiés, calculez ensuite IRPEF et surtaxes italiennes avec déductions et franchise applicables, puis soustrayez le crédit autorisé pour l’impôt suisse. Intégrez cotisations et frais personnels avant de comparer le net. Utilisez le simulateur avec tous les paramètres individuels.`,
     },
   ],
 
