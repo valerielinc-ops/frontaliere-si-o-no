@@ -6824,6 +6824,16 @@ async function main() {
     localizationSterileCompanyKeys: [...localizationSterileCompanyKeys],
     localizationCoveredCompanyKeys: [...localizationCoveredCompanyKeys],
     localizationObservability: localizationObservability?.toJSON() || null,
+    // Dedicated post-processors need to distinguish a current, observed
+    // source pool from a scratch slice retained after an empty/failed fetch.
+    // Keep only the identity fields needed by post-processors from THIS run;
+    // callers must not infer source liveness from the merged output written to
+    // disk, and the full job payload must not be retained by the return value.
+    observedJobs: incomingJobs.map((job) => ({
+      url: job?.url,
+      company: job?.company,
+      companyDomain: job?.companyDomain,
+    })),
   };
 }
 
