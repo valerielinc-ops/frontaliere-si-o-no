@@ -45,7 +45,7 @@ describe('central job-board detail URLs', () => {
     expect(result.reason).toBeNull();
     expect(result.job).toMatchObject({
       url: detailUrl,
-      company: 'Swiss Timing (Swatch Group)',
+      company: 'Swiss Timing LTD',
       canton: 'BE',
     });
   });
