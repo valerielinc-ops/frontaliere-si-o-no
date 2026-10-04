@@ -30,6 +30,7 @@
  *   - Every ParsedJob carries `needsRetranslation: true` so the AI localization
  *     step fills in fr/it/en.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, warnIfListingAtCap } from './crawler-template.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -284,12 +285,7 @@ export async function fetchAllLupsJobs() {
     const jobSlug = slugify(`${title} ${LUPS_KEY} ${location}`);
     const urlHash = createHash('sha1').update(url).digest('hex').slice(0, 12);
 
-    const postedDate = (() => {
-      const raw = ld.datePosted || ld.validThrough || '';
-      const d = new Date(String(raw || ''));
-      if (!Number.isNaN(d.getTime())) return d.toISOString().slice(0, 10);
-      return new Date().toISOString().slice(0, 10);
-    })();
+    const publication = sourcePostingDateFields(ld.datePosted);
 
     jobs.push({
       id: `${LUPS_KEY}-${urlHash}`,
@@ -322,7 +318,7 @@ export async function fetchAllLupsJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

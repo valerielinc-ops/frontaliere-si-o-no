@@ -418,8 +418,8 @@ describe('pickJobDisambiguator (human-readable cascade)', () => {
  });
 
  it('falls through to posted month when no salary', () => {
-  const job = { employmentType: 'FULL_TIME', postedDate: '2027-04-01', id: 'migros-lugano-recept-abc1' };
-  expect(pickJobDisambiguator(job, 'it', baseTitle)).toBe('apr 2027');
+  const job = { employmentType: 'FULL_TIME', postingDateSource: 'reported', postedDate: '2026-04-01', id: 'migros-lugano-recept-abc1' };
+  expect(pickJobDisambiguator(job, 'it', baseTitle)).toBe('apr 2026');
  });
 
  it('falls through to job-id reference as last resort', () => {
