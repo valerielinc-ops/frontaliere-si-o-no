@@ -13,6 +13,7 @@ import {
   authoritativeEmptySnapshotValidator,
   isAuthoritativeEmptySnapshot,
 } from '../scripts/lib/authoritative-empty-snapshot.mjs';
+import { EMPTY_OK_CRAWLERS } from '../scripts/lib/crawler-empty-ok-registry.mjs';
 
 // Live captures of the Ferring Workday board (2026-10-02), facets only.
 function workdayFixture(name: string) {
@@ -68,10 +69,7 @@ describe('Ferring — source-proven Swiss zero instead of an EMPTY_OK_CRAWLERS e
     const runner = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'update-ferring-jobs.mjs'), 'utf8');
     expect(runner).toContain('validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(FERRING_COMPANY_NAME)');
     expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
-    const monitor = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'check-crawler-health.mjs'), 'utf8');
-    const allowlist = /const EMPTY_OK_CRAWLERS = new Set\(\[([\s\S]*?)\]\)/.exec(monitor);
-    expect(allowlist).toBeTruthy();
-    expect(allowlist![1]).not.toMatch(/^\s*'ferring',/m);
+    expect(EMPTY_OK_CRAWLERS.has('ferring')).toBe(false);
   });
 });
 

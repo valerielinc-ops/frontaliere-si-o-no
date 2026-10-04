@@ -10,6 +10,7 @@ import {
 } from '../scripts/lib/kone-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
+import { EMPTY_OK_CRAWLERS } from '../scripts/lib/crawler-empty-ok-registry.mjs';
 
 // Live captures of the KONE Workday tenant (2026-10-02), sanitized: job bodies
 // replaced by neutral text.
@@ -118,10 +119,7 @@ describe('KONE crawler — Workday source (tenant kone, site Careers)', () => {
     expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
     // The per-run proof replaces the allowlist entry, which kept masking the
     // slug while it read a dead source.
-    const monitor = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'check-crawler-health.mjs'), 'utf8');
-    const allowlist = /const EMPTY_OK_CRAWLERS = new Set\(\[([\s\S]*?)\]\)/.exec(monitor);
-    expect(allowlist).toBeTruthy();
-    expect(allowlist![1]).not.toMatch(/^\s*'kone',/m);
+    expect(EMPTY_OK_CRAWLERS.has('kone')).toBe(false);
   });
 });
 

@@ -6836,18 +6836,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  'correzioni': {
  title: 'Correzioni — Politica di rettifica e registro pubblico | Frontaliere Ticino',
- description: 'Politica di correzione di Frontaliere Ticino: SLA 48 ore, tipologie accettate (errore fattuale, refuso, chiarimento) e registro pubblico cronologico delle rettifiche.',
+ description: 'Come segnalare un errore a Frontaliere Ticino e consultare le rettifiche presenti nel registro pubblico.',
  keywords: 'correzioni frontaliere ticino, errata corrige, rettifica articolo, policy correzione, trasparenza editoriale',
  ogTitle: 'Correzioni — Politica di rettifica e registro pubblico',
- ogDescription: 'Come segnaliamo e registriamo le correzioni: SLA 48 ore, tipologie accettate, registro pubblico cronologico.',
+ ogDescription: 'Come segnalare un errore e consultare le rettifiche presenti nel registro pubblico.',
  canonicalPath: '/correzioni/',
- // staticPagesPlugin.ts text-parses this literal at build time (regex +
- // JSON.parse, not a real JS import) — cannot reference buildCorrezioniSeo()
- // here. That builder (services/seo/seo-correzioni.ts) mirrors this exact
- // shape for the client-rendered copy in Correzioni.tsx and additionally
- // computes `lastReviewed` from the real corrections log, which this static
- // literal deliberately omits (no safe way to keep it fresh without either
- // a stale hand-bumped date or the BUILD_DATE_ISO false-freshness bug).
+ // Italian metadata is parsed from this registry. Non-Italian static pages
+ // and the React page use buildCorrezioniSeo(locale), sharing localized copy.
+ // This literal omits lastReviewed; the builder adds only a recorded log date.
  structuredData: [
  {
  "@context": "https://schema.org",
