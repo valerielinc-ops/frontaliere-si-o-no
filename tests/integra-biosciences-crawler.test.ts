@@ -19,6 +19,7 @@ import {
   authoritativeEmptySnapshotValidator,
   isAuthoritativeEmptySnapshot,
 } from '../scripts/lib/authoritative-empty-snapshot.mjs';
+import { EMPTY_OK_CRAWLERS } from '../scripts/lib/crawler-empty-ok-registry.mjs';
 
 describe('INTEGRA Biosciences crawler parser', () => {
   // ── Constants ──
@@ -643,9 +644,6 @@ describe('INTEGRA Biosciences — jobsAllData listing and Umantis detail pages',
     expect(runner).toContain('validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(');
     expect(runner).toContain('allowAuthoritativeEmptySnapshot: true');
     expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
-    const monitor = readFileSync(new URL('../scripts/check-crawler-health.mjs', import.meta.url), 'utf8');
-    const allowlist = /const EMPTY_OK_CRAWLERS = new Set\(\[([\s\S]*?)\]\)/.exec(monitor);
-    expect(allowlist).toBeTruthy();
-    expect(allowlist![1]).not.toContain("'integra-biosciences'");
+    expect(EMPTY_OK_CRAWLERS.has('integra-biosciences')).toBe(false);
   });
 });

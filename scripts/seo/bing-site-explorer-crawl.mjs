@@ -10,7 +10,9 @@
  */
 
 import { createHash } from 'node:crypto';
-import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import {
+  closeSync, mkdirSync, openSync, readFileSync, readdirSync, writeSync,
+} from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseAttributes } from '../lib/meta-description-extract.mjs';
@@ -739,9 +741,64 @@ export async function crawlPartition({
   };
 }
 
-function writeJson(filePath, value) {
+// The full-tree artifacts embed every URL of the sitemap or of the internal
+// frontier: the report summary outgrew V8's maximum string length and
+// `JSON.stringify(summary, null, 2)` threw `RangeError: Invalid string length`
+// before the issue body was written (run 36996732377). The discovered-frontier
+// manifest and the partition reports grow with the same frontier, so every
+// writer of this crawler and of the report goes through here: each top-level
+// array is emitted one element per line through a buffer flushed about every
+// `chunkChars` characters, and no single string ever holds the whole
+// document. Non-array top-level values are small counters/maps and keep the
+// indented form. Values JSON cannot represent (undefined, functions, symbols)
+// follow JSON.stringify: dropped as top-level keys, `null` inside arrays.
+function isJsonOmitted(item) {
+  return item === undefined || typeof item === 'function' || typeof item === 'symbol';
+}
+
+export function writeJsonStreaming(filePath, value, { chunkChars = 4_000_000, onChunk } = {}) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    throw new TypeError('writeJsonStreaming expects a plain object');
+  }
   ensureParent(filePath);
-  writeFileSync(resolve(filePath), `${JSON.stringify(value, null, 2)}\n`);
+  const fd = openSync(resolve(filePath), 'w');
+  let pending = '';
+  const flush = () => {
+    if (!pending) return;
+    writeSync(fd, pending);
+    if (onChunk) onChunk(pending.length);
+    pending = '';
+  };
+  const emit = (piece) => {
+    if (pending && pending.length + piece.length > chunkChars) flush();
+    pending += piece;
+    if (pending.length >= chunkChars) flush();
+  };
+  try {
+    const entries = Object.entries(value).filter(([, item]) => !isJsonOmitted(item));
+    emit('{');
+    entries.forEach(([key, item], index) => {
+      emit(`${index === 0 ? '' : ','}\n  ${JSON.stringify(key)}: `);
+      if (Array.isArray(item)) {
+        if (item.length === 0) {
+          emit('[]');
+          return;
+        }
+        emit('[');
+        for (let i = 0; i < item.length; i += 1) {
+          const element = isJsonOmitted(item[i]) ? null : item[i];
+          emit(`${i === 0 ? '' : ','}\n    ${JSON.stringify(element)}`);
+        }
+        emit('\n  ]');
+      } else {
+        emit(JSON.stringify(item, null, 2).replace(/\n/g, '\n  '));
+      }
+    });
+    emit(entries.length === 0 ? '}\n' : '\n}\n');
+    flush();
+  } finally {
+    closeSync(fd);
+  }
 }
 
 async function main() {
@@ -752,7 +809,7 @@ async function main() {
   if (args['inventory-only']) {
     try {
       const inventory = await collectSitemapInventory({ baseUrl, sitemapUrl, timeoutMs: intArg(args, 'timeout-ms', DEFAULT_TIMEOUT_MS) });
-      writeJson(out, inventory);
+      writeJsonStreaming(out, inventory);
       console.log(JSON.stringify({ mode: 'inventory', manifestCount: inventory.manifestCount, sitemapCount: inventory.sitemapCount, errors: inventory.errors.length, out }, null, 2));
       if (inventory.errors.length > 0) process.exitCode = 1;
     } catch (error) {
@@ -773,7 +830,7 @@ async function main() {
         partitions: {},
         errors: [{ url: sitemapUrl, error: error?.message || String(error) }],
       };
-      writeJson(out, fallback);
+      writeJsonStreaming(out, fallback);
       console.error(error?.stack || error);
       process.exitCode = 1;
     }
@@ -794,7 +851,7 @@ async function main() {
       baseUrl,
       partitions: intArg(args, 'partitions', DEFAULT_PARTITIONS),
     });
-    writeJson(out, inventory);
+    writeJsonStreaming(out, inventory);
     console.log(JSON.stringify({
       mode: 'discovered-frontier',
       sourceDiscoveredCount: inventory.sourceDiscoveredCount,
@@ -819,7 +876,7 @@ async function main() {
     rescueDelayMs: intArg(args, 'rescue-delay-ms', DEFAULT_RESCUE_DELAY_MS),
     maxBodyBytes: intArg(args, 'max-body-bytes', DEFAULT_MAX_BODY_BYTES),
   });
-  writeJson(out, report);
+  writeJsonStreaming(out, report);
   console.log(JSON.stringify({ mode: 'partition', partition: report.partition, partitions: report.partitions, manifestCount: report.manifestCount, checkedCount: report.checkedCount, findings: report.findings.length, out }, null, 2));
 }
 

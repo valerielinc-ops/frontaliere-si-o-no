@@ -1,3 +1,4 @@
+import { buildCorrezioniSeo } from './seo/seo-correzioni';
 import { localizeArticlePageIdentity } from './seo/article-page-identity';
 /**
  * SEO Service - Dynamic Meta Tags Management
@@ -1355,6 +1356,10 @@ function resolveLocalizedSeoContent(section: string, metadata: SEOMetadata, loca
  description: string;
  keywords: string;
 } {
+ if (section === 'correzioni') {
+ const page = buildCorrezioniSeo(locale);
+ return { title: page.title, description: page.description, keywords: metadata.keywords };
+ }
  if (locale === 'it') {
  return {
  title: metadata.title,
