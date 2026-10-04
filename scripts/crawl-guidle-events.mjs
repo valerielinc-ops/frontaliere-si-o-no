@@ -153,6 +153,7 @@ const SOURCE = EVENT_SOURCES.guidle;
 const SITE_ORIGIN = 'https://www.guidle.com';
 const SITEMAP_INDEX_URL = `${SITE_ORIGIN}/sitemapindex.xml`;
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const UNDATED_FILM_CATALOG_PATH_RE = /(?:^|\/)kino-nach-film\/ohne-ortsangabe(?:\/|$)/i;
 
 const USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch)';
 const FETCH_TIMEOUT_MS = 20000;
@@ -389,19 +390,32 @@ export function extractGeoAndCanton(doc) {
 }
 
 /**
- * True when the page itself declares that it has no schedule: no readable
- * Event JSON-LD, and every microdata `startDate` present is empty. A page
- * with no `startDate` declaration at all, or a filled one, is NOT excused —
- * that is markup the parser should have read (drift).
+ * True when the verified film-catalog path declares that it has no schedule:
+ * no readable Event JSON-LD, and every microdata `startDate` present is empty.
+ * A page outside that catalog, with no `startDate` declaration at all, or
+ * with a filled one, is NOT excused — that is markup the parser should have
+ * read (drift).
  * @param {string} html
+ * @param {string} pathSuffix
  */
-export function isUndatedGuidleListing(html) {
+export function isUndatedGuidleListing(html, pathSuffix) {
   if (typeof html !== 'string' || !html) return false;
+  if (typeof pathSuffix !== 'string' || !UNDATED_FILM_CATALOG_PATH_RE.test(pathSuffix)) return false;
   if (extractEventJsonLdOccurrences(html).length) return false;
   if (!/itemprop=["']startDate["']/.test(html)) return false;
   const declarations = [...new JSDOM(html).window.document.querySelectorAll('[itemprop="startDate"]')];
   return declarations.length > 0
     && declarations.every((el) => !String(el.getAttribute('content') ?? el.getAttribute('datetime') ?? el.textContent ?? '').trim());
+}
+
+/**
+ * Decide whether an empty run is a transient fetch failure or parser drift.
+ * Any mapped event, confirmed gone event, or verified undated catalog entry is
+ * a meaningful observation and lets the caller continue to the merge path.
+ */
+export function guidleEmptyRunOutcome({ mappedCount, goneCount, undatedCount, successfulDetailFetches }) {
+  if (mappedCount > 0 || goneCount > 0 || undatedCount > 0) return 'publish';
+  return successfulDetailFetches > 0 ? 'drift' : 'transient';
 }
 
 /**
@@ -574,11 +588,16 @@ async function fetchLocaleData(pathSuffix, locale) {
   const url = `${SITE_ORIGIN}/${locale}${pathSuffix}`;
   const { status, text: html } = await fetchTextWithStatus(url);
   await sleep(DETAIL_DELAY_MS);
+  if (status >= 200 && status < 300) {
+    // HTTP success is the positive run signal even when the source returns an
+    // empty body: an empty 2xx response is a loaded page with parser drift,
+    // not a transient network failure.
+    detailFetchesOk += 1;
+  }
   if (!html) return { htmlOk: false, data: null, status, undated: false };
-  detailFetchesOk += 1; // positive success signal — HTML came back, independent of parse outcome
   const mapped = mapDetailPageToLocaleData(html, locale, url);
   if (mapped) return { htmlOk: true, data: { ...mapped, url }, status, undated: false };
-  return { htmlOk: true, data: null, status, undated: isUndatedGuidleListing(html) };
+  return { htmlOk: true, data: null, status, undated: isUndatedGuidleListing(html, pathSuffix) };
 }
 
 const GONE_STATUSES = new Set([404, 410]);
@@ -597,6 +616,10 @@ const GONE_STATUSES = new Set([404, 410]);
  */
 export function classifyUnmappedGuidleDetail(localeStatuses, localeUndated = []) {
   const statuses = Array.isArray(localeStatuses) ? localeStatuses : [];
+  const hasUnreachableLocale = statuses.some((status) => (
+    !(status >= 200 && status < 300) && !GONE_STATUSES.has(status)
+  ));
+  if (hasUnreachableLocale) return 'unreachable';
   const answered = statuses
     .map((status, index) => ({ ok: status >= 200 && status < 300, undated: localeUndated?.[index] === true }))
     .filter(({ ok }) => ok);
@@ -807,7 +830,13 @@ async function main() {
   saveEventTitleTranslationCache(translationCache);
   saveGeocodeCache(geocodeCache);
 
-  if (events.length === 0 && goneIds.length === 0 && undatedIds.length === 0) {
+  const emptyRunOutcome = guidleEmptyRunOutcome({
+    mappedCount: events.length,
+    goneCount: goneIds.length,
+    undatedCount: undatedIds.length,
+    successfulDetailFetches: detailFetchesOk,
+  });
+  if (emptyRunOutcome !== 'publish') {
     // Never overwrite a good slice with an empty run. Distinguish two causes:
     //  - no detail page returned real HTML this run (network/WAF) → transient, soft-exit 0.
     //  - detail pages loaded fine but nothing mapped to a valid event → likely
@@ -818,7 +847,7 @@ async function main() {
     //    cumulative counter is almost always >0 at guidle's real scale even
     //    when everything works, since some per-locale fetches always miss).
     console.log('[guidle] 0 events mapped this run — leaving existing slice untouched');
-    if (detailFetchesOk === 0) {
+    if (emptyRunOutcome === 'transient') {
       console.log('[guidle] no detail pages loaded successfully this run — transient, soft-exit 0');
     } else {
       console.error(`[guidle] ${detailFetchesOk} detail page(s) returned HTML but yielded 0 events — check JSON-LD/DOM selectors for drift`);

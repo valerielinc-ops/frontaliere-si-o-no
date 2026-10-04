@@ -22,6 +22,7 @@ import {
   targetedGuidleResumeIndex,
   classifyUnmappedGuidleDetail,
   guidleDetailFailureAccounting,
+  guidleEmptyRunOutcome,
   isUndatedGuidleListing,
 } from '../scripts/crawl-guidle-events.mjs';
 import { applyDetailFailureReuse } from '../scripts/lib/detail-failure-reuse-policy.mjs';
@@ -179,14 +180,25 @@ const UNDATED_LISTING_HTML = `<!doctype html><html><head><title>Film - Schweiz (
     <meta itemprop="startDate" content="" />
     <span itemprop="location">Schweiz (ohne Ortsangabe)</span>
   </div></body></html>`;
+const UNDATED_FILM_CATALOG_PATH = '/kino-nach-film/ohne-ortsangabe/film_A123456';
 
 describe('isUndatedGuidleListing', () => {
   it('recognizes a page that declares an empty startDate and carries no Event JSON-LD', () => {
-    expect(isUndatedGuidleListing(UNDATED_LISTING_HTML)).toBe(true);
+    expect(isUndatedGuidleListing(UNDATED_LISTING_HTML, UNDATED_FILM_CATALOG_PATH)).toBe(true);
+  });
+
+  it('requires the positive film-catalog discriminator before excusing malformed markup', () => {
+    const brokenNonCatalogEvent = '<script type="application/ld+json">{malformed Event</script>'
+      + '<meta itemprop="startDate" content="">';
+    expect(isUndatedGuidleListing(brokenNonCatalogEvent, '/veranstaltungen/zug/event_A123456')).toBe(false);
+    expect(isUndatedGuidleListing(UNDATED_LISTING_HTML)).toBe(false);
   });
 
   it('does not excuse a page whose startDate is filled: that is drift', () => {
-    expect(isUndatedGuidleListing(UNDATED_LISTING_HTML.replace('content=""', 'content="2026-11-06T20:45"'))).toBe(false);
+    expect(isUndatedGuidleListing(
+      UNDATED_LISTING_HTML.replace('content=""', 'content="2026-11-06T20:45"'),
+      UNDATED_FILM_CATALOG_PATH,
+    )).toBe(false);
   });
 
   it('does not excuse a page without any startDate declaration: that is drift', () => {
@@ -195,7 +207,7 @@ describe('isUndatedGuidleListing', () => {
   });
 
   it('does not excuse a page that has a readable Event JSON-LD block', () => {
-    expect(isUndatedGuidleListing(buildDetailHtml())).toBe(false);
+    expect(isUndatedGuidleListing(buildDetailHtml(), UNDATED_FILM_CATALOG_PATH)).toBe(false);
   });
 });
 
@@ -214,7 +226,12 @@ describe('classifyUnmappedGuidleDetail', () => {
     expect(classifyUnmappedGuidleDetail([200, 200, 200, 200], [true, true, true, true])).toBe('undated');
     expect(classifyUnmappedGuidleDetail([200, 410, 200, 410], [true, false, true, false])).toBe('undated');
     expect(classifyUnmappedGuidleDetail([200, 200, 200, 200], [true, false, true, true])).toBe('drift');
-    expect(classifyUnmappedGuidleDetail([200, 0, 200, 200], [true, false, true, true])).toBe('undated');
+  });
+
+  it('lets any transient or non-definitive locale failure override undated', () => {
+    expect(classifyUnmappedGuidleDetail([200, 503], [true, false])).toBe('unreachable');
+    expect(classifyUnmappedGuidleDetail([200, 429], [true, false])).toBe('unreachable');
+    expect(classifyUnmappedGuidleDetail([200, 0], [true, false])).toBe('unreachable');
   });
 
   it('keeps a missing answer (network, WAF, 5xx, rate limit) as an unreachable failure, not a disappearance', () => {
@@ -224,6 +241,17 @@ describe('classifyUnmappedGuidleDetail', () => {
     expect(classifyUnmappedGuidleDetail([503, 410, 410, 410])).toBe('unreachable');
     expect(classifyUnmappedGuidleDetail([429, 429, 429, 429])).toBe('unreachable');
     expect(classifyUnmappedGuidleDetail([])).toBe('unreachable');
+  });
+});
+
+describe('guidleEmptyRunOutcome', () => {
+  it('treats all 2xx empty-body detail responses as parser drift, not transient', () => {
+    const responses = [200, 200, 200, 200].map(status => ({ status, text: '' }));
+    const successfulDetailFetches = responses.filter(({ status }) => status >= 200 && status < 300).length;
+    expect(guidleEmptyRunOutcome({ mappedCount: 0, goneCount: 0, undatedCount: 0, successfulDetailFetches }))
+      .toBe('drift');
+    expect(guidleEmptyRunOutcome({ mappedCount: 0, goneCount: 0, undatedCount: 0, successfulDetailFetches: 0 }))
+      .toBe('transient');
   });
 });
 
