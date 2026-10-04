@@ -161,7 +161,28 @@ const ENTITY_DISCRIMINANTS: Record<string, string[]> = {
   // rather than interpolating `${{ }}` into the script text — the form
   // scripts/ci/check-workflow-input-injection.mjs requires.
   'social-publish-readiness-watch.yml': ['$CH'], // one issue per social channel
+  // One issue per plate-auction source (PR 11360). `code` is the
+  // `degradedSources[i].plateCode` of the health report — the cantonal plate
+  // code of the source, a closed set — and the resolve step rebuilds the same
+  // literal from it to close the issue when that source is healthy again.
+  'refresh-plate-auctions.yml': ['${code}'], // one issue per auction source
 };
+
+// One issue per crawler, for the whole generated family. The watchdog branch
+// that scripts/generate-crawler-group-workflows.mjs writes into every
+// `crawler-group-NN.yml` / `crawler-group-NN-logic.yml` files
+// `Crawler Failure: Run $slug`, where `$slug` is the shell argument naming the
+// crawler the watchdog stopped: WHICH crawler, never when or how many — the
+// same title the crawler's own reporter uses, so both land on one issue. The
+// family is keyed by the generator, not by hand: listing ~50 generated files
+// here would drift every time a group is added or split. Only files that
+// actually carry the title get the entry, so the stale-entry check below
+// still holds for each of them.
+for (const file of fs.readdirSync(WORKFLOWS_DIR)) {
+  if (!/^crawler-group-\d+(?:-logic)?\.yml$/.test(file)) continue;
+  if (!fs.readFileSync(path.join(WORKFLOWS_DIR, file), 'utf-8').includes('Crawler Failure: Run $slug')) continue;
+  ENTITY_DISCRIMINANTS[file] = [...(ENTITY_DISCRIMINANTS[file] ?? []), '$slug'];
+}
 
 function stripStableSubstitutions(s: string, file: string): string {
   let out = s;
