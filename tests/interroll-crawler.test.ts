@@ -165,6 +165,25 @@ describe('parseListingPage', () => {
     });
   });
 
+  it('parses the German Austria marker as an authoritative filtered-empty board', () => {
+    const listings = parseListingPage(`
+      <div class="job-card">
+        <a href="/company/careers/jobs/job-detail/x">
+          <h3>X</h3>
+          <p>Operations | Österreich</p>
+        </a>
+      </div>
+    `);
+
+    expect(listings).toHaveLength(1);
+    expect(listings[0].location).toBe('Operations | Österreich');
+    expect(classifyInterrollListings(listings)).toMatchObject({
+      lastFetchOutcome: 'filtered_empty',
+      authoritativeEmptySnapshot: true,
+      unclassifiedLocationCount: 0,
+    });
+  });
+
   it('returns empty array for empty input', () => {
     expect(parseListingPage('')).toHaveLength(0);
   });

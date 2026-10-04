@@ -26,7 +26,7 @@ const INTERROLL_BASE_URL = `https://${INTERROLL_HOST}`;
 // "Aussendienst | Germany". Keep the marker list explicit: an unrecognised
 // country must make the filtered-empty proof fail closed instead of silently
 // treating an unclassified card as foreign.
-const INTERROLL_LOCATION_MARKER_RE = /\b(?:switzerland|schweiz|suisse|svizzera|ch|germany|deutschland|allemagne|germania|austria|österreich|autriche|brazil|brasil|united kingdom|uk|usa|china)\b/i;
+const INTERROLL_LOCATION_MARKER_RE = /(?<![\p{L}\p{N}_])(?:switzerland|schweiz|suisse|svizzera|ch|germany|deutschland|allemagne|germania|austria|österreich|autriche|brazil|brasil|united kingdom|uk|usa|china)(?![\p{L}\p{N}_])/iu;
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
