@@ -25,6 +25,14 @@
  *      run). Il generatore emetteva `Closes` incondizionatamente → PR ROSSA IN
  *      PARTENZA. Successo reale due volte nello stesso giorno: #5848 e #5862.
  *
+ *   3. `Closes` SU UNA ISSUE CHE UN MONITOR CHIUDE DA SÉ. Una issue
+ *      `[crawler-health] <slug>: …` si chiude sulla MISURA, non sul merge:
+ *      lo step «Close recovered crawler-health issues» di
+ *      `crawler-health-monitor.yml` la risolve quando `data/crawler-health.json`
+ *      dà `healthy`. `Closes` la chiudeva al merge del fix, prima che un crawl
+ *      lo avesse eseguito; il monitor la riapriva alla misura dopo e il fixer
+ *      ripartiva (2026-10-02/03: #10945, #10947, #10948, #11089).
+ *
  * La regola di aggregazione NON è riscritta qui: `isAggregate` arriva da
  * `scripts/ci/check-issue-already-resolved.mjs`, che è la stessa sorgente che
  * `pr-body-contract.yml` rispecchia. Generatore e gate condividono un'unica
@@ -93,13 +101,32 @@ function labelNames(labels) {
 }
 
 /**
- * La riga di chiusura che il generatore DEVE scrivere per questa issue.
+ * Titoli delle issue che un monitor chiude da sé sulla misura, e che quindi un
+ * merge non deve chiudere. Oggi una sola famiglia: `[crawler-health] <slug>: …`,
+ * aperta e risolta da `crawler-health-monitor.yml` (step «Close recovered
+ * crawler-health issues», che seleziona le aperte con lo stesso prefisso).
+ * `tests/pr-body-closing-ref-monitor.test.ts` lega questa regex al filtro di
+ * quello step: se lo step sparisce o cambia prefisso, il test diventa rosso.
+ *
+ * Si estende a un'altra famiglia SOLO quando il suo closer chiude davvero:
+ * con `Addresses` e un closer che non chiude, la issue resterebbe aperta per
+ * sempre.
+ */
+export const MONITOR_OWNED_CLOSE_TITLE_RE = /^\[crawler-health\] /;
+
+/**
+ * La riga di chiusura che il generatore DEVE scrivere per questa issue:
+ * `Closes #N` oppure `Addresses #N`.
  *
  * `Addresses` e non `Closes` quando il bersaglio è una follow-up aggregata
  * multi-item: `Addresses` non è una keyword GitHub, quindi non chiude niente al
  * merge — che è esattamente il comportamento voluto. L'aggregata la chiude
  * `reconcile-followups.mjs` quando TUTTI i suoi item risultano fatti, ed è quel
  * veto che `Closes` scavalcherebbe.
+ *
+ * `Addresses` anche quando la issue appartiene a un monitor che la chiude da sé
+ * (`MONITOR_OWNED_CLOSE_TITLE_RE`): il merge non prova che il fix funzioni,
+ * lo prova la misura successiva del monitor.
  *
  * Fail-open deliberato: senza un numero di issue non si inventa niente e si
  * torna `null`. Un generatore che non sa cosa sta chiudendo non deve scrivere
@@ -132,6 +159,20 @@ export function closingRefFor(issue) {
         'follow-up aggregata multi-item: `Closes` la chiuderebbe al merge con item ancora dovuti '
         + '(pr-body-contract.yml → violazione, PR rossa). La chiude reconcile-followups.mjs '
         + 'quando tutti gli item sono fatti.',
+    };
+  }
+
+  if (MONITOR_OWNED_CLOSE_TITLE_RE.test(String(issue?.title ?? ''))) {
+    return {
+      line: `Addresses #${num}`,
+      keyword: 'Addresses',
+      number: num,
+      aggregate: false,
+      reason:
+        'issue di un monitor che la chiude da sé sulla misura `healthy` '
+        + '(crawler-health-monitor.yml, step Close recovered crawler-health issues): '
+        + '`Closes` la chiuderebbe al merge, prima che un crawl abbia eseguito il fix; '
+        + 'il monitor la riaprirebbe.',
     };
   }
 
