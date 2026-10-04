@@ -335,9 +335,9 @@ jobs:
           # closer cannot judge them (no `Run <slug>` step left in the roster)
           # and keeps them open forever. Closed as not planned only with
           # evidence (open tracker, or a retirement reason written by hand),
-          # through resolveGithubIssue — i.e. scripts/lib/github-issue-creator.mjs
-          # --resolve --reason not_planned. `[crawler-health]` is left to the
-          # step above.
+          # by number through resolveGithubIssueByNumber(..., { reason:
+          # 'not_planned' }) of scripts/lib/github-issue-creator.mjs.
+          # `[crawler-health]` is left to the step above.
           node scripts/ci/close-retired-crawler-issues.mjs
 
       - name: Fail if any crawler stale

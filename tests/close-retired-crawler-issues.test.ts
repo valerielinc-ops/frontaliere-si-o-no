@@ -32,7 +32,7 @@ const {
 } = await import('../scripts/ci/close-retired-crawler-issues.mjs');
 const { automaticRetireReason, decideQuarantine, isAutomaticRetireReason } = await import('../scripts/lib/crawler-quarantine.mjs');
 const { findCrawlerGroupWorkflow } = await import('../scripts/ci/close-recovered-failure-issues.mjs');
-const { resolveGithubIssue } = await import('../scripts/lib/github-issue-creator.mjs');
+const { resolveGithubIssue, resolveGithubIssueByNumber } = await import('../scripts/lib/github-issue-creator.mjs');
 
 // Forma reale delle voci `retired` di data/crawler-quarantine.json al 03-10.
 const KNOWLEDGE_LAB = {
@@ -185,6 +185,15 @@ describe('planRetiredClosures', () => {
     expect(r.skipped.map((s: any) => s.number)).toEqual([501, 502]);
   });
 
+  it('una gemella protetta resta aperta da sola: la chiusura e\' per numero', () => {
+    const r = plan({ bally: BALLY }, [
+      issue(511, 'Crawler Failure: Run bally', ['keep-open']),
+      issue(512, 'Crawler Failure: Run bally'),
+    ]);
+    expect(r.closures.map((c: any) => c.number)).toEqual([512]);
+    expect(r.skipped.map((s: any) => s.number)).toEqual([511]);
+  });
+
   it('chiude anche `[parser-health] <slug>:` (nessun altro chiuditore), con match esatto sullo slug', () => {
     const r = plan({ bally: BALLY }, [
       issue(601, '[parser-health] bally: 9/10 jobs have boilerplate-only descriptions'),
@@ -281,6 +290,44 @@ describe('resolveGithubIssue: opzione `reason`', () => {
   it('un valore sconosciuto e\' un errore, prima di qualunque chiamata gh', () => {
     expect(() => resolveGithubIssue(title, { reason: 'wontfix' as any })).toThrow(/unknown --reason/);
     expect(() => resolveGithubIssue(title, { reason: '' as any })).toThrow(/unknown --reason/);
+    expect(execFileSync).not.toHaveBeenCalled();
+  });
+});
+
+describe('resolveGithubIssueByNumber: opzione `reason`', () => {
+  const title = 'Crawler Failure: Run bally';
+  let viewState = 'OPEN';
+  beforeEach(() => {
+    execFileSync.mockReset();
+    delete process.env.GH_REPO;
+    delete process.env.ENABLE_FAILURE_REPORT;
+    delete process.env.TRUSTED_GH_BIN;
+    viewState = 'OPEN';
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'view') return JSON.stringify({ number: 512, state: viewState, title, url: 'u' });
+      if (args[0] === 'issue' && args[1] === 'close') viewState = 'CLOSED';
+      return '';
+    });
+  });
+  const ghCall = (verb: string) => execFileSync.mock.calls
+    .map((call) => call[1] as string[])
+    .find((args) => args[0] === 'issue' && args[1] === verb);
+
+  it('senza `reason` chiude `completed` col commento di sempre (invariato per #11358)', () => {
+    expect(resolveGithubIssueByNumber(512, { expectedTitle: title })?.persisted).toBe(true);
+    expect(ghCall('close')).toEqual(expect.arrayContaining(['close', '512', '--reason', 'completed']));
+    expect(ghCall('comment')?.join(' ')).toContain('green again');
+  });
+
+  it('con `not_planned` chiude QUEL numero «not planned», senza cercare per titolo', () => {
+    expect(resolveGithubIssueByNumber(512, { expectedTitle: title, reason: 'not_planned' })?.persisted).toBe(true);
+    expect(ghCall('close')).toEqual(expect.arrayContaining(['close', '512', '--reason', 'not planned']));
+    expect(ghCall('comment')?.join(' ')).toContain('ritirato');
+    expect(ghCall('list')).toBeUndefined();
+  });
+
+  it('un valore sconosciuto e\' un errore, prima di qualunque chiamata gh', () => {
+    expect(() => resolveGithubIssueByNumber(512, { expectedTitle: title, reason: 'wontfix' as any })).toThrow(/unknown --reason/);
     expect(execFileSync).not.toHaveBeenCalled();
   });
 });

@@ -30,10 +30,12 @@
  *       tracker aperto chiudere le issue di fallimento cancellerebbe l'unica
  *       traccia del guasto. Nessuna chiusura, warning nello step summary.
  *
- * La chiusura passa da `resolveGithubIssue(…, { reason: 'not_planned' })` di
- * `scripts/lib/github-issue-creator.mjs` (equivalente a `--resolve --reason
- * not_planned`): un `gh issue close` diretto e' invisibile al gate statico
- * apertura/chiusura (incidente 5437). Titolo ESATTO, issue con `keep-open` /
+ * La chiusura passa da `resolveGithubIssueByNumber(n, { expectedTitle, reason:
+ * 'not_planned' })` di `scripts/lib/github-issue-creator.mjs`: un `gh issue
+ * close` diretto e' invisibile al gate statico apertura/chiusura (incidente
+ * 5437). Per NUMERO, non per titolo: il giudizio e' fatto su una issue precisa
+ * e una chiusura per titolo sceglierebbe da sola fra le gemelle aperte (la
+ * classe corretta da #11358). Titolo ESATTO, issue con `keep-open` /
  * `agent:no-age-out` / `agent:in-progress` saltate, stato riletto subito prima,
  * al piu' MAX_CLOSURES_PER_RUN chiusure per run.
  *
@@ -50,7 +52,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { resolveGithubIssue, commentOnGithubIssue } from '../lib/github-issue-creator.mjs';
+import { resolveGithubIssueByNumber, commentOnGithubIssue } from '../lib/github-issue-creator.mjs';
 import { isAutomaticRetireReason, loadQuarantineRegistry } from '../lib/crawler-quarantine.mjs';
 import { findCrawlerGroupWorkflow } from './close-recovered-failure-issues.mjs';
 
@@ -159,13 +161,10 @@ export function planRetiredClosures({ registry, openIssues, inRoster, trackerSta
       warnings.push({ ...verdict, issues: issues.map((i) => i.number) });
       continue;
     }
-    // Un titolo con una gemella protetta si salta intero: resolveGithubIssue
-    // sceglie da solo fra le aperte con lo stesso titolo esatto.
-    const protectedTitles = new Set(issues
-      .filter((i) => (i.labels ?? []).some((l) => SKIP_LABELS.includes(l)))
-      .map((i) => i.title));
+    // La chiusura e' per numero: una gemella protetta resta aperta lei, senza
+    // trattenere le altre con lo stesso titolo.
     for (const issue of issues) {
-      if (protectedTitles.has(issue.title)) {
+      if ((issue.labels ?? []).some((l) => SKIP_LABELS.includes(l))) {
         skipped.push({ number: issue.number, title: issue.title, slug, why: 'etichetta protetta' });
         continue;
       }
@@ -270,18 +269,14 @@ function main() {
 
   let closed = 0;
   let refused = 0;
-  // resolveGithubIssue sceglie la piu' recente fra le aperte con quel titolo,
-  // fondendo listing e indice di ricerca (in ritardo): con due gemelle la
-  // seconda chiamata puo' ricadere su quella appena chiusa. Ogni numero si
-  // commenta e si conta una volta sola.
-  const closedThisRun = new Set();
   for (const item of plan.closures) {
     if (dryRun) {
       console.log(`  #${item.number} WOULD CLOSE (not_planned) — "${item.title}" (${item.evidence})`);
       continue;
     }
     // Stato riletto subito prima: fra il listing e qui un umano o un fixer puo'
-    // averla chiusa, rinominata o reclamata.
+    // averla chiusa, rinominata o reclamata. Le etichette le guarda solo questa
+    // lettura; stato e titolo li ricontrolla anche resolveGithubIssueByNumber.
     const fresh = readIssue(item.number);
     if (!fresh || fresh.state !== 'OPEN' || fresh.title !== item.title
       || fresh.labels.some((l) => SKIP_LABELS.includes(l))) {
@@ -289,19 +284,16 @@ function main() {
       continue;
     }
     try {
-      const result = resolveGithubIssue(item.title, { workflow, runUrl, exactTitle: true, reason: 'not_planned' });
-      if (result?.persisted && closedThisRun.has(result.number)) {
-        console.log(`  #${item.number} "${item.title}" — resolve e' ricaduto su #${result.number}, gia' chiusa in questa run (indice in ritardo): resta alla prossima run`);
-      } else if (result?.persisted) {
-        closedThisRun.add(result.number);
-        if (result.number !== item.number) {
-          console.log(`  #${item.number} "${item.title}" — resolve ha chiuso la gemella #${result.number}`);
-        }
-        commentOnGithubIssue(result.number, retiredClosureNote(item));
-        console.log(`  #${result.number} CLOSED (not_planned) — "${item.title}" (${item.evidence})`);
+      const result = resolveGithubIssueByNumber(item.number, {
+        expectedTitle: item.title, workflow, runUrl, reason: 'not_planned',
+      });
+      if (result?.persisted) {
+        commentOnGithubIssue(item.number, retiredClosureNote(item));
+        console.log(`  #${item.number} CLOSED (not_planned) — "${item.title}" (${item.evidence})`);
         closed += 1;
       } else {
-        console.log(`  #${item.number} "${item.title}" — resolve non ha chiuso nulla, resta com'e'`);
+        const why = result?.skipped ? `cambiata prima della scrittura (${result.skipped})` : 'resolve non ha chiuso nulla';
+        console.log(`  #${item.number} "${item.title}" — ${why}, resta com'e'`);
       }
     } catch (err) {
       console.error(`::error::#${item.number} "${item.title}": chiusura rifiutata — ${err.message}`);
