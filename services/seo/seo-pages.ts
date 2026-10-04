@@ -7,6 +7,7 @@
 
 import type { SEOMetadata } from '../seoService';
 import { EXCHANGE_RATE_EUR } from './exchangeRateMeta';
+import { authorSeoPageEntries } from './authorProfileMetadata';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -7731,166 +7732,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
   // ─── Author profile pages (Google News A1 — E-E-A-T) ─────────────────────
-  // Each /autori/{slug}/ page renders the AutorePage component, with inline
-  // Person JSON-LD generated at runtime by services/seo/seo-authors.ts. The
-  // duplicate JSON-LD here lets the staticPagesPlugin embed the same schema
-  // into the build-time HTML so crawlers see it without executing JS.
-  // NOTE: blank line above is REQUIRED — see staticPagesPlugin parser regex.
-
-  'autore-marco-ferrari': {
-    title: 'Marco Ferrari — Esperto fiscalità frontaliera | Frontaliere Ticino',
-    description: "Marco Ferrari è specializzato in fiscalità transfrontaliera tra Italia e Svizzera, con particolare attenzione alla disciplina applicabile ai lavoratori frontalieri.",
-    keywords: 'marco ferrari, autore, fiscalità frontaliera, 730, dichiarazione redditi, imposta alla fonte, accordo Italia-Svizzera 2026',
-    ogTitle: 'Marco Ferrari — Esperto fiscalità frontaliera',
-    ogDescription: 'Profilo dell\'autore Marco Ferrari su Frontaliere Ticino: 730, dichiarazione redditi, imposta alla fonte, accordo Italia-Svizzera 2026.',
-    canonicalPath: '/autori/marco-ferrari/',
-    structuredData: [
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfilePage",
-        "name": "Marco Ferrari — Frontaliere Ticino",
-        "url": `${BASE_URL}/autori/marco-ferrari/`,
-        "mainEntity": { "@id": `${BASE_URL}/autori/marco-ferrari/#person` },
-        "inLanguage": "it"
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": `${BASE_URL}/autori/marco-ferrari/#person`,
-        "name": "Marco Ferrari",
-        "image": `${BASE_URL}/images/authors/marco-ferrari.jpg`,
-        "jobTitle": "Esperto fiscalità frontaliera",
-        "description": "Specialista in fiscalità transfrontaliera Italia-Svizzera, dichiarazione 730/Redditi PF, imposta alla fonte ticinese e nuovo accordo 2026.",
-        "url": `${BASE_URL}/autori/marco-ferrari/`,
-        "sameAs": ["https://www.linkedin.com/in/marco-ferrari-frontaliere-ticino/"],
-        "knowsAbout": [
-          "fiscalità frontaliera",
-          "730",
-          "dichiarazione redditi",
-          "imposta alla fonte",
-          "accordo Italia-Svizzera 2026"
-        ],
-        "worksFor": { "@id": `${BASE_URL}/#organization` },
-        "knowsLanguage": ["it", "en"]
-      }
-    ],
-  },
-
-  'autore-samuele-valente': {
-    title: 'Samuele Valente — Fiscalità transfrontaliera | Frontaliere Ticino',
-    description: "Samuele Valente è un professionista esperto di fiscalità internazionale e transfrontaliera tra Italia e Svizzera, autore ospite di Frontaliere Ticino.",
-    keywords: 'samuele valente, autore, fiscalità transfrontaliera, accordo Italia-Svizzera, interpelli agenzia delle entrate, residenza fiscale, frontalieri',
-    ogTitle: 'Samuele Valente — Fiscalità transfrontaliera Italia-Svizzera',
-    ogDescription: "Profilo dell'autore ospite Samuele Valente su Frontaliere Ticino: prassi dell'Agenzia delle Entrate, accordo Italia-Svizzera e fiscalità dei frontalieri.",
-    canonicalPath: '/autori/samuele-valente/',
-    structuredData: [
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfilePage",
-        "name": "Samuele Valente — Frontaliere Ticino",
-        "url": `${BASE_URL}/autori/samuele-valente/`,
-        "mainEntity": { "@id": `${BASE_URL}/autori/samuele-valente/#person` },
-        "inLanguage": "it"
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": `${BASE_URL}/autori/samuele-valente/#person`,
-        "name": "Samuele Valente",
-        "image": `${BASE_URL}/images/authors/samuele-valente.webp`,
-        "jobTitle": "Autore ospite — fiscalità transfrontaliera",
-        "description": "Esperto di fiscalità internazionale e transfrontaliera Italia-Svizzera: prassi dell'Agenzia delle Entrate, accordo sui frontalieri e residenza fiscale.",
-        "url": `${BASE_URL}/autori/samuele-valente/`,
-        "sameAs": ["https://www.linkedin.com/in/samuele-valente-9b8a4335b/"],
-        "knowsAbout": [
-          "fiscalità transfrontaliera",
-          "accordo Italia-Svizzera",
-          "interpelli Agenzia delle Entrate",
-          "residenza fiscale",
-          "frontalieri"
-        ],
-        "worksFor": { "@id": `${BASE_URL}/#organization` },
-        "knowsLanguage": ["it", "en"]
-      }
-    ],
-  },
-
-  'autore-laura-bianchi': {
-    title: 'Laura Bianchi — Specialista previdenza svizzera | Frontaliere Ticino',
-    description: "Laura Bianchi è specialista in previdenza sociale svizzera (AVS, LPP, LAMal) applicata ai lavoratori frontalieri italiani in Canton Ticino.",
-    keywords: 'laura bianchi, autore, previdenza svizzera, AVS, LPP, LAMal, pensioni frontaliere, terzo pilastro',
-    ogTitle: 'Laura Bianchi — Specialista previdenza svizzera',
-    ogDescription: 'Profilo dell\'autrice Laura Bianchi su Frontaliere Ticino: AVS, LPP, LAMal, pensioni e assicurazioni sociali svizzere.',
-    canonicalPath: '/autori/laura-bianchi/',
-    structuredData: [
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfilePage",
-        "name": "Laura Bianchi — Frontaliere Ticino",
-        "url": `${BASE_URL}/autori/laura-bianchi/`,
-        "mainEntity": { "@id": `${BASE_URL}/autori/laura-bianchi/#person` },
-        "inLanguage": "it"
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": `${BASE_URL}/autori/laura-bianchi/#person`,
-        "name": "Laura Bianchi",
-        "image": `${BASE_URL}/images/authors/laura-bianchi.jpg`,
-        "jobTitle": "Specialista previdenza svizzera",
-        "description": "Specialista in previdenza sociale svizzera applicata ai frontalieri: AVS, LPP, LAMal, terzo pilastro 3a/3b.",
-        "url": `${BASE_URL}/autori/laura-bianchi/`,
-        "sameAs": ["https://www.linkedin.com/in/laura-bianchi-previdenza-svizzera/"],
-        "knowsAbout": [
-          "AVS",
-          "LPP",
-          "LAMal",
-          "pensioni",
-          "assicurazioni sociali svizzere"
-        ],
-        "worksFor": { "@id": `${BASE_URL}/#organization` },
-        "knowsLanguage": ["it", "en"]
-      }
-    ],
-  },
-
-  'autore-redazione': {
-    title: 'Redazione Frontaliere Ticino — Team editoriale | Frontaliere Ticino',
-    description: "La Redazione di Frontaliere Ticino: team editoriale dedicato a lavoro frontaliere, salari, trasporti transfrontalieri e dogana.",
-    keywords: 'redazione frontaliere ticino, team editoriale, lavoro frontaliere, salari ticino, trasporti transfrontalieri, dogana',
-    ogTitle: 'Redazione Frontaliere Ticino — Team editoriale',
-    ogDescription: 'La Redazione editoriale di Frontaliere Ticino: lavoro, salari, trasporti e dogana per i frontalieri italiani in Canton Ticino.',
-    canonicalPath: '/autori/redazione/',
-    structuredData: [
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfilePage",
-        "name": "Redazione Frontaliere Ticino",
-        "url": `${BASE_URL}/autori/redazione/`,
-        "mainEntity": { "@id": `${BASE_URL}/autori/redazione/#person` },
-        "inLanguage": "it"
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": `${BASE_URL}/autori/redazione/#person`,
-        "name": "Redazione Frontaliere Ticino",
-        "image": `${BASE_URL}/images/authors/redazione.jpg`,
-        "jobTitle": "Team editoriale",
-        "description": "Team editoriale di Frontaliere Ticino: copertura quotidiana di lavoro, salari, trasporti transfrontalieri e dogana per i frontalieri italiani in Ticino.",
-        "url": `${BASE_URL}/autori/redazione/`,
-        "sameAs": ["https://www.linkedin.com/company/frontaliere-ticino/"],
-        "knowsAbout": [
-          "lavoro frontaliere",
-          "salari",
-          "trasporti transfrontalieri",
-          "dogana"
-        ],
-        "worksFor": { "@id": `${BASE_URL}/#organization` },
-        "knowsLanguage": ["it", "en"]
-      }
-    ],
-  },
+  // Derived from the registry (data/authors.ts), never copied by hand: the
+  // copies that lived here kept the superseded expertise text after the
+  // registry was corrected (PR 11327). The SPA, the static build
+  // (build-plugins/shared/authorEditorial.ts) and llms.txt all read the same
+  // resolver, services/seo/authorProfileMetadata.ts. Guard:
+  // tests/author-metadata-single-source.test.ts.
+  ...authorSeoPageEntries(),
 
 };
 
