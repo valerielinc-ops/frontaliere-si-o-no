@@ -12479,6 +12479,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scontro-a2-coldrerio.title': 'Scontro auto-camion sull\'A2, interviene la Rega',
     'blog.article.scontro-a2-coldrerio.excerpt': 'Un\'auto e un camion coinvolti venerdì sull\'A2 a Coldrerio: tre feriti, due apparentemente gravi. Chiusura temporanea fra Mendrisio e Chiasso.',
     'blog.article.scontro-a2-coldrerio.imageAlt': 'L\'autostrada A2 nei pressi di Coldrerio, in Ticino.',
+    'blog.article.incendio-asso-corda-doppia.title': 'Incendio ad Asso: manovra su corda doppia nella gola',
+    'blog.article.incendio-asso-corda-doppia.excerpt': 'Incendio nella vegetazione ad Asso: Vigili del Fuoco e SAF hanno operato in una gola. Danneggiati circa 100 metri quadrati.',
+    'blog.article.incendio-asso-corda-doppia.imageAlt': 'Vigili del Fuoco al lavoro in una gola impervia durante un incendio della vegetazione ad Asso',
 };
 
 export default blogMetaIt;

@@ -12477,6 +12477,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scontro-a2-coldrerio.title': 'Kollision zwischen Auto und Lastwagen auf der A2, Rega im Einsatz',
     'blog.article.scontro-a2-coldrerio.excerpt': 'Ein Auto und ein Lastwagen waren am Freitag auf der A2 bei Coldrerio beteiligt: drei Verletzte, zwei offenbar schwer verletzt. Vorübergehende Sperrung zwischen Mendrisio und Chiasso.',
     'blog.article.scontro-a2-coldrerio.imageAlt': 'Die Autobahn A2 nahe Coldrerio im Tessin.',
+    'blog.article.incendio-asso-corda-doppia.title': 'Brand in Asso: Doppelseilmanöver in der Schlucht',
+    'blog.article.incendio-asso-corda-doppia.excerpt': 'Vegetationsbrand in Asso: Feuerwehr und SAF waren in einer Schlucht im Einsatz. Etwa 100 Quadratmeter beschädigt.',
+    'blog.article.incendio-asso-corda-doppia.imageAlt': 'Feuerwehrleute arbeiten in einer unwegsamen Schlucht bei einem Vegetationsbrand in Asso',
 };
 
 export default blogMetaDe;

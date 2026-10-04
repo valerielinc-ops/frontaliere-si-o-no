@@ -12478,6 +12478,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scontro-a2-coldrerio.title': 'Car-truck collision on the A2, Rega responds',
     'blog.article.scontro-a2-coldrerio.excerpt': 'A car and a truck involved on Friday on the A2 in Coldrerio: three injured, two apparently seriously injured. Temporary closure between Mendrisio and Chiasso.',
     'blog.article.scontro-a2-coldrerio.imageAlt': 'The A2 motorway near Coldrerio in Ticino.',
+    'blog.article.incendio-asso-corda-doppia.title': 'Fire in Asso: double-rope maneuver in the gorge',
+    'blog.article.incendio-asso-corda-doppia.excerpt': 'Vegetation fire in Asso: Firefighters and SAF personnel operated in a gorge. Approximately 100 square meters were damaged.',
+    'blog.article.incendio-asso-corda-doppia.imageAlt': 'Firefighters working in a steep gorge during a vegetation fire in Asso',
 };
 
 export default blogMetaEn;
