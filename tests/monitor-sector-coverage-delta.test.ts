@@ -9,6 +9,8 @@
  * `null` → `changed: true` → si commenta. Non si sopprime mai su incertezza.
  */
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 import {
   buildGapState,
   serializeGapState,
@@ -16,6 +18,18 @@ import {
   diffGapState,
   buildGapArtifact,
   renderDeltaSection,
+  serializeStateMarker,
+  parseStateMarker,
+  buildIdSetState,
+  diffIdSets,
+  shouldSuppressRecurrence,
+  latestStateEntry,
+  renderIdSetDeltaSection,
+  isIdSetState,
+  isTiLegacyState,
+  TI_LEGACY_STATE_MARKER,
+  TI_SECTOR_STATE_MARKER,
+  RECURRENCE_HEARTBEAT_DAYS,
 } from '../scripts/monitor-sector-coverage.mjs';
 
 const mkMap = (obj: Record<string, [string, number][]>) =>
@@ -195,4 +209,216 @@ describe('buildGapArtifact', () => {
     expect(artifact._orderingNote).toMatch(/circolar|noindex/i);
     expect(artifact._minJobs).toBe(3);
   });
+});
+
+// ── Famiglie A e B (issue 5429, issue 9938) ────────────────────────────────
+// La famiglia B ha commentato 184 volte su 5429, 174 con lo stesso insieme di
+// ruoli del commento precedente: createIssue senza condizioni a ogni deploy.
+// Questi casi diventano rossi se un ramo del monitor torna a ricommentare lo
+// stesso insieme a ogni deploy.
+
+const DAY = 86_400_000;
+const NOW = Date.parse('2026-10-04T12:00:00Z');
+const iso = (ms: number) => new Date(ms).toISOString();
+
+describe('serializeStateMarker / parseStateMarker', () => {
+  const state = { ids: ['farmacista', 'logopedista'], indexedViaGrace: ['farmacista'], bridgedNoindex: ['logopedista'] };
+
+  it('round-trip con il marker della famiglia B', () => {
+    const text = `## Testo\n\n${serializeStateMarker(TI_LEGACY_STATE_MARKER, state)}\n`;
+    expect(parseStateMarker(TI_LEGACY_STATE_MARKER, text, isTiLegacyState)).toEqual(state);
+  });
+
+  it('prende l’ULTIMO marker', () => {
+    const older = serializeStateMarker(TI_LEGACY_STATE_MARKER, { ...state, ids: ['vecchio'] });
+    const newer = serializeStateMarker(TI_LEGACY_STATE_MARKER, state);
+    expect(parseStateMarker(TI_LEGACY_STATE_MARKER, `${older}\n---\n${newer}`, isTiLegacyState)?.ids)
+      .toEqual(state.ids);
+  });
+
+  it('marker assente, corrotto o con ids non array → null', () => {
+    expect(parseStateMarker(TI_LEGACY_STATE_MARKER, '## nessuno stato', isTiLegacyState)).toBeNull();
+    expect(parseStateMarker(TI_LEGACY_STATE_MARKER, `<!-- ${TI_LEGACY_STATE_MARKER}: {non json} -->`, isTiLegacyState)).toBeNull();
+    expect(parseStateMarker(TI_SECTOR_STATE_MARKER, `<!-- ${TI_SECTOR_STATE_MARKER}: {"ids":"sicurezza"} -->`, isIdSetState)).toBeNull();
+    expect(parseStateMarker(TI_LEGACY_STATE_MARKER, `<!-- ${TI_LEGACY_STATE_MARKER}: {"ids":["a"]} -->`, isTiLegacyState)).toBeNull();
+  });
+
+  it('non confonde i marker delle tre famiglie', () => {
+    const sector = serializeStateMarker(TI_SECTOR_STATE_MARKER, { ids: ['sicurezza'] });
+    expect(parseStateMarker(TI_LEGACY_STATE_MARKER, sector, isTiLegacyState)).toBeNull();
+    expect(parseGapState(sector)).toBeNull();
+  });
+
+  it('un ultimo marker invalido non ricade su uno più vecchio', () => {
+    const good = serializeStateMarker(TI_SECTOR_STATE_MARKER, { ids: ['a'] });
+    expect(parseStateMarker(TI_SECTOR_STATE_MARKER, `${good}\n<!-- ${TI_SECTOR_STATE_MARKER}: {rotto} -->`)).toBeNull();
+  });
+});
+
+describe('buildIdSetState / diffIdSets', () => {
+  it('buildIdSetState deduplica e ordina', () => {
+    expect(buildIdSetState(['b', 'a', 'b'])).toEqual({ ids: ['a', 'b'] });
+  });
+
+  it('prev null → changed, anche con insieme vuoto', () => {
+    expect(diffIdSets(null, { ids: ['a'] }).changed).toBe(true);
+    expect(diffIdSets(null, { ids: [] }).changed).toBe(true);
+  });
+
+  it('stesso insieme in ordine diverso → nessun cambio', () => {
+    expect(diffIdSets({ ids: ['b', 'a'] }, { ids: ['a', 'b'] }).changed).toBe(false);
+  });
+
+  it('calcola entrati e usciti', () => {
+    const d = diffIdSets({ ids: ['logopedista', 'farmacista'] }, { ids: ['logopedista', 'architetto'] });
+    expect(d.opened).toEqual(['architetto']);
+    expect(d.closed).toEqual(['farmacista']);
+    expect(d.changed).toBe(true);
+  });
+
+  it('a parità di id, un ruolo che passa da grace a noindex è un cambio', () => {
+    const prev = { ids: ['a', 'b'], indexedViaGrace: ['a'], bridgedNoindex: ['b'] };
+    const next = { ids: ['a', 'b'], indexedViaGrace: [], bridgedNoindex: ['a', 'b'] };
+    const d = diffIdSets(prev, next);
+    expect(d.opened).toEqual([]);
+    expect(d.closed).toEqual([]);
+    expect(d.regrouped).toEqual(['bridgedNoindex', 'indexedViaGrace']);
+    expect(d.changed).toBe(true);
+  });
+});
+
+describe('shouldSuppressRecurrence', () => {
+  const next = { ids: ['assistente-dentale', 'logopedista'] };
+
+  it('stesso insieme, commento di ieri → sopprime', () => {
+    const previous = { state: { ids: ['logopedista', 'assistente-dentale'] }, createdAt: iso(NOW - DAY) };
+    expect(shouldSuppressRecurrence({ previous, next, now: NOW })).toBe(true);
+  });
+
+  it('stesso insieme, commento di 8 giorni → battito, commenta', () => {
+    const previous = { state: next, createdAt: iso(NOW - 8 * DAY) };
+    expect(shouldSuppressRecurrence({ previous, next, now: NOW })).toBe(false);
+  });
+
+  it('il battito scatta esattamente a maxAgeDays', () => {
+    const previous = { state: next, createdAt: iso(NOW - RECURRENCE_HEARTBEAT_DAYS * DAY) };
+    expect(shouldSuppressRecurrence({ previous, next, now: NOW })).toBe(false);
+  });
+
+  it('insieme diverso → commenta', () => {
+    const previous = { state: { ids: ['logopedista'] }, createdAt: iso(NOW - DAY) };
+    expect(shouldSuppressRecurrence({ previous, next, now: NOW })).toBe(false);
+  });
+
+  it('nessuno stato o data illeggibile → commenta', () => {
+    expect(shouldSuppressRecurrence({ previous: null, next, now: NOW })).toBe(false);
+    expect(shouldSuppressRecurrence({ previous: { state: next, createdAt: null }, next, now: NOW })).toBe(false);
+    expect(shouldSuppressRecurrence({ previous: { state: next, createdAt: 'ieri' }, next, now: NOW })).toBe(false);
+  });
+});
+
+describe('latestStateEntry', () => {
+  it('prende lo stato del commento più recente che lo porta, con la sua data', () => {
+    const issue = {
+      body: `corpo\n${serializeStateMarker(TI_SECTOR_STATE_MARKER, { ids: ['a'] })}`,
+      createdAt: iso(NOW - 30 * DAY),
+      comments: [
+        { body: serializeStateMarker(TI_SECTOR_STATE_MARKER, { ids: ['b'] }), createdAt: iso(NOW - 3 * DAY) },
+        { body: '🔁 Recurrence senza marker (commento storico)', createdAt: iso(NOW - DAY) },
+      ],
+    };
+    expect(latestStateEntry(issue, TI_SECTOR_STATE_MARKER)).toEqual({ state: { ids: ['b'] }, createdAt: iso(NOW - 3 * DAY) });
+  });
+
+  it('ricade sul body con la data della issue', () => {
+    const issue = { body: serializeStateMarker(TI_SECTOR_STATE_MARKER, { ids: ['a'] }), createdAt: iso(NOW), comments: [] };
+    expect(latestStateEntry(issue, TI_SECTOR_STATE_MARKER)?.createdAt).toBe(iso(NOW));
+  });
+
+  it('issue senza marker (i 184 commenti storici di 5429) → null', () => {
+    expect(latestStateEntry({ body: 'x', createdAt: iso(NOW), comments: [{ body: 'y', createdAt: iso(NOW) }] }, TI_LEGACY_STATE_MARKER)).toBeNull();
+  });
+});
+
+describe('renderIdSetDeltaSection', () => {
+  it('elenca entrati e usciti come id nudi, senza incollare grassetti', () => {
+    const out = renderIdSetDeltaSection({ opened: ['architetto'], closed: ['farmacista'], regrouped: [] }, { baseline: false, noun: 'ruoli' });
+    expect(out).toContain('### Delta');
+    expect(out).toContain('**1 ruoli entrati:**\n\n- `architetto`');
+    expect(out).toContain('**1 ruoli usciti:**\n\n- `farmacista`');
+    expect(out).not.toMatch(/\*\*\*\*/);
+    expect(out).not.toMatch(/lavoro-ticino-/);
+  });
+
+  it('distingue baseline, battito e sola ripartizione', () => {
+    const empty = { opened: [], closed: [], regrouped: [] };
+    expect(renderIdSetDeltaSection(empty, { baseline: true, noun: 'ruoli' })).toMatch(/rilevazione di riferimento/);
+    expect(renderIdSetDeltaSection(empty, { baseline: false, noun: 'ruoli' })).toMatch(/battito/);
+    expect(renderIdSetDeltaSection({ ...empty, regrouped: ['bridgedNoindex'] }, { baseline: false, noun: 'ruoli' }))
+      .toMatch(/ripartizione cambiata/);
+  });
+});
+
+describe('ricorrenza sulla issue: un commento per insieme, non per deploy', () => {
+  // Simula il giro post-deploy con la issue come unico store, nello stesso
+  // modo del monitor: lettura dello stato, decisione, commento con marker in
+  // coda. Ogni commento passa per il prefisso «Recurrence» che aggiunge
+  // github-issue-creator.mjs.
+  function makeIssue() {
+    const issue = { body: 'storico senza marker', createdAt: iso(NOW - 90 * DAY), comments: [] as { body: string; createdAt: string }[] };
+    let createCalls = 0;
+    const run = (zeroIds: string[], now: number) => {
+      const state = { ...buildIdSetState(zeroIds), indexedViaGrace: [], bridgedNoindex: [...zeroIds].sort() };
+      const previous = latestStateEntry(issue, TI_LEGACY_STATE_MARKER, isTiLegacyState);
+      if (shouldSuppressRecurrence({ previous, next: state, now })) return;
+      const delta = renderIdSetDeltaSection(diffIdSets(previous?.state ?? null, state), { baseline: !previous, noun: 'ruoli' });
+      createCalls += 1;
+      issue.comments.push({
+        body: `🔁 Recurrence on workflow run.\n\n## Professioni\n\n${delta}\n${serializeStateMarker(TI_LEGACY_STATE_MARKER, state)}`,
+        createdAt: iso(now),
+      });
+    };
+    return { run, calls: () => createCalls };
+  }
+
+  it('due giri con lo stesso insieme → una chiamata; un ruolo in più → la seconda', () => {
+    const { run, calls } = makeIssue();
+    run(['logopedista', 'assistente-dentale'], NOW);
+    run(['assistente-dentale', 'logopedista'], NOW + 3_600_000);
+    expect(calls()).toBe(1);
+    run(['assistente-dentale', 'logopedista', 'farmacista'], NOW + 7_200_000);
+    expect(calls()).toBe(2);
+  });
+
+  it('il gap che sparisce e ritorna identico riemerge col battito', () => {
+    const { run, calls } = makeIssue();
+    run(['logopedista'], NOW);
+    // Gap azzerato: il monitor esce senza scrivere. Ricompare identico 10 giorni dopo.
+    run(['logopedista'], NOW + 10 * DAY);
+    expect(calls()).toBe(2);
+  });
+});
+
+describe('contratto di sorgente: le famiglie A e B decidono prima di commentare', () => {
+  const src = readFileSync(path.join(__dirname, '..', 'scripts/monitor-sector-coverage.mjs'), 'utf8');
+  const fnBody = (name: string) => {
+    const start = src.indexOf(`async function ${name}(`);
+    expect(start).toBeGreaterThan(-1);
+    const end = src.indexOf('\nasync function ', start + 1);
+    return src.slice(start, end === -1 ? undefined : end);
+  };
+
+  for (const [name, marker] of [
+    ['checkTiLegacyProfessions', 'TI_LEGACY_STATE_MARKER'],
+    ['checkTiSectorHubs', 'TI_SECTOR_STATE_MARKER'],
+  ] as const) {
+    it(`${name}: shouldSuppressRecurrence( prima di createIssue(, e il marker nel corpo`, () => {
+      const body = fnBody(name);
+      const suppressAt = body.indexOf('shouldSuppressRecurrence(');
+      const createAt = body.indexOf('createIssue(');
+      expect(suppressAt).toBeGreaterThan(-1);
+      expect(createAt).toBeGreaterThan(suppressAt);
+      expect(body).toContain(`serializeStateMarker(${marker}, state)`);
+    });
+  }
 });
