@@ -231,3 +231,9 @@ export function clearGraceInventedSlots(job) {
   }
   return removed;
 }
+
+/** Accept only an explicitly labelled, complete publication value, never a bare .date. */
+export function parseGracePublicationLabel(raw = '') {
+  const match = String(raw).trim().match(/^(?:Date posted|Posted on|Published on|Posted):?\s+(\d{2})\/(\d{2})\/(\d{4})$/i);
+  return match ? `${match[3]}-${match[1]}-${match[2]}` : '';
+}
