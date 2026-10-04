@@ -43,6 +43,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { decodeEntities } from './hospital-custom-html-helpers.mjs';
 import { parseCsbDetailPage } from './successfactors-shared-job-parser-common.mjs';
+import { mergeSourcePostingDates, sourceRssPostingDateFields } from './source-posting-date.mjs';
 import { isSuccessFactorsWidgetText } from './successfactors-jobs2web-widget-guard.mjs';
 import {
   assertFeedBodyLooksLikeXml,
@@ -188,12 +189,6 @@ function jobUrlForDiagnostic(rawUrl = '') {
   } catch {
     return '[missing or invalid URL]';
   }
-}
-
-function toIsoDate(raw) {
-  if (!raw) return null;
-  const d = new Date(raw);
-  return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
 }
 
 /** Strip the trailing "(City, CH)" location suffix jobs2web appends to RSS titles. */
@@ -802,7 +797,9 @@ export async function fetchAllNordAngliaJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const jobReqId = extractJobReqId(publicUrl);
     const employmentType = detectEmploymentType(`${detail?.rateText || ''} ${descriptionText} ${jobTitle}`);
-    const postedDate = toIsoDate(detail?.postedDate) || toIsoDate(item.pubDate) || new Date().toISOString().split('T')[0];
+    const detailPublication = mergeSourcePostingDates({}, detail);
+    const publication = detailPublication.postingDateSource === 'reported'
+      ? detailPublication : sourceRssPostingDateFields(item.pubDate);
 
     const job = {
       // ── Required fields ──
@@ -839,7 +836,7 @@ export async function fetchAllNordAngliaJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: trustedApplyUrl(detail?.applyUrl, publicUrl),
       jobReqId: jobReqId || null,
       requirements: [],
