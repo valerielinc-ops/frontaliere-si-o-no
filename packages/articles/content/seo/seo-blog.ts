@@ -367,8 +367,6 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "height": 756,
  "caption": "Palazzo del Governo ticinese a Bellinzona, simbolo della tensione politica con l'Italia sulla tassa frontalieri.", 
  },
- "datePublished": "2026-02-19T00:00:00+01:00",
- "dateModified": "2026-02-19T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Fiscale",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
@@ -427,8 +425,6 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "height": 756,
  "caption": "Corriere Smood in pausa sul lungolago di Lugano al tramonto, simbolo della fine delle attività dell'azienda in Ticino."
  },
- "datePublished": "2026-02-19T00:00:00+01:00",
- "dateModified": "2026-02-19T00:00:00+01:00",
  "inLanguage": "it",
  "articleSection": "Novità",
  "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
