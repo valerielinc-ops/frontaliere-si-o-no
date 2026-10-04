@@ -240,7 +240,11 @@ describe('CLI: issue di failure (gh finto)', () => {
     }
   }
 
-  const CATHEDRAL = { title: 'CI Failure: cathedral-seo-gates-check', body: BODY_REPORTER_CATHEDRAL, createdAt: '2026-09-05T00:21:07Z' };
+  // Il corpo del reporter cita la run fallita 36841197066 (10-01 09:12Z): la issue
+  // si apre subito dopo. La 7421 reale (corpo dello scanner dei timeout) e' del
+  // 09-05, dopo la sua run originaria 33919268604.
+  const CATHEDRAL = { title: 'CI Failure: cathedral-seo-gates-check', body: BODY_REPORTER_CATHEDRAL, createdAt: '2026-10-01T09:24:55Z' };
+  const CATHEDRAL_TIMEOUT = { ...CATHEDRAL, body: BODY_7421_TIMEOUT, createdAt: '2026-09-05T00:21:07Z' };
 
   it('replay 7421 (corpo del reporter): una run `tests` verde non prova il guasto di cathedral', () => {
     const r = runCli({ ...CATHEDRAL, evidenceRun: 36841197125 });
@@ -270,10 +274,10 @@ describe('CLI: issue di failure (gh finto)', () => {
   });
 
   it('replay 7421 col corpo reale dello scanner dei timeout: stesso esito di oggi', () => {
-    const wrong = runCli({ ...CATHEDRAL, body: BODY_7421_TIMEOUT, evidenceRun: 36841197125 });
+    const wrong = runCli({ ...CATHEDRAL_TIMEOUT, evidenceRun: 36841197125 });
     expect(wrong.stdout).toContain('workflow-diverso:.github/workflows/tests.yml');
     expect(wrong.mutations).toEqual([]);
-    const right = runCli({ ...CATHEDRAL, body: BODY_7421_TIMEOUT, evidenceRun: 36900000001 });
+    const right = runCli({ ...CATHEDRAL_TIMEOUT, evidenceRun: 36900000001 });
     expect(right.stdout).toContain('routed=true');
   });
 
