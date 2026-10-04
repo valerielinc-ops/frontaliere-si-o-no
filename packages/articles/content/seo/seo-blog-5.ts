@@ -98551,6 +98551,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stra-woman-varese-2026': {
+    title: 'StraWoman Varese 2026: quasi 4mila ai Giardini Estensi',
+    description: 'Quasi 4mila persone hanno partecipato alla StraWoman Varese 2026 nei Giardini Estensi, una corsa‑camminata di 5 km senza cronometro dedicata a sport',
+    keywords: 'frontalieri, ticino, svizzera, italia, strawoman, varese, quasi, 4mila',
+    ogTitle: 'StraWoman Varese 2026: quasi 4mila ai Giardini Estensi',
+    ogDescription: 'La sedicesima edizione della StraWoman Varese ha visto quasi 4mila partecipanti correre o camminare 5 km nei Giardini Estensi. L\'evento ha unito sport, prevenzione senologica tramite il Breast Park Humanitas Medical Care e solidarietà',
+    canonicalPath: '/articoli-frontaliere/stra-woman-varese-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "StraWoman Varese 2026: quasi 4mila ai Giardini Estensi",
+      "description": "Quasi 4mila persone hanno partecipato alla StraWoman Varese 2026 nei Giardini Estensi, una corsa‑camminata di 5 km senza cronometro dedicata a sport",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/stra-woman-varese-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Donne partecipanti alla StraWoman Varese 2026 nei Giardini Estensi, corsa non competitiva di 5 km per prevenzione e solidarietà."
+      },
+      "datePublished": "2026-10-04T19:00:12+00:00",
+      "dateModified": "2026-10-04T19:00:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stra-woman-varese-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

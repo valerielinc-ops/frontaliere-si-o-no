@@ -12540,6 +12540,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-ticino-settembre.title': 'Ticino health tax for cross-border workers: starting in September?',
     'blog.article.tassa-salute-frontalieri-ticino-settembre.excerpt': 'New healthcare tax for cross-border workers: launch expected by September, but implementing decrees are missing and payments have not yet been collected.',
     'blog.article.tassa-salute-frontalieri-ticino-settembre.imageAlt': 'Cross-border workers commuting between Italy and Switzerland in Ticino',
+    'blog.article.stra-woman-varese-2026.title': 'StraWoman Varese 2026: almost 4 thousand at the Giardini Estensi',
+    'blog.article.stra-woman-varese-2026.excerpt': 'Almost 4 thousand participants ran or walked 5 km in the Giardini Estensi for the sixteenth StraWoman Varese, part of the 21 stages from March to November, promoting sport, breast cancer prevention and solidarity.',
+    'blog.article.stra-woman-varese-2026.imageAlt': 'Women participants in StraWoman Varese 2026 at Giardini Estensi, a non‑competitive 5 km run/walk focused on health prevention and solidarity.',
 };
 
 export default blogMetaEn;

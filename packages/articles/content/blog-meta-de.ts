@@ -12539,6 +12539,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-ticino-settembre.title': 'Gesundheitsabgabe für Grenzgänger im Tessin: Start im September?',
     'blog.article.tassa-salute-frontalieri-ticino-settembre.excerpt': 'Neue Gesundheitsabgabe für Grenzgänger: Einführung bis September geplant, doch es fehlen noch die Ausführungsverordnungen, und Zahlungen wurden noch nicht eingezogen.',
     'blog.article.tassa-salute-frontalieri-ticino-settembre.imageAlt': 'Grenzgänger pendeln zwischen Italien und der Schweiz im Tessin',
+    'blog.article.stra-woman-varese-2026.title': 'StraWoman Varese 2026: fast 4mila in den Giardini Estensi',
+    'blog.article.stra-woman-varese-2026.excerpt': 'Fast 4mila Teilnehmende liefen oder gingen 5 km in den Giardini Estensi bei der sechzehnten StraWoman Varese, als Teil der 21 Etappen von März bis November, und förderten Sport, Brustkrebsvorsorge und Solidarität.',
+    'blog.article.stra-woman-varese-2026.imageAlt': 'Frauen bei der StraWoman Varese 2026 in den Giardini Estensi, ein nicht‑wettbewerbsfähiger 5 km Lauf/Walk zur Gesundheitsprävention und Solidarität.',
 };
 
 export default blogMetaDe;
