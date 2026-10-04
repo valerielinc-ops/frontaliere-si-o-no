@@ -1153,6 +1153,45 @@ function shellQuote(s) {
   return `'${s.replace(/'/g, `'\\''`)}'`;
 }
 
+/**
+ * Byte budget for EVERY generated workflow file (site group, site logic,
+ * portable corpus copy).
+ *
+ * GitHub refuses a workflow file above a size limit it does not document in a
+ * stable place; the measure of 04-10 puts it between 508,926 bytes (largest
+ * file still valid, corpus group 12) and 512,281 (group 14, invalid), i.e.
+ * 512,000. Over it the file is not a workflow at all: every push creates a
+ * failed run named after its path («This run likely failed because of a
+ * workflow file issue») and dispatch stops working — groups 06 and 14 of the
+ * corpus after the cr-04b lockstep (04-10 04:30Z). 480,000 keeps ~6% headroom
+ * so one more per-member line across a 29-member group cannot cross the line
+ * unnoticed; the generator refuses to render past it.
+ */
+export const GITHUB_WORKFLOW_SIZE_LIMIT_BYTES = 512_000;
+export const GENERATED_WORKFLOW_SIZE_BUDGET_BYTES = 480_000;
+
+/** Returns `[{ file, bytes, over }]` for every entry above the budget. */
+export function workflowSizeBudgetViolations(entries, budget = GENERATED_WORKFLOW_SIZE_BUDGET_BYTES) {
+  return entries
+    .map(({ file, content }) => ({ file, bytes: Buffer.byteLength(content, 'utf8') }))
+    .filter(({ bytes }) => bytes > budget)
+    .map(({ file, bytes }) => ({ file, bytes, over: bytes - budget }));
+}
+
+export function formatWorkflowSizeBudgetViolation({ file, bytes, over }, budget = GENERATED_WORKFLOW_SIZE_BUDGET_BYTES) {
+  return `${file}: ${bytes} bytes, ${over} over the ${budget}-byte budget `
+    + `(GitHub rejects workflow files above ~${GITHUB_WORKFLOW_SIZE_LIMIT_BYTES})`;
+}
+
+function assertWorkflowSizeBudget(entries) {
+  const violations = workflowSizeBudgetViolations(entries);
+  if (violations.length === 0) return;
+  throw new Error([
+    'Generated crawler workflows exceed the size budget; shrink the per-member unrolled shell instead of raising the budget:',
+    ...violations.map((violation) => `  ${formatWorkflowSizeBudgetViolation(violation)}`),
+  ].join('\n'));
+}
+
 function isCrawlerLaunchStep(step) {
   return typeof step?.id === 'string' && step.id.startsWith('crawler-launch-');
 }
@@ -1401,7 +1440,17 @@ const WATCHDOG_MARK_LINES = [
   `if [ "$terminal_exit" -eq ${TARGET_TIMEOUT_EXIT} ] || [ "$terminal_exit" -eq ${WATCHDOG_KILL_EXIT} ]; then printf '%s\\n' "$worker_watchdog_minutes" > "$watchdog_file"; fi`,
 ];
 
+/**
+ * `slug` is either a literal crawler slug (quarantine aggregate, one block per
+ * member) or SHELL_SLUG_VAR (`$slug`, the parameter of the aggregate's shared
+ * per-member function). Both render the same runtime text: the issue title,
+ * `--workflow` id and annotations the reconciler parses are byte-identical.
+ */
+const SHELL_SLUG_VAR = '$slug';
+
 function buildWatchdogKillIssueLines(slug) {
+  const dynamic = slug === SHELL_SLUG_VAR;
+  const quoteArg = (text) => (dynamic ? `"${text}"` : shellQuote(text));
   const statusFile = `"$state_dir/${slug}.status"`;
   return [
     `watchdog_file="$state_dir/${slug}.watchdog"`,
@@ -1414,12 +1463,25 @@ function buildWatchdogKillIssueLines(slug) {
       + '"**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" '
       + '"**Branch:** ${GITHUB_REF_NAME:-}" '
       + '"**Trigger:** ${GITHUB_EVENT_NAME:-}")"',
-    `  if ! node scripts/lib/github-issue-creator.mjs --title ${shellQuote(`Crawler Failure: Run ${slug}`)} --description "$watchdog_description" --priority 2 --label Bug --workflow ${shellQuote(`Run ${slug}`)}; then`,
+    `  if ! node scripts/lib/github-issue-creator.mjs --title ${quoteArg(`Crawler Failure: Run ${slug}`)} --description "$watchdog_description" --priority 2 --label Bug --workflow ${quoteArg(`Run ${slug}`)}; then`,
     `    echo "::warning::${slug}: the watchdog-timeout issue could not be filed; the group verdict is unchanged"`,
     '  fi',
     'fi',
   ];
 }
+
+/**
+ * Name of the shell function the aggregate defines ONCE and calls per member.
+ *
+ * WORKFLOW SIZE BUDGET (04-10). Unrolled, this classification was ~38 lines
+ * (~2.9 KB) per member — 88 KB of a 29-member group's aggregate step. After
+ * cr-04b added the crawl-exit record to every member, groups 06 and 14 crossed
+ * GitHub's workflow-file size limit (~512,000 bytes) and every push created a
+ * failed «workflow file issue» run for them instead of a crawl. The function
+ * body is the same classification with `$slug` instead of the literal, so the
+ * annotations, summary rows and issue title are unchanged at runtime.
+ */
+export const AGGREGATE_MEMBER_FUNCTION = 'aggregate_crawler_member';
 
 /**
  * Summarize every crawler independently after the result waiters have run.
@@ -1447,40 +1509,45 @@ export function buildCrawlerAggregateShellBody(crawlers, groupIndex, { quarantin
     `printf '%s\\n' '### Crawler group ${nn} outcome' >> "$summary_file"`,
     `printf '%s\\n' '| Crawler | Outcome |' '| --- | --- |' >> "$summary_file"`,
   ];
-  for (const crawler of crawlers) {
-    const slug = crawler.slug;
-    lines.push(
-      `status_file="$state_dir/${slug}.status"`,
-      'if [ ! -s "$status_file" ]; then',
-      `  echo "::warning::${slug}: no terminal status was published"`,
-      `  printf '%s\\n' '| ${slug} | missing status |' >> "$summary_file"`,
-      '  missing_count=$((missing_count + 1))',
-      'else',
-      '  status="$(cat "$status_file" 2>/dev/null || true)"',
-      '  if ! [[ "$status" =~ ^[0-9]+$ ]]; then',
-      `    echo "::error::${slug}: invalid terminal status: $status"`,
-      `    printf '%s\\n' '| ${slug} | invalid status |' >> "$summary_file"`,
-      '    failure_count=$((failure_count + 1))',
-      `  elif [ "$status" -eq ${TARGET_TIMEOUT_EXIT} ]; then`,
-      `    echo "::error::${slug}: target timeout recorded as an actionable failure (exit ${TARGET_TIMEOUT_EXIT})"`,
-      `    printf '%s\\n' '| ${slug} | target timeout (124) |' >> "$summary_file"`,
-      '    failure_count=$((failure_count + 1))',
-      `  elif [ "$status" -eq ${RUNNER_SHUTDOWN_EXIT} ]; then`,
-      `    echo "::warning::${slug}: runner shutdown recorded as systemic outcome (exit ${RUNNER_SHUTDOWN_EXIT}); no per-crawler issue filed"`,
-      `    printf '%s\\n' '| ${slug} | systemic runner shutdown (143) |' >> "$summary_file"`,
-      '    systemic_count=$((systemic_count + 1))',
-      '  elif [ "$status" -eq 0 ]; then',
-      `    printf '%s\\n' '| ${slug} | success |' >> "$summary_file"`,
-      '    success_count=$((success_count + 1))',
-      '  else',
-      `    echo "::error::${slug}: crawler exited with status $status"`,
-      `    printf '| ${slug} | failed (%s) |\\n' "$status" >> "$summary_file"`,
-      '    failure_count=$((failure_count + 1))',
-      '  fi',
-      'fi',
-      ...buildWatchdogKillIssueLines(slug),
-    );
-  }
+  const slug = SHELL_SLUG_VAR;
+  const memberBody = [
+    'slug="$1"',
+    `status_file="$state_dir/${slug}.status"`,
+    'if [ ! -s "$status_file" ]; then',
+    `  echo "::warning::${slug}: no terminal status was published"`,
+    `  printf '%s\\n' "| ${slug} | missing status |" >> "$summary_file"`,
+    '  missing_count=$((missing_count + 1))',
+    'else',
+    '  status="$(cat "$status_file" 2>/dev/null || true)"',
+    '  if ! [[ "$status" =~ ^[0-9]+$ ]]; then',
+    `    echo "::error::${slug}: invalid terminal status: $status"`,
+    `    printf '%s\\n' "| ${slug} | invalid status |" >> "$summary_file"`,
+    '    failure_count=$((failure_count + 1))',
+    `  elif [ "$status" -eq ${TARGET_TIMEOUT_EXIT} ]; then`,
+    `    echo "::error::${slug}: target timeout recorded as an actionable failure (exit ${TARGET_TIMEOUT_EXIT})"`,
+    `    printf '%s\\n' "| ${slug} | target timeout (124) |" >> "$summary_file"`,
+    '    failure_count=$((failure_count + 1))',
+    `  elif [ "$status" -eq ${RUNNER_SHUTDOWN_EXIT} ]; then`,
+    `    echo "::warning::${slug}: runner shutdown recorded as systemic outcome (exit ${RUNNER_SHUTDOWN_EXIT}); no per-crawler issue filed"`,
+    `    printf '%s\\n' "| ${slug} | systemic runner shutdown (143) |" >> "$summary_file"`,
+    '    systemic_count=$((systemic_count + 1))',
+    '  elif [ "$status" -eq 0 ]; then',
+    `    printf '%s\\n' "| ${slug} | success |" >> "$summary_file"`,
+    '    success_count=$((success_count + 1))',
+    '  else',
+    `    echo "::error::${slug}: crawler exited with status $status"`,
+    `    printf '| %s | failed (%s) |\\n' "${slug}" "$status" >> "$summary_file"`,
+    '    failure_count=$((failure_count + 1))',
+    '  fi',
+    'fi',
+    ...buildWatchdogKillIssueLines(slug),
+  ];
+  lines.push(
+    `${AGGREGATE_MEMBER_FUNCTION}() {`,
+    ...memberBody.map((line) => `  ${line}`),
+    '}',
+    ...crawlers.map((crawler) => `${AGGREGATE_MEMBER_FUNCTION} ${shellQuote(crawler.slug)}`),
+  );
   lines.push(
     `printf '%s\\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"`,
     // A runner shutdown (143) is not a crawler defect, so it files no
@@ -2759,6 +2826,7 @@ export function generateCrawlerLogicArtifacts({
     YAML.parse(content);
     return { fileName, content };
   });
+  assertWorkflowSizeBudget(rendered.map(({ fileName, content }) => ({ file: path.join(path.relative(REPO_ROOT, workflowsDir), fileName), content })));
   if (write) {
     for (const artifact of rendered) {
       writeFileAtomic(path.join(workflowsDir, artifact.fileName), artifact.content);
@@ -3401,6 +3469,7 @@ export function generateCrossRepoExecutionArtifacts({
     emittedSitePaths: emittedCorpusSitePaths({ workflowFiles: [...workflowPayloads.keys()], observerPayloads }),
     registeredSitePaths: registeredCorpusSitePaths(crawlerWorkflowFilesFromContract(contract)),
   });
+  assertWorkflowSizeBudget([...workflowPayloads].map(([fileName, content]) => ({ file: path.join(path.relative(REPO_ROOT, outDir), fileName), content })));
   if (write) {
     fs.mkdirSync(outDir, { recursive: true });
     fs.mkdirSync(path.dirname(contractPath), { recursive: true });
@@ -3627,6 +3696,7 @@ export function generate({
   results.assignmentsDuplicatesDiscarded = duplicatesDiscarded;
   results.retired = [...retired].filter((slug) => manifest.some((c) => c.slug === slug));
   results.generationRoster = generationRoster;
+  assertWorkflowSizeBudget(results.map(({ filePath, content }) => ({ file: path.relative(REPO_ROOT, filePath), content })));
   if (write) {
     // Commit phase: render/validation is complete. Every individual replace is
     // atomic; a late render/parity error above leaves every destination intact.

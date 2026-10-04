@@ -1,7 +1,7 @@
 {
   "key": "holmes-place",
   "label": "Holmes Place",
-  "generatedAt": "2026-10-03T21:23:02.296Z",
+  "generatedAt": "2026-10-04T09:25:37.364Z",
   "total": 5,
   "discovered": 5,
   "parsed": 5,
@@ -10,16 +10,17 @@
   "sourceBodyFailures": [],
   "written": 5,
   "authoritativeEmptySnapshot": false,
-  "newCount": 5,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14618,
-  "avgDurationMs": 14618,
+  "durationMs": 14357,
+  "avgDurationMs": 14357,
   "durationHistory": [
-    14618
+    14357
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "holmes-place-17daf32eef8e",
       "slug": "ernahrungscoach-m-f-d-holmes-place-oberrieden-see-ernaehrungscoach-m-f-d",
@@ -32,7 +33,7 @@
       "url": "https://www.holmesplace.ch/jobs/see-ernaehrungscoach-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:22:53.178Z",
+      "crawledAt": "2026-10-04T09:25:29.621Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -48,11 +49,12 @@
       "postedDate": "2026-10-03",
       "applyUrl": "https://www.holmesplace.ch/jobs/see-ernaehrungscoach-m-f-d/",
       "needsRetranslation": true,
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-10-03T21:22:53.178Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -68,7 +70,7 @@
       "url": "https://www.holmesplace.ch/jobs/gen-fitness-manager-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:22:53.181Z",
+      "crawledAt": "2026-10-04T09:25:29.623Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -84,11 +86,12 @@
       "postedDate": "2026-10-03",
       "applyUrl": "https://www.holmesplace.ch/jobs/gen-fitness-manager-m-f-d/",
       "needsRetranslation": true,
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-10-03T21:22:53.181Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -104,7 +107,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-gruppenfitness-instruktor-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:22:53.190Z",
+      "crawledAt": "2026-10-04T09:25:29.632Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -120,11 +123,12 @@
       "postedDate": "2026-10-03",
       "applyUrl": "https://www.holmesplace.ch/jobs/jel-gruppenfitness-instruktor-m-f-d/",
       "needsRetranslation": true,
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-10-03T21:22:53.190Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -140,7 +144,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-rezeptionist-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:22:53.196Z",
+      "crawledAt": "2026-10-04T09:25:29.638Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -156,11 +160,12 @@
       "postedDate": "2026-10-03",
       "applyUrl": "https://www.holmesplace.ch/jobs/jel-rezeptionist-m-f-d/",
       "needsRetranslation": true,
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-10-03T21:22:53.196Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -176,7 +181,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-personal-trainer-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:22:53.197Z",
+      "crawledAt": "2026-10-04T09:25:29.640Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -192,17 +197,17 @@
       "postedDate": "2026-10-03",
       "applyUrl": "https://www.holmesplace.ch/jobs/jel-personal-trainer-m-f-d/",
       "needsRetranslation": true,
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-10-03T21:22:53.197Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

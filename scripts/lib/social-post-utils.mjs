@@ -20,6 +20,7 @@ import { fileURLToPath } from 'node:url';
 import { createCantonResolvers, AGGREGATE_KEY } from '../../build-plugins/shared/cantonResolvers.mjs';
 import { peelDanglingClauseTail } from '../../build-plugins/shared/clauseTail.mjs';
 import { listSliceFileNames } from './crawler-slice-files.mjs';
+import { excludeHeldFromPublication } from './translation-publication-hold.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -317,7 +318,8 @@ export function loadJobIndex() {
     if (existsSync(dir)) {
       for (const file of listSliceFileNames(dir)) {
         try {
-          ingest(JSON.parse(readFileSync(path.join(dir, file), 'utf-8')).jobs);
+          // Slices also hold agency jobs not yet published (translation hold).
+          ingest(excludeHeldFromPublication(JSON.parse(readFileSync(path.join(dir, file), 'utf-8')).jobs));
         } catch {
           /* one unreadable crawler file must not void the whole index */
         }

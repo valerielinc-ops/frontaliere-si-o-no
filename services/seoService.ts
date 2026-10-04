@@ -1846,10 +1846,13 @@ export async function updateMetaTags(section: string): Promise<void> {
 
  const isDialectPage = section === 'dialetto';
  const glossarySeo = pharmacyMetadata ? null : await resolveLocalizedGlossarySeo(sectionKey, metadata, locale);
+ // Legal copy stays in a lazy chunk and is loaded only for these routes.
+ const legalSeo = sectionKey === 'privacy' || sectionKey === 'terms' || sectionKey === 'data-deletion'
+ ? (await import('./legal/documents')).buildLegalSeo(sectionKey, locale) : null;
  if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
  const localizedSeoContent = pharmacyMetadata
  ? pharmacyMetadata
- : authorMetadata ?? glossarySeo ?? resolveLocalizedSeoContent(sectionKey, metadata, locale, route.jobBoardCanton);
+ : (legalSeo ? { ...legalSeo, keywords: metadata.keywords } : null) ?? authorMetadata ?? glossarySeo ?? resolveLocalizedSeoContent(sectionKey, metadata, locale, route.jobBoardCanton);
  const dialectTitleByLocale: Record<Locale, string> = {
  it: 'Dialetto Ticinese | 64 Espressioni e Proverbi | Frontaliere Ticino',
  en: 'Ticinese Dialect | 64 Expressions and Proverbs | Frontaliere Ticino',
@@ -2082,6 +2085,8 @@ export async function updateMetaTags(section: string): Promise<void> {
  });
  }
  updateStructuredData([...jobStructuredDataItems, breadcrumbs]);
+ } else if (legalSeo) {
+ updateStructuredData([legalSeo.jsonLd, breadcrumbs]);
  } else if (metadata.structuredData) {
  const existingData = Array.isArray(metadata.structuredData)
  ? metadata.structuredData

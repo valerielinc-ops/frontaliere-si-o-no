@@ -1,23 +1,23 @@
 {
   "key": "visionapartments",
   "label": "VISIONAPARTMENTS",
-  "generatedAt": "2026-10-03T21:25:47.432Z",
-  "total": 2,
+  "generatedAt": "2026-10-04T09:30:34.683Z",
+  "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 2,
+  "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4090,
-  "avgDurationMs": 4090,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5344,
+  "avgDurationMs": 5344,
   "durationHistory": [
-    4090
+    5344
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/8bbb2905-8b67-4ba8-b8e0-b0925f727b12/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:39.188Z",
+      "crawledAt": "2026-10-04T09:30:26.079Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -60,8 +60,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "visionapartments-13b3c39f629e",
       "slug": "specialista-della-raccolta-del-debito-in-60-80-vision-management-services-gmbh-zurich",
@@ -105,5 +104,6 @@
       }
     }
   ],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

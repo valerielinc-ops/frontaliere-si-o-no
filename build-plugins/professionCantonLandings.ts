@@ -432,7 +432,7 @@ export function renderProfessionCantonPage(opts: {
 
   // `cl-fun` wrapper enables the shared micro-interaction layer (tile rise +
   // hover pop, CTA glow, emoji wave), all gated behind prefers-reduced-motion.
-  const main = `<div class="cl-fun">${breadcrumb}
+  const mainContent = `<div class="cl-fun">${breadcrumb}
 ${header}
 ${tiles}
 ${salary.noteHtml}
@@ -444,7 +444,11 @@ ${crossCantonComparison}
 <p class="my-4"><a href="${esc(ctaHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta(cantonName))} →</a></p>
 ${salaryLink}
 ${professionCantonInlineAd}
-${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
+${prose}</div>`;
+  const main = mainContent.replace(
+    /<\/div>$/,
+    `${endOfContentMultiplexHtml({ indexable: true, contentHtml: mainContent })}</div>`,
+  );
 
   const breadcrumbLd = {
     '@context': 'https://schema.org',

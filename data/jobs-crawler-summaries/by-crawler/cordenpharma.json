@@ -1,7 +1,7 @@
 {
   "key": "cordenpharma",
   "label": "CordenPharma",
-  "generatedAt": "2026-10-03T21:11:41.421Z",
+  "generatedAt": "2026-10-04T09:09:37.347Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -14,10 +14,10 @@
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7529,
-  "avgDurationMs": 7529,
+  "durationMs": 8149,
+  "avgDurationMs": 8149,
   "durationHistory": [
-    7529
+    8149
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20991/procurement-specialist-80-100-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:11:32.248Z",
+      "crawledAt": "2026-10-04T09:09:27.535Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -49,8 +49,8 @@
       "featured": false,
       "postedDate": "2026-09-16",
       "applyUrl": "https://career.cordenpharma.com/de/p/liestal/jobs/20991/procurement-specialist-80-100-mwd",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T23:58:54.446Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -71,7 +71,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20979/laborant-qc-ipc-100-mwd-fachrichtung-chemie-im-bereich-qualitatskontrolle-inprozesskontrolle",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:11:31.697Z",
+      "crawledAt": "2026-10-04T09:09:27.070Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -109,7 +109,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20975/elektromonteur-elektrotechnik-kalibrierung-mwd-100",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:11:30.186Z",
+      "crawledAt": "2026-10-04T09:09:25.489Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -147,7 +147,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20958/innovation-scientist-postdoc-chemiker-100-mwd-dauer-12-monate-mit-moglichkeit-auf-verlangerung",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:11:30.698Z",
+      "crawledAt": "2026-10-04T09:09:25.984Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -184,7 +184,7 @@
       "url": "https://career.cordenpharma.com/en/p/liestal/jobs/20959/innovation-scientist-postdoc-chemist-solid-state-development-100-mwd-initial-12-month-contract-with-the-possibility-of-extension",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:11:31.219Z",
+      "crawledAt": "2026-10-04T09:09:26.457Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -221,7 +221,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20956/gruppenleiter-produktion-mwd-2-schicht-ettingen-basel-land-schweiz",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:11:32.794Z",
+      "crawledAt": "2026-10-04T09:09:28.000Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -258,7 +258,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20922/analytical-project-leader-apl-100-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:11:29.541Z",
+      "crawledAt": "2026-10-04T09:09:24.994Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -286,5 +286,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

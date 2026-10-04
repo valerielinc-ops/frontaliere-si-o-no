@@ -1,7 +1,7 @@
 {
   "key": "schweizerhof-flims",
   "label": "Schweizerhof",
-  "generatedAt": "2026-10-03T21:15:37.890Z",
+  "generatedAt": "2026-10-04T09:10:27.097Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -14,10 +14,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 34357,
-  "avgDurationMs": 34357,
+  "durationMs": 35159,
+  "avgDurationMs": 35159,
   "durationHistory": [
-    34357
+    35159
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "url": "https://romantikhotels.hcm4all.de/list/18876",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:15:30.369Z",
+      "crawledAt": "2026-10-04T09:10:17.911Z",
       "addressLocality": "Flims",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -70,7 +70,7 @@
       "url": "https://romantikhotels.hcm4all.de/list/19839",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:15:30.371Z",
+      "crawledAt": "2026-10-04T09:10:17.913Z",
       "addressLocality": "Flims",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://romantikhotels.hcm4all.de/list/18879",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:15:30.373Z",
+      "crawledAt": "2026-10-04T09:10:17.915Z",
       "addressLocality": "Flims",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -146,7 +146,7 @@
       "url": "https://romantikhotels.hcm4all.de/list/18877",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:15:30.374Z",
+      "crawledAt": "2026-10-04T09:10:17.918Z",
       "addressLocality": "Flims",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -175,5 +175,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

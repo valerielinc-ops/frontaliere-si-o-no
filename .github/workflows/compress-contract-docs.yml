@@ -113,7 +113,7 @@ jobs:
           } > "$desc_file"
           node scripts/lib/github-issue-creator.mjs \
             --title "📏 Contract docs over compress ceiling — gentle-compress needed" \
-            --description "$(cat "$desc_file")" \
+            --description-file "$desc_file" \
             --priority 4 \
             --label follow-up \
             --workflow "Compress contract docs"

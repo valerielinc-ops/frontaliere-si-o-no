@@ -1,16 +1,16 @@
 {
   "key": "grand-hotel-des-bains-kempinski",
   "label": "kempinski",
-  "generatedAt": "2026-10-03T21:09:28.024Z",
+  "generatedAt": "2026-10-04T09:11:46.754Z",
   "total": 26,
   "newCount": 0,
   "updatedCount": 26,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3342,
-  "avgDurationMs": 3342,
+  "durationMs": 3909,
+  "avgDurationMs": 3909,
   "durationHistory": [
-    3342
+    3909
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,11 +33,11 @@
       "department": "Housekeeping & Laundry",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.076Z",
+      "crawledAt": "2026-10-04T09:11:33.258Z",
       "id": "grand-hotel-des-bains-kempinski-0d48596e0883",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -46,13 +46,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-06-29T13:20:35.672Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -74,11 +75,11 @@
       "department": "Food & Beverage",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.081Z",
+      "crawledAt": "2026-10-04T09:11:33.259Z",
       "id": "grand-hotel-des-bains-kempinski-6f74aa1f5a3e",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -87,12 +88,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-05-17T10:31:20.144Z",
       "salarySource": "reported",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -114,11 +117,11 @@
       "department": "Human Resources & Training",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "APPRENTICE",
       "contractType": "apprenticeship",
-      "crawledAt": "2026-10-03T21:09:16.082Z",
+      "crawledAt": "2026-10-04T09:11:33.259Z",
       "id": "grand-hotel-des-bains-kempinski-f76a49b25e01",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -127,12 +130,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-05-19T22:37:17.857Z",
       "salarySource": "reported",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -154,11 +159,11 @@
       "department": "Human Resources & Training",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "APPRENTICE",
       "contractType": "apprenticeship",
-      "crawledAt": "2026-10-03T21:09:16.086Z",
+      "crawledAt": "2026-10-04T09:11:33.260Z",
       "id": "grand-hotel-des-bains-kempinski-a9bbd3ecacbf",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -167,13 +172,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-05-19T22:37:17.858Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -195,11 +201,11 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "APPRENTICE",
       "contractType": "apprenticeship",
-      "crawledAt": "2026-10-03T21:09:16.087Z",
+      "crawledAt": "2026-10-04T09:11:33.262Z",
       "id": "grand-hotel-des-bains-kempinski-f5bd3c6e6c87",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -209,12 +215,14 @@
       "firstSeenAt": "2026-05-19T22:37:17.858Z",
       "salarySource": "reported",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -236,11 +244,11 @@
       "department": "Housekeeping & Laundry",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.088Z",
+      "crawledAt": "2026-10-04T09:11:33.262Z",
       "id": "grand-hotel-des-bains-kempinski-b523a0cd6007",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -249,13 +257,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-06-29T13:20:35.674Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -277,11 +286,11 @@
       "department": "Rooms Division, Front Office & Guest Services",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.096Z",
+      "crawledAt": "2026-10-04T09:11:33.263Z",
       "id": "grand-hotel-des-bains-kempinski-01ad278bee64",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -290,13 +299,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-07-04T11:15:36.270Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -318,11 +328,11 @@
       "department": "Engineering",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.097Z",
+      "crawledAt": "2026-10-04T09:11:33.263Z",
       "id": "grand-hotel-des-bains-kempinski-b09ecffbab81",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -331,12 +341,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-07-15T22:00:09.508Z",
       "salarySource": "reported",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -358,11 +370,11 @@
       "department": "Food & Beverage",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.098Z",
+      "crawledAt": "2026-10-04T09:11:33.264Z",
       "id": "grand-hotel-des-bains-kempinski-00cc210d24ec",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -371,13 +383,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-07-21T11:14:40.057Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -399,11 +412,11 @@
       "department": "Food & Beverage",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.099Z",
+      "crawledAt": "2026-10-04T09:11:33.264Z",
       "id": "grand-hotel-des-bains-kempinski-f43b146e1210",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -412,12 +425,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-07-21T11:14:40.057Z",
       "salarySource": "reported",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -439,11 +454,11 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.109Z",
+      "crawledAt": "2026-10-04T09:11:33.265Z",
       "id": "grand-hotel-des-bains-kempinski-2e3f24dbd9cf",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -452,12 +467,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-07-21T11:14:40.063Z",
       "salarySource": "reported",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -479,11 +496,11 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.110Z",
+      "crawledAt": "2026-10-04T09:11:33.265Z",
       "id": "grand-hotel-des-bains-kempinski-c4882d52cb49",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -492,12 +509,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-07-22T22:05:43.599Z",
       "salarySource": "reported",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -519,11 +538,11 @@
       "department": "Rooms Division, Front Office & Guest Services",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.110Z",
+      "crawledAt": "2026-10-04T09:11:33.265Z",
       "id": "grand-hotel-des-bains-kempinski-26e82e31aa49",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -532,12 +551,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-07-23T11:17:04.992Z",
       "salarySource": "reported",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -559,11 +580,11 @@
       "department": "Rooms Division, Front Office & Guest Services",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.111Z",
+      "crawledAt": "2026-10-04T09:11:33.266Z",
       "id": "grand-hotel-des-bains-kempinski-863b9883f13c",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -572,12 +593,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-07-24T22:06:14.299Z",
       "salarySource": "reported",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -599,11 +622,11 @@
       "department": "Food & Beverage",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "INTERN",
       "contractType": "internship",
-      "crawledAt": "2026-10-03T21:09:16.122Z",
+      "crawledAt": "2026-10-04T09:11:33.267Z",
       "id": "grand-hotel-des-bains-kempinski-25e074da8fec",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -612,13 +635,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-07-31T22:07:08.493Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -640,11 +664,11 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.123Z",
+      "crawledAt": "2026-10-04T09:11:33.267Z",
       "id": "grand-hotel-des-bains-kempinski-29aad5ceb1a9",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -653,12 +677,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-08-04T11:32:43.446Z",
       "salarySource": "reported",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -680,11 +706,11 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.129Z",
+      "crawledAt": "2026-10-04T09:11:33.268Z",
       "id": "grand-hotel-des-bains-kempinski-7ef74a44160d",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -693,12 +719,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-08-04T11:32:43.447Z",
       "salarySource": "reported",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -720,11 +748,11 @@
       "department": "Food & Beverage",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.130Z",
+      "crawledAt": "2026-10-04T09:11:33.269Z",
       "id": "grand-hotel-des-bains-kempinski-87d0a0cfad06",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -733,12 +761,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-08-07T21:42:15.144Z",
       "salarySource": "reported",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -760,11 +790,11 @@
       "department": "Spa & Recreation",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.136Z",
+      "crawledAt": "2026-10-04T09:11:33.272Z",
       "id": "grand-hotel-des-bains-kempinski-4704e5d428c3",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -773,13 +803,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-08-17T21:31:57.360Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -801,11 +832,11 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.140Z",
+      "crawledAt": "2026-10-04T09:11:33.273Z",
       "id": "grand-hotel-des-bains-kempinski-ae402e3ee7d8",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -814,13 +845,14 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "firstSeenAt": "2026-09-23T23:34:47.772Z",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -842,11 +874,11 @@
       "department": "Rooms Division, Front Office & Guest Services",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.141Z",
+      "crawledAt": "2026-10-04T09:11:33.273Z",
       "id": "grand-hotel-des-bains-kempinski-02a594ff176a",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -855,12 +887,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-08-20T21:31:07.414Z",
       "salarySource": "reported",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -882,11 +916,11 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.142Z",
+      "crawledAt": "2026-10-04T09:11:33.274Z",
       "id": "grand-hotel-des-bains-kempinski-97336d6e268d",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -895,13 +929,14 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "firstSeenAt": "2026-08-31T17:01:37.419Z",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -923,11 +958,11 @@
       "department": "Food & Beverage",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.144Z",
+      "crawledAt": "2026-10-04T09:11:33.275Z",
       "id": "grand-hotel-des-bains-kempinski-c96aa9b457b7",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -936,12 +971,14 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "firstSeenAt": "2026-09-01T14:09:07.390Z",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -963,11 +1000,11 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.147Z",
+      "crawledAt": "2026-10-04T09:11:33.276Z",
       "id": "grand-hotel-des-bains-kempinski-7c0e780ef191",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -976,12 +1013,14 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "firstSeenAt": "2026-09-18T23:09:20.347Z",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1003,11 +1042,11 @@
       "department": "Security",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "PART_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.148Z",
+      "crawledAt": "2026-10-04T09:11:33.276Z",
       "id": "grand-hotel-des-bains-kempinski-4f9e9f33e68a",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -1016,13 +1055,14 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "firstSeenAt": "2026-09-18T23:09:20.347Z",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1044,11 +1084,11 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-10-03T21:09:16.153Z",
+      "crawledAt": "2026-10-04T09:11:33.277Z",
       "id": "grand-hotel-des-bains-kempinski-481876cb8f89",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -1057,16 +1097,18 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "firstSeenAt": "2026-09-26T13:52:21.174Z",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

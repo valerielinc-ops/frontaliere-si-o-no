@@ -1,6 +1,6 @@
 {
   "crawlerKey": "liebherr",
-  "assembledAt": "2026-10-03T21:33:38.417Z",
+  "assembledAt": "2026-10-04T09:28:33.599Z",
   "jobs": [
     {
       "id": "liebherr-16cb4e08f91b",
@@ -33,7 +33,7 @@
       "url": "https://careers.liebherr.com/job/Daillens-Technicien-grues-%C3%A0-tour-%28hf%29/1293554301/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:33:31.403Z",
+      "crawledAt": "2026-10-04T09:28:15.646Z",
       "addressLocality": "Daillens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -56,27 +56,21 @@
       "previousSlugs": [
         "turmkrantechniker-h-f-liebherr-daillens",
         "technicien-grues-a-tour-h-f-liebherr-daillens",
-        "drehkrantechniker-h-f-liebherr-daillens",
         "technicien-grues-a-tour-m-w-d-liebherr-daillens",
-        "tecnico-di-gru-a-torre-h-f-liebherr-daillens",
-        "tower-crane-technician-h-f-liebherr-daillens",
         "turmkrantechniker-m-w-d-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technicien-grues-a-tour-h-f-liebherr-daillens",
-          "technicien-grues-a-tour-m-w-d-liebherr-daillens",
-          "tecnico-di-gru-a-torre-h-f-liebherr-daillens"
+          "technicien-grues-a-tour-m-w-d-liebherr-daillens"
         ],
         "de": [
           "turmkrantechniker-h-f-liebherr-daillens",
-          "drehkrantechniker-h-f-liebherr-daillens",
           "technicien-grues-a-tour-m-w-d-liebherr-daillens",
           "turmkrantechniker-m-w-d-liebherr-daillens"
         ],
         "en": [
-          "technicien-grues-a-tour-m-w-d-liebherr-daillens",
-          "tower-crane-technician-h-f-liebherr-daillens"
+          "technicien-grues-a-tour-m-w-d-liebherr-daillens"
         ]
       },
       "salaryMin": 71000,
@@ -109,7 +103,7 @@
       "title": "Key Account Manager Bereich Erneuerbare Energien/Windenergie (m/w/d)",
       "titleByLocale": {
         "it": "Key Account Manager Renewable Energy/Wind Energy (m/f/d)",
-        "en": "Key Account Manager Bereich Erneuerbare Energien/Windenergie (m/w/d)",
+        "en": "Key Account Manager Renewable Energy/Wind Energy (m/f/d)",
         "de": "Key Account Manager Bereich Erneuerbare Energien/Windenergie (m/w/d)",
         "fr": "Directeur de compte clé Énergie renouvelable/énergie éolienne (h/f/d)"
       },
@@ -125,7 +119,7 @@
       "url": "https://careers.liebherr.com/job/Baden-Key-Account-Manager-Bereich-Erneuerbare-EnergienWindenergie-%28mwd%29/1402378733/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:30.987Z",
+      "crawledAt": "2026-10-04T09:28:24.707Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -160,8 +154,7 @@
         ],
         "fr": [
           "directeur-de-compte-principal-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden",
-          "key-account-manager-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden",
-          "gestionnaire-de-comptes-cle-energie-renouvelable-energie-eolienne-m-w-d-liebherr-baden"
+          "key-account-manager-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden"
         ]
       },
       "salaryMin": 85500,
@@ -177,16 +170,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T09:03:08.418Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-06-10T09:03:08.418Z"
     },
     {
       "id": "liebherr-6d60ffba63df",
       "slug": "supporto-vendite-svizzera-m-f-d-liebherr-nussbaumen",
       "slugByLocale": {
-        "de": "sales-support-schweiz-m-w-d-liebherr-nussbaumen",
         "it": "supporto-vendite-svizzera-m-f-d-liebherr-nussbaumen",
         "en": "sales-support-schweiz-m-w-d-liebherr-nussbaumen",
+        "de": "sales-support-schweiz-m-w-d-liebherr-nussbaumen",
         "fr": "soutien-aux-ventes-suisse-h-f-d-liebherr-nussbaumen"
       },
       "company": "Liebherr",
@@ -195,7 +187,7 @@
       "title": "Sales Support Schweiz (m/w/d)",
       "titleByLocale": {
         "it": "Supporto vendite Svizzera (m/f/d)",
-        "en": "Sales Support Switzerland (m/f/d)",
+        "en": "Sales Support Schweiz (m/w/d)",
         "de": "Sales Support Schweiz (m/w/d)",
         "fr": "Soutien aux ventes Suisse (h/f/d)"
       },
@@ -211,7 +203,7 @@
       "url": "https://careers.liebherr.com/job/Nussbaumen-Sales-Support-Schweiz-%28mwd%29/1443341333/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:30.628Z",
+      "crawledAt": "2026-10-04T09:28:17.217Z",
       "addressLocality": "Nussbaumen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -231,8 +223,6 @@
       "sourceLocale": "de_DE",
       "liebherrSourceJobId": "84888",
       "previousSlugs": [
-        "supporto-vendite-svizzera-m-f-d-liebherr-nussbaumen",
-        "soutien-aux-ventes-suisse-h-f-d-liebherr-nussbaumen",
         "sales-support-schweiz-m-w-d-liebherr-nussbaumen"
       ],
       "previousSlugsByLocale": {
@@ -240,7 +230,6 @@
           "sales-support-schweiz-m-w-d-liebherr-nussbaumen"
         ],
         "fr": [
-          "soutien-aux-ventes-suisse-h-f-d-liebherr-nussbaumen",
           "sales-support-schweiz-m-w-d-liebherr-nussbaumen"
         ]
       },
@@ -291,7 +280,7 @@
       "url": "https://careers.liebherr.com/job/Daillens-Conseiller-technique-%C3%A9quipement-terrassement-%28hf%29/1434836733/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:33:30.247Z",
+      "crawledAt": "2026-10-04T09:28:20.152Z",
       "addressLocality": "Daillens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -310,7 +299,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "fr_FR",
       "liebherrSourceJobId": "84460",
-      "needsRetranslation": true,
       "previousSlugs": [
         "conseiller-technique-equipement-terrassement-h-f-liebherr-daillens",
         "conseiller-technique-equipement-terrassement-m-w-d-liebherr-daillens"
@@ -327,6 +315,8 @@
           "conseiller-technique-equipement-terrassement-m-w-d-liebherr-daillens"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-08T13:53:09.548Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -339,8 +329,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-08T13:53:09.548Z"
+      }
     },
     {
       "id": "liebherr-3a324cb795d3",
@@ -356,9 +345,9 @@
       "companyDomain": "liebherr.com",
       "title": "Mécanicien grues place de chargement (h/f)",
       "titleByLocale": {
-        "it": "Mécanicien grues place de chargement (h/f)",
-        "en": "Mécanicien grues place de chargement (h/f)",
-        "de": "Mécanicien grues place de chargement (h/f)",
+        "it": "Meccanico gru piazza di carico (m/f)",
+        "en": "Loading place crane mechanic (m/f)",
+        "de": "Kranführer Verladeplatz (m/w)",
         "fr": "Mécanicien grues place de chargement (h/f)"
       },
       "description": "Tu souhaites prendre de la hauteur ? Tu es passionné par la technique et apprécies travailler à l'extérieur et avec des machines ? Rejoins-nous et deviens mécanicien grue sur notre place de chargement. Voici ce que tu feras chez nous\n• Tu charges et décharges les camions sur les places de Daillens et Aclens\n• Tu prépares les grues pour un chargement idéal\n• Tu prépares et entretiens les différents éléments de grue (câblage, boulons, etc...)\n• Tu participe à la maintenance de base sur les grues stockée à Daillens (nettoyages cabines et petites réparations)\n• Tu mets de l'ordre et tu entretiens les places de chargement Ce que tu apportes\n• Tu es détenteur d'un permis de conduire catégorie B et remorque\n• Tu as un permis de grutier\n• Si tu as CFC ou équivalant dans la mécanique, c'est un plus\n• Tu es autonome, consciencieux et dynamique\n• Tu es de langue française et domicilié dans la région\n• Tu as des connaissances de base Windows Ce que nous t'offrons\n• Un emploi où chaque jour est différent\n• Des machines et une technologie fascinante qui suscitent l'enthousiasme\n• Flexibilité grâce à des horaires de travail et une infrastructure moderne\n• Une équipe solide au sein d'un groupe d'entreprises prospère\n• Des prestations sociales et des avantages attractifs Avons-nous suscité ton intérêt ? Si c’est le cas, nous serions ravis de recevoir ta candidature en ligne. Si tu as des questions, merci de contacter Virginie Lüscher. One Passion. Many Opportunities. *Une passion commune. Tant d’opportunités. L'entreprise Liebherr-Baumaschinen AG, basée à Reiden (Suisse), est chargée de la vente et du service des engins de terrassement, de la technologie de manutention, des machines pour fondations spéciales, des grues à tour, de la technique du béton et des grues mobiles et sur chenilles en Suisse. ​​ Site Liebherr-Baumaschinen AG Z.I. Les Graveys D 1306 Daillens Suisse (CH) Contact Virginie Lüscher +41 21 863 60 03",
@@ -373,7 +362,7 @@
       "url": "https://careers.liebherr.com/job/Daillens-M%C3%A9canicien-grues-place-de-chargement-%28hf%29/1432306933/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:33:29.878Z",
+      "crawledAt": "2026-10-04T09:28:20.427Z",
       "addressLocality": "Daillens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -392,7 +381,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "fr_FR",
       "liebherrSourceJobId": "84374",
-      "needsRetranslation": true,
       "previousSlugs": [
         "mecanicien-grues-place-de-chargement-h-f-liebherr-daillens",
         "mecanicien-grues-place-de-chargement-m-w-d-liebherr-daillens"
@@ -409,6 +397,8 @@
           "mecanicien-grues-place-de-chargement-m-w-d-liebherr-daillens"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T10:33:19.207Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -421,8 +411,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-01T10:33:19.207Z"
+      }
     },
     {
       "id": "liebherr-d8ae44289f51",
@@ -455,7 +444,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Apprenti-Automaticien-%28hfx%29-Rentr%C3%A9e-2027/1435261933/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:33:29.523Z",
+      "crawledAt": "2026-10-04T09:28:16.158Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -474,7 +463,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "fr_FR",
       "liebherrSourceJobId": "84532",
-      "needsRetranslation": true,
       "previousSlugs": [
         "apprenti-automaticien-h-f-x-rentree-2027-liebherr-bulle"
       ],
@@ -489,6 +477,8 @@
           "apprenti-automaticien-h-f-x-rentree-2027-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-09T14:03:59.135Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -501,8 +491,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-09T14:03:59.135Z"
+      }
     },
     {
       "id": "liebherr-3b8dc1f1ad58",
@@ -535,7 +524,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Apprenti-Polym%C3%A9canicien-%28hfx%29-Rentr%C3%A9e-2027/1435264833/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:33:28.731Z",
+      "crawledAt": "2026-10-04T09:28:21.205Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -554,7 +543,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "fr_FR",
       "liebherrSourceJobId": "84528",
-      "needsRetranslation": true,
       "previousSlugs": [
         "apprenti-polymecanicien-h-f-x-rentree-2027-liebherr-bulle"
       ],
@@ -569,6 +557,8 @@
           "apprenti-polymecanicien-h-f-x-rentree-2027-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-09T14:03:59.498Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -581,8 +571,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-09T14:03:59.498Z"
+      }
     },
     {
       "id": "liebherr-13bd0b15a945",
@@ -615,7 +604,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-Projektleiter-Vermietung-&-Service-Turmdrehkrane-%28mw%29/1435330033/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:28.310Z",
+      "crawledAt": "2026-10-04T09:28:17.988Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -634,7 +623,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "de_DE",
       "liebherrSourceJobId": "84531",
-      "needsRetranslation": true,
       "previousSlugs": [
         "projektleiter-vermietung-service-turmdrehkrane-m-w-d-liebherr-reiden",
         "projektleiter-vermietung-service-turmdrehkrane-m-w-liebherr-reiden"
@@ -651,6 +639,8 @@
           "projektleiter-vermietung-service-turmdrehkrane-m-w-liebherr-reiden"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-09T14:04:00.181Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -663,8 +653,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-09T14:04:00.181Z"
+      }
     },
     {
       "id": "liebherr-cf5ed4e3e0fd",
@@ -697,7 +686,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Apprenti-Logisticien-%28hfx%29-Rentr%C3%A9e-2027/1437480133/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:33:27.914Z",
+      "crawledAt": "2026-10-04T09:28:16.446Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -716,7 +705,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "fr_FR",
       "liebherrSourceJobId": "84541",
-      "needsRetranslation": true,
       "previousSlugs": [
         "apprenti-logisticien-h-f-x-rentree-2027-liebherr-bulle"
       ],
@@ -731,6 +719,8 @@
           "apprenti-logisticien-h-f-x-rentree-2027-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:15:06.927Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -743,8 +733,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T23:15:06.927Z"
+      }
     },
     {
       "id": "liebherr-9a2087a76fa9",
@@ -777,7 +766,7 @@
       "url": "https://careers.liebherr.com/job/Baden-Bachelor-Masterarbeit-im-Technology-&-Innovation-Management-%28mwd%29/1438294133/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:27.529Z",
+      "crawledAt": "2026-10-04T09:28:18.257Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -796,7 +785,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "de_DE",
       "liebherrSourceJobId": "84669",
-      "needsRetranslation": true,
       "previousSlugs": [
         "bachelor-masterarbeit-im-technology-innovation-management-m-w-d-liebherr-baden"
       ],
@@ -811,6 +799,8 @@
           "bachelor-masterarbeit-im-technology-innovation-management-m-w-d-liebherr-baden"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:15:08.543Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -823,8 +813,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T23:15:08.543Z"
+      }
     },
     {
       "id": "liebherr-3d7faf0c2e7e",
@@ -857,7 +846,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-M%C3%A9catronicien-%28hfx%29-bancs-d'essai-moteurs-%C3%A0-combustion-Temporaire/1226522001/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:33:27.150Z",
+      "crawledAt": "2026-10-04T09:28:23.300Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -876,7 +865,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "fr_FR",
       "liebherrSourceJobId": "78550",
-      "needsRetranslation": true,
       "previousSlugs": [
         "mecatronicien-h-f-x-bancs-d-essai-moteurs-a-combustion-temporaire-liebherr-bulle"
       ],
@@ -891,6 +879,8 @@
           "mecatronicien-h-f-x-bancs-d-essai-moteurs-a-combustion-temporaire-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.374Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -903,8 +893,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-10T09:03:08.374Z"
+      }
     },
     {
       "id": "liebherr-36426783c616",
@@ -937,7 +926,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-Service-Techniker-Monteur-f%C3%BCr-Turmdrehkrane-%28mw%29/1275818001/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:26.736Z",
+      "crawledAt": "2026-10-04T09:28:23.003Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -961,10 +950,7 @@
         "monteur-turmdrehkrane-m-w-liebherr-reiden",
         "monteur-turmdrehkrane-m-w-d-liebherr-reiden",
         "service-techniker-monteur-fur-turmdrehkrane-m-w-liebherr-reiden",
-        "gru-a-torre-di-installazione-m-w-liebherr-reiden",
-        "service-techniker-monteur-fur-turmdrehkrane-m-w-d-liebherr-reiden",
-        "installer-tower-cranes-m-w-liebherr-reiden",
-        "grues-a-tour-d-installation-m-w-liebherr-reiden"
+        "service-techniker-monteur-fur-turmdrehkrane-m-w-d-liebherr-reiden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -973,15 +959,13 @@
           "service-techniker-monteur-fur-turmdrehkrane-m-w-liebherr-reiden"
         ],
         "en": [
-          "service-techniker-monteur-fur-turmdrehkrane-m-w-d-liebherr-reiden",
-          "installer-tower-cranes-m-w-liebherr-reiden"
+          "service-techniker-monteur-fur-turmdrehkrane-m-w-d-liebherr-reiden"
         ],
         "de": [
           "service-techniker-monteur-fur-turmdrehkrane-m-w-liebherr-reiden"
         ],
         "fr": [
-          "service-techniker-monteur-fur-turmdrehkrane-m-w-d-liebherr-reiden",
-          "grues-a-tour-d-installation-m-w-liebherr-reiden"
+          "service-techniker-monteur-fur-turmdrehkrane-m-w-d-liebherr-reiden"
         ]
       },
       "salaryMin": 78500,
@@ -1030,7 +1014,7 @@
       "url": "https://careers.liebherr.com/job/Nussbaumen-Logistics-Specialist-%28mwd%29/1435854533/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:26.312Z",
+      "crawledAt": "2026-10-04T09:28:22.617Z",
       "addressLocality": "Nussbaumen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1061,6 +1045,7 @@
           "logistics-specialist-m-w-d-liebherr-nussbaumen"
         ]
       },
+      "firstSeenAt": "2026-09-26T14:21:20.788Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1073,8 +1058,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-26T14:21:20.788Z"
+      }
     },
     {
       "id": "liebherr-17d9666afa47",
@@ -1107,7 +1091,7 @@
       "url": "https://careers.liebherr.com/job/Nussbaumen-Vertriebsassistenz-%28mwd%29/1395515433/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:25.865Z",
+      "crawledAt": "2026-10-04T09:28:23.571Z",
       "addressLocality": "Nussbaumen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1129,9 +1113,6 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "vertriebsassistenz-m-w-d-liebherr-nussbaumen",
-        "assistant-commercial-m-f-d-liebherr-nussbaumen",
-        "assistente-alle-vendite-l-f-d-liebherr-nussbaumen",
-        "sales-assistant-m-f-d-liebherr-nussbaumen",
         "assistance-aux-ventes-m-w-d-liebherr-nussbaumen"
       ],
       "previousSlugsByLocale": {
@@ -1139,8 +1120,7 @@
           "vertriebsassistenz-m-w-d-liebherr-nussbaumen"
         ],
         "en": [
-          "vertriebsassistenz-m-w-d-liebherr-nussbaumen",
-          "sales-assistant-m-f-d-liebherr-nussbaumen"
+          "vertriebsassistenz-m-w-d-liebherr-nussbaumen"
         ],
         "fr": [
           "vertriebsassistenz-m-w-d-liebherr-nussbaumen",
@@ -1193,7 +1173,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Apprenti-Employ%C3%A9-de-commerce-%28hfx%29-Rentr%C3%A9e-2027/1437480733/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:33:25.471Z",
+      "crawledAt": "2026-10-04T09:28:22.012Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1212,7 +1192,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "fr_FR",
       "liebherrSourceJobId": "84538",
-      "needsRetranslation": true,
       "previousSlugs": [
         "apprenti-employe-de-commerce-h-f-x-rentree-2027-liebherr-bulle"
       ],
@@ -1227,6 +1206,8 @@
           "apprenti-employe-de-commerce-h-f-x-rentree-2027-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:15:13.668Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -1239,8 +1220,7 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T23:15:13.668Z"
+      }
     },
     {
       "id": "liebherr-a8f54b3c2fa1",
@@ -1273,7 +1253,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-Service-Techniker-Elektriker-f%C3%BCr-Turmdrehkrane-%28mw%29/1275818101/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:24.726Z",
+      "crawledAt": "2026-10-04T09:28:16.948Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1292,7 +1272,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "de_DE",
       "liebherrSourceJobId": "80546",
-      "needsRetranslation": true,
       "previousSlugs": [
         "service-techniker-turmdrehkrane-m-w-liebherr-reiden",
         "service-techniker-turmdrehkrane-m-w-d-liebherr-reiden",
@@ -1308,6 +1287,8 @@
           "service-techniker-elektriker-fur-turmdrehkrane-m-w-liebherr-reiden"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T21:29:08.346Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1320,8 +1301,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-17T21:29:08.346Z"
+      }
     },
     {
       "id": "liebherr-fb39c8f3840f",
@@ -1354,7 +1334,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Stagiaire-MPC-3%2B1-%28hfx%29-Rentr%C3%A9e-2027/1437550033/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:33:24.298Z",
+      "crawledAt": "2026-10-04T09:28:20.954Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1373,7 +1353,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "fr_FR",
       "liebherrSourceJobId": "84571",
-      "needsRetranslation": true,
       "previousSlugs": [
         "stagiaire-mpc-3-1-h-f-x-rentree-2027-liebherr-bulle"
       ],
@@ -1388,6 +1367,8 @@
           "stagiaire-mpc-3-1-h-f-x-rentree-2027-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:15:07.342Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1400,8 +1381,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T23:15:07.342Z"
+      }
     },
     {
       "id": "liebherr-0376856ee6b1",
@@ -1434,7 +1414,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Apprenti-M%C3%A9canicien-de-production-%28hfx%29-Rentr%C3%A9e-2027/1435261533/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:33:23.926Z",
+      "crawledAt": "2026-10-04T09:28:25.467Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1453,7 +1433,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "fr_FR",
       "liebherrSourceJobId": "84529",
-      "needsRetranslation": true,
       "previousSlugs": [
         "apprenti-mecanicien-de-production-h-f-x-rentree-2027-liebherr-bulle"
       ],
@@ -1468,6 +1447,8 @@
           "apprenti-mecanicien-de-production-h-f-x-rentree-2027-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-09T14:03:59.851Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -1480,8 +1461,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-09T14:03:59.851Z"
+      }
     },
     {
       "id": "liebherr-db71cfa0a015",
@@ -1514,7 +1494,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-M%C3%A9canicien-outilleur-CNC/1436984733/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:33:23.523Z",
+      "crawledAt": "2026-10-04T09:28:24.952Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1533,7 +1513,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "fr_FR",
       "liebherrSourceJobId": "84611",
-      "needsRetranslation": true,
       "previousSlugs": [
         "mecanicien-outilleur-cnc-liebherr-bulle"
       ],
@@ -1548,6 +1527,8 @@
           "mecanicien-outilleur-cnc-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:15:12.867Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -1560,8 +1541,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T23:15:12.867Z"
+      }
     },
     {
       "id": "liebherr-585cbcd81644",
@@ -1594,7 +1574,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Sp%C3%A9cialiste-Logistique-&-Automatisation-%28hfx%29/1441268133/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:33:22.744Z",
+      "crawledAt": "2026-10-04T09:28:18.514Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1613,7 +1593,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "fr_FR",
       "liebherrSourceJobId": "84779",
-      "needsRetranslation": true,
       "previousSlugs": [
         "specialiste-logistique-automatisation-h-f-x-liebherr-bulle"
       ],
@@ -1628,6 +1607,8 @@
           "specialiste-logistique-automatisation-h-f-x-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-25T15:10:06.850Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1638,128 +1619,6 @@
           "@type": "QuantitativeValue",
           "minValue": 68500,
           "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-25T15:10:06.850Z"
-    },
-    {
-      "id": "liebherr-1fc42ca70609",
-      "slug": "manutenzione-tecnica-h-f-x-automazione-liebherr-bulle",
-      "slugByLocale": {
-        "it": "manutenzione-tecnica-h-f-x-automazione-liebherr-bulle",
-        "en": "maintenance-technician-h-f-x-automation-liebherr-bulle",
-        "de": "wartungstechniker-h-w-x-automatisierung-liebherr-bulle",
-        "fr": "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle"
-      },
-      "company": "Liebherr",
-      "companyKey": "liebherr",
-      "companyDomain": "liebherr.com",
-      "title": "Technicien de maintenance (h/f/x) Automatisation",
-      "titleByLocale": {
-        "it": "Tecnico di manutenzione (m/f/d) Automazione",
-        "en": "Maintenance technician (m/f/d) Automation",
-        "de": "Instandhaltungstechniker (m/w/d) Automatisierung",
-        "fr": "Technicien de maintenance (h/f/x) Automatisation"
-      },
-      "description": "Les missions\n• Vous êtes responsable de la maintenance préventive et curative d’installations, de machines ou d’appareils exigeants\n• Vous gérez l'entretien et les révisions des installations robotiques de montage, des machines de production\n• Vous assurez le suivi des services annuels\n• Vous participez à l'amélioration des processus d’entretien\n• Vous participez à la définition des plans de maintenance, pièces de rechange et projets d’amélioration\n• Vous réalisez divers travaux d’entretien dans les autres secteurs\n• Vous suivez les échéances de calibration et gérez les moyens de mesure\n• Vous participez au service de piquet et travail en horaire d’équipe Profil\n• Vous êtes titulaire d'un CFC d’automaticien (h/f/x), de mécanicien (h/f/x) ou formation jugée équivalente\n• Vous avez une formation spécifique dans la mécanique, pneumatique, hydraulique ainsi que des bases en électricité\n• Vous avez une expérience professionnelle pratique de plusieurs années dans un environnement industriel\n• Vous disposez de très bonnes connaissances du français, des connaissances de l’allemand et de l’anglais sont un atout\n• Vous maitrisez les programmes MS Office et avez des connaissances du logiciel Siemens sont un atout\n• Vous êtes une personne autonome, précise, responsable, vous appréciez le travail en équipe et êtes flexible Notre offre Pouvons-nous vous motiver à endosser un rôle clé dans une entreprise familiale, dynamique et indépendante ? Nous vous encourageons à partager et à développer vos idées et vous offrons un emploi sûr, des conditions de travail modernes telles qu’un restaurant d'entreprise, des perspectives de formation continue ainsi que d’autres nombreux avantages. Le lieu de travail se situe à Bulle, dans la belle région de la Gruyère. Planifiez avec nous votre développement personnel et professionnel. Afin de garantir une procédure de candidature équitable, nous n’acceptons pas les candidatures par courrier postal ou électronique. Avons-nous suscité votre intérêt ? Si c’est le cas, nous serions ravis de recevoir votre candidature en ligne. Si vous avez des questions, veuillez contacter Romain GROGNUZ. One Passion. Many Opportunities. *Une passion commune. Tant d’opportunités. L'entreprise Liebherr Machines Bulle SA est le centre de compétences des moteurs à combustion (diesel et gaz) et composants hydrauliques. L’entreprise développe et fabrique des produits diversifiés utilisés dans le génie civil, l'exploitation minière, l'agriculture, l'énergie décentralisée, l'ingénierie mécanique et industrielle ainsi que l'aviation. ​​ Site Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Suisse (CH) Contact Romain GROGNUZ 026 913 31 11",
-      "descriptionByLocale": {
-        "it": "Compiti\n• Sei responsabile della manutenzione preventiva e curativa di impianti complessi, macchine o dispositivi\n• Si prende il controllo della manutenzione e manutenzione di robot di assemblaggio e macchine di produzione Essi assicurano il follow-up dei servizi annuali\n• Sei coinvolto nel miglioramento dei processi di manutenzione\n• Contribuisci alla creazione di piani di manutenzione, pezzi di ricambio e progetti di miglioramento Essi svolgono vari lavori di manutenzione in altri settori\n• Ti occupi dei servizi di piquetting e del lavoro nella qualificazione ai servizi a turni\n• Hai completato la formazione come tecnico di automazione (m/f/d), meccanico (m/f/d) o grado comparabile\n• Hai completato la formazione specialistica nei settori della meccanica, della pneumatica, dell'idraulica e dei fondamenti dell'ingegneria elettrica\n• Hai anche diversi anni di esperienza professionale pratica in un ambiente industriale. Hai una buona conoscenza del francese, la conoscenza del tedesco e dell'inglese è un vantaggio\n• Sei fiducioso nel trattare con i programmi MS Office e idealmente familiarità con il software Siemens\n• Sei una persona indipendente, attenta, responsabile, apprezzare il lavoro di squadra e sono flessibili La nostra offerta Possiamo ispirare a prendere un compito responsabile in un business familiare dinamico e indipendente? Vi offriamo la libertà di idee, un posto di lavoro sicuro, condizioni di lavoro progressivo e familiare come orari di lavoro flessibili, ufficio di casa, ristorante aziendale, opportunità di formazione e numerosi sconti. Il luogo di lavoro si trova a Bulle, circondato dalla natura meravigliosa della regione di Gruyère. Pianifica il tuo sviluppo personale e professionale insieme a noi. Al fine di garantire un corretto processo di applicazione, purtroppo non possiamo accettare applicazioni via posta o e-mail. Abbiamo suscitato il vostro interesse? Quindi non vediamo l'ora della vostra applicazione online. Per qualsiasi domanda, contattare Romain GROGNUZ. Una passione. Molte opportunità. Liebherr Machines Bulle SA è il centro di eccellenza per i motori a combustione (diesel e motori a gas) e componenti idraulici (pompe a pistoni assiali e motori). L'azienda sviluppa e produce vari prodotti che vengono utilizzati nei settori dell'ingegneria civile, dell'estrazione mineraria, dell'agricoltura, dell'energia decentralizzata, dell'ingegneria meccanica e vegetale, nonché dell'aviazione. Luogo Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Svizzera (CH) Contatto Romain GROGNUZ 026 913 31 11",
-        "en": "Tasks\n• You are responsible for the preventive and curative maintenance of complex plants, machines or devices\n• You take over the maintenance and maintenance of assembly robots and production machines They ensure the follow-up of the annual services\n• You are involved in improving maintenance processes\n• You contribute to the creation of maintenance plans, spare parts and improvement projects They perform various maintenance work in other areas\n• You take care of piquetting services and work in shift services qualification\n• You have completed training as an automation technician (m/f/d), mechanic (m/f/d) or comparable degree\n• You have completed specialist training in the fields of mechanics, pneumatics, hydraulics and fundamentals of electrical engineering\n• You also have several years of practical professional experience in an industrial environment. You have very good knowledge of French, knowledge of German and English is an advantage\n• You are confident in dealing with MS Office programs and ideally familiar with the Siemens software\n• You are an independent, careful, responsible person, appreciate teamwork and are flexible Our offer Can we inspire you to take on a responsible task in a dynamic and independent family business? We offer you freedom for ideas, a secure workplace, progressive and family-friendly employment conditions such as flexible working hours, home office, company restaurant, training opportunities and numerous discounts. The place of work is located in Bulle, surrounded by the wonderful nature of the Gruyère region. Plan your personal and professional development together with us. In order to guarantee a fair application process, we unfortunately cannot accept applications by post or e-mail. Have we aroused your interest? Then we look forward to your online application. For any questions, please contact Romain GROGNUZ. One passion. Many opportunities. Liebherr Machines Bulle SA is the centre of excellence for combustion engines (diesel and gas engines) and hydraulic components (axial piston pumps and motors). The company develops and manufactures various products that are used in the areas of civil engineering, mining, agriculture, decentralized energy, mechanical and plant engineering, as well as aviation. Location Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Switzerland (CH) Contact Romain GROGNUZ 026 913 31 11",
-        "de": "Aufgaben\n• Sie sind verantwortlich für die präventive und kurative Wartung von komplexen Anlagen, Maschinen oder Geräten\n• Sie übernehmen die Wartung und Instandhaltung von Montage-Robotern und Produktionsmaschinen\n• Sie stellen die Nachbereitung der jährlichen Services sicher\n• Sie wirken bei der Verbesserung von Instandhaltungsprozessen mit\n• Sie tragen zur Erstellung von Wartungsplänen, Ersatzteilen und Verbesserungsprojekten bei\n• Sie führen verschiedene Wartungsarbeiten in anderen Bereichen durch\n• Sie übernehmen Pikettdienste und arbeiten in Schichtdiensten Qualifikation\n• Sie verfügen über eine abgeschlossene Ausbildung als Automatisierungstechniker (m/w/d), Mechaniker (m/w/d) oder einen vergleichbaren Abschluss\n• Sie haben eine Fachweiterbildung in den Bereichen Mechanik, Pneumatik, Hydraulik und Grundlagen der Elektrotechnik absolviert\n• Zudem bringen Sie mehrjährige praktische Berufserfahrung in einem industriellen Umfeld mit\n• Sie verfügen über sehr gute Französischkenntnisse, Kenntnisse in Deutsch und Englisch sind von Vorteil\n• Sie sind sicher im Umgang mit MS-Office-Programmen und kennen sich idealerweise mit der Siemens-Software aus\n• Sie sind eine selbstständige, sorgfältige, verantwortungsbewusste Person, schätzen Teamarbeit und sind flexibel Unser Angebot Können wir Sie begeistern, in einem dynamischen und unabhängigen Familienunternehmen eine verantwortungsvolle Aufgabe zu übernehmen? Wir bieten Ihnen Freiräume für Ideen, einen sicheren Arbeitsplatz, fortschrittliche und familienfreundliche Anstellungsbedingungen wie flexible Arbeitszeiten, Homeoffice, Betriebsrestaurant, Weiterbildungsmöglichkeiten sowie zahlreiche Vergünstigungen. Der Arbeitsort befindet sich in Bulle, umgeben von der wunderbaren Natur der Region Gruyère. Planen Sie mit uns gemeinsam Ihre persönliche und berufliche Weiterentwicklung. Um einen fairen Bewerbungsprozess zu garantieren, können wir leider keine Bewerbungen per Post oder E-Mail entgegennehmen. Haben wir Ihr Interesse geweckt? Dann freuen wir uns über Ihre Online-Bewerbung. Bei Fragen kontaktieren Sie bitte Romain GROGNUZ. One Passion. Many Opportunities. Das Unternehmen ​ Liebherr Machines Bulle SA ist das Kompetenzzentrum für Verbrennungsmotoren (Diesel- und Gasmotoren) sowie Hydraulikkomponenten (Axialkolbenpumpen und -motoren). Das Unternehmen entwickelt und fertigt diverse Produkte, die in den Bereichen Hoch- und Tiefbau, Bergbau, Landwirtschaft, Dezentrale Energie, Maschinen- und Anlagenbau, sowie Luftfahrt zur Anwendung kommen.​ Standort Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Schweiz (CH) Kontakt Romain GROGNUZ 026 913 31 11",
-        "fr": "Les missions\n• Vous êtes responsable de la maintenance préventive et curative d’installations, de machines ou d’appareils exigeants\n• Vous gérez l'entretien et les révisions des installations robotiques de montage, des machines de production\n• Vous assurez le suivi des services annuels\n• Vous participez à l'amélioration des processus d’entretien\n• Vous participez à la définition des plans de maintenance, pièces de rechange et projets d’amélioration\n• Vous réalisez divers travaux d’entretien dans les autres secteurs\n• Vous suivez les échéances de calibration et gérez les moyens de mesure\n• Vous participez au service de piquet et travail en horaire d’équipe Profil\n• Vous êtes titulaire d'un CFC d’automaticien (h/f/x), de mécanicien (h/f/x) ou formation jugée équivalente\n• Vous avez une formation spécifique dans la mécanique, pneumatique, hydraulique ainsi que des bases en électricité\n• Vous avez une expérience professionnelle pratique de plusieurs années dans un environnement industriel\n• Vous disposez de très bonnes connaissances du français, des connaissances de l’allemand et de l’anglais sont un atout\n• Vous maitrisez les programmes MS Office et avez des connaissances du logiciel Siemens sont un atout\n• Vous êtes une personne autonome, précise, responsable, vous appréciez le travail en équipe et êtes flexible Notre offre Pouvons-nous vous motiver à endosser un rôle clé dans une entreprise familiale, dynamique et indépendante ? Nous vous encourageons à partager et à développer vos idées et vous offrons un emploi sûr, des conditions de travail modernes telles qu’un restaurant d'entreprise, des perspectives de formation continue ainsi que d’autres nombreux avantages. Le lieu de travail se situe à Bulle, dans la belle région de la Gruyère. Planifiez avec nous votre développement personnel et professionnel. Afin de garantir une procédure de candidature équitable, nous n’acceptons pas les candidatures par courrier postal ou électronique. Avons-nous suscité votre intérêt ? Si c’est le cas, nous serions ravis de recevoir votre candidature en ligne. Si vous avez des questions, veuillez contacter Romain GROGNUZ. One Passion. Many Opportunities. *Une passion commune. Tant d’opportunités. L'entreprise Liebherr Machines Bulle SA est le centre de compétences des moteurs à combustion (diesel et gaz) et composants hydrauliques. L’entreprise développe et fabrique des produits diversifiés utilisés dans le génie civil, l'exploitation minière, l'agriculture, l'énergie décentralisée, l'ingénierie mécanique et industrielle ainsi que l'aviation. ​​ Site Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Suisse (CH) Contact Romain GROGNUZ 026 913 31 11"
-      },
-      "location": "Bulle",
-      "canton": "FR",
-      "url": "https://careers.liebherr.com/job/Bulle-Technicien-de-maintenance-%28hfx%29-Automatisation/1378968533/",
-      "source": "Liebherr Dedicated Parser (jobs2web)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:33:22.348Z",
-      "addressLocality": "Bulle",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://careers.liebherr.com/job/Bulle-Technicien-de-maintenance-%28hfx%29-Automatisation/1378968533/",
-      "jobReqId": "1378968533",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Hai anche diversi anni di esperienza professionale pratica in un ambiente industriale.",
-          "Hai una buona conoscenza del francese, la conoscenza del tedesco e dell'inglese è un vantaggio"
-        ],
-        "en": [
-          "You have completed training as an automation technician (m/f/d), mechanic (m/f/d) or comparable degree",
-          "You also have several years of practical professional experience in an industrial environment.",
-          "You have very good knowledge of French, knowledge of German and English is an advantage"
-        ],
-        "de": [
-          "Sie verfügen über sehr gute Französischkenntnisse, Deutsch- und Englischkenntnisse sind von Vorteil"
-        ],
-        "fr": [
-          "Vous avez une très bonne connaissance du français, la connaissance de l'allemand et de l'anglais est un avantage"
-        ]
-      },
-      "sourceLocale": "fr_FR",
-      "liebherrSourceJobId": "81996",
-      "liebherrSourceJobReqIds": [
-        "1378968533",
-        "1378968433"
-      ],
-      "liebherrSourceJobReqIdByLocale": {
-        "fr": "1378968533",
-        "de": "1378968433"
-      },
-      "liebherrLanguageVariantKey": "source-job:81996",
-      "previousSlugsByLocale": {
-        "de": [
-          "instandhaltungstechniker-m-w-d-automatisierung-liebherr-bulle",
-          "wartungstechniker-h-w-x-automatisierung-liebherr-bulle"
-        ],
-        "it": [
-          "instandhaltungstechniker-m-w-d-automatisierung-liebherr-bulle",
-          "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle",
-          "tecnico-di-manutenzione-m-f-d-automazione-liebherr-bulle",
-          "manutenzione-tecnica-h-f-x-automazione-liebherr-bulle"
-        ],
-        "en": [
-          "maintenance-technician-m-f-d-automation-liebherr-bulle",
-          "maintenance-technician-h-f-x-automation-liebherr-bulle"
-        ],
-        "fr": [
-          "technicien-de-maintenance-m-f-d-automatisation-liebherr-bulle",
-          "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle"
-        ]
-      },
-      "previousSlugs": [
-        "automazione-tecnico-di-manutenzione-m-f-x-liebherr-bulle",
-        "instandhaltungstechniker-m-w-d-automatisierung-liebherr-bulle",
-        "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle",
-        "tecnico-di-manutenzione-m-f-d-automazione-liebherr-bulle",
-        "maintenance-technician-m-f-d-automation-liebherr-bulle",
-        "technicien-de-maintenance-m-f-d-automatisation-liebherr-bulle",
-        "wartungstechniker-h-w-x-automatisierung-liebherr-bulle",
-        "manutenzione-tecnica-h-f-x-automazione-liebherr-bulle",
-        "maintenance-technician-h-f-x-automation-liebherr-bulle"
-      ],
-      "firstSeenAt": "2026-06-10T09:03:08.400Z",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 116500,
           "unitText": "YEAR"
         }
       }
@@ -1795,7 +1654,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-Service-Techniker-Erdbewegung-Deutschschweiz-%28mw%29/1410744533/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:21.977Z",
+      "crawledAt": "2026-10-04T09:28:15.896Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1823,8 +1682,7 @@
         "sachbearbeiter-kundendienst-erdbewegung-60-80-m-w-liebherr-reiden",
         "personnel-service-a-la-clientele-mouvement-terrestre-60-80-m-f-liebherr-reiden",
         "service-techniker-erdbewegung-deutschschweiz-m-w-liebherr-reiden",
-        "service-techniker-erdbewegung-deutschschweiz-m-w-d-liebherr-reiden",
-        "tecnico-di-servizio-movimento-terra-liebherr-reiden"
+        "service-techniker-erdbewegung-deutschschweiz-m-w-d-liebherr-reiden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1835,8 +1693,7 @@
           "sachbearbeiter-kundendienst-erdbewegung-60-80-m-w-liebherr-reiden",
           "personnel-service-a-la-clientele-mouvement-terrestre-60-80-m-f-liebherr-reiden",
           "service-techniker-erdbewegung-deutschschweiz-m-w-liebherr-reiden",
-          "service-techniker-erdbewegung-deutschschweiz-m-w-d-liebherr-reiden",
-          "tecnico-di-servizio-movimento-terra-liebherr-reiden"
+          "service-techniker-erdbewegung-deutschschweiz-m-w-d-liebherr-reiden"
         ],
         "en": [
           "personnel-customer-service-earth-movement-60-80-m-f-liebherr-reiden"
@@ -1895,7 +1752,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-Service-Techniker-Erdbewegung-Nordostschweiz-%28mw%29/1410744933/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:21.563Z",
+      "crawledAt": "2026-10-04T09:28:15.358Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1926,8 +1783,7 @@
           "service-techniker-erdbewegung-nordostschweiz-m-w-d-liebherr-reiden"
         ],
         "fr": [
-          "service-techniker-erdbewegung-nordostschweiz-m-w-d-liebherr-reiden",
-          "technicien-des-services-mouvement-terrestre-au-nord-est-de-la-suisse-m-f-liebherr-reiden"
+          "service-techniker-erdbewegung-nordostschweiz-m-w-d-liebherr-reiden"
         ]
       },
       "salaryMin": 78500,
@@ -1976,7 +1832,7 @@
       "url": "https://careers.liebherr.com/job/Daillens-M%C3%A9canicien-machines-de-chantier-terrassement/1405116533/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:33:21.180Z",
+      "crawledAt": "2026-10-04T09:28:17.722Z",
       "addressLocality": "Daillens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1999,25 +1855,19 @@
       "previousSlugs": [
         "macchinari-meccanizzati-liebherr-daillens",
         "mechanic-earthworks-machinery-liebherr-daillens",
-        "erdbewegungsmechaniker-fur-baumaschinen-liebherr-daillens",
         "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
-        "meccanico-per-macchinari-da-costruzione-per-movimenti-terra-liebherr-daillens",
-        "earthmoving-construction-machinery-mechanic-liebherr-daillens",
         "maschinen-fur-mechanische-erdarbeiten-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "macchinari-meccanizzati-liebherr-daillens",
-          "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
-          "meccanico-per-macchinari-da-costruzione-per-movimenti-terra-liebherr-daillens"
+          "mecanicien-machines-de-chantier-terrassement-liebherr-daillens"
         ],
         "en": [
           "mechanic-earthworks-machinery-liebherr-daillens",
-          "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
-          "earthmoving-construction-machinery-mechanic-liebherr-daillens"
+          "mecanicien-machines-de-chantier-terrassement-liebherr-daillens"
         ],
         "de": [
-          "erdbewegungsmechaniker-fur-baumaschinen-liebherr-daillens",
           "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
           "maschinen-fur-mechanische-erdarbeiten-liebherr-daillens"
         ]
@@ -2068,7 +1918,7 @@
       "url": "https://careers.liebherr.com/job/Nussbaumen-Junior-Group-Controller-%28mwd%29-100/1418804833/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:20.777Z",
+      "crawledAt": "2026-10-04T09:28:25.222Z",
       "addressLocality": "Nussbaumen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2134,7 +1984,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Apprenti-Dessinateur-Constructeur-industriel-%28hfx%29-Rentr%C3%A9e-2027/1437480233/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:33:20.385Z",
+      "crawledAt": "2026-10-04T09:28:19.364Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2153,7 +2003,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "fr_FR",
       "liebherrSourceJobId": "84540",
-      "needsRetranslation": true,
       "previousSlugs": [
         "apprenti-dessinateur-constructeur-industriel-h-f-x-rentree-2027-liebherr-bulle"
       ],
@@ -2168,6 +2017,8 @@
           "apprenti-dessinateur-constructeur-industriel-h-f-x-rentree-2027-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:15:09.719Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2180,8 +2031,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T23:15:09.719Z"
+      }
     },
     {
       "id": "liebherr-bfbe99e2e4d1",
@@ -2214,7 +2064,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-Service-Techniker-Autokrane-%28mw%29/1413840133/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:20.008Z",
+      "crawledAt": "2026-10-04T09:28:24.436Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2233,7 +2083,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "de_DE",
       "liebherrSourceJobId": "83600",
-      "needsRetranslation": true,
       "previousSlugs": [
         "service-techniker-autokrane-mobilbaukrane-m-w-liebherr-reiden",
         "service-techniker-autokrane-m-w-liebherr-reiden"
@@ -2253,6 +2102,8 @@
           "service-techniker-autokrane-mobilbaukrane-m-w-liebherr-reiden"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-10T22:51:24.600Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2265,8 +2116,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-10T22:51:24.600Z"
+      }
     },
     {
       "id": "liebherr-250751af3911",
@@ -2299,7 +2149,7 @@
       "url": "https://careers.liebherr.com/job/Daillens-Conseiller-technique-SAV-terrassement-%28hf%29/1428742133/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:33:18.798Z",
+      "crawledAt": "2026-10-04T09:28:19.622Z",
       "addressLocality": "Daillens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2318,7 +2168,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "fr_FR",
       "liebherrSourceJobId": "84237",
-      "needsRetranslation": true,
       "previousSlugs": [
         "conseiller-technique-sav-terrassement-h-f-liebherr-daillens"
       ],
@@ -2333,6 +2182,8 @@
           "conseiller-technique-sav-terrassement-h-f-liebherr-daillens"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-21T21:29:41.392Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -2345,8 +2196,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-21T21:29:41.392Z"
+      }
     },
     {
       "id": "liebherr-9fd164dae401",
@@ -2379,7 +2229,7 @@
       "url": "https://careers.liebherr.com/job/Nussbaumen-Werkstudent-Human-Resources-%28mwd%29-befristet-f%C3%BCr-6-Monate/1442884633/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:18.422Z",
+      "crawledAt": "2026-10-04T09:28:16.707Z",
       "addressLocality": "Nussbaumen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2398,7 +2248,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "de_DE",
       "liebherrSourceJobId": "84863",
-      "needsRetranslation": true,
       "previousSlugs": [
         "werkstudent-human-resources-m-w-d-befristet-fur-6-monate-liebherr-nussbaumen"
       ],
@@ -2413,6 +2262,8 @@
           "werkstudent-human-resources-m-w-d-befristet-fur-6-monate-liebherr-nussbaumen"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-30T21:39:02.913Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2425,8 +2276,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-30T21:39:02.913Z"
+      }
     },
     {
       "id": "liebherr-6b67210584f0",
@@ -2459,7 +2309,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-Service-Techniker-Mobilbaukrane-%28mw%29/1415091533/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:17.630Z",
+      "crawledAt": "2026-10-04T09:28:24.128Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2488,9 +2338,7 @@
         "gru-a-torre-di-servizio-m-f-liebherr-reiden",
         "grues-a-tour-de-location-et-de-service-m-f-liebherr-reiden",
         "service-techniker-mobilbaukrane-m-w-liebherr-reiden",
-        "service-techniker-mobilbaukrane-m-w-d-liebherr-reiden",
-        "tecnico-di-servizio-gru-da-costruzione-mobili-m-w-liebherr-reiden",
-        "technicien-des-services-grues-mobiles-de-construction-m-m-liebherr-reiden"
+        "service-techniker-mobilbaukrane-m-w-d-liebherr-reiden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2513,8 +2361,7 @@
         "fr": [
           "grues-a-tour-de-technicien-de-service-m-p-liebherr-reiden",
           "service-techniker-mobilbaukrane-m-w-liebherr-reiden",
-          "service-techniker-mobilbaukrane-m-w-d-liebherr-reiden",
-          "technicien-des-services-grues-mobiles-de-construction-m-m-liebherr-reiden"
+          "service-techniker-mobilbaukrane-m-w-d-liebherr-reiden"
         ]
       },
       "salaryMin": 78500,
@@ -2563,7 +2410,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Head-of-Data-Security-%28mwd%29/1181280201/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:16.492Z",
+      "crawledAt": "2026-10-04T09:28:15.094Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2596,6 +2443,7 @@
           "responsable-data-security-m-w-d-liebherr-bulle"
         ]
       },
+      "firstSeenAt": "2026-06-10T09:03:08.373Z",
       "salaryMin": 113000,
       "salaryMax": 192000,
       "salarySource": "estimated",
@@ -2608,8 +2456,7 @@
           "maxValue": 192000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-10T09:03:08.373Z"
+      }
     },
     {
       "id": "liebherr-7db5e3d3b09c",
@@ -2642,7 +2489,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-Service-Techniker-Fahrmischer-und-Betonpumpen-%28mw%29/1199107401/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:16.113Z",
+      "crawledAt": "2026-10-04T09:28:14.792Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2722,7 +2569,7 @@
       "url": "https://careers.liebherr.com/job/Daillens-Apprenti%28e%29-m%C3%A9canicien%28ne%29-en-machines-de-chantier-CFC-%28hf%29-2027/1405576533/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:33:15.670Z",
+      "crawledAt": "2026-10-04T09:28:14.522Z",
       "addressLocality": "Daillens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2749,6 +2596,7 @@
           "apprenti-e-mecanicien-ne-en-machines-de-chantier-cfc-h-f-2027-liebherr-daillens"
         ]
       },
+      "firstSeenAt": "2026-06-17T13:11:29.329Z",
       "salaryMin": 49000,
       "salaryMax": 74500,
       "salarySource": "estimated",
@@ -2761,8 +2609,7 @@
           "maxValue": 74500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-17T13:11:29.329Z"
+      }
     },
     {
       "id": "liebherr-a83c82c9f347",
@@ -2795,7 +2642,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-Baumaschinenmechaniker-Erdbewegung-%28mw%29/1403394233/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:15.277Z",
+      "crawledAt": "2026-10-04T09:28:14.253Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2823,12 +2670,10 @@
           "baumaschinenmechaniker-erdbewegung-m-w-liebherr-reiden"
         ],
         "en": [
-          "baumaschinenmechaniker-erdbewegung-m-w-d-liebherr-reiden",
-          "construction-machinery-mechanic-earth-movement-m-w-liebherr-reiden"
+          "baumaschinenmechaniker-erdbewegung-m-w-d-liebherr-reiden"
         ],
         "fr": [
-          "baumaschinenmechaniker-erdbewegung-m-w-d-liebherr-reiden",
-          "mecanicien-de-la-construction-mouvement-terrestre-m-p-liebherr-reiden"
+          "baumaschinenmechaniker-erdbewegung-m-w-d-liebherr-reiden"
         ]
       },
       "salaryMin": 69500,
@@ -2877,7 +2722,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Engine-Remanufacturing-Design-Engineer-%28mfx%29/1395958433/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:14.880Z",
+      "crawledAt": "2026-10-04T09:28:13.964Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2896,7 +2741,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "en_US",
       "liebherrSourceJobId": "82763",
-      "needsRetranslation": true,
       "previousSlugs": [
         "engine-remanufacturing-design-engineer-m-f-x-liebherr-bulle",
         "engine-remanufacturing-design-ingenieur-m-w-d-liebherr-bulle"
@@ -2909,6 +2753,8 @@
           "engine-remanufacturing-design-ingenieur-m-w-d-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.368Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -2921,8 +2767,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-10T09:03:08.368Z"
+      }
     },
     {
       "id": "liebherr-f1624eb2ba35",
@@ -2955,7 +2800,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-Mechaniker-Betontechnik-Fahrmischer-%28mw%29/1016496201/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:14.449Z",
+      "crawledAt": "2026-10-04T09:28:13.701Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2978,25 +2823,19 @@
       "previousSlugs": [
         "mecanicien-genie-du-beton-melangeur-de-camions-m-p-liebherr-reiden",
         "mechaniker-betontechnik-fahrmischer-m-w-liebherr-reiden",
-        "mechaniker-betontechnik-fahrmischer-m-w-d-liebherr-reiden",
-        "meccanico-di-ingegneria-del-calcestruzzo-miscelatore-del-camion-m-w-liebherr-reiden",
-        "mechanic-concrete-engineering-truck-mixer-m-w-liebherr-reiden",
-        "mecanique-genie-du-beton-melangeur-de-camion-m-p-liebherr-reiden"
+        "mechaniker-betontechnik-fahrmischer-m-w-d-liebherr-reiden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mechaniker-betontechnik-fahrmischer-m-w-liebherr-reiden",
-          "mechaniker-betontechnik-fahrmischer-m-w-d-liebherr-reiden",
-          "meccanico-di-ingegneria-del-calcestruzzo-miscelatore-del-camion-m-w-liebherr-reiden"
+          "mechaniker-betontechnik-fahrmischer-m-w-d-liebherr-reiden"
         ],
         "fr": [
           "mecanicien-genie-du-beton-melangeur-de-camions-m-p-liebherr-reiden",
-          "mechaniker-betontechnik-fahrmischer-m-w-d-liebherr-reiden",
-          "mecanique-genie-du-beton-melangeur-de-camion-m-p-liebherr-reiden"
+          "mechaniker-betontechnik-fahrmischer-m-w-d-liebherr-reiden"
         ],
         "en": [
-          "mechaniker-betontechnik-fahrmischer-m-w-d-liebherr-reiden",
-          "mechanic-concrete-engineering-truck-mixer-m-w-liebherr-reiden"
+          "mechaniker-betontechnik-fahrmischer-m-w-d-liebherr-reiden"
         ]
       },
       "salaryMin": 69500,
@@ -3045,7 +2884,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Head-of-Product-Security-%28mwd%29/1285185201/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:14.037Z",
+      "crawledAt": "2026-10-04T09:28:13.451Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3064,7 +2903,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "en_US",
       "liebherrSourceJobId": "80929",
-      "needsRetranslation": true,
       "previousSlugs": [
         "responsabile-product-security-m-w-d-liebherr-bulle",
         "head-of-product-security-m-w-d-liebherr-bulle",
@@ -3079,6 +2917,8 @@
           "responsable-product-security-m-w-d-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.378Z",
       "salaryMin": 113000,
       "salaryMax": 192000,
       "salarySource": "estimated",
@@ -3091,8 +2931,7 @@
           "maxValue": 192000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-10T09:03:08.378Z"
+      }
     },
     {
       "id": "liebherr-5028cdbe91bf",
@@ -3125,7 +2964,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-ElektrikerService-Techniker-Betontechnik-%28mw%29/1218775701/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:13.616Z",
+      "crawledAt": "2026-10-04T09:28:13.158Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3147,14 +2986,12 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "elektriker-service-techniker-betontechnik-m-w-liebherr-reiden",
-        "elektriker-service-techniker-betontechnik-m-w-d-liebherr-reiden",
-        "tecnico-elettrico-servizio-tecnologia-di-cemento-m-f-liebherr-reiden"
+        "elektriker-service-techniker-betontechnik-m-w-d-liebherr-reiden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "elektriker-service-techniker-betontechnik-m-w-liebherr-reiden",
-          "elektriker-service-techniker-betontechnik-m-w-d-liebherr-reiden",
-          "tecnico-elettrico-servizio-tecnologia-di-cemento-m-f-liebherr-reiden"
+          "elektriker-service-techniker-betontechnik-m-w-d-liebherr-reiden"
         ]
       },
       "salaryMin": 78500,
@@ -3203,7 +3040,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Ing%C3%A9nieur-Process-%28hfx%29-Methods-Time-Measurement/1203700001/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:33:13.234Z",
+      "crawledAt": "2026-10-04T09:28:12.875Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3229,9 +3066,7 @@
         "entwicklungsingenieur-m-w-x-liebherr-bulle",
         "ingenieur-en-developpement-l-mer-x-liebherr-bulle",
         "ingenieur-process-h-f-x-methods-time-measurement-liebherr-bulle",
-        "ingenieur-process-m-w-d-methods-time-measurement-liebherr-bulle",
-        "ingegnere-di-processo-h-f-x-liebherr-bulle",
-        "prozessingenieur-h-f-x-methode-zeit-messung-liebherr-bulle"
+        "ingenieur-process-m-w-d-methods-time-measurement-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3240,16 +3075,14 @@
           "entwicklungsingenieur-m-w-x-liebherr-bulle",
           "ingenieur-en-developpement-l-mer-x-liebherr-bulle",
           "ingenieur-process-h-f-x-methods-time-measurement-liebherr-bulle",
-          "ingenieur-process-m-w-d-methods-time-measurement-liebherr-bulle",
-          "ingegnere-di-processo-h-f-x-liebherr-bulle"
+          "ingenieur-process-m-w-d-methods-time-measurement-liebherr-bulle"
         ],
         "en": [
           "development-engineer-m-w-x-liebherr-bulle"
         ],
         "de": [
           "entwicklungsingenieur-m-w-x-liebherr-bulle",
-          "ingenieur-process-m-w-d-methods-time-measurement-liebherr-bulle",
-          "prozessingenieur-h-f-x-methode-zeit-messung-liebherr-bulle"
+          "ingenieur-process-m-w-d-methods-time-measurement-liebherr-bulle"
         ],
         "fr": [
           "ingenieur-en-developpement-l-mer-x-liebherr-bulle"
@@ -3301,7 +3134,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Control-Systems-Engineer-%28mfx%29/1395958333/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:12.825Z",
+      "crawledAt": "2026-10-04T09:28:12.606Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3320,7 +3153,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "en_US",
       "liebherrSourceJobId": "82764",
-      "needsRetranslation": true,
       "previousSlugs": [
         "control-systems-ingegnere-m-f-x-liebherr-bulle",
         "control-systems-ingenieur-m-f-x-liebherr-bulle",
@@ -3339,6 +3171,8 @@
           "control-systems-ingenieur-m-f-x-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.368Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -3351,8 +3185,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-10T09:03:08.368Z"
+      }
     },
     {
       "id": "liebherr-75b9ee526cec",
@@ -3385,7 +3218,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-Lehrstelle-Kauffrau-mann-EFZ/1399769033/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:12.436Z",
+      "crawledAt": "2026-10-04T09:28:12.313Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3404,7 +3237,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "de_DE",
       "liebherrSourceJobId": "82929",
-      "needsRetranslation": true,
       "previousSlugs": [
         "lehrstelle-kauffrau-mann-efz-liebherr-reiden"
       ],
@@ -3413,6 +3245,8 @@
           "lehrstelle-kauffrau-mann-efz-liebherr-reiden"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.418Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -3425,8 +3259,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-10T09:03:08.418Z"
+      }
     },
     {
       "id": "liebherr-674a52c00910",
@@ -3459,7 +3292,7 @@
       "url": "https://careers.liebherr.com/job/Reiden-Initialbewerbung-Liebherr-Baumaschinen-AG/1399715933/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:33:11.648Z",
+      "crawledAt": "2026-10-04T09:28:11.752Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3530,8 +3363,8 @@
       "id": "liebherr-be2c769e14fa",
       "slug": "group-internal-auditor-m-f-d-liebherr-nussbaumen",
       "slugByLocale": {
-        "en": "group-internal-auditor-m-f-d-liebherr-nussbaumen",
         "it": "group-internal-auditor-m-f-d-liebherr-nussbaumen",
+        "en": "group-internal-auditor-m-f-d-liebherr-nussbaumen",
         "de": "group-internal-auditor-m-f-d-liebherr-nussbaumen",
         "fr": "group-internal-auditor-m-f-d-liebherr-nussbaumen"
       },
@@ -3540,16 +3373,16 @@
       "companyDomain": "liebherr.com",
       "title": "Group Internal Auditor (m/f/d)",
       "titleByLocale": {
+        "it": "Group Internal Auditor (m/f/d)",
         "en": "Group Internal Auditor (m/f/d)",
         "de": "Group Internal Auditor (m/w/d)",
-        "it": "Group Internal Auditor (m/f/d)",
         "fr": "Group Internal Auditor (m/f/d)"
       },
       "description": "Liebherr-International AG, headquartered in Nussbaumen, Switzerland, is the holding company of the Liebherr Group. It performs group-wide functions in the areas of Finance, Compliance, Human Resources, Legal Affairs, Internal Audit, Corporate Communications, and Insurance. Responsibilities:\n• Planning and conducting operational, financial, and compliance audits at domestic and international group companies.\n• Analyzing, evaluating, and optimizing business processes, as well as developing practical recommendations for improvement.\n• Following up on audit findings and monitoring the implementation of agreed corrective actions.\n• Advising group companies on matters related to Internal Control Systems (ICS), Corporate Governance, and Compliance.\n• Analyzing and evaluating financial and management reporting of group companies.\n• Preparing clear, concise, and audience-focused audit reports and presenting audit results to management. Your Profile:\n• A successfully completed degree in Economics, Business Administration, or a comparable field from a university or university of applied sciences.\n• At least three years of professional experience in internal auditing, external auditing, public accounting, or a comparable environment.\n• Willingness to obtain the Certified Internal Auditor (CIA) qualification or an equivalent professional certification.\n• Strong affinity for information technology, as well as an interest in data-driven audit approaches and digital technologies.\n• Solid understanding of business processes and economic principles, combined with strong analytical thinking skills.\n• A self-reliant, structured, and solution-oriented approach to work.\n• Excellent communication and teamwork skills, with the confidence to operate effectively in an international environment.\n• Fluency in German and English, both written and spoken; additional languages are advantageous.\n• Willingness to undertake international business travel of approximately 30%. Our Offer:\n• Diverse and responsible tasks within an international corporate environment.\n• Direct collaboration with management and business functions across the globe.\n• Comprehensive insights into a wide range of business processes and companies within the Liebherr Group.\n• Individual training and development opportunities, particularly in the fields of Internal Audit, Governance, and Risk Management.\n• Attractive employment conditions and flexible working arrangements. Become part of our team and actively contribute to the further development of governance, risk management, and internal control systems across the global Liebherr Group. Have we awoken your interest? Then we look forward to receiving your online application. If you have any questions, please contact Jeton Tahiri. One Passion. Many Opportunities. The company Liebherr-International AG with its head office in Bulle is the holding company of the Liebherr Group and performs various functions in the areas finance, tax, auditing, legal, insurance, HR, and corporate communication. The Liebherr Group employs more than 55,000 people worldwide in over 150 countries. Location Liebherr-International AG General-Guisanstrasse 6 5415 Nussbaumen Switzerland (CH) Contact Jeton Tahiri jeton.tahiri@liebherr.com",
       "descriptionByLocale": {
+        "it": "Liebherr-International AG, headquartered in Nussbaumen, Switzerland, is the holding company of the Liebherr Group. It performs group-wide functions in the areas of Finance, Compliance, Human Resources, Legal Affairs, Internal Audit, Corporate Communications, and Insurance. Responsibilities:\n• Planning and conducting operational, financial, and compliance audits at domestic and international group companies.\n• Analyzing, evaluating, and optimizing business processes, as well as developing practical recommendations for improvement.\n• Following up on audit findings and monitoring the implementation of agreed corrective actions.\n• Advising group companies on matters related to Internal Control Systems (ICS), Corporate Governance, and Compliance.\n• Analyzing and evaluating financial and management reporting of group companies.\n• Preparing clear, concise, and audience-focused audit reports and presenting audit results to management. Your Profile:\n• A successfully completed degree in Economics, Business Administration, or a comparable field from a university or university of applied sciences.\n• At least three years of professional experience in internal auditing, external auditing, public accounting, or a comparable environment.\n• Willingness to obtain the Certified Internal Auditor (CIA) qualification or an equivalent professional certification.\n• Strong affinity for information technology, as well as an interest in data-driven audit approaches and digital technologies.\n• Solid understanding of business processes and economic principles, combined with strong analytical thinking skills.\n• A self-reliant, structured, and solution-oriented approach to work.\n• Excellent communication and teamwork skills, with the confidence to operate effectively in an international environment.\n• Fluency in German and English, both written and spoken; additional languages are advantageous.\n• Willingness to undertake international business travel of approximately 30%. Our Offer:\n• Diverse and responsible tasks within an international corporate environment.\n• Direct collaboration with management and business functions across the globe.\n• Comprehensive insights into a wide range of business processes and companies within the Liebherr Group.\n• Individual training and development opportunities, particularly in the fields of Internal Audit, Governance, and Risk Management.\n• Attractive employment conditions and flexible working arrangements. Become part of our team and actively contribute to the further development of governance, risk management, and internal control systems across the global Liebherr Group. Have we awoken your interest? Then we look forward to receiving your online application. If you have any questions, please contact Jeton Tahiri. One Passion. Many Opportunities. The company Liebherr-International AG with its head office in Bulle is the holding company of the Liebherr Group and performs various functions in the areas finance, tax, auditing, legal, insurance, HR, and corporate communication. The Liebherr Group employs more than 55,000 people worldwide in over 150 countries. Location Liebherr-International AG General-Guisanstrasse 6 5415 Nussbaumen Switzerland (CH) Contact Jeton Tahiri jeton.tahiri@liebherr.com",
         "en": "Liebherr-International AG, headquartered in Nussbaumen, Switzerland, is the holding company of the Liebherr Group. It performs group-wide functions in the areas of Finance, Compliance, Human Resources, Legal Affairs, Internal Audit, Corporate Communications, and Insurance. Responsibilities:\n• Planning and conducting operational, financial, and compliance audits at domestic and international group companies.\n• Analyzing, evaluating, and optimizing business processes, as well as developing practical recommendations for improvement.\n• Following up on audit findings and monitoring the implementation of agreed corrective actions.\n• Advising group companies on matters related to Internal Control Systems (ICS), Corporate Governance, and Compliance.\n• Analyzing and evaluating financial and management reporting of group companies.\n• Preparing clear, concise, and audience-focused audit reports and presenting audit results to management. Your Profile:\n• A successfully completed degree in Economics, Business Administration, or a comparable field from a university or university of applied sciences.\n• At least three years of professional experience in internal auditing, external auditing, public accounting, or a comparable environment.\n• Willingness to obtain the Certified Internal Auditor (CIA) qualification or an equivalent professional certification.\n• Strong affinity for information technology, as well as an interest in data-driven audit approaches and digital technologies.\n• Solid understanding of business processes and economic principles, combined with strong analytical thinking skills.\n• A self-reliant, structured, and solution-oriented approach to work.\n• Excellent communication and teamwork skills, with the confidence to operate effectively in an international environment.\n• Fluency in German and English, both written and spoken; additional languages are advantageous.\n• Willingness to undertake international business travel of approximately 30%. Our Offer:\n• Diverse and responsible tasks within an international corporate environment.\n• Direct collaboration with management and business functions across the globe.\n• Comprehensive insights into a wide range of business processes and companies within the Liebherr Group.\n• Individual training and development opportunities, particularly in the fields of Internal Audit, Governance, and Risk Management.\n• Attractive employment conditions and flexible working arrangements. Become part of our team and actively contribute to the further development of governance, risk management, and internal control systems across the global Liebherr Group. Have we awoken your interest? Then we look forward to receiving your online application. If you have any questions, please contact Jeton Tahiri. One Passion. Many Opportunities. The company Liebherr-International AG with its head office in Bulle is the holding company of the Liebherr Group and performs various functions in the areas finance, tax, auditing, legal, insurance, HR, and corporate communication. The Liebherr Group employs more than 55,000 people worldwide in over 150 countries. Location Liebherr-International AG General-Guisanstrasse 6 5415 Nussbaumen Switzerland (CH) Contact Jeton Tahiri jeton.tahiri@liebherr.com",
         "de": "Als Group Internal Auditor unterstützen Sie die Weiterentwicklung der Governance-, Risikomanagement- und Kontrollstrukturen innerhalb der internationalen Liebherr-Gruppe. Dabei erwarten Sie abwechslungsreiche Prüfungs- und Beratungsaufgaben in einem globalen Umfeld. Aufgaben:\n• Planung und Durchführung von Prozess-, Finanz- und Compliance-Prüfungen bei nationalen und internationalen Konzerngesellschaften\n• Analyse, Beurteilung und Optimierung von Geschäftsprozessen sowie Erarbeitung praxisorientierter Verbesserungsvorschläge\n• Nachverfolgung und Überwachung der Umsetzung vereinbarter Massnahmen\n• Beratung der Gesellschaften in den Bereichen Internes Kontrollsystem (IKS), Corporate Governance und Compliance\n• Analyse und Bewertung von Finanz- und Managementreportings der Konzerngesellschaften\n• Erstellung adressatengerechter Revisionsberichte und Präsentation der Prüfungsergebnisse gegenüber dem Management Qualifikationen\n• Erfolgreich abgeschlossenes Studium der Wirtschaftswissenschaften, Betriebsökonomie oder eines vergleichbaren Studiengangs an einer Universität oder Fachhochschule\n• Mindestens drei Jahre Berufserfahrung in der internen oder externen Revision, Wirtschaftsprüfung oder einem vergleichbaren Umfeld\n• Bereitschaft, die Ausbildung zum Certified Internal Auditor (CIA) zu absolvieren bzw. eine entsprechende Qualifikation zu erwerben\n• Ausgeprägte IT-Affinität sowie Interesse an datenbasierten Prüfungsansätzen und digitalen Technologien\n• Fundiertes Verständnis betriebswirtschaftlicher Zusammenhänge sowie analytisches Denkvermögen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Hohe Kommunikations- und Teamfähigkeit sowie sicheres Auftreten im internationalen Umfeld\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift; weitere Fremdsprachen sind von Vorteil\n• Bereitschaft zu internationalen Dienstreisen von rund 30 % Unser Angebot\n• Vielfältige und verantwortungsvolle Aufgaben in einem internationalen Konzernumfeld\n• Direkte Zusammenarbeit mit Management und Fachbereichen weltweit\n• Umfassende Einblicke in unterschiedliche Geschäftsprozesse und Gesellschaften der Liebherr-Gruppe\n• Individuelle Weiterbildungs- und Entwicklungsmöglichkeiten, insbesondere im Bereich Internal Audit und Governance\n• Attraktive Anstellungsbedingungen und flexible Arbeitsmodelle Werden Sie Teil unseres Teams und tragen Sie aktiv zur Weiterentwicklung von Governance, Risikomanagement und internen Kontrollsystemen innerhalb der globalen Liebherr-Gruppe bei. Haben wir Ihr Interesse geweckt? Dann freuen wir uns über Ihre Online-Bewerbung. Bei Fragen kontaktieren Sie bitte Jeton Tahiri. One Passion. Many Opportunities. Das Unternehmen ​ Die Liebherr-International AG mit Sitz in Bulle ist die Dachgesellschaft der Firmengruppe Liebherr und nimmt vielfältige Funktionen in den Bereichen Finanzen, Steuern, Revision, Recht, Versicherungswesen, Personal und Unternehmenskommunikation wahr. Die Firmengruppe Liebherr beschäftigt weltweit mehr als 55.000 Mitarbeitende in über 150 Gesellschaften. Standort Liebherr-International AG General-Guisanstrasse 6 5415 Nussbaumen Schweiz (CH) Kontakt Jeton Tahiri jeton.tahiri@liebherr.com",
-        "it": "Liebherr-International AG, headquartered in Nussbaumen, Switzerland, is the holding company of the Liebherr Group. It performs group-wide functions in the areas of Finance, Compliance, Human Resources, Legal Affairs, Internal Audit, Corporate Communications, and Insurance. Responsibilities:\n• Planning and conducting operational, financial, and compliance audits at domestic and international group companies.\n• Analyzing, evaluating, and optimizing business processes, as well as developing practical recommendations for improvement.\n• Following up on audit findings and monitoring the implementation of agreed corrective actions.\n• Advising group companies on matters related to Internal Control Systems (ICS), Corporate Governance, and Compliance.\n• Analyzing and evaluating financial and management reporting of group companies.\n• Preparing clear, concise, and audience-focused audit reports and presenting audit results to management. Your Profile:\n• A successfully completed degree in Economics, Business Administration, or a comparable field from a university or university of applied sciences.\n• At least three years of professional experience in internal auditing, external auditing, public accounting, or a comparable environment.\n• Willingness to obtain the Certified Internal Auditor (CIA) qualification or an equivalent professional certification.\n• Strong affinity for information technology, as well as an interest in data-driven audit approaches and digital technologies.\n• Solid understanding of business processes and economic principles, combined with strong analytical thinking skills.\n• A self-reliant, structured, and solution-oriented approach to work.\n• Excellent communication and teamwork skills, with the confidence to operate effectively in an international environment.\n• Fluency in German and English, both written and spoken; additional languages are advantageous.\n• Willingness to undertake international business travel of approximately 30%. Our Offer:\n• Diverse and responsible tasks within an international corporate environment.\n• Direct collaboration with management and business functions across the globe.\n• Comprehensive insights into a wide range of business processes and companies within the Liebherr Group.\n• Individual training and development opportunities, particularly in the fields of Internal Audit, Governance, and Risk Management.\n• Attractive employment conditions and flexible working arrangements. Become part of our team and actively contribute to the further development of governance, risk management, and internal control systems across the global Liebherr Group. Have we awoken your interest? Then we look forward to receiving your online application. If you have any questions, please contact Jeton Tahiri. One Passion. Many Opportunities. The company Liebherr-International AG with its head office in Bulle is the holding company of the Liebherr Group and performs various functions in the areas finance, tax, auditing, legal, insurance, HR, and corporate communication. The Liebherr Group employs more than 55,000 people worldwide in over 150 countries. Location Liebherr-International AG General-Guisanstrasse 6 5415 Nussbaumen Switzerland (CH) Contact Jeton Tahiri jeton.tahiri@liebherr.com",
         "fr": "Liebherr-International AG, headquartered in Nussbaumen, Switzerland, is the holding company of the Liebherr Group. It performs group-wide functions in the areas of Finance, Compliance, Human Resources, Legal Affairs, Internal Audit, Corporate Communications, and Insurance. Responsibilities:\n• Planning and conducting operational, financial, and compliance audits at domestic and international group companies.\n• Analyzing, evaluating, and optimizing business processes, as well as developing practical recommendations for improvement.\n• Following up on audit findings and monitoring the implementation of agreed corrective actions.\n• Advising group companies on matters related to Internal Control Systems (ICS), Corporate Governance, and Compliance.\n• Analyzing and evaluating financial and management reporting of group companies.\n• Preparing clear, concise, and audience-focused audit reports and presenting audit results to management. Your Profile:\n• A successfully completed degree in Economics, Business Administration, or a comparable field from a university or university of applied sciences.\n• At least three years of professional experience in internal auditing, external auditing, public accounting, or a comparable environment.\n• Willingness to obtain the Certified Internal Auditor (CIA) qualification or an equivalent professional certification.\n• Strong affinity for information technology, as well as an interest in data-driven audit approaches and digital technologies.\n• Solid understanding of business processes and economic principles, combined with strong analytical thinking skills.\n• A self-reliant, structured, and solution-oriented approach to work.\n• Excellent communication and teamwork skills, with the confidence to operate effectively in an international environment.\n• Fluency in German and English, both written and spoken; additional languages are advantageous.\n• Willingness to undertake international business travel of approximately 30%. Our Offer:\n• Diverse and responsible tasks within an international corporate environment.\n• Direct collaboration with management and business functions across the globe.\n• Comprehensive insights into a wide range of business processes and companies within the Liebherr Group.\n• Individual training and development opportunities, particularly in the fields of Internal Audit, Governance, and Risk Management.\n• Attractive employment conditions and flexible working arrangements. Become part of our team and actively contribute to the further development of governance, risk management, and internal control systems across the global Liebherr Group. Have we awoken your interest? Then we look forward to receiving your online application. If you have any questions, please contact Jeton Tahiri. One Passion. Many Opportunities. The company Liebherr-International AG with its head office in Bulle is the holding company of the Liebherr Group and performs various functions in the areas finance, tax, auditing, legal, insurance, HR, and corporate communication. The Liebherr Group employs more than 55,000 people worldwide in over 150 countries. Location Liebherr-International AG General-Guisanstrasse 6 5415 Nussbaumen Switzerland (CH) Contact Jeton Tahiri jeton.tahiri@liebherr.com"
       },
       "location": "Nussbaumen",
@@ -3557,7 +3390,7 @@
       "url": "https://careers.liebherr.com/job/Nussbaumen-Group-Internal-Auditor-%28mfd%29/1433721733/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:11.270Z",
+      "crawledAt": "2026-10-04T09:28:09.271Z",
       "addressLocality": "Nussbaumen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3573,10 +3406,7 @@
       "applyUrl": "https://careers.liebherr.com/job/Nussbaumen-Group-Internal-Auditor-%28mfd%29/1433721733/",
       "jobReqId": "1433721733",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": [],
-        "de": []
-      },
+      "requirementsByLocale": {},
       "sourceLocale": "en_US",
       "liebherrSourceJobId": "84459",
       "liebherrSourceJobReqIds": [
@@ -3597,6 +3427,7 @@
         "group-internal-auditor-m-w-d-liebherr-nussbaumen"
       ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-24T00:11:41.284Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -3609,8 +3440,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-24T00:11:41.284Z"
+      }
     },
     {
       "id": "liebherr-50d7814bbe0c",
@@ -3643,7 +3473,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Product-Manager-Defense-%28mfx%29/1225254001/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:10.893Z",
+      "crawledAt": "2026-10-04T09:28:08.705Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3675,8 +3505,7 @@
           "gestionnaire-de-produits-defense-m-f-x-liebherr-bulle"
         ],
         "de": [
-          "product-manager-defense-m-w-d-liebherr-bulle",
-          "produktmanager-verteidigung-m-w-x-liebherr-bulle"
+          "product-manager-defense-m-w-d-liebherr-bulle"
         ]
       },
       "salaryMin": 94500,
@@ -3692,8 +3521,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T09:03:08.374Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-06-10T09:03:08.374Z"
     },
     {
       "id": "liebherr-3a31a93060ef",
@@ -3726,7 +3554,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Pricing-Analyst-Specialist-%28mfx%29/1430869433/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:10.475Z",
+      "crawledAt": "2026-10-04T09:28:07.652Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3745,7 +3573,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "en_US",
       "liebherrSourceJobId": "84308",
-      "needsRetranslation": true,
       "previousSlugs": [
         "pricing-analyst-spezialist-m-f-x-liebherr-bulle",
         "pricing-analyste-specialiste-m-f-x-liebherr-bulle",
@@ -3764,6 +3591,8 @@
           "pricing-analyst-specialist-m-f-x-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-08T13:52:43.842Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -3776,8 +3605,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-08T13:52:43.842Z"
+      }
     },
     {
       "id": "liebherr-464913ecbe0f",
@@ -3810,7 +3638,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Test-Technician-%28mwx%29/1437390233/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:10.066Z",
+      "crawledAt": "2026-10-04T09:28:06.855Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3829,7 +3657,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "en_US",
       "liebherrSourceJobId": "84592",
-      "needsRetranslation": true,
       "previousSlugs": [
         "technician-m-f-x-liebherr-bulle",
         "technician-m-w-d-liebherr-bulle",
@@ -3842,6 +3669,8 @@
           "test-technician-m-w-x-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:14:48.528Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -3854,8 +3683,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T23:14:48.528Z"
+      }
     },
     {
       "id": "liebherr-d29c2cf02ba3",
@@ -3888,7 +3716,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Commodity-Buyer-%28hfx%29-Castings/1408751533/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:09.685Z",
+      "crawledAt": "2026-10-04T09:28:06.577Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3921,13 +3749,11 @@
           "acquirente-servizi-m-f-x-getti-liebherr-bulle",
           "acheteur-commodites-h-f-x-pieces-moulees-liebherr-bulle",
           "servizi-dell-acquirente-h-f-x-liebherr-bulle",
-          "acheteur-commodites-h-f-x-pieces-de-fonderie-liebherr-bulle",
-          "acheteur-de-marchandises-h-f-x-castings-liebherr-bulle"
+          "acheteur-commodites-h-f-x-pieces-de-fonderie-liebherr-bulle"
         ],
         "en": [
           "acheteur-commodites-h-f-x-pieces-moulees-liebherr-bulle",
-          "buyer-amenities-h-f-x-cast-parts-liebherr-bulle",
-          "commodity-buyer-h-f-x-castings-liebherr-bulle"
+          "buyer-amenities-h-f-x-cast-parts-liebherr-bulle"
         ],
         "it": [
           "commodity-buyer-h-f-x-castings-liebherr-bulle",
@@ -3935,14 +3761,12 @@
           "servizi-dell-acquirente-h-f-x-liebherr-bulle",
           "acheteur-commodites-h-f-x-pieces-de-fonderie-liebherr-bulle",
           "commodity-buyer-m-w-d-fusioni-liebherr-bulle",
-          "acquirente-servizi-m-f-x-getti-liebherr-bulle",
-          "commodity-buyer-h-f-x-fusioni-liebherr-bulle"
+          "acquirente-servizi-m-f-x-getti-liebherr-bulle"
         ],
         "de": [
           "acheteur-commodites-h-f-x-pieces-moulees-liebherr-bulle",
           "warenkaufer-m-w-d-gusserzeugnisse-liebherr-bulle",
-          "ausstattung-des-kaufers-h-w-x-gussteile-liebherr-bulle",
-          "warenkaufer-h-w-x-gusserzeugnisse-liebherr-bulle"
+          "ausstattung-des-kaufers-h-w-x-gussteile-liebherr-bulle"
         ]
       },
       "previousSlugs": [
@@ -3954,10 +3778,7 @@
         "warenkaufer-m-w-d-gusserzeugnisse-liebherr-bulle",
         "buyer-amenities-h-f-x-cast-parts-liebherr-bulle",
         "commodity-buyer-m-w-d-fusioni-liebherr-bulle",
-        "ausstattung-des-kaufers-h-w-x-gussteile-liebherr-bulle",
-        "acheteur-de-marchandises-h-f-x-castings-liebherr-bulle",
-        "commodity-buyer-h-f-x-fusioni-liebherr-bulle",
-        "warenkaufer-h-w-x-gusserzeugnisse-liebherr-bulle"
+        "ausstattung-des-kaufers-h-w-x-gussteile-liebherr-bulle"
       ],
       "firstSeenAt": "2026-06-26T11:46:30.973Z",
       "salaryMin": 68500,
@@ -4005,7 +3826,7 @@
       "url": "https://careers.liebherr.com/job/Nussbaumen-Transfer-Pricing-Working-Student-%2860-80%29/1438005433/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:09.294Z",
+      "crawledAt": "2026-10-04T09:28:10.730Z",
       "addressLocality": "Nussbaumen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4105,7 +3926,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Commodity-Buyer-%28mfx%29/1440784533/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:08.877Z",
+      "crawledAt": "2026-10-04T09:28:10.442Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4124,7 +3945,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "en_US",
       "liebherrSourceJobId": "84731",
-      "needsRetranslation": true,
       "previousSlugs": [
         "commodity-buyer-m-f-x-liebherr-bulle"
       ],
@@ -4133,6 +3953,8 @@
           "commodity-buyer-m-f-x-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-24T14:54:53.500Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -4145,8 +3967,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-24T14:54:53.500Z"
+      }
     },
     {
       "id": "liebherr-4dc00ac7c2aa",
@@ -4179,7 +4000,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Product-Specialist-Aftermarket-%28mfx%29/1435318133/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:08.493Z",
+      "crawledAt": "2026-10-04T09:28:11.245Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4198,7 +4019,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "en_US",
       "liebherrSourceJobId": "84513",
-      "needsRetranslation": true,
       "previousSlugs": [
         "product-specialist-aftermarket-m-f-x-liebherr-bulle"
       ],
@@ -4213,6 +4033,8 @@
           "product-specialist-aftermarket-m-f-x-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-09T14:03:38.306Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -4225,8 +4047,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-09T14:03:38.306Z"
+      }
     },
     {
       "id": "liebherr-bc945f9a23c2",
@@ -4259,7 +4080,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Harness-Designer-%28mfx%29-Temporary-Contract/1428400133/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:08.122Z",
+      "crawledAt": "2026-10-04T09:28:09.578Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4278,7 +4099,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "en_US",
       "liebherrSourceJobId": "84199",
-      "needsRetranslation": true,
       "previousSlugs": [
         "harness-designer-m-f-x-temporary-contract-liebherr-bulle"
       ],
@@ -4293,6 +4113,8 @@
           "harness-designer-m-f-x-temporary-contract-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-20T21:32:13.231Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -4305,8 +4127,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-20T21:32:13.231Z"
+      }
     },
     {
       "id": "liebherr-68e4ed2f52c6",
@@ -4322,10 +4143,10 @@
       "companyDomain": "liebherr.com",
       "title": "Subsystem Owner Oil System (m/f/x)",
       "titleByLocale": {
-        "it": "Subsystem Owner Oil System (m/f/x)",
+        "it": "Proprietario del sottosistema Sistema olio (m/f/x)",
         "en": "Subsystem Owner Oil System (m/f/x)",
-        "de": "Subsystem Owner Oil System (m/f/x)",
-        "fr": "Subsystem Owner Oil System (m/f/x)"
+        "de": "Subsystembesitzer Ölsystem (m/w/x)",
+        "fr": "Système d'huile du propriétaire du sous-système (h/f/x)"
       },
       "description": "Your Responsibilities\n• You define the technical specifications of components to be developed and their key operating parameters\n• You work in a cross-functional team to ensure that the chosen technologies and specifications match project requirements\n• You prepare the planning of the development tasks\n• You support FMEA processes and update and follow up on internal and external engine test activities\n• You define, monitor and update DVP&Nr tasks\n• You regularly work with suppliers on technology surveys, component development, and tear-down activities\n• You are responsible for 8D troubleshooting for the concerned subsystem\n• You define maintenance requirements for the subsystem and report its development status to the platform manager\n• You report the subsystem development status and escalation topics to your line and product line management Your Profile\n• You have successfully completed a Bachelor’s or Master’s degree in Mechanical Engineering\n• You have advanced knowledge in the field of combustion engines, DVP&Nr methodology, as well as troubleshooting and problem-solving\n• You have more than 5 years of experience in engine and hardware development\n• You have experience with engine subsystems, including hydraulic, mechanical, and electrical components\n• You have an excellent command of English and good knowledge of French or German\n• You have an excellent command of MS Office\n• You define yourself as an analytical thinker with strong leadership skills. You approach your work with flexibility and resilience, while remaining mindful of cost and resources Our Offer Can we inspire you to take on a responsible position in a dynamic and independent family business? We offer you room for ideas, a secure job, modern and family-friendly employment conditions such as flexible working hours, home office, a company restaurant, training opportunities as well as many benefits. The workplace is located in Bulle, surrounded by the wonderful nature of the Gruyère region. Start planning your personal and professional development with us. In order to ensure a fair application process, we cannot accept applications by post or email. This position is subject to a background check process; the process is conducted by our partner Aequivalent. Have we awoken your interest? Then we look forward to receiving your online application. If you have any questions, please contact Anna KOMARDINA. One Passion. Many Opportunities. The company ​Liebherr Machines Bulle SA is the centre of excellence for combustion engines (diesel and gas engines) and hydraulic components (axial piston pumps and motors). The company develops and produces various products, which find their use in building construction and civil engineering, mining, agriculture, decentralised energy, machine and plant engineering, as well as aerospace. Location Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Switzerland (CH) Contact Anna KOMARDINA +41 26 913 31 11",
       "descriptionByLocale": {
@@ -4339,7 +4160,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Subsystem-Owner-Oil-System-%28mfx%29/1431600333/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:07.711Z",
+      "crawledAt": "2026-10-04T09:28:08.181Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4358,7 +4179,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "en_US",
       "liebherrSourceJobId": "84280",
-      "needsRetranslation": true,
       "previousSlugs": [
         "subsystem-owner-oil-system-m-w-x-liebherr-bulle",
         "subsystem-owner-oil-system-m-f-x-liebherr-bulle",
@@ -4381,6 +4201,8 @@
           "subsystem-owner-oil-system-m-w-d-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:40:03.075Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -4393,8 +4215,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-31T17:40:03.075Z"
+      }
     },
     {
       "id": "liebherr-e99d28b62eec",
@@ -4427,7 +4248,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Test-Engineer-%28mfx%29/1436502833/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:07.355Z",
+      "crawledAt": "2026-10-04T09:28:08.998Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4446,7 +4267,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "en_US",
       "liebherrSourceJobId": "84200",
-      "needsRetranslation": true,
       "previousSlugs": [
         "test-engineer-m-f-x-liebherr-bulle"
       ],
@@ -4461,6 +4281,8 @@
           "test-engineer-m-f-x-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:14:53.615Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -4473,8 +4295,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T23:14:53.615Z"
+      }
     },
     {
       "id": "liebherr-19dfa428bc69",
@@ -4507,7 +4328,7 @@
       "url": "https://careers.liebherr.com/job/Nussbaumen-Tagetik-Expert-Group-Consolidation-&-Planning-%28mfd%29/1418770933/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:06.980Z",
+      "crawledAt": "2026-10-04T09:28:05.897Z",
       "addressLocality": "Nussbaumen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4554,10 +4375,10 @@
       "id": "liebherr-a2ee910fd683",
       "slug": "domanda-non-richiesta-liebherr-bulle",
       "slugByLocale": {
-        "it": "domanda-non-richiesta-liebherr-bulle",
+        "it": "applicazione-speculativa-liebherr-bulle",
         "en": "speculative-application-liebherr-bulle",
-        "de": "initativbewerbung-liebherr-bulle",
-        "fr": "candidature-non-sollicitee-liebherr-bulle"
+        "de": "spekulative-anwendung-liebherr-bulle",
+        "fr": "candidature-spontanee-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -4581,7 +4402,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Speculative-application/724772001/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:06.608Z",
+      "crawledAt": "2026-10-04T09:28:07.901Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4602,8 +4423,8 @@
       "liebherrSourceJobId": "37210",
       "liebherrSourceJobReqIds": [
         "724772001",
-        "724771801",
-        "724771901"
+        "724771901",
+        "724771801"
       ],
       "liebherrSourceJobReqIdByLocale": {
         "en": "724772001",
@@ -4615,7 +4436,6 @@
         "de": [
           "spontane-anwendung-liebherr-bulle",
           "unerbetene-anwendung-liebherr-bulle",
-          "spekulative-anwendung-liebherr-bulle",
           "initativbewerbung-liebherr-bulle"
         ],
         "fr": [
@@ -4624,15 +4444,14 @@
           "unerbetene-anwendung-liebherr-bulle",
           "spontaneous-application-liebherr-bulle",
           "speculative-application-liebherr-bulle",
-          "candidature-spontanee-liebherr-bulle"
+          "candidature-non-sollicitee-liebherr-bulle"
         ],
         "en": [
           "initiativbewerbung-liebherr-bulle",
           "candidature-spontanee-liebherr-bulle",
           "spontaneous-application-liebherr-bulle",
           "applicazione-speculativa-liebherr-bulle",
-          "unsolicited-application-liebherr-bulle",
-          "speculative-application-liebherr-bulle"
+          "unsolicited-application-liebherr-bulle"
         ],
         "it": [
           "initiativebewerbung-liebherr-bulle",
@@ -4640,9 +4459,7 @@
           "applicazione-spontanea-liebherr-bulle",
           "applicazione-non-richiesta-liebherr-bulle",
           "candidature-spontanee-liebherr-bulle",
-          "speculative-application-liebherr-bulle",
-          "applicazione-speculativa-liebherr-bulle",
-          "domanda-non-richiesta-liebherr-bulle"
+          "speculative-application-liebherr-bulle"
         ]
       },
       "previousSlugs": [
@@ -4657,12 +4474,10 @@
         "unerbetene-anwendung-liebherr-bulle",
         "applicazione-speculativa-liebherr-bulle",
         "speculative-application-liebherr-bulle",
-        "spekulative-anwendung-liebherr-bulle",
         "unsolicited-application-liebherr-bulle",
-        "domanda-non-richiesta-liebherr-bulle"
+        "candidature-non-sollicitee-liebherr-bulle"
       ],
       "firstSeenAt": "2026-06-10T09:03:08.375Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -4708,7 +4523,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Data-Architect-Enterprise-Data-Catalogue-Lead-%28mwd%29/1428194533/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:06.207Z",
+      "crawledAt": "2026-10-04T09:28:07.113Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4727,7 +4542,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "en_US",
       "liebherrSourceJobId": "84205",
-      "needsRetranslation": true,
       "previousSlugs": [
         "data-architect-m-w-d-liebherr-bulle",
         "data-architect-enterprise-data-catalogue-lead-m-w-d-liebherr-bulle"
@@ -4747,6 +4561,8 @@
           "data-architect-m-w-d-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-20T09:48:57.864Z",
       "salaryMin": 113000,
       "salaryMax": 192000,
       "salarySource": "estimated",
@@ -4759,8 +4575,7 @@
           "maxValue": 192000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-20T09:48:57.864Z"
+      }
     },
     {
       "id": "liebherr-c24242f3b056",
@@ -4793,7 +4608,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Development-Engineer-Exhaust-After-Treatment-%28Temporary-Contract%2C-12-months%29-%28mwx%29/1437019333/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:05.799Z",
+      "crawledAt": "2026-10-04T09:28:07.380Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4812,7 +4627,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "en_US",
       "liebherrSourceJobId": "84249",
-      "needsRetranslation": true,
       "previousSlugs": [
         "development-engineer-exhaust-after-treatment-temporary-contract-12-months-m-w-x-liebherr",
         "development-ingenieur-exhaust-after-treatment-temporary-contract-12-months-m-w-d-liebherr-bulle"
@@ -4829,6 +4643,8 @@
           "development-engineer-exhaust-after-treatment-temporary-contract-12-months-m-w-x-liebherr"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:14:43.246Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -4841,8 +4657,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T23:14:43.246Z"
+      }
     },
     {
       "id": "liebherr-9efe85c3b4d7",
@@ -4875,7 +4690,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Gas-Engine-Specialist-%28mfx%29/1429039233/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:05.413Z",
+      "crawledAt": "2026-10-04T09:28:08.450Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4894,7 +4709,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "en_US",
       "liebherrSourceJobId": "84198",
-      "needsRetranslation": true,
       "previousSlugs": [
         "gas-engine-specialist-m-f-x-liebherr-bulle"
       ],
@@ -4909,6 +4723,8 @@
           "gas-engine-specialist-m-f-x-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:20:17.199Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -4921,8 +4737,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-24T10:20:17.199Z"
+      }
     },
     {
       "id": "liebherr-23fd81013452",
@@ -4955,7 +4770,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Product-Safety-Specialist-%28mfx%29/1435218633/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:04.984Z",
+      "crawledAt": "2026-10-04T09:28:09.846Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4974,7 +4789,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "en_US",
       "liebherrSourceJobId": "84440",
-      "needsRetranslation": true,
       "previousSlugs": [
         "product-safety-specialist-m-f-x-liebherr-bulle"
       ],
@@ -4989,6 +4803,8 @@
           "product-safety-specialist-m-f-x-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-09T14:03:37.896Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -5001,8 +4817,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-09T14:03:37.896Z"
+      }
     },
     {
       "id": "liebherr-ab478a2d512a",
@@ -5018,7 +4833,7 @@
       "companyDomain": "liebherr.com",
       "title": "Group Senior Internal Auditor (m/f/d)",
       "titleByLocale": {
-        "it": "Group Senior Internal Auditor (m/f/d)",
+        "it": "Auditore interno senior di gruppo (m/f/d)",
         "en": "Group Senior Internal Auditor (m/f/d)",
         "de": "Group Senior Internal Auditor (m/w/d)",
         "fr": "Groupe Auditeur interne principal (h/f/d)"
@@ -5035,7 +4850,7 @@
       "url": "https://careers.liebherr.com/job/Nussbaumen-Group-Senior-Internal-Auditor-%28mfd%29/1414668333/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:04.609Z",
+      "crawledAt": "2026-10-04T09:28:10.144Z",
       "addressLocality": "Nussbaumen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5122,7 +4937,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Senior-Product-Manager-Genset-Diesel-%28mfx%29/1252770501/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:04.173Z",
+      "crawledAt": "2026-10-04T09:28:10.974Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5141,7 +4956,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "en_US",
       "liebherrSourceJobId": "79354",
-      "needsRetranslation": true,
       "previousSlugs": [
         "senior-product-manager-gruppo-elettrogeno-diesel-m-f-x-liebherr-bulle",
         "senior-product-manager-genset-diesel-m-f-x-liebherr-bulle"
@@ -5155,6 +4969,8 @@
           "senior-product-manager-genset-diesel-m-f-x-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.378Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -5167,8 +4983,7 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-10T09:03:08.378Z"
+      }
     },
     {
       "id": "liebherr-bee2c204740a",
@@ -5186,7 +5001,7 @@
       "titleByLocale": {
         "it": "Key Account Manager - Difesa (m/f/x)",
         "en": "Key Account Manager - Defense (m/f/x)",
-        "de": "Key Account Manager Defense (m/f/x)",
+        "de": "Key Account Manager - Verteidigung (m/w/x)",
         "fr": "Gestionnaire de compte clé - Défense (m/f/x)"
       },
       "description": "Your responsibilities\n• You will act as the primary interface between the company and designated Key Account customers, building long-term relationships and representing the organization across all relevant business areas.\n• You will develop a thorough understanding of customer organizations, processes and requirements to identify business opportunities and increase the company's share of wallet.\n• You will proactively monitor market developments, customer activities and competitor trends to support strategic decision-making and business growth.\n• You will develop, implement and continuously update Key Account strategies and customer action plans in alignment with company objectives.\n• You will prepare, coordinate and conduct customer reviews and strategic meetings to strengthen partnerships and support sustainable business development.\n• You will lead and coordinate commercial activities, including negotiations, bid preparation, proposal management and follow-up to secure business opportunities.\n• You will collaborate closely with management, product sales teams and other internal stakeholders to align customer requirements with company capabilities and priorities.\n• You will monitor commercial performance and contribute to revenue and profitability growth in line with management expectations.\n• You will ensure compliance with applicable Defense, security and regulatory requirements while handling sensitive information with the highest level of professionalism and confidentiality. Your profile\n• You hold a university degree in a business or technical field, or an equivalent qualification supported by relevant professional experience in sales and account management .\n• You have several years of experience in a similar role and a proven track record in managing strategic customer relationships and achieving commercial objectives.\n• You possess an in-depth understanding of the Defense and military equipment market.\n• You have a solid understanding of the regulatory, security and compliance requirements applicable to the Defense industry and are able to assess risks, recognize decision-making boundaries and escalate matters appropriately.\n• You demonstrate a strong security and compliance mindset, handling sensitive and confidential information with discretion while consistently applying established rules and procedures, even under pressure.\n• You are recognized for your strong commercial and customer-oriented mindset. Your enthusiastic and open personality, combined with excellent communication, adaptability, leadership, and stakeholder management skills, sets you apart. You are resilient, self-confident, and assertive in your approach.\n• You are fluent in English and German, French is considered an asset. Our Offer Can we inspire you to take on a responsible position in a dynamic and independent family business? We offer you room for ideas, a secure job, modern and family-friendly employment conditions such as flexible working hours, home office, a company restaurant, training opportunities as well as many benefits. The workplace is located in Bulle, surrounded by the wonderful nature of the Gruyère region. Start planning your personal and professional development with us. In order to ensure a fair application process, we cannot accept applications by post or email. Have we awoken your interest? Then we look forward to receiving your online application. If you have any questions, please contact Sina WAUSCHKUHN. One Passion. Many Opportunities. The company ​Liebherr Machines Bulle SA is the centre of excellence for combustion engines (diesel and gas engines) and hydraulic components (axial piston pumps and motors). The company develops and produces various products, which find their use in building construction and civil engineering, mining, agriculture, decentralised energy, machine and plant engineering, as well as aerospace. Location Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Switzerland (CH) Contact Sina WAUSCHKUHN 026 913 3111",
@@ -5201,7 +5016,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Key-Account-Manager-Defense-%28mfx%29/1421353833/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:03.757Z",
+      "crawledAt": "2026-10-04T09:28:06.199Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5232,30 +5047,24 @@
       "previousSlugs": [
         "key-account-manager-defense-m-f-x-liebherr-bulle",
         "gestione-account-chiave-difesa-m-f-x-liebherr-bulle",
-        "le-gestionnaire-de-compte-cle-defense-m-f-x-liebherr-bulle",
-        "key-account-manager-defense-m-f-x-liebherr-bulle-2",
-        "gestionnaire-de-compte-cle-defense-m-f-x-liebherr-bulle"
+        "le-gestionnaire-de-compte-cle-defense-m-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "key-account-manager-defense-m-f-x-liebherr-bulle",
-          "gestione-account-chiave-difesa-m-f-x-liebherr-bulle",
-          "key-account-manager-defense-m-f-x-liebherr-bulle-2"
+          "gestione-account-chiave-difesa-m-f-x-liebherr-bulle"
         ],
         "en": [
           "key-account-manager-defense-m-f-x-liebherr-bulle"
         ],
         "de": [
-          "key-account-manager-defense-m-f-x-liebherr-bulle",
-          "key-account-manager-defense-m-f-x-liebherr-bulle-2"
+          "key-account-manager-defense-m-f-x-liebherr-bulle"
         ],
         "fr": [
           "key-account-manager-defense-m-f-x-liebherr-bulle",
-          "le-gestionnaire-de-compte-cle-defense-m-f-x-liebherr-bulle",
-          "gestionnaire-de-compte-cle-defense-m-f-x-liebherr-bulle"
+          "le-gestionnaire-de-compte-cle-defense-m-f-x-liebherr-bulle"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-31T22:10:08.557Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -5302,7 +5111,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-Young-Talent-%28wmx%29-Inline-Engines-Product-Management/1392711433/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:03.343Z",
+      "crawledAt": "2026-10-04T09:28:11.494Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5321,7 +5130,6 @@
       "requirementsByLocale": {},
       "sourceLocale": "en_US",
       "liebherrSourceJobId": "82539",
-      "needsRetranslation": true,
       "previousSlugs": [
         "young-talent-w-m-x-gestion-des-produits-des-moteurs-integres-liebherr-bulle",
         "young-talent-w-m-x-inline-engines-product-management-liebherr-bulle"
@@ -5334,6 +5142,8 @@
           "young-talent-w-m-x-gestion-des-produits-des-moteurs-integres-liebherr-bulle"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:08.364Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -5346,8 +5156,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-10T09:03:08.364Z"
+      }
     },
     {
       "id": "liebherr-4f3fbe2c384f",
@@ -5366,7 +5175,7 @@
         "it": "Prototipi Mécanicien (m/f/x)",
         "en": "Mécanicien Prototypes (w/m/x)",
         "de": "Mécanicien Prototypen (m/w/x)",
-        "fr": "Mécanicien Prototypes (w/m/x)"
+        "fr": "Mécanicien Prototypes (h/f/x)"
       },
       "description": "Vos responsabilités\n• Vous assemblez des moteurs d'essais, des prototypes et de nouveaux composants en respectant les exigences techniques\n• Vous réalisez les opérations de réparation, de transformation, de démontage et d'analyse des moteurs\n• Vous contrôlez la conformité des moteurs, effectuez les mesures nécessaires et préparez les composants pour les opérations de métrologie\n• Vous participez aux essais de prédémarrage et assurez le commissionnement des pièces avant leur montage\n• Vous contribuez à l'amélioration continue des produits, des méthodes d'assemblage et de l'outillage en proposant des solutions innovantes\n• Vous identifiez, analysez et communiquez les problématiques techniques rencontrées en proposant des pistes de résolution adaptées\n• Vous rédigez la documentation technique, les rapports d'intervention et capitalisez les retours d'expérience\n• Vous appliquez les standards 5S et collaborez aux activités des bancs d'essais afin de garantir un environnement de travail performant et flexible Votre profil\n• Vous avez une formation de mécatronicien(ne) sur automobiles, poids lourds, machines agricoles ou d'une formation jugée équivalente\n• Vous justifiez d'une expérience de 3 à 5 ans en environnement atelier ou en coordination d'atelier, idéalement dans le domaine des moteurs de machines agricoles ou poids lourds\n• Vous possédez de solides connaissances des moteurs thermiques, de la mécanique et des outils informatiques\n• Vous maîtrisez MS Office, la connaissance d'un ERP et d'outils tels que Jira, GDE ou Albatros est un atout\n• Vous maîtrisez parfaitement le français, une base solide en anglais ou en allemand constitue un avantage\n• Vous faites preuve de flexibilité pour intervenir sur différents types de moteurs, technologies et situations opérationnelles\n• Vous êtes capable de garder une analyse claire et votre sang-froid dans des situations complexes ou sous pression\n• Vous faites preuve d'esprit d'équipe, d'autonomie, de rigueur et d'un fort sens de l'amélioration continue Notre offre Pouvons-nous vous inspirer à relever un poste à responsabilités au sein d’une entreprise familiale dynamique et indépendante ? Nous vous offrons un environnement propice aux idées, un emploi stable ainsi que des conditions de travail modernes et favorables à la vie de famille, telles que des horaires flexibles, la possibilité de télétravail, un restaurant d’entreprise, des opportunités de formation ainsi que de nombreux avantages. Le poste est situé à Bulle, au cœur de la magnifique nature de la région de la Gruyère. Commencez à planifier votre développement personnel et professionnel avec nous. Afin de garantir un processus de candidature équitable, nous ne pouvons pas accepter les candidatures par courrier postal ou par e-mail. Ce poste est soumis à une procédure de vérification des antécédents, la vérification se fait par le biais de notre partenaire Aequivalent. Have we awoken your interest? Then we look forward to receiving your online application. If you have any questions, please contact Sylvain STUDER. One Passion. Many Opportunities. The company ​Liebherr Machines Bulle SA is the centre of excellence for combustion engines (diesel and gas engines) and hydraulic components (axial piston pumps and motors). The company develops and produces various products, which find their use in building construction and civil engineering, mining, agriculture, decentralised energy, machine and plant engineering, as well as aerospace. Location Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Switzerland (CH) Contact Sylvain STUDER +41 26 913 34 00",
       "descriptionByLocale": {
@@ -5380,7 +5189,7 @@
       "url": "https://careers.liebherr.com/job/Bulle-M%C3%A9canicien-Prototypes-%28wmx%29/1420288033/",
       "source": "Liebherr Dedicated Parser (jobs2web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:33:02.954Z",
+      "crawledAt": "2026-10-04T09:28:05.553Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5403,10 +5212,7 @@
       "previousSlugs": [
         "mecanicien-prototypes-w-m-x-ed-liebherr-bulle",
         "mecanicien-prototypes-w-m-x-liebherr-bulle",
-        "mecanicien-prototypes-m-w-d-liebherr-bulle",
-        "prototypes-mechanic-w-m-x-ed-liebherr-bulle",
-        "prototipi-meccanico-w-m-x-ed-liebherr-bulle",
-        "mechanische-prototypen-w-m-x-ed-liebherr-bulle"
+        "mecanicien-prototypes-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -5419,8 +5225,7 @@
         ],
         "de": [
           "mecanicien-prototypes-w-m-x-ed-liebherr-bulle",
-          "mecanicien-prototypes-m-w-d-liebherr-bulle",
-          "mechanische-prototypen-w-m-x-ed-liebherr-bulle"
+          "mecanicien-prototypes-m-w-d-liebherr-bulle"
         ]
       },
       "salaryMin": 77000,
@@ -5437,6 +5242,120 @@
         }
       },
       "firstSeenAt": "2026-07-29T22:13:53.914Z"
+    },
+    {
+      "id": "liebherr-1fc42ca70609",
+      "slug": "tecnico-di-manutenzione-m-f-d-automazione-liebherr-bulle",
+      "slugByLocale": {
+        "it": "tecnico-di-manutenzione-m-f-d-automazione-liebherr-bulle",
+        "en": "maintenance-technician-m-f-d-automation-liebherr-bulle",
+        "de": "instandhaltungstechniker-m-w-d-automatisierung-liebherr-bulle",
+        "fr": "technicien-de-maintenance-m-f-d-automatisation-liebherr-bulle"
+      },
+      "company": "Liebherr",
+      "companyKey": "liebherr",
+      "companyDomain": "liebherr.com",
+      "title": "Instandhaltungstechniker (m/w/d) Automatisierung",
+      "titleByLocale": {
+        "it": "Tecnico di manutenzione (m/f/d) Automazione",
+        "en": "Maintenance technician (m/f/d) Automation",
+        "de": "Instandhaltungstechniker (m/w/d) Automatisierung",
+        "fr": "Technicien de maintenance (h/f/x) Automatisation"
+      },
+      "description": "Aufgaben\n• Sie sind verantwortlich für die präventive und kurative Wartung von komplexen Anlagen, Maschinen oder Geräten\n• Sie übernehmen die Wartung und Instandhaltung von Montage-Robotern und Produktionsmaschinen\n• Sie stellen die Nachbereitung der jährlichen Services sicher\n• Sie wirken bei der Verbesserung von Instandhaltungsprozessen mit\n• Sie tragen zur Erstellung von Wartungsplänen, Ersatzteilen und Verbesserungsprojekten bei\n• Sie führen verschiedene Wartungsarbeiten in anderen Bereichen durch\n• Sie übernehmen Pikettdienste und arbeiten in Schichtdiensten Qualifikation\n• Sie verfügen über eine abgeschlossene Ausbildung als Automatisierungstechniker (m/w/d), Mechaniker (m/w/d) oder einen vergleichbaren Abschluss\n• Sie haben eine Fachweiterbildung in den Bereichen Mechanik, Pneumatik, Hydraulik und Grundlagen der Elektrotechnik absolviert\n• Zudem bringen Sie mehrjährige praktische Berufserfahrung in einem industriellen Umfeld mit\n• Sie verfügen über sehr gute Französischkenntnisse, Kenntnisse in Deutsch und Englisch sind von Vorteil\n• Sie sind sicher im Umgang mit MS-Office-Programmen und kennen sich idealerweise mit der Siemens-Software aus\n• Sie sind eine selbstständige, sorgfältige, verantwortungsbewusste Person, schätzen Teamarbeit und sind flexibel Unser Angebot Können wir Sie begeistern, in einem dynamischen und unabhängigen Familienunternehmen eine verantwortungsvolle Aufgabe zu übernehmen? Wir bieten Ihnen Freiräume für Ideen, einen sicheren Arbeitsplatz, fortschrittliche und familienfreundliche Anstellungsbedingungen wie flexible Arbeitszeiten, Homeoffice, Betriebsrestaurant, Weiterbildungsmöglichkeiten sowie zahlreiche Vergünstigungen. Der Arbeitsort befindet sich in Bulle, umgeben von der wunderbaren Natur der Region Gruyère. Planen Sie mit uns gemeinsam Ihre persönliche und berufliche Weiterentwicklung. Um einen fairen Bewerbungsprozess zu garantieren, können wir leider keine Bewerbungen per Post oder E-Mail entgegennehmen. Haben wir Ihr Interesse geweckt? Dann freuen wir uns über Ihre Online-Bewerbung. Bei Fragen kontaktieren Sie bitte Romain GROGNUZ. One Passion. Many Opportunities. Das Unternehmen ​ Liebherr Machines Bulle SA ist das Kompetenzzentrum für Verbrennungsmotoren (Diesel- und Gasmotoren) sowie Hydraulikkomponenten (Axialkolbenpumpen und -motoren). Das Unternehmen entwickelt und fertigt diverse Produkte, die in den Bereichen Hoch- und Tiefbau, Bergbau, Landwirtschaft, Dezentrale Energie, Maschinen- und Anlagenbau, sowie Luftfahrt zur Anwendung kommen.​ Standort Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Schweiz (CH) Kontakt Romain GROGNUZ 026 913 31 11",
+      "descriptionByLocale": {
+        "it": "Compiti\n• Sei responsabile della manutenzione preventiva e curativa di impianti complessi, macchine o dispositivi\n• Si prende il controllo della manutenzione e manutenzione di robot di assemblaggio e macchine di produzione Essi assicurano il follow-up dei servizi annuali\n• Sei coinvolto nel miglioramento dei processi di manutenzione\n• Contribuisci alla creazione di piani di manutenzione, pezzi di ricambio e progetti di miglioramento Essi svolgono vari lavori di manutenzione in altri settori\n• Ti occupi dei servizi di piquetting e del lavoro nella qualificazione ai servizi a turni\n• Hai completato la formazione come tecnico di automazione (m/f/d), meccanico (m/f/d) o grado comparabile\n• Hai completato la formazione specialistica nei settori della meccanica, della pneumatica, dell'idraulica e dei fondamenti dell'ingegneria elettrica\n• Hai anche diversi anni di esperienza professionale pratica in un ambiente industriale. Hai una buona conoscenza del francese, la conoscenza del tedesco e dell'inglese è un vantaggio\n• Sei fiducioso nel trattare con i programmi MS Office e idealmente familiarità con il software Siemens\n• Sei una persona indipendente, attenta, responsabile, apprezzare il lavoro di squadra e sono flessibili La nostra offerta Possiamo ispirare a prendere un compito responsabile in un business familiare dinamico e indipendente? Vi offriamo la libertà di idee, un posto di lavoro sicuro, condizioni di lavoro progressivo e familiare come orari di lavoro flessibili, ufficio di casa, ristorante aziendale, opportunità di formazione e numerosi sconti. Il luogo di lavoro si trova a Bulle, circondato dalla natura meravigliosa della regione di Gruyère. Pianifica il tuo sviluppo personale e professionale insieme a noi. Al fine di garantire un corretto processo di applicazione, purtroppo non possiamo accettare applicazioni via posta o e-mail. Abbiamo suscitato il vostro interesse? Quindi non vediamo l'ora della vostra applicazione online. Per qualsiasi domanda, contattare Romain GROGNUZ. Una passione. Molte opportunità. Liebherr Machines Bulle SA è il centro di eccellenza per i motori a combustione (diesel e motori a gas) e componenti idraulici (pompe a pistoni assiali e motori). L'azienda sviluppa e produce vari prodotti che vengono utilizzati nei settori dell'ingegneria civile, dell'estrazione mineraria, dell'agricoltura, dell'energia decentralizzata, dell'ingegneria meccanica e vegetale, nonché dell'aviazione. Luogo Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Svizzera (CH) Contatto Romain GROGNUZ 026 913 31 11",
+        "en": "Tasks\n• You are responsible for the preventive and curative maintenance of complex plants, machines or devices\n• You take over the maintenance and maintenance of assembly robots and production machines They ensure the follow-up of the annual services\n• You are involved in improving maintenance processes\n• You contribute to the creation of maintenance plans, spare parts and improvement projects They perform various maintenance work in other areas\n• You take care of piquetting services and work in shift services qualification\n• You have completed training as an automation technician (m/f/d), mechanic (m/f/d) or comparable degree\n• You have completed specialist training in the fields of mechanics, pneumatics, hydraulics and fundamentals of electrical engineering\n• You also have several years of practical professional experience in an industrial environment. You have very good knowledge of French, knowledge of German and English is an advantage\n• You are confident in dealing with MS Office programs and ideally familiar with the Siemens software\n• You are an independent, careful, responsible person, appreciate teamwork and are flexible Our offer Can we inspire you to take on a responsible task in a dynamic and independent family business? We offer you freedom for ideas, a secure workplace, progressive and family-friendly employment conditions such as flexible working hours, home office, company restaurant, training opportunities and numerous discounts. The place of work is located in Bulle, surrounded by the wonderful nature of the Gruyère region. Plan your personal and professional development together with us. In order to guarantee a fair application process, we unfortunately cannot accept applications by post or e-mail. Have we aroused your interest? Then we look forward to your online application. For any questions, please contact Romain GROGNUZ. One passion. Many opportunities. Liebherr Machines Bulle SA is the centre of excellence for combustion engines (diesel and gas engines) and hydraulic components (axial piston pumps and motors). The company develops and manufactures various products that are used in the areas of civil engineering, mining, agriculture, decentralized energy, mechanical and plant engineering, as well as aviation. Location Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Switzerland (CH) Contact Romain GROGNUZ 026 913 31 11",
+        "de": "Aufgaben\n• Sie sind verantwortlich für die präventive und kurative Wartung von komplexen Anlagen, Maschinen oder Geräten\n• Sie übernehmen die Wartung und Instandhaltung von Montage-Robotern und Produktionsmaschinen\n• Sie stellen die Nachbereitung der jährlichen Services sicher\n• Sie wirken bei der Verbesserung von Instandhaltungsprozessen mit\n• Sie tragen zur Erstellung von Wartungsplänen, Ersatzteilen und Verbesserungsprojekten bei\n• Sie führen verschiedene Wartungsarbeiten in anderen Bereichen durch\n• Sie übernehmen Pikettdienste und arbeiten in Schichtdiensten Qualifikation\n• Sie verfügen über eine abgeschlossene Ausbildung als Automatisierungstechniker (m/w/d), Mechaniker (m/w/d) oder einen vergleichbaren Abschluss\n• Sie haben eine Fachweiterbildung in den Bereichen Mechanik, Pneumatik, Hydraulik und Grundlagen der Elektrotechnik absolviert\n• Zudem bringen Sie mehrjährige praktische Berufserfahrung in einem industriellen Umfeld mit\n• Sie verfügen über sehr gute Französischkenntnisse, Kenntnisse in Deutsch und Englisch sind von Vorteil\n• Sie sind sicher im Umgang mit MS-Office-Programmen und kennen sich idealerweise mit der Siemens-Software aus\n• Sie sind eine selbstständige, sorgfältige, verantwortungsbewusste Person, schätzen Teamarbeit und sind flexibel Unser Angebot Können wir Sie begeistern, in einem dynamischen und unabhängigen Familienunternehmen eine verantwortungsvolle Aufgabe zu übernehmen? Wir bieten Ihnen Freiräume für Ideen, einen sicheren Arbeitsplatz, fortschrittliche und familienfreundliche Anstellungsbedingungen wie flexible Arbeitszeiten, Homeoffice, Betriebsrestaurant, Weiterbildungsmöglichkeiten sowie zahlreiche Vergünstigungen. Der Arbeitsort befindet sich in Bulle, umgeben von der wunderbaren Natur der Region Gruyère. Planen Sie mit uns gemeinsam Ihre persönliche und berufliche Weiterentwicklung. Um einen fairen Bewerbungsprozess zu garantieren, können wir leider keine Bewerbungen per Post oder E-Mail entgegennehmen. Haben wir Ihr Interesse geweckt? Dann freuen wir uns über Ihre Online-Bewerbung. Bei Fragen kontaktieren Sie bitte Romain GROGNUZ. One Passion. Many Opportunities. Das Unternehmen ​ Liebherr Machines Bulle SA ist das Kompetenzzentrum für Verbrennungsmotoren (Diesel- und Gasmotoren) sowie Hydraulikkomponenten (Axialkolbenpumpen und -motoren). Das Unternehmen entwickelt und fertigt diverse Produkte, die in den Bereichen Hoch- und Tiefbau, Bergbau, Landwirtschaft, Dezentrale Energie, Maschinen- und Anlagenbau, sowie Luftfahrt zur Anwendung kommen.​ Standort Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Schweiz (CH) Kontakt Romain GROGNUZ 026 913 31 11",
+        "fr": "Les missions\n• Vous êtes responsable de la maintenance préventive et curative d’installations, de machines ou d’appareils exigeants\n• Vous gérez l'entretien et les révisions des installations robotiques de montage, des machines de production\n• Vous assurez le suivi des services annuels\n• Vous participez à l'amélioration des processus d’entretien\n• Vous participez à la définition des plans de maintenance, pièces de rechange et projets d’amélioration\n• Vous réalisez divers travaux d’entretien dans les autres secteurs\n• Vous suivez les échéances de calibration et gérez les moyens de mesure\n• Vous participez au service de piquet et travail en horaire d’équipe Profil\n• Vous êtes titulaire d'un CFC d’automaticien (h/f/x), de mécanicien (h/f/x) ou formation jugée équivalente\n• Vous avez une formation spécifique dans la mécanique, pneumatique, hydraulique ainsi que des bases en électricité\n• Vous avez une expérience professionnelle pratique de plusieurs années dans un environnement industriel\n• Vous disposez de très bonnes connaissances du français, des connaissances de l’allemand et de l’anglais sont un atout\n• Vous maitrisez les programmes MS Office et avez des connaissances du logiciel Siemens sont un atout\n• Vous êtes une personne autonome, précise, responsable, vous appréciez le travail en équipe et êtes flexible Notre offre Pouvons-nous vous motiver à endosser un rôle clé dans une entreprise familiale, dynamique et indépendante ? Nous vous encourageons à partager et à développer vos idées et vous offrons un emploi sûr, des conditions de travail modernes telles qu’un restaurant d'entreprise, des perspectives de formation continue ainsi que d’autres nombreux avantages. Le lieu de travail se situe à Bulle, dans la belle région de la Gruyère. Planifiez avec nous votre développement personnel et professionnel. Afin de garantir une procédure de candidature équitable, nous n’acceptons pas les candidatures par courrier postal ou électronique. Avons-nous suscité votre intérêt ? Si c’est le cas, nous serions ravis de recevoir votre candidature en ligne. Si vous avez des questions, veuillez contacter Romain GROGNUZ. One Passion. Many Opportunities. *Une passion commune. Tant d’opportunités. L'entreprise Liebherr Machines Bulle SA est le centre de compétences des moteurs à combustion (diesel et gaz) et composants hydrauliques. L’entreprise développe et fabrique des produits diversifiés utilisés dans le génie civil, l'exploitation minière, l'agriculture, l'énergie décentralisée, l'ingénierie mécanique et industrielle ainsi que l'aviation. ​​ Site Liebherr Machines Bulle SA 7, Rue Hans-Liebherr 1630 Bulle Suisse (CH) Contact Romain GROGNUZ 026 913 31 11"
+      },
+      "location": "Bulle",
+      "canton": "FR",
+      "url": "https://careers.liebherr.com/job/Bulle-Instandhaltungstechniker-%28mwd%29-Automatisierung/1378968433/",
+      "source": "Liebherr Dedicated Parser (jobs2web)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-04T09:28:18.789Z",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Manufacturing / Machinery (construction equipment, engines, hydraulics, aerospace, refrigeration)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://careers.liebherr.com/job/Bulle-Instandhaltungstechniker-%28mwd%29-Automatisierung/1378968433/",
+      "jobReqId": "1378968433",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Hai anche diversi anni di esperienza professionale pratica in un ambiente industriale.",
+          "Hai una buona conoscenza del francese, la conoscenza del tedesco e dell'inglese è un vantaggio"
+        ],
+        "en": [
+          "You have completed training as an automation technician (m/f/d), mechanic (m/f/d) or comparable degree",
+          "You also have several years of practical professional experience in an industrial environment.",
+          "You have very good knowledge of French, knowledge of German and English is an advantage"
+        ],
+        "de": [
+          "Sie verfügen über sehr gute Französischkenntnisse, Deutsch- und Englischkenntnisse sind von Vorteil"
+        ],
+        "fr": [
+          "Vous avez une très bonne connaissance du français, la connaissance de l'allemand et de l'anglais est un avantage"
+        ]
+      },
+      "sourceLocale": "de_DE",
+      "liebherrSourceJobId": "81996",
+      "liebherrSourceJobReqIds": [
+        "1378968433",
+        "1378968533"
+      ],
+      "liebherrSourceJobReqIdByLocale": {
+        "de": "1378968433",
+        "fr": "1378968533"
+      },
+      "liebherrLanguageVariantKey": "source-job:81996",
+      "previousSlugsByLocale": {
+        "fr": [
+          "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle"
+        ],
+        "de": [
+          "wartungstechniker-h-w-x-automatisierung-liebherr-bulle"
+        ],
+        "it": [
+          "instandhaltungstechniker-m-w-d-automatisierung-liebherr-bulle",
+          "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle",
+          "manutenzione-tecnica-h-f-x-automazione-liebherr-bulle"
+        ],
+        "en": [
+          "maintenance-technician-h-f-x-automation-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "automazione-tecnico-di-manutenzione-m-f-x-liebherr-bulle",
+        "instandhaltungstechniker-m-w-d-automatisierung-liebherr-bulle",
+        "technicien-de-maintenance-h-f-x-automatisation-liebherr-bulle",
+        "wartungstechniker-h-w-x-automatisierung-liebherr-bulle",
+        "manutenzione-tecnica-h-f-x-automazione-liebherr-bulle",
+        "maintenance-technician-h-f-x-automation-liebherr-bulle"
+      ],
+      "firstSeenAt": "2026-06-10T09:03:08.400Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }

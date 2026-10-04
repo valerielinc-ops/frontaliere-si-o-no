@@ -1,16 +1,16 @@
 {
   "key": "stadt-chur",
   "label": "stadt-chur",
-  "generatedAt": "2026-10-03T21:37:49.963Z",
+  "generatedAt": "2026-10-04T09:38:40.271Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 895199,
-  "avgDurationMs": 895199,
+  "durationMs": 895295,
+  "avgDurationMs": 895295,
   "durationHistory": [
-    895199
+    895295
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,27 +33,29 @@
       "department": "Bildung / Soziale Berufe / Sport",
       "source": "stadt-chur-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-03",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "stage",
-      "crawledAt": "2026-10-03T21:37:46.630Z",
+      "crawledAt": "2026-10-04T09:38:34.616Z",
       "id": "stadt-chur-6baf9a5642b8",
       "salaryMin": 41600,
       "salaryMax": 76000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-04T11:40:04.481Z",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

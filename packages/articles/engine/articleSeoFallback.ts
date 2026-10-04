@@ -76,6 +76,16 @@ const LEGACY_HTML_ANCHOR_RX = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
 const HTML_HREF_ATTR_RX = /\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/i;
 const INLINE_MARKDOWN_LINK_RX = /\[([^\]]+)\]\(([^)]+)\)/g;
 const INLINE_LINK_TOKEN_RX = /\u0000inline-link-(\d+)\u0000/g;
+
+// A small set of archived bodies used angle-bracket pseudo-links instead of
+// the supported `[label](nav:action)` marker. These are the three actions
+// observed in the malformed Bing frontier: keep the domain explicit so an
+// unknown or ambiguous angle token is not silently reinterpreted.
+const LEGACY_ANGLE_NAV_ACTIONS = new Set(['calculator', 'cost-of-living', 'health']);
+const ANGLE_NAV_LINK_RX = /\[([^\]]+)\]\(\s*<nav:([a-z0-9-]+)>\s*\)/gi;
+const ANGLE_NAV_TAG_PAIR_RX = /<nav:([a-z0-9-]+)>\s*([^<]*?)\s*<\/nav:\1>/gi;
+const ANGLE_NAV_PAREN_TOKEN_RX = /\s*\(\s*<nav:([a-z0-9-]+)>\s*\)/gi;
+const ANGLE_NAV_TOKEN_RX = /<\/?nav:([a-z0-9-]+)>/gi;
 const INLINE_HTML_ENTITY_MAP: Record<string, string> = {
  amp: '&',
  lt: '<',
@@ -83,6 +93,124 @@ const INLINE_HTML_ENTITY_MAP: Record<string, string> = {
  quot: '"',
  '#39': "'",
  apos: "'",
+};
+
+type AngleNavToken = {
+ start: number;
+ end: number;
+ action: string;
+ closing: boolean;
+};
+
+const protectMismatchedAngleNavSequences = (line: string): {
+ normalized: string;
+ protectedSequences: string[];
+} => {
+ const tokens: AngleNavToken[] = Array.from(line.matchAll(ANGLE_NAV_TOKEN_RX), (match) => {
+  const start = match.index ?? 0;
+  const raw = match[0];
+  return {
+   start,
+   end: start + raw.length,
+   action: match[1],
+   closing: raw.startsWith('</'),
+  };
+ });
+ const mismatchedRanges: Array<[number, number]> = [];
+ const stack: AngleNavToken[] = [];
+
+ for (const token of tokens) {
+  if (!token.closing) {
+   stack.push(token);
+   continue;
+  }
+
+  const opening = stack.at(-1);
+  if (!opening) continue;
+  if (opening.action.toLowerCase() === token.action.toLowerCase()) {
+   stack.pop();
+   continue;
+  }
+
+  // A mismatched close makes the whole open-to-close region ambiguous. Keep
+  // it intact so the cleanup below cannot silently rewrite indexed copy.
+  mismatchedRanges.push([stack[0]!.start, token.end]);
+  stack.length = 0;
+ }
+
+ if (!mismatchedRanges.length) return { normalized: line, protectedSequences: [] };
+
+ const protectedSequences: string[] = [];
+ let normalized = line;
+ for (let i = mismatchedRanges.length - 1; i >= 0; i--) {
+  const [start, end] = mismatchedRanges[i];
+  const token = `\u0000legacy-angle-nav-sequence-${protectedSequences.length}\u0000`;
+  protectedSequences.push(line.slice(start, end));
+  normalized = normalized.slice(0, start) + token + normalized.slice(end);
+ }
+
+ return { normalized, protectedSequences };
+};
+
+const canonicalLegacyAngleNavAction = (action: string): string | null => {
+ const normalized = action.toLowerCase();
+ return LEGACY_ANGLE_NAV_ACTIONS.has(normalized) ? normalized : null;
+};
+
+// An unmatched opening marker is removable only when it is a complete,
+// content-free token. If text or another tag follows it, it may be an opening
+// tag whose closing marker was lost; preserving that sequence avoids changing
+// indexed article copy. Closing markers are never standalone cleanup tokens.
+const isStandaloneLegacyAngleNavOpening = (line: string, start: number, end: number): boolean => {
+ const previous = line[start - 1];
+ if (previous && !(/[\s]/u.test(previous) || '([{\"\'`'.includes(previous))) return false;
+
+ const nextContent = line.slice(end).match(/\S/u)?.[0];
+ return !nextContent || /[.,!?;:)\]}]/u.test(nextContent);
+};
+
+/** Convert only the observed legacy angle aliases to the supported nav marker. */
+const normalizeLegacyAngleNavMarkers = (line: string): string => {
+ const protectedResult = protectMismatchedAngleNavSequences(line);
+ const { protectedSequences } = protectedResult;
+ let normalized = protectedResult.normalized;
+
+ normalized = normalized.replace(ANGLE_NAV_TAG_PAIR_RX, (whole, action: string, label: string) => {
+  const canonicalAction = canonicalLegacyAngleNavAction(action);
+  if (!canonicalAction) return whole;
+  const visibleLabel = label.trim();
+  return visibleLabel ? '[' + visibleLabel + '](nav:' + canonicalAction + ')' : '';
+ });
+
+ normalized = normalized.replace(ANGLE_NAV_LINK_RX, (whole, label: string, action: string) => {
+  const canonicalAction = canonicalLegacyAngleNavAction(action);
+  return canonicalAction ? '[' + label + '](nav:' + canonicalAction + ')' : whole;
+ });
+
+ normalized = normalized.replace(
+  ANGLE_NAV_PAREN_TOKEN_RX,
+  (whole, action: string, offset: number, source: string) => {
+   if (!canonicalLegacyAngleNavAction(action)) return whole;
+   const parenthesisStart = offset + whole.indexOf('(');
+   if (isStandaloneLegacyAngleNavOpening(source, parenthesisStart, offset + whole.length)) return '';
+   // Keep an ambiguous parenthesized token out of the generic token cleanup
+   // below; otherwise that second pass would still remove its inner marker.
+   const protectedToken = `\u0000legacy-angle-nav-sequence-${protectedSequences.length}\u0000`;
+   protectedSequences.push(whole);
+   return protectedToken;
+  },
+ );
+
+ // Only a content-free opening token is safe to remove. An unmatched opening
+ // before prose (or any closing token) is ambiguous and must remain verbatim.
+ normalized = normalized.replace(ANGLE_NAV_TOKEN_RX, (whole, action: string, offset: number, source: string) => {
+  if (!canonicalLegacyAngleNavAction(action) || whole.startsWith('</')) return whole;
+  return isStandaloneLegacyAngleNavOpening(source, offset, offset + whole.length) ? '' : whole;
+ });
+
+ return normalized.replace(/\u0000legacy-angle-nav-sequence-(\d+)\u0000/g, (_, index: string) => (
+  protectedSequences[Number(index)] ?? _
+ ));
 };
 
 /** Decode only the entities that can occur in legacy article HTML attributes/text. */
@@ -124,7 +252,7 @@ export const renderArticleInlineMarkup = (line: string): string => {
  // Normalize literal HTML anchors before the general text escape. Attributes
  // such as target/rel are intentionally discarded: the static article shell
  // controls link policy, while href and visible label are retained verbatim.
- let normalized = line.replace(LEGACY_HTML_ANCHOR_RX, (whole, attrs: string, label: string) => {
+ let normalized = normalizeLegacyAngleNavMarkers(line).replace(LEGACY_HTML_ANCHOR_RX, (whole, attrs: string, label: string) => {
   const hrefMatch = HTML_HREF_ATTR_RX.exec(attrs);
   if (!hrefMatch) return label;
   return stashLink(label, hrefMatch[1] ?? hrefMatch[2] ?? hrefMatch[3] ?? '');

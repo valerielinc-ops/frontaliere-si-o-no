@@ -1,6 +1,6 @@
 {
   "crawlerKey": "givaudan",
-  "assembledAt": "2026-10-03T21:26:03.740Z",
+  "assembledAt": "2026-10-04T09:28:36.302Z",
   "jobs": [
     {
       "id": "givaudan-b61ba938fd4a",
@@ -33,7 +33,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120207EXTERNALENGLOBAL/global-supply-planning-specialist-and-inventory-manager-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:25:59.163Z",
+      "crawledAt": "2026-10-04T09:28:31.601Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -50,9 +50,15 @@
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB120207EXTERNALENGLOBAL/global-supply-planning-specialist-and-inventory-manager-m-w-d",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-03T09:30:34.397Z",
+      "previousSlugs": [
+        "global-supply-planning-specialist-and-inventory-manager-m-w-d-givaudan-ch",
+        "global-supply-planning-specialista-and-inventory-manager-m-w-d-givaudan-vernier",
+        "global-supply-planning-spezialist-and-inventory-manager-m-w-d-givaudan-vernier",
+        "global-supply-planning-specialiste-and-inventory-manager-m-w-d-givaudan-vernier"
+      ],
       "previousSlugsByLocale": {
         "it": [
+          "global-supply-planning-specialist-and-inventory-manager-m-w-d-givaudan-ch",
           "global-supply-planning-specialista-and-inventory-manager-m-w-d-givaudan-vernier"
         ],
         "de": [
@@ -62,11 +68,8 @@
           "global-supply-planning-specialiste-and-inventory-manager-m-w-d-givaudan-vernier"
         ]
       },
-      "previousSlugs": [
-        "global-supply-planning-specialista-and-inventory-manager-m-w-d-givaudan-vernier",
-        "global-supply-planning-spezialist-and-inventory-manager-m-w-d-givaudan-vernier",
-        "global-supply-planning-specialiste-and-inventory-manager-m-w-d-givaudan-vernier"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:30:34.397Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -79,16 +82,15 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "givaudan-4ab80e911066",
       "slug": "project-ingegnere-m-w-d-givaudan-dubendorf-switzerland",
       "slugByLocale": {
-        "de": "project-engineer-m-w-d-givaudan-ch",
         "it": "project-ingegnere-m-w-d-givaudan-dubendorf-switzerland",
         "en": "project-engineer-m-w-d-givaudan-dubendorf",
+        "de": "project-engineer-m-w-d-givaudan-ch",
         "fr": "project-ingenieur-m-w-d-givaudan-dubendorf"
       },
       "company": "Givaudan",
@@ -97,7 +99,7 @@
       "title": "Project Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Project Ingegnere (m/w/d)",
-        "en": "Project Engineer (m/f/d)",
+        "en": "Project Engineer (m/w/d)",
         "de": "Project Ingenieur (m/w/d)",
         "fr": "Project Ingénieur (m/w/d)"
       },
@@ -113,7 +115,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119626EXTERNALENGLOBAL/project-engineer-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:58.688Z",
+      "crawledAt": "2026-10-04T09:28:30.916Z",
       "addressLocality": "Dübendorf",
       "postalCode": "",
       "addressRegion": "ZH",
@@ -132,17 +134,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "project-engineer-m-w-d-givaudan-ch",
-        "project-ingegnere-m-w-d-givaudan-dubendorf"
+        "project-ingegnere-m-w-d-givaudan-dubendorf",
+        "project-ingegnere-m-w-d-givaudan-dubendorf-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-engineer-m-w-d-givaudan-ch",
-          "project-ingegnere-m-w-d-givaudan-dubendorf"
+          "project-ingegnere-m-w-d-givaudan-dubendorf",
+          "project-ingegnere-m-w-d-givaudan-dubendorf-switzerland"
         ],
         "fr": [
           "project-engineer-m-w-d-givaudan-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:30:34.096Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -156,8 +161,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "givaudan-b63c3a595a48",
@@ -190,7 +194,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119988EXTERNALENGLOBAL/process-engineer-lead-m-w-d-your-next-role",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:25:58.418Z",
+      "crawledAt": "2026-10-04T09:28:30.577Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -207,19 +211,22 @@
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB119988EXTERNALENGLOBAL/process-engineer-lead-m-w-d-your-next-role",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-03T09:30:33.754Z",
+      "previousSlugs": [
+        "process-engineer-lead-m-w-d-your-next-role-givaudan-ch",
+        "process-ingegnere-lead-m-w-d-your-next-role-givaudan-vernier",
+        "process-ingenieur-lead-m-w-d-your-next-role-givaudan-vernier"
+      ],
       "previousSlugsByLocale": {
         "it": [
+          "process-engineer-lead-m-w-d-your-next-role-givaudan-ch",
           "process-ingegnere-lead-m-w-d-your-next-role-givaudan-vernier"
         ],
         "de": [
           "process-ingenieur-lead-m-w-d-your-next-role-givaudan-vernier"
         ]
       },
-      "previousSlugs": [
-        "process-ingegnere-lead-m-w-d-your-next-role-givaudan-vernier",
-        "process-ingenieur-lead-m-w-d-your-next-role-givaudan-vernier"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:30:33.754Z",
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -232,8 +239,7 @@
           "maxValue": 148000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "givaudan-b6b87070365c",
@@ -266,7 +272,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119415EXTERNALENGLOBAL/senior-regulatory-data-analyst",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:25:58.211Z",
+      "crawledAt": "2026-10-04T09:28:30.271Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -284,11 +290,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-regulatory-data-analyst-givaudan-ch"
+        "senior-regulatory-data-analyst-givaudan-ch",
+        "senior-regulatory-data-analista-givaudan-vernier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-regulatory-data-analyst-givaudan-ch"
+          "senior-regulatory-data-analyst-givaudan-ch",
+          "senior-regulatory-data-analista-givaudan-vernier"
         ],
         "de": [
           "senior-regulatory-data-analyst-givaudan-ch"
@@ -343,7 +351,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120106EXTERNALENGLOBAL/fachkraft-produktion-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:57.960Z",
+      "crawledAt": "2026-10-04T09:28:29.928Z",
       "addressLocality": "Volketswil",
       "postalCode": "",
       "addressRegion": "ZH",
@@ -361,11 +369,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachkraft-produktion-m-w-d-givaudan-ch"
+        "fachkraft-produktion-m-w-d-givaudan-ch",
+        "produzione-professionale-m-f-d-givaudan-volketswil-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachkraft-produktion-m-w-d-givaudan-ch"
+          "fachkraft-produktion-m-w-d-givaudan-ch",
+          "produzione-professionale-m-f-d-givaudan-volketswil-switzerland"
         ],
         "en": [
           "fachkraft-produktion-m-w-d-givaudan-ch"
@@ -420,7 +430,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120173EXTERNALENGLOBAL/customer-care-front-office-manager-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:25:57.728Z",
+      "crawledAt": "2026-10-04T09:28:29.531Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -438,11 +448,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "customer-care-front-office-manager-m-w-d-givaudan-ch"
+        "customer-care-front-office-manager-m-w-d-givaudan-ch",
+        "servizio-clienti-front-office-manager-m-f-d-givaudan-vernier-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-care-front-office-manager-m-w-d-givaudan-ch"
+          "customer-care-front-office-manager-m-w-d-givaudan-ch",
+          "servizio-clienti-front-office-manager-m-f-d-givaudan-vernier-switzerland"
         ],
         "de": [
           "customer-care-front-office-manager-m-w-d-givaudan-ch"
@@ -495,7 +507,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120046EXTERNALENGLOBAL/chef-d-equipe-en-production-chimique-3x8-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:25:57.280Z",
+      "crawledAt": "2026-10-04T09:28:28.910Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -513,11 +525,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-d-equipe-en-production-chimique-3x8-h-f-d-givaudan-ch"
+        "chef-d-equipe-en-production-chimique-3x8-h-f-d-givaudan-ch",
+        "leader-del-team-di-produzione-chimica-3x8-m-f-d-givaudan-vernier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-d-equipe-en-production-chimique-3x8-h-f-d-givaudan-ch"
+          "chef-d-equipe-en-production-chimique-3x8-h-f-d-givaudan-ch",
+          "leader-del-team-di-produzione-chimica-3x8-m-f-d-givaudan-vernier"
         ],
         "en": [
           "chef-d-equipe-en-production-chimique-3x8-h-f-d-givaudan-ch"
@@ -572,7 +586,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB120098EXTERNALENGLOBAL/fragrance-industrialization-intern-m-f-d-votre-prochain-stage",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:25:56.898Z",
+      "crawledAt": "2026-10-04T09:28:28.560Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -590,11 +604,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fragrance-industrialization-intern-m-f-d-votre-prochain-stage-givaudan-ch"
+        "fragrance-industrialization-intern-m-f-d-votre-prochain-stage-givaudan-ch",
+        "fragrance-industrialization-intern-m-f-d-il-tuo-prossimo-stage-givaudan-vernier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fragrance-industrialization-intern-m-f-d-votre-prochain-stage-givaudan-ch"
+          "fragrance-industrialization-intern-m-f-d-votre-prochain-stage-givaudan-ch",
+          "fragrance-industrialization-intern-m-f-d-il-tuo-prossimo-stage-givaudan-vernier"
         ],
         "en": [
           "fragrance-industrialization-intern-m-f-d-votre-prochain-stage-givaudan-ch"
@@ -650,7 +666,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119915EXTERNALENGLOBAL/innovation-project-intern-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:25:56.355Z",
+      "crawledAt": "2026-10-04T09:28:27.909Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -668,11 +684,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "innovation-project-intern-m-f-d-givaudan-ch"
+        "innovation-project-intern-m-f-d-givaudan-ch",
+        "innovation-project-tirocinante-m-f-d-givaudan-vernier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "innovation-project-intern-m-f-d-givaudan-ch"
+          "innovation-project-intern-m-f-d-givaudan-ch",
+          "innovation-project-tirocinante-m-f-d-givaudan-vernier"
         ],
         "de": [
           "innovation-project-intern-m-f-d-givaudan-ch"
@@ -727,7 +745,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119877EXTERNALENGLOBAL/site-operations-controller-ingredients-m-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:25:55.908Z",
+      "crawledAt": "2026-10-04T09:28:27.607Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -745,11 +763,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "site-operations-controller-ingredients-m-f-d-givaudan-ch"
+        "site-operations-controller-ingredients-m-f-d-givaudan-ch",
+        "controller-operazioni-del-sito-ingredienti-m-f-d-givaudan-vernier-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "site-operations-controller-ingredients-m-f-d-givaudan-ch"
+          "site-operations-controller-ingredients-m-f-d-givaudan-ch",
+          "controller-operazioni-del-sito-ingredienti-m-f-d-givaudan-vernier-switzerland"
         ],
         "de": [
           "site-operations-controller-ingredients-m-f-d-givaudan-ch"
@@ -804,7 +824,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119521EXTERNALENGLOBAL/ot-technical-lead-m-w-d-your-next-role",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:25:55.448Z",
+      "crawledAt": "2026-10-04T09:28:27.271Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -822,11 +842,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ot-technical-lead-m-w-d-your-next-role-givaudan-ch"
+        "ot-technical-lead-m-w-d-your-next-role-givaudan-ch",
+        "ot-technical-lead-m-w-d-il-tuo-prossimo-ruolo-givaudan-vernier-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ot-technical-lead-m-w-d-your-next-role-givaudan-ch"
+          "ot-technical-lead-m-w-d-your-next-role-givaudan-ch",
+          "ot-technical-lead-m-w-d-il-tuo-prossimo-ruolo-givaudan-vernier-switzerland"
         ],
         "de": [
           "ot-technical-lead-m-w-d-your-next-role-givaudan-ch"
@@ -881,7 +903,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119286EXTERNALENGLOBAL/ingenieur-process-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:25:55.095Z",
+      "crawledAt": "2026-10-04T09:28:26.917Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -901,12 +923,14 @@
       "previousSlugs": [
         "ingenieur-process-h-f-d-givaudan-ch",
         "ingenieur-process-h-f-d-givaudan-vernier",
-        "ingenieur-process-m-w-d-givaudan-vernier"
+        "ingenieur-process-m-w-d-givaudan-vernier",
+        "ingegnere-di-processo-m-f-d-givaudan-vernier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingenieur-process-h-f-d-givaudan-ch",
-          "ingenieur-process-h-f-d-givaudan-vernier"
+          "ingenieur-process-h-f-d-givaudan-vernier",
+          "ingegnere-di-processo-m-f-d-givaudan-vernier"
         ],
         "de": [
           "ingenieur-process-m-w-d-givaudan-vernier"
@@ -942,7 +966,7 @@
       "title": "Quality Assurance & Sample Technician (m/w/d)",
       "titleByLocale": {
         "it": "Garanzia di qualità & campione tecnico (m/f/d)",
-        "en": "Quality Assurance & Sample Technician (m/w/d)",
+        "en": "Quality assurance and Sample Technician (m/f/d)",
         "de": "Qualität Assurance & Sample Techniker (m/w/d)",
         "fr": "Qualité Assurance & Sample Technicien (m/w/d)"
       },
@@ -958,7 +982,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118987EXTERNALENGLOBAL/quality-assurance-sample-technician-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:54.646Z",
+      "crawledAt": "2026-10-04T09:28:26.139Z",
       "addressLocality": "Burgdorf",
       "postalCode": "",
       "addressRegion": "BE",
@@ -981,7 +1005,8 @@
         "controllo-qualita-e-tecnico-dei-campioni-m-p-g-givaudan-burgdorf",
         "qualitatssicherung-mustertechniker-m-w-d-givaudan-burgdorf",
         "qualite-assurance-sample-technicien-m-w-d-givaudan-burgdorf",
-        "quality-assurance-sample-technician-m-w-d-givaudan-ch"
+        "quality-assurance-sample-technician-m-w-d-givaudan-ch",
+        "garanzia-di-qualita-campione-tecnico-m-f-d-givaudan-burgdorf-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -990,7 +1015,8 @@
           "controllo-qualita-e-tecnico-dei-campioni-m-p-g-givaudan-burgdorf",
           "qualitatssicherung-mustertechniker-m-w-d-givaudan-burgdorf",
           "qualite-assurance-sample-technicien-m-w-d-givaudan-burgdorf",
-          "quality-assurance-sample-technician-m-w-d-givaudan-ch"
+          "quality-assurance-sample-technician-m-w-d-givaudan-ch",
+          "garanzia-di-qualita-campione-tecnico-m-f-d-givaudan-burgdorf-switzerland"
         ],
         "fr": [
           "quality-assurance-sample-technician-m-w-d-givaudan-ch"
@@ -1042,7 +1068,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB117803EXTERNALENGLOBAL/anlagenfuhrer-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:54.385Z",
+      "crawledAt": "2026-10-04T09:28:25.484Z",
       "addressLocality": "Burgdorf",
       "postalCode": "",
       "addressRegion": "BE",
@@ -1066,7 +1092,8 @@
         "betriebsmechaniker-m-w-d-givaudan-ch",
         "mecanicien-d-exploitation-h-f-d-givaudan-burgdorf",
         "machine-operator-givaudan-burgdorf",
-        "anlagenfuhrer-m-w-d-givaudan-burgdorf"
+        "anlagenfuhrer-m-w-d-givaudan-burgdorf",
+        "operatore-m-f-d-givaudan-burgdorf-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1075,7 +1102,8 @@
           "plant-mechanic-m-w-d-givaudan-burgdorf",
           "betriebsmechaniker-m-w-d-givaudan-ch",
           "mecanicien-d-exploitation-h-f-d-givaudan-burgdorf",
-          "machine-operator-givaudan-burgdorf"
+          "machine-operator-givaudan-burgdorf",
+          "operatore-m-f-d-givaudan-burgdorf-switzerland"
         ],
         "en": [
           "anlagenfuhrer-m-w-d-givaudan-ch",
@@ -1136,7 +1164,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119373EXTERNALENGLOBAL/electromecanicien-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:25:53.931Z",
+      "crawledAt": "2026-10-04T09:28:24.823Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -1154,11 +1182,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "electromecanicien-h-f-d-givaudan-ch"
+        "electromecanicien-h-f-d-givaudan-ch",
+        "electromecanicien-h-f-d-givaudan-vernier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "electromecanicien-h-f-d-givaudan-ch"
+          "electromecanicien-h-f-d-givaudan-ch",
+          "electromecanicien-h-f-d-givaudan-vernier"
         ],
         "de": [
           "electromecanicien-h-f-d-givaudan-ch"
@@ -1210,7 +1240,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119322EXTERNALENGLOBAL/produktionsmitarbeiter-misch-und-abfullanlagen-m-w-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:53.478Z",
+      "crawledAt": "2026-10-04T09:28:24.173Z",
       "addressLocality": "Bischofszell",
       "postalCode": "",
       "addressRegion": "TG",
@@ -1271,7 +1301,7 @@
       "title": "Quality Control Analyst (h/f/d)",
       "titleByLocale": {
         "it": "Quality Control Analista (f/m/d)",
-        "en": "Quality Control Analyst (h/f/d)",
+        "en": "Quality Control Analyst (m/f/d)",
         "de": "Qualität Control Analyst (h/f/d)",
         "fr": "Qualité Control Analyste (h/f/d)"
       },
@@ -1287,7 +1317,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB118226EXTERNALENGLOBAL/quality-control-analyst-h-f-d",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:25:53.063Z",
+      "crawledAt": "2026-10-04T09:28:23.540Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -1307,12 +1337,14 @@
       "previousSlugs": [
         "quality-control-analyst-h-f-d-givaudan-ch",
         "analista-di-controllo-qualita-m-f-d-givaudan-vernier",
-        "qualitatskontrolle-analyst-m-w-d-givaudan-vernier"
+        "qualitatskontrolle-analyst-m-w-d-givaudan-vernier",
+        "quality-control-analista-f-m-d-givaudan-vernier-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quality-control-analyst-h-f-d-givaudan-ch",
-          "analista-di-controllo-qualita-m-f-d-givaudan-vernier"
+          "analista-di-controllo-qualita-m-f-d-givaudan-vernier",
+          "quality-control-analista-f-m-d-givaudan-vernier-switzerland"
         ],
         "de": [
           "qualitatskontrolle-analyst-m-w-d-givaudan-vernier"
@@ -1364,7 +1396,7 @@
       "url": "https://careers.givaudan.com/global/en/job/GIVGIVGB119102EXTERNALENGLOBAL/agent-prevention-et-intervention-h-f-d-3x8-cdd-jusqu-au-31-12-2027",
       "source": "Givaudan Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:25:52.600Z",
+      "crawledAt": "2026-10-04T09:28:22.387Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -1382,11 +1414,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "agent-prevention-et-intervention-h-f-d-3x8-cdd-jusqu-au-31-12-2027-givaudan-ch"
+        "agent-prevention-et-intervention-h-f-d-3x8-cdd-jusqu-au-31-12-2027-givaudan-ch",
+        "prevenzione-e-intervento-agente-m-f-d-3x8-csd-fino-al-31-12-2027-givaudan-vernier-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agent-prevention-et-intervention-h-f-d-3x8-cdd-jusqu-au-31-12-2027-givaudan-ch"
+          "agent-prevention-et-intervention-h-f-d-3x8-cdd-jusqu-au-31-12-2027-givaudan-ch",
+          "prevenzione-e-intervento-agente-m-f-d-3x8-csd-fino-al-31-12-2027-givaudan-vernier-switzerland"
         ]
       },
       "firstSeenAt": "2026-06-24T11:22:34.784Z",
@@ -1402,8 +1436,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }

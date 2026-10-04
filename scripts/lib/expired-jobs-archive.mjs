@@ -32,6 +32,7 @@ import {
   promotePreviousSlugToLegacy,
 } from './dedicated-crawler-common.mjs';
 import { buildStableJobIdentity } from './job-identity.mjs';
+import { isHeldFromPublication } from './translation-publication-hold.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -328,6 +329,10 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
   });
   for (const job of removedJobs) {
     if (!job?.slug) continue;
+    // A job held out of publication for translation (agency admission
+    // threshold) never had a public URL: archiving it would mint an expired
+    // soft-landing page for a route nobody was ever served.
+    if (isHeldFromPublication(job)) continue;
     const entry = buildExpiredEntry(job);
     const prev = bySlug.get(entry.slug);
     if (!prev) {
