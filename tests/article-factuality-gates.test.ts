@@ -1391,6 +1391,22 @@ describe('detectLeakedScaffolding', () => {
       .toContain('leaked-prompt-scaffolding');
   });
 
+  // The expansion prompt of create-article.mjs hands the model two input labels
+  // — the title reference and the current text with its word count. The corpus
+  // copy of this module learned them (corpus #1678) while this one did not:
+  // reconciling the both-moved twin brings them back here, so the copy that
+  // descends to the corpus keeps catching them.
+  it.each([
+    ['title reference label', 'RIFERIMENTO DEL TITOLO (SOLO INPUT, NON RIPETERE): lavoro transfrontaliero\n\nTesto valido.'],
+    ['current-text label with its word count', 'TESTO ATTUALE (42 parole): testo interno del prompt\n\nTesto valido.'],
+  ])('flags the expansion prompt %s', (_label, body) => {
+    expect(codes(detectLeakedScaffolding(body))).toContain('leaked-prompt-scaffolding');
+  });
+
+  it('does not flag prose that merely mentions the current text', () => {
+    expect(detectLeakedScaffolding('Il testo attuale della legge (42 articoli) resta in vigore.')).toEqual([]);
+  });
+
   it('tells the writer to delete it, not to rephrase it', () => {
     const fix = detectLeakedScaffolding('## TITOLO ARTICOLO: prova')[0]?.fix || '';
     expect(fix).toMatch(/non deve esserci affatto/i);
