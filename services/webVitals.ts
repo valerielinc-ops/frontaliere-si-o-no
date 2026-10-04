@@ -131,7 +131,9 @@ function sendToGA4(metric: WebVitalMetric) {
  screen_height: window.innerHeight || 0,
  ...attribution,
  });
- if (cwvAttribution) Analytics.log('ui_interaction', cwvAttribution);
+ // Same page_path as web_vitals: without it enrichEventParams would use
+ // currentScreen, which can differ on a hide right after an SPA navigation.
+ if (cwvAttribution) Analytics.log('ui_interaction', { ...cwvAttribution, page_path: location.pathname });
  }).catch(() => {});
 
  if (import.meta.env.DEV) {

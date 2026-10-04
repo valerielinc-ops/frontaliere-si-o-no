@@ -61,7 +61,13 @@ vi.mock('web-vitals/attribution', () => ({
 }));
 
 const AUTO_AD_CLASS = AUTO_AD_CONTAINER_SELECTOR.replace(/^\./, '');
-const FOOTER_SELECTOR = 'footer.bg-surface-alt.mt-auto>div.mx-auto.max-w-7xl.px-4.py-10>div.grid.grid-cols-2.gap-8';
+// Production footer classes (App.tsx). web-vitals 5.1 lib/getSelector.js joins
+// the tag with the raw, SORTED classList and escapes nothing, so `md:pb-8`
+// makes FOOTER_SELECTOR invalid CSS: querySelector cannot resolve it. This is the
+// headline case of the CLS regression; classification must come from the
+// node reference web-vitals also provides, not from this string.
+const FOOTER_CLASSES = 'border-t border-edge bg-surface-alt py-8 pb-20 md:pb-8 mt-auto relative z-10';
+const FOOTER_SELECTOR = `footer.${FOOTER_CLASSES.split(' ').sort().join('.')}`;
 
 function autoAd(collapsed = false): string {
   return `<div class="${AUTO_AD_CLASS}"${collapsed ? ` ${AUTO_AD_COLLAPSED_ATTR}="1"` : ''}></div>`;
@@ -77,10 +83,19 @@ function mountPage(): void {
       ${autoAd()}${autoAd(true)}${autoAd()}
       <ins class="adsbygoogle manual-slot"></ins>
     </main>
-    <footer class="bg-surface-alt mt-auto">
+    <footer class="${FOOTER_CLASSES}">
       <div class="mx-auto max-w-7xl px-4 py-10"><div class="grid grid-cols-2 gap-8">links</div></div>
     </footer>
     <div class="outside-root">loose</div>`;
+}
+
+function footerNode(): Element {
+  return document.querySelector('footer')!;
+}
+
+/** CLS attribution as web-vitals reports it: selector string plus node reference. */
+function footerShift(loadState = 'complete'): Record<string, unknown> {
+  return { largestShiftTarget: FOOTER_SELECTOR, largestShiftSource: { node: footerNode() }, loadState };
 }
 
 function cls(rating: string, attribution?: Record<string, unknown>) {
@@ -110,7 +125,7 @@ describe('buildCwvAttributionEvent', () => {
   afterEach(() => { document.body.innerHTML = ''; });
 
   it('attributes a poor CLS on the footer with the Auto Ads census', () => {
-    const event = buildCwvAttributionEvent(cls('poor', { largestShiftTarget: FOOTER_SELECTOR, loadState: 'complete' }));
+    const event = buildCwvAttributionEvent(cls('poor', footerShift()));
     assertRegisteredShape(event);
     expect(event).toMatchObject({
       page: CWV_ATTRIBUTION_PAGE,
@@ -123,6 +138,42 @@ describe('buildCwvAttributionEvent', () => {
     expect(event.details.startsWith(FOOTER_SELECTOR.slice(0, 70))).toBe(true);
   });
 
+  it('the production footer selector is not valid CSS, so the node reference decides', () => {
+    // Chrome throws a SyntaxError; jsdom may throw or match nothing. Either way
+    // the string alone cannot find the footer.
+    let resolved: Element | null = null;
+    try { resolved = document.querySelector(FOOTER_SELECTOR); } catch { resolved = null; }
+    expect(resolved).toBeNull();
+    const bySelectorOnly = buildCwvAttributionEvent(cls('poor', { largestShiftTarget: FOOTER_SELECTOR, loadState: 'complete' }));
+    assertRegisteredShape(bySelectorOnly);
+    expect(bySelectorOnly.component).toBe('other');
+    const byNode = buildCwvAttributionEvent(cls('poor', footerShift()));
+    assertRegisteredShape(byNode);
+    expect(byNode.component).toBe('footer');
+  });
+
+  it('classifies from the node even when the selector points elsewhere', () => {
+    const textNode = document.querySelector('footer .grid')!.firstChild!;
+    const event = buildCwvAttributionEvent(cls('poor', {
+      largestShiftTarget: 'section.job-list>article.job-card',
+      largestShiftSource: { node: textNode },
+      loadState: 'complete',
+    }));
+    assertRegisteredShape(event);
+    expect(event.component).toBe('footer');
+  });
+
+  it('classifies an INP from the first processed event entry target', () => {
+    const event = buildCwvAttributionEvent(inp('poor', {
+      interactionTarget: FOOTER_SELECTOR,
+      interactionType: 'pointer',
+      processedEventEntries: [{ target: document.querySelector('#job-auth-gate button') }],
+    }));
+    assertRegisteredShape(event);
+    expect(event).toMatchObject({ section: 'inp', component: 'job_gate', action: 'pointer' });
+  });
+
+  // Without a node reference the selector is the fallback.
   it.each([
     ['div.google-auto-placed', 'auto_ad'],
     ['ins.adsbygoogle.manual-slot', 'manual_ad'],
@@ -137,7 +188,7 @@ describe('buildCwvAttributionEvent', () => {
   });
 
   it('returns null for good CLS/INP and for every other metric', () => {
-    expect(buildCwvAttributionEvent(cls('good', { largestShiftTarget: FOOTER_SELECTOR, loadState: 'complete' }))).toBeNull();
+    expect(buildCwvAttributionEvent(cls('good', footerShift()))).toBeNull();
     expect(buildCwvAttributionEvent(inp('good', { interactionTarget: FOOTER_SELECTOR, interactionType: 'pointer' }))).toBeNull();
     for (const name of ['LCP', 'FCP', 'TTFB']) {
       expect(buildCwvAttributionEvent({ name, rating: 'poor', attribution: { target: FOOTER_SELECTOR } })).toBeNull();
@@ -164,14 +215,14 @@ describe('buildCwvAttributionEvent', () => {
   });
 
   it('keeps the action bounded when attribution carries an unexpected value', () => {
-    const event = buildCwvAttributionEvent(cls('poor', { largestShiftTarget: FOOTER_SELECTOR, loadState: 'Complete <script>' }));
+    const event = buildCwvAttributionEvent(cls('poor', footerShift('Complete <script>')));
     assertRegisteredShape(event);
     expect(event.action).toBe('unknown');
   });
 
   it('emits only registered GA4 dimensions', () => {
     expect([...CWV_ATTRIBUTION_PARAM_KEYS]).toEqual(REGISTERED_UI_INTERACTION_DIMENSIONS);
-    const event = buildCwvAttributionEvent(cls('poor', { largestShiftTarget: FOOTER_SELECTOR, loadState: 'complete' }));
+    const event = buildCwvAttributionEvent(cls('poor', footerShift()));
     expect(Object.keys(event!).sort()).toEqual([...REGISTERED_UI_INTERACTION_DIMENSIONS].sort());
   });
 });
@@ -201,15 +252,18 @@ describe('webVitals wiring', () => {
   afterEach(() => { document.body.innerHTML = ''; });
 
   it('logs ui_interaction next to web_vitals for a poor CLS', async () => {
-    await reportThrough(cls('poor', { largestShiftTarget: FOOTER_SELECTOR, loadState: 'complete' }));
+    await reportThrough(cls('poor', footerShift()));
     await vi.waitFor(() => expect(mocks.log).toHaveBeenCalledWith('ui_interaction', expect.anything()));
     expect(mocks.log).toHaveBeenCalledWith('web_vitals', expect.objectContaining({ metric_name: 'CLS', largest_shift_target: FOOTER_SELECTOR }));
+    const [, vitals] = mocks.log.mock.calls.find(([eventName]) => eventName === 'web_vitals')!;
     const [, params] = mocks.log.mock.calls.find(([eventName]) => eventName === 'ui_interaction')!;
     expect(params).toMatchObject({ page: CWV_ATTRIBUTION_PAGE, section: 'cls', component: 'footer', action: 'complete' });
+    // Explicit page_path, equal to web_vitals', so the two events join on the same page.
+    expect(params.page_path).toBe(vitals.page_path);
   });
 
   it('logs only web_vitals for a good CLS', async () => {
-    await reportThrough(cls('good', { largestShiftTarget: FOOTER_SELECTOR, loadState: 'complete' }));
+    await reportThrough(cls('good', footerShift()));
     await vi.waitFor(() => expect(mocks.log).toHaveBeenCalledWith('web_vitals', expect.anything()));
     await settle();
     expect(mocks.log.mock.calls.map(([eventName]) => eventName)).toEqual(['web_vitals']);
@@ -217,7 +271,7 @@ describe('webVitals wiring', () => {
 
   it('logs neither event without analytics consent', async () => {
     mocks.granted.value = false;
-    await reportThrough(cls('poor', { largestShiftTarget: FOOTER_SELECTOR, loadState: 'complete' }));
+    await reportThrough(cls('poor', footerShift()));
     await settle();
     expect(mocks.log).not.toHaveBeenCalled();
   });
