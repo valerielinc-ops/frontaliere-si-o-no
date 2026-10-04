@@ -124,7 +124,7 @@ describe('parseGreenhouseJobs — Swiss location filtering', () => {
 
   it('extracts datePosted from first_published', () => {
     const jobs = parseGreenhouseJobs(MOCK_GREENHOUSE_RESPONSE);
-    expect(jobs[0].datePosted).toBe('2026-03-01');
+    expect(jobs[0].datePosted).toBe(MOCK_GREENHOUSE_RESPONSE.jobs[0].first_published);
   });
 
   it('extracts department', () => {

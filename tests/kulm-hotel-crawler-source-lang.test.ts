@@ -54,6 +54,17 @@ describe('kulm-hotel source language (#5253)', () => {
     }
   });
 
+  it('uses detail publication, keeping the contract start separate', async () => {
+    const publication = new Date(Date.now() - 8 * 86400000).toISOString();
+    const start = new Date(Date.now() + 40 * 86400000).toISOString();
+    for (const datePosted of [publication, '']) {
+      fetchJson.mockResolvedValueOnce({ data: [{ id: 723, title: 'Sous Chef', location: 'Kulm Hotel', contract_starts_at: start }], meta: { last_page: 1 } });
+      vi.stubGlobal('fetch', vi.fn(async () => new Response(detailPage(ENGLISH_INTRO) + `<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', datePosted })}</script>`)));
+      const [job] = await fetchAllKulmHotelJobs();
+      expect(job).toMatchObject({ jobStartDate: start, datePosted, postedDate: datePosted, postingDateSource: datePosted ? 'reported' : 'unknown' });
+    }
+  });
+
   it('keeps the German facts labels for the German fallback text', async () => {
     vi.stubGlobal('fetch', vi.fn(async () => new Response('<html><body><main><p>x</p></main></body></html>', { status: 200 })));
     fetchJson.mockResolvedValueOnce({
