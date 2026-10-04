@@ -99,7 +99,7 @@ describe('decomposedIntoNumbers — stessa regola di decomposedChildNumbers', ()
 });
 
 describe('cablaggio nel PARENT-CLOSE di followup-drainer.mjs', () => {
-  const src = readFileSync('scripts/ci/followup-drainer.mjs', 'utf8');
+  const src = readFileSync(new URL('../scripts/ci/followup-drainer.mjs', import.meta.url), 'utf8');
 
   it('importa la guardia dal modulo condiviso', () => {
     expect(src).toMatch(
