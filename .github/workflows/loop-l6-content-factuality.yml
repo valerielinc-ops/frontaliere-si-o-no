@@ -16,6 +16,10 @@ on:
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - 'scripts/lib/loop-fleet-issue.mjs'
+      - 'scripts/ci/produce-l6-source-verdicts.mjs'
+      - 'scripts/lib/l6-source-check.mjs'
+      - 'scripts/lib/blog-body-io.mjs'
+      - 'scripts/lib/unescape-ts-string.mjs'
       - '.github/workflows/loop-l6-content-factuality.yml'
   pull_request:
     paths:
@@ -29,6 +33,10 @@ on:
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - 'scripts/lib/loop-fleet-issue.mjs'
+      - 'scripts/ci/produce-l6-source-verdicts.mjs'
+      - 'scripts/lib/l6-source-check.mjs'
+      - 'scripts/lib/blog-body-io.mjs'
+      - 'scripts/lib/unescape-ts-string.mjs'
       - '.github/workflows/loop-l6-content-factuality.yml'
   workflow_dispatch:
     inputs:
@@ -66,6 +74,11 @@ jobs:
             /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
             /scripts/lib/loop-fleet-issue.mjs
+            /scripts/ci/produce-l6-source-verdicts.mjs
+            /scripts/lib/l6-source-check.mjs
+            /scripts/lib/blog-body-io.mjs
+            /scripts/lib/unescape-ts-string.mjs
+            /packages/articles/content/blog-articles-data.ts
             /.github/workflows/loop-l6-content-factuality.yml
           sparse-checkout-cone-mode: false
       - name: Setup Node.js
@@ -80,6 +93,34 @@ jobs:
             echo 'LOOP_FLEET_COLLISIONS=0'
             echo 'LOOP_FLEET_GATE_BYPASS=false'
           } >> "$GITHUB_ENV"
+      # Automated source-check verdicts, written to a runner-local file that is
+      # uploaded with the artifact and never committed:
+      # data/editorial-factuality-verdicts.jsonl stays the human reviewers'
+      # ledger. Not on pull_request, where the export below is --unavailable
+      # anyway and a PR run must not download third-party pages.
+      - name: Produce automated L6 source-check verdicts
+        id: produce_l6_verdicts
+        if: github.event_name != 'pull_request'
+        continue-on-error: true
+        env:
+          REPORT_DIR: ${{ runner.temp }}/loop-fleet-l6
+        run: |
+          set -euo pipefail
+          mkdir -p "$REPORT_DIR"
+          node scripts/ci/produce-l6-source-verdicts.mjs --select --limit 20 > "$RUNNER_TEMP/l6-select.txt"
+          # The sparse checkout holds no article body: materialise only the
+          # bodies of the selected articles. `sparse-checkout add` takes no
+          # --no-cone (the mode set by actions/checkout is kept); a missing
+          # locale is fine, the producer counts it as locale-missing.
+          grep '^packages/' "$RUNNER_TEMP/l6-select.txt" | sed 's|^|/|' > "$RUNNER_TEMP/l6-sparse-paths.txt" || true
+          if [ -s "$RUNNER_TEMP/l6-sparse-paths.txt" ]; then
+            git sparse-checkout add --stdin < "$RUNNER_TEMP/l6-sparse-paths.txt"
+          fi
+          node scripts/ci/produce-l6-source-verdicts.mjs --limit 20 --out "$REPORT_DIR/editorial-factuality-verdicts.jsonl" --summary "$REPORT_DIR/producer-summary.json"
+          jq -c '{selected,rowsWritten,skipped}' "$REPORT_DIR/producer-summary.json" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Warn when the L6 producer failed
+        if: always() && steps.produce_l6_verdicts.outcome == 'failure'
+        run: echo '::warning::L6 source-check producer failed; the export reads only the committed ledger and stays fail-closed (unavailable when it is missing)'
       - name: Export read-only L6 editorial outcome
         if: always()
         env:
@@ -92,8 +133,29 @@ jobs:
             node scripts/ci/export-l6-factuality-outcomes.mjs --unavailable --out "$OUTCOME_PATH" --registry data/loop-fleet/loop-registry.json
             exit 0
           fi
+          committed=data/editorial-factuality-verdicts.jsonl
+          produced="$RUNNER_TEMP/loop-fleet-l6/editorial-factuality-verdicts.jsonl"
+          ledger="$committed"
+          if [ -s "$produced" ] && [ -s "$committed" ]; then
+            # One run ledger: committed human rows first, produced rows after.
+            # The contract rejects a second review of the same articleId +
+            # locale, and one invalid row stops the whole ledger measuring, so
+            # automated rows whose identity a committed row already holds are
+            # dropped here (identity trimmed as the exporter trims it).
+            run_ledger="$RUNNER_TEMP/loop-fleet-l6/run-editorial-factuality-verdicts.jsonl"
+            if { cat "$committed"; printf '\n'; jq -c -n --rawfile committed "$committed" '
+                def identity: [(.articleId // "" | tostring), (.locale // "" | tostring)] | map(gsub("^\\s+|\\s+$"; "")) | join("\t");
+                (reduce ($committed | split("\n")[] | (fromjson? // empty) | objects | identity) as $id ({}; .[$id] = true)) as $seen
+                | inputs | select($seen[identity] | not)' "$produced"; } > "$run_ledger"; then
+              ledger="$run_ledger"
+            else
+              echo '::warning::could not merge the produced L6 verdicts with the committed ledger; exporting the committed ledger only'
+            fi
+          elif [ -s "$produced" ]; then
+            ledger="$produced"
+          fi
           set +e
-          node scripts/ci/export-l6-factuality-outcomes.mjs --json --ledger data/editorial-factuality-verdicts.jsonl --out "$OUTCOME_PATH" --registry data/loop-fleet/loop-registry.json | tee "$RUNNER_TEMP/loop-fleet-l6/export-cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
+          node scripts/ci/export-l6-factuality-outcomes.mjs --json --ledger "$ledger" --out "$OUTCOME_PATH" --registry data/loop-fleet/loop-registry.json | tee "$RUNNER_TEMP/loop-fleet-l6/export-cli-output.log" | tee -a "$GITHUB_STEP_SUMMARY"
           export_code=${PIPESTATUS[0]}
           set -e
           if [ "$export_code" -ne 0 ]; then
