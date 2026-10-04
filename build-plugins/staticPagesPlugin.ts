@@ -1,3 +1,5 @@
+import { buildMethodologyEditorial, localizeMethodologyStructuredData } from './shared/editorialMethodology';
+import { METHODOLOGY_COPY, type MethodologyLocale } from '../services/editorialMethodology';
 /**
  * Generate static HTML landing pages for every URL in the sitemaps.
  *
@@ -2980,6 +2982,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const page = buildCorrezioniSeo(locale as CorrectionsLocale);
  return { title: page.title, desc: page.description, ogT: page.title, ogD: page.description, sd: JSON.stringify([page.jsonLd]) };
  }
+ if (sourceCanonicalPath === '/metodologia/') {
+ const copy = METHODOLOGY_COPY[locale as MethodologyLocale];
+ const title = `${copy.title} | Frontaliere Ticino`;
+ return { title, desc: copy.description, ogT: title, ogD: copy.description, sd: localizeMethodologyStructuredData(italianSeo.sd, locale as MethodologyLocale, JSON_LD_SCRIPT_SEPARATOR) };
+ }
 
  // Keep the static head in lockstep with the SPA's localized Guide metadata.
  // The previous fallback title-cased the translated slug (for example,
@@ -3471,6 +3478,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  editorialBlocks.push(...authorEditorial);
  } else if (italianPath.replace(/\/+$/, '') === '/correzioni') {
  editorialBlocks.push(...renderCorrectionsEditorial(locale as CorrectionsLocale));
+ } else if (italianPath.replace(/\/+$/, '') === '/metodologia') {
+ editorialBlocks.push(...buildMethodologyEditorial(locale as MethodologyLocale, esc));
  } else if (sectionKey && SECTION_EDITORIAL[sectionKey]?.[locale]) {
  editorialBlocks.push(...SECTION_EDITORIAL[sectionKey][locale]);
  // SECTION_EDITORIAL short-circuits the `else if` chain that would
@@ -4862,20 +4871,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // and kept the superseded expertise text after the registry was corrected.
  `<ul class="s-QkRjp8">${renderAuthorRosterItems('it', 's-wP4Jn1', 's-OsohZU')}</ul>`,
  `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">AFC</a> · <a class="s-OsohZU" href="https://www.bfs.admin.ch" rel="noopener">UST/BFS</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a></p>`,
- );
- } else if (canonicalPath === '/metodologia' || canonicalPath === '/metodologia/') {
- editorialBlocks.push(
- `<h2 class="s-o3IET6">Come scriviamo gli articoli — metodologia editoriale</h2>`,
- `Frontaliere Ticino pubblica guide, simulazioni e notizie destinate ai lavoratori frontalieri italo-svizzeri. La produzione comprende raccolta delle fonti, generazione assistita, controlli automatici e pubblicazione tracciata. Le verifiche redazionali e le correzioni possono avvenire anche dopo la pubblicazione. La trasparenza sul metodo è parte integrante della qualità: ogni lettore deve poter capire come è stato prodotto il testo che sta leggendo, quali fonti sono state usate e in che modo l'IA e la redazione collaborano.`,
- `<h2 class="s-o3IET6">Strumenti di intelligenza artificiale e revisione umana</h2>`,
- `Usiamo modelli linguistici di nuova generazione (Claude di Anthropic e GPT di OpenAI) per produrre bozze iniziali, suggerire strutture e tradurre i contenuti tra italiano, inglese, tedesco e francese. La pipeline può pubblicare contenuti generati automaticamente dopo i controlli tecnici. Non dichiariamo una revisione umana preventiva per ogni articolo: i controlli automatici non equivalgono a una verifica umana o a un parere professionale.`,
- `<h2 class="s-o3IET6">Fonti primarie utilizzate</h2>`,
- `Privilegiamo le fonti primarie per norme, importi e scadenze: Amministrazione federale delle contribuzioni (AFC/ESTV), comunicati stampa di Cantone Ticino, Confederazione e MEF, Ufficio federale di statistica (UST/BFS), USTAT, sentenze del Tribunale federale, Gazzetta Ufficiale italiana e Foglio federale svizzero, Agenzia delle Entrate, INPS. Le notizie possono basarsi anche su fonti giornalistiche, attribuite e collegate nel testo. Una notizia riportata non equivale a una verifica indipendente della fonte primaria.`,
- `<h2 class="s-o3IET6">Standard giornalistici</h2>`,
- `Aderiamo agli standard di riferimento del giornalismo economico-finanziario: separazione netta tra fatti e opinioni, attribuzione esplicita di ogni dato numerico, citazioni verbatim, verificabilità di ogni affermazione importante, imparzialità rispetto a banche, casse malati e datori di lavoro, trasparenza sugli autori.`,
- `<h2 class="s-o3IET6">Politica di aggiornamento e correzioni</h2>`,
- `<p>Gli articoli vengono aggiornati ogni volta che cambiano i fatti, entro 48 ore lavorative. Le correzioni sono registrate in modo permanente nel <a class="s-OsohZU" href="/correzioni/">registro delle correzioni</a>. Per segnalare un errore scrivere a redazione@frontaliereticino.ch.</p>`,
- `<p class="s-tTvoK-">Pagine collegate: <a class="s-OsohZU" href="/chi-siamo/">Chi siamo</a> · <a class="s-OsohZU" href="/correzioni/">Registro delle correzioni</a></p>`,
  );
  } else if (canonicalPath === '/contattaci' || canonicalPath === '/contattaci/') {
  editorialBlocks.push(

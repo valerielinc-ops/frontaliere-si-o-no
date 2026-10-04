@@ -29,7 +29,7 @@ describe('JobBoard date filters', () => {
     expect(isJobWithinDateRange(discoveredOldListing, NOW - SEVEN_DAYS)).toBe(false);
   });
 
-  it('normalizes a missing publication date from firstSeenAt, not from the recrawl date', () => {
+  it('keeps publication empty while preserving the original observation', () => {
     const normalized = normalizeIncomingJob({
       id: 'old-undated-listing',
       title: 'Old listing',
@@ -39,7 +39,8 @@ describe('JobBoard date filters', () => {
       crawledAt: '2026-09-13T14:02:16.761Z',
     });
 
-    expect(normalized.postedDate).toBe('2026-08-28T05:27:13.245Z');
+    expect(normalized.postedDate).toBe('');
+    expect(normalized.firstSeenAt).toBe('2026-08-28T05:27:13.245Z');
   });
 
   it.each(['unknown', 'reported', undefined] as const)('normalizes mixed provenance %s without promoting collection clocks', (postingDateSource) => {
@@ -52,7 +53,7 @@ describe('JobBoard date filters', () => {
     });
     expect(normalized.postingDateSource).toBe(postingDateSource);
     expect(isJobWithinDateRange(normalized, Date.now() - 7 * 86400000)).toBe(postingDateSource !== 'unknown');
-    expect(normalized.postedDate).toBe(postingDateSource === 'reported' ? datePosted : postingDateSource === 'unknown' ? '' : firstSeenAt);
+    expect(normalized.postedDate).toBe(postingDateSource === 'reported' ? datePosted : '');
   });
 
   it('defines “new” from firstSeenAt, not from a later recrawl', () => {

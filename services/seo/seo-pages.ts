@@ -6865,10 +6865,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  'metodologia': {
  title: 'Metodologia editoriale — Come scriviamo gli articoli | Frontaliere Ticino',
- description: "Pipeline editoriale Frontaliere Ticino: bozze IA, revisione redazionale, fonti primarie (AFC, UST, AdE), politica di aggiornamento e correzioni.",
+ description: "Come Frontaliere Ticino usa fonti, generazione assistita da IA e controlli automatici. Limiti della revisione, aggiornamenti e segnalazioni di errori.",
  keywords: 'metodologia editoriale, intelligenza artificiale giornalismo, frontaliere ticino, fonti primarie, fact checking, politica correzioni, trasparenza editoriale',
  ogTitle: 'Metodologia editoriale — Come scriviamo gli articoli | Frontaliere Ticino',
- ogDescription: 'Come usiamo IA generativa, fonti primarie e revisione redazionale per garantire accuratezza e trasparenza.',
+ ogDescription: 'Come Frontaliere Ticino usa fonti, generazione assistita da IA e controlli automatici. Limiti della revisione, aggiornamenti e segnalazioni di errori.',
  canonicalPath: '/metodologia/',
  // SearchAtlas "missing schema markup" (2026-06-15): this editorial-process
  // page is an About page (mirrors the /about/ alias which already uses
@@ -6882,7 +6882,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "AboutPage",
  "name": "Metodologia editoriale — Come scriviamo gli articoli",
  "url": `${BASE_URL}/metodologia/`,
- "description": "Come utilizziamo l'IA generativa, le fonti primarie e il processo di revisione editoriale per garantire accuratezza e trasparenza.",
+ "description": "Come Frontaliere Ticino usa fonti, generazione assistita da IA e controlli automatici. Limiti della revisione, aggiornamenti e segnalazioni di errori.",
  "lastReviewed": "2026-10-03T00:00:00+02:00",
  "inLanguage": "it",
  "isPartOf": { "@id": `${BASE_URL}/#website` },

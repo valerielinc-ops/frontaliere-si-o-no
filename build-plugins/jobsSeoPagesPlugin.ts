@@ -3309,7 +3309,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
     perJob_salaryCurrency,
    );
    return {
-   jobPostingDatePosted: resolveRolloutPostingDate(job, () => safeIsoDate(job?.postedDate) || safeIsoDate(job?.crawledAt) || toIsoDateTime('', jobsSeoReuseBuildNow), jobsSeoReuseBuildNow),
+   jobPostingDatePosted: resolveReportedPostingDate(job, jobsSeoReuseBuildNow),
    jobPostingValidThrough: toValidThrough(
     String(job?.postedDate || ''),
     job?.crawledAt,
@@ -13750,19 +13750,7 @@ ${staticAnalyticsHtml}
  .find((date): date is string => date !== null && Date.parse(date) < archiveNowMs);
  if (!realTitle || !realValidThrough || !realCompany) return '';
  const validThroughMs = Date.parse(realValidThrough);
- const expiredDatePosted = resolveRolloutPostingDate(ejData || {}, () => {
- // Preserve source publication dates that form a positive historical window.
- const sourceDatePosted = [ejData?.datePosted, ejData?.postedDate]
- .map(safeIsoDate)
- .find((date): date is string => date !== null && Date.parse(date) < validThroughMs);
- const observedDatePosted = [ejData?.firstSeenAt, ejData?.crawledAt]
- .map(safeIsoDate)
- .find((date): date is string => date !== null && Date.parse(date) < validThroughMs);
- // With no usable publication/earlier observation, retain the bounded historical
- // estimate: 30 days before the real past deadline, never relative to the build.
- return sourceDatePosted || observedDatePosted
- || new Date(validThroughMs - 30 * 86400000).toISOString();
- });
+ const expiredDatePosted = resolveReportedPostingDate(ejData || {});
  if (!expiredDatePosted || Date.parse(expiredDatePosted) >= validThroughMs) return '';
  // Match the builder's 50-character guarantee after visible-text normalization,
  // so short historical copy never falls back to an active application prompt.

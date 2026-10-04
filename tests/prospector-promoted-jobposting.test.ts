@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { buildJobPostingSchema } from '../build-plugins/shared/jobPostingSchema';
+import { buildJobPostingFacts, buildJobPostingSchema } from '../build-plugins/shared/jobPostingSchema';
 
 const specListings = vi.hoisted(() => ({
   christinavassalli: {
@@ -34,7 +34,7 @@ describe('promoted Prospector parsers — JobPosting mandatory fields', () => {
   it.each([
     ['christinavassalli', fetchAllChristinavassalliJobs],
     ['premiumpflege24', fetchAllPremiumpflege24Jobs],
-  ] as const)('%s keeps safe structured-data fields when the listing omits them', async (_key, fetchJobs) => {
+  ] as const)('%s keeps unverified listings ineligible while preserving facts and verified mandatory fields', async (_key, fetchJobs) => {
     const [job] = await fetchJobs();
 
     expect(job).toHaveProperty('postalCode', '');
@@ -48,9 +48,21 @@ describe('promoted Prospector parsers — JobPosting mandatory fields', () => {
         now: new Date(),
       });
 
-      expect(schema.baseSalary.value.minValue).toBeGreaterThan(0);
-      expect(schema.jobLocation.address.postalCode).toBeTruthy();
-      expect(schema.jobLocation.address.streetAddress).toBeTruthy();
+      expect(schema).toBeNull();
+      expect(job.title).toBeTruthy();
+      expect(job.url).toBe(specListings[_key].url);
+      expect(buildJobPostingFacts(job, locale).hiringOrganization.name).toBeTruthy();
+      // A separate positively sourced fixture preserves the mandatory contract;
+      // the undated parser output above must never be promoted to reported.
+      const sourceDate = new Date(Date.now() - 86400000).toISOString();
+      const verified = buildJobPostingSchema({ ...job, postingDateSource: 'reported', datePosted: sourceDate, postedDate: sourceDate }, {
+        locale, url: `https://frontaliereticino.ch/lavoro/${locale}/${job.slug}/`, now: new Date(),
+      });
+      expect(verified).not.toBeNull();
+      expect(verified?.datePosted).toBe(sourceDate);
+      expect(verified?.baseSalary.value.minValue).toBeGreaterThan(0);
+      expect(verified?.jobLocation.address.postalCode).toBeTruthy();
+      expect(verified?.jobLocation.address.streetAddress).toBeTruthy();
     }
   });
 });
