@@ -124,12 +124,13 @@ describe('runMemberCountMonitor', () => {
     expect(saveHistoryImpl).toHaveBeenCalledTimes(1);
   });
 
-  it('does NOT open an issue when the count changed recently', async () => {
+  it('does NOT open an issue when the count changed recently, and closes the stagnation issue', async () => {
     const history = [
       { date: isoDaysAgo(45), count: 2 },
       { date: isoDaysAgo(2), count: 3 }, // changed 2 days ago
     ];
     const createIssueImpl = vi.fn();
+    const resolveIssueImpl = vi.fn();
     const result = await runMemberCountMonitor({
       now: NOW,
       credentials,
@@ -137,14 +138,20 @@ describe('runMemberCountMonitor', () => {
       loadHistoryImpl: () => history,
       saveHistoryImpl: vi.fn(),
       createIssueImpl,
+      resolveIssueImpl,
     });
     expect(result.stagnation.stagnant).toBe(false);
     expect(createIssueImpl).not.toHaveBeenCalled();
+    // The mirror of the open path: a measured change closes the issue.
+    expect(resolveIssueImpl).toHaveBeenCalledTimes(1);
+    expect(resolveIssueImpl.mock.calls[0][0]).toContain('stagnant');
+    expect(result.resolved).toBe(true);
   });
 
   it('does NOT open an issue when the 30-day window has not matured yet', async () => {
     const history = [{ date: isoDaysAgo(5), count: 3 }];
     const createIssueImpl = vi.fn();
+    const resolveIssueImpl = vi.fn();
     const result = await runMemberCountMonitor({
       now: NOW,
       credentials,
@@ -152,9 +159,12 @@ describe('runMemberCountMonitor', () => {
       loadHistoryImpl: () => history,
       saveHistoryImpl: vi.fn(),
       createIssueImpl,
+      resolveIssueImpl,
     });
     expect(result.stagnation.stagnant).toBe(false);
     expect(createIssueImpl).not.toHaveBeenCalled();
+    // A short history is "not stagnant yet", not "moving again": no close.
+    expect(resolveIssueImpl).not.toHaveBeenCalled();
   });
 
   it('--dry-run style (dryRun:true) never writes history or opens an issue', async () => {
