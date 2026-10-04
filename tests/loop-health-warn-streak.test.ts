@@ -447,6 +447,9 @@ describe('warnStreaks — counts CONSECUTIVE prior reports', () => {
 });
 
 describe('mergedPrStats — review identity and list completeness', () => {
+  const SITE = 'valerielinc-ops/frontaliere-si-o-no';
+  const CORPUS = 'nanakokyobashi-rgb/frontaliere-articles';
+
   it('counts both human-style and bot-suffixed automation logins', () => {
     const reviews = [
       { author: { login: 'claude' } },
@@ -456,15 +459,13 @@ describe('mergedPrStats — review identity and list completeness', () => {
       { author: { login: 'someone-else' } },
     ];
 
-    expect(botReviewCount({ reviews })).toBe(4);
+    expect(botReviewCount({ reviews }, SITE)).toBe(4);
   });
 
   // Il revisore pubblica con un'identità diversa per repo: nel corpus è il
   // GITHUB_TOKEN del workflow (`github-actions`), nel sito `frontaliere-automation`.
   // Con un login fisso il report del corpus leggeva 0 review su ogni PR.
-  const SITE = 'valerielinc-ops/frontaliere-si-o-no';
-  const CORPUS = 'nanakokyobashi-rgb/frontaliere-articles';
-  const reviewerBody = '<!-- REVIEW_INPUT_REVISION: body:ff501f0b -->\n\n## Scope\n\n## LGTM\n\n<!-- CODEX_FALLBACK_REVIEW -->';
+  const reviewerBody = `<!-- REVIEW_INPUT_REVISION: body:${'ab'.repeat(32)} -->\n\n## Scope\n\n## LGTM\n\n<!-- CODEX_FALLBACK_REVIEW -->`;
 
   it('nel corpus conta la review di github-actions che porta il marcatore del revisore', () => {
     const pr = { reviews: [
@@ -478,6 +479,8 @@ describe('mergedPrStats — review identity and list completeness', () => {
     const pr = { reviews: [
       { author: { login: 'github-actions' }, body: 'Approvato dal workflow di enroll.' },
       { author: { login: 'github-actions' } },
+      { author: { login: 'github-actions' }, body: `Diagnostica: il revisore scrive ${reviewerBody.split('\n')[0]} in testa.` },
+      { author: { login: 'github-actions' }, body: '<!-- REVIEW_INPUT_REVISION: body:ff501f0b -->' },
       { author: { login: 'frontaliere-automation' }, body: reviewerBody },
     ] };
     expect(botReviewCount(pr, CORPUS)).toBe(0);

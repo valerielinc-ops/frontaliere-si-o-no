@@ -59,8 +59,11 @@ export const LABEL_LIST_LIMIT = 200;
 // corpus «0 review del bot» su ogni PR. `github-actions` da solo è generico
 // (qualunque workflow può recensire con quel token): lì vale come revisore solo
 // la review che porta il marcatore d'ingresso del revisore. Repo sconosciuto →
-// regola del sito, cioè il comportamento precedente.
-const REVIEW_INPUT_MARKER = /<!--\s*REVIEW_INPUT_REVISION:/;
+// regola del sito, cioè il comportamento precedente. Il marcatore deve occupare
+// una riga intera nella forma canonica (lib/review-input-revision.mjs, non
+// importato per tenere lo script autonomo): una citazione inline del marcatore
+// in un altro commento non basta.
+const REVIEW_INPUT_MARKER = /^<!-- REVIEW_INPUT_REVISION: body:[0-9a-f]{64} -->$/im;
 const SITE_REVIEW_BOT = Object.freeze({
   login: /^(?:claude|frontaliere-automation)(?:\[bot\])?$/i,
   marker: null,
