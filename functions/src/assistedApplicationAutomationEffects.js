@@ -23,7 +23,7 @@ import {
 } from './assistedApplicationNotifications.js';
 import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
 import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
-import { fitNoticeOf } from './assistedApplicationFitNotice.js';
+import { fitNoticeOf, fitNoticeWording } from './assistedApplicationFitNotice.js';
 
 const SUBMITTABLE_STATUSES = new Set(['awaiting_upload', 'ready_for_manual_submission', 'in_progress']);
 const VERDICT_LABELS = { strong: 'forte', good: 'buono', weak: 'debole', poor: 'scarso' };
@@ -82,6 +82,9 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
   const openQuestions = (draft.questions || []).filter((question) => question.required
     && !String(flow.answers?.[question.id] ?? '').trim()).length
     + openRequiredDocuments(draft, flow.documents || {}).length;
+  // The profile is not a full match: said in the review e-mail too, worded as the page words it
+  // (no list without gaps, no answers without questions).
+  const fit = effect.kind === 'candidate_review' ? fitNoticeWording(fitNoticeOf(draft), { questions: (draft.questions || []).length > 0 }) : null;
   const build = (order) => {
     const locale = resolveOrderLocale(order);
     const common = {
@@ -113,8 +116,8 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
       reviewUrl,
       deadlineAt: flow.deadlineAt,
       held: Boolean(effect.held),
-      // The profile is not a full match: said in the review e-mail too (the page lists the requirements).
-      fit: effect.kind === 'candidate_review' ? fitNoticeOf(draft)?.level || null : null,
+      fit: fit?.kind || null,
+      fitVia: fit?.via || null,
       openQuestions,
       reason: effect.reason || flow.heldBy?.[0],
       price: formatPrice(order, locale),

@@ -56,7 +56,6 @@ const TAILORED_CV_LABELS: Record<string, string> = {
 
 const HELD_LABELS: Record<string, string> = {
   fact_check: 'fatti non verificati nei testi',
-  knock_out: 'requisito indispensabile mancante',
   no_posting: 'testo dell’annuncio non recuperato',
   channel_unknown: 'canale di candidatura sconosciuto',
   legitimacy: 'annuncio sospetto (Block G)',
@@ -87,10 +86,11 @@ const PORTAL_STOP_LABELS: Record<string, string> = {
   rejected: 'il portale ha rifiutato l’invio automatico',
   portal_needs_candidate: 'una pagina del portale non completata dal robot',
   posting_mismatch: 'il modulo non sembra di questo annuncio: controlla e riprova',
-  whatsapp: 'candidatura solo via WhatsApp (PastaHR): affidala al candidato',
+  // #11161: a retry completes it when the channel has a PastaHR https link (the candidate gets it by e-mail).
+  whatsapp: 'candidatura solo via WhatsApp: con un link PastaHR (https) «Riprova l’invio automatico» la chiude mandando il link al candidato per email, altrimenti «Affida al candidato»',
 };
 
-function heldLabel(reason: string): string {
+export function heldLabel(reason: string): string {
   if (reason.startsWith('question:')) return `domanda aperta: ${reason.slice(9)}`;
   if (reason.startsWith('document:')) return `documento mancante: ${reason.slice(9)}`;
   if (reason.startsWith('portal:')) return PORTAL_STOP_LABELS[reason.slice(7)] || PORTAL_STOP_LABELS.portal_needs_candidate;
@@ -485,7 +485,7 @@ export default function AssistedApplicationAutomationPanel({
           {/* A profile that is not a full match no longer needs a tick here: the candidate is told on the review page. */}
           {draft.verdict === 'poor' && (
             <p className="rounded-lg border border-info-border bg-info-subtle/60 px-3 py-2 text-xs text-body">
-              Il CV non soddisfa un requisito indispensabile dell’annuncio. La bozza prosegue comunque: il candidato lo legge sopra le domande, con i requisiti che non risultano dal CV, e decide lui se inviare.
+              Il CV non soddisfa un requisito indispensabile dell’annuncio. La bozza prosegue comunque: la pagina della candidatura lo dice al candidato, con i requisiti che non risultano dal CV quando ce ne sono, e la scelta di inviarla resta sua.
             </p>
           )}
           {/* The other owner flags: approving needs an explicit acknowledgement of each (409 owner_flags_open otherwise). */}

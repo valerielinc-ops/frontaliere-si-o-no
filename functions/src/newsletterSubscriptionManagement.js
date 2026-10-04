@@ -56,6 +56,7 @@ import {
  CONFIRMATION_METHODS,
  hasConfirmationProof,
  hasSubscriberCreationStamp,
+ hasSubscriptionBasis,
 } from './lib/subscriberConsent.js';
 import { REGISTRATION_TERMS_TEXT, REGISTRATION_TERMS_VERSION } from './lib/registrationTermsText.js';
 import { isAccountDeletedTombstone } from './authAccountCleanup.js';
@@ -151,6 +152,10 @@ function hasAdvertisingReactivation(data) {
 
 function isAdvertisingPreferenceEnabled(data) {
  if (!data || typeof data !== 'object') return false;
+ // Same floor as the advertising sender (services/publisherBlastMatch.mjs):
+ // a row with no relationship — a profile-only sign-in row, the saved-jobs
+ // digest record — receives no advertising, so the page must not say it does.
+ if (!hasSubscriptionBasis(data)) return false;
  if (isAddressSuppressed(data.status)
   || data.consent_advertising === false
   || data[ADVERTISING_OPT_OUT_FIELD] === true) return false;
@@ -417,6 +422,7 @@ const BRAND_ALIAS_TO_CANONICAL = Object.freeze({
  'bewerbungsmanagement-spital-davos': 'spital-davos',
  'kzu-recruiting': 'kzu',
  'diakoniewerk-neumuenster': 'spital-zollikerberg',
+ 'capri-holdings-michael-kors-versace': 'michael-kors',
 });
 
 export function normalizeCompanyAlertKey(value) {
@@ -946,8 +952,11 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // page whose entire job is to say whether they are.
  const optOutBinding = isNewsletterOptOutBinding(data);
  const isActive = data.isActive === true || data.active === true;
- // Subscribed unless explicitly unsubscribed.
- const subscribed = !optOutBinding && (isActive || status === 'confirmed' || status === 'pending');
+ // Subscribed unless explicitly unsubscribed — and only when the row is a
+ // relationship at all: the saved-jobs digest record stays unsubscribed
+ // whatever status a webhook or the suppression decay wrote on it.
+ const subscribed = !optOutBinding && hasSubscriptionBasis(data)
+  && (isActive || status === 'confirmed' || status === 'pending');
  newsletter = {
  subscribed,
  autologinEnabled: data.autologin_enabled !== false,

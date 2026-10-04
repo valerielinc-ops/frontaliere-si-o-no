@@ -1,8 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import {
   isRetryable,
+  reactivationActivityFields,
   SUPPRESSION_RETRY_GRACE_DAYS,
 } from '../scripts/lib/mailtrapSuppressionRetry.mjs';
+import { buildSavedJobsDigestAnchor } from '../scripts/send-saved-jobs-digest.mjs';
 import { classify, decideRestore } from '../scripts/lib/mailtrapSuspensionClassify.mjs';
 import { AUTO_CONFIRMED_ORIGIN_RE, HARD_BOUNCE_PATTERN } from '../scripts/lib/suppressionDecay.mjs';
 
@@ -52,6 +54,31 @@ describe('isRetryable (scripts/lib/mailtrapSuppressionRetry.mjs)', () => {
   it('accepts a plain ISO string', () => {
     const sub = { suppressed_at: new Date(daysAgo(SUPPRESSION_RETRY_GRACE_DAYS + 5)).toISOString() };
     expect(isRetryable(sub, NOW)).toBe(true);
+  });
+});
+
+// The saved-jobs digest record (owner decision 2026-10-03) is not a
+// subscription: lifting its suppression resumes the digest, but the retry must
+// not flag it active, or the admin panel and the signup monitor count it.
+describe('reactivationActivityFields (scripts/lib/mailtrapSuppressionRetry.mjs)', () => {
+  const digestRow = () => ({
+    ...buildSavedJobsDigestAnchor({ uid: 'uid-1', email: 'reader@example.com', now: new Date(NOW) }),
+    status: 'suppressed',
+    suppressed_at: daysAgo(SUPPRESSION_RETRY_GRACE_DAYS + 1),
+  });
+
+  it('flags an ordinary subscriber active again', () => {
+    expect(reactivationActivityFields({ status: 'suppressed', source_channel: 'newsletter_form' }))
+      .toEqual({ isActive: true, active: true });
+  });
+
+  it('leaves the activity flags off a saved-jobs digest record', () => {
+    expect(reactivationActivityFields(digestRow())).toEqual({});
+  });
+
+  it('flags the row active once a real capture turned it into a subscription', () => {
+    expect(reactivationActivityFields({ ...digestRow(), source_channel: 'web_app' }))
+      .toEqual({ isActive: true, active: true });
   });
 });
 

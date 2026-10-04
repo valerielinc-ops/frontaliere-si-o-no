@@ -258,6 +258,22 @@ describe('owner queue', () => {
     expect(store.read(draftPath)).toMatchObject({ applicationEmail: { subject: 'Candidatura per il posto di infermiere' }, editedAt: T0 + 3, editedBy: 'owner@example.com' });
   });
 
+  // #11026 took `knock_out` out of the owner flags: approving no longer records an acknowledgement of
+  // it, and the queue no longer shows one. The field an older draft stored stays there, unread.
+  it('approves without the old knock-out acknowledgement, leaving the one an older draft stored', async () => {
+    const { handleAutomationAdminAction, loadAutomationForAdmin } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
+    const order = store.db.collection('assisted_applications').doc(ORDER);
+    await order.collection('automation').doc('flow').set({ state: 'owner_review', round: 1, heldBy: ['no_posting'], answers: {} });
+    await order.collection('ai_drafts').doc('current').set({ ...readyDraft(), verdict: 'poor', job: { source: 'none', title: 'Infermiere' }, knockOutAcknowledgedAt: T0 - 1 });
+    await expect(handleAutomationAdminAction(store.db, {
+      action: 'automationApprove', orderId: ORDER, acknowledgeKnockOut: true, acknowledgeFlags: ['knock_out', 'no_posting'],
+    }, 'owner@example.com', { runEffect, nowMs: T0 })).resolves.toEqual({ ok: true, state: 'candidate_review' });
+    const draft = store.read(`${ORDER_PATH}/ai_drafts/current`);
+    expect(draft?.acknowledgedFlags).toEqual({ no_posting: T0 });
+    expect(draft?.knockOutAcknowledgedAt).toBe(T0 - 1);
+    expect((await loadAutomationForAdmin(store.db, ORDER))?.draft).not.toHaveProperty('knockOutAcknowledgedAt');
+  });
+
   // 2026-10-01: three orders paid before the automation was on are started from the queue.
   it('gives an order the owner starts the same alias the trigger gives', async () => {
     const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
@@ -422,5 +438,25 @@ describe('effects', () => {
     expect(result).toMatchObject({ key: 'auto_candidate_review_r1', audience: 'customer' });
     expect(result.message.text).toMatch(/assisted_application_review=ar1\.order_ABC123\.1\./);
     expect(result.message.text).toContain('la candidatura partirà automaticamente così com’è');
+  });
+
+  // Close-out of 2026-10-03: the review e-mail words the fit paragraph as the page does.
+  it('words the review e-mail\'s fit paragraph from the draft: no list without gaps, no answers without questions', async () => {
+    const draftRef = store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current');
+    const sendNotification = vi.fn(async (args: any) => ({ ok: true, message: args.build(paidOrder()) }));
+    const review = async () => ((await runAutomationEffect(
+      { db: store.db, orderId: ORDER, effect: { type: 'email', kind: 'candidate_review', held: false }, flow: { round: 1, deadlineAt: T0 + CANDIDATE_REVIEW_MS, answers: {} }, nowMs: T0 },
+      { sendNotification, getSecret: async () => 's'.repeat(40) },
+    )) as any).message.text as string;
+    // A verdict «poor» with no decisive requirement missing, and no question.
+    await draftRef.set({ ...readyDraft(), verdict: 'poor' });
+    const far = await review();
+    expect(far).toContain('il tuo profilo sembra lontano da quello che chiede l’annuncio');
+    expect(far).not.toContain('Nella pagina trovi');
+    expect(far).not.toContain('nelle risposte');
+    expect(far).toContain('«Chiedi modifiche»');
+    // With a question to answer, the same draft points to the answers.
+    await draftRef.set({ ...readyDraft(), verdict: 'poor', questions: [{ id: 'work_permit', question: 'Hai un permesso?', type: 'text', required: false }] });
+    expect(await review()).toContain('precisalo nelle risposte prima dell’invio');
   });
 });
