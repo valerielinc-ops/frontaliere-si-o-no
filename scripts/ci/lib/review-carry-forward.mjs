@@ -149,7 +149,7 @@ const REPO_COMMAND_RE = /\b(?:npm|npx|node|vitest|tsx|git|bash|sh|rg|grep|jq)\b/
 // workflow della misura post-merge.
 const WORKFLOW_FILE_RE = /^\.github\/workflows\/[A-Za-z0-9_.@-]+\.ya?ml$/iu;
 const FUNCTION_CALL_RE = /[A-Za-z_$][\w$]*\(/u;
-const ACCEPTANCE_CLAUSE_RE = /(?:Accettazione|Acceptance)\s*:\s*([^\n]*)/giu;
+const ACCEPTANCE_CLAUSE_RE = /(?:Accettazione|Acceptance)\s*:\s*([\s\S]*?)(?=(?:Accettazione|Acceptance)\s*:|$)/giu;
 const PR_BODY_ANCHOR_RE = /^\s*(?:[-*]\s*)?`?PR body[:#]L?[1-9]\d*/iu;
 
 function citesRepoCode(clause, extractCitations) {

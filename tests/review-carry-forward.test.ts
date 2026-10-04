@@ -491,6 +491,15 @@ describe('findingAcceptanceScope', () => {
     expect(findingAcceptanceScope(finding(text), WITH_GATE)).toBe('code');
   });
 
+  it('checks the complete multiline acceptance before classifying a finding as body', () => {
+    const text = [
+      'scripts/x.mjs:L1: 🔴 Important: claim.',
+      'Accettazione: PR body is correct',
+      'run node scripts/x.mjs',
+    ].join('\n');
+    expect(findingAcceptanceScope(finding(text), WITH_GATE)).toBe('code');
+  });
+
   it('treats a `PR body:L<n>` anchored Important as body', () => {
     expect(findingAcceptanceScope(finding('`PR body:L4`: 🔴 Important: bullet senza stato.', []), WITH_GATE)).toBe('body');
   });
