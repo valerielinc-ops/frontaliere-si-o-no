@@ -17,8 +17,10 @@
  * read it by path instead of importing it. Test-tree lints (tests that scan
  * every test file instead of importing one) join the selection whenever the
  * diff touches a test file; source-tree lints (tests that scan `.github`,
- * `scripts` and `bin` by directory, or the whole tracked tree for
- * credential-shaped literals) join it whenever the diff touches their scope.
+ * `scripts` and `bin` by directory, the whole tracked tree for
+ * credential-shaped literals, or data files that no import connects to them,
+ * such as the loop-fleet ledger replay) join it whenever the diff touches
+ * their scope.
  * `--select-only`
  * computes the same selection without invoking Vitest and emits the
  * pre-assembly dataset decision for tests.yml.

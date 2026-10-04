@@ -3,8 +3,8 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 // Import reale: e' l'arco che fa scegliere questo test alla selezione related
 // quando cambia il validatore. Il registry e il ledger sono dati, non import:
-// li collega la voce in `sourceTreeLintTests` di scripts/ci/run-related-tests.mjs
-// (verificata in fondo a questo file).
+// li collega la voce in `sourceTreeLintTests` di scripts/ci/run-related-tests.mjs,
+// verificata per comportamento in tests/run-related-tests-github-assets.test.ts.
 import {
   buildLifecycleEvent,
   validateActionClassAgainstPolicy,
@@ -167,22 +167,4 @@ describe('loop-fleet registry contro il ledger durevole', () => {
     },
   );
 
-  it('gira su ogni diff che tocca registry, ledger o validatore', () => {
-    const runner = fs.readFileSync(path.resolve('scripts/ci/run-related-tests.mjs'), 'utf8');
-    const start = runner.indexOf('const sourceTreeLintTests = new Map([');
-    expect(start, 'sourceTreeLintTests in run-related-tests.mjs').toBeGreaterThanOrEqual(0);
-    const block = runner.slice(start, runner.indexOf('\n]);', start));
-    const entry = block.match(/\['tests\/loop-fleet-registry-ledger-replay\.test\.ts',\s*\/((?:\\.|[^/\n])+)\/([a-z]*)\]/u);
-    expect(entry, 'voce di questo test in sourceTreeLintTests').not.toBeNull();
-    const scope = new RegExp(entry![1], entry![2]);
-    for (const file of [
-      REGISTRY_PATH,
-      `${LEDGER_DIR}/${LIFECYCLE_FILE}`,
-      ...OUTCOME_FILES.map(([, fileName]) => `${LEDGER_DIR}/${fileName}`),
-      'scripts/lib/loop-fleet-contract.mjs',
-    ]) {
-      expect(scope.test(file), file).toBe(true);
-    }
-    expect(scope.test('data/crawler-group-assignments.json')).toBe(false);
-  });
 });
