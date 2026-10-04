@@ -28,6 +28,7 @@
  * blocks). Parser logic is intact; source has zero openings. Keep this
  * crawler enabled — it will resume returning jobs when AIL posts new ones.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -269,9 +270,10 @@ function parseListingPage(html) {
     const closeDateMatch = block.match(
       /Data di chiusura\s*<span>([\s\S]*?)<\/span>/i
     );
-    const datePosted = pubDateMatch
-      ? parseItalianDate(normalizeSpace(pubDateMatch[1]))
-      : new Date().toISOString().slice(0, 10);
+    const publicationLabel = pubDateMatch ? normalizeSpace(pubDateMatch[1]) : '';
+    const publication = sourcePostingDateFields(/^\d{1,2}\s+\w+\s+\d{4}$/.test(publicationLabel)
+      ? parseItalianDate(publicationLabel)
+      : '');
     const validThrough = closeDateMatch
       ? parseItalianDate(normalizeSpace(closeDateMatch[1]))
       : '';
@@ -295,7 +297,7 @@ function parseListingPage(html) {
 
     jobs.push({
       title,
-      datePosted,
+      ...publication,
       validThrough,
       pdfUrl,
       uuid,
@@ -405,7 +407,8 @@ export async function fetchAilJobs() {
       employmentType: detectEmploymentType(title),
       experienceLevel: detectExperienceLevel(title),
       source: 'ail-lugano-crawler',
-      datePosted: listing.datePosted,
+      ...mergeSourcePostingDates({}, listing),
+      crawledAt: new Date().toISOString(),
       validThrough: listing.validThrough || undefined,
       titleByLocale: { it: title },
       descriptionByLocale,
@@ -521,6 +524,8 @@ async function mergeJobs(discoveredJobs) {
     if (ex) {
       const updatedJob = {
         ...ex,
+        ...mergeSourcePostingDates(ex, discovered),
+        crawledAt: discovered.crawledAt,
         title: discovered.title || ex.title,
         company: COMPANY_NAME,
         companyKey: COMPANY_KEY,
