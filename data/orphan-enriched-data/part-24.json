@@ -141,10 +141,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "2-stv-geschaftsfuhrer-in-coop-genossenschaft-bern",
-        "en": "2-stv-geschaftsfuhrer-in-coop-genossenschaft-bern",
+        "it": "2-stv-amministratore-delegato-coop-genossenschaft-bern",
+        "en": "2-stv-managing-director-coop-genossenschaft-bern",
         "de": "2-stv-geschaftsfuhrer-in-coop-genossenschaft-bern",
-        "fr": "2-stv-geschaftsfuhrer-in-coop-genossenschaft-bern"
+        "fr": "2-stv-directeur-general-coop-genossenschaft-bern"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/2-stv-geschaftsfuhrer-in-coop-genossenschaft-bern",
@@ -158,6 +158,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -716,10 +717,10 @@
         "fr": "addetto-a-alle-vendite-food-coop-genossenschaft-wurenlos"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/addetto-a-alle-vendite-food-coop-genossenschaft-wurenlos",
-        "en": "/en/find-jobs-zurich/addetto-a-alle-vendite-food-coop-genossenschaft-wurenlos",
+        "it": "/cerca-lavoro-berna/addetto-a-alle-vendite-food-coop-genossenschaft-wurenlos",
+        "en": "/en/find-jobs-bern/addetto-a-alle-vendite-food-coop-genossenschaft-wurenlos",
         "de": "/de/jobs-im-bern/addetto-a-alle-vendite-food-coop-genossenschaft-wurenlos",
-        "fr": "/fr/trouver-emploi-zurich/addetto-a-alle-vendite-food-coop-genossenschaft-wurenlos"
+        "fr": "/fr/trouver-emploi-berne/addetto-a-alle-vendite-food-coop-genossenschaft-wurenlos"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -12020,9 +12021,12 @@
     {
       "slug": "camerieri",
       "locale": "it",
-      "path": "/cerca-lavoro-ticino/camerieri/",
+      "path": "/cerca-lavoro-svizzera/camerieri/",
       "observedPaths": {
-        "it": "/cerca-lavoro-ticino/camerieri/"
+        "de": "/de/jobs-im-tessin/camerieri",
+        "fr": "/fr/trouver-emploi-tessin/camerieri",
+        "en": "/en/find-jobs-ticino/camerieri",
+        "it": "/cerca-lavoro-ticino/camerieri"
       },
       "queries": [
         {
@@ -12039,6 +12043,11 @@
           "query": "lavoro svizzera cameriere",
           "clicks": 0,
           "impressions": 2
+        },
+        {
+          "query": "lavoro cameriere in svizzera",
+          "clicks": 0,
+          "impressions": 1
         },
         {
           "query": "camerier",
@@ -12066,7 +12075,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 11,
+      "totalImpressions": 12,
       "totalClicks": 0,
       "topQuery": "cameriere svizzera",
       "title": "Camerieri",
@@ -20722,10 +20731,10 @@
         "fr": "data-center-technicien-switzerland-dielsdorf-on-site-reboot-monkey-dielsdorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/data-center-technicien-switzerland-dielsdorf-on-site-reboot-monkey-dielsdorf",
-        "en": "/en/find-jobs-ticino/data-center-technicien-switzerland-dielsdorf-on-site-reboot-monkey-dielsdorf",
-        "de": "/de/jobs-im-tessin/data-center-technicien-switzerland-dielsdorf-on-site-reboot-monkey-dielsdorf",
-        "fr": "/fr/trouver-emploi-tessin/data-center-technicien-switzerland-dielsdorf-on-site-reboot-monkey-dielsdorf"
+        "it": "/cerca-lavoro-zurigo/data-center-technicien-switzerland-dielsdorf-on-site-reboot-monkey-dielsdorf",
+        "en": "/en/find-jobs-zurich/data-center-technicien-switzerland-dielsdorf-on-site-reboot-monkey-dielsdorf",
+        "de": "/de/jobs-in-zurich/data-center-technicien-switzerland-dielsdorf-on-site-reboot-monkey-dielsdorf",
+        "fr": "/fr/trouver-emploi-zurich/data-center-technicien-switzerland-dielsdorf-on-site-reboot-monkey-dielsdorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -20940,10 +20949,10 @@
         "fr": "data-center-technicien-switzerland-solothurn-on-site-reboot-monkey-solothurn"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/data-center-technicien-switzerland-solothurn-on-site-reboot-monkey-solothurn",
-        "en": "/en/find-jobs-ticino/data-center-technicien-switzerland-solothurn-on-site-reboot-monkey-solothurn",
-        "de": "/de/jobs-im-tessin/data-center-technicien-switzerland-solothurn-on-site-reboot-monkey-solothurn",
-        "fr": "/fr/trouver-emploi-tessin/data-center-technicien-switzerland-solothurn-on-site-reboot-monkey-solothurn"
+        "it": "/cerca-lavoro-soletta/data-center-technicien-switzerland-solothurn-on-site-reboot-monkey-solothurn",
+        "en": "/en/find-jobs-solothurn/data-center-technicien-switzerland-solothurn-on-site-reboot-monkey-solothurn",
+        "de": "/de/jobs-in-solothurn/data-center-technicien-switzerland-solothurn-on-site-reboot-monkey-solothurn",
+        "fr": "/fr/trouver-emploi-soleure/data-center-technicien-switzerland-solothurn-on-site-reboot-monkey-solothurn"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -20995,10 +21004,10 @@
         "fr": "data-center-technicien-switzerland-zurich-on-site-reboot-monkey-zurich"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/data-center-technicien-switzerland-zurich-on-site-reboot-monkey-zurich",
-        "en": "/en/find-jobs-ticino/data-center-technicien-switzerland-zurich-on-site-reboot-monkey-zurich",
-        "de": "/de/jobs-im-tessin/data-center-technicien-switzerland-zurich-on-site-reboot-monkey-zurich",
-        "fr": "/fr/trouver-emploi-tessin/data-center-technicien-switzerland-zurich-on-site-reboot-monkey-zurich"
+        "it": "/cerca-lavoro-zurigo/data-center-technicien-switzerland-zurich-on-site-reboot-monkey-zurich",
+        "en": "/en/find-jobs-zurich/data-center-technicien-switzerland-zurich-on-site-reboot-monkey-zurich",
+        "de": "/de/jobs-in-zurich/data-center-technicien-switzerland-zurich-on-site-reboot-monkey-zurich",
+        "fr": "/fr/trouver-emploi-zurich/data-center-technicien-switzerland-zurich-on-site-reboot-monkey-zurich"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -27795,6 +27804,46 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "fachkraft-fur-entsorgung-recycling-w-m-d-galaxus-neuchatel",
+      "locale": "de",
+      "path": "/de/jobs-in-neuenburg/fachkraft-fur-entsorgung-recycling-w-m-d-galaxus-neuchatel",
+      "observedPaths": {
+        "de": "/de/jobs-in-neuenburg/fachkraft-fur-entsorgung-recycling-w-m-d-galaxus-neuchatel"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Fachkraft fur entsorgung recycling galaxus neuchatel",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc"
       ]
     },
     {
@@ -36993,8 +37042,8 @@
       "path": "/de/jobs-im-thurgau/koeche/",
       "observedPaths": {
         "it": "/cerca-lavoro-glarona/koeche",
+        "de": "/de/jobs-im-thurgau/koeche",
         "en": "/en/find-jobs-glarus/koeche",
-        "de": "/de/jobs-im-glarus/koeche",
         "fr": "/fr/trouver-emploi-glaris/koeche"
       },
       "queries": [
@@ -37647,6 +37696,11 @@
           "impressions": 1
         },
         {
+          "query": "lagerist jobs lugano",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "lagermitarbeiter schaffhausen",
           "clicks": 0,
           "impressions": 1
@@ -37662,7 +37716,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 15,
+      "totalImpressions": 16,
       "totalClicks": 0,
       "topQuery": "lagerarbeiter basel stundenlohn 25 chf 26 chf",
       "title": "Lager",
@@ -42954,10 +43008,10 @@
         "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-richterswil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-richterswil",
-        "en": "/en/find-jobs-zurich/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-richterswil",
+        "it": "/cerca-lavoro-basilea/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-richterswil",
+        "en": "/en/find-jobs-basel/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-richterswil",
         "de": "/de/jobs-im-bern/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-richterswil",
-        "fr": "/fr/trouver-emploi-zurich/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-richterswil"
+        "fr": "/fr/trouver-emploi-bale/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-richterswil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -46087,6 +46141,63 @@
       ]
     },
     {
+      "slug": "page-18",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-zoug/page-18/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-zoug/page-18/"
+      },
+      "queries": [
+        {
+          "query": "est ce qu il y a des emplois disponibles à zoug",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "est ce qu il y a des emplois disponibles à zoug",
+      "title": "Page 18",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "page-18",
+        "en": "page-18",
+        "de": "page-18",
+        "fr": "page-18"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-lucerna/page-18",
+        "en": "/en/find-jobs-lucerne/page-18",
+        "de": "/de/jobs-im-luzern/page-18",
+        "fr": "/fr/trouver-emploi-lucerne/page-18"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "pagina-15",
       "locale": "it",
       "path": "/cerca-lavoro-berna/pagina-15/",
@@ -47072,7 +47183,7 @@
         "de": "/de/jobs-im-tessin/pharmacists",
         "en": "/en/find-jobs-ticino/pharmacists",
         "fr": "/fr/trouver-emploi-tessin/pharmacists",
-        "it": "/cerca-lavoro-ticino/pharmacists"
+        "it": "/cerca-lavoro-basilea/pharmacists"
       },
       "queries": [
         {
@@ -61671,10 +61782,10 @@
         "it": "senior-frontend-software-ingegnere-chiasso"
       },
       "localePaths": {
-        "de": "/de/jobs-im-tessin/senior-frontend-software-ingenieur-chiasso",
-        "fr": "/fr/trouver-emploi-tessin/senior-frontend-software-ingenieur-chiasso",
-        "it": "/cerca-lavoro-ticino/senior-frontend-software-ingenieur-chiasso",
-        "en": "/en/find-jobs-ticino/senior-frontend-software-ingenieur-chiasso"
+        "de": "/de/jobs-in-zurich/senior-frontend-software-ingenieur-chiasso",
+        "fr": "/fr/trouver-emploi-zurich/senior-frontend-software-ingenieur-chiasso",
+        "it": "/cerca-lavoro-zurigo/senior-frontend-software-ingenieur-chiasso",
+        "en": "/en/find-jobs-zurich/senior-frontend-software-ingenieur-chiasso"
       },
       "sourceUrl": "https://corporate.lastminute.com/careers/jobs/job?id=744000117597067&jobname=senior+frontend+software+engineer",
       "googleStatus": "unknown",
@@ -68738,10 +68849,10 @@
         "fr": "stv-filialleiter-in-denner-schaffhausen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/stv-filialleiter-in-denner-schaffhausen",
-        "en": "/en/find-jobs-zurich/stv-filialleiter-in-denner-schaffhausen",
+        "it": "/cerca-lavoro-lucerna/stv-filialleiter-in-denner-schaffhausen",
+        "en": "/en/find-jobs-lucerne/stv-filialleiter-in-denner-schaffhausen",
         "de": "/de/jobs-im-schaffhausen/stv-filialleiter-in-denner-schaffhausen",
-        "fr": "/fr/trouver-emploi-zurich/stv-filialleiter-in-denner-schaffhausen"
+        "fr": "/fr/trouver-emploi-lucerne/stv-filialleiter-in-denner-schaffhausen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -69911,10 +70022,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "team-leaders-kitchen-chef-lis-lugano-istituti-sociali-pregassona",
+        "it": "capisquadra-chef-di-cucina-lis-lugano-istituti-sociali-pregassona",
         "en": "team-leaders-kitchen-chef-lis-lugano-istituti-sociali-pregassona",
-        "de": "team-leaders-kitchen-chef-lis-lugano-istituti-sociali-pregassona",
-        "fr": "team-leaders-kitchen-chef-lis-lugano-istituti-sociali-pregassona"
+        "de": "teamleiter-kuchenkoch-lis-lugano-istituti-sociali-pregassona",
+        "fr": "chefs-d-equipe-chef-de-cuisine-lis-lugano-istituti-sociali-pregassona"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/team-leaders-kitchen-chef-lis-lugano-istituti-sociali-pregassona",
@@ -69922,12 +70033,13 @@
         "de": "/de/jobs-im-tessin/team-leaders-kitchen-chef-lis-lugano-istituti-sociali-pregassona",
         "fr": "/fr/trouver-emploi-tessin/team-leaders-kitchen-chef-lis-lugano-istituti-sociali-pregassona"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=41-capisquadra-chef-di-cucina-pregassona&language=it",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -74306,10 +74418,10 @@
         "fr": "vendeur-de-produits-frais-coop-genossenschaft-bottmingen-tfifat"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/vendeur-de-produits-frais-coop-genossenschaft-bottmingen-tfifat",
-        "en": "/en/find-jobs-basel/vendeur-de-produits-frais-coop-genossenschaft-bottmingen-tfifat",
-        "de": "/de/jobs-in-basel/vendeur-de-produits-frais-coop-genossenschaft-bottmingen-tfifat",
-        "fr": "/fr/trouver-emploi-bale/vendeur-de-produits-frais-coop-genossenschaft-bottmingen-tfifat"
+        "it": "/cerca-lavoro-berna/vendeur-de-produits-frais-coop-genossenschaft-bottmingen-tfifat",
+        "en": "/en/find-jobs-bern/vendeur-de-produits-frais-coop-genossenschaft-bottmingen-tfifat",
+        "de": "/de/jobs-in-bern/vendeur-de-produits-frais-coop-genossenschaft-bottmingen-tfifat",
+        "fr": "/fr/trouver-emploi-berne/vendeur-de-produits-frais-coop-genossenschaft-bottmingen-tfifat"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -78316,10 +78428,10 @@
         "fr": "verkaufer-in-kassen-services-coop-genossenschaft-einsiedeln"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/verkaufer-in-kassen-services-coop-genossenschaft-einsiedeln",
-        "en": "/en/find-jobs-basel/verkaufer-in-kassen-services-coop-genossenschaft-einsiedeln",
+        "it": "/cerca-lavoro-zurigo/verkaufer-in-kassen-services-coop-genossenschaft-einsiedeln",
+        "en": "/en/find-jobs-zurich/verkaufer-in-kassen-services-coop-genossenschaft-einsiedeln",
         "de": "/de/jobs-im-bern/verkaufer-in-kassen-services-coop-genossenschaft-einsiedeln",
-        "fr": "/fr/trouver-emploi-bale/verkaufer-in-kassen-services-coop-genossenschaft-einsiedeln"
+        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-kassen-services-coop-genossenschaft-einsiedeln"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

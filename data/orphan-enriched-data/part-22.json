@@ -3040,10 +3040,10 @@
         "fr": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-elm-gl"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-elm-gl",
-        "en": "/en/find-jobs-graubunden/apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-elm-gl",
-        "de": "/de/jobs-in-graubunden/apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-elm-gl",
-        "fr": "/fr/trouver-emploi-grisons/apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-elm-gl"
+        "it": "/cerca-lavoro-lucerna/apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-elm-gl",
+        "en": "/en/find-jobs-lucerne/apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-elm-gl",
+        "de": "/de/jobs-in-luzern/apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-elm-gl",
+        "fr": "/fr/trouver-emploi-lucerne/apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-elm-gl"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -12429,9 +12429,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "carriere-des-stagiaires-et-des-stagiaires-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "en": "carriere-des-stagiaires-et-des-stagiaires-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "de": "carriere-des-stagiaires-et-des-stagiaires-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "de": "praktikantin-praktikant-kindertagesstatte-ipw-winterthur",
         "fr": "carriere-des-stagiaires-et-des-stagiaires-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "localePaths": {
@@ -12440,12 +12438,13 @@
         "de": "/de/jobs-im-zurich/carriere-des-stagiaires-et-des-stagiaires-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "fr": "/fr/trouver-emploi-zurich/carriere-des-stagiaires-et-des-stagiaires-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://live.solique.ch/ipw/de/jobs/praktikantin---praktikant-kindertagesst%c3%a4tte--4064521",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -15783,10 +15782,10 @@
         "fr": "collaborateur-trice-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/collaborateur-trice-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz",
-        "en": "/en/find-jobs-st-gallen/collaborateur-trice-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz",
+        "it": "/cerca-lavoro-berna/collaborateur-trice-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz",
+        "en": "/en/find-jobs-bern/collaborateur-trice-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz",
         "de": "/de/jobs-im-st-gallen/collaborateur-trice-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz",
-        "fr": "/fr/trouver-emploi-saint-gall/collaborateur-trice-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz"
+        "fr": "/fr/trouver-emploi-berne/collaborateur-trice-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -16282,10 +16281,10 @@
         "it": "commesso-a-alimentari-coop-genossenschaft-lotzwil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/commesso-a-alimentari-coop-genossenschaft-lotzwil",
-        "en": "/en/find-jobs-zurich/commesso-a-alimentari-coop-genossenschaft-lotzwil",
+        "it": "/cerca-lavoro-san-gallo/commesso-a-alimentari-coop-genossenschaft-lotzwil",
+        "en": "/en/find-jobs-st-gallen/commesso-a-alimentari-coop-genossenschaft-lotzwil",
         "de": "/de/jobs-im-basel/commesso-a-alimentari-coop-genossenschaft-lotzwil",
-        "fr": "/fr/trouver-emploi-zurich/commesso-a-alimentari-coop-genossenschaft-lotzwil"
+        "fr": "/fr/trouver-emploi-saint-gall/commesso-a-alimentari-coop-genossenschaft-lotzwil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -18996,8 +18995,6 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "controller-stadt-zurich-zurich",
-        "en": "controller-stadt-zurich-zurich",
         "de": "controller-in-stadt-zuerich-zurigo-50452",
         "fr": "controleur-stadt-zurich-zurich"
       },
@@ -20150,7 +20147,7 @@
         "it": "/cerca-lavoro-zurigo/data-scientist",
         "de": "/de/jobs-im-zurich/data-scientist",
         "fr": "/fr/trouver-emploi-zurich/data-scientist",
-        "en": "/en/find-jobs-zurich/data-scientist"
+        "en": "/en/find-jobs-ticino/data-scientist"
       },
       "queries": [
         {
@@ -20162,6 +20159,11 @@
           "query": "data scientist jobs lugano",
           "clicks": 0,
           "impressions": 2
+        },
+        {
+          "query": "\"telegram\" and (\"technical skills\" or \"information security\" or \"cybersecurity\" or \"network security\" or \"cloud computing\" or \"it services\" or \"web technology\")",
+          "clicks": 0,
+          "impressions": 1
         },
         {
           "query": "asuransi zurich",
@@ -20224,7 +20226,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 29,
+      "totalImpressions": 30,
       "totalClicks": 0,
       "topQuery": "data scientist jobs lugano",
       "title": "Data scientist",
@@ -21262,6 +21264,68 @@
       ]
     },
     {
+      "slug": "dipl-expert-expert-snd-soins-d-urgence-medipersonal-steckborn",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-thurgovie/dipl-expert-expert-snd-soins-d-urgence-medipersonal-steckborn/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-thurgovie/dipl-expert-expert-snd-soins-d-urgence-medipersonal-steckborn/"
+      },
+      "queries": [
+        {
+          "query": "job steckborn",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "snd jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "job steckborn",
+      "title": "Dipl expert expert snd soins urgence medipersonal steckborn",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "dipl-expert-expert-snd-soins-d-urgence-medipersonal-steckborn",
+        "en": "dipl-expert-expert-snd-soins-d-urgence-medipersonal-steckborn",
+        "de": "dipl-expert-expert-snd-soins-d-urgence-medipersonal-steckborn",
+        "fr": "dipl-expert-expert-snd-soins-d-urgence-medipersonal-steckborn"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-turgovia/dipl-expert-expert-snd-soins-d-urgence-medipersonal-steckborn",
+        "en": "/en/find-jobs-thurgau/dipl-expert-expert-snd-soins-d-urgence-medipersonal-steckborn",
+        "de": "/de/jobs-im-thurgau/dipl-expert-expert-snd-soins-d-urgence-medipersonal-steckborn",
+        "fr": "/fr/trouver-emploi-thurgovie/dipl-expert-expert-snd-soins-d-urgence-medipersonal-steckborn"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "dipl-expertin-dipl-experte-notfallpflege-o-dipl-pflegefachperson-a-spital-emmental-langnau",
       "locale": "en",
       "path": "/en/find-jobs-ticino/dipl-expertin-dipl-experte-notfallpflege-o-dipl-pflegefachperson-a-spital-emmental-langnau",
@@ -22107,9 +22171,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "en": "dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "de": "dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "fr": "dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "en": "dipl-nursing-specialist-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "de": "dipl-pflegefachfrau-pflegefachmann-fh-hf-ipw-winterthur",
+        "fr": "dipl-specialiste-des-soins-infirmiers-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
@@ -22117,12 +22181,13 @@
         "de": "/de/jobs-im-zurich/dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "fr": "/fr/trouver-emploi-zurich/dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://live.solique.ch/ipw/de/jobs/dipl.-pflegefachfrau---pflegefachmann-fh-hf--4070887",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -32165,6 +32230,83 @@
       ]
     },
     {
+      "slug": "hittnau",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-zurich/hittnau/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-zurich/hittnau/"
+      },
+      "queries": [
+        {
+          "query": "agence de placement frontalier suisse",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "ceo migros",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "emploi frontalier suisse",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "salaire brut",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "suisse emploi frontalier",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "topQuery": "agence de placement frontalier suisse",
+      "title": "Hittnau",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "hittnau",
+        "en": "hittnau",
+        "de": "hittnau",
+        "fr": "hittnau"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/hittnau",
+        "en": "/en/find-jobs-zurich/hittnau",
+        "de": "/de/jobs-im-zurich/hittnau",
+        "fr": "/fr/trouver-emploi-zurich/hittnau"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "hochschulpraktikant-in-digitalen-medien-confederazione-svizzera-bern",
       "locale": "de",
       "path": "/de/jobs-in-bern/hochschulpraktikant-in-digitalen-medien-confederazione-svizzera-bern/",
@@ -34944,10 +35086,10 @@
         "fr": "ingenieur-de-projet-coopers-group-ag-wallis"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/ingenieur-de-projet-coopers-group-ag-wallis",
-        "en": "/en/find-jobs-ticino/ingenieur-de-projet-coopers-group-ag-wallis",
-        "de": "/de/jobs-im-tessin/ingenieur-de-projet-coopers-group-ag-wallis",
-        "fr": "/fr/trouver-emploi-tessin/ingenieur-de-projet-coopers-group-ag-wallis"
+        "it": "/cerca-lavoro-vallese/ingenieur-de-projet-coopers-group-ag-wallis",
+        "en": "/en/find-jobs-valais/ingenieur-de-projet-coopers-group-ag-wallis",
+        "de": "/de/jobs-im-wallis/ingenieur-de-projet-coopers-group-ag-wallis",
+        "fr": "/fr/trouver-emploi-valais/ingenieur-de-projet-coopers-group-ag-wallis"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -39085,10 +39227,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "lernender-detailhandel-m-w-d-aldi-suisse-biberist",
-        "en": "lernender-detailhandel-m-w-d-aldi-suisse-biberist",
+        "it": "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-biberist",
+        "en": "retail-apprentice-m-w-d-aldi-suisse-biberist",
         "de": "lernender-detailhandel-m-w-d-aldi-suisse-biberist",
-        "fr": "lernender-detailhandel-m-w-d-aldi-suisse-biberist"
+        "fr": "apprenti-e-commerce-de-detail-m-w-d-aldi-suisse-biberist"
       },
       "localePaths": {
         "it": "/cerca-lavoro-soletta/lernender-detailhandel-m-w-d-aldi-suisse-biberist",
@@ -39102,6 +39244,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -44381,10 +44524,10 @@
         "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wadenswil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wadenswil",
-        "en": "/en/find-jobs-zurich/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wadenswil",
-        "de": "/de/jobs-in-zurich/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wadenswil",
-        "fr": "/fr/trouver-emploi-zurich/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wadenswil"
+        "it": "/cerca-lavoro-basilea/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wadenswil",
+        "en": "/en/find-jobs-basel/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wadenswil",
+        "de": "/de/jobs-in-basel/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wadenswil",
+        "fr": "/fr/trouver-emploi-bale/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-wadenswil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -47301,12 +47444,12 @@
         {
           "query": "offerte di lavoro osa ticino",
           "clicks": 6,
-          "impressions": 46
+          "impressions": 53
         },
         {
           "query": "osa offerte di lavoro",
           "clicks": 2,
-          "impressions": 30
+          "impressions": 35
         },
         {
           "query": "frontaliere ticino offerte di lavoro",
@@ -47369,14 +47512,14 @@
           "impressions": 7
         },
         {
-          "query": "offerte di lavoro casa di riposo svizzera",
+          "query": "offerte di lavoro sistema sanitario svizzero",
           "clicks": 0,
           "impressions": 6
         },
         {
-          "query": "offerte di lavoro sistema sanitario svizzero",
+          "query": "offerte di lavoro casa di riposo svizzera",
           "clicks": 0,
-          "impressions": 5
+          "impressions": 6
         },
         {
           "query": "offerte di lavoro centri diurni ticino",
@@ -47384,13 +47527,13 @@
           "impressions": 5
         },
         {
-          "query": "operatrice socio assistenziale offerte di lavoro",
+          "query": "offerte di lavoro operatore sociale",
           "clicks": 0,
           "impressions": 5
         }
       ],
-      "totalImpressions": 719,
-      "totalClicks": 21,
+      "totalImpressions": 743,
+      "totalClicks": 22,
       "topQuery": "offerte di lavoro canton ticino per frontalieri",
       "title": "Operatori socio sanitari",
       "titleByLocale": {
@@ -48114,9 +48257,9 @@
       "locale": "fr",
       "path": "/fr/trouver-emploi-berne/page-3/",
       "observedPaths": {
+        "en": "/en/find-jobs-bern/page-3",
         "fr": "/fr/trouver-emploi-berne/page-3",
         "de": "/de/jobs-im-bern/page-3",
-        "en": "/en/find-jobs-bern/page-3",
         "it": "/cerca-lavoro-berna/page-3"
       },
       "queries": [
@@ -56519,8 +56662,8 @@
       "observedPaths": {
         "fr": "/fr/trouver-emploi-zoug/ressources-humaines",
         "en": "/en/find-jobs-zug/ressources-humaines",
-        "it": "/cerca-lavoro-zugo/ressources-humaines",
-        "de": "/de/jobs-im-zug/ressources-humaines"
+        "de": "/de/jobs-im-freiburg/ressources-humaines",
+        "it": "/cerca-lavoro-friburgo/ressources-humaines"
       },
       "queries": [
         {
@@ -57091,6 +57234,64 @@
         "en": "/en/find-jobs-valais/ricevitore-swiss-medical-network-genolier",
         "de": "/de/jobs-im-wallis/ricevitore-swiss-medical-network-genolier",
         "fr": "/fr/trouver-emploi-valais/ricevitore-swiss-medical-network-genolier"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "riconciliazione-j-safra-sarasin-basel",
+      "locale": "it",
+      "path": "/cerca-lavoro-basilea/riconciliazione-j-safra-sarasin-basel/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-basilea/riconciliazione-j-safra-sarasin-basel/"
+      },
+      "queries": [
+        {
+          "query": "j safra sarasin jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "j safra sarasin jobs",
+      "title": "Riconciliazione j safra sarasin",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Basel",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "riconciliazione-j-safra-sarasin-basel",
+        "en": "riconciliazione-j-safra-sarasin-basel",
+        "de": "riconciliazione-j-safra-sarasin-basel",
+        "fr": "riconciliazione-j-safra-sarasin-basel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-basilea/riconciliazione-j-safra-sarasin-basel",
+        "en": "/en/find-jobs-basel/riconciliazione-j-safra-sarasin-basel",
+        "de": "/de/jobs-im-basel/riconciliazione-j-safra-sarasin-basel",
+        "fr": "/fr/trouver-emploi-bale/riconciliazione-j-safra-sarasin-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -62611,10 +62812,10 @@
         "it": "senior-frontend-software-ingegnere-chiasso"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/senior-frontend-software-ingegnere-chiasso",
-        "en": "/en/find-jobs-ticino/senior-frontend-software-ingegnere-chiasso",
-        "de": "/de/jobs-im-tessin/senior-frontend-software-ingegnere-chiasso",
-        "fr": "/fr/trouver-emploi-tessin/senior-frontend-software-ingegnere-chiasso"
+        "it": "/cerca-lavoro-zurigo/senior-frontend-software-ingegnere-chiasso",
+        "en": "/en/find-jobs-zurich/senior-frontend-software-ingegnere-chiasso",
+        "de": "/de/jobs-in-zurich/senior-frontend-software-ingegnere-chiasso",
+        "fr": "/fr/trouver-emploi-zurich/senior-frontend-software-ingegnere-chiasso"
       },
       "sourceUrl": "https://corporate.lastminute.com/careers/jobs/job?id=744000117597067&jobname=senior+frontend+software+engineer",
       "googleStatus": "unknown",
@@ -74866,10 +75067,10 @@
         "fr": "vendeur-de-produits-frais-coop-genossenschaft-basel-c6s87o"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/vendeur-de-produits-frais-coop-genossenschaft-basel-c6s87o",
-        "en": "/en/find-jobs-basel/vendeur-de-produits-frais-coop-genossenschaft-basel-c6s87o",
-        "de": "/de/jobs-in-basel/vendeur-de-produits-frais-coop-genossenschaft-basel-c6s87o",
-        "fr": "/fr/trouver-emploi-bale/vendeur-de-produits-frais-coop-genossenschaft-basel-c6s87o"
+        "it": "/cerca-lavoro-berna/vendeur-de-produits-frais-coop-genossenschaft-basel-c6s87o",
+        "en": "/en/find-jobs-bern/vendeur-de-produits-frais-coop-genossenschaft-basel-c6s87o",
+        "de": "/de/jobs-in-bern/vendeur-de-produits-frais-coop-genossenschaft-basel-c6s87o",
+        "fr": "/fr/trouver-emploi-berne/vendeur-de-produits-frais-coop-genossenschaft-basel-c6s87o"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -78117,10 +78318,10 @@
         "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-lotzwil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/venditore-in-food-coop-genossenschaft-lotzwil",
-        "en": "/en/find-jobs-zurich/venditore-in-food-coop-genossenschaft-lotzwil",
+        "it": "/cerca-lavoro-san-gallo/venditore-in-food-coop-genossenschaft-lotzwil",
+        "en": "/en/find-jobs-st-gallen/venditore-in-food-coop-genossenschaft-lotzwil",
         "de": "/de/jobs-im-bern/venditore-in-food-coop-genossenschaft-lotzwil",
-        "fr": "/fr/trouver-emploi-zurich/venditore-in-food-coop-genossenschaft-lotzwil"
+        "fr": "/fr/trouver-emploi-saint-gall/venditore-in-food-coop-genossenschaft-lotzwil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79327,7 +79528,7 @@
       "slugByLocale": {
         "it": "verkaufer-in-denner-luzern",
         "en": "verkaufer-in-denner-luzern",
-        "de": "verkaufer-in-denner-luzern",
+        "de": "verkaufer-in-denner",
         "fr": "verkaufer-in-denner-luzern"
       },
       "localePaths": {
@@ -79342,6 +79543,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -79386,10 +79588,10 @@
         "fr": "verkaufer-in-denner-urdorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/verkaufer-in-denner-urdorf",
-        "en": "/en/find-jobs-bern/verkaufer-in-denner-urdorf",
-        "de": "/de/jobs-in-bern/verkaufer-in-denner-urdorf",
-        "fr": "/fr/trouver-emploi-berne/verkaufer-in-denner-urdorf"
+        "it": "/cerca-lavoro-zurigo/verkaufer-in-denner-urdorf",
+        "en": "/en/find-jobs-zurich/verkaufer-in-denner-urdorf",
+        "de": "/de/jobs-in-zurich/verkaufer-in-denner-urdorf",
+        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-denner-urdorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -80322,10 +80524,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-genossenschaft-dietlikon",
-        "en": "verkaufer-in-frischprodukte-coop-genossenschaft-dietlikon",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-dietlikon",
+        "en": "seller-fresh-products-coop-genossenschaft-dietlikon",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-dietlikon",
-        "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-dietlikon"
+        "fr": "vendeur-de-produits-frais-coop-genossenschaft-dietlikon"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/verkaufer-in-frischprodukte-coop-genossenschaft-dietlikon",
@@ -80339,6 +80541,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -80592,10 +80795,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-genossenschaft-baden",
-        "en": "verkaufer-in-kassen-services-coop-genossenschaft-baden",
+        "it": "vendita-cassa-servizi-coop-genossenschaft-baden-d518c2",
+        "en": "seller-cash-register-services-coop-genossenschaft-baden",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-baden",
-        "fr": "verkaufer-in-kassen-services-coop-genossenschaft-baden"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-baden"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/verkaufer-in-kassen-services-coop-genossenschaft-baden",
@@ -80609,6 +80812,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]

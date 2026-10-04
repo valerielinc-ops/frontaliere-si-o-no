@@ -2447,14 +2447,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "allocation-de-salaire-horaire-saisonnier-genossenschaft-migros-ostschweiz-samedan",
+        "it": "allocation-de-salaire-horaire-saisonnier-genossenschaft-migros-ostschweiz-samedan",
+        "en": "allocation-de-salaire-horaire-saisonnier-genossenschaft-migros-ostschweiz-samedan",
+        "de": "allocation-de-salaire-horaire-saisonnier-genossenschaft-migros-ostschweiz-samedan"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-grisons/allocation-de-salaire-horaire-saisonnier-genossenschaft-migros-ostschweiz-samedan",
+        "it": "/cerca-lavoro-grigioni/allocation-de-salaire-horaire-saisonnier-genossenschaft-migros-ostschweiz-samedan",
+        "en": "/en/find-jobs-graubunden/allocation-de-salaire-horaire-saisonnier-genossenschaft-migros-ostschweiz-samedan",
+        "de": "/de/jobs-im-graubunden/allocation-de-salaire-horaire-saisonnier-genossenschaft-migros-ostschweiz-samedan"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -8949,6 +8960,68 @@
       ]
     },
     {
+      "slug": "aufseher-in-betreuer-in-kantonale-verwaltung-zurich-affoltern-am-albis",
+      "locale": "de",
+      "path": "/de/jobs-in-zurich/aufseher-in-betreuer-in-kantonale-verwaltung-zurich-affoltern-am-albis/",
+      "observedPaths": {
+        "de": "/de/jobs-in-zurich/aufseher-in-betreuer-in-kantonale-verwaltung-zurich-affoltern-am-albis/"
+      },
+      "queries": [
+        {
+          "query": "affoltern am albis jobs",
+          "clicks": 1,
+          "impressions": 2
+        },
+        {
+          "query": "jobs in affoltern am albis",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 4,
+      "totalClicks": 1,
+      "topQuery": "affoltern am albis jobs",
+      "title": "Aufseher in betreuer in kantonale verwaltung zurich affoltern am albis",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "aufseher-in-betreuer-in-kantonale-verwaltung-zurich-affoltern-am-albis",
+        "en": "aufseher-in-betreuer-in-kantonale-verwaltung-zurich-affoltern-am-albis",
+        "de": "aufseher-in-betreuer-in-kantonale-verwaltung-zurich-affoltern-am-albis",
+        "fr": "aufseher-in-betreuer-in-kantonale-verwaltung-zurich-affoltern-am-albis"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/aufseher-in-betreuer-in-kantonale-verwaltung-zurich-affoltern-am-albis",
+        "en": "/en/find-jobs-zurich/aufseher-in-betreuer-in-kantonale-verwaltung-zurich-affoltern-am-albis",
+        "de": "/de/jobs-im-zurich/aufseher-in-betreuer-in-kantonale-verwaltung-zurich-affoltern-am-albis",
+        "fr": "/fr/trouver-emploi-zurich/aufseher-in-betreuer-in-kantonale-verwaltung-zurich-affoltern-am-albis"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "ausbildung-als-einzelhandelskaufmann-frau-afc-post-ch-ag-sottoceneri",
       "locale": "de",
       "path": "/de/jobs-im-tessin/ausbildung-als-einzelhandelskaufmann-frau-afc-post-ch-ag-sottoceneri",
@@ -9371,6 +9444,64 @@
         "en": "/en/find-jobs-ticino/autolackierer-in-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen-verk-6oz0cc",
         "de": "/de/jobs-im-tessin/autolackierer-in-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen-verk-6oz0cc",
         "fr": "/fr/trouver-emploi-tessin/autolackierer-in-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen-verk-6oz0cc"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "automatisierungsingenieur-kantonsspital-graubunden-chur",
+      "locale": "de",
+      "path": "/de/jobs-in-graubunden/automatisierungsingenieur-kantonsspital-graubunden-chur/",
+      "observedPaths": {
+        "de": "/de/jobs-in-graubunden/automatisierungsingenieur-kantonsspital-graubunden-chur/"
+      },
+      "queries": [
+        {
+          "query": "offene stellen kanton graubünden",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "offene stellen kanton graubünden",
+      "title": "Automatisierungsingenieur kantonsspital graubunden",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Chur",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "automatisierungsingenieur-kantonsspital-graubunden-chur",
+        "en": "automatisierungsingenieur-kantonsspital-graubunden-chur",
+        "de": "automatisierungsingenieur-kantonsspital-graubunden-chur",
+        "fr": "automatisierungsingenieur-kantonsspital-graubunden-chur"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-grigioni/automatisierungsingenieur-kantonsspital-graubunden-chur",
+        "en": "/en/find-jobs-graubunden/automatisierungsingenieur-kantonsspital-graubunden-chur",
+        "de": "/de/jobs-im-graubunden/automatisierungsingenieur-kantonsspital-graubunden-chur",
+        "fr": "/fr/trouver-emploi-grisons/automatisierungsingenieur-kantonsspital-graubunden-chur"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -19215,10 +19346,10 @@
         "fr": "data-center-technicien-neuchatel-on-site-reboot-monkey-neuchatel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-glarona/data-center-technicien-neuchatel-on-site-reboot-monkey-neuchatel",
-        "en": "/en/find-jobs-glarus/data-center-technicien-neuchatel-on-site-reboot-monkey-neuchatel",
-        "de": "/de/jobs-in-glarus/data-center-technicien-neuchatel-on-site-reboot-monkey-neuchatel",
-        "fr": "/fr/trouver-emploi-glaris/data-center-technicien-neuchatel-on-site-reboot-monkey-neuchatel"
+        "it": "/cerca-lavoro-neuchatel/data-center-technicien-neuchatel-on-site-reboot-monkey-neuchatel",
+        "en": "/en/find-jobs-neuchatel/data-center-technicien-neuchatel-on-site-reboot-monkey-neuchatel",
+        "de": "/de/jobs-in-neuenburg/data-center-technicien-neuchatel-on-site-reboot-monkey-neuchatel",
+        "fr": "/fr/trouver-emploi-neuchatel/data-center-technicien-neuchatel-on-site-reboot-monkey-neuchatel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -24782,9 +24913,14 @@
         "it": "/cerca-lavoro-turgovia/farmaceutica",
         "de": "/de/jobs-im-thurgau/farmaceutica",
         "en": "/en/find-jobs-thurgau/farmaceutica",
-        "fr": "/fr/trouver-emploi-thurgovie/farmaceutica"
+        "fr": "/fr/trouver-emploi-argovie/farmaceutica"
       },
       "queries": [
+        {
+          "query": "aziende farmaceutiche svizzera che assumono",
+          "clicks": 0,
+          "impressions": 3
+        },
         {
           "query": "lavoro farmaceutico svizzera",
           "clicks": 0,
@@ -24794,11 +24930,21 @@
           "query": "lavoro farmaceutico svizzera",
           "clicks": 0,
           "impressions": 1
+        },
+        {
+          "query": "lavoro farmaceutica",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "lavoro frontaliere svizzera",
+          "clicks": 0,
+          "impressions": 1
         }
       ],
-      "totalImpressions": 2,
+      "totalImpressions": 7,
       "totalClicks": 0,
-      "topQuery": "lavoro farmaceutico svizzera",
+      "topQuery": "aziende farmaceutiche svizzera che assumono",
       "title": "Farmaceutica",
       "titleByLocale": {
         "it": "",
@@ -32978,7 +33124,7 @@
         {
           "query": "maschineningenieur jobs lugano",
           "clicks": 0,
-          "impressions": 11
+          "impressions": 13
         },
         {
           "query": "ingenieur zürich",
@@ -33031,7 +33177,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 83,
+      "totalImpressions": 85,
       "totalClicks": 0,
       "topQuery": "ingenieur jobs lugano",
       "title": "Ingenieure",
@@ -38033,10 +38179,10 @@
         "it": "apprendista-kauffrau-cfc-lernender-kaufmann-cfc-confederazione-svizzera-bellinzona"
       },
       "localePaths": {
-        "de": "/de/jobs-im-tessin/lernende-kauffrau-efz-lernender-kaufmann-efz-confederazione-bellinzona",
-        "it": "/cerca-lavoro-ticino/lernende-kauffrau-efz-lernender-kaufmann-efz-confederazione-bellinzona",
-        "en": "/en/find-jobs-ticino/lernende-kauffrau-efz-lernender-kaufmann-efz-confederazione-bellinzona",
-        "fr": "/fr/trouver-emploi-tessin/lernende-kauffrau-efz-lernender-kaufmann-efz-confederazione-bellinzona"
+        "de": "/de/jobs-in-bern/lernende-kauffrau-efz-lernender-kaufmann-efz-confederazione-bellinzona",
+        "it": "/cerca-lavoro-berna/lernende-kauffrau-efz-lernender-kaufmann-efz-confederazione-bellinzona",
+        "en": "/en/find-jobs-bern/lernende-kauffrau-efz-lernender-kaufmann-efz-confederazione-bellinzona",
+        "fr": "/fr/trouver-emploi-berne/lernende-kauffrau-efz-lernender-kaufmann-efz-confederazione-bellinzona"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -39380,10 +39526,10 @@
         "en": "manager-senior-manager-accounting-pwc-switzerland-basel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/manager-senior-manager-accounting-pwc-basel",
-        "en": "/en/find-jobs-ticino/manager-senior-manager-accounting-pwc-switzerland-basel",
-        "de": "/de/jobs-im-tessin/manager-senior-manager-accounting-pwc-basel",
-        "fr": "/fr/trouver-emploi-tessin/manager-senior-manager-accounting-pwc-basel"
+        "it": "/cerca-lavoro-zurigo/manager-senior-manager-accounting-pwc-basel",
+        "en": "/en/find-jobs-zurich/manager-senior-manager-accounting-pwc-switzerland-basel",
+        "de": "/de/jobs-in-zurich/manager-senior-manager-accounting-pwc-basel",
+        "fr": "/fr/trouver-emploi-zurich/manager-senior-manager-accounting-pwc-basel"
       },
       "sourceUrl": "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-accounting/f424a23c-b5cf-45c3-9f4d-78be62f5e4a7",
       "googleStatus": "unknown",
@@ -40209,9 +40355,9 @@
       "path": "/en/find-jobs-aargau/mechanics/",
       "observedPaths": {
         "en": "/en/find-jobs-st-gallen/mechanics",
+        "it": "/cerca-lavoro-argovia/mechanics",
         "fr": "/fr/trouver-emploi-saint-gall/mechanics",
-        "it": "/cerca-lavoro-san-gallo/mechanics",
-        "de": "/de/jobs-im-st-gallen/mechanics"
+        "de": "/de/jobs-im-aargau/mechanics"
       },
       "queries": [
         {
@@ -41585,10 +41731,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-aarberg",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-aarberg",
+        "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-aarberg",
+        "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-aarberg",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-aarberg",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-aarberg"
+        "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-aarberg"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-aarberg",
@@ -41602,6 +41748,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -41687,10 +41834,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-rapperswil-jona",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-rapperswil-jona",
+        "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-rapperswil-jona",
+        "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-rapperswil-jona",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-rapperswil-jona",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-rapperswil-jona"
+        "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-rapperswil-jona"
       },
       "localePaths": {
         "it": "/cerca-lavoro-san-gallo/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-rapperswil-jona",
@@ -41704,6 +41851,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -41739,10 +41887,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-sissach",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-sissach",
+        "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-sissach",
+        "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-sissach",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-sissach",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-sissach"
+        "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-sissach"
       },
       "localePaths": {
         "it": "/cerca-lavoro-basilea/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-sissach",
@@ -41756,6 +41904,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -45096,10 +45245,10 @@
       "locale": "fr",
       "path": "/fr/trouver-emploi-lucerne/page-25/",
       "observedPaths": {
-        "en": "/en/find-jobs-vaud/page-25",
-        "de": "/de/jobs-im-waadt/page-25",
-        "it": "/cerca-lavoro-vaud/page-25",
-        "fr": "/fr/trouver-emploi-vaud/page-25"
+        "en": "/en/find-jobs-lucerne/page-25",
+        "de": "/de/jobs-im-luzern/page-25",
+        "fr": "/fr/trouver-emploi-lucerne/page-25",
+        "it": "/cerca-lavoro-vaud/page-25"
       },
       "queries": [
         {
@@ -46572,10 +46721,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "physiotherapeuten-ergotherapeuten-lis-lugano-istituti-sociali-pregassona",
-        "en": "physiotherapeuten-ergotherapeuten-lis-lugano-istituti-sociali-pregassona",
+        "it": "fisioterapisti-ergoterapisti-lis-lugano-istituti-sociali-pregassona",
+        "en": "physiotherapists-occupational-therapists-lis-lugano-istituti-sociali-pregassona",
         "de": "physiotherapeuten-ergotherapeuten-lis-lugano-istituti-sociali-pregassona",
-        "fr": "physiotherapeuten-ergotherapeuten-lis-lugano-istituti-sociali-pregassona"
+        "fr": "kinesitherapeutes-ergotherapeutes-lis-lugano-istituti-sociali-pregassona"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/physiotherapeuten-ergotherapeuten-lis-lugano-istituti-sociali-pregassona",
@@ -46583,12 +46732,13 @@
         "de": "/de/jobs-im-tessin/physiotherapeuten-ergotherapeuten-lis-lugano-istituti-sociali-pregassona",
         "fr": "/fr/trouver-emploi-tessin/physiotherapeuten-ergotherapeuten-lis-lugano-istituti-sociali-pregassona"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=37-fisioterapisti-ergoterapisti-pregassona&language=it",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -51972,10 +52122,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "radiology-specialist-hf-conventional-x-ray-universitatsspital-basel-basel",
+        "de": "radiologiefachfrau-radiologiefachmann-hf-konventionelles-rontgen-unispital-basel-ch",
+        "it": "specialista-di-radiologia-hf-raggio-convenzionale-universitatsspital-basel-basel",
         "en": "radiology-specialist-hf-conventional-x-ray-universitatsspital-basel-basel",
-        "de": "radiology-specialist-hf-conventional-x-ray-universitatsspital-basel-basel",
-        "fr": "radiology-specialist-hf-conventional-x-ray-universitatsspital-basel-basel"
+        "fr": "specialiste-en-radiologie-hf-radiographie-classique-universitatsspital-basel-basel"
       },
       "localePaths": {
         "it": "/cerca-lavoro-basilea/radiology-specialist-hf-conventional-x-ray-universitatsspital-basel-basel",
@@ -51989,6 +52139,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -55555,28 +55706,28 @@
     {
       "slug": "ristorazione",
       "locale": "it",
-      "path": "/cerca-lavoro-basilea/ristorazione/",
+      "path": "/cerca-lavoro-ticino/ristorazione/",
       "observedPaths": {
         "it": "/cerca-lavoro-basilea/ristorazione",
         "fr": "/fr/trouver-emploi-bale/ristorazione",
         "en": "/en/find-jobs-basel/ristorazione",
-        "de": "/de/jobs-im-tessin/ristorazione"
+        "de": "/de/jobs-im-basel/ristorazione"
       },
       "queries": [
         {
           "query": "ristoranti italiani a zurigo che cercano personale",
           "clicks": 1,
-          "impressions": 32
+          "impressions": 33
         },
         {
           "query": "offerte di lavoro ticino ristorazione",
           "clicks": 0,
-          "impressions": 28
+          "impressions": 29
         },
         {
           "query": "offerte di lavoro ristorazione ticino",
-          "clicks": 1,
-          "impressions": 23
+          "clicks": 2,
+          "impressions": 26
         },
         {
           "query": "lavoro zurigo ristoranti",
@@ -55589,14 +55740,14 @@
           "impressions": 21
         },
         {
-          "query": "lavoro ticino ristorazione",
-          "clicks": 1,
-          "impressions": 18
+          "query": "offerte lavoro ristorazione ticino",
+          "clicks": 2,
+          "impressions": 20
         },
         {
-          "query": "offerte lavoro ristorazione ticino",
+          "query": "lavoro ticino ristorazione",
           "clicks": 1,
-          "impressions": 18
+          "impressions": 20
         },
         {
           "query": "frontalieri",
@@ -55606,12 +55757,12 @@
         {
           "query": "lavoro ristorazione ticino",
           "clicks": 0,
-          "impressions": 13
+          "impressions": 14
         },
         {
           "query": "offerte lavoro ristorazione svizzera per italiani",
           "clicks": 0,
-          "impressions": 12
+          "impressions": 13
         },
         {
           "query": "tutti ch ristorazione",
@@ -55634,9 +55785,19 @@
           "impressions": 10
         },
         {
+          "query": "psicologo italiano online svitto",
+          "clicks": 0,
+          "impressions": 9
+        },
+        {
           "query": "tutti ch lavoro ticino ristorazione",
           "clicks": 0,
           "impressions": 9
+        },
+        {
+          "query": "offerte di lavoro lugano ristorazione",
+          "clicks": 0,
+          "impressions": 8
         },
         {
           "query": "pranzo di lavoro ticino",
@@ -55652,20 +55813,10 @@
           "query": "gastroticino offerte di lavoro",
           "clicks": 1,
           "impressions": 7
-        },
-        {
-          "query": "offerte di lavoro lugano ristorazione",
-          "clicks": 0,
-          "impressions": 7
-        },
-        {
-          "query": "offerte di lavoro ristorazione lugano",
-          "clicks": 0,
-          "impressions": 7
         }
       ],
-      "totalImpressions": 484,
-      "totalClicks": 10,
+      "totalImpressions": 522,
+      "totalClicks": 13,
       "topQuery": "ristoranti italiani a zurigo che cercano personale",
       "title": "Ristorazione",
       "titleByLocale": {
@@ -56117,10 +56268,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "de": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
-        "en": "administrative-officer-kantonale-verwaltung-graubunden-chur",
-        "fr": "responsable-administratif-kantonale-verwaltung-graubunden-chur",
-        "it": "responsabile-amministrativo-kantonale-verwaltung-graubunden-chur"
+        "it": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
+        "en": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
+        "de": "sachbearbeiter-in-kanton-gr-ch",
+        "fr": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur"
       },
       "localePaths": {
         "it": "/cerca-lavoro-grigioni/sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
@@ -56128,7 +56279,7 @@
         "de": "/de/jobs-in-graubunden/sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
         "fr": "/fr/trouver-emploi-grisons/sachbearbeiter-in-kantonale-verwaltung-graubunden-chur"
       },
-      "sourceUrl": "https://apply.refline.ch/514915/2635/pub/1/index.html",
+      "sourceUrl": "https://apply.refline.ch/514915/2867/pub/1/index.html",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
@@ -58421,9 +58572,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "sante-professionnelle-efz-viva-luzern-luzern",
-        "en": "sante-professionnelle-efz-viva-luzern-luzern",
-        "de": "sante-professionnelle-efz-viva-luzern-luzern",
+        "de": "fachfrau-mann-gesundheit-efz-viva-luzern-luzern",
+        "it": "fachfrau-mann-gesundheit-cfc-viva-luzern",
+        "en": "professional-health-efz-viva-luzern-luzern",
         "fr": "sante-professionnelle-efz-viva-luzern-luzern"
       },
       "localePaths": {
@@ -58438,6 +58589,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -58565,6 +58717,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "schulassistenz-im-schulhaus-chriesiweg-stadt-zurich-zurich",
+      "locale": "de",
+      "path": "/de/jobs-in-zurich/schulassistenz-im-schulhaus-chriesiweg-stadt-zurich-zurich/",
+      "observedPaths": {
+        "de": "/de/jobs-in-zurich/schulassistenz-im-schulhaus-chriesiweg-stadt-zurich-zurich/"
+      },
+      "queries": [
+        {
+          "query": "chriesiweg schule",
+          "clicks": 1,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 1,
+      "topQuery": "chriesiweg schule",
+      "title": "Schulassistenz im schulhaus chriesiweg stadt zurich",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "schulassistenz-im-schulhaus-chriesiweg-stadt-zurich-zurich",
+        "en": "schulassistenz-im-schulhaus-chriesiweg-stadt-zurich-zurich",
+        "de": "schulassistenz-im-schulhaus-chriesiweg-stadt-zurich-zurich",
+        "fr": "schulassistenz-im-schulhaus-chriesiweg-stadt-zurich-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/schulassistenz-im-schulhaus-chriesiweg-stadt-zurich-zurich",
+        "en": "/en/find-jobs-zurich/schulassistenz-im-schulhaus-chriesiweg-stadt-zurich-zurich",
+        "de": "/de/jobs-im-zurich/schulassistenz-im-schulhaus-chriesiweg-stadt-zurich-zurich",
+        "fr": "/fr/trouver-emploi-zurich/schulassistenz-im-schulhaus-chriesiweg-stadt-zurich-zurich"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -59008,6 +59218,11 @@
           "impressions": 1
         },
         {
+          "query": "wealth management in nidwalden",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "largest employers canton schaffhausen",
           "clicks": 0,
           "impressions": 1
@@ -59043,7 +59258,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 20,
+      "totalImpressions": 21,
       "totalClicks": 1,
       "topQuery": "workforce in basel",
       "title": "Sectors",
@@ -62026,7 +62241,7 @@
         {
           "query": "kellner jobs lugano",
           "clicks": 0,
-          "impressions": 5
+          "impressions": 6
         },
         {
           "query": "kellner kanton luzern",
@@ -62044,6 +62259,11 @@
           "impressions": 3
         },
         {
+          "query": "kellner jobs luzern",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
           "query": "kellner jobs zürich",
           "clicks": 0,
           "impressions": 3
@@ -62054,17 +62274,12 @@
           "impressions": 1
         },
         {
-          "query": "kellner jobs luzern",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
           "query": "kellner jobs sankt gallen",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 33,
+      "totalImpressions": 36,
       "totalClicks": 0,
       "topQuery": "kellner jobs lugano",
       "title": "Servicepersonal",
@@ -64776,10 +64991,10 @@
         "fr": "specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-livique-dietikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-livique-dietikon",
-        "en": "/en/find-jobs-basel/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-livique-dietikon",
+        "it": "/cerca-lavoro-zurigo/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-livique-dietikon",
+        "en": "/en/find-jobs-zurich/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-livique-dietikon",
         "de": "/de/jobs-im-basel/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-livique-dietikon",
-        "fr": "/fr/trouver-emploi-bale/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-livique-dietikon"
+        "fr": "/fr/trouver-emploi-zurich/specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-livique-dietikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -67342,7 +67557,7 @@
         "de": "/de/jobs-im-basel/system-engineer-database-administrator-avaloq-bioggio",
         "fr": "/fr/trouver-emploi-tessin/system-engineer-database-administrator-avaloq-bioggio"
       },
-      "sourceUrl": "https://www.avaloq.com/careers/job-openings/744000146805769",
+      "sourceUrl": "https://jobs.smartrecruiters.com/avaloq1/744000146805769-system-engineer-database-administrator-",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
@@ -68550,10 +68765,10 @@
       "locale": "fr",
       "path": "/fr/trouver-emploi-uri/techniciens/",
       "observedPaths": {
+        "de": "/de/jobs-im-uri/techniciens",
+        "fr": "/fr/trouver-emploi-uri/techniciens",
         "en": "/en/find-jobs-zurich/techniciens",
-        "fr": "/fr/trouver-emploi-zurich/techniciens",
-        "it": "/cerca-lavoro-zurigo/techniciens",
-        "de": "/de/jobs-im-zurich/techniciens"
+        "it": "/cerca-lavoro-zurigo/techniciens"
       },
       "queries": [
         {
@@ -70281,6 +70496,64 @@
         "en": "/en/find-jobs-zurich/thalwil",
         "de": "/de/jobs-im-zurich/thalwil",
         "fr": "/fr/trouver-emploi-zurich/thalwil"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "the-commission-has-also-examined-the-compatibility-of-the-aid-with-the-internal-market-sunrise-communications-ag-zurich",
+      "locale": "en",
+      "path": "/en/find-jobs-zurich/the-commission-has-also-examined-the-compatibility-of-the-aid-with-the-internal-market-sunrise-communications-ag-zurich/",
+      "observedPaths": {
+        "en": "/en/find-jobs-zurich/the-commission-has-also-examined-the-compatibility-of-the-aid-with-the-internal-market-sunrise-communications-ag-zurich/"
+      },
+      "queries": [
+        {
+          "query": "sunrise jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "sunrise jobs",
+      "title": "The commission has also examined the compatibility of the aid with the internal market",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Sunrise Communications AG",
+      "companyKey": "sunrise-communications-ag",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "the-commission-has-also-examined-the-compatibility-of-the-aid-with-the-internal-market-sunrise-communications-ag-zurich",
+        "en": "the-commission-has-also-examined-the-compatibility-of-the-aid-with-the-internal-market-sunrise-communications-ag-zurich",
+        "de": "the-commission-has-also-examined-the-compatibility-of-the-aid-with-the-internal-market-sunrise-communications-ag-zurich",
+        "fr": "the-commission-has-also-examined-the-compatibility-of-the-aid-with-the-internal-market-sunrise-communications-ag-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/the-commission-has-also-examined-the-compatibility-of-the-aid-with-the-internal-market-sunrise-communications-ag-zurich",
+        "en": "/en/find-jobs-zurich/the-commission-has-also-examined-the-compatibility-of-the-aid-with-the-internal-market-sunrise-communications-ag-zurich",
+        "de": "/de/jobs-im-zurich/the-commission-has-also-examined-the-compatibility-of-the-aid-with-the-internal-market-sunrise-communications-ag-zurich",
+        "fr": "/fr/trouver-emploi-zurich/the-commission-has-also-examined-the-compatibility-of-the-aid-with-the-internal-market-sunrise-communications-ag-zurich"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -76259,10 +76532,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-meilen",
-        "en": "verkaufer-in-food-coop-genossenschaft-meilen",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-meilen",
+        "en": "seller-food-coop-genossenschaft-meilen",
         "de": "verkaufer-in-food-coop-genossenschaft-meilen",
-        "fr": "verkaufer-in-food-coop-genossenschaft-meilen"
+        "fr": "aliments-pour-vendeurs-coop-genossenschaft-meilen"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/verkaufer-in-food-coop-genossenschaft-meilen",
@@ -76276,6 +76549,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -76310,10 +76584,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-meiringen",
-        "en": "verkaufer-in-food-coop-genossenschaft-meiringen",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-meiringen",
+        "en": "seller-food-coop-meiringen-tn9k5j",
         "de": "verkaufer-in-food-coop-genossenschaft-meiringen",
-        "fr": "verkaufer-in-food-coop-genossenschaft-meiringen"
+        "fr": "aliments-pour-vendeurs-coop-meiringen-tn9k5j"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/verkaufer-in-food-coop-genossenschaft-meiringen",
@@ -76327,6 +76601,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -76637,10 +76912,10 @@
         "fr": "verkaufer-in-frischprodukte-coop-zurich-4-2"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/verkaufer-in-frischprodukte-coop-zurich-4-2",
-        "en": "/en/find-jobs-zurich/verkaufer-in-frischprodukte-coop-zurich-4-2",
-        "de": "/de/jobs-in-zurich/verkaufer-in-frischprodukte-coop-zurich-4-2",
-        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-frischprodukte-coop-zurich-4-2"
+        "it": "/cerca-lavoro-berna/verkaufer-in-frischprodukte-coop-zurich-4-2",
+        "en": "/en/find-jobs-bern/verkaufer-in-frischprodukte-coop-zurich-4-2",
+        "de": "/de/jobs-in-bern/verkaufer-in-frischprodukte-coop-zurich-4-2",
+        "fr": "/fr/trouver-emploi-berne/verkaufer-in-frischprodukte-coop-zurich-4-2"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -76843,10 +77118,10 @@
         "fr": "verkaufer-in-kassen-services-coop-genossenschaft-zug"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/verkaufer-in-kassen-services-coop-genossenschaft-zug",
-        "en": "/en/find-jobs-basel/verkaufer-in-kassen-services-coop-genossenschaft-zug",
+        "it": "/cerca-lavoro-zurigo/verkaufer-in-kassen-services-coop-genossenschaft-zug",
+        "en": "/en/find-jobs-zurich/verkaufer-in-kassen-services-coop-genossenschaft-zug",
         "de": "/de/jobs-im-zug/verkaufer-in-kassen-services-coop-genossenschaft-zug",
-        "fr": "/fr/trouver-emploi-bale/verkaufer-in-kassen-services-coop-genossenschaft-zug"
+        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-kassen-services-coop-genossenschaft-zug"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

@@ -355,7 +355,10 @@ export async function fetchAllSeeSpitalJobs() {
         pageHtml = await fetchPage(pageUrl, cookieJar);
       } catch (err) {
         console.warn(`  ⚠️ Page ${pageNum} fetch failed: ${err?.message}`);
-        break;
+        // A fetch failure is not the end of the listing: let the crawler pipeline
+        // classify it (connection-level soft exit or HTTP error) instead of
+        // publishing a partial or cause-less empty result.
+        throw err;
       }
       const pageListings = parseSeeSpitalListingPage(pageHtml);
       let added = 0;

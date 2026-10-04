@@ -7383,7 +7383,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
       "headline": "Volandia: battesimo del volo in elicottero torna nel 2026",
       "description": "Dal 1 al 3 maggio 2026, Volandia offre voli in elicottero per adulti e bambini, con prezzi fissati a 65 euro per gli adulti e 45 euro per i bambini.",
       "image": {
-        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/volandia-battesimo-volo-elicottero-2026.webp`,
+        "@type": "ImageObject", "url": `${BASE_URL}/images/blog/volandia-battesimo-volo-elicottero-2026-2.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Vista aerea del Lago di Lugano con un elicottero sopra Volandia"

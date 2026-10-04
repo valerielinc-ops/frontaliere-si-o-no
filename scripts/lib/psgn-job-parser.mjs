@@ -254,8 +254,11 @@ export async function fetchAllPsgnJobs() {
   try {
     listHtml = await fetchHtml(CAREER_LIST_URL);
   } catch (err) {
-    console.warn(`  ⚠️ PSGN careercenter fetch failed: ${err?.message || err}. Returning [].`);
-    return [];
+    console.warn(`  ⚠️ PSGN careercenter fetch failed: ${err?.message || err}.`);
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
 
   const rows = parseJobListHtml(listHtml);
