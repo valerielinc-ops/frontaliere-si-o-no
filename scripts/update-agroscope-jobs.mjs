@@ -28,7 +28,7 @@
  * 4. Merges into data/jobs.json
  */
 
-import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
+import { mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -220,7 +220,7 @@ function buildAgroscopeJob(row) {
     sector: 'Pubblica amministrazione',
     source: 'agroscope-dedicated-crawler',
     sourceLang: localized.sourceLang,
-    ...sourcePostingDateFields(row.startDate),
+    ...mergeSourcePostingDates({}, row),
     validThrough: row.endDate ? row.endDate.slice(0, 10) : '',
     employmentType: row.pensumMax === '100' ? 'full-time' : 'part-time',
     contractType: row.pensumMax === '100' ? 'full-time' : 'part-time',

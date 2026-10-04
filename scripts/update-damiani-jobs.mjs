@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { normalizeSourceExpiryDate } from './lib/source-expiry-date.mjs';
 import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -292,7 +293,7 @@ async function buildDamianiJob(listing) {
     ...sourcePostingDateFields(toIsoDate(detail.postedDate || listing.postedDate)),
     employmentType: 'full-time',
     contractType: 'full-time',
-    validThrough: detail.validThrough || '',
+    validThrough: normalizeSourceExpiryDate(detail.validThrough),
     description: detail.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,

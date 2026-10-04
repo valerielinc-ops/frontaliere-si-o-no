@@ -20,7 +20,6 @@
  *   6. Post-process: fix company name, location, canton
  *   7. Validate locale coverage across IT/EN/DE/FR
  */
-import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -54,7 +53,7 @@ import {
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { firstLocationSegment } from './lib/ats-clients/workday-client.mjs';
+import { firstLocationSegment, workdayPostingDateFields } from './lib/ats-clients/workday-client.mjs';
 import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './lib/workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
@@ -470,7 +469,7 @@ export async function fetchBraccoJobs() {
       ...sourceSlotTitleAndSlug(title, slug, sourceLang),
       slug,
       category: detectCategory(title),
-      ...sourcePostingDateFields(info.startDate),
+      ...workdayPostingDateFields(detail),
       source: 'bracco-workday-crawler',
       employmentType,
       experienceLevel: detectExperienceLevel(title),

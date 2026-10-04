@@ -3,7 +3,9 @@ import path from 'node:path';
 import vm from 'node:vm';
 import ts from 'typescript';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { normalizeSourceExpiryDate } from '../scripts/lib/source-expiry-date.mjs';
 import { sourcePostingDateFields, sourceRssPostingDateFields, mergeSourcePostingDates } from '../scripts/lib/source-posting-date.mjs';
+import { parseAgroscopeApiResponse } from '../scripts/lib/agroscope-job-parser.mjs';
 import { buildAxaJob } from '../scripts/update-axa-jobs.mjs';
 import { parseConvitDetailPage } from '../scripts/lib/convit-job-parser.mjs';
 
@@ -14,7 +16,7 @@ function runnerFunction(file: string, name: string, dependencies: Record<string,
   const declaration = ast.statements.find((node) => ts.isFunctionDeclaration(node) && node.name?.text === name);
   if (!declaration) throw new Error(`Missing ${name} in ${file}`);
   return vm.runInNewContext(`(${declaration.getText(ast).replace(/^export\s+/, '')})`, {
-    sourcePostingDateFields, sourceRssPostingDateFields, mergeSourcePostingDates, console, ...dependencies,
+    sourcePostingDateFields, sourceRssPostingDateFields, mergeSourcePostingDates, normalizeSourceExpiryDate, console, ...dependencies,
   });
 }
 const unknown = { postedDate: '', datePosted: '', postingDateSource: 'unknown' };
@@ -58,6 +60,23 @@ describe('source publication date conversion across crawler families', () => {
     expect(buildAxaJob(row)).toMatchObject(sourcePostingDateFields('2026-02-18'));
     expect(buildAxaJob({ ...row, postedDate: '' })).toMatchObject(unknown);
   });
+  it.each(['agroscope', 'confederazione'])('%s binds verified federal Prospective publication at source normalization', (company) => {
+    vi.useFakeTimers(); vi.setSystemTime(new Date('2026-10-03T12:00:00Z'));
+    const parseFederal = runnerFunction('update-confederazione-jobs.mjs', 'parseApiJob', {
+      normalizeFederalJobLocation: () => ({ addressLocality: 'Bern', canton: 'BE' }), normalizeCantonCode: (v: string) => v,
+      inferAnyCanton: () => 'BE', federalApiDescription: () => 'Employment begins March 2027', normalizeSpace: (v: string) => v,
+    });
+    // The medium1000624 source sample has start_date2026-10-01T22Z while
+    // its official JobPosting says datePosted2026-10-02 and employment startsMarch2027.
+    const convert = (raw: string) => {
+      const record = { id: 'sample', title: 'Employment begins March 2027', start_date: raw,
+        attributes: { verwaltungseinheit_1: ['Agroscope'], arbeitsort: ['Bern'] } };
+      return company === 'agroscope' ? parseAgroscopeApiResponse({ jobs: [record] }).items[0] : parseFederal(record);
+    };
+    const expected = sourcePostingDateFields('2026-10-01T22:00:00Z');
+    expect(convert('2026-10-01T22:00:00Z')).toMatchObject(expected);
+    for (const raw of ['', '2026-02-30', '2027-03-01']) expect(convert(raw)).toMatchObject(unknown);
+  });
   it('Banca Sempione trusts original WordPress GMT publication, never modification or an ambiguous local clock', async () => {
     vi.useFakeTimers(); vi.setSystemTime(new Date('2026-10-03T12:00:00Z'));
     const load = (date_gmt: string) => runnerFunction('update-banca-sempione-jobs.mjs', 'fetchBancaSempioneJobs', {
@@ -80,7 +99,7 @@ describe('source publication date conversion across crawler families', () => {
     expect(parseConvitDetailPage(html, '').datePosted).toBe(raw);
   });
   it('Ariston does not interpret a real expiry as a publication date', async () => {
-    const detail = { title: 'Engineer', location: 'Lugano', description: 'Source description', postedDate: '', validThrough: '2027-01-01' };
+    const detail = { title: 'Engineer', location: 'Lugano', description: 'Source description', postedDate: '', validThrough: '2026/12/31' };
     const build = runnerFunction('update-ariston-jobs.mjs', 'buildAristonJob', {
       absoluteUrl: (value: string) => value, fetchHtml: async () => '', parseAristonJobDetail: () => detail,
       inferAristonRegion: () => ({ canton: 'TI', country: 'CH' }), inferAristonCategory: () => 'engineering',
@@ -88,7 +107,7 @@ describe('source publication date conversion across crawler families', () => {
       toIsoDate: runnerFunction('update-ariston-jobs.mjs', 'toIsoDate'), COMPANY_NAME: 'Ariston', COMPANY_KEY: 'ariston', COMPANY_DOMAIN: 'ariston.com',
     });
     const job = await build({ url: 'https://careers.aristongroup.com/job/123', validThrough: '2027-01-01' });
-    expect(job).toMatchObject({ ...unknown, validThrough: '2027-01-01' });
+    expect(job).toMatchObject({ ...unknown, validThrough: '2026-12-31' });
   });
 });
 

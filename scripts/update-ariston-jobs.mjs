@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { normalizeSourceExpiryDate } from './lib/source-expiry-date.mjs';
 import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -166,7 +167,7 @@ async function buildAristonJob(listing) {
     ...sourcePostingDateFields(toIsoDate(detail.postedDate)),
     employmentType: 'full-time',
     contractType: 'full-time',
-    validThrough: detail.validThrough || listing.validThrough || '',
+    validThrough: normalizeSourceExpiryDate(detail.validThrough || listing.validThrough),
     description: detail.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,

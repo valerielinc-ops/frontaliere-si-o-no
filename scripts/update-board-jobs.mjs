@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { normalizeSourceExpiryDate } from './lib/source-expiry-date.mjs';
 import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -299,7 +300,7 @@ async function buildBoardJob(listing) {
     ...sourcePostingDateFields(toIsoDate(detail.postedDate)),
     employmentType: normalize(detail.employmentType).replace(/_/g, '-') || 'full-time',
     contractType: normalize(detail.employmentType).includes('part') ? 'part-time' : 'full-time',
-    validThrough: detail.validThrough || '',
+    validThrough: normalizeSourceExpiryDate(detail.validThrough),
     description: detail.description,
     titleByLocale: localized.titleByLocale,
     descriptionByLocale: localized.descriptionByLocale,
