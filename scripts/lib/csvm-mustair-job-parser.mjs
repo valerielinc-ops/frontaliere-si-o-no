@@ -16,6 +16,7 @@
  * if the PDF is missing/unreachable/image-only.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { extractPdfJobContentFromUrl, buildPdfBackedDescription } from './pdf-job-content.mjs';
@@ -80,7 +81,11 @@ export function parseCsvmListing(html) {
     const title = anchorText.length >= 6
       ? anchorText
       : slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
-    out.push({ url: `${BASE_URL}${path}`, slug, title, pdfUrl });
+    // This BlogPosting is the vacancy itself; never borrow a neighbouring post date.
+    const published = block.match(/<[^>]+itemprop="datePublished"[^>]*content="([^"]+)"/i)?.[1] || '';
+    const day = /^(\d{2})\.(\d{2})\.(\d{4})$/.exec(published);
+    const publication = sourcePostingDateFields(day ? `${day[3]}-${day[2]}-${day[1]}` : published);
+    out.push({ url: `${BASE_URL}${path}`, slug, title, pdfUrl, ...publication });
   }
   return out;
 }
@@ -107,7 +112,6 @@ export async function fetchAllCsvmMustairJobs() {
   console.log(`  ✓ ${items.length} job links extracted`);
   if (!items.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const it of items) {
     const title = it.title;
@@ -171,7 +175,7 @@ export async function fetchAllCsvmMustairJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, it),
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

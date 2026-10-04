@@ -20,6 +20,7 @@
  * / cardiology / surgery / anaesthesia.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -154,7 +155,6 @@ export async function fetchAllErgolzKlinikJobs() {
   console.log(`  ✓ ${rows.length} PDF postings detected`);
   if (rows.length === 0) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const row = rows[i];
@@ -209,7 +209,8 @@ export async function fetchAllErgolzKlinikJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      // No verified publication field for this PDF vacancy; ignore page/file edits.
+      ...sourcePostingDateFields(''),
       applyUrl: ERGOLZ_KLINIK_CAREERS_URL,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
