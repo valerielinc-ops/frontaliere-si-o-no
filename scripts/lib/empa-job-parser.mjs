@@ -42,7 +42,7 @@
  * block; the Dübendorf HQ address below is used ONLY as a last-resort
  * fallback when JSON-LD is absent/malformed for a given posting.
  */
-import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, ensureMinimumDescriptionWordCount } from './dedicated-crawler-common.mjs';
@@ -308,7 +308,7 @@ export async function fetchAllEmpaJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      ...publication,
+      ...withLegacyPostingDay(publication),
       applyUrl: publicUrl,
       hiringOrganizationName: hiringOrgName,
       jobReqId: listing.posId || null,

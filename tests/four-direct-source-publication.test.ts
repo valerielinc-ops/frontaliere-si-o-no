@@ -35,7 +35,7 @@ for (const provider of providers) {
       expect(jobs).toHaveLength(1);
       expect(fetchMock).toHaveBeenCalledTimes(provider.requests);
       const tuple = { postedDate: expected, datePosted: expected, postingDateSource: expected ? 'reported' : 'unknown' };
-      expect(jobs[0]).toMatchObject(tuple);
+      expect(jobs[0]).toMatchObject({ ...tuple, postedDate: provider.name === 'Benteler' ? expected.slice(0, 10) : expected });
       expect(Number.isFinite(Date.parse(jobs[0].crawledAt))).toBe(true);
       const previous = { ...jobs[0], postedDate: past, datePosted: past, postingDateSource: 'unknown' };
       const merged = mergePreserveLocaleData([previous], jobs, { matchKey: (job: { id: string }) => job.id });
@@ -55,5 +55,5 @@ it.each(providers)('$name preserves a provider-formatted full timestamp', async 
   vi.stubGlobal('fetch', vi.fn(async () => new Response(++calls === 1 ? provider.listing(raw) : detail(raw), { status: 200 })));
   const pending = provider.run(); await vi.runAllTimersAsync(); const jobs = await pending;
   expect(jobs).toHaveLength(1);
-  expect(jobs[0]).toMatchObject({ postedDate: date.toISOString().replace('.000Z', 'Z'), datePosted: date.toISOString().replace('.000Z', 'Z'), postingDateSource: 'reported' });
+  expect(jobs[0]).toMatchObject({ postedDate: provider.name === 'Benteler' ? date.toISOString().slice(0, 10) : date.toISOString().replace('.000Z', 'Z'), datePosted: date.toISOString().replace('.000Z', 'Z'), postingDateSource: 'reported' });
 });

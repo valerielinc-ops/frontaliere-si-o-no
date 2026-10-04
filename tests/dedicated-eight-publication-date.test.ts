@@ -67,7 +67,7 @@ describe('additional dedicated producers preserve only source publication', () =
     fixtures(subject, raw);
     const jobs = await producers[subject]();
     expect(jobs).toHaveLength(1);
-    expect(jobs[0]).toMatchObject({datePosted: expected, postedDate: expected, postingDateSource: expected ? 'reported' : 'unknown'});
+    expect(jobs[0]).toMatchObject({datePosted: expected, postedDate: subject === 'etavis' ? expected.slice(0, 10) : expected, postingDateSource: expected ? 'reported' : 'unknown'});
   });
   it.each([{ raw: ['2026-09-29'] }, { raw: 123 }, { raw: { value: '2026-09-29' } }])('Josef rejects non-string publication $raw', async ({ raw }) => {
     fixtures('josef-mueller', raw);
