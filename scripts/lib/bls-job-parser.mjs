@@ -12,6 +12,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml as sharedFetchHtml, slugify, stripHtml, fetchJson } from './crawler-template.mjs';
@@ -495,8 +496,13 @@ export async function fetchAllBlsJobs() {
       const jobSlug = slugify(`${title} bls ch`);
       const urlHash = createHash('sha1').update(entry.url).digest('hex').slice(0, 12);
 
-      const postedDate = normalizeSpace(jsonLd.datePosted || '').slice(0, 10)
-        || new Date().toISOString().split('T')[0];
+      const sameTitle = normalizeSpace(jsonLd.title).toLowerCase() === normalizeSpace(entry.title).toLowerCase();
+      let sameUrl = !jsonLd.url;
+      if (jsonLd.url) {
+        try { sameUrl = new URL(jsonLd.url, entry.url).href === new URL(entry.url).href; }
+        catch { sameUrl = false; }
+      }
+      const publication = sourcePostingDateFields(sameTitle && sameUrl ? jsonLd.datePosted : '');
       const validThrough = normalizeSpace(jsonLd.validThrough || '').slice(0, 10);
       const employmentType = detectBlsEmploymentType(
         jsonLd.employmentType || '',
@@ -543,7 +549,7 @@ export async function fetchAllBlsJobs() {
         sector: 'Trasporti / Ferrovia',
         currency: salaryCurrency,
         featured: false,
-        postedDate,
+        ...publication,
         ...(validThrough ? { validThrough } : {}),
         ...(entry.pensum ? { pensum: entry.pensum } : {}),
         ...(salary ? { salary: String(salary) } : {}),
