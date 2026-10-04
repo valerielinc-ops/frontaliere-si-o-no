@@ -148,6 +148,15 @@ let _analytics: FirebaseAnalytics | null = null;
 let _analyticsLoading: Promise<FirebaseAnalytics | null> | null = null;
 let _analyticsBlocked = false;
 
+// The ONE options object for every Firebase Analytics initialization. The
+// SDK's `gtag('config', …)` sends an automatic page_view — with no
+// `emission_id` — unless `send_page_view` is false, and `getAnalytics(app)` on
+// a not-yet-initialized app initializes with the DEFAULT config. Reusing the
+// same object also keeps `initializeAnalytics` idempotent: the SDK mutates
+// `config` in place and compares options with `deepEqual`, which is true by
+// identity. Guarded by tests/page-view-producer-inventory.test.ts.
+const FIREBASE_ANALYTICS_SETTINGS = { config: { send_page_view: false } };
+
 // Firebase Installations is a dependency of Analytics. Its SDK opens this
 // database at version 1 and only creates the store during oldVersion === 0;
 // an existing version-1 database with a lost store otherwise rejects later
@@ -332,9 +341,7 @@ async function getAnalyticsInstance(): Promise<FirebaseAnalytics | null> {
    // Use initializeAnalytics instead of getAnalytics to pass config:
    // - send_page_view: false — App.tsx tracks SPA page views manually
    // to avoid duplicate page_view events that inflate pagesPerSession.
-   _analytics = initializeAnalytics(app, {
-    config: { send_page_view: false },
-   });
+   _analytics = initializeAnalytics(app, FIREBASE_ANALYTICS_SETTINGS);
   }
  }
  } catch (error) {
@@ -360,8 +367,8 @@ export function isAnalyticsBlocked(): boolean {
  * Re-create the Analytics instance after an IndexedDB connection loss on iOS Safari.
  * Firebase Analytics internally uses IndexedDB for event persistence; when iOS suspends
  * the page the WebKit networking process may crash, leaving the IDB connection dead
- * (WebKit bug 273827 / 277615). Re-calling getAnalytics() forces Firebase to open a
- * fresh connection.
+ * (WebKit bug 273827 / 277615). This re-acquires the Analytics instance through
+ * initializeAnalytics() with the shared settings (formerly a bare getAnalytics()).
  *
  * Returns the new Analytics instance, or null if recovery fails (in which case we
  * mark analytics as blocked to stop infinite retry loops).
@@ -385,10 +392,12 @@ export async function resetAnalytics(): Promise<FirebaseAnalytics | null> {
   _analytics = null;
   return null;
  }
- const { getAnalytics: ga } = await import("firebase/analytics");
- // Discard the stale instance so Firebase creates a fresh one.
+ const { initializeAnalytics } = await import("firebase/analytics");
+ // Discard the stale instance so Firebase creates a fresh one. Same settings
+ // object as the first init: an initialized app gets its instance back, an
+ // uninitialized one is configured without the automatic page_view.
  _analytics = null;
- _analytics = ga(app);
+ _analytics = initializeAnalytics(app, FIREBASE_ANALYTICS_SETTINGS);
  firebaseWarn('[Firebase] Analytics recovered after IndexedDB loss');
  } catch (error) {
  firebaseWarn('[Firebase] Analytics recovery failed');
