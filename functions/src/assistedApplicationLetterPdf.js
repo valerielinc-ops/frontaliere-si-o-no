@@ -8,6 +8,7 @@
 
 import { letterEnclosures, letterPdfBlocks } from './assistedApplicationAiDraftCore.js';
 import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
+import { draftCandidateType } from './assistedApplicationCandidateType.js';
 import { enclosedDocumentLabels } from './assistedApplicationExtraDocuments.js';
 import { pdfRendererMode, renderLetterPdf } from './assistedApplicationPdfRenderer.js';
 
@@ -28,6 +29,8 @@ export async function rebuildLetterPdf({ order, orderId, draft, flow = {}, lette
     title: draft?.job?.title || order?.jobTitle || '',
     now: new Date(nowMs),
     enclosures: letterEnclosures(language, enclosedDocumentLabels(draft, flow, orderId)),
+    // The apprenticeship's subject needs the type the draft was written for.
+    type: draftCandidateType(draft),
   });
   return renderLetterPdf(blocks, { mode: mode || await pdfRendererMode() });
 }
