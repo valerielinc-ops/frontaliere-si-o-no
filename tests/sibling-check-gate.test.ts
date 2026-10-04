@@ -9,7 +9,7 @@
  */
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import { spawnSync, execFileSync } from 'node:child_process';
-import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import {
@@ -20,7 +20,12 @@ import {
   SIBLING_GATE_PAYLOAD_ENV,
 } from '../scripts/ci/sibling-check-gate.mjs';
 import { resolveGatedHeadRef } from '../scripts/ci/lib/hook-target-cwd.mjs';
-import { readRevisionChecker, relativeImports } from '../scripts/ci/lib/sibling-checker-revision.mjs';
+import {
+  checkerCandidates,
+  materializeChecker,
+  readRevisionChecker,
+  relativeImports,
+} from '../scripts/ci/lib/sibling-checker-revision.mjs';
 import { describePrBodySource, localDiffPaths } from '../scripts/ci/pr-body-check-gate.mjs';
 import { EXIT_BLOCK } from '../scripts/ci/lib/hook-exit-codes.mjs';
 
@@ -742,6 +747,64 @@ describe('sibling-check-gate — il verdetto viene dal checker della revisione g
       git('checkout', '-q', '--', VERDICT);
     }
     expect(readRevisionChecker(repo, 'ref-che-non-esiste', CHECKER)).toBeUndefined();
+  });
+
+  it('cache del checker svuotata a meta\' da un pulitore di tmp → si ripara, non ripiega per sempre', () => {
+    // Revisione: un pulitore di $TMPDIR cancella file singoli per eta'; il
+    // marker `.complete`, solo letto con uno stat, sparisce per primo. Prima
+    // della correzione: (a) senza marker il rename finiva in ENOTEMPTY, (b) col
+    // marker ma senza il file d'ingresso veniva servito un path inesistente.
+    const cacheRoot = mkdtempSync(join(tmpdir(), 'sibling-gate-checker-cache-'));
+    dirs.push(cacheRoot);
+    const snapshot = readRevisionChecker(repo, 'real-candidate', CHECKER)!;
+    const runChecker = (script: string) =>
+      JSON.parse(execFileSync('node', [script, '--json', '--head', 'real-candidate'], { encoding: 'utf8', cwd: repo }));
+    const first = materializeChecker(snapshot, { cacheRoot });
+    const keyDir = first.slice(0, -(CHECKER.length + 1));
+    expect(runChecker(first).candidates[0].file).toBe('scripts/beta.mjs');
+
+    // (a) marker cancellato, directory non vuota.
+    rmSync(join(keyDir, '.complete'));
+    const afterMarkerLoss = materializeChecker(snapshot, { cacheRoot });
+    expect(afterMarkerLoss).toBe(first);
+    expect(existsSync(join(keyDir, '.complete'))).toBe(true);
+    expect(runChecker(afterMarkerLoss).candidates[0].file).toBe('scripts/beta.mjs');
+
+    // (b) marker presente, file della chiusura cancellati.
+    rmSync(join(keyDir, CHECKER));
+    rmSync(join(keyDir, VERDICT));
+    const afterFileLoss = materializeChecker(snapshot, { cacheRoot });
+    expect(existsSync(afterFileLoss)).toBe(true);
+    expect(runChecker(afterFileLoss).candidates[0].file).toBe('scripts/beta.mjs');
+  });
+
+  it('checker presente nella revisione ma blob illeggibile → errore dichiarato, non un ripiego muto', () => {
+    const broken = mkdtempSync(join(tmpdir(), 'sibling-gate-judged-missing-blob-'));
+    dirs.push(broken);
+    const g = (...args: string[]) =>
+      execFileSync('git', args, { cwd: broken, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+    g('init', '-q', '-b', 'main');
+    g('config', 'user.email', 'test@example.com');
+    g('config', 'user.name', 'test');
+    mkdirSync(join(broken, 'scripts/ci'), { recursive: true });
+    writeFileSync(join(broken, CHECKER), "console.log('{}');\n", 'utf8');
+    g('add', '-A');
+    g('commit', '-q', '-m', 'base');
+    // Il blob sparisce dal database degli oggetti (come in un clone parziale
+    // senza rete): l'albero lo nomina ancora, `cat-file` fallisce.
+    const blob = g('rev-parse', `HEAD:${CHECKER}`);
+    rmSync(join(broken, '.git', 'objects', blob.slice(0, 2), blob.slice(2)), { force: true });
+    expect(() => readRevisionChecker(broken, 'main', CHECKER)).toThrow(/non leggibile in main/);
+    const { sources, errors } = checkerCandidates({
+      cwd: broken,
+      headRef: 'main',
+      entry: CHECKER,
+      localCheckScript: join(broken, CHECKER),
+      localRepo: broken,
+      baseRef: 'main',
+    });
+    expect(sources.map((s) => s.kind)).toEqual(['local']);
+    expect(errors.join('\n')).toMatch(/revisione giudicata main: lettura fallita/);
   });
 
   it('0 candidati per il checker della revisione giudicata → passa, anche se il checker locale ne vedrebbe', () => {

@@ -74,6 +74,14 @@ import {
 export const SIBLING_GATE_PAYLOAD_ENV = 'SIBLING_GATE_PAYLOAD';
 
 /**
+ * Wall-clock spent on checkers after which no further fallback is tried. The
+ * root hook-dispatch kills a hook at 60 s (non-blocking exit), and each
+ * fallback is a full sweep: a fallback started past this point would most
+ * likely be killed mid-run, so the gate declares the skip instead.
+ */
+export const CHECKER_FALLBACK_BUDGET_MS = 25_000;
+
+/**
  * Resolve the local checker for the repository that the PR command targets.
  * A repository without a local checker is deliberately ignored: running the
  * site's checker against a corpus branch is worse than an explicit no-op,
@@ -340,7 +348,18 @@ async function main() {
   let usedChecker;
   let candidates;
   let result;
-  for (const source of checkerSources) {
+  const checkerStartedAt = Date.now();
+  for (const [index, source] of checkerSources.entries()) {
+    // Each fallback is a full sweep. The root hook-dispatch kills a hook after
+    // 60 s, and a killed hook does not block: past the budget, stop and say so
+    // instead of letting a late fallback run into the timeout unannounced.
+    if (index > 0 && Date.now() - checkerStartedAt > CHECKER_FALLBACK_BUDGET_MS) {
+      checkerErrors.push(
+        `ripiego su ${source.label} NON tentato: ${Math.round((Date.now() - checkerStartedAt) / 1000)} s già spesi ` +
+          `(budget ${CHECKER_FALLBACK_BUDGET_MS / 1000} s, timeout dell'hook 60 s)`,
+      );
+      break;
+    }
     try {
       const jsonOutput = execFileSync('node', [source.script, '--json', '--head', head.ref], {
         encoding: 'utf8',
@@ -351,6 +370,11 @@ async function main() {
         // valid run as an infrastructure failure.
         stdio: ['ignore', 'pipe', 'pipe'],
         cwd: head.cwd,
+        // The checker caches results per head in tmpdir, keyed on its cache
+        // version and the refs, not on its own code. An unpinned working-tree
+        // checker must not fill that cache with verdicts a revision's checker
+        // would later be served.
+        env: source.kind === 'local' ? { ...process.env, CHECK_SIBLING_PATTERNS_CACHE: '0' } : process.env,
       });
       result = JSON.parse(jsonOutput);
       candidates = Array.isArray(result?.candidates) ? result.candidates : [];
@@ -362,7 +386,11 @@ async function main() {
     }
   }
   if (!usedChecker) {
-    process.exit(0); // every checker failed → fail-safe, as before
+    // Every checker failed → fail-safe, as before; but say why on stderr.
+    process.stderr.write(
+      `\n\u{2139}\u{FE0F}  sibling-check-gate: nessun checker ha prodotto un verdetto, sweep sibling NON eseguito: ${checkerErrors.join('; ')}\n`,
+    );
+    process.exit(0);
   }
   if (usedChecker.kind === 'local' && checkerErrors.length) {
     usedChecker.fallbackReason = checkerErrors.join('; ');

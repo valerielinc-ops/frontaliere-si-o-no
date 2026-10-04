@@ -67,12 +67,18 @@ export function relativeImports(source) {
   return [...specs];
 }
 
+// Il gate gira dentro un hook con un timeout complessivo di 60 s: in un clone
+// parziale (`blob:none`) un `cat-file` di un blob assente va in rete, e una
+// chiamata appesa non deve consumare tutto il budget dell'hook.
+const GIT_TIMEOUT_MS = 10_000;
+
 function git(cwd, args) {
   return execFileSync('git', args, {
     cwd,
     encoding: 'utf8',
     maxBuffer: 64 * 1024 * 1024,
     stdio: ['ignore', 'pipe', 'ignore'],
+    timeout: GIT_TIMEOUT_MS,
   });
 }
 
@@ -87,7 +93,10 @@ function revParse(cwd, spec) {
 /**
  * Il checker di una revisione: file d'ingresso e chiusura degli import
  * relativi, letti da Git (mai dal disco). `undefined` se il ref non risolve o
- * non contiene il file d'ingresso.
+ * non contiene il file d'ingresso: e' un caso legittimo e silenzioso. Se invece
+ * la revisione contiene il checker ma un suo blob non e' leggibile (clone
+ * parziale senza rete, timeout), lancia un errore: il chiamante deve dire
+ * perche' scarta quella revisione, non ripiegare in silenzio.
  *
  * @param {string|undefined} cwd directory del repository in cui eseguire git
  * @param {string} ref
@@ -118,8 +127,9 @@ export function readRevisionChecker(cwd, ref, entry) {
     if (content === undefined) {
       try {
         content = git(cwd, ['cat-file', 'blob', blob]);
-      } catch {
-        return undefined;
+      } catch (error) {
+        const why = error?.code === 'ETIMEDOUT' ? `timeout ${GIT_TIMEOUT_MS} ms` : (error?.message ?? String(error)).split('\n')[0];
+        throw new Error(`${path} (blob ${blob.slice(0, 10)}) non leggibile in ${ref}: ${why}`);
       }
       BLOB_CONTENT.set(blob, content);
     }
@@ -164,8 +174,18 @@ export function materializeChecker(snapshot, options = {}) {
     .slice(0, 24);
   const root = join(cacheRoot, key);
   const entryPath = join(root, snapshot.entry);
-  const marker = join(root, '.complete');
-  if (existsSync(marker)) return entryPath;
+  // Il marker da solo non basta: un pulitore di tmp (quello di macOS,
+  // systemd-tmpfiles) cancella file singoli per eta', e `.complete`, che viene
+  // solo letto con uno stat, e' il primo a sparire. Una directory monca non
+  // deve ne' essere servita (path inesistente) ne' bloccare per sempre la
+  // pubblicazione (rename su directory non vuota → ENOTEMPTY): in entrambi i
+  // casi il gate ripiegherebbe a ogni esecuzione sul checker del working tree,
+  // cioe' proprio quello che questo modulo esiste per evitare.
+  const complete = () =>
+    existsSync(join(root, '.complete')) &&
+    snapshot.files.every((file) => existsSync(join(root, file.path))) &&
+    (!nodeModules || existsSync(join(root, 'node_modules')));
+  if (complete()) return entryPath;
 
   const staging = mkdtempSync(join(cacheRoot, `${key}.tmp-`));
   try {
@@ -179,8 +199,17 @@ export function materializeChecker(snapshot, options = {}) {
     try {
       renameSync(staging, root);
     } catch (error) {
-      // Un hook concorrente ha gia' pubblicato lo stesso contenuto.
-      if (!existsSync(marker)) throw error;
+      // Un hook concorrente ha gia' pubblicato lo stesso contenuto: va bene.
+      // Altrimenti al suo posto c'e' una directory monca: si rimuove e si
+      // ritenta una volta.
+      if (!complete()) {
+        rmSync(root, { recursive: true, force: true });
+        try {
+          renameSync(staging, root);
+        } catch (retryError) {
+          if (!complete()) throw retryError;
+        }
+      }
     }
   } finally {
     rmSync(staging, { recursive: true, force: true });
@@ -221,8 +250,16 @@ export function checkerCandidates({
   const nodeModules = join(localRepo, 'node_modules');
   const sources = [];
   const errors = [];
-  const judged = readRevisionChecker(cwd, headRef, entry);
-  const base = readRevisionChecker(cwd, baseRef, entry);
+  const read = (ref, label) => {
+    try {
+      return readRevisionChecker(cwd, ref, entry);
+    } catch (error) {
+      errors.push(`${label}: lettura fallita (${error?.message ?? error})`);
+      return undefined;
+    }
+  };
+  const judged = read(headRef, `revisione giudicata ${headRef}`);
+  const base = read(baseRef, baseRef);
   const add = (kind, snapshot, label) => {
     if (!snapshot) return;
     if (sources.some((s) => s.snapshot && checkerFingerprint(s.snapshot) === checkerFingerprint(snapshot))) return;
