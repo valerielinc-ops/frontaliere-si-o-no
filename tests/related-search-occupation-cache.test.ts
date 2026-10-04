@@ -64,6 +64,22 @@ describe('build-scoped occupational terms', () => {
     expect(cached.matchingOccupationJobs('it', ['a', 'b', 'c'], 4, 1, ['infermier']).map(job => job.id)).toEqual(['4', '8', '5', '6']);
   });
 
+  it('keeps sparse OR merges in score/corpus order without scanning untouched jobs', () => {
+    const corpus = Array.from({ length: 100 }, (_, i) => ({ id: String(i), title: 'Role' }));
+    const index = new TokenIndex(corpus);
+    index.seedPostings('it', [
+      { token: 'a', list: [10, 30, 50] },
+      { token: 'b', list: [20, 30, 40] },
+      { token: 'c', list: [5, 20, 30] },
+    ]);
+
+    // The touched set is deliberately much smaller than the corpus. The
+    // result must still be AND first, then OR score descending with corpus
+    // order as the tie-break (30, 20, then 5, 10, 40, 50).
+    expect(index.matchingOccupationJobs('it', ['a', 'b', 'c'], 6, 1, ['role']).map(job => job.id))
+      .toEqual(['30', '20', '5', '10', '40', '50']);
+  });
+
   it('prepares once per visited job/locale, skips empty roles, and clears with the index', () => {
     const prepare = vi.spyOn(relevance, 'prepareJobOccupationTerms');
     const index = new TokenIndex(jobs);
