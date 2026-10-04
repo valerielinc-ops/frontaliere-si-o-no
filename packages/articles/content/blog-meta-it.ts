@@ -12488,6 +12488,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.decesso-coldrerio-corsia-nord-sud.title': 'A2 a Coldrerio, morto il 73enne ferito nell\'incidente',
     'blog.article.decesso-coldrerio-corsia-nord-sud.excerpt': 'Il 73enne svizzero residente nel canton Zurigo è morto in ospedale dopo l\'incidente sulla A2 a Coldrerio. Era il passeggero dell\'auto guidata da una 68enne.',
     'blog.article.decesso-coldrerio-corsia-nord-sud.imageAlt': 'A2 a Coldrerio, sulla carreggiata nord-sud',
+    'blog.article.notte-rissa-saronno-soccorsi.title': 'Rissa a Saronno: feriti due giovani nella notte',
+    'blog.article.notte-rissa-saronno-soccorsi.excerpt': 'Due ragazzi di 25 e 27 anni sono rimasti feriti in una rissa nel centro pedonale di Saronno: tre ambulanze e carabinieri sul posto.',
+    'blog.article.notte-rissa-saronno-soccorsi.imageAlt': 'Zona pedonale illuminata nel centro storico di Saronno',
 };
 
 export default blogMetaIt;

@@ -12486,6 +12486,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.decesso-coldrerio-corsia-nord-sud.title': 'A2 bei Coldrerio: Der bei dem Unfall verletzte 73-Jährige ist gestorben',
     'blog.article.decesso-coldrerio-corsia-nord-sud.excerpt': 'Der 73-jährige Schweizer mit Wohnsitz im Kanton Zürich ist nach dem Unfall auf der A2 in Coldrerio im Krankenhaus gestorben. Er war der Beifahrer des von einer 68-Jährigen gelenkten Autos.',
     'blog.article.decesso-coldrerio-corsia-nord-sud.imageAlt': 'A2 bei Coldrerio auf der Nord-Süd-Fahrbahn',
+    'blog.article.notte-rissa-saronno-soccorsi.title': 'Schlägerei in Saronno: Zwei junge Männer in der Nacht verletzt',
+    'blog.article.notte-rissa-saronno-soccorsi.excerpt': 'Zwei junge Männer im Alter von 25 und 27 Jahren wurden bei einer Schlägerei in der Fußgängerzone von Saronno verletzt: drei Krankenwagen und Carabinieri vor Ort.',
+    'blog.article.notte-rissa-saronno-soccorsi.imageAlt': 'Beleuchtete Fußgängerzone im historischen Zentrum von Saronno',
 };
 
 export default blogMetaDe;
