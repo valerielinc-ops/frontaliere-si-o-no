@@ -1,6 +1,6 @@
 {
   "crawlerKey": "roche",
-  "assembledAt": "2026-10-04T09:14:09.266Z",
+  "assembledAt": "2026-10-04T21:16:03.100Z",
   "jobs": [
     {
       "id": "roche-5ac9f67c8526",
@@ -9,7 +9,7 @@
         "it": "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz",
         "en": "system-development-troubleshooter-roche-ch",
         "de": "systementwicklung-troubleshooter-roche-rotkreuz",
-        "fr": "developpement-du-systeme-depanneur-roche-rotkreuz"
+        "fr": "system-development-troubleshooter-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -33,7 +33,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/System-Development-Troubleshooter_202203-110282",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:58.674Z",
+      "crawledAt": "2026-10-04T21:15:55.357Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,13 +50,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "system-development-troubleshooter-roche-ch",
+        "developpement-du-systeme-depanneur-roche-rotkreuz",
+        "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz",
         "system-development-troubleshooter-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "system-development-troubleshooter-roche-ch"
+          "system-development-troubleshooter-roche-ch",
+          "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz"
         ],
         "fr": [
+          "developpement-du-systeme-depanneur-roche-rotkreuz",
           "system-development-troubleshooter-roche-rotkreuz"
         ]
       },
@@ -107,7 +111,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Development-Engineer--contract-80-100--_202402-104044-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:53.812Z",
+      "crawledAt": "2026-10-04T21:15:51.328Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -123,11 +127,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "development-engineer-contract-80-100-roche-ch"
+        "development-engineer-contract-80-100-roche-ch",
+        "development-ingegnere-contract-80-100-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "development-engineer-contract-80-100-roche-ch"
+          "development-engineer-contract-80-100-roche-ch",
+          "development-ingegnere-contract-80-100-roche-rotkreuz"
         ]
       },
       "firstSeenAt": "2026-09-26T13:55:04.588Z",
@@ -177,7 +183,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Lab-Technician--contract-_202109-125765-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:52.974Z",
+      "crawledAt": "2026-10-04T21:15:50.614Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -193,11 +199,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lab-technician-contract-roche-ch"
+        "lab-technician-contract-roche-ch",
+        "lab-technician-contratto-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-technician-contract-roche-ch"
+          "lab-technician-contract-roche-ch",
+          "lab-technician-contratto-roche-rotkreuz"
         ],
         "de": [
           "lab-technician-contract-roche-ch"
@@ -207,6 +215,7 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:55:03.831Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -253,7 +262,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Software-Tester-within-RMD-System-Development--contract-_202109-125486-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:52.254Z",
+      "crawledAt": "2026-10-04T21:15:49.804Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -269,11 +278,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-tester-within-rmd-system-development-contract-roche-ch"
+        "software-tester-within-rmd-system-development-contract-roche-ch",
+        "tester-software-all-interno-dello-sviluppo-del-sistema-rmd-contratto-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-tester-within-rmd-system-development-contract-roche-ch"
+          "software-tester-within-rmd-system-development-contract-roche-ch",
+          "tester-software-all-interno-dello-sviluppo-del-sistema-rmd-contratto-roche-rotkreuz"
         ],
         "de": [
           "software-tester-within-rmd-system-development-contract-roche-ch"
@@ -283,6 +294,7 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:55:02.970Z",
+      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
@@ -329,7 +341,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Development-Engineer--contract-_202302-103172-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:51.525Z",
+      "crawledAt": "2026-10-04T21:15:49.060Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -345,11 +357,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "development-engineer-contract-roche-ch"
+        "development-engineer-contract-roche-ch",
+        "development-ingegnere-contract-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "development-engineer-contract-roche-ch"
+          "development-engineer-contract-roche-ch",
+          "development-ingegnere-contract-roche-rotkreuz"
         ],
         "de": [
           "development-engineer-contract-roche-ch"
@@ -404,7 +418,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Chef-de-Partie--Tournant--w-m-d---100----befristet-fr-1-Jahr_202510-126421-2",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:13:44.505Z",
+      "crawledAt": "2026-10-04T21:15:41.973Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -421,12 +435,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chef-de-partie-tournant-w-m-d-100-befristet-fur-1-jahr-roche-ch",
-        "chef-de-partie-tournant-m-w-d-100-befristet-per-1-jahr-roche-basel"
+        "chef-de-partie-tournant-m-w-d-100-befristet-per-1-jahr-roche-basel",
+        "chef-de-partie-tournant-m-f-d-100-a-tempo-determinato-per-1-anno-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-partie-tournant-w-m-d-100-befristet-fur-1-jahr-roche-ch",
-          "chef-de-partie-tournant-m-w-d-100-befristet-per-1-jahr-roche-basel"
+          "chef-de-partie-tournant-m-w-d-100-befristet-per-1-jahr-roche-basel",
+          "chef-de-partie-tournant-m-f-d-100-a-tempo-determinato-per-1-anno-roche-basel"
         ],
         "en": [
           "chef-de-partie-tournant-w-m-d-100-befristet-fur-1-jahr-roche-ch"
@@ -465,7 +481,7 @@
       "companyDomain": "roche.com",
       "title": "Digital Pathologist",
       "titleByLocale": {
-        "it": "Patologo digitale",
+        "it": "Digital Pathologist",
         "en": "Digital Pathologist",
         "de": "Digitalpathologe",
         "fr": "Pathologue numérique"
@@ -482,7 +498,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Digital-Pathologist_202606-116179-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:43.401Z",
+      "crawledAt": "2026-10-04T21:15:40.788Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -499,12 +515,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "digital-pathologist-roche-ch",
-        "digital-pathologist-roche-basel"
+        "digital-pathologist-roche-basel",
+        "patologo-digitale-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "digital-pathologist-roche-ch",
-          "digital-pathologist-roche-basel"
+          "digital-pathologist-roche-basel",
+          "patologo-digitale-roche-basel"
         ],
         "de": [
           "digital-pathologist-roche-ch"
@@ -561,7 +579,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Principal-Device-Engineer_202607-117420-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:40.440Z",
+      "crawledAt": "2026-10-04T21:15:37.780Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -586,7 +604,8 @@
         "senior-device-engineer-with-pen-autoinjector-expertise-roche-ch",
         "senior-device-ingenieur-with-pen-autoinjector-expertise-roche-basel",
         "senior-engineer-with-pen-autoinjector-roche-basel",
-        "senior-ingegnere-with-pen-autoinjector-roche-basel"
+        "senior-ingegnere-with-pen-autoinjector-roche-basel",
+        "principal-device-ingegnere-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -599,7 +618,8 @@
           "senior-device-engineer-with-pen-autoinjector-expertise-roche-ch",
           "senior-device-ingenieur-with-pen-autoinjector-expertise-roche-basel",
           "senior-engineer-with-pen-autoinjector-roche-basel",
-          "senior-ingegnere-with-pen-autoinjector-roche-basel"
+          "senior-ingegnere-with-pen-autoinjector-roche-basel",
+          "principal-device-ingegnere-roche-basel"
         ],
         "en": [
           "senior-engineer-with-pen-autoinjector-roche-ch",
@@ -661,7 +681,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Senior-Principal-Scientist---NMR-Expert_202607-117312",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:38.998Z",
+      "crawledAt": "2026-10-04T21:15:36.219Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -677,14 +697,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-principal-scientist-nmr-expert-roche-ch"
+        "senior-principal-scientist-nmr-expert-roche-ch",
+        "senior-principal-scientist-esperto-rmn-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-principal-scientist-nmr-expert-roche-ch"
+          "senior-principal-scientist-nmr-expert-roche-ch",
+          "senior-principal-scientist-esperto-rmn-roche-basel"
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:06.524Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -731,7 +754,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Vice-President--Global-Head-Multiple-Sclerosis-and-Neuroimmunology_202607-118028",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:38.194Z",
+      "crawledAt": "2026-10-04T21:15:35.319Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -747,11 +770,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "vice-president-global-head-multiple-sclerosis-and-neuroimmunology-roche-ch"
+        "vice-president-global-head-multiple-sclerosis-and-neuroimmunology-roche-ch",
+        "vice-presidente-global-head-multiple-sclerosis-and-neuroimmunology-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vice-president-global-head-multiple-sclerosis-and-neuroimmunology-roche-ch"
+          "vice-president-global-head-multiple-sclerosis-and-neuroimmunology-roche-ch",
+          "vice-presidente-global-head-multiple-sclerosis-and-neuroimmunology-roche-basel"
         ]
       },
       "needsRetranslation": true,
@@ -802,7 +827,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Software-Senior-Technical-Lead-Rust--80-100--_202605-113537",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:36.690Z",
+      "crawledAt": "2026-10-04T21:15:33.818Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -864,7 +889,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/CMC-Expert-Analytical-Development-focus-Parenterals-Devices_202607-119705-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:33.502Z",
+      "crawledAt": "2026-10-04T21:15:30.457Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -937,7 +962,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Principal-Scientist-si-RNA-Design_202606-115829-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:32.397Z",
+      "crawledAt": "2026-10-04T21:15:29.284Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -954,11 +979,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "principal-scientist-sirna-design-roche-ch"
+          "principal-scientist-sirna-design-roche-ch",
+          "principal-scientist-si-rna-design-roche-ch"
         ],
         "it": [
           "principal-scientist-si-rna-design-roche-ch",
-          "principal-scientist-sirna-design-roche-ch"
+          "principal-scientist-sirna-design-roche-ch",
+          "principale-scienziato-si-rna-design-roche-basel"
         ],
         "de": [
           "principal-scientist-si-rna-design-roche-ch"
@@ -969,7 +996,8 @@
       },
       "previousSlugs": [
         "principal-scientist-si-rna-design-roche-ch",
-        "principal-scientist-sirna-design-roche-ch"
+        "principal-scientist-sirna-design-roche-ch",
+        "principale-scienziato-si-rna-design-roche-basel"
       ],
       "firstSeenAt": "2026-07-01T12:50:18.930Z",
       "salaryMin": 85500,
@@ -1018,7 +1046,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Anlage--und-Apparatebauer-in-EFZ--ab-August-2027-_202607-117614",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:13:30.831Z",
+      "crawledAt": "2026-10-04T21:15:27.771Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1034,11 +1062,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-anlage-und-apparatebauer-in-efz-ab-august-2027-roche-ch"
+        "lehrstelle-als-anlage-und-apparatebauer-in-efz-ab-august-2027-roche-ch",
+        "apprendistato-come-anlage-e-apparatebauer-in-cfc-ab-august-2027-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-anlage-und-apparatebauer-in-efz-ab-august-2027-roche-ch"
+          "lehrstelle-als-anlage-und-apparatebauer-in-efz-ab-august-2027-roche-ch",
+          "apprendistato-come-anlage-e-apparatebauer-in-cfc-ab-august-2027-roche-basel"
         ],
         "en": [
           "lehrstelle-als-anlage-und-apparatebauer-in-efz-ab-august-2027-roche-ch"
@@ -1048,6 +1078,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:09:52.340Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -1094,7 +1125,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Automatiker-in-EFZ--ab-August-2027-_202607-117603",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:13:30.071Z",
+      "crawledAt": "2026-10-04T21:15:26.931Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1110,11 +1141,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-automatiker-in-efz-ab-august-2027-roche-ch"
+        "lehrstelle-als-automatiker-in-efz-ab-august-2027-roche-ch",
+        "apprendistato-come-automatiker-in-cfc-ab-august-2027-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-automatiker-in-efz-ab-august-2027-roche-ch"
+          "lehrstelle-als-automatiker-in-efz-ab-august-2027-roche-ch",
+          "apprendistato-come-automatiker-in-cfc-ab-august-2027-roche-basel"
         ],
         "en": [
           "lehrstelle-als-automatiker-in-efz-ab-august-2027-roche-ch"
@@ -1170,7 +1203,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Chemie--und-Pharmatechnolog-in-EFZ--ab-August-2027-_202607-117593",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:13:29.199Z",
+      "crawledAt": "2026-10-04T21:15:26.086Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1186,11 +1219,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-chemie-und-pharmatechnolog-in-efz-ab-august-2027-roche-ch"
+        "lehrstelle-als-chemie-und-pharmatechnolog-in-efz-ab-august-2027-roche-ch",
+        "apprendistato-come-chemie-e-pharmatechnolog-in-cfc-ab-august-2027-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-chemie-und-pharmatechnolog-in-efz-ab-august-2027-roche-ch"
+          "lehrstelle-als-chemie-und-pharmatechnolog-in-efz-ab-august-2027-roche-ch",
+          "apprendistato-come-chemie-e-pharmatechnolog-in-cfc-ab-august-2027-roche-basel"
         ],
         "en": [
           "lehrstelle-als-chemie-und-pharmatechnolog-in-efz-ab-august-2027-roche-ch"
@@ -1247,7 +1282,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Informatiker-in-EFZ-Applikationsentwicklung--ab-August-2027-_202607-117607",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:13:28.125Z",
+      "crawledAt": "2026-10-04T21:15:25.217Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1267,7 +1302,8 @@
         "apprendistato-come-informatiker-in-cfc-plattformentwicklung-ab-august-2027-roche-basel",
         "apprenticeship-as-computer-scientist-in-efz-platform-development-from-august-2027-roche-basel",
         "lehrstelle-als-informatiker-in-efz-plattformentwicklung-ab-august-2027-roche-ch",
-        "apprentissage-en-informatique-dans-le-developpement-de-la-plateforme-efz-a-partir-d-aout-2027-roche-basel"
+        "apprentissage-en-informatique-dans-le-developpement-de-la-plateforme-efz-a-partir-d-aout-2027-roche-basel",
+        "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-ab-august-2027-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1275,7 +1311,8 @@
           "apprendistato-come-informatiker-in-cfc-plattformentwicklung-ab-august-2027-roche-basel",
           "apprenticeship-as-computer-scientist-in-efz-platform-development-from-august-2027-roche-basel",
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-ab-august-2027-roche-ch",
-          "apprentissage-en-informatique-dans-le-developpement-de-la-plateforme-efz-a-partir-d-aout-2027-roche-basel"
+          "apprentissage-en-informatique-dans-le-developpement-de-la-plateforme-efz-a-partir-d-aout-2027-roche-basel",
+          "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-ab-august-2027-roche-basel"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-ab-august-2027-roche-ch",
@@ -1337,7 +1374,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-ICT-Fachmann-frau-EFZ--ab-August-2027-_202607-117615",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:13:27.266Z",
+      "crawledAt": "2026-10-04T21:15:24.365Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1353,11 +1390,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-ict-fachmann-frau-efz-ab-august-2027-roche-ch"
+        "lehrstelle-als-ict-fachmann-frau-efz-ab-august-2027-roche-ch",
+        "apprendistato-come-ict-fachmann-frau-cfc-ab-august-2027-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-ict-fachmann-frau-efz-ab-august-2027-roche-ch"
+          "lehrstelle-als-ict-fachmann-frau-efz-ab-august-2027-roche-ch",
+          "apprendistato-come-ict-fachmann-frau-cfc-ab-august-2027-roche-basel"
         ],
         "en": [
           "lehrstelle-als-ict-fachmann-frau-efz-ab-august-2027-roche-ch"
@@ -1413,7 +1452,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Kaufmann-frau-EFZ--ab-August-2027-_202607-117595",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:13:26.414Z",
+      "crawledAt": "2026-10-04T21:15:23.507Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1429,11 +1468,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-kaufmann-frau-efz-ab-august-2027-roche-ch"
+        "lehrstelle-als-kaufmann-frau-efz-ab-august-2027-roche-ch",
+        "apprendistato-come-kaufmann-frau-cfc-ab-august-2027-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kaufmann-frau-efz-ab-august-2027-roche-ch"
+          "lehrstelle-als-kaufmann-frau-efz-ab-august-2027-roche-ch",
+          "apprendistato-come-kaufmann-frau-cfc-ab-august-2027-roche-basel"
         ],
         "en": [
           "lehrstelle-als-kaufmann-frau-efz-ab-august-2027-roche-ch"
@@ -1490,7 +1531,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Laborant-in-EFZ-Fachrichtung-Biologie--ab-August-2027-_202607-117635",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:13:25.650Z",
+      "crawledAt": "2026-10-04T21:15:22.574Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1506,11 +1547,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-laborant-in-efz-fachrichtung-biologie-ab-august-2027-roche-ch"
+        "lehrstelle-als-laborant-in-efz-fachrichtung-biologie-ab-august-2027-roche-ch",
+        "apprendistato-come-laborant-in-cfc-specializzazione-biologie-ab-august-2027-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-laborant-in-efz-fachrichtung-biologie-ab-august-2027-roche-ch"
+          "lehrstelle-als-laborant-in-efz-fachrichtung-biologie-ab-august-2027-roche-ch",
+          "apprendistato-come-laborant-in-cfc-specializzazione-biologie-ab-august-2027-roche-basel"
         ],
         "en": [
           "lehrstelle-als-laborant-in-efz-fachrichtung-biologie-ab-august-2027-roche-ch"
@@ -1566,7 +1609,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Logistiker-in-EFZ--ab-August-2027-_202607-117605",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:13:24.797Z",
+      "crawledAt": "2026-10-04T21:15:21.733Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1582,11 +1625,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-logistiker-in-efz-ab-august-2027-roche-ch"
+        "lehrstelle-als-logistiker-in-efz-ab-august-2027-roche-ch",
+        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-ab-august-2027-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-logistiker-in-efz-ab-august-2027-roche-ch"
+          "lehrstelle-als-logistiker-in-efz-ab-august-2027-roche-ch",
+          "apprendistato-come-impiegata-impiegato-in-logistica-cfc-ab-august-2027-roche-basel"
         ],
         "en": [
           "lehrstelle-als-logistiker-in-efz-ab-august-2027-roche-ch"
@@ -1596,6 +1641,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:09:40.230Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -1642,7 +1688,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Fachmann-frau-Information-und-Dokumentation-EFZ--ab-August-2027-_202607-117630",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:13:23.958Z",
+      "crawledAt": "2026-10-04T21:15:20.882Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1658,11 +1704,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-fachmann-frau-information-und-dokumentation-efz-ab-august-2027-roche-ch"
+        "lehrstelle-als-fachmann-frau-information-und-dokumentation-efz-ab-august-2027-roche-ch",
+        "apprendistato-come-fachmann-frau-information-e-dokumentation-cfc-ab-august-2027-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachmann-frau-information-und-dokumentation-efz-ab-august-2027-roche-ch"
+          "lehrstelle-als-fachmann-frau-information-und-dokumentation-efz-ab-august-2027-roche-ch",
+          "apprendistato-come-fachmann-frau-information-e-dokumentation-cfc-ab-august-2027-roche-basel"
         ],
         "en": [
           "lehrstelle-als-fachmann-frau-information-und-dokumentation-efz-ab-august-2027-roche-ch"
@@ -1672,6 +1720,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:09:36.785Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -1718,7 +1767,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Global-Diagnostics-Partnering-Strategy---Transactions-Lead_202606-116620-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:23.047Z",
+      "crawledAt": "2026-10-04T21:15:20.008Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1781,7 +1830,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Senior-DMPK-PD-Project-Leader_202607-119549-2",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:20.965Z",
+      "crawledAt": "2026-10-04T21:15:18.084Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1797,11 +1846,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-dmpk-pd-project-leader-roche-ch"
+        "senior-dmpk-pd-project-leader-roche-ch",
+        "leader-del-progetto-dmpk-pd-senior-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-dmpk-pd-project-leader-roche-ch"
+          "senior-dmpk-pd-project-leader-roche-ch",
+          "leader-del-progetto-dmpk-pd-senior-roche-basel"
         ]
       },
       "needsRetranslation": true,
@@ -1852,7 +1903,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Research-Associate-in-Cardiovascular-and-Metabolic-Disease-Models-in-vitro-2-years-temporary_202606-116317-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:19.723Z",
+      "crawledAt": "2026-10-04T21:15:16.959Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1868,11 +1919,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "research-associate-in-cardiovascular-and-metabolic-disease-models-in-vitro-2-years"
+        "research-associate-in-cardiovascular-and-metabolic-disease-models-in-vitro-2-years",
+        "ricerca-associate-in-cardiovascular-and-metabolic-disease-models-in-vitro-2-years-temporary-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "research-associate-in-cardiovascular-and-metabolic-disease-models-in-vitro-2-years"
+          "research-associate-in-cardiovascular-and-metabolic-disease-models-in-vitro-2-years",
+          "ricerca-associate-in-cardiovascular-and-metabolic-disease-models-in-vitro-2-years-temporary-roche-basel"
         ],
         "de": [
           "research-associate-in-cardiovascular-and-metabolic-disease-models-in-vitro-2-years"
@@ -1882,6 +1935,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:10:37.691Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1928,7 +1982,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Research-Associate-in-vivo-Pharmacology-in-Cardiovascular-and-Metabolic-Diseases---Temporary-Position-for-2-years_202606-116281-2",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:18.956Z",
+      "crawledAt": "2026-10-04T21:15:15.762Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1944,11 +1998,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "research-associate-in-vivo-pharmacology-in-cardiovascular-and-metabolic-diseases-temporary"
+        "research-associate-in-vivo-pharmacology-in-cardiovascular-and-metabolic-diseases-temporary",
+        "ricerca-associate-in-vivo-pharmacology-in-cardiovascular-and-metabolic-diseases-temporary-position-for-2-years-roche"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "research-associate-in-vivo-pharmacology-in-cardiovascular-and-metabolic-diseases-temporary"
+          "research-associate-in-vivo-pharmacology-in-cardiovascular-and-metabolic-diseases-temporary",
+          "ricerca-associate-in-vivo-pharmacology-in-cardiovascular-and-metabolic-diseases-temporary-position-for-2-years-roche"
         ],
         "de": [
           "research-associate-in-vivo-pharmacology-in-cardiovascular-and-metabolic-diseases-temporary"
@@ -1958,6 +2014,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:10:35.946Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1987,7 +2044,7 @@
       "companyDomain": "roche.com",
       "title": "Senior Container Closure Expert (PFS / Cartridges)",
       "titleByLocale": {
-        "it": "Senior Container Closure Expert (PFS / Cartucce)",
+        "it": "Senior Container Closure Expert (PFS / Cartridges)",
         "en": "Senior Container Closure Expert (PFS / Cartridges)",
         "de": "Senior Container Closure Expert (PFS / Patronen)",
         "fr": "Expert principal en fermeture de conteneurs (PFS / cartouches)"
@@ -2004,7 +2061,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Senior-Device-Engineer_202607-117300-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:14.325Z",
+      "crawledAt": "2026-10-04T21:15:11.472Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2021,11 +2078,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "senior-container-closure-expert-pfs-cartridges-roche-ch"
+          "senior-container-closure-expert-pfs-cartridges-roche-ch",
+          "senior-device-engineer-roche-ch"
         ],
         "it": [
           "senior-device-engineer-roche-ch",
-          "senior-container-closure-expert-pfs-cartridges-roche-ch"
+          "senior-container-closure-expert-pfs-cartridges-roche-ch",
+          "senior-device-ingegnere-roche-basel"
         ],
         "de": [
           "senior-device-engineer-roche-ch"
@@ -2036,9 +2095,11 @@
       },
       "previousSlugs": [
         "senior-device-engineer-roche-ch",
-        "senior-container-closure-expert-pfs-cartridges-roche-ch"
+        "senior-container-closure-expert-pfs-cartridges-roche-ch",
+        "senior-device-ingegnere-roche-basel"
       ],
       "firstSeenAt": "2026-07-06T15:33:23.002Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -2085,7 +2146,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Discovery-Scientist---Neural-Retina---Ocular-Disease_202608-121247-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:12.311Z",
+      "crawledAt": "2026-10-04T21:15:09.236Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2101,11 +2162,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "discovery-scientist-neural-retina-ocular-disease-roche-ch"
+        "discovery-scientist-neural-retina-ocular-disease-roche-ch",
+        "discovery-scientist-retina-neurale-malattia-oculare-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "discovery-scientist-neural-retina-ocular-disease-roche-ch"
+          "discovery-scientist-neural-retina-ocular-disease-roche-ch",
+          "discovery-scientist-retina-neurale-malattia-oculare-roche-basel"
         ],
         "de": [
           "discovery-scientist-neural-retina-ocular-disease-roche-ch"
@@ -2115,6 +2178,7 @@
         ]
       },
       "firstSeenAt": "2026-08-22T09:38:23.935Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2161,7 +2225,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Laborant-in-EFZ-Fachrichtung-Chemie--ab-August-2027-_202607-117574",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:13:11.540Z",
+      "crawledAt": "2026-10-04T21:15:08.302Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2177,11 +2241,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-laborant-in-efz-fachrichtung-chemie-ab-august-2027-roche-ch"
+        "lehrstelle-als-laborant-in-efz-fachrichtung-chemie-ab-august-2027-roche-ch",
+        "apprendistato-come-laborant-in-cfc-specializzazione-chemie-ab-august-2027-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-laborant-in-efz-fachrichtung-chemie-ab-august-2027-roche-ch"
+          "lehrstelle-als-laborant-in-efz-fachrichtung-chemie-ab-august-2027-roche-ch",
+          "apprendistato-come-laborant-in-cfc-specializzazione-chemie-ab-august-2027-roche-basel"
         ],
         "en": [
           "lehrstelle-als-laborant-in-efz-fachrichtung-chemie-ab-august-2027-roche-ch"
@@ -2237,7 +2303,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Veterinary-Pathologist--Early-Drug-Discovery_202607-119477-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:09.550Z",
+      "crawledAt": "2026-10-04T21:15:06.385Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2253,11 +2319,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "veterinary-pathologist-early-drug-discovery-roche-ch"
+        "veterinary-pathologist-early-drug-discovery-roche-ch",
+        "patologo-veterinario-scoperta-della-droga-precoce-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "veterinary-pathologist-early-drug-discovery-roche-ch"
+          "veterinary-pathologist-early-drug-discovery-roche-ch",
+          "patologo-veterinario-scoperta-della-droga-precoce-roche-basel"
         ],
         "de": [
           "veterinary-pathologist-early-drug-discovery-roche-ch"
@@ -2313,7 +2381,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Senior-Software-Engineer--Lab-Automation_202608-121494",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:08.810Z",
+      "crawledAt": "2026-10-04T21:15:05.636Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2329,11 +2397,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-software-engineer-lab-automation-roche-ch"
+        "senior-software-engineer-lab-automation-roche-ch",
+        "senior-software-ingegnere-lab-automation-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-lab-automation-roche-ch"
+          "senior-software-engineer-lab-automation-roche-ch",
+          "senior-software-ingegnere-lab-automation-roche-basel"
         ],
         "de": [
           "senior-software-engineer-lab-automation-roche-ch"
@@ -2389,7 +2459,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Head-of-International-Order-Management----DIA-Supply-Chain_202606-115902-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:03.421Z",
+      "crawledAt": "2026-10-04T21:15:00.315Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2405,11 +2475,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-international-order-management-dia-supply-chain-roche-ch"
+        "head-of-international-order-management-dia-supply-chain-roche-ch",
+        "responsabile-international-order-management-dia-supply-chain-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-international-order-management-dia-supply-chain-roche-ch"
+          "head-of-international-order-management-dia-supply-chain-roche-ch",
+          "responsabile-international-order-management-dia-supply-chain-roche-rotkreuz"
         ],
         "de": [
           "head-of-international-order-management-dia-supply-chain-roche-ch"
@@ -2466,7 +2538,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-bei-MSAT-Solids-Launch---Transfer-fr-6-Monate_202608-122195",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:13:02.620Z",
+      "crawledAt": "2026-10-04T21:14:59.548Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -2539,7 +2611,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Computational---Applied-AI---Scientist_202608-121873-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:13:01.701Z",
+      "crawledAt": "2026-10-04T21:14:58.361Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2565,7 +2637,8 @@
         "operations-ai-data-scientist-roche-ch",
         "operations-chercheur-en-donnees-ai-roche-basel",
         "principal-operations-ai-data-scientist-roche-ch",
-        "senior-computational-applied-ai-scientist-roche-ch"
+        "senior-computational-applied-ai-scientist-roche-ch",
+        "senior-computational-applied-ai-scienziato-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2579,7 +2652,8 @@
           "operations-ai-data-scientist-roche-ch",
           "operations-chercheur-en-donnees-ai-roche-basel",
           "principal-operations-ai-data-scientist-roche-ch",
-          "senior-computational-applied-ai-scientist-roche-ch"
+          "senior-computational-applied-ai-scientist-roche-ch",
+          "senior-computational-applied-ai-scienziato-roche-basel"
         ],
         "en": [
           "data-scientist-applied-ai-roche-ch"
@@ -2640,7 +2714,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Postdoctoral-Scientist---Vascularized-Kidney-Organoids--at-the-Institute-of-Human-Biology--IHB--_202608-121855",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:12:58.597Z",
+      "crawledAt": "2026-10-04T21:14:55.425Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2656,11 +2730,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-scientist-vascularized-kidney-organoids-at-the-institute-of-human-biology-ihb"
+        "postdoctoral-scientist-vascularized-kidney-organoids-at-the-institute-of-human-biology-ihb",
+        "scienziato-post-dottorato-organoidi-renali-vascolarizzati-all-istituto-di-biologia-umana-ihb-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-scientist-vascularized-kidney-organoids-at-the-institute-of-human-biology-ihb"
+          "postdoctoral-scientist-vascularized-kidney-organoids-at-the-institute-of-human-biology-ihb",
+          "scienziato-post-dottorato-organoidi-renali-vascolarizzati-all-istituto-di-biologia-umana-ihb-roche-basel"
         ],
         "de": [
           "postdoctoral-scientist-vascularized-kidney-organoids-at-the-institute-of-human-biology-ihb"
@@ -2670,6 +2746,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:26:31.500Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2716,7 +2793,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Senior-Communications-BP-Sustainability---Corporate-Topics_202609-122789",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:12:57.687Z",
+      "crawledAt": "2026-10-04T21:14:54.484Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2732,11 +2809,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-communications-bp-sustainability-corporate-topics-roche-ch"
+        "senior-communications-bp-sustainability-corporate-topics-roche-ch",
+        "comunicazione-senior-bp-sostenibilita-e-argomenti-aziendali-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-communications-bp-sustainability-corporate-topics-roche-ch"
+          "senior-communications-bp-sustainability-corporate-topics-roche-ch",
+          "comunicazione-senior-bp-sostenibilita-e-argomenti-aziendali-roche-basel"
         ],
         "de": [
           "senior-communications-bp-sustainability-corporate-topics-roche-ch"
@@ -2792,7 +2871,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Senior-Global-Access-Evidence-Leader---HTA-Statistician_202608-122371-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:12:56.808Z",
+      "crawledAt": "2026-10-04T21:14:53.625Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2809,12 +2888,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-global-access-evidence-leader-hta-statistician-roche-ch",
-        "senior-global-access-evidence-leader-eu-hta-statistician-roche-ch"
+        "senior-global-access-evidence-leader-eu-hta-statistician-roche-ch",
+        "senior-global-access-evidence-leader-eu-hta-statistici-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-global-access-evidence-leader-hta-statistician-roche-ch",
-          "senior-global-access-evidence-leader-eu-hta-statistician-roche-ch"
+          "senior-global-access-evidence-leader-eu-hta-statistician-roche-ch",
+          "senior-global-access-evidence-leader-eu-hta-statistici-roche-basel"
         ]
       },
       "needsRetranslation": true,
@@ -2851,7 +2932,7 @@
         "it": "Malattia infettiva del leader della scienza medica globale",
         "en": "Global Medical Science Leader Infectious Disease",
         "de": "Globaler Marktführer für medizinische Wissenschaft bei Infektionskrankheiten",
-        "fr": "Leader mondial en sciences médicales en maladies infectieuses"
+        "fr": "Global Medical Science Leader Infectious Disease"
       },
       "description": "At Roche you can show up as yourself, embraced for the unique qualities you bring. Our culture encourages personal expression, open dialogue, and genuine connections, where you are valued, accepted and respected for who you are, allowing you to thrive both personally and professionally. This is how we aim to prevent, stop and cure diseases and ensure everyone has access to healthcare today and for generations to come. Join Roche, where every voice matters.\n\nThe Position\n\nAt Roche, we believe science has the power to transform the way the world treats infectious diseases. As a Global Medical Science Leader (GMSL), you will be at the forefront of shaping how new antibiotics are developed, launched, and integrated into global healthcare practice. This is more than a scientific role – it is an opportunity to influence how patients worldwide gain access to life-saving treatments, while partnering with some of the most innovative minds in medicine, public health, and digital science.\n\nIf you are driven by purpose, energized by collaboration, and inspired by the chance to change medical practice on a global scale – this is your next step.\n\nThe Opportunity\n\n• You shape the future of medicine by leading and contributing to medical strategies for innovative antibiotics.\n\n• You design and deliver integrated evidence generation plans, spanning clinical studies, IISs, real-world data, and scientific collaborations.\n\n• You bring deep medical expertise in Infectious Diseases to guide development, launch, and patient access.\n\n• You build trusted partnerships with global medical leaders, patient organizations, payers, and public-private health institutions.\n\n• You strengthen market access strategies by integrating clinical and ecosystem insights into value-driven solutions.\n\n• You inspire confidence and trust through scientific dissemination, education, and peer-to-peer engagement.\n\n• You represent Roche globally, sharing insights and thought leadership with the wider medical community.\n\n• You empower and mentor colleagues across the worldwide medical network, fostering collaboration and agility.\n\nWho you are\n\n• Education: PhD or MD in Medicine, Life Sciences, or a related field.\n\n• Dual Clinical & Industry Track Record: At least 5 years of pharmaceutical industry experience in Medical Affairs (at local and global levels) combined with hands-on clinical hospital experience (e.g., acute hospital care, ICU, Infectious Diseases, or Antimicrobial Resistance).\n\n• Therapeutic Expertise: Deep scientific proficiency spanning Infectious Diseases, Antimicrobial Resistance, and Respiratory diseases (e.g., ILD, COPD).\n\n• Ecosystem & TAE Engagement: Demonstrated success in building scientific networks and external stakeholder engagement from the ground up, with established connections to multidisciplinary specialists, ICU clinicians, hospital pharmacists, and global healthcare bodies (e.g., WHO, FIND, BARDA, Gates Foundation).\n\n• Evidence Generation Strategy: Proven capability in orchestrating end-to-end evidence generation frameworks—leveraging Real-World Data (RWD) and clinical study designs to drive pre-launch readiness and asset optimization.\n\n• Strategic & Matrix Leadership: Strong experience acting as a conduit between Global Medical vision and local affiliate needs, managing cross-functional matrix environments (Commercial, Clinical Ops, Medical) across diverse geographies and Must-Win Markets.\n\n• Communication & Dissemination: Fluent in English (additional languages are a plus) with strong strategic agility and experience leading scientific dissemination strategies (e.g., via Medical Community Forums and congress orchestration).\n\nAre you ready to apply? We want someone who thinks beyond the job offered - someone who knows that this position can be a unique opportunity to shape the future of Roche.\n\nWho we are\nA healthier future drives us to innovate. Together, more than 100’000 employees across the globe are dedicated to advance science, ensuring everyone has access to healthcare today and for generations to come. Our efforts result in more than 26 million people treated with our medicines and over 30 billion tests conducted using our Diagnostics products. We empower each other to explore new possibilities, foster creativity, and keep our ambitions high, so we can deliver life-changing healthcare solutions that make a global impact.\n\nLet’s build a healthier future, together.\n\nRoche is an Equal Opportunity Employer.",
       "descriptionByLocale": {
@@ -2865,7 +2946,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Global-Medical-Science-Leader-Infectious-Disease_202508-120526-2",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:12:54.313Z",
+      "crawledAt": "2026-10-04T21:14:51.353Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2881,11 +2962,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-medical-science-leader-infectious-disease-roche-ch"
+        "global-medical-science-leader-infectious-disease-roche-ch",
+        "malattia-infettiva-del-leader-della-scienza-medica-globale-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-medical-science-leader-infectious-disease-roche-ch"
+          "global-medical-science-leader-infectious-disease-roche-ch",
+          "malattia-infettiva-del-leader-della-scienza-medica-globale-roche-basel"
         ],
         "de": [
           "global-medical-science-leader-infectious-disease-roche-ch"
@@ -2941,7 +3024,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Tierpfleger-EFZ--ab-August-2027-_202607-117627",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:52.608Z",
+      "crawledAt": "2026-10-04T21:14:49.787Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2958,12 +3041,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-tierpfleger-efz-ab-august-2027-roche-ch",
-        "lehrstelle-als-tierpfleger-in-efz-ab-august-2027-roche-ch"
+        "lehrstelle-als-tierpfleger-in-efz-ab-august-2027-roche-ch",
+        "apprendistato-come-tierpfleger-cfc-ab-august-2027-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-tierpfleger-efz-ab-august-2027-roche-ch",
-          "lehrstelle-als-tierpfleger-in-efz-ab-august-2027-roche-ch"
+          "lehrstelle-als-tierpfleger-in-efz-ab-august-2027-roche-ch",
+          "apprendistato-come-tierpfleger-cfc-ab-august-2027-roche-basel"
         ],
         "en": [
           "lehrstelle-als-tierpfleger-efz-ab-august-2027-roche-ch"
@@ -3020,7 +3105,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Senior-Computational---Applied-AI-Scientist--Real-World-Data--_202609-122767-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:12:50.938Z",
+      "crawledAt": "2026-10-04T21:14:48.154Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -3036,11 +3121,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-computational-applied-ai-scientist-real-world-data-roche-ch"
+        "senior-computational-applied-ai-scientist-real-world-data-roche-ch",
+        "scienziato-superiore-computazionale-e-applicato-ai-dati-reali-mondiali-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-computational-applied-ai-scientist-real-world-data-roche-ch"
+          "senior-computational-applied-ai-scientist-real-world-data-roche-ch",
+          "scienziato-superiore-computazionale-e-applicato-ai-dati-reali-mondiali-roche-basel"
         ]
       },
       "needsRetranslation": true,
@@ -3091,7 +3178,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-fr-Studierende-im-Bereich-Sterile-Filling---RiKO--ab-Februar-2027--mind-6-Monate-_202609-123195",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:50.163Z",
+      "crawledAt": "2026-10-04T21:14:47.390Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -3109,13 +3196,15 @@
       "previousSlugs": [
         "praktikum-fur-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate",
         "praktikum-fur-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-2",
-        "praktikum-per-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+        "praktikum-per-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+        "stage-per-gli-studenti-nel-campo-di-sterile-filling-riko-almeno-dal-febbraio-2027-6-mesi-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate",
           "praktikum-fur-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-2",
-          "praktikum-per-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+          "praktikum-per-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+          "stage-per-gli-studenti-nel-campo-di-sterile-filling-riko-almeno-dal-febbraio-2027-6-mesi-roche-kaiseraugst"
         ],
         "en": [
           "praktikum-fur-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-2",
@@ -3172,7 +3261,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-fr-Studierende-im-Bereich--Pharmazie--Pharmatechnik--Biotechnologie--Verfahrenstechnik---RiKO--ab-Februar-2027--mind-6-Monate-_202609-123209",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:48.925Z",
+      "crawledAt": "2026-10-04T21:14:46.137Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -3189,12 +3278,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-fur-studierende-im-bereich-pharmazie-pharmatechnik-biotechnologie",
-        "praktikum-per-studierende-im-bereich-pharmazie-pharmatechnik-biotechnologie-verfahrenstechnik-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+        "praktikum-per-studierende-im-bereich-pharmazie-pharmatechnik-biotechnologie-verfahrenstechnik-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+        "stage-per-gli-studenti-nel-campo-della-farmacia-tecnologia-farmaceutica-biotecnologia-ingegneria-dei-processi-riko"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-im-bereich-pharmazie-pharmatechnik-biotechnologie",
-          "praktikum-per-studierende-im-bereich-pharmazie-pharmatechnik-biotechnologie-verfahrenstechnik-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+          "praktikum-per-studierende-im-bereich-pharmazie-pharmatechnik-biotechnologie-verfahrenstechnik-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+          "stage-per-gli-studenti-nel-campo-della-farmacia-tecnologia-farmaceutica-biotecnologia-ingegneria-dei-processi-riko"
         ],
         "en": [
           "praktikum-fur-studierende-im-bereich-pharmazie-pharmatechnik-biotechnologie"
@@ -3250,7 +3341,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-fr-Studierende-im-Bereich-QC-Support---RiKO--ab-Februar-2027--mind-6-Monate-_202609-123198",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:48.155Z",
+      "crawledAt": "2026-10-04T21:14:45.298Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -3267,12 +3358,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-fur-studierende-im-bereich-qc-support-riko-ab-februar-2027-mind-6-monate-roche",
-        "praktikum-per-studierende-im-bereich-qc-support-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+        "praktikum-per-studierende-im-bereich-qc-support-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+        "stage-per-gli-studenti-nel-campo-del-qc-support-riko-almeno-dal-febbraio-2027-6-mesi-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-im-bereich-qc-support-riko-ab-februar-2027-mind-6-monate-roche",
-          "praktikum-per-studierende-im-bereich-qc-support-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+          "praktikum-per-studierende-im-bereich-qc-support-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+          "stage-per-gli-studenti-nel-campo-del-qc-support-riko-almeno-dal-febbraio-2027-6-mesi-roche-kaiseraugst"
         ],
         "en": [
           "praktikum-fur-studierende-im-bereich-qc-support-riko-ab-februar-2027-mind-6-monate-roche"
@@ -3329,7 +3422,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-im-Bereich-Quality-Systems-fr-Studierende---RiKO--ab-Mrz-2027--mind-6-Monate-_202609-123211",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:47.296Z",
+      "crawledAt": "2026-10-04T21:14:44.409Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -3346,12 +3439,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-im-bereich-quality-systems-fur-studierende-riko-ab-marz-2027-mind-6-monate-roche",
-        "praktikum-im-bereich-quality-systems-per-studierende-riko-ab-marz-2027-mind-6-monate-roche-kaiseraugst"
+        "praktikum-im-bereich-quality-systems-per-studierende-riko-ab-marz-2027-mind-6-monate-roche-kaiseraugst",
+        "stage-nel-campo-dei-sistemi-di-qualita-per-gli-studenti-riko-almeno-dal-marzo-2027-6-mesi-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-im-bereich-quality-systems-fur-studierende-riko-ab-marz-2027-mind-6-monate-roche",
-          "praktikum-im-bereich-quality-systems-per-studierende-riko-ab-marz-2027-mind-6-monate-roche-kaiseraugst"
+          "praktikum-im-bereich-quality-systems-per-studierende-riko-ab-marz-2027-mind-6-monate-roche-kaiseraugst",
+          "stage-nel-campo-dei-sistemi-di-qualita-per-gli-studenti-riko-almeno-dal-marzo-2027-6-mesi-roche-kaiseraugst"
         ],
         "en": [
           "praktikum-im-bereich-quality-systems-fur-studierende-riko-ab-marz-2027-mind-6-monate-roche"
@@ -3407,7 +3502,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-fr-Studierende-der-Naturwissenschaften--Pharmazie--Chemie--Biotechnologie-im-Bereich-Quality-Compliance---Complaints---RiKO--ab-Februar-2027--mind-6-Monaten-_202609-123214-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:46.555Z",
+      "crawledAt": "2026-10-04T21:14:43.574Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -3424,12 +3519,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-fur-studierende-der-naturwissenschaften-pharmazie-chemie-biotechnologie-im",
-        "praktikum-per-studierende-der-naturwissenschaften-pharmazie-chemie-biotechnologie-im-bereich-quality-compliance-complaints-riko-ab-februar-2027-mind-6-monaten-roche-kaiseraugst"
+        "praktikum-per-studierende-der-naturwissenschaften-pharmazie-chemie-biotechnologie-im-bereich-quality-compliance-complaints-riko-ab-februar-2027-mind-6-monaten-roche-kaiseraugst",
+        "stage-per-studenti-di-scienza-farmacia-chimica-biotecnologia-nel-campo-della-compliance-reclami-di-qualita-riko-almeno"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-der-naturwissenschaften-pharmazie-chemie-biotechnologie-im",
-          "praktikum-per-studierende-der-naturwissenschaften-pharmazie-chemie-biotechnologie-im-bereich-quality-compliance-complaints-riko-ab-februar-2027-mind-6-monaten-roche-kaiseraugst"
+          "praktikum-per-studierende-der-naturwissenschaften-pharmazie-chemie-biotechnologie-im-bereich-quality-compliance-complaints-riko-ab-februar-2027-mind-6-monaten-roche-kaiseraugst",
+          "stage-per-studenti-di-scienza-farmacia-chimica-biotecnologia-nel-campo-della-compliance-reclami-di-qualita-riko-almeno"
         ],
         "en": [
           "praktikum-fur-studierende-der-naturwissenschaften-pharmazie-chemie-biotechnologie-im"
@@ -3469,7 +3566,7 @@
       "title": "Praktikum für Studierende im Bereich Quality Control GMP Systems & Investigations – RiKO (ab Februar 2027, 9 - 12 Monate)",
       "titleByLocale": {
         "it": "Stage per studenti nel campo del Quality Control GMP Systems & Investigations – RiKO (da febbraio 2027, 9 - 12 mesi)",
-        "en": "Internship for students in the field of Quality Control GMP Systems & Investigations – RiKO (from February 2027, 9 - 12 months)",
+        "en": "Praktikum für Studierende im Bereich Quality Control GMP Systems & Investigations – RiKO (ab Februar 2027, 9 - 12 Monate)",
         "de": "Praktikum für Studierende im Bereich Qualität Control GMP Systems & Investigations – RiKO (ab Februar 2027, 9 - 12 Monate)",
         "fr": "Stage pour les étudiants dans le domaine du contrôle qualité GMP Systems & Investigations – RiKO (de février 2027, 9 à 12 mois)"
       },
@@ -3485,7 +3582,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-fr-Studierende-im-Bereich-Quality-Control-GMP-Systems---Investigations----RiKO--ab-Februar-2027---9---12-Monate-_202609-123213",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:45.234Z",
+      "crawledAt": "2026-10-04T21:14:42.327Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -3502,12 +3599,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-fur-studierende-im-bereich-quality-control-gmp-systems-investigations-riko-ab",
-        "praktikum-per-studierende-im-bereich-quality-control-gmp-systems-investigations-riko-ab-februar-2027-9-12-monate-roche-kaiseraugst"
+        "praktikum-per-studierende-im-bereich-quality-control-gmp-systems-investigations-riko-ab-februar-2027-9-12-monate-roche-kaiseraugst",
+        "stage-per-studenti-nel-campo-del-quality-control-gmp-systems-investigations-riko-da-febbraio-2027-9-12-mesi-roche"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-im-bereich-quality-control-gmp-systems-investigations-riko-ab",
-          "praktikum-per-studierende-im-bereich-quality-control-gmp-systems-investigations-riko-ab-februar-2027-9-12-monate-roche-kaiseraugst"
+          "praktikum-per-studierende-im-bereich-quality-control-gmp-systems-investigations-riko-ab-februar-2027-9-12-monate-roche-kaiseraugst",
+          "stage-per-studenti-nel-campo-del-quality-control-gmp-systems-investigations-riko-da-febbraio-2027-9-12-mesi-roche"
         ],
         "en": [
           "praktikum-fur-studierende-im-bereich-quality-control-gmp-systems-investigations-riko-ab"
@@ -3564,7 +3663,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-fr-Studierende-im-Bereich-Pharmazeutische-Qualittskontrolle----RiKO--ab-Februar-2027--mind-6-Monate-_202609-123222",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:44.468Z",
+      "crawledAt": "2026-10-04T21:14:41.295Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -3581,12 +3680,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-fur-studierende-im-bereich-pharmazeutische-qualitatskontrolle-riko-ab-februar",
-        "praktikum-per-studierende-im-bereich-pharmazeutische-qualitatskontrolle-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+        "praktikum-per-studierende-im-bereich-pharmazeutische-qualitatskontrolle-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+        "stage-per-gli-studenti-nel-campo-del-controllo-della-qualita-farmaceutica-riko-almeno-dal-febbraio-2027-6-mesi-roche"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-im-bereich-pharmazeutische-qualitatskontrolle-riko-ab-februar",
-          "praktikum-per-studierende-im-bereich-pharmazeutische-qualitatskontrolle-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+          "praktikum-per-studierende-im-bereich-pharmazeutische-qualitatskontrolle-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+          "stage-per-gli-studenti-nel-campo-del-controllo-della-qualita-farmaceutica-riko-almeno-dal-febbraio-2027-6-mesi-roche"
         ],
         "en": [
           "praktikum-fur-studierende-im-bereich-pharmazeutische-qualitatskontrolle-riko-ab-februar"
@@ -3643,7 +3744,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-im-Bereich-Quality-Assurance-Assembly---Ocular-Devices-fr-Studierende----RiKO--ab-Mrz-2027--mind-6-Monate-_202609-123234",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:43.592Z",
+      "crawledAt": "2026-10-04T21:14:40.379Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -3660,12 +3761,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-im-bereich-quality-assurance-assembly-ocular-devices-fur-studierende-riko-ab",
-        "praktikum-im-bereich-quality-assurance-assembly-ocular-devices-per-studierende-riko-ab-marz-2027-mind-6-monate-roche-kaiseraugst"
+        "praktikum-im-bereich-quality-assurance-assembly-ocular-devices-per-studierende-riko-ab-marz-2027-mind-6-monate-roche-kaiseraugst",
+        "stage-nel-campo-dell-assemblea-di-assicurazione-qualita-dispositivi-oculari-per-studenti-riko-almeno-dal-marzo-2027-6"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-im-bereich-quality-assurance-assembly-ocular-devices-fur-studierende-riko-ab",
-          "praktikum-im-bereich-quality-assurance-assembly-ocular-devices-per-studierende-riko-ab-marz-2027-mind-6-monate-roche-kaiseraugst"
+          "praktikum-im-bereich-quality-assurance-assembly-ocular-devices-per-studierende-riko-ab-marz-2027-mind-6-monate-roche-kaiseraugst",
+          "stage-nel-campo-dell-assemblea-di-assicurazione-qualita-dispositivi-oculari-per-studenti-riko-almeno-dal-marzo-2027-6"
         ],
         "en": [
           "praktikum-im-bereich-quality-assurance-assembly-ocular-devices-fur-studierende-riko-ab"
@@ -3721,7 +3824,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-als-Asset-Excellence-Manager-im-Bereich-Antibiotics-fr-Studierende---RiKO--ab-Februar-2027--mind-6-Monate-_202609-123235",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:42.822Z",
+      "crawledAt": "2026-10-04T21:14:39.520Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -3738,12 +3841,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-als-asset-excellence-manager-im-bereich-antibiotics-fur-studierende-riko-ab",
-        "praktikum-come-asset-excellence-manager-im-bereich-antibiotics-per-studierende-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+        "praktikum-come-asset-excellence-manager-im-bereich-antibiotics-per-studierende-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+        "stage-come-asset-excellence-manager-nel-campo-degli-antibiotici-per-gli-studenti-riko-almeno-dal-febbraio-2027-6-mesi"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-als-asset-excellence-manager-im-bereich-antibiotics-fur-studierende-riko-ab",
-          "praktikum-come-asset-excellence-manager-im-bereich-antibiotics-per-studierende-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+          "praktikum-come-asset-excellence-manager-im-bereich-antibiotics-per-studierende-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+          "stage-come-asset-excellence-manager-nel-campo-degli-antibiotici-per-gli-studenti-riko-almeno-dal-febbraio-2027-6-mesi"
         ],
         "en": [
           "praktikum-als-asset-excellence-manager-im-bereich-antibiotics-fur-studierende-riko-ab"
@@ -3800,7 +3905,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-im-Bereich-Administration-fr-Studierende---RiKO--ab-Februar-2027--12-Monate-_202609-123238",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:42.052Z",
+      "crawledAt": "2026-10-04T21:14:38.768Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -3817,12 +3922,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-im-bereich-administration-fur-studierende-riko-ab-februar-2027-12-monate-roche",
-        "praktikum-im-bereich-administration-per-studierende-riko-ab-februar-2027-12-monate-roche-kaiseraugst"
+        "praktikum-im-bereich-administration-per-studierende-riko-ab-februar-2027-12-monate-roche-kaiseraugst",
+        "stage-in-amministrazione-per-gli-studenti-riko-da-febbraio-2027-12-mesi-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-im-bereich-administration-fur-studierende-riko-ab-februar-2027-12-monate-roche",
-          "praktikum-im-bereich-administration-per-studierende-riko-ab-februar-2027-12-monate-roche-kaiseraugst"
+          "praktikum-im-bereich-administration-per-studierende-riko-ab-februar-2027-12-monate-roche-kaiseraugst",
+          "stage-in-amministrazione-per-gli-studenti-riko-da-febbraio-2027-12-mesi-roche-kaiseraugst"
         ],
         "en": [
           "praktikum-im-bereich-administration-fur-studierende-riko-ab-februar-2027-12-monate-roche"
@@ -3878,7 +3985,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-im-Bereich-Materials-Management-fr-Studierende---RiKO--ab-Februar-2027--mind-6-Monate-_202609-123228",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:41.162Z",
+      "crawledAt": "2026-10-04T21:14:37.922Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -3895,12 +4002,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-im-bereich-materials-management-fur-studierende-riko-ab-februar-2027-mind-6",
-        "praktikum-im-bereich-materials-management-per-studierende-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+        "praktikum-im-bereich-materials-management-per-studierende-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+        "stage-in-gestione-dei-materiali-per-gli-studenti-riko-almeno-dal-febbraio-2027-6-mesi-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-im-bereich-materials-management-fur-studierende-riko-ab-februar-2027-mind-6",
-          "praktikum-im-bereich-materials-management-per-studierende-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+          "praktikum-im-bereich-materials-management-per-studierende-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+          "stage-in-gestione-dei-materiali-per-gli-studenti-riko-almeno-dal-febbraio-2027-6-mesi-roche-kaiseraugst"
         ],
         "en": [
           "praktikum-im-bereich-materials-management-fur-studierende-riko-ab-februar-2027-mind-6"
@@ -3956,7 +4065,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-fr-Studierende-im-Bereich-Learning---Learning-Partner----RiKO--ab-Februar-2027--6-Monate-_202609-123245",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:40.284Z",
+      "crawledAt": "2026-10-04T21:14:37.087Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -3973,12 +4082,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-fur-studierende-im-bereich-learning-learning-partner-riko-ab-februar-2027-6",
-        "praktikum-per-studierende-im-bereich-learning-partner-riko-ab-februar-2027-6-monate-roche-kaiseraugst"
+        "praktikum-per-studierende-im-bereich-learning-partner-riko-ab-februar-2027-6-monate-roche-kaiseraugst",
+        "stage-per-gli-studenti-nel-campo-del-learning-learning-partner-riko-da-febbraio-2027-6-mesi-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-im-bereich-learning-learning-partner-riko-ab-februar-2027-6",
-          "praktikum-per-studierende-im-bereich-learning-partner-riko-ab-februar-2027-6-monate-roche-kaiseraugst"
+          "praktikum-per-studierende-im-bereich-learning-partner-riko-ab-februar-2027-6-monate-roche-kaiseraugst",
+          "stage-per-gli-studenti-nel-campo-del-learning-learning-partner-riko-da-febbraio-2027-6-mesi-roche-kaiseraugst"
         ],
         "en": [
           "praktikum-fur-studierende-im-bereich-learning-learning-partner-riko-ab-februar-2027-6"
@@ -4034,7 +4145,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-im-Bereich--Engineering---SHE-Qualification--fr-Studierende---RiKO--ab-Februar-2027--mind-9-Monate-_202609-123237",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:39.404Z",
+      "crawledAt": "2026-10-04T21:14:36.333Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -4051,12 +4162,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-im-bereich-engineering-she-qualification-fur-studierende-riko-ab-februar-2027",
-        "praktikum-im-bereich-engineering-she-qualification-per-studierende-riko-ab-februar-2027-mind-9-monate-roche-kaiseraugst"
+        "praktikum-im-bereich-engineering-she-qualification-per-studierende-riko-ab-februar-2027-mind-9-monate-roche-kaiseraugst",
+        "stage-nel-campo-di-engineering-she-qualification-per-gli-studenti-riko-almeno-dal-febbraio-2027-9-mesi-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-im-bereich-engineering-she-qualification-fur-studierende-riko-ab-februar-2027",
-          "praktikum-im-bereich-engineering-she-qualification-per-studierende-riko-ab-februar-2027-mind-9-monate-roche-kaiseraugst"
+          "praktikum-im-bereich-engineering-she-qualification-per-studierende-riko-ab-februar-2027-mind-9-monate-roche-kaiseraugst",
+          "stage-nel-campo-di-engineering-she-qualification-per-gli-studenti-riko-almeno-dal-febbraio-2027-9-mesi-roche-kaiseraugst"
         ],
         "en": [
           "praktikum-im-bereich-engineering-she-qualification-fur-studierende-riko-ab-februar-2027"
@@ -4112,7 +4225,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-fr-Studierende-im-Bereich-MSAT---Manufacturing-Science---Technology---RiKO---ab-Februar-2027--mind-6-Monate-_202609-123212",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:38.625Z",
+      "crawledAt": "2026-10-04T21:14:35.439Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -4129,12 +4242,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-fur-studierende-im-bereich-msat-manufacturing-science-technology-riko-ab-februar",
-        "praktikum-per-studierende-im-bereich-msat-manufacturing-science-technology-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+        "praktikum-per-studierende-im-bereich-msat-manufacturing-science-technology-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+        "stage-per-gli-studenti-nel-campo-di-msat-manufacturing-science-technology-riko-almeno-dal-febbraio-2027-6-mesi-roche"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-im-bereich-msat-manufacturing-science-technology-riko-ab-februar",
-          "praktikum-per-studierende-im-bereich-msat-manufacturing-science-technology-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+          "praktikum-per-studierende-im-bereich-msat-manufacturing-science-technology-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+          "stage-per-gli-studenti-nel-campo-di-msat-manufacturing-science-technology-riko-almeno-dal-febbraio-2027-6-mesi-roche"
         ],
         "en": [
           "praktikum-fur-studierende-im-bereich-msat-manufacturing-science-technology-riko-ab-februar"
@@ -4190,7 +4305,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-fr-Studierende-im-Bereich-Engineering---SHE---RiKO--ab-Februar-2027--mind-6-Monate-_202609-123247",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:37.768Z",
+      "crawledAt": "2026-10-04T21:14:34.585Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -4207,12 +4322,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-fur-studierende-im-bereich-engineering-she-riko-ab-februar-2027-mind-6-monate",
-        "praktikum-per-studierende-im-bereich-engineering-she-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+        "praktikum-per-studierende-im-bereich-engineering-she-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+        "stage-per-gli-studenti-nel-campo-di-ingegneria-she-riko-almeno-dal-febbraio-2027-6-mesi-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-im-bereich-engineering-she-riko-ab-februar-2027-mind-6-monate",
-          "praktikum-per-studierende-im-bereich-engineering-she-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+          "praktikum-per-studierende-im-bereich-engineering-she-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+          "stage-per-gli-studenti-nel-campo-di-ingegneria-she-riko-almeno-dal-febbraio-2027-6-mesi-roche-kaiseraugst"
         ],
         "en": [
           "praktikum-fur-studierende-im-bereich-engineering-she-riko-ab-februar-2027-mind-6-monate"
@@ -4268,7 +4385,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Internship-for-students-in-the-area-of-Clinical-Demand-and-Supply-Planning--PTDS-P----RiKO--from-February-2027--at-least-6-months-_202609-123258",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:12:37.002Z",
+      "crawledAt": "2026-10-04T21:14:33.721Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -4284,11 +4401,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-for-students-in-the-area-of-clinical-demand-and-supply-planning-ptds-p-riko"
+        "internship-for-students-in-the-area-of-clinical-demand-and-supply-planning-ptds-p-riko",
+        "stage-per-gli-studenti-nell-area-della-domanda-clinica-e-pianificazione-del-rifornimento-ptds-p-riko-da-febbraio-2027"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-for-students-in-the-area-of-clinical-demand-and-supply-planning-ptds-p-riko"
+          "internship-for-students-in-the-area-of-clinical-demand-and-supply-planning-ptds-p-riko",
+          "stage-per-gli-studenti-nell-area-della-domanda-clinica-e-pianificazione-del-rifornimento-ptds-p-riko-da-febbraio-2027"
         ],
         "de": [
           "internship-for-students-in-the-area-of-clinical-demand-and-supply-planning-ptds-p-riko"
@@ -4344,7 +4463,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Internship-for-students-as-Global-Clinical-Artwork-Manager---RiKO--from-February-2027--12-months-_202609-123256",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:12:36.237Z",
+      "crawledAt": "2026-10-04T21:14:32.845Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -4360,11 +4479,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-for-students-as-global-clinical-artwork-manager-riko-from-february-2027-12"
+        "internship-for-students-as-global-clinical-artwork-manager-riko-from-february-2027-12",
+        "stage-per-gli-studenti-come-global-clinical-opera-manager-riko-da-febbraio-2027-12-mesi-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-for-students-as-global-clinical-artwork-manager-riko-from-february-2027-12"
+          "internship-for-students-as-global-clinical-artwork-manager-riko-from-february-2027-12",
+          "stage-per-gli-studenti-come-global-clinical-opera-manager-riko-da-febbraio-2027-12-mesi-roche-kaiseraugst"
         ],
         "de": [
           "internship-for-students-as-global-clinical-artwork-manager-riko-from-february-2027-12"
@@ -4421,7 +4542,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-fr-Studierende-im-Bereich-Sterile-Filling----RiKO--ab-Februar-2027--mind-6-Monate-_202609-123270",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:35.383Z",
+      "crawledAt": "2026-10-04T21:14:32.082Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -4437,11 +4558,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikum-fur-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate"
+        "praktikum-fur-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate",
+        "stage-per-studenti-nel-campo-di-sterile-filling-riko-almeno-dal-febbraio-2027-6-mesi-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-fur-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate"
+          "praktikum-fur-studierende-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate",
+          "stage-per-studenti-nel-campo-di-sterile-filling-riko-almeno-dal-febbraio-2027-6-mesi-roche-kaiseraugst"
         ]
       },
       "needsRetranslation": true,
@@ -4492,7 +4615,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-fr-Studierende-im-Bereich-Manufacturing-Support-im-Bereich-Sterile-Filling----RiKO--ab-Februar-2027--mind-6-Monate-_202609-123277",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:34.614Z",
+      "crawledAt": "2026-10-04T21:14:31.223Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -4509,12 +4632,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-fur-studierende-im-bereich-manufacturing-support-im-bereich-sterile-filling-riko",
-        "praktikum-per-studierende-im-bereich-manufacturing-support-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+        "praktikum-per-studierende-im-bereich-manufacturing-support-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+        "stage-per-gli-studenti-nel-campo-del-supporto-manifatturiero-nel-campo-di-sterile-filling-riko-almeno-dal-febbraio-2027"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-im-bereich-manufacturing-support-im-bereich-sterile-filling-riko",
-          "praktikum-per-studierende-im-bereich-manufacturing-support-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+          "praktikum-per-studierende-im-bereich-manufacturing-support-im-bereich-sterile-filling-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+          "stage-per-gli-studenti-nel-campo-del-supporto-manifatturiero-nel-campo-di-sterile-filling-riko-almeno-dal-febbraio-2027"
         ],
         "en": [
           "praktikum-fur-studierende-im-bereich-manufacturing-support-im-bereich-sterile-filling-riko"
@@ -4570,7 +4695,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-fr-Studierende-im-Bereich-Change-Management---RiKO--ab-Februar-2027--mind-6-Monate-_202609-123229-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:33.741Z",
+      "crawledAt": "2026-10-04T21:14:30.458Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -4587,12 +4712,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-fur-studierende-im-bereich-change-management-riko-ab-februar-2027-mind-6-monate",
-        "praktikum-per-studierende-im-bereich-change-management-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+        "praktikum-per-studierende-im-bereich-change-management-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+        "stage-per-gli-studenti-nel-campo-della-gestione-dei-cambiamenti-riko-almeno-dal-febbraio-2027-6-mesi-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-im-bereich-change-management-riko-ab-februar-2027-mind-6-monate",
-          "praktikum-per-studierende-im-bereich-change-management-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+          "praktikum-per-studierende-im-bereich-change-management-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+          "stage-per-gli-studenti-nel-campo-della-gestione-dei-cambiamenti-riko-almeno-dal-febbraio-2027-6-mesi-roche-kaiseraugst"
         ],
         "en": [
           "praktikum-fur-studierende-im-bereich-change-management-riko-ab-februar-2027-mind-6-monate"
@@ -4648,7 +4775,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-fr-Studierende-im-Bereich-Asset-Excellence-Unit--Packaging-Vials----RiKO--ab-Mrz-2027--mind-6-Monate-_202609-123293-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:32.997Z",
+      "crawledAt": "2026-10-04T21:14:29.598Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -4665,12 +4792,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-fur-studierende-im-bereich-asset-excellence-unit-packaging-vials-riko-ab-marz",
-        "praktikum-per-studierende-im-bereich-asset-excellence-unit-packaging-vials-riko-ab-marz-2027-mind-6-monate-roche-kaiseraugst"
+        "praktikum-per-studierende-im-bereich-asset-excellence-unit-packaging-vials-riko-ab-marz-2027-mind-6-monate-roche-kaiseraugst",
+        "stage-per-gli-studenti-nel-campo-dell-eccellenza-asset-packaging-vials-riko-almeno-dal-marzo-2027-6-mesi-roche"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-im-bereich-asset-excellence-unit-packaging-vials-riko-ab-marz",
-          "praktikum-per-studierende-im-bereich-asset-excellence-unit-packaging-vials-riko-ab-marz-2027-mind-6-monate-roche-kaiseraugst"
+          "praktikum-per-studierende-im-bereich-asset-excellence-unit-packaging-vials-riko-ab-marz-2027-mind-6-monate-roche-kaiseraugst",
+          "stage-per-gli-studenti-nel-campo-dell-eccellenza-asset-packaging-vials-riko-almeno-dal-marzo-2027-6-mesi-roche"
         ],
         "en": [
           "praktikum-fur-studierende-im-bereich-asset-excellence-unit-packaging-vials-riko-ab-marz"
@@ -4726,7 +4855,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-im-Bereich-Quality-Assurance-Packaging-Vials-fr-Studierende----RiKO--ab-Februar-2027--12-Monate-_202609-123260-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:31.782Z",
+      "crawledAt": "2026-10-04T21:14:28.846Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -4743,12 +4872,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-im-bereich-quality-assurance-packaging-vials-fur-studierende-riko-ab-februar",
-        "praktikum-im-bereich-quality-assurance-packaging-vials-per-studierende-riko-ab-februar-2027-12-monate-roche-kaiseraugst"
+        "praktikum-im-bereich-quality-assurance-packaging-vials-per-studierende-riko-ab-februar-2027-12-monate-roche-kaiseraugst",
+        "stage-nel-campo-della-quality-assurance-packaging-vials-per-gli-studenti-riko-da-febbraio-2027-12-mesi-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-im-bereich-quality-assurance-packaging-vials-fur-studierende-riko-ab-februar",
-          "praktikum-im-bereich-quality-assurance-packaging-vials-per-studierende-riko-ab-februar-2027-12-monate-roche-kaiseraugst"
+          "praktikum-im-bereich-quality-assurance-packaging-vials-per-studierende-riko-ab-februar-2027-12-monate-roche-kaiseraugst",
+          "stage-nel-campo-della-quality-assurance-packaging-vials-per-gli-studenti-riko-da-febbraio-2027-12-mesi-roche-kaiseraugst"
         ],
         "en": [
           "praktikum-im-bereich-quality-assurance-packaging-vials-fur-studierende-riko-ab-februar"
@@ -4758,6 +4889,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:07:14.019Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -4804,7 +4936,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-fr-Studierende-im-Bereich-Gefriertrocknung---RiKO--ab-Februar-2027--mind-6-Monate-_202609-123253",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:30.924Z",
+      "crawledAt": "2026-10-04T21:14:28.073Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -4821,12 +4953,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-fur-studierende-im-bereich-gefriertrocknung-riko-ab-februar-2027-mind-6-monate",
-        "praktikum-per-studierende-im-bereich-gefriertrocknung-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+        "praktikum-per-studierende-im-bereich-gefriertrocknung-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+        "stage-per-gli-studenti-nel-campo-dell-essiccazione-congelata-riko-almeno-dal-febbraio-2027-6-mesi-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-im-bereich-gefriertrocknung-riko-ab-februar-2027-mind-6-monate",
-          "praktikum-per-studierende-im-bereich-gefriertrocknung-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+          "praktikum-per-studierende-im-bereich-gefriertrocknung-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+          "stage-per-gli-studenti-nel-campo-dell-essiccazione-congelata-riko-almeno-dal-febbraio-2027-6-mesi-roche-kaiseraugst"
         ],
         "en": [
           "praktikum-fur-studierende-im-bereich-gefriertrocknung-riko-ab-februar-2027-mind-6-monate"
@@ -4882,7 +5016,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Koch-EFZ---Catering--w-m-d---100----befristet-fr-ein-Jahr_202609-123251",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:29.654Z",
+      "crawledAt": "2026-10-04T21:14:26.961Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -4899,12 +5033,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "koch-efz-catering-w-m-d-100-befristet-fur-ein-jahr-roche-ch",
-        "koch-cfc-catering-m-w-d-100-befristet-per-ein-jahr-roche-basel"
+        "koch-cfc-catering-m-w-d-100-befristet-per-ein-jahr-roche-basel",
+        "koch-efz-catering-m-f-d-100-temporaneo-per-un-anno-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "koch-efz-catering-w-m-d-100-befristet-fur-ein-jahr-roche-ch",
-          "koch-cfc-catering-m-w-d-100-befristet-per-ein-jahr-roche-basel"
+          "koch-cfc-catering-m-w-d-100-befristet-per-ein-jahr-roche-basel",
+          "koch-efz-catering-m-f-d-100-temporaneo-per-un-anno-roche-basel"
         ],
         "en": [
           "koch-efz-catering-w-m-d-100-befristet-fur-ein-jahr-roche-ch"
@@ -4914,6 +5050,7 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:34:44.729Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -4960,7 +5097,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-fr-Studierende-im-Bereich-Prozessvalidierung----RiKO--ab-Februar-2027--mind-6-Monate-_202609-123264",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:28.404Z",
+      "crawledAt": "2026-10-04T21:14:25.650Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -4977,12 +5114,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-fur-studierende-im-bereich-prozessvalidierung-riko-ab-februar-2027-mind-6-monate",
-        "praktikum-per-studierende-im-bereich-prozessvalidierung-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+        "praktikum-per-studierende-im-bereich-prozessvalidierung-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+        "stage-per-gli-studenti-nel-campo-della-validazione-del-processo-riko-almeno-dal-febbraio-2027-6-mesi-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-im-bereich-prozessvalidierung-riko-ab-februar-2027-mind-6-monate",
-          "praktikum-per-studierende-im-bereich-prozessvalidierung-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst"
+          "praktikum-per-studierende-im-bereich-prozessvalidierung-riko-ab-februar-2027-mind-6-monate-roche-kaiseraugst",
+          "stage-per-gli-studenti-nel-campo-della-validazione-del-processo-riko-almeno-dal-febbraio-2027-6-mesi-roche-kaiseraugst"
         ],
         "en": [
           "praktikum-fur-studierende-im-bereich-prozessvalidierung-riko-ab-februar-2027-mind-6-monate"
@@ -5038,7 +5177,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Operations-Portfolio-Lead-BGE---Blood-Gas---Electrolyte-Portfolio_202609-122751-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:12:27.266Z",
+      "crawledAt": "2026-10-04T21:14:24.376Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -5054,11 +5193,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "operations-portfolio-lead-bge-blood-gas-electrolyte-portfolio-roche-ch"
+        "operations-portfolio-lead-bge-blood-gas-electrolyte-portfolio-roche-ch",
+        "operazioni-portfolio-lead-bge-portafoglio-di-gas-electrolyte-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operations-portfolio-lead-bge-blood-gas-electrolyte-portfolio-roche-ch"
+          "operations-portfolio-lead-bge-blood-gas-electrolyte-portfolio-roche-ch",
+          "operazioni-portfolio-lead-bge-portafoglio-di-gas-electrolyte-roche-rotkreuz"
         ],
         "de": [
           "operations-portfolio-lead-bge-blood-gas-electrolyte-portfolio-roche-ch"
@@ -5115,7 +5256,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Chief-of-Staff--GPS-Oncology---Hematology_202609-123497",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:12:25.036Z",
+      "crawledAt": "2026-10-04T21:14:22.558Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -5132,12 +5273,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chief-of-staff-gps-oncology-hematology-roche-ch",
-        "chief-of-staff-gps-oncology-hematology-roche-basel"
+        "chief-of-staff-gps-oncology-hematology-roche-basel",
+        "capo-di-stato-maggiore-oncologia-gps-ematologia-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chief-of-staff-gps-oncology-hematology-roche-ch",
-          "chief-of-staff-gps-oncology-hematology-roche-basel"
+          "chief-of-staff-gps-oncology-hematology-roche-basel",
+          "capo-di-stato-maggiore-oncologia-gps-ematologia-roche-basel"
         ],
         "de": [
           "chief-of-staff-gps-oncology-hematology-roche-ch"
@@ -5194,7 +5337,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Principal---Senior-Principal-Software-Engineer_202605-112796-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:12:23.099Z",
+      "crawledAt": "2026-10-04T21:14:17.628Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -5219,12 +5362,14 @@
         "ingenieur-principal-de-fiabilite-du-site-roche-basel",
         "principal-software-ingegnere-ii-roche-mississauga",
         "principal-software-engineer-ii-roche-ch",
-        "principal-software-ingenieur-ii-roche-mississauga"
+        "principal-software-ingenieur-ii-roche-mississauga",
+        "principale-ingegnere-principale-principale-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "principal-senior-principal-software-engineer-roche-ch",
-          "principal-senior-principal-software-ingegnere-roche-basel"
+          "principal-senior-principal-software-ingegnere-roche-basel",
+          "principale-ingegnere-principale-principale-roche-basel"
         ],
         "de": [
           "principal-senior-principal-software-engineer-roche-ch"
@@ -5281,7 +5426,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Accounting-and-External-Reporting-Expert_202609-123098-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:12:21.590Z",
+      "crawledAt": "2026-10-04T21:14:16.158Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -5297,11 +5442,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "accounting-and-external-reporting-expert-roche-ch"
+        "accounting-and-external-reporting-expert-roche-ch",
+        "accounting-e-esperto-di-reporting-esterni-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "accounting-and-external-reporting-expert-roche-ch"
+          "accounting-and-external-reporting-expert-roche-ch",
+          "accounting-e-esperto-di-reporting-esterni-roche-basel"
         ],
         "de": [
           "accounting-and-external-reporting-expert-roche-ch"
@@ -5357,7 +5504,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Global-Head-Regulatory-Data--Digital-and-AI_202608-122114",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:12:20.759Z",
+      "crawledAt": "2026-10-04T21:14:15.327Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -5373,11 +5520,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-head-regulatory-data-digital-and-ai-roche-ch"
+        "global-head-regulatory-data-digital-and-ai-roche-ch",
+        "dati-regolatori-della-testa-globale-digitale-e-ai-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-regulatory-data-digital-and-ai-roche-ch"
+          "global-head-regulatory-data-digital-and-ai-roche-ch",
+          "dati-regolatori-della-testa-globale-digitale-e-ai-roche-basel"
         ],
         "fr": [
           "global-head-regulatory-data-digital-and-ai-roche-ch"
@@ -5431,7 +5580,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Technischer-Experte-fr-Reinstmedien-Anlagen_202609-122975-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:18.255Z",
+      "crawledAt": "2026-10-04T21:14:12.649Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -5448,12 +5597,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technischer-experte-fur-reinstmedien-anlagen-roche-ch",
-        "technischer-experte-per-reinstmedien-anlagen-roche-kaiseraugst"
+        "technischer-experte-per-reinstmedien-anlagen-roche-kaiseraugst",
+        "esperto-tecnico-per-sistemi-multimediali-puliti-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technischer-experte-fur-reinstmedien-anlagen-roche-ch",
-          "technischer-experte-per-reinstmedien-anlagen-roche-kaiseraugst"
+          "technischer-experte-per-reinstmedien-anlagen-roche-kaiseraugst",
+          "esperto-tecnico-per-sistemi-multimediali-puliti-roche-kaiseraugst"
         ],
         "en": [
           "technischer-experte-fur-reinstmedien-anlagen-roche-ch"
@@ -5509,7 +5660,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Global-Clinical-Artwork-Manager---Temporary-for-2-years_202609-123422-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:12:17.350Z",
+      "crawledAt": "2026-10-04T21:14:11.787Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -5525,11 +5676,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-clinical-artwork-manager-temporary-for-2-years-roche-ch"
+        "global-clinical-artwork-manager-temporary-for-2-years-roche-ch",
+        "global-clinical-opera-manager-temporary-per-2-anni-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-clinical-artwork-manager-temporary-for-2-years-roche-ch"
+          "global-clinical-artwork-manager-temporary-for-2-years-roche-ch",
+          "global-clinical-opera-manager-temporary-per-2-anni-roche-kaiseraugst"
         ],
         "de": [
           "global-clinical-artwork-manager-temporary-for-2-years-roche-ch"
@@ -5539,6 +5692,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:49:50.863Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -5585,7 +5739,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Global-Medical-Science-Leader--Alzheimer-s-Disease-_202609-122540",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:12:16.065Z",
+      "crawledAt": "2026-10-04T21:14:10.379Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -5602,11 +5756,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "global-medical-science-leader-alzheimer-s-disease-roche-ch",
-        "global-medical-science-leader-alzheimer-s-disease-roche-basel"
+        "global-medical-science-leader-alzheimer-s-disease-roche-basel",
+        "leader-mondiale-della-scienza-medica-malattia-di-alzheimer-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-medical-science-leader-alzheimer-s-disease-roche-ch"
+          "global-medical-science-leader-alzheimer-s-disease-roche-ch",
+          "leader-mondiale-della-scienza-medica-malattia-di-alzheimer-roche-basel"
         ],
         "fr": [
           "global-medical-science-leader-alzheimer-s-disease-roche-ch",
@@ -5631,12 +5787,12 @@
     },
     {
       "id": "roche-eb9583661047",
-      "slug": "technical-product-manager-roche-ch",
+      "slug": "responsabile-tecnico-di-prodotto-roche-rotkreuz",
       "slugByLocale": {
-        "it": "technical-product-manager-roche-ch",
+        "it": "responsabile-tecnico-di-prodotto-roche-rotkreuz",
         "en": "technical-product-manager-roche-ch",
-        "de": "technical-product-manager-roche-ch",
-        "fr": "technical-product-manager-roche-ch"
+        "de": "technischer-produktmanager-roche-rotkreuz",
+        "fr": "responsable-de-produit-technique-ohl-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -5660,7 +5816,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Technical-Product-Manager_202608-122264-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:12:14.859Z",
+      "crawledAt": "2026-10-04T21:14:09.259Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -5690,7 +5846,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZG"
+      "addressRegion": "ZG",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-product-manager-roche-ch"
+        ],
+        "de": [
+          "technical-product-manager-roche-ch"
+        ],
+        "fr": [
+          "technical-product-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technical-product-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-90172268e78a",
@@ -5723,7 +5893,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Koch---Kchin--m-w-d--EFZ---ab-August-2027-_202609-123888",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:13.561Z",
+      "crawledAt": "2026-10-04T21:14:07.948Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -5740,12 +5910,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-koch-kochin-m-w-d-efz-ab-august-2027-roche-ch",
-        "apprendistato-come-koch-kochin-m-w-d-cfc-ab-august-2027-roche-basel"
+        "apprendistato-come-koch-kochin-m-w-d-cfc-ab-august-2027-roche-basel",
+        "apprendistato-come-cuoco-cuoco-m-f-d-efz-da-agosto-2027-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-koch-kochin-m-w-d-efz-ab-august-2027-roche-ch",
-          "apprendistato-come-koch-kochin-m-w-d-cfc-ab-august-2027-roche-basel"
+          "apprendistato-come-koch-kochin-m-w-d-cfc-ab-august-2027-roche-basel",
+          "apprendistato-come-cuoco-cuoco-m-f-d-efz-da-agosto-2027-roche-basel"
         ],
         "en": [
           "lehrstelle-als-koch-kochin-m-w-d-efz-ab-august-2027-roche-ch"
@@ -5755,6 +5927,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:49:07.131Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -5801,7 +5974,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Lehrstelle-als-Restaurantfachfrau-----mann-EFZ--ab-August-2027-_202609-123285",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:12.333Z",
+      "crawledAt": "2026-10-04T21:14:06.855Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -5818,12 +5991,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-restaurantfachfrau-mann-efz-ab-august-2027-roche-ch",
-        "apprendistato-come-restaurantfachfrau-mann-cfc-ab-august-2027-roche-basel"
+        "apprendistato-come-restaurantfachfrau-mann-cfc-ab-august-2027-roche-basel",
+        "apprendistato-come-specialista-ristorante-efz-da-agosto-2027-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-restaurantfachfrau-mann-efz-ab-august-2027-roche-ch",
-          "apprendistato-come-restaurantfachfrau-mann-cfc-ab-august-2027-roche-basel"
+          "apprendistato-come-restaurantfachfrau-mann-cfc-ab-august-2027-roche-basel",
+          "apprendistato-come-specialista-ristorante-efz-da-agosto-2027-roche-basel"
         ],
         "en": [
           "lehrstelle-als-restaurantfachfrau-mann-efz-ab-august-2027-roche-ch"
@@ -5880,7 +6055,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Senior-ADS-Programmer_202603-105350-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:12:08.998Z",
+      "crawledAt": "2026-10-04T21:14:03.743Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -5896,11 +6071,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-ads-programmer-roche-ch"
+        "senior-ads-programmer-roche-ch",
+        "programmatore-senior-ads-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-ads-programmer-roche-ch"
+          "senior-ads-programmer-roche-ch",
+          "programmatore-senior-ads-roche-basel"
         ]
       },
       "needsRetranslation": true,
@@ -5951,7 +6128,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Cardio-Renal-Discovery-Area-Leader---Expert-Scientist_202606-116302-2",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:12:06.598Z",
+      "crawledAt": "2026-10-04T21:14:01.271Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -5968,11 +6145,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "cardio-renal-discovery-scientific-strategy-area-leader-roche-ch"
+          "cardio-renal-discovery-scientific-strategy-area-leader-roche-ch",
+          "cardio-renal-discovery-area-leader-expert-scientist-roche-ch"
         ],
         "it": [
           "cardio-renal-discovery-area-leader-expert-scientist-roche-ch",
-          "cardio-renal-discovery-scientific-strategy-area-leader-roche-ch"
+          "cardio-renal-discovery-scientific-strategy-area-leader-roche-ch",
+          "cardio-renal-discovery-area-leader-esperto-scienziato-roche-basel"
         ],
         "de": [
           "cardio-renal-discovery-area-leader-expert-scientist-roche-ch"
@@ -5980,7 +6159,8 @@
       },
       "previousSlugs": [
         "cardio-renal-discovery-area-leader-expert-scientist-roche-ch",
-        "cardio-renal-discovery-scientific-strategy-area-leader-roche-ch"
+        "cardio-renal-discovery-scientific-strategy-area-leader-roche-ch",
+        "cardio-renal-discovery-area-leader-esperto-scienziato-roche-basel"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-24T11:12:15.986Z",
@@ -6030,7 +6210,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum---Assembly-Ocular--6-12-Monate-_202609-123243",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:12:03.720Z",
+      "crawledAt": "2026-10-04T21:13:58.969Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -6046,11 +6226,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikum-assembly-ocular-6-12-monate-roche-ch"
+        "praktikum-assembly-ocular-6-12-monate-roche-ch",
+        "stage-assemblea-oculare-6-12-mesi-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-assembly-ocular-6-12-monate-roche-ch"
+          "praktikum-assembly-ocular-6-12-monate-roche-ch",
+          "stage-assemblea-oculare-6-12-mesi-roche-kaiseraugst"
         ],
         "en": [
           "praktikum-assembly-ocular-6-12-monate-roche-ch"
@@ -6106,7 +6288,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Network-and-Capabilities-Manager_202609-123467",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:12:02.550Z",
+      "crawledAt": "2026-10-04T21:13:57.685Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -6122,11 +6304,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "network-and-capabilities-manager-roche-ch"
+        "network-and-capabilities-manager-roche-ch",
+        "gestione-della-rete-e-delle-capacita-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "network-and-capabilities-manager-roche-ch"
+          "network-and-capabilities-manager-roche-ch",
+          "gestione-della-rete-e-delle-capacita-roche-kaiseraugst"
         ],
         "de": [
           "network-and-capabilities-manager-roche-ch"
@@ -6182,7 +6366,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Global-MSAT-DS-Senior-Process-Steward-80-100-_202609-123897",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:12:00.269Z",
+      "crawledAt": "2026-10-04T21:13:55.320Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -6198,11 +6382,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-msat-ds-senior-process-steward-80-100-roche-ch"
+        "global-msat-ds-senior-process-steward-80-100-roche-ch",
+        "msat-ds-processo-senior-steward-80-100-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-msat-ds-senior-process-steward-80-100-roche-ch"
+          "global-msat-ds-senior-process-steward-80-100-roche-ch",
+          "msat-ds-processo-senior-steward-80-100-roche-basel"
         ]
       },
       "needsRetranslation": true,
@@ -6253,7 +6439,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Team-Lead---Workflow-Innovation---Management_202609-123927-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:58.310Z",
+      "crawledAt": "2026-10-04T21:13:53.387Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -6269,11 +6455,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "team-lead-workflow-innovation-management-roche-ch"
+        "team-lead-workflow-innovation-management-roche-ch",
+        "capo-team-workflow-innovation-management-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "team-lead-workflow-innovation-management-roche-ch"
+          "team-lead-workflow-innovation-management-roche-ch",
+          "capo-team-workflow-innovation-management-roche-rotkreuz"
         ],
         "de": [
           "team-lead-workflow-innovation-management-roche-ch"
@@ -6330,7 +6518,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Roche-internship-in-Medicinal-Chemistry---RiCH_202609-124069",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:57.499Z",
+      "crawledAt": "2026-10-04T21:13:52.550Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -6346,11 +6534,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "roche-internship-in-medicinal-chemistry-rich-roche-ch"
+        "roche-internship-in-medicinal-chemistry-rich-roche-ch",
+        "stage-roche-in-chimica-medicinale-rich-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "roche-internship-in-medicinal-chemistry-rich-roche-ch"
+          "roche-internship-in-medicinal-chemistry-rich-roche-ch",
+          "stage-roche-in-chimica-medicinale-rich-roche-basel"
         ],
         "de": [
           "roche-internship-in-medicinal-chemistry-rich-roche-ch"
@@ -6406,7 +6596,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Associate-Group-Director--Quantitative-Safety-Sciences_202609-122515-2",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:55.617Z",
+      "crawledAt": "2026-10-04T21:13:50.666Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -6422,11 +6612,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "associate-group-director-quantitative-safety-sciences-roche-ch"
+        "associate-group-director-quantitative-safety-sciences-roche-ch",
+        "associate-group-direttore-quantitative-safety-sciences-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "associate-group-director-quantitative-safety-sciences-roche-ch"
+          "associate-group-director-quantitative-safety-sciences-roche-ch",
+          "associate-group-direttore-quantitative-safety-sciences-roche-basel"
         ],
         "de": [
           "associate-group-director-quantitative-safety-sciences-roche-ch"
@@ -6483,7 +6675,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-fr-Studierende-im-Bereich-Pharmazeutische-Qualittskontrolle----RiKO--ab-Februar-2027--12-Monate-_202609-123250",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:53.101Z",
+      "crawledAt": "2026-10-04T21:13:48.288Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -6499,11 +6691,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikum-fur-studierende-im-bereich-pharmazeutische-qualitatskontrolle-riko-ab-februar"
+        "praktikum-fur-studierende-im-bereich-pharmazeutische-qualitatskontrolle-riko-ab-februar",
+        "stage-per-gli-studenti-nel-campo-del-controllo-qualita-farmaceutico-riko-da-febbraio-2027-12-mesi-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-fur-studierende-im-bereich-pharmazeutische-qualitatskontrolle-riko-ab-februar"
+          "praktikum-fur-studierende-im-bereich-pharmazeutische-qualitatskontrolle-riko-ab-februar",
+          "stage-per-gli-studenti-nel-campo-del-controllo-qualita-farmaceutico-riko-da-febbraio-2027-12-mesi-roche-kaiseraugst"
         ]
       },
       "needsRetranslation": true,
@@ -6554,7 +6748,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Principal-Scientist---Discovery-Oncology_202609-123772-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:52.309Z",
+      "crawledAt": "2026-10-04T21:13:47.417Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -6570,11 +6764,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "principal-scientist-discovery-oncology-roche-ch"
+        "principal-scientist-discovery-oncology-roche-ch",
+        "principal-scienziato-discovery-oncology-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "principal-scientist-discovery-oncology-roche-ch"
+          "principal-scientist-discovery-oncology-roche-ch",
+          "principal-scienziato-discovery-oncology-roche-basel"
         ],
         "de": [
           "principal-scientist-discovery-oncology-roche-ch"
@@ -6614,7 +6810,7 @@
       "companyDomain": "roche.com",
       "title": "Praktikum - Technical Asset Care (Start: 01.01.2027, 6 Monate)",
       "titleByLocale": {
-        "it": "Tirocinio - Cura Tecnica degli Asset (Inizio: 01.01.2027, 6 mesi)",
+        "it": "Praktikum - Technical Asset Care (Start: 01.01.2027, 6 Monate)",
         "en": "Internship - Technical Asset Care (start: 01.01.2027, 6 months)",
         "de": "Praktikum - Technical Asset Care (Start: 01.01.2027, 6 Monate)",
         "fr": "Stage - Soins techniques (début : 01.01.2027, 6 mois)"
@@ -6631,7 +6827,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum---Technical-Asset-Care--Start--01012027--6-Monate-_202608-122402",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:51.145Z",
+      "crawledAt": "2026-10-04T21:13:46.163Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -6647,11 +6843,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikum-technical-asset-care-start-01-01-2027-6-monate-roche-ch"
+        "praktikum-technical-asset-care-start-01-01-2027-6-monate-roche-ch",
+        "stage-assistenza-tecnica-a-partire-dal-01-01-2027-6-mesi-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-technical-asset-care-start-01-01-2027-6-monate-roche-ch"
+          "praktikum-technical-asset-care-start-01-01-2027-6-monate-roche-ch",
+          "stage-assistenza-tecnica-a-partire-dal-01-01-2027-6-mesi-roche-kaiseraugst"
         ],
         "fr": [
           "praktikum-technical-asset-care-start-01-01-2027-6-monate-roche-ch"
@@ -6704,7 +6902,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Elektriker--m-w-d----befristet-fr-3-Jahre_202609-123528-2",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:48.877Z",
+      "crawledAt": "2026-10-04T21:13:43.509Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -6780,7 +6978,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Machine-Learning-Scientist_202609-123839",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:47.731Z",
+      "crawledAt": "2026-10-04T21:13:42.096Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -6796,11 +6994,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "machine-learning-scientist-roche-ch"
+        "machine-learning-scientist-roche-ch",
+        "scienziato-di-apprendimento-della-macchina-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "machine-learning-scientist-roche-ch"
+          "machine-learning-scientist-roche-ch",
+          "scienziato-di-apprendimento-della-macchina-roche-basel"
         ],
         "de": [
           "machine-learning-scientist-roche-ch"
@@ -6856,7 +7056,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Ingenieur-in-Heizung--Lftung--Klimatechnik--Basel--unbefristet-_202607-118395-2",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:46.969Z",
+      "crawledAt": "2026-10-04T21:13:41.324Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -6873,11 +7073,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ingenieur-in-heizung-luftung-klimatechnik-basel-unbefristet-roche-ch",
-        "ingenieur-in-heizung-luftung-klimatechnik-basel-unbefristet-roche-basel"
+        "ingenieur-in-heizung-luftung-klimatechnik-basel-unbefristet-roche-basel",
+        "ingegnere-in-riscaldamento-ventilazione-aria-condizionata-basel-permanente-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-in-heizung-luftung-klimatechnik-basel-unbefristet-roche-ch"
+          "ingenieur-in-heizung-luftung-klimatechnik-basel-unbefristet-roche-ch",
+          "ingegnere-in-riscaldamento-ventilazione-aria-condizionata-basel-permanente-roche-basel"
         ],
         "en": [
           "ingenieur-in-heizung-luftung-klimatechnik-basel-unbefristet-roche-basel"
@@ -6930,7 +7132,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Robotics-Technology-Deployment-Steward--Device--Packaging-and-Distribution-_202608-121683-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:45.490Z",
+      "crawledAt": "2026-10-04T21:13:39.788Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -6946,11 +7148,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "robotics-technology-deployment-steward-device-packaging-and-distribution-roche-ch"
+        "robotics-technology-deployment-steward-device-packaging-and-distribution-roche-ch",
+        "robotics-technology-deployment-steward-dispositivo-imballaggio-e-distribuzione-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "robotics-technology-deployment-steward-device-packaging-and-distribution-roche-ch"
+          "robotics-technology-deployment-steward-device-packaging-and-distribution-roche-ch",
+          "robotics-technology-deployment-steward-dispositivo-imballaggio-e-distribuzione-roche-basel"
         ],
         "de": [
           "robotics-technology-deployment-steward-device-packaging-and-distribution-roche-ch"
@@ -6959,6 +7163,7 @@
           "robotics-technology-deployment-steward-device-packaging-and-distribution-roche-ch"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -7005,7 +7210,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Director--Fair-by-Design-Team_202608-120464-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:44.378Z",
+      "crawledAt": "2026-10-04T21:13:38.589Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -7021,11 +7226,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "director-fair-by-design-team-roche-ch"
+        "director-fair-by-design-team-roche-ch",
+        "direttore-fair-by-design-team-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-fair-by-design-team-roche-ch"
+          "director-fair-by-design-team-roche-ch",
+          "direttore-fair-by-design-team-roche-basel"
         ]
       },
       "needsRetranslation": true,
@@ -7075,7 +7282,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Head-of-Digital-Strategy--Excellence---Standards--Global-Digital---Data-Analytics_202605-111389-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:43.209Z",
+      "crawledAt": "2026-10-04T21:13:37.368Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -7091,11 +7298,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-digital-strategy-excellence-standards-global-digital-data-analytics-roche-ch"
+        "head-of-digital-strategy-excellence-standards-global-digital-data-analytics-roche-ch",
+        "responsabile-digital-strategy-excellence-standards-global-digital-data-analytics-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-digital-strategy-excellence-standards-global-digital-data-analytics-roche-ch"
+          "head-of-digital-strategy-excellence-standards-global-digital-data-analytics-roche-ch",
+          "responsabile-digital-strategy-excellence-standards-global-digital-data-analytics-roche-basel"
         ],
         "de": [
           "head-of-digital-strategy-excellence-standards-global-digital-data-analytics-roche-ch"
@@ -7151,7 +7360,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/DMPK-PD-Project-Leader_202608-121381-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:40.772Z",
+      "crawledAt": "2026-10-04T21:13:34.651Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -7171,7 +7380,8 @@
         "leader-del-progetto-dmpk-pd-roche-basel-0z71pe",
         "dmpk-pd-projektleiter-roche-basel",
         "chef-de-projet-dmpk-pd-roche-basel",
-        "dmpk-pd-project-leader-roche-ch-0z71pe"
+        "dmpk-pd-project-leader-roche-ch-0z71pe",
+        "leader-del-progetto-dmpk-pd-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7179,7 +7389,8 @@
           "leader-del-progetto-dmpk-pd-roche-basel-0z71pe",
           "dmpk-pd-projektleiter-roche-basel",
           "chef-de-projet-dmpk-pd-roche-basel",
-          "dmpk-pd-project-leader-roche-ch-0z71pe"
+          "dmpk-pd-project-leader-roche-ch-0z71pe",
+          "leader-del-progetto-dmpk-pd-roche-basel"
         ],
         "de": [
           "dmpk-pd-projektleiter-roche-basel"
@@ -7235,7 +7446,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Global-Ops-Strategy-Lead_202603-106537-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:38.396Z",
+      "crawledAt": "2026-10-04T21:13:32.758Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -7305,7 +7516,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Global-Sites-Network-Communications-Manager_202609-123557",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:36.012Z",
+      "crawledAt": "2026-10-04T21:13:30.223Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -7368,7 +7579,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Laborant-in-fr-Umgebungsmonitoring-in-der-QC-Mikrobiologie--Basel--befristet-auf-zwei-Jahre-_202609-124259-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:35.238Z",
+      "crawledAt": "2026-10-04T21:13:29.405Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -7439,7 +7650,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Focus-Topic-Lead-Cleaning-Validation-Solids_202609-123544-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:34.464Z",
+      "crawledAt": "2026-10-04T21:13:28.339Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -7455,11 +7666,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "focus-topic-lead-cleaning-validation-solids-roche-ch"
+        "focus-topic-lead-cleaning-validation-solids-roche-ch",
+        "solidi-di-convalida-per-la-pulizia-del-piombo-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "focus-topic-lead-cleaning-validation-solids-roche-ch"
+          "focus-topic-lead-cleaning-validation-solids-roche-ch",
+          "solidi-di-convalida-per-la-pulizia-del-piombo-roche-kaiseraugst"
         ],
         "fr": [
           "focus-topic-lead-cleaning-validation-solids-roche-ch"
@@ -7513,7 +7726,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Senior-Event-Experience-Manager--w-m-d---80--100--_202609-124208-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:33.654Z",
+      "crawledAt": "2026-10-04T21:13:27.471Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -7576,7 +7789,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Intern-in-Systems-and-Requirements-Engineering_202609-123865-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:32.153Z",
+      "crawledAt": "2026-10-04T21:13:26.230Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -7592,11 +7805,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "intern-in-systems-and-requirements-engineering-roche-ch"
+        "intern-in-systems-and-requirements-engineering-roche-ch",
+        "tirocinante-in-systems-and-requirements-engineering-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "intern-in-systems-and-requirements-engineering-roche-ch"
+          "intern-in-systems-and-requirements-engineering-roche-ch",
+          "tirocinante-in-systems-and-requirements-engineering-roche-rotkreuz"
         ],
         "de": [
           "intern-in-systems-and-requirements-engineering-roche-ch"
@@ -7652,7 +7867,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Technischer-QA-Manager-fr-Anlagen-und-Systeme_202609-124579",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:30.221Z",
+      "crawledAt": "2026-10-04T21:13:24.076Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -7729,7 +7944,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Community-Management---Digital-Engagement--10-20h-week--24--Months-_202609-123604",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:29.083Z",
+      "crawledAt": "2026-10-04T21:13:22.682Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -7746,11 +7961,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "community-management-digital-engagement-10-20h-week-24-months-roche-ch",
-        "community-management-digital-engagement-10-20h-week-24-months-roche-basel"
+        "community-management-digital-engagement-10-20h-week-24-months-roche-basel",
+        "gestione-della-comunita-digital-engagement-10-20h-settimana-24-mesi-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "community-management-digital-engagement-10-20h-week-24-months-roche-ch"
+          "community-management-digital-engagement-10-20h-week-24-months-roche-ch",
+          "gestione-della-comunita-digital-engagement-10-20h-settimana-24-mesi-roche-basel"
         ],
         "de": [
           "community-management-digital-engagement-10-20h-week-24-months-roche-ch"
@@ -7808,7 +8025,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Geopolitics-and-Trade-Policy-Manager--6-month-contract-_202609-124749-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:26.256Z",
+      "crawledAt": "2026-10-04T21:13:19.280Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -7824,14 +8041,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "geopolitics-and-trade-policy-manager-6-month-contract-roche-ch"
+        "geopolitics-and-trade-policy-manager-6-month-contract-roche-ch",
+        "geopolitics-and-trade-policy-manager-6-mese-contratto-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geopolitics-and-trade-policy-manager-6-month-contract-roche-ch"
+          "geopolitics-and-trade-policy-manager-6-month-contract-roche-ch",
+          "geopolitics-and-trade-policy-manager-6-mese-contratto-roche-rotkreuz"
         ]
       },
       "firstSeenAt": "2026-09-30T21:11:10.427Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -7878,7 +8098,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Project-Manager-CAPEX_202609-124469-2",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:24.369Z",
+      "crawledAt": "2026-10-04T21:13:17.361Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -7896,12 +8116,14 @@
       "previousSlugs": [
         "project-manager-capex-roche-ch",
         "projektmanager-capex-roche-rotkreuz",
-        "projekt-manager-capex-roche-ch"
+        "projekt-manager-capex-roche-ch",
+        "responsabile-del-progetto-capex-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-manager-capex-roche-ch",
-          "projekt-manager-capex-roche-ch"
+          "projekt-manager-capex-roche-ch",
+          "responsabile-del-progetto-capex-roche-rotkreuz"
         ],
         "de": [
           "project-manager-capex-roche-ch",
@@ -7935,7 +8157,7 @@
         "it": "consulente-legale-senior-sviluppo-aziendale-legale-e-societario-roche-basel",
         "en": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
         "de": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
-        "fr": "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
+        "fr": "senior-legal-counsel-legal-business-development-corporate-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7945,7 +8167,7 @@
         "it": "Consulente Legale Senior – Sviluppo Aziendale Legale e Societario",
         "en": "Senior Legal Counsel – Legal Business Development & Corporate",
         "de": "Senior Legal Counsel – Legal Business Development & Corporate",
-        "fr": "Conseiller juridique principal – Développement des affaires juridiques & Corporate"
+        "fr": "Senior Legal Counsel – Legal Business Development & Corporate"
       },
       "description": "At Roche you can show up as yourself, embraced for the unique qualities you bring. Our culture encourages personal expression, open dialogue, and genuine connections, where you are valued, accepted and respected for who you are, allowing you to thrive both personally and professionally. This is how we aim to prevent, stop and cure diseases and ensure everyone has access to healthcare today and for generations to come. Join Roche, where every voice matters.\n\nThe Position\nWe are offering an exciting legal role that will help us to shape the future for patients across the globe. We focus on making a difference with cutting-edge technologies in research, development and commercialization of innovative therapeutic products. To that end, we are looking for an experienced transactional attorney. You have a global mindset and are capable of communicating at ease across cultures. You will be part of our global Legal Business Development & Corporate team, supporting Roche’s business development transactions (licensing, mergers and acquisitions, venture investments). You are curious and have an outstanding ability to build and maintain relationships both locally and globally.\n\nYou will be based at Roche headquarters in Basel and work with a team of outstanding local and global legal experts.\n\nThe Opportunity\n\n• Lead, structure, and negotiate complex global licensing transactions and support a growing portfolio of alliances\n\n• Act as a trusted legal advisor to key business partners, assessing and managing legal risks appropriately and pragmatically\n\n• Collaborate closely within a global team of legal experts in Switzerland, the USA, and China.\n\n• Design and deliver targeted legal training programs to support evolving business needs and strategy.\n\n• Drive cross-functional solutions while operating seamlessly across global time zones.\n\nWho You Are\n\n• A qualified attorney with a Swiss bar admission (or foreign equivalent) and at least 5 years of post-bar experience, ideally with training or practice in an English-speaking country.\n\n• Experienced in licensing and corporate law, IP/technology law within an in-house or specialized law firm setting.\n\n• A skilled negotiator capable of translating complex legal issues into clear, actionable advice for diverse stakeholders.\n\n• A collaborative relationship-builder with a strong affinity for tech/AI and a curiosity to learn.\n\n• An open-minded communicator fluent in English who thrives in global, multicultural team settings.\n\nWe look forward to your application!\n\nWho we are\nA healthier future drives us to innovate. Together, more than 100’000 employees across the globe are dedicated to advance science, ensuring everyone has access to healthcare today and for generations to come. Our efforts result in more than 26 million people treated with our medicines and over 30 billion tests conducted using our Diagnostics products. We empower each other to explore new possibilities, foster creativity, and keep our ambitions high, so we can deliver life-changing healthcare solutions that make a global impact.\n\nLet’s build a healthier future, together.\n\nRoche is an Equal Opportunity Employer.",
       "descriptionByLocale": {
@@ -7959,7 +8181,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Senior-Legal-Counsel---Legal-Business-Development---Corporate_202609-122881-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:22.047Z",
+      "crawledAt": "2026-10-04T21:13:14.607Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -7975,15 +8197,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-legal-counsel-legal-business-development-corporate-roche-basel",
-        "senior-legal-counsel-legal-business-development-corporate-roche-ch"
+        "senior-legal-counsel-legal-business-development-corporate-roche-ch",
+        "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel",
+        "consulente-legale-senior-sviluppo-aziendale-legale-e-societario-roche-basel",
+        "senior-legal-counsel-legal-business-development-corporate-roche-basel"
       ],
       "previousSlugsByLocale": {
-        "fr": [
-          "senior-legal-counsel-legal-business-development-corporate-roche-basel"
-        ],
         "it": [
-          "senior-legal-counsel-legal-business-development-corporate-roche-ch"
+          "senior-legal-counsel-legal-business-development-corporate-roche-ch",
+          "consulente-legale-senior-sviluppo-aziendale-legale-e-societario-roche-basel"
+        ],
+        "fr": [
+          "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel",
+          "senior-legal-counsel-legal-business-development-corporate-roche-basel"
         ]
       },
       "needsRetranslation": true,
@@ -8034,7 +8260,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Contract-Manufacturing-Specialist_202609-123925-2",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:18.111Z",
+      "crawledAt": "2026-10-04T21:13:10.620Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -8050,11 +8276,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "contract-manufacturing-specialist-roche-ch"
+        "contract-manufacturing-specialist-roche-ch",
+        "contract-manufacturing-specialista-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "contract-manufacturing-specialist-roche-ch"
+          "contract-manufacturing-specialist-roche-ch",
+          "contract-manufacturing-specialista-roche-kaiseraugst"
         ],
         "de": [
           "contract-manufacturing-specialist-roche-ch"
@@ -8110,7 +8338,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Senior-Scientist-in-Process-Chemistry---Catalysis_202609-124542",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:16.662Z",
+      "crawledAt": "2026-10-04T21:13:08.995Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -8126,11 +8354,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-scientist-in-process-chemistry-catalysis-roche-ch"
+        "senior-scientist-in-process-chemistry-catalysis-roche-ch",
+        "scienziato-senior-in-chimica-di-processo-catalisi-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-scientist-in-process-chemistry-catalysis-roche-ch"
+          "senior-scientist-in-process-chemistry-catalysis-roche-ch",
+          "scienziato-senior-in-chimica-di-processo-catalisi-roche-basel"
         ],
         "de": [
           "senior-scientist-in-process-chemistry-catalysis-roche-ch"
@@ -8140,6 +8370,7 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:11:15.986Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -8186,7 +8417,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Unit-Lead-mikrobiologisches-Umgebungsmonitoring--mEMT-_202609-124774-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:15.908Z",
+      "crawledAt": "2026-10-04T21:13:08.161Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -8203,11 +8434,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "surveillance-microbiologique-de-l-environnement-memt-roche-kaiseraugst",
-        "unit-lead-mikrobiologisches-umgebungsmonitoring-memt-roche-ch"
+        "unit-lead-mikrobiologisches-umgebungsmonitoring-memt-roche-ch",
+        "monitoraggio-dell-ambiente-microbiologico-dell-unita-lead-memt-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unit-lead-mikrobiologisches-umgebungsmonitoring-memt-roche-ch"
+          "unit-lead-mikrobiologisches-umgebungsmonitoring-memt-roche-ch",
+          "monitoraggio-dell-ambiente-microbiologico-dell-unita-lead-memt-roche-kaiseraugst"
         ],
         "en": [
           "unit-lead-mikrobiologisches-umgebungsmonitoring-memt-roche-ch"
@@ -8218,6 +8451,7 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:11:15.185Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -8264,7 +8498,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Portfolio-Manager-Liquid-Alternatives_202609-124400-2",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:13.717Z",
+      "crawledAt": "2026-10-04T21:13:05.972Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -8279,6 +8513,16 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Portfolio-Manager-Liquid-Alternatives_202609-124400-2",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "portfolio-manager-liquid-alternatives-roche-ch",
+        "portfolio-manager-liquid-alternative-roche-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "portfolio-manager-liquid-alternatives-roche-ch",
+          "portfolio-manager-liquid-alternative-roche-basel"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:11:13.192Z",
       "salaryMin": 85500,
@@ -8294,15 +8538,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS",
-      "previousSlugsByLocale": {
-        "it": [
-          "portfolio-manager-liquid-alternatives-roche-ch"
-        ]
-      },
-      "previousSlugs": [
-        "portfolio-manager-liquid-alternatives-roche-ch"
-      ]
+      "addressRegion": "BS"
     },
     {
       "id": "roche-cbd0d3cea7c8",
@@ -8335,7 +8571,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Leiter-in-Fachstelle-Zutrittsmanagement---Sicherheitstechnik_202609-124407-1",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:12.894Z",
+      "crawledAt": "2026-10-04T21:13:05.127Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -8351,11 +8587,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-fachstelle-zutrittsmanagement-sicherheitstechnik-roche-ch"
+        "leiter-in-fachstelle-zutrittsmanagement-sicherheitstechnik-roche-ch",
+        "responsabile-fachstelle-zutrittsmanagement-sicherheitstechnik-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-fachstelle-zutrittsmanagement-sicherheitstechnik-roche-ch"
+          "leiter-in-fachstelle-zutrittsmanagement-sicherheitstechnik-roche-ch",
+          "responsabile-fachstelle-zutrittsmanagement-sicherheitstechnik-roche-rotkreuz"
         ]
       },
       "needsRetranslation": true,
@@ -8406,7 +8644,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Praktikum-GMP-Compliance---Critical-Utilities--Basel--12-Monate-_202609-123773",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:12.162Z",
+      "crawledAt": "2026-10-04T21:13:04.405Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -8421,7 +8659,18 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Praktikum-GMP-Compliance---Critical-Utilities--Basel--12-Monate-_202609-123773",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "praktikum-gmp-compliance-critical-utilities-basel-12-monate-roche-ch",
+        "internship-gmp-compliance-critical-utilities-basel-12-mesi-roche-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-gmp-compliance-critical-utilities-basel-12-monate-roche-ch",
+          "internship-gmp-compliance-critical-utilities-basel-12-mesi-roche-basel"
+        ]
+      },
       "firstSeenAt": "2026-10-03T09:11:11.680Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -8435,15 +8684,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS",
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikum-gmp-compliance-critical-utilities-basel-12-monate-roche-ch"
-        ]
-      },
-      "previousSlugs": [
-        "praktikum-gmp-compliance-critical-utilities-basel-12-monate-roche-ch"
-      ]
+      "addressRegion": "BS"
     },
     {
       "id": "roche-d16a272c29fb",
@@ -8476,7 +8717,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Data-Science-Intern---Master-Thesis-Student--Basel--6-Monate-_202609-124516",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:10.995Z",
+      "crawledAt": "2026-10-04T21:13:03.319Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -8491,19 +8732,21 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Data-Science-Intern---Master-Thesis-Student--Basel--6-Monate-_202609-124516",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:11:10.613Z",
+      "previousSlugs": [
+        "data-science-intern-master-thesis-student-basel-6-monate-roche-ch",
+        "data-science-tirocinante-master-thesis-student-basel-6-monate-roche-basel"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "data-science-intern-master-thesis-student-basel-6-monate-roche-ch"
+          "data-science-intern-master-thesis-student-basel-6-monate-roche-ch",
+          "data-science-tirocinante-master-thesis-student-basel-6-monate-roche-basel"
         ],
         "fr": [
           "data-science-intern-master-thesis-student-basel-6-monate-roche-ch"
         ]
       },
-      "previousSlugs": [
-        "data-science-intern-master-thesis-student-basel-6-monate-roche-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:11:10.613Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -8550,7 +8793,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Student-Internship-in-Lab-Automation--Pharma-Research---Early-Development-_202609-124621",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:09.916Z",
+      "crawledAt": "2026-10-04T21:13:02.141Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -8565,11 +8808,14 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Student-Internship-in-Lab-Automation--Pharma-Research---Early-Development-_202609-124621",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:11:09.511Z",
+      "previousSlugs": [
+        "student-internship-in-lab-automation-pharma-research-early-development-roche-ch",
+        "student-internship-in-lab-automation-pharma-ricerca-early-development-roche-basel"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "student-internship-in-lab-automation-pharma-research-early-development-roche-ch"
+          "student-internship-in-lab-automation-pharma-research-early-development-roche-ch",
+          "student-internship-in-lab-automation-pharma-ricerca-early-development-roche-basel"
         ],
         "de": [
           "student-internship-in-lab-automation-pharma-research-early-development-roche-ch"
@@ -8578,9 +8824,8 @@
           "student-internship-in-lab-automation-pharma-research-early-development-roche-ch"
         ]
       },
-      "previousSlugs": [
-        "student-internship-in-lab-automation-pharma-research-early-development-roche-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:11:09.511Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -8627,7 +8872,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Hochschulpraktikum-im-Bereich-Local-Packaging-Development--12-Monate-_202609-124474",
       "source": "Roche Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:11:09.183Z",
+      "crawledAt": "2026-10-04T21:13:01.140Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -8643,11 +8888,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hochschulpraktikum-im-bereich-local-packaging-development-12-monate-roche-ch"
+        "hochschulpraktikum-im-bereich-local-packaging-development-12-monate-roche-ch",
+        "stage-nello-sviluppo-locale-di-imballaggi-12-mesi-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hochschulpraktikum-im-bereich-local-packaging-development-12-monate-roche-ch"
+          "hochschulpraktikum-im-bereich-local-packaging-development-12-monate-roche-ch",
+          "stage-nello-sviluppo-locale-di-imballaggi-12-mesi-roche-kaiseraugst"
         ],
         "en": [
           "hochschulpraktikum-im-bereich-local-packaging-development-12-monate-roche-ch"
@@ -8703,7 +8950,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Internship---Agentic-AI-for-Environmental-Regulatory-Compliance_202609-124819",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:08.462Z",
+      "crawledAt": "2026-10-04T21:13:00.326Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -8719,16 +8966,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-agentic-ai-for-environmental-regulatory-compliance-roche-ch"
+        "internship-agentic-ai-for-environmental-regulatory-compliance-roche-ch",
+        "internship-ai-agente-per-la-conformita-normativa-ambientale-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "internship-agentic-ai-for-environmental-regulatory-compliance-roche-ch",
+          "internship-ai-agente-per-la-conformita-normativa-ambientale-roche-basel"
+        ],
+        "de": [
           "internship-agentic-ai-for-environmental-regulatory-compliance-roche-ch"
         ],
         "fr": [
-          "internship-agentic-ai-for-environmental-regulatory-compliance-roche-ch"
-        ],
-        "de": [
           "internship-agentic-ai-for-environmental-regulatory-compliance-roche-ch"
         ]
       },
@@ -8746,7 +8995,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     },
     {
       "id": "roche-160cfcc45a35",
@@ -8779,7 +9029,7 @@
       "url": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Unit-Lead-Operational-Engineering-Steriles_202609-122857-2",
       "source": "Roche Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:11:07.723Z",
+      "crawledAt": "2026-10-04T21:12:59.577Z",
       "addressLocality": "Kaiseraugst",
       "addressCountry": "CH",
       "country": "CH",
@@ -8795,11 +9045,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "unit-lead-operational-engineering-steriles-roche-ch"
+        "unit-lead-operational-engineering-steriles-roche-ch",
+        "unita-lead-ingegneria-operativa-sterili-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unit-lead-operational-engineering-steriles-roche-ch"
+          "unit-lead-operational-engineering-steriles-roche-ch",
+          "unita-lead-ingegneria-operativa-sterili-roche-kaiseraugst"
         ],
         "fr": [
           "unit-lead-operational-engineering-steriles-roche-ch"

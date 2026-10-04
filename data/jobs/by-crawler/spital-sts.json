@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-10-04T09:17:40.666Z",
+  "assembledAt": "2026-10-04T21:13:57.172Z",
   "jobs": [
     {
       "id": "spital-sts-383c1c35c376",
@@ -33,7 +33,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/45ab28a8-55ed-4e1f-b55c-d66a4e6476cc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:35.167Z",
+      "crawledAt": "2026-10-04T21:13:53.111Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen",
-        "medico-di-servizio-medicina-di-servizio-spital-sts-zweisimmen"
+        "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen",
-          "medico-di-servizio-medicina-di-servizio-spital-sts-zweisimmen"
+          "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
         ],
         "en": [
           "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
@@ -79,7 +77,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-sts-9d1a00acea99",
@@ -107,12 +106,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nSie führen gemeinsam mit Pflegenden und Psycholog:innen die zentrale Triagestelle der PDT. Diese gewährleistet unkompliziert für alle Hilfesuchenden tagsüber eine telefonische oder persönliche Abklärung und Aufgleisung der nächsten Behandlungsschritte im ambulanten, teilstationären oder aufsuchenden Setting. Als eine offene und dienstleistungsorientierte Person sind sie Kontaktperson für Patient:innen und Zuweisende. Weiter bieten sie psychotherapeutische Kriseninterventionen an. Im Triageteam bearbeiten sie die Anmeldungen und die Fallverteilung für die allgemein- und alterspsychiatrischen Ambulatorien.\nDarüber hinaus sind sie in einem unserer Ambulatorien tätig und übernehmen fallführend die psychotherapeutischen Behandlungen von Patient:innen aus dem gesamten Diagnosespektrum (inkl. Diagnostik, Therapieplanung und Schriftverkehr an Dritte wie Zuweisende und Versicherer).\nEintritt per 1. Januar 2027 oder nach Vereinbarung.\n\nDas wartet auf Sie\n\n• Offene patienten- und mitarbeiterorientierte Zusammenarbeit über alle Bereiche\n\n• Breiter Handlungsspielraum\n\n• Konstruktive Arbeitsatmosphäre\n\n• Frei wählbares Ferien- und Pensionskassenmodell\n\n• Gute Aus-, Fort- und Weiterbildungsmöglichkeiten\n\n• Freizeit- und Naturerlebnisse in nächster Umgebung\n\nSo werden Sie Teil unseres Teams\n\n• Abschluss in klinischer Psychologie und fortgeschrittene oder bereits abgeschlossene psychotherapeutische Weiterbildung\n\n• Hohe Sozialkompetenz und Belastbarkeit, entscheidungsfreudige Persönlichkeit\n\n• Freude an Notfallbehandlungen\n\n• Interesse an einer engen Zusammenarbeit mit den verschiedenen Institutionen des Sozial- und Gesundheitswesens\n\n• Freude an interdisziplinärer Zusammenarbeit\n\n• Freude, das eigene Wissen und Können an die individuelle Behandlungssituation anzupassen und gewinnbringend einzusetzen",
         "fr": "Un emploi avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Avez-vous l'air significatif, mais aussi juste? Alors vous êtes là.\n\nAvec les infirmières et les psychologues, ils dirigent le bureau central de triage de la PDT. Cela permet d'obtenir des éclaircissements téléphoniques ou personnels et de suivre les prochaines étapes de traitement dans le cadre ambulatoire, semi-stationnaire ou de visite pour tous les demandeurs pendant la journée. En tant que personne ouverte et axée sur le service, ils sont la personne-ressource pour les patients et les arbitres. Ils offrent également des interventions de crise psychothérapeutiques. Dans l'équipe de triage, ils traitent les enregistrements et la distribution des cas pour les ambulatoires psychiatriques générales et d'âge.\nDe plus, ils travaillent dans un de nos laboratoires ambulatoires et prennent en charge les traitements psychothérapeutiques des patients de l'ensemble du spectre diagnostique (y compris le diagnostic, la planification thérapeutique et la correspondance à des tiers tels que les arbitres et les assureurs).\nEntrée au 1er janvier 2027 ou par arrangement.\n\nÇa vous attend.\n\n• Coopération ouverte axée sur les patients et les employés dans tous les domaines\n\n• Grandes possibilités d'action\n\n• Ambiance de travail constructive\n\n• Modèle de caisse de vacances et de retraite librement sélectionnable\n\n• Bonnes possibilités de formation, d'éducation et de formation\n\n• Loisirs et expériences nature dans les environs immédiats\n\nDevenez membre de notre équipe\n\n• Diplôme en psychologie clinique et formation psychothérapeutique avancée ou déjà achevée\n\n• Haute compétence sociale et résilience, personnalité décisionnelle\n\n• Joy des traitements d'urgence\n\n• Intérêt pour une coopération étroite avec les différentes institutions sociales et sanitaires\n\n• Joy de la coopération interdisciplinaire\n\n• Joy d'adapter vos propres connaissances et compétences à la situation de traitement individuelle et de les utiliser avec profit"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/b0c03a03-b14d-4f8f-9b06-c1891cfefebe/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:34.665Z",
+      "crawledAt": "2026-10-04T21:13:51.569Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -146,9 +146,9 @@
     },
     {
       "id": "spital-sts-a2024755541f",
-      "slug": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
+      "slug": "infermiere-a-diplomato-a-in-medicina-spital-sts-thun",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
+        "it": "infermiere-a-diplomato-a-in-medicina-spital-sts-thun",
         "en": "dipl-nursing-specialist-medicine-spital-sts-thun",
         "de": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
         "fr": "dipl-medecine-specialisee-en-soins-infirmiers-spital-sts-thun"
@@ -175,7 +175,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/cd19526d-68be-4e8f-8eb4-801b4e12c98a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:34.155Z",
+      "crawledAt": "2026-10-04T21:13:51.024Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -198,7 +198,8 @@
         "dipl-pflegefachfrau-mann-medizin-fur-fruh-und-spatdienst-nachtdienst-optional-spital-sts",
         "dipl-medecine-specialisee-en-soins-infirmiers-pour-les-services-precoces-et-tardifs-service-de-nuit-facultatif-spital",
         "dipl-nursing-specialist-spital-sts-thun",
-        "dipl-medicina-specialistica-dell-allattamento-spital-sts-thun"
+        "dipl-medicina-specialistica-dell-allattamento-spital-sts-thun",
+        "dipl-pflegefachfrau-mann-medizin-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -207,7 +208,8 @@
           "dipl-pflegefachfrau-mann-medizin-fur-fruh-und-spatdienst-nachtdienst-optional-spital-sts",
           "dipl-medecine-specialisee-en-soins-infirmiers-pour-les-services-precoces-et-tardifs-service-de-nuit-facultatif-spital",
           "dipl-nursing-specialist-spital-sts-thun",
-          "dipl-medicina-specialistica-dell-allattamento-spital-sts-thun"
+          "dipl-medicina-specialistica-dell-allattamento-spital-sts-thun",
+          "dipl-pflegefachfrau-mann-medizin-spital-sts-thun"
         ],
         "en": [
           "dipl-nursing-specialist-medicine-for-early-and-late-service-night-service-optional-spital-sts-thun"
@@ -266,7 +268,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/5803507c-bc78-4364-a15e-fd5e39a20c8f/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:33.732Z",
+      "crawledAt": "2026-10-04T21:13:50.599Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -285,14 +287,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez",
-        "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun-und-spiez",
-        "vice-capo-della-care-oncology-spital-sts-thun-und-spiez"
+        "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun-und-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez",
-          "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun-und-spiez",
-          "vice-capo-della-care-oncology-spital-sts-thun-und-spiez"
+          "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun-und-spiez"
         ],
         "en": [
           "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez"
@@ -348,7 +348,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/f8aaa339-770b-4789-a160-62d37f28cc96/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:33.223Z",
+      "crawledAt": "2026-10-04T21:13:50.167Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -366,13 +366,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "med-sekretar-in-frauenklinik-spital-sts-thun",
-        "med-clinica-femminile-spital-sts-thun"
+        "med-sekretar-in-frauenklinik-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "med-sekretar-in-frauenklinik-spital-sts-thun",
-          "med-clinica-femminile-spital-sts-thun"
+          "med-sekretar-in-frauenklinik-spital-sts-thun"
         ],
         "en": [
           "med-sekretar-in-frauenklinik-spital-sts-thun"
@@ -428,7 +426,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1f53cea8-175e-41d0-96f6-a3b33cc59cb5/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:32.798Z",
+      "crawledAt": "2026-10-04T21:13:49.715Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -446,13 +444,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharztin-facharzt-notfallzentrum-spital-sts-thun",
-        "specialista-centro-di-emergenza-specializzato-spital-sts-thun"
+        "facharztin-facharzt-notfallzentrum-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-notfallzentrum-spital-sts-thun",
-          "specialista-centro-di-emergenza-specializzato-spital-sts-thun"
+          "facharztin-facharzt-notfallzentrum-spital-sts-thun"
         ],
         "en": [
           "facharztin-facharzt-notfallzentrum-spital-sts-thun"
@@ -508,7 +504,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/58463804-b58f-4b0e-861b-f49ff9710f89/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:32.401Z",
+      "crawledAt": "2026-10-04T21:13:49.300Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -572,7 +568,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7fefd7e3-8955-495c-805e-aea9db9b1ea8/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:31.977Z",
+      "crawledAt": "2026-10-04T21:13:48.854Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -590,13 +586,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
-        "centro-di-emergenza-sanitaria-professionale-spital-sts-thun"
+        "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
-          "centro-di-emergenza-sanitaria-professionale-spital-sts-thun"
+          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
         ],
         "en": [
           "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
@@ -651,7 +645,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1949b04a-7c46-475f-a2f8-90ee4fc5f989/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:31.552Z",
+      "crawledAt": "2026-10-04T21:13:48.433Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -669,23 +663,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
-        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun",
-        "dipl-nursing-professional-dipl-nursing-professional-spital-sts-thun",
-        "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-spital-sts-thun"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
-          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
         ],
         "en": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
-          "dipl-nursing-professional-dipl-nursing-professional-spital-sts-thun"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
         ],
         "fr": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
-          "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-spital-sts-thun"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
         ]
       },
       "firstSeenAt": "2026-10-03T09:19:32.112Z",
@@ -735,7 +723,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/486bc6b8-d20d-4e0d-b7df-d4092e3fe49d/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:31.132Z",
+      "crawledAt": "2026-10-04T21:13:47.992Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gemeinde-st-moritz",
-  "assembledAt": "2026-10-04T09:24:16.429Z",
+  "assembledAt": "2026-10-04T21:27:22.415Z",
   "jobs": [
     {
       "id": "gemeinde-st-moritz-8ee8533e73fe",
@@ -33,7 +33,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/bistromitarbeiter-60-80-m-w-d-unbefristet",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:10.579Z",
+      "crawledAt": "2026-10-04T21:27:18.823Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -133,7 +133,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:08.533Z",
+      "crawledAt": "2026-10-04T21:27:16.842Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -189,6 +189,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T10:17:01.704Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -235,7 +236,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindeschreiber-100-m-w",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:06.441Z",
+      "crawledAt": "2026-10-04T21:27:15.153Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -344,7 +345,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/kosmetikerin-massagetherapeutin-m-w-d-40-100-befristet-1",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:03.895Z",
+      "crawledAt": "2026-10-04T21:27:12.521Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",

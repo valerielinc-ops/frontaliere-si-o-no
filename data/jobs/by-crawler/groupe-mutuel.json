@@ -1,6 +1,6 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-10-04T09:16:50.256Z",
+  "assembledAt": "2026-10-04T21:13:57.193Z",
   "jobs": [
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4382?c=groupemutuel&lang=fr-FR",
@@ -33,6 +33,8 @@
       },
       "category": "insurance",
       "datePosted": "2026-09-30",
+      "postedDate": "2026-09-30",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -45,11 +47,13 @@
       "jobReqId": "4382",
       "id": "groupe-mutuel-7ec000b8e178",
       "previousSlugs": [
-        "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel"
+        "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel",
+        "consigliere-di-pianificazione-m-f-80-100-groupe-mutuel-crissier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel"
+          "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel",
+          "consigliere-di-pianificazione-m-f-80-100-groupe-mutuel-crissier"
         ],
         "en": [
           "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel"
@@ -75,9 +79,7 @@
         }
       },
       "addressLocality": "Crissier",
-      "addressRegion": "VD",
-      "postedDate": "2026-09-30",
-      "postingDateSource": "reported"
+      "addressRegion": "VD"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4391?c=groupemutuel&lang=fr-FR",
@@ -110,6 +112,8 @@
       },
       "category": "administration",
       "datePosted": "2026-09-29",
+      "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -122,11 +126,13 @@
       "jobReqId": "4391",
       "id": "groupe-mutuel-30467c448a1b",
       "previousSlugs": [
-        "apprenti-employe-de-commerce-services-et-administration-h-f-100-groupe-mutuel"
+        "apprenti-employe-de-commerce-services-et-administration-h-f-100-groupe-mutuel",
+        "apprenti-business-dipendente-servizi-e-amministrazione-m-f-100-groupe-mutuel-martigny"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-employe-de-commerce-services-et-administration-h-f-100-groupe-mutuel"
+          "apprenti-employe-de-commerce-services-et-administration-h-f-100-groupe-mutuel",
+          "apprenti-business-dipendente-servizi-e-amministrazione-m-f-100-groupe-mutuel-martigny"
         ],
         "de": [
           "apprenti-employe-de-commerce-services-et-administration-h-f-100-groupe-mutuel"
@@ -150,9 +156,7 @@
         }
       },
       "addressLocality": "Martigny",
-      "addressRegion": "VS",
-      "postedDate": "2026-09-29",
-      "postingDateSource": "reported"
+      "addressRegion": "VS"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4390?c=groupemutuel&lang=fr-FR",
@@ -185,6 +189,8 @@
       },
       "category": "claims",
       "datePosted": "2026-09-29",
+      "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
@@ -197,11 +203,13 @@
       "jobReqId": "4390",
       "id": "groupe-mutuel-6f4ca8009166",
       "previousSlugs": [
-        "lehre-kauffrau-kaufmann-efz-dienstleistung-und-administration-100-groupe-mutuel"
+        "lehre-kauffrau-kaufmann-efz-dienstleistung-und-administration-100-groupe-mutuel",
+        "lehre-kauffrau-kaufmann-cfc-dienstleistung-e-administration-100-groupe-mutuel-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-kauffrau-kaufmann-efz-dienstleistung-und-administration-100-groupe-mutuel"
+          "lehre-kauffrau-kaufmann-efz-dienstleistung-und-administration-100-groupe-mutuel",
+          "lehre-kauffrau-kaufmann-cfc-dienstleistung-e-administration-100-groupe-mutuel-sion"
         ],
         "en": [
           "lehre-kauffrau-kaufmann-efz-dienstleistung-und-administration-100-groupe-mutuel"
@@ -228,9 +236,7 @@
         }
       },
       "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "postedDate": "2026-09-29",
-      "postingDateSource": "reported"
+      "addressRegion": "VS"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4389?c=groupemutuel&lang=fr-FR",
@@ -263,6 +269,8 @@
       },
       "category": "general",
       "datePosted": "2026-09-29",
+      "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -274,6 +282,22 @@
       },
       "jobReqId": "4389",
       "id": "groupe-mutuel-f1b2cd353471",
+      "previousSlugs": [
+        "apprenti-agent-relation-clients-h-f-100-groupe-mutuel",
+        "apprendista-agente-relazione-clienti-m-f-100-groupe-mutuel-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-agent-relation-clients-h-f-100-groupe-mutuel",
+          "apprendista-agente-relazione-clienti-m-f-100-groupe-mutuel-lausanne"
+        ],
+        "en": [
+          "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
+        ],
+        "de": [
+          "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T21:51:09.427Z",
       "crawledAt": "",
@@ -292,23 +316,7 @@
         }
       },
       "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "postedDate": "2026-09-29",
-      "postingDateSource": "reported",
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
-        ],
-        "en": [
-          "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
-        ],
-        "de": [
-          "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
-        ]
-      },
-      "previousSlugs": [
-        "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
-      ]
+      "addressRegion": "VD"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4376?c=groupemutuel&lang=fr-FR",
@@ -341,6 +349,8 @@
       },
       "category": "general",
       "datePosted": "2026-09-24",
+      "postedDate": "2026-09-24",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
@@ -353,11 +363,13 @@
       "jobReqId": "4376",
       "id": "groupe-mutuel-729b23590810",
       "previousSlugs": [
-        "vorsorgeberater-m-w-80-100-groupe-mutuel"
+        "vorsorgeberater-m-w-80-100-groupe-mutuel",
+        "consigliere-preventivo-m-f-80-100-groupe-mutuel-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorgeberater-m-w-80-100-groupe-mutuel"
+          "vorsorgeberater-m-w-80-100-groupe-mutuel",
+          "consigliere-preventivo-m-f-80-100-groupe-mutuel-zurich"
         ],
         "en": [
           "vorsorgeberater-m-w-80-100-groupe-mutuel"
@@ -384,9 +396,7 @@
         }
       },
       "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "postedDate": "2026-09-24",
-      "postingDateSource": "reported"
+      "addressRegion": "ZH"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4287?c=groupemutuel&lang=fr-FR",
@@ -419,6 +429,8 @@
       },
       "category": "customer-service",
       "datePosted": "2026-09-24",
+      "postedDate": "2026-09-24",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -432,12 +444,14 @@
       "id": "groupe-mutuel-ff797954f4a2",
       "previousSlugs": [
         "conseiller-clientele-agence-h-f-60-100-groupe-mutuel",
-        "conseiller-clientele-agence-h-f-60-groupe-mutuel"
+        "conseiller-clientele-agence-h-f-60-groupe-mutuel",
+        "agenzia-di-consulenza-clienti-m-f-60-100-groupe-mutuel-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-clientele-agence-h-f-60-100-groupe-mutuel",
-          "conseiller-clientele-agence-h-f-60-groupe-mutuel"
+          "conseiller-clientele-agence-h-f-60-groupe-mutuel",
+          "agenzia-di-consulenza-clienti-m-f-60-100-groupe-mutuel-fribourg"
         ],
         "en": [
           "conseiller-clientele-agence-h-f-60-100-groupe-mutuel"
@@ -464,9 +478,7 @@
         }
       },
       "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "postedDate": "2026-09-24",
-      "postingDateSource": "reported"
+      "addressRegion": "FR"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4370?c=groupemutuel&lang=fr-FR",
@@ -499,6 +511,8 @@
       },
       "category": "customer-service",
       "datePosted": "2026-09-22",
+      "postedDate": "2026-09-22",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
@@ -511,11 +525,13 @@
       "jobReqId": "4370",
       "id": "groupe-mutuel-4a5a7f5c6b11",
       "previousSlugs": [
-        "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+        "kundenberater-agenturen-m-w-80-100-groupe-mutuel",
+        "agenzie-di-servizio-clienti-m-f-80-100-groupe-mutuel-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+          "kundenberater-agenturen-m-w-80-100-groupe-mutuel",
+          "agenzie-di-servizio-clienti-m-f-80-100-groupe-mutuel-biel-bienne"
         ],
         "en": [
           "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
@@ -542,9 +558,7 @@
         }
       },
       "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "postedDate": "2026-09-22",
-      "postingDateSource": "reported"
+      "addressRegion": "BE"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4373?c=groupemutuel&lang=fr-FR",
@@ -577,6 +591,8 @@
       },
       "category": "insurance",
       "datePosted": "2026-09-17",
+      "postedDate": "2026-09-17",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
@@ -593,7 +609,8 @@
         "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-st-gallen-pdliyb",
         "insurance-and-pension-advisors-m-f-80-100-groupe-mutuel-st-gallen",
         "conseillers-en-assurance-et-retraite-m-f-80-100-groupe-mutuel-st-gallen",
-        "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-st-gallen"
+        "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-st-gallen",
+        "consulente-assicurativo-m-f-80-100-groupe-mutuel-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -601,7 +618,8 @@
           "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-st-gallen-pdliyb",
           "insurance-and-pension-advisors-m-f-80-100-groupe-mutuel-st-gallen",
           "conseillers-en-assurance-et-retraite-m-f-80-100-groupe-mutuel-st-gallen",
-          "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-st-gallen"
+          "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-st-gallen",
+          "consulente-assicurativo-m-f-80-100-groupe-mutuel-st-gallen"
         ],
         "en": [
           "insurance-and-pension-advisors-m-f-80-100-groupe-mutuel-st-gallen",
@@ -630,9 +648,7 @@
         }
       },
       "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "postedDate": "2026-09-17",
-      "postingDateSource": "reported"
+      "addressRegion": "SG"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4372?c=groupemutuel&lang=fr-FR",
@@ -665,6 +681,8 @@
       },
       "category": "insurance",
       "datePosted": "2026-09-17",
+      "postedDate": "2026-09-17",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
@@ -679,13 +697,15 @@
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel-2",
         "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
-        "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-wil"
+        "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-wil",
+        "consulente-assicurativo-m-f-80-100-groupe-mutuel-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel-2",
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
-          "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-wil"
+          "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-wil",
+          "consulente-assicurativo-m-f-80-100-groupe-mutuel-wil"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
@@ -712,9 +732,7 @@
         }
       },
       "addressLocality": "Wil",
-      "addressRegion": "SG",
-      "postedDate": "2026-09-17",
-      "postingDateSource": "reported"
+      "addressRegion": "SG"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4371?c=groupemutuel&lang=fr-FR",
@@ -747,6 +765,8 @@
       },
       "category": "insurance",
       "datePosted": "2026-09-17",
+      "postedDate": "2026-09-17",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -759,11 +779,13 @@
       "jobReqId": "4371",
       "id": "groupe-mutuel-5f62e3078e11",
       "previousSlugs": [
-        "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+        "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
+        "consulente-per-l-assicurazione-e-la-pianificazione-m-f-80-100-groupe-mutuel-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
+          "consulente-per-l-assicurazione-e-la-pianificazione-m-f-80-100-groupe-mutuel-bulle"
         ],
         "en": [
           "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
@@ -789,9 +811,7 @@
         }
       },
       "addressLocality": "Bulle",
-      "addressRegion": "FR",
-      "postedDate": "2026-09-17",
-      "postingDateSource": "reported"
+      "addressRegion": "FR"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4357?c=groupemutuel&lang=fr-FR",
@@ -824,6 +844,8 @@
       },
       "category": "insurance",
       "datePosted": "2026-09-16",
+      "postedDate": "2026-09-16",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -837,12 +859,14 @@
       "id": "groupe-mutuel-be494013d591",
       "previousSlugs": [
         "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
-        "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel-2"
+        "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel-2",
+        "consulente-per-l-assicurazione-e-la-pianificazione-m-f-80-100-groupe-mutuel-delemont"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
-          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel-2"
+          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel-2",
+          "consulente-per-l-assicurazione-e-la-pianificazione-m-f-80-100-groupe-mutuel-delemont"
         ],
         "en": [
           "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
@@ -868,9 +892,7 @@
         }
       },
       "addressLocality": "Delémont",
-      "addressRegion": "JU",
-      "postedDate": "2026-09-16",
-      "postingDateSource": "reported"
+      "addressRegion": "JU"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4366?c=groupemutuel&lang=fr-FR",
@@ -967,6 +989,8 @@
       },
       "category": "insurance",
       "datePosted": "2026-09-10",
+      "postedDate": "2026-09-10",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
@@ -997,7 +1021,8 @@
         "insurance-and-pension-advisor-m-w-80-100-groupe-mutuel-aarau",
         "conseiller-en-assurance-et-prevoyance-m-f-80-100-groupe-mutuel-aarau",
         "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-aarau",
-        "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-aarau"
+        "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-aarau",
+        "consulente-assicurativo-e-pensionistico-m-f-80-100-groupe-mutuel-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1019,7 +1044,8 @@
           "insurance-and-pension-advisor-m-w-80-100-groupe-mutuel-aarau",
           "conseiller-en-assurance-et-prevoyance-m-f-80-100-groupe-mutuel-aarau",
           "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-aarau",
-          "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-aarau"
+          "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-aarau",
+          "consulente-assicurativo-e-pensionistico-m-f-80-100-groupe-mutuel-aarau"
         ],
         "en": [
           "insurance-and-pension-advisors-m-f-80-100-groupe-mutuel-aarau",
@@ -1048,9 +1074,7 @@
         }
       },
       "addressLocality": "Aarau",
-      "addressRegion": "AG",
-      "postedDate": "2026-09-10",
-      "postingDateSource": "reported"
+      "addressRegion": "AG"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4348?c=groupemutuel&lang=fr-FR",
@@ -1083,6 +1107,8 @@
       },
       "category": "customer-service",
       "datePosted": "2026-09-07",
+      "postedDate": "2026-09-07",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
@@ -1095,11 +1121,13 @@
       "jobReqId": "4348",
       "id": "groupe-mutuel-e37ade3b9f16",
       "previousSlugs": [
-        "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+        "kundenberater-agenturen-m-w-80-100-groupe-mutuel",
+        "agenzie-di-servizio-clienti-m-f-80-100-groupe-mutuel-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+          "kundenberater-agenturen-m-w-80-100-groupe-mutuel",
+          "agenzie-di-servizio-clienti-m-f-80-100-groupe-mutuel-olten"
         ],
         "en": [
           "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
@@ -1126,9 +1154,7 @@
         }
       },
       "addressLocality": "Olten",
-      "addressRegion": "SO",
-      "postedDate": "2026-09-07",
-      "postingDateSource": "reported"
+      "addressRegion": "SO"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4341?c=groupemutuel&lang=fr-FR",
@@ -1161,6 +1187,8 @@
       },
       "category": "it",
       "datePosted": "2026-09-01",
+      "postedDate": "2026-09-01",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -1173,11 +1201,13 @@
       "jobReqId": "4341",
       "id": "groupe-mutuel-c7d22a7adca1",
       "previousSlugs": [
-        "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
+        "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel",
+        "apprenti-computer-operator-m-f-100-groupe-mutuel-martigny"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
+          "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel",
+          "apprenti-computer-operator-m-f-100-groupe-mutuel-martigny"
         ],
         "de": [
           "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
@@ -1201,9 +1231,7 @@
         }
       },
       "addressLocality": "Martigny",
-      "addressRegion": "VS",
-      "postedDate": "2026-09-01",
-      "postingDateSource": "reported"
+      "addressRegion": "VS"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4332?c=groupemutuel&lang=fr-FR",
@@ -1236,6 +1264,8 @@
       },
       "category": "general",
       "datePosted": "2026-08-27",
+      "postedDate": "2026-08-27",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -1248,11 +1278,13 @@
       "jobReqId": "4332",
       "id": "groupe-mutuel-a81a159b177f",
       "previousSlugs": [
-        "stagiaire-mpe-h-f-100-groupe-mutuel"
+        "stagiaire-mpe-h-f-100-groupe-mutuel",
+        "allenatore-mpe-m-f-100-groupe-mutuel-martigny"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-mpe-h-f-100-groupe-mutuel"
+          "stagiaire-mpe-h-f-100-groupe-mutuel",
+          "allenatore-mpe-m-f-100-groupe-mutuel-martigny"
         ],
         "en": [
           "stagiaire-mpe-h-f-100-groupe-mutuel"
@@ -1279,9 +1311,7 @@
         }
       },
       "addressLocality": "Martigny",
-      "addressRegion": "VS",
-      "postedDate": "2026-08-27",
-      "postingDateSource": "reported"
+      "addressRegion": "VS"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4307?c=groupemutuel&lang=fr-FR",
@@ -1314,6 +1344,8 @@
       },
       "category": "general",
       "datePosted": "2026-08-10",
+      "postedDate": "2026-08-10",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -1326,11 +1358,13 @@
       "jobReqId": "4307",
       "id": "groupe-mutuel-784d5dec6634",
       "previousSlugs": [
-        "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
+        "apprenti-agent-relation-clients-h-f-100-groupe-mutuel",
+        "apprenti-agente-rapporto-cliente-m-f-100-groupe-mutuel-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
+          "apprenti-agent-relation-clients-h-f-100-groupe-mutuel",
+          "apprenti-agente-rapporto-cliente-m-f-100-groupe-mutuel-fribourg"
         ],
         "en": [
           "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
@@ -1357,9 +1391,7 @@
         }
       },
       "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "postedDate": "2026-08-10",
-      "postingDateSource": "reported"
+      "addressRegion": "FR"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4306?c=groupemutuel&lang=fr-FR",
@@ -1392,6 +1424,8 @@
       },
       "category": "insurance",
       "datePosted": "2026-08-10",
+      "postedDate": "2026-08-10",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -1404,11 +1438,13 @@
       "jobReqId": "4306",
       "id": "groupe-mutuel-7bfc97dd04cf",
       "previousSlugs": [
-        "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
+        "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel",
+        "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
+          "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel",
+          "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-lausanne"
         ],
         "en": [
           "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
@@ -1435,9 +1471,7 @@
         }
       },
       "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "postedDate": "2026-08-10",
-      "postingDateSource": "reported"
+      "addressRegion": "VD"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4305?c=groupemutuel&lang=fr-FR",
@@ -1470,6 +1504,8 @@
       },
       "category": "insurance",
       "datePosted": "2026-08-10",
+      "postedDate": "2026-08-10",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -1483,12 +1519,14 @@
       "id": "groupe-mutuel-8da195c3daa6",
       "previousSlugs": [
         "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel",
-        "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel-2"
+        "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel-2",
+        "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel",
-          "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel-2"
+          "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel-2",
+          "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-fribourg"
         ],
         "en": [
           "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
@@ -1515,9 +1553,7 @@
         }
       },
       "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "postedDate": "2026-08-10",
-      "postingDateSource": "reported"
+      "addressRegion": "FR"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4304?c=groupemutuel&lang=fr-FR",
@@ -1550,6 +1586,8 @@
       },
       "category": "insurance",
       "datePosted": "2026-08-10",
+      "postedDate": "2026-08-10",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -1563,12 +1601,14 @@
       "id": "groupe-mutuel-1b6ea619c3ff",
       "previousSlugs": [
         "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel",
-        "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel-3"
+        "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel-3",
+        "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-martigny"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel",
-          "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel-3"
+          "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel-3",
+          "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-martigny"
         ],
         "en": [
           "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
@@ -1595,9 +1635,7 @@
         }
       },
       "addressLocality": "Martigny",
-      "addressRegion": "VS",
-      "postedDate": "2026-08-10",
-      "postingDateSource": "reported"
+      "addressRegion": "VS"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4253?c=groupemutuel&lang=fr-FR",
@@ -1630,6 +1668,8 @@
       },
       "category": "insurance",
       "datePosted": "2026-08-10",
+      "postedDate": "2026-08-10",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -1642,11 +1682,13 @@
       "jobReqId": "4253",
       "id": "groupe-mutuel-e27c6cbd250d",
       "previousSlugs": [
-        "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+        "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
+        "consulente-assicurativo-h-f-80-100-groupe-mutuel-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
+          "consulente-assicurativo-h-f-80-100-groupe-mutuel-yverdon-les-bains"
         ],
         "en": [
           "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
@@ -1672,9 +1714,7 @@
         }
       },
       "addressLocality": "Yverdon-les-Bains",
-      "addressRegion": "VD",
-      "postedDate": "2026-08-10",
-      "postingDateSource": "reported"
+      "addressRegion": "VD"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4282?c=groupemutuel&lang=fr-FR",
@@ -1707,6 +1747,8 @@
       },
       "category": "insurance",
       "datePosted": "2026-08-06",
+      "postedDate": "2026-08-06",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -1719,11 +1761,13 @@
       "jobReqId": "4282",
       "id": "groupe-mutuel-304fc68db623",
       "previousSlugs": [
-        "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+        "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
+        "consulente-assicurativo-h-f-80-100-groupe-mutuel-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
+          "consulente-assicurativo-h-f-80-100-groupe-mutuel-monthey"
         ],
         "en": [
           "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
@@ -1749,9 +1793,7 @@
         }
       },
       "addressLocality": "Monthey",
-      "addressRegion": "VS",
-      "postedDate": "2026-08-06",
-      "postingDateSource": "reported"
+      "addressRegion": "VS"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4259?c=groupemutuel&lang=fr-FR",
@@ -1784,6 +1826,8 @@
       },
       "category": "insurance",
       "datePosted": "2026-07-23",
+      "postedDate": "2026-07-23",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
@@ -1797,12 +1841,14 @@
       "id": "groupe-mutuel-b5d5bdae0a39",
       "previousSlugs": [
         "conseiller-en-assurance-prev-conseiller-en-assurance-prev-groupe-mutuel",
-        "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+        "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
+        "consulente-in-assicurazione-previdenza-consulente-in-assicurazione-previdenza-groupe-mutuel-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-en-assurance-prev-conseiller-en-assurance-prev-groupe-mutuel",
-          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
+          "consulente-in-assicurazione-previdenza-consulente-in-assicurazione-previdenza-groupe-mutuel-winterthur"
         ],
         "en": [
           "conseiller-en-assurance-prev-conseiller-en-assurance-prev-groupe-mutuel"
@@ -1810,6 +1856,7 @@
       },
       "firstSeenAt": "2026-07-23T12:03:45.120Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 131000,
       "currency": "CHF",
@@ -1825,9 +1872,7 @@
         }
       },
       "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "postedDate": "2026-07-23",
-      "postingDateSource": "reported"
+      "addressRegion": "ZH"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4220?c=groupemutuel&lang=fr-FR",
@@ -1860,6 +1905,8 @@
       },
       "category": "insurance",
       "datePosted": "2026-07-12",
+      "postedDate": "2026-07-12",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
@@ -1872,11 +1919,13 @@
       "jobReqId": "4220",
       "id": "groupe-mutuel-597359dba84a",
       "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-quereinstieg-m-w-80-100-groupe-mutuel"
+        "versicherungs-und-vorsorgeberater-quereinstieg-m-w-80-100-groupe-mutuel",
+        "versicherungs-e-vorsorgeberater-cambio-carriera-m-w-d-80-100-groupe-mutuel-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "versicherungs-und-vorsorgeberater-quereinstieg-m-w-80-100-groupe-mutuel"
+          "versicherungs-und-vorsorgeberater-quereinstieg-m-w-80-100-groupe-mutuel",
+          "versicherungs-e-vorsorgeberater-cambio-carriera-m-w-d-80-100-groupe-mutuel-bern"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-quereinstieg-m-w-80-100-groupe-mutuel"
@@ -1903,9 +1952,7 @@
         }
       },
       "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "postedDate": "2026-07-12",
-      "postingDateSource": "reported"
+      "addressRegion": "BE"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4212?c=groupemutuel&lang=fr-FR",
@@ -1938,6 +1985,8 @@
       },
       "category": "general",
       "datePosted": "2026-07-10",
+      "postedDate": "2026-07-10",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
@@ -1950,11 +1999,13 @@
       "jobReqId": "4212",
       "id": "groupe-mutuel-fa0cd0482fb7",
       "previousSlugs": [
-        "vorsorgeberater-m-w-60-100-groupe-mutuel"
+        "vorsorgeberater-m-w-60-100-groupe-mutuel",
+        "consulente-per-la-cura-m-f-60-100-groupe-mutuel-sargans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorgeberater-m-w-60-100-groupe-mutuel"
+          "vorsorgeberater-m-w-60-100-groupe-mutuel",
+          "consulente-per-la-cura-m-f-60-100-groupe-mutuel-sargans"
         ],
         "en": [
           "vorsorgeberater-m-w-60-100-groupe-mutuel"
@@ -1980,9 +2031,7 @@
         }
       },
       "addressLocality": "Sargans",
-      "addressRegion": "SG",
-      "postedDate": "2026-07-10",
-      "postingDateSource": "reported"
+      "addressRegion": "SG"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4177?c=groupemutuel&lang=fr-FR",
@@ -2092,6 +2141,8 @@
       },
       "category": "insurance",
       "datePosted": "2026-06-17",
+      "postedDate": "2026-06-17",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -2106,13 +2157,15 @@
       "previousSlugs": [
         "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
         "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel-2",
-        "consulente-assicurazioni-e-previdenza-m-f-80-100-groupe-mutuel-fribourg"
+        "consulente-assicurazioni-e-previdenza-m-f-80-100-groupe-mutuel-fribourg",
+        "consulente-assicurativo-h-f-80-100-groupe-mutuel-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
           "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel-2",
-          "consulente-assicurazioni-e-previdenza-m-f-80-100-groupe-mutuel-fribourg"
+          "consulente-assicurazioni-e-previdenza-m-f-80-100-groupe-mutuel-fribourg",
+          "consulente-assicurativo-h-f-80-100-groupe-mutuel-neuchatel"
         ],
         "en": [
           "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
@@ -2138,9 +2191,7 @@
         }
       },
       "addressLocality": "Neuchâtel",
-      "addressRegion": "NE",
-      "postedDate": "2026-06-17",
-      "postingDateSource": "reported"
+      "addressRegion": "NE"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4138?c=groupemutuel&lang=fr-FR",
@@ -2173,6 +2224,8 @@
       },
       "category": "sales",
       "datePosted": "2026-06-15",
+      "postedDate": "2026-06-15",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
@@ -2185,11 +2238,13 @@
       "jobReqId": "4138",
       "id": "groupe-mutuel-0bdf59be43e4",
       "previousSlugs": [
-        "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel"
+        "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel",
+        "coach-di-vendita-specialista-previdenziale-m-f-80-100-groupe-mutuel-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel"
+          "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel",
+          "coach-di-vendita-specialista-previdenziale-m-f-80-100-groupe-mutuel-st-gallen"
         ],
         "en": [
           "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel"
@@ -2216,9 +2271,7 @@
         }
       },
       "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "postedDate": "2026-06-15",
-      "postingDateSource": "reported"
+      "addressRegion": "SG"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4082?c=groupemutuel&lang=fr-FR",
@@ -2251,6 +2304,8 @@
       },
       "category": "insurance",
       "datePosted": "2026-05-22",
+      "postedDate": "2026-05-22",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -2263,11 +2318,13 @@
       "jobReqId": "4082",
       "id": "groupe-mutuel-5dd175c9d179",
       "previousSlugs": [
-        "conseiller-assurance-et-prevoyance-h-f-80-100-groupe-mutuel"
+        "conseiller-assurance-et-prevoyance-h-f-80-100-groupe-mutuel",
+        "consulente-per-l-assicurazione-e-la-pianificazione-h-f-80-100-groupe-mutuel-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-assurance-et-prevoyance-h-f-80-100-groupe-mutuel"
+          "conseiller-assurance-et-prevoyance-h-f-80-100-groupe-mutuel",
+          "consulente-per-l-assicurazione-e-la-pianificazione-h-f-80-100-groupe-mutuel-geneve"
         ],
         "en": [
           "conseiller-assurance-et-prevoyance-h-f-80-100-groupe-mutuel"
@@ -2293,9 +2350,7 @@
         }
       },
       "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postedDate": "2026-05-22",
-      "postingDateSource": "reported"
+      "addressRegion": "GE"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3980?c=groupemutuel&lang=fr-FR",
@@ -2359,6 +2414,7 @@
       },
       "firstSeenAt": "2026-04-16T21:40:55.557Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 131000,
       "currency": "CHF",

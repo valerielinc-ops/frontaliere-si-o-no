@@ -1,13 +1,13 @@
 {
   "crawlerKey": "lindt-spruengli",
-  "assembledAt": "2026-10-04T09:23:58.876Z",
+  "assembledAt": "2026-10-04T21:24:12.497Z",
   "jobs": [
     {
       "id": "lindt-spruengli-481b4299ca0f",
       "slug": "elettricista-di-impianti-lindt-sprungli-kilchberg",
       "slugByLocale": {
         "it": "elettricista-di-impianti-lindt-sprungli-kilchberg",
-        "en": "business-electrician-lindt-sprungli-kilchberg",
+        "en": "betriebselektriker-in-lindt-sprungli-kilchberg",
         "de": "betriebselektriker-in-lindt-spruengli-kilchberg",
         "fr": "electricien-d-affaires-lindt-sprungli-kilchberg"
       },
@@ -33,7 +33,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Plant---Kilchberg---Plant/Betriebselektriker-in_JR101051",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:54.042Z",
+      "crawledAt": "2026-10-04T21:24:07.510Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -54,22 +54,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "betriebselektriker-in-lindt-spruengli-kilchberg",
-        "betriebselektriker-in-lindt-sprungli-kilchberg"
+        "betriebselektriker-in-lindt-sprungli-kilchberg",
+        "business-electrician-lindt-sprungli-kilchberg",
+        "elettricista-di-impianti-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-in-lindt-spruengli-kilchberg",
-          "betriebselektriker-in-lindt-sprungli-kilchberg"
+          "betriebselektriker-in-lindt-sprungli-kilchberg",
+          "elettricista-di-impianti-lindt-sprungli-kilchberg"
         ],
         "en": [
+          "business-electrician-lindt-sprungli-kilchberg",
           "betriebselektriker-in-lindt-sprungli-kilchberg"
         ],
         "fr": [
           "betriebselektriker-in-lindt-sprungli-kilchberg"
         ]
       },
-      "firstSeenAt": "2026-07-04T11:36:22.956Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T11:36:22.956Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -90,7 +94,7 @@
       "slugByLocale": {
         "it": "domanda-non-richiesta-lindt-sprungli-kilchberg",
         "en": "unsolicited-application-lindt-spruengli-kilchberg",
-        "de": "unerbetene-anwendung-lindt-sprungli-kilchberg",
+        "de": "initiativbewerbung-lindt-sprungli-kilchberg",
         "fr": "demande-spontanee-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
@@ -115,7 +119,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Spontaneous-Application_JR102189",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:23:53.422Z",
+      "crawledAt": "2026-10-04T21:24:06.871Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -146,6 +150,8 @@
         "personnel-militaire-lindt-sprungli-kilchberg",
         "servicemitarbeiter-in-lindt-sprungli-kilchberg",
         "patissier-in-90-lindt-sprungli-kilchberg",
+        "unerbetene-anwendung-lindt-sprungli-kilchberg",
+        "domanda-non-richiesta-lindt-sprungli-kilchberg",
         "initiativbewerbung-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
@@ -160,7 +166,8 @@
           "servicemitarbeiter-in-lindt-spruengli-kilchberg",
           "personnel-militaire-lindt-sprungli-kilchberg",
           "servicemitarbeiter-in-lindt-sprungli-kilchberg",
-          "patissier-in-90-lindt-sprungli-kilchberg"
+          "patissier-in-90-lindt-sprungli-kilchberg",
+          "domanda-non-richiesta-lindt-sprungli-kilchberg"
         ],
         "en": [
           "patissian-90-lindt-sprungli-kilchberg"
@@ -168,6 +175,7 @@
         "de": [
           "unsolicited-application-lindt-spruengli-kilchberg",
           "patissier-in-90-lindt-spruengli-kilchberg",
+          "unerbetene-anwendung-lindt-sprungli-kilchberg",
           "initiativbewerbung-lindt-sprungli-kilchberg"
         ],
         "fr": [
@@ -176,6 +184,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:19.739Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -221,7 +230,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Altendorf-Switzerland/Lehrstelle-als-Logistiker-in-EFZ-Lehrbeginn-Sommer-2027_JR101256-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:52.822Z",
+      "crawledAt": "2026-10-04T21:24:06.263Z",
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -241,11 +250,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-logistiker-in-efz-lehrbeginn-sommer-2027-lindt-spruengli-altendorf"
+        "lehrstelle-als-logistiker-in-efz-lehrbeginn-sommer-2027-lindt-spruengli-altendorf",
+        "apprendistato-come-logistiker-in-cfc-lehrbeginn-sommer-2027-lindt-sprungli-altendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-logistiker-in-efz-lehrbeginn-sommer-2027-lindt-spruengli-altendorf"
+          "lehrstelle-als-logistiker-in-efz-lehrbeginn-sommer-2027-lindt-spruengli-altendorf",
+          "apprendistato-come-logistiker-in-cfc-lehrbeginn-sommer-2027-lindt-sprungli-altendorf"
         ],
         "en": [
           "lehrstelle-als-logistiker-in-efz-lehrbeginn-sommer-2027-lindt-spruengli-altendorf"
@@ -300,7 +311,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmitteltechnologe--login-EFZ---Lehrbeginn-ab-Sommer-2027_JR102079",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:52.205Z",
+      "crawledAt": "2026-10-04T21:24:05.649Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -321,11 +332,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-lebensmitteltechnologe-login-efz-lehrbeginn-ab-sommer-2027-lindt-spruengli",
-        "lehrstelle-als-lebensmitteltechnologe-login-efz-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg"
+        "lehrstelle-als-lebensmitteltechnologe-login-efz-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg",
+        "apprendistato-come-lebensmitteltechnologe-login-cfc-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-lebensmitteltechnologe-login-efz-lehrbeginn-ab-sommer-2027-lindt-spruengli"
+          "lehrstelle-als-lebensmitteltechnologe-login-efz-lehrbeginn-ab-sommer-2027-lindt-spruengli",
+          "apprendistato-come-lebensmitteltechnologe-login-cfc-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg"
         ],
         "en": [
           "lehrstelle-als-lebensmitteltechnologe-login-efz-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg"
@@ -335,6 +348,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:10.494Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -380,7 +394,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102101",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:51.593Z",
+      "crawledAt": "2026-10-04T21:24:05.021Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -401,11 +415,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-spruengli",
-        "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg"
+        "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg",
+        "apprendistato-come-lebensmittelpraktiker-in-afp-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-spruengli"
+          "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-spruengli",
+          "apprendistato-come-lebensmittelpraktiker-in-afp-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg"
         ],
         "en": [
           "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-sprungli-kilchberg"
@@ -460,7 +476,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Plant---Altendorf---Plant/Befr-Mitarbeiter-in-Kommi---Lager_JR102524-2",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:50.980Z",
+      "crawledAt": "2026-10-04T21:24:04.399Z",
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -480,11 +496,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "befr-mitarbeiter-in-kommi-lager-lindt-spruengli-altendorf"
+        "befr-mitarbeiter-in-kommi-lager-lindt-spruengli-altendorf",
+        "befr-collaboratore-trice-in-kommi-magazzino-lindt-sprungli-altendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "befr-mitarbeiter-in-kommi-lager-lindt-spruengli-altendorf"
+          "befr-mitarbeiter-in-kommi-lager-lindt-spruengli-altendorf",
+          "befr-collaboratore-trice-in-kommi-magazzino-lindt-sprungli-altendorf"
         ],
         "en": [
           "befr-mitarbeiter-in-kommi-lager-lindt-spruengli-altendorf"
@@ -523,7 +541,7 @@
       "title": "Experience & Shop Manager Luzern",
       "titleByLocale": {
         "it": "Esperienza e Shop Manager Lucerne",
-        "en": "Experience & Shop Manager Lucerne",
+        "en": "Experience & Shop Manager Luzern",
         "de": "Experience & Shop Manager Luzern",
         "fr": "Experience & Shop Manager Lucerne"
       },
@@ -539,7 +557,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/LCH---CHE---Retail---Lindt-Shop-City---Luzern/Retail-Store-Manager_JR101237",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:50.351Z",
+      "crawledAt": "2026-10-04T21:24:03.758Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -559,14 +577,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "experience-shop-manager-luzern-lindt-spruengli-luzern"
+        "experience-shop-manager-luzern-lindt-spruengli-luzern",
+        "esperienza-e-shop-manager-lucerne-lindt-sprungli-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "experience-shop-manager-luzern-lindt-spruengli-luzern"
+          "experience-shop-manager-luzern-lindt-spruengli-luzern",
+          "esperienza-e-shop-manager-lucerne-lindt-sprungli-luzern"
         ]
       },
       "firstSeenAt": "2026-08-13T10:25:35.277Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -612,7 +633,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Olten-Switzerland/Lehrstelle-als-Lebensmittelpraktiker-in-EBA---Lehrbeginn-ab-Sommer-2027_JR102995-2",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:49.717Z",
+      "crawledAt": "2026-10-04T21:24:03.114Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -634,12 +655,14 @@
       "previousSlugs": [
         "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-spruengli",
         "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-sprungli-olten",
-        "apprendistato-come-lebensmittelpraktiker-in-afp-lehrbeginn-ab-sommer-2027-lindt-sprungli-olten"
+        "apprendistato-come-lebensmittelpraktiker-in-afp-lehrbeginn-ab-sommer-2027-lindt-sprungli-olten",
+        "apprendistato-come-praticante-alimentare-eba-inizio-dell-apprendistato-dall-estate-2027-lindt-sprungli-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-spruengli",
-          "apprendistato-come-lebensmittelpraktiker-in-afp-lehrbeginn-ab-sommer-2027-lindt-sprungli-olten"
+          "apprendistato-come-lebensmittelpraktiker-in-afp-lehrbeginn-ab-sommer-2027-lindt-sprungli-olten",
+          "apprendistato-come-praticante-alimentare-eba-inizio-dell-apprendistato-dall-estate-2027-lindt-sprungli-olten"
         ],
         "en": [
           "lehrstelle-als-lebensmittelpraktiker-in-eba-lehrbeginn-ab-sommer-2027-lindt-sprungli-olten"
@@ -694,7 +717,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Lindt-Chocolate-Advisor---Verkufer-in-Lindt-Shop_JR103256-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:49.113Z",
+      "crawledAt": "2026-10-04T21:24:02.479Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -714,11 +737,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg"
+        "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg",
+        "lindt-chocolate-consulente-verkaufer-in-lindt-shop-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg"
+          "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg",
+          "lindt-chocolate-consulente-verkaufer-in-lindt-shop-lindt-sprungli-kilchberg"
         ],
         "en": [
           "lindt-chocolate-advisor-verkaufer-in-lindt-shop-lindt-spruengli-kilchberg"
@@ -728,6 +753,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:27:06.080Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -773,7 +799,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Servicemitarbeiter-in-80-_JR103301-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:48.505Z",
+      "crawledAt": "2026-10-04T21:24:01.866Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -794,12 +820,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicemitarbeiter-in-80-lindt-spruengli-kilchberg",
-        "servicemitarbeiter-in-80-lindt-sprungli-kilchberg"
+        "servicemitarbeiter-in-80-lindt-sprungli-kilchberg",
+        "personale-di-servizio-80-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicemitarbeiter-in-80-lindt-spruengli-kilchberg",
-          "servicemitarbeiter-in-80-lindt-sprungli-kilchberg"
+          "servicemitarbeiter-in-80-lindt-sprungli-kilchberg",
+          "personale-di-servizio-80-lindt-sprungli-kilchberg"
         ],
         "en": [
           "servicemitarbeiter-in-80-lindt-sprungli-kilchberg"
@@ -854,7 +882,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Basel-Switzerland/Lindt-Chocolate-Advisor---Verkufer-in-Lindt-Shop-Basel--50----60--_JR103262-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:47.851Z",
+      "crawledAt": "2026-10-04T21:24:01.262Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "",
@@ -877,13 +905,15 @@
         "lindt-chocolate-advisor-verkaufer-in-lindt-shop-basel-50-60-lindt-spruengli-basel",
         "verkaufer-in-lindt-shop-basel-50-60-befristet-bis-31-01-2027-lindt-spruengli-basel",
         "lindt-chocolate-consulente-verkaufer-in-lindt-shop-basel-50-60-lindt-sprungli-basel",
-        "lindt-chocolate-conseiller-verkaufer-in-lindt-shop-basel-50-60-lindt-sprungli-basel"
+        "lindt-chocolate-conseiller-verkaufer-in-lindt-shop-basel-50-60-lindt-sprungli-basel",
+        "lindt-chocolate-advisor-venditore-in-lindt-shop-basel-50-60-lindt-sprungli-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lindt-chocolate-advisor-verkaufer-in-lindt-shop-basel-50-60-lindt-spruengli-basel",
           "verkaufer-in-lindt-shop-basel-50-60-befristet-bis-31-01-2027-lindt-spruengli-basel",
-          "lindt-chocolate-consulente-verkaufer-in-lindt-shop-basel-50-60-lindt-sprungli-basel"
+          "lindt-chocolate-consulente-verkaufer-in-lindt-shop-basel-50-60-lindt-sprungli-basel",
+          "lindt-chocolate-advisor-venditore-in-lindt-shop-basel-50-60-lindt-sprungli-basel"
         ],
         "en": [
           "lindt-chocolate-advisor-verkaufer-in-lindt-shop-basel-50-60-lindt-spruengli-basel"
@@ -897,6 +927,7 @@
         ]
       },
       "firstSeenAt": "2026-09-01T08:59:13.326Z",
+      "needsRetranslation": true,
       "salaryMin": 44400,
       "salaryMax": 68100,
       "salarySource": "estimated",
@@ -942,7 +973,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Praktikant-in-Controlling--1-Jahr-befristet-_JR101189-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:47.243Z",
+      "crawledAt": "2026-10-04T21:24:00.657Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -963,11 +994,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikant-in-controlling-1-jahr-befristet-lindt-spruengli-kilchberg",
-        "praktikant-in-controlling-1-jahr-befristet-lindt-sprungli-kilchberg"
+        "praktikant-in-controlling-1-jahr-befristet-lindt-sprungli-kilchberg",
+        "interno-nel-controllo-1-anno-su-base-temporanea-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-controlling-1-jahr-befristet-lindt-spruengli-kilchberg"
+          "praktikant-in-controlling-1-jahr-befristet-lindt-spruengli-kilchberg",
+          "interno-nel-controllo-1-anno-su-base-temporanea-lindt-sprungli-kilchberg"
         ],
         "fr": [
           "praktikant-in-controlling-1-jahr-befristet-lindt-sprungli-kilchberg"
@@ -1019,7 +1052,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Head-of-Group-Information-Security_JR103662-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:23:46.639Z",
+      "crawledAt": "2026-10-04T21:24:00.041Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1039,11 +1072,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-group-information-security-lindt-spruengli-kilchberg"
+        "head-of-group-information-security-lindt-spruengli-kilchberg",
+        "responsabile-group-information-security-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-group-information-security-lindt-spruengli-kilchberg"
+          "head-of-group-information-security-lindt-spruengli-kilchberg",
+          "responsabile-group-information-security-lindt-sprungli-kilchberg"
         ],
         "de": [
           "head-of-group-information-security-lindt-spruengli-kilchberg"
@@ -1098,7 +1133,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Caf-Team-Member--Aushilfe--mind-60-_JR103376",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:46.024Z",
+      "crawledAt": "2026-10-04T21:23:59.434Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1118,11 +1153,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cafe-team-member-aushilfe-mind-60-lindt-spruengli-kilchberg"
+        "cafe-team-member-aushilfe-mind-60-lindt-spruengli-kilchberg",
+        "cafe-team-member-auxiliary-60-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cafe-team-member-aushilfe-mind-60-lindt-spruengli-kilchberg"
+          "cafe-team-member-aushilfe-mind-60-lindt-spruengli-kilchberg",
+          "cafe-team-member-auxiliary-60-lindt-sprungli-kilchberg"
         ],
         "en": [
           "cafe-team-member-aushilfe-mind-60-lindt-spruengli-kilchberg"
@@ -1177,7 +1214,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/INTL---CHE---HQ---Kilchberg/Intern-Global-Direct-to-Consumer--D2C----6-months--100--_JR101364-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:23:45.395Z",
+      "crawledAt": "2026-10-04T21:23:58.809Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1197,11 +1234,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "intern-global-direct-to-consumer-d2c-6-months-100-lindt-spruengli-kilchberg"
+        "intern-global-direct-to-consumer-d2c-6-months-100-lindt-spruengli-kilchberg",
+        "tirocinante-global-direct-to-consumer-d2c-6-months-100-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "intern-global-direct-to-consumer-d2c-6-months-100-lindt-spruengli-kilchberg"
+          "intern-global-direct-to-consumer-d2c-6-months-100-lindt-spruengli-kilchberg",
+          "tirocinante-global-direct-to-consumer-d2c-6-months-100-lindt-sprungli-kilchberg"
         ],
         "de": [
           "intern-global-direct-to-consumer-d2c-6-months-100-lindt-spruengli-kilchberg"
@@ -1223,7 +1262,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "lindt-spruengli-66fdf4e58b0a",
@@ -1256,7 +1296,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Landquart-Switzerland/Assistant-Shop-Manager--60-80--_JR103772-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:44.764Z",
+      "crawledAt": "2026-10-04T21:23:58.171Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1330,7 +1370,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Anlagenfhrer-in-Grundfabrikation_JR103638-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:44.154Z",
+      "crawledAt": "2026-10-04T21:23:57.551Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1350,11 +1390,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagenfuhrer-in-grundfabrikation-lindt-spruengli-kilchberg"
+        "anlagenfuhrer-in-grundfabrikation-lindt-spruengli-kilchberg",
+        "anlagenfuhrer-in-grundfabrikation-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-in-grundfabrikation-lindt-spruengli-kilchberg"
+          "anlagenfuhrer-in-grundfabrikation-lindt-spruengli-kilchberg",
+          "anlagenfuhrer-in-grundfabrikation-lindt-sprungli-kilchberg"
         ]
       },
       "needsRetranslation": true,
@@ -1379,7 +1421,7 @@
         "it": "pasticcere-90-lindt-sprungli-kilchberg",
         "en": "patissian-90-lindt-sprungli-kilchberg",
         "de": "patissier-in-90-lindt-spruengli-kilchberg",
-        "fr": "patissien-90-lindt-sprungli-kilchberg"
+        "fr": "chef-de-partie-patissier-in-90-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
       "companyKey": "lindt-spruengli",
@@ -1389,7 +1431,7 @@
         "it": "Patissian 90%",
         "en": "Patissian 90%",
         "de": "Chef de Partie - Patissier*in 90%",
-        "fr": "Chef de Partie - Pâtissier 90 %"
+        "fr": "Chef de Partie - Patissier*in 90%"
       },
       "description": "Über uns\n\nWir verzaubern die Welt mit Schokolade! Die Lindt & Sprüngli (Schweiz) AG ist eine Tochtergesellschaft der globalen Lindt & Sprüngli Gruppe mit Hauptsitz und Produktionsstätte in Kilchberg am Zürichsee. In Altendorf betreiben wir unser eigenes Logistikzentrum, während das Lindt Cocoa Center in Olten Kakaomasse für unseren Eigenbedarf sowie für andere europäische Produktionsstätten herstellt. In der ganzen Schweiz betreiben wir stolz 15 Lindt Shops, darunter ikonische Standorte wie das Jungfraujoch und das Verkehrshaus der Schweiz in Luzern. Über 1000 Mitarbeitende aus mehr als 50 Nationen tragen zu unserem Erfolg bei.\n\nFür unser Lindt Café in Kilchberg suchen wir per sofort oder nach Vereinbarung eine zuverlässige und engagierte Unterstützung.\n\nWas du bei uns machst:\n\n• Produktion von Speisen in der Küche und Bestücken der Verkaufsvitrinen im Centerpiece\n\n• Aktive Mitarbeit im Gästebereich im Café (Center Piece)\n\n• Übernehmen von vielseitigen Aufgaben in der Küche sowie auch im Service\n\n• Mitarbeit bei der Entwicklung neuer Produkte\n\nWenn du zu uns passt:\n\n• Abgeschlossene Grundausbildung als Koch/ Köchin EFZ oder eine vergleichbare Ausbildung\n\n• Berufserfahrung in einer vergleichbaren Funktion\n\n• Verhandlungssicheres Deutsch und Englisch, weitere Fremdsprachen von Vorteil\n\n• Proaktive, aufgestellte und ehrliche Persönlichkeit\n\n• Belastbarkeit, Flexibilität und Offenheit für Veränderungen\n\n• «Gastgeber-Gen» und Bereitschaft die Extrameile zu gehen\n\nWir sind alle einzigartig!\n\nWir rekrutieren frei von Vorurteilen und berücksichtigen Fähigkeiten und Qualifikationen unbeeinflusst von persönlichen Merkmalen wie Geschlecht, Alter, sexuelle Orientierung, Herkunft, Religion, Familienstand, Beeinträchtigungen, etc.\n\nWohlbefinden\nGesundheit ist uns wichtig. Mit einer Sportprämie, Ergonomieberatung, gesunder Ernährung und weiteren Gesundheitsinitiativen unterstützen wir dich dabei fit zu bleiben.\n\nEntwicklung\nLernen wird bei uns GROSS geschrieben. Für die persönliche und fachliche Weiterentwicklung stehen dir verschiedene spannende Möglichkeiten zur Verfügung.\n\nMobilität\nWir unterstützen dich mit einer monatlichen Mobilitätsprämie und E-Bikes vor Ort. Zudem kannst du auch von der REKA-Card profitieren.\n\nFamilienfreundliches Umfeld - richtig versichert\nUnsere Sozialversicherungen, wie auch der Mutterschaftsurlaub, gehen weit über das Obligatorische hinaus - zum eigenen Schutz sowie für deine Liebsten.\n\nFlexibilität\nJe nach Funktion sind flexible Arbeitszeiten, Home Office sowie Teilzeitarbeit möglich. Zudem bieten wir dir die Option, die Ferientage zu erhöhen.\n\nVergünstigung\nZahlreiche Vergünstigungen wie ein top Personalrestaurant, Rabatte in den Lindt Shops oder tolle Freizeitangebote stehen dir zur Verfügung.",
       "descriptionByLocale": {
@@ -1403,7 +1445,7 @@
       "url": "https://lindtspruengli.wd103.myworkdayjobs.com/LindtSpruengliGroupCareers/job/Kilchberg-Switzerland/Patissier-in-90-_JR102591-1",
       "source": "Lindt & Sprüngli Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:43.550Z",
+      "crawledAt": "2026-10-04T21:23:56.892Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 204",
@@ -1426,22 +1468,27 @@
         "patissier-in-90-lindt-spruengli-kilchberg",
         "patissier-in-90-lindt-sprungli-kilchberg",
         "chef-de-partie-patissier-in-90-lindt-spruengli-kilchberg",
+        "patissien-90-lindt-sprungli-kilchberg",
+        "pasticcere-90-lindt-sprungli-kilchberg",
         "chef-de-partie-patissier-in-90-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "patissier-in-90-lindt-spruengli-kilchberg",
-          "chef-de-partie-patissier-in-90-lindt-spruengli-kilchberg"
+          "chef-de-partie-patissier-in-90-lindt-spruengli-kilchberg",
+          "pasticcere-90-lindt-sprungli-kilchberg"
         ],
         "en": [
           "patissier-in-90-lindt-sprungli-kilchberg"
         ],
         "fr": [
           "patissier-in-90-lindt-sprungli-kilchberg",
+          "patissien-90-lindt-sprungli-kilchberg",
           "chef-de-partie-patissier-in-90-lindt-sprungli-kilchberg"
         ]
       },
       "firstSeenAt": "2026-09-19T23:12:41.906Z",
+      "needsRetranslation": true,
       "salaryMin": 68400,
       "salaryMax": 92300,
       "salarySource": "estimated",
