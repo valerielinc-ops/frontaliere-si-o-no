@@ -123,6 +123,46 @@ describe('isVerdictOnlyFailure — fixture reali del monitor', () => {
   it('un workflow fuori registro non è mai di solo verdetto', () => {
     expect(isVerdictOnlyFailure('.github/workflows/altro.yml', VERDICT_ONLY)).toBe(false);
   });
+
+  // Un job `success` può contenere uno step fallito: è il caso `continue-on-error`. Il
+  // guasto vero vive lì anche se il job (e quindi la sua conclusion) resta verde, quindi
+  // gli step falliti si leggono in OGNI job, non solo in quelli `failure`.
+  it('job `success` con uno step continue-on-error estraneo fallito + verdetto fallito → non è di solo verdetto', () => {
+    const jobs: Jobs = {
+      total_count: 2,
+      jobs: [
+        { name: 'side', conclusion: 'success', steps: [{ name: 'Unrelated continue-on-error step', conclusion: 'failure' }] },
+        { name: 'check', conclusion: 'failure', steps: [{ name: 'Fail if any crawler stale', conclusion: 'failure' }] },
+      ],
+    };
+    expect(isVerdictOnlyFailure(MONITOR_PATH, jobs)).toBe(false);
+    // Stessa cosa nel medesimo job della fixture vera, accanto al verdetto.
+    const sameRun = structuredClone(VERDICT_ONLY);
+    sameRun.jobs.push({ name: 'side', conclusion: 'success', steps: [{ name: 'Commit updated health state', conclusion: 'failure' }] });
+    sameRun.total_count = sameRun.jobs.length;
+    expect(isVerdictOnlyFailure(MONITOR_PATH, sameRun)).toBe(false);
+    // Un job `success` di cui non si leggono gli step non si può dire pulito (fail-closed).
+    const unreadable = structuredClone(VERDICT_ONLY);
+    unreadable.jobs.push({ name: 'side', conclusion: 'success' } as Job);
+    unreadable.total_count = unreadable.jobs.length;
+    expect(isVerdictOnlyFailure(MONITOR_PATH, unreadable)).toBe(false);
+  });
+
+  it('job `success` il cui solo step fallito è registrato (produttore continue-on-error) → resta di solo verdetto', () => {
+    const jobs: Jobs = {
+      total_count: 3,
+      jobs: [
+        { name: 'side', conclusion: 'success', steps: [{ name: 'Run health check', conclusion: 'failure' }, { name: 'Other', conclusion: 'success' }] },
+        { name: 'clean', conclusion: 'success', steps: [{ name: 'Other', conclusion: 'success' }] },
+        { name: 'check', conclusion: 'failure', steps: [{ name: 'Fail if any crawler stale', conclusion: 'failure' }] },
+      ],
+    };
+    expect(isVerdictOnlyFailure(MONITOR_PATH, jobs)).toBe(true);
+    // Un job `skipped` porta `steps: []`: nessuno step fallito, nessun ostacolo.
+    jobs.jobs.push({ name: 'skipped', conclusion: 'skipped', steps: [] });
+    jobs.total_count = jobs.jobs.length;
+    expect(isVerdictOnlyFailure(MONITOR_PATH, jobs)).toBe(true);
+  });
 });
 
 describe('markVerdictOnlyRuns — lettura limitata e fail-closed', () => {

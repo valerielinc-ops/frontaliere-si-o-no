@@ -1138,8 +1138,9 @@ export function dropSkippedRuns(runs) {
 // Il registro è per STEP, non per workflow: mettere il monitor fra i workflow
 // «intenzionalmente rossi» nasconderebbe anche i suoi guasti veri (il 2026-09-30 la run
 // 36717595714 è caduta in `Commit updated health state`, un guasto reale). Una run è «di
-// solo verdetto» soltanto se lo step-verdetto è fallito e OGNI step fallito dei job falliti
-// è lo step-verdetto o un suo produttore; qualunque altro step fallito, un job `cancelled`
+// solo verdetto» soltanto se lo step-verdetto è fallito e OGNI step fallito di OGNI job —
+// anche di un job `success`, dove finisce uno step `continue-on-error` fallito — è lo
+// step-verdetto o un suo produttore; qualunque altro step fallito, un job `cancelled`
 // o job illeggibili → non lo è, e la run resta un guasto segnalabile (fail-closed).
 //
 // Vive QUI e non in un modulo condiviso perché questo file è un gemello `identical` del
@@ -1197,12 +1198,18 @@ export function isVerdictOnlyFailure(workflowPath, jobs) {
   let failedJobs = 0;
   for (const job of jobs.jobs) {
     if (!VERDICT_RUN_JOB_CONCLUSIONS.has(job?.conclusion)) return false;
-    if (job.conclusion !== 'failure') continue;
-    failedJobs++;
+    // Un job `skipped` non ha eseguito step: niente da leggere, niente da nascondere.
+    if (job.conclusion === 'skipped' && !Array.isArray(job.steps)) continue;
+    // Gli step si leggono in OGNI job, anche `success`: uno step `continue-on-error`
+    // fallito lascia verde il job ma è un guasto vero, e accanto al verdetto non deve
+    // far passare la run per «solo verdetto». Step illeggibili → non si sa (fail-closed).
     if (!Array.isArray(job.steps)) return false;
     const failedSteps = job.steps.filter((s) => s?.conclusion === 'failure');
-    // Un job fallito senza step fallito non è attribuibile: non si può dire che sia il verdetto.
-    if (!failedSteps.length) return false;
+    if (job.conclusion === 'failure') {
+      failedJobs++;
+      // Un job fallito senza step fallito non è attribuibile: non si può dire che sia il verdetto.
+      if (!failedSteps.length) return false;
+    }
     for (const step of failedSteps) {
       if (!allowed.has(step.name)) return false;
       if (step.name === entry.verdict) verdictFailed = true;
