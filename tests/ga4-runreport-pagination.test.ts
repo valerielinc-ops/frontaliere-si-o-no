@@ -74,6 +74,33 @@ describe('paginateGa4Report', () => {
     expect(report.complete).toBe(false);
   });
 
+  it('ordina per tutte le dimensioni e rifiuta una popolazione con chiavi duplicate', async () => {
+    const fetchPage = vi.fn(async (body: { offset?: number; limit: number; orderBys?: unknown[] }) => ({
+      rowCount: 4,
+      rows: Number(body.offset ?? 0) === 0
+        ? [
+            { dimensionValues: [{ value: 'A' }], metricValues: [] },
+            { dimensionValues: [{ value: 'B' }], metricValues: [] },
+          ]
+        : [
+            { dimensionValues: [{ value: 'D' }], metricValues: [] },
+            { dimensionValues: [{ value: 'A' }], metricValues: [] },
+          ],
+    }));
+    const report = await paginateGa4Report({
+      body: { dimensions: [{ name: 'pagePath' }], orderBys: [{ metric: { metricName: 'sessions' }, desc: true }] },
+      fetchPage,
+      pageSize: 2,
+    });
+
+    expect(fetchPage.mock.calls.map(([body]) => body.orderBys)).toEqual([
+      [{ dimension: { dimensionName: 'pagePath' }, desc: false }],
+      [{ dimension: { dimensionName: 'pagePath' }, desc: false }],
+    ]);
+    expect(report.duplicateRows).toBe(true);
+    expect(report.complete).toBe(false);
+  });
+
   it('senza rowCount tratta una pagina piena come possibile troncamento', async () => {
     const full = vi.fn(async (body: { limit: number }) => ({
       rows: Array.from({ length: body.limit }, () => ({ dimensionValues: [], metricValues: [] })),
@@ -107,7 +134,7 @@ describe('fetchGa4WebVitals', () => {
       const end = Math.min(total, offset + Number(body.limit));
       const rows: Row[] = [];
       for (let i = offset; i < end; i += 1) {
-        rows.push({ dimensionValues: [{ value: '/' }, { value: 'CLS' }, { value: String(i % 300) }, { value: 'mobile' }], metricValues: [{ value: '1' }] });
+        rows.push({ dimensionValues: [{ value: '/' }, { value: 'CLS' }, { value: String(i) }, { value: 'mobile' }], metricValues: [{ value: '1' }] });
       }
       return { ok: true, status: 200, json: async () => ({ rowCount: total, rows }), text: async () => '' };
     });
@@ -150,7 +177,7 @@ describe('fetchAttribution (cwv-attribution)', () => {
     const fetchImpl = pagedFetch(
       (body) => (isSelector(body) ? 3 : isTemplate(body) ? 120_000 : 12_000),
       (i, body) => (isTemplate(body)
-        ? { dimensionValues: [{ value: 'job_detail' }, { value: 'CLS' }, { value: String(i % 400) }, { value: 'mobile' }], metricValues: [{ value: '1' }] }
+        ? { dimensionValues: [{ value: 'job_detail' }, { value: 'CLS' }, { value: String(i) }, { value: 'mobile' }], metricValues: [{ value: '1' }] }
         : { dimensionValues: [{ value: `/p/${i}/` }, { value: 'web_vitals' }, { value: 'cls' }, { value: 'main' }, { value: 'load' }, { value: 'x|ac1|cc1' }], metricValues: [{ value: '1' }] }),
     );
     const report = await fetchAttribution({ token: 't', startDate: '2026-09-01', endDate: '2026-09-28', fetchImpl });

@@ -117,6 +117,21 @@ function mergeGa4Metadata(list) {
   return merged;
 }
 
+function dimensionNames(body) {
+  return (Array.isArray(body?.dimensions) ? body.dimensions : [])
+    .map((dimension) => typeof dimension === 'string' ? dimension : dimension?.name)
+    .filter(Boolean);
+}
+
+function dimensionOrderBys(names) {
+  return names.map((dimensionName) => ({ dimension: { dimensionName }, desc: false }));
+}
+
+function rowDimensionKey(row, dimensionCount) {
+  if (dimensionCount === 0 || !Array.isArray(row?.dimensionValues) || row.dimensionValues.length < dimensionCount) return null;
+  return JSON.stringify(row.dimensionValues.slice(0, dimensionCount).map((dimension) => dimension?.value ?? ''));
+}
+
 /**
  * Legge un runReport GA4 per intero, pagina dopo pagina con `offset`, fino a
  * `rowCount` (o fino al tetto `maxRows`). Un limit fisso senza offset rende
@@ -125,9 +140,9 @@ function mergeGa4Metadata(list) {
  * limit 100000). `fetchPage(body)` restituisce il JSON della risposta.
  *
  * `complete` e' falso se manca una coda (pagina corta prima di rowCount,
- * tetto raggiunto, rowCount cambiato fra le pagine, o pagina piena senza
- * rowCount): i segnali di campionamento/soglia restano nel `metadata`
- * unito e li valuta il chiamante.
+ * tetto raggiunto, rowCount cambiato fra le pagine, pagina piena senza
+ * rowCount, o chiavi di dimensione duplicate fra le pagine): i segnali di
+ * campionamento/soglia restano nel `metadata` unito e li valuta il chiamante.
  *
  * @param {{ body: object, fetchPage: (body: object) => Promise<any>, pageSize?: number, maxRows?: number }} input
  */
@@ -140,13 +155,21 @@ export async function paginateGa4Report({
   const size = Math.max(1, Math.min(Number(pageSize) || 1, GA4_RUNREPORT_MAX_PAGE_SIZE));
   const rows = [];
   const metadatas = [];
+  const names = dimensionNames(body);
+  const pageBody = { ...(body || {}) };
+  // Offset pagination is only stable when the complete dimension key is the
+  // sort key. This deliberately replaces metric/top-N ordering for reports
+  // whose full population is being paged; top-N callers do not use this helper.
+  if (names.length) pageBody.orderBys = dimensionOrderBys(names);
+  const seenDimensionKeys = new Set();
+  let duplicateRows = false;
   let rowCount = null;
   let rowCountChanged = false;
   let lastPageFull = false;
   let pages = 0;
   while (rows.length < maxRows) {
     const limit = Math.min(size, maxRows - rows.length);
-    const data = (await fetchPage({ ...body, offset: rows.length, limit })) || {};
+    const data = (await fetchPage({ ...pageBody, offset: rows.length, limit })) || {};
     pages += 1;
     metadatas.push(data.metadata);
     const reported = data.rowCount == null ? null : Number(data.rowCount);
@@ -154,16 +177,32 @@ export async function paginateGa4Report({
     rowCount = reported;
     const batch = Array.isArray(data.rows) ? data.rows : [];
     // Niente spread: una pagina da 250000 righe supera il limite di argomenti.
-    for (const row of batch) rows.push(row);
+    for (const row of batch) {
+      const key = rowDimensionKey(row, names.length);
+      if (key !== null) {
+        if (seenDimensionKeys.has(key)) duplicateRows = true;
+        seenDimensionKeys.add(key);
+      }
+      rows.push(row);
+    }
     lastPageFull = batch.length >= limit;
     if (!lastPageFull) break;
     if (rowCount !== null && rows.length >= rowCount) break;
   }
   const capped = rows.length >= maxRows && (rowCount === null ? lastPageFull : rowCount > rows.length);
-  const complete = !rowCountChanged && !capped && (rowCount === null
+  const complete = !rowCountChanged && !duplicateRows && !capped && (rowCount === null
     ? !lastPageFull
     : Number.isSafeInteger(rowCount) && rowCount === rows.length);
-  return { rows, rowCount, metadata: mergeGa4Metadata(metadatas), pages, rowCountChanged, capped, complete };
+  return {
+    rows,
+    rowCount,
+    metadata: mergeGa4Metadata(metadatas),
+    pages,
+    rowCountChanged,
+    duplicateRows,
+    capped,
+    complete,
+  };
 }
 
 /**
@@ -192,6 +231,7 @@ export async function runGa4ReportPaged({
     metadata: report.metadata,
     complete: report.complete,
     pages: report.pages,
+    duplicateRows: report.duplicateRows,
   };
 }
 

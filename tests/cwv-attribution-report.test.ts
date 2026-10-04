@@ -184,9 +184,18 @@ describe('GA4 requests', () => {
     // The exported builders are what main() sends.
     // (a) and (c) are whole populations read page by page from offset 0
     // (issue 11423); (b) is a single top-N request.
-    expect(a).toEqual({ ...attributionRequest(range), offset: 0, limit: 100000 });
+    const paged = (request: any) => ({
+      ...request,
+      orderBys: request.dimensions.map((dimension: any) => ({
+        dimension: { dimensionName: dimension.name },
+        desc: false,
+      })),
+      offset: 0,
+      limit: 100000,
+    });
+    expect(a).toEqual(paged(attributionRequest(range)));
     expect(b).toEqual(selectorRequest(range));
-    expect(c).toEqual({ ...templateRequest(range), offset: 0, limit: 100000 });
+    expect(c).toEqual(paged(templateRequest(range)));
   });
 
   it('a 400 «not a valid dimension» exits 1 and names the dimension', async () => {

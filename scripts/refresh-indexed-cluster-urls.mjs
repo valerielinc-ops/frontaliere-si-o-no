@@ -53,6 +53,7 @@ import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 import { paginateGa4Report } from './lib/ga4-service-account.mjs';
+import { guardCompleteGa4Report } from './lib/ga4-refresh-guard.mjs';
 import {
   normalizeRelatedSearchClusterPath,
   parseRelatedSearchClusterPathKey,
@@ -311,18 +312,24 @@ async function main() {
   // ─── GA4 ───────────────────────────────────────────────────────────────
   if (sa && process.env.GA4_PROPERTY_ID) {
     try {
-      const { rows, complete, reportedRows } = await fetchGa4(sa, startDate, endDate);
-      let clusterSeen = 0, kept = 0;
-      for (const row of rows) {
-        const normalized = normalizeClusterPath(row.path);
-        if (!normalized) continue;
-        clusterSeen += 1;
-        if (row.views < minImpressions) continue;
-        addIndexedClusterPath(indexedClusterUrlsByKey, normalized);
-        kept += 1;
+      const guarded = guardCompleteGa4Report(await fetchGa4(sa, startDate, endDate));
+      if (!guarded.accepted) {
+        sources.ga4 = guarded.source;
+        console.error(`[indexed-cluster-urls] GA4: ${guarded.source.reason}`);
+      } else {
+        const { rows } = guarded;
+        let clusterSeen = 0, kept = 0;
+        for (const row of rows) {
+          const normalized = normalizeClusterPath(row.path);
+          if (!normalized) continue;
+          clusterSeen += 1;
+          if (row.views < minImpressions) continue;
+          addIndexedClusterPath(indexedClusterUrlsByKey, normalized);
+          kept += 1;
+        }
+        sources.ga4 = { ...guarded.source, clusterSeen, kept };
+        console.error(`[indexed-cluster-urls] GA4: ${kept} non-aggregator cluster paths kept from ${clusterSeen} cluster URLs (${rows.length} rows)`);
       }
-      sources.ga4 = { ok: true, complete, rowsScanned: rows.length, reportedRows, clusterSeen, kept };
-      console.error(`[indexed-cluster-urls] GA4: ${kept} non-aggregator cluster paths kept from ${clusterSeen} cluster URLs (${rows.length} rows)`);
     } catch (err) {
       sources.ga4 = { ok: false, reason: err.message };
       console.error(`[indexed-cluster-urls] GA4: ${err.message}`);

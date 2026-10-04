@@ -86,10 +86,12 @@ describe('thin promotions exit contract', () => {
   }
 
   it('legge la coda GA4 oltre la prima pagina', async () => {
-    ga4Paged(100_002, (offset, limit) => (offset === 0 ? Array.from({ length: limit }, () => '/head/') : ['/tail/', '/tail-2/']));
+    ga4Paged(100_002, (offset, limit) => (offset === 0
+      ? Array.from({ length: limit }, (_, index) => `/head-${index}/`)
+      : ['/tail/', '/tail-2/']));
     expect(await main()).toBe(0);
     const persisted = JSON.parse(String(vi.mocked(writeFile).mock.calls[0][1]));
-    expect(persisted.urls).toEqual(expect.arrayContaining(['/head', '/tail', '/tail-2']));
+    expect(persisted.urls).toEqual(expect.arrayContaining(['/head-0', '/tail', '/tail-2']));
     expect(JSON.parse(String(vi.mocked(appendFileSync).mock.calls[0][1]))).toMatchObject({ complete: true, errors: [] });
   });
 

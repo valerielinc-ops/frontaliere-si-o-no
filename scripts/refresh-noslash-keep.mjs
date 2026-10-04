@@ -53,6 +53,7 @@ import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 import { GA4_READONLY_SCOPE, getServiceAccountToken, paginateGa4Report } from './lib/ga4-service-account.mjs';
+import { guardCompleteGa4Report } from './lib/ga4-refresh-guard.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -261,19 +262,25 @@ async function main() {
   // ─── GA4 ───────────────────────────────────────────────────────────────
   if (sa && process.env.GA4_PROPERTY_ID) {
     try {
-      const { rows, complete, reportedRows } = await fetchGa4(startDate, endDate);
-      let noSlashSeen = 0, kept = 0;
-      for (const row of rows) {
-        const p = row.path;
-        if (!p || p.endsWith('/') || p.endsWith('.html') || p === '/') continue;
-        noSlashSeen += 1;
-        if (!JOB_SECTION_RX.test(p)) continue;
-        if (row.views < minImpressions) continue;
-        keep.add(p);
-        kept += 1;
+      const guarded = guardCompleteGa4Report(await fetchGa4(startDate, endDate));
+      if (!guarded.accepted) {
+        sources.ga4 = guarded.source;
+        console.error(`[noslash-keep] GA4: ${guarded.source.reason}`);
+      } else {
+        const { rows } = guarded;
+        let noSlashSeen = 0, kept = 0;
+        for (const row of rows) {
+          const p = row.path;
+          if (!p || p.endsWith('/') || p.endsWith('.html') || p === '/') continue;
+          noSlashSeen += 1;
+          if (!JOB_SECTION_RX.test(p)) continue;
+          if (row.views < minImpressions) continue;
+          keep.add(p);
+          kept += 1;
+        }
+        sources.ga4 = { ...guarded.source, noSlashSeen, jobSectionKept: kept };
+        console.error(`[noslash-keep] GA4: ${kept} job-section paths kept from ${noSlashSeen} no-slash paths (${rows.length} rows)`);
       }
-      sources.ga4 = { ok: true, complete, rowsScanned: rows.length, reportedRows, noSlashSeen, jobSectionKept: kept };
-      console.error(`[noslash-keep] GA4: ${kept} job-section paths kept from ${noSlashSeen} no-slash paths (${rows.length} rows)`);
     } catch (err) {
       sources.ga4 = { ok: false, reason: err.message };
       console.error(`[noslash-keep] GA4: ${err.message}`);
