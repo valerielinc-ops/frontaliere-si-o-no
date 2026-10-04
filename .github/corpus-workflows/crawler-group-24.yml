@@ -253,6 +253,7 @@ jobs:
           started_path="$state_dir/protectas.started"
           watchdog_path="$state_dir/protectas.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/protectas.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -260,6 +261,13 @@ jobs:
           # ---- protectas: run crawler (verbatim from original workflow) ----
           node scripts/update-protectas-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::protectas: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- protectas: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -314,6 +322,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-24/protectas.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-24/protectas.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-24/protectas.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-24/protectas.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
