@@ -443,9 +443,11 @@ function encodeRepoPath(path) {
  * - Cache per run: una sola chiamata per path.
  * - Tetto dichiarato: oltre `cap` chiamate un path nuovo vale `unknown`
  *   (`stats().capped` = path distinti non letti).
- * - 404 → `missing`; ogni altro errore → `unknown` (mai un «no» inventato).
- *   Limite noto: l'API risponde 404 anche a un token senza accesso a un
- *   repository privato; ogni passaggio usa il token del repository del bucket.
+ * - 404 → `missing` SOLO se il repository e' leggibile con questo `gh`: l'API
+ *   risponde 404 anche a un token senza accesso. La prova e' UNA lettura del
+ *   ref (`repos/<repo>/commits/<ref>`) per run, fatta solo dopo il primo 404;
+ *   se non risponde (404, 403, rete) ogni 404 vale `unknown` e si conta in
+ *   `errors`. Ogni altro errore → `unknown` (mai un «no» inventato).
  *
  * @param {{repo: string, ref?: string, gh: (args: string[]) => string, cap?: number}} options
  *   `gh(args)` ritorna lo stdout o lancia un errore con `stderr`/`message`.
@@ -454,6 +456,20 @@ export function contentsApiIo({ repo, ref = 'main', gh, cap = DEFAULT_ADMISSION_
   const cache = new Map();
   const limit = Number.isInteger(cap) && cap >= 0 ? cap : DEFAULT_ADMISSION_READ_CAP;
   const stats = { reads: 0, cap: limit, capped: 0, errors: 0 };
+  let readable;
+  // `true` se il ref di `repo` si legge con questo `gh`: solo allora un 404 sul
+  // file dice «non c'e'». Un esito per run, anche negativo (fail-open: unknown).
+  const repoReadable = () => {
+    if (readable === undefined) {
+      try {
+        const out = gh(['api', `repos/${repo}/commits/${encodeURIComponent(ref)}`, '--jq', '.sha']);
+        readable = typeof out === 'string' && out.trim() !== '';
+      } catch {
+        readable = false;
+      }
+    }
+    return readable;
+  };
   const lookup = (rawPath) => {
     const path = normalizeRepoPath(rawPath);
     if (cache.has(path)) return cache.get(path);
@@ -476,7 +492,7 @@ export function contentsApiIo({ repo, ref = 'main', gh, cap = DEFAULT_ADMISSION_
         entry = typeof out === 'string' ? { status: 'present', content: out } : { status: 'unknown', content: null };
       } catch (error) {
         const detail = `${error?.stderr ?? ''}\n${error?.message ?? ''}`;
-        if (NOT_FOUND_RE.test(detail)) entry = { status: 'missing', content: null };
+        if (NOT_FOUND_RE.test(detail) && repoReadable()) entry = { status: 'missing', content: null };
         else {
           stats.errors += 1;
           entry = { status: 'unknown', content: null };

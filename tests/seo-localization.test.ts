@@ -1,3 +1,4 @@
+import { clampMetaDescription } from '../build-plugins/shared/titleSuffix';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { buildPath, getSeoSection, type AppRoute } from '@/services/router';
 import { loadAllLocaleChunks, setLocale } from '@/services/i18n';
@@ -144,4 +145,44 @@ describe('SEO localization', () => {
     expect(breadcrumbCrumb.item).not.toContain('/cerca-lavoro-ticino');
     expect(breadcrumbCrumb.name).not.toContain('Tessin');
   });
+});
+
+describe('editorial methodology SEO follows the requested locale', () => {
+  it.each(['en', 'de', 'fr'] as const)('localizes methodology metadata and AboutPage in %s', async locale => {
+    const { METHODOLOGY_COPY, METHODOLOGY_PATHS } = await import('../services/editorialMethodology');
+    await loadAllLocaleChunks(locale);
+    setLocale(locale);
+    window.history.replaceState({}, '', METHODOLOGY_PATHS[locale]);
+    await updateMetaTags('metodologia');
+    expect(document.title).toContain(METHODOLOGY_COPY[locale].title);
+    expect(document.querySelector('meta[name="description"]')?.getAttribute('content')).toBe(clampMetaDescription(METHODOLOGY_COPY[locale].description, undefined, locale));
+    const structured = document.querySelector('#dynamic-structured-data')?.textContent || '';
+    expect(structured).toContain(METHODOLOGY_COPY[locale].description);
+    expect(structured).toContain(`https://frontaliereticino.ch${METHODOLOGY_PATHS[locale]}`);
+    expect(structured).not.toContain('Come utilizziamo');
+  });
+});
+
+// Exercise the real asynchronous SPA metadata path, not just the copy builder.
+describe('legal page runtime metadata', () => {
+  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+    for (const page of ['privacy', 'terms', 'data-deletion'] as const) {
+      it(`${locale}/${page} uses the shared localized document`, async () => {
+        const { buildLegalSeo } = await import('../services/legal/documents');
+        const { clampMetaDescription } = await import('../build-plugins/shared/titleSuffix');
+        const expected = buildLegalSeo(page, locale);
+        document.head.innerHTML = '';
+        await loadAllLocaleChunks(locale);
+        setLocale(locale);
+        window.history.replaceState({}, '', new URL(expected.canonical).pathname);
+        await updateMetaTags(page);
+        expect(document.title).toBe(expected.title);
+        expect(document.querySelector('meta[name="description"]')?.getAttribute('content')).toBe(clampMetaDescription(expected.description, undefined, locale));
+        expect(document.querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(expected.canonical);
+        const nodes = [...document.querySelectorAll('script[type="application/ld+json"]')]
+          .flatMap(node => { const data = JSON.parse(node.textContent || '{}'); return Array.isArray(data) ? data : [data]; });
+        expect(nodes.find(node => node['@type'] === 'WebPage')).toMatchObject(expected.jsonLd);
+      });
+    }
+  }
 });

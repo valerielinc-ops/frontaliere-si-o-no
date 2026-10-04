@@ -1,5 +1,6 @@
 import { resolveAuthorProfileMetadata } from './seo/authorProfileMetadata';
 import { buildCorrezioniSeo } from './seo/seo-correzioni';
+import { METHODOLOGY_COPY } from './editorialMethodology';
 import { localizeArticlePageIdentity } from './seo/article-page-identity';
 /**
  * SEO Service - Dynamic Meta Tags Management
@@ -1363,6 +1364,10 @@ function resolveLocalizedSeoContent(section: string, metadata: SEOMetadata, loca
  const page = buildCorrezioniSeo(locale);
  return { title: page.title, description: page.description, keywords: metadata.keywords };
  }
+ if (section === 'metodologia') {
+ const copy = METHODOLOGY_COPY[locale];
+ return { title: buildTitleWithBrand(copy.title), description: copy.description, keywords: getLocalizedSeoKeywords(copy.title, locale, metadata.keywords) };
+ }
  if (locale === 'it') {
  return {
  title: metadata.title,
@@ -1841,10 +1846,13 @@ export async function updateMetaTags(section: string): Promise<void> {
 
  const isDialectPage = section === 'dialetto';
  const glossarySeo = pharmacyMetadata ? null : await resolveLocalizedGlossarySeo(sectionKey, metadata, locale);
+ // Legal copy stays in a lazy chunk and is loaded only for these routes.
+ const legalSeo = sectionKey === 'privacy' || sectionKey === 'terms' || sectionKey === 'data-deletion'
+ ? (await import('./legal/documents')).buildLegalSeo(sectionKey, locale) : null;
  if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
  const localizedSeoContent = pharmacyMetadata
  ? pharmacyMetadata
- : authorMetadata ?? glossarySeo ?? resolveLocalizedSeoContent(sectionKey, metadata, locale, route.jobBoardCanton);
+ : (legalSeo ? { ...legalSeo, keywords: metadata.keywords } : null) ?? authorMetadata ?? glossarySeo ?? resolveLocalizedSeoContent(sectionKey, metadata, locale, route.jobBoardCanton);
  const dialectTitleByLocale: Record<Locale, string> = {
  it: 'Dialetto Ticinese | 64 Espressioni e Proverbi | Frontaliere Ticino',
  en: 'Ticinese Dialect | 64 Expressions and Proverbs | Frontaliere Ticino',
@@ -2077,6 +2085,8 @@ export async function updateMetaTags(section: string): Promise<void> {
  });
  }
  updateStructuredData([...jobStructuredDataItems, breadcrumbs]);
+ } else if (legalSeo) {
+ updateStructuredData([legalSeo.jsonLd, breadcrumbs]);
  } else if (metadata.structuredData) {
  const existingData = Array.isArray(metadata.structuredData)
  ? metadata.structuredData
