@@ -12454,6 +12454,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.patto-generazionale-avs-ticino.title': 'A solidarity 13th AVS payment for young people from Ticino',
     'blog.article.patto-generazionale-avs-ticino.excerpt': 'The Fondo Patto Generazionale invites AVS beneficiaries to donate part or all of their thirteenth payment to support young people from Ticino aged between 0 and 30.',
     'blog.article.patto-generazionale-avs-ticino.imageAlt': 'Symbolic scene of solidarity between generations in Ticino',
+    'blog.article.tamponamento-autostrada-sud.title': 'Serious accident on the A2 in Coldrerio',
+    'blog.article.tamponamento-autostrada-sud.excerpt': 'Southbound rear-end collision: a 68-year-old woman was slightly injured, while the 73-year-old passenger is in serious condition.',
+    'blog.article.tamponamento-autostrada-sud.imageAlt': 'A2 motorway in Coldrerio after a serious southbound crash',
 };
 
 export default blogMetaEn;

@@ -12453,6 +12453,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.patto-generazionale-avs-ticino.title': 'Eine solidarische 13. AHV-Rente für junge Menschen im Tessin',
     'blog.article.patto-generazionale-avs-ticino.excerpt': 'Der Fondo Patto Generazionale lädt AHV-Beziehende dazu ein, einen Teil oder die gesamte 13. AHV-Rente zu spenden, um junge Menschen im Tessin im Alter von 0 bis 30 Jahren zu unterstützen.',
     'blog.article.patto-generazionale-avs-ticino.imageAlt': 'Symbolische Szene der Solidarität zwischen Generationen im Tessin',
+    'blog.article.tamponamento-autostrada-sud.title': 'Schwerer Unfall auf der A2 bei Coldrerio',
+    'blog.article.tamponamento-autostrada-sud.excerpt': 'Auffahrunfall in Richtung Süden: Eine 68-Jährige wurde leicht verletzt, während sich der 73-jährige Passagier in ernstem Zustand befindet.',
+    'blog.article.tamponamento-autostrada-sud.imageAlt': 'A2-Autobahn in Coldrerio nach einem schweren Unfall Richtung Süden',
 };
 
 export default blogMetaDe;

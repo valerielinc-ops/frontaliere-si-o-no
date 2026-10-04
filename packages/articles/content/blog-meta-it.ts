@@ -12455,6 +12455,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.patto-generazionale-avs-ticino.title': 'Una 13esima AVS solidale per i giovani ticinesi',
     'blog.article.patto-generazionale-avs-ticino.excerpt': 'Il Fondo Patto Generazionale invita i beneficiari AVS a donare parte o tutta la tredicesima per sostenere giovani ticinesi tra 0 e 30 anni.',
     'blog.article.patto-generazionale-avs-ticino.imageAlt': 'Scena simbolica di solidarietà tra generazioni in Ticino',
+    'blog.article.tamponamento-autostrada-sud.title': 'Grave incidente sull’A2 a Coldrerio',
+    'blog.article.tamponamento-autostrada-sud.excerpt': 'Tamponamento in direzione sud: una 68enne è rimasta ferita lievemente, mentre il passeggero 73enne è in gravi condizioni.',
+    'blog.article.tamponamento-autostrada-sud.imageAlt': 'Autostrada A2 a Coldrerio dopo un grave incidente in direzione sud',
 };
 
 export default blogMetaIt;

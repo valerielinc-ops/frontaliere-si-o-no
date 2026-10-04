@@ -12456,6 +12456,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.patto-generazionale-avs-ticino.title': 'Un 13e AVS solidaire pour les jeunes Tessinois',
     'blog.article.patto-generazionale-avs-ticino.excerpt': 'Fondo Patto Generazionale invite les bénéficiaires de l\'AVS à donner une partie ou la totalité de la treizième mensualité afin de soutenir les jeunes tessinois âgés de 0 à 30 ans.',
     'blog.article.patto-generazionale-avs-ticino.imageAlt': 'Scène symbolique de solidarité entre générations au Tessin',
+    'blog.article.tamponamento-autostrada-sud.title': 'Grave accident sur l’A2 à Coldrerio',
+    'blog.article.tamponamento-autostrada-sud.excerpt': 'Tamponnement en direction du sud : une femme de 68 ans a été légèrement blessée, tandis que le passager de 73 ans est dans un état grave.',
+    'blog.article.tamponamento-autostrada-sud.imageAlt': 'Autoroute A2 à Coldrerio après un grave accident vers le sud',
 };
 
 export default blogMetaFr;

@@ -37349,6 +37349,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'tamponamento-autostrada-sud',
+ category: 'novita',
+ date: '2026-10-04T00:18:56.377Z',
+ image: '/images/blog/tamponamento-autostrada-sud.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
