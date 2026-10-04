@@ -41,9 +41,14 @@ import {
 } from '../services/applicationIntentRanking.mjs';
 import {
   classifyZeroMatchCause,
-  getZeroMatchMonitorAction,
   summarizeZeroMatchPlans,
 } from './lib/job-alert-zero-match-diagnosis.mjs';
+import {
+  MATCHER_HEALTH_MAX_PROBES,
+  buildMatcherHealthProbes,
+  evaluateMatcherHealth,
+  getMatcherHealthMonitorAction,
+} from './lib/job-alert-matcher-health.mjs';
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
@@ -90,6 +95,7 @@ import { isImmediateCompanyAlert } from './lib/company-alert-routing.mjs';
 import {
   DEFAULT_JOB_ALERT_LOOKBACK_MS,
   createJobAlertCandidateSelector,
+  isOpenJobAlertJob,
   jobInventoryTimestampMs,
 } from './lib/job-alert-newness.mjs';
 // localePathPrefix aliased to the local name this script has always used for
@@ -145,13 +151,11 @@ const ENGAGEMENT_SEND_PRIORITY = {
 // alerts into tomorrow's retry queue.
 const QUOTA_BUFFER_RATIO = 0.1;
 
-// Owner ask 2026-07-18: surface how many alerts matched literally zero jobs
-// this run (as opposed to "had matches, all already sent" — a healthy case),
-// so a persistently high rate flags a matching-quality problem (narrow user
-// search, a missing keyword/synonym, or a genuine sector/geo inventory gap)
-// rather than staying invisible. Starting value — tune after a few runs of
-// real data once the `📉 Zero-match:` log line below establishes a baseline.
-const ZERO_MATCH_ISSUE_THRESHOLD_RATIO = 0.2;
+// Canonical title of the job-alert matcher monitor. Kept stable across the
+// change of measure (owner decision 2026-10-04, issue 9060) so the issue
+// history stays in one thread; the trigger is now the matcher-health probes of
+// scripts/lib/job-alert-matcher-health.mjs, not the zero-match yield.
+const MATCHER_MONITOR_ISSUE_TITLE = '[Monitor] Job-alert zero-match rate above threshold';
 
 // Testing allowlist: set to a Set of emails for admin-only testing,
 // or null to enable for all users.
@@ -2103,6 +2107,72 @@ function planAlertMatch(alert, {
   return { alert, candidateCount, rankedCount: ranked.length, zeroCause: null, sentMap, matched };
 }
 
+/**
+ * Matcher health on the ACTIVE inventory (owner decision 2026-10-04, issue
+ * 9060): the synthetic alerts of scripts/lib/job-alert-matcher-health.mjs are
+ * planned by the same `planAlertMatch` as the real alerts, but against every
+ * open listing instead of a recipient's "new since my last email" window, and
+ * with no subscriber/behaviour signal. Each probe is cut from a listing in that
+ * inventory, so a zero is a matcher regression and never a quiet day.
+ * `planMatch` is the seam the tests use to break the matcher on purpose.
+ *
+ * Never throws: main() calls this BEFORE sendBatch and the probes score rows of
+ * the whole active inventory that no recipient window may contain this run, so
+ * one malformed row must not abort the send for every subscriber. On an
+ * exception the result carries `error` and zero probes, which the monitor
+ * action treats as 'skip' (issue left untouched). `durationMs` is the measured
+ * cost of the step, logged on the "Matcher health" line.
+ */
+function runJobAlertMatcherHealth(inventoryJobs, {
+  now = Date.now(),
+  locationIndex = new Map(),
+  cityToCanton = new Map(),
+  featureCache = null,
+  maxProbes = MATCHER_HEALTH_MAX_PROBES,
+  planMatch = planAlertMatch,
+} = {}) {
+  const startedAt = Date.now();
+  try {
+    const activeInventory = (inventoryJobs || []).filter((job) => isOpenJobAlertJob(job, now));
+    const sample = buildMatcherHealthProbes(activeInventory, { maxProbes });
+    const context = {
+      behaviorProfiles: new Map(),
+      lastClickedUrlByEmail: new Map(),
+      locationIndex,
+      cityToCanton,
+      subscriberProfiles: new Map(),
+      applicationIntentAccountProfiles: new Map(),
+      recentJobs: activeInventory,
+      now,
+      featureCache,
+    };
+    const result = evaluateMatcherHealth(sample.probes, (alert) => planMatch(alert, context));
+    return {
+      ...result,
+      error: null,
+      durationMs: Date.now() - startedAt,
+      activeInventoryCount: activeInventory.length,
+      groupCount: sample.groupCount,
+      sampledGroupCount: sample.sampledGroupCount,
+      cantonCount: sample.cantonCount,
+    };
+  } catch (err) {
+    return {
+      probeCount: 0,
+      passedCount: 0,
+      failureCount: 0,
+      failureByKind: {},
+      failures: [],
+      error: String(err?.message || err),
+      durationMs: Date.now() - startedAt,
+      activeInventoryCount: 0,
+      groupCount: 0,
+      sampledGroupCount: 0,
+      cantonCount: 0,
+    };
+  }
+}
+
 async function main() {
   console.log('🔔 Job Alert Matching — Starting...');
   console.log(`   Mode: ${DRY_RUN ? 'DRY RUN' : 'LIVE'}`);
@@ -2777,75 +2847,99 @@ async function main() {
 
   console.log(`\n   Total: ${emailsToSend.length} emails, ${totalMatches} job matches`);
 
+  // Zero-match YIELD of the real alerts: informative only (owner decision
+  // 2026-10-04, issue 9060). It is computed on each recipient's "available
+  // since my last email" window, so it rises in quiet periods, on a second run
+  // of the same day and for criteria the inventory does not carry — none of
+  // which is a matcher defect. It is logged and quoted in the monitor report,
+  // and it opens or closes nothing.
+  const {
+    evaluatedAlertCount,
+    noEligibleCandidateCount,
+    emptyProfileCount,
+    zeroMatchCount,
+    zeroMatchRate,
+    zeroMatchByCause,
+  } = zeroMatchSummary;
+  const rateLabel = zeroMatchRate === null ? 'n/a' : `${(zeroMatchRate * 100).toFixed(1)}%`;
   if (alerts.length > 0) {
-    const {
-      evaluatedAlertCount,
-      noEligibleCandidateCount,
-      emptyProfileCount,
-      zeroMatchCount,
-      zeroMatchRate,
-      zeroMatchByCause,
-    } = zeroMatchSummary;
-    const rateLabel = zeroMatchRate === null ? 'n/a' : `${(zeroMatchRate * 100).toFixed(1)}%`;
-    console.log(`   📉 Zero-match: ${zeroMatchCount}/${evaluatedAlertCount} alerts with eligible candidates (${rateLabel}) — by cause: ${JSON.stringify(zeroMatchByCause)}`);
-    console.log(`   🪟 No eligible candidates after recipient cursor: ${noEligibleCandidateCount}/${alerts.length} alerts (excluded from matcher-health rate)`);
-    console.log(`   🧭 Empty profiles with no hard/soft signal: ${emptyProfileCount}/${alerts.length} alerts (excluded from matcher-health rate)`);
-    const monitorAction = getZeroMatchMonitorAction({
-      zeroMatchCount,
-      alertCount: evaluatedAlertCount,
-      threshold: ZERO_MATCH_ISSUE_THRESHOLD_RATIO,
-      dryRun: DRY_RUN,
-      targeted: Boolean(ALLOWED_EMAILS),
-    });
-    if (monitorAction === 'report') {
-      // Best-effort diagnostic report: this call sits BEFORE sendBatch, so any
-      // exception here (e.g. a future github-issue-creator.mjs change that adds
-      // a non-guarded internal path) must never abort main() and skip sending
-      // job-alert emails to every subscriber. Same convention as
-      // scripts/reconcile-here-usage.mjs's alert-issue try-catch.
-      try {
-        const { createGithubIssue } = await import('./lib/github-issue-creator.mjs');
-        const causeLines = Object.entries(zeroMatchByCause)
-          .sort((a, b) => b[1] - a[1])
-          .map(([cause, count]) => `- \`${cause}\`: ${count}`)
-          .join('\n');
-        await createGithubIssue({
-          title: '[Monitor] Job-alert zero-match rate above threshold',
-          description: [
-            `${zeroMatchCount}/${evaluatedAlertCount} job alerts with eligible candidates (${rateLabel}) matched **zero** jobs this run `
-              + `(threshold: ${(ZERO_MATCH_ISSUE_THRESHOLD_RATIO * 100).toFixed(0)}%).`,
-            `${noEligibleCandidateCount}/${alerts.length} alert(s) had no eligible candidates after the recipient cursor and were excluded from the matcher-health denominator.`,
-            `${emptyProfileCount}/${alerts.length} alert(s) had no hard or soft matching signal and were excluded from the matcher-health denominator (intentional fail-closed behavior).`,
-            '',
-            'Breakdown by cause (see scripts/lib/job-alert-zero-match-diagnosis.mjs):',
-            causeLines,
-            '',
-            '- `keyword-narrow` / `keyword-and-geo-narrow`: the alert\'s explicit keywords matched nothing — check for a synonym/taxonomy gap in the matcher.',
-            '- `geo-narrow`: the alert\'s location/canton filter matched nothing — may be a genuine inventory gap in that area, or the filter is too narrow.',
-            '- `pinned-job-or-company-gone`: the alert is pinned to a specific job/company that\'s no longer active.',
-            '- `soft-profile-narrow`: no hard filter is set, but the profile\'s soft intent signals matched nothing in the eligible pool.',
-            '- `empty-profile`: the alert has no hard or soft matching signal; it is intentionally excluded from the matcher-health denominator instead of broadcasting unrelated jobs.',
-            '',
-            'No subscriber PII in this report (aggregate counts/causes only).',
-          ].join('\n'),
-          priority: 3,
-          labels: ['automation', 'bug'],
-          workflow: 'send-job-alerts',
-        });
-      } catch (err) {
-        console.warn(`   ⚠️ zero-match issue report failed (non-fatal, continuing to send): ${err.message}`);
-      }
-    } else if (monitorAction === 'resolve') {
-      // A recovered production run must close the canonical monitor issue;
-      // otherwise one transient red run leaves a stale OPEN issue forever.
-      try {
-        const { resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
-        resolveGithubIssue('[Monitor] Job-alert zero-match rate above threshold', {
-          workflow: 'send-job-alerts',
-        });
-      } catch (err) {
-        console.warn(`   ⚠️ zero-match issue recovery failed (non-fatal, continuing to send): ${err.message}`);
-      }
+    console.log(`   📉 Zero-match yield (informative): ${zeroMatchCount}/${evaluatedAlertCount} alerts with eligible candidates (${rateLabel}) — by cause: ${JSON.stringify(zeroMatchByCause)}`);
+    console.log(`   🪟 No eligible candidates after recipient cursor: ${noEligibleCandidateCount}/${alerts.length} alerts (excluded from the yield rate)`);
+    console.log(`   🧭 Empty profiles with no hard/soft signal: ${emptyProfileCount}/${alerts.length} alerts (excluded from the yield rate)`);
+  }
+
+  // Matcher health: synthetic alerts cut from the active inventory, planned by
+  // the same matcher against every open listing. This — not the yield — drives
+  // the canonical monitor issue.
+  const matcherHealth = runJobAlertMatcherHealth(inventoryJobs, {
+    now,
+    locationIndex,
+    cityToCanton,
+    featureCache,
+  });
+  if (matcherHealth.error) {
+    console.warn(`   ⚠️ matcher-health probe failed (non-fatal, continuing to send; monitor left untouched) after ${matcherHealth.durationMs} ms: ${matcherHealth.error}`);
+  } else {
+    console.log(`   🩺 Matcher health: ${matcherHealth.passedCount}/${matcherHealth.probeCount} synthetic alerts matched ≥1 job on the active inventory (${matcherHealth.activeInventoryCount} open listings; ${matcherHealth.sampledGroupCount}/${matcherHealth.groupCount} canton×profession groups sampled across ${matcherHealth.cantonCount} cantons, cap ${MATCHER_HEALTH_MAX_PROBES} probes) in ${matcherHealth.durationMs} ms — failures by kind: ${JSON.stringify(matcherHealth.failureByKind)}`);
+  }
+  const monitorAction = getMatcherHealthMonitorAction({
+    probeCount: matcherHealth.probeCount,
+    failureCount: matcherHealth.failureCount,
+    dryRun: DRY_RUN,
+    targeted: Boolean(ALLOWED_EMAILS),
+  });
+  if (!matcherHealth.error && matcherHealth.probeCount === 0) {
+    console.warn('   ⚠️ Matcher health: no synthetic alert could be built from the active inventory (no listing with a canton and a title token) — monitor left untouched');
+  }
+  if (monitorAction === 'report') {
+    // Best-effort diagnostic report: this call sits BEFORE sendBatch, so any
+    // exception here (e.g. a future github-issue-creator.mjs change that adds
+    // a non-guarded internal path) must never abort main() and skip sending
+    // job-alert emails to every subscriber. Same convention as
+    // scripts/reconcile-here-usage.mjs's alert-issue try-catch.
+    try {
+      const { createGithubIssue } = await import('./lib/github-issue-creator.mjs');
+      const failureLines = matcherHealth.failures
+        .slice(0, 30)
+        .map((f) => `- \`${f.kind}\` canton \`${f.canton}\`, profession \`${f.profession || '(none)'}\`, keyword \`${f.keyword}\` (seed job \`${f.sourceJobId}\`): ${f.candidateCount} eligible rows, cause \`${f.zeroCause || 'n/a'}\``)
+        .join('\n');
+      const causeLines = Object.entries(zeroMatchByCause)
+        .sort((a, b) => b[1] - a[1])
+        .map(([cause, count]) => `- \`${cause}\`: ${count}`)
+        .join('\n');
+      await createGithubIssue({
+        title: MATCHER_MONITOR_ISSUE_TITLE,
+        description: [
+          `${matcherHealth.failureCount}/${matcherHealth.probeCount} synthetic job alerts built from the active inventory matched **zero** jobs this run.`,
+          'Each synthetic alert carries a profession keyword (a word of a listing\'s own title, or its category label) and that listing\'s canton as hard filters, and is planned by the real matcher (`planAlertMatch`) against every open listing. The listing it was cut from is in that inventory, so a zero is a matcher regression, not a quiet day.',
+          `Sample: ${matcherHealth.sampledGroupCount}/${matcherHealth.groupCount} canton×profession groups across ${matcherHealth.cantonCount} cantons (cap ${MATCHER_HEALTH_MAX_PROBES} probes), ${matcherHealth.activeInventoryCount} open listings.`,
+          '',
+          `Failing probes (first ${Math.min(30, matcherHealth.failures.length)}):`,
+          failureLines,
+          '',
+          `Informative, not a trigger — zero-match yield of the real alerts on their recipient windows: ${zeroMatchCount}/${evaluatedAlertCount} (${rateLabel}); ${noEligibleCandidateCount}/${alerts.length} with no eligible candidates after the recipient cursor; ${emptyProfileCount}/${alerts.length} with an empty profile.`,
+          causeLines,
+          '',
+          'See scripts/lib/job-alert-matcher-health.mjs (probes) and scripts/lib/job-alert-zero-match-diagnosis.mjs (yield causes).',
+          'No subscriber PII in this report (synthetic alerts and aggregate counts only).',
+        ].join('\n'),
+        priority: 3,
+        labels: ['automation', 'bug'],
+        workflow: 'send-job-alerts',
+      });
+    } catch (err) {
+      console.warn(`   ⚠️ matcher-health issue report failed (non-fatal, continuing to send): ${err.message}`);
+    }
+  } else if (monitorAction === 'resolve') {
+    // A recovered production run must close the canonical monitor issue;
+    // otherwise one transient red run leaves a stale OPEN issue forever.
+    try {
+      const { resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
+      resolveGithubIssue(MATCHER_MONITOR_ISSUE_TITLE, {
+        workflow: 'send-job-alerts',
+      });
+    } catch (err) {
+      console.warn(`   ⚠️ matcher-health issue recovery failed (non-fatal, continuing to send): ${err.message}`);
     }
   }
 
@@ -3127,4 +3221,5 @@ export {
   createJobLivenessPrefetcher,
   planAlertMatch,
   rankLiveJobsForEmail,
+  runJobAlertMatcherHealth,
 };

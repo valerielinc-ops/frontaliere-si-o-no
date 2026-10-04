@@ -2893,9 +2893,9 @@
       "slug": "kundenberater-in-geschaftsstelle-100-in-alpnach-concordia-alpnach",
       "slugByLocale": {
         "it": "kundenberater-in-geschaftsstelle-100-in-alpnach-concordia-alpnach",
-        "en": "kundenberater-in-geschaftsstelle-100-in-alpnach-concordia-alpnach",
+        "en": "client-advisor-office-100-in-alpnach-concordia-alpnach",
         "de": "kundenberater-in-geschaftsstelle-100-in-alpnach-concordia-alpnach",
-        "fr": "kundenberater-in-geschaftsstelle-100-in-alpnach-concordia-alpnach"
+        "fr": "conseiller-a-la-clientele-dans-le-bureau-100-a-alpnach-concordia-alpnach"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3388,12 +3388,12 @@
     },
     {
       "id": "concordia-e5ce1701aba4",
-      "slug": "versicherungsberater-in-100-in-luzern-concordia-luzern",
+      "slug": "consulente-assicurativo-100-a-lucerna-concordia-luzern",
       "slugByLocale": {
-        "it": "versicherungsberater-in-100-in-luzern-concordia-luzern",
-        "en": "versicherungsberater-in-100-in-luzern-concordia-luzern",
+        "it": "consulente-assicurativo-100-a-lucerna-concordia-luzern",
+        "en": "insuranceconsultant-100-in-lucerne-concordia-luzern",
         "de": "versicherungsberater-in-100-in-luzern-concordia-luzern",
-        "fr": "versicherungsberater-in-100-in-luzern-concordia-luzern"
+        "fr": "conseiller-en-assurance-100-a-lucerne-concordia-luzern"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3444,7 +3444,8 @@
         "customer-advisor-in-70-in-lucerne-concordia-luzern",
         "kundenberater-in-70-in-luzern-concordia-luzern",
         "conseiller-client-in-70-a-lucerne-concordia-luzern",
-        "conseiller-client-in-70-in-lucerne-concordia-luzern"
+        "conseiller-client-in-70-in-lucerne-concordia-luzern",
+        "versicherungsberater-in-100-in-luzern-concordia-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3455,13 +3456,16 @@
           "customer-advisor-in-70-in-lucerne-concordia-luzern",
           "kundenberater-in-70-in-luzern-concordia-luzern",
           "conseiller-client-in-70-a-lucerne-concordia-luzern",
-          "conseiller-client-in-70-in-lucerne-concordia-luzern"
+          "conseiller-client-in-70-in-lucerne-concordia-luzern",
+          "versicherungsberater-in-100-in-luzern-concordia-luzern"
         ],
         "en": [
-          "insurance-consultant-in-100-in-lucerne-concordia-luzern"
+          "insurance-consultant-in-100-in-lucerne-concordia-luzern",
+          "versicherungsberater-in-100-in-luzern-concordia-luzern"
         ],
         "fr": [
-          "consultant-en-assurance-in-100-a-lucerne-concordia-luzern"
+          "consultant-en-assurance-in-100-a-lucerne-concordia-luzern",
+          "versicherungsberater-in-100-in-luzern-concordia-luzern"
         ]
       },
       "firstSeenAt": "2026-09-02T23:09:05.742Z",
@@ -3484,9 +3488,9 @@
       "slug": "kundenberater-in-60-in-zug-e-cham-concordia-zug",
       "slugByLocale": {
         "it": "kundenberater-in-60-in-zug-e-cham-concordia-zug",
-        "en": "kundenberater-in-60-in-zug-und-cham-concordia-zug",
+        "en": "client-advisor-60-in-zug-and-cham-concordia-zug",
         "de": "kundenberater-in-60-in-zug-und-cham-concordia-zug",
-        "fr": "kundenberater-in-60-in-zug-und-cham-concordia-zug"
+        "fr": "conseiller-ere-a-la-clientele-60-a-zoug-et-cham-concordia-zug"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3543,10 +3547,12 @@
           "service-clientele-en-60-a-zug-et-cham-concordia-zug"
         ],
         "en": [
-          "customer-service-in-60-in-zug-and-cham-concordia-zug"
+          "customer-service-in-60-in-zug-and-cham-concordia-zug",
+          "kundenberater-in-60-in-zug-und-cham-concordia-zug"
         ],
         "fr": [
-          "service-clientele-en-60-a-zug-et-cham-concordia-zug"
+          "service-clientele-en-60-a-zug-et-cham-concordia-zug",
+          "kundenberater-in-60-in-zug-und-cham-concordia-zug"
         ]
       },
       "firstSeenAt": "2026-09-01T23:14:05.572Z",
@@ -3566,12 +3572,12 @@
     },
     {
       "id": "concordia-92f643cb8574",
-      "slug": "kundenberater-in-60-in-olten-concordia-olten",
+      "slug": "consulente-clienti-60-a-olten-concordia-olten",
       "slugByLocale": {
-        "it": "kundenberater-in-60-in-olten-concordia-olten",
-        "en": "kundenberater-in-60-in-olten-concordia-olten",
+        "it": "consulente-clienti-60-a-olten-concordia-olten",
+        "en": "client-advisor-60-in-olten-concordia-olten",
         "de": "kundenberater-in-60-in-olten-concordia-olten",
-        "fr": "kundenberater-in-60-in-olten-concordia-olten"
+        "fr": "conseiller-ere-a-la-clientele-60-a-olten-concordia-olten"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3618,22 +3624,24 @@
         "servizio-clienti-in-60-a-olten-concordia-olten",
         "customer-service-in-60-in-olten-concordia-olten",
         "service-clientele-en-60-a-olten-concordia-olten",
-        "consulente-clienti-60-a-olten-concordia-olten",
-        "service-a-la-clientele-en-60-a-olten-concordia-olten"
+        "service-a-la-clientele-en-60-a-olten-concordia-olten",
+        "kundenberater-in-60-in-olten-concordia-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servizio-clienti-in-60-a-olten-concordia-olten",
           "customer-service-in-60-in-olten-concordia-olten",
           "service-clientele-en-60-a-olten-concordia-olten",
-          "consulente-clienti-60-a-olten-concordia-olten",
-          "service-a-la-clientele-en-60-a-olten-concordia-olten"
+          "service-a-la-clientele-en-60-a-olten-concordia-olten",
+          "kundenberater-in-60-in-olten-concordia-olten"
         ],
         "en": [
-          "customer-service-in-60-in-olten-concordia-olten"
+          "customer-service-in-60-in-olten-concordia-olten",
+          "kundenberater-in-60-in-olten-concordia-olten"
         ],
         "fr": [
-          "service-clientele-en-60-a-olten-concordia-olten"
+          "service-clientele-en-60-a-olten-concordia-olten",
+          "kundenberater-in-60-in-olten-concordia-olten"
         ]
       },
       "firstSeenAt": "2026-09-02T13:36:03.470Z",

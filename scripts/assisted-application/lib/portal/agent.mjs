@@ -16,8 +16,9 @@
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
+import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE } from '../../../../functions/src/lib/permitStatus.js';
 import { NEXT_RE, SUBMIT_RE, chooseFiles, documentPaths } from './fill.mjs';
-import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, questionFromLabel } from './plan.mjs';
+import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, ownStatusAnswer, questionFromLabel } from './plan.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -136,13 +137,14 @@ Page snapshot:
 ${snapshot}`;
 }
 
-// The kind of question, so that an answered one is not asked again in other words.
+// The kind of question, so that an answered one is not asked again in other words. The birth date, the permit
+// and the nationality read the shared wordings (lib/permitStatus.js), supersets of the ones used before.
 const TOPICS = [
-  /birth|geburt|nascita|\bnat[oa]\b|naissance/i,
-  /permit|bewilligung|permesso|visa|autorizza|authori[sz]ation/i,
+  BIRTH_FIELD_RE,
+  new RegExp(`${PERMIT_FIELD_RE.source}|visa|autorizza|authori[sz]ation`, 'i'),
   /salar|lohn|gehalt|pretes|rémun|retribu/i,
   /kündigungsfrist|preavviso|notice/i,
-  /nationalit|staatsangeh|nazionalit|cittadinanza/i,
+  NATIONALITY_FIELD_RE,
   /start|disponib|verfügbar|eintritt|inizio/i,
 ];
 const topicOf = (text) => TOPICS.findIndex((pattern) => pattern.test(text));
@@ -177,9 +179,14 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     // A knock-out ("Deutsch C1?") is grounded by the candidate's own answer to it, or by a
     // quote that supports the answer (review of #10715), never by "Ja" occurring in the data.
     const knockOut = !SENSITIVE.test(action.question);
-    const fromCandidate = knockOut
-      ? answeredByCandidate(candidate, action.question, answer)
-      : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, answer);
+    // A permit or nationality question: the candidate's own status or nationality as the catalogue words it, or
+    // their answer to this very question (decision 9), never the value occurring in the data.
+    const own = action.source === 'widget' ? null : ownStatusAnswer(candidate, action.question, answer);
+    const fromCandidate = own !== null
+      ? own || answeredByCandidate(candidate, action.question, answer)
+      : knockOut
+        ? answeredByCandidate(candidate, action.question, answer)
+        : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, answer);
     const quoted = knockOut && action.source !== 'widget' && evidenceInData(knownValues, action.evidence)
       && evidenceSupports(action.question, answer, action.evidence);
     if (fromCandidate || declines || quoted || (knockOut && knownValues === null)) grounded.add(action.question);

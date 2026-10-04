@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { guardPlan, holdsValue, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { SENSITIVE, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateForForm, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
@@ -306,5 +307,87 @@ describe('portal runner helpers', () => {
     expect(slugId('Wann können Sie beginnen?')).toBe('wann_konnen_sie_beginnen');
     expect(WAVE1_CHANNELS.has('workday')).toBe(true);
     expect(WAVE1_CHANNELS.has('linkedin')).toBe(false);
+  });
+});
+
+// Owner decisions of 2026-10-03 (P4, decision 9): the planner gets the Swiss status as a sentence, the guard reads
+// permit, work-authorisation, nationality and citizenship fields in four languages, and a code rule picks the one
+// option that says exactly the candidate's status.
+describe('portal: the candidate’s Swiss status and nationality', () => {
+  const identity = { name: 'Giulia Verdi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '+39 333 000 0000' };
+  const candidate = (profile: Record<string, any> = {}, answers: Record<string, string> = {}, portalQuestions: any[] = []) => candidateForForm({ identity, profile, answers, portalQuestions, language: 'de' });
+  const select = (fieldId: string, value: string, source = 'rule') => ({ fieldId, action: 'select', value, document: 'none', source, evidence: '' });
+  const permitField = (label: string, options: string[]) => ({ id: 'p1', kind: 'select', label, required: true, options: options.map((option) => ({ label: option })) });
+
+  it('reads permit, work-authorisation, nationality and citizenship fields as sensitive, never a licence or a country', () => {
+    for (const label of ['Nazionalità', 'Cittadinanza', 'Arbeitserlaubnis', 'Are you legally authorised to work in Switzerland?', 'Do you have the right to work in Switzerland?',
+      'Will you require sponsorship?', 'Avez-vous un permis de travail valable en Suisse ?', 'Staatsangehörigkeit', 'Citizenship', 'Qual è il suo stato di autorizzazione al lavoro per Svizzera?']) {
+      expect([label, SENSITIVE.test(label)]).toEqual([label, true]);
+    }
+    for (const label of ['Permis de conduire', 'Country']) expect([label, SENSITIVE.test(label)]).toEqual([label, false]);
+  });
+
+  it('never ticks a consent that also declares a work authorisation or a citizenship', () => {
+    const box = (label: string) => ownConsent({ kind: 'checkbox', required: true, label });
+    expect(box('Ich habe eine gültige Arbeitserlaubnis und akzeptiere die Datenschutzerklärung')).toBe(false);
+    expect(box('I am authorised to work in Switzerland and accept the privacy policy')).toBe(false);
+    expect(box('Ho la cittadinanza svizzera e accetto l’informativa privacy')).toBe(false);
+    expect(box('Ho letto l’informativa privacy e acconsento al trattamento dei dati')).toBe(true);
+    expect(box('Do il permesso al trattamento dei dati')).toBe(true);
+  });
+
+  it('picks the one option that says exactly the status the candidate chose, whatever the plan chose', () => {
+    const field = permitField('Arbeitsbewilligung *', ['B (Aufenthalter)', 'C (Niedergelassene)', 'G (Grenzgänger)', 'Schweizer/in']);
+    const picked = guardPlan({ actions: [select('p1', 'B (Aufenthalter)')], missingRequired: [] }, [field], candidate({ permitStatus: 'permit_g' }));
+    expect(picked).toEqual({ actions: [select('p1', 'G (Grenzgänger)')], missingRequired: [] });
+    const asked = guardPlan({ actions: [], missingRequired: [{ fieldId: 'p1', question: 'Bewilligung?', why: '', type: 'choice', options: [] }] }, [field], candidate({ permitStatus: 'permit_g' }));
+    expect(asked).toEqual({ actions: [select('p1', 'G (Grenzgänger)')], missingRequired: [] });
+    // «none» is a status too: the option that says no permit is held.
+    const none = guardPlan({ actions: [], missingRequired: [] }, [permitField('Bewilligung', ['Keine', 'B', 'G'])], candidate({ permitStatus: 'none' }));
+    expect(none.actions).toEqual([select('p1', 'Keine')]);
+    // A field that asks what the candidate needs is never answered by the code, nor two options that say the same.
+    expect(guardPlan({ actions: [], missingRequired: [] }, [permitField('Welche Bewilligung benötigen Sie?', ['Keine', 'B', 'G'])], candidate({ permitStatus: 'none' })).actions).toEqual([]);
+    expect(guardPlan({ actions: [], missingRequired: [] }, [permitField('Bewilligung', ['G (Grenzgänger)', 'Ausweis G EU/EFTA'])], candidate({ permitStatus: 'permit_g' })).actions).toEqual([]);
+  });
+
+  it('keeps a permit answer only when it names the candidate’s own status, never a «Ja» that occurs in the data', () => {
+    const question = 'Haben Sie eine gültige Arbeitsbewilligung?';
+    const yesNo = permitField(question, ['Ja', 'Nein']);
+    // «Ja» answers another question of the candidate: the substring rule read it as backing this one.
+    for (const permitStatus of ['none', 'permit_b']) {
+      const guarded = guardPlan({ actions: [select('p1', 'Ja', 'answers')], missingRequired: [] }, [yesNo], candidate({ permitStatus }, { portal_fuehrerschein: 'Ja' }));
+      expect([permitStatus, guarded.actions, guarded.missingRequired.map((item: any) => item.fieldId)]).toEqual([permitStatus, [], ['p1']]);
+    }
+    // The candidate's own answer to this very question.
+    const answered = candidate({ permitStatus: 'none' }, { portal_bewilligung: 'Ja' }, [{ id: 'portal_bewilligung', question }]);
+    expect(guardPlan({ actions: [select('p1', 'Ja', 'answers')], missingRequired: [] }, [yesNo], answered).actions).toEqual([select('p1', 'Ja', 'answers')]);
+    // Nothing chosen: only the CV's own words.
+    const gb = permitField('Work permit', ['G', 'B']);
+    expect(guardPlan({ actions: [select('p1', 'G', 'profile')], missingRequired: [] }, [gb], candidate({ workPermit: 'Permesso G' })).actions).toEqual([select('p1', 'G', 'profile')]);
+    expect(guardPlan({ actions: [select('p1', 'G', 'profile')], missingRequired: [] }, [gb], candidate({})).missingRequired.map((item: any) => item.fieldId)).toEqual(['p1']);
+    // A text field filled with the candidate's own statement.
+    const text = { id: 't1', kind: 'text', label: 'Aufenthaltsstatus', required: true };
+    const fill = { fieldId: 't1', action: 'fill', value: permitStatement('permit_b', 'de'), document: 'none', source: 'profile', evidence: '' };
+    expect(guardPlan({ actions: [fill], missingRequired: [] }, [text], candidate({ permitStatus: 'permit_b' })).actions).toEqual([fill]);
+  });
+
+  it('keeps a nationality only when it names the one the candidate gave, Swiss for the status «swiss»', () => {
+    const field = { id: 'n1', kind: 'select', label: 'Nationalität', required: true, options: [{ label: 'Italien' }, { label: 'Deutschland' }, { label: 'Schweiz' }] };
+    expect(guardPlan({ actions: [select('n1', 'Italien', 'profile')], missingRequired: [] }, [field], candidate({ nationality: 'italiana' })).actions).toEqual([select('n1', 'Italien', 'profile')]);
+    expect(guardPlan({ actions: [select('n1', 'Deutschland', 'profile')], missingRequired: [] }, [field], candidate({ nationality: 'italiana' })).missingRequired.map((item: any) => item.fieldId)).toEqual(['n1']);
+    expect(guardPlan({ actions: [select('n1', 'Schweiz', 'profile')], missingRequired: [] }, [field], candidate({ permitStatus: 'swiss' })).actions).toEqual([select('n1', 'Schweiz', 'profile')]);
+  });
+
+  it('gives the planner the status as a sentence outside the data the substring rule reads, and the birth date as the portals read it', () => {
+    const form = candidateForForm({
+      identity, profile: { permitStatus: 'permit_b', workPermit: 'Permesso G', dateOfBirth: '14. März 2010' }, answers: { work_permit: 'x', salary_expectation: 'CHF 80k' }, language: 'de',
+    });
+    expect(form.swissStatus).toEqual({ code: 'permit_b', statement: 'Ich habe eine heute gültige Aufenthaltsbewilligung B.' });
+    expect(form.profile).toMatchObject({ workPermit: '', dateOfBirth: '2010-03-14' });
+    expect(form.answers).toEqual({ salary_expectation: 'CHF 80k' });
+    const known = knownValuesOf(form);
+    expect(known).not.toContain('aufenthaltsbewilligung');
+    expect(known).not.toContain('permesso g');
+    expect(planSystemPrompt('it')).toContain('swissStatus.statement is the candidate\'s own statement of their Swiss status today');
   });
 });

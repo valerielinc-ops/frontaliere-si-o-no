@@ -18,16 +18,18 @@ import { applyAutomationEvent, draftRefFor, flowRefFor, orderRefFor } from './as
 import { checkDraftTexts, clean, cleanBlock } from './assistedApplicationAiDraftCore.js';
 import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import {
-  MAX_PHOTO_BYTES, PHOTO_TYPES, jpegIsWhole, photoAdvice, rebuildInPlaceDocx, rebuildTailoredCvPdf, supersededPhotoPdf, tailoredCvCarriesPhoto,
+  MAX_PHOTO_BYTES, PHOTO_TYPES, jpegIsWhole, photoAdvice, rebuildInPlaceDocx, rebuildTailoredCvPdf, supersededPhotoPdf, tailoredCvCarriesPhoto, tailoredCvChanges,
 } from './assistedApplicationTailoredCvPdf.js';
+import { CvCommitError, commitRebuild, deleteStored, rebuildCvToCommit, saveAnswersWithCv } from './assistedApplicationCvCommit.js';
 import { cvChoiceOf, inPlaceReady } from './assistedApplicationDocxInPlace.js';
 import { applyCvLineChoices, checkTailoredCvFacts, cvChoicesOf, ownChoiceTexts } from './assistedApplicationTailoredCv.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
-import { fieldView, formAnswersWithEdits, planCandidateEdits, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
+import { candidateWithEdits, factSourcesNow, fieldView, formAnswersWithEdits, planCandidateEdits, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
 import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationReviewToken.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
 import { fitNoticeOf } from './assistedApplicationFitNotice.js';
 import { answerMessage, validateAnswer } from './lib/answerRules.js';
+import { permitOmitted, permitStatusOf } from './lib/permitStatus.js';
 import { decideFollowup, followupReviewPayload } from './assistedApplicationFollowupSweep.js';
 import { randomUUID } from 'node:crypto';
 import {
@@ -109,6 +111,21 @@ function questionView(question, nowMs = Date.now()) {
   };
 }
 
+/**
+ * The permit question as the page shows it (decision 10): a stored answer
+ * among the options as it is; one that names the status of an option (a
+ * legacy «G» under the new labels) selects that option; any other stored
+ * text (the owner's own words, «Permesso B in rinnovo») stays, as the last
+ * option, so the select keeps it and a save passes it back unchanged.
+ */
+function permitQuestionView(options, stored) {
+  const text = String(stored ?? '').trim();
+  if (!text || options.includes(text)) return { options, value: text };
+  const code = permitStatusOf(text);
+  const same = code ? options.find((option) => permitStatusOf(option) === code) : null;
+  return same ? { options, value: same } : { options: [...options, text], value: text };
+}
+
 /** What the candidate sees. Built from the draft, never the operator fields. */
 /** The ATS check the candidate sees: grade and keyword coverage, before and after tailoring. */
 function atsView(report) {
@@ -129,8 +146,14 @@ function whatsappUrlOf(order, state) {
 export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, nowMs = Date.now() }) {
   const current = Number(flow?.round) || 1;
   const state = flow?.state || 'drafting';
-  const answers = flow?.answers || {};
-  const questions = (draft?.questions || []).map((question) => questionView(question, nowMs));
+  const answers = { ...(flow?.answers || {}) };
+  const questions = (draft?.questions || []).map((question) => {
+    const view = questionView(question, nowMs);
+    if (question.id !== 'work_permit') return view;
+    const { options, value } = permitQuestionView(view.options, answers.work_permit);
+    answers.work_permit = value;
+    return { ...view, options };
+  });
   const openRequired = questions.filter((question) => question.required && !String(answers[question.id] ?? '').trim());
   // School reports, test results… the posting requires besides the CV and the letter.
   const documents = documentsView(draft, flow);
@@ -139,6 +162,7 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
   const locale = order?.locale || 'it';
   // With what the candidate changed on this page (assistedApplicationCandidateEdits.js).
   const formAnswers = formAnswersWithEdits({ order, draft, flow });
+  const { profile } = candidateWithEdits({ order, draft, flow });
   const stale = round !== current;
   const ready = Boolean(draft && draft.status === 'ready' && Number(draft.round) === current);
   return {
@@ -199,6 +223,8 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
       photoMaxBytes: MAX_PHOTO_BYTES,
       // What the tailored CV changed, line by line, with the candidate's choices.
       changes: cvChangesView(draft, flow),
+      // The permit G left out: the nationality given is not one of the EU or EFTA (decision 3), the page says why.
+      permitOmitted: permitOmitted(profile.permitStatus, profile.nationality),
     } : null,
     ats: draft?.ats ? { original: atsView(draft.ats.original), tailored: atsView(draft.ats.tailored) } : null,
     can: {
@@ -234,8 +260,9 @@ async function loadAll(db, orderId) {
  * The answers kept, each checked with its question's rule, the same check the
  * page runs while the candidate types (functions/src/lib/answerRules.js). Any
  * failure refuses the whole save with a message per field.
+ * @param {object} [stored] the answers as stored: one kept unchanged is not checked again
  */
-export function sanitizeAnswers(raw, draft, nowMs = Date.now(), locale = 'it') {
+export function sanitizeAnswers(raw, draft, nowMs = Date.now(), locale = 'it', stored = {}) {
   const allowed = new Map((draft?.questions || []).map((question) => [question.id, question]));
   const todayIso = zurichToday(nowMs);
   const out = {};
@@ -244,6 +271,11 @@ export function sanitizeAnswers(raw, draft, nowMs = Date.now(), locale = 'it') {
     const question = allowed.get(id);
     if (!question) continue;
     const text = clean(value, MAX_ANSWER_CHARS);
+    // An answer kept as stored never blocks the save (a legacy permit, the owner's free text: decision 10).
+    if (text === clean(stored?.[id], MAX_ANSWER_CHARS)) {
+      out[id] = text;
+      continue;
+    }
     // Clearing an answer is always allowed; an open required one is caught on approval.
     const view = { ...question, required: false, minDate: minDateFor(question, nowMs) };
     const result = validateAnswer(text, view, { todayIso });
@@ -258,100 +290,24 @@ export function sanitizeAnswers(raw, draft, nowMs = Date.now(), locale = 'it') {
 }
 
 /**
- * Objects no document names (a refused request's own, a replaced photo, a
- * superseded PDF), deleted at once. Best effort: a failed delete is logged and
- * never fails the request; the purge of the order's folder is the backstop.
- */
-async function deleteStored(bucket, orderId, keys) {
-  if (!bucket) return;
-  await Promise.all(keys.filter(Boolean).map(async (key) => {
-    try {
-      await bucket.file(key).delete({ ignoreNotFound: true });
-    } catch (error) {
-      console.warn('[assistedApplicationReview] delete failed', orderId, documentFileId(key), String(error?.message || error).slice(0, 120));
-    }
-  }));
-}
-
-/**
- * The commit of the three writers that publish a rebuilt PDF (the photo, the
- * line choices, the candidate's edits): the flow fields and the draft fields
- * in one transaction, and only while what the request built from is still
- * there: the candidate still reviewing this round, the same photo, the same
- * PDFs and, for an edit, no other edit saved meanwhile (an edit writes the
- * e-mail, the letter and the per-round texts whole: as it loaded them, plus
- * its change).
- * Written as two merges built from the request's own snapshot, two
- * overlapping requests (two tabs, a request still running after a reload) or
- * a failure between the writes could leave `flow.photo` null beside a `pdfKey`
- * whose PDF carries the photo, the PDF chooseCv then sends.
- *
- * Refused: the objects the request stored (`created`) are deleted and the
- * page gets a 409 it answers by reloading. A transaction that throws may still
- * have committed: its objects are left to the purge, never deleted under a key
- * a document may name.
- * @param {object} input flow, draft: what the request loaded and built from;
- *   edits: a candidate edit, built also on the letter PDF and the texts of the draft
- */
-async function commitRebuild({ db, bucket, orderId, flow, draft, edits = false, created = [], flowPatch = null, draftPatch, nowMs }) {
-  const flowRef = flowRefFor(db, orderId);
-  const draftRef = draftRefFor(db, orderId);
-  const same = (left, right) => (left || null) === (right || null);
-  const committed = await db.runTransaction(async (transaction) => {
-    const [flowSnapshot, draftSnapshot] = await Promise.all([transaction.get(flowRef), transaction.get(draftRef)]);
-    const current = { flow: flowSnapshot.data() || {}, draft: draftSnapshot.data() || {} };
-    const unchanged = current.flow.state === 'candidate_review'
-      && Number(current.flow.round || 1) === Number(flow.round || 1)
-      && same(current.flow.photo?.key, flow.photo?.key)
-      && same(current.draft.tailoredCv?.pdfKey, draft.tailoredCv?.pdfKey)
-      && (!edits || (same(current.draft.coverLetterPdfKey, draft.coverLetterPdfKey) && same(current.draft.candidateEditedAt, draft.candidateEditedAt)));
-    if (!unchanged) return false;
-    if (flowPatch) transaction.set(flowRef, { ...flowPatch, updatedAt: nowMs }, { merge: true });
-    transaction.set(draftRef, draftPatch, { merge: true });
-    return true;
-  });
-  if (committed) return;
-  await deleteStored(bucket, orderId, created);
-  throw new ReviewError('changed_meanwhile', 409);
-}
-
-/**
- * The tailored CV rebuilt for a writer that commits with commitRebuild. The
- * photo the request loaded can be gone before the rebuild reads it: taken back
- * or replaced by another request, which deletes it after its own commit. That
- * is the commit's refusal met earlier (what the request stored so far,
- * `created`, deleted; the 409 the page answers by reloading), not a 500.
- * savePhotoChange needs none: it reads only the photo it has just stored, a
- * key no other request knows, or no photo at all.
- */
-async function rebuildCvToCommit({ created = [], ...input }) {
-  try {
-    return await rebuildTailoredCvPdf(input);
-  } catch (error) {
-    // Storage answers 404 for the photo that is no longer there.
-    if (error?.code !== 404 || !input.flow?.photo?.key) throw error;
-    await deleteStored(input.bucket, input.orderId, created);
-    throw new ReviewError('changed_meanwhile', 409);
-  }
-}
-
-/**
  * The candidate's changes to the letter, the e-mail and the fields, before
  * approving (no flow event: the submission reads them). The letter PDF is
- * rebuilt when its text or the header (name, phone, place) changes; the
- * candidate's own words become a fact source.
+ * rebuilt when its text or the header (name, phone, place) changes, and the
+ * tailored CV when a value it prints changes (decision 7); the candidate's
+ * own words become a fact source, and the texts are judged with the status
+ * the candidate has now.
  */
 async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, body, nowMs }) {
   const locale = order?.locale || 'it';
-  const plan = planCandidateEdits(body, { order, draft, flow, locale });
+  const plan = planCandidateEdits(body, { order, draft, flow, locale, nowMs });
   if (Object.keys(plan.errors).length) throw new ReviewError('invalid_edits', 400, { fields: plan.errors });
   if (!plan.changed.length) return [];
   const nextFlow = { ...flow, formOverrides: { ...(flow.formOverrides || {}), ...plan.overrides } };
   const next = { ...draft, ...plan.draftPatch };
-  const factSources = {
+  const factSources = factSourcesNow({ order, draft: next, flow: nextFlow }, {
     ...(draft.factSources || {}),
     candidate: [draft.factSources?.candidate || '', plan.candidateText].filter(Boolean).join('\n').slice(-MAX_CANDIDATE_SOURCE),
-  };
+  });
   const motivation = Object.fromEntries((next.formAnswers || []).map((field) => [field.key, field.value]));
   const factCheck = checkDraftTexts({
     coverLetter: next.coverLetter?.text,
@@ -370,8 +326,8 @@ async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, bod
     coverLetterRenderer = rebuilt.renderer;
     await bucket.file(coverLetterPdfKey).save(rebuilt.pdf, { contentType: 'application/pdf', resumable: false });
   }
-  // The tailored CV prints the same header: a corrected name, phone or place rebuilds it too.
-  const tailored = plan.identityChanged
+  // The tailored CV is rebuilt when a value it prints changed: the header, the personal data, LinkedIn, languages.
+  const tailored = tailoredCvChanges({ order, draft, flow, nextDraft: next, nextFlow })
     ? await rebuildCvToCommit({ bucket, order, orderId, draft: next, flow: nextFlow, nowMs, created: [coverLetterPdfKey] })
     : null;
   await commitRebuild({
@@ -583,7 +539,8 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
 
 /**
  * @param {{method:string, query?:object, body?:object}} req
- * @param {{db, runEffect, getSecret?, signUrl?, nowMs?}} deps
+ * @param {{db, runEffect, bucket?, sendCascade?, getSecret?, signUrl?, nowMs?}} deps bucket: the order's Storage, for
+ *   the files a request stores and the PDFs a change rebuilds
  */
 export async function handleAssistedApplicationReview(req, deps) {
   const nowMs = deps.nowMs || Date.now();
@@ -664,9 +621,11 @@ export async function handleAssistedApplicationReview(req, deps) {
       return { status: 200, body: { ok: true, state: result.flow?.state || flow.state } };
     }
     if (action === 'answers') {
-      const answers = sanitizeAnswers(body.answers, draft, nowMs, order?.locale || 'it');
+      const answers = sanitizeAnswers(body.answers, draft, nowMs, order?.locale || 'it', flow.answers || {});
       if (!Object.keys(answers).length) throw new ReviewError('no_valid_answers');
-      await flowRefFor(deps.db, orderId).set({ answers: { ...(flow.answers || {}), ...answers }, updatedAt: nowMs }, { merge: true });
+      // A status or an availability the tailored CV prints: rebuilt and committed with the answers, before the
+      // event can dispatch the submission (decision 7).
+      await saveAnswersWithCv({ db: deps.db, bucket: deps.bucket, orderId, order, flow, draft, answers, nowMs });
     }
     const event = {
       approve: { type: 'candidate_approve' },
@@ -682,6 +641,8 @@ export async function handleAssistedApplicationReview(req, deps) {
     return { status: 200, body: { ok: true, state: result.flow?.state || flow.state } };
   } catch (error) {
     if (error instanceof ReviewError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
+    // A guarded commit refused (another request saved first) or no Storage for the rebuild.
+    if (error instanceof CvCommitError) return { status: error.status, body: { ok: false, error: error.code } };
     throw error;
   }
 }

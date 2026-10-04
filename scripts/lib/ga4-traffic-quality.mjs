@@ -1,8 +1,8 @@
-import { buildTargetMarketCountryFilter, TARGET_MARKET_COUNTRIES } from './ga4-target-market.mjs';
+import { buildTargetMarketCountryFilter, TARGET_MARKET_COUNTRIES, TRAFFIC_HOSTNAME } from './ga4-target-market.mjs';
 import { fetchDailyEngagementVerdict } from './ga4-engagement-reliability.mjs';
 import { classifyAnalyticsPath } from './analytics-opportunity-utils.mjs';
 
-export const TRAFFIC_HOSTNAME = 'frontaliereticino.ch';
+export { TRAFFIC_HOSTNAME };
 export const QUALIFIED_MEDIA = Object.freeze(['organic', 'email', 'newsletter']);
 
 export function buildTrafficFilter(qualified = false) {

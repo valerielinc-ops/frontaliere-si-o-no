@@ -680,9 +680,9 @@
     },
     {
       "id": "vz-vermoegenszentrum-dd25003702e5",
-      "slug": "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona",
+      "slug": "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona-sankt-gallen",
       "slugByLocale": {
-        "it": "private-clients-consultant-80-100-vz-vermogenszentrum-rapperswil-jona",
+        "it": "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona-sankt-gallen",
         "en": "private-clients-consultant-80-100-vz-vermogenszentrum-rapperswil-jona",
         "de": "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
         "fr": "consultant-en-clientele-privee-80-100-vz-vermogenszentrum-rapperswil-jona-sankt-gallen"
@@ -743,13 +743,17 @@
       "previousSlugs": [
         "private-clients-consultant-80-100-vz-vermoegenszentrum-ch-2",
         "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
-        "private-clients-consultant-vz-vermoegenszentrum-ch"
+        "private-clients-consultant-vz-vermoegenszentrum-ch",
+        "private-clients-consultant-80-100-vz-vermogenszentrum-rapperswil-jona",
+        "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch-2",
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
-          "private-clients-consultant-vz-vermoegenszentrum-ch"
+          "private-clients-consultant-vz-vermoegenszentrum-ch",
+          "private-clients-consultant-80-100-vz-vermogenszentrum-rapperswil-jona",
+          "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona"
         ]
       },
       "firstSeenAt": "2026-07-10T22:31:21.324Z",
@@ -957,7 +961,7 @@
       "slug": "trainee-programm-unabhangige-vermogensberatung-80-100-vz-vermogenszentrum-thun",
       "slugByLocale": {
         "it": "trainee-programm-unabhangige-vermogensberatung-80-100-vz-vermogenszentrum-thun",
-        "en": "trainee-programm-unabhangige-vermogensberatung-80-100-vz-vermogenszentrum-thun",
+        "en": "trainee-program-independent-wealth-advice-80-100-vz-vermogenszentrum-thun-bern",
         "de": "trainee-programm-unabhangige-vermogensberatung-80-100-vz-vermoegenszentrum-ch",
         "fr": "trainee-programm-unabhangige-vermogensberatung-80-100-vz-vermogenszentrum-thun"
       },
@@ -1037,12 +1041,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-61cd5fa24e20",
-      "slug": "successione-commerciale-m-a-vz-vermogenszentrum-bern",
+      "slug": "successione-commerciale-m-a-vz-vermogenszentrum-bern-bern",
       "slugByLocale": {
-        "it": "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern",
-        "en": "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern",
+        "it": "successione-commerciale-m-a-vz-vermogenszentrum-bern-bern",
+        "en": "consultant-business-succession-m-a-vz-vermogenszentrum-bern-bern",
         "de": "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermoegenszentrum-ch",
-        "fr": "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern"
+        "fr": "aine-consultant-succession-d-entreprise-m-a-80-100-vz-vermogenszentrum-bern-bern"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -1110,10 +1114,16 @@
           "senior-consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch",
           "consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch",
           "senior-consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
-          "consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern"
+          "consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
+          "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern",
+          "successione-commerciale-m-a-vz-vermogenszentrum-bern"
         ],
         "fr": [
-          "aine-consultant-succession-d-entreprise-m-a-80-100-vz-vermogenszentrum-bern"
+          "aine-consultant-succession-d-entreprise-m-a-80-100-vz-vermogenszentrum-bern",
+          "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern"
+        ],
+        "en": [
+          "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern"
         ]
       },
       "previousSlugs": [
@@ -1122,7 +1132,9 @@
         "consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch",
         "senior-consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
         "consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
-        "aine-consultant-succession-d-entreprise-m-a-80-100-vz-vermogenszentrum-bern"
+        "aine-consultant-succession-d-entreprise-m-a-80-100-vz-vermogenszentrum-bern",
+        "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern",
+        "successione-commerciale-m-a-vz-vermogenszentrum-bern"
       ],
       "firstSeenAt": "2026-07-30T22:18:33.770Z",
       "salaryMin": 68500,
@@ -1327,12 +1339,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-42a287e1cf5d",
-      "slug": "private-clients-consulente-vz-vermogenszentrum-zurich",
+      "slug": "private-clients-consulente-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
-        "it": "private-clients-consultant-80-100-vz-vermogenszentrum-zurich",
+        "it": "private-clients-consulente-vz-vermogenszentrum-zurich-zurich",
         "en": "private-clients-consultant-80-100-vz-vermogenszentrum-zurich",
         "de": "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
-        "fr": "private-clients-consultant-80-100-vz-vermogenszentrum-zurich"
+        "fr": "consultant-client-prive-80-100-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -1393,17 +1405,21 @@
         "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
         "consultant-client-prive-80-100-vz-vermogenszentrum-zurich-zurich",
         "private-clients-consultant-vz-vermoegenszentrum-ch",
-        "consultant-client-prive-80-100-vz-vermogenszentrum-zurich"
+        "consultant-client-prive-80-100-vz-vermogenszentrum-zurich",
+        "private-clients-consultant-80-100-vz-vermogenszentrum-zurich",
+        "private-clients-consulente-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
           "consultant-client-prive-80-100-vz-vermogenszentrum-zurich-zurich",
-          "private-clients-consultant-vz-vermoegenszentrum-ch"
+          "private-clients-consultant-vz-vermoegenszentrum-ch",
+          "private-clients-consultant-80-100-vz-vermogenszentrum-zurich",
+          "private-clients-consulente-vz-vermogenszentrum-zurich"
         ],
         "fr": [
-          "consultant-client-prive-80-100-vz-vermogenszentrum-zurich-zurich",
-          "consultant-client-prive-80-100-vz-vermogenszentrum-zurich"
+          "consultant-client-prive-80-100-vz-vermogenszentrum-zurich",
+          "private-clients-consultant-80-100-vz-vermogenszentrum-zurich"
         ]
       },
       "firstSeenAt": "2026-08-03T12:52:40.710Z",
@@ -2808,7 +2824,6 @@
           "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:33:16.194Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2916,7 +2931,7 @@
         "it": "real-estate-consultant-vz-vermogenszentrum-basel",
         "en": "real-estate-consultant-vz-vermogenszentrum-basel",
         "de": "real-estate-consultant-vz-vermoegenszentrum-ch",
-        "fr": "real-estate-consultant-vz-vermogenszentrum-basel"
+        "fr": "consultant-immobilier-vz-vermogenszentrum-basel-basel-stadt"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -2971,14 +2986,16 @@
       },
       "previousSlugs": [
         "real-estate-consultant-vz-vermoegenszentrum-ch",
-        "consultant-immobilier-vz-vermogenszentrum-basel"
+        "consultant-immobilier-vz-vermogenszentrum-basel",
+        "real-estate-consultant-vz-vermogenszentrum-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "real-estate-consultant-vz-vermoegenszentrum-ch"
         ],
         "fr": [
-          "consultant-immobilier-vz-vermogenszentrum-basel"
+          "consultant-immobilier-vz-vermogenszentrum-basel",
+          "real-estate-consultant-vz-vermogenszentrum-basel"
         ]
       },
       "firstSeenAt": "2026-09-14T16:01:50.556Z",
@@ -3359,12 +3376,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-645436c6083c",
-      "slug": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-horgen",
+      "slug": "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-horgen-zurich",
       "slugByLocale": {
-        "it": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-horgen",
-        "en": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-horgen",
+        "it": "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-horgen-zurich",
+        "en": "entry-into-financial-consulting-independent-asset-management-services-vz-vermogenszentrum-horgen-zurich",
         "de": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-        "fr": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-horgen"
+        "fr": "entree-dans-conseils-financiers-services-independants-de-gestion-d-actifs-vz-vermogenszentrum-horgen-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -3416,11 +3433,19 @@
         ]
       },
       "previousSlugs": [
-        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-horgen"
+        ],
+        "en": [
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-horgen"
+        ],
+        "fr": [
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-horgen"
         ]
       },
       "firstSeenAt": "2026-09-21T16:01:55.270Z",
@@ -3440,12 +3465,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-c4aa2a93ea10",
-      "slug": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-freienbach",
+      "slug": "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-freienbach-schwyz",
       "slugByLocale": {
-        "it": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-freienbach",
-        "en": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-freienbach",
+        "it": "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-freienbach-schwyz",
+        "en": "entry-into-financial-consulting-independent-asset-management-services-vz-vermogenszentrum-freienbach-schwyz",
         "de": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-        "fr": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-freienbach"
+        "fr": "entree-dans-conseils-financiers-services-independants-de-gestion-d-actifs-vz-vermogenszentrum-freienbach-schwyz"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -3498,12 +3523,20 @@
       },
       "previousSlugs": [
         "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch-2",
-        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-freienbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch-2",
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-freienbach"
+        ],
+        "en": [
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-freienbach"
+        ],
+        "fr": [
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-freienbach"
         ]
       },
       "firstSeenAt": "2026-09-21T16:01:55.267Z",
@@ -4064,7 +4097,7 @@
       "slug": "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-bern",
       "slugByLocale": {
         "it": "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-bern",
-        "en": "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-bern",
+        "en": "trainee-program-independent-investment-advice-vz-vermogenszentrum-bern-bern",
         "de": "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
         "fr": "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-bern"
       },
@@ -4074,7 +4107,7 @@
       "title": "Trainee-Programm – Unabhängige Vermögensberatung",
       "titleByLocale": {
         "it": "Apprendista-Programm – Unabhängige Vermögensberatung",
-        "en": "Trainee-Programm – Unabhängige Vermögensberatung",
+        "en": "Trainee program – independent investment advice",
         "de": "Trainee-Programm – Unabhängige Vermögensberatung",
         "fr": "Apprenti-Programm – Unabhängige Vermögensberatung"
       },
@@ -4595,9 +4628,9 @@
       "slug": "sachbearbeiter-in-berufliche-previdenza-vz-vermogenszentrum-bern",
       "slugByLocale": {
         "it": "sachbearbeiter-in-berufliche-previdenza-vz-vermogenszentrum-bern",
-        "en": "sachbearbeiter-in-berufliche-vorsorge-vz-vermogenszentrum-bern",
+        "en": "occupational-pensions-clerk-vz-vermogenszentrum-bern-bern",
         "de": "sachbearbeiter-in-berufliche-vorsorge-vz-vermoegenszentrum-ch",
-        "fr": "sachbearbeiter-in-berufliche-vorsorge-vz-vermogenszentrum-bern"
+        "fr": "commis-aux-pensions-professionnelles-vz-vermogenszentrum-bern-bern"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4605,9 +4638,9 @@
       "title": "Sachbearbeiter/-in berufliche Vorsorge",
       "titleByLocale": {
         "it": "Sachbearbeiter/-in berufliche previdenza",
-        "en": "Sachbearbeiter/-in berufliche Vorsorge",
+        "en": "Occupational Pensions Clerk",
         "de": "Sachbearbeiter/-in berufliche Vorsorge",
-        "fr": "Sachbearbeiter/-in berufliche Vorsorge"
+        "fr": "Commis aux pensions professionnelles"
       },
       "description": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Da wir kräftig wachsen, suchen wir Verstärkung für unsere Vorsorgestiftungen in unserer Niederlassung an zentraler Lage in Bern.\n\n• Du wickelst in der Pensionskassenverwaltung abwechslungsreiche Geschäftsfälle selbstständig ab und arbeitest bei Projekten mit. Die häufigsten Geschäftsfälle sind Ein- und Austritte von Versicherten, Wohneigentumsvorbezüge, Einkäufe, Pensionierungen und verschiedene Leistungsfälle.\n\n• Du betreust Versicherte und weitere Anspruchsgruppen kompetent und selbstständig in allen administrativen Belangen. Als erste Anlaufstelle sorgst du im Tagesgeschäft für eine zuverlässige, lösungsorientierte und kundennahe Abwicklung aller Anliegen.\n\n• Du bist verantwortlich für die Rechnungsstellung der Beiträge und die Verarbeitung von Zahlungseingängen. Zusätzlich unterstützt Du die Buchhaltung beim Jahresabschluss.\n\n• Abgeschlossene kaufmännische Ausbildung\n\n• Interesse im Bereich der beruflichen Vorsorge Fuss zu fassen und eine Affinität für Zahlen\n\n• Rasche Auffassungsgabe und Motivation Neues dazuzulerne\n\n• Sichere Kommunikation in Deutsch, gute mündliche Kenntnisse in Italienisch und Französisch von Vorteil\n\n• Freude an einem dynamischen und dienstleistungsorientieren Umfeld, zuverlässige und exakte Arbeitsweise\n\n• Nach einer sorgfältigen Einarbeitung arbeitest du selbstständig und übernimmst sukzessive mehr Verantwortung.\n\n• Auch für Deine Weiterbildung bist du bei uns an der richtigen Adresse. Wir fördern dich individuell und unterstützen Dich im Rahmen Deines Jobprofils auch bei externen Weiterbildungen.\n\n• Unsere Umfragen zur Zufriedenheit bestätigen regelmässig, dass unsere Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
       "descriptionByLocale": {
@@ -4656,7 +4689,8 @@
         "sachbearbeiter-in-berufliche-vorsorge-vz-vermoegenszentrum-ch",
         "prestazioni-professionali-vz-vermogenszentrum-bern-bern",
         "personnel-occupational-provision-vz-vermogenszentrum-bern-bern",
-        "formation-professionnelle-vz-vermogenszentrum-bern-bern"
+        "formation-professionnelle-vz-vermogenszentrum-bern-bern",
+        "sachbearbeiter-in-berufliche-vorsorge-vz-vermogenszentrum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4666,10 +4700,12 @@
           "formation-professionnelle-vz-vermogenszentrum-bern-bern"
         ],
         "en": [
-          "personnel-occupational-provision-vz-vermogenszentrum-bern-bern"
+          "personnel-occupational-provision-vz-vermogenszentrum-bern-bern",
+          "sachbearbeiter-in-berufliche-vorsorge-vz-vermogenszentrum-bern"
         ],
         "fr": [
-          "formation-professionnelle-vz-vermogenszentrum-bern-bern"
+          "formation-professionnelle-vz-vermogenszentrum-bern-bern",
+          "sachbearbeiter-in-berufliche-vorsorge-vz-vermogenszentrum-bern"
         ]
       },
       "needsRetranslation": true,

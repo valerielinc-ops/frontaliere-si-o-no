@@ -11298,12 +11298,12 @@
     },
     {
       "id": "medbase-e88ecdf242bf",
-      "slug": "medizinische-praxisassistenz-a-80-100-medbase-ch-3",
+      "slug": "assistenza-medica-pratica-a-80-100-medbase-hinwil",
       "slugByLocale": {
-        "it": "medizinische-praxisassistenz-a-80-100-medbase-ch-3",
-        "en": "medizinische-praxisassistenz-a-80-100-medbase-ch-3",
+        "it": "assistenza-medica-pratica-a-80-100-medbase-hinwil",
+        "en": "medical-practice-assistance-a-80-100-medbase-hinwil",
         "de": "medizinische-praxisassistenz-a-80-100-medbase-ch",
-        "fr": "medizinische-praxisassistenz-a-80-100-medbase-ch-3"
+        "fr": "assistance-medicale-a-80-100-medbase-hinwil"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -11348,14 +11348,22 @@
       "jobReqId": "JR07577",
       "previousSlugs": [
         "medizinische-praxisassistenz-a-80-100-medbase-ch",
-        "medizinische-praxisassistenz-a-80-100-medbase-ch-pfmtz8"
+        "medizinische-praxisassistenz-a-80-100-medbase-ch-pfmtz8",
+        "medizinische-praxisassistenz-a-80-100-medbase-ch-3"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistenz-a-80-100-medbase-ch"
+          "medizinische-praxisassistenz-a-80-100-medbase-ch",
+          "medizinische-praxisassistenz-a-80-100-medbase-ch-3"
         ],
         "de": [
           "medizinische-praxisassistenz-a-80-100-medbase-ch-pfmtz8"
+        ],
+        "en": [
+          "medizinische-praxisassistenz-a-80-100-medbase-ch-3"
+        ],
+        "fr": [
+          "medizinische-praxisassistenz-a-80-100-medbase-ch-3"
         ]
       },
       "firstSeenAt": "2026-08-14T21:42:07.410Z",

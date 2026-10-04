@@ -1,10 +1,14 @@
 /**
  * The tailored CV rebuilt after the draft, in the Cloud Functions: when the
- * candidate adds or removes a photo, corrects the name, the phone or the
- * place, or (phase 4) accepts or rejects a rewritten line. The draft keeps
- * the sanitized tailored CV (`tailoredCv.cv`); every fact is still copied from
- * the profile, the candidate's corrections win (candidateWithEdits), and the
- * PDF goes through the same Typst renderer as the runner's.
+ * candidate adds or removes a photo, (phase 4) accepts or rejects a rewritten
+ * line, or changes anything else the CV prints: a correction on the review
+ * page (name, phone, place, LinkedIn, languages, nationality, date of birth,
+ * permit status, availability), an answer that feeds the same values, the
+ * candidate's or the owner's (decision 7 of 2026-10-03: tailoredCvChanges
+ * compares the document before and after). The draft keeps the sanitized
+ * tailored CV (`tailoredCv.cv`); every fact is still copied from the profile,
+ * the candidate's corrections win (candidateWithEdits), and the PDF goes
+ * through the same Typst renderer as the runner's.
  *
  * The photo (study 2026-10-02, report-cv-lettera §4): optional, never taken
  * from the candidate's CV, given on the review page. Customary in German-
@@ -105,18 +109,41 @@ export function supersededPhotoPdf(draft) {
 }
 
 /**
+ * The tailored CV's document (buildCvDocument) as every rebuild prints it: the
+ * draft's text, the candidate's corrections and answers, and the line choices
+ * of the round. The only builder of a rebuild's document (the name the Word
+ * copy of the kept documents shares, close-out P8).
+ * @param {{order:object, draft:object, flow?:object, cv?:object}} input cv: the tailored CV to print (default: the draft's)
+ * @returns {object|null} null when the draft has no tailored CV to rebuild
+ */
+export function tailoredCvDocumentFor({ order, draft, flow = {}, cv }) {
+  const tailored = draft?.tailoredCv;
+  const source = cv || tailored?.cv;
+  if (tailored?.status !== 'ready' || !source) return null;
+  const { identity, profile } = candidateWithEdits({ order, draft, flow });
+  // The candidate's line-by-line choices of this round hold through every rebuild (photo, corrected header).
+  return tailoredCvDocument(applyCvLineChoices(source, cvChoicesOf(draft, flow), { profile }), { identity, profile });
+}
+
+/**
+ * Whether a change prints a different tailored CV (decision 7): the document
+ * before and after it, compared. A salary answer never rebuilds it; an
+ * availability answer, a LinkedIn edit or a new phone always does.
+ */
+export function tailoredCvChanges({ order, draft, flow, nextDraft = draft, nextFlow }) {
+  const after = tailoredCvDocumentFor({ order, draft: nextDraft, flow: nextFlow });
+  return Boolean(after) && JSON.stringify(after) !== JSON.stringify(tailoredCvDocumentFor({ order, draft, flow }));
+}
+
+/**
  * @param {{bucket:object, order:object, orderId:string, draft:object, flow?:object, cv?:object, nowMs:number, mode?:string, log?:Function}} input
  *   cv: the tailored CV to print (default: the draft's)
  * @returns {Promise<{pdfKey:string, renderer:string, photo:boolean}|null>} photo: the PDF carries the candidate's photo;
  *   null when the draft has no tailored CV to rebuild
  */
 export async function rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow = {}, cv, nowMs, mode, log }) {
-  const tailored = draft?.tailoredCv;
-  const source = cv || tailored?.cv;
-  if (tailored?.status !== 'ready' || !source || !bucket) return null;
-  const { identity, profile } = candidateWithEdits({ order, draft, flow });
-  // The candidate's line-by-line choices of this round hold through every rebuild (photo, corrected header).
-  const document = tailoredCvDocument(applyCvLineChoices(source, cvChoicesOf(draft, flow), { profile }), { identity, profile });
+  const document = bucket ? tailoredCvDocumentFor({ order, draft, flow, cv }) : null;
+  if (!document) return null;
   const { pdf, renderer, photo } = await renderCvPdf({ ...document, ...await candidatePhoto(flow, bucket) }, { mode: mode || await pdfRendererMode(), log });
   // A key of its own per rebuild: a request refused at its commit deletes its PDF, never the one another request published.
   const pdfKey = `assisted-application-uploads/${orderId}/ai-cv-r${draft.round || 1}-candidate-${nowMs}-${randomUUID().slice(0, 8)}.pdf`;

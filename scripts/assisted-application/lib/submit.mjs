@@ -24,7 +24,7 @@ import {
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { rebuildLetterPdf } from '../../../functions/src/assistedApplicationLetterPdf.js';
 import { cvChoiceOf } from '../../../functions/src/assistedApplicationDocxInPlace.js';
-import { candidateWithEdits, formAnswersWithEdits } from '../../../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateWithEdits, factSourcesNow, formAnswersWithEdits } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import { classifyApplicationChannel, isPlausibleEmail, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { EMPLOYER_MAIL_FROM, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
@@ -200,11 +200,12 @@ export async function submitApplication(ctx) {
     return { type: 'submit_needs_candidate', questions: open.map((question) => ({ id: question.id })), documents: missingDocuments };
   }
 
+  // With the candidate's permit status of now: a letter naming a permit they no longer state stops here (decision 8).
   const facts = checkDraftTexts({
     coverLetter: draft.coverLetter?.text,
     emailSubject: draft.applicationEmail?.subject,
     emailBody: draft.applicationEmail?.body,
-  }, draft.factSources || {}, { language: draft.language });
+  }, factSourcesNow({ order, draft, flow }), { language: draft.language });
   // The gate of the day may be stricter than the one the draft was written with. Its result travels
   // next to the failure: agent.mjs stores it with the draft, so the owner sees the tokens and can
   // confirm them (the stored result alone would show nothing to confirm); it never reaches the event.
@@ -403,7 +404,7 @@ export async function submitApplication(ctx) {
         skipPostingCheck: flow?.dispatch?.reason === 'owner_retry',
         language: draft.language,
         candidateLocale: draft.candidateLocale || order.locale || 'it',
-        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions, extraDocuments: extras }),
+        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions, extraDocuments: extras, language: draft.language }),
         files,
         codex: ctx.codex,
         accounts: ctx.accounts || null,

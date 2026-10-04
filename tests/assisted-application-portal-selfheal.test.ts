@@ -88,6 +88,12 @@ describe('portal runner self-correction', () => {
     expect(issue.description).not.toContain('Maria');
   });
 
+  // P4: a birth date typed on the review page the Swiss way is struck in its ISO form too, and a written one in both.
+  it('level 3: strikes a birth date in every form the portals and the CV write it', () => {
+    expect(candidateValues([['12.09.1986']])).toEqual(expect.arrayContaining(['12.09.1986', '1986-09-12', '12/09/1986', '12-09-1986']));
+    expect(candidateValues([['14. März 2010']])).toEqual(expect.arrayContaining(['2010-03-14', '14.03.2010']));
+  });
+
   // JOIN run 36846326334: after «Conferma e applica» the portal said it did not send.
   it('reads a portal’s own refusal as a refusal, never as a confirmation', () => {
     for (const text of [

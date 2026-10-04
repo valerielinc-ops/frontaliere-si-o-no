@@ -16,6 +16,7 @@ import { evaluateRedFlags, factCheckAcknowledged } from '../functions/src/assist
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { PNG_1X1, pdfPaintsImage } from './helpers/pdfImages';
 import { safeErrorCode, takeFactCheck, writeDraft } from '../scripts/assisted-application/agent.mjs';
+import { permitOptions } from '../functions/src/lib/permitStatus.js';
 
 const KEY = Buffer.alloc(32, 7);
 const ORDER_ID = 'order_RUN123';
@@ -193,6 +194,10 @@ describe('draft mode', () => {
     expect(draft.profile).toMatchObject({ languages: [{ language: 'Deutsch C1', level: '' }], workPermit: 'B' });
     // The corrected salary answers the question the posting asks.
     expect(draft.questions.map((question: any) => question.id)).not.toContain('salary_expectation');
+    // The field's legacy «B» is the status the candidate chose (P4): every prompt and the gate read it.
+    expect(draft.profile.permitStatus).toBe('permit_b');
+    expect(draft.factSources.permitStatus).toBe('permit_b');
+    expect(promptFor(DOCUMENTS_SCHEMA)).toContain('"swissPermit":{"status":"permit_b","name":"permesso di dimora (B)"}');
   });
 
   it('reuses a profile read by this version, normalized; a profile read before the kinds of experience is read again', async () => {
@@ -691,6 +696,31 @@ describe('submit mode', () => {
     expect(sendCascade).toHaveBeenCalledTimes(2);
   });
 
+  // P4, decision 8: the gate at submit judges with the status the candidate has now, not the one the letter was
+  // written with.
+  it('stops a letter that names a permit the candidate now says they do not hold', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend', messageId: 'm1' }] }));
+    const draft = {
+      ...baseDraft,
+      coverLetter: { text: 'Gentili Signori,\n\nLavoro a Lugano con la Grenzgängerbewilligung G.\n\nSaluti' },
+      factSources: { ...baseDraft.factSources, permitStatus: '' },
+      factCheck: { ok: true, unsupported: [], advisories: [], basis: 'pdf_text' },
+      questions: [{ id: 'work_permit', question: 'Permesso?', type: 'choice', options: permitOptions('it'), required: false }, ...baseDraft.questions],
+    };
+    const submit = (workPermit: string) => submitApplication({
+      order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k', work_permit: workPermit } }, draft, cvBuffer: cvPdf(), cvType: 'pdf',
+      bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
+    });
+    const stopped: any = await submit(permitOptions('it')[5]);
+    expect(stopped).toMatchObject({ type: 'submit_failed', error: 'fact_check_not_acknowledged' });
+    expect(stopped.factCheck.unsupported).toEqual([expect.objectContaining({ field: 'coverLetter', kind: 'permit', token: 'Grenzgängerbewilligung' })]);
+    expect(sendCascade).not.toHaveBeenCalled();
+    // A legacy «G» is the status the letter names: not stopped by the gate.
+    expect(await submit('G')).toMatchObject({ type: 'submit_succeeded', channel: 'email' });
+  });
+
   // The e-mail leaves with the candidate's signature: the phone of the order, as the order writes it.
   // Its digits back no figure of the letter, and are no figure themselves when the gate runs at submit.
   it('sends an e-mail signed with a phone number written without the country prefix', async () => {
@@ -765,6 +795,12 @@ describe('personal data in a public run', () => {
     expect(lines).toContain('::add-mask::41791234567\n');
     expect(lines.some((line) => line.includes('a\nb'))).toBe(false);
     expect(count).toBe(lines.length);
+  });
+
+  it('masks a birth date in the other form too: the CV prints dd.mm.yyyy, the portals get YYYY-MM-DD', () => {
+    const lines: string[] = [];
+    maskValues(['12.03.1998', '14. März 2010'], (line) => lines.push(line));
+    expect(lines).toEqual(expect.arrayContaining(['::add-mask::1998-03-12\n', '::add-mask::2010-03-14\n', '::add-mask::14.03.2010\n']));
   });
 
   it('encrypts evidence with authenticated encryption', () => {

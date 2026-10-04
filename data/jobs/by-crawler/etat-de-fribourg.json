@@ -3530,12 +3530,12 @@
     },
     {
       "id": "etat-de-fribourg-d0687ad66006",
-      "slug": "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
+      "slug": "impiegato-amministrativo-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
-        "en": "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
+        "it": "impiegato-amministrativo-etat-de-fribourg-fribourg",
+        "en": "administrative-clerk-etat-de-fribourg-fribourg",
         "de": "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
-        "fr": "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+        "fr": "commis-administratif-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -3595,7 +3595,21 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "previousSlugsByLocale": {
+        "it": [
+          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-8a5c6feccca2",
