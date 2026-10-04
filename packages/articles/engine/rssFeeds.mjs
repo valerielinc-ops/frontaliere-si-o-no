@@ -34,6 +34,7 @@
 import { ARTICLE_SECTION_CORE } from './shared/articleSectionCore.mjs';
 import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
 import { findAllSeoEntryMatches } from './shared/seo-entry.mjs';
+import { createImageCreditReader, mediaRssCreditXml, renderImageCreditHtml } from './shared/imageCredits.mjs';
 
 export const BASE_URL = 'https://frontaliereticino.ch';
 export const RSS_LOCALES = ['it', 'en', 'de', 'fr'];
@@ -330,7 +331,7 @@ const FALLBACK_IMAGE = `${BASE_URL}/icons/icon-512x512.png`;
 
 // ── Feed rendering ────────────────────────────────────────────────────
 
-function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, images, repairSerpSnippet) {
+function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, images, credits, repairSerpSnippet) {
   const meta = section.localeMeta[locale];
 
   // The IT per-locale feed's self-link points at the section's main feed
@@ -373,6 +374,9 @@ function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, 
       pubDate: article.datePublished,
       category: article.articleSection,
       imageUrl: images.get(articleId) || FALLBACK_IMAGE,
+      // Credit record of that cover (P14); null for the app-icon fallback and
+      // for every cover without a record.
+      imageCredit: credits.get(articleId) ?? null,
       articleId,
       creator,
     });
@@ -395,9 +399,18 @@ function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, 
   const itemsXml = topItems
     .map((item) => {
       const body = sanitizeFeedBody(bodies?.get(item.articleId));
-      const contentEncoded = body
-        ? `\n      <content:encoded><![CDATA[${escapeCData(body)}]]></content:encoded>`
+      // A reader shows the cover away from the article page, so a credited
+      // Commons cover carries its credit in the item too (P14): the localised
+      // line at the end of the body, and Media RSS credit/licence inside
+      // media:content. An uncredited cover keeps the self-closing element.
+      const creditHtml = item.imageCredit ? renderImageCreditHtml(item.imageCredit, locale) : '';
+      const encoded = body && creditHtml ? `${body}\n\n${creditHtml}` : body;
+      const contentEncoded = encoded
+        ? `\n      <content:encoded><![CDATA[${escapeCData(encoded)}]]></content:encoded>`
         : '';
+      const mediaContent = item.imageCredit
+        ? `<media:content url="${escapeXml(item.imageUrl)}" medium="image">${mediaRssCreditXml(item.imageCredit, locale)}</media:content>`
+        : `<media:content url="${escapeXml(item.imageUrl)}" medium="image"/>`;
       return `    <item>
       <title>${escapeXml(item.title)}</title>
       <link>${BASE_URL}${meta.articlePrefix}${escapeXml(item.slug)}/</link>
@@ -405,7 +418,7 @@ function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, 
       <pubDate>${toRfc822(item.pubDate)}</pubDate>${item.creator ? `\n      <dc:creator><![CDATA[${escapeCData(item.creator)}]]></dc:creator>` : ''}
       <guid isPermaLink="false">${BASE_URL}${meta.articlePrefix}${escapeXml(item.articleId)}</guid>
       <category>${escapeXml(item.category)}</category>
-      <media:content url="${escapeXml(item.imageUrl)}" medium="image"/>
+      ${mediaContent}
     </item>`;
     })
     .join('\n');
@@ -476,10 +489,22 @@ export function buildSectionFeeds({ fs, path, rootDir, section, registry = [], l
   // through `cdnBlogImage`), but the older `/images/places/*` entries are still
   // origin-relative and are NOT offloaded to the CDN — the filesystem probe this
   // replaces served exactly those from BASE_URL. Same split, no host guessing.
+  //
+  // The same registry value keys the cover's credit record (P14), read from
+  // the same two layouts as the article page: `content/image-credits` in the
+  // corpus repo (the real producer, scripts/build-api.mjs), and
+  // `packages/articles/content/image-credits` in the site.
+  const imageCredits = createImageCreditReader(fs, [
+    path.join(rootDir, 'packages/articles/content/image-credits'),
+    path.join(rootDir, 'content/image-credits'),
+  ]);
   const images = new Map();
+  const credits = new Map();
   for (const a of registry) {
     if (!a || !a.id || !a.image) continue;
     images.set(a.id, a.image.startsWith('http') ? a.image : `${BASE_URL}${a.image}`);
+    const credit = imageCredits.get(a.image);
+    if (credit) credits.set(a.id, credit);
   }
 
   const feeds = [];
@@ -489,7 +514,7 @@ export function buildSectionFeeds({ fs, path, rootDir, section, registry = [], l
     const excerpts = parseLocalizedField(fs, path, rootDir, localesDir, metaFileName, 'excerpt');
     const bodies = parseBlogBodies(fs, path, rootDir, localesDir, section.bodyDir, locale);
 
-    const xml = renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, images, repairSerpSnippet);
+    const xml = renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, images, credits, repairSerpSnippet);
     if (!xml) continue;
 
     feeds.push([section.feedFile(locale), xml]);
