@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { sourcePostingDateFields, mergeSourcePostingDates } from '../scripts/lib/source-posting-date.mjs';
+import { compareValidatedPostingDates } from '../scripts/lib/job-posting-date.mjs';
 import { mergeAndDeduplicate, mergePreserveLocaleData, pickMergedPostedDate } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { mergePemsaJobRecord } from '../scripts/lib/pemsa-job-parser.mjs';
 import { extractJsonLd, extractMicrodata, extractDetailFields } from '../scripts/lib/prospector/extract.mjs';
@@ -11,9 +12,13 @@ import { buildZambonJob, mergeZambonJobs } from '../scripts/update-zambon-jobs.m
 
 const daysAgo = (n: number) => new Date(Date.now() - n * 86400000).toISOString().slice(0, 10);
 const description = 'The successful candidate will work with the procurement department to manage suppliers and review contracts. The role requires experience with purchasing processes and strong communication skills. Our team provides training and supports professional development. Please submit your application with details of your qualifications and previous work experience for this position.';
-const base = { id: 'publication-123456', title: 'Procurement Specialist', company: 'Zambon', url: 'https://zambon.test/jobs/123456', sourceLang: 'en', description, descriptionByLocale: { en: description }, slug: 'procurement-specialist-zambon', crawledAt: new Date().toISOString() };
+const base = { id: 'publication-123456', title: 'Procurement Specialist', company: 'Zambon', location: 'Lugano', url: 'https://zambon.test/jobs/123456', sourceLang: 'en', description, descriptionByLocale: { en: description }, slug: 'procurement-specialist-zambon', crawledAt: new Date().toISOString() };
 
 describe('source publication dates', () => {
+  it('loads the ESM comparator and orders validated microsecond timestamps', () => {
+    expect(compareValidatedPostingDates('2026-09-01T00:00:00.123456Z', '2026-09-01T00:00:00.123455Z')).toBeGreaterThan(0);
+    expect(compareValidatedPostingDates('2026-09-01T00:00:00.123455Z', '2026-09-01T00:00:00.123456Z')).toBeLessThan(0);
+  });
   let temporaryRegistry = '';
   const previousOverride = process.env.SLUG_REGISTRY_PATH_OVERRIDE;
   beforeAll(() => {
@@ -36,6 +41,46 @@ describe('source publication dates', () => {
     expect(merged.postedDate).toBe('');
     expect(merged.datePosted).toBe('');
     expect(merged.crawledAt).toBeTruthy();
+  });
+
+  it.each([undefined, '', daysAgo(4)])('normalizes unmarked fresh input without inventing publication: %s', legacyDate => {
+    const fresh = { ...base, postedDate: legacyDate };
+    for (const merged of [mergeAndDeduplicate([], [fresh], {}).merged[0], mergePreserveLocaleData([], [{ ...fresh }])[0]]) {
+      expect(merged).toMatchObject({ postingDateSource: 'unknown', postedDate: '', datePosted: '' });
+      expect(merged.crawledAt).toBeTruthy();
+    }
+  });
+
+  it('does not resurrect an unmarked duplicate regardless of its quality or input order', () => {
+    const legacy = { ...base, postedDate: daysAgo(1), datePosted: daysAgo(1), featured: true };
+    const unknown = { ...base, ...sourcePostingDateFields(''), featured: false };
+    for (const pair of [[legacy, unknown], [unknown, legacy], [legacy, { ...legacy }]]) {
+      const [merged] = mergeAndDeduplicate(pair, [], {}).merged;
+      expect(merged).toMatchObject({ postingDateSource: 'unknown', postedDate: '', datePosted: '' });
+    }
+  });
+
+  it('retains verified evidence across mixed duplicates and leaves discovery time separate', () => {
+    const original = { ...base, ...sourcePostingDateFields(daysAgo(8)), firstSeenAt: daysAgo(6), featured: false };
+    const legacy = { ...base, postedDate: daysAgo(1), featured: true };
+    for (const pair of [[original, legacy], [legacy, original]]) {
+      const [merged] = mergeAndDeduplicate(pair, [], {}).merged;
+      expect(merged).toMatchObject(sourcePostingDateFields(daysAgo(8)));
+    }
+    for (const pair of [[original, legacy], [legacy, original]]) {
+      const [merged] = mergeAndDeduplicate([], pair, {}).merged;
+      expect(merged).toMatchObject(sourcePostingDateFields(daysAgo(8)));
+    }
+    const [refreshed] = mergeAndDeduplicate([original], [legacy], {}).merged;
+    expect(refreshed).toMatchObject(sourcePostingDateFields(daysAgo(8)));
+    expect(refreshed.firstSeenAt).toBe(daysAgo(6));
+    expect(refreshed.crawledAt).not.toBe(refreshed.postedDate);
+  });
+
+  it('clears unverified publication on grace-retained records without claiming a new observation', () => {
+    const previous = { ...base, postedDate: daysAgo(5), firstSeenAt: daysAgo(7) };
+    const [retained] = mergePreserveLocaleData([previous], []);
+    expect(retained).toMatchObject({ postingDateSource: 'unknown', postedDate: '', datePosted: '', crawledAt: previous.crawledAt, firstSeenAt: previous.firstSeenAt });
   });
 
   it.each(['', 'invalid', '2025-02-30', '30 Feb 2025', daysAgo(-2), undefined])('keeps missing or invalid employer date unknown: %s', value => {
