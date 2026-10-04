@@ -30,6 +30,10 @@ export const ENTRYPOINTS = [
   // therefore `undici`, so the monitor died at module load before writing
   // data/pharmacy-data-health-report.json — a blind observer, not a red one.
   'scripts/check-pharmacy-data-health.mjs',
+  // social-robot-confirm.yml writes the Instagram/TikTok ledger WITHOUT
+  // `npm ci`: an npm import here would leave a published post out of the
+  // ledger, and the daily picker could offer it again.
+  'scripts/social-robot/confirm.mjs',
 ];
 
 const BUILTINS = new Set(builtinModules);

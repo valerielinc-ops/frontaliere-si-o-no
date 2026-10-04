@@ -1,0 +1,125 @@
+name: Social robot confirm
+
+# The Playwright robot on the agents' Mac host (scripts/social-robot/)
+# dispatches this ONLY after it has seen Instagram's or TikTok's own
+# confirmation of a post on the page. scripts/social-robot/confirm.mjs moves
+# the entry from data/<channel>-queue.json into data/<channel>-posted.json —
+# the ledger the API posters write too — and this job commits both files.
+# A second dispatch for the same queue id adds nothing.
+#
+# Same concurrency group as the channel's daily poster
+# (instagram-daily-broadcast / tiktok-daily-broadcast): those are the only
+# other writers of the queue file, so the two never race on it.
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: 'Platform the robot published on'
+        required: true
+        type: choice
+        options: ['instagram', 'tiktok']
+      queue_id:
+        description: 'Queue entry id (article-YYYY-MM-DD, job-…, border-…)'
+        required: true
+        type: string
+      confirmed_at:
+        description: 'ISO time the confirmation was seen'
+        required: true
+        type: string
+      evidence:
+        description: 'Confirmation text or URL seen on the page'
+        required: false
+        default: ''
+        type: string
+      ledger_entries:
+        description: 'JSON ledger entries the robot published; when present they win over the queue entry of the same id'
+        required: false
+        default: ''
+        type: string
+
+concurrency:
+  group: ${{ inputs.channel }}-daily-broadcast
+  cancel-in-progress: false
+
+permissions:
+  contents: write  # commit data/<channel>-queue.json + data/<channel>-posted.json
+  issues: write
+
+jobs:
+  confirm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with: { node-version: 22 }
+
+      # The push to main needs the ruleset-bypass credential (GITHUB_PAT from
+      # Remote Config): the ambient GITHUB_TOKEN is rejected with GH013.
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          echo "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+
+      # No npm ci: the loader takes its dependency-free REST path, and
+      # confirm.mjs is dependency-free too (both are entry points of
+      # scripts/ci/check-dependency-free-import-closure.mjs).
+      - name: Load secrets from RC
+        run: node scripts/load-rc-env.mjs
+
+      - name: Move the confirmed post into the ledger
+        env:
+          CHANNEL: ${{ inputs.channel }}
+          QUEUE_ID: ${{ inputs.queue_id }}
+          CONFIRMED_AT: ${{ inputs.confirmed_at }}
+          EVIDENCE: ${{ inputs.evidence }}
+          LEDGER_ENTRIES: ${{ inputs.ledger_entries }}
+        run: |
+          set -euo pipefail
+          ARGS=("--channel=$CHANNEL" "--queue-id=$QUEUE_ID" "--confirmed-at=$CONFIRMED_AT" "--evidence=$EVIDENCE")
+          if [ -n "$LEDGER_ENTRIES" ]; then ARGS+=("--ledger-entries=$LEDGER_ENTRIES"); fi
+          node scripts/social-robot/confirm.mjs "${ARGS[@]}"
+
+      - name: Commit queue and ledger
+        env:
+          CHANNEL: ${{ inputs.channel }}
+          QUEUE_ID: ${{ inputs.queue_id }}
+        run: |
+          set -euo pipefail
+          files=()
+          for f in "data/${CHANNEL}-posted.json" "data/${CHANNEL}-queue.json"; do
+            if [ -f "$f" ]; then files+=("$f"); fi
+          done
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "no ledger or queue file written — nothing to commit"; exit 0
+          fi
+          git add "${files[@]}"
+          if git diff --cached --quiet; then
+            echo "no changes (already confirmed)"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(${CHANNEL}): robot-confirmed post ${QUEUE_ID} [skip ci]"
+          bash scripts/lib/git-push-with-retry.sh --max-attempts 20
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CHANNEL: ${{ inputs.channel }}
+          QUEUE_ID: ${{ inputs.queue_id }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          Un post pubblicato dal robot social NON è entrato nel ledger: finché non ci entra, il picker giornaliero può riproporlo.
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Canale:** $CHANNEL · **Coda:** $QUEUE_ID" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

@@ -63,6 +63,9 @@
  *   TIKTOK_REFRESH_TOKEN   + TIKTOK_CLIENT_KEY + TIKTOK_CLIENT_SECRET →
  *                           auto-refresh before each run (see point 5 above)
  *   TIKTOK_PRIVACY_LEVEL   optional, defaults to SELF_ONLY (see point 4 above)
+ *   SOCIAL_ROBOT_MODE      off | dry (default) | live — API or the
+ *                          Playwright robot's queue (data/tiktok-queue.json);
+ *                          see scripts/lib/social-publish-queue.mjs
  *   GA4_PROPERTY_ID        defaults to properties/524485296
  *   R2_ACCESS_KEY_ID / R2_SECRET_ACCESS_KEY / R2_S3_ENDPOINT / R2_BUCKET
  *                           required to host the carousel images — missing
@@ -96,11 +99,21 @@ import {
 import { fetchGa4PageReport } from './lib/ga4-service-account.mjs';
 import { renderCarouselSlides } from './lib/social-carousel-image.mjs';
 import { uploadCarouselSlides } from './lib/social-carousel-upload.mjs';
+import {
+  buildQueueEntry,
+  deliverSocialPost,
+  dequeuePosts,
+  enqueuePost,
+  queuePathFor,
+  resolveSocialRobotMode,
+  socialPublishRoute,
+} from './lib/social-publish-queue.mjs';
 import { TIKTOK_API, publishCarousel } from './lib/tiktok-publish.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const LEDGER_PATH = path.join(ROOT, 'data', 'tiktok-posted.json');
+const QUEUE_PATH = queuePathFor(ROOT, 'tiktok');
 const POSTED_TRIM_LIMIT = 1000;
 
 const DEDUP_WINDOW_DAYS = 30;
@@ -155,9 +168,41 @@ async function getAccessToken() {
 // async flow against mocked payloads — this file calls main() at module scope
 // and cannot be imported from a test. See that lib's header.
 
+// ─────────────────────────── delivery ───────────────────────────
+//
+// API or the Playwright robot's queue, chosen by the Remote Config switch
+// SOCIAL_ROBOT_MODE — see scripts/lib/social-publish-queue.mjs. The ledger is
+// written here only for an API publish; a queued post reaches the ledger once
+// the robot has seen TikTok's confirmation (scripts/social-robot/confirm.mjs).
+
+async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish }) {
+  await deliverSocialPost({
+    route,
+    label: 'TikTok',
+    publish,
+    recordPublished: (res) => {
+      console.log(`✅ posted — ${res.postId}`);
+      const ts = new Date().toISOString();
+      appendLedger(
+        LEDGER_PATH,
+        ledgerEntries.map((e) => ({ ...e, ts, tiktokPostId: res.postId })),
+        POSTED_TRIM_LIMIT,
+      );
+    },
+    enqueue: () => {
+      enqueuePost(
+        QUEUE_PATH,
+        buildQueueEntry({ channel: 'tiktok', kind, day, caption, imageUrls: urls, ledgerEntries }),
+      );
+    },
+    // The API covered this kind: an older queued post of it must not reach the robot.
+    dequeue: () => dequeuePosts(QUEUE_PATH, { channel: 'tiktok', kind }),
+  });
+}
+
 // ─────────────────────────── job/article (daily) ───────────────────────────
 
-async function postGa4Carousel({ kind, day, dryRun, accessToken }) {
+async function postGa4Carousel({ kind, day, dryRun, accessToken, robotMode }) {
   const campaign = kind === 'job' ? TIKTOK_CAMPAIGN_JOB : TIKTOK_CAMPAIGN_ARTICLE;
   const ledger = loadLedger(LEDGER_PATH);
   const cutoff = Date.now() - DEDUP_WINDOW_DAYS * 86400000;
@@ -212,7 +257,8 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken }) {
   console.log('───');
 
   if (dryRun) return;
-  if (!accessToken) {
+  const route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken) });
+  if (!route.render) {
     console.log('⚠️  no TIKTOK_ACCESS_TOKEN — skipping (soft)');
     return;
   }
@@ -233,30 +279,19 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken }) {
     return;
   }
 
-  const res = await publishCarousel({ accessToken, imageUrls: urls, caption });
-  if (!res.ok) {
-    console.error(`⚠️  TikTok publish failed: ${res.reason}`);
-    return;
-  }
-  console.log(`✅ posted — ${res.postId}`);
-  appendLedger(
-    LEDGER_PATH,
-    picks.map((p) => ({
-      id: p.slug,
-      kind,
-      url: tiktokUrl(`${SITE_URL}${p.path}/`, campaign, p.slug),
-      day,
-      views: p.views,
-      ts: new Date().toISOString(),
-      tiktokPostId: res.postId,
-    })),
-    POSTED_TRIM_LIMIT,
-  );
+  const ledgerEntries = picks.map((p) => ({
+    id: p.slug,
+    kind,
+    url: tiktokUrl(`${SITE_URL}${p.path}/`, campaign, p.slug),
+    day,
+    views: p.views,
+  }));
+  await deliver({ route, kind, day, caption, urls, ledgerEntries, publish: () => publishCarousel({ accessToken, imageUrls: urls, caption }) });
 }
 
 // ─────────────────────────── border (weekly) ───────────────────────────
 
-async function postBorderCarousel({ dryRun, accessToken }) {
+async function postBorderCarousel({ dryRun, accessToken, robotMode }) {
   const { computeRanking, computeWeekWindow } = await import('./lib/border-wait-ranking.mjs');
   const { BORDER_WAIT_CROSSINGS, BORDER_CROSSING_DISPLAY, isTicinoCrossing, buildOggiPath } = await import(
     '../build-plugins/borderWaitData.ts'
@@ -299,7 +334,8 @@ async function postBorderCarousel({ dryRun, accessToken }) {
   console.log('───');
 
   if (dryRun) return;
-  if (!accessToken) {
+  const route = socialPublishRoute({ mode: robotMode, apiReady: Boolean(accessToken) });
+  if (!route.render) {
     console.log('⚠️  no TIKTOK_ACCESS_TOKEN — skipping (soft)');
     return;
   }
@@ -320,26 +356,15 @@ async function postBorderCarousel({ dryRun, accessToken }) {
     return;
   }
 
-  const res = await publishCarousel({ accessToken, imageUrls: urls, caption });
-  if (!res.ok) {
-    console.error(`⚠️  TikTok publish failed: ${res.reason}`);
-    return;
-  }
-  console.log(`✅ posted — ${res.postId}`);
-  appendLedger(
-    LEDGER_PATH,
-    [
-      {
-        id: weekStart,
-        kind: 'border',
-        url: tiktokUrl(buildOggiPath('it', fastest[0].slug), TIKTOK_CAMPAIGN_BORDER, weekStart),
-        day: weekStart,
-        ts: new Date().toISOString(),
-        tiktokPostId: res.postId,
-      },
-    ],
-    POSTED_TRIM_LIMIT,
-  );
+  const ledgerEntries = [
+    {
+      id: weekStart,
+      kind: 'border',
+      url: tiktokUrl(buildOggiPath('it', fastest[0].slug), TIKTOK_CAMPAIGN_BORDER, weekStart),
+      day: weekStart,
+    },
+  ];
+  await deliver({ route, kind: 'border', day: weekStart, caption, urls, ledgerEntries, publish: () => publishCarousel({ accessToken, imageUrls: urls, caption }) });
 }
 
 // ─────────────────────────── main ───────────────────────────
@@ -354,6 +379,9 @@ async function main() {
 
   console.log(`─── TikTok daily/weekly — day ${day}${dryRun ? ' (dry run)' : ''} ───`);
 
+  const robotMode = resolveSocialRobotMode();
+  console.log(`ℹ️  SOCIAL_ROBOT_MODE=${robotMode} (Remote Config; see scripts/lib/social-publish-queue.mjs)`);
+
   const accessToken = dryRun ? null : await getAccessToken();
 
   // border is weekly and never runs implicitly — only when explicitly asked
@@ -362,9 +390,9 @@ async function main() {
 
   for (const kind of kinds) {
     if (kind === 'border') {
-      await postBorderCarousel({ dryRun, accessToken });
+      await postBorderCarousel({ dryRun, accessToken, robotMode });
     } else if (kind === 'job' || kind === 'article') {
-      await postGa4Carousel({ kind, day, dryRun, accessToken });
+      await postGa4Carousel({ kind, day, dryRun, accessToken, robotMode });
     } else {
       console.warn(`⚠️  unknown --only=${kind} — expected job, article or border`);
     }

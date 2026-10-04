@@ -15,10 +15,13 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { SOCIAL_IMAGE_ORIGIN } from './social-publish-queue.mjs';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
 const UPLOADER = path.join(ROOT, 'scripts', 'lib', 'upload-cdn-file.sh');
-const CDN_BASE = 'https://cdn.frontaliereticino.ch';
+// The robot accepts slides only from this origin (isAllowedImageUrl): one constant for both.
+const CDN_BASE = SOCIAL_IMAGE_ORIGIN;
 // Slides are per-post content, not evergreen — a short cache is enough and
 // keeps a same-day re-render (e.g. a retried run) from serving a stale card.
 const CACHE_CONTROL = 'public, max-age=3600';
