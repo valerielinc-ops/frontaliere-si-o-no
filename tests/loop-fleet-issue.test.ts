@@ -126,9 +126,12 @@ function fakeGithub({ failOn = null as null | ((args: string[]) => boolean) } = 
       const issue = add(title, description, labels);
       return { number: issue.number, title, url: issue.url, state: 'OPEN', persisted: true };
     },
-    resolveIssue: (title: string) => {
-      const issue = issues.find((candidate) => candidate.state === 'OPEN' && candidate.title === title);
-      if (!issue) return null;
+    resolveIssueByNumber: (number: number, { expectedTitle }: { expectedTitle: string }) => {
+      const issue = issues.find((candidate) => candidate.number === number);
+      if (!issue) return { number, persisted: false, skipped: 'unreadable' };
+      if (issue.state !== 'OPEN') return { number, persisted: false, skipped: 'not-open' };
+      if (issue.title !== expectedTitle) return { number, persisted: false, skipped: 'title-changed' };
+      const title = issue.title;
       issue.comments.push('✅ Auto-resolved — the failing check is green again');
       issue.state = 'CLOSED';
       issue.stateReason = 'completed';
@@ -413,12 +416,40 @@ describe('resolveLoopIssue', () => {
     await report(github, 'invalid jobs 799');
     const [issue] = github.open();
     for (let run = 1; run < LOOP_OK_STREAK; run += 1) await resolve(github);
-    const working = github.deps.resolveIssue;
-    github.deps.resolveIssue = () => { throw new Error('close rejected'); };
+    const working = github.deps.resolveIssueByNumber;
+    github.deps.resolveIssueByNumber = () => { throw new Error('close rejected'); };
     expect(await resolve(github)).toMatchObject({ persisted: false, closed: [] });
     expect(issue.state).toBe('OPEN');
-    github.deps.resolveIssue = working;
+    github.deps.resolveIssueByNumber = working;
     expect(await resolve(github)).toMatchObject({ persisted: true, closed: [issue.number] });
+  });
+
+  // LC-24c: la chiusura colpisce il numero su cui lo streak è arrivato a soglia, non
+  // «una issue aperta con quel titolo» scelta di nuovo dal resolver.
+  it('closes the issue whose streak reached the threshold, not an open twin with the same title', async () => {
+    const github = fakeGithub();
+    const twin = github.add(TITLE, upsertLoopStateBlock('', { loopId: 'L3', signature: 'old', okStreak: 0, reason: 'old' }));
+    const decided = github.add(TITLE, upsertLoopStateBlock('', { loopId: 'L3', signature: 'old', okStreak: LOOP_OK_STREAK - 1, reason: 'old' }));
+    expect(await resolve(github)).toMatchObject({ persisted: true, closed: [decided.number] });
+    expect(decided.state).toBe('CLOSED');
+    expect(twin.state).toBe('OPEN');
+    expect(twin.comments).toEqual([]);
+  });
+
+  it('refuses the real resolver under Vitest when resolveIssueByNumber is not injected', async () => {
+    const github = fakeGithub();
+    await report(github, 'invalid jobs 799');
+    const [issue] = github.open();
+    for (let run = 1; run < LOOP_OK_STREAK; run += 1) await resolve(github);
+    const { resolveIssueByNumber: _injected, ...deps } = github.deps;
+    const errors: string[] = [];
+    const outcome = await resolveLoopIssue(
+      { loopId: 'L3', loopTitles: [TITLE], workflow: 'Loop L3 Job Quality to Apply', eventName: 'schedule' },
+      { ...deps, logger: { log() {}, error: (line: string) => errors.push(line) } },
+    );
+    expect(outcome).toMatchObject({ persisted: false, closed: [] });
+    expect(issue.state).toBe('OPEN');
+    expect(errors.join('\n')).toContain('resolveIssueByNumber non iniettato sotto Vitest');
   });
 
   it('is a no-op when no issue of the loop is open', async () => {

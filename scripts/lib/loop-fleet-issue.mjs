@@ -48,7 +48,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {
   createGithubIssue,
-  resolveGithubIssue,
+  resolveGithubIssueByNumber,
   searchSafePrefix,
 } from './github-issue-creator.mjs';
 
@@ -257,13 +257,27 @@ function defaultGh(env) {
   };
 }
 
+/**
+ * Il resolver della libreria usa un proprio `gh` reale, non `ctx.gh`: sotto Vitest
+ * un test che non lo inietta chiuderebbe una issue vera (successo con la issue 8407,
+ * poi riaperta, in una prova red-first). Stessa regola di `defaultGh`, ma letta
+ * anche da `process.env`: i test iniettano un `env` finto senza `VITEST`, mentre
+ * il resolver reale gira comunque col processo vero.
+ */
+function defaultResolveIssueByNumber(env) {
+  if (!env.VITEST && !process.env.VITEST) return resolveGithubIssueByNumber;
+  return () => {
+    throw new Error('[loop-fleet-issue] resolveIssueByNumber non iniettato sotto Vitest');
+  };
+}
+
 function context(deps = {}) {
   const env = deps.env ?? process.env;
   return {
     env,
     gh: deps.gh ?? defaultGh(env),
     createIssue: deps.createIssue ?? createGithubIssue,
-    resolveIssue: deps.resolveIssue ?? resolveGithubIssue,
+    resolveIssueByNumber: deps.resolveIssueByNumber ?? defaultResolveIssueByNumber(env),
     now: deps.now ?? (() => new Date()),
     logger: deps.logger ?? console,
     repoFlag: env.GH_REPO ? ['--repo', env.GH_REPO] : [],
@@ -641,8 +655,12 @@ export async function resolveLoopIssue(params = {}, deps = {}) {
         continue;
       }
       try {
-        const closed = await ctx.resolveIssue(title, { workflow, runUrl, exactTitle: true });
-        if (closed?.persisted === true) outcome.closed.push(closed.number ?? issue.number);
+        // Si chiude il numero su cui si è deciso (streak, pin tolto), non il titolo:
+        // per titolo il resolver sceglie la più recente fra le aperte unendo indice e
+        // listing, e una gemella che l'indice qui non vedeva verrebbe chiusa al posto
+        // di questa. Il resolver rilegge stato e titolo prima di scrivere.
+        const closed = await ctx.resolveIssueByNumber(issue.number, { expectedTitle: issue.title, workflow, runUrl });
+        if (closed?.persisted === true) outcome.closed.push(issue.number);
         else outcome.persisted = false;
       } catch (error) {
         ctx.logger.error(`[loop-fleet-issue] chiusura di #${issue.number} non riuscita: ${error.message}`);
