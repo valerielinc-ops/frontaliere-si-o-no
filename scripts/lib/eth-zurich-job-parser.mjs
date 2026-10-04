@@ -21,6 +21,8 @@
  *   - isTrustedDomain()        — Validate URLs belong to this company
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
+import { extractJsonLd } from './prospector/extract.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -275,12 +277,15 @@ export function extractEthZurichDetailDescription(html = '') {
   return normalizeDescriptionBullets(compact);
 }
 
-async function fetchDetailDescription(url) {
+async function fetchDetailFields(url, title) {
   try {
     const html = await fetchText(url);
-    return extractEthZurichDetailDescription(html);
+    const records = extractJsonLd(html, url);
+    const record = records.find((candidate) => normalizeSpace(candidate.title).toLowerCase() === title.toLowerCase()
+      && (candidate.urlExplicit ? candidate.url === url : records.length === 1));
+    return { description: extractEthZurichDetailDescription(html), ...mergeSourcePostingDates({}, record || {}) };
   } catch {
-    return '';
+    return { description: '', ...mergeSourcePostingDates({}, {}) };
   }
 }
 
@@ -329,8 +334,11 @@ export async function fetchAllEthZurichJobs() {
     const publicUrl = listing.url;
 
     let descriptionText = '';
+    let publication = mergeSourcePostingDates({}, {});
     if (detailFetches < MAX_DETAIL_FETCHES) {
-      descriptionText = await fetchDetailDescription(publicUrl);
+      const detail = await fetchDetailFields(publicUrl, title);
+      descriptionText = detail.description;
+      publication = mergeSourcePostingDates({}, detail);
       detailFetches += 1;
       await new Promise((r) => setTimeout(r, DETAIL_RATE_LIMIT_MS));
     }
@@ -379,7 +387,7 @@ export async function fetchAllEthZurichJobs() {
       sector: 'Università / Ricerca',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...publication,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
