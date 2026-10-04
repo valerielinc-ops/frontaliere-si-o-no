@@ -34,6 +34,7 @@ import { selectMaxWorkers, vitestChildEnv } from './lib/select-max-workers.mjs';
 import { missingFullCheckoutArtifacts } from './lib/typecheck-sparse.mjs';
 import { GRAPH_IGNORED_RE, GRAPH_SOURCE_RE, isGraphSourceFile } from './lib/related-graph-scope.mjs';
 import { isScanned as isSecretScanned } from './scan-site-hardcoded-secrets.mjs';
+import { TRANSPORT_MANIFEST, transportManifestPaths } from './corpus-ahead-check.mjs';
 
 const changedPathFile = process.env.CHANGED_PATHS_FILE || 'changed-paths.txt';
 const changedStatusFile = process.env.CHANGED_PATHS_STATUS_FILE || 'changed-paths-status.txt';
@@ -61,6 +62,14 @@ const runnerRegressionTests = new Set([
 const testTreeLintTests = new Set([
   'tests/check-cron-count-literals.test.ts',
 ]);
+// Perimetro del transport verso nanako: il manifest e i path che consegna.
+// Letto alla prima domanda, non all'avvio: la maggior parte dei diff si ferma
+// prima dei lint. Glob `dir/**` espansi contro l'albero reale, come nel guard.
+let transportScope = null;
+const isTransportScope = (file) => {
+  transportScope ??= new Set([TRANSPORT_MANIFEST, ...transportManifestPaths(process.cwd())]);
+  return transportScope.has(file);
+};
 // Lint dell'albero dei SORGENTI: scandiscono `.github`, `scripts` e `bin` per
 // directory e non nominano i file che giudicano, quindi né il grafo inverso né
 // l'indice dei letterali `.github/…` li collegano al diff. Girano quando il
@@ -77,6 +86,13 @@ const testTreeLintTests = new Set([
 const sourceTreeLintTests = new Map([
   ['tests/gh-slurp-jq-guard.test.ts', /^(?:\.github|scripts|bin)\//],
   ['tests/no-hardcoded-secrets.test.ts', isSecretScanned],
+  // Chiusura per import del transport verso nanako: il test legge il manifest
+  // e gli import dei file trasportati da disco, quindi non importa nessuno dei
+  // file che giudica. La PR 10973 ha fatto importare a
+  // `build-plugins/borderWaitData.ts` (trasportato) un modulo non consegnato:
+  // il diff non lo selezionava e il rosso e' emerso giorni dopo sulla 11299.
+  // Il perimetro e' il manifest stesso, parsato dalla funzione del guard.
+  ['tests/mirror-transport-import-closure.test.ts', isTransportScope],
   // Elenchi di run per `branch` senza finestra `created`: l'API li restituisce
   // a tratti fermi a settimane prima (resolver dell'artifact Pages, 02-10).
   ['tests/run-listing-created-window.test.ts', /^(?:\.github|scripts|bin|functions)\//],
