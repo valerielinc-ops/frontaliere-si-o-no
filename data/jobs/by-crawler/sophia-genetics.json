@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sophia-genetics",
-  "assembledAt": "2026-10-03T09:24:57.567Z",
+  "assembledAt": "2026-10-03T21:17:14.999Z",
   "jobs": [
     {
       "id": "sophia-genetics-69b5583b6d1c",
@@ -33,7 +33,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/2BC999723E/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:24:49.817Z",
+      "crawledAt": "2026-10-03T21:17:08.110Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -99,7 +99,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/8FED2C584F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:24:49.665Z",
+      "crawledAt": "2026-10-03T21:17:08.041Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -131,8 +131,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sophia-genetics-010b991190d9",
@@ -165,7 +164,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/AC77213E76/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:24:49.340Z",
+      "crawledAt": "2026-10-03T21:17:07.926Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -240,7 +239,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/F52E4089C5/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:24:49.179Z",
+      "crawledAt": "2026-10-03T21:17:07.725Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -320,7 +319,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/29E6DA069F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:24:48.853Z",
+      "crawledAt": "2026-10-03T21:17:07.579Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -395,7 +394,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/FE69530EC2/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:24:48.352Z",
+      "crawledAt": "2026-10-03T21:17:07.395Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -414,6 +413,11 @@
       "jobReqId": "FE69530EC2",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "junior-commercial-support-operations-intern-sophia-genetics-rolle",
+        "junior-customer-services-specialist-intern-sophia-genetics-rolle",
+        "junior-customer-services-specialista-tirocinante-sophia-genetics-rolle"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "junior-commercial-support-operations-intern-sophia-genetics-rolle",
@@ -430,11 +434,6 @@
           "junior-customer-services-specialist-intern-sophia-genetics-rolle"
         ]
       },
-      "previousSlugs": [
-        "junior-commercial-support-operations-intern-sophia-genetics-rolle",
-        "junior-customer-services-specialist-intern-sophia-genetics-rolle",
-        "junior-customer-services-specialista-tirocinante-sophia-genetics-rolle"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-30T21:23:03.730Z",
       "salaryMin": 49500,
@@ -482,7 +481,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/0514367146/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:24:46.854Z",
+      "crawledAt": "2026-10-03T21:17:06.641Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -580,7 +579,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

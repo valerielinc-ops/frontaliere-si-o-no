@@ -496,7 +496,7 @@ const CHECKLIST_CONTENT: Record<LeadMagnetVariant, { title: string; subtitle: st
  'Usa il calcolatore su frontaliereticino.ch per una stima precisa della tua situazione',
  ]},
  { heading: 'Assicurazione Sanitaria', items: [
- 'Diritto di opzione: LAMal svizzera OPPURE SSN italiano (scelta irreversibile)',
+ 'Diritto di opzione: per scegliere la copertura italiana, chiedi formalmente l’esenzione dalla LAMal all’autorità del Cantone di lavoro entro 3 mesi dall’inizio del contratto; l’iscrizione al SSN da sola non vale come opzione',
  'Hai 3 mesi dall\'inizio lavoro per decidere',
  'LAMal: premio mensile CHF 280-350, copertura completa in CH',
  'Modello Telmed: miglior rapporto qualita\'/prezzo per frontalieri (sconto 10-12%)',

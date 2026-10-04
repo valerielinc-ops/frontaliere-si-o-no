@@ -663,11 +663,17 @@ jobs:
           git fetch --no-tags --depth=1 origin main
           MAIN_SHA="$(git rev-parse origin/main)"
           CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
-          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
           if [ "$CURRENT" != "true" ]; then
-            echo "::error::synced article chunk source advanced after the pre-publication freshness check: source $SOURCE_SHA is not current origin/main $MAIN_SHA"
-            exit 1
+            echo "::notice::Refreshing stale synced article chunks from $SOURCE_SHA to current origin/main $MAIN_SHA before publication"
+            git checkout --detach --force origin/main
+            SOURCE_SHA="$(git rev-parse HEAD)"
+            CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+            if [ "$CURRENT" != "true" ]; then
+              echo "::error::synced article chunk refresh did not reach origin/main $MAIN_SHA"
+              exit 1
+            fi
           fi
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
 
       - name: Publish client article chunks for synced corpus
         id: publish_synced_chunks
@@ -1084,11 +1090,17 @@ jobs:
           git fetch --no-tags --depth=1 origin main
           MAIN_SHA="$(git rev-parse origin/main)"
           CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
-          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
           if [ "$CURRENT" != "true" ]; then
-            echo "::error::main advanced during post-merge replay preparation: source $SOURCE_SHA is not current origin/main $MAIN_SHA"
-            exit 1
+            echo "::notice::Refreshing stale post-merge replay source $SOURCE_SHA to current origin/main $MAIN_SHA before publication"
+            git checkout --detach --force origin/main
+            SOURCE_SHA="$(git rev-parse HEAD)"
+            CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+            if [ "$CURRENT" != "true" ]; then
+              echo "::error::post-merge replay source refresh did not reach origin/main $MAIN_SHA"
+              exit 1
+            fi
           fi
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
 
       - name: Publish client article chunks after article sync merge
         id: publish_replay_chunks

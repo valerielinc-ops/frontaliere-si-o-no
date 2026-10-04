@@ -37,7 +37,7 @@ import {
 } from './jobRecencyLanding';
 import type { JobLandingLocale } from './jobEditorialLanding';
 import { inlineScriptJson } from './shared/inlineJsonScript';
-import { formatUpdatedSentence } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import {
   H1_STYLE,
   LEDE_STYLE,
@@ -54,7 +54,6 @@ import {
 import { renderRecencyHubProse } from './shared/jobListingProse';
 import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
 import { windowDaysForVariant } from './jobRecencyLanding';
-import { buildDayStampIso } from './shared/buildDayStamp';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
 const LOCALES: ReadonlyArray<JobLandingLocale> = ['it', 'en', 'de', 'fr'];
@@ -276,9 +275,7 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
             description: model.description,
             inLanguage: locale,
             isPartOf: sectionRootUrl,
-            // Day-granularity, not a full build timestamp — see
-            // build-plugins/shared/buildDayStamp.ts (per-build churn fix).
-            dateModified: buildDayStampIso(),
+
           });
 
           const faqLd = model.faq.length > 0
@@ -366,7 +363,7 @@ ${alternates}
         <span>${esc(model.timeframeLabel)}</span>
       </nav>
       <header class="s-sy52lX">
-        <p style="${HERO_EYEBROW_STYLE}">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+        <p style="${HERO_EYEBROW_STYLE}">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
         <h1 style="${H1_STYLE}">${esc(model.heading)}</h1>
         <p style="${LEDE_STYLE};max-width:860px">${esc(model.description)}</p>
         <p style="${BODY_STYLE};max-width:860px">${esc(model.intro)}</p>
@@ -427,7 +424,7 @@ ${alternates}
           )}`;
           const priority = variant === 'last-3-days' ? '0.9' : '0.8';
           sitemapEntries.push(
-            `  <url>\n    <loc>${canonicalUrl}</loc>\n${altLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${itUrl}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>hourly</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+            `  <url>\n    <loc>${canonicalUrl}</loc>\n${altLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${itUrl}" />\n    <changefreq>hourly</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
           );
         }
       }

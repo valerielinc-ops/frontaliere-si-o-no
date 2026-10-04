@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-bern",
-  "assembledAt": "2026-10-03T09:14:41.297Z",
+  "assembledAt": "2026-10-03T21:10:23.398Z",
   "jobs": [
     {
       "id": "stadt-bern-d56ddbd2f1c4",
@@ -34,7 +34,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-motorgeraetemechaniker/1f8b077d-0f26-4cad-b3c6-9f8f9d27aa6f",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.501Z",
+      "crawledAt": "2026-10-03T21:10:18.119Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -127,7 +127,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz/08236f3e-92df-4972-8c3b-b3d57dc53f88",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.500Z",
+      "crawledAt": "2026-10-03T21:10:18.118Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -174,8 +174,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-bern-9efca5d71f12",
@@ -208,7 +207,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-sporttalente/568bdcbd-ed0f-4a57-96e0-cb31c95dd28d",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.500Z",
+      "crawledAt": "2026-10-03T21:10:18.117Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -255,8 +254,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-bern-9693f83d5605",
@@ -290,7 +288,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/vorarbeiter-in-baumpflege/5e706206-1d96-4fe2-aa53-260f81234372",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.499Z",
+      "crawledAt": "2026-10-03T21:10:18.116Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -381,7 +379,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-kauffrau-kaufmann-efz-auch-sport-musik/54dba70d-2095-4610-bb9d-3295df4fd306",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.498Z",
+      "crawledAt": "2026-10-03T21:10:18.115Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -430,8 +428,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-bern-0205b581ea48",
@@ -465,7 +462,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/hilfskoch-hilfskoechin/3207c65d-4a57-4ba6-9f4b-0616123347e3",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.498Z",
+      "crawledAt": "2026-10-03T21:10:18.114Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -549,7 +546,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/gaertner-in-stv-vorarbeiter-in/51c9dc83-883f-4b5a-97a7-35ea33e3aeab",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.497Z",
+      "crawledAt": "2026-10-03T21:10:18.113Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -596,88 +593,6 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
-    },
-    {
-      "id": "stadt-bern-429017004519",
-      "slug": "apprendistato-come-geomatiker-in-stadt-bern",
-      "slugByLocale": {
-        "it": "apprendistato-come-geomatiker-in-stadt-bern",
-        "en": "teaching-as-a-geomatician-stadt-bern-bern",
-        "de": "lehre-als-geomatiker-in-stadt-bern-bern",
-        "fr": "enseignement-en-tant-que-geomatique-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Lehre als Geomatiker*in",
-      "titleByLocale": {
-        "it": "Insegnamento come geomatico",
-        "en": "Teaching as a geomatician",
-        "de": "Lehre als Geomatiker*in",
-        "fr": "Enseignement en tant que géomatique"
-      },
-      "description": "Hast du Freude an geografischen Daten und Informatik? Arbeitest du gerne<br/>im Freien und im Büro und bist dabei genau und sorgfältig?\n\nAufgaben:\n• Geodaten ausmessen und im System erfassen\n\n• Messgeräte programmieren und korrekt positionieren lernen\n\n• Aufgabengebiet der amtlichen Vermessung / Geoinformation kennenlernen\n\n• Besuch der Berufsschule in Zürich (Blockkurse)\n\n• Überbetriebliche Kurse besuchen\n\n• Berufsmaturitiät (BMS) möglich\n\nAnforderungen:\n• Abgeschlossende Sekundarschule\n\n• Gute Leistungen in Geomterie, Mathematik und deutscher Sprache\n\n• Gutes räumliches Vorstellungsvermögen\n\n• Technisches Flair und Freude an der digitalen Arbeitswelt\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Ti piacciono i dati geografici e le scienze informatiche? Ti piace lavorare in esterno e in ufficio e sei accurato e attento?\n\nCompiti:\n• Misurare i dati spaziali e registrarli nel sistema\n\n• Programmazione strumenti di misura e apprendimento per posizionarli correttamente\n\n• Area di attività dell'indagine ufficiale / Conoscere la geoinformazione\n\n• Visita alla Scuola Professionale di Zurigo (corsi di blocco)\n\n• Partecipare a corsi intercompany\n\n• Maturità professionale (BMS) è possibile\n\nRequisiti\n• Scuola secondaria completa\n\n• Buoni risultati in geometria, matematica e tedesco\n\n• Buona immaginazione spaziale\n\n• Il fascino tecnico e la gioia nel mondo del lavoro digitale\n\n• La gioia di affrontare le persone\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "Do you enjoy geographic data and computer science? Do you like working<br/> outdoors and in the office and are accurate and careful?\n\nTasks:\n• Measure spatial data and record them in the system\n\n• Programming measuring instruments and learning to position them correctly\n\n• Task area of official surveying / Getting to know geoinformation\n\n• Visit to the Vocational School in Zurich (block courses)\n\n• Attending intercompany courses\n\n• Professional Maturity (BMS) is possible\n\nRequirements\n• Completed secondary school\n\n• Good achievements in geometry, mathematics and German\n\n• Good spatial imagination\n\n• Technical flair and joy in the digital working world\n\n• The joy of dealing with people\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Hast du Freude an geografischen Daten und Informatik? Arbeitest du gerne<br/>im Freien und im Büro und bist dabei genau und sorgfältig?\n\nAufgaben:\n• Geodaten ausmessen und im System erfassen\n\n• Messgeräte programmieren und korrekt positionieren lernen\n\n• Aufgabengebiet der amtlichen Vermessung / Geoinformation kennenlernen\n\n• Besuch der Berufsschule in Zürich (Blockkurse)\n\n• Überbetriebliche Kurse besuchen\n\n• Berufsmaturitiät (BMS) möglich\n\nAnforderungen:\n• Abgeschlossende Sekundarschule\n\n• Gute Leistungen in Geomterie, Mathematik und deutscher Sprache\n\n• Gutes räumliches Vorstellungsvermögen\n\n• Technisches Flair und Freude an der digitalen Arbeitswelt\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Vous aimez les données géographiques et l'informatique? Vous aimez travailler à l'extérieur et au bureau, et êtes précis et prudent?\n\nTâches :\n• Mesurer les données spatiales et les enregistrer dans le système\n\n• Programmation d'instruments de mesure et d'apprentissage pour les positionner correctement\n\n• Domaine d'activité de l'arpentage officiel / Apprendre à connaître la géoinformation\n\n• Visite à l'école professionnelle de Zurich (cours en bloc)\n\n• Cours interentreprises\n\n• La maturité professionnelle (BMS) est possible\n\nExigences\n• Enseignement secondaire terminé\n\n• Bonnes réalisations en géométrie, mathématiques et allemand\n\n• Bonne imagination spatiale\n\n• Le style technique et la joie dans le monde du travail numérique\n\n• La joie de traiter avec les gens\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/lehre-als-geomatiker-in/6cdae81a-6a9c-480a-b814-d699f9d6d7d5",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.497Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3027",
-      "streetAddress": "Bümplizstrasse 45",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-02",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehre-als-geomatiker-in/6cdae81a-6a9c-480a-b814-d699f9d6d7d5",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehre-als-geomatiker-in-stadt-bern-bern",
-        "apprendistato-come-geomatiker-in-stadt-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehre-als-geomatiker-in-stadt-bern-bern",
-          "apprendistato-come-geomatiker-in-stadt-bern"
-        ],
-        "en": [
-          "lehre-als-geomatiker-in-stadt-bern-bern"
-        ],
-        "fr": [
-          "lehre-als-geomatiker-in-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-08-03T12:32:20.634Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
       }
     },
     {
@@ -712,7 +627,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-gaertner-in-garten-und-landschaftsbau/6733ce74-06ef-4e2c-850c-1efb5fb003ba",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.496Z",
+      "crawledAt": "2026-10-03T21:10:18.112Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -762,6 +677,87 @@
       }
     },
     {
+      "id": "stadt-bern-429017004519",
+      "slug": "apprendistato-come-geomatiker-in-stadt-bern",
+      "slugByLocale": {
+        "it": "apprendistato-come-geomatiker-in-stadt-bern",
+        "en": "teaching-as-a-geomatician-stadt-bern-bern",
+        "de": "lehre-als-geomatiker-in-stadt-bern-bern",
+        "fr": "enseignement-en-tant-que-geomatique-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Lehre als Geomatiker*in",
+      "titleByLocale": {
+        "it": "Insegnamento come geomatico",
+        "en": "Teaching as a geomatician",
+        "de": "Lehre als Geomatiker*in",
+        "fr": "Enseignement en tant que géomatique"
+      },
+      "description": "Hast du Freude an geografischen Daten und Informatik? Arbeitest du gerne<br/>im Freien und im Büro und bist dabei genau und sorgfältig?\n\nAufgaben:\n• Geodaten ausmessen und im System erfassen\n\n• Messgeräte programmieren und korrekt positionieren lernen\n\n• Aufgabengebiet der amtlichen Vermessung / Geoinformation kennenlernen\n\n• Besuch der Berufsschule in Zürich (Blockkurse)\n\n• Überbetriebliche Kurse besuchen\n\n• Berufsmaturitiät (BMS) möglich\n\nAnforderungen:\n• Abgeschlossende Sekundarschule\n\n• Gute Leistungen in Geomterie, Mathematik und deutscher Sprache\n\n• Gutes räumliches Vorstellungsvermögen\n\n• Technisches Flair und Freude an der digitalen Arbeitswelt\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "Ti piacciono i dati geografici e le scienze informatiche? Ti piace lavorare in esterno e in ufficio e sei accurato e attento?\n\nCompiti:\n• Misurare i dati spaziali e registrarli nel sistema\n\n• Programmazione strumenti di misura e apprendimento per posizionarli correttamente\n\n• Area di attività dell'indagine ufficiale / Conoscere la geoinformazione\n\n• Visita alla Scuola Professionale di Zurigo (corsi di blocco)\n\n• Partecipare a corsi intercompany\n\n• Maturità professionale (BMS) è possibile\n\nRequisiti\n• Scuola secondaria completa\n\n• Buoni risultati in geometria, matematica e tedesco\n\n• Buona immaginazione spaziale\n\n• Il fascino tecnico e la gioia nel mondo del lavoro digitale\n\n• La gioia di affrontare le persone\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "Do you enjoy geographic data and computer science? Do you like working<br/> outdoors and in the office and are accurate and careful?\n\nTasks:\n• Measure spatial data and record them in the system\n\n• Programming measuring instruments and learning to position them correctly\n\n• Task area of official surveying / Getting to know geoinformation\n\n• Visit to the Vocational School in Zurich (block courses)\n\n• Attending intercompany courses\n\n• Professional Maturity (BMS) is possible\n\nRequirements\n• Completed secondary school\n\n• Good achievements in geometry, mathematics and German\n\n• Good spatial imagination\n\n• Technical flair and joy in the digital working world\n\n• The joy of dealing with people\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Hast du Freude an geografischen Daten und Informatik? Arbeitest du gerne<br/>im Freien und im Büro und bist dabei genau und sorgfältig?\n\nAufgaben:\n• Geodaten ausmessen und im System erfassen\n\n• Messgeräte programmieren und korrekt positionieren lernen\n\n• Aufgabengebiet der amtlichen Vermessung / Geoinformation kennenlernen\n\n• Besuch der Berufsschule in Zürich (Blockkurse)\n\n• Überbetriebliche Kurse besuchen\n\n• Berufsmaturitiät (BMS) möglich\n\nAnforderungen:\n• Abgeschlossende Sekundarschule\n\n• Gute Leistungen in Geomterie, Mathematik und deutscher Sprache\n\n• Gutes räumliches Vorstellungsvermögen\n\n• Technisches Flair und Freude an der digitalen Arbeitswelt\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Vous aimez les données géographiques et l'informatique? Vous aimez travailler à l'extérieur et au bureau, et êtes précis et prudent?\n\nTâches :\n• Mesurer les données spatiales et les enregistrer dans le système\n\n• Programmation d'instruments de mesure et d'apprentissage pour les positionner correctement\n\n• Domaine d'activité de l'arpentage officiel / Apprendre à connaître la géoinformation\n\n• Visite à l'école professionnelle de Zurich (cours en bloc)\n\n• Cours interentreprises\n\n• La maturité professionnelle (BMS) est possible\n\nExigences\n• Enseignement secondaire terminé\n\n• Bonnes réalisations en géométrie, mathématiques et allemand\n\n• Bonne imagination spatiale\n\n• Le style technique et la joie dans le monde du travail numérique\n\n• La joie de traiter avec les gens\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "needsRetranslation": false,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/lehre-als-geomatiker-in/6cdae81a-6a9c-480a-b814-d699f9d6d7d5",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-03T21:10:18.112Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3027",
+      "streetAddress": "Bümplizstrasse 45",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-02",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehre-als-geomatiker-in/6cdae81a-6a9c-480a-b814-d699f9d6d7d5",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehre-als-geomatiker-in-stadt-bern-bern",
+        "apprendistato-come-geomatiker-in-stadt-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-geomatiker-in-stadt-bern-bern",
+          "apprendistato-come-geomatiker-in-stadt-bern"
+        ],
+        "en": [
+          "lehre-als-geomatiker-in-stadt-bern-bern"
+        ],
+        "fr": [
+          "lehre-als-geomatiker-in-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-08-03T12:32:20.634Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stadt-bern-beb5401848b9",
       "slug": "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-stadt-bern",
       "slugByLocale": {
@@ -793,7 +789,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehre-als-fachmann-fachfrau-betriebsunterhalt/8568d2a3-8bca-4c24-b3eb-9b93b704b602",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.495Z",
+      "crawledAt": "2026-10-03T21:10:18.111Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -843,89 +839,6 @@
       }
     },
     {
-      "id": "stadt-bern-8191ac2d0018",
-      "slug": "apprendistato-businesswoman-businessman-efz-per-talenti-musicali-stadt-bern-bern",
-      "slugByLocale": {
-        "it": "apprendistato-businesswoman-businessman-efz-per-talenti-musicali-stadt-bern-bern",
-        "en": "apprenticeship-businesswoman-kaufmann-efz-for-music-talents-stadt-bern-bern",
-        "de": "lehrstelle-kauffrau-kaufmann-efz-fur-musiktalente-stadt-bern-bern",
-        "fr": "apprenticeship-businesswoman-kaufmann-efz-pour-les-talents-musicaux-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Lehrstelle Kauffrau / Kaufmann EFZ für Musiktalente",
-      "titleByLocale": {
-        "it": "Apprendistato Businesswoman / Businessman EFZ per talenti musicali",
-        "en": "Apprenticeship Businesswoman / Businessman EFZ for musical talents",
-        "de": "Lehrstelle Kauffrau / Kaufmann EFZ für Musiktalente",
-        "fr": "Apprentissage Businesswoman / Businessman EFZ pour talents musicaux"
-      },
-      "description": "Die Präsidialdirektion bietet 22 attraktive Ausbildungsplätze in drei Zukunftsberufen mit herausfordernden Aufgaben und Themengebieten. Unsere facettenreichen Ausbildungsprogramme bieten dir die beste Perspektive für eine erfolgreiche berufliche Laufbahn. Nutze deine Talente und dein Wissen, um aktiv am Puls der Bevölkerung für das Wohlergehen der Stadt Bern mitzuwirken.\n\nAufgaben:\n• Du arbeitest in verschiedenen Bereichen mit und übernimmst abwechslungsreiche Aufgaben\n\n• Du wirkst bei spannenden Projekten mit und bringst deine Ideen ein\n\n• Du entwickelst deine Fähigkeiten kontinuierlich weiter und profitierst von einem vielseitigen internen Kursangebot\n\n• Du gestaltest deine Ausbildung aktiv mit – begleitet von engagierten und qualifizierten Praxisbildenden\n\n• Du profitierst von flexiblen Arbeitszeiten, die auf deinen Übungsplan abgestimmt sind\n\nAnforderungen:\n• Sekundarschulabschluss oder sehr guter Realschulabschluss mit 10. Schuljahr\n\n• Mehrjährige musikalische Erfahrung oder Begeisterung an der Kreation und Produktion eigener Songs\n\n• Interesse an Politik sowie kaufmännischen Tätigkeiten\n\n• Aufgestellte und kontaktfreudige Person\n\n• Lernbereitschaft sowie Verantwortungsbewusstsein\n\n• Zuverlässigkeit und Teamfähigkeit\n\nWir bieten:\nVielfältig & fair\n Bei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
-      "descriptionByLocale": {
-        "it": "La Direzione Presidenziale offre 22 apprendisti attraenti in tre professioni future con compiti e argomenti impegnativi. I nostri programmi di formazione poliedrica offrono le migliori prospettive per una carriera di successo. Usa i tuoi talenti e le tue conoscenze per partecipare attivamente al polso della popolazione per il benessere della città di Berna.\n\nCompiti:\n• Si lavora in diverse aree e si occupa di varie attività\n\n• Partecipate a progetti entusiasmanti e contribuite alle vostre idee\n\n• Potrai sviluppare continuamente le tue competenze e beneficiare di un'offerta di corso interno versatile\n\n• Formate attivamente la vostra formazione – accompagnata da apprendisti pratici impegnati e qualificati\n\n• Si beneficiano di orari di lavoro flessibili che sono allineati con il vostro piano di esercizio\n\nRequisiti\n• Laurea secondaria o molto buona scuola reale con 10. Anno scolastico\n\n• Diversi anni di esperienza musicale o di entusiasmo nella creazione e produzione di canzoni proprie\n\n• Interessi in politica e attività commerciali\n\n• Persona in piedi e socievole\n\n• Prontezza all'apprendimento e alla responsabilità\n\n• Affidabilità e lavoro di squadra\n\nOffriamo:\nDiverso e giusto\nPiù di 20 apprendisti vi aspettano con noi – dall’artigianato all’amministrazione. Come azienda di apprendistato versatile, valutiamo i diversi modelli di ruolo e paghiamo tutti gli apprendisti lo stesso salario – e gli studenti da 25 anche un po 'di più.\n\nLa città di Berna è impegnata nella formazione professionale sostenibile e vi offre una vasta gamma di opportunità per la vostra carriera. Circa 200 apprendisti stanno attualmente completando la loro formazione in oltre 20 professioni diverse – accompagnati da oltre 300 dipendenti esperti che trasmettono la loro conoscenza ed entusiasmo. Con noi non solo impari il tuo lavoro da sogno, ma anche forma attivamente la vita nella nostra città. Diventa parte di un team che lavora con gioia, responsabilità e cuore per Berna.",
-        "en": "The Presidential Directorate offers 22 attractive apprenticeships in three future occupations with challenging tasks and topics. Our multifaceted training programmes offer you the best prospects for a successful career. Use your talents and knowledge to actively participate in the pulse of the population for the well-being of the city of Bern.\n\nTasks:\n• You work in different areas and take on varied tasks\n\n• You participate in exciting projects and contribute your ideas\n\n• You will continuously develop your skills and benefit from a versatile internal course offer\n\n• You actively shape your education – accompanied by committed and qualified practical trainees\n\n• You benefit from flexible working hours that are aligned with your exercise plan\n\nRequirements\n• Secondary school degree or very good real school degree with 10. School year\n\n• Several years of musical experience or enthusiasm in the creation and production of own songs\n\n• Interest in politics and commercial activities\n\n• Standing and sociable person\n\n• Readiness to learn and responsibility\n\n• Reliability and teamwork\n\nWe offer:\nDiverse and fair\nMore than 20 exciting apprenticeships await you with us – from crafts to administrative. As a versatile apprenticeship company, we value the different role models and pay all apprenticeships the same wage – and learners from 25 even a little more.\n\nThe city of Bern is committed to sustainable vocational training and offers you a wide range of opportunities for your career. Around 200 apprentices are currently completing their training in over 20 different professions – accompanied by more than 300 experienced employees who pass on their knowledge and enthusiasm. With us you not only learn your dream job, but also actively shape life in our city. Become part of a team that works with joy, responsibility and heart for Bern.",
-        "de": "Die Präsidialdirektion bietet 22 attraktive Ausbildungsplätze in drei Zukunftsberufen mit herausfordernden Aufgaben und Themengebieten. Unsere facettenreichen Ausbildungsprogramme bieten dir die beste Perspektive für eine erfolgreiche berufliche Laufbahn. Nutze deine Talente und dein Wissen, um aktiv am Puls der Bevölkerung für das Wohlergehen der Stadt Bern mitzuwirken.\n\nAufgaben:\n• Du arbeitest in verschiedenen Bereichen mit und übernimmst abwechslungsreiche Aufgaben\n\n• Du wirkst bei spannenden Projekten mit und bringst deine Ideen ein\n\n• Du entwickelst deine Fähigkeiten kontinuierlich weiter und profitierst von einem vielseitigen internen Kursangebot\n\n• Du gestaltest deine Ausbildung aktiv mit – begleitet von engagierten und qualifizierten Praxisbildenden\n\n• Du profitierst von flexiblen Arbeitszeiten, die auf deinen Übungsplan abgestimmt sind\n\nAnforderungen:\n• Sekundarschulabschluss oder sehr guter Realschulabschluss mit 10. Schuljahr\n\n• Mehrjährige musikalische Erfahrung oder Begeisterung an der Kreation und Produktion eigener Songs\n\n• Interesse an Politik sowie kaufmännischen Tätigkeiten\n\n• Aufgestellte und kontaktfreudige Person\n\n• Lernbereitschaft sowie Verantwortungsbewusstsein\n\n• Zuverlässigkeit und Teamfähigkeit\n\nWir bieten:\nVielfältig & fair\nBei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
-        "fr": "La Direction présidentielle offre 22 apprentissages attrayants dans trois futurs métiers avec des tâches et des sujets difficiles. Nos programmes de formation multiformes vous offrent les meilleures perspectives pour une carrière réussie. Utilisez vos talents et vos connaissances pour participer activement au pouls de la population pour le bien-être de la ville de Berne.\n\nTâches :\n• Vous travaillez dans différents domaines et prenez des tâches variées\n\n• Vous participez à des projets passionnants et apportez vos idées\n\n• Vous développerez continuellement vos compétences et bénéficierez d'une offre de cours internes polyvalents\n\n• Vous façonnez activement votre éducation – accompagnée de stagiaires engagés et qualifiés\n\n• Vous bénéficiez d'heures de travail flexibles qui sont alignées sur votre plan d'exercice\n\nExigences\n• Diplôme d'études secondaires ou très bon diplôme d'études réelles avec 10. Année scolaire\n\n• Plusieurs années d'expérience musicale ou d'enthousiasme dans la création et la production de chansons propres\n\n• Intérêt pour la politique et les activités commerciales\n\n• Personne debout et sociable\n\n• Aptitude à apprendre et responsabilité\n\n• Fiabilité et travail d'équipe\n\nNous offrons:\nDivers et équitables\nPlus de 20 apprentissages passionnants vous attendent avec nous – de l'artisanat à l'administration. En tant qu'entreprise d'apprentissage polyvalente, nous valorisons les différents modèles et payons tous les apprentissages le même salaire – et les apprenants de 25 encore un peu plus.\n\nLa ville de Berne est engagée dans la formation professionnelle durable et vous offre un large éventail d'opportunités pour votre carrière. Environ 200 apprentis suivent actuellement leur formation dans plus de 20 professions différentes, accompagnés de plus de 300 employés expérimentés qui transmettent leurs connaissances et leur enthousiasme. Avec nous, vous apprenez non seulement votre travail de rêve, mais aussi façonner activement la vie dans notre ville. Devenez membre d'une équipe qui travaille avec joie, responsabilité et cœur pour Berne."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-musiktalente/a1e2ff6c-fc50-463a-b25d-658ac6fb3410",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.493Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3011",
-      "streetAddress": "Junkerngasse 47",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-09",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-musiktalente/a1e2ff6c-fc50-463a-b25d-658ac6fb3410",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-kauffrau-kaufmann-efz-fur-musiktalente-stadt-bern-bern",
-        "apprendistato-kauffrau-kaufmann-cfc-per-musiktalente-stadt-bern",
-        "apprendistato-businesswoman-businessman-efz-per-talenti-musicali-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-kauffrau-kaufmann-efz-fur-musiktalente-stadt-bern-bern",
-          "apprendistato-kauffrau-kaufmann-cfc-per-musiktalente-stadt-bern",
-          "apprendistato-businesswoman-businessman-efz-per-talenti-musicali-stadt-bern-bern"
-        ],
-        "en": [
-          "lehrstelle-kauffrau-kaufmann-efz-fur-musiktalente-stadt-bern-bern"
-        ],
-        "fr": [
-          "lehrstelle-kauffrau-kaufmann-efz-fur-musiktalente-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-09-09T23:01:25.682Z",
-      "salaryMin": 76000,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 76000,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "needsRetranslation": true
-    },
-    {
       "id": "stadt-bern-8a8416a0698d",
       "slug": "apprendistato-come-specialista-mann-business-maintenance-efz-stadt-bern-1",
       "slugByLocale": {
@@ -956,7 +869,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz/6f66145b-7c27-4a5f-816f-6349614a33fc",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.495Z",
+      "crawledAt": "2026-10-03T21:10:18.110Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1010,8 +923,89 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "stadt-bern-8191ac2d0018",
+      "slug": "apprendistato-businesswoman-businessman-efz-per-talenti-musicali-stadt-bern-bern",
+      "slugByLocale": {
+        "it": "apprendistato-businesswoman-businessman-efz-per-talenti-musicali-stadt-bern-bern",
+        "en": "apprenticeship-businesswoman-kaufmann-efz-for-music-talents-stadt-bern-bern",
+        "de": "lehrstelle-kauffrau-kaufmann-efz-fur-musiktalente-stadt-bern-bern",
+        "fr": "apprenticeship-businesswoman-kaufmann-efz-pour-les-talents-musicaux-stadt-bern-bern"
       },
-      "needsRetranslation": true
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Lehrstelle Kauffrau / Kaufmann EFZ für Musiktalente",
+      "titleByLocale": {
+        "it": "Apprendistato Businesswoman / Businessman EFZ per talenti musicali",
+        "en": "Apprenticeship Businesswoman / Businessman EFZ for musical talents",
+        "de": "Lehrstelle Kauffrau / Kaufmann EFZ für Musiktalente",
+        "fr": "Apprentissage Businesswoman / Businessman EFZ pour talents musicaux"
+      },
+      "description": "Die Präsidialdirektion bietet 22 attraktive Ausbildungsplätze in drei Zukunftsberufen mit herausfordernden Aufgaben und Themengebieten. Unsere facettenreichen Ausbildungsprogramme bieten dir die beste Perspektive für eine erfolgreiche berufliche Laufbahn. Nutze deine Talente und dein Wissen, um aktiv am Puls der Bevölkerung für das Wohlergehen der Stadt Bern mitzuwirken.\n\nAufgaben:\n• Du arbeitest in verschiedenen Bereichen mit und übernimmst abwechslungsreiche Aufgaben\n\n• Du wirkst bei spannenden Projekten mit und bringst deine Ideen ein\n\n• Du entwickelst deine Fähigkeiten kontinuierlich weiter und profitierst von einem vielseitigen internen Kursangebot\n\n• Du gestaltest deine Ausbildung aktiv mit – begleitet von engagierten und qualifizierten Praxisbildenden\n\n• Du profitierst von flexiblen Arbeitszeiten, die auf deinen Übungsplan abgestimmt sind\n\nAnforderungen:\n• Sekundarschulabschluss oder sehr guter Realschulabschluss mit 10. Schuljahr\n\n• Mehrjährige musikalische Erfahrung oder Begeisterung an der Kreation und Produktion eigener Songs\n\n• Interesse an Politik sowie kaufmännischen Tätigkeiten\n\n• Aufgestellte und kontaktfreudige Person\n\n• Lernbereitschaft sowie Verantwortungsbewusstsein\n\n• Zuverlässigkeit und Teamfähigkeit\n\nWir bieten:\nVielfältig & fair\n Bei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
+      "descriptionByLocale": {
+        "it": "La Direzione Presidenziale offre 22 apprendisti attraenti in tre professioni future con compiti e argomenti impegnativi. I nostri programmi di formazione poliedrica offrono le migliori prospettive per una carriera di successo. Usa i tuoi talenti e le tue conoscenze per partecipare attivamente al polso della popolazione per il benessere della città di Berna.\n\nCompiti:\n• Si lavora in diverse aree e si occupa di varie attività\n\n• Partecipate a progetti entusiasmanti e contribuite alle vostre idee\n\n• Potrai sviluppare continuamente le tue competenze e beneficiare di un'offerta di corso interno versatile\n\n• Formate attivamente la vostra formazione – accompagnata da apprendisti pratici impegnati e qualificati\n\n• Si beneficiano di orari di lavoro flessibili che sono allineati con il vostro piano di esercizio\n\nRequisiti\n• Laurea secondaria o molto buona scuola reale con 10. Anno scolastico\n\n• Diversi anni di esperienza musicale o di entusiasmo nella creazione e produzione di canzoni proprie\n\n• Interessi in politica e attività commerciali\n\n• Persona in piedi e socievole\n\n• Prontezza all'apprendimento e alla responsabilità\n\n• Affidabilità e lavoro di squadra\n\nOffriamo:\nDiverso e giusto\nPiù di 20 apprendisti vi aspettano con noi – dall’artigianato all’amministrazione. Come azienda di apprendistato versatile, valutiamo i diversi modelli di ruolo e paghiamo tutti gli apprendisti lo stesso salario – e gli studenti da 25 anche un po 'di più.\n\nLa città di Berna è impegnata nella formazione professionale sostenibile e vi offre una vasta gamma di opportunità per la vostra carriera. Circa 200 apprendisti stanno attualmente completando la loro formazione in oltre 20 professioni diverse – accompagnati da oltre 300 dipendenti esperti che trasmettono la loro conoscenza ed entusiasmo. Con noi non solo impari il tuo lavoro da sogno, ma anche forma attivamente la vita nella nostra città. Diventa parte di un team che lavora con gioia, responsabilità e cuore per Berna.",
+        "en": "The Presidential Directorate offers 22 attractive apprenticeships in three future occupations with challenging tasks and topics. Our multifaceted training programmes offer you the best prospects for a successful career. Use your talents and knowledge to actively participate in the pulse of the population for the well-being of the city of Bern.\n\nTasks:\n• You work in different areas and take on varied tasks\n\n• You participate in exciting projects and contribute your ideas\n\n• You will continuously develop your skills and benefit from a versatile internal course offer\n\n• You actively shape your education – accompanied by committed and qualified practical trainees\n\n• You benefit from flexible working hours that are aligned with your exercise plan\n\nRequirements\n• Secondary school degree or very good real school degree with 10. School year\n\n• Several years of musical experience or enthusiasm in the creation and production of own songs\n\n• Interest in politics and commercial activities\n\n• Standing and sociable person\n\n• Readiness to learn and responsibility\n\n• Reliability and teamwork\n\nWe offer:\nDiverse and fair\nMore than 20 exciting apprenticeships await you with us – from crafts to administrative. As a versatile apprenticeship company, we value the different role models and pay all apprenticeships the same wage – and learners from 25 even a little more.\n\nThe city of Bern is committed to sustainable vocational training and offers you a wide range of opportunities for your career. Around 200 apprentices are currently completing their training in over 20 different professions – accompanied by more than 300 experienced employees who pass on their knowledge and enthusiasm. With us you not only learn your dream job, but also actively shape life in our city. Become part of a team that works with joy, responsibility and heart for Bern.",
+        "de": "Die Präsidialdirektion bietet 22 attraktive Ausbildungsplätze in drei Zukunftsberufen mit herausfordernden Aufgaben und Themengebieten. Unsere facettenreichen Ausbildungsprogramme bieten dir die beste Perspektive für eine erfolgreiche berufliche Laufbahn. Nutze deine Talente und dein Wissen, um aktiv am Puls der Bevölkerung für das Wohlergehen der Stadt Bern mitzuwirken.\n\nAufgaben:\n• Du arbeitest in verschiedenen Bereichen mit und übernimmst abwechslungsreiche Aufgaben\n\n• Du wirkst bei spannenden Projekten mit und bringst deine Ideen ein\n\n• Du entwickelst deine Fähigkeiten kontinuierlich weiter und profitierst von einem vielseitigen internen Kursangebot\n\n• Du gestaltest deine Ausbildung aktiv mit – begleitet von engagierten und qualifizierten Praxisbildenden\n\n• Du profitierst von flexiblen Arbeitszeiten, die auf deinen Übungsplan abgestimmt sind\n\nAnforderungen:\n• Sekundarschulabschluss oder sehr guter Realschulabschluss mit 10. Schuljahr\n\n• Mehrjährige musikalische Erfahrung oder Begeisterung an der Kreation und Produktion eigener Songs\n\n• Interesse an Politik sowie kaufmännischen Tätigkeiten\n\n• Aufgestellte und kontaktfreudige Person\n\n• Lernbereitschaft sowie Verantwortungsbewusstsein\n\n• Zuverlässigkeit und Teamfähigkeit\n\nWir bieten:\nVielfältig & fair\nBei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
+        "fr": "La Direction présidentielle offre 22 apprentissages attrayants dans trois futurs métiers avec des tâches et des sujets difficiles. Nos programmes de formation multiformes vous offrent les meilleures perspectives pour une carrière réussie. Utilisez vos talents et vos connaissances pour participer activement au pouls de la population pour le bien-être de la ville de Berne.\n\nTâches :\n• Vous travaillez dans différents domaines et prenez des tâches variées\n\n• Vous participez à des projets passionnants et apportez vos idées\n\n• Vous développerez continuellement vos compétences et bénéficierez d'une offre de cours internes polyvalents\n\n• Vous façonnez activement votre éducation – accompagnée de stagiaires engagés et qualifiés\n\n• Vous bénéficiez d'heures de travail flexibles qui sont alignées sur votre plan d'exercice\n\nExigences\n• Diplôme d'études secondaires ou très bon diplôme d'études réelles avec 10. Année scolaire\n\n• Plusieurs années d'expérience musicale ou d'enthousiasme dans la création et la production de chansons propres\n\n• Intérêt pour la politique et les activités commerciales\n\n• Personne debout et sociable\n\n• Aptitude à apprendre et responsabilité\n\n• Fiabilité et travail d'équipe\n\nNous offrons:\nDivers et équitables\nPlus de 20 apprentissages passionnants vous attendent avec nous – de l'artisanat à l'administration. En tant qu'entreprise d'apprentissage polyvalente, nous valorisons les différents modèles et payons tous les apprentissages le même salaire – et les apprenants de 25 encore un peu plus.\n\nLa ville de Berne est engagée dans la formation professionnelle durable et vous offre un large éventail d'opportunités pour votre carrière. Environ 200 apprentis suivent actuellement leur formation dans plus de 20 professions différentes, accompagnés de plus de 300 employés expérimentés qui transmettent leurs connaissances et leur enthousiasme. Avec nous, vous apprenez non seulement votre travail de rêve, mais aussi façonner activement la vie dans notre ville. Devenez membre d'une équipe qui travaille avec joie, responsabilité et cœur pour Berne."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-musiktalente/a1e2ff6c-fc50-463a-b25d-658ac6fb3410",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-03T21:10:18.108Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3011",
+      "streetAddress": "Junkerngasse 47",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-09",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-musiktalente/a1e2ff6c-fc50-463a-b25d-658ac6fb3410",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-kauffrau-kaufmann-efz-fur-musiktalente-stadt-bern-bern",
+        "apprendistato-kauffrau-kaufmann-cfc-per-musiktalente-stadt-bern",
+        "apprendistato-businesswoman-businessman-efz-per-talenti-musicali-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-kauffrau-kaufmann-efz-fur-musiktalente-stadt-bern-bern",
+          "apprendistato-kauffrau-kaufmann-cfc-per-musiktalente-stadt-bern",
+          "apprendistato-businesswoman-businessman-efz-per-talenti-musicali-stadt-bern-bern"
+        ],
+        "en": [
+          "lehrstelle-kauffrau-kaufmann-efz-fur-musiktalente-stadt-bern-bern"
+        ],
+        "fr": [
+          "lehrstelle-kauffrau-kaufmann-efz-fur-musiktalente-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-09-09T23:01:25.682Z",
+      "salaryMin": 76000,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 76000,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "stadt-bern-2f4f443aa656",
@@ -1045,7 +1039,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-motorgeraetemechaniker-in/c33d7530-fbfc-4e54-84c6-6a61be3f5fab",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.493Z",
+      "crawledAt": "2026-10-03T21:10:18.107Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1127,7 +1121,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-recyclist-in/88a43347-1bfb-4be8-b50a-eed4f0fffc46",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.488Z",
+      "crawledAt": "2026-10-03T21:10:18.106Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1174,8 +1168,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-bern-f78cba620a4d",
@@ -1209,7 +1202,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/kinder-jugendbetreuer-in/c2aa4f05-6539-4d5b-8f51-5948e8372b24",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.487Z",
+      "crawledAt": "2026-10-03T21:10:18.105Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1289,7 +1282,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/gaertner-in/067aec99-e6f5-4e34-8fc0-3f30e170a336",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.486Z",
+      "crawledAt": "2026-10-03T21:10:18.103Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1336,8 +1329,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-bern-2d7c6297acef",
@@ -1371,7 +1363,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/strassenbauer-in-maurer-in/fb73a9eb-739d-47c5-aab8-394eb1c7dfcd",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.486Z",
+      "crawledAt": "2026-10-03T21:10:18.102Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1454,7 +1446,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/leitende-r-koch-koechin/20fea2cf-5b24-4643-8b65-926bceec5273",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.485Z",
+      "crawledAt": "2026-10-03T21:10:18.101Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1519,7 +1511,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/betreuungsfachperson-tertiaer/572bb557-48f2-49ca-97fc-7e96e0ef2eed",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.484Z",
+      "crawledAt": "2026-10-03T21:10:18.100Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1600,7 +1592,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/betreuungsfachperson/f72b8199-f594-431f-8de5-3f1b3aa640b1",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.483Z",
+      "crawledAt": "2026-10-03T21:10:18.095Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1686,7 +1678,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/betreuungsfachperson-tertiaer/1fe26e96-3e90-4e30-9224-bbd6e75acb11",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.482Z",
+      "crawledAt": "2026-10-03T21:10:18.094Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1764,7 +1756,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/tierpfleger-in-fachrichtung-wildtierpflege/522343d3-d883-4617-b9c4-137baa6bd1fc",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.481Z",
+      "crawledAt": "2026-10-03T21:10:18.093Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1847,7 +1839,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/stv-sektionsleitung-qualitaetsmanagement/8b582f66-da2f-48e1-ba05-61ebf296744f",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.480Z",
+      "crawledAt": "2026-10-03T21:10:18.092Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1936,7 +1928,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen/a3444067-bd28-4778-8f36-51f6f5af4b6a",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.479Z",
+      "crawledAt": "2026-10-03T21:10:18.090Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2017,7 +2009,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis/e71551d2-9f79-43c4-8db9-c68cf37fbb52",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.477Z",
+      "crawledAt": "2026-10-03T21:10:18.089Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2035,6 +2027,7 @@
       "applyUrl": "https://jobs.bern.ch/offene-stellen/berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis/e71551d2-9f79-43c4-8db9-c68cf37fbb52",
       "requirements": [],
       "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-01T09:11:55.853Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2047,8 +2040,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-01T09:11:55.853Z"
+      }
     },
     {
       "id": "stadt-bern-30bc8b3c067e",
@@ -2082,7 +2074,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/projektleiter-in/ffed49b1-1d18-470a-9912-7d59f74e2d9c",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.476Z",
+      "crawledAt": "2026-10-03T21:10:18.087Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2165,7 +2157,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sozialarbeiter-in-intake/3cfd9219-4568-438a-bb30-e7dda7a96445",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.475Z",
+      "crawledAt": "2026-10-03T21:10:18.085Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2202,9 +2194,9 @@
       "id": "stadt-bern-a96f72465261",
       "slug": "collaboratore-trice-in-administration-stadt-bern",
       "slugByLocale": {
-        "de": "mitarbeiter-in-administration-stadt-bern-bern",
         "it": "collaboratore-trice-in-administration-stadt-bern",
         "en": "mitarbeiter-in-administration-stadt-bern-bern",
+        "de": "mitarbeiter-in-administration-stadt-bern-bern",
         "fr": "mitarbeiter-in-administration-stadt-bern-bern"
       },
       "company": "Stadt Bern",
@@ -2212,17 +2204,17 @@
       "companyDomain": "bern.ch",
       "title": "Mitarbeiter*in Administration",
       "titleByLocale": {
-        "de": "Mitarbeiter*in Administration",
         "it": "Collaboratore/trice*in Administration",
         "en": "Mitarbeiter*in Administration",
+        "de": "Mitarbeiter*in Administration",
         "fr": "Mitarbeiter*in Administration"
       },
       "description": "Der Arbeitsmarkt ist dynamisch. Die Arbeitsintegration auch.<br/><br/>Bewerbungsfrist: 30. Oktober 2026\n\nAufgaben:\n• Administrative Unterstützung und Entlastung der Sektionsleitung und der Coachingteams\n\n• Führen diverser Statistiken und Erstellen von Reportings, Präsentationen, Vorlagen\n\n• Administrative Bearbeitung Dossiers und Erfassung von neu angemeldeten Personen im Fallführungssystem\n\n• Bearbeitung von Anfragen von Sozialdiensten (Telefon, E-Mail, Teams)\n\n• Unterstützung des Empfangsteams und der Telefonzentrale (bei Bedarf)\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung\n\n• Mehrjährige Berufserfahrung im kaufm. Bereich od. vergleichbarer Position\n\n• Sehr gute digitale Skills und Kenntnisse MS Office (insbesondere Excel), Teams\n\n• Effiziente, exakte, selbständige Arbeitsweise und Zuverlässigkeit\n\n• Vernetztes Arbeiten und ausgesprochene Dienstleistungsorientierung\n\n• Flair für Zahlen, organisationsstark, mitdenkend, vorausschauend und kommunikativ\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
       "descriptionByLocale": {
-        "de": "Der Arbeitsmarkt ist dynamisch. Die Arbeitsintegration auch.<br/><br/>Bewerbungsfrist: 30. Oktober 2026\n\nAufgaben:\n• Administrative Unterstützung und Entlastung der Sektionsleitung und der Coachingteams\n\n• Führen diverser Statistiken und Erstellen von Reportings, Präsentationen, Vorlagen\n\n• Administrative Bearbeitung Dossiers und Erfassung von neu angemeldeten Personen im Fallführungssystem\n\n• Bearbeitung von Anfragen von Sozialdiensten (Telefon, E-Mail, Teams)\n\n• Unterstützung des Empfangsteams und der Telefonzentrale (bei Bedarf)\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung\n\n• Mehrjährige Berufserfahrung im kaufm. Bereich od. vergleichbarer Position\n\n• Sehr gute digitale Skills und Kenntnisse MS Office (insbesondere Excel), Teams\n\n• Effiziente, exakte, selbständige Arbeitsweise und Zuverlässigkeit\n\n• Vernetztes Arbeiten und ausgesprochene Dienstleistungsorientierung\n\n• Flair für Zahlen, organisationsstark, mitdenkend, vorausschauend und kommunikativ\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "it": "Der Arbeitsmarkt ist dynamisch. Die Arbeitsintegration auch.<br/><br/>Bewerbungsfrist: 30. Oktober 2026\n\nAufgaben:\n• Administrative Unterstützung und Entlastung der Sektionsleitung und der Coachingteams\n\n• Führen diverser Statistiken und Erstellen von Reportings, Präsentationen, Vorlagen\n\n• Administrative Bearbeitung Dossiers und Erfassung von neu angemeldeten Personen im Fallführungssystem\n\n• Bearbeitung von Anfragen von Sozialdiensten (Telefon, E-Mail, Teams)\n\n• Unterstützung des Empfangsteams und der Telefonzentrale (bei Bedarf)\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung\n\n• Mehrjährige Berufserfahrung im kaufm. Bereich od. vergleichbarer Position\n\n• Sehr gute digitale Skills und Kenntnisse MS Office (insbesondere Excel), Teams\n\n• Effiziente, exakte, selbständige Arbeitsweise und Zuverlässigkeit\n\n• Vernetztes Arbeiten und ausgesprochene Dienstleistungsorientierung\n\n• Flair für Zahlen, organisationsstark, mitdenkend, vorausschauend und kommunikativ\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "en": "Der Arbeitsmarkt ist dynamisch. Die Arbeitsintegration auch.<br/><br/>Bewerbungsfrist: 30. Oktober 2026\n\nAufgaben:\n• Administrative Unterstützung und Entlastung der Sektionsleitung und der Coachingteams\n\n• Führen diverser Statistiken und Erstellen von Reportings, Präsentationen, Vorlagen\n\n• Administrative Bearbeitung Dossiers und Erfassung von neu angemeldeten Personen im Fallführungssystem\n\n• Bearbeitung von Anfragen von Sozialdiensten (Telefon, E-Mail, Teams)\n\n• Unterstützung des Empfangsteams und der Telefonzentrale (bei Bedarf)\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung\n\n• Mehrjährige Berufserfahrung im kaufm. Bereich od. vergleichbarer Position\n\n• Sehr gute digitale Skills und Kenntnisse MS Office (insbesondere Excel), Teams\n\n• Effiziente, exakte, selbständige Arbeitsweise und Zuverlässigkeit\n\n• Vernetztes Arbeiten und ausgesprochene Dienstleistungsorientierung\n\n• Flair für Zahlen, organisationsstark, mitdenkend, vorausschauend und kommunikativ\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Der Arbeitsmarkt ist dynamisch. Die Arbeitsintegration auch.<br/><br/>Bewerbungsfrist: 30. Oktober 2026\n\nAufgaben:\n• Administrative Unterstützung und Entlastung der Sektionsleitung und der Coachingteams\n\n• Führen diverser Statistiken und Erstellen von Reportings, Präsentationen, Vorlagen\n\n• Administrative Bearbeitung Dossiers und Erfassung von neu angemeldeten Personen im Fallführungssystem\n\n• Bearbeitung von Anfragen von Sozialdiensten (Telefon, E-Mail, Teams)\n\n• Unterstützung des Empfangsteams und der Telefonzentrale (bei Bedarf)\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung\n\n• Mehrjährige Berufserfahrung im kaufm. Bereich od. vergleichbarer Position\n\n• Sehr gute digitale Skills und Kenntnisse MS Office (insbesondere Excel), Teams\n\n• Effiziente, exakte, selbständige Arbeitsweise und Zuverlässigkeit\n\n• Vernetztes Arbeiten und ausgesprochene Dienstleistungsorientierung\n\n• Flair für Zahlen, organisationsstark, mitdenkend, vorausschauend und kommunikativ\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern."
+        "it": "Der Arbeitsmarkt ist dynamisch. Die Arbeitsintegration auch.<br/><br/>Bewerbungsfrist: 30. Oktober 2026\n\nAufgaben:\n• Administrative Unterstützung und Entlastung der Sektionsleitung und der Coachingteams\n\n• Führen diverser Statistiken und Erstellen von Reportings, Präsentationen, Vorlagen\n\n• Administrative Bearbeitung Dossiers und Erfassung von neu angemeldeten Personen im Fallführungssystem\n\n• Bearbeitung von Anfragen von Sozialdiensten (Telefon, E-Mail, Teams)\n\n• Unterstützung des Empfangsteams und der Telefonzentrale (bei Bedarf)\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung\n\n• Mehrjährige Berufserfahrung im kaufm. Bereich od. vergleichbarer Position\n\n• Sehr gute digitale Skills und Kenntnisse MS Office (insbesondere Excel), Teams\n\n• Effiziente, exakte, selbständige Arbeitsweise und Zuverlässigkeit\n\n• Vernetztes Arbeiten und ausgesprochene Dienstleistungsorientierung\n\n• Flair für Zahlen, organisationsstark, mitdenkend, vorausschauend und kommunikativ\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "en": "Der Arbeitsmarkt ist dynamisch. Die Arbeitsintegration auch.<br/><br/>Bewerbungsfrist: 30. Oktober 2026\n\nAufgaben:\n• Administrative Unterstützung und Entlastung der Sektionsleitung und der Coachingteams\n\n• Führen diverser Statistiken und Erstellen von Reportings, Präsentationen, Vorlagen\n\n• Administrative Bearbeitung Dossiers und Erfassung von neu angemeldeten Personen im Fallführungssystem\n\n• Bearbeitung von Anfragen von Sozialdiensten (Telefon, E-Mail, Teams)\n\n• Unterstützung des Empfangsteams und der Telefonzentrale (bei Bedarf)\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung\n\n• Mehrjährige Berufserfahrung im kaufm. Bereich od. vergleichbarer Position\n\n• Sehr gute digitale Skills und Kenntnisse MS Office (insbesondere Excel), Teams\n\n• Effiziente, exakte, selbständige Arbeitsweise und Zuverlässigkeit\n\n• Vernetztes Arbeiten und ausgesprochene Dienstleistungsorientierung\n\n• Flair für Zahlen, organisationsstark, mitdenkend, vorausschauend und kommunikativ\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "de": "Der Arbeitsmarkt ist dynamisch. Die Arbeitsintegration auch.<br/><br/>Bewerbungsfrist: 30. Oktober 2026\n\nAufgaben:\n• Administrative Unterstützung und Entlastung der Sektionsleitung und der Coachingteams\n\n• Führen diverser Statistiken und Erstellen von Reportings, Präsentationen, Vorlagen\n\n• Administrative Bearbeitung Dossiers und Erfassung von neu angemeldeten Personen im Fallführungssystem\n\n• Bearbeitung von Anfragen von Sozialdiensten (Telefon, E-Mail, Teams)\n\n• Unterstützung des Empfangsteams und der Telefonzentrale (bei Bedarf)\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung\n\n• Mehrjährige Berufserfahrung im kaufm. Bereich od. vergleichbarer Position\n\n• Sehr gute digitale Skills und Kenntnisse MS Office (insbesondere Excel), Teams\n\n• Effiziente, exakte, selbständige Arbeitsweise und Zuverlässigkeit\n\n• Vernetztes Arbeiten und ausgesprochene Dienstleistungsorientierung\n\n• Flair für Zahlen, organisationsstark, mitdenkend, vorausschauend und kommunikativ\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Der Arbeitsmarkt ist dynamisch. Die Arbeitsintegration auch.<br/><br/>Bewerbungsfrist: 30. Oktober 2026\n\nAufgaben:\n• Administrative Unterstützung und Entlastung der Sektionsleitung und der Coachingteams\n\n• Führen diverser Statistiken und Erstellen von Reportings, Präsentationen, Vorlagen\n\n• Administrative Bearbeitung Dossiers und Erfassung von neu angemeldeten Personen im Fallführungssystem\n\n• Bearbeitung von Anfragen von Sozialdiensten (Telefon, E-Mail, Teams)\n\n• Unterstützung des Empfangsteams und der Telefonzentrale (bei Bedarf)\n\nAnforderungen:\n• Abgeschlossene kaufmännische Ausbildung\n\n• Mehrjährige Berufserfahrung im kaufm. Bereich od. vergleichbarer Position\n\n• Sehr gute digitale Skills und Kenntnisse MS Office (insbesondere Excel), Teams\n\n• Effiziente, exakte, selbständige Arbeitsweise und Zuverlässigkeit\n\n• Vernetztes Arbeiten und ausgesprochene Dienstleistungsorientierung\n\n• Flair für Zahlen, organisationsstark, mitdenkend, vorausschauend und kommunikativ\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern."
       },
       "needsRetranslation": true,
       "location": "Bern",
@@ -2230,7 +2222,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/mitarbeiter-in-administration/123b98ea-688e-4a4f-9818-a62faef9f198",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:36.468Z",
+      "crawledAt": "2026-10-03T21:10:18.076Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2247,17 +2239,18 @@
       "postedDate": "2026-10-01",
       "applyUrl": "https://jobs.bern.ch/offene-stellen/mitarbeiter-in-administration/123b98ea-688e-4a4f-9818-a62faef9f198",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-administration-stadt-bern-bern",
+        "collaboratore-trice-in-administration-stadt-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-administration-stadt-bern-bern"
+          "mitarbeiter-in-administration-stadt-bern-bern",
+          "collaboratore-trice-in-administration-stadt-bern"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-administration-stadt-bern-bern"
-      ],
+      "firstSeenAt": "2026-10-03T09:14:36.468Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2270,8 +2263,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-03T09:14:36.468Z"
+      }
     }
   ]
 }

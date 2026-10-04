@@ -1,6 +1,6 @@
 {
   "crawlerKey": "chopard",
-  "assembledAt": "2026-10-03T09:15:52.179Z",
+  "assembledAt": "2026-10-03T21:15:43.229Z",
   "jobs": [
     {
       "id": "chopard-5dded0f8e2fc",
@@ -33,7 +33,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2555?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:15:46.027Z",
+      "crawledAt": "2026-10-03T21:15:38.143Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -65,8 +65,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "chopard-34282272bd03",
@@ -99,7 +98,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2572?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:15:46.024Z",
+      "crawledAt": "2026-10-03T21:15:38.139Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -164,7 +163,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:15:46.020Z",
+      "crawledAt": "2026-10-03T21:15:38.133Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -229,7 +228,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2604?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:15:46.017Z",
+      "crawledAt": "2026-10-03T21:15:38.129Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -295,7 +294,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2608?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:15:45.997Z",
+      "crawledAt": "2026-10-03T21:15:38.105Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -315,11 +314,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-micromecanicien-h-f-d-chopard-fleurier"
+        "apprenti-micromecanicien-h-f-d-chopard-fleurier",
+        "apprentice-micromechanic-m-f-d-chopard-fleurier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-micromecanicien-h-f-d-chopard-fleurier"
+          "apprenti-micromecanicien-h-f-d-chopard-fleurier",
+          "apprentice-micromechanic-m-f-d-chopard-fleurier"
         ],
         "en": [
           "apprenti-micromecanicien-h-f-d-chopard-fleurier"
@@ -374,7 +375,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2233?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:15:45.974Z",
+      "crawledAt": "2026-10-03T21:15:38.068Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -394,11 +395,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-head-of-crm-chopard-meyrin"
+        "global-head-of-crm-chopard-meyrin",
+        "global-responsabile-crm-chopard-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-of-crm-chopard-meyrin"
+          "global-head-of-crm-chopard-meyrin",
+          "global-responsabile-crm-chopard-meyrin"
         ],
         "de": [
           "global-head-of-crm-chopard-meyrin"
@@ -453,7 +456,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2607?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:15:45.970Z",
+      "crawledAt": "2026-10-03T21:15:38.058Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -473,11 +476,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "communication-executive-assistant-h-f-chopard-meyrin"
+        "communication-executive-assistant-h-f-chopard-meyrin",
+        "assistente-esecutivo-di-comunicazione-m-f-chopard-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "communication-executive-assistant-h-f-chopard-meyrin"
+          "communication-executive-assistant-h-f-chopard-meyrin",
+          "assistente-esecutivo-di-comunicazione-m-f-chopard-meyrin"
         ],
         "de": [
           "communication-executive-assistant-h-f-chopard-meyrin"
@@ -496,8 +501,7 @@
           "maxValue": 109000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "chopard-bc33f961df14",
@@ -572,7 +576,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

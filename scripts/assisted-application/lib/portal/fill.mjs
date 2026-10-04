@@ -1,6 +1,6 @@
 /**
- * Deterministic filler of the portal runner. Techniques from OfferOS
- * (Apache-2.0, apps/extension/src/lib/autofill/dom-fill.ts, aria-driver.ts)
+ * Deterministic filler of the portal runner. Techniques, no code taken, from
+ * OfferOS (Apache-2.0, apps/extension/src/lib/autofill/dom-fill.ts, aria-driver.ts)
  * and career-ops' "Known ATS quirks" (MIT, modes/apply.md):
  *   - React inputs: `fill`, then verify the value registered; otherwise type
  *     real keystrokes (Workday ignores values set by script);
@@ -380,7 +380,7 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
         if (field.kind === 'select') {
           await locator.selectOption({ label: action.value }, { timeout: ACTION_TIMEOUT_MS });
         } else if (field.kind === 'listbox') {
-          // Workday: open the listbox and click the option (OfferOS aria-driver).
+          // Workday: open the listbox and click the option (OfferOS dom-fill, fillListboxButton).
           await locator.click({ timeout: ACTION_TIMEOUT_MS });
           const frame = page.frames()[field.frame || 0] || page.mainFrame();
           await frame.getByRole('option', { name: action.value, exact: true }).first().click({ timeout: 6000 });

@@ -1,10 +1,9 @@
 import { dataControllerFooterLine } from '../../functions/src/lib/dataControllerIdentity.js';
+import { renderJobCard } from '../../services/newsletter/jobCard.mjs';
 import { renderRecommendedBlock } from '../../services/newsletter/recommendedBlock.mjs';
 
-const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
 const BRAND_DARK = '#0f172a';
-const DARK_CARD = '#1e293b';
 const LIGHT_BG = '#f1f5f9';
 const WHITE = '#ffffff';
 const MUTED = '#64748b';
@@ -12,14 +11,16 @@ const MUTED_ON_DARK = '#94a3b8';
 
 const STRINGS = {
   it: {
-    subject: (count) => count === 1 ? 'Hai cliccato «Candidati»: un promemoria per te' : `Hai ${count} candidature da verificare`,
+    subject: (count) => count === 1 ? 'Hai cliccato «Candidati» su un annuncio' : `Hai cliccato «Candidati» su ${count} annunci`,
     preheader: 'Un promemoria sul tuo click «Candidati», senza presumere l’esito della candidatura.',
-    heroTitle: 'Un promemoria sulle tue candidature',
-    heroDesc: 'Hai mostrato interesse per questi annunci. Verifica sul sito dell’azienda se vuoi proseguire o se hai già concluso il passaggio.',
-    sectionLabel: '📝 Candidature',
-    sectionTitle: 'Annunci per cui hai cliccato «Candidati»',
+    heroTitle: 'Gli annunci su cui hai cliccato «Candidati»',
+    heroDesc: 'Controlla sul sito dell’azienda se hai già completato la candidatura o se vuoi riprendere da qui.',
+    sectionLabel: '📝 Click su «Candidati»',
+    sectionTitle: 'Annunci su cui hai cliccato «Candidati»',
     sectionDesc: 'Il click non prova che la candidatura sia stata inviata o completata.',
-    badge: 'Da verificare',
+    applicationIntentBadge: 'Da verificare',
+    newBadge: '✨ NUOVA',
+    postedOn: 'Pubblicato il',
     viewJob: 'Apri annuncio →',
     recommendationsTitle: '✨ Offerte simili per te',
     manageCta: 'Gestisci le tue preferenze →',
@@ -31,14 +32,16 @@ const STRINGS = {
     at: 'presso',
   },
   en: {
-    subject: (count) => count === 1 ? 'You clicked “Apply” — a reminder for you' : `${count} applications to check`,
+    subject: (count) => count === 1 ? 'You clicked “Apply” on one listing' : `You clicked “Apply” on ${count} listings`,
     preheader: 'A reminder about your “Apply” click, without assuming the application outcome.',
-    heroTitle: 'A reminder about your applications',
-    heroDesc: 'You showed interest in these listings. Check the employer’s site if you want to continue or review the next step.',
-    sectionLabel: '📝 Applications',
+    heroTitle: 'Listings where you clicked “Apply”',
+    heroDesc: 'Check the employer’s site to see whether you completed the application or want to pick up where you left off.',
+    sectionLabel: '📝 Apply clicks',
     sectionTitle: 'Listings where you clicked “Apply”',
     sectionDesc: 'The click does not prove that an application was sent or completed.',
-    badge: 'To check',
+    applicationIntentBadge: 'To check',
+    newBadge: '✨ NEW',
+    postedOn: 'Posted on',
     viewJob: 'Open listing →',
     recommendationsTitle: '✨ Similar jobs for you',
     manageCta: 'Manage your preferences →',
@@ -50,14 +53,16 @@ const STRINGS = {
     at: 'at',
   },
   de: {
-    subject: (count) => count === 1 ? 'Sie haben auf „Bewerben“ geklickt — eine Erinnerung' : `${count} Bewerbungen zum Prüfen`,
+    subject: (count) => count === 1 ? 'Sie haben bei einer Stelle auf „Bewerben“ geklickt' : `Sie haben bei ${count} Stellen auf „Bewerben“ geklickt`,
     preheader: 'Eine Erinnerung an Ihren Klick auf „Bewerben“, ohne den Ausgang der Bewerbung vorauszusetzen.',
-    heroTitle: 'Eine Erinnerung an Ihre Bewerbungen',
-    heroDesc: 'Sie haben bei diesen Stellen Interesse gezeigt. Prüfen Sie die Website des Arbeitgebers für den nächsten Schritt.',
-    sectionLabel: '📝 Bewerbungen',
+    heroTitle: 'Stellen, bei denen Sie auf „Bewerben“ geklickt haben',
+    heroDesc: 'Prüfen Sie auf der Website des Arbeitgebers, ob Sie die Bewerbung abgeschlossen haben oder weitermachen möchten.',
+    sectionLabel: '📝 Klicks auf „Bewerben“',
     sectionTitle: 'Stellen, bei denen Sie auf „Bewerben“ geklickt haben',
     sectionDesc: 'Der Klick beweist nicht, dass eine Bewerbung gesendet oder abgeschlossen wurde.',
-    badge: 'Zu prüfen',
+    applicationIntentBadge: 'Zu prüfen',
+    newBadge: '✨ NEU',
+    postedOn: 'Veröffentlicht am',
     viewJob: 'Stelle öffnen →',
     recommendationsTitle: '✨ Ähnliche Stellen für Sie',
     manageCta: 'Einstellungen verwalten →',
@@ -69,14 +74,16 @@ const STRINGS = {
     at: 'bei',
   },
   fr: {
-    subject: (count) => count === 1 ? 'Vous avez cliqué sur « Postuler » — un rappel' : `${count} candidatures à vérifier`,
+    subject: (count) => count === 1 ? 'Vous avez cliqué sur « Postuler » sur une offre' : `Vous avez cliqué sur « Postuler » sur ${count} offres`,
     preheader: 'Un rappel de votre clic sur « Postuler », sans supposer le résultat de la candidature.',
-    heroTitle: 'Un rappel sur vos candidatures',
-    heroDesc: 'Vous avez montré de l’intérêt pour ces offres. Consultez le site de l’employeur pour la prochaine étape.',
-    sectionLabel: '📝 Candidatures',
+    heroTitle: 'Les offres où vous avez cliqué sur « Postuler »',
+    heroDesc: 'Consultez le site de l’employeur pour voir si vous avez terminé la candidature ou si vous souhaitez reprendre.',
+    sectionLabel: '📝 Clics sur « Postuler »',
     sectionTitle: 'Offres où vous avez cliqué sur « Postuler »',
     sectionDesc: 'Le clic ne prouve pas qu’une candidature a été envoyée ou terminée.',
-    badge: 'À vérifier',
+    applicationIntentBadge: 'À vérifier',
+    newBadge: '✨ NOUVELLE',
+    postedOn: 'Publié le',
     viewJob: 'Ouvrir l’offre →',
     recommendationsTitle: '✨ Des offres similaires pour vous',
     manageCta: 'Gérer vos préférences →',
@@ -99,28 +106,6 @@ function escapeHtml(value) {
   }[char]));
 }
 
-function card(entry, s, { intent = false } = {}) {
-  const location = entry.location || entry.canton || '';
-  const badge = intent
-    ? `<span style="display:inline-block;background:rgba(249,115,22,0.2);color:#fdba74;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;margin-left:8px;">${escapeHtml(s.badge)}</span>`
-    : '';
-  const initial = (entry.company || '?').trim().charAt(0).toUpperCase() || '?';
-  return `<tr><td style="padding:0 0 10px;">
-    <a target="_blank" rel="noopener noreferrer" href="${escapeHtml(entry.url)}" style="text-decoration:none;display:block;">
-      <table width="100%" cellpadding="0" cellspacing="0" style="background:${DARK_CARD};border-radius:12px;">
-        <tr>
-          <td width="58" style="padding:16px 0 16px 18px;vertical-align:top;"><div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,${BRAND_DARK},#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${escapeHtml(initial)}</div></td>
-          <td style="padding:16px 18px 16px 14px;vertical-align:top;">
-            <div style="font-size:15px;font-weight:700;color:#f1f5f9;">${escapeHtml(entry.title)}${badge}</div>
-            <div style="font-size:13px;color:${MUTED_ON_DARK};margin-top:2px;">${escapeHtml(s.at)} ${escapeHtml(entry.company)}${location ? ` · ${escapeHtml(location)}` : ''}</div>
-            <div style="margin-top:8px;font-size:13px;color:${BRAND_ORANGE};font-weight:600;">${escapeHtml(s.viewJob)}</div>
-          </td>
-        </tr>
-      </table>
-    </a>
-  </td></tr>`;
-}
-
 /**
  * @param {{locale?: string, applicationIntentEntries?: any[], recommendations?: any[], manageUrl?: string, unsubUrl?: string, email?: string}} [options]
  * @returns {string}
@@ -134,8 +119,12 @@ export function buildApplicationIntentReminderEmailHtml({
   email,
 } = {}) {
   const s = getApplicationIntentReminderStrings(locale);
-  const sourceCards = applicationIntentEntries.map((entry) => card(entry, s, { intent: true })).join('');
-  const recommendationCards = recommendations.map((entry) => card(entry, s)).join('');
+  const sourceCards = applicationIntentEntries
+    .map((entry) => renderJobCard(entry, locale, s, { applicationIntent: true }))
+    .join('');
+  const recommendationCards = recommendations
+    .map((entry) => renderJobCard(entry, locale, s))
+    .join('');
   const recommendationBlock = recommendations.length
     ? `<tr><td style="padding:20px 0 8px;font-size:16px;font-weight:800;color:${BRAND_DARK};">${escapeHtml(s.recommendationsTitle)}</td></tr>${recommendationCards}`
     : '';

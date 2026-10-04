@@ -17,7 +17,7 @@
 import { useMemo } from 'react';
 import type { Locale } from '@/services/i18n';
 import type { EmployerBrand } from '@/services/employerBrands';
-import { SALARY_ESTIMATE_SUFFIX } from '@/build-plugins/shared/salaryEstimateSuffix';
+import { salaryProvenanceSuffix } from '@/build-plugins/shared/salaryEstimateSuffix';
 
 interface EmployerBrandJob {
   readonly id: string;
@@ -143,7 +143,8 @@ function formatSalary(job: EmployerBrandJob, locale: Locale): string {
     : `${currency} ${fmt(min)}k+`;
   // Estimated bands are declared as such, same convention as the SSG job
   // cards (`SALARY_ESTIMATE_SUFFIX` in build-plugins/shared/jobCardHtml.ts).
-  return job.salarySource === 'estimated' ? `${range} ${SALARY_ESTIMATE_SUFFIX[locale]}` : range;
+  const suffix = salaryProvenanceSuffix(job.salarySource, locale);
+  return suffix ? `${range} ${suffix}` : range;
 }
 
 export function EmployerBrandHub({
