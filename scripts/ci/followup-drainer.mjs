@@ -94,6 +94,7 @@ import {
   selectFirstOpenItem,
 } from './followup-resolution-match.mjs';
 import { parseItemMarkers } from './lib/followup-item-evidence.mjs';
+import { decomposedIntoNumbers, reopenedAfterDecomposition } from './lib/parent-close-recurrence.mjs';
 import { isTrustedAuthor } from './route-already-fixed.mjs';
 
 export {
@@ -427,7 +428,9 @@ const LBL_FROM_DECOMP = 'from-decompose';
 const LBL_DECOMP_RETRIED = 'decompose-retried';
 const LBL_MAYBE_RESOLVED = 'maybe-resolved';
 const DECOMPOSE_ENABLED = process.env.DECOMPOSE_ENABLED !== 'false';
-const DECOMPOSED_INTO_RE = /<!--\s*DECOMPOSED_INTO:\s*((?:#?\d+[\s,]*)+)-->/i;
+// Il marker `DECOMPOSED_INTO` e il suo parse vivono in
+// `./lib/parent-close-recurrence.mjs` (`decomposedIntoNumbers`): la data della
+// decomposizione letta dalla guardia del PARENT-CLOSE usa la stessa regola.
 const PARENT_CLOSE_MAX_PER_RUN = intFromEnv('FOLLOWUP_PARENT_CLOSE_MAX_PER_RUN', 5);
 // `parent-dequeue` è una mutazione separata dal controllo `parent-close` che
 // segue. Il cap impedisce che un backlog di padri consumi tutta la finestra del
@@ -601,11 +604,7 @@ export function isDecomposedParent(iss) {
 export function decomposedChildNumbers(comments) {
   let nums = null;
   for (const c of comments || []) {
-    const m = DECOMPOSED_INTO_RE.exec(String(c?.body || ''));
-    if (!m) continue;
-    const parsed = [...new Set(
-      (m[1].match(/\d+/g) || []).map(Number).filter((n) => Number.isInteger(n) && n > 0),
-    )].sort((a, b) => a - b);
+    const parsed = decomposedIntoNumbers(c?.body);
     if (parsed.length) nums = parsed;
   }
   return nums || [];
@@ -4052,8 +4051,19 @@ export function runDrain() {
         if (!budget.take(`#${p.number} (parent-close)`, ITEM_COST_MS)) break;
         examined++;
         lastExaminedCursor = String(p.number);
-        const kids = decomposedChildNumbers(issueComments(p.number) || []);
+        const comments = issueComments(p.number) || [];
+        const kids = decomposedChildNumbers(comments);
         if (!kids.length) continue; // marker assente/illeggibile → nessuna decisione
+        // Un monitor (github-issue-creator, `🔁 **Reopened**`) che ha riaperto
+        // il padre DOPO la decomposizione ha detto che la condizione è tornata:
+        // le figlie chiuse non lo smentiscono, e richiuderlo qui produceva il
+        // ping-pong chiusura/riapertura di #5661. La chiusura spetta al closer
+        // del monitor; una decomposizione rifatta dopo ridà l'autorità a questo
+        // stadio. Prima delle view di stato delle figlie: non costa letture.
+        if (reopenedAfterDecomposition(comments)) {
+          console.log(`PARENT-CLOSE-SKIP #${p.number} (riaperta da un monitor dopo la decomposizione: la chiude il suo closer)`);
+          continue;
+        }
         let allClosed = true;
         for (const k of kids) {
           try {

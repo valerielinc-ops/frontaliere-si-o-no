@@ -21,6 +21,7 @@
  *   8. Post-process: fix company name, location, canton
  *   9. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -447,7 +448,8 @@ export async function fetchOscamJobs() {
         employmentType: detectEmploymentType(listing.title),
         experienceLevel: detectExperienceLevel(listing.title),
         source: 'oscam-crawler',
-        postedDate: new Date().toISOString().slice(0, 10),
+        ...sourcePostingDateFields(''),
+        crawledAt: new Date().toISOString(),
         titleByLocale: { [sourceLang]: listing.title },
         descriptionByLocale: { [sourceLang]: description },
         slugByLocale: { [sourceLang]: slug },
@@ -514,6 +516,8 @@ async function mergeJobs(discoveredJobs) {
     if (ex) {
       const updatedJob = {
         ...ex,
+        ...mergeSourcePostingDates(ex, discovered),
+        crawledAt: discovered.crawledAt,
         title: discovered.title || ex.title,
         company: COMPANY_NAME,
         companyKey: COMPANY_KEY,
