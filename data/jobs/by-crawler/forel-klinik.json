@@ -1,6 +1,6 @@
 {
   "crawlerKey": "forel-klinik",
-  "assembledAt": "2026-10-03T21:27:43.313Z",
+  "assembledAt": "2026-10-04T09:27:21.069Z",
   "jobs": [
     {
       "id": "forel-klinik-d66ab87e6430",
@@ -34,7 +34,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/3753b756-a74d-4a84-9bcd-df7dca809453/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:27:36.402Z",
+      "crawledAt": "2026-10-04T09:27:14.614Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -87,9 +87,9 @@
       "slug": "collaboratore-trice-in-hauswirtschaft-m-w-d-60-100-forel-klinik-ellikon-an-der-thur",
       "slugByLocale": {
         "it": "collaboratore-trice-in-hauswirtschaft-m-w-d-60-100-forel-klinik-ellikon-an-der-thur",
-        "en": "mitarbeiter-in-hauswirtschaft-m-w-d-60-100-forel-klinik-ellikon-an-der-thur",
+        "en": "housekeeping-employee-m-f-d-60-100-forel-klinik-ellikon-an-der-thur",
         "de": "mitarbeiter-in-hauswirtschaft-m-w-d-60-100-forel-klinik-ellikon-an-der-thur",
-        "fr": "mitarbeiter-in-hauswirtschaft-m-w-d-60-100-forel-klinik-ellikon-an-der-thur"
+        "fr": "employe-e-de-menage-h-f-d-60-100-forel-klinik-ellikon-an-der-thur"
       },
       "company": "Forel Klinik",
       "companyKey": "forel-klinik",
@@ -114,7 +114,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/6a2b1556-fc6e-4836-bb0f-3a15adbad05b/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:27:35.912Z",
+      "crawledAt": "2026-10-04T09:27:14.121Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -139,6 +139,12 @@
         "it": [
           "mitarbeiter-in-hauswirtschaft-m-w-d-60-100-forel-klinik-ellikon-an-der-thur",
           "collaboratore-trice-in-hauswirtschaft-m-w-d-60-100-forel-klinik-ellikon-an-der-thur"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-m-w-d-60-100-forel-klinik-ellikon-an-der-thur"
+        ],
+        "fr": [
+          "mitarbeiter-in-hauswirtschaft-m-w-d-60-100-forel-klinik-ellikon-an-der-thur"
         ]
       },
       "firstSeenAt": "2026-08-07T01:16:17.904Z",
