@@ -21,6 +21,7 @@ import {
   detectExperienceLevel,
   MIN_DESC_LENGTH,
 } from '@/scripts/lib/hugo-boss-job-parser.mjs';
+import { EMPTY_OK_CRAWLERS } from '../scripts/lib/crawler-empty-ok-registry.mjs';
 
 // ─── Fixture: Phenom DDO embedded in a search page ──────────────────────────
 
@@ -299,10 +300,7 @@ describe('fetchJobs national pagination', () => {
     expect(runner).toContain('markAuthoritativeEmptySnapshot');
     expect(runner).toContain('isAuthoritativeEmptySnapshot');
 
-    const monitor = fs.readFileSync(new URL('../scripts/check-crawler-health.mjs', import.meta.url), 'utf8');
-    const allowlist = /const EMPTY_OK_CRAWLERS = new Set\(\[([\s\S]*?)\]\)/.exec(monitor);
-    expect(allowlist).toBeTruthy();
-    expect(allowlist?.[1]).not.toMatch(/^\s*'hugo-boss',/m);
+    expect(EMPTY_OK_CRAWLERS.has('hugo-boss')).toBe(false);
   });
 
   it('publishes the maximum observed snapshot when Phenom repeats a page after bounded retries', async () => {

@@ -253,7 +253,7 @@ describe('fetchAllBreitlingJobs — published text', () => {
 
   it('publishes the body as it is and skips a posting without one', async () => {
     const resp = (id: string, title: string) => ({
-      response: { id, unifiedStandardTitle: title, jobLocationShort: ['Grenchen, SO, CH, 2540'], unifiedStandardStart: '2026-09-20', currency: ['CHF'] },
+      response: { id, unifiedStandardTitle: title, jobLocationShort: ['Grenchen, SO, CH, 2540'], unifiedStandardStart: '20/09/2026', currency: ['CHF'] },
     });
     vi.stubGlobal('fetch', vi.fn(async (url: string, init: any = {}) => {
       const u = String(url);
@@ -269,6 +269,8 @@ describe('fetchAllBreitlingJobs — published text', () => {
 
     const jobs = await fetchAllBreitlingJobs();
     expect(jobs.map((job) => job.title)).toEqual(['Watchmaker']);
+    // An API start field without verified publication semantics is not datePosted.
+    expect(jobs[0]).toMatchObject({ postedDate: '', datePosted: '', postingDateSource: 'unknown' });
     expect(jobs[0].description).toBe('You assemble and regulate chronograph movements in our Grenchen workshop. You work closely with colleagues from several departments, document your work carefully and help us improve our processes. We offer a modern workplace, flexible working hours, further training and an open team culture in a growing international company. Good English skills and a structured way of working complete your profile.');
   }, 20_000);
 });

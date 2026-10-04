@@ -26,6 +26,7 @@
  * each detail page; it does not substitute the historical Swiss HQ when a
  * posting has no source location.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError, stripScriptsAndStyles } from './lib/crawler-template.mjs';
@@ -395,7 +396,8 @@ export async function fetchZegnaJobs() {
       },
       department: detail.jobFunction || '',
       category: detail.jobFunction || 'corporate',
-      datePosted: new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(''),
+      crawledAt: new Date().toISOString(),
       source: 'zegna-careers-crawler',
       employmentType: detectEmploymentType(detail.contractType),
       experienceLevel: '',
@@ -511,6 +513,8 @@ export function mergeZegnaJobLists(existingZegnaJobs = [], discoveredJobs = []) 
       const hasFreshBody = Boolean(discovered.description);
       const updatedJob = {
         ...existing,
+        ...mergeSourcePostingDates(existing, discovered),
+        crawledAt: discovered.crawledAt,
         title: discovered.title || existing.title,
         company: ZEGNA_COMPANY_NAME,
         companyKey: ZEGNA_KEY,

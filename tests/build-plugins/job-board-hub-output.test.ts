@@ -1,3 +1,4 @@
+import { SECTOR_HUB_SLUG } from '../../build-plugins/jobSectorLanding';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -26,14 +27,14 @@ const jobs = Array.from({ length: 8 }, (_, i) => ({
   company: 'Audit Example SA', companyKey: 'audit-example', canton: i < 6 ? 'ZH' : 'TI',
   location: i < 6 ? 'Zürich' : 'Lugano', addressLocality: i < 6 ? 'Zürich' : 'Lugano',
   description, descriptionByLocale: Object.fromEntries(locales.map((locale) => [locale, description])),
-  datePosted: daysAgo(2), postedDate: daysAgo(2), crawledAt: daysAgo(1),
+  postingDateSource: i === 1 ? undefined : 'reported', datePosted: daysAgo(2), postedDate: daysAgo(2), crawledAt: daysAgo(1),
+  tags: i === 4 ? ['infermiere'] : [],
   employmentType: 'FULL_TIME', contract: 'full-time', salaryMin: 70000, salaryMax: 90000,
   url: `https://example.test/careers/${i}/`,
 }));
 
 
 const archiveDates = { posted: daysAgo(10), crawled: daysAgo(5), expired: daysAgo(2), future: daysAgo(-2) };
-const historicalEstimate = (deadline: string) => new Date(Date.parse(deadline) - 30 * 86400000).toISOString();
 const archiveRecord = (slug: string, overrides: Record<string, unknown> = {}) => ({
   ...jobs[7], id: slug, slug, datePosted: archiveDates.posted, postedDate: archiveDates.posted,
   crawledAt: archiveDates.crawled, expiredAt: archiveDates.expired, ...overrides,
@@ -41,8 +42,9 @@ const archiveRecord = (slug: string, overrides: Record<string, unknown> = {}) =>
 const noPostingDates = { datePosted: undefined, postedDate: undefined, crawledAt: undefined, expiredAt: undefined };
 const archivedJobs = [
   archiveRecord('archived-audit-position'),
+  archiveRecord('archived-unverified', { postingDateSource: 'unknown' }),
   archiveRecord('archived-crawl-only', { ...noPostingDates, crawledAt: archiveDates.crawled }),
-  archiveRecord('archived-first-seen', { datePosted: undefined, postedDate: undefined, firstSeenAt: archiveDates.posted }),
+  archiveRecord('archived-first-seen', { postingDateSource: undefined, datePosted: undefined, postedDate: undefined, firstSeenAt: archiveDates.posted }),
   archiveRecord('archived-source-on-expiry', { ...noPostingDates, datePosted: archiveDates.expired, expiredAt: archiveDates.expired }),
   archiveRecord('archived-posted-only', { ...noPostingDates, postedDate: archiveDates.posted }),
   archiveRecord('archived-expiry-only', { ...noPostingDates, expiredAt: archiveDates.expired }),
@@ -78,7 +80,7 @@ beforeAll(async () => {
     { ...jobs[0], id: 'missing-title', slug: 'missing-title', title: '' },
     { ...jobs[0], id: 'foreign-location', slug: 'foreign-location', location: 'London', addressLocality: 'London' },
   ];
-  fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify([...jobs, ...listingOnly, ...sgJobs, ...invalidListings, { title: 'Developer (m/f/d) #1?', company: 'Acme', canton: 'TI', description }, { title: 'Cuoco', company: 'Acme', canton: 'TI', titleByLocale: { it: 'Cuoco', en: 'Cook', de: 'Koch', fr: 'Cuisinier' } }, jobs[0], { ...jobs[1], id: 'short-translation', slug: 'short-translation', descriptionByLocale: { it: 'Testo breve' } }]));
+  fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify([...jobs, { ...jobs[0], id: 'active-unverified', slug: 'active-unverified', postingDateSource: 'unknown', tags: ['infermiere'] }, ...listingOnly, ...sgJobs, ...invalidListings, { title: 'Developer (m/f/d) #1?', company: 'Acme', canton: 'TI', description }, { title: 'Cuoco', company: 'Acme', canton: 'TI', titleByLocale: { it: 'Cuoco', en: 'Cook', de: 'Koch', fr: 'Cuisinier' } }, jobs[0], { ...jobs[1], id: 'short-translation', slug: 'short-translation', descriptionByLocale: { it: 'Testo breve' } }]));
   // The archive emitter consumes its historical snapshot, independently of
   // current listing counts: ZH has one archive page and SG has two.
   fs.mkdirSync(path.join(root, 'data/jobs-snapshots-history'));
@@ -145,7 +147,7 @@ describe('job-board emitted output', () => {
     for (const locale of locales) {
       const index = JSON.parse(fs.readFileSync(path.join(root, 'dist/data', `jobs-${locale}-index.json`), 'utf8'));
       const selected = selectJobBoardInventory(index, 'ZH');
-      expect(selected).toHaveLength(127);
+      expect(selected).toHaveLength(128);
       for (const id of ['missing-company', 'blank-company', 'missing-title', 'foreign-location']) {
         expect(index.some((job: any) => job.id === id)).toBe(false);
         expect(htmlDoc(hubPath(locale, 'ZH')).querySelector(`[href*="${id}"]`)).toBeNull();
@@ -159,7 +161,7 @@ describe('job-board emitted output', () => {
       const hub = hubPath(locale, 'ZH');
       const lastPage = htmlDoc(`${hub}${pageWord[locale]}-7/`);
       const itemList = structured(lastPage).find((entry) => entry['@type'] === 'ItemList');
-      expect(itemList.numberOfItems).toBe(7);
+      expect(itemList.numberOfItems).toBe(8);
       expect(lastPage.querySelector('link[rel="next"]')).toBeNull();
       expect(fs.existsSync(path.join(root, 'dist', hub, `${pageWord[locale]}-8/index.html`))).toBe(false);
       expect(htmlDoc(hub).querySelector(`[data-explore-pagination] a[href$="/${pageWord[locale]}-7/"]`)).toBeTruthy();
@@ -230,6 +232,42 @@ describe('job-board emitted output', () => {
     }
   });
 
+  it('retains legacy active schema during the producer migration', () => {
+    for (const locale of locales) {
+      const document = htmlDoc(`${hubPath(locale, 'ZH')}${jobs[1].slug}/`);
+      const posting = structured(document).find((entry) => entry['@type'] === 'JobPosting');
+      expect(posting?.datePosted).toBe(new Date(jobs[1].postedDate).toISOString());
+    }
+  });
+
+  it('does not promote collection timestamps into the canton sector fresh-publication tile', () => {
+    const labels = { it: 'Nuove · 7gg', en: 'New · 7d', de: 'Neu · 7T', fr: 'Récent · 7j' };
+    for (const locale of locales) {
+      const document = htmlDoc(`${hubPath(locale, 'ZH')}${SECTOR_HUB_SLUG[locale].infermieri}/`);
+      const label = [...document.querySelectorAll('*')].find((el) => el.children.length === 0 && el.textContent?.trim() === labels[locale]);
+      expect(label).toBeTruthy();
+      expect(label!.parentElement?.textContent).toContain('+1');
+      expect(document.querySelectorAll('[data-posted]')).toHaveLength(1);
+    }
+  });
+
+  it('keeps active content, application link and FAQ without unverified JobPosting', () => {
+    for (const locale of locales) {
+      const document = htmlDoc(`${hubPath(locale, 'ZH')}active-unverified/`);
+      const entries = structured(document);
+      expect(entries.flatMap(allTypes)).not.toContain('JobPosting');
+      expect(entries.flatMap(allTypes)).toEqual(expect.arrayContaining(['FAQPage', 'BreadcrumbList']));
+      expect(document.querySelector('h1')?.textContent).toContain(jobs[0].titleByLocale[locale]);
+      expect(document.body.textContent).toContain('La posizione prevede');
+      const applicationHref = document.querySelector('a.mab-cta')?.getAttribute('href');
+      expect(applicationHref).toBeTruthy();
+      expect(applicationHref).toBe('#job-auth-gate');
+      expect(document.querySelector(applicationHref!)?.textContent?.trim()).toBeTruthy();
+      const seed = [...document.scripts].find((script) => script.textContent?.includes('window.__JOB_SEED__'));
+      expect(seed?.textContent).toContain('https://example.test/careers/0/');
+    }
+  });
+
   it('keeps every mandatory field on active details in all four locales', () => {
     for (const locale of locales) {
       const document = htmlDoc(`${hubPath(locale, 'ZH')}audit-position-0/`);
@@ -244,18 +282,12 @@ describe('job-board emitted output', () => {
 
   it.each([
     ['archived-audit-position', archiveDates.posted, archiveDates.expired],
-    ['archived-crawl-only', historicalEstimate(archiveDates.crawled), archiveDates.crawled],
-    ['archived-first-seen', archiveDates.posted, archiveDates.expired],
-    ['archived-source-on-expiry', historicalEstimate(archiveDates.expired), archiveDates.expired],
-    ['archived-posted-only', historicalEstimate(archiveDates.posted), archiveDates.posted],
-    ['archived-expiry-only', historicalEstimate(archiveDates.expired), archiveDates.expired],
+    ['archived-first-seen', new Date(archiveDates.posted).toISOString(), archiveDates.expired],
     ['archived-future-expiry', archiveDates.posted, archiveDates.crawled],
-    ['archived-late-posting', archiveDates.crawled, archiveDates.expired],
-    ['archived-sparse', historicalEstimate(archiveDates.crawled), archiveDates.crawled],
     ['archived-short-description', archiveDates.posted, archiveDates.expired],
     ['archived-medium-description', archiveDates.posted, archiveDates.expired],
     ['archived-markup-short', archiveDates.posted, archiveDates.expired],
-  ])('keeps complete expired schema with source dates or a bounded historical estimate for %s', (slug, datePosted, validThrough) => {
+  ])('keeps complete expired schema with reported publication dates for %s', (slug, datePosted, validThrough) => {
     for (const locale of locales) {
       const document = htmlDoc(`${hubPath(locale, 'TI')}${slug}/`);
       const entries = structured(document);
@@ -281,18 +313,17 @@ describe('job-board emitted output', () => {
       expect(posting.directApply).toBe(false);
       expect(Date.parse(posting.validThrough)).toBeLessThan(Date.now());
       expect(Date.parse(posting.datePosted)).toBeLessThan(Date.parse(posting.validThrough));
-      if (['archived-crawl-only', 'archived-expiry-only', 'archived-sparse', 'archived-source-on-expiry', 'archived-posted-only'].includes(slug)) {
-        expect(Date.parse(posting.validThrough) - Date.parse(posting.datePosted)).toBe(30 * 86400000);
-      }
       expect(entries.flatMap(allTypes)).toEqual(expect.arrayContaining(['WebPage', 'BreadcrumbList']));
       expect(document.querySelector('h1')).toBeTruthy();
     }
   });
 
-  it.each(['archived-no-dates', 'archived-invalid-dates', 'archived-future-only', 'archived-no-employer', 'archived-no-title'])(
+  it.each(['archived-unverified', 'archived-crawl-only', 'archived-source-on-expiry', 'archived-posted-only', 'archived-expiry-only', 'archived-late-posting', 'archived-sparse', 'archived-no-dates', 'archived-invalid-dates', 'archived-future-only', 'archived-no-employer', 'archived-no-title'])(
     'keeps only archive metadata when real identity or past dates are unavailable: %s', (slug) => {
       for (const locale of locales) {
-        const entries = structured(htmlDoc(`${hubPath(locale, 'TI')}${slug}/`));
+        const document = htmlDoc(`${hubPath(locale, 'TI')}${slug}/`);
+        const entries = structured(document);
+        expect(document.querySelector('h1')?.textContent?.trim()).toBeTruthy();
         expect(entries.flatMap(allTypes)).not.toContain('JobPosting');
         expect(entries.flatMap(allTypes)).toEqual(expect.arrayContaining(['WebPage', 'BreadcrumbList']));
       }

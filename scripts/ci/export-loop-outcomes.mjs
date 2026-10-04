@@ -837,10 +837,34 @@ export async function exportL7({
   return outcome;
 }
 
+/**
+ * L1 reads GA4 because PostHog product events are hard-stopped
+ * (`POSTHOG_EVENT_SAMPLE_RATE = 0` in `services/posthogQuota.ts`): a HogQL
+ * count of `$pageview` there succeeds and returns zero, which looks like a
+ * real measurement. Every name below is a native GA4 event name, so the report
+ * needs no custom dimension (the property's EVENT-scoped slots are full).
+ *
+ * `errorFreeUsefulSessions` is a declared LOWER BOUND: GA4 cannot intersect
+ * two event filters on the same session without a session-key dimension, so
+ * the export subtracts every session holding an error event from the useful
+ * sessions. A session with an error but no `page_view` lowers the bound; it
+ * can never raise it.
+ */
+export const L1_GA4_EVENT_CONTRACT = Object.freeze({
+  usefulSessionEvent: 'page_view',
+  errorEvents: Object.freeze(['app_error', 'exception', 'error_page_view']),
+  sessionMetric: 'sessions',
+  errorEventMetric: 'eventCount',
+  method: 'errorFreeUsefulSessions = max(0, sessions with page_view - sessions with any error event); '
+    + 'a lower bound, because an error session without page_view is subtracted too',
+  source: 'GA4 Data API',
+});
+
 export function buildL1TelemetryExport(input, {
   usefulSessions,
   errorFreeUsefulSessions,
   observedErrorEvents,
+  errorSessions = null,
   generatedAt,
   telemetryWindow,
 } = {}) {
@@ -852,10 +876,23 @@ export function buildL1TelemetryExport(input, {
     errorFreeUsefulSessions,
     observedErrorEvents,
     telemetryWindow,
+    evidence: {
+      source: 'GA4 Data API exact event-session export',
+      sourceRefs: ['ga4-error-telemetry'],
+      sessionMetric: L1_GA4_EVENT_CONTRACT.sessionMetric,
+      eventFilters: {
+        usefulSessions: L1_GA4_EVENT_CONTRACT.usefulSessionEvent,
+        errorSessions: [...L1_GA4_EVENT_CONTRACT.errorEvents],
+      },
+      errorSessions,
+      method: L1_GA4_EVENT_CONTRACT.method,
+      errorFreeIsLowerBound: true,
+      settledWindow: true,
+    },
     _meta: {
       ...meta,
       generatedAt,
-      source: 'PostHog HogQL, read-only live export',
+      source: 'GA4 Data API, read-only live export',
       purpose: 'Fresh useful-session/error-free-useful-session evidence for Loop L1',
       telemetryWindow,
     },
@@ -879,50 +916,84 @@ export function buildUnavailableL1TelemetryExport({
     independent: false,
     export: {
       schemaVersion: 1,
-      sourceRefs: ['posthog-error-telemetry'],
+      sourceRefs: ['ga4-error-telemetry'],
       readOnly: true,
       unavailable: true,
       mutationsPerformed: false,
     },
     _meta: {
       generatedAt,
-      source: 'PostHog HogQL, read-only live export unavailable',
+      source: 'GA4 Data API, read-only live export unavailable',
       purpose: 'Explicit fail-closed placeholder for Loop L1',
       reason,
     },
   };
 }
 
-export async function exportL1({ inputPath, outputPath, now = new Date(), days = DEFAULT_L1_WINDOW_DAYS, client = null, posthogRunner = runHogQL } = {}) {
-  const firestore = client || new GoogleDataClient();
-  const window = completeUtcWindow(now, days);
-  const config = await resolvePostHogConfig(firestore);
-  const sessionQuery = `
-    SELECT count() AS usefulSessions, countIf(errorEvents = 0) AS errorFreeUsefulSessions
-    FROM (
-      SELECT $session_id,
-        countIf(event IN ('$pageview', 'pageview')) AS pageViews,
-        countIf(event IN ('app_error', 'exception', 'error_page_view')) AS errorEvents
-      FROM events
-      WHERE timestamp >= '${window.start}' AND timestamp < '${window.end}'
-      GROUP BY $session_id
-      HAVING pageViews > 0
-    )`;
-  const errorQuery = `
-    SELECT count() AS observedErrorEvents
-    FROM events
-    WHERE timestamp >= '${window.start}' AND timestamp < '${window.end}'
-      AND event IN ('app_error', 'exception', 'error_page_view')`;
-  const [sessionResponse, errorResponse] = await Promise.all([
-    posthogRunner(sessionQuery, config),
-    posthogRunner(errorQuery, config),
+function l1ErrorSessionsBody({ startDate, endDate, errorEvents = L1_GA4_EVENT_CONTRACT.errorEvents }) {
+  return {
+    dateRanges: [{ startDate, endDate }],
+    metrics: [{ name: L1_GA4_EVENT_CONTRACT.sessionMetric }, { name: L1_GA4_EVENT_CONTRACT.errorEventMetric }],
+    dimensionFilter: {
+      filter: {
+        fieldName: 'eventName',
+        inListFilter: { values: [...errorEvents], caseSensitive: true },
+      },
+    },
+    limit: 1,
+  };
+}
+
+/**
+ * Read the two L1 totals from one settled GA4 window: sessions holding a
+ * `page_view`, and sessions/events holding any error event. Both reports go
+ * through the exact-total reader, so a thresholded, sampled or multi-row
+ * report fails the export instead of becoming a measured rate.
+ */
+export async function fetchL1SessionCounts({ client, startDate, endDate, propertyId } = {}) {
+  if (!text(startDate) || !text(endDate)) {
+    throw new Error('L1 GA4 report requires startDate and endDate');
+  }
+  const report = (body) => client.request(
+    `https://analyticsdata.googleapis.com/v1beta/${normalizeGa4PropertyId(propertyId)}:runReport`,
+    {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(body),
+    },
+  );
+  const [usefulReport, errorReport] = await Promise.all([
+    report(ga4EventSessionsBody({ eventName: L1_GA4_EVENT_CONTRACT.usefulSessionEvent, startDate, endDate })),
+    report(l1ErrorSessionsBody({ startDate, endDate })),
   ]);
+  const [usefulValue] = exactGa4TotalMetricValues(usefulReport, 'GA4 L1 report for page_view', 1);
+  const [errorSessionsValue, errorEventsValue] = exactGa4TotalMetricValues(errorReport, 'GA4 L1 report for error events', 2);
+  const usefulSessions = nonNegativeCount(usefulValue, 'sessions for page_view');
+  const errorSessions = nonNegativeCount(errorSessionsValue, 'sessions for error events');
+  const observedErrorEvents = nonNegativeCount(errorEventsValue, 'eventCount for error events');
+  return {
+    usefulSessions,
+    errorSessions,
+    observedErrorEvents,
+    errorFreeUsefulSessions: Math.max(0, usefulSessions - errorSessions),
+  };
+}
+
+/**
+ * Export L1's useful-session outcome from GA4 without writing GA4, Firestore
+ * or published data. Same settled two-day window as L3 and L5.
+ */
+export async function exportL1({ inputPath, outputPath, now = new Date(), days = DEFAULT_L1_WINDOW_DAYS, propertyId = null, client = null } = {}) {
+  const analytics = client || new GoogleDataClient({ oauthScope: GA4_READONLY_SCOPE });
+  const range = ga4DateRange(days, 2, now);
+  const counts = await fetchL1SessionCounts({ client: analytics, ...range, propertyId });
   const telemetry = buildL1TelemetryExport(JSON.parse(fs.readFileSync(path.resolve(inputPath), 'utf8')), {
-    usefulSessions: nonNegativeInteger(postHogRow(sessionResponse, 'usefulSessions'), 'usefulSessions'),
-    errorFreeUsefulSessions: nonNegativeInteger(postHogRow(sessionResponse, 'errorFreeUsefulSessions'), 'errorFreeUsefulSessions'),
-    observedErrorEvents: nonNegativeInteger(postHogRow(errorResponse, 'observedErrorEvents'), 'observedErrorEvents'),
+    usefulSessions: counts.usefulSessions,
+    errorFreeUsefulSessions: counts.errorFreeUsefulSessions,
+    observedErrorEvents: counts.observedErrorEvents,
+    errorSessions: counts.errorSessions,
     generatedAt: now.toISOString(),
-    telemetryWindow: window,
+    telemetryWindow: { ...range, lagDays: 2, source: 'GA4 settled calendar dates' },
   });
   fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
   fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(telemetry, null, 2)}\n`);
@@ -1016,21 +1087,35 @@ export async function fetchL5EventSessions({ client, eventName, startDate, endDa
       body: JSON.stringify(ga4EventSessionsBody({ eventName, startDate, endDate })),
     },
   );
+  const [value] = exactGa4TotalMetricValues(report, `GA4 L5 report for ${eventName}`, 1);
+  return nonNegativeCount(value, `sessions for ${eventName}`);
+}
+
+/**
+ * Return the metric values of a dimensionless GA4 total, refusing any report
+ * that is thresholded, sampled, folded into "(other)" or split into rows:
+ * loop monitors publish these numbers as independent measurements.
+ */
+function exactGa4TotalMetricValues(report, label, metricCount) {
   const metadata = report?.metadata || {};
   if (
     metadata.subjectToThresholding
     || metadata.dataLossFromOtherRow
     || (Array.isArray(metadata.samplingMetadatas) && metadata.samplingMetadatas.length > 0)
   ) {
-    throw new Error(`GA4 L5 report for ${eventName} is incomplete or thresholded`);
+    throw new Error(`${label} is incomplete or thresholded`);
   }
   const rows = Array.isArray(report?.rows) ? report.rows : [];
   if (rows.length > 1) {
-    throw new Error(`GA4 L5 report for ${eventName} returned ${rows.length} rows for a dimensionless total`);
+    throw new Error(`${label} returned ${rows.length} rows for a dimensionless total`);
   }
   // GA4 omits the row entirely when the event never occurred in the window.
-  const value = rows[0]?.metricValues?.[0]?.value ?? 0;
-  return nonNegativeCount(value, `sessions for ${eventName}`);
+  if (rows.length === 0) return Array.from({ length: metricCount }, () => 0);
+  const metricValues = Array.isArray(rows[0]?.metricValues) ? rows[0].metricValues : [];
+  if (metricValues.length !== metricCount) {
+    throw new Error(`${label} returned ${metricValues.length} metric values, expected ${metricCount}`);
+  }
+  return metricValues.map((metric) => metric?.value ?? 0);
 }
 
 export function buildL3OutcomeExport({
@@ -1143,20 +1228,82 @@ export async function fetchL5DecisionMomentCounts({
   return { eligibleDecisionSessions, nextUsefulActions };
 }
 
+// Event types that prove a message reached the inbox, grouped by what they
+// prove. An open or a click cannot happen on an undelivered message.
+const L4_EVIDENCE_CLASS = Object.freeze({
+  delivered: 'delivered',
+  open: 'open',
+  opened: 'open',
+  click: 'click',
+  clicked: 'click',
+});
+// Recipient-window join bounds (#8409): the webhook may store a provider id
+// that differs from the reference saved at send time, so an event of the same
+// recipient and provider is accepted shortly after the send.
+const L4_RECIPIENT_WINDOW_BEFORE_MS = 60_000;
+const L4_RECIPIENT_WINDOW_AFTER_MS = 72 * 3_600_000;
+
+function normalizedProvider(value) {
+  return String(value || '').trim().toLowerCase();
+}
+
 function eventSet(rows) {
-  const result = new Map();
+  const byMessage = new Map();
+  const byRecipient = new Map();
   for (const row of rows) {
     const data = documentData(row);
     const child = childRow(row, 'job_alert_subscribers', 'events');
     if (!child) continue;
+    const email = child.parentId.toLowerCase();
     const messageId = String(first(data, ['message_id', 'messageId']) || '').trim();
     const type = String(first(data, ['event_type', 'eventType']) || '').trim().toLowerCase();
-    if (!messageId || !type) continue;
-    const key = `${child.parentId}\u0000${messageId}`;
-    if (!result.has(key)) result.set(key, new Set());
-    result.get(key).add(type);
+    if (!type) continue;
+    if (messageId) {
+      const key = `${email}\u0000${messageId}`;
+      if (!byMessage.has(key)) byMessage.set(key, new Set());
+      byMessage.get(key).add(type);
+    }
+    const evidenceClass = L4_EVIDENCE_CLASS[type];
+    // Fall through to the next field when one is present but unparseable,
+    // so an empty occurred_at still uses the server timestamp.
+    const occurredAtMs = toMillis(data.occurred_at) ?? toMillis(data.occurredAt) ?? toMillis(data.timestamp);
+    if (!evidenceClass || occurredAtMs == null) continue;
+    if (!byRecipient.has(email)) byRecipient.set(email, []);
+    byRecipient.get(email).push({
+      messageKey: messageId ? `${email}\u0000${messageId}` : null,
+      evidenceClass,
+      provider: normalizedProvider(data.provider),
+      occurredAtMs,
+      consumed: false,
+    });
   }
-  return result;
+  for (const list of byRecipient.values()) list.sort((a, b) => a.occurredAtMs - b.occurredAtMs);
+  return { byMessage, byRecipient };
+}
+
+/**
+ * Claim, for one delivery, the earliest unconsumed event of each evidence
+ * class sent to the same recipient by the same provider inside the window.
+ * Events already joined by message id to some delivery are never reused, and
+ * a claimed event cannot support a second delivery.
+ */
+function claimRecipientWindowEvidence({ events, email, provider, sentAt, idJoinedKeys }) {
+  const claimed = new Set();
+  const list = events.byRecipient.get(email) || [];
+  for (const event of list) {
+    if (event.occurredAtMs > sentAt + L4_RECIPIENT_WINDOW_AFTER_MS) break;
+    if (event.consumed || claimed.has(event.evidenceClass)) continue;
+    if (event.occurredAtMs < sentAt - L4_RECIPIENT_WINDOW_BEFORE_MS) continue;
+    if (event.messageKey && idJoinedKeys.has(event.messageKey)) continue;
+    if (provider && event.provider && provider !== event.provider) continue;
+    event.consumed = true;
+    claimed.add(event.evidenceClass);
+  }
+  return claimed;
+}
+
+function incrementCount(counts, key) {
+  counts[key] = (counts[key] || 0) + 1;
 }
 
 function hasNonEmptyLinks(value) {
@@ -1253,43 +1400,96 @@ export function buildL4OutcomeLedger({
     noConsentedAlert: 0,
   };
   let quietHoursEvidenceComplete = true;
+  let deliveryRowCount = 0;
+  const deliveryRowsByProvider = {};
+  const deliveredByProvider = {};
+  const unattributedDeliveryShapes = {};
+  const deliveryEvidenceByJoin = {
+    deliveredAt: 0,
+    messageId: 0,
+    recipientWindow: 0,
+    impliedByEngagement: 0,
+    none: 0,
+  };
+  const attributed = [];
+  // Message keys of every delivery row, operator-verification and unattributed
+  // rows included: their id-joined events must not be claimed by the
+  // recipient-window join of an attributed delivery.
+  const deliveryMessageKeys = new Set();
 
   for (const row of deliveryRows) {
     const child = childRow(row, 'job_alert_subscribers', 'campaign_deliveries');
     if (!child) continue;
     const data = documentData(row);
+    const rowMessageId = String(first(data, ['message_id', 'messageId']) || '').trim();
+    const messageKey = rowMessageId ? `${child.parentId.toLowerCase()}\u0000${rowMessageId}` : null;
+    if (messageKey) deliveryMessageKeys.add(messageKey);
     const scheduleFieldPresent = Object.prototype.hasOwnProperty.call(data, 'scheduled_for')
       || Object.prototype.hasOwnProperty.call(data, 'scheduledFor');
     const scheduleSourcePresent = Object.prototype.hasOwnProperty.call(data, 'send_time_source')
       || Object.prototype.hasOwnProperty.call(data, 'sendTimeSource');
     if (!scheduleFieldPresent || !scheduleSourcePresent) quietHoursEvidenceComplete = false;
     if (data.is_operator_verification === true || data.isOperatorVerification === true) continue;
+    const provider = normalizedProvider(data.provider);
+    deliveryRowCount += 1;
+    incrementCount(deliveryRowsByProvider, provider || 'unknown');
     const email = child.parentId.toLowerCase();
     const alertId = String(first(data, ['campaign_id', 'campaignId']) || '').trim();
     const sentAt = toMillis(first(data, ['sent_at', 'sentAt']));
     const key = buildAlertKey(email, alertId);
     if (!alertId || sentAt == null || !consentedAlerts.has(key)) {
       unattributedDeliveries += 1;
+      // Shape only (id length), never the id itself: enough to tell an alert
+      // id from an id of another nature without exporting identifiers.
+      incrementCount(unattributedDeliveryShapes, String(alertId.length));
       if (!alertId) unattributedDeliveryReasons.missingAlertId += 1;
       else if (sentAt == null) unattributedDeliveryReasons.missingSentAt += 1;
       else unattributedDeliveryReasons.noConsentedAlert += 1;
       continue;
     }
     const deliveryId = row.name || `${email}/${child.childId}`;
-    const messageId = String(first(data, ['message_id', 'messageId']) || '').trim();
-    const eventTypes = messageId ? (events.get(`${email}\u0000${messageId}`) || new Set()) : new Set();
-    const deliveredEvidence = toMillis(first(data, ['delivered_at', 'deliveredAt'])) != null || eventTypes.has('delivered');
-    const clickedEvidence = toMillis(first(data, ['clicked_at', 'clickedAt'])) != null
-      || hasNonEmptyLinks(first(data, ['clicked_links', 'clickedLinks']))
-      || eventTypes.has('click') || eventTypes.has('clicked');
-    const openedEvidence = toMillis(first(data, ['opened_at', 'openedAt'])) != null
-      || eventTypes.has('open') || eventTypes.has('opened') || clickedEvidence;
-    if (deliveredEvidence) delivered.add(deliveryId);
-    if (deliveredEvidence && openedEvidence) opened.add(deliveryId);
-    if (deliveredEvidence && clickedEvidence) clicked.add(deliveryId);
+    attributed.push({ deliveryId, data, email, alertId, sentAt, provider, messageKey });
 
     const group = `${email}\u0000${alertId}\u0000${sendDay(sentAt)}`;
     dedupGroups.set(group, (dedupGroups.get(group) || 0) + 1);
+  }
+
+  // Events joined by message id belong to their delivery row (attributed or
+  // not) and are never offered to the recipient-window join of another one.
+  const idJoinedKeys = new Set([...deliveryMessageKeys]
+    .filter((messageKey) => events.byMessage.has(messageKey)));
+  // Oldest send first, so each window event is claimed by the earliest
+  // delivery it can belong to.
+  attributed.sort((a, b) => a.sentAt - b.sentAt || (a.deliveryId < b.deliveryId ? -1 : a.deliveryId > b.deliveryId ? 1 : 0));
+
+  for (const { deliveryId, data, email, sentAt, provider, messageKey } of attributed) {
+    const eventTypes = messageKey ? (events.byMessage.get(messageKey) || new Set()) : new Set();
+    const windowClasses = eventTypes.size === 0
+      ? claimRecipientWindowEvidence({ events, email, provider, sentAt, idJoinedKeys })
+      : new Set();
+    const deliveredAtEvidence = toMillis(first(data, ['delivered_at', 'deliveredAt'])) != null;
+    const clickedEvidence = toMillis(first(data, ['clicked_at', 'clickedAt'])) != null
+      || hasNonEmptyLinks(first(data, ['clicked_links', 'clickedLinks']))
+      || eventTypes.has('click') || eventTypes.has('clicked')
+      || windowClasses.has('click');
+    const openedEvidence = toMillis(first(data, ['opened_at', 'openedAt'])) != null
+      || eventTypes.has('open') || eventTypes.has('opened') || windowClasses.has('open')
+      || clickedEvidence;
+    // An open or a click implies the message was delivered.
+    const deliveredEvidence = deliveredAtEvidence || eventTypes.has('delivered')
+      || windowClasses.size > 0 || openedEvidence;
+    let join = 'none';
+    if (deliveredAtEvidence) join = 'deliveredAt';
+    else if (eventTypes.has('delivered')) join = 'messageId';
+    else if (windowClasses.size > 0) join = 'recipientWindow';
+    else if (openedEvidence) join = 'impliedByEngagement';
+    deliveryEvidenceByJoin[join] += 1;
+    if (deliveredEvidence && !delivered.has(deliveryId)) {
+      delivered.add(deliveryId);
+      incrementCount(deliveredByProvider, provider || 'unknown');
+    }
+    if (deliveredEvidence && openedEvidence) opened.add(deliveryId);
+    if (deliveredEvidence && clickedEvidence) clicked.add(deliveryId);
 
     const visit = readVisit(jobs.get(email));
     const classified = classifyVisit(visit);
@@ -1334,6 +1534,12 @@ export function buildL4OutcomeLedger({
       externalDeliveryUntouched: true,
       unattributedDeliveries,
       unattributedDeliveryReasons,
+      unattributedDeliveryShapes,
+      deliveryRows: deliveryRowCount,
+      deliveryRowsByProvider,
+      deliveredByProvider,
+      deliveryEvidenceByJoin,
+      deliveryEvidenceJoin: deliveryRowCount === 0 ? 'no-deliveries' : (delivered.size === 0 ? 'empty' : 'joined'),
       consentClassifier: 'functions/src/jobAlertBackfillCore.js',
       returnClassifier: 'functions/src/lib/returnVisit.js',
       deduplicationKey: 'recipient + alert id + UTC send day',
@@ -1361,13 +1567,13 @@ export async function exportL4({ configPath = null, snoozesPath = null, outputPa
       collectionId: 'campaign_deliveries',
       allDescendants: true,
       where: firestoreTimestampFilter('sent_at', window.start),
-      fieldPaths: ['campaign_id', 'campaignId', 'message_id', 'messageId', 'is_operator_verification', 'isOperatorVerification', 'sent_at', 'sentAt', 'scheduled_for', 'scheduledFor', 'send_time_source', 'sendTimeSource', 'delivered_at', 'deliveredAt', 'opened_at', 'openedAt', 'clicked_at', 'clickedAt', 'clicked_links', 'clickedLinks'],
+      fieldPaths: ['campaign_id', 'campaignId', 'message_id', 'messageId', 'is_operator_verification', 'isOperatorVerification', 'sent_at', 'sentAt', 'scheduled_for', 'scheduledFor', 'send_time_source', 'sendTimeSource', 'delivered_at', 'deliveredAt', 'opened_at', 'openedAt', 'clicked_at', 'clickedAt', 'clicked_links', 'clickedLinks', 'provider'],
     }),
     firestore.runQuery({
       collectionId: 'events',
       allDescendants: true,
       where: firestoreTimestampFilter('timestamp', window.start),
-      fieldPaths: ['event_type', 'eventType', 'message_id', 'messageId', 'timestamp', 'occurred_at', 'occurredAt'],
+      fieldPaths: ['event_type', 'eventType', 'message_id', 'messageId', 'timestamp', 'occurred_at', 'occurredAt', 'provider'],
     }),
   ]);
   const consent = predicates || await Promise.all([
@@ -1396,6 +1602,14 @@ export async function exportL4({ configPath = null, snoozesPath = null, outputPa
     predicates: consent,
   });
   outcome.export.configSource = configPath || 'data/alert-config.json';
+  if (outcome.export.deliveryEvidenceJoin === 'empty') {
+    // Aggregates only: the reason must be readable in the run log.
+    console.warn(`L4: join consegna-evento vuoto, deliveredAlerts a zero con invii ${JSON.stringify({
+      deliveryRows: outcome.export.deliveryRows,
+      deliveryRowsByProvider: outcome.export.deliveryRowsByProvider,
+      deliveryEvidenceByJoin: outcome.export.deliveryEvidenceByJoin,
+    })}`);
+  }
   fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
   fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(outcome, null, 2)}\n`);
   return outcome;
@@ -1590,7 +1804,15 @@ export async function main({ argv = process.argv.slice(2) } = {}) {
       fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(outcome, null, 2)}\n`);
       return outcome;
     }
-    return exportL1({ inputPath, outputPath, now });
+    const days = Number(valueAfter(argv, '--days', DEFAULT_L1_WINDOW_DAYS));
+    if (!Number.isInteger(days) || days < 1) throw new Error('--days must be a positive integer');
+    return exportL1({
+      inputPath,
+      outputPath,
+      now,
+      days,
+      propertyId: valueAfter(argv, '--property', null),
+    });
   }
   if (loop === 'L3') {
     const days = Number(valueAfter(argv, '--days', DEFAULT_L3_WINDOW_DAYS));

@@ -1,3 +1,5 @@
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import { hasPostingDateProvenance, resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { G_PERMIT_FACTS, CROSS_BORDER_TAX_FACTS, G_PERMIT_SOURCE, CROSS_BORDER_TAX_SOURCE, type EmploymentFactsLocale } from '../services/crossBorderEmploymentFacts';
 import { renderJobDescriptionGate } from './shared/jobDescriptionGate';
 import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendations';
@@ -250,7 +252,7 @@ import {
 } from '../services/seo/meta-descriptions';
 import { COMPANY_HQ_ADDRESSES, CANTON_CAPITAL_ADDRESSES, localityMatchesHq } from './shared/companyHqAddresses';
 import { normalizePostalCityKey } from './shared/postalCodes';
-import { buildJobPostingSchema, sanitizeLocalityForRegion, type JobInput } from './shared/jobPostingSchema';
+import { buildJobPostingFacts, buildJobPostingSchema, sanitizeLocalityForRegion, type JobInput } from './shared/jobPostingSchema';
 import { normalizeCantonCode, inferAnyCanton } from '../scripts/lib/target-swiss-locations.mjs';
 import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location-display.mjs';
 import { buildJobListEntry } from './shared/jobListEntry';
@@ -690,7 +692,7 @@ export function pickJobDisambiguator(
  }
 
  // (4) posted month — "apr 2027". Always available, very compact.
- const dateStr = String(job.postedDate ?? '');
+ const dateStr = resolveRolloutPostingDate(job, () => String(job.postedDate ?? '')) || '';
  const dateMatch = dateStr.match(/^(\d{4})-(\d{2})/);
  if (dateMatch) {
   const year = dateMatch[1];
@@ -881,7 +883,7 @@ const ACTIVE_JOB_REUSE_MARKERS = Object.freeze({
 });
 
 type ActiveJobReuseFragments = {
- jobPostingDatePosted: string;
+ jobPostingDatePosted: string | null;
  jobPostingValidThrough: string;
  heroBadges: string;
  mobileAction: string;
@@ -906,9 +908,10 @@ function replaceActiveJobReuseFragment(
 
 export function replaceActiveJobPostingDates(
  fragment: string,
- datePosted: string,
+ datePosted: string | null,
  validThrough: string,
 ): string {
+ if (!datePosted) return '';
  const scriptMatch = fragment.match(
   /<script\b[^>]*type=(['"])application\/ld\+json\1[^>]*>[\s\S]*?<\/script>/i,
  );
@@ -3305,9 +3308,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
     perJob_salaryCurrency,
    );
    return {
-   jobPostingDatePosted: safeIsoDate(job?.postedDate)
-    || safeIsoDate(job?.crawledAt)
-    || toIsoDateTime('', jobsSeoReuseBuildNow),
+   jobPostingDatePosted: resolveRolloutPostingDate(job, () => safeIsoDate(job?.postedDate) || safeIsoDate(job?.crawledAt) || toIsoDateTime('', jobsSeoReuseBuildNow), jobsSeoReuseBuildNow),
    jobPostingValidThrough: toValidThrough(
     String(job?.postedDate || ''),
     job?.crawledAt,
@@ -3692,6 +3693,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  addressCountry,
  postalCode,
  streetAddress,
+ postingDateSource: job.postingDateSource,
+ datePosted: job.datePosted,
  postedDate: job.postedDate,
  crawledAt: job.crawledAt,
  updatedAt: job.updatedAt,
@@ -3734,11 +3737,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  isTicino: faqResolvedCanton === 'TI',
  isRemote,
  };
- const jobFaqPairs = buildJobPostingFaqPairs(canonicalSchema, faqOpts);
+ const jobFaqPairs = buildJobPostingFaqPairs(buildJobPostingFacts(canonicalJobInput, locale), faqOpts);
  // Merge editorial-only fields that sit outside the 9-mandatory core.
  // The canonical block is authoritative for every required field — only
  // optional enrichment data is layered on.
- const jobLd = inlineScriptJson({
+ const jobLd = canonicalSchema ? inlineScriptJson({
  ...canonicalSchema,
  // validThrough from the legacy helper (may differ from builder default).
  validThrough: toValidThrough(job.postedDate, job.crawledAt, jobsSeoReuseBuildNow),
@@ -3749,7 +3752,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ...(canonicalResponsibilities.length > 0 ? { responsibilities: canonicalResponsibilities.join('\n') } : {}),
  ...(canonicalKeywords.length > 0 ? { skills: canonicalKeywords.join(', ') } : {}),
  ...(canonicalRequirements.length > 0 ? { qualifications: canonicalRequirements.join('\n') } : {}),
- });
+ }) : null;
  const breadcrumbLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
@@ -3826,7 +3829,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta property="og:image:alt" content="${esc(ogTitle)}">
  <link rel="canonical" href="${effectiveCanonicalUrl}">
 ${hreflangHtml}
- <!-- jobs-seo-reuse:job-posting:start --><script type="application/ld+json">${jobLd}</script><!-- jobs-seo-reuse:job-posting:end -->
+ <!-- jobs-seo-reuse:job-posting:start -->${jobLd ? `<script type="application/ld+json">${jobLd}</script>` : ''}<!-- jobs-seo-reuse:job-posting:end -->
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${jobFaqLd}</script>
  <script type="application/ld+json">${inlineScriptJson({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,inLanguage:locale,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g,'/'))}`,name:cantonSectionName(locale,dc)}})}</script>
@@ -5329,6 +5332,7 @@ ${companyFollowHtml}
      company: string;
      location: string;
      href: string;
+     postingDateSource?: string;
      datePosted?: string;
      titleByLocale?: Partial<Record<'it' | 'en' | 'de' | 'fr', string>>;
      companyKey?: string;
@@ -5361,6 +5365,7 @@ ${companyFollowHtml}
          featured: item.featured,
          logo: item.logo,
          addressLocality: item.addressLocality,
+         postingDateSource: item.postingDateSource,
          datePosted: item.datePosted,
          companyDomain: item.companyDomain,
          url: item.url,
@@ -8587,7 +8592,9 @@ ${staticAnalyticsHtml}
  const sFreshCount = sJobs.filter((j: any) => {
  // First PARSEABLE date, not first truthy: a malformed postedDate must not
  // shadow a valid crawledAt and undercount the fresh tile (see firstParsableMs).
- const t = firstParsableMs(j.datePosted, j.postedDate, j.crawledAt);
+ const t = hasPostingDateProvenance(j)
+ ? firstParsableMs(resolveReportedPostingDate(j))
+ : firstParsableMs(j.datePosted, j.postedDate, j.crawledAt);
  return t >= sectorFreshCutoff && t <= sectorFreshMax;
  }).length;
  const intro = (() => {
@@ -13241,7 +13248,7 @@ ${staticAnalyticsHtml}
  const jobCanton = sharedResolveJobCanton({ canton: ejData?.canton, location: jobLocation });
  const jobSector = String(ejData?.sector || '');
  const jobContract = String(ejData?.contract || '');
- const jobDatePosted = String(ejData?.datePosted || '');
+ const jobDatePosted = resolveRolloutPostingDate(ejData || {}, () => String(ejData?.datePosted || '')) || '';
  const jobExpiredAt = String(ejData?.expiredAt || '');
  const sameCompanyActiveJobs = jobCompany
  ? (companyActiveJobsMap.get(`${jobCanton}:${jobCompany.toLowerCase()}`) || [])
@@ -13745,6 +13752,7 @@ ${staticAnalyticsHtml}
  .find((date): date is string => date !== null && Date.parse(date) < archiveNowMs);
  if (!realTitle || !realValidThrough || !realCompany) return '';
  const validThroughMs = Date.parse(realValidThrough);
+ const expiredDatePosted = resolveRolloutPostingDate(ejData || {}, () => {
  // Preserve source publication dates that form a positive historical window.
  const sourceDatePosted = [ejData?.datePosted, ejData?.postedDate]
  .map(safeIsoDate)
@@ -13754,8 +13762,10 @@ ${staticAnalyticsHtml}
  .find((date): date is string => date !== null && Date.parse(date) < validThroughMs);
  // With no usable publication/earlier observation, retain the bounded historical
  // estimate: 30 days before the real past deadline, never relative to the build.
- const expiredDatePosted = sourceDatePosted || observedDatePosted
+ return sourceDatePosted || observedDatePosted
  || new Date(validThroughMs - 30 * 86400000).toISOString();
+ });
+ if (!expiredDatePosted || Date.parse(expiredDatePosted) >= validThroughMs) return '';
  // Match the builder's 50-character guarantee after visible-text normalization,
  // so short historical copy never falls back to an active application prompt.
  const archivedDescription = capJsonLdDescription(jobDescription);
@@ -13789,6 +13799,7 @@ ${staticAnalyticsHtml}
  addressRegion: jobCanton || undefined,
  postalCode: ejData?.postalCode || slugInfo?.postalCode,
  streetAddress: ejData?.streetAddress,
+ postingDateSource: ejData?.postingDateSource,
  datePosted: expiredDatePosted,
  validThrough: realValidThrough,
  contract: ejData?.contract,
@@ -13805,7 +13816,7 @@ ${staticAnalyticsHtml}
  baseUrl: BASE_URL,
  });
 
- return `<script type="application/ld+json">${inlineScriptJson(expiredSchema)}</script>`;
+ return expiredSchema ? `<script type="application/ld+json">${inlineScriptJson(expiredSchema)}</script>` : '';
  })();
 
  const jsonLdScripts = breadcrumbLd + '\n ' + archivePageLd + (jobPostingLd ? '\n ' + jobPostingLd : '');

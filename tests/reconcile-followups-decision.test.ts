@@ -13,6 +13,7 @@ import { describe, it, expect } from 'vitest';
 import {
   bucketVerifyRequestBody,
   dailyBucketCloseGate,
+  dailyBucketStructureReason,
   dailyBucketSummaryLine,
   dailyBucketGateInputs,
   decideBucketVerifyRequest,
@@ -22,10 +23,12 @@ import {
   isStrongAutoCloseEvidence,
   parseIssueCommentsResponse,
   reconcileDailyItems,
+  recheckThenReconcileDailyItems,
   shouldEnsureVerifyLabel,
 } from '../scripts/ci/reconcile-followups.mjs';
 import { itemBlockedMarker, itemBornSatisfiedMarker, itemEvidenceMarker, parseItemMarkers } from '../scripts/ci/lib/followup-item-evidence.mjs';
 import { isTrustedAuthor } from '../scripts/ci/route-already-fixed.mjs';
+import { applyBlockedRecheck, planBlockedRecheck, unblockedCommentBody } from '../scripts/ci/lib/followup-blocked-recheck.mjs';
 
 describe('alreadyCommented — esito vuoto riuscito distinto dall’errore (#8034)', () => {
   it('tratta stdout vuoto/whitespace come lista commenti vuota, ma null come errore', () => {
@@ -359,6 +362,111 @@ describe('richiesta di verifica per un bucket senza item aperti (FU_BUCKET_VERIF
   it('commenti illeggibili o titolo non giornaliero → nessun input (bucket lasciato invariato)', () => {
     expect(dailyBucketGateInputs(`follow-up(daily:${DAY}): 1 item — owner/repo`, null)).toBeNull();
     expect(dailyBucketGateInputs('follow-up: aggregato', [])).toBeNull();
+  });
+
+  it('il veto strutturale condiviso coincide con il motivo di reconcileDailyItems', () => {
+    const body = bucket(bucketItem(A, 'blocked'), bucketItem(B, 'done'));
+    const repo = 'valerielinc-ops/frontaliere-si-o-no';
+    expect(dailyBucketStructureReason(body, DAY, repo, 2)).toBeNull();
+    for (const [input, args] of [
+      [body.replace('- State: sealed', '- State: collecting'), [DAY, repo, 2]],
+      [body, ['2026-09-29', repo, 2]],
+      [body, [DAY, 'owner/other', 2]],
+      [body, [DAY, repo, 3]],
+    ] as const) {
+      const reason = dailyBucketStructureReason(input, ...args);
+      expect(reason).not.toBeNull();
+      expect(reconcileDailyItems(input, io, ...args).reason).toBe(reason);
+    }
+  });
+
+  it('la rimisura dei blocked: un item ancora blocked tiene il bucket NON chiudibile (gate invariato)', () => {
+    const body = bucket(bucketItem(A, 'blocked'), bucketItem(B, 'done'));
+    const plan = planBlockedRecheck({
+      body,
+      dailyKey: DAY,
+      markers: [],
+      // Token assente oggi, nessun commit dopo il blocco: A resta blocked.
+      io: { fileExists: io.fileExists, readFile: () => 'const nothing = 1;' },
+      readers: { commitAfter: () => ({ status: 'ok', commit: null }), fileAt: () => ({ status: 'error' }) },
+      now: Date.parse('2026-10-04T00:00:00Z'),
+      reentryBudget: { remaining: 3 },
+    });
+    expect(plan.results).toEqual([expect.objectContaining({ id: A, outcome: 'waiting', why: 'no-new-commit' })]);
+    const gate = dailyBucketCloseGate(applyBlockedRecheck(body, {}).body, io, DAY, 'valerielinc-ops/frontaliere-si-o-no', 2);
+    expect(gate).toMatchObject({ blocks: true, reason: 'valid-item-unconfirmed' });
+    expect(gate.unresolvedItems.map((entry: { id: string }) => entry.id)).toEqual([A]);
+  });
+
+  it('un item awaiting-verification esce per token (non nato vero), mai per rientro', () => {
+    const body = bucket(bucketItem(A, 'blocked'));
+    const markers = parseItemMarkers([{ ...bot, body: itemBlockedMarker({ item: A, reason: 'awaiting-verification' }) }], { isTrusted: isTrustedAuthor });
+    const plan = planBlockedRecheck({
+      body,
+      dailyKey: DAY,
+      markers,
+      io,
+      readers: { commitAfter: () => ({ status: 'error' }), fileAt: () => ({ status: 'ok', content: 'const legacy = 1;' }) },
+      now: Date.parse('2026-10-04T00:00:00Z'),
+      reentryBudget: { remaining: 3 },
+    });
+    expect(plan.results).toEqual([expect.objectContaining({ id: A, outcome: 'done' })]);
+  });
+
+  it('due giri consecutivi: al più UN marker FU_ITEM_UNBLOCKED per item', () => {
+    const body = bucket(bucketItem(A, 'blocked'));
+    const readers = {
+      commitAfter: () => ({ status: 'ok', commit: { sha: 'abcdef1234567890', date: '2026-10-02T00:00:00Z' } }),
+      fileAt: () => ({ status: 'ok', content: '' }),
+    };
+    const ioNoToken = { fileExists: io.fileExists, readFile: () => 'const nothing = 1;' };
+    const comments: Array<{ body: string }> = [];
+    let current = body;
+    for (let round = 0; round < 2; round++) {
+      const plan = planBlockedRecheck({
+        body: current, dailyKey: DAY, markers: parseItemMarkers(comments, { isTrusted: isTrustedAuthor }),
+        io: ioNoToken, readers, now: Date.parse('2026-10-04T00:00:00Z'), reentryBudget: { remaining: 3 },
+      });
+      for (const entry of plan.results.filter((candidate: { outcome: string }) => candidate.outcome === 'reenter')) {
+        comments.push({ ...bot, body: unblockedCommentBody(entry) });
+        current = applyBlockedRecheck(current, { reentered: [entry.id] }).body;
+      }
+      // Il fixer rimisura e lo riblocca (FU-09): stato di nuovo blocked.
+      current = current.replace('- State: open', '- State: blocked');
+    }
+    const count = comments.filter((comment) => comment.body.includes(`FU_ITEM_UNBLOCKED: item=${A}`)).length;
+    expect(count).toBeLessThanOrEqual(1);
+    expect(count).toBeGreaterThan(0);
+  });
+
+  it('la sequenza per bucket rimisura i blocked PRIMA di reconcileDailyItems e riconcilia il corpo rimisurato', () => {
+    const body = bucket(bucketItem(A, 'blocked'), bucketItem(B, 'done'));
+    const repo = 'valerielinc-ops/frontaliere-si-o-no';
+    const calls: string[] = [];
+    const step = recheckThenReconcileDailyItems(body, io, [DAY, repo, 2, new Set()], (current: string) => {
+      calls.push(current);
+      // Il rientro riporta A a `open`: solo cosi' la riconciliazione lo vede.
+      return { body: applyBlockedRecheck(current, { reentered: [A] }).body, skipIssue: false };
+    });
+    expect(calls).toEqual([body]);
+    // Sul corpo originale A e' blocked e reconcileDailyItems non lo tocca.
+    expect(reconcileDailyItems(body, io, DAY, repo, 2).changes).toEqual([]);
+    expect(step.reconciliation?.changes.map((change: { id: string }) => change.id)).toEqual([A]);
+  });
+
+  it('la sequenza per bucket non rimisura un bucket strutturalmente invalido e si ferma su skipIssue', () => {
+    const repo = 'valerielinc-ops/frontaliere-si-o-no';
+    const collecting = bucket(bucketItem(A, 'blocked')).replace('- State: sealed', '- State: collecting');
+    let called = 0;
+    const invalid = recheckThenReconcileDailyItems(collecting, io, [DAY, repo, 1, new Set()], () => { called += 1; return { body: collecting, skipIssue: false }; });
+    expect(called).toBe(0);
+    expect(invalid.recheck).toBeNull();
+    expect(invalid.reconciliation?.reason).toBe('bucket-collecting');
+    const wrongCount = recheckThenReconcileDailyItems(bucket(bucketItem(A, 'blocked')), io, [DAY, repo, 3, new Set()], () => { called += 1; return { body: '', skipIssue: false }; });
+    expect(called).toBe(0);
+    expect(wrongCount.reconciliation?.reason).toBe('mismatched-item-count');
+    const skipped = recheckThenReconcileDailyItems(bucket(bucketItem(A, 'blocked')), io, [DAY, repo, 1, new Set()], () => ({ body: '', skipIssue: true }));
+    expect(skipped).toEqual({ recheck: { body: '', skipIssue: true }, reconciliation: null });
   });
 
   it('maybe-resolved non viene rimessa dopo un’obiezione umana al flag', () => {

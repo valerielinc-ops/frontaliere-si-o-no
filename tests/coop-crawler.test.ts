@@ -1,7 +1,8 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { describe, it, expect, vi } from 'vitest';
+import ts from 'typescript';
+import { afterAll, beforeAll, describe, it, expect, vi } from 'vitest';
 import {
   assertCoopAdapterParity,
   assertCompleteCoopDiscovery,
@@ -17,7 +18,7 @@ import {
 } from '../scripts/update-coop-jobs.mjs';
 import { countDuplicateListings, fingerprintsForCrawler } from '../scripts/audit-parser-quality.mjs';
 import { jobLocationRedundancy } from '../scripts/lib/job-location-display.mjs';
-import { fingerprintJob } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { fingerprintJob, mergeAndDeduplicate } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { __testables as sharedCrawlerTestables } from '../scripts/lib/shared-jobs-crawler.mjs';
 import {
   extractJsonLd,
@@ -27,7 +28,6 @@ import {
   applyCoopJsonLdToJob,
   applyCoopSourceDetailToJob,
   enrichCoopSourceBackedJobs,
-  buildCoopTranslationCacheEntry,
   resolveCoopCantonCode,
   collapseRepublishedCoopVacancies,
   withoutRepublishedCoopVacancies,
@@ -1608,29 +1608,57 @@ describe('Coop-family source-detail contract (#5253)', () => {
 });
 
 // ──────────────────────────────────────────────────────────────
-// Translation-cache redirect-history preservation (issue #2962)
+// The run after a failed one starts from the committed slice (issue 9142,
+// residue 3; redirect history: issue 2962)
 //
-// All 9 URLs flagged by the daily 404-risk audit were Coop jobs whose old
-// (sitemap-referenced) slugs were left unserved. The Coop translation cache is
-// the only crawler-specific persistence layer, and it must carry redirect
-// history (previousSlugs / previousSlugsByLocale) so that, when the cache
-// re-injects a job into data/jobs.json, the build plugin can still emit bridge
-// pages for the old URLs instead of letting them 404.
+// A failed Coop run publishes nothing, so the slice on main stays the one of
+// the last successful run. Every CI run starts without the scratch dataset and
+// the shared crawler loads the scoped crawler's existing jobs from that slice;
+// the merge then keeps translations and redirect history for unchanged jobs.
+// This is the path that replaced `coop-ticino-locale-cache.json`: that file was
+// never committed (git-commit-data.sh --slice-only stages only the slice), and
+// its injection returned early on CI because the scratch file did not exist.
+// Failure title if this breaks: «Coop: dopo una run fallita le traduzioni non
+// vengono riusate (la slice o la cache non arrivano al merge)».
 // ──────────────────────────────────────────────────────────────
-describe('buildCoopTranslationCacheEntry — redirect-history preservation (#2962)', () => {
-  const jobWithHistory = {
-    url: 'https://jobs.coopjobs.ch/offene-stellen/metzger/abc-123',
-    slug: 'metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-goldach-sankt-gallen-i5fg9z',
+describe('Coop: the run after a failed one reuses translations from the committed slice (issue 9142)', () => {
+  const sourceDescription = [
+    'Als Metzgerin oder Metzger in unserer Fleischabteilung in Goldach berätst du unsere Kundschaft kompetent und freundlich.',
+    'Du bereitest Fleisch- und Wurstwaren fachgerecht zu, präsentierst sie ansprechend und sorgst für Frische und Hygiene.',
+    'Du bringst eine abgeschlossene Ausbildung als Fleischfachfrau oder Fleischfachmann mit und arbeitest gerne im Team.',
+  ].join(' ');
+  const localized = (it: string, en: string, fr: string) => ({ it, en, de: sourceDescription, fr });
+  const sliceJob = {
+    id: 'coop-goldach-metzger',
+    url: 'https://jobs.coopjobs.ch/offene-stellen/metzger/11111111-1111-4111-8111-000000000001',
+    slug: 'macellaio-coop-genossenschaft-goldach-i5fg9z',
+    title: 'Metzger/in',
     company: 'Coop Genossenschaft',
-    companyKey: 'coop',
+    companyKey: 'coop-ticino',
     location: 'Goldach',
     canton: 'SG',
-    titleByLocale: { it: 'Macellaio', en: 'Butcher', de: 'Metzger', fr: 'Boucher' },
+    sourceLang: 'de',
+    source: 'Company Careers Crawler',
+    crawledAt: new Date(Date.now() - 2 * 86_400_000).toISOString(),
+    description: sourceDescription,
+    requirements: ['Ausbildung als Fleischfachfrau/Fleischfachmann'],
+    titleByLocale: { it: 'Macellaio/a', en: 'Butcher', de: 'Metzger/in', fr: 'Boucher/ère' },
+    descriptionByLocale: localized(
+      'Come macellaia o macellaio nel nostro reparto carne a Goldach consigli la clientela con competenza e cordialità. Prepari carne e salumi a regola d’arte, li presenti in modo attraente e garantisci freschezza e igiene. Hai una formazione completa e lavori volentieri in team.',
+      'As a butcher in our meat department in Goldach you advise our customers competently and kindly. You prepare meat and sausage products professionally, present them attractively and ensure freshness and hygiene. You have completed training as a meat specialist and enjoy teamwork.',
+      'En tant que bouchère ou boucher dans notre rayon viande à Goldach, tu conseilles notre clientèle avec compétence et amabilité. Tu prépares viandes et charcuteries dans les règles, tu les présentes avec soin et tu garantis fraîcheur et hygiène. Tu as une formation achevée et aimes le travail en équipe.',
+    ),
+    requirementsByLocale: {
+      it: ['Formazione di macellaio/a'],
+      en: ['Training as a meat specialist'],
+      de: ['Ausbildung als Fleischfachfrau/Fleischfachmann'],
+      fr: ['Formation de boucher/ère'],
+    },
     slugByLocale: {
-      it: 'metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-goldach-sankt-gallen-i5fg9z',
-      en: 'butcher-meat-specialist-coop-genossenschaft-goldach-i5fg9z',
-      de: 'metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-goldach-sankt-gallen-i5fg9z',
-      fr: 'boucher-specialiste-de-la-viande-coop-genossenschaft-goldach-i5fg9z',
+      it: 'macellaio-coop-genossenschaft-goldach-i5fg9z',
+      en: 'butcher-coop-genossenschaft-goldach-i5fg9z',
+      de: 'metzger-in-coop-genossenschaft-goldach-i5fg9z',
+      fr: 'boucher-coop-genossenschaft-goldach-i5fg9z',
     },
     previousSlugs: ['butcher-meat-specialist-coop-genossenschaft-goldach'],
     previousSlugsByLocale: {
@@ -1638,38 +1666,91 @@ describe('buildCoopTranslationCacheEntry — redirect-history preservation (#296
       fr: ['boucher-specialiste-de-la-viande-coop-genossenschaft-goldach'],
     },
   };
+  // The same vacancy as the next run scrapes it: source language only.
+  const recrawled = {
+    url: sliceJob.url,
+    title: sliceJob.title,
+    company: sliceJob.company,
+    companyKey: sliceJob.companyKey,
+    location: sliceJob.location,
+    canton: sliceJob.canton,
+    sourceLang: 'de',
+    source: 'Company Careers Crawler',
+    description: sourceDescription,
+    requirements: sliceJob.requirements,
+    titleByLocale: { de: sliceJob.title },
+    descriptionByLocale: { de: sourceDescription },
+  };
+  // contentReuse as the crawler-group run logs it (`contentReuse=on similarity>=0.7 ...`).
+  const contentReuse = { enabled: true, similarityThreshold: 0.7, minSourceChars: 220, maxLengthDeltaRatio: 0.02 };
 
-  it('carries previousSlugs and previousSlugsByLocale through the cache entry', () => {
-    const entry = buildCoopTranslationCacheEntry(jobWithHistory);
-    expect(entry.previousSlugs).toEqual(jobWithHistory.previousSlugs);
-    expect(entry.previousSlugsByLocale).toEqual(jobWithHistory.previousSlugsByLocale);
-    // Existing translation fields still preserved.
-    expect(entry.slugByLocale).toEqual(jobWithHistory.slugByLocale);
-    expect(entry.titleByLocale).toEqual(jobWithHistory.titleByLocale);
+  let tmpDir = '';
+  let previousRegistryOverride: string | undefined;
+  beforeAll(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'coop-after-failed-run-'));
+    fs.writeFileSync(path.join(tmpDir, 'slug-registry.json'), '{}', 'utf8');
+    previousRegistryOverride = process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    process.env.SLUG_REGISTRY_PATH_OVERRIDE = path.join(tmpDir, 'slug-registry.json');
+    const sliceDir = path.join(tmpDir, 'by-crawler');
+    fs.mkdirSync(sliceDir);
+    // The slice left on main by the last successful run, next to the `[]`
+    // companion still tracked there and a sibling crawler's slice.
+    fs.writeFileSync(path.join(sliceDir, 'coop-ticino.json'), JSON.stringify({ jobs: [sliceJob] }));
+    fs.writeFileSync(path.join(sliceDir, 'coop-ticino-locale-cache.json'), '[]');
+    fs.writeFileSync(path.join(sliceDir, 'fust.json'), JSON.stringify({ jobs: [{ url: 'https://jobs.coopjobs.ch/offene-stellen/fust/1', companyKey: 'fust' }] }));
+  });
+  afterAll(() => {
+    if (previousRegistryOverride === undefined) delete process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    else process.env.SLUG_REGISTRY_PATH_OVERRIDE = previousRegistryOverride;
+    fs.rmSync(tmpDir, { recursive: true, force: true });
   });
 
-  it('omits redirect-history keys entirely when there is no history (no empty-placeholder churn)', () => {
-    const entry = buildCoopTranslationCacheEntry({
-      url: 'https://jobs.coopjobs.ch/offene-stellen/x/1',
-      slug: 'fresh-job-coop-lugano',
-      slugByLocale: { it: 'fresh-job-coop-lugano' },
-      // no previousSlugs / previousSlugsByLocale
-    });
-    expect(entry).not.toHaveProperty('previousSlugs');
-    expect(entry).not.toHaveProperty('previousSlugsByLocale');
-    // Empty objects/arrays are not treated as history.
-    const entryEmpty = buildCoopTranslationCacheEntry({
-      url: 'u', slug: 's', previousSlugs: [], previousSlugsByLocale: {},
-    });
-    expect(entryEmpty).not.toHaveProperty('previousSlugs');
-    expect(entryEmpty).not.toHaveProperty('previousSlugsByLocale');
+  it('loads the Coop slice, and only the Coop slice, as the existing dataset', () => {
+    const existing = sharedCrawlerTestables.readExistingJobsFromSlices(['coop-ticino'], path.join(tmpDir, 'by-crawler'));
+    expect(existing).toEqual([sliceJob]);
   });
 
-  it('is pure/deterministic (does not stamp cachedAt itself)', () => {
-    const a = buildCoopTranslationCacheEntry(jobWithHistory);
-    const b = buildCoopTranslationCacheEntry(jobWithHistory);
-    expect(a).toEqual(b);
-    expect(a).not.toHaveProperty('cachedAt');
+  it('keeps every translation and the redirect history of an unchanged job', () => {
+    const existing = sharedCrawlerTestables.readExistingJobsFromSlices(['coop-ticino'], path.join(tmpDir, 'by-crawler'));
+    const result = mergeAndDeduplicate(existing, [recrawled], {}, { scopeCompanyKeys: ['coop-ticino'], contentReuse });
+    expect(result.inserted).toBe(0);
+    expect(result.reusedLocalizationFromPrevious).toBe(1);
+    const [job] = result.merged.filter((candidate: { url?: string }) => candidate.url === sliceJob.url);
+    expect(job.titleByLocale).toEqual(sliceJob.titleByLocale);
+    expect(job.descriptionByLocale).toEqual(sliceJob.descriptionByLocale);
+    expect(job.requirementsByLocale).toEqual(sliceJob.requirementsByLocale);
+    expect(job.previousSlugs).toEqual(expect.arrayContaining(sliceJob.previousSlugs));
+    for (const [locale, slugs] of Object.entries(sliceJob.previousSlugsByLocale)) {
+      expect(job.previousSlugsByLocale?.[locale]).toEqual(expect.arrayContaining(slugs));
+    }
+  });
+});
+
+describe('Coop runner writes nothing under data/jobs/by-crawler/ but its slice', () => {
+  // A non-slice file there has already produced a 20 MB phantom archive and a
+  // translation cache that was never committed (issue 9142). The slice itself
+  // is written by writeJobsCrawlerSlice, so the runner needs no path there.
+  // The check walks the parsed source (comments are not tokens, string
+  // literals stay intact), so a glob such as 'by-crawler/*.json' cannot hide
+  // code, and a slice-dir constant imported from a helper is caught by name.
+  // It is a static proxy for the runtime behaviour: the runner's only write
+  // there goes through writeJobsCrawlerSlice.
+  it('builds no path into data/jobs/by-crawler', () => {
+    const file = path.resolve(import.meta.dirname, '..', 'scripts', 'update-coop-jobs.mjs');
+    const sourceFile = ts.createSourceFile(file, fs.readFileSync(file, 'utf8'), ts.ScriptTarget.Latest, true, ts.ScriptKind.JS);
+    const literals: string[] = [];
+    const identifiers = new Set<string>();
+    const visit = (node: ts.Node) => {
+      if (ts.isStringLiteralLike(node) || ts.isTemplateHead(node) || ts.isTemplateMiddle(node) || ts.isTemplateTail(node)) {
+        literals.push(node.text);
+      } else if (ts.isIdentifier(node)) {
+        identifiers.add(node.text);
+      }
+      ts.forEachChild(node, visit);
+    };
+    visit(sourceFile);
+    expect(literals.filter((text) => /by-crawler|locale-cache/.test(text))).toEqual([]);
+    expect([...identifiers].filter((name) => /BY_CRAWLER|LOCALE_CACHE|TRANSLATIONS_CACHE|SLICE_DIR/i.test(name))).toEqual([]);
   });
 });
 

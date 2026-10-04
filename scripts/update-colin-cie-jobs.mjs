@@ -21,6 +21,7 @@
  *   4. Builds job objects and merges them into jobs.json.
  *   5. Translates and validates locale coverage.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -56,7 +57,6 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { decodeColinCieEntities, parseColinCieJobDescription } from './lib/colin-cie-job-parser.mjs';
 import { extractJobPostingField } from './lib/jobposting-jsonld.mjs';
-import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
