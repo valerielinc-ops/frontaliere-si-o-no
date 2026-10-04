@@ -33,6 +33,7 @@ import { shouldSkipFullSuiteFallback } from './lib/orphan-fallback.mjs';
 import { selectMaxWorkers, vitestChildEnv } from './lib/select-max-workers.mjs';
 import { missingFullCheckoutArtifacts } from './lib/typecheck-sparse.mjs';
 import { GRAPH_IGNORED_RE, GRAPH_SOURCE_RE, isGraphSourceFile } from './lib/related-graph-scope.mjs';
+import { CRAWLER_GENERATION_RUNTIME_PATHS } from '../lib/crawler-generation-runtime-paths.mjs';
 import { isScanned as isSecretScanned } from './scan-site-hardcoded-secrets.mjs';
 
 const changedPathFile = process.env.CHANGED_PATHS_FILE || 'changed-paths.txt';
@@ -74,6 +75,12 @@ const testTreeLintTests = new Set([
 // PR 10336 una chiave Google Maps di terzi è entrata in una fixture HTML di
 // `tests/fixtures/`: il gate la riconosceva, ma un `.html` non è né sorgente né
 // asset indicizzato, quindi il diff selezionava zero test e lui non girava.
+// Nel perimetro anche il modulo che definisce l'elenco: cambiarlo cambia la
+// closure dichiarata dal generatore.
+const crawlerGenerationRuntimePaths = new Set([
+  ...CRAWLER_GENERATION_RUNTIME_PATHS,
+  'scripts/lib/crawler-generation-runtime-paths.mjs',
+]);
 const sourceTreeLintTests = new Map([
   ['tests/gh-slurp-jq-guard.test.ts', /^(?:\.github|scripts|bin)\//],
   ['tests/no-hardcoded-secrets.test.ts', isSecretScanned],
@@ -85,6 +92,12 @@ const sourceTreeLintTests = new Map([
   // degli import degli entrypoint, quindi nessun import lo collega al modulo
   // che ne aggiunge uno fuori lista. Deve girare proprio su quel diff.
   ['tests/housekeeping-sparse-paths.test.ts', /^(?:scripts|packages\/articles\/engine)\/|^\.github\/workflows\/housekeeping-jobs-logic\.yml$/],
+  // Stessa forma per i gruppi crawler: il generatore dichiara la chiusura degli
+  // import del finalizer con un elenco e il test la confronta con quella reale
+  // letta da disco. Sulla PR 11262 un import nuovo in crawler-grace-policy.mjs
+  // e' passato senza che il test girasse. Il perimetro e' l'elenco stesso, non
+  // una regex che possa divergere da esso.
+  ['tests/generate-crawler-group-workflows.test.ts', (file) => crawlerGenerationRuntimePaths.has(file)],
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint
