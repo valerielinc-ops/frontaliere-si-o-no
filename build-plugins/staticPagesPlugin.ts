@@ -1,5 +1,6 @@
 import { buildMethodologyEditorial, localizeMethodologyStructuredData } from './shared/editorialMethodology';
 import { METHODOLOGY_COPY, type MethodologyLocale } from '../services/editorialMethodology';
+import { renderLegalEditorial, resolveLegalPage, resolveLegalStaticSeo } from './shared/legalEditorial';
 /**
  * Generate static HTML landing pages for every URL in the sitemaps.
  *
@@ -26,7 +27,6 @@ import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySection
 import { jobBoardHeadTags } from './jobBoardGpt';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { AD_SLOTS, resolveSlotPlaceholderMinHeight } from '../services/adsenseSlots';
-import { DATA_CONTROLLER_NAME } from '../functions/src/lib/dataControllerIdentity.js';
 import { PUBLIC_CONTACT_EMAIL } from '../services/publicContact';
 // Single producer for the hub `ssg-article-grid` (issue #4974 item 4): nanako's
 // fast-publish refreshes the same grid on every article it publishes, so the
@@ -3241,7 +3241,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const italianPageExists = ogPagesPaths.has(normalizedPath) || fs.existsSync(filePath);
 
  // Look up SEO data — fall back to URL-derived title if no explicit entry
- let seo: SeoEntry | undefined = resolveAuthorStaticSeo(url.path, 'it', JSON_LD_SCRIPT_SEPARATOR) ?? seoMap.get(seoKey(url.path));
+ let seo: SeoEntry | undefined = resolveLegalStaticSeo(url.path, /^\/privacy-policy\/?$/.test(url.path) ? 'en' : 'it') ?? resolveAuthorStaticSeo(url.path, 'it', JSON_LD_SCRIPT_SEPARATOR) ?? seoMap.get(seoKey(url.path));
  if (!seo) {
  // Derive a basic page from URL path so every sitemap URL gets a static HTML file
  const pathLabel = url.path.split('/').filter(Boolean).pop() || url.path;
@@ -3473,8 +3473,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // If the entry has an 'it' key, use it instead of the inline chain below.
  const sectionKey = SECTION_EDITORIAL_KEYS
  .find(prefix => italianPath.startsWith(prefix));
+ const legalPage = resolveLegalPage(sourcePathForContent);
  const authorEditorial = renderAuthorEditorial(sourcePathForContent, locale as 'it' | 'en' | 'de' | 'fr');
- if (authorEditorial) {
+ if (legalPage) {
+ editorialBlocks.push(...renderLegalEditorial(legalPage, locale as 'it' | 'en' | 'de' | 'fr'));
+ } else if (authorEditorial) {
  editorialBlocks.push(...authorEditorial);
  } else if (italianPath.replace(/\/+$/, '') === '/correzioni') {
  editorialBlocks.push(...renderCorrectionsEditorial(locale as CorrectionsLocale));
@@ -4889,18 +4892,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `Ogni consulenza parte dall'analisi della situazione individuale — stato civile, distanza dal confine, anzianità lavorativa in Svizzera, reddito lordo — per identificare la strategia fiscale più vantaggiosa. I professionisti utilizzano gli stessi parametri dei simulatori del sito, verificati sulle tabelle ufficiali dell'Amministrazione federale delle contribuzioni e dell'Agenzia delle Entrate.`,
  `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">AFC</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a></p>`,
  );
- } else if (canonicalPath === '/privacy' || canonicalPath === '/privacy/') {
- editorialBlocks.push(
- `<h2 class="s-o3IET6">Informativa sulla privacy per i frontalieri</h2>`,
- `Frontaliere Ticino tratta i dati personali degli utenti nel rispetto del Regolamento Generale sulla Protezione dei Dati (GDPR, Regolamento UE 2016/679) e della Legge federale svizzera sulla protezione dei dati (LPD, nLPD 2023). La piattaforma non richiede registrazione obbligatoria: tutti i calcolatori e i comparatori possono essere utilizzati senza fornire dati personali.`,
- `<h2 class="s-o3IET6">Dati raccolti e finalità del trattamento</h2>`,
- `I dati eventualmente raccolti (indirizzo e-mail per le allerte lavoro, dati di navigazione tramite Google Analytics 4) vengono utilizzati esclusivamente per il funzionamento dei servizi richiesti dall'utente e per l'analisi aggregata dell'utilizzo della piattaforma. Non vengono ceduti a terzi per finalità di marketing.`,
- `Le simulazioni fiscali e previdenziali vengono eseguite interamente nel browser dell'utente: i dati inseriti nei calcolatori (stipendio, stato civile, numero di figli) non vengono mai trasmessi ai server. Questa architettura garantisce la massima riservatezza delle informazioni finanziarie personali.`,
- `<h2 class="s-o3IET6">Titolare del trattamento e diritti dell'utente</h2>`,
- `<p>Il titolare del trattamento (data controller ai sensi del GDPR e della LPD svizzera) è <strong>${DATA_CONTROLLER_NAME}</strong>. Per esercitare i diritti di accesso, rettifica, cancellazione e portabilità dei dati, o per qualsiasi richiesta relativa al trattamento, è possibile scrivere a <a href="mailto:${PUBLIC_CONTACT_EMAIL}">${PUBLIC_CONTACT_EMAIL}</a>. Per maggiori dettagli consultare l'<a href="/en/privacy/">informativa privacy completa</a>.</p>`,
- `<h2 class="s-o3IET6">Base giuridica, conservazione e subresponsabili</h2>`,
- `<p>Il trattamento si fonda sul consenso dell'utente (art. 6 GDPR, art. 6 nLPD) per l'iscrizione a newsletter e allerte lavoro e per i cookie non essenziali, sull'esecuzione del servizio richiesto per la gestione delle allerte stesse, e sul legittimo interesse per la sicurezza della piattaforma e le statistiche aggregate. I dati di iscrizione a newsletter e allerte lavoro sono conservati fino alla revoca del consenso o alla cancellazione dell'iscrizione; le candidature inviate tramite la bacheca lavoro sono conservate 90 giorni e poi cancellate automaticamente; i dati inseriti nei calcolatori non lasciano mai il browser dell'utente. Il trattamento coinvolge alcuni subresponsabili esterni — tra cui Google (Analytics, Firebase, AdSense), Partnerize (attribuzione dei link ai partner affiliati), i fornitori di invio e-mail e i servizi elencati nell'informativa completa — ciascuno vincolato dalla propria informativa privacy.</p>`,
- );
  } else if (canonicalPath === '/about' || canonicalPath === '/about/') {
  editorialBlocks.push(
  `<h2 class="s-o3IET6">About Us — The Frontaliere Ticino Team</h2>`,
@@ -4931,25 +4922,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<h2 class="s-o3IET6">Professional Consulting Services</h2>`,
  `<p>For personalized advice beyond the scope of our free tools, we partner with licensed Swiss and Italian tax consultants who specialize in cross-border employment. These professionals can assist with specific tax return preparation, optimization strategies, and complex scenarios involving multiple jurisdictions or family situations. Learn more on our <a href="/en/about-us/">about page</a> or review our <a href="/en/privacy/">privacy policy</a>.</p>`,
  `<p class="s-tTvoK-">Sources: <a href="https://www.estv.admin.ch" rel="noopener">FTA</a> · <a href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a> · <a href="https://www.seco.admin.ch" rel="noopener">SECO</a></p>`,
- );
- } else if (canonicalPath === '/privacy-policy' || canonicalPath === '/privacy-policy/') {
- editorialBlocks.push(
- `<h2 class="s-o3IET6">Privacy Policy for Cross-Border Workers</h2>`,
- `Frontaliere Ticino processes personal data in compliance with the General Data Protection Regulation (GDPR, EU Regulation 2016/679) and the Swiss Federal Act on Data Protection (FADP, nDSG 2023). The platform does not require mandatory registration: all calculators and comparators can be used without providing personal data.`,
- `<h2 class="s-o3IET6">Data Collection and Processing Purposes</h2>`,
- `Any collected information (email addresses for job alerts, browsing behaviour via Google Analytics 4) is used exclusively for operating user-requested services and aggregate platform usage analysis. No information is shared with third parties for marketing purposes.`,
- `Tax and pension simulations are performed entirely in the user's browser: inputs entered in calculators (salary, marital status, number of children) are never transmitted to servers. This architecture ensures maximum privacy of personal financial information.`,
- `<h2 class="s-o3IET6">Cookies and Tracking Technologies</h2>`,
- `The platform uses first-party cookies for essential functionality (language preference, consent state) and Google Analytics 4 for anonymised traffic analysis. No advertising or remarketing cookies are used. Users can opt out of analytics tracking via the cookie consent banner displayed on first visit. Consent preferences are stored locally and can be updated at any time from the footer settings link.`,
- `<h2 class="s-o3IET6">Your Rights Under GDPR and FADP</h2>`,
- `<p>The data controller for Frontaliere Ticino is <strong>${DATA_CONTROLLER_NAME}</strong>. Under GDPR and Swiss FADP, you have the right to access, rectify, delete, and port your personal information. You may also object to processing or request restriction of processing. To exercise any of these rights, contact us at <a href="mailto:${PUBLIC_CONTACT_EMAIL}">${PUBLIC_CONTACT_EMAIL}</a>. We respond to all requests within 30 days as required by law. For more information about our team and mission, visit our <a href="/en/about-us/">about page</a> or <a href="/en/contact-us/">contact page</a>.</p>`,
- `<h2 class="s-o3IET6">Legal Basis for Processing</h2>`,
- `We only process personal data when a valid legal basis applies under GDPR Art. 6 and Swiss FADP Art. 6: <strong>consent</strong> for newsletter/job-alert sign-up and for non-essential (analytics and advertising) cookies, which can be withdrawn at any time without affecting the lawfulness of processing carried out before withdrawal; <strong>performance of the requested service</strong> for managing the alerts and account features you sign up for; and <strong>legitimate interest</strong> for platform security, abuse prevention, and aggregate usage statistics, always balanced against your rights.`,
- `<h2 class="s-o3IET6">Data Retention</h2>`,
- `Newsletter and job-alert subscriber data is retained until consent is withdrawn or the subscription is cancelled. Job applications submitted through the job board are automatically deleted 90 days after submission. Calculator and simulator inputs are never transmitted to our servers, so no server-side retention applies to them. Aggregate analytics data is retained according to the respective provider's own retention settings.`,
- `<h2 class="s-o3IET6">Third-Party Services and Sub-Processors</h2>`,
- `The platform integrates with the following third-party services, each acting as a sub-processor for the personal data it handles on our behalf: Firebase (Google) for hosting, analytics, and configuration; our transactional email providers for newsletter and job-alert delivery; TwelveData for live CHF-EUR exchange rates; Google Maps API for border crossing traffic estimates; and reCAPTCHA v3 for form protection. Each sub-processor has its own privacy policy, and we limit the information shared to the minimum necessary for service operation. No personal financial information entered in our calculators is ever sent to any third party.`,
- `<p class="s-tTvoK-">References: <a href="https://gdpr.eu/" rel="noopener">GDPR</a> · <a href="https://www.fedlex.admin.ch/eli/cc/2022/491/en" rel="noopener">Swiss FADP</a></p>`,
  );
  } else if (canonicalPath === '/stato-api' || canonicalPath === '/stato-api/') {
  editorialBlocks.push(
@@ -5874,7 +5846,7 @@ ${hrefTags}
  // variants, so always regenerate so JSON-LD reflects current translations.
 
  // Look up locale-specific SEO or derive locale-appropriate metadata
- const locSeo: SeoEntry = resolveAuthorStaticSeo(locPath, hl.lang as 'it' | 'en' | 'de' | 'fr', JSON_LD_SCRIPT_SEPARATOR) ?? seoMap.get(seoKey(locPath)) ?? deriveLocaleSeo(locPath, hl.lang, seo, url.path);
+ const locSeo: SeoEntry = resolveLegalStaticSeo(locPath, hl.lang as 'it' | 'en' | 'de' | 'fr') ?? resolveAuthorStaticSeo(locPath, hl.lang as 'it' | 'en' | 'de' | 'fr', JSON_LD_SCRIPT_SEPARATOR) ?? seoMap.get(seoKey(locPath)) ?? deriveLocaleSeo(locPath, hl.lang, seo, url.path);
 
  // Dynamic override for per-locale job-board landings (en/de/fr): inject
  // live active-job count + fire emoji so each locale ships a unique title
