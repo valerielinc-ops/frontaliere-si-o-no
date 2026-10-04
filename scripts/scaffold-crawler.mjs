@@ -365,7 +365,7 @@ async function fetchJobListings() {
     title: j.title,
     location: j.location,
     url: j.applyUrl,
-    postedAt: j.postedAt,
+    ...mergeSourcePostingDates({}, j),
     description: j.descriptionHtml || '',
     jobReqId: j.jobReqId,
   }));
@@ -396,7 +396,7 @@ async function fetchJobListings() {
     title: j.title,
     location: j.location,
     url: j.applyUrl,
-    postedAt: j.postedAt,
+    ...mergeSourcePostingDates({}, j),
     description: j.descriptionHtml || '',
     jobReqId: j.jobReqId,
   }));
@@ -437,7 +437,8 @@ async function fetchJobListings() {
         title: job.title,
         location: job.location,
         url: job.applyUrl,
-        postedAt: job.postedAt,
+        ...mergeSourcePostingDates({}, job),
+        description: job.descriptionHtml || '',
         jobReqId: job.jobReqId,
       });
     }
@@ -487,6 +488,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 ${atsSection.imports ? `${atsSection.imports}\n` : ''}
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -745,9 +747,8 @@ ${locationBlock}
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      // Preserve the source date; the shared merge assigns a stable first-seen
-      // date when the source does not publish one.
-      postedDate: listing.postedAt || null,
+      // Keep publication evidence separate from observation/creation aliases.
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
