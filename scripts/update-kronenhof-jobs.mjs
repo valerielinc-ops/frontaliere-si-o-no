@@ -18,6 +18,8 @@
  *   3. Merges into data/jobs.json.
  *   4. Translates missing locales.
  */
+import { extractJobPostingField } from './lib/jobposting-jsonld.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -277,7 +279,7 @@ const META_LABELS = {
   de: { workload: 'Pensum', contract: 'Vertrag', start: 'Stellenantritt' },
 };
 
-export function buildJob(raw, detailDescription = '') {
+export function buildJob(raw, detailDescription = '', sourceDatePosted = '') {
   const title = String(raw.title || '').trim();
   const { city, company } = mapLocation(raw.location);
   const { employmentType, contractType } = mapContractType(raw.contract_duration);
@@ -288,9 +290,7 @@ export function buildJob(raw, detailDescription = '') {
   // this is defensive against a future parser regression leaking "undefined"/"null".
   const slug = slugify(`${title}-${company}-${safeLocationToken(city, 'Pontresina')}-${raw.id}`);
   const detailUrl = `https://careers.kronenhof.com/en/vacancies/${raw.id}`;
-  const postedDate = raw.contract_starts_at
-    ? raw.contract_starts_at.slice(0, 10)
-    : new Date().toISOString().slice(0, 10);
+
   const workload = raw.workload ? `${raw.workload}%` : '100%';
 
   // Build a description from available data
@@ -343,7 +343,8 @@ export function buildJob(raw, detailDescription = '') {
     sector: 'Hotellerie & Gastronomia',
     source: 'kronenhof-dedicated-crawler',
     sourceLang,
-    postedDate,
+    ...sourcePostingDateFields(sourceDatePosted),
+    jobStartDate: raw.contract_starts_at || '',
     validThrough: '',
     contract: contractType,   // canonical field expected by JobPosting schema + CLAUDE.md validation
     employmentType,
@@ -429,6 +430,7 @@ export function mergeJobLists(targetExisting = [], discoveredJobs = []) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       previousSlugs,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
@@ -521,6 +523,7 @@ async function main() {
   // Step 2: Fetch detail pages for rich descriptions
   console.log('\n📄 Fetching detail pages for rich descriptions...');
   const detailDescriptions = new Map();
+  const publicationDates = new Map();
   let enriched = 0;
   let failed = 0;
   for (let i = 0; i < allVacancies.length; i++) {
@@ -529,6 +532,7 @@ async function main() {
     try {
       const html = await fetchText(detailUrl);
       const desc = parseDetailPage(html);
+      publicationDates.set(vac.id, extractJobPostingField(html, 'datePosted'));
       if (desc && meetsSourceBodyFloor(desc)) {
         detailDescriptions.set(vac.id, desc);
         enriched++;
@@ -545,7 +549,7 @@ async function main() {
   console.log(`  📄 Detail pages: ${enriched} enriched, ${failed} failed`);
 
   // Step 3: Build standardized job objects
-  const jobs = allVacancies.map((vac) => buildJob(vac, detailDescriptions.get(vac.id) || ''));
+  const jobs = allVacancies.map((vac) => buildJob(vac, detailDescriptions.get(vac.id) || '', publicationDates.get(vac.id) || ''));
   console.log(`✅ Built ${jobs.length} job objects`);
 
   // Log location breakdown

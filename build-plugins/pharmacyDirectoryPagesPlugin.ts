@@ -1052,7 +1052,7 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
         }
       }
       const dateStamp = BUILD_DATE_STAMP;
-      const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((url) => `  <url><loc>${BASE_URL}${url}</loc><lastmod>${dateStamp}</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>\n`).join('')}</urlset>\n`;
+      const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((url) => `  <url><loc>${BASE_URL}${url}</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>\n`).join('')}</urlset>\n`;
       const written = await collector.flush();
       let aliasRedirects = 0;
       for (const alias of pharmacyUrlAliasDescriptors()) {

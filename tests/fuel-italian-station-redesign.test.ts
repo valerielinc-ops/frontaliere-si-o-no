@@ -5,7 +5,7 @@
  * `generateFuelItalianStationPages`. Validates that every above-the-fold
  * affordance shipped on the Swiss path also appears on the IT path:
  * hero card, advice banner, OSM map iframe, Google Maps + Waze, OSM
- * fallback link, lucide SVG icons, last-updated timestamp, brand logo.
+ * fallback link, lucide SVG icons, page-generation timestamp, brand logo.
  *
  * Synthetic dataset — keeps tests fast and deterministic.
  */
@@ -219,8 +219,8 @@ describe('IT per-station page — location card', () => {
   });
 });
 
-describe('IT per-station page — last-updated timestamp on chart', () => {
-  it('appends "Ultimo aggiornamento: YYYY-MM-DD" under the city history card', () => {
+describe('IT per-station page — page-generation timestamp on chart', () => {
+  it('appends "Pagina generata" under the city history card', () => {
     const history = [
       { date: '2026-05-15', zones: {}, italianCities: { como: { benzina: 1.72 } } } as never,
       { date: '2026-05-16', zones: {}, italianCities: { como: { benzina: 1.71 } } } as never,
@@ -234,6 +234,7 @@ describe('IT per-station page — last-updated timestamp on chart', () => {
     });
     const html = pages['/prezzi-benzina/italia/como/stazioni/carrefour-via-cristoforo-colombo/'];
     expect(html).toMatch(htmlAttr('aria-labelledby', 'itStationTrend'));
-    expect(html).toContain('Ultimo aggiornamento: 2026-05-18');
+    expect(html).toContain('Pagina generata · 18 maggio 2026');
+    expect(html).not.toContain('Ultimo aggiornamento: 2026-05-18');
   });
 });

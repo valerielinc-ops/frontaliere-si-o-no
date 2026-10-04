@@ -3,6 +3,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  l9FindingKind,
   runL9,
   validateEmployerActivation,
   validateEmployerProfiles,
@@ -246,6 +247,84 @@ describe('L9 Employer Supply → Paid Activation', () => {
         outcomeLedgerMissing: false,
         profileInventoryComplete: true,
       });
+  });
+
+  describe('awaiting-sample', () => {
+    const ZERO_FUNNEL = {
+      eligibleEmployerAccounts: 0,
+      profileViewAccounts: 0,
+      leadAccounts: 0,
+      checkoutStartAccounts: 0,
+      paidActivations: 0,
+      activeSubscriptions: 0,
+      attachedJobs: 0,
+      renewals: 0,
+      freeProfiles: 0,
+      sponsoredProfiles: 0,
+      mrrRecognizedChf: 0,
+    };
+    const SMALL_FUNNEL = {
+      ...ZERO_FUNNEL,
+      eligibleEmployerAccounts: 3,
+      profileViewAccounts: 0,
+      leadAccounts: 0,
+      checkoutStartAccounts: 2,
+      paidActivations: 1,
+      activeSubscriptions: 1,
+      mrrRecognizedChf: 98,
+      export: { ...outcomes().export, anonymousFunnelExcluded: true, anonymousFunnelReason: 'no publisherUid on CTA events' },
+    };
+
+    async function reported(ledger: Record<string, unknown>) {
+      const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l9-test-'));
+      const issues: any[] = [];
+      const profilesPath = writeJson(dir, 'profiles.json', profiles());
+      const result = await runL9({
+        now: NOW,
+        profilesPath,
+        // Lo scope del ledger deve attestare lo STESSO file di inventario letto dalla run.
+        outcomePath: writeJson(dir, 'outcomes.json', outcomes({
+          inventoryScope: { ...outcomes().inventoryScope, profileSource: profilesPath },
+          ...ledger,
+        })),
+        issue: true,
+        createIssueImpl: async (payload) => { issues.push(payload); },
+        logger: { log() {} },
+      });
+      return { result, issues };
+    }
+
+    it('passes awaiting-sample when zero eligible accounts is the only finding', async () => {
+      const { result, issues } = await reported(ZERO_FUNNEL);
+      expect(result.verdict).toMatchObject({ ok: false, quality: 'zero', issues: [] });
+      expect(l9FindingKind(result.verdict)).toBe('underpowered-sample');
+      expect(issues).toHaveLength(1);
+      expect(issues[0]).toMatchObject({
+        state: 'awaiting-sample',
+        sample: { current: 0, minimum: 20, windowDays: null },
+      });
+    });
+
+    it('passes awaiting-sample when the sample is under minimum and nothing else fails', async () => {
+      const { result, issues } = await reported(SMALL_FUNNEL);
+      expect(result.verdict.issues).toEqual(['eligibleEmployerAccounts is below minimum sample (3 < 20)']);
+      expect(issues[0]).toMatchObject({ state: 'awaiting-sample', sample: { current: 3, minimum: 20 } });
+    });
+
+    it('keeps an undersized sample a failure when another check fails with it', async () => {
+      const skewed = await reported({ ...SMALL_FUNNEL, generatedAt: '2026-09-10T11:30:00.000Z' });
+      expect(skewed.result.verdict.issues.join(' ')).toContain('profile/outcome snapshots are');
+      expect(l9FindingKind(skewed.result.verdict)).toBe('ledger-failure');
+      expect(skewed.issues[0].state).toBeUndefined();
+
+      const unattested = await reported({ ...ZERO_FUNNEL, independent: false });
+      expect(l9FindingKind(unattested.result.verdict)).toBe('ledger-failure');
+      expect(unattested.issues[0].state).toBeUndefined();
+
+      const broken = await reported({ ...ZERO_FUNNEL, paidActivations: 1 });
+      expect(l9FindingKind(broken.result.verdict)).toBe('ledger-failure');
+      expect(broken.issues[0].state).toBeUndefined();
+    });
   });
 
   it('does not persist a result when issue creation fails', async () => {

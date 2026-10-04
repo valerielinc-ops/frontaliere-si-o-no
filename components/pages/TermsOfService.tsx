@@ -24,7 +24,7 @@ export const TermsOfService: React.FC = () => {
  </div>
  <div>
  <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-strong">Termini di Servizio</h1>
- <p className="text-sm text-muted mt-1">Ultimo aggiornamento: Settembre 2026</p>
+ <p className="text-sm text-muted mt-1">Ultimo aggiornamento: ottobre 2026</p>
  </div>
  </div>
  <p className="text-subtle leading-relaxed">
@@ -91,26 +91,44 @@ export const TermsOfService: React.FC = () => {
  </div>
  <div className="space-y-3 text-subtle">
  <p>
- I contenuti originali, il codice sorgente, il design e i marchi presenti su Frontaliere Ticino sono di proprietà
- dei rispettivi titolari. Il progetto è distribuito con licenza open source su GitHub.
+ I contenuti originali, il codice sorgente e il design di Frontaliere Ticino sono protetti dal diritto
+ d&apos;autore: tutti i diritti riservati. Il codice è consultabile su GitHub; la pubblicazione non concede
+ licenze oltre a quelle indicate nel file{' '}
+ <a href="https://github.com/valerielinc-ops/frontaliere-si-o-no/blob/main/LICENSE.md" className="underline" target="_blank" rel="noopener noreferrer">LICENSE.md</a> del
+ repository. Marchi, loghi e contenuti di terzi appartengono ai rispettivi titolari.
  </p>
  <p>
- Gli articoli e i contenuti editoriali sono pubblicati a scopo informativo. La riproduzione è consentita con
- attribuzione e link alla fonte originale, nel rispetto delle normative vigenti sul diritto d'autore.
+ Gli articoli e i contenuti editoriali sono pubblicati a scopo informativo. Il testo degli articoli può
+ essere riprodotto con attribuzione e link alla fonte originale, nel rispetto delle norme sul diritto
+ d&apos;autore. Le immagini seguono la sezione 3.1, e valgono le licenze indicate sulle singole pagine (per
+ esempio quelle dei dataset).
  </p>
  <div id="licenza-immagini" className="pt-2">
  <h3 className="text-base font-semibold text-strong mb-1">3.1 Licenza delle immagini</h3>
  <p>
- Le immagini pubblicate sul sito (grafiche, copertine articoli, anteprime social, mappe e illustrazioni)
- sono protette da diritto d&apos;autore e di proprietà di Frontaliere Ticino, salvo diversa indicazione
- nella didascalia o nel campo <code>creditText</code>. L&apos;uso non autorizzato è vietato.
+ Le immagini create da o per Frontaliere Ticino (grafiche, anteprime social, mappe e illustrazioni
+ proprie) sono protette dal diritto d&apos;autore e appartengono a Frontaliere Ticino. L&apos;uso non
+ autorizzato è vietato. Le immagini di terzi, come le fotografie di Wikimedia Commons e delle banche
+ immagini, le locandine degli eventi, i fotogrammi delle webcam di confine e le mappe di OpenStreetMap,
+ appartengono ai rispettivi autori e restano soggette alle loro licenze.
  </p>
  <p>
- Per richiedere una licenza d&apos;uso (editoriale, commerciale o di archivio) o per concordare un&apos;attribuzione
- specifica, scrivere a <a href="mailto:info@frontaliereticino.ch" className="underline">info@frontaliereticino.ch</a>{' '}
- indicando l&apos;URL dell&apos;immagine, l&apos;ambito d&apos;uso previsto e la durata richiesta. Le immagini di terze
- parti (es. webcam di confine fornite da operatori esterni) sono soggette alle condizioni dei rispettivi
- detentori dei diritti, riportate nei metadati strutturati di ciascuna pagina.
+ Per richiedere una licenza d&apos;uso di un&apos;immagine di Frontaliere Ticino (editoriale, commerciale o
+ di archivio) o per concordare un&apos;attribuzione specifica, scrivere a{' '}
+ <a href="mailto:info@frontaliereticino.ch" className="underline">info@frontaliereticino.ch</a>{' '}
+ indicando l&apos;URL dell&apos;immagine, l&apos;ambito d&apos;uso previsto e la durata richiesta.
+ </p>
+ </div>
+ <div id="software-terze-parti" className="pt-2">
+ <h3 className="text-base font-semibold text-strong mb-1">3.2 Software, font e modelli di terze parti</h3>
+ <p>
+ Il sito e il suo codice usano software, font e modelli di terzi, ciascuno con la propria licenza. Tra
+ questi: il modello YOLOv8n di Ultralytics, con licenza AGPL-3.0, che conta i veicoli nei fotogrammi delle
+ webcam di confine; Prebid.js, con licenza Apache-2.0, per la pubblicità; i font Inter, Space Grotesk,
+ Roboto e Source Sans 3, con licenza SIL Open Font License 1.1. L&apos;elenco completo, con le note di
+ copyright e i testi delle licenze, è nel file{' '}
+ <a href="https://github.com/valerielinc-ops/frontaliere-si-o-no/blob/main/THIRD_PARTY_NOTICES.md" className="underline" target="_blank" rel="noopener noreferrer">THIRD_PARTY_NOTICES.md</a>{' '}
+ del repository.
  </p>
  </div>
  </div>
@@ -130,7 +148,7 @@ export const TermsOfService: React.FC = () => {
  <li>Utilizzare la piattaforma nel rispetto delle leggi svizzere e italiane vigenti</li>
  <li>Non tentare di compromettere la sicurezza o il funzionamento del servizio</li>
  <li>Non utilizzare sistemi automatizzati per accedere massivamente ai contenuti, salvo autorizzazione</li>
- <li>Non ripubblicare contenuti senza attribuzione</li>
+ <li>Non ripubblicare contenuti oltre quanto consentito dalla sezione 3</li>
  </ul>
  </div>
  </div>

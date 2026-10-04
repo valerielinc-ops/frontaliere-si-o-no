@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-schoenberg",
-  "assembledAt": "2026-10-03T09:15:57.400Z",
+  "assembledAt": "2026-10-03T21:15:20.922Z",
   "jobs": [
     {
       "id": "klinik-schoenberg-ce0c4d120a1f",
@@ -33,7 +33,7 @@
       "url": "https://my.jobalino.ch/job/a16ce66f550cacf4f12a8e90df158121/berufswahl-schnupperpraktikant-in-w-m-d",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:15:51.126Z",
+      "crawledAt": "2026-10-03T21:15:14.739Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -60,8 +60,7 @@
         "tirocinante-juveso-w-m-d-100-klinik-schonberg-ag-gunten",
         "juveso-intern-w-m-d-100-klinik-schonberg-ag-gunten",
         "juveso-praktikant-in-w-m-d-100-klinik-schoenberg-gunten",
-        "stagiaire-juveso-w-m-d-100-klinik-schonberg-ag-gunten",
-        "tirocinante-di-orientamento-stage-di-osservazione-w-m-d-100-klinik-schonberg-ag-gunten"
+        "stagiaire-juveso-w-m-d-100-klinik-schonberg-ag-gunten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -69,8 +68,7 @@
           "tirocinante-juveso-w-m-d-100-klinik-schonberg-ag-gunten",
           "juveso-intern-w-m-d-100-klinik-schonberg-ag-gunten",
           "juveso-praktikant-in-w-m-d-100-klinik-schoenberg-gunten",
-          "stagiaire-juveso-w-m-d-100-klinik-schonberg-ag-gunten",
-          "tirocinante-di-orientamento-stage-di-osservazione-w-m-d-100-klinik-schonberg-ag-gunten"
+          "stagiaire-juveso-w-m-d-100-klinik-schonberg-ag-gunten"
         ],
         "en": [
           "juveso-intern-w-m-d-100-klinik-schonberg-ag-gunten"
@@ -95,8 +93,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "klinik-schoenberg-6848b85cd009",
@@ -129,7 +126,7 @@
       "url": "https://my.jobalino.ch/job/5e090767e44850d6090241204609188f/diaetkoch-diaetkoechin-w-m-d_1615",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:15:50.703Z",
+      "crawledAt": "2026-10-03T21:15:14.346Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -150,18 +147,14 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "diatkoch-diatkochin-w-m-d-80-100-klinik-schoenberg-gunten",
-          "dipl-pflegefachperson-hf-fh-80-100-privatklinik-meiringen-thun"
+          "diatkoch-diatkochin-w-m-d-80-100-klinik-schoenberg-gunten"
         ],
         "it": [
-          "diatkoch-diatkochin-w-m-d-80-100-klinik-schoenberg-gunten",
-          "infermiera-hf-fh-80-100-privatklinik-meiringen-thun"
+          "diatkoch-diatkochin-w-m-d-80-100-klinik-schoenberg-gunten"
         ]
       },
       "previousSlugs": [
-        "diatkoch-diatkochin-w-m-d-80-100-klinik-schoenberg-gunten",
-        "dipl-pflegefachperson-hf-fh-80-100-privatklinik-meiringen-thun",
-        "infermiera-hf-fh-80-100-privatklinik-meiringen-thun"
+        "diatkoch-diatkochin-w-m-d-80-100-klinik-schoenberg-gunten"
       ],
       "firstSeenAt": "2026-08-24T21:38:16.770Z",
       "salaryMin": 67500,
@@ -176,8 +169,7 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "klinik-schoenberg-21708d402e2c",
@@ -210,7 +202,7 @@
       "url": "https://my.jobalino.ch/job/69c4bb84d066fd5ff0b285fbb090f162/lehrstelle-2027-fachfrau-fachmann-gesundheit-fage-fage-e-efz",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:15:50.134Z",
+      "crawledAt": "2026-10-03T21:15:13.862Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -230,14 +222,12 @@
       "externalId": "69c4bb84d066fd5ff0b285fbb090f162",
       "previousSlugs": [
         "lehrstelle-2027-fachfrau-fachmann-gesundheit-fage-fage-e-efz-100-klinik-schoenberg-gunten",
-        "apprendistato-2027-fachfrau-fachmann-gesundheit-fage-e-cfc-100-klinik-schonberg-ag-gunten",
-        "apprendistato-2027-professional-health-fage-fage-e-efz-100-klinik-schonberg-ag-gunten"
+        "apprendistato-2027-fachfrau-fachmann-gesundheit-fage-e-cfc-100-klinik-schonberg-ag-gunten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-2027-fachfrau-fachmann-gesundheit-fage-fage-e-efz-100-klinik-schoenberg-gunten",
-          "apprendistato-2027-fachfrau-fachmann-gesundheit-fage-e-cfc-100-klinik-schonberg-ag-gunten",
-          "apprendistato-2027-professional-health-fage-fage-e-efz-100-klinik-schonberg-ag-gunten"
+          "apprendistato-2027-fachfrau-fachmann-gesundheit-fage-e-cfc-100-klinik-schonberg-ag-gunten"
         ],
         "en": [
           "lehrstelle-2027-fachfrau-fachmann-gesundheit-fage-fage-e-efz-100-klinik-schoenberg-gunten"
@@ -259,8 +249,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "klinik-schoenberg-fff7770dc676",
@@ -293,7 +282,7 @@
       "url": "https://my.jobalino.ch/job/8dc96aab4414d5022026e1963a9434f4/lehrstelle-2027-assistent-in-gesundheit-und-soziales-ags-eba_1428",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:15:49.572Z",
+      "crawledAt": "2026-10-03T21:15:13.377Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -313,14 +302,12 @@
       "externalId": "8dc96aab4414d5022026e1963a9434f4",
       "previousSlugs": [
         "lehrstelle-2027-assistent-in-gesundheit-und-soziales-ags-eba-100-klinik-schoenberg-gunten",
-        "apprendistato-2027-assistent-in-gesundheit-e-soziales-ags-afp-100-klinik-schonberg-ag-gunten",
-        "apprendistato-2027-assistente-salute-e-social-ags-eba-100-klinik-schonberg-ag-gunten"
+        "apprendistato-2027-assistent-in-gesundheit-e-soziales-ags-afp-100-klinik-schonberg-ag-gunten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-2027-assistent-in-gesundheit-und-soziales-ags-eba-100-klinik-schoenberg-gunten",
-          "apprendistato-2027-assistent-in-gesundheit-e-soziales-ags-afp-100-klinik-schonberg-ag-gunten",
-          "apprendistato-2027-assistente-salute-e-social-ags-eba-100-klinik-schonberg-ag-gunten"
+          "apprendistato-2027-assistent-in-gesundheit-e-soziales-ags-afp-100-klinik-schonberg-ag-gunten"
         ],
         "en": [
           "lehrstelle-2027-assistent-in-gesundheit-und-soziales-ags-eba-100-klinik-schoenberg-gunten"
@@ -342,8 +329,7 @@
           "maxValue": 112000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "klinik-schoenberg-89fbd08a5eb2",
@@ -376,7 +362,7 @@
       "url": "https://my.jobalino.ch/job/6cedfaf9d1f127606f659865988e923a/office-mitarbeiter-in-w-m-d",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:15:49.011Z",
+      "crawledAt": "2026-10-03T21:15:12.894Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -396,13 +382,11 @@
       "externalId": "6cedfaf9d1f127606f659865988e923a",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "office-mitarbeiter-in-w-m-d-80-100-klinik-schoenberg-gunten",
-        "office-collaboratore-trice-m-w-d-80-100-klinik-schonberg-ag-gunten"
+        "office-mitarbeiter-in-w-m-d-80-100-klinik-schoenberg-gunten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "office-mitarbeiter-in-w-m-d-80-100-klinik-schoenberg-gunten",
-          "office-collaboratore-trice-m-w-d-80-100-klinik-schonberg-ag-gunten"
+          "office-mitarbeiter-in-w-m-d-80-100-klinik-schoenberg-gunten"
         ],
         "en": [
           "office-mitarbeiter-in-w-m-d-80-100-klinik-schoenberg-gunten"
@@ -424,15 +408,14 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "klinik-schoenberg-e750136acc0d",
       "slug": "specialista-hr-m-w-d-80-100-klinik-schonberg-ag-gunten",
       "slugByLocale": {
-        "it": "specialista-hr-m-w-d-80-100-klinik-schonberg-ag-gunten",
-        "en": "specialist-hr-m-w-d-80-100-klinik-schonberg-ag-gunten",
+        "it": "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
+        "en": "sales-consultant-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
         "de": "fachspezialist-in-hr-m-w-d-80-100-klinik-schonberg-ag-gunten",
         "fr": "controleur-80-100-michel-gruppe-ag-meiringen"
       },
@@ -459,7 +442,7 @@
       "url": "https://my.jobalino.ch/job/7c78f9f0bfe5c577af147b33183b46cd/fachspezialist-in-hr-w-m-d",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:15:48.578Z",
+      "crawledAt": "2026-10-03T21:15:12.500Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -493,8 +476,8 @@
           "assistent-in-gesundheit-und-soziales-ags-oder-pflegehelfer-in-w-m-d-60-100-klinik",
           "assistente-sanitario-e-sociale-ags-o-assistente-infermiera-m-w-d-60-100-klinik-schonberg-ag-gunten",
           "fachspezialist-in-risorse-umane-m-w-d-80-100-klinik-schonberg-ag-gunten",
-          "fachspezialist-in-hr-w-m-d-80-100-klinik-schoenberg-gunten",
           "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
+          "fachspezialist-in-hr-w-m-d-80-100-klinik-schoenberg-gunten",
           "specialista-hr-m-w-d-80-100-klinik-schonberg-ag-gunten"
         ],
         "en": [
@@ -509,7 +492,6 @@
           "assistant-in-health-and-social-ags-or-nursing-assistant-in-m-w-d-60-100-klinik-schonberg-ag-gunten",
           "assistant-health-and-social-ags-or-nursing-assistant-m-w-d-60-100-klinik-schonberg-ag-gunten",
           "fachspezialist-in-hr-m-w-d-80-100-klinik-schonberg-ag-gunten",
-          "sales-consultant-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
           "specialist-hr-m-w-d-80-100-klinik-schonberg-ag-gunten"
         ],
         "de": [
@@ -520,8 +502,7 @@
           "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
           "assistent-in-gesundheit-und-soziales-ags-oder-pflegehelfer-in-w-m-d-60-100-klinik",
           "assistent-in-gesundheit-und-soziales-ags-oder-pflegehelfer-in-m-w-d-60-100-klinik-schonberg-ag-gunten",
-          "fachspezialist-in-hr-w-m-d-80-100-klinik-schoenberg-gunten",
-          "fachspezialist-in-hr-m-w-d-80-100-klinik-schonberg-ag-gunten"
+          "fachspezialist-in-hr-w-m-d-80-100-klinik-schoenberg-gunten"
         ]
       },
       "previousSlugs": [
@@ -547,9 +528,9 @@
         "assistente-sanitario-e-sociale-ags-o-assistente-infermiera-m-w-d-60-100-klinik-schonberg-ag-gunten",
         "fachspezialist-in-hr-m-w-d-80-100-klinik-schonberg-ag-gunten",
         "fachspezialist-in-risorse-umane-m-w-d-80-100-klinik-schonberg-ag-gunten",
-        "fachspezialist-in-hr-w-m-d-80-100-klinik-schoenberg-gunten",
         "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
         "sales-consultant-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
+        "fachspezialist-in-hr-w-m-d-80-100-klinik-schoenberg-gunten",
         "specialista-hr-m-w-d-80-100-klinik-schonberg-ag-gunten",
         "specialist-hr-m-w-d-80-100-klinik-schonberg-ag-gunten"
       ],
@@ -600,7 +581,7 @@
       "url": "https://my.jobalino.ch/job/80e424e55beb9566fa7b9d166549929e/dipl-pflegefachperson-hf-fh-w-m-d",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:15:48.009Z",
+      "crawledAt": "2026-10-03T21:15:12.011Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -643,14 +624,12 @@
       "previousSlugs": [
         "diplomierte-pflegefachperson-hf-fh-w-m-d-80-100-klinik-schoenberg-gunten",
         "diplomierte-pflegefachperson-hf-fh-w-m-d-80-100-klinik-schonberg-ag-gunten",
-        "dipl-pflegefachperson-hf-fh-w-m-d-80-100-klinik-schoenberg-gunten",
-        "infermiere-diplomato-hf-fh-w-m-d-80-100-klinik-schonberg-ag-gunten"
+        "dipl-pflegefachperson-hf-fh-w-m-d-80-100-klinik-schoenberg-gunten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-hf-fh-w-m-d-80-100-klinik-schoenberg-gunten",
-          "dipl-pflegefachperson-hf-fh-w-m-d-80-100-klinik-schoenberg-gunten",
-          "infermiere-diplomato-hf-fh-w-m-d-80-100-klinik-schonberg-ag-gunten"
+          "dipl-pflegefachperson-hf-fh-w-m-d-80-100-klinik-schoenberg-gunten"
         ],
         "en": [
           "diplomierte-pflegefachperson-hf-fh-w-m-d-80-100-klinik-schoenberg-gunten",
@@ -707,7 +686,7 @@
       "url": "https://my.jobalino.ch/job/e7485250903f75718f577817aa1a483a/fachperson-gesundheit-fage-w-m-d_227",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:15:47.445Z",
+      "crawledAt": "2026-10-03T21:15:11.525Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -727,13 +706,11 @@
       "externalId": "e7485250903f75718f577817aa1a483a",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "fachperson-gesundheit-fage-w-m-d-80-100-klinik-schoenberg-gunten",
-        "salute-professionale-fage-m-f-d-80-100-klinik-schonberg-ag-gunten"
+        "fachperson-gesundheit-fage-w-m-d-80-100-klinik-schoenberg-gunten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-fage-w-m-d-80-100-klinik-schoenberg-gunten",
-          "salute-professionale-fage-m-f-d-80-100-klinik-schonberg-ag-gunten"
+          "fachperson-gesundheit-fage-w-m-d-80-100-klinik-schoenberg-gunten"
         ],
         "en": [
           "fachperson-gesundheit-fage-w-m-d-80-100-klinik-schoenberg-gunten"
@@ -788,7 +765,7 @@
       "url": "https://my.jobalino.ch/job/d04c92d8d180de8b487c70e692c4199a/bereichsleiter-in-bildung-pflege-w-m-d",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:15:46.881Z",
+      "crawledAt": "2026-10-03T21:15:11.043Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -811,14 +788,12 @@
         "bereichsleiter-in-bildung-pflege-w-m-d-50-60-klinik-schoenberg-gunten",
         "area-manager-in-educazione-m-f-d-50-60-klinik-schonberg-ag-gunten",
         "area-manager-in-education-care-m-f-d-50-60-klinik-schonberg-ag-gunten",
-        "gestionnaire-de-secteur-dans-les-soins-educatifs-h-f-d-50-60-klinik-schonberg-ag-gunten",
-        "divisione-head-education-care-m-f-d-50-60-klinik-schonberg-ag-gunten"
+        "gestionnaire-de-secteur-dans-les-soins-educatifs-h-f-d-50-60-klinik-schonberg-ag-gunten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bereichsleiter-in-bildung-pflege-w-m-d-50-60-klinik-schoenberg-gunten",
-          "area-manager-in-educazione-m-f-d-50-60-klinik-schonberg-ag-gunten",
-          "divisione-head-education-care-m-f-d-50-60-klinik-schonberg-ag-gunten"
+          "area-manager-in-educazione-m-f-d-50-60-klinik-schonberg-ag-gunten"
         ],
         "en": [
           "bereichsleiter-in-bildung-pflege-w-m-d-50-60-klinik-schoenberg-gunten",
@@ -842,8 +817,7 @@
           "maxValue": 96000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "klinik-schoenberg-48fb956c4e1a",
@@ -877,7 +851,7 @@
       "url": "https://my.jobalino.ch/job/78552fe65af10c48ef99344fceaae9bf/sachbearbeiter-in-patientenaufnahme-w-m-d",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:15:46.318Z",
+      "crawledAt": "2026-10-03T21:15:10.542Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -898,14 +872,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "sachbearbeiter-in-patientenaufnahme-w-m-d-50-70-klinik-schoenberg-gunten",
-        "sachbearbeiter-in-patientenaufnahme-w-m-d-50-70-klinik-schonberg-ag-gunten",
-        "ingresso-del-paziente-del-personale-m-f-d-50-70-klinik-schonberg-ag-gunten"
+        "sachbearbeiter-in-patientenaufnahme-w-m-d-50-70-klinik-schonberg-ag-gunten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-patientenaufnahme-w-m-d-50-70-klinik-schoenberg-gunten",
-          "sachbearbeiter-in-patientenaufnahme-w-m-d-50-70-klinik-schonberg-ag-gunten",
-          "ingresso-del-paziente-del-personale-m-f-d-50-70-klinik-schonberg-ag-gunten"
+          "sachbearbeiter-in-patientenaufnahme-w-m-d-50-70-klinik-schonberg-ag-gunten"
         ],
         "en": [
           "sachbearbeiter-in-patientenaufnahme-w-m-d-50-70-klinik-schonberg-ag-gunten"
@@ -961,7 +933,7 @@
       "url": "https://my.jobalino.ch/job/d377ec5e3dcd50e041dee7135160a127/medizinische-r-masseur-in-w-m-d_316",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:15:45.752Z",
+      "crawledAt": "2026-10-03T21:15:10.042Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -981,13 +953,11 @@
       "externalId": "d377ec5e3dcd50e041dee7135160a127",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "medizinische-r-masseur-in-w-m-d-60-80-klinik-schoenberg-gunten",
-        "medico-r-massaggiatore-m-f-d-60-80-klinik-schonberg-ag-gunten"
+        "medizinische-r-masseur-in-w-m-d-60-80-klinik-schoenberg-gunten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-masseur-in-w-m-d-60-80-klinik-schoenberg-gunten",
-          "medico-r-massaggiatore-m-f-d-60-80-klinik-schonberg-ag-gunten"
+          "medizinische-r-masseur-in-w-m-d-60-80-klinik-schoenberg-gunten"
         ]
       },
       "firstSeenAt": "2026-09-28T21:17:21.023Z",
@@ -1036,7 +1006,7 @@
       "url": "https://my.jobalino.ch/job/73659d11d66726d34baa1203b951e13a/lehrstelle-2027-fachfrau-mann-hotellerie-hauswirtschaft-efz",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:15:44.761Z",
+      "crawledAt": "2026-10-03T21:15:09.141Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1056,13 +1026,11 @@
       "externalId": "73659d11d66726d34baa1203b951e13a",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "lehrstelle-2027-fachfrau-mann-hotellerie-hauswirtschaft-efz-100-klinik-schoenberg-gunten",
-        "apprendistato-2027-fachfrau-mann-hotellerie-hauswirtschaft-cfc-100-klinik-schonberg-ag-gunten"
+        "lehrstelle-2027-fachfrau-mann-hotellerie-hauswirtschaft-efz-100-klinik-schoenberg-gunten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-2027-fachfrau-mann-hotellerie-hauswirtschaft-efz-100-klinik-schoenberg-gunten",
-          "apprendistato-2027-fachfrau-mann-hotellerie-hauswirtschaft-cfc-100-klinik-schonberg-ag-gunten"
+          "lehrstelle-2027-fachfrau-mann-hotellerie-hauswirtschaft-efz-100-klinik-schoenberg-gunten"
         ],
         "en": [
           "lehrstelle-2027-fachfrau-mann-hotellerie-hauswirtschaft-efz-100-klinik-schoenberg-gunten"
@@ -1084,8 +1052,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "klinik-schoenberg-e06896668b0c",
@@ -1118,7 +1085,7 @@
       "url": "https://my.jobalino.ch/job/ad9827b92dcdcf1fdd96bf6bb8cc6c02/lehrstelle-2027-praktiker-in-hotellerie-hauswirtschaft-eba",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:15:44.183Z",
+      "crawledAt": "2026-10-03T21:15:08.634Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1138,13 +1105,11 @@
       "externalId": "ad9827b92dcdcf1fdd96bf6bb8cc6c02",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "lehrstelle-2027-praktiker-in-hotellerie-hauswirtschaft-eba-100-klinik-schoenberg-gunten",
-        "apprendistato-2027-praktiker-in-hotellerie-hauswirtschaft-afp-100-klinik-schonberg-ag-gunten"
+        "lehrstelle-2027-praktiker-in-hotellerie-hauswirtschaft-eba-100-klinik-schoenberg-gunten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-2027-praktiker-in-hotellerie-hauswirtschaft-eba-100-klinik-schoenberg-gunten",
-          "apprendistato-2027-praktiker-in-hotellerie-hauswirtschaft-afp-100-klinik-schonberg-ag-gunten"
+          "lehrstelle-2027-praktiker-in-hotellerie-hauswirtschaft-eba-100-klinik-schoenberg-gunten"
         ],
         "en": [
           "lehrstelle-2027-praktiker-in-hotellerie-hauswirtschaft-eba-100-klinik-schoenberg-gunten"
@@ -1166,8 +1131,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }
