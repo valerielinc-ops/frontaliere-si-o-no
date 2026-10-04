@@ -5,16 +5,20 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterEach, describe, expect, it } from 'vitest';
 
+import { collectDiscoveredInventory } from '../../scripts/seo/bing-site-explorer-crawl.mjs';
 import { writeJsonStreaming } from '../../scripts/seo/bing-site-explorer-report.mjs';
 
 // Observer for the full-tree report artifact. Run 36996732377 died with
 // `RangeError: Invalid string length` inside `JSON.stringify(summary, null, 2)`
 // and, because the summary was written first, the issue body file was never
 // created: the backlog issue got "_no details provided_". These tests fail if
-// the summary is serialized as one string again or written before the body.
+// the summary is serialized as one string again or written before the body,
+// or if the crawler's discovered-frontier manifest (same growth driver) goes
+// back to a single `JSON.stringify(value, null, 2)`.
 
 const BASE = 'https://frontaliereticino.ch';
 const REPORT_SCRIPT = fileURLToPath(new URL('../../scripts/seo/bing-site-explorer-report.mjs', import.meta.url));
+const CRAWL_SCRIPT = fileURLToPath(new URL('../../scripts/seo/bing-site-explorer-crawl.mjs', import.meta.url));
 
 const tempDirs: string[] = [];
 function tempDir(): string {
@@ -59,13 +63,13 @@ function largeSummary(findingCount: number, urlCount: number) {
   };
 }
 
-function mainSource(): string {
-  const source = readFileSync(REPORT_SCRIPT, 'utf8');
-  const start = source.indexOf('async function main()');
-  const end = source.indexOf('const invokedDirectly', start);
-  expect(start).toBeGreaterThanOrEqual(0);
-  expect(end).toBeGreaterThan(start);
-  return source.slice(start, end);
+// The streaming writer puts every array element on its own line in compact
+// form; `JSON.stringify(value, null, 2)` would spread an object element over
+// several lines instead. Checking the written text tells the two apart without
+// pinning the source.
+function expectCompactArrayLine(written: string, element: unknown) {
+  const lines = written.split('\n');
+  expect(lines.some((line) => line.replace(/,$/, '') === `    ${JSON.stringify(element)}`)).toBe(true);
 }
 
 describe('Bing full-tree report artifact writer', () => {
@@ -103,15 +107,45 @@ describe('Bing full-tree report artifact writer', () => {
     expect(written.length).toBeGreaterThan(chunkChars * 10);
   });
 
-  it('writes the issue body before the summary and the summary without one big string (source contract)', () => {
-    const main = mainSource();
-    const issueBodyAt = main.indexOf('writeFileSync(resolve(issueBodyPath)');
-    const summaryAt = main.indexOf('writeJsonStreaming(output');
-    expect(issueBodyAt).toBeGreaterThanOrEqual(0);
-    expect(summaryAt).toBeGreaterThanOrEqual(0);
-    expect(issueBodyAt).toBeLessThan(summaryAt);
-    expect(main).not.toContain('writeJson(output');
-    expect(main).not.toMatch(/JSON\.stringify\(summary\b/);
+  it('round-trips a discovered-frontier inventory and follows JSON.stringify for unrepresentable values', () => {
+    const manifest = { baseUrl: BASE, urls: [`${BASE}/`] };
+    const reports = [{ discoveredOutOfSitemap: Array.from({ length: 5_000 }, (_, index) => `${BASE}/it/pagina-${index}/`) }];
+    const inventory = collectDiscoveredInventory({ manifest, reports, baseUrl: BASE, partitions: 4 });
+    const file = join(tempDir(), 'discovered.json');
+    writeJsonStreaming(file, { ...inventory, dropped: undefined, fn: () => 1, sym: Symbol('x'), mixed: [1, undefined, Symbol('y'), 'a'] });
+    const written = readFileSync(file, 'utf8');
+    const parsed = JSON.parse(written);
+    expect(parsed).toEqual(JSON.parse(JSON.stringify({ ...inventory, mixed: [1, null, null, 'a'] })));
+    expect(parsed.urls).toHaveLength(inventory.urls.length);
+    expect(Object.keys(parsed)).not.toContain('sym');
+  });
+
+  it('writes the crawler discovered-frontier manifest one element per line (CLI)', () => {
+    const dir = tempDir();
+    const reportsDir = join(dir, 'reports');
+    mkdirSync(reportsDir);
+    writeFileSync(join(dir, 'manifest.json'), JSON.stringify({ baseUrl: BASE, urls: [`${BASE}/`] }));
+    writeFileSync(join(reportsDir, 'partition-0.json'), JSON.stringify({
+      // The malformed editor token becomes an object finding: with an object
+      // element the compact one-per-line form differs from `null, 2`.
+      discoveredOutOfSitemap: [`${BASE}/it/fuori-a/`, `${BASE}/it/fuori-b/`, `${BASE}/it/<nav:calculator>/`],
+    }));
+    const out = join(dir, 'discovered.json');
+    const result = spawnSync(process.execPath, [
+      CRAWL_SCRIPT,
+      '--discovered-inventory',
+      '--base-manifest-file', join(dir, 'manifest.json'),
+      '--reports-dir', reportsDir,
+      '--base-url', BASE,
+      '--out', out,
+    ], { encoding: 'utf8' });
+    expect(result.status).toBe(0);
+    const written = readFileSync(out, 'utf8');
+    const parsed = JSON.parse(written);
+    expect(parsed.urls).toEqual([`${BASE}/it/fuori-a/`, `${BASE}/it/fuori-b/`]);
+    expect(parsed.findings.length).toBeGreaterThan(0);
+    expectCompactArrayLine(written, parsed.findings[0]);
+    expect(written).not.toMatch(/^ {6}"code": "internal-link-malformed",?$/m);
   });
 
   it('keeps the issue body when the summary cannot be written (CLI)', () => {
@@ -164,5 +198,10 @@ describe('Bing full-tree report artifact writer', () => {
     const summary = JSON.parse(readFileSync(okOut, 'utf8'));
     expect(summary.actionableCount).toBe(summary.actionableFindings.length);
     expect(summary.discoveredOutOfSitemap).toEqual([`${BASE}/fuori-sitemap/`]);
+    // The summary goes through the streaming writer: each finding is one compact
+    // line, never the multi-line form of `JSON.stringify(summary, null, 2)`.
+    const written = readFileSync(okOut, 'utf8');
+    expectCompactArrayLine(written, summary.findings[0]);
+    expect(written).not.toMatch(/^ {6}"code": "title-too-long",?$/m);
   });
 });
