@@ -210,16 +210,14 @@
       "streetAddress": "Zürichstrasse 132",
       "previousSlugs": [
         "client-service-representative-swissquote-dubendorf",
-        "representant-du-service-a-la-clientele-swissquote-dubendorf",
-        "rappresentante-del-servizio-clienti-swissquote-dubendorf"
+        "representant-du-service-a-la-clientele-swissquote-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "client-service-representative-swissquote-dubendorf"
         ],
         "fr": [
-          "representant-du-service-a-la-clientele-swissquote-dubendorf",
-          "client-service-representative-swissquote-dubendorf"
+          "representant-du-service-a-la-clientele-swissquote-dubendorf"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -1593,7 +1591,7 @@
         "it": "ufficiale-di-compliance-sanzioni-swissquote-gland-c308c2",
         "en": "compliance-officer-sanctions-swissquote-gland",
         "de": "compliance-officer-sanctions-swissquote-gland",
-        "fr": "compliance-officer-sanctions-swissquote-gland"
+        "fr": "agent-de-conformite-sanctions-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -1657,7 +1655,6 @@
         ],
         "fr": [
           "agent-de-conformite-sanctions-swissquote-gland-c308c2",
-          "agent-de-conformite-sanctions-swissquote-gland",
           "compliance-officer-sanctions-swissquote-gland"
         ]
       },
@@ -2052,8 +2049,7 @@
       "streetAddress": "Chemin de la Crétaux 33",
       "previousSlugs": [
         "fx-execution-trader-swissquote-gland",
-        "commerce-fx-execution-swissquote-gland",
-        "fx-trader-di-esecuzione-swissquote-gland"
+        "commerce-fx-execution-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2063,8 +2059,7 @@
           "fx-execution-trader-swissquote-gland"
         ],
         "fr": [
-          "commerce-fx-execution-swissquote-gland",
-          "fx-execution-trader-swissquote-gland"
+          "commerce-fx-execution-swissquote-gland"
         ]
       },
       "firstSeenAt": "2026-09-18T14:21:38.632Z",
@@ -2434,13 +2429,11 @@
       "postalCode": "1196",
       "streetAddress": "Chemin de la Crétaux 33",
       "previousSlugs": [
-        "regulatory-reporting-specialist-swissquote-gland",
-        "regulatory-reporting-specialista-swissquote-gland"
+        "regulatory-reporting-specialist-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "regulatory-reporting-specialist-swissquote-gland",
-          "regulatory-reporting-specialista-swissquote-gland"
+          "regulatory-reporting-specialist-swissquote-gland"
         ],
         "de": [
           "regulatory-reporting-specialist-swissquote-gland"
@@ -2657,14 +2650,11 @@
       "firstSeenAt": "2026-10-03T09:29:15.234Z",
       "previousSlugsByLocale": {
         "it": [
-          "android-software-engineer-swissquote-gland",
-          "android-software-ingegnere-swissquote-gland"
+          "android-software-engineer-swissquote-gland"
         ]
       },
       "previousSlugs": [
-        "android-software-engineer-swissquote-gland",
-        "android-software-ingegnere-swissquote-gland",
-        "android-software-ingenieur-swissquote-gland"
+        "android-software-engineer-swissquote-gland"
       ],
       "salaryMin": 63000,
       "salaryMax": 107500,
@@ -2733,18 +2723,14 @@
       "streetAddress": "Chemin de la Crétaux 33",
       "previousSlugs": [
         "relationship-manager-externe-asset-manager-eam-swissquote-gland",
-        "relationship-manager-external-asset-managers-eam-swissquote-gland",
-        "gestione-delle-relazioni-gestione-delle-risorse-esterne-eam-swissquote-gland",
-        "gestionnaire-de-relations-gestionnaires-d-actifs-externes-gae-swissquote-gland"
+        "relationship-manager-external-asset-managers-eam-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "relationship-manager-external-asset-managers-eam-swissquote-gland",
-          "gestione-delle-relazioni-gestione-delle-risorse-esterne-eam-swissquote-gland"
+          "relationship-manager-external-asset-managers-eam-swissquote-gland"
         ],
         "fr": [
-          "relationship-manager-external-asset-managers-eam-swissquote-gland",
-          "gestionnaire-de-relations-gestionnaires-d-actifs-externes-gae-swissquote-gland"
+          "relationship-manager-external-asset-managers-eam-swissquote-gland"
         ],
         "de": [
           "relationship-manager-externe-asset-manager-eam-swissquote-gland"

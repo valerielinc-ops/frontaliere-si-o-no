@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "rfsm-fribourg-3922d1e34cad",
-      "slug": "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens",
+      "slug": "contabile-esperto-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
       "slugByLocale": {
-        "it": "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens",
-        "en": "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens",
+        "it": "contabile-esperto-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "en": "experienced-accountant-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "de": "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens",
-        "fr": "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens"
+        "fr": "comptable-experimente-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
       "companyKey": "rfsm-fribourg",
@@ -64,7 +64,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens"
+        ],
+        "en": [
+          "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens"
+        ],
+        "fr": [
+          "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens"
+        ]
+      },
+      "previousSlugs": [
+        "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens"
+      ]
     },
     {
       "id": "rfsm-fribourg-9912457d5c76",
@@ -117,18 +131,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stagiaire-juridique-stagiaire-juridique-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens",
-        "interno-legale-interno-legale-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "legal-intern-legal-intern-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens",
-          "interno-legale-interno-legale-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens"
         ],
         "en": [
-          "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens",
-          "legal-intern-legal-intern-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens"
         ],
         "fr": [
           "stagiaire-juridique-stagiaire-juridique-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
@@ -201,13 +211,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg",
-          "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de-fribourg-ch"
+          "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg"
         ],
         "it": [
           "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de-fribourg-ch",
-          "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg",
-          "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-e-psychotherapie-etat-de-fribourg-marsens"
+          "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg"
         ],
         "en": [
           "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de-fribourg-ch"
@@ -218,8 +226,7 @@
       },
       "previousSlugs": [
         "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de-fribourg-ch",
-        "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg",
-        "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-e-psychotherapie-etat-de-fribourg-marsens"
+        "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg"
       ],
       "firstSeenAt": "2026-07-04T10:42:30.790Z",
       "salaryMin": 115000,
@@ -286,13 +293,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-fnpg-marsens-station-thalassa-rfsm-fribourg-marsens",
-        "medico-senior-fnpg-marsens-stazione-thalassa-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        "oberarztin-oberarzt-fnpg-marsens-station-thalassa-rfsm-fribourg-marsens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-fnpg-marsens-station-thalassa-rfsm-fribourg-marsens",
-          "medico-senior-fnpg-marsens-stazione-thalassa-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "oberarztin-oberarzt-fnpg-marsens-station-thalassa-rfsm-fribourg-marsens"
         ],
         "en": [
           "oberarztin-oberarzt-fnpg-marsens-station-thalassa-rfsm-fribourg-marsens"
@@ -367,8 +372,7 @@
       "previousSlugsByLocale": {
         "de": [
           "assistenzarzt-arztin-fnpg-bereich-kinder-und-jugendpsychiatrie-und-psychotherapie-etat-de",
-          "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg",
-          "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de"
+          "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg"
         ],
         "it": [
           "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de",
@@ -376,8 +380,7 @@
           "assistant-physician-fnpg-department-of-child-and-adolescent-psychiatry-and-psychotherapy-etat-de-fribourg-marsens",
           "assistenzarzt-arztin-fnpg-bereich-kinder-und-jugendpsychiatrie-und-psychotherapie-etat-de",
           "medecin-adjoint-fnpg-departement-de-psychiatrie-et-de-psychotherapie-de-l-enfant-et-de-l-adolescent-etat-de-fribourg",
-          "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg",
-          "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-e-psychotherapie-etat-de-fribourg-marsens"
+          "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg"
         ],
         "en": [
           "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de",
@@ -394,8 +397,7 @@
         "assistant-physician-fnpg-department-of-child-and-adolescent-psychiatry-and-psychotherapy-etat-de-fribourg-marsens",
         "assistenzarzt-arztin-fnpg-bereich-kinder-und-jugendpsychiatrie-und-psychotherapie-etat-de",
         "medecin-adjoint-fnpg-departement-de-psychiatrie-et-de-psychotherapie-de-l-enfant-et-de-l-adolescent-etat-de-fribourg",
-        "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg",
-        "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-e-psychotherapie-etat-de-fribourg-marsens"
+        "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-rfsm-fribourg"
       ],
       "firstSeenAt": "2026-07-04T10:42:29.512Z",
       "salaryMin": 85000,
@@ -494,11 +496,11 @@
     },
     {
       "id": "rfsm-fribourg-2340a67895f3",
-      "slug": "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens",
+      "slug": "contabile-senior-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
       "slugByLocale": {
-        "it": "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens",
-        "en": "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens",
-        "de": "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens",
+        "it": "contabile-senior-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "en": "senior-accountant-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "de": "leitender-buchhalter-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "fr": "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
@@ -554,7 +556,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens"
+        ],
+        "en": [
+          "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens"
+        ],
+        "de": [
+          "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens"
+        ]
+      },
+      "previousSlugs": [
+        "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens"
+      ]
     },
     {
       "id": "rfsm-fribourg-b0713a2e8644",
@@ -684,13 +700,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-rfsm-fribourg",
-          "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-etat-de"
+          "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-rfsm-fribourg"
         ],
         "it": [
           "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-etat-de",
-          "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-rfsm-fribourg",
-          "pflegefachperson-fnpg-marsens-e-villars-sur-glane-per-spontanbewerbungen-etat-de-fribourg-marsens"
+          "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-rfsm-fribourg"
         ],
         "en": [
           "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-etat-de"
@@ -701,8 +715,7 @@
       },
       "previousSlugs": [
         "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-etat-de",
-        "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-rfsm-fribourg",
-        "pflegefachperson-fnpg-marsens-e-villars-sur-glane-per-spontanbewerbungen-etat-de-fribourg-marsens"
+        "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-rfsm-fribourg"
       ],
       "firstSeenAt": "2026-07-04T10:42:39.200Z",
       "salaryMin": 85000,
@@ -770,24 +783,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-fribourg-marsens",
-        "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "capo-di-clinica-assistant-rfsm-marsens-unita-luna-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "chief-of-clinic-assistant-rfsm-marsens-luna-unit-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "leiter-der-klinik-assistent-rfsm-marsens-einheit-luna-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-reseau-fribourgeois-sante-mentale-marsens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-fribourg-marsens",
-          "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-          "capo-di-clinica-assistant-rfsm-marsens-unita-luna-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-reseau-fribourgeois-sante-mentale-marsens"
         ],
         "en": [
-          "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-fribourg-marsens",
-          "chief-of-clinic-assistant-rfsm-marsens-luna-unit-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-fribourg-marsens"
         ],
         "de": [
-          "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-fribourg-marsens",
-          "leiter-der-klinik-assistent-rfsm-marsens-einheit-luna-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "chef-fe-de-clinique-adjoint-e-rfsm-marsens-unite-luna-rfsm-fribourg-marsens"
         ]
       },
       "firstSeenAt": "2026-10-03T09:29:19.077Z",
@@ -855,13 +862,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-en-pharmacie-rfsm-marsens-rfsm-fribourg-marsens",
-        "assistente-farmacia-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        "assistant-e-en-pharmacie-rfsm-marsens-rfsm-fribourg-marsens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-en-pharmacie-rfsm-marsens-rfsm-fribourg-marsens",
-          "assistente-farmacia-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "assistant-e-en-pharmacie-rfsm-marsens-rfsm-fribourg-marsens"
         ]
       },
       "firstSeenAt": "2026-10-03T09:29:18.307Z",
@@ -993,13 +998,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-fe-de-clinique-rfsm-marsens-unite-thalassa-rfsm-fribourg-marsens",
-        "capo-della-clinica-rfsm-marsens-unita-thalassa-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        "chef-fe-de-clinique-rfsm-marsens-unite-thalassa-rfsm-fribourg-marsens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-clinique-rfsm-marsens-unite-thalassa-rfsm-fribourg-marsens",
-          "capo-della-clinica-rfsm-marsens-unita-thalassa-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "chef-fe-de-clinique-rfsm-marsens-unite-thalassa-rfsm-fribourg-marsens"
         ],
         "en": [
           "chef-fe-de-clinique-rfsm-marsens-unite-thalassa-rfsm-fribourg-marsens"
@@ -1076,21 +1079,18 @@
         "interno-legale-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "legal-intern-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "rechtspraktikant-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens",
-        "addestramento-legale-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens",
-          "addestramento-legale-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens"
         ],
         "en": [
           "legal-intern-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
           "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens"
         ],
         "de": [
-          "rechtspraktikant-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-          "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens"
+          "rechtspraktikant-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
         ]
       },
       "firstSeenAt": "2026-10-03T09:29:15.952Z",
@@ -1160,14 +1160,12 @@
       "previousSlugsByLocale": {
         "fr": [
           "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
-          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch",
-          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
         ],
         "it": [
           "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
           "responsabile-clinica-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch",
-          "responsabile-clinica-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens"
+          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
         ],
         "en": [
           "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
@@ -1183,9 +1181,7 @@
         "head-of-clinic-rfsm-psychiatry-and-adult-psychotherapy-sector-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "klinikleiter-rfsm-psychiatrie-und-psychotherapie-fur-erwachsene-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "responsabile-clinica-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch",
-        "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "responsabile-clinica-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens"
+        "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
       ],
       "firstSeenAt": "2026-05-21T00:03:00.358Z",
       "salaryMin": 115000,
@@ -1333,8 +1329,7 @@
         "fr": [
           "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
           "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-de-l-enfant-adolescent-etat",
-          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch",
-          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
         ],
         "it": [
           "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
@@ -1347,8 +1342,7 @@
           "assistant-physician-rfsm-child-adolescent-psychiatry-and-psychotherapy-sector-rfsm-reseau-fribourgeois-sante-mentale",
           "medecin-assistent-e-rfsm-secteur-psychiatrie-et-psychotherapie-de-l-enfant-adolescent-rfsm-reseau-fribourgeois-sante",
           "assistente-medico-rfsm-psichiatria-infantile-adolescente-e-settore-psicoterapia-rfsm-reseau-fribourgeois-sante-mentale",
-          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch",
-          "assistente-medico-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens"
+          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
         ],
         "en": [
           "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
@@ -1373,9 +1367,7 @@
         "assistant-physician-rfsm-child-adolescent-psychiatry-and-psychotherapy-sector-rfsm-reseau-fribourgeois-sante-mentale",
         "medecin-assistent-e-rfsm-secteur-psychiatrie-et-psychotherapie-de-l-enfant-adolescent-rfsm-reseau-fribourgeois-sante",
         "assistente-medico-rfsm-psichiatria-infantile-adolescente-e-settore-psicoterapia-rfsm-reseau-fribourgeois-sante-mentale",
-        "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch",
-        "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "assistente-medico-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens"
+        "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
       ],
       "firstSeenAt": "2026-05-21T00:02:58.754Z",
       "salaryMin": 85000,
@@ -1526,15 +1518,13 @@
         "nurse-rfsm-marsens-and-villars-sur-glane-for-spontaneous-applications-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "krankenschwester-rfsm-marsens-und-villars-sur-glane-fur-spontane-anwendungen-rfsm-reseau-fribourgeois-sante-mentale",
         "infermiera-rfsm-marsens-e-villars-sur-glane-per-applicazioni-spontanee-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-etat-de",
-        "infermiera-rfsm-marsens-e-villars-sur-glane-per-applicazioni-spontanee-etat-de-fribourg-marsens"
+        "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-etat-de"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-rfsm",
           "infermiera-rfsm-marsens-e-villars-sur-glane-per-applicazioni-spontanee-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-          "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-etat-de",
-          "infermiera-rfsm-marsens-e-villars-sur-glane-per-applicazioni-spontanee-etat-de-fribourg-marsens"
+          "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-etat-de"
         ],
         "en": [
           "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-rfsm",
