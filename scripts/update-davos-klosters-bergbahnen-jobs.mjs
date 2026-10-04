@@ -3,6 +3,7 @@
  * Dedicated Davos Klosters Bergbahnen AG crawler runner.
  * Source: https://www.davosklosters.ch/bergbahnen
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -126,7 +127,7 @@ async function main() {
       addressLocality: raw.location || 'Davos', addressCountry: 'CH',
       category: 'tourism', contract: 'full-time',
       employmentType: inferEmploymentType(raw.title, description),
-      currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
+      currency: 'CHF', featured: false, ...sourcePostingDateFields(''),
       url: raw.url, source: 'Davos Klosters Bergbahnen Dedicated Parser', sourceLang, crawledAt: new Date().toISOString(),
     });
     if (isDavosKlostersBergbahnenSourceBodyPublishable(description)) console.log(`  ✅ ${raw.title} — ${raw.location}`);

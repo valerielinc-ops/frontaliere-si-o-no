@@ -105,6 +105,7 @@ import {
   listPortableTreeSitePaths,
   registeredCorpusSitePaths,
 } from './ci/prepare-crawler-workflow-corpus-sync.mjs';
+import { CRAWLER_GENERATION_RUNTIME_PATHS } from './lib/crawler-generation-runtime-paths.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -291,28 +292,6 @@ const CORPUS_OBSERVER_SITE_SOURCES = new Map([
 const CRAWLER_GENERATION_ROSTER_PATH = path.join(REPO_ROOT, 'scripts/ci/crawler-generation-roster.json');
 const CRAWLER_GENERATION_ARTIFACT_RETENTION_DAYS = 14;
 const CRAWLER_GENERATION_LEDGER_PATH = 'data/crawler-generation-ledger.jsonl';
-const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
-  'functions/src/githubApiHeaders.js',
-  'scripts/crawler-group-generation-finalizer.mjs',
-  'scripts/lib/accumulator-byte-floor-guard.mjs',
-  'scripts/lib/atomic-write-json.mjs',
-  'scripts/lib/canonical-json-digest.mjs',
-  'scripts/lib/crawler-generation-contract.mjs',
-  'scripts/lib/crawler-generation-group-ids.mjs',
-  'scripts/lib/crawler-generation-receipt.mjs',
-  'scripts/lib/crawler-generation-token.mjs',
-  'scripts/lib/crawler-grace-policy.mjs',
-  'scripts/lib/crawler-location-config.mjs',
-  'scripts/lib/crawler-slice-integrity.mjs',
-  'scripts/lib/global-data-pipeline-lease.mjs',
-  'scripts/lib/job-match-key.mjs',
-  'scripts/lib/job-url-key.mjs',
-  'scripts/lib/locale-map-diff.mjs',
-  'scripts/lib/prospector/country-inventory.mjs',
-  'scripts/lib/slug-history-journal.mjs',
-  'scripts/lib/slug-preservation-guard.mjs',
-  'scripts/lib/target-swiss-locations.mjs',
-]);
 
 const SITE_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
 const CROSS_REPO_BACKOFF_SECONDS = 30;
@@ -389,6 +368,27 @@ export function resolveCrawlerContractSource({ sourceCommit, sourceRef } = {}) {
     throw new Error(`crawler contract sourceRef must be a non-empty ref without whitespace, got ${JSON.stringify(ref)}`);
   }
   return { sourceCommit: String(commit), sourceRef: String(ref) };
+}
+
+// Il contratto committato e' la lineage che il corpus rilegge
+// (`scripts/ci/verify-crawler-contract-provenance.mjs`): non puo' indicare il
+// merge sintetico di una pull request. In un evento `pull_request` GITHUB_SHA e
+// GITHUB_REF_NAME descrivono `refs/pull/<N>/merge`, un commit che GitHub
+// ricalcola a ogni push e che main non conterra' mai: cosi' la PR 11227 ha
+// portato `sourceRef: "11227/merge"` su main e nel lockstep del corpus.
+const PULL_REQUEST_REF_RE = /^(?:refs\/)?pull\/\d+\/|^\d+\/(?:merge|head)$/u;
+
+/** Reject a contract source that names a pull request merge instead of a branch revision. */
+export function assertCommittedContractSource(source, env = process.env) {
+  const remedy = 'regenerate with CRAWLER_SOURCE_REF=main CRAWLER_SOURCE_COMMIT="$(git merge-base origin/main HEAD)"';
+  if (PULL_REQUEST_REF_RE.test(String(source.sourceRef))) {
+    throw new Error(`crawler contract sourceRef ${JSON.stringify(source.sourceRef)} is a pull request ref, not a branch: ${remedy}`);
+  }
+  if (!env.CRAWLER_SOURCE_COMMIT && /^pull_request/u.test(String(env.GITHUB_EVENT_NAME || ''))
+    && source.sourceCommit === env.GITHUB_SHA) {
+    throw new Error(`crawler contract sourceCommit ${source.sourceCommit} is the synthetic merge commit of a pull_request run: ${remedy}`);
+  }
+  return source;
 }
 
 /**
@@ -2133,20 +2133,42 @@ const TRANSLATION_WRITE_BOUNDARY_HEADER = [
 //    non basta a decidere: il guard DIMOSTRA che la coda e' vuota leggendo
 //    l'elenco delle run del workflow SENZA filtro di stato (stesso `guard_api`,
 //    stesso tetto di pagine). Quell'elenco non ha il conteggio fantasma: il suo
-//    `total_count` e' il totale delle run e la paginazione lo rispetta. La prova
-//    chiude solo con una pagina corta (elenco finito: ogni run vista col suo
-//    stato). Una pagina piena non dimostra che la pagina successiva sia priva
-//    di una run piu' vecchia ancora in coda, anche quando quella pagina contiene
-//    solo run concluse oltre alla corrente: si continua a leggere fino alla
-//    pagina corta e al tetto senza tale pagina si fa fail-closed. Un
-//    fail-closed sul solo confronto conteggio/righe resta escluso: sotto il
-//    conteggio fantasma (run del corpus 37122259464 e 37101329262) spegneva la
-//    traduzione in 13 run su 14.
+//    `total_count` e' il totale delle run e la paginazione lo rispetta (misurato
+//    il 2026-10-04: 236 run nella finestra, 236 righe lette in tre pagine).
+//    Una pagina piena non dimostra che la pagina successiva sia priva di una
+//    run piu' vecchia ancora in coda, anche quando quella pagina contiene solo
+//    run concluse oltre alla corrente: sotto il tetto si legge sempre la pagina
+//    seguente. La prova chiude in due soli casi, entrambi con le righe DISTINTE
+//    lette che coprono il `total_count` minimo visto: (a) una pagina corta, cioè
+//    elenco finito; (b) al tetto, l'ultima pagina piena che chiude esattamente
+//    l'elenco. Il minimo, non l'ultimo: una run creata fra due letture alza il
+//    conteggio delle pagine seguenti ma e' piu' recente della corrente, e le
+//    righe gia' lette restano complete. Una pagina corta con meno righe distinte
+//    del conteggio e' un elenco incoerente (`workflow_runs_unfiltered_incomplete`)
+//    e al tetto righe sotto il conteggio sono una coda piu' lunga di quella
+//    leggibile (`workflow_runs_queue_unproven`): fail-closed in entrambi i casi.
+//    Perche' la fine dell'elenco arrivi sempre, l'elenco e' limitato alle run
+//    create negli ultimi TRANSLATE_QUEUE_GUARD_RUN_LIFETIME_DAYS giorni: GitHub
+//    annulla una run dopo 35 giorni, coda compresa, quindi una run piu' vecchia
+//    non puo' essere viva. Senza il limite l'elenco cresce con ogni run (265 al
+//    2026-10-04) e oltre il tetto la prova fallirebbe per sempre: la traduzione
+//    spenta di nuovo, per un altro motivo. Il tetto della prova e'
+//    TRANSLATE_QUEUE_GUARD_PROOF_MAX_PAGES. Il confronto conteggio/righe decide
+//    solo sull'elenco senza filtro: sugli elenchi per stato (conteggio fantasma,
+//    run del corpus 37122259464 e 37101329262) spegneva la traduzione in 13 run
+//    su 14.
 // `active_runs` porta poi una riga per run (l'ultima lettura): gli stati sono
 // letti in sequenza e una run che cambia stato a meta' scansione non deve
 // contare sia come in attesa sia come pesante attivo.
 const TRANSLATE_QUEUE_GUARD_PAGE_SIZE = 100;
 const TRANSLATE_QUEUE_GUARD_MAX_PAGES = 3;
+// Vita massima di una run di GitHub Actions, coda compresa (limite documentato
+// di GitHub: una run viene annullata dopo 35 giorni).
+const TRANSLATE_QUEUE_GUARD_RUN_LIFETIME_DAYS = 35;
+// Pagine dell'elenco senza filtro lette dalla prova: 500 run in 35 giorni sono
+// oltre il doppio del ritmo misurato (236 run nei 35 giorni al 2026-10-04, 6,7
+// al giorno).
+const TRANSLATE_QUEUE_GUARD_PROOF_MAX_PAGES = 5;
 const TRANSLATE_QUEUE_GUARD_BLIND_STEP_NAME = 'Fail the run when the queue guard was blind';
 const TRANSLATE_QUEUE_GUARD_BLIND_TITLE =
   'translate-pending: guard di coda cieco (guard_error) — nessuna traduzione eseguita';
@@ -2212,6 +2234,8 @@ function translatePendingQueueGuardJob() {
         '}',
         `status_page_size=${TRANSLATE_QUEUE_GUARD_PAGE_SIZE}`,
         `status_page_limit=${TRANSLATE_QUEUE_GUARD_MAX_PAGES}`,
+        `proof_page_limit=${TRANSLATE_QUEUE_GUARD_PROOF_MAX_PAGES}`,
+        `run_lifetime_days=${TRANSLATE_QUEUE_GUARD_RUN_LIFETIME_DAYS}`,
         'confirm_read_delay_seconds=1',
         'dedupe_rows_by_id=\'group_by(.id) | map(.[-1]) | .[]\'',
         '# Reads every page of one status into status_rows / status_rows_read /',
@@ -2243,26 +2267,43 @@ function translatePendingQueueGuardJob() {
         '    status_page=$((status_page + 1))',
         '  done',
         '}',
-        '# Proves the queue on the run list of this workflow WITHOUT a status filter',
+        '# Proves the queue on the run list of this workflow WITHOUT a status filter,',
+        '# limited to the runs created in the last run_lifetime_days days: GitHub',
+        '# cancels a run after 35 days, queue included, so an older run cannot be',
+        '# alive, and the bound keeps the short final page reachable as the list grows',
         '# (why, and the closing criterion: see the comment above its call).',
         '# Called directly (never in a subshell) so fail_closed ends the step; reads',
         '# go through guard_api, so they share the one time budget.',
         'prove_queue_beyond_union() {',
         '  local proof_page=1',
-        '  local runs_path proof_json proof_returned_count proof_page_unfinished proof_criterion known_ids proof_unfinished_count proof_new_ids',
+        '  local runs_path proof_json proof_returned_count proof_page_unfinished proof_criterion known_ids proof_unfinished_count proof_new_ids proof_since proof_page_total proof_page_ids proof_seen_count',
         '  local proof_unfinished=""',
+        '  local proof_ids=""',
+        '  local proof_min_total=-1',
+        '  if ! proof_since="$(jq -rn --argjson days "$run_lifetime_days" \'(now - ($days * 86400)) | strftime("%Y-%m-%d")\')"; then fail_closed "workflow_runs_unfiltered_window" "${queue_proof_reasons}"; fi',
+        '  if [ -z "$proof_since" ]; then fail_closed "workflow_runs_unfiltered_window" "${queue_proof_reasons}"; fi',
         '  while :; do',
-        '    runs_path="repos/${GITHUB_REPOSITORY}/actions/workflows/translate-pending.yml/runs?per_page=${status_page_size}&page=${proof_page}"',
+        '    runs_path="repos/${GITHUB_REPOSITORY}/actions/workflows/translate-pending.yml/runs?per_page=${status_page_size}&page=${proof_page}&created=%3E%3D${proof_since}"',
         '    if ! proof_json="$(guard_api "$runs_path")"; then fail_closed "workflow_runs_unfiltered" "${queue_proof_reasons}; page=${proof_page}"; fi',
-        '    if ! printf "%s" "$proof_json" | jq -e \'type == "object" and (.workflow_runs | type) == "array" and all(.workflow_runs[]; (.id != null) and ((.created_at | type) == "string") and ((.status | type) == "string"))\' >/dev/null; then fail_closed "workflow_runs_unfiltered_payload" "${queue_proof_reasons}; page=${proof_page}"; fi',
+        '    if ! printf "%s" "$proof_json" | jq -e \'type == "object" and ((.total_count | type) == "number") and (.total_count >= 0) and (.total_count == (.total_count | floor)) and (.workflow_runs | type) == "array" and all(.workflow_runs[]; (.id != null) and ((.created_at | type) == "string") and ((.status | type) == "string"))\' >/dev/null; then fail_closed "workflow_runs_unfiltered_payload" "${queue_proof_reasons}; page=${proof_page}"; fi',
         '    proof_returned_count="$(printf "%s" "$proof_json" | jq -r \'.workflow_runs | length\')"',
+        '    proof_page_total="$(printf "%s" "$proof_json" | jq -r \'.total_count\')"',
+        '    if [ "$proof_min_total" -lt 0 ] || [ "$proof_page_total" -lt "$proof_min_total" ]; then proof_min_total="$proof_page_total"; fi',
+        '    if ! proof_page_ids="$(printf "%s" "$proof_json" | jq -r \'.workflow_runs[] | .id | tostring\')"; then fail_closed "workflow_runs_unfiltered_rows" "${queue_proof_reasons}; page=${proof_page}"; fi',
+        '    if [ -n "$proof_page_ids" ]; then proof_ids="${proof_ids}${proof_ids:+$\'\\n\'}${proof_page_ids}"; fi',
+        '    proof_seen_count="$(printf "%s\\n" "$proof_ids" | awk \'NF && !seen[$0]++ {count++} END {print count + 0}\')"',
         '    if ! proof_page_unfinished="$(printf "%s" "$proof_json" | jq -c \'.workflow_runs[] | select(.status != "completed")\')"; then fail_closed "workflow_runs_unfiltered_rows" "${queue_proof_reasons}; page=${proof_page}"; fi',
         '    if [ -n "$proof_page_unfinished" ]; then proof_unfinished="${proof_unfinished}${proof_unfinished:+$\'\\n\'}${proof_page_unfinished}"; fi',
         '    if [ "$proof_returned_count" -lt "$status_page_size" ]; then',
-        '      proof_criterion="a (page ${proof_page} has ${proof_returned_count} row(s) and ends the list)"',
+        '      if [ "$proof_seen_count" -lt "$proof_min_total" ]; then fail_closed "workflow_runs_unfiltered_incomplete" "${queue_proof_reasons}; unfiltered rows=${proof_seen_count} total_count=${proof_min_total} since ${proof_since}, short page ${proof_page} before the end of the list"; fi',
+        '      proof_criterion="a (page ${proof_page} has ${proof_returned_count} row(s) and ends the list of runs created since ${proof_since}; ${proof_seen_count} distinct row(s) cover total_count=${proof_min_total})"',
         '      break',
         '    fi',
-        '    if [ "$proof_page" -ge "$status_page_limit" ]; then fail_closed "workflow_runs_queue_unproven" "${queue_proof_reasons}; unfiltered pages=${proof_page}, no short final page"; fi',
+        '    if [ "$proof_page" -ge "$proof_page_limit" ]; then',
+        '      if [ "$proof_seen_count" -lt "$proof_min_total" ]; then fail_closed "workflow_runs_queue_unproven" "${queue_proof_reasons}; unfiltered pages=${proof_page} since ${proof_since}, rows=${proof_seen_count} total_count=${proof_min_total}, no short final page"; fi',
+        '      proof_criterion="b (page ${proof_page} is full and is the page ceiling; ${proof_seen_count} distinct row(s) cover total_count=${proof_min_total} of the runs created since ${proof_since})"',
+        '      break',
+        '    fi',
         '    proof_page=$((proof_page + 1))',
         '  done',
         '  if ! known_ids="$(printf "%s\\n" "$active_runs" | jq -cs \'[.[] | .id | tostring] | unique\')"; then fail_closed "workflow_runs_unfiltered_union"; fi',
@@ -2308,12 +2349,16 @@ function translatePendingQueueGuardJob() {
         '# without the phantom count: the run list of this workflow with no status',
         '# filter (its total_count is the total of the runs and pagination honours',
         '# it). Its unfinished rows join active_runs (the dedupe below keeps one row',
-        '# per id). The proof closes only on a short page: the list is over and every',
-        '# run of the workflow was seen with its current status. A full page cannot',
-        '# rule out an older waiting run on the next page, even if all rows there',
-        '# except the current one are completed. At the page ceiling without a short',
-        '# page, the queue is longer than the guard can see: fail closed. Called once',
-        '# per guard run, however many statuses disagree, and only then.',
+        '# per id). A full page cannot rule out an older waiting run on the next',
+        '# page, even if all rows there except the current one are completed, so',
+        '# below the ceiling the next page is always read. The proof closes on a',
+        '# short page or on a full page at the ceiling, and in both cases only when',
+        '# the distinct rows read cover the lowest total_count seen (a run created',
+        '# between two reads raises the later counts, is newer than the current run',
+        '# and leaves the rows already read complete). Fewer distinct rows than the',
+        '# count on a short page is an incoherent list, and at the ceiling a queue',
+        '# longer than the guard can read: fail closed. Called once per guard run,',
+        '# however many statuses disagree, and only then.',
         'if [ -n "$queue_proof_reasons" ]; then prove_queue_beyond_union; fi',
         '# One row per run, latest read wins: statuses are read in sequence, so a run',
         '# that moved from queued to in_progress mid-scan was listed twice and would',
@@ -3359,6 +3404,9 @@ export function checkGeneratedArtifacts({ profileRenderer = computeProfiledText 
   const groupResults = generate({ profileRenderer, write: false });
   const logicArtifacts = generateCrawlerLogicArtifacts({ groupResults, write: false });
   const committedContract = loadJson(PORTABLE_CONTRACT_PATH);
+  // Lo stesso divieto vale per il contratto gia' committato: `--check` e' il
+  // controllo che si esegue prima del push.
+  assertCommittedContractSource({ sourceCommit: committedContract.sourceCommit, sourceRef: committedContract.sourceRef }, {});
   const cross = generateCrossRepoExecutionArtifacts({
     groupResults,
     outDir: PORTABLE_CORPUS_DIR,
@@ -3618,6 +3666,9 @@ if (isMain) {
   // La generazione per il corpus legge il gruppo locale come sorgente ma non
   // deve riscriverlo: i due repo hanno PR/branch indipendenti e un export non
   // e' autorizzato a portarsi dietro un diff locale accidentale (es. stale pin).
+  // Entrambi i rami scrivono un contratto: nessuno dei due puo' prendere la
+  // provenienza sintetica di una pull request (vedi assertCommittedContractSource).
+  const source = assertCommittedContractSource(resolveCrawlerContractSource());
   const results = generate({ rebalance, write: crossRepoOutAt < 0 });
   generateCrawlerLogicArtifacts({ groupResults: results, write: crossRepoOutAt < 0 });
   if (crossRepoOutAt >= 0) {
@@ -3627,6 +3678,8 @@ if (isMain) {
       groupResults: results,
       outDir,
       contractPath,
+      sourceCommit: source.sourceCommit,
+      sourceRef: source.sourceRef,
     });
     console.log(`Generated ${cross.artifacts.length} standalone corpus workflows -> ${outDir}`);
     console.log(`Cross-repo contract -> ${contractPath}`);
@@ -3636,6 +3689,8 @@ if (isMain) {
       groupResults: results,
       outDir: PORTABLE_CORPUS_DIR,
       contractPath: PORTABLE_CONTRACT_PATH,
+      sourceCommit: source.sourceCommit,
+      sourceRef: source.sourceRef,
     });
     console.log(`Generated ${cross.artifacts.length} portable corpus workflows -> ${PORTABLE_CORPUS_DIR}`);
     console.log(`Cross-repo source -> ${cross.contract.sourceRef}@${cross.contract.sourceCommit}`);

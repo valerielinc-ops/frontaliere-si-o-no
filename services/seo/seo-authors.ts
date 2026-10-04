@@ -12,6 +12,7 @@
  */
 
 import { AUTHORS, getAuthorBySlug, type Author } from '@/data/authors';
+import { localizeAuthor } from '../../data/authorLocales';
 import { ORGANIZATION_ID } from './organizationLd';
 
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -111,7 +112,8 @@ function buildPersonJsonLd(author: Author, canonical: string): Record<string, un
  *   a closed registry; an unknown slug is a programming error, not user input.
  */
 export function buildAuthorSeo(authorOrSlug: string | Author, locale: AuthorLocale = 'it'): AuthorSeo {
-  const author = typeof authorOrSlug === 'string' ? getAuthorBySlug(authorOrSlug) : authorOrSlug;
+  const original = typeof authorOrSlug === 'string' ? getAuthorBySlug(authorOrSlug) : authorOrSlug;
+  const author = original ? localizeAuthor(original, locale) : undefined;
   if (!author) {
     throw new Error(`buildAuthorSeo: unknown author slug "${authorOrSlug}"`);
   }
