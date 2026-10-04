@@ -1,7 +1,7 @@
 {
   "key": "sobi",
   "label": "Sobi",
-  "generatedAt": "2026-10-03T21:14:26.983Z",
+  "generatedAt": "2026-10-04T09:14:55.502Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -14,10 +14,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4001,
-  "avgDurationMs": 4001,
+  "durationMs": 3952,
+  "avgDurationMs": 3952,
   "durationHistory": [
-    4001
+    3952
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000153234089-global-product-safety-science-lead",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:14:18.490Z",
+      "crawledAt": "2026-10-04T09:14:46.734Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -50,11 +50,11 @@
       "applyUrl": "https://jobs.smartrecruiters.com/Sobi/744000153234089-global-product-safety-science-lead?oga=true",
       "jobReqId": "744000153234089",
       "firstSeenAt": "2026-06-29T14:05:20.196Z",
-      "_qualityScore": 75,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -71,7 +71,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000148941430-global-pv-partnership-operations-director",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:14:18.496Z",
+      "crawledAt": "2026-10-04T09:14:46.731Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000147847790--jr-market-access-manager",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:14:18.483Z",
+      "crawledAt": "2026-10-04T09:14:46.737Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -145,7 +145,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000141444319-senior-manager-market-access-specialty-care",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:14:18.498Z",
+      "crawledAt": "2026-10-04T09:14:46.739Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -182,7 +182,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000140960680-global-quality-gvp-manager",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:14:18.492Z",
+      "crawledAt": "2026-10-04T09:14:46.725Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -209,5 +209,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }
