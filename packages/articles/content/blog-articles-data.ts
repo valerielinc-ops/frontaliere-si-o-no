@@ -190,7 +190,7 @@ const RAW_ARTICLES = [
   {
  id: 'stop-ristorni-tassa-salute',
  category: 'fiscale',
- date: '',
+ date: '2024-05-27',
  image: '/images/blog/stop-ristorni-tassa-salute.webp',
  hasCalculator: true,
  authorSlug: 'laura-bianchi',
@@ -209,7 +209,7 @@ const RAW_ARTICLES = [
   {
  id: 'smood-chiusura-impatto-lavoro',
  category: 'novita',
- date: '',
+ date: '2024-04-04',
  image: '/images/blog/smood-chiusura-impatto-lavoro.webp',
  hasCalculator: true,
  authorSlug: 'marco-ferrari',
