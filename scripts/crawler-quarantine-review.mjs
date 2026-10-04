@@ -286,10 +286,7 @@ export function retirementReviewBody(review) {
   ].join('\n');
 }
 
-/**
- * Apre (una volta) la issue di riesame per ogni ritiro temporaneo scaduto.
- * @returns {Record<string, number>} slug → numero della issue di riesame
- */
+/** Opens (once) the review issue of every temporary retirement that is due. Returns slug -> issue number. */
 export function ensureRetirementReviewIssues({ registry, now, findOpen = findOpenIssueByExactTitle, create = createIssue }) {
   const issues = {};
   for (const review of dueRetirementReviews(registry, now)) {
