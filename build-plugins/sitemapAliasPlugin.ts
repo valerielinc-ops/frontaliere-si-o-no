@@ -25,6 +25,7 @@
 import path from 'path';
 import type { Plugin } from 'vite';
 import { BASE_URL } from './constants';
+import { jobsSeoPagesFlushed } from './shared/buildSignals';
 import { pruneAlreadyListedLocaleVariants } from './shared/localeVariantSitemap';
 import {
   getFinalSitemapMirrorLocs,
@@ -323,6 +324,10 @@ export function sitemapAliasPlugin(rootDir: string): Plugin {
         //    producers' first passes run before later page emitters, so only
         //    this position can catch a late noindex, non-self-canonical, or
         //    redirect/missing overwrite in either family.
+        //    The explicit jobs barrier is required even though this hook is
+        //    post/sequential: closeBundle scheduling can otherwise expose a
+        //    stale foreign-locale shard before the jobs writer resolves.
+        await jobsSeoPagesFlushed;
         await reconcileFinalSitemapsWithDist(distDir, getFinalSitemapMirrorLocs());
 
         // 1. Hreflang-reciprocity sanitizer (issue #3474). Runs BEFORE the
