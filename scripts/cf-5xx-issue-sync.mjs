@@ -246,6 +246,12 @@ export function buildIssueBody(e, hours = HOURS) {
 const HISTORY_FILE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'data', 'cf-5xx-history.jsonl');
 const ISSUE_TITLE_PREFIX = 'CF 5xx: ';
 const ISSUE_FAMILY_LABEL = 'cloudflare-5xx';
+/** Righe di `detail` chieste a cf-status-report: un `detail` pieno al limite è un top-N troncato. */
+const DETAIL_LIMIT = 50;
+/** Il verdetto «non so» quando il report corrente non è una misura (`cf5xxSeenNow` → `null`). */
+const INCOMPLETE_REPORT_EVIDENCE =
+  'report corrente incompleto: `detail` assente, non array o pieno al limite di ' +
+  `${DETAIL_LIMIT} righe senza un \`detailByHour\` completo — l'assenza di un URL non prova zero 5xx`;
 /** Le ragioni di `checkUrlClean` che sono una MISURA; tutte le altre dicono «non so». */
 const COMPLETE_CHECK_CODES = new Set(['clean', 'still-failing']);
 
@@ -270,14 +276,19 @@ export function issueUrlFromBody(body) {
  * `complete` e' vero solo quando la risposta e' una misura (`clean` o
  * `still-failing`): storia corta, serie ferma, dettagli troncati, URL mai
  * osservato o URL illeggibile dal corpo sono «non so» → nessuna scrittura.
+ * `seenNow` e' il report corrente (`cf5xxSeenNow`): `null` o assente = report
+ * non misurato → `complete: false`, mai «nessun URL in errore adesso».
  *
  * @param {{body?:string}} issue
- * @param {{history:Array<object>, seenNow?:Map<string,number>, hours?:string|number, now?:number}} ctx
+ * @param {{history:Array<object>, seenNow?:Map<string,number>|null, hours?:string|number, now?:number}} ctx
  */
-export function cf5xxVerdict(issue, { history, seenNow = new Map(), hours = HOURS, now = Date.now() } = {}) {
+export function cf5xxVerdict(issue, { history, seenNow = null, hours = HOURS, now = Date.now() } = {}) {
   const url = issueUrlFromBody(issue?.body);
   if (!url) {
     return { clean: false, complete: false, evidence: 'URL non leggibile dal corpo della issue (riga `**URL:**` assente)' };
+  }
+  if (!(seenNow instanceof Map)) {
+    return { clean: false, complete: false, evidence: INCOMPLETE_REPORT_EVIDENCE };
   }
   const command = `node scripts/ci/cf-5xx-snapshot.mjs --check-url '${url}' --snapshots ${CHECK_URL_DEFAULT_SNAPSHOTS}`;
   const live = seenNow.get(historyUrlKey(url));
@@ -302,9 +313,37 @@ export function cf5xxVerdict(issue, { history, seenNow = new Map(), hours = HOUR
 }
 
 /**
+ * Gli URL con 5xx nel report corrente, o `null` quando il report non e' una
+ * misura completa. Completo = `detailByHour` dichiarato completo (righe
+ * (url, ora) fino al tetto del dataset), oppure `detail` presente e SOTTO il
+ * limite di righe chiesto a cf-status-report. Un `detail` mancante, nullo,
+ * non array o pieno al limite (top-N troncato: un URL oltre l'ultima riga
+ * fallisce adesso ma non compare) non prova che un URL sia a zero → `null`.
+ *
+ * @returns {Map<string, number>|null}
+ */
+export function cf5xxSeenNow(data, { detailLimit = DETAIL_LIMIT } = {}) {
+  let rows = null;
+  if (data?.detailByHourComplete === true && Array.isArray(data?.detailByHour)) rows = data.detailByHour;
+  else if (Array.isArray(data?.detail) && data.detail.length < detailLimit) rows = data.detail;
+  if (!rows) return null;
+  const seenNow = new Map();
+  for (const r of rows) {
+    const n = Number(r?.count) || 0;
+    if (n <= 0 || !r?.url) continue;
+    const k = historyUrlKey(r.url);
+    seenNow.set(k, (seenNow.get(k) || 0) + n);
+  }
+  return seenNow;
+}
+
+/**
  * La configurazione della fase «riconcilia» per questa famiglia.
  * `confirmations: 1` perche' `checkUrlClean` e' gia' un criterio sostenuto
  * (7 snapshot completi e freschi): una seconda conferma sarebbe un'ottava.
+ * Un report corrente non misurato (`cf5xxSeenNow` → `null`) rende ogni
+ * verdetto `complete: false`: nessuna chiusura, nessuna scrittura, e la storia
+ * non viene nemmeno letta.
  */
 export function cf5xxReconcile(data, { historyFile = HISTORY_FILE, hours = HOURS } = {}) {
   const base = {
@@ -313,22 +352,12 @@ export function cf5xxReconcile(data, { historyFile = HISTORY_FILE, hours = HOURS
     titlePrefix: ISSUE_TITLE_PREFIX,
     confirmations: 1,
   };
-  if (!Array.isArray(data?.detail)) {
+  const seenNow = cf5xxSeenNow(data);
+  if (!seenNow) {
     return {
       ...base,
-      verdictFor: () => ({
-        clean: false,
-        complete: false,
-        evidence: 'report corrente incompleto: `detail` assente o non è un array',
-      }),
+      verdictFor: () => ({ clean: false, complete: false, evidence: INCOMPLETE_REPORT_EVIDENCE }),
     };
-  }
-  const seenNow = new Map();
-  for (const r of data.detail) {
-    const n = Number(r?.count) || 0;
-    if (n <= 0 || !r?.url) continue;
-    const k = historyUrlKey(r.url);
-    seenNow.set(k, (seenNow.get(k) || 0) + n);
   }
   let history = null;
   return {
@@ -350,7 +379,7 @@ export async function main() {
   try {
     const out = execFileSync(
       'node',
-      ['scripts/cf-status-report.mjs', '--json', '--class=5', `--hours=${HOURS}`, '--limit=50', '--by-hour'],
+      ['scripts/cf-status-report.mjs', '--json', '--class=5', `--hours=${HOURS}`, `--limit=${DETAIL_LIMIT}`, '--by-hour'],
       { encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 },
     );
     data = JSON.parse(out);

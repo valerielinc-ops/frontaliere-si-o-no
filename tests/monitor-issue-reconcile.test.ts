@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import {
   decideMonitorIssue,
   reconcileMonitorIssues,
@@ -6,7 +6,10 @@ import {
   MAX_CLOSES_PER_RUN,
   MAYBE_RESOLVED_LABEL,
 } from '../scripts/lib/monitor-issue-reconcile.mjs';
-import { cf5xxReconcile, cf5xxVerdict, issueUrlFromBody } from '../scripts/cf-5xx-issue-sync.mjs';
+import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
+import { cf5xxReconcile, cf5xxSeenNow, cf5xxVerdict, issueUrlFromBody } from '../scripts/cf-5xx-issue-sync.mjs';
 import { checkUrlClean } from '../scripts/ci/cf-5xx-snapshot.mjs';
 
 /**
@@ -36,30 +39,32 @@ const markerComment = (measure: string, hour: number) => ({
   body: `misura pulita\n${cleanMarker({ family: FAMILY, at: at(hour), measure })}`,
   created_at: at(hour),
 });
+/** Una storia letta e vuota: con `confirmations > 1` va passata esplicitamente. */
+const noHistory = { comments: [], events: [] };
 
 describe('regola generale (due misure pulite di run diverse)', () => {
   it('prima misura pulita e completa → annota, non chiude', () => {
-    expect(decideMonitorIssue({ issue: issue(), verdict: clean('m1'), family: FAMILY }).action)
+    expect(decideMonitorIssue({ issue: issue(), ...noHistory, verdict: clean('m1'), family: FAMILY }).action)
       .toBe('note-first-clean');
   });
 
   it("seconda misura pulita di un'ALTRA misura → chiude", () => {
     const d = decideMonitorIssue({
-      issue: issue(), comments: [markerComment('m1', 0)], verdict: clean('m2'), family: FAMILY,
+      issue: issue(), comments: [markerComment('m1', 0)], events: [], verdict: clean('m2'), family: FAMILY,
     });
     expect(d.action).toBe('close');
   });
 
   it('la stessa misura rieseguita due volte non è una seconda conferma', () => {
     const d = decideMonitorIssue({
-      issue: issue(), comments: [markerComment('m1', 0)], verdict: clean('m1'), family: FAMILY,
+      issue: issue(), comments: [markerComment('m1', 0)], events: [], verdict: clean('m1'), family: FAMILY,
     });
     expect(d.action).toBe('keep');
   });
 
   it('un marker di UN\'ALTRA famiglia non conta', () => {
     const other = { body: cleanMarker({ family: 'altra', at: at(0), measure: 'm1' }), created_at: at(0) };
-    expect(decideMonitorIssue({ issue: issue(), comments: [other], verdict: clean('m2'), family: FAMILY }).action)
+    expect(decideMonitorIssue({ issue: issue(), comments: [other], events: [], verdict: clean('m2'), family: FAMILY }).action)
       .toBe('note-first-clean');
   });
 
@@ -67,6 +72,7 @@ describe('regola generale (due misure pulite di run diverse)', () => {
     const d = decideMonitorIssue({
       issue: issue(),
       comments: [markerComment('m1', 0), { body: '🔁 Recurrence on workflow run.', created_at: at(5) }],
+      events: [],
       verdict: clean('m2'),
       family: FAMILY,
     });
@@ -88,6 +94,7 @@ describe('regola generale (due misure pulite di run diverse)', () => {
     const d = decideMonitorIssue({
       issue: issue(),
       comments: [{ body: '🔁 Recurrence', created_at: at(-5) }, markerComment('m1', 0)],
+      events: [],
       verdict: clean('m2'),
       family: FAMILY,
     });
@@ -109,6 +116,21 @@ describe('regola generale (due misure pulite di run diverse)', () => {
       issue: issue(), verdict: { clean: false, complete: true, evidence: 'sopra soglia' }, family: FAMILY,
     });
     expect(d.action).toBe('keep');
+  });
+
+  it.each([
+    ['eventi null', { comments: [markerComment('m1', 0)], events: null }],
+    ['eventi assenti', { comments: [markerComment('m1', 0)] }],
+    ['commenti null', { comments: null, events: [] }],
+    ['commenti assenti', { events: [] }],
+    ['entrambi null', { comments: null, events: null }],
+  ])('storia della issue illeggibile (%s) con la seconda misura pulita → keep, non chiude', (_label, history) => {
+    // Senza storia il chiuditore non sa se c'è stata una riconferma o una
+    // riapertura dopo la prima misura pulita: «non so», mai «vuota».
+    const d = decideMonitorIssue({
+      issue: issue(), ...(history as object), verdict: clean('m2'), family: FAMILY,
+    });
+    expect(d).toEqual({ action: 'keep', reason: expect.stringContaining('storia della issue illeggibile') });
   });
 
   it('un titolo misurato sopra soglia in questa run resta aperto, qualunque cosa dica il verdetto', () => {
@@ -454,5 +476,106 @@ describe('cf5xxVerdict — il criterio della scheda, applicato dal monitor', () 
     expect(out.decisions).toEqual([expect.objectContaining({ action: 'keep' })]);
     expect(out.decisions[0].reason).toContain('report corrente incompleto');
     expect(writes).toEqual([]);
+  });
+});
+
+/**
+ * Il report corrente di Cloudflare è metà della misura (la storia mergiata non
+ * contiene ancora lo snapshot di oggi). `cf-status-report.mjs --limit=50`
+ * restituisce le prime 50 righe di `detail`: un `detail` pieno al limite è un
+ * top-N troncato, e un URL oltre la cinquantesima riga non vi compare pur
+ * fallendo adesso. Senza un `detailByHour` dichiarato completo quella lista
+ * non prova che un URL sia a zero → «non so» → keep, zero scritture.
+ */
+describe('cf5xxReconcile — il report corrente deve essere completo', () => {
+  const URL_A = 'frontaliereticino.ch/fr/trouver-emploi-suisse/recherche-kurs-basel/';
+  const body = `**Status:** 503\n**URL:** ${URL_A}\n**5xx responses (last 23h):** 30`;
+  const now = Date.now();
+  const snap = (daysBefore: number, urls: string[]) => ({
+    ts: new Date(now - daysBefore * 86_400_000).toISOString(),
+    topN: 50,
+    topPaths: urls.map((url) => ({ url, count: 1 })),
+    errorPaths: urls.map((url) => ({ url, count: 1 })),
+    errorPathsComplete: true,
+  });
+  /** Una presenza vecchia, poi sette snapshot puliti e freschi: la storia da sola chiuderebbe. */
+  let historyDir = '';
+  let historyFile = '';
+  beforeAll(() => {
+    historyDir = mkdtempSync(path.join(tmpdir(), 'cf5xx-reconcile-'));
+    historyFile = path.join(historyDir, 'history.jsonl');
+    const rows = [snap(8, [URL_A]), ...Array.from({ length: 7 }, (_, i) => snap(6 - i, []))];
+    writeFileSync(historyFile, rows.map((r) => JSON.stringify(r)).join('\n') + '\n');
+  });
+  afterAll(() => {
+    if (historyDir) rmSync(historyDir, { recursive: true, force: true });
+  });
+  const run = async (data: unknown) => {
+    const cfg = cf5xxReconcile(data, { historyFile });
+    const { io, writes } = fakeIo([issue({ number: 101, title: `CF 5xx: ${URL_A}`, body, labels: ['cloudflare-5xx'] })]);
+    const out = await reconcileMonitorIssues({ ...cfg, io, log: quiet });
+    return { out, writes, verdict: await cfg.verdictFor({ body }) };
+  };
+  const row = (url: string, count = 1) => ({ status: 503, url, count });
+  /** Un `detail` pieno al limite delle righe chieste a cf-status-report, senza URL_A. */
+  const fullDetail = () => Array.from({ length: 50 }, (_, i) => row(`frontaliereticino.ch/altro-${i}/`, 100));
+
+  it('detail pieno al limite delle righe, senza orario completo → keep, zero scritture', async () => {
+    const { out, writes, verdict } = await run({ detail: fullDetail() });
+    expect(verdict.complete).toBe(false);
+    expect(out.decisions.map((d) => d.action)).toEqual(['keep']);
+    expect(out.decisions[0].reason).toContain('report corrente incompleto');
+    expect(writes).toEqual([]);
+  });
+
+  it('detail pieno al limite con `detailByHour` presente ma NON completo → keep', async () => {
+    const detailByHour = fullDetail().map((r) => ({ ...r, hour: new Date(now).toISOString() }));
+    const { out, writes } = await run({ detail: fullDetail(), detailByHour, detailByHourComplete: false });
+    expect(out.decisions.map((d) => d.action)).toEqual(['keep']);
+    expect(writes).toEqual([]);
+  });
+
+  it.each([
+    ['detail null', { detail: null }],
+    ['detail assente', {}],
+    ['detail non array', { detail: 'x' }],
+    ['report nullo', null],
+  ])('%s + sette snapshot puliti → keep, zero scritture', async (_label, data) => {
+    const { out, writes, verdict } = await run(data);
+    expect(verdict.complete).toBe(false);
+    expect(out.decisions.map((d) => d.action)).toEqual(['keep']);
+    expect(writes).toEqual([]);
+  });
+
+  it('detail troncato ma `detailByHour` completo che contiene l\'URL → keep (misura completa, non pulita)', async () => {
+    const detailByHour = [{ ...row(URL_A, 2), hour: new Date(now).toISOString() }];
+    const { out, verdict } = await run({ detail: fullDetail(), detailByHour, detailByHourComplete: true });
+    expect(verdict).toMatchObject({ clean: false, complete: true });
+    expect(out.decisions.map((d) => d.action)).toEqual(['keep']);
+  });
+
+  it('CONTROLLO: detail sotto il limite e senza l\'URL → chiude', async () => {
+    const { out, writes } = await run({ detail: fullDetail().slice(1) });
+    expect(out.decisions.map((d) => d.action)).toEqual(['close']);
+    expect(writes.at(-1)).toBe('close #101');
+  });
+
+  it('CONTROLLO: detail troncato ma `detailByHour` completo senza l\'URL → chiude', async () => {
+    const detailByHour = fullDetail().map((r) => ({ ...r, hour: new Date(now).toISOString() }));
+    const { out } = await run({ detail: fullDetail(), detailByHour, detailByHourComplete: true });
+    expect(out.decisions.map((d) => d.action)).toEqual(['close']);
+  });
+
+  it('cf5xxSeenNow somma le righe per URL e restituisce null su un report non misurato', () => {
+    const seen = cf5xxSeenNow({ detail: [row(`https://${URL_A}`, 2), { ...row(URL_A, 3), status: 502 }] });
+    expect(seen?.get(URL_A.replace(/\/+$/, ''))).toBe(5);
+    expect(cf5xxSeenNow({ detail: fullDetail() })).toBeNull();
+    expect(cf5xxSeenNow(null)).toBeNull();
+  });
+
+  it('cf5xxVerdict senza report corrente → incompleta, anche con la storia pulita', () => {
+    const history = [snap(8, [URL_A]), ...Array.from({ length: 7 }, (_, i) => snap(6 - i, []))];
+    expect(cf5xxVerdict({ body }, { history, now })).toMatchObject({ clean: false, complete: false });
+    expect(cf5xxVerdict({ body }, { history, seenNow: null, now })).toMatchObject({ clean: false, complete: false });
   });
 });
