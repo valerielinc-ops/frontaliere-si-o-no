@@ -45,9 +45,9 @@ const QUERIED: Array<[string, string, string]> = [
   ['campaign_deliveries', 'campaign_id', 'scripts/lib/newsletter-ab-data.mjs'],
   ['campaign_deliveries', 'sent_at', 'scripts/report-daily-brief-cadence.mjs, scripts/ci/export-loop-outcomes.mjs'],
   ['campaign_deliveries', 'clicked_at', 'scripts/send-daily-brief.mjs'],
-  ['events', 'timestamp', 'scripts/report-email-engagement.mjs'],
+  ['events', 'timestamp', 'scripts/report-email-engagement.mjs, scripts/build-job-email-affinity.mjs'],
   ['events', 'campaign_id', 'scripts/lib/newsletter-ab-data.mjs'],
-  ['events', 'event_type', 'scripts/check-unsubscribe-credential-rate.mjs'],
+  ['events', 'event_type', 'scripts/check-unsubscribe-credential-rate.mjs, scripts/build-job-email-affinity.mjs'],
   ['events', 'provider', 'indice composito provider + timestamp'],
   ['events', 'occurred_at', 'functions/src/lib/preferredSendHour.js'],
   ['events', 'source_channel', 'scripts/newsletter-confirmed-status-backfill.mjs'],
@@ -74,6 +74,20 @@ const MUST_BE_EXEMPT: Array<[string, string]> = [
   ['job_email_ranking_events', 'user_id'],
   ['job_email_ranking_events', 'delivery_id'],
   ['job_email_ranking_deliveries', 'jobs'],
+  // Profilo di affinita' dai clic: letto e scritto solo per id documento
+  // (scripts/build-job-email-affinity.mjs), mai interrogato per campo.
+  ['job_email_affinity', 'user_id'],
+  ['job_email_affinity', 'dimensions'],
+  ['job_email_affinity', 'clicks'],
+  ['job_email_affinity', 'last_click_at'],
+  ['job_email_affinity', 'updated_at'],
+  ['job_email_affinity', 'version'],
+  ['job_email_affinity_meta', 'processed_until'],
+  ['job_email_affinity_meta', 'updated_at'],
+  ['job_email_affinity_meta', 'version'],
+  // Flag che il passo 3 dell'ordinamento per affinita' scrivera' su ogni riga.
+  ['job_email_ranking_events', 'affinity_profile'],
+  ['job_email_ranking_deliveries', 'affinity_profile'],
   ['plate_auctions_history', 'officialAuctionUrl'],
   ['plate_auctions_history', 'officialDetailUrl'],
   ['plate_auctions_history', 'rawSnapshotHash'],
@@ -268,7 +282,7 @@ describe('firestore.indexes.json — fieldOverrides', () => {
   });
 
   it('gli override TTL restano con ttl: true e senza indici', () => {
-    for (const collectionGroup of ['job_email_ranking_stats', 'job_email_ranking_events', 'job_email_ranking_deliveries']) {
+    for (const collectionGroup of ['job_email_ranking_stats', 'job_email_ranking_events', 'job_email_ranking_deliveries', 'job_email_affinity']) {
       const override = overrides.find((o) => o.collectionGroup === collectionGroup && o.fieldPath === 'expires_at');
       expect(override, `${collectionGroup}.expires_at`).toBeDefined();
       expect(override?.ttl, `${collectionGroup}.expires_at`).toBe(true);

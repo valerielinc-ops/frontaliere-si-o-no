@@ -1,0 +1,128 @@
+name: Build job email affinity
+
+# Profilo di interessi per persona dai clic sugli annunci delle email
+# (job_email_affinity/{pseudonimo}). Forma, semantica e promesse della privacy
+# policy: functions/src/lib/jobEmailAffinity.js. Unico scrittore:
+# scripts/build-job-email-affinity.mjs, che avanza un cursore e quindi e'
+# idempotente se un giro si ripete.
+#
+# La prima costruzione dallo storico NON parte da sola: senza cursore lo script
+# esce 2 e chiede --bootstrap-since. Lanciala a mano con l'input
+# `bootstrap_since` (i link degli annunci portano job_id dall'08-09-2026).
+
+on:
+  schedule:
+    # 22:47 UTC: prima del giro dei job alert delle 00:33, cosi' i profili
+    # includono i clic del giorno quando il passo di ordinamento li leggera'.
+    - cron: '47 22 * * *'
+  workflow_dispatch:
+    inputs:
+      bootstrap_since:
+        description: 'Costruzione dallo storico a partire da questa data ISO (vuoto = dal cursore)'
+        required: false
+        default: ''
+        type: string
+      dry_run:
+        description: 'Solo conteggi, nessuna scrittura'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  issues: write     # github-issue-creator sul fallimento
+
+concurrency:
+  group: build-job-email-affinity
+  # Un secondo giro aspetta il primo: interrotto a meta', il cursore non
+  # avanzerebbe e il giro dopo ripeterebbe il lavoro, ma un giro cancellato non
+  # e' un fallimento e nessuno se ne accorgerebbe.
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      # firebase-admin e' una devDependency: niente --omit=dev.
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -z "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          chmod 600 /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      # Il loader e' fail-open per scelta; qui NEWSLETTER_SECRET e' la chiave
+      # dello pseudonimo e senza non si scrive nulla: lo script stesso rifiuta
+      # di partire, e il fallimento apre la issue sotto.
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Build affinity profiles
+        env:
+          BOOTSTRAP_SINCE: ${{ inputs.bootstrap_since }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          set -euo pipefail
+          args=()
+          if [ -n "${BOOTSTRAP_SINCE:-}" ]; then args+=(--bootstrap-since "$BOOTSTRAP_SINCE"); fi
+          if [ "${DRY_RUN:-false}" = "true" ]; then args+=(--dry-run); fi
+          node scripts/build-job-email-affinity.mjs "${args[@]}"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "job_email_affinity: profilo di affinità dai clic non costruito" \
+            --description "## Il giro notturno del profilo di affinità è fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          Il cursore job_email_affinity_meta/cursor avanza solo a scritture concluse: il prossimo giro riprende da dove questo si è fermato senza contare due volte i clic. Se il log dice che manca il cursore, lancia la prima costruzione con l'input bootstrap_since." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

@@ -267,6 +267,18 @@
     { "collectionGroup": "plate_auctions_history", "fieldPath": "sourceRecordId", "indexes": [] },
     { "collectionGroup": "plate_auctions_history", "fieldPath": "startingPriceChf", "indexes": [] },
     { "collectionGroup": "plate_auctions_history", "fieldPath": "startsAt", "indexes": [] },
-    { "collectionGroup": "plate_auctions_history", "fieldPath": "vehicleType", "indexes": [] }
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "vehicleType", "indexes": [] },
+    { "collectionGroup": "job_email_affinity", "fieldPath": "expires_at", "ttl": true, "indexes": [] },
+    { "collectionGroup": "job_email_affinity", "fieldPath": "user_id", "indexes": [] },
+    { "collectionGroup": "job_email_affinity", "fieldPath": "dimensions", "indexes": [] },
+    { "collectionGroup": "job_email_affinity", "fieldPath": "clicks", "indexes": [] },
+    { "collectionGroup": "job_email_affinity", "fieldPath": "last_click_at", "indexes": [] },
+    { "collectionGroup": "job_email_affinity", "fieldPath": "updated_at", "indexes": [] },
+    { "collectionGroup": "job_email_affinity", "fieldPath": "version", "indexes": [] },
+    { "collectionGroup": "job_email_affinity_meta", "fieldPath": "processed_until", "indexes": [] },
+    { "collectionGroup": "job_email_affinity_meta", "fieldPath": "updated_at", "indexes": [] },
+    { "collectionGroup": "job_email_affinity_meta", "fieldPath": "version", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_events", "fieldPath": "affinity_profile", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_deliveries", "fieldPath": "affinity_profile", "indexes": [] }
   ]
 }
