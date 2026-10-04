@@ -511,8 +511,9 @@ export function emptyCounters() {
     genderFormSampleResidual: 0,
     // Per-id outcome of every sample member counted in `genderFormSampleProcessed`
     // (`after` pass only): at most GENDER_FORM_SAMPLE_SIZE entries per run. It
-    // feeds the cross-run window (`applyGenderFormWindow`), which needs to know
-    // WHICH jobs were processed so the same job is never counted twice.
+    // feeds the cross-run window (`appendHistoryEntry` → `updateGenderFormWindow`),
+    // which needs to know WHICH jobs were processed so the same job is never
+    // counted twice.
     genderFormSampleOutcomes: [],
   };
 }
@@ -860,7 +861,7 @@ export function formatReport(entry) {
   if (gw) {
     row('Gender-form window:',
         `${gw.residual}/${gw.processed} (${formatGenderFormRate(gw.residual, gw.processed)})`,
-        `coda ${gw.queueCandidates ?? 'n/a'} · ${gw.runs} run · `
+        `coda ${gw.queueCandidates ?? 'n/a'} · ${gw.runs} run dall'avvio · `
           + `${gw.measured ? 'measured' : `accumulating ${gw.processed}/${gw.size}`}`);
   }
 

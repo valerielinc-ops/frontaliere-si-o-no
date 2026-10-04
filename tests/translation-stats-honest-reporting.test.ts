@@ -885,7 +885,7 @@ describe('gender-form window — la misura del dopo raccolta fra le run (#7991 i
     expect(runLine).not.toMatch(/measured/);
     const windowLine = lines.find((line) => line.includes('Gender-form window:'))!;
     expect(windowLine).toContain('coda 11543');
-    expect(windowLine).toContain('1 run');
+    expect(windowLine).toContain("1 run dall'avvio");
     expect(windowLine).toContain(`accumulating 10/${GENDER_FORM_SAMPLE_SIZE}`);
     expect(windowLine).not.toMatch(/· measured/);
   });
