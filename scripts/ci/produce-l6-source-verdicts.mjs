@@ -139,7 +139,7 @@ class SourceError extends Error {
  */
 function asFetchFailed(error, url, timeoutMs) {
   if (error instanceof SourceError) return error;
-  const detail = error?.name === 'AbortError' || error?.name === 'TimeoutError'
+  const detail = error?.name === 'AbortError'
     ? `timeout after ${timeoutMs}ms`
     : error?.message || String(error);
   return new SourceError('fetch-failed', `${url}: ${detail}`);
