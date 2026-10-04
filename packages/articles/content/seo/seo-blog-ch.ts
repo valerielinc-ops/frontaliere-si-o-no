@@ -97153,6 +97153,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-axa-ue-svizzera-posizione': {
+    title: 'Bilaterali UE, il CEO AXA: «importanti, non decisivi»',
+    description: 'Thomas Buberl, CEO di AXA, giudica importanti ma non decisivi i bilaterali con l\'UE e indica flessibilità, pragmatismo e decentramento tra le forze svizzere.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bilaterali, importanti, decisivi, thomas',
+    ogTitle: 'Bilaterali UE, il CEO AXA: «importanti, non decisivi»',
+    ogDescription: 'Thomas Buberl, numero uno di AXA, considera importanti ma non decisivi i bilaterali con l\'UE per la posizione della Svizzera. Il manager indica flessibilità, pragmatismo, vicinanza ai cittadini e decentramento come fattori del successo futuro.',
+    canonicalPath: '/articoli-svizzera/axa-ue-svizzera-posizione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bilaterali UE, il CEO AXA: «importanti, non decisivi»",
+      "description": "Thomas Buberl, CEO di AXA, giudica importanti ma non decisivi i bilaterali con l'UE e indica flessibilità, pragmatismo e decentramento tra le forze svizzere.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/axa-ue-svizzera-posizione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano e del paesaggio svizzero in una giornata luminosa."
+      },
+      "datePublished": "2026-10-04T20:19:08+00:00",
+      "dateModified": "2026-10-04T20:19:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/axa-ue-svizzera-posizione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
