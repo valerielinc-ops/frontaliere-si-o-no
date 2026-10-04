@@ -40,7 +40,7 @@
  * host-allowlisted and doesn't know this host; rather than touching the
  * shared client, this parser follows the in-tree sitemap-driven CSB idiom
  * (Mobiliar) with plain `fetchHtml()`. Only the shared date normalizer
- * (`parseSuccessFactorsPostedDate`) is imported from the client.
+ * (`successFactorsPostingDateFields`) is imported from the client.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllBelimoJobs()   — Fetch and parse all Swiss jobs
@@ -53,7 +53,8 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, stripScriptsAndStyles } from './crawler-template.mjs';
 import { decodeEntities } from './prospector/entities.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { parseSuccessFactorsPostedDate } from './ats-clients/successfactors-client.mjs';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -253,7 +254,7 @@ async function fetchAllJobUrls() {
  *
  * @param {string} html Raw detail-page HTML.
  * @returns {{title: string, city: string, region: string, postalCode: string,
- *            country: string, postedDate: string|null, descriptionHtml: string} | null}
+ *            country: string, postedDate: string, datePosted: string, postingDateSource: string, descriptionHtml: string} | null}
  *   `null` when the page carries no job microdata (challenge page, redirect
  *   stub, "The desired job cannot be found" template, expired posting).
  */
@@ -309,7 +310,7 @@ export function parseBelimoDetailPage(html = '') {
     region,
     postalCode: grabMeta('postalCode') || (streetLocation?.country === 'CH' ? streetLocation.postalCode : ''),
     country: country.toUpperCase(),
-    postedDate: parseSuccessFactorsPostedDate(grabMeta('datePosted')),
+    ...successFactorsPostingDateFields(grabMeta('datePosted')),
     descriptionHtml,
   };
 }
@@ -416,7 +417,6 @@ export async function fetchAllBelimoJobs() {
     const jobSlug = slugify(`${title} belimo ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(title);
-    const postedDate = parsed.postedDate || new Date().toISOString().split('T')[0];
     const jobReqId = extractJobReqId(jobUrl) || null;
 
     const job = {
@@ -452,7 +452,7 @@ export async function fetchAllBelimoJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, parsed),
       applyUrl: publicUrl,
       jobReqId,
       requirements: [],

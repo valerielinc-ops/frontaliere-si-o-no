@@ -12,6 +12,8 @@
  *   - isTrustedDomain()  — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -153,7 +155,7 @@ function detectEmploymentType(text = '') {
  * BCV runs SAP SuccessFactors (html-jobreq flavor) on jobs.bcv.ch. Job URLs
  * follow the pattern /job/{City-Title-slug}/{numericId}/ and are discovered
  * via sitemap.xml (same platform pattern as jobs.mobiliar.ch), each with a
- * <lastmod> date usable as postedDate.
+ * <lastmod> modification date, never a publication date.
  *
  * Detail pages have no JSON-LD and no h1/h2 headings — content lives in
  * schema.org microdata: a single itemprop="title" span and THREE
@@ -229,7 +231,9 @@ function parseDetailPage(html = '') {
   }
   const description = descParts.join('\n\n').trim();
 
-  return { title, description };
+  const dateTag = html.match(/<meta\b(?=[^>]*\bitemprop=["']datePosted["'])[^>]*>/i)?.[0] || '';
+  const date = dateTag.match(/\bcontent=["']([^"']*)["']/i)?.[1] || '';
+  return { title, description, ...successFactorsPostingDateFields(date) };
 }
 
 /**
@@ -279,7 +283,6 @@ export async function fetchAllBcvJobs() {
       const sourceLang = detectLang(description || parsed.title, 'fr');
       const jobSlug = slugify(`${parsed.title} bcv ${address.city || 'lausanne'}`);
       const urlHash = createHash('sha1').update(jobUrl).digest('hex').slice(0, 12);
-      const postedDate = entry.lastmod || new Date().toISOString().split('T')[0];
 
       const job = {
         // ── Required fields ──
@@ -316,7 +319,7 @@ export async function fetchAllBcvJobs() {
         sector: 'Banca / Finanza',
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...mergeSourcePostingDates({}, parsed),
         applyUrl: jobUrl,
 
         // ── Requirements ──
