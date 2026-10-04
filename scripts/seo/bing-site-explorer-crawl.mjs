@@ -177,7 +177,11 @@ async function readLimitedBody(response, maxBytes = DEFAULT_MAX_BODY_BYTES) {
     while (true) {
       const { done, value } = await reader.read();
       if (done) break;
-      const chunk = value instanceof Uint8Array ? value : new Uint8Array(value);
+      // A byte view (copied below by `slice`): a typed array other than
+      // Uint8Array would otherwise be read element by element.
+      const chunk = value instanceof ArrayBuffer
+        ? new Uint8Array(value)
+        : new Uint8Array(value.buffer, value.byteOffset, value.byteLength);
       const remaining = maxBytes - total;
       if (remaining <= 0) {
         truncated = true;

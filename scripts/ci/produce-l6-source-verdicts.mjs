@@ -170,7 +170,11 @@ async function readCapped(response, maxBytes) {
       await reader.cancel().catch(() => {});
       throw new SourceError('fetch-failed', `source larger than ${maxBytes} bytes`);
     }
-    chunks.push(Buffer.from(value));
+    // A copy, never a view: over a bare ArrayBuffer `Buffer.from(value)`
+    // shares the producer's memory, which a reader may reuse (#7483).
+    chunks.push(Buffer.from(value instanceof ArrayBuffer
+      ? value.slice(0)
+      : value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
   }
   return Buffer.concat(chunks);
 }

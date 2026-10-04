@@ -184,6 +184,40 @@ describe('mirrorEventImage: streaming body with the cap applied during the downl
     expect([...stored]).toEqual([1, 2, 3, 4]);
   });
 
+  // Site issue 10283 (FU-2026-09-29-004): a polyfilled body may hand back the
+  // bare ArrayBuffer. `Buffer.from(value)` is a view over it, and with a
+  // declared length `buffer.set(value, n)` copied nothing at all.
+  it.each([
+    ['chunked (no Content-Length)', {}],
+    ['declared length', { 'content-length': '4' }],
+  ])('copies a reused bare ArrayBuffer chunk, %s', async (label, extraHeaders) => {
+    const shared = new ArrayBuffer(2);
+    let reads = 0;
+    const reader = {
+      read: async () => {
+        reads += 1;
+        if (reads > 2) return { done: true, value: undefined };
+        new Uint8Array(shared).set(reads === 1 ? [1, 2] : [3, 4]);
+        return { done: false, value: shared };
+      },
+      cancel: async () => {},
+      releaseLock() {},
+    };
+    const response = {
+      ok: true,
+      status: 200,
+      headers: new Headers({ 'content-type': 'image/jpeg', ...extraHeaders }),
+      body: { getReader: () => reader, cancel: async () => {} },
+    };
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(response));
+
+    const result = trackWritten(await mirrorEventImage(URL_OK, uniqueId(`bare-${label.split(' ')[0]}`)));
+
+    expect(result).toMatch(/\.jpg$/);
+    const stored = readFileSync(path.join(EVENT_IMAGE_DIR, path.basename(result!)));
+    expect([...stored]).toEqual([1, 2, 3, 4]);
+  });
+
   it('a releaseLock() that throws keeps the oversize verdict', async () => {
     let cancelled = false;
     const reader = {

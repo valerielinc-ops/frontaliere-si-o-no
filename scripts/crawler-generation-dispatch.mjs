@@ -111,7 +111,11 @@ async function boundedResponseBody(response) {
         try { await reader.cancel(); } catch { /* preserve the bounded-size error */ }
         throw new Error('response_too_large');
       }
-      chunks.push(Buffer.from(value));
+      // A copy, never a view: over a bare ArrayBuffer `Buffer.from(value)`
+      // shares the producer's memory, which a reader may reuse (#7483).
+      chunks.push(Buffer.from(value instanceof ArrayBuffer
+        ? value.slice(0)
+        : value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
     }
   } finally {
     // Releasing the lock is cleanup and must never replace the verdict: older

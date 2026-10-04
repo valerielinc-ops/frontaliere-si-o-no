@@ -167,7 +167,11 @@ export async function fetchEventBookingPrice(event, bookingUrl, { fetchImpl = fe
         if (done) break;
         size += value.byteLength;
         if (size > MAX_HTML_BYTES) { await reader.cancel(); return undefined; }
-        chunks.push(Buffer.from(value));
+        // A copy, never a view: over a bare ArrayBuffer `Buffer.from(value)`
+        // shares the producer's memory, which a reader may reuse (#7483).
+        chunks.push(Buffer.from(value instanceof ArrayBuffer
+          ? value.slice(0)
+          : value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
       }
       return extractEventBookingPrice(Buffer.concat(chunks).toString('utf8'), url, event, { venueMatcher });
     }

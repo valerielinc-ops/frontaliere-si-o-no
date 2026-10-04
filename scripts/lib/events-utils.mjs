@@ -864,10 +864,17 @@ async function readEventImageBody(response, maxBytes) {
       }
       if (chunkBytes === 0) continue;
 
-      if (buffer) buffer.set(value, totalBytes);
+      // The chunk's bytes as a view: over a bare ArrayBuffer `buffer.set(value)`
+      // copied nothing (no `length`) and `Buffer.from(value)` shared the
+      // producer's memory; a typed array other than Uint8Array would be copied
+      // element by element instead of byte by byte.
+      const bytes = value instanceof ArrayBuffer
+        ? new Uint8Array(value)
+        : new Uint8Array(value.buffer, value.byteOffset, value.byteLength);
+      if (buffer) buffer.set(bytes, totalBytes);
       // A copy, not the chunk itself: a reader may hand back the same buffer
       // on every read (corpus nanakokyobashi-rgb/frontaliere-articles#1906).
-      else chunks.push(Buffer.from(value));
+      else chunks.push(Buffer.from(bytes));
       totalBytes += chunkBytes;
     }
     return buffer ? buffer.subarray(0, totalBytes) : Buffer.concat(chunks, totalBytes);
