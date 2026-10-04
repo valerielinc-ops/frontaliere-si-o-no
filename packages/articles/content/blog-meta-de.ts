@@ -12492,6 +12492,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.derby-varesina-pro-patria-2026.title': 'Derby Varesina-Pro Patria: das Duell am Sonntag',
     'blog.article.derby-varesina-pro-patria-2026.excerpt': 'Am Sonntag, den 4. Oktober, um 15 Uhr im Elmec Solar Stadium: Pro Patria (12 Punkte) will eine Reaktion zeigen, Varesina (4) die Wende schaffen.',
     'blog.article.derby-varesina-pro-patria-2026.imageAlt': 'Fußballstadion im Elmec Solar Stadium in Venegono Superiore während des Derbys Varesina-Pro Patria.',
+    'blog.article.workshop-difesa-bullismo.title': 'Travedona Monate: Selbstverteidigung und Mobbing',
+    'blog.article.workshop-difesa-bullismo.excerpt': 'Am Samstag, 10 ottobre, findet in Travedona Monate von 9:00 bis 13:30 Uhr ein kostenloser Selbstverteidigungsworkshop mit Schwerpunkt auf Mobbing statt.',
+    'blog.article.workshop-difesa-bullismo.imageAlt': 'Kostenloser Selbstverteidigungs-Workshop in der Turnhalle der Mittelschule in Travedona Monate',
 };
 
 export default blogMetaDe;

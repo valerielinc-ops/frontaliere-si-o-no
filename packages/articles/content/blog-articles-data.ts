@@ -37466,6 +37466,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'workshop-difesa-bullismo',
+ category: 'pratico',
+ date: '2026-10-04T03:46:08.284Z',
+ image: '/images/blog/workshop-difesa-bullismo.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
