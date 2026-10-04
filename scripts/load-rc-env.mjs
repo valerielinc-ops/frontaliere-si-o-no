@@ -289,6 +289,14 @@ export const RC_TO_ENV = {
   SERVER_TIKTOK_SANDBOX_CLIENT_KEY:    ['TIKTOK_SANDBOX_CLIENT_KEY'],
   SERVER_TIKTOK_SANDBOX_CLIENT_SECRET: ['TIKTOK_SANDBOX_CLIENT_SECRET'],
 
+  // Instagram/TikTok transport switch: off | dry | live (absent or unknown =
+  // dry). Read by the two posters above, which either call the API or queue
+  // the post, and by the Playwright robot on the agents' Mac host
+  // (scripts/social-robot/), which presses the publish button only on `live`.
+  // See scripts/lib/social-publish-queue.mjs. Every value is shorter than six
+  // characters, so isTrivialSecret() never masks it in CI logs.
+  SOCIAL_ROBOT_MODE:                   ['SOCIAL_ROBOT_MODE'],
+
   // CODEX_AUTH_JSON lives in Remote Config but is deliberately NOT mapped,
   // the one exception to "every secret in RC is mapped here" (DECISIONS.md
   // 2026-09-24). The RC copy exists only for functions/src/codexFallback.js
