@@ -12462,6 +12462,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tappi-chiodi-parcheggio-luino.title': 'Luino, des bouchons avec des clous dans le parking derrière le Tigros',
     'blog.article.tappi-chiodi-parcheggio-luino.excerpt': 'Paolo Nicastri signale la présence de bouchons munis de clous pointés vers le haut dans la zone utilisée par les voitures, les motos et les auto-écoles pour les examens et les épreuves de conduite.',
     'blog.article.tappi-chiodi-parcheggio-luino.imageAlt': 'Bouchons en liège avec des clous trouvés sur un parking à Luino',
+    'blog.article.ambri-vince-friborgo-2-1.title': 'Hockey, l\'Ambrì s\'impose à la BCF Arena : Friborgo battu 2-1',
+    'blog.article.ambri-vince-friborgo-2-1.excerpt': 'Après deux défaites, l\'Ambrì retrouve son efficacité et s\'impose 2-1 à Friborgo. Les buts de Müller et Schnarr ont été décisifs lors d\'une soirée marquée par un grand sacrifice défensif.',
+    'blog.article.ambri-vince-friborgo-2-1.imageAlt': 'Ambrì gagne 2-1 contre Fribourg à la BCF Arena',
 };
 
 export default blogMetaFr;

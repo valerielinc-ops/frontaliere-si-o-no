@@ -37367,6 +37367,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ambri-vince-friborgo-2-1',
+ category: 'novita',
+ date: '2026-10-04T00:51:52.804Z',
+ image: '/images/blog/ambri-vince-friborgo-2-1.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

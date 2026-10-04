@@ -12459,6 +12459,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tappi-chiodi-parcheggio-luino.title': 'Luino, Deckel mit Nägeln auf dem Parkplatz hinter dem Tigros',
     'blog.article.tappi-chiodi-parcheggio-luino.excerpt': 'Paolo Nicastri weist auf das Vorhandensein von Deckeln mit nach oben gerichteten Nägeln in dem von Autos, Motorrädern und Fahrschulen für Prüfungen und Fahrübungen genutzten Bereich hin.',
     'blog.article.tappi-chiodi-parcheggio-luino.imageAlt': 'Korken mit Nägeln auf einem Parkplatz in Luino gefunden',
+    'blog.article.ambri-vince-friborgo-2-1.title': 'Hockey, Ambrì erobert die BCF Arena: Freiburg besiegt 2-1',
+    'blog.article.ambri-vince-friborgo-2-1.excerpt': 'Nach zwei Niederlagen findet Ambrì wieder Konkretheit und gewinnt 2: 1 in Freiburg. Entscheidend waren die Tore von Müller und Schnarr an einem Abend großer Abwehropfer.',
+    'blog.article.ambri-vince-friborgo-2-1.imageAlt': 'Ambrì gewinnt 2-1 gegen Fribourg in der BCF Arena',
 };
 
 export default blogMetaDe;

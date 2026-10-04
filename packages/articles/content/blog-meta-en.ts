@@ -12460,6 +12460,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tappi-chiodi-parcheggio-luino.title': 'Luino, bottle caps with nails in the parking lot behind Tigros',
     'blog.article.tappi-chiodi-parcheggio-luino.excerpt': 'Paolo Nicastri reports the presence of caps with nails pointing upwards in the area used by cars, motorcycles and driving schools for driving exams and tests.',
     'blog.article.tappi-chiodi-parcheggio-luino.imageAlt': 'Cork stoppers with nails found in a parking lot in Luino',
+    'blog.article.ambri-vince-friborgo-2-1.title': 'Hockey, Ambrì conquer the BCF Arena: Fribourg beaten 2-1',
+    'blog.article.ambri-vince-friborgo-2-1.excerpt': 'After two defeats, Ambrì rediscover their solidity and win 2-1 in Fribourg. Goals by Müller and Schnarr prove decisive in an evening of great defensive sacrifice.',
+    'blog.article.ambri-vince-friborgo-2-1.imageAlt': 'Ambrì wins 2-1 against Fribourg at the BCF Arena',
 };
 
 export default blogMetaEn;

@@ -12461,6 +12461,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tappi-chiodi-parcheggio-luino.title': 'Luino, tappi con chiodi nel parcheggio dietro al Tigros',
     'blog.article.tappi-chiodi-parcheggio-luino.excerpt': 'Paolo Nicastri segnala la presenza di tappi con chiodi rivolti verso l\'alto nell\'area usata da auto, moto e autoscuole per esami e prove di guida.',
     'blog.article.tappi-chiodi-parcheggio-luino.imageAlt': 'Tappi di sughero con chiodi trovati in un parcheggio a Luino',
+    'blog.article.ambri-vince-friborgo-2-1.title': 'Hockey, l\'Ambrì espugna la BCF Arena: Friborgo battuto 2-1',
+    'blog.article.ambri-vince-friborgo-2-1.excerpt': 'Dopo due sconfitte, l\'Ambrì ritrova concretezza e vince 2-1 a Friborgo. Decisive le reti di Müller e Schnarr in una serata di grande sacrificio difensivo.',
+    'blog.article.ambri-vince-friborgo-2-1.imageAlt': 'L\'Ambrì vince 2-1 contro il Friborgo alla BCF Arena',
 };
 
 export default blogMetaIt;
