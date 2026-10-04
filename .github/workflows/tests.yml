@@ -1307,24 +1307,22 @@ jobs:
             /*.yaml
             /*.yml
             /*.config.*
-            # Stesso punto cieco di related-search-candidates.json sopra: due test
-            # leggono un doc sotto /docs/ (bucket escluso, 108 MB/706 file) con un
-            # path runtime — invisibile a verify-checkout-profiles.mjs. `/*.md`
-            # sopra copre i doc di root (ISSUES.md, REVIEW.md, ecc., osservato
-            # rosso su #6699 2026-08-30: readFileSync ISSUES.md ENOENT), ma
-            # docs/FIX-ISSUE-COMMAND.md resta sotto il bucket escluso senza
-            # questo carve-out puntuale.
-            /docs/FIX-ISSUE-COMMAND.md
-            /docs/preferred-sources-checklist.md
-            # Stesso punto cieco: tests/longform-docs-match-renderer.test.ts
-            # legge questi due doc con `readFileSync(join(process.cwd(), rel))`
-            # — un path runtime, invisibile all'analisi statica degli import.
-            # E' l'invariante doc<->renderer di #7359 (cap/gap/soglia H2 citati
-            # nella prosa devono coincidere con services/articleAdDensity.ts):
-            # senza il carve-out il file muore in import con ENOENT e il job
-            # esce rosso con «no tests» (osservato su #7555, 2026-09-05).
-            /docs/ads-placement-longform.md
-            /docs/editorial-longform-audit.md
+            # Stesso punto cieco di related-search-candidates.json sopra: i test
+            # leggono i doc sotto /docs/ con un path runtime
+            # (`readFileSync(join(process.cwd(), rel))`), invisibile a
+            # verify-checkout-profiles.mjs. `/*.md` sopra copre i doc di root
+            # (ISSUES.md, REVIEW.md, ecc., osservato rosso su #6699 2026-08-30:
+            # readFileSync ISSUES.md ENOENT). Per /docs/ servivano carve-out
+            # puntuali, uno per incidente: FIX-ISSUE-COMMAND.md,
+            # preferred-sources-checklist.md, gli invarianti doc<->renderer di
+            # #7359 (ads-placement-longform.md, editorial-longform-audit.md,
+            # ENOENT in import e «no tests» su #7555, 2026-09-05) e
+            # CF-5XX-TRIAGE.md (ENOENT su #11416, 2026-10-04). Quindi si
+            # materializzano TUTTI i markdown di /docs/: 129 file e 2,5 MB, contro
+            # 142,8 MB dell'intera cartella, di cui 140,3 MB sono gli artefatti
+            # di docs/newsletter-qa che restano esclusi. Un test nuovo che legge
+            # un doc non chiede piu' un carve-out.
+            /docs/**/*.md
             # Runtime `fs.readFileSync(ROOT, 'index.html'/'index.css')` reads in
             # tests/bfs-depth-hub-link-coverage.test.ts and tests/events-card-atoms.test.ts
             # — invisible to verifyCheckoutProfiles' import-graph analysis (it only
