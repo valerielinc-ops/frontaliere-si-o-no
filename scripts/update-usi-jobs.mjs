@@ -28,6 +28,7 @@
  *   - Amministrativi (administrative, technical, support staff)
  *   - Apprendisti (apprenticeships)
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -698,7 +699,8 @@ export async function fetchUsiJobs() {
       },
       department: itJob.department,
       category,
-      datePosted: new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(''),
+      crawledAt: new Date().toISOString(),
       source: 'usi-drupal-crawler',
       employmentType: category === 'apprentice' ? 'APPRENTICESHIP' : category === 'internship' ? 'INTERN' : 'FULL_TIME',
       experienceLevel: category === 'professor' ? 'SENIOR' : category === 'phd' ? 'ENTRY' : category === 'researcher' ? 'MID' : '',
@@ -759,7 +761,8 @@ export async function fetchUsiJobs() {
       },
       department: enJob.department,
       category,
-      datePosted: new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(''),
+      crawledAt: new Date().toISOString(),
       source: 'usi-drupal-crawler',
       employmentType: category === 'apprentice' ? 'APPRENTICESHIP' : category === 'internship' ? 'INTERN' : 'FULL_TIME',
       experienceLevel: category === 'professor' ? 'SENIOR' : category === 'phd' ? 'ENTRY' : category === 'researcher' ? 'MID' : '',

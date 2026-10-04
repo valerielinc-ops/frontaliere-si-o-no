@@ -67,6 +67,24 @@ calendario di farmacie.
   completa o stabile per la pubblicazione; `blocked` resta
   disponibile per un accesso negato. L'assenza di un connettore si esprime con
   `unverified`, non con uno stato operativo inventato.
+- `status` non dice se e come una fonte è stata esaminata. Lo dice il campo
+  opzionale `audit` di un'entry cantonale (`verdict`, `auditedAt` nel formato
+  `YYYY-MM-DDT00:00:00.000Z`, `reason` fino a 400 caratteri, `evidenceUrl`
+  HTTPS), con uno di tre verdetti:
+  - `complete-feed`: la pagina o un documento collegato elenca, senza input
+    dell'utente, le farmacie di turno con data e intervallo orario per ogni
+    giorno di almeno 7 giorni, per tutte le regioni del cantone;
+  - `partial-or-proximity`: un dato esiste ma copre solo oggi, solo alcune
+    regioni o richiede una ricerca per posizione;
+  - `no-machine-readable`: solo numero di telefono, opuscolo o pagina di
+    orientamento.
+- `unverified` con `audit` significa «esaminata, non pubblicabile»;
+  `unverified` senza `audit` significa «mai esaminata». Un'entry `active` può
+  portare soltanto `complete-feed` (il validatore del registry rifiuta la
+  contraddizione). `scripts/check-pharmacy-data-health.mjs` conta nella
+  dashboard i cantoni non attivi senza verdetto e segnala come problema un
+  `complete-feed` non attivo (onboarding da aprire) e un audit più vecchio di
+  90 giorni.
 
 ## Link di fonte e turno live non sono la stessa cosa
 

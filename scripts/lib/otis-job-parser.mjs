@@ -264,7 +264,7 @@ export function parseOtisWorkdayDetail(detail, externalPath = '') {
   const publicUrl = buildPublicUrl(externalPath);
   const timeType = info.timeType || '';
   const jobReqId = info.jobReqId || '';
-  const startDate = info.startDate || new Date().toISOString().split('T')[0];
+  const startDate = info.startDate || '';
 
   return {
     title,
