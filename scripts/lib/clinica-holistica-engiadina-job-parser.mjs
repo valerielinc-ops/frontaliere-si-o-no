@@ -20,6 +20,8 @@
  *   - Located in Susch, canton GR, postal code 7542.
  *   - DE-only career content. FR carriere returns no offers.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
@@ -191,6 +193,7 @@ async function fetchDetail(context, detailUrl) {
       return {
         title: h1 ? h1.innerText.trim() : '',
         articleHtml: article ? article.outerHTML : '',
+        publicationHtml: Array.from(document.querySelectorAll('script[type="application/ld+json"]')).map((node) => node.outerHTML).join('\n'),
         bodyText: body ? body.innerText : '',
         canonical:
           (document.querySelector('link[rel="canonical"]') &&
@@ -272,6 +275,8 @@ function buildJob(detailUrl, detail) {
     || stripHtml(detail.bodyText || '')
     || `${title} — ${CLINICA_HOLISTICA_COMPANY_NAME}`;
   const sourceLang = detectLang(description || title, 'de');
+  const posting = extractJobPostingLd(detail.publicationHtml || '');
+  const sameTitle = normalizeSpace(posting?.title || '').toLowerCase() === title.toLowerCase();
 
   const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
   const jobSlug = slugify(`${title} ${CLINICA_HOLISTICA_COMPANY_NAME} Susch`);
@@ -301,7 +306,7 @@ function buildJob(detailUrl, detail) {
     experienceLevel: detectExperienceLevel(title),
     currency: 'CHF',
     featured: false,
-    postedDate: new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(sameTitle ? posting?.datePosted : ''),
     url: detailUrl,
     applyUrl: detailUrl,
     source: 'Clinica Holistica Engiadina Dedicated Parser (Playwright)',
