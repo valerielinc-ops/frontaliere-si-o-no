@@ -28,6 +28,7 @@
  * `swissmedical.net/de/spitaeler/villa-im-park` with the brand-scoped
  * SmartRecruiters search above.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
@@ -177,13 +178,7 @@ function buildParsedJob(posting, detail) {
   // shared pipeline's thin-source path).
   const desc = meetsSourceBodyFloor(descText) ? descText : '';
 
-  const postedDate = (() => {
-    const raw = posting.releasedDate || detail?.releasedDate;
-    if (!raw) return new Date().toISOString().slice(0, 10);
-    const d = new Date(raw);
-    if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-    return d.toISOString().slice(0, 10);
-  })();
+
 
   const srType = posting?.typeOfEmployment?.label || posting?.typeOfEmployment?.id || '';
 
@@ -217,7 +212,7 @@ function buildParsedJob(posting, detail) {
     sector: 'Sanità',
     currency: 'CHF',
     featured: false,
-    postedDate,
+    ...sourcePostingDateFields(posting.releasedDate || detail?.releasedDate),
     applyUrl: srUrls.applyUrl || publicUrl,
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },

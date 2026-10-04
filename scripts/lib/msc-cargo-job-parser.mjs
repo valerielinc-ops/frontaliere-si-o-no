@@ -24,6 +24,8 @@
  *   - isTrustedDomain()       — Validate URLs (msc.com + msccruises.com)
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { sourceCompactOffsetPostingDateFields, sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -381,9 +383,11 @@ export async function fetchAllMscCargoJobs() {
     // parser-quality audit's hasStructuredContent gate. Fall back to the
     // teaser when the detail fetch fails or yields nothing.
     let description = teaser;
+    let detailPublication = sourcePostingDateFields('');
     try {
       const detailHtml = await fetchHtml(applyUrl, { timeoutMs: 20000 });
       const detailDesc = extractDetailDescription(detailHtml);
+      detailPublication = sourceCompactOffsetPostingDateFields(extractJobPostingField(detailHtml, 'datePosted'));
       if (detailDesc && detailDesc.length >= 100) {
         description = detailDesc;
       }
@@ -397,13 +401,7 @@ export async function fetchAllMscCargoJobs() {
     const jobSlug = slugify(`${title} msc ${city || 'geneva'}`);
     const urlHash = createHash('sha1').update(applyUrl).digest('hex').slice(0, 12);
 
-    const postedDate = (() => {
-      const raw0 = raw?.postedDate || raw?.dateCreated || '';
-      if (!raw0) return new Date().toISOString().slice(0, 10);
-      const d = new Date(raw0);
-      if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-      return d.toISOString().slice(0, 10);
-    })();
+    const publication = mergeSourcePostingDates(sourceCompactOffsetPostingDateFields(raw?.postedDate), detailPublication);
 
     const job = {
       id: `msc-cargo-${urlHash}`,
@@ -434,7 +432,7 @@ export async function fetchAllMscCargoJobs() {
       sector: 'Logistica e crocieristica',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl,
       jobReqId: raw?.reqId || raw?.jobId || null,
       requirements: [],
