@@ -2,6 +2,7 @@ import { FieldValue } from 'firebase-admin/firestore';
 
 import { assertSubscriberData, isNewsletterOptOutBinding } from './newsletterOptOut.js';
 import { isAccountDeletedTombstone } from '../authAccountCleanup.js';
+import { isSavedJobsDigestAnchorOnly } from './subscriberConsent.js';
 
 /**
  * Suppression recovery — the single decision point shared by every
@@ -205,6 +206,14 @@ export function positiveEventRecoveryFields({ currentStatus, bounceSeverity, eve
     winback_sent_at: FieldValue.delete(),
     winback_pending: FieldValue.delete(),
   };
+  // The saved-jobs digest record (owner decision 2026-10-03) is not a
+  // subscription: the recovered `status` resumes the digest, whose stop reads
+  // the status and never these booleans, while `true` here would only make the
+  // admin panel and the signup monitor count it as a subscriber.
+  if (isSavedJobsDigestAnchorOnly(subscriber)) {
+    delete fields.isActive;
+    delete fields.active;
+  }
   // Only written when the caller told us what arrived — never a null field.
   if (eventType) fields.recovered_by_event = eventType;
   if (status === 'bounced') {

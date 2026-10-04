@@ -263,3 +263,51 @@ export function measureTitleLocales(jobs, looksUntranslated, locales, maxOffende
   }
   return { slots, flagged, offenders };
 }
+
+/**
+ * Population slots of a set of jobs under the SAME filters as the two
+ * ratchets: the `slots` that measureTitleLocales / measureDescriptionLocales
+ * return, without running a detector.
+ *
+ * WHY. Agency jobs held out of publication until their titles are translated
+ * (owner decision 2026-10-03, scripts/lib/translation-publication-hold.mjs)
+ * stay in the corpus but are not in the assembled `data/jobs.json` the
+ * ratchets read. Both `expectedSlots` were measured when every one of those
+ * jobs was published, so a measured population without them is a different
+ * set from the baseline. The assembler counts the held jobs' slots with this
+ * function and writes them to `data/jobs-meta.json`; the population guard adds
+ * them back. The RATE is still measured on what the site serves.
+ *
+ * @param {Array<object>} jobs
+ * @param {readonly string[]} [locales]
+ * @returns {{ titles: number, descriptions: number }}
+ */
+export function countPopulationSlots(jobs, locales = ['it', 'en', 'de', 'fr']) {
+  return {
+    titles: measureTitleLocales(jobs, () => ({ untranslated: false }), locales, 0).slots,
+    descriptions: measureDescriptionLocales(jobs, (_text, locale) => ({ lang: locale, confidence: 0 }), locales).slots,
+  };
+}
+
+/**
+ * Held-for-translation population slots recorded by the assembly that produced
+ * the measured `data/jobs.json`, or null when they cannot be trusted: field
+ * missing (assembler before the threshold) or invalid, or a meta that is not
+ * from the same assembly (`totalJobs` counts the published jobs, so it must
+ * equal the length of the measured dataset — a projection that already
+ * includes held jobs does not match, and nothing is added twice). Null means
+ * the guard compares the measured slots alone, exactly as before.
+ *
+ * @param {object|null} meta              parsed data/jobs-meta.json
+ * @param {number} publishedJobCount      length of the measured data/jobs.json
+ * @returns {{ titles: number, descriptions: number } | null}
+ */
+export function heldPopulationSlots(meta, publishedJobCount) {
+  if (!meta || meta.totalJobs !== publishedJobCount) return null;
+  const slots = meta.translationHold?.populationSlots;
+  const titles = slots?.titles;
+  const descriptions = slots?.descriptions;
+  if (!Number.isInteger(titles) || titles < 0) return null;
+  if (!Number.isInteger(descriptions) || descriptions < 0) return null;
+  return { titles, descriptions };
+}

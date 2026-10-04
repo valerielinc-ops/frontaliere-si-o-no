@@ -39,6 +39,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildBridgeBreadcrumbLd, JOBS_SECTION_LABEL } from './shared/bridgeBreadcrumb';
 import { renderCantonSeoProse, buildCantonSeoProseFaqItems, type CantonSeoLocale } from './shared/cantonSeoProse';
 import { isSliceFile } from '../scripts/lib/crawler-slice-files.mjs';
+import { isHeldFromPublication } from '../scripts/lib/translation-publication-hold.mjs';
 import type { Locale } from '../services/i18n';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { ALL_CANTON_CODES, COMPANY_ROUTE_PREFIX, resolveCantonSection, resolveJobCanton } from './shared/cantonSection';
@@ -227,6 +228,10 @@ function loadCompanyCantonAvailability(rootDir: string): CompanyCantonAvailabili
       for (const job of jobs) {
         const company = String(job.company || '').trim();
         if (!company) continue;
+        // A job held out of publication for translation (agency admission
+        // threshold) is not on the site: suggesting its canton would link to
+        // an empty section.
+        if (isHeldFromPublication(job)) continue;
         const canton = resolveJobCanton({
           canton: typeof job.canton === 'string' ? job.canton : undefined,
           location: typeof job.location === 'string' ? job.location : undefined,
