@@ -621,6 +621,27 @@ describe('read-only loop outcome exporters', () => {
       });
       expect(JSON.stringify(output.export)).not.toContain(foreignId);
     });
+
+    it('splits noConsentedAlert into a missing alert row and a consent refusal without opening the gates', () => {
+      const output = buildL4OutcomeLedger({
+        now: NOW,
+        alertRows: [row(`${USER}/alerts/refused`, { active: true })],
+        jobAlertRoots: [row(USER, {})],
+        newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+        deliveryRows: [
+          row(`${USER}/campaign_deliveries/d1`, { campaign_id: 'refused', sent_at: '2026-09-12T09:00:00.000Z' }),
+          row(`${USER}/campaign_deliveries/d2`, { campaign_id: 'deleted', sent_at: '2026-09-12T09:00:00.000Z' }),
+        ],
+        predicates: { evaluateJobAlertConsent: () => ({ allowed: false, reason: 'no-consent' }) },
+      });
+      expect(output.export).toMatchObject({
+        consentChecked: false,
+        deduplicationChecked: false,
+        unattributedDeliveries: 2,
+        unattributedDeliveryReasons: { noConsentedAlert: 2 },
+        noConsentedAlertCauses: { alertRowMissing: 1, consentNotAllowed: 1 },
+      });
+    });
   });
 
   it('exports the L5 completed-task to next-useful-action contract', async () => {
