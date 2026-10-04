@@ -27,6 +27,9 @@ const FIXTURE_JOB = {
   salaryMin: 60000,
   salaryMax: 75000,
   postedDate: new Date(Date.now() - 86400000 * 2).toISOString(),
+  // Publication evidence is required for the shared renderer to emit
+  // the data-posted marker after provenance is enforced fail-closed.
+  postingDateSource: 'reported',
   daysAgo: 2,
   slug: 'educatore-prima-infanzia-asilo-sole-lugano',
   slugByLocale: {},
