@@ -1228,20 +1228,80 @@ export async function fetchL5DecisionMomentCounts({
   return { eligibleDecisionSessions, nextUsefulActions };
 }
 
+// Event types that prove a message reached the inbox, grouped by what they
+// prove. An open or a click cannot happen on an undelivered message.
+const L4_EVIDENCE_CLASS = Object.freeze({
+  delivered: 'delivered',
+  open: 'open',
+  opened: 'open',
+  click: 'click',
+  clicked: 'click',
+});
+// Recipient-window join bounds (#8409): the webhook may store a provider id
+// that differs from the reference saved at send time, so an event of the same
+// recipient and provider is accepted shortly after the send.
+const L4_RECIPIENT_WINDOW_BEFORE_MS = 60_000;
+const L4_RECIPIENT_WINDOW_AFTER_MS = 72 * 3_600_000;
+
+function normalizedProvider(value) {
+  return String(value || '').trim().toLowerCase();
+}
+
 function eventSet(rows) {
-  const result = new Map();
+  const byMessage = new Map();
+  const byRecipient = new Map();
   for (const row of rows) {
     const data = documentData(row);
     const child = childRow(row, 'job_alert_subscribers', 'events');
     if (!child) continue;
+    const email = child.parentId.toLowerCase();
     const messageId = String(first(data, ['message_id', 'messageId']) || '').trim();
     const type = String(first(data, ['event_type', 'eventType']) || '').trim().toLowerCase();
-    if (!messageId || !type) continue;
-    const key = `${child.parentId}\u0000${messageId}`;
-    if (!result.has(key)) result.set(key, new Set());
-    result.get(key).add(type);
+    if (!type) continue;
+    if (messageId) {
+      const key = `${email}\u0000${messageId}`;
+      if (!byMessage.has(key)) byMessage.set(key, new Set());
+      byMessage.get(key).add(type);
+    }
+    const evidenceClass = L4_EVIDENCE_CLASS[type];
+    const occurredAtMs = toMillis(first(data, ['occurred_at', 'occurredAt', 'timestamp']));
+    if (!evidenceClass || occurredAtMs == null) continue;
+    if (!byRecipient.has(email)) byRecipient.set(email, []);
+    byRecipient.get(email).push({
+      messageKey: messageId ? `${email}\u0000${messageId}` : null,
+      evidenceClass,
+      provider: normalizedProvider(data.provider),
+      occurredAtMs,
+      consumed: false,
+    });
   }
-  return result;
+  for (const list of byRecipient.values()) list.sort((a, b) => a.occurredAtMs - b.occurredAtMs);
+  return { byMessage, byRecipient };
+}
+
+/**
+ * Claim, for one delivery, the earliest unconsumed event of each evidence
+ * class sent to the same recipient by the same provider inside the window.
+ * Events already joined by message id to some delivery are never reused, and
+ * a claimed event cannot support a second delivery.
+ */
+function claimRecipientWindowEvidence({ events, email, provider, sentAt, idJoinedKeys }) {
+  const claimed = new Set();
+  const list = events.byRecipient.get(email) || [];
+  for (const event of list) {
+    if (event.occurredAtMs > sentAt + L4_RECIPIENT_WINDOW_AFTER_MS) break;
+    if (event.consumed || claimed.has(event.evidenceClass)) continue;
+    if (event.occurredAtMs < sentAt - L4_RECIPIENT_WINDOW_BEFORE_MS) continue;
+    if (event.messageKey && idJoinedKeys.has(event.messageKey)) continue;
+    if (provider && event.provider && provider !== event.provider) continue;
+    event.consumed = true;
+    claimed.add(event.evidenceClass);
+  }
+  return claimed;
+}
+
+function incrementCount(counts, key) {
+  counts[key] = (counts[key] || 0) + 1;
 }
 
 function hasNonEmptyLinks(value) {
@@ -1338,6 +1398,18 @@ export function buildL4OutcomeLedger({
     noConsentedAlert: 0,
   };
   let quietHoursEvidenceComplete = true;
+  let deliveryRowCount = 0;
+  const deliveryRowsByProvider = {};
+  const deliveredByProvider = {};
+  const unattributedDeliveryShapes = {};
+  const deliveryEvidenceByJoin = {
+    deliveredAt: 0,
+    messageId: 0,
+    recipientWindow: 0,
+    impliedByEngagement: 0,
+    none: 0,
+  };
+  const attributed = [];
 
   for (const row of deliveryRows) {
     const child = childRow(row, 'job_alert_subscribers', 'campaign_deliveries');
@@ -1349,12 +1421,18 @@ export function buildL4OutcomeLedger({
       || Object.prototype.hasOwnProperty.call(data, 'sendTimeSource');
     if (!scheduleFieldPresent || !scheduleSourcePresent) quietHoursEvidenceComplete = false;
     if (data.is_operator_verification === true || data.isOperatorVerification === true) continue;
+    const provider = normalizedProvider(data.provider);
+    deliveryRowCount += 1;
+    incrementCount(deliveryRowsByProvider, provider || 'unknown');
     const email = child.parentId.toLowerCase();
     const alertId = String(first(data, ['campaign_id', 'campaignId']) || '').trim();
     const sentAt = toMillis(first(data, ['sent_at', 'sentAt']));
     const key = buildAlertKey(email, alertId);
     if (!alertId || sentAt == null || !consentedAlerts.has(key)) {
       unattributedDeliveries += 1;
+      // Shape only (id length), never the id itself: enough to tell an alert
+      // id from an id of another nature without exporting identifiers.
+      incrementCount(unattributedDeliveryShapes, String(alertId.length));
       if (!alertId) unattributedDeliveryReasons.missingAlertId += 1;
       else if (sentAt == null) unattributedDeliveryReasons.missingSentAt += 1;
       else unattributedDeliveryReasons.noConsentedAlert += 1;
@@ -1362,19 +1440,50 @@ export function buildL4OutcomeLedger({
     }
     const deliveryId = row.name || `${email}/${child.childId}`;
     const messageId = String(first(data, ['message_id', 'messageId']) || '').trim();
-    const eventTypes = messageId ? (events.get(`${email}\u0000${messageId}`) || new Set()) : new Set();
-    const deliveredEvidence = toMillis(first(data, ['delivered_at', 'deliveredAt'])) != null || eventTypes.has('delivered');
-    const clickedEvidence = toMillis(first(data, ['clicked_at', 'clickedAt'])) != null
-      || hasNonEmptyLinks(first(data, ['clicked_links', 'clickedLinks']))
-      || eventTypes.has('click') || eventTypes.has('clicked');
-    const openedEvidence = toMillis(first(data, ['opened_at', 'openedAt'])) != null
-      || eventTypes.has('open') || eventTypes.has('opened') || clickedEvidence;
-    if (deliveredEvidence) delivered.add(deliveryId);
-    if (deliveredEvidence && openedEvidence) opened.add(deliveryId);
-    if (deliveredEvidence && clickedEvidence) clicked.add(deliveryId);
+    const messageKey = messageId ? `${email}\u0000${messageId}` : null;
+    attributed.push({ deliveryId, data, email, alertId, sentAt, provider, messageKey });
 
     const group = `${email}\u0000${alertId}\u0000${sendDay(sentAt)}`;
     dedupGroups.set(group, (dedupGroups.get(group) || 0) + 1);
+  }
+
+  // Events joined by message id belong to their delivery and are never
+  // offered to the recipient-window join of another one.
+  const idJoinedKeys = new Set(attributed
+    .map((delivery) => delivery.messageKey)
+    .filter((messageKey) => messageKey && events.byMessage.has(messageKey)));
+  // Oldest send first, so each window event is claimed by the earliest
+  // delivery it can belong to.
+  attributed.sort((a, b) => a.sentAt - b.sentAt || (a.deliveryId < b.deliveryId ? -1 : a.deliveryId > b.deliveryId ? 1 : 0));
+
+  for (const { deliveryId, data, email, sentAt, provider, messageKey } of attributed) {
+    const eventTypes = messageKey ? (events.byMessage.get(messageKey) || new Set()) : new Set();
+    const windowClasses = eventTypes.size === 0
+      ? claimRecipientWindowEvidence({ events, email, provider, sentAt, idJoinedKeys })
+      : new Set();
+    const deliveredAtEvidence = toMillis(first(data, ['delivered_at', 'deliveredAt'])) != null;
+    const clickedEvidence = toMillis(first(data, ['clicked_at', 'clickedAt'])) != null
+      || hasNonEmptyLinks(first(data, ['clicked_links', 'clickedLinks']))
+      || eventTypes.has('click') || eventTypes.has('clicked')
+      || windowClasses.has('click');
+    const openedEvidence = toMillis(first(data, ['opened_at', 'openedAt'])) != null
+      || eventTypes.has('open') || eventTypes.has('opened') || windowClasses.has('open')
+      || clickedEvidence;
+    // An open or a click implies the message was delivered.
+    const deliveredEvidence = deliveredAtEvidence || eventTypes.has('delivered')
+      || windowClasses.size > 0 || openedEvidence;
+    let join = 'none';
+    if (deliveredAtEvidence) join = 'deliveredAt';
+    else if (eventTypes.has('delivered')) join = 'messageId';
+    else if (windowClasses.size > 0) join = 'recipientWindow';
+    else if (openedEvidence) join = 'impliedByEngagement';
+    deliveryEvidenceByJoin[join] += 1;
+    if (deliveredEvidence && !delivered.has(deliveryId)) {
+      delivered.add(deliveryId);
+      incrementCount(deliveredByProvider, provider || 'unknown');
+    }
+    if (deliveredEvidence && openedEvidence) opened.add(deliveryId);
+    if (deliveredEvidence && clickedEvidence) clicked.add(deliveryId);
 
     const visit = readVisit(jobs.get(email));
     const classified = classifyVisit(visit);
@@ -1419,6 +1528,12 @@ export function buildL4OutcomeLedger({
       externalDeliveryUntouched: true,
       unattributedDeliveries,
       unattributedDeliveryReasons,
+      unattributedDeliveryShapes,
+      deliveryRows: deliveryRowCount,
+      deliveryRowsByProvider,
+      deliveredByProvider,
+      deliveryEvidenceByJoin,
+      deliveryEvidenceJoin: deliveryRowCount === 0 ? 'no-deliveries' : (delivered.size === 0 ? 'empty' : 'joined'),
       consentClassifier: 'functions/src/jobAlertBackfillCore.js',
       returnClassifier: 'functions/src/lib/returnVisit.js',
       deduplicationKey: 'recipient + alert id + UTC send day',
@@ -1446,13 +1561,13 @@ export async function exportL4({ configPath = null, snoozesPath = null, outputPa
       collectionId: 'campaign_deliveries',
       allDescendants: true,
       where: firestoreTimestampFilter('sent_at', window.start),
-      fieldPaths: ['campaign_id', 'campaignId', 'message_id', 'messageId', 'is_operator_verification', 'isOperatorVerification', 'sent_at', 'sentAt', 'scheduled_for', 'scheduledFor', 'send_time_source', 'sendTimeSource', 'delivered_at', 'deliveredAt', 'opened_at', 'openedAt', 'clicked_at', 'clickedAt', 'clicked_links', 'clickedLinks'],
+      fieldPaths: ['campaign_id', 'campaignId', 'message_id', 'messageId', 'is_operator_verification', 'isOperatorVerification', 'sent_at', 'sentAt', 'scheduled_for', 'scheduledFor', 'send_time_source', 'sendTimeSource', 'delivered_at', 'deliveredAt', 'opened_at', 'openedAt', 'clicked_at', 'clickedAt', 'clicked_links', 'clickedLinks', 'provider'],
     }),
     firestore.runQuery({
       collectionId: 'events',
       allDescendants: true,
       where: firestoreTimestampFilter('timestamp', window.start),
-      fieldPaths: ['event_type', 'eventType', 'message_id', 'messageId', 'timestamp', 'occurred_at', 'occurredAt'],
+      fieldPaths: ['event_type', 'eventType', 'message_id', 'messageId', 'timestamp', 'occurred_at', 'occurredAt', 'provider'],
     }),
   ]);
   const consent = predicates || await Promise.all([
@@ -1481,6 +1596,14 @@ export async function exportL4({ configPath = null, snoozesPath = null, outputPa
     predicates: consent,
   });
   outcome.export.configSource = configPath || 'data/alert-config.json';
+  if (outcome.export.deliveryEvidenceJoin === 'empty') {
+    // Aggregates only: the reason must be readable in the run log.
+    console.warn(`L4: join consegna-evento vuoto, deliveredAlerts a zero con invii ${JSON.stringify({
+      deliveryRows: outcome.export.deliveryRows,
+      deliveryRowsByProvider: outcome.export.deliveryRowsByProvider,
+      deliveryEvidenceByJoin: outcome.export.deliveryEvidenceByJoin,
+    })}`);
+  }
   fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
   fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(outcome, null, 2)}\n`);
   return outcome;
