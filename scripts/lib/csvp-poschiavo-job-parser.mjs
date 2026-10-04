@@ -91,8 +91,12 @@ export function isCsvpPoschiavoAuthoritativeEmptyPage(html = '') {
   const dom = new JSDOM(String(html || ''));
   try {
     const { document } = dom.window;
+    // Joomla/YOOtheme renders the category component inside a layout wrapper
+    // rather than a semantic <main> on the live CSVP page. Keep the scope at
+    // the category component itself and exclude navigation/footer modules so
+    // an identical phrase outside the listing cannot prove an empty source.
     const categoryContainers = [...document.querySelectorAll(CSVP_POSCHIAVO_CATEGORY_CONTAINER_SELECTOR)]
-      .filter((node) => node.closest('main, [role="main"]'));
+      .filter((node) => !node.closest('footer, nav, aside'));
 
     for (const category of categoryContainers) {
       if (!isVisibleCsvpNode(category)) continue;

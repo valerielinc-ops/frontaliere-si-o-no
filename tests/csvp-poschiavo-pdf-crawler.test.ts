@@ -63,6 +63,17 @@ const NON_LISTING_MESSAGE_WITH_LIVE_ARTICLE_HTML = `
     </div>
   </main>`;
 
+const EMPTY_CATEGORY_WITH_COMPONENT_WRAPPER_HTML = `
+  <div id="sp-main-body">
+    <div class="sp-column">
+      <div class="com-content-category-blog blog">
+        <div class="alert alert-info">
+          <p>Non ci sono articoli in questa categoria. Se si visualizzano le sottocategorie, dovrebbero contenere degli articoli.</p>
+        </div>
+      </div>
+    </div>
+  </div>`;
+
 describe('CSVP crawler — PDF-backed description', () => {
   afterEach(() => {
     fetchHtml.mockReset();
@@ -106,6 +117,10 @@ describe('CSVP crawler — PDF-backed description', () => {
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
     expect(jobs).toEqual([]);
     expect(jobs).toHaveProperty('authoritativeEmptyEvidence', expect.stringContaining('empty-category'));
+  });
+
+  it('proves the empty category when Joomla omits a semantic main wrapper', () => {
+    expect(isCsvpPoschiavoAuthoritativeEmptyPage(EMPTY_CATEGORY_WITH_COMPONENT_WRAPPER_HTML)).toBe(true);
   });
 
   it('keeps an unrecognised zero unproven so selector drift stays fail-closed', async () => {
