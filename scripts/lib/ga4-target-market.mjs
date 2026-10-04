@@ -7,6 +7,13 @@
  */
 export const TARGET_MARKET_COUNTRIES = Object.freeze(['Italy', 'Switzerland']);
 
+/**
+ * The production `hostName` GA4 reports are scoped to. It lives here, in a
+ * module with no imports, so a monitor that needs only the scope does not pull
+ * the page classifiers of ga4-traffic-quality.mjs into its checkout profile.
+ */
+export const TRAFFIC_HOSTNAME = 'frontaliereticino.ch';
+
 export function buildTargetMarketCountryFilter() {
   return {
     filter: {

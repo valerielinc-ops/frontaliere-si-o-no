@@ -1,0 +1,172 @@
+name: Deploy skew monitor
+
+# Hourly deploy-skew alarm from the users' side: GA4 `app_error`, Italy +
+# Switzerland only, with either skew signature (`error_stack` CONTAINS "does
+# not provide an export" OR `error_message` CONTAINS "dynamically imported
+# module", the shape services/resilientImport.ts gives an empty stale chunk).
+#
+# Why a second observer next to the Runtime reliability watchdog: that one
+# walks the chunk graph from ONE GitHub runner, i.e. ONE Cloudflare PoP (run
+# 36830160647 on 2026-10-01: `colos: ["ORD"]`, `broken: []` during the skew),
+# and a runner cannot choose its PoP. Users are the only multi-PoP view.
+# Why IT+CH only: all countries put 7 hours above 150 events on 2026-10-01
+# (a Singapore bot fleet), while IT+CH stays at <= 7 events / 4 users outside
+# the real incident of 2026-09-25 (92/22 and 82/15). Threshold: 20 events AND
+# 5 users in one closed hour (scripts/lib/deploy-skew-signal.mjs). A slow
+# skew below that (a few events a day) is the weekly app-error feeder's job.
+#
+# The issue lifecycle, both halves here:
+#   - status=alarm     → open or comment the fixed-title issue (dedup on the
+#                        first 60 chars);
+#   - status=recovered → 6 consecutive clean closed hours after an alarm in
+#                        the last 30: resolve it. Stateless: every run re-reads
+#                        30 hours, so a skipped cron loses nothing;
+#   - a run that cannot measure (credentials, API, truncated report, no
+#     sessions in the probe) fails and reports as
+#     `Workflow Failure: Deploy skew monitor` — never as a skew alarm.
+
+on:
+  schedule:
+    # :43 — the previous hour's events have mostly landed in GA4 by then; two
+    # minutes after the revenue monitor so the two do not start together.
+    - cron: '43 * * * *'
+  workflow_dispatch:
+    inputs:
+      current_hour:
+        description: 'Replay: hour to evaluate as YYYYMMDDHH (Europe/Zurich). Empty = now.'
+        required: false
+        default: ''
+        type: string
+
+concurrency:
+  group: deploy-skew-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    name: Monitor deploy skew
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      # Same isolated install as revenue-signal-monitor: the GA4 helper needs
+      # only google-auth-library, not the 1,384 packages of `npm ci`.
+      - name: Install GA4 auth client
+        run: |
+          npm install --prefix "$RUNNER_TEMP/ga4-deps" --no-save --ignore-scripts --no-fund --no-audit google-auth-library@11.1.0 >/dev/null
+          ln -s "$RUNNER_TEMP/ga4-deps/node_modules" node_modules
+
+      - name: Write Service Account credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Evaluate deploy skew
+        id: monitor
+        env:
+          CURRENT_HOUR: ${{ github.event.inputs.current_hour }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          args=(--out=deploy-skew.json --body-out=deploy-skew-issue.md)
+          if [ -n "${CURRENT_HOUR:-}" ]; then args+=("--current-hour=$CURRENT_HOUR"); fi
+          node scripts/monitor-deploy-skew.mjs "${args[@]}"
+
+      - name: Append summary to job log
+        if: always()
+        run: |
+          if [ -s deploy-skew.json ]; then
+            {
+              echo "## Deploy skew (IT+CH)"
+              echo '```json'
+              cat deploy-skew.json
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Open or update the deploy skew issue
+        if: steps.monitor.outputs.status == 'alarm'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Deploy skew IT+CH: moduli JS incoerenti visti da utenti reali" \
+            --description "$(cat deploy-skew-issue.md)" \
+            --priority 1 \
+            --label Bug \
+            --label stability \
+            --label deploy-skew-monitor \
+            --workflow "${{ github.workflow }}"
+
+      # Closing half: 6 consecutive clean closed hours after the last alarm.
+      - name: Resolve the deploy skew issue after recovery
+        if: steps.monitor.outputs.status == 'recovered'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "Deploy skew IT+CH: moduli JS incoerenti visti da utenti reali" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Cleanup credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          Il monitor del deploy skew non ha potuto misurare (credenziali GA4, API, report troncato o sonda sessioni vuota): nessun allarme di skew è stato valutato in questa run.
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Riproduci:** \`node scripts/monitor-deploy-skew.mjs\` con \`GOOGLE_APPLICATION_CREDENTIALS\`, script in \`scripts/monitor-deploy-skew.mjs\` e \`scripts/lib/deploy-skew-signal.mjs\`." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
