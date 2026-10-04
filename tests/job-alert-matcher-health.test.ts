@@ -180,6 +180,36 @@ describe('runJobAlertMatcherHealth (real matcher, active inventory)', () => {
   });
 });
 
+describe('runJobAlertMatcherHealth never aborts the send', () => {
+  it('a matcher that throws yields an error and zero probes, so the monitor skips', () => {
+    const throwing = () => { throw new TypeError('description.toLowerCase is not a function'); };
+    let health;
+    expect(() => {
+      health = runJobAlertMatcherHealth(INVENTORY, { now: NOW, planMatch: throwing });
+    }).not.toThrow();
+    expect(health.error).toContain('toLowerCase');
+    expect(health.probeCount).toBe(0);
+    expect(Number.isFinite(health.durationMs)).toBe(true);
+    expect(getMatcherHealthMonitorAction({
+      probeCount: health.probeCount,
+      failureCount: health.failureCount,
+    })).toBe('skip');
+  });
+
+  it('a healthy run reports no error and a measured duration', () => {
+    const health = runJobAlertMatcherHealth(INVENTORY, { now: NOW });
+    expect(health.error).toBeNull();
+    expect(health.durationMs).toBeGreaterThanOrEqual(0);
+  });
+
+  it('a canton stored with trailing spaces does not fail a healthy matcher', () => {
+    const padded = [job('ti-padded', { title: 'Fisioterapista diplomato', category: 'Sanità', canton: 'TI ', location: 'Locarno' })];
+    const health = runJobAlertMatcherHealth(padded, { now: NOW });
+    expect(health.probeCount).toBeGreaterThan(0);
+    expect(health.failures).toEqual([]);
+  });
+});
+
 describe('evaluateMatcherHealth', () => {
   it('counts a probe as failed only when the matcher ranks nothing', () => {
     const { probes } = buildMatcherHealthProbes(ACTIVE);

@@ -23,6 +23,11 @@
  * The real alerts' zero-match yield stays in the run log and in the report as
  * an informative figure; it no longer opens or closes anything.
  *
+ * Declared coverage limit: the probes exercise the hard keyword path (title
+ * text and category taxonomy) and the `cantonFilter` geo path. They do not set
+ * `locations` (the locationIndex/city geo filter) nor `sectors`, so a
+ * regression confined to those two paths is not seen by this monitor.
+ *
  * Pure module: the caller injects the matcher (`planMatch`), so production runs
  * the real planAlertMatch and tests can break it on purpose.
  */
@@ -44,14 +49,20 @@ const MIN_TITLE_TOKEN_LENGTH = 4;
 function professionGroupKey(value) {
   return String(value || '')
     .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
+    .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ')
     .trim();
 }
 
+/**
+ * The canton exactly as the matcher derives it (`jobMatchFeatures.jobCanton`
+ * and the cantonFilter normalisation in services/jobAlertMatching.mjs:
+ * lowercased, NOT trimmed). A trimmed probe canton would fail on a healthy
+ * matcher for a row stored as 'TI ', blaming the matcher for a data defect.
+ */
 function jobCanton(job) {
-  return String(job?.canton || '').trim().toLowerCase();
+  return String(job?.canton || '').toLowerCase();
 }
 
 function jobCategoryLabel(job) {
@@ -82,7 +93,7 @@ function canSeedProbe(job) {
   return Boolean(job)
     && job.canary !== true
     && job.needsRetranslation !== true
-    && jobCanton(job) !== ''
+    && jobCanton(job).trim() !== ''
     && titleProfessionToken(job.title) !== '';
 }
 

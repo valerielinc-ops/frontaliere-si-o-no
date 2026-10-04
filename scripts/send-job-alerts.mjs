@@ -2112,6 +2112,13 @@ function planAlertMatch(alert, {
  * with no subscriber/behaviour signal. Each probe is cut from a listing in that
  * inventory, so a zero is a matcher regression and never a quiet day.
  * `planMatch` is the seam the tests use to break the matcher on purpose.
+ *
+ * Never throws: main() calls this BEFORE sendBatch and the probes score rows of
+ * the whole active inventory that no recipient window may contain this run, so
+ * one malformed row must not abort the send for every subscriber. On an
+ * exception the result carries `error` and zero probes, which the monitor
+ * action treats as 'skip' (issue left untouched). `durationMs` is the measured
+ * cost of the step, logged on the "Matcher health" line.
  */
 function runJobAlertMatcherHealth(inventoryJobs, {
   now = Date.now(),
@@ -2121,27 +2128,46 @@ function runJobAlertMatcherHealth(inventoryJobs, {
   maxProbes = MATCHER_HEALTH_MAX_PROBES,
   planMatch = planAlertMatch,
 } = {}) {
-  const activeInventory = (inventoryJobs || []).filter((job) => isOpenJobAlertJob(job, now));
-  const sample = buildMatcherHealthProbes(activeInventory, { maxProbes });
-  const context = {
-    behaviorProfiles: new Map(),
-    lastClickedUrlByEmail: new Map(),
-    locationIndex,
-    cityToCanton,
-    subscriberProfiles: new Map(),
-    applicationIntentAccountProfiles: new Map(),
-    recentJobs: activeInventory,
-    now,
-    featureCache,
-  };
-  const result = evaluateMatcherHealth(sample.probes, (alert) => planMatch(alert, context));
-  return {
-    ...result,
-    activeInventoryCount: activeInventory.length,
-    groupCount: sample.groupCount,
-    sampledGroupCount: sample.sampledGroupCount,
-    cantonCount: sample.cantonCount,
-  };
+  const startedAt = Date.now();
+  try {
+    const activeInventory = (inventoryJobs || []).filter((job) => isOpenJobAlertJob(job, now));
+    const sample = buildMatcherHealthProbes(activeInventory, { maxProbes });
+    const context = {
+      behaviorProfiles: new Map(),
+      lastClickedUrlByEmail: new Map(),
+      locationIndex,
+      cityToCanton,
+      subscriberProfiles: new Map(),
+      applicationIntentAccountProfiles: new Map(),
+      recentJobs: activeInventory,
+      now,
+      featureCache,
+    };
+    const result = evaluateMatcherHealth(sample.probes, (alert) => planMatch(alert, context));
+    return {
+      ...result,
+      error: null,
+      durationMs: Date.now() - startedAt,
+      activeInventoryCount: activeInventory.length,
+      groupCount: sample.groupCount,
+      sampledGroupCount: sample.sampledGroupCount,
+      cantonCount: sample.cantonCount,
+    };
+  } catch (err) {
+    return {
+      probeCount: 0,
+      passedCount: 0,
+      failureCount: 0,
+      failureByKind: {},
+      failures: [],
+      error: String(err?.message || err),
+      durationMs: Date.now() - startedAt,
+      activeInventoryCount: 0,
+      groupCount: 0,
+      sampledGroupCount: 0,
+      cantonCount: 0,
+    };
+  }
 }
 
 async function main() {
@@ -2848,14 +2874,18 @@ async function main() {
     cityToCanton,
     featureCache,
   });
-  console.log(`   🩺 Matcher health: ${matcherHealth.passedCount}/${matcherHealth.probeCount} synthetic alerts matched ≥1 job on the active inventory (${matcherHealth.activeInventoryCount} open listings; ${matcherHealth.sampledGroupCount}/${matcherHealth.groupCount} canton×profession groups sampled across ${matcherHealth.cantonCount} cantons, cap ${MATCHER_HEALTH_MAX_PROBES} probes) — failures by kind: ${JSON.stringify(matcherHealth.failureByKind)}`);
+  if (matcherHealth.error) {
+    console.warn(`   ⚠️ matcher-health probe failed (non-fatal, continuing to send; monitor left untouched) after ${matcherHealth.durationMs} ms: ${matcherHealth.error}`);
+  } else {
+    console.log(`   🩺 Matcher health: ${matcherHealth.passedCount}/${matcherHealth.probeCount} synthetic alerts matched ≥1 job on the active inventory (${matcherHealth.activeInventoryCount} open listings; ${matcherHealth.sampledGroupCount}/${matcherHealth.groupCount} canton×profession groups sampled across ${matcherHealth.cantonCount} cantons, cap ${MATCHER_HEALTH_MAX_PROBES} probes) in ${matcherHealth.durationMs} ms — failures by kind: ${JSON.stringify(matcherHealth.failureByKind)}`);
+  }
   const monitorAction = getMatcherHealthMonitorAction({
     probeCount: matcherHealth.probeCount,
     failureCount: matcherHealth.failureCount,
     dryRun: DRY_RUN,
     targeted: Boolean(ALLOWED_EMAILS),
   });
-  if (matcherHealth.probeCount === 0) {
+  if (!matcherHealth.error && matcherHealth.probeCount === 0) {
     console.warn('   ⚠️ Matcher health: no synthetic alert could be built from the active inventory (no listing with a canton and a title token) — monitor left untouched');
   }
   if (monitorAction === 'report') {
