@@ -195,6 +195,10 @@ jobs:
 
       - name: Append ledger to durable branch
         env:
+          # APP_TOKEN solo con contents+pull_requests verificati dal conio
+          # (APP_TOKEN_DATA_REFRESH): altrimenti vale vuoto e lo script ricade
+          # sul suo fallback. Lint: tests/workflow-app-token-capability.test.ts.
+          APP_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || '' }}
           SOURCE_LOOP: ${{ steps.source.outputs.loop }}
           SOURCE_RUN_ID: ${{ steps.source.outputs.run_id }}
           SOURCE_SHA: ${{ steps.source.outputs.sha }}

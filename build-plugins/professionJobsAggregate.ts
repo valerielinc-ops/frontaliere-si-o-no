@@ -4,8 +4,8 @@ import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs'
  * Build-time aggregator for the profession landings (AE-3 template B).
  *
  * Reads data/jobs.json once per build, derives per-profession metrics that
- * feed the new template B header (3 stat tiles + 3 featured jobs + employer
- * grid). PROFESSION_FACTS in professionLandingsData.ts stays as the frozen
+ * feed the new template B header (3 stat tiles + complete live inventory +
+ * employer grid). PROFESSION_FACTS in professionLandingsData.ts stays as the frozen
  * authority for typicalSalaryRange / CCL / recognition — those are stable
  * editorial facts, not snapshot-driven.
  *
@@ -116,6 +116,8 @@ export interface ProfessionJobsSnapshot {
   readonly reportedSalary?: ReportedSalarySummary;
   /** Top 3 freshest featured (else freshest) jobs that match this profession. */
   readonly featured: readonly FeaturedJob[];
+  /** Complete valid live inventory for the legacy Ticino profession landing. */
+  readonly jobs?: readonly FeaturedJob[];
   /** Top 6 employers by job count for this profession. */
   readonly topEmployers: ReadonlyArray<{ name: string; count: number }>;
 }
@@ -428,6 +430,7 @@ function buildSnapshotForProfession(
   jobs: readonly JobRecord[],
   matcher: ProfessionMatcher,
   now: number,
+  includeAllJobs = false,
 ): ProfessionJobsSnapshot {
   const matches: JobRecord[] = [];
   for (const job of jobs) {
@@ -467,12 +470,13 @@ function buildSnapshotForProfession(
     const bTs = firstParsableMs(resolveRolloutPostingDate(b, () => firstParsableDateStr(b.postedDate, b.firstSeenAt), new Date(now)));
     return bTs - aTs;
   });
-  const featured: FeaturedJob[] = [];
+  const projectedJobs: FeaturedJob[] = [];
   for (const job of sortedMatches) {
-    if (featured.length >= 3) break;
     const f = toFeatured(job, now);
-    if (f) featured.push(f);
+    if (f) projectedJobs.push(f);
+    if (!includeAllJobs && projectedJobs.length >= 3) break;
   }
+  const featured = projectedJobs.slice(0, 3);
 
   return {
     liveCount: matches.length,
@@ -480,6 +484,7 @@ function buildSnapshotForProfession(
     medianSalaryChf: medianSalary,
     reportedSalary: reportedSalarySummary(matches),
     featured,
+    ...(includeAllJobs ? { jobs: projectedJobs } : {}),
     topEmployers,
   };
 }
@@ -509,7 +514,7 @@ export function aggregateProfessionJobs(
   const jobs = allJobs.filter((job) => resolveJobCanton(job as { canton?: string; location?: string }) === 'TI');
   const out = {} as Record<ProfessionId, ProfessionJobsSnapshot>;
   for (const id of PROFESSION_IDS) {
-    out[id] = buildSnapshotForProfession(jobs, PROFESSION_MATCHERS[id], now);
+    out[id] = buildSnapshotForProfession(jobs, PROFESSION_MATCHERS[id], now, true);
   }
   _snapshotCache = out;
   _cacheRootDir = rootDir;
