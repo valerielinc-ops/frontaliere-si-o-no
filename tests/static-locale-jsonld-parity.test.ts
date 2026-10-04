@@ -28,6 +28,7 @@ import { describe, it, expect } from 'vitest';
 import SEO_PAGES_METADATA from '../services/seo/seo-pages';
 import { buildCorrezioniSeo } from '../services/seo/seo-correzioni';
 import { parsePath, buildAllLocalePaths } from '../services/router';
+import { buildGlossaryHubSchema } from '../services/seo/glossaryHubSchema';
 import { inlineScriptJson } from '../build-plugins/shared/inlineJsonScript';
 import { normalizeArticleStructuredData, normalizeStructuredData } from '../services/seo/schema-normalizers';
 import {
@@ -117,13 +118,13 @@ describe('JSON-LD delle pagine statiche localizzate: rami SSG per locale', () =>
     it(`${locale}: stessi @type e nessun campo perso rispetto all'italiano`, () => {
       const drift: string[] = [];
       for (const c of cases) {
-        const it = nodesOf(c.sd);
+        const itNodes = nodesOf(c.sd);
         const loc = nodesOf(localize(c, locale).out);
-        if (it.map(typeOf).join() !== loc.map(typeOf).join()) {
-          drift.push(`${c.key}: @type ${it.map(typeOf).join()} -> ${loc.map(typeOf).join()}`);
+        if (itNodes.map(typeOf).join() !== loc.map(typeOf).join()) {
+          drift.push(`${c.key}: @type ${itNodes.map(typeOf).join()} -> ${loc.map(typeOf).join()}`);
           continue;
         }
-        it.forEach((node, i) => {
+        itNodes.forEach((node, i) => {
           const lost = Object.keys(node).filter((k) => !(k in loc[i]));
           if (lost.length) drift.push(`${c.key}#${i} ${typeOf(node)}: persi ${lost.join(', ')}`);
         });
@@ -136,10 +137,10 @@ describe('JSON-LD delle pagine statiche localizzate: rami SSG per locale', () =>
       let pageNodes = 0;
       for (const c of cases) {
         const source = stripFragment(`${BASE}${c.sourcePath}`);
-        const it = nodesOf(c.sd);
+        const itNodes = nodesOf(c.sd);
         const { canonicalUrl, out } = localize(c, locale);
         const loc = nodesOf(out);
-        it.forEach((node, i) => {
+        itNodes.forEach((node, i) => {
           const types = (Array.isArray(node['@type']) ? node['@type'] : [node['@type']]) as unknown[];
           if (!types.some((t) => typeof t === 'string' && PAGE_IDENTITY_TYPES.has(t))) return;
           if (stripFragment(node.url) !== source && stripFragment(node['@id']) !== source) return;
@@ -171,9 +172,9 @@ describe('JSON-LD delle pagine statiche localizzate: rami SSG per locale', () =>
 
   it('i nodi che non sono la pagina restano intatti (Organization, WebSite, HowTo)', () => {
     const c = byKey('calculator')!;
-    const it = nodesOf(c.sd);
+    const itNodes = nodesOf(c.sd);
     const loc = nodesOf(localize(c, 'en').out);
-    it.forEach((node, i) => {
+    itNodes.forEach((node, i) => {
       if (node['@type'] === 'Organization' || node['@type'] === 'WebSite') {
         expect(loc[i].url).toBe(node.url);
         expect(loc[i].name).toBe(node.name);
@@ -194,4 +195,30 @@ describe('JSON-LD delle pagine statiche localizzate: rami SSG per locale', () =>
       expect(localizeStaticPageStructuredData(once, page, SEPARATOR)).toBe(once);
     }
   });
+});
+
+// Il gemello SPA della stessa classe: il DefinedTermSet che `Glossary.tsx`
+// inietta all'idratazione portava nome, descrizione e URL italiani (senza
+// slash finale) anche su `/en/cross-border-glossary/` e fratelli.
+describe('glossario SPA: il DefinedTermSet idratato è nella lingua della pagina', () => {
+  const terms = [{ name: 'AVS', description: 'Assicurazione vecchiaia e superstiti.' }];
+  const itSchema = buildGlossaryHubSchema(terms, 'it');
+  const HUB_PATHS = { it: '/glossario-frontaliere/', en: '/en/cross-border-glossary/', de: '/de/grenzgaenger-glossar/', fr: '/fr/glossaire-frontalier/' } as const;
+
+  for (const locale of ['it', ...LOCALES] as const) {
+    it(`${locale}: stessa forma dell'italiano, URL dell'hub della lingua con slash finale`, () => {
+      const loc = buildGlossaryHubSchema(terms, locale);
+      expect(Object.keys(loc)).toEqual(Object.keys(itSchema));
+      expect(loc['@type']).toBe('DefinedTermSet');
+      expect(loc.url).toBe(`${BASE}${HUB_PATHS[locale]}`);
+      const term = (loc.hasDefinedTerm as Node[])[0];
+      expect(term['@type']).toBe('DefinedTerm');
+      expect(Object.keys(term)).toEqual(Object.keys((itSchema.hasDefinedTerm as Node[])[0]));
+      if (locale !== 'it') {
+        expect(loc.name).not.toBe(itSchema.name);
+        expect(loc.description).not.toBe(itSchema.description);
+        expect((term.inDefinedTermSet as Node).name).not.toBe(((itSchema.hasDefinedTerm as Node[])[0].inDefinedTermSet as Node).name);
+      }
+    });
+  }
 });
