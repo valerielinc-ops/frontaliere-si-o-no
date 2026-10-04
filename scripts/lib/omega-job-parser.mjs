@@ -47,7 +47,7 @@
  * plus parseListPage()/parseDetailPage() for fixture tests.
  */
 import { identifiedPostingPublication } from './identified-posting-publication.mjs';
-import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { mergeSourcePostingDates, sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
@@ -411,7 +411,8 @@ export function parseDetailPage(html = '', pageUrl = '', expectedTitle = '') {
   const isOmegaBrand = src.includes(OMEGA_LOGO_MARKER);
 
   return { title, sections, locationText, applyUrl, isOmegaBrand,
-    ...identifiedPostingPublication(src, pageUrl, expectedTitle),
+    ...(!title || title.toLowerCase() === normalizeSpace(expectedTitle).toLowerCase()
+      ? identifiedPostingPublication(src, pageUrl, expectedTitle) : sourcePostingDateFields()),
   };
 }
 

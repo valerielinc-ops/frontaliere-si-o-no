@@ -27,13 +27,13 @@ function posting(family: Family, override: Posting = {}): Posting {
     ...override };
 }
 function detail(family: Family, records: Posting[]) {
-  const ld = `<script type="application/ld+json">${JSON.stringify(records.length === 1 ? records[0] : records)}</script>`;
+  const ld = records.map((record) => `<script type="application/ld+json">${JSON.stringify(record)}</script>`).join('');
   if (family === 'novelis') return `${ld}<div class="iCIMS_JobContent"><p>Official source responsibilities.</p></div>`;
   if (family === 'omega') return `${ld}<img src="brands-logos/omega.png"><h1><span class="field f-n-title">${TITLE}</span></h1><div id="jl"><p>Location</p>Lugano, Switzerland</div>`;
   return ld;
 }
-async function crawl(family: Family, records: Posting[], { locationless = false } = {}) {
-  const html = detail(family, records);
+async function crawl(family: Family, records: Posting[], { locationless = false, detailHeading = TITLE } = {}) {
+  const html = detail(family, records).replace(`<span class="field f-n-title">${TITLE}</span>`, `<span class="field f-n-title">${detailHeading}</span>`);
   if (family === 'mcdo') {
     const entry = { title: TITLE, reference: 'P8-test', originalURL: 'fr-ch/service-engineer/job/P8-test',
       locations: [{ city: 'Lugano', stateAbbr: 'TI', countryAbbr: 'CH' }] };
@@ -98,4 +98,18 @@ it('New Yorker removes the session URL while preserving evidence', async () => {
   const jobs = await crawl('newyorker', [posting('newyorker')]);
   expect(jobs[0]).toMatchObject({ ...reported(), url: urls.newyorker });
   expect(fetchHtml).toHaveBeenCalledWith(urls.newyorker, expect.any(Object));
+});
+
+it('New Yorker does not assign a second posting date to the first emitted title', async () => {
+  const jobs = await crawl('newyorker', [
+    posting('newyorker', { title: 'Another Vacancy', datePosted: undefined }),
+    posting('newyorker'),
+  ]);
+  expect(jobs).toHaveLength(1);
+  expect(jobs[0]).toMatchObject({ ...UNKNOWN, title: 'Another Vacancy' });
+});
+it('Omega does not assign a listing-matched date to a different emitted heading', async () => {
+  const jobs = await crawl('omega', [posting('omega')], { detailHeading: 'Another Vacancy' });
+  expect(jobs).toHaveLength(1);
+  expect(jobs[0]).toMatchObject({ ...UNKNOWN, title: 'Another Vacancy' });
 });
