@@ -361,6 +361,24 @@ describe('deploy-it-pages-prep.sh — the purge is driven by state, not gated on
     expect(PREP).toContain('purge ledger baseline persisted before assets/ sync');
   });
 
+  it('fails closed before assets sync when no validated pre-sync baseline exists', () => {
+    const guardAt = body.findIndex((l) => /^if \[ "\$_pre_sync_baseline_valid" != 1 \]/.test(l));
+    const assetsAt = body.findIndex((l) => /^_r2_sync "\$stage\/assets"/.test(l));
+    expect(guardAt).toBeGreaterThan(-1);
+    expect(guardAt).toBeLessThan(assetsAt);
+    expect(body.slice(guardAt, assetsAt)).toContain('return 0');
+    expect(body.slice(guardAt, assetsAt).join('\n')).toContain('refusing assets/ sync');
+    expect(body.slice(guardAt, assetsAt).join('\n')).toContain('rm -rf "$_pdir"');
+  });
+
+  it('validates a post-sync ledger before using it for stateful purge', () => {
+    const copiedAt = body.findIndex((l) => /copyto "\$bkt\/\$_ledger_key" "\$_pdir\/ledger-in\.json"/.test(l));
+    const checkAt = body.findIndex((l, i) => i > copiedAt && /--ledger-in="\$_pdir\/ledger-in\.json" --check-ledger/.test(l));
+    expect(copiedAt).toBeGreaterThan(-1);
+    expect(checkAt).toBeGreaterThan(copiedAt);
+    expect(body.slice(copiedAt, body.length).filter((l) => /--ledger-absent/.test(l))).toEqual([]);
+  });
+
   it('is not inside `if [ "$ok" != 1 ]` (or its else) nor `if [ -s "$_assets_log" ]`', () => {
     const conds = enclosingConditions(body, purgeAt);
     expect(conds.filter((c) => /"\$ok"/.test(c)), 'purge gated on the whole-payload ok').toEqual([]);
