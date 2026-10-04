@@ -563,9 +563,36 @@ describe('read-only loop outcome exporters', () => {
         [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
         [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'mailgun', occurred_at: '2026-09-12T09:10:00.000Z' })],
       );
-      for (const output of [late, otherProvider]) {
+      const early = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T08:58:00.000Z' })],
+      );
+      for (const output of [late, otherProvider, early]) {
         expect(output.deliveredAlerts).toBe(0);
         expect(output.export.deliveryEvidenceByJoin.none).toBe(1);
+      }
+    });
+
+    it('falls back to the server timestamp when occurred_at is unparseable', () => {
+      const output = ledger(
+        [delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+        [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '', timestamp: '2026-09-12T09:10:00.000Z' })],
+      );
+      expect(output.deliveredAlerts).toBe(1);
+      expect(output.export.deliveryEvidenceByJoin.recipientWindow).toBe(1);
+    });
+
+    it('keeps events id-joined to operator or unattributed rows out of the window join', () => {
+      for (const owner of [
+        delivery('op', { is_operator_verification: true, message_id: 'msg-9', provider: 'maileroo', sent_at: '2026-09-12T08:59:00.000Z' }),
+        delivery('ux', { campaign_id: 'gone', message_id: 'msg-9', provider: 'maileroo', sent_at: '2026-09-12T08:59:00.000Z' }),
+      ]) {
+        const output = ledger(
+          [owner, delivery('d1', { message_id: 'ref-1', provider: 'maileroo', sent_at: '2026-09-12T09:00:00.000Z' })],
+          [event('e1', { event_type: 'delivered', message_id: 'msg-9', provider: 'maileroo', occurred_at: '2026-09-12T09:06:00.000Z' })],
+        );
+        expect(output.deliveredAlerts).toBe(0);
+        expect(output.export.deliveryEvidenceByJoin).toMatchObject({ recipientWindow: 0, none: 1 });
       }
     });
 

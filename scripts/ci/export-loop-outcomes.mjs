@@ -1264,7 +1264,9 @@ function eventSet(rows) {
       byMessage.get(key).add(type);
     }
     const evidenceClass = L4_EVIDENCE_CLASS[type];
-    const occurredAtMs = toMillis(first(data, ['occurred_at', 'occurredAt', 'timestamp']));
+    // Fall through to the next field when one is present but unparseable,
+    // so an empty occurred_at still uses the server timestamp.
+    const occurredAtMs = toMillis(data.occurred_at) ?? toMillis(data.occurredAt) ?? toMillis(data.timestamp);
     if (!evidenceClass || occurredAtMs == null) continue;
     if (!byRecipient.has(email)) byRecipient.set(email, []);
     byRecipient.get(email).push({
@@ -1410,11 +1412,18 @@ export function buildL4OutcomeLedger({
     none: 0,
   };
   const attributed = [];
+  // Message keys of every delivery row, operator-verification and unattributed
+  // rows included: their id-joined events must not be claimed by the
+  // recipient-window join of an attributed delivery.
+  const deliveryMessageKeys = new Set();
 
   for (const row of deliveryRows) {
     const child = childRow(row, 'job_alert_subscribers', 'campaign_deliveries');
     if (!child) continue;
     const data = documentData(row);
+    const rowMessageId = String(first(data, ['message_id', 'messageId']) || '').trim();
+    const messageKey = rowMessageId ? `${child.parentId.toLowerCase()}\u0000${rowMessageId}` : null;
+    if (messageKey) deliveryMessageKeys.add(messageKey);
     const scheduleFieldPresent = Object.prototype.hasOwnProperty.call(data, 'scheduled_for')
       || Object.prototype.hasOwnProperty.call(data, 'scheduledFor');
     const scheduleSourcePresent = Object.prototype.hasOwnProperty.call(data, 'send_time_source')
@@ -1439,19 +1448,16 @@ export function buildL4OutcomeLedger({
       continue;
     }
     const deliveryId = row.name || `${email}/${child.childId}`;
-    const messageId = String(first(data, ['message_id', 'messageId']) || '').trim();
-    const messageKey = messageId ? `${email}\u0000${messageId}` : null;
     attributed.push({ deliveryId, data, email, alertId, sentAt, provider, messageKey });
 
     const group = `${email}\u0000${alertId}\u0000${sendDay(sentAt)}`;
     dedupGroups.set(group, (dedupGroups.get(group) || 0) + 1);
   }
 
-  // Events joined by message id belong to their delivery and are never
-  // offered to the recipient-window join of another one.
-  const idJoinedKeys = new Set(attributed
-    .map((delivery) => delivery.messageKey)
-    .filter((messageKey) => messageKey && events.byMessage.has(messageKey)));
+  // Events joined by message id belong to their delivery row (attributed or
+  // not) and are never offered to the recipient-window join of another one.
+  const idJoinedKeys = new Set([...deliveryMessageKeys]
+    .filter((messageKey) => events.byMessage.has(messageKey)));
   // Oldest send first, so each window event is claimed by the earliest
   // delivery it can belong to.
   attributed.sort((a, b) => a.sentAt - b.sentAt || (a.deliveryId < b.deliveryId ? -1 : a.deliveryId > b.deliveryId ? 1 : 0));
