@@ -425,6 +425,17 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['package-lock.json'])).toEqual([]);
   }, 120_000);
 
+  it('un modulo della chiusura dell\'observer crawler seleziona il test del suo workflow', () => {
+    // PR 11262: un import nuovo in crawler-grace-policy.mjs e' uscito dalla
+    // lista sparse dell'observer delle generazioni crawler, ma il test che la
+    // confronta con la chiusura reale non e' girato e main e' rimasto rosso.
+    const observerWorkflow = 'tests/crawler-generation-observer-workflow.test.ts';
+    expect(selectionFor(['scripts/lib/crawler-grace-policy.mjs'])).toContain(observerWorkflow);
+    expect(selectionFor(['functions/src/githubApiHeaders.js'])).toContain(observerWorkflow);
+    expect(selectionFor(['build-plugins/shared/seoPageShell.ts'])).not.toContain(observerWorkflow);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(observerWorkflow);
+  }, 120_000);
+
   it('uno script shell cambiato non scavalca i lint con l\'uscita anticipata', () => {
     // Un `.sh` non è un candidato del grafo: prima l'uscita «nessun sorgente
     // nel diff» precedeva i lint dell'albero dei sorgenti e li saltava.

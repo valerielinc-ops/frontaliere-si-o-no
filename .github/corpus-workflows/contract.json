@@ -3,12 +3,12 @@
   "generatedBy": "frontaliere-si-o-no/scripts/generate-crawler-group-workflows.mjs",
   "generatorSha256": "dd7291815800266044cbf75719beebdcb6b596c2ca87d6e4ef3835df34c3f38c",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
-  "sourceRef": "11227/merge",
-  "sourceCommit": "ab693fb219720bec1eee44675afd6b9e35632224",
+  "sourceRef": "main",
+  "sourceCommit": "6117fcd6b3ee4196a45430a9c39e1b87f5112c5d",
   "artifactObservation": {
     "generatorSha256": "dd7291815800266044cbf75719beebdcb6b596c2ca87d6e4ef3835df34c3f38c",
-    "sourceRef": "11227/merge",
-    "sourceCommit": "ab693fb219720bec1eee44675afd6b9e35632224"
+    "sourceRef": "main",
+    "sourceCommit": "6117fcd6b3ee4196a45430a9c39e1b87f5112c5d"
   },
   "groupCount": 24,
   "artifactCount": 25,
@@ -47,6 +47,7 @@
     "scripts/lib/crawler-grace-policy.mjs",
     "scripts/lib/crawler-location-config.mjs",
     "scripts/lib/crawler-slice-integrity.mjs",
+    "scripts/lib/detail-failure-reuse-policy.mjs",
     "scripts/lib/git-commit-data.sh",
     "scripts/lib/github-actions-read-client.mjs",
     "scripts/lib/github-issue-creator.mjs",
@@ -586,7 +587,7 @@
     {
       "source": "observers/workflows/crawler-generation-observer-shadow.yml",
       "target": ".github/workflows/crawler-generation-observer-shadow.yml",
-      "sha256": "882aff24e67f359038fcae212c1f559b1e5df923275fb0fdd90f84d58e9a0f63"
+      "sha256": "96884d14000988cd4975aea51e7fd8c4129e7a5619ea1efe1b26c018be1aae43"
     },
     {
       "source": "observers/scripts/crawler-generation-observer-selector.mjs",
