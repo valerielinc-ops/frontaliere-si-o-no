@@ -716,6 +716,17 @@ function creditedName(record) {
 }
 
 /**
+ * Whether the credited name already names Wikimedia Commons — a credit line the
+ * licensor wrote as «© Yann Forget / Wikimedia Commons». Shown verbatim (the
+ * licence requires the requested line), so neither the credit text nor the
+ * visible line adds Commons a second time.
+ * @param {string | null} name
+ */
+function namesWikimediaCommons(name) {
+  return typeof name === 'string' && /wikimedia commons/i.test(name);
+}
+
+/**
  * The ImageObject fields of a credited cover, to spread into `imageObjectLd`
  * after `url`, in place of the site defaults it would otherwise fill in.
  * The five fields Google's image-licence metadata documents, plus `isBasedOn`
@@ -751,7 +762,7 @@ export function imageObjectCreditFields(record) {
     },
     // An attribution the licensor already wrote as «… / Wikimedia Commons»
     // is not suffixed a second time.
-    creditText: /wikimedia commons/i.test(credited) ? credited : `${credited} / Wikimedia Commons`,
+    creditText: namesWikimediaCommons(credited) ? credited : `${credited} / Wikimedia Commons`,
     copyrightNotice,
     license: licenceHref(record),
     acquireLicensePage: pageUrl,
@@ -795,8 +806,11 @@ function segment(kind, text, extra = {}) {
  *   fr  Image de couverture : « {title} » par {author}, {licence}, via Wikimedia Commons ({recadrée et redimensionnée | redimensionnée}).
  *
  * With an attribution « di {author}» becomes «, {attribution}»; with an
- * unknown author it becomes «, autore sconosciuto». `null` when the record
- * lacks what the line needs (title, https file page, licence name).
+ * unknown author it becomes «, autore sconosciuto». When the credited name
+ * already names Wikimedia Commons («© Yann Forget / Wikimedia Commons»), the
+ * «, tramite Wikimedia Commons» phrase is dropped: Commons is named once.
+ * `null` when the record lacks what the line needs (title, https file page,
+ * licence name).
  *
  * @param {ImageCreditRecord} record
  * @param {string} locale
@@ -825,10 +839,11 @@ export function imageCreditParts(record, locale) {
   } else {
     raw.push(segment('text', `, ${copy.unknownAuthor}`));
   }
+  const via = namesWikimediaCommons(credited) ? '' : `, ${copy.via}`;
   raw.push(
     segment('text', ', '),
     segment('licence', licenceLabel(record, loc), { href: httpsUrlOrNull(licenceHref(record)) ?? pageUrl }),
-    segment('text', `, ${copy.via} (${modifiedNote}).`),
+    segment('text', `${via} (${modifiedNote}).`),
   );
 
   // Adjacent plain-text segments merged, so a renderer never has to.

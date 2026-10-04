@@ -1,9 +1,12 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
- 'whatsNew.v3982.title': "Candidature assistée : le CV ne contient que vos indications",
- 'whatsNew.v3982.personalData.title': "Permis, nationalité et date de naissance dans le CV",
- 'whatsNew.v3982.personalData.desc': "Sur la page de votre candidature, choisissez votre situation d’aujourd’hui (nationalité suisse, permis C, B, L ou G, aucun permis) et corrigez si besoin la date de naissance et la nationalité. Avant l’envoi, nous refaisons le CV adapté avec les noms officiels, sans jamais écrire un permis « à demander ».",
+ 'whatsNew.v3984.title': "Candidature assistée : le CV ne contient que vos indications",
+ 'whatsNew.v3984.personalData.title': "Permis, nationalité et date de naissance dans le CV",
+ 'whatsNew.v3984.personalData.desc': "Sur la page de votre candidature, choisissez votre situation d’aujourd’hui (nationalité suisse, permis C, B, L ou G, aucun permis) et corrigez si besoin la date de naissance et la nationalité. Avant l’envoi, nous refaisons le CV adapté avec les noms officiels, sans jamais écrire un permis « à demander ».",
+ 'whatsNew.v3983.title': "Articles : auteur et licence des images de couverture",
+ 'whatsNew.v3983.coverCredits.title': "Crédits des images de couverture",
+ 'whatsNew.v3983.coverCredits.desc': "À la fin des articles dont l’image de couverture vient de Wikimedia Commons, vous trouvez désormais le titre, l’auteur et la licence de l’image, avec un lien vers sa page sur Wikimedia Commons.",
  'whatsNew.v3981.title': "Candidature assistée : nous vous disons s’il manque une exigence",
  'whatsNew.v3981.fitNotice.title': "Exigences qui ne ressortent pas du CV",
  'whatsNew.v3981.fitNotice.desc': "Avant l’envoi, la page de votre candidature indique quelles exigences indispensables de l’annonce ne ressortent pas de votre CV. La candidature continue quand même : vous décidez de les préciser dans vos réponses ou de l’envoyer telle quelle.",

@@ -32,6 +32,7 @@
  * identical for free, with the same monolith-build fallback behaviour as BUILD_ID.
  */
 
+import { createHash } from 'node:crypto';
 import { execSync } from 'child_process';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -527,6 +528,14 @@ export const GA4_MEASUREMENT_ID = 'G-LGJ9LE360F';
 export const ANALYTICS_EMISSION_ID_FACTORY_JS = `function(){try{if(typeof crypto!=='undefined'&&typeof crypto.randomUUID==='function')return crypto.randomUUID();}catch(e){}return Date.now()+'-'+Math.random().toString(36).slice(2);}`;
 export const GTAG_INIT_CONTENT = `(function(){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var emissionId=(${ANALYTICS_EMISSION_ID_FACTORY_JS})();window.__GTAG_PAGE_VIEW_EMISSION_ID__=emissionId;window.__GTAG_PAGE_VIEW_PATH__=location.pathname;gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',{transport_type:'beacon',send_page_view:false});gtag('event','page_view',{page_path:location.pathname,page_location:location.href,page_title:document.title,emission_id:emissionId});})();`;
 export const GTAG_INIT_FILENAME = 'gtag-init.js';
+// The filename stays stable so static HTML remains compact, but the query
+// string is content-addressed. A stale edge copy of this identity-bearing
+// producer must not satisfy a page that references newer bytes (#9403).
+export const GTAG_INIT_CONTENT_HASH = createHash('sha256')
+  .update(GTAG_INIT_CONTENT)
+  .digest('hex')
+  .slice(0, 12);
+export const GTAG_INIT_URL = `/assets/${GTAG_INIT_FILENAME}?v=${GTAG_INIT_CONTENT_HASH}`;
 // gtag-init.js only pushes the GA4 page_view onto window.dataLayer; it does
 // NOT need to run before paint. `defer` takes it off the render-blocking path
 // (it ran synchronously in <head> before) so first paint no longer waits on a
@@ -559,7 +568,7 @@ export const CF_BEACON_SNIPPET = `<script defer src="https://static.cloudflarein
 export const GTAG_LOADER_SNIPPET = `<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}"></script>`;
 
 export const GTAG_SNIPPET = `${GTAG_LOADER_SNIPPET}
- <script defer src="/assets/${GTAG_INIT_FILENAME}"></script>
+ <script defer src="${GTAG_INIT_URL}"></script>
  ${CF_BEACON_SNIPPET}`;
 
 /**

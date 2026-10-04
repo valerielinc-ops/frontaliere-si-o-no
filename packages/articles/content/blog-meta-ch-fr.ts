@@ -7682,6 +7682,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assistenza-sociale-zurigo-domanda.title': 'Aide sociale dans le canton de Zurich : conditions requises et demande',
     'blog.article.assistenza-sociale-zurigo-domanda.excerpt': 'Dans le canton de Zurich, la demande part d\'une situation de besoin : office compétent, documents, prestations et obligations de collaboration.',
     'blog.article.assistenza-sociale-zurigo-domanda.imageAlt': 'Bureau communal suisse pour une demande d\'aide sociale',
+    'blog.article.imposta-auto-zurigo-pagamento.title': 'Impôt sur les véhicules automobiles à Zurich : calcul et paiement',
+    'blog.article.imposta-auto-zurigo-pagamento.excerpt': 'Dans le canton de Zurich, le calcul, les échéances et le paiement de l\'impôt sur les véhicules automobiles suivent les règles cantonales ; vérifiez également le changement de véhicule et d\'adresse.',
+    'blog.article.imposta-auto-zurigo-pagamento.imageAlt': 'Voitures et documents pour l\'impôt automobile dans un office cantonal à Zurich.',
+    'blog.article.incentivi-energetici-zurigo-domanda.title': 'Subventions énergétiques à Zurich : exigences et demande',
+    'blog.article.incentivi-energetici-zurigo-domanda.excerpt': 'Zurich : subventions énergétiques pour les bâtiments et les installations. Les exigences, les montants et les délais sont vérifiés avant de déposer la demande, qui doit être déposée avant les travaux.',
+    'blog.article.incentivi-energetici-zurigo-domanda.imageAlt': 'Aides énergétiques pour la rénovation d\'un bâtiment dans le canton de Zurich',
 };
 
 export default blogMetaChFr;
