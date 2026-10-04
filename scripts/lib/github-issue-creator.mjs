@@ -935,6 +935,40 @@ function issueViewIsClosed(number) {
 }
 
 /**
+ * Close a specific issue number after a caller has already evaluated it.
+ * Title lookup is intentionally bypassed: a concurrent same-title issue must
+ * not redirect the close to a different issue.
+ */
+function closeGithubIssueByNumber(number, { title, url, workflow, runUrl }) {
+  const note = [
+    '✅ Auto-resolved — the failing check is green again' + (workflow ? ` (${workflow})` : '') + '.',
+    runUrl ? `\nGreen run: ${runUrl}` : '',
+    '\nClosed automatically; it will reopen if the same failure recurs.',
+  ].join('');
+  gh(['issue', 'comment', String(number), '--body', note, ...repoFlag()], { allowFailure: true });
+  const closed = gh(
+    ['issue', 'close', String(number), '--reason', 'completed', ...repoFlag()],
+    { allowFailure: true },
+  );
+  if (issueViewIsClosed(number)) {
+    console.log(`[github-issue-creator] resolve: closed #${number} — ${title}`);
+    return {
+      number,
+      title,
+      url,
+      persisted: true,
+    };
+  }
+  const detail = closed === null ? 'close rejected' : 'post-condition not closed';
+  const message = `[github-issue-creator] resolve: could not close #${number} (${detail})`;
+  console.error(message);
+  const err = new Error(message);
+  err.persisted = false;
+  err.number = number;
+  throw err;
+}
+
+/**
  * Resolve (close) the canonical OPEN issue with the given stable title prefix.
  *
  * The mirror of the `reopenWithinHours` flap-collapse logic: failure reporters
@@ -947,10 +981,16 @@ function issueViewIsClosed(number) {
  *
  * @param {string} titlePrefix  Stable full title; by default its safe prefix
  *                              derived from DEDUP_TITLE_PREFIX_LEN is matched.
- * @param {{ workflow?: string, runUrl?: string, exactTitle?: boolean }} [ctx]
- *                              exactTitle opts into complete-title matching.
+ * @param {{ workflow?: string, runUrl?: string, exactTitle?: boolean,
+ *           issueNumber?: number|string }} [ctx]
+ *                              exactTitle opts into complete-title matching;
+ *                              issueNumber bypasses title lookup and targets
+ *                              that already-evaluated issue directly.
  */
-export function resolveGithubIssue(titlePrefix, { workflow, runUrl, exactTitle = false } = {}) {
+export function resolveGithubIssue(
+  titlePrefix,
+  { workflow, runUrl, exactTitle = false, issueNumber } = {},
+) {
   if (isFailureReportingDisabled()) {
     console.log('[github-issue-creator] ENABLE_FAILURE_REPORT=false, skipping resolve');
     return null;
@@ -958,6 +998,17 @@ export function resolveGithubIssue(titlePrefix, { workflow, runUrl, exactTitle =
   if (!titlePrefix) {
     console.error('[github-issue-creator] resolve: title is required');
     return null;
+  }
+  if (issueNumber !== undefined && issueNumber !== null) {
+    const targetNumber = Number(issueNumber);
+    if (!Number.isSafeInteger(targetNumber) || targetNumber <= 0) {
+      throw new Error(`[github-issue-creator] resolve: invalid issue number ${issueNumber}`);
+    }
+    return closeGithubIssueByNumber(targetNumber, {
+      title: titlePrefix,
+      workflow,
+      runUrl,
+    });
   }
   // Pass the FULL title — searchSafePrefix slices + sanitizes internally and
   // needs the un-sliced title to detect a mid-word cut.
@@ -971,32 +1022,12 @@ export function resolveGithubIssue(titlePrefix, { workflow, runUrl, exactTitle =
     console.log(`[github-issue-creator] resolve: no open issue matching "${prefix}" — nothing to close`);
     return null;
   }
-  const note = [
-    '✅ Auto-resolved — the failing check is green again' + (workflow ? ` (${workflow})` : '') + '.',
-    runUrl ? `\nGreen run: ${runUrl}` : '',
-    '\nClosed automatically; it will reopen if the same failure recurs.',
-  ].join('');
-  gh(['issue', 'comment', String(existing.number), '--body', note, ...repoFlag()], { allowFailure: true });
-  const closed = gh(
-    ['issue', 'close', String(existing.number), '--reason', 'completed', ...repoFlag()],
-    { allowFailure: true },
-  );
-  if (issueViewIsClosed(existing.number)) {
-    console.log(`[github-issue-creator] resolve: closed #${existing.number} — ${existing.title}`);
-    return {
-      number: existing.number,
-      title: existing.title,
-      url: existing.url,
-      persisted: true,
-    };
-  }
-  const detail = closed === null ? 'close rejected' : 'post-condition not closed';
-  const message = `[github-issue-creator] resolve: could not close #${existing.number} (${detail})`;
-  console.error(message);
-  const err = new Error(message);
-  err.persisted = false;
-  err.number = existing.number;
-  throw err;
+  return closeGithubIssueByNumber(existing.number, {
+    title: existing.title,
+    url: existing.url,
+    workflow,
+    runUrl,
+  });
 }
 
 /**
