@@ -142,9 +142,18 @@ const sourceTreeLintTests = new Map([
   // `scripts/lib/` da disco: ognuno col perimetro del proprio scan.
   ['tests/successfactors-jobs2web-widget-guard.test.ts', /^scripts\/lib\/[^/]+\.mjs$/],
   ['tests/prospective-ch-shared-parser-contract.test.ts', /^scripts\/lib\/[^/]+-job-parser\.mjs$/],
-  ['tests/sanitize-control-chars.test.ts', /^scripts\/lib\/.+\.(?:mjs|cjs|js)$/],
+  ['tests/crawler-brand-domain-pairing.test.ts', /^scripts\/lib\/[^/]+-job-parser\.mjs$/],
+  ['tests/listing-url-fallback-audit.test.ts', /^scripts\/lib\/[^/]+-job-parser\.mjs$/],
+  // Legge sia i parser sia gli `update-*-jobs.mjs` al primo livello di scripts/.
+  ['tests/bespoke-crawler-slug-boundary.test.ts', /^scripts\/(?:update-[^/]*-jobs\.mjs|lib\/[^/]+-job-parser\.mjs)$/],
+  // Lo scan copre scripts/lib/** piu' un file nominato fuori da lib.
+  ['tests/sanitize-control-chars.test.ts', /^scripts\/(?:lib\/.+\.(?:mjs|cjs|js)|publish-article-fast\.mjs)$/],
   ['tests/bounded-parallel.test.ts', /^scripts\/lib\/[^/]+\.sh$/],
+  // Questi tre scandiscono ricorsivamente tutto scripts/, ognuno con le
+  // proprie estensioni; costano pochi secondi.
   ['tests/score-ledger-persistence.test.ts', /^scripts\/.+\.mjs$/],
+  ['tests/undici-dispatcher-fetch-pairing.test.ts', /^scripts\/.+\.(?:mjs|js)$/],
+  ['tests/is-invoked-directly.test.ts', /^scripts\/.+\.(?:mjs|cjs|js|ts)$/],
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint

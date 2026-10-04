@@ -466,6 +466,14 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(flat).toContain('tests/prospective-ch-shared-parser-contract.test.ts');
     expect(flat).toContain('tests/sanitize-control-chars.test.ts');
     expect(flat).toContain('tests/score-ledger-persistence.test.ts');
+    expect(flat).toContain('tests/crawler-brand-domain-pairing.test.ts');
+    expect(flat).toContain('tests/listing-url-fallback-audit.test.ts');
+    expect(flat).toContain('tests/bespoke-crawler-slug-boundary.test.ts');
+    expect(flat).toContain('tests/undici-dispatcher-fetch-pairing.test.ts');
+    expect(flat).toContain('tests/is-invoked-directly.test.ts');
+    // Gli scan che leggono anche fuori da scripts/lib.
+    expect(selectionFor(['scripts/update-future-jobs.mjs'])).toContain('tests/bespoke-crawler-slug-boundary.test.ts');
+    expect(selectionFor(['scripts/publish-article-fast.mjs'])).toContain('tests/sanitize-control-chars.test.ts');
     // Lo scan j2w e' ricorsivo: un parser in una sottocartella non sfugge.
     expect(selectionFor(['scripts/lib/tenants/future-job-parser.mjs'])).toContain(j2wFamily);
     expect(selectionFor(['scripts/lib/future-driver.sh'])).toContain('tests/bounded-parallel.test.ts');
