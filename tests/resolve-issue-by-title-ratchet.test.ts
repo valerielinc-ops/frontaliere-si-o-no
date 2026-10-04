@@ -35,6 +35,12 @@ const TITLE_DECIDERS: Record<string, Entry> = {
     calls: 1,
     why: 'la CLI `--resolve` riceve solo `--title`: un passo `if: success()` chiude il titolo stabile del suo reporter',
   },
+  'scripts/audit-cls-live.mjs': {
+    // 0 chiamate dirette: l'unico uso passa dal default iniettabile
+    // `resolve: resolveIssue = resolveGithubIssue` di syncClsRegressionIssue.
+    calls: 0,
+    why: 'gate CLS post-deploy (CLS-2): una misura completa senza regressioni hard chiude il titolo stabile esatto CLS_REGRESSION_ISSUE_TITLE che lo stesso gate apre, nessun numero valutato',
+  },
   'scripts/ci/check-employer-insights-freshness.mjs': {
     calls: 1,
     why: 'dato fresco → chiude il titolo stabile esatto che lo stesso monitor apre quando è stantio',
