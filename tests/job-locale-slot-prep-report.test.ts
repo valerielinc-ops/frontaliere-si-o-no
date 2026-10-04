@@ -261,6 +261,19 @@ describe('cleanup-jobs.mjs dataset mode — names the blocking records on every 
     expect(summary).toContain('| srg-ssr | 1 |');
   }, 60000);
 
+  it('prints a stable RSS probe line with numbers, without changing the verdict or exit code', async () => {
+    const jobs = [
+      completeJob({ id: 'ok-1', slug: 'ok-posting-1', title: 'Contabile senior' }),
+      completeJob({ id: 'ok-2', slug: 'ok-posting-2', title: 'Infermiere diplomato' }),
+    ];
+    const sb = makeSandbox(jobs, {});
+
+    const result = await runCleanup(sb);
+
+    expect(result.code, result.output).toBe(0);
+    expect(result.output).toMatch(/::notice::cleanup-jobs report: peak RSS \d+ MB \(reparse \d+(\.\d+)? s\)/);
+  }, 60000);
+
   it('early-return path on a clean dataset: the check still runs and reports zero', async () => {
     // Distinct titles: hardening re-derives slugs from title + company + city,
     // and two equal titles would collapse into a duplicate-slug removal.

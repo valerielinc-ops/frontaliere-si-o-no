@@ -22,6 +22,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { performance } from 'node:perf_hooks';
 import { collectBlockingIssues } from '../validate-translation-completeness.mjs';
 import { listSliceFilePaths } from './crawler-slice-files.mjs';
 
@@ -196,8 +197,14 @@ export function reportBlockingLocaleSlots({
   summaryPath = process.env.GITHUB_STEP_SUMMARY,
   log = (line) => console.log(line),
 }) {
+  // RSS probe: the prep job has no memory guard, so this line is the only
+  // number a deploy run leaves about the cost of re-reading data/jobs.json.
+  // maxRSS is in kilobytes (libuv), and is the process peak, not the delta.
+  const startedAt = performance.now();
+  let probe = false;
   try {
     if (!fs.existsSync(dataJobsPath)) return null;
+    probe = true;
     const raw = JSON.parse(fs.readFileSync(dataJobsPath, 'utf8'));
     const jobs = Array.isArray(raw) ? raw : (Array.isArray(raw?.jobs) ? raw.jobs : null);
     if (!jobs) {
@@ -226,5 +233,15 @@ export function reportBlockingLocaleSlots({
   } catch (err) {
     log(`::warning title=${ANNOTATION_TITLE}::${escapeAnnotationData(`locale slot report failed: ${err?.message || err}`)}`);
     return null;
+  } finally {
+    if (probe) {
+      try {
+        const peakMb = Math.round(process.resourceUsage().maxRSS / 1024);
+        const seconds = ((performance.now() - startedAt) / 1000).toFixed(1);
+        log(`::notice::${stage} report: peak RSS ${peakMb} MB (reparse ${seconds} s)`);
+      } catch {
+        /* the probe must never change the report's outcome */
+      }
+    }
   }
 }
