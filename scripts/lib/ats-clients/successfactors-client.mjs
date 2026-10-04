@@ -76,6 +76,7 @@ import { truncateSlugAtWordBoundary } from '../slug-truncate.mjs';
  *   - scripts/lib/sbb-job-parser.mjs              (SSR + JSON-LD)
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates, hasPostingDateProvenance } from '../source-posting-date.mjs';
 import { fetchWithRetry } from '../transient-fetch.mjs';
 import { parseDotNetJsonDate } from '../dotnet-json-date.mjs';
 import { stripScriptsAndStyles } from '../crawler-template.mjs';
@@ -296,50 +297,38 @@ export function buildSuccessFactorsApiUrl(tenant, kind, options = {}) {
 /**
  * Parse a posted-date value that came from any SuccessFactors flavor.
  * Accepts:
- *   - ISO 8601               → returned as-is (truncated to date)
+ *   - ISO 8601               → preserved, including explicit offset
  *   - `'DD.MM.YYYY'`         (German/French career sites — Heineken/SBB-IT)
  *   - `'DD/MM/YYYY'`
  *   - `'/Date(1234567890000)/'` (OData JSON serialization)
  *   - Unix epoch ms / s as number or numeric string
  *
  * @param {string|number} rawDate
- * @returns {string|null} ISO date `YYYY-MM-DD` or `null` on failure.
+ * @returns {string|null} Valid source ISO date/timestamp or `null` on failure.
  */
-export function parseSuccessFactorsPostedDate(rawDate) {
-  if (rawDate == null) return null;
-
-  // Numeric epoch
+export function parseSuccessFactorsPostedDate(rawDate, now = new Date()) {
+  let value = typeof rawDate === 'string' ? rawDate.trim() : '';
   if (typeof rawDate === 'number' && Number.isFinite(rawDate)) {
-    const ms = rawDate < 1e12 ? rawDate * 1000 : rawDate;
-    const d = new Date(ms);
-    return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
+    const date = new Date(rawDate < 1e12 ? rawDate * 1000 : rawDate);
+    value = Number.isFinite(date.getTime()) ? date.toISOString() : '';
+  } else if (/^\d{10,13}$/.test(value)) {
+    const date = new Date(Number(value) * (value.length <= 10 ? 1000 : 1));
+    value = Number.isFinite(date.getTime()) ? date.toISOString() : '';
+  } else if (value.startsWith('/Date(')) {
+    const date = parseDotNetJsonDate(value.endsWith('/') ? value : `${value}/`);
+    value = date ? date.toISOString() : '';
+  } else {
+    const local = /^(\d{1,2})[.\/-](\d{1,2})[.\/-](\d{4})$/.exec(value);
+    if (local) value = `${local[3]}-${local[2].padStart(2, '0')}-${local[1].padStart(2, '0')}`;
+    const english = /^(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?) (\d{1,2}), (\d{4})$/i.exec(value);
+    if (english) value = `${english[2]} ${english[1].slice(0, 3)} ${english[3]}`;
   }
+  return sourcePostingDateFields(value, now).postedDate || null;
+}
 
-  const raw = String(rawDate).trim();
-  if (!raw) return null;
-
-  // .NET "/Date(epoch_ms)/", offset opzionale — parser condiviso (PR #4362).
-  // Alcuni payload SF omettono lo slash finale: normalizzato prima del parse.
-  const odata = parseDotNetJsonDate(raw.endsWith('/') ? raw : `${raw}/`);
-  if (odata) return odata.toISOString().slice(0, 10);
-
-  // Numeric string
-  if (/^\d{10,13}$/.test(raw)) {
-    const n = Number(raw);
-    const ms = raw.length <= 10 ? n * 1000 : n;
-    const d = new Date(ms);
-    return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
-  }
-
-  // DD.MM.YYYY or DD/MM/YYYY
-  const dotted = raw.match(/^(\d{1,2})[.\/](\d{1,2})[.\/](\d{4})$/);
-  if (dotted) {
-    return `${dotted[3]}-${dotted[2].padStart(2, '0')}-${dotted[1].padStart(2, '0')}`;
-  }
-
-  // ISO-ish — let Date deal with it
-  const d = new Date(raw);
-  return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
+/** Use only a value already identified as a publication date by the source parser. */
+export function successFactorsPostingDateFields(rawDate, now = new Date()) {
+  return sourcePostingDateFields(parseSuccessFactorsPostedDate(rawDate, now), now);
 }
 
 /* ── Identity extractor ────────────────────────────────────────────────── */
@@ -410,15 +399,10 @@ export function extractSuccessFactorsJobIdentity(rawJob = {}, options = {}) {
       ''
   );
 
-  const postedRaw =
-    r.postedAt ||
-    r.postedDate ||
-    r.postingStartDate ||
-    r.datePosted ||
-    r.postedOn ||
-    r.start_date ||
-    null;
-  const postedAt = postedRaw ? parseSuccessFactorsPostedDate(postedRaw) : null;
+  const publication = hasPostingDateProvenance(r)
+    ? mergeSourcePostingDates({}, r)
+    : successFactorsPostingDateFields(r.datePosted);
+  const postedAt = publication.postedDate || null;
 
   const applyUrl =
     r.applyUrl ||
@@ -445,6 +429,7 @@ export function extractSuccessFactorsJobIdentity(rawJob = {}, options = {}) {
     location,
     company,
     postedAt,
+    ...publication,
     applyUrl: String(applyUrl || ''),
     descriptionHtml,
   };
@@ -651,7 +636,13 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
         break;
       }
       for (const raw of items) {
-        const job = extractSuccessFactorsJobIdentity(raw, { company, tenant });
+        // OData's postingStartDate is explicitly a posting date in this
+        // adapter contract, unlike the generic employment start_date alias.
+        const publication = mergeSourcePostingDates(
+          successFactorsPostingDateFields(raw.datePosted),
+          successFactorsPostingDateFields(raw.postingStartDate),
+        );
+        const job = extractSuccessFactorsJobIdentity({ ...raw, ...publication }, { company, tenant });
         if (matchesLocation(job.location)) yield job;
       }
       if (items.length < DEFAULT_PAGE_SIZE) break;
@@ -885,7 +876,8 @@ function extractJsonLdJobPosting(html = '') {
         title: n.title || n.name || '',
         jobReqId: n.identifier?.value || n.identifier || '',
         location: locName,
-        postedAt: n.datePosted || null,
+        postedAt: parseSuccessFactorsPostedDate(n.datePosted),
+        ...successFactorsPostingDateFields(n.datePosted),
         applyUrl: n.url || n.applyUrl || '',
       };
     }
@@ -939,12 +931,15 @@ function parseJobs2WebSearchRows(html = '', pageUrl = '') {
         )
       : cells[0] || '';
     if (!title || title.length < 3) continue;
+    const dateCell = rowHtml.match(/<td[^>]*class=["'][^"']*\b(?:colDate|jobDate)\b[^"']*["'][^>]*>([\s\S]*?)<\/td>/i);
+    const publication = successFactorsPostingDateFields(dateCell ? normalizeSpace(stripTags(dateCell[1])) : '');
     rows.push({
       title,
       url,
       jobId,
       location: cells[2] || '',
-      postedAt: parseSuccessFactorsPostedDate(cells[3] || ''),
+      postedAt: publication.postedDate || null,
+      ...publication,
     });
   }
   return rows;
