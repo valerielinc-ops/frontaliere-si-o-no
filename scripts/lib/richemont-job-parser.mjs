@@ -24,6 +24,8 @@
  *   - isTrustedDomain()        — Validate URLs belong to this company
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
+import { extractJsonLd } from './prospector/extract.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
@@ -250,11 +252,11 @@ async function fetchListingPage(context, page) {
  * on the listing pass — the clearance cookie travels with the context,
  * so detail navigations don't refire the JS challenge.
  *
- * Returns `''` (empty string) on any failure: anti-bot, timeout, missing
+ * Returns empty description with unknown publication on failure: anti-bot, timeout, missing
  * markup, or text shorter than `MIN_DETAIL_DESCRIPTION_LEN`. The caller
  * then does not publish the row.
  */
-async function fetchRichDescription(context, url) {
+async function fetchRichDetailFields(context, url, expectedTitle) {
   let page;
   try {
     page = await fetchWithRateLimit(context, url, { minDelayMs: PER_DETAIL_DELAY_MS });
@@ -262,6 +264,13 @@ async function fetchRichDescription(context, url) {
       timeout: DETAIL_WAIT_SELECTOR_MS,
       state: 'attached',
     }).catch(() => { /* fall through to selector evaluation */ });
+    const html = await page.content();
+    const records = extractJsonLd(html, url);
+    const matched = records.find(record => {
+      if (normalizeSpace(record.title || '').toLowerCase() !== normalizeSpace(expectedTitle).toLowerCase()) return false;
+      if (!record.urlExplicit) return records.length === 1;
+      try { return new URL(record.url, url).href === new URL(url).href; } catch { return false; }
+    });
     const text = await page.evaluate((selectors) => {
       for (const sel of selectors) {
         const el = document.querySelector(sel);
@@ -282,7 +291,7 @@ async function fetchRichDescription(context, url) {
       }
       return '';
     }, DETAIL_SELECTORS);
-    return normalizeDescriptionSpace(String(text).replace(/\u00a0/g, ' '));
+    return { description: normalizeDescriptionSpace(String(text).replace(/\u00a0/g, ' ')), ...mergeSourcePostingDates({}, matched) };
   } catch (err) {
     if (err instanceof AntiBotBlockError) {
       console.warn(`   ⚠️ CF block on detail ${url}: ${err.message}`);
@@ -291,7 +300,7 @@ async function fetchRichDescription(context, url) {
     } else {
       console.warn(`   ⚠️ Detail fetch error on ${url}: ${err?.message || err}`);
     }
-    return '';
+    return { description: '', ...mergeSourcePostingDates() };
   } finally {
     if (page) await safeClose(page);
   }
@@ -312,8 +321,10 @@ async function enrichRowsWithDetail(context, rows) {
     const detailUrl = row.href.startsWith('http')
       ? row.href
       : `https://careers.richemont.com${row.href.startsWith('/') ? '' : '/'}${row.href}`;
-    const text = await fetchRichDescription(context, detailUrl);
+    const detail = await fetchRichDetailFields(context, detailUrl, row.title);
+    const text = detail.description;
     row.detailText = text;
+    Object.assign(row, mergeSourcePostingDates({}, detail));
     if (meetsSourceBodyFloor(text)) {
       ok++;
     } else {
@@ -522,7 +533,7 @@ export async function fetchAllRichemontJobs() {
       sector: 'Lusso / Orologeria',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, row),
       applyUrl: path,
       jobReqId: row.id || null,
       requirements: [],
