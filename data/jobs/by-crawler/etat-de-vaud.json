@@ -1021,7 +1021,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1034,7 +1033,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-vaud-5893",
@@ -2727,11 +2727,11 @@
     },
     {
       "id": "etat-de-vaud-5896",
-      "slug": "chef-fe-du-projet-d-agglomeration-lausanne-morges-palm-etat-de-vaud-lausanne",
+      "slug": "capo-del-progetto-agglomerato-lausanne-morges-palm-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "it": "chef-fe-du-projet-d-agglomeration-lausanne-morges-palm-etat-de-vaud-lausanne",
-        "en": "chef-fe-du-projet-d-agglomeration-lausanne-morges-palm-etat-de-vaud-lausanne",
-        "de": "chef-fe-du-projet-d-agglomeration-lausanne-morges-palm-etat-de-vaud-lausanne",
+        "it": "capo-del-progetto-agglomerato-lausanne-morges-palm-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "head-of-agglomeration-project-lausanne-morges-palm-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "leiter-agglomerationsprojekt-lausanne-morges-palm-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "fr": "chef-fe-du-projet-d-agglomeration-lausanne-morges-palm-etat-de-vaud-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -2812,12 +2812,12 @@
     },
     {
       "id": "etat-de-vaud-5979",
-      "slug": "referent-e-de-la-gestion-des-signalements-etat-de-vaud-lausanne",
+      "slug": "riferimento-alla-gestione-degli-avvisi-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "it": "referent-e-de-la-gestion-des-signalements-etat-de-vaud-lausanne",
-        "en": "referent-e-de-la-gestion-des-signalements-etat-de-vaud-lausanne",
-        "de": "referent-e-de-la-gestion-des-signalements-etat-de-vaud-lausanne",
-        "fr": "referent-e-de-la-gestion-des-signalements-etat-de-vaud-lausanne"
+        "fr": "referent-e-de-la-gestion-des-signalements-etat-de-vaud-lausanne",
+        "it": "riferimento-alla-gestione-degli-avvisi-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "reference-to-the-management-of-alerts-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "verweis-auf-die-verwaltung-von-warnmeldungen-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -2897,12 +2897,12 @@
     },
     {
       "id": "etat-de-vaud-5978",
-      "slug": "chef-fe-de-groupe-unite-commune-orp-csr-etat-de-vaud-yverdon-les-bains",
+      "slug": "leader-del-gruppo-unitario-congiunto-orp-csr-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
       "slugByLocale": {
-        "it": "chef-fe-de-groupe-unite-commune-orp-csr-etat-de-vaud-yverdon-les-bains",
-        "en": "chef-fe-de-groupe-unite-commune-orp-csr-etat-de-vaud-yverdon-les-bains",
-        "de": "chef-fe-de-groupe-unite-commune-orp-csr-etat-de-vaud-yverdon-les-bains",
-        "fr": "chef-fe-de-groupe-unite-commune-orp-csr-etat-de-vaud-yverdon-les-bains"
+        "fr": "chef-fe-de-groupe-unite-commune-orp-csr-etat-de-vaud-yverdon-les-bains",
+        "it": "leader-del-gruppo-unitario-congiunto-orp-csr-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
+        "en": "joint-unit-group-leader-orp-csr-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
+        "de": "leiter-der-gemeinsamen-arbeitsgruppe-orp-csr-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -2982,12 +2982,12 @@
     },
     {
       "id": "etat-de-vaud-5972",
-      "slug": "educateur-trice-etat-de-vaud-palezieux",
+      "slug": "maestro-etat-de-vaud-administration-cantonale-vaudoise-palezieux",
       "slugByLocale": {
-        "it": "educateur-trice-etat-de-vaud-palezieux",
-        "en": "educateur-trice-etat-de-vaud-palezieux",
-        "de": "educateur-trice-etat-de-vaud-palezieux",
-        "fr": "educateur-trice-etat-de-vaud-palezieux"
+        "fr": "educateur-trice-etat-de-vaud-palezieux",
+        "it": "maestro-etat-de-vaud-administration-cantonale-vaudoise-palezieux",
+        "en": "teacher-etat-de-vaud-administration-cantonale-vaudoise-palezieux",
+        "de": "lehrer-etat-de-vaud-administration-cantonale-vaudoise-palezieux"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3067,12 +3067,12 @@
     },
     {
       "id": "etat-de-vaud-5969",
-      "slug": "responsable-rh-en-top-sharing-etat-de-vaud-lausanne",
+      "slug": "hr-manager-nella-massima-condivisione-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "it": "responsable-rh-en-top-sharing-etat-de-vaud-lausanne",
+        "fr": "responsable-rh-en-top-sharing-etat-de-vaud-lausanne",
+        "it": "hr-manager-nella-massima-condivisione-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "en": "responsable-rh-en-top-sharing-etat-de-vaud-lausanne",
-        "de": "responsable-rh-en-top-sharing-etat-de-vaud-lausanne",
-        "fr": "responsable-rh-en-top-sharing-etat-de-vaud-lausanne"
+        "de": "responsable-rh-en-top-sharing-etat-de-vaud-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3142,12 +3142,12 @@
     },
     {
       "id": "etat-de-vaud-5968",
-      "slug": "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2",
+      "slug": "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-9717b3",
       "slugByLocale": {
-        "it": "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2",
-        "en": "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2",
-        "de": "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2",
-        "fr": "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains"
+        "fr": "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains",
+        "it": "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-9717b3",
+        "en": "professional-curator-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-9717b3",
+        "de": "professioneller-kurator-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-9717b3"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3210,6 +3210,10 @@
           "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-9717b3",
           "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2"
         ],
+        "fr": [
+          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-j6x8xb",
+          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains"
+        ],
         "en": [
           "professional-curator-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-9717b3",
           "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2"
@@ -3217,10 +3221,6 @@
         "de": [
           "professioneller-kurator-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-9717b3",
           "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2"
-        ],
-        "fr": [
-          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-j6x8xb",
-          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains"
         ]
       },
       "previousSlugs": [
@@ -3234,12 +3234,12 @@
     },
     {
       "id": "etat-de-vaud-5961",
-      "slug": "responsable-secteur-administratif-etat-de-vaud-lausanne",
+      "slug": "capo-settore-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "it": "responsable-secteur-administratif-etat-de-vaud-lausanne",
-        "en": "responsable-secteur-administratif-etat-de-vaud-lausanne",
-        "de": "responsable-secteur-administratif-etat-de-vaud-lausanne",
-        "fr": "responsable-secteur-administratif-etat-de-vaud-lausanne"
+        "fr": "responsable-secteur-administratif-etat-de-vaud-lausanne",
+        "it": "capo-settore-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "head-of-administrative-sector-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "leiter-des-verwaltungssektors-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3319,12 +3319,12 @@
     },
     {
       "id": "etat-de-vaud-5949",
-      "slug": "secretaire-de-direction-etat-de-vaud-lausanne",
+      "slug": "segretario-esecutivo-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "it": "secretaire-de-direction-etat-de-vaud-lausanne",
-        "en": "secretaire-de-direction-etat-de-vaud-lausanne",
-        "de": "secretaire-de-direction-etat-de-vaud-lausanne",
-        "fr": "secretaire-de-direction-etat-de-vaud-lausanne"
+        "fr": "secretaire-de-direction-etat-de-vaud-lausanne",
+        "it": "segretario-esecutivo-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "executive-secretary-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "exekutivsekretar-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3404,12 +3404,12 @@
     },
     {
       "id": "etat-de-vaud-5927",
-      "slug": "chef-fe-de-groupe-conseiller-ere-en-personnel-etat-de-vaud-prilly",
+      "slug": "gruppo-leader-staff-counseler-etat-de-vaud-administration-cantonale-vaudoise-prilly",
       "slugByLocale": {
-        "it": "chef-fe-de-groupe-conseiller-ere-en-personnel-etat-de-vaud-prilly",
-        "en": "chef-fe-de-groupe-conseiller-ere-en-personnel-etat-de-vaud-prilly",
-        "de": "chef-fe-de-groupe-conseiller-ere-en-personnel-etat-de-vaud-prilly",
-        "fr": "chef-fe-de-groupe-conseiller-ere-en-personnel-etat-de-vaud-prilly"
+        "fr": "chef-fe-de-groupe-conseiller-ere-en-personnel-etat-de-vaud-prilly",
+        "it": "gruppo-leader-staff-counseler-etat-de-vaud-administration-cantonale-vaudoise-prilly",
+        "en": "group-leader-staff-adviser-etat-de-vaud-administration-cantonale-vaudoise-prilly",
+        "de": "gruppenleiter-personalberater-etat-de-vaud-administration-cantonale-vaudoise-prilly"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
