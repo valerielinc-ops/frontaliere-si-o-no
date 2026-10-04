@@ -12542,6 +12542,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-ticino-settembre.title': 'Taxe santé des frontaliers au Tessin : lancement en septembre ?',
     'blog.article.tassa-salute-frontalieri-ticino-settembre.excerpt': 'Nouvelle taxe sanitaire pour les frontaliers : entrée en vigueur prévue d’ici septembre, mais les décrets d’application font encore défaut et les paiements n’ont pas encore été recouvrés.',
     'blog.article.tassa-salute-frontalieri-ticino-settembre.imageAlt': 'Travailleurs frontaliers en transit entre l\'Italie et la Suisse au Tessin',
+    'blog.article.stra-woman-varese-2026.title': 'StraWoman Varese 2026 : presque 4mila aux Giardini Estensi',
+    'blog.article.stra-woman-varese-2026.excerpt': 'Près de 4mila participants ont couru ou marché 5 km dans les Giardini Estensi pour la seizième StraWoman Varese, l’une des 21 étapes de mars à novembre, promouvant le sport, la prévention du cancer du sein et la solidarité.',
+    'blog.article.stra-woman-varese-2026.imageAlt': 'Femmes participantes à la StraWoman Varese 2026 aux Giardini Estensi, une course/marche non compétitive de 5 km axée sur la prévention de la santé et la solidarité.',
 };
 
 export default blogMetaFr;
