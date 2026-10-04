@@ -12521,6 +12521,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.saracino-comandante-carabinieri-mornago.title': 'Saracino nuovo comandante dei Carabinieri di Mornago',
     'blog.article.saracino-comandante-carabinieri-mornago.excerpt': 'Luogotenente Carica Speciale Anacleto Antonio Saracino guida la Stazione dei Carabinieri di Mornago, dipendente dalla Compagnia di Gallarate, responsabile della sicurezza pubblica nei comuni di Mornago, Sumirago, Casale Litta e Inarzo.',
     'blog.article.saracino-comandante-carabinieri-mornago.imageAlt': 'Luogotenente Anacleto Antonio Saracino davanti alla stazione dei Carabinieri di Mornago',
+    'blog.article.tre-valli-corti.title': 'Tre Valli Varesine, la storia in mostra alle Corti',
+    'blog.article.tre-valli-corti.excerpt': 'Venti tavole ripercorrono alle Corti di Varese la storia delle Tre Valli Varesine dal 1919 ai giorni nostri. Mostra fino al 20 ottobre.',
+    'blog.article.tre-valli-corti.imageAlt': 'Venti tavole sulla storia delle Tre Valli Varesine esposte alle Corti di Varese.',
 };
 
 export default blogMetaIt;

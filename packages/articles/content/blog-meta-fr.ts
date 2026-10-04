@@ -12522,6 +12522,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.saracino-comandante-carabinieri-mornago.title': 'Saracino, nouveau commandant des Carabinieri de Mornago',
     'blog.article.saracino-comandante-carabinieri-mornago.excerpt': 'Le lieutenant à charge spéciale Anacleto Antonio Saracino dirige la Station des Carabiniers de Mornago, rattachée à la Compagnie de Gallarate, responsable de la sécurité publique dans les communes de Mornago, Sumirago, Casale Litta et Inarzo.',
     'blog.article.saracino-comandante-carabinieri-mornago.imageAlt': 'Lieutenant Anacleto Antonio Saracino devant la poste des carabiniers di Mornago',
+    'blog.article.tre-valli-corti.title': 'Tre Valli Varesine, l’histoire exposée aux Corti',
+    'blog.article.tre-valli-corti.excerpt': 'Vingt planches retracent aux cours de Varese l\'histoire des trois vallées de Varèse de 1919 à nos jours. Afficher jusqu\'au 20 octobre.',
+    'blog.article.tre-valli-corti.imageAlt': 'Vingt panneaux sur l’histoire des Tre Valli Varesine aux Corti de Varèse. (Varese)',
 };
 
 export default blogMetaFr;

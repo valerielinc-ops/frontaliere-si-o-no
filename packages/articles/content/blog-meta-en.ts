@@ -12520,6 +12520,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.saracino-comandante-carabinieri-mornago.title': 'Saracino, new commander of the Carabinieri in Mornago',
     'blog.article.saracino-comandante-carabinieri-mornago.excerpt': 'Lieutenant with Special Charge Anacleto Antonio Saracino leads the Carabinieri Station of Mornago, under the Gallarate Company, responsible for public safety in the municipalities of Mornago, Sumirago, Casale Litta and Inarzo.',
     'blog.article.saracino-comandante-carabinieri-mornago.imageAlt': 'Lieutenant Anacleto Antonio Saracino in front of the Mornago Carabinieri station',
+    'blog.article.tre-valli-corti.title': 'Tre Valli Varesine, the history on display at Le Corti',
+    'blog.article.tre-valli-corti.excerpt': 'Twenty panels retrace at the Corti di Varese the history of the Tre Valli Varesine from 1919 to the present day. Exhibition until October 20.',
+    'blog.article.tre-valli-corti.imageAlt': 'Twenty panels on the history of Tre Valli Varesine at Le Corti in Varese.',
 };
 
 export default blogMetaEn;
