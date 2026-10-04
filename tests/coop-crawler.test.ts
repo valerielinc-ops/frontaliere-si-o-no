@@ -28,6 +28,7 @@ import {
   applyCoopJsonLdToJob,
   applyCoopSourceDetailToJob,
   enrichCoopSourceBackedJobs,
+  fetchCoopDetailPage,
   resolveCoopCantonCode,
   collapseRepublishedCoopVacancies,
   withoutRepublishedCoopVacancies,
@@ -775,6 +776,33 @@ describe('extractJsonLd — Coop pages', () => {
     const ld = extractJsonLd(html);
     expect(ld).not.toBeNull();
     expect(ld.title).toBe('Graph job');
+  });
+});
+
+describe('fetchCoopDetailPage timeout handling', () => {
+  it('settles when the detail fetch ignores AbortSignal', async () => {
+    let observedSignal: AbortSignal | undefined;
+    const result = await fetchCoopDetailPage(
+      'https://jobs.coopjobs.ch/offene-stellen/slow/11111111-1111-4111-8111-111111111111',
+      10,
+      async (_url, options) => {
+        observedSignal = options?.signal;
+        return new Promise(() => {});
+      },
+    );
+
+    expect(result).toBeNull();
+    expect(observedSignal?.aborted).toBe(true);
+  });
+
+  it('also bounds a response whose body read never settles', async () => {
+    const result = await fetchCoopDetailPage(
+      'https://jobs.coopjobs.ch/offene-stellen/slow-body/22222222-2222-4222-8222-222222222222',
+      10,
+      async () => ({ ok: true, text: async () => new Promise(() => {}) }),
+    );
+
+    expect(result).toBeNull();
   });
 });
 
