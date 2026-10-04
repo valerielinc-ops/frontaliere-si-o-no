@@ -19394,22 +19394,35 @@
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-m-w-d-coop-winterthur-2o0q60",
-          "kochin-koch-m-w-d-coop-winterthur"
+          "kochin-koch-m-w-d-coop-winterthur",
+          "kochin-koch-w-m-d-coop-genossenschaft-winterthur-zurich",
+          "kochin-koch-m-w-d-coop-ristorante-winterthur-zurich-cpdlrl",
+          "chef-chef-h-f-d-coop-genossenschaft-winterthur"
         ],
         "en": [
           "kochin-koch-m-w-d-coop-winterthur-2o0q60",
           "chef-chef-m-f-d-coop-genossenschaft-winterthur",
-          "chef-chef-m-f-d-coop-genossenschaft-winterthur-2o0q60"
+          "chef-chef-m-f-d-coop-genossenschaft-winterthur-2o0q60",
+          "kochin-koch-w-m-d-coop-genossenschaft-winterthur",
+          "kochin-koch-w-m-d-coop-genossenschaft-winterthur-zurich"
         ],
         "fr": [
-          "kochin-koch-m-w-d-coop-winterthur-2o0q60"
+          "kochin-koch-m-w-d-coop-winterthur-2o0q60",
+          "chef-chef-h-f-d-coop-genossenschaft-winterthur"
+        ],
+        "de": [
+          "kochin-koch-m-w-d-coop-ristorante-winterthur-zurich-cpdlrl"
         ]
       },
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-winterthur-2o0q60",
         "kochin-koch-m-w-d-coop-winterthur",
         "chef-chef-m-f-d-coop-genossenschaft-winterthur",
-        "chef-chef-m-f-d-coop-genossenschaft-winterthur-2o0q60"
+        "chef-chef-m-f-d-coop-genossenschaft-winterthur-2o0q60",
+        "kochin-koch-w-m-d-coop-genossenschaft-winterthur",
+        "kochin-koch-w-m-d-coop-genossenschaft-winterthur-zurich",
+        "kochin-koch-m-w-d-coop-ristorante-winterthur-zurich-cpdlrl",
+        "chef-chef-h-f-d-coop-genossenschaft-winterthur"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/ca4ec1dd-8c81-4a82-8bb3-12caf38a5754",
       "needsRetranslation": true,
@@ -25109,7 +25122,8 @@
       "streetAddress": "Breitestrasse 4",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "company-zhgtm",

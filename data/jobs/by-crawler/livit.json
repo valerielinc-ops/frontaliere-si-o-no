@@ -1151,7 +1151,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "property-manager-real-estate-management-germania-svizzera-livit-ag-zurich",
+          "property-manager-real-estate-management-german-switzerland-livit-ag-zurich",
+          "gestionnaire-immobilier-gestion-immobiliere-allemand-suisse-livit-ag-zurich",
+          "sachbearbeiter-in-immobilienbewirtschaftung-deutschschweiz-livit-zurich-cmegdr"
+        ],
+        "en": [
+          "property-manager-real-estate-management-german-switzerland-livit-ag-zurich"
+        ],
+        "fr": [
+          "gestionnaire-immobilier-gestion-immobiliere-allemand-suisse-livit-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "property-manager-real-estate-management-germania-svizzera-livit-ag-zurich",
+        "property-manager-real-estate-management-german-switzerland-livit-ag-zurich",
+        "gestionnaire-immobilier-gestion-immobiliere-allemand-suisse-livit-ag-zurich",
+        "sachbearbeiter-in-immobilienbewirtschaftung-deutschschweiz-livit-zurich-cmegdr"
+      ]
     },
     {
       "id": "livit-37f3b7403751",
@@ -1346,7 +1366,27 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "uffici-di-gestione-junior-livit-ag-zurich",
+          "junior-managing-offices-livit-ag-zurich",
+          "bureaux-de-gestion-auxiliaires-livit-ag-zurich",
+          "junior-bewirtschafter-in-geschaftsflachen-livit-zurich-py7kp5"
+        ],
+        "en": [
+          "junior-managing-offices-livit-ag-zurich"
+        ],
+        "fr": [
+          "bureaux-de-gestion-auxiliaires-livit-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "uffici-di-gestione-junior-livit-ag-zurich",
+        "junior-managing-offices-livit-ag-zurich",
+        "bureaux-de-gestion-auxiliaires-livit-ag-zurich",
+        "junior-bewirtschafter-in-geschaftsflachen-livit-zurich-py7kp5"
+      ]
     },
     {
       "id": "livit-dd648c47f7dc",
@@ -1606,7 +1646,27 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "gestione-delle-proprieta-livit-ag-basel",
+          "property-managers-livit-ag-basel",
+          "gestionnaires-de-biens-livit-ag-basel-0f28e5",
+          "immobilienbewirtschafter-in-livit-basel-v0eup1"
+        ],
+        "en": [
+          "property-managers-livit-ag-basel"
+        ],
+        "fr": [
+          "gestionnaires-de-biens-livit-ag-basel-0f28e5"
+        ]
+      },
+      "previousSlugs": [
+        "gestione-delle-proprieta-livit-ag-basel",
+        "property-managers-livit-ag-basel",
+        "gestionnaires-de-biens-livit-ag-basel-0f28e5",
+        "immobilienbewirtschafter-in-livit-basel-v0eup1"
+      ]
     },
     {
       "id": "livit-db3c2313cc01",
@@ -1873,18 +1933,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-in-baumanagement-bauherrenvertretung-livit-st-gallen",
-        "responsabile-di-progetto-baumanagement-bauherrenvertretung-livit-ag-st-gallen"
+        "responsabile-di-progetto-baumanagement-bauherrenvertretung-livit-ag-st-gallen",
+        "project-manager-gestione-delle-costruzioni-rappresentante-proprietario-livit-ag-st-gallen",
+        "project-manager-construction-management-owner-representative-livit-ag-st-gallen",
+        "gestionnaire-de-projet-gestion-de-la-construction-representant-du-proprietaire-livit-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-baumanagement-bauherrenvertretung-livit-st-gallen",
-          "responsabile-di-progetto-baumanagement-bauherrenvertretung-livit-ag-st-gallen"
+          "responsabile-di-progetto-baumanagement-bauherrenvertretung-livit-ag-st-gallen",
+          "project-manager-gestione-delle-costruzioni-rappresentante-proprietario-livit-ag-st-gallen",
+          "project-manager-construction-management-owner-representative-livit-ag-st-gallen",
+          "gestionnaire-de-projet-gestion-de-la-construction-representant-du-proprietaire-livit-ag-st-gallen"
         ],
         "en": [
-          "projektleiter-in-baumanagement-bauherrenvertretung-livit-st-gallen"
+          "projektleiter-in-baumanagement-bauherrenvertretung-livit-st-gallen",
+          "project-manager-construction-management-owner-representative-livit-ag-st-gallen"
         ],
         "fr": [
-          "projektleiter-in-baumanagement-bauherrenvertretung-livit-st-gallen"
+          "projektleiter-in-baumanagement-bauherrenvertretung-livit-st-gallen",
+          "gestionnaire-de-projet-gestion-de-la-construction-representant-du-proprietaire-livit-ag-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-10T23:24:22.757Z",

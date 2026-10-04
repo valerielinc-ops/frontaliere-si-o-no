@@ -5587,7 +5587,6 @@
           "vollzeitstudium-dipl-radiologiefachfrau-radiologiefachmann-hf-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "applyUrl": "https://jobs.ksgr.ch/offene-stellen/vollzeitstudium-dipl-radiologiefachfrau-radiologiefachmann-hf/cb442750-9e6f-4eb0-ad42-cc11dc06dd00",
       "salaryMin": 41080,
@@ -6446,7 +6445,6 @@
           "pflegepraktikant-in-wahrend-medizinstudium-34-hafelipraktikum-34-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "applyUrl": "https://jobs.ksgr.ch/offene-stellen/pflegepraktikant-in-waehrend-medizinstudium-haefelipraktikum/994653d1-016d-49d3-85c9-f310242ac7f0",
       "salaryMin": 41080,
@@ -7436,14 +7434,15 @@
           "freiwillige-r-helfer-in-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "applyUrl": "https://jobs.ksgr.ch/offene-stellen/freiwillige-r-helfer-in/26b2fc79-28d9-43d1-89be-b47b078f3ed7",
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-04-13T10:51:03.997Z"
+      "firstSeenAt": "2026-04-13T10:51:03.997Z",
+      "retranslationAttempts": 0
     },
     {
       "id": "8132739",
@@ -7511,14 +7510,15 @@
           "unterassistentinnen-und-unterassistenten-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "applyUrl": "https://jobs.ksgr.ch/offene-stellen/unterassistentinnen-und-unterassistenten/5b5ce3cc-38d3-4e45-a867-6f4857663bce",
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-04-13T10:51:03.997Z"
+      "firstSeenAt": "2026-04-13T10:51:03.997Z",
+      "retranslationAttempts": 0
     },
     {
       "id": "8117819",
