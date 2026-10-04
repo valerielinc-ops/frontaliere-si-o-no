@@ -67,6 +67,19 @@ function buildCtx(
 }
 
 describe('jobDetailHtml emitters — output regression', () => {
+  it.each(['it', 'en', 'de', 'fr'] as const)('%s keeps publication badges and mobile dates source-verified while preserving the CTA', (locale) => {
+    const now = new Date();
+    const recent = new Date(now.getTime() - 86400000).toISOString();
+    for (const postingDateSource of [undefined, 'unknown', 'reported'] as const) {
+      const ctx = buildCtx({ locale, job: { postingDateSource, postedDate: recent, crawledAt: now.toISOString(), url: 'https://example.com/apply' } });
+      const hero = renderHeroBadges({ ...ctx, now });
+      const mobile = renderMobileActionBlock({ ...ctx, now });
+      expect(hero.includes('badge-new')).toBe(postingDateSource === 'reported');
+      expect(mobile.includes('<dd>—</dd>')).toBe(postingDateSource !== 'reported');
+      expect(mobile).toContain('href="https://example.com/apply"');
+      expect(mobile).toContain('class="mab-cta"');
+    }
+  });
   describe('fixture 1: canonical-rich (featured + new + salary + highlights)', () => {
     const ctx = buildCtx({
       job: {
@@ -79,6 +92,7 @@ describe('jobDetailHtml emitters — output regression', () => {
         contract: 'full-time',
         featured: true,
         // 1 day ago — within the 7-day "Nuovo" window
+        postingDateSource: 'reported',
         postedDate: new Date(Date.now() - 86400000).toISOString(),
         url: 'https://example.com/job/123',
       },
@@ -115,6 +129,7 @@ describe('jobDetailHtml emitters — output regression', () => {
         job: {
           ...ctx.job,
           featured: false,
+          postingDateSource: 'reported',
           postedDate: '2026-09-12T12:00:00.000Z',
         },
       });
@@ -141,6 +156,7 @@ describe('jobDetailHtml emitters — output regression', () => {
         ...ctx,
         job: {
           ...ctx.job,
+          postingDateSource: 'reported',
           postedDate: '2026-09-16T12:00:00.000Z',
         },
       });
@@ -190,6 +206,7 @@ describe('jobDetailHtml emitters — output regression', () => {
         category: 'technology',
         contract: 'full-time',
         // 30 days ago — outside the "New" window
+        postingDateSource: 'reported',
         postedDate: new Date(Date.now() - 30 * 86400000).toISOString(),
       },
       locale: 'en',
@@ -247,6 +264,7 @@ describe('jobDetailHtml emitters — output regression', () => {
         category: 'finance',
         contract: 'contract',
         featured: true,
+        postingDateSource: 'reported',
         postedDate: new Date().toISOString(),
         url: 'https://bigfour.example/apply',
       },
