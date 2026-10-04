@@ -934,20 +934,50 @@ function issueViewIsClosed(number) {
   }
 }
 
+/** Close reasons `resolveGithubIssue` and `resolveGithubIssueByNumber` accept (`--reason` on the CLI). */
+export const RESOLVE_REASONS = Object.freeze(['completed', 'not_planned']);
+
+// Checked before any gh call: an unknown reason is a caller bug, and closing
+// with a reason nobody chose would be worse than not closing.
+function assertResolveReason(reason) {
+  if (!RESOLVE_REASONS.includes(reason)) {
+    throw new Error(`[github-issue-creator] resolve: unknown --reason ${JSON.stringify(reason)} (allowed: ${RESOLVE_REASONS.join(', ')})`);
+  }
+}
+
+/** Comment posted before a resolve-close, and the `gh issue close --reason` value. */
+function resolveCloseText(reason, { workflow, runUrl } = {}) {
+  if (reason === 'not_planned') {
+    return {
+      ghReason: 'not planned',
+      note: [
+        '🗄️ Chiusa perché il soggetto è stato ritirato, non perché il controllo sia tornato verde'
+          + (workflow ? ` (${workflow})` : '') + '.',
+        runUrl ? `\nRun: ${runUrl}` : '',
+        '\nChiusa come «not planned»: non viene riaperta da sola; se il soggetto viene riattivato e fallisce di nuovo si apre una issue nuova.',
+      ].join(''),
+    };
+  }
+  return {
+    ghReason: 'completed',
+    note: [
+      '✅ Auto-resolved — the failing check is green again' + (workflow ? ` (${workflow})` : '') + '.',
+      runUrl ? `\nGreen run: ${runUrl}` : '',
+      '\nClosed automatically; it will reopen if the same failure recurs.',
+    ].join(''),
+  };
+}
+
 /**
  * Close a specific issue number after a caller has already evaluated it.
  * Title lookup is intentionally bypassed: a concurrent same-title issue must
  * not redirect the close to a different issue.
  */
-function closeGithubIssueByNumber(number, { title, url, workflow, runUrl }) {
-  const note = [
-    '✅ Auto-resolved — the failing check is green again' + (workflow ? ` (${workflow})` : '') + '.',
-    runUrl ? `\nGreen run: ${runUrl}` : '',
-    '\nClosed automatically; it will reopen if the same failure recurs.',
-  ].join('');
+function closeGithubIssueByNumber(number, { title, url, workflow, runUrl, reason = 'completed' }) {
+  const { note, ghReason } = resolveCloseText(reason, { workflow, runUrl });
   gh(['issue', 'comment', String(number), '--body', note, ...repoFlag()], { allowFailure: true });
   const closed = gh(
-    ['issue', 'close', String(number), '--reason', 'completed', ...repoFlag()],
+    ['issue', 'close', String(number), '--reason', ghReason, ...repoFlag()],
     { allowFailure: true },
   );
   if (issueViewIsClosed(number)) {
@@ -979,18 +1009,24 @@ function closeGithubIssueByNumber(number, { title, url, workflow, runUrl }) {
  * `persisted: true`. A refused or unverified close throws (the error carries
  * `persisted: false`) so callers cannot treat it as a successful no-op.
  *
+ * `reason` (default `completed`, the green-run case) also accepts
+ * `not_planned`: the subject of the issue was RETIRED, not repaired — a
+ * retired crawler is not "green again", and a `NOT_PLANNED` close is never
+ * resurrected by the reopen path (see findRecentlyClosedIssueByTitlePrefix).
+ *
  * @param {string} titlePrefix  Stable full title; by default its safe prefix
  *                              derived from DEDUP_TITLE_PREFIX_LEN is matched.
  * @param {{ workflow?: string, runUrl?: string, exactTitle?: boolean,
- *           issueNumber?: number|string }} [ctx]
+ *           issueNumber?: number|string, reason?: 'completed'|'not_planned' }} [ctx]
  *                              exactTitle opts into complete-title matching;
  *                              issueNumber bypasses title lookup and targets
  *                              that already-evaluated issue directly.
  */
 export function resolveGithubIssue(
   titlePrefix,
-  { workflow, runUrl, exactTitle = false, issueNumber } = {},
+  { workflow, runUrl, exactTitle = false, issueNumber, reason = 'completed' } = {},
 ) {
+  assertResolveReason(reason);
   if (isFailureReportingDisabled()) {
     console.log('[github-issue-creator] ENABLE_FAILURE_REPORT=false, skipping resolve');
     return null;
@@ -1008,6 +1044,7 @@ export function resolveGithubIssue(
       title: titlePrefix,
       workflow,
       runUrl,
+      reason,
     });
   }
   // Pass the FULL title — searchSafePrefix slices + sanitizes internally and
@@ -1027,6 +1064,7 @@ export function resolveGithubIssue(
     url: existing.url,
     workflow,
     runUrl,
+    reason,
   });
 }
 
@@ -1049,12 +1087,16 @@ export function resolveGithubIssue(
  * input is unusable, a verified close returns `persisted: true`, a refused or
  * unverified close throws with `persisted: false`.
  *
+ * `reason` has the same meaning and default as in `resolveGithubIssue`
+ * (`completed`; `not_planned` for a RETIRED subject).
+ *
  * @param {number|string} issueNumber
- * @param {{ expectedTitle: string, workflow?: string, runUrl?: string, preface?: string }} ctx
+ * @param {{ expectedTitle: string, workflow?: string, runUrl?: string, preface?: string, reason?: 'completed'|'not_planned' }} ctx
  *   `preface` is an extra comment posted only once the re-read has confirmed
  *   the issue is still the one decided on (e.g. why a hold was released).
  */
-export function resolveGithubIssueByNumber(issueNumber, { expectedTitle, workflow, runUrl, preface } = {}) {
+export function resolveGithubIssueByNumber(issueNumber, { expectedTitle, workflow, runUrl, preface, reason = 'completed' } = {}) {
+  assertResolveReason(reason);
   if (isFailureReportingDisabled()) {
     console.log('[github-issue-creator] ENABLE_FAILURE_REPORT=false, skipping resolve');
     return null;
@@ -1089,14 +1131,10 @@ export function resolveGithubIssueByNumber(issueNumber, { expectedTitle, workflo
   if (preface) {
     gh(['issue', 'comment', String(number), '--body', preface, ...repoFlag()], { allowFailure: true });
   }
-  const note = [
-    '✅ Auto-resolved — the failing check is green again' + (workflow ? ` (${workflow})` : '') + '.',
-    runUrl ? `\nGreen run: ${runUrl}` : '',
-    '\nClosed automatically; it will reopen if the same failure recurs.',
-  ].join('');
+  const { note, ghReason } = resolveCloseText(reason, { workflow, runUrl });
   gh(['issue', 'comment', String(number), '--body', note, ...repoFlag()], { allowFailure: true });
   const closed = gh(
-    ['issue', 'close', String(number), '--reason', 'completed', ...repoFlag()],
+    ['issue', 'close', String(number), '--reason', ghReason, ...repoFlag()],
     { allowFailure: true },
   );
   if (issueViewIsClosed(number)) {
@@ -1679,7 +1717,7 @@ if (isDirectRun) {
 
   const title = get('--title');
   if (!title) {
-    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..."] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N | --no-reopen] [--build-sha SHA] [--consecutive-gate N] [--gate-window-hours H] [--signal-cosa "..."] [--signal-osservato V] [--signal-atteso V] [--signal-comando "..."] [--signal-evidenza "..."]* [--require-persisted] [--resolve]');
+    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..."] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N | --no-reopen] [--build-sha SHA] [--consecutive-gate N] [--gate-window-hours H] [--signal-cosa "..."] [--signal-osservato V] [--signal-atteso V] [--signal-comando "..."] [--signal-evidenza "..."]* [--require-persisted] [--resolve [--reason completed|not_planned]]');
     process.exit(1);
   }
 
@@ -1704,9 +1742,16 @@ if (isDirectRun) {
   // --resolve: close the OPEN canonical issue with this stable title (green run).
   // Mirror of the failure reporter; runs from `if: success()` steps so a recovered
   // gate doesn't leave a stale open issue. A refused close must not exit 0.
+  // `--reason not_planned` closes a RETIRED subject (default `completed`); an
+  // unknown value throws inside resolveGithubIssue and exits 1.
   if (args.includes('--resolve')) {
     try {
-      resolveGithubIssue(title, { workflow: get('--workflow'), runUrl: get('--run-url') });
+      resolveGithubIssue(title, {
+        workflow: get('--workflow'),
+        runUrl: get('--run-url'),
+        // `?? ''`: a bare `--reason` must fail, not fall back to the default.
+        ...(args.includes('--reason') ? { reason: get('--reason') ?? '' } : {}),
+      });
       process.exit(0);
     } catch (err) {
       console.error(`[github-issue-creator] ${err.message}`);
