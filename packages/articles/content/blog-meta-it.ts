@@ -12458,6 +12458,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tamponamento-autostrada-sud.title': 'Grave incidente sull’A2 a Coldrerio',
     'blog.article.tamponamento-autostrada-sud.excerpt': 'Tamponamento in direzione sud: una 68enne è rimasta ferita lievemente, mentre il passeggero 73enne è in gravi condizioni.',
     'blog.article.tamponamento-autostrada-sud.imageAlt': 'Autostrada A2 a Coldrerio dopo un grave incidente in direzione sud',
+    'blog.article.tappi-chiodi-parcheggio-luino.title': 'Luino, tappi con chiodi nel parcheggio dietro al Tigros',
+    'blog.article.tappi-chiodi-parcheggio-luino.excerpt': 'Paolo Nicastri segnala la presenza di tappi con chiodi rivolti verso l\'alto nell\'area usata da auto, moto e autoscuole per esami e prove di guida.',
+    'blog.article.tappi-chiodi-parcheggio-luino.imageAlt': 'Tappi di sughero con chiodi trovati in un parcheggio a Luino',
 };
 
 export default blogMetaIt;

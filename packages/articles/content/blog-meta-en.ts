@@ -12457,6 +12457,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tamponamento-autostrada-sud.title': 'Serious accident on the A2 in Coldrerio',
     'blog.article.tamponamento-autostrada-sud.excerpt': 'Southbound rear-end collision: a 68-year-old woman was slightly injured, while the 73-year-old passenger is in serious condition.',
     'blog.article.tamponamento-autostrada-sud.imageAlt': 'A2 motorway in Coldrerio after a serious southbound crash',
+    'blog.article.tappi-chiodi-parcheggio-luino.title': 'Luino, bottle caps with nails in the parking lot behind Tigros',
+    'blog.article.tappi-chiodi-parcheggio-luino.excerpt': 'Paolo Nicastri reports the presence of caps with nails pointing upwards in the area used by cars, motorcycles and driving schools for driving exams and tests.',
+    'blog.article.tappi-chiodi-parcheggio-luino.imageAlt': 'Cork stoppers with nails found in a parking lot in Luino',
 };
 
 export default blogMetaEn;

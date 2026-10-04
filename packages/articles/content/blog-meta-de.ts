@@ -12456,6 +12456,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tamponamento-autostrada-sud.title': 'Schwerer Unfall auf der A2 bei Coldrerio',
     'blog.article.tamponamento-autostrada-sud.excerpt': 'Auffahrunfall in Richtung Süden: Eine 68-Jährige wurde leicht verletzt, während sich der 73-jährige Passagier in ernstem Zustand befindet.',
     'blog.article.tamponamento-autostrada-sud.imageAlt': 'A2-Autobahn in Coldrerio nach einem schweren Unfall Richtung Süden',
+    'blog.article.tappi-chiodi-parcheggio-luino.title': 'Luino, Deckel mit Nägeln auf dem Parkplatz hinter dem Tigros',
+    'blog.article.tappi-chiodi-parcheggio-luino.excerpt': 'Paolo Nicastri weist auf das Vorhandensein von Deckeln mit nach oben gerichteten Nägeln in dem von Autos, Motorrädern und Fahrschulen für Prüfungen und Fahrübungen genutzten Bereich hin.',
+    'blog.article.tappi-chiodi-parcheggio-luino.imageAlt': 'Korken mit Nägeln auf einem Parkplatz in Luino gefunden',
 };
 
 export default blogMetaDe;

@@ -12459,6 +12459,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tamponamento-autostrada-sud.title': 'Grave accident sur l’A2 à Coldrerio',
     'blog.article.tamponamento-autostrada-sud.excerpt': 'Tamponnement en direction du sud : une femme de 68 ans a été légèrement blessée, tandis que le passager de 73 ans est dans un état grave.',
     'blog.article.tamponamento-autostrada-sud.imageAlt': 'Autoroute A2 à Coldrerio après un grave accident vers le sud',
+    'blog.article.tappi-chiodi-parcheggio-luino.title': 'Luino, des bouchons avec des clous dans le parking derrière le Tigros',
+    'blog.article.tappi-chiodi-parcheggio-luino.excerpt': 'Paolo Nicastri signale la présence de bouchons munis de clous pointés vers le haut dans la zone utilisée par les voitures, les motos et les auto-écoles pour les examens et les épreuves de conduite.',
+    'blog.article.tappi-chiodi-parcheggio-luino.imageAlt': 'Bouchons en liège avec des clous trouvés sur un parking à Luino',
 };
 
 export default blogMetaFr;
