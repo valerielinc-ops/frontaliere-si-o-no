@@ -37,6 +37,8 @@
  *   DRY_RUN        "1" → detect + print, no comment/label/close writes.
  *   MAX_ISSUES     cap issues scanned (default 100).
  *   NO_AUTOCLOSE   "1" → force tier-1 behavior only (flag, never close). Escape hatch.
+ *   BLOCKED_RECHECK_MAX_READS      tetto di letture `gh api` della rimisura dei `blocked` (default 60).
+ *   BLOCKED_RECHECK_MAX_REENTRIES  tetto di rientri `blocked` → `open` per run (default 3).
  */
 
 import { execFileSync } from 'node:child_process';
@@ -64,6 +66,14 @@ import {
 } from './followup-resolution-match.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 import { inertCommentText, itemMetricLine, parseItemMarkers } from './lib/followup-item-evidence.mjs';
+import {
+  applyBlockedRecheck,
+  blockedRecheckSummary,
+  bornTrueCommentBody,
+  bucketStartIso,
+  planBlockedRecheck,
+  unblockedCommentBody,
+} from './lib/followup-blocked-recheck.mjs';
 import { isTrustedAuthor } from './route-already-fixed.mjs';
 
 export { hasEnumeratedItems };
@@ -71,6 +81,12 @@ export { hasEnumeratedItems };
 const DRY_RUN = process.env.DRY_RUN === '1';
 const NO_AUTOCLOSE = process.env.NO_AUTOCLOSE === '1';
 const MAX_ISSUES = intFromEnv('MAX_ISSUES', 100);
+// Rimisura degli item `blocked`: tetti dichiarati per run. Le letture sono
+// chiamate `gh api` (commit su un path, contenuto di un file a una data);
+// oltre il tetto la lettura e' «non so» → nessun done, nessun rientro.
+const BLOCKED_RECHECK_MAX_READS = intFromEnv('BLOCKED_RECHECK_MAX_READS', 60);
+// Ogni rientro costa al piu' una run del fixer.
+const BLOCKED_RECHECK_MAX_REENTRIES = intFromEnv('BLOCKED_RECHECK_MAX_REENTRIES', 3);
 const MARKER = '<!-- reconcile-bot -->';
 const FLAG_MARKER = '<!-- reconcile-bot:flag -->';
 const CLOSE_MARKER = '<!-- reconcile-bot:autoclose -->';
@@ -375,6 +391,38 @@ export function dailyBucketCloseGate(
 }
 
 /**
+ * Il veto strutturale di un bucket giornaliero sulle SCRITTURE di stato degli
+ * item: `null` se il corpo e' leggibile, coerente con titolo (chiave,
+ * repository, conteggio) e `sealed`; altrimenti il motivo. Lo stesso controllo
+ * precede `reconcileDailyItems` e la rimisura degli item `blocked`.
+ * @returns {string|null}
+ */
+export function dailyBucketStructureReason(
+  body,
+  expectedDailyKey = null,
+  expectedTargetRepository = null,
+  expectedItemCount = null,
+) {
+  const source = String(body || '');
+  if (hasUnterminatedMarkdownFence(source)) return 'unterminated-markdown-fence';
+  const items = parseFollowupItems(source);
+  if (!items.length || !hasStableItemIds(source)) return 'missing-stable-item-id';
+  if (expectedItemCount !== null
+      && (!Number.isInteger(Number(expectedItemCount))
+        || Number(expectedItemCount) < 1
+        || Number(expectedItemCount) !== items.length)) {
+    return 'mismatched-item-count';
+  }
+  const bodyDailyKey = dailyKeyFromBucketBody(source);
+  if (!bodyDailyKey) return 'missing-daily-key';
+  if (expectedDailyKey && bodyDailyKey !== String(expectedDailyKey).trim()) return 'mismatched-daily-key';
+  if (!hasStableItemIdsForDailyKey(items, bodyDailyKey)) return 'mismatched-stable-item-id';
+  if (!hasDailyBucketRepositoryConsistency(source, expectedTargetRepository || '')) return 'mismatched-target-repository';
+  if (bucketState(source) !== 'sealed') return 'bucket-collecting';
+  return null;
+}
+
+/**
  * Mark only token-confirmed daily items as done; never infer completion from prose.
  * Un item in `bornSatisfiedIds` resta com'e': il suo token era vero gia' al
  * conio e non conferma nulla (finisce in `bornSatisfied`, non in `changes`).
@@ -388,35 +436,11 @@ export function reconcileDailyItems(
   bornSatisfiedIds = null,
 ) {
   const source = String(body || '');
-  if (hasUnterminatedMarkdownFence(source)) {
-    return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'unterminated-markdown-fence' };
+  const structureReason = dailyBucketStructureReason(source, expectedDailyKey, expectedTargetRepository, expectedItemCount);
+  if (structureReason) {
+    return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: structureReason };
   }
   const items = parseFollowupItems(source);
-  if (!items.length || !hasStableItemIds(source)) {
-    return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'missing-stable-item-id' };
-  }
-  if (expectedItemCount !== null
-      && (!Number.isInteger(Number(expectedItemCount))
-        || Number(expectedItemCount) < 1
-        || Number(expectedItemCount) !== items.length)) {
-    return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'mismatched-item-count' };
-  }
-  const bodyDailyKey = dailyKeyFromBucketBody(source);
-  if (!bodyDailyKey) {
-    return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'missing-daily-key' };
-  }
-  if (expectedDailyKey && bodyDailyKey !== String(expectedDailyKey).trim()) {
-    return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'mismatched-daily-key' };
-  }
-  if (!hasStableItemIdsForDailyKey(items, bodyDailyKey)) {
-    return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'mismatched-stable-item-id' };
-  }
-  if (!hasDailyBucketRepositoryConsistency(source, expectedTargetRepository || '')) {
-    return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'mismatched-target-repository' };
-  }
-  if (bucketState(source) !== 'sealed') {
-    return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'bucket-collecting' };
-  }
   const born = itemIdSet(bornSatisfiedIds);
   let nextBody = source;
   const changes = [];
@@ -712,6 +736,80 @@ function readIssueComments(number) {
   return result;
 }
 
+// Letture GitHub della rimisura dei `blocked`, con tetto per run e cache.
+let blockedRecheckReads = 0;
+const blockedRecheckCache = new Map();
+
+/** `gh api` in sola lettura: `ok` con stdout, `not-found` (404), `error` o `budget`. */
+function ghApiRead(args) {
+  if (blockedRecheckReads >= BLOCKED_RECHECK_MAX_READS) return { status: 'budget' };
+  blockedRecheckReads += 1;
+  try {
+    const stdout = execFileSync('gh', ['api', ...args], {
+      encoding: 'utf-8',
+      maxBuffer: 64 * 1024 * 1024,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    return { status: 'ok', stdout };
+  } catch (e) {
+    return /HTTP 404\b/u.test(String(e?.stderr ?? '')) ? { status: 'not-found' } : { status: 'error' };
+  }
+}
+
+function cachedRead(key, read) {
+  if (!blockedRecheckCache.has(key)) blockedRecheckCache.set(key, read());
+  return blockedRecheckCache.get(key);
+}
+
+/** Il primo commit della risposta `commits` (`null` se vuota), o `undefined` se illeggibile. */
+function firstCommitOf(read) {
+  if (read.status !== 'ok') return undefined;
+  try {
+    const list = JSON.parse(read.stdout);
+    if (!Array.isArray(list)) return undefined;
+    const head = list[0];
+    if (!head) return null;
+    return { sha: String(head.sha ?? ''), date: String(head.commit?.committer?.date ?? '') };
+  } catch {
+    return undefined;
+  }
+}
+
+/**
+ * Lettori iniettati in `planBlockedRecheck` per un repository:
+ * - `commitAfter(path, since)`: l'ultimo commit su `main` che tocca `path` dal `since`;
+ * - `fileAt(path, iso)`: il file com'era su `main` a quell'istante.
+ */
+function blockedRecheckReaders(repository) {
+  const repo = String(repository || '').trim();
+  const valid = /^[\w.-]+\/[\w.-]+$/u.test(repo);
+  const mainShaAt = (iso) => cachedRead(`sha\0${repo}\0${iso}`, () => {
+    const commit = firstCommitOf(ghApiRead(['-X', 'GET', `repos/${repo}/commits`, '-f', 'sha=main', '-f', `until=${iso}`, '-f', 'per_page=1']));
+    return commit === undefined ? { status: 'error' } : { status: 'ok', sha: commit?.sha || null };
+  });
+  return {
+    commitAfter(file, sinceIso) {
+      if (!valid) return { status: 'error' };
+      return cachedRead(`after\0${repo}\0${file}\0${sinceIso}`, () => {
+        const commit = firstCommitOf(ghApiRead(['-X', 'GET', `repos/${repo}/commits`, '-f', 'sha=main', '-f', `path=${file}`, '-f', `since=${sinceIso}`, '-f', 'per_page=1']));
+        return commit === undefined ? { status: 'error' } : { status: 'ok', commit };
+      });
+    },
+    fileAt(file, iso) {
+      if (!valid) return { status: 'error' };
+      const at = mainShaAt(iso);
+      if (at.status !== 'ok') return { status: 'error' };
+      if (!at.sha) return { status: 'absent' }; // nessun commit su main prima di quell'istante
+      return cachedRead(`file\0${repo}\0${file}\0${at.sha}`, () => {
+        const encoded = String(file).split('/').map(encodeURIComponent).join('/');
+        const read = ghApiRead(['-H', 'Accept: application/vnd.github.raw', `repos/${repo}/contents/${encoded}?ref=${at.sha}`]);
+        if (read.status === 'ok') return { status: 'ok', content: read.stdout };
+        return read.status === 'not-found' ? { status: 'absent' } : { status: 'error' };
+      });
+    },
+  };
+}
+
 /**
  * Item-done comments share the historical `MARKER`; only an aggregate reconcile
  * flag counts as the prior grace-window confirmation. Keep accepting old flag
@@ -740,6 +838,114 @@ function writeBodyFile(text) {
   const file = path.join('/tmp', `reconcile-followup-${process.pid}-${Math.random().toString(36).slice(2)}.md`);
   fs.writeFileSync(file, String(text || ''));
   return file;
+}
+
+/** Il commento che accompagna un item marcato `done` dal matcher. */
+function itemDoneCommentBody(id, evidence, note = '') {
+  return `${MARKER}\n✅ Item \`${id}\` marcato \`done\` dopo verifica deterministica del matcher.${note}\n\n${evidenceLines(evidence || [])}`;
+}
+
+/**
+ * Rimisura gli item `blocked` di un bucket giornaliero (piano puro in
+ * `lib/followup-blocked-recheck.mjs`) e ne applica gli esiti. Ordine delle
+ * scritture, scelto perche' un guasto lasci al piu' UN rientro:
+ *   1. marker `FU_ITEM_BORN_SATISFIED` per i token gia' veri al conio (l'item
+ *      resta `blocked`; il marker entra subito nell'insieme born-satisfied
+ *      della run, cosi' reconcile e gate lo vedono gia' in questo giro);
+ *   2. rilettura-confronto del corpo, poi il commento `FU_ITEM_UNBLOCKED` di
+ *      ogni rientro PRIMA dell'edit: se l'edit fallisce il rientro e' perso,
+ *      mai ripetuto;
+ *   3. un solo edit del corpo (`done` + rientri), poi i commenti dei `done`;
+ *   4. dopo un rientro il bucket ha di nuovo un item `open`: via un
+ *      `maybe-resolved` residuo. La coda (`agent:fix-queued`) la rimette il
+ *      gate sul conio al giro dopo, non questo script.
+ * Un esito che non arriva a scrittura diventa `unknown` nel riepilogo.
+ * @returns {{results: object[], body: string, labelNames: string[], skipIssue: boolean}}
+ */
+function runBlockedRecheck({ iss, daily, itemMarkers, bornSatisfied, labelNames, reentryBudget }) {
+  const body = iss.body || '';
+  const plan = planBlockedRecheck({
+    body,
+    labels: labelNames,
+    dailyKey: daily.dailyKey,
+    markers: itemMarkers,
+    io: diskIo,
+    readers: blockedRecheckReaders(daily.targetRepository),
+    now: Date.now(),
+    reentryBudget,
+  });
+  const results = plan.results.map((entry) => ({ ...entry, number: iss.number }));
+  const unchanged = { results, body, labelNames, skipIssue: false };
+  if (plan.skipped) {
+    if (plan.skipped === 'decomposed') console.log(`#${iss.number}: bucket decomposto, rimisura dei blocked saltata (il lavoro e' nelle figlie).`);
+    return unchanged;
+  }
+  const demote = (entry, why) => { entry.outcome = 'unknown'; entry.why = why; };
+  const startIso = bucketStartIso(daily.dailyKey);
+
+  for (const entry of results.filter((candidate) => candidate.outcome === 'born-true')) {
+    console.log(`#${iss.number}: item ${entry.id} blocked, token gia' vero all'inizio del bucket → FU_ITEM_BORN_SATISFIED, resta blocked.`);
+    if (!DRY_RUN) {
+      const posted = gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
+        bornTrueCommentBody({ id: entry.id, evidence: entry.evidence, startIso })], { allowFail: true });
+      if (posted === null) { demote(entry, 'born-marker-not-posted'); continue; }
+    }
+    bornSatisfied.add(entry.id);
+  }
+
+  const done = results.filter((entry) => entry.outcome === 'done');
+  let reenter = results.filter((entry) => entry.outcome === 'reenter');
+  if (!done.length && !reenter.length) return unchanged;
+
+  if (!DRY_RUN) {
+    const latest = parseIssueJson(gh(['issue', 'view', String(iss.number), ...repoArgs, '--json', 'title,body'], { allowFail: true }));
+    if (!latest
+        || String(latest.title || '') !== String(iss.title || '')
+        || String(latest.body || '') !== body) {
+      console.log(`#${iss.number}: titolo/body cambiato/non leggibile durante la rimisura dei blocked → skip, nessun overwrite.`);
+      for (const entry of [...done, ...reenter]) demote(entry, 'body-changed');
+      return { ...unchanged, skipIssue: true };
+    }
+    for (const entry of reenter) {
+      const posted = gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body', unblockedCommentBody(entry)], { allowFail: true });
+      if (posted === null) demote(entry, 'unblocked-marker-not-posted');
+    }
+    reenter = reenter.filter((entry) => entry.outcome === 'reenter');
+  }
+
+  const { body: nextBody, applied } = applyBlockedRecheck(body, {
+    done: done.map((entry) => entry.id),
+    reentered: reenter.map((entry) => entry.id),
+  });
+  const appliedIds = new Set([...applied.done, ...applied.reentered]);
+  for (const entry of [...done, ...reenter]) if (!appliedIds.has(entry.id)) demote(entry, 'state-not-updatable');
+  for (const entry of reenter.filter((candidate) => candidate.outcome === 'reenter')) {
+    console.log(`#${iss.number}: item ${entry.id} blocked → open (rientro unico: commit ${entry.commit.sha.slice(0, 12)} su ${entry.target} dopo ${entry.blockedAt}).`);
+  }
+  for (const entry of done.filter((candidate) => candidate.outcome === 'done')) {
+    console.log(`#${iss.number}: item ${entry.id} blocked → done (token confermato, assente all'inizio del bucket).`);
+  }
+  if (nextBody === body) return unchanged;
+  const nextLabels = applied.reentered.length ? labelNames.filter((name) => name !== LABEL) : labelNames;
+  if (DRY_RUN) return { results, body: nextBody, labelNames: nextLabels, skipIssue: false };
+
+  const bodyFile = writeBodyFile(nextBody);
+  const edited = gh(['issue', 'edit', String(iss.number), ...repoArgs, '--body-file', bodyFile], { allowFail: true });
+  fs.rmSync(bodyFile, { force: true });
+  if (edited === null) {
+    console.log(`::warning::reconcile-followups: rimisura dei blocked su #${iss.number} non scritta; un rientro con marker gia' postato e' perso (al piu' una volta, mai due).`);
+    for (const entry of [...done, ...reenter]) demote(entry, 'body-edit-failed');
+    return { ...unchanged, skipIssue: true };
+  }
+  for (const entry of done.filter((candidate) => candidate.outcome === 'done')) {
+    gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
+      itemDoneCommentBody(entry.id, entry.evidence, ' Era `blocked`: il token non era presente all\'inizio del giorno del bucket.')], { allowFail: true });
+  }
+  if (applied.reentered.length && labelNames.includes(LABEL)) {
+    const removed = gh(['issue', 'edit', String(iss.number), ...repoArgs, '--remove-label', LABEL], { allowFail: true });
+    if (removed === null) return { results, body: nextBody, labelNames, skipIssue: false };
+  }
+  return { results, body: nextBody, labelNames: nextLabels, skipIssue: false };
 }
 
 function main() {
@@ -781,11 +987,13 @@ function main() {
   const unclassifiableCandidates = [];
   const bucketLines = [];
   const verifyRequests = [];
+  const blockedResults = [];
+  const reentryBudget = { remaining: BLOCKED_RECHECK_MAX_REENTRIES };
   let unclassifiableSkipped = 0;
 
   for (let iss of issues) {
     if (inFlight(iss.number)) { console.log(`#${iss.number}: in-flight PR open, skip`); continue; }
-    const labelNames = (iss.labels || []).map(labelName);
+    let labelNames = (iss.labels || []).map(labelName);
     const hasUnclassifiableLabel = labelNames.includes(UNCLASSIFIABLE_LABEL);
     const unclassifiable = isUnclassifiableAggregate(iss.title, iss.body || '');
     let comments;
@@ -817,6 +1025,15 @@ function main() {
         continue;
       }
       const { itemMarkers, bornSatisfied } = gateInputs;
+      // Rimisura degli item `blocked` (token o un rientro su commit nuovo),
+      // PRIMA di reconcileDailyItems e solo su un bucket strutturalmente valido.
+      if (!dailyBucketStructureReason(iss.body || '', ...gateInputs.gateArgs.slice(0, 3))) {
+        const recheck = runBlockedRecheck({ iss, daily, itemMarkers, bornSatisfied, labelNames, reentryBudget });
+        blockedResults.push(...recheck.results);
+        if (recheck.skipIssue) continue;
+        iss = { ...iss, body: recheck.body };
+        labelNames = recheck.labelNames;
+      }
       // Daily buckets are reconciled item-by-item. An issue-wide token hit would let
       // one completed item hide another open item, which is precisely the aggregate
       // closure bug this format removes.
@@ -844,9 +1061,7 @@ function main() {
             continue;
           }
           for (const change of itemReconciliation.changes) {
-            const lines = evidenceLines(change.evidence || []);
-            gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
-              `${MARKER}\n✅ Item \`${change.id}\` marcato \`done\` dopo verifica deterministica del matcher.\n\n${lines}`], { allowFail: true });
+            gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body', itemDoneCommentBody(change.id, change.evidence)], { allowFail: true });
           }
         }
       }
@@ -1010,13 +1225,19 @@ Chiusa come **completed** (done-but-open). Si **riapre da sola** se il segnale s
 
   const summary = `Reconcile follow-ups: scanned ${issues.length}, cache-skipped ${unclassifiableSkipped}, cache-marked ${unclassifiableCandidates.length}, flagged ${flagged.length}, auto-closed ${closed.length}, verify_requested=${verifyRequests.length}${DRY_RUN ? ' (dry-run)' : ''}${NO_AUTOCLOSE ? ' (no-autoclose)' : ''}.`;
   console.log(summary);
+  const blockedLine = `Blocked recheck: ${blockedRecheckSummary(blockedResults)} reads=${blockedRecheckReads}/${BLOCKED_RECHECK_MAX_READS} reentry_cap=${BLOCKED_RECHECK_MAX_REENTRIES}`;
+  console.log(blockedLine);
+  for (const entry of blockedResults.filter((candidate) => candidate.outcome === 'unknown' || candidate.outcome === 'waiting')) {
+    console.log(`  #${entry.number} ${entry.id}: ${entry.outcome} (${entry.why}), bloccato da ${entry.ageDays ?? '?'} giorni (${entry.blockedSource}${entry.reason ? `, reason=${entry.reason}` : ''})`);
+  }
   if (process.env.GITHUB_STEP_SUMMARY) {
     const uc = unclassifiableCandidates.map((c) => `- 🔎 #${c.number} ${c.title} (aggregate non classificabile, resta aperta)`).join('\n');
     const fl = flagged.map((f) => `- 🟡 #${f.number} ${f.title} (flag: ${f.reason}, ${f.evidence.length} match)`).join('\n');
     const cl = closed.map((c) => `- ✅ #${c.number} ${c.title} (auto-closed, ${c.evidence.length} match)`).join('\n');
     const vr = verifyRequests.map((v) => `- 🔎 #${v.number} richiesta di verifica: ${v.ids.join(',')}`).join('\n');
     const bk = bucketLines.map((line) => `- \`${line}\``).join('\n');
-    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## ${summary}\n${[uc, cl, fl, vr, bk].filter(Boolean).join('\n')}\n`);
+    const bl = `- \`${blockedLine}\``;
+    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## ${summary}\n${[uc, cl, fl, vr, bk, bl].filter(Boolean).join('\n')}\n`);
   }
 }
 
