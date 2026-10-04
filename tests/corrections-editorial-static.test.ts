@@ -6,9 +6,11 @@ import { CORRECTIONS_PATHS } from '../services/editorialCorrections';
 
 describe('static corrections policy locale contract', () => {
   it.each([
-    ['it', 'Come segnalare un errore'], ['en', 'How to report an error'],
-    ['de', 'Einen Fehler melden'], ['fr', 'Signaler une erreur'],
-  ] as const)('ships real policy content and metadata in %s without unsupported deadlines', (locale, heading) => {
+    ['it', 'Come segnalare un errore', 'Politica di rettifica e registro pubblico'],
+    ['en', 'How to report an error', 'Corrections policy and public log'],
+    ['de', 'Einen Fehler melden', 'Korrekturrichtlinie und öffentliches Register'],
+    ['fr', 'Signaler une erreur', 'Politique de rectification et registre public'],
+  ] as const)('ships real policy content and metadata in %s without unsupported deadlines', (locale, heading, policyName) => {
     const html = renderCorrectionsEditorial(locale).join('');
     expect(html).toContain(heading);
     expect(html).toContain('mailto:redazione@frontaliereticino.ch');
@@ -17,6 +19,7 @@ describe('static corrections policy locale contract', () => {
     const metadata = buildCorrezioniSeo(locale);
     expect(metadata.canonical).toBe(`https://frontaliereticino.ch${CORRECTIONS_PATHS[locale]}`);
     expect(metadata.jsonLd).toMatchObject({ inLanguage: locale, url: metadata.canonical });
+    expect(metadata.jsonLd.about).toMatchObject({ name: policyName, inLanguage: locale });
     expect(metadata.jsonLd).not.toHaveProperty('lastReviewed');
     expect(metadata.description).not.toMatch(/SLA|48/);
   });
