@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfaden für Grenzgänger im Tessin</description>
     <language>de</language>
-    <lastBuildDate>Sun, 04 Oct 2026 08:44:45 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 04 Oct 2026 11:02:04 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Deutsch</title>
@@ -17,6 +17,60 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Grenzgänger-Tagesbulletin – 4. Oktober 2026: 34 Minuten Wartezeit in Ponte Tresa</title>
+      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/grenzgaenger-tagesbulletin-2026-10-04/</link>
+      <description><![CDATA[Die Zahlen von heute, 4. Oktober 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.]]></description>
+      <content:encoded><![CDATA[Guten Morgen — heute ist Sonntag, der 4. Oktober 2026. Das ist das tägliche Bulletin für alle, die auf der einen Seite der Grenze wohnen und auf der anderen arbeiten: vier heute gemessene Zahlen — Staus an den Übergängen, Benzin, Wechselkurs und Arbeitsmarkt — jeweils mit Link zur Live-Seite.
+
+## Wartezeiten an der Grenze heute Morgen
+
+Die jüngste Messung (141 überwachte Übergänge) zeigt die längste Wartezeit in **Ponte Tresa: 34 Minuten**. 114 Übergänge melden keine Warteschlange.
+
+| Übergang | Wartezeit | Status |
+|---|---|---|
+| Ponte Tresa | 34 Min. | Stau |
+| Chiasso Centro (Ponte Chiasso) | 8 Min. | stockend |
+| Chiasso-Strada | 8 Min. | stockend |
+| Ferney-Voltaire / Grand-Saconnex | 8 Min. | stockend |
+| Gaggiolo (Cantello-Stabio) | 8 Min. | stockend |
+
+Der Verkehr ändert sich stündlich — der Live-Status jedes Übergangs steht auf der [Seite zur Wartezeit an der Grenze](/de/wartezeit-grenze/).
+## Benzin: Wo es heute am wenigsten kostet
+
+In 518 überwachten Grenzgemeinden lohnt sich das Tanken heute in 80 Fällen in der Schweiz und in 52 in Italien.
+
+| Gemeinde (IT) | Bleifrei, Tiefstpreis |
+|---|---|
+| Livigno (SO) | 1.206 €/L |
+| Arcisate (VA) | 1.854 €/L |
+| Saint-Pierre (AO) | 1.900 €/L |
+| Aprica (SO) | 1.919 €/L |
+| Domodossola (VB) | 1.987 €/L |
+
+📊 **Die richtige Seite für eine volle Tankfüllung.** In **Livigno** (SO) ist die Differenz heute **52.85 € pro 50-Liter-Tank** wert (1.206 €/L in Italien gegenüber 2.263 €/L an der nächsten Schweizer Tankstelle).
+
+Preise Gemeinde für Gemeinde, täglich aktualisiert: [Benzinpreise an der Grenze, heute](/de/benzinpreis-schweiz/heute/).
+## Wechselkurs Franken–Euro
+
+Ein Franken ist **1.0656 €** wert (Schluss 2026-10-03). Gegenüber dem Vortag gewinnt er +0.0008 €; über sieben Tage beträgt die Veränderung +0.0060 €.
+
+💡 Wer in Franken verdient und in Euro ausgibt, für den IST der Kurs ein Teil des Lohns: Bei 4.000 CHF ist ein Rappen Bewegung 40 € im Monat wert. Der [Nettolohn-Rechner](/de/gehalt-berechnen/) und der [Vergleich der Wechseldienste](/de/service-vergleich/chf-eur-wechselkurs/) rechnen Ihren Fall durch.
+## Arbeitsmarkt: die Zahlen von gestern
+
+Gestern kamen **727 neue Stellenangebote** in der Schweiz auf unser Job-Board; in den letzten sieben Tagen 11'392. Insgesamt sind **29'747** Anzeigen aktiv, von 848 Unternehmen.
+
+Nach Kanton, Branche und Stadt filtern: [Jobs im Tessin und in der Schweiz](/de/jobs-im-tessin/).
+
+## Wie dieses Bulletin entsteht
+
+Keine der Zahlen oben stammt aus einem Agentur-Feed — es ist unsere eigene Messung: mehrmals pro Stunde erfasste Warteschlangen an jedem Schweizer Grenzübergang, Kraftstoffpreise in den italienischen Grenzgemeinden und an nahen Schweizer Tankstellen, die offizielle tägliche CHF/EUR-Reihe und die Crawler unseres Job-Boards. Das Bulletin erscheint früh am Morgen, vor dem Pendlerverkehr; die Zahlen sind eine Momentaufnahme zum Zeitpunkt der Veröffentlichung, die verlinkten Seiten bleiben den ganzen Tag live.]]></content:encoded>
+      <pubDate>Sun, 04 Oct 2026 11:02:04 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/bollettino-frontaliere-2026-10-04</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bollettino-frontaliere-2026-10-04.webp" medium="image"/>
+    </item>
     <item>
       <title>Tre Valli Varesine, die Geschichte in der Ausstellung bei Le Corti</title>
       <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/tre-valli-corti-ausstellung/</link>
@@ -3197,73 +3251,6 @@ Für den Abend in Mezzovico ist der von der Regierung angegebene nächste Schrit
       <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/caos-a2-mezzovico-migliorie</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/caos-a2-mezzovico-migliorie.webp" medium="image"/>
-    </item>
-    <item>
-      <title>S50 Ausfall in Büste Arsizio: Fahrgäste gesperrt 3 Stunden</title>
-      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/s50-zug-panne-busto-arsizio-2026/</link>
-      <description><![CDATA[Am 29. September hielt ein Zug der S50 Malpensa-Bellinzona über drei Stunden lang 200 Meter vom Bahnhof entfernt an. Grünes Europa bittet Rfi und Trenord um Erklärungen.]]></description>
-      <content:encoded><![CDATA[## Kurz zusammengefasst
-
-- S50 steht etwa 200 Meter von Busto Arsizio FS entfernt still
-- Fahrgäste mehr als drei Stunden an Bord
-- Europa Verde fordert Erklärungen von Rfi und Trenord
-- Der Zug fuhr von Malpensa nach Bellinzona
-
-## Wichtige Fakten
-
-- Datum der Mitteilung → 29 settembre
-- Linie → S50
-- Herkunft → Malpensa
-- Ziel → Bellinzona
-- Ort des Stillstands → etwa 200 Meter von Busto Arsizio FS entfernt
-- Angegebene Zeit an Bord → mehr als drei Stunden
-- Angefragte Betreiber → Rfi und Trenord
-
-Am 29 settembre hat Europa Verde in der Provinz Varese die Zuverlässigkeit der grenzüberschreitenden Verbindung nach Malpensa thematisiert, nachdem ein aus Malpensa kommender und nach Bellinzona fahrender Zug eine Panne hatte. Die Mitteilung der politischen Bewegung fordert Erklärungen dazu, was geschehen ist, und zu den Auswirkungen, die der Stillstand des Zuges auf den Bahnverkehr hatte.
-
-### Die Rekonstruktion des Vorfalls
-
-Nach der von Europa Verde rekonstruierten Darstellung soll der Zug etwa 200 Meter vom Bahnhof Busto Arsizio FS entfernt zum Stillstand gekommen sein. Die als gering beschriebene Entfernung zum Bahnsteig habe jedoch nach den von der Bewegung wiedergegebenen Zeugenaussagen nicht dazu geführt, dass die Genehmigung erteilt wurde, den Zug zu evakuieren und die Reisenden sicher zum Bahnhof zu begleiten.
-
-Ebenfalls laut der Mitteilung sollen die Fahrgäste mehr als drei Stunden im Zug geblieben sein. Die Quelle stellt klar, dass das Aufmacherfoto des Originalartikels ein Archivfoto ist und sich nicht auf diesen Vorfall bezieht: ein Umstand, den Europa Verde von der Rekonstruktion der Panne abgrenzt.
-
-Die Fragen richten sich an die Betreiber der Infrastruktur und des Eisenbahnverkehrs, die jeweils mit Rfi und Trenord angegeben werden. Europa Verde fragt, warum den Fahrgästen das Aussteigen nicht gestattet wurde und warum, der in der Mitteilung enthaltenen Darstellung zufolge, drei Stunden nötig gewesen seien, um den Zug bis zum Bahnhof Busto Arsizio schleppen zu lassen.
-
-Die Bewegung bringt den Fall mit der Debatte über die Zuverlässigkeit der grenzüberschreitenden Verbindung in Zusammenhang, die auch in der Schweiz geführt wird. In der Mitteilung erklärt sie:
-
-> «Die Schweiz beginnt nämlich, den auf italienischem Staatsgebiet betriebenen Dienst als unzureichend zu betrachten, und fordert lautstark die Wiederaufnahme des Shuttlebus-Dienstes nach Malpensa, da dieser als zuverlässiger und pünktlicher gilt».
-
-Die Stellungnahme reiht sich in die Kritik von Europa Verde an der Qualität des Eisenbahnverkehrs und am Umgang mit den Beeinträchtigungen ein, von denen die Pendler der Region betroffen sind. Die Bewegung fragt abschließend, welche Maßnahmen ergriffen werden, um zu verhindern, dass Reisende stundenlang ohne Antworten im Zug bleiben.
-...
-
-## Nützliche Tools zum Schutz Ihres Nettolohns
-Um Wechselkursverluste zu reduzieren, vergleichen Sie CHF-EUR-Wechseloptionen und Banken für Grenzgänger.
-## So verfolgt man den Fall
-
-Die Quelle ermöglicht eine grundlegende Prüfung, die für diejenigen nützlich ist, die die Verbindung nutzen und Fakten von Ersuchen um Klarstellung trennen wollen. Sie bietet kein Erstattungsverfahren, keinen operativen Kanal für die Evakuierung oder einen Fahrplan für den Shuttlebus: Diese Elemente dürfen nicht in die Rekonstruktion aufgenommen werden.
-
-### Vier Schritte
-
-1. Den Vorfall festhalten. Als Bezug dient die am 29. September von Europa Verde der Provinz Varese verbreitete Mitteilung: Sie betrifft einen von Malpensa kommenden und nach Bellinzona fahrenden S50-Zug, der etwa 200 Meter von Busto Arsizio FS entfernt stillstand. Das Archivfoto ist vom Fall getrennt zu halten.
-
-2. Die Informationen korrekt zuordnen. Der Stillstand des Zuges und die Auswirkungen auf den Verkehr werden in der Rekonstruktion des Vorgangs beschrieben. Die Aussagen über die nicht erteilte Genehmigung zur Evakuierung und den mehr als dreistündigen Aufenthalt an Bord werden in konditionaler Form wiedergegeben. Der Leser sollte diese Unterscheidung daher beibehalten, wenn er die Nachricht aufgreift.
-
-3. Den Fragen an die Betreiber nachgehen. Rfi wird für die Infrastruktur und Trenord für den Eisenbahnverkehr genannt. Die Anfragen betreffen das Aussteigen der Fahrgäste und die Zeit, die nötig ist, um das Abschleppen bis zum Bahnhof zu organisieren. Dies sind die Punkte, zu denen die Mitteilung Erklärungen verlangt.
-
-4. Forderung und Entscheidung trennen. Die Mitteilung verweist auf die Forderung, den Shuttlebus nach Malpensa wieder einzusetzen, der als zuverlässiger und pünktlicher gilt. Die Quelle berichtet nicht von einer bereits erfolgten Wiederinbetriebnahme; daher ist der Bus als Vorschlag oder als von Europa Verde wiedergegebene Forderung darzustellen.
-
-Für den grenzüberschreitenden Verkehr kann der Leser diese redaktionelle Prüfung mit den Instrumenten zu mezzi pubblici in Ticino, zu tempi di attesa ai valichi und zu storico traffico e code ai valichi ergänzen, ohne sie zu verwenden, um der Quelle Fahrpläne oder Strecken zuzuschreiben, die nicht angegeben sind. Der Fall bleibt so in seinen Grenzen verständlich: eine politische Mitteilung, eine Rekonstruktion des Stillstands und an die Betreiber gerichtete Fragen.
-
-Um mehr über den grenzüberschreitenden Eisenbahnverkehr zu erfahren, konsultiere den Leitfaden zu mezzi pubblici in Ticino.
-
-Entdecken Sie Stellenangebote im Tessin — täglich aktualisiert: über 4.000 Stellen von Schweizer Unternehmen.
-
-*Quelle: [varesenews.it](https://www.varesenews.it/2026/09/treno-s50-guasto-alle-porte-di-busto-arsizio-europa-verde-passeggeri-bloccati-per-oltre-tre-ore/2694661/)*]]></content:encoded>
-      <pubDate>Fri, 02 Oct 2026 20:21:36 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/guasto-treno-s50-busto-arsizio-2026</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/guasto-treno-s50-busto-arsizio-2026.webp" medium="image"/>
     </item>
   </channel>
 </rss>

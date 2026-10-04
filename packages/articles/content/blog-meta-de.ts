@@ -12522,6 +12522,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tre-valli-corti.title': 'Tre Valli Varesine, die Geschichte in der Ausstellung bei Le Corti',
     'blog.article.tre-valli-corti.excerpt': 'Zwanzig Tafeln zeichnen bei Le Corti von Varese die Geschichte der Tre Valli Varesine von 1919 bis heute nach. Ausstellung bis 20 ottobre.',
     'blog.article.tre-valli-corti.imageAlt': 'Zwanzig Tafeln zur Geschichte der Tre Valli Varesine im Einkaufszentrum Le Corti in Varese.',
+    'blog.article.bollettino-frontaliere-2026-10-04.title': 'Grenzgänger-Tagesbulletin – 4. Oktober 2026: 34 Minuten Wartezeit in Ponte Tresa',
+    'blog.article.bollettino-frontaliere-2026-10-04.excerpt': 'Die Zahlen von heute, 4. Oktober 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-10-04.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 4. Oktober 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-10-04.seoDescription': 'Grenzgänger-Bulletin vom 4. Oktober 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-10-04.ogDescription': 'Die Zahlen vom 4. Oktober 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;

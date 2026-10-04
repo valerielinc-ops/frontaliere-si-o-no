@@ -12524,6 +12524,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tre-valli-corti.title': 'Tre Valli Varesine, la storia in mostra alle Corti',
     'blog.article.tre-valli-corti.excerpt': 'Venti tavole ripercorrono alle Corti di Varese la storia delle Tre Valli Varesine dal 1919 ai giorni nostri. Mostra fino al 20 ottobre.',
     'blog.article.tre-valli-corti.imageAlt': 'Venti tavole sulla storia delle Tre Valli Varesine esposte alle Corti di Varese.',
+    'blog.article.bollettino-frontaliere-2026-10-04.title': 'Bollettino del frontaliere – 4 ottobre 2026: a Ponte Tresa 34 minuti di coda',
+    'blog.article.bollettino-frontaliere-2026-10-04.excerpt': 'I numeri di oggi, 4 ottobre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-10-04.imageAlt': 'I numeri del giorno per i frontalieri – 4 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-10-04.seoDescription': 'Bollettino frontalieri del 4 ottobre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-10-04.ogDescription': 'I numeri del 4 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
