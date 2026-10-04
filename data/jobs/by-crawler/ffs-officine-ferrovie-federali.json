@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ffs-officine-ferrovie-federali",
-  "assembledAt": "2026-10-03T21:25:24.665Z",
+  "assembledAt": "2026-10-04T09:22:03.166Z",
   "jobs": [
     {
       "id": "sbb-eb4430989bc7",
@@ -102,15 +102,16 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/capo-progetto-specialista-tecnico-m-f-d/6838b301-8c1f-400a-90e5-34e14042474c",
-      "firstSeenAt": "2026-10-03T21:24:03.638Z"
+      "firstSeenAt": "2026-10-03T21:24:03.638Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-fbfeb085ab1c",
-      "slug": "formateur-trice-pratique-conducteur-trices-vehicules-moteurs-cat-ai40-b100-ffs-officine-ferrovie-federali-biel-bienne-sion-ou-denges-lausanne-triage",
+      "slug": "pratica-allenatore-guida-veicoli-a-motore-cat-ai40-b100-ffs-officine-ferrovie-federali-biel-bienne-sion-ou-denges",
       "slugByLocale": {
-        "it": "formateur-trice-pratique-conducteur-trices-vehicules-moteurs-cat-ai40-b100-ffs-officine-ferrovie-federali-biel-bienne-sion-ou-denges-lausanne-triage",
-        "en": "formateur-trice-pratique-conducteur-trices-vehicules-moteurs-cat-ai40-b100-ffs-officine-ferrovie-federali-biel-bienne-sion-ou-denges-lausanne-triage",
-        "de": "formateur-trice-pratique-conducteur-trices-vehicules-moteurs-cat-ai40-b100-ffs-officine-ferrovie-federali-biel-bienne-sion-ou-denges-lausanne-triage",
+        "it": "pratica-allenatore-guida-veicoli-a-motore-cat-ai40-b100-ffs-officine-ferrovie-federali-biel-bienne-sion-ou-denges",
+        "en": "practical-trainer-driving-motor-vehicles-cat-ai40-b100-ffs-officine-ferrovie-federali-biel-bienne-sion-ou-denges",
+        "de": "praktischer-trainer-der-kraftfahrzeuge-fuhrt-kat-ai40-b100-ffs-officine-ferrovie-federali-biel-bienne-sion-ou-denges",
         "fr": "formateur-trice-pratique-conducteur-trices-vehicules-moteurs-cat-ai40-b100-ffs-officine-ferrovie-federali-biel-bienne-sion-ou-denges-lausanne-triage"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -197,7 +198,22 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/formateurtrice-pratique-conducteurtrices-vehicules-moteurs-cat-ai40-b100/1a1c0e46-821c-436d-9f80-2794fc67ecff",
-      "firstSeenAt": "2026-10-03T21:24:15.181Z"
+      "firstSeenAt": "2026-10-03T21:24:15.181Z",
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "formateur-trice-pratique-conducteur-trices-vehicules-moteurs-cat-ai40-b100-ffs-officine-ferrovie-federali-biel-bienne-sion-ou-denges-lausanne-triage"
+        ],
+        "en": [
+          "formateur-trice-pratique-conducteur-trices-vehicules-moteurs-cat-ai40-b100-ffs-officine-ferrovie-federali-biel-bienne-sion-ou-denges-lausanne-triage"
+        ],
+        "de": [
+          "formateur-trice-pratique-conducteur-trices-vehicules-moteurs-cat-ai40-b100-ffs-officine-ferrovie-federali-biel-bienne-sion-ou-denges-lausanne-triage"
+        ]
+      },
+      "previousSlugs": [
+        "formateur-trice-pratique-conducteur-trices-vehicules-moteurs-cat-ai40-b100-ffs-officine-ferrovie-federali-biel-bienne-sion-ou-denges-lausanne-triage"
+      ]
     },
     {
       "id": "sbb-2d6df8d198b2",
@@ -290,7 +306,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/leiter-in-basisausbildung-technik/e4df72e5-03cf-4442-bdc4-18ba343529aa",
-      "firstSeenAt": "2026-10-03T21:24:20.105Z"
+      "firstSeenAt": "2026-10-03T21:24:20.105Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-cf339c6c05a6",
@@ -299,7 +316,7 @@
         "it": "collaboratore-trice-kreditorenverarbeitung-ffs-officine-ferrovie-federali-ostermundigen",
         "en": "mitarbeiter-in-kreditorenverarbeitung-ffs-officine-ferrovie-federali-ostermundigen",
         "de": "mitarbeiter-in-kreditorenverarbeitung-ffs-officine-ferrovie-federali-ostermundigen",
-        "fr": "mitarbeiter-in-kreditorenverarbeitung-ffs-officine-ferrovie-federali-ostermundigen"
+        "fr": "collaborateur-trice-kreditorenverarbeitung-ffs-officine-ferrovie-federali-ostermundigen"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -377,6 +394,9 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kreditorenverarbeitung-ffs-officine-ferrovie-federali-ostermundigen"
+        ],
+        "fr": [
+          "mitarbeiter-in-kreditorenverarbeitung-ffs-officine-ferrovie-federali-ostermundigen"
         ]
       },
       "previousSlugs": [
@@ -398,7 +418,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/mitarbeiter-in-kreditorenverarbeitung/5bd14875-9e1f-43d8-ab58-042bdbaf1c1c",
-      "firstSeenAt": "2026-10-03T21:24:24.615Z"
+      "firstSeenAt": "2026-10-03T21:24:24.615Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-5884c49c7a7c",
@@ -460,10 +481,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-10-02",
+      "datePosted": "2026-10-02T08:35:35Z",
+      "postedDate": "2026-10-02T08:35:35Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/senior-legal-counsel-it-recht-m-w-d/c53d31e3-cd4b-4fa2-bfcf-72aa7b197af8",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:00.228Z",
+      "crawledAt": "2026-10-04T09:21:41.493Z",
       "previousSlugs": [
         "senior-legal-counsel-it-recht-m-w-d-ffs-officine-ferrovie-federali-bern"
       ],
@@ -555,10 +578,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-10-02",
+      "datePosted": "2026-10-02T09:28:23Z",
+      "postedDate": "2026-10-02T09:28:23Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/umwelt-und-nachhaltigkeitsmanager-in/e5fc1e32-8384-4452-873f-4cf3537605b8",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:14.105Z",
+      "crawledAt": "2026-10-04T09:21:54.964Z",
       "previousSlugs": [
         "umwelt-und-nachhaltigkeitsmanager-in-ffs-officine-ferrovie-federali-stansstad"
       ],
@@ -683,7 +708,8 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/bauherrenvertreter-in/ad1ff747-6d6f-41ae-afdd-5bc90b5c188e",
-      "firstSeenAt": "2026-10-03T21:23:59.635Z"
+      "firstSeenAt": "2026-10-03T21:23:59.635Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-06155381c6e6",
@@ -755,15 +781,16 @@
       },
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/cheffe-de-projet-genie-civil/dcc1e97b-0751-4674-8b7b-4d6603a1f78a"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/cheffe-de-projet-genie-civil/dcc1e97b-0751-4674-8b7b-4d6603a1f78a",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-c5287e93c117",
       "slug": "contremaitre-voies-ferrees-h-f-d-ffs-officine-ferrovie-federali-allaman",
       "slugByLocale": {
         "it": "contremaitre-voies-ferrees-h-f-d-ffs-officine-ferrovie-federali-allaman",
-        "en": "contremaitre-voies-ferrees-h-f-d-ffs-officine-ferrovie-federali-allaman",
-        "de": "contremaitre-voies-ferrees-h-f-d-ffs-officine-ferrovie-federali-allaman",
+        "en": "railway-foreman-m-f-d-ffs-officine-ferrovie-federali-allaman",
+        "de": "eisenbahnvorarbeiter-m-w-d-ffs-officine-ferrovie-federali-allaman",
         "fr": "contremaitre-voies-ferrees-h-f-d-ffs-officine-ferrovie-federali-allaman"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -850,7 +877,8 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/contremaitre-voies-ferrees-h-f-d/855c64cf-f3a5-4876-b00b-4f6cc011da1c",
-      "firstSeenAt": "2026-09-25T15:01:11.597Z"
+      "firstSeenAt": "2026-09-25T15:01:11.597Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-ff42a1e7fee0",
@@ -945,7 +973,8 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/disponent-in-gueterverkehr/a9504509-92d3-42c1-9a60-f7d46c17f80d",
-      "firstSeenAt": "2026-10-03T21:24:08.128Z"
+      "firstSeenAt": "2026-10-03T21:24:08.128Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-fa6590e31714",
@@ -1040,7 +1069,8 @@
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/inspektor-in-ueberwachung-fahrbahn/543ed33d-048c-437b-ba0c-fb197842113e",
-      "firstSeenAt": "2026-09-25T15:02:33.345Z"
+      "firstSeenAt": "2026-09-25T15:02:33.345Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-886944359c88",
@@ -1049,7 +1079,7 @@
         "it": "it-provider-manager-m-w-d-ffs-officine-ferrovie-federali-bern",
         "en": "it-provider-manager-m-w-d-ffs-officine-ferrovie-federali-bern",
         "de": "it-provider-manager-m-w-d-ffs-officine-ferrovie-federali-bern",
-        "fr": "it-provider-manager-m-w-d-ffs-officine-ferrovie-federali-bern"
+        "fr": "gestionnaire-de-fournisseurs-informatiques-h-f-d-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -1057,7 +1087,7 @@
       "title": "IT-Provider Manager (m/w/d)",
       "titleByLocale": {
         "de": "IT-Provider Manager (m/w/d)",
-        "en": "IT provider manager (m/f/d)",
+        "en": "IT-Provider Manager (m/w/d)",
         "it": "Responsabile del provider IT (m/f/d)",
         "fr": "Gestionnaire de fournisseurs informatiques (h/f/d)"
       },
@@ -1140,16 +1170,17 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/it-provider-manager-m-w-d/5f2d9eeb-cd82-4c7f-8da8-e2d72c11a51a",
-      "firstSeenAt": "2026-10-03T21:24:18.135Z"
+      "firstSeenAt": "2026-10-03T21:24:18.135Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-6374ac8f405c",
       "slug": "responsabile-di-progetto-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd",
       "slugByLocale": {
         "it": "responsabile-di-progetto-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd",
-        "en": "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd",
+        "en": "project-manager-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd",
         "de": "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd",
-        "fr": "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd"
+        "fr": "chef-de-projet-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -1230,10 +1261,12 @@
           "chef-de-projet-en-genie-civil-ffs-officine-ferrovie-federali-renens-vd"
         ],
         "en": [
-          "project-manager-civil-engineering-ffs-officine-ferrovie-federali-renens-vd"
+          "project-manager-civil-engineering-ffs-officine-ferrovie-federali-renens-vd",
+          "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd"
         ],
         "fr": [
-          "chef-de-projet-genie-civil-ffs-officine-ferrovie-federali-renens-vd"
+          "chef-de-projet-genie-civil-ffs-officine-ferrovie-federali-renens-vd",
+          "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd"
         ]
       },
       "previousSlugs": [
@@ -1261,13 +1294,14 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/projektleiter-in-bauingenieurwesen/7ed8b6dc-5d17-4f56-b568-183a8448d9d1",
-      "firstSeenAt": "2026-09-02T13:51:37.404Z"
+      "firstSeenAt": "2026-09-02T13:51:37.404Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-8cf12d21a9b0",
-      "slug": "quereinstieg-kundenbegleiter-in-ffs-officine-ferrovie-federali-st-gallen",
+      "slug": "cambio-carriera-kundenbegleiter-in-ffs-officine-ferrovie-federali-st-gallen",
       "slugByLocale": {
-        "it": "quereinstieg-kundenbegleiter-in-ffs-officine-ferrovie-federali-st-gallen",
+        "it": "cambio-carriera-kundenbegleiter-in-ffs-officine-ferrovie-federali-st-gallen",
         "en": "quereinstieg-kundenbegleiter-in-ffs-officine-ferrovie-federali-st-gallen",
         "de": "quereinstieg-kundenbegleiter-in-ffs-officine-ferrovie-federali-st-gallen",
         "fr": "quereinstieg-kundenbegleiter-in-ffs-officine-ferrovie-federali-st-gallen"
@@ -1361,7 +1395,16 @@
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in/21a1a152-fc54-4ff5-99ae-7010e655c7c8",
-      "firstSeenAt": "2026-10-03T21:24:38.632Z"
+      "firstSeenAt": "2026-10-03T21:24:38.632Z",
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinstieg-kundenbegleiter-in-ffs-officine-ferrovie-federali-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "quereinstieg-kundenbegleiter-in-ffs-officine-ferrovie-federali-st-gallen"
+      ]
     },
     {
       "id": "sbb-ce89ea55dc96",
@@ -1419,10 +1462,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "fr",
-      "postedDate": "2026-09-30",
+      "datePosted": "2026-09-30T22:00:00Z",
+      "postedDate": "2026-09-30T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/responsable-de-travaux/a6c11e7c-866e-4ef6-b8e2-364b3d079b85",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:24:57.623Z",
+      "crawledAt": "2026-10-04T09:21:38.996Z",
       "previousSlugs": [
         "responsable-de-travaux-ffs-officine-ferrovie-federali-renens-vd"
       ],
@@ -1532,7 +1577,8 @@
       },
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/conducteurtrice-de-vehicule-moteur-cat-b100-deja-forme/17d55b0a-8dfd-4dbd-83fa-1a27aee3f6f2"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/conducteurtrice-de-vehicule-moteur-cat-b100-deja-forme/17d55b0a-8dfd-4dbd-83fa-1a27aee3f6f2",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-a9949717cdbf",
@@ -1652,7 +1698,8 @@
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/fachtechniker-in-elektro-und-telecom/355090c1-9ae3-4852-9ca0-7e5745b79a93",
-      "firstSeenAt": "2026-09-26T14:10:49.894Z"
+      "firstSeenAt": "2026-09-26T14:10:49.894Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-865bf0475be8",
@@ -1769,7 +1816,8 @@
         "industrie-des-techniciens-specialises-ffs-officine-ferrovie-federali-biel-bienne",
         "tecnico-specializzato-nell-industria-ffs-officine-ferrovie-federali-biel-bienne",
         "specialist-technician-industrial-ffs-officine-ferrovie-federali-biel-bienne"
-      ]
+      ],
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-fb276ea48cf9",
@@ -1859,7 +1907,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/gleisbauer-in-rangierbegleiter-in-ai-als-gleis-baumaschinenbegleiter-in/527f9538-2910-4f2f-bcef-6cffd65f61a4"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/gleisbauer-in-rangierbegleiter-in-ai-als-gleis-baumaschinenbegleiter-in/527f9538-2910-4f2f-bcef-6cffd65f61a4",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-3c7f6d7aeca0",
@@ -1954,7 +2003,8 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/leiter-in-landerwerb-und-grundstuecksgeschaefte-region-ost/c0970a78-9837-4690-9cca-51ff7153952b"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/leiter-in-landerwerb-und-grundstuecksgeschaefte-region-ost/c0970a78-9837-4690-9cca-51ff7153952b",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-8ea09441f64d",
@@ -2030,7 +2080,8 @@
       "postalCode": "6500",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/netzmanager-in/6cd3eab8-7483-456a-b235-fe48e4092f56"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/netzmanager-in/6cd3eab8-7483-456a-b235-fe48e4092f56",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-86af74abe621",
@@ -2097,10 +2148,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "it",
-      "postedDate": "2026-09-29",
+      "datePosted": "2026-09-29T07:39:18Z",
+      "postedDate": "2026-09-29T07:39:18Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/responsabile-m-f-d-acquisizione-terreni-e-attivita-fondiarie-regione-est/0991bae2-62c5-4c78-942c-cfe2d5dc80c7",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:24:55.137Z",
+      "crawledAt": "2026-10-04T09:21:36.548Z",
       "firstSeenAt": "2026-09-29T09:32:31.968Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
@@ -2176,10 +2229,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "fr",
-      "postedDate": "2026-09-29",
+      "datePosted": "2026-09-29T07:39:13Z",
+      "postedDate": "2026-09-29T07:39:13Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/responsable-acquisitions-foncieres-et-transactions-immobilieres-region-est/9dd63cce-2f75-48ba-a41e-a204b9185c0c",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:24:55.632Z",
+      "crawledAt": "2026-10-04T09:21:37.026Z",
       "previousSlugs": [
         "responsable-acquisitions-foncieres-et-transactions-immobilieres-region-est-ffs-officine-ferrovie-federali-altstetten"
       ],
@@ -2263,10 +2318,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-09-29",
+      "datePosted": "2026-09-29T22:00:00Z",
+      "postedDate": "2026-09-29T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/sozialberater-in/c6725b86-9427-4e55-979c-f595ec3d8796",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:00.636Z",
+      "crawledAt": "2026-10-04T09:21:41.988Z",
       "previousSlugs": [
         "sozialberater-in-ffs-officine-ferrovie-federali-olten"
       ],
@@ -2320,12 +2377,7 @@
         "fr": "SBB | SBB Cargo International: Zugvorbereiter/in Level B2\n-\n-\n-\nSBB Cargo International ist im europäischen Schienengüterverkehr Marktführer auf der Nord-Süd-Achse. Dank unseren über 1'000 Mitarbeitenden in der Schweiz, Deutschland, den Niederlanden, Italien und Frankreich fahren wir wöchentlich rund 550 Züge von den Nordseehäfen nach Italien und zurück. Dabei verlagern wir tausende Nettotonnen von der Strasse auf die Schiene und leisten einen aktiven Beitrag zu mehr Klimaschutz.\nMöchtest du die Weichen für deine Zukunft neu stellen und Verantwortung im europäischen Güterverkehr übernehmen? Dann werde Teil unseres Teams als\nZugvorbereiter/in Level B2\nin Muttenz\n\n## Ihre Aufgaben\nAls Mitglied des Zugvorbereitungsteams trägst du massgeblich zur Betriebssicherheit bei und führst technische Abgangs- oder Unterwegskontrollen durch. Du prüfst Güterwagen und Ladungen und behebst festgestellte Schäden und Mängel, soweit möglich, selbstständig. Du führst Qualitätskontrollen gemäss AVV / UIC 471-3 (RID) durch und arbeitest eng mit Triebfahrzeugführerinnen und Triebfahrzeugführern, der Leitstelle, externen Partnern sowie den Mitarbeitenden des Rangierteams zusammen. Zudem führst du bei Ereignissen Interventionen an Güterzügen in der Deutschschweiz durch.\n\n## Ihr Profil\nWir wenden uns an eine engagierte und teamfähige Persönlichkeit mit hoher Lösungsorientierung und einer selbstständigen Arbeitsweise. Du verfügst idealerweise über eine Ausbildung als Visiteur/Wagenmeister oder eine vergleichbare technische Ausbildung im Bahnumfeld. Mehrjährige Berufserfahrung sowie Kenntnisse im internationalen Güterverkehr sind erwünscht. Du kommunizierst sicher in Deutsch, sowohl mündlich als auch schriftlich. Italienisch- und Französischkenntnisse sind von Vorteil. Die Bereitschaft zur Schichtarbeit (24/7) sowie ein Führerausweis der Kategorie B werden vorausgesetzt.\n\n## Kontakt\nInteressiert? Weitere Auskünfte erteilen Dir gerne Dominik Spengler +41 79 123 87 15 sowie Gjirokaster Begaj, HR Business Partnerin (gjirokaster.begaj@sbbcargoint.com, Tel. 079 801 14 13).\nWir freuen uns auf deine Bewerbung über den Link auf unserer Website .\nBewerbungen per Post oder E-Mail können wir leider nicht berücksichtigen. Für diese Stelle nehmen wir keine Dossiers von Personalvermittlern entgegen."
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "it": [],
-        "en": [],
-        "de": [],
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "location": "Muttenz",
       "canton": "BL",
       "addressLocality": "Muttenz",
@@ -2335,10 +2387,10 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-09-29",
+      "postedDate": "2026-09-29T22:00:00Z",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/zugvorbereiter-in-level-b2/958c3006-f859-43e4-8615-26d2037ef5a0",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:18.600Z",
+      "crawledAt": "2026-10-04T09:21:58.458Z",
       "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -2364,7 +2416,9 @@
       },
       "previousSlugs": [
         "pianificatore-di-plotone-livello-b2-ffs-officine-ferrovie-federali-muttenz-wp5s78"
-      ]
+      ],
+      "datePosted": "2026-09-29T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sbb-db38f222cb29",
@@ -2381,7 +2435,7 @@
       "title": "Pianificatore:trice della rete, committente, manager di rete Linee e Nodi",
       "titleByLocale": {
         "it": "Pianificatore:trice della rete, committente, manager di rete Linee e Nodi",
-        "en": "Planner: network machine, contractor, network manager Lines and Nodes",
+        "en": "Pianificatore:trice della rete, committente, manager di rete Linee e Nodi",
         "de": "Planer:Netzwerkplaner, Client, Netzwerkmanager Leitungen und Knoten",
         "fr": "Planificateur : planificateur réseau, client, gestionnaire réseau Lignes et nœuds"
       },
@@ -2442,7 +2496,9 @@
       "postalCode": "6500",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/pianificatore-trice-della-rete-committente-manager-di-rete-linee-e-nodi/8e914b57-93ce-46ea-b144-6d229faff66c"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/pianificatore-trice-della-rete-committente-manager-di-rete-linee-e-nodi/8e914b57-93ce-46ea-b144-6d229faff66c",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-be8c4421e899",
@@ -2528,7 +2584,8 @@
       },
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in/76396058-4cd6-40e8-80fe-502ab789f471"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in/76396058-4cd6-40e8-80fe-502ab789f471",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-76c9fb236338",
@@ -2585,10 +2642,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-09-28",
+      "datePosted": "2026-09-28T22:00:00Z",
+      "postedDate": "2026-09-28T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/triebfahrzeugfuehrer-in-kat-a-fahrleitungszugmaschine-fzm/df1e7825-a018-4d8c-8680-3d05a085af0c",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:12.138Z",
+      "crawledAt": "2026-10-04T09:21:51.973Z",
       "previousSlugs": [
         "triebfahrzeugfuhrer-in-kat-a-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-dulliken"
       ],
@@ -2699,7 +2758,8 @@
       },
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in/18924901-7fd3-49ee-aad1-2fc6b3d65fd1"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in/18924901-7fd3-49ee-aad1-2fc6b3d65fd1",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-bda2d6047d08",
@@ -2762,10 +2822,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "it",
-      "postedDate": "2026-09-25",
+      "datePosted": "2026-09-25T06:13:33Z",
+      "postedDate": "2026-09-25T06:13:33Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/responsabile-del-team-gestione-dati-partner-commerciali/b9ac2398-bc16-44f7-b5a1-d4234ea59be9",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:24:54.620Z",
+      "crawledAt": "2026-10-04T09:21:35.989Z",
       "firstSeenAt": "2026-09-25T15:07:15.057Z",
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -2841,10 +2903,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "fr",
-      "postedDate": "2026-09-25",
+      "datePosted": "2026-09-25T06:13:28Z",
+      "postedDate": "2026-09-25T06:13:28Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/responsable-d-equipe-gestion-des-donnees-partenaires-commerciaux-h-f-d/74c9530d-abf4-4e5a-8caa-9373f0a31d08",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:24:56.136Z",
+      "crawledAt": "2026-10-04T09:21:37.501Z",
       "previousSlugs": [
         "responsable-d-equipe-gestion-des-donnees-partenaires-commerciaux-h-f-d-ffs-officine-ferrovie-federali-ostermundigen"
       ],
@@ -2928,10 +2992,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-09-25",
+      "datePosted": "2026-09-25T06:11:07Z",
+      "postedDate": "2026-09-25T06:11:07Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-datenmanagement-geschaeftspartner/79f69e62-972c-4d04-93bc-7313726b9e0d",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:04.641Z",
+      "crawledAt": "2026-10-04T09:21:45.990Z",
       "previousSlugs": [
         "teamleiter-in-datenmanagement-geschaftspartner-ffs-officine-ferrovie-federali-ostermundigen"
       ],
@@ -3064,7 +3130,8 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/baufuehrer-in-fahrstrom-fahrstromanlagen/a32cbe72-3abe-42b5-802f-68fd69808be3",
-      "firstSeenAt": "2026-10-03T21:23:58.122Z"
+      "firstSeenAt": "2026-10-03T21:23:58.122Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-ded2cee7fcb7",
@@ -3158,7 +3225,8 @@
       },
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/mecanicienne-installations-de-securite-ferroviaires/8d07c2ea-0328-496c-a910-d9fc80458875"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/mecanicienne-installations-de-securite-ferroviaires/8d07c2ea-0328-496c-a910-d9fc80458875",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-9d03f8a92859",
@@ -3257,7 +3325,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/polymechaniker-in-produktionsmechaniker-in/0bf38028-3db2-402a-af03-0caa5c2c5662"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/polymechaniker-in-produktionsmechaniker-in/0bf38028-3db2-402a-af03-0caa5c2c5662",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-a943a5355ccf",
@@ -3344,7 +3413,8 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/projektcontroller-in-business-im-bereich-telecom/b7e00087-b418-4cba-b57e-8b29277d0d6b"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/projektcontroller-in-business-im-bereich-telecom/b7e00087-b418-4cba-b57e-8b29277d0d6b",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-92a0a36612d1",
@@ -3455,7 +3525,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/betriebsmanager-in-mit-schwerpunkt-fahrstromanlagen-16-7-hz/f65523dd-2d7e-4e9d-8417-9addc2819230",
-      "firstSeenAt": "2026-10-03T21:24:03.132Z"
+      "firstSeenAt": "2026-10-03T21:24:03.132Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-2917ff498a3f",
@@ -3540,7 +3611,8 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/diagnosticiene/6aceecae-54fe-4e9a-8fa1-1736cde34d54"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/diagnosticiene/6aceecae-54fe-4e9a-8fa1-1736cde34d54",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-d231f9f90ef5",
@@ -3630,7 +3702,8 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/fahrzeugdiagnostiker-in-schienenfahrzeuge/1e5e09b5-0264-4067-8b9c-6410626c25c0"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/fahrzeugdiagnostiker-in-schienenfahrzeuge/1e5e09b5-0264-4067-8b9c-6410626c25c0",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-54e7920af49c",
@@ -3736,7 +3809,8 @@
       },
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/policier-policiere-aupres-de-la-police-des-transports-cff-tpo/2f0bf44b-d14f-4382-b79d-41f72a2fb3bd"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/policier-policiere-aupres-de-la-police-des-transports-cff-tpo/2f0bf44b-d14f-4382-b79d-41f72a2fb3bd",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-79aa385a6bd8",
@@ -3842,7 +3916,8 @@
       },
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/policier-policiere-aupres-de-la-police-des-transports-cff-tpo/4347dfb0-ecaf-42cf-9cba-1ec0cbdcd73c"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/policier-policiere-aupres-de-la-police-des-transports-cff-tpo/4347dfb0-ecaf-42cf-9cba-1ec0cbdcd73c",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-5fcb3256ee59",
@@ -3948,7 +4023,8 @@
       },
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/policier-policiere-aupres-de-la-police-des-transports-cff-tpo/c36b3f6d-4435-4d78-a81e-e513a830d8c6"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/policier-policiere-aupres-de-la-police-des-transports-cff-tpo/c36b3f6d-4435-4d78-a81e-e513a830d8c6",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-2e7144cac881",
@@ -4038,7 +4114,8 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/diagnostiker-in-fahrzeugdiagnostiker-in-stoerungssuche/c8487a93-7162-4172-bfbd-ed1435620c5a"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/diagnostiker-in-fahrzeugdiagnostiker-in-stoerungssuche/c8487a93-7162-4172-bfbd-ed1435620c5a",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-ac7afaa69606",
@@ -4129,7 +4206,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-kategorie-b100-cargo/19e26bf2-7aa9-4139-a33e-f0d090a4654c"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-kategorie-b100-cargo/19e26bf2-7aa9-4139-a33e-f0d090a4654c",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-866d2c8e8de0",
@@ -4187,10 +4265,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-09-22",
+      "datePosted": "2026-09-22T10:08:11Z",
+      "postedDate": "2026-09-22T10:08:11Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in/ad4125ec-1538-4123-97c1-5d202ab0ea77",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:24:51.128Z",
+      "crawledAt": "2026-10-04T09:21:34.512Z",
       "previousSlugs": [
         "quereinstieg-rangierspezialist-in-ffs-officine-ferrovie-federali-zurich"
       ],
@@ -4290,10 +4370,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-09-22",
+      "datePosted": "2026-09-22T10:51:53Z",
+      "postedDate": "2026-09-22T10:51:53Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/schichtleiter-in-cleaning/03be188e-d106-40bd-9549-5536d0e2365b",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:24:59.133Z",
+      "crawledAt": "2026-10-04T09:21:40.475Z",
       "previousSlugs": [
         "schichtleiter-in-cleaning-ffs-officine-ferrovie-federali-chur"
       ],
@@ -4363,10 +4445,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-09-22",
+      "datePosted": "2026-09-22T22:00:00Z",
+      "postedDate": "2026-09-22T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/schichtleiter-in-in-der-lackiererei/4c1a2378-fd77-4409-92bb-b08ad8a212ee",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:24:59.631Z",
+      "crawledAt": "2026-10-04T09:21:40.984Z",
       "previousSlugs": [
         "schichtleiter-in-in-der-lackiererei-ffs-officine-ferrovie-federali-olten"
       ],
@@ -4453,10 +4537,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-09-22",
+      "datePosted": "2026-09-22T22:00:00Z",
+      "postedDate": "2026-09-22T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-produktion-bereich-rangier-und-spezialfahrzeuge/a4a64482-3048-444d-89c8-7e5e0dc137db",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:05.135Z",
+      "crawledAt": "2026-10-04T09:21:46.476Z",
       "previousSlugs": [
         "teamleiter-in-produktion-bereich-rangier-und-spezialfahrzeuge-ffs-officine-ferrovie-federali-biel-bienne"
       ],
@@ -4554,7 +4640,8 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/auftraggeber-in-bauherr-in-netzmanagement-im-bereich-fahrbahn/867e2433-c12c-40bb-aa0c-c38707aa39cc"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/auftraggeber-in-bauherr-in-netzmanagement-im-bereich-fahrbahn/867e2433-c12c-40bb-aa0c-c38707aa39cc",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-453755c6e19f",
@@ -4639,7 +4726,8 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/elektriker-in-automatiker-in-polymechaniker-in-fuer-den-bereich-instandhaltung-rangierlokomotiven/8276654f-da59-4045-baf8-5254b1398480"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/elektriker-in-automatiker-in-polymechaniker-in-fuer-den-bereich-instandhaltung-rangierlokomotiven/8276654f-da59-4045-baf8-5254b1398480",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-f36f29c25513",
@@ -4733,7 +4821,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/gleisbauer-in-verkehrswegbauer-in/80a1c063-6da1-4974-b98f-e0da4ac9313e"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/gleisbauer-in-verkehrswegbauer-in/80a1c063-6da1-4974-b98f-e0da4ac9313e",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-a8013bdeab80",
@@ -4828,7 +4917,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/maschinen-und-anlagenbediener-in/f299ec37-4b4b-4501-bff7-d8eb9b5205b2"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/maschinen-und-anlagenbediener-in/f299ec37-4b4b-4501-bff7-d8eb9b5205b2",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-13fb0a051714",
@@ -4901,7 +4991,8 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/operative-r-techniker-in-instandhaltung-rangierlokomotiven/7cde8d77-04bb-4ab3-8322-a544472e01a4"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/operative-r-techniker-in-instandhaltung-rangierlokomotiven/7cde8d77-04bb-4ab3-8322-a544472e01a4",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-ef34876a529a",
@@ -4970,10 +5061,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-09-21",
+      "datePosted": "2026-09-21T22:00:00Z",
+      "postedDate": "2026-09-21T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/unterhaltsfachmann-frau-von-gleisanlagen/0a830a24-58b1-41b5-8728-194c9b003e0b",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:16.100Z",
+      "crawledAt": "2026-10-04T09:21:55.959Z",
       "previousSlugs": [
         "unterhaltsfachmann-frau-von-gleisanlagen-ffs-officine-ferrovie-federali-sarnen",
         "specialista-in-manutenzione-donna-di-impianti-ferroviari-ffs-officine-ferrovie-federali-sarnen",
@@ -5027,7 +5120,7 @@
       "title": "Chef·fe de projet général - Ligne directe Neuchâtel-La Chaux-de-Fonds",
       "titleByLocale": {
         "fr": "Chef·fe de projet général - Ligne directe Neuchâtel-La Chaux-de-Fonds",
-        "de": "Leiter des Generalprojekts - Direkte Linie Neuchâtel-La Chaux-de-Fonds",
+        "de": "Chef·fe de projet général - Ligne directe Neuchâtel-La Chaux-de-Fonds",
         "it": "Capo progetto generale - Linea diretta Neuchâtel-La Chaux-de-Fonds",
         "en": "Head of general project - Direct line Neuchâtel-La Chaux-de-Fonds"
       },
@@ -5107,7 +5200,7 @@
       ],
       "salaryMin": 63000,
       "salaryMax": 107500,
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -5121,7 +5214,8 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/cheffe-de-projet-general-ligne-directe-neuchatel-la-chaux-de-fonds/cd82c9b7-e643-44b5-83c7-f842f5a2457b",
-      "firstSeenAt": "2026-10-03T21:24:04.134Z"
+      "firstSeenAt": "2026-10-03T21:24:04.134Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-83c61f0a4674",
@@ -5208,7 +5302,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-fuer-frequenzerfassung/badd1a6a-e5b1-4941-b760-43a14bd3251f"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-fuer-frequenzerfassung/badd1a6a-e5b1-4941-b760-43a14bd3251f",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-c41d60232e68",
@@ -5244,40 +5339,7 @@
         "Mit einem eidg. Einkaufsfachausweis oder einer höheren technischen oder betriebswirtschaftlichen Ausbildung bist du bestens für die Herausforderung gerüstet.",
         "Deutsch (C2) und Englisch (C1) kommunizierst du verhandlungssicher, Französisch- oder Italienischkenntnisse (A2) sind von Vorteil."
       ],
-      "requirementsByLocale": {
-        "it": [
-          "Du agierst kollaborativ, bringst interkulturelle Kompetenzen mit und kommunizierst klar mit internen wie auch externen Stakeholdern.",
-          "Ausgeprägte analytische Fähigkeiten, Datenaffinität und strategisches Denkvermögen sowie Kostenbewusstsein prägen dein Handeln.",
-          "Fundierte Erfahrungen im Vertrags- und Claimmanagement, zur optimalen Umsetzung und Weiterentwicklung von Verträgen, bringst du mit.",
-          "Kenntnisse im öffentlichen Beschaffungswesen und Verständnis der End-to-End Prozesse im Einkauf begrüssen wir. Durch deine Erfahrung im Einkauf bist du Im Umgang mit SAP MM oder Ariba und MS Office sicher.",
-          "Mit einem eidg. Einkaufsfachausweis oder einer höheren technischen oder betriebswirtschaftlichen Ausbildung bist du bestens für die Herausforderung gerüstet.",
-          "Deutsch (C2) und Englisch (C1) kommunizierst du verhandlungssicher, Französisch- oder Italienischkenntnisse (A2) sind von Vorteil."
-        ],
-        "en": [
-          "Du agierst kollaborativ, bringst interkulturelle Kompetenzen mit und kommunizierst klar mit internen wie auch externen Stakeholdern.",
-          "Ausgeprägte analytische Fähigkeiten, Datenaffinität und strategisches Denkvermögen sowie Kostenbewusstsein prägen dein Handeln.",
-          "Fundierte Erfahrungen im Vertrags- und Claimmanagement, zur optimalen Umsetzung und Weiterentwicklung von Verträgen, bringst du mit.",
-          "Kenntnisse im öffentlichen Beschaffungswesen und Verständnis der End-to-End Prozesse im Einkauf begrüssen wir. Durch deine Erfahrung im Einkauf bist du Im Umgang mit SAP MM oder Ariba und MS Office sicher.",
-          "Mit einem eidg. Einkaufsfachausweis oder einer höheren technischen oder betriebswirtschaftlichen Ausbildung bist du bestens für die Herausforderung gerüstet.",
-          "Deutsch (C2) und Englisch (C1) kommunizierst du verhandlungssicher, Französisch- oder Italienischkenntnisse (A2) sind von Vorteil."
-        ],
-        "de": [
-          "Du agierst kollaborativ, bringst interkulturelle Kompetenzen mit und kommunizierst klar mit internen wie auch externen Stakeholdern.",
-          "Ausgeprägte analytische Fähigkeiten, Datenaffinität und strategisches Denkvermögen sowie Kostenbewusstsein prägen dein Handeln.",
-          "Fundierte Erfahrungen im Vertrags- und Claimmanagement, zur optimalen Umsetzung und Weiterentwicklung von Verträgen, bringst du mit.",
-          "Kenntnisse im öffentlichen Beschaffungswesen und Verständnis der End-to-End Prozesse im Einkauf begrüssen wir. Durch deine Erfahrung im Einkauf bist du Im Umgang mit SAP MM oder Ariba und MS Office sicher.",
-          "Mit einem eidg. Einkaufsfachausweis oder einer höheren technischen oder betriebswirtschaftlichen Ausbildung bist du bestens für die Herausforderung gerüstet.",
-          "Deutsch (C2) und Englisch (C1) kommunizierst du verhandlungssicher, Französisch- oder Italienischkenntnisse (A2) sind von Vorteil."
-        ],
-        "fr": [
-          "Du agierst kollaborativ, bringst interkulturelle Kompetenzen mit und kommunizierst klar mit internen wie auch externen Stakeholdern.",
-          "Ausgeprägte analytische Fähigkeiten, Datenaffinität und strategisches Denkvermögen sowie Kostenbewusstsein prägen dein Handeln.",
-          "Fundierte Erfahrungen im Vertrags- und Claimmanagement, zur optimalen Umsetzung und Weiterentwicklung von Verträgen, bringst du mit.",
-          "Kenntnisse im öffentlichen Beschaffungswesen und Verständnis der End-to-End Prozesse im Einkauf begrüssen wir. Durch deine Erfahrung im Einkauf bist du Im Umgang mit SAP MM oder Ariba und MS Office sicher.",
-          "Mit einem eidg. Einkaufsfachausweis oder einer höheren technischen oder betriebswirtschaftlichen Ausbildung bist du bestens für die Herausforderung gerüstet.",
-          "Deutsch (C2) und Englisch (C1) kommunizierst du verhandlungssicher, Französisch- oder Italienischkenntnisse (A2) sind von Vorteil."
-        ]
-      },
+      "requirementsByLocale": {},
       "location": "Bern",
       "canton": "BE",
       "addressLocality": "Bern",
@@ -5287,10 +5349,10 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-09-20",
+      "postedDate": "2026-09-20T22:00:00Z",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/strategische-r-einkaeufer-in/ec0a5be6-0398-4946-95d0-d8549042f23a",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:03.642Z",
+      "crawledAt": "2026-10-04T09:21:44.977Z",
       "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -5316,7 +5378,9 @@
       },
       "previousSlugs": [
         "acquirente-strategico-ffs-officine-ferrovie-federali-bern-d69rnd"
-      ]
+      ],
+      "datePosted": "2026-09-20T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sbb-330452f658b6",
@@ -5374,10 +5438,10 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-09-20",
+      "postedDate": "2026-09-20T22:00:00Z",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/strategische-r-einkaeufer-in/fb9d136a-73bf-47f9-839b-4f52db13c3de",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:04.131Z",
+      "crawledAt": "2026-10-04T09:21:45.483Z",
       "previousSlugs": [
         "strategische-r-einkaufer-in-ffs-officine-ferrovie-federali-bern"
       ],
@@ -5405,7 +5469,9 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/strategische-r-einkaeufer-in/fb9d136a-73bf-47f9-839b-4f52db13c3de"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/strategische-r-einkaeufer-in/fb9d136a-73bf-47f9-839b-4f52db13c3de",
+      "datePosted": "2026-09-20T22:00:00Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sbb-bf2235b4fb69",
@@ -5517,7 +5583,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/fahrzeug-und-instandhaltungsspezialist-in/b1972253-b189-4dff-8b82-304d9597ff34"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/fahrzeug-und-instandhaltungsspezialist-in/b1972253-b189-4dff-8b82-304d9597ff34",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-7caf0c34e110",
@@ -5607,7 +5674,8 @@
       },
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/lokfuehrer-in-kat-a40/f522b594-0f04-45be-88c8-d0ce0428a2a1"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/lokfuehrer-in-kat-a40/f522b594-0f04-45be-88c8-d0ce0428a2a1",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-5cf56c248afd",
@@ -5714,7 +5782,8 @@
       },
       "addressRegion": "NW",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/anlagenmanager-in-bahntechnik-mit-schwerpunkt-bahnstrom-80/4d2e2e1c-78d5-443e-8874-76c0cd278be4"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/anlagenmanager-in-bahntechnik-mit-schwerpunkt-bahnstrom-80/4d2e2e1c-78d5-443e-8874-76c0cd278be4",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-a9d519f21823",
@@ -5817,7 +5886,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/lehrgangsleiter-in/fc918398-8aba-49e5-8d69-8ecc94e657e2"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/lehrgangsleiter-in/fc918398-8aba-49e5-8d69-8ecc94e657e2",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-a9d1365998ed",
@@ -5903,7 +5973,8 @@
       },
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in-gueterverkehr-gossau/0ee8afe0-2d9c-43fb-8408-5ac5daf25101"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in-gueterverkehr-gossau/0ee8afe0-2d9c-43fb-8408-5ac5daf25101",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-282174d5fa23",
@@ -5978,10 +6049,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "fr",
-      "postedDate": "2026-09-16",
+      "datePosted": "2026-09-16T10:53:40Z",
+      "postedDate": "2026-09-16T10:53:40Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/responsable-de-mandats-conducteurtrice-de-travaux-entretien-voies-ferrees/c2f6b7ed-b785-425a-91ed-9956efa37810",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:24:56.630Z",
+      "crawledAt": "2026-10-04T09:21:37.993Z",
       "previousSlugs": [
         "responsable-de-mandats-conducteur-trice-de-travaux-entretien-voies-ferrees-ffs-officine-ferrovie-federali-geneve",
         "responsabile-del-mandato-supervisore-dei-lavori-di-manutenzione-ferroviaria-ffs-officine-ferrovie-federali-biel-bienne"
@@ -6069,10 +6142,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "fr",
-      "postedDate": "2026-09-16",
+      "datePosted": "2026-09-16T22:00:00Z",
+      "postedDate": "2026-09-16T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/technicienne-de-mise-en-service-et-de-depannage-des-locomotives/b8a845eb-8ad2-4f08-89c3-f0dcfe5e9cfb",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:05.617Z",
+      "crawledAt": "2026-10-04T09:21:46.987Z",
       "previousSlugs": [
         "technicien-ne-de-mise-en-service-et-de-depannage-des-locomotives-ffs-officine-ferrovie-federali-yverdon-les-bains"
       ],
@@ -6168,10 +6243,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "fr",
-      "postedDate": "2026-09-16",
+      "datePosted": "2026-09-16T13:16:41Z",
+      "postedDate": "2026-09-16T13:16:41Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/technicienne-qualifiee-lignes-de-contact/d4291103-ba56-4d4a-89a6-540198c075e1",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:06.618Z",
+      "crawledAt": "2026-10-04T09:21:47.986Z",
       "previousSlugs": [
         "technicien-ne-qualifie-e-lignes-de-contact-ffs-officine-ferrovie-federali-bussigny"
       ],
@@ -6212,16 +6289,16 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Bauingenieur:in im konstruktiven Tiefbau",
       "titleByLocale": {
-        "de": "Bauingenieur:in im konstruktiven Tiefbau",
         "it": "Bauingenieur:in im konstruktiven genio civile",
         "en": "Bauingenieur:in im konstruktiven Tiefbau",
+        "de": "Bauingenieur:in im konstruktiven Tiefbau",
         "fr": "Bauingenieur:in im konstruktiven Tiefbau"
       },
       "description": "Bauingenieur:in im konstruktiven Tiefbau 60-100% | SBB\n-\n-\n-\n-\n-\n-\nBeweg die Schweiz mit uns.\nBauingenieur:in im konstruktiven Tiefbau\nBern / Work Smart, 01.01.2027 oder nach Vereinbarung, 60-100% (Jobsharing möglich)\nJetzt bewerben\n\n## Darauf kannst du dich freuen.\nDie Division SBB Infrastruktur ist für den Bau, Unterhalt und Betrieb der Infrastruktur verantwortlich und im Bereich «Netzdesign, Anlagen und Technologie» wird das strategische und technologische Anlagenmanagement sichergestellt. Die Abteilung «Ingenieurbau» ist verantwortlich für die SBB weite Fachführung für Tunnel, Brücken, Stützbauwerke, Erdbauwerke, Lärmschutzwände, Trinkwasserversorgungsanlagen und Abwasserentsorgungsanlagen von Kunstbauten. Wir entwickeln Techniken, Vorgaben und Methoden für Neubau, Instandsetzung und Überwachung von Ingenieurbauwerken.\nUnsere Benefits wie Kinderzulagen, kostenloses 1. Klasse GA und vergünstigtes Reisen im Ausland, auch für deine Familie, findest du auf unserer Website unter Benefits .\nInteressiert, noch mehr über unsere Berufe zu erfahren? Wir freuen uns, dich vom 22. bis 24. Oktober 2026 in unserem SBB Berufswelten Café am Hauptbahnhof Zürich zu begrüssen. Alle Informationen findest du unter sbb.ch/berufsweltencafe .\nDas kannst du bewegen.\n- In dieser spannenden Funktion übernimmst du die Fachführung Stützbauwerke mit Schwerpunkt konstruktiver Tiefbau für Neubau und Erhaltungsprojekte der SBB-Infrastruktur und unterstützt die Fachbereiche Tunnelbau, Geotechnik und Spezialtiefbau.\n- Unter deiner Verantwortung prüfst du Projektdossiers von Variantenstudien bis zu Vor- und Bauprojekten für Stützbauwerke und Tagbautunnel in Bezug auf die korrekte Umsetzung von technischen Vorschriften und qualitativen Anforderungen. Dabei stehst du im engen Austausch mit ausführenden Projektleitenden und Spezialisten der Überwachung.\n- Du übernimmst Expertenleistungen innerhalb der SBB für die Beurteilung von bestehenden Stützbauwerken und strategische und operative Beratung für die Umsetzung von Baumassnahmen.\n- In deiner Rolle entwickelst du SBB-Fachvorgaben und Richtlinien für Neubau- und Erhaltungsmassahmen und der Überwachung für Stützbauwerke weiter. Du führst regelmässige Abstimmungen mit der Behörde durch und nimmst aktiv in Arbeitsgruppen für die Normenentwicklung teil.\n- Du initiierst und begleitest Forschungsprojekte für Innovationen und Weiterentwicklungen im konstruktiven Tiefbau und zur Überwachung von Stützbauwerken.\nDas bringst du mit.\n- Eigeninitiative, Selbstständigkeit und Verantwortungsbewusstsein zeichnen deine Persönlichkeit aus.\n- Du kannst auf fachliche Führungserfahrung zurückgreifen und kommunizierst adressatengerecht. Innerhalb des Fachbereichs verfügst du über ein breites Netzwerk und bist bereit, dieses intern und extern weiter auszubauen.\n- Du verfügst über mehrjährige Praxiserfahrung im konstruktiven Tiefbau.\n- Der Stand von Wissenschaft und Technik im konstruktiven Tiefbau ist dir bekannt und du bringst Fachwissen zum Eisenbahnbetrieb sowie den relevanten Vorschriften mit.\n- Für diese Rolle setzen wir ein abgeschlossenes Studium in Bauingenieurwesen (FH/Uni/ETH) voraus.\n- Du kommunizierst fliessend in Deutsch (mind. C1) und deine Italienisch oder Französisch Kenntnisse sind gut (mind. B2).\n\n## Dein Lohn und deine Benefits.\nWir haben ein faires und fortschrittliches Lohnsystem und setzen uns aktiv für Lohngleichheit ein. Deshalb sind weiterführende und detaillierte Informationen zum Lohnsystem bei der SBB transparent einsehbar. Diese Stelle befindet sich im Anforderungsniveau K, Regionalzulage Stufe 1. Mehr zu Lohn und Benefits .\n\n## Damit gelingt der Einstieg.\nDass du mit uns die Schweiz bewegen willst, ist für uns die grösste Motivation. Darum verzichten wir bei dieser Stelle auf ein Motivationsschreiben. Falls du uns deine Motivation dennoch mitteilen möchtest, hast du in unserem Bewerbungstool nach wie vor die Möglichkeit dazu.\nGrosses machen ist einfacher per du. Das beginnt bereits bei deiner Bewerbung.\n\n## So geht's weiter.\n×\nSpätestens 10 Arbeitstage nach Bewerbungseingang erhältst du eine erste Rückmeldung von uns.\nFinaler Entscheid 6 Wochen nach Bewerbungseingang\nBewerbung\nFinaler Entscheid 6 Wochen nach Bewerbungseingang\nNoch Fragen?\nZum Bewerbungsprozess\nSBB Recruiting Support\nTelefon + 41 51 220 20 29\nrecruiting@sbb.ch\n#einfachDu\nFAQ zur Bewerbung\nZur Stelle\nJob ID 103727\nFederica Sandrone, Stv. Leiterin Ingenieurbau\nTelefon +41 79 751 62 75\nBewerbungen per E-Mail können leider nicht berücksichtigt werden.\nFür diese Stelle nehmen wir keine Dossiers von Personalvermittlern entgegen.\n\n## Das bieten wir.\nBenefits\nBenefits\nMehr erfahren\nWo immer möglich setzen wir auf flexible Arbeitszeiten und moderne Arbeitszeitmodelle. Darüber hinaus sind wir als Arbeitgeberin auch flexibel, wenn es darum geht, dein Berufsleben mit deinem Privatleben in Einklang zu bringen.\nMehr erfahren\nMehr erfahren\nUnterschiede willkommen\nUnterschiede willkommen\nMehr erfahren\nMit über 150 verschiedenen Berufen bieten wir eine beeindruckende Vielfalt an Einstiegs- und Entwicklungsmöglichkeiten. Ebenso vielfältig sind unsere Mitarbeitenden. Darum engagieren wir uns dafür dass alle Mitarbeitenden ihre individuellen Stärken und Denkweisen einbringen können.\nMehr erfahren\nMehr erfahren\nKarriere und Entwicklung\nKarriere und Entwicklung\nMehr erfahren\nWir fördern unsere Mitarbeitenden entlang ihren persönlichen Bedürfnissen und Ambitionen. Dafür stellen wir ein breites Angebot an fach- und bereichsübergreifenden Weiterbildungsangeboten zur Verfügung. An ausgewählten externen Weiterbildungen, beteiligen wir uns finanziell und zeitlich.\nMehr erfahren\nMehr erfahren",
       "descriptionByLocale": {
-        "de": "Bauingenieur:in im konstruktiven Tiefbau 60-100% | SBB\n-\n-\n-\n-\n-\n-\nBeweg die Schweiz mit uns.\nBauingenieur:in im konstruktiven Tiefbau\nBern / Work Smart, 01.01.2027 oder nach Vereinbarung, 60-100% (Jobsharing möglich)\nJetzt bewerben\n\n## Darauf kannst du dich freuen.\nDie Division SBB Infrastruktur ist für den Bau, Unterhalt und Betrieb der Infrastruktur verantwortlich und im Bereich «Netzdesign, Anlagen und Technologie» wird das strategische und technologische Anlagenmanagement sichergestellt. Die Abteilung «Ingenieurbau» ist verantwortlich für die SBB weite Fachführung für Tunnel, Brücken, Stützbauwerke, Erdbauwerke, Lärmschutzwände, Trinkwasserversorgungsanlagen und Abwasserentsorgungsanlagen von Kunstbauten. Wir entwickeln Techniken, Vorgaben und Methoden für Neubau, Instandsetzung und Überwachung von Ingenieurbauwerken.\nUnsere Benefits wie Kinderzulagen, kostenloses 1. Klasse GA und vergünstigtes Reisen im Ausland, auch für deine Familie, findest du auf unserer Website unter Benefits .\nInteressiert, noch mehr über unsere Berufe zu erfahren? Wir freuen uns, dich vom 22. bis 24. Oktober 2026 in unserem SBB Berufswelten Café am Hauptbahnhof Zürich zu begrüssen. Alle Informationen findest du unter sbb.ch/berufsweltencafe .\nDas kannst du bewegen.\n- In dieser spannenden Funktion übernimmst du die Fachführung Stützbauwerke mit Schwerpunkt konstruktiver Tiefbau für Neubau und Erhaltungsprojekte der SBB-Infrastruktur und unterstützt die Fachbereiche Tunnelbau, Geotechnik und Spezialtiefbau.\n- Unter deiner Verantwortung prüfst du Projektdossiers von Variantenstudien bis zu Vor- und Bauprojekten für Stützbauwerke und Tagbautunnel in Bezug auf die korrekte Umsetzung von technischen Vorschriften und qualitativen Anforderungen. Dabei stehst du im engen Austausch mit ausführenden Projektleitenden und Spezialisten der Überwachung.\n- Du übernimmst Expertenleistungen innerhalb der SBB für die Beurteilung von bestehenden Stützbauwerken und strategische und operative Beratung für die Umsetzung von Baumassnahmen.\n- In deiner Rolle entwickelst du SBB-Fachvorgaben und Richtlinien für Neubau- und Erhaltungsmassahmen und der Überwachung für Stützbauwerke weiter. Du führst regelmässige Abstimmungen mit der Behörde durch und nimmst aktiv in Arbeitsgruppen für die Normenentwicklung teil.\n- Du initiierst und begleitest Forschungsprojekte für Innovationen und Weiterentwicklungen im konstruktiven Tiefbau und zur Überwachung von Stützbauwerken.\nDas bringst du mit.\n- Eigeninitiative, Selbstständigkeit und Verantwortungsbewusstsein zeichnen deine Persönlichkeit aus.\n- Du kannst auf fachliche Führungserfahrung zurückgreifen und kommunizierst adressatengerecht. Innerhalb des Fachbereichs verfügst du über ein breites Netzwerk und bist bereit, dieses intern und extern weiter auszubauen.\n- Du verfügst über mehrjährige Praxiserfahrung im konstruktiven Tiefbau.\n- Der Stand von Wissenschaft und Technik im konstruktiven Tiefbau ist dir bekannt und du bringst Fachwissen zum Eisenbahnbetrieb sowie den relevanten Vorschriften mit.\n- Für diese Rolle setzen wir ein abgeschlossenes Studium in Bauingenieurwesen (FH/Uni/ETH) voraus.\n- Du kommunizierst fliessend in Deutsch (mind. C1) und deine Italienisch oder Französisch Kenntnisse sind gut (mind. B2).\n\n## Dein Lohn und deine Benefits.\nWir haben ein faires und fortschrittliches Lohnsystem und setzen uns aktiv für Lohngleichheit ein. Deshalb sind weiterführende und detaillierte Informationen zum Lohnsystem bei der SBB transparent einsehbar. Diese Stelle befindet sich im Anforderungsniveau K, Regionalzulage Stufe 1. Mehr zu Lohn und Benefits .\n\n## Damit gelingt der Einstieg.\nDass du mit uns die Schweiz bewegen willst, ist für uns die grösste Motivation. Darum verzichten wir bei dieser Stelle auf ein Motivationsschreiben. Falls du uns deine Motivation dennoch mitteilen möchtest, hast du in unserem Bewerbungstool nach wie vor die Möglichkeit dazu.\nGrosses machen ist einfacher per du. Das beginnt bereits bei deiner Bewerbung.\n\n## So geht's weiter.\n×\nSpätestens 10 Arbeitstage nach Bewerbungseingang erhältst du eine erste Rückmeldung von uns.\nFinaler Entscheid 6 Wochen nach Bewerbungseingang\nBewerbung\nFinaler Entscheid 6 Wochen nach Bewerbungseingang\nNoch Fragen?\nZum Bewerbungsprozess\nSBB Recruiting Support\nTelefon + 41 51 220 20 29\nrecruiting@sbb.ch\n#einfachDu\nFAQ zur Bewerbung\nZur Stelle\nJob ID 103727\nFederica Sandrone, Stv. Leiterin Ingenieurbau\nTelefon +41 79 751 62 75\nBewerbungen per E-Mail können leider nicht berücksichtigt werden.\nFür diese Stelle nehmen wir keine Dossiers von Personalvermittlern entgegen.\n\n## Das bieten wir.\nBenefits\nBenefits\nMehr erfahren\nWo immer möglich setzen wir auf flexible Arbeitszeiten und moderne Arbeitszeitmodelle. Darüber hinaus sind wir als Arbeitgeberin auch flexibel, wenn es darum geht, dein Berufsleben mit deinem Privatleben in Einklang zu bringen.\nMehr erfahren\nMehr erfahren\nUnterschiede willkommen\nUnterschiede willkommen\nMehr erfahren\nMit über 150 verschiedenen Berufen bieten wir eine beeindruckende Vielfalt an Einstiegs- und Entwicklungsmöglichkeiten. Ebenso vielfältig sind unsere Mitarbeitenden. Darum engagieren wir uns dafür dass alle Mitarbeitenden ihre individuellen Stärken und Denkweisen einbringen können.\nMehr erfahren\nMehr erfahren\nKarriere und Entwicklung\nKarriere und Entwicklung\nMehr erfahren\nWir fördern unsere Mitarbeitenden entlang ihren persönlichen Bedürfnissen und Ambitionen. Dafür stellen wir ein breites Angebot an fach- und bereichsübergreifenden Weiterbildungsangeboten zur Verfügung. An ausgewählten externen Weiterbildungen, beteiligen wir uns finanziell und zeitlich.\nMehr erfahren\nMehr erfahren",
         "it": "Ingegnere civile: nell'ingegneria civile strutturale 60-100% | FFS\n-\n-\n-\n-\n-\n-\nSposta la Svizzera con noi.\nIngegnere civile: in ingegneria civile strutturale\nBern / Work Smart, 01.01.2027 o d'accordo, 60-100% (possibile condivisione del lavoro)\nApplicare ora\n\n## Non vedo l'ora.\nLa divisione Infrastructure SBB è responsabile per la costruzione, la manutenzione e il funzionamento dell’infrastruttura e la gestione strategica e tecnologica degli asset è garantita nell’ambito della “network design, strutture e tecnologia”. Il dipartimento \"Engineering Construction\" è responsabile della vasta guida specializzata delle FFS per gallerie, ponti, strutture di supporto, lavori di terra, barriere di rumore, sistemi di approvvigionamento di acqua potabile e sistemi di smaltimento delle acque reflue di edifici artificiali. Sviluppiamo tecniche, specifiche e metodi per la nuova costruzione, riparazione e monitoraggio delle strutture ingegneristiche.\nLe nostre prestazioni, come le assenze per bambini, gratuito 1. Classe GA e viaggi scontati all'estero, anche per la tua famiglia, possono essere trovati sul nostro sito web sotto Vantaggi.\nTi interessa imparare di più sulle nostre professioni? Non vediamo l'ora di vederti dalle 22 alle 24. 2026 nel nostro SBB Berufswelten Café alla stazione centrale di Zurigo. Tutte le informazioni possono essere trovate a sbb.ch/berufsweltencafe.\nPuoi spostarlo.\n- In questa funzione emozionante, si prende il controllo del tour specialistico di strutture di supporto con un focus sull'ingegneria civile strutturale per nuovi progetti di costruzione e manutenzione dell'infrastruttura delle FFS e sostenere le aree specializzate di tunnelling, ingegneria geotecnica e ingegneria civile speciale.\n- Sotto la vostra responsabilità, riesaminerete i fascicoli di progetto da studi di variante a progetti preparatori e di costruzione per strutture di supporto e gallerie minerarie aperte per quanto riguarda la corretta applicazione delle normative tecniche e dei requisiti qualitativi. Sarete in stretto contatto con i project manager e gli specialisti del monitoraggio.\n- Prenderai servizi esperti all'interno delle FFS per la valutazione delle strutture di supporto esistenti e consulenza strategica e operativa per l'attuazione delle misure di costruzione.\n- Nel vostro ruolo, continuerete a sviluppare le specifiche tecniche delle FFS e le linee guida per nuove misure di costruzione e manutenzione e il monitoraggio per le strutture di supporto. Condurre regolarmente consultazioni con l'autorità e partecipare attivamente a gruppi di lavoro per lo sviluppo standard.\n- Iniziate e accompagnate i progetti di ricerca per l'innovazione e ulteriori sviluppi nell'ingegneria civile strutturale e per il monitoraggio delle strutture di sostegno.\nLo porti con te.\n- La vostra iniziativa, indipendenza e senso di responsabilità caratterizzano la vostra personalità.\n- È possibile disegnare esperienza di leadership professionale e comunicare in modo appropriato. All'interno del dipartimento si dispone di una vasta rete e sono pronti ad espanderlo internamente ed esternamente.\n- Hai diversi anni di esperienza pratica nell'ingegneria civile strutturale.\n- Hai familiarità con lo stato della scienza e della tecnologia nell'ingegneria strutturale, e porti competenze nelle operazioni ferroviarie e regolamenti rilevanti.\n- Per questo ruolo, abbiamo bisogno di una laurea completa in ingegneria civile (FH/Uni/ETH).\n- Si comunica fluentemente in tedesco (min. C1) e le vostre competenze italiane o francesi sono buone (min. B2).\n\n## La tua ricompensa e i tuoi benefici.\nAbbiamo un sistema salariale equo e progressivo e siamo attivamente impegnati a parità di retribuzione. Per questo motivo, ulteriori e dettagliate informazioni sul sistema salariale possono essere visualizzate in modo trasparente presso le FFS. Questo lavoro è nel livello di requisito K, livello di indennità regionale 1.\n\n## Questo è il punto di partenza.\nIl fatto che si desidera spostare la Svizzera con noi è la più grande motivazione per noi. Pertanto, ci asteniamo da una lettera di motivazione a questo punto. Se volete ancora dirci la vostra motivazione, avete ancora la possibilità di farlo nel nostro strumento di applicazione.\nFare il grande è più facile per te. Questo inizia con la tua applicazione.\n\n## E' cosi' che va.\n×\nAl più tardi 10 giorni lavorativi dopo aver ricevuto l'applicazione, riceverai un feedback iniziale da noi.\nDecisione finale 6 settimane dopo la ricezione della domanda\nApplicazione\nDecisione finale 6 settimane dopo la ricezione della domanda\nAncora domande?\nIl processo di applicazione\nSupporto per il reclutamento delle FFS\nTelefono + 41 51 220 20 29\nreclutamento@sbb.ch\n#SimplyYou #\nFAQ per l'applicazione\nPer lo scopo\nID lavoro 103727\nFederica Sandrone, Stv. Responsabile Ingegneria Civile\nTelefono +41 79 751 62 75\nLe applicazioni via e-mail non possono purtroppo essere considerate.\nPer questa posizione, non accettiamo i fascicoli dei reclutatori.\n\n## Lo offriamo.\nVantaggi\nVantaggi\nScopri di più\nOvunque possibile, ci concentriamo su orari di lavoro flessibili e modelli di tempo di lavoro moderni. Inoltre, come datore di lavoro, siamo anche flessibili quando si tratta di conciliare la vostra vita professionale con la vostra vita privata.\nScopri di più\nScopri di più\nDifferenze benvenuti\nDifferenze benvenuti\nScopri di più\nCon oltre 150 professioni diverse, offriamo una varietà impressionante di opportunità di ingresso e sviluppo. I nostri dipendenti sono altrettanto diversi. Ecco perché ci impegniamo a garantire che tutti i dipendenti possano contribuire ai loro punti di forza e ai loro modi di pensare individuali.\nScopri di più\nScopri di più\nCarriera e sviluppo\nCarriera e sviluppo\nScopri di più\nPromuoviamo i nostri dipendenti in base alle loro esigenze e ambizioni personali. A questo scopo, forniamo una vasta gamma di offerte di formazione interdisciplinare e trasversale. Nella formazione esterna selezionata, partecipiamo finanziariamente e temporalmente.\nScopri di più\nScopri di più",
         "en": "Civil Engineer: in the structural civil engineering 60-100% | SBB\n-\n-\n-\n-\n-\n-\nMove Switzerland with us.\nCivil Engineer: in structural civil engineering\nBern / Work Smart, 01.01.2027 or by agreement, 60-100% (job sharing possible)\nApply now\n\n## You can look forward to that.\nThe SBB Infrastructure division is responsible for the construction, maintenance and operation of the infrastructure and strategic and technological asset management is ensured in the area of “network design, facilities and technology”. The \"Engineering Construction\" department is responsible for the SBB wide specialist guidance for tunnels, bridges, support structures, earthworks, noise barriers, drinking water supply systems and sewage disposal systems of artificial buildings. We develop techniques, specifications and methods for new construction, repair and monitoring of engineering structures.\nOur benefits such as child allowances, free 1. Class GA and discounted travel abroad, also for your family, can be found on our website under Benefits.\nInterested in learning more about our professions? We look forward to seeing you from 22 to 24. 2026 in our SBB Berufswelten Café at Zurich Central Station. All information can be found at sbb.ch/berufsweltencafe.\nYou can move that.\n- In this exciting function, you will take over the specialist tour of support structures with a focus on structural civil engineering for new construction and maintenance projects of the SBB infrastructure and support the specialist areas of tunnelling, geotechnical engineering and special civil engineering.\n- Under your responsibility, you will review project dossiers from variant studies to preparatory and construction projects for support structures and opencast mining tunnels with regard to the correct implementation of technical regulations and qualitative requirements. You will be in close contact with project managers and monitoring specialists.\n- You will take on expert services within SBB for the assessment of existing support structures and strategic and operational advice for the implementation of construction measures.\n- In your role, you will continue to develop SBB technical specifications and guidelines for new construction and maintenance measures and monitoring for support structures. You conduct regular consultations with the authority and actively participate in working groups for standard development.\n- You initiate and accompany research projects for innovations and further developments in structural civil engineering and for the monitoring of support structures.\nYou bring that with you.\n- Your own initiative, independence and sense of responsibility characterize your personality.\n- You can draw on professional leadership experience and communicate appropriately. Within the department you have a broad network and are ready to expand it internally and externally.\n- You have several years of practical experience in structural civil engineering.\n- You are familiar with the state of science and technology in structural engineering, and you bring expertise in railway operations and relevant regulations.\n- For this role, we require a completed degree in civil engineering (FH/Uni/ETH).\n- You communicate fluently in German (min. C1) and your Italian or French skills are good (min. B2).\n\n## Your reward and benefits.\nWe have a fair and progressive wage system and are actively committed to equal pay. For this reason, further and detailed information on the wage system can be viewed transparently at SBB. This job is in requirement level K, regional allowance level 1.\n\n## This is the starting point.\nThe fact that you want to move Switzerland with us is the greatest motivation for us. Therefore, we refrain from a letter of motivation at this point. If you still want to tell us your motivation, you still have the opportunity to do so in our application tool.\nMaking big is easier for you. This starts with your application.\n\n## That's how it goes.\n×\nAt the latest 10 working days after receiving the application, you will receive an initial feedback from us.\nFinal decision 6 weeks after receiving the application\nApplication\nFinal decision 6 weeks after receiving the application\nStill questions?\nThe application process\nSBB Recruitment Support\nPhone + 41 51 220 20 29\nrecruiting@sbb.ch\n#SimplyYou\nFAQ for Application\nFor the purpose\nJob ID 103727\nFederica Sandrone, Stv. Head of Civil Engineering\nPhone +41 79 751 62 75\nApplications by e-mail can unfortunately not be considered.\nFor this position, we do not accept dossiers from recruiters.\n\n## We offer that.\nBenefits\nBenefits\nFind out more\nWherever possible, we focus on flexible working hours and modern working time models. In addition, as an employer, we are also flexible when it comes to reconciling your professional life with your private life.\nFind out more\nFind out more\nDifferences welcome\nDifferences welcome\nFind out more\nWith over 150 different professions, we offer an impressive variety of entry and development opportunities. Our employees are just as diverse. That is why we are committed to ensuring that all employees can contribute their individual strengths and ways of thinking.\nFind out more\nFind out more\nCareer and development\nCareer and development\nFind out more\nWe promote our employees according to their personal needs and ambitions. For this purpose, we provide a wide range of interdisciplinary and cross-divisional training offers. In selected external training, we participate financially and temporally.\nFind out more\nFind out more",
+        "de": "Bauingenieur:in im konstruktiven Tiefbau 60-100% | SBB\n-\n-\n-\n-\n-\n-\nBeweg die Schweiz mit uns.\nBauingenieur:in im konstruktiven Tiefbau\nBern / Work Smart, 01.01.2027 oder nach Vereinbarung, 60-100% (Jobsharing möglich)\nJetzt bewerben\n\n## Darauf kannst du dich freuen.\nDie Division SBB Infrastruktur ist für den Bau, Unterhalt und Betrieb der Infrastruktur verantwortlich und im Bereich «Netzdesign, Anlagen und Technologie» wird das strategische und technologische Anlagenmanagement sichergestellt. Die Abteilung «Ingenieurbau» ist verantwortlich für die SBB weite Fachführung für Tunnel, Brücken, Stützbauwerke, Erdbauwerke, Lärmschutzwände, Trinkwasserversorgungsanlagen und Abwasserentsorgungsanlagen von Kunstbauten. Wir entwickeln Techniken, Vorgaben und Methoden für Neubau, Instandsetzung und Überwachung von Ingenieurbauwerken.\nUnsere Benefits wie Kinderzulagen, kostenloses 1. Klasse GA und vergünstigtes Reisen im Ausland, auch für deine Familie, findest du auf unserer Website unter Benefits .\nInteressiert, noch mehr über unsere Berufe zu erfahren? Wir freuen uns, dich vom 22. bis 24. Oktober 2026 in unserem SBB Berufswelten Café am Hauptbahnhof Zürich zu begrüssen. Alle Informationen findest du unter sbb.ch/berufsweltencafe .\nDas kannst du bewegen.\n- In dieser spannenden Funktion übernimmst du die Fachführung Stützbauwerke mit Schwerpunkt konstruktiver Tiefbau für Neubau und Erhaltungsprojekte der SBB-Infrastruktur und unterstützt die Fachbereiche Tunnelbau, Geotechnik und Spezialtiefbau.\n- Unter deiner Verantwortung prüfst du Projektdossiers von Variantenstudien bis zu Vor- und Bauprojekten für Stützbauwerke und Tagbautunnel in Bezug auf die korrekte Umsetzung von technischen Vorschriften und qualitativen Anforderungen. Dabei stehst du im engen Austausch mit ausführenden Projektleitenden und Spezialisten der Überwachung.\n- Du übernimmst Expertenleistungen innerhalb der SBB für die Beurteilung von bestehenden Stützbauwerken und strategische und operative Beratung für die Umsetzung von Baumassnahmen.\n- In deiner Rolle entwickelst du SBB-Fachvorgaben und Richtlinien für Neubau- und Erhaltungsmassahmen und der Überwachung für Stützbauwerke weiter. Du führst regelmässige Abstimmungen mit der Behörde durch und nimmst aktiv in Arbeitsgruppen für die Normenentwicklung teil.\n- Du initiierst und begleitest Forschungsprojekte für Innovationen und Weiterentwicklungen im konstruktiven Tiefbau und zur Überwachung von Stützbauwerken.\nDas bringst du mit.\n- Eigeninitiative, Selbstständigkeit und Verantwortungsbewusstsein zeichnen deine Persönlichkeit aus.\n- Du kannst auf fachliche Führungserfahrung zurückgreifen und kommunizierst adressatengerecht. Innerhalb des Fachbereichs verfügst du über ein breites Netzwerk und bist bereit, dieses intern und extern weiter auszubauen.\n- Du verfügst über mehrjährige Praxiserfahrung im konstruktiven Tiefbau.\n- Der Stand von Wissenschaft und Technik im konstruktiven Tiefbau ist dir bekannt und du bringst Fachwissen zum Eisenbahnbetrieb sowie den relevanten Vorschriften mit.\n- Für diese Rolle setzen wir ein abgeschlossenes Studium in Bauingenieurwesen (FH/Uni/ETH) voraus.\n- Du kommunizierst fliessend in Deutsch (mind. C1) und deine Italienisch oder Französisch Kenntnisse sind gut (mind. B2).\n\n## Dein Lohn und deine Benefits.\nWir haben ein faires und fortschrittliches Lohnsystem und setzen uns aktiv für Lohngleichheit ein. Deshalb sind weiterführende und detaillierte Informationen zum Lohnsystem bei der SBB transparent einsehbar. Diese Stelle befindet sich im Anforderungsniveau K, Regionalzulage Stufe 1. Mehr zu Lohn und Benefits .\n\n## Damit gelingt der Einstieg.\nDass du mit uns die Schweiz bewegen willst, ist für uns die grösste Motivation. Darum verzichten wir bei dieser Stelle auf ein Motivationsschreiben. Falls du uns deine Motivation dennoch mitteilen möchtest, hast du in unserem Bewerbungstool nach wie vor die Möglichkeit dazu.\nGrosses machen ist einfacher per du. Das beginnt bereits bei deiner Bewerbung.\n\n## So geht's weiter.\n×\nSpätestens 10 Arbeitstage nach Bewerbungseingang erhältst du eine erste Rückmeldung von uns.\nFinaler Entscheid 6 Wochen nach Bewerbungseingang\nBewerbung\nFinaler Entscheid 6 Wochen nach Bewerbungseingang\nNoch Fragen?\nZum Bewerbungsprozess\nSBB Recruiting Support\nTelefon + 41 51 220 20 29\nrecruiting@sbb.ch\n#einfachDu\nFAQ zur Bewerbung\nZur Stelle\nJob ID 103727\nFederica Sandrone, Stv. Leiterin Ingenieurbau\nTelefon +41 79 751 62 75\nBewerbungen per E-Mail können leider nicht berücksichtigt werden.\nFür diese Stelle nehmen wir keine Dossiers von Personalvermittlern entgegen.\n\n## Das bieten wir.\nBenefits\nBenefits\nMehr erfahren\nWo immer möglich setzen wir auf flexible Arbeitszeiten und moderne Arbeitszeitmodelle. Darüber hinaus sind wir als Arbeitgeberin auch flexibel, wenn es darum geht, dein Berufsleben mit deinem Privatleben in Einklang zu bringen.\nMehr erfahren\nMehr erfahren\nUnterschiede willkommen\nUnterschiede willkommen\nMehr erfahren\nMit über 150 verschiedenen Berufen bieten wir eine beeindruckende Vielfalt an Einstiegs- und Entwicklungsmöglichkeiten. Ebenso vielfältig sind unsere Mitarbeitenden. Darum engagieren wir uns dafür dass alle Mitarbeitenden ihre individuellen Stärken und Denkweisen einbringen können.\nMehr erfahren\nMehr erfahren\nKarriere und Entwicklung\nKarriere und Entwicklung\nMehr erfahren\nWir fördern unsere Mitarbeitenden entlang ihren persönlichen Bedürfnissen und Ambitionen. Dafür stellen wir ein breites Angebot an fach- und bereichsübergreifenden Weiterbildungsangeboten zur Verfügung. An ausgewählten externen Weiterbildungen, beteiligen wir uns finanziell und zeitlich.\nMehr erfahren\nMehr erfahren",
         "fr": "Ingénieur civil: dans le génie civil structurel 60-100%\n-\n-\n-\n-\n-\n-\nDéplacez la Suisse avec nous.\nIngénieur civil: en génie civil structurel\nBern / Work Smart, 01.01.2027 ou par accord, 60-100% (part de travail possible)\nAppliquer maintenant\n\n## Vous pouvez attendre avec impatience.\nLa division Infrastructures CFF est responsable de la construction, de l'entretien et de l'exploitation de l'infrastructure et la gestion stratégique et technologique des biens est assurée dans le domaine de la conception de réseau, des installations et de la technologie. Le département « Construction d'ingénierie » est responsable de l'orientation spécialisée à l'échelle des CFF pour les tunnels, les ponts, les structures de soutien, les travaux de terrassement, les barrières sonores, les systèmes d'approvisionnement en eau potable et les systèmes d'évacuation des eaux usées des bâtiments artificiels. Nous développons des techniques, des spécifications et des méthodes pour la construction, la réparation et la surveillance des structures d'ingénierie.\nNos prestations telles que les allocations pour enfants, gratuit 1. Classe GA et voyages à rabais à l'étranger, également pour votre famille, se trouvent sur notre site Web sous Prestations.\nVous souhaitez en savoir plus sur nos professions? Nous sommes impatients de vous voir de 22 à 24. 2026 dans notre CFF Berufswelten Café à Zurich Central Station. Toutes les informations sont disponibles sur sbb.ch/berufsweltencafe.\nTu peux bouger ça.\n- Dans cette fonction passionnante, vous prendrez en charge la visite spécialisée des structures d'appui avec un accent sur le génie civil structurel pour les nouveaux projets de construction et d'entretien de l'infrastructure CFF et soutenir les domaines spécialisés de tunnelling, de génie géotechnique et de génie civil spécial.\n- Sous votre responsabilité, vous examinerez les dossiers de projets allant d'études diverses à des projets préparatoires et de construction de structures d'appui et de tunnels miniers à ciel ouvert en ce qui concerne l'application correcte des règlements techniques et des exigences qualitatives. Vous serez en contact étroit avec les gestionnaires de projet et les spécialistes du suivi.\n- Vous bénéficierez de services d'experts au sein des CFF pour l'évaluation des structures de soutien existantes et des conseils stratégiques et opérationnels pour la mise en œuvre des mesures de construction.\n- Dans votre rôle, vous continuerez à élaborer des spécifications techniques et des lignes directrices pour les nouvelles mesures de construction et d'entretien et de surveillance des structures de soutien. Vous mènez des consultations régulières avec l'autorité et participez activement aux groupes de travail pour l'élaboration de normes.\n- Vous lancez et accompagnez des projets de recherche pour des innovations et d'autres développements en génie civil structurel et pour le suivi des structures d'appui.\nApporte ça avec toi.\n- Votre initiative, votre indépendance et votre sens des responsabilités caractérisent votre personnalité.\n- Vous pouvez tirer parti de l'expérience de leadership professionnel et communiquer adéquatement. Au sein du ministère, vous avez un vaste réseau et êtes prêt à l'étendre à l'interne et à l'externe.\n- Vous avez plusieurs années d'expérience pratique en génie civil structurel.\n- Vous connaissez l'état de la science et de la technologie en ingénierie structurelle, et vous apportez une expertise dans l'exploitation ferroviaire et les règlements pertinents.\n- Pour ce rôle, nous avons besoin d'un diplôme en génie civil (FH/Uni/ETH).\n- Vous communiquez couramment en allemand (min. C1) et vos compétences en italien ou en français sont bonnes (min. B2).\n\n## Votre récompense et vos avantages.\nNous avons un système salarial équitable et progressif et nous nous engageons activement à l'égalité des salaires. Pour cette raison, des informations plus détaillées et plus détaillées sur le système des salaires peuvent être vues de manière transparente au CFF. Ce poste se situe au niveau des besoins K, niveau des indemnités régionales 1.\n\n## C'est le point de départ.\nLe fait que vous vouliez déplacer la Suisse avec nous est la plus grande motivation pour nous. Par conséquent, nous nous abstiendrons d'une lettre de motivation à ce stade. Si vous voulez encore nous dire votre motivation, vous avez toujours la possibilité de le faire dans notre outil d'application.\nFaire grand est plus facile pour vous. Cela commence par votre demande.\n\n## C'est comme ça.\n×\nAu plus tard 10 jours ouvrables après la réception de la demande, vous recevrez une première rétroaction de notre part.\nDécision finale 6 semaines après réception de la demande\nDemande\nDécision finale 6 semaines après réception de la demande\nToujours des questions ?\nLe processus de demande\nSoutien au recrutement des CFF\nTéléphone + 41 51 220 20 29\nrecrutement@sbb.ch\nJuste toi\nFAQ pour la demande\nAux fins\nNuméro d'emploi 103727\nFederica Sandrone, chef du génie civil\nTéléphone +41 79 751 62 75\nLes demandes par courrier électronique ne peuvent malheureusement pas être examinées.\nPour ce poste, nous n'acceptons pas les dossiers des recruteurs.\n\n## Nous offrons ça.\nAvantages\nAvantages\nEn savoir plus\nDans la mesure du possible, nous nous concentrons sur les horaires flexibles et les modèles modernes de temps de travail. En outre, en tant qu'employeur, nous sommes également flexibles pour concilier votre vie professionnelle avec votre vie privée.\nEn savoir plus\nEn savoir plus\nDifférences bienvenues\nDifférences bienvenues\nEn savoir plus\nAvec plus de 150 professions différentes, nous offrons une variété impressionnante de possibilités d'entrée et de développement. Nos employés sont tout aussi divers. C'est pourquoi nous nous engageons à faire en sorte que tous les employés puissent apporter leurs forces et leurs façons de penser.\nEn savoir plus\nEn savoir plus\nCarrière et développement\nCarrière et développement\nEn savoir plus\nNous faisons la promotion de nos employés en fonction de leurs besoins personnels et de leurs ambitions. À cette fin, nous proposons un large éventail d'offres de formation interdisciplinaires et interdivisionnelles. Dans la formation externe choisie, nous participons financièrement et temporellement.\nEn savoir plus\nEn savoir plus"
       },
       "requirements": [
@@ -6235,33 +6312,25 @@
       "requirementsByLocale": {
         "it": [
           "Eigeninitiative, Selbstständigkeit und Verantwortungsbewusstsein zeichnen deine Persönlichkeit aus.",
-          "Du kannst auf fachliche Führungserfahrung zurückgreifen und kommunizierst adressatengerecht. Innerhalb des Fachbereichs verfügst du über ein breites Netzwerk und bist bereit, dieses intern und extern weiter auszubauen.",
           "Du verfügst über mehrjährige Praxiserfahrung im konstruktiven Tiefbau.",
-          "Der Stand von Wissenschaft und Technik im konstruktiven Tiefbau ist dir bekannt und du bringst Fachwissen zum Eisenbahnbetrieb sowie den relevanten Vorschriften mit.",
           "Für diese Rolle setzen wir ein abgeschlossenes Studium in Bauingenieurwesen (FH/Uni/ETH) voraus.",
           "Du kommunizierst fliessend in Deutsch (mind. C1) und deine Italienisch oder Französisch Kenntnisse sind gut (mind. B2)."
         ],
         "en": [
           "Eigeninitiative, Selbstständigkeit und Verantwortungsbewusstsein zeichnen deine Persönlichkeit aus.",
-          "Du kannst auf fachliche Führungserfahrung zurückgreifen und kommunizierst adressatengerecht. Innerhalb des Fachbereichs verfügst du über ein breites Netzwerk und bist bereit, dieses intern und extern weiter auszubauen.",
           "Du verfügst über mehrjährige Praxiserfahrung im konstruktiven Tiefbau.",
-          "Der Stand von Wissenschaft und Technik im konstruktiven Tiefbau ist dir bekannt und du bringst Fachwissen zum Eisenbahnbetrieb sowie den relevanten Vorschriften mit.",
           "Für diese Rolle setzen wir ein abgeschlossenes Studium in Bauingenieurwesen (FH/Uni/ETH) voraus.",
           "Du kommunizierst fliessend in Deutsch (mind. C1) und deine Italienisch oder Französisch Kenntnisse sind gut (mind. B2)."
         ],
         "de": [
           "Eigeninitiative, Selbstständigkeit und Verantwortungsbewusstsein zeichnen deine Persönlichkeit aus.",
-          "Du kannst auf fachliche Führungserfahrung zurückgreifen und kommunizierst adressatengerecht. Innerhalb des Fachbereichs verfügst du über ein breites Netzwerk und bist bereit, dieses intern und extern weiter auszubauen.",
           "Du verfügst über mehrjährige Praxiserfahrung im konstruktiven Tiefbau.",
-          "Der Stand von Wissenschaft und Technik im konstruktiven Tiefbau ist dir bekannt und du bringst Fachwissen zum Eisenbahnbetrieb sowie den relevanten Vorschriften mit.",
           "Für diese Rolle setzen wir ein abgeschlossenes Studium in Bauingenieurwesen (FH/Uni/ETH) voraus.",
           "Du kommunizierst fliessend in Deutsch (mind. C1) und deine Italienisch oder Französisch Kenntnisse sind gut (mind. B2)."
         ],
         "fr": [
           "Eigeninitiative, Selbstständigkeit und Verantwortungsbewusstsein zeichnen deine Persönlichkeit aus.",
-          "Du kannst auf fachliche Führungserfahrung zurückgreifen und kommunizierst adressatengerecht. Innerhalb des Fachbereichs verfügst du über ein breites Netzwerk und bist bereit, dieses intern und extern weiter auszubauen.",
           "Du verfügst über mehrjährige Praxiserfahrung im konstruktiven Tiefbau.",
-          "Der Stand von Wissenschaft und Technik im konstruktiven Tiefbau ist dir bekannt und du bringst Fachwissen zum Eisenbahnbetrieb sowie den relevanten Vorschriften mit.",
           "Für diese Rolle setzen wir ein abgeschlossenes Studium in Bauingenieurwesen (FH/Uni/ETH) voraus.",
           "Du kommunizierst fliessend in Deutsch (mind. C1) und deine Italienisch oder Französisch Kenntnisse sind gut (mind. B2)."
         ]
@@ -6275,19 +6344,22 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-09-15",
+      "datePosted": "2026-09-15T22:00:00Z",
+      "postedDate": "2026-09-15T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/bauingenieur-in-im-konstruktiven-tiefbau/a6c8203e-14a8-4b9a-aa69-7520f9a025a7",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:24:00.200Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-04T09:21:31.991Z",
+      "previousSlugs": [
+        "bauingenieur-in-im-konstruktiven-tiefbau-ffs-officine-ferrovie-federali-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "bauingenieur-in-im-konstruktiven-tiefbau-ffs-officine-ferrovie-federali-bern"
         ]
       },
-      "previousSlugs": [
-        "bauingenieur-in-im-konstruktiven-tiefbau-ffs-officine-ferrovie-federali-bern"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T21:24:00.200Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -6303,8 +6375,7 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/bauingenieur-in-im-konstruktiven-tiefbau/a6c8203e-14a8-4b9a-aa69-7520f9a025a7",
-      "firstSeenAt": "2026-10-03T21:24:00.200Z"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/bauingenieur-in-im-konstruktiven-tiefbau/a6c8203e-14a8-4b9a-aa69-7520f9a025a7"
     },
     {
       "id": "sbb-1444e8f8d837",
@@ -6398,7 +6469,8 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/ingenieure-genie-civil-ouvrages-geotechnique/118d0bc7-120a-495b-a9c3-179f775b782f"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/ingenieure-genie-civil-ouvrages-geotechnique/118d0bc7-120a-495b-a9c3-179f775b782f",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-2ae65a3d5752",
@@ -6443,10 +6515,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "fr",
-      "postedDate": "2026-09-15",
+      "datePosted": "2026-09-15T09:59:08Z",
+      "postedDate": "2026-09-15T09:59:08Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/reconversion-professionnelle-en-tant-que-pilote-de-locomotive-voyageurs/c09b669f-4c24-46c2-9c20-031b8b3b9d13",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:24:54.134Z",
+      "crawledAt": "2026-10-04T09:21:35.490Z",
       "previousSlugs": [
         "reconversion-professionnelle-en-tant-que-pilote-de-locomotive-voyageurs-ffs-officine-ferrovie-federali-lausanne"
       ],
@@ -6557,7 +6631,8 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/gruppenchef-in-einsatzleitzentrale-transportpolizei/10db6974-06d6-42d5-a6cb-3cca0f1c4d18"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/gruppenchef-in-einsatzleitzentrale-transportpolizei/10db6974-06d6-42d5-a6cb-3cca0f1c4d18",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-b320a3ddcb81",
@@ -6660,7 +6735,8 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in-gueterverkehr/296036f8-36f1-4f6c-9582-4ce5631b7223"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in-gueterverkehr/296036f8-36f1-4f6c-9582-4ce5631b7223",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-3ee58ad58812",
@@ -6719,10 +6795,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "fr",
-      "postedDate": "2026-09-14",
+      "datePosted": "2026-09-14T12:35:09Z",
+      "postedDate": "2026-09-14T12:35:09Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/specialiste-installations-d-evacuation-des-eaux-et-gestionnaire-de-voies-de-raccordement-h-f-d/b53a5c9b-a21b-4334-b11e-7291422b5b7f",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:01.127Z",
+      "crawledAt": "2026-10-04T09:21:42.497Z",
       "previousSlugs": [
         "specialiste-installations-d-evacuation-des-eaux-et-gestionnaire-de-voies-de-raccordement-h-f-d-ffs-officine-ferrovie-federali-renens-vd"
       ],
@@ -6814,10 +6892,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "fr",
-      "postedDate": "2026-09-14",
+      "datePosted": "2026-09-14T12:29:38Z",
+      "postedDate": "2026-09-14T12:29:38Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/technicienne-lignes-de-contact-cheffe-monteureuse/64df404d-5dba-47ed-be0e-f27bdeac168c",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:06.133Z",
+      "crawledAt": "2026-10-04T09:21:47.489Z",
       "previousSlugs": [
         "technicien-ne-lignes-de-contact-chef-fe-monteur-euse-ffs-officine-ferrovie-federali-bussigny"
       ],
@@ -6900,10 +6980,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-09-13",
+      "datePosted": "2026-09-13T22:00:00Z",
+      "postedDate": "2026-09-13T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/automobilmechatroniker-in-fuer-die-zugdiagnostik/fabed63d-8e75-4d44-ac2c-166dcceb9284",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:23:59.157Z",
+      "crawledAt": "2026-10-04T09:21:31.503Z",
       "previousSlugs": [
         "automobilmechatroniker-in-fur-die-zugdiagnostik-ffs-officine-ferrovie-federali-basel"
       ],
@@ -7003,10 +7085,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "fr",
-      "postedDate": "2026-09-13",
+      "datePosted": "2026-09-13T22:00:00Z",
+      "postedDate": "2026-09-13T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/responsable-de-mandats-entretien-voie-ferree-h-f-d/cccde52e-8a79-4b74-91cd-8797d5b3d253",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:24:57.121Z",
+      "crawledAt": "2026-10-04T09:21:38.476Z",
       "previousSlugs": [
         "responsable-de-mandats-entretien-voie-ferree-h-f-d-ffs-officine-ferrovie-federali-lausanne"
       ],
@@ -7107,7 +7191,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/oberbauleiter-in-bern-guemligen-sued-entflechtung/cde58de0-262a-484b-ae5b-85c0b9a2f7bd"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/oberbauleiter-in-bern-guemligen-sued-entflechtung/cde58de0-262a-484b-ae5b-85c0b9a2f7bd",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-2a4e9415f521",
@@ -7206,7 +7291,8 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/berufsbildner-in-mechanik/18300b5a-193d-4464-9f2b-e1d1df012650"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/berufsbildner-in-mechanik/18300b5a-193d-4464-9f2b-e1d1df012650",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-a69d815e2739",
@@ -7301,7 +7387,8 @@
       },
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/elektriker-in-automatiker-in-fuer-den-einstieg-in-den-bereich-bahnsicherungsanlagen/f15fad0c-915f-46fc-bbd6-902a37c3476d"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/elektriker-in-automatiker-in-fuer-den-einstieg-in-den-bereich-bahnsicherungsanlagen/f15fad0c-915f-46fc-bbd6-902a37c3476d",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-1de37e2a5ecf",
@@ -7388,7 +7475,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/fachfuehrung-ressourcenplaner-in/e2648720-41d5-4f48-9fde-a6aefebf180d"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/fachfuehrung-ressourcenplaner-in/e2648720-41d5-4f48-9fde-a6aefebf180d",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-47170922d8d6",
@@ -7489,7 +7577,8 @@
       },
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/landschaftsgaertner-in-maurer-in-oder-strassenbauer-in-fuer-den-bereich-kabel-tiefbau/b17fb3d4-984c-4768-904a-cb1ae637a75f"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/landschaftsgaertner-in-maurer-in-oder-strassenbauer-in-fuer-den-bereich-kabel-tiefbau/b17fb3d4-984c-4768-904a-cb1ae637a75f",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-5406f757d1db",
@@ -7589,7 +7678,8 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/product-architect-m-w-d/f7a6a253-3daf-405f-bc16-7f157e15ae3d"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/product-architect-m-w-d/f7a6a253-3daf-405f-bc16-7f157e15ae3d",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-0a28d98ddffe",
@@ -7697,7 +7787,8 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/logistiker-in/a9604643-d047-4b6f-ac47-3bc3877c3363"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/logistiker-in/a9604643-d047-4b6f-ac47-3bc3877c3363",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-8645733333d3",
@@ -7787,7 +7878,8 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/planer-in-gleisbaumaschinen/7a8f7c03-c19a-4c28-b66e-060da6585a9a"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/planer-in-gleisbaumaschinen/7a8f7c03-c19a-4c28-b66e-060da6585a9a",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-0f71f5870b72",
@@ -7873,7 +7965,8 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinsteiger-in-rangierspezialist-in/e53a1bae-13b2-49df-a064-e1df36c3f1c6"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinsteiger-in-rangierspezialist-in/e53a1bae-13b2-49df-a064-e1df36c3f1c6",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-223e97e1ac38",
@@ -7919,10 +8012,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-09-08",
+      "datePosted": "2026-09-08T22:00:00Z",
+      "postedDate": "2026-09-08T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/sap-consultant-treasury-risk-management-m-w-d/8b611532-9c3f-48be-9f91-8bba0485304e",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:24:58.634Z",
+      "crawledAt": "2026-10-04T09:21:40.001Z",
       "previousSlugs": [
         "sap-consultant-treasury-e-risk-management-m-w-d-ffs-officine-ferrovie-federali-bern"
       ],
@@ -7986,10 +8081,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-09-08",
+      "datePosted": "2026-09-08T11:08:11Z",
+      "postedDate": "2026-09-08T11:08:11Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/triebfahrzeugfuehrer-in-kategorie-b-oder-b100-ch/7c46ae35-5b7f-4a99-b11a-123520b47517",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:13.621Z",
+      "crawledAt": "2026-10-04T09:21:53.565Z",
       "previousSlugs": [
         "triebfahrzeugfuhrer-in-kategorie-b-oder-b100-ch-ffs-officine-ferrovie-federali-muttenz"
       ],
@@ -8053,10 +8150,10 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-09-08",
+      "postedDate": "2026-09-08T11:34:12Z",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/zugvorbereiter-in-level-b2/cb964caa-6aab-4184-8357-9079f9156aca",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:19.103Z",
+      "crawledAt": "2026-10-04T09:21:58.951Z",
       "previousSlugs": [
         "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz",
         "train-preparer-level-b2-ffs-officine-ferrovie-federali-muttenz",
@@ -8093,7 +8190,9 @@
       },
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/zugvorbereiter-in-level-b2/cb964caa-6aab-4184-8357-9079f9156aca"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/zugvorbereiter-in-level-b2/cb964caa-6aab-4184-8357-9079f9156aca",
+      "datePosted": "2026-09-08T11:34:12Z",
+      "postingDateSource": "reported"
     },
     {
       "id": "sbb-01dd7ca073dc",
@@ -8167,7 +8266,8 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/assistante-clientele-en-charge-du-releve-des-frequences-reconversion-professionnelle/5bc680c3-3510-47c7-91df-837a6c7524e2"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/assistante-clientele-en-charge-du-releve-des-frequences-reconversion-professionnelle/5bc680c3-3510-47c7-91df-837a6c7524e2",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-0dbb39775b83",
@@ -8258,7 +8358,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/lokfuehrer-in-kat-b100-fahrleitungszugmaschine/1049e8bc-5bd7-4938-b951-5a2a87f973c3"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/lokfuehrer-in-kat-b100-fahrleitungszugmaschine/1049e8bc-5bd7-4938-b951-5a2a87f973c3",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-083cce8026a2",
@@ -8378,7 +8479,8 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/polymechaniker-in/db4971f1-93fc-4bfd-9d0f-9df46068d513"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/polymechaniker-in/db4971f1-93fc-4bfd-9d0f-9df46068d513",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-a58fd53e2c23",
@@ -8451,7 +8553,8 @@
       },
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-06-2027/e6112bc2-550c-43f4-8e28-335a2af111c6"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-06-2027/e6112bc2-550c-43f4-8e28-335a2af111c6",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-46e987d8ad76",
@@ -8568,7 +8671,8 @@
       "addressRegion": "NW",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/betriebskoordinator-in/885bbf82-4848-4456-9dda-7ad4ec6e7efd",
-      "firstSeenAt": "2026-10-03T21:24:02.601Z"
+      "firstSeenAt": "2026-10-03T21:24:02.601Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-8e72f2e32f79",
@@ -8673,7 +8777,8 @@
       },
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-bauzug-mit-handwerklicher-erfahrung/e78ea635-e2b0-4920-b793-9c90137130c3"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-bauzug-mit-handwerklicher-erfahrung/e78ea635-e2b0-4920-b793-9c90137130c3",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-f3eee41ab471",
@@ -8743,10 +8848,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-09-06",
+      "datePosted": "2026-09-06T22:00:00Z",
+      "postedDate": "2026-09-06T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/stellwerkangestellte-r-olten/1358a492-a8fc-41c5-be4a-3c8953a9a2e3",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:03.133Z",
+      "crawledAt": "2026-10-04T09:21:44.486Z",
       "previousSlugs": [
         "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
         "impiegata-r-olten-ffs-officine-ferrovie-federali-olten",
@@ -8771,7 +8878,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "team-leader-cleaning-ffs-officine-ferrovie-federali-olten",
           "teamleiter-in-cleaning-ffs-officine-ferrovie-federali-olten",
           "nettoyage-des-chefs-d-equipe-ffs-officine-ferrovie-federali-olten",
           "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
@@ -8790,7 +8896,8 @@
           "construction-purchasing-manager-m-f-d-ffs-officine-ferrovie-federali-olten",
           "baueinkaufsleiter-m-w-d-ffs-officine-ferrovie-federali-olten",
           "responsable-des-achats-de-la-construction-h-f-d-ffs-officine-ferrovie-federali-olten",
-          "pulizia-del-capo-squadra-ffs-officine-ferrovie-federali-olten"
+          "pulizia-del-capo-squadra-ffs-officine-ferrovie-federali-olten",
+          "team-leader-cleaning-ffs-officine-ferrovie-federali-olten"
         ],
         "en": [
           "interlocking-clerk-olten-ffs-officine-ferrovie-federali-olten",
@@ -8893,7 +9000,8 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/fachexperte-in-lichtraumprofil/330e4c4f-bcd1-4d87-a10b-9cfc1919bd45"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/fachexperte-in-lichtraumprofil/330e4c4f-bcd1-4d87-a10b-9cfc1919bd45",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-7f592ffc0bb0",
@@ -9000,7 +9108,8 @@
       },
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier-luzern/c3f662be-15e0-4a72-ac3c-985f735a6058"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier-luzern/c3f662be-15e0-4a72-ac3c-985f735a6058",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-550df03e0915",
@@ -9103,7 +9212,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/marktmanager-in/6729c0eb-61e4-4ed7-b0b8-f9ebe3e47b26"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/marktmanager-in/6729c0eb-61e4-4ed7-b0b8-f9ebe3e47b26",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-f9612802a131",
@@ -9190,7 +9300,8 @@
       },
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-fuer-frequenzerfassung/ba21b12a-e597-4f3d-8f0d-692817ed85dd"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-fuer-frequenzerfassung/ba21b12a-e597-4f3d-8f0d-692817ed85dd",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-0dea9c451688",
@@ -9276,7 +9387,8 @@
       },
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangiermitarbeiter-in/c56e8659-03c9-45a7-93c5-47bbe7db154e"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangiermitarbeiter-in/c56e8659-03c9-45a7-93c5-47bbe7db154e",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-0170b841dcc7",
@@ -9366,7 +9478,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/monteur-in-fahrleitungszugmaschine-fzm/0afed118-c50d-4613-ae0d-a0e0f2a20798"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/monteur-in-fahrleitungszugmaschine-fzm/0afed118-c50d-4613-ae0d-a0e0f2a20798",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-39b1a11e9670",
@@ -9428,10 +9541,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-08-26",
+      "datePosted": "2026-08-26T09:02:50Z",
+      "postedDate": "2026-08-26T09:02:50Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/01d41364-2b82-48cd-9f43-2c5b234d8f07",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:24:45.149Z",
+      "crawledAt": "2026-10-04T09:21:33.978Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-rapperswil-sg"
       ],
@@ -9545,7 +9660,8 @@
       },
       "addressRegion": "JU",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/mecanicienne-installations-de-securite-ferroviaires/ec9cb54f-08ec-457a-8644-53e513f72c36"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/mecanicienne-installations-de-securite-ferroviaires/ec9cb54f-08ec-457a-8644-53e513f72c36",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-94a9faee26b1",
@@ -9604,10 +9720,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-08-23",
+      "datePosted": "2026-08-23T22:00:00Z",
+      "postedDate": "2026-08-23T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-fuer-frequenzerfassung/93b0aee8-2094-4a8c-bc27-6b819c420837",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:24:37.137Z",
+      "crawledAt": "2026-10-04T09:21:33.493Z",
       "previousSlugs": [
         "quereinstieg-kundenbegleiter-in-fur-frequenzerfassung-ffs-officine-ferrovie-federali-bern",
         "accesso-incrociato-assistente-cliente-per-il-rilevamento-delle-frequenze-03-27-ffs-officine-ferrovie-federali-zurich",
@@ -9762,7 +9880,8 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/berufsbildner-in-gleisbau/4dafde96-0596-4220-8ca8-4ddc2abba070",
-      "firstSeenAt": "2026-10-03T21:24:01.100Z"
+      "firstSeenAt": "2026-10-03T21:24:01.100Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-9681231a716d",
@@ -9884,7 +10003,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/experts-en-examen-specialiste-du-commerce-de-detail-cfc-dans-le-secteur-des-transports-publics/1413f68b-f9ed-4f48-903c-78be59177e95"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/experts-en-examen-specialiste-du-commerce-de-detail-cfc-dans-le-secteur-des-transports-publics/1413f68b-f9ed-4f48-903c-78be59177e95",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-feef1577a361",
@@ -9987,7 +10107,8 @@
       },
       "addressRegion": "SZ",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/monteur-in-fahrleitung-b100-und-triebfahrzeugfuehrer-in/e370c8ad-1ed8-4f15-9560-280ae8f25242"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/monteur-in-fahrleitung-b100-und-triebfahrzeugfuehrer-in/e370c8ad-1ed8-4f15-9560-280ae8f25242",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-7f4002416d8f",
@@ -10096,7 +10217,8 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/4169895d-9700-489f-bbc6-b9f1b779f7c6"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/4169895d-9700-489f-bbc6-b9f1b779f7c6",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-97eb8124abe8",
@@ -10158,10 +10280,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-08-16",
+      "datePosted": "2026-08-16T22:00:00Z",
+      "postedDate": "2026-08-16T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/spezialmonteur-in-fahrleitung/5eb88de0-3445-4dc0-b43e-1bb781c3b264",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:01.648Z",
+      "crawledAt": "2026-10-04T09:21:42.979Z",
       "previousSlugs": [
         "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau"
       ],
@@ -10290,7 +10414,8 @@
       },
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangiermitarbeiter-in/84e60310-488b-4b90-ac05-c5750f07bcef"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangiermitarbeiter-in/84e60310-488b-4b90-ac05-c5750f07bcef",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-d9ebe7926b01",
@@ -10379,7 +10504,8 @@
       },
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/4e8754c7-1122-4cc0-b301-dcbb260bbcbd"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/4e8754c7-1122-4cc0-b301-dcbb260bbcbd",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-387d1f94c918",
@@ -10469,7 +10595,8 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/c27dd8b2-a9ee-494c-8c6c-d81531879e6f"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/c27dd8b2-a9ee-494c-8c6c-d81531879e6f",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-699572e422b7",
@@ -10560,7 +10687,8 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-bauzug-mit-handwerklicher-erfahrung/181b575a-0f66-4ee6-a4c0-f78ee17305db"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-bauzug-mit-handwerklicher-erfahrung/181b575a-0f66-4ee6-a4c0-f78ee17305db",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-fb9d13c03800",
@@ -10646,7 +10774,8 @@
       },
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr/52cb6107-1a9a-4f9e-aa50-ed406bfe2895"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr/52cb6107-1a9a-4f9e-aa50-ed406bfe2895",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-81bd299eec02",
@@ -10740,7 +10869,8 @@
       },
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/elektroinstallateur-in-efz/666a464a-2aac-4c6d-935a-a3f0cea4383e"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/elektroinstallateur-in-efz/666a464a-2aac-4c6d-935a-a3f0cea4383e",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-66644643c79a",
@@ -10829,7 +10959,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/chefmonteur-in-fahrleitungszugmaschine-fzm/d33b6b90-7077-4ea2-812a-258e619e0852"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/chefmonteur-in-fahrleitungszugmaschine-fzm/d33b6b90-7077-4ea2-812a-258e619e0852",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-133b1d32511a",
@@ -10930,7 +11061,8 @@
       },
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/landschaftsgaertner-in-maurer-in-oder-strassenbauer-in-fuer-den-bereich-kabel-tiefbau/835be5a2-bcc2-4afc-ad95-1d36486d9307"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/landschaftsgaertner-in-maurer-in-oder-strassenbauer-in-fuer-den-bereich-kabel-tiefbau/835be5a2-bcc2-4afc-ad95-1d36486d9307",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-88e85cd4573d",
@@ -11043,7 +11175,8 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/berufsbildner-in-gleisbau/d5f26978-0802-4886-a588-575942b85f55",
-      "firstSeenAt": "2026-10-03T21:24:01.604Z"
+      "firstSeenAt": "2026-10-03T21:24:01.604Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-063add1eddb2",
@@ -11143,7 +11276,8 @@
       },
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/elektriker-in-automatiker-in-fuer-den-einstieg-in-den-bereich-bahnsicherungsanlagen/1535df5b-6256-4f29-8aa4-e70925b6ca64"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/elektriker-in-automatiker-in-fuer-den-einstieg-in-den-bereich-bahnsicherungsanlagen/1535df5b-6256-4f29-8aa4-e70925b6ca64",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-6336efb99beb",
@@ -11240,7 +11374,8 @@
       },
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/fahrleitungsmonteur-in-schlosser-in-mechaniker-in-netzelektriker-in-elektroinstallateur-in/d26025bf-b71a-449c-b74a-f5a49942d33f"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/fahrleitungsmonteur-in-schlosser-in-mechaniker-in-netzelektriker-in-elektroinstallateur-in/d26025bf-b71a-449c-b74a-f5a49942d33f",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-7ef97f9a4b99",
@@ -11284,10 +11419,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-07-14",
+      "datePosted": "2026-07-14T22:00:00Z",
+      "postedDate": "2026-07-14T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-sicherungsanlagen-aussen-produktionsmechaniker-in-polymechaniker-in-schlosser-in/1b722e38-412d-48f8-a190-98bdda7c6c62",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:09.140Z",
+      "crawledAt": "2026-10-04T09:21:48.993Z",
       "previousSlugs": [
         "techniker-in-sicherungsanlagen-aussen-produktionsmechaniker-in-polymechaniker-in-schlosser-in-ffs-officine-ferrovie-federali-deutschschweiz",
         "tecnico-per-sistemi-di-sicurezza-esterno-meccanico-di-produzione-polimeccanico-fabbro-ffs-officine-ferrovie-federali-deutschschweiz",
@@ -11410,7 +11547,8 @@
       },
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-03-2027/dd759881-368e-4e1f-8490-92e1f377fa1d"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-03-2027/dd759881-368e-4e1f-8490-92e1f377fa1d",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-543f18e1f009",
@@ -11513,7 +11651,8 @@
       },
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/9aba6330-e7ba-47a7-9d5b-fd6f3577aa7b"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/9aba6330-e7ba-47a7-9d5b-fd6f3577aa7b",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-c0dae318f179",
@@ -11603,7 +11742,8 @@
       },
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/6c7f6e35-c7cd-48d4-89fe-153b56d40827"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/6c7f6e35-c7cd-48d4-89fe-153b56d40827",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-40b9424df0cc",
@@ -11707,7 +11847,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-cb132e80c76e",
@@ -11807,7 +11948,8 @@
       },
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenberater-in-im-contact-center/79c05fea-7983-439e-be67-c54fa18f9313"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenberater-in-im-contact-center/79c05fea-7983-439e-be67-c54fa18f9313",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-53ea38981009",
@@ -11910,7 +12052,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/berufsbildner-in-gleisbau-vorarbeiter-in-bern/1c6d635e-bb00-4959-98bf-e6453ab409cf",
-      "firstSeenAt": "2026-10-03T21:24:00.605Z"
+      "firstSeenAt": "2026-10-03T21:24:00.605Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-28d8067990cd",
@@ -11993,7 +12136,8 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-ziegelbruecke-12-2026/ccd01a0f-250a-477d-a0c6-32ccf0164df3"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-ziegelbruecke-12-2026/ccd01a0f-250a-477d-a0c6-32ccf0164df3",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-61287b0752b6",
@@ -12052,10 +12196,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-06-14",
+      "datePosted": "2026-06-14T22:00:00Z",
+      "postedDate": "2026-06-14T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/fc9d29a1-5c21-4b43-9570-01f459f561a3",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:24:53.627Z",
+      "crawledAt": "2026-10-04T09:21:34.993Z",
       "previousSlugs": [
         "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal",
         "controllo-del-traffico-ferroviario-a-ingresso-laterale-2026-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal",
@@ -12199,16 +12345,17 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierlokfuehrer-in-rangierleiter-in-kat-a40/7db3ce4e-0d41-40b9-a121-4596055d6949"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierlokfuehrer-in-rangierleiter-in-kat-a40/7db3ce4e-0d41-40b9-a121-4596055d6949",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-ab9281add8ea",
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -12277,6 +12424,8 @@
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf",
         "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
+        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
         "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
@@ -12286,10 +12435,12 @@
           "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "en": [
+          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
           "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
+          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
           "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },
@@ -12309,7 +12460,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/mitarbeiter-in-weichenmontage/03fd2c08-9f3b-4fbc-8202-946b15839c45"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/mitarbeiter-in-weichenmontage/03fd2c08-9f3b-4fbc-8202-946b15839c45",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-0eba23290396",
@@ -12400,7 +12552,8 @@
       },
       "addressRegion": "UR",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-bauzug-mit-handwerklicher-erfahrung/564c40cb-78f9-4d81-9a54-d73b2137d3f7"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-bauzug-mit-handwerklicher-erfahrung/564c40cb-78f9-4d81-9a54-d73b2137d3f7",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-4ec840bd3f88",
@@ -12462,10 +12615,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-06-02",
+      "datePosted": "2026-06-02T22:00:00Z",
+      "postedDate": "2026-06-02T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in/6014e2c8-debd-4f8e-ac2a-5c08adaa1440",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:02.129Z",
+      "crawledAt": "2026-10-04T09:21:43.493Z",
       "previousSlugs": [
         "spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in-ffs-officine-ferrovie-federali-deutschschweiz"
       ],
@@ -12549,10 +12704,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "datePosted": "2026-05-19T22:00:00Z",
+      "postedDate": "2026-05-19T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/spezialmonteur-in-kabel-tiefbau-landschaftsgaertner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in/3a885cd7-35b6-4282-bab1-ec9c26ce4f6a",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:02.652Z",
+      "crawledAt": "2026-10-04T09:21:43.971Z",
       "previousSlugs": [
         "spezialmonteur-in-kabel-tiefbau-landschaftsgartner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-deutschschweiz"
       ],
@@ -12663,7 +12820,8 @@
       },
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-03-2027/23f571c2-4c91-4f72-aca1-6e99263e13e9"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-03-2027/23f571c2-4c91-4f72-aca1-6e99263e13e9",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-e4d5d60976a2",
@@ -12753,7 +12911,8 @@
       },
       "addressRegion": "ZG",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-03-2027/40c52ee8-c98e-4ccc-9bb3-ee20f4758239"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-03-2027/40c52ee8-c98e-4ccc-9bb3-ee20f4758239",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-2e44c4c57efd",
@@ -12825,7 +12984,8 @@
       },
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinsteiger-in-in-die-welt-der-mechanisch-handwerklichen-berufe/ee3d5e25-8635-4a78-812d-5975c8baaa3f"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinsteiger-in-in-die-welt-der-mechanisch-handwerklichen-berufe/ee3d5e25-8635-4a78-812d-5975c8baaa3f",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-8adf511b2383",
@@ -12911,7 +13071,8 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/fe67b68e-9147-4ed6-bb72-e6b2998db7de"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/fe67b68e-9147-4ed6-bb72-e6b2998db7de",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-6b092c7bf6b8",
@@ -13001,7 +13162,8 @@
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/chefmonteur-in-fahrleitung/849e9868-857b-4a00-ba41-36d11a055fef",
-      "firstSeenAt": "2026-10-03T21:24:05.145Z"
+      "firstSeenAt": "2026-10-03T21:24:05.145Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-ec3be44a2864",
@@ -13095,7 +13257,8 @@
       },
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/polier-in-gleisbau/2a01ef4d-f337-4400-8c48-426ba7481cb4"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/polier-in-gleisbau/2a01ef4d-f337-4400-8c48-426ba7481cb4",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-63dfd05514f4",
@@ -13160,10 +13323,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-04-14",
+      "datePosted": "2026-04-14T22:00:00Z",
+      "postedDate": "2026-04-14T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/vorarbeiter-in-gleisbau/02a24c36-7d33-4c07-87c6-2e0f5c241bd5",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:16.627Z",
+      "crawledAt": "2026-10-04T09:21:56.494Z",
       "previousSlugs": [
         "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-deutschschweiz"
       ],
@@ -13279,7 +13444,8 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-sicherheitswaerter-in-sicherheitschef/ed58eb66-2df5-4a0b-845c-aae5d6da439f"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-sicherheitswaerter-in-sicherheitschef/ed58eb66-2df5-4a0b-845c-aae5d6da439f",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-95604d8eb223",
@@ -13323,10 +13489,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2026-03-29",
+      "datePosted": "2026-03-29T22:00:00Z",
+      "postedDate": "2026-03-29T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-klimaanlagen-der-sbb-flotte/051e1df0-66b2-457c-a1f8-bb0dcc506d98",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:08.631Z",
+      "crawledAt": "2026-10-04T09:21:48.479Z",
       "previousSlugs": [
         "techniker-in-klimaanlagen-der-sbb-flotte-ffs-officine-ferrovie-federali-olten"
       ],
@@ -13437,7 +13605,8 @@
       },
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/38b5218d-91c9-474d-bb67-28570e713b56"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/38b5218d-91c9-474d-bb67-28570e713b56",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-59281be453c7",
@@ -13523,7 +13692,8 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/46d533b8-f18f-45aa-8620-dbabe24bd9c5"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/46d533b8-f18f-45aa-8620-dbabe24bd9c5",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-c194b24514e5",
@@ -13650,7 +13820,8 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-spezialist-in-bahnrettung/3740a546-bb55-4e36-a9be-f1a0360f39f3"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-spezialist-in-bahnrettung/3740a546-bb55-4e36-a9be-f1a0360f39f3",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-864e267fa3ee",
@@ -13751,7 +13922,8 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in/d781a513-ee0b-4749-a032-7f601128d8e7"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in/d781a513-ee0b-4749-a032-7f601128d8e7",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-2f1e4873e1d3",
@@ -13841,7 +14013,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/a2ef93f0-4915-44c1-81df-7359d62d676e"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/a2ef93f0-4915-44c1-81df-7359d62d676e",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-9c21afa81f97",
@@ -13913,7 +14086,8 @@
       },
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/elektroinstallateur-in-elektrofachpersonal-in-der-welt-der-technischen-bahnberufe/8d93b023-24ce-47a6-937b-89eebe726968"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/elektroinstallateur-in-elektrofachpersonal-in-der-welt-der-technischen-bahnberufe/8d93b023-24ce-47a6-937b-89eebe726968",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-0ce24cd5b0cc",
@@ -13971,10 +14145,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "de",
-      "postedDate": "2025-12-31",
+      "datePosted": "2025-12-31T22:00:00Z",
+      "postedDate": "2025-12-31T22:00:00Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-sicherungsanlagen-innen-elektroinstallateur-in-automatiker-in/615a1b67-f79b-4e0a-98de-7ffffd309378",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:25:11.133Z",
+      "crawledAt": "2026-10-04T09:21:50.994Z",
       "previousSlugs": [
         "techniker-in-sicherungsanlagen-innen-elektroinstallateur-in-automatiker-in-ffs-officine-ferrovie-federali-deutschschweiz",
         "tecnico-in-impianti-di-sicurezza-interni-installatore-elettrico-in-operatore-automatico-in-ffs-officine-ferrovie-federali-deutschschweiz"
@@ -14067,10 +14243,12 @@
       "currency": "CHF",
       "featured": false,
       "sourceLang": "fr",
-      "postedDate": "2025-12-17",
+      "datePosted": "2025-12-17T14:50:07Z",
+      "postedDate": "2025-12-17T14:50:07Z",
+      "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/responsable-des-cie-pour-les-agentes-de-transport-ferroviaire-cfc/9afa011e-3030-492b-a1d5-6fa693f6d017",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-03T21:24:58.098Z",
+      "crawledAt": "2026-10-04T09:21:39.491Z",
       "previousSlugs": [
         "responsable-des-cie-pour-les-agent-e-s-de-transport-ferroviaire-cfc-ffs-officine-ferrovie-federali-olten"
       ],
