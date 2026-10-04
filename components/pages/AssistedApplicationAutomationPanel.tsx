@@ -64,6 +64,7 @@ const HELD_LABELS: Record<string, string> = {
   draft_failed: 'bozza non generata',
   posting_closed: 'annuncio chiuso (rimborso automatico)',
   portal_needs_candidate: 'il portale richiede il candidato',
+  fact_check_not_acknowledged: 'invio fermato dal controllo dei fatti: serve la tua conferma',
   owner: 'presa in carico manuale',
 };
 
@@ -279,6 +280,9 @@ export default function AssistedApplicationAutomationPanel({
   const secondary = `${button} border border-edge text-subtle hover:border-accent hover:text-link`;
   const spinner = (name: string) => (busy === name ? <Loader2 size={14} className="animate-spin" aria-hidden="true" /> : null);
   const unsupported = draft?.factCheck?.unsupported || [];
+  // The runner checks the facts again before sending, with the gate of the day: a send it stopped
+  // leaves again only with the tick an approval needs (the runner stored the facts it found).
+  const needsFactAck = (flow?.heldBy || []).includes('fact_check_not_acknowledged') && unsupported.length > 0;
   // Not blocking: words echoed from the posting, filler phrases, a letter out of 150-380 words.
   const advisories = draft?.factCheck?.advisories || [];
   const canUpload = order.paymentStatus === 'paid' && ['awaiting_upload', 'ready_for_manual_submission', 'in_progress', 'blocked'].includes(order.submissionStatus);
@@ -468,7 +472,8 @@ export default function AssistedApplicationAutomationPanel({
             <div className="rounded-lg border border-danger-border bg-danger-subtle/50 p-3 text-xs text-body">
               <p className="flex items-center gap-1 font-semibold text-danger"><AlertTriangle size={14} aria-hidden="true" /> Fatti non trovati nel CV o nell’annuncio</p>
               <ul className="mt-1 list-disc pl-4">{unsupported.map((item) => <li key={`${item.field}-${item.token}`}><strong>{item.token}</strong> ({item.kind}) — «{item.context}»</li>)}</ul>
-              <label className="mt-2 flex items-center gap-2"><input type="checkbox" checked={ackFacts} onChange={(event) => setAckFacts(event.target.checked)} /> Ho verificato: sono corretti</label>
+              {/* A send the runner stopped is confirmed next to «Riprova l’invio automatico», with the same tick. */}
+              {!needsFactAck && <label className="mt-2 flex items-center gap-2"><input type="checkbox" checked={ackFacts} onChange={(event) => setAckFacts(event.target.checked)} /> Ho verificato: sono corretti</label>}
             </div>
           )}
           {advisories.length > 0 && (
@@ -549,9 +554,19 @@ export default function AssistedApplicationAutomationPanel({
             </button>
           )}
           {['owner_takeover', 'candidate_handoff'].includes(flow.state || '') && draft?.round === flow.round && (
-            <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void act('automationRetrySubmit', {}, 'Invio automatico rilanciato: parte entro pochi minuti.'); }}>
-              {spinner('automationRetrySubmit') || <Send size={14} aria-hidden="true" />} Riprova l’invio automatico
-            </button>
+            <>
+              {needsFactAck && (
+                <div className="w-full text-xs text-body">
+                  <p id={`fact-retry-${order.orderId}`}>L’invio si è fermato sui fatti non trovati elencati sopra: senza la spunta non riparte.</p>
+                  <label className="mt-1 flex items-center gap-2">
+                    <input type="checkbox" aria-describedby={`fact-retry-${order.orderId}`} checked={ackFacts} onChange={(event) => setAckFacts(event.target.checked)} /> Ho verificato: sono corretti
+                  </label>
+                </div>
+              )}
+              <button type="button" className={primary} disabled={Boolean(busy) || (needsFactAck && !ackFacts)} onClick={() => { void act('automationRetrySubmit', needsFactAck ? { acknowledgeFactWarnings: ackFacts } : {}, 'Invio automatico rilanciato: parte entro pochi minuti.'); }}>
+                {spinner('automationRetrySubmit') || <Send size={14} aria-hidden="true" />} Riprova l’invio automatico
+              </button>
+            </>
           )}
           {flow.state === 'owner_takeover' && draft?.round === flow.round && portalUrl && (extensionVersion ? (
             <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void fillWithExtension(); }}>

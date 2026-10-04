@@ -29,6 +29,29 @@ export const FUEL_ZONES: readonly FuelZone[] = [
   'locarno',
 ] as const;
 
+/**
+ * Child sitemaps owned by the fuel page emitter.
+ *
+ * Keep this list next to the fuel route contract so cleanup and final
+ * dist-truth reconciliation cannot drift apart. Older builds briefly emitted
+ * numeric suffixes while experimenting with shard output; the matcher below
+ * still recognises those files so an incremental dist cannot resurrect them.
+ */
+export const FUEL_SITEMAP_FILES = [
+  'sitemap-fuel-daily.xml',
+  'sitemap-fuel-stations.xml',
+  'sitemap-fuel-italian-cities.xml',
+  'sitemap-fuel-italian-stations.xml',
+  'sitemap-fuel-indexes.xml',
+] as const;
+
+const FUEL_SITEMAP_FILE_RE = /^sitemap-fuel-(?:daily|stations|italian-cities|italian-stations|indexes)(?:-\d+)?\.xml$/i;
+
+/** Return true for a current fuel sitemap or a stale numbered fuel shard. */
+export function isFuelSitemapFile(filename: string): boolean {
+  return FUEL_SITEMAP_FILE_RE.test(filename);
+}
+
 /** Zone display names (proper nouns — same across all locales). */
 export const FUEL_ZONE_DISPLAY: Record<FuelZone, string> = {
   chiasso: 'Chiasso',

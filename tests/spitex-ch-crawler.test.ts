@@ -1,7 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { extractSpitexEmployerSectionsHtml } from '../scripts/lib/spitex-ch-job-parser.mjs';
+import {
+  buildSpitexChDescription,
+  extractSpitexEmployerSectionsHtml,
+  SPITEX_CH_FABRICATED_DESCRIPTION_RE,
+} from '../scripts/lib/spitex-ch-job-parser.mjs';
 import { htmlToText } from '../scripts/lib/hospital-custom-html-helpers.mjs';
 
 // Real spitexjobs.ch page, minimised (three benefit cards; contact anonymised):
@@ -39,5 +43,31 @@ describe('extractSpitexEmployerSectionsHtml (#5253)', () => {
 
   it('returns nothing for a page without the employer sections', () => {
     expect(extractSpitexEmployerSectionsHtml('<html><body><p>x</p></body></html>')).toBe('');
+  });
+});
+
+describe('buildSpitexChDescription', () => {
+  it('publishes the source JobPosting text together with employer sections', () => {
+    const employerHtml = extractSpitexEmployerSectionsHtml(J990528);
+    const description = buildSpitexChDescription(
+      '<p>Individuelle und ganzheitliche Betreuung in verschiedenen Lebenssituationen.</p>',
+      employerHtml,
+    );
+
+    expect(description).toContain('Individuelle und ganzheitliche Betreuung');
+    expect(description).toContain('Porträt');
+    expect(description).toContain('Flexible Arbeitszeiten');
+    expect(description.split(/\s+/).filter(Boolean).length).toBeGreaterThanOrEqual(50);
+    expect(description).not.toMatch(SPITEX_CH_FABRICATED_DESCRIPTION_RE);
+  });
+
+  it.each([
+    ['empty source text', '', ''],
+    ['below-floor source text', '<p>Nur ein kurzer Eintrag.</p>', ''],
+  ])('returns no description for %s instead of a fabricated stub', (_label, descHtml, employerHtml) => {
+    const description = buildSpitexChDescription(descHtml, employerHtml);
+
+    expect(description).toBe('');
+    expect(description).not.toMatch(SPITEX_CH_FABRICATED_DESCRIPTION_RE);
   });
 });

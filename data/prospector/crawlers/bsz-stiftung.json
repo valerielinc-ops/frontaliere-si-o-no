@@ -1,0 +1,20 @@
+{
+  "companyKey": "bsz-stiftung",
+  "companyName": "BSZ Stiftung",
+  "companyHost": "apply.refline.ch",
+  "platform": "refline.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://apply.refline.ch/337491/0278/pub/2/index.html"
+  ],
+  "detailTemplate": "/337491/0278/pub/2/index.html",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Lehrstelle als Fachmann*frau Betreuung EFZ"
+  ],
+  "canton": "SZ",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-04T12:02:19.466Z"
+}

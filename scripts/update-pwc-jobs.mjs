@@ -294,7 +294,7 @@ function explodeListings(listings) {
   return exploded;
 }
 
-function mergeJobs(discoveredJobs) {
+export function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);

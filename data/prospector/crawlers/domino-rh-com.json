@@ -1,21 +1,21 @@
 {
   "companyKey": "domino-rh-com",
-  "companyName": "DOMINO RH",
+  "companyName": "DOMINO SWISS RH",
   "companyHost": "domino-rh.com",
   "platform": "",
   "mode": "template",
   "seedUrls": [
     "https://domino-rh.com/offres-interim-cdd-cdi/"
   ],
-  "detailTemplate": "/offres-emploi/rhone-alpes/69-rhone/*/",
+  "detailTemplate": "/offres-emploi/poitou-charentes/86-vienne/*/",
   "detailEnrichment": true,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 2,
   "sampleTitles": [
-    "Médecin Généraliste – (F/H)",
-    "Technicien Génie Civil (F/H)"
+    "Frigoriste (F/H)",
+    "COUVREUR (F/H)"
   ],
-  "canton": "VD",
+  "canton": "FR",
   "sourceLang": "fr",
-  "learnedAt": "2026-09-27T11:00:49.167Z"
+  "learnedAt": "2026-10-04T12:02:28.174Z"
 }
