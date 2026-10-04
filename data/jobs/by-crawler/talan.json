@@ -1,6 +1,6 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-10-03T21:12:08.544Z",
+  "assembledAt": "2026-10-04T09:14:53.336Z",
   "jobs": [
     {
       "id": "talan-838cc2a04384",
@@ -34,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:12:02.498Z",
+      "crawledAt": "2026-10-04T09:14:47.443Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -85,6 +85,81 @@
       }
     },
     {
+      "id": "talan-68cff378c8b2",
+      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
+        "de": "qa-engineer-ebanking-talan-geneve-switzerland",
+        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "QA Engineer Ebanking",
+      "titleByLocale": {
+        "it": "QA Ingegnere Ebanking",
+        "en": "QA Engineer Ebanking",
+        "de": "QA Ingenieur Ebanking",
+        "fr": "QA Ingénieur Ebanking"
+      },
+      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
+        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
+        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
+        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-04T09:14:47.442Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-14",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "jobReqId": "744000137693459",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "qa-engineer-ebanking-talan-geneve-switzerland",
+        "qa-ingegnere-ebanking-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "qa-engineer-ebanking-talan-geneve-switzerland",
+          "qa-ingegnere-ebanking-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-07-14T21:58:50.426Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-8b2dd9df4445",
       "slug": "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland",
       "slugByLocale": {
@@ -115,7 +190,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:12:02.494Z",
+      "crawledAt": "2026-10-04T09:14:47.441Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -163,160 +238,6 @@
       }
     },
     {
-      "id": "talan-68cff378c8b2",
-      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
-        "de": "qa-engineer-ebanking-talan-geneve-switzerland",
-        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "QA Engineer Ebanking",
-      "titleByLocale": {
-        "it": "QA Ingegnere Ebanking",
-        "en": "QA Engineer Ebanking",
-        "de": "QA Ingenieur Ebanking",
-        "fr": "QA Ingénieur Ebanking"
-      },
-      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
-        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
-        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
-        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:12:02.492Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-14",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "jobReqId": "744000137693459",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "qa-engineer-ebanking-talan-geneve-switzerland",
-        "qa-ingegnere-ebanking-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "qa-engineer-ebanking-talan-geneve-switzerland",
-          "qa-ingegnere-ebanking-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T21:58:50.426Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-844767b140bb",
-      "slug": "senior-java-platform-ingegnere-talan-geneve",
-      "slugByLocale": {
-        "it": "senior-java-platform-ingegnere-talan-geneve",
-        "en": "senior-java-platform-engineer-talan-geneve-switzerland",
-        "de": "senior-java-platform-ingenieur-talan-geneve",
-        "fr": "senior-java-platform-engineer-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Senior Java Platform Engineer",
-      "titleByLocale": {
-        "it": "Ingegnere di piattaforma Java senior",
-        "en": "Senior Java Platform Engineer",
-        "de": "Senior Java Platform+",
-        "fr": "Senior Java Platform Ingénieur"
-      },
-      "description": "Au sein de l’équipe IT, vous serez en charge de la conception, du développement et de l’exploitation de services backend et d’API, principalement en environnement Java.\n\n• Concevoir et développer des services backend avec Java, Spring et Spring Boot.\n\n• Développer et maintenir des API REST et SOAP, ainsi que leur documentation via OpenAPI / Swagger.\n\n• Développer ponctuellement des interfaces d’administration avec Vue.js ou Angular.\n\n• Intégrer les bases de données Oracle et MS SQL Server avec JPA/Hibernate, SQL/PL-SQL et Liquibase.\n\n• Mettre en place et maintenir les pipelines CI/CD avec Maven et Git, incluant les tests automatisés et contrôles qualité.\n\n• Appliquer les bonnes pratiques de sécurité applicative et gérer les mécanismes d’authentification et d’autorisation.\n\n• Participer à la stratégie de tests automatisés : unitaires, intégration et BDD/ATDD.\n\n• Assurer le support de production, l’analyse des incidents et des performances, ainsi que l’amélioration de la fiabilité.\n\n• Documenter les API, l’architecture et les procédures opérationnelles, notamment dans JIRA.\n\n• Collaborer avec les équipes métier et IT afin de garantir l’alignement de l’architecture avec les besoins business et les standards de la plateforme.\n\nProfil recherché:\n\n• 7 à 15 ans d’expérience en développement logiciel\n\n• Solide maîtrise de Java, Spring, Spring Boot et conception d’API REST/SOAP.\n\n• Bonne connaissance de Oracle, MS SQL Server, JPA/Hibernate, SQL et Liquibase.\n\n• Expérience en CI/CD et DevOps : Git, Maven, pipelines YAML et automatisation des tests.\n\n• Maîtrise des pratiques de sécurité applicative : OAuth2/OIDC, Kerberos, OWASP et Secure Coding.\n\n• Expérience en tests automatisés : JUnit, Mockito, Cucumber.\n\n• Connaissances en Vue.js ou Angular.\n\n• Bonnes capacités en architecture logicielle, documentation et résolution d’incidents de production.\n\n• Anglais courant, français apprécié.\n\n• Profil autonome, structuré, fiable et collaboratif.\n Atouts\n\n• BPMN / Drools, Node.js, tests E2E, JMeter.\n\n• Expérience en environnement bancaire ou financier réglementé.",
-      "descriptionByLocale": {
-        "it": "Descrizione\nAll'interno del team IT, sarai responsabile della progettazione, dello sviluppo e della gestione di servizi di back-end e API, principalmente in ambiente Java.\n\n- Progettare e sviluppare servizi di backend con Java, Spring e Spring Boot.\n- Sviluppare e mantenere API REST e SOAP, nonché la loro documentazione tramite OpenAPI / Swagger.\n- Sviluppare occasionalmente interfacce di amministrazione con Vue.js o Angular.\n- Integrare i database Oracle e MS SQL Server con JPA/Hibernate, SQL/PL-SQL e Liquibase.\n- Implementare e mantenere le pipeline CI/CD con Maven e Git, compresi i test automatizzati e i controlli di qualità.\n- Applicare le best practice di sicurezza applicativa e gestire i meccanismi di autenticazione e autorizzazione.\n- Partecipare alla strategia di test automatizzati: unità, integrazione e BDD/ATDD.\n- Garantire il supporto alla produzione, l’analisi degli incidenti e delle prestazioni, nonché il miglioramento dell'affidabilità.\n- Documentare le API, l’architettura e le procedure operative, in particolare in Jira.\n- Collaborare con i team di business e IT per garantire l’allineamento dell'architettura con le esigenze di business e gli standard della piattaforma.\n\nProfilo ricercato\n- 7-15 anni di esperienza nello sviluppo software\n- Solida padronanza di Java, Spring, Spring Boot e progettazione di API REST/SOAP.\n- Buona conoscenza di Oracle, MS SQL Server,",
-        "en": "Description Within the IT team, you will be in charge of the design, development and operation of backend and d,API services, mainly in Java environment.\n\n- Design and develop backend services with Java, Spring and Spring Bot. - Develop and maintain REST and SOAP APIs, as well as documentation via OpenAPI / Swagger. - Develop ad hoc interfaces with Vue.js or Angular. - Integrate Oracle and MS SQL Server databases with JPA/Hibernate, SQL/PL-SQL and Liquibase. - Set up and maintain CI/CD pipelines with Maven and Git, including automated tests and quality controls.\n\n- Applying good application security practices and managing mechanisms d, authentication and d, authorization. - Participating in the automated testing strategy: unitary, integration and BDD/ATDD. - Providing production support, l, incident and performance analysis, as well as improved reliability. - Document APIs, architecture and operational procedures, notably in JIRA. - Working with business and IT teams to ensure the alignment of architecture with the business needs and standards of the platform.\n\nProfile sought - 7 to 15 years d, experience in software development - Solid mastery of Java, Spring, Spring Bot and design of,API REST/SOAP. - Good knowledge of Oracle, MS SQL Server, JPA/Hibernate, SQL and Liquibase. - Experience in CI/CD and Dev Ops: Git, Maven, YAML pipelines and testing automation. - Mastery of application security practices: OAuth2/OIDC, Kerberos, OWASP and Secure Coding. - Experience in automated tests: JUnit, Mockito, Cucumber. - Knowledge in View.js or Angular.\n\n- Good software architecture, documentation and resolution of production incidents. - Common English, French appreciated. - Self-contained, structured, reliable and collaborative profile.\n\nAtouts - BPMN / Drools, Node.js, tests E2E, JMeter. - Experience in regulated banking or financial environment.",
-        "de": "Beschreibung Im IT-Team sind Sie für die Konzeption, Entwicklung und den Betrieb von Backend- und d,API-Diensten, vor allem in Java-Umgebung, zuständig.\n\n- Entwickeln und pflegen Sie REST und SOAP APIs sowie Dokumentation über OpenAPI / Swagger. - Entwickeln Sie ad hoc Schnittstellen mit Vue.js oder Angular. - Integrieren Sie Oracle und MS SQL Server Datenbanken mit JPA/Hibernate, SQL/PL-SQL und Liquibase. - Einrichtung und Wartung von CI/CD Pipelines mit Maven und Git, einschließlich automatisierter Tests und Qualitätskontrolle.\n\n- Anwendung guter Anwendungssicherheitspraktiken und Verwaltungsmechanismen d, Authentifizierung und d, Autorisierung. - Teilnahme an der automatisierten Teststrategie: einheitliche, Integration und BDD/ATDD. - Bereitstellung von Produktionsunterstützung, l, Ereignis- und Performanceanalyse sowie verbesserte Zuverlässigkeit. - Dokument-APIs, Architektur und operative Verfahren, insbesondere in JIRA. - Arbeit mit Business-und IT-Teams, um die Ausrichtung der Architektur auf die Geschäftsanforderungen und Standards der Plattform zu gewährleisten.\n\nProfil gesucht - 7 bis 15 Jahre d, Erfahrung in der Software-Entwicklung - Solide Meisterschaft von Java, Frühling, Frühling Bot und Design von,API REST/SOAP. - Gute Kenntnisse von Oracle, MS SQL Server, JPA/Hibernate, SQL und Liquibase. - Erfahrung in CI/CD und Dev Ops: Git, Maven, YAML Pipelines und Testautomatisierung. - Beherrschung von Anwendungssicherheitspraktiken: OAuth2/OIDC, Kerberos, OWASP und Secure Coding. - Erfahrung in automatisierten Tests: JUnit, Mockito, Cucuber. - Wissen in View.js oder Angular.\n\n- Gute Software-Architektur, Dokumentation und Auflösung von Produktionsvorfällen. - Gemeinsames Englisch, Französisch geschätzt. - Selbstintegrierte, strukturierte, zuverlässige und kooperative Profil.\n\nAtouts - BPMN / Drools, Node.js, Tests E2E, J Meter. - Erfahrung im regulierten Bank- oder Finanzumfeld.",
-        "fr": "Au sein de l’équipe IT, vous serez en charge de la conception, du développement et de l’exploitation de services backend et d’API, principalement en environnement Java.\n\n• Concevoir et développer des services backend avec Java, Spring et Spring Boot.\n\n• Développer et maintenir des API REST et SOAP, ainsi que leur documentation via OpenAPI / Swagger.\n\n• Développer ponctuellement des interfaces d’administration avec Vue.js ou Angular.\n\n• Intégrer les bases de données Oracle et MS SQL Server avec JPA/Hibernate, SQL/PL-SQL et Liquibase.\n\n• Mettre en place et maintenir les pipelines CI/CD avec Maven et Git, incluant les tests automatisés et contrôles qualité.\n\n• Appliquer les bonnes pratiques de sécurité applicative et gérer les mécanismes d’authentification et d’autorisation.\n\n• Participer à la stratégie de tests automatisés : unitaires, intégration et BDD/ATDD.\n\n• Assurer le support de production, l’analyse des incidents et des performances, ainsi que l’amélioration de la fiabilité.\n\n• Documenter les API, l’architecture et les procédures opérationnelles, notamment dans JIRA.\n\n• Collaborer avec les équipes métier et IT afin de garantir l’alignement de l’architecture avec les besoins business et les standards de la plateforme.\n\nProfil recherché:\n\n• 7 à 15 ans d’expérience en développement logiciel\n\n• Solide maîtrise de Java, Spring, Spring Boot et conception d’API REST/SOAP.\n\n• Bonne connaissance de Oracle, MS SQL Server, JPA/Hibernate, SQL et Liquibase.\n\n• Expérience en CI/CD et DevOps : Git, Maven, pipelines YAML et automatisation des tests.\n\n• Maîtrise des pratiques de sécurité applicative : OAuth2/OIDC, Kerberos, OWASP et Secure Coding.\n\n• Expérience en tests automatisés : JUnit, Mockito, Cucumber.\n\n• Connaissances en Vue.js ou Angular.\n\n• Bonnes capacités en architecture logicielle, documentation et résolution d’incidents de production.\n\n• Anglais courant, français apprécié.\n\n• Profil autonome, structuré, fiable et collaboratif.\nAtouts\n\n• BPMN / Drools, Node.js, tests E2E, JMeter.\n\n• Expérience en environnement bancaire ou financier réglementé."
-      },
-      "needsRetranslation": true,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000144775714-senior-java-platform-engineer?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:12:02.490Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-21",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000144775714-senior-java-platform-engineer?oga=true",
-      "jobReqId": "744000144775714",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-java-platform-engineer-talan-geneve-switzerland",
-        "senior-java-platform-ingegnere-talan-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-java-platform-engineer-talan-geneve-switzerland",
-          "senior-java-platform-ingegnere-talan-geneve"
-        ],
-        "de": [
-          "senior-java-platform-engineer-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-08-21T21:26:00.515Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-338bfd5acd78",
       "slug": "business-analyst-core-banking-talan-geneve",
       "slugByLocale": {
@@ -347,7 +268,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:12:02.486Z",
+      "crawledAt": "2026-10-04T09:14:47.440Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -426,7 +347,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144777899-developpeur-net-api?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:12:02.484Z",
+      "crawledAt": "2026-10-04T09:14:47.439Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -477,6 +398,85 @@
       }
     },
     {
+      "id": "talan-844767b140bb",
+      "slug": "senior-java-platform-ingegnere-talan-geneve",
+      "slugByLocale": {
+        "it": "senior-java-platform-ingegnere-talan-geneve",
+        "en": "senior-java-platform-engineer-talan-geneve-switzerland",
+        "de": "senior-java-platform-ingenieur-talan-geneve",
+        "fr": "senior-java-platform-engineer-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Senior Java Platform Engineer",
+      "titleByLocale": {
+        "it": "Ingegnere di piattaforma Java senior",
+        "en": "Senior Java Platform Engineer",
+        "de": "Senior Java Platform+",
+        "fr": "Senior Java Platform Ingénieur"
+      },
+      "description": "Au sein de l’équipe IT, vous serez en charge de la conception, du développement et de l’exploitation de services backend et d’API, principalement en environnement Java.\n\n• Concevoir et développer des services backend avec Java, Spring et Spring Boot.\n\n• Développer et maintenir des API REST et SOAP, ainsi que leur documentation via OpenAPI / Swagger.\n\n• Développer ponctuellement des interfaces d’administration avec Vue.js ou Angular.\n\n• Intégrer les bases de données Oracle et MS SQL Server avec JPA/Hibernate, SQL/PL-SQL et Liquibase.\n\n• Mettre en place et maintenir les pipelines CI/CD avec Maven et Git, incluant les tests automatisés et contrôles qualité.\n\n• Appliquer les bonnes pratiques de sécurité applicative et gérer les mécanismes d’authentification et d’autorisation.\n\n• Participer à la stratégie de tests automatisés : unitaires, intégration et BDD/ATDD.\n\n• Assurer le support de production, l’analyse des incidents et des performances, ainsi que l’amélioration de la fiabilité.\n\n• Documenter les API, l’architecture et les procédures opérationnelles, notamment dans JIRA.\n\n• Collaborer avec les équipes métier et IT afin de garantir l’alignement de l’architecture avec les besoins business et les standards de la plateforme.\n\nProfil recherché:\n\n• 7 à 15 ans d’expérience en développement logiciel\n\n• Solide maîtrise de Java, Spring, Spring Boot et conception d’API REST/SOAP.\n\n• Bonne connaissance de Oracle, MS SQL Server, JPA/Hibernate, SQL et Liquibase.\n\n• Expérience en CI/CD et DevOps : Git, Maven, pipelines YAML et automatisation des tests.\n\n• Maîtrise des pratiques de sécurité applicative : OAuth2/OIDC, Kerberos, OWASP et Secure Coding.\n\n• Expérience en tests automatisés : JUnit, Mockito, Cucumber.\n\n• Connaissances en Vue.js ou Angular.\n\n• Bonnes capacités en architecture logicielle, documentation et résolution d’incidents de production.\n\n• Anglais courant, français apprécié.\n\n• Profil autonome, structuré, fiable et collaboratif.\n Atouts\n\n• BPMN / Drools, Node.js, tests E2E, JMeter.\n\n• Expérience en environnement bancaire ou financier réglementé.",
+      "descriptionByLocale": {
+        "it": "Descrizione\nAll'interno del team IT, sarai responsabile della progettazione, dello sviluppo e della gestione di servizi di back-end e API, principalmente in ambiente Java.\n\n- Progettare e sviluppare servizi di backend con Java, Spring e Spring Boot.\n- Sviluppare e mantenere API REST e SOAP, nonché la loro documentazione tramite OpenAPI / Swagger.\n- Sviluppare occasionalmente interfacce di amministrazione con Vue.js o Angular.\n- Integrare i database Oracle e MS SQL Server con JPA/Hibernate, SQL/PL-SQL e Liquibase.\n- Implementare e mantenere le pipeline CI/CD con Maven e Git, compresi i test automatizzati e i controlli di qualità.\n- Applicare le best practice di sicurezza applicativa e gestire i meccanismi di autenticazione e autorizzazione.\n- Partecipare alla strategia di test automatizzati: unità, integrazione e BDD/ATDD.\n- Garantire il supporto alla produzione, l’analisi degli incidenti e delle prestazioni, nonché il miglioramento dell'affidabilità.\n- Documentare le API, l’architettura e le procedure operative, in particolare in Jira.\n- Collaborare con i team di business e IT per garantire l’allineamento dell'architettura con le esigenze di business e gli standard della piattaforma.\n\nProfilo ricercato\n- 7-15 anni di esperienza nello sviluppo software\n- Solida padronanza di Java, Spring, Spring Boot e progettazione di API REST/SOAP.\n- Buona conoscenza di Oracle, MS SQL Server,",
+        "en": "Description Within the IT team, you will be in charge of the design, development and operation of backend and d,API services, mainly in Java environment.\n\n- Design and develop backend services with Java, Spring and Spring Bot. - Develop and maintain REST and SOAP APIs, as well as documentation via OpenAPI / Swagger. - Develop ad hoc interfaces with Vue.js or Angular. - Integrate Oracle and MS SQL Server databases with JPA/Hibernate, SQL/PL-SQL and Liquibase. - Set up and maintain CI/CD pipelines with Maven and Git, including automated tests and quality controls.\n\n- Applying good application security practices and managing mechanisms d, authentication and d, authorization. - Participating in the automated testing strategy: unitary, integration and BDD/ATDD. - Providing production support, l, incident and performance analysis, as well as improved reliability. - Document APIs, architecture and operational procedures, notably in JIRA. - Working with business and IT teams to ensure the alignment of architecture with the business needs and standards of the platform.\n\nProfile sought - 7 to 15 years d, experience in software development - Solid mastery of Java, Spring, Spring Bot and design of,API REST/SOAP. - Good knowledge of Oracle, MS SQL Server, JPA/Hibernate, SQL and Liquibase. - Experience in CI/CD and Dev Ops: Git, Maven, YAML pipelines and testing automation. - Mastery of application security practices: OAuth2/OIDC, Kerberos, OWASP and Secure Coding. - Experience in automated tests: JUnit, Mockito, Cucumber. - Knowledge in View.js or Angular.\n\n- Good software architecture, documentation and resolution of production incidents. - Common English, French appreciated. - Self-contained, structured, reliable and collaborative profile.\n\nAtouts - BPMN / Drools, Node.js, tests E2E, JMeter. - Experience in regulated banking or financial environment.",
+        "de": "Beschreibung Im IT-Team sind Sie für die Konzeption, Entwicklung und den Betrieb von Backend- und d,API-Diensten, vor allem in Java-Umgebung, zuständig.\n\n- Entwickeln und pflegen Sie REST und SOAP APIs sowie Dokumentation über OpenAPI / Swagger. - Entwickeln Sie ad hoc Schnittstellen mit Vue.js oder Angular. - Integrieren Sie Oracle und MS SQL Server Datenbanken mit JPA/Hibernate, SQL/PL-SQL und Liquibase. - Einrichtung und Wartung von CI/CD Pipelines mit Maven und Git, einschließlich automatisierter Tests und Qualitätskontrolle.\n\n- Anwendung guter Anwendungssicherheitspraktiken und Verwaltungsmechanismen d, Authentifizierung und d, Autorisierung. - Teilnahme an der automatisierten Teststrategie: einheitliche, Integration und BDD/ATDD. - Bereitstellung von Produktionsunterstützung, l, Ereignis- und Performanceanalyse sowie verbesserte Zuverlässigkeit. - Dokument-APIs, Architektur und operative Verfahren, insbesondere in JIRA. - Arbeit mit Business-und IT-Teams, um die Ausrichtung der Architektur auf die Geschäftsanforderungen und Standards der Plattform zu gewährleisten.\n\nProfil gesucht - 7 bis 15 Jahre d, Erfahrung in der Software-Entwicklung - Solide Meisterschaft von Java, Frühling, Frühling Bot und Design von,API REST/SOAP. - Gute Kenntnisse von Oracle, MS SQL Server, JPA/Hibernate, SQL und Liquibase. - Erfahrung in CI/CD und Dev Ops: Git, Maven, YAML Pipelines und Testautomatisierung. - Beherrschung von Anwendungssicherheitspraktiken: OAuth2/OIDC, Kerberos, OWASP und Secure Coding. - Erfahrung in automatisierten Tests: JUnit, Mockito, Cucuber. - Wissen in View.js oder Angular.\n\n- Gute Software-Architektur, Dokumentation und Auflösung von Produktionsvorfällen. - Gemeinsames Englisch, Französisch geschätzt. - Selbstintegrierte, strukturierte, zuverlässige und kooperative Profil.\n\nAtouts - BPMN / Drools, Node.js, Tests E2E, J Meter. - Erfahrung im regulierten Bank- oder Finanzumfeld.",
+        "fr": "Au sein de l’équipe IT, vous serez en charge de la conception, du développement et de l’exploitation de services backend et d’API, principalement en environnement Java.\n\n• Concevoir et développer des services backend avec Java, Spring et Spring Boot.\n\n• Développer et maintenir des API REST et SOAP, ainsi que leur documentation via OpenAPI / Swagger.\n\n• Développer ponctuellement des interfaces d’administration avec Vue.js ou Angular.\n\n• Intégrer les bases de données Oracle et MS SQL Server avec JPA/Hibernate, SQL/PL-SQL et Liquibase.\n\n• Mettre en place et maintenir les pipelines CI/CD avec Maven et Git, incluant les tests automatisés et contrôles qualité.\n\n• Appliquer les bonnes pratiques de sécurité applicative et gérer les mécanismes d’authentification et d’autorisation.\n\n• Participer à la stratégie de tests automatisés : unitaires, intégration et BDD/ATDD.\n\n• Assurer le support de production, l’analyse des incidents et des performances, ainsi que l’amélioration de la fiabilité.\n\n• Documenter les API, l’architecture et les procédures opérationnelles, notamment dans JIRA.\n\n• Collaborer avec les équipes métier et IT afin de garantir l’alignement de l’architecture avec les besoins business et les standards de la plateforme.\n\nProfil recherché:\n\n• 7 à 15 ans d’expérience en développement logiciel\n\n• Solide maîtrise de Java, Spring, Spring Boot et conception d’API REST/SOAP.\n\n• Bonne connaissance de Oracle, MS SQL Server, JPA/Hibernate, SQL et Liquibase.\n\n• Expérience en CI/CD et DevOps : Git, Maven, pipelines YAML et automatisation des tests.\n\n• Maîtrise des pratiques de sécurité applicative : OAuth2/OIDC, Kerberos, OWASP et Secure Coding.\n\n• Expérience en tests automatisés : JUnit, Mockito, Cucumber.\n\n• Connaissances en Vue.js ou Angular.\n\n• Bonnes capacités en architecture logicielle, documentation et résolution d’incidents de production.\n\n• Anglais courant, français apprécié.\n\n• Profil autonome, structuré, fiable et collaboratif.\nAtouts\n\n• BPMN / Drools, Node.js, tests E2E, JMeter.\n\n• Expérience en environnement bancaire ou financier réglementé."
+      },
+      "needsRetranslation": true,
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000144775714-senior-java-platform-engineer?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-04T09:14:47.438Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-21",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000144775714-senior-java-platform-engineer?oga=true",
+      "jobReqId": "744000144775714",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-java-platform-engineer-talan-geneve-switzerland",
+        "senior-java-platform-ingegnere-talan-geneve"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-java-platform-engineer-talan-geneve-switzerland",
+          "senior-java-platform-ingegnere-talan-geneve"
+        ],
+        "de": [
+          "senior-java-platform-engineer-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-08-21T21:26:00.515Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-3d22739aef94",
       "slug": "business-analista-enterprise-data-management-edm-talan-geneve",
       "slugByLocale": {
@@ -507,7 +507,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:12:02.480Z",
+      "crawledAt": "2026-10-04T09:14:47.437Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -552,93 +552,6 @@
       }
     },
     {
-      "id": "talan-abecfab11e41",
-      "slug": "lead-data-analista-talan-geneve",
-      "slugByLocale": {
-        "it": "lead-data-analista-talan-geneve",
-        "en": "lead-data-analyst-talan-geneve-switzerland",
-        "de": "bleidaten-sind-unubersehbar-talan-geneve",
-        "fr": "lead-data-analyst-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Lead Data Analyst",
-      "titleByLocale": {
-        "it": "Lead Data Analista",
-        "en": "Lead Data Analyst",
-        "de": "Bleidaten sind unübersehbar,",
-        "fr": "Lead Data Analyste"
-      },
-      "description": "Vous interviendrez sur l’ensemble du cycle de vie de la donnée, notamment :\n\n• Analyser et documenter les données issues de différentes sources et systèmes existants.\n\n• Concevoir et faire évoluer les modèles de données : conceptuels, logiques, physiques et dimensionnels.\n\n• Participer à des projets de migration et d’intégration de données .\n\n• Concevoir et mettre en œuvre des Socles de Données .\n\n• Réaliser des analyses exploratoires : profilage, volumétrie, complétude, anomalies, cohérence.\n\n• Rédiger les spécifications fonctionnelles des flux de données : mappings source/cible, règles de transformation et cas limites.\n\n• Collaborer avec les équipes Data/Engineering sur la conception et la mise en œuvre des flux.\n\n• Produire des analyses, indicateurs et tableaux de bord pour répondre aux besoins métiers.\n\n• Contribuer à la qualité, la gouvernance, la documentation et au lignage des données .\n\n• Maintenir et enrichir le catalogue de données.\n\n• Accompagner les utilisateurs et contribuer à la formalisation des besoins.\n\n• 10 à 15 ans d’expérience minimum dans les domaines Data / BI / Data Analysis.\n\n• Expertise en Data Modelling .\n\n• Expérience concrète en migration de données .\n\n• Expérience dans la conception ou la mise en place de plateformes Data .\n\n• Excellente maîtrise de SQL avancé : requêtes complexes, jointures multi-sources, agrégations.\n\n• Maîtrise d’un outil de BI / Data Visualisation : Power BI ou Qlik .\n\n• Bonne compréhension des architectures ETL / Data Warehouse .\n\n• Connaissance des concepts MDM et référentiels de données .\n\n• Capacité à rédiger des spécifications fonctionnelles et à formaliser des règles de transformation.\n\n• Bonne compréhension des problématiques de Data Quality .\n\n• Excellente communication orale en français .\n\n• Capacité à être autonome et force de proposition.\n Compétences appréciées\n\n• Expériences avec des solutions de Data Virtualisation, de Data Catalog / Data Lineage, Data Quality.\n\n• Bonnes connaissances statistiques.\n\n• Expérience en ingénierie des tests.\n\n• Expérience dans la formation et l’accompagnement des utilisateurs.",
-      "descriptionByLocale": {
-        "it": "Interverrete durante il ciclo di vita dei dati, tra cui:\n\n• Analizzare e documentare i dati da varie fonti e sistemi esistenti.\n\n• Progettazione ed evoluzione dei modelli di dati: concettuale, logico, fisico e dimensionale.\n\n• Partecipa a progetti di migrazione e integrazione dei dati .\n\n• Progettazione e realizzazione di basi dati .\n\n• Analisi esplorative di conduzione: profilazione, volumetrica, completezza, anomalie, consistenza.\n\n• Scrivere specifiche funzionali dei flussi di dati: mappature sorgente/target, regole di trasformazione e casi di confine.\n\n• Collabora con i team Data/Engineering sulla progettazione e l'implementazione del flusso.\n\n• Produrre analisi, indicatori e dashboard per soddisfare le esigenze aziendali.\n\n• Contribuisci alla qualità dei dati, alla governance, alla documentazione e al lignaggio.\n\n• Mantenere e arricchire il catalogo dei dati.\n\n• Sostenere gli utenti e aiutare a formalizzare le esigenze.\n\n• da 10 a 15 anni di esperienza minima in Dati / BI / Analisi dei dati.\n\n• Competenza nella modellazione dei dati .\n\n• Esperienza concreta nella migrazione dei dati .\n\n• Esperienza nella progettazione o nella creazione di piattaforme dati.\n\n• Eccellente padronanza SQL avanzata: query complesse, aggregazioni multi-source.\n\n• Controllo di uno strumento di visualizzazione BI / dati: Power BI o Qlik.\n\n• Buona comprensione delle architetture ETL/Data Warehouse.\n\n• Conoscenza dei concetti e dei repository di dati MDM .\n\n• Capacità di redigere specifiche funzionali e formalizzare le regole di trasformazione.\n\n• Buona comprensione dei problemi di qualità dei dati.\n\n• Ottima comunicazione orale in francese .\n\n• Capacità di essere autonomo e forza da proporre.\nCompetenze valutate\n\n• Esperienze con soluzioni da Virtualizzazione dei dati, Data Catalog / Data Lineage, Qualità dei dati.\n\n• Buona conoscenza statistica.\n\n• Esperienza nell'ingegneria dei test.\n\n• Esperienza nella formazione e nel supporto degli utenti.",
-        "en": "You will intervene throughout the life cycle of the data, including:\n\n• Analyze and document data from various existing sources and systems.\n\n• Design and evolve data models: conceptual, logical, physical and dimensional.\n\n• Participate in migration and data integration projects .\n\n• Design and implement data bases .\n\n• Conduct exploratory analyses: profiling, volumetrics, completeness, anomalies, consistency.\n\n• Write functional specifications of data streams: source/target mappings, transformation rules and boundary cases.\n\n• Collaborate with Data/Engineering teams on flow design and implementation.\n\n• Produce analyses, indicators and dashboards to meet business needs.\n\n• Contribute to data quality, governance, documentation and lineage.\n\n• Maintain and enrich the data catalogue.\n\n• Support users and help formalize needs.\n\n• 10 to 15 years of minimum experience in Data / BI / Data Analysis.\n\n• Expertise in Data Modelling .\n\n• Concrete experience in data migration .\n\n• Experience in designing or setting up Data platforms.\n\n• Excellent advanced SQL mastery: complex queries, multi-source joins, aggregations.\n\n• Controlling a BI / Data Visualization tool: Power BI or Qlik.\n\n• Good understanding of ETL/Data Warehouse architectures.\n\n• Knowledge of MDM concepts and data repositories .\n\n• Ability to draft functional specifications and formalize transformation rules.\n\n• Good understanding of Data Quality issues.\n\n• Excellent oral communication in French .\n\n• Ability to be autonomous and strength to propose.\nAssessed competencies\n\n• Experiences with solutions from Data Virtualization, Data Catalog / Data Lineage, Data Quality.\n\n• Good statistical knowledge.\n\n• Experience in testing engineering.\n\n• Experience in training and support of users.",
-        "de": "Sie werden während des gesamten Lebenszyklus der Daten eingreifen, einschließlich:\n\n• Analysieren und dokumentieren Sie Daten aus verschiedenen vorhandenen Quellen und Systemen.\n\n• Entwerfen und Entwickeln von Datenmodellen: konzeptionell, logisch, physisch und dimensional.\n\n• Teilnahme an Migrations- und Datenintegrationsprojekten.\n\n• Konzipieren und implementieren Sie Datenbanken.\n\n• Durchführung explorativer Analysen: Profiling, Volumentrik, Vollständigkeit, Anomalien, Konsistenz.\n\n• Schreiben Sie funktionale Spezifikationen von Datenströmen: Quellen-/Zielzuordnungen, Transformationsregeln und Grenzfälle.\n\n• Arbeiten Sie mit Data/Engineering-Teams beim Flow Design und der Implementierung zusammen.\n\n• Erstellen Sie Analysen, Indikatoren und Dashboards, um die Geschäftsanforderungen zu erfüllen.\n\n• Beitrag zur Datenqualität, Governance, Dokumentation und Abstammung.\n\n• Pflegen und Anreichern des Datenkatalogs.\n\n• Unterstützen Sie Benutzer und helfen Sie, Bedürfnisse zu formalisieren.\n\n• 10 bis 15 Jahre Mindesterfahrung in Daten / BI / Datenanalyse.\n\n• Expertise in der Datenmodellierung.\n\n• Konkrete Erfahrung in der Datenmigration.\n\n• Erfahrung im Entwerfen oder Einrichten von Datenplattformen.\n\n• Hervorragende erweiterte SQL-Beherrschung: komplexe Abfragen, Multi-Source-Verbindungen, Aggregationen.\n\n• Steuerung eines BI / Data Visualization Tools: Power BI oder Qlik.\n\n• Gutes Verständnis von ETL/Data Warehouse Architekturen.\n\n• Kenntnisse von MDM-Konzepten und Datenrepositorien.\n\n• Fähigkeit, funktionale Spezifikationen zu entwerfen und Transformationsregeln zu formalisieren.\n\n• Gutes Verständnis von Datenqualitätsproblemen.\n\n• Hervorragende mündliche Kommunikation auf Französisch.\n\n• Fähigkeit, autonom zu sein und Stärke vorzuschlagen.\nBewertete Kompetenzen\n\n• Erfahrungen mit Lösungen aus Data Virtualization, Data Catalog / Data Lineage, Data Quality.\n\n• Gute statistische Kenntnisse.\n\n• Erfahrung im Testing Engineering.\n\n• Erfahrung in der Ausbildung und Unterstützung der Benutzer.",
-        "fr": "Vous interviendrez sur l’ensemble du cycle de vie de la donnée, notamment :\n\n• Analyser et documenter les données issues de différentes sources et systèmes existants.\n\n• Concevoir et faire évoluer les modèles de données : conceptuels, logiques, physiques et dimensionnels.\n\n• Participer à des projets de migration et d’intégration de données .\n\n• Concevoir et mettre en œuvre des Socles de Données .\n\n• Réaliser des analyses exploratoires : profilage, volumétrie, complétude, anomalies, cohérence.\n\n• Rédiger les spécifications fonctionnelles des flux de données : mappings source/cible, règles de transformation et cas limites.\n\n• Collaborer avec les équipes Data/Engineering sur la conception et la mise en œuvre des flux.\n\n• Produire des analyses, indicateurs et tableaux de bord pour répondre aux besoins métiers.\n\n• Contribuer à la qualité, la gouvernance, la documentation et au lignage des données .\n\n• Maintenir et enrichir le catalogue de données.\n\n• Accompagner les utilisateurs et contribuer à la formalisation des besoins.\n\n• 10 à 15 ans d’expérience minimum dans les domaines Data / BI / Data Analysis.\n\n• Expertise en Data Modelling .\n\n• Expérience concrète en migration de données .\n\n• Expérience dans la conception ou la mise en place de plateformes Data .\n\n• Excellente maîtrise de SQL avancé : requêtes complexes, jointures multi-sources, agrégations.\n\n• Maîtrise d’un outil de BI / Data Visualisation : Power BI ou Qlik .\n\n• Bonne compréhension des architectures ETL / Data Warehouse .\n\n• Connaissance des concepts MDM et référentiels de données .\n\n• Capacité à rédiger des spécifications fonctionnelles et à formaliser des règles de transformation.\n\n• Bonne compréhension des problématiques de Data Quality .\n\n• Excellente communication orale en français .\n\n• Capacité à être autonome et force de proposition.\nCompétences appréciées\n\n• Expériences avec des solutions de Data Virtualisation, de Data Catalog / Data Lineage, Data Quality.\n\n• Bonnes connaissances statistiques.\n\n• Expérience en ingénierie des tests.\n\n• Expérience dans la formation et l’accompagnement des utilisateurs."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000151870259-lead-data-analyst?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:12:02.477Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-25",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000151870259-lead-data-analyst?oga=true",
-      "jobReqId": "744000151870259",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "bleidaten-sind-unubersehbar-talan-geneve-switzerland",
-        "lead-data-analyst-talan-geneve-switzerland",
-        "lead-data-analista-talan-geneve-js9wtq",
-        "lead-data-analyst-talan-geneve-switzerland-js9wtq",
-        "lead-data-analista-talan-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lead-data-analyst-talan-geneve-switzerland",
-          "lead-data-analista-talan-geneve-js9wtq",
-          "lead-data-analyst-talan-geneve-switzerland-js9wtq",
-          "lead-data-analista-talan-geneve"
-        ],
-        "en": [
-          "lead-data-analyst-talan-geneve-switzerland-js9wtq"
-        ],
-        "de": [
-          "bleidaten-sind-unubersehbar-talan-geneve-switzerland",
-          "lead-data-analyst-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-09-17T23:30:46.934Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-827097ba6739",
       "slug": "ai-platform-ingegnere-plugins-marketplace-talan-geneva",
       "slugByLocale": {
@@ -669,7 +582,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:12:02.472Z",
+      "crawledAt": "2026-10-04T09:14:47.436Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -730,6 +643,172 @@
       }
     },
     {
+      "id": "talan-abecfab11e41",
+      "slug": "lead-data-analista-talan-geneve",
+      "slugByLocale": {
+        "it": "lead-data-analista-talan-geneve",
+        "en": "lead-data-analyst-talan-geneve-switzerland",
+        "de": "bleidaten-sind-unubersehbar-talan-geneve",
+        "fr": "lead-data-analyst-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Lead Data Analyst",
+      "titleByLocale": {
+        "it": "Lead Data Analista",
+        "en": "Lead Data Analyst",
+        "de": "Bleidaten sind unübersehbar,",
+        "fr": "Lead Data Analyste"
+      },
+      "description": "Vous interviendrez sur l’ensemble du cycle de vie de la donnée, notamment :\n\n• Analyser et documenter les données issues de différentes sources et systèmes existants.\n\n• Concevoir et faire évoluer les modèles de données : conceptuels, logiques, physiques et dimensionnels.\n\n• Participer à des projets de migration et d’intégration de données .\n\n• Concevoir et mettre en œuvre des Socles de Données .\n\n• Réaliser des analyses exploratoires : profilage, volumétrie, complétude, anomalies, cohérence.\n\n• Rédiger les spécifications fonctionnelles des flux de données : mappings source/cible, règles de transformation et cas limites.\n\n• Collaborer avec les équipes Data/Engineering sur la conception et la mise en œuvre des flux.\n\n• Produire des analyses, indicateurs et tableaux de bord pour répondre aux besoins métiers.\n\n• Contribuer à la qualité, la gouvernance, la documentation et au lignage des données .\n\n• Maintenir et enrichir le catalogue de données.\n\n• Accompagner les utilisateurs et contribuer à la formalisation des besoins.\n\n• 10 à 15 ans d’expérience minimum dans les domaines Data / BI / Data Analysis.\n\n• Expertise en Data Modelling .\n\n• Expérience concrète en migration de données .\n\n• Expérience dans la conception ou la mise en place de plateformes Data .\n\n• Excellente maîtrise de SQL avancé : requêtes complexes, jointures multi-sources, agrégations.\n\n• Maîtrise d’un outil de BI / Data Visualisation : Power BI ou Qlik .\n\n• Bonne compréhension des architectures ETL / Data Warehouse .\n\n• Connaissance des concepts MDM et référentiels de données .\n\n• Capacité à rédiger des spécifications fonctionnelles et à formaliser des règles de transformation.\n\n• Bonne compréhension des problématiques de Data Quality .\n\n• Excellente communication orale en français .\n\n• Capacité à être autonome et force de proposition.\n Compétences appréciées\n\n• Expériences avec des solutions de Data Virtualisation, de Data Catalog / Data Lineage, Data Quality.\n\n• Bonnes connaissances statistiques.\n\n• Expérience en ingénierie des tests.\n\n• Expérience dans la formation et l’accompagnement des utilisateurs.",
+      "descriptionByLocale": {
+        "it": "Interverrete durante il ciclo di vita dei dati, tra cui:\n\n• Analizzare e documentare i dati da varie fonti e sistemi esistenti.\n\n• Progettazione ed evoluzione dei modelli di dati: concettuale, logico, fisico e dimensionale.\n\n• Partecipa a progetti di migrazione e integrazione dei dati .\n\n• Progettazione e realizzazione di basi dati .\n\n• Analisi esplorative di conduzione: profilazione, volumetrica, completezza, anomalie, consistenza.\n\n• Scrivere specifiche funzionali dei flussi di dati: mappature sorgente/target, regole di trasformazione e casi di confine.\n\n• Collabora con i team Data/Engineering sulla progettazione e l'implementazione del flusso.\n\n• Produrre analisi, indicatori e dashboard per soddisfare le esigenze aziendali.\n\n• Contribuisci alla qualità dei dati, alla governance, alla documentazione e al lignaggio.\n\n• Mantenere e arricchire il catalogo dei dati.\n\n• Sostenere gli utenti e aiutare a formalizzare le esigenze.\n\n• da 10 a 15 anni di esperienza minima in Dati / BI / Analisi dei dati.\n\n• Competenza nella modellazione dei dati .\n\n• Esperienza concreta nella migrazione dei dati .\n\n• Esperienza nella progettazione o nella creazione di piattaforme dati.\n\n• Eccellente padronanza SQL avanzata: query complesse, aggregazioni multi-source.\n\n• Controllo di uno strumento di visualizzazione BI / dati: Power BI o Qlik.\n\n• Buona comprensione delle architetture ETL/Data Warehouse.\n\n• Conoscenza dei concetti e dei repository di dati MDM .\n\n• Capacità di redigere specifiche funzionali e formalizzare le regole di trasformazione.\n\n• Buona comprensione dei problemi di qualità dei dati.\n\n• Ottima comunicazione orale in francese .\n\n• Capacità di essere autonomo e forza da proporre.\nCompetenze valutate\n\n• Esperienze con soluzioni da Virtualizzazione dei dati, Data Catalog / Data Lineage, Qualità dei dati.\n\n• Buona conoscenza statistica.\n\n• Esperienza nell'ingegneria dei test.\n\n• Esperienza nella formazione e nel supporto degli utenti.",
+        "en": "You will intervene throughout the life cycle of the data, including:\n\n• Analyze and document data from various existing sources and systems.\n\n• Design and evolve data models: conceptual, logical, physical and dimensional.\n\n• Participate in migration and data integration projects .\n\n• Design and implement data bases .\n\n• Conduct exploratory analyses: profiling, volumetrics, completeness, anomalies, consistency.\n\n• Write functional specifications of data streams: source/target mappings, transformation rules and boundary cases.\n\n• Collaborate with Data/Engineering teams on flow design and implementation.\n\n• Produce analyses, indicators and dashboards to meet business needs.\n\n• Contribute to data quality, governance, documentation and lineage.\n\n• Maintain and enrich the data catalogue.\n\n• Support users and help formalize needs.\n\n• 10 to 15 years of minimum experience in Data / BI / Data Analysis.\n\n• Expertise in Data Modelling .\n\n• Concrete experience in data migration .\n\n• Experience in designing or setting up Data platforms.\n\n• Excellent advanced SQL mastery: complex queries, multi-source joins, aggregations.\n\n• Controlling a BI / Data Visualization tool: Power BI or Qlik.\n\n• Good understanding of ETL/Data Warehouse architectures.\n\n• Knowledge of MDM concepts and data repositories .\n\n• Ability to draft functional specifications and formalize transformation rules.\n\n• Good understanding of Data Quality issues.\n\n• Excellent oral communication in French .\n\n• Ability to be autonomous and strength to propose.\nAssessed competencies\n\n• Experiences with solutions from Data Virtualization, Data Catalog / Data Lineage, Data Quality.\n\n• Good statistical knowledge.\n\n• Experience in testing engineering.\n\n• Experience in training and support of users.",
+        "de": "Sie werden während des gesamten Lebenszyklus der Daten eingreifen, einschließlich:\n\n• Analysieren und dokumentieren Sie Daten aus verschiedenen vorhandenen Quellen und Systemen.\n\n• Entwerfen und Entwickeln von Datenmodellen: konzeptionell, logisch, physisch und dimensional.\n\n• Teilnahme an Migrations- und Datenintegrationsprojekten.\n\n• Konzipieren und implementieren Sie Datenbanken.\n\n• Durchführung explorativer Analysen: Profiling, Volumentrik, Vollständigkeit, Anomalien, Konsistenz.\n\n• Schreiben Sie funktionale Spezifikationen von Datenströmen: Quellen-/Zielzuordnungen, Transformationsregeln und Grenzfälle.\n\n• Arbeiten Sie mit Data/Engineering-Teams beim Flow Design und der Implementierung zusammen.\n\n• Erstellen Sie Analysen, Indikatoren und Dashboards, um die Geschäftsanforderungen zu erfüllen.\n\n• Beitrag zur Datenqualität, Governance, Dokumentation und Abstammung.\n\n• Pflegen und Anreichern des Datenkatalogs.\n\n• Unterstützen Sie Benutzer und helfen Sie, Bedürfnisse zu formalisieren.\n\n• 10 bis 15 Jahre Mindesterfahrung in Daten / BI / Datenanalyse.\n\n• Expertise in der Datenmodellierung.\n\n• Konkrete Erfahrung in der Datenmigration.\n\n• Erfahrung im Entwerfen oder Einrichten von Datenplattformen.\n\n• Hervorragende erweiterte SQL-Beherrschung: komplexe Abfragen, Multi-Source-Verbindungen, Aggregationen.\n\n• Steuerung eines BI / Data Visualization Tools: Power BI oder Qlik.\n\n• Gutes Verständnis von ETL/Data Warehouse Architekturen.\n\n• Kenntnisse von MDM-Konzepten und Datenrepositorien.\n\n• Fähigkeit, funktionale Spezifikationen zu entwerfen und Transformationsregeln zu formalisieren.\n\n• Gutes Verständnis von Datenqualitätsproblemen.\n\n• Hervorragende mündliche Kommunikation auf Französisch.\n\n• Fähigkeit, autonom zu sein und Stärke vorzuschlagen.\nBewertete Kompetenzen\n\n• Erfahrungen mit Lösungen aus Data Virtualization, Data Catalog / Data Lineage, Data Quality.\n\n• Gute statistische Kenntnisse.\n\n• Erfahrung im Testing Engineering.\n\n• Erfahrung in der Ausbildung und Unterstützung der Benutzer.",
+        "fr": "Vous interviendrez sur l’ensemble du cycle de vie de la donnée, notamment :\n\n• Analyser et documenter les données issues de différentes sources et systèmes existants.\n\n• Concevoir et faire évoluer les modèles de données : conceptuels, logiques, physiques et dimensionnels.\n\n• Participer à des projets de migration et d’intégration de données .\n\n• Concevoir et mettre en œuvre des Socles de Données .\n\n• Réaliser des analyses exploratoires : profilage, volumétrie, complétude, anomalies, cohérence.\n\n• Rédiger les spécifications fonctionnelles des flux de données : mappings source/cible, règles de transformation et cas limites.\n\n• Collaborer avec les équipes Data/Engineering sur la conception et la mise en œuvre des flux.\n\n• Produire des analyses, indicateurs et tableaux de bord pour répondre aux besoins métiers.\n\n• Contribuer à la qualité, la gouvernance, la documentation et au lignage des données .\n\n• Maintenir et enrichir le catalogue de données.\n\n• Accompagner les utilisateurs et contribuer à la formalisation des besoins.\n\n• 10 à 15 ans d’expérience minimum dans les domaines Data / BI / Data Analysis.\n\n• Expertise en Data Modelling .\n\n• Expérience concrète en migration de données .\n\n• Expérience dans la conception ou la mise en place de plateformes Data .\n\n• Excellente maîtrise de SQL avancé : requêtes complexes, jointures multi-sources, agrégations.\n\n• Maîtrise d’un outil de BI / Data Visualisation : Power BI ou Qlik .\n\n• Bonne compréhension des architectures ETL / Data Warehouse .\n\n• Connaissance des concepts MDM et référentiels de données .\n\n• Capacité à rédiger des spécifications fonctionnelles et à formaliser des règles de transformation.\n\n• Bonne compréhension des problématiques de Data Quality .\n\n• Excellente communication orale en français .\n\n• Capacité à être autonome et force de proposition.\nCompétences appréciées\n\n• Expériences avec des solutions de Data Virtualisation, de Data Catalog / Data Lineage, Data Quality.\n\n• Bonnes connaissances statistiques.\n\n• Expérience en ingénierie des tests.\n\n• Expérience dans la formation et l’accompagnement des utilisateurs."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000151870259-lead-data-analyst?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-04T09:14:47.434Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-25",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000151870259-lead-data-analyst?oga=true",
+      "jobReqId": "744000151870259",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "bleidaten-sind-unubersehbar-talan-geneve-switzerland",
+        "lead-data-analyst-talan-geneve-switzerland",
+        "lead-data-analista-talan-geneve-js9wtq",
+        "lead-data-analyst-talan-geneve-switzerland-js9wtq",
+        "lead-data-analista-talan-geneve"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-data-analyst-talan-geneve-switzerland",
+          "lead-data-analista-talan-geneve-js9wtq",
+          "lead-data-analyst-talan-geneve-switzerland-js9wtq",
+          "lead-data-analista-talan-geneve"
+        ],
+        "en": [
+          "lead-data-analyst-talan-geneve-switzerland-js9wtq"
+        ],
+        "de": [
+          "bleidaten-sind-unubersehbar-talan-geneve-switzerland",
+          "lead-data-analyst-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-09-17T23:30:46.934Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-61c9acf4f11b",
+      "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
+      "slugByLocale": {
+        "it": "consulente-expert-sap-crm-f-h-talan-geneva",
+        "en": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland",
+        "de": "berater-expert-sap-crm-f-h-talan-geneva",
+        "fr": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Consultant Expert SAP CRM F/H",
+      "titleByLocale": {
+        "it": "Consulente Expert SAP CRM F/H",
+        "en": "Consultant Expert SAP CRM F/H",
+        "de": "Berater Expert SAP CRM F/H",
+        "fr": "Consultant Expert SAP CRM F/H"
+      },
+      "description": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\n Le poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\n Missions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n Compétences techniques recherchées\n SAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\n Environnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
+      "descriptionByLocale": {
+        "it": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
+        "en": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
+        "de": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
+        "fr": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
+      },
+      "needsRetranslation": true,
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-04T09:14:47.433Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
+      "jobReqId": "744000153133249",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland",
+        "consulente-expert-sap-crm-f-h-talan-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland",
+          "consulente-expert-sap-crm-f-h-talan-geneva"
+        ],
+        "de": [
+          "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-03T09:10:26.715Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-9addce44f74f",
       "slug": "consulente-sap-basis-talan-geneva",
       "slugByLocale": {
@@ -744,7 +823,7 @@
       "title": "Consultant SAP Basis",
       "titleByLocale": {
         "it": "Consulente SAP Basis",
-        "en": "Consultant SAP Basis",
+        "en": "SAP Basis Consultant",
         "de": "Berater SAP Basis",
         "fr": "Consultant SAP Basis"
       },
@@ -761,7 +840,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:12:02.470Z",
+      "crawledAt": "2026-10-04T09:14:47.432Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -780,18 +859,101 @@
       "jobReqId": "744000153113299",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-04T22:55:58.545Z",
+      "previousSlugs": [
+        "consultant-sap-basis-talan-geneva-ge-switzerland",
+        "consulente-sap-basis-talan-geneva"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "consultant-sap-basis-talan-geneva-ge-switzerland"
+          "consultant-sap-basis-talan-geneva-ge-switzerland",
+          "consulente-sap-basis-talan-geneva"
         ],
         "de": [
           "consultant-sap-basis-talan-geneva-ge-switzerland"
         ]
       },
+      "firstSeenAt": "2026-09-04T22:55:58.545Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-30acc5222a82",
+      "slug": "analizzatore-sql-developer-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "analizzatore-sql-developer-talan-geneve-switzerland",
+        "en": "sql-developer-analyst-talan-geneve-switzerland",
+        "de": "sql-entwickler-analyst-talan-geneve-switzerland",
+        "fr": "analyste-developpeur-sql-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Analyste Développeur SQL",
+      "titleByLocale": {
+        "it": "Analizzatore SQL Developer",
+        "en": "SQL Developer Analyst",
+        "de": "SQL Entwickler Analyst",
+        "fr": "Analyste Développeur SQL"
+      },
+      "description": "• Participer à l'analyse des besoins et à la définition des solutions techniques et fonctionnelles.\n\n• Réaliser et maintenir des développements SQL .\n\n• Assurer le support et le suivi des problématiques applicatives.\n\n• Participer aux phases de tests et notamment aux tests UAT (User Acceptance Testing) .\n\n• Collaborer avec les équipes métiers et techniques afin d'identifier et résoudre les problématiques rencontrées.\n\n• Contribuer au suivi et à la réalisation de projets informatiques.\n\n• Participer à l'amélioration continue des applications et des processus existants.\n\n• Assurer une bonne communication entre les différents interlocuteurs impliqués dans les projets.\n\n• Minimum 10 ans d'expérience dans des environnements informatiques orientés projets.\n\n• Solide maîtrise de SQL et expérience significative en développement.\n\n• Expérience en support applicatif et en analyse de problématiques techniques.\n\n• Bonne expérience des tests UAT et de la validation de solutions avec les utilisateurs.\n\n• Capacité à comprendre des problématiques à la fois techniques et fonctionnelles.\n\n• Une expérience dans un environnement SIRH constitue un atout.\n\n• Une expérience ou un intérêt pour les solutions d'Intelligence Artificielle serait un réel plus.\n\n• Excellent relationnel et aisance dans les échanges avec des interlocuteurs variés.",
+      "descriptionByLocale": {
+        "it": "• Partecipa all'analisi delle esigenze e alla definizione di soluzioni tecniche e funzionali.\n\n• Raggiungere e mantenere gli sviluppi SQL.\n\n• Supporto e monitoraggio dei problemi applicativi.\n\n• Partecipa alle fasi di test, tra cui UAT (User Acceptance Testing).\n\n• Collabora con i team commerciali e tecnici per identificare e risolvere i problemi incontrati.\n\n• Contribuisci al monitoraggio e all'implementazione dei progetti IT.\n\n• Partecipa a un continuo miglioramento delle applicazioni e dei processi esistenti.\n\n• Assicurare una buona comunicazione tra i vari stakeholder coinvolti nei progetti.\n\n• Minimo 10 anni di esperienza negli ambienti di calcolo orientati al progetto.\n\n• Solid SQL mastery e significativa esperienza di sviluppo.\n\n• Esperienza nel supporto delle applicazioni e nell'analisi dei problemi tecnici.\n\n• Buona esperienza di test UAT e validazione di soluzioni con gli utenti.\n\n• Capacità di comprendere sia questioni tecniche che funzionali.\n\n• Un'esperienza in un ambiente HRIS è un bene.\n\n• Un'esperienza o un interesse per le soluzioni di intelligenza artificiale sarebbe un vantaggio reale.\n\n• Eccellente rapporto e facilità in scambi con vari interlocutori.",
+        "en": "• Participate in needs analysis and definition of technical and functional solutions.\n\n• Achieve and maintain SQL developments.\n\n• Support and monitor application issues.\n\n• Participate in testing phases, including UAT (User Acceptance Testing).\n\n• Collaborate with trade and technical teams to identify and resolve the problems encountered.\n\n• Contribute to the monitoring and implementation of IT projects.\n\n• Participate in continuous improvement of existing applications and processes.\n\n• Ensure good communication between the various stakeholders involved in the projects.\n\n• Minimum 10 years of experience in project-oriented computing environments.\n\n• Solid SQL mastery and significant development experience.\n\n• Experience in application support and analysis of technical issues.\n\n• Good experience of UAT testing and validation of solutions with users.\n\n• Ability to understand both technical and functional issues.\n\n• An experience in an HRIS environment is an asset.\n\n• An experience or interest in artificial intelligence solutions would be a real plus.\n\n• Excellent relationship and ease in exchanges with various interlocutors.",
+        "de": "• Beteiligen Sie sich an der Bedarfsanalyse und Definition technischer und funktionaler Lösungen.\n\n• Erreichen und pflegen Sie SQL-Entwicklungen.\n\n• Unterstützung und Überwachung von Anwendungsproblemen.\n\n• Nehmen Sie an Testphasen teil, einschließlich UAT (User Acceptance Testing).\n\n• Arbeiten Sie mit Handels- und technischen Teams zusammen, um die aufgetretenen Probleme zu identifizieren und zu lösen.\n\n• Beitrag zur Überwachung und Durchführung von IT-Projekten.\n\n• Beteiligen Sie sich an der kontinuierlichen Verbesserung bestehender Anwendungen und Prozesse.\n\n• Gewährleistung einer guten Kommunikation zwischen den verschiedenen an den Projekten beteiligten Akteuren.\n\n• Mindestens 10 Jahre Erfahrung in projektorientierten Computerumgebungen.\n\n• Solide SQL-Beherrschung und umfangreiche Entwicklungserfahrung.\n\n• Erfahrung in der Anwendungsunterstützung und Analyse technischer Probleme.\n\n• Gute Erfahrung mit UAT-Tests und Validierung von Lösungen mit Benutzern.\n\n• Fähigkeit, sowohl technische als auch funktionale Probleme zu verstehen.\n\n• Eine Erfahrung in einer HRIS-Umgebung ist ein Gewinn.\n\n• Eine Erfahrung oder ein Interesse an Lösungen für künstliche Intelligenz wäre ein echtes Plus.\n\n• Ausgezeichnete Beziehung und Leichtigkeit im Austausch mit verschiedenen Gesprächspartnern.",
+        "fr": "• Participer à l'analyse des besoins et à la définition des solutions techniques et fonctionnelles.\n\n• Réaliser et maintenir des développements SQL .\n\n• Assurer le support et le suivi des problématiques applicatives.\n\n• Participer aux phases de tests et notamment aux tests UAT (User Acceptance Testing) .\n\n• Collaborer avec les équipes métiers et techniques afin d'identifier et résoudre les problématiques rencontrées.\n\n• Contribuer au suivi et à la réalisation de projets informatiques.\n\n• Participer à l'amélioration continue des applications et des processus existants.\n\n• Assurer une bonne communication entre les différents interlocuteurs impliqués dans les projets.\n\n• Minimum 10 ans d'expérience dans des environnements informatiques orientés projets.\n\n• Solide maîtrise de SQL et expérience significative en développement.\n\n• Expérience en support applicatif et en analyse de problématiques techniques.\n\n• Bonne expérience des tests UAT et de la validation de solutions avec les utilisateurs.\n\n• Capacité à comprendre des problématiques à la fois techniques et fonctionnelles.\n\n• Une expérience dans un environnement SIRH constitue un atout.\n\n• Une expérience ou un intérêt pour les solutions d'Intelligence Artificielle serait un réel plus.\n\n• Excellent relationnel et aisance dans les échanges avec des interlocuteurs variés."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000152678154-analyste-developpeur-sql?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-04T09:14:47.431Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-30",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000152678154-analyste-developpeur-sql?oga=true",
+      "jobReqId": "744000152678154",
+      "requirements": [],
+      "requirementsByLocale": {},
       "previousSlugs": [
-        "consultant-sap-basis-talan-geneva-ge-switzerland"
+        "analyste-developpeur-sql-talan-geneve-switzerland",
+        "analizzatore-sql-developer-talan-geneve-switzerland"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "analyste-developpeur-sql-talan-geneve-switzerland",
+          "analizzatore-sql-developer-talan-geneve-switzerland"
+        ],
+        "en": [
+          "analyste-developpeur-sql-talan-geneve-switzerland"
+        ],
+        "de": [
+          "analyste-developpeur-sql-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-09-30T21:13:04.350Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -838,7 +1000,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:12:02.468Z",
+      "crawledAt": "2026-10-04T09:14:47.429Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "",
@@ -899,164 +1061,6 @@
       }
     },
     {
-      "id": "talan-61c9acf4f11b",
-      "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
-      "slugByLocale": {
-        "it": "consulente-expert-sap-crm-f-h-talan-geneva",
-        "en": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland",
-        "de": "berater-expert-sap-crm-f-h-talan-geneva",
-        "fr": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant Expert SAP CRM F/H",
-      "titleByLocale": {
-        "it": "Consulente Expert SAP CRM F/H",
-        "en": "Consultant SAP CRM Expert M/F",
-        "de": "Berater Expert SAP CRM F/H",
-        "fr": "Consultant Expert SAP CRM F/H"
-      },
-      "description": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\n Le poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\n Missions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n Compétences techniques recherchées\n SAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\n Environnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
-      "descriptionByLocale": {
-        "it": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
-        "en": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
-        "de": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
-        "fr": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
-      },
-      "needsRetranslation": true,
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:12:02.465Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-10-02",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
-      "jobReqId": "744000153133249",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-03T09:10:26.715Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-        ],
-        "de": [
-          "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-        ]
-      },
-      "previousSlugs": [
-        "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-      ],
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-30acc5222a82",
-      "slug": "analizzatore-sql-developer-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "analizzatore-sql-developer-talan-geneve-switzerland",
-        "en": "sql-developer-analyst-talan-geneve-switzerland",
-        "de": "sql-entwickler-analyst-talan-geneve-switzerland",
-        "fr": "analyste-developpeur-sql-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Analyste Développeur SQL",
-      "titleByLocale": {
-        "it": "Analizzatore SQL Developer",
-        "en": "SQL Developer Analyst",
-        "de": "SQL Entwickler Analyst",
-        "fr": "Analyste Développeur SQL"
-      },
-      "description": "• Participer à l'analyse des besoins et à la définition des solutions techniques et fonctionnelles.\n\n• Réaliser et maintenir des développements SQL .\n\n• Assurer le support et le suivi des problématiques applicatives.\n\n• Participer aux phases de tests et notamment aux tests UAT (User Acceptance Testing) .\n\n• Collaborer avec les équipes métiers et techniques afin d'identifier et résoudre les problématiques rencontrées.\n\n• Contribuer au suivi et à la réalisation de projets informatiques.\n\n• Participer à l'amélioration continue des applications et des processus existants.\n\n• Assurer une bonne communication entre les différents interlocuteurs impliqués dans les projets.\n\n• Minimum 10 ans d'expérience dans des environnements informatiques orientés projets.\n\n• Solide maîtrise de SQL et expérience significative en développement.\n\n• Expérience en support applicatif et en analyse de problématiques techniques.\n\n• Bonne expérience des tests UAT et de la validation de solutions avec les utilisateurs.\n\n• Capacité à comprendre des problématiques à la fois techniques et fonctionnelles.\n\n• Une expérience dans un environnement SIRH constitue un atout.\n\n• Une expérience ou un intérêt pour les solutions d'Intelligence Artificielle serait un réel plus.\n\n• Excellent relationnel et aisance dans les échanges avec des interlocuteurs variés.",
-      "descriptionByLocale": {
-        "it": "• Partecipa all'analisi delle esigenze e alla definizione di soluzioni tecniche e funzionali.\n\n• Raggiungere e mantenere gli sviluppi SQL.\n\n• Supporto e monitoraggio dei problemi applicativi.\n\n• Partecipa alle fasi di test, tra cui UAT (User Acceptance Testing).\n\n• Collabora con i team commerciali e tecnici per identificare e risolvere i problemi incontrati.\n\n• Contribuisci al monitoraggio e all'implementazione dei progetti IT.\n\n• Partecipa a un continuo miglioramento delle applicazioni e dei processi esistenti.\n\n• Assicurare una buona comunicazione tra i vari stakeholder coinvolti nei progetti.\n\n• Minimo 10 anni di esperienza negli ambienti di calcolo orientati al progetto.\n\n• Solid SQL mastery e significativa esperienza di sviluppo.\n\n• Esperienza nel supporto delle applicazioni e nell'analisi dei problemi tecnici.\n\n• Buona esperienza di test UAT e validazione di soluzioni con gli utenti.\n\n• Capacità di comprendere sia questioni tecniche che funzionali.\n\n• Un'esperienza in un ambiente HRIS è un bene.\n\n• Un'esperienza o un interesse per le soluzioni di intelligenza artificiale sarebbe un vantaggio reale.\n\n• Eccellente rapporto e facilità in scambi con vari interlocutori.",
-        "en": "• Participate in needs analysis and definition of technical and functional solutions.\n\n• Achieve and maintain SQL developments.\n\n• Support and monitor application issues.\n\n• Participate in testing phases, including UAT (User Acceptance Testing).\n\n• Collaborate with trade and technical teams to identify and resolve the problems encountered.\n\n• Contribute to the monitoring and implementation of IT projects.\n\n• Participate in continuous improvement of existing applications and processes.\n\n• Ensure good communication between the various stakeholders involved in the projects.\n\n• Minimum 10 years of experience in project-oriented computing environments.\n\n• Solid SQL mastery and significant development experience.\n\n• Experience in application support and analysis of technical issues.\n\n• Good experience of UAT testing and validation of solutions with users.\n\n• Ability to understand both technical and functional issues.\n\n• An experience in an HRIS environment is an asset.\n\n• An experience or interest in artificial intelligence solutions would be a real plus.\n\n• Excellent relationship and ease in exchanges with various interlocutors.",
-        "de": "• Beteiligen Sie sich an der Bedarfsanalyse und Definition technischer und funktionaler Lösungen.\n\n• Erreichen und pflegen Sie SQL-Entwicklungen.\n\n• Unterstützung und Überwachung von Anwendungsproblemen.\n\n• Nehmen Sie an Testphasen teil, einschließlich UAT (User Acceptance Testing).\n\n• Arbeiten Sie mit Handels- und technischen Teams zusammen, um die aufgetretenen Probleme zu identifizieren und zu lösen.\n\n• Beitrag zur Überwachung und Durchführung von IT-Projekten.\n\n• Beteiligen Sie sich an der kontinuierlichen Verbesserung bestehender Anwendungen und Prozesse.\n\n• Gewährleistung einer guten Kommunikation zwischen den verschiedenen an den Projekten beteiligten Akteuren.\n\n• Mindestens 10 Jahre Erfahrung in projektorientierten Computerumgebungen.\n\n• Solide SQL-Beherrschung und umfangreiche Entwicklungserfahrung.\n\n• Erfahrung in der Anwendungsunterstützung und Analyse technischer Probleme.\n\n• Gute Erfahrung mit UAT-Tests und Validierung von Lösungen mit Benutzern.\n\n• Fähigkeit, sowohl technische als auch funktionale Probleme zu verstehen.\n\n• Eine Erfahrung in einer HRIS-Umgebung ist ein Gewinn.\n\n• Eine Erfahrung oder ein Interesse an Lösungen für künstliche Intelligenz wäre ein echtes Plus.\n\n• Ausgezeichnete Beziehung und Leichtigkeit im Austausch mit verschiedenen Gesprächspartnern.",
-        "fr": "• Participer à l'analyse des besoins et à la définition des solutions techniques et fonctionnelles.\n\n• Réaliser et maintenir des développements SQL .\n\n• Assurer le support et le suivi des problématiques applicatives.\n\n• Participer aux phases de tests et notamment aux tests UAT (User Acceptance Testing) .\n\n• Collaborer avec les équipes métiers et techniques afin d'identifier et résoudre les problématiques rencontrées.\n\n• Contribuer au suivi et à la réalisation de projets informatiques.\n\n• Participer à l'amélioration continue des applications et des processus existants.\n\n• Assurer une bonne communication entre les différents interlocuteurs impliqués dans les projets.\n\n• Minimum 10 ans d'expérience dans des environnements informatiques orientés projets.\n\n• Solide maîtrise de SQL et expérience significative en développement.\n\n• Expérience en support applicatif et en analyse de problématiques techniques.\n\n• Bonne expérience des tests UAT et de la validation de solutions avec les utilisateurs.\n\n• Capacité à comprendre des problématiques à la fois techniques et fonctionnelles.\n\n• Une expérience dans un environnement SIRH constitue un atout.\n\n• Une expérience ou un intérêt pour les solutions d'Intelligence Artificielle serait un réel plus.\n\n• Excellent relationnel et aisance dans les échanges avec des interlocuteurs variés."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000152678154-analyste-developpeur-sql?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:12:02.463Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-30",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000152678154-analyste-developpeur-sql?oga=true",
-      "jobReqId": "744000152678154",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "analyste-developpeur-sql-talan-geneve-switzerland",
-        "analizzatore-sql-developer-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "analyste-developpeur-sql-talan-geneve-switzerland",
-          "analizzatore-sql-developer-talan-geneve-switzerland"
-        ],
-        "en": [
-          "analyste-developpeur-sql-talan-geneve-switzerland"
-        ],
-        "de": [
-          "analyste-developpeur-sql-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-09-30T21:13:04.350Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-77288cd4a877",
       "slug": "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland",
       "slugByLocale": {
@@ -1070,9 +1074,9 @@
       "companyDomain": "talan.com",
       "title": "Développeur SAP Full Stack (ABAP / Fiori / BTP)",
       "titleByLocale": {
-        "it": "Développeur SAP Full Stack (ABAP / Fiori / BTP)",
-        "en": "Développeur SAP Full Stack (ABAP / Fiori / BTP)",
-        "de": "Développeur SAP Full Stack (ABAP / Fiori / BTP)",
+        "it": "Sviluppatore SAP Full Stack (ABAP / Fiori / BTP)",
+        "en": "SAP Full Stack Developer (ABAP / Fiori / BTP)",
+        "de": "SAP Full-Stack-Entwickler (ABAP / Fiori / BTP)",
         "fr": "Développeur SAP Full Stack (ABAP / Fiori / BTP)"
       },
       "description": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons une personne maîtrisant :\n\n• ABAP / ABAP OO et développement S/4HANA\n\n• CDS Views\n\n• SAP Fiori / SAPUI5\n\n• OData / APIs SAP\n\n• Bases solides sur SAP BTP\n ⭐ Les plus:\n\n• CAP (Node.js ou Java) et RAP\n\n• SAP Integration Suite / Event Mesh\n\n• Git, CI/CD, gCTS\n\n• Sensibilité à l'IA dans l'écosystème SAP (Joule, AI Core)\n\n• Connaissances fonctionnelles (FI, CO, MM, SD…)\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
@@ -1088,7 +1092,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:12:02.457Z",
+      "crawledAt": "2026-10-04T09:14:47.424Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1121,174 +1125,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "talan-4a8c50799f86",
-      "slug": "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
-      "slugByLocale": {
-        "it": "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva",
-        "en": "sap-full-stack-developer-abap-fiori-btp-talan-geneva",
-        "de": "sap-full-stack-developer-abap-fiori-btp-talan-geneva",
-        "fr": "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-g7xs40"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Développeur SAP Full Stack (ABAP / Fiori / BTP)",
-      "titleByLocale": {
-        "it": "SAP Full Stack Sviluppatore (ABAP / Fiori / BTP)",
-        "en": "SAP Full Stack Developer (ABAP / Fiori / BTP)",
-        "de": "SAP Full Stack Developer (ABAP / Fiori / BTP)",
-        "fr": "Développeur SAP Full Stack (ABAP / Fiori / BTP)"
-      },
-      "description": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons impérativement une personne maîtrisant :\n\n• ABAP / ABAP OO\n\n• Développements SAP S/4HANA\n\n• SAP Fiori / SAPUI5\n\n• CDS Views\n\n• OData / APIs SAP\n\n• Connaissance solide de SAP BTP\n Sans ces compétences, la candidature ne pourra pas être retenue.\n ⭐ Compétences souhaitées (atouts)\n Ces compétences augmenteront fortement votre valeur dans nos projets :\n 🔧 Cloud & extensions\n\n• SAP BTP Extension Suite (side‑by‑side)\n\n• CAP – Cloud Application Programming Model\n\n• SAP Event Mesh / architectures event-driven\n\n• SAP Build Apps & Process Automation\n\n• Kyma Runtime / Kubernetes\n\n• SAP AI Core / AI Foundation\n\n• Incorporation d’IA générative SAP ( SAP Joule )\n 💻 Technologies & Intégration\n\n• Node.js ou Java\n\n• SAP Integration Suite / APIs\n\n• DevOps SAP : Git, CI/CD, gCTS\n\n• Optimisation des performances SAP HANA\n 🧩 Connaissances fonctionnelles (bonus)\n\n• FI, CO, MM, SD, HR\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP.",
-      "descriptionByLocale": {
-        "it": "Si gioca un ruolo chiave nella progettazione e nello sviluppo di soluzioni SAP moderne ed efficienti.\n\nLa vostra missione è:\n\n• Progettare e sviluppare soluzioni tecniche su SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Crea applicazioni SAP Fiori / SAPUI5 intuitive e robuste.\n\n• Progettazione, esposizione e sicurezza dei servizi OData o SAP API.\n\n• Sviluppare estensioni su SAP BTP (Extension Suite) .\n\n• Partecipa alle scelte di architettura tecnica applicativa SAP.\n\n• Assicurare la qualità degli sviluppi, attraverso buone pratiche, recensioni di codice e documentazione.\n\n• Collabora con team funzionali, tecnici, cloud e architettonici sui progetti SAP.\n\nStiamo cercando qualcuno che sappia padroneggiare:\n\n• ABAP / ABAP OO\n\n• SAP S/4HANA\n\n• SAP Fiori / SAPUI5\n\n• Visualizza CDS\n\n• API OData / SAP\n\n• Conoscenza del suono di SAP BTP\nSenza queste competenze, l'applicazione non può essere accettata.\n⭐ Compétences souhaitées (atouts)\nQueste competenze aumenteranno notevolmente il vostro valore nei nostri progetti:\nCloud & Estensioni\n\n• SAP BTP Extension Suite (lato per lato)\n\n• CAP – Modello di programmazione delle applicazioni cloud\n\n• SAP Event Mesh / Architetture per eventi\n\n• SAP Build Apps & Process Automation\n\n• Kyma Runtime / Kubernetes\n\n• SAP AI Core / AI Foundation\n\n• Incorporazione di SAP ( SAP Joule)\nTecnologia e integrazione\n\n• Node.js o Java\n\n• SAP Integration Suite / API\n\n• SAP DevOps: Git, CI/CD, gCTS\n\n• Ottimizzazione delle prestazioni SAP HANA\nConoscenza funzionale (bonus)\n\n• FI, CO, MM, SD, HR\n\n• Progetti SAP moderni e innovativi (S/4HANA, BTP, CAP, Event Mesh...).\n\n• Stimolare l'ambiente, incoraggiare la competenza e la leadership.\n\n• Accesso a corsi di formazione SAP avanzati (BTP, Fiori, CAP, IA...).\n\n• comunità interna attiva SAP, scambi regolari con gli esperti.\n\n• Possibilità di trasferirsi a Tech Lead, SAP Architect o BTP Expert.",
-        "en": "You play a key role in the design and development of modern and efficient SAP solutions.\n\nYour mission is to:\n\n• Design and develop technical solutions on SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Create intuitive and robust SAP Fiori / SAPUI5 applications.\n\n• Design, expose and secure OData or SAP APIs services.\n\n• Develop extensions on SAP BTP (Extension Suite) .\n\n• Participate in SAP application technical architecture choices.\n\n• Ensure the quality of developments, through good practices, code reviews and documentation.\n\n• Collaborate with functional, technical, cloud and architectural teams on SAP projects.\n\nWe're looking for someone who can master:\n\n• ABAP / ABAP OO\n\n• SAP S/4HANA developments\n\n• SAP Fiori / SAPUI5\n\n• CDS Views\n\n• OData / SAP APIs\n\n• Sound knowledge of SAP BTP\nWithout these skills, the application cannot be accepted.\n⭐ Compétences souhaitées (atouts)\nThese skills will greatly increase your value in our projects:\nCloud & Extensions\n\n• SAP BTP Extension Suite (side‐by‐side)\n\n• CAP – Cloud Application Programming Model\n\n• SAP Event Mesh / Event-Driven Architectures\n\n• SAP Build Apps & Process Automation\n\n• Kyma Runtime / Kubernetes\n\n• SAP AI Core / AI Foundation\n\n• Incorporation of SAP ( SAP Joule )\nTechnology & Integration\n\n• Node.js or Java\n\n• SAP Integration Suite / APIs\n\n• SAP DevOps: Git, CI/CD, gCTS\n\n• Optimizing SAP HANA performance\nFunctional knowledge (bonus)\n\n• FI, CO, MM, SD, HR\n\n• Modern and innovative SAP projects (S/4HANA, BTP, CAP, Event Mesh...).\n\n• Stimulating environment, encouraging competence and leadership.\n\n• Access to advanced SAP training courses (BTP, Fiori, CAP, IA...).\n\n• Active SAP internal community, regular exchanges with experts.\n\n• Possibility of moving to Tech Lead, SAP Architect, or BTP Expert.",
-        "de": "Sie spielen eine Schlüsselrolle bei der Gestaltung und Entwicklung moderner und effizienter SAP-Lösungen.\n\nIhre Mission ist:\n\n• Design und Entwicklung technischer Lösungen auf SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Erstellen Sie intuitive und robuste SAP Fiori / SAPUI5-Anwendungen.\n\n• Entwerfen, Aufdecken und Sichern von OData- oder SAP-APIs-Services.\n\n• Entwickeln Sie Erweiterungen auf SAP BTP (Extension Suite).\n\n• Beteiligen Sie sich an der Auswahl der technischen SAP-Anwendungsarchitektur.\n\n• Gewährleistung der Qualität der Entwicklungen durch bewährte Verfahren, Code-Reviews und Dokumentation.\n\n• Arbeiten Sie mit funktionalen, technischen, Cloud- und Architekturteams an SAP-Projekten zusammen.\n\nWir suchen jemanden, der beherrschen kann:\n\n• ABAP/ABAP OO\n\n• SAP S/4HANA Entwicklungen\n\n• SAP Fiori / SAPUI5\n\n• CDS-Ansichten\n\n• OData / SAP APIs\n\n• Fundierte Kenntnisse über SAP BTP\nOhne diese Fähigkeiten kann der Antrag nicht akzeptiert werden.\n⭐ Compétences souhaitées (atouts)\nDiese Fähigkeiten werden Ihren Wert in unseren Projekten erheblich steigern:\nCloud & Extensions\n\n• SAP BTP Extension Suite (Side-by-Side)\n\n• CAP – Cloud Application Programming Model\n\n• SAP Event Mesh / Eventgesteuerte Architekturen\n\n• SAP Build Apps und Prozessautomatisierung\n\n• Kyma Runtime / Kubernetes\n\n• SAP AI Core / AI Foundation\n\n• Integration von SAP ( SAP Joule)\nTechnologie & Integration\n\n• Node.js oder Java\n\n• SAP Integration Suite / APIs\n\n• SAP DevOps: Git, CI/CD, gCTS\n\n• Optimierung der SAP HANA Performance\nFunktionale Kenntnisse (Bonus)\n\n• FI, CO, MM, SD, HR\n\n• Moderne und innovative SAP-Projekte (S/4HANA, BTP, CAP, Event Mesh...).\n\n• Umwelt stimulieren, Kompetenz und Führung fördern.\n\n• Zugang zu fortgeschrittenen SAP-Schulungen (BTP, Fiori, CAP, IA...).\n\n• Aktive SAP interne Community, regelmäßiger Austausch mit Experten.\n\n• Möglichkeit, zu Tech Lead, SAP Architect oder BTP Expert zu wechseln.",
-        "fr": "Vous jouez un rôle clé dans la conception et le développement de solutions SAP modernes et performantes.\n\nVotre mission vise à :\n\n• Concevoir et développer des solutions techniques sur SAP S/4HANA (ABAP / ABAP OO, CDS).\n\n• Créer des applications SAP Fiori / SAPUI5 intuitives et robustes.\n\n• Concevoir, exposer et sécuriser des services OData ou APIs SAP .\n\n• Développer des extensions sur SAP BTP (Extension Suite) .\n\n• Participer aux choix d’ architecture technique des applications SAP.\n\n• Garantir la qualité des développements , via bonnes pratiques, revues de code et documentation.\n\n• Collaborer avec les équipes fonctionnelles, techniques, cloud et architectes sur les projets SAP.\n\nNous recherchons impérativement une personne maîtrisant :\n\n• ABAP / ABAP OO\n\n• Développements SAP S/4HANA\n\n• SAP Fiori / SAPUI5\n\n• CDS Views\n\n• OData / APIs SAP\n\n• Connaissance solide de SAP BTP\nSans ces compétences, la candidature ne pourra pas être retenue.\n⭐ Compétences souhaitées (atouts)\nCes compétences augmenteront fortement votre valeur dans nos projets :\n🔧 Cloud & extensions\n\n• SAP BTP Extension Suite (side‑by‑side)\n\n• CAP – Cloud Application Programming Model\n\n• SAP Event Mesh / architectures event-driven\n\n• SAP Build Apps & Process Automation\n\n• Kyma Runtime / Kubernetes\n\n• SAP AI Core / AI Foundation\n\n• Incorporation d’IA générative SAP ( SAP Joule )\n💻 Technologies & Intégration\n\n• Node.js ou Java\n\n• SAP Integration Suite / APIs\n\n• DevOps SAP : Git, CI/CD, gCTS\n\n• Optimisation des performances SAP HANA\n🧩 Connaissances fonctionnelles (bonus)\n\n• FI, CO, MM, SD, HR\n\n• Projets SAP modernes et innovants (S/4HANA, BTP, CAP, Event Mesh…).\n\n• Environnement stimulant, encourageant la montée en compétence et la prise d’initiative.\n\n• Accès à des parcours de formation SAP avancés (BTP, Fiori, CAP, IA…).\n\n• Communauté interne SAP dynamique, échanges réguliers avec des experts.\n\n• Possibilités d’évolution vers Tech Lead, Architecte SAP, ou Expert BTP."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000147543429-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:10:42.806Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-04",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000147543429-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
-      "jobReqId": "744000147543429",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland",
-        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
-        "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
-        "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland",
-          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva-ufsvl6",
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland-ufsvl6",
-          "sap-full-stack-sviluppatore-abap-fiori-btp-talan-geneva"
-        ],
-        "en": [
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
-        ],
-        "de": [
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
-        ],
-        "fr": [
-          "developpeur-sap-full-stack-abap-fiori-btp-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-09-04T22:55:58.539Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "talan-348ab18dbf17",
-      "slug": "consulente-test-de-performance-h-f-talan-lausanne",
-      "slugByLocale": {
-        "it": "consulente-test-de-performance-h-f-talan-lausanne",
-        "en": "consultant-test-de-performance-h-f-talan-lausanne-vd-switzerland",
-        "de": "berater-test-de-performance-h-f-talan-lausanne",
-        "fr": "consultant-test-de-performance-h-f-talan-lausanne-vd-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant Test de performance (H/F)",
-      "titleByLocale": {
-        "it": "Consulente Test de performance (H/F)",
-        "en": "Consultant Test de performance (H/F)",
-        "de": "Berater Test de performance (H/F)",
-        "fr": "Consultant Test de performance (H/F)"
-      },
-      "description": "Contexte\n Dans le cadre de projets de transformation et d’évolution applicative, notre client recherche un(e) Consultant(e) Tests de Performance & Charge afin de garantir la robustesse, la scalabilité et les performances des applications avant leur mise en production.\n Missions principales\n\n• Définir la stratégie et les objectifs de performance en collaboration avec les parties prenantes.\n\n• Concevoir et maintenir les plans et scénarios de tests de charge, stress, endurance et montée en charge.\n\n• Préparer les environnements et les jeux de données nécessaires aux campagnes de tests.\n\n• Développer et paramétrer les scripts de tests de performance.\n\n• Exécuter et superviser les campagnes de tests.\n\n• Analyser les résultats, identifier les goulots d'étranglement et proposer des actions d'optimisation.\n\n• Réaliser les campagnes de revalidation après correction.\n\n• Produire les rapports de performance et les indicateurs associés.\n\n• Contribuer à l'amélioration continue des pratiques et outils de performance.\n\nProfil recherché\n\n• Expérience confirmée en tests de performance et de charge.\n\n• Maîtrise des outils JMeter et/ou LoadRunner (VuGen) .\n\n• Bonne compréhension des architectures applicatives, API, bases de données et infrastructures.\n\n• Expérience de l'analyse des métriques de performance (temps de réponse, débit, erreurs, consommation des ressources).\n\n• Capacité à identifier les causes de dégradation et à formuler des recommandations techniques.\n\n• Familiarité avec les méthodologies ISTQB , TMAP ou équivalent.\n Compétences appréciées\n\n• Expérience des outils de monitoring et d'observabilité (AppDynamics, Splunk ou équivalent).\n\n• Connaissance des environnements CI/CD et des pratiques DevOps.\n\n• Capacité à collaborer avec des équipes de développement, architecture et exploitation.\n Livrables attendus\n\n• Stratégie et plan de tests de performance.\n\n• Scripts et scénarios de tests automatisés.\n\n• Rapports d'exécution et tableaux de bord de performance.\n\n• Analyses de capacité et recommandations d'optimisation.\n\n• Synthèse d'amélioration continue.\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
-      "descriptionByLocale": {
-        "it": "Contesto\nNell'ambito di progetti di trasformazione e applicazione, il nostro cliente è alla ricerca di un test Consulnt Performance & Load per garantire robustezza, scalabilità e prestazioni delle applicazioni prima della produzione.\nPrincipali missioni\n\n• Definire la strategia di performance e gli obiettivi in collaborazione con gli stakeholder.\n\n• Progettare e mantenere piani e scenari per i test di carico, stress, resistenza e salita.\n\n• Preparare gli ambienti e i set di dati necessari per le campagne di test.\n\n• Sviluppare e configurare gli script di test delle prestazioni.\n\n• Eseguire e supervisionare le campagne di test.\n\n• Analizzare i risultati, identificare i colli di bottiglia e proporre azioni di ottimizzazione.\n\n• Estrarre le campagne di rivalutazione dopo la correzione.\n\n• Produci report sulle prestazioni e indicatori associati.\n\n• Contribuire al miglioramento continuo delle pratiche e degli strumenti di prestazione.\n\nProfilo ricercato\n\n• Esperienza confermata in prestazioni e test di carico.\n\n• Mastering JMeter e/o LoadRunner (VuGen) strumenti.\n\n• Buona comprensione delle architetture delle applicazioni, API, database e infrastrutture.\n\n• Esperienza nell'analisi delle metriche di performance (tempo di risposta, portata, errori, consumo di risorse).\n\n• Capacità di identificare le cause di degrado e di formulare raccomandazioni tecniche.\n\n• Familiarità con ISTQB, TMAP o metodologie equivalenti.\nCompetenze valutate\n\n• Esperienza in strumenti di monitoraggio e conformità (AppDynamics, Splunk o equivalente).\n\n• Conoscenza degli ambienti CI/CD e delle pratiche DevOps.\n\n• Capacità di collaborare con team di sviluppo, architettura e operazioni.\nPrevedibili\n\n• Strategia di test delle prestazioni e piano.\n\n• Script e scenari di test automatizzati.\n\n• Rapporti di performance e dashboard.\n\n• Analisi delle capacità e raccomandazioni di ottimizzazione.\n\n• Sintesi del miglioramento continuo.\n\nPerché unirsi a Talan Svizzera?\n\n• Partecipa alla crescita di una pratica di Data & AI in rapida espansione.\n\n• Gioca un ruolo chiave nella strutturazione della nostra offerta di Gestione dati.\n\n• Intervento sui programmi strategici con i principali conti svizzeri.\n\n• Approfittate di un ambiente imprenditoriale che offre autonomia, impatto e opportunità di cambiamento.\n\n• Collabora con esperti Data, Analytics, Data Governance e Artificial Intelligence.",
-        "en": "Background\nAs part of transformation and application projects, our client is looking for a Consultant Performance & Load tests to ensure robustness, scalability and performance of applications prior to production.\nMain missions\n\n• Define the performance strategy and objectives in collaboration with stakeholders.\n\n• Design and maintain plans and scenarios for load, stress, stamina and climb tests.\n\n• Prepare the necessary environments and data sets for testing campaigns.\n\n• Develop and configure performance test scripts.\n\n• Run and supervise test campaigns.\n\n• Analyze results, identify bottlenecks and propose optimization actions.\n\n• Carry out revalidation campaigns after correction.\n\n• Produce performance reports and associated indicators.\n\n• Contribute to continuous improvement of performance practices and tools.\n\nProfile sought\n\n• Experience confirmed in performance and load tests.\n\n• Mastering JMeter and/or LoadRunner (VuGen) tools.\n\n• Good understanding of application architectures, APIs, databases and infrastructure.\n\n• Experience in the analysis of performance metrics (response time, flow rate, errors, resource consumption).\n\n• Ability to identify causes of degradation and to make technical recommendations.\n\n• Familiarity with ISTQB , TMAP or equivalent methodologies.\nAssessed competencies\n\n• Experience in monitoring and compliance tools (AppDynamics, Splunk or equivalent).\n\n• Knowledge of CI/CD environments and DevOps practices.\n\n• Ability to collaborate with development, architecture and operations teams.\nDeliverables expected\n\n• Performance testing strategy and plan.\n\n• Scripts and scenarios of automated tests.\n\n• Performance reports and dashboards.\n\n• Capacity analyses and optimization recommendations.\n\n• Summary of continuous improvement.\n\nWhy join Talan Switzerland?\n\n• Participate in the growth of a rapidly expanding Data & AI practice.\n\n• Play a key role in structuring our Data Management offer.\n\n• Intervention on strategic programs with major Swiss accounts.\n\n• Benefit from an entrepreneurial environment offering autonomy, impact and opportunities for change.\n\n• Collaborate with experts Data, Analytics, Data Governance and Artificial Intelligence.",
-        "de": "Hintergrund\nIm Rahmen von Transformations- und Anwendungsprojekten sucht unser Kunde einen Consultant Performance & Load Test, um Robustheit, Skalierbarkeit und Performance von Anwendungen vor der Produktion zu gewährleisten.\nHauptmissionen\n\n• Definieren Sie die Leistungsstrategie und -ziele in Zusammenarbeit mit den Stakeholdern.\n\n• Konzipieren und pflegen Sie Pläne und Szenarien für Belastungs-, Belastungs-, Ausdauer- und Steigtests.\n\n• Bereiten Sie die notwendigen Umgebungen und Datensätze für Testkampagnen vor.\n\n• Entwickeln und konfigurieren Sie Performance Test Skripte.\n\n• Führen und überwachen Sie Testkampagnen.\n\n• Ergebnisse analysieren, Engpässe identifizieren und Optimierungsmaßnahmen vorschlagen.\n\n• Durchführung von Revalidierungskampagnen nach der Korrektur.\n\n• Erstellung von Leistungsberichten und zugehörigen Indikatoren.\n\n• Beitrag zur kontinuierlichen Verbesserung von Performance-Praktiken und Tools.\n\nProfil gesucht\n\n• Erfahrung bestätigt in Leistungs- und Belastungstests.\n\n• Mastering JMeter und / oder LoadRunner (VuGen) Werkzeuge.\n\n• Gutes Verständnis von Anwendungsarchitekturen, APIs, Datenbanken und Infrastruktur.\n\n• Erfahrung in der Analyse von Performance-Metriken (Reaktionszeit, Flussrate, Fehler, Ressourcenverbrauch).\n\n• Fähigkeit, Ursachen der Degradation zu identifizieren und technische Empfehlungen abzugeben.\n\n• Vertrautheit mit ISTQB, TMAP oder gleichwertigen Methoden.\nBewertete Kompetenzen\n\n• Erfahrung in Überwachungs- und Compliance-Tools (AppDynamics, Splunk oder gleichwertig).\n\n• Kenntnisse von CI/CD-Umgebungen und DevOps-Praktiken.\n\n• Fähigkeit zur Zusammenarbeit mit Entwicklungs-, Architektur- und Operationsteams.\nErwartete Leistungen\n\n• Performance Testing Strategie und Plan.\n\n• Skripte und Szenarien automatisierter Tests.\n\n• Leistungsberichte und Dashboards.\n\n• Kapazitätsanalysen und Optimierungsempfehlungen.\n\n• Zusammenfassung der kontinuierlichen Verbesserung.\n\nWarum bei Talan Schweiz?\n\n• Beteiligen Sie sich am Wachstum einer schnell wachsenden Data & AI-Praxis.\n\n• Spielen Sie eine Schlüsselrolle bei der Strukturierung unseres Datenmanagement-Angebots.\n\n• Intervention zu strategischen Programmen mit großen Schweizer Konten.\n\n• Profitieren Sie von einem unternehmerischen Umfeld, das Autonomie, Wirkung und Veränderungsmöglichkeiten bietet.\n\n• Zusammenarbeit mit Experten für Data, Analytics, Data Governance und Künstliche Intelligenz.",
-        "fr": "Contexte\nDans le cadre de projets de transformation et d’évolution applicative, notre client recherche un(e) Consultant(e) Tests de Performance & Charge afin de garantir la robustesse, la scalabilité et les performances des applications avant leur mise en production.\nMissions principales\n\n• Définir la stratégie et les objectifs de performance en collaboration avec les parties prenantes.\n\n• Concevoir et maintenir les plans et scénarios de tests de charge, stress, endurance et montée en charge.\n\n• Préparer les environnements et les jeux de données nécessaires aux campagnes de tests.\n\n• Développer et paramétrer les scripts de tests de performance.\n\n• Exécuter et superviser les campagnes de tests.\n\n• Analyser les résultats, identifier les goulots d'étranglement et proposer des actions d'optimisation.\n\n• Réaliser les campagnes de revalidation après correction.\n\n• Produire les rapports de performance et les indicateurs associés.\n\n• Contribuer à l'amélioration continue des pratiques et outils de performance.\n\nProfil recherché\n\n• Expérience confirmée en tests de performance et de charge.\n\n• Maîtrise des outils JMeter et/ou LoadRunner (VuGen) .\n\n• Bonne compréhension des architectures applicatives, API, bases de données et infrastructures.\n\n• Expérience de l'analyse des métriques de performance (temps de réponse, débit, erreurs, consommation des ressources).\n\n• Capacité à identifier les causes de dégradation et à formuler des recommandations techniques.\n\n• Familiarité avec les méthodologies ISTQB , TMAP ou équivalent.\nCompétences appréciées\n\n• Expérience des outils de monitoring et d'observabilité (AppDynamics, Splunk ou équivalent).\n\n• Connaissance des environnements CI/CD et des pratiques DevOps.\n\n• Capacité à collaborer avec des équipes de développement, architecture et exploitation.\nLivrables attendus\n\n• Stratégie et plan de tests de performance.\n\n• Scripts et scénarios de tests automatisés.\n\n• Rapports d'exécution et tableaux de bord de performance.\n\n• Analyses de capacité et recommandations d'optimisation.\n\n• Synthèse d'amélioration continue.\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
-      },
-      "needsRetranslation": true,
-      "location": "Lausanne, VD, Switzerland",
-      "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000151597585-consultant-test-de-performance-h-f-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:14:30.822Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "postalCode": "",
-      "streetAddress": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Consulenza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-24",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000151597585-consultant-test-de-performance-h-f-?oga=true",
-      "jobReqId": "744000151597585",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consultant-test-de-performance-h-f-talan-lausanne-vd-switzerland",
-        "consulente-test-de-performance-h-f-talan-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consultant-test-de-performance-h-f-talan-lausanne-vd-switzerland",
-          "consulente-test-de-performance-h-f-talan-lausanne"
-        ],
-        "de": [
-          "consultant-test-de-performance-h-f-talan-lausanne-vd-switzerland"
-        ]
-      },
-      "salaryMin": 74500,
-      "salaryMax": 118500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 74500,
-          "maxValue": 118500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

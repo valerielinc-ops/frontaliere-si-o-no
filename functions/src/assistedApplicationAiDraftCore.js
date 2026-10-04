@@ -7,7 +7,7 @@
 
 import { buildFactIndex, checkGeneratedFacts } from './assistedApplicationAiFactCheck.js';
 import { sanitizeValidation } from './lib/answerRules.js';
-import { formatLetterDate, letterSubject } from './assistedApplicationAiPrompts.js';
+import { letterPlaceDate, letterSubject } from './assistedApplicationAiPrompts.js';
 
 export const LETTER_FILE_LABEL = {
   it: 'Lettera di presentazione',
@@ -344,87 +344,366 @@ export function buildFormAnswers({ identity, profile, documents, answers = {} })
 
 // ── Swiss letter conventions (study 2026-10-02, report-cv-lettera §5) ─────
 // Official templates of the cantonal career services (SDBB/CSFO, Città di
-// Lugano): German without a comma after the salutation and the closing,
-// French "Madame, Monsieur," and "Meilleures salutations", Italian "Gentile
-// signora …," then a lowercase start, and "Cordiali saluti". The salutation and
-// the closing are written here, never by the model.
+// Lugano, Canton Ticino) and the Federal Chancellery's guides, verified on
+// 2026-10-03: German without a comma after the salutation and the closing,
+// French "Madame, Monsieur," and a closing sentence that repeats it, Italian
+// "Gentile signora …," then a lowercase start, and "Cordiali saluti", English
+// without a comma ("Dear Ms Muster", English Style Guide, 3rd edition 2024).
+// The salutation and the closing are written here, never by the model.
 
 export const LETTER_CLOSING = {
   it: 'Cordiali saluti',
   de: 'Freundliche Grüsse',
-  fr: 'Meilleures salutations',
   en: 'Kind regards',
 };
 
-export const ENCLOSURES_LABEL = { it: 'Allegati', de: 'Beilagen', fr: 'Annexes', en: 'Enclosures' };
+/**
+ * The closing for the salutation printed. French closes with a sentence that
+ * repeats it (CSFO template and examples, Vaud, Neuchâtel): «Je vous prie de
+ * recevoir, Madame, Monsieur, mes meilleures salutations.»
+ */
+export function letterClosing(language, salutation = '') {
+  if (language === 'fr') return `Je vous prie de recevoir, ${clean(salutation, 200) || 'Madame, Monsieur,'} mes meilleures salutations.`;
+  return LETTER_CLOSING[language] || LETTER_CLOSING.it;
+}
+
+// The enclosure line's label with its colon: the singular for one document in
+// Italian and French (Città di Lugano, Consiglio di Stato; SECO), French with a
+// no-break space before the colon (CSFO). German and English keep the plural
+// their sources print.
+const ENCLOSURES_LABEL = {
+  it: ['Allegato:', 'Allegati:'],
+  de: ['Beilagen:', 'Beilagen:'],
+  fr: ['Annexe :', 'Annexes :'],
+  en: ['Enclosures:', 'Enclosures:'],
+};
 export const CV_ENCLOSURE = { it: 'Curriculum vitae', de: 'Lebenslauf', fr: 'CV', en: 'CV' };
 
-const HONORIFIC_FEMALE = /^(?:frau|madame|mme\.?|signora|sig\.ra|dott\.ssa|ms\.?|mrs\.?)\s+/i;
-const HONORIFIC_MALE = /^(?:herr|monsieur|m\.|signor|signore|sig\.|dott\.|mr\.?)\s+/i;
-const ACADEMIC = /^(?:dr\.?|prof\.?|dott\.?)\s+/i;
+export function enclosuresLabel(language, count) {
+  const [one, several] = ENCLOSURES_LABEL[language] || ENCLOSURES_LABEL.it;
+  return count === 1 ? one : several;
+}
+
+// Honorifics before the contact's name: [pattern, gender, English title].
+const HONORIFICS = [
+  [/^(?:frau|madame|mme\.?|mademoiselle|mlle\.?|signora|signorina|sig\.ra|sig\.na|dott\.ssa|dottoressa|prof\.ssa|professoressa|ms\.?)$/i, 'f', 'Ms'],
+  [/^mrs\.?$/i, 'f', 'Mrs'],
+  [/^miss$/i, 'f', 'Miss'],
+  [/^(?:herrn?|monsieur|signore?|sig\.|mr\.?)$/i, 'm', 'Mr'],
+  [/^mx\.?$/i, '', 'Mx'],
+];
+// Abbreviations that are something else in another language count only in their
+// own, with the case and the full stop as written: «M.» is an initial outside
+// French; «Hr.» and «Fr.» are a team («HR»), a currency and «Frère» outside German.
+const LANGUAGE_HONORIFICS = {
+  fr: [[/^M\.$/, 'm', 'Mr']],
+  de: [[/^Hrn?\.$/, 'm', 'Mr'], [/^Fr\.$/, 'f', 'Ms']],
+};
+// Academic and professional titles, dropped whole and never a gender: «Dr. med.»,
+// «Prof. Dr.», «Dipl. Ing.», «lic. iur.», «Dott.» (the Federal Chancellery does not
+// print them in German, n. 360). The second pattern is their lowercase parts.
+const TITLE = /^(?:dr|prof|dott|dottor|dottore|ing|dipl|lic|mag|avv|arch|geom|rag|dipl\.?-ing|dr\.?-ing)\.?$/i;
+const TITLE_PART = /^\p{Ll}[\p{L}.]*\.$/u;
+// Degrees after the name («Anna Muster PhD»).
+const DEGREE = /^(?:phd|ph\.d\.|mba|msc|m\.sc\.|bsc|b\.sc\.|llm|ll\.m\.)$/i;
 const SURNAME_PARTICLES = new Set(['de', 'di', 'da', 'del', 'della', 'dal', 'dalla', 'von', 'van', 'der', 'den', 'du', 'des', 'le', 'la', 'lo', 'dos', 'das']);
+// A department or a function where a person is expected.
+const DEPARTMENT = /(?<![\p{L}])(?:hr|rh|team|abteilung|personal\p{L}*|personale|personnel|ressources|risorse|human|recruit\p{L}*|rekrut\p{L}*|recrutement|reclutamento|talent\p{L}*|ufficio|service|servizio|dienst|d[ée]partement|department|dipartimento|direzione|direction|sekretariat|secr[ée]tariat|segreteria|gesch[äa]ftsleitung|leitung|administration|amministrazione|verwaltung|bewerbung\p{L}*|candidature|karriere|careers?|hiring)(?![\p{L}])/iu;
+// A function next to a name («Leiter Logistik», «Geschäftsführer», «Responsabile vendite», «Head Finance»);
+// German compounds end in it. It only tells a function from a name, never a gender.
+const ROLE_STEM = String.raw`leiter|chef|direktor|f(?:ü|ue)hrer|inhaber|spezialist|bearbeiter|assistent|berater|manager|koordinator|partner`;
+const ROLE = new RegExp(String.raw`(?:${ROLE_STEM})(?:in)?$|verantwortliche[rn]?$|^(?:head|director|officer|lead|recruiter|owner|founder|ceo|cfo|coo|cto|responsabile|direttore|direttrice|capo|titolare|coordinatore|coordinatrice|responsable|directeur|directrice|cheffe|coordinateur|chargée?|gérante?)$`, 'iu');
+// The function words that are also surnames («Leiter», «Kleiter», «Head»): a name may end in them.
+const SURNAME_ROLE = new RegExp(String.raw`^\p{L}{0,2}(?:${ROLE_STEM})$|^(?:head|lead|owner|capo)$`, 'iu');
+// Two people («Frau Muster / Herr Meier», «… und …», «… e …», «… et …», «&»).
+const TWO_PEOPLE = /[/&+]|\s(?:und|e|et|and)\s/iu;
+const NAME_WORD = /^(?:\p{Lu}[\p{L}\p{M}'’-]*|\p{Lu}\.)$/u;
+
+function honorificOf(word, language) {
+  for (const [pattern, gender, english] of [...HONORIFICS, ...(LANGUAGE_HONORIFICS[language] || [])]) {
+    if (pattern.test(word)) return { gender, english };
+  }
+  return null;
+}
+
+/**
+ * Whether a part of the contact line names a person: an honorific, or a full name
+ * (two capitalised words or more, no department, no function).
+ */
+function namesPerson(part, language) {
+  const words = part.split(' ').filter(Boolean);
+  if (words.some((word) => honorificOf(word, language))) return true;
+  const name = words.filter((word) => !TITLE.test(word) && !TITLE_PART.test(word));
+  return name.filter((word) => NAME_WORD.test(word)).length >= 2
+    && name.every((word) => NAME_WORD.test(word) || SURNAME_PARTICLES.has(word.toLowerCase()))
+    && !DEPARTMENT.test(part) && !name.some((word) => ROLE.test(word));
+}
+
+/**
+ * The one person the posting names as contact: the honorific it wrote, the
+ * given names and the surname with its particles. null for a department, an
+ * e-mail address or two people: never one of them, never a mix.
+ */
+function contactOf(raw, language) {
+  const text = clean(raw, 200).replace(/\s*(?:\([^)]*\)|\[[^\]]*\])/g, ' ').trim();
+  if (!text || /@|https?:|www\./i.test(text)) return null;
+  // What follows a comma is the function («Herr Peter von Arx, Leiter HR»), unless only it names a person;
+  // two parts that each name one are two people («Anna Muster, Peter Meier», «Anna Muster, Herr Peter Meier»).
+  const parts = text.split(/\s*[,;]\s*/).filter(Boolean);
+  const people = parts.filter((part) => namesPerson(part, language));
+  if (people.length > 1 || TWO_PEOPLE.test(people[0] || parts[0])) return null;
+  let words = (people[0] || parts[0]).split(' ').filter(Boolean);
+  // A role before the honorific («Teamleiterin Frau Muster»).
+  const at = words.findIndex((word) => honorificOf(word, language));
+  if (at > 0) words = words.slice(at);
+  let honorific = null;
+  let doctor = false;
+  while (words.length) {
+    const found = honorificOf(words[0], language);
+    if (!found && !TITLE.test(words[0]) && !TITLE_PART.test(words[0])) break;
+    if (found) honorific ||= found;
+    else doctor ||= /^dr(?![a-z])/i.test(words[0]);
+    words.shift();
+  }
+  // Another honorific further on is a second person («Frau Muster Herr Meier», two lines run together).
+  if (words.some((word) => honorificOf(word, language))) return null;
+  // A function after two name words ends the name: the lines of a contact block run together («Frau Anna
+  // Muster Leiterin Logistik»). Anywhere else, or last and also a surname, which words are the name is
+  // unknown («Geschäftsführer Peter Muster», «Frau Anna Leiter», «Herr Hans Peter Leiter»); the honorific's
+  // gender is not, and French greets by it alone.
+  const role = words.findIndex((word) => ROLE.test(word));
+  if (role >= 0) {
+    if (words.slice(0, role).filter((word) => !SURNAME_PARTICLES.has(word.toLowerCase())).length !== 2
+      || (role === words.length - 1 && SURNAME_ROLE.test(words[role]))) {
+      return honorific ? { gender: honorific.gender, english: '', doctor: false, surname: '', name: '' } : null;
+    }
+    words = words.slice(0, role);
+  }
+  while (words.length > 1 && DEGREE.test(words[words.length - 1])) words.pop();
+  if (!words.length || DEPARTMENT.test(words.join(' '))) return null;
+  if (!words.every((word) => NAME_WORD.test(word) || SURNAME_PARTICLES.has(word.toLowerCase()))) return null;
+  // The surname with its particles («von Arx», «De Luca», «van der Berg»): all of it after an honorific alone.
+  let start = words.length - 1;
+  while (start > 0 && SURNAME_PARTICLES.has(words[start - 1].toLowerCase())) start -= 1;
+  return { gender: honorific?.gender || '', english: honorific?.english || '', doctor, surname: words.slice(start).join(' '), name: start > 0 ? words.join(' ') : '' };
+}
 
 /**
  * The salutation for the contact person the posting names. The gender comes
  * only from an honorific the posting wrote ("Frau", "Monsieur", "signora"),
- * never from the first name; without one the form stays neutral.
+ * never from the first name; without one the form stays neutral, and without a
+ * single person to address (a department, two people, a surname alone) it is
+ * the unnamed form. `language` is the letter's, which is the posting's own
+ * (resolveLetterLanguage): it decides which abbreviations are honorifics.
  */
 export function letterSalutation(language, contactPerson = '') {
-  let rest = clean(contactPerson, 200).replace(/[,;].*$/, '');
-  let gender = '';
-  if (HONORIFIC_FEMALE.test(rest)) { gender = 'f'; rest = rest.replace(HONORIFIC_FEMALE, ''); }
-  else if (HONORIFIC_MALE.test(rest)) { gender = 'm'; rest = rest.replace(HONORIFIC_MALE, ''); }
-  rest = rest.replace(ACADEMIC, '').trim();
-  // The last name with its particles ("de Luca", "von Arx", "van der Berg").
-  const words = rest.split(' ').filter(Boolean);
-  let first = words.length - 1;
-  while (first > 1 && SURNAME_PARTICLES.has(words[first - 1].toLowerCase())) first -= 1;
-  const surname = words.slice(Math.max(first, 0)).join(' ');
-  const named = Boolean(surname) && /\p{L}/u.test(surname);
+  const contact = contactOf(contactPerson, language);
+  const gender = contact?.gender || '';
+  const surname = contact?.surname || '';
+  const name = contact?.name || '';
   switch (language) {
     case 'de':
-      if (named && gender) return gender === 'f' ? `Sehr geehrte Frau ${surname}` : `Sehr geehrter Herr ${surname}`;
-      return named ? `Guten Tag ${rest}` : 'Sehr geehrte Damen und Herren';
+      if (surname && gender) return gender === 'f' ? `Sehr geehrte Frau ${surname}` : `Sehr geehrter Herr ${surname}`;
+      return name ? `Guten Tag ${name}` : 'Sehr geehrte Damen und Herren';
     case 'fr':
       if (gender) return gender === 'f' ? 'Madame,' : 'Monsieur,';
       return 'Madame, Monsieur,';
     case 'en':
-      if (named && gender) return gender === 'f' ? `Dear Ms ${surname},` : `Dear Mr ${surname},`;
-      return named ? `Dear ${rest},` : 'Dear Sir or Madam,';
+      // «Dr» needs no gender and has no full stop; a posting's «Mrs» stays «Mrs».
+      if (surname && contact.doctor) return `Dear Dr ${surname}`;
+      if (surname && contact.english) return `Dear ${contact.english} ${surname}`;
+      return name ? `Dear ${name}` : 'Dear Sir or Madam';
     default:
-      if (named && gender) return gender === 'f' ? `Gentile signora ${surname},` : `Gentile signor ${surname},`;
-      return named ? `Gentile ${rest},` : 'Gentili signore, egregi signori,';
+      if (surname && gender) return gender === 'f' ? `Gentile signora ${surname},` : `Gentile signor ${surname},`;
+      // Canton Ticino (2025) and Graubünden (2026): one adjective for both, as the Ticino directive asks.
+      return name ? `Gentile ${name},` : 'Gentili signore e signori,';
   }
 }
 
 // Italian words a letter's first paragraph often starts with; after "Gentile …," they take a lowercase letter.
 const IT_LOWERCASE_START = new Set('sono ho mi vi le la lo con in da dopo durante lavoro sviluppo attualmente grazie desidero vorrei da dal dalla nel nella seguo ricopro mi chiamo come'.split(' '));
+// …but a courtesy pronoun before one of these verbs keeps its capital («Le scrivo», «La ringrazio»,
+// «Vi invio»: Federal Chancellery, SDBB model letter).
+const IT_COURTESY_PRONOUNS = new Set(['le', 'la', 'vi']);
+const IT_COURTESY_VERBS = new Set('scrivo ringrazio contatto invio propongo sottopongo presento chiedo porgo trasmetto'.split(' '));
 
-/** Swiss typography: no "ß" in German, no line break inside "81 %" or "CHF 80'000". */
+function italianStart(text) {
+  const [, word = '', next = ''] = /^(\p{L}+)(?:\s+(\p{L}+))?/u.exec(text) || [];
+  const lower = word.toLowerCase();
+  if (!IT_LOWERCASE_START.has(lower) || (IT_COURTESY_PRONOUNS.has(lower) && IT_COURTESY_VERBS.has(next.toLowerCase()))) return text;
+  return text[0].toLowerCase() + text.slice(1);
+}
+
+/**
+ * Swiss typography: no "ß" in German, no line break inside "81 %" or "CHF 80'000".
+ * The protected space before "%" is the Federal Chancellery's in German (n. 554),
+ * French and Italian, never inside a compound: «80%-Pensum» (n. 555).
+ */
 export function swissTypography(text, language) {
   let out = String(text ?? '');
   if (language === 'de') out = out.replace(/ß/g, 'ss');
-  if (language === 'de' || language === 'fr') out = out.replace(/(\d)[  ]?%/g, '$1 %');
-  else out = out.replace(/(\d) %/g, '$1 %');
+  if (language === 'de' || language === 'fr' || language === 'it') {
+    out = out.replace(/(\d)[  ]?%(?=-\p{L})/gu, '$1%').replace(/(\d)[  ]?%(?!-\p{L})/gu, '$1 %');
+  } else out = out.replace(/(\d) %/g, '$1 %');
   return out.replace(/\b(CHF|EUR|Fr\.)\s+(?=\d)/g, '$1 ');
+}
+
+// A greeting or a closing the model wrote anyway in a text the code frames with
+// its own (it is asked not to): removed, so nothing prints twice. Short closed
+// lists per language.
+const GREETING_OPENER = {
+  it: /^(?:gentil[ei]|egregi[oa]?|egr\.|spettabil[ei]|spett\.(?:le)?|buongiorno|buonasera|salve)(?![\p{L}])/iu,
+  de: /^(?:sehr\s+geehrte[rs]?|geehrte[rs]?|liebe[rs]?|guten\s+(?:tag|morgen|abend)|gr(?:ü|ue)e?zi|hallo)(?![\p{L}])/iu,
+  fr: /^(?:madame|monsieur|mesdames|messieurs|mademoiselle|ch(?:er|ère)s?|bonjour|bonsoir)(?![\p{L}])/iu,
+  en: /^(?:dear|hello|hi|good\s+(?:morning|afternoon|evening)|to\s+whom\s+it\s+may\s+concern)(?![\p{L}])/iu,
+};
+// The words of a greeting after its opener, on the same line: names and honorifics («Sir/Madam», «sig.ra»), then its punctuation.
+const GREETING_TAIL = /^((?:[ \t/]+(?:\p{Lu}[\p{L}\p{M}.'’-]*|(?:sig\.ra|sig\.na|sig\.|dott\.ssa|dott\.|dottoressa|dottore|azienda|ditta|signora|signor|signore|signori|signorina|e|et|und|and|or|hiring|recruiting|team|manager|sir|madam|responsabile|responsable|zusammen)(?![\p{L}])))*)[ \t]*([,:!]?)/u;
+// A greeting with words the tail does not know («Gentile responsabile delle risorse umane,», «Dear Hiring
+// Team at Esempio SA,»): a short line of its own, one comma at its end, or a colon after the English «Dear»
+// (US business style); «Liebe zum Detail und Teamgeist:» is the message.
+const GREETING_LINE = /^[^\n,]{0,80},[ \t]*(?=\n|$)/;
+const DEAR_LINE = /^dear(?![\p{L}])[^\n,]{0,76}:[ \t]*(?=\n|$)/iu;
+// «Liebe» is also a noun («Liebe zum Detail»): a greeting only before an honorific or a capitalised name
+// (checked without the case-insensitive flag).
+const LIEBE = /^lieb/iu;
+const NAME_NEXT = /^[ \t]+(?:\p{Lu}|(?:frau|herr)(?![\p{L}]))/u;
+// French opens a sentence about someone the way it greets them («Madame Keller, que j’ai rencontrée…, m’a
+// parlé de…»): with a name, a greeting on the message's own line is one only before the message's start.
+const FR_COURTESY = new Set(['madame', 'monsieur', 'mesdames', 'messieurs', 'mademoiselle', 'et']);
+const FR_MESSAGE_START = /^(?:j['’]|(?:je|vous|suite\s+à|par\s+la\s+présente|c['’]est\s+avec)(?![\p{L}]))/iu;
+const BARE_CLOSINGS = {
+  it: String.raw`(?:con\s+)?(?:i\s+)?(?:miei\s+)?(?:più\s+)?(?:cordiali|distinti|migliori)\s+saluti|saluti(?:\s+cordiali)?|cordialmente|un\s+cordiale\s+saluto`,
+  de: String.raw`(?:mit\s+)?(?:freundliche[nm]?|beste[nm]?|herzliche[nm]?|liebe[nm]?|viele[nm]?)\s+gr(?:ü|ue)(?:ss|ß)(?:e|en)?|(?:mit\s+)?freundliche[mn]?\s+gru(?:ss|ß)|hochachtungsvoll`,
+  fr: String.raw`(?:avec\s+)?(?:mes\s+)?(?:meilleures|sincères|cordiales)\s+salutations|salutations(?:\s+distinguées)?|(?:bien\s+)?cordialement|bien\s+à\s+vous`,
+  en: String.raw`(?:(?:many\s+thanks|thanks|thank\s+you)\s+and\s+)?(?:with\s+)?(?:(?:kind|kindest|best|warm|warmest)\s+)?regards|yours\s+(?:sincerely|faithfully|truly)|sincerely(?:\s+yours)?|best(?:\s+wishes)?`,
+};
+// The closing sentences of Italian, French and German letters: «In attesa di un Suo riscontro, porgo cordiali
+// saluti.», «Ringrazio per l’attenzione e porgo cordiali saluti.», «Je vous prie d'agréer, Madame, Monsieur,
+// mes salutations distinguées.», «Je vous remercie de votre attention et vous prie d'agréer…», «Ich freue mich
+// auf Ihre Rückmeldung und grüsse Sie freundlich.», «In Erwartung Ihrer Antwort grüsse ich Sie freundlich.».
+// Before «porgo» only courtesies of a closed list, joined by «e», each without a comma or another «e» inside;
+// after the first, a courtesy or a second object of it («e per la disponibilità») holds no verb of its own, but
+// the wish to meet of a closed list («e sperando di poterLa incontrare»). A line that says more («Grazie per
+// l’attenzione, sono disponibile da gennaio, porgo…», «… e sperando di discutere del mio progetto, porgo…», «Ich
+// freue mich auf ein persönliches Gespräch und grüsse…») is the candidate's text. In French the formula's own
+// verb follows its opener and only words of its noun follow «salutations»: «Je vous prie de bien vouloir
+// m’accorder un entretien et de recevoir…» is a request. «Considération» is a closing only in «l'assurance de ma
+// considération», never in a request («Veuillez prendre ma candidature en considération»).
+const IT_COURTESY_WORD = String.raw`(?:(?:in|nell['’])\s*attesa|nella\s+speranza|(?:(?:la|vi)\s+)?ringrazi\p{L}*|restando|rimanendo|sperando|fiducios[oa]|cert[oa]|con\s+l['’]occasione|cogliendo|grazie)\b`;
+// A verb of its own: an infinitive or a gerund, a pronoun attached («discutere», «poterLa», «sperando»);
+// «ricevere» is the reply the courtesy waits for («in attesa di ricevere un Suo riscontro»).
+const IT_VERB = String.raw`(?<![\p{L}])(?!ricevere(?![\p{L}]))\p{L}*(?:(?:are|ere|ire|ando|endo)(?:mi|ti|ci|vi|si|la|le|lo|li|gli|ne)?|(?:ar|er|ir)(?:mi|ti|ci|vi|si|la|le|lo|li|gli|ne))(?![\p{L}])`;
+const itWords = (max, verbs) => String.raw`(?:(?!\s+e\s)${verbs ? '' : `(?!${IT_VERB})`}[^\n,]){0,${max}}?`;
+const IT_WISH = String.raw`(?:sperando|nella\s+speranza)\s+di\s+poter(?:la|vi)\s+incontrare(?:\s+(?:(?:al\s+più\s+)?presto|di\s+persona|per\s+un\s+colloquio|in\s+un\s+colloquio)){0,2}`;
+const IT_SECOND = String.raw`${IT_WISH}|${IT_COURTESY_WORD}${itWords(120, false)}|(?:per\s+)?(?:(?:il|lo|la|i|gli|le|un|uno|una)(?=\s)|l['’]|un['’])${itWords(40, false)}`;
+const IT_COURTESY = String.raw`${IT_COURTESY_WORD}${itWords(120, true)}(?:\s+e\s+(?:${IT_SECOND}))*(?:,\s*|\s+e\s+)`;
+const FR_PRIE = String.raw`prie\s+(?:d['’]agréer|de\s+recevoir|de\s+croire|d['’]accepter)`;
+const DE_REPLY = String.raw`(?:baldige[n]?\s+|positive[n]?\s+)?(?:r(?:ü|ue)ckmeldung|antwort|nachricht)`;
+const DE_GREET = String.raw`gr(?:ü|ue)(?:ss|ß)e`;
+const CLOSING_SENTENCES = {
+  it: String.raw`(?:${IT_COURTESY})?(?:(?:le|vi)\s+)?porgo\b[^\n]{0,80}?\bsalut[io]|colgo\s+l['’]occasione\s+per\s+porger(?:e|le|vi)\b[^\n]{0,80}?\bsalut[io]`,
+  fr: String.raw`(?:(?:(?:dans\s+l['’]attente|en\s+vous\s+remerciant|en\s+attendant)\b[^\n,]{0,160}?,\s*)?(?:je\s+vous\s+${FR_PRIE}|veuillez\s+(?:agréer|recevoir|croire|accepter)|recevez|agréez|je\s+vous\s+adresse)|je\s+vous\s+remercie\b(?:(?!\s+et\s)[^\n,]){0,120}?\s+et\s+vous\s+(?:${FR_PRIE}|adresse))\b[^\n]{0,200}?(?:\b(?:salutations|sentiments)\b|l['’](?:assurance|expression)\s+de\s+ma\s+(?:haute\s+)?considération)(?:\s+(?!et(?![\p{L}]))\p{L}+){0,3}`,
+  de: String.raw`(?:(?:ich\s+freue\s+mich\s+(?:sehr\s+)?auf\s+ihre\s+${DE_REPLY}\s+und\s+|ich\s+)?${DE_GREET}|(?:in\s+erwartung\s+ihrer|mit\s+vorfreude\s+auf\s+ihre)\s+${DE_REPLY}\s+${DE_GREET}\s+ich)\s+sie\s+(?:freundlich|herzlich|bestens)`,
+};
+const closingLine = (language) => {
+  const bare = BARE_CLOSINGS[language] || BARE_CLOSINGS.it;
+  return new RegExp(String.raw`^(?:${bare}${CLOSING_SENTENCES[language] ? `|${CLOSING_SENTENCES[language]}` : ''})[.,!]?$`, 'iu');
+};
+const ANY_BARE_CLOSING = new RegExp(String.raw`^(?:${Object.values(BARE_CLOSINGS).join('|')})[.,!]?$`, 'iu');
+
+/** A closing printed on its own above the signature («Cordiali saluti», «Kind regards»), not a sentence. */
+export function isBareClosing(text) {
+  return ANY_BARE_CLOSING.test(clean(text, 300));
+}
+
+/** The text without the greeting it starts with: on its own line, or before a comma («Buongiorno, le scrivo…»). */
+function withoutGreeting(text, language) {
+  const opener = GREETING_OPENER[language] || GREETING_OPENER.it;
+  let rest = String(text || '').replace(/^\s+/, '');
+  let found = false;
+  // «Madame, Monsieur,», «Gentili signore, egregi signori,»: one opener after the other.
+  for (let match = opener.exec(rest); match; match = opener.exec(rest)) {
+    if (LIEBE.test(match[0]) && !NAME_NEXT.test(rest.slice(match[0].length))) break;
+    const tail = GREETING_TAIL.exec(rest.slice(match[0].length));
+    const after = rest.slice(match[0].length + tail[0].length);
+    const alone = /^[ \t]*(?:\n|$)/.test(after);
+    if (!alone && !tail[2]) {
+      const line = GREETING_LINE.exec(rest) || (language === 'en' ? DEAR_LINE.exec(rest) : null);
+      if (!line) break;
+      rest = rest.slice(line[0].length).replace(/^\s+/, '');
+      found = true;
+      continue;
+    }
+    const named = tail[1].split(/[\s/]+/).some((word) => word && !FR_COURTESY.has(word.toLowerCase()));
+    if (!alone && language === 'fr' && named && !FR_MESSAGE_START.test(after.replace(/^\s+/, ''))) break;
+    rest = after.replace(/^\s+/, '');
+    found = true;
+  }
+  // A text after a greeting starts with a capital, but in Italian (italianStart).
+  return found && language !== 'it' && rest ? rest[0].toUpperCase() + rest.slice(1) : rest;
+}
+
+const phoneKey = (text) => (/^[+\d\s/().-]{9,}$/.test(text) ? text.replace(/\D/g, '').slice(-9) : '');
+
+/**
+ * A line of the signature the code adds below, as the model may have written it: the line itself, the
+ * candidate's name words or their initials («Maria», «M. Rossi»), the phone in another format.
+ */
+function signedBy(line, signature) {
+  const own = signature.map((value) => clean(value, 320)).filter(Boolean);
+  const lower = line.toLowerCase();
+  if (own.some((value) => value.toLowerCase() === lower)) return true;
+  if (phoneKey(line) && own.some((value) => phoneKey(value) === phoneKey(line))) return true;
+  const names = own.filter((value) => !/[@\d]/.test(value)).flatMap((value) => value.toLowerCase().split(' '));
+  return names.length > 0 && lower.replace(/,$/, '').split(' ')
+    .every((word) => names.includes(word) || (/^\p{L}\.$/u.test(word) && names.some((name) => name.startsWith(word[0]))));
+}
+
+/** The text without the closing lines it ends with, nor the signature the code adds below. */
+function withoutClosing(text, language, signature = []) {
+  const closing = closingLine(language);
+  const lines = String(text || '').split('\n');
+  while (lines.length) {
+    const line = clean(lines[lines.length - 1], 400);
+    if (line && !closing.test(line) && !signedBy(line, signature)) break;
+    lines.pop();
+  }
+  return lines.join('\n').trim();
 }
 
 /** The model's letter with the conventions applied: salutation and closing in code, typography fixed. */
 export function applyLetterConventions(letter, { language, contactPerson } = {}) {
-  const paragraphs = (letter?.paragraphs || []).map((paragraph) => swissTypography(paragraph, language));
   const salutation = letterSalutation(language, contactPerson);
-  if (language === 'it' && salutation.endsWith(',') && paragraphs.length) {
-    const first = paragraphs[0];
-    const word = (first.match(/^\p{L}+/u) || [''])[0];
-    if (IT_LOWERCASE_START.has(word.toLowerCase())) paragraphs[0] = first[0].toLowerCase() + first.slice(1);
-  }
-  return { ...letter, salutation, paragraphs, closing: LETTER_CLOSING[language] || LETTER_CLOSING.it };
+  const paragraphs = (letter?.paragraphs || []).map((paragraph) => swissTypography(paragraph, language));
+  if (paragraphs.length) paragraphs[0] = withoutGreeting(paragraphs[0], language);
+  if (paragraphs.length) paragraphs[paragraphs.length - 1] = withoutClosing(paragraphs[paragraphs.length - 1], language);
+  const body = paragraphs.filter(Boolean);
+  if (language === 'it' && salutation.endsWith(',') && body.length) body[0] = italianStart(body[0]);
+  return { ...letter, salutation, paragraphs: body, closing: letterClosing(language, salutation) };
+}
+
+/**
+ * The application e-mail before the signature, framed like the letter: its
+ * salutation, the model's message, its closing. Composed once, when the draft
+ * is written; '' when no message is left. `signature`: the lines the runner
+ * adds below, removed if the model wrote them.
+ * @param {string} body
+ * @param {{language?: string, contactPerson?: string, signature?: string[]}} [options]
+ */
+export function applicationEmailText(body, { language, contactPerson, signature = [] } = {}) {
+  const salutation = letterSalutation(language, contactPerson);
+  let message = swissTypography(withoutClosing(withoutGreeting(cleanBlock(body, 3000), language), language, signature), language);
+  if (!message) return '';
+  if (language === 'it' && salutation.endsWith(',')) message = italianStart(message);
+  return [salutation, message, letterClosing(language, salutation)].join('\n\n');
 }
 
 // Phrases the Swiss career services and the job portals list as filler (BIZ Bern, SECO, jobs.ch).
+// Not «je serais ravi(e) de»: the CSFO's own model letter writes it.
 const FILLER_PHRASES = {
-  de: [/hiermit bewerbe ich mich/i, /mit (?:grossem|großem) interesse habe ich/i, /ich würde mich (?:sehr )?freuen/i, /neue herausforderung/i, /teamplayer/i],
-  fr: [/par la présente/i, /je me permets de/i, /nouveau défi/i, /je serais (?:ravie?|heureux|heureuse) de/i],
+  de: [/hiermit bewerbe ich mich/i, /mit (?:(?:sehr )?(?:grossem|großem) )?interesse (?:habe|bin) ich/i, /würde(?: ich)? mich (?:sehr )?(?:über [^.!?\n]{1,80}? )?freuen/i, /neue[nr]? herausforderung/i, /teamplayer/i],
+  fr: [/par la présente/i, /je me permets de/i, /nouveau défi/i],
   it: [/con la presente/i, /mi pregio/i, /nuova sfida/i, /team player/i],
   en: [/i am writing to/i, /team player/i, /perfect fit/i, /new challenge/i],
 };
@@ -466,17 +745,62 @@ export function letterEnclosures(language, documentLabels = []) {
   return [CV_ENCLOSURE[language] || CV_ENCLOSURE.it, ...documentLabels.map((label) => clean(label, 120)).filter(Boolean)];
 }
 
-/** Swiss business-letter blocks for buildCoverLetterPdf. */
-export function letterPdfBlocks({ identity, profile, posting = {}, companyName, language, letter, title, now, enclosures = [] }) {
+// What a place line never prints (verification of 2026-10-03: «Viale Varese 5, 3 ottobre 2026»):
+// a street, a postal code, a province or canton code, a country.
+const STREET_START = /^(?:via|viale|vicolo|piazza|piazzale|corso|largo|strada|contrada|salita|rue|avenue|av\.|chemin|ch\.|route|rte|boulevard|bd|place|impasse|allée|quai|sentier|ruelle|street|road)(?![\p{L}])/iu;
+const STREET_END = /(?:strasse|straße|str\.|gasse|weg|platz|ring|allee)$/iu;
+const COUNTRIES = new Set(['italia', 'italy', 'italien', 'italie', 'svizzera', 'schweiz', 'suisse', 'switzerland', 'svizra', 'germania', 'deutschland', 'germany', 'allemagne', 'francia', 'frankreich', 'france', 'austria', 'österreich', 'autriche', 'liechtenstein']);
+// A province, a canton or a region of the border is no locality («Provincia di Como», «Canton Ticino»,
+// «Lombardia», «Aargau»); the cantons named like their town (Zürich, Bern, Luzern…) stay.
+const REGION_START = /^(?:provincia|province|provinz|canton|cantone|kanton|regione|région|region)(?![\p{L}])/iu;
+const REGIONS = new Set(['lombardia', 'lombardy', 'lombardei', 'lombardie', 'piemonte', 'piedmont', 'piemont', 'piémont', 'ticino', 'tessin', 'grigioni', 'graubünden', 'grisons', 'vallese', 'wallis', 'valais', 'vaud', 'waadt',
+  'aargau', 'argovia', 'argovie', 'thurgau', 'turgovia', 'thurgovie', 'jura', 'giura', 'uri', 'obwalden', 'obvaldo', 'obwald', 'nidwalden', 'nidvaldo', 'nidwald',
+  'basel-landschaft', 'baselland', 'basel-land', 'basilea campagna', 'bâle-campagne']);
+
+/** The locality a place names: «Viale Varese 5, Como», «22100 Como (CO)» and «Como – Lombardia» are «Como»; «Italia» is ''. */
+export function localityOf(text) {
+  for (const raw of String(text || '').replace(/\([^)]*\)|\[[^\]]*\]/g, ' ').split(/[,;\n]|\s+[–—-]\s+/)) {
+    let part = raw.replace(/\s+/g, ' ').trim()
+      .replace(/^(?:[A-Z]{1,2}\s?-\s?)?\d{4,5}\s+/, '')
+      .replace(/\s+(?:[A-Z]{1,2}\s?-\s?)?\d{4,5}$/, '');
+    // «Via Roma 3 Como», «Via Roma, 3 - Como»: the words after the house number, without the dash.
+    if (/\d/.test(part)) part = /\d[\p{L}\d/-]*\s+(\D+)$/u.exec(part)?.[1].replace(/^[\s–—-]+/u, '').trim() || '';
+    // «Lugano TI», «Varese VA»: the canton's or the province's code is no part of the locality.
+    part = part.replace(/\s+\p{Lu}{2}$/u, '');
+    if (part.length < 2 || STREET_START.test(part) || STREET_END.test(part) || COUNTRIES.has(part.toLowerCase()) || /^\p{Lu}{2}$/u.test(part)
+      || REGION_START.test(part) || REGIONS.has(part.toLowerCase())) continue;
+    return part;
+  }
+  return '';
+}
+
+/**
+ * The job title as the letter and the e-mail print it, for the fact sources'
+ * `titles`, names the gate accepts only quoted whole: with the typography's protected space («80-100 %»)
+ * and, for an apprenticeship, the subject that names the trade («Bewerbung um die
+ * Lehrstelle als Informatiker/in EFZ»). Quoted whole each is a name, not a claim;
+ * the trade alone is not one, or «Ich bin bereits Informatiker/in EFZ» would pass.
+ */
+export function printedTitles(language, title, type = '') {
+  const subject = type === 'apprentice' ? letterSubject(language, title, type) : '';
+  return [...new Set([title, subject].filter(Boolean).flatMap((text) => [text, swissTypography(text, language)]))];
+}
+
+/** Swiss business-letter blocks for buildCoverLetterPdf. `type`: the candidate type, for an apprenticeship's subject. */
+export function letterPdfBlocks({ identity, profile, posting = {}, companyName, language, letter, title, now, enclosures = [], type = '' }) {
   const location = clean(profile?.location, 200);
   const address = profile?.address || {};
   const addressCity = clean(address.city, 120);
-  // The street prints only while the place is still the address's city: a place the
+  // The address prints only while the place is still the address's city: a place the
   // candidate corrected on the review page wins over the CV's street.
-  const street = addressCity && (!location || location.toLowerCase().includes(addressCity.toLowerCase())) ? clean(address.street, 200) : '';
+  const addressCurrent = Boolean(addressCity) && (!location || location.toLowerCase().includes(addressCity.toLowerCase()));
+  const street = addressCurrent ? clean(address.street, 200) : '';
   const cityLine = street ? [clean(address.postalCode, 20), addressCity].filter(Boolean).join(' ') : location;
-  const city = (location.split(/[,(]/)[0].replace(/^via\s.*$/i, '').trim()) || addressCity;
-  const date = formatLetterDate(language, now);
+  // The place of the date line is a locality: the address's city while it is current, else the one the place names.
+  const place = (addressCurrent && localityOf(addressCity)) || localityOf(location) || localityOf(addressCity);
+  // A closing that is a sentence (the French one, or the last paragraph of a letter whose closing the
+  // candidate deleted) ends the body; only a bare closing stands above the signature.
+  const bare = !letter.closing || isBareClosing(letter.closing);
   return {
     language: language || 'it',
     senderLines: [identity.name, street, cityLine, identity.phone, identity.email],
@@ -486,13 +810,13 @@ export function letterPdfBlocks({ identity, profile, posting = {}, companyName, 
       posting.streetAddress || '',
       [posting.postalCode, posting.location].filter(Boolean).join(' '),
     ],
-    placeDate: city ? `${city}, ${date}` : date,
-    subject: letterSubject(language, title),
+    placeDate: letterPlaceDate(language, place, now),
+    subject: swissTypography(letterSubject(language, title, type), language),
     salutation: letter.salutation,
-    paragraphs: letter.paragraphs,
-    closing: letter.closing,
+    paragraphs: bare ? letter.paragraphs : [...(letter.paragraphs || []), letter.closing],
+    closing: bare ? letter.closing : '',
     signature: identity.name,
-    enclosuresLabel: ENCLOSURES_LABEL[language] || ENCLOSURES_LABEL.it,
+    enclosuresLabel: enclosuresLabel(language, enclosures.length),
     enclosures,
     title: `${LETTER_FILE_LABEL[language] || LETTER_FILE_LABEL.it} – ${identity.name}`,
   };
@@ -550,6 +874,8 @@ export function checkDraftFacts(texts, sources) {
     // ("Kubernetes Engineer" in the title does not make "uso Kubernetes" the candidate's).
     claimSources: [...candidate, employerInitials(sources?.order)],
     nameSources: [sources?.order, sources?.place],
+    // The title as the letter prints it (protected space, an apprenticeship's subject): quoted whole only.
+    quotedNameSources: [sources?.titles],
     // A figure in the candidate's own texts comes from the candidate or the order line (the job
     // title with its workload), never from the posting alone (study 2026-10-02: "un team di 5").
     numberSources: [...candidate, sources?.order],

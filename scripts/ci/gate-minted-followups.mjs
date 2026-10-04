@@ -68,6 +68,10 @@
  *   MINT_ADMISSION_READ_CAP  tetto delle letture di file (API contents di GH_REPO,
  *                   ramo `main`) per osservare gli item nati col token già vero
  *                   (default 200). Oltre il tetto l'item conta `admission_unknown`.
+ *   Il repository gemello (bersagli) e il manifest del corpus si leggono col token
+ *   dichiarato per QUEL repository (`readTokenFor`): `GATE_ALT_PR_TOKEN` per
+ *   `GATE_ALT_PR_REPO`, `GATE_PR_TOKEN` per `GATE_PR_REPO`, `GH_TOKEN` per
+ *   `GH_REPO`. Nessun token dichiarato → nessuna lettura, `admission_unknown`.
  */
 
 import { execFileSync } from 'node:child_process';
@@ -1378,6 +1382,32 @@ function ghApiRaw(args) {
   });
 }
 
+/**
+ * Come `ghApiRaw`, ma con il token INIETTATO nel `GH_TOKEN` del processo `gh`
+ * (mai negli argomenti, quindi mai nei messaggi d'errore o nei log).
+ */
+export function ghApiRunner(token) {
+  return (args) => execFileSync('gh', args, {
+    encoding: 'utf-8', maxBuffer: 1 << 26, stdio: ['ignore', 'pipe', 'pipe'],
+    env: { ...process.env, GH_TOKEN: token },
+  });
+}
+
+/**
+ * Il token con cui leggere `repo`, dalle credenziali che il workflow dichiara
+ * per repository: `GATE_ALT_PR_TOKEN` per `GATE_ALT_PR_REPO`, `GATE_PR_TOKEN`
+ * (default `GH_TOKEN`, come `ghPr`) per `GATE_PR_REPO`, `GH_TOKEN` per
+ * `GH_REPO`. Nessuna credenziale dichiarata → `''`: il chiamante non legge e
+ * risponde `unknown`, mai con il token di un altro repository.
+ */
+export function readTokenFor(repo, env = process.env) {
+  if (!repo) return '';
+  if (env.GATE_ALT_PR_REPO && env.GATE_ALT_PR_REPO === repo) return env.GATE_ALT_PR_TOKEN || '';
+  if (env.GATE_PR_REPO && env.GATE_PR_REPO === repo) return env.GATE_PR_TOKEN || env.GH_TOKEN || '';
+  if (env.GH_REPO && env.GH_REPO === repo) return env.GH_TOKEN || '';
+  return '';
+}
+
 /** Contatori dell'ammissione per un verdetto (le chiavi della riga MINT_GATE_TALLY). */
 export function admissionCounts(admissions) {
   const list = Array.isArray(admissions) ? admissions : [];
@@ -1556,25 +1586,33 @@ function main() {
     cap: intFromEnv('MINT_ADMISSION_READ_CAP', DEFAULT_ADMISSION_READ_CAP),
   });
   // Il bersaglio si giudica col manifest di mirror (vive solo nel corpus: letto
-  // UNA volta per run via API, e solo se serve) e con l'io del gemello, entrambi
-  // pubblici. Manifest illeggibile → `admission_unknown`, mai una demozione.
+  // UNA volta per run via API, e solo se serve) e con l'io del gemello, ciascuno
+  // col token del SUO repository (`readTokenFor`): il GH_TOKEN del bucket puo'
+  // non leggere il gemello, e il 404 diventava un `missing` inventato. Manifest
+  // illeggibile o gemello senza token → `admission_unknown`, mai una demozione.
   const corpusRepo = process.env.FOLLOWUP_CORPUS_REPO || DEFAULT_FOLLOWUP_REPOS.corpus;
   const siteRepo = process.env.FOLLOWUP_SITE_REPO || DEFAULT_FOLLOWUP_REPOS.site;
   const side = (process.env.GH_REPO || '') === corpusRepo ? 'corpus' : 'site';
+  const twinRepo = side === 'site' ? corpusRepo : siteRepo;
+  const twinToken = readTokenFor(twinRepo);
+  const corpusToken = readTokenFor(corpusRepo);
+  if (!twinToken) console.log(`::warning::conio: nessun token dichiarato per il gemello ${twinRepo} (GATE_ALT_PR_TOKEN/GATE_PR_TOKEN), i bersagli del gemello contano admission_unknown`);
   let manifestFiles;
   const mintTarget = {
     side,
     manifestFiles: () => {
       if (manifestFiles === undefined) {
-        manifestFiles = fetchManifestFiles(corpusRepo, (args) => ghApiRaw(['api', ...args]));
+        manifestFiles = corpusToken
+          ? fetchManifestFiles(corpusRepo, (args) => ghApiRunner(corpusToken)(['api', ...args]))
+          : null;
         if (!manifestFiles) console.log('::warning::conio: manifest di mirror non leggibile, i bersagli assenti contano admission_unknown');
       }
       return manifestFiles;
     },
     twinIo: contentsApiIo({
-      repo: side === 'site' ? corpusRepo : siteRepo,
+      repo: twinRepo,
       ref: 'main',
-      gh: ghApiRaw,
+      gh: twinToken ? ghApiRunner(twinToken) : undefined,
       cap: intFromEnv('MINT_ADMISSION_READ_CAP', DEFAULT_ADMISSION_READ_CAP),
     }),
   };

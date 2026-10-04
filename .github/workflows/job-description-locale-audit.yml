@@ -282,7 +282,7 @@ jobs:
         run: |
           node scripts/lib/github-issue-creator.mjs \
             --title "Job description locale quality: daily snapshot" \
-            --description "$(cat /tmp/jdl/body.md)" \
+            --description-file /tmp/jdl/body.md \
             --priority 3 \
             --label job-description-locale \
             --label bug \

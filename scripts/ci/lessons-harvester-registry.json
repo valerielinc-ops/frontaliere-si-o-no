@@ -78,6 +78,20 @@
       "decidedAt": "2026-10-03T10:32:59Z",
       "ref": "#11011, #10448, #10393",
       "reason": "Fingerprint catch-all basato su path `scripts/` e classe funnel: i finding coprono fallback titolo, parita' strutturale delle traduzioni e floor/prova snapshot, senza una bug class comune; AGENTS.md #6 copre gia' la validazione di dominio, contesto e sibling."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-funnel-falls-back",
+      "outcome": "added",
+      "decidedAt": "2026-10-04T11:15:12Z",
+      "ref": "#11033, #10707, #9501",
+      "reason": "Pattern funnel reale: fonte primaria assente o ambigua e fallback generici (`first-match`, `substring` o campo vicino) possono attribuire dati al contesto sbagliato; aggiunta frase preventiva in AGENTS.md #6."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-funnel-treats-any",
+      "outcome": "declined",
+      "decidedAt": "2026-10-04T11:15:12Z",
+      "ref": "#11033, #10476, #10182",
+      "reason": "Gia' coperto da AGENTS.md #6: parser e guard funnel-critical non classificano ogni token o linea per shape, ma validano dominio e contesto e gestiscono unknown, ambigui e non-target."
     }
   ]
 }

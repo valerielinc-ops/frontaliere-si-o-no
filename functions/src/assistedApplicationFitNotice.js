@@ -39,3 +39,20 @@ export function fitNoticeOf(draft) {
   if (!gaps.length && !low) return null;
   return { level: low ? 'low' : 'partial', gaps };
 }
+
+/**
+ * How the notice reads, in the review e-mail and on the page alike (close-out
+ * of 2026-10-03). `far`: a verdict «poor» with no decisive requirement to
+ * list, so the words promise no list. `via`: where the candidate adds what
+ * the CV leaves out — the answers when the page asks questions, otherwise the
+ * letter («Modifica») or a new version («Chiedi modifiche»), which candidate
+ * review offers; null when the page offers neither.
+ * @param {{level:'low'|'partial', gaps?:Array<object>}|null} fit fitNoticeOf's result
+ * @param {{questions?:boolean, edit?:boolean}} page what the page shows
+ * @returns {{kind:'low'|'partial'|'far', via:'answers'|'edit'|null}|null}
+ */
+export function fitNoticeWording(fit, { questions = false, edit = true } = {}) {
+  if (!fit) return null;
+  const kind = fit.level === 'low' && !(fit.gaps || []).length ? 'far' : fit.level;
+  return { kind, via: questions ? 'answers' : edit ? 'edit' : null };
+}

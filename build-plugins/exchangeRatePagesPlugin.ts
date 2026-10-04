@@ -1181,7 +1181,7 @@ ${renderDiscoverMore(locale, copy.discoverCtas)}`;
 
   const indexable = countHtmlBodyWords(contentHtml) >= MIN_INDEXABLE_WORDS;
   const bodyHtml = `${contentHtml}
-${endOfContentMultiplexHtml({ indexable })}
+${endOfContentMultiplexHtml({ indexable, contentHtml })}
 </article>`;
 
   const alternates: Record<ExchangeLocale, string> = {
@@ -1357,7 +1357,7 @@ ${renderDiscoverMore(locale, copy.discoverCtas)}`;
 
   const indexable = countHtmlBodyWords(contentHtml) >= MIN_INDEXABLE_WORDS;
   const bodyHtml = `${contentHtml}
-${endOfContentMultiplexHtml({ indexable })}
+${endOfContentMultiplexHtml({ indexable, contentHtml })}
 </article>`;
 
   const alternates: Record<ExchangeLocale, string> = {

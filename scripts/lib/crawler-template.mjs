@@ -183,6 +183,7 @@ import {
 } from './stored-source-body.mjs';
 import { hasSourceBodyFailure, sourceBodyFailureRecord } from './source-body-failure.mjs';
 import { archiveRemovedJobsToSlice } from './expired-jobs-archive.mjs';
+import { publishedOnNextDeploy } from './translation-publication-hold.mjs';
 import {
   RETRYABLE_STATUS,
   WAF_IP_BLOCK_STATUS,
@@ -1334,8 +1335,11 @@ export async function runStandardCrawlerPipeline(config) {
   const diff = computeCrawlDiff(beforeSnapshot, afterMergeSnapshot);
   printCrawlChangeSummary(diff, companyLabel);
   writeCrawlChangeSummaryToGH(diff, companyLabel);
-  printPublishedJobUrls(clean, companyLabel);
-  writeJobsSummary(clean, companyLabel);
+  // An agency job held out of publication until its titles are translated is
+  // not a published offer (scripts/lib/translation-publication-hold.mjs).
+  const publishedNow = publishedOnNextDeploy(clean);
+  printPublishedJobUrls(publishedNow, companyLabel);
+  writeJobsSummary(publishedNow, companyLabel);
 
   // ─── Step 4b: Archive removed jobs to per-crawler expired slice ──
   // mergePreserveLocaleData drops entries not present in the fresh fetch

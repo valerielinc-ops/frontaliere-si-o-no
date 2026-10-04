@@ -41,6 +41,7 @@ import { renderHreflangTags } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
 import {
   FUEL_DAILY_LOCALES,
+  FUEL_SITEMAP_FILES,
   FUEL_LOCALE_PREFIX,
   FUEL_SECTION_SLUG,
   FUEL_TODAY_SLUG,
@@ -54,6 +55,7 @@ import {
   frFuelThe,
   frFuelDe,
   frFuelAt,
+  isFuelSitemapFile,
   buildFuelArchivePath,
   buildFuelTodayPath,
   buildFuelStationPath,
@@ -5184,13 +5186,13 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         'de/dieselpreis-schweiz', 'de/benzinpreis-schweiz',
         'fr/prix-gasoil-suisse', 'fr/prix-essence-suisse',
       ]);
-      cleanSitemapFiles(distDir, [
-        'sitemap-fuel-daily.xml',
-        'sitemap-fuel-stations.xml',
-        'sitemap-fuel-italian-cities.xml',
-        'sitemap-fuel-italian-stations.xml',
-        'sitemap-fuel-indexes.xml',
-      ]);
+      const fuelSitemapFiles = new Set<string>(FUEL_SITEMAP_FILES);
+      if (fs.existsSync(distDir)) {
+        for (const file of fs.readdirSync(distDir)) {
+          if (isFuelSitemapFile(file)) fuelSitemapFiles.add(file);
+        }
+      }
+      cleanSitemapFiles(distDir, [...fuelSitemapFiles]);
 
       // Read fuel-prices.json — soft-fail to keep the build green on worktrees
       // where the data file is absent.
@@ -5498,11 +5500,18 @@ ${urlEntries}
         }
       };
 
-      writeSitemap(sitemapPaths, 'sitemap-fuel-daily.xml', 'daily');
-      writeSitemap(stationSitemapPaths, 'sitemap-fuel-stations.xml', 'daily');
-      writeSitemap(italianCitySitemapPaths, 'sitemap-fuel-italian-cities.xml', 'daily');
-      writeSitemap(italianStationSitemapPaths, 'sitemap-fuel-italian-stations.xml', 'daily');
-      writeSitemap(indexSitemapPaths, 'sitemap-fuel-indexes.xml', 'daily');
+      const [
+        fuelDailySitemapFile,
+        fuelStationsSitemapFile,
+        fuelItalianCitiesSitemapFile,
+        fuelItalianStationsSitemapFile,
+        fuelIndexesSitemapFile,
+      ] = FUEL_SITEMAP_FILES;
+      writeSitemap(sitemapPaths, fuelDailySitemapFile, 'daily');
+      writeSitemap(stationSitemapPaths, fuelStationsSitemapFile, 'daily');
+      writeSitemap(italianCitySitemapPaths, fuelItalianCitiesSitemapFile, 'daily');
+      writeSitemap(italianStationSitemapPaths, fuelItalianStationsSitemapFile, 'daily');
+      writeSitemap(indexSitemapPaths, fuelIndexesSitemapFile, 'daily');
 
       const result: PluginResult = {
         pagesWritten,

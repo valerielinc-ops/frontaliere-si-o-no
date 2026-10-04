@@ -162,3 +162,27 @@ describe('editorial methodology SEO follows the requested locale', () => {
     expect(structured).not.toContain('Come utilizziamo');
   });
 });
+
+// Exercise the real asynchronous SPA metadata path, not just the copy builder.
+describe('legal page runtime metadata', () => {
+  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+    for (const page of ['privacy', 'terms', 'data-deletion'] as const) {
+      it(`${locale}/${page} uses the shared localized document`, async () => {
+        const { buildLegalSeo } = await import('../services/legal/documents');
+        const { clampMetaDescription } = await import('../build-plugins/shared/titleSuffix');
+        const expected = buildLegalSeo(page, locale);
+        document.head.innerHTML = '';
+        await loadAllLocaleChunks(locale);
+        setLocale(locale);
+        window.history.replaceState({}, '', new URL(expected.canonical).pathname);
+        await updateMetaTags(page);
+        expect(document.title).toBe(expected.title);
+        expect(document.querySelector('meta[name="description"]')?.getAttribute('content')).toBe(clampMetaDescription(expected.description, undefined, locale));
+        expect(document.querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(expected.canonical);
+        const nodes = [...document.querySelectorAll('script[type="application/ld+json"]')]
+          .flatMap(node => { const data = JSON.parse(node.textContent || '{}'); return Array.isArray(data) ? data : [data]; });
+        expect(nodes.find(node => node['@type'] === 'WebPage')).toMatchObject(expected.jsonLd);
+      });
+    }
+  }
+});

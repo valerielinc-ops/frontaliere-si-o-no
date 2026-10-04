@@ -75,6 +75,7 @@ import { computeScheduledSendAt, resolveEffectivePreferredHour, computeGlobalPre
 import { localePathPrefix as localePrefix, loadBlogMeta, localizeArticle } from './lib/articleContent.mjs';
 import { resolveNewsletterArticle } from './lib/newsletter-article-selection.mjs';
 import { readSliceDirectory } from './lib/crawler-slice-files.mjs';
+import { excludeHeldFromPublication } from './lib/translation-publication-hold.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 
@@ -1415,7 +1416,9 @@ function loadLocalJobsData() {
       } else {
         for (const file of sliceFiles) {
           const slice = JSON.parse(fs.readFileSync(new URL(file, slicesDir), 'utf8'));
-          if (Array.isArray(slice.jobs)) jobs.push(...slice.jobs);
+          // The slices also hold agency jobs held out of publication until their
+          // titles are translated; the assembled data/jobs.json never does.
+          if (Array.isArray(slice.jobs)) jobs.push(...excludeHeldFromPublication(slice.jobs));
         }
         if (jobs.length > 0) {
           console.warn(`⚠️  data/jobs.json missing — loaded ${jobs.length} jobs from ${sliceFiles.length} crawler slices`);

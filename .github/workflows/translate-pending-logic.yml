@@ -122,6 +122,13 @@ env:
   # The existing thinking A/B remains opt-in: data collection must not change
   # the scheduled translation behavior unless a caller explicitly asks for it.
   TRANSLATION_THINKING_AB: ${{ inputs.collect_company_served == true && '1' || '' }}
+  # Agency admission threshold (owner decision 2026-10-03): agency jobs that
+  # arrive with untranslated titles stay out of the PUBLISHED data/jobs.json
+  # until translated, but this pipeline must still see them there — Phase 2b
+  # (relocalize-pending-jobs.mjs) and the flag markers read data/jobs.json, not
+  # the slices. Every assemble in this job therefore includes them. See
+  # scripts/lib/translation-publication-hold.mjs.
+  JOBS_INCLUDE_TRANSLATION_HELD: '1'
 
 jobs:
   translate:
@@ -823,6 +830,18 @@ jobs:
           path: ${{ runner.temp }}/translation-observability.json
           retention-days: 14
           if-no-files-found: error
+
+      # Agency admission threshold: agency jobs held out of publication whose
+      # titles this run translated are released in the slices here, so the
+      # admission is committed together with the translation (by the slug
+      # commit below) and alerts date their novelty from now. Also prints how
+      # many are still waiting: the translation-capacity measure. Soft-failing:
+      # the assembler publishes a translated job anyway and the crawler funnel
+      # releases it on its next write.
+      - name: Release translated agency jobs held for translation
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        continue-on-error: true
+        run: node scripts/release-translation-holds.mjs
 
       # ── Phase 3: Regenerate slugs from translated titles ──────────────────
       - name: "Phase 3: Regenerate locale slugs"

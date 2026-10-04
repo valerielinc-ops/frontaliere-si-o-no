@@ -35,6 +35,7 @@ import {
   __resetStaticArticleFallback,
 } from '@/services/staticArticleFallback';
 import { tryRenderMdTable } from '@/components/community/BlogArticles';
+import { renderImageCreditHtml } from '../packages/articles/engine/shared/imageCredits.mjs';
 import { t } from '@/services/i18n';
 import { learnRuntimeBlogSlugs, learnRuntimeSwissSlugs, resolveBlogSlug, resolveSwissSlug, buildPath } from '@/services/router';
 
@@ -416,6 +417,35 @@ describe('articleBodyPartsFromStaticArticle', () => {
     expect(parts).toHaveLength(1);
     expect(parts.join('\n')).not.toContain('Articoli correlati');
     expect(parts.join('\n')).not.toContain('Domande frequenti');
+  });
+
+  it('ignores the cover credit footer emitted between the FAQ and the related articles (P14)', () => {
+    // The real footer, from the module the engine renders it with.
+    const credit = renderImageCreditHtml({
+      schema: 1,
+      cover: '/images/blog/kuhne-nagel-tagli-posti-ticino-2026.webp',
+      source: 'wikimedia-commons',
+      commons: { title: 'Locarno 1.jpg', pageUrl: 'https://commons.wikimedia.org/wiki/File:Locarno_1.jpg' },
+      author: { text: 'Riessdo', name: 'Riessdo', url: 'https://de.wikipedia.org/wiki/User:Riessdo', type: 'Person' },
+      attribution: null,
+      licence: { name: 'CC BY-SA 3.0', url: 'https://creativecommons.org/licenses/by-sa/3.0/', family: 'cc-by-sa', attributionRequired: true },
+      restrictions: [],
+      modified: 'resized',
+      fetchedAt: '2026-10-04',
+      status: 'ok',
+      curation: null,
+    }, 'it');
+    const extras = '<details class="s-x"><summary>Domande frequenti</summary><dl><dt>D?</dt><dd>R.</dd></dl></details>'
+      + credit
+      + '<section class="s-zzuqwx"><h2>Articoli correlati</h2><ul><li><a href="/x/">Altro articolo</a></li></ul></section>';
+    document.body.innerHTML = renderStaticArticle(['## Solo questo\nTesto.'], extras);
+    // Sanity: the footer is a direct child of the article, where body sections live.
+    expect(staticArticle()!.querySelector(':scope > footer.ft-image-credit')).not.toBeNull();
+
+    const parts = articleBodyPartsFromStaticArticle(staticArticle());
+    expect(parts).toHaveLength(1);
+    expect(parts.join('\n')).not.toContain('Immagine di copertina');
+    expect(parts.join('\n')).not.toContain('Riessdo');
   });
 
   it('returns nothing rather than guessing when there is no static article', () => {

@@ -12,8 +12,10 @@ import { classifyLiveness, isHardClosed } from '../scripts/assisted-application/
 import { decryptJson, encryptJson, maskValues } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { openRequiredQuestions, submitApplication } from '../scripts/assisted-application/lib/submit.mjs';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
+import { evaluateRedFlags, factCheckAcknowledged } from '../functions/src/assistedApplicationFlow.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
-import { safeErrorCode } from '../scripts/assisted-application/agent.mjs';
+import { PNG_1X1, pdfPaintsImage } from './helpers/pdfImages';
+import { safeErrorCode, takeFactCheck, writeDraft } from '../scripts/assisted-application/agent.mjs';
 
 const KEY = Buffer.alloc(32, 7);
 const ORDER_ID = 'order_RUN123';
@@ -39,6 +41,7 @@ function fakeBucket() {
         if (!files.has(key)) throw Object.assign(new Error('missing'), { code: 404 });
         return [files.get(key)];
       },
+      async delete() { files.delete(key); },
     }),
   };
 }
@@ -46,14 +49,14 @@ function fakeBucket() {
 const POSTING = 'L’Ospedale cerca un’infermiera per il reparto di medicina. Requisiti: diploma SUP in cure infermieristiche, esperienza di reparto, tedesco B1. '
   + 'Inviare il CV con le pretese salariali. '.repeat(3);
 
-function fakeFetch({ employerStatus = 200, employerHtml = '<main><p>Descrizione del posto di lavoro in reparto.</p><a>Candidati ora</a></main>' } = {}) {
+function fakeFetch({ employerStatus = 200, employerHtml = '<main><p>Descrizione del posto di lavoro in reparto.</p><a>Candidati ora</a></main>', title = 'Infermiera di reparto' } = {}) {
   return vi.fn(async (url: string, init: any = {}) => {
     if (url.startsWith('https://cdn.frontaliereticino.ch/data/job-detail/')) {
       if (init.method === 'HEAD') return new Response(null, { status: 200 });
       return new Response(JSON.stringify({
         description: POSTING,
         applyUrl: 'https://jobs.lever.co/ospedale/1/apply',
-        titleByLocale: { it: 'Infermiera di reparto' },
+        titleByLocale: { it: title },
         addressLocality: 'Lugano',
       }), { status: 200 });
     }
@@ -157,6 +160,22 @@ describe('draft mode', () => {
     expect(draft.applicationEmail.body).toContain('Maria Rossi');
     // The subject names the position and the candidate (the model's "Candidatura infermiera" is not used).
     expect(draft.applicationEmail.subject).toMatch(/^Candidatura per la posizione di .+ – Maria Rossi$/);
+    // The e-mail framed like the letter: the code's salutation and closing, once each, the model's own removed.
+    expect(draft.applicationEmail.body).toBe('Gentili signore e signori,\n\nin allegato CV e lettera.\n\nCordiali saluti\n\nMaria Rossi\nmaria.rossi@example.com\n+41 79 123 45 67');
+    const documentsPrompt = (codex.mock.calls as any[]).find(([request]) => request.schema === DOCUMENTS_SCHEMA)[0].prompt;
+    expect(documentsPrompt).toContain('emailBody is the message only: no greeting, no closing formula and no signature');
+  });
+
+  it('writes an apprenticeship’s subject from the trade, and the fact gate reads that subject as a name', async () => {
+    const draft = await buildDraft({
+      order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      codex: fakeCodex(), bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch({ title: 'Apprendista impiegato/a di commercio AFC' }), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+    });
+    expect(draft.candidateType.type).toBe('apprentice');
+    expect(draft.coverLetter.subject).toBe('Candidatura per un posto di tirocinio come impiegato/a di commercio AFC');
+    expect(draft.applicationEmail.subject).toBe('Candidatura per un posto di tirocinio come impiegato/a di commercio AFC – Maria Rossi');
+    // «AFC» in the subject is the trade's, not a diploma the CV must show: only the invented «7 anni» is flagged.
+    expect(draft.factCheck.unsupported.map((item: any) => item.token)).toEqual(['7']);
   });
 
   it('writes the next round from the candidate as corrected on the review page', async () => {
@@ -196,19 +215,74 @@ describe('draft mode', () => {
 
   it('keeps on the next round’s tailored CV the photo the candidate gave on the review page', async () => {
     const bucket = fakeBucket();
-    // A 1×1 PNG, as the review page stores it.
-    const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==', 'base64');
-    await bucket.file(`assisted-application-uploads/${ORDER_ID}/photo-1.png`).save(png);
+    await bucket.file(`assisted-application-uploads/${ORDER_ID}/photo-1.png`).save(PNG_1X1);
     const draft = await buildDraft({
       order, orderId: ORDER_ID, flow: { round: 2, answers: {}, photo: { key: `assisted-application-uploads/${ORDER_ID}/photo-1.png`, detectedType: 'png' } },
       previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf', codex: fakeCodex(), bucket, runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
     });
     expect(draft.tailoredCv).toMatchObject({ status: 'ready', photo: true, renderer: 'typst' });
-    const { getDocumentProxy, getResolvedPDFJS } = await import('unpdf');
-    const { OPS } = await getResolvedPDFJS();
-    const pdf = await getDocumentProxy(new Uint8Array(bucket.files.get(draft.tailoredCv.pdfKey)!));
-    const operators = await (await pdf.getPage(1)).getOperatorList();
-    expect(operators.fnArray).toContain(OPS.paintImageXObject);
+    expect(await pdfPaintsImage(bucket.files.get(draft.tailoredCv.pdfKey)!)).toBe(true);
+  }, 60_000);
+
+  it('deletes the previous round’s tailored CV that carried the photo once the next draft replaces it', async () => {
+    const bucket = fakeBucket();
+    const photo = { key: `assisted-application-uploads/${ORDER_ID}/photo-1.png`, detectedType: 'png' };
+    await bucket.file(photo.key).save(PNG_1X1);
+    const store = createMemoryFirestore();
+    const orderRef = store.db.collection('assisted_applications').doc(ORDER_ID);
+    const build = (round: number) => buildDraft({
+      order, orderId: ORDER_ID, flow: { round, answers: {}, photo }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      codex: fakeCodex(), bucket, runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+    });
+    const first = await build(1);
+    await writeDraft({ orderRef, bucket, draft: first, previousDraft: null });
+    const next = await build(2);
+    await writeDraft({ orderRef, bucket, draft: next, previousDraft: first });
+    expect(store.read(`assisted_applications/${ORDER_ID}/ai_drafts/current`).tailoredCv.pdfKey).toBe(next.tailoredCv.pdfKey);
+    // Only the PDF the draft names carries the photo: taken back on the review page, it leaves none behind.
+    const withPhoto: string[] = [];
+    for (const [key, bytes] of bucket.files) if (key.endsWith('.pdf') && await pdfPaintsImage(bytes)) withPhoto.push(key);
+    expect(withPhoto).toEqual([next.tailoredCv.pdfKey]);
+
+    // A PDF without the photo (none given, or the standard-font writer) is not this rule's: it stays for the purge.
+    for (const tailoredCv of [{ renderer: 'typst' }, { renderer: 'legacy', photo: true }]) {
+      const key = `assisted-application-uploads/${ORDER_ID}/ai-cv-r1-${tailoredCv.renderer}.pdf`;
+      await bucket.file(key).save(cvPdf());
+      await writeDraft({ orderRef, bucket, draft: next, previousDraft: { tailoredCv: { status: 'ready', pdfKey: key, ...tailoredCv } } });
+      expect(bucket.files.has(key)).toBe(true);
+    }
+
+    // A delete that fails is logged; the draft (here a round whose tailored CV failed) is written all the same.
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    // On GitHub Actions the runner's summary() would append this line to the tests job's own summary page.
+    vi.stubEnv('GITHUB_STEP_SUMMARY', '');
+    const failing = { file: (key: string) => ({ ...bucket.file(key), delete: async () => { throw new Error('storage unavailable'); } }) };
+    try {
+      await writeDraft({ orderRef, bucket: failing, draft: { ...next, round: 3, tailoredCv: { status: 'failed', language: 'it' } }, previousDraft: next });
+      expect(store.read(`assisted_applications/${ORDER_ID}/ai_drafts/current`)).toMatchObject({ round: 3, tailoredCv: { status: 'failed' } });
+      expect(bucket.files.has(next.tailoredCv.pdfKey)).toBe(true);
+      expect(log.mock.calls.map(([line]) => String(line))).toContain('[assisted-application] superseded tailored cv not deleted: storage unavailable');
+    } finally {
+      log.mockRestore();
+      vi.unstubAllEnvs();
+    }
+  }, 60_000);
+
+  it('records the photo only when the PDF carries it: never with the standard-font writer', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(`assisted-application-uploads/${ORDER_ID}/photo-1.png`).save(PNG_1X1);
+    vi.stubEnv('ASSISTED_APPLICATION_PDF_RENDERER', 'legacy');
+    try {
+      const draft = await buildDraft({
+        order, orderId: ORDER_ID, flow: { round: 2, answers: {}, photo: { key: `assisted-application-uploads/${ORDER_ID}/photo-1.png`, detectedType: 'png' } },
+        previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf', codex: fakeCodex(), bucket, runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+      });
+      expect(draft.tailoredCv).toMatchObject({ status: 'ready', renderer: 'legacy' });
+      expect(draft.tailoredCv).not.toHaveProperty('photo');
+      expect(await pdfPaintsImage(bucket.files.get(draft.tailoredCv.pdfKey)!)).toBe(false);
+    } finally {
+      vi.unstubAllEnvs();
+    }
   }, 60_000);
 
   it('stops before any Codex call when the posting is closed', async () => {
@@ -553,6 +627,91 @@ describe('submit mode', () => {
     });
     expect(ambiguous).toEqual({ type: 'submit_failed', error: 'email_ambiguous' });
     expect(sendCascade).toHaveBeenCalledTimes(1);
+  });
+
+  // Close-out of 2026-10-03: the gate is run again at submit with the code of the day. A draft that was
+  // clean under a looser gate (here: «45» backed by the phone number of the CV) must not be trapped.
+  it('stops a send the fact gate no longer passes, with what it found for the draft, until the owner confirms', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend', messageId: 'm1' }] }));
+    const submit = (draft: any) => submitApplication({
+      order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft, cvBuffer: cvPdf(), cvType: 'pdf',
+      bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
+    });
+    const draft = {
+      ...baseDraft,
+      coverLetter: { text: 'Gentili Signori,\n\nHo guidato un team di 45 persone.\n\nSaluti' },
+      factCheck: { ok: true, unsupported: [], advisories: [], basis: 'pdf_text' },
+    };
+    expect(evaluateRedFlags(draft).owner).toEqual([]);
+    const stopped: any = await submit(draft);
+    expect(stopped).toMatchObject({ type: 'submit_failed', error: 'fact_check_not_acknowledged', factCheck: { ok: false } });
+    expect(stopped.factCheck.unsupported).toEqual([expect.objectContaining({ field: 'coverLetter', kind: 'number', token: '45' })]);
+    expect(sendCascade).not.toHaveBeenCalled();
+
+    // agent.mjs: the result goes on the draft with the basis of its own check; the event carries no token.
+    const patch = takeFactCheck(stopped, draft);
+    expect(stopped).toEqual({ type: 'submit_failed', error: 'fact_check_not_acknowledged' });
+    expect(patch).toEqual({ factCheck: { ok: false, unsupported: [expect.objectContaining({ kind: 'number', token: '45' })], advisories: expect.any(Array), basis: 'pdf_text' } });
+    expect(takeFactCheck({ type: 'submit_succeeded', channel: 'email' }, draft)).toBeNull();
+    // With it the owner's panel lists the tokens and the flow holds on them.
+    const stored = { ...draft, ...patch };
+    expect(evaluateRedFlags(stored).owner).toEqual(['fact_check']);
+
+    // The two readers of the acknowledgement agree: the queue's tick, or the flag by name.
+    for (const acknowledgement of [{ factCheckAcknowledgedAt: 1 }, { acknowledgedFlags: { fact_check: 1 } }]) {
+      expect(evaluateRedFlags({ ...stored, ...acknowledgement }).owner).toEqual([]);
+      expect(await submit({ ...stored, ...acknowledgement })).toMatchObject({ type: 'submit_succeeded', channel: 'email' });
+    }
+    expect(await submit({ ...stored, acknowledgedFlags: { no_posting: 1 } })).toMatchObject({ type: 'submit_failed', error: 'fact_check_not_acknowledged' });
+    expect(sendCascade).toHaveBeenCalledTimes(2);
+
+    // Review of #11425: a confirmation covers the warnings the owner saw, never a new one the gate of the
+    // day finds. Confirmed for «Kubernetes» only (with its tokens, or an older tick on that stored result),
+    // the send with «45» stops before any e-mail, and the stored result asks for a new confirmation.
+    const confirmedForOther = { ...draft, factCheck: { ok: false, unsupported: [{ field: 'coverLetter', kind: 'tool', token: 'Kubernetes', context: '' }], advisories: [], basis: 'pdf_text' } };
+    for (const acknowledgement of [{ factCheckAcknowledgedAt: 1, factCheckAcknowledgedTokens: ['coverLetter:tool:Kubernetes'] }, { factCheckAcknowledgedAt: 1 }, { acknowledgedFlags: { fact_check: 1 } }]) {
+      const before = { ...confirmedForOther, ...acknowledgement };
+      const again: any = await submit(before);
+      expect(again).toMatchObject({ type: 'submit_failed', error: 'fact_check_not_acknowledged' });
+      expect(again.factCheck.unsupported).toEqual([expect.objectContaining({ kind: 'number', token: '45' })]);
+      const kept = takeFactCheck(again, before);
+      expect(kept?.factCheckAcknowledgedTokens ?? before.factCheckAcknowledgedTokens).toEqual(['coverLetter:tool:Kubernetes']);
+      expect(evaluateRedFlags({ ...before, ...kept }).owner).toEqual(['fact_check']);
+    }
+    // The field belongs to the warning: «45» confirmed in the e-mail is not «45» in the letter.
+    const confirmedElsewhere = { ...stored, factCheckAcknowledgedAt: 1, factCheckAcknowledgedTokens: ['emailBody:number:45'] };
+    expect(factCheckAcknowledged(confirmedElsewhere)).toBe(false);
+    expect(await submit(confirmedElsewhere)).toMatchObject({ type: 'submit_failed', error: 'fact_check_not_acknowledged' });
+    expect(sendCascade).toHaveBeenCalledTimes(2);
+  });
+
+  // The e-mail leaves with the candidate's signature: the phone of the order, as the order writes it.
+  // Its digits back no figure of the letter, and are no figure themselves when the gate runs at submit.
+  it('sends an e-mail signed with a phone number written without the country prefix', async () => {
+    const national = { ...order, applicantPhone: '079 123 45 67' };
+    const bucket = fakeBucket();
+    const draft = await buildDraft({
+      order: national, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      codex: fakeCodex(), bucket, runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+    } as any);
+    expect(draft.applicationEmail.body.endsWith('Maria Rossi\nmaria.rossi@example.com\n079 123 45 67')).toBe(true);
+    expect(draft.factSources.order).toContain('079 123 45 67');
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend', messageId: 'm1' }] }));
+    const event = await submitApplication({
+      order: national, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, cvBuffer: cvPdf(), cvType: 'pdf',
+      // The same draft, by e-mail, without the «7 anni» the model invented.
+      draft: {
+        ...draft,
+        channel: { type: 'email', email: 'hr@ospedale.ch', applyUrl: '' },
+        applicationEmail: { ...draft.applicationEmail, to: 'hr@ospedale.ch' },
+        coverLetter: { ...draft.coverLetter, paragraphs: draft.coverLetter.paragraphs.slice(0, 1), text: draft.coverLetter.text.replace('\n\nHo 7 anni di esperienza.', '') },
+      },
+      bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
+    });
+    expect(event).toMatchObject({ type: 'submit_succeeded', channel: 'email' });
+    expect((sendCascade.mock.calls as any)[0][0][0].payload.text).toContain('079 123 45 67');
   });
 
   it('never sends with an open required question, and hands portals over to the candidate', async () => {

@@ -10,18 +10,24 @@ Each gate is a **per-feature ratchet**: counts can only go DOWN. Improvements ne
 
 La fonte di verità per classe e modalità di ogni gate post-deploy è
 `scripts/ci/lib/seo-gate-classes.mjs`, letta sia da validate-dist
-(`classify-validate-dist-failures.mjs` → `QUALITY_GATES` = i gate B e C) sia da
+(`classify-validate-dist-failures.mjs` → `QUALITY_GATES` = tutti i gate classificati) sia da
 `cathedral-seo-gates-check` (classe/modalità nel verdetto, priorità e campione
 di offender nella issue di regressione). Ogni voce cita la fonte esterna che
 la motiva.
 
 Decisione del proprietario (2026-10-02): «Nessuno blocca la pubblicazione:
 apriamo solo issue per gli errori riscontrati e poi saranno gli autofixer a
-sistemarle». Bloccano `publish` solo i gate A che già bloccavano.
+sistemarle». Il 2026-10-03 la decisione è estesa alla classe A: nessun gate
+classificato qui sequestra più `publish`. Lo sequestra ancora, per
+default-deny, un gate fuori tabella: oggi `validate:keyword-landing-coverage`,
+`validate:translation-completeness`, `validate:crawler-summaries`,
+`validate:third-party-secrets`, il bundle opaco `audit:all` (quando il
+marcatore `failed-audits=` manca) e i marcatori di classificatore non
+disponibile.
 
 | Classe | Significato | validate-dist | cathedral |
 |---|---|---|---|
-| A | richiesto da Google o danno certo | ogni fallimento sequestra `publish`, issue P1 | rosso, issue P1 |
+| A | richiesto da Google o danno certo | ogni fallimento → rosso + issue P1, `publish` procede | rosso, issue P1 |
 | B | impatto documentato, arretrato misurato da ratchet | regressione → rosso + issue P2, `publish` procede | rosso, issue P2 |
 | C | nessuna evidenza di impatto | rosso + issue P3, `publish` procede | rosso, issue P3 |
 
@@ -51,8 +57,9 @@ never the baseline itself (D2, unchanged: the ratchet still only shrinks).
   indexing/rich-results: a structured-data mandatory field, canonical/
   hreflang, a status code, a broken redirect, or a rendering defect severe
   enough that the page does not actually serve (blank shell, broken JSON-LD
-  parse). Stays **blocking**: a red run sequesters `publish` (the deploy's
-  IndexNow / Google Indexing API / GSC notification), same as before.
+  parse). Was **blocking** until 2026-10-03 (a red run sequestered `publish`,
+  the deploy's IndexNow / Google Indexing API / GSC notification); since then
+  it is class A in the table above: red run and P1 issue, `publish` runs.
 - **nice-to-have** — an opportunistic internal heuristic Google does not
   require (text density, crawl depth, title cosmetics, near-duplicate
   content value, …). The page still renders and serves when the gate is

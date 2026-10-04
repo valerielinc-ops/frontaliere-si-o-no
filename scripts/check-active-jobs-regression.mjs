@@ -21,6 +21,17 @@
  * current count is HIGHER than baseline (ratchet up only — never
  * lowers automatically, per CLAUDE.md rule #1).
  *
+ * What is counted: the job INVENTORY = published jobs (`totals.activeJobs`)
+ * + agency jobs held out of publication until their titles are translated
+ * (`translationHold.held` in data/jobs-meta.json, written by the same
+ * assembly; owner decision 2026-10-03, scripts/lib/translation-publication-hold.mjs).
+ * A held job is not lost: it stays in its slice and is published once
+ * translated, so holding it is not the mass loss this gate exists for. A bug
+ * that drops held jobs lowers the held count and still counts as a loss. When
+ * the held count is missing, invalid, or not from the same assembly as the
+ * stats (`totalJobs` ≠ `activeJobs`), the gate compares the published count
+ * alone, exactly as before.
+ *
  * Usage:
  *   node scripts/check-active-jobs-regression.mjs
  *   node scripts/check-active-jobs-regression.mjs --threshold=0.30
@@ -32,6 +43,7 @@ import path from "node:path";
 import process from "node:process";
 
 const STATS_PATH = path.resolve("data/jobs-stats.json");
+const META_PATH = path.resolve("data/jobs-meta.json");
 const BASELINE_PATH = path.resolve("data/active-jobs-baseline.json");
 const DEFAULT_THRESHOLD = 0.25;
 
@@ -41,6 +53,20 @@ function readJson(p, fallback = null) {
   } catch {
     return fallback;
   }
+}
+
+/**
+ * Held-for-translation jobs to add to the published count, or null when the
+ * number cannot be trusted (the gate then behaves as before).
+ */
+function heldInventory(meta, publishedJobs) {
+  const held = meta?.translationHold?.held;
+  if (!Number.isInteger(held) || held < 0) return null;
+  // Same assembly as the stats: meta.totalJobs counts the published jobs
+  // too. A stale meta, or a projection that put held jobs in data/jobs.json,
+  // does not match and is ignored.
+  if (meta?.totalJobs !== publishedJobs) return null;
+  return held;
 }
 
 function parseArgs(argv) {
@@ -67,7 +93,15 @@ function main() {
     console.error(`❌ ${path.relative(process.cwd(), STATS_PATH)} missing totals.activeJobs`);
     process.exit(2);
   }
-  const current = stats.totals.activeJobs;
+  const publishedJobs = stats.totals.activeJobs;
+  const held = heldInventory(readJson(META_PATH), publishedJobs);
+  const current = publishedJobs + (held ?? 0);
+  if (held === null) {
+    console.log(`ℹ️  held-for-translation count unavailable in ${path.relative(process.cwd(), META_PATH)} — comparing published jobs only.`);
+  } else {
+    console.log(`inventory: published=${publishedJobs} + held for translation=${held} = ${current}`);
+  }
+  const inventoryFields = held === null ? {} : { publishedJobs, heldForTranslation: held };
 
   const baseline = readJson(BASELINE_PATH);
   if (!baseline?.activeJobs) {
@@ -77,6 +111,7 @@ function main() {
       JSON.stringify(
         {
           activeJobs: current,
+          ...inventoryFields,
           updatedAt: new Date().toISOString(),
           note: "bootstrap — first baseline write",
         },
@@ -107,6 +142,7 @@ function main() {
         {
           activeJobs: current,
           previousActiveJobs: prev,
+          ...inventoryFields,
           updatedAt: new Date().toISOString(),
           note: "rebaseline (ratchet up)",
         },
@@ -141,6 +177,7 @@ function main() {
         {
           activeJobs: current,
           previousActiveJobs: prev,
+          ...inventoryFields,
           updatedAt: new Date().toISOString(),
           note: "auto-ratchet (current > baseline)",
         },

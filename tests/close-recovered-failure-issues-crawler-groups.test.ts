@@ -46,6 +46,7 @@ import {
   sortCrawlerRecoveryRuns,
 } from '../scripts/ci/close-recovered-failure-issues.mjs';
 import { QUARANTINE_OUTCOMES_NOTICE_TITLE } from '../scripts/lib/crawler-quarantine.mjs';
+import { AGGREGATE_MEMBER_FUNCTION } from '../scripts/generate-crawler-group-workflows.mjs';
 
 describe('TITLE_RE — parses the three auto-generated failure-title prefixes', () => {
   it('parses a Crawler Failure title (post-consolidation: "Run <slug>" identifier)', () => {
@@ -648,8 +649,14 @@ describe('crawler member annotations stay aligned with the generated group workf
       const stepHead = content.slice(stepStart, stepStart + 400);
       expect(stepHead).toMatch(/continue-on-error: true/);
 
-      const failureLine = `echo "::error::${slug}: crawler exited with status $status"`;
-      const missingLine = `echo "::warning::${slug}: no terminal status was published"`;
+      // The non-quarantine aggregate classifies every member through ONE shell
+      // function (workflow size budget, 04-10): the literal slug is then the
+      // call's argument and the annotation is the same text with `$slug`.
+      const viaFunction = content.includes(`${AGGREGATE_MEMBER_FUNCTION}() {`);
+      if (viaFunction) expect(content).toContain(`${AGGREGATE_MEMBER_FUNCTION} '${slug}'`);
+      const annotated = viaFunction ? '$slug' : slug;
+      const failureLine = `echo "::error::${annotated}: crawler exited with status $status"`;
+      const missingLine = `echo "::warning::${annotated}: no terminal status was published"`;
       // A known failure in the quarantine group reports itself with the
       // quarantine warning until its deadline and with an error after it.
       const toleratedLine = `echo "::warning::${slug}: fallimento noto in quarantena`;

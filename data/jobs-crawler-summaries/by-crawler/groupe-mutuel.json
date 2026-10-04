@@ -1,16 +1,16 @@
 {
   "key": "groupe-mutuel",
   "label": "Groupe Mutuel",
-  "generatedAt": "2026-10-03T21:16:11.955Z",
-  "total": 31,
+  "generatedAt": "2026-10-04T09:16:53.088Z",
+  "total": 30,
   "newCount": 0,
   "updatedCount": 30,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4718,
-  "avgDurationMs": 4718,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4216,
+  "avgDurationMs": 4216,
   "durationHistory": [
-    4718
+    4216
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,6 +26,8 @@
       "slug": "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel",
       "category": "insurance",
       "datePosted": "2026-09-30",
+      "postedDate": "2026-09-30",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -39,12 +41,12 @@
       "id": "groupe-mutuel-7ec000b8e178",
       "firstSeenAt": "2026-09-30T21:13:42.224Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 9
+        "completeness": 11
       }
     },
     {
@@ -59,6 +61,8 @@
       "slug": "apprenti-business-dipendente-servizi-e-amministrazione-m-f-100-groupe-mutuel-martigny",
       "category": "administration",
       "datePosted": "2026-09-29",
+      "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -73,12 +77,12 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:20:20.573Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 9
+        "completeness": 11
       }
     },
     {
@@ -93,6 +97,8 @@
       "slug": "lehre-kauffrau-kaufmann-cfc-dienstleistung-e-administration-100-groupe-mutuel-sion",
       "category": "claims",
       "datePosted": "2026-09-29",
+      "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
@@ -107,12 +113,12 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:20:20.573Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 9
+        "completeness": 11
       }
     },
     {
@@ -127,6 +133,8 @@
       "slug": "apprenti-agent-relation-clients-h-f-100-groupe-mutuel",
       "category": "general",
       "datePosted": "2026-09-29",
+      "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -141,12 +149,12 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T21:51:09.427Z",
       "crawledAt": "",
-      "_qualityScore": 68,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 9
+        "translation": 21,
+        "completeness": 11
       }
     },
     {
@@ -161,6 +169,8 @@
       "slug": "consigliere-preventivo-m-f-80-100-groupe-mutuel-zurich",
       "category": "general",
       "datePosted": "2026-09-24",
+      "postedDate": "2026-09-24",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
@@ -175,350 +185,12 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T14:43:22.731Z",
       "crawledAt": "",
-      "_qualityScore": 73,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4370?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4370?c=groupemutuel&lang=fr-FR",
-      "title": "Kundenberater Agenturen (m/w) 80-100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Biel/Bienne",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "agenzie-di-servizio-clienti-m-f-80-100-groupe-mutuel-biel-bienne",
-      "category": "customer-service",
-      "datePosted": "2026-09-22",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Biel/Bienne"
-      },
-      "jobReqId": "4370",
-      "id": "groupe-mutuel-4a5a7f5c6b11",
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-09-23T23:39:13.149Z",
-      "crawledAt": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4373?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4373?c=groupemutuel&lang=fr-FR",
-      "title": "Versicherungs und Vorsorgeberater (m/w) 80-100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "St. Gallen",
-      "canton": "SG",
-      "country": "CH",
-      "slug": "consulente-assicurativo-m-f-80-100-groupe-mutuel-st-gallen",
-      "category": "insurance",
-      "datePosted": "2026-09-17",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "SG",
-        "location": "St. Gallen"
-      },
-      "jobReqId": "4373",
-      "id": "groupe-mutuel-1af35fc9058a",
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-09-19T22:52:47.178Z",
-      "crawledAt": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4372?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4372?c=groupemutuel&lang=fr-FR",
-      "title": "Versicherungs und Vorsorgeberater (m/w) 80-100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Wil",
-      "canton": "SG",
-      "country": "CH",
-      "slug": "consulente-assicurativo-m-f-80-100-groupe-mutuel-wil",
-      "category": "insurance",
-      "datePosted": "2026-09-17",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "SG",
-        "location": "Wil"
-      },
-      "jobReqId": "4372",
-      "id": "groupe-mutuel-c2a3704aef81",
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-09-19T22:52:47.178Z",
-      "crawledAt": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4371?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4371?c=groupemutuel&lang=fr-FR",
-      "title": "Conseiller en Assurances et Prévoyance (h/f) 80-100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Bulle",
-      "canton": "FR",
-      "country": "CH",
-      "slug": "consulente-per-l-assicurazione-e-la-pianificazione-m-f-80-100-groupe-mutuel-bulle",
-      "category": "insurance",
-      "datePosted": "2026-09-17",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "FR",
-        "location": "Bulle"
-      },
-      "jobReqId": "4371",
-      "id": "groupe-mutuel-5f62e3078e11",
-      "firstSeenAt": "2026-09-19T22:52:47.178Z",
-      "crawledAt": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4357?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4357?c=groupemutuel&lang=fr-FR",
-      "title": "Conseiller en Assurances et Prévoyance (h/f) 80-100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Delémont",
-      "canton": "JU",
-      "country": "CH",
-      "slug": "consulente-per-l-assicurazione-e-la-pianificazione-m-f-80-100-groupe-mutuel-delemont",
-      "category": "insurance",
-      "datePosted": "2026-09-16",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "JU",
-        "location": "Delémont"
-      },
-      "jobReqId": "4357",
-      "id": "groupe-mutuel-be494013d591",
-      "firstSeenAt": "2026-09-19T22:52:47.178Z",
-      "crawledAt": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4366?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4366?c=groupemutuel&lang=fr-FR",
-      "title": "HR Spezialist (m/w) 80-100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Martigny",
-      "canton": "VS",
-      "country": "CH",
-      "slug": "hr-spezialist-m-w-80-100-groupe-mutuel",
-      "category": "hr",
-      "datePosted": "2026-09-14",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Martigny"
-      },
-      "jobReqId": "4366",
-      "id": "groupe-mutuel-9fef30c8ca3e",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T22:52:47.178Z",
-      "crawledAt": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4352?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4352?c=groupemutuel&lang=fr-FR",
-      "title": "Versicherungs- und Vorsorgeberater (m/w) 80-100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Aarau",
-      "canton": "AG",
-      "country": "CH",
-      "slug": "consulente-assicurativo-e-pensionistico-m-f-80-100-groupe-mutuel-aarau",
-      "category": "insurance",
-      "datePosted": "2026-09-10",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "AG",
-        "location": "Aarau"
-      },
-      "jobReqId": "4352",
-      "id": "groupe-mutuel-a9f1a2cdb918",
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-09-10T23:05:25.107Z",
-      "crawledAt": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4348?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4348?c=groupemutuel&lang=fr-FR",
-      "title": "Kundenberater Agenturen (m/w) 80-100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Olten",
-      "canton": "SO",
-      "country": "CH",
-      "slug": "agenzie-di-servizio-clienti-m-f-80-100-groupe-mutuel-olten",
-      "category": "customer-service",
-      "datePosted": "2026-09-07",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "SO",
-        "location": "Olten"
-      },
-      "jobReqId": "4348",
-      "id": "groupe-mutuel-e37ade3b9f16",
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-09-07T15:03:46.777Z",
-      "crawledAt": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4341?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4341?c=groupemutuel&lang=fr-FR",
-      "title": "Apprenti Opérateur en informatique (h/f) - 100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Martigny",
-      "canton": "VS",
-      "country": "CH",
-      "slug": "apprenti-computer-operator-m-f-100-groupe-mutuel-martigny",
-      "category": "it",
-      "datePosted": "2026-09-01",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Martigny"
-      },
-      "jobReqId": "4341",
-      "id": "groupe-mutuel-c7d22a7adca1",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-01T23:08:41.806Z",
-      "crawledAt": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4332?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4332?c=groupemutuel&lang=fr-FR",
-      "title": "Stagiaire MPE (h/f) - 100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Martigny",
-      "canton": "VS",
-      "country": "CH",
-      "slug": "allenatore-mpe-m-f-100-groupe-mutuel-martigny",
-      "category": "general",
-      "datePosted": "2026-08-27",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Martigny"
-      },
-      "jobReqId": "4332",
-      "id": "groupe-mutuel-a81a159b177f",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-27T19:54:30.926Z",
-      "crawledAt": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 9
+        "completeness": 11
       }
     },
     {
@@ -532,7 +204,9 @@
       "country": "CH",
       "slug": "agenzia-di-consulenza-clienti-m-f-60-100-groupe-mutuel-fribourg",
       "category": "customer-service",
-      "datePosted": "2026-08-11",
+      "datePosted": "2026-09-24",
+      "postedDate": "2026-09-24",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -547,12 +221,370 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T10:25:30.851Z",
       "crawledAt": "",
-      "_qualityScore": 73,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 9
+        "completeness": 11
+      }
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4370?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4370?c=groupemutuel&lang=fr-FR",
+      "title": "Kundenberater Agenturen (m/w) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Biel/Bienne",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "agenzie-di-servizio-clienti-m-f-80-100-groupe-mutuel-biel-bienne",
+      "category": "customer-service",
+      "datePosted": "2026-09-22",
+      "postedDate": "2026-09-22",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Biel/Bienne"
+      },
+      "jobReqId": "4370",
+      "id": "groupe-mutuel-4a5a7f5c6b11",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-23T23:39:13.149Z",
+      "crawledAt": "",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 11
+      }
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4373?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4373?c=groupemutuel&lang=fr-FR",
+      "title": "Versicherungs und Vorsorgeberater (m/w) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "St. Gallen",
+      "canton": "SG",
+      "country": "CH",
+      "slug": "consulente-assicurativo-m-f-80-100-groupe-mutuel-st-gallen",
+      "category": "insurance",
+      "datePosted": "2026-09-17",
+      "postedDate": "2026-09-17",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "SG",
+        "location": "St. Gallen"
+      },
+      "jobReqId": "4373",
+      "id": "groupe-mutuel-1af35fc9058a",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-19T22:52:47.178Z",
+      "crawledAt": "",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 11
+      }
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4372?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4372?c=groupemutuel&lang=fr-FR",
+      "title": "Versicherungs und Vorsorgeberater (m/w) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Wil",
+      "canton": "SG",
+      "country": "CH",
+      "slug": "consulente-assicurativo-m-f-80-100-groupe-mutuel-wil",
+      "category": "insurance",
+      "datePosted": "2026-09-17",
+      "postedDate": "2026-09-17",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "SG",
+        "location": "Wil"
+      },
+      "jobReqId": "4372",
+      "id": "groupe-mutuel-c2a3704aef81",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-19T22:52:47.178Z",
+      "crawledAt": "",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 11
+      }
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4371?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4371?c=groupemutuel&lang=fr-FR",
+      "title": "Conseiller en Assurances et Prévoyance (h/f) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Bulle",
+      "canton": "FR",
+      "country": "CH",
+      "slug": "consulente-per-l-assicurazione-e-la-pianificazione-m-f-80-100-groupe-mutuel-bulle",
+      "category": "insurance",
+      "datePosted": "2026-09-17",
+      "postedDate": "2026-09-17",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "FR",
+        "location": "Bulle"
+      },
+      "jobReqId": "4371",
+      "id": "groupe-mutuel-5f62e3078e11",
+      "firstSeenAt": "2026-09-19T22:52:47.178Z",
+      "crawledAt": "",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 11
+      }
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4357?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4357?c=groupemutuel&lang=fr-FR",
+      "title": "Conseiller en Assurances et Prévoyance (h/f) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Delémont",
+      "canton": "JU",
+      "country": "CH",
+      "slug": "consulente-per-l-assicurazione-e-la-pianificazione-m-f-80-100-groupe-mutuel-delemont",
+      "category": "insurance",
+      "datePosted": "2026-09-16",
+      "postedDate": "2026-09-16",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "JU",
+        "location": "Delémont"
+      },
+      "jobReqId": "4357",
+      "id": "groupe-mutuel-be494013d591",
+      "firstSeenAt": "2026-09-19T22:52:47.178Z",
+      "crawledAt": "",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 11
+      }
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4366?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4366?c=groupemutuel&lang=fr-FR",
+      "title": "HR Spezialist (m/w) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Martigny",
+      "canton": "VS",
+      "country": "CH",
+      "slug": "hr-spezialist-m-w-80-100-groupe-mutuel",
+      "category": "hr",
+      "datePosted": "2026-09-14",
+      "postedDate": "2026-09-14",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Martigny"
+      },
+      "jobReqId": "4366",
+      "id": "groupe-mutuel-9fef30c8ca3e",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T22:52:47.178Z",
+      "crawledAt": "",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 11
+      }
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4352?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4352?c=groupemutuel&lang=fr-FR",
+      "title": "Versicherungs- und Vorsorgeberater (m/w) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Aarau",
+      "canton": "AG",
+      "country": "CH",
+      "slug": "consulente-assicurativo-e-pensionistico-m-f-80-100-groupe-mutuel-aarau",
+      "category": "insurance",
+      "datePosted": "2026-09-10",
+      "postedDate": "2026-09-10",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "AG",
+        "location": "Aarau"
+      },
+      "jobReqId": "4352",
+      "id": "groupe-mutuel-a9f1a2cdb918",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-10T23:05:25.107Z",
+      "crawledAt": "",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 11
+      }
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4348?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4348?c=groupemutuel&lang=fr-FR",
+      "title": "Kundenberater Agenturen (m/w) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Olten",
+      "canton": "SO",
+      "country": "CH",
+      "slug": "agenzie-di-servizio-clienti-m-f-80-100-groupe-mutuel-olten",
+      "category": "customer-service",
+      "datePosted": "2026-09-07",
+      "postedDate": "2026-09-07",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "SO",
+        "location": "Olten"
+      },
+      "jobReqId": "4348",
+      "id": "groupe-mutuel-e37ade3b9f16",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-07T15:03:46.777Z",
+      "crawledAt": "",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 11
+      }
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4341?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4341?c=groupemutuel&lang=fr-FR",
+      "title": "Apprenti Opérateur en informatique (h/f) - 100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Martigny",
+      "canton": "VS",
+      "country": "CH",
+      "slug": "apprenti-computer-operator-m-f-100-groupe-mutuel-martigny",
+      "category": "it",
+      "datePosted": "2026-09-01",
+      "postedDate": "2026-09-01",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Martigny"
+      },
+      "jobReqId": "4341",
+      "id": "groupe-mutuel-c7d22a7adca1",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T23:08:41.806Z",
+      "crawledAt": "",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 11
+      }
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4332?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4332?c=groupemutuel&lang=fr-FR",
+      "title": "Stagiaire MPE (h/f) - 100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Martigny",
+      "canton": "VS",
+      "country": "CH",
+      "slug": "allenatore-mpe-m-f-100-groupe-mutuel-martigny",
+      "category": "general",
+      "datePosted": "2026-08-27",
+      "postedDate": "2026-08-27",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Martigny"
+      },
+      "jobReqId": "4332",
+      "id": "groupe-mutuel-a81a159b177f",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-27T19:54:30.926Z",
+      "crawledAt": "",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 11
       }
     },
     {
@@ -567,6 +599,8 @@
       "slug": "apprenti-agente-rapporto-cliente-m-f-100-groupe-mutuel-fribourg",
       "category": "general",
       "datePosted": "2026-08-10",
+      "postedDate": "2026-08-10",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -581,12 +615,12 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T21:51:09.427Z",
       "crawledAt": "",
-      "_qualityScore": 73,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 9
+        "completeness": 11
       }
     },
     {
@@ -601,6 +635,8 @@
       "slug": "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-lausanne",
       "category": "insurance",
       "datePosted": "2026-08-10",
+      "postedDate": "2026-08-10",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -615,12 +651,12 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T21:51:09.427Z",
       "crawledAt": "",
-      "_qualityScore": 73,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 9
+        "completeness": 11
       }
     },
     {
@@ -635,6 +671,8 @@
       "slug": "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-fribourg",
       "category": "insurance",
       "datePosted": "2026-08-10",
+      "postedDate": "2026-08-10",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -649,12 +687,12 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T21:51:09.427Z",
       "crawledAt": "",
-      "_qualityScore": 73,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 9
+        "completeness": 11
       }
     },
     {
@@ -669,6 +707,8 @@
       "slug": "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-martigny",
       "category": "insurance",
       "datePosted": "2026-08-10",
+      "postedDate": "2026-08-10",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -683,12 +723,47 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T21:51:09.427Z",
       "crawledAt": "",
-      "_qualityScore": 73,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 9
+        "completeness": 11
+      }
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4253?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4253?c=groupemutuel&lang=fr-FR",
+      "title": "Conseiller en Assurances et Prévoyance (h/f) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Yverdon-les-Bains",
+      "canton": "VD",
+      "country": "CH",
+      "slug": "consulente-assicurativo-h-f-80-100-groupe-mutuel-yverdon-les-bains",
+      "category": "insurance",
+      "datePosted": "2026-08-10",
+      "postedDate": "2026-08-10",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VD",
+        "location": "Yverdon-les-Bains"
+      },
+      "jobReqId": "4253",
+      "id": "groupe-mutuel-e27c6cbd250d",
+      "firstSeenAt": "2026-07-22T22:46:53.567Z",
+      "crawledAt": "",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 11
       }
     },
     {
@@ -703,6 +778,8 @@
       "slug": "consulente-assicurativo-h-f-80-100-groupe-mutuel-monthey",
       "category": "insurance",
       "datePosted": "2026-08-06",
+      "postedDate": "2026-08-06",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -716,12 +793,12 @@
       "id": "groupe-mutuel-304fc68db623",
       "firstSeenAt": "2026-08-06T12:15:49.733Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 9
+        "completeness": 11
       }
     },
     {
@@ -736,6 +813,8 @@
       "slug": "consulente-in-assicurazione-previdenza-consulente-in-assicurazione-previdenza-groupe-mutuel-winterthur",
       "category": "insurance",
       "datePosted": "2026-07-23",
+      "postedDate": "2026-07-23",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
@@ -747,48 +826,15 @@
       },
       "jobReqId": "4259",
       "id": "groupe-mutuel-b5d5bdae0a39",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-23T12:03:45.120Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "needsRetranslation": true,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4253?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4253?c=groupemutuel&lang=fr-FR",
-      "title": "Conseiller en Assurances et Prévoyance (h/f) 80-100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Yverdon-les-Bains",
-      "canton": "VD",
-      "country": "CH",
-      "slug": "consulente-assicurativo-h-f-80-100-groupe-mutuel-yverdon-les-bains",
-      "category": "insurance",
-      "datePosted": "2026-07-22",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "VD",
-        "location": "Yverdon-les-Bains"
-      },
-      "jobReqId": "4253",
-      "id": "groupe-mutuel-e27c6cbd250d",
-      "firstSeenAt": "2026-07-22T22:46:53.567Z",
-      "crawledAt": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 9
+        "completeness": 11
       }
     },
     {
@@ -803,6 +849,8 @@
       "slug": "versicherungs-e-vorsorgeberater-cambio-carriera-m-w-d-80-100-groupe-mutuel-bern",
       "category": "insurance",
       "datePosted": "2026-07-12",
+      "postedDate": "2026-07-12",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
@@ -817,12 +865,12 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-14T11:31:17.691Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 9
+        "completeness": 11
       }
     },
     {
@@ -837,6 +885,8 @@
       "slug": "consulente-per-la-cura-m-f-60-100-groupe-mutuel-sargans",
       "category": "general",
       "datePosted": "2026-07-10",
+      "postedDate": "2026-07-10",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
@@ -850,12 +900,12 @@
       "id": "groupe-mutuel-fa0cd0482fb7",
       "firstSeenAt": "2026-07-10T13:11:58.722Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 9
+        "completeness": 11
       }
     },
     {
@@ -870,6 +920,8 @@
       "slug": "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-solothurn",
       "category": "insurance",
       "datePosted": "2026-06-25",
+      "postedDate": "2026-06-25",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
@@ -883,12 +935,12 @@
       "id": "groupe-mutuel-3625d41d1eae",
       "firstSeenAt": "2026-07-10T10:52:25.056Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 9
+        "completeness": 11
       }
     },
     {
@@ -903,6 +955,8 @@
       "slug": "consulente-assicurativo-h-f-80-100-groupe-mutuel-neuchatel",
       "category": "insurance",
       "datePosted": "2026-06-17",
+      "postedDate": "2026-06-17",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -916,12 +970,12 @@
       "id": "groupe-mutuel-f1a70c521438",
       "firstSeenAt": "2026-06-17T12:58:41.171Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 9
+        "completeness": 11
       }
     },
     {
@@ -936,6 +990,8 @@
       "slug": "coach-di-vendita-specialista-previdenziale-m-f-80-100-groupe-mutuel-st-gallen",
       "category": "sales",
       "datePosted": "2026-06-15",
+      "postedDate": "2026-06-15",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
@@ -950,12 +1006,12 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-15T14:43:17.699Z",
       "crawledAt": "",
-      "_qualityScore": 73,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 9
+        "completeness": 11
       }
     },
     {
@@ -970,6 +1026,8 @@
       "slug": "consulente-per-l-assicurazione-e-la-pianificazione-h-f-80-100-groupe-mutuel-geneve",
       "category": "insurance",
       "datePosted": "2026-05-22",
+      "postedDate": "2026-05-22",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -983,12 +1041,12 @@
       "id": "groupe-mutuel-5dd175c9d179",
       "firstSeenAt": "2026-05-22T22:18:14.485Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 9
+        "completeness": 11
       }
     },
     {
@@ -1003,6 +1061,8 @@
       "slug": "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-zurich",
       "category": "insurance",
       "datePosted": "2026-04-16",
+      "postedDate": "2026-04-16",
+      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
@@ -1014,20 +1074,19 @@
       },
       "jobReqId": "3980",
       "id": "groupe-mutuel-1822825450f3",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-16T21:40:55.557Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "needsRetranslation": true,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 9
+        "completeness": 11
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4375?c=groupemutuel&lang=fr-FR",
       "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4375?c=groupemutuel&lang=fr-FR",
@@ -1070,5 +1129,6 @@
       }
     }
   ],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

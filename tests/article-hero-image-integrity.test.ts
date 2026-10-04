@@ -35,6 +35,14 @@ import zlib from 'node:zlib';
 
 import { renderArticlePages } from '../build-plugins/ogPagesPlugin';
 import { readImageIntrinsicSize } from '../packages/articles/engine/shared/imageIntrinsicSize';
+import { coverKey } from '../packages/articles/engine/shared/imageCredits.mjs';
+import {
+  ARTICLE_SECTION_DESCRIPTORS,
+  blogKeyToArticleId,
+  extractBlogEntryPositions,
+} from '../packages/articles/engine/shared/articleSectionDescriptors';
+import { readArticleRegistryMetadata } from '../packages/articles/engine/shared/articleRegistryMetadata';
+import { SITE_LICENSE_PAGE, SITE_ORGANIZATION_ID } from '../services/seo/imageObjectLd';
 
 const rootDir = process.cwd();
 
@@ -305,4 +313,239 @@ describe('the hub-shell renderer does not put the hub hero on article pages (#50
     // and the shells must actually emit the reconciled copy, not the raw one.
     expect(has(/<script type="application\/ld\+json">\$\{seoData\.sd\}<\/script>/), 'a shell still emits the unreconciled JSON-LD').toBe(false);
   });
+});
+
+/**
+ * Credits of the Wikimedia Commons covers (P14 S1).
+ *
+ * Every article ImageObject used to declare the cover as created by the site,
+ * «© … Frontaliere Ticino. Tutti i diritti riservati» — false for a CC BY-SA
+ * photo by somebody else. A cover with a credit record
+ * (`image-credits/blog/<cover>.json`, shared/imageCredits.mjs) must instead
+ * carry the photo's creator/licence in the ImageObject and a visible credit at
+ * the end of the article; a cover without one must render exactly as before.
+ *
+ * One full svizzera render, from a rootDir that is the real repository except
+ * for `packages/articles/content/image-credits`, which holds only this test's
+ * records — so the result does not depend on which real records exist.
+ */
+describe('Wikimedia Commons cover credits on the article page (P14)', () => {
+  const SECTION = ARTICLE_SECTION_DESCRIPTORS.find((s) => s.name === 'svizzera')!;
+  const LABEL: Record<string, string> = {
+    it: 'Immagine di copertina: ',
+    en: 'Cover image: ',
+    de: 'Titelbild: ',
+    fr: 'Image de couverture : ',
+  };
+
+  function creditFixture(key: string) {
+    const title = `Fixture ${key.replace(/_/g, '-')}.jpg`;
+    return {
+      schema: 1,
+      cover: `/images/blog/${key}.webp`,
+      source: 'wikimedia-commons',
+      commons: { title, pageUrl: `https://commons.wikimedia.org/wiki/File:${title.replace(/ /g, '_')}` },
+      author: { text: `Author ${key}`, name: `Author ${key}`, url: 'https://commons.wikimedia.org/wiki/User:Fixture', type: 'Person' },
+      attribution: null,
+      licence: { name: 'CC BY-SA 4.0', url: 'https://creativecommons.org/licenses/by-sa/4.0/', family: 'cc-by-sa', attributionRequired: true },
+      restrictions: [],
+      modified: 'cropped',
+      fetchedAt: '2026-10-04',
+      status: 'ok',
+      curation: null,
+    };
+  }
+
+  /**
+   * The real rootDir, symlinked entry by entry, except
+   * packages/articles/content/image-credits, which holds only `records`.
+   */
+  function shadowRootWithCredits(records: Record<string, object>): string {
+    const shadow = fs.mkdtempSync(path.join(os.tmpdir(), 'credit-root-'));
+    const replaced = ['packages', 'articles', 'content', 'image-credits'];
+    let from = rootDir;
+    let to = shadow;
+    for (const segment of replaced) {
+      for (const entry of fs.readdirSync(from)) {
+        if (entry === segment || entry === '.git') continue;
+        fs.symlinkSync(path.join(from, entry), path.join(to, entry));
+      }
+      from = path.join(from, segment);
+      to = path.join(to, segment);
+      fs.mkdirSync(to);
+    }
+    fs.mkdirSync(path.join(to, 'blog'));
+    for (const [key, rec] of Object.entries(records)) {
+      fs.writeFileSync(path.join(to, 'blog', `${key}.json`), JSON.stringify(rec));
+    }
+    return shadow;
+  }
+
+  /** Every JSON-LD ImageObject whose URL is the page hero. */
+  function heroImageObjects(html: string, heroPath: string): Record<string, unknown>[] {
+    const found: Record<string, unknown>[] = [];
+    const walk = (node: unknown): void => {
+      if (Array.isArray(node)) { node.forEach(walk); return; }
+      if (!node || typeof node !== 'object') return;
+      const obj = node as Record<string, unknown>;
+      const img = obj.image as Record<string, unknown> | undefined;
+      if (img && typeof img === 'object' && img['@type'] === 'ImageObject'
+        && typeof img.contentUrl === 'string' && pathOf(img.contentUrl) === heroPath) found.push(img);
+      Object.values(obj).forEach(walk);
+    };
+    for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+      try { walk(JSON.parse(m[1])); } catch { /* not this page's problem */ }
+    }
+    return found;
+  }
+
+  function readPages(distDir: string, entries: { articleId: string; paths: Record<string, string>; flatPaths: Record<string, string> }[]) {
+    const out: Array<{ articleId: string; rel: string; html: string }> = [];
+    for (const e of entries) {
+      for (const rel of [...Object.values(e.paths), ...Object.values(e.flatPaths)]) {
+        const abs = path.join(distDir, rel);
+        if (fs.existsSync(abs)) out.push({ articleId: e.articleId, rel, html: fs.readFileSync(abs, 'utf-8') });
+      }
+    }
+    return out;
+  }
+
+  it('credits exactly the covers with a record, after the FAQ and before the related articles, in every locale', async () => {
+    // Which cover each article names, and the registry image the renderer
+    // falls back to — read with the engine's own parsers.
+    const seoSrc = fs.readFileSync(path.join(rootDir, SECTION.seoFiles[0]), 'utf-8');
+    const seoHero = new Map<string, string>();
+    for (const { key, start, end } of extractBlogEntryPositions(seoSrc)) {
+      const hero = seoSrc.slice(start, end).match(/\/images\/[^'"`\s,}]+/)?.[0];
+      if (hero) seoHero.set(blogKeyToArticleId(key), hero);
+    }
+    const registryImage = new Map(
+      readArticleRegistryMetadata(fs.readFileSync(path.join(rootDir, 'packages/articles/content/swiss-articles-data.ts'), 'utf-8'))
+        .map((a) => [a.id, a.image]),
+    );
+
+    // Half the blog covers get a record. Two of those are withheld from dist,
+    // chosen where the registry names the same file, so nothing can rescue
+    // them: those articles fall back to /og-image.png with a record on file.
+    const blogKeys = [...new Set([...seoHero.values()].map((h) => coverKey(h)).filter((k): k is string => Boolean(k)))].sort();
+    const credited = new Set(blogKeys.filter((_, i) => i % 2 === 0));
+    const withheld = new Set<string>();
+    for (const [id, hero] of seoHero) {
+      const key = coverKey(hero);
+      if (key && credited.has(key) && registryImage.get(id) === hero && withheld.size < 2) withheld.add(key);
+    }
+    expect(withheld.size).toBe(2);
+
+    const root = shadowRootWithCredits(Object.fromEntries([...credited].map((k) => [k, creditFixture(k)])));
+    const distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hero-credit-'));
+    const emptyRoot = shadowRootWithCredits({});
+    const plainDist = fs.mkdtempSync(path.join(os.tmpdir(), 'hero-credit-none-'));
+    try {
+      for (const dir of [distDir, plainDist]) {
+        writeFixture(dir, '/og-image.png', pngBytes(1200, 630));
+        for (const rel of heroCandidatePaths()) {
+          const key = coverKey(rel);
+          if (!key || !withheld.has(key)) writeFixture(dir, rel, pngBytes(FIXTURE_WIDTH, FIXTURE_HEIGHT));
+        }
+      }
+
+      const { entries } = await renderArticlePages({ rootDir: root, distDir, section: 'svizzera' });
+      const pages = readPages(distDir, entries);
+      expect(pages.length).toBeGreaterThan(0);
+
+      const offenders: string[] = [];
+      const orderedIn = new Set<string>();
+      let creditedPages = 0;
+      let plainPages = 0;
+      for (const { rel, html } of pages) {
+        const src = pathOf(attrs(html.match(HERO_IMG_RX)?.[0] ?? '').src ?? '');
+        const key = coverKey(src);
+        const lang = html.match(/<html lang="([a-z]{2})">/)?.[1] ?? '';
+        const lds = heroImageObjects(html, src);
+        if (lds.length === 0) { offenders.push(`${rel}: no hero ImageObject`); continue; }
+
+        if (key && credited.has(key)) {
+          creditedPages++;
+          const rec = creditFixture(key);
+          // Structured data: the photo's own creator and licence, five fields.
+          for (const ld of lds) {
+            const expected = {
+              creator: { '@type': 'Person', name: rec.author.name, url: rec.author.url },
+              creditText: `${rec.author.name} / Wikimedia Commons`,
+              copyrightNotice: `© ${rec.author.name}`,
+              license: rec.licence.url,
+              acquireLicensePage: rec.commons.pageUrl,
+              isBasedOn: rec.commons.pageUrl,
+            };
+            for (const [field, value] of Object.entries(expected)) {
+              if (JSON.stringify(ld[field]) !== JSON.stringify(value)) {
+                offenders.push(`${rel}: ImageObject.${field} = ${JSON.stringify(ld[field])}`);
+              }
+            }
+            for (const field of ['license', 'acquireLicensePage'] as const) {
+              if (!/^https:\/\//.test(String(ld[field]))) offenders.push(`${rel}: ImageObject.${field} is not a URL`);
+            }
+          }
+          // Visible credit: one footer, inside the article, after the FAQ,
+          // before the related articles (or the nav when there are none).
+          const footers = html.match(/<footer\b/g) ?? [];
+          const at = html.indexOf('<footer class="ft-image-credit');
+          if (footers.length !== 1 || at < 0) { offenders.push(`${rel}: ${footers.length} footer(s)`); continue; }
+          const end = html.indexOf('</footer>', at) + '</footer>'.length;
+          const after = html.slice(end, end + 40);
+          if (!(html.indexOf('<article class="ft-blog-article">') < at && end < html.indexOf('</article>'))) {
+            offenders.push(`${rel}: footer outside <article>`);
+          }
+          const hasFaq = html.includes('<details class="s-lfB4Bo">');
+          const hasRelated = html.includes('<section class="s-zzuqwx">');
+          if (hasFaq && !html.slice(0, at).endsWith('</details>')) offenders.push(`${rel}: footer not right after the FAQ`);
+          if (hasRelated ? !after.startsWith('<section class="s-zzuqwx">') : !after.startsWith('<nav>')) {
+            offenders.push(`${rel}: footer not right before the related articles/nav (${after})`);
+          }
+          if (hasFaq && hasRelated) orderedIn.add(lang);
+          const footer = html.slice(at, end);
+          if (!footer.includes(`<small>${LABEL[lang]}`)) offenders.push(`${rel}: footer not in the page locale ${lang}`);
+          if (!footer.includes(`<bdi>${rec.commons.title.replace(/\.jpg$/, '')}</bdi>`)) offenders.push(`${rel}: footer names another file`);
+        } else {
+          plainPages++;
+          // No record (or no blog cover at all): today's output.
+          if (/<footer\b/.test(html)) offenders.push(`${rel}: footer on a cover without a record`);
+          for (const ld of lds) {
+            const creator = ld.creator as Record<string, unknown> | undefined;
+            if (creator?.['@id'] !== SITE_ORGANIZATION_ID || ld.license !== SITE_LICENSE_PAGE
+              || ld.acquireLicensePage !== SITE_LICENSE_PAGE || ld.creditText !== 'Frontaliere Ticino' || 'isBasedOn' in ld) {
+              offenders.push(`${rel}: ImageObject is not the site default`);
+            }
+          }
+        }
+      }
+      expect(offenders.slice(0, 10).join('\n'), `${offenders.length} offender(s) over ${pages.length} pages`).toBe('');
+      expect(creditedPages).toBeGreaterThan(0);
+      expect(plainPages).toBeGreaterThan(0);
+      // The ordering assertions ran on a page with both neighbours, per locale.
+      expect([...orderedIn].sort()).toEqual(['de', 'en', 'fr', 'it']);
+
+      // A record never follows a fallback: the articles whose cover is withheld
+      // render /og-image.png, without credit (checked above as plain pages).
+      const fellBack = entries.filter((e) => {
+        const key = coverKey(seoHero.get(e.articleId));
+        return key !== null && withheld.has(key);
+      });
+      expect(fellBack.length).toBeGreaterThan(0);
+      for (const e of fellBack) expect(e.img, e.articleId).toBe('/og-image.png');
+
+      // Byte for byte: an uncredited article renders the same whether or not
+      // other covers have records.
+      const sample = entries.filter((e) => !credited.has(coverKey(e.img) ?? '')).slice(0, 25).map((e) => e.articleId);
+      const plain = await renderArticlePages({ rootDir: emptyRoot, distDir: plainDist, section: 'svizzera', onlyArticleIds: sample });
+      expect(plain.entries.map((e) => e.articleId).sort()).toEqual([...sample].sort());
+      for (const e of plain.entries) {
+        for (const rel of [...Object.values(e.paths), ...Object.values(e.flatPaths)]) {
+          expect(fs.readFileSync(path.join(plainDist, rel), 'utf-8') === fs.readFileSync(path.join(distDir, rel), 'utf-8'), rel).toBe(true);
+        }
+      }
+    } finally {
+      for (const dir of [distDir, plainDist, root, emptyRoot]) fs.rmSync(dir, { recursive: true, force: true });
+    }
+  }, 300_000);
 });

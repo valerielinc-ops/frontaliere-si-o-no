@@ -1,6 +1,6 @@
 {
   "crawlerKey": "integra-biosciences",
-  "assembledAt": "2026-10-03T21:29:16.241Z",
+  "assembledAt": "2026-10-04T09:31:31.994Z",
   "jobs": [
     {
       "id": "integra-biosciences-bdf83c146301",
@@ -17,7 +17,7 @@
       "title": "Mechanical Design Engineer (m/w/d) | 100%)",
       "titleByLocale": {
         "it": "Mechanical Design Ingegnere (m/w/d) | 100%)",
-        "en": "Mechanical Design Engineer (m/f/d) | 100%",
+        "en": "Mechanical Design Engineer (m/w/d) | 100%)",
         "de": "Mechanical Design Ingenieur (m/w/d) | 100%)",
         "fr": "Mechanical Design Ingénieur (m/w/d) | 100%)"
       },
@@ -33,7 +33,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/345/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:10.470Z",
+      "crawledAt": "2026-10-04T09:31:25.898Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -54,19 +54,22 @@
       "pensum": "100%",
       "pensumMin": 100,
       "pensumMax": 100,
-      "firstSeenAt": "2026-10-03T09:31:36.758Z",
+      "previousSlugs": [
+        "mechanical-design-engineer-m-w-d-100-integra-biosciences-ch",
+        "mechanical-design-ingegnere-m-w-d-100-integra-biosciences-zizers",
+        "mechanical-design-ingenieur-m-w-d-100-integra-biosciences-zizers"
+      ],
       "previousSlugsByLocale": {
         "it": [
+          "mechanical-design-engineer-m-w-d-100-integra-biosciences-ch",
           "mechanical-design-ingegnere-m-w-d-100-integra-biosciences-zizers"
         ],
         "fr": [
           "mechanical-design-ingenieur-m-w-d-100-integra-biosciences-zizers"
         ]
       },
-      "previousSlugs": [
-        "mechanical-design-ingegnere-m-w-d-100-integra-biosciences-zizers",
-        "mechanical-design-ingenieur-m-w-d-100-integra-biosciences-zizers"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:31:36.758Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -80,8 +83,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "integra-biosciences-b8c80b9e059f",
@@ -98,7 +100,7 @@
       "title": "Trade Compliance Specialist (m/w/d) | 100%)",
       "titleByLocale": {
         "it": "Trade Compliance Specialista (m/w/d) | 100%)",
-        "en": "Trade Compliance Specialist (m/f/d) | 100%",
+        "en": "Trade Compliance Specialist (m/w/d) | 100%)",
         "de": "Trade Compliance Spezialist (m/w/d) | 100%)",
         "fr": "Trade Compliance Spécialiste (m/w/d) | 100%)"
       },
@@ -114,7 +116,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/344/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:09.108Z",
+      "crawledAt": "2026-10-04T09:31:24.443Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -135,19 +137,22 @@
       "pensum": "100%",
       "pensumMin": 100,
       "pensumMax": 100,
-      "firstSeenAt": "2026-10-03T09:31:34.870Z",
+      "previousSlugs": [
+        "trade-compliance-specialist-m-w-d-100-integra-biosciences-ch",
+        "trade-compliance-specialista-m-w-d-100-integra-biosciences-zizers",
+        "trade-compliance-specialiste-m-w-d-100-integra-biosciences-zizers"
+      ],
       "previousSlugsByLocale": {
         "it": [
+          "trade-compliance-specialist-m-w-d-100-integra-biosciences-ch",
           "trade-compliance-specialista-m-w-d-100-integra-biosciences-zizers"
         ],
         "fr": [
           "trade-compliance-specialiste-m-w-d-100-integra-biosciences-zizers"
         ]
       },
-      "previousSlugs": [
-        "trade-compliance-specialista-m-w-d-100-integra-biosciences-zizers",
-        "trade-compliance-specialiste-m-w-d-100-integra-biosciences-zizers"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:31:34.870Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -161,8 +166,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "integra-biosciences-26fd00a6423a",
@@ -171,7 +175,7 @@
         "it": "contabile-m-w-d-50-60-integra-biosciences-zizers",
         "en": "accountant-m-w-d-50-60-integra-biosciences-ch",
         "de": "accountant-m-w-d-50-60-integra-biosciences-ch",
-        "fr": "comptable-h-f-d-50-60-integra-biosciences-zizers"
+        "fr": "accountant-m-w-d-50-60-integra-biosciences-zizers"
       },
       "company": "INTEGRA Biosciences",
       "companyKey": "integra-biosciences",
@@ -179,9 +183,9 @@
       "title": "Accountant (m/w/d | 50-60%)",
       "titleByLocale": {
         "de": "Buchhalter (m/w/d | 50-60%)",
-        "fr": "Comptable (h/f/d) 50-60%",
+        "fr": "Accountant (m/w/d | 50-60%)",
         "it": "Contabile (m/w/d | 50-60%)",
-        "en": "Accountant (m/f/d | 50-60%)"
+        "en": "Accountant (m/w/d | 50-60%)"
       },
       "description": "Bist du bereit, mit Innovationen das Leben von Millionen Menschen zu verbessern?\nDu denkst einen Schritt weiter, siehst Chancen, wo andere Grenzen sehen – und möchtest deine Energie in etwas Sinnvolles investieren? Dann bist du bei INTEGRA genau richtig.\nUnsere Lösungen entstehen nicht zufällig – sie sind das Ergebnis von Leidenschaft, Präzision und Teamgeist. Mit jeder Technologie, die wir entwickeln, unterstützen wir Menschen weltweit dabei, Krankheiten zu erforschen, Diagnosen zu stellen und neue Therapien zu ermöglichen. Ob in der Diagnostik, Forschung oder in der Qualitätskontrolle: Unsere Instrumente „Made in Switzerland & USA“ machen Laborarbeit effizienter, sicherer und zukunftsfähiger.\n\nWas du bei uns bewegst, bewegt die Welt.\nKlingt nach dem, was du suchst? Dann werde Teil unseres Teams – und hilf mit, wissenschaftliche Entdeckungen zu beschleunigen.\nWas du bewirken kannst\n• Unterstützung des Tagesgeschäfts in der Buchhaltung der INTEGRA Biosciences AG und der europäischen Gesellschaften\n• Zuverlässige Kontrolle und termingerechte Verarbeitung der Kreditorenrechnungen\n• Verbuchen des Bankverkehrs sowie Mithilfe bei der Erstellung der wöchentlichen Zahlläufen und sicherstellen von pünktlichen Zahlungen\n• Bearbeiten der Reisekosten im Reisespesentool Yokoy\n• Mithilfe beim Erstellen der Monats-, Quartals- und Jahresabschlüsse sowie der Forecasts\n• Unterstützung bei weiteren Tätigkeiten im Tagesgeschäft sowie der Praxisbildung des KV-Lernenden\nWas du mitbringst\n• Abgeschlossene kaufmännische Grundausbildung\n• Weiterbildung im Rechnungswesen oder der Bereitschaft, eine solche abzuschliessen\n• Berufserfahrung im Rechnungswesen, vorzugsweise im internationalen Umfeld\n• Ausgeprägtes Zahlenflair und Spass an der Buchhaltung\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n• Exakter, effizienter und dienstleistungsorientierter Arbeitsstil",
       "descriptionByLocale": {
@@ -195,7 +199,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/343/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:07.773Z",
+      "crawledAt": "2026-10-04T09:31:22.926Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -216,16 +220,17 @@
       "pensum": "50 - 60%",
       "pensumMin": 50,
       "pensumMax": 60,
+      "needsRetranslation": true,
       "previousSlugs": [
-        "contabile-m-w-d-50-60-integra-biosciences-zizers",
-        "comptable-h-f-d-50-60-integra-biosciences-zizers",
         "accountant-m-w-d-50-60-integra-biosciences-ch",
+        "comptable-h-f-d-50-60-integra-biosciences-zizers",
+        "contabile-m-w-d-50-60-integra-biosciences-zizers",
         "accountant-m-w-d-50-60-integra-biosciences-zizers"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "contabile-m-w-d-50-60-integra-biosciences-zizers",
-          "accountant-m-w-d-50-60-integra-biosciences-ch"
+          "accountant-m-w-d-50-60-integra-biosciences-ch",
+          "contabile-m-w-d-50-60-integra-biosciences-zizers"
         ],
         "fr": [
           "comptable-h-f-d-50-60-integra-biosciences-zizers",
@@ -246,8 +251,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "integra-biosciences-dcc8891fa8d4",
@@ -264,7 +268,7 @@
       "title": "Mechanical Design Engineer - Product Care (m/w/d | 80-100%)",
       "titleByLocale": {
         "it": "Mechanical Design Ingegnere - Product Care (m/w/d | 80-100%)",
-        "en": "Mechanical Design Engineer - Product Care (m/f/d | 80-100%)",
+        "en": "Mechanical Design Engineer - Product Care (m/w/d | 80-100%)",
         "de": "Mechanical Design Ingenieur - Product Care (m/w/d | 80-100%)",
         "fr": "Mechanical Design Ingénieur - Product Care (m/w/d | 80-100%)"
       },
@@ -280,7 +284,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/342/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:06.625Z",
+      "crawledAt": "2026-10-04T09:31:21.159Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -301,20 +305,22 @@
       "pensum": "80 - 100%",
       "pensumMin": 80,
       "pensumMax": 100,
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:31:31.505Z",
+      "previousSlugs": [
+        "mechanical-design-engineer-product-care-m-w-d-80-100-integra-biosciences-ch",
+        "mechanical-design-ingegnere-product-care-m-w-d-80-100-integra-biosciences-zizers",
+        "mechanical-design-ingenieur-product-care-m-w-d-80-100-integra-biosciences-zizers"
+      ],
       "previousSlugsByLocale": {
         "it": [
+          "mechanical-design-engineer-product-care-m-w-d-80-100-integra-biosciences-ch",
           "mechanical-design-ingegnere-product-care-m-w-d-80-100-integra-biosciences-zizers"
         ],
         "fr": [
           "mechanical-design-ingenieur-product-care-m-w-d-80-100-integra-biosciences-zizers"
         ]
       },
-      "previousSlugs": [
-        "mechanical-design-ingegnere-product-care-m-w-d-80-100-integra-biosciences-zizers",
-        "mechanical-design-ingenieur-product-care-m-w-d-80-100-integra-biosciences-zizers"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:31:31.505Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -334,9 +340,9 @@
       "id": "integra-biosciences-b9b574fd8a20",
       "slug": "produktionsmitarbeiter-mit-bereitschaft-zur-schichtarbeit-m-w-d-100-integra-biosciences-ch",
       "slugByLocale": {
-        "de": "produktionsmitarbeiter-mit-bereitschaft-zur-schichtarbeit-m-w-d-100-integra-biosciences-ch",
         "it": "produktionsmitarbeiter-mit-bereitschaft-zur-schichtarbeit-m-w-d-100-integra-biosciences-ch",
         "en": "production-employees-with-willingness-to-work-shifts-m-f-d-100-integra-biosciences-zizers",
+        "de": "produktionsmitarbeiter-mit-bereitschaft-zur-schichtarbeit-m-w-d-100-integra-biosciences-ch",
         "fr": "employes-de-la-production-qui-sont-disposes-a-travailler-par-equipes-h-f-d-100-integra-biosciences-zizers"
       },
       "company": "INTEGRA Biosciences",
@@ -344,9 +350,9 @@
       "companyDomain": "integra-biosciences.com",
       "title": "Produktionsmitarbeiter mit Bereitschaft zur Schichtarbeit (m/w/d | 100%)",
       "titleByLocale": {
-        "de": "Produktionsmitarbeiter mit Bereitschaft zur Schichtarbeit (m/w/d | 100%)",
         "it": "Produktionsmitarbeiter con Bereitschaft zur Schichtarbeit (m/w/d | 100%)",
         "en": "Production employees with willingness to work shifts (m/f/d | 100%)",
+        "de": "Produktionsmitarbeiter mit Bereitschaft zur Schichtarbeit (m/w/d | 100%)",
         "fr": "Employés de la production qui sont disposés à travailler par équipes (h/f/d) 100%"
       },
       "description": "Bist du bereit, mit Innovationen das Leben von Millionen Menschen zu verbessern?\nDu denkst einen Schritt weiter, siehst Chancen, wo andere Grenzen sehen – und möchtest deine Energie in etwas Sinnvolles investieren? Dann bist du bei INTEGRA genau richtig.\nUnsere Lösungen entstehen nicht zufällig – sie sind das Ergebnis von Leidenschaft, Präzision und Teamgeist. Mit jeder Technologie, die wir entwickeln, unterstützen wir Menschen weltweit dabei, Krankheiten zu erforschen, Diagnosen zu stellen und neue Therapien zu ermöglichen. Ob in der Diagnostik, Forschung oder in der Qualitätskontrolle: Unsere Instrumente „Made in Switzerland & USA“ machen Laborarbeit effizienter, sicherer und zukunftsfähiger.\n\nWas du bei uns bewegst, bewegt die Welt.\nKlingt nach dem, was du suchst? Dann werde Teil unseres Teams – und hilf mit, wissenschaftliche Entdeckungen zu beschleunigen.\nWas du bewirken kannst\n• Bedienen und Überwachen von modernen Automationslagen und Spritzgussmaschinen\n• Bearbeiten von Produktionsaufgaben im Reinraum\n• Durchführen von Endkontrollen und/oder Endverpackungen\n• Montage- und Verpackungsarbeiten\n• Dokumentation der ausgeführten Arbeiten\n• Sicherstellen einer hohen Prdouktenqualität\nWas du mitbringst\n• Erfahrung in der Produktion / Montage von Vorteil\n• Bereitschaft zu unregelmässigen Arbeitszeiten (Schichtarbeit) im Reinraum\n• Schnelle, effiziente und genaue Arbeitsweise\n• Teamfähige Persönlichkeit\n• Gute Kommunikationsfähigkeiten in Deutsch",
@@ -361,7 +367,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/341/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:05.291Z",
+      "crawledAt": "2026-10-04T09:31:19.695Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -382,6 +388,18 @@
       "pensum": "100%",
       "pensumMin": 100,
       "pensumMax": 100,
+      "previousSlugs": [
+        "production-staff-with-readiness-for-shift-work-m-f-d-100-integra-biosciences-zizers",
+        "personnel-de-production-pret-pour-le-travail-poste-h-f-d-100-integra-biosciences-zizers"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "production-staff-with-readiness-for-shift-work-m-f-d-100-integra-biosciences-zizers"
+        ],
+        "fr": [
+          "personnel-de-production-pret-pour-le-travail-poste-h-f-d-100-integra-biosciences-zizers"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:31:29.602Z",
       "salaryMin": 64500,
@@ -397,19 +415,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "previousSlugsByLocale": {
-        "en": [
-          "production-staff-with-readiness-for-shift-work-m-f-d-100-integra-biosciences-zizers"
-        ],
-        "fr": [
-          "personnel-de-production-pret-pour-le-travail-poste-h-f-d-100-integra-biosciences-zizers"
-        ]
-      },
-      "previousSlugs": [
-        "production-staff-with-readiness-for-shift-work-m-f-d-100-integra-biosciences-zizers",
-        "personnel-de-production-pret-pour-le-travail-poste-h-f-d-100-integra-biosciences-zizers"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "integra-biosciences-21250ed2efaa",
@@ -426,7 +432,7 @@
       "title": "Senior Plastic Design Engineer (m/w/d | 80-100%)",
       "titleByLocale": {
         "it": "Senior Plastic Design Ingegnere (m/w/d | 80-100%)",
-        "en": "Senior Plastic Design Engineer (m/f/d | 80-100%)",
+        "en": "Senior Plastic Design Engineer (m/w/d | 80-100%)",
         "de": "Senior Plastic Design Ingenieur (m/w/d | 80-100%)",
         "fr": "Senior Plastic Design Ingénieur (m/w/d | 80-100%)"
       },
@@ -442,7 +448,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/331/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:03.779Z",
+      "crawledAt": "2026-10-04T09:31:18.200Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -463,20 +469,22 @@
       "pensum": "80 - 100%",
       "pensumMin": 80,
       "pensumMax": 100,
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:31:27.742Z",
+      "previousSlugs": [
+        "senior-plastic-design-engineer-m-w-d-80-100-integra-biosciences-ch",
+        "senior-plastic-design-ingegnere-m-w-d-80-100-integra-biosciences-zizers",
+        "senior-plastic-design-ingenieur-m-w-d-80-100-integra-biosciences-zizers"
+      ],
       "previousSlugsByLocale": {
         "it": [
+          "senior-plastic-design-engineer-m-w-d-80-100-integra-biosciences-ch",
           "senior-plastic-design-ingegnere-m-w-d-80-100-integra-biosciences-zizers"
         ],
         "fr": [
           "senior-plastic-design-ingenieur-m-w-d-80-100-integra-biosciences-zizers"
         ]
       },
-      "previousSlugs": [
-        "senior-plastic-design-ingegnere-m-w-d-80-100-integra-biosciences-zizers",
-        "senior-plastic-design-ingenieur-m-w-d-80-100-integra-biosciences-zizers"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:31:27.742Z",
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -507,7 +515,7 @@
       "title": "Plastic Design Engineer (m/w/d | 80-100%)",
       "titleByLocale": {
         "it": "Plastic Design Ingegnere (m/w/d | 80-100%)",
-        "en": "Plastic Design Engineer (m/f/d | 80-100%)",
+        "en": "Plastic Design Engineer (m/w/d | 80-100%)",
         "de": "Plastic Design Ingenieur (m/w/d | 80-100%)",
         "fr": "Plastic Design Ingénieur (m/w/d | 80-100%)"
       },
@@ -523,7 +531,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/330/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:02.515Z",
+      "crawledAt": "2026-10-04T09:31:16.771Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -544,19 +552,22 @@
       "pensum": "80 - 100%",
       "pensumMin": 80,
       "pensumMax": 100,
-      "firstSeenAt": "2026-10-03T09:31:25.729Z",
+      "previousSlugs": [
+        "plastic-design-engineer-m-w-d-80-100-integra-biosciences-ch",
+        "plastic-design-ingegnere-m-w-d-80-100-integra-biosciences-zizers",
+        "plastic-design-ingenieur-m-w-d-80-100-integra-biosciences-zizers"
+      ],
       "previousSlugsByLocale": {
         "it": [
+          "plastic-design-engineer-m-w-d-80-100-integra-biosciences-ch",
           "plastic-design-ingegnere-m-w-d-80-100-integra-biosciences-zizers"
         ],
         "fr": [
           "plastic-design-ingenieur-m-w-d-80-100-integra-biosciences-zizers"
         ]
       },
-      "previousSlugs": [
-        "plastic-design-ingegnere-m-w-d-80-100-integra-biosciences-zizers",
-        "plastic-design-ingenieur-m-w-d-80-100-integra-biosciences-zizers"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:31:25.729Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -570,8 +581,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "integra-biosciences-81194ef73195",
@@ -587,8 +597,8 @@
       "companyDomain": "integra-biosciences.com",
       "title": "Business Analyst ERP (m/f/d | 100%)",
       "titleByLocale": {
-        "en": "Business Analyst ERP (m/f/d | 100%)",
         "it": "Business Analista ERP (m/f/d | 100%)",
+        "en": "Business Analyst ERP (m/f/d | 100%)",
         "de": "Business Analyst ERP (m/w/d | 100%)",
         "fr": "Business Analyste ERP (m/f/d | 100%)"
       },
@@ -604,7 +614,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/329/Description/2?lang=eng",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:29:00.940Z",
+      "crawledAt": "2026-10-04T09:31:15.280Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -625,19 +635,22 @@
       "pensum": "100%",
       "pensumMin": 100,
       "pensumMax": 100,
-      "firstSeenAt": "2026-10-03T09:31:23.765Z",
+      "previousSlugs": [
+        "business-analyst-erp-m-f-d-100-integra-biosciences-ch",
+        "business-analista-erp-m-f-d-100-integra-biosciences-zizers",
+        "business-analyste-erp-m-f-d-100-integra-biosciences-zizers"
+      ],
       "previousSlugsByLocale": {
         "it": [
+          "business-analyst-erp-m-f-d-100-integra-biosciences-ch",
           "business-analista-erp-m-f-d-100-integra-biosciences-zizers"
         ],
         "fr": [
           "business-analyste-erp-m-f-d-100-integra-biosciences-zizers"
         ]
       },
-      "previousSlugs": [
-        "business-analista-erp-m-f-d-100-integra-biosciences-zizers",
-        "business-analyste-erp-m-f-d-100-integra-biosciences-zizers"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:31:23.765Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -651,8 +664,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "integra-biosciences-c3d6d1326a0b",
@@ -685,7 +697,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/326/Description/2?lang=eng",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:28:59.387Z",
+      "crawledAt": "2026-10-04T09:31:13.465Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -706,9 +718,15 @@
       "pensum": "100%",
       "pensumMin": 100,
       "pensumMax": 100,
-      "firstSeenAt": "2026-10-03T09:31:21.792Z",
+      "previousSlugs": [
+        "ngs-sales-specialist-m-f-d-100-integra-biosciences-ch",
+        "ngs-sales-specialista-m-f-d-100-integra-biosciences-zizers",
+        "ngs-sales-spezialist-m-f-d-100-integra-biosciences-zizers",
+        "ngs-sales-specialiste-m-f-d-100-integra-biosciences-zizers"
+      ],
       "previousSlugsByLocale": {
         "it": [
+          "ngs-sales-specialist-m-f-d-100-integra-biosciences-ch",
           "ngs-sales-specialista-m-f-d-100-integra-biosciences-zizers"
         ],
         "de": [
@@ -718,11 +736,8 @@
           "ngs-sales-specialiste-m-f-d-100-integra-biosciences-zizers"
         ]
       },
-      "previousSlugs": [
-        "ngs-sales-specialista-m-f-d-100-integra-biosciences-zizers",
-        "ngs-sales-spezialist-m-f-d-100-integra-biosciences-zizers",
-        "ngs-sales-specialiste-m-f-d-100-integra-biosciences-zizers"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:31:21.792Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -736,8 +751,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     }
   ]
 }

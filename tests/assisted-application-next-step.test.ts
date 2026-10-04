@@ -3,6 +3,7 @@
 // cases below are the queue of that morning.
 import { describe, expect, it } from 'vitest';
 import { nextStepFor, type NextStepOrder } from '../services/assistedApplicationNextStep';
+import { heldLabel } from '../components/pages/AssistedApplicationAutomationPanel';
 
 const NOW = Date.UTC(2026, 9, 3, 8, 0, 0);
 const HOUR = 60 * 60 * 1000;
@@ -43,7 +44,10 @@ describe('next step of an assisted-application order', () => {
 
   it('is the owner\'s move: a draft to review, an order she took over, a send the extension completes', () => {
     expect(step({ state: 'owner_review', deadlineAt: NOW + HOUR })).toMatchObject({ group: 'owner', code: 'review', label: 'Bozza da rivedere' });
-    expect(step({ state: 'owner_review', heldBy: ['fact_check'] })).toMatchObject({ group: 'owner', code: 'review_held' });
+    const heldReview = step({ state: 'owner_review', heldBy: ['fact_check'] });
+    expect(heldReview).toMatchObject({ group: 'owner', code: 'review_held' });
+    // #11026: a profile that is not a full match holds nothing any more, so it is no warning to confirm.
+    expect(heldReview.detail).not.toContain('requisito mancante');
     // Rolex: taken over to ask for the documents the posting requires.
     const taken = step({ state: 'owner_takeover', heldBy: ['owner'] });
     expect(taken).toMatchObject({ group: 'owner', code: 'owner_took_over', label: 'Presa in carico da te' });
@@ -77,6 +81,22 @@ describe('next step of an assisted-application order', () => {
     expect(step({ state: 'owner_takeover', heldBy: ['portal:posting_mismatch'] })).toMatchObject({ group: 'owner', code: 'check_form' });
   });
 
+  // #11161: a WhatsApp application (PastaHR, Coop's apprenticeships) has no form to fix or to fill. A retry
+  // completes the order by e-mail when the channel has a PastaHR https link; otherwise it goes to the candidate.
+  it('is the owner\'s move on a WhatsApp-only application: a retry with a PastaHR link, or the candidate', () => {
+    const whatsapp = step({ state: 'owner_takeover', heldBy: ['portal:whatsapp'] });
+    expect(whatsapp).toMatchObject({ group: 'owner', code: 'whatsapp', label: 'Solo via WhatsApp' });
+    expect(whatsapp.detail).toContain('nella chat WhatsApp del datore');
+    expect(whatsapp.detail).toContain('Se il canale ha un link PastaHR (https), «Riprova l’invio automatico» chiude l’ordine');
+    expect(whatsapp.detail).toContain('altrimenti «Affida al candidato»');
+    expect(whatsapp.detail).not.toContain('estensione');
+    // The panel's «Fermo per» says the same two outcomes.
+    const label = heldLabel('portal:whatsapp');
+    expect(label).toContain('PastaHR (https)');
+    expect(label).toContain('«Riprova l’invio automatico»');
+    expect(label).toContain('«Affida al candidato»');
+  });
+
   it('is the robot\'s, or over', () => {
     expect(step({ state: 'drafting', dispatch: { requestedAt: NOW - 5 * 60 * 1000 } })).toMatchObject({ group: 'robot', code: 'drafting' });
     expect(step({ state: 'regenerating' })).toMatchObject({ group: 'robot', code: 'drafting' });
@@ -86,5 +106,17 @@ describe('next step of an assisted-application order', () => {
     expect(step(null, { submissionStatus: 'submitted' })).toMatchObject({ group: 'done', code: 'submitted' });
     expect(step(null, { submissionStatus: 'refunded' })).toMatchObject({ group: 'done', code: 'refunded' });
     expect(step({ state: 'owner_takeover', heldBy: ['posting_closed'] })).toMatchObject({ group: 'done', code: 'posting_closed' });
+  });
+
+  // Close-out of 2026-10-03: the runner checks the facts again right before sending. A plain retry
+  // would stop on the same facts: the owner confirms them (or corrects the texts) first.
+  it('says how to release a send the fact gate stopped', () => {
+    const stopped = step({ state: 'owner_takeover', heldBy: ['fact_check_not_acknowledged'] });
+    expect(stopped).toMatchObject({ group: 'owner', code: 'confirm_facts', label: 'Conferma i fatti e riprova' });
+    expect(stopped.detail).toContain('si è fermato prima di partire');
+    expect(stopped.detail).toContain('«Ho verificato»');
+    expect(stopped.detail).toContain('«Riprova l’invio automatico»');
+    // Any other failed send keeps the generic move.
+    expect(step({ state: 'owner_takeover', heldBy: ['email_failed'] })).toMatchObject({ group: 'owner', code: 'retry_or_complete' });
   });
 });

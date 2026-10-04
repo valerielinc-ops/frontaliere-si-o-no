@@ -211,7 +211,8 @@ jobs:
             {
               echo "### PR #$n"
               echo '```json'
-              gh pr view "$n" --repo "$REPO" --json number,title,body,mergedAt,mergeCommit,url,author > "$CTX_DIR/pr-$n.json" 2>/dev/null || echo '{}' > "$CTX_DIR/pr-$n.json"
+              # `headRefOid`: la run `tests` dell'head, letta per i bullet che rinviano alla CI la verifica locale.
+              gh pr view "$n" --repo "$REPO" --json number,title,body,mergedAt,mergeCommit,headRefOid,url,author > "$CTX_DIR/pr-$n.json" 2>/dev/null || echo '{}' > "$CTX_DIR/pr-$n.json"
               cat "$CTX_DIR/pr-$n.json"
               echo '```'
               echo "Reviews:"
@@ -228,6 +229,9 @@ jobs:
           # del no-op gate) e instradati col manifest di mirror del corpus, letto UNA
           # volta via API: l'agente non riapplica la tassonomia né una mappa in prosa.
           # Fail-open: senza sezione il prompt ricade sulla lettura diretta.
+          # Un bullet «blocked: resource guard… la CI di questa PR fa da oracolo»
+          # esce `verified-by-merge-run` solo se la run `tests` sull'head lo ha
+          # eseguito verde (log letto, tetto FOLLOWUP_MERGE_RUN_LOG_CAP); altrimenti resta candidato.
           node scripts/ci/followup-candidate-bullets.mjs --side site "${PR_JSON_FILES[@]}" \
             > "$CTX_DIR/candidate-bullets.md" || : > "$CTX_DIR/candidate-bullets.md"
 
@@ -387,6 +391,7 @@ jobs:
               Dedup, label e commenti vanno eseguiti sullo stesso `--repo` target.
             - Parse PR body `## Non implementato (ancora)`: i bullet sono GIÀ classificati nel bundle, sezione `## Candidate bullets` (stesso oracolo di `scripts/ci/followup-has-candidates.mjs`). **Decide lo STATO LETTERALE del bullet, non una parola-scusa** (AGENTS.md #8): applica le «Regole di lettura» in testa a quella sezione, senza una terza tassonomia. In breve:
               - `candidate: false` con `reason: closing-state` (`in questa PR` · `PR concatenata #N` · `per scelta` · `by construction` · `blocked: decisione del proprietario`) o `reason: empty` → **NON creare issue**: decide il bundle, non la tua rilettura.
+              - `reason: verified-by-merge-run` → **NON creare issue**; il commento di triage cita `ownVerification.runId`.
               - `reason: hard-exclude` è un match LESSICALE, non un verdetto: decidi tu con le regole hard-exclude scritte sotto. `candidate: true` significa AMMISSIBILE, non «da coniare». Solo `kind: bullet` è materia di conio decisa dal bundle.
               - Bullet `blocked:` la cui causa NON è di codice (fonte esterna, terzi, decisione attesa) → conialo con `State: blocked` e la causa in `Blocked on:`.
               Solo se per questa PR la sezione manca o porta `error`, applica tu la regola degli stati letterali (FOLLOWUP.md § parse rules).

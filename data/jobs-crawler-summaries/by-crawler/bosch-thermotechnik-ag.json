@@ -1,16 +1,16 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-10-03T21:10:50.979Z",
+  "generatedAt": "2026-10-04T09:13:17.732Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 20523,
-  "avgDurationMs": 20523,
+  "durationMs": 17592,
+  "avgDurationMs": 17592,
   "durationHistory": [
-    20523
+    17592
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,11 +43,13 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-03T09:12:47.552Z",
-      "_qualityScore": 76,
+      "datePosted": "2026-10-01",
+      "postingDateSource": "reported",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 10,
+        "translation": 23,
         "completeness": 19
       }
     },
@@ -80,11 +82,13 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-03T09:12:47.552Z",
-      "_qualityScore": 78,
+      "datePosted": "2026-10-01",
+      "postingDateSource": "reported",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 10,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -117,11 +121,13 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-03T09:12:47.552Z",
-      "_qualityScore": 76,
+      "datePosted": "2026-10-01",
+      "postingDateSource": "reported",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 10,
+        "translation": 15,
         "completeness": 19
       }
     },
@@ -154,11 +160,13 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-03T09:12:47.552Z",
-      "_qualityScore": 76,
+      "datePosted": "2026-10-01",
+      "postingDateSource": "reported",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 10,
+        "translation": 15,
         "completeness": 19
       }
     },
@@ -191,6 +199,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-01T09:13:44.411Z",
+      "datePosted": "2026-10-01",
+      "postingDateSource": "reported",
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -227,6 +237,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:13:35.447Z",
+      "datePosted": "2026-09-28",
+      "postingDateSource": "reported",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -263,6 +275,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:13:35.447Z",
+      "datePosted": "2026-09-28",
+      "postingDateSource": "reported",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -299,6 +313,8 @@
       "currency": "CHF",
       "salarySource": "reported",
       "firstSeenAt": "2026-09-26T13:55:17.547Z",
+      "datePosted": "2026-09-25",
+      "postingDateSource": "reported",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -310,5 +326,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

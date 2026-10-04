@@ -299,7 +299,9 @@ export function checkTailoredCvFacts(cv, { cvText, profile, answers }) {
   const sources = [cvText, JSON.stringify(profile || {}), Object.values(answers || {}).join('\n')];
   // claimSources: the tools of the headline and the summary are claims too (study 2026-10-02:
   // "uso quotidiano di Kubernetes e AWS" in the summary passed, the index had no claim text).
-  const index = buildFactIndex(sources, { claimSources: sources });
+  // numberSources: the same texts without their contact data, so the digits of the CV's phone
+  // number, e-mail address or link back no figure ("un team di 45 persone").
+  const index = buildFactIndex(sources, { claimSources: sources, numberSources: sources });
   return checkGeneratedFacts({ tailoredCv: tailoredCvGeneratedText(cv) }, index);
 }
 
@@ -316,7 +318,7 @@ export function tailoredCvBlocks(cv, { identity, profile }) {
 /**
  * The tailored CV's PDF: Typst with the embedded font, the standard-font
  * writer as fallback (assistedApplicationPdfRenderer.js).
- * @returns {Promise<{pdf: Buffer, renderer: 'typst'|'legacy'}>}
+ * @returns {Promise<{pdf: Buffer, renderer: 'typst'|'legacy', photo: boolean}>} photo: the PDF carries it
  */
 /** @param {{identity:object, profile:object, mode?:string, log?:Function, photo?:Buffer, photoType?:string}} context photo: the candidate's (candidatePhoto) */
 export async function buildTailoredCvPdf(cv, { identity, profile, mode, log, photo, photoType }) {

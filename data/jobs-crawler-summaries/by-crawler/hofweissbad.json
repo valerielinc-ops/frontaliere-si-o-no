@@ -1,23 +1,23 @@
 {
   "key": "hofweissbad",
   "label": "Resort Hof Weissbad",
-  "generatedAt": "2026-10-03T21:26:26.914Z",
-  "total": 14,
+  "generatedAt": "2026-10-04T09:24:53.559Z",
+  "total": 12,
   "discovered": null,
   "parsed": 12,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 14,
+  "written": 12,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 12,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 11575,
-  "avgDurationMs": 11575,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 16144,
+  "avgDurationMs": 16144,
   "durationHistory": [
-    11575
+    16144
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/3c6350c8-080f-4e0c-a379-f38b9cdf5ee8/",
       "source": "Hof Weissbad Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:09.959Z",
+      "crawledAt": "2026-10-04T09:24:31.389Z",
       "addressLocality": "Weissbad",
       "addressRegion": "AI",
       "addressCountry": "CH",
@@ -50,11 +50,11 @@
       "postedDate": "2026-10-03",
       "applyUrl": "https://www.jobs.ch/de/stellenangebote/detail/3c6350c8-080f-4e0c-a379-f38b9cdf5ee8/",
       "firstSeenAt": "2026-10-03T09:29:13.597Z",
-      "_qualityScore": 76,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -71,7 +71,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/b73ea616-3e74-4285-b1f0-187c09130c06/",
       "source": "Hof Weissbad Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:10.634Z",
+      "crawledAt": "2026-10-04T09:24:32.399Z",
       "addressLocality": "Weissbad",
       "addressRegion": "AI",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/c4c31803-1f18-4690-8ebf-6b05740c55fb/",
       "source": "Hof Weissbad Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:11.488Z",
+      "crawledAt": "2026-10-04T09:24:33.692Z",
       "addressLocality": "Weissbad",
       "addressRegion": "AI",
       "addressCountry": "CH",
@@ -145,7 +145,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/1e6954fb-d593-4804-bfa3-782e4cc04f73/",
       "source": "Hof Weissbad Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:12.496Z",
+      "crawledAt": "2026-10-04T09:24:34.711Z",
       "addressLocality": "Weissbad",
       "addressRegion": "AI",
       "addressCountry": "CH",
@@ -182,7 +182,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/c73ed511-90ad-4f5c-8653-624de21dd303/",
       "source": "Hof Weissbad Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:13.062Z",
+      "crawledAt": "2026-10-04T09:24:35.322Z",
       "addressLocality": "Weissbad",
       "addressRegion": "AI",
       "addressCountry": "CH",
@@ -219,7 +219,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/61dfb849-8bce-4763-aa94-fca6c5f31976/",
       "source": "Hof Weissbad Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:13.570Z",
+      "crawledAt": "2026-10-04T09:24:37.659Z",
       "addressLocality": "Weissbad",
       "addressRegion": "AI",
       "addressCountry": "CH",
@@ -256,7 +256,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/57277ed3-f188-4249-9753-779d3e32fd7b/",
       "source": "Hof Weissbad Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:14.121Z",
+      "crawledAt": "2026-10-04T09:24:38.328Z",
       "addressLocality": "Weissbad",
       "addressRegion": "AI",
       "addressCountry": "CH",
@@ -293,7 +293,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/b9c9f6ba-38a2-4b53-bd25-8e27f7f58cb1/",
       "source": "Hof Weissbad Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:14.649Z",
+      "crawledAt": "2026-10-04T09:24:38.899Z",
       "addressLocality": "Weissbad",
       "addressRegion": "AI",
       "addressCountry": "CH",
@@ -324,13 +324,13 @@
       "companyKey": "hofweissbad",
       "companyDomain": "hofweissbad.ch",
       "title": "Praktikum Physiotherapie Modul C (100 % | m/w/d)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Weissbad",
       "canton": "AI",
       "url": "https://www.jobs.ch/de/stellenangebote/detail/53ddc538-3bd6-4cd9-a129-bba1a212b561/",
       "source": "Hof Weissbad Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:15.450Z",
+      "crawledAt": "2026-10-04T09:24:39.412Z",
       "addressLocality": "Weissbad",
       "addressRegion": "AI",
       "addressCountry": "CH",
@@ -367,7 +367,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/3215fa3f-8194-4967-92d8-d9e2ed39bc1d/",
       "source": "Hof Weissbad Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:15.973Z",
+      "crawledAt": "2026-10-04T09:24:41.137Z",
       "addressLocality": "Weissbad",
       "addressRegion": "AI",
       "addressCountry": "CH",
@@ -404,7 +404,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/34784025-589c-410e-9ccb-08382469d600/",
       "source": "Hof Weissbad Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:16.504Z",
+      "crawledAt": "2026-10-04T09:24:41.664Z",
       "addressLocality": "Weissbad",
       "addressRegion": "AI",
       "addressCountry": "CH",
@@ -420,11 +420,11 @@
       "postedDate": "2026-07-16",
       "applyUrl": "https://www.jobs.ch/de/stellenangebote/detail/34784025-589c-410e-9ccb-08382469d600/",
       "firstSeenAt": "2026-07-16T23:08:08.406Z",
-      "_qualityScore": 83,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -441,7 +441,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/06c7ffe1-86c4-4a21-a28f-181ad7c5b7b8/",
       "source": "Hof Weissbad Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:17.074Z",
+      "crawledAt": "2026-10-04T09:24:42.221Z",
       "addressLocality": "Weissbad",
       "addressRegion": "AI",
       "addressCountry": "CH",
@@ -466,8 +466,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "hofweissbad-b0d14b151f2c",
       "slug": "capopartita-100-m-f-g-hof-weissbad-ag-weissbad",
@@ -550,5 +549,6 @@
       }
     }
   ],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

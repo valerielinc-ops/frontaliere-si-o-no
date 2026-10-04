@@ -1,7 +1,7 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-10-03T21:10:18.218Z",
+  "generatedAt": "2026-10-04T09:12:21.531Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -14,10 +14,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 15887,
-  "avgDurationMs": 15887,
+  "durationMs": 14716,
+  "avgDurationMs": 14716,
   "durationHistory": [
-    15887
+    14716
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23937/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:10:07.166Z",
+      "crawledAt": "2026-10-04T09:12:11.383Z",
       "addressLocality": "Geneve",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -70,7 +70,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23939/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:10:07.791Z",
+      "crawledAt": "2026-10-04T09:12:11.982Z",
       "addressLocality": "Geneve",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -85,7 +85,6 @@
       "featured": false,
       "postedDate": "2026-09-30",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23939/",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-30T21:17:00.701Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -107,7 +106,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:10:08.442Z",
+      "crawledAt": "2026-10-04T09:12:12.627Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -121,7 +120,6 @@
       "featured": false,
       "postedDate": "2026-09-04",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-04T13:27:54.190Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -143,7 +141,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23690/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:10:09.069Z",
+      "crawledAt": "2026-10-04T09:12:13.222Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -157,7 +155,6 @@
       "featured": false,
       "postedDate": "2026-09-03",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23690/",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-03T13:32:40.044Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -170,5 +167,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

@@ -304,7 +304,28 @@ describe('Raiffeisen VC bilingual discovery invariants', () => {
       urls: [detail], pagesSucceeded: 2, duplicateIdentity: 1, sourceZero: false,
     });
     const unavailable = async () => new Response('down', { status: 503 });
-    await expect(fetchRaiffeisenJobUrls({ fetchImpl: unavailable, timeoutMs: 1000 })).rejects.toThrow(/503/);
+    await expect(fetchRaiffeisenJobUrls({ fetchImpl: unavailable, timeoutMs: 1000, retries: 0 })).rejects.toThrow(/503/);
+  });
+
+  it('retries a transient careers-page fetch before applying the bilingual discovery guard', async () => {
+    let attempts = 0;
+    const fetchImpl = async () => {
+      attempts += 1;
+      if (attempts === 1) {
+        const error = new TypeError('fetch failed');
+        error.cause = { code: 'ECONNRESET' };
+        throw error;
+      }
+      return new Response(`${marker}<a href="${detail}">job</a></html>`, { status: 200 });
+    };
+
+    await expect(fetchRaiffeisenJobUrls({
+      fetchImpl,
+      timeoutMs: 1000,
+      retries: 1,
+      retryBaseMs: 0,
+    })).resolves.toMatchObject({ urls: [detail], pagesSucceeded: 2 });
+    expect(attempts).toBe(3);
   });
 
   it('accepts zero only from both branded pages with a listing-count element', async () => {

@@ -99055,6 +99055,1254 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-fai-giornate-autunno': {
+    title: 'FAI d’Autunno a Como: cantieri, industrie e Val d’Intelvi',
+    description: 'Scopri le Giornate FAI d’Autunno 2025 a Como e Val d’Intelvi: visite al Cantiere Navigazione Laghi, alle Industrie Tessili Colombo e Visgomma, turni speciali',
+    keywords: 'frontalieri, ticino, svizzera, italia, autunno, como, cantieri, industrie',
+    ogTitle: 'FAI d’Autunno a Como: cantieri, industrie e Val d’Intelvi',
+    ogDescription: 'Le Giornate FAI d’Autunno tornano il 10 e 11 ottobre 2025 nella provincia di Como, aprendo al pubblico luoghi solitamente inaccessibili: il Cantiere Navigazione Laghi a Tavernola, le Industrie Tessili Colombo e Visgomma a Fino Mornasco e un circuito',
+    canonicalPath: '/articoli-frontaliere/como-fai-giornate-autunno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "FAI d’Autunno a Como: cantieri, industrie e Val d’Intelvi",
+      "description": "Scopri le Giornate FAI d’Autunno 2025 a Como e Val d’Intelvi: visite al Cantiere Navigazione Laghi, alle Industrie Tessili Colombo e Visgomma, turni speciali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/como-fai-giornate-autunno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Visita autunnale al FAI a Como con cantieri navali e industrie tessili sul lago"
+      },
+      "datePublished": "2026-10-03T22:29:15+00:00",
+      "dateModified": "2026-10-03T22:29:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-fai-giornate-autunno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-festa-zucca-gavirate-weekend-ottobre': {
+    title: 'Festa della Zucca a Gavirate: weekend di ottobre tra sagre e sport',
+    description: 'Il 4 ottobre il lungolago di Gavirate ospita la Festa della Zucca con stand gastronomici, musica e rievocazioni storiche, mentre la Grand Fondo chiude molte',
+    keywords: 'frontalieri, ticino, svizzera, italia, festa, zucca, gavirate, weekend',
+    ogTitle: 'Festa della Zucca a Gavirate: weekend di ottobre in Varese',
+    ogDescription: 'Nel primo weekend di ottobre la provincia di Varese si anima: a Gavirate la Festa della Zucca attira famiglie con cibo, musica e rievocazioni dei Celti, Longobardi e Normanni; la Grand Fondo Tre Valli Varesine chiude numerose vie, rendendo gli',
+    canonicalPath: '/articoli-frontaliere/festa-zucca-gavirate-weekend-ottobre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Festa della Zucca a Gavirate: weekend di ottobre tra sagre e sport",
+      "description": "Il 4 ottobre il lungolago di Gavirate ospita la Festa della Zucca con stand gastronomici, musica e rievocazioni storiche, mentre la Grand Fondo chiude molte",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/festa-zucca-gavirate-weekend-ottobre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lungolago di Gavirate illuminato dalla Festa della Zucca, stand gastronomici e famiglie in atmosfera autunnale."
+      },
+      "datePublished": "2026-10-03T23:04:46+00:00",
+      "dateModified": "2026-10-03T23:04:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/festa-zucca-gavirate-weekend-ottobre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-gallarate-rapina-violenza-sessuale-22enne': {
+    title: 'Gallarate: 22enne accusato di rapina e violenza',
+    description: 'Un 22enne è stato denunciato in stato di libertà per rapina aggravata e violenza sessuale dopo un\'aggressione vicino alla stazione di Gallarate. La vittima',
+    keywords: 'frontalieri, ticino, svizzera, italia, gallarate, 22enne, accusato, rapina',
+    ogTitle: 'Gallarate: 22enne accusato di rapina e violenza',
+    ogDescription: 'Nella notte tra mercoledì e giovedì 21 settembre, attorno all\'una, i Carabinieri sono intervenuti in via Curioni vicino alla stazione di Gallarate dopo una chiamata al 112. Un 22enne è stato accusato di rapina aggravata e violenza sessuale ai danni',
+    canonicalPath: '/articoli-frontaliere/gallarate-rapina-violenza-sessuale-22enne/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gallarate: 22enne accusato di rapina e violenza",
+      "description": "Un 22enne è stato denunciato in stato di libertà per rapina aggravata e violenza sessuale dopo un'aggressione vicino alla stazione di Gallarate. La vittima",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/gallarate-rapina-violenza-sessuale-22enne.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Intervento dei Carabinieri presso la stazione di Gallarate dopo un'aggressione"
+      },
+      "datePublished": "2026-10-03T23:22:57+00:00",
+      "dateModified": "2026-10-03T23:22:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gallarate-rapina-violenza-sessuale-22enne/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pizzautobus-varese-inclusione': {
+    title: 'PizzAutobus a Varese: quattro autistici al lavoro',
+    description: 'Il PizzAutobus debutta il 3 ottobre a Varese in Piazza Monte Grappa durante la Granfondo Tre Valli Varesine: un food truck gestito da Abad che impiega quattro',
+    keywords: 'frontalieri, ticino, svizzera, italia, pizzautobus, varese, quattro, autistici',
+    ogTitle: 'PizzAutobus a Varese: quattro autistici al lavoro',
+    ogDescription: 'Il 3 ottobre Piazza Monte Grappa a Varese diventa il palcoscenico di debutto del PizzAutobus, il nuovo food truck di Abad cooperativa sociale. Con quattro persone autistiche al lavoro e il sostegno di PizzAut e Thea Group, il servizio offre pizza',
+    canonicalPath: '/articoli-frontaliere/pizzautobus-varese-inclusione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "PizzAutobus a Varese: quattro autistici al lavoro",
+      "description": "Il PizzAutobus debutta il 3 ottobre a Varese in Piazza Monte Grappa durante la Granfondo Tre Valli Varesine: un food truck gestito da Abad che impiega quattro",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pizzautobus-varese-inclusione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "PizzAutobus davanti a una piazza ticinese con montagne sullo sfondo"
+      },
+      "datePublished": "2026-10-03T23:43:15+00:00",
+      "dateModified": "2026-10-03T23:43:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pizzautobus-varese-inclusione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-patto-generazionale-avs-ticino': {
+    title: 'Una 13esima AVS solidale per i giovani ticinesi',
+    description: 'Il Fondo Patto Generazionale invita i beneficiari AVS a donare parte o tutta la tredicesima per sostenere giovani da 0 a 30 anni residenti nel Canton Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, 13esima, solidale, giovani, ticinesi',
+    ogTitle: '13esima AVS: fondo per giovani in Ticino',
+    ogDescription: 'La campagna del Fondo Patto Generazionale invita i beneficiari AVS a destinare una parte o l\'intera tredicesima a giovani residenti in Ticino: il sostegno può finanziare apprendistato, primo impiego, cultura, associazioni e sport.',
+    canonicalPath: '/articoli-frontaliere/patto-generazionale-avs-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Una 13esima AVS solidale per i giovani ticinesi",
+      "description": "Il Fondo Patto Generazionale invita i beneficiari AVS a donare parte o tutta la tredicesima per sostenere giovani da 0 a 30 anni residenti nel Canton Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patto-generazionale-avs-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena simbolica di solidarietà tra generazioni in Ticino"
+      },
+      "datePublished": "2026-10-04T00:02:47+00:00",
+      "dateModified": "2026-10-04T00:02:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/patto-generazionale-avs-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tamponamento-autostrada-sud': {
+    title: 'Grave incidente sull’A2 a Coldrerio | Frontaliere Ticino',
+    description: 'Incidente sull’A2 a Coldrerio: una 68enne ferita lievemente, il passeggero 73enne in gravi condizioni e traffico congestionato sull’A2 nel Mendrisiotto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, grave, incidente, sull, coldrerio',
+    ogTitle: 'A2 a Coldrerio, grave incidente in direzione sud',
+    ogDescription: 'La polizia cantonale segnala un tamponamento sull’autostrada A2 a Coldrerio: l’auto ha colpito un autoarticolato fermo. La strada è stata chiusa per i soccorsi, con forti disagi tra Mendrisio, Chiasso, Melide e Lugano.',
+    canonicalPath: '/articoli-frontaliere/tamponamento-autostrada-sud/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grave incidente sull’A2 a Coldrerio",
+      "description": "Incidente sull’A2 a Coldrerio: una 68enne ferita lievemente, il passeggero 73enne in gravi condizioni e traffico congestionato sull’A2 nel Mendrisiotto.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tamponamento-autostrada-sud.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autostrada A2 a Coldrerio dopo un grave incidente in direzione sud"
+      },
+      "datePublished": "2026-10-04T00:18:56+00:00",
+      "dateModified": "2026-10-04T00:18:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tamponamento-autostrada-sud/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tappi-chiodi-parcheggio-luino': {
+    title: 'Luino, tappi con chiodi nel parcheggio dietro al Tigros',
+    description: 'Allarme a Luino: trovati tappi con chiodi rivolti verso l\'alto nel parcheggio usato dalle autoscuole. La denuncia di Paolo Nicastri sulla sicurezza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, luino, tappi, chiodi, parcheggio',
+    ogTitle: 'Luino, tappi con chiodi nel parcheggio dietro al Tigros',
+    ogDescription: 'Segnalazione di pericolo a Luino: rinvenuti tappi con chiodi nel parcheggio utilizzato per gli esami della patente moto. L\'appello dell\'ex candidato sindaco Nicastri.',
+    canonicalPath: '/articoli-frontaliere/tappi-chiodi-parcheggio-luino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Luino, tappi con chiodi nel parcheggio dietro al Tigros",
+      "description": "Allarme a Luino: trovati tappi con chiodi rivolti verso l'alto nel parcheggio usato dalle autoscuole. La denuncia di Paolo Nicastri sulla sicurezza.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tappi-chiodi-parcheggio-luino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tappi di sughero con chiodi trovati in un parcheggio a Luino"
+      },
+      "datePublished": "2026-10-04T00:30:47+00:00",
+      "dateModified": "2026-10-04T00:30:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tappi-chiodi-parcheggio-luino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ambri-vince-friborgo-2-1': {
+    title: 'Hockey, l\'Ambrì espugna la BCF Arena: Friborgo battuto 2-1',
+    description: 'L\'Ambrì vince 2-1 a Friborgo grazie alle reti di Müller e Schnarr. Una prestazione solida per i biancoblù che ritrovano fiducia dopo le recenti sconfitte.',
+    keywords: 'frontalieri, ticino, svizzera, italia, hockey, ambrì, espugna, arena',
+    ogTitle: 'L\'Ambrì sbanca la tana dei campioni: 2-1 a Friborgo',
+    ogDescription: 'L\'Ambrì ritrova il successo espugnando la pista del Friborgo per 2-1. Decisive le marcature di Müller e Schnarr in una prova caratterizzata da grande compattezza difensiva.',
+    canonicalPath: '/articoli-frontaliere/ambri-vince-friborgo-2-1/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Hockey, l'Ambrì espugna la BCF Arena: Friborgo battuto 2-1",
+      "description": "L'Ambrì vince 2-1 a Friborgo grazie alle reti di Müller e Schnarr. Una prestazione solida per i biancoblù che ritrovano fiducia dopo le recenti sconfitte.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ambri-vince-friborgo-2-1.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'Ambrì vince 2-1 contro il Friborgo alla BCF Arena"
+      },
+      "datePublished": "2026-10-04T00:51:52+00:00",
+      "dateModified": "2026-10-04T00:51:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ambri-vince-friborgo-2-1/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fondo-13esima-avs-giovani': {
+    title: 'Fondo AVS in Ticino: la 13esima ai giovani | Frontaliere Ticino',
+    description: 'Presentato in Ticino un Fondo: chi potrà e vorrà rinunciare alla 13esima AVS sosterrà progetti dedicati alle nuove generazioni a favore della collettività.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fondo, 13esima, giovani, presentato',
+    ogTitle: 'Fondo AVS in Ticino: la 13esima ai giovani',
+    ogDescription: 'La proposta presentata in Ticino punta a trasformare una rinuncia volontaria alla 13esima AVS in risorse per progetti dedicati ai giovani. L\'annuncio descrive un Fondo a favore della collettività, ma non indica importi o modalità operative del Fondo.',
+    canonicalPath: '/articoli-frontaliere/fondo-13esima-avs-giovani/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fondo AVS in Ticino: la 13esima ai giovani",
+      "description": "Presentato in Ticino un Fondo: chi potrà e vorrà rinunciare alla 13esima AVS sosterrà progetti dedicati alle nuove generazioni a favore della collettività.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fondo-13esima-avs-giovani.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pensionati e giovani durante un incontro sul Fondo AVS in Ticino"
+      },
+      "datePublished": "2026-10-04T01:05:00+00:00",
+      "dateModified": "2026-10-04T01:05:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fondo-13esima-avs-giovani/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mastini-varese-pergine-hockey': {
+    title: 'Mastini varese-pergine: sfida all\'acinque ice arena',
+    description: 'Sabato alle 18.30 i Mastini ospitano il Pergine all\'Acinque Ice Arena per la quarta giornata di IHL. Analisi, assenze e stato della classifica. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, mastini, varese-pergine, sfida, acinque',
+    ogTitle: 'Mastini Varese-Pergine: sfida all\'Acinque Ice Arena',
+    ogDescription: 'I Mastini di Varese affrontano il Pergine in un importante scontro diretto di IHL. Scopri le ultime sull\'organico, le assenze di Vanetti e Terzago e il punto sulla classifica.',
+    canonicalPath: '/articoli-frontaliere/mastini-varese-pergine-hockey/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mastini varese-pergine: sfida all'acinque ice arena",
+      "description": "Sabato alle 18.30 i Mastini ospitano il Pergine all'Acinque Ice Arena per la quarta giornata di IHL. Analisi, assenze e stato della classifica. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mastini-varese-pergine-hockey.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partita di hockey su ghiaccio dei Mastini di Varese all'Acinque Ice Arena."
+      },
+      "datePublished": "2026-10-04T01:23:33+00:00",
+      "dateModified": "2026-10-04T01:23:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mastini-varese-pergine-hockey/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-asilo-carluccio-como-lettera': {
+    title: 'Asilo Carluccio Como: il personale scrive al Comune',
+    description: 'Il personale dell\'asilo Carluccio di Como scrive al Comune: la scuola è un presidio educativo e non un costo da ridurre. Leggi l\'appello della comunità.',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, carluccio, como, personale',
+    ogTitle: 'Asilo Carluccio Como: il personale contro i tagli',
+    ogDescription: 'Il personale della scuola dell\'infanzia Carluccio di via Volta si rivolge al Sindaco e all\'Assessore: la scuola non è un costo da ridurre, ma un investimento da proteggere per l\'intera comunità di Como.',
+    canonicalPath: '/articoli-frontaliere/asilo-carluccio-como-lettera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo Carluccio Como: il personale scrive al Comune",
+      "description": "Il personale dell'asilo Carluccio di Como scrive al Comune: la scuola è un presidio educativo e non un costo da ridurre. Leggi l'appello della comunità.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-carluccio-como-lettera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scuola dell'infanzia Carluccio di Como, via Volta."
+      },
+      "datePublished": "2026-10-04T01:35:02+00:00",
+      "dateModified": "2026-10-04T01:35:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/asilo-carluccio-como-lettera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sequestro-stupefacenti-camper-varese': {
+    title: 'Varese: 70 kg di droga sul camper, arresti | Frontaliere Ticino',
+    description: 'La Guardia di Finanza di Varese sequestra oltre 70 kg di stupefacenti su un camper. Arrestati tre persone, trovato un bassotto affidato a una famiglia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, droga, camper, arresti',
+    ogTitle: 'Varese: 70 kg di droga sul camper, arresti',
+    ogDescription: 'Operazione della Guardia di Finanza di Varese: sequestrati 19 kg di cocaina e 49 di marijuana su un camper spagnolo. Tre persone arrestate e un bassotto affidato a una famiglia per adozione temporanea.',
+    canonicalPath: '/articoli-frontaliere/sequestro-stupefacenti-camper-varese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: 70 kg di droga sul camper, arresti",
+      "description": "La Guardia di Finanza di Varese sequestra oltre 70 kg di stupefacenti su un camper. Arrestati tre persone, trovato un bassotto affidato a una famiglia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sequestro-stupefacenti-camper-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Area boschiva nella provincia di Varese dove è stato sequestrato il carico di stupefacenti"
+      },
+      "datePublished": "2026-10-04T01:50:38+00:00",
+      "dateModified": "2026-10-04T01:50:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sequestro-stupefacenti-camper-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-scontro-a2-coldrerio': {
+    title: 'Scontro auto-camion sull\'A2, interviene la Rega',
+    description: 'Incidente sull\'A2 a Coldrerio in direzione sud: un\'auto e un camion coinvolti. Tre feriti, due apparentemente gravi; chiusura dell\'A2 fra Mendrisio e Chiasso.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scontro, auto-camion, sull, interviene',
+    ogTitle: 'Scontro auto-camion sull\'A2 a Coldrerio',
+    ogDescription: 'L\'incidente è avvenuto venerdì pomeriggio sull\'A2 in direzione sud, a Coldrerio. Sul posto SAM, REGA, pompieri del Mendrisiotto e Polizia Cantonale. Dopo la chiusura fra Mendrisio e Chiasso, il traffico è stato incanalato su un\'unica corsia.',
+    canonicalPath: '/articoli-frontaliere/scontro-a2-coldrerio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scontro auto-camion sull'A2, interviene la Rega",
+      "description": "Incidente sull'A2 a Coldrerio in direzione sud: un'auto e un camion coinvolti. Tre feriti, due apparentemente gravi; chiusura dell'A2 fra Mendrisio e Chiasso.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/scontro-a2-coldrerio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'autostrada A2 nei pressi di Coldrerio, in Ticino."
+      },
+      "datePublished": "2026-10-04T02:05:31+00:00",
+      "dateModified": "2026-10-04T02:05:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scontro-a2-coldrerio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-incendio-asso-corda-doppia': {
+    title: 'Incendio ad Asso: manovra su corda doppia nella gola',
+    description: 'Incendio nella vegetazione ad Asso: Vigili del Fuoco di Canzo e Cantù e SAF da Como hanno domato le fiamme in una gola. Danneggiati circa 100 metri quadrati.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incendio, asso, manovra, corda',
+    ogTitle: 'Asso, incendio nella gola: intervento su corda doppia',
+    ogDescription: 'Le fiamme si stavano propagando in una gola dal terreno impervio. Gli specialisti SAF da Como hanno raggiunto i punti più difficili su corda doppia e trasportato le attrezzature, mentre le squadre di Canzo e Cantù partecipavano allo spegnimento.',
+    canonicalPath: '/articoli-frontaliere/incendio-asso-corda-doppia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incendio ad Asso: manovra su corda doppia nella gola",
+      "description": "Incendio nella vegetazione ad Asso: Vigili del Fuoco di Canzo e Cantù e SAF da Como hanno domato le fiamme in una gola. Danneggiati circa 100 metri quadrati.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incendio-asso-corda-doppia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vigili del Fuoco al lavoro in una gola impervia durante un incendio della vegetazione ad Asso"
+      },
+      "datePublished": "2026-10-04T02:20:05+00:00",
+      "dateModified": "2026-10-04T02:20:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incendio-asso-corda-doppia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-arresto-luino-46enne-violenza-familiare': {
+    title: 'Luino: arrestato 46enne per violenze e maltrattamenti',
+    description: 'Arrestato a Luino un 46enne già agli arresti domiciliari. Denuncia della compagna per violenza sessuale e maltrattamenti. Sequestrata balestra. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, luino, arrestato, 46enne, violenze',
+    ogTitle: 'Luino: arrestato 46enne per violenze e maltrattamenti',
+    ogDescription: 'I Carabinieri di Luino hanno eseguito un\'ordinanza di custodia cautelare in carcere nei confronti di un 46enne, già agli arresti domiciliari. L\'uomo è indagato per violenza sessuale e maltrattamenti in famiglia. Durante la perquisizione è stata',
+    canonicalPath: '/articoli-frontaliere/arresto-luino-46enne-violenza-familiare/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Luino: arrestato 46enne per violenze e maltrattamenti",
+      "description": "Arrestato a Luino un 46enne già agli arresti domiciliari. Denuncia della compagna per violenza sessuale e maltrattamenti. Sequestrata balestra. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/arresto-luino-46enne-violenza-familiare.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Balestra a fucile sequestrata dai Carabinieri a Luino durante un'operazione per violenze in famiglia"
+      },
+      "datePublished": "2026-10-04T02:36:57+00:00",
+      "dateModified": "2026-10-04T02:36:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arresto-luino-46enne-violenza-familiare/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-decesso-coldrerio-corsia-nord-sud': {
+    title: 'A2 a Coldrerio, morto il 73enne ferito nell\'incidente',
+    description: 'Un 73enne svizzero del canton Zurigo è morto in ospedale dopo l\'incidente sulla A2 a Coldrerio: era passeggero dell\'auto che ha tamponato un autoarticolato.',
+    keywords: 'frontalieri, ticino, svizzera, italia, coldrerio, morto, 73enne, ferito',
+    ogTitle: 'A2 a Coldrerio, morto il 73enne',
+    ogDescription: 'Il 73enne passeggero di una vettura è morto in ospedale dopo l\'incidente di venerdì sulla A2 a Coldrerio. L\'auto, guidata da una 68enne, aveva tamponato un autoarticolato fermo nella nicchia di emergenza; la donna ha riportato ferite leggere.',
+    canonicalPath: '/articoli-frontaliere/decesso-coldrerio-corsia-nord-sud/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A2 a Coldrerio, morto il 73enne ferito nell'incidente",
+      "description": "Un 73enne svizzero del canton Zurigo è morto in ospedale dopo l'incidente sulla A2 a Coldrerio: era passeggero dell'auto che ha tamponato un autoarticolato.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/decesso-coldrerio-corsia-nord-sud.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "A2 a Coldrerio, sulla carreggiata nord-sud"
+      },
+      "datePublished": "2026-10-04T02:50:46+00:00",
+      "dateModified": "2026-10-04T02:50:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/decesso-coldrerio-corsia-nord-sud/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-notte-rissa-saronno-soccorsi': {
+    title: 'Rissa a Saronno: feriti due giovani nella notte',
+    description: 'Rissa nel centro storico di Saronno tra il 2 e il 3 ottobre: feriti due giovani di 25 e 27 anni, tre ambulanze e carabinieri nella zona pedonale del centro',
+    keywords: 'frontalieri, ticino, svizzera, italia, rissa, saronno, feriti, giovani',
+    ogTitle: 'Saronno, rissa nella notte: due giovani feriti',
+    ogDescription: 'Le urla di un gruppo hanno richiamato l\'attenzione poco prima delle 0.30, tra piazza Libertà e via Garibaldi. Due ragazzi sono finiti in ospedale; i carabinieri cercano di ricostruire la lite e identificare gli altri partecipanti.',
+    canonicalPath: '/articoli-frontaliere/notte-rissa-saronno-soccorsi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rissa a Saronno: feriti due giovani nella notte",
+      "description": "Rissa nel centro storico di Saronno tra il 2 e il 3 ottobre: feriti due giovani di 25 e 27 anni, tre ambulanze e carabinieri nella zona pedonale del centro",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/notte-rissa-saronno-soccorsi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Zona pedonale illuminata nel centro storico di Saronno"
+      },
+      "datePublished": "2026-10-04T03:06:50+00:00",
+      "dateModified": "2026-10-04T03:06:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/notte-rissa-saronno-soccorsi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-derby-varesina-pro-patria-2026': {
+    title: 'Derby Varesina-Pro Patria: la sfida di domenica',
+    description: 'Domenica 4 ottobre alle 15 all\'Elmec Solar Stadium: la Pro Patria (12 punti) cerca la reazione, la Varesina (4) la svolta. Classifica e temi tattici.',
+    keywords: 'frontalieri, ticino, svizzera, italia, derby, varesina-pro, patria, sfida',
+    ogTitle: 'Derby Varesina-Pro Patria: la sfida di domenica',
+    ogDescription: 'Domenica 4 ottobre alle 15 all\'Elmec Solar Stadium di Venegono Superiore: Varesina e Pro Patria si sfidano. La Pro Patria (12 punti) cerca la reazione dopo il ko, la Varesina (4 punti) vuole la svolta dopo tre sconfitte. Scopri i dettagli.',
+    canonicalPath: '/articoli-frontaliere/derby-varesina-pro-patria-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Derby Varesina-Pro Patria: la sfida di domenica",
+      "description": "Domenica 4 ottobre alle 15 all'Elmec Solar Stadium: la Pro Patria (12 punti) cerca la reazione, la Varesina (4) la svolta. Classifica e temi tattici.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/derby-varesina-pro-patria-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio di calcio all'Elmec Solar Stadium di Venegono Superiore durante il derby Varesina-Pro Patria."
+      },
+      "datePublished": "2026-10-04T03:23:01+00:00",
+      "dateModified": "2026-10-04T03:23:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/derby-varesina-pro-patria-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-workshop-difesa-bullismo': {
+    title: 'Travedona Monate: difesa personale e bullismo | Frontaliere Ticino',
+    description: 'A Travedona Monate workshop gratuito di difesa personale sabato 10 ottobre: focus su bullismo e prevenzione, con Sos dei Laghi e Squadra mobile di Varese.',
+    keywords: 'frontalieri, ticino, svizzera, italia, travedona, monate, difesa, personale',
+    ogTitle: 'Travedona Monate: difesa personale e bullismo',
+    ogDescription: 'Sabato 10 ottobre la palestra delle scuole medie comunali di Travedona Monate ospita un workshop gratuito aperto dagli 11 anni, con Stefano Gallucci, Sos dei Laghi e un intervento della Squadra mobile di Varese.',
+    canonicalPath: '/articoli-frontaliere/workshop-difesa-bullismo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Travedona Monate: difesa personale e bullismo",
+      "description": "A Travedona Monate workshop gratuito di difesa personale sabato 10 ottobre: focus su bullismo e prevenzione, con Sos dei Laghi e Squadra mobile di Varese.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/workshop-difesa-bullismo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Workshop gratuito di difesa personale nella palestra delle scuole medie di Travedona Monate"
+      },
+      "datePublished": "2026-10-04T03:46:08+00:00",
+      "dateModified": "2026-10-04T03:46:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/workshop-difesa-bullismo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-nuovo-teatro-mutuo-2026': {
+    title: 'Varese approva mutuo da 10,8 milioni per il nuovo teatro',
+    description: 'Il Consiglio comunale di Varese ha approvato la variazione di bilancio per il nuovo teatro: investimento di circa 22 milioni, mutuo Cassa Depositi e Prestiti',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, approva, mutuo, milioni',
+    ogTitle: 'Varese approva mutuo da 10,8 milioni per il nuovo teatro',
+    ogDescription: 'Il 1 ottobre il Consiglio comunale di Varese ha votato la variazione di bilancio che aumenta l\'investimento per il nuovo teatro a circa 22 milioni di euro, prevedendo un mutuo flessibile di 10,8 milioni con Cassa Depositi e Prestiti, da erogare',
+    canonicalPath: '/articoli-frontaliere/nuovo-teatro-mutuo-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese approva mutuo da 10,8 milioni per il nuovo teatro",
+      "description": "Il Consiglio comunale di Varese ha approvato la variazione di bilancio per il nuovo teatro: investimento di circa 22 milioni, mutuo Cassa Depositi e Prestiti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nuovo-teatro-mutuo-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Rendering del nuovo teatro di Varese con le montagne sullo sfondo"
+      },
+      "datePublished": "2026-10-04T06:01:14+00:00",
+      "dateModified": "2026-10-04T06:01:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-teatro-mutuo-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-festa-cairate-2026-monastero': {
+    title: 'Festa di Cairate 2026: arte, sapori e musica al Monastero',
+    description: 'La sedicesima Festa di Cairate torna il 4 ottobre 2026 al Monastero di Santa Maria Assunta con Camminar Gustando, visite guidate, mostre, mercatino',
+    keywords: 'frontalieri, ticino, svizzera, italia, festa, cairate, arte, sapori',
+    ogTitle: 'Festa di Cairate 2026: arte, sapori e musica al Monastero',
+    ogDescription: 'Domenica 4 ottobre 2026 dalle 10, Cairate ospita la sedicesima edizione della sua festa popolare nel suggestivo Monastero di Santa Maria Assunta. Tra le iniziative: Camminar Gustando (tessera 10 € dalle 12 alle 14.30), visite guidate, mostre',
+    canonicalPath: '/articoli-frontaliere/festa-cairate-2026-monastero/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Festa di Cairate 2026: arte, sapori e musica al Monastero",
+      "description": "La sedicesima Festa di Cairate torna il 4 ottobre 2026 al Monastero di Santa Maria Assunta con Camminar Gustando, visite guidate, mostre, mercatino",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/festa-cairate-2026-monastero.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cortile del Monastero di Santa Maria Assunta durante la Festa di Cairate con stand gastronomici e musica"
+      },
+      "datePublished": "2026-10-04T06:15:59+00:00",
+      "dateModified": "2026-10-04T06:15:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/festa-cairate-2026-monastero/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-maga-giornata-contemporaneo': {
+    title: 'Al MA*GA di gallarate la giornata del contemporaneo',
+    description: 'Sabato 10 ottobre al Museo MA*GA di Gallarate ingresso gratuito, finissage di tre mostre, libri, video e performance per la XXII Giornata del Contemporaneo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, gallarate, giornata, contemporaneo, sabato',
+    ogTitle: 'MA*GA Gallarate: libri, performance e ricerca',
+    ogDescription: 'Il Museo MA*GA di Gallarate celebra la XXII Giornata del Contemporaneo con il finissage di tre esposizioni, la presentazione di due volumi, una performance e la chiusura affidata a Martina Rota nel festival MILANoLTRE.',
+    canonicalPath: '/articoli-frontaliere/maga-giornata-contemporaneo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Al MA*GA di gallarate la giornata del contemporaneo",
+      "description": "Sabato 10 ottobre al Museo MA*GA di Gallarate ingresso gratuito, finissage di tre mostre, libri, video e performance per la XXII Giornata del Contemporaneo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/maga-giornata-contemporaneo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Museo MA*GA di Gallarate per la Giornata del Contemporaneo"
+      },
+      "datePublished": "2026-10-04T06:33:28+00:00",
+      "dateModified": "2026-10-04T06:33:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/maga-giornata-contemporaneo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-licenza-sospesa-bar-busto-2026': {
+    title: 'Busto Arsizio: licenza sospesa 15 giorni per aggressione',
+    description: 'Il Questore di Varese ha sospeso per 15 giorni la licenza di un bar di Busto Arsizio dopo l\'aggressione del 20 settembre con lancio di pietre vicino',
+    keywords: 'frontalieri, ticino, svizzera, italia, busto, arsizio, licenza, sospesa',
+    ogTitle: 'Sospensione licenza bar Busto Arsizio aggressione',
+    ogDescription: 'Il Questore di Varese ha ordinato la sospensione per quindici giorni della licenza di un bar di Busto Arsizio a seguito di una violenta aggressione avvenuta la sera del 20 settembre. Pietre sono state lanciate contro un uomo, mettendo in pericolo',
+    canonicalPath: '/articoli-frontaliere/licenza-sospesa-bar-busto-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Busto Arsizio: licenza sospesa 15 giorni per aggressione",
+      "description": "Il Questore di Varese ha sospeso per 15 giorni la licenza di un bar di Busto Arsizio dopo l'aggressione del 20 settembre con lancio di pietre vicino",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/licenza-sospesa-bar-busto-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bar di Busto Arsizio con polizia dopo aggressione"
+      },
+      "datePublished": "2026-10-04T06:49:38+00:00",
+      "dateModified": "2026-10-04T06:49:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/licenza-sospesa-bar-busto-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fondazione-morandini-eventi-ottobre-2026': {
+    title: 'Eventi ottobre 2026: Fondazione Morandini a Varese',
+    description: 'Scopri i quattro appuntamenti di ottobre 2026 alla Fondazione Marcello Morandini di Varese: visite per bambini, concerto dell\'Orchestra della Scala',
+    keywords: 'frontalieri, ticino, svizzera, italia, eventi, ottobre, fondazione, morandini',
+    ogTitle: 'Eventi ottobre 2026: Fondazione Morandini a Varese',
+    ogDescription: 'La Fondazione Marcello Morandini di Varese presenta un ricco programma di eventi a ottobre 2026, tra visite guidate per i più piccoli, un concerto con i contrabbassisti della Scala, la presentazione del catalogo della mostra «Antonio Barrese',
+    canonicalPath: '/articoli-frontaliere/fondazione-morandini-eventi-ottobre-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Eventi ottobre 2026: Fondazione Morandini a Varese",
+      "description": "Scopri i quattro appuntamenti di ottobre 2026 alla Fondazione Marcello Morandini di Varese: visite per bambini, concerto dell'Orchestra della Scala",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fondazione-morandini-eventi-ottobre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno della Fondazione Marcello Morandini a Varese con installazioni luminose della mostra 'Antonio Barrese: Morfologie di luce'."
+      },
+      "datePublished": "2026-10-04T07:21:29+00:00",
+      "dateModified": "2026-10-04T07:21:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fondazione-morandini-eventi-ottobre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vescovi-openjobmetis-della-valle': {
+    title: 'Cecco vescovi: della valle uomo chiave openjobmetis',
+    description: 'Cecco Vescovi, ospite a «Luci a Masnago», analizza il debutto della Openjobmetis Varese contro la Virtus Bologna, evidenziando le assenze e il ruolo cruciale',
+    keywords: 'frontalieri, ticino, svizzera, italia, cecco, vescovi, valle, uomo',
+    ogTitle: 'Cecco Vescovi: Della Valle chiave per Openjobmetis Varese',
+    ogDescription: 'Cecco Vescovi, ex recordman della Pallacanestro Varese, ha esaminato la sconfitta casalinga della Openjobmetis contro la Virtus Bologna a «Luci a Masnago». Ha sottolineato l\'importanza di Amedeo Della Valle e consigliato a Matteo Librizzi',
+    canonicalPath: '/articoli-frontaliere/vescovi-openjobmetis-della-valle/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cecco vescovi: della valle uomo chiave openjobmetis",
+      "description": "Cecco Vescovi, ospite a «Luci a Masnago», analizza il debutto della Openjobmetis Varese contro la Virtus Bologna, evidenziando le assenze e il ruolo cruciale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vescovi-openjobmetis-della-valle.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Azione di gioco durante una partita di basket in un palazzetto dello sport, con giocatori in movimento e pubblico sugli spalti."
+      },
+      "datePublished": "2026-10-04T07:52:54+00:00",
+      "dateModified": "2026-10-04T07:52:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vescovi-openjobmetis-della-valle/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-scontro-notturno-gallarate': {
+    title: 'Incidente notturno a Gallarate: tre giovani coinvolti',
+    description: 'Incidente a Gallarate, via Stelvio: tre ragazzi di 18, 20 e 24 anni coinvolti. Due trasportati negli ospedali di Legnano e Gallarate; codice rosso poi giallo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, notturno, gallarate, giovani',
+    ogTitle: 'Gallarate, scontro tra auto nella notte: tre giovani',
+    ogDescription: 'Via Stelvio a Gallarate, poco dopo le 4, uno scontro tra auto ha coinvolto tre ragazzi. L\'intervento è partito in codice rosso ed è stato poi ridimensionato in giallo; due giovani sono stati trasportati negli ospedali di Legnano e Gallarate.',
+    canonicalPath: '/articoli-frontaliere/scontro-notturno-gallarate/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente notturno a Gallarate: tre giovani coinvolti",
+      "description": "Incidente a Gallarate, via Stelvio: tre ragazzi di 18, 20 e 24 anni coinvolti. Due trasportati negli ospedali di Legnano e Gallarate; codice rosso poi giallo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/scontro-notturno-gallarate.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incidente notturno a Gallarate con tre giovani coinvolti"
+      },
+      "datePublished": "2026-10-04T08:06:33+00:00",
+      "dateModified": "2026-10-04T08:06:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scontro-notturno-gallarate/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-saracino-comandante-carabinieri-mornago': {
+    title: 'Saracino nuovo comandante dei Carabinieri di Mornago',
+    description: 'Luogotenente Carica Speciale Anacleto Antonio Saracino assume il comando della Stazione dei Carabinieri di Mornago, dipendente dalla Compagnia di Gallarate',
+    keywords: 'frontalieri, ticino, svizzera, italia, saracino, nuovo, comandante, carabinieri',
+    ogTitle: 'Saracino nuovo comandante dei Carabinieri di Mornago',
+    ogDescription: 'Il Luogotenente Carica Speciale Anacleto Antonio Saracino è stato nominato nuovo comandante della Stazione dei Carabinieri di Mornago, unità dipendente dalla Compagnia di Gallarate e sotto la direzione provinciale del Colonnello Alessandro De Vico',
+    canonicalPath: '/articoli-frontaliere/saracino-comandante-carabinieri-mornago/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Saracino nuovo comandante dei Carabinieri di Mornago",
+      "description": "Luogotenente Carica Speciale Anacleto Antonio Saracino assume il comando della Stazione dei Carabinieri di Mornago, dipendente dalla Compagnia di Gallarate",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/saracino-comandante-carabinieri-mornago.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Luogotenente Anacleto Antonio Saracino davanti alla stazione dei Carabinieri di Mornago"
+      },
+      "datePublished": "2026-10-04T08:19:45+00:00",
+      "dateModified": "2026-10-04T08:19:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/saracino-comandante-carabinieri-mornago/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tre-valli-corti': {
+    title: 'Tre Valli Varesine, la storia in mostra alle Corti',
+    description: 'Venti tavole ripercorrono la storia delle Tre Valli Varesine dal 1919 ai giorni nostri. La mostra alle Corti di Varese resta visitabile fino al 20 ottobre.',
+    keywords: 'frontalieri, ticino, svizzera, italia, valli, varesine, storia, mostra',
+    ogTitle: 'Tre Valli Varesine: 20 tavole alle Corti',
+    ogDescription: 'A Varese, al piano meno due del Centro Commerciale Le Corti, venti tavole raccontano le Tre Valli Varesine dal 1919 ai giorni nostri. Il volume avrà 231 pagine e 320 fotografie, alcune inedite, e sarà in commercio dalla seconda metà di novembre.',
+    canonicalPath: '/articoli-frontaliere/tre-valli-corti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tre Valli Varesine, la storia in mostra alle Corti",
+      "description": "Venti tavole ripercorrono la storia delle Tre Valli Varesine dal 1919 ai giorni nostri. La mostra alle Corti di Varese resta visitabile fino al 20 ottobre.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tre-valli-corti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Venti tavole sulla storia delle Tre Valli Varesine esposte alle Corti di Varese."
+      },
+      "datePublished": "2026-10-04T08:44:45+00:00",
+      "dateModified": "2026-10-04T08:44:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tre-valli-corti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-10-04': {
+    title: 'Bollettino del frontaliere – 4 ottobre 2026: a Ponte Tresa 34 minuti di coda',
+    description: 'Bollettino frontalieri del 4 ottobre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 4 ottobre 2026: a Ponte Tresa 34 minuti di coda',
+    ogDescription: 'I numeri del 4 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-10-04/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 4 ottobre 2026: a Ponte Tresa 34 minuti di coda",
+      "description": "Bollettino frontalieri del 4 ottobre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-10-04.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 4 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-10-04T11:02:04+00:00",
+      "dateModified": "2026-10-04T11:02:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-10-04/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sindacati-miazzina-diritti-9-ottobre': {
+    title: 'Miazzina, sindacati il 9 ottobre: \'Chiediamo rispetto\'',
+    description: 'Mobilitazione sindacale il 9 ottobre all\'Eremo di Miazzina, promossa da Cgil, Cisl e Uil. Focus su lavoro, assistenza e sostegno alle famiglie, chiedendo',
+    keywords: 'frontalieri, ticino, svizzera, italia, miazzina, sindacati, ottobre, chiediamo',
+    ogTitle: 'Miazzina: sindacati chiedono rispetto dei diritti il 9 ottobre',
+    ogDescription: 'Il 9 ottobre alle 14, i sindacati Cgil, Cisl e Uil si mobilitano all\'Eremo di Miazzina per chiedere rispetto dei diritti. L\'iniziativa mira a garantire dignità, sicurezza e tutele per chi lavora, risposte per chi è in cura e sostegno per le famiglie',
+    canonicalPath: '/articoli-frontaliere/sindacati-miazzina-diritti-9-ottobre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Miazzina, sindacati il 9 ottobre: 'Chiediamo rispetto'",
+      "description": "Mobilitazione sindacale il 9 ottobre all'Eremo di Miazzina, promossa da Cgil, Cisl e Uil. Focus su lavoro, assistenza e sostegno alle famiglie, chiedendo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sindacati-miazzina-diritti-9-ottobre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione sindacale all'Eremo di Miazzina con striscioni che chiedono rispetto per lavoratori, persone in cura e famiglie."
+      },
+      "datePublished": "2026-10-04T11:20:31+00:00",
+      "dateModified": "2026-10-04T11:20:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sindacati-miazzina-diritti-9-ottobre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-italia-mondiale-baseball-ciechi-varese': {
+    title: 'Italia campione del mondo di baseball per ciechi',
+    description: 'L\'Italia vince la Blind Baseball International Cup battendo Cuba 10-4. Danny Oliveri MVP e Fabio Trombini miglior giovane nel trionfo varesino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, campione, mondo, baseball, ciechi',
+    ogTitle: 'L\'Italia vince il mondiale di baseball per ciechi',
+    ogDescription: 'Trionfo azzurro a Castiglione della Pescaia: l\'Italia batte Cuba 10-4 e conquista il titolo mondiale. Protagonisti gli atleti varesini Danny Oliveri e Fabio Trombini.',
+    canonicalPath: '/articoli-frontaliere/italia-mondiale-baseball-ciechi-varese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Italia campione del mondo di baseball per ciechi",
+      "description": "L'Italia vince la Blind Baseball International Cup battendo Cuba 10-4. Danny Oliveri MVP e Fabio Trombini miglior giovane nel trionfo varesino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/italia-mondiale-baseball-ciechi-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'Italia vince il mondiale di baseball per ciechi a Castiglione della Pescaia"
+      },
+      "datePublished": "2026-10-04T11:54:50+00:00",
+      "dateModified": "2026-10-04T11:54:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/italia-mondiale-baseball-ciechi-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-urto-spartitraffico-camorino': {
+    title: 'Incidente a Camorino, donna ferita verso l\'A2 | Frontaliere Ticino',
+    description: 'Camorino: donna ferita dopo l\'urto contro uno spartitraffico; l\'auto si è rovesciata. L\'entrata A2 verso sud è rimasta chiusa per oltre un\'ora nello svincolo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, camorino, donna, ferita',
+    ogTitle: 'Incidente a Camorino, donna ferita verso l\'A2',
+    ogDescription: 'A Camorino, un incidente nello svincolo verso l\'A2 sud: l\'auto è uscita di strada in curva, ha urtato uno spartitraffico e si è rovesciata. La donna è stata estratta, stabilizzata e portata all\'Ospedale Civico di Lugano.',
+    canonicalPath: '/articoli-frontaliere/urto-spartitraffico-camorino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente a Camorino, donna ferita verso l'A2",
+      "description": "Camorino: donna ferita dopo l'urto contro uno spartitraffico; l'auto si è rovesciata. L'entrata A2 verso sud è rimasta chiusa per oltre un'ora nello svincolo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/urto-spartitraffico-camorino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Svincolo di Camorino verso l'A2 con uno spartitraffico, luogo dell'incidente."
+      },
+      "datePublished": "2026-10-04T15:30:36+00:00",
+      "dateModified": "2026-10-04T15:30:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/urto-spartitraffico-camorino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

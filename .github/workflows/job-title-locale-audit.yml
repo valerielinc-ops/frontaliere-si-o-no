@@ -233,7 +233,7 @@ jobs:
         run: |
           node scripts/lib/github-issue-creator.mjs \
             --title "Job title locale quality: weekly snapshot" \
-            --description "$(cat /tmp/jtl/body.md)" \
+            --description-file /tmp/jtl/body.md \
             --priority 3 \
             --label job-title-locale \
             --label bug \

@@ -1,7 +1,88 @@
 {
   "crawlerKey": "sicpa",
-  "assembledAt": "2026-10-03T21:27:53.350Z",
+  "assembledAt": "2026-10-04T09:24:22.957Z",
   "jobs": [
+    {
+      "id": "sicpa-ee4544be3e45",
+      "slug": "principal-software-ingegnere-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa-sa-prilly",
+      "slugByLocale": {
+        "it": "principal-software-ingegnere-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa-sa-prilly",
+        "en": "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa",
+        "de": "principal-software-ingenieur-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa-sa-prilly",
+        "fr": "principal-software-ingenieur-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa-sa-prilly"
+      },
+      "company": "SICPA SA",
+      "companyKey": "sicpa",
+      "companyDomain": "sicpa.com",
+      "title": "Principal Software Engineer - Mobile SDK Tooling & On‑Device Computer Vision (iOS/Android)",
+      "titleByLocale": {
+        "it": "Ingegnere Principale Software - Strumento SDK Mobile & Vision Computer On-Device (iOS/Android)",
+        "en": "Principal Software Engineer - Mobile SDK Tooling & On‑Device Computer Vision (iOS/Android)",
+        "de": "Hauptsoftwareingenieur - Mobile SDK-Werkzeuge und On-Device-Computer Vision (iOS/Android)",
+        "fr": "Ingénieur logiciel principal - Mobile SDK Tooling & On-Device Computer Vision (iOS/Android)"
+      },
+      "description": "ROLE\n\n•    Strengthen observability and diagnostics for SDKs and reference apps using Splunk and other tools (logs, metrics, crash signals, field diagnostics).\n•    Build and own engineering tooling and automation, and define a multi-quarter platform roadmap, to measurably reduce operational workload and increase developer productivity at scale across the team (~20 engineers), while reducing integration and support effort.\n•    Design, implement, and maintain Continuous Integration / Continuous Delivery pipelines and quality gates (Jenkins) for mobile SDKs (build, test, packaging, release validation, regression detection).\n•    Develop release qualification frameworks: automated functional tests, performance benchmarks, compatibility checks, and reproducible test environments.\n•    Deliver and evolve core components of mobile SDKs (iOS, Android): camera capture, image processing pipelines, API design, modularization, documentation, smartphone apps.\n•    Provide technical leadership as an Individual Contributor (no management): architecture decisions, design reviews, mentoring through code reviews, and raising engineering standards.\n•    Lead the integration of AI/ML into the mobile detection stack, from rapid prototyping to production-grade deployment on iOS/Android.\n•    Build an AI-driven validation and triage layer for SDK releases, including automated regression and anomaly detection.\n\nPROFILE\n\n•    Principal Engineer with a strong track record of delivering production software.\n•    Proven experience building developer tooling / automation platforms that measurably improve team productivity (e.g., faster releases, fewer regressions, reduced support load).\n•    Strong iOS expertise: Swift, Xcode, SDK design and packaging, performance profiling (Instruments); Objective C is a plus.\n•    Solid Android foundations: Kotlin/Java, Gradle, CameraX/Camera2, instrumentation/testing; ability to support and debug across both platforms.\n•    Strong understanding of CI/CD concepts and implementation experience with Jenkins (pipelines, build/test orchestration, quality gates, artifacts, release processes).\n•    Strong knowledge of software architecture, API design, testing strategy, secure coding practices, and maintaining high-quality codebases.\n•    Hands-on experience building and optimizing computer vision / image processing pipelines on mobile devices and under real-world constraints (latency, memory, device variability).\n•    Strong problem‑solving skills, translating customer needs into scalable solutions.\n•    Hands‑on experience deploying AI/ML models to production on resource‑constrained, heterogeneous devices.\n•    Solid expertise in the full ML lifecycle, including data quality, evaluation, robustness, and model release management.\n•    Practical experience with on-device ML toolchains and runtimes and performance engineering under real device constraints.\n•    Ability to define and enforce AI usage standards in an industrial environment.\n•    Strong communication and collaboration skills in multicultural environments; fluent English, French is a strong plus.\n\nWHY JOIN US?\n\n•    Join a global leader in trust technologies with a mission that matters.\n•    Be at the strategic heart of a financially sound and innovation-driven company.\n•    Collaborate with high-level experts and work on impactful international projects.\n•    Operate in a multi-cultural, high-integrity environment where autonomy and ownership are encouraged.\n\nWe offer an exciting and challenging role, with great potential for personal development within a unique organization in a fascinating and fast-growing industry. Your file will be handled with upmost confidentiality and discretion.",
+      "descriptionByLocale": {
+        "it": "RUOLO\n• Rafforzare l'osservanza e la diagnostica per SDK e applicazioni di riferimento utilizzando Splunk e altri strumenti (log, metriche, segnali di crash, diagnostica di campo).\n• Costruire e possedere strumenti di ingegneria e automazione, e definire una roadmap multi-quarter della piattaforma, per ridurre in modo misura il carico di lavoro operativo e aumentare la produttività dello sviluppatore in scala in tutto il team (~20 ingegneri), riducendo al contempo l'integrazione e lo sforzo di supporto.\n• Progettare, implementare e mantenere l'integrazione continua / Conduzioni continue e porte di qualità (Jenkins) per SDK mobili (costruire, testare, imballaggio, convalida di rilascio, rilevamento di regressione).\n• Sviluppare quadri di qualificazione al rilascio: test funzionali automatizzati, benchmark delle prestazioni, controlli di compatibilità e ambienti di test riproducibili.\n• Fornire ed evolvere componenti fondamentali di SDK mobili (iOS, Android): cattura della fotocamera, elaborazione delle immagini, progettazione API, modularizzazione, documentazione, applicazioni smartphone.\n• Fornire leadership tecnica come un singolo contributor (nessuna gestione): decisioni di architettura, recensioni di design, mentoring attraverso le recensioni di codici, e innalzare gli standard di ingegneria.\n• Condurre l'integrazione di AI/ML nello stack di rilevamento mobile, dalla prototipazione rapida alla distribuzione di livello di produzione su iOS/Android.\n• Costruire uno strato di convalida e triage AI-driven per le versioni SDK, tra cui regressione automatizzata e rilevamento di anomalia. PROFESSIONALE\n• Principal Engineer con un forte record di traccia di fornitura di software di produzione.\n• Approvata esperienza di costruzione di piattaforme di strumenti / automazione che migliorano measuramente la produttività del team (ad esempio, release più veloci, meno regressioni, ridotto carico di supporto).\n• Forte esperienza iOS: Swift, Xcode, SDK design e packaging, performance profiling (Instruments); Obiettivo C è un plus.\n• Solide fondazioni Android: Kotlin/Java, Gradle, CameraX/Camera2, strumentazione/testing; capacità di supporto e debug su entrambe le piattaforme.\n• Forte comprensione dei concetti CI/CD e esperienza di implementazione con Jenkins (pipeline, costruzione / test orchestrazione, cancelli di qualità, artefatti, processi di rilascio).\n• Forte conoscenza dell'architettura del software, progettazione API, strategia di test, pratiche di codifica sicure e mantenere basi di codice di alta qualità.\n• Hands-on esperienza costruzione e ottimizzazione della visione del computer / elaborazione delle immagini condotte su dispositivi mobili e sotto vincoli del mondo reale (latenza, memoria, variabilità del dispositivo).\n• Forte capacità di problem solving, traducendo le esigenze del cliente in soluzioni scalabili.\n• Esperienza a mano che distribuisce modelli AI/ML alla produzione su dispositivi eterogenei e dotati di risorse.\n• Competenze solide nel ciclo di vita ML completo, tra cui qualità dei dati, valutazione, robustezza e gestione del rilascio del modello.\n• Esperienza pratica con toolchains ML on-device e runtime e ingegneria delle prestazioni sotto vincoli reali del dispositivo.\n• Capacità di definire e far rispettare gli standard di utilizzo AI in un ambiente industriale.\n• Forte capacità di comunicazione e collaborazione in ambienti multiculturali; fluente inglese, francese è un forte plus. Perche'?\n• Unisciti a un leader globale nelle tecnologie di fiducia con una missione che conta.\n• Essere al centro strategico di un'azienda finanziariamente solida e innovativa.\n• Collabora con esperti di alto livello e lavori su progetti internazionali d'impatto.\n• Operare in un ambiente multi-culturale e ad alta intensità in cui l'autonomia e la proprietà sono incoraggiati. Offriamo un ruolo emozionante e stimolante, con grande potenziale per lo sviluppo personale all'interno di un'organizzazione unica in un settore affascinante e in rapida crescita. Il tuo file verrà gestito con la massima riservatezza e discrezione. Richiedi ora »\n• Iniziare con LinkedIn",
+        "en": "ROLE\n\n• Strengthen observability and diagnostics for SDKs and reference apps using Splunk and other tools (logs, metrics, crash signals, field diagnostics).\n• Build and own engineering tooling and automation, and define a multi-quarter platform roadmap, to measurably reduce operational workload and increase developer productivity at scale across the team (~20 engineers), while reducing integration and support effort.\n• Design, implement, and maintain Continuous Integration / Continuous Delivery pipelines and quality gates (Jenkins) for mobile SDKs (build, test, packaging, release validation, regression detection).\n• Develop release qualification frameworks: automated functional tests, performance benchmarks, compatibility checks, and reproducible test environments.\n• Deliver and evolve core components of mobile SDKs (iOS, Android): camera capture, image processing pipelines, API design, modularization, documentation, smartphone apps.\n• Provide technical leadership as an Individual Contributor (no management): architecture decisions, design reviews, mentoring through code reviews, and raising engineering standards.\n• Lead the integration of AI/ML into the mobile detection stack, from rapid prototyping to production-grade deployment on iOS/Android.\n• Build an AI-driven validation and triage layer for SDK releases, including automated regression and anomaly detection.\n\nPROFILE\n\n• Principal Engineer with a strong track record of delivering production software.\n• Proven experience building developer tooling / automation platforms that measurably improve team productivity (e.g., faster releases, fewer regressions, reduced support load).\n• Strong iOS expertise: Swift, Xcode, SDK design and packaging, performance profiling (Instruments); Objective C is a plus.\n• Solid Android foundations: Kotlin/Java, Gradle, CameraX/Camera2, instrumentation/testing; ability to support and debug across both platforms.\n• Strong understanding of CI/CD concepts and implementation experience with Jenkins (pipelines, build/test orchestration, quality gates, artifacts, release processes).\n• Strong knowledge of software architecture, API design, testing strategy, secure coding practices, and maintaining high-quality codebases.\n• Hands-on experience building and optimizing computer vision / image processing pipelines on mobile devices and under real-world constraints (latency, memory, device variability).\n• Strong problem‑solving skills, translating customer needs into scalable solutions.\n• Hands‑on experience deploying AI/ML models to production on resource‑constrained, heterogeneous devices.\n• Solid expertise in the full ML lifecycle, including data quality, evaluation, robustness, and model release management.\n• Practical experience with on-device ML toolchains and runtimes and performance engineering under real device constraints.\n• Ability to define and enforce AI usage standards in an industrial environment.\n• Strong communication and collaboration skills in multicultural environments; fluent English, French is a strong plus.\n\nWHY JOIN US?\n\n• Join a global leader in trust technologies with a mission that matters.\n• Be at the strategic heart of a financially sound and innovation-driven company.\n• Collaborate with high-level experts and work on impactful international projects.\n• Operate in a multi-cultural, high-integrity environment where autonomy and ownership are encouraged.\n\nWe offer an exciting and challenging role, with great potential for personal development within a unique organization in a fascinating and fast-growing industry. Your file will be handled with upmost confidentiality and discretion.",
+        "de": "ROLLE\n• Verbessern Sie die Beobachtbarkeit und Diagnose für SDKs und Referenz-Apps mit Splunk und anderen Tools (Logs, Metriken, Crashsignale, Felddiagnose).\n• Bauen und besitzen Sie Engineering-Tools und Automatisierung und definieren Sie eine Plattform-Roadmap für mehrere Quartale, um die betriebliche Arbeitsbelastung messbar zu reduzieren und die Entwicklerproduktivität im gesamten Team (~20 Ingenieure) zu steigern und gleichzeitig den Integrations- und Supportaufwand zu reduzieren.\n• Konzipieren, implementieren und pflegen Sie Continuous Integration / Continuous Delivery Pipelines und Quality Gates (Jenkins) für mobile SDKs (Build, Test, Packaging, Release Validation, Regressionserkennung).\n• Release-Qualifikations-Frameworks entwickeln: automatisierte Funktionstests, Performance-Benchmarks, Kompatibilitätsprüfungen und reproduzierbare Testumgebungen.\n• Bereitstellung und Entwicklung von Kernkomponenten mobiler SDKs (iOS, Android): Kameraerfassung, Bildverarbeitungspipelines, API-Design, Modularisierung, Dokumentation, Smartphone-Apps.\n• Bieten Sie technische Führung als Individual Contributor (kein Management): Architekturentscheidungen, Design-Reviews, Mentoring durch Code-Reviews und Erhöhung der Engineering-Standards.\n• Führen Sie die Integration von AI / ML in den mobilen Erkennungsstack, vom Rapid Prototyping bis zur produktionsgerechten Bereitstellung auf iOS / Android.\n• Erstellen Sie eine AI-gesteuerte Validierungs- und Triage-Schicht für SDK-Releases, einschließlich automatisierter Regression und Anomalieerkennung. PROFIL\n• Principal Engineer mit einer starken Erfolgsbilanz bei der Bereitstellung von Produktionssoftware.\n• Bewährte Erfahrung beim Erstellen von Entwickler-Tools / Automatisierungsplattformen, die die Teamproduktivität messbar verbessern (z. B. schnellere Releases, weniger Regressionen, geringere Supportlast).\n• Starkes iOS-Know-how: Swift, Xcode, SDK-Design und -Verpackung, Performance-Profiling (Instrumente); Objective C ist ein Plus.\n• Solide Android-Grundlagen: Kotlin/Java, Gradle, CameraX/Camera2, Instrumentierung/Testing, Unterstützung und Debug auf beiden Plattformen.\n• Starkes Verständnis von CI/CD-Konzepten und Implementierungserfahrung mit Jenkins (Pipelines, Build/Test-Orchestrierung, Quality Gates, Artefakte, Release-Prozesse).\n• Ein fundiertes Wissen über Softwarearchitektur, API-Design, Teststrategie, sichere Codierungspraktiken und die Pflege hochwertiger Codebasen.\n• Praktische Erfahrung beim Aufbau und der Optimierung von Computer Vision / Bildverarbeitungspipelines auf mobilen Geräten und unter realen Einschränkungen (Latenz, Speicher, Gerätevariabilität).\n• Starke Problemlösungskompetenzen, die Kundenbedürfnisse in skalierbare Lösungen übersetzen.\n• Praxiserfahrung beim Einsatz von AI/ML-Modellen für die Produktion auf ressourcenbeschränkten, heterogenen Geräten.\n• Solide Expertise im gesamten ML-Lebenszyklus, einschließlich Datenqualität, Bewertung, Robustheit und Model Release Management.\n• Praktische Erfahrung mit On-Device-ML-Toolchains und Laufzeiten und Performance Engineering unter realen Gerätebeschränkungen.\n• Fähigkeit, KI-Nutzungsstandards in einem industriellen Umfeld zu definieren und durchzusetzen.\n• Starke Kommunikations- und Kollaborationsfähigkeiten in multikulturellen Umgebungen; fließend Englisch, Französisch ist ein starkes Plus. WARUM UNS JOIN?\n• Schließen Sie sich einem globalen Marktführer für Vertrauenstechnologien mit einer Mission an, die wichtig ist.\n• Seien Sie im strategischen Herzen eines finanziell soliden und innovationsgetriebenen Unternehmens.\n• Arbeiten Sie mit hochrangigen Experten zusammen und arbeiten Sie an wirkungsvollen internationalen Projekten.\n• Arbeiten Sie in einem multikulturellen, hochintegrierten Umfeld, in dem Autonomie und Besitz gefördert werden. Wir bieten eine spannende und herausfordernde Rolle, mit großem Potenzial für die persönliche Entwicklung innerhalb einer einzigartigen Organisation in einer faszinierenden und schnell wachsenden Branche. Ihre Datei wird mit höchster Vertraulichkeit und Diskretion behandelt. Jetzt bewerben »\n• Starten Sie die Bewerbung mit LinkedIn",
+        "fr": "RÔLE\n• Renforcer l'observabilité et le diagnostic pour les SDK et les applications de référence en utilisant Spunk et d'autres outils (logs, métriques, signaux de crash, diagnostics de terrain).\n• Construire et automatiser les outils d'ingénierie, et définir une feuille de route multi-quarts pour réduire de façon mesurable la charge de travail opérationnelle et augmenter la productivité des développeurs à l'échelle de l'équipe (~20 ingénieurs), tout en réduisant les efforts d'intégration et de soutien.\n• Concevoir, mettre en œuvre et maintenir des pipelines d'intégration continue / livraison continue et des barrières de qualité (Jenkins) pour les SDK mobiles (construction, essai, emballage, validation de libération, détection de régression).\n• Élaborer des cadres de qualification des rejets : tests fonctionnels automatisés, repères de performance, vérifications de compatibilité et environnements d'essai reproductibles.\n• Livraison et évolution des composants de base des SDK mobiles (iOS, Android): capture de caméra, pipelines de traitement d'image, conception d'API, modularisation, documentation, applications smartphone.\n• Fournir un leadership technique en tant que contributeur individuel (aucune gestion) : décisions en matière d'architecture, examens de conception, mentorat grâce à l'examen des codes et amélioration des normes d'ingénierie.\n• Diriger l'intégration de l'IA/ML dans la pile de détection mobile, du prototypage rapide au déploiement de qualité de production sur iOS/Android.\n• Construire une couche de validation et de triage pilotée par l'IA pour les rejets de SDK, y compris la régression automatisée et la détection d'anomalies. PROFIL\n• Ingénieur principal avec une solide expérience de livraison de logiciels de production.\n• Expérience éprouvée de développement d'outils de développement / plates-formes d'automatisation qui améliorent mesurablement la productivité de l'équipe (p. ex., libérations plus rapides, moins de régressions, réduction de la charge de support).\n• Forte expertise iOS: Swift, Xcode, conception et emballage SDK, profilage des performances (Instruments); Objectif C est un plus.\n• Fondements solides pour Android: Kotlin/Java, Gradle, CameraX/Camera2, instrumentation/test; capacité à soutenir et déboguer sur les deux plateformes.\n• Une bonne compréhension des concepts de CI/CD et de l'expérience de mise en oeuvre avec Jenkins (pipélines, orchestration de construction/test, portes de qualité, artefacts, processus de libération).\n• Forte connaissance de l'architecture logicielle, de la conception de l'API, de la stratégie de test, des pratiques de codage sécurisées et du maintien de bases de codes de haute qualité.\n• Expérimentation pratique et optimisation des pipelines de vision et de traitement d'images informatiques sur les appareils mobiles et sous des contraintes réelles (latence, mémoire, variabilité des appareils).\n• Fortes compétences en résolution de problèmes, transformant les besoins des clients en solutions évolutives.\n• Expérience pratique en déployant des modèles d'IA/ML à la production sur des appareils hétérogènes et à ressources limitées.\n• Une solide expertise dans le cycle de vie complet du ML, y compris la qualité des données, l'évaluation, la robustesse et la gestion des versions de modèles.\n• Expérience pratique avec les chaînes d'outils ML et les runtimes et l'ingénierie des performances sous de réelles contraintes d'appareils.\n• Capacité de définir et d'appliquer des normes d'utilisation de l'IA dans un environnement industriel.\n• Fortes compétences en communication et en collaboration dans des environnements multiculturels; l'anglais couramment, le français est un plus fort. Pourquoi nous rejoindre ?\n• Rejoignez un leader mondial des technologies de confiance avec une mission qui compte.\n• Soyez au cœur stratégique d'une entreprise financièrement saine et axée sur l'innovation.\n• Collaborer avec des experts de haut niveau et travailler sur des projets internationaux ayant des incidences.\n• Fonctionnement dans un environnement multiculturel et à haute intégrité où l'autonomie et la propriété sont encouragées. Nous offrons un rôle passionnant et stimulant, avec un grand potentiel de développement personnel au sein d'une organisation unique dans une industrie fascinante et en croissance rapide. Votre dossier sera traité avec la plus grande confidentialité et discrétion. Postuler maintenant »\n• Commencez à appliquer avec LinkedIn"
+      },
+      "location": "Prilly",
+      "canton": "VD",
+      "url": "https://jobs.sicpa.com/job/Prilly-Principal-Software-Engineer-Mobile-SDK-Tooling-&-On%E2%80%91Device-Computer-Vision-%28iOSAndroid%29/1393025833/",
+      "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-04T09:24:15.910Z",
+      "addressLocality": "Prilly",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1008",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Industria di sicurezza / Tecnologie anti-contraffazione (manifatturiero)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-04",
+      "postedDate": "2026-10-04",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.sicpa.com/talentcommunity/apply/1393025833/?locale=en_GB",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa",
+        "principal-software-ingegnere-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa-sa-prilly"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa",
+          "principal-software-ingegnere-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa-sa-prilly"
+        ],
+        "de": [
+          "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa"
+        ],
+        "fr": [
+          "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:00:33.457Z",
+      "salaryMin": 97500,
+      "salaryMax": 148000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 148000,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "sicpa-dd5b0e9bd5d2",
       "slug": "tecnica-capteurs-sicpa-sa-prilly",
@@ -16,7 +97,7 @@
       "companyDomain": "sicpa.com",
       "title": "Technicien Capteurs",
       "titleByLocale": {
-        "it": "Technicien Capteurs",
+        "it": "Tecnici Capteurs",
         "en": "Technicien Capteurs",
         "de": "Technicien Capteurs",
         "fr": "Technicien Capteurs"
@@ -34,7 +115,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Technicien-Capteurs/1433994533/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:27:48.058Z",
+      "crawledAt": "2026-10-04T09:24:15.338Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -47,7 +128,9 @@
       "sector": "Industria di sicurezza / Tecnologie anti-contraffazione (manifatturiero)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-04",
+      "datePosted": "2026-10-03",
+      "postedDate": "2026-10-03",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sicpa.com/talentcommunity/apply/1433994533/?locale=en_GB",
       "requirements": [],
       "requirementsByLocale": {},
@@ -115,7 +198,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Senior-Laboratory-Technical-Specialist/1433333033/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:27:47.524Z",
+      "crawledAt": "2026-10-04T09:24:14.750Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -128,7 +211,9 @@
       "sector": "Industria di sicurezza / Tecnologie anti-contraffazione (manifatturiero)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "2026-10-02",
+      "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sicpa.com/talentcommunity/apply/1433333033/?locale=en_GB",
       "requirements": [],
       "requirementsByLocale": {},
@@ -198,7 +283,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Technical-Coordinator/1404844633/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:27:47.004Z",
+      "crawledAt": "2026-10-04T09:24:14.180Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -211,7 +296,9 @@
       "sector": "Industria di sicurezza / Tecnologie anti-contraffazione (manifatturiero)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-16",
+      "datePosted": "2026-09-11",
+      "postedDate": "2026-09-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sicpa.com/talentcommunity/apply/1404844633/?locale=en_GB",
       "requirements": [],
       "requirementsByLocale": {},
@@ -294,7 +381,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Op%C3%A9rateur-de-logistique-confirm%C3%A9/1400431333/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:27:46.458Z",
+      "crawledAt": "2026-10-04T09:24:13.557Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -307,7 +394,9 @@
       "sector": "Industria di sicurezza / Tecnologie anti-contraffazione (manifatturiero)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-02",
+      "datePosted": "2026-09-27",
+      "postedDate": "2026-09-27",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sicpa.com/talentcommunity/apply/1400431333/?locale=en_GB",
       "requirements": [],
       "requirementsByLocale": {},
@@ -373,7 +462,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Automaticien/1409947133/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:27:45.955Z",
+      "crawledAt": "2026-10-04T09:24:13.019Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -386,7 +475,9 @@
       "sector": "Industria di sicurezza / Tecnologie anti-contraffazione (manifatturiero)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-30",
+      "datePosted": "2026-09-25",
+      "postedDate": "2026-09-25",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sicpa.com/talentcommunity/apply/1409947133/?locale=en_GB",
       "requirements": [],
       "requirementsByLocale": {},
@@ -422,85 +513,6 @@
       }
     },
     {
-      "id": "sicpa-ee4544be3e45",
-      "slug": "principal-software-ingegnere-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa-sa-prilly",
-      "slugByLocale": {
-        "it": "principal-software-ingegnere-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa-sa-prilly",
-        "en": "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa",
-        "de": "principal-software-ingenieur-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa-sa-prilly",
-        "fr": "principal-software-ingenieur-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa-sa-prilly"
-      },
-      "company": "SICPA SA",
-      "companyKey": "sicpa",
-      "companyDomain": "sicpa.com",
-      "title": "Principal Software Engineer - Mobile SDK Tooling & On‑Device Computer Vision (iOS/Android)",
-      "titleByLocale": {
-        "it": "Ingegnere Principale Software - Strumento SDK Mobile & Vision Computer On-Device (iOS/Android)",
-        "en": "Principal Software Engineer - Mobile SDK Tooling & On‑Device Computer Vision (iOS/Android)",
-        "de": "Hauptsoftwareingenieur - Mobile SDK-Werkzeuge und On-Device-Computer Vision (iOS/Android)",
-        "fr": "Ingénieur logiciel principal - Mobile SDK Tooling & On-Device Computer Vision (iOS/Android)"
-      },
-      "description": "ROLE\n\n•    Strengthen observability and diagnostics for SDKs and reference apps using Splunk and other tools (logs, metrics, crash signals, field diagnostics).\n•    Build and own engineering tooling and automation, and define a multi-quarter platform roadmap, to measurably reduce operational workload and increase developer productivity at scale across the team (~20 engineers), while reducing integration and support effort.\n•    Design, implement, and maintain Continuous Integration / Continuous Delivery pipelines and quality gates (Jenkins) for mobile SDKs (build, test, packaging, release validation, regression detection).\n•    Develop release qualification frameworks: automated functional tests, performance benchmarks, compatibility checks, and reproducible test environments.\n•    Deliver and evolve core components of mobile SDKs (iOS, Android): camera capture, image processing pipelines, API design, modularization, documentation, smartphone apps.\n•    Provide technical leadership as an Individual Contributor (no management): architecture decisions, design reviews, mentoring through code reviews, and raising engineering standards.\n•    Lead the integration of AI/ML into the mobile detection stack, from rapid prototyping to production-grade deployment on iOS/Android.\n•    Build an AI-driven validation and triage layer for SDK releases, including automated regression and anomaly detection.\n\nPROFILE\n\n•    Principal Engineer with a strong track record of delivering production software.\n•    Proven experience building developer tooling / automation platforms that measurably improve team productivity (e.g., faster releases, fewer regressions, reduced support load).\n•    Strong iOS expertise: Swift, Xcode, SDK design and packaging, performance profiling (Instruments); Objective C is a plus.\n•    Solid Android foundations: Kotlin/Java, Gradle, CameraX/Camera2, instrumentation/testing; ability to support and debug across both platforms.\n•    Strong understanding of CI/CD concepts and implementation experience with Jenkins (pipelines, build/test orchestration, quality gates, artifacts, release processes).\n•    Strong knowledge of software architecture, API design, testing strategy, secure coding practices, and maintaining high-quality codebases.\n•    Hands-on experience building and optimizing computer vision / image processing pipelines on mobile devices and under real-world constraints (latency, memory, device variability).\n•    Strong problem‑solving skills, translating customer needs into scalable solutions.\n•    Hands‑on experience deploying AI/ML models to production on resource‑constrained, heterogeneous devices.\n•    Solid expertise in the full ML lifecycle, including data quality, evaluation, robustness, and model release management.\n•    Practical experience with on-device ML toolchains and runtimes and performance engineering under real device constraints.\n•    Ability to define and enforce AI usage standards in an industrial environment.\n•    Strong communication and collaboration skills in multicultural environments; fluent English, French is a strong plus.\n\nWHY JOIN US?\n\n•    Join a global leader in trust technologies with a mission that matters.\n•    Be at the strategic heart of a financially sound and innovation-driven company.\n•    Collaborate with high-level experts and work on impactful international projects.\n•    Operate in a multi-cultural, high-integrity environment where autonomy and ownership are encouraged.\n\nWe offer an exciting and challenging role, with great potential for personal development within a unique organization in a fascinating and fast-growing industry. Your file will be handled with upmost confidentiality and discretion.",
-      "descriptionByLocale": {
-        "it": "RUOLO\n• Rafforzare l'osservanza e la diagnostica per SDK e applicazioni di riferimento utilizzando Splunk e altri strumenti (log, metriche, segnali di crash, diagnostica di campo).\n• Costruire e possedere strumenti di ingegneria e automazione, e definire una roadmap multi-quarter della piattaforma, per ridurre in modo misura il carico di lavoro operativo e aumentare la produttività dello sviluppatore in scala in tutto il team (~20 ingegneri), riducendo al contempo l'integrazione e lo sforzo di supporto.\n• Progettare, implementare e mantenere l'integrazione continua / Conduzioni continue e porte di qualità (Jenkins) per SDK mobili (costruire, testare, imballaggio, convalida di rilascio, rilevamento di regressione).\n• Sviluppare quadri di qualificazione al rilascio: test funzionali automatizzati, benchmark delle prestazioni, controlli di compatibilità e ambienti di test riproducibili.\n• Fornire ed evolvere componenti fondamentali di SDK mobili (iOS, Android): cattura della fotocamera, elaborazione delle immagini, progettazione API, modularizzazione, documentazione, applicazioni smartphone.\n• Fornire leadership tecnica come un singolo contributor (nessuna gestione): decisioni di architettura, recensioni di design, mentoring attraverso le recensioni di codici, e innalzare gli standard di ingegneria.\n• Condurre l'integrazione di AI/ML nello stack di rilevamento mobile, dalla prototipazione rapida alla distribuzione di livello di produzione su iOS/Android.\n• Costruire uno strato di convalida e triage AI-driven per le versioni SDK, tra cui regressione automatizzata e rilevamento di anomalia. PROFESSIONALE\n• Principal Engineer con un forte record di traccia di fornitura di software di produzione.\n• Approvata esperienza di costruzione di piattaforme di strumenti / automazione che migliorano measuramente la produttività del team (ad esempio, release più veloci, meno regressioni, ridotto carico di supporto).\n• Forte esperienza iOS: Swift, Xcode, SDK design e packaging, performance profiling (Instruments); Obiettivo C è un plus.\n• Solide fondazioni Android: Kotlin/Java, Gradle, CameraX/Camera2, strumentazione/testing; capacità di supporto e debug su entrambe le piattaforme.\n• Forte comprensione dei concetti CI/CD e esperienza di implementazione con Jenkins (pipeline, costruzione / test orchestrazione, cancelli di qualità, artefatti, processi di rilascio).\n• Forte conoscenza dell'architettura del software, progettazione API, strategia di test, pratiche di codifica sicure e mantenere basi di codice di alta qualità.\n• Hands-on esperienza costruzione e ottimizzazione della visione del computer / elaborazione delle immagini condotte su dispositivi mobili e sotto vincoli del mondo reale (latenza, memoria, variabilità del dispositivo).\n• Forte capacità di problem solving, traducendo le esigenze del cliente in soluzioni scalabili.\n• Esperienza a mano che distribuisce modelli AI/ML alla produzione su dispositivi eterogenei e dotati di risorse.\n• Competenze solide nel ciclo di vita ML completo, tra cui qualità dei dati, valutazione, robustezza e gestione del rilascio del modello.\n• Esperienza pratica con toolchains ML on-device e runtime e ingegneria delle prestazioni sotto vincoli reali del dispositivo.\n• Capacità di definire e far rispettare gli standard di utilizzo AI in un ambiente industriale.\n• Forte capacità di comunicazione e collaborazione in ambienti multiculturali; fluente inglese, francese è un forte plus. Perche'?\n• Unisciti a un leader globale nelle tecnologie di fiducia con una missione che conta.\n• Essere al centro strategico di un'azienda finanziariamente solida e innovativa.\n• Collabora con esperti di alto livello e lavori su progetti internazionali d'impatto.\n• Operare in un ambiente multi-culturale e ad alta intensità in cui l'autonomia e la proprietà sono incoraggiati. Offriamo un ruolo emozionante e stimolante, con grande potenziale per lo sviluppo personale all'interno di un'organizzazione unica in un settore affascinante e in rapida crescita. Il tuo file verrà gestito con la massima riservatezza e discrezione. Richiedi ora »\n• Iniziare con LinkedIn",
-        "en": "ROLE\n\n• Strengthen observability and diagnostics for SDKs and reference apps using Splunk and other tools (logs, metrics, crash signals, field diagnostics).\n• Build and own engineering tooling and automation, and define a multi-quarter platform roadmap, to measurably reduce operational workload and increase developer productivity at scale across the team (~20 engineers), while reducing integration and support effort.\n• Design, implement, and maintain Continuous Integration / Continuous Delivery pipelines and quality gates (Jenkins) for mobile SDKs (build, test, packaging, release validation, regression detection).\n• Develop release qualification frameworks: automated functional tests, performance benchmarks, compatibility checks, and reproducible test environments.\n• Deliver and evolve core components of mobile SDKs (iOS, Android): camera capture, image processing pipelines, API design, modularization, documentation, smartphone apps.\n• Provide technical leadership as an Individual Contributor (no management): architecture decisions, design reviews, mentoring through code reviews, and raising engineering standards.\n• Lead the integration of AI/ML into the mobile detection stack, from rapid prototyping to production-grade deployment on iOS/Android.\n• Build an AI-driven validation and triage layer for SDK releases, including automated regression and anomaly detection.\n\nPROFILE\n\n• Principal Engineer with a strong track record of delivering production software.\n• Proven experience building developer tooling / automation platforms that measurably improve team productivity (e.g., faster releases, fewer regressions, reduced support load).\n• Strong iOS expertise: Swift, Xcode, SDK design and packaging, performance profiling (Instruments); Objective C is a plus.\n• Solid Android foundations: Kotlin/Java, Gradle, CameraX/Camera2, instrumentation/testing; ability to support and debug across both platforms.\n• Strong understanding of CI/CD concepts and implementation experience with Jenkins (pipelines, build/test orchestration, quality gates, artifacts, release processes).\n• Strong knowledge of software architecture, API design, testing strategy, secure coding practices, and maintaining high-quality codebases.\n• Hands-on experience building and optimizing computer vision / image processing pipelines on mobile devices and under real-world constraints (latency, memory, device variability).\n• Strong problem‑solving skills, translating customer needs into scalable solutions.\n• Hands‑on experience deploying AI/ML models to production on resource‑constrained, heterogeneous devices.\n• Solid expertise in the full ML lifecycle, including data quality, evaluation, robustness, and model release management.\n• Practical experience with on-device ML toolchains and runtimes and performance engineering under real device constraints.\n• Ability to define and enforce AI usage standards in an industrial environment.\n• Strong communication and collaboration skills in multicultural environments; fluent English, French is a strong plus.\n\nWHY JOIN US?\n\n• Join a global leader in trust technologies with a mission that matters.\n• Be at the strategic heart of a financially sound and innovation-driven company.\n• Collaborate with high-level experts and work on impactful international projects.\n• Operate in a multi-cultural, high-integrity environment where autonomy and ownership are encouraged.\n\nWe offer an exciting and challenging role, with great potential for personal development within a unique organization in a fascinating and fast-growing industry. Your file will be handled with upmost confidentiality and discretion.",
-        "de": "ROLLE\n• Verbessern Sie die Beobachtbarkeit und Diagnose für SDKs und Referenz-Apps mit Splunk und anderen Tools (Logs, Metriken, Crashsignale, Felddiagnose).\n• Bauen und besitzen Sie Engineering-Tools und Automatisierung und definieren Sie eine Plattform-Roadmap für mehrere Quartale, um die betriebliche Arbeitsbelastung messbar zu reduzieren und die Entwicklerproduktivität im gesamten Team (~20 Ingenieure) zu steigern und gleichzeitig den Integrations- und Supportaufwand zu reduzieren.\n• Konzipieren, implementieren und pflegen Sie Continuous Integration / Continuous Delivery Pipelines und Quality Gates (Jenkins) für mobile SDKs (Build, Test, Packaging, Release Validation, Regressionserkennung).\n• Release-Qualifikations-Frameworks entwickeln: automatisierte Funktionstests, Performance-Benchmarks, Kompatibilitätsprüfungen und reproduzierbare Testumgebungen.\n• Bereitstellung und Entwicklung von Kernkomponenten mobiler SDKs (iOS, Android): Kameraerfassung, Bildverarbeitungspipelines, API-Design, Modularisierung, Dokumentation, Smartphone-Apps.\n• Bieten Sie technische Führung als Individual Contributor (kein Management): Architekturentscheidungen, Design-Reviews, Mentoring durch Code-Reviews und Erhöhung der Engineering-Standards.\n• Führen Sie die Integration von AI / ML in den mobilen Erkennungsstack, vom Rapid Prototyping bis zur produktionsgerechten Bereitstellung auf iOS / Android.\n• Erstellen Sie eine AI-gesteuerte Validierungs- und Triage-Schicht für SDK-Releases, einschließlich automatisierter Regression und Anomalieerkennung. PROFIL\n• Principal Engineer mit einer starken Erfolgsbilanz bei der Bereitstellung von Produktionssoftware.\n• Bewährte Erfahrung beim Erstellen von Entwickler-Tools / Automatisierungsplattformen, die die Teamproduktivität messbar verbessern (z. B. schnellere Releases, weniger Regressionen, geringere Supportlast).\n• Starkes iOS-Know-how: Swift, Xcode, SDK-Design und -Verpackung, Performance-Profiling (Instrumente); Objective C ist ein Plus.\n• Solide Android-Grundlagen: Kotlin/Java, Gradle, CameraX/Camera2, Instrumentierung/Testing, Unterstützung und Debug auf beiden Plattformen.\n• Starkes Verständnis von CI/CD-Konzepten und Implementierungserfahrung mit Jenkins (Pipelines, Build/Test-Orchestrierung, Quality Gates, Artefakte, Release-Prozesse).\n• Ein fundiertes Wissen über Softwarearchitektur, API-Design, Teststrategie, sichere Codierungspraktiken und die Pflege hochwertiger Codebasen.\n• Praktische Erfahrung beim Aufbau und der Optimierung von Computer Vision / Bildverarbeitungspipelines auf mobilen Geräten und unter realen Einschränkungen (Latenz, Speicher, Gerätevariabilität).\n• Starke Problemlösungskompetenzen, die Kundenbedürfnisse in skalierbare Lösungen übersetzen.\n• Praxiserfahrung beim Einsatz von AI/ML-Modellen für die Produktion auf ressourcenbeschränkten, heterogenen Geräten.\n• Solide Expertise im gesamten ML-Lebenszyklus, einschließlich Datenqualität, Bewertung, Robustheit und Model Release Management.\n• Praktische Erfahrung mit On-Device-ML-Toolchains und Laufzeiten und Performance Engineering unter realen Gerätebeschränkungen.\n• Fähigkeit, KI-Nutzungsstandards in einem industriellen Umfeld zu definieren und durchzusetzen.\n• Starke Kommunikations- und Kollaborationsfähigkeiten in multikulturellen Umgebungen; fließend Englisch, Französisch ist ein starkes Plus. WARUM UNS JOIN?\n• Schließen Sie sich einem globalen Marktführer für Vertrauenstechnologien mit einer Mission an, die wichtig ist.\n• Seien Sie im strategischen Herzen eines finanziell soliden und innovationsgetriebenen Unternehmens.\n• Arbeiten Sie mit hochrangigen Experten zusammen und arbeiten Sie an wirkungsvollen internationalen Projekten.\n• Arbeiten Sie in einem multikulturellen, hochintegrierten Umfeld, in dem Autonomie und Besitz gefördert werden. Wir bieten eine spannende und herausfordernde Rolle, mit großem Potenzial für die persönliche Entwicklung innerhalb einer einzigartigen Organisation in einer faszinierenden und schnell wachsenden Branche. Ihre Datei wird mit höchster Vertraulichkeit und Diskretion behandelt. Jetzt bewerben »\n• Starten Sie die Bewerbung mit LinkedIn",
-        "fr": "RÔLE\n• Renforcer l'observabilité et le diagnostic pour les SDK et les applications de référence en utilisant Spunk et d'autres outils (logs, métriques, signaux de crash, diagnostics de terrain).\n• Construire et automatiser les outils d'ingénierie, et définir une feuille de route multi-quarts pour réduire de façon mesurable la charge de travail opérationnelle et augmenter la productivité des développeurs à l'échelle de l'équipe (~20 ingénieurs), tout en réduisant les efforts d'intégration et de soutien.\n• Concevoir, mettre en œuvre et maintenir des pipelines d'intégration continue / livraison continue et des barrières de qualité (Jenkins) pour les SDK mobiles (construction, essai, emballage, validation de libération, détection de régression).\n• Élaborer des cadres de qualification des rejets : tests fonctionnels automatisés, repères de performance, vérifications de compatibilité et environnements d'essai reproductibles.\n• Livraison et évolution des composants de base des SDK mobiles (iOS, Android): capture de caméra, pipelines de traitement d'image, conception d'API, modularisation, documentation, applications smartphone.\n• Fournir un leadership technique en tant que contributeur individuel (aucune gestion) : décisions en matière d'architecture, examens de conception, mentorat grâce à l'examen des codes et amélioration des normes d'ingénierie.\n• Diriger l'intégration de l'IA/ML dans la pile de détection mobile, du prototypage rapide au déploiement de qualité de production sur iOS/Android.\n• Construire une couche de validation et de triage pilotée par l'IA pour les rejets de SDK, y compris la régression automatisée et la détection d'anomalies. PROFIL\n• Ingénieur principal avec une solide expérience de livraison de logiciels de production.\n• Expérience éprouvée de développement d'outils de développement / plates-formes d'automatisation qui améliorent mesurablement la productivité de l'équipe (p. ex., libérations plus rapides, moins de régressions, réduction de la charge de support).\n• Forte expertise iOS: Swift, Xcode, conception et emballage SDK, profilage des performances (Instruments); Objectif C est un plus.\n• Fondements solides pour Android: Kotlin/Java, Gradle, CameraX/Camera2, instrumentation/test; capacité à soutenir et déboguer sur les deux plateformes.\n• Une bonne compréhension des concepts de CI/CD et de l'expérience de mise en oeuvre avec Jenkins (pipélines, orchestration de construction/test, portes de qualité, artefacts, processus de libération).\n• Forte connaissance de l'architecture logicielle, de la conception de l'API, de la stratégie de test, des pratiques de codage sécurisées et du maintien de bases de codes de haute qualité.\n• Expérimentation pratique et optimisation des pipelines de vision et de traitement d'images informatiques sur les appareils mobiles et sous des contraintes réelles (latence, mémoire, variabilité des appareils).\n• Fortes compétences en résolution de problèmes, transformant les besoins des clients en solutions évolutives.\n• Expérience pratique en déployant des modèles d'IA/ML à la production sur des appareils hétérogènes et à ressources limitées.\n• Une solide expertise dans le cycle de vie complet du ML, y compris la qualité des données, l'évaluation, la robustesse et la gestion des versions de modèles.\n• Expérience pratique avec les chaînes d'outils ML et les runtimes et l'ingénierie des performances sous de réelles contraintes d'appareils.\n• Capacité de définir et d'appliquer des normes d'utilisation de l'IA dans un environnement industriel.\n• Fortes compétences en communication et en collaboration dans des environnements multiculturels; l'anglais couramment, le français est un plus fort. Pourquoi nous rejoindre ?\n• Rejoignez un leader mondial des technologies de confiance avec une mission qui compte.\n• Soyez au cœur stratégique d'une entreprise financièrement saine et axée sur l'innovation.\n• Collaborer avec des experts de haut niveau et travailler sur des projets internationaux ayant des incidences.\n• Fonctionnement dans un environnement multiculturel et à haute intégrité où l'autonomie et la propriété sont encouragées. Nous offrons un rôle passionnant et stimulant, avec un grand potentiel de développement personnel au sein d'une organisation unique dans une industrie fascinante et en croissance rapide. Votre dossier sera traité avec la plus grande confidentialité et discrétion. Postuler maintenant »\n• Commencez à appliquer avec LinkedIn"
-      },
-      "location": "Prilly",
-      "canton": "VD",
-      "url": "https://jobs.sicpa.com/job/Prilly-Principal-Software-Engineer-Mobile-SDK-Tooling-&-On%E2%80%91Device-Computer-Vision-%28iOSAndroid%29/1393025833/",
-      "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:27:45.420Z",
-      "addressLocality": "Prilly",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1008",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Industria di sicurezza / Tecnologie anti-contraffazione (manifatturiero)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://jobs.sicpa.com/talentcommunity/apply/1393025833/?locale=en_GB",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa",
-        "principal-software-ingegnere-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa-sa-prilly"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa",
-          "principal-software-ingegnere-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa-sa-prilly"
-        ],
-        "de": [
-          "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa"
-        ],
-        "fr": [
-          "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:00:33.457Z",
-      "salaryMin": 97500,
-      "salaryMax": 148000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 148000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "sicpa-872ccc6022d2",
       "slug": "operatore-giardinaggio-e-strade-sicpa-sa-prilly",
       "slugByLocale": {
@@ -531,7 +543,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Operator%2C-Gardening-&-Road/1431520733/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:27:44.888Z",
+      "crawledAt": "2026-10-04T09:24:12.453Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -544,7 +556,9 @@
       "sector": "Industria di sicurezza / Tecnologie anti-contraffazione (manifatturiero)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-28",
+      "datePosted": "2026-09-26",
+      "postedDate": "2026-09-26",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sicpa.com/talentcommunity/apply/1431520733/?locale=en_GB",
       "requirements": [],
       "requirementsByLocale": {
@@ -641,7 +655,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Business-Architect/1436219133/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:27:44.368Z",
+      "crawledAt": "2026-10-04T09:24:11.895Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -654,7 +668,9 @@
       "sector": "Industria di sicurezza / Tecnologie anti-contraffazione (manifatturiero)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-11",
+      "datePosted": "2026-09-11T00:00:00Z",
+      "postedDate": "2026-09-11T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sicpa.com/talentcommunity/apply/1436219133/?locale=en_GB",
       "requirements": [],
       "requirementsByLocale": {},
@@ -721,7 +737,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Technical-Advisor/1418635833/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:27:43.860Z",
+      "crawledAt": "2026-10-04T09:24:11.343Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -734,7 +750,9 @@
       "sector": "Industria di sicurezza / Tecnologie anti-contraffazione (manifatturiero)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24",
+      "datePosted": "2026-09-20",
+      "postedDate": "2026-09-20",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.sicpa.com/talentcommunity/apply/1418635833/?locale=en_GB",
       "requirements": [],
       "requirementsByLocale": {},

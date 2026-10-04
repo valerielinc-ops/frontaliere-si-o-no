@@ -49,7 +49,7 @@ import {
   sleep,
   MIN_API_CALL_INTERVAL_MS,
 } from './lib/mailtrapSuppressionsApi.mjs';
-import { isRetryable, MAX_REACTIVATIONS_PER_RUN } from './lib/mailtrapSuppressionRetry.mjs';
+import { isRetryable, MAX_REACTIVATIONS_PER_RUN, reactivationActivityFields } from './lib/mailtrapSuppressionRetry.mjs';
 import { classifySuppressionDecay } from './lib/suppressionDecay.mjs';
 
 const APPLY = process.argv.includes('--apply');
@@ -174,8 +174,7 @@ async function main() {
   const writeReactivation = (batch, it) => {
     batch.set(it.ref, {
       status: 'pending',
-      isActive: true,
-      active: true,
+      ...reactivationActivityFields(it.data),
       reactivated_at: FieldValue.serverTimestamp(),
       mailtrap_suppression_resolved_at: FieldValue.serverTimestamp(),
       mailtrap_suppression_type: it.record?.type || null,
@@ -203,7 +202,7 @@ async function main() {
       }
     }
     reactivated.push({ ref: s.ref, record });
-    pendingCommit.push({ ref: s.ref, record });
+    pendingCommit.push({ ref: s.ref, record, data: s.data });
     if (pendingCommit.length >= COMMIT_CHUNK_SIZE) await flushPending();
   }
 

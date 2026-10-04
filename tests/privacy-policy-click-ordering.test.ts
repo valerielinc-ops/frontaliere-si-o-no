@@ -1,17 +1,12 @@
-import { readFileSync } from 'node:fs';
-import path from 'node:path';
+import { getPrivacyLegalDocument } from '../services/legal/privacy';
 
 import { describe, expect, it } from 'vitest';
 
-/**
- * Gate sul testo legale: la privacy deve dichiarare l'uso dei clic sugli
- * annunci nelle email (ordine degli annunci) e non negarlo. Legge il sorgente
- * perche' la pagina e' solo italiana e non ha un test di rendering.
- */
-const source = readFileSync(
-  path.resolve(__dirname, '..', 'components', 'pages', 'PrivacyPolicy.tsx'),
-  'utf-8',
-);
+/** Gate sul documento legale usato sia dalla pagina sia dalla generazione statica. */
+const source = getPrivacyLegalDocument('it').sections
+  .flatMap(section => section.blocks)
+  .map(block => 'html' in block ? block.html : '')
+  .join(' ');
 
 describe('PrivacyPolicy: uso dei clic sugli annunci dichiarato', () => {
   it('contiene il paragrafo sull\'ordine degli annunci in base ai clic una sola volta', () => {

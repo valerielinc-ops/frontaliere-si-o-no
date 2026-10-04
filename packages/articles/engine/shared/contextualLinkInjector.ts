@@ -51,6 +51,10 @@ const BLACKLISTED_TAGS = new Set([
   'h5',
   'h6',
   'nav', // already-injected related-links and breadcrumb navs
+  // The cover-photo credit at the end of an article (shared/imageCredits.mjs):
+  // its author names are third-party names, not prose to link from. Article
+  // pages carried no <footer> before it, so this changes no existing page.
+  'footer',
   'textarea',
   'title',
 ]);
@@ -191,6 +195,9 @@ export function countBodyWords(html: string): number {
   const stripped = html
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    // The cover-photo credit (shared/imageCredits.mjs) is not the article's prose: its 20-40 words must not
+    // move an article across the minimum that decides whether links are injected.
+    .replace(/<footer\b[^>]*\bft-image-credit\b[\s\S]*?<\/footer>/gi, ' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&[a-z]+;/gi, ' ')
     .replace(/\s+/g, ' ')
