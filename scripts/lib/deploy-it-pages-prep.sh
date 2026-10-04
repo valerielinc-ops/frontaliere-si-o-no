@@ -275,6 +275,56 @@ _publish_cdn_r2() {
   # at most a week". Do NOT raise this back to a year, and do NOT re-add
   # `immutable`.
   local _assets_log="$(mktemp -t r2-assets-XXXXXX.jsonl 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/r2-assets.jsonl")"
+  local _pdir _ledger_key="purge-ledger/assets.json" _pre_sync_ledger="" _pre_sync_ledger_publish=0
+  _pdir="$(mktemp -d -t r2-purge-XXXXXX 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/r2-purge.$$")"
+  mkdir -p "$_pdir"
+  # Snapshot the bytes currently in R2 BEFORE the assets sync. If the ledger is
+  # absent or corrupt, publish that snapshot as the baseline before a partial
+  # upload can change R2: seeding from the post-sync listing would label those
+  # new bytes edge-fresh and lose the retry forever.
+  if "${RC[@]}" lsjson -R --files-only --hash --hash-type md5 --use-server-modtime \
+       "$bkt/assets" > "$_pdir/pre-sync-state.json" 2> "$_pdir/pre-sync-state.err"; then
+    local _pre_ledger_rc=0
+    if "${RC[@]}" copyto "$bkt/$_ledger_key" "$_pdir/pre-sync-ledger.json" --retries=1 \
+         2> "$_pdir/pre-sync-ledger.err"; then
+      if node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
+           --ledger-in="$_pdir/pre-sync-ledger.json" --check-ledger; then
+        _pre_sync_ledger="$_pdir/pre-sync-ledger.json"
+      elif node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
+           --state="$_pdir/pre-sync-state.json" \
+           --ledger-in="$_pdir/pre-sync-ledger.json" \
+           --ledger-out="$_pdir/pre-sync-ledger-out.json" --baseline-only; then
+        _pre_sync_ledger="$_pdir/pre-sync-ledger-out.json"
+        _pre_sync_ledger_publish=1
+      fi
+    else
+      _pre_ledger_rc=$?
+      case "$_pre_ledger_rc" in
+        3|4)
+          if node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
+               --state="$_pdir/pre-sync-state.json" --ledger-absent \
+               --ledger-out="$_pdir/pre-sync-ledger-out.json" --baseline-only; then
+            _pre_sync_ledger="$_pdir/pre-sync-ledger-out.json"
+            _pre_sync_ledger_publish=1
+          fi
+          ;;
+        *)
+          echo "::warning::[r2] pre-sync purge ledger read failed (rclone exit $_pre_ledger_rc): $(tail -c 300 "$_pdir/pre-sync-ledger.err" 2>/dev/null)"
+          ;;
+      esac
+    fi
+    if [ "$_pre_sync_ledger_publish" = 1 ] && [ -s "$_pre_sync_ledger" ]; then
+      if "${RC[@]}" copyto "$_pre_sync_ledger" "$bkt/$_ledger_key" \
+           --header-upload "Content-Type: application/json; charset=utf-8" \
+           --header-upload "Cache-Control: no-store, max-age=0"; then
+        echo "::notice::[r2] purge ledger baseline persisted before assets/ sync"
+      else
+        echo "::warning::[r2] could not persist the pre-sync purge ledger baseline — retaining local snapshot for this run"
+      fi
+    fi
+  else
+    echo "::warning::[r2] could not snapshot $bkt/assets before sync — no pre-sync purge ledger baseline: $(tail -c 300 "$_pdir/pre-sync-state.err" 2>/dev/null)"
+  fi
   _r2_sync "$stage/assets"    assets    "public,max-age=604800" "$_assets_log"
   # assets/ is the first sync, so `ok` here is ITS outcome alone. The purge
   # below keys on this, not on the whole-payload `ok`: a later prefix failing
@@ -334,9 +384,7 @@ _publish_cdn_r2() {
   # the decoupling stays, because the failure mode it protects against is
   # "the publish chain stopped running", not "this particular bug existed".
   if [ "$_assets_synced" = 1 ]; then
-    local _pdir _lrc=0 _ledger_key="purge-ledger/assets.json"
-    _pdir="$(mktemp -d -t r2-purge-XXXXXX 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/r2-purge.$$")"
-    mkdir -p "$_pdir"
+    local _lrc=0
     local _purge_args=()
     # --use-server-modtime: LastModified from the LIST, no per-object HEAD.
     if "${RC[@]}" lsjson -R --files-only --hash --hash-type md5 --use-server-modtime \
@@ -346,11 +394,26 @@ _publish_cdn_r2() {
         2> "$_pdir/ledger.err" || _lrc=$?
       # rclone exit 3/4 = directory/file not found → no ledger yet (seed it).
       # Anything else is a read failure: pass neither flag, and the script
-      # purges this run's uploads only and writes no ledger.
+      # purges this run's uploads only and writes no ledger, unless the
+      # pre-sync snapshot is available as a trusted local fallback.
       case "$_lrc" in
         0) _purge_args+=("--ledger-in=$_pdir/ledger-in.json") ;;
-        3|4) _purge_args+=("--ledger-absent") ;;
-        *) echo "::warning::[r2] purge ledger read failed (rclone exit $_lrc): $(tail -c 300 "$_pdir/ledger.err" 2>/dev/null)" ;;
+        3|4)
+          if [ -s "$_pre_sync_ledger" ]; then
+            _purge_args+=("--ledger-in=$_pre_sync_ledger")
+            echo "::warning::[r2] purge ledger is still absent after sync — using the trusted pre-sync baseline"
+          else
+            _purge_args+=("--ledger-absent")
+          fi
+          ;;
+        *)
+          if [ -s "$_pre_sync_ledger" ]; then
+            _purge_args+=("--ledger-in=$_pre_sync_ledger")
+            echo "::warning::[r2] purge ledger read failed after sync (rclone exit $_lrc) — using the trusted pre-sync baseline"
+          else
+            echo "::warning::[r2] purge ledger read failed (rclone exit $_lrc): $(tail -c 300 "$_pdir/ledger.err" 2>/dev/null)"
+          fi
+          ;;
       esac
       _purge_args+=("--ledger-out=$_pdir/ledger-out.json" "--build-id=${DEPLOY_BUILD_ID:-}")
     else
@@ -370,6 +433,7 @@ _publish_cdn_r2() {
     rm -rf "$_pdir" 2>/dev/null || true
   else
     echo "⚠️ [r2] assets/ sync failed — no edge purge this run; whatever it did upload stays dirty in the purge ledger for the next deploy"
+    rm -rf "$_pdir" 2>/dev/null || true
   fi
   rm -f "$_assets_log" 2>/dev/null || true
   # The janitor scan is diagnostics for a COMPLETE publish only (as before).

@@ -77,7 +77,7 @@
  * USAGE:
  *   node scripts/ci/purge-changed-cdn-assets.mjs <rclone-json-log> <key-prefix>
  *       [--state=<lsjson>] [--ledger-in=<json> | --ledger-absent]
- *       [--ledger-out=<json>] [--build-id=<id>]
+ *       [--ledger-out=<json>] [--build-id=<id>] [--baseline-only | --check-ledger]
  *     <rclone-json-log>  file written by `rclone --use-json-log -v --log-file=…`
  *                        (missing or empty is fine in stateful mode)
  *     <key-prefix>       R2 key prefix the sync targeted, e.g. `assets`
@@ -89,6 +89,10 @@
  *                        log only and write NO ledger (never clobber state we
  *                        could not see).
  *     --ledger-out       where to write the new ledger; the caller uploads it.
+ *     --baseline-only    persist a usable ledger, or seed one from the supplied
+ *                        pre-sync listing when the ledger is absent/corrupt.
+ *     --check-ledger     exit successfully only when --ledger-in is a readable
+ *                        version-1 ledger; internal pre-sync validation.
  *
  * Env: CF_API_TOKEN (needs Zone→Cache Purge) — absent is a no-op exit 0,
  *      handled by cf-purge-cache.mjs itself. CDN_PURGE_BASE overrides the
@@ -333,7 +337,10 @@ export function diffAgainstLedger(current, ledger) {
  * is assumed already fresh at the edge (exactly today's assumption), so a
  * missing ledger never turns into a purge of the whole bucket — ~2,000 cold
  * URLs at once is the stampede against R2 this script exists to avoid.
- * This run's uploads are left out, i.e. dirty until their purge succeeds.
+ * This run's uploads are left out, i.e. dirty until their purge succeeds. The
+ * R2 publish path calls this with an empty log before the assets sync, so a
+ * partial first upload remains a fingerprint diff instead of becoming the
+ * post-sync seed's "already fresh" baseline.
  *
  * @param {Record<string,string>} current
  * @param {Iterable<string>} logKeys
@@ -487,11 +494,52 @@ function stepSummary(line) {
 function main(argv) {
   const { positional, flags } = parseFlags(argv);
   const [logPath, keyPrefix] = positional;
+  const tag = '[purge-changed-cdn-assets]';
   if (!logPath || !keyPrefix) {
     console.log('[purge-changed-cdn-assets] usage: <rclone-json-log> <key-prefix> [--state=…] — skipping');
     return;
   }
-  const tag = '[purge-changed-cdn-assets]';
+
+  if (flags['check-ledger'] === true) {
+    const existing =
+      typeof flags['ledger-in'] === 'string' ? parseLedger(readText(flags['ledger-in']) ?? '') : null;
+    if (!existing) process.exitCode = 1;
+    return;
+  }
+
+  // The deploy path snapshots R2 before uploading assets. When no usable
+  // ledger exists, that snapshot is the only trustworthy edge baseline: a
+  // post-sync seed would mistake bytes uploaded by a failed sync for bytes
+  // already purged at the edge. Keep this operation separate from the normal
+  // purge path so it cannot dispatch a purge before the upload starts.
+  if (flags['baseline-only'] === true) {
+    if (typeof flags.state !== 'string' || typeof flags['ledger-out'] !== 'string') {
+      console.log(`::error::${tag} baseline-only requires --state and --ledger-out`);
+      process.exitCode = 1;
+      return;
+    }
+    const current = parseR2Listing(readText(flags.state) ?? '', keyPrefix);
+    if (!current) {
+      console.log(`::error::${tag} pre-sync R2 listing is unreadable — no baseline written`);
+      process.exitCode = 1;
+      return;
+    }
+    const existing =
+      typeof flags['ledger-in'] === 'string' ? parseLedger(readText(flags['ledger-in']) ?? '') : null;
+    if (!existing && typeof flags['ledger-in'] !== 'string' && flags['ledger-absent'] !== true) {
+      console.log(`::error::${tag} baseline-only needs a readable ledger, --ledger-absent, or a ledger-in path`);
+      process.exitCode = 1;
+      return;
+    }
+    const baseline = existing || seedBaseline(current, []);
+    writeFileSync(flags['ledger-out'], `${JSON.stringify(baseline)}\n`);
+    console.log(
+      existing
+        ? `${tag} pre-sync purge ledger baseline preserved: ${Object.keys(baseline.keys).length} key(s)`
+        : `${tag} pre-sync purge ledger baseline seeded: ${Object.keys(baseline.keys).length} key(s)`,
+    );
+    return;
+  }
 
   const logText = readText(logPath);
   if (logText === null) console.log(`${tag} no rclone log at ${logPath} — this run uploaded nothing it can name`);

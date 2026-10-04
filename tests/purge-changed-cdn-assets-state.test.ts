@@ -15,6 +15,7 @@ import {
   parseTransferredKeys,
   planPurge,
   purgeInBatches,
+  seedBaseline,
   selectPurgeKeys,
 } from '@/scripts/ci/purge-changed-cdn-assets.mjs';
 
@@ -120,6 +121,34 @@ describe('purge follows R2 state, not one run\'s upload log', () => {
     const ledger = ledgerOf({ 'assets/router.js': SAME });
     const logText = JSON.stringify({ level: 'info', msg: 'Copied (replaced existing)', object: 'router.js' });
     expect(runOnce({ logText, current, ledgerState: 'present', ledger }).selected).toEqual(['assets/router.js']);
+  });
+
+  it('pre-sync baseline keeps a partial first upload dirty until a purge succeeds', () => {
+    // Run A saw A in R2 before the asset sync, then the sync wrote B and failed
+    // before the normal post-sync purge path could run.
+    const preSync = parseR2Listing(listing(ls('a.js', OLD)), 'assets');
+    const baseline = seedBaseline(preSync, []);
+    const afterPartialUpload = parseR2Listing(listing(ls('a.js', NEW)), 'assets');
+    expect(baseline.keys).toEqual({ 'assets/a.js': OLD });
+
+    const failedRetry = runOnce({
+      current: afterPartialUpload,
+      ledgerState: 'present',
+      ledger: baseline,
+      failBatch: () => true,
+    });
+    expect(failedRetry.selected).toEqual(['assets/a.js']);
+    expect(failedRetry.next!.keys['assets/a.js']).toBe(OLD);
+
+    // Run B has an empty upload log: the pre-sync ledger still exposes B as a
+    // fingerprint diff, and a successful purge finally records B as clean.
+    const successfulRetry = runOnce({
+      current: afterPartialUpload,
+      ledgerState: 'present',
+      ledger: failedRetry.next,
+    });
+    expect(successfulRetry.selected).toEqual(['assets/a.js']);
+    expect(successfulRetry.next!.keys['assets/a.js']).toBe(NEW);
   });
 });
 
@@ -307,7 +336,9 @@ function enclosingConditions(body: string[], at: number): string[] {
 
 describe('deploy-it-pages-prep.sh — the purge is driven by state, not gated on ok or the log', () => {
   const body = publishBody();
-  const purgeAt = body.findIndex((l) => /node scripts\/ci\/purge-changed-cdn-assets\.mjs/.test(l));
+  const purgeAt = body.findIndex(
+    (l) => /node scripts\/ci\/purge-changed-cdn-assets\.mjs/.test(l) && /_purge_args/.test(l),
+  );
 
   it('invokes the purge with the R2 state and the ledger', () => {
     expect(purgeAt, 'purge-changed-cdn-assets.mjs is no longer invoked from _publish_cdn_r2').toBeGreaterThan(-1);
@@ -316,6 +347,18 @@ describe('deploy-it-pages-prep.sh — the purge is driven by state, not gated on
       expect(body.join('\n'), `${flag} not wired`).toContain(flag);
     }
     expect(body[purgeAt]).toContain('_purge_args');
+  });
+
+  it('persists a pre-sync baseline before the assets upload can change R2', () => {
+    const preSyncStateAt = PREP.indexOf('pre-sync-state.json');
+    const baselineAt = PREP.indexOf('--baseline-only');
+    const assetsAt = PREP.indexOf('_r2_sync "$stage/assets"');
+    expect(preSyncStateAt).toBeGreaterThan(-1);
+    expect(baselineAt).toBeGreaterThan(-1);
+    expect(assetsAt).toBeGreaterThan(-1);
+    expect(preSyncStateAt).toBeLessThan(assetsAt);
+    expect(baselineAt).toBeLessThan(assetsAt);
+    expect(PREP).toContain('purge ledger baseline persisted before assets/ sync');
   });
 
   it('is not inside `if [ "$ok" != 1 ]` (or its else) nor `if [ -s "$_assets_log" ]`', () => {
