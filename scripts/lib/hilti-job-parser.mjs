@@ -361,6 +361,7 @@ async function fetchJobListings() {
     }
     return listings;
   } catch (err) {
+    // fetch-failure-empty-ok: Playwright session catch that also covers browser launch, a runner transient the pipeline does not soft-exit
     console.warn(`⚠️ Hilti fetch failed: ${err?.message || err}`);
     return [];
   } finally {

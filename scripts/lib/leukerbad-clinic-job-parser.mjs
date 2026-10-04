@@ -351,7 +351,10 @@ export async function fetchAllLeukerbadClinicJobs() {
       '';
   } catch (err) {
     console.warn(`⚠️ Prismic /api/v2 unreachable: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   if (!masterRef) {
     console.warn(`⚠️ Could not resolve Prismic master ref.`);

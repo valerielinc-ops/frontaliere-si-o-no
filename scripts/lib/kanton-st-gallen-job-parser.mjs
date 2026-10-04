@@ -318,8 +318,11 @@ export async function fetchAllKantonStGallenJobs() {
   try {
     html = await fetchPage(LISTING_URL);
   } catch (err) {
-    console.warn(`  ⚠️  Kanton St. Gallen listing fetch failed: ${err?.message || err}. Returning 0 jobs.`);
-    return [];
+    console.warn(`  ⚠️  Kanton St. Gallen listing fetch failed: ${err?.message || err}.`);
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
 
   const collectPage = (pageHtml) => {

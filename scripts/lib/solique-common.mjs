@@ -808,7 +808,10 @@ export function createSoliqueParser(config) {
       listingRaw = await fetchHtml(listingUrl);
     } catch (err) {
       console.warn(`⚠️ Solique listing fetch failed: ${err?.message || err}`);
-      return [];
+      // A fetch failure is not an empty listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a cause-less no-jobs-parsed abort.
+      throw err;
     }
     let tiles;
     if (mode === 'api') {
