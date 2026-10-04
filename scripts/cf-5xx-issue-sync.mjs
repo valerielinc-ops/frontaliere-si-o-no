@@ -156,6 +156,44 @@ export function isStaleBurst(shape, maxAgeHours = MAX_AGE_HOURS) {
   return shape.hoursSinceLast > maxAgeHours;
 }
 
+/**
+ * Lo status che Cloudflare restituisce quando un Tunnel non ha nessun
+ * connettore attivo («Argo Tunnel error»).
+ */
+export const TUNNEL_OFFLINE_STATUS = 530;
+
+/** Le sole superfici su cui un 530 significa «host del tunnel webhook spento». */
+const WEBHOOK_TUNNEL_SURFACES = new Set(['github-webhook-default', 'github-webhook-nanako']);
+
+/**
+ * Vero solo per un 530 su uno dei due host del tunnel webhook
+ * (`gh-default` / `gh-nanako` `.frontaliereticino.ch`).
+ *
+ * ─── Perche' questa riga non conia una issue del sito (site#8839, site#8840) ─
+ * Quei due host non servono visitatori: il chiamante e' GitHub, e il tunnel
+ * termina sui receiver del coordinatore sul laptop. Il 530 e' il tunnel senza
+ * connettore, cioe' il Mac in stop: snapshot del 2026-10-03, 5.365 dei 5.386
+ * 5xx di `gh-default` e 1.487 dei 1.493 di `gh-nanako`, ora per ora sovrapposti
+ * ai periodi di sonno di `pmset -g log`. Nessuna modifica a questo repo puo'
+ * farlo cessare, e il criterio di chiusura («assente da 7 snapshot») resta
+ * insoddisfacibile finche' il Mac dorme: le due issue sono state rilavorate 41
+ * e 21 volte senza una PR. Decisione del proprietario del 2026-10-04 (D1):
+ * il 530 da sonno resta nel controllo di salute locale del coordinatore
+ * (`tunnel_not_ready` / `webhook_receiver_down` / `host_slept` in
+ * `bin/github-coordinator-health.mjs` del workspace), non nel sito.
+ *
+ * La regola e' volutamente stretta: qualunque altro status su quegli host
+ * (502/503/524: tunnel su, receiver rotto) e un 530 su qualunque altra
+ * superficie continuano a coniare. Lo snapshot (`scripts/ci/cf-5xx-snapshot.mjs`)
+ * registra comunque tutto in `bySurface`.
+ *
+ * @param {{url?:string,status?:number|string}} entry
+ */
+export function isTunnelOffline530(entry) {
+  if (Number(entry?.status) !== TUNNEL_OFFLINE_STATUS) return false;
+  return WEBHOOK_TUNNEL_SURFACES.has(classifyCfErrorUrl(entry?.url));
+}
+
 /** One-line burst description for the issue body. */
 function describeBurst(shape, hours) {
   if (!shape) return `**Burst shape:** unavailable (no hourly rows in this report run)`;
@@ -218,11 +256,18 @@ export function buildIssueBody(e, hours = HOURS) {
         'al Worker, alla pagina shard o all\'edge. I campi origin/cache nel report valgono solo',
         `per questo URL quando sono presenti. ${recencyCause}`,
       ],
-      fix: [
-        'Dipende dalla superficie; non preassegnata qui. | **REPO**: sito | **MODE**: nessun',
-        'vincolo di mirror: le regole di cache della zona sono possedute dallo script che le',
-        'configura, e il triage dice quale.',
-      ],
+      fix: WEBHOOK_TUNNEL_SURFACES.has(surfaceKey)
+        ? [
+            'Host del tunnel webhook: il sito non puo\' correggerlo. | **REPO**: workspace | **MODE**:',
+            'nessun vincolo di mirror: receiver `bin/github-webhook-receiver.mjs`, rilascio e riavvio',
+            '`bin/github-coordinator-release`, controllo di salute `bin/github-coordinator-health.mjs`',
+            '(i log timestampati del receiver dicono fase e causa del 5xx).',
+          ]
+        : [
+            'Dipende dalla superficie; non preassegnata qui. | **REPO**: sito | **MODE**: nessun',
+            'vincolo di mirror: le regole di cache della zona sono possedute dallo script che le',
+            'configura, e il triage dice quale.',
+          ],
       metrica: `prima=${e.count} risposte 5xx in ${hours}h atteso=0 negli ultimi 7 snapshot`,
       comando: `node scripts/ci/cf-5xx-snapshot.mjs --check-url '${url}' --snapshots 7`,
       note: [
@@ -404,12 +449,30 @@ export async function main() {
   };
   const reconcileOnly = () => syncErrorIssues({ ...syncOptions, entries: [] });
 
-  const overThreshold = (data.detail || [])
+  const overThresholdAll = (data.detail || [])
     .filter((r) => r.count >= MIN_COUNT)
     .sort((a, b) => b.count - a.count);
 
+  // Il 530 dei due host del tunnel webhook non e' un difetto del sito: vedi
+  // `isTunnelOffline530`. Resta visibile nel log del run e nello snapshot.
+  const overThreshold = [];
+  const tunnelOffline = [];
+  for (const r of overThresholdAll) (isTunnelOffline530(r) ? tunnelOffline : overThreshold).push(r);
+  for (const r of tunnelOffline) {
+    console.log(
+      `::notice title=cf-5xx webhook tunnel offline::${sanitizeUrlLikeText(r.url)} ${r.count} risposte ` +
+        `${TUNNEL_OFFLINE_STATUS} in ${HOURS}h: connettore del tunnel assente (Mac in stop); allarme a Mac ` +
+        'sveglio: tunnel_not_ready in bin/github-coordinator-health.mjs',
+    );
+  }
+
   if (!overThreshold.length) {
-    console.log(`[cf-5xx-issue-sync] no path with >= ${MIN_COUNT} 5xx in last ${HOURS}h — nothing to sync`);
+    console.log(
+      tunnelOffline.length
+        ? `[cf-5xx-issue-sync] solo ${TUNNEL_OFFLINE_STATUS} del tunnel webhook sopra soglia ` +
+            `(${tunnelOffline.length} riga/e) — nessun path del sito con >= ${MIN_COUNT} 5xx in last ${HOURS}h`
+        : `[cf-5xx-issue-sync] no path with >= ${MIN_COUNT} 5xx in last ${HOURS}h — nothing to sync`,
+    );
     await reconcileOnly();
     return;
   }
