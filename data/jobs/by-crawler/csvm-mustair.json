@@ -1,6 +1,6 @@
 {
   "crawlerKey": "csvm-mustair",
-  "assembledAt": "2026-10-03T09:25:42.196Z",
+  "assembledAt": "2026-10-03T21:25:37.869Z",
   "jobs": [
     {
       "id": "csvm-mustair-00cba1f47deb",
@@ -34,7 +34,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:25:38.830Z",
+      "crawledAt": "2026-10-03T21:25:34.013Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:25:38.666Z",
+      "crawledAt": "2026-10-03T21:25:33.817Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -153,8 +153,7 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "csvm-mustair-8ebb8e6491dc",
@@ -188,7 +187,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:25:38.461Z",
+      "crawledAt": "2026-10-03T21:25:33.636Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -268,7 +267,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/lehrstellen-2027.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:25:38.290Z",
+      "crawledAt": "2026-10-03T21:25:33.462Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -361,7 +360,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/dipl-pflegefachperson-hf.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:25:38.123Z",
+      "crawledAt": "2026-10-03T21:25:33.127Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -442,7 +441,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/medizinische-praxisassistentin-efz-60.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:25:37.790Z",
+      "crawledAt": "2026-10-03T21:25:32.635Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -488,8 +487,7 @@
           "maxValue": 68400,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }

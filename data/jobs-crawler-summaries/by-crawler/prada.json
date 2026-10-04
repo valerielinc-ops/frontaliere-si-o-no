@@ -1,7 +1,7 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-10-03T09:22:54.014Z",
+  "generatedAt": "2026-10-03T21:19:44.352Z",
   "total": 0,
   "discovered": 7,
   "parsed": 0,
@@ -11,15 +11,14 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7448,
-  "avgDurationMs": 7448,
+  "durationMs": 8067,
+  "avgDurationMs": 8067,
   "durationHistory": [
-    6473,
-    9695,
-    7448
+    8067
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

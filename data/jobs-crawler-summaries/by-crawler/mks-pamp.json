@@ -1,20 +1,19 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-10-03T09:31:34.255Z",
+  "generatedAt": "2026-10-03T21:27:18.888Z",
   "total": 7,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 9574,
-  "avgDurationMs": 9574,
+  "durationMs": 8044,
+  "avgDurationMs": 8044,
   "durationHistory": [
-    11355,
-    16115,
-    9574
+    8044
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Metal Operations Manager",
       "slug": "metal-operations-manager-mks-pamp-castel-san-pietro",
@@ -37,16 +36,21 @@
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
-      "_qualityScore": 73,
+      "id": "mks-pamp-74eaacf6a62f",
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-03T09:31:28.506Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 10,
-        "completeness": 14
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Precious Metal Control Manager",
       "slug": "precious-metal-control-manager-mks-pamp-castel-san-pietro",
@@ -112,6 +116,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-12T22:07:24.592Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -272,5 +277,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

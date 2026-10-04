@@ -1,3 +1,5 @@
+import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 /**
  * healthFacilitiesJobsAggregate.ts — build-time live aggregator for the
  * health-facilities hub (epic #4455 / sub #4457).
@@ -17,7 +19,7 @@
  */
 
 import { loadJobsJson } from './shared/loadJobsJson';
-import { realSalaryMedianChf } from './shared/realSalaryMedian';
+import { reportedSalarySummary, type ReportedSalarySummary } from './shared/realSalaryMedian';
 import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
 import { classifyHealthcareRole, type HealthcareRole } from './healthFacilitiesMatch';
 import { HEALTH_FACILITIES, type HealthFacilityRecord } from './healthFacilitiesData';
@@ -44,6 +46,8 @@ interface JobRecord {
   salaryMax?: number | null;
   salarySource?: string;
   currency?: string;
+  postingDateSource?: string;
+  datePosted?: string;
   postedDate?: string;
   firstSeenAt?: string;
   crawledAt?: string;
@@ -76,6 +80,7 @@ export interface FacilityFeaturedJob {
   readonly salaryMax: number | null;
   readonly salarySource: string | null;
   readonly currency: string | null;
+  readonly postingDateSource?: string;
   readonly postedDate: string | null;
   readonly datePosted: string | null;
   readonly validThrough: string | null;
@@ -94,6 +99,7 @@ export interface FacilitySnapshot {
   readonly healthcareCount: number;
   readonly fresh30Count: number;
   readonly medianSalaryChf: number | null;
+  readonly reportedSalary?: ReportedSalarySummary;
   readonly roleCounts: Readonly<Record<HealthcareRole, number>>;
   /** All valid live jobs, ordered with healthcare and featured roles first. */
   readonly jobs: readonly FacilityFeaturedJob[];
@@ -106,8 +112,8 @@ let _cacheRootDir: string | null = null;
 
 function toFeatured(job: JobRecord, now: number): FacilityFeaturedJob | null {
   if (!job.id || !job.title || !job.slug) return null;
-  const postedDate = firstParsableDateStr(job.postedDate, job.firstSeenAt);
-  const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
+  const postedDate = resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)) || '';
+  const ts = firstParsableMs(postedDate);
   const daysAgo = ts ? Math.max(0, Math.round((now - ts) / DAY_MS)) : 9999;
   return {
     id: job.id,
@@ -128,8 +134,9 @@ function toFeatured(job: JobRecord, now: number): FacilityFeaturedJob | null {
     salaryMax: typeof job.salaryMax === 'number' ? job.salaryMax : null,
     salarySource: job.salarySource ?? null,
     currency: job.currency ?? null,
+    postingDateSource: job.postingDateSource ?? undefined,
+    datePosted: resolveReportedPostingDate(job, new Date(now)),
     postedDate,
-    datePosted: postedDate,
     validThrough: job.validThrough ?? null,
     crawledAt: job.crawledAt ?? null,
     daysAgo,
@@ -176,10 +183,10 @@ function buildSnapshot(
   let fresh30 = 0;
   for (const job of jobs) {
     const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
-    if (ts && ts >= last30) fresh30++;
+    if (ts && ts >= last30 && ts <= now) fresh30++;
   }
 
-  const median = realSalaryMedianChf(healthcareJobs) ?? realSalaryMedianChf(jobs);
+  const median = reportedSalarySummary(healthcareJobs).medianChf;
 
   // Featured: healthcare roles first, then freshest. Falls back to any job so
   // an all-admin snapshot still surfaces the employer's live openings.
@@ -203,6 +210,7 @@ function buildSnapshot(
     healthcareCount: healthcareJobs.length,
     fresh30Count: fresh30,
     medianSalaryChf: median,
+    reportedSalary: reportedSalarySummary(healthcareJobs),
     roleCounts,
     jobs: allJobs,
     featured,

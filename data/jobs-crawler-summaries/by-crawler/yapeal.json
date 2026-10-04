@@ -1,7 +1,7 @@
 {
   "key": "yapeal",
   "label": "Yapeal",
-  "generatedAt": "2026-10-03T09:13:50.701Z",
+  "generatedAt": "2026-10-03T21:09:08.821Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -10,18 +10,17 @@
   "sourceBodyFailures": [],
   "written": 2,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3882,
-  "avgDurationMs": 3882,
+  "durationMs": 5167,
+  "avgDurationMs": 5167,
   "durationHistory": [
-    3583,
-    4049,
-    3882
+    5167
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "yapeal-762e79908815",
       "slug": "customer-support-specialist-embedded-digital-finance-yapeal-zurich-hybrid",
@@ -34,7 +33,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2821075",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:43.793Z",
+      "crawledAt": "2026-10-03T21:08:58.439Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -52,51 +51,12 @@
       "applyUrl": "https://yapeal-ag.jobs.personio.de/job/2821075",
       "jobReqId": "2821075",
       "needsRetranslation": true,
-      "_qualityScore": 71,
+      "firstSeenAt": "2026-10-03T09:13:43.793Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 20
-      }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "id": "yapeal-762e79908815",
-      "slug": "customer-support-specialist-embedded-digital-finance-yapeal-zurich-hybrid",
-      "company": "Yapeal",
-      "companyKey": "yapeal",
-      "companyDomain": "yapeal.ch",
-      "title": "Customer Support Specialist - Embedded & Digital Finance",
-      "location": "Zurich - Hybrid",
-      "canton": "ZH",
-      "url": "https://yapeal-ag.jobs.personio.de/job/2821075",
-      "source": "Yapeal Dedicated Parser (Personio)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:02.139Z",
-      "addressLocality": "Zurich - Hybrid",
-      "addressRegion": "ZH",
-      "streetAddress": "Max-Högger-Strasse 6",
-      "postalCode": "8048",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banche digitali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-30",
-      "applyUrl": "https://yapeal-ag.jobs.personio.de/job/2821075",
-      "jobReqId": "2821075",
-      "firstSeenAt": "2026-10-01T21:14:20.437Z",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -112,7 +72,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2733274",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:13:43.796Z",
+      "crawledAt": "2026-10-03T21:08:58.444Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -140,5 +100,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

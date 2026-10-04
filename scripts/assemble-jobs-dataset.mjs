@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { hasPostingDateProvenance, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 /**
  * scripts/assemble-jobs-dataset.mjs
  *
@@ -109,7 +110,8 @@ export function resolveSourceBackedIpersonalCanton(job = {}) {
 }
 
 /**
- * Preserve the assembled canton when the raw source identity is ambiguous.
+ * Preserve the assembled canton when the raw source identity is ambiguous
+ * or its matched record has no canton.
  * Conflicting source rows cannot nominate one crawler stamp safely, but the
  * assembled row still carries the best per-record fallback for downstream
  * locality inference.
@@ -125,7 +127,7 @@ export function resolveCrawlerCantonForAssembly({
   const sourceRecord = sourceLookup?.status === 'found' ? sourceLookup.record : null;
   if (sourceBackedCanton) return sourceBackedCanton;
   if (sourceLookup?.status === 'ambiguous') return jobCanton || '';
-  return sourceRecord ? sourceRecord.canton : (jobCanton || '');
+  return sourceRecord?.canton || jobCanton || '';
 }
 
 function isHttpsJobUrl(value) {
@@ -2654,11 +2656,13 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // never up; brand-new jobs keep their fresh date untouched. Centralized
   // here (not in 90 parsers) so the whole class is fixed by-construction.
   const existingPostedDate = new Map();
+  const existingPostingEvidence = new Map();
   for (const ej of (existingSlice?.jobs || [])) {
     const identity = buildStableJobIdentity(ej);
     if (!identity) continue;
     if (ej.firstSeenAt) existingFirstSeen.set(identity, ej.firstSeenAt);
     if (ej.postedDate) existingPostedDate.set(identity, ej.postedDate);
+    existingPostingEvidence.set(identity, ej);
   }
   const expiredSlice = readJson(path.join(EXPIRED_SLICES_DIR, `${crawlerKey}.json`), []);
   const firstSeenHistory = carryForwardFirstSeenAt(hardened.jobs, {
@@ -2677,7 +2681,10 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     if (!job.firstSeenAt && !firstSeenHistory.suppressedJobs.has(job)) {
       job.firstSeenAt = (identity && existingFirstSeen.get(identity)) || job.crawledAt || now;
     }
-    if (identity && job.postedDate) {
+    const previousPosting = identity ? existingPostingEvidence.get(identity) : undefined;
+    if (hasPostingDateProvenance(job) || hasPostingDateProvenance(previousPosting)) {
+      Object.assign(job, mergeSourcePostingDates(previousPosting, job));
+    } else if (identity && job.postedDate) {
       const prior = existingPostedDate.get(identity);
       // Pin to the earliest known posting date for the same job (date-only
       // lexicographic compare is correct for ISO YYYY-MM-DD strings).

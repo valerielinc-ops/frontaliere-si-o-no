@@ -6,11 +6,12 @@
  * - consent given on the same page view (`suppressed`), a second attempt
  *   (`released`), a stale `off_board`: one reload that resumes the click;
  * - a refused consent is a decision: Google serves the Offerwall with Limited
- *   Ads; with no decision yet the visitor is asked for the consent choice, or
- *   goes on without the video;
+ *   Ads; with no decision yet Google's consent message opens at once (owner
+ *   decision 2026-10-03), and a message that never shows or closes
+ *   unanswered goes on without the video;
  * - Funding Choices still loading: the click waits briefly for the gate.
  */
-import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { act, cleanup, render, screen } from '@testing-library/react';
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
 type ReleaseResult = { outcome: 'not_shown'; reason: string };
@@ -42,7 +43,10 @@ vi.mock('@/services/offerwallClickGate', () => ({
   releaseHeldOfferwall: mocks.releaseHeldOfferwall,
 }));
 
-import RewardedApplicationOffer from '@/components/community/RewardedApplicationOffer';
+import RewardedApplicationOffer, {
+  CONSENT_DECISION_GRACE_MS,
+  CONSENT_MESSAGE_APPEAR_MS,
+} from '@/components/community/RewardedApplicationOffer';
 import { setAdsConsent } from '@/services/adsConsent';
 import { takeOfferwallResume } from '@/services/offerwallRecovery';
 import { itReady } from '@/services/i18n';
@@ -69,6 +73,21 @@ const consent = (value: 'granted' | 'denied' | null) => {
 
 type Gfc = { callbackQueue?: unknown[]; showRevocationMessage?: () => void };
 
+/** Funding Choices can show its consent message right away. */
+const fundingChoicesReady = () => {
+  const showRevocationMessage = vi.fn();
+  (window as unknown as { googlefc?: Gfc }).googlefc = { callbackQueue: [], showRevocationMessage };
+  return showRevocationMessage;
+};
+
+/** Google's consent message on screen, as Funding Choices mounts it. */
+const mountConsentMessage = () => {
+  const root = document.createElement('div');
+  root.className = 'fc-consent-root';
+  document.body.appendChild(root);
+  return root;
+};
+
 beforeAll(async () => {
   await itReady;
 });
@@ -85,6 +104,7 @@ afterEach(() => {
   cleanup();
   vi.useRealTimers();
   document.body.style.overflow = '';
+  document.body.querySelectorAll('.fc-consent-root').forEach((el) => el.remove());
   document.head.querySelectorAll('script[data-test-fc]').forEach((el) => el.remove());
   delete (window as unknown as { googlefc?: Gfc }).googlefc;
   delete (window as unknown as { __ftFcConsentBridge?: unknown }).__ftFcConsentBridge;
@@ -180,53 +200,41 @@ describe('RewardedApplicationOffer — consent choice', () => {
     expect(screen.queryByTestId('rewarded-application-consent')).not.toBeInTheDocument();
   });
 
-  it('asks for the consent choice when the visitor has not answered yet', () => {
+  it('opens the Google consent message at once when the visitor has not answered yet', () => {
     mocks.status = 'suppressed';
     consent(null);
+    const showRevocationMessage = fundingChoicesReady();
     const p = props();
     render(<RewardedApplicationOffer {...p} />);
 
+    expect(showRevocationMessage).toHaveBeenCalledTimes(1);
+    // No card of ours before it: the neutral loading screen stays under it.
+    expect(screen.queryByTestId('rewarded-application-consent')).not.toBeInTheDocument();
+    expect(screen.getByTestId('rewarded-application-loading')).toBeInTheDocument();
     expect(p.onReload).not.toHaveBeenCalled();
     expect(mocks.releaseHeldOfferwall).not.toHaveBeenCalled();
-    const card = screen.getByTestId('rewarded-application-consent');
-    expect(card).toHaveAttribute('role', 'dialog');
-    expect(card).toHaveTextContent('Per candidarti a «Fisioterapista diplomato» con il video manca la tua scelta sul consenso');
-    expect(document.activeElement).toBe(card);
-    expect(screen.queryByTestId('rewarded-application-loading')).not.toBeInTheDocument();
+    expect(tracked('rewarded_offerwall_consent_reopened')).toHaveLength(1);
     expect(tracked('rewarded_offerwall_not_shown')).toEqual([
       expect.objectContaining({ reason: 'no_consent_decision', gate_status: 'suppressed', consent_state: 'none' }),
     ]);
   });
 
-  it('opens the Funding Choices consent message from the card', () => {
-    mocks.status = 'suppressed';
-    consent(null);
-    const showRevocationMessage = vi.fn();
-    (window as unknown as { googlefc?: Gfc }).googlefc = { callbackQueue: [], showRevocationMessage };
-    render(<RewardedApplicationOffer {...props()} />);
-
-    fireEvent.click(screen.getByTestId('rewarded-application-consent-review'));
-
-    expect(showRevocationMessage).toHaveBeenCalledTimes(1);
-    expect(tracked('rewarded_offerwall_consent_reopened')).toHaveLength(1);
-  });
-
   it.each(['granted', 'denied'] as const)('releases the Offerwall held since the load once the answer is %s', (answer) => {
     mocks.status = 'held';
     consent(null);
+    fundingChoicesReady();
     render(<RewardedApplicationOffer {...props()} />);
-    expect(screen.getByTestId('rewarded-application-consent')).toBeInTheDocument();
+    expect(mocks.releaseHeldOfferwall).not.toHaveBeenCalled();
 
     act(() => {
       setAdsConsent(answer);
     });
 
     expect(mocks.releaseHeldOfferwall).toHaveBeenCalledTimes(1);
-    expect(screen.queryByTestId('rewarded-application-consent')).not.toBeInTheDocument();
     expect(tracked('rewarded_offerwall_consent_decided')).toEqual([
       expect.objectContaining({ gate_status: 'held', consent_state: answer }),
     ]);
-    // Reported once, when the card opened.
+    // Reported once, when the message opened.
     expect(tracked('rewarded_offerwall_not_shown')).toHaveLength(1);
   });
 
@@ -251,26 +259,96 @@ describe('RewardedApplicationOffer — consent choice', () => {
   it('ignores a change that leaves no decision', () => {
     mocks.status = 'held';
     consent(null);
-    render(<RewardedApplicationOffer {...props()} />);
+    fundingChoicesReady();
+    mountConsentMessage();
+    const p = props();
+    render(<RewardedApplicationOffer {...p} />);
 
     act(() => {
       window.dispatchEvent(new CustomEvent('frontaliere:ads-consent'));
     });
 
-    expect(screen.getByTestId('rewarded-application-consent')).toBeInTheDocument();
     expect(mocks.releaseHeldOfferwall).not.toHaveBeenCalled();
+    expect(p.onUnavailable).not.toHaveBeenCalled();
   });
 
-  it('goes on to the employer without the video', () => {
+  it('goes on without the video when the consent message never comes on screen', async () => {
+    vi.useFakeTimers();
     mocks.status = 'suppressed';
     consent(null);
+    fundingChoicesReady();
     const p = props();
     render(<RewardedApplicationOffer {...p} />);
 
-    fireEvent.click(screen.getByTestId('rewarded-application-consent-continue'));
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(CONSENT_MESSAGE_APPEAR_MS - 400);
+    });
+    expect(p.onUnavailable).not.toHaveBeenCalled();
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(800);
+    });
 
     expect(p.onUnavailable).toHaveBeenCalledWith('ad_consent_missing');
-    expect(tracked('rewarded_offerwall_consent_declined')).toHaveLength(1);
+    expect(tracked('rewarded_offerwall_consent_declined')).toEqual([
+      expect.objectContaining({ reason: 'message_not_shown' }),
+    ]);
+  });
+
+  it('waits while the consent message is on screen, then goes on without the video if it closes unanswered', async () => {
+    vi.useFakeTimers();
+    mocks.status = 'suppressed';
+    consent(null);
+    fundingChoicesReady();
+    const message = mountConsentMessage();
+    const p = props();
+    render(<RewardedApplicationOffer {...p} />);
+
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(30_000);
+    });
+    expect(p.onUnavailable).not.toHaveBeenCalled();
+
+    message.remove();
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(CONSENT_DECISION_GRACE_MS - 400);
+    });
+    expect(p.onUnavailable).not.toHaveBeenCalled();
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(800);
+    });
+
+    expect(p.onUnavailable).toHaveBeenCalledWith('ad_consent_missing');
+    expect(tracked('rewarded_offerwall_consent_declined')).toEqual([
+      expect.objectContaining({ reason: 'message_closed' }),
+    ]);
+  });
+
+  it('takes the answer that arrives just after the message closes', async () => {
+    vi.useFakeTimers();
+    mocks.status = 'held';
+    consent(null);
+    fundingChoicesReady();
+    const message = mountConsentMessage();
+    const p = props();
+    render(<RewardedApplicationOffer {...p} />);
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(1000);
+    });
+
+    message.remove();
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(600);
+    });
+    act(() => {
+      setAdsConsent('granted');
+    });
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(CONSENT_DECISION_GRACE_MS * 2);
+    });
+
+    expect(mocks.releaseHeldOfferwall).toHaveBeenCalledTimes(1);
+    expect(p.onUnavailable).not.toHaveBeenCalled();
+    expect(tracked('rewarded_offerwall_consent_declined')).toEqual([]);
   });
 
   it('never asks for consent when Funding Choices never reached the gate', () => {
@@ -278,7 +356,7 @@ describe('RewardedApplicationOffer — consent choice', () => {
     consent(null);
     render(<RewardedApplicationOffer {...props()} />);
 
-    expect(screen.queryByTestId('rewarded-application-consent')).not.toBeInTheDocument();
+    expect(tracked('rewarded_offerwall_consent_reopened')).toEqual([]);
     expect(screen.getByTestId('mock-google-rewarded')).toBeInTheDocument();
   });
 });
@@ -310,7 +388,7 @@ describe('RewardedApplicationOffer — Funding Choices still loading', () => {
     expect(tracked('rewarded_offerwall_not_shown')).toEqual([]);
   });
 
-  it('waits for a Funding Choices loader that is only scheduled, then asks for the consent choice', async () => {
+  it('waits for a Funding Choices loader that is only scheduled, then opens the consent message', async () => {
     // A first click before the idle loader injects Funding Choices: the CMP
     // bridge is there, the script is not yet (review of #10230).
     vi.useFakeTimers();
@@ -321,12 +399,14 @@ describe('RewardedApplicationOffer — Funding Choices still loading', () => {
     expect(screen.getByTestId('rewarded-application-loading')).toBeInTheDocument();
     expect(screen.queryByTestId('mock-google-rewarded')).not.toBeInTheDocument();
 
+    expect(tracked('rewarded_offerwall_consent_reopened')).toEqual([]);
+
     mocks.status = 'suppressed';
     await act(async () => {
       await vi.advanceTimersByTimeAsync(4500);
     });
 
-    expect(screen.getByTestId('rewarded-application-consent')).toBeInTheDocument();
+    expect(tracked('rewarded_offerwall_consent_reopened')).toHaveLength(1);
     expect(screen.queryByTestId('mock-google-rewarded')).not.toBeInTheDocument();
   });
 

@@ -1,3 +1,5 @@
+import { DETAIL_FAILURE_RATIO_THRESHOLD } from './detail-failure-reuse-policy.mjs';
+
 /**
  * Shared accounting for non-fatal Coop-family detail drops (issue 7885).
  *
@@ -9,7 +11,7 @@
 
 // Advisory is deliberately below the enricher's 0.5 abort ratio: operators
 // need the signal before the source drift becomes a hard failure.
-export const DETAIL_DROP_ADVISORY_RATIO = 0.15;
+export const DETAIL_DROP_ADVISORY_RATIO = DETAIL_FAILURE_RATIO_THRESHOLD;
 export const DETAIL_DROP_ADVISORY_MIN_CANDIDATES = 10;
 
 const finite = (value) => {

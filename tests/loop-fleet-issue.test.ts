@@ -3,18 +3,28 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import {
+  COHORT_UNREACHABLE_MARKER,
+  FIXER_ROUTING_LABELS,
+  KEEP_OPEN_LABEL,
   LOOP_OK_STREAK,
+  LOOP_STATE_AWAITING_SAMPLE,
   LOOP_STATE_CHANGE_MARKER,
   LOOP_STATE_END,
   LOOP_STATE_START,
   MAYBE_RESOLVED_LABEL,
+  OWNER_DIGEST_TITLE,
+  SAMPLE_HORIZON_DAYS,
+  isBeyondSampleHorizon,
   parseLoopState,
   reasonSignature,
   reportLoopIssue,
   resolveLoopIssue,
+  sampleEta,
   upsertLoopStateBlock,
   // @ts-expect-error — dependency-free ESM CI module.
 } from '../scripts/lib/loop-fleet-issue.mjs';
+// @ts-expect-error — dependency-free ESM CI module.
+import { FIXER_EXEMPT_LABELS } from '../scripts/lib/classify-issue.mjs';
 // @ts-expect-error — dependency-free ESM CI module.
 import { LOOP_ISSUE_TITLES as L2_TITLES } from '../scripts/ci/loop-l2-demand-utility.mjs';
 
@@ -32,6 +42,7 @@ type Issue = {
   labels: { name: string }[];
   comments: string[];
   bodyEdits: number;
+  labelWrites: number;
 };
 
 /** GitHub in memoria: `gh`, `createGithubIssue` e `resolveGithubIssue` iniettati. */
@@ -57,6 +68,7 @@ function fakeGithub({ failOn = null as null | ((args: string[]) => boolean) } = 
       labels: labels.map((name) => ({ name })),
       comments: [],
       bodyEdits: 0,
+      labelWrites: 0,
     };
     issues.push(issue);
     return issue;
@@ -71,8 +83,8 @@ function fakeGithub({ failOn = null as null | ((args: string[]) => boolean) } = 
         .map(({ number, title, url, body, labels }) => ({ number, title, url, body, labels })));
     }
     if (verb === 'view') {
-      const { body, labels } = byNumber(target);
-      return JSON.stringify({ body, labels });
+      const { body, labels, comments } = byNumber(target);
+      return JSON.stringify({ body, labels, comments: comments.map((comment) => ({ body: comment })) });
     }
     if (verb === 'comment') {
       byNumber(target).comments.push(String(flag(args, '--body')));
@@ -85,8 +97,14 @@ function fakeGithub({ failOn = null as null | ((args: string[]) => boolean) } = 
         issue.body = fs.readFileSync(file, 'utf8');
         issue.bodyEdits += 1;
       }
+      const added = flag(args, '--add-label');
       const removed = flag(args, '--remove-label');
-      if (removed) issue.labels = issue.labels.filter((label) => label.name !== removed);
+      if (added || removed) issue.labelWrites += 1;
+      for (const name of String(added ?? '').split(',').filter(Boolean)) {
+        if (!issue.labels.some((label) => label.name === name)) issue.labels.push({ name });
+      }
+      const drop = new Set(String(removed ?? '').split(',').filter(Boolean));
+      issue.labels = issue.labels.filter((label) => !drop.has(label.name));
       return '';
     }
     if (verb === 'close') {
@@ -104,8 +122,8 @@ function fakeGithub({ failOn = null as null | ((args: string[]) => boolean) } = 
     env: {} as Record<string, string>,
     now: () => NOW,
     logger: { log() {}, error() {} },
-    createIssue: async ({ title, description }: { title: string; description: string }) => {
-      const issue = add(title, description);
+    createIssue: async ({ title, description, labels = [] }: { title: string; description: string; labels?: string[] }) => {
+      const issue = add(title, description, labels);
       return { number: issue.number, title, url: issue.url, state: 'OPEN', persisted: true };
     },
     resolveIssue: (title: string) => {
@@ -416,6 +434,166 @@ describe('resolveLoopIssue', () => {
     );
     expect(outcome).toMatchObject({ persisted: false, closed: [], advanced: [] });
     expect(errors.join('\n')).toContain('gh non iniettato sotto Vitest');
+  });
+});
+
+describe('awaiting-sample: Loop fleet: campione insufficiente trattato come guasto e rimesso in coda al fixer', () => {
+  const SAMPLE_TITLE = 'L2 Demand to Utility: outcome sample is below minimum';
+  const SAMPLE_REASON = 'eligibleLandingSessions is below minimum sample (42 < 1000)';
+  const ROUTED = ['monitoring', 'loop-l2', ...FIXER_ROUTING_LABELS];
+  // Il ritmo misurato della issue 9865: 42 sessioni in 8 giorni.
+  const SLOW = { current: 42, minimum: 1000, windowDays: 8 };
+  // Un campione che arriva al minimo entro l'orizzonte: niente digest.
+  const NEAR = { current: 800, minimum: 1000, windowDays: 8 };
+
+  const awaiting = (github: ReturnType<typeof fakeGithub>, sample = NEAR, reason = SAMPLE_REASON) =>
+    reportLoopIssue({
+      title: SAMPLE_TITLE,
+      description: 'L2 details',
+      labels: ['monitoring', 'loop-l2'],
+      workflow: 'Loop L2 Demand to Utility',
+      loopId: 'L2',
+      reason,
+      loopTitles: [SAMPLE_TITLE],
+      eventName: 'schedule',
+      state: LOOP_STATE_AWAITING_SAMPLE,
+      sample,
+    }, github.deps);
+  const failing = (github: ReturnType<typeof fakeGithub>, reason = 'outcome join is conflicting') =>
+    reportLoopIssue({
+      title: SAMPLE_TITLE,
+      description: 'L2 details',
+      labels: ['monitoring', 'loop-l2'],
+      workflow: 'Loop L2 Demand to Utility',
+      loopId: 'L2',
+      reason,
+      loopTitles: [SAMPLE_TITLE],
+      eventName: 'schedule',
+    }, github.deps);
+  const names = (issue: { labels: { name: string }[] }) => issue.labels.map((label) => label.name).sort();
+  const failingBody = () => upsertLoopStateBlock('opened as a failure', {
+    loopId: 'L2', signature: reasonSignature(SAMPLE_REASON), okStreak: 0, reason: SAMPLE_REASON,
+  });
+  // La stessa estrazione della metrica della scheda (`gh issue view --jq capture`).
+  const stateOf = (body: string) => body.match(/state: (?<s>[a-z-]+)/u)?.groups?.s ?? null;
+
+  it('computes the ETA from the measured rate, and null when the rate is zero or unknown', () => {
+    expect(sampleEta(SLOW)).toMatchObject({ ratePerDay: 5.25, etaDays: 183 });
+    expect(sampleEta({ current: 0, minimum: 20, windowDays: 10 })).toMatchObject({ ratePerDay: 0, etaDays: null });
+    expect(sampleEta({ current: 0, minimum: 20, windowDays: null })).toMatchObject({ ratePerDay: 0, etaDays: null });
+    expect(sampleEta({ current: 3, minimum: 20, windowDays: null })).toMatchObject({ ratePerDay: null, etaDays: null });
+    expect(sampleEta({ current: 1000, minimum: 1000, windowDays: 8 }).etaDays).toBe(0);
+    expect(isBeyondSampleHorizon(sampleEta(SLOW))).toBe(true);
+    expect(isBeyondSampleHorizon(sampleEta(NEAR))).toBe(false);
+    expect(isBeyondSampleHorizon({ etaDays: null })).toBe(true);
+    expect(isBeyondSampleHorizon({ etaDays: SAMPLE_HORIZON_DAYS })).toBe(false);
+  });
+
+  it('pins the issue out of the fixer, drops routing, writes the ETA and does not comment', async () => {
+    const github = fakeGithub();
+    const issue = github.add(SAMPLE_TITLE, failingBody(), ROUTED);
+    const result = await awaiting(github);
+    expect(result.persisted).toBe(true);
+    expect(names(issue)).toEqual(['loop-l2', KEEP_OPEN_LABEL, 'monitoring'].sort());
+    expect(issue.comments).toHaveLength(0);
+    expect(stateOf(issue.body)).toBe(LOOP_STATE_AWAITING_SAMPLE);
+    expect(parseLoopState(issue.body)).toMatchObject({
+      state: LOOP_STATE_AWAITING_SAMPLE,
+      pinnedByLoopLib: true,
+      etaDays: 2,
+      sample: { current: 800, minimum: 1000, windowDays: 8, ratePerDay: 100, etaDays: 2 },
+    });
+    expect(issue.body).toContain('opened as a failure');
+
+    // Seconda run identica (e un campione cresciuto): nessuna scrittura di label, nessun commento.
+    const labelWrites = issue.labelWrites;
+    await awaiting(github, { ...NEAR, current: 810 }, 'eligibleLandingSessions is below minimum sample (810 < 1000)');
+    expect(issue.labelWrites).toBe(labelWrites);
+    expect(issue.comments).toHaveLength(0);
+    expect(parseLoopState(issue.body)?.sample?.current).toBe(810);
+  });
+
+  it('unpins on exit to a failure only when the library set the pin', async () => {
+    const github = fakeGithub();
+    const issue = github.add(SAMPLE_TITLE, failingBody(), ['monitoring', 'automation-deferred']);
+    await awaiting(github);
+    expect(names(issue)).toContain(KEEP_OPEN_LABEL);
+    await failing(github);
+    expect(names(issue)).not.toContain(KEEP_OPEN_LABEL);
+    expect(parseLoopState(issue.body)).toMatchObject({ state: 'failing', pinnedByLoopLib: false });
+    expect(github.recurrences(issue)).toHaveLength(1);
+
+    // `keep-open` messo da altri: la libreria non lo reclama e non lo toglie.
+    const owned = fakeGithub();
+    const pinnedByOwner = owned.add(SAMPLE_TITLE, failingBody(), ['monitoring', KEEP_OPEN_LABEL, 'agent:fix']);
+    await awaiting(owned);
+    expect(names(pinnedByOwner)).toEqual(['monitoring', KEEP_OPEN_LABEL].sort());
+    expect(parseLoopState(pinnedByOwner.body)?.pinnedByLoopLib).toBe(false);
+    await failing(owned);
+    expect(names(pinnedByOwner)).toContain(KEEP_OPEN_LABEL);
+  });
+
+  it('unpins on a scheduled ok verdict so a later failure is routable again', async () => {
+    const github = fakeGithub();
+    const issue = github.add(SAMPLE_TITLE, failingBody(), ['monitoring']);
+    await awaiting(github);
+    await resolveLoopIssue({ loopId: 'L2', loopTitles: [SAMPLE_TITLE], eventName: 'schedule' }, github.deps);
+    expect(names(issue)).toEqual(['monitoring']);
+    expect(parseLoopState(issue.body)).toMatchObject({ state: 'ok', pinnedByLoopLib: false, okStreak: 1 });
+  });
+
+  it('creates a missing tracker already pinned when the ETA is within the horizon', async () => {
+    const github = fakeGithub();
+    const result = await awaiting(github);
+    expect(result.persisted).toBe(true);
+    const [issue] = github.open();
+    expect(names(issue)).toContain(KEEP_OPEN_LABEL);
+    expect(parseLoopState(issue.body)).toMatchObject({ state: LOOP_STATE_AWAITING_SAMPLE, pinnedByLoopLib: true });
+    expect(github.issues.filter((candidate) => candidate.title === OWNER_DIGEST_TITLE)).toHaveLength(0);
+  });
+
+  it('writes one owner-digest line per loop and minimum when the ETA is beyond the horizon', async () => {
+    const github = fakeGithub();
+    const digest = github.add(OWNER_DIGEST_TITLE, 'digest body rewritten by the sweep', ['automation']);
+    const issue = github.add(SAMPLE_TITLE, failingBody(), ROUTED);
+    await awaiting(github, SLOW);
+    expect(digest.comments).toHaveLength(1);
+    expect(digest.comments[0]).toContain(`<!-- ${COHORT_UNREACHABLE_MARKER}: loop=L2 minimum=1000 -->`);
+    expect(digest.comments[0]).toContain('42 su 1000 in 8 giorni');
+    expect(digest.comments[0]).toContain('183 giorni');
+    expect(digest.comments[0]).toContain(`#${issue.number}`);
+    // La issue resta il tracker, pinnata, senza commenti.
+    expect(names(issue)).toContain(KEEP_OPEN_LABEL);
+    expect(issue.comments).toHaveLength(0);
+
+    await awaiting(github, { ...SLOW, current: 44 });
+    expect(digest.comments).toHaveLength(1);
+  });
+
+  it('reports a zero-rate cohort as unreachable without opening an issue for the fixer', async () => {
+    const github = fakeGithub();
+    const digest = github.add(OWNER_DIGEST_TITLE, '', ['automation']);
+    const result = await awaiting(github, { current: 0, minimum: 20, windowDays: null }, 'employer activation quality is zero');
+    expect(result).toMatchObject({ persisted: true, number: null, skipped: 'sample-beyond-horizon' });
+    expect(github.open().map((issue) => issue.title)).toEqual([OWNER_DIGEST_TITLE]);
+    expect(digest.comments).toHaveLength(1);
+    expect(digest.comments[0]).toContain('minimum=20');
+    expect(digest.comments[0]).toContain('non raggiungibile');
+  });
+
+  it('only logs when the owner digest is absent', async () => {
+    const github = fakeGithub();
+    const lines: string[] = [];
+    github.deps.logger = { log: (line: string) => { lines.push(line); }, error() {} } as unknown as typeof github.deps.logger;
+    const result = await awaiting(github, SLOW);
+    expect(result).toMatchObject({ persisted: true, skipped: 'sample-beyond-horizon' });
+    expect(github.issues).toHaveLength(0);
+    expect(lines.join('\n')).toContain('assente');
+  });
+
+  it('keeps the pin label in the fixer exemptions and out of the routing set', () => {
+    expect(FIXER_EXEMPT_LABELS).toContain(KEEP_OPEN_LABEL);
+    expect(FIXER_ROUTING_LABELS).not.toContain(KEEP_OPEN_LABEL);
   });
 });
 

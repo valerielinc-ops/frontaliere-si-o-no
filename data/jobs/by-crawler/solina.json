@@ -1,13 +1,13 @@
 {
   "crawlerKey": "solina",
-  "assembledAt": "2026-10-03T09:17:05.046Z",
+  "assembledAt": "2026-10-03T21:15:48.477Z",
   "jobs": [
     {
       "id": "solina-e0e02df7e063",
       "slug": "interno-in-stiftung-solina-standortubergreifend",
       "slugByLocale": {
         "it": "interno-in-stiftung-solina-standortubergreifend",
-        "en": "trainee-stiftung-solina-standortubergreifend",
+        "en": "intern-in-stiftung-solina-standortubergreifend",
         "de": "praktikant-in-solina-standortubergreifend",
         "fr": "stagiaire-in-stiftung-solina-standortubergreifend"
       },
@@ -34,7 +34,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/details/praktikantin-wh3pi42l",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:51.307Z",
+      "crawledAt": "2026-10-03T21:15:42.625Z",
       "addressLocality": "Standortübergreifend",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -59,8 +59,6 @@
         "praktikantin-praktikant-solina-standortubergreifend",
         "stagiaire-stagiaire-stiftung-solina-spiez",
         "praktikantin-praktikant-solina-spiez",
-        "intern-in-stiftung-solina-standortubergreifend",
-        "interno-in-stiftung-solina-standortubergreifend",
         "trainee-stiftung-solina-standortubergreifend"
       ],
       "previousSlugsByLocale": {
@@ -71,13 +69,11 @@
           "intern-intern-stiftung-solina-spiez",
           "praktikantin-praktikant-solina-standortubergreifend",
           "stagiaire-stagiaire-stiftung-solina-spiez",
-          "praktikantin-praktikant-solina-spiez",
-          "interno-in-stiftung-solina-standortubergreifend"
+          "praktikantin-praktikant-solina-spiez"
         ],
         "en": [
           "praktikant-in-stiftung-solina-standortubergreifend",
           "intern-intern-stiftung-solina-spiez",
-          "intern-in-stiftung-solina-standortubergreifend",
           "trainee-stiftung-solina-standortubergreifend"
         ],
         "de": [
@@ -136,7 +132,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/details/vorpraktikantin-hthofbkc",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:50.866Z",
+      "crawledAt": "2026-10-03T21:15:42.253Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -155,14 +151,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vorpraktikant-in-solina-spiez",
-        "pre-pratique-en-stiftung-solina-spiez",
-        "pre-pratico-in-stiftung-solina-spiez"
+        "pre-pratique-en-stiftung-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vorpraktikant-in-solina-spiez",
-          "pre-pratique-en-stiftung-solina-spiez",
-          "pre-pratico-in-stiftung-solina-spiez"
+          "pre-pratique-en-stiftung-solina-spiez"
         ],
         "en": [
           "vorpraktikant-in-solina-spiez"
@@ -218,7 +212,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/lehrstellen/lehrstelle-fachfrau-fachmann-gesundheit-8ph7l588",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:50.439Z",
+      "crawledAt": "2026-10-03T21:15:41.883Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -236,13 +230,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
-        "apprendistato-fachfrau-fachmann-gesundheit-stiftung-solina-steffisburg-ziegelei"
+        "lehrstelle-fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
-          "apprendistato-fachfrau-fachmann-gesundheit-stiftung-solina-steffisburg-ziegelei"
+          "lehrstelle-fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
         ],
         "en": [
           "lehrstelle-fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
@@ -298,7 +290,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/lehrstellen/lehrstelle-fachfrau-fachmann-gesundheit-43ghowzt",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:50.013Z",
+      "crawledAt": "2026-10-03T21:15:41.511Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -316,13 +308,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fachfrau-fachmann-gesundheit-solina-spiez",
-        "apprendistato-fachfrau-fachmann-gesundheit-stiftung-solina-spiez"
+        "lehrstelle-fachfrau-fachmann-gesundheit-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-fachmann-gesundheit-solina-spiez",
-          "apprendistato-fachfrau-fachmann-gesundheit-stiftung-solina-spiez"
+          "lehrstelle-fachfrau-fachmann-gesundheit-solina-spiez"
         ],
         "en": [
           "lehrstelle-fachfrau-fachmann-gesundheit-solina-spiez"
@@ -378,7 +368,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/lehrstellen/lehrstelle-fachfrau-fachmann-betriebsunterhalt-3rn83ia0",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:49.586Z",
+      "crawledAt": "2026-10-03T21:15:41.138Z",
       "addressLocality": "Standortübergreifend",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -396,13 +386,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fachfrau-fachmann-betriebsunterhalt-solina-standortubergreifend",
-        "apprendistato-fachfrau-fachmann-betriebsunterhalt-stiftung-solina-standortubergreifend"
+        "lehrstelle-fachfrau-fachmann-betriebsunterhalt-solina-standortubergreifend"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-fachmann-betriebsunterhalt-solina-standortubergreifend",
-          "apprendistato-fachfrau-fachmann-betriebsunterhalt-stiftung-solina-standortubergreifend"
+          "lehrstelle-fachfrau-fachmann-betriebsunterhalt-solina-standortubergreifend"
         ],
         "en": [
           "lehrstelle-fachfrau-fachmann-betriebsunterhalt-solina-standortubergreifend"
@@ -458,7 +446,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/lehrstellen/lehrstelle-fachfrau-fachmann-betreuung-dahbks3c",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:49.137Z",
+      "crawledAt": "2026-10-03T21:15:40.766Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -476,13 +464,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fachfrau-fachmann-betreuung-solina-spiez",
-        "apprendistato-fachfrau-fachmann-betreuung-stiftung-solina-spiez"
+        "lehrstelle-fachfrau-fachmann-betreuung-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-fachmann-betreuung-solina-spiez",
-          "apprendistato-fachfrau-fachmann-betreuung-stiftung-solina-spiez"
+          "lehrstelle-fachfrau-fachmann-betreuung-solina-spiez"
         ],
         "en": [
           "lehrstelle-fachfrau-fachmann-betreuung-solina-spiez"
@@ -538,7 +524,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/details/praktikantin-x959hdzq",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:48.713Z",
+      "crawledAt": "2026-10-03T21:15:40.394Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -556,13 +542,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-solina-steffisburg-kirchbuhl",
-        "allenatore-stiftung-solina-steffisburg-kirchbuhl"
+        "praktikant-in-solina-steffisburg-kirchbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-solina-steffisburg-kirchbuhl",
-          "allenatore-stiftung-solina-steffisburg-kirchbuhl"
+          "praktikant-in-solina-steffisburg-kirchbuhl"
         ],
         "en": [
           "praktikant-in-solina-steffisburg-kirchbuhl"
@@ -617,7 +601,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegehelferin-fax39qeg",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:48.287Z",
+      "crawledAt": "2026-10-03T21:15:40.024Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -635,13 +619,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegehelfer-in-solina-spiez",
-        "assistente-infermieristico-stiftung-solina-spiez"
+        "pflegehelfer-in-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegehelfer-in-solina-spiez",
-          "assistente-infermieristico-stiftung-solina-spiez"
+          "pflegehelfer-in-solina-spiez"
         ],
         "en": [
           "pflegehelfer-in-solina-spiez"
@@ -663,8 +645,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "solina-bfa5fb757003",
@@ -680,7 +661,7 @@
       "companyDomain": "solina.ch",
       "title": "Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Infermieristica professionale / infermieristica",
+        "it": "Pflegefachfrau / Pflegefachmann",
         "en": "Nursing professional / nursing professional",
         "de": "Pflegefachfrau / Pflegefachmann",
         "fr": "Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -692,12 +673,13 @@
         "de": "Pflegefachfrau / Pflegefachmann\n\n## Mehr als Pflege Lebensqualität beginnt mit dir\nPflegefachfrau / Pflegefachmann Mischkonzept ab 40% Spiez ab sofort oder nach Vereinbarung\nWir glauben, dass das Leben nicht in Schubladen passt. Darum wohnen bei uns junge und ältere Menschen mit unterschiedlichen Bedürfnissen, Krankheiten und Verhaltensbildern. Sie leben gemeinsam in einem Wohnbereich und schreiben mit dir ein Stück Lebensgeschichte.\nWir haben ein eigenes Nachtteam. Du arbeitest also nur von Früh bis Spät. Die Nächte übernehmen andere.\nMit unseren zwei Pool-Modellen schaffen wir Flexibilität bei der Einsatzplanung und entlasten die festangestellten Mitarbeitenden. Damit freie Tage auch wirklich frei bleiben.\nWir vertrauen dir. Du kannst dein Wissen aktiv einbringen und Tagesverantwortung übernehmen. Bei Fragen hilft eine professionelle Ansprechperson im Haus.\nAlle Vorteile entdecken\n## Dein Arbeitsort\nIn der Solina Spiez arbeiten 390 Mitarbeitende und wohnen 224 Bewohner:innen.\nMehr zum Standort\n## Wie du wirkst\n• Pflege und Betreuung unserer Bewohnerinnen und Bewohner mit unterschiedlichen alters- und/oder krankheitsbedingten Beeinträchtigungen\n• Übernahme der Tagesverantwortung auf dem Wohnbereich\n• Mitarbeit im Bezugspersonensystem und bei der Angehörigenarbeit\n• Interdisziplinäre Zusammenarbeit\n• Weiterentwicklung des Caring Prozesses\n• Ausbildung und Begleitung von Lernenden und Studierenden\n• Mitwirkung in Projekten und Arbeitsgruppen\n## Was dich ausmacht\n• Ausbildung als Pflegefachperson\n• Autonomie und Wohlbefinden unserer Bewohnerinnen und Bewohner sind für dich eine Herzensangelegenheit\n• Freude daran, spezifische Kompetenzen einzubringen\n• Du bist motiviert, innovativ und kommunikativ\n• Du bist offen für Neues und bist gerne Teil eines engagierten Teams\n• Gute IT-Anwenderkenntnisse\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Spiez HRM Stockhornstrasse 12 3700 Spiez\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Am Einblickstag erlebst du den Alltag bei uns\n• Du unterschreibst den Vertrag\n• Du trittst die Stelle an\n+41 33 655 43 36 jobs solina ch",
         "fr": "Infirmière/infirmière professionnelle\n\n## Plus que la qualité de vie commence avec vous\nSpécialiste des soins infirmiers concept mixte à partir de 40% Spiez maintenant ou par accord\nNous croyons que la vie ne rentre pas dans les tiroirs. C'est pourquoi nous avons des jeunes et des personnes âgées qui ont des besoins, des maladies et des comportements différents. Ils vivent ensemble dans un coin de vie et vous racontent une histoire de vie.\nNous avons notre propre équipe de nuit. Donc tu ne travailles que de tôt en tard. Les nuits reprennent les autres.\nAvec nos deux modèles de pool, nous créons de la flexibilité dans la planification opérationnelle et libérons les employés permanents. Pour que les jours libres restent vraiment libres.\nNous vous faisons confiance. Vous pouvez contribuer activement à vos connaissances et assumer vos responsabilités quotidiennes. Pour des questions, une personne de contact professionnelle dans la maison vous aidera.\nDécouvrez tous les avantages\n## Votre lieu de travail\nIl y a 390 employés à Solina Spiez et 224 résidents.\nPlus d'informations sur l'emplacement\n## Comment vous travaillez\n• Soins et soins de nos résidents ayant des déficiences d'âge et/ou de maladie différentes\n• Assomption de la responsabilité quotidienne dans la zone de vie\n• Participation au système des personnes de référence et au travail familial\n• Coopération interdisciplinaire\n• Développement du processus de prise en charge\n• Formation et soutien aux apprenants et aux étudiants\n• Participation aux projets et aux groupes de travail\n## Qu'est-ce qui te fait\n• Formation en soins infirmiers\n• L'autonomie et le bien-être de nos résidents sont une question qui vous tient à cœur\n• Délice d'apporter des compétences spécifiques\n• Vous êtes motivé, innovant et communicatif\n• Vous êtes ouvert à de nouvelles choses et aimez faire partie d'une équipe dédiée\n• Bonne connaissance de l'utilisateur informatique\n## Préférez-vous postuler par courrier ou par la poste?\nemplois solina ch\nSolina Spiez HRM Stockhornstrasse 12 3700 Spiez\n• Vous envoyez le Bewerbu ng\n• Nous vérifions vos documents\n• Dans une conversation personnelle, on apprend à se connaître.\n• Le jour où vous vivez la vie quotidienne avec nous\n• Vous signez le contrat\n• Vous prenez la place\n+41 33 655 43 36 emplois solina ch"
       },
+      "needsRetranslation": true,
       "location": "Spiez",
       "canton": "BE",
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegefachfrau-pflegefachmann-pn26ljh7",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:47.864Z",
+      "crawledAt": "2026-10-03T21:15:39.656Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -779,7 +761,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-tb2xa9yv",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:47.438Z",
+      "crawledAt": "2026-10-03T21:15:39.287Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -827,8 +809,7 @@
         "infermiera-salute-professionale-stiftung-solina-spiez",
         "nurse-health-professional-stiftung-solina-spiez",
         "pflegefachperson-fachperson-gesundheit-solina-spiez",
-        "infirmier-professionnel-de-la-sante-stiftung-solina-spiez",
-        "salute-professionale-stiftung-solina-spiez"
+        "infirmier-professionnel-de-la-sante-stiftung-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -850,8 +831,7 @@
           "nurse-hf-health-professional-at-night-stiftung-solina-spiez",
           "pflegefachperson-hf-fachperson-gesundheit-im-nachtdienst-solina-spiez",
           "infirmiere-hf-professionnel-de-la-sante-la-nuit-stiftung-solina-spiez",
-          "infermiera-salute-professionale-stiftung-solina-spiez",
-          "salute-professionale-stiftung-solina-spiez"
+          "infermiera-salute-professionale-stiftung-solina-spiez"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-solina-spiez",
@@ -926,7 +906,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleiterin-pc99jrf8",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:47.014Z",
+      "crawledAt": "2026-10-03T21:15:38.917Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -945,14 +925,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-wohnbereichsleiter-in-solina-spiez",
-        "stv-living-area-manager-in-stiftung-solina-spiez",
-        "direttore-della-zona-giorno-urbana-stiftung-solina-spiez"
+        "stv-living-area-manager-in-stiftung-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-wohnbereichsleiter-in-solina-spiez",
-          "stv-living-area-manager-in-stiftung-solina-spiez",
-          "direttore-della-zona-giorno-urbana-stiftung-solina-spiez"
+          "stv-living-area-manager-in-stiftung-solina-spiez"
         ],
         "en": [
           "stv-wohnbereichsleiter-in-solina-spiez"
@@ -1008,7 +986,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-s0jnwdrh",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:46.591Z",
+      "crawledAt": "2026-10-03T21:15:38.547Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1034,8 +1012,7 @@
         "professional-health-stiftung-solina-steffisburg-ziegelei-f58509",
         "salute-professionale-stiftung-solina-steffisburg-ziegelei-f58509",
         "sante-professionnelle-stiftung-solina-steffisburg-ziegelei-f58509",
-        "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei-77vq35",
-        "salute-professionale-stiftung-solina-steffisburg-ziegelei"
+        "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei-77vq35"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1046,8 +1023,7 @@
           "professionnels-de-la-sante-de-nuit-stiftung-solina-steffisburg-ziegelei",
           "professional-health-stiftung-solina-steffisburg-ziegelei-f58509",
           "salute-professionale-stiftung-solina-steffisburg-ziegelei-f58509",
-          "sante-professionnelle-stiftung-solina-steffisburg-ziegelei-f58509",
-          "salute-professionale-stiftung-solina-steffisburg-ziegelei"
+          "sante-professionnelle-stiftung-solina-steffisburg-ziegelei-f58509"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
@@ -1109,7 +1085,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleiterin-f2mc96am",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:46.165Z",
+      "crawledAt": "2026-10-03T21:15:38.179Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1129,14 +1105,12 @@
       "previousSlugs": [
         "stv-wohnbereichsleiter-in-solina-steffisburg-kirchbuhl",
         "stv-wohnbereichsleiter-in-stiftung-solina-steffisburg-kirchbuhl",
-        "stv-living-area-manager-in-stiftung-solina-steffisburg-kirchbuhl",
-        "direttore-della-zona-giorno-urbana-stiftung-solina-steffisburg-kirchbuhl"
+        "stv-living-area-manager-in-stiftung-solina-steffisburg-kirchbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-wohnbereichsleiter-in-solina-steffisburg-kirchbuhl",
-          "stv-living-area-manager-in-stiftung-solina-steffisburg-kirchbuhl",
-          "direttore-della-zona-giorno-urbana-stiftung-solina-steffisburg-kirchbuhl"
+          "stv-living-area-manager-in-stiftung-solina-steffisburg-kirchbuhl"
         ],
         "fr": [
           "stv-wohnbereichsleiter-in-stiftung-solina-steffisburg-kirchbuhl"
@@ -1189,7 +1163,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-betreuung-3ca3t28y",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:45.738Z",
+      "crawledAt": "2026-10-03T21:15:37.758Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1215,8 +1189,7 @@
         "specialista-assistenza-professionale-stiftung-solina-steffisburg-ziegelei",
         "specialist-professional-care-stiftung-solina-steffisburg-ziegelei",
         "specialiste-soins-professionnels-stiftung-solina-steffisburg-ziegelei",
-        "specialist-care-stiftung-solina-spiez",
-        "specialista-assistenza-professionale-stiftung-solina-spiez"
+        "specialist-care-stiftung-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1228,8 +1201,7 @@
           "specialista-assistenza-professionale-stiftung-solina-steffisburg-ziegelei",
           "specialist-professional-care-stiftung-solina-steffisburg-ziegelei",
           "specialiste-soins-professionnels-stiftung-solina-steffisburg-ziegelei",
-          "specialist-care-stiftung-solina-spiez",
-          "specialista-assistenza-professionale-stiftung-solina-spiez"
+          "specialist-care-stiftung-solina-spiez"
         ],
         "en": [
           "fachfrau-fachmann-betreuung-solina-spiez",
@@ -1292,7 +1264,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegefachperson-fachperson-gesundheit-nachtdienst-ja0t5x3v",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:45.312Z",
+      "crawledAt": "2026-10-03T21:15:37.386Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1310,13 +1282,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachperson-fachperson-gesundheit-nachtdienst-solina-spiez",
-        "infermiera-salute-night-service-specialist-stiftung-solina-spiez"
+        "pflegefachperson-fachperson-gesundheit-nachtdienst-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-fachperson-gesundheit-nachtdienst-solina-spiez",
-          "infermiera-salute-night-service-specialist-stiftung-solina-spiez"
+          "pflegefachperson-fachperson-gesundheit-nachtdienst-solina-spiez"
         ],
         "en": [
           "pflegefachperson-fachperson-gesundheit-nachtdienst-solina-spiez"
@@ -1372,7 +1342,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/wohnbereichsleiterin-ez10o2q4",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:44.888Z",
+      "crawledAt": "2026-10-03T21:15:37.013Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1392,14 +1362,12 @@
       "previousSlugs": [
         "wohnbereichsleiter-in-solina-steffisburg-kirchbuhl",
         "wohnbereichsleiter-in-stiftung-solina-steffisburg-kirchbuhl",
-        "living-area-manager-in-stiftung-solina-steffisburg-kirchbuhl",
-        "scala-di-soggiorno-stiftung-solina-steffisburg-kirchbuhl"
+        "living-area-manager-in-stiftung-solina-steffisburg-kirchbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
           "wohnbereichsleiter-in-solina-steffisburg-kirchbuhl",
-          "living-area-manager-in-stiftung-solina-steffisburg-kirchbuhl",
-          "scala-di-soggiorno-stiftung-solina-steffisburg-kirchbuhl"
+          "living-area-manager-in-stiftung-solina-steffisburg-kirchbuhl"
         ],
         "fr": [
           "wohnbereichsleiter-in-stiftung-solina-steffisburg-kirchbuhl"
@@ -1452,7 +1420,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/sozialpaedagogin-sozialpaedagoge-qo6r5vk5",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:44.427Z",
+      "crawledAt": "2026-10-03T21:15:36.640Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1471,14 +1439,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sozialpadagogin-sozialpadagoge-solina-spiez",
-        "sozialpadagoge-sozialpadagogin-solina-spiez",
-        "pedagoga-sociale-pedagoga-sociale-stiftung-solina-spiez"
+        "sozialpadagoge-sozialpadagogin-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sozialpadagogin-sozialpadagoge-solina-spiez",
-          "sozialpadagoge-sozialpadagogin-solina-spiez",
-          "pedagoga-sociale-pedagoga-sociale-stiftung-solina-spiez"
+          "sozialpadagoge-sozialpadagogin-solina-spiez"
         ],
         "en": [
           "sozialpadagogin-sozialpadagoge-solina-spiez"
@@ -1534,7 +1500,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleitung-ugb7iwhs",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:44.001Z",
+      "crawledAt": "2026-10-03T21:15:36.266Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1556,8 +1522,7 @@
         "gestione-delle-aree-vive-cadre-stiftung-solina-steffisburg-ziegelei",
         "living-area-management-cadre-stiftung-solina-steffisburg-ziegelei",
         "wohnbereichsleitung-kader-solina-steffisburg-ziegelei",
-        "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-ziegelei",
-        "stv-linea-di-soggiorno-stiftung-solina-steffisburg-ziegelei"
+        "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1565,8 +1530,7 @@
           "gestione-delle-aree-vive-cadre-stiftung-solina-steffisburg-ziegelei",
           "living-area-management-cadre-stiftung-solina-steffisburg-ziegelei",
           "wohnbereichsleitung-kader-solina-steffisburg-ziegelei",
-          "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-ziegelei",
-          "stv-linea-di-soggiorno-stiftung-solina-steffisburg-ziegelei"
+          "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-ziegelei"
         ],
         "en": [
           "stv-wohnbereichsleitung-solina-steffisburg-ziegelei",
@@ -1602,7 +1566,7 @@
         "it": "stv-wohnbereichsleiter-in-solina-steffisburg-ziegelei",
         "en": "stv-wohnbereichsleiter-in-solina-steffisburg-ziegelei",
         "de": "stv-wohnbereichsleiter-in-solina-steffisburg-ziegelei",
-        "fr": "stv-wohnbereichsleiter-in-stiftung-solina-steffisburg-ziegelei"
+        "fr": "directeur-de-la-zone-d-habitation-in-stiftung-solina-steffisburg-ziegelei"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -1627,7 +1591,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleiterin-embpvyh4",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:43.575Z",
+      "crawledAt": "2026-10-03T21:15:35.888Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1645,12 +1609,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "directeur-de-la-zone-d-habitation-in-stiftung-solina-steffisburg-ziegelei",
         "stv-wohnbereichsleiter-in-stiftung-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "directeur-de-la-zone-d-habitation-in-stiftung-solina-steffisburg-ziegelei",
           "stv-wohnbereichsleiter-in-stiftung-solina-steffisburg-ziegelei"
         ]
       },
@@ -1701,7 +1663,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-gyd1ax2m",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:43.149Z",
+      "crawledAt": "2026-10-03T21:15:35.498Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1719,13 +1681,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
-        "salute-professionale-stiftung-solina-steffisburg-ziegelei-f710fb"
+        "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
-          "salute-professionale-stiftung-solina-steffisburg-ziegelei-f710fb"
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
         ]
       },
       "firstSeenAt": "2026-07-10T22:04:25.601Z",
@@ -1775,7 +1735,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/sozialpaedagogin-sozialpaedagoge-686aezy7",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:42.723Z",
+      "crawledAt": "2026-10-03T21:15:35.123Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1793,13 +1753,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialpadagogin-sozialpadagoge-solina-steffisburg-ziegelei",
-        "pedagoga-sociale-pedagoga-sociale-stiftung-solina-steffisburg-ziegelei"
+        "sozialpadagogin-sozialpadagoge-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagogin-sozialpadagoge-solina-steffisburg-ziegelei",
-          "pedagoga-sociale-pedagoga-sociale-stiftung-solina-steffisburg-ziegelei"
+          "sozialpadagogin-sozialpadagoge-solina-steffisburg-ziegelei"
         ],
         "en": [
           "sozialpadagogin-sozialpadagoge-solina-steffisburg-ziegelei"
@@ -1855,7 +1813,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/hauptberufsbildnerin-ags-fage-hf-2gs8l0w4",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:42.030Z",
+      "crawledAt": "2026-10-03T21:15:34.748Z",
       "addressLocality": "Standortübergreifend",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1873,13 +1831,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hauptberufsbildner-in-ags-fage-hf-solina-standortubergreifend",
-        "allenatore-principale-ags-fage-hf-stiftung-solina-standortubergreifend"
+        "hauptberufsbildner-in-ags-fage-hf-solina-standortubergreifend"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hauptberufsbildner-in-ags-fage-hf-solina-standortubergreifend",
-          "allenatore-principale-ags-fage-hf-stiftung-solina-standortubergreifend"
+          "hauptberufsbildner-in-ags-fage-hf-solina-standortubergreifend"
         ],
         "en": [
           "hauptberufsbildner-in-ags-fage-hf-solina-standortubergreifend"
@@ -1917,7 +1873,7 @@
       "companyDomain": "solina.ch",
       "title": "Pflegefachfrau/Pflegefachmann",
       "titleByLocale": {
-        "it": "Infermieristica",
+        "it": "Pflegefachfrau/Pflegefachmann",
         "en": "Nurse practitioner",
         "de": "Pflegefachfrau/Pflegefachmann",
         "fr": "Infirmière praticienne"
@@ -1935,7 +1891,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegefachfrau-pflegefachmann-6wryvsu8",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:41.575Z",
+      "crawledAt": "2026-10-03T21:15:34.350Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1953,13 +1909,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl",
-        "infermieristica-stiftung-solina-steffisburg-kirchbuhl"
+        "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl",
-          "infermieristica-stiftung-solina-steffisburg-kirchbuhl"
+          "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl"
@@ -2015,7 +1969,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-15lpybev",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:41.144Z",
+      "crawledAt": "2026-10-03T21:15:33.971Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2033,13 +1987,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl",
-        "salute-professionale-stiftung-solina-steffisburg-kirchbuhl"
+        "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl",
-          "salute-professionale-stiftung-solina-steffisburg-kirchbuhl"
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
@@ -2095,7 +2047,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegehelferin-jvvhh4o6",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:40.717Z",
+      "crawledAt": "2026-10-03T21:15:33.597Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2113,13 +2065,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegehelfer-in-solina-steffisburg-kirchbuhl",
-        "carriera-stiftung-solina-steffisburg-kirchbuhl"
+        "pflegehelfer-in-solina-steffisburg-kirchbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegehelfer-in-solina-steffisburg-kirchbuhl",
-          "carriera-stiftung-solina-steffisburg-kirchbuhl"
+          "pflegehelfer-in-solina-steffisburg-kirchbuhl"
         ],
         "en": [
           "pflegehelfer-in-solina-steffisburg-kirchbuhl"
@@ -2175,7 +2125,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/dipl-physiotherapeutin-hvg2ob2q",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:40.279Z",
+      "crawledAt": "2026-10-03T21:15:33.218Z",
       "addressLocality": "Standortübergreifend",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2193,13 +2143,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-physiotherapeut-in-solina-standortubergreifend",
-        "dipl-fisioterapista-in-stiftung-solina-standortubergreifend"
+        "dipl-physiotherapeut-in-solina-standortubergreifend"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-physiotherapeut-in-solina-standortubergreifend",
-          "dipl-fisioterapista-in-stiftung-solina-standortubergreifend"
+          "dipl-physiotherapeut-in-solina-standortubergreifend"
         ],
         "en": [
           "dipl-physiotherapeut-in-solina-standortubergreifend"
@@ -2255,7 +2203,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/hotellerie-gastronomie/mitarbeiterin-hauswirtschaft-5mlj7z2k",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:16:39.812Z",
+      "crawledAt": "2026-10-03T21:15:32.808Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2273,13 +2221,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-solina-spiez",
-        "collaboratore-trice-hauswirtschaft-stiftung-solina-spiez"
+        "mitarbeiter-in-hauswirtschaft-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-hauswirtschaft-solina-spiez",
-          "collaboratore-trice-hauswirtschaft-stiftung-solina-spiez"
+          "mitarbeiter-in-hauswirtschaft-solina-spiez"
         ]
       },
       "salaryMin": 67500,
