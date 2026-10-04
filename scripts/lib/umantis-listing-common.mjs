@@ -148,7 +148,7 @@ function parseNewerUiListing(html) {
 // Only the explicitly labelled publication field is accepted.
 function readOnlineSince(rowHtml = '') {
   const text = normalizeSpace(decodeEntities(stripHtml(rowHtml)));
-  return text.match(/Online seit:\s*(\d{1,2}\.\d{1,2}\.\d{4})(?!\d)/)?.[1] || '';
+  return text.match(/Online seit:\s*(\d{1,2}\.\d{1,2}\.\d{4})(?!\w)/)?.[1] || '';
 }
 
 /* ── Older UI extractor (pipe-separated metadata) ────────── */
