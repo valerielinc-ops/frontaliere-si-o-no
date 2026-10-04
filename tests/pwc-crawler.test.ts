@@ -566,3 +566,15 @@ describe('jobMatchKey (FU-2026-10-01-019)', () => {
     expect(jobMatchKey({ slug: 'Senior-Tax-Consultant-PwC-Lugano' })).toBe('senior-tax-consultant-pwc-lugano');
   });
 });
+
+describe('PwC publication provenance', () => {
+  for (const kind of ['unverified-start', 'missing', 'invalid', 'future']) {
+    it(`keeps ${kind} startDate separate from publication`, () => {
+      const year = new Date().getUTCFullYear() - 1;
+      const startDate = kind === 'unverified-start' ? `${year}-06-15T12:00:00+02:00` : kind === 'invalid' ? `${year}-02-30` : kind === 'future' ? new Date(Date.now() + 3600000).toISOString() : '';
+      const job = buildPwcJob({ id: 201, title: 'Consultant', city: 'Lugano', description: 'Consulting responsibilities in Switzerland.', directLink: 'https://www.pwc.ch/careers/consultant/lugano-201', startDate });
+      expect(job).toMatchObject({ datePosted: '', postedDate: '', postingDateSource: 'unknown', addressLocality: 'Lugano' });
+      expect(job?.crawledAt).toBeTruthy();
+    });
+  }
+});
