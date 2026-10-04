@@ -22,6 +22,11 @@ describe('central job-board detail URLs', () => {
     expect(isLikelyJobDetailUrl(detailUrl)).toBe(true);
   });
 
+  it('does not treat a generic job query as a detail page', () => {
+    expect(isLikelyJobDetailUrl('https://example.test/job-offers/?job=269611')).toBe(false);
+    expect(isLikelyJobDetailUrl('https://www.swisstiming.com/company/job-offers/?job=269611')).toBe(false);
+  });
+
   it('allows the shared JSON-LD parser to consume the detail page', () => {
     const result = __testables.toJobFromJsonLd(
       {
