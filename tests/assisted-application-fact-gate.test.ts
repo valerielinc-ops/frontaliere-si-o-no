@@ -1399,17 +1399,21 @@ describe('letter at submission', () => {
     };
     const flow = { documents: { diplomi: { files: [{ key: 'assisted-application-uploads/order_X/diplomi.pdf', name: 'diplomi.pdf', detectedType: 'pdf' }] } } };
     const rebuilt = await letterForSubmission({ bucket: bucket('stored'), order, orderId: 'order_X', draft, flow, nowMs: Date.now() });
-    const text = await extractPdfText(rebuilt);
+    // Rebuilt today: its writer is recorded, and it is in Storage nowhere yet.
+    expect(rebuilt).toMatchObject({ renderer: 'typst', key: null });
+    const text = await extractPdfText(rebuilt.pdf);
     expect(text).toContain('Via Esempio 3');
     expect(text).toContain('Allegati: Curriculum vitae, Diplomi');
     // Review of PR 10919: a waived document (no file) is not listed. One enclosure: the singular (Città di Lugano).
-    const waived = await extractPdfText(await letterForSubmission({ bucket: bucket('stored'), order, orderId: 'order_X', draft, flow: { documents: { diplomi: { waivedAt: 1 } } }, nowMs: Date.now() }));
+    const waived = await extractPdfText((await letterForSubmission({ bucket: bucket('stored'), order, orderId: 'order_X', draft, flow: { documents: { diplomi: { waivedAt: 1 } } }, nowMs: Date.now() })).pdf);
     expect(waived).toContain('Allegato: Curriculum vitae');
     expect(waived).not.toContain('Diplomi');
     expect(enclosedDocumentLabels({ requiredDocuments: [{ id: 'diploma', label: 'Diploma', kind: 'diploma', required: true }] }, null, 'order-1')).toEqual(['Diploma']);
     expect(enclosedDocumentLabels({ requiredDocuments: [{ id: 'diploma', label: 'Diploma', kind: 'diploma', required: true }] }, { documents: { diploma: { waivedAt: 1 } } }, 'order-1')).toEqual([]);
     const older = await letterForSubmission({ bucket: bucket('stored'), order, orderId: 'order_X', draft: { ...draft, letterAddress: undefined, coverLetterPdfKey: 'k' }, flow: {}, nowMs: Date.now() });
-    expect(older.toString()).toBe('stored');
+    expect(older.pdf.toString()).toBe('stored');
+    // The stored file leaves: its key, and no writer when the draft does not record one.
+    expect(older).toMatchObject({ renderer: null, key: 'k' });
   });
 });
 

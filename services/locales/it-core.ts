@@ -945,6 +945,7 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.review.error.file_type_not_allowed': "Formato non accettato: usa PDF, Word, JPG o PNG.",
  'jobBoard.assisted.review.error.too_many_files': "Hai già caricato il numero massimo di file per questo documento.",
  'jobBoard.assisted.review.error.invalid_file': "Il file non è leggibile o non esiste più. Riprova.",
+ 'jobBoard.assisted.review.error.file_unreadable': "Non riusciamo a leggere questa immagine: il file sembra danneggiato o incompleto. Caricalo di nuovo oppure usa un PDF.",
  'jobBoard.assisted.review.error.storage_unavailable': "Il caricamento non è disponibile in questo momento. Riprova tra poco.",
  'jobBoard.assisted.review.autoApproveAt': "Se non fai nulla, la candidatura parte automaticamente così com’è {deadline}.",
  'jobBoard.assisted.review.fit.partialTitle': "Alcuni requisiti dell’annuncio non risultano dal tuo CV",

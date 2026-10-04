@@ -575,6 +575,7 @@ async function main() {
     const auth = again.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind);
     check('a later run signs in with the stored account', again.event.type === 'submit_succeeded' && auth.join(',') === 'sign_in' && state.accounts.size === 1);
     check('both applications carry the CV and the name', state.applications.length === 2 && state.applications.every((item) => item.hasCv && item.first === 'Luca'));
+    check('the evidence names the files the form received', first.evidence.uploads?.some((item) => item.document === 'cv'));
     check('the newsletter box is left alone', !state.newsletter);
     // The agentic fallback on a custom calendar (Playwright's snapshot refs, a real browser).
     const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: {}, answers: {}, portalQuestionsAnswered: [] } });
@@ -755,7 +756,7 @@ async function main() {
       coop.applications[0]?.anrede === 'Herr' && coop.applications[0]?.birth === '12.05.1990' && coop.applications[0]?.agency === 'Nein');
     check('Coop: the closed sections are opened and the CV goes in through «Lebenslauf hochladen» before «Bewerben»',
       coop.validationRefusals === 0 && coop.cvUploads === 1 && coopFirst.evidence.steps.some((step) => step.cv === 'uploaded')
-      && (coopFirst.evidence.finalOutcomes || []).join(',') === 'confirmed');
+      && (coopFirst.evidence.finalOutcomes || []).join(',') === 'confirmed' && coopFirst.evidence.uploads?.some((item) => item.document === 'cv'));
     check('Coop: the sign-in page names no company, so the posting is checked on the form behind it', coopFirst.evidence.postingMatch === 'match');
     // This time the portal drops the first click on the sections and on the CV dialog.
     coop.flaky = true;

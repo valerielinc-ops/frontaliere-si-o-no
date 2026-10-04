@@ -317,7 +317,7 @@ async function dateRegistered(locator, value) {
  * @param {Array<object>} fields snapshot fields
  * @param {Array<{fieldId:string, action:string, value:string, document:string}>} actions
  * @param {{cv:string, cover_letter:string}} files local paths (a requested document, extra_N: its paths)
- * @returns {Promise<Array<{fieldId:string, ok:boolean, error?:string}>>}
+ * @returns {Promise<Array<{fieldId:string, ok:boolean, error?:string, files?:number}>>} files: how many files an upload set
  */
 /**
  * Chooses the files and waits for what that started. umantis (2026-10-03)
@@ -362,6 +362,8 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
   for (const action of actions) {
     const field = byId.get(action.fieldId);
     if (!field || action.action === 'skip') continue;
+    // How many files an upload set, for the record of what left (submit.mjs).
+    let uploaded = 0;
     try {
       const locator = locatorFor(page, field);
       if (action.action === 'upload') {
@@ -370,6 +372,7 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
         // Every file of a requested document when the input takes several, else the first.
         const multiple = paths.length > 1 && await locator.evaluate((element) => Boolean(element.multiple)).catch(() => false);
         await chooseFiles(page, locator, multiple ? paths : paths[0]);
+        uploaded = multiple ? paths.length : 1;
       } else if (action.action === 'check' || action.action === 'uncheck') {
         await setChoice(locator, action.action === 'check');
       } else if (field.kind === 'radio') {
@@ -401,7 +404,7 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
         await fillText(locator, fitToLength(action.value, field.maxLength));
         if (field.kind === 'text' && !['email', 'password'].includes(field.inputType)) await pickSuggestion(page, field, locator, action.value);
       }
-      results.push({ fieldId: field.id, ok: true });
+      results.push({ fieldId: field.id, ok: true, ...(uploaded ? { files: uploaded } : {}) });
     } catch (error) {
       results.push({ fieldId: field.id, ok: false, error: String(error?.message || error).slice(0, 120) });
     }

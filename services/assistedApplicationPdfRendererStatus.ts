@@ -13,7 +13,7 @@ import type { AssistedApplicationPdfRendererCheck } from './assistedApplicationA
 export type PdfRendererTone = 'ok' | 'failed' | 'legacy' | 'unknown';
 
 // The standard-font writer, named by what the owner can see: the letters it cannot print.
-const LEGACY_RENDERER_LABEL = 'generatore di riserva (senza č, ć…)';
+export const LEGACY_RENDERER_LABEL = 'generatore di riserva (senza č, ć…)';
 
 /** On a draft whose PDF the fallback made. */
 export const LEGACY_RENDERER_NOTE = `PDF dal ${LEGACY_RENDERER_LABEL}`;

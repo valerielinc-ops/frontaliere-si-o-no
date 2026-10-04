@@ -909,6 +909,7 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.review.error.file_type_not_allowed': "Format nicht akzeptiert: Verwende PDF, Word, JPG oder PNG.",
  'jobBoard.assisted.review.error.too_many_files': "Du hast für diese Unterlage bereits die maximale Anzahl Dateien hochgeladen.",
  'jobBoard.assisted.review.error.invalid_file': "Die Datei ist nicht lesbar oder existiert nicht mehr. Versuche es erneut.",
+ 'jobBoard.assisted.review.error.file_unreadable': "Wir können dieses Bild nicht lesen: Die Datei scheint beschädigt oder unvollständig zu sein. Lade sie erneut hoch oder verwende ein PDF.",
  'jobBoard.assisted.review.error.storage_unavailable': "Das Hochladen ist gerade nicht möglich. Versuche es bald erneut.",
  'jobBoard.assisted.review.autoApproveAt': "Wenn du nichts tust, wird die Bewerbung {deadline} automatisch so versendet.",
  'jobBoard.assisted.review.fit.partialTitle': "Einige Anforderungen der Stelle gehen aus deinem Lebenslauf nicht hervor",

@@ -348,6 +348,7 @@ describe('submit mode', () => {
     process.env.ASSISTED_APPLICATION_DOSSIER_MODE = 'single';
     try {
       expect(await sent({ type: 'qualified', sector: 'health' })).toEqual(['Dossier_di_candidatura_Maria_Rossi.pdf']);
+      expect(await sent({ type: 'first_job', sector: 'health' })).toEqual(['Dossier_di_candidatura_Maria_Rossi.pdf']);
       const separate = ['CV_Maria_Rossi.pdf', 'Lettera_di_presentazione_Maria_Rossi.pdf'];
       expect(await sent({ type: 'apprentice', sector: 'it' })).toEqual(separate);
       expect(await sent('apprentice')).toEqual(separate);
@@ -436,11 +437,13 @@ describe('submit mode', () => {
       bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl, log: quiet, codex: vi.fn(), portalRunner: runner, ...extra,
     });
     const pastaChannel = { type: 'pastahr', applyUrl: pasta, postingUrl: posting, via: 'prospective', host: 'prod.pastahr.com', requiresAccount: false };
-    const sent = { type: 'submit_succeeded', channel: 'whatsapp', whatsappUrl: pasta };
+    const done = { type: 'submit_succeeded', channel: 'whatsapp', whatsappUrl: pasta };
+    // The record of what left: nothing from us, the candidate sends from their phone.
+    const recorded = { ...done, sent: expect.objectContaining({ packaging: 'whatsapp', channel: 'whatsapp', files: [] }) };
     // A draft from before the redirect was resolved, and one made today.
     await expect(submit({ ...baseDraft, channel: { type: 'employer_site', applyUrl: posting, host: 'jobs.coopjobs.ch', requiresAccount: false } }))
-      .resolves.toEqual(sent);
-    await expect(submit({ ...baseDraft, channel: pastaChannel })).resolves.toEqual(sent);
+      .resolves.toEqual(recorded);
+    await expect(submit({ ...baseDraft, channel: pastaChannel })).resolves.toEqual(recorded);
     expect([...bucket.files.keys()].some((key) => key.includes('submit-whatsapp'))).toBe(true);
     // A dry run says so and stores nothing; a WhatsApp channel without a PastaHR https link stays a handoff.
     await expect(submit({ ...baseDraft, channel: pastaChannel }, { dryRun: true })).resolves.toEqual({ type: 'dry_run_ready', channel: 'whatsapp' });
@@ -525,7 +528,8 @@ describe('submit mode', () => {
     const sent = createMemoryFirestore();
     const clicksAndSends = vi.fn(async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence: { steps: [] } }; });
     expect(await submit(sent.db, clicksAndSends)).toMatchObject({ type: 'submit_succeeded', channel: 'lever' });
-    expect(await submit(sent.db, clicksAndSends)).toEqual({ type: 'submit_succeeded', channel: 'lever', replayed: true });
+    // The replay hands over the record of the first send, as the e-mail's does.
+    expect(await submit(sent.db, clicksAndSends)).toEqual({ type: 'submit_succeeded', channel: 'lever', replayed: true, sent: expect.objectContaining({ packaging: 'portal', channel: 'lever', files: [] }) });
     expect(clicksAndSends).toHaveBeenCalledTimes(1);
 
     // Died after pressing submit: the outcome is unknown, the retry does not press it again.
