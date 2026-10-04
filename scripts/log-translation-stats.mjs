@@ -73,7 +73,9 @@ import {
   genderFormOffence,
   genderFormTargetResidual,
 } from './mark-mistranslated-jobs.mjs';
-import { QUEUE_AGE_BUCKET_KEYS, summarizeQueueAge } from './lib/job-traffic-priority.mjs';
+import { QUEUE_AGE_BUCKET_KEYS, jobQueuedAtMs, summarizeQueueAge } from './lib/job-traffic-priority.mjs';
+import { normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';
+import { currentPredicateVersion } from './lib/incomplete-predicate-version.mjs';
 import { isHeldFromPublication } from './lib/translation-publication-hold.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import { normalizeJobLocale } from './lib/job-locale-utils.mjs';
@@ -521,8 +523,18 @@ export function emptyCounters() {
     // is the translation capacity spent on admissions.
     publicationHeld: 0,
     publicationHeldByCrawler: {},
+    // The 24-48 h cohort (first seen between one and two days before `now`):
+    // the map's second condition asks for every locale within 24 h, so a job
+    // aged 24-48 h that is still incomplete has missed it. Counted here so the
+    // coverage monitor reads it from the history instead of re-scanning the
+    // corpus; before 2026-10-04 it was only measurable with a replay.
+    freshCohortTotal: 0,
+    freshCohortComplete: 0,
   };
 }
+
+/** Lower and upper age bound, in ms, of the cohort `freshCohort` counts. */
+export const FRESH_COHORT_WINDOW_MS = Object.freeze([24 * 3600 * 1000, 48 * 3600 * 1000]);
 
 /**
  * Stable-enough identity for the before/after cohort diff.
@@ -561,6 +573,7 @@ export function summarizeJobs(
     previouslyIncomplete = null,
     collectGenderFormCohort = false,
     previouslyGenderFormSample = null,
+    now = Date.now(),
   } = {},
 ) {
   const c = emptyCounters();
@@ -649,6 +662,14 @@ export function summarizeJobs(
         });
       }
     }
+    const queuedAt = jobQueuedAtMs(job);
+    if (Number.isFinite(queuedAt)) {
+      const age = now - queuedAt;
+      if (age >= FRESH_COHORT_WINDOW_MS[0] && age < FRESH_COHORT_WINDOW_MS[1]) {
+        c.freshCohortTotal++;
+        if (!incomplete) c.freshCohortComplete++;
+      }
+    }
     if (incomplete) {
       c.incomplete++;
       if (collectIncompleteIds) {
@@ -685,6 +706,8 @@ export function mergeCounters(dst, src) {
   dst.genderFormSampleProcessed += src.genderFormSampleProcessed;
   dst.genderFormSampleResidual += src.genderFormSampleResidual;
   dst.publicationHeld += src.publicationHeld || 0;
+  dst.freshCohortTotal += src.freshCohortTotal || 0;
+  dst.freshCohortComplete += src.freshCohortComplete || 0;
   for (const [key, count] of Object.entries(src.publicationHeldByCrawler || {})) {
     dst.publicationHeldByCrawler[key] = (dst.publicationHeldByCrawler[key] || 0) + count;
   }
@@ -723,6 +746,7 @@ export function finalizeEntry(
     timestamp = new Date().toISOString(),
     now = Date.now(),
     genderFormRepair = undefined,
+    predicateVersion = null,
   } = {},
 ) {
   const complete = counters.total - counters.incomplete;
@@ -789,6 +813,19 @@ export function finalizeEntry(
       held: counters.publicationHeld || 0,
       byCrawler: { ...(counters.publicationHeldByCrawler || {}) },
     },
+    // Which `isIncomplete()` counted this row (16 hex of sha256 of its sources,
+    // scripts/lib/incomplete-predicate-version.mjs). Two rows with different
+    // versions are not comparable without a recount: on 2026-09-30 a stricter
+    // predicate moved `complete` by -11.8 points in one commit, and without
+    // this field that step was indistinguishable from a data regression.
+    // `null` = not computed (rows before 2026-10-04, or the hash failed).
+    predicateVersion,
+    // Absent on rows written before 2026-10-04: not measured.
+    freshCohort: {
+      window: '24-48h',
+      total: counters.freshCohortTotal || 0,
+      complete: counters.freshCohortComplete || 0,
+    },
     topPending,
   };
 }
@@ -827,6 +864,11 @@ export function formatReport(entry) {
       '(agency jobs kept out of publication until every title is translated)');
   const bl = entry.missingByLocale;
   row('Missing by locale:', `IT=${bl.it} EN=${bl.en} DE=${bl.de} FR=${bl.fr}`);
+  const fc = entry.freshCohort;
+  row('Complete, first seen 24-48h:', fc ? formatCompleteRatio(fc.complete, fc.total) : 'not measured',
+      '(the map asks for every locale within 24h)');
+  row('Predicate version:', entry.predicateVersion ?? 'not computed',
+      '(rows with different versions are not comparable without a recount)');
 
   // Queue AGE. Printed unconditionally, including the `n/a` case, so a run that
   // stopped producing the metric is visible in the log instead of looking like
@@ -952,6 +994,29 @@ function readCohortState() {
   };
 }
 
+let cachedPredicateVersion;
+
+/**
+ * The fingerprint of the predicate that is counting, or `null` with a warning.
+ * Fail-open like the cohort sidecar: a missing fingerprint makes the coverage
+ * monitor say «predicato ignoto», it must never cost the translation run.
+ * Computed once per process: the code cannot change under a running process,
+ * and lib/translation-observability.mjs asks for it once per snapshot.
+ */
+export function predicateVersionOrNull() {
+  if (cachedPredicateVersion !== undefined) return cachedPredicateVersion;
+  try {
+    cachedPredicateVersion = currentPredicateVersion({
+      isIncomplete: isIncompleteCanonical,
+      helpers: { normalizeForLengthComparison },
+    });
+  } catch (err) {
+    console.warn(`::warning::[translation-stats] predicateVersion not computed: ${err.message}`);
+    cachedPredicateVersion = null;
+  }
+  return cachedPredicateVersion;
+}
+
 export function beforeCohortWarning(label, cohort) {
   if (label !== 'after' || cohort !== null) return null;
   return '::warning::[translation-stats] no `before` cohort for this run — age at completion is not measured';
@@ -1022,6 +1087,7 @@ function main() {
     label,
     topPending: topCompanies.slice(0, 10),
     genderFormRepair,
+    predicateVersion: predicateVersionOrNull(),
   });
 
   // The history is read BEFORE printing: the `after` row's cross-run window
