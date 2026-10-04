@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import ts from 'typescript';
 import { afterAll, beforeAll, describe, it, expect, vi } from 'vitest';
 import {
   assertCoopAdapterParity,
@@ -1684,9 +1685,11 @@ describe('Coop: the run after a failed one reuses translations from the committe
   const contentReuse = { enabled: true, similarityThreshold: 0.7, minSourceChars: 220, maxLengthDeltaRatio: 0.02 };
 
   let tmpDir = '';
+  let previousRegistryOverride: string | undefined;
   beforeAll(() => {
     tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'coop-after-failed-run-'));
     fs.writeFileSync(path.join(tmpDir, 'slug-registry.json'), '{}', 'utf8');
+    previousRegistryOverride = process.env.SLUG_REGISTRY_PATH_OVERRIDE;
     process.env.SLUG_REGISTRY_PATH_OVERRIDE = path.join(tmpDir, 'slug-registry.json');
     const sliceDir = path.join(tmpDir, 'by-crawler');
     fs.mkdirSync(sliceDir);
@@ -1697,7 +1700,8 @@ describe('Coop: the run after a failed one reuses translations from the committe
     fs.writeFileSync(path.join(sliceDir, 'fust.json'), JSON.stringify({ jobs: [{ url: 'https://jobs.coopjobs.ch/offene-stellen/fust/1', companyKey: 'fust' }] }));
   });
   afterAll(() => {
-    delete process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    if (previousRegistryOverride === undefined) delete process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    else process.env.SLUG_REGISTRY_PATH_OVERRIDE = previousRegistryOverride;
     fs.rmSync(tmpDir, { recursive: true, force: true });
   });
 
@@ -1726,11 +1730,27 @@ describe('Coop runner writes nothing under data/jobs/by-crawler/ but its slice',
   // A non-slice file there has already produced a 20 MB phantom archive and a
   // translation cache that was never committed (issue 9142). The slice itself
   // is written by writeJobsCrawlerSlice, so the runner needs no path there.
+  // The check walks the parsed source (comments are not tokens, string
+  // literals stay intact), so a glob such as 'by-crawler/*.json' cannot hide
+  // code, and a slice-dir constant imported from a helper is caught by name.
+  // It is a static proxy for the runtime behaviour: the runner's only write
+  // there goes through writeJobsCrawlerSlice.
   it('builds no path into data/jobs/by-crawler', () => {
-    const source = fs.readFileSync(path.resolve(import.meta.dirname, '..', 'scripts', 'update-coop-jobs.mjs'), 'utf8');
-    const code = source.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
-    expect(code).not.toMatch(/by-crawler/);
-    expect(code).not.toMatch(/locale-cache/);
+    const file = path.resolve(import.meta.dirname, '..', 'scripts', 'update-coop-jobs.mjs');
+    const sourceFile = ts.createSourceFile(file, fs.readFileSync(file, 'utf8'), ts.ScriptTarget.Latest, true, ts.ScriptKind.JS);
+    const literals: string[] = [];
+    const identifiers = new Set<string>();
+    const visit = (node: ts.Node) => {
+      if (ts.isStringLiteralLike(node) || ts.isTemplateHead(node) || ts.isTemplateMiddle(node) || ts.isTemplateTail(node)) {
+        literals.push(node.text);
+      } else if (ts.isIdentifier(node)) {
+        identifiers.add(node.text);
+      }
+      ts.forEachChild(node, visit);
+    };
+    visit(sourceFile);
+    expect(literals.filter((text) => /by-crawler|locale-cache/.test(text))).toEqual([]);
+    expect([...identifiers].filter((name) => /BY_CRAWLER|LOCALE_CACHE|TRANSLATIONS_CACHE|SLICE_DIR/i.test(name))).toEqual([]);
   });
 });
 
