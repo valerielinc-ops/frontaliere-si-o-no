@@ -201,6 +201,8 @@ describe('Stadtspital Zürich crawler parser', () => {
       expect(isStadtspitalZuerichJob(job)).toBe(true);
     });
 
+    // The ad texts are read by `fetchOfficialAdTexts()`, shared with the
+    // stadt-zuerich parser (bucket 10677, item FU-2026-10-01-056).
     it('publishes the official ad text, never a synthetic tile summary', async () => {
       const fetchMock = stubFetchWith(FIXTURE);
       const jobs = await fetchAllStadtspitalZuerichJobs();

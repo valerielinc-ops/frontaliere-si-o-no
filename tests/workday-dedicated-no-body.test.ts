@@ -43,19 +43,26 @@ const WORKDAY_CASES = [
 
 describe('dedicated Workday parsers — req without a vacancy body', () => {
   for (const { name, fetchAll, swiss } of WORKDAY_CASES) {
-    it(`${name}: publishes the req with a body and skips the one without, never inventing text`, async () => {
+    // JR2: a body under the floor. JR3: a detail without `jobDescription` at
+    // all. JR4: a detail the tenant no longer serves (404 → no detail). None
+    // of the three may go out with a stand-in text (bucket 10677, items
+    // FU-2026-10-01-048..051).
+    it(`${name}: publishes the req with a body and skips the ones with a short, absent or unreadable body, never inventing text`, async () => {
       const postings = [
         { title: 'Senior Engineer', externalPath: '/job/Swiss/Senior-Engineer_JR1', locationsText: swiss, postedOn: 'Posted Today', bulletFields: ['JR1'] },
         { title: 'Project Manager', externalPath: '/job/Swiss/Project-Manager_JR2', locationsText: swiss, postedOn: 'Posted Today', bulletFields: ['JR2'] },
+        { title: 'Quality Specialist', externalPath: '/job/Swiss/Quality-Specialist_JR3', locationsText: swiss, postedOn: 'Posted Today', bulletFields: ['JR3'] },
+        { title: 'Data Analyst', externalPath: '/job/Swiss/Data-Analyst_JR4', locationsText: swiss, postedOn: 'Posted Today', bulletFields: ['JR4'] },
       ];
       vi.stubGlobal('fetch', vi.fn(async (url: string, init: any = {}) => {
         const href = String(url);
         if (init?.method === 'POST' && href.endsWith('/jobs')) {
           const body = JSON.parse(init.body || '{}');
-          return json({ total: 2, jobPostings: body.offset > 0 ? [] : postings });
+          return json({ total: postings.length, jobPostings: body.offset > 0 ? [] : postings });
         }
         if (href.endsWith('_JR1')) return json({ jobPostingInfo: { title: 'Senior Engineer', location: swiss, jobDescription: BODY } });
         if (href.endsWith('_JR2')) return json({ jobPostingInfo: { title: 'Project Manager', location: swiss, jobDescription: '<p>Apply now</p>' } });
+        if (href.endsWith('_JR3')) return json({ jobPostingInfo: { title: 'Quality Specialist', location: swiss } });
         return new Response('', { status: 404 });
       }));
       vi.spyOn(console, 'log').mockImplementation(() => {});
@@ -70,6 +77,8 @@ describe('dedicated Workday parsers — req without a vacancy body', () => {
   }
 });
 
+// Oracle HCM, not Workday: this existing empty-ExternalDescriptionStr case is
+// the acceptance test of bucket 10677 item FU-2026-10-01-055 (not extended).
 describe('edmond-de-rothschild — requisition without a vacancy body', () => {
   it('publishes the requisition with a body and skips the one without, never inventing text', async () => {
     const req = (Id: string, Title: string) => ({ Id, Title, PrimaryLocation: 'Geneva', PrimaryLocationCountry: 'CH', PostedDate: '2026-09-20', ShortDescriptionStr: '' });

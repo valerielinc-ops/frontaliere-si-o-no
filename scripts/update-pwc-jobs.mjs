@@ -249,7 +249,7 @@ export function buildPwcJob(row) {
   };
 }
 
-function jobMatchKey(job = {}) {
+export function jobMatchKey(job = {}) {
   // Key on the stable identifier embedded in the source URL (UUID, numeric ID,
   // content hash) rather than the full URL. PwC and similar vendors rewrite
   // the slug-portion of the URL when titles change while keeping the same
