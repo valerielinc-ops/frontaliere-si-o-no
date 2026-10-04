@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ 'whatsNew.v3983.title': "Artikel: Urheber und Lizenz der Titelbilder",
+ 'whatsNew.v3983.coverCredits.title': "Bildnachweis der Titelbilder",
+ 'whatsNew.v3983.coverCredits.desc': "Am Ende von Artikeln mit einem Titelbild aus Wikimedia Commons findest du jetzt Titel, Urheber und Lizenz des Bildes, mit einem Link zu seiner Seite auf Wikimedia Commons.",
  'whatsNew.v3981.title': "Begleitete Bewerbung: Wir sagen dir, wenn eine Anforderung fehlt",
  'whatsNew.v3981.fitNotice.title': "Anforderungen, die aus dem Lebenslauf nicht hervorgehen",
  'whatsNew.v3981.fitNotice.desc': "Vor dem Versand zeigt dir die Seite deiner Bewerbung, welche zwingenden Anforderungen der Stelle aus deinem Lebenslauf nicht hervorgehen. Die Bewerbung läuft trotzdem weiter: Du entscheidest, ob du sie in den Antworten ergänzt oder so sendest.",

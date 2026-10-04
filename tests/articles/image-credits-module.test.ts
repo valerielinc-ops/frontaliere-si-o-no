@@ -268,6 +268,24 @@ describe('attribution requested by the licensor', () => {
     expect(imageObjectCreditFields(yann).creditText).toBe('© Yann Forget / Wikimedia Commons');
   });
 
+  it('does not name Commons twice in the line either: the attribution verbatim, no «via Wikimedia Commons»', () => {
+    // The licensor's requested credit line already names Commons, so the line
+    // shows it as written and drops its own «tramite/via Wikimedia Commons».
+    const yann = record({ attribution: '© Yann Forget / Wikimedia Commons' });
+    const nbsp = ' ';
+    expect(['it', 'en', 'de', 'fr'].map((locale) => imageCreditParts(yann, locale)!.text)).toEqual([
+      'Immagine di copertina: «Locarno 1», © Yann Forget / Wikimedia Commons, CC BY-SA 3.0 (ridimensionata).',
+      'Cover image: “Locarno 1”, © Yann Forget / Wikimedia Commons, CC BY-SA 3.0 (resized).',
+      'Titelbild: „Locarno 1“, © Yann Forget / Wikimedia Commons, CC BY-SA 3.0 (skaliert).',
+      `Image de couverture${nbsp}: «${nbsp}Locarno 1${nbsp}», © Yann Forget / Wikimedia Commons, CC BY-SA 3.0 (redimensionnée).`,
+    ]);
+    const html = renderImageCreditHtml(yann, 'it');
+    expect(html).toContain('<bdi>© Yann Forget / Wikimedia Commons</bdi>');
+    expect(html.match(/Wikimedia Commons/g)).toHaveLength(1);
+    // An attribution that does not name Commons keeps the phrase (FORTEPAN above).
+    expect(imageCreditParts(FORTEPAN, 'de')!.text).toContain(', via Wikimedia Commons (skaliert).');
+  });
+
   it('is linked to the author profile when one is known', () => {
     const linked = record({ attribution: 'Riessdo / de.wikipedia' });
     expect(renderImageCreditHtml(linked, 'it')).toContain(

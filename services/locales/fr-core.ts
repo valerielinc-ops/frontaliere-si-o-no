@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
+ 'whatsNew.v3983.title': "Articles : auteur et licence des images de couverture",
+ 'whatsNew.v3983.coverCredits.title': "Crédits des images de couverture",
+ 'whatsNew.v3983.coverCredits.desc': "À la fin des articles dont l’image de couverture vient de Wikimedia Commons, vous trouvez désormais le titre, l’auteur et la licence de l’image, avec un lien vers sa page sur Wikimedia Commons.",
  'whatsNew.v3981.title': "Candidature assistée : nous vous disons s’il manque une exigence",
  'whatsNew.v3981.fitNotice.title': "Exigences qui ne ressortent pas du CV",
  'whatsNew.v3981.fitNotice.desc': "Avant l’envoi, la page de votre candidature indique quelles exigences indispensables de l’annonce ne ressortent pas de votre CV. La candidature continue quand même : vous décidez de les préciser dans vos réponses ou de l’envoyer telle quelle.",

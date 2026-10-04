@@ -4,6 +4,9 @@ import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
 import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18nParams, getLocale, t as translate } from '@/services/i18n';
 import { fetchArticleOverlay, mergeOverlay } from '@/services/articlesOverlay';
+import { articleCoverImageLd, creditedStaticImageObject, fetchImageCredit, fetchImageCredits } from '@/services/imageCredits';
+import type { ImageCreditRecord } from '@/packages/articles/engine/shared/imageCredits.mjs';
+import ImageCreditLine from '@/components/community/ImageCreditLine';
 import { runtimeArticleRecords, fetchArticleBodyParts, publishRuntimeArticleBody, publishedSlugsForIds } from '@/services/runtimeArticleResolution';
 import type { Locale } from '@/services/i18n';
 import { buildPath, preloadBlogData, learnRuntimeBlogSlugs, learnRuntimeSwissSlugs } from '@/services/router';
@@ -1440,6 +1443,10 @@ function BlogArticles({
  useEffect(() => {
  if (!selectedArticle) { setBodyReady(false); return; }
  setBodyReady(false);
+ // The section's cover credits (P14), started with the body so they have
+ // normally landed by `bodyReady`. One request per section per session;
+ // fail-open (services/imageCredits.ts).
+ void fetchImageCredits(section);
  loadArticleBody(selectedArticle, section).then(async () => {
  // The body chunks are compiled in, so an article published after this
  // build has none: `loadBlogBodyChunk` resolves to null, `bodyReady` flips
@@ -1473,6 +1480,25 @@ function BlogArticles({
  getArticleAuthorOverride(selectedArticle).then((o) => { if (!cancelled) setArticleAuthorOverride(o ?? null); }).catch(() => {});
  return () => { cancelled = true; };
  }, [selectedArticle]);
+
+ // Credit of the cover's Wikimedia Commons photo (P14): its author and licence
+ // for the line at the end of the article and for the NewsArticle image. Held
+ // with the cover it belongs to, so an answer that lands after a navigation is
+ // never shown under the next article. No credit: no line, JSON-LD as before.
+ const selectedCover = selectedArticle ? articleById.get(selectedArticle)?.image : undefined;
+ const [coverCredit, setCoverCredit] = useState<{ cover: string; record: ImageCreditRecord } | null>(null);
+ const imageCredit = coverCredit && coverCredit.cover === selectedCover ? coverCredit.record : null;
+ useEffect(() => {
+ if (!selectedCover) return;
+ let cancelled = false;
+ fetchImageCredit(section, selectedCover)
+ .then((record) => { if (!cancelled) setCoverCredit(record ? { cover: selectedCover, record } : null); })
+ .catch(() => {});
+ return () => { cancelled = true; };
+ }, [section, selectedCover]);
+ // The static page's credited ImageObject, kept when its NewsArticle is
+ // replaced below — the fallback when the credits fetch fails.
+ const staticCoverImageRef = useRef<Record<string, unknown> | null>(null);
 
  // Fetch job listings for cross-linking (related jobs in article view)
  const [crossLinkJobs, setCrossLinkJobs] = useState<JobPreview[]>([]);
@@ -1608,6 +1634,24 @@ function BlogArticles({
  // editorial Organization only as fallback — mirroring the static
  // ogPagesPlugin NewsArticle so SPA and static declare the same entity.
  const { authorSlug: ldAuthorSlug, authorName: ldAuthorName } = mergeArticleByline(articleAuthorOverride, article);
+ // article.image may already be an absolute CDN URL (blog heroes on jsDelivr);
+ // only prefix the origin for same-origin relative paths (e.g. /images/places).
+ const coverUrl = article.image.startsWith('http') ? article.image : `https://frontaliereticino.ch${article.image}`;
+ const scriptId = 'blog-article-jsonld';
+ // Remove any pre-existing BlogPosting JSON-LD from static HTML (ogPagesPlugin)
+ // to prevent duplicate schemas during SPA hydration
+ document.querySelectorAll('script[type="application/ld+json"]').forEach(el => {
+ if (el.id === scriptId) return;
+ try {
+ const data = JSON.parse(el.textContent || '');
+ if (data['@type'] === 'BlogPosting' || data['@type'] === 'NewsArticle' || data['@type'] === 'Article') {
+ // P14: a static page rendered with the cover's credit carries it in this
+ // ImageObject; keep it before the script goes, for when the fetch fails.
+ staticCoverImageRef.current = creditedStaticImageObject(data.image, coverUrl) ?? staticCoverImageRef.current;
+ el.remove();
+ }
+ } catch { /* non-JSON — leave it */ }
+ });
  const jsonLd: Record<string, unknown> = {
  '@context': 'https://schema.org',
  '@type': 'NewsArticle',
@@ -1639,9 +1683,9 @@ function BlogArticles({
  },
  isPartOf: { '@type': 'WebSite', '@id': 'https://frontaliereticino.ch/#website', name: 'Frontaliere Ticino' },
  mainEntityOfPage: canonicalUrl,
- // article.image may already be an absolute CDN URL (blog heroes on jsDelivr);
- // only prefix the origin for same-origin relative paths (e.g. /images/places).
- image: article.image.startsWith('http') ? article.image : `https://frontaliereticino.ch${article.image}`,
+ // The photo's own creator and licence when the cover is credited (P14),
+ // else the bare URL as before (services/imageCredits.ts).
+ image: articleCoverImageLd(coverUrl, imageCredit, staticCoverImageRef.current),
  inLanguage: locale,
  isAccessibleForFree: true,
  articleSection: article.category,
@@ -1651,18 +1695,6 @@ function BlogArticles({
  cssSelector: ['h1', '.article-body p:first-of-type', '[data-speakable]'],
  },
  };
- const scriptId = 'blog-article-jsonld';
- // Remove any pre-existing BlogPosting JSON-LD from static HTML (ogPagesPlugin)
- // to prevent duplicate schemas during SPA hydration
- document.querySelectorAll('script[type="application/ld+json"]').forEach(el => {
- if (el.id === scriptId) return;
- try {
- const data = JSON.parse(el.textContent || '');
- if (data['@type'] === 'BlogPosting' || data['@type'] === 'NewsArticle' || data['@type'] === 'Article') {
- el.remove();
- }
- } catch { /* non-JSON — leave it */ }
- });
  let el = document.getElementById(scriptId) as HTMLScriptElement | null;
  if (!el) {
  el = document.createElement('script');
@@ -1715,7 +1747,7 @@ function BlogArticles({
  if (existing) existing.remove();
  document.getElementById(faqScriptId)?.remove();
  };
- }, [selectedArticle, articles, locale, t, articleAuthorOverride]);
+ }, [selectedArticle, articles, locale, t, articleAuthorOverride, imageCredit]);
 
  const handleResponsiveImageError = useCallback((imagePath: string) => {
  setImageFallbackMap(prev => (prev[imagePath] ? prev : { ...prev, [imagePath]: true }));
@@ -2670,6 +2702,11 @@ function BlogArticles({
  );
  } catch { return null; }
  })()}
+
+ {/* Cover credit (P14): the Wikimedia Commons photo's title, author and
+     licence, at the end of the article like on the static page. Below the
+     fold, after every in-article ad; no ad slot moves. */}
+ {bodyReady && imageCredit && <ImageCreditLine record={imageCredit} locale={locale} />}
 
  {/* Contextual CTA widgets */}
  {articleCTAs.length > 0 && (
