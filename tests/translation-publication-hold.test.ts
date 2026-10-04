@@ -23,6 +23,7 @@ import {
   hasPublishableTitles,
   isHeldFromPublication,
   partitionHeldFromPublication,
+  publishedOnNextDeploy,
   releaseTranslatedHolds,
   summarizeTranslationHold,
   untranslatedTitleLocales,
@@ -255,6 +256,26 @@ describe('pubblicazione', () => {
     expect(written.jobs[0][TRANSLATION_HOLD_FIELD]).toBeUndefined();
     expect(written.jobs[1][TRANSLATION_HOLD_FIELD]).toBeTruthy();
     expect(lines.join('\n')).toContain('1 job fuori dalla pubblicazione');
+  });
+});
+
+describe('il riepilogo del crawler elenca solo ciò che il prossimo deploy pubblica', () => {
+  it('lascia fuori un arrivo non tradotto e un job ancora trattenuto, tiene i già ammessi e i tradotti', () => {
+    const slicesDir = path.join(tmpDir('held-summary-'), 'by-crawler');
+    fs.mkdirSync(slicesDir, { recursive: true });
+    const grandfathered = agencyJob(1);
+    const stillHeld = agencyJob(4, { [TRANSLATION_HOLD_FIELD]: daysAgo(2) });
+    fs.writeFileSync(path.join(slicesDir, 'sta.json'), JSON.stringify({ crawlerKey: 'sta', jobs: [grandfathered, stillHeld] }));
+    const other = { id: 'acme-1', companyKey: 'acme', title: 'Contabile', titleByLocale: {} };
+    const crawl = [
+      agencyJob(1),
+      agencyJob(2),
+      translated(agencyJob(3)),
+      agencyJob(4),
+      other,
+    ];
+    expect(publishedOnNextDeploy(crawl, { slicesDir }).map((job) => job.id))
+      .toEqual(['sta-test-1', 'sta-test-3', 'acme-1']);
   });
 });
 

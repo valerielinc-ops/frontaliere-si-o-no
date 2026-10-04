@@ -317,6 +317,22 @@ export function createAwaitingAdmissionCheck({ slicesDir } = {}) {
 }
 
 /**
+ * I job che il prossimo deploy pubblicherà, per i riepiloghi del crawler
+ * («URL pubblicati», «Offerte pubblicate»): un job in attesa di ammissione con
+ * un titolo non tradotto resterà fuori dalla pubblicazione, quindi non è
+ * un'offerta pubblicata. Stesso giudizio di writeJobsCrawlerSlice, prima che
+ * timbri lo slice.
+ *
+ * @param {object[]} jobs
+ * @param {{ slicesDir?: string }} [opts]
+ * @returns {object[]}
+ */
+export function publishedOnNextDeploy(jobs, { slicesDir } = {}) {
+  const awaiting = createAwaitingAdmissionCheck(slicesDir ? { slicesDir } : {});
+  return (Array.isArray(jobs) ? jobs : []).filter((job) => !(awaiting(job) && !hasPublishableTitles(job)));
+}
+
+/**
  * Timbra lo stato di ammissione al momento in cui il crawler scrive lo slice.
  *
  * - job già presente nello slice su disco e non trattenuto (pubblicato prima di
