@@ -1,6 +1,6 @@
 {
   "crawlerKey": "novartis",
-  "assembledAt": "2026-10-04T09:20:39.923Z",
+  "assembledAt": "2026-10-04T21:23:36.033Z",
   "jobs": [
     {
       "id": "novartis-e0444ddb259a",
@@ -33,7 +33,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Patent-Attorney_REQ-10081840-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:34.045Z",
+      "crawledAt": "2026-10-04T21:23:30.051Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -53,7 +53,8 @@
         "leader-del-progetto-di-formulazione-m-f-d-novartis-basel-city",
         "formulation-project-leader-m-f-d-novartis-ch",
         "formulierungsprojektleiter-m-w-d-novartis-basel-city",
-        "responsable-du-projet-de-formulation-m-f-d-novartis-basel-city"
+        "responsable-du-projet-de-formulation-m-f-d-novartis-basel-city",
+        "procuratore-di-brevetto-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -61,7 +62,8 @@
           "leader-del-progetto-di-formulazione-m-f-d-novartis-basel-city",
           "formulation-project-leader-m-f-d-novartis-ch",
           "formulierungsprojektleiter-m-w-d-novartis-basel-city",
-          "responsable-du-projet-de-formulation-m-f-d-novartis-basel-city"
+          "responsable-du-projet-de-formulation-m-f-d-novartis-basel-city",
+          "procuratore-di-brevetto-novartis-basel-city"
         ],
         "en": [
           "formulation-project-leader-m-f-d-novartis-ch"
@@ -122,7 +124,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Logistiker-in-EFZ_REQ-10084328",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:33.315Z",
+      "crawledAt": "2026-10-04T21:23:29.334Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -138,11 +140,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-logistiker-in-efz-novartis-ch"
+        "lernende-r-logistiker-in-efz-novartis-ch",
+        "apprendista-logistiker-in-cfc-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-logistiker-in-efz-novartis-ch"
+          "lernende-r-logistiker-in-efz-novartis-ch",
+          "apprendista-logistiker-in-cfc-novartis-basel-city"
         ],
         "en": [
           "lernende-r-logistiker-in-efz-novartis-ch"
@@ -152,6 +156,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T22:50:44.030Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -198,7 +203,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Laborant-in-EFZ-Fachrichtung-Chemie_REQ-10084314-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:32.604Z",
+      "crawledAt": "2026-10-04T21:23:28.616Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -214,11 +219,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-laborant-in-efz-fachrichtung-chemie-novartis-ch"
+        "lernende-r-laborant-in-efz-fachrichtung-chemie-novartis-ch",
+        "apprendista-laborant-in-cfc-specializzazione-chemie-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-laborant-in-efz-fachrichtung-chemie-novartis-ch"
+          "lernende-r-laborant-in-efz-fachrichtung-chemie-novartis-ch",
+          "apprendista-laborant-in-cfc-specializzazione-chemie-novartis-basel-city"
         ],
         "en": [
           "lernende-r-laborant-in-efz-fachrichtung-chemie-novartis-ch"
@@ -228,6 +235,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T22:50:43.248Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -274,7 +282,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Laborant-in-EFZ-Fachrichtung-Biologie_REQ-10084330",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:31.901Z",
+      "crawledAt": "2026-10-04T21:23:27.896Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -290,11 +298,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-laborant-in-efz-fachrichtung-biologie-novartis-ch"
+        "lernende-r-laborant-in-efz-fachrichtung-biologie-novartis-ch",
+        "apprendista-laborant-in-cfc-specializzazione-biologie-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-laborant-in-efz-fachrichtung-biologie-novartis-ch"
+          "lernende-r-laborant-in-efz-fachrichtung-biologie-novartis-ch",
+          "apprendista-laborant-in-cfc-specializzazione-biologie-novartis-basel-city"
         ],
         "en": [
           "lernende-r-laborant-in-efz-fachrichtung-biologie-novartis-ch"
@@ -304,6 +314,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T22:50:42.485Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -350,7 +361,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Kauffrau--mann-EFZ_REQ-10084331",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:31.205Z",
+      "crawledAt": "2026-10-04T21:23:27.195Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -366,11 +377,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-kauffrau-mann-efz-novartis-ch"
+        "lernende-r-kauffrau-mann-efz-novartis-ch",
+        "apprendista-kauffrau-mann-cfc-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-kauffrau-mann-efz-novartis-ch"
+          "lernende-r-kauffrau-mann-efz-novartis-ch",
+          "apprendista-kauffrau-mann-cfc-novartis-basel-city"
         ],
         "en": [
           "lernende-r-kauffrau-mann-efz-novartis-ch"
@@ -380,6 +393,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T22:50:41.707Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -426,7 +440,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Kauffrau--mann-EBA_REQ-10084332",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:30.513Z",
+      "crawledAt": "2026-10-04T21:23:26.492Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -442,11 +456,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-kauffrau-mann-eba-novartis-ch"
+        "lernende-r-kauffrau-mann-eba-novartis-ch",
+        "apprendista-kauffrau-mann-afp-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-kauffrau-mann-eba-novartis-ch"
+          "lernende-r-kauffrau-mann-eba-novartis-ch",
+          "apprendista-kauffrau-mann-afp-novartis-basel-city"
         ],
         "en": [
           "lernende-r-kauffrau-mann-eba-novartis-ch"
@@ -502,7 +518,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Chemie--und-Pharmatechnologe--technologin-EFZ_REQ-10084325",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:29.811Z",
+      "crawledAt": "2026-10-04T21:23:25.624Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -518,11 +534,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-chemie-und-pharmatechnologe-technologin-efz-novartis-ch"
+        "lernende-r-chemie-und-pharmatechnologe-technologin-efz-novartis-ch",
+        "apprendista-chemie-e-pharmatechnologe-technologin-cfc-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-chemie-und-pharmatechnologe-technologin-efz-novartis-ch"
+          "lernende-r-chemie-und-pharmatechnologe-technologin-efz-novartis-ch",
+          "apprendista-chemie-e-pharmatechnologe-technologin-cfc-novartis-basel-city"
         ],
         "en": [
           "lernende-r-chemie-und-pharmatechnologe-technologin-efz-novartis-ch"
@@ -532,6 +550,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T22:50:40.146Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -578,7 +597,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Tierpfleger-in-EFZ--Fachrichtung-Versuchstiere_REQ-10084421",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:29.110Z",
+      "crawledAt": "2026-10-04T21:23:24.610Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -598,7 +617,8 @@
         "lernend-er-tierpfleger-in-cfc-specializzazione-versuchstiere-novartis-basel-city",
         "lernend-er-tierpfleger-in-efz-fachrichtung-versuchstiere-novartis-ch",
         "apprentice-animal-caregiver-efz-field-of-study-animals-novartis-basel-city",
-        "apprentis-aidant-animal-efz-domaine-d-etude-novartis-basel-city"
+        "apprentis-aidant-animal-efz-domaine-d-etude-novartis-basel-city",
+        "apprendista-tierpfleger-in-cfc-specializzazione-versuchstiere-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -606,7 +626,8 @@
           "lernend-er-tierpfleger-in-cfc-specializzazione-versuchstiere-novartis-basel-city",
           "lernend-er-tierpfleger-in-efz-fachrichtung-versuchstiere-novartis-ch",
           "apprentice-animal-caregiver-efz-field-of-study-animals-novartis-basel-city",
-          "apprentis-aidant-animal-efz-domaine-d-etude-novartis-basel-city"
+          "apprentis-aidant-animal-efz-domaine-d-etude-novartis-basel-city",
+          "apprendista-tierpfleger-in-cfc-specializzazione-versuchstiere-novartis-basel-city"
         ],
         "en": [
           "lernende-r-tierpfleger-in-efz-fachrichtung-versuchstiere-novartis-ch",
@@ -621,6 +642,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:21:44.571Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -667,7 +689,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Therapeutic-Area-Head--PK-Sciences---Immunology_REQ-10084131-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:28.365Z",
+      "crawledAt": "2026-10-04T21:23:23.900Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -683,11 +705,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "therapeutic-area-head-pk-sciences-immunology-novartis-ch"
+        "therapeutic-area-head-pk-sciences-immunology-novartis-ch",
+        "area-terapeutica-capo-scienze-pk-immunologia-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "therapeutic-area-head-pk-sciences-immunology-novartis-ch"
+          "therapeutic-area-head-pk-sciences-immunology-novartis-ch",
+          "area-terapeutica-capo-scienze-pk-immunologia-novartis-basel-city"
         ],
         "de": [
           "therapeutic-area-head-pk-sciences-immunology-novartis-ch"
@@ -744,7 +768,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Senior-Principal-Scientist-Associate-Director-Clinical-PBPK---Dual-Level-Posting-_REQ-10084148-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:27.623Z",
+      "crawledAt": "2026-10-04T21:23:23.175Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -760,11 +784,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-principal-scientist-associate-director-clinical-pbpk-dual-level-posting-novartis-ch"
+        "senior-principal-scientist-associate-director-clinical-pbpk-dual-level-posting-novartis-ch",
+        "senior-principal-scientist-associate-direttore-clinical-pbpk-dual-level-posting-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-principal-scientist-associate-director-clinical-pbpk-dual-level-posting-novartis-ch"
+          "senior-principal-scientist-associate-director-clinical-pbpk-dual-level-posting-novartis-ch",
+          "senior-principal-scientist-associate-direttore-clinical-pbpk-dual-level-posting-novartis-basel-city"
         ],
         "de": [
           "senior-principal-scientist-associate-director-clinical-pbpk-dual-level-posting-novartis-ch"
@@ -774,6 +800,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:30:21.507Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -820,7 +847,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Senior-Principal-Scientist---Associate-Director--Soluble-Biomarkers--Molecular---Cellular-Sciences--MCS-_REQ-10084254-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:26.894Z",
+      "crawledAt": "2026-10-04T21:23:22.440Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -836,11 +863,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-principal-scientist-associate-director-soluble-biomarkers-molecular-cellular"
+        "senior-principal-scientist-associate-director-soluble-biomarkers-molecular-cellular",
+        "senior-principal-scientist-associate-direttore-soluble-biomarkers-molecular-cellular-sciences-mcs-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-principal-scientist-associate-director-soluble-biomarkers-molecular-cellular"
+          "senior-principal-scientist-associate-director-soluble-biomarkers-molecular-cellular",
+          "senior-principal-scientist-associate-direttore-soluble-biomarkers-molecular-cellular-sciences-mcs-novartis-basel-city"
         ],
         "de": [
           "senior-principal-scientist-associate-director-soluble-biomarkers-molecular-cellular"
@@ -850,6 +879,7 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:06:40.810Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -896,7 +926,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/IP-Search---Analytics-Manager_REQ-10083816-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:26.158Z",
+      "crawledAt": "2026-10-04T21:23:21.702Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -912,11 +942,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ip-search-analytics-manager-novartis-ch"
+        "ip-search-analytics-manager-novartis-ch",
+        "gestore-di-ricerca-e-analisi-ip-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ip-search-analytics-manager-novartis-ch"
+          "ip-search-analytics-manager-novartis-ch",
+          "gestore-di-ricerca-e-analisi-ip-novartis-basel-city"
         ],
         "de": [
           "ip-search-analytics-manager-novartis-ch"
@@ -926,6 +958,7 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:06:39.915Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -972,7 +1005,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/AI-Scientist---AI-Driven-Target-Identification_REQ-10084379-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:25.425Z",
+      "crawledAt": "2026-10-04T21:23:20.953Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -988,11 +1021,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-scientist-ai-driven-target-identification-novartis-ch"
+        "ai-scientist-ai-driven-target-identification-novartis-ch",
+        "ai-scientist-identificazione-dell-obiettivo-ai-driven-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-scientist-ai-driven-target-identification-novartis-ch"
+          "ai-scientist-ai-driven-target-identification-novartis-ch",
+          "ai-scientist-identificazione-dell-obiettivo-ai-driven-novartis-basel-city"
         ],
         "de": [
           "ai-scientist-ai-driven-target-identification-novartis-ch"
@@ -1002,6 +1037,7 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:40:47.939Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1048,7 +1084,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Disease-Area-Lead-Inmunology_REQ-10083500-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:24.707Z",
+      "crawledAt": "2026-10-04T21:23:20.222Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1066,7 +1102,8 @@
       "previousSlugsByLocale": {
         "en": [
           "disease-area-lead-immunology-novartis-ch",
-          "disease-area-lead-neuroscience-novartis-ch"
+          "disease-area-lead-neuroscience-novartis-ch",
+          "disease-area-lead-inmunology-novartis-ch"
         ],
         "it": [
           "disease-area-lead-inmunology-novartis-ch",
@@ -1075,7 +1112,8 @@
           "disease-area-lead-neuroscience-novartis-ch",
           "krankheitsgebiet-lead-neuroscience-novartis-basel-city",
           "secteur-de-la-maladie-neuroscience-principale-novartis-basel-city",
-          "krankheit-bereich-lead-neuroscience-novartis-basel-city"
+          "krankheit-bereich-lead-neuroscience-novartis-basel-city",
+          "area-malattia-piombo-inmunologia-novartis-basel-city"
         ],
         "de": [
           "disease-area-lead-inmunology-novartis-ch",
@@ -1093,7 +1131,8 @@
         "disease-area-lead-neuroscience-novartis-ch",
         "krankheitsgebiet-lead-neuroscience-novartis-basel-city",
         "secteur-de-la-maladie-neuroscience-principale-novartis-basel-city",
-        "krankheit-bereich-lead-neuroscience-novartis-basel-city"
+        "krankheit-bereich-lead-neuroscience-novartis-basel-city",
+        "area-malattia-piombo-inmunologia-novartis-basel-city"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T09:51:15.879Z",
@@ -1143,7 +1182,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Global-Head-Clinical-Assurance-Quality-Development-Unit_REQ-10083741",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:24.004Z",
+      "crawledAt": "2026-10-04T21:23:19.519Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1159,11 +1198,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-head-clinical-assurance-quality-development-unit-novartis-ch"
+        "global-head-clinical-assurance-quality-development-unit-novartis-ch",
+        "unita-di-sviluppo-della-qualita-dell-assicurazione-clinica-di-testa-globale-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-clinical-assurance-quality-development-unit-novartis-ch"
+          "global-head-clinical-assurance-quality-development-unit-novartis-ch",
+          "unita-di-sviluppo-della-qualita-dell-assicurazione-clinica-di-testa-globale-novartis-basel-city"
         ]
       },
       "firstSeenAt": "2026-09-01T14:18:45.881Z",
@@ -1213,7 +1254,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Translational-Medicine-Director-Associate---Cardiovascular---Metabolic_REQ-10087155-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:23.209Z",
+      "crawledAt": "2026-10-04T21:23:18.818Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1229,11 +1270,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "translational-medicine-director-associate-cardiovascular-metabolic-novartis-ch"
+        "translational-medicine-director-associate-cardiovascular-metabolic-novartis-ch",
+        "translational-medicine-direttore-associate-cardiovascular-metabolic-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "translational-medicine-director-associate-cardiovascular-metabolic-novartis-ch"
+          "translational-medicine-director-associate-cardiovascular-metabolic-novartis-ch",
+          "translational-medicine-direttore-associate-cardiovascular-metabolic-novartis-basel-city"
         ],
         "de": [
           "translational-medicine-director-associate-cardiovascular-metabolic-novartis-ch"
@@ -1290,7 +1333,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Translational-Medicine-Expert---Gastroenterology--Associate-Director_REQ-10086688-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:22.482Z",
+      "crawledAt": "2026-10-04T21:23:18.081Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1306,11 +1349,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "translational-medicine-expert-gastroenterology-associate-director-novartis-ch"
+        "translational-medicine-expert-gastroenterology-associate-director-novartis-ch",
+        "translational-medicine-expert-gastroenterology-associate-direttore-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "translational-medicine-expert-gastroenterology-associate-director-novartis-ch"
+          "translational-medicine-expert-gastroenterology-associate-director-novartis-ch",
+          "translational-medicine-expert-gastroenterology-associate-direttore-novartis-basel-city"
         ],
         "de": [
           "translational-medicine-expert-gastroenterology-associate-director-novartis-ch"
@@ -1320,6 +1365,7 @@
         ]
       },
       "firstSeenAt": "2026-09-07T15:12:56.338Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -1366,7 +1412,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Biomarker-Therapeutic-Area-Head--Neuroscience_REQ-10087052-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:21.730Z",
+      "crawledAt": "2026-10-04T21:23:17.346Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1382,11 +1428,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "biomarker-therapeutic-area-head-neuroscience-novartis-ch"
+        "biomarker-therapeutic-area-head-neuroscience-novartis-ch",
+        "area-terapeutica-biomarker-head-neuroscience-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "biomarker-therapeutic-area-head-neuroscience-novartis-ch"
+          "biomarker-therapeutic-area-head-neuroscience-novartis-ch",
+          "area-terapeutica-biomarker-head-neuroscience-novartis-basel-city"
         ]
       },
       "needsRetranslation": true,
@@ -1437,7 +1485,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--Therapeutic-Area-Strategy--Neuroscience_REQ-10086418-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:21.018Z",
+      "crawledAt": "2026-10-04T21:23:16.592Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1453,11 +1501,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "director-therapeutic-area-strategy-neuroscience-novartis-ch"
+        "director-therapeutic-area-strategy-neuroscience-novartis-ch",
+        "direttore-therapeutic-area-strategy-neuroscience-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-therapeutic-area-strategy-neuroscience-novartis-ch"
+          "director-therapeutic-area-strategy-neuroscience-novartis-ch",
+          "direttore-therapeutic-area-strategy-neuroscience-novartis-basel-city"
         ],
         "de": [
           "director-therapeutic-area-strategy-neuroscience-novartis-ch"
@@ -1511,7 +1561,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Senior-Expert-Engineering_REQ-10086916",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:20.295Z",
+      "crawledAt": "2026-10-04T21:23:15.866Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1527,11 +1577,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-expert-engineering-novartis-ch"
+        "senior-expert-engineering-novartis-ch",
+        "ingegneria-degli-esperti-senior-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-expert-engineering-novartis-ch"
+          "senior-expert-engineering-novartis-ch",
+          "ingegneria-degli-esperti-senior-novartis-basel-city"
         ],
         "de": [
           "senior-expert-engineering-novartis-ch"
@@ -1587,7 +1639,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Muttenz-with-Canteen/Equipment-Operator--m-f-d-_REQ-10078774-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:19.198Z",
+      "crawledAt": "2026-10-04T21:23:14.789Z",
       "addressLocality": "Muttenz (with Canteen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1603,11 +1655,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "equipment-operator-m-f-d-novartis-ch"
+        "equipment-operator-m-f-d-novartis-ch",
+        "equipment-operatore-m-f-d-novartis-muttenz-with-canteen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "equipment-operator-m-f-d-novartis-ch"
+          "equipment-operator-m-f-d-novartis-ch",
+          "equipment-operatore-m-f-d-novartis-muttenz-with-canteen"
         ]
       },
       "needsRetranslation": true,
@@ -1637,7 +1691,7 @@
         "it": "avvocato-legale-global-procurement-dd-it-novartis-basel-city",
         "en": "legal-counsel-global-procurement-dd-it-novartis-ch",
         "de": "rechtsberater-globale-beschaffung-dd-it-novartis-basel-city",
-        "fr": "conseiller-juridique-achats-mondiaux-dd-ti-novartis-basel-city"
+        "fr": "legal-counsel-global-procurement-dd-it-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -1647,7 +1701,7 @@
         "it": "Avvocato legale Global Procurement, DD&IT",
         "en": "Legal Counsel Global Procurement, DD&IT",
         "de": "Rechtsberater Globale Beschaffung, DD&IT",
-        "fr": "Conseiller juridique, Approvisionnement mondial, DD&IT"
+        "fr": "Legal Counsel Global Procurement, DD&IT"
       },
       "description": "Salary Range:\nCHF126,000.00 - CHF234,000.00\n\nJob Description Summary\n#LI-Hybrid\nLocation: Basel, Switzerland\n\nRelocation Support: This role is based in Basel, Switzerland. Novartis is unable to offer relocation support: please only apply if accessible.\n\nAre you ready to help shape how a leading global healthcare company partners, innovates, and delivers impact? As Legal Counsel Global Procurement, DD&IT, you will play a critical role in enabling strategic business decisions, advising on high-value commercial transactions, and helping teams navigate complex legal challenges with confidence. This is an exciting opportunity to work at the intersection of law, technology, procurement, and innovation while collaborating with stakeholders across the globe. Your primary focus will be supporting global Procurement activities, particularly indirect procurement, while partnering with DD&IT stakeholders on technology-related matters where required.\n\nJob Description\nKey Responsibilities\n\n• Partner with global Procurement teams as a trusted legal advisor on strategic sourcing initiatives.\n\n• Draft, review, and negotiate complex commercial agreements for goods and services including technology, SaaS, AI and other digital solutions where required.\n\n• Provide practical, risk-based legal guidance on commercial, operational, and governance matters.\n\n• Support global projects and transactions while balancing legal risks with business objectives working independently and in collaboration with legal colleagues across jurisdictions.\n\n• Deliver legal training and awareness sessions to Procurement and digital stakeholders.\n\n• Identify, assess, and manage legal risks across procurement activities and technology-related projects . Assist in the management of disputes, dispute resolution matters and external counsel where appropriate.\n\n• Collaborate across legal, compliance, and business teams to drive successful outcomes including supporting colleagues on cross-border matters requiring Swiss law expertise.\n\n• Contribute to innovation, continuous improvement, and adoption of new legal technologies.\n\nEssential Requirements\n\n• Qualified Swiss lawyer with admission to the Swiss Bar.\n\n• Post-qualification legal experience in a leading law firm or in an in-house role\n\n• Strong experience drafting, reviewing, and negotiating commercial contracts combined with a pragmatic, and strong solution-oriented approach .\n\n• Excellent English communication skills, both written and spoken.\n\n• Proven ability to provide practical, solution-focused legal advice in complex business environments.\n\n• Experience advising on topics like SaaS, IT and artificial intelligence\n\nBenefits & Rewards\nAt Novartis, we’re committed to reimagining medicine together - and rewarding the people who make it happen.\n\nExpected Annual Base Salary Range for role: 126.000 - 234.000 CHF\n\nThe base salary offered is determined based on gender-neutral objectives, such as relevant skills, competencies and experience in accordance with the Novartis pay setting policy and upon joining Novartis will be reviewed periodically.\n\nThe rewards of being part of our team go far beyond base pay and incentives. We also offer a variety of competitive benefits in kind to help you thrive personally and professionally, such as insurance plans, retirement plans, wellbeing resources and global recognition programs. In addition, we provide flexible and hybrid working options, where possible, and minimum 14 weeks paid parental leave.\nIn addition to your base salary, you may be eligible for a performance-based bonus depending on certain performance parameters.\n\nRead our brochure to learn more about our global total rewards offering:\nhttps://www.novartis.com/sites/novartis_com/files/novartis-life-handbook.pdf\n\nNote: Benefits and compensation may vary by country and are subject to local legal requirements, including provisions of collective bargaining agreements where applicable. A full overview of your compensation package, including any relevant collective bargaining agreement details applicable to your role based on your employment location and Novartis employer entity, will be communicated separately to you during the application process.\n\nCommitment to Diversity and Inclusion:\nNovartis is committed to building an outstanding, inclusive work environment and diverse teams representative of the patients and communities we serve.\n\nAccessibility and Accommodation:\nNovartis is committed to working with and providing reasonable accommodation to all individuals. If, because of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to diversity.inclusion_ch@novartis.com and let us know the nature of your request and your contact information. Please include the job requisition number in your message.\n\nSkills Desired\nAdaptability, Business Acumen, Critical Thinking, Curious Mindset, Decision Making, Law, Legal Acumen, Legal Communication, Legal Issues, Legal Research, Legal Risk Analysis, Legal Support, Legal Writing, Negotiation, Persuasion, Proactive Planning, Problem Solving, Relationship Building, Stakeholder Management, Strategic Thinking",
       "descriptionByLocale": {
@@ -1661,7 +1715,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Legal-Counsel-Global-Procurement--DD-IT_REQ-10086997-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:18.305Z",
+      "crawledAt": "2026-10-04T21:23:14.055Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1678,21 +1732,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "legal-counsel-global-procurement-dd-it-novartis-ch",
+        "conseiller-juridique-achats-mondiaux-dd-ti-novartis-basel-city",
+        "avvocato-legale-global-procurement-dd-it-novartis-basel-city",
         "legal-counsel-global-procurement-dd-it-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "legal-counsel-global-procurement-dd-it-novartis-ch"
+          "legal-counsel-global-procurement-dd-it-novartis-ch",
+          "avvocato-legale-global-procurement-dd-it-novartis-basel-city"
         ],
         "de": [
           "legal-counsel-global-procurement-dd-it-novartis-ch"
         ],
         "fr": [
           "legal-counsel-global-procurement-dd-it-novartis-ch",
+          "conseiller-juridique-achats-mondiaux-dd-ti-novartis-basel-city",
           "legal-counsel-global-procurement-dd-it-novartis-basel-city"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:12.102Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -1739,7 +1798,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Associate-Expert-Drug-Supply_REQ-10086875",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:17.545Z",
+      "crawledAt": "2026-10-04T21:23:13.327Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1755,11 +1814,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "associate-expert-drug-supply-novartis-ch"
+        "associate-expert-drug-supply-novartis-ch",
+        "alimentatore-di-droga-esperto-associato-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "associate-expert-drug-supply-novartis-ch"
+          "associate-expert-drug-supply-novartis-ch",
+          "alimentatore-di-droga-esperto-associato-novartis-basel-city"
         ],
         "fr": [
           "associate-expert-drug-supply-novartis-ch"
@@ -1789,7 +1850,7 @@
         "it": "direttore-international-value-access-immunology-novartis-basel-city",
         "en": "director-international-value-access-immunology-novartis-ch",
         "de": "direktor-international-value-access-immunology-novartis-basel-city",
-        "fr": "directeur-valeur-internationale-et-acces-immunologie-novartis-basel-city"
+        "fr": "director-international-value-access-immunology-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -1813,7 +1874,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--International-Value---Access--Immunology_REQ-10086516-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:16.819Z",
+      "crawledAt": "2026-10-04T21:23:12.507Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1830,16 +1891,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "director-international-value-access-immunology-novartis-ch",
+        "directeur-valeur-internationale-et-acces-immunologie-novartis-basel-city",
+        "direttore-international-value-access-immunology-novartis-basel-city",
         "director-international-value-access-immunology-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-international-value-access-immunology-novartis-ch"
+          "director-international-value-access-immunology-novartis-ch",
+          "direttore-international-value-access-immunology-novartis-basel-city"
         ],
         "de": [
           "director-international-value-access-immunology-novartis-ch"
         ],
         "fr": [
+          "directeur-valeur-internationale-et-acces-immunologie-novartis-basel-city",
           "director-international-value-access-immunology-novartis-basel-city"
         ]
       },
@@ -1891,7 +1956,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Research-Scientist-II--Laboratory-Automation---Drug-Discovery-Support_REQ-10087275-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:16.099Z",
+      "crawledAt": "2026-10-04T21:23:11.754Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1907,11 +1972,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch"
+        "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch",
+        "ricercatore-ii-supporto-per-l-automazione-dei-laboratori-e-scoperta-delle-droghe-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch"
+          "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch",
+          "ricercatore-ii-supporto-per-l-automazione-dei-laboratori-e-scoperta-delle-droghe-novartis-basel-city"
         ],
         "de": [
           "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch"
@@ -1921,6 +1988,7 @@
         ]
       },
       "firstSeenAt": "2026-09-24T14:26:43.016Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1967,7 +2035,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Research-Scientist-II_REQ-10088017-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:15.262Z",
+      "crawledAt": "2026-10-04T21:23:11.031Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1983,11 +2051,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "research-scientist-ii-novartis-ch"
+        "research-scientist-ii-novartis-ch",
+        "ricerca-scientist-ii-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "research-scientist-ii-novartis-ch"
+          "research-scientist-ii-novartis-ch",
+          "ricerca-scientist-ii-novartis-basel-city"
         ],
         "de": [
           "research-scientist-ii-novartis-ch"
@@ -2044,7 +2114,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--Translational-Medicine-Expert--Neurodegeneration-_REQ-10088329-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:14.522Z",
+      "crawledAt": "2026-10-04T21:23:10.306Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2060,11 +2130,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "director-translational-medicine-expert-neurodegeneration-novartis-ch"
+        "director-translational-medicine-expert-neurodegeneration-novartis-ch",
+        "direttore-translational-medicine-expert-neurodegeneration-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-translational-medicine-expert-neurodegeneration-novartis-ch"
+          "director-translational-medicine-expert-neurodegeneration-novartis-ch",
+          "direttore-translational-medicine-expert-neurodegeneration-novartis-basel-city"
         ],
         "de": [
           "director-translational-medicine-expert-neurodegeneration-novartis-ch"
@@ -2118,7 +2190,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Executive-Clinical-Program-Leader---Translational-Clinical-Oncology_REQ-10087767-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:13.789Z",
+      "crawledAt": "2026-10-04T21:23:09.576Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2135,11 +2207,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "executive-clinical-program-leader-translational-clinical-oncology-novartis-ch",
-        "chef-de-programme-clinique-executif-oncologie-clinique-translationnelle-novartis-basel-city"
+        "chef-de-programme-clinique-executif-oncologie-clinique-translationnelle-novartis-basel-city",
+        "executive-clinical-program-leader-oncologia-clinica-traduzionale-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "executive-clinical-program-leader-translational-clinical-oncology-novartis-ch"
+          "executive-clinical-program-leader-translational-clinical-oncology-novartis-ch",
+          "executive-clinical-program-leader-oncologia-clinica-traduzionale-novartis-basel-city"
         ],
         "de": [
           "executive-clinical-program-leader-translational-clinical-oncology-novartis-ch"
@@ -2197,7 +2271,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Executive-Director--Pricing---Contracting_REQ-10087895-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:13.043Z",
+      "crawledAt": "2026-10-04T21:23:08.862Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2213,11 +2287,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "executive-director-pricing-contracting-novartis-ch"
+        "executive-director-pricing-contracting-novartis-ch",
+        "executive-direttore-pricing-contracting-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "executive-director-pricing-contracting-novartis-ch"
+          "executive-director-pricing-contracting-novartis-ch",
+          "executive-direttore-pricing-contracting-novartis-basel-city"
         ],
         "de": [
           "executive-director-pricing-contracting-novartis-ch"
@@ -2227,6 +2303,7 @@
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:02.048Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -2273,7 +2350,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Head-Legal-CLS-Operations--Launch-and-Customer-Activation_REQ-10088411-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:12.302Z",
+      "crawledAt": "2026-10-04T21:23:08.138Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2289,11 +2366,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-legal-cls-operations-launch-and-customer-activation-novartis-ch"
+        "head-legal-cls-operations-launch-and-customer-activation-novartis-ch",
+        "operazioni-cls-avvio-e-attivazione-del-cliente-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-legal-cls-operations-launch-and-customer-activation-novartis-ch"
+          "head-legal-cls-operations-launch-and-customer-activation-novartis-ch",
+          "operazioni-cls-avvio-e-attivazione-del-cliente-novartis-basel-city"
         ],
         "de": [
           "head-legal-cls-operations-launch-and-customer-activation-novartis-ch"
@@ -2303,6 +2382,7 @@
         ]
       },
       "firstSeenAt": "2026-09-29T21:23:05.325Z",
+      "needsRetranslation": true,
       "salaryMin": 123000,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -2349,7 +2429,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-Land/QC-Analyst-II_REQ-10076283-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:11.576Z",
+      "crawledAt": "2026-10-04T21:23:07.266Z",
       "addressLocality": "Basel (Land)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2365,11 +2445,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "qc-analyst-ii-novartis-ch"
+        "qc-analyst-ii-novartis-ch",
+        "qc-analista-ii-novartis-basel-land"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "qc-analyst-ii-novartis-ch"
+          "qc-analyst-ii-novartis-ch",
+          "qc-analista-ii-novartis-basel-land"
         ],
         "fr": [
           "qc-analyst-ii-novartis-ch"
@@ -2422,7 +2504,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--Deployment-Strategist--Applied-AI_REQ-10084158-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:10.850Z",
+      "crawledAt": "2026-10-04T21:23:06.552Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2438,11 +2520,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "director-of-applied-ai-scaling-strategist-novartis-ch"
+        "director-of-applied-ai-scaling-strategist-novartis-ch",
+        "direttore-of-applied-ai-scaling-strategist-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-of-applied-ai-scaling-strategist-novartis-ch"
+          "director-of-applied-ai-scaling-strategist-novartis-ch",
+          "direttore-of-applied-ai-scaling-strategist-novartis-basel-city"
         ],
         "de": [
           "director-of-applied-ai-scaling-strategist-novartis-ch"
@@ -2498,7 +2582,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-ICT-Fachmann-frau-EFZ_REQ-10089048-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:20:09.792Z",
+      "crawledAt": "2026-10-04T21:23:05.477Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2514,11 +2598,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-ict-fachmann-frau-efz-novartis-ch"
+        "lernende-r-ict-fachmann-frau-efz-novartis-ch",
+        "apprendista-ict-fachmann-frau-cfc-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-ict-fachmann-frau-efz-novartis-ch"
+          "lernende-r-ict-fachmann-frau-efz-novartis-ch",
+          "apprendista-ict-fachmann-frau-cfc-novartis-basel-city"
         ]
       },
       "needsRetranslation": true,
@@ -2569,7 +2655,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--Technology---Engineering-for-Software-and-Workflows_REQ-10079472",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:09.099Z",
+      "crawledAt": "2026-10-04T21:23:04.784Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2585,11 +2671,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "director-technology-engineering-for-software-and-workflows-novartis-ch"
+        "director-technology-engineering-for-software-and-workflows-novartis-ch",
+        "direttore-technology-engineering-for-software-and-workflows-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-technology-engineering-for-software-and-workflows-novartis-ch"
+          "director-technology-engineering-for-software-and-workflows-novartis-ch",
+          "direttore-technology-engineering-for-software-and-workflows-novartis-basel-city"
         ],
         "de": [
           "director-technology-engineering-for-software-and-workflows-novartis-ch"
@@ -2645,7 +2733,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Rotkreuz-Office-Based/Medical-Manager_REQ-10087734-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:08.289Z",
+      "crawledAt": "2026-10-04T21:23:03.821Z",
       "addressLocality": "Rotkreuz (Office-Based)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2661,11 +2749,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medical-manager-novartis-ch"
+        "medical-manager-novartis-ch",
+        "responsabile-medico-novartis-rotkreuz-office-based"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medical-manager-novartis-ch"
+          "medical-manager-novartis-ch",
+          "responsabile-medico-novartis-rotkreuz-office-based"
         ],
         "de": [
           "medical-manager-novartis-ch"
@@ -2675,6 +2765,7 @@
         ]
       },
       "firstSeenAt": "2026-10-03T21:18:58.461Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -2721,7 +2812,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Forward-Deployed-Engineer--FDE--Data42_REQ-10079038-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:20:07.169Z",
+      "crawledAt": "2026-10-04T21:23:02.692Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2737,11 +2828,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "forward-deployed-engineer-fde-data42-palantir-foundry-novartis-ch"
+        "forward-deployed-engineer-fde-data42-palantir-foundry-novartis-ch",
+        "forward-deployed-ingegnere-fde-data42-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "forward-deployed-engineer-fde-data42-palantir-foundry-novartis-ch"
+          "forward-deployed-engineer-fde-data42-palantir-foundry-novartis-ch",
+          "forward-deployed-ingegnere-fde-data42-novartis-basel-city"
         ],
         "en": [
           "forward-deployed-engineer-fde-data42-palantir-foundry-novartis-ch"
@@ -2761,7 +2854,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     }
   ]
 }
