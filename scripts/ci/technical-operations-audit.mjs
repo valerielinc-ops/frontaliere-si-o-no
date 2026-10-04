@@ -1213,6 +1213,91 @@ function expressionEnd(source, start) {
   return raw.length;
 }
 
+function splitTopLevelConcatenation(source) {
+  const raw = String(source || '');
+  const parts = [];
+  let depth = 0;
+  let quote = null;
+  let escaped = false;
+  let lineComment = false;
+  let blockComment = false;
+  let start = 0;
+  for (let index = 0; index < raw.length; index += 1) {
+    const char = raw[index];
+    const next = raw[index + 1];
+    if (lineComment) {
+      if (char === '\n') lineComment = false;
+      continue;
+    }
+    if (blockComment) {
+      if (char === '*' && next === '/') {
+        blockComment = false;
+        index += 1;
+      }
+      continue;
+    }
+    if (quote) {
+      if (escaped) escaped = false;
+      else if (char === '\\') escaped = true;
+      else if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '/' && next === '/') {
+      lineComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === '/' && next === '*') {
+      blockComment = true;
+      index += 1;
+      continue;
+    }
+    if (char === "'" || char === '"' || char === '`') {
+      quote = char;
+      continue;
+    }
+    if ('([{'.includes(char)) {
+      depth += 1;
+      continue;
+    }
+    if (')]}'.includes(char)) {
+      depth -= 1;
+      continue;
+    }
+    if (char === '+' && depth === 0 && raw[index - 1] !== '+' && raw[index + 1] !== '+') {
+      parts.push(raw.slice(start, index));
+      start = index + 1;
+    }
+  }
+  parts.push(raw.slice(start));
+  return parts;
+}
+
+function stripOuterGrouping(source) {
+  let value = String(source || '').trim();
+  while (value.startsWith('(')) {
+    const closingIndex = matchingParen(value, 0);
+    if (closingIndex !== value.length - 1) break;
+    value = value.slice(1, -1).trim();
+  }
+  return value;
+}
+
+function returnedStringLiteralOperands(source) {
+  const expression = stripOuterGrouping(source);
+  const literals = [];
+  for (const operand of splitTopLevelConcatenation(expression)) {
+    const candidate = stripOuterGrouping(operand);
+    const found = stringLiterals(candidate);
+    if (found.length !== 1) continue;
+    const [literal] = found;
+    const openingIndex = literal.start - 1;
+    if (candidate.slice(0, openingIndex).trim() !== '' || candidate.slice(literal.end).trim() !== '') continue;
+    literals.push(literal);
+  }
+  return literals;
+}
+
 function returnedOutputArrayKeys(source) {
   const raw = String(source || '');
   const keys = new Set();
@@ -1241,7 +1326,7 @@ function returnedOutputArrayKeys(source) {
       for (const statement of body.matchAll(/\breturn\s*(?=[`'"])/g)) {
         const expressionStart = (statement.index ?? 0) + statement[0].length;
         const expression = body.slice(expressionStart, expressionEnd(body, expressionStart));
-        for (const literal of stringLiterals(expression)) {
+        for (const literal of returnedStringLiteralOperands(expression)) {
           for (const key of outputKeysFromText(literal.value)) keys.add(key);
         }
       }
@@ -1288,8 +1373,10 @@ function shellCommandSegment(source, start) {
 function outputFlagsByCommandPath(run) {
   const source = String(run || '');
   const flagsByPath = new Map();
+  const printed = printedQuotedRanges(source);
   for (const reference of extractInvokedCommandReferences(source)) {
     if (isShellComment(source, reference.index)) continue;
+    if (printed.some(({ start, end }) => reference.index >= start && reference.index < end)) continue;
     const segment = shellCommandSegment(source, reference.index);
     for (const match of segment.matchAll(OUTPUT_FLAG_RE)) {
       if (!flagsByPath.has(reference.path)) flagsByPath.set(reference.path, new Set());
@@ -1370,6 +1457,7 @@ function outputKeysFromSource(source, { outputFlags = null } = {}) {
     for (const key of literalOutputKeys(raw, flagRanges)) keys.add(key);
     for (const key of objectEntryOutputKeys(raw, flagRanges)) keys.add(key);
   }
+  if (outputFlags && outputFlags.size > 0) return keys;
   if (!/\$GITHUB_OUTPUT\b|\$\{GITHUB_OUTPUT\b|(?:process|env)\.GITHUB_OUTPUT\b|appendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']/.test(raw)) return keys;
   for (const match of raw.matchAll(OUTPUT_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_HELPER_CALL_RE)) keys.add(match[1]);

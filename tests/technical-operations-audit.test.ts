@@ -781,6 +781,104 @@ describe('technical operations audit', () => {
     ]);
   });
 
+  it('non estrae una chiave da una stringa passata a una call annidata', () => {
+    const files = new Map([
+      ['/repo/scripts/nested-output.mjs', [
+        "import fs from 'node:fs';",
+        'function buildOutput(prefix, value) { return `${prefix}${value}`; }',
+        'function formatStepOutputs(value) {',
+        "  return buildOutput('fake=', value);",
+        '}',
+        "fs.appendFileSync(process.env.GITHUB_OUTPUT, formatStepOutputs('value'));",
+      ].join('\n')],
+    ]);
+    const source = [
+      'name: nested-output',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: generated',
+      '        run: node scripts/nested-output.mjs',
+      '      - name: consumer',
+      '        run: echo "${{ steps.generated.outputs.fake }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/nested-output.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([
+      expect.objectContaining({ evidence: 'steps.generated.outputs.fake' }),
+    ]);
+  });
+
+  it('mantiene il sink flag-scoped anche se lo script nomina GITHUB_OUTPUT', () => {
+    const files = new Map([
+      ['/repo/scripts/flag-report.mjs', [
+        "import fs from 'node:fs';",
+        'const target = process.argv[2];',
+        'if (process.env.GITHUB_OUTPUT) console.log(process.env.GITHUB_OUTPUT);',
+        "fs.writeFileSync(target, 'fake=value\\n');",
+      ].join('\n')],
+    ]);
+    const source = [
+      'name: flag-report',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: generated',
+      '        run: node scripts/flag-report.mjs --github-output "$GITHUB_OUTPUT"',
+      '      - name: consumer',
+      '        run: echo "${{ steps.generated.outputs.fake }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/flag-report.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([
+      expect.objectContaining({ evidence: 'steps.generated.outputs.fake' }),
+    ]);
+  });
+
+  it('non eredita un flag da un path citato in testo stampato', () => {
+    const files = new Map([
+      ['/repo/scripts/x.mjs', [
+        "import { appendFileSync } from 'node:fs';",
+        "appendFileSync(process.env.GITHUB_OUTPUT, 'real=value\\n');",
+      ].join('\n')],
+    ]);
+    const source = [
+      'name: printed-output-flag',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: generated',
+      '        run: |',
+      '          printf \'node scripts/x.mjs --github-output "$GITHUB_OUTPUT"\\n\'',
+      '          node scripts/x.mjs',
+      '      - name: consumer',
+      '        run: echo "${{ steps.generated.outputs.fake }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/printed-output-flag.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    });
+    expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([
+      expect.objectContaining({ evidence: 'steps.generated.outputs.fake' }),
+    ]);
+  });
+
   it('non tratta come riferimento uno script citato in testo stampato da printf/echo', () => {
     const workflow = (run: string[]) => [
       'name: printed-script',
