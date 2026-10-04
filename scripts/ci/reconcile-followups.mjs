@@ -67,7 +67,7 @@ import {
   splitFollowupItems,
 } from './followup-resolution-match.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
-import { inertCommentText, itemMetricLine, parseItemMarkers } from './lib/followup-item-evidence.mjs';
+import { MAYBE_RESOLVED_RELEASE_MARKER, inertCommentText, itemMetricLine, parseItemMarkers } from './lib/followup-item-evidence.mjs';
 import {
   applyBlockedRecheck,
   blockedRecheckSummary,
@@ -94,6 +94,9 @@ const BLOCKED_RECHECK_MAX_REENTRIES = intFromEnv('BLOCKED_RECHECK_MAX_REENTRIES'
 const MARKER = '<!-- reconcile-bot -->';
 const FLAG_MARKER = '<!-- reconcile-bot:flag -->';
 const CLOSE_MARKER = '<!-- reconcile-bot:autoclose -->';
+// `maybe-resolved` tolta da un automatismo (un item del bucket e' di nuovo
+// `open`): azzera i flag precedenti, quindi non vale come obiezione umana.
+export const RELEASE_MARKER = MAYBE_RESOLVED_RELEASE_MARKER;
 const LABEL = 'maybe-resolved';
 const CLOSED_LABEL = 'fu-resolved-auto';
 export const UNCLASSIFIABLE_LABEL = 'reconcile-unclassifiable';
@@ -553,10 +556,39 @@ export function decideBucketVerifyRequest({ body, bornSatisfiedIds = null, comme
  * umana di `decideReconcileAction` (label tolta dopo il flag), e rimetterla la
  * cancellerebbe, aprendo la via alla chiusura al giro in cui tutto e' `done`.
  */
-export function shouldEnsureVerifyLabel({ comments, labelNames }) {
+export function shouldEnsureVerifyLabel({ comments, labelNames, isTrusted = isTrustedAuthor }) {
   const hasLabel = Array.isArray(labelNames) && labelNames.includes(LABEL);
   if (hasLabel) return true;
-  return !(Array.isArray(comments) && comments.some((c) => isReconcileFlagComment(c?.body)));
+  return !hasLiveReconcileFlag(comments, { isTrusted });
+}
+
+/**
+ * Bucket giornalieri con `maybe-resolved` e almeno un item `open` o
+ * `in-progress`: la label dice «forse risolto» mentre il corpo dice «c'e'
+ * lavoro da fare». Prima il reconciler lo segnalava soltanto nell'allarme
+ * (`bucketLabelConflicts`) e nessun processo la toglieva: 10831, 10283, 9609,
+ * 8809, 8334 restavano in conflitto per sempre. Piano puro sulle issue come
+ * lette; lo stato degli item e' quello letterale del parser.
+ * @returns {Array<{number: number, ids: string[]}>}
+ */
+export function planMaybeResolvedRelease(issues) {
+  const out = [];
+  for (const iss of Array.isArray(issues) ? issues : []) {
+    if (!dailyBucketInfo(iss?.title || '')) continue;
+    const labels = (iss?.labels || []).map(labelName).filter(Boolean).map((name) => String(name).toLowerCase());
+    if (!labels.includes(LABEL)) continue;
+    const ids = parseFollowupItems(iss?.body || '')
+      .filter((item) => item.id && (item.state === 'open' || item.state === 'in-progress'))
+      .map((item) => item.id);
+    if (ids.length) out.push({ number: iss.number, ids });
+  }
+  return out;
+}
+
+/** Il commento che accompagna la rimozione automatica di `maybe-resolved`. */
+export function maybeResolvedReleaseCommentBody({ ids }) {
+  const list = (Array.isArray(ids) ? ids : []).map((id) => `\`${inertCommentText(String(id))}\``).join(', ');
+  return `${RELEASE_MARKER}\n${MARKER}\n🔁 **Reconcile**: \`${LABEL}\` tolta perche' il bucket ha di nuovo item da lavorare (${list || 'item open'}). Non e' un'obiezione: quando tutti gli item saranno chiusi il ciclo di verifica riparte dal primo stadio.`;
 }
 
 function lastMarkerFor(markers, type, itemId) {
@@ -710,8 +742,10 @@ export function decideReconcileAction({ resolved, hasMaybeResolved, hasPriorFlag
  * «… 7 items — status reconciled 2026-09-29»): da allora ogni run dice
  * `bucket aperto (mismatched-target-repository)` e nessun item puo' cambiare
  * stato. Qui il veto diventa UNA issue di allarme a titolo stabile, che si
- * chiude da sola quando l'elenco torna vuoto. Sola osservazione: nessun corpo
- * viene riscritto e nessuna label viene tolta da qui.
+ * chiude da sola quando l'elenco torna vuoto. Nessun corpo viene riscritto da
+ * qui: la riparazione passa da `scripts/ci/rebuild-daily-bucket.mjs`
+ * (`rebuildDailyBody`). L'unica label che il reconciler toglie da se' e'
+ * `maybe-resolved` su un bucket con un item `open` (`planMaybeResolvedRelease`).
  */
 
 /**
@@ -896,7 +930,8 @@ export function bucketFormatViolations(title, body, { limit = 5 } = {}) {
 
 /**
  * Coppie di label che tre script diversi scrivono senza un invariante comune.
- * Elenco chiuso; sola osservazione, nessuna label viene tolta da qui.
+ * Elenco chiuso; nessuna label viene tolta da qui (`maybe-resolved` con un item
+ * `open` la toglie prima `planMaybeResolvedRelease`).
  * @param {Array<string|{name:string}>} labels
  * @param {{hasOpenItem?: boolean}} [state]
  * @returns {string[]} i conflitti, in forma leggibile (vuoto se nessuno)
@@ -1001,7 +1036,7 @@ export function bucketAlarmBody({ unparseable = [], conflicts = [], repository =
       lines.push(`  - \`gh issue edit ${entry.number} --repo ${repo} --title "follow-up(daily:${entry.dailyKey}): ${entry.itemCount} items — ${entry.headerRepository}"\``);
     }
     lines.push(
-      `  - rigenera il corpo canonico dagli item noti (testa \`- Daily key:\`, \`- State: sealed\`, \`- Target repository:\`; per item \`### FU-${entry.dailyKey}-NNN — titolo\` e \`- State: open|in-progress|done|blocked\`) e scrivilo con \`gh issue edit ${entry.number} --repo ${repo} --body-file <corpo>\``,
+      `  - rigenera titolo e corpo canonici con \`node scripts/ci/rebuild-daily-bucket.mjs --issue ${entry.number} --repo ${repo}\` (anteprima, nessuna scrittura), poi la stessa riga con \`--write\`: passa da \`rebuildDailyBody\` e rifiuta, senza scrivere, se uno \`State\` non e' leggibile`,
       `  - verifica: \`DRY_RUN=1 GH_REPO=${repo} node scripts/ci/reconcile-followups.mjs\` → la riga \`bucket #${entry.number}\` non porta piu' un motivo strutturale`,
     );
   }
@@ -1009,7 +1044,7 @@ export function bucketAlarmBody({ unparseable = [], conflicts = [], repository =
   if (!conflicts.length) lines.push('', '- Nessuna.');
   else lines.push('');
   for (const entry of conflicts) lines.push(`- #${entry.number}: ${entry.conflicts.join('; ')}`);
-  lines.push('', 'Sola osservazione: il reconciler non riscrive corpi e non toglie label da qui.');
+  lines.push('', `Il reconciler toglie da se' \`${LABEL}\` dai bucket con un item \`open\`: se il conflitto compare qui, la rimozione di questo giro e' fallita. Il resto e' osservazione: i corpi illeggibili si rigenerano col comando indicato sopra.`);
   return lines.join('\n');
 }
 
@@ -1056,10 +1091,11 @@ export function reconcileSummaryLine({
   unparseableBuckets = 0,
   labelConflicts = 0,
   bucketAlarm = 'none',
+  maybeResolvedReleased = 0,
   dryRun = false,
   noAutoclose = false,
 } = {}) {
-  return `Reconcile follow-ups: scanned ${scanned}, cache-skipped ${cacheSkipped}, cache-marked ${cacheMarked}, flagged ${flagged}, auto-closed ${autoClosed}, verify_requested=${verifyRequested}, unparseable_buckets=${unparseableBuckets}, label_conflicts=${labelConflicts}, bucket_alarm=${bucketAlarm}${dryRun ? ' (dry-run)' : ''}${noAutoclose ? ' (no-autoclose)' : ''}.`;
+  return `Reconcile follow-ups: scanned ${scanned}, cache-skipped ${cacheSkipped}, cache-marked ${cacheMarked}, flagged ${flagged}, auto-closed ${autoClosed}, verify_requested=${verifyRequested}, unparseable_buckets=${unparseableBuckets}, label_conflicts=${labelConflicts}, bucket_alarm=${bucketAlarm}, maybe_resolved_released=${maybeResolvedReleased}${dryRun ? ' (dry-run)' : ''}${noAutoclose ? ' (no-autoclose)' : ''}.`;
 }
 
 /**
@@ -1285,10 +1321,44 @@ export function isReconcileFlagComment(body) {
     || (text.includes(MARKER) && text.includes('🤖 **Reconcile (auto)**'));
 }
 
+/**
+ * Un flag del reconciler ancora valido: postato DOPO l'ultimo rilascio
+ * automatico di `maybe-resolved` (`RELEASE_MARKER`, solo da autore fidato:
+ * chiunque puo' commentare una issue pubblica, e un marker falso non deve
+ * cancellare un'obiezione umana). Senza questo azzeramento, la label tolta dal
+ * bot su un bucket riaperto varrebbe per sempre come obiezione (`decideReconcileAction`
+ * → `none`, `shouldEnsureVerifyLabel` → false): il bucket non si chiuderebbe piu'.
+ * `null` se i commenti non sono leggibili.
+ * @returns {boolean|null}
+ */
+export function hasLiveReconcileFlag(comments, { isTrusted = isTrustedAuthor } = {}) {
+  if (!Array.isArray(comments)) return null;
+  let live = false;
+  for (const comment of comments) {
+    const body = String(comment?.body || '');
+    if (body.includes(RELEASE_MARKER) && typeof isTrusted === 'function' && isTrusted(comment)) live = false;
+    else if (isReconcileFlagComment(body)) live = true;
+  }
+  return live;
+}
+
 function alreadyCommented(number, comments = undefined) {
   const resolvedComments = comments === undefined ? readIssueComments(number) : comments;
-  if (!Array.isArray(resolvedComments)) return null;
-  return resolvedComments.some((c) => isReconcileFlagComment(c.body));
+  return hasLiveReconcileFlag(resolvedComments);
+}
+
+/**
+ * Toglie `maybe-resolved` per conto del reconciler: prima il commento con
+ * `RELEASE_MARKER` (se fallisce la label resta, e al giro dopo si riprova),
+ * poi la label. In quest'ordine un guasto non trasforma mai la rimozione del
+ * bot in un'obiezione umana.
+ * @returns {boolean} true se la label e' stata tolta
+ */
+function releaseMaybeResolved(number, ids) {
+  const posted = gh(['issue', 'comment', String(number), ...repoArgs, '--body', maybeResolvedReleaseCommentBody({ ids })], { allowFail: true });
+  if (posted === null) return false;
+  issueCommentCache.delete(number);
+  return gh(['issue', 'edit', String(number), ...repoArgs, '--remove-label', LABEL], { allowFail: true }) !== null;
 }
 
 function evidenceLines(evidence) {
@@ -1410,8 +1480,7 @@ function runBlockedRecheck({ iss, daily, itemMarkers, bornSatisfied, labelNames,
       itemDoneCommentBody(entry.id, entry.evidence, ' Era `blocked`: il token non era presente alla fine del giorno del bucket.')], { allowFail: true });
   }
   if (applied.reentered.length && labelNames.includes(LABEL)) {
-    const removed = gh(['issue', 'edit', String(iss.number), ...repoArgs, '--remove-label', LABEL], { allowFail: true });
-    if (removed === null) return { results, body: nextBody, labelNames, skipIssue: false };
+    if (!releaseMaybeResolved(iss.number, applied.reentered)) return { results, body: nextBody, labelNames, skipIssue: false };
   }
   return { results, body: nextBody, labelNames: nextLabels, skipIssue: false };
 }
@@ -1422,9 +1491,28 @@ async function main() {
     ...repoArgs, '--json', ISSUE_LIST_FIELDS, '--limit', String(MAX_ISSUES),
   ]);
   const issues = JSON.parse(raw || '[]');
-  // Sui corpi e sulle label COME LETTI, prima di qualunque scrittura del giro:
-  // un veto strutturale ferma ogni scrittura sul suo bucket, quindi la diagnosi
-  // non dipende dall'ordine.
+  // `maybe-resolved` su un bucket con un item `open`: la toglie il reconciler,
+  // non un umano che non arriva. Prima dell'allarme e del ciclo, cosi' entrambi
+  // vedono le label dopo la riparazione; in dry-run nulla cambia e il conflitto
+  // resta contato (la metrica non anticipa una scrittura non fatta).
+  let released = 0;
+  for (const entry of planMaybeResolvedRelease(issues)) {
+    if (DRY_RUN) {
+      console.log(`#${entry.number}: \`${LABEL}\` con item open (${entry.ids.join(',')}) → verrebbe tolta (dry-run).`);
+      continue;
+    }
+    if (!releaseMaybeResolved(entry.number, entry.ids)) {
+      console.log(`::warning::reconcile-followups: \`${LABEL}\` non tolta da #${entry.number}; resta nell'allarme e si riprova al prossimo giro`);
+      continue;
+    }
+    released += 1;
+    console.log(`#${entry.number}: \`${LABEL}\` tolta, item open: ${entry.ids.join(',')}.`);
+    const iss = issues.find((candidate) => candidate.number === entry.number);
+    if (iss) iss.labels = (iss.labels || []).filter((label) => labelName(label) !== LABEL);
+  }
+  // Sui corpi e sulle label COME LETTI (salvo il rilascio qui sopra), prima di
+  // qualunque altra scrittura del giro: un veto strutturale ferma ogni scrittura
+  // sul suo bucket, quindi la diagnosi non dipende dall'ordine.
   const bucketAlarmPlan = safePlanBucketAlarm(issues, { now: Date.now() });
 
   // In-flight exclusion: an open PR for issue #N means the work is in progress, NOT done
@@ -1725,6 +1813,7 @@ Chiusa come **completed** (done-but-open). Si **riapre da sola** se il segnale s
     unparseableBuckets: bucketAlarmPlan.unparseable.length,
     labelConflicts: bucketAlarmPlan.conflicts.length,
     bucketAlarm: alarm.action,
+    maybeResolvedReleased: released,
     dryRun: DRY_RUN,
     noAutoclose: NO_AUTOCLOSE,
   });

@@ -81,6 +81,7 @@ import {
   updateFollowupItemState,
 } from './followup-resolution-match.mjs';
 import {
+  MAYBE_RESOLVED_RELEASE_MARKER,
   countItemAttempts,
   inertCommentText,
   itemAttemptMarker,
@@ -379,6 +380,12 @@ export function routingEditArgs(labels) {
   const args = ['--add-label', VERIFY_LABEL];
   for (const label of ROUTING_LABELS) if (present.has(label)) args.push('--remove-label', label);
   return args;
+}
+
+/** Se gli argomenti di `gh issue edit` tolgono la label di verifica. */
+export function releasesVerifyLabel(args) {
+  const list = Array.isArray(args) ? args : [];
+  return list.some((arg, i) => arg === '--remove-label' && list[i + 1] === VERIFY_LABEL);
 }
 
 export function routedCommentBody(evidence, verified) {
@@ -693,7 +700,7 @@ function routeBucketItem({ repo, issue, view, runStartedAt, deliveryStatus }) {
 
   // Tutto il commento si costruisce PRIMA di scrivere: un marker non
   // componibile non deve lasciare un corpo modificato senza la sua prova.
-  const comment = compose({
+  const composed = compose({
     blockedReason: decision.blockedReason,
     evidence,
     verified,
@@ -701,7 +708,13 @@ function routeBucketItem({ repo, issue, view, runStartedAt, deliveryStatus }) {
     metric: itemMetricLine(decision.item),
     openRemaining: decision.openRemaining,
   });
-  if (typeof comment !== 'string') return skip(`marker-non-componibile:${comment.error}`);
+  if (typeof composed !== 'string') return skip(`marker-non-componibile:${composed.error}`);
+  const labels = Array.isArray(view?.labels) ? view.labels.map((l) => l?.name).filter(Boolean) : [];
+  const labelArgs = bucketLabelEditArgs(labels, { openRemaining: decision.openRemaining });
+  // Togliere `maybe-resolved` qui (restano item `open`) e' un automatismo, non
+  // un'obiezione umana a un flag del reconciler: il marker lo dice. In coda,
+  // perche' la prima riga resta `ALREADY_FIXED_ROUTED` quando c'e'.
+  const comment = releasesVerifyLabel(labelArgs) ? `${composed}\n${MAYBE_RESOLVED_RELEASE_MARKER}` : composed;
   // Rilettura-confronto: lo step gira fuori dal mutex del bucket.
   let fresh;
   try {
@@ -726,8 +739,6 @@ function routeBucketItem({ repo, issue, view, runStartedAt, deliveryStatus }) {
   }
   // Da qui l'item E' `blocked`: il marker va postato comunque, anche se le
   // label falliscono (il gate sul conio ripara la coda al giro successivo).
-  const labels = Array.isArray(view?.labels) ? view.labels.map((l) => l?.name).filter(Boolean) : [];
-  const labelArgs = bucketLabelEditArgs(labels, { openRemaining: decision.openRemaining });
   if (labelArgs.length > 0) {
     try {
       gh(['issue', 'edit', String(issue), '--repo', repo, ...labelArgs]);
