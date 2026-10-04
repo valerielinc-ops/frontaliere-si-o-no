@@ -1258,6 +1258,9 @@ export async function resolveScopedTimeoutIssues({ dryRun = DRY_RUN, nowMs = Dat
     // l'ultimo commento e' gia' un'evidenza (chiusura fallita al tick precedente),
     // non se ne aggiunge un'altra ogni ora: una ricorrenza nel frattempo avrebbe
     // lasciato il suo commento 🔁 in coda e l'evidenza si riscriverebbe.
+    // Non si usa `preface` di resolveGithubIssueByNumber: e' best-effort e perderebbe
+    // la garanzia «niente commento, niente chiusura» (prezzo: un'evidenza puo' restare
+    // su un'issue chiusa o rinominata fra la decisione e la rilettura).
     const lastComment = comments.length > 0 ? String(comments[comments.length - 1]?.body ?? '') : '';
     const evidenceAlreadyLast = lastComment.includes(RESOLVE_EVIDENCE_MARKER);
     if (!evidenceAlreadyLast

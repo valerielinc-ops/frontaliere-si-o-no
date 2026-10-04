@@ -494,7 +494,6 @@ describe('resolveScopedTimeoutIssues — il cablaggio con `gh`', () => {
       { number: 10809, title: TITLE_10809, labels: [], createdAt: OPENED_10809, body: BODY_10809 },
     ];
     commentOnGithubIssue.mockReturnValue(true);
-    resolveGithubIssueByNumber.mockReturnValue({ number: 11000, persisted: true });
     await resolveScopedTimeoutIssues({ dryRun: false });
     expect(logs.join('\n')).toMatch(/#10809 .*→ keep \(gemelle aperte: #11000, #10809\)/);
     expect(commentOnGithubIssue).not.toHaveBeenCalled();
