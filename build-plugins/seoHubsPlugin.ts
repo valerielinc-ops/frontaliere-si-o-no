@@ -79,7 +79,6 @@ import { cantonCompanyHubs } from './shared/cantonCompanyHubRegistry';
 import { isCantonNoindex } from './shared/cantonNoindexRegistry';
 import { hasCantonSectorPage } from './shared/cantonSectorPageRegistry';
 import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from './shared/cantonSeoProse';
-import { buildDayStampIso } from './shared/buildDayStamp';
 import { sanitizeJobTitleForDisplay, stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 
@@ -126,25 +125,25 @@ const HUB_TITLES: Record<HubLocale, { jobs: string; sectors: string; companies: 
 
 const HUB_DESCRIPTIONS: Record<HubLocale, { jobs: string; sectors: string; companies: string; articles: string }> = {
   it: {
-    jobs: 'Indice completo di tutte le offerte di lavoro indicizzate per i frontalieri in Ticino. Aggiornato quotidianamente con migliaia di posizioni aperte.',
+    jobs: 'Archivio degli annunci pubblicati, incluse le offerte scadute. Per candidarti consulta le posizioni attive e verifica lo stato della scheda.',
     sectors: 'Esplora le offerte per settore: sanitario, ingegneria, banca, ristorazione, edilizia e oltre 40 categorie professionali.',
     companies: 'Indice alfabetico di oltre 200 aziende che assumono frontalieri in Ticino, con offerte attive per locale e settore.',
     articles: 'Archivio completo di guide, analisi fiscali e aggiornamenti dedicati ai lavoratori frontalieri italo-svizzeri.',
   },
   en: {
-    jobs: 'Complete index of every indexed job posting for cross-border workers in Ticino. Updated daily with thousands of openings.',
+    jobs: 'Archive of published listings, including expired vacancies. To apply, browse the active job board and check the status shown on each listing.',
     sectors: 'Explore jobs by sector: healthcare, engineering, banking, hospitality, construction and 40+ professional categories.',
     companies: 'Alphabetical index of 200+ companies hiring cross-border workers in Ticino, with active openings per location and sector.',
     articles: 'Full archive of guides, tax analysis and updates for Italian-Swiss cross-border workers.',
   },
   de: {
-    jobs: 'Vollständiger Index aller indizierten Stellenangebote für Grenzgänger im Tessin. Täglich aktualisiert mit tausenden offenen Stellen.',
+    jobs: 'Archiv veröffentlichter Stellenanzeigen einschließlich abgelaufener Angebote. Prüfen Sie den Status und nutzen Sie die Jobbörse für offene Stellen.',
     sectors: 'Stellenangebote nach Branche: Gesundheit, Ingenieurwesen, Bank, Gastronomie, Bau und über 40 Berufsgruppen.',
     companies: 'Alphabetisches Verzeichnis von 200+ Firmen, die Grenzgänger im Tessin einstellen.',
     articles: 'Vollständiges Archiv von Leitfäden, Steueranalysen und Updates für italienisch-schweizerische Grenzgänger.',
   },
   fr: {
-    jobs: 'Index complet de toutes les offres d’emploi indexées pour les frontaliers au Tessin. Mis à jour quotidiennement.',
+    jobs: 'Archives des annonces publiées, y compris les offres expirées. Consultez les postes actifs et vérifiez le statut de chaque annonce avant de postuler.',
     sectors: 'Offres d’emploi par secteur : santé, ingénierie, banque, restauration, construction et plus de 40 catégories.',
     companies: 'Index alphabétique de plus de 200 entreprises qui recrutent des frontaliers au Tessin.',
     articles: 'Archive complète de guides, analyses fiscales et actualités pour les frontaliers italo-suisses.',
@@ -245,10 +244,10 @@ function absItemUrl(href: string): string {
  * tile reads naturally next to the H1.
  */
 const HUB_KEY_TILE_LABELS: Record<HubLocale, Record<'jobs' | 'sectors' | 'companies' | 'articles', string>> = {
-  it: { jobs: 'Offerte attive', sectors: 'Settori curati', companies: 'Datori in indice', articles: 'Guide pubblicate' },
-  en: { jobs: 'Active openings', sectors: 'Curated sectors', companies: 'Indexed employers', articles: 'Published guides' },
-  de: { jobs: 'Aktive Stellen', sectors: 'Kuratierte Branchen', companies: 'Indexierte Arbeitgeber', articles: 'Veröffentlichte Ratgeber' },
-  fr: { jobs: 'Offres actives', sectors: 'Secteurs curés', companies: 'Employeurs indexés', articles: 'Guides publiés' },
+  it: { jobs: 'Annunci in archivio', sectors: 'Settori curati', companies: 'Datori in indice', articles: 'Guide pubblicate' },
+  en: { jobs: 'Archived listings', sectors: 'Curated sectors', companies: 'Indexed employers', articles: 'Published guides' },
+  de: { jobs: 'Archivierte Anzeigen', sectors: 'Kuratierte Branchen', companies: 'Indexierte Arbeitgeber', articles: 'Veröffentlichte Ratgeber' },
+  fr: { jobs: 'Annonces archivées', sectors: 'Secteurs curés', companies: 'Employeurs indexés', articles: 'Guides publiés' },
 };
 
 function jobsActiveLabel(locale: HubLocale, n: number): string {
@@ -309,7 +308,7 @@ function buildHubMethodologyHtml(locale: HubLocale, hubKey: HubKeyName): string 
   const PARAS: Record<HubLocale, Record<HubKeyName, [string, string]>> = {
     it: {
       jobs: [
-        `Come è costruito questo indice. Le offerte mostrate sono il sotto-insieme di annunci attivi sul nostro job-board che hanno superato la deduplicazione cross-crawler (40+ ATS aziendali, portali ufficiali, API pubbliche): ogni offerta ha una pagina dettaglio con descrizione completa, retribuzione (quando dichiarata), tipo di contratto, sede e link diretto al canale di candidatura del datore. La paginazione preserva l'ordine alfabetico per slug canonico, così frontalieri che cercano un ruolo specifico ritrovano la stessa posizione settimana dopo settimana, e i motori di ricerca possono crawlare l'intero archivio in modo deterministico.`,
+        `Questo archivio conserva gli annunci pubblicati, comprese le offerte scadute. Una voce in questo elenco non indica che la posizione sia ancora aperta. Nella scheda trovi i dettagli conservati e lo stato della posizione; per le candidature attuali usa la bacheca delle offerte attive. Le informazioni storiche non costituiscono una nuova offerta del datore di lavoro.`,
         `Come usarlo da frontaliere. Per ottimizzare la ricerca di lavoro come frontaliere combina questa lista con tre filtri concettuali: distanza dalla tua provincia di residenza al lavoro (puntare ai valichi più scorrevoli — Brogeda per Mendrisiotto/Luganese, Stabio per chi parte da Varese, Gaggiolo per il Mendrisiotto da sud), settore (alcune categorie come sanità, ingegneria e finanza hanno tassi di assunzione di frontalieri >60 %, mentre pubblica amministrazione e settori regolamentati hanno restrizioni di residenza più strette) e fascia salariale (vai sulla pagina settoriale per vedere il minimo–mediana–massimo della tua categoria). Il <a class="s-IjpSYt" href="/calcola-stipendio/">simulatore stipendio</a> trasforma il lordo in netto inclusivo di Permesso G + Nuovo Accordo fiscale 2024.`,
       ],
       sectors: [
@@ -327,7 +326,7 @@ function buildHubMethodologyHtml(locale: HubLocale, hubKey: HubKeyName): string 
     },
     en: {
       jobs: [
-        `How this index is built. The listings shown are the subset of openings on our job board that have cleared cross-crawler deduplication (40+ company ATS, official portals, public APIs): each opening has a detail page with full description, salary (when disclosed), contract type, location and a direct link to the employer's application channel. Pagination preserves the canonical-slug alphabetical order so cross-border workers searching for a specific role find it in the same place week after week, and crawlers can fetch the entire archive deterministically.`,
+        `This archive retains published listings, including expired vacancies. An entry here does not mean the position is still open. The detail page shows the retained information and vacancy status; use the active job board for current applications. Historical information does not constitute a new offer by the employer.`,
         `How to use it as a cross-border worker. To make the most of this list as a frontaliere, combine it with three conceptual filters: distance from your province of residence to the work address (target the smoothest crossings — Brogeda for the Mendrisiotto/Luganese, Stabio for those starting from Varese, Gaggiolo for the southern Mendrisiotto), sector (categories like healthcare, engineering and finance regularly hire 60 %+ cross-border, while public administration and regulated industries enforce stricter residence rules) and salary band (hop to the sector page for min/median/max in your category). The <a class="s-IjpSYt" href="/en/calculate-salary/">salary simulator</a> turns gross into net inclusive of the G permit + 2024 Italy-Switzerland agreement.`,
       ],
       sectors: [
@@ -345,7 +344,7 @@ function buildHubMethodologyHtml(locale: HubLocale, hubKey: HubKeyName): string 
     },
     de: {
       jobs: [
-        `Wie dieser Index aufgebaut ist. Die angezeigten Stellen sind die Teilmenge der Inserate auf unserem Job-Board, die die crawler-übergreifende Deduplikation bestanden haben (40+ Unternehmens-ATS, offizielle Portale, öffentliche APIs): jede Stelle hat eine Detailseite mit voller Beschreibung, Lohn (sofern angegeben), Vertragsart, Arbeitsort und Direktlink zum Bewerbungskanal. Die Paginierung erhält die alphabetische Reihenfolge nach kanonischem Slug, sodass Grenzgänger, die einen bestimmten Job suchen, ihn von Woche zu Woche an derselben Stelle wiederfinden, und Suchmaschinen das gesamte Archiv deterministisch crawlen können.`,
+        `Dieses Archiv enthält veröffentlichte Stellenanzeigen einschließlich abgelaufener Angebote. Ein Eintrag bedeutet nicht, dass die Stelle noch offen ist. Die Detailseite zeigt die gespeicherten Angaben und den Status. Für aktuelle Bewerbungen nutzen Sie die Jobbörse mit offenen Stellen. Historische Angaben sind kein neues Angebot des Arbeitgebers.`,
         `Wie Grenzgänger ihn nutzen. Um die Stellensuche als Grenzgänger zu optimieren, kombinieren Sie diese Liste mit drei begrifflichen Filtern: Distanz von der Wohnprovinz zum Arbeitsort (zielen Sie auf die fliessendsten Übergänge — Brogeda für das Mendrisiotto/Luganese, Stabio für Anreise aus Varese, Gaggiolo für das südliche Mendrisiotto), Branche (Gesundheit, Ingenieurwesen und Finance stellen regelmässig zu mehr als 60 % Grenzgänger ein, während die öffentliche Verwaltung und regulierte Branchen striktere Wohnsitzregeln haben) und Lohnband (öffnen Sie die Branchenseite für Min/Median/Max Ihrer Kategorie). Der <a class="s-IjpSYt" href="/de/gehalt-berechnen/">Lohnsimulator</a> verwandelt Brutto in Netto inklusive G-Bewilligung + neuem Steuerabkommen 2024.`,
       ],
       sectors: [
@@ -363,7 +362,7 @@ function buildHubMethodologyHtml(locale: HubLocale, hubKey: HubKeyName): string 
     },
     fr: {
       jobs: [
-        `Comment cet index est construit. Les annonces affichées sont le sous-ensemble d'offres sur notre tableau d'offres ayant passé la déduplication multi-crawlers (40+ ATS d'entreprise, portails officiels, API publiques) : chaque offre a une page de détail avec description complète, rémunération (lorsqu'elle est divulguée), type de contrat, lieu et lien direct vers le canal de candidature de l'employeur. La pagination préserve l'ordre alphabétique du slug canonique pour que les frontaliers cherchant un rôle précis le retrouvent au même endroit semaine après semaine, et que les moteurs de recherche puissent crawler l'archive entière de manière déterministe.`,
+        `Ces archives conservent les annonces publiées, y compris les postes expirés. Une entrée ne signifie pas que le poste est toujours ouvert. La fiche indique les informations conservées et le statut du poste. Pour les candidatures actuelles, consultez les offres actives. Les informations historiques ne constituent pas une nouvelle offre de l’employeur.`,
         `Comment l'utiliser en tant que frontalier. Pour optimiser la recherche d'emploi en tant que frontalier, combinez cette liste avec trois filtres conceptuels : distance de votre province de résidence au lieu de travail (visez les passages les plus fluides — Brogeda pour le Mendrisiotto/Luganese, Stabio pour les arrivées de Varèse, Gaggiolo pour le sud du Mendrisiotto), secteur (santé, ingénierie et finance recrutent régulièrement 60 % et plus de frontaliers, alors que l'administration publique et les secteurs réglementés appliquent des règles de résidence plus strictes) et fourchette salariale (rendez-vous sur la page sectorielle pour le min/médiane/max de votre catégorie). Le <a class="s-IjpSYt" href="/fr/calculer-salaire/">simulateur de salaire</a> traduit le brut en net incluant le permis G + le nouvel accord fiscal 2024.`,
       ],
       sectors: [
@@ -946,7 +945,6 @@ function buildHtml(args: BuildHtmlArgs): string {
   const pageTitle = baseTitle.length + brandSuffix.length <= 60 ? `${baseTitle}${brandSuffix}` : baseTitle;
   const canonicalPath = paginatedPath(basePath, page);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
-  const dateStamp = new Date().toISOString().slice(0, 10);
 
   // hreflang: only emit alternates for page-1 (paginated pages share lang)
   const hreflangs = page === 1
@@ -1006,9 +1004,6 @@ function buildHtml(args: BuildHtmlArgs): string {
     url: canonicalUrl,
     description,
     inLanguage: locale,
-    // Day-granularity, not a full build timestamp — see
-    // build-plugins/shared/buildDayStamp.ts (per-build churn fix).
-    dateModified: buildDayStampIso(),
     mainEntity: {
       '@type': 'ItemList',
       numberOfItems: displayCount,
@@ -1069,15 +1064,15 @@ function buildHtml(args: BuildHtmlArgs): string {
           .join('')}</ul>`;
 
   // Stat tiles + primary CTA — universal across hub kinds. Tiles surface the
-  // total, the current page position, and the last-updated date so users get
+  // total and the current page position so users get
   // immediate context above the data area (rule #17).
   const tileLabelsGlobal = {
-    it: { count: HUB_KEY_TILE_LABELS.it[hubKey], pagina: 'Pagina', aggiornato: 'Aggiornato' },
-    en: { count: HUB_KEY_TILE_LABELS.en[hubKey], pagina: 'Page', aggiornato: 'Updated' },
-    de: { count: HUB_KEY_TILE_LABELS.de[hubKey], pagina: 'Seite', aggiornato: 'Aktualisiert' },
-    fr: { count: HUB_KEY_TILE_LABELS.fr[hubKey], pagina: 'Page', aggiornato: 'Mis à jour' },
+    it: { count: HUB_KEY_TILE_LABELS.it[hubKey], pagina: 'Pagina' },
+    en: { count: HUB_KEY_TILE_LABELS.en[hubKey], pagina: 'Page' },
+    de: { count: HUB_KEY_TILE_LABELS.de[hubKey], pagina: 'Seite' },
+    fr: { count: HUB_KEY_TILE_LABELS.fr[hubKey], pagina: 'Page' },
   }[locale];
-  const statTilesHtml = `<section class="s-iQjIAb" aria-label="${esc({ it: 'Numeri chiave', en: 'Key numbers', de: 'Kennzahlen', fr: 'Chiffres clés' }[locale])}"><div class="s-tacc"><div class="s-tlbl">${esc(tileLabelsGlobal.count)}</div><div class="s-tval">${esc(displayCount.toLocaleString(locale))}</div></div><div class="s-tok"><div class="s-tlbl">${esc(tileLabelsGlobal.pagina)}</div><div class="s-tval">${esc(`${page} / ${totalPages}`)}</div></div><div class="s-tbase"><div class="s-tlbl">${esc(tileLabelsGlobal.aggiornato)}</div><div class="s-tval" style="font-size:18px">${esc(dateStamp)}</div></div></section>`;
+  const statTilesHtml = `<section class="s-iQjIAb" aria-label="${esc({ it: 'Numeri chiave', en: 'Key numbers', de: 'Kennzahlen', fr: 'Chiffres clés' }[locale])}"><div class="s-tacc"><div class="s-tlbl">${esc(tileLabelsGlobal.count)}</div><div class="s-tval">${esc(displayCount.toLocaleString(locale))}</div></div><div class="s-tok"><div class="s-tlbl">${esc(tileLabelsGlobal.pagina)}</div><div class="s-tval">${esc(`${page} / ${totalPages}`)}</div></div></section>`;
 
   const ctaPathGlobal = locale === 'it' ? '/calcola-stipendio/'
     : locale === 'de' ? '/de/gehalt-berechnen/'
@@ -1142,7 +1137,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
       <header class="s-S1RSUf">
         <h1 class="s-e3gkVi">${esc(sectionOverride ? (page > 1 ? `${sectionOverride.h1} — ${pageLabel(locale, page)}` : sectionOverride.h1) : buildHubH1(locale, hubKey, displayCount, page))}</h1>
         <p class="s-OPPwy-">${esc(description)}</p>
-        <p class="s-Sn0UIv">${esc(countLabel(locale, displayCount))} · ${esc(updatedLabel(locale))} ${dateStamp}</p>
+        <p class="s-Sn0UIv">${esc(countLabel(locale, displayCount))}</p>
       </header>
       ${statTilesHtml}
       ${ctaHtmlGlobal}
@@ -1168,9 +1163,6 @@ function emptyLabel(locale: HubLocale): string {
 }
 function countLabel(locale: HubLocale, n: number): string {
   return { it: `${n.toLocaleString('it')} risorse`, en: `${n.toLocaleString('en')} entries`, de: `${n.toLocaleString('de')} Einträge`, fr: `${n.toLocaleString('fr')} entrées` }[locale];
-}
-function updatedLabel(locale: HubLocale): string {
-  return { it: 'Aggiornato', en: 'Updated', de: 'Aktualisiert', fr: 'Mis à jour' }[locale];
 }
 
 interface PaginationRenderOptions {
@@ -1430,7 +1422,7 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
     <header class="s-S1RSUf">
       <h1 class="s-e3gkVi">${esc(copy.title)}</h1>
       <p class="s-OPPwy-">${esc(copy.intro)}</p>
-      <p class="s-Sn0UIv">${esc(countLabel(locale, totalItems))} · ${esc(updatedLabel(locale))} ${esc(dateStamp)}</p>
+      <p class="s-Sn0UIv">${esc(countLabel(locale, totalItems))}</p>
     </header>
     <section>
       <h2 class="s-o3IET6">${esc(copy.listHeading)}</h2>
@@ -1996,7 +1988,7 @@ export function buildThinCantonHubHtml(args: {
       <header class="s-S1RSUf">
         <h1 class="s-e3gkVi">${esc(h1)}</h1>
         <p class="s-OPPwy-">${esc(intro)}</p>
-        <p class="s-Sn0UIv">${esc(countLabel(locale, totalItems))} · ${esc(updatedLabel(locale))} ${dateStamp}</p>
+        <p class="s-Sn0UIv">${esc(countLabel(locale, totalItems))}</p>
       </header>
       ${statTilesHtml}
       ${adviceHtml}
@@ -2232,13 +2224,13 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
             `    <xhtml:link rel="alternate" hreflang="${alt}" href="${BASE_URL}${paginationIndexPath(archiveBases[alt], indexPage)}" />`,
           ).join('\n');
           sitemapEntries.push(
-            `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n${altLinks}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.4</priority>\n  </url>`,
+            `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n${altLinks}\n    <changefreq>daily</changefreq>\n    <priority>0.4</priority>\n  </url>`,
           );
         }
         if (locale === 'it') {
           const url = `${BASE_URL}${basePath}`;
           sitemapEntries.push(
-            `  <url>\n    <loc>${url}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+            `  <url>\n    <loc>${url}</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
           );
         }
       }
@@ -2303,7 +2295,7 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
         if (locale === 'it') {
           const url = `${BASE_URL}${basePath}`;
           sitemapEntries.push(
-            `  <url>\n    <loc>${url}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>`,
+            `  <url>\n    <loc>${url}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>`,
           );
         }
       }
@@ -2362,7 +2354,7 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
         if (locale === 'it') {
           const url = `${BASE_URL}${basePath}`;
           sitemapEntries.push(
-            `  <url>\n    <loc>${url}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>`,
+            `  <url>\n    <loc>${url}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>`,
           );
         }
       }
@@ -2613,7 +2605,7 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
       const url = `${BASE_URL}${canonicalPath}`;
       const priority = page === 1 ? '0.7' : '0.5';
       sitemapEntries.push(
-        `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+        `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
       );
     }
 
@@ -2789,7 +2781,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       const url = `${BASE_URL}${canonicalPath}`;
       const priority = page === 1 ? '0.7' : '0.5';
       sitemapEntries.push(
-        `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+        `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
       );
     }
 
@@ -2816,7 +2808,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       });
       for (const { canonicalPath } of indexPages) {
         sitemapEntries.push(
-          `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>${hubKey === 'jobs' ? 'daily' : 'weekly'}</changefreq>\n    <priority>0.4</priority>\n  </url>`,
+          `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n    <changefreq>${hubKey === 'jobs' ? 'daily' : 'weekly'}</changefreq>\n    <priority>0.4</priority>\n  </url>`,
         );
       }
     }
@@ -2997,7 +2989,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       pagesEmitted++;
       const url = `${BASE_URL}${basePath}`;
       sitemapEntries.push(
-        `  <url>\n    <loc>${url}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+        `  <url>\n    <loc>${url}</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
       );
     }
   }

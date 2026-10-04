@@ -8,6 +8,7 @@
  */
 
 import path from 'path';
+import { readArticleRegistryMetadata } from './shared/articleRegistryMetadata';
 import { decodeHtmlText } from './shared/htmlEntities';
 import { buildRelatedArticlesIndex } from './relatedArticlesIndex';
 import type { Plugin } from 'vite';
@@ -260,14 +261,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  'data/swiss-articles-data.ts',
  'content/blog-articles-data.ts',
  'content/swiss-articles-data.ts',
- 'components/community/BlogArticles.tsx',
  ]) {
  try {
  const src = fs.readFileSync(np.resolve(rootDir, rel), 'utf-8');
- const re = /\{\s*id:\s*'([^']+)'\s*,[\s\S]*?\bimage:\s*'([^']+)'/g;
- let m: RegExpExecArray | null;
- while ((m = re.exec(src)) !== null) {
- if (!blogImageById[m[1]]) blogImageById[m[1]] = m[2];
+ for (const article of readArticleRegistryMetadata(src)) {
+ if (article.image && !blogImageById[article.id]) blogImageById[article.id] = article.image;
  }
  } catch (err) {
  if (!isMissingPathError(err)) throw err;
@@ -346,27 +344,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const articleAuthorNameById: Record<string, string> = {};
  try {
  const articleDataSrc = fs.readFileSync(np.resolve(rootDir, SECTION.registry), 'utf-8');
- const catRx = /id:\s*'([^']+)'[\s\S]*?category:\s*'([^']+)'/g;
- let cm: RegExpExecArray | null;
- while ((cm = catRx.exec(articleDataSrc)) !== null) {
- articleCategoryById[cm[1]] = cm[2];
- }
- // Parse updatedAt for dateModified support
- const uaRx = /id:\s*'([^']+)'[\s\S]*?updatedAt:\s*'([^']+)'/g;
- let um: RegExpExecArray | null;
- while ((um = uaRx.exec(articleDataSrc)) !== null) {
- articleUpdatedAtById[um[1]] = um[2];
- }
- // Parse authorSlug/authorName (E-E-A-T byline + JSON-LD author, #author-eeat)
- const asRx = /id:\s*'([^']+)'[\s\S]*?authorSlug:\s*'([^']*)'/g;
- let asm: RegExpExecArray | null;
- while ((asm = asRx.exec(articleDataSrc)) !== null) {
- articleAuthorSlugById[asm[1]] = asm[2];
- }
- const anRx = /id:\s*'([^']+)'[\s\S]*?authorName:\s*'([^']*)'/g;
- let anm: RegExpExecArray | null;
- while ((anm = anRx.exec(articleDataSrc)) !== null) {
- articleAuthorNameById[anm[1]] = anm[2];
+ for (const article of readArticleRegistryMetadata(articleDataSrc)) {
+ if (article.category !== undefined) articleCategoryById[article.id] = article.category;
+ if (article.updatedAt !== undefined) articleUpdatedAtById[article.id] = article.updatedAt;
+ if (article.authorSlug !== undefined) articleAuthorSlugById[article.id] = article.authorSlug;
+ if (article.authorName !== undefined) articleAuthorNameById[article.id] = article.authorName;
  }
  } catch (err) {
  if (!isMissingPathError(err)) throw err;
@@ -927,12 +909,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const modIso = normalizeDateTime(dateModIso);
  const pubDay = pubIso.split('T')[0];
  const modDay = modIso.split('T')[0];
- const pubHtml = `${labels.published} <time datetime="${esc(pubDay)}" itemprop="datePublished">${esc(formatHumanDate(pubIso, locale))}</time>`;
+ const parts: string[] = [];
+ if (pubDay) parts.push(`${labels.published} <time datetime="${esc(pubDay)}" itemprop="datePublished">${esc(formatHumanDate(pubIso, locale))}</time>`);
  if (modDay && modDay !== pubDay) {
- const modHtml = `${labels.updated} <time datetime="${esc(modDay)}" itemprop="dateModified">${esc(formatHumanDate(modIso, locale))}</time>`;
- return `${pubHtml} · ${modHtml}`;
+ parts.push(`${labels.updated} <time datetime="${esc(modDay)}" itemprop="dateModified">${esc(formatHumanDate(modIso, locale))}</time>`);
  }
- return pubHtml;
+ return parts.join(' · ');
  };
 
  /* ── 3. Write OG landing pages ──────────────────────────────── */
@@ -1401,15 +1383,17 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  articleSection: 'Frontalieri Ticino',
  };
  }
- const buildDateIso = new Date().toISOString();
- const todayIso = buildDateIso.slice(0, 10);
+ // A missing editorial date is unknown, not the render time or the other
+ // date's event. Keep the same source values in JSON-LD, Open Graph and byline.
+ const publishedDate = normalizeDateTime(en.datePub);
+ const modifiedDate = normalizeDateTime(en.dateMod);
+ const dateByline = buildDateByline(publishedDate, modifiedDate, locale);
 
  // Article-specific fields (datePublished, dateModified, articleBody, wordCount)
  // are not applicable to Event schema
  if (!isEvent) {
- ldObj.datePublished = normalizeDateTime(en.datePub || en.dateMod || todayIso);
- // Use datePublished for dateModified — avoids false freshness signals on every deploy
- ldObj.dateModified = normalizeDateTime(en.dateMod || en.datePub || todayIso);
+ if (publishedDate) ldObj.datePublished = publishedDate;
+ if (modifiedDate) ldObj.dateModified = modifiedDate;
 
  // articleBody excerpt + wordCount (Google Discover uses this for topic relevance)
  const fullBodyHtml = bodySections.map((s) => s.html).join('\n');
@@ -1540,8 +1524,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta name="robots" content="${ARTICLE_ROBOTS_INDEX_ENHANCED}">
  <meta property="fb:app_id" content="891036063797338">
- <meta property="article:published_time" content="${esc(normalizeDateTime(en.datePub || en.dateMod || todayIso))}">
- <meta property="article:modified_time" content="${esc(normalizeDateTime(en.dateMod || en.datePub || todayIso))}">
+ ${publishedDate ? `<meta property="article:published_time" content="${esc(publishedDate)}">` : ''}
+ ${modifiedDate ? `<meta property="article:modified_time" content="${esc(modifiedDate)}">` : ''}
  <meta property="article:section" content="Frontalieri Ticino">
  <meta property="article:author" content="${esc(String(authorObj.url))}">
 ${href}
@@ -1633,7 +1617,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')} · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>${ARTICLE_FOOTER_ROOT}
+ ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>${ARTICLE_FOOTER_ROOT}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;

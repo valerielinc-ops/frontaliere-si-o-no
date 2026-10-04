@@ -128,8 +128,10 @@ import {
   factsContainingToken,
   isActionableAstFact,
   isAstSourceFile,
+  isBareFunctionHeader,
   isExternalBinding,
   matchAstFacts,
+  projectBindingKey,
 } from './lib/sibling-ast-graph.mjs';
 
 const argv = process.argv.slice(2);
@@ -222,7 +224,7 @@ const MAX_PATTERN_CLASS_HITS = 15;
 // analisi `--head` immutabili: il working tree può cambiare tra due chiamate.
 // Incrementare quando cambiano le semantiche dei candidati, per non riusare
 // JSON prodotti da una versione precedente.
-const CHECK_CACHE_VERSION = '2026-10-03-v4';
+const CHECK_CACHE_VERSION = '2026-10-03-v5';
 const CHECK_CACHE_WAIT_MS = 240_000;
 const CHECK_CACHE_STALE_MS = 600_000;
 const CHECK_CACHE_POLL_MS = 100;
@@ -794,7 +796,7 @@ const GENERIC_REMOVED_GUARD_PATTERNS = Object.freeze([
 export function isGenericRemovedExpression(expression, externalCalls = new Set()) {
   const value = String(expression || '');
   // A declaration header alone carries a name/signature, not behavior.
-  if (/^(?:async\s+)?function\s*\*?\s*[A-Za-z_$][\w$]*\s*\([^{}]*\)\s*\{$/.test(value)) return true;
+  if (isBareFunctionHeader(value)) return true;
   // Returning the truthy value just tested is a generic fallback idiom,
   // regardless of the local variable name; it is not a domain relationship.
   if (/^if\s*\(\s*([A-Za-z_$][\w$]*)\s*\)\s*return\s+\1$/.test(value)) return true;
@@ -1374,9 +1376,12 @@ function main() {
     if (astChecks.length > 0) {
       const source = readTracked(file);
       const factKeys = new Set();
+      const bindingKeys = new Set();
       for (const [, changedFacts] of astChecks) {
         for (const fact of changedFacts) {
           factKeys.add(`${fact.kind}|${fact.key}|${fact.role}`);
+          const bindingKey = projectBindingKey(fact);
+          if (bindingKey) bindingKeys.add(bindingKey);
           if (fact.kind === 'identifier' && fact.role === 'declaration' && fact.exported) {
             for (const role of ['call', 'reference', 'declaration']) {
               factKeys.add(`${fact.kind}|${fact.key}|${role}`);
@@ -1389,6 +1394,7 @@ function main() {
           files: astFiles,
           candidateOnly: true,
           factKeys,
+          bindingKeys,
         })
         : [];
       for (const [token, changedFacts] of astChecks) {

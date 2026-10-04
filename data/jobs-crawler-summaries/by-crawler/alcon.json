@@ -1,7 +1,7 @@
 {
   "key": "alcon",
   "label": "Alcon",
-  "generatedAt": "2026-10-03T09:33:01.090Z",
+  "generatedAt": "2026-10-04T09:34:05.335Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -14,12 +14,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6706,
-  "avgDurationMs": 6706,
+  "durationMs": 7224,
+  "avgDurationMs": 7224,
   "durationHistory": [
-    7024,
-    7507,
-    6706
+    7224
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +34,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Field-Service-Engineer--m-f-d----Medical-Devices---German---English-speaking_R-2026-49510-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:32:49.959Z",
+      "crawledAt": "2026-10-04T09:33:51.563Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -73,7 +71,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Practice-Solution-Manager--PSM----Strategic-Account-Manager--m-w-d---80-100--_R-2026-49838-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:32:50.771Z",
+      "crawledAt": "2026-10-04T09:33:52.457Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -110,7 +108,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Geneva-Switzerland/Director--Compensation_R-2026-49416-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:32:51.613Z",
+      "crawledAt": "2026-10-04T09:33:53.173Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -147,7 +145,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Manager--Accounting---Reporting_R-2026-49365-2",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:32:53.095Z",
+      "crawledAt": "2026-10-04T09:33:54.566Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -184,7 +182,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/International-Accounting-and-Reporting-Director_R-2026-46854",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:32:52.346Z",
+      "crawledAt": "2026-10-04T09:33:53.873Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -210,5 +208,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

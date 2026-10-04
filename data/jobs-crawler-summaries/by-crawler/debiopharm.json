@@ -1,18 +1,16 @@
 {
   "key": "debiopharm",
   "label": "Debiopharm",
-  "generatedAt": "2026-10-03T09:20:28.830Z",
+  "generatedAt": "2026-10-04T09:20:21.607Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 4021,
-  "avgDurationMs": 4021,
+  "durationMs": 2921,
+  "avgDurationMs": 2921,
   "durationHistory": [
-    3007,
-    3739,
-    4021
+    2921
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -238,5 +236,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

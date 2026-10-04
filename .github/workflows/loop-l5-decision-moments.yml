@@ -14,6 +14,7 @@ on:
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/export-loop-outcomes.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/app-error-recency.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/ci/loop-l5-decision-moments.mjs'
@@ -21,6 +22,7 @@ on:
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/loop-fleet-issue.mjs'
       - '.github/workflows/loop-l5-decision-moments.yml'
   pull_request:
     paths:
@@ -32,6 +34,7 @@ on:
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/export-loop-outcomes.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/app-error-recency.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/ci/loop-l5-decision-moments.mjs'
@@ -39,6 +42,7 @@ on:
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/loop-fleet-issue.mjs'
       - '.github/workflows/loop-l5-decision-moments.yml'
   workflow_dispatch:
     inputs:
@@ -74,6 +78,7 @@ jobs:
             /data/loop-fleet/loop-registry.json
             /scripts/ci/export-loop-outcomes.mjs
             /scripts/lib/ga4-service-account.mjs
+            /scripts/lib/app-error-recency.mjs
             /scripts/lib/analytics-settled-window.mjs
             /scripts/ci/loop-l5-decision-moments.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
@@ -81,6 +86,7 @@ jobs:
             /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/posthog-client.mjs
             /scripts/lib/github-issue-creator.mjs
+            /scripts/lib/loop-fleet-issue.mjs
             /.github/workflows/loop-l5-decision-moments.yml
           sparse-checkout-cone-mode: false
       - name: Setup Node.js

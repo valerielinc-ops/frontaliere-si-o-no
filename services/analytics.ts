@@ -115,6 +115,7 @@ import {
 import { safeAffiliateToken, buildAffiliatePubref, sanitizeAffiliatePubref } from '../functions/src/lib/affiliateLinks.js';
 import { readBuildIdForTelemetry } from './buildInfo';
 import { jobGateNewsletterTags } from './jobGateExperiment';
+import { GA4_ERROR_EVENTS, isNonProductionTelemetryHost } from './nonProductionHost';
 
 export interface AffiliateTelemetry {
  surface?: string;
@@ -413,6 +414,10 @@ function _doSetProps(properties: Record<string, string>) {
 }
 
 const logFirebaseOnly = (eventName: string, params?: Record<string, any>) => {
+ // Error events from the dev server or the Firebase service domains are not
+ // production errors: keep them out of the GA4 property the backlog feeder
+ // reads (see ./nonProductionHost).
+ if (GA4_ERROR_EVENTS.has(eventName) && isNonProductionTelemetryHost()) return;
  if (_firebaseReady) {
   _doLog(eventName, params);
  } else {

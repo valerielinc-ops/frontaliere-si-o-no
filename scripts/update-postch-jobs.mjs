@@ -23,6 +23,7 @@
  *   7. Post-process: fix company name, location, canton
  *   8. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -596,7 +597,8 @@ async function fetchPostJobs() {
       sourceLang,
       department: detail.industry || '',
       category: detail.industry || 'servizi-postali',
-      datePosted: detail.datePosted || new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(detail.datePosted),
+      crawledAt: new Date().toISOString(),
       validThrough: detail.validThrough || '',
       source: 'postch-careers-crawler',
       employmentType: detectEmploymentType(detail),
@@ -706,6 +708,8 @@ async function mergePostJobs(discoveredJobs) {
       );
       const updatedJob = {
         ...existing,
+        ...mergeSourcePostingDates(existing, discovered),
+        crawledAt: discovered.crawledAt,
         title: discovered.title || existing.title,
         description: discovered.description || existing.description,
         company: discovered.company || existing.company,

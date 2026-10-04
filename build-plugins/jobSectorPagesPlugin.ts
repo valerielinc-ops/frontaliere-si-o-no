@@ -1,3 +1,5 @@
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import { hasPostingDateProvenance, resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 /**
  * Vite build plugin that emits static HTML for the 3 sector-based job hubs
  * (Infermieri / Case Anziani / Educatori) in all 4 locales — 12 pages total.
@@ -67,7 +69,6 @@ import {
   type SectorCountableJob,
   type SectorHubKey,
 } from './jobSectorLanding';
-import { buildDayStampIso } from './shared/buildDayStamp';
 import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { resolveSectorPagesFlushed } from './shared/buildSignals';
@@ -324,7 +325,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
       company: String(job.company || '').replace(/\s+/g, ' ').trim(),
       location: String(job.location || '').replace(/\s+/g, ' ').trim(),
       href,
-      datePosted: job.datePosted || job.postedDate || undefined,
+      datePosted: resolveRolloutPostingDate(job, () => job.datePosted || job.postedDate || null) || undefined,
     };
   });
 
@@ -433,9 +434,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     description: seo.desc,
     inLanguage: locale,
     isPartOf: sectionRootUrl,
-    // Day-granularity, not a full build timestamp — see
-    // build-plugins/shared/buildDayStamp.ts (per-build churn fix).
-    dateModified: buildDayStampIso(),
+
   });
 
   const faqLd = seo.faq.length > 0
@@ -672,7 +671,9 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           const freshCount = allMatching.filter((j) => {
             // First PARSEABLE date, not first truthy: a malformed postedDate must
             // not collapse the timestamp to 0 and undercount the fresh tile.
-            const t = firstParsableMs(j.datePosted, j.postedDate);
+            const t = hasPostingDateProvenance(j)
+              ? firstParsableMs(resolveReportedPostingDate(j))
+              : firstParsableMs(j.datePosted, j.postedDate);
             return t >= freshCutoff && t <= freshMax;
           }).length;
 
@@ -731,7 +732,7 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           // locale this <url> block itself represents.
           const itUrl = `${BASE_URL}${buildSectorHubPath('it', sector)}`;
           sitemapEntries.push(
-            `  <url>\n    <loc>${canonicalUrl}</loc>\n${altLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${itUrl}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.9</priority>\n  </url>`,
+            `  <url>\n    <loc>${canonicalUrl}</loc>\n${altLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${itUrl}" />\n    <changefreq>daily</changefreq>\n    <priority>0.9</priority>\n  </url>`,
           );
         }
       }

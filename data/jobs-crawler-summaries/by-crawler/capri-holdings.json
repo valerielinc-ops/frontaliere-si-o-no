@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-09-30T21:38:50.431Z",
-  "total": 2,
+  "generatedAt": "2026-10-04T09:37:37.327Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 34361,
-  "avgDurationMs": 34361,
+  "durationMs": 21593,
+  "avgDurationMs": 21593,
   "durationHistory": [
-    34361
+    21593
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,6 +31,8 @@
       "slug": "direttore-del-negozio-landquart-capri-holdings-michael-kors-versace-graubunden",
       "category": "retail",
       "datePosted": "2026-09-11",
+      "postedDate": "2026-09-11",
+      "postingDateSource": "reported",
       "source": "capri-holdings-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -42,17 +44,18 @@
         "location": "Landquart"
       },
       "id": "capri-holdings-3d3f64b95ee9",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T23:21:22.496Z",
       "crawledAt": "",
-      "_qualityScore": 87,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 23,
-        "completeness": 15
+        "translation": 25,
+        "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-time-fixed-Term-20-_R_786806",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-time-fixed-Term-20-_R_786806",
@@ -88,16 +91,16 @@
       "salaryMax": 21000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 92,
+      "crawlerMissStreak": 2,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 23,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

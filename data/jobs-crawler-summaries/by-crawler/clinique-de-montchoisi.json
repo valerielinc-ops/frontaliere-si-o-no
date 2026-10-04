@@ -1,7 +1,7 @@
 {
   "key": "clinique-de-montchoisi",
   "label": "Clinique de Montchoisi",
-  "generatedAt": "2026-10-03T09:23:14.189Z",
+  "generatedAt": "2026-10-04T09:26:26.946Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -14,12 +14,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5388,
-  "avgDurationMs": 5388,
+  "durationMs": 6613,
+  "avgDurationMs": 6613,
   "durationHistory": [
-    6079,
-    5467,
-    5388
+    6613
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149376088-assc",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:23:04.435Z",
+      "crawledAt": "2026-10-04T09:26:13.596Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -50,8 +48,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-14",
-      "datePosted": "2026-09-14",
+      "datePosted": "2026-09-14T15:51:13.694Z",
+      "postedDate": "2026-09-14T15:51:13.694Z",
+      "postingDateSource": "reported",
       "firstSeenAt": "2026-09-18T23:20:51.196Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -63,5 +62,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

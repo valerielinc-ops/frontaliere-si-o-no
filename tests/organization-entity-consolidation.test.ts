@@ -1,3 +1,4 @@
+import { METHODOLOGY_COPY } from '../services/editorialMethodology';
 import { describe, expect, it } from 'vitest';
 import { lstatSync, readdirSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -224,6 +225,16 @@ describe('the canonical #organization entity', () => {
     expect(creator['@id']).toBe('https://example.com/#stale-site-id');
   });
 
+  it.each(['ImageObject', 'NewsArticle'])('preserves same-name external identities without a URL inside %s', (type) => {
+    const external = Object.freeze({
+      '@type': 'Organization', name: 'Frontaliere Ticino', '@id': 'https://example.com/#newsroom',
+    });
+    const normalized = normalizeStructuredData({ '@type': type, creator: external, publisher: external, author: external });
+    for (const entity of [normalized.creator, normalized.publisher, normalized.author]) {
+      expect(entity).toEqual(external);
+    }
+  });
+
   it('normalizes legacy nested site organizations to the canonical identity', () => {
     const normalized = normalizeStructuredData({
       '@type': 'ImageObject',
@@ -412,7 +423,10 @@ describe('every policy URL points at something that exists', () => {
     // zero `id` attributes, so the fragment resolved to nothing.
     const fragment = ORGANIZATION_POLICIES.verificationFactCheckingPolicy.split('#')[1];
     expect(fragment).toBeTruthy();
-    expect(read('components/pages/Metodologia.tsx')).toContain(`id="${fragment}"`);
+    for (const copy of Object.values(METHODOLOGY_COPY)) {
+      expect(copy.sections.some(section => section.id === fragment)).toBe(true);
+    }
+    expect(read('components/pages/Metodologia.tsx')).toContain('id={section.id}');
   });
 
   it.each([

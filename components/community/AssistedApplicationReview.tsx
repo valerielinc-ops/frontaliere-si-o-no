@@ -6,6 +6,7 @@ import { AssistedApplicationDocuments } from '@/components/community/AssistedApp
 import { AssistedApplicationFitNotice } from '@/components/community/AssistedApplicationFitNotice';
 import { AssistedApplicationCvChanges } from '@/components/community/AssistedApplicationCvChanges';
 import type { DocumentCheck } from '@/services/assistedApplicationDocumentCheck';
+import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { answerMessage, validateAnswer } from '@/functions/src/lib/answerRules.js';
 import {
   fetchReview,
@@ -229,7 +230,16 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
       if (STATE_ACTIONS.has(action)) top.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       return true;
     } catch (reason) {
-      setError(reason instanceof ReviewRequestError ? reason.code : 'network');
+      const code = reason instanceof ReviewRequestError ? reason.code : 'network';
+      // Saved from another tab meanwhile and nothing of this action was kept: show
+      // what is there now, then say why (load clears the error it finds). An open
+      // edit form still holds the values it was opened with: close it, so that a
+      // second save cannot send them back over the other tab's change.
+      if (code === 'changed_meanwhile') {
+        await load();
+        if (action === 'edit') setEditing(false);
+      }
+      setError(code);
       if (reason instanceof ReviewRequestError) {
         // An edit's field keys may share a name with a question id (availability).
         if (action === 'edit') setEditServerErrors(reason.fields || {});
@@ -376,7 +386,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   if (followup) {
     const followupLocale = followup.locale || locale || 'it';
     return (
-      <main className="mx-auto max-w-2xl px-4 py-8 sm:py-12">
+      <main className={`${REPLAY_PRIVATE_CLASS} mx-auto max-w-2xl px-4 py-8 sm:py-12`} {...REPLAY_PRIVATE_ATTRS}>
         <section ref={top} className="scroll-mt-4 space-y-5 rounded-2xl border border-edge bg-surface p-5 sm:p-7">
           <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-wide text-accent">{t('jobBoard.assisted.pageEyebrow')}</p>
@@ -410,8 +420,9 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
     );
   }
 
+  // The candidate's letter, CV lines, personal data and photo: never in a session replay.
   return (
-    <main className="mx-auto max-w-2xl px-4 py-8 sm:py-12">
+    <main className={`${REPLAY_PRIVATE_CLASS} mx-auto max-w-2xl px-4 py-8 sm:py-12`} {...REPLAY_PRIVATE_ATTRS}>
       <section ref={top} className="scroll-mt-4 space-y-6 rounded-2xl border border-edge bg-surface p-5 sm:p-7">
         <div className="flex items-start gap-3">
           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent-subtle text-accent">
@@ -707,7 +718,8 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                     </p>
                     {data.tailoredCv.photo ? (
                       <div className="flex flex-wrap items-center gap-3">
-                        <span className="text-body">{t('jobBoard.assisted.review.photoIncluded')}</span>
+                        {/* Given is not printed: with the standard-font writer the PDF has no photo. */}
+                        <span className="text-body">{t(data.tailoredCv.photoPrinted === false ? 'jobBoard.assisted.review.photoNotPrinted' : 'jobBoard.assisted.review.photoIncluded')}</span>
                         <button
                           type="button"
                           disabled={Boolean(busy)}

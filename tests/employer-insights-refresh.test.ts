@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import YAML from 'yaml';
 
 import * as employerInsightsBuilder from '../scripts/build-employer-insights.mjs';
 import { validateD18Artifact } from '../scripts/ci/validate-employer-insights-d18-payload.mjs';
@@ -13,6 +14,144 @@ const BUILDER_SOURCE = readFileSync(
   new URL('../scripts/build-employer-insights.mjs', import.meta.url),
   'utf8',
 );
+
+type WorkflowStep = {
+  name?: string;
+  id?: string;
+  if?: string;
+  run?: string;
+  uses?: string;
+  'continue-on-error'?: unknown;
+};
+type WorkflowJob = { needs?: string | string[]; steps?: WorkflowStep[]; 'continue-on-error'?: unknown };
+
+const LIVE_EVIDENCE_FLAG = '--require-live-ga4';
+const WRITER_CALL = 'writeEmployerInsightsDocuments(';
+const LEGACY_VALIDATOR = 'validate-employer-insights-payload.mjs';
+const FRESHNESS_SCRIPT = 'scripts/ci/check-employer-insights-freshness.mjs';
+
+function workflowJobs(source: string): Record<string, WorkflowJob> {
+  return (YAML.parse(source)?.jobs ?? {}) as Record<string, WorkflowJob>;
+}
+
+/** Every job the given job waits for, directly or through another job. */
+function upstreamJobs(jobs: Record<string, WorkflowJob>, jobId: string, seen = new Set<string>()): Set<string> {
+  for (const need of [jobs[jobId]?.needs ?? []].flat()) {
+    if (seen.has(need)) continue;
+    seen.add(need);
+    upstreamJobs(jobs, need, seen);
+  }
+  return seen;
+}
+
+/**
+ * The one-off D18 acceptance must never sit in front of the recurring write.
+ * Returns the violations, so the same check runs on the real workflow and on
+ * the shape that kept twelve daily refreshes out of Firestore.
+ */
+function gateOrderViolations(source: string): string[] {
+  const jobs = workflowJobs(source);
+  const located = Object.entries(jobs).flatMap(([jobId, job]) =>
+    (job.steps ?? []).map((step, index) => ({ jobId, step, index })));
+  const writers = located.filter(({ step }) => String(step.run ?? '').includes(WRITER_CALL));
+  const gates = located.filter(({ step }) => String(step.run ?? '').includes(LIVE_EVIDENCE_FLAG));
+  const violations: string[] = [];
+  if (writers.length === 0) violations.push('no step writes employer_insights');
+  if (gates.length === 0) violations.push(`no step runs ${LIVE_EVIDENCE_FLAG}`);
+  for (const writer of writers) {
+    const upstream = upstreamJobs(jobs, writer.jobId);
+    for (const gate of gates) {
+      if (gate.jobId === writer.jobId && gate.index < writer.index) {
+        violations.push(`"${gate.step.name}" precedes "${writer.step.name}" in job ${writer.jobId}`);
+      }
+      if (gate.jobId !== writer.jobId && upstream.has(gate.jobId)) {
+        violations.push(`job ${writer.jobId} needs job ${gate.jobId}, which runs ${LIVE_EVIDENCE_FLAG}`);
+      }
+      if (gate.step.id && String(writer.step.if ?? '').includes(`steps.${gate.step.id}.`)) {
+        violations.push(`"${writer.step.name}" is conditioned on the outcome of "${gate.step.name}"`);
+      }
+    }
+  }
+  return violations;
+}
+
+describe('employer insights refresh: the one-off D18 gate does not hold the daily write', () => {
+  const jobs = workflowJobs(REFRESH_WORKFLOW_SOURCE);
+  const steps = jobs.refresh?.steps ?? [];
+  const indexOf = (predicate: (step: WorkflowStep) => boolean) => steps.findIndex(predicate);
+  const writerIndex = indexOf((step) => String(step.run ?? '').includes(WRITER_CALL));
+  const gateIndex = indexOf((step) => String(step.run ?? '').includes(LIVE_EVIDENCE_FLAG));
+
+  it('runs the live-evidence gate after the write, never before it', () => {
+    expect(gateOrderViolations(REFRESH_WORKFLOW_SOURCE)).toEqual([]);
+  });
+
+  it('rejects the ordering that blocked the write (gate first, same job)', () => {
+    const blocked = YAML.parse(REFRESH_WORKFLOW_SOURCE);
+    const blockedSteps: WorkflowStep[] = blocked.jobs.refresh.steps;
+    const [gate] = blockedSteps.splice(gateIndex, 1);
+    blockedSteps.splice(writerIndex, 0, gate);
+    expect(gateOrderViolations(YAML.stringify(blocked)).join('\n')).toMatch(/precedes/);
+  });
+
+  it('rejects a write conditioned on the gate, in the same job or through needs', () => {
+    const conditioned = YAML.parse(REFRESH_WORKFLOW_SOURCE);
+    const gateId = conditioned.jobs.refresh.steps[gateIndex].id;
+    expect(gateId).toBeTruthy();
+    conditioned.jobs.refresh.steps[writerIndex].if = `steps.${gateId}.outcome == 'success'`;
+    expect(gateOrderViolations(YAML.stringify(conditioned)).join('\n')).toMatch(/conditioned on the outcome/);
+
+    const split = YAML.parse(REFRESH_WORKFLOW_SOURCE);
+    const [gate] = split.jobs.refresh.steps.splice(gateIndex, 1);
+    split.jobs.evidence = { 'runs-on': 'ubuntu-latest', steps: [gate] };
+    split.jobs.refresh.needs = ['evidence'];
+    expect(gateOrderViolations(YAML.stringify(split)).join('\n')).toMatch(/needs job evidence/);
+  });
+
+  it('keeps the daily write behind its own fail-closed validator and nothing else optional', () => {
+    const validatorIndex = indexOf((step) => String(step.run ?? '').includes(LEGACY_VALIDATOR));
+    expect(validatorIndex).toBeGreaterThanOrEqual(0);
+    expect(validatorIndex).toBeLessThan(writerIndex);
+    // No `if:` on either: both keep the implicit success() over every earlier step.
+    expect(steps[validatorIndex].if).toBeUndefined();
+    expect(steps[writerIndex].if).toBeUndefined();
+    expect(steps[validatorIndex]['continue-on-error']).toBeUndefined();
+    expect(steps[writerIndex]['continue-on-error']).toBeUndefined();
+  });
+
+  it('does not lower the gate: it still fails the run and judges the validated artifact', () => {
+    const gate = steps[gateIndex];
+    expect(gate['continue-on-error']).toBeUndefined();
+    expect(jobs.refresh['continue-on-error']).toBeUndefined();
+    const structuralIndex = indexOf((step) =>
+      String(step.run ?? '').includes('validate-employer-insights-d18-payload.mjs')
+      && !String(step.run ?? '').includes(LIVE_EVIDENCE_FLAG));
+    expect(structuralIndex).toBeGreaterThanOrEqual(0);
+    expect(structuralIndex).toBeLessThan(writerIndex);
+    const structuralId = steps[structuralIndex].id;
+    expect(structuralId).toBeTruthy();
+    // The verdict does not depend on the write either: it is reported whenever
+    // the artifact it reads was structurally valid.
+    expect(String(gate.if)).toContain(`steps.${structuralId}.outcome == 'success'`);
+    expect(String(gate.if)).toContain('!cancelled()');
+  });
+
+  it('checks freshness on every run, before the credentials are removed', () => {
+    const freshnessIndex = indexOf((step) => String(step.run ?? '').includes(FRESHNESS_SCRIPT));
+    const cleanupIndex = indexOf((step) => String(step.run ?? '').includes('rm -f /tmp/firebase-sa.json'));
+    const uploadIndex = indexOf((step) => String(step.uses ?? '').startsWith('actions/upload-artifact@'));
+    expect(cleanupIndex).toBeGreaterThanOrEqual(0);
+    expect(uploadIndex).toBeGreaterThanOrEqual(0);
+    expect(freshnessIndex).toBeGreaterThan(writerIndex);
+    expect(cleanupIndex).toBeGreaterThan(freshnessIndex);
+    // Must run when an earlier step failed, timed out or was cancelled: those
+    // are exactly the stale cases.
+    expect(steps[freshnessIndex].if).toBe('always()');
+    expect(YAML.parse(REFRESH_WORKFLOW_SOURCE).permissions.issues).toBe('write');
+    expect(steps[uploadIndex].if).toBe('always()');
+    expect(steps[cleanupIndex].if).toBe('always()');
+  });
+});
 
 describe('employer insights refresh rollback', () => {
   it('fingerprints the complete identity catalog without materializing one giant string', () => {
@@ -402,6 +541,11 @@ describe('employer insights refresh rollback', () => {
     expect(Date.parse(live.from)).toBe(Date.parse(reportWindow.to));
     expect(live.to).toBe('2026-09-14T06:00:00.000Z');
     expect(live.timezone).toBe('Europe/Zurich');
+  });
+
+  it('lets only the live evidence probe read the current GA4 date', () => {
+    expect(BUILDER_SOURCE).toMatch(/queryGa4EmissionEvidence\(d18EvidenceWindow, \{[\s\S]*includeCurrentDate: true/);
+    expect(BUILDER_SOURCE).toContain('const endDate = includeCurrentDate');
   });
 
   it('runs the now-supported GA4 identity feed on the periodic trigger', () => {

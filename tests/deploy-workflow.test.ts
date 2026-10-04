@@ -553,11 +553,10 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
     expect(tailTiming?.run).toContain('locale push');
   });
 
-  it('tutti i produttori di righe passano dallo stesso script di append+push', () => {
-    // Il retry-con-rebase (5 tentativi, backoff 5/10/15/25/40s) ha un solo
-    // posto in cui cambiare: 4 leg concorrenti + gli altri produttori su main
-    // out-race regolarmente una finestra piu' corta, e due copie divergenti
-    // sarebbero una di quelle finestre corte in attesa di succedere.
+  it('tutti i produttori di righe passano dallo stesso script di staging', () => {
+    // La validazione della riga ha un solo posto in cui cambiare; il commit
+    // e il push li fa il job build-history-commit (#9247), vedi
+    // tests/build-history-single-writer.test.ts.
     const producers = BUILD_LOCALE_STEPS.filter((s) =>
       typeof s.run === 'string' && s.run.includes('scripts/lib/append-build-history-row.sh'),
     );
@@ -570,15 +569,11 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
       'Append incremental manifest history row',
     ]);
     for (const s of producers) {
-      expect(s.run, `"${s.name}": commit message non passato allo script condiviso`).toContain(
-        'HISTORY_COMMIT_MSG=',
+      expect(s.env?.HISTORY_STAGE_DIR, `"${s.name}": nessuna cartella di staging`).toBe(
+        '${{ runner.temp }}/build-history-rows',
       );
-    }
-    // Nessuno dei due deve essersi riportato in casa il loop di retry.
-    for (const s of producers) {
-      expect(s.run, `"${s.name}": loop di retry duplicato invece di delegato`).not.toContain(
-        'git push origin HEAD:main',
-      );
+      expect(s.run, `"${s.name}": la gamba non deve piu' committare`).not.toContain('HISTORY_COMMIT_MSG=');
+      expect(s.run, `"${s.name}": push dentro la gamba`).not.toMatch(/\bgit\s+push\b/);
     }
   });
 
@@ -674,7 +669,7 @@ describe('deploy.yml — incremental manifest shadow observation (PR 1b)', () =>
     expect(history.run).toContain('by_kind');
     expect(history.run).toContain('scripts/lib/append-build-history-row.sh');
     expect(history.run).toContain('HISTORY_LABEL=build-history-manifest');
-    expect(history.run).toContain('HISTORY_COMMIT_MSG=');
+    expect(history.env?.HISTORY_STAGE_DIR).toBe('${{ runner.temp }}/build-history-rows');
   });
 });
 

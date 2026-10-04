@@ -120,6 +120,14 @@ const MAX_REF_LOOKUPS = intFromEnv('PREPASS_MAX_REF_LOOKUPS', 40);
 const HOME_SCOPE = 'site';
 
 /**
+ * Intestazione della nota di rientro. NON contiene `🔁`: il pre-pass agisce
+ * anche su `CI Failure:`/`Workflow Failure:`, e `close-recovered-failure-issues.mjs`
+ * conta le ricorrenze con `body.includes('🔁')` — una nota che lo citasse
+ * sarebbe una ricorrenza finta verso la soglia cronica.
+ */
+export const PREPASS_NOTE_HEAD = '↩️ **Pre-pass deterministico dello sweep (zero-Claude)**';
+
+/**
  * Le famiglie di issue APERTE DA UN MONITOR, riconosciute sul titolo.
  *
  * Ognuna è un titolo che scrive un nostro script, non una persona: il prefisso è
@@ -766,6 +774,68 @@ export function noteMarker(reg, staleBlocks = []) {
   return parts.length ? `<!-- PREPASS_NOTE: ${parts.join(' ')} -->` : null;
 }
 
+/** Le chiavi `r=`/`b=` di un marker `PREPASS_NOTE`, come insiemi. */
+function markerKeys(marker) {
+  const m = /<!-- PREPASS_NOTE: ([^>]+) -->/.exec(String(marker || ''));
+  if (!m) return null;
+  const out = new Map();
+  for (const token of m[1].trim().split(/\s+/)) {
+    const at = token.indexOf('=');
+    if (at <= 0) continue;
+    const kind = token.slice(0, at);
+    const set = out.get(kind) || new Set();
+    for (const key of token.slice(at + 1).split(',')) if (key) set.add(key);
+    out.set(kind, set);
+  }
+  return out;
+}
+
+/**
+ * Se la nota va postata. La forma (firma e codici) è quella del gemello del
+ * corpus; la regola di COPERTURA è in più.
+ *
+ * Misurato su #8441 (nove note «Blocco scaduto» in nove giorni): l'insieme `b=`
+ * del marker non è stabile fra le run, perché dipende da quali riferimenti il
+ * resolver riesce a leggere entro `MAX_REF_LOOKUPS`, un budget condiviso da
+ * tutte le issue del giro. Il confronto per identità di stringa trattava ogni
+ * sottoinsieme come una novità: quattro note su nove ripetevano solo
+ * riferimenti già annotati. Qui la nota è `already` quando l'UNIONE delle
+ * chiavi dei marker già presenti contiene ogni chiave del marker corrente,
+ * tipo per tipo (`r=` con `r=`, `b=` con `b=`): una chiave davvero nuova riapre
+ * la nota una volta sola.
+ *
+ * Senza i commenti in mano l'idempotenza non è dimostrabile, quindi non si
+ * posta (`unread`): un giro di ritardo costa zero, una nota ripetuta no.
+ *
+ * @param {{marker?: string|null, comments?: Array<{body?: string}>, commentsRead?: boolean}} o
+ * @returns {{post: boolean, code: 'ok'|'no-marker'|'unread'|'already', why: string}}
+ */
+export function noteGate({ marker = null, comments = [], commentsRead = false } = {}) {
+  if (!marker) return { post: false, code: 'no-marker', why: 'nessun marker' };
+  if (!commentsRead) {
+    return { post: false, code: 'unread', why: 'commenti non letti: idempotenza non dimostrabile' };
+  }
+  const current = markerKeys(marker);
+  const seen = new Map();
+  for (const c of Array.isArray(comments) ? comments : []) {
+    const body = String(c?.body || '');
+    if (body.includes(marker)) return { post: false, code: 'already', why: 'già annotata' };
+    for (const m of body.matchAll(/<!-- PREPASS_NOTE: [^>]+ -->/g)) {
+      for (const [kind, keys] of markerKeys(m[0]) || []) {
+        const set = seen.get(kind) || new Set();
+        for (const k of keys) set.add(k);
+        seen.set(kind, set);
+      }
+    }
+  }
+  const covered = current && current.size > 0
+    && [...current].every(([kind, keys]) => [...keys].every((k) => seen.get(kind)?.has(k)));
+  if (covered) {
+    return { post: false, code: 'already', why: 'riferimenti già annotati da note precedenti' };
+  }
+  return { post: true, code: 'ok', why: '' };
+}
+
 /**
  * Il commento da allegare alla issue: la riga del registro che la riguarda, e i
  * blocchi che il corpo dichiara ma che sono già finiti.
@@ -919,6 +989,8 @@ function main() {
   const counts = { requeue: 0, decompose: 0, keep: 0 };
   let acted = 0;
   let noted = 0;
+  let notesSkippedCovered = 0;
+  let notesSkippedUnread = 0;
   let noteCapLogged = false;
   let visionLabelReady;
   for (const iss of ordered) {
@@ -929,14 +1001,19 @@ function main() {
     // famiglia (vedi `prepassDecision`), quindi non può più essere saltato solo
     // perché il titolo basterebbe a decidere `requeue` da solo.
     let comments = [];
+    // `commentsRead` non è `comments.length`: una issue senza commenti e una
+    // lettura fallita danno lo stesso array vuoto, ma solo la prima dimostra
+    // che la nota non c'è ancora (vedi `noteGate`).
+    let commentsRead = false;
     let verdict = null;
     let automationDeferredReason = null;
     try {
       const cs = gh(['api', `repos/${REPO}/issues/${iss.number}/comments?per_page=100`, '--paginate']);
       comments = Array.isArray(cs) ? cs : [];
+      commentsRead = Array.isArray(cs);
       verdict = latestVerdict(comments);
       automationDeferredReason = latestAutomationDeferredReason(comments);
-    } catch { comments = []; verdict = null; }
+    } catch { comments = []; commentsRead = false; verdict = null; }
 
     // I blocchi scaduti si misurano solo dove il corpo ne dichiara uno: su una
     // issue senza la parola `blocked` questo costa zero chiamate.
@@ -958,13 +1035,25 @@ function main() {
     });
     counts[d.action]++;
 
-    const already = d.marker && comments.some((c) => String(c?.body || '').includes(d.marker));
+    const gate = noteGate({ marker: d.marker, comments, commentsRead });
+    if (d.note && gate.code === 'already') {
+      notesSkippedCovered++;
+      console.log(`PREPASS #${iss.number} nota non ripetuta: ${gate.why} ${d.marker}`);
+    } else if (d.note && gate.code === 'unread') {
+      notesSkippedUnread++;
+      // Su `keep` la issue resta in `needs-human` e la nota si ritenta al giro
+      // dopo; su requeue/decompose la issue esce dalla coda, quindi la nota non
+      // tornerà: il log deve dire quale dei due casi è.
+      console.log(d.action === 'keep'
+        ? `::warning::needs-human-prepass: #${iss.number} nota sospesa → prossimo giro — ${gate.why}.`
+        : `::warning::needs-human-prepass: #${iss.number} nota omessa dal commento di instradamento (${d.action}) — ${gate.why}.`);
+    }
 
     if (d.action === 'keep') {
       // La nota non consuma `MAX_PER_RUN`: non instrada niente, non tocca le
       // label e non mette pressione sulla coda del fixer, che è ciò che quel cap
       // protegge. Ha il suo, dichiarato — vedi `MAX_NOTES_PER_RUN`.
-      if (!d.note || already) continue;
+      if (!d.note || !gate.post) continue;
       if (noted >= MAX_NOTES_PER_RUN) {
         if (!noteCapLogged) {
           console.log(`needs-human-prepass: cap note ${MAX_NOTES_PER_RUN}/run raggiunto → il resto al prossimo giro (no silent cap).`);
@@ -1010,11 +1099,11 @@ function main() {
       ? `${VISION_AUTONOMY_MARKER}\n\nVISION.md **D1/D3/D5**: rientro deterministico e reversibile; F1/F7 e control-plane restano veto nel risk gate runtime, e la label non è un bypass.`
       : '';
     const note = [
-      `🔁 **Pre-pass deterministico dello sweep (zero-Claude)**: ${d.reason}. Questa issue torna nel ciclo autonomo invece di occupare un'azione del cap del run Claude settimanale.`,
+      `${PREPASS_NOTE_HEAD}: ${d.reason}. Questa issue torna nel ciclo autonomo invece di occupare un'azione del cap del run Claude settimanale.`,
       registryVerdict,
       autonomyNote,
-      already ? '' : d.note,
-      already ? '' : d.marker,
+      gate.post ? d.note : '',
+      gate.post ? d.marker : '',
     ].filter(Boolean).join('\n\n');
     try {
       gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body', note], { json: false });
@@ -1027,7 +1116,19 @@ function main() {
       console.log(`::warning::needs-human-prepass: #${iss.number} non instradata (${String(e).slice(0, 100)}).`);
     }
   }
-  console.log(`needs-human-prepass: requeue=${counts.requeue} decompose=${counts.decompose} keep=${counts.keep} note=${noted} (azioni eseguite: ${acted}, cap ${MAX_PER_RUN}; note cap ${MAX_NOTES_PER_RUN}).`);
+  console.log(`needs-human-prepass: requeue=${counts.requeue} decompose=${counts.decompose} keep=${counts.keep} note=${noted} notes_skipped_covered=${notesSkippedCovered} notes_skipped_unread=${notesSkippedUnread} (azioni eseguite: ${acted}, cap ${MAX_PER_RUN}; note cap ${MAX_NOTES_PER_RUN}).`);
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    try {
+      fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, [
+        '### needs-human-prepass — note',
+        '',
+        `- notes_posted=${noted}`,
+        `- notes_skipped_covered=${notesSkippedCovered}`,
+        `- notes_skipped_unread=${notesSkippedUnread}`,
+        '',
+      ].join('\n'));
+    } catch { /* il summary è diagnostica: non deve far fallire il pre-pass */ }
+  }
 }
 
 if (process.argv[1] && process.argv[1].endsWith('needs-human-prepass.mjs')) main();

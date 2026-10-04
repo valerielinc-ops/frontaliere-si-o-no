@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gkb",
-  "assembledAt": "2026-10-03T09:13:06.332Z",
+  "assembledAt": "2026-10-04T09:12:58.910Z",
   "jobs": [
     {
       "id": "gkb-f712e7fcb987",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1914/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:00.874Z",
+      "crawledAt": "2026-10-04T09:12:53.280Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1920/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:59.876Z",
+      "crawledAt": "2026-10-04T09:12:52.612Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -199,7 +199,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1919/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:58.882Z",
+      "crawledAt": "2026-10-04T09:12:52.025Z",
       "addressLocality": "Arosa",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1921/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:57.882Z",
+      "crawledAt": "2026-10-04T09:12:51.361Z",
       "addressLocality": "Scuol",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -373,7 +373,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1904/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:56.877Z",
+      "crawledAt": "2026-10-04T09:12:50.768Z",
       "addressLocality": "Arosa",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -412,6 +412,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.923Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -425,8 +426,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "gkb-jobservice-4b780af2943e",
@@ -459,7 +459,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1905/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:55.884Z",
+      "crawledAt": "2026-10-04T09:12:50.176Z",
       "addressLocality": "Scuol",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -502,6 +502,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.619Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -515,8 +516,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "gkb-jobservice-3ba6e73f9398",
@@ -549,7 +549,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1906/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:54.876Z",
+      "crawledAt": "2026-10-04T09:12:49.586Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -588,6 +588,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.315Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -601,8 +602,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "gkb-jobservice-5b85a692676d",
@@ -635,7 +635,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1892/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:53.870Z",
+      "crawledAt": "2026-10-04T09:12:48.996Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -680,6 +680,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.012Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -693,8 +694,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "gkb-jobservice-cb8e228e997c",
@@ -727,7 +727,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1925/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:52.840Z",
+      "crawledAt": "2026-10-04T09:12:48.404Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -765,6 +765,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:49.407Z",
+      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -778,8 +779,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "gkb-jobservice-1723763e8c05",
@@ -812,7 +812,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1936/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:51.867Z",
+      "crawledAt": "2026-10-04T09:12:47.816Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -847,6 +847,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:48.798Z",
+      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -860,8 +861,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "gkb-d829938f33ae",
@@ -894,7 +894,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1930/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:51.034Z",
+      "crawledAt": "2026-10-04T09:12:47.149Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -984,7 +984,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1950/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:50.184Z",
+      "crawledAt": "2026-10-04T09:12:46.482Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1057,7 +1057,7 @@
       "title": "Studentenstelle Marketing (60%)",
       "titleByLocale": {
         "it": "Posizione degli studenti di marketing (60%)",
-        "en": "Marketing student position (60%)",
+        "en": "Studentenstelle Marketing (60%)",
         "de": "Studentenstelle Marketing (60%)",
         "fr": "Position étudiante en marketing (60%)"
       },
@@ -1073,7 +1073,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1954/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:49.362Z",
+      "crawledAt": "2026-10-04T09:12:45.816Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1116,6 +1116,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:05:06.647Z",
+      "needsRetranslation": true,
       "salaryMin": 35100,
       "salaryMax": 62100,
       "salarySource": "estimated",
@@ -1162,7 +1163,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:48.527Z",
+      "crawledAt": "2026-10-04T09:12:45.147Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1182,14 +1183,12 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "senior-berater-in-spezialfinanzierungen-80-100-gkb-ch",
-        "senior-berater-in-spezialfinanzierungen-80-100-graubundner-kantonalbank-chur",
-        "senior-berater-in-spezialfinanzierungen-80-100-gkb-jobservice-ch",
-        "berater-in-firmenkunden-recovery-80-100-gkb-ch",
-        "senior-consulente-in-finanziamento-speciale-80-100-graubundner-kantonalbank-chur"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "senior-berater-in-spezialfinanzierungen-80-100-gkb-jobservice-ch",
+          "berater-in-firmenkunden-recovery-80-100-gkb-ch",
+          "senior-berater-in-spezialfinanzierungen-80-100-gkb-ch"
+        ],
         "it": [
           "senior-berater-in-spezialfinanzierungen-80-100-gkb-ch",
           "senior-berater-in-spezialfinanzierungen-80-100-graubundner-kantonalbank-chur",
@@ -1200,16 +1199,19 @@
         "en": [
           "senior-berater-in-spezialfinanzierungen-80-100-graubundner-kantonalbank-chur"
         ],
-        "de": [
-          "senior-berater-in-spezialfinanzierungen-80-100-gkb-jobservice-ch",
-          "berater-in-firmenkunden-recovery-80-100-gkb-ch",
-          "senior-berater-in-spezialfinanzierungen-80-100-gkb-ch"
-        ],
         "fr": [
           "senior-berater-in-spezialfinanzierungen-80-100-graubundner-kantonalbank-chur"
         ]
       },
+      "previousSlugs": [
+        "senior-berater-in-spezialfinanzierungen-80-100-gkb-ch",
+        "senior-berater-in-spezialfinanzierungen-80-100-graubundner-kantonalbank-chur",
+        "senior-berater-in-spezialfinanzierungen-80-100-gkb-jobservice-ch",
+        "berater-in-firmenkunden-recovery-80-100-gkb-ch",
+        "senior-consulente-in-finanziamento-speciale-80-100-graubundner-kantonalbank-chur"
+      ],
       "firstSeenAt": "2026-07-30T11:16:56.532Z",
+      "needsRetranslation": true,
       "salaryMin": 165000,
       "salaryMax": 290000,
       "salarySource": "estimated",
@@ -1223,8 +1225,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "gkb-61fa6a66bb66",
@@ -1257,7 +1258,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:47.688Z",
+      "crawledAt": "2026-10-04T09:12:44.484Z",
       "addressLocality": "Lenzerheide",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1299,6 +1300,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:12:45.906Z",
+      "needsRetranslation": true,
       "salaryMin": 79200,
       "salaryMax": 139200,
       "salarySource": "estimated",
@@ -1312,8 +1314,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "gkb-10125680ca47",
@@ -1346,7 +1347,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1924/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:46.870Z",
+      "crawledAt": "2026-10-04T09:12:43.818Z",
       "addressLocality": "Thusis",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1390,6 +1391,7 @@
         ]
       },
       "firstSeenAt": "2026-08-18T22:03:08.013Z",
+      "needsRetranslation": true,
       "salaryMin": 39600,
       "salaryMax": 69600,
       "salarySource": "estimated",
@@ -1403,8 +1405,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "gkb-17fb1487c744",
@@ -1437,7 +1438,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1908/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:46.038Z",
+      "crawledAt": "2026-10-04T09:12:43.228Z",
       "addressLocality": "Thusis",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1522,7 +1523,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1974/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:45.203Z",
+      "crawledAt": "2026-10-04T09:12:42.633Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1572,6 +1573,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:05:06.872Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 103500,
       "salarySource": "estimated",
@@ -1585,8 +1587,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "gkb-a2e99a4ad8d5",
@@ -1619,7 +1620,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1976/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:44.374Z",
+      "crawledAt": "2026-10-04T09:12:42.044Z",
       "addressLocality": "Arosa",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1701,7 +1702,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1975/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:43.537Z",
+      "crawledAt": "2026-10-04T09:12:41.391Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1734,6 +1735,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:09.406Z",
+      "needsRetranslation": true,
       "salaryMin": 87500,
       "salaryMax": 154500,
       "salarySource": "estimated",
@@ -1747,8 +1749,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "gkb-85a62d032e51",
@@ -1781,7 +1782,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1980/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:42.709Z",
+      "crawledAt": "2026-10-04T09:12:40.726Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1848,7 +1849,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1977/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:41.880Z",
+      "crawledAt": "2026-10-04T09:12:40.057Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1896,36 +1897,36 @@
     },
     {
       "id": "gkb-4a54c4ca309d",
-      "slug": "specialist-in-payments-services-80-100-gkb-ch",
+      "slug": "specialista-in-payments-services-80-100-graubundner-kantonalbank-chur",
       "slugByLocale": {
-        "de": "specialist-in-payments-services-80-100-gkb-ch",
-        "it": "specialist-in-payments-services-80-100-gkb-ch",
+        "it": "specialista-in-payments-services-80-100-graubundner-kantonalbank-chur",
         "en": "specialist-in-payments-services-80-100-graubundner-kantonalbank-chur",
-        "fr": "specialist-in-payments-services-80-100-gkb-ch"
+        "de": "specialist-in-payments-services-80-100-gkb-ch",
+        "fr": "specialiste-in-payments-services-80-100-graubundner-kantonalbank-chur"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
       "companyDomain": "gkb.ch",
       "title": "Specialist:in Payments Services (80-100%)",
       "titleByLocale": {
-        "de": "Spezialist:in Payments Services (80-100%)",
-        "en": "Specialist:in Payments Services (80-100%)",
         "it": "Specialista:in Payments Services (80-100%)",
+        "en": "Specialist:in Payments Services (80-100%)",
+        "de": "Spezialist:in Payments Services (80-100%)",
         "fr": "Spécialiste:in Payments Services (80-100%)"
       },
       "description": "Graubündner Kantonalbank | online seit: 02.10.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du bist motiviert, im Thema Payments Zeichen zu setzen und unsere Kunden mit deiner Dienstleistungsbereitschaft und deinem Engagement zu begeistern? Dann werde Teil unseres Teams und hilf mit, das Thema Payments weiterzuentwickeln. | ab sofort oder nach Vereinbarung |\n• Verarbeitung von elektronischen und physischen Zahlungsaufträgen sowie Zahlungseingängen\n• Verantwortung sämtlicher Anfragen und Nachforschungen im Bereich Payments\n• Mitarbeit im Support, Betrieb und Beratung der Payment-Produkte, -Prozesse und -Kundenkanäle\n• Abwicklung von Spezialaufträgen, Abstimmung der internen und externen Konten\n• Mitwirkung im Testing der Payments-Systeme und -Prozesse und Beteiligung an Weiterentwicklungen von digitalen Payments-Lösungen |\n• Du hast bereits Erfahrungen im Payments oder bist motiviert, deine Fachkompetenz im Payments aufzubauen\n• Du bist motiviert, in der Verarbeitung des Zahlungsverkehrs einzusteigen und dich in Support-Tätigkeiten weiterzuentwickeln\n• Du bist eine teamorientierte Persönlichkeit mit einem positiven Mindset\n• Du überzeugst durch eine hohe Kundenorientierung und behältst auch in hektischen Zeiten einen kühlen Kopf\n• Gute Englisch- und/oder Italienischkenntnisse von Vorteil | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben",
       "descriptionByLocale": {
+        "it": "Graubündner Kantonalbank | online da: 02.10.2026 | \"Qualsiasi sia il tuo futuro\". A Graubündner Kantonalbank, ci assicuriamo che non sia solo un futuro, ma il miglior futuro di sempre. Sei motivato a impostare un esempio in materia di pagamenti e ispirare i nostri clienti con la tua volontà di fornire servizi e il tuo impegno? Quindi diventare parte del nostro team e contribuire a sviluppare ulteriormente il tema dei pagamenti. | da ora in poi o per accordo |\n• Elaborazione di ordini e ricevute di pagamento elettronici e fisici\n• Responsabilità di tutte le indagini e le indagini nel settore dei pagamenti\n• Cooperazione a supporto, funzionamento e consulenza dei prodotti di pagamento, processi e canali dei clienti\n• Regolazione degli ordini speciali, riconciliazione dei conti interni ed esterni\n• Partecipazione alla sperimentazione di sistemi e processi di pagamento e partecipazione ad ulteriori sviluppi delle soluzioni di pagamento digitale\n• Hai già esperienza nei pagamenti o sono motivati a costruire la tua esperienza nei pagamenti\n• Sei motivato a partecipare al trattamento dei pagamenti e sviluppare attività di supporto\n• Sei una personalità orientata al team con una mentalità positiva\n• Convinci attraverso un alto orientamento del cliente e tieni una testa fresca anche in tempi frenetici\n• Buone abilità inglesi e/o italiane di vantaggio | Sei pronto per il tuo futuro migliore? Quindi applicare ora. | Sono interessato e vorrei candidarmi",
+        "en": "Graubündner Kantonalbank | online since: 02.10.2026 | \"Whatever your future will look like\". At Graubündner Kantonalbank, we ensure that it is not just any future, but the best future ever. Are you motivated to set an example in the subject of payments and inspire our customers with your willingness to provide services and your commitment? Then become part of our team and help to further develop the topic of payments. | from now on or by agreement |\n• Processing of electronic and physical payment orders and receipts\n• Responsibility of all inquiries and investigations in the area of payments\n• Cooperation in support, operation and consulting of payment products, processes and customer channels\n• Settlement of special orders, reconciliation of internal and external accounts\n• Participation in the testing of payment systems and processes and participation in further developments of digital payment solutions |\n• You already have experience in payments or are motivated to build your expertise in payments\n• You are motivated to get involved in payment processing and develop in support activities\n• You are a team-oriented personality with a positive mindset\n• You convince through a high customer orientation and keep a cool head even in hectic times\n• Good English and/or Italian skills of advantage | Are you ready for your best future? Then apply now. | I am interested and would like to apply",
         "de": "Graubündner Kantonalbank | online seit: 02.10.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du bist motiviert, im Thema Payments Zeichen zu setzen und unsere Kunden mit deiner Dienstleistungsbereitschaft und deinem Engagement zu begeistern? Dann werde Teil unseres Teams und hilf mit, das Thema Payments weiterzuentwickeln. | ab sofort oder nach Vereinbarung |\n• Verarbeitung von elektronischen und physischen Zahlungsaufträgen sowie Zahlungseingängen\n• Verantwortung sämtlicher Anfragen und Nachforschungen im Bereich Payments\n• Mitarbeit im Support, Betrieb und Beratung der Payment-Produkte, -Prozesse und -Kundenkanäle\n• Abwicklung von Spezialaufträgen, Abstimmung der internen und externen Konten\n• Mitwirkung im Testing der Payments-Systeme und -Prozesse und Beteiligung an Weiterentwicklungen von digitalen Payments-Lösungen |\n• Du hast bereits Erfahrungen im Payments oder bist motiviert, deine Fachkompetenz im Payments aufzubauen\n• Du bist motiviert, in der Verarbeitung des Zahlungsverkehrs einzusteigen und dich in Support-Tätigkeiten weiterzuentwickeln\n• Du bist eine teamorientierte Persönlichkeit mit einem positiven Mindset\n• Du überzeugst durch eine hohe Kundenorientierung und behältst auch in hektischen Zeiten einen kühlen Kopf\n• Gute Englisch- und/oder Italienischkenntnisse von Vorteil | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben",
-        "it": "Graubündner Kantonalbank | online seit: 02.10.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du bist motiviert, im Thema Payments Zeichen zu setzen und unsere Kunden mit deiner Dienstleistungsbereitschaft und deinem Engagement zu begeistern? Dann werde Teil unseres Teams und hilf mit, das Thema Payments weiterzuentwickeln. | ab sofort oder nach Vereinbarung |\n• Verarbeitung von elektronischen und physischen Zahlungsaufträgen sowie Zahlungseingängen\n• Verantwortung sämtlicher Anfragen und Nachforschungen im Bereich Payments\n• Mitarbeit im Support, Betrieb und Beratung der Payment-Produkte, -Prozesse und -Kundenkanäle\n• Abwicklung von Spezialaufträgen, Abstimmung der internen und externen Konten\n• Mitwirkung im Testing der Payments-Systeme und -Prozesse und Beteiligung an Weiterentwicklungen von digitalen Payments-Lösungen |\n• Du hast bereits Erfahrungen im Payments oder bist motiviert, deine Fachkompetenz im Payments aufzubauen\n• Du bist motiviert, in der Verarbeitung des Zahlungsverkehrs einzusteigen und dich in Support-Tätigkeiten weiterzuentwickeln\n• Du bist eine teamorientierte Persönlichkeit mit einem positiven Mindset\n• Du überzeugst durch eine hohe Kundenorientierung und behältst auch in hektischen Zeiten einen kühlen Kopf\n• Gute Englisch- und/oder Italienischkenntnisse von Vorteil | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben",
-        "en": "Graubündner Kantonalbank | online seit: 02.10.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du bist motiviert, im Thema Payments Zeichen zu setzen und unsere Kunden mit deiner Dienstleistungsbereitschaft und deinem Engagement zu begeistern? Dann werde Teil unseres Teams und hilf mit, das Thema Payments weiterzuentwickeln. | ab sofort oder nach Vereinbarung |\n• Verarbeitung von elektronischen und physischen Zahlungsaufträgen sowie Zahlungseingängen\n• Verantwortung sämtlicher Anfragen und Nachforschungen im Bereich Payments\n• Mitarbeit im Support, Betrieb und Beratung der Payment-Produkte, -Prozesse und -Kundenkanäle\n• Abwicklung von Spezialaufträgen, Abstimmung der internen und externen Konten\n• Mitwirkung im Testing der Payments-Systeme und -Prozesse und Beteiligung an Weiterentwicklungen von digitalen Payments-Lösungen |\n• Du hast bereits Erfahrungen im Payments oder bist motiviert, deine Fachkompetenz im Payments aufzubauen\n• Du bist motiviert, in der Verarbeitung des Zahlungsverkehrs einzusteigen und dich in Support-Tätigkeiten weiterzuentwickeln\n• Du bist eine teamorientierte Persönlichkeit mit einem positiven Mindset\n• Du überzeugst durch eine hohe Kundenorientierung und behältst auch in hektischen Zeiten einen kühlen Kopf\n• Gute Englisch- und/oder Italienischkenntnisse von Vorteil | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben",
-        "fr": "Graubündner Kantonalbank | online seit: 02.10.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Du bist motiviert, im Thema Payments Zeichen zu setzen und unsere Kunden mit deiner Dienstleistungsbereitschaft und deinem Engagement zu begeistern? Dann werde Teil unseres Teams und hilf mit, das Thema Payments weiterzuentwickeln. | ab sofort oder nach Vereinbarung |\n• Verarbeitung von elektronischen und physischen Zahlungsaufträgen sowie Zahlungseingängen\n• Verantwortung sämtlicher Anfragen und Nachforschungen im Bereich Payments\n• Mitarbeit im Support, Betrieb und Beratung der Payment-Produkte, -Prozesse und -Kundenkanäle\n• Abwicklung von Spezialaufträgen, Abstimmung der internen und externen Konten\n• Mitwirkung im Testing der Payments-Systeme und -Prozesse und Beteiligung an Weiterentwicklungen von digitalen Payments-Lösungen |\n• Du hast bereits Erfahrungen im Payments oder bist motiviert, deine Fachkompetenz im Payments aufzubauen\n• Du bist motiviert, in der Verarbeitung des Zahlungsverkehrs einzusteigen und dich in Support-Tätigkeiten weiterzuentwickeln\n• Du bist eine teamorientierte Persönlichkeit mit einem positiven Mindset\n• Du überzeugst durch eine hohe Kundenorientierung und behältst auch in hektischen Zeiten einen kühlen Kopf\n• Gute Englisch- und/oder Italienischkenntnisse von Vorteil | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben"
+        "fr": "Graubündner Kantonalbank en ligne depuis: 02.10.2026. Chez Graubündner Kantonalbank, nous nous assurons que ce n'est pas n'importe quel avenir, mais le meilleur avenir jamais. Êtes-vous motivé à donner l'exemple dans le domaine des paiements et à inspirer nos clients avec votre volonté de fournir des services et votre engagement? Faites ensuite partie de notre équipe et aidez à développer le sujet des paiements. Désormais ou par accord\n• Traitement des ordres de paiement électroniques et physiques et des reçus\n• Responsabilité de toutes les enquêtes et enquêtes dans le domaine des paiements\n• Coopération en matière de soutien, d'exploitation et de consultation des produits, procédés et canaux de paiement\n• Règlement des ordres spéciaux, rapprochement des comptes internes et externes\n• Participation à l'essai des systèmes et des processus de paiement et participation à l'évolution des solutions de paiement numériques\n• Vous avez déjà de l'expérience dans les paiements ou êtes motivé à développer votre expertise dans les paiements\n• Vous êtes motivé à participer au traitement des paiements et à développer des activités de soutien\n• Vous êtes une personnalité orientée équipe avec un état d'esprit positif\n• Vous convainquez à travers une forte orientation client et gardez une tête cool même dans les temps agités\n• Bonnes compétences en anglais et/ou en italien d'avantage. Alors appliquez maintenant. Je suis intéressé et je voudrais postuler"
       },
       "location": "Chur",
       "canton": "GR",
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1978/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:12:40.894Z",
+      "crawledAt": "2026-10-04T09:12:39.380Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1940,14 +1941,26 @@
       "postedDate": "2026-10-02",
       "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1978/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Banking Services & Operations / LDSE",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:12:40.894Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialist-in-payments-services-80-100-gkb-ch",
+          "specialista-in-payments-services-80-100-graubundner-kantonalbank-chur"
+        ],
+        "fr": [
+          "specialist-in-payments-services-80-100-gkb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "specialist-in-payments-services-80-100-gkb-ch",
+        "specialista-in-payments-services-80-100-graubundner-kantonalbank-chur"
+      ],
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -1961,8 +1974,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-10-03T09:12:40.894Z"
+      "addressRegion": "GR"
     }
   ]
 }

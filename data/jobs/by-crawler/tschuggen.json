@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-10-03T09:22:15.528Z",
+  "assembledAt": "2026-10-04T09:22:45.813Z",
   "jobs": [
     {
       "id": "bewerbermanagement-stellen-f444ba36dc64",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:22:08.886Z",
+      "crawledAt": "2026-10-04T09:22:37.828Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -75,6 +75,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:46:41.897Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -88,8 +89,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-a863307370a6",
@@ -122,7 +122,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1069/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:22:07.890Z",
+      "crawledAt": "2026-10-04T09:22:37.045Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -221,7 +221,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1390/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:22:06.896Z",
+      "crawledAt": "2026-10-04T09:22:36.279Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -270,6 +270,7 @@
         "sous-chef-h-f-d-saison-d-hiver-2026-27-tschuggen-collection-arosa"
       ],
       "firstSeenAt": "2026-08-24T21:43:13.922Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -283,8 +284,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-2bb7c02e5260",
@@ -317,7 +317,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1394/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:22:05.185Z",
+      "crawledAt": "2026-10-04T09:22:34.491Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -398,7 +398,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1395/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:22:04.188Z",
+      "crawledAt": "2026-10-04T09:22:33.511Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -416,7 +416,24 @@
       "requirementsByLocale": {},
       "department": "Rooms Division",
       "hotelName": "Tschuggen Grand Hotel",
+      "previousSlugs": [
+        "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+        "responsabile-prenotazioni-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-arosa"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+          "responsabile-prenotazioni-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-arosa"
+        ],
+        "en": [
+          "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+        ],
+        "fr": [
+          "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-30T21:22:49.716Z",
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -430,24 +447,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-09-30T21:22:49.716Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
-          "responsabile-prenotazioni-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-arosa"
-        ],
-        "en": [
-          "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
-        ],
-        "fr": [
-          "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
-        ]
-      },
-      "previousSlugs": [
-        "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
-        "responsabile-prenotazioni-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-arosa"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-f6a67a2f17b2",
@@ -480,7 +480,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1393/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:22:03.202Z",
+      "crawledAt": "2026-10-04T09:22:32.514Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
@@ -498,6 +498,12 @@
       "requirementsByLocale": {},
       "department": "Rooms Division",
       "hotelName": "Hotel Eden Roc",
+      "previousSlugs": [
+        "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch-2",
+        "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+        "reservation-manager-m-w-d-tschuggen-collection-ascona",
+        "reservation-manager-m-w-d-tschuggen-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch-2",
@@ -508,12 +514,6 @@
           "reservation-manager-m-w-d-tschuggen-collection-ascona"
         ]
       },
-      "previousSlugs": [
-        "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch-2",
-        "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
-        "reservation-manager-m-w-d-tschuggen-collection-ascona",
-        "reservation-manager-m-w-d-tschuggen-ch"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-30T21:22:49.716Z",
       "salaryMin": 72000,
@@ -533,36 +533,36 @@
     },
     {
       "id": "tschuggen-78a6b843bd89",
-      "slug": "restaurant-manager-gourmetrestaurant-la-brezza-m-w-d-wintersaison-2026-27-tschuggen-ch",
+      "slug": "restaurant-manager-gourmet-restaurant-la-brezza-m-f-d-stagione-invernale-2026-27-tschuggen-collection-arosa",
       "slugByLocale": {
+        "it": "restaurant-manager-gourmet-restaurant-la-brezza-m-f-d-stagione-invernale-2026-27-tschuggen-collection-arosa",
+        "en": "restaurant-manager-gourmet-restaurant-la-brezza-m-f-d-winter-season-2026-27-tschuggen-collection-arosa",
         "de": "restaurant-manager-gourmetrestaurant-la-brezza-m-w-d-wintersaison-2026-27-tschuggen-ch",
-        "it": "restaurant-manager-gourmetrestaurant-la-brezza-m-w-d-wintersaison-2026-27-tschuggen-ch",
-        "en": "restaurant-manager-gourmetrestaurant-la-brezza-m-w-d-wintersaison-2026-27-tschuggen-ch",
-        "fr": "restaurant-manager-gourmetrestaurant-la-brezza-m-w-d-wintersaison-2026-27-tschuggen-ch"
+        "fr": "restaurant-manager-gourmet-restaurant-la-brezza-h-f-d-saison-d-hiver-2026-27-tschuggen-collection-arosa"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
       "companyDomain": "tschuggencollection.ch",
       "title": "Restaurant Manager Gourmetrestaurant \"La Brezza\" (m/w/d) Wintersaison 2026/27",
       "titleByLocale": {
-        "de": "Restaurant Manager Gourmetrestaurant \"La Brezza\" (m/w/d) Wintersaison 2026/27",
+        "it": "Restaurant Manager Gourmet Restaurant \"La Brezza\" (m/f/d) Stagione invernale 2026/27",
         "en": "Restaurant Manager Gourmetrestaurant \"La Brezza\" (m/w/d) Wintersaison 2026/27",
-        "it": "Restaurant Manager Gourmetrestaurant \"La Brezza\" (m/w/d) Wintersaison 2026/27",
-        "fr": "Restaurant Manager Gourmetrestaurant \"La Brezza\" (m/w/d) Wintersaison 2026/27"
+        "de": "Restaurant Manager Gourmetrestaurant \"La Brezza\" (m/w/d) Wintersaison 2026/27",
+        "fr": "Restaurant Manager Gourmet Restaurant \"La Brezza\" (h/f/d) Saison d'hiver 2026/27"
       },
       "description": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet das Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nSie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll?\nDann sind Sie bei uns richtig.\nEintritt per Anfang Dezember 2026\nArbeitsverhältnis befristet bis Mitte März 2027\n\nIHR PROFIL\n• Abgeschlossene Ausbildung in der gehobenen Hotellerie oder Gastronomie\n• Mehrjährige Berufserfahrung in der gehobenen Gastronomie, idealerweise im Fine-Dining- oder Michelin-Sterne-Umfeld\n• Führungserfahrung in einer vergleichbaren Position\n• Ausgeprägte Gastgeberpersönlichkeit mit natürlicher Präsenz und Freude am persönlichen Gästekontakt\n• Sehr hohe Service- und Qualitätsorientierung\n• Fundierte Kenntnisse im Bereich Speisen, Wein und Getränkekunde\n• Souveränes, gepflegtes und professionelles Auftreten\n• Ausgeprägte Führungs-, Kommunikations- und Organisationskompetenz\n• Fähigkeit, ein Team zu motivieren, weiterzuentwickeln und auch in anspruchsvollen Situationen souverän zu führen\n• Hohes Verantwortungsbewusstsein und ausgeprägte Eigeninitiative\n• Belastbarkeit, Flexibilität und lösungsorientiertes Denken\n• Sehr gute Deutsch- und Englischkenntnisse; weitere Fremdsprachen von Vorteil\n• Erfahrung in der internationalen Luxushotellerie von Vorteil\n\nIHRE AUFGABEN\n• Gesamtverantwortung für den täglichen operativen Ablauf im Restaurant La Brezza\n• Aktive Gastgeberrolle und persönliche Betreuung unserer nationalen und internationalen Gäste\n• Sicherstellung eines individuellen, aufmerksamen und professionellen Fine-Dining-Service\n• Präsenz am Gast sowie aktives Erkennen und Antizipieren von Gästewünschen\n• Professioneller Umgang mit besonderen Gästewünschen, Allergien, Unverträglichkeiten und Reklamationen\n• Sicherstellung eines reibungslosen Serviceablaufs vom Empfang bis zur Verabschiedung\n• Verantwortung für Mise en Place, Tischkultur, Ambiente und Präsentation des Restaurants\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• 24/7 Nutzung unseres Fitnesscenters\n• Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n\nFühlen Sie sich angesprochen - Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
       "descriptionByLocale": {
-        "de": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet das Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nSie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll?\nDann sind Sie bei uns richtig.\nEintritt per Anfang Dezember 2026\nArbeitsverhältnis befristet bis Mitte März 2027\n\nIHR PROFIL\n• Abgeschlossene Ausbildung in der gehobenen Hotellerie oder Gastronomie\n• Mehrjährige Berufserfahrung in der gehobenen Gastronomie, idealerweise im Fine-Dining- oder Michelin-Sterne-Umfeld\n• Führungserfahrung in einer vergleichbaren Position\n• Ausgeprägte Gastgeberpersönlichkeit mit natürlicher Präsenz und Freude am persönlichen Gästekontakt\n• Sehr hohe Service- und Qualitätsorientierung\n• Fundierte Kenntnisse im Bereich Speisen, Wein und Getränkekunde\n• Souveränes, gepflegtes und professionelles Auftreten\n• Ausgeprägte Führungs-, Kommunikations- und Organisationskompetenz\n• Fähigkeit, ein Team zu motivieren, weiterzuentwickeln und auch in anspruchsvollen Situationen souverän zu führen\n• Hohes Verantwortungsbewusstsein und ausgeprägte Eigeninitiative\n• Belastbarkeit, Flexibilität und lösungsorientiertes Denken\n• Sehr gute Deutsch- und Englischkenntnisse; weitere Fremdsprachen von Vorteil\n• Erfahrung in der internationalen Luxushotellerie von Vorteil\n\nIHRE AUFGABEN\n• Gesamtverantwortung für den täglichen operativen Ablauf im Restaurant La Brezza\n• Aktive Gastgeberrolle und persönliche Betreuung unserer nationalen und internationalen Gäste\n• Sicherstellung eines individuellen, aufmerksamen und professionellen Fine-Dining-Service\n• Präsenz am Gast sowie aktives Erkennen und Antizipieren von Gästewünschen\n• Professioneller Umgang mit besonderen Gästewünschen, Allergien, Unverträglichkeiten und Reklamationen\n• Sicherstellung eines reibungslosen Serviceablaufs vom Empfang bis zur Verabschiedung\n• Verantwortung für Mise en Place, Tischkultur, Ambiente und Präsentation des Restaurants\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• 24/7 Nutzung unseres Fitnesscenters\n• Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n\nFühlen Sie sich angesprochen - Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
-        "it": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet das Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nSie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll?\nDann sind Sie bei uns richtig.\nEintritt per Anfang Dezember 2026\nArbeitsverhältnis befristet bis Mitte März 2027\n\nIHR PROFIL\n• Abgeschlossene Ausbildung in der gehobenen Hotellerie oder Gastronomie\n• Mehrjährige Berufserfahrung in der gehobenen Gastronomie, idealerweise im Fine-Dining- oder Michelin-Sterne-Umfeld\n• Führungserfahrung in einer vergleichbaren Position\n• Ausgeprägte Gastgeberpersönlichkeit mit natürlicher Präsenz und Freude am persönlichen Gästekontakt\n• Sehr hohe Service- und Qualitätsorientierung\n• Fundierte Kenntnisse im Bereich Speisen, Wein und Getränkekunde\n• Souveränes, gepflegtes und professionelles Auftreten\n• Ausgeprägte Führungs-, Kommunikations- und Organisationskompetenz\n• Fähigkeit, ein Team zu motivieren, weiterzuentwickeln und auch in anspruchsvollen Situationen souverän zu führen\n• Hohes Verantwortungsbewusstsein und ausgeprägte Eigeninitiative\n• Belastbarkeit, Flexibilität und lösungsorientiertes Denken\n• Sehr gute Deutsch- und Englischkenntnisse; weitere Fremdsprachen von Vorteil\n• Erfahrung in der internationalen Luxushotellerie von Vorteil\n\nIHRE AUFGABEN\n• Gesamtverantwortung für den täglichen operativen Ablauf im Restaurant La Brezza\n• Aktive Gastgeberrolle und persönliche Betreuung unserer nationalen und internationalen Gäste\n• Sicherstellung eines individuellen, aufmerksamen und professionellen Fine-Dining-Service\n• Präsenz am Gast sowie aktives Erkennen und Antizipieren von Gästewünschen\n• Professioneller Umgang mit besonderen Gästewünschen, Allergien, Unverträglichkeiten und Reklamationen\n• Sicherstellung eines reibungslosen Serviceablaufs vom Empfang bis zur Verabschiedung\n• Verantwortung für Mise en Place, Tischkultur, Ambiente und Präsentation des Restaurants\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• 24/7 Nutzung unseres Fitnesscenters\n• Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n\nFühlen Sie sich angesprochen - Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
-        "en": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet das Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nSie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll?\nDann sind Sie bei uns richtig.\nEintritt per Anfang Dezember 2026\nArbeitsverhältnis befristet bis Mitte März 2027\n\nIHR PROFIL\n• Abgeschlossene Ausbildung in der gehobenen Hotellerie oder Gastronomie\n• Mehrjährige Berufserfahrung in der gehobenen Gastronomie, idealerweise im Fine-Dining- oder Michelin-Sterne-Umfeld\n• Führungserfahrung in einer vergleichbaren Position\n• Ausgeprägte Gastgeberpersönlichkeit mit natürlicher Präsenz und Freude am persönlichen Gästekontakt\n• Sehr hohe Service- und Qualitätsorientierung\n• Fundierte Kenntnisse im Bereich Speisen, Wein und Getränkekunde\n• Souveränes, gepflegtes und professionelles Auftreten\n• Ausgeprägte Führungs-, Kommunikations- und Organisationskompetenz\n• Fähigkeit, ein Team zu motivieren, weiterzuentwickeln und auch in anspruchsvollen Situationen souverän zu führen\n• Hohes Verantwortungsbewusstsein und ausgeprägte Eigeninitiative\n• Belastbarkeit, Flexibilität und lösungsorientiertes Denken\n• Sehr gute Deutsch- und Englischkenntnisse; weitere Fremdsprachen von Vorteil\n• Erfahrung in der internationalen Luxushotellerie von Vorteil\n\nIHRE AUFGABEN\n• Gesamtverantwortung für den täglichen operativen Ablauf im Restaurant La Brezza\n• Aktive Gastgeberrolle und persönliche Betreuung unserer nationalen und internationalen Gäste\n• Sicherstellung eines individuellen, aufmerksamen und professionellen Fine-Dining-Service\n• Präsenz am Gast sowie aktives Erkennen und Antizipieren von Gästewünschen\n• Professioneller Umgang mit besonderen Gästewünschen, Allergien, Unverträglichkeiten und Reklamationen\n• Sicherstellung eines reibungslosen Serviceablaufs vom Empfang bis zur Verabschiedung\n• Verantwortung für Mise en Place, Tischkultur, Ambiente und Präsentation des Restaurants\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• 24/7 Nutzung unseres Fitnesscenters\n• Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n\nFühlen Sie sich angesprochen - Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
-        "fr": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet das Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nSie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll?\nDann sind Sie bei uns richtig.\nEintritt per Anfang Dezember 2026\nArbeitsverhältnis befristet bis Mitte März 2027\n\nIHR PROFIL\n• Abgeschlossene Ausbildung in der gehobenen Hotellerie oder Gastronomie\n• Mehrjährige Berufserfahrung in der gehobenen Gastronomie, idealerweise im Fine-Dining- oder Michelin-Sterne-Umfeld\n• Führungserfahrung in einer vergleichbaren Position\n• Ausgeprägte Gastgeberpersönlichkeit mit natürlicher Präsenz und Freude am persönlichen Gästekontakt\n• Sehr hohe Service- und Qualitätsorientierung\n• Fundierte Kenntnisse im Bereich Speisen, Wein und Getränkekunde\n• Souveränes, gepflegtes und professionelles Auftreten\n• Ausgeprägte Führungs-, Kommunikations- und Organisationskompetenz\n• Fähigkeit, ein Team zu motivieren, weiterzuentwickeln und auch in anspruchsvollen Situationen souverän zu führen\n• Hohes Verantwortungsbewusstsein und ausgeprägte Eigeninitiative\n• Belastbarkeit, Flexibilität und lösungsorientiertes Denken\n• Sehr gute Deutsch- und Englischkenntnisse; weitere Fremdsprachen von Vorteil\n• Erfahrung in der internationalen Luxushotellerie von Vorteil\n\nIHRE AUFGABEN\n• Gesamtverantwortung für den täglichen operativen Ablauf im Restaurant La Brezza\n• Aktive Gastgeberrolle und persönliche Betreuung unserer nationalen und internationalen Gäste\n• Sicherstellung eines individuellen, aufmerksamen und professionellen Fine-Dining-Service\n• Präsenz am Gast sowie aktives Erkennen und Antizipieren von Gästewünschen\n• Professioneller Umgang mit besonderen Gästewünschen, Allergien, Unverträglichkeiten und Reklamationen\n• Sicherstellung eines reibungslosen Serviceablaufs vom Empfang bis zur Verabschiedung\n• Verantwortung für Mise en Place, Tischkultur, Ambiente und Präsentation des Restaurants\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• 24/7 Nutzung unseres Fitnesscenters\n• Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n\nFühlen Sie sich angesprochen - Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome"
+        "it": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet das Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nSie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll?\nDann sind Sie bei uns richtig.\nEintritt per Anfang Dezember 2026\nArbeitsverhältnis befristet bis Mitte März 2027\n\nIHR PROFIL\n• Abgeschlossene Ausbildung in der gehobenen Hotellerie oder Gastronomie\n• Mehrjährige Berufserfahrung in der gehobenen Gastronomie, idealerweise im Fine-Dining- oder Michelin-Sterne-Umfeld\n• Führungserfahrung in einer vergleichbaren Position\n• Ausgeprägte Gastgeberpersönlichkeit mit natürlicher Präsenz und Freude am persönlichen Gästekontakt\n• Sehr hohe Service- und Qualitätsorientierung\n• Fundierte Kenntnisse im Bereich Speisen, Wein und Getränkekunde\n• Souveränes, gepflegtes und professionelles Auftreten\n• Ausgeprägte Führungs-, Kommunikations- und Organisationskompetenz\n• Fähigkeit, ein Team zu motivieren, weiterzuentwickeln und auch in anspruchsvollen Situationen souverän zu führen\n• Hohes Verantwortungsbewusstsein und ausgeprägte Eigeninitiative\n• Belastbarkeit, Flexibilität und lösungsorientiertes Denken\n• Sehr gute Deutsch- und Englischkenntnisse; weitere Fremdsprachen von Vorteil\n• Erfahrung in der internationalen Luxushotellerie von Vorteil\n\nIHRE AUFGABEN\n• Gesamtverantwortung für den täglichen operativen Ablauf im Restaurant La Brezza\n• Aktive Gastgeberrolle und persönliche Betreuung unserer nationalen und internationalen Gäste\n• Sicherstellung eines individuellen, aufmerksamen und professionellen Fine-Dining-Service\n• Präsenz am Gast sowie aktives Erkennen und Antizipieren von Gästewünschen\n• Professioneller Umgang mit besonderen Gästewünschen, Allergien, Unverträglichkeiten und Reklamationen\n• Sicherstellung eines reibungslosen Serviceablaufs vom Empfang bis zur Verabschiedung\n• Verantwortung für Mise en Place, Tischkultur, Ambiente und Präsentation des Restaurants\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• 24/7 Nutzung unseres Fitnesscenters\n• Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n\nFühlen Sie sich angesprochen - Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
+        "en": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet das Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nSie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll?\nDann sind Sie bei uns richtig.\nEintritt per Anfang Dezember 2026\nArbeitsverhältnis befristet bis Mitte März 2027\n\nIHR PROFIL\n• Abgeschlossene Ausbildung in der gehobenen Hotellerie oder Gastronomie\n• Mehrjährige Berufserfahrung in der gehobenen Gastronomie, idealerweise im Fine-Dining- oder Michelin-Sterne-Umfeld\n• Führungserfahrung in einer vergleichbaren Position\n• Ausgeprägte Gastgeberpersönlichkeit mit natürlicher Präsenz und Freude am persönlichen Gästekontakt\n• Sehr hohe Service- und Qualitätsorientierung\n• Fundierte Kenntnisse im Bereich Speisen, Wein und Getränkekunde\n• Souveränes, gepflegtes und professionelles Auftreten\n• Ausgeprägte Führungs-, Kommunikations- und Organisationskompetenz\n• Fähigkeit, ein Team zu motivieren, weiterzuentwickeln und auch in anspruchsvollen Situationen souverän zu führen\n• Hohes Verantwortungsbewusstsein und ausgeprägte Eigeninitiative\n• Belastbarkeit, Flexibilität und lösungsorientiertes Denken\n• Sehr gute Deutsch- und Englischkenntnisse; weitere Fremdsprachen von Vorteil\n• Erfahrung in der internationalen Luxushotellerie von Vorteil\n\nIHRE AUFGABEN\n• Gesamtverantwortung für den täglichen operativen Ablauf im Restaurant La Brezza\n• Aktive Gastgeberrolle und persönliche Betreuung unserer nationalen und internationalen Gäste\n• Sicherstellung eines individuellen, aufmerksamen und professionellen Fine-Dining-Service\n• Präsenz am Gast sowie aktives Erkennen und Antizipieren von Gästewünschen\n• Professioneller Umgang mit besonderen Gästewünschen, Allergien, Unverträglichkeiten und Reklamationen\n• Sicherstellung eines reibungslosen Serviceablaufs vom Empfang bis zur Verabschiedung\n• Verantwortung für Mise en Place, Tischkultur, Ambiente und Präsentation des Restaurants\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• 24/7 Nutzung unseres Fitnesscenters\n• Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n\nFühlen Sie sich angesprochen - Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
+        "de": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet das Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nSie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll?\nDann sind Sie bei uns richtig.\nEintritt per Anfang Dezember 2026\nArbeitsverhältnis befristet bis Mitte März 2027\n\nIHR PROFIL\n• Abgeschlossene Ausbildung in der gehobenen Hotellerie oder Gastronomie\n• Mehrjährige Berufserfahrung in der gehobenen Gastronomie, idealerweise im Fine-Dining- oder Michelin-Sterne-Umfeld\n• Führungserfahrung in einer vergleichbaren Position\n• Ausgeprägte Gastgeberpersönlichkeit mit natürlicher Präsenz und Freude am persönlichen Gästekontakt\n• Sehr hohe Service- und Qualitätsorientierung\n• Fundierte Kenntnisse im Bereich Speisen, Wein und Getränkekunde\n• Souveränes, gepflegtes und professionelles Auftreten\n• Ausgeprägte Führungs-, Kommunikations- und Organisationskompetenz\n• Fähigkeit, ein Team zu motivieren, weiterzuentwickeln und auch in anspruchsvollen Situationen souverän zu führen\n• Hohes Verantwortungsbewusstsein und ausgeprägte Eigeninitiative\n• Belastbarkeit, Flexibilität und lösungsorientiertes Denken\n• Sehr gute Deutsch- und Englischkenntnisse; weitere Fremdsprachen von Vorteil\n• Erfahrung in der internationalen Luxushotellerie von Vorteil\n\nIHRE AUFGABEN\n• Gesamtverantwortung für den täglichen operativen Ablauf im Restaurant La Brezza\n• Aktive Gastgeberrolle und persönliche Betreuung unserer nationalen und internationalen Gäste\n• Sicherstellung eines individuellen, aufmerksamen und professionellen Fine-Dining-Service\n• Präsenz am Gast sowie aktives Erkennen und Antizipieren von Gästewünschen\n• Professioneller Umgang mit besonderen Gästewünschen, Allergien, Unverträglichkeiten und Reklamationen\n• Sicherstellung eines reibungslosen Serviceablaufs vom Empfang bis zur Verabschiedung\n• Verantwortung für Mise en Place, Tischkultur, Ambiente und Präsentation des Restaurants\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• 24/7 Nutzung unseres Fitnesscenters\n• Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n\nFühlen Sie sich angesprochen - Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome",
+        "fr": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet das Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta.\nUNSERE VISION - Wir geben der Zeit Ihren Wert zurück.\nSie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll?\nDann sind Sie bei uns richtig.\nEintritt per Anfang Dezember 2026\nArbeitsverhältnis befristet bis Mitte März 2027\n\nIHR PROFIL\n• Abgeschlossene Ausbildung in der gehobenen Hotellerie oder Gastronomie\n• Mehrjährige Berufserfahrung in der gehobenen Gastronomie, idealerweise im Fine-Dining- oder Michelin-Sterne-Umfeld\n• Führungserfahrung in einer vergleichbaren Position\n• Ausgeprägte Gastgeberpersönlichkeit mit natürlicher Präsenz und Freude am persönlichen Gästekontakt\n• Sehr hohe Service- und Qualitätsorientierung\n• Fundierte Kenntnisse im Bereich Speisen, Wein und Getränkekunde\n• Souveränes, gepflegtes und professionelles Auftreten\n• Ausgeprägte Führungs-, Kommunikations- und Organisationskompetenz\n• Fähigkeit, ein Team zu motivieren, weiterzuentwickeln und auch in anspruchsvollen Situationen souverän zu führen\n• Hohes Verantwortungsbewusstsein und ausgeprägte Eigeninitiative\n• Belastbarkeit, Flexibilität und lösungsorientiertes Denken\n• Sehr gute Deutsch- und Englischkenntnisse; weitere Fremdsprachen von Vorteil\n• Erfahrung in der internationalen Luxushotellerie von Vorteil\n\nIHRE AUFGABEN\n• Gesamtverantwortung für den täglichen operativen Ablauf im Restaurant La Brezza\n• Aktive Gastgeberrolle und persönliche Betreuung unserer nationalen und internationalen Gäste\n• Sicherstellung eines individuellen, aufmerksamen und professionellen Fine-Dining-Service\n• Präsenz am Gast sowie aktives Erkennen und Antizipieren von Gästewünschen\n• Professioneller Umgang mit besonderen Gästewünschen, Allergien, Unverträglichkeiten und Reklamationen\n• Sicherstellung eines reibungslosen Serviceablaufs vom Empfang bis zur Verabschiedung\n• Verantwortung für Mise en Place, Tischkultur, Ambiente und Präsentation des Restaurants\n\nUNSERE BENEFITS - Das dürfen Sie von uns erwarten:\n• Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel\n• Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen\n• 24/7 Nutzung unseres Fitnesscenters\n• Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr\n• Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels\n\nFühlen Sie sich angesprochen - Bewerben Sie sich jetzt!\nWir freuen uns über Ihr Bewerbungsdossier - gerne digital:\nBewerbungsschreiben\nVollständiger Lebenslauf inkl. Foto\nZeugnisse & Diplome"
       },
       "location": "Arosa",
       "canton": "GR",
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1396/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:22:02.399Z",
+      "crawledAt": "2026-10-04T09:22:31.727Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -577,26 +577,15 @@
       "postedDate": "2026-10-03",
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1396/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Service",
       "hotelName": "Tschuggen Grand Hotel",
-      "salaryMin": 83500,
-      "salaryMax": 105000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 105000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-10-03T09:22:02.399Z",
+      "previousSlugs": [
+        "restaurant-manager-gourmetrestaurant-la-brezza-m-w-d-wintersaison-2026-27-tschuggen-ch",
+        "restaurant-manager-gourmet-restaurant-la-brezza-m-f-d-stagione-invernale-2026-27-tschuggen-collection-arosa",
+        "restaurant-manager-gourmet-restaurant-la-brezza-m-f-d-winter-season-2026-27-tschuggen-collection-arosa",
+        "restaurant-manager-gourmet-restaurant-la-brezza-h-f-d-saison-d-hiver-2026-27-tschuggen-collection-arosa"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "restaurant-manager-gourmetrestaurant-la-brezza-m-w-d-wintersaison-2026-27-tschuggen-ch",
@@ -611,13 +600,22 @@
           "restaurant-manager-gourmet-restaurant-la-brezza-h-f-d-saison-d-hiver-2026-27-tschuggen-collection-arosa"
         ]
       },
-      "previousSlugs": [
-        "restaurant-manager-gourmetrestaurant-la-brezza-m-w-d-wintersaison-2026-27-tschuggen-ch",
-        "restaurant-manager-gourmet-restaurant-la-brezza-m-f-d-stagione-invernale-2026-27-tschuggen-collection-arosa",
-        "restaurant-manager-gourmet-restaurant-la-brezza-m-f-d-winter-season-2026-27-tschuggen-collection-arosa",
-        "restaurant-manager-gourmet-restaurant-la-brezza-h-f-d-saison-d-hiver-2026-27-tschuggen-collection-arosa"
-      ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:22:02.399Z",
+      "salaryMin": 83500,
+      "salaryMax": 105000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 105000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
     }
   ]
 }

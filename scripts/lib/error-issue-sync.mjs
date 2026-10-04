@@ -15,6 +15,7 @@
 
 import { createGithubIssue } from './github-issue-creator.mjs';
 import { DEFAULT_LIVE_CHECK_USER_AGENT } from './live-link-check.mjs';
+import { reconcileMonitorIssues } from './monitor-issue-reconcile.mjs';
 
 /**
  * Error messages tracked in telemetry ($exception / app_error) for dashboard
@@ -324,6 +325,10 @@ export async function isSelfHealedPage404(entry, { fetchImpl = fetch, origin = P
  * @param {string[]} [opts.labels]        Extra labels beyond the priority label.
  * @param {string} [opts.source]          Human label for the "Workflow:" line in the issue body.
  * @param {boolean} [opts.dryRun]         Stampa titolo e corpo invece di coniare.
+ * @param {object} [opts.reconcile]       Fase «riconcilia» (scripts/lib/monitor-issue-reconcile.mjs):
+ *   `{ family, labels, titlePrefix, verdictFor(issue), confirmations? }`. Assente → nessuna
+ *   chiusura, comportamento identico a prima. Riceve la lista COMPLETA dei titoli misurati
+ *   sopra soglia, non solo le prime `maxIssues`: «assente dalle prime N» non è «sotto soglia».
  * @returns {Promise<Array<object|null>>}
  */
 export async function syncErrorIssues({
@@ -335,6 +340,7 @@ export async function syncErrorIssues({
   labels = [],
   source,
   dryRun = false,
+  reconcile = null,
 }) {
   const results = [];
   for (const entry of entries.slice(0, maxIssues)) {
@@ -359,6 +365,20 @@ export async function syncErrorIssues({
       workflow: source,
     });
     results.push(res);
+  }
+  if (reconcile) {
+    const minted = entries.slice(0, maxIssues).map(titleFor).filter(Boolean);
+    const runUrl = process.env.GITHUB_RUN_ID
+      ? `${process.env.GITHUB_SERVER_URL || 'https://github.com'}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
+      : undefined;
+    await reconcileMonitorIssues({
+      ...reconcile,
+      measuredTitles: new Set(entries.map(titleFor).filter(Boolean)),
+      reconfirmedTitles: new Set(minted),
+      dryRun,
+      workflow: source,
+      runUrl,
+    });
   }
   return results;
 }

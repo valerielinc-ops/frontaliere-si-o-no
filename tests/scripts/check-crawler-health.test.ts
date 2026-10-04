@@ -32,7 +32,10 @@
 import { describe, it, expect } from 'vitest';
 
 import {
+  buildHealthScheda,
+  corpusObservationFromPayloads,
   nextCrawlerState,
+  selectNewestCrawlerObservation,
   TRANSPORT_ABORT_STALE_FLOOR_DAYS,
 } from '../../scripts/check-crawler-health.mjs';
 
@@ -345,7 +348,7 @@ describe('nextCrawlerState', () => {
   // The whole `broken` cohort of the 2026-08-04 monitor snapshot, all five
   // verified live as "source healthy, zero qualifying openings" rather than
   // parser breaks (evidence per crawler in the EMPTY_OK_CRAWLERS comments in
-  // scripts/check-crawler-health.mjs). Table-driven so the class is covered
+  // scripts/lib/crawler-empty-ok-registry.mjs). Table-driven so the class is covered
   // in one place instead of five copy-pasted blocks.
   const emptyOkCohort: Array<{ slug: string; issue: string; why: string; priorNonZero: number; emptyStreak: number }> = [
     {
@@ -1576,5 +1579,62 @@ describe('nextCrawlerState — self-reported fetch outcome (#7897)', () => {
     expect(withUndefined.status).toBe(withoutField.status);
     expect(withUndefined.reason).toBe(withoutField.reason);
     expect(withoutField.state._lastObservedFetchOutcome).toBeNull();
+  });
+});
+
+describe('codice che ha prodotto l osservazione (`codeCommit`)', () => {
+  // Le ondate lanciate dal fallback di contratto giravano su un commit del
+  // sito arretrato (run corpus 37112857893) e il monitor riapriva issue gia'
+  // corrette: senza il commit dell'osservazione «la fix non funziona» e «la
+  // fix non ha ancora girato» sono indistinguibili.
+  const COMMIT = '4b0f33de92ce81c41c849e195e5500afd4002cb1';
+  const fresh = new Date(NOW_MS - DAY_MS).toISOString();
+
+  it('conserva in `_lastObservedCodeCommit` il commit dichiarato dalla summary', () => {
+    const { state } = nextCrawlerState(undefined, { ...obs(fresh, 4), codeCommit: COMMIT }, NOW_ISO, NOW_MS);
+    expect(state._lastObservedCodeCommit).toBe(COMMIT);
+  });
+
+  it.each([
+    ['assente (summary precedente al campo)', undefined],
+    ['null', null],
+    ['uno sha abbreviato', '4b0f33d'],
+    ['un nome di ramo', 'main'],
+  ])('lascia null quando il commit e\' %s, senza dedurlo', (_label, codeCommit) => {
+    const { state } = nextCrawlerState(undefined, { ...obs(fresh, 4), codeCommit }, NOW_ISO, NOW_MS);
+    expect(state._lastObservedCodeCommit).toBeNull();
+  });
+
+  it('non cambia stato ne\' motivo: il commit e\' solo tracciabilita\'', () => {
+    const without = nextCrawlerState(undefined, obs(fresh, 0), NOW_ISO, NOW_MS);
+    const withCommit = nextCrawlerState(undefined, { ...obs(fresh, 0), codeCommit: COMMIT }, NOW_ISO, NOW_MS);
+    expect(withCommit.status).toBe(without.status);
+    expect(withCommit.reason).toBe(without.reason);
+  });
+
+  it('legge il commit dalla summary ripubblicata dal corpus', () => {
+    const summary = { key: 'acme', generatedAt: fresh, total: 2, codeCommit: COMMIT };
+    expect(corpusObservationFromPayloads('acme', { jobs: [{}, {}] }, summary)).toMatchObject({ codeCommit: COMMIT });
+    expect(corpusObservationFromPayloads('acme', { jobs: [{}, {}] }, { key: 'acme', generatedAt: fresh, total: 2 }))
+      .toMatchObject({ codeCommit: null });
+  });
+
+  it('non attribuisce all osservazione vincente il commit di quella scartata', () => {
+    const older = new Date(NOW_MS - 2 * DAY_MS).toISOString();
+    const site = { ...obs(older, 3), codeCommit: COMMIT, exitCode: 0 };
+    const corpus = { ...obs(fresh, 3, { freshnessSource: 'summary' }), codeCommit: null };
+    const winner = selectNewestCrawlerObservation(site, corpus, NOW_MS);
+    expect(winner.freshnessAt).toBe(fresh);
+    expect(winner.codeCommit).toBeNull();
+  });
+
+  it('scrive il commit osservato nella scheda della issue, e dichiara quando manca', () => {
+    const issue = { slug: 'acme', status: 'broken', reason: 'run returned 0 jobs' };
+    const withCommit = buildHealthScheda({ ...issue, codeCommit: COMMIT });
+    expect(withCommit).toContain(COMMIT);
+    expect(withCommit).toContain('git merge-base --is-ancestor');
+    const without = buildHealthScheda(issue);
+    expect(without).toContain("non dichiara `codeCommit`");
+    expect(without).not.toMatch(/[0-9a-f]{40}/);
   });
 });

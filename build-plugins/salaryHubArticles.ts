@@ -18,7 +18,6 @@ import { renderHreflangTags } from './shared/hreflang';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
-import { buildDayStampIso } from './shared/buildDayStamp';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 
@@ -182,12 +181,12 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
     },
     faqItems: (locale, _data) => {
       if (locale === 'it') return [
-        { q: 'Chi è considerato "vecchio" frontaliere?', a: 'È considerato vecchio frontaliere chi lavorava come frontaliere prima del 17 luglio 2023 e ha continuato senza interruzioni significative.' },
-        { q: 'Posso scegliere quale regime applicare?', a: 'No, il regime dipende dalla data di inizio dell\'attività frontaliera. Non è una scelta volontaria.' },
+        { q: 'Chi è considerato "vecchio" frontaliere?', a: 'Occorre aver lavorato come frontaliere fiscale in Ticino, Grigioni o Vallese tra il 31 dicembre 2018 e il 17 luglio 2023, rispettando residenza nella fascia dei Comuni entro 20 km e rientro in linea di principio quotidiano. Non è richiesto un periodo minimo di occupazione.' },
+        { q: 'Posso scegliere quale regime applicare?', a: 'Lo status di vecchio frontaliere richiede attività come frontaliere fiscale in Ticino, Grigioni o Vallese tra il 31 dicembre 2018 e il 17 luglio 2023, residenza in un Comune della fascia di 20 km e rientro in linea di principio quotidiano. Il reddito di lavoro svizzero resta tassato esclusivamente in Svizzera. Il 2033 riguarda la fine della compensazione del 40% versata dalla Svizzera all’Italia, non la fine della tassazione esclusiva.' },
       ];
       return [
-        { q: 'Who is considered an "old" cross-border worker?', a: 'Those who were working as cross-border commuters before July 17, 2023 and continued without significant interruptions.' },
-        { q: 'Can I choose which regime applies?', a: 'No, the regime depends on when you started cross-border work. It is not a voluntary choice.' },
+        { q: 'Who is considered an "old" cross-border worker?', a: 'Workers employed as tax cross-border workers in Ticino, Graubünden or Valais between 31 December 2018 and 17 July 2023, meeting the 20 km municipality-zone residence and, in principle, daily-return requirements. No minimum employment period is required.' },
+        { q: 'Can I choose which regime applies?', a: 'Old-worker status requires work as a tax cross-border worker in Ticino, Graubünden or Valais between 31 December 2018 and 17 July 2023, residence in a municipality in the 20 km border zone and, in principle, daily return home. Swiss employment income remains taxable exclusively in Switzerland. The 2033 deadline ends the 40% compensation paid by Switzerland to Italy, not exclusive Swiss taxation.' },
       ];
     },
     relatedScenarioFilter: (s) => s.salary === 80_000 && s.children === 0 && s.maritalStatus === 'SINGLE',
@@ -342,7 +341,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
         <h2>Frontalieri entro 20 km dal confine</h2>
         <p>I nuovi frontalieri che risiedono entro 20 km dal confine svizzero beneficiano del regime standard: imposta alla fonte ridotta all'80% in Svizzera e tassazione concorrente IRPEF in Italia con franchigia di EUR 10'000 e credito d'imposta proporzionale. Con CHF 80'000 lordi, il netto annuo è circa CHF ${within80}.</p>
         <h2>Frontalieri oltre 20 km dal confine</h2>
-        <p>Chi risiede oltre 20 km dal confine non è tecnicamente un "frontaliere" ai fini fiscali dell'accordo bilaterale. Questo comporta una tassazione diversa: l'imposta alla fonte viene comunque trattenuta, ma l'Italia tassa l'intero reddito senza franchigia. Con CHF 80'000 lordi e residenza oltre 20 km, il netto scende a circa CHF ${over80}.</p>
+        <p>Chi risiede oltre 20 km dal confine non è tecnicamente un "frontaliere" ai fini fiscali dell'accordo bilaterale. Questo comporta una tassazione diversa: l'imposta alla fonte viene comunque trattenuta, ma l’Italia tassa il reddito con credito per le imposte svizzere. La franchigia italiana di EUR 10.000 non è subordinata alla fascia dei 20 km: richiede lavoro dipendente all’estero in zona di frontiera o in Paesi limitrofi, continuativo e oggetto esclusivo del rapporto, svolto da residenti in Italia. <a href="https://documenti.camera.it/leg19/dossier/testi/FI0093.htm">Fonte: Camera, articolo 4 della legge 83/2023</a>. Con CHF 80'000 lordi e residenza oltre 20 km, il netto simulato è circa CHF ${over80}.</p>
         <h2>Come si misura la distanza</h2>
         <p>La distanza si misura in linea d'aria tra il comune di residenza in Italia e il confine italo-svizzero più vicino. Non conta la distanza dal luogo di lavoro né il percorso stradale. I comuni interessati sono elencati in un elenco ufficiale concordato tra i due stati.</p>`;
       return `
@@ -350,16 +349,16 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
         <h2>Cross-border workers within 20 km</h2>
         <p>New cross-border workers residing within 20 km of the Swiss border benefit from the standard regime: 80% withholding tax in Switzerland and concurrent IRPEF taxation in Italy with EUR 10,000 allowance. With CHF 80,000 gross, annual net is approximately CHF ${within80}.</p>
         <h2>Cross-border workers over 20 km</h2>
-        <p>Those residing over 20 km from the border are not technically "cross-border workers" for tax purposes. Italy taxes the full income without allowance. With CHF 80,000 gross and residence over 20 km, net drops to approximately CHF ${over80}.</p>`;
+        <p>Those residing over 20 km from the border are not technically "cross-border workers" for tax purposes. Italy taxes the income with credit for Swiss taxes. The Italian EUR 10,000 allowance is not conditional on the 20 km zone: it requires an Italian resident’s employment abroad in a border area or neighbouring country, performed continuously and as the exclusive object of the employment relationship. <a href="https://documenti.camera.it/leg19/dossier/testi/FI0093.htm">Source: Chamber of Deputies, Article 4 of Law 83/2023</a>. With CHF 80,000 gross and residence over 20 km, simulated net is approximately CHF ${over80}.</p>`;
     },
     faqItems: (locale, _data) => {
       if (locale === 'it') return [
         { q: 'Come si misura la distanza dei 20 km?', a: 'La distanza si misura in linea d\'aria tra il comune di residenza e il confine italo-svizzero più vicino, non in base al percorso stradale.' },
-        { q: 'La regola dei 20 km si applica ai vecchi frontalieri?', a: 'No, i vecchi frontalieri (pre-2024) non sono soggetti alla regola dei 20 km. Si applica solo ai nuovi frontalieri.' },
+        { q: 'La regola dei 20 km si applica ai vecchi frontalieri?', a: 'Lo status di vecchio frontaliere richiede attività come frontaliere fiscale in Ticino, Grigioni o Vallese tra il 31 dicembre 2018 e il 17 luglio 2023, residenza in un Comune della fascia di 20 km e rientro in linea di principio quotidiano. Il reddito di lavoro svizzero resta tassato esclusivamente in Svizzera. Il 2033 riguarda la fine della compensazione del 40% versata dalla Svizzera all’Italia, non la fine della tassazione esclusiva.' },
       ];
       return [
         { q: 'How is the 20 km distance measured?', a: 'The distance is measured as the crow flies between the municipality of residence and the nearest Italy-Switzerland border, not by road.' },
-        { q: 'Does the 20 km rule apply to old cross-border workers?', a: 'No, old cross-border workers (pre-2024) are not subject to the 20 km rule. It only applies to new cross-border workers.' },
+        { q: 'Does the 20 km rule apply to old cross-border workers?', a: 'Old-worker status requires work as a tax cross-border worker in Ticino, Graubünden or Valais between 31 December 2018 and 17 July 2023, residence in a municipality in the 20 km border zone and, in principle, daily return home. Swiss employment income remains taxable exclusively in Switzerland. The 2033 deadline ends the 40% compensation paid by Switzerland to Italy, not exclusive Swiss taxation.' },
       ];
     },
     relatedScenarioFilter: (s) => s.salary === 80_000 && s.frontierType === 'NEW' && s.maritalStatus === 'SINGLE' && s.children === 0,
@@ -576,7 +575,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
         <h2>Imposta alla fonte: chi la applica e come</h2>
         <p>L'imposta alla fonte sul reddito da lavoro viene trattenuta esclusivamente in Svizzera: il datore di lavoro applica una delle tabelle cantonali (A per i single, B per i coniugati con coniuge non lavoratore, C per i coniugi entrambi occupati, H per i genitori single) in base allo stato civile e al numero di figli. Le aliquote sono stabilite dall'Amministrazione federale delle contribuzioni (AFC/ESTV) insieme alle amministrazioni cantonali. Con CHF 80'000 lordi, un nuovo frontaliere single entro 20 km dal confine percepisce circa CHF ${example80} netti annui — il dettaglio tabella per tabella è nella guida <a href="${siblingWithholding.it}">imposta alla fonte in Ticino</a>.</p>
         <h2>Nuovo Accordo Italia-Svizzera: vecchi e nuovi frontalieri</h2>
-        <p>Il Nuovo Accordo fiscale, firmato il 23 dicembre 2020 e in vigore dal 1° gennaio 2024 (ratificato in Italia con la Legge 83/2023), distingue due categorie. I "vecchi" frontalieri, che lavoravano già come tali prima del 17 luglio 2023, restano nel regime transitorio 2024-2033 con esenzione di €7'500. I "nuovi" frontalieri sono soggetti a tassazione concorrente: imposta alla fonte all'80% in Svizzera più IRPEF in Italia sul reddito eccedente la franchigia di €10'000. Il confronto numerico completo è nella guida <a href="${siblingOldNew.it}">vecchio vs nuovo frontaliere</a>.</p>
+        <p>Lo status di vecchio frontaliere richiede attività come frontaliere fiscale in Ticino, Grigioni o Vallese tra il 31 dicembre 2018 e il 17 luglio 2023, residenza in un Comune della fascia di 20 km e rientro in linea di principio quotidiano. Il reddito di lavoro svizzero resta tassato esclusivamente in Svizzera. Il 2033 riguarda la fine della compensazione del 40% versata dalla Svizzera all’Italia, non la fine della tassazione esclusiva. Per i nuovi frontalieri che soddisfano i requisiti territoriali e di rientro dell’accordo, la Svizzera applica l’80% dell’ordinaria imposta alla fonte e l’Italia tassa il reddito riconoscendo il credito per le imposte svizzere. L’80% non è una ripartizione del reddito tra Stati. Chi vive fuori dalla fascia dei Comuni ammessi non beneficia automaticamente di questa aliquota ridotta. <a href="https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf">Fonte: AFC, accordo e FAQ</a>.</p>
         <h2>Doppia imposizione: come viene evitata</h2>
         <p>La Convenzione Italia-Svizzera contro le doppie imposizioni, firmata il 9 marzo 1976, stabilisce che il reddito da lavoro frontaliere non venga tassato due volte: l'Italia riconosce un credito d'imposta per le imposte già pagate in Svizzera, da indicare nel quadro CE del modello 730 o Redditi PF.</p>
         <h2>Detrazioni fiscali deducibili</h2>
@@ -588,7 +587,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
         <h2>Withholding tax: who applies it and how</h2>
         <p>Withholding tax on employment income is deducted exclusively in Switzerland: the employer applies one of the cantonal tables (A for singles, B for married with a non-working spouse, C for dual-income couples, H for single parents) based on marital status and number of children. Rates are set by the Federal Tax Administration (AFC/ESTV) together with cantonal authorities. With CHF 80,000 gross, a new single cross-border worker within 20 km of the border earns approximately CHF ${example80} net per year — see the full table-by-table breakdown in the <a href="${siblingWithholding.en}">Ticino withholding tax guide</a>.</p>
         <h2>New Italy-Switzerland Agreement: old vs new cross-border workers</h2>
-        <p>The New Tax Agreement, signed 23 December 2020 and in force since 1 January 2024 (ratified in Italy by Law 83/2023), distinguishes two categories. "Old" cross-border workers, already working as such before 17 July 2023, remain under the 2024-2033 transitional regime with a €7,500 exemption. "New" cross-border workers face concurrent taxation: 80% withholding tax in Switzerland plus Italian IRPEF on income above the €10,000 allowance. See the full numeric comparison in the <a href="${siblingOldNew.en}">old vs new cross-border worker guide</a>.</p>
+        <p>Old-worker status requires work as a tax cross-border worker in Ticino, Graubünden or Valais between 31 December 2018 and 17 July 2023, residence in a municipality in the 20 km border zone and, in principle, daily return home. Swiss employment income remains taxable exclusively in Switzerland. The 2033 deadline ends the 40% compensation paid by Switzerland to Italy, not exclusive Swiss taxation. For new workers meeting the agreement’s residence and return requirements, Switzerland levies 80% of the ordinary withholding tax and Italy taxes the income with credit for Swiss tax. The 80% is not an allocation of income between countries. Residence outside the qualifying municipality zone does not automatically qualify for the reduced Swiss rate. <a href="https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf">Source: FTA agreement and FAQ</a>.</p>
         <h2>Double taxation: how it's avoided</h2>
         <p>The 1976 Italy-Switzerland double-taxation treaty ensures cross-border employment income isn't taxed twice: Italy grants a tax credit for taxes already paid in Switzerland, reported in the CE section of the 730/Redditi PF tax return.</p>
         <h2>Deductible tax items</h2>
@@ -600,7 +599,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
         <h2>Quellensteuer: wer sie anwendet und wie</h2>
         <p>Die Quellensteuer auf Erwerbseinkommen wird ausschliesslich in der Schweiz erhoben: Der Arbeitgeber wendet eine der kantonalen Tabellen an (A für Ledige, B für Verheiratete mit nichterwerbstätigem Ehepartner, C für Doppelverdiener-Ehepaare, H für Alleinerziehende), abhängig von Zivilstand und Kinderzahl. Die Tarife werden von der Eidgenössischen Steuerverwaltung (ESTV) zusammen mit den kantonalen Behörden festgelegt. Bei CHF 80'000 brutto erzielt ein neuer lediger Grenzgänger innerhalb von 20 km zur Grenze rund CHF ${example80} netto pro Jahr — die vollständige Tabellenübersicht finden Sie im <a href="${siblingWithholding.de}">Ratgeber Quellensteuer Tessin</a>.</p>
         <h2>Neues Abkommen Italien-Schweiz: alte und neue Grenzgänger</h2>
-        <p>Das am 23. Dezember 2020 unterzeichnete und seit 1. Januar 2024 geltende neue Steuerabkommen (in Italien mit Gesetz 83/2023 ratifiziert) unterscheidet zwei Kategorien. "Alte" Grenzgänger, die bereits vor dem 17. Juli 2023 als solche tätig waren, bleiben bis 2033 in der Übergangsregelung mit einem Freibetrag von €7'500. "Neue" Grenzgänger unterliegen der konkurrierenden Besteuerung: 80% Quellensteuer in der Schweiz plus italienische IRPEF auf das Einkommen über dem Freibetrag von €10'000. Den vollständigen Zahlenvergleich finden Sie im <a href="${siblingOldNew.de}">Ratgeber alte vs. neue Grenzgänger</a>.</p>
+        <p>Der Status als alter Grenzgänger setzt eine Tätigkeit als steuerlicher Grenzgänger in Tessin, Graubünden oder Wallis zwischen dem 31. Dezember 2018 und dem 17. Juli 2023, Wohnsitz in einer Gemeinde der 20-km-Grenzzone und grundsätzlich tägliche Rückkehr voraus. Der Schweizer Arbeitslohn bleibt ausschliesslich in der Schweiz steuerpflichtig. 2033 endet die Ausgleichszahlung von 40% an Italien, nicht die ausschliessliche Schweizer Besteuerung. Bei neuen Grenzgängern, die Wohnsitz- und Rückkehrvoraussetzungen des Abkommens erfüllen, erhebt die Schweiz 80% der ordentlichen Quellensteuer; Italien besteuert das Einkommen unter Anrechnung der Schweizer Steuer. Die 80% sind keine Aufteilung des Einkommens zwischen den Staaten. Ein Wohnsitz ausserhalb der zugelassenen Gemeinden berechtigt nicht automatisch zum reduzierten Schweizer Satz. <a href="https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf">Quelle: ESTV, Abkommen und FAQ</a>.</p>
         <h2>Doppelbesteuerung: wie sie vermieden wird</h2>
         <p>Das Doppelbesteuerungsabkommen Italien-Schweiz von 1976 stellt sicher, dass das Erwerbseinkommen von Grenzgängern nicht doppelt besteuert wird: Italien gewährt eine Steuergutschrift für bereits in der Schweiz bezahlte Steuern, einzutragen im Abschnitt CE der Steuererklärung 730/Redditi PF.</p>
         <h2>Abzugsfähige Steuerposten</h2>
@@ -612,7 +611,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
         <h2>Impôt à la source : qui l'applique et comment</h2>
         <p>L'impôt à la source sur le revenu du travail est prélevé exclusivement en Suisse : l'employeur applique l'un des barèmes cantonaux (A pour les célibataires, B pour les mariés avec conjoint sans activité, C pour les couples à double revenu, H pour les parents seuls), selon l'état civil et le nombre d'enfants. Les taux sont fixés par l'Administration fédérale des contributions (AFC/ESTV) avec les autorités cantonales. Avec CHF 80'000 bruts, un nouveau frontalier célibataire résidant à moins de 20 km de la frontière perçoit environ CHF ${example80} nets par an — le détail barème par barème figure dans le <a href="${siblingWithholding.fr}">guide de l'impôt à la source au Tessin</a>.</p>
         <h2>Nouvel accord Italie-Suisse : anciens et nouveaux frontaliers</h2>
-        <p>Le nouvel accord fiscal, signé le 23 décembre 2020 et en vigueur depuis le 1er janvier 2024 (ratifié en Italie par la loi 83/2023), distingue deux catégories. Les "anciens" frontaliers, déjà actifs comme tels avant le 17 juillet 2023, restent sous le régime transitoire 2024-2033 avec une exonération de 7'500 €. Les "nouveaux" frontaliers sont soumis à une imposition concurrente : impôt à la source à 80% en Suisse plus IRPEF italien sur le revenu dépassant la franchise de 10'000 €. La comparaison chiffrée complète figure dans le <a href="${siblingOldNew.fr}">guide anciens vs nouveaux frontaliers</a>.</p>
+        <p>Le statut d’ancien frontalier suppose une activité de frontalier fiscal au Tessin, dans les Grisons ou en Valais entre le 31 décembre 2018 et le 17 juillet 2023, une résidence dans une commune de la zone des 20 km et un retour en principe quotidien. Le salaire suisse reste imposable exclusivement en Suisse. En 2033 prend fin la compensation de 40% versée à l’Italie, et non l’imposition exclusive en Suisse. Pour les nouveaux frontaliers remplissant les conditions de résidence et de retour de l’accord, la Suisse prélève 80% de l’impôt à la source ordinaire et l’Italie impose le revenu avec un crédit pour l’impôt suisse. Les 80% ne sont pas une répartition du revenu entre États. Une résidence hors des communes admises ne donne pas automatiquement droit au taux suisse réduit. <a href="https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf">Source : AFC, accord et FAQ</a>.</p>
         <h2>Double imposition : comment elle est évitée</h2>
         <p>La convention italo-suisse contre les doubles impositions, signée le 9 mars 1976, garantit que le revenu du travail frontalier n'est pas taxé deux fois : l'Italie accorde un crédit d'impôt pour les impôts déjà payés en Suisse, à reporter dans le cadre CE de la déclaration 730/Redditi PF.</p>
         <h2>Déductions fiscales</h2>
@@ -623,25 +622,25 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
     faqItems: (locale, _data) => {
       if (locale === 'it') return [
         { q: 'Chi tassa lo stipendio di un frontaliere, Italia o Svizzera?', a: 'L\'imposta sul reddito da lavoro viene trattenuta alla fonte solo in Svizzera. L\'Italia evita la doppia imposizione riconoscendo un credito d\'imposta nel quadro CE del modello 730.' },
-        { q: 'Cosa cambia tra vecchi e nuovi frontalieri?', a: 'I vecchi frontalieri (attivi prima del 17/7/2023) restano nel regime transitorio 2024-2033 con esenzione di €7\'500. I nuovi sono soggetti a tassazione concorrente con franchigia di €10\'000.' },
+        { q: 'Cosa cambia tra vecchi e nuovi frontalieri?', a: 'Lo status di vecchio frontaliere richiede attività come frontaliere fiscale in Ticino, Grigioni o Vallese tra il 31 dicembre 2018 e il 17 luglio 2023, residenza in un Comune della fascia di 20 km e rientro in linea di principio quotidiano. Il reddito di lavoro svizzero resta tassato esclusivamente in Svizzera. Il 2033 riguarda la fine della compensazione del 40% versata dalla Svizzera all’Italia, non la fine della tassazione esclusiva. I nuovi frontalieri ammessi dall’accordo pagano in Svizzera l’80% dell’ordinaria imposta alla fonte e in Italia l’IRPEF con credito per le imposte svizzere; non si tratta di una divisione del gettito 80/20.' },
         { q: 'Quando è entrato in vigore il Nuovo Accordo fiscale?', a: 'Il Nuovo Accordo è stato firmato il 23 dicembre 2020 ed è in vigore dal 1° gennaio 2024, ratificato in Italia con la Legge 83/2023.' },
         { q: 'Come si evita la doppia imposizione?', a: 'Grazie alla Convenzione Italia-Svizzera del 9 marzo 1976: l\'Italia riconosce un credito d\'imposta per le imposte già pagate in Svizzera.' },
       ];
       if (locale === 'en') return [
         { q: 'Who taxes a cross-border worker\'s salary, Italy or Switzerland?', a: 'Employment income tax is withheld at source only in Switzerland. Italy avoids double taxation by granting a tax credit in the CE section of the 730 return.' },
-        { q: 'What changes between old and new cross-border workers?', a: 'Old cross-border workers (active before 17 July 2023) remain under the 2024-2033 transitional regime with a €7,500 exemption. New ones face concurrent taxation with a €10,000 allowance.' },
+        { q: 'What changes between old and new cross-border workers?', a: 'Old-worker status requires work as a tax cross-border worker in Ticino, Graubünden or Valais between 31 December 2018 and 17 July 2023, residence in a municipality in the 20 km border zone and, in principle, daily return home. Swiss employment income remains taxable exclusively in Switzerland. The 2033 deadline ends the 40% compensation paid by Switzerland to Italy, not exclusive Swiss taxation. New workers qualifying under the agreement pay 80% of ordinary Swiss withholding tax and Italian IRPEF with credit for Swiss taxes; this is not an 80/20 split of tax revenue.' },
         { q: 'When did the New Tax Agreement come into force?', a: 'The New Agreement was signed on 23 December 2020 and has been in force since 1 January 2024, ratified in Italy by Law 83/2023.' },
         { q: 'How is double taxation avoided?', a: 'Through the 9 March 1976 Italy-Switzerland treaty: Italy grants a tax credit for taxes already paid in Switzerland.' },
       ];
       if (locale === 'de') return [
         { q: 'Wer besteuert das Gehalt eines Grenzgängers, Italien oder die Schweiz?', a: 'Die Erwerbseinkommensteuer wird nur in der Schweiz an der Quelle einbehalten. Italien vermeidet Doppelbesteuerung durch eine Steuergutschrift im Abschnitt CE der Steuererklärung 730.' },
-        { q: 'Was ändert sich zwischen alten und neuen Grenzgängern?', a: 'Alte Grenzgänger (tätig vor dem 17.7.2023) bleiben bis 2033 in der Übergangsregelung mit Freibetrag von €7\'500. Neue unterliegen der konkurrierenden Besteuerung mit Freibetrag von €10\'000.' },
+        { q: 'Was ändert sich zwischen alten und neuen Grenzgängern?', a: 'Der Status als alter Grenzgänger setzt eine Tätigkeit als steuerlicher Grenzgänger in Tessin, Graubünden oder Wallis zwischen dem 31. Dezember 2018 und dem 17. Juli 2023, Wohnsitz in einer Gemeinde der 20-km-Grenzzone und grundsätzlich tägliche Rückkehr voraus. Der Schweizer Arbeitslohn bleibt ausschliesslich in der Schweiz steuerpflichtig. 2033 endet die Ausgleichszahlung von 40% an Italien, nicht die ausschliessliche Schweizer Besteuerung. Neue Grenzgänger im Sinne des Abkommens zahlen 80% der ordentlichen Schweizer Quellensteuer sowie italienische IRPEF unter Anrechnung der Schweizer Steuer; dies ist keine Aufteilung des Steueraufkommens im Verhältnis 80/20.' },
         { q: 'Wann trat das neue Steuerabkommen in Kraft?', a: 'Das neue Abkommen wurde am 23. Dezember 2020 unterzeichnet und gilt seit 1. Januar 2024, ratifiziert in Italien mit Gesetz 83/2023.' },
         { q: 'Wie wird Doppelbesteuerung vermieden?', a: 'Durch das Abkommen Italien-Schweiz vom 9. März 1976: Italien gewährt eine Steuergutschrift für bereits in der Schweiz bezahlte Steuern.' },
       ];
       return [
         { q: 'Qui taxe le salaire d\'un frontalier, l\'Italie ou la Suisse ?', a: 'L\'impôt sur le revenu du travail est retenu à la source uniquement en Suisse. L\'Italie évite la double imposition en accordant un crédit d\'impôt dans le cadre CE de la déclaration 730.' },
-        { q: 'Que change-t-il entre anciens et nouveaux frontaliers ?', a: 'Les anciens frontaliers (actifs avant le 17/7/2023) restent sous le régime transitoire 2024-2033 avec une exonération de 7\'500 €. Les nouveaux sont soumis à une imposition concurrente avec une franchise de 10\'000 €.' },
+        { q: 'Que change-t-il entre anciens et nouveaux frontaliers ?', a: 'Le statut d’ancien frontalier suppose une activité de frontalier fiscal au Tessin, dans les Grisons ou en Valais entre le 31 décembre 2018 et le 17 juillet 2023, une résidence dans une commune de la zone des 20 km et un retour en principe quotidien. Le salaire suisse reste imposable exclusivement en Suisse. En 2033 prend fin la compensation de 40% versée à l’Italie, et non l’imposition exclusive en Suisse. Les nouveaux frontaliers admis par l’accord paient 80% de l’impôt suisse à la source ordinaire et l’IRPEF italien avec crédit pour l’impôt suisse ; il ne s’agit pas d’un partage des recettes fiscales 80/20.' },
         { q: 'Quand le nouvel accord fiscal est-il entré en vigueur ?', a: 'Le nouvel accord a été signé le 23 décembre 2020 et est en vigueur depuis le 1er janvier 2024, ratifié en Italie par la loi 83/2023.' },
         { q: 'Comment la double imposition est-elle évitée ?', a: 'Grâce à la convention italo-suisse du 9 mars 1976 : l\'Italie accorde un crédit d\'impôt pour les impôts déjà payés en Suisse.' },
       ];
@@ -690,14 +689,8 @@ export function generateArticleHtml(
     ],
   });
 
-  // Article schema — these pages set ogType 'article' but previously shipped no
-  // Article JSON-LD, so they were ineligible for Article rich results and lacked
-  // an explicit author/publisher E-E-A-T signal. Mirrors the accepted publisher
-  // Organization + licensable logo pattern used by comparisonsHubPlugin. Dates
-  // use the day-truncated build stamp (buildDayStampIso) so dateModified stays a
-  // valid freshness signal — the net figures in the body are recomputed from the
-  // simulation engine on every build — without churning every sub-second deploy.
-  const articleStamp = buildDayStampIso();
+  // Recomputing a salary simulation is not an editorial publication event.
+  // No publication/change history is available for these static guides.
   const articleDescription = guardArticleJsonLdDescription(description);
   const articleSchema = JSON.stringify({
     '@context': 'https://schema.org',
@@ -708,8 +701,6 @@ export function generateArticleHtml(
     inLanguage: locale,
     url: canonicalUrl,
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
-    datePublished: articleStamp,
-    dateModified: articleStamp,
     author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',

@@ -13,6 +13,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { performance } from 'node:perf_hooks';
 import { fileURLToPath } from 'node:url';
 import {
   validateJobUrls,
@@ -41,6 +42,8 @@ import {
   writeCrossCrawlerDedupProofFile,
   writeHousekeepingProofFile,
 } from './lib/crawler-slice-integrity.mjs';
+import { reportBlockingLocaleSlots } from './lib/job-locale-slot-prep-report.mjs';
+import { MIN_REPAIRED_DESCRIPTION_CHARS, repairShortDescriptions } from './lib/job-locale-slot-repair.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -483,9 +486,9 @@ async function main() {
     const slicePath = path.resolve(SLICE_FILE);
     // The caller is a shell glob over `data/jobs/by-crawler/*.json`
     // (cleanup-stale-jobs.yml), and that directory also holds crawler scratch
-    // companions that are NOT slices: `update-coop-jobs.mjs` parks its
-    // translation cache in `coop-ticino-locale-cache.json` (a bare array, by its
-    // own contract), and a housekeeping run killed mid-write leaves a
+    // companions that are NOT slices: `update-coop-jobs.mjs` used to park its
+    // translation cache in `coop-ticino-locale-cache.json` (a bare array, still
+    // tracked on main as `[]`), and a housekeeping run killed mid-write leaves a
     // `<key>.json.cleanup-tmp.json`. Without this guard the bare array fell
     // through `sliceJobs` below as if it were a job list: housekeeping pruned
     // the Coop cache down to `[]` on 2026-08-31, and the `crawlerKey` basename
@@ -698,79 +701,23 @@ async function main() {
   // (e.g. search widget text scraped instead of real content), replace it with
   // a minimal viable description built from title + company + location.
   // This prevents deploy failures from the validate-jobs-quality gate.
+  // tests/job-locale-slot-gate-contract.test.ts binds step 0 + 0b to the
+  // blocking predicate of validate:translation-completeness.
   {
-    const MIN_DESC_CHARS = 150;
-    const GARBAGE_PATTERNS = [
-      /Suche nach Stichwort/i,
-      /Benachrichtigung erstellen/i,
-      /Search by keyword/i,
-      /Create Alert/i,
-      /Select how often/i,
-      /cookie.*policy/i,
-    ];
-
-    const BOILERPLATE = {
-      de: (company, location, canton) =>
-        `${company} mit Sitz in ${location}${canton ? ` (${canton})` : ''}, Schweiz, bietet vielfältige Karrieremöglichkeiten und moderne Arbeitsbedingungen. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur weiteren Entwicklung unseres Unternehmens beitragen möchten. Bewerben Sie sich jetzt für diese spannende Position.`,
-      it: (company, location, canton) =>
-        `${company} con sede a ${location}${canton ? ` (${canton})` : ''}, Svizzera, offre diverse opportunità di carriera e condizioni di lavoro moderne. Cerchiamo professionisti motivati che desiderino contribuire con competenza e passione allo sviluppo della nostra azienda. Candidatevi ora per questa interessante posizione.`,
-      en: (company, location, canton) =>
-        `${company} based in ${location}${canton ? ` (${canton})` : ''}, Switzerland, offers diverse career opportunities and modern working conditions. We are looking for motivated professionals who want to contribute to the further development of our company with competence and passion. Apply now for this exciting position.`,
-      fr: (company, location, canton) =>
-        `${company} basé à ${location}${canton ? ` (${canton})` : ''}, Suisse, offre des opportunités de carrière diversifiées et des conditions de travail modernes. Nous recherchons des professionnels motivés qui souhaitent contribuer avec compétence et passion au développement de notre entreprise. Postulez maintenant pour ce poste passionnant.`,
-    };
-
     const raw = JSON.parse(fs.readFileSync(DATA_JOBS_PATH, 'utf-8'));
     const jobsArr = Array.isArray(raw) ? raw : (Array.isArray(raw?.jobs) ? raw.jobs : null);
     const isWrapped = !Array.isArray(raw) && Array.isArray(raw?.jobs);
-    let enriched = 0;
 
     if (jobsArr) {
-      for (const job of jobsArr) {
-        // Check ALL 4 required locales — the validation gate requires complete
-        // coverage. Only checking existing keys misses locales that were never
-        // populated (e.g. descriptionByLocale is {} after garbage cleanup).
-        const locales = ['it', 'en', 'de', 'fr'];
-
-        for (const locale of locales) {
-          const desc = (job.descriptionByLocale?.[locale] || '').trim();
-          const isShort = desc.length > 0 && desc.length < MIN_DESC_CHARS;
-          const isEmpty = desc.length === 0;
-          const isGarbage = desc.length > 0 && GARBAGE_PATTERNS.some((re) => re.test(desc));
-
-          if (isShort || isEmpty || isGarbage) {
-            const title = job.titleByLocale?.[locale] || job.title || '';
-            const company = job.company || '';
-            const location = job.addressLocality || job.location || '';
-            const canton = job.canton || job.addressRegion || '';
-            const boilerplateFn = BOILERPLATE[locale] || BOILERPLATE.de;
-            const fallback = `${title} — ${boilerplateFn(company, location, canton)}`;
-            if (fallback.length >= MIN_DESC_CHARS) {
-              job.descriptionByLocale = job.descriptionByLocale || {};
-              job.descriptionByLocale[locale] = fallback;
-              if (locale === (job.sourceLang || 'de')) {
-                job.description = fallback;
-              }
-              job.needsRetranslation = true;
-              // We just rewrote the description (genuine content change) → lift any
-              // prior give-up so the fresh text gets a new translation attempt and
-              // the suppressed counter isn't inflated by a now-stale marker.
-              delete job.localeMismatchSuppressed;
-              delete job.localeMismatchSuppressedLen;
-              enriched++;
-            }
-          }
-        }
-      }
-
+      const { jobs: repairedJobs, enriched } = repairShortDescriptions(jobsArr);
       if (enriched > 0) {
-        const out = isWrapped ? { ...raw, jobs: jobsArr } : jobsArr;
+        const out = isWrapped ? { ...raw, jobs: repairedJobs } : repairedJobs;
         writeJson(DATA_JOBS_PATH, out);
         // Keep public copy in sync
         if (fs.existsSync(PUBLIC_JOBS_PATH)) {
           writeJson(PUBLIC_JOBS_PATH, out);
         }
-        console.log(`📝 Description enrichment: padded ${enriched} short/garbage descriptions above ${MIN_DESC_CHARS} chars.`);
+        console.log(`📝 Description enrichment: padded ${enriched} short/garbage descriptions above ${MIN_REPAIRED_DESCRIPTION_CHARS} chars.`);
       }
     }
   }
@@ -1001,7 +948,32 @@ async function main() {
   console.log(`✅ jobs.json aggiornati (data/ + public/data) e meta aggiornato${HOUSEKEEPING_SCOPE ? ` — scope ${HOUSEKEEPING_SCOPE}` : ''}`);
 }
 
-main().catch((err) => {
-  console.error('❌ Job housekeeping error:', err);
-  process.exitCode = 1;
-});
+main()
+  .then(() => {
+    // Dataset mode only, and after main() on EVERY exit path — including the
+    // early return when nothing was removed, which skips the final writes.
+    // Re-read data/jobs.json from disk (what prep's snapshot carries to the
+    // build) and name, per crawler, the records the dist gate
+    // validate:translation-completeness would block. Report only: no record
+    // is removed and the exit code does not change (see the module header).
+    if (!SLICE_FILE) {
+      // Post-merge RSS measure is read from this notice; the threshold is in the PR body.
+      const reparseStartedAt = performance.now();
+      try {
+        reportBlockingLocaleSlots({ dataJobsPath: DATA_JOBS_PATH, slicesDir: ACTIVE_SLICES_DIR });
+      } finally {
+        try {
+          // maxRSS is in kilobytes (libuv) and is the process peak, not a delta.
+          const peakMb = Math.round(process.resourceUsage().maxRSS / 1024);
+          const seconds = ((performance.now() - reparseStartedAt) / 1000).toFixed(1);
+          console.log(`::notice::cleanup-jobs report: peak RSS ${peakMb} MB (reparse ${seconds} s)`);
+        } catch {
+          /* the probe must never change the outcome or the exit code */
+        }
+      }
+    }
+  })
+  .catch((err) => {
+    console.error('❌ Job housekeeping error:', err);
+    process.exitCode = 1;
+  });

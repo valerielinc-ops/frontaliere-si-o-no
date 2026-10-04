@@ -288,6 +288,9 @@ describe('Interdiscount multi-branch enrichment (#7349)', () => {
     sourceLang: 'de',
   }));
 
+  // No page workplace here: the branch comes from the listing row through
+  // `listingAddressEvidence()` of coop-job-parser.mjs (bucket 10677, item
+  // FU-2026-10-01-020).
   it('keeps the branch geography instead of the head office the detail page advertises', () => {
     const enriched = listings.map((job) => applyCoopSourceDetailToJob(job, hqDetail));
 

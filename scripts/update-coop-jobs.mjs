@@ -43,6 +43,7 @@
  * The detail pages are fully SSR with schema.org/JobPosting JSON-LD,
  * so the base crawler's extractJsonLdBlocks() parses them correctly.
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
@@ -67,7 +68,6 @@ import {
   validateCoopDescription,
   titleOverlap,
   applyCoopJsonLdToJob,
-  buildCoopTranslationCacheEntry,
   resolveCoopCantonCode,
 } from './lib/coop-job-parser.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
@@ -91,19 +91,20 @@ const COOP_LIFECYCLE_DOMAINS = ['jobs.coopjobs.ch'];
 const DATA_JOBS = crawlerScratchPathFor(COOP_KEY);
 
 /**
- * Lightweight translation cache that persists Coop locale data across runs,
- * independently of STRICT validation success.
+ * Translation reuse across runs, including the run after a failed one, needs
+ * no Coop-specific cache. A failed run publishes nothing, so the committed
+ * slice `coop-ticino.json` stays the one of the last successful run. Each run
+ * starts without the scratch dataset (DATA_JOBS lives in the runner's tmpdir),
+ * so the shared crawler loads Coop's existing jobs from that slice
+ * (`readExistingJobsFromSlices` in scripts/lib/shared-jobs-crawler.mjs) and
+ * `mergeAndDeduplicate` keeps translations and previousSlugs of unchanged jobs
+ * through contentReuse.
  *
- * Problem: when all 5 previous runs failed at validateCoopLocaleCoverage(),
- * the slice file was never written → no Coop jobs in data/jobs.json → the
- * shared-jobs-crawler contentReuse mechanism has nothing to reuse → all 177
- * jobs are AI-translated from scratch every run, exhausting free model quotas.
- *
- * Fix: save translations before validation. Next run injects them into
- * data/jobs.json so the merge step can preserve them for unchanged jobs.
+ * The former `coop-ticino-locale-cache.json` sidecar was never committed
+ * (git-commit-data.sh --slice-only stages only the slice), and its injection
+ * returned before doing anything on CI because the scratch file did not exist
+ * yet (issue 9142). Do not write any other file next to the slice.
  */
-// Stored in by-crawler/ so it's automatically committed by git-commit-data.sh --slice-only.
-const COOP_TRANSLATIONS_CACHE = path.resolve(ROOT, 'data', 'jobs', 'by-crawler', 'coop-ticino-locale-cache.json');
 
 /**
  * Prospective.ch Career Center API for Coop.
@@ -244,7 +245,7 @@ export function isCoopJob(job) {
  * exhaustive against every Coop division Prospective.ch exposes; a job stamped
  * with this crawler's companyKey (so it was discovered/scraped as Coop) but
  * whose scraped company text isn't in the allowlist silently drops out of
- * stats/postprocessing/translation-cache with no signal. Callers surface the
+ * stats/postprocessing/slice with no signal. Callers surface the
  * result instead of letting an incomplete allowlist fail closed unnoticed.
  */
 export function findUnrecognizedCoopDivisions(allJobs) {
@@ -319,12 +320,6 @@ function cantonLabel(canton = '') {
   return canton || '';
 }
 
-function dateOnly(raw = '') {
-  const dt = new Date(raw || Date.now());
-  if (Number.isNaN(dt.getTime())) return new Date().toISOString().slice(0, 10);
-  return dt.toISOString().slice(0, 10);
-}
-
 function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
   const attr30 = String(job?.attributes?.['30']?.[0] || '').trim();
   const attrCanton = resolveCoopCantonCode(attr30, '', fallbackCanton);
@@ -351,9 +346,7 @@ function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
     ...(company ? { company } : {}),
     ...(contract ? { contract } : {}),
     ...(sourceReference ? { sourceReference } : {}),
-    ...(job?.date || job?.datePosted || job?.publishedAt || job?.published_at || job?.createdAt
-      ? { postedDate: dateOnly(job?.date || job?.datePosted || job?.publishedAt || job?.published_at || job?.createdAt) }
-      : {}),
+    ...sourcePostingDateFields(job?.datePosted || job?.publishedAt || job?.published_at || job?.date),
   };
 }
 
@@ -439,38 +432,55 @@ export async function fetchCoopJobDetailUrls(options = {}) {
     let jobs;
     try {
       const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      // AbortSignal is advisory for injected/proxy fetch implementations. If
+      // one ignores it, aborting alone leaves this await pending; once the
+      // timer is the last active handle Node exits with code 0 and the summary
+      // guard records an unobserved early exit (null counters). Keep the timer
+      // as a real rejection as well as an abort signal.
+      let rejectTimeout;
+      const timeoutError = new Error(`Coop API request timed out at offset ${offset} after ${timeoutMs}ms.`);
+      timeoutError.name = 'TimeoutError';
+      const timeoutPromise = new Promise((_, reject) => {
+        rejectTimeout = reject;
+      });
+      const timer = setTimeout(() => {
+        controller.abort();
+        rejectTimeout(timeoutError);
+      }, timeoutMs);
 
-      let res;
-      let data;
       try {
-        res = await fetchImpl(apiUrl, {
-          signal: controller.signal,
-          headers: {
-            Accept: 'application/json',
-            'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-          },
-        });
-        if (res.ok) {
-          data = await res.json();
+        const data = await Promise.race([
+          (async () => {
+            const res = await fetchImpl(apiUrl, {
+              signal: controller.signal,
+              headers: {
+                Accept: 'application/json',
+                'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+              },
+            });
+            if (!res?.ok) {
+              const error = new Error(`Coop discovery failed at offset ${offset}: API returned HTTP ${res?.status ?? 'unknown'}.`);
+              if (Number.isFinite(res?.status)) error.status = res.status;
+              throw error;
+            }
+            return res.json();
+          })(),
+          timeoutPromise,
+        ]);
+        jobs = assertJsonListShape(data, { key: 'jobs', source: 'coop', lang: `offset:${offset}` });
+        if (typeof data?.total === 'number') {
+          apiTotals.add(data.total);
+          if (apiTotal === null) apiTotal = data.total;
         }
       } finally {
         clearTimeout(timer);
       }
-
-      if (!res.ok) {
-        console.warn(`⚠️ API returned ${res.status} at offset ${offset} — stopping pagination.`);
-        break;
-      }
-
-      jobs = assertJsonListShape(data, { key: 'jobs', source: 'coop', lang: `offset:${offset}` });
-      if (typeof data?.total === 'number') {
-        apiTotals.add(data.total);
-        if (apiTotal === null) apiTotal = data.total;
-      }
     } catch (err) {
       console.warn(`⚠️ API fetch failed at offset ${offset}: ${err.message}`);
-      break;
+      // Do not turn an unreadable/unfinished page into an empty discovery.
+      // The caller's crawler-level handler preserves the last valid slice and
+      // records a connection-level abort for transport errors.
+      throw err;
     }
 
     if (jobs.length === 0) {
@@ -749,73 +759,6 @@ export function ensureAdapterSeedUrls(
 // ──────────────────────────────────────────────────────────────
 // Base crawler invocation
 // ──────────────────────────────────────────────────────────────
-
-/**
- * Before the crawler runs, inject Coop jobs from the translation cache into
- * data/jobs.json. This allows shared-jobs-crawler's contentReuse mechanism to
- * preserve existing translations for unchanged jobs, avoiding a full 177/177
- * AI backfill on every run after a failed previous run.
- */
-function injectCachedCoopTranslations() {
-  if (!fs.existsSync(COOP_TRANSLATIONS_CACHE)) return;
-  if (!fs.existsSync(DATA_JOBS)) return;
-
-  let cache;
-  try { cache = JSON.parse(fs.readFileSync(COOP_TRANSLATIONS_CACHE, 'utf-8')); } catch { return; }
-  if (!Array.isArray(cache) || cache.length === 0) return;
-
-  let allJobs;
-  try { allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')); } catch { return; }
-  if (!Array.isArray(allJobs)) return;
-
-  const existingCoopCount = allJobs.filter(isCoopJob).length;
-  if (existingCoopCount >= cache.length * 0.5) {
-    // Dataset already has most Coop jobs — contentReuse will handle it naturally.
-    return;
-  }
-
-  const existingUrls = new Set(allJobs.map((j) => j.url).filter(Boolean));
-  const toInject = cache.filter((c) => c.url && !existingUrls.has(c.url));
-  if (toInject.length === 0) return;
-
-  allJobs.push(...toInject);
-  writeJsonAtomic(DATA_JOBS, allJobs);
-  console.log(`♻️  Translation cache: injected ${toInject.length}/${cache.length} Coop jobs into jobs.json for localization reuse`);
-}
-
-/**
- * After the crawler runs (but BEFORE STRICT validation), persist Coop
- * translations to a lightweight cache file. Even if validation fails and the
- * slice is never written, the next run can restore these translations and
- * avoid a full 177/177 AI backfill.
- */
-function saveCoopTranslationsCache() {
-  if (!fs.existsSync(DATA_JOBS)) return;
-  let allJobs;
-  try { allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')); } catch { return; }
-  const coopJobs = Array.isArray(allJobs) ? allJobs.filter(isCoopJob) : [];
-  if (coopJobs.length === 0) return;
-
-  // buildCoopTranslationCacheEntry preserves previousSlugs/previousSlugsByLocale
-  // (issue #2962) so re-injected jobs keep their slug-redirect history and the
-  // build plugin can still emit bridge pages for old, sitemap-referenced URLs.
-  // cachedAt is stamped here (kept out of the pure helper) so the helper stays
-  // deterministic + unit-testable.
-  const cachedAt = new Date().toISOString();
-  const cache = coopJobs.map((job) => ({ ...buildCoopTranslationCacheEntry(job), cachedAt }));
-
-  try {
-    // Directory is data/jobs/by-crawler/ which always exists after a crawler run.
-    writeJsonAtomic(COOP_TRANSLATIONS_CACHE, cache);
-    const LOCALES_CHECK = ['it', 'en', 'de', 'fr'];
-    const fullyTranslated = cache.filter((c) =>
-      LOCALES_CHECK.every((l) => (c.titleByLocale[l] || '').length >= 3 && (c.descriptionByLocale[l] || '').length >= 120)
-    ).length;
-    console.log(`💾 Translation cache saved: ${cache.length} Coop jobs (${fullyTranslated} fully translated, ${cache.length - fullyTranslated} partial)`);
-  } catch (err) {
-    console.warn(`⚠️  Failed to save Coop translation cache: ${err?.message || err}`);
-  }
-}
 
 function runBaseCrawler() {
   assertCoopSingleCompanyKeyScope();
@@ -1180,7 +1123,7 @@ function logCoopJobStats(beforeSnapshot = new Map()) {
   if (unrecognizedDivisions.length > 0) {
     console.warn(
       `⚠️ ${unrecognizedDivisions.length} Coop-scoped job(s) have a company name not in COOP_DIVISION_COMPANY_NAMES ` +
-      `(excluded from Coop stats/postprocessing/translation-cache) — verify the allowlist: ${unrecognizedDivisions.join(', ')}`
+      `(excluded from Coop stats/postprocessing/slice) — verify the allowlist: ${unrecognizedDivisions.join(', ')}`
     );
   }
 
@@ -1250,12 +1193,6 @@ async function main() {
   // Step 2: Update the adapter with the discovered URLs as explicit detail seeds
   ensureAdapterSeedUrls(detailUrls, discovery.seedMetaByUrl);
 
-  // Step 2b: Inject cached translations into jobs.json BEFORE the crawler runs.
-  // When previous runs failed at validation, no slice was written → no Coop jobs
-  // in jobs.json → shared-jobs-crawler re-translates all 177 from scratch.
-  // Injecting the cache lets the merge step reuse existing translations via contentReuse.
-  injectCachedCoopTranslations();
-
   // Snapshot company jobs before crawl for diff summary
     const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COOP_KEY, DATA_JOBS).filter(isCoopJob))
 
@@ -1265,12 +1202,6 @@ async function main() {
 
   // Step 3b: Post-process — validate titles and descriptions against JSON-LD
   await postProcessCoopJobs();
-
-  // Step 3c: Persist translations to cache BEFORE STRICT validation.
-  // Even if validateCoopLocaleCoverage() exits with code 1 below, the cache
-  // preserves partial translations. Next run injects them back, reducing the
-  // AI backfill from 177/177 → ~5-15/177 (only new or changed jobs).
-  saveCoopTranslationsCache();
 
   // Step 4: Log stats and validate
   const stats = logCoopJobStats(_beforeSnapshot);

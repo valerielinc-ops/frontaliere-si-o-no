@@ -1,3 +1,5 @@
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import { hasPostingDateProvenance, resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 /**
  * Weekly "Aziende che assumono" per-city Hub — Vite build plugin (F5).
  *
@@ -43,7 +45,6 @@ import {
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderGuideHubBridge } from './shared/guideHubBridge';
 import { firstParsableMs } from './shared/firstParsableDate';
-import { buildDayStampIso } from './shared/buildDayStamp';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { renderPeerComparison, type PeerRow } from './shared/peerCohortComparison';
 import { WriteCollector } from './batchWrite';
@@ -203,8 +204,9 @@ export interface WeeklyCountableJob {
   companyKey?: string;
   location?: string;
   addressLocality?: string;
-  postedDate?: string;
+  postingDateSource?: string;
   datePosted?: string;
+  postedDate?: string;
   expired?: boolean;
   needsRetranslation?: boolean | Partial<Record<WeeklyEmployersLocale, boolean>>;
   sourceLang?: WeeklyEmployersLocale;
@@ -247,6 +249,7 @@ export interface JobsSnapshot {
     employerKey?: string;
     city: string;
     role?: string;
+    postingDateSource?: string;
     postedAt?: string;
   }>;
 }
@@ -816,6 +819,8 @@ export interface CompanyCityActiveJob {
   slug: string;
   title: string;
   detailPath: string;
+  postingDateSource?: string;
+  datePosted?: string;
   postedDate?: string;
   /**
    * Full job description (locale-specific or IT fallback). Used to emit
@@ -1030,8 +1035,8 @@ export function buildCompanyCityStats(opts: {
   // to the top of the slice and dropping a fresh one from the indexed employer
   // page. See firstParsableMs.
   const sorted = [...matching].sort((a, b) => {
-    const da = firstParsableMs(a.postedDate, a.datePosted);
-    const db = firstParsableMs(b.postedDate, b.datePosted);
+    const da = hasPostingDateProvenance(a) ? firstParsableMs(resolveReportedPostingDate(a)) : firstParsableMs(a.postedDate, a.datePosted);
+    const db = hasPostingDateProvenance(b) ? firstParsableMs(resolveReportedPostingDate(b)) : firstParsableMs(b.postedDate, b.datePosted);
     return db - da;
   });
 
@@ -1060,7 +1065,9 @@ export function buildCompanyCityStats(opts: {
       slug: localizedJobSlug(j, locale) || String(j.slug || ''),
       title: String(j.titleByLocale?.[locale] || j.title || '').trim(),
       detailPath: buildJobDetailPath(j, locale),
-      postedDate: j.postedDate || j.datePosted,
+      postingDateSource: j.postingDateSource,
+      datePosted: resolveReportedPostingDate(j) || undefined,
+      postedDate: resolveRolloutPostingDate(j, () => j.postedDate || j.datePosted || null) || undefined,
       description: description.trim() ? description : undefined,
       employmentType: resolveEmploymentType(j),
       salaryMin,
@@ -2601,7 +2608,6 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
     name: t.topHubTitle,
     url: canonicalUrl,
     inLanguage: locale,
-    dateModified: dateStamp,
   });
 
   // Heading for the new commute-context section. Locale-specific.
@@ -3234,8 +3240,6 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     url: canonicalUrl,
     description: heroSummary,
     inLanguage: locale,
-    dateModified: buildDayStampIso(),
-    datePublished: buildDayStampIso(),
   });
 
   const faqLd = inlineScriptJson({
@@ -3431,6 +3435,8 @@ function jobToJsonLd(
     addressRegion: job.addressRegion,
     postalCode: job.postalCode,
     streetAddress: job.streetAddress,
+    postingDateSource: job.postingDateSource,
+    datePosted: job.datePosted,
     postedDate: job.postedDate,
     crawledAt: job.crawledAt,
     validThrough: job.validThrough,
@@ -3570,6 +3576,8 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
               contract: job.employmentType
                 ? SCHEMA_TO_CONTRACT[job.employmentType] ?? 'other'
                 : undefined,
+              postingDateSource: job.postingDateSource,
+              datePosted: job.datePosted,
               postedDate: job.postedDate,
               salaryMin: typeof job.salaryMin === 'number' ? job.salaryMin : undefined,
               salaryMax: typeof job.salaryMax === 'number' ? job.salaryMax : undefined,
@@ -3657,8 +3665,6 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     url: canonicalUrl,
     description: heroSummary,
     inLanguage: locale,
-    dateModified: buildDayStampIso(),
-    datePublished: buildDayStampIso(),
   });
 
   const itemListLd = inlineScriptJson({
@@ -4255,6 +4261,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
         companyKey: row.employerKey,
         location: row.city,
         addressLocality: row.city,
+        postingDateSource: row.postingDateSource,
         postedDate: row.postedAt,
         // Force "active" to pass filter: supply 60-word description so
         // jobIsActive() is true in every locale.
@@ -4575,7 +4582,7 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
               const isCurrent = !archiveRe.test(p);
               const changefreq = isCurrent ? 'weekly' : 'monthly';
               const priority = isCurrent ? '0.8' : '0.5';
-              return `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+              return `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
             })
             .join('\n');
           const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>

@@ -101,7 +101,10 @@
  *     nell'orizzonte (`core`, solo se serve lo storico) + per ogni workflow
  *     candidato 1 lettura dell'ultima run
  *     (il guard sul rientro; 2 solo se la prima non prova niente) e 1 lettura
- *     dei job, entrambe ≤ MAX_ISSUES.
+ *     dei job, entrambe ≤ MAX_ISSUES; in più 1 lettura dei job per ogni run rossa
+ *     della finestra di un workflow in `VERDICT_STEPS` (oggi
+ *     `crawler-health-monitor` e `seo-health-loop`, ~1 run al giorno ciascuno, e
+ *     `refresh-plate-auctions`, 4 al giorno), memoizzata per passata.
  *   - modalità `--dormant` (GIORNALIERA, non oraria, proprio per questo): 1
  *     chiamata per workflow schedulato, oggi 180. Una al giorno è il prezzo che
  *     rende il controllo possibile; orario costerebbe 4.320 chiamate/giorno sul
@@ -127,7 +130,11 @@ import {
   commentOnGithubIssue,
   occurrencePredatesClose,
 } from '../lib/github-issue-creator.mjs';
-import { TITLE_RE } from './close-recovered-failure-issues.mjs';
+import {
+  TITLE_RE,
+  VERDICT_STEPS,
+  isVerdictOnlyFailure,
+} from './close-recovered-failure-issues.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -837,6 +844,16 @@ export function workflowScheduleFromSource(source) {
  * proprio quando l'API è in difficoltà. Chi chiama si ferma.
  */
 export function openFailureIssueWorkflows() {
+  const issues = readOpenIssues();
+  return issues === null ? null : latestIssuePerWorkflow(issues);
+}
+
+/**
+ * Le issue aperte (`number,title,updatedAt,body`), o `null` se il listing è illeggibile
+ * o troncato al cap. Una sola lettura serve sia alla mappa delle canoniche sia alla prova
+ * di persistenza dell'owner di uno step-verdetto (`ownerSignalPersisted`).
+ */
+export function readOpenIssues() {
   const raw = gh(
     ['issue', 'list', '--state', 'open', '--limit', String(OPEN_ISSUE_LISTING_CAP),
       // `updatedAt` arriva qui e non costa una chiamata in più: è il dato con cui
@@ -868,7 +885,34 @@ export function openFailureIssueWorkflows() {
     );
     return null;
   }
-  return latestIssuePerWorkflow(issues);
+  return issues;
+}
+
+/**
+ * Il verdetto ha DAVVERO scritto la sua famiglia per questa run?
+ *
+ * I nomi degli step dicono che la run è rossa per il solo verdetto, non che il segnale
+ * sia arrivato da qualche parte: `github-issue-creator.mjs` è best-effort ed esce 0 anche
+ * quando GitHub rifiuta la scrittura, quindi lo step che apre le issue della famiglia
+ * resta verde anche quando non ha scritto niente. Senza una prova, saltare la run
+ * trasformerebbe un guasto vero in un silenzio.
+ *
+ * Prova: una issue APERTA il cui titolo comincia con `entry.owner` e il cui `updatedAt`
+ * non precede l'inizio della run — creata, riaperta o commentata (`🔁`) da questa run o
+ * dopo. Dati mancanti o date illeggibili → `false`, cioè la run resta segnalabile.
+ *
+ * @param {{ owner?: string }|null} entry la voce di `VERDICT_STEPS`
+ * @param {Array<{ title?: string, updatedAt?: string }>|null} openIssues
+ * @param {{ created_at?: string }} run
+ */
+export function ownerSignalPersisted(entry, openIssues, run) {
+  const owner = typeof entry?.owner === 'string' ? entry.owner : '';
+  if (!owner.trim() || !Array.isArray(openIssues)) return false;
+  const startedAt = Date.parse(run?.created_at ?? '');
+  if (!Number.isFinite(startedAt)) return false;
+  return openIssues.some((issue) => typeof issue?.title === 'string'
+    && issue.title.startsWith(owner)
+    && Date.parse(issue.updatedAt ?? '') >= startedAt);
 }
 
 /**
@@ -1055,22 +1099,36 @@ function registeredWorkflows() {
   return byId.size ? byId : null;
 }
 
+/** Memo di `readRunJobs`, svuotato all'inizio di ogni `scanFailures()`. */
+const runJobsMemo = new Map();
+
 /**
  * I job di una run, o `null` se non leggibili. Una sola chiamata, gia' prevista
  * dal budget dichiarato in testa al file («per ogni workflow candidato 1
  * lettura dell'ultima run e 1 lettura dei job, entrambe ≤ MAX_ISSUES»).
  */
 function readRunJobs(runId) {
+  // Memo per passata: la run di un workflow nel registro degli step-verdetto viene letta
+  // una volta per decidere se è di solo verdetto, e la stessa lettura serve poi al corpo
+  // della issue o alla firma. Il processo è monouso per passata: niente cache stantia.
+  const key = String(runId);
+  if (runJobsMemo.has(key)) return runJobsMemo.get(key);
   const raw = gh(
     ['api', `repos/${REPO || '{owner}/{repo}'}/actions/runs/${runId}/jobs?per_page=100`],
     { allowFailure: true },
   );
-  if (raw === null) return { jobs: null, readable: false };
-  try {
-    return { jobs: JSON.parse(raw), readable: true };
-  } catch {
-    return { jobs: null, readable: false };
+  let result;
+  if (raw === null) {
+    result = { jobs: null, readable: false };
+  } else {
+    try {
+      result = { jobs: JSON.parse(raw), readable: true };
+    } catch {
+      result = { jobs: null, readable: false };
+    }
   }
+  runJobsMemo.set(key, result);
+  return result;
 }
 
 /** Body + commenti di una issue, per cercarci i marker di firma. `null` = illeggibile. */
@@ -1134,10 +1192,12 @@ export function runBody({ run, workflowName, jobs, jobsReadable = true }) {
 }
 
 export async function scanFailures() {
+  runJobsMemo.clear();
   const since = new Date(Date.now() - LOOKBACK_MINUTES * 60_000).toISOString();
   const horizon = new Date(Date.now() - RUN_QUERY_HORIZON_MINUTES * 60_000).toISOString();
 
-  const openIssues = openFailureIssueWorkflows();
+  const openIssueList = readOpenIssues();
+  const openIssues = openIssueList === null ? null : latestIssuePerWorkflow(openIssueList);
   if (openIssues === null) {
     // Fail-CLOSED: senza sapere che cosa è già aperto, aprire significa
     // duplicare. Un rosso vero rientra alla passata dopo; un duplicato no.
@@ -1175,6 +1235,27 @@ export async function scanFailures() {
     }, { since })) continue;
     if (!workflowName) {
       console.warn(`::warning::[scan-unreported-failures] run ${run.id} senza workflow risolvibile (${run.path}) — saltata.`);
+      continue;
+    }
+    // LC-03: il rosso VOLUTO di un monitor (lo step-verdetto registrato in
+    // VERDICT_STEPS, dopo che il monitor ha già aperto le issue della sua famiglia)
+    // non è un fallimento non segnalato: né issue nuova né ricorrenza. Si decide run
+    // per run e PRIMA del raggruppamento, così una run mista più vecchia nella stessa
+    // finestra resta segnalabile. Job illeggibili → non è di solo verdetto (fail-closed).
+    // E il verdetto deve aver DAVVERO scritto la sua famiglia (`ownerSignalPersisted`):
+    // i nomi degli step da soli non provano che il segnale sia arrivato.
+    const verdictEntry = VERDICT_STEPS[wf?.path || ''];
+    const verdictOnly = Boolean(verdictEntry) && isVerdictOnlyFailure(wf.path, readRunJobs(run.id).jobs);
+    if (verdictOnly && !ownerSignalPersisted(verdictEntry, openIssueList, run)) {
+      console.warn(
+        `::warning::[scan-unreported-failures] ${workflowName}: run ${run.id} rossa per il solo step-verdetto, `
+          + `ma nessuna issue «${verdictEntry.owner}…» aperta risulta aggiornata dalla run → resta segnalabile.`,
+      );
+    } else if (verdictOnly) {
+      console.log(
+        `[scan-unreported-failures] ${workflowName}: run ${run.id} rossa per il solo step-verdetto `
+          + `«${verdictEntry.verdict}» → segnale già portato dalle issue «${verdictEntry.owner}…», nessuna segnalazione.`,
+      );
       continue;
     }
     reportable.push({ ...run, workflowName });

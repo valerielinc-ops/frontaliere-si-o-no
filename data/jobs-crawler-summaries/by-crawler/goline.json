@@ -1,18 +1,16 @@
 {
   "key": "goline",
   "label": "GOLINE SA",
-  "generatedAt": "2026-10-03T09:31:55.446Z",
+  "generatedAt": "2026-10-04T09:30:53.005Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2478,
-  "avgDurationMs": 2478,
+  "durationMs": 2059,
+  "avgDurationMs": 2059,
   "durationHistory": [
-    1795,
-    1887,
-    2478
+    2059
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,21 +32,24 @@
       "sector": "Tecnologia & IT",
       "source": "goline-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
       "id": "goline-d98f0d9c911f",
       "firstSeenAt": "2026-04-13T21:46:49.616Z",
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 14
+        "completeness": 12
       }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

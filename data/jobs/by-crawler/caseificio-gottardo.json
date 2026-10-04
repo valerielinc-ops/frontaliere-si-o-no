@@ -1,6 +1,6 @@
 {
   "crawlerKey": "caseificio-gottardo",
-  "assembledAt": "2026-10-03T09:13:01.094Z",
+  "assembledAt": "2026-10-04T09:13:01.839Z",
   "jobs": [
     {
       "title": "Apprendisti per la formazione di Tecnologo/a del latte (AFC)",
@@ -17,7 +17,7 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
       "source": "caseificio-gottardo-crawler",
-      "postedDate": "2026-03-29",
+      "postedDate": "",
       "titleByLocale": {
         "it": "Apprendisti per la formazione di Tecnologo/a del latte (AFC)",
         "en": "Apprentices for Dairy Technologist Training (AFC)",
@@ -86,7 +86,9 @@
       },
       "firstSeenAt": "2026-04-13T21:20:19.712Z",
       "salarySource": "reported",
-      "sourceIdentity": "url:https://www.caseificiodelgottardo.ch/ita/apprendisti-per-la-formazione-di-tecnologoa-del-latte-afc-50359200"
+      "sourceIdentity": "url:https://www.caseificiodelgottardo.ch/ita/apprendisti-per-la-formazione-di-tecnologoa-del-latte-afc-50359200",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     }
   ]
 }

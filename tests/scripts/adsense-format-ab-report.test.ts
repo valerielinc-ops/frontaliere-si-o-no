@@ -1,14 +1,16 @@
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { copyFileSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import YAML from 'yaml';
 
 // The script is pure ESM (.mjs); main() is gated on process.argv[1], so
 // importing it is side-effect-free — same pattern as
 // tests/scripts/revenue-monitor.test.ts.
 import * as reportModule from '../../scripts/adsense-format-ab-report.mjs';
+import * as planModule from '../../scripts/lib/adsense-format-ab-plan.mjs';
 import { SKIP_LIVE_DATA } from '../helpers/live-data';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -172,6 +174,171 @@ describe('adsense-format-ab-report / identifiers', () => {
     expect(classifyWindow(experiment, { start: date(before), end: date(before) })).toBe('pre-treatment');
     expect(classifyWindow(experiment, { start: date(before), end: date(boundary) })).toBe('mixed');
     expect(classifyWindow(experiment, { start: date(boundary), end: date(after) })).toBe('post-treatment');
+  });
+});
+
+/**
+ * Observer for the "zombie monitor" defect: with the experiment retired the
+ * weekly workflow kept posting one fixed sentence on the tracking issue every
+ * Monday (and `github-issue-creator.mjs` reopens it when closed). The plan is
+ * the single switch: no active experiment, no tracking-issue update.
+ */
+describe('adsense-format-ab-report / weekly plan gates the tracking issue', () => {
+  type Plan = { active: boolean; experimentIds: string[]; message: string };
+  const { EXPERIMENT_SURFACES, ACTIVE_EXPERIMENT_IDS, buildReportPlan, publishReportPlan } = planModule as unknown as {
+    EXPERIMENT_SURFACES: readonly { id: string; canton: string }[];
+    ACTIVE_EXPERIMENT_IDS: readonly string[];
+    buildReportPlan: (ids?: readonly string[]) => Plan;
+    publishReportPlan: (plan: Plan, env?: Record<string, string | undefined>) => void;
+  };
+
+  const PLAN_MODULE = 'scripts/lib/adsense-format-ab-plan.mjs';
+  const WORKFLOW_PATH = path.join(REPO_ROOT, '.github/workflows/adsense-format-ab-report.yml');
+  const ACTIVE_CONDITION = "needs.plan.outputs.active == 'true'";
+  const TRACKING_TITLE = 'AdSense in-feed A/B: monitor settimanale';
+  type Step = { name?: string; id?: string; if?: string; run?: string; uses?: string };
+  type Job = { needs?: string | string[]; if?: string; outputs?: Record<string, string>; steps: Step[] };
+  const jobs = (): Record<string, Job> => YAML.parse(readFileSync(WORKFLOW_PATH, 'utf8')).jobs;
+  const callsTrackingIssue = (step: Step) => String(step.run ?? '').includes('github-issue-creator.mjs') && String(step.run).includes(TRACKING_TITLE);
+
+  // What GitHub would run for a given plan: a job whose `if:` carries the
+  // plan condition runs only when the plan is active.
+  const trackingIssueCalls = (active: boolean) =>
+    Object.values(jobs())
+      .filter((job) => !String(job.if ?? '').includes(ACTIVE_CONDITION) || active)
+      .flatMap((job) => job.steps.filter(callsTrackingIssue));
+
+  const publish = (ids: readonly string[]) => {
+    const dir = mkdtempSync(path.join(tmpdir(), 'adsense-ab-plan-'));
+    const outputFile = path.join(dir, 'output');
+    const summaryFile = path.join(dir, 'summary');
+    writeFileSync(outputFile, '');
+    writeFileSync(summaryFile, '');
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      publishReportPlan(buildReportPlan(ids), { GITHUB_OUTPUT: outputFile, GITHUB_STEP_SUMMARY: summaryFile });
+      return { output: readFileSync(outputFile, 'utf8'), summary: readFileSync(summaryFile, 'utf8') };
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  };
+
+  it('with no active experiment the plan is inactive and the issue creator is not invoked', () => {
+    expect(buildReportPlan([])).toMatchObject({ active: false, experimentIds: [] });
+    expect(publish([]).output).toBe('active=false\nexperiments=\n');
+    expect(trackingIssueCalls(false)).toEqual([]);
+  });
+
+  it('with an active experiment the plan is active and the issue creator is invoked', () => {
+    const id = DEFAULT_EXPERIMENT.id;
+    expect(buildReportPlan([id])).toMatchObject({ active: true, experimentIds: [id] });
+    expect(publish([id]).output).toBe(`active=true\nexperiments=${id}\n`);
+    expect(trackingIssueCalls(true).length).toBeGreaterThan(0);
+  });
+
+  it('says why nothing is reported instead of going silent', () => {
+    expect(publish([]).summary).toMatch(/PAUSED: nessun esperimento in-feed attivo/);
+  });
+
+  it('gate and report read the same switch: the report experiments are exactly the planned ones', () => {
+    expect(ACTIVE_EXPERIMENTS.map((experiment) => experiment.id)).toEqual([...ACTIVE_EXPERIMENT_IDS]);
+    expect(buildReportPlan().active).toBe(ACTIVE_EXPERIMENTS.length > 0);
+    // Every surface the gate can turn on is an experiment the report can run.
+    for (const surface of EXPERIMENT_SURFACES) {
+      expect(findExperiment(surface.id)?.id).toBe(surface.id);
+    }
+  });
+
+  it('refuses an experiment id that is not safe to pass to the workflow shell loop', () => {
+    expect(() => buildReportPlan(['a; rm -rf .'])).toThrow(/non valido/);
+  });
+
+  it('runs the plan through the real CLI, as the workflow does', () => {
+    const dir = mkdtempSync(path.join(tmpdir(), 'adsense-ab-plan-cli-'));
+    const outputFile = path.join(dir, 'output');
+    writeFileSync(outputFile, '');
+    try {
+      execFileSync(process.execPath, [PLAN_MODULE], {
+        cwd: REPO_ROOT,
+        encoding: 'utf8',
+        env: { PATH: process.env.PATH, GITHUB_OUTPUT: outputFile },
+      });
+      expect(readFileSync(outputFile, 'utf8')).toBe(
+        `active=${ACTIVE_EXPERIMENT_IDS.length > 0}\nexperiments=${ACTIVE_EXPERIMENT_IDS.join(' ')}\n`,
+      );
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('the gate job stays light: the plan runs with no installed dependency and without the report script', () => {
+    // The gate job runs without `npm ci` and with a sparse checkout; the
+    // report script would drag in the full-checkout closure of revenue-monitor.
+    // Run the CLI from a copy that holds only the two files of the declared
+    // closure, away from any node_modules: a new import on either side
+    // (static, bare or dynamic) fails here before it fails on a Monday.
+    const dir = mkdtempSync(path.join(tmpdir(), 'adsense-ab-plan-light-'));
+    const closure = [PLAN_MODULE, 'services/adExperiment.ts'];
+    try {
+      for (const file of closure) {
+        mkdirSync(path.dirname(path.join(dir, file)), { recursive: true });
+        copyFileSync(path.join(REPO_ROOT, file), path.join(dir, file));
+      }
+      const outputFile = path.join(dir, 'output');
+      writeFileSync(outputFile, '');
+      execFileSync(process.execPath, [PLAN_MODULE], {
+        cwd: dir,
+        encoding: 'utf8',
+        env: { PATH: process.env.PATH, GITHUB_OUTPUT: outputFile },
+      });
+      expect(readFileSync(outputFile, 'utf8')).toMatch(/^active=(true|false)\nexperiments=/);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('the workflow publishes the plan from a job that cannot fail open', () => {
+    const { plan } = jobs();
+    const planStep = plan.steps.find((step) => step.id === 'plan');
+    expect(planStep?.run).toContain(`node ${PLAN_MODULE}`);
+    expect(planStep).not.toHaveProperty('continue-on-error');
+    expect(planStep).not.toHaveProperty('if');
+    expect(plan).not.toHaveProperty('continue-on-error');
+    expect(plan.outputs?.active).toBe('${{ steps.plan.outputs.active }}');
+    expect(plan.outputs?.experiments).toBe('${{ steps.plan.outputs.experiments }}');
+    // The gate itself never installs, loads credentials or touches the tracking issue.
+    for (const step of plan.steps) {
+      expect(String(step.run ?? '')).not.toMatch(/npm ci|load-rc-env|firebase-sa/);
+      expect(callsTrackingIssue(step)).toBe(false);
+    }
+  });
+
+  it('every other job of the workflow runs only with an active plan', () => {
+    const others = Object.entries(jobs()).filter(([id]) => id !== 'plan');
+    expect(others.length).toBeGreaterThan(0);
+    for (const [id, job] of others) {
+      expect([job.needs].flat(), `job ${id}`).toContain('plan');
+      expect(String(job.if ?? ''), `job ${id}`).toContain(ACTIVE_CONDITION);
+      // `always()` / `failure()` at job level would run the job despite a skipped or failed gate.
+      expect(String(job.if ?? ''), `job ${id}`).not.toMatch(/always\(\)|failure\(\)|\|\|/);
+    }
+  });
+
+  it('the tracking-issue body comes from the report script, never from a fixed sentence', () => {
+    const steps = Object.values(jobs()).flatMap((job) => job.steps);
+    const reportStep = steps.find((step) => /adsense-format-ab-report\.mjs --experiment/.test(String(step.run ?? '')));
+    expect(reportStep?.run).toContain('--markdown');
+    expect(reportStep?.run).toContain('/tmp/adsense-format-ab-report.md');
+    // Only that step writes the file, and besides truncating it and adding a
+    // blank separator, every write into it is the report script's own output.
+    const writesReportFile = />{1,2}\s*\/tmp\/adsense-format-ab-report\.md/;
+    expect(steps.filter((step) => writesReportFile.test(String(step.run ?? '')))).toEqual([reportStep]);
+    const contentWrites = String(reportStep?.run ?? '')
+      .split('\n')
+      .map((line) => line.trim())
+      .filter((line) => writesReportFile.test(line) && !/^(:|echo)\s*>{1,2}/.test(line));
+    expect(contentWrites.length).toBeGreaterThan(0);
+    expect(contentWrites.filter((line) => !line.startsWith('node scripts/adsense-format-ab-report.mjs '))).toEqual([]);
   });
 });
 

@@ -15,6 +15,7 @@
  *   6. Runs locale fill + validation.
  *   7. Exits OK with 0 jobs when no Swiss vacancies are active.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -211,7 +212,7 @@ async function buildAplusJob(listing) {
     sector: 'Architettura & Design',
     source: 'a-plus-plus-dedicated-crawler',
     sourceLang,
-    postedDate: new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(''),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
@@ -247,6 +248,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       // Fresh text wins in the SOURCE slot only; translations are kept.
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
@@ -279,7 +281,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton || HQ.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {
@@ -378,7 +380,13 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  // A non-empty source filtered to zero Swiss rows is a verified geography
+  // result, not a degraded fetch. Allow that explicit empty snapshot through
+  // the generic shrink guard; zero parsed cards still fails in fetchListings()
+  // above.
+  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs, {
+    skipShrinkGuard: discovery.lastFetchOutcome === 'filtered_empty',
+  });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'a-plus-plus-group',

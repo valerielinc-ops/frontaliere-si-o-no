@@ -1,23 +1,26 @@
 {
   "key": "helsinn",
   "label": "Helsinn Healthcare SA",
-  "generatedAt": "2026-10-03T09:12:28.406Z",
+  "generatedAt": "2026-10-04T09:09:50.338Z",
   "total": 0,
-  "discovered": null,
-  "parsed": null,
-  "lastFetchOutcome": null,
-  "sourceBodyFailureCount": 0,
-  "sourceBodyFailures": [],
-  "abortKind": null,
+  "discovered": 0,
+  "parsed": 0,
   "written": 0,
+  "lastFetchOutcome": "ok",
+  "authoritativeEmptySnapshot": true,
+  "authoritativeSnapshotVerified": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 7708,
+  "avgDurationMs": 7708,
+  "durationHistory": [
+    7708
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

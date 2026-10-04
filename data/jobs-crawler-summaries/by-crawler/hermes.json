@@ -1,7 +1,7 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-10-03T09:12:39.069Z",
+  "generatedAt": "2026-10-04T09:12:21.531Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -14,18 +14,16 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14654,
-  "avgDurationMs": 14654,
+  "durationMs": 14716,
+  "avgDurationMs": 14716,
   "durationHistory": [
-    14992,
-    15599,
-    14654
+    14716
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "hermes-f368fe61a72d",
-      "slug": "stage-offre-produit-f-h-hermes-ch",
+      "slug": "stage-offre-produit-m-w-d-hermes-geneve",
       "company": "Hermès",
       "companyKey": "hermes",
       "companyDomain": "hermes.com",
@@ -35,7 +33,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23937/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:12:29.662Z",
+      "crawledAt": "2026-10-04T09:12:11.383Z",
       "addressLocality": "Geneve",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -72,7 +70,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23939/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:12:30.285Z",
+      "crawledAt": "2026-10-04T09:12:11.982Z",
       "addressLocality": "Geneve",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -108,7 +106,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:12:30.948Z",
+      "crawledAt": "2026-10-04T09:12:12.627Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -143,7 +141,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23690/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:12:31.581Z",
+      "crawledAt": "2026-10-04T09:12:13.222Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -167,47 +165,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "hermes-72295ebf73a5",
-      "slug": "cdi-sales-advisor-orologi-e-gioielli-esperti-zurigo-m-f-hermes-zurich-switzerland",
-      "company": "Hermès",
-      "companyKey": "hermes",
-      "companyDomain": "hermes.com",
-      "title": "CDI - Verkaufsberater - Experte Uhren und Schmuck Zürich (F/M)",
-      "location": "Zurich, Switzerland",
-      "canton": "ZH",
-      "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
-      "source": "Hermès Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:13:38.269Z",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Luxury goods / fashion / watchmaking",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-11",
-      "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
-      "firstSeenAt": "2026-06-10T09:03:23.277Z",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
-  "unchangedJobs": []
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

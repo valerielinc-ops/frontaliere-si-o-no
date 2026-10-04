@@ -71,6 +71,7 @@
  * Plus parseLocation(), exported for direct unit testing of the
  * jobLocationShort parsing contract (see tests/breitling-crawler.test.ts).
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -259,12 +260,7 @@ function resolveAddress({ city, canton, postalCode }) {
   };
 }
 
-function parseStandardStartDate(raw = '') {
-  const m = String(raw || '').match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
-  if (!m) return new Date().toISOString().split('T')[0];
-  const [, dd, mm, yyyy] = m;
-  return `${yyyy}-${mm}-${dd}`;
-}
+
 
 /* ── HTTP: search API (POST + retry) ──────────────────────────
  * Mirrors the retry-wrapped POST pattern used by geberit-job-parser.mjs
@@ -413,7 +409,8 @@ export async function fetchAllBreitlingJobs() {
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const employmentType = detectEmploymentType(title);
-    const postedDate = parseStandardStartDate(r.unifiedStandardStart);
+    // The search API's unifiedStandardStart has no verified publication semantics.
+    const publicationDate = sourcePostingDateFields('');
     const currency = Array.isArray(r.currency) && r.currency[0] ? r.currency[0] : 'CHF';
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} breitling ${location}`);
@@ -451,7 +448,7 @@ export async function fetchAllBreitlingJobs() {
       sector: SECTOR,
       currency,
       featured: false,
-      postedDate,
+      ...publicationDate,
       applyUrl: publicUrl,
       jobReqId: id,
       requirements: [],

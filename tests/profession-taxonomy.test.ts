@@ -3,6 +3,7 @@ import {
   PROFESSION_TAXONOMY,
   classifySearchTerm,
   matchProfession,
+  matchProfessionTitle,
   normalizeText,
   stemToken,
 } from '../scripts/lib/profession-taxonomy.mjs';
@@ -62,6 +63,20 @@ describe('matchProfession', () => {
   });
 });
 
+describe('matchProfessionTitle', () => {
+  it('does not use typing-prefix tolerance for landing membership', () => {
+    expect(matchProfessionTitle('Guarda il restauro di SAV')).not.toBe('agente-sicurezza');
+    expect(matchProfessionTitle('Servicemitarbeiter*in Café & Bar Flughafen Zürich')).not.toBe('agente-sicurezza');
+    expect(matchProfessionTitle('Verkaufsberater:in Kosmetik 80%')).not.toBe('estetista');
+  });
+
+  it('rejects generic security aliases while preserving exact profession titles', () => {
+    expect(matchProfessionTitle('Guardia notturna permanente Dipl. Infermieristica')).not.toBe('agente-sicurezza');
+    expect(matchProfessionTitle('ICT Security Officer')).not.toBe('agente-sicurezza');
+    expect(matchProfessionTitle('Kosmetikerin 80-100%')).toBe('estetista');
+  });
+});
+
 describe('classifySearchTerm', () => {
   it('separates the profession and locality dimensions', () => {
     expect(classifySearchTerm('lugano')).toMatchObject({ professionId: null, isPureLocality: true });
@@ -80,8 +95,9 @@ describe('taxonomy invariants', () => {
     const ids = PROFESSION_TAXONOMY.map((e) => e.id);
     expect(new Set(ids).size).toBe(ids.length);
     for (const entry of PROFESSION_TAXONOMY) {
-      // feedFilter becomes jobsSeoPagesPlugin filterKeywords (ANDed):
-      // exactly one non-empty lowercase substring per profession.
+      // feedFilter becomes jobsSeoPagesPlugin filterKeywords (ANDed on
+      // literal pages; `professionMatch` pages list via the taxonomy
+      // matcher instead): exactly one non-empty lowercase substring.
       expect(entry.feedFilter, entry.id).toBeTruthy();
       expect(entry.feedFilter).toBe(entry.feedFilter.toLowerCase());
       expect(entry.aliases.length, entry.id).toBeGreaterThan(0);

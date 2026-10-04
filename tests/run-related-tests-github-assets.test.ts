@@ -132,6 +132,8 @@ function createRunnerVariant(source: string) {
   for (const file of [
     'corpus-wide-tests.mjs',
     'dataset-dependent-tests.mjs',
+    'scan-site-hardcoded-secrets.mjs',
+    'corpus-ahead-check.mjs',
   ]) {
     fs.symlinkSync(path.join(ROOT, 'scripts/ci', file), path.join(ciDir, file));
   }
@@ -150,6 +152,12 @@ function createRunnerVariant(source: string) {
     fs.rmSync(target, { force: true });
     fs.symlinkSync(path.join(ROOT, 'scripts/ci/lib', file), target);
   }
+  // Il perimetro del lint del generatore crawler e' l'elenco condiviso con il
+  // generatore, fuori da scripts/ci.
+  const runtimePathsTarget = path.join(dir, 'scripts/lib/crawler-generation-runtime-paths.mjs');
+  fs.mkdirSync(path.dirname(runtimePathsTarget), { recursive: true });
+  fs.rmSync(runtimePathsTarget, { force: true });
+  fs.symlinkSync(path.join(ROOT, 'scripts/lib/crawler-generation-runtime-paths.mjs'), runtimePathsTarget);
   return dir;
 }
 
@@ -408,6 +416,220 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     // `build-plugins/` non e' nella lista ne' nella chiusura: non lo seleziona.
     expect(selectionFor(['build-plugins/shared/seoPageShell.ts'])).not.toContain(housekeeping);
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(housekeeping);
+
+    // PR 10973 -> 11299: `build-plugins/borderWaitData.ts` e' nel manifest del
+    // transport e ha preso un import non consegnato. Il test di chiusura legge
+    // il manifest da disco, quindi solo il perimetro del manifest lo seleziona.
+    const closure = 'tests/mirror-transport-import-closure.test.ts';
+    expect(selectionFor(['build-plugins/borderWaitData.ts'])).toContain(closure);
+    expect(selectionFor(['.github/transport/nanako-generator-manifest.txt'])).toContain(closure);
+    // Glob `scripts/lib/discovery/**` espanso contro l'albero, come nel guard.
+    expect(selectionFor(['scripts/lib/discovery/discoveryScore.mjs'])).toContain(closure);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(closure);
+
+    // PR 11001 -> issue 11178: un diff del solo registry dei loop ha cambiato
+    // i sourceRefs di L5 e reso illeggibile il ledger durevole. Registry e
+    // ledger sono dati: solo il perimetro `data/loop-fleet/` (piu' il
+    // validatore) seleziona il replay che li rilegge.
+    const replay = 'tests/loop-fleet-registry-ledger-replay.test.ts';
+    expect(selectionFor(['data/loop-fleet/loop-registry.json'])).toContain(replay);
+    expect(selectionFor(['data/loop-fleet/ledger/lifecycle-events.jsonl'])).toContain(replay);
+    expect(selectionFor(['scripts/lib/loop-fleet-contract.mjs'])).toContain(replay);
+    expect(selectionFor(['data/crawler-group-assignments.json'])).not.toContain(replay);
+
+    // PR 10941: l'import nuovo era in `scripts/lib/jobBoardSections.mjs`, fuori
+    // dall'allow-list sparse dei job `tree-*` di bing-seo-loop.yml. Un file
+    // sotto ciascuna radice del perimetro (le stesse di SELECTION_ROOTS nel
+    // test, che verifica che la chiusura dei job ci stia dentro).
+    const bingSparse = 'tests/seo/bing-seo-loop-sparse-closure.test.ts';
+    expect(selectionFor(['scripts/lib/jobBoardSections.mjs'])).toContain(bingSparse);
+    expect(selectionFor(['scripts/seo/bing-site-explorer-crawl.mjs'])).toContain(bingSparse);
+    expect(selectionFor(['scripts/load-rc-env.mjs'])).toContain(bingSparse);
+    expect(selectionFor(['build-plugins/shared/cantonResolvers.mjs'])).toContain(bingSparse);
+    expect(selectionFor(['packages/articles/engine/shared/htmlMarkup.mjs'])).toContain(bingSparse);
+    expect(selectionFor(['.github/workflows/bing-seo-loop.yml'])).toContain(bingSparse);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(bingSparse);
+  }, 120_000);
+
+  it('un modulo della chiusura del finalizer crawler seleziona il test del generatore', () => {
+    // PR 11262: un import nuovo in crawler-grace-policy.mjs ha allargato la
+    // chiusura del finalizer, ma il test che la confronta con l'elenco
+    // dichiarato dal generatore non e' girato e main e' rimasto rosso in
+    // latenza. Il perimetro e' l'elenco stesso
+    // (scripts/lib/crawler-generation-runtime-paths.mjs).
+    const generatorTest = 'tests/generate-crawler-group-workflows.test.ts';
+    expect(selectionFor(['scripts/lib/crawler-grace-policy.mjs'])).toContain(generatorTest);
+    expect(selectionFor(['scripts/lib/detail-failure-reuse-policy.mjs'])).toContain(generatorTest);
+    expect(selectionFor(['scripts/crawler-group-generation-finalizer.mjs'])).toContain(generatorTest);
+    expect(selectionFor(['scripts/lib/crawler-generation-runtime-paths.mjs'])).toContain(generatorTest);
+    // Fuori dall'elenco il test, che costa minuti, non viene trascinato.
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(generatorTest);
+  }, 120_000);
+
+  it('un modulo nuovo sotto scripts/lib seleziona i gate che eleggono la famiglia da disco', () => {
+    // PR 11308: `scripts/lib/crawler-empty-ok-registry.mjs`, nuovo, era eletto
+    // dal gate di famiglia j2w, che legge `scripts/lib/` per directory e non
+    // importa il modulo. Il diff non lo selezionava e il rosso e' emerso sulla
+    // 11346, che toccava per caso un import del test. Il path qui non esiste:
+    // e' proprio il modulo che nessun grafo conosce ancora.
+    const j2wFamily = 'tests/successfactors-parser-quality.test.ts';
+    const flat = selectionFor(['scripts/lib/future-j2w-tenant-job-parser.mjs']);
+    expect(flat).toContain(j2wFamily);
+    expect(flat).toContain('tests/successfactors-jobs2web-widget-guard.test.ts');
+    expect(flat).toContain('tests/prospective-ch-shared-parser-contract.test.ts');
+    expect(flat).toContain('tests/sanitize-control-chars.test.ts');
+    expect(flat).toContain('tests/score-ledger-persistence.test.ts');
+    expect(flat).toContain('tests/crawler-brand-domain-pairing.test.ts');
+    expect(flat).toContain('tests/listing-url-fallback-audit.test.ts');
+    expect(flat).toContain('tests/bespoke-crawler-slug-boundary.test.ts');
+    expect(flat).toContain('tests/undici-dispatcher-fetch-pairing.test.ts');
+    expect(flat).toContain('tests/is-invoked-directly.test.ts');
+    expect(flat).toContain('tests/translation-protected-tokens.test.ts');
+    expect(flat).toContain('tests/slug-write-encapsulation.test.ts');
+    // Gli scan che leggono anche fuori da scripts/lib.
+    expect(selectionFor(['scripts/update-future-jobs.mjs'])).toContain('tests/bespoke-crawler-slug-boundary.test.ts');
+    // Il ratchet a due lati dei runner senza contatori deve girare sulla PR
+    // che cambia il conteggio, non su quella dopo.
+    const zeroPath = 'tests/crawler-zero-path-contract.test.ts';
+    expect(selectionFor(['scripts/update-future-jobs.mjs'])).toContain(zeroPath);
+    expect(selectionFor(['scripts/lib/crawler-template.mjs'])).toContain(zeroPath);
+    expect(selectionFor(['scripts/lib/future-j2w-tenant-job-parser.mjs'])).not.toContain(zeroPath);
+    expect(selectionFor(['scripts/publish-article-fast.mjs'])).toContain('tests/sanitize-control-chars.test.ts');
+    // Lo scan j2w e' ricorsivo: un parser in una sottocartella non sfugge.
+    expect(selectionFor(['scripts/lib/tenants/future-job-parser.mjs'])).toContain(j2wFamily);
+    expect(selectionFor(['scripts/lib/future-driver.sh'])).toContain('tests/bounded-parallel.test.ts');
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(j2wFamily);
+  }, 120_000);
+
+  it('un modulo raggiungibile da vite.config.ts seleziona i gate del grafo del config', () => {
+    // PR 11327: `build-plugins/shared/authorEditorial.ts` ha iniziato a
+    // importare `services/seo/seo-authors.ts`, che usava `@/data/authors`.
+    // Il walker del grafo falliva gia', ma nessun import lo lega ai moduli che
+    // giudica: il diff non lo selezionava e il deploy e' rimasto fermo.
+    const walker = 'tests/vite-config-import-graph.test.ts';
+    const bundler = 'tests/vite-config-graph-no-alias.test.ts';
+    for (const file of [
+      'build-plugins/shared/authorEditorial.ts',
+      'services/seo/seo-authors.ts',
+      'data/authors.ts',
+      'scripts/lib/events-utils.mjs',
+      'components/pages/chiSiamoCopy.ts',
+      'vite.config.ts',
+    ]) {
+      const selected = selectionFor([file]);
+      expect(selected, file).toContain(walker);
+      expect(selected, file).toContain(bundler);
+    }
+    expect(selectionFor(['public/x.svg'])).not.toContain(bundler);
+    expect(selectionFor(['docs/LOCAL-DEV.md'])).not.toContain(bundler);
+  }, 120_000);
+
+  it('un file scandito dal gate dei segreti lo seleziona, anche se il grafo non lo conosce', () => {
+    // PR 10336: una chiave Google Maps di terzi dentro una fixture HTML di
+    // `tests/fixtures/`. Il gate la riconosceva, ma un `.html` non è né un
+    // sorgente né un asset indicizzato: il diff usciva prima della selezione
+    // con zero test, e il gate non girava proprio sul diff che lo violava.
+    const gate = 'tests/no-hardcoded-secrets.test.ts';
+    expect(selectionFor(['tests/fixtures/kanton-aargau/detail.html'])).toEqual([gate]);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).toContain(gate);
+    // Il perimetro è quello dello scanner (`isScanned`), non una copia: ciò
+    // che lo scanner esclude non paga la scansione dell'albero.
+    expect(selectionFor(['public/x.svg'])).toEqual([]);
+    expect(selectionFor(['package-lock.json'])).toEqual([]);
+  }, 120_000);
+
+  it('un modulo della chiusura dell\'observer crawler seleziona il test del suo workflow', () => {
+    // PR 11262: un import nuovo in crawler-grace-policy.mjs e' uscito dalla
+    // lista sparse dell'observer delle generazioni crawler, ma il test che la
+    // confronta con la chiusura reale non e' girato e main e' rimasto rosso.
+    const observerWorkflow = 'tests/crawler-generation-observer-workflow.test.ts';
+    expect(selectionFor(['scripts/lib/crawler-grace-policy.mjs'])).toContain(observerWorkflow);
+    expect(selectionFor(['functions/src/githubApiHeaders.js'])).toContain(observerWorkflow);
+    expect(selectionFor(['build-plugins/shared/seoPageShell.ts'])).not.toContain(observerWorkflow);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(observerWorkflow);
+  }, 120_000);
+
+  it('un closer nuovo sotto scripts/ o functions/ seleziona il ratchet sulle chiusure per titolo', () => {
+    // Il 2026-10-04 tre closer (PR 11317, 11358, 11355) decidevano su un numero
+    // e chiudevano per titolo. Il ratchet legge i sorgenti da disco: un closer
+    // nuovo non lo importa, e il path qui non esiste apposta.
+    const ratchet = 'tests/resolve-issue-by-title-ratchet.test.ts';
+    expect(selectionFor(['scripts/ci/future-issue-closer.mjs'])).toContain(ratchet);
+    expect(selectionFor(['functions/src/futureIssueCloser.js'])).toContain(ratchet);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(ratchet);
+  }, 120_000);
+
+  it('un dato importato dal bootstrap della shell seleziona i pin del SiteShellContract', () => {
+    // PR 11327: la bio di marco-ferrari in `data/authors.ts` e' cambiata,
+    // `data/` e' fuori dal grafo e il diff ha selezionato zero test; il golden
+    // di getAuthorBySlug e' diventato rosso su main e sulla 11381.
+    const functions = 'tests/articles-shell-contract-functions.test.ts';
+    const fingerprint = 'tests/articles-shell-contract-fingerprint.test.ts';
+    const authors = selectionFor(['data/authors.ts']);
+    expect(authors).toContain(functions);
+    expect(authors).toContain(fingerprint);
+    // Anche i JSON di primo livello che la chiusura del bootstrap importa.
+    expect(selectionFor(['data/canton-url-slugs.json'])).toContain(functions);
+    // Le sottocartelle di `data/` sono dati dei cron, non moduli importati.
+    // Path fittizio apposta: un letterale sotto una radice viva (per esempio i
+    // job dei crawler) farebbe scattare tests/live-data-test-guard.test.ts, che
+    // non distingue una stringa passata al selettore da una lettura.
+    expect(selectionFor(['data/example-subdir/future.json'])).not.toContain(functions);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(functions);
+  }, 120_000);
+
+  it('uno script shell cambiato non scavalca i lint con l\'uscita anticipata', () => {
+    // Un `.sh` non è un candidato del grafo: prima l'uscita «nessun sorgente
+    // nel diff» precedeva i lint dell'albero dei sorgenti e li saltava.
+    // `toContain` e non l'elenco esatto: ogni lint nuovo con `scripts/` nel
+    // perimetro entra legittimamente in questa selezione.
+    const selected = selectionFor(['scripts/dev/fast-worktree.sh']);
+    expect(selected).toContain('tests/gh-slurp-jq-guard.test.ts');
+    expect(selected).toContain('tests/no-hardcoded-secrets.test.ts');
+  }, 120_000);
+
+  it('il gate dei segreti non spegne il fallback alla suite intera per un sorgente senza test', () => {
+    // Il perimetro del gate copre quasi ogni sorgente. Se entrasse nella
+    // selezione prima della decisione sul fallback, un sorgente importato da
+    // qualcuno ma non raggiunto da nessun test selezionerebbe il solo gate
+    // invece della suite intera. La fixture è costruita qui: un file reale del
+    // repo potrebbe ricevere un test domani e il caso smetterebbe di provare.
+    const gate = 'tests/no-hardcoded-secrets.test.ts';
+    const dir = createRunnerVariant(fs.readFileSync(RUNNER, 'utf8'));
+    try {
+      const files: Record<string, string> = {
+        'services/untested-leaf.ts': 'export const leaf = 1;\n',
+        'services/untested-importer.ts': "import { leaf } from './untested-leaf';\nexport const twice = leaf * 2;\n",
+        'services/standalone.ts': 'export const alone = 1;\n',
+        'tests/unrelated.test.ts': 'export {};\n',
+        [gate]: 'export {};\n',
+      };
+      for (const [file, content] of Object.entries(files)) {
+        fs.mkdirSync(path.dirname(path.join(dir, file)), { recursive: true });
+        fs.writeFileSync(path.join(dir, file), content);
+      }
+      execFileSync('git', ['init', '-q', '-b', 'main'], { cwd: dir });
+      execFileSync('git', ['config', 'user.email', 'test@example.invalid'], { cwd: dir });
+      execFileSync('git', ['config', 'user.name', 'related-selection-test'], { cwd: dir });
+      execFileSync('git', ['add', '.'], { cwd: dir });
+      execFileSync('git', ['commit', '-qm', 'fallback fixture'], { cwd: dir });
+      const base = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: dir, encoding: 'utf8' }).trim();
+      execFileSync('git', ['update-ref', 'refs/remotes/origin/main', base], { cwd: dir });
+
+      const imported = runSelectionInFixture(dir, dir, ['services/untested-leaf.ts'], 'imported');
+      expect(imported.stdout).toContain('No static related edge found → running all tracked tests conservatively.');
+      expect(imported.stdout).toContain('tests/unrelated.test.ts');
+      expect(imported.stdout).toContain(gate);
+
+      // Una foglia vera (nessun importatore) non paga la suite intera, ma il
+      // gate dei segreti la giudica comunque.
+      const standalone = runSelectionInFixture(dir, dir, ['services/standalone.ts'], 'standalone');
+      expect(standalone.stdout).toContain('every changed file has zero importers');
+      expect(standalone.stdout).not.toContain('tests/unrelated.test.ts');
+      expect(standalone.stdout).toContain(gate);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
   }, 120_000);
 
   it('una modifica a vitest.config.ts seleziona la suite globale senza le esclusioni deliberate', () => {
@@ -478,7 +700,9 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
   }, 120_000);
 
   it('tsconfig.json non diventa una scorciatoia per la suite intera', () => {
-    expect(selectionFor(['tsconfig.json'])).toEqual([]);
+    // Resta il solo gate dei segreti, che scandisce ogni file tracciato fuori
+    // dalle sue esclusioni: nessun test del grafo, nessuna suite intera.
+    expect(selectionFor(['tsconfig.json'])).toEqual(['tests/no-hardcoded-secrets.test.ts']);
   });
 
   it('rifiuta il dry-run quando il processo gira in GitHub Actions', () => {

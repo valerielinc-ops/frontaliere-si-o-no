@@ -48,6 +48,7 @@ import {
   EMPLOYER_INSIGHTS_GA4_CUSTOM_DIMENSIONS,
   ensureGa4CustomDimensions,
 } from './lib/ga4-employer-insights-dimensions.mjs';
+import { fetchAppErrorsWithRecency } from './lib/app-error-recency.mjs';
 import {
   engagementConsistency,
   dailyEngagementConsistency,
@@ -1940,42 +1941,6 @@ async function reportGA4(token) {
     // 3h-v: app_error events — rich debugging info (error_type, error_message, stack, component_stack)
     // These are fired by Analytics.trackAppError() from ErrorBoundary.componentDidCatch,
     // window error listener, and unhandled rejection listener.
-    const appErrRes = await fetchRetry(
-      `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,
-      {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({
-          ...baseRequest,
-          dimensions: [
-            { name: 'customEvent:error_type' },
-            { name: 'customEvent:error_message' },
-            { name: 'pagePath' },
-          ],
-          metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
-          dimensionFilter: {
-            filter: {
-              fieldName: 'eventName',
-              stringFilter: { value: 'app_error', matchType: 'EXACT' },
-            },
-          },
-          orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }],
-          limit: 30,
-        }),
-      }
-    );
-
-    if (appErrRes.ok) {
-      const appErrData = await appErrRes.json();
-      errorHealth.appErrors = (appErrData.rows || []).map((r) => ({
-        errorType: r.dimensionValues[0].value,
-        errorMessage: r.dimensionValues[1].value,
-        pagePath: r.dimensionValues[2].value,
-        count: parseInt(r.metricValues[0].value, 10),
-        users: parseInt(r.metricValues[1].value, 10),
-      }));
-    }
-
     // 3h-v-fallback: If app_error custom dimensions aren't registered in GA4,
     // fall back to the standard 'exception' event (always queryable). Reads its
     // OWN error_type/error_message params — the same registered custom
@@ -1994,40 +1959,27 @@ async function reportGA4(token) {
     // scripts/lib/error-issue-sync.mjs matches against — a spurious backlog
     // issue for an already self-healed error (#5063). error_type/error_message
     // don't have this problem: they're stripped/prioritized at the source.
-    if (!errorHealth.appErrors.length) {
-      const excRes = await fetchRetry(
-        `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,
-        {
-          method: 'POST',
-          headers,
-          body: JSON.stringify({
-            ...baseRequest,
-            dimensions: [
-              { name: 'customEvent:error_type' },
-              { name: 'customEvent:error_message' },
-              { name: 'pagePath' },
-            ],
-            metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
-            dimensionFilter: {
-              filter: {
-                fieldName: 'eventName',
-                stringFilter: { value: 'exception', matchType: 'EXACT' },
-              },
-            },
-            orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }],
-            limit: 30,
-          }),
-        }
-      );
-      if (excRes.ok) {
-        const excData = await excRes.json();
-        errorHealth.appErrors = (excData.rows || []).map((r) => ({
-          errorType: r.dimensionValues[0].value || 'exception',
-          errorMessage: r.dimensionValues[1].value,
-          pagePath: r.dimensionValues[2].value,
-          count: parseInt(r.metricValues[0].value, 10),
-          users: parseInt(r.metricValues[1].value, 10),
-        }));
+    // 3h-v-recency: `last7d` e `lastSeen` per ogni voce. La finestra del report
+    // e' mobile (30 giorni): senza questi due campi un picco del giorno 2 resta
+    // «sopra soglia» per altri 28 e il feeder riconferma la issue con gli stessi
+    // numeri (issue 8612: 129 eventi il 09-09, 3 negli ultimi 7 giorni). Se la
+    // query fallisce le voci restano SENZA i campi — non con uno zero finto.
+    // Le tre richieste (principale, fallback, recenza) stanno in
+    // ./lib/app-error-recency.mjs, filtrate sull'host di produzione.
+    const appErrorsResult = await fetchAppErrorsWithRecency({
+      fetchImpl: fetchRetry,
+      url: `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,
+      headers,
+      baseRequest,
+    });
+    errorHealth.appErrors = appErrorsResult.appErrors;
+    // Il chiuditore del feeder app-error legge «assente» come «zero» solo se
+    // l'elenco non e' un top-N tagliato.
+    errorHealth.appErrorsComplete = appErrorsResult.complete === true;
+    if (appErrorsResult.recency) {
+      errorHealth.appErrorsRecency = appErrorsResult.recency;
+      if (appErrorsResult.recency.status === 'unavailable') {
+        log('⚠️', 'app_error recency (last7d/lastSeen) unavailable — entries carry no recency fields');
       }
     }
 
@@ -2244,7 +2196,7 @@ async function reportGA4(token) {
         for (const err of errorHealth.appErrors.slice(0, 15)) {
           const typeTag = `[${err.errorType}]`;
           log('', `  ${typeTag.padEnd(24)} ${err.errorMessage.slice(0, 60)}`);
-          log('', `  ${''.padEnd(24)} Page: ${err.pagePath}  (${err.count}x, ${err.users} users)`);
+          log('', `  ${''.padEnd(24)} Page: ${err.pagePath}  (${err.count}x, ${err.users} users${Number.isFinite(err.last7d) ? `, last 7d: ${err.last7d}x, last seen ${err.lastSeen || 'n/a'}` : ''})`);
         }
       }
 

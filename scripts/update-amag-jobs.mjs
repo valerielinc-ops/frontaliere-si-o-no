@@ -11,6 +11,7 @@
  * 6. Updates adapter config
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -293,7 +294,7 @@ async function enrichWithDetails(listings) {
         enriched.push({
           ...item,
           description: '',
-          datePosted: new Date().toISOString().slice(0, 10),
+          ...sourcePostingDateFields(''),
           validThrough: '',
           employmentType: 'FULL_TIME',
         });
@@ -336,7 +337,7 @@ function buildAmagJob(row) {
     sector: 'Automotive & Mobilità',
     source: 'amag-dedicated-crawler',
     sourceLang: detectLang(`${row.title} ${row.description}`, 'it'),
-    postedDate: row.datePosted || new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(row.datePosted),
     employmentType: empType,
     contractType: empType,
     validThrough: row.validThrough || '',
@@ -369,12 +370,12 @@ function mergeJobs(discoveredJobs) {
     updated += 1;
     return {
       ...prev,
+      ...mergeSourcePostingDates(prev, job),
       title: job.title || prev.title,
       description: job.description || prev.description,
       location: job.location || prev.location,
       addressLocality: job.addressLocality || prev.addressLocality,
       applyUrl: job.applyUrl || prev.applyUrl,
-      postedDate: job.postedDate || prev.postedDate,
       validThrough: job.validThrough || prev.validThrough,
       contractType: job.contractType || prev.contractType,
       employmentType: job.employmentType || prev.employmentType,
@@ -407,7 +408,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton || DEFAULT_CANTON,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

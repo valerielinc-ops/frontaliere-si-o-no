@@ -3,7 +3,7 @@
  *
  * Extracted from build-plugins/llmsTxtPlugin.ts (issue #4881 Fase 3,
  * pushable-origin fast-publish): llms.txt is NOT a static file — it is
- * regenerated at build time (current date, article count, job-board stats,
+ * regenerated at build time (article count, job-board stats,
  * a page index parsed from the sitemaps) by that Vite plugin's
  * `closeBundle` hook. The fast-publish pipeline needs the SAME regeneration
  * runnable OUTSIDE a full Vite build, so the logic lives HERE and both
@@ -17,13 +17,14 @@
  * does that seeding implicitly via its publicDir-copy-before-closeBundle
  * step; the standalone CLI replicates it explicitly). This module NEVER
  * reads from or writes to `public/llms.txt` directly — the placeholder
- * substitutions below (date, counts) are only idempotent if the input is
+ * substitutions below (counts) are only idempotent if the input is
  * always the pristine seed, never a previously-patched output. Patching the
  * seed file in place would compound substitutions on every run.
  */
 import path from 'node:path';
 import { isJobBoardSectionPath } from './jobBoardSections.mjs';
 import { discoverSitemapFiles } from '../../build-plugins/sitemapAliasPlugin.ts';
+import { authorSeoPageEntries } from '../../services/seo/authorProfileMetadata.ts';
 
 export const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -38,7 +39,7 @@ export const BASE_URL = 'https://frontaliereticino.ch';
 export const SITEMAP_FILES = [
   'sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-blog-ch.xml', 'sitemap-glossario.xml',
   'sitemap-news.xml', 'sitemap-jobs.xml',
-  // AE-5 — 100-Q&A FAQ hub (emitted by faqHubPlugin; lives in dist/ only,
+  // AE-5 — FAQ hub (emitted by faqHubPlugin; lives in dist/ only,
   // parser falls back silently if the file is absent in publicDir).
   'sitemap-faq-hub.xml',
 ];
@@ -183,6 +184,14 @@ export function parseSeoEntries(rootDir, fs) {
     // slash, so keying the raw cp made every curated entry miss at lookup
     // (same slash-divergence class fixed in staticPagesPlugin's seoMap).
     if (title) map.set(cp.replace(/\/+$/, '') || '/', { title, desc });
+  }
+  // Author pages are not literals in seo-pages.ts (it spreads them from the
+  // registry), so the text scan above cannot see them: read the same resolver.
+  for (const entry of Object.values(authorSeoPageEntries())) {
+    map.set(entry.canonicalPath.replace(/\/+$/, '') || '/', {
+      title: entry.title.replace(/\s*\|\s*Frontaliere Ticino$/, '').trim(),
+      desc: entry.description.trim().slice(0, 160),
+    });
   }
   return map;
 }
@@ -360,10 +369,6 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
   const llmsPath = path.join(distDir, 'llms.txt');
   if (fs.existsSync(llmsPath)) {
     let content = fs.readFileSync(llmsPath, 'utf-8');
-    content = content.replace(
-      /\*\*Last Updated\*\*:\s*.+/,
-      `**Last Updated**: ${monthYear}`,
-    );
     if (articleCount > 0) {
       content = content.replace(
         /\d+\+?\s*Blog Articles/,
@@ -393,25 +398,7 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
   const llmsFullPath = path.join(distDir, 'llms-full.txt');
   if (fs.existsSync(llmsFullPath)) {
     let content = fs.readFileSync(llmsFullPath, 'utf-8');
-    content = content.replace(
-      /\*\*Last Updated\*\*:\s*.+/,
-      `**Last Updated**: ${isoDate}`,
-    );
-    // Update trailing "last updated on <date>" text
-    content = content.replace(
-      /last updated on \w+ \d{1,2}, \d{4}/g,
-      `last updated on ${now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`,
-    );
-    // Update inline "Month YYYY" source date references (e.g., "March 2026")
-    content = content.replace(
-      /(?<=Source:.*?)\b(?:January|February|March|April|May|June|July|August|September|October|November|December) \d{4}\b(?=\))/g,
-      monthYear,
-    );
-    // Update "verified as of Month YYYY" references
-    content = content.replace(
-      /verified as of \w+ \d{4}/g,
-      `verified as of ${monthYear}`,
-    );
+    // Editorial/source dates belong to the seed. Building an index is not a source verification.
     // Inject dynamic job board statistics from actual data
     content = injectJobBoardStats(content, distDir);
     // Append page index to llms-full.txt as well
@@ -475,14 +462,14 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
 - **Name**: Frontaliere Ticino
 - **Language**: ${header.lang} (this file) — also available in Italian (primary), ${otherLocales.filter((l) => l !== 'it').map((l) => l === 'en' ? 'English' : l === 'de' ? 'German' : 'French').join(', ')}
 - **Type**: Free web application, no registration required
-- **Last Updated**: ${monthYear}
+- **Index Generated**: ${isoDate}
 - **Audience**: ${header.audience}
-- **Content Authority**: Original, factual content based on official Swiss and Italian tax regulations, BFS/UST statistics, and UFSP/BAG health insurance data
+- **Sources**: See source links and publication dates in the full reference; generating this index does not re-verify those sources.
 
 ## Alternate Language Versions
 
 ${alternateLinks}
-- Full domain knowledge (Italian): [/llms-full.txt](${BASE_URL}/llms-full.txt)
+- Full reference (English): [/llms-full.txt](${BASE_URL}/llms-full.txt)
 - Sitemap: [/sitemap.xml](${BASE_URL}/sitemap.xml)
 ${localeIndex}`;
 
@@ -492,24 +479,8 @@ ${localeIndex}`;
     localeCount++;
   }
 
-  // Auto-update citation_date and ai-content-declaration in dist/index.html
-  // (no-op when index.html isn't present in distDir — e.g. the fast-publish
-  // scratch dir, which never contains one; existsSync guard handles it).
-  const distIndexPath = path.join(distDir, 'index.html');
-  if (fs.existsSync(distIndexPath)) {
-    let indexHtml = fs.readFileSync(distIndexPath, 'utf-8');
-    // Update citation_date to today
-    indexHtml = indexHtml.replace(
-      /(<meta\s+name="citation_date"\s+content=")[^"]*(")/,
-      `$1${isoDate}$2`,
-    );
-    // Update "Updated Month Year" in ai-content-declaration
-    indexHtml = indexHtml.replace(
-      /(Updated\s+)\w+\s+\d{4}(?=\.\s*")/,
-      `$1${monthYear}`,
-    );
-    fs.writeFileSync(distIndexPath, indexHtml);
-  }
+  // Do not advance citation_date or editorial verification claims in index.html:
+  // a build does not establish that its underlying sources were reviewed.
 
   console.log(`\x1b[36m[llms-txt]\x1b[0m Updated llms.txt (${monthYear}) and llms-full.txt (${isoDate})${articleCount ? `, ${articleCount} articles` : ''}, page index: ${allUrls.length} URLs, .well-known/llms.txt copied${localeCount ? `, ${localeCount} locale llms.txt files` : ''}`);
 }

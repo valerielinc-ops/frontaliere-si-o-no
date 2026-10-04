@@ -1,3 +1,6 @@
+import { CALC_HREF } from './shared/calcHref';
+import { buildSalaryAnswer, searchSalaryMedian, hasSalaryIntent } from './shared/searchSalaryAnswer';
+import { prepareJobOccupationTerms, matchesPreparedJobOccupation, getJobSearchRoleTokens } from '../services/jobSearchRelevance';
 /**
  * Related-search cluster landings — Vite build plugin.
  *
@@ -345,6 +348,17 @@ const CACHE_KEY_INPUTS = [
   'scripts/lib/related-search-cluster-path.mjs',
   'build-plugins/relatedSearchClustersPlugin.ts',
   'build-plugins/relatedSearchClustersData.ts',
+  'build-plugins/orphanQueryData.ts',
+  'scripts/lib/query-tokenizer.mjs',
+  'services/jobSearchIntent.ts',
+  'services/jobSearchRelevance.ts',
+  'services/professionSynonyms.ts',
+  'services/professionSynonymsCore.mjs',
+  'scripts/lib/profession-taxonomy.mjs',
+  'build-plugins/shared/searchSalaryAnswer.ts',
+  'build-plugins/shared/realSalaryMedian.ts',
+  'build-plugins/shared/calcHref.ts',
+  'services/crossBorderEmploymentFacts.ts',
   'build-plugins/shared/seoPageShell.ts',
   'build-plugins/shared/seoContentTokens.ts',
   'build-plugins/shared/titleSuffix.ts',
@@ -451,7 +465,9 @@ const CACHE_KEY_INPUTS = [
 // until issue #4943: it no longer builds at all — it audits the live site over
 // HTTP — because the monolith build it ran to produce dist/ was OOM-killed by
 // the host on every run since 2026-07-07.)
-const CACHE_VERSION = 'v11';
+// v13: aggregate sitemap URLs have no build-clock lastmod. Reject older
+// manifests before restoring any files; a current cache hit needs no rewriting.
+const CACHE_VERSION = 'v13';
 
 // `SITEMAP_SHARD_CAP` and `padShardIndex` are imported from
 // scripts/lib/sitemap-limits.mjs — see that module for why 39,000 and not
@@ -648,26 +664,6 @@ export async function tryRestoreFromCache(
     return null;
   }
 
-  // Each shard carries a `<lastmod>` per URL; refresh today's date on every
-  // restored sitemap-search-clusters*.xml so the master sitemap signals
-  // freshness even when the body is unchanged. Walks the actual restored
-  // shard set (legacy single-file caches will surface as a single match;
-  // post-sharding caches have N matches — both handled uniformly).
-  const today = new Date().toISOString().slice(0, 10);
-  if (fs.existsSync(distDir)) {
-    const shardRe = new RegExp(`^${SITEMAP_SHARD_PREFIX}(?:-\\d+)?\\.xml$`);
-    for (const file of fs.readdirSync(distDir)) {
-      if (!shardRe.test(file)) continue;
-      const p = path.join(distDir, file);
-      try {
-        const xml = fs.readFileSync(p, 'utf-8')
-          .replace(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, `<lastmod>${today}</lastmod>`);
-        fs.writeFileSync(p, xml, 'utf-8');
-      } catch {
-        // best-effort refresh
-      }
-    }
-  }
   return { ...manifest, emittedCount: restored };
 }
 
@@ -1130,6 +1126,7 @@ export function buildRelatedSitemapManifestInput(input: {
 // per-candidate scan applied via queryMatchScore. Stemming is intentionally
 // skipped (matches plurals/feminines via substring, like the SPA filter).
 export class TokenIndex {
+  private occupationTermsByLocale = new Map<Locale, WeakMap<RawJob, readonly string[]>>();
   private haystacksByLocale = new Map<Locale, string[]>();
   private postingsByLocale = new Map<Locale, Map<string, number[]>>();
   private gramPostingsByLocale = new Map<Locale, Map<string, number[]>>();
@@ -1195,7 +1192,7 @@ export class TokenIndex {
    * corpus-order tie breaks. The page only renders MAX_JOBS_PER_PAGE jobs, so
    * avoid materializing/sorting the full match universe for every candidate.
    */
-  matchingJobs(locale: Locale, tokens: readonly string[], maxJobs: number, minOrScore = 1): RawJob[] {
+  matchingJobs(locale: Locale, tokens: readonly string[], maxJobs: number, minOrScore = 1, accept: (job: RawJob) => boolean = () => true): RawJob[] {
     const __tPostings = profileStart();
     const lists = tokens.map((tok) => this.postings(locale, tok));
     profileRecord('bc:mj-postings-batch', __tPostings);
@@ -1203,25 +1200,49 @@ export class TokenIndex {
 
     if (lists.length === 1) {
       const __tSingle = profileStart();
-      const out = lists[0].slice(0, maxJobs).map((idx) => this.jobs[idx]);
+      const out: RawJob[] = [];
+      for (const idx of lists[0]) {
+        if (accept(this.jobs[idx])) out.push(this.jobs[idx]);
+        if (out.length >= maxJobs) break;
+      }
       profileRecord('bc:mj-single', __tSingle);
       return out;
     }
 
     const __tAnd = profileStart();
-    const matchingIdx = this.firstAndMatches(lists, maxJobs);
+    const matchingIdx = this.firstAndMatches(lists, maxJobs, accept);
     profileRecord('bc:mj-and', __tAnd);
     if (matchingIdx.length < maxJobs) {
       const __tOr = profileStart();
-      this.fillOrMatches(lists, tokens.length, matchingIdx, maxJobs, minOrScore);
+      this.fillOrMatches(lists, tokens.length, matchingIdx, maxJobs, minOrScore, accept);
       profileRecord('bc:mj-or', __tOr);
     }
 
     return matchingIdx.map((idx) => this.jobs[idx]);
   }
 
+  /** Keep occupational filtering before the result cap, without retokenizing each job per query. */
+  matchingOccupationJobs(locale: Locale, tokens: readonly string[], maxJobs: number, minOrScore: number, roles: readonly string[]): RawJob[] {
+    if (roles.length === 0) return this.matchingJobs(locale, tokens, maxJobs, minOrScore);
+    let prepared = this.occupationTermsByLocale.get(locale);
+    if (!prepared) {
+      prepared = new WeakMap<RawJob, readonly string[]>();
+      this.occupationTermsByLocale.set(locale, prepared);
+    }
+    const termsByJob = prepared;
+    return this.matchingJobs(locale, tokens, maxJobs, minOrScore, (job) => {
+      let terms = termsByJob.get(job);
+      if (!terms) {
+        terms = prepareJobOccupationTerms(job, locale);
+        termsByJob.set(job, terms);
+      }
+      return matchesPreparedJobOccupation(terms, roles);
+    });
+  }
+
   /** Free the haystack + postings cache once index queries are complete. */
   clear(): void {
+    this.occupationTermsByLocale.clear();
     this.haystacksByLocale.clear();
     this.postingsByLocale.clear();
     this.gramPostingsByLocale.clear();
@@ -1299,7 +1320,7 @@ export class TokenIndex {
     return rarest ?? [];
   }
 
-  private firstAndMatches(lists: ReadonlyArray<readonly number[]>, maxJobs: number): number[] {
+  private firstAndMatches(lists: ReadonlyArray<readonly number[]>, maxJobs: number, accept: (job: RawJob) => boolean): number[] {
     if (lists.some((list) => list.length === 0)) return [];
 
     let shortestIdx = 0;
@@ -1315,6 +1336,7 @@ export class TokenIndex {
         if (i === shortestIdx) continue;
         if (!binaryIncludes(lists[i], idx)) continue outer;
       }
+      if (!accept(this.jobs[idx])) continue;
       out.push(idx);
       if (out.length >= maxJobs) break;
     }
@@ -1327,6 +1349,7 @@ export class TokenIndex {
     out: number[],
     maxJobs: number,
     minScore: number,
+    accept: (job: RawJob) => boolean,
   ): void {
     const scores = this.scratchScores;
     const touched = this.touchedIdx;
@@ -1355,7 +1378,7 @@ export class TokenIndex {
     // where the city token is droppable) it stays 1 to preserve recovery.
     for (let score = fullScore - 1; score >= minScore && out.length < maxJobs; score--) {
       for (let idx = 0; idx < scores.length && out.length < maxJobs; idx++) {
-        if (scores[idx] === score) out.push(idx);
+        if (scores[idx] === score && accept(this.jobs[idx])) out.push(idx);
       }
     }
 
@@ -1507,7 +1530,8 @@ export function buildClusterContext(
   const minOrScore = keywordTokenCount >= 2 ? 2 : 1;
 
   const __tMatch = profileStart();
-  const matching = index.matchingJobs(candidate.locale, tokens, MAX_JOBS_PER_PAGE, minOrScore);
+  const roles = getJobSearchRoleTokens(keyword);
+  const matching = index.matchingOccupationJobs(candidate.locale, tokens, MAX_JOBS_PER_PAGE, minOrScore, roles);
   profileRecord('bc:match', __tMatch);
 
   if (matching.length < MIN_MATCHING_JOBS) return null;
@@ -1623,7 +1647,8 @@ const BELOW_FLOOR_BRIDGE_COPY: Record<Locale, {
  * see CACHE_VERSION v8 history for the incident this de-duplication fixes.
  */
 export function isClusterBelowFloor(ctx: ClusterContext, enriched: EnrichedEntry | undefined): boolean {
-  return !hasUsableEnrichedIntro(enriched) && ctx.matchingJobs.length < MIN_JOBS_FOR_INDEXABLE_CLUSTER;
+  return (hasSalaryIntent(ctx.keyword) || !hasUsableEnrichedIntro(enriched))
+    && ctx.matchingJobs.length < MIN_JOBS_FOR_INDEXABLE_CLUSTER;
 }
 
 /**
@@ -1866,7 +1891,7 @@ export function renderClusterBelowFloorBridge(
   // `hreflang` stays in the signature because the caller has it and the
   // decision belongs here, next to the canonical it has to agree with.
   void hreflang;
-  const html = buildCanonicalBridgePage({
+  let html = buildCanonicalBridgePage({
     canonicalUrl: hubUrl,
     pathLabel: hubPath,
     title: copy.title,
@@ -1879,6 +1904,9 @@ export function renderClusterBelowFloorBridge(
     '</head>',
     ` <script type="application/ld+json">${buildClusterBreadcrumbLd(locale)}</script>\n </head>`,
   );
+  if (hasSalaryIntent(keyword)) {
+    html = html.replace('</main>', `<p>${esc(buildSalaryAnswer(locale, ''))}</p><p><a href="${CALC_HREF[locale]}">${esc(COPY[locale].ctaCalculator)}</a></p></main>`);
+  }
   return { urlPath, html, loc: canonicalUrl };
 }
 
@@ -2862,7 +2890,13 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // template and the commuter-context block — combined ~5-7 KB of
   // unique prose per page (varies by query/city/sector hash so 1,400
   // pages don't share boilerplate).
-  const aiIntroHtml = enriched?.intro
+  const salaryIntent = hasSalaryIntent(ctx.keyword);
+  const salaryMedian = salaryIntent ? searchSalaryMedian(ctx.matchingJobs.map((job) => ({
+    salaryMin: Number(job.salaryMin), salaryMax: Number(job.salaryMax), salarySource: job.salarySource, currency: job.currency,
+  }))) : 0;
+  const salaryAnswerHtml = salaryIntent
+    ? `<p>${esc(buildSalaryAnswer(locale, salaryMedian > 0 ? `CHF ${salaryMedian.toLocaleString('de-CH')}` : ''))}</p>` : '';
+  const aiIntroHtml = !salaryIntent && enriched?.intro
     ? `<p class="s-XHYGOJ">${esc(enriched.intro)}</p>`
     : renderSearchQueryIntro(
         locale as 'it' | 'en' | 'de' | 'fr',
@@ -3000,6 +3034,8 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // already imports — no extra request.
   const bodyContentHtml = `<div class="related-search-cluster">
     <h1>${esc(headlineH1)}</h1>
+    ${salaryAnswerHtml}
+    <p><a href="${CALC_HREF[locale]}">${esc(copy.ctaCalculator)}</a></p>
     ${jobLinksHtml}
     ${seoContextBlock}
   `;
@@ -3174,12 +3210,7 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
     url: canonicalUrl,
     description: copy.hubDescription,
     inLanguage: locale,
-    // Day-granularity (matches the visible `dateStamp` rendered on the page),
-    // NOT a full build timestamp: a sub-second `new Date().toISOString()` here
-    // made every search-cluster/listing page churn on every deploy. Stable
-    // within the UTC day → same-day deploys no longer rewrite these pages from
-    // dateModified alone. See build-plugins/shared/buildDayStamp.ts.
-    dateModified: `${dateStamp}T00:00:00.000Z`,
+    // Rebuilding the same collection does not establish a content update.
     mainEntity: {
       '@type': 'ItemList',
       // numberOfItems reports the full list size; itemListElement is a sample.
@@ -3932,7 +3963,7 @@ async function writeSitemap(
       const __tSerialize = profileStart();
       const slice = locs.slice(i * SITEMAP_SHARD_CAP, (i + 1) * SITEMAP_SHARD_CAP);
       const entries = slice.map((loc) =>
-        `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+        `  <url>\n    <loc>${loc}</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
       ).join('\n');
       const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
       profileRecord('sw:serialize-xml', __tSerialize);
@@ -4343,9 +4374,14 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
 
       const contexts: ClusterContext[] = [];
       const __tContextBuild = profileStart();
+      const contextStartedAt = Date.now();
+      let processedContexts = 0;
       for (const cand of candidates) {
         const ctx = buildClusterContext(cand, tokenIndex, jobs);
         if (ctx) contexts.push(ctx);
+        if (++processedContexts % 10_000 === 0) {
+          console.log(`[related-search-clusters] contexts ${processedContexts}/${candidates.length} elapsed_ms=${Date.now() - contextStartedAt} heap_mb=${Math.round(process.memoryUsage().heapUsed / 1048576)}`);
+        }
       }
       profileRecord('build-contexts', __tContextBuild);
       console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${contexts.length} clusters survived match-≥${MIN_MATCHING_JOBS} filter`);

@@ -555,7 +555,7 @@ describe('loadPreviouslyEmittedClusterKeys — the manifests are the emit record
     fs.writeFileSync(
       path.join(collisionDir, 'manifest.json'),
       JSON.stringify({
-        version: 'v11',
+        version: 'v13',
         files: [
           'cerca-lavoro-svizzera/ricerca-infermiere-lugano/index.html',
           retired,
@@ -588,7 +588,7 @@ describe('loadPreviouslyEmittedClusterKeys — the manifests are the emit record
         'manifest.json',
       );
       const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-      expect(manifest.version).toBe('v11');
+      expect(manifest.version).toBe('v13');
       manifest.files.push(retired);
       fs.writeFileSync(manifestPath, JSON.stringify(manifest));
 

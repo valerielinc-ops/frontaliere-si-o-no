@@ -1,7 +1,7 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-10-03T09:22:37.291Z",
+  "generatedAt": "2026-10-04T09:26:00.918Z",
   "total": 4,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,12 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 2212,
-  "avgDurationMs": 2212,
+  "durationMs": 2055,
+  "avgDurationMs": 2055,
   "durationHistory": [
-    2448,
-    1511,
-    2212
+    2055
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -47,6 +45,8 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-07T15:18:49.624Z",
       "sourceIdentity": "url:https://boardinternationalsa.applytojob.com/apply/0vdeq1qupp/software-engineer",
+      "datePosted": "2026-09-07",
+      "postingDateSource": "reported",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -83,6 +83,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-08-07T22:06:14.144Z",
+      "datePosted": "2026-08-14",
+      "postingDateSource": "reported",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -123,6 +125,8 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-07T15:18:49.624Z",
       "sourceIdentity": "url:https://boardinternationalsa.applytojob.com/apply/pbwvu8b7ls/cloud-operations-specialist",
+      "datePosted": "2026-09-07",
+      "postingDateSource": "reported",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -160,13 +164,16 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-08-07T22:06:14.144Z",
       "needsRetranslation": true,
-      "_qualityScore": 91,
+      "datePosted": "2026-07-20",
+      "postingDateSource": "reported",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 23,
+        "translation": 25,
         "completeness": 19
       }
     }
-  ]
+  ],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

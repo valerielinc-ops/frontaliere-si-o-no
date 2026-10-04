@@ -23,8 +23,9 @@
  *
  * Never fails a document: a compile error, a missing addon or the Remote
  * Config switch ASSISTED_APPLICATION_PDF_RENDERER = "legacy" fall back to the
- * standard-font writer of assistedApplicationAiDocuments.js. The result says
- * which renderer produced the PDF, so the draft can record it.
+ * standard-font writer of assistedApplicationAiDocuments.js; a photo Typst
+ * cannot read is left out first. The result says which renderer produced the
+ * PDF and whether it carries the photo, so the draft records what it holds.
  */
 
 import { randomUUID } from 'node:crypto';
@@ -67,6 +68,23 @@ function cloudFunctionsConfig(env) {
   return async (key) => (await import('./remoteConfigSecrets.js')).getRemoteConfigValue(key);
 }
 
+// Typst memoizes every compile in a cache of the whole process and never
+// empties it by itself. Measured on 2026-10-03 (Node 26.10 on macOS, one
+// process, 2000 different documents, letters and CVs alternated): 583 MB of
+// resident memory without eviction, 112 MB with it, 2.8 ms per document either
+// way. After each compile, what the last ten did not use is dropped (the age
+// the addon suggests for a tool that does not watch files): the templates and
+// the fonts stay warm.
+const CACHE_MAX_AGE = 10;
+
+function evictCache(typst) {
+  try {
+    typst.evictCache?.(CACHE_MAX_AGE);
+  } catch {
+    // An eviction that fails costs memory, never a document.
+  }
+}
+
 /**
  * Compile a template of functions/src/templates with its JSON input.
  * @param {string} template file name in the templates directory
@@ -87,38 +105,56 @@ export async function compileTemplate(template, data, files = {}) {
     return Buffer.from(typst.pdf({ mainFilePath: path.join(TEMPLATES_DIR, template), inputs: { data: JSON.stringify(data) } }));
   } finally {
     for (const file of mapped) typst.unmapShadow(file);
+    evictCache(typst);
   }
 }
 
-async function render({ template, data, files, legacy, mode, log }) {
+/**
+ * Typst, then the standard-font writer. With files mapped (the photo), a failed
+ * compile is tried once more without them: an image Typst cannot read costs the
+ * image, not the embedded font and the layout of the whole document.
+ * @param {object} input `fileData`: the data keys that name the mapped files, left out with them
+ * @returns {Promise<{pdf: Buffer, renderer: 'typst'|'legacy', files: boolean}>} files: the PDF carries the mapped files
+ */
+async function render({ template, data, files = {}, fileData = {}, legacy, mode, log }) {
   if (mode !== 'legacy') {
-    try {
-      return { pdf: await compileTemplate(template, data, files), renderer: 'typst' };
-    } catch (error) {
-      (log || console.warn)('[assisted-application] typst failed, standard-font PDF instead:', String(error?.message || error).slice(0, 200));
+    for (const withFiles of Object.keys(files).length ? [true, false] : [false]) {
+      try {
+        const pdf = withFiles ? await compileTemplate(template, { ...data, ...fileData }, files) : await compileTemplate(template, data);
+        return { pdf, renderer: 'typst', files: withFiles };
+      } catch (error) {
+        (log || console.warn)(
+          withFiles ? '[assisted-application] typst failed, once more without the image:' : '[assisted-application] typst failed, standard-font PDF instead:',
+          String(error?.message || error).slice(0, 200),
+        );
+      }
     }
   }
-  return { pdf: legacy(), renderer: 'legacy' };
+  // The standard-font writer draws text only: never an image.
+  return { pdf: legacy(), renderer: 'legacy', files: false };
 }
 
 /**
  * The tailored CV from its document (assistedApplicationCvDocument.js).
  * @param {object} document buildCvDocument's result; `photo` (a Buffer) is printed when present
- * @returns {Promise<{pdf: Buffer, renderer: 'typst'|'legacy'}>}
+ * @param {{mode?: string, log?: Function}} [options]
+ * @returns {Promise<{pdf: Buffer, renderer: 'typst'|'legacy', photo: boolean}>} photo: this PDF carries it
+ *   (false with the standard-font writer, and when Typst could not read the image)
  */
 export async function renderCvPdf(document, { mode = 'typst', log } = {}) {
   const { photo, photoType = 'jpg', ...rest } = document;
   // A name of its own per compile: one candidate's photo can never be read for another's CV.
   const photoFile = photo ? `photo-${randomUUID()}.${photoType}` : null;
-  const files = photo ? { [photoFile]: photo } : {};
-  return render({
+  const { pdf, renderer, files } = await render({
     template: 'assisted-cv.typ',
-    data: { ...rest, ...(photo ? { photo: photoFile } : {}) },
-    files,
+    data: rest,
+    files: photo ? { [photoFile]: photo } : {},
+    fileData: photo ? { photo: photoFile } : {},
     legacy: () => renderPdf(cvDocumentBlocks(rest), { title: `CV ${document.name}` }),
     mode,
     log,
   });
+  return { pdf, renderer, photo: files };
 }
 
 /**
@@ -126,7 +162,7 @@ export async function renderCvPdf(document, { mode = 'typst', log } = {}) {
  * @returns {Promise<{pdf: Buffer, renderer: 'typst'|'legacy'}>}
  */
 export async function renderLetterPdf(blocks, { mode = 'typst', log } = {}) {
-  return render({
+  const { pdf, renderer } = await render({
     template: 'assisted-letter.typ',
     data: {
       language: 'it', title: '', senderLines: [], recipientLines: [], placeDate: '', subject: '', salutation: '',
@@ -136,4 +172,5 @@ export async function renderLetterPdf(blocks, { mode = 'typst', log } = {}) {
     mode,
     log,
   });
+  return { pdf, renderer };
 }

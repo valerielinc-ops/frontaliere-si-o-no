@@ -38,7 +38,7 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
-import { formatUpdatedSentence } from './shared/humanDate';
+import { formatUpdatedDate } from './shared/humanDate';
 import {
   LINK_ACCENT_STYLE,
 } from './shared/seoContentTokens';
@@ -124,10 +124,10 @@ const RELATED_LINKS: Record<ComparisonsLocale, Array<{ href: string; label: stri
 
 // ── Number formatting (locale-aware, deterministic) ──────────────
 
-function fmtInt(n: number, locale: ComparisonsLocale): string {
+function fmtInt(n: number | null, locale: ComparisonsLocale): string {
   // Use the Swiss-German thousands separator (apostrophe) for CHF and
   // European dot/space for EUR — one common convention across locales.
-  if (!Number.isFinite(n)) return '–';
+  if (n === null || !Number.isFinite(n)) return '–';
   const abs = Math.abs(Math.round(n));
   const s = abs.toString();
   // Thousand separator: apostrophe in IT/DE (Swiss convention), comma in EN,
@@ -136,16 +136,18 @@ function fmtInt(n: number, locale: ComparisonsLocale): string {
   return s.replace(/\B(?=(\d{3})+(?!\d))/g, sep);
 }
 
-function fmtRatio(r: number, locale: ComparisonsLocale): string {
-  if (!Number.isFinite(r) || r <= 0) return '–';
+function fmtRatio(r: number | null, locale: ComparisonsLocale): string {
+  if (r === null || !Number.isFinite(r) || r <= 0) return '–';
   const rounded = Math.round(r * 100) / 100;
   return locale === 'en' ? rounded.toFixed(2) : rounded.toFixed(2).replace('.', ',');
 }
 
 // ── Table renderers ──────────────────────────────────────────────
 
-function renderSalaryTable(copy: ComparisonsHubCopy, rows: readonly SalarySectorRow[], locale: ComparisonsLocale): string {
-  const tbody = rows.length > 0
+function renderSalaryTable(copy: ComparisonsHubCopy, rows: readonly SalarySectorRow[] | null, locale: ComparisonsLocale): string {
+  const tbody = rows === null
+    ? `<tr><td class="s-RgFW0A" colspan="5">${esc(copy.salaryUnavailable)}</td></tr>`
+    : rows.length > 0
     ? rows
         .map(
           (r) =>
@@ -158,7 +160,7 @@ function renderSalaryTable(copy: ComparisonsHubCopy, rows: readonly SalarySector
             </tr>`,
         )
         .join('')
-    : `<tr><td class="s-RgFW0A" colspan="5">—</td></tr>`;
+    : '';
   return `<figure class="s-KZc0LQ" data-speakable>
   <figcaption class="s-USTxiS">${esc(copy.tSalaryCaption)}</figcaption>
   <div class="s-hrA9tN">
@@ -214,6 +216,7 @@ function renderTaxTable(copy: ComparisonsHubCopy): string {
 }
 
 function renderHealthTable(copy: ComparisonsHubCopy, rows: readonly LamalCantonRow[], locale: ComparisonsLocale): string {
+  if (!rows.length) return `<p class="s-4s9CFT">${esc(copy.healthUnavailable)}</p><p class="s-4s9CFT">${mdLinks(copy.tHealthContext)}</p>`;
   const tbody = rows
     .map(
       (r) => `<tr>
@@ -238,7 +241,7 @@ function renderHealthTable(copy: ComparisonsHubCopy, rows: readonly LamalCantonR
       <tbody class="s-_B4enX">${tbody}</tbody>
     </table>
   </div>
-  <p class="s-M4R4f8">${mdLinks(copy.tHealthFooter)}</p>
+  <p class="s-M4R4f8">${mdLinks(copy.tHealthFooter)} (${rows[0].year})</p>
   <p class="s-4s9CFT">${mdLinks(copy.tHealthContext)}</p>
 </figure>`;
 }
@@ -333,7 +336,7 @@ interface RenderResult {
 
 function renderPage(opts: {
   locale: ComparisonsLocale;
-  salaryRows: readonly SalarySectorRow[];
+  salaryRows: readonly SalarySectorRow[] | null;
   lamalRows: readonly LamalCantonRow[];
   dateStamp: string;
   distDir?: string;
@@ -400,7 +403,7 @@ function renderPage(opts: {
       <span>${esc(copy.h1)}</span>
     </nav>
     <header class="s-sy52lX">
-      <p class="s-GMBtq0">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+      <p class="s-GMBtq0">${esc({ it: 'Pagina generata', en: 'Page generated', de: 'Seite erstellt', fr: 'Page générée' }[locale])}: ${esc(formatUpdatedDate(dateStamp, locale))}</p>
       <!-- Demoted from <h1> to <h2> in Phase 4C: hubChrome's hero already emits
            the page's primary <h1>, and Semrush W6 / Issue 104 flagged the
            comparisons + FAQ hubs for shipping two H1 tags. The longer
@@ -419,7 +422,7 @@ function renderPage(opts: {
     </section>
     <section class="s-KZc0LQ">
       <h2 class="s-UYLzwC">${esc(copy.tTaxCaption)}</h2>
-      <p class="s-KwuhOL">${esc(copy.taxIntro)}</p>
+      <p class="s-KwuhOL">${mdLinks(copy.taxIntro)}</p>
       ${taxTable}
     </section>
     <section class="s-KZc0LQ">
@@ -478,8 +481,6 @@ function renderPage(opts: {
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
     author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
@@ -562,7 +563,7 @@ function buildSitemapXml(entries: Array<{ canonical: string; alternates: string[
       const alts = alternates
         .map((a) => `    <xhtml:link rel="alternate" hreflang="${a.split('|')[0]}" href="${a.split('|').slice(1).join('|')}" />`)
         .join('\n');
-      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`;
+      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`;
     })
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;
@@ -670,7 +671,7 @@ export function comparisonsHubPlugin(rootDir: string): Plugin {
       const t0 = Date.now();
       const written = await collector.flush();
       console.log(
-        `\x1b[36m[comparisons-hub]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s · salary rows: ${salaryRows.length}, LAMal cantons: ${lamalRows.length}`,
+        `\x1b[36m[comparisons-hub]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s · salary rows: ${salaryRows?.length ?? 'unavailable'}, LAMal cantons: ${lamalRows.length}`,
       );
 
       // Always-run: comparisons-hub does NOT write into sitemap.xml index

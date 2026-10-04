@@ -166,6 +166,12 @@ describe('Locarno crawler — generic title guard', () => {
 });
 
 describe('Locarno crawler — date parsing', () => {
+  it('rejects invalid calendar dates and partial date strings', () => {
+    for (const raw of ['30.02.2025', '31.13.2025', '01.01.2025junk', 'prefix01.01.2025', '01.01.202']) {
+      expect(parseLocarnoDate(raw)).toBe('');
+    }
+  });
+
   it('parses dd.mm.yyyy format', () => {
     expect(parseLocarnoDate('13.03.2026')).toBe('2026-03-13');
   });
@@ -174,9 +180,8 @@ describe('Locarno crawler — date parsing', () => {
     expect(parseLocarnoDate('5.03.2026')).toBe('2026-03-05');
   });
 
-  it('returns today for empty input', () => {
-    const today = new Date().toISOString().split('T')[0];
-    expect(parseLocarnoDate('')).toBe(today);
+  it('leaves an empty source date unknown', () => {
+    expect(parseLocarnoDate('')).toBe('');
   });
 });
 

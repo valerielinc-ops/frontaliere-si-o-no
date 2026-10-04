@@ -42,7 +42,7 @@
 import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { appendFileSync, readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { classifyIssue, isFixerExempt } from '../lib/classify-issue.mjs';
 import {
@@ -89,9 +89,13 @@ import {
   hasUnterminatedMarkdownFence,
   countAggregateHeadingItems,
   followupItemMarkers,
+  isDailyBucketTitle,
   parseFollowupItems,
   selectFirstOpenItem,
 } from './followup-resolution-match.mjs';
+import { parseItemMarkers } from './lib/followup-item-evidence.mjs';
+import { decomposedChildNumbers, reopenedAfterDecomposition } from './lib/parent-close-recurrence.mjs';
+import { isTrustedAuthor } from './route-already-fixed.mjs';
 
 export {
   detectWorkflowScoped,
@@ -424,7 +428,9 @@ const LBL_FROM_DECOMP = 'from-decompose';
 const LBL_DECOMP_RETRIED = 'decompose-retried';
 const LBL_MAYBE_RESOLVED = 'maybe-resolved';
 const DECOMPOSE_ENABLED = process.env.DECOMPOSE_ENABLED !== 'false';
-const DECOMPOSED_INTO_RE = /<!--\s*DECOMPOSED_INTO:\s*((?:#?\d+[\s,]*)+)-->/i;
+// Il marker `DECOMPOSED_INTO` e il suo parse vivono in
+// `./lib/parent-close-recurrence.mjs` (`decomposedIntoNumbers`): la data della
+// decomposizione letta dalla guardia del PARENT-CLOSE usa la stessa regola.
 const PARENT_CLOSE_MAX_PER_RUN = intFromEnv('FOLLOWUP_PARENT_CLOSE_MAX_PER_RUN', 5);
 // `parent-dequeue` è una mutazione separata dal controllo `parent-close` che
 // segue. Il cap impedisce che un backlog di padri consumi tutta la finestra del
@@ -467,6 +473,69 @@ export function parentDequeueBudgetDecision({
     reserveMs,
     requiredMs,
   };
+}
+
+// Marker di idempotenza del commento `parent-dequeue`. Senza, ogni tick in cui
+// qualcuno RIMETTE `agent:fix*` su un padre decomposto produceva un commento
+// identico (misurato: 13 su 9443 e 13 su 9508 in 25 ore), e ogni commento
+// rinfresca `updatedAt`, che cooldown e age-out leggono. Il commento resta uno;
+// il riaccodamento diventa un segnale (`parent_dequeue_repeat`), non rumore.
+export const PARENT_DEQUEUED_MARKER = '<!-- PARENT_DEQUEUED -->';
+const PARENT_DEQUEUED_RE = /<!--\s*PARENT_DEQUEUED\s*-->/;
+
+/**
+ * Cosa fare del commento di un `parent-dequeue`. Pura → testabile.
+ * `null`/non-array = «non ho potuto leggere i commenti», che non è «non ce ne
+ * sono»: al buio non si commenta (un commento in più è proprio il difetto).
+ *
+ * @param {Array<{body?: string}>|null|undefined} comments
+ * @returns {'comment'|'repeat'|'unreadable'}
+ */
+export function parentDequeueCommentDecision(comments) {
+  if (!Array.isArray(comments)) return 'unreadable';
+  return comments.some((c) => PARENT_DEQUEUED_RE.test(String(c?.body || '')))
+    ? 'repeat'
+    : 'comment';
+}
+
+/**
+ * Esegue il dequeue di UN padre decomposto con I/O iniettato. La rimozione
+ * delle label è incondizionata (è la mutazione che conta); il commento si posta
+ * solo la prima volta. Marker già presente = qualcuno ha rimesso la label dopo
+ * un dequeue: niente commento, ma un `::warning::` che nomina la issue.
+ *
+ * @param {{number: number}} parent
+ * @param {{
+ *   readComments: (num: number) => Array<{body?: string}>|null,
+ *   postComment: (num: number, body: string) => void,
+ *   removeLabels: (num: number) => void,
+ *   body: string,
+ *   log?: (line: string) => void,
+ * }} io
+ * @returns {'comment'|'repeat'|'unreadable'}
+ */
+export function applyParentDequeue(parent, { readComments, postComment, removeLabels, body, log = console.log }) {
+  const num = parent.number;
+  let comments = null;
+  try {
+    comments = readComments(num);
+  } catch {
+    comments = null;
+  }
+  const decision = parentDequeueCommentDecision(comments);
+  if (decision === 'comment') {
+    try {
+      postComment(num, `${PARENT_DEQUEUED_MARKER}\n${body}`);
+    } catch (e) {
+      log(`::warning::parent-dequeue: comment #${num} fallito: ${String(e).slice(0, 120)}`);
+    }
+  } else if (decision === 'repeat') {
+    log(`::warning::parent-dequeue ripetuto #${num}: \`agent:fix\`/\`agent:fix-queued\` rimessa su un padre già tolto dalla coda — tolgo le label senza un altro commento; va corretto chi la rimette.`);
+  } else {
+    log(`::warning::parent-dequeue: commenti di #${num} non leggibili → nessun commento (label tolte comunque).`);
+  }
+  removeLabels(num);
+  return decision;
 }
 
 /**
@@ -525,25 +594,11 @@ export function isDecomposedParent(iss) {
   return names(iss).includes(LBL_DECOMPOSED);
 }
 
-/**
- * Numeri delle sub-issue dichiarate dall'ULTIMO marker `DECOMPOSED_INTO` nei
- * commenti (l'ultimo vince: una decomposizione corretta a mano sovrascrive la
- * precedente). Dedup, ordina, ignora garbage. Pura → testabile.
- * @param {Array<{body?: string}>} comments
- * @returns {number[]}
- */
-export function decomposedChildNumbers(comments) {
-  let nums = null;
-  for (const c of comments || []) {
-    const m = DECOMPOSED_INTO_RE.exec(String(c?.body || ''));
-    if (!m) continue;
-    const parsed = [...new Set(
-      (m[1].match(/\d+/g) || []).map(Number).filter((n) => Number.isInteger(n) && n > 0),
-    )].sort((a, b) => a - b);
-    if (parsed.length) nums = parsed;
-  }
-  return nums || [];
-}
+// `decomposedChildNumbers` (l'ULTIMO marker `DECOMPOSED_INTO` vince) vive in
+// `./lib/parent-close-recurrence.mjs` ed è ri-esportata qui per i chiamanti
+// esistenti: `decompose-route-check.mjs` la importa dal modulo puro senza
+// trascinare il grafo di import del drainer nel job `decompose`.
+export { decomposedChildNumbers };
 
 // Age-out close: il post-merge-followup apre 1 follow-up per PR mergiata e
 // NESSUN workflow le chiude mai → ratchet monotòno (osservate 41 aperte). Un
@@ -758,6 +813,102 @@ export function verdictExitDecision(outcome, { hasPR = false, noAutoclose = fals
       : { action: 'close', reason: 'already-fixed: difetto verificato assente' };
   }
   return { action: 'escalate', reason: `capacità/causa fuori dalla portata della CI: ${outcome}` };
+}
+
+// --- VERDETTO A GRANA ITEM SUI BUCKET GIORNALIERI ----------------------------
+// Su un bucket `follow-up(daily:…)` l'ultimo `FIX_OUTCOME` riguarda UN item, non
+// la issue. Quando `route-already-fixed.mjs` lo ha gia' scritto sull'item
+// (`FU_ITEM_EVIDENCE` / `FU_ITEM_BLOCKED` dopo il verdetto, `State: blocked` nel
+// corpo), rileggerlo come verdetto del bucket parcheggiava, flaggava
+// `maybe-resolved` o differiva l'INTERA issue, e gli item successivi non
+// venivano mai raggiunti: la issue 8334 portava `fu-attempt:3` + `fu-parked` +
+// `maybe-resolved` insieme, e 5 bucket giornalieri erano `fu-parked`.
+//
+// «Coperto» significa soltanto «non fermare il resto del bucket per questo
+// verdetto»: NON e' una prova di chiusura, e nessun ramo lo usa per chiudere.
+// `FU_ITEM_ATTEMPT` da solo non copre: registra il tentativo, non l'esito
+// sull'item. Senza marker di autore fidato DOPO il verdetto nulla cambia
+// (fail-closed): il verdetto vale per il bucket come prima.
+
+/** Commento GraphQL o REST nella forma che leggono `parseItemMarkers` e
+ * `isTrustedAuthor` (`createdAt`, `author.login`, `authorAssociation`). Su REST
+ * `user.type` e' autoritativo: un utente non-bot con un login da bot perde il
+ * login, e resta solo la sua associazione al repository. */
+function markerCommentShape(comment) {
+  const restType = comment?.user?.type;
+  const login = restType && String(restType).toLowerCase() !== 'bot'
+    ? ''
+    : (comment?.author?.login ?? comment?.user?.login ?? '');
+  return {
+    body: comment?.body,
+    createdAt: comment?.createdAt ?? comment?.created_at ?? null,
+    author: { login },
+    authorAssociation: comment?.authorAssociation ?? comment?.author_association ?? '',
+  };
+}
+
+/** Autore fidato per un marker `FU_ITEM_*`: lo stesso predicato con cui
+ * `route-already-fixed.mjs` legge i marker, esteso alla forma REST. */
+export function isTrustedMarkerAuthor(comment) {
+  return isTrustedAuthor(markerCommentShape(comment));
+}
+
+const ITEM_VERDICT_COVER_TYPES = new Set(['evidence', 'blocked']);
+
+/**
+ * Il verdetto dell'issue e se un marker d'item lo ha gia' consumato. Pura.
+ * - issue non giornaliera, nessun verdetto o nessun predicato di fiducia →
+ *   `covered: false` (l'ultimo `FIX_OUTCOME`, come `latestFixOutcomeFromComments`);
+ * - bucket giornaliero → `covered: true` se un commento di autore fidato
+ *   SUCCESSIVO al commento del verdetto (per `createdAt`; a parita' di secondo,
+ *   per posizione) porta `FU_ITEM_EVIDENCE` o `FU_ITEM_BLOCKED`, E il bucket ha
+ *   ancora un item `open` (`hasOpenItem`). Senza un item da lavorare «il resto
+ *   del bucket» non esiste: il verdetto torna a valere per la issue (park /
+ *   flag `maybe-resolved` come prima), invece di rimettere in coda un bucket
+ *   che il DRAIN salterebbe a ogni tick come `no-open-item`. `hasOpenItem`
+ *   assente → `false` (fail-closed).
+ *
+ * @param {Array<object>} comments forma GraphQL o REST
+ * @param {{isDailyBucket?: boolean, hasOpenItem?: boolean, isTrusted?: (comment: object) => boolean}} [options]
+ * @returns {{outcome: string|null, covered: boolean, marker: {type: string, item: string}|null}}
+ */
+export function bucketVerdictCoverage(comments, { isDailyBucket = false, hasOpenItem = false, isTrusted } = {}) {
+  const list = Array.isArray(comments) ? comments : [];
+  const latest = latestFixOutcomeEntryFromComments(list);
+  const uncovered = { outcome: latest.outcome, covered: false, marker: null };
+  if (!latest.outcome || !isDailyBucket || hasOpenItem !== true || typeof isTrusted !== 'function') return uncovered;
+  // Il commento del verdetto: l'ultimo con lo stesso esito e lo stesso istante,
+  // cioe' quello che `latestFixOutcomeEntryFromComments` sceglie (`>=`).
+  let verdictIndex = -1;
+  list.forEach((comment, index) => {
+    const entry = latestFixOutcomeEntryFromComments([comment]);
+    if (entry.outcome === latest.outcome && entry.at === latest.at) verdictIndex = index;
+  });
+  for (let index = 0; index < list.length; index++) {
+    const shaped = markerCommentShape(list[index]);
+    const at = Date.parse(String(shaped.createdAt ?? ''));
+    if (!Number.isFinite(at)) continue;
+    if (at < latest.at || (at === latest.at && index <= verdictIndex)) continue;
+    const marker = parseItemMarkers([shaped], { isTrusted })
+      .find((candidate) => ITEM_VERDICT_COVER_TYPES.has(candidate.type));
+    if (marker) return { outcome: latest.outcome, covered: true, marker: { type: marker.type, item: marker.item } };
+  }
+  return uncovered;
+}
+
+/**
+ * Verdetto con cui uno stadio decide se parcheggiare, differire, flaggare o
+ * saltare un'issue. Issue non giornaliera → l'ultimo `FIX_OUTCOME` (come
+ * prima); bucket giornaliero → `null` se il verdetto e' gia' scritto sull'item
+ * (vedi `bucketVerdictCoverage`), altrimenti l'ultimo `FIX_OUTCOME`. Pura.
+ *
+ * @param {Array<object>} comments forma GraphQL o REST
+ * @param {{isDailyBucket?: boolean, hasOpenItem?: boolean, isTrusted?: (comment: object) => boolean}} [options]
+ * @returns {string|null}
+ */
+export function effectiveIssueVerdict(comments, options = {}) {
+  const coverage = bucketVerdictCoverage(comments, options);
+  return coverage.covered ? null : coverage.outcome;
 }
 
 // Esiti ZERO-WORK: la run è morta PRIMA che l'agent leggesse la issue, quindi
@@ -1382,6 +1533,7 @@ const DATA_PENDING_RE = new RegExp([
   String.raw`\bnon\s+(?:e|è|e')\s+(?:ancora\s+)?valutabile\b`,
   String.raw`\bpost[-\s]merge\b[^.\n]{0,40}\bbaseline\b`,
 ].join('|'), 'i');
+const MARKDOWN_HEADING_LINE_RE = /^\s{0,3}#{1,6}\s/;
 
 /**
  * L'issue è ferma su un dato che non esiste ancora? Pura → testabile.
@@ -1391,6 +1543,16 @@ const DATA_PENDING_RE = new RegExp([
  * solo se copre l'issue INTERA — cioè se sta nel TITOLO (che descrive lo scope
  * complessivo: «(blocked, in attesa di dati…)»), oppure se l'issue non è
  * aggregata (`N items deferred` / `N item deferito/i` assente o N<=1).
+ *
+ * Un bucket giornaliero («follow-up(daily:…): N items — <repo>») è
+ * un'aggregata con un'altra grammatica del titolo: `AGGREGATE_ITEMS_RE` non lo
+ * riconosce, e letto come issue singola veniva scandito riga per riga —
+ * 10831 parcheggiata intera, 7 item `open` fermi. Un item del bucket che
+ * aspetta davvero un dato lo dichiara il suo `State: blocked`, non questa regex.
+ *
+ * Le righe di intestazione Markdown non si valutano: un titolo di sezione
+ * («### … Full-suite post-merge: report e baseline di performance») nomina un
+ * argomento, non dichiara un'attesa.
  * @param {string} title @param {string} body
  * @returns {string|null} la frase che ha fatto scattare il rilevamento
  */
@@ -1400,7 +1562,9 @@ export function detectDataPending(title, body) {
   if (titleHit) return t.trim().slice(0, 200);
   const m = AGGREGATE_ITEMS_RE.exec(t);
   if (m && Number(m[1]) > 1) return null; // aggregata: un bullet non parla per gli altri
+  if (isDailyBucketTitle(t)) return null; // bucket giornaliero: aggregata per costruzione
   for (const raw of String(body || '').split('\n')) {
+    if (MARKDOWN_HEADING_LINE_RE.test(raw)) continue;
     if (DATA_PENDING_RE.test(raw)) return raw.trim().slice(0, 200);
   }
   return null;
@@ -3437,6 +3601,64 @@ function latestFixOutcome(num) {
   return latestFixOutcomeFromComments(issueComments(num) || []);
 }
 
+// Bucket giornalieri DISTINTI il cui verdetto NON_RETRYABLE era gia' scritto
+// sull'item (vedi `bucketVerdictCoverage`): stampato a fine run come
+// `verdict_covered=<n>`. Un Set, non un contatore: lo stesso bucket passa da
+// VERDICT-EXIT e da parked-retry nello stesso tick.
+const verdictCoveredIssues = new Set();
+
+function noteVerdictCovered(iss, coverage, stage) {
+  verdictCoveredIssues.add(iss.number);
+  console.log(`${stage}: verdetto coperto da marker item (#${iss.number}, ${coverage.marker.item}) — \`${coverage.outcome}\` già scritto sull'item (${coverage.marker.type}), il bucket non si ferma su questo verdetto.`);
+}
+
+/** Opzioni di `bucketVerdictCoverage` per una riga di issue REST (con `body`). */
+function bucketCoverageOptions(iss) {
+  return {
+    isDailyBucket: isDailyBucketTitle(iss?.title || ''),
+    hasOpenItem: selectFirstOpenItem(iss?.body || '') !== null,
+    isTrusted: isTrustedMarkerAuthor,
+  };
+}
+
+/** Copertura del verdetto per uno stadio che parcheggia, differisce, flagga o
+ * salta. Logga e conta solo quando la regola cambia una decisione, cioe' su un
+ * verdetto NON_RETRYABLE coperto. Nessun ramo chiude su un verdetto coperto. */
+function stageVerdictCoverage(iss, comments, stage) {
+  const coverage = bucketVerdictCoverage(comments, bucketCoverageOptions(iss));
+  if (coverage.covered && NON_RETRYABLE.has(coverage.outcome)) noteVerdictCovered(iss, coverage, stage);
+  return coverage;
+}
+
+/** Rescue: il verdetto NON_RETRYABLE della promozione corrente e' gia' scritto
+ * sull'item del bucket? Commenti illeggibili → `false`, cioe' il park di prima
+ * (fail-closed). Una sola lettura in piu', e solo sui bucket giornalieri. */
+function rescueVerdictCovered(iss, outcome) {
+  const options = bucketCoverageOptions(iss);
+  if (!options.isDailyBucket || !options.hasOpenItem) return false;
+  const comments = issueComments(iss.number);
+  if (comments === null) return false;
+  const coverage = bucketVerdictCoverage(comments, options);
+  if (!coverage.covered || coverage.outcome !== outcome) return false;
+  noteVerdictCovered(iss, coverage, 'rescue');
+  return true;
+}
+
+/** Contatore `verdict_covered` nel log e nello step summary della run. */
+function reportVerdictCovered() {
+  const verdictCoveredCount = verdictCoveredIssues.size;
+  console.log(`verdict_covered=${verdictCoveredCount}`);
+  if (!process.env.GITHUB_STEP_SUMMARY) return;
+  try {
+    appendFileSync(
+      process.env.GITHUB_STEP_SUMMARY,
+      `### verdetti a grana item\n\n\`verdict_covered=${verdictCoveredCount}\` — bucket giornalieri non fermati da un verdetto già scritto sull'item (\`FU_ITEM_EVIDENCE\` / \`FU_ITEM_BLOCKED\`).\n\n`,
+    );
+  } catch (e) {
+    console.log(`verdict_covered: step summary non scrivibile (${String(e).slice(0, 120)})`);
+  }
+}
+
 /** Beacon di quota sulla issue (epoch di reset), o null. Best-effort. */
 function quotaResetsAt(num) {
   return maxQuotaResetsAt(issueComments(num) || []);
@@ -3512,6 +3734,7 @@ function main() {
     runDrain();
   } finally {
     budget.report();
+    reportVerdictCovered();
   }
 }
 
@@ -3727,8 +3950,10 @@ export function runDrain() {
     // `isDecomposedParent`). I filtri di RESCUE/DRAIN impediscono che ci
     // rientri, ma non tolgono la label a chi ci è già dentro: senza questo
     // passo #7340 & C. resterebbero `agent:fix` per sempre, invisibili a ogni
-    // altro strato. È una mutazione comment+edit, quindi ha lo stesso costo
-    // degli altri item e deve lasciare la capacità del PARENT-CLOSE.
+    // altro strato. È una mutazione read+comment+edit (la lettura dei commenti
+    // serve al marker di idempotenza; nel caso `repeat` il commento non parte),
+    // quindi ha lo stesso costo degli altri item e deve lasciare la capacità
+    // del PARENT-CLOSE.
     const parentDequeueCandidates = parents.filter(
       (x) => !hasActiveAgentClaim(x) && (has(x, LBL_FIX) || has(x, LBL_QUEUED)),
     );
@@ -3736,6 +3961,7 @@ export function runDrain() {
     if (parentDequeueCandidates.length > dequeueCap) {
       console.log(`parent-dequeue: cap ${PARENT_DEQUEUE_MAX_PER_RUN}/run raggiunto, ${parentDequeueCandidates.length - dequeueCap} rinviati al prossimo tick (no silent cap).`);
     }
+    const parentDequeueRepeats = [];
     for (let dequeueIndex = 0; dequeueIndex < dequeueCap; dequeueIndex += 1) {
       const p = parentDequeueCandidates[dequeueIndex];
       const budgetGate = parentDequeueBudgetDecision({
@@ -3759,14 +3985,28 @@ export function runDrain() {
         break;
       }
       if (DRY) { console.log(`[dry] parent-dequeue #${p.number}`); continue; }
+      const dequeueDecision = applyParentDequeue(p, {
+        readComments: issueComments,
+        postComment: (num, body) => gh(['issue', 'comment', String(num), '--repo', REPO, '--body', body], { json: false }),
+        removeLabels: (num) => edit(num, { remove: [LBL_FIX, LBL_QUEUED] }),
+        body: `⏭️ **Pre-flight drainer (zero-Claude): padre decomposto fuori dalla coda del fixer.** Lo scope di questa issue vive nelle sub-issue dichiarate da \`DECOMPOSED_INTO\`, che entrano in coda per conto loro; qui non resta lavoro proprio, e un run del fixer non potrebbe che terminare senza PR (o duplicare una figlia). Rimuovo \`agent:fix\`/\`agent:fix-queued\`. La issue **resta aperta**: la chiude il PARENT-CLOSE quando tutte le figlie sono chiuse.`,
+      });
+      if (dequeueDecision === 'repeat') parentDequeueRepeats.push(p.number);
+      console.log(`PARENT-DEQUEUE #${p.number} (decomposed:1, lavoro delegato alle figlie; commento: ${dequeueDecision}) — "${p.title?.slice(0, 50)}"`);
+    }
+    // Contatore stampato a ogni giro non-DRY che ha candidati (anche a 0): è la misura
+    // del riaccodamento residuo, cioè di chi rimette la label su un padre già
+    // tolto dalla coda.
+    if (dequeueCap > 0 && !DRY) console.log(`parent_dequeue_repeat=${parentDequeueRepeats.length}`);
+    if (parentDequeueRepeats.length > 0 && process.env.GITHUB_STEP_SUMMARY) {
       try {
-        gh(['issue', 'comment', String(p.number), '--repo', REPO, '--body',
-          `⏭️ **Pre-flight drainer (zero-Claude): padre decomposto fuori dalla coda del fixer.** Lo scope di questa issue vive nelle sub-issue dichiarate da \`DECOMPOSED_INTO\`, che entrano in coda per conto loro; qui non resta lavoro proprio, e un run del fixer non potrebbe che terminare senza PR (o duplicare una figlia). Rimuovo \`agent:fix\`/\`agent:fix-queued\`. La issue **resta aperta**: la chiude il PARENT-CLOSE quando tutte le figlie sono chiuse.`], { json: false });
+        appendFileSync(
+          process.env.GITHUB_STEP_SUMMARY,
+          `### parent-dequeue ripetuto\n\n\`parent_dequeue_repeat=${parentDequeueRepeats.length}\` — ${parentDequeueRepeats.map((n) => `#${n}`).join(', ')}: \`agent:fix\`/\`agent:fix-queued\` rimessa su un padre decomposto già tolto dalla coda.\n\n`,
+        );
       } catch (e) {
-        console.log(`::warning::parent-dequeue: comment #${p.number} fallito: ${String(e).slice(0, 120)}`);
+        console.log(`parent-dequeue: step summary non scrivibile (${String(e).slice(0, 120)})`);
       }
-      edit(p.number, { remove: [LBL_FIX, LBL_QUEUED] });
-      console.log(`PARENT-DEQUEUE #${p.number} (decomposed:1, lavoro delegato alle figlie) — "${p.title?.slice(0, 50)}"`);
     }
     // Il cap di questo stadio conta le ESAMINATE, non le azioni — a differenza
     // di age-out (`slice` su candidate già filtrate), verdict-exit (`attempted`) e
@@ -3801,8 +4041,19 @@ export function runDrain() {
         if (!budget.take(`#${p.number} (parent-close)`, ITEM_COST_MS)) break;
         examined++;
         lastExaminedCursor = String(p.number);
-        const kids = decomposedChildNumbers(issueComments(p.number) || []);
+        const comments = issueComments(p.number) || [];
+        const kids = decomposedChildNumbers(comments);
         if (!kids.length) continue; // marker assente/illeggibile → nessuna decisione
+        // Un monitor (github-issue-creator, `🔁 **Reopened**`) che ha riaperto
+        // il padre DOPO la decomposizione ha detto che la condizione è tornata:
+        // le figlie chiuse non lo smentiscono, e richiuderlo qui produceva il
+        // ping-pong chiusura/riapertura di #5661. La chiusura spetta al closer
+        // del monitor; una decomposizione rifatta dopo ridà l'autorità a questo
+        // stadio. Prima delle view di stato delle figlie: non costa letture.
+        if (reopenedAfterDecomposition(comments)) {
+          console.log(`PARENT-CLOSE-SKIP #${p.number} (riaperta da un monitor dopo la decomposizione: la chiude il suo closer)`);
+          continue;
+        }
         let allClosed = true;
         for (const k of kids) {
           try {
@@ -3983,6 +4234,12 @@ export function runDrain() {
         continue;
       }
 
+      // Bucket giornaliero il cui verdetto e' gia' scritto sull'item: niente
+      // flag `maybe-resolved` ne' defer dell'intera issue. Resta parked e il
+      // parked-retry la rimette in coda per l'item successivo. Il ramo UNPARK
+      // sopra legge invece il verdetto GREZZO: un verdetto coperto c'e' stato,
+      // non e' «nessun tentativo reale».
+      if (stageVerdictCoverage(iss, comments, 'verdict-exit').covered) continue;
       const d = verdictExitDecision(outcome, {
         hasPR: hasFixPR(iss.number),
         noAutoclose: VERDICT_EXIT_NO_AUTOCLOSE,
@@ -4217,7 +4474,11 @@ export function runDrain() {
       // commenti sono già in mano da `issueCommentsRest`, e da quando
       // `latestFixOutcomeFromComments` accetta anche la forma REST li legge
       // davvero — prima, su una lista REST, restituiva `null` sempre.
-      const parkedVerdict = latestFixOutcomeFromComments(comments);
+      // Su un bucket giornaliero il verdetto gia' scritto sull'item non vale
+      // per la issue (`effectiveIssueVerdict`): il bucket rientra per l'item
+      // successivo, con cooldown e tetti invariati.
+      const parkedCoverage = stageVerdictCoverage(iss, comments, 'parked-retry');
+      const parkedVerdict = parkedCoverage.covered ? null : parkedCoverage.outcome;
       if (parkedVerdict && NON_RETRYABLE.has(parkedVerdict)) { verdictSkipped++; continue; }
       if (!isRetryCooldownElapsed(iss, comments, { now, cooldownDays: cdDays })) continue;
       eligible.push({ iss, at: lastSignificantActivityAt(iss, comments) });
@@ -4571,9 +4832,16 @@ export function runDrain() {
       }
     }
     if (outcome && NON_RETRYABLE.has(outcome)) {
-      console.log(`PARK #${iss.number} (esito non-ri-tentabile: ${outcome}) → no re-queue, evito run identica`);
-      edit(iss.number, { add: [LBL_PARKED], remove: [LBL_FIX, LBL_QUEUED] });
-      continue;
+      // Bucket giornaliero con il verdetto gia' scritto sull'item: di norma
+      // `route-already-fixed.mjs` lo ha gia' rimesso in coda, e qui arriva solo
+      // se quella edit delle label e' fallita. Niente park dell'intera issue:
+      // si prosegue verso il ramo età-tentativi qui sotto, che ri-accoda
+      // consumando un tentativo (MAX_ATTEMPTS invariato, bound conservato).
+      if (!rescueVerdictCovered(iss, outcome)) {
+        console.log(`PARK #${iss.number} (esito non-ri-tentabile: ${outcome}) → no re-queue, evito run identica`);
+        edit(iss.number, { add: [LBL_PARKED], remove: [LBL_FIX, LBL_QUEUED] });
+        continue;
+      }
     }
     if (outcome && DELIVERED.has(outcome)) {
       // Run conclusa CON una PR, e quella PR è stata MERGIATA in questo ciclo.

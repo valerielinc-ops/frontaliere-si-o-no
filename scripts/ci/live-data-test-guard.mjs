@@ -163,52 +163,17 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/article-body-wordcount.test.ts', roots: ['services/locales/'] },
   { file: 'tests/article-fabrication-guard.test.ts', roots: ['services/locales/'] },
   { file: 'tests/article-frontaliere-density.test.ts', roots: ['services/locales/'] },
-  { file: 'tests/article-hub-archive-assets.test.ts', roots: ['packages/articles/'] },
-  { file: 'tests/article-hub-topics-nav.test.ts', roots: ['services/locales/'] },
-  // Not pipeline-live: `article-reviewed-by.json` is a hand-edited map that
-  // no script/crawler ever writes (verified: `rg -n "article-reviewed-by"`
-  // outside this test hits only the loader's own doc comment and
-  // `ogPagesPlugin.ts`'s `readFileSync` call — no writer anywhere). The
-  // segment heuristic still fires because it generalizes any
-  // `'packages','articles',...` sequence to the `packages/articles/` root
-  // (see LIVE_DATA_SEGMENTS comment), which also covers this unrelated
-  // subtree. The file's first test asserts the REAL checked-in map starts at
-  // `{}` (issue #6337: no article may claim a fabricated review signal) —
-  // that guarantee is about the shipped file itself, so pinning to
-  // `tests/__fixtures__/` would test a copy instead of the guarantee.
-  { file: 'tests/articles-sync-pin.test.ts', roots: ['packages/articles/content/'] },
+  // `runtime`: il percorso vivo e' costruito su `rootDir`, un alias della root
+  // del checkout, e il file crea anche cartelle temporanee: a solo testo ha la
+  // forma di una fixture. Traccia del 2026-10-03: sonda
+  // `services/locales/blog-meta-it.ts` e `blog-meta-ch-it.ts` e sul corpus
+  // esegue i casi che senza corpus salta.
+  { file: 'tests/article-hub-topics-nav.test.ts', roots: ['services/locales/'], runtime: true },
   // Reaches the live article corpus transitively through create-article.mjs.
   // The source scanner intentionally does not execute imported modules while
   // building the inventory, so this dependency stays explicit.
   { file: 'tests/evergreen-pool-consumption.test.ts', roots: ['packages/articles/content/'], transitive: true },
-  { file: 'tests/build-emit-skip-gate.test.ts', roots: ['packages/articles/'] },
-  { file: 'tests/company-alert.test.ts', roots: ['services/locales/'] },
-  // Corpus genuinely the subject: this tax regression checks that the
-  // audience-facing 2026 IRPEF copy in the shipped locale bundles stays in
-  // sync with the calculator brackets. A fixture would miss a translation
-  // pipeline rewrite that reintroduced the old 35% wording.
-  { file: 'tests/irpef-brackets-2026.test.ts', roots: ['services/locales/'] },
-  // Corpus genuinely the subject: 'translates the arm copy in all four
-  // locales' checks that the jobgate-v3 arm copy keys (similar_alerts,
-  // email_first) are present in the SHIPPED it/en/de/fr locale bundles, not
-  // just referenced in code. The keys are consumed by JobBoard.tsx via the
-  // translation lookup, so a missing key in one locale is a real production
-  // gap (untranslated/blank copy for that audience) that only a read of the
-  // live locale source can catch — a pinned fixture would only prove the
-  // fixture still has the keys, not that the translation pipeline hasn't
-  // dropped one. Same reasoning as signup-prompt-funnel.test.ts below.
-  { file: 'tests/jobgate-v3-experiment.test.ts', roots: ['services/locales/'] },
-  // Corpus genuinely the subject: this funnel contract checks that the
-  // shipped locale bundles expose the follow-specific copy in all four
-  // supported locales. A fixture would only prove the fixture, not that the
-  // production translations still carry the keys used by the modal.
-  { file: 'tests/signup-prompt-funnel.test.ts', roots: ['services/locales/'] },
   { file: 'tests/corpus-wide-test-partition.test.ts', roots: ['data/jobs/', 'packages/articles/content/'] },
-  // This regression verifies that the pipeline-produced locale source keeps
-  // the four follow-signup keys required by the shared modal. The generated
-  // locale files are intentionally the subject of the assertion, so pinning
-  // a fixture would hide a missing key from the shipped source.
-  { file: 'tests/signup-prompt-funnel.test.ts', roots: ['services/locales/'] },
   // Corpus genuinely the subject: this negative production invariant verifies
   // that the three poisoned learned specs retired by #7001 stay absent from
   // the live prospector registry. A fixture would not catch their resurrection.
@@ -224,23 +189,12 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   // production slices. New cross-job ownership or empty-bucket regrowth is the
   // data event this test is intentionally meant to surface.
   { file: 'tests/decontaminate-prev-slugs-live-regression.test.ts', roots: ['data/jobs/'] },
-  { file: 'tests/dist-hash-manifest-deploy-perimeter.test.ts', roots: ['data/jobs.json'] },
   { file: 'tests/edge-retired-paths.test.ts', roots: ['packages/articles/content/'] },
-  // Corpus genuinely the subject: the archive observer verifies that every
-  // committed expired entry remains sortable before the cap is applied.
-  { file: 'tests/git-commit-data-append-only-sets.test.ts', roots: ['data/jobs/'] },
-  { file: 'tests/git-commit-data-grouped-isolation.test.ts', roots: ['data/jobs/'] },
-  { file: 'tests/git-commit-data-slice-scoping.test.ts', roots: ['data/jobs-crawler-summaries/', 'data/jobs/'] },
   { file: 'tests/google-news-compliance.test.ts', roots: ['services/locales/'] },
-  { file: 'tests/i18n-completeness.test.ts', roots: ['services/locales/'] },
   // Reads the assembled live jobs corpus; its rate changes with crawler
   // output, so it is not a deterministic PR gate.
   { file: 'tests/job-locale-consistency.test.ts', roots: ['data/jobs/'], transitive: true },
-  { file: 'tests/job-locale-mark-persistence.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/news-ticker-data.test.ts', roots: ['packages/articles/'] },
-  // Corpus genuinely the subject: #8205's regression guard reads the checked-in
-  // locale source to verify every audience-facing newsletter title stays neutral.
-  { file: 'tests/newsletter-title-neutrality.test.ts', roots: ['services/locales/'] },
   { file: 'tests/packages-articles-confinement.test.ts', roots: ['packages/articles/'] },
   // Corpus genuinely the subject: the rejection CLI guard asserts that its
   // terminal transition never mutates the committed candidate registry.
@@ -250,18 +204,12 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   // recoverable owner as jobs move between lifecycle states.
   { file: 'tests/ipersonal-route-recovery-7045-live.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/sitemap-slug-integrity.test.ts', roots: ['data/jobs.json'] },
-  { file: 'tests/slug-active-loss-regression-5229.test.ts', roots: ['data/jobs/'] },
-  // Corpus genuinely the subject, not a lazy read: the 'description-field
-  // corpus sweep (issue #6393)' describe block (read in full — the two `it`s
-  // at the file's tail) iterates `data/jobs/by-crawler/*.json` to assert
-  // `sanitizeSuccessFactorsField` has never wiped a live description to ''
-  // and no live description still contains widget chrome. That's the same
-  // shape as `crawler-regression-quality-guards.test.ts`'s "CORPUS INVARIANT"
-  // test above (also `data/jobs/by-crawler/`, also already in this list): a
-  // regression anchor on the PUBLISHED corpus, where a red from new data is
-  // the intended signal, not noise. Pinning it to a fixture would stop it
-  // from ever catching a real production wipe.
-  { file: 'tests/weekly-employers.test.ts', roots: ['services/locales/'] },
+  // La radice dichiarata era `services/locales/`, ma i quattro chunk
+  // `*-weekly-employers.ts` che il file nomina sono codice. Il dato vivo arriva
+  // da un import: `build-plugins/shared/companyHubFrontalierContext.ts` carica
+  // `public/data/fuel-prices.json` (traccia del 2026-10-03: senza quel file il
+  // modulo non si importa nemmeno).
+  { file: 'tests/weekly-employers.test.ts', roots: ['public/data/'], transitive: true },
 
   // ══════════════════════════════════════════════════════════════════════
   // CENSIMENTO 2026-09-19 — misurato, non dedotto.
@@ -401,6 +349,45 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     roots: [],
     reason: 'nessuna lettura viva misurata a runtime (traccia fs + moduli + processi figli, suite intera, 2026-09-19)',
   })),
+  // ─── 2026-10-03: usciti dall'inventario, tornano nel gate delle PR.
+  //
+  // Stavano in KNOWN_LIVE_DATA_TESTS dal 2026-08-21 perche' lo scanner testuale
+  // li segnala, e nessuno di loro legge un dato vivo. Il costo l'ha mostrato
+  // `live-data-gates.yml`: rosso per giorni su difetti di CODICE che il merge
+  // non aveva fermato, perche' questi file non giravano sulle PR (issue #9453).
+  //
+  // Prova, per ognuno: traccia a runtime (hook su `fs` sync e promises
+  // precaricato con `--require` nel processo vitest, nei worker e nei processi
+  // figli) in un worktree sparse dove `data/jobs/`, `data/jobs.json`,
+  // `data/prospector/`, `public/data/` e `packages/articles/content/` NON sono
+  // sul disco. Tutti verdi, zero accessi (nemmeno `existsSync`) a una radice
+  // viva: un test che passa senza il dato e non lo cerca non puo' dipenderne.
+  ...[
+    ['tests/articles-sync-pin.test.ts', ['packages/articles/content/'], 'packages/articles/content e` creato dentro due cartelle mkdtemp (il finto mirror e il finto checkout del sito); dal checkout si leggono i due script di pull e il workflow sync-articles-sitemaps.yml'],
+    ['tests/dist-hash-manifest-deploy-perimeter.test.ts', ['data/jobs.json'], 'data/jobs.json e` un file sintetico scritto in una cartella mkdtemp e un nome atteso nel perimetro; nessuna lettura dal checkout'],
+    ['tests/git-commit-data-append-only-sets.test.ts', ['data/jobs/', 'data/seo-404-compat/'], 'ogni slice vive in repository git creati sotto os.tmpdir(); dal checkout si legge solo lo script sotto test'],
+    ['tests/git-commit-data-grouped-isolation.test.ts', ['data/jobs/'], 'ogni slice vive in repository git creati sotto os.tmpdir(); dal checkout si legge solo lo script sotto test'],
+    ['tests/git-commit-data-slice-scoping.test.ts', ['data/jobs-crawler-summaries/', 'data/jobs/'], 'ogni slice vive in repository git creati sotto os.tmpdir(); dal checkout si legge solo lo script sotto test'],
+    ['tests/job-locale-mark-persistence.test.ts', ['data/jobs/'], 'la variabile root e` una cartella temporanea: le slice by-crawler sono fixture scritte dal test stesso'],
+    ['tests/slug-active-loss-regression-5229.test.ts', ['data/jobs/'], 'data/jobs/by-crawler/banca-cler.json e` il path relativo di una slice scritta in un repository temporaneo'],
+    // Sorgenti del package, non corpus: `packages/articles/engine/` cambia solo
+    // con una PR. Lo scanner generalizza la sequenza `'packages','articles'` alla
+    // radice `packages/articles/`, che copre anche questo sottoalbero.
+    ['tests/article-hub-archive-assets.test.ts', ['packages/articles/'], 'legge il sorgente packages/articles/engine/articleHubPagesPlugin.ts, codice del package e non corpus'],
+    ['tests/build-emit-skip-gate.test.ts', ['packages/articles/'], 'legge il sorgente packages/articles/engine/ogPagesPlugin.ts, codice del package e non corpus'],
+    // Chunk di interfaccia `services/locales/{it,en,de,fr}-<chunk>.ts`: sono
+    // sotto la radice `services/locales/` ma non sono dato vivo. Misura del
+    // 2026-10-03 sulla storia di `origin/main`, 120 giorni: zero commit diretti
+    // di un bot su quei file (l'unico commit senza PR e' umano, del 2026-07-01);
+    // a essere riscritti da soli sono `blog-meta-*` e `blog-body*`, symlink
+    // verso `packages/articles/content/`. Una chiave mancante in un chunk e' un
+    // difetto della PR che la introduce, ed e' li' che va fermata.
+    ['tests/company-alert.test.ts', ['services/locales/'], 'legge i quattro chunk {locale}-core.ts (traccia: 4 letture, tutte chunk di interfaccia), mai blog-meta o blog-body'],
+    ['tests/irpef-brackets-2026.test.ts', ['services/locales/'], 'legge i chunk {locale}-core.ts e {locale}-stats.ts (traccia: 8 letture, tutte chunk di interfaccia), mai blog-meta o blog-body'],
+    ['tests/jobgate-v3-experiment.test.ts', ['services/locales/'], 'legge i quattro chunk {locale}-core.ts (traccia: 4 letture, tutte chunk di interfaccia), mai blog-meta o blog-body'],
+    ['tests/newsletter-title-neutrality.test.ts', ['services/locales/'], 'legge i quattro chunk {locale}-core.ts (traccia: 4 letture, tutte chunk di interfaccia), mai blog-meta o blog-body'],
+    ['tests/signup-prompt-funnel.test.ts', ['services/locales/'], 'legge i quattro chunk {locale}-core.ts (traccia: 4 letture, tutte chunk di interfaccia), mai blog-meta o blog-body'],
+  ].map(([file, roots, reason]) => ({ file, roots, reason, since: '2026-10-03', evidence: 'trace' })),
   {
     file: 'tests/ci-vitest-check-name.test.ts',
     roots: ['data/jobs/'],
@@ -460,6 +447,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     file: 'tests/scripts/verified-shrink-with-additions.test.ts',
     roots: ['data/jobs/'],
     reason: 'data/jobs/by-crawler is only the anchor of a crawler key relative to the real slice directory: the slice, the housekeeping proofs and every write live in a mkdtemp directory under os.tmpdir(), and the test aborts if the resolved path escapes it',
+  },
+  {
+    file: 'tests/translation-stats-honest-reporting.test.ts',
+    roots: ['data/jobs/'],
+    reason: 'data/jobs/by-crawler e` creato dentro un mkdtemp sotto os.tmpdir() e passato a log-translation-stats.mjs con TRANSLATION_STATS_ROOT; la storia e il sidecar della coorte nascono nella stessa cartella temporanea. Dal checkout si legge solo lo script sotto test (#11286)',
   },
   {
     file: 'tests/job-board-seo-titles.test.ts',
@@ -547,6 +539,21 @@ export const LIVE_DATA_PARTIAL_TESTS = Object.freeze([
   { file: "tests/schweizerhof-flims-crawler.test.ts", roots: ["data/prospector/"], since: "2026-09-30", evidence: "replay", runtime: true },
   { file: "tests/prospector-spec-pagination.test.ts", roots: ["data/prospector/"], since: "2026-09-30", evidence: "replay", runtime: true },
   { file: "tests/pharmacy-geneva-release.test.ts", roots: ["data/pharmacy-duties-geneva.json", "data/pharmacy-duties-geneva-status.json"], since: "2026-09-30", evidence: "replay", runtime: true },
+  // ─── 2026-10-03. Era un'esclusione INTERA dal 2026-08-21, e conteneva due
+  // soggetti diversi. La parte di CODICE (le chiamate `t()` contro i chunk di
+  // interfaccia `{locale}-<chunk>.ts`) torna nel gate delle PR: una chiave usata
+  // e non tradotta deve fermare la PR che la introduce. La parte di CORPUS
+  // (`blog-meta-*`, `blog-body*` e gli altri symlink verso
+  // `packages/articles/content/`) si legge solo dove `SKIP_LIVE_DATA` e' falso.
+  // Traccia del 2026-10-03 con `VITEST_SKIP_LIVE_DATA=true`: zero accessi a
+  // `services/locales/blog-*` e a `packages/articles/content/`.
+  { file: "tests/i18n-completeness.test.ts", roots: ["services/locales/"], since: "2026-10-03", evidence: "trace", runtime: true, movedFromFullExclusion: true },
+  // ─── 2026-10-04. Il produttore dei verdetti L6 legge l'elenco articoli con
+  // una regex: il corpus E' il soggetto del solo caso vivo (la regex legge
+  // tante voci quante un conteggio indipendente di `blog-articles-data.ts`,
+  // nessun conteggio letterale). Tutti gli altri casi usano fixture e restano
+  // nel gate delle PR.
+  { file: "tests/loop-l6-source-verdict-producer.test.ts", roots: ["packages/articles/content/"], since: "2026-10-04", evidence: "review", runtime: true },
 ]);
 
 /**
@@ -693,15 +700,120 @@ export function scanLiveDataTests(root = ROOT) {
     try { src = fs.readFileSync(path.join(dir, f), 'utf8'); } catch { continue; }
     const code = stripComments(src);
     if (!ROOT_ANCHOR_RE.test(code)) continue;
-    const roots = LIVE_DATA_ROOTS.filter((r) => code.includes(`'${r}`) || code.includes(`\`${r}`) || code.includes(`"${r}`));
-    for (const segs of LIVE_DATA_SEGMENTS) {
-      if (!segmentSequenceRegex(segs).test(code)) continue;
-      const asRoot = `${segs.join('/')}/`;
-      if (!roots.some((r) => r.startsWith(asRoot) || asRoot.startsWith(r))) roots.push(asRoot);
-    }
-    if (roots.length) out.push({ file: rel, roots: roots.sort() });
+    const roots = liveRootsInCode(code);
+    if (roots.length) out.push({ file: rel, roots });
   }
   return out;
+}
+
+/**
+ * Le radici vive di un sorgente di test, con la stessa regola dello scanner.
+ *
+ * @param {string} code sorgente gia' passato da `stripComments`
+ * @returns {string[]}
+ */
+function liveRootsInCode(code) {
+  const roots = LIVE_DATA_ROOTS.filter((r) => code.includes(`'${r}`) || code.includes(`\`${r}`) || code.includes(`"${r}`));
+  for (const segs of LIVE_DATA_SEGMENTS) {
+    if (!segmentSequenceRegex(segs).test(code)) continue;
+    const asRoot = `${segs.join('/')}/`;
+    if (!roots.some((r) => r.startsWith(asRoot) || asRoot.startsWith(r))) roots.push(asRoot);
+  }
+  return roots.sort();
+}
+
+/** Un riferimento alla root del checkout: `ROOT`, `PROJECT_ROOT`, `__dirname`… */
+const CHECKOUT_ANCHOR_RE = /\b[A-Z_]*ROOT\b|__dirname|import\.meta|process\.cwd\(\)/;
+
+/**
+ * Il verso OPPOSTO del guard: un test che NON legge dati vivi non puo' stare
+ * nell'inventario.
+ *
+ * Il guard nasce per impedire che un test su dati vivi entri nel gate delle
+ * PR. L'errore speculare costa uguale e non lo guardava nessuno: un test di
+ * CODICE finito nell'inventario esce dal gate, la regressione passa il merge e
+ * ricompare solo nel monitor giornaliero, dentro un'unica issue che nessun
+ * fixer possiede. Misurato il 2026-10-03 (issue #9453): `live-data-gates.yml`
+ * rosso da giorni su un parser di chiavi i18n rotto e su un'asserzione sul
+ * testo di un workflow superata da una modifica al workflow — nessuno dei due
+ * era un difetto di dato. Quattordici file dell'inventario del 2026-08-21 non
+ * leggevano alcun dato vivo: c'erano perche' lo scanner testuale li segnala.
+ *
+ * Tre forme, tutte ricavate da quei quattordici e decidibili dal solo testo:
+ *
+ * - `ui-locale-chunks`: l'unica radice e' `services/locales/` e il file non
+ *   nomina mai `blog-meta`/`blog-body`. I chunk `{locale}-<chunk>.ts` cambiano
+ *   solo con una PR; il dato vivo sotto quella radice sono i symlink `blog-*`.
+ * - `package-engine-source`: l'unica radice e' `packages/articles/` e ogni
+ *   sequenza `'packages','articles'` prosegue con `'engine'`, cioe' col codice
+ *   del package e non col corpus in `content/`.
+ * - `temp-fixture`: il file crea una cartella temporanea e nessuna riga che
+ *   nomina una radice viva tocca la root del checkout (ne' direttamente ne'
+ *   con una costante assegnata da essa): il percorso «vivo» e' una fixture
+ *   scritta dal test.
+ *
+ * Valgono solo per le voci giustificate dal TESTO. Una voce `runtime` o
+ * `transitive` dichiara una lettura che il testo non mostra (un import, un
+ * processo figlio) ed e' quella la via d'uscita quando una di queste forme
+ * inganna: la si marca, scrivendo accanto cosa ha misurato la traccia.
+ *
+ * @param {string} [root]
+ * @param {ReadonlyArray<{ file: string, runtime?: boolean, transitive?: boolean }>} [inventory]
+ * @returns {{ file: string, shape: string }[]}
+ */
+export function findInventoryEntriesWithoutLiveRead(root = ROOT, inventory = KNOWN_LIVE_DATA_TESTS) {
+  const out = [];
+  const seen = new Set();
+  for (const entry of inventory) {
+    if (entry.runtime || entry.transitive || seen.has(entry.file)) continue;
+    seen.add(entry.file);
+    let src = '';
+    try { src = fs.readFileSync(path.join(root, entry.file), 'utf8'); } catch { continue; }
+    const shape = codeOnlyShape(stripComments(src));
+    if (shape) out.push({ file: entry.file, shape });
+  }
+  return out.sort((a, b) => a.file.localeCompare(b.file));
+}
+
+/**
+ * @param {string} code sorgente gia' passato da `stripComments`
+ * @returns {'ui-locale-chunks' | 'package-engine-source' | 'temp-fixture' | null}
+ */
+export function codeOnlyShape(code) {
+  const roots = liveRootsInCode(code);
+  if (roots.length === 0) return null;
+
+  if (roots.every((r) => r === 'services/locales/') && !/blog-(?:meta|body)/.test(code)) {
+    return 'ui-locale-chunks';
+  }
+
+  if (roots.every((r) => r === 'packages/articles/')) {
+    const pkg = segmentSequenceRegex(['packages', 'articles']);
+    const everySequence = new RegExp(pkg.source, 'g');
+    const toEngine = new RegExp(`${pkg.source}\\s*,\\s*['\`"]engine['\`"]`, 'g');
+    const all = code.match(everySequence) || [];
+    const engine = code.match(toEngine) || [];
+    if (all.length > 0 && all.length === engine.length) return 'package-engine-source';
+  }
+
+  if (/\bmkdtemp(?:Sync)?\s*\(|\btmpdir\s*\(/.test(code)) {
+    const lines = code.split('\n');
+    // Una costante assegnata dalla root del checkout la porta con se':
+    // `const rootDir = resolve(__dirname, '..')` rende `rootDir` un'ancora.
+    const aliases = [];
+    for (const line of lines) {
+      const m = line.match(/\b(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=(.*)$/);
+      if (m && CHECKOUT_ANCHOR_RE.test(m[2])) aliases.push(m[1]);
+    }
+    const aliasRe = aliases.length
+      ? new RegExp(`\\b(?:${aliases.map((a) => a.replace(/[$]/g, '\\$&')).join('|')})\\b`)
+      : null;
+    const mentionLines = lines.filter((line) => liveRootsInCode(line).length > 0);
+    const anchored = mentionLines.some((line) => CHECKOUT_ANCHOR_RE.test(line) || (aliasRe && aliasRe.test(line)));
+    if (mentionLines.length > 0 && !anchored) return 'temp-fixture';
+  }
+
+  return null;
 }
 
 /**

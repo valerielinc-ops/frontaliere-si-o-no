@@ -1,20 +1,18 @@
 {
   "key": "delvitech-sa",
   "label": "Delvitech SA",
-  "generatedAt": "2026-10-03T09:25:33.093Z",
-  "total": 9,
+  "generatedAt": "2026-10-04T09:24:15.577Z",
+  "total": 10,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
-  "newCount": 2,
+  "newCount": 3,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 32732,
-  "avgDurationMs": 32732,
+  "durationMs": 24569,
+  "avgDurationMs": 24569,
   "durationHistory": [
-    35389,
-    37067,
-    32732
+    24569
   ],
   "newJobs": [
     {
@@ -35,17 +33,19 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
       "contactEmail": "career@delvi.tech",
-      "_qualityScore": 67,
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 4,
-        "completeness": 14
+        "completeness": 12
       }
     },
     {
@@ -66,17 +66,52 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
       "contactEmail": "career@delvi.tech",
-      "_qualityScore": 67,
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 4,
-        "completeness": 14
+        "completeness": 12
+      }
+    },
+    {
+      "title": "Customer Support Manager",
+      "slug": "customer-support-manager-delvitech-mendrisio",
+      "url": "https://legacy.delvi.tech/customer-support-manager/",
+      "applyUrl": "https://legacy.delvi.tech/customer-support-manager/",
+      "company": "Delvitech SA",
+      "companyKey": "delvitech-sa",
+      "companyDomain": "delvi.tech",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Tecnologia & IT",
+      "source": "delvitech-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "contactEmail": "career@delvi.tech",
+      "_qualityScore": 65,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 12
       }
     }
   ],
@@ -99,7 +134,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -111,12 +146,14 @@
       "firstSeenAt": "2026-07-08T11:42:12.605Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://legacy.delvi.tech/application-engineer-2",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -137,7 +174,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -149,12 +186,14 @@
       "firstSeenAt": "2026-07-08T11:42:12.605Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://legacy.delvi.tech/back-office-specialist",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -175,7 +214,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -187,12 +226,14 @@
       "firstSeenAt": "2026-07-08T11:42:12.605Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://legacy.delvi.tech/junior-project-manager",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -213,7 +254,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -225,12 +266,14 @@
       "firstSeenAt": "2026-07-08T11:42:12.605Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://legacy.delvi.tech/front-end-sw-engineer",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -251,7 +294,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -263,12 +306,14 @@
       "firstSeenAt": "2026-07-08T11:42:12.605Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://legacy.delvi.tech/firmware-embedded-developer",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -289,7 +334,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -301,12 +346,14 @@
       "firstSeenAt": "2026-07-08T11:42:12.605Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://legacy.delvi.tech/devops-engineer-2",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -327,7 +374,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -339,15 +386,18 @@
       "firstSeenAt": "2026-07-08T11:42:12.605Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://legacy.delvi.tech/e2e-test-engineer",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }
