@@ -1,4 +1,5 @@
 import { decode as decodeHTML } from 'html-entities';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * EMS-Chemie AG — job parser
@@ -473,7 +474,7 @@ export function buildJob(raw) {
     description,
     descriptionByLocale: { [sourceLang]: description },
     sourceLang,
-    postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(raw.datePosted),
     source: 'company-website',
     slug: slugify(`${title}-ems-chemie-${location}`),
     slugByLocale: {

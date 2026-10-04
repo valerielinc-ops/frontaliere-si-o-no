@@ -29,6 +29,7 @@
  *   - heinekenVacancyBody() / buildHeinekenChJob() / heinekenLocaleFields()
  *   - HEINEKEN_CH_KEY / HEINEKEN_CH_COMPANY_NAME / HEINEKEN_CH_COMPANY_DOMAIN
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { fetchHtml, slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
@@ -210,7 +211,7 @@ export function parseSearchResults(html) {
       url: fullUrl,
       department,
       location,
-      postedDate,
+      ...sourcePostingDateFields(postedDate),
       jobId,
     });
   }
@@ -388,7 +389,6 @@ export function buildHeinekenChJob({ row, detail, detailUrl }) {
   const urlHash = createHash('sha1').update(canonicalUrl).digest('hex').slice(0, 12);
   const jobSlug = slugify(`${title} heineken-ch ${location}`);
   const employmentType = detectEmploymentType(title);
-  const postedDate = new Date().toISOString().slice(0, 10);
   const localeFields = heinekenLocaleFields({ title, description, slug: jobSlug });
 
   return {
@@ -417,7 +417,7 @@ export function buildHeinekenChJob({ row, detail, detailUrl }) {
     employmentType,
     experienceLevel: detectExperienceLevel(title),
     featured: false,
-    postedDate,
+    ...sourcePostingDateFields(row?.postedDate),
     url: canonicalUrl,
     applyUrl: detail?.applyUrl || detailUrl,
     source: 'Heineken Switzerland Dedicated Parser (Playwright)',
