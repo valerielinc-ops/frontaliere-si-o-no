@@ -158,9 +158,9 @@ function spawnAsync(cmd, args, opts) {
 }
 
 // Id enumeration is imported from build-plugins/shared/articleSectionDescriptors.ts
-// (enumerateSectionArticleIds) — shared with scripts/audit-article-corpus-drift.mjs
-// (issue #4881 Fase 4, AGENTS.md #6: same "every article id in this section"
-// need, one implementation, not a second copy-pasted enumerator).
+// (`enumerateSectionArticleIds`). The drift audit uses that module's narrower
+// `enumerateRenderableSectionArticleIds` population because body-only chunks
+// are valid no-ops for this renderer (issue #10072).
 
 // ── Worker mode: render ONE bounded batch of ids in this (fresh) process ──
 // Mirrors scripts/publish-article-fast.mjs steps 1-5 exactly, generalized
