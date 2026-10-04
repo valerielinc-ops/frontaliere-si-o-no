@@ -7685,6 +7685,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-auto-zurigo-pagamento.title': 'Motorfahrzeugsteuer in Zürich: Berechnung und Zahlung',
     'blog.article.imposta-auto-zurigo-pagamento.excerpt': 'Im Kanton Zürich richten sich Berechnung, Fälligkeiten und Zahlung der Motorfahrzeugsteuer nach kantonalen Regeln; prüfen Sie auch den Fahrzeug- und Adresswechsel.',
     'blog.article.imposta-auto-zurigo-pagamento.imageAlt': 'Autos und Unterlagen zur Motorfahrzeugsteuer in einem kantonalen Amt in Zürich.',
+    'blog.article.incentivi-energetici-zurigo-domanda.title': 'Energieförderungen in Zürich: Voraussetzungen und Antrag',
+    'blog.article.incentivi-energetici-zurigo-domanda.excerpt': 'Zürich: Energieförderungen für Gebäude und Anlagen. Voraussetzungen, Beträge und Fristen sind vor der Antragstellung zu prüfen; der Antrag ist vor Beginn der Arbeiten einzureichen.',
+    'blog.article.incentivi-energetici-zurigo-domanda.imageAlt': 'Energieanreize für die Sanierung eines Gebäudes im Kanton Zürich',
 };
 
 export default blogMetaChDe;
