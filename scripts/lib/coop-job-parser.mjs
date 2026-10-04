@@ -57,21 +57,35 @@ export function titleOverlap(expected = '', actual = '') {
  * (`extractCoopFamilyPageDetails`). Returns `null` when the page or its
  * JSON-LD is unavailable, exactly like `fetchCoopJsonLd`.
  */
-export async function fetchCoopDetailPage(url, timeoutMs = 12000) {
+export async function fetchCoopDetailPage(url, timeoutMs = 12000, fetchImpl = globalThis.fetch) {
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  let rejectTimeout;
+  const timeoutError = new Error(`Coop detail request timed out after ${timeoutMs}ms.`);
+  timeoutError.name = 'TimeoutError';
+  const timeoutPromise = new Promise((_, reject) => {
+    rejectTimeout = reject;
+  });
+  const timer = setTimeout(() => {
+    controller.abort();
+    rejectTimeout(timeoutError);
+  }, timeoutMs);
   try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-    });
-    if (!res.ok) return null;
-    const html = await res.text();
-    const jsonLd = extractJsonLd(html);
-    return jsonLd ? { jsonLd, page: extractCoopFamilyPageDetails(html) } : null;
+    return await Promise.race([
+      (async () => {
+        const res = await fetchImpl(url, {
+          signal: controller.signal,
+          headers: {
+            Accept: 'text/html',
+            'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+          },
+        });
+        if (!res.ok) return null;
+        const html = await res.text();
+        const jsonLd = extractJsonLd(html);
+        return jsonLd ? { jsonLd, page: extractCoopFamilyPageDetails(html) } : null;
+      })(),
+      timeoutPromise,
+    ]);
   } catch {
     return null;
   } finally {
