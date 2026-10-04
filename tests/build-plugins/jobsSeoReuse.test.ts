@@ -1,4 +1,4 @@
-import { resolveRolloutPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -140,12 +140,11 @@ async function createReuse(
 describe('jobs SEO disk HTML reuse', () => {
   it.each(['unknown', 'reported', undefined] as const)('refreshes mixed provenance %s through the cache contract', (postingDateSource) => {
     const sourceDate = new Date(Date.now() - 3 * 86400000).toISOString();
-    const observedDate = new Date(Date.now() - 86400000).toISOString();
     const fragment = '<script type="application/ld+json">{"@type":"JobPosting","datePosted":"old","validThrough":"old"}</script>';
-    const date = resolveRolloutPostingDate({ postingDateSource, datePosted: sourceDate }, () => observedDate);
+    const date = resolveReportedPostingDate({ postingDateSource, datePosted: sourceDate });
     const result = replaceActiveJobPostingDates(fragment, date, new Date(Date.now() + 86400000).toISOString());
-    if (postingDateSource === 'unknown') expect(result).toBe('');
-    else expect(result).toContain(postingDateSource === 'reported' ? sourceDate : observedDate);
+    if (postingDateSource !== 'reported') expect(result).toBe('');
+    else expect(result).toContain(sourceDate);
   });
 
   it('removes cached JobPosting when publication provenance becomes unknown', () => {

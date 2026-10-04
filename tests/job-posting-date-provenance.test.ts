@@ -16,24 +16,15 @@ const options = { locale: 'it', url: 'https://frontaliereticino.ch/jobs/example/
 const job = { company: 'Example SA', title: 'Infermiere', location: 'Lugano', postedDate: yesterday };
 
 describe('employer publication date provenance', () => {
-  it.each([undefined, 'unknown', 'existing', 'scraped'])('keeps %s out of reported publication dates', (postingDateSource) => {
+  it.each([undefined, 'unknown', 'existing', 'scraped'])('rejects %s provenance despite parseable dates', (postingDateSource) => {
     expect(resolveReportedPostingDate({ ...job, postingDateSource }, now)).toBeNull();
-    if (postingDateSource === 'unknown') {
-      const schema = buildJobPostingSchema({ ...job, postingDateSource }, options);
-      expect(schema?.datePosted).toBe(now.toISOString());
-    } else if (postingDateSource !== undefined) {
-      expect(buildJobPostingSchema({ ...job, postingDateSource }, options)).toBeNull();
+    expect(buildJobPostingSchema({ ...job, postingDateSource }, options)).toBeNull();
+  });
+  it.each([undefined, null, 'unknown'])('never converts collection/build clocks into publication for %s', (postingDateSource) => {
+    for (const clocks of [{}, { firstSeenAt: yesterday }, { crawledAt: yesterday }, { scrapedAt: yesterday }]) {
+      expect(buildJobPostingSchema({ ...job, postingDateSource, ...clocks }, options)).toBeNull();
+      expect(buildJobPostingSchema({ postingDateSource, ...clocks }, options)).toBeNull();
     }
-  });
-  it('uses a collection clock only as the schema fallback for unknown provenance', () => {
-    const schema = buildJobPostingSchema({ ...job, postingDateSource: 'unknown', crawledAt: yesterday }, options);
-    expect(schema?.datePosted).toBe(new Date(yesterday).toISOString());
-  });
-  it('preserves legacy behavior only during the measured migration', () => {
-    expect(resolveReportedPostingDate(job, now)).toBeNull();
-    expect(buildJobPostingSchema(job, options)?.datePosted).toBe(new Date(yesterday).toISOString());
-    expect(buildJobPostingSchema({}, options)?.datePosted).toBe(now.toISOString());
-    expect(buildJobPostingSchema({ postingDateSource: null }, options)?.datePosted).toBe(now.toISOString());
   });
   it.each(['', 'not-a-date', '2025-02-29', '2024-04-31', '2024-01-01T24:00:00Z'])('rejects invalid reported date %s', (postedDate) => {
     expect(resolveReportedPostingDate({ postedDate, postingDateSource: 'reported' }, now)).toBeNull();
@@ -76,7 +67,7 @@ describe('employer publication date provenance', () => {
         firstSeenAt: now.toISOString(),
       }]));
       const snapshot = aggregateHealthFacilityJobs(root).get(facility.slug)!;
-      expect(snapshot.featured[0]?.datePosted).toBe(kind === 'reported' ? yesterday : kind === 'unknown' ? now.toISOString() : null);
+      expect(snapshot.featured[0]?.datePosted).toBe(kind === 'reported' ? yesterday : null);
       expect(snapshot.featured[0]?.postingDateSource).toBe(kind === 'legacy' ? undefined : kind === 'unknown' ? 'unknown' : 'reported');
       if (kind === 'invalid-reported' || kind === 'unknown') expect(snapshot.featured[0]?.postedDate).toBe('');
       for (const locale of ['it', 'en', 'de', 'fr'] as const) {

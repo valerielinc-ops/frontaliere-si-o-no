@@ -168,7 +168,7 @@ describe('job-board emitted output', () => {
       const detail = htmlDoc(`${hub}listing-only-0/`);
       expect(detail.querySelector('meta[name="robots"]')?.getAttribute('content')).toContain('noindex');
       expect(detail.querySelector('h1')?.textContent).toContain('Posizione 0');
-      expect(structured(detail).find((entry) => entry['@type'] === 'JobPosting')).toBeTruthy();
+      expect(structured(detail).find((entry) => entry['@type'] === 'JobPosting')).toBeUndefined();
       expect([...detail.scripts].some((script) => script.textContent?.includes('window.__JOB_SEED__'))).toBe(true);
       for (const link of lastPage.querySelectorAll('a[href*="listing-only-"]')) {
         const pathname = new URL(link.getAttribute('href')!, 'https://frontaliereticino.ch').pathname;
@@ -232,11 +232,15 @@ describe('job-board emitted output', () => {
     }
   });
 
-  it('retains legacy active schema during the producer migration', () => {
+  it('keeps legacy active pages accessible without unverifiable schema', () => {
     for (const locale of locales) {
       const document = htmlDoc(`${hubPath(locale, 'ZH')}${jobs[1].slug}/`);
       const posting = structured(document).find((entry) => entry['@type'] === 'JobPosting');
-      expect(posting?.datePosted).toBe(new Date(jobs[1].postedDate).toISOString());
+      expect(posting).toBeUndefined();
+      expect(document.querySelector('h1')?.textContent).toBeTruthy();
+      expect(structured(document).some((entry) => entry['@type'] === 'FAQPage')).toBe(true);
+      expect(document.querySelector('a.mab-cta')?.getAttribute('href')).toBe('#job-auth-gate');
+      expect(document.querySelector('#job-auth-gate')?.textContent?.trim()).toBeTruthy();
     }
   });
 
@@ -251,13 +255,11 @@ describe('job-board emitted output', () => {
     }
   });
 
-  it('keeps active content, application link, FAQ and a schema-safe unverified JobPosting', () => {
+  it('keeps active content, application link and FAQ without unverified JobPosting', () => {
     for (const locale of locales) {
       const document = htmlDoc(`${hubPath(locale, 'ZH')}active-unverified/`);
       const entries = structured(document);
-      expect(entries.flatMap(allTypes)).toContain('JobPosting');
-      const posting = entries.find((entry) => entry['@type'] === 'JobPosting');
-      expect(posting?.datePosted).toBe(new Date(jobs[0].crawledAt).toISOString());
+      expect(entries.flatMap(allTypes)).not.toContain('JobPosting');
       expect(entries.flatMap(allTypes)).toEqual(expect.arrayContaining(['FAQPage', 'BreadcrumbList']));
       expect(document.querySelector('h1')?.textContent).toContain(jobs[0].titleByLocale[locale]);
       expect(document.body.textContent).toContain('La posizione prevede');
@@ -284,7 +286,6 @@ describe('job-board emitted output', () => {
 
   it.each([
     ['archived-audit-position', archiveDates.posted, archiveDates.expired],
-    ['archived-first-seen', new Date(archiveDates.posted).toISOString(), archiveDates.expired],
     ['archived-future-expiry', archiveDates.posted, archiveDates.crawled],
     ['archived-short-description', archiveDates.posted, archiveDates.expired],
     ['archived-medium-description', archiveDates.posted, archiveDates.expired],
@@ -320,7 +321,7 @@ describe('job-board emitted output', () => {
     }
   });
 
-  it.each(['archived-unverified', 'archived-crawl-only', 'archived-source-on-expiry', 'archived-posted-only', 'archived-expiry-only', 'archived-late-posting', 'archived-sparse', 'archived-no-dates', 'archived-invalid-dates', 'archived-future-only', 'archived-no-employer', 'archived-no-title'])(
+  it.each(['archived-first-seen', 'archived-unverified', 'archived-crawl-only', 'archived-source-on-expiry', 'archived-posted-only', 'archived-expiry-only', 'archived-late-posting', 'archived-sparse', 'archived-no-dates', 'archived-invalid-dates', 'archived-future-only', 'archived-no-employer', 'archived-no-title'])(
     'keeps only archive metadata when real identity or past dates are unavailable: %s', (slug) => {
       for (const locale of locales) {
         const document = htmlDoc(`${hubPath(locale, 'TI')}${slug}/`);

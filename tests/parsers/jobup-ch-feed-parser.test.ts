@@ -585,18 +585,16 @@ describe('CNP detail publication provenance', () => {
     expect(jobs[0].postingDateSource).toBe(kind === 'past' ? 'reported' : 'unknown');
     expect(jobs[0].postedDate).toBe(kind === 'past' ? sourceDate : '');
     expect(jobs[0].datePosted).toBe(jobs[0].postedDate);
-      // Exercise the actual shared consumer: unknown dates keep their marker
-      // while required JobPosting JSON-LD receives a valid fallback date.
+      // Unknown provenance preserves the vacancy/FAQ, not invented JobPosting data.
       for (const locale of ['it', 'en', 'de', 'fr']) {
         const schema = buildJobPostingSchema(jobs[0], { locale, url: jobs[0].url });
-        expect(schema).not.toBeNull();
         if (kind === 'past') {
+          expect(schema).not.toBeNull();
+          expect(schema?.hiringOrganization.name).toBeTruthy();
           expect(schema?.datePosted).toBe(jobs[0].datePosted);
         } else {
-          expect(typeof schema?.datePosted).toBe('string');
-          expect(Number.isFinite(Date.parse(schema?.datePosted || ''))).toBe(true);
+          expect(schema).toBeNull();
         }
-        expect(schema?.hiringOrganization.name).toBeTruthy();
         expect(buildJobPostingFacts(jobs[0], locale).hiringOrganization.name).toBeTruthy();
       }
       expect(jobs[0].url).toMatch(/^https:\/\//);

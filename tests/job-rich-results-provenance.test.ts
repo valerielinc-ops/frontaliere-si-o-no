@@ -30,21 +30,19 @@ function validate(source: string | undefined, schema: Record<string, unknown> | 
   }
 }
 describe('rich-result eligibility validation', () => {
-  it.each(['unknown'])('requires a schema-safe JobPosting for %s provenance', (source) => {
+  it.each(['unknown'])('requires schema absence for %s provenance', (source) => {
     const result = validate(source, null);
-    expect(result.status).toBe(1);
-    expect(result.stdout).toContain('Publication date unverified (schema fallback required): 4');
-    expect(result.stdout).toContain('jobposting_missing');
-  });
-  it('retains the mandatory legacy gate until phase B', () => {
-    expect(validate(undefined, posting).status).toBe(0);
-    expect(validate(undefined, null).status).toBe(1);
-  });
-  it('accepts a complete schema fallback for unverified publication', () => {
-    const result = validate('unknown', posting);
     expect(result.status, result.stdout + result.stderr).toBe(0);
-    expect(result.stdout).toContain('Eligible locale checks: 4');
-    expect(result.stdout).not.toContain('jobposting_without_reported_publication_date');
+    expect(result.stdout).toContain('Publication date unverified (JobPosting must be absent): 4');
+  });
+  it('requires missing legacy provenance to remain ineligible', () => {
+    expect(validate(undefined, posting).status).toBe(1);
+    expect(validate(undefined, null).status).toBe(0);
+  });
+  it('rejects schema manufactured for unverified publication', () => {
+    const result = validate('unknown', posting);
+    expect(result.status).toBe(1);
+    expect(result.stdout).toContain('jobposting_without_reported_publication_date');
   });
   it('still requires schema for every reported eligible job', () => {
     const result = validate('reported', null);
