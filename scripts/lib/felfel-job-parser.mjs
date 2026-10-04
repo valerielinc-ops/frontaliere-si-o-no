@@ -32,7 +32,7 @@
  *   - isTrustedDomain()    — Validate URLs belong to this company / ATS
  *   - FELFEL_KEY / FELFEL_COMPANY_NAME constants
  */
-import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { mergeSourcePostingDates, sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -274,7 +274,7 @@ export async function fetchAllFelfelJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      ...mergeSourcePostingDates({}, nj),
+      ...mergeSourcePostingDates({}, (nj.datePosted || nj.postedDate) ? nj : sourcePostingDateFields(nj.postedAt)),
       applyUrl: publicUrl,
       jobReqId: nj.jobReqId || null,
       requirements: [],

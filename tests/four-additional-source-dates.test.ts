@@ -74,6 +74,7 @@ it.each([{ raw: [source] }, { raw: 123 }, { raw: { date: source } }, { raw: '202
 });
 it('Compact-offset publication keeps the explicit offset and exact timestamp', () => {
   expect(sourceCompactOffsetPostingDateFields(source.replace('Z', '+0130'))).toEqual(reported(source.replace('Z', '+01:30')));
+  expect(sourceCompactOffsetPostingDateFields(`  ${source.replace('Z', '+0130')}  `)).toEqual(reported(source.replace('Z', '+01:30')));
 });
 
 it('Orell retains the compact offset used by its real JSON-LD source', async () => {

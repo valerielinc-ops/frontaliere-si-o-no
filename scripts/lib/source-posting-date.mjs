@@ -56,7 +56,7 @@ export function sourceRssPostingDateFields(raw = '', now = new Date()) {
 
 /** Normalize basic ISO offsets only on an explicit source publication field; preserve the full timestamp. */
 export function sourceCompactOffsetPostingDateFields(raw, now = new Date()) {
-  const value = typeof raw === 'string' ? raw.replace(/([+-]\d{2})(\d{2})$/, '$1:$2') : '';
+  const value = typeof raw === 'string' ? raw.trim().replace(/([+-]\d{2})(\d{2})$/, '$1:$2') : '';
   return sourcePostingDateFields(value, now);
 }
 
