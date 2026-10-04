@@ -116,19 +116,29 @@ describe('temporary retirement: reviewAfter', () => {
     ]);
   });
 
-  it('opens the review issue once and reuses the open one', () => {
+  it('opens the review issue once, reuses the open one and reopens one closed while the retirement stands', () => {
     const created: Array<{ title: string, body: string, labels: string[] }> = [];
-    const open = new Map<string, number>();
-    const findOpen = (title: string) => open.get(title) ?? null;
+    const reopened: number[] = [];
+    const issues = new Map<string, { number: number, state: string }>();
+    const find = (title: string) => issues.get(title) ?? null;
     const create = (issue: { title: string, body: string, labels: string[] }) => {
       created.push(issue);
-      open.set(issue.title, 500 + created.length);
+      issues.set(issue.title, { number: 500 + created.length, state: 'OPEN' });
       return 500 + created.length;
     };
+    const reopen = (number: number) => {
+      reopened.push(number);
+      for (const [title, issue] of issues) if (issue.number === number) issues.set(title, { ...issue, state: 'OPEN' });
+    };
     const registry = registryOf({}, retired);
-    expect(ensureRetirementReviewIssues({ registry, now: '2026-12-01T00:00:00Z', findOpen, create })).toEqual({});
-    expect(ensureRetirementReviewIssues({ registry, now: '2027-01-03T08:00:00Z', findOpen, create })).toEqual({ bally: 501 });
-    expect(ensureRetirementReviewIssues({ registry, now: '2027-01-03T14:00:00Z', findOpen, create })).toEqual({ bally: 501 });
+    expect(ensureRetirementReviewIssues({ registry, now: '2026-12-01T00:00:00Z', find, create, reopen })).toEqual({});
+    expect(ensureRetirementReviewIssues({ registry, now: '2027-01-03T08:00:00Z', find, create, reopen })).toEqual({ bally: 501 });
+    expect(ensureRetirementReviewIssues({ registry, now: '2027-01-03T14:00:00Z', find, create, reopen })).toEqual({ bally: 501 });
+    // Closed by hand while data/crawler-quarantine.json still retires bally:
+    // the same issue comes back, no duplicate is opened.
+    issues.set(retirementReviewTitle('bally'), { number: 501, state: 'CLOSED' });
+    expect(ensureRetirementReviewIssues({ registry, now: '2027-01-04T08:00:00Z', find, create, reopen })).toEqual({ bally: 501 });
+    expect(reopened).toEqual([501]);
     expect(created).toHaveLength(1);
     expect(created[0].title).toBe(retirementReviewTitle('bally'));
     expect(created[0].body).toContain('retired.bally.reviewAfter');

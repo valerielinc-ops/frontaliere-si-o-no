@@ -154,10 +154,9 @@ describe('applyTranslationHold — timbro al momento della scrittura del crawler
 
   it('releases a held job once translated, and the admission survives a later title regression', () => {
     const now = daysAgo(0);
-    const priorHeldButTranslated = translated(agencyJob(5, { [TRANSLATION_HOLD_FIELD]: daysAgo(4) }));
-    // The re-crawl brings the source copy back (e.g. the agency edited the title).
-    const next = [agencyJob(5)];
-    const stats = applyTranslationHold('sta', next, [priorHeldButTranslated], { now });
+    const since = daysAgo(4);
+    const next = [translated(agencyJob(5))];
+    const stats = applyTranslationHold('sta', next, [agencyJob(5, { [TRANSLATION_HOLD_FIELD]: since })], { now });
     expect(stats.released).toBe(1);
     expect(next[0][TRANSLATION_HOLD_FIELD]).toBeUndefined();
     expect(next[0][TRANSLATION_HOLD_RELEASED_FIELD]).toBe(now);
@@ -168,6 +167,18 @@ describe('applyTranslationHold — timbro al momento della scrittura del crawler
     applyTranslationHold('sta', later, next, { now: daysAgo(-1) });
     expect(later[0][TRANSLATION_HOLD_FIELD]).toBeUndefined();
     expect(later[0][TRANSLATION_HOLD_RELEASED_FIELD]).toBe(now);
+  });
+
+  it('keeps a held job held when only its older copy was translated and the re-crawl regressed', () => {
+    const since = daysAgo(4);
+    const priorHeldButTranslated = translated(agencyJob(8, { [TRANSLATION_HOLD_FIELD]: since }));
+    // The re-crawl brings the source copy back (e.g. the agency edited the title).
+    const next = [agencyJob(8)];
+    const stats = applyTranslationHold('sta', next, [priorHeldButTranslated], { now: daysAgo(0) });
+    expect(stats.released).toBe(0);
+    expect(stats.held).toBe(1);
+    expect(next[0][TRANSLATION_HOLD_FIELD]).toBe(since);
+    expect(isHeldFromPublication(next[0])).toBe(true);
   });
 
   it('leaves every non-agency crawler untouched and strips a stale stamp', () => {

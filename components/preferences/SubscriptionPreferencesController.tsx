@@ -935,14 +935,18 @@ async function authSetSavedJobsDigest(
  if (enabled) {
   const subscriberSnap = await getDoc(subscriberRef);
   const subscriberData = subscriberSnap.exists() ? subscriberSnap.data() || {} : null;
-  if (!subscriberData) {
-   // No central row: for a verified address the digest sender creates the
-   // digest's own record before the first send (owner decision 2026-10-03,
-   // scripts/send-saved-jobs-digest.mjs), so only the account preference is
-   // written, as the save path does. The central writer below would turn the
-   // click into a newsletter subscription. An unverified address is never
-   // reached, so the switch cannot promise it.
-   if (!emailVerified) throw new Error('subscriber-not-created');
+  if (!subscriberData || !hasSubscriptionBasis(subscriberData)) {
+   // No newsletter relationship: no central row, the digest's own record or a
+   // legacy row with no relationship. The digest sender uses such a row as it
+   // is (marking a legacy one) and, for a verified address, creates the
+   // digest's own record when there is none (owner decision 2026-10-03,
+   // scripts/send-saved-jobs-digest.mjs). So only the account preference is
+   // written, as the save path does: the central writer below would turn the
+   // click into a newsletter subscription. A stop recorded on the row still
+   // wins, and an address with no row that Auth does not mark verified is
+   // never reached, so the switch cannot promise it.
+   if (subscriberData && isCrossChannelStop(subscriberData)) throw new Error('email-suppressed');
+   if (!subscriberData && !emailVerified) throw new Error('subscriber-not-created');
   } else {
    // Enabling this digest is an explicit click by the authenticated owner. It
    // must use the same central writer as follow/job-alert actions so a prior

@@ -338,8 +338,10 @@ export function publishedOnNextDeploy(jobs, { slicesDir } = {}) {
  * - job già presente nello slice su disco e non trattenuto (pubblicato prima di
  *   questo cambio o già rilasciato): resta ammesso, anche se oggi il titolo è
  *   tornato una copia. Ritirare un URL già servito non è mai accettabile.
- * - job già trattenuto: resta trattenuto (stesso timbro) finché una delle due
- *   copie ha i titoli tradotti, poi viene rilasciato.
+ * - job già trattenuto: resta trattenuto (stesso timbro) finché la copia che
+ *   sta per essere scritta ha i titoli tradotti, poi viene rilasciato. Una
+ *   copia precedente tradotta non basta: se il nuovo titolo è tornato una
+ *   copia, è quello che il deploy pubblicherebbe.
  * - job nuovo: trattenuto se arriva con un titolo non tradotto.
  *
  * La ricerca del job precedente usa più chiavi (identità stabile, url, id,
@@ -379,7 +381,10 @@ export function applyTranslationHold(crawlerKey, nextJobs, existingJobs, { now =
       continue;
     }
     if (prior) {
-      if (hasPublishableTitles(job) || hasPublishableTitles(prior)) {
+      // Only the copy being written decides: it is what the next deploy would
+      // publish. A translated older copy whose re-crawl regressed (the agency
+      // edited the title) stays held until the new title is translated.
+      if (hasPublishableTitles(job)) {
         job[TRANSLATION_HOLD_FIELD] = prior[TRANSLATION_HOLD_FIELD];
         release(job, now);
         stats.released++;

@@ -595,18 +595,21 @@ describe('SubscriptionPreferencesController — auth-mode source check', () => {
  // Owner decision 2026-10-03: the digest reaches a verified account with no
  // central row (the sender creates the digest's own record). The switch must
  // turn it back on for that account without creating a newsletter subscription.
- it('re-enables the saved-jobs digest for a verified account with no central row without subscribing it', () => {
+ it('re-enables the saved-jobs digest without subscribing an account that has no newsletter relationship (no row, digest record, legacy row)', () => {
   const setStart = src.indexOf('async function authSetSavedJobsDigest');
   const setEnd = src.indexOf('\n}\n', setStart);
   const setter = src.slice(setStart, setEnd);
-  const noRowBranch = setter.indexOf('if (!subscriberData) {');
+  // The branch is "no newsletter relationship", not "no document": the
+  // digest's own record and a legacy row with no relationship take it too.
+  const noRowBranch = setter.indexOf('if (!subscriberData || !hasSubscriptionBasis(subscriberData)) {');
   const elseBranch = setter.indexOf('} else {', noRowBranch);
   expect(noRowBranch).toBeGreaterThan(-1);
   expect(elseBranch).toBeGreaterThan(noRowBranch);
   const noRow = setter.slice(noRowBranch, elseBranch);
-  // Only an unverified address still fails; a verified one falls through to
-  // the account-preference write.
-  expect(noRow).toContain("if (!emailVerified) throw new Error('subscriber-not-created');");
+  // A stop on the row still wins; only a missing row with an unverified
+  // address fails; everything else falls through to the account-preference write.
+  expect(noRow).toContain("if (subscriberData && isCrossChannelStop(subscriberData)) throw new Error('email-suppressed');");
+  expect(noRow).toContain("if (!subscriberData && !emailVerified) throw new Error('subscriber-not-created');");
   expect(noRow).not.toContain('upsertUnifiedEmailSubscriber');
   // The central writer (a subscription) runs only on an existing row.
   expect(setter.indexOf('upsertUnifiedEmailSubscriber')).toBeGreaterThan(elseBranch);

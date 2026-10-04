@@ -221,6 +221,19 @@ function findOpenIssueByExactTitle(title) {
   return found.find((issue) => issue.title === title)?.number ?? null;
 }
 
+/** The issue with exactly this title in any state, the open one first, else the most recent. */
+function findIssueByExactTitle(title) {
+  const found = ghJson(['issue', 'list', '--state', 'all', '--search', `"${title}" in:title`, '--limit', '20', '--json', 'number,title,state'])
+    .filter((issue) => issue.title === title);
+  const open = found.find((issue) => issue.state === 'OPEN');
+  const pick = open ?? found[0];
+  return pick ? { number: pick.number, state: pick.state } : null;
+}
+
+function reopenIssue(issue, body) {
+  gh(['issue', 'reopen', String(issue), '--comment', body]);
+}
+
 function createIssue({ title, body, labels }) {
   const url = gh(['issue', 'create', '--title', title, '--body', body, ...labels.flatMap((l) => ['--label', l])]).trim();
   const number = Number(/\/issues\/(\d+)/.exec(url)?.[1]);
@@ -286,13 +299,29 @@ export function retirementReviewBody(review) {
   ].join('\n');
 }
 
-/** Opens (once) the review issue of every temporary retirement that is due. Returns slug -> issue number. */
-export function ensureRetirementReviewIssues({ registry, now, findOpen = findOpenIssueByExactTitle, create = createIssue }) {
+// Keeps one review issue open for every temporary retirement that is due:
+// reuses the open one, reopens one closed while the registry still holds the
+// retirement, opens it only the first time. Returns slug -> issue number.
+export function ensureRetirementReviewIssues({
+  registry,
+  now,
+  find = findIssueByExactTitle,
+  create = createIssue,
+  reopen = reopenIssue,
+}) {
   const issues = {};
   for (const review of dueRetirementReviews(registry, now)) {
     const title = retirementReviewTitle(review.slug);
-    issues[review.slug] = findOpen(title)
-      ?? create({ title, body: retirementReviewBody(review), labels: ['crawlers'] });
+    const body = retirementReviewBody(review);
+    const existing = find(title);
+    if (existing?.state === 'OPEN') {
+      issues[review.slug] = existing.number;
+    } else if (existing) {
+      reopen(existing.number, body);
+      issues[review.slug] = existing.number;
+    } else {
+      issues[review.slug] = create({ title, body, labels: ['crawlers'] });
+    }
   }
   return issues;
 }
