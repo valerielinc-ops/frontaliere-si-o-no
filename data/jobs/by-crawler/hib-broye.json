@@ -4338,7 +4338,7 @@
       "slugByLocale": {
         "it": "100-cucina-aiuto-hopital-intercantonal-de-la-broye-hib-payerne",
         "en": "100-kitchen-aid-hopital-intercantonal-de-la-broye-hib-payerne",
-        "de": "100-kuchenhilfe-hopital-intercantonal-de-la-broye-hib-payerne",
+        "de": "kuchenhelfer-100-hopital-intercantonal-de-la-broye-hib-payerne",
         "fr": "aide-de-cuisine-a-100-hib-broye-payerne"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
@@ -4382,7 +4382,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "aide-de-cuisine-a-100-hib-broye-payerne",
-        "100-cucina-aiuto-hopital-intercantonal-de-la-broye-hib-payerne"
+        "100-cucina-aiuto-hopital-intercantonal-de-la-broye-hib-payerne",
+        "100-kuchenhilfe-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4393,7 +4394,8 @@
           "aide-de-cuisine-a-100-hib-broye-payerne"
         ],
         "de": [
-          "aide-de-cuisine-a-100-hib-broye-payerne"
+          "aide-de-cuisine-a-100-hib-broye-payerne",
+          "100-kuchenhilfe-hopital-intercantonal-de-la-broye-hib-payerne"
         ]
       },
       "firstSeenAt": "2026-09-16T23:41:43.649Z",

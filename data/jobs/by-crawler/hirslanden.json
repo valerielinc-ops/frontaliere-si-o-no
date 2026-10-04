@@ -647,7 +647,6 @@
         ]
       },
       "firstSeenAt": "2026-09-07T15:09:14.390Z",
-      "needsRetranslation": true,
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
@@ -5365,7 +5364,7 @@
       "id": "hirslanden-b67a71b95c13",
       "slug": "fisioterapeutica-al-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
       "slugByLocale": {
-        "de": "physiotherapeute-a-100-hirslanden-hirslanden-clinique-bois-cerf",
+        "de": "physiotherapeut-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
         "it": "fisioterapeutica-al-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
         "en": "physiotherapist-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
         "fr": "physiotherapeute-a-100-hirslanden-hirslanden-clinique-bois-cerf"
@@ -5376,7 +5375,7 @@
       "title": "Physiothérapeute à 100%",
       "titleByLocale": {
         "it": "Fisioterapeutica al 100%",
-        "en": "Physiothérapeute à 100%",
+        "en": "100% physiotherapist",
         "de": "Physiotherapeut 100%",
         "fr": "Physiothérapeute à 100%"
       },
@@ -5417,6 +5416,9 @@
           "physiotherapeute-a-100-hirslanden-hirslanden-clinique-bois-cerf"
         ],
         "en": [
+          "physiotherapeute-a-100-hirslanden-hirslanden-clinique-bois-cerf"
+        ],
+        "de": [
           "physiotherapeute-a-100-hirslanden-hirslanden-clinique-bois-cerf"
         ]
       },
@@ -8143,7 +8145,7 @@
       "title": "Pflegeexpertin / Pflegeexperte APN Neurologie, Schwerpunkt Stroke (a) 80%",
       "titleByLocale": {
         "it": "Esperto infermieristico APN Neurologia, focus Stroke (a) 80 %",
-        "en": "Pflegeexpertin / Pflegeexperte APN Neurologie, Schwerpunkt Stroke (a) 80%",
+        "en": "Nursing expert APN Neurology, focus on stroke (a) 80%",
         "de": "Pflegeexpertin / Pflegeexperte APN Neurologie, Schwerpunkt Stroke (a) 80%",
         "fr": "Expert en soins infirmiers Neurologie de l'APN, focus Stroke (a) 80 %"
       },
@@ -8191,7 +8193,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:57:00.221Z",
-      "needsRetranslation": true,
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
@@ -11745,7 +11746,7 @@
       "slugByLocale": {
         "de": "dipl-physiotherpeutin-physiotherapeut-a-40-100-hirslanden-hirslanden-klinik-stephanshorn",
         "it": "dipl-fisioterapeuta-fisioterapista-a-40-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
-        "en": "dipl-physiotherpeutin-physiotherapeut-a-40-100-hirslanden-hirslanden-klinik-stephanshorn",
+        "en": "certified-physiotherapist-a-40-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
         "fr": "dipl-physiotherpeutine-physiotherapiste-a-40-100-hirslanden-klinik-hirslanden-klinik-stephanshorn"
       },
       "company": "Hirslanden Klinik",
@@ -11754,7 +11755,7 @@
       "title": "Dipl. Physiotherapeutin/Physiotherapeut (a) 40 - 100%",
       "titleByLocale": {
         "it": "Dipl. Fisioterapeuta/fisioterapista (a) 40 - 100 %",
-        "en": "Dipl. Physiotherapeutin/Physiotherapeut (a) 40 - 100%",
+        "en": "Certified physiotherapist (a) 40 - 100%",
         "de": "Dipl. Physiotherapeutin/Physiotherapeut (a) 40 - 100%",
         "fr": "Dipl. Physiotherpeutine/physiothérapiste (a) 40 - 100 %"
       },
@@ -11793,13 +11794,15 @@
         ],
         "fr": [
           "dipl-physiotherpeutin-physiotherapeut-a-40-100-hirslanden-hirslanden-klinik-stephanshorn"
+        ],
+        "en": [
+          "dipl-physiotherpeutin-physiotherapeut-a-40-100-hirslanden-hirslanden-klinik-stephanshorn"
         ]
       },
       "previousSlugs": [
         "dipl-physiotherpeutin-physiotherapeut-a-40-100-hirslanden-hirslanden-klinik-stephanshorn"
       ],
       "firstSeenAt": "2026-09-19T22:55:13.275Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -12723,7 +12726,7 @@
       "id": "hirslanden-2e13c1ff8de3",
       "slug": "technica-n-en-radiologia-medicale-a-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
       "slugByLocale": {
-        "de": "technicien-ne-en-radiologie-medicale-a-100-hirslanden-hirslanden-clinique-bois-cerf",
+        "de": "100-medizinisch-radiologische-r-techniker-in-hirslanden-klinik-hirslanden-clinique-bois-cerf",
         "it": "technica-n-en-radiologia-medicale-a-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
         "en": "technicia-n-en-radiology-medicale-a-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
         "fr": "technicien-ne-en-radiologie-medicale-a-100-hirslanden-hirslanden-clinique-bois-cerf"
@@ -12775,6 +12778,9 @@
           "technicien-ne-en-radiologie-medicale-a-100-hirslanden-hirslanden-clinique-bois-cerf"
         ],
         "en": [
+          "technicien-ne-en-radiologie-medicale-a-100-hirslanden-hirslanden-clinique-bois-cerf"
+        ],
+        "de": [
           "technicien-ne-en-radiologie-medicale-a-100-hirslanden-hirslanden-clinique-bois-cerf"
         ]
       },

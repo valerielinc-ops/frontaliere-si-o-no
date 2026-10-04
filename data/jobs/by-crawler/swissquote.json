@@ -2003,7 +2003,7 @@
         "it": "fx-trader-di-esecuzione-swissquote-gland",
         "en": "fx-execution-trader-swissquote-gland",
         "de": "fx-ausfuhrungshandler-swissquote-gland",
-        "fr": "fx-execution-trader-swissquote-gland"
+        "fr": "operateur-de-change-d-execution-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -2058,7 +2058,8 @@
           "fx-execution-trader-swissquote-gland"
         ],
         "fr": [
-          "commerce-fx-execution-swissquote-gland"
+          "commerce-fx-execution-swissquote-gland",
+          "fx-execution-trader-swissquote-gland"
         ]
       },
       "firstSeenAt": "2026-09-18T14:21:38.632Z",

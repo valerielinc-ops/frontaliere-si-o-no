@@ -1125,6 +1125,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-19T22:58:07.157Z",
+      "salaryMin": 110500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 110500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
       "previousSlugsByLocale": {
         "it": [
           "product-manager-chocolate-portfolio-buehler-uzwil"
@@ -1138,20 +1151,7 @@
       },
       "previousSlugs": [
         "product-manager-chocolate-portfolio-buehler-uzwil"
-      ],
-      "salaryMin": 110500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 110500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "buehler-97ce593659e9",
