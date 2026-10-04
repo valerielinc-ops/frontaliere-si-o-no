@@ -28,7 +28,6 @@ const WORKDAY_LISTING = {
   title: 'Technical Project Manager',
   locationsText: 'Zug, Switzerland',
   externalPath: '/job/Zug/Technical_Project_Manager-12345',
-  postedOn: '2026-09-25',
   bulletFields: ['12345'],
 };
 
