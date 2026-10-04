@@ -1041,7 +1041,12 @@ function main() {
       console.log(`PREPASS #${iss.number} nota non ripetuta: ${gate.why} ${d.marker}`);
     } else if (d.note && gate.code === 'unread') {
       notesSkippedUnread++;
-      console.log(`::warning::needs-human-prepass: #${iss.number} nota sospesa — ${gate.why}.`);
+      // Su `keep` la issue resta in `needs-human` e la nota si ritenta al giro
+      // dopo; su requeue/decompose la issue esce dalla coda, quindi la nota non
+      // tornerà: il log deve dire quale dei due casi è.
+      console.log(d.action === 'keep'
+        ? `::warning::needs-human-prepass: #${iss.number} nota sospesa → prossimo giro — ${gate.why}.`
+        : `::warning::needs-human-prepass: #${iss.number} nota omessa dal commento di instradamento (${d.action}) — ${gate.why}.`);
     }
 
     if (d.action === 'keep') {
