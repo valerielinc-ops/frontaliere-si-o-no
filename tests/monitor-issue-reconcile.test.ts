@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import {
   decideMonitorIssue,
   reconcileMonitorIssues,
@@ -6,7 +6,7 @@ import {
   MAX_CLOSES_PER_RUN,
   MAYBE_RESOLVED_LABEL,
 } from '../scripts/lib/monitor-issue-reconcile.mjs';
-import { mkdtempSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { cf5xxReconcile, cf5xxSeenNow, cf5xxVerdict, issueUrlFromBody } from '../scripts/cf-5xx-issue-sync.mjs';
@@ -499,15 +499,19 @@ describe('cf5xxReconcile — il report corrente deve essere completo', () => {
     errorPathsComplete: true,
   });
   /** Una presenza vecchia, poi sette snapshot puliti e freschi: la storia da sola chiuderebbe. */
-  const historyFile = () => {
-    const dir = mkdtempSync(path.join(tmpdir(), 'cf5xx-reconcile-'));
-    const file = path.join(dir, 'history.jsonl');
+  let historyDir = '';
+  let historyFile = '';
+  beforeAll(() => {
+    historyDir = mkdtempSync(path.join(tmpdir(), 'cf5xx-reconcile-'));
+    historyFile = path.join(historyDir, 'history.jsonl');
     const rows = [snap(8, [URL_A]), ...Array.from({ length: 7 }, (_, i) => snap(6 - i, []))];
-    writeFileSync(file, rows.map((r) => JSON.stringify(r)).join('\n') + '\n');
-    return file;
-  };
+    writeFileSync(historyFile, rows.map((r) => JSON.stringify(r)).join('\n') + '\n');
+  });
+  afterAll(() => {
+    if (historyDir) rmSync(historyDir, { recursive: true, force: true });
+  });
   const run = async (data: unknown) => {
-    const cfg = cf5xxReconcile(data, { historyFile: historyFile() });
+    const cfg = cf5xxReconcile(data, { historyFile });
     const { io, writes } = fakeIo([issue({ number: 101, title: `CF 5xx: ${URL_A}`, body, labels: ['cloudflare-5xx'] })]);
     const out = await reconcileMonitorIssues({ ...cfg, io, log: quiet });
     return { out, writes, verdict: await cfg.verdictFor({ body }) };
