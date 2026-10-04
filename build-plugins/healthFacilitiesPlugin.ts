@@ -207,6 +207,8 @@ function toJobCard(job: FacilityFeaturedJob): JobCardJob {
     salaryMax: job.salaryMax,
     salarySource: job.salarySource ?? undefined,
     currency: job.currency ?? undefined,
+    postingDateSource: job.postingDateSource,
+    datePosted: job.datePosted ?? undefined,
     postedDate: job.postedDate ?? undefined,
     url: job.url ?? undefined,
   };

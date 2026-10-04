@@ -114,16 +114,32 @@ describe('publisherJobToRecords', () => {
     expect(r.url).toMatch(/^https:\/\/frontaliereticino\.ch\/lavoro\//);
   });
 
-  it('carries structured-data fields with safe defaults', () => {
+  it('preserves ad fields without treating payment as publication', () => {
     const [r] = publisherJobToRecords(paidJob(), { nowIso: NOW });
     expect(r.canton).toBe('TI');
     expect(r.country).toBe('CH');
     expect(r.currency).toBe('CHF');
-    expect(r.postedDate).toBe(NOW);
+    expect(r.postingDateSource).toBe('unknown');
+    expect(r.datePosted).toBe('');
+    expect(r.postedDate).toBe('');
     // crawledAt is day-granularity (= "last verified live"); validThrough = crawledAt + 30d.
     expect(r.crawledAt).toBe('2026-06-10');
     expect(r.validThrough).toBe('2026-07-10T00:00:00.000Z');
     expect(r.addressLocality).toBe('Lugano');
+  });
+
+  it.each(['paid', 'published'])('does not promote %s status or mutable timestamps to publication provenance', (status) => {
+    const [record] = publisherJobToRecords(paidJob({
+      status, tier: status === 'published' ? 'free' : 'sponsored',
+      paidAt: NOW, createdAt: NOW, updatedAt: NOW, projectedAt: NOW,
+    }), { nowIso: NOW });
+    expect(record.postingDateSource).toBe('unknown');
+    expect(record.datePosted).toBe('');
+    expect(record.postedDate).toBe('');
+    expect(record.title).toBeTruthy();
+    expect(record.description).toBeTruthy();
+    expect(record.applyUrl).toBeTruthy();
+    expect(record.firstSeenAt).toBe(NOW);
   });
 
   it('refreshes crawledAt so validThrough never goes stale on a still-live ad', () => {
@@ -133,7 +149,8 @@ describe('publisherJobToRecords', () => {
       { nowIso: '2026-09-15T08:00:00.000Z' },
     );
     expect(r.crawledAt).toBe('2026-09-15');
-    expect(r.postedDate).toBe('2026-01-01T00:00:00.000Z'); // datePosted stays true
+    expect(r.postedDate).toBe('');
+    expect(r.firstSeenAt).toBe('2026-01-01T00:00:00.000Z');
     expect(new Date(r.validThrough).getTime()).toBeGreaterThan(new Date('2026-09-15').getTime());
   });
 
@@ -150,7 +167,8 @@ describe('publisherJobToRecords', () => {
     expect(new Date(r.validThrough).getTime()).toBeGreaterThan(
       Date.now() + 28 * 86400000,
     );
-    expect(r.postedDate).toBe(stalePaidAt); // datePosted stays true
+    expect(r.postedDate).toBe('');
+    expect(r.firstSeenAt).toBe(stalePaidAt);
   });
 
   it('honors explicit location address + canton', () => {
@@ -258,6 +276,16 @@ describe('slug helpers', () => {
 });
 
 describe('applyFeaturedSlotCap', () => {
+  it('preserves payment priority when creation order is opposite and publication is unknown', () => {
+    const records = publisherJobsToSlice([
+      paidJob({ id: 'recent-payment', featured: true, createdAt: '2026-01-01', paidAt: '2026-06-09', locations: [{ label: 'Lugano' }] }),
+      paidJob({ id: 'recent-creation', featured: true, createdAt: '2026-06-01', paidAt: '2026-06-02', locations: [{ label: 'Lugano' }] }),
+    ], { nowIso: NOW, featuredCap: 1 });
+    expect(records.find((record: any) => record.publisherJobId === 'recent-payment')?.featured).toBe(true);
+    expect(records.find((record: any) => record.publisherJobId === 'recent-creation')?.featured).toBe(false);
+    expect(records.every((record: any) => record.postingDateSource === 'unknown' && record.postedDate === '')).toBe(true);
+  });
+
   const mk = (canton: string, postedDate: string) => ({ canton, featured: true, postedDate });
 
   it('keeps all featured when within cap', () => {

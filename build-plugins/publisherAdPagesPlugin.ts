@@ -419,7 +419,8 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
           const bodyHtml = renderBody(rec, locale);
           const wordCount = countHtmlBodyWords(bodyHtml);
 
-          const jobPostingLd = inlineScriptJson(buildJobPostingSchema(rec, { locale, url: canonicalUrl }));
+          const jobPosting = buildJobPostingSchema(rec, { locale, url: canonicalUrl });
+          const jobPostingLd = jobPosting ? inlineScriptJson(jobPosting) : null;
           const breadcrumbLd = inlineScriptJson({
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
@@ -453,7 +454,7 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
             ogType: 'article',
             ogLocale: OG_LOCALE[locale],
             hreflangHtml,
-            jsonLdScripts: [jobPostingLd, breadcrumbLd],
+            jsonLdScripts: jobPostingLd ? [jobPostingLd, breadcrumbLd] : [breadcrumbLd],
             bodyHtml,
             distDir,
             skipMainWrap: true,

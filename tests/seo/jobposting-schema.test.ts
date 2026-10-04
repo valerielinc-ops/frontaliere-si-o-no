@@ -1,14 +1,15 @@
+import { buildReportedJobPostingFixture as buildJobPostingSchema } from '../helpers/reported-job-schema';
 /**
  * Unit tests for the canonical JobPosting schema builder at
  * `build-plugins/shared/jobPostingSchema.ts`.
  *
  * Verifies CLAUDE.md rule #3: every JobPosting schema must always contain
  * all 9 mandatory fields with realistic, non-empty values — even when the
- * source job data is sparse or entirely missing.
+ * other source fields are sparse, provided publication provenance is verified.
  */
 import { describe, it, expect } from 'vitest';
 import {
-  buildJobPostingSchema,
+  buildJobPostingSchema as buildRawJobPostingSchema,
   isEmployerOwnedApplyUrl,
   MANDATORY_JOBPOSTING_FIELDS,
   type JobInput,
@@ -151,24 +152,12 @@ describe('buildJobPostingSchema — partial input (missing address + salary)', (
   });
 });
 
-describe('buildJobPostingSchema — deterministic SSG clock', () => {
-  it('renders identical fallback dates in separate fixed-clock renders', () => {
-    const job: JobInput = {
-      id: 'clock-fixture',
-      title: 'Operatore amministrativo',
-      description: 'Descrizione sufficientemente lunga per il test del clock di build statico.',
-      company: 'Azienda Fixture SA',
-      city: 'Lugano',
-    };
-    const buildDay = new Date('2026-09-18T00:00:00.000Z');
-    const first = buildJobPostingSchema(job, { ...OPTS, now: buildDay });
-    const second = buildJobPostingSchema(job, { ...OPTS, now: new Date(buildDay) });
-    expect(JSON.stringify(first)).toBe(JSON.stringify(second));
-    expect(first.datePosted).toBe('2026-09-18T00:00:00.000Z');
-    expect(first.validThrough).toBe('2026-12-17T00:00:00.000Z');
-    expect(JSON.stringify(first)).not.toBe(JSON.stringify(
-      buildJobPostingSchema(job, { ...OPTS, now: new Date('2026-09-19T00:00:00.000Z') }),
-    ));
+describe('buildJobPostingSchema — missing publication under different build clocks', () => {
+  it('never turns a build date into an employer publication date', () => {
+    const job: JobInput = { title: 'Operatore amministrativo', company: 'Fixture SA', city: 'Lugano', postingDateSource: 'unknown' };
+    const now = new Date();
+    expect(buildRawJobPostingSchema(job, { ...OPTS, now })).toBeNull();
+    expect(buildRawJobPostingSchema(job, { ...OPTS, now: new Date(now.getTime() + 86400000) })).toBeNull();
   });
 });
 

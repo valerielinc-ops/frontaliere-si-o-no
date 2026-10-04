@@ -1,3 +1,4 @@
+import { resolveRolloutPostingDate } from '../../../scripts/lib/job-posting-date-rollout.mjs';
 /**
  * Mobile-first action block (above-the-fold on small screens) for the
  * static job-detail page. Mirrors the React
@@ -68,7 +69,7 @@ export function renderMobileActionBlock(ctx: MobileActionBlockRenderContext): st
     now,
   } = ctx;
   const daysAgo = (() => {
-    const dateStr = String(job.postedDate ?? job.crawledAt ?? '');
+    const dateStr = resolveRolloutPostingDate(job, () => String(job.postedDate ?? job.crawledAt ?? ''), now);
     if (!dateStr) return '—';
     const t = new Date(dateStr).getTime();
     if (!Number.isFinite(t)) return '—';

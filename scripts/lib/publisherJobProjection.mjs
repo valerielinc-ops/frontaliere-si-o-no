@@ -158,8 +158,10 @@ export function publisherJobToRecords(pubJob, opts = {}) {
     ? String(pubJob.descriptionMd).trim()
     : null;
   const apply = pubJob.apply || {};
-  const postedIso = toIso(pubJob.paidAt, nowIso) || toIso(pubJob.createdAt, nowIso);
-  const firstSeenIso = toIso(pubJob.createdAt, postedIso);
+  // Billing/creation and repeated projection timestamps do not attest the
+  // original publication. No immutable publication event is stored yet.
+  const recordedIso = toIso(pubJob.paidAt, nowIso) || toIso(pubJob.createdAt, nowIso);
+  const firstSeenIso = toIso(pubJob.createdAt, recordedIso);
   // `crawledAt` = "last verified live" — the emitter (jobsSeoPagesPlugin
   // toValidThrough) derives JobPosting validThrough from crawledAt (+60d), NOT
   // from the record's validThrough. A still-paid ad is re-projected every sync
@@ -167,10 +169,10 @@ export function publisherJobToRecords(pubJob, opts = {}) {
   // timestamp) keeps validThrough ~60d in the future for the whole subscription
   // while changing the slice at most once/day (no 30-min deploy churn). When the
   // subscription lapses the ad drops from the slice entirely.
-  const crawledAtIso = String(nowIso || postedIso || '').slice(0, 10) || null;
+  const crawledAtIso = String(nowIso || recordedIso || '').slice(0, 10) || null;
   let validThroughIso =
     crawledAtIso ? new Date(new Date(crawledAtIso).getTime() + validDays * 86400000).toISOString()
-      : (postedIso ? new Date(new Date(postedIso).getTime() + validDays * 86400000).toISOString() : null);
+      : (recordedIso ? new Date(new Date(recordedIso).getTime() + validDays * 86400000).toISOString() : null);
   // Floor to reference-now + validDays (#3505, same class as jobsSeoPagesPlugin
   // toValidThrough): a projection run without nowIso anchors crawledAt to the
   // (possibly old) postedDate → a still-live paid ad would emit an already-past
@@ -223,7 +225,11 @@ export function publisherJobToRecords(pubJob, opts = {}) {
       sector: pubJob.sector || null,
       source: PUBLISHER_SOURCE_KEY,
       sourceLang: pubJob.sourceLang || 'it',
-      postedDate: postedIso,
+      // Internal placement clock preserves paid-ad ordering; never a publication date.
+      featuredPriorityAt: recordedIso,
+      postingDateSource: 'unknown',
+      datePosted: '',
+      postedDate: '',
       employmentType: pubJob.employmentType || null,
       contractType: pubJob.contractType || null,
       validThrough: validThroughIso,
@@ -269,7 +275,7 @@ export const FEATURED_SLOTS_PER_CANTON = 6;
 
 /**
  * Apply the per-canton featured cap to a flat record array (mutating featured).
- * Records are ranked by paidAt/firstSeenAt desc within each canton.
+ * Records are ranked by the dedicated paid-placement clock, with legacy fallbacks.
  * @param {object[]} records
  * @param {number} [cap]
  * @returns {object[]} the same records (featured possibly downgraded)
@@ -288,8 +294,8 @@ export function applyFeaturedSlotCap(records, cap = FEATURED_SLOTS_PER_CANTON) {
   for (const group of byCanton.values()) {
     if (group.length <= cap) continue;
     group.sort((a, b) => {
-      const ta = firstParsableMs(a.postedDate, a.firstSeenAt);
-      const tb = firstParsableMs(b.postedDate, b.firstSeenAt);
+      const ta = firstParsableMs(a.featuredPriorityAt, a.postedDate, a.firstSeenAt);
+      const tb = firstParsableMs(b.featuredPriorityAt, b.postedDate, b.firstSeenAt);
       return tb - ta; // most recently paid first
     });
     group.slice(cap).forEach((r) => { r.featured = false; });

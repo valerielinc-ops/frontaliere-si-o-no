@@ -1,3 +1,4 @@
+import { buildReportedJobPostingFixture } from './helpers/reported-job-schema';
 import { describe, it, expect } from 'vitest';
 import { applyTarget, renderBody, resolveSlugCollisions, isCanaryOrTestAd } from '../build-plugins/publisherAdPagesPlugin';
 import { buildJobPostingSchema, MANDATORY_JOBPOSTING_FIELDS } from '../build-plugins/shared/jobPostingSchema';
@@ -166,6 +167,7 @@ describe('publisher-ads JobPosting structured data — AGENTS #3 mandatory field
   // ad with a full address. buildJobPostingSchema must fill safe defaults
   // for the missing fields, never drop the check (#4408).
   const FREE_TIER_RECORD = {
+    postingDateSource: 'unknown', datePosted: '', postedDate: '',
     title: 'Fisioterapista con riconoscimento CRS',
     slug: 'fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl',
     company: 'Fisiocare Sagl',
@@ -181,6 +183,7 @@ describe('publisher-ads JobPosting structured data — AGENTS #3 mandatory field
     description: 'Cerchiamo un fisioterapista con riconoscimento CRS per il nostro studio in Ticino, esperienza minima 2 anni, contratto a tempo indeterminato con benefit.',
   };
   const CANARY_RECORD = {
+    postingDateSource: 'unknown', datePosted: '', postedDate: '',
     title: 'Specialista Marketing Digitale (Canary Test)',
     slug: 'specialista-marketing-digitale-canary-test-lugano-frontaliere-ticino',
     company: 'Frontaliere Ticino',
@@ -203,10 +206,13 @@ describe('publisher-ads JobPosting structured data — AGENTS #3 mandatory field
   it.each([
     ['free-tier ad (nulls in postalCode/streetAddress)', FREE_TIER_RECORD],
     ['canary/sponsored ad', CANARY_RECORD],
-  ])('%s: every AGENTS #3 mandatory field is present and non-empty in every locale', (_label, rec) => {
+  ])('%s: a verified publication retains every mandatory field in every locale', (_label, rec) => {
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       const url = `https://frontaliereticino.ch/${locale === 'it' ? '' : `${locale}/`}lavoro/${rec.slug}/`;
-      const schema = buildJobPostingSchema(rec, { locale, url });
+      expect(buildJobPostingSchema(rec, { locale, url })).toBeNull();
+      expect(renderBody(rec, locale)).toContain(rec.title);
+      const reportedDate = new Date(Date.now() - 86400000).toISOString();
+      const schema = buildReportedJobPostingFixture({ ...rec, postingDateSource: 'reported', datePosted: reportedDate, postedDate: reportedDate }, { locale, url });
       expect(schema.baseSalary?.value?.minValue).toBeGreaterThan(0);
       expect(schema.jobLocation?.address?.postalCode).toBeTruthy();
       expect(schema.jobLocation?.address?.streetAddress).toBeTruthy();
