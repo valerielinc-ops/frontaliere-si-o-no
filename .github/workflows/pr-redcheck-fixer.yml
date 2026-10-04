@@ -132,10 +132,11 @@ jobs:
             # (issue #7310). `--method GET` + `-f` codifica il branch senza
             # interpolarlo nella query e `gh_bounded` rende il fallimento esplicito.
             RUN_HEAD_REPO="${RUN_HEAD_REPO:-}"
-            HEAD_OWNER="${RUN_HEAD_REPO%%/*}"
-            if [ -z "$HEAD_OWNER" ] || [ "$HEAD_OWNER" = "$RUN_HEAD_REPO" ]; then
-              HEAD_OWNER="${REPO%%/*}"
+            if [[ ! "$RUN_HEAD_REPO" =~ ^[^/]+/[^/]+$ ]]; then
+              echo "::error::Repository sorgente della run mancante o non valido: atteso <owner>/<repo>; stop fail-closed prima della ricerca PR."
+              exit 1
             fi
+            HEAD_OWNER="${RUN_HEAD_REPO%%/*}"
             if ! PR_MATCHES=$(gh_bounded gh api "repos/$REPO/pulls" --method GET \
               -f state=open \
               -f head="$HEAD_OWNER:$RUN_BRANCH" \
