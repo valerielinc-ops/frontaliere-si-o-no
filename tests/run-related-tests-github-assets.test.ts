@@ -375,10 +375,13 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
       'tests/ci-vitest-check-name.test.ts',
       'tests/agents-related-tests-recipe.test.ts',
     ]));
-    expect(selected).not.toContain('tests/checkout-sparse-profiles.test.ts');
+    // Il runner e' codice che il job `vitest` di tests.yml carica: il guard dei
+    // profili sparse lo giudica come ogni altro file di una chiusura, e resta
+    // fuori dal tetto della suite di regressione.
+    expect(selected).toContain('tests/checkout-sparse-profiles.test.ts');
     expect(selected).not.toContain('tests/faq-readability-gate.test.ts');
     expect(selected).not.toContain('tests/firestore-rules-consent-write.test.ts');
-    expect(selected.length).toBeLessThan(20);
+    expect(selected.filter((test) => test !== 'tests/checkout-sparse-profiles.test.ts').length).toBeLessThan(20);
   }, 120_000);
 
   it('un test cambiato trascina i lint dell\'albero dei test, che nessuno importa', () => {
@@ -449,6 +452,26 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['packages/articles/engine/shared/htmlMarkup.mjs'])).toContain(bingSparse);
     expect(selectionFor(['.github/workflows/bing-seo-loop.yml'])).toContain(bingSparse);
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(bingSparse);
+  }, 120_000);
+
+  it('un workflow o il codice che un job carica seleziona il guard dei profili sparse', () => {
+    // Issue 11301 item 008: `tests/checkout-sparse-profiles.test.ts` stava in
+    // `alwaysExcludedTests` e non girava mai. Il 2026-10-04 su main 6 job
+    // escludevano un bucket che il loro codice nomina e 12 workflow erano in
+    // ritardo sul generatore; la deriva era nata quasi sempre da codice della
+    // chiusura di un job, non dal suo YAML. Un file per ciascuna origine vista.
+    const guard = 'tests/checkout-sparse-profiles.test.ts';
+    expect(selectionFor(['.github/workflows/cf-5xx-monitor.yml'])).toContain(guard);
+    expect(selectionFor(['.github/actions/report-failure/action.yml'])).toContain(guard);
+    expect(selectionFor(['scripts/cf-5xx-issue-sync.mjs'])).toContain(guard);
+    expect(selectionFor(['scripts/assisted-application/lib/portal/portal.mjs'])).toContain(guard);
+    expect(selectionFor(['scripts/lib/deploy-shard-sections.sh'])).toContain(guard);
+    expect(selectionFor(['functions/src/emailCascade.js'])).toContain(guard);
+    expect(selectionFor(['scripts/ci/checkout-buckets.json'])).toContain(guard);
+    expect(selectionFor(['package.json'])).toContain(guard);
+    // Un doc o un componente React non entrano nella chiusura di un job.
+    expect(selectionFor(['docs/CF-5XX-TRIAGE.md'])).not.toContain(guard);
+    expect(selectionFor(['components/ChunkLoadErrorBoundary.tsx'])).not.toContain(guard);
   }, 120_000);
 
   it('un modulo della chiusura del finalizer crawler seleziona il test del generatore', () => {
@@ -640,7 +663,9 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
       // tornasse a essere un candidato orfano, il runner produrrebbe zero.
       expect(selected).toContain('tests/a-plus-plus-job-parser.test.ts');
       expect(selected.length).toBeGreaterThan(100);
-      expect(selected).not.toContain('tests/checkout-sparse-profiles.test.ts');
+      // Non e' piu' un'esclusione deliberata (issue 11301 item 008): il job
+      // `vitest` materializza tutto cio' che il verifier legge.
+      expect(selected).toContain('tests/checkout-sparse-profiles.test.ts');
       expect(selected).not.toContain('tests/faq-readability-gate.test.ts');
       expect(selected).not.toContain('tests/firestore-rules-consent-write.test.ts');
     } finally {
