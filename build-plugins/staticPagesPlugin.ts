@@ -10,7 +10,7 @@ import { METHODOLOGY_COPY, type MethodologyLocale } from '../services/editorialM
  */
 
 import type { Plugin } from 'vite';
-import { renderAuthorEditorial, resolveAuthorStaticSeo } from './shared/authorEditorial';
+import { renderAuthorEditorial, renderAuthorRosterItems, resolveAuthorStaticSeo } from './shared/authorEditorial';
 import { localizeArticlePageIdentity } from '../services/seo/article-page-identity';
 import { editorialModifiedDate } from './shared/editorialDates';
 import { renderBorderDashboardLink } from './shared/borderDashboardLink';
@@ -4867,11 +4867,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `Tutti i contenuti sono basati esclusivamente su fonti ufficiali: tabelle fiscali dell'AFC, parametri contributivi UFAS/BSV, dati statistici dell'Ufficio federale di statistica (UST/BFS), normative SECO e pubblicazioni dell'Agenzia delle Entrate. La piattaforma è completamente indipendente da banche, assicurazioni e datori di lavoro — le informazioni fornite sono imparziali e verificabili.`,
  `Il sito è disponibile in quattro lingue (italiano, inglese, tedesco, francese) e viene aggiornato quotidianamente con le ultime novità legislative, offerte di lavoro verificate e dati di mercato. Oltre 700 articoli di approfondimento coprono ogni aspetto della vita del frontaliere, dalla prima assunzione alla pianificazione pensionistica.`,
  `<h2 class="s-o3IET6">Le firme della redazione</h2>`,
- `<ul class="s-QkRjp8">` +
- `<li class="s-wP4Jn1"><a class="s-OsohZU" href="/autori/marco-ferrari/" rel="author">Marco Ferrari</a> — Esperto fiscalità frontaliera (730, dichiarazione redditi, imposta alla fonte, accordo Italia-Svizzera 2026).</li>` +
- `<li class="s-wP4Jn1"><a class="s-OsohZU" href="/autori/laura-bianchi/" rel="author">Laura Bianchi</a> — Specialista previdenza svizzera (AVS, LPP, LAMal, pensioni, assicurazioni sociali).</li>` +
- `<li class="s-wP4Jn1"><a class="s-OsohZU" href="/autori/redazione/" rel="author">Redazione Frontaliere Ticino</a> — Lavoro frontaliere, salari, trasporti transfrontalieri, dogana.</li>` +
- `</ul>`,
+ // Derived from data/authors.ts: the hand-copied list missed samuele-valente
+ // and kept the superseded expertise text after the registry was corrected.
+ `<ul class="s-QkRjp8">${renderAuthorRosterItems('it', 's-wP4Jn1', 's-OsohZU')}</ul>`,
  `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">AFC</a> · <a class="s-OsohZU" href="https://www.bfs.admin.ch" rel="noopener">UST/BFS</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a></p>`,
  );
  } else if (canonicalPath === '/contattaci' || canonicalPath === '/contattaci/') {
