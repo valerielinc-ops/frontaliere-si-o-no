@@ -2269,7 +2269,8 @@ function main() {
         expectedTitle: it.title, workflow: it.workflow, runUrl, preface,
       });
       if (result === null) {
-        console.log(`  #${it.number} resolve skipped (ENABLE_FAILURE_REPORT=false) — keep open`);
+        const why = isFailureReportingDisabled() ? 'ENABLE_FAILURE_REPORT=false' : 'invalid issue number or title';
+        console.log(`  #${it.number} resolve skipped (${why}) — keep open`);
         kept++;
         continue;
       }

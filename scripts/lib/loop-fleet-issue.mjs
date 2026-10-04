@@ -271,12 +271,20 @@ function defaultResolveIssueByNumber(env) {
   };
 }
 
+/** Stessa guardia per il creator: anche `createGithubIssue` usa un proprio `gh` reale. */
+function defaultCreateIssue(env) {
+  if (!env.VITEST && !process.env.VITEST) return createGithubIssue;
+  return () => {
+    throw new Error('[loop-fleet-issue] createIssue non iniettato sotto Vitest');
+  };
+}
+
 function context(deps = {}) {
   const env = deps.env ?? process.env;
   return {
     env,
     gh: deps.gh ?? defaultGh(env),
-    createIssue: deps.createIssue ?? createGithubIssue,
+    createIssue: deps.createIssue ?? defaultCreateIssue(env),
     resolveIssueByNumber: deps.resolveIssueByNumber ?? defaultResolveIssueByNumber(env),
     now: deps.now ?? (() => new Date()),
     logger: deps.logger ?? console,
