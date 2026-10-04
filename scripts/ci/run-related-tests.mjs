@@ -103,6 +103,16 @@ const sourceTreeLintTests = new Map([
   // Elenchi di run per `branch` senza finestra `created`: l'API li restituisce
   // a tratti fermi a settimane prima (resolver dell'artifact Pages, 02-10).
   ['tests/run-listing-created-window.test.ts', /^(?:\.github|scripts|bin|functions)\//],
+  // La lista sparse dell'observer delle generazioni crawler sta nel YAML: il
+  // test la confronta con la chiusura degli import di
+  // `scripts/crawler-generation-observer.mjs`, ma nessun import lo lega ai
+  // moduli della chiusura. Sulla PR 11262 un import nuovo in
+  // `crawler-grace-policy.mjs` e' uscito dalla lista e main e' rimasto rosso
+  // in latenza. I moduli JS della chiusura vivono in `scripts/` e
+  // `functions/` (githubApiHeaders.js); l'unico file fuori
+  // (`data/canton-municipalities.json`) e' un JSON foglia e non puo'
+  // aggiungere import. Il test costa meno di un secondo.
+  ['tests/crawler-generation-observer-workflow.test.ts', /^(?:scripts|functions)\//],
   // La lista sparse di housekeeping sta in un file, non nel YAML (il corpus
   // pinna il YAML, il codice e' quello di main): il test calcola la chiusura
   // degli import degli entrypoint, quindi nessun import lo collega al modulo
