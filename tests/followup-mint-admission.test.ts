@@ -158,14 +158,51 @@ describe('contentsApiIo — il main del repository del bucket, non il disco', ()
     expect(io.stats()).toEqual({ reads: 1, cap: 10, capped: 0, errors: 0 });
   });
 
-  it('404 → missing; ogni altro errore → unknown e contato', () => {
-    const missing = contentsApiIo({ repo: 'o/r', gh: fail('gh: Not Found (HTTP 404)'), cap: 5 });
+  // Un 404 sul file vale `missing` solo se il repository si legge con QUESTO
+  // token: l'API risponde 404 anche a un token senza accesso (review
+  // frontaliere-articles#2097). La prova è UNA lettura del ref, per run.
+  const readableRepo = (stderr: string) => (args: string[]) => {
+    if (args[1] === 'repos/o/r/commits/main') return '0123456789abcdef0123456789abcdef01234567\n';
+    return fail(stderr)();
+  };
+
+  it('404 su un repository leggibile → missing; ogni altro errore → unknown e contato', () => {
+    const missing = contentsApiIo({ repo: 'o/r', gh: readableRepo('gh: Not Found (HTTP 404)'), cap: 5 });
     expect(missing.status(TARGET)).toBe('missing');
     expect(missing.stats().errors).toBe(0);
     const broken = contentsApiIo({ repo: 'o/r', gh: fail('HTTP 502: Bad Gateway'), cap: 5 });
     expect(broken.status(TARGET)).toBe('unknown');
     expect(broken.readFile(TARGET)).toBeNull();
     expect(broken.stats().errors).toBe(1);
+  });
+
+  it('404 con repository non leggibile da questo token (404, 403 o rete sul ref) → unknown, mai missing', () => {
+    for (const probeError of ['gh: Not Found (HTTP 404)', 'gh: Resource not accessible (HTTP 403)', 'dial tcp: i/o timeout']) {
+      const io = contentsApiIo({ repo: 'o/r', gh: (args: string[]) => {
+        if (args[1] === 'repos/o/r/commits/main') return fail(probeError)();
+        return fail('gh: Not Found (HTTP 404)')();
+      }, cap: 5 });
+      expect(io.status(TARGET)).toBe('unknown');
+      expect(io.fileExists(TARGET)).toBe(false);
+      expect(io.stats().errors).toBe(1);
+      const item = parsed(itemText());
+      expect(mintAdmission(item, io, { target: { side: 'site', manifestFiles: [], twinIo: io } }).admit).toBe(true);
+    }
+  });
+
+  it('la prova di leggibilità è una sola per run, e solo dopo un 404', () => {
+    const calls: string[][] = [];
+    const io = contentsApiIo({ repo: 'o/r', gh: (args: string[]) => {
+      calls.push(args);
+      if (args[1] === 'repos/o/r/commits/main') return 'sha\n';
+      if (args[3]?.includes('present.mjs')) return 'x';
+      return fail('HTTP 404')();
+    }, cap: 10 });
+    expect(io.status('scripts/present.mjs')).toBe('present');
+    expect(calls.some((args) => args[1] === 'repos/o/r/commits/main')).toBe(false);
+    expect(io.status('scripts/a.mjs')).toBe('missing');
+    expect(io.status('scripts/b.mjs')).toBe('missing');
+    expect(calls.filter((args) => args[1] === 'repos/o/r/commits/main')).toHaveLength(1);
   });
 
   it('il tetto è rispettato e dichiarato: oltre il tetto un path nuovo è unknown, senza chiamate', () => {
