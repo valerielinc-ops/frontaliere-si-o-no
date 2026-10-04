@@ -97187,6 +97187,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rita-fuhrer-consiglio-federale': {
+    title: 'Nessuna donna necessaria in Consiglio federale',
+    description: 'Rita Fuhrer: \'Deve semplicemente essere la persona più adatta\' per la successione di Parmelin, senza considerare il genere. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, nessuna, donna, necessaria, consiglio',
+    ogTitle: 'Nessuna donna necessaria in Consiglio federale',
+    ogDescription: 'Rita Fuhrer ritiene non necessario scegliere una donna per la successione di Guy Parmelin: \'Deve semplicemente essere la persona più adatta\'. Ex candidata UDC nel 2000.',
+    canonicalPath: '/articoli-svizzera/rita-fuhrer-consiglio-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nessuna donna necessaria in Consiglio federale",
+      "description": "Rita Fuhrer: 'Deve semplicemente essere la persona più adatta' per la successione di Parmelin, senza considerare il genere. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rita-fuhrer-consiglio-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Rita Fuhrer, ex consigliera di Stato zurighese, commenta la successione in Consiglio federale"
+      },
+      "datePublished": "2026-10-04T22:14:58+00:00",
+      "dateModified": "2026-10-04T22:14:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rita-fuhrer-consiglio-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
