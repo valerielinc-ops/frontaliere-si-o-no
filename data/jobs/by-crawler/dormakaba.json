@@ -164,7 +164,7 @@
       "slugByLocale": {
         "de": "servicetechniker-in-w-m-d-dormakaba-ch",
         "it": "servicetechniker-in-m-w-d-dormakaba-st-gallen",
-        "en": "service-technician-m-f-d-dormakaba-st-gallen",
+        "en": "servicetechniker-in-w-m-d-dormakaba-st-gallen",
         "fr": "servicetechniker-in-w-m-d-dormakaba-st-gallen"
       },
       "company": "dormakaba",
@@ -217,7 +217,7 @@
         "service-technician-in-f-m-d-dormakaba-st-gallen",
         "technicien-in-f-m-d-dormakaba-st-gallen",
         "servicetechniker-in-w-m-d-dormakaba-ch",
-        "servicetechniker-in-w-m-d-dormakaba-st-gallen"
+        "service-technician-m-f-d-dormakaba-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -227,7 +227,7 @@
         ],
         "en": [
           "service-technician-in-f-m-d-dormakaba-st-gallen",
-          "servicetechniker-in-w-m-d-dormakaba-st-gallen"
+          "service-technician-m-f-d-dormakaba-st-gallen"
         ],
         "fr": [
           "technicien-des-services-in-f-m-d-dormakaba-st-gallen",
@@ -846,9 +846,9 @@
       "slug": "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
       "slugByLocale": {
         "fr": "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
-        "it": "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "en": "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "de": "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "it": "specialista-nel-software-di-controllo-accessi-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "en": "specialist-in-access-control-software-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "de": "spezialist-fur-zutrittskontrollsoftware-m-w-d-dormakaba-le-mont-sur-lausanne"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -893,23 +893,11 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "previousSlugs": [
-        "specialista-nel-software-di-controllo-accessi-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "specialist-in-access-control-software-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "spezialist-fur-zutrittskontrollsoftware-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
-        "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-nel-software-di-controllo-accessi-m-f-d-dormakaba-le-mont-sur-lausanne",
-          "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
-          "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
-        ],
-        "en": [
-          "specialist-in-access-control-software-m-f-d-dormakaba-le-mont-sur-lausanne"
-        ],
-        "de": [
-          "spezialist-fur-zutrittskontrollsoftware-m-w-d-dormakaba-le-mont-sur-lausanne"
+          "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
         ]
       },
       "salaryMin": 71000,
@@ -1087,7 +1075,7 @@
         "de": "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
         "en": "assembly-technician-m-f-d-zurich-region-dormakaba-st-gallen",
         "fr": "technicien-d-assemblage-h-f-d-zurich-dormakaba-st-gallen",
-        "it": "montagetechniker-m-w-d-region-zurich-dormakaba-st-gallen"
+        "it": "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -1133,15 +1121,11 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen",
-        "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
-        "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
-        "montagetechniker-m-w-d-region-zurich-dormakaba-st-gallen"
+        "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
-          "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
-          "montagetechniker-m-w-d-region-zurich-dormakaba-st-gallen"
+          "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
         ],
         "fr": [
           "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen"
