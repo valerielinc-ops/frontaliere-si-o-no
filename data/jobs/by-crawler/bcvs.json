@@ -82,7 +82,6 @@
           "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:48:06.057Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -169,7 +168,6 @@
           "responsable-data-ia-bcvs-sion"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:29:52.591Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -256,7 +254,6 @@
           "data-analyst-bi-expert-bcvs-sion"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:29:51.717Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -344,7 +341,6 @@
           "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T10:04:10.904Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -418,14 +414,11 @@
           "Vous serez un acteur du changement et accompagnerez les collègues dans la transition digitale."
         ]
       },
-      "previousSlugs": [
-        "chef-fe-de-projets-it-business-analyste-bcvs-sion",
-        "responsabile-di-progetto-it-e-business-analyst-banque-cantonale-du-valais-sion"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-30T21:25:25.329Z",
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-projets-it-business-analyste-bcvs-sion",
-          "responsabile-di-progetto-it-e-business-analyst-banque-cantonale-du-valais-sion"
+          "chef-fe-de-projets-it-business-analyste-bcvs-sion"
         ],
         "en": [
           "chef-fe-de-projets-it-business-analyste-bcvs-sion"
@@ -434,8 +427,9 @@
           "chef-fe-de-projets-it-business-analyste-bcvs-sion"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-30T21:25:25.329Z",
+      "previousSlugs": [
+        "chef-fe-de-projets-it-business-analyste-bcvs-sion"
+      ],
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -452,12 +446,12 @@
     },
     {
       "id": "bcvs-4a8aa35a96ea",
-      "slug": "expert-ia-bcvs-sion",
+      "slug": "esperto-ia-banque-cantonale-du-valais-sion",
       "slugByLocale": {
-        "it": "expert-ia-bcvs-sion",
+        "fr": "expert-ia-bcvs-sion",
+        "it": "esperto-ia-banque-cantonale-du-valais-sion",
         "en": "expert-ia-bcvs-sion",
-        "de": "expert-ia-bcvs-sion",
-        "fr": "expert-ia-bcvs-sion"
+        "de": "sachverstandiger-ia-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",

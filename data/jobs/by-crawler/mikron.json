@@ -26,7 +26,9 @@
         "de": "Elektro- und Softwareingenieur (m/w/d)"
       },
       "slugByLocale": {
-        "it": "electrical-software-engineer-m-f-d-mikron"
+        "it": "electrical-software-engineer-m-f-d-mikron",
+        "de": "elektro-und-softwareingenieur-m-w-d-mikron-group-agno",
+        "fr": "ingenieur-electrique-et-logiciel-h-f-d-mikron-group-agno"
       },
       "slug": "electrical-software-engineer-m-f-d-mikron",
       "sourceLang": "it",
@@ -416,20 +418,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "previousSlugsByLocale": {
-        "it": [
-          "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron",
-          "marketing-generalista-m-f-d-con-lingua-madre-tedesca-mikron-group-agno"
-        ],
-        "en": [
-          "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron"
-        ]
-      },
-      "previousSlugs": [
-        "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron",
-        "marketing-generalista-m-f-d-con-lingua-madre-tedesca-mikron-group-agno"
-      ]
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -338,8 +338,9 @@ export interface CorpusJob {
   canton?: string;
   contract?: string;
   employmentType?: string;
-  postedDate?: string;
+  postingDateSource?: string;
   datePosted?: string;
+  postedDate?: string;
   crawledAt?: string;
   firstSeenAt?: string;
   salaryMin?: number | null;
@@ -601,8 +602,9 @@ function renderProfileBody(
           addressLocality: job.addressLocality,
           canton: job.canton,
           contract: job.contract,
-          postedDate: job.postedDate,
+          postingDateSource: job.postingDateSource,
           datePosted: job.datePosted,
+          postedDate: job.postedDate,
           salaryMin: job.salaryMin ?? null,
           salaryMax: job.salaryMax ?? null,
           salarySource: job.salarySource,

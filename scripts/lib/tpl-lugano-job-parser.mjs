@@ -12,6 +12,7 @@
  *   isTplJob(job)              — match TPL jobs in dataset
  */
 
+import { JSDOM } from 'jsdom';
 import { buildPdfBackedDescription } from './pdf-job-content.mjs';
 
 const TPL_ORIGIN = 'https://www.tplsa.ch';
@@ -55,13 +56,30 @@ function stripHtml(html = '') {
  *   - `idhr=0` is the spontaneous-application form, not a job posting.
  *
  * @param {string} html - Raw HTML of the listing page
- * @returns {{ url: string, title: string }[]}
+ * @returns {{ url: string, title: string, datePosted?: string }[]}
  */
 export function parseTplListingPage(html = '') {
   if (!html) return [];
 
   const results = [];
   const seen = new Set();
+  const document = new JSDOM(html).window.document;
+  // Read the column explicitly labelled publication, never the deadline beside it.
+  const rows = [...document.querySelectorAll('.col-md-12')];
+  const header = rows.find((row) => [...row.children].some((cell) => normalizeSpace(cell.textContent).toLowerCase() === 'data pubblicazione'));
+  const publicationColumn = header ? [...header.children].findIndex((cell) => normalizeSpace(cell.textContent).toLowerCase() === 'data pubblicazione') : -1;
+  const months = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
+  const publicationByHref = new Map();
+  if (publicationColumn >= 0) {
+    for (const link of document.querySelectorAll('a[href]')) {
+      const row = link.closest('.col-md-12');
+      const cell = row?.children[publicationColumn];
+      if (!cell || cell.contains(link)) continue;
+      const match = /^(\d{1,2})\s+([a-z]+)\s+(\d{4})$/i.exec(normalizeSpace(cell.textContent));
+      const month = match ? months.indexOf(match[2].toLowerCase()) + 1 : 0;
+      if (match && month) publicationByHref.set(link.getAttribute('href'), `${match[3]}-${String(month).padStart(2, '0')}-${match[1].padStart(2, '0')}`);
+    }
+  }
 
   const linkPattern =
     /<a\b[^>]*href\s*=\s*"([^"]*\/candidati\/?\?[^"]*\bidhr=(\d+)[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi;
@@ -96,7 +114,8 @@ export function parseTplListingPage(html = '') {
 
     if (seen.has(url)) continue;
     seen.add(url);
-    results.push({ url, title: rawTitle });
+    const datePosted = publicationByHref.get(rawUrl) || '';
+    results.push({ url, title: rawTitle, ...(datePosted ? { datePosted } : {}) });
   }
 
   return results;

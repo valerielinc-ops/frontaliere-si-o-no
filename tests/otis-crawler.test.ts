@@ -354,3 +354,11 @@ describe('parseOtisSiteAddress', () => {
     expect(dropIdenticalPostings([job('20169211', {}), job('20169212-1', {})]).jobs).toHaveLength(2);
   });
 });
+
+
+describe('Otis publication provenance', () => {
+  it('does not manufacture a source date when Workday omits startDate', () => {
+    const parsed = parseOtisWorkdayDetail({ ...MOCK_DETAIL, jobPostingInfo: { ...MOCK_DETAIL.jobPostingInfo, startDate: '' } });
+    expect(parsed.datePosted).toBe('');
+  });
+});
