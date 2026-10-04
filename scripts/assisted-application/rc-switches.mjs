@@ -55,7 +55,7 @@ export const RC_SWITCHES = {
     read: (value) => pdfRendererMode({ env: { [RENDERER_KEY]: value } }),
   },
   [DOSSIER_KEY]: {
-    description: '"single" e-mails one PDF dossier to a qualified candidate\'s employer (default: separate files).',
+    description: '"single" merges letter, CV and documents for qualified and first-job e-mails (default: separate).',
     values: ['separate', 'single'],
     read: (value) => dossierMode({ [DOSSIER_KEY]: value }),
   },

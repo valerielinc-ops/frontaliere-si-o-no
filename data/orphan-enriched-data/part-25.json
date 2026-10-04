@@ -2062,8 +2062,8 @@
       "observedPaths": {
         "en": "/en/find-jobs-bern/agroalimentaire",
         "fr": "/fr/trouver-emploi-berne/agroalimentaire",
-        "de": "/de/jobs-im-bern/agroalimentaire",
-        "it": "/cerca-lavoro-berna/agroalimentaire"
+        "it": "/cerca-lavoro-basilea/agroalimentaire",
+        "de": "/de/jobs-im-bern/agroalimentaire"
       },
       "queries": [
         {
@@ -2090,9 +2090,14 @@
           "query": "emploi",
           "clicks": 0,
           "impressions": 1
+        },
+        {
+          "query": "emploi agroalimentaire allemagne",
+          "clicks": 0,
+          "impressions": 1
         }
       ],
-      "totalImpressions": 78,
+      "totalImpressions": 79,
       "totalClicks": 0,
       "topQuery": "agence de recrutement industrie agroalimentaire bale",
       "title": "Agroalimentaire",
@@ -5529,10 +5534,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-buochs",
-        "en": "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-buochs",
+        "it": "aspirant-stv-amministratore-delegato-coop-genossenschaft-buochs",
+        "en": "aspirant-stv-managing-director-coop-genossenschaft-buochs",
         "de": "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-buochs",
-        "fr": "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-buochs"
+        "fr": "aspirant-stv-directeur-general-coop-genossenschaft-buochs"
       },
       "localePaths": {
         "it": "/cerca-lavoro-nidvaldo/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-buochs",
@@ -5546,6 +5551,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -12490,10 +12496,10 @@
         "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-basel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-basel",
-        "en": "/en/find-jobs-basel/boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-basel",
-        "de": "/de/jobs-in-basel/boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-basel",
-        "fr": "/fr/trouver-emploi-bale/boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-basel"
+        "it": "/cerca-lavoro-zurigo/boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-basel",
+        "en": "/en/find-jobs-zurich/boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-basel",
+        "de": "/de/jobs-in-zurich/boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-basel",
+        "fr": "/fr/trouver-emploi-zurich/boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -12729,10 +12735,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "branch-manager-denner-buchs-sg",
+        "it": "direttoredifiliale-denner-buchs-sg",
         "en": "branch-manager-denner-buchs-sg",
-        "de": "branch-manager-denner-buchs-sg",
-        "fr": "branch-manager-denner-buchs-sg"
+        "de": "filialleiter-in-denner",
+        "fr": "adjoint-e-d-agence-denner-buchs-sg"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/branch-manager-denner-buchs-sg",
@@ -12746,6 +12752,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -13087,10 +13094,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "en": "financial-business-partner-in-controlling-avaloq-zurich",
         "it": "business-partner-finanziario-nel-controllo-avaloq-zurich",
-        "de": "finanz-geschaftspartner-im-controlling-avaloq-zurich",
-        "fr": "partenaire-financier-dans-le-controle-avaloq-zurich"
+        "en": "financial-business-partner-in-controlling-avaloq-zurich",
+        "de": "finanz-geschaftspartner-im-controlling-avaloq-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/business-partner-finanziario-nel-controllo-avaloq-zurich",
@@ -13098,7 +13104,7 @@
         "de": "/de/jobs-in-zurich/business-partner-finanziario-nel-controllo-avaloq-zurich",
         "fr": "/fr/trouver-emploi-zurich/business-partner-finanziario-nel-controllo-avaloq-zurich"
       },
-      "sourceUrl": "https://www.avaloq.com/careers/job-openings/744000150108219",
+      "sourceUrl": "https://jobs.smartrecruiters.com/avaloq1/744000150108219-financial-business-partner-in-controlling",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
@@ -15345,7 +15351,7 @@
       "locale": "fr",
       "path": "/fr/trouver-emploi-schaffhouse/chauffeurs/",
       "observedPaths": {
-        "de": "/de/jobs-im-tessin/chauffeurs",
+        "de": "/de/jobs-im-schaffhausen/chauffeurs",
         "fr": "/fr/trouver-emploi-tessin/chauffeurs",
         "en": "/en/find-jobs-ticino/chauffeurs",
         "it": "/cerca-lavoro-sciaffusa/chauffeurs"
@@ -20861,6 +20867,63 @@
       ]
     },
     {
+      "slug": "consulting",
+      "locale": "en",
+      "path": "/en/find-jobs-schwyz/consulting/",
+      "observedPaths": {
+        "en": "/en/find-jobs-schwyz/consulting/"
+      },
+      "queries": [
+        {
+          "query": "tax consultant schwyz",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "tax consultant schwyz",
+      "title": "Consulting",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "consulting",
+        "en": "consulting",
+        "de": "consulting",
+        "fr": "consulting"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-svitto/consulting",
+        "en": "/en/find-jobs-schwyz/consulting",
+        "de": "/de/jobs-im-schwyz/consulting",
+        "fr": "/fr/trouver-emploi-schwytz/consulting"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "contributeurs-ordre-economique-national-eoc-ente-ospedaliero-cantonale-bellinzona-29e60b",
       "locale": "en",
       "path": "/en/find-jobs-ticino/contributeurs-ordre-economique-national-eoc-ente-ospedaliero-cantonale-bellinzona-29e60b",
@@ -24082,6 +24145,84 @@
       ]
     },
     {
+      "slug": "dipl-hebamme-hf-fh-50-80-regionalspital-surselva-ilanz",
+      "locale": "de",
+      "path": "/de/jobs-in-graubunden/dipl-hebamme-hf-fh-50-80-regionalspital-surselva-ilanz/",
+      "observedPaths": {
+        "de": "/de/jobs-in-graubunden/dipl-hebamme-hf-fh-50-80-regionalspital-surselva-ilanz/"
+      },
+      "queries": [
+        {
+          "query": "jobs ilanz",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "jobs surselva",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "job ilanz",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offene stellen hebamme",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offene stellen surselva",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 0,
+      "topQuery": "jobs ilanz",
+      "title": "Dipl hebamme hf fh 50 regionalspital surselva",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Ilanz",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "dipl-hebamme-hf-fh-50-80-regionalspital-surselva-ilanz",
+        "en": "dipl-hebamme-hf-fh-50-80-regionalspital-surselva-ilanz",
+        "de": "dipl-hebamme-hf-fh-50-80-regionalspital-surselva-ilanz",
+        "fr": "dipl-hebamme-hf-fh-50-80-regionalspital-surselva-ilanz"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-grigioni/dipl-hebamme-hf-fh-50-80-regionalspital-surselva-ilanz",
+        "en": "/en/find-jobs-graubunden/dipl-hebamme-hf-fh-50-80-regionalspital-surselva-ilanz",
+        "de": "/de/jobs-im-graubunden/dipl-hebamme-hf-fh-50-80-regionalspital-surselva-ilanz",
+        "fr": "/fr/trouver-emploi-grisons/dipl-hebamme-hf-fh-50-80-regionalspital-surselva-ilanz"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-a-per-reparto-privato-interdisciplinare-60-100",
       "locale": "it",
       "path": "/cerca-lavoro-berna/dipl-infermieristica-professionale-dipl-infermieristica-professionale-a-per-reparto-privato-interdisciplinare-60-100",
@@ -24435,10 +24576,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "dipl-nursing-specialist-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "it": "dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "dipl-nursing-specialist-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "de": "dipl-nursing-specialist-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "fr": "dipl-nursing-specialist-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "de": "dipl-pflegefachfrau-pflegefachmann-fh-hf-ipw-winterthur",
+        "fr": "dipl-specialiste-des-soins-infirmiers-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/dipl-nursing-specialist-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
@@ -24446,12 +24587,13 @@
         "de": "/de/jobs-in-zurich/dipl-nursing-specialist-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "fr": "/fr/trouver-emploi-zurich/dipl-nursing-specialist-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://live.solique.ch/ipw/de/jobs/dipl.-pflegefachfrau---pflegefachmann-fh-hf--4070887",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -24921,9 +25063,8 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "dipl-soins-infirmiers-professionnels-hf-swiss-medical-network-zurich",
-        "en": "dipl-soins-infirmiers-professionnels-hf-swiss-medical-network-zurich",
-        "de": "dipl-soins-infirmiers-professionnels-hf-swiss-medical-network-zurich",
+        "it": "dipl-infermieristica-professionale-hf-swiss-medical-network-zurich",
+        "de": "dipl-pflegefachfrau-mann-hf-swiss-medical-network",
         "fr": "dipl-soins-infirmiers-professionnels-hf-swiss-medical-network-zurich"
       },
       "localePaths": {
@@ -24932,12 +25073,13 @@
         "de": "/de/jobs-im-zurich/dipl-soins-infirmiers-professionnels-hf-swiss-medical-network-zurich",
         "fr": "/fr/trouver-emploi-zurich/dipl-soins-infirmiers-professionnels-hf-swiss-medical-network-zurich"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000149802495-dipl-pflegefachfrau-mann-hf",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -29170,6 +29312,119 @@
       ]
     },
     {
+      "slug": "fachbearbeiter-in-schuler-innen-stadt-zurich-zurich",
+      "locale": "de",
+      "path": "/de/jobs-in-zurich/fachbearbeiter-in-schuler-innen-stadt-zurich-zurich/",
+      "observedPaths": {
+        "de": "/de/jobs-in-zurich/fachbearbeiter-in-schuler-innen-stadt-zurich-zurich/"
+      },
+      "queries": [
+        {
+          "query": "jobs stadt zürich",
+          "clicks": 0,
+          "impressions": 23
+        },
+        {
+          "query": "offene stellen stadt zürich",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "stadt zürich jobs",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "job stadt zürich",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "arbeiten bei der stadt zürich",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "jobs stadt zurich",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "schul und sportdepartement zürich jobs",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "stadt zuerich jobs",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "stadt zürich job",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "stadt zürich stellen",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "stellen stadt zürich",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "stellenangebote bei stadt zürich",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 42,
+      "totalClicks": 0,
+      "topQuery": "jobs stadt zürich",
+      "title": "Fachbearbeiter in schuler innen stadt zurich",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "fachbearbeiter-in-schuler-innen-stadt-zurich-zurich",
+        "en": "fachbearbeiter-in-schuler-innen-stadt-zurich-zurich",
+        "de": "fachbearbeiter-in-schuler-innen-stadt-zurich-zurich",
+        "fr": "fachbearbeiter-in-schuler-innen-stadt-zurich-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/fachbearbeiter-in-schuler-innen-stadt-zurich-zurich",
+        "en": "/en/find-jobs-zurich/fachbearbeiter-in-schuler-innen-stadt-zurich-zurich",
+        "de": "/de/jobs-im-zurich/fachbearbeiter-in-schuler-innen-stadt-zurich-zurich",
+        "fr": "/fr/trouver-emploi-zurich/fachbearbeiter-in-schuler-innen-stadt-zurich-zurich"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "fachfrau-fachmann-finanz-und-rechnungswesen-psychiatrische-universitatsklinik-zurich-zurich",
       "locale": "de",
       "path": "/de/jobs-im-tessin/fachfrau-fachmann-finanz-und-rechnungswesen-psychiatrische-universitatsklinik-zurich-zurich",
@@ -30683,10 +30938,10 @@
         "fr": "food-sales-assistant-coop-genossenschaft-lotzwil-74d81a"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/food-sales-assistant-coop-genossenschaft-lotzwil-74d81a",
-        "en": "/en/find-jobs-zurich/food-sales-assistant-coop-genossenschaft-lotzwil-74d81a",
-        "de": "/de/jobs-in-zurich/food-sales-assistant-coop-genossenschaft-lotzwil-74d81a",
-        "fr": "/fr/trouver-emploi-zurich/food-sales-assistant-coop-genossenschaft-lotzwil-74d81a"
+        "it": "/cerca-lavoro-san-gallo/food-sales-assistant-coop-genossenschaft-lotzwil-74d81a",
+        "en": "/en/find-jobs-st-gallen/food-sales-assistant-coop-genossenschaft-lotzwil-74d81a",
+        "de": "/de/jobs-in-st-gallen/food-sales-assistant-coop-genossenschaft-lotzwil-74d81a",
+        "fr": "/fr/trouver-emploi-saint-gall/food-sales-assistant-coop-genossenschaft-lotzwil-74d81a"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -35867,7 +36122,8 @@
       "slugByLocale": {
         "it": "infermiere-strumentali-swiss-medical-network-sion",
         "en": "instrumental-nurse-swiss-medical-network-sion",
-        "de": "instrumentale-krankenschwester-swiss-medical-network-sion"
+        "de": "instrumentale-krankenschwester-swiss-medical-network-sion",
+        "fr": "infirmier-ere-instrumentiste-swiss-medical-network"
       },
       "localePaths": {
         "it": "/cerca-lavoro-vallese/infirmier-ere-instrumentiste-swiss-medical-network",
@@ -40790,6 +41046,11 @@
           "impressions": 4
         },
         {
+          "query": "ich suche lehrstellen in der schweiz mit start 2026 und klaren anforderungen.",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
           "query": "lehrstellen stabio",
           "clicks": 0,
           "impressions": 3
@@ -40800,12 +41061,12 @@
           "impressions": 2
         },
         {
-          "query": "lehrstellen sarnen",
+          "query": "lehrstellen 2025 bern",
           "clicks": 0,
           "impressions": 2
         },
         {
-          "query": "ich suche lehrstellen in der schweiz mit start 2026 und klaren anforderungen.",
+          "query": "lehrstellen sarnen",
           "clicks": 0,
           "impressions": 2
         },
@@ -40820,7 +41081,7 @@
           "impressions": 1
         },
         {
-          "query": "lehrstellen 2025 bern",
+          "query": "lehrstellen uerkheim",
           "clicks": 0,
           "impressions": 1
         },
@@ -40840,7 +41101,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 40,
+      "totalImpressions": 44,
       "totalClicks": 0,
       "topQuery": "lehrstelle obwalden",
       "title": "Lehrstellen",
@@ -45839,10 +46100,10 @@
         "fr": "mitarbeiter-in-gebaudebetrieb-glarus-sud-swiss-armed-forces-vtg-bern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/mitarbeiter-in-gebaudebetrieb-glarus-sud-swiss-armed-forces-vtg-bern",
-        "en": "/en/find-jobs-ticino/mitarbeiter-in-gebaudebetrieb-glarus-sud-swiss-armed-forces-vtg-bern",
-        "de": "/de/jobs-im-tessin/mitarbeiter-in-gebaudebetrieb-glarus-sud-swiss-armed-forces-vtg-bern",
-        "fr": "/fr/trouver-emploi-tessin/mitarbeiter-in-gebaudebetrieb-glarus-sud-swiss-armed-forces-vtg-bern"
+        "it": "/cerca-lavoro-berna/mitarbeiter-in-gebaudebetrieb-glarus-sud-swiss-armed-forces-vtg-bern",
+        "en": "/en/find-jobs-bern/mitarbeiter-in-gebaudebetrieb-glarus-sud-swiss-armed-forces-vtg-bern",
+        "de": "/de/jobs-in-bern/mitarbeiter-in-gebaudebetrieb-glarus-sud-swiss-armed-forces-vtg-bern",
+        "fr": "/fr/trouver-emploi-berne/mitarbeiter-in-gebaudebetrieb-glarus-sud-swiss-armed-forces-vtg-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -46457,10 +46718,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-thun",
-        "en": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-thun",
+        "it": "cooperazione-m-f-d-in-vendita-80-new-yorker-thun",
+        "en": "cooperation-m-f-d-in-sale-80-new-yorker-thun",
         "de": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-thun",
-        "fr": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-thun"
+        "fr": "cooperation-h-f-d-en-vente-80-new-yorker-thun"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/mitarbeiter-m-w-d-im-verkauf-80-new-yorker-thun",
@@ -46468,12 +46729,13 @@
         "de": "/de/jobs-im-bern/mitarbeiter-m-w-d-im-verkauf-80-new-yorker-thun",
         "fr": "/fr/trouver-emploi-berne/mitarbeiter-m-w-d-im-verkauf-80-new-yorker-thun"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://jobs.newyorker.de/karriere-schweiz/mitarbeiter-mwd-im-verkauf-80-de-j28060.html",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -49201,7 +49463,7 @@
         "it": "/cerca-lavoro-vaud/page-13",
         "fr": "/fr/trouver-emploi-vaud/page-13",
         "de": "/de/jobs-im-waadt/page-13",
-        "en": "/en/find-jobs-vaud/page-13"
+        "en": "/en/find-jobs-st-gallen/page-13"
       },
       "queries": [
         {
@@ -49277,12 +49539,17 @@
           "impressions": 1
         },
         {
+          "query": "où puis-je trouver le meilleur endroit pour postuler en ligne en suisse",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "psychologue italien en ligne einsiedeln",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 2,
+      "totalImpressions": 3,
       "totalClicks": 0,
       "topQuery": "agence interim sursee",
       "title": "Page 13",
@@ -61287,14 +61554,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "seasonal-hourly-wage-allowance-genossenschaft-migros-ostschweiz-samedan",
+        "it": "seasonal-hourly-wage-allowance-genossenschaft-migros-ostschweiz-samedan",
+        "de": "seasonal-hourly-wage-allowance-genossenschaft-migros-ostschweiz-samedan",
+        "fr": "seasonal-hourly-wage-allowance-genossenschaft-migros-ostschweiz-samedan"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-graubunden/seasonal-hourly-wage-allowance-genossenschaft-migros-ostschweiz-samedan",
+        "it": "/cerca-lavoro-grigioni/seasonal-hourly-wage-allowance-genossenschaft-migros-ostschweiz-samedan",
+        "de": "/de/jobs-im-graubunden/seasonal-hourly-wage-allowance-genossenschaft-migros-ostschweiz-samedan",
+        "fr": "/fr/trouver-emploi-grisons/seasonal-hourly-wage-allowance-genossenschaft-migros-ostschweiz-samedan"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -76814,9 +77092,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "venditore-denner-winterthur",
-        "en": "venditore-denner-winterthur",
-        "de": "venditore-denner-winterthur",
-        "fr": "venditore-denner-winterthur"
+        "en": "shop-assistant-denner-winterthur",
+        "de": "verkaufer-in-denner-o0skmk",
+        "fr": "vendeur-denner-winterthur"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/venditore-denner-winterthur",
@@ -76830,6 +77108,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -78001,7 +78280,7 @@
       "slugByLocale": {
         "it": "verkaufer-in-denner-interlaken",
         "en": "verkaufer-in-denner-interlaken",
-        "de": "verkaufer-in-denner-interlaken",
+        "de": "verkaufer-in-denner",
         "fr": "verkaufer-in-denner-interlaken"
       },
       "localePaths": {
@@ -78016,6 +78295,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -78516,10 +78796,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-genossenschaft-buochs",
-        "en": "verkaufer-in-frischprodukte-coop-genossenschaft-buochs",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-buochs-3480cf",
+        "en": "seller-fresh-products-coop-genossenschaft-buochs-3480cf",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-buochs",
-        "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-buochs"
+        "fr": "vendeur-de-produits-frais-coop-genossenschaft-buochs"
       },
       "localePaths": {
         "it": "/cerca-lavoro-nidvaldo/verkaufer-in-frischprodukte-coop-genossenschaft-buochs",
@@ -78533,6 +78813,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -78619,10 +78900,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-genossenschaft-luzern",
-        "en": "verkaufer-in-frischprodukte-coop-genossenschaft-luzern",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-luzern",
+        "en": "seller-fresh-products-coop-genossenschaft-luzern",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-luzern",
-        "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-luzern"
+        "fr": "vendeur-de-produits-frais-coop-genossenschaft-luzern"
       },
       "localePaths": {
         "it": "/cerca-lavoro-lucerna/verkaufer-in-frischprodukte-coop-genossenschaft-luzern",
@@ -78636,6 +78917,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -78726,10 +79008,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-genossenschaft-winterthur",
-        "en": "verkaufer-in-frischprodukte-coop-genossenschaft-winterthur",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-winterthur-f2976c",
+        "en": "seller-fresh-products-coop-genossenschaft-winterthur-f2976c",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-winterthur",
-        "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-winterthur"
+        "fr": "vendeur-de-produits-frais-coop-genossenschaft-winterthur"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/verkaufer-in-frischprodukte-coop-genossenschaft-winterthur",
@@ -78743,6 +79025,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -79004,16 +79287,16 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-genossenschaft-wollerau",
-        "en": "verkaufer-in-kassen-services-coop-genossenschaft-wollerau",
+        "it": "vendita-cassa-servizi-coop-genossenschaft-wollerau",
+        "en": "seller-cash-register-services-coop-genossenschaft-wollerau",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-wollerau",
-        "fr": "verkaufer-in-kassen-services-coop-genossenschaft-wollerau"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-wollerau"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/verkaufer-in-kassen-services-coop-genossenschaft-wollerau",
-        "en": "/en/find-jobs-bern/verkaufer-in-kassen-services-coop-genossenschaft-wollerau",
+        "it": "/cerca-lavoro-svitto/verkaufer-in-kassen-services-coop-genossenschaft-wollerau",
+        "en": "/en/find-jobs-schwyz/verkaufer-in-kassen-services-coop-genossenschaft-wollerau",
         "de": "/de/jobs-im-schwyz/verkaufer-in-kassen-services-coop-genossenschaft-wollerau",
-        "fr": "/fr/trouver-emploi-berne/verkaufer-in-kassen-services-coop-genossenschaft-wollerau"
+        "fr": "/fr/trouver-emploi-schwytz/verkaufer-in-kassen-services-coop-genossenschaft-wollerau"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79021,6 +79304,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },

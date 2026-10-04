@@ -159,6 +159,7 @@ async function fetchAldiListings() {
     console.log(`\u2705 Discovered ${listings.length} ALDI Suisse jobs`);
     return listings;
   } catch (err) {
+    // fetch-failure-empty-ok: bespoke runner outside runStandardCrawlerPipeline: a throw is an unclassified exit 1, not the template connection-level soft exit
     console.warn(`\u26a0\ufe0f Failed to fetch ALDI search API: ${err.message}`);
     return [];
   } finally {

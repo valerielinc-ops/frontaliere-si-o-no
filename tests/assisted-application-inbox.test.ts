@@ -371,6 +371,23 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
     expect(effects).toEqual([{ type: 'mark_submitted' }]);
   });
 
+  // Owner decision of 2026-10-04: the record follows the send. The runner wrote what it was sending on
+  // the draft before the send (scripts/assisted-application/lib/submit.mjs `sentAttempt`).
+  it('makes the runner’s record of the uncertain send the record of what left', async () => {
+    const attempt = {
+      at: 600, channel: 'email', packaging: 'separate', reason: 'default', ad: '', adCue: '', documentsGrouped: false, documentsReason: null,
+      pages: null, bytes: null, letterRenderer: 'typst', letterKey: `assisted-application-uploads/${ORDER}/sent-r1-600-letter.pdf`,
+      files: [{ kind: 'cv', name: 'CV_Luca_Bianchi.pdf', key: `assisted-application-uploads/${ORDER}/1-cv.pdf` }],
+    };
+    const { store, receive } = await ambiguousOrder({
+      flow: { state: 'owner_takeover', round: 1, heldBy: ['email_ambiguous'] },
+      guard: { state: 'sending', channel: 'email', startedAt: 600, clickedAt: null },
+      draft: { round: 1, channel: { type: 'email', email: 'jobs@employer.example' }, applicationEmail: { to: 'jobs@employer.example', subject: 'Bewerbung als Pflegefachfrau' }, sentAttempt: attempt },
+    });
+    expect(await receive('auto_acknowledgement')).toMatchObject({ submissionConfirmed: true });
+    expect(store.read(`${ORDER_PATH}/ai_drafts/current`)).toMatchObject({ sent: { ...attempt, confirmedBy: 'acknowledgement', confirmedAt: 1000 }, sentAttempt: null });
+  });
+
   it('never fires on an account verification or an unrelated message', async () => {
     for (const category of ['verification', 'other']) {
       const { store, effects, sendCascade, receive } = await ambiguousOrder();

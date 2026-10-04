@@ -1,5 +1,6 @@
 import { JSDOM } from 'jsdom';
 import { eventOfferPriceAmount, extractEventOfferMetadata, parseEventPriceText } from './event-metadata.mjs';
+import { parseJsonLdText } from './json-ld-text.mjs';
 
 const BOOKING_HOSTS = new Set(['infomaniak.events', 'tickets.club-bellevue.ch', 'ticketing-nodabcvs.mapado.com', 'www.ticketino.com', 'eventfrog.ch', 'www.petzi.ch']);
 const MAX_HTML_BYTES = 2 * 1024 * 1024;
@@ -40,7 +41,7 @@ function eventNodes(doc) {
     if (value['@graph']) visit(value['@graph']);
   };
   for (const script of doc.querySelectorAll('script[type="application/ld+json"]')) {
-    try { visit(JSON.parse(script.textContent)); } catch { /* Ignore malformed blocks. */ }
+    try { visit(parseJsonLdText(script.textContent)); } catch { /* Ignore malformed blocks. */ }
   }
   return nodes;
 }
@@ -167,7 +168,11 @@ export async function fetchEventBookingPrice(event, bookingUrl, { fetchImpl = fe
         if (done) break;
         size += value.byteLength;
         if (size > MAX_HTML_BYTES) { await reader.cancel(); return undefined; }
-        chunks.push(Buffer.from(value));
+        // A copy, never a view: over a bare ArrayBuffer `Buffer.from(value)`
+        // shares the producer's memory, which a reader may reuse (#7483).
+        chunks.push(Buffer.from(value instanceof ArrayBuffer
+          ? value.slice(0)
+          : value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
       }
       return extractEventBookingPrice(Buffer.concat(chunks).toString('utf8'), url, event, { venueMatcher });
     }

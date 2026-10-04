@@ -95,6 +95,15 @@
  * `no-jobs-parsed`, `connection-level-fetch` or `crash`. `exitCode: 0` alone
  * cannot distinguish a fail-closed no-jobs bail-out from a transport failure;
  * the explicit class keeps the monitor's triage at the right layer.
+ *
+ * Missing summary (site issue 11069): a crawler-group member that exits
+ * non-zero never gets its summary onto `main` (the group commit only carries
+ * the members whose crawl succeeded). The generation ledger
+ * (`data/crawler-generation-ledger.jsonl`) and the roster
+ * (`scripts/ci/crawler-generation-roster.json`) prove the generation ran; a
+ * member absent from a generation in which its siblings published is recorded
+ * as an aborted run with cause `summary-missing` instead of a repeat of its
+ * last published summary — see `applyGenerationSummaryAbsence`.
  */
 
 import { promises as fs } from 'node:fs';
@@ -125,6 +134,8 @@ const SUMMARIES_DIR = path.join(
   'jobs-crawler-summaries',
   'by-crawler',
 );
+const CRAWLER_GENERATION_LEDGER_PATH = path.join(ROOT, 'data', 'crawler-generation-ledger.jsonl');
+const CRAWLER_GENERATION_ROSTER_PATH = path.join(ROOT, 'scripts', 'ci', 'crawler-generation-roster.json');
 const HEALTH_STATE_PATH = path.join(ROOT, 'data', 'crawler-health.json');
 const HEALTH_ISSUES_PATH = path.join(ROOT, 'data', 'crawler-health-issues.json');
 const CRAWLER_QUARANTINE_PATH = path.join(ROOT, 'data', 'crawler-quarantine.json');
@@ -606,6 +617,160 @@ async function inspectCorpusRecoveryBatch(
   return results;
 }
 
+/**
+ * The cause this monitor names when a crawler-group generation finished
+ * without publishing a member's summary. It is NOT one of the producer's
+ * `CRAWLER_ABORT_KINDS`: no crawler writes it — the monitor derives it from
+ * the generation ledger, because the run that would have reported its own
+ * cause never got its receipt onto `main`.
+ */
+export const SUMMARY_MISSING_ABORT_KIND = 'summary-missing';
+
+/**
+ * Parse `data/crawler-generation-ledger.jsonl` leniently: one finalizer
+ * verdict per group run. A malformed line is skipped, never fatal — the
+ * ledger only ADDS evidence here, so an unreadable record must leave the
+ * monitor exactly as it was before this signal existed.
+ *
+ * @param {string} raw
+ * @returns {Array<{group:string, checkedAt:string, callerRepository:string|null, callerRunId:string|null, callerRunAttempt:number|null}>}
+ */
+export function parseCrawlerGenerationLedger(raw) {
+  if (typeof raw !== 'string' || raw.length === 0) return [];
+  const entries = [];
+  for (const line of raw.split('\n')) {
+    if (line.trim().length === 0) continue;
+    let entry;
+    try { entry = JSON.parse(line); } catch { continue; }
+    if (!entry || typeof entry !== 'object') continue;
+    if (typeof entry.group !== 'string' || entry.group.length === 0) continue;
+    if (typeof entry.checkedAt !== 'string' || !Number.isFinite(Date.parse(entry.checkedAt))) continue;
+    entries.push({
+      group: entry.group,
+      checkedAt: entry.checkedAt,
+      callerRepository: typeof entry.callerRepository === 'string' ? entry.callerRepository : null,
+      callerRunId: typeof entry.callerRunId === 'string' ? entry.callerRunId : null,
+      callerRunAttempt: Number.isInteger(entry.callerRunAttempt) ? entry.callerRunAttempt : null,
+    });
+  }
+  return entries;
+}
+
+/**
+ * A crawler-group member that exits non-zero publishes NOTHING: the group's
+ * atomic commit is built only from the descriptors of members whose crawl
+ * succeeded (scripts/lib/git-commit-data.sh `--group-batch`), so even the
+ * exit guard's failure summary — written on disk with the real exit code —
+ * never reaches `main`. This monitor reads only what reached `main`, saw the
+ * previous summary again, classified it as a repeat observation and left the
+ * state frozen: the failure was invisible and so was any later fix (site
+ * issue 11069: `a-group` failed every generation after 2026-10-03 09:19Z, the
+ * health state kept describing that last placeholder).
+ *
+ * The generation ledger is persisted even when the group fails, so it is the
+ * witness of "the group ran". For each group take its newest ledger entry E
+ * and the one before it, P: the summaries of generation E are exactly those
+ * with `generatedAt` in (P.checkedAt, E.checkedAt] (group runs hold a lease,
+ * so generations never overlap). When at least one member published inside
+ * that window — the group commit did land, so the absence is specific to the
+ * member — every member whose newest summary is not newer than P.checkedAt is
+ * replaced by an ABORTED observation (`earlyExit`, 0 jobs, cause
+ * `summary-missing`) whose freshness is E.checkedAt. A new generation is a new
+ * observation and advances the streak; the same generation seen again is a
+ * repeat, exactly as for a published summary.
+ *
+ * A generation where no member published is left alone: that is a group-wide
+ * fault (commit or setup), already reported once at group level, and turning
+ * it into one broken alert per member would be the per-crawler issue storm the
+ * group workflow deliberately avoids.
+ *
+ * @param {Array<object>} observations site observations from `inspectCrawler`
+ * @param {{groups?: Record<string, string[]>, ledgerEntries?: ReturnType<typeof parseCrawlerGenerationLedger>}} sources
+ * @returns {{observations: Array<object>, absent: Array<{slug:string, group:string, checkedAt:string}>}}
+ */
+export function applyGenerationSummaryAbsence(observations, { groups, ledgerEntries } = {}) {
+  const list = Array.isArray(observations) ? observations : [];
+  if (!groups || typeof groups !== 'object' || !Array.isArray(ledgerEntries) || ledgerEntries.length === 0) {
+    return { observations: list, absent: [] };
+  }
+  const bySlug = new Map(list.map((observation) => [observation?.slug, observation]));
+  const entriesByGroup = new Map();
+  for (const entry of ledgerEntries) {
+    if (!entriesByGroup.has(entry.group)) entriesByGroup.set(entry.group, []);
+    entriesByGroup.get(entry.group).push(entry);
+  }
+
+  const replacements = new Map();
+  for (const [group, members] of Object.entries(groups)) {
+    if (!Array.isArray(members) || members.length === 0) continue;
+    const entries = (entriesByGroup.get(group) ?? [])
+      .slice()
+      .sort((a, b) => Date.parse(a.checkedAt) - Date.parse(b.checkedAt));
+    if (entries.length < 2) continue;
+    const latest = entries[entries.length - 1];
+    const latestAt = Date.parse(latest.checkedAt);
+    const previous = entries.slice(0, -1).reverse().find((entry) => Date.parse(entry.checkedAt) < latestAt);
+    if (!previous) continue;
+    const previousAt = Date.parse(previous.checkedAt);
+
+    const generatedAtOf = (slug) => Date.parse(bySlug.get(slug)?.generatedAt ?? '');
+    const publishedInGeneration = members.filter((slug) => {
+      const at = generatedAtOf(slug);
+      return Number.isFinite(at) && at > previousAt && at <= latestAt;
+    });
+    if (publishedInGeneration.length === 0) continue;
+
+    for (const slug of members) {
+      const observation = bySlug.get(slug);
+      if (!observation) continue;
+      const at = generatedAtOf(slug);
+      if (Number.isFinite(at) && at > previousAt && at <= latestAt) continue;
+      replacements.set(slug, {
+        ...observation,
+        freshnessAt: latest.checkedAt,
+        freshnessSource: 'generation-ledger',
+        jobCount: 0,
+        discovered: null,
+        written: null,
+        parsed: null,
+        detailDrop: null,
+        authoritativeEmpty: false,
+        lastFetchOutcome: null,
+        abortKind: null,
+        earlyExit: true,
+        exitCode: null,
+        // The commit of the stale summary would attribute this generation's
+        // failure to an older checkout.
+        codeCommit: null,
+        summaryMissing: {
+          group,
+          checkedAt: latest.checkedAt,
+          callerRepository: latest.callerRepository,
+          callerRunId: latest.callerRunId,
+          callerRunAttempt: latest.callerRunAttempt,
+          lastSummaryAt: observation.generatedAt ?? null,
+          publishedMembers: publishedInGeneration.length,
+        },
+      });
+    }
+  }
+
+  if (replacements.size === 0) return { observations: list, absent: [] };
+  return {
+    observations: list.map((observation) => replacements.get(observation?.slug) ?? observation),
+    absent: [...replacements.values()].map(({ slug, summaryMissing }) => ({
+      slug,
+      group: summaryMissing.group,
+      checkedAt: summaryMissing.checkedAt,
+    })),
+  };
+}
+
+function summaryMissingRunUrl(summaryMissing) {
+  if (!summaryMissing?.callerRepository || !summaryMissing?.callerRunId) return null;
+  return `https://github.com/${summaryMissing.callerRepository}/actions/runs/${summaryMissing.callerRunId}`;
+}
+
 const OBSERVATION_DIAGNOSTIC_FIELDS = [
   'authoritativeEmpty',
   'authoritativeEmptySnapshot',
@@ -623,6 +788,9 @@ const OBSERVATION_DIAGNOSTIC_FIELDS = [
  * exit code would turn an observed bail-out into `unknown`.
  */
 function mergeMissingObservationDiagnostics(winner, loser) {
+  // A `summary-missing` observation is null on purpose: the diagnostics of an
+  // older published summary describe a different run.
+  if (winner?.summaryMissing) return winner;
   let merged = winner;
   for (const field of OBSERVATION_DIAGNOSTIC_FIELDS) {
     if (merged?.[field] !== null && merged?.[field] !== undefined) continue;
@@ -761,7 +929,16 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   // `null` → every branch below behaves exactly as it did before the field
   // existed, which is what keeps historical slices readable without a backfill.
   const fetchOutcome = normalizeFetchOutcome(observation.lastFetchOutcome);
-  const abortKind = normalizeAbortKind(observation.abortKind);
+  // `summary-missing` is derived by this monitor (applyGenerationSummaryAbsence),
+  // never written by a crawler, so it does not go through the producer's
+  // closed vocabulary.
+  const summaryMissing =
+    observation.summaryMissing && typeof observation.summaryMissing === 'object'
+      ? observation.summaryMissing
+      : null;
+  const abortKind = summaryMissing
+    ? SUMMARY_MISSING_ABORT_KIND
+    : normalizeAbortKind(observation.abortKind);
   // The standard pipeline soft-exits on a transport failure after preserving
   // the previous live slice. Keep that run in the ordinary empty streak so a
   // single CI/egress incident cannot turn a healthy crawler into a broken one.
@@ -990,7 +1167,13 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
           : abortKind
             ? `the crawler reported its early exit as abortKind=${abortKind}`
             : 'the early-exit cause was not reported';
-    reason = pipelineDroppedAll
+    const summaryMissingRun = summaryMissingRunUrl(summaryMissing);
+    reason = summaryMissing
+      // No receipt reached `main` at all: the group generation published its
+      // siblings and withheld this member. The only place the real cause
+      // exists is that run's member step log, so the reason links it.
+      ? `${consecutiveEmptyRuns} consecutive runs aborted before publishing a result (abortKind=${SUMMARY_MISSING_ABORT_KIND}: crawler-group ${summaryMissing.group} generation ${summaryMissingRun ?? 'run unknown'} finished at ${summaryMissing.checkedAt} and published ${summaryMissing.publishedMembers} sibling summaries but not this crawler's; last published summary ${summaryMissing.lastSummaryAt ?? 'never'}) — the member exited non-zero or was killed, so its receipt was withheld from the group commit; read this crawler's "Run" step log in that run; the source was NOT observed empty and the previous slice is still live`
+      : pipelineDroppedAll
       // The parser emitted jobs but the receipt has no output. For an early
       // exit this is an incomplete/truncated run, not a source-proven empty
       // state; direct triage downstream of the parser and at the abort path.
@@ -1045,6 +1228,7 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       // attribuirebbe a una run il codice di un'altra.
       _lastObservedCodeCommit: observedCodeCommit(observation),
       _abortedRun: abortedRun,
+      _lastObservedSummaryMissing: summaryMissing,
     },
     reason,
     status,
@@ -1070,11 +1254,29 @@ async function main() {
   const issues = [];
   const siteObservations = [];
 
+  const publishedObservations = [];
   for (const slug of slugs) {
     const siteObservation = await inspectCrawler(slug);
     if (!siteObservation) continue; // Skipped — already logged.
-    siteObservations.push(siteObservation);
+    publishedObservations.push(siteObservation);
   }
+  // A group member whose generation ran without publishing its summary is an
+  // aborted run, not a repeat of the last summary that did reach `main`.
+  const roster = await readJsonSafe(CRAWLER_GENERATION_ROSTER_PATH);
+  let ledgerRaw = '';
+  try {
+    ledgerRaw = await fs.readFile(CRAWLER_GENERATION_LEDGER_PATH, 'utf8');
+  } catch (err) {
+    console.warn(`[health] Cannot read crawler generation ledger: ${err.message}`);
+  }
+  const absence = applyGenerationSummaryAbsence(publishedObservations, {
+    groups: roster?.groups,
+    ledgerEntries: parseCrawlerGenerationLedger(ledgerRaw),
+  });
+  for (const { slug, group, checkedAt } of absence.absent) {
+    console.warn(`[health] ${slug}: crawler-group ${group} generation of ${checkedAt} published no summary for it — recorded as an aborted run (${SUMMARY_MISSING_ABORT_KIND})`);
+  }
+  siteObservations.push(...absence.observations);
 
   const recoveryCandidates = siteObservations
     .filter((observation) => {

@@ -74,8 +74,12 @@ export async function readBoundedJsonResponse(
         try { await reader.cancel(); } catch { /* keep the size error authoritative */ }
         throw new Error('github_response_too_large');
       }
-      // A copy: a reader may hand back the same buffer on every read (#7483).
-      chunks.push(new Uint8Array(value));
+      // A copy, never a view: a reader may hand back the same buffer on every
+      // read (#7483), and over a bare ArrayBuffer `new Uint8Array(value)` is a
+      // view on the producer's memory, not a copy.
+      chunks.push(value instanceof ArrayBuffer
+        ? new Uint8Array(value.slice(0))
+        : new Uint8Array(value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
     }
   } finally {
     // Releasing the lock is cleanup and must never replace the verdict: older

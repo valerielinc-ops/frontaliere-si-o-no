@@ -616,6 +616,7 @@ async function fetchEnglishCards(fetchPage) {
     const listing = parseTalentsListing(await fetchPage(TALENTS_EN_URL), TALENTS_EN_URL);
     return listing.cards;
   } catch (err) {
+    // fetch-failure-empty-ok: optional English permalink enrichment; the German board is the source of truth and its own fetch failure still propagates
     console.warn(`⚠️ English Talents board unavailable (${err?.message || err}) — falling back to German permalinks.`);
     return [];
   }

@@ -486,6 +486,8 @@ describe('one-PDF dossier (Remote Config ASSISTED_APPLICATION_DOSSIER_MODE)', ()
     expect(dossierMode({})).toBe('separate');
     expect(dossierMode({ ASSISTED_APPLICATION_DOSSIER_MODE: 'single' })).toBe('single');
     expect(wantsDossier({ mode: 'single', channelType: 'email', candidateType: 'qualified' })).toBe(true);
+    // A first job by e-mail is an adult's application too.
+    expect(wantsDossier({ mode: 'single', channelType: 'email', candidateType: 'first_job' })).toBe(true);
     expect(wantsDossier({ mode: 'single', channelType: 'email', candidateType: 'apprentice' })).toBe(false);
     expect(wantsDossier({ mode: 'separate', channelType: 'email', candidateType: 'qualified' })).toBe(false);
     // A draft older than the types of application: the separate files.
@@ -496,14 +498,14 @@ describe('one-PDF dossier (Remote Config ASSISTED_APPLICATION_DOSSIER_MODE)', ()
     expect(draftCandidateType({})).toBe('');
   });
 
-  it('merges letter, CV and documents (PDF, JPG, PNG) within SECO’s limits, else leaves the files apart', async () => {
+  it('merges letter, CV and documents (PDF, JPG, PNG) within the switch’s limits (5 pages, 2 MB), else says why', async () => {
     const merged = await mergeParts([{ buffer: pdfOf('Lettera'), type: 'pdf' }, { buffer: pdfOf('CV', 2), type: 'pdf' }, { buffer: PNG, type: 'png' }]);
     expect(merged!.pages).toBe(4);
     const extras = [{ files: [{ fileName: 'Diplomi_Maria_Rossi.pdf', buffer: pdfOf('Diploma') }] }];
     const dossier = await dossierAttachment({ language: 'de', stem: 'Maria_Rossi', letter: pdfOf('Brief'), cv: { buffer: pdfOf('CV'), type: 'pdf' }, extras });
     expect(dossier).toMatchObject({ filename: 'Bewerbungsdossier_Maria_Rossi.pdf', pages: 3 });
-    // A Word CV cannot be merged; six pages exceed SECO's five.
-    expect(await dossierAttachment({ language: 'it', stem: 'x', letter: pdfOf('L'), cv: { buffer: Buffer.from('PK'), type: 'docx' }, extras: [] })).toBeNull();
-    expect(await dossierAttachment({ language: 'it', stem: 'x', letter: pdfOf('L'), cv: { buffer: pdfOf('CV', 5), type: 'pdf' }, extras: [] })).toBeNull();
+    // A Word CV cannot be merged; six pages exceed the switch's five. The reason goes into the record of the send.
+    expect(await dossierAttachment({ language: 'it', stem: 'x', letter: pdfOf('L'), cv: { buffer: Buffer.from('PK'), type: 'docx' }, extras: [] })).toEqual({ ok: false, reason: 'cv_not_pdf' });
+    expect(await dossierAttachment({ language: 'it', stem: 'x', letter: pdfOf('L'), cv: { buffer: pdfOf('CV', 5), type: 'pdf' }, extras: [] })).toEqual({ ok: false, reason: 'pages' });
   });
 });

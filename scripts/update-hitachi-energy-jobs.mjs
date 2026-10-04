@@ -186,6 +186,7 @@ async function fetchAllListings() {
     try {
       json = await fetchJson(url, { timeoutMs: TIMEOUT_MS });
     } catch (err) {
+      // fetch-failure-empty-ok: bespoke runner outside runStandardCrawlerPipeline: a throw is an unclassified exit 1, not the template connection-level soft exit
       console.log(`  ⚠️ API page ${page + 1} fetch failed: ${err.message}`);
       break;
     }
