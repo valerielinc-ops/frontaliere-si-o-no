@@ -25,10 +25,6 @@ const KNOWN_POSTHOG_READERS: Record<string, { scheda: string; motivo: string }> 
     scheda: 'L8 (no open issue)',
     motivo: 'eventi affiliate non esenti, da migrare quando L8 riporta esposizioni',
   },
-  'export-loop-outcomes.mjs': {
-    scheda: 'NX-09',
-    motivo: 'legacy exportL7 branch only (the L7 workflow calls export-l7-experiment-outcomes.mjs); removed by NX-09',
-  },
 };
 
 const EXPORT_DIR = path.resolve('scripts/ci');
