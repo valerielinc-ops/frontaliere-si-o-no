@@ -206,12 +206,20 @@ const FOLLOWUP_ITEM_TRAILER_RE = /^follow-up item:\s*FU-/i;
 const isTrailer = (item) =>
   ATTRIBUTION_TRAILER_RE.test(item) || CLOSING_REF_TRAILER_RE.test(item) || FOLLOWUP_ITEM_TRAILER_RE.test(item);
 
-// «Nessuno — snapshot automatizzato, senza residui.»: la sezione dichiara di
-// essere vuota e ne dà il motivo. La parola deve essere seguita da un segno,
-// non da altro testo: «Nessuno dei sibling è stato corretto» resta un residuo.
-const EMPTY_DECLARED_RE = /^[*_`]*(?:nessuno|niente|none|nothing)[*_`]*\s*(?:$|[.:;,(—–-])/i;
+// «Nessuno.», «**Nessuno**», «none»: la sezione dichiara di essere vuota. Vale
+// SOLO se la dichiarazione è l'intero testo, con al più punteggiatura ed
+// enfasi: ancorata all'inizio E alla fine. Ancorata solo all'inizio, «Nessuno:
+// aggiornare `scripts/ci/foo.mjs`» usciva `reason: empty` e il triage lo
+// scartava, mentre `isCandidateItem()` lo dichiara candidato. Qualunque altro
+// testo dopo la parola — un'azione, un motivo, «dei sibling è stato corretto» —
+// lo giudica l'oracolo condiviso, non un elenco di frasi «non residue».
+const EMPTY_DECLARED_RE = /^[*_`]*(?:nessuno|niente|none|nothing)[*_`.:;,!—–\s-]*$/i;
 
 const LIST_MARKER_RE = /^\s*(?:[-*+]|\d+[.)])\s+\S/;
+// Una riga di lista indentata: un sub-bullet della voce che la precede.
+const NESTED_LIST_MARKER_RE = /^(?: {2,}|\t)\s*(?:[-*+]|\d+[.)])\s+\S/;
+const LIST_MARKER_PREFIX_RE = /^\s*(?:[-*+]|\d+[.)])\s+/;
+const NON_IMPLEMENTED_HEADING_RE = /##\s+Non implementato/i;
 // Stessa normalizzazione di `extractNonImplementedItems()`: serve solo a
 // riconoscere, fra gli item che l'oracolo restituisce, quelli nati da una riga
 // di lista.
@@ -223,6 +231,47 @@ function listItemForms(body) {
     if (LIST_MARKER_RE.test(line)) forms.add(oracleForm(line));
   }
   return forms;
+}
+
+/**
+ * Gli item dell'oracolo raggruppati per voce: un sub-bullet (riga di lista
+ * indentata sotto una voce di lista) si accoda alla voce, senza marcatore.
+ * Senza questo `**Motivo:**` e `**Prossimo passo:**` su righe annidate uscivano
+ * come item candidati a sé, e la voce `per scelta`, giudicata senza il suo
+ * motivo, risultava candidata anche lei: un verdetto su un pezzo della voce.
+ *
+ * L'allineamento item → riga del body è sequenziale. Se non riesce (body che
+ * l'oracolo legge diversamente) non si accorpa nulla: ogni item resta com'era.
+ *
+ * @param {string} body
+ * @param {string[]} items output di `extractNonImplementedItems(body)`
+ * @returns {Array<{head: string, text: string}>}
+ */
+function groupNestedItems(body, items) {
+  const ungrouped = items.map((item) => ({ head: item, text: item }));
+  const lines = String(body ?? '').split('\n');
+  let cursor = lines.findIndex((line) => NON_IMPLEMENTED_HEADING_RE.test(line));
+  if (cursor < 0) return ungrouped;
+  const rawLines = [];
+  for (const item of items) {
+    cursor += 1;
+    while (cursor < lines.length && oracleForm(lines[cursor]) !== item) cursor += 1;
+    if (cursor >= lines.length) return ungrouped;
+    rawLines.push(lines[cursor]);
+  }
+  const groups = [];
+  let parentIsList = false;
+  items.forEach((item, index) => {
+    const raw = rawLines[index];
+    const last = groups.at(-1);
+    if (last && parentIsList && NESTED_LIST_MARKER_RE.test(raw)) {
+      last.text = `${last.text} ${raw.replace(LIST_MARKER_PREFIX_RE, '').trim()}`;
+      return;
+    }
+    groups.push({ head: item, text: item });
+    parentIsList = LIST_MARKER_RE.test(raw);
+  });
+  return groups;
 }
 
 // Perché un item non è candidato. `closing-state` ed `empty` sono verdetti;
@@ -251,8 +300,9 @@ export function nonCandidateVerdict(text) {
  * Classifica e instrada le righe di `## Non implementato (ancora)`.
  *
  * `kind`: `bullet` (riga di lista: materia di conio), `empty-declared`
- * («Nessuno» con motivo: mai candidato), `prose` (riga non di lista:
- * continuazione o nota, il bundle non decide per lei). Le righe di servizio
+ * («Nessuno» da solo, al più con punteggiatura: mai candidato), `prose` (riga
+ * non di lista: continuazione o nota, il bundle non decide per lei). I
+ * sub-bullet si accodano alla voce che li precede. Le righe di servizio
  * (`Closes|Addresses #N`, `Follow-up item:`, attribuzione) non compaiono.
  *
  * @param {{
@@ -268,9 +318,9 @@ export function nonCandidateVerdict(text) {
  */
 export function classifyCandidateBullets({ pr, side, manifestFiles, existsHere, existsTwin }) {
   const listForms = listItemForms(pr?.body);
-  return extractNonImplementedItems(pr?.body)
-    .filter((item) => !isTrailer(item))
-    .map((item) => {
+  return groupNestedItems(pr?.body, extractNonImplementedItems(pr?.body))
+    .filter(({ head }) => !isTrailer(head))
+    .map(({ head, text: item }) => {
       const state = bulletState(item);
       if (EMPTY_DECLARED_RE.test(item)) {
         return { text: item, kind: 'empty-declared', state, candidate: false, reason: 'empty', routes: [] };
@@ -286,7 +336,7 @@ export function classifyCandidateBullets({ pr, side, manifestFiles, existsHere, 
         : [];
       return {
         text: item,
-        kind: listForms.has(item) ? 'bullet' : 'prose',
+        kind: listForms.has(head) ? 'bullet' : 'prose',
         state,
         candidate,
         reason: candidate ? null : nonCandidateReason(item, state),
@@ -311,7 +361,7 @@ export function classifyCandidateBullets({ pr, side, manifestFiles, existsHere, 
 export const CANDIDATE_BULLETS_READING_RULES = Object.freeze([
   '### Regole di lettura',
   '',
-  '- `candidate: false` con `reason: closing-state` (`in questa PR` · `PR concatenata #N` · `per scelta` / «falso positivo» · `by construction` · `blocked: decisione del proprietario`) o `reason: empty` («Nessuno» con motivo) → NON creare issue: decide questa sezione, non una rilettura.',
+  '- `candidate: false` con `reason: closing-state` (`in questa PR` · `PR concatenata #N` · `per scelta` / «falso positivo» · `by construction` · `blocked: decisione del proprietario`) o `reason: empty` («Nessuno» da solo, senza altro testo) → NON creare issue: decide questa sezione, non una rilettura.',
   '- `candidate: false` con `reason: hard-exclude` → è un match LESSICALE, non un verdetto: il triage applica le proprie regole hard-exclude, compresa l\'eccezione del residuo che mescola una prova live con un\'edit concreta (quello resta actionable).',
   '- `candidate: true` significa AMMISSIBILE, non «da coniare»: l\'item passa comunque dai filtri successivi (hard-exclude, condizione di accettazione, dedup, in-flight overlap).',
   '- `candidate: true` con `blocked: <causa>` → resta candidato; la causa va nel campo `Blocked on:` dell\'item. Se la causa NON è di codice (fonte esterna, terzi, decisione attesa) l\'item si conia con `State: blocked`: resta tracciato e non entra nella selezione del fixer.',
@@ -324,7 +374,7 @@ export function renderCandidateBulletsSection(entries, { manifestOk, repos = DEF
     '## Candidate bullets',
     '',
     'Righe di `## Non implementato (ancora)` già classificate da `scripts/ci/followup-candidate-bullets.mjs`.',
-    '`kind: bullet` = riga di lista; `empty-declared` = «Nessuno» con motivo; `prose` = riga non di lista (contesto).',
+    '`kind: bullet` = riga di lista; `empty-declared` = «Nessuno» da solo; `prose` = riga non di lista (contesto).',
     '`candidate: false` con `reason: closing-state|empty` = non coniare; `reason: hard-exclude` = match lessicale, da confermare.',
     '`candidate: true` = ammissibile, soggetto ai filtri del triage. `routes[].repo` + `targetPath` = `Target repository` + `Target file`',
     `(\`site\` = ${repos.site}, \`corpus\` = ${repos.corpus}, \`unknown\` = non verificato).`,
