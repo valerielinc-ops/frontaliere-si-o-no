@@ -147,9 +147,9 @@
       "slug": "operativo-trasporti-terra-cippatrasporti-ch",
       "slugByLocale": {
         "it": "operativo-trasporti-terra-cippatrasporti-ch",
-        "en": "operativo-trasporti-terra-cippatrasporti-ch",
-        "de": "operativo-trasporti-terra-cippatrasporti-ch",
-        "fr": "operativo-trasporti-terra-cippatrasporti-ch"
+        "en": "operation-transport-earth-cippa-trasporti-sa-chiasso",
+        "de": "operation-transport-erde-cippa-trasporti-sa-chiasso",
+        "fr": "operation-transport-terre-cippa-trasporti-sa-chiasso"
       },
       "company": "Cippà Trasporti SA",
       "companyKey": "cippatrasporti",
@@ -203,23 +203,7 @@
         }
       },
       "firstSeenAt": "2026-10-03T09:19:55.363Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "en": [
-          "operation-transport-earth-cippa-trasporti-sa-chiasso"
-        ],
-        "de": [
-          "operation-transport-erde-cippa-trasporti-sa-chiasso"
-        ],
-        "fr": [
-          "operation-transport-terre-cippa-trasporti-sa-chiasso"
-        ]
-      },
-      "previousSlugs": [
-        "operation-transport-earth-cippa-trasporti-sa-chiasso",
-        "operation-transport-erde-cippa-trasporti-sa-chiasso",
-        "operation-transport-terre-cippa-trasporti-sa-chiasso"
-      ]
+      "needsRetranslation": true
     }
   ]
 }

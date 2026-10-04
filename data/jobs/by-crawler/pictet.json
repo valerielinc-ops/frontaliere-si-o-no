@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva",
-        "junior-researcher-contratto-a-tempo-determinato-programma-2-anni-pictet-group-geneva"
+        "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva",
-          "junior-researcher-contratto-a-tempo-determinato-programma-2-anni-pictet-group-geneva"
+          "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva"
         ]
       },
       "needsRetranslation": true,
@@ -205,13 +203,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "private-assets-operations-specialist-pictet-geneva",
-        "private-assets-operations-specialista-pictet-group-geneva"
+        "private-assets-operations-specialist-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "private-assets-operations-specialist-pictet-geneva",
-          "private-assets-operations-specialista-pictet-group-geneva"
+          "private-assets-operations-specialist-pictet-geneva"
         ],
         "de": [
           "private-assets-operations-specialist-pictet-geneva"
@@ -303,8 +299,8 @@
       "id": "pictet-10b84f68e866",
       "slug": "legal-consulente-pictet-group-geneva",
       "slugByLocale": {
-        "it": "legal-consulente-pictet-group-geneva",
         "en": "legal-advisor-pictet-geneva",
+        "it": "legal-consulente-pictet-group-geneva",
         "de": "legal-berater-pictet-group-geneva",
         "fr": "legal-conseiller-pictet-group-geneva"
       },
@@ -348,26 +344,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "legal-advisor-pictet-geneva",
-        "legal-consulente-pictet-group-geneva",
-        "legal-berater-pictet-group-geneva",
-        "legal-conseiller-pictet-group-geneva"
+        "legal-advisor-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "legal-advisor-pictet-geneva",
-          "legal-consulente-pictet-group-geneva"
+          "legal-advisor-pictet-geneva"
         ],
         "de": [
-          "legal-advisor-pictet-geneva",
-          "legal-berater-pictet-group-geneva"
+          "legal-advisor-pictet-geneva"
         ],
         "fr": [
-          "legal-advisor-pictet-geneva",
-          "legal-conseiller-pictet-group-geneva"
+          "legal-advisor-pictet-geneva"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:22:12.934Z",
       "salaryMin": 69000,
       "salaryMax": 118000,
@@ -381,7 +370,8 @@
           "maxValue": 118000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pictet-9e0df2bb217f",
