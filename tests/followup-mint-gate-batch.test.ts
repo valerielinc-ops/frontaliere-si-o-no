@@ -798,7 +798,7 @@ else if (args[0] === 'issue' && args[1] === 'view') {
         CALL_LOG: log,
       },
     });
-    expect(out).toMatch(/MINT_GATE_TALLY repo=o\/r pr=null issue=604 action=keep reason=already-sealed demoted=0 kept=2 done_preserved=1\n/);
+    expect(out).toMatch(/MINT_GATE_TALLY repo=o\/r pr=null issue=604 action=keep reason=already-sealed demoted=0 kept=2 done_preserved=1 born_satisfied=0 token_is_declaration=0 admission_unknown=0\n/);
     // Il corpo non viene riscritto: l'item done non è stato tolto.
     expect(readFileSync(log, 'utf-8')).not.toContain('"--body-file"');
   });
