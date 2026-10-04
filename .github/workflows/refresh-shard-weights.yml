@@ -192,7 +192,7 @@ jobs:
           # GITHUB_PAT loaded into $GITHUB_ENV above (Firebase RC, not an Actions
           # secret). A PR opened with secrets.GITHUB_TOKEN is blocked by
           # anti-recursion AND would not trigger the tests gate.
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           set -euo pipefail
           if git diff --quiet tests/shard-weights.json; then

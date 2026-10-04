@@ -144,7 +144,7 @@ jobs:
       - name: Open PR with member count history
         if: github.event.inputs.dry_run != 'true'
         env:
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           set -euo pipefail
           if [ ! -f data/telegram-member-count-history.jsonl ]; then
