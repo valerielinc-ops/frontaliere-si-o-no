@@ -187,9 +187,19 @@ const normalizeLegacyAngleNavMarkers = (line: string): string => {
   return canonicalAction ? '[' + label + '](nav:' + canonicalAction + ')' : whole;
  });
 
- normalized = normalized.replace(ANGLE_NAV_PAREN_TOKEN_RX, (whole, action: string) => (
-  canonicalLegacyAngleNavAction(action) ? '' : whole
- ));
+ normalized = normalized.replace(
+  ANGLE_NAV_PAREN_TOKEN_RX,
+  (whole, action: string, offset: number, source: string) => {
+   if (!canonicalLegacyAngleNavAction(action)) return whole;
+   const parenthesisStart = offset + whole.indexOf('(');
+   if (isStandaloneLegacyAngleNavOpening(source, parenthesisStart, offset + whole.length)) return '';
+   // Keep an ambiguous parenthesized token out of the generic token cleanup
+   // below; otherwise that second pass would still remove its inner marker.
+   const protectedToken = `\u0000legacy-angle-nav-sequence-${protectedSequences.length}\u0000`;
+   protectedSequences.push(whole);
+   return protectedToken;
+  },
+ );
 
  // Only a content-free opening token is safe to remove. An unmatched opening
  // before prose (or any closing token) is ambiguous and must remain verbatim.

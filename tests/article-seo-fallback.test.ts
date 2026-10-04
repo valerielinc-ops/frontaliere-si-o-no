@@ -121,6 +121,7 @@ describe('article SEO fallback builder', () => {
     expect(renderArticleInlineMarkup('[Calcolatore](<nav:calculator>)')).toBe('Calcolatore');
     expect(renderArticleInlineMarkup('Usa il <nav:calculator>calcolatore</nav:calculator>.')).toBe('Usa il calcolatore.');
     expect(renderArticleInlineMarkup('Usa il calcolatore (<nav:calculator>).')).toBe('Usa il calcolatore.');
+    expect(renderArticleInlineMarkup('prefisso(<nav:calculator>)')).toBe('prefisso(&lt;nav:calculator&gt;)');
     expect(renderArticleInlineMarkup('<nav:calculator>')).toBe('');
     expect(renderArticleInlineMarkup('<nav:calculator>.')).toBe('.');
     expect(renderArticleInlineMarkup('<nav:calculator> costo')).toBe('&lt;nav:calculator&gt; costo');
