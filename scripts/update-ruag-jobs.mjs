@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -94,12 +95,6 @@ function normalizeKey(value = '') {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-}
-
-function toIsoDate(value = '') {
-  const parsed = new Date(String(value || '').trim());
-  if (Number.isNaN(parsed.getTime())) return new Date().toISOString().slice(0, 10);
-  return parsed.toISOString().slice(0, 10);
 }
 
 async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000) {
@@ -237,7 +232,7 @@ function ensureAdapter(discoveredJobs) {
           location: job.location || 'Lodrino',
           canton: inferRuagCanton(job.location || ''),
           company: COMPANY_NAME,
-          postedDate: toIsoDate(job.postedDate),
+          ...sourcePostingDateFields(job.postedDate),
         },
       ])
     ),
@@ -270,7 +265,8 @@ function buildRuagJob(detail) {
     sector: 'Aerospazio e difesa',
     source: 'ruag-dedicated-crawler',
     sourceLang: detectLang(`${title} ${description}`, 'it'),
-    postedDate: toIsoDate(detail.postedDate),
+    ...sourcePostingDateFields(detail.postedDate),
+    crawledAt: new Date().toISOString(),
     employmentType: contractType,
     contractType,
     validThrough: detail.validThrough || '',
@@ -306,6 +302,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...nextJob,
+      ...mergeSourcePostingDates(prev, nextJob),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, nextJob.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, nextJob.descriptionByLocale, 30, nextJob.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, nextJob.slugByLocale, 3),

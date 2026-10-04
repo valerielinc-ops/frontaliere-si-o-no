@@ -220,7 +220,7 @@ export const CHECK_URL_DEFAULT_SNAPSHOTS = 7;
 export const CHECK_URL_MAX_AGE_DAYS = 3;
 
 /** `cdn.frontaliereticino.ch/assets/x.js`, con o senza schema, sempre nella stessa forma. */
-function historyUrlKey(u) {
+export function historyUrlKey(u) {
   return String(u ?? '').trim().replace(/^https?:\/\//, '').replace(/\/+$/, '') || '/';
 }
 
@@ -253,7 +253,12 @@ function historyUrlKey(u) {
  *
  * @param {Array<object>} history
  * @param {string} url
- * @returns {{ok: boolean, reason: string, checked: number, lastSeenAt: string|null}}
+ * `code` è la stessa risposta in forma leggibile da una macchina: il chiuditore
+ * di `cf-5xx-issue-sync.mjs` distingue con quello una misura COMPLETA (`clean`,
+ * `still-failing`) da una che non sa rispondere (tutti gli altri), invece di
+ * fare match sul testo di `reason`.
+ *
+ * @returns {{ok: boolean, code: 'url-missing'|'short-history'|'stale-series'|'incomplete-details'|'never-observed'|'still-failing'|'clean', reason: string, checked: number, lastSeenAt: string|null}}
  */
 export function checkUrlClean(history, url, {
   snapshots = CHECK_URL_DEFAULT_SNAPSHOTS,
@@ -261,21 +266,22 @@ export function checkUrlClean(history, url, {
   staleAfterDays = CHECK_URL_MAX_AGE_DAYS,
 } = {}) {
   const target = historyUrlKey(url);
-  if (!target || target === '/') return { ok: false, reason: 'URL mancante', checked: 0, lastSeenAt: null };
+  if (!target || target === '/') return { ok: false, code: 'url-missing', reason: 'URL mancante', checked: 0, lastSeenAt: null };
   const all = (history || []).filter((s) => s && s.ts);
   const top50 = all.filter((s) => Number(s.topN) === TOP_PATHS);
   if (top50.length < snapshots) {
-    return { ok: false, reason: `storia troppo corta: ${top50.length} snapshot su ${snapshots} richiesti`, checked: top50.length, lastSeenAt: null };
+    return { ok: false, code: 'short-history', reason: `storia troppo corta: ${top50.length} snapshot su ${snapshots} richiesti`, checked: top50.length, lastSeenAt: null };
   }
   const ageDays = (now - Date.parse(top50[top50.length - 1].ts)) / 86_400_000;
   if (!(ageDays <= staleAfterDays)) {
-    return { ok: false, reason: `serie ferma da ${ageDays.toFixed(1)} giorni (max ${staleAfterDays}) — il monitor non sta guardando`, checked: 0, lastSeenAt: null };
+    return { ok: false, code: 'stale-series', reason: `serie ferma da ${ageDays.toFixed(1)} giorni (max ${staleAfterDays}) — il monitor non sta guardando`, checked: 0, lastSeenAt: null };
   }
   const window = top50.slice(-snapshots);
   const incomplete = window.filter((s) => s.errorPathsComplete !== true || !Array.isArray(s.errorPaths));
   if (incomplete.length) {
     return {
       ok: false,
+      code: 'incomplete-details',
       reason: `dettagli URL completi assenti o troncati in ${incomplete.length} degli ultimi ${snapshots} snapshot — l'assenza dal top-50 non prova zero 5xx`,
       checked: window.length - incomplete.length,
       lastSeenAt: null,
@@ -294,6 +300,7 @@ export function checkUrlClean(history, url, {
   })) {
     return {
       ok: false,
+      code: 'never-observed',
       reason: 'URL mai osservato fra i path 5xx: la chiave non fa match — non e\' una prova di guarigione',
       checked: 0,
       lastSeenAt: null,
@@ -305,8 +312,8 @@ export function checkUrlClean(history, url, {
     if ((s.errorPaths || []).some((p) => historyUrlKey(p?.url) === target)) lastSeenAt = s.ts;
   }
   return lastSeenAt
-    ? { ok: false, reason: `ancora fra i path 5xx, ultimo snapshot ${lastSeenAt}`, checked: window.length, lastSeenAt }
-    : { ok: true, reason: `nessun 5xx negli ultimi ${window.length} snapshot presenti (dal ${window[0].ts})`, checked: window.length, lastSeenAt: null };
+    ? { ok: false, code: 'still-failing', reason: `ancora fra i path 5xx, ultimo snapshot ${lastSeenAt}`, checked: window.length, lastSeenAt }
+    : { ok: true, code: 'clean', reason: `nessun 5xx negli ultimi ${window.length} snapshot presenti (dal ${window[0].ts})`, checked: window.length, lastSeenAt: null };
 }
 
 /** Human-readable trend across snapshots — the thing you actually want when triaging. */
