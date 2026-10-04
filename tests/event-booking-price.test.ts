@@ -128,4 +128,26 @@ describe('official event booking tariffs', () => {
     expect(await fetchEventBookingPrice(event, bookingUrl, { fetchImpl: vi.fn().mockResolvedValue(new Response('x'.repeat(2 * 1024 * 1024 + 1))) })).toBeUndefined();
     expect((await fetchEventBookingPrice(event, bookingUrl, { fetchImpl: vi.fn().mockResolvedValue(new Response(ld(node))) }))?.amount).toBe(0);
   });
+
+  it('copies a reused bare ArrayBuffer chunk instead of viewing it (site issue 10283)', async () => {
+    // Over a bare ArrayBuffer `Buffer.from(value)` is a view: with a reader
+    // that rewrites one buffer, the page read back as its last half twice.
+    const html = new TextEncoder().encode(ld(node));
+    const half = Math.ceil(html.byteLength / 2);
+    const padded = new Uint8Array(half * 2).fill(0x20);
+    padded.set(html);
+    const shared = new ArrayBuffer(half);
+    let next = 0;
+    const reader = {
+      read: async () => {
+        if (next === 2) return { done: true, value: undefined };
+        new Uint8Array(shared).set(padded.subarray(next * half, (next + 1) * half));
+        next += 1;
+        return { done: false, value: shared };
+      },
+      cancel: async () => {},
+    };
+    const response = { ok: true, status: 200, headers: new Headers(), body: { getReader: () => reader, cancel: async () => {} } };
+    expect((await fetchEventBookingPrice(event, bookingUrl, { fetchImpl: vi.fn().mockResolvedValue(response) }))?.amount).toBe(0);
+  });
 });
