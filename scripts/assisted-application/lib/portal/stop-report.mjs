@@ -13,6 +13,8 @@
  * addresses and phone numbers in any text too.
  */
 
+import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
+
 const STRUCK = '[dato del candidato]';
 const EMAIL_RE = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi;
 const PHONE_RE = /\+?\d[\d ()./-]{7,}\d/g;
@@ -28,9 +30,13 @@ export function candidateValues(values = []) {
     out.add(value);
     // "Luigi Prova" → "Luigi", "Prova".
     for (const word of value.split(/\s+/)) if (word.length >= 3 && /^\p{L}+$/u.test(word)) out.add(word);
-    // 1986-09-12 ↔ 12.09.1986 ↔ 12/09/1986.
-    const iso = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
-    if (iso) for (const separator of ['.', '/', '-']) out.add([iso[3], iso[2], iso[1]].join(separator));
+    // 1986-09-12 ↔ 12.09.1986 ↔ 12/09/1986, whichever form the value is written in («14. März 2010» too).
+    const iso = isoDateOf(value);
+    if (iso) {
+      out.add(iso);
+      const [year, month, day] = iso.split('-');
+      for (const separator of ['.', '/', '-']) out.add([day, month, year].join(separator));
+    }
   }
   return [...out].sort((a, b) => b.length - a.length);
 }
