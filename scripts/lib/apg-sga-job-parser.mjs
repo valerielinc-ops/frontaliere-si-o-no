@@ -25,6 +25,7 @@
  *   - isApgSgaJob()         — Match jobs belonging to this company
  *   - isTrustedDomain()     — Validate URLs belong to this company
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -308,12 +309,7 @@ export async function fetchAllApgSgaJobs() {
         ? 'PART_TIME'
         : detectEmploymentType(`${title} ${listing.type || ''}`);
 
-    const postedDate = (() => {
-      const raw = detail?.datePosted || listing.published || '';
-      const d = new Date(raw);
-      if (!raw || Number.isNaN(d.getTime())) return new Date().toISOString().split('T')[0];
-      return d.toISOString().split('T')[0];
-    })();
+    const publicationDate = sourcePostingDateFields(detail?.datePosted || listing.published);
 
     const job = {
       id: `apg-sga-${urlHash}`,
@@ -344,7 +340,7 @@ export async function fetchAllApgSgaJobs() {
       sector: 'Pubblicità / Media esterni',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publicationDate,
       applyUrl: listing.applyUrl || publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

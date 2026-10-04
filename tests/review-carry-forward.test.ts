@@ -7,7 +7,10 @@ import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 import {
   CARRY_FORWARD_MARKER,
+  bodyAcceptanceLedgerHeader,
   decideNoCodeDeltaTier,
+  findingAcceptanceScope,
+  partitionCodeUnchangedFindings,
   postCarryForward,
   renderCarryForwardBody,
   verifyCarryForwardReview,
@@ -18,7 +21,7 @@ import {
   shouldAdmitBodyReReview,
 } from '../scripts/ci/lib/pr-review-admission.mjs';
 import { reviewInputRevisionFromBody } from '../scripts/ci/lib/review-input-revision.mjs';
-import { runReviewGate } from '../scripts/ci/review-gate.mjs';
+import { extractFileCitations, partitionHistoricalImportantFindings, runReviewGate } from '../scripts/ci/review-gate.mjs';
 
 const HEAD = 'a'.repeat(40);
 const PRIOR = 'b'.repeat(40);
@@ -423,5 +426,142 @@ describe('tier step: fingerprint before the code delta (#9968)', () => {
     expect(run.outputs.tier).toBe('minimal');
     expect(run.outputs.code_unchanged_since).toBe(prior);
     expect(run.outputs.incremental_base).toBeUndefined();
+  });
+});
+
+// PR 11241, review 5402530184 (20:10Z): ancorato a codice, accettazione sul
+// body. La review `minimal` 5403591492 (00:27Z) aveva il body corretto alla
+// lettera e lo riportava identico («only the historical open Important is
+// carried»).
+const BODY_ACCEPTANCE_IMPORTANT = [
+  '## Findings (Important: 1, Nit: 0)',
+  'scripts/cleanup-jobs.mjs:L1014: 🔴 Important: [contract] The PR claims 1.3–1.7 s and about 2 GB RSS for the added reparse, but gives no pre-merge before/after baseline for the actual deploy-prep path; an OOM or RSS regression can therefore reach the deploy gate without a pre-merge acceptance threshold. Update the residual memory item to explicitly say “not validated pre-merge” and use `blocked: misura post-merge` with one named workflow, numeric RSS threshold, and revert action. Accettazione: PR-body input→output — the memory item is `blocked: misura post-merge`, states “not validated pre-merge”, names the workflow and numeric threshold, and specifies the revert action.',
+  '',
+].join('\n');
+
+function finding(text: string, citations = [{ path: 'scripts/lib/foo.mjs', line: 12 }]) {
+  return { text, line: text.split('\n')[0], citations };
+}
+
+// Lo stesso estrattore che il ledger del bundle passa al classificatore.
+const WITH_GATE = { extractCitations: extractFileCitations };
+
+describe('findingAcceptanceScope', () => {
+  it('classifies the PR 11241 Important as body although it is anchored to code', () => {
+    const [open] = partitionHistoricalImportantFindings(
+      [review(1, BODY_ACCEPTANCE_IMPORTANT, PRIOR, '2026-10-03T20:10:25Z')],
+      { includeLatest: true },
+    ).open;
+    expect(open.citations.map((citation: { path: string }) => citation.path)).toEqual(['scripts/cleanup-jobs.mjs']);
+    expect(findingAcceptanceScope(open, WITH_GATE)).toBe('body');
+  });
+
+  it('is conservative without the gate citation extractor', () => {
+    expect(findingAcceptanceScope(finding('x.mjs:L1: 🔴 Important: claim. Accettazione: PR body names it.'))).toBe('code');
+  });
+
+  it.each([
+    'Accettazione: PR body names the workflow and the revert action.',
+    'Accettazione: the PR body states “not validated pre-merge”.',
+    'Accettazione: sul body, il bullet `blocked: misura post-merge` nomina workflow e soglia.',
+    'Accettazione: `PR-body` input→output — the bullet carries the threshold.',
+    'Acceptance: pull request description lists the revert trigger.',
+    'Accettazione: body della PR con soglia numerica.',
+    'Accettazione: PR body names `.github/workflows/deploy.yml` as the post-merge measurement and the revert action.',
+  ])('body acceptance form: %s', (clause) => {
+    expect(findingAcceptanceScope(finding(`x.mjs:L1: 🔴 Important: claim. ${clause}`), WITH_GATE)).toBe('body');
+  });
+
+  it.each([
+    'Accettazione: `npx vitest run tests/foo.test.ts` passes.',
+    'Accettazione: body of `parseRow()` returns null for an empty cell.',
+    'Accettazione: input `[]` → output `0`.',
+    'Accettazione: PR body names the threshold and `node scripts/check.mjs` exits 0.',
+    'nessuna accettazione',
+    // Clausole miste: la metà body non basta a chiudere un 🔴 di codice.
+    'Accettazione: PR body cita la soglia; `scripts/x.mjs` restituisce 0 su input vuoto.',
+    'Accettazione: PR body states X and `parseRow()` returns null for an empty cell.',
+    'Accettazione: the PR body mentions it, and the test in tests/foo.test.ts asserts 0.',
+  ])('code acceptance form stays code: %s', (clause) => {
+    expect(findingAcceptanceScope(finding(`x.mjs:L1: 🔴 Important: claim. ${clause}`), WITH_GATE)).toBe('code');
+  });
+
+  it('stays code when only one of several clauses is on the body', () => {
+    const text = 'x.mjs:L1: 🔴 Important: claim. Accettazione: PR body names it.\nAccettazione: `rg foo x.mjs` finds nothing.';
+    expect(findingAcceptanceScope(finding(text), WITH_GATE)).toBe('code');
+  });
+
+  it('checks the complete multiline acceptance before classifying a finding as body', () => {
+    const text = [
+      'scripts/x.mjs:L1: 🔴 Important: claim.',
+      'Accettazione: PR body is correct',
+      'run node scripts/x.mjs',
+    ].join('\n');
+    expect(findingAcceptanceScope(finding(text), WITH_GATE)).toBe('code');
+  });
+
+  it('treats a `PR body:L<n>` anchored Important as body', () => {
+    expect(findingAcceptanceScope(finding('`PR body:L4`: 🔴 Important: bullet senza stato.', []), WITH_GATE)).toBe('body');
+  });
+});
+
+describe('minimal tier: body-acceptance Importants are re-judged, code ones carried', () => {
+  const history = [
+    review(1, BODY_ACCEPTANCE_IMPORTANT, PRIOR, '2026-10-03T20:10:25Z'),
+    review(2, IMPORTANT, PRIOR, '2026-10-03T20:11:00Z'),
+  ];
+
+  it('replays PR 11241: the body Important becomes re-judgeable, the code one stays carried', () => {
+    const { open } = partitionHistoricalImportantFindings(history, { includeLatest: true });
+    expect(open.length).toBeGreaterThan(0);
+    const { reJudge, carried } = partitionCodeUnchangedFindings(open, WITH_GATE);
+    expect(reJudge.map((item: { text: string }) => item.text)).toEqual([
+      expect.stringContaining('Accettazione: PR-body input→output'),
+    ]);
+    expect(carried.map((item: { text: string }) => item.text)).toEqual([
+      expect.stringContaining('pagination is incomplete'),
+    ]);
+  });
+
+  it('never puts a code Important among the re-judged ones', () => {
+    const { open } = partitionHistoricalImportantFindings([review(2, IMPORTANT, PRIOR, '2026-10-03T20:11:00Z')], { includeLatest: true });
+    expect(partitionCodeUnchangedFindings(open, WITH_GATE).reJudge).toEqual([]);
+    expect(partitionCodeUnchangedFindings(open, WITH_GATE).carried).toHaveLength(open.length);
+  });
+
+  it('prints the confirmations the gate accepts on the ledger header', () => {
+    const header = bodyAcceptanceLedgerHeader({ id: 'abcdefabcdef', anchors: 'scripts/cleanup-jobs.mjs:L1014' });
+    expect(header).toContain('**accettazione sul body**');
+    expect(header).toContain('Fix di `abcdefabcdef`: ok.');
+    expect(header).toContain('Fix di `path:L<riga attuale>`: ok.');
+    expect(header).toContain('altrimenti riportala identica');
+    expect(bodyAcceptanceLedgerHeader({ id: 'abcdefabcdef', confirmationTarget: 'PR body:L4' })).toContain('Fix di `PR body:L4`: ok.');
+  });
+
+  it('renders the bundle ledger from tests.yml with the body mark only on the body Important', () => {
+    const workflow = YAML.parse(readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8'));
+    const prefetch = (workflow.jobs.vitest.steps as Array<{ id?: string; run?: string }>).find((step) => step.id === 'prefetch');
+    const run = prefetch?.run || '';
+    const script = run.slice(run.indexOf("<<'NODE'\n") + "<<'NODE'\n".length, run.indexOf('\nNODE\n'));
+    expect(script).toContain('partitionCodeUnchangedFindings');
+    expect(run).toContain('**accettazione sul body**');
+    const dir = mkdtempSync(join(tmpdir(), 'carry-body-ledger-'));
+    try {
+      writeFileSync(join(dir, 'render.mjs'), script);
+      writeFileSync(join(dir, 'reviews.json'), JSON.stringify([history]));
+      const result = spawnSync(process.execPath, [join(dir, 'render.mjs'), join(dir, 'reviews.json')], {
+        encoding: 'utf8',
+        env: { ...process.env, REVIEW_POLICY_ROOT: fileURLToPath(new URL('..', import.meta.url)).replace(/\/$/u, '') },
+      });
+      expect(result.stderr).toBe('');
+      expect(result.status).toBe(0);
+      const headers = result.stdout.split('\n').filter((line) => line.startsWith('- Open Important'));
+      expect(headers).toEqual([
+        expect.stringMatching(/scripts\/cleanup-jobs\.mjs:L1014; \*\*accettazione sul body\*\*/u),
+        expect.not.stringContaining('accettazione sul body'),
+      ]);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
   });
 });

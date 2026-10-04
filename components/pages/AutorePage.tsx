@@ -4,6 +4,9 @@ import { useNavigation } from '@/services/NavigationContext';
 import { getAuthorBySlug, type Author } from '@/data/authors';
 import { getMergedAuthor } from '@/services/authorProfileService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
+import { useTranslation } from '@/services/i18n';
+import { localizeAuthor } from '@/data/authorLocales';
+import { AUTHOR_PAGE_COPY } from '@/services/authorPageCopy';
 import { buildAuthorSeo } from '@/services/seo/seo-authors';
 
 /**
@@ -28,11 +31,13 @@ interface AutorePageProps {
 
 export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
   const nav = useNavigation();
+  const { locale } = useTranslation();
+  const copy = AUTHOR_PAGE_COPY[locale];
   const staticAuthor = getAuthorBySlug(slug);
   // Static registry renders first (matches the SSG snapshot, no CLS/flash);
   // an admin-set `author_profiles/{slug}` patch (see AdminPanel "Redazione"
   // section) is applied on top once fetched, client-side only.
-  const [author, setAuthor] = React.useState<Author | undefined>(staticAuthor);
+  const [sourceAuthor, setAuthor] = React.useState<Author | undefined>(staticAuthor);
 
   React.useEffect(() => {
     setAuthor(staticAuthor);
@@ -44,6 +49,8 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
     return () => { cancelled = true; };
   }, [slug]);
 
+  const author = sourceAuthor ? localizeAuthor(sourceAuthor, locale) : undefined;
+
   if (!author) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-8 animate-fade-in">
@@ -52,12 +59,12 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
           className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent transition-colors"
         >
           <ArrowLeft size={16} />
-          Torna a Chi Siamo
+          {copy.back}
         </button>
         <div className="bg-surface rounded-2xl border border-edge p-6 shadow-sm">
-          <h1 className="text-2xl font-bold text-strong">Autore non trovato</h1>
+          <h1 className="text-2xl font-bold text-strong">{copy.missing}</h1>
           <p className="mt-2 text-sm text-subtle">
-            Lo slug «{slug}» non corrisponde a nessun membro della redazione.
+            {copy.missingDetail} {slug}
           </p>
         </div>
       </div>
@@ -68,7 +75,7 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
   // static registry), not the slug — otherwise buildAuthorSeo re-derives
   // from the static registry and the JSON-LD goes stale vs. the visible
   // bio/photo/social above (review nit, PR #3356).
-  const { jsonLd } = buildAuthorSeo(author, 'it');
+  const { jsonLd } = buildAuthorSeo(author, locale);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 animate-fade-in">
@@ -85,7 +92,7 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
         className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent transition-colors"
       >
         <ArrowLeft size={16} />
-        Torna a Chi Siamo
+        {copy.back}
       </button>
 
       {/* Hero */}
@@ -93,7 +100,7 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
           <img
             src={cdnImageUrl(author.photoPath)}
-            alt={`Foto di ${author.name}`}
+            alt={`${copy.photo} ${author.name}`}
             width={160}
             height={160}
             loading="eager"
@@ -107,19 +114,19 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
             <p className="text-sm sm:text-base text-accent font-semibold mt-1">
               {author.role}
             </p>
-            <SocialLinks author={author} />
+            <SocialLinks author={author} copy={copy} />
           </div>
         </div>
       </div>
 
       <div className="space-y-6">
         {/* Bio */}
-        <Section icon={Globe} title="Biografia">
-          <p className="whitespace-pre-line">{author.bio}</p>
+        <Section icon={Globe} title={copy.biography}>
+          <p lang={locale !== 'it' && author.bio === sourceAuthor?.bio ? 'it' : locale} className="whitespace-pre-line">{author.bio}</p>
         </Section>
 
         {/* Expertise */}
-        <Section icon={Award} title="Aree di competenza">
+        <Section icon={Award} title={copy.expertise}>
           <ul className="flex flex-wrap gap-2 mt-1">
             {author.expertise.map((topic) => (
               <li
@@ -134,23 +141,23 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
 
         {/* CV — embedded PDF viewer (view in-page, no forced download) */}
         {author.cvPath ? (
-          <Section icon={FileText} title="Curriculum Vitae">
+          <Section icon={FileText} title={copy.cv}>
             <object
               data={author.cvPath}
               type="application/pdf"
-              aria-label={`CV di ${author.name} (PDF)`}
+              aria-label={`${copy.cv}: ${author.name} (PDF)`}
               className="w-full h-[75vh] min-h-[420px] rounded-xl border border-edge"
             >
               {/* Fallback for browsers without an inline PDF viewer (most mobile). */}
               <p>
-                Il tuo browser non supporta l'anteprima PDF integrata.{' '}
+                {copy.pdfUnavailable}{' '}
                 <a
                   href={author.cvPath}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-accent hover:underline font-medium"
                 >
-                  Apri il CV di {author.name} (PDF)
+                  {copy.openCv}: {author.name} (PDF)
                 </a>
                 .
               </p>
@@ -161,22 +168,21 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
         {/* Editorial trust footer */}
         <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <h2 className="text-lg font-bold font-display text-strong mb-2">
-            Standard editoriali
+            {copy.standards}
           </h2>
           <p className="text-sm text-subtle leading-relaxed">
-            Tutti gli articoli firmati sono pubblicati nel rispetto della{' '}
+            {copy.policyIntro}{' '}
             <button
               onClick={() => nav.navigateTo('chi-siamo' as any)}
               className="text-accent hover:underline font-medium"
             >
-              politica editoriale di Frontaliere Ticino
+              {copy.policy}
             </button>
-            : verifica delle fonti primarie, separazione fatti/opinioni e correzioni
-            tracciabili.
+            : {copy.policyEnd}
           </p>
           {author.email ? (
             <p className="mt-3 text-xs text-muted">
-              Per segnalazioni dirette:{' '}
+              {copy.contact}:{' '}
               <a href={`mailto:${author.email}`} className="text-accent hover:underline">
                 {author.email}
               </a>
@@ -210,7 +216,7 @@ function Section({
   );
 }
 
-function SocialLinks({ author }: { author: Author }) {
+function SocialLinks({ author, copy }: { author: Author; copy: typeof AUTHOR_PAGE_COPY.it }) {
   const items: Array<{
     key: string;
     href: string;
@@ -221,7 +227,7 @@ function SocialLinks({ author }: { author: Author }) {
     items.push({
       key: 'linkedin',
       href: author.social.linkedin,
-      label: `Profilo LinkedIn di ${author.name}`,
+      label: `${copy.publicProfile} LinkedIn: ${author.name}`,
       Icon: Linkedin,
     });
   }
@@ -229,7 +235,7 @@ function SocialLinks({ author }: { author: Author }) {
     items.push({
       key: 'twitter',
       href: author.social.twitter,
-      label: `Profilo Twitter di ${author.name}`,
+      label: `${copy.publicProfile} Twitter: ${author.name}`,
       Icon: Twitter,
     });
   }
@@ -237,7 +243,7 @@ function SocialLinks({ author }: { author: Author }) {
     items.push({
       key: 'email',
       href: `mailto:${author.email}`,
-      label: `Email a ${author.name}`,
+      label: `Email: ${author.name}`,
       Icon: Mail,
     });
   }
@@ -245,7 +251,7 @@ function SocialLinks({ author }: { author: Author }) {
     items.push({
       key: 'cv',
       href: author.cvPath,
-      label: `Visualizza il CV di ${author.name} (PDF)`,
+      label: `${copy.openCv}: ${author.name} (PDF)`,
       Icon: FileText,
     });
   }

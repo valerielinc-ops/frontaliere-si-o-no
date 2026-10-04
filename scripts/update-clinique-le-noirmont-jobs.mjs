@@ -8,6 +8,7 @@
  *
  *   Career page: https://www.cliniquelenoirmont.ch/La-clinique/Offres-demploi
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -185,7 +186,7 @@ function buildJob({ title, pdfUrl, pdfText, identifier }) {
     contractType: 'full-time',
     source: `${COMPANY_KEY}-dedicated-crawler`,
     sourceLang,
-    postedDate: new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(''),
     validThrough: '',
     needsRetranslation: true,
     description,
@@ -258,7 +259,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

@@ -76,16 +76,34 @@
  * `FACTUALITY_ISSUE_SCOPE` overrides it (`it-or-critical` default, `critical`,
  * `all`) so the owner can widen or narrow without a code change.
  *
+ * ── One comment per signature, not per sync (#5661) ─────────────────────────
+ *
+ * The sync no longer commits to `main`: it publishes through the stable branch
+ * `chore/sync-articles-sitemaps` and its PR. Until that PR merges, every sync
+ * re-reads the SAME articles as "new" (they are still absent from `main`), and
+ * the issue got the same list again at every run — measured on 2026-10-03:
+ * `guasto-treno-s50-busto-arsizio-2026 [de]`, committed once on `main` (PR
+ * 10987, open 18 hours), appears in 19 recurrence comments in those 18 hours.
+ * So the issue remembers what it has already been told: a hidden marker line
+ * in its body (`<!-- factuality-seen: … -->`) carries a short hash of each
+ * reported `id|locale|codes`, and only signatures not in it are commented.
+ * A finding that gains a new code is a new signature and IS reported. If the
+ * marker cannot be read, everything is reported as before (fail-open: one
+ * comment too many beats a finding lost in silence). The step summary is
+ * never filtered.
+ *
  * Usage:
  *   node scripts/ci/report-synced-article-factuality.mjs
  * (after `pull-articles-corpus.mjs`, before the sync commit)
  */
 
-import { appendFileSync } from 'node:fs';
+import { appendFileSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import os from 'node:os';
 import path from 'node:path';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { createGithubIssue, searchSafePrefix } from '../lib/github-issue-creator.mjs';
 import { newArticleIdsWorktree } from '../lib/blog-body-io.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -236,10 +254,21 @@ export function buildReportIssue(report, escalated, runUrl) {
   );
 
   let description = [...head, ...body, ...tail].join('\n');
+  // `listed` = the findings whose whole block survives in the description:
+  // past MAX_ARTICLES_IN_BODY, or cut by the MAX_BODY_CHARS truncation, a
+  // finding is only a count, never named. main() records as «already
+  // reported» only these, so the rest is listed by the next sync.
+  const listed = [];
+  let end = head.join('\n').length;
+  for (const f of shown) {
+    end += 1 + renderFinding(f).join('\n').length;
+    if (end > MAX_BODY_CHARS) break;
+    listed.push(f);
+  }
   if (description.length > MAX_BODY_CHARS) {
     description = `${description.slice(0, MAX_BODY_CHARS)}\n\n… corpo troncato a ${MAX_BODY_CHARS} caratteri.`;
   }
-  return { title: ISSUE_TITLE, description };
+  return { title: ISSUE_TITLE, description, listed };
 }
 
 /** Job-summary markdown — written on every run, findings or not. */
@@ -287,13 +316,159 @@ function writeStepSummary(text) {
   }
 }
 
-async function main() {
-  const report = runAudit();
+// ── Firme gia' segnalate (#5661) ─────────────────────────────────────────────
+
+const SIGNATURE_RE = /^[0-9a-f]{12}$/;
+const SEEN_MARKER_RE = /<!-- factuality-seen: ([^>]*?) -->/;
+const SEEN_MARKER_RE_GLOBAL = /\n*<!-- factuality-seen: [^>]*? -->/g;
+/** GitHub rejects an issue body over 65.536 characters. */
+const GITHUB_BODY_LIMIT = 65536;
+export const SEEN_SIGNATURES_CAP = 600;
+
+/**
+ * Stable identity of what a finding SAYS: article, locale and the set of
+ * codes. The messages and evidence are left out on purpose — they quote the
+ * body, and a reworded sentence with the same defect is not new information.
+ * A code added (or removed) on the same body-locale IS: different signature.
+ */
+export function findingSignature(f) {
+  const codes = [...new Set((f.issues || []).map((i) => i.code))].sort().join(',');
+  return createHash('sha1').update(`${f.id}|${f.locale}|${codes}`).digest('hex').slice(0, 12);
+}
+
+/**
+ * Signatures recorded in the issue body. Missing marker, empty body or a
+ * marker that does not parse cleanly → empty Set: everything is reported
+ * again rather than a corrupted memory silencing a real finding.
+ */
+export function parseSeenSignatures(body) {
+  const m = SEEN_MARKER_RE.exec(String(body || ''));
+  if (!m) return new Set();
+  const tokens = m[1].split(',').map((t) => t.trim()).filter(Boolean);
+  if (!tokens.length || tokens.some((t) => !SIGNATURE_RE.test(t))) return new Set();
+  return new Set(tokens);
+}
+
+/** @returns {{ fresh: object[], repeated: object[] }} */
+export function partitionFresh(escalated, seen) {
+  const fresh = [];
+  const repeated = [];
+  for (const f of escalated) (seen.has(findingSignature(f)) ? repeated : fresh).push(f);
+  return { fresh, repeated };
+}
+
+/**
+ * The body with exactly one marker line holding `signatures` (oldest first),
+ * keeping the most recent `cap` and — never exceeding GitHub's body limit —
+ * dropping the oldest ones that would not fit rather than the body text.
+ */
+export function withSeenMarker(body, signatures, cap = SEEN_SIGNATURES_CAP) {
+  const base = String(body || '').replace(SEEN_MARKER_RE_GLOBAL, '').replace(/\s+$/, '');
+  let kept = [...new Set(signatures)].filter((s) => SIGNATURE_RE.test(s)).slice(-cap);
+  const render = (sigs) => `${base}${base ? '\n\n' : ''}<!-- factuality-seen: ${sigs.join(',')} -->\n`;
+  let out = render(kept);
+  if (out.length > GITHUB_BODY_LIMIT) {
+    const room = Math.max(0, Math.floor((GITHUB_BODY_LIMIT - render([]).length) / 13));
+    kept = room > 0 ? kept.slice(-room) : [];
+    out = render(kept);
+  }
+  return out;
+}
+
+function ghRepoArgs(env = process.env) {
+  const repo = env.GH_REPO || env.GITHUB_REPOSITORY;
+  return repo ? ['--repo', repo] : [];
+}
+
+function ghJson(args) {
+  const out = execFileSync('gh', [...args, ...ghRepoArgs()], {
+    encoding: 'utf8',
+    maxBuffer: 16 * 1024 * 1024,
+    stdio: ['ignore', 'pipe', 'inherit'],
+  });
+  return JSON.parse(String(out || '').trim() || 'null');
+}
+
+/**
+ * The canonical issue for ISSUE_TITLE (open first, then newest), in one `gh`
+ * call. `{ ok: false }` when GitHub could not be read: the caller fails open.
+ *
+ * @returns {{ ok: boolean, issue: { number: number, body: string, state: string } | null, error?: string }}
+ */
+export function readCanonicalIssue() {
+  try {
+    const list = ghJson([
+      'issue', 'list',
+      '--state', 'all',
+      '--search', `in:title "${searchSafePrefix(ISSUE_TITLE).replace(/"/g, '\\"')}"`,
+      '--json', 'number,title,state,body',
+      '--limit', '10',
+    ]);
+    if (!Array.isArray(list)) return { ok: false, issue: null, error: 'risposta non e\' un elenco' };
+    const exact = list
+      .filter((i) => i && i.title === ISSUE_TITLE)
+      .sort((a, b) => (String(a.state).toUpperCase() === 'OPEN' ? 0 : 1)
+        - (String(b.state).toUpperCase() === 'OPEN' ? 0 : 1)
+        || Number(b.number) - Number(a.number));
+    return { ok: true, issue: exact[0] || null };
+  } catch (err) {
+    return { ok: false, issue: null, error: err?.message || String(err) };
+  }
+}
+
+function readIssueBody(number) {
+  const issue = ghJson(['issue', 'view', String(number), '--json', 'number,body']);
+  return String(issue?.body || '');
+}
+
+/**
+ * Write the marker on `number`, merged with whatever marker the body holds NOW
+ * (so a run whose earlier read failed adds to the memory instead of replacing
+ * it). Non-fatal, like every write of this script.
+ */
+export function recordSeenSignatures(number, signatures) {
+  let dir;
+  try {
+    const current = readIssueBody(number);
+    const body = withSeenMarker(current, [...parseSeenSignatures(current), ...signatures]);
+    dir = mkdtempSync(path.join(os.tmpdir(), 'factuality-seen-'));
+    const file = path.join(dir, 'body.md');
+    writeFileSync(file, body);
+    execFileSync('gh', ['issue', 'edit', String(number), '--body-file', file, ...ghRepoArgs()], {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'inherit'],
+    });
+    return true;
+  } catch (err) {
+    console.log(`::warning::factuality: firme segnalate non registrate su #${number}: ${err?.message || err}`);
+    return false;
+  } finally {
+    if (dir) rmSync(dir, { recursive: true, force: true });
+  }
+}
+
+/**
+ * @param {{
+ *   runAudit?: typeof runAudit,
+ *   newArticleIds?: () => Set<string> | 'unavailable' | null,
+ *   createIssue?: typeof createGithubIssue,
+ *   readCanonical?: typeof readCanonicalIssue,
+ *   recordSeen?: typeof recordSeenSignatures,
+ * }} [deps] seams for the tests; production uses the defaults.
+ */
+export async function main({
+  runAudit: audit = runAudit,
+  newArticleIds = newArticleIdsWorktree,
+  createIssue = createGithubIssue,
+  readCanonical = readCanonicalIssue,
+  recordSeen = recordSeenSignatures,
+} = {}) {
+  const report = audit();
   const scope = issueScope();
   // Gli articoli NUOVI di questo sync. Il report resta su tutto cio' che il
   // sync ha toccato (la step summary non costa nulla e serve a vedere); solo
   // l'escalation a issue si restringe al flusso — vedi isEscalatable().
-  const newIds = newArticleIdsWorktree();
+  const newIds = newArticleIds();
   const escalated = report.diffUnavailable
     ? []
     : (report.findings || []).filter((f) => isEscalatable(f, scope, newIds));
@@ -312,19 +487,51 @@ async function main() {
   );
   if (!escalated.length) return 0;
 
+  // Finche' la PR di sync resta aperta, gli stessi articoli tornano «nuovi» a
+  // ogni giro: si commenta solo cio' che la issue non ha gia' ricevuto.
+  const canonical = readCanonical();
+  const seen = canonical.ok ? parseSeenSignatures(canonical.issue?.body) : new Set();
+  if (!canonical.ok) {
+    console.log(
+      `[factuality] firme gia' segnalate non leggibili (${canonical.error}): fail-open, `
+      + `si segnalano tutti i ${escalated.length} escalati.`,
+    );
+  }
+  const { fresh, repeated } = partitionFresh(escalated, seen);
+  if (!fresh.length) {
+    console.log(
+      `[factuality] ${escalated.length} escalati, tutti gia' segnalati (${seen.size} firme): nessun commento.`,
+    );
+    return 0;
+  }
+  if (repeated.length) {
+    console.log(`[factuality] ${fresh.length} nuovi, ${repeated.length} gia' segnalati: si commentano solo i nuovi.`);
+  }
+
   const runUrl =
     process.env.GITHUB_SERVER_URL && process.env.GITHUB_REPOSITORY && process.env.GITHUB_RUN_ID
       ? `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
       : undefined;
 
-  const { title, description } = buildReportIssue(report, escalated, runUrl);
-  await createGithubIssue({
+  const { title, description, listed } = buildReportIssue(report, fresh, runUrl);
+  const filed = await createIssue({
     title,
     description,
     priority: 2,
     labels: ['content-quality'],
     workflow: 'Sync article sitemaps, feeds and ticker from the articles API',
   });
+  // Non persistito (reporting spento, lookup fallito): le firme NON sono state
+  // segnalate, quindi non si registrano — il prossimo giro le riprova.
+  if (!filed || filed.persisted === false) return 0;
+  const number = filed.number || (readCanonical().issue?.number ?? null);
+  if (!number) {
+    console.log('::warning::factuality: issue segnalata ma numero non risolto, firme non registrate.');
+    return 0;
+  }
+  // Solo i rilievi che il commento NOMINA: quelli oltre il tetto del body sono
+  // un conteggio, e devono tornare elencati al sync successivo.
+  recordSeen(number, [...seen, ...listed.map(findingSignature)]);
   return 0;
 }
 
