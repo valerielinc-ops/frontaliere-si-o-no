@@ -273,11 +273,12 @@ async function chooseOption(page, locator, info, value) {
   await exact.click({ timeout: ACTION_TIMEOUT_MS });
 }
 
+// Returns how many files it set (the record of what left, submit.mjs).
 async function upload(page, locator, info, paths) {
   if (info.tag === 'input' && info.inputType === 'file') {
     const multiple = paths.length > 1 && await locator.evaluate((element) => Boolean(element.multiple)).catch(() => false);
     await chooseFiles(page, locator, multiple ? paths : paths[0]);
-    return;
+    return multiple ? paths.length : 1;
   }
   // An upload button opens the browser's file chooser. The wait never
   // outlives the action: a failed click leaves no rejection behind.
@@ -286,9 +287,10 @@ async function upload(page, locator, info, paths) {
   const opened = await chooser;
   if (!opened) throw new Error('no_file_chooser');
   await opened.setFiles(opened.isMultiple() ? paths : paths[0]);
+  return opened.isMultiple() ? paths.length : 1;
 }
 
-/** One action on its ref; never throws. */
+/** One action on its ref; never throws. `files`: how many files an upload set. */
 export async function runAction(page, action, files = {}) {
   try {
     const locator = page.locator(`aria-ref=${action.ref}`);
@@ -296,6 +298,7 @@ export async function runAction(page, action, files = {}) {
     const refused = refusal(action, info);
     if (refused) return { ok: false, error: refused };
     const value = String(action.value || '');
+    let uploaded = 0;
     if (action.action === 'click') await locator.click({ timeout: ACTION_TIMEOUT_MS });
     else if (action.action === 'fill') await locator.fill(info.tag === 'textarea' ? value : value.replace(/[\r\n]+/g, ' '), { timeout: ACTION_TIMEOUT_MS });
     else if (action.action === 'type') await locator.pressSequentially(value.replace(/[\r\n]+/g, ' '), { delay: 50, timeout: ACTION_TIMEOUT_MS });
@@ -304,9 +307,9 @@ export async function runAction(page, action, files = {}) {
     else if (action.action === 'upload') {
       const paths = documentPaths(files, action.document);
       if (!paths.length) return { ok: false, error: 'document_unavailable' };
-      await upload(page, locator, info, paths);
+      uploaded = await upload(page, locator, info, paths);
     }
-    return { ok: true };
+    return { ok: true, ...(uploaded ? { files: uploaded } : {}) };
   } catch (error) {
     return { ok: false, error: String(error?.message || error).split('\n')[0].slice(0, 160) };
   }
@@ -399,7 +402,11 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
     for (const action of step.actions) {
       const result = await runAction(page, action, files);
       // No values in the evidence's rounds: the answers travel apart, to the encrypted record.
-      record.actions.push({ ref: action.ref, action: action.action, question: action.question, source: action.source, ok: result.ok, ...(result.error ? { error: result.error } : {}) });
+      record.actions.push({
+        ref: action.ref, action: action.action, question: action.question, source: action.source, ok: result.ok, ...(result.error ? { error: result.error } : {}),
+        // Which document went into the form and how many of its files (the record of what left, submit.mjs).
+        ...(action.action === 'upload' && result.ok ? { document: action.document, files: result.files || 1 } : {}),
+      });
       results.push({ ref: action.ref, action: action.action, value: action.value, question: action.question, ...result });
       if (result.ok && action.question && action.source !== 'widget') answers.push({ question: action.question, answer: action.answer || action.value, source: action.source });
       await page.waitForTimeout(400);

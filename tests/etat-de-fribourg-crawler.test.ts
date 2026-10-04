@@ -222,22 +222,20 @@ describe('Etat de Fribourg crawler parser', () => {
       delete process.env.JOBS_CRAWLER_DELAY_MS;
     });
 
-    it('returns [] (no throw) on total network failure', async () => {
+    it('propagates a total network failure instead of returning []', async () => {
       globalThis.fetch = vi.fn(async () => {
         throw new Error('ENOTFOUND jobs.fr.ch');
       }) as any;
 
-      const jobs = await fetchAllEtatDeFribourgJobs();
-      expect(jobs).toEqual([]);
+      await expect(fetchAllEtatDeFribourgJobs()).rejects.toThrow(/ENOTFOUND/);
     });
 
-    it('returns [] (no throw) when the listing page errors', async () => {
+    it('propagates a listing page error instead of returning []', async () => {
       globalThis.fetch = vi.fn(async () => {
         return new Response('', { status: 500 });
       }) as any;
 
-      const jobs = await fetchAllEtatDeFribourgJobs();
-      expect(jobs).toEqual([]);
+      await expect(fetchAllEtatDeFribourgJobs()).rejects.toThrow();
     });
 
     it('parses a listing tile + detail page into a valid job object', async () => {

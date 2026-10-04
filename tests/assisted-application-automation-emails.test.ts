@@ -194,4 +194,14 @@ describe('automation e-mails', () => {
     expect(stopped.hint).not.toContain('prima di inviarla di nuovo');
     expect(stopped.detail).toBe('');
   });
+
+  // The runner keeps what leaves next to the order before it claims the send (submit.mjs): nothing left.
+  it('tells Valerie that an e-mail whose files Storage did not keep never left, and that a retry is safe', () => {
+    const stopped = describeTakeover({ reason: 'sent_files_not_stored', stage: 'submit', attempts: 1 });
+    expect(stopped.reason).toBe('l’invio non è riuscito: lo Storage non ha salvato i file della candidatura, quindi l’email NON è partita');
+    expect(stopped.hint).toContain('Non è partito nulla');
+    expect(stopped.hint).toContain('«Riprova l’invio automatico»');
+    expect(stopped.hint).not.toContain('prima di inviarla di nuovo');
+    expect(stopped.detail).toBe('');
+  });
 });
