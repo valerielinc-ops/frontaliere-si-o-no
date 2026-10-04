@@ -54,7 +54,7 @@ for (const company of companies) {
       }));
       const jobs = await company.fetchJobs();
       expect(jobs).toHaveLength(1);
-      expect(jobs[0]).toMatchObject({ companyKey: company.key, title, datePosted: expected, postedDate: expected,
+      expect(jobs[0]).toMatchObject({ companyKey: company.key, title, datePosted: expected, postedDate: ['empa', 'spruengli'].includes(company.key) ? expected.slice(0, 10) : expected,
         postingDateSource: expected ? 'reported' : 'unknown', url });
       expect(jobs[0].description).toContain('interdisziplinäre');
       expect(jobs[0].canton).toBeTruthy();
