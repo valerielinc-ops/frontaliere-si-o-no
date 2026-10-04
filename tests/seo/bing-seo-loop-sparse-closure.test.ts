@@ -49,15 +49,37 @@ const TREE_JOBS = [
   'tree-report',
 ];
 
-type Step = { uses?: string; with?: Record<string, unknown> };
+type Step = { uses?: string; run?: string; with?: Record<string, unknown> };
 type Workflow = { jobs?: Record<string, { steps?: Step[] }> };
 
 interface AllowListJob {
   jobId: string;
   lines: string[];
   cone: boolean;
+  /** Il job esegue `npm ci`/`npm install`: i pacchetti di node_modules esistono. */
+  installsDeps: boolean;
   entries: string[];
   closure: Array<{ rel: string; src: string }>;
+}
+
+/**
+ * Specifier di pacchetto (ne' relativi ne' `node:`) delle dichiarazioni che
+ * Node collega prima di eseguire il modulo. Solo a inizio riga, per non
+ * scambiare per import la prosa dei commenti («… from 'x'»).
+ */
+function bareStaticSpecifiersIn(src: string): string[] {
+  const out = new Set<string>();
+  const res = [
+    /^\s*(?:import|export)\b[^;'"]*?\bfrom\s*['"]([^'"\n]+)['"]/gm,
+    /^\s*import\s*['"]([^'"\n]+)['"]/gm,
+  ];
+  for (const re of res) {
+    for (const m of src.matchAll(re)) {
+      const spec = m[1];
+      if (!spec.startsWith('.') && !spec.startsWith('/') && !spec.startsWith('node:')) out.add(spec);
+    }
+  }
+  return [...out];
 }
 
 function allowListJobs(): AllowListJob[] {
@@ -80,10 +102,13 @@ function allowListJobs(): AllowListJob[] {
     // con `/*`, attribuibile solo se e' l'unico checkout del job, alla radice.
     if (lines[0] === '/*' || checkouts.length !== 1 || step.with?.path) continue;
     const entries = [...new Set([...(job.entries ?? []), ...(job.inlineEntries ?? [])])];
+    const installsDeps = (doc.jobs?.[job.jobId]?.steps ?? [])
+      .some((s) => typeof s?.run === 'string' && /\bnpm\s+(?:ci|install|i)\b/.test(s.run));
     out.push({
       jobId: job.jobId,
       lines,
       cone: step.with?.['sparse-checkout-cone-mode'] !== false,
+      installsDeps,
       entries,
       closure: transitiveClosure(entries, { staticOnly: true }),
     });
@@ -124,20 +149,21 @@ describe('bing-seo-loop sparse checkout covers the crawler import closure', () =
       // Gli import JSON (`import routes from '../../data/…json' with { type: 'json' }`)
       // si leggono dal sorgente, quindi il controllo vale anche dove `data/`
       // non e' materializzato (worktree sparse locali).
-      const read = new Set<string>();
-      const literals = new Set<string>();
+      const candidates = new Set<string>();
       for (const { src } of job.closure) {
-        for (const rel of importedDataOrPublicPathsIn(src)) read.add(rel);
-        for (const rel of literalPathsIn(src)) if (/^(?:data|public)\//.test(rel)) literals.add(rel);
+        for (const rel of importedDataOrPublicPathsIn(src)) candidates.add(rel);
+        for (const rel of literalPathsIn(src)) if (/^(?:data|public)\//.test(rel)) candidates.add(rel);
       }
-      // Un letterale (`readFileSync(new URL('../../data/…', import.meta.url))`)
-      // conta solo se e' un file tracciato: una URL o un esempio non lo sono.
-      if (literals.size) {
-        const tracked = execFileSync('git', ['ls-files', '--', ...literals], { encoding: 'utf8' })
-          .split('\n').filter(Boolean);
-        for (const rel of tracked) read.add(rel);
-      }
-      const missing = pathsOutsideSparseRules(job.lines, [...read], { cone: job.cone });
+      // Un candidato (import o letterale come
+      // `readFileSync(new URL('../../data/…', import.meta.url))`) conta solo se
+      // e' un file tracciato: una URL, un esempio o un `./metadata/x.mjs` che
+      // importedDataOrPublicPathsIn taglia a `data/x.mjs` non lo sono.
+      // `git ls-files` legge l'indice, quindi vale anche nei worktree sparse.
+      const read = candidates.size
+        ? execFileSync('git', ['ls-files', '--', ...candidates], { encoding: 'utf8' })
+          .split('\n').filter(Boolean)
+        : [];
+      const missing = pathsOutsideSparseRules(job.lines, read, { cone: job.cone });
       expect(
         missing,
         `${FAILURE_TITLE}\n${WORKFLOW}:${job.jobId} — aggiungi allo sparse-checkout: ${missing.join(', ')}`,
@@ -156,19 +182,37 @@ describe('bing-seo-loop sparse checkout covers the crawler import closure', () =
     ).toEqual([]);
   });
 
+  it.each(jobs.filter((job) => !job.installsDeps).map((job) => [job.jobId, job] as const))(
+    '%s: without npm ci the closure imports only relative and node: modules',
+    (_jobId, job) => {
+      // La chiusura statica segue solo gli specifier relativi: un `import YAML
+      // from 'yaml'` in un modulo del crawler passerebbe i controlli sopra e
+      // morirebbe con lo stesso ERR_MODULE_NOT_FOUND in un job senza npm ci.
+      const bare = job.closure.flatMap(({ rel, src }) =>
+        bareStaticSpecifiersIn(src).map((spec) => `${rel} -> ${spec}`));
+      expect(
+        bare,
+        `${FAILURE_TITLE}\n${WORKFLOW}:${job.jobId} non esegue npm ci: import di pacchetto ${bare.join(', ')}`,
+      ).toEqual([]);
+    },
+  );
+
   it('reports the import that broke run 37114856509 (PR #10941)', () => {
-    // Allow-list di tree-inventory com'era prima di #11142: senza
-    // professionLandingsSections.mjs (e il JSON che importa).
+    // Allow-list di tree-inventory com'era prima di #11142, congelata: non e'
+    // derivata dal testo attuale del workflow, cosi' una pulizia corretta della
+    // lista (per esempio `/scripts/lib/` intera) non fa diventare rosso il replay.
+    const before = [
+      '/scripts/seo/',
+      '/scripts/lib/canonicalExemptions.mjs',
+      '/scripts/lib/jobBoardSections.mjs',
+      '/scripts/lib/meta-description-extract.mjs',
+    ];
     const inventory = jobs.find((job) => job.jobId === 'tree-inventory');
     expect(inventory).toBeDefined();
-    const before = inventory!.lines.filter(
-      (line) => !/professionLandingsSections\.mjs$|profession-landing-routes\.json$/.test(line),
-    );
-    expect(before.length).toBeLessThan(inventory!.lines.length);
-    expect(uncoveredAllowListCode(before, inventory!.entries, { cone: inventory!.cone }))
+    expect(uncoveredAllowListCode(before, inventory!.entries, { cone: false }))
       .toContain('scripts/lib/professionLandingsSections.mjs');
     const dataRead = inventory!.closure.flatMap(({ src }) => [...importedDataOrPublicPathsIn(src)]);
-    expect(pathsOutsideSparseRules(before, dataRead, { cone: inventory!.cone }))
+    expect(pathsOutsideSparseRules(before, dataRead, { cone: false }))
       .toContain('data/profession-landing-routes.json');
   });
 });
