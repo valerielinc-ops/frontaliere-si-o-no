@@ -23,6 +23,7 @@
  * Rettungsdienst, Walk-in-Clinic. All in canton Bern.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify } from './crawler-template.mjs';
 import {
@@ -244,7 +245,6 @@ export async function fetchAllFmiJobs() {
   console.log(`  ✓ ${items.length} Stellen aus dem Stellenmarkt`);
   if (!items.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (const it of items) {
@@ -257,7 +257,7 @@ export async function fetchAllFmiJobs() {
     const { city, postalCode } = pickLocation(jsonLd, it.site);
     const description = buildDescription(jsonLd, title, it.site);
     const employmentType = pickEmploymentType(jsonLd, `${title} ${it.category}`);
-    const datePosted = String(jsonLd?.datePosted || '').slice(0, 10) || todayIso;
+    const publication = sourcePostingDateFields(jsonLd?.datePosted);
 
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} ${FMI_KEY} ${city}`);
@@ -296,7 +296,7 @@ export async function fetchAllFmiJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: datePosted,
+      ...publication,
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
