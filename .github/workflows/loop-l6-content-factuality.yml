@@ -102,6 +102,9 @@ jobs:
         id: produce_l6_verdicts
         if: github.event_name != 'pull_request'
         continue-on-error: true
+        # Up to 20 sequential source fetches at 15 s each: a step timeout keeps
+        # a hung source from hitting the job's 8 minutes and losing the export.
+        timeout-minutes: 5
         env:
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l6
         run: |
@@ -120,7 +123,7 @@ jobs:
           jq -c '{selected,rowsWritten,skipped}' "$REPORT_DIR/producer-summary.json" | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Warn when the L6 producer failed
         if: always() && steps.produce_l6_verdicts.outcome == 'failure'
-        run: echo '::warning::L6 source-check producer failed; the export reads only the committed ledger and stays fail-closed (unavailable when it is missing)'
+        run: echo '::warning::L6 source-check producer step failed; the export uses whatever ledger is on disk and stays fail-closed (unavailable when there is none)'
       - name: Export read-only L6 editorial outcome
         if: always()
         env:
@@ -141,7 +144,10 @@ jobs:
             # The contract rejects a second review of the same articleId +
             # locale, and one invalid row stops the whole ledger measuring, so
             # automated rows whose identity a committed row already holds are
-            # dropped here (identity trimmed as the exporter trims it).
+            # dropped here (identity trimmed as the exporter trims it). Any
+            # committed JSON object counts, even one the exporter will reject
+            # as invalid: at worst one automated row is lost, and that ledger
+            # is already partial.
             run_ledger="$RUNNER_TEMP/loop-fleet-l6/run-editorial-factuality-verdicts.jsonl"
             if { cat "$committed"; printf '\n'; jq -c -n --rawfile committed "$committed" '
                 def identity: [(.articleId // "" | tostring), (.locale // "" | tostring)] | map(gsub("^\\s+|\\s+$"; "")) | join("\t");
