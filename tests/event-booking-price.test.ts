@@ -34,6 +34,12 @@ describe('official event booking tariffs', () => {
     expect(extractEventBookingPrice(ld({ ...node, location: { name: 'Another venue' } }), bookingUrl, event)).toBeUndefined();
   });
 
+  it('reads a ticketing block whose strings carry raw line breaks (invalid JSON pasted by the publisher)', () => {
+    const raw = ld({ ...node, description: 'Doors 19:00@@Show 20:00' }).replace('@@', '\n');
+    expect(raw).toContain('Doors 19:00\nShow 20:00');
+    expect(extractEventBookingPrice(raw, bookingUrl, event)?.isFree).toBe(true);
+  });
+
   it('allows an explicit caller-verified locality matcher for broad source venues', () => {
     const broadEvent = { ...event, venue: 'Baden' };
     const source = { ...node, location: { name: 'Kurtheater Baden' } };

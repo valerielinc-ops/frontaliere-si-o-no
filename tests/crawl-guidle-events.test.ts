@@ -20,7 +20,11 @@ import {
   parseGuidleArgs,
   selectGuidleEntries,
   targetedGuidleResumeIndex,
+  classifyUnmappedGuidleDetail,
+  guidleDetailFailureAccounting,
+  isUndatedGuidleListing,
 } from '../scripts/crawl-guidle-events.mjs';
+import { applyDetailFailureReuse } from '../scripts/lib/detail-failure-reuse-policy.mjs';
 
 describe('targeted Guidle catalog refresh', () => {
   it('validates codes without lowercasing case-sensitive Guidle identities', () => {
@@ -128,6 +132,153 @@ describe('extractEventJsonLdOccurrences', () => {
     expect(extractEventJsonLdOccurrences('')).toEqual([]);
     expect(extractEventJsonLdOccurrences('<html></html>')).toEqual([]);
     expect(extractEventJsonLdOccurrences('<script type="application/ld+json">{not json</script>')).toEqual([]);
+  });
+});
+
+// Shape measured on 16 of the 80 Guidle detail pages of crawl run 37198131294
+// (2026-10-04): the organizer text is pasted verbatim into the JSON-LD string,
+// raw line breaks included, so the block is not valid JSON. Anonymized.
+const RAW_NEWLINE_JSON_LD = [
+  '{',
+  '  "@context": "http://schema.org/",',
+  '  "@type": "Event",',
+  '  "name": "Konzert am See",',
+  '  "description": "Türöffnung: 20:00 Uhr',
+  'Konzertbeginn: 20:45 Uhr',
+  '\tEintritt: CHF 25.00",',
+  '  "startDate": "2026-11-06T20:45",',
+  '  "location": {"name": "Saal", "address": {"addressLocality": "Musterdorf"}}',
+  '}',
+].join('\n');
+
+describe('Guidle JSON-LD with raw control characters inside strings', () => {
+  it('reads the Event occurrence instead of dropping the block as malformed', () => {
+    const occ = extractEventJsonLdOccurrences(`<script type="application/ld+json">${RAW_NEWLINE_JSON_LD}</script>`);
+    expect(occ).toHaveLength(1);
+    expect(occ[0].name).toBe('Konzert am See');
+    expect(occ[0].startDate).toBe('2026-11-06T20:45');
+    expect(occ[0].description).toBe('Türöffnung: 20:00 Uhr\nKonzertbeginn: 20:45 Uhr\n\tEintritt: CHF 25.00');
+  });
+
+  it('maps the detail page instead of reporting it as parser drift', () => {
+    const mapped = mapDetailPageToLocaleData(buildDetailHtml({ jsonLd: RAW_NEWLINE_JSON_LD }), 'de');
+    expect(mapped?.title).toBe('Konzert am See');
+    expect(mapped?.startDate).toBe('2026-11-06');
+    expect(mapped?.startTime).toBe('20:45');
+    expect(mapped?.description).toBe('Türöffnung: 20:00 Uhr Konzertbeginn: 20:45 Uhr Eintritt: CHF 25.00');
+  });
+});
+
+// Shape measured on the film catalog entries (`kino-nach-film/ohne-ortsangabe/…`)
+// sampled 2026-10-04: no JSON-LD at all, and the microdata block declares an
+// EMPTY startDate. The source publishes no schedule, so there is nothing to
+// parse. Anonymized.
+const UNDATED_LISTING_HTML = `<!doctype html><html><head><title>Film - Schweiz (ohne Ortsangabe) - Guidle</title></head><body>
+  <div itemscope itemtype="http://schema.org/Event">
+    <span itemprop="eventType">Kinofilm</span>
+    <meta itemprop="startDate" content="" />
+    <span itemprop="location">Schweiz (ohne Ortsangabe)</span>
+  </div></body></html>`;
+
+describe('isUndatedGuidleListing', () => {
+  it('recognizes a page that declares an empty startDate and carries no Event JSON-LD', () => {
+    expect(isUndatedGuidleListing(UNDATED_LISTING_HTML)).toBe(true);
+  });
+
+  it('does not excuse a page whose startDate is filled: that is drift', () => {
+    expect(isUndatedGuidleListing(UNDATED_LISTING_HTML.replace('content=""', 'content="2026-11-06T20:45"'))).toBe(false);
+  });
+
+  it('does not excuse a page without any startDate declaration: that is drift', () => {
+    expect(isUndatedGuidleListing('<html><body><span itemprop="eventType">Festival</span></body></html>')).toBe(false);
+    expect(isUndatedGuidleListing('')).toBe(false);
+  });
+
+  it('does not excuse a page that has a readable Event JSON-LD block', () => {
+    expect(isUndatedGuidleListing(buildDetailHtml())).toBe(false);
+  });
+});
+
+describe('classifyUnmappedGuidleDetail', () => {
+  it('calls an event gone only when every locale answered 404 or 410', () => {
+    expect(classifyUnmappedGuidleDetail([410, 410, 410, 410])).toBe('gone');
+    expect(classifyUnmappedGuidleDetail([404, 410, 404, 404])).toBe('gone');
+  });
+
+  it('treats HTML that did not parse as drift', () => {
+    expect(classifyUnmappedGuidleDetail([200, 410, 410, 410])).toBe('drift');
+    expect(classifyUnmappedGuidleDetail([200, 200, 200, 200])).toBe('drift');
+  });
+
+  it('calls a detail undated only when every locale that answered declared no schedule', () => {
+    expect(classifyUnmappedGuidleDetail([200, 200, 200, 200], [true, true, true, true])).toBe('undated');
+    expect(classifyUnmappedGuidleDetail([200, 410, 200, 410], [true, false, true, false])).toBe('undated');
+    expect(classifyUnmappedGuidleDetail([200, 200, 200, 200], [true, false, true, true])).toBe('drift');
+    expect(classifyUnmappedGuidleDetail([200, 0, 200, 200], [true, false, true, true])).toBe('undated');
+  });
+
+  it('keeps a missing answer (network, WAF, 5xx, rate limit) as an unreachable failure, not a disappearance', () => {
+    expect(classifyUnmappedGuidleDetail([0, 0, 0, 0])).toBe('unreachable');
+    expect(classifyUnmappedGuidleDetail([410, 410, 0, 410])).toBe('unreachable');
+    expect(classifyUnmappedGuidleDetail([403, 403, 403, 403])).toBe('unreachable');
+    expect(classifyUnmappedGuidleDetail([503, 410, 410, 410])).toBe('unreachable');
+    expect(classifyUnmappedGuidleDetail([429, 429, 429, 429])).toBe('unreachable');
+    expect(classifyUnmappedGuidleDetail([])).toBe('unreachable');
+  });
+});
+
+describe('guidleDetailFailureAccounting', () => {
+  const outcomes = (counts: Record<string, number>) => Object.entries(counts).flatMap(([kind, n]) =>
+    Array.from({ length: n }, (_, i) => ({ id: `guidle:${kind}${i}`, kind })));
+  const policy = (acc: ReturnType<typeof guidleDetailFailureAccounting>) => applyDetailFailureReuse({
+    freshRows: [],
+    failedIdentities: acc.detailFailureIds,
+    attemptedCount: acc.detailAttemptCount,
+    previousRows: [],
+    identityOf: (event: { id?: string }) => event?.id,
+  });
+
+  it('keeps a confirmed disappearance out of the parse-failure ratio, numerator and denominator', () => {
+    const run = outcomes({ mapped: 77, drift: 1, gone: 2 });
+    const acc = guidleDetailFailureAccounting(run);
+    const gone = run.filter(o => o.kind === 'gone').map(o => o.id);
+    const drift = run.filter(o => o.kind === 'drift').map(o => o.id);
+    expect(acc.goneIds).toEqual(gone);
+    expect(acc.detailFailureIds).toEqual(drift);
+    expect(acc.detailAttemptCount).toBe(run.length - gone.length);
+    expect(policy(acc).canPublish).toBe(true);
+  });
+
+  it('keeps undated source listings out of the ratio without reporting them as disappeared', () => {
+    const run = outcomes({ mapped: 20, undated: 35, drift: 1, gone: 4 });
+    const acc = guidleDetailFailureAccounting(run);
+    const undated = run.filter(o => o.kind === 'undated').map(o => o.id);
+    expect(acc.undatedIds).toEqual(undated);
+    expect(acc.goneIds.some(id => undated.includes(id))).toBe(false);
+    expect(acc.detailFailureIds).toEqual(run.filter(o => o.kind === 'drift').map(o => o.id));
+    expect(acc.detailAttemptCount).toBe(run.length - undated.length - acc.goneIds.length);
+    expect(policy(acc).canPublish).toBe(true);
+  });
+
+  it('still fails closed on real parser drift above the threshold', () => {
+    const acc = guidleDetailFailureAccounting(outcomes({ mapped: 61, drift: 17, gone: 2 }));
+    expect(policy(acc).withinGrace).toBe(false);
+    expect(policy(acc).canPublish).toBe(false);
+  });
+
+  it('still fails closed when the source is unreachable instead of calling it gone', () => {
+    const run = outcomes({ unreachable: 80 });
+    const acc = guidleDetailFailureAccounting(run);
+    expect(acc.goneIds).toEqual([]);
+    expect(acc.detailFailureIds).toEqual(run.map(o => o.id));
+    expect(policy(acc).canPublish).toBe(false);
+  });
+
+  it('a gone event does not dilute the ratio: the denominator shrinks with it', () => {
+    // 12 drift over 70 parseable details is 17%: over the threshold even if
+    // 10 confirmed disappearances would have brought it to 15% of 80.
+    const acc = guidleDetailFailureAccounting(outcomes({ mapped: 58, drift: 12, gone: 10 }));
+    expect(policy(acc).canPublish).toBe(false);
   });
 });
 
