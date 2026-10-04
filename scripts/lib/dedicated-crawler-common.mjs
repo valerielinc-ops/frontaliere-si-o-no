@@ -69,6 +69,7 @@ import { buildStableJobIdentity } from './job-identity.mjs';
 import { createAwaitingAdmissionCheck } from './translation-publication-hold.mjs';
 import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
+import { getRetranslationBaseline, recordRetranslationBaseline } from './crawler-retranslation-baseline.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -4577,6 +4578,21 @@ export async function runDedicatedBaseCrawler({
 }
 
 /**
+ * The jobs of a slice file as committed by the previous run, for the
+ * retranslation baseline. A missing or unreadable slice has no baseline: the
+ * crawler's flags on those records are then kept as they are.
+ */
+function readSliceJobsForBaseline(slicePath) {
+  try {
+    if (!fs.existsSync(slicePath)) return [];
+    const data = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
+    return Array.isArray(data?.jobs) ? data.jobs : (Array.isArray(data) ? data : []);
+  } catch {
+    return [];
+  }
+}
+
+/**
  * Raw-seed the per-crawler slice files from the merged data/jobs.json for the
  * given company keys. Raw write only — the quality/normalization gates run in
  * the per-crawler `writeJobsCrawlerSlice` final write (and the assemble-time
@@ -4605,7 +4621,14 @@ export function seedCrawlerSlicesFromDataJobs(root, companyKeys, dataJobsPath) {
       byKey.get(key).push(job);
     }
     for (const [key, jobs] of byKey) {
-      writeJson(path.join(sliceDir, `${key}.json`), { jobs });
+      const slicePath = path.join(sliceDir, `${key}.json`);
+      // The slice is about to stop being the previous run's: keep its
+      // translation baseline first (crawler-retranslation-baseline.mjs), or
+      // every source change of this run would compare against itself.
+      if (!getRetranslationBaseline(key)) {
+        recordRetranslationBaseline(key, readSliceJobsForBaseline(slicePath));
+      }
+      writeJson(slicePath, { jobs });
     }
     // A scoped key that matches zero jobs in the merged data/jobs.json is NOT
     // reseeded above (it never enters byKey), so its on-disk slice is left
