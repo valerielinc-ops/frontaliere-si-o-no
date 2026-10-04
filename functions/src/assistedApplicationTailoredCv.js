@@ -316,7 +316,7 @@ export function tailoredCvBlocks(cv, { identity, profile }) {
 /**
  * The tailored CV's PDF: Typst with the embedded font, the standard-font
  * writer as fallback (assistedApplicationPdfRenderer.js).
- * @returns {Promise<{pdf: Buffer, renderer: 'typst'|'legacy'}>}
+ * @returns {Promise<{pdf: Buffer, renderer: 'typst'|'legacy', photo: boolean}>} photo: the PDF carries it
  */
 /** @param {{identity:object, profile:object, mode?:string, log?:Function, photo?:Buffer, photoType?:string}} context photo: the candidate's (candidatePhoto) */
 export async function buildTailoredCvPdf(cv, { identity, profile, mode, log, photo, photoType }) {

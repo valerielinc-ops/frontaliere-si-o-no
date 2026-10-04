@@ -230,7 +230,16 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
       if (STATE_ACTIONS.has(action)) top.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       return true;
     } catch (reason) {
-      setError(reason instanceof ReviewRequestError ? reason.code : 'network');
+      const code = reason instanceof ReviewRequestError ? reason.code : 'network';
+      // Saved from another tab meanwhile and nothing of this action was kept: show
+      // what is there now, then say why (load clears the error it finds). An open
+      // edit form still holds the values it was opened with: close it, so that a
+      // second save cannot send them back over the other tab's change.
+      if (code === 'changed_meanwhile') {
+        await load();
+        if (action === 'edit') setEditing(false);
+      }
+      setError(code);
       if (reason instanceof ReviewRequestError) {
         // An edit's field keys may share a name with a question id (availability).
         if (action === 'edit') setEditServerErrors(reason.fields || {});
@@ -709,7 +718,8 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                     </p>
                     {data.tailoredCv.photo ? (
                       <div className="flex flex-wrap items-center gap-3">
-                        <span className="text-body">{t('jobBoard.assisted.review.photoIncluded')}</span>
+                        {/* Given is not printed: with the standard-font writer the PDF has no photo. */}
+                        <span className="text-body">{t(data.tailoredCv.photoPrinted === false ? 'jobBoard.assisted.review.photoNotPrinted' : 'jobBoard.assisted.review.photoIncluded')}</span>
                         <button
                           type="button"
                           disabled={Boolean(busy)}
