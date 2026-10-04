@@ -261,6 +261,7 @@ function errorMessage(error: unknown, status: number): string {
     invalid_cv_file: 'Il file non è un PDF, DOC o DOCX valido (max 5 MB).',
     draft_not_ready: 'La bozza AI non è ancora pronta.',
     changed_meanwhile: 'Il candidato ha cambiato la bozza nel frattempo: ricarica e ripeti la modifica.',
+    draft_submitted: 'La candidatura è già stata inviata: la bozza non si può più modificare.',
     not_owner_review: 'L’automazione non è in attesa della tua revisione.',
     not_regenerable: 'In questo stato non si può rigenerare la bozza.',
     not_taken_over: 'L’automazione non è sospesa.',

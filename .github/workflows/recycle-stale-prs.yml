@@ -128,7 +128,7 @@ jobs:
       - name: Recycle deeply-stale stale-review PRs
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          PAT: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
           REPO: ${{ github.repository }}
           # Posture: lo SCHEDULE agisce (false) — è l'intento autonomo; il
           # DISPATCH manuale resta safe-by-default (input default true) per test.
@@ -562,18 +562,87 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          # UNICA sorgente del titolo: chiave di dedup di github-issue-creator.mjs
+          # (apertura), selettore che esclude il digest dalla propria lista
+          # (esclusione) e titolo atteso della chiusura per numero. Tre usi,
+          # una forma: se divergessero, il digest tornerebbe a non chiudersi.
+          DEDUP_TITLE: 'needs-human: PR bloccate in attesa di revisione umana'
         run: |
           set -uo pipefail
+          # L'ESITO delle due query, non solo il loro output. `set -e` non e'
+          # attivo, quindi un `gh` non-zero (rate-limit, token scaduto, jq su
+          # una forma inattesa) lascia la variabile VUOTA, indistinguibile da
+          # «nessun residuo»: col ramo di chiusura qui sotto lo step chiuderebbe
+          # il digest mentre il backlog needs-human e' pieno. Query fallita =
+          # stato sconosciuto: niente chiusura, niente ripubblicazione, step
+          # rosso (`continue-on-error` tiene verde il job). Stessa guardia del
+          # gemello del corpus (corpus issue 981).
           PRS=$(gh pr list --repo "$GH_REPO" --state open --label needs-human \
             --json number,title,updatedAt \
             --jq '.[] | "- #\(.number) \(.title) (ultimo update \(.updatedAt))"')
-          # L'issue dedup di questo stesso step porta `automation`, non
-          # `needs-human`: non puo' auto-elencarsi.
+          PRS_RC=$?
+          # Il digest nasce con `automation`, non con `needs-human`, ma niente
+          # gli impedisce di riceverla dopo (sul corpus gliel'ha messa il
+          # followup-drainer, corpus issue 733): da quel momento la lista issue
+          # contiene sempre almeno il digest e la condizione di chiusura e'
+          # irraggiungibile. Si esclude qui, per TITOLO ESATTO.
+          # `$ENV` appartiene a jq, non alla shell.
+          # shellcheck disable=SC2016
           ISSUES=$(gh issue list --repo "$GH_REPO" --state open --label needs-human \
             --limit 200 --json number,title,updatedAt \
-            --jq '.[] | "- #\(.number) \(.title) (ultimo update \(.updatedAt))"')
+            --jq '.[] | select(.title != $ENV.DEDUP_TITLE) | "- #\(.number) \(.title) (ultimo update \(.updatedAt))"')
+          ISSUES_RC=$?
+          if [ "$PRS_RC" -ne 0 ] || [ "$ISSUES_RC" -ne 0 ]; then
+            echo "::error::Query needs-human fallita (PR rc=$PRS_RC, issue rc=$ISSUES_RC): non tocco l'issue dedup. Liste vuote per un errore non sono «nessun residuo»."
+            exit 1
+          fi
           if [ -z "$PRS" ] && [ -z "$ISSUES" ]; then
-            echo "Niente needs-human aperto (ne PR ne issue)."
+            # Liste vuote = la condizione di chiusura che il corpo promette.
+            # Fino a qui lo step usciva 0 e basta: nessun altro processo chiude
+            # questo titolo (close-recovered-failure-issues.mjs copre solo le
+            # famiglie `Workflow|Crawler|CI Failure:`), e la chiusura di fatto
+            # arrivava dal PARENT-CLOSE dei follow-up, che la PR 11312 ha tolto.
+            # Il digest restava aperto con un elenco ormai falso (issue 6458).
+            #
+            # Per NUMERO e titolo ESATTO, non con `github-issue-creator.mjs
+            # --resolve`: quello cerca per prefisso sanitizzato a 60 caratteri,
+            # e con un titolo di 52 il prefisso e' il titolo intero, quindi una
+            # issue aperta che comincia con questa chiave e prosegue verrebbe
+            # chiusa al posto del digest (corpus issue 1003). `gh api
+            # --paginate` legge l'elenco reale senza indice di ricerca e senza
+            # tetto silenzioso; nessun filtro per label, perche' le label del
+            # digest cambiano nel tempo.
+            echo "Niente needs-human aperto (ne PR ne issue): richiudo l'issue dedup, se aperta."
+            # shellcheck disable=SC2016
+            DEDUP_NUMBERS=$(gh api --paginate "repos/$GH_REPO/issues?state=open&per_page=100" \
+              --jq '.[] | select(.pull_request == null and .title == $ENV.DEDUP_TITLE) | .number')
+            DEDUP_RC=$?
+            if [ "$DEDUP_RC" -ne 0 ]; then
+              echo "::error::Ricerca dell'issue dedup fallita (rc=$DEDUP_RC): non chiudo niente. Un risultato vuoto per un errore non e «issue gia chiusa»."
+              exit 1
+            fi
+            if [ -z "$DEDUP_NUMBERS" ]; then
+              echo "Nessuna issue aperta con il titolo di dedup: niente da chiudere."
+              exit 0
+            fi
+            RESOLVE_FAILED=0
+            for DEDUP_NUMBER in $DEDUP_NUMBERS; do
+              echo "Chiudo l'issue dedup #$DEDUP_NUMBER."
+              # shellcheck disable=SC2016
+              if ! node scripts/ci/resolve-issue-by-number.mjs \
+                --number "$DEDUP_NUMBER" \
+                --expected-title "$DEDUP_TITLE" \
+                --workflow "Recycle stale PRs" \
+                --run-url "$RUN_URL" \
+                --preface 'Nessun oggetto `needs-human` aperto (ne PR ne issue): la condizione di chiusura scritta nel corpo e soddisfatta. Il prossimo residuo riapre il digest con lo stesso titolo.'; then
+                RESOLVE_FAILED=1
+              fi
+            done
+            if [ "$RESOLVE_FAILED" -ne 0 ]; then
+              echo "::error::Chiusura dell'issue dedup non verificata: il digest resta aperto e il prossimo run riprova."
+              exit 1
+            fi
             exit 0
           fi
           PR_COUNT=0; [ -n "$PRS" ] && PR_COUNT=$(printf '%s\n' "$PRS" | wc -l | tr -d ' ')
@@ -583,12 +652,12 @@ jobs:
           [ -n "$ISSUES" ] || ISSUES='_(nessuna)_'
           # Markdown backticks in this literal description are intentional.
           # shellcheck disable=SC2016
-          DESC=$(printf 'La label `needs-human` e un segnale di tracking: sulla PR non e un veto di merge, mentre sulle issue indica esclusivamente una decisione reale del proprietario. I blocchi tecnici usano `automation-deferred` e rientrano nello sweep automatico.\n\n**PR** (%s) — il fixer dei red-flag ha raggiunto il round-cap (anti-loop), oppure sono draft parcheggiate. Questi gate spiegano perche la PR non e pronta; la sola label non impedisce auto-merge, autorebase o dispatch quando i gate normali passano:\n\n%s\n\n**Issue** (%s) — domande decidibili rimaste dopo la lettura di VISION.md e DECISIONS.md; richiedono una risposta esplicita del proprietario. I parcheggi tecnici del followup-drainer e del closer non compaiono qui:\n\n%s\n\n_Issue dedup giornaliera da recycle-stale-prs.yml (zero-Claude); si aggiorna con un commento di recurrence finche esiste qualcosa di needs-human. Chiudila quando entrambe le liste sono vuote._' "$PR_COUNT" "$PRS" "$ISSUE_COUNT" "$ISSUES")
+          DESC=$(printf 'La label `needs-human` e un segnale di tracking: sulla PR non e un veto di merge, mentre sulle issue indica esclusivamente una decisione reale del proprietario. I blocchi tecnici usano `automation-deferred` e rientrano nello sweep automatico.\n\n**PR** (%s) — il fixer dei red-flag ha raggiunto il round-cap (anti-loop), oppure sono draft parcheggiate. Questi gate spiegano perche la PR non e pronta; la sola label non impedisce auto-merge, autorebase o dispatch quando i gate normali passano:\n\n%s\n\n**Issue** (%s) — domande decidibili rimaste dopo la lettura di VISION.md e DECISIONS.md; richiedono una risposta esplicita del proprietario. I parcheggi tecnici del followup-drainer e del closer non compaiono qui:\n\n%s\n\n_Issue dedup giornaliera da recycle-stale-prs.yml (zero-Claude); si aggiorna con un commento di recurrence finche esiste qualcosa di needs-human, e si richiude da sola al primo run in cui entrambe le liste sono vuote._' "$PR_COUNT" "$PRS" "$ISSUE_COUNT" "$ISSUES")
           # Il titolo sottostante e' una chiave di dedup storica: resta invariato
           # per non creare una seconda issue, mentre il body distingue il
           # tracking PR dalle decisioni reali del proprietario sulle issue.
           node scripts/lib/github-issue-creator.mjs \
-            --title "needs-human: PR bloccate in attesa di revisione umana" \
+            --title "$DEDUP_TITLE" \
             --description "$DESC" \
             --priority 2 \
             --label automation \

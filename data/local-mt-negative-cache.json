@@ -9833,8 +9833,8 @@
     },
     "4bc5976c348d7a4112ae2d80a8de54259bc52e776102894e4403449732a08693": {
       "decision": "skip:source-copy",
-      "createdAt": "2026-09-23T09:34:57.032Z",
-      "expiresAt": "2026-09-30T07:03:52.370Z"
+      "createdAt": "2026-10-04T19:00:15.052Z",
+      "expiresAt": "2026-10-11T16:29:10.390Z"
     },
     "b0138584168bcec0f000bd9631f762844464120a82724726e19b6eaa800f2d12": {
       "decision": "skip:source-copy",
@@ -16623,8 +16623,8 @@
     },
     "747bedd50430e0b7ee618fc1c01b58b881320422ededf0af96ddecd4f3ca5fca": {
       "decision": "skip:candidate-untranslated",
-      "createdAt": "2026-09-27T23:01:57.619Z",
-      "expiresAt": "2026-10-04T17:47:38.750Z"
+      "createdAt": "2026-10-04T18:59:26.089Z",
+      "expiresAt": "2026-10-11T13:45:07.220Z"
     },
     "312254336d745f18e7ad2c91db6d410ad93b80ad3882e6e0f2153a53146fbcef": {
       "decision": "skip:candidate-untranslated",
@@ -16633,13 +16633,13 @@
     },
     "81b8115cd72a8e590703e8a7f105f8a76b3f28665e0ea6250ee8e587b4a39512": {
       "decision": "skip:candidate-untranslated",
-      "createdAt": "2026-09-27T23:01:57.880Z",
-      "expiresAt": "2026-10-04T17:47:28.662Z"
+      "createdAt": "2026-10-04T18:59:26.090Z",
+      "expiresAt": "2026-10-11T13:44:56.872Z"
     },
     "8a596f64ebfb49652dc867f74ceea4f2f67ef27be6c9070a9557e6ee8d2ae7ba": {
       "decision": "skip:candidate-untranslated",
-      "createdAt": "2026-09-27T23:01:57.880Z",
-      "expiresAt": "2026-10-04T17:23:55.620Z"
+      "createdAt": "2026-10-04T18:59:26.090Z",
+      "expiresAt": "2026-10-11T13:21:23.830Z"
     },
     "584346609821db9f370191e7abab54b58e88393daed7c6cd56e2a7026bfb0b01": {
       "decision": "skip:candidate-untranslated",
@@ -16798,8 +16798,8 @@
     },
     "b13dd8458e8cc1010d127487aa6a709316a353118ebb1be166088ab6b239f60c": {
       "decision": "skip:candidate-untranslated",
-      "createdAt": "2026-09-27T23:02:24.149Z",
-      "expiresAt": "2026-10-04T17:08:00.707Z"
+      "createdAt": "2026-10-04T18:59:27.109Z",
+      "expiresAt": "2026-10-11T13:05:03.667Z"
     },
     "90d10a417472a244c2d79642049d291289fda222f98c1279db627ddae12b5a21": {
       "decision": "skip:candidate-untranslated",
@@ -29055,6 +29055,81 @@
       "decision": "skip:structure-flattened",
       "createdAt": "2026-10-04T16:40:06.465Z",
       "expiresAt": "2026-10-11T18:06:48.053Z"
+    },
+    "8e6211cc6fe820e1442f49d6daf7a5f354abe8b1ec022768f28826a0ea452823": {
+      "decision": "skip:structure-flattened",
+      "createdAt": "2026-10-04T18:59:28.001Z",
+      "expiresAt": "2026-10-11T16:11:18.810Z"
+    },
+    "9662290205cc981887d5f3ad59e0f00023832af3a7ec25432bb1395854445b66": {
+      "decision": "skip:structure-flattened",
+      "createdAt": "2026-10-04T18:59:28.001Z",
+      "expiresAt": "2026-10-11T16:53:04.591Z"
+    },
+    "342e95202880d4e27555d0f80a9ce030a8bda66bf3def5b657a00aaa25705982": {
+      "decision": "skip:structure-flattened",
+      "createdAt": "2026-10-04T18:59:28.739Z",
+      "expiresAt": "2026-10-11T13:59:49.823Z"
+    },
+    "384e823088ba5d0408915d0451c7c811e95a2b10bee7be11b7bdd834a296d6f7": {
+      "decision": "skip:structure-flattened",
+      "createdAt": "2026-10-04T19:00:13.412Z",
+      "expiresAt": "2026-10-12T00:01:00.267Z"
+    },
+    "0c040b583459abe06e0d7407f4459c6c9ba19c804cfee43a5769f825b95988df": {
+      "decision": "skip:structure-flattened",
+      "createdAt": "2026-10-04T19:00:13.413Z",
+      "expiresAt": "2026-10-11T16:05:16.697Z"
+    },
+    "228a3c62d0dc30aeacce56901ea601482d7fa3894dde671f370b8ebb59a502f4": {
+      "decision": "skip:structure-flattened",
+      "createdAt": "2026-10-04T19:00:13.413Z",
+      "expiresAt": "2026-10-11T18:59:55.976Z"
+    },
+    "e4de81dfacc43a96a423b1e31dc56b796c767a2519623779206e664cbbdf2ef0": {
+      "decision": "skip:structure-flattened",
+      "createdAt": "2026-10-04T19:00:36.874Z",
+      "expiresAt": "2026-10-11T18:39:42.908Z"
+    },
+    "c362488a0e076157fac11ec5c49b628e59a4d8d389340e09257d9ac1a3bf0622": {
+      "decision": "skip:structure-flattened",
+      "createdAt": "2026-10-04T19:00:36.874Z",
+      "expiresAt": "2026-10-11T14:49:34.304Z"
+    },
+    "9e049fb43aa9b947d00b8710f96e7a17270d273eee80e5b7485589d42d201f9f": {
+      "decision": "skip:structure-flattened",
+      "createdAt": "2026-10-04T19:00:36.875Z",
+      "expiresAt": "2026-10-11T20:59:43.008Z"
+    },
+    "623050f578692925ccf8819c76662ce207bde4880d9eeb9ad1897a276533d786": {
+      "decision": "skip:structure-flattened",
+      "createdAt": "2026-10-04T19:00:38.296Z",
+      "expiresAt": "2026-10-11T17:48:14.123Z"
+    },
+    "f9a9b5605e14a744781cb60a2422cf3fdea2130260e5e28fb2b543da218eafd8": {
+      "decision": "skip:structure-flattened",
+      "createdAt": "2026-10-04T19:00:38.297Z",
+      "expiresAt": "2026-10-11T19:19:05.399Z"
+    },
+    "2307cff354afc095b5361c7aeb7536ab8f1feca8e7dc064ffe0e13129e2e981b": {
+      "decision": "skip:structure-flattened",
+      "createdAt": "2026-10-04T19:00:38.297Z",
+      "expiresAt": "2026-10-11T13:10:22.764Z"
+    },
+    "3be8cf678b9054696a506d6df6cab50eb70937e2ed97a7e2173103ddb68aea2b": {
+      "decision": "skip:structure-flattened",
+      "createdAt": "2026-10-04T19:00:47.079Z",
+      "expiresAt": "2026-10-11T23:43:11.759Z"
+    },
+    "b56a58d87d393c56c099230807f6eefeabbb471856cc1919aced875e4966f949": {
+      "decision": "skip:structure-flattened",
+      "createdAt": "2026-10-04T19:00:47.080Z",
+      "expiresAt": "2026-10-11T15:54:37.353Z"
+    },
+    "38ab2ed76b9990efe5acf4119ba1a51a3d4b2648b7ddf719f88fa7ffa3faeacf": {
+      "decision": "skip:structure-flattened",
+      "createdAt": "2026-10-04T19:00:47.080Z",
+      "expiresAt": "2026-10-11T23:28:16.430Z"
     }
   }
 }

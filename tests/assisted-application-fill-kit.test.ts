@@ -11,6 +11,7 @@ const { handleAutomationAdminAction, loadAutomationForAdmin, recordOwnerSubmissi
 const { transition } = await import('../functions/src/assistedApplicationFlow.js');
 const { runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
 const { chooseCv } = await import('../scripts/assisted-application/lib/submit.mjs');
+const { detectCvFileType } = await import('../functions/src/assistedApplicationCvCheck.js');
 
 const T0 = Date.UTC(2026, 9, 1, 12, 0, 0);
 const ORDER = 'order_FILL01';
@@ -163,6 +164,23 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
       expect(kit.documents.cv.fileName.endsWith(`.${sent.cvType}`)).toBe(true);
       if (sent.cvSent !== 'original') expect(kit.documents.cv.url).toBe(`https://signed/${downloaded[0].split('/').pop()}`);
     }
+  });
+
+  // Close-out P8: one rule for the CV that leaves (cvToSend). The upload page keys the candidate's own file
+  // name, whose extension can be wrong: the runner sends the original as its bytes say.
+  it('names the original CV by the type of its bytes, as the runner does', async () => {
+    const key = KEY('1-cv.pdf');
+    const flow = { ...takenOver, cvChoice: 'original' };
+    await seed(flow);
+    await store.db.collection('assisted_applications').doc(ORDER).set({ cvStorageKey: key, cvFileCheck: { key, verdict: 'ok', detectedType: 'docx' } }, { merge: true });
+    const { kit } = await call('automationFillKit') as any;
+    expect(kit.documents.cv).toEqual({ url: 'https://signed/original-cv', fileName: 'CV_Maria_Luisa_Rossi.docx' });
+    // The runner on the same order: agent.mjs reads the type from the bytes (detectCvFileType), chooseCv keeps it.
+    const bytes = Buffer.from([0x50, 0x4b, 0x03, 0x04, 0, 0, 0, 0]);
+    const bucket = { file: () => { throw new Error('the original is never downloaded again'); } };
+    const sent = await chooseCv({ draft, flow, bucket, cvBuffer: bytes, cvType: detectCvFileType(bytes), cvKey: key });
+    expect(sent).toMatchObject({ cvSent: 'original', cvType: 'docx', cvKey: key });
+    expect(kit.documents.cv.fileName.endsWith(`.${sent.cvType}`)).toBe(true);
   });
 
   it('shows the owner the CV choice that holds and the renderer of each PDF', async () => {
