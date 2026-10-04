@@ -216,8 +216,10 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
     applicationEmail,
     channel,
     factCheck: { ...factCheck, basis: draft.factCheck?.basis || null },
-    // An edit is a new text: a previous acknowledgement does not cover it.
+    // An edit is a new text: a previous acknowledgement does not cover it, whichever way it was
+    // given (the gate at submit reads both, as the flow does: factCheckAcknowledged).
     factCheckAcknowledgedAt: factCheck.ok ? draft.factCheckAcknowledgedAt || null : null,
+    ...(factCheck.ok ? {} : { acknowledgedFlags: { fact_check: null } }),
     coverLetterPdfKey,
     ...(coverLetterRenderer ? { coverLetterRenderer } : {}),
     editedAt: nowMs,
@@ -287,6 +289,11 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
     case 'automationRegenerate':
       return apply({ type: 'owner_regenerate' });
     case 'automationRetrySubmit':
+      // A submit the fact gate stopped (fact_check_not_acknowledged) leaves again only with the
+      // owner's confirmation of the warnings, written to the draft as on approval.
+      if (raw.acknowledgeFactWarnings === true) {
+        await draftRefFor(db, orderId).set({ factCheckAcknowledgedAt: nowMs, acknowledgedBy: adminEmail }, { merge: true });
+      }
       return apply({ type: 'owner_retry_submit' });
     case 'automationHandoff':
       return apply({ type: 'owner_handoff' });

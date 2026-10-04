@@ -12,8 +12,9 @@ import { classifyLiveness, isHardClosed } from '../scripts/assisted-application/
 import { decryptJson, encryptJson, maskValues } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { openRequiredQuestions, submitApplication } from '../scripts/assisted-application/lib/submit.mjs';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
+import { evaluateRedFlags } from '../functions/src/assistedApplicationFlow.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
-import { safeErrorCode } from '../scripts/assisted-application/agent.mjs';
+import { safeErrorCode, takeFactCheck } from '../scripts/assisted-application/agent.mjs';
 
 const KEY = Buffer.alloc(32, 7);
 const ORDER_ID = 'order_RUN123';
@@ -553,6 +554,72 @@ describe('submit mode', () => {
     });
     expect(ambiguous).toEqual({ type: 'submit_failed', error: 'email_ambiguous' });
     expect(sendCascade).toHaveBeenCalledTimes(1);
+  });
+
+  // Close-out of 2026-10-03: the gate is run again at submit with the code of the day. A draft that was
+  // clean under a looser gate (here: «45» backed by the phone number of the CV) must not be trapped.
+  it('stops a send the fact gate no longer passes, with what it found for the draft, until the owner confirms', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend', messageId: 'm1' }] }));
+    const submit = (draft: any) => submitApplication({
+      order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft, cvBuffer: cvPdf(), cvType: 'pdf',
+      bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
+    });
+    const draft = {
+      ...baseDraft,
+      coverLetter: { text: 'Gentili Signori,\n\nHo guidato un team di 45 persone.\n\nSaluti' },
+      factCheck: { ok: true, unsupported: [], advisories: [], basis: 'pdf_text' },
+    };
+    expect(evaluateRedFlags(draft).owner).toEqual([]);
+    const stopped: any = await submit(draft);
+    expect(stopped).toMatchObject({ type: 'submit_failed', error: 'fact_check_not_acknowledged', factCheck: { ok: false } });
+    expect(stopped.factCheck.unsupported).toEqual([expect.objectContaining({ field: 'coverLetter', kind: 'number', token: '45' })]);
+    expect(sendCascade).not.toHaveBeenCalled();
+
+    // agent.mjs: the result goes on the draft with the basis of its own check; the event carries no token.
+    const patch = takeFactCheck(stopped, draft);
+    expect(stopped).toEqual({ type: 'submit_failed', error: 'fact_check_not_acknowledged' });
+    expect(patch).toEqual({ factCheck: { ok: false, unsupported: [expect.objectContaining({ kind: 'number', token: '45' })], advisories: expect.any(Array), basis: 'pdf_text' } });
+    expect(takeFactCheck({ type: 'submit_succeeded', channel: 'email' }, draft)).toBeNull();
+    // With it the owner's panel lists the tokens and the flow holds on them.
+    const stored = { ...draft, ...patch };
+    expect(evaluateRedFlags(stored).owner).toEqual(['fact_check']);
+
+    // The two readers of the acknowledgement agree: the queue's tick, or the flag by name.
+    for (const acknowledgement of [{ factCheckAcknowledgedAt: 1 }, { acknowledgedFlags: { fact_check: 1 } }]) {
+      expect(evaluateRedFlags({ ...stored, ...acknowledgement }).owner).toEqual([]);
+      expect(await submit({ ...stored, ...acknowledgement })).toMatchObject({ type: 'submit_succeeded', channel: 'email' });
+    }
+    expect(await submit({ ...stored, acknowledgedFlags: { no_posting: 1 } })).toMatchObject({ type: 'submit_failed', error: 'fact_check_not_acknowledged' });
+    expect(sendCascade).toHaveBeenCalledTimes(2);
+  });
+
+  // The e-mail leaves with the candidate's signature: the phone of the order, as the order writes it.
+  // Its digits back no figure of the letter, and are no figure themselves when the gate runs at submit.
+  it('sends an e-mail signed with a phone number written without the country prefix', async () => {
+    const national = { ...order, applicantPhone: '079 123 45 67' };
+    const bucket = fakeBucket();
+    const draft = await buildDraft({
+      order: national, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      codex: fakeCodex(), bucket, runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+    } as any);
+    expect(draft.applicationEmail.body.endsWith('Maria Rossi\nmaria.rossi@example.com\n079 123 45 67')).toBe(true);
+    expect(draft.factSources.order).toContain('079 123 45 67');
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend', messageId: 'm1' }] }));
+    const event = await submitApplication({
+      order: national, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, cvBuffer: cvPdf(), cvType: 'pdf',
+      // The same draft, by e-mail, without the «7 anni» the model invented.
+      draft: {
+        ...draft,
+        channel: { type: 'email', email: 'hr@ospedale.ch', applyUrl: '' },
+        applicationEmail: { ...draft.applicationEmail, to: 'hr@ospedale.ch' },
+        coverLetter: { ...draft.coverLetter, paragraphs: draft.coverLetter.paragraphs.slice(0, 1), text: draft.coverLetter.text.replace('\n\nHo 7 anni di esperienza.', '') },
+      },
+      bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
+    });
+    expect(event).toMatchObject({ type: 'submit_succeeded', channel: 'email' });
+    expect((sendCascade.mock.calls as any)[0][0][0].payload.text).toContain('079 123 45 67');
   });
 
   it('never sends with an open required question, and hands portals over to the candidate', async () => {

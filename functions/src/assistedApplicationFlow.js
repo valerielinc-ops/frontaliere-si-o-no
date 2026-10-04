@@ -95,6 +95,16 @@ const STOPPED_EXITS = new Set([...OWNER_EXITS, 'submit_acknowledged']);
 const AMBIGUOUS_SUBMIT_HOLDS = new Set(['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous']);
 
 /**
+ * Whether the owner confirmed the fact gate's warnings: with the queue's own
+ * tick, or by name among the acknowledged flags. One reader for the flow and
+ * for the runner's gate at submit (scripts/assisted-application/lib/submit.mjs),
+ * so an acknowledgement the flow accepts is never refused at submit.
+ */
+export function factCheckAcknowledged(draft) {
+  return Boolean(draft?.factCheckAcknowledgedAt || draft?.acknowledgedFlags?.fact_check);
+}
+
+/**
  * @param {object} draft the AI draft (ai_drafts/current)
  * @param {Record<string,string>} answers candidate answers by question id
  */
@@ -103,7 +113,7 @@ export function evaluateRedFlags(draft, answers = {}, documents = {}) {
   // A flag the owner explicitly acknowledged in the queue no longer holds.
   const acknowledged = (flag) => Boolean(draft?.acknowledgedFlags?.[flag]);
   const unsupported = draft?.factCheck?.unsupported || [];
-  if (unsupported.length > 0 && !draft?.factCheckAcknowledgedAt && !acknowledged('fact_check')) owner.push('fact_check');
+  if (unsupported.length > 0 && !factCheckAcknowledged(draft)) owner.push('fact_check');
   // A profile that is not a full match no longer stops here (owner decision
   // 2026-10-03, was `knock_out`): the draft goes on and the candidate reads,
   // above the questions, which requirements the CV does not show
