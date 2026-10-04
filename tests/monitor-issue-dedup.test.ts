@@ -161,12 +161,43 @@ const ENTITY_DISCRIMINANTS: Record<string, string[]> = {
   // rather than interpolating `${{ }}` into the script text — the form
   // scripts/ci/check-workflow-input-injection.mjs requires.
   'social-publish-readiness-watch.yml': ['$CH'], // one issue per social channel
+  // One issue per plate-auction source. `code` is the canton plate code of the
+  // degraded source (PR 11360), read from the closed set the refresh script
+  // covers, so the same source failing again resolves to the same title and
+  // lands on the existing issue; the reconcile step strips the same prefix to
+  // close each source's issue on its own.
+  'refresh-plate-auctions.yml': ['${code}'], // one issue per plate-auction source
 };
+
+/**
+ * Per-entity discriminants for GENERATED workflow families, keyed by a file
+ * pattern instead of a name: listing each generated file by hand would go
+ * stale the moment the generator adds or renumbers a group.
+ *
+ * crawler-group-NN(-logic).yml: since PR 11397 the aggregate step files the
+ * per-crawler issue itself when the worker watchdog killed a crawler before
+ * its own reporter could run. `$slug` is the shell loop variable over the
+ * group's crawlers, so "Crawler Failure: Run $slug" is exactly the title the
+ * crawler's own reporter uses ("Crawler Failure: Run coop"): one issue per
+ * crawler, and a repeat lands on it as a recurrence. Without this entry the
+ * lint read the 50 generated files as unstable and went red on every PR that
+ * selected it, in workflows that PR had not touched.
+ */
+const ENTITY_DISCRIMINANT_FAMILIES: ReadonlyArray<{ pattern: RegExp; tokens: string[] }> = [
+  { pattern: /^crawler-group-\d+(?:-logic)?\.yml$/, tokens: ['$slug'] }, // one issue per crawler
+];
+
+function entityDiscriminantsFor(file: string): string[] {
+  return [
+    ...(ENTITY_DISCRIMINANTS[file] ?? []),
+    ...ENTITY_DISCRIMINANT_FAMILIES.filter(({ pattern }) => pattern.test(file)).flatMap(({ tokens }) => tokens),
+  ];
+}
 
 function stripStableSubstitutions(s: string, file: string): string {
   let out = s;
   for (const re of STABLE_SUBSTITUTIONS) out = out.replace(re, 'X');
-  for (const token of ENTITY_DISCRIMINANTS[file] ?? []) out = out.split(token).join('X');
+  for (const token of entityDiscriminantsFor(file)) out = out.split(token).join('X');
   return out;
 }
 
@@ -341,6 +372,28 @@ describe('monitor issues are deduped at the source (#5121)', () => {
         if (!titles.some((title) => title.includes(token))) {
           stale.push(`${file}: no title uses ${token} any more — did the reporting step move to another workflow?`);
         }
+      }
+    }
+    expect(stale).toEqual([]);
+  });
+
+  it('every per-entity discriminant family still matches workflows that use its token', () => {
+    // Same staleness rule as above for the pattern-keyed families: a family
+    // whose generator stopped emitting the title, or whose files were renamed,
+    // must fail here instead of silently allowlisting nothing. Not every
+    // member has to carry the title (a group whose crawlers have no worker
+    // watchdog emits no aggregate reporter), but at least one must.
+    const stale: string[] = [];
+    const files = fs.readdirSync(WORKFLOWS_DIR);
+    for (const { pattern, tokens } of ENTITY_DISCRIMINANT_FAMILIES) {
+      const members = files.filter((file) => pattern.test(file));
+      if (members.length === 0) {
+        stale.push(`${pattern}: no workflow matches the family any more`);
+        continue;
+      }
+      const titles = members.flatMap((file) => resolveTitles(fs.readFileSync(path.join(WORKFLOWS_DIR, file), 'utf-8')));
+      for (const token of tokens) {
+        if (!titles.some((title) => title.includes(token))) stale.push(`${pattern}: no member title uses ${token} any more`);
       }
     }
     expect(stale).toEqual([]);
