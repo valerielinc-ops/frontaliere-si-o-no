@@ -24,9 +24,10 @@
  *      `skipped` completions are removed because their guarded jobs never ran.
  *   3. If the latest one is `success` AND started after the issue was opened (so it is a
  *      run that happened *after* the reported failure, not a stale pre-failure green) →
- *      close the issue via the same resolveGithubIssue() the inline `--resolve` uses
- *      (posts the "✅ Auto-resolved — green again" comment; reopens automatically if the
- *      same failure recurs) — UNLESS one of the three HOLDS below applies, evaluated in
+ *      close THAT issue by number via resolveGithubIssueByNumber() (re-reads it first:
+ *      already closed or retitled since the decision → no write; posts the same
+ *      "✅ Auto-resolved — green again" comment as the inline `--resolve`; reopens
+ *      automatically if the same failure recurs) — UNLESS one of the three HOLDS below applies, evaluated in
  *      this order: CHRONIC ESCALATION (the failure has recurred N times → label and never
  *      auto-close again), RECURRENCE GATE (the failure is still recurring in the recent
  *      window → hold and comment the count), STRUCTURAL HOLD (the last FIX_OUTCOME verdict
@@ -178,7 +179,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { resolveGithubIssue, commentOnGithubIssue, isFailureReportingDisabled } from '../lib/github-issue-creator.mjs';
+import { resolveGithubIssueByNumber, commentOnGithubIssue, isFailureReportingDisabled } from '../lib/github-issue-creator.mjs';
 import { isCrawlerGenerationToken } from '../lib/crawler-generation-token.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -2158,7 +2159,7 @@ function main() {
       if (DRY_RUN) {
         console.log(`  #${it.number} WOULD CLOSE (not planned) — ${what}`);
       } else if (isFailureReportingDisabled()) {
-        // Lo stesso interruttore che ferma `resolveGithubIssue` sugli altri rami.
+        // Lo stesso interruttore che ferma `resolveGithubIssueByNumber` sugli altri rami.
         console.log(`  #${it.number} ENABLE_FAILURE_REPORT=false — skip close (not planned): ${what}`);
         kept++;
         continue;
@@ -2168,7 +2169,7 @@ function main() {
           '--comment', verdictOnlyThreadNote({ workflow: it.workflow, entry, runUrl: headUrl }),
           ...repoFlag(),
         ], { allowFailure: true });
-        // Post-condizione, come `resolveGithubIssue`: un `gh` che esce 0 senza chiudere
+        // Post-condizione, come `resolveGithubIssueByNumber`: un `gh` che esce 0 senza chiudere
         // non conta come chiusura.
         if (out === null || !issueStateIsClosed(it.number)) {
           console.error(`  #${it.number} close (not planned) ${out === null ? 'rejected' : 'not confirmed'} — keep open, retry next pass`);
@@ -2266,12 +2267,30 @@ function main() {
     if (DRY_RUN) {
       console.log(`  #${it.number} WOULD CLOSE — recovered (run ${run.databaseId} success @ ${run.createdAt}); ${recurrence.reason}; ${decision.reason}`);
     } else {
+      // LC-24c: si chiude il NUMERO giudicato, non il titolo. `resolveGithubIssue(it.title)`
+      // ricercava per prefisso e chiudeva la più recente fra le aperte: con
+      // `Workflow Failure: X` e `Workflow Failure: X Preview` entrambe aperte, il verde di X
+      // chiudeva la issue di `X Preview`, ancora rossa. La issue si rilegge subito prima di
+      // scrivere: chiusa o rinominata dopo la decisione → nessuna scrittura.
       // A TTL-released close must say why, or it looks exactly like the symptom-only
       // close #5454 was opened about.
-      if (decision.code && STRUCTURAL_OUTCOMES.includes(decision.code)) {
-        commentOnGithubIssue(it.number, ttlReleaseNote({ code: decision.code, maxDays, ageDays: decision.ageDays }));
+      const preface = decision.code && STRUCTURAL_OUTCOMES.includes(decision.code)
+        ? ttlReleaseNote({ code: decision.code, maxDays, ageDays: decision.ageDays })
+        : undefined;
+      const result = resolveGithubIssueByNumber(it.number, {
+        expectedTitle: it.title, workflow: it.workflow, runUrl, preface,
+      });
+      if (result === null) {
+        const why = isFailureReportingDisabled() ? 'ENABLE_FAILURE_REPORT=false' : 'invalid issue number or title';
+        console.log(`  #${it.number} resolve skipped (${why}) — keep open`);
+        kept++;
+        continue;
       }
-      resolveGithubIssue(it.title, { workflow: it.workflow, runUrl });
+      if (result.persisted !== true) {
+        console.log(`  #${it.number} NOT CLOSED (${result.skipped}) — decided on "${it.title}", changed before the write`);
+        skipped++;
+        continue;
+      }
       console.log(`  #${it.number} CLOSED — recovered via run ${run.databaseId}; ${recurrence.reason}; ${decision.reason}`);
     }
     closed++;

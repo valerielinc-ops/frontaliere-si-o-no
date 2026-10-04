@@ -1000,6 +1000,88 @@ export function resolveGithubIssue(titlePrefix, { workflow, runUrl, exactTitle =
 }
 
 /**
+ * Resolve (close) the issue whose NUMBER the caller has already decided on.
+ *
+ * `resolveGithubIssue` looks the issue up again by title and closes the
+ * NEWEST open match: by default on the 60-char safe prefix, so
+ * `Workflow Failure: Deploy` also matches `Workflow Failure: Deploy Preview`.
+ * A caller that judged one specific issue (its runs, its comments, its labels)
+ * and then closes by title can therefore close a DIFFERENT issue — one whose
+ * check may still be red. Same defect fixed in monitor-issue-reconcile.mjs
+ * (`io.close(freshNumber)`).
+ *
+ * Here the target is the number itself, re-read immediately before any write.
+ * If the issue is no longer OPEN, or its title is no longer `expectedTitle`
+ * (the title the decision was made on), nothing is written and the outcome is
+ * returned as `{ persisted: false, skipped }`. Same contract as
+ * `resolveGithubIssue` otherwise: `null` when reporting is disabled or the
+ * input is unusable, a verified close returns `persisted: true`, a refused or
+ * unverified close throws with `persisted: false`.
+ *
+ * @param {number|string} issueNumber
+ * @param {{ expectedTitle: string, workflow?: string, runUrl?: string, preface?: string }} ctx
+ *   `preface` is an extra comment posted only once the re-read has confirmed
+ *   the issue is still the one decided on (e.g. why a hold was released).
+ */
+export function resolveGithubIssueByNumber(issueNumber, { expectedTitle, workflow, runUrl, preface } = {}) {
+  if (isFailureReportingDisabled()) {
+    console.log('[github-issue-creator] ENABLE_FAILURE_REPORT=false, skipping resolve');
+    return null;
+  }
+  const number = Number(issueNumber);
+  if (!Number.isInteger(number) || number <= 0 || typeof expectedTitle !== 'string' || !expectedTitle) {
+    console.error('[github-issue-creator] resolve by number: a positive issue number and the expected title are required');
+    return null;
+  }
+  const out = gh(
+    ['issue', 'view', String(number), '--json', 'number,state,title,url', ...repoFlag()],
+    { allowFailure: true },
+  );
+  let fresh = null;
+  try {
+    fresh = typeof out === 'string' && out ? JSON.parse(out) : null;
+  } catch {
+    fresh = null;
+  }
+  if (!fresh || typeof fresh.state !== 'string' || typeof fresh.title !== 'string') {
+    console.error(`[github-issue-creator] resolve: #${number} could not be re-read — leaving it unchanged`);
+    return { number, persisted: false, skipped: 'unreadable' };
+  }
+  if (fresh.state.toUpperCase() !== 'OPEN') {
+    console.log(`[github-issue-creator] resolve: #${number} is ${fresh.state} since the decision — nothing to close`);
+    return { number, persisted: false, skipped: 'not-open' };
+  }
+  if (fresh.title !== expectedTitle) {
+    console.log(`[github-issue-creator] resolve: #${number} was retitled since the decision ("${expectedTitle}" → "${fresh.title}") — leaving it open`);
+    return { number, persisted: false, skipped: 'title-changed' };
+  }
+  if (preface) {
+    gh(['issue', 'comment', String(number), '--body', preface, ...repoFlag()], { allowFailure: true });
+  }
+  const note = [
+    '✅ Auto-resolved — the failing check is green again' + (workflow ? ` (${workflow})` : '') + '.',
+    runUrl ? `\nGreen run: ${runUrl}` : '',
+    '\nClosed automatically; it will reopen if the same failure recurs.',
+  ].join('');
+  gh(['issue', 'comment', String(number), '--body', note, ...repoFlag()], { allowFailure: true });
+  const closed = gh(
+    ['issue', 'close', String(number), '--reason', 'completed', ...repoFlag()],
+    { allowFailure: true },
+  );
+  if (issueViewIsClosed(number)) {
+    console.log(`[github-issue-creator] resolve: closed #${number} — ${fresh.title}`);
+    return { number, title: fresh.title, url: fresh.url, persisted: true };
+  }
+  const detail = closed === null ? 'close rejected' : 'post-condition not closed';
+  const message = `[github-issue-creator] resolve: could not close #${number} (${detail})`;
+  console.error(message);
+  const err = new Error(message);
+  err.persisted = false;
+  err.number = number;
+  throw err;
+}
+
+/**
  * Post a comment on an issue whose number the caller ALREADY knows.
  *
  * For a reporter that has just created (or matched) the canonical issue inside
