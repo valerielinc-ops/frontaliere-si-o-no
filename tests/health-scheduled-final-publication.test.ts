@@ -64,7 +64,7 @@ function cityFetch(raw: unknown) {
   return vi.fn(async (input: string | URL | Request) => {
     const url = urlOf(input);
     if (url.includes('/stzh/jobsearch')) return Response.json({ results: ['49951', '17521'].map(ref => ({ href: `/de/jobs/job-detailseite.${ref}.html`, meta: ['Stadtspital Zürich', '2026-09-01'] })) });
-    if (url.includes('job-detailseite.')) { const ref = /job-detailseite\.(\d+)/.exec(url)?.[1] || ''; return new Response(ld(raw) + cityAd.replace(/51726/g, ref)); }
+    if (url.includes('job-detailseite.')) { const ref = /job-detailseite\.(\d+)/.exec(url)?.[1] || ''; return new Response(`<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', url, datePosted: raw })}</script>` + cityAd.replace(/51726/g, ref)); }
     return new Response(cityListing);
   });
 }
@@ -79,6 +79,37 @@ describe('Stadtspital shared official ad evidence', () => {
       expect(job.applyUrl).toMatch(/^https:\/\//);
     }
     expect(fetcher).toHaveBeenCalledTimes(4);
+  });
+  it.each([
+    ['foreign URL', [{ '@type': 'JobPosting', url: 'https://example.org/another-job', datePosted: '2026-09-01' }]],
+    ['missing identity', [{ '@type': 'JobPosting', datePosted: '2026-09-01' }]],
+    ['ambiguous matching records', [{ '@type': 'JobPosting', url: '/de/jobs/job-detailseite.49951.html', datePosted: '2026-09-01' }, { '@type': 'JobPosting', url: '/de/jobs/job-detailseite.49951.html', datePosted: '2026-09-02' }]],
+    ['conflicting sameAs', [{ '@type': 'JobPosting', url: '/de/jobs/job-detailseite.49951.html', sameAs: 'https://example.org/other', datePosted: '2026-09-01' }]],
+  ] as const)('rejects %s while preserving the official body', async (_, records) => {
+    const baseFetch = cityFetch(undefined);
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL | Request) => {
+      const url = urlOf(input);
+      if (url.includes('job-detailseite.')) return new Response(`<script type="application/ld+json">${JSON.stringify({ '@graph': records })}</script>` + cityAd.replace(/51726/g, /job-detailseite\.(\d+)/.exec(url)?.[1] || ''));
+      return baseFetch(input);
+    }));
+    const jobs = await fetchAllStadtspitalZuerichJobs();
+    expect(jobs).toHaveLength(2);
+    for (const job of jobs) {
+      expect(job).toMatchObject({ datePosted: '', postedDate: '', postingDateSource: 'unknown' });
+      expect(job.description.split(/\s+/).length).toBeGreaterThan(50);
+      expect(job.applyUrl).toMatch(/^https:\/\//);
+    }
+  });
+  it('selects a unique sameAs target after an unrelated posting', async () => {
+    const baseFetch = cityFetch(undefined);
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL | Request) => {
+      const url = urlOf(input);
+      if (url.includes('job-detailseite.')) return new Response(`<script type="application/ld+json">${JSON.stringify([{ '@type': 'JobPosting', url: 'https://example.org/foreign', datePosted: '2026-09-01' }, { '@type': 'JobPosting', sameAs: [url], datePosted: '2026-10-02' }])}</script>` + cityAd.replace(/51726/g, /job-detailseite\.(\d+)/.exec(url)?.[1] || ''));
+      return baseFetch(input);
+    }));
+    const jobs = await fetchAllStadtspitalZuerichJobs();
+    expect(jobs).toHaveLength(2);
+    for (const job of jobs) expect(job).toMatchObject({ datePosted: '2026-10-02', postedDate: '2026-10-02', postingDateSource: 'reported' });
   });
   it('preserves the default shared Map of text contract', async () => {
     vi.stubGlobal('fetch', cityFetch('2026-09-01'));
