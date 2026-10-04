@@ -79,7 +79,7 @@ const RAIFF_JOBS_HOST = 'jobs.raiffeisen.ch';
 
 const CAREERS_URLS = [
   'https://www.raiffeisen.ch/vedeggio-cassarate/it/chi-siamo/carriera/lavorare-banca-raiffeisen.html',
-  'https://www.raiffeisen.ch/vedeggio-cassarate/de/ueber-uns/karriere/arbeiten-bei-raiffeisenbank.html',
+  'https://www.raiffeisen.ch/vedeggio-cassarate/de/ueber-uns/karriere-stellen.html',
 ];
 
 const LISTING_COUNT_SELECTOR = '.listing-count';
