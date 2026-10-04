@@ -13,7 +13,7 @@
  *   5. Run scoped localization for the Guess company key
  *   6. Validate locale coverage in strict mode
  */
-import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
+import { sourcePostingDateCandidatesFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -234,7 +234,7 @@ function buildGuessJob(listing, detail) {
   const slug = slugify(`${title} ${COMPANY_NAME} ${safeLocationToken(city, 'Bioggio')} Switzerland`);
   const detailUrl = buildGuessDetailUrl(listing.shortcode);
   const applyUrl = buildGuessApplyUrl(listing.shortcode);
-  const postingDates = sourcePostingDateFields(parsed.publishedDate || listing.published_on);
+  const postingDates = sourcePostingDateCandidatesFields([parsed.publishedDate, listing.published_on]);
   const sourceLang = guessPostingSourceLang(parsed);
 
   return {

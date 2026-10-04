@@ -16,7 +16,7 @@
  *  5. Post-process: fix company name, location, canton, clean descriptions
  *  6. Validate locale coverage across IT/EN/DE/FR
  */
-import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
+import { sourcePostingDateCandidatesFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
@@ -539,7 +539,7 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
     const meta = metadata.get(String(req.Id)) || {};
     const category = mapOracleCategory(meta.category);
     const contract = mapOracleRequisitionType(meta.requisitionType);
-    const postingDates = sourcePostingDateFields(meta.postedDate || req.PostedDate);
+    const postingDates = sourcePostingDateCandidatesFields([meta.postedDate, req.PostedDate]);
 
     const slug = `${title}-efg-${city}`
       .toLowerCase()
@@ -873,7 +873,7 @@ function postProcessEfgJobs(requisitions = [], descriptions = new Map(), metadat
         fixed++;
       }
     }
-    Object.assign(job, mergeSourcePostingDates(job, sourcePostingDateFields(meta?.postedDate || apiData?.PostedDate)));
+    Object.assign(job, mergeSourcePostingDates(job, sourcePostingDateCandidatesFields([meta?.postedDate, apiData?.PostedDate])));
 
     // Fix location from Oracle HCM API data (more reliable than scraping)
     if (apiData?.PrimaryLocation) {

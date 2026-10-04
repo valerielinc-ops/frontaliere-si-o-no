@@ -37,7 +37,7 @@
  *   - isTrustedDomain()            — Validate URLs belong to this company
  *   - slugify() / stripHtml()      — Re-exported from crawler-template.mjs
  */
-import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
@@ -300,7 +300,7 @@ export async function fetchAllSophiaGeneticsJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const department = Array.isArray(detail?.department) ? detail.department.join(' ') : (detail?.department || listing.department || '');
     const employmentType = normalizeSophiaGeneticsEmploymentType(listing.employmentType, title);
-    const postingDates = sourcePostingDateFields(detail?.published || listing.publishedDate);
+    const postingDates = sourcePostingDateCandidatesFields([detail?.published, listing.publishedDate]);
 
     const job = {
       // ── Required fields ──

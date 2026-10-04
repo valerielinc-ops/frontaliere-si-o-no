@@ -247,6 +247,18 @@ describe('SOPHiA GENETICS crawler parser', () => {
       expect(jobs[0].crawledAt).toBeTruthy();
     });
 
+    it('keeps valid listing publication when the detail publication is malformed', async () => {
+      const date = new Date(Date.now() - 7 * 86400000).toISOString();
+      global.fetch = vi.fn(async (url: string) => new Response(JSON.stringify(
+        String(url) === WIDGET_URL
+          ? { jobs: [widgetRow({ published_on: date })] }
+          : detailPayload({ published: 'not-a-date' }),
+      ), { status: 200 })) as unknown as typeof fetch;
+      const jobs = await fetchAllSophiaGeneticsJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({ datePosted: date, postedDate: date, postingDateSource: 'reported' });
+    });
+
     it('marks a valid empty widget feed as an authoritative zero', async () => {
       global.fetch = vi.fn(async (url: string) => {
         expect(String(url)).toBe(WIDGET_URL);

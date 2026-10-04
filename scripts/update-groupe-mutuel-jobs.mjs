@@ -20,7 +20,7 @@
  *   6. Post-process: fix company name, location, canton
  *   7. Validate locale coverage across IT/EN/DE/FR
  */
-import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
+import { sourcePostingDateCandidatesFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -509,15 +509,14 @@ function parseCsodJob(rawJob) {
   const slug = slugify(title, 'groupe-mutuel');
   const employmentType = detectEmploymentType(rawJob.employmentType || rawJob.timeType || rawJob.type || '');
 
-  // New API: postingEffectiveDate in DD/MM/YYYY format
-  let datePosted = rawJob.datePosted || rawJob.postingDate || '';
-  if (!datePosted && rawJob.postingEffectiveDate && rawJob.postingEffectiveDate !== '-') {
-    // Convert DD/MM/YYYY → YYYY-MM-DD
-    const parts = rawJob.postingEffectiveDate.split('/');
-    if (parts.length === 3) {
-      datePosted = `${parts[2]}-${parts[1]}-${parts[0]}`;
-    }
-  }
+  // Every source candidate is validated independently; malformed primary values
+  // must not hide a valid publication date from the alternate API format.
+  const effective = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(String(rawJob.postingEffectiveDate || ''));
+  const postingDates = sourcePostingDateCandidatesFields([
+    rawJob.datePosted,
+    rawJob.postingDate,
+    effective ? `${effective[3]}-${effective[2]}-${effective[1]}` : '',
+  ]);
 
   const job = {
     url: publicUrl,
@@ -537,7 +536,7 @@ function parseCsodJob(rawJob) {
       en: slugify(title, 'groupe-mutuel'),
     },
     category: detectCategory(title),
-    ...sourcePostingDateFields(datePosted),
+    ...postingDates,
     source: 'groupe-mutuel-csod-crawler',
     sourceLang: content.sourceLang,
     employmentType,

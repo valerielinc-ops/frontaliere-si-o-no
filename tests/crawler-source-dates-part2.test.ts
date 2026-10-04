@@ -3,7 +3,7 @@ import path from 'node:path';
 import vm from 'node:vm';
 import ts from 'typescript';
 import { describe, expect, it } from 'vitest';
-import { sourcePostingDateFields, mergeSourcePostingDates } from '../scripts/lib/source-posting-date.mjs';
+import { sourcePostingDateCandidatesFields, sourcePostingDateFields, mergeSourcePostingDates } from '../scripts/lib/source-posting-date.mjs';
 import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { parseHitachiEnergyListingJson } from '../scripts/lib/hitachi-energy-job-parser.mjs';
 import { parseEngelvoelkersDetailPage } from '../scripts/lib/engelvoelkers-job-parser.mjs';
@@ -27,7 +27,7 @@ function isolatedFunction<T>(file: string, name: string, dependencies: Record<st
     ts.isFunctionDeclaration(node) && node.name?.text === name);
   if (!declaration) throw new Error(`Missing crawler function ${file}:${name}`);
   const context = vm.createContext({
-    sourcePostingDateFields, mergeSourcePostingDates, console: { log: noop, warn: noop }, ...dependencies,
+    sourcePostingDateCandidatesFields, sourcePostingDateFields, mergeSourcePostingDates, console: { log: noop, warn: noop }, ...dependencies,
   });
   return vm.runInContext(`(${declaration.getText(ast).replace(/^export\s+/, '')})`, context) as T;
 }
@@ -93,6 +93,31 @@ describe('crawler publication evidence at source and merge boundaries', () => {
     for (const date of [undefined, 'not-a-date', '2025-02-30', daysAgo(-2)]) expectUnknown(build({ date }));
     const date = daysAgo(7);
     expect(build({ datePosted: date })).toMatchObject({ postedDate: date, datePosted: date, postingDateSource: 'reported' });
+    expect(build({ date: 'not-a-date', datePosted: date })).toMatchObject(sourcePostingDateFields(date));
+  });
+
+  it.each([
+    ['update-guess-jobs.mjs', 1],
+    ['update-efg-jobs.mjs', 2],
+  ] as const)('validates each source candidate in the actual %s selectors', (file, count) => {
+    const source = fs.readFileSync(path.resolve(import.meta.dirname, '../scripts', file), 'utf8');
+    const ast = ts.createSourceFile(file, source, ts.ScriptTarget.Latest, true, ts.ScriptKind.JS);
+    const calls: ts.CallExpression[] = [];
+    const visit = (node: ts.Node) => {
+      if (ts.isCallExpression(node) && node.expression.getText(ast) === 'sourcePostingDateCandidatesFields') calls.push(node);
+      ts.forEachChild(node, visit);
+    };
+    visit(ast);
+    expect(calls).toHaveLength(count);
+    const date = daysAgo(7);
+    for (const primary of ['not-a-date', '2025-02-30', daysAgo(-2)]) {
+      const context = vm.createContext({
+        sourcePostingDateCandidatesFields,
+        parsed: { publishedDate: primary }, listing: { published_on: date },
+        meta: { postedDate: primary }, req: { PostedDate: date }, apiData: { PostedDate: date },
+      });
+      for (const call of calls) expect(vm.runInContext(call.getText(ast), context)).toMatchObject(sourcePostingDateFields(date));
+    }
   });
 
   it('HAS keeps the complete source year and rejects trailing junk', () => {
@@ -126,7 +151,8 @@ describe('crawler publication evidence at source and merge boundaries', () => {
     expectUnknown(build({ ...base, startDate: daysAgo(2), createdDate: daysAgo(3) }));
     const iso = daysAgo(8);
     const [year, month, day] = iso.split('-');
-    expect(build({ ...base, postingEffectiveDate: `${day}/${month}/${year}` })).toMatchObject({
+    expect(build({ ...base, datePosted: 'not-a-date', postingDate: iso })).toMatchObject(sourcePostingDateFields(iso));
+    expect(build({ ...base, datePosted: 'not-a-date', postingDate: 'invalid', postingEffectiveDate: `${day}/${month}/${year}` })).toMatchObject({
       postedDate: iso, datePosted: iso, postingDateSource: 'reported',
     });
   });
