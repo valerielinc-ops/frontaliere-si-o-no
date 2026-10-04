@@ -1,24 +1,22 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-10-03T21:29:33.149Z",
+  "generatedAt": "2026-10-04T09:28:54.022Z",
   "total": 4,
   "discovered": 4,
   "parsed": 4,
   "lastFetchOutcome": "ok",
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 5678,
-  "avgDurationMs": 5678,
+  "unchangedCount": 0,
+  "durationMs": 5739,
+  "avgDurationMs": 5739,
   "durationHistory": [
-    5678
+    5739
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "bps-suisse-7e40eb648fab",
       "title": "Consulente Alla Clientela Individuale",
@@ -40,9 +38,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-10-03T21:29:23.227Z",
+      "crawledAt": "2026-10-04T09:28:40.956Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -53,12 +51,14 @@
       "firstSeenAt": "2026-07-31T11:46:31.059Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-consulente_alla_clientela_individuale__100_.php",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -82,9 +82,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-10-03T21:29:23.832Z",
+      "crawledAt": "2026-10-04T09:28:41.356Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -95,13 +95,14 @@
       "firstSeenAt": "2026-07-29T22:14:16.881Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-compliance_officer.php",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -125,9 +126,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-10-03T21:29:24.271Z",
+      "crawledAt": "2026-10-04T09:28:41.664Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -138,12 +139,14 @@
       "firstSeenAt": "2026-07-14T22:34:05.339Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-consulente_alla_clientela_commerciale_ipotecaria__100_.php",
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -167,9 +170,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-10-03T21:29:24.668Z",
+      "crawledAt": "2026-10-04T09:28:41.942Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -180,15 +183,18 @@
       "firstSeenAt": "2026-04-13T10:08:40.551Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     }
   ],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }
