@@ -2,6 +2,7 @@
 
 | Data | Decisione | Fonte |
 |---|---|---|
+| 2026-10-04 | Gate CLS post-deploy: regressione → issue, nessun blocco del deploy | sessione 04-10 |
 | 2026-09-29, conferma 2026-10-04 | #6408 antivirus dei CV: **NO, nessuna scansione**. CV in coda admin col badge «non scansionato»; restano magic bytes (`cvFileCheck`) e `storage.rules`. Motivo: nessun provider AV approvato e integrarlo manda CV reali a un terzo (secret, egress, retention). #6408 chiusa `not planned` | sessione 29-09 (PR #10287), conferma 04-10 |
 | 2026-09-24 | **Nessun veto sul ciclo autonomo**: F1/F7, control-plane, path/categorie ignoti e `needs-human` sono evidenza, mai deny (policy f1-f7-v4). Supersede il veto del contratto VISION | istruzione diretta, sessione 24-09 |
 | 2026-09-24 | **Scelte interne sempre autonome**, mai una riga del proprietario. Direttiva: non perdere pagine SEO, revenue o utenti; default conservativo documentato nella PR | istruzione diretta, sessione 24-09 |

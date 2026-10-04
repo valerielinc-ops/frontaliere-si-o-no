@@ -2671,12 +2671,12 @@
     },
     {
       "id": "uzh-e610cba06421",
-      "slug": "wissenschaftliche-geschaftsfuhrer-in-postdoc-universitat-zurich-zurich",
+      "slug": "direttore-scientifico-postdoc-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "wissenschaftliche-geschaftsfuhrer-in-postdoc-universitat-zurich-zurich",
-        "en": "wissenschaftliche-geschaftsfuhrer-in-postdoc-universitat-zurich-zurich",
+        "it": "direttore-scientifico-postdoc-universitat-zurich-zurich",
+        "en": "scientific-director-postdoc-universitat-zurich-zurich",
         "de": "wissenschaftliche-geschaftsfuhrer-in-postdoc-uzh-zurich",
-        "fr": "wissenschaftliche-geschaftsfuhrer-in-postdoc-universitat-zurich-zurich"
+        "fr": "directeur-scientifique-postdoc-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2722,18 +2722,22 @@
         "wissenschaftliche-geschaftsfuhrer-in-postdoc-uzh-zurich",
         "responsabile-scientifico-in-postdoc-universitat-zurich-zurich",
         "scientific-managing-director-in-postdoc-universitat-zurich-zurich",
-        "directeur-general-scientifique-in-postdoc-universitat-zurich-zurich"
+        "directeur-general-scientifique-in-postdoc-universitat-zurich-zurich",
+        "wissenschaftliche-geschaftsfuhrer-in-postdoc-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "wissenschaftliche-geschaftsfuhrer-in-postdoc-uzh-zurich",
-          "responsabile-scientifico-in-postdoc-universitat-zurich-zurich"
+          "responsabile-scientifico-in-postdoc-universitat-zurich-zurich",
+          "wissenschaftliche-geschaftsfuhrer-in-postdoc-universitat-zurich-zurich"
         ],
         "en": [
-          "scientific-managing-director-in-postdoc-universitat-zurich-zurich"
+          "scientific-managing-director-in-postdoc-universitat-zurich-zurich",
+          "wissenschaftliche-geschaftsfuhrer-in-postdoc-universitat-zurich-zurich"
         ],
         "fr": [
-          "directeur-general-scientifique-in-postdoc-universitat-zurich-zurich"
+          "directeur-general-scientifique-in-postdoc-universitat-zurich-zurich",
+          "wissenschaftliche-geschaftsfuhrer-in-postdoc-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-07-27T12:30:41.786Z",
@@ -3542,12 +3546,12 @@
     },
     {
       "id": "uzh-a38f06ec92d1",
-      "slug": "humanpraparator-in-universitat-zurich-zurich",
+      "slug": "preparazione-umana-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "humanpraparator-in-universitat-zurich-zurich",
-        "en": "humanpraparator-in-universitat-zurich-zurich",
+        "it": "preparazione-umana-universitat-zurich-zurich",
+        "en": "human-preparator-universitat-zurich-zurich",
         "de": "humanpraparator-in-uzh-zurich",
-        "fr": "humanpraparator-in-universitat-zurich-zurich"
+        "fr": "preparation-humaine-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -3591,11 +3595,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "humanpraparator-in-uzh-zurich"
+        "humanpraparator-in-uzh-zurich",
+        "humanpraparator-in-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "humanpraparator-in-uzh-zurich"
+          "humanpraparator-in-uzh-zurich",
+          "humanpraparator-in-universitat-zurich-zurich"
+        ],
+        "en": [
+          "humanpraparator-in-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "humanpraparator-in-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-08-18T22:14:10.518Z",
@@ -3615,12 +3627,12 @@
     },
     {
       "id": "uzh-d815e35a7141",
-      "slug": "professorship-of-gastroenterology-and-hepatology-universitat-zurich-zurich",
+      "slug": "professore-di-gastroenterologia-ed-epatologia-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "professorship-of-gastroenterology-and-hepatology-universitat-zurich-zurich",
+        "it": "professore-di-gastroenterologia-ed-epatologia-universitat-zurich-zurich",
         "en": "professorship-of-gastroenterology-and-hepatology-uzh-zurich",
         "de": "professur-fur-gastroenterologie-und-hepatologie-universitat-zurich-zurich",
-        "fr": "professorship-of-gastroenterology-and-hepatology-universitat-zurich-zurich"
+        "fr": "professeur-de-gastroenterologie-et-d-hepatologie-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -3665,17 +3677,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "professorship-of-gastroenterology-and-hepatology-uzh-zurich",
-        "professeur-de-gastroenterologie-et-d-hepatologie-universitat-zurich-zurich"
+        "professorship-of-gastroenterology-and-hepatology-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "professorship-of-gastroenterology-and-hepatology-uzh-zurich"
+          "professorship-of-gastroenterology-and-hepatology-uzh-zurich",
+          "professorship-of-gastroenterology-and-hepatology-universitat-zurich-zurich"
         ],
         "de": [
           "professorship-of-gastroenterology-and-hepatology-uzh-zurich"
         ],
         "fr": [
-          "professeur-de-gastroenterologie-et-d-hepatologie-universitat-zurich-zurich"
+          "professorship-of-gastroenterology-and-hepatology-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-08-18T22:14:10.523Z",
@@ -4423,7 +4436,7 @@
       "companyDomain": "uzh.ch",
       "title": "Gastprofessur in Soziologie",
       "titleByLocale": {
-        "it": "Gastprofessur in Soziologie",
+        "it": "Professore ospite di Sociologia",
         "en": "Guest Professorship in Sociology",
         "de": "Gastprofessur in Soziologie",
         "fr": "Professeur invité en sociologie"
@@ -5001,7 +5014,7 @@
       "title": "Verantwortliche:r ICT Workplace Support",
       "titleByLocale": {
         "it": "Responsabile:r Supporto per il posto di lavoro ICT",
-        "en": "Verantwortliche:r ICT Workplace Support",
+        "en": "Responsible for ICT Workplace Support",
         "de": "Verantwortliche:r ICT Workplace Support",
         "fr": "Responsable :r Appui aux TIC sur le lieu de travail"
       },
@@ -5222,10 +5235,10 @@
     },
     {
       "id": "uzh-bd78a80724cb",
-      "slug": "sekretariatsstelle-universitat-zurich-zurich",
+      "slug": "segretariato-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "sekretariatsstelle-universitat-zurich-zurich",
-        "en": "sekretariatsstelle-universitat-zurich-zurich",
+        "it": "segretariato-universitat-zurich-zurich",
+        "en": "secretariat-universitat-zurich-zurich",
         "de": "sekretariatsstelle-uzh-zurich",
         "fr": "sekretariatsstelle-universitat-zurich-zurich"
       },
@@ -5271,11 +5284,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sekretariatsstelle-uzh-zurich"
+        "sekretariatsstelle-uzh-zurich",
+        "sekretariatsstelle-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sekretariatsstelle-uzh-zurich"
+          "sekretariatsstelle-uzh-zurich",
+          "sekretariatsstelle-universitat-zurich-zurich"
+        ],
+        "en": [
+          "sekretariatsstelle-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-16T23:39:01.161Z",
@@ -5295,12 +5313,12 @@
     },
     {
       "id": "uzh-2870124f59be",
-      "slug": "hilfswissenschaftler-in-universitat-zurich-zurich-oerlikon",
+      "slug": "aiuti-universitat-zurich-zurich-oerlikon",
       "slugByLocale": {
-        "it": "hilfswissenschaftler-in-universitat-zurich-zurich-oerlikon",
-        "en": "hilfswissenschaftler-in-universitat-zurich-zurich-oerlikon",
+        "it": "aiuti-universitat-zurich-zurich-oerlikon",
+        "en": "aid-scientists-universitat-zurich-zurich-oerlikon",
         "de": "hilfswissenschaftler-in-uzh-zurich-oerlikon",
-        "fr": "hilfswissenschaftler-in-universitat-zurich-zurich-oerlikon"
+        "fr": "scientifiques-de-l-aide-universitat-zurich-zurich-oerlikon"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -5344,11 +5362,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hilfswissenschaftler-in-uzh-zurich-oerlikon"
+        "hilfswissenschaftler-in-uzh-zurich-oerlikon",
+        "hilfswissenschaftler-in-universitat-zurich-zurich-oerlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hilfswissenschaftler-in-uzh-zurich-oerlikon"
+          "hilfswissenschaftler-in-uzh-zurich-oerlikon",
+          "hilfswissenschaftler-in-universitat-zurich-zurich-oerlikon"
+        ],
+        "en": [
+          "hilfswissenschaftler-in-universitat-zurich-zurich-oerlikon"
+        ],
+        "fr": [
+          "hilfswissenschaftler-in-universitat-zurich-zurich-oerlikon"
         ]
       },
       "firstSeenAt": "2026-09-16T23:39:01.158Z",
@@ -5449,12 +5475,12 @@
     },
     {
       "id": "uzh-59ce817eec2c",
-      "slug": "testleiter-in-stundenlohn-universitat-zurich-kantonsschulstrasse-3-zurich",
+      "slug": "test-manager-scommessa-oraria-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "testleiter-in-stundenlohn-universitat-zurich-kantonsschulstrasse-3-zurich",
-        "en": "testleiter-in-stundenlohn-universitat-zurich-kantonsschulstrasse-3-zurich",
+        "it": "test-manager-scommessa-oraria-universitat-zurich-zurich",
+        "en": "test-manager-hourly-wage-universitat-zurich-zurich",
         "de": "testleiter-in-stundenlohn-uzh-kantonsschulstrasse-3-zurich",
-        "fr": "testleiter-in-stundenlohn-universitat-zurich-kantonsschulstrasse-3-zurich"
+        "fr": "gestionnaire-d-essais-salaire-horaire-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -5499,15 +5525,23 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "testleiter-in-stundenlohn-uzh-kantonsschulstrasse-3-zurich",
-        "testleiter-in-stundenlohn-uzh-zurich"
+        "testleiter-in-stundenlohn-uzh-zurich",
+        "testleiter-in-stundenlohn-universitat-zurich-kantonsschulstrasse-3-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "testleiter-in-stundenlohn-uzh-kantonsschulstrasse-3-zurich",
-          "testleiter-in-stundenlohn-uzh-zurich"
+          "testleiter-in-stundenlohn-uzh-zurich",
+          "testleiter-in-stundenlohn-universitat-zurich-kantonsschulstrasse-3-zurich"
         ],
         "de": [
           "testleiter-in-stundenlohn-uzh-zurich"
+        ],
+        "en": [
+          "testleiter-in-stundenlohn-universitat-zurich-kantonsschulstrasse-3-zurich"
+        ],
+        "fr": [
+          "testleiter-in-stundenlohn-universitat-zurich-kantonsschulstrasse-3-zurich"
         ]
       },
       "firstSeenAt": "2026-09-16T23:39:01.153Z",
@@ -5606,12 +5640,12 @@
     },
     {
       "id": "uzh-76752dabe16d",
-      "slug": "wissenschaftliche-hilfsassistenz-universitat-zurich-zurich",
+      "slug": "assistenza-scientifica-universitat-zurich-zurich-04aa7c",
       "slugByLocale": {
-        "it": "wissenschaftliche-hilfsassistenz-universitat-zurich-zurich",
-        "en": "wissenschaftliche-hilfsassistenz-universitat-zurich-zurich",
+        "it": "assistenza-scientifica-universitat-zurich-zurich-04aa7c",
+        "en": "scientific-assistance-universitat-zurich-zurich-04aa7c",
         "de": "wissenschaftliche-hilfsassistenz-uzh-zurich",
-        "fr": "wissenschaftliche-hilfsassistenz-universitat-zurich-zurich"
+        "fr": "assistance-scientifique-universitat-zurich-zurich-04aa7c"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -5655,11 +5689,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "wissenschaftliche-hilfsassistenz-uzh-zurich"
+        "wissenschaftliche-hilfsassistenz-uzh-zurich",
+        "wissenschaftliche-hilfsassistenz-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-hilfsassistenz-uzh-zurich"
+          "wissenschaftliche-hilfsassistenz-uzh-zurich",
+          "wissenschaftliche-hilfsassistenz-universitat-zurich-zurich"
+        ],
+        "en": [
+          "wissenschaftliche-hilfsassistenz-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "wissenschaftliche-hilfsassistenz-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-16T23:39:01.147Z",
@@ -6610,12 +6652,12 @@
     },
     {
       "id": "uzh-847a2feef37e",
-      "slug": "studentische-hilfskraft-gesucht-ai-assistant-teamkoordinator-in-universitat-zurich-zurich",
+      "slug": "assistente-studentesco-ricercato-ai-assistant-team-coordinator-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "studentische-hilfskraft-gesucht-ai-assistant-teamkoordinator-in-universitat-zurich-zurich",
-        "en": "studentische-hilfskraft-gesucht-ai-assistant-teamkoordinator-in-universitat-zurich-zurich",
+        "it": "assistente-studentesco-ricercato-ai-assistant-team-coordinator-universitat-zurich-zurich",
+        "en": "student-assistant-sought-ai-assistant-team-coordinator-universitat-zurich-zurich",
         "de": "studentische-hilfskraft-gesucht-ai-assistant-amp-teamkoordinator-in-uzh-zurich",
-        "fr": "studentische-hilfskraft-gesucht-ai-assistant-teamkoordinator-in-universitat-zurich-zurich"
+        "fr": "assistant-etudiant-recherche-assistant-ai-coordinateur-d-equipe-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -6659,11 +6701,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "studentische-hilfskraft-gesucht-ai-assistant-amp-teamkoordinator-in-uzh-zurich"
+        "studentische-hilfskraft-gesucht-ai-assistant-amp-teamkoordinator-in-uzh-zurich",
+        "studentische-hilfskraft-gesucht-ai-assistant-teamkoordinator-in-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studentische-hilfskraft-gesucht-ai-assistant-amp-teamkoordinator-in-uzh-zurich"
+          "studentische-hilfskraft-gesucht-ai-assistant-amp-teamkoordinator-in-uzh-zurich",
+          "studentische-hilfskraft-gesucht-ai-assistant-teamkoordinator-in-universitat-zurich-zurich"
+        ],
+        "en": [
+          "studentische-hilfskraft-gesucht-ai-assistant-teamkoordinator-in-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "studentische-hilfskraft-gesucht-ai-assistant-teamkoordinator-in-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-21T15:57:02.920Z",
@@ -7878,9 +7928,9 @@
       "slug": "stellenausschreibung-doktorand-in-universitat-zurich-zurich",
       "slugByLocale": {
         "it": "stellenausschreibung-doktorand-in-universitat-zurich-zurich",
-        "en": "stellenausschreibung-doktorand-in-universitat-zurich-zurich",
+        "en": "job-advertisement-for-doctoral-student-universitat-zurich-zurich",
         "de": "stellenausschreibung-doktorand-in-uzh-zurich",
-        "fr": "stellenausschreibung-doktorand-in-universitat-zurich-zurich"
+        "fr": "offre-d-emploi-doctorant-e-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",

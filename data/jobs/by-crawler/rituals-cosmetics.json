@@ -26464,7 +26464,6 @@
       "jobReqId": "R3552",
       "previousSlugs": [
         "verkaufsberater-beauty-m-w-d-rituals-cosmetics-ch",
-        "consulente-vendite-bellezza-m-f-d-rituals-cosmetics-switzerland-zurich-0e2d61",
         "consulente-vendite-bellezza-m-f-d-rituals-cosmetics-switzerland-zurich-1f4800",
         "sales-advisor-beauty-m-f-d-rituals-cosmetics-switzerland-zurich-1f4800",
         "conseiller-en-ventes-beaute-m-f-d-rituals-cosmetics-switzerland-zurich-1f4800"
@@ -26472,7 +26471,6 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-beauty-m-w-d-rituals-cosmetics-ch",
-          "consulente-vendite-bellezza-m-f-d-rituals-cosmetics-switzerland-zurich-0e2d61",
           "consulente-vendite-bellezza-m-f-d-rituals-cosmetics-switzerland-zurich-1f4800",
           "sales-advisor-beauty-m-f-d-rituals-cosmetics-switzerland-zurich-1f4800",
           "conseiller-en-ventes-beaute-m-f-d-rituals-cosmetics-switzerland-zurich-1f4800"
@@ -40244,12 +40242,12 @@
     },
     {
       "id": "rituals-cosmetics-fbdecc1cdaaf",
-      "slug": "weihnachtsaushilfe-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore",
+      "slug": "aiuto-di-natale-m-f-d-rituals-cosmetics-switzerland-morbio-inferiore",
       "slugByLocale": {
-        "it": "weihnachtsaushilfe-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore",
-        "en": "weihnachtsaushilfe-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore",
+        "it": "aiuto-di-natale-m-f-d-rituals-cosmetics-switzerland-morbio-inferiore",
+        "en": "christmas-aid-m-f-d-rituals-cosmetics-switzerland-morbio-inferiore",
         "de": "weihnachtsaushilfe-m-w-d-rituals-cosmetics-ch",
-        "fr": "weihnachtsaushilfe-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore"
+        "fr": "aide-a-noel-m-f-d-rituals-cosmetics-switzerland-morbio-inferiore"
       },
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
@@ -40292,12 +40290,20 @@
       "jobReqId": "R15177",
       "previousSlugs": [
         "weihnachtsaushilfe-m-w-d-rituals-cosmetics-ch-3",
-        "weihnachtsaushilfe-m-w-d-rituals-cosmetics-ch"
+        "weihnachtsaushilfe-m-w-d-rituals-cosmetics-ch",
+        "weihnachtsaushilfe-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore"
       ],
       "previousSlugsByLocale": {
         "it": [
           "weihnachtsaushilfe-m-w-d-rituals-cosmetics-ch-3",
-          "weihnachtsaushilfe-m-w-d-rituals-cosmetics-ch"
+          "weihnachtsaushilfe-m-w-d-rituals-cosmetics-ch",
+          "weihnachtsaushilfe-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore"
+        ],
+        "en": [
+          "weihnachtsaushilfe-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore"
+        ],
+        "fr": [
+          "weihnachtsaushilfe-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore"
         ]
       },
       "firstSeenAt": "2026-08-05T22:35:44.449Z",
@@ -41013,7 +41019,7 @@
         "it": "stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch-4",
         "en": "stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch",
         "de": "stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch-4",
-        "fr": "stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch-4"
+        "fr": "directeur-adjoint-de-la-succursale-h-f-d-rituals-cosmetics-switzerland-morbio-inferiore"
       },
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",
@@ -41062,8 +41068,7 @@
         "stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch-8",
         "stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch-7",
         "stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch-6",
-        "stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch-flw4ly",
-        "directeur-adjoint-de-la-succursale-h-f-d-rituals-cosmetics-switzerland-morbio-inferiore"
+        "stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch-flw4ly"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -41080,8 +41085,7 @@
           "stellvertretender-filialleiter-m-w-d-rituals-cosmetics-ch-8"
         ],
         "fr": [
-          "distributeur-de-fil-stellvertretender-h-f-d-rituals-cosmetics-switzerland-morbio-inferiore",
-          "directeur-adjoint-de-la-succursale-h-f-d-rituals-cosmetics-switzerland-morbio-inferiore"
+          "distributeur-de-fil-stellvertretender-h-f-d-rituals-cosmetics-switzerland-morbio-inferiore"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -41622,7 +41626,7 @@
         "it": "aushilfe-verkaufsberater-m-w-d-rituals-cosmetics-ch-3",
         "en": "aushilfe-verkaufsberater-m-w-d-rituals-cosmetics-ch-flw4mo",
         "de": "aushilfe-verkaufsberater-m-w-d-rituals-cosmetics-ch-3",
-        "fr": "aushilfe-verkaufsberater-m-w-d-rituals-cosmetics-ch-3"
+        "fr": "auchulfe-verkaufsberater-h-f-d-rituals-cosmetics-switzerland-morbio-inferiore-966e9e"
       },
       "company": "Rituals Cosmetics Switzerland",
       "companyKey": "rituals-cosmetics",

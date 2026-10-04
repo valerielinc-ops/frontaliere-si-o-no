@@ -27,7 +27,8 @@ const CASES = [
       aptitudeTests: [{ name: 'Multicheck ICT', date: 'März 2026', results: 'Schulisches Potenzial 78 %' }],
       interests: ['Fussball', 'Gitarre'], references: [{ name: 'Herr Peter Muster', role: 'Klassenlehrer', organisation: 'Schulhaus Rychenberg', contact: '+41 52 555 00 00' }],
     },
-    facts: ['Luka Kovačević', '14. März 2010', 'Muster Informatik AG', 'Regionalzeitung Winterthur', '80 Zeitungen', '78 %', 'Herr Peter Muster', '04.2026'],
+    // The birth date the Swiss way (decision 5 of the personal data).
+    facts: ['Luka Kovačević', '14.03.2010', 'Muster Informatik AG', 'Regionalzeitung Winterthur', '80 Zeitungen', '78 %', 'Herr Peter Muster', '04.2026'],
     headings: ['PERSÖNLICHE ANGABEN', 'SCHULBILDUNG'],
   },
   {
@@ -84,6 +85,26 @@ describe('tailored CV PDFs pass the ATS checks (Typst, embedded font)', () => {
       expect(check.failures).toEqual([]);
     }, 60_000);
   }
+
+  // P4 (owner decisions of 2026-10-03): the personal data the candidate gave, as the CV prints them, in the real render.
+  it('prints the status, the nationality and the birth date the candidate gave in the PDF’s text', async () => {
+    const profile = {
+      ...sanitizeProfile({
+        headline: 'Pflegefachfrau', location: 'Como (I)', dateOfBirth: '1998-03-12', nationality: 'italiana', languages: [{ language: 'Deutsch', level: 'C1' }],
+        experience: [{ role: 'Pflegefachfrau', employer: 'Ospedale Civico', location: 'Lugano', start: '2019', end: '2025', kind: 'job', highlights: ['Akutpflege auf einer Station mit 24 Betten'] }],
+      }),
+      // Derived at every read (candidateWithEdits), never kept by sanitizeProfile.
+      permitStatus: 'permit_b',
+    };
+    const cv = sanitizeTailoredCv({ headline: 'Pflegefachfrau', summary: 'Pflegefachfrau mit Erfahrung in der Akutpflege.', competencies: [], experience: [], skills: [] }, {
+      profile, cvText: JSON.stringify(profile), language: 'de', type: 'qualified', sector: 'health', title: 'Pflegefachfrau',
+    });
+    const identity = { name: 'Giulia Verdi', email: 'bewerbung-4k2m@frontaliereticino.ch', phone: '+39 333 555 0199' };
+    const { pdf, renderer } = await renderCvPdf(buildCvDocument(cv, { identity, profile, language: 'de', type: 'qualified', sector: 'health' }));
+    expect(renderer).toBe('typst');
+    const check = await checkPdfForAts(pdf, { name: identity.name, facts: ['Aufenthaltsbewilligung B', 'Italien (EU)', '12.03.1998'], headings: ['PERSÖNLICHE ANGABEN'] });
+    expect(check.failures).toEqual([]);
+  }, 60_000);
 
   it('catches what the study found: a standard font not embedded, a date column', async () => {
     const { document } = documentOf(CASES[0]);

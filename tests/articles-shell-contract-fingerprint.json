@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "note": "SHA-256 of the SCALAR half of SiteShellContract. Both repositories assert this fingerprint. Re-recorded 2026-10-03: canonical publisher and image creator use Organization, which Google supports in Dataset and Image Metadata. Transport host/seo/imageObjectLd.ts and host/seo/organizationLd.ts and both contract fixtures together.",
+  "note": "SHA-256 of the SCALAR half of SiteShellContract. Both repositories assert this fingerprint. Re-recorded 2026-10-04: the identity-bearing gtag-init reference is content-addressed so stale edge bytes cannot emit a page_view without the current emission contract. Transport build-plugins/constants.ts and both contract fixtures together.",
   "scalarFields": 22,
-  "sha256": "71074a8133a8eeb3592ee8e10b82c2be1021e8dadd173eeacf67d87392bad94d"
+  "sha256": "082cd6c37e2cbed2c86e6ae91b1c9af6de9b1ef9b91def9a93f49765522670cd"
 }

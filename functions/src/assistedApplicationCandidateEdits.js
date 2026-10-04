@@ -29,6 +29,8 @@ import {
   splitName,
 } from './assistedApplicationAiDraftCore.js';
 import { answerMessage, safePattern, validateAnswer } from './lib/answerRules.js';
+import { isoDateOf } from './lib/cvPeriod.js';
+import { permitOptions, permitStatusOf } from './lib/permitStatus.js';
 
 const MESSAGES = {
   name: {
@@ -80,6 +82,12 @@ const MESSAGES = {
     fr: 'Cela se modifie dans la question ci-dessus.',
     en: 'Change it in the question above.',
   },
+  birthDate: {
+    it: 'Una data di nascita valida, per esempio 12.03.1998.',
+    de: 'Ein gültiges Geburtsdatum, zum Beispiel 12.03.1998.',
+    fr: 'Une date de naissance valide, par exemple 12.03.1998.',
+    en: 'A valid date of birth, for example 12.03.1998.',
+  },
 };
 
 const say = (key, locale) => MESSAGES[key][locale] || MESSAGES[key].it;
@@ -89,22 +97,30 @@ const rule = (partial) => ({ pattern: '', minLength: 0, maxLength: 200, min: nul
 const NAME = safePattern("\\p{L}[\\p{L}\\p{M}'’. -]*");
 const PHONE = safePattern('\\+?[0-9][0-9 ()./-]{5,24}');
 const LINKEDIN = safePattern('(?:https?://)?(?:[a-z]{2,3}\\.)?linkedin\\.com/\\S+');
+// Day first, as the CV prints it, or ISO; that it is a real date in the past is checked on save.
+const BIRTH_DATE = safePattern('\\d{1,2}[./]\\d{1,2}[./]\\d{4}|\\d{4}-\\d{2}-\\d{2}');
 
 /**
  * The form fields the candidate may change. `inLetter`: printed in the letter
- * header, so a change rebuilds the PDF. `answerId`: the question that asks the
- * same thing wins (the field is changed there). `perRound`: a text of this
- * round's draft, not a fact about the candidate.
+ * header, so a change rebuilds the PDF. `inCv`: printed in the tailored CV, so
+ * the page shows it for e-mail applications too. `answerId`: the question that
+ * asks the same thing wins (the field is changed there). `perRound`: a text of
+ * this round's draft, not a fact about the candidate. `choice: 'permit'`: one
+ * of the permit statuses (lib/permitStatus.js). `birthDate`: a real date in
+ * the past.
  */
 export const EDITABLE_FIELDS = {
-  firstName: { rule: rule({ pattern: NAME, minLength: 1, maxLength: 80, example: 'Maria' }), message: 'name', required: true, inLetter: true },
-  lastName: { rule: rule({ pattern: NAME, minLength: 1, maxLength: 80, example: 'Rossi' }), message: 'name', required: true, inLetter: true },
-  phone: { rule: rule({ pattern: PHONE, maxLength: 30, example: '+41 91 123 45 67' }), message: 'phone', inLetter: true },
-  location: { rule: rule({ maxLength: 120 }), inLetter: true },
-  linkedin: { rule: rule({ pattern: LINKEDIN, maxLength: 200, example: 'linkedin.com/in/nome-cognome' }), message: 'linkedin' },
-  languages: { rule: rule({ maxLength: 200 }) },
-  workPermit: { rule: rule({ maxLength: 120 }), answerId: 'work_permit' },
-  availability: { rule: rule({ maxLength: 120 }), answerId: 'availability' },
+  firstName: { rule: rule({ pattern: NAME, minLength: 1, maxLength: 80, example: 'Maria' }), message: 'name', required: true, inLetter: true, inCv: true },
+  lastName: { rule: rule({ pattern: NAME, minLength: 1, maxLength: 80, example: 'Rossi' }), message: 'name', required: true, inLetter: true, inCv: true },
+  phone: { rule: rule({ pattern: PHONE, maxLength: 30, example: '+41 91 123 45 67' }), message: 'phone', inLetter: true, inCv: true },
+  location: { rule: rule({ maxLength: 120 }), inLetter: true, inCv: true },
+  linkedin: { rule: rule({ pattern: LINKEDIN, maxLength: 200, example: 'linkedin.com/in/nome-cognome' }), message: 'linkedin', inCv: true },
+  languages: { rule: rule({ maxLength: 200 }), inCv: true },
+  // Optional corrections, never asked by a required question (decision 5): no question locks them.
+  dateOfBirth: { rule: rule({ pattern: BIRTH_DATE, maxLength: 40, example: '12.03.1998' }), message: 'birthDate', inCv: true, birthDate: true },
+  nationality: { rule: rule({ maxLength: 120 }), inCv: true },
+  workPermit: { rule: rule({ maxLength: 120 }), answerId: 'work_permit', inCv: true, choice: 'permit' },
+  availability: { rule: rule({ maxLength: 120 }), answerId: 'availability', inCv: true },
   salary: { rule: rule({ pattern: safePattern('.*\\d.*'), maxLength: 120, example: "CHF 80'000" }), message: 'salary', answerId: 'salary_expectation' },
   motivationShort: { rule: rule({ maxLength: 600 }), perRound: true },
   whyCompany: { rule: rule({ maxLength: 400 }), perRound: true },
@@ -137,7 +153,10 @@ function splitLanguages(text) {
  * The candidate as the application uses them: the order and the CV, then what
  * the candidate changed. A corrected permit, availability or salary replaces
  * an older answer; only a question the current draft asks again wins over it.
- * @returns {{identity:{name:string,email:string,phone:string,firstName:string,lastName:string}, profile:object, answers:object, overrides:object}}
+ * `profile.permitStatus` is derived here at every read, never stored as a
+ * source: the code of the status the candidate chose (lib/permitStatus.js),
+ * '' when none.
+ * @returns {{identity:{name:string,email:string,phone:string,firstName:string,lastName:string}, profile:object & {permitStatus:string}, answers:object, overrides:object}}
  */
 export function candidateWithEdits({ order, draft, flow }) {
   const overrides = storedOverrides(flow?.formOverrides);
@@ -158,12 +177,29 @@ export function candidateWithEdits({ order, draft, flow }) {
   if (has(overrides, 'languages')) profile.languages = splitLanguages(overrides.languages);
   if (has(overrides, 'workPermit')) profile.workPermit = overrides.workPermit;
   if (has(overrides, 'availability')) profile.availability = overrides.availability;
+  if (has(overrides, 'dateOfBirth')) profile.dateOfBirth = overrides.dateOfBirth;
+  if (has(overrides, 'nationality')) profile.nationality = overrides.nationality;
   const answers = { ...(flow?.answers || {}) };
   const asked = new Set((draft?.questions || []).map((question) => question.id));
   for (const [key, spec] of Object.entries(EDITABLE_FIELDS)) {
     if (spec.answerId && has(overrides, key) && !asked.has(spec.answerId)) answers[spec.answerId] = overrides[key];
   }
+  // The status is what the candidate chose (the question, else the field, else an older answer), never the CV's
+  // words (decision 2). An availability they gave is the one the CV prints.
+  profile.permitStatus = permitStatusOf(clean(answers.work_permit, 200) || (has(overrides, 'workPermit') ? overrides.workPermit : ''));
+  const availability = clean(answers.availability, 200);
+  if (availability) profile.availability = availability;
   return { identity, profile, answers, overrides };
+}
+
+/**
+ * The fact sources a gate run reads, with the candidate's permit status of now
+ * (decision 8). A draft written before the status existed has no
+ * `permitStatus` in its sources and is judged as it was.
+ */
+export function factSourcesNow({ order, draft, flow }, sources = draft?.factSources || {}) {
+  if (typeof sources?.permitStatus !== 'string') return sources;
+  return { ...sources, permitStatus: candidateWithEdits({ order, draft, flow }).profile.permitStatus };
 }
 
 /** The form fields with the candidate's changes (review page, handoff kit, owner queue). */
@@ -176,6 +212,7 @@ export function formAnswersWithEdits({ order, draft, flow }) {
     profile,
     documents: { motivationShort: motivation.motivationShort, whyCompany: motivation.whyCompany },
     answers,
+    locale: order?.locale || 'it',
   });
 }
 
@@ -198,7 +235,7 @@ export function fieldRule(key, locale = 'it') {
 export function fieldView(field, { draft, locale = 'it' }) {
   const lock = lockReason(field.key, draft);
   const spec = EDITABLE_FIELDS[field.key];
-  return {
+  const view = {
     key: field.key,
     label: field.label,
     value: field.value,
@@ -206,17 +243,32 @@ export function fieldView(field, { draft, locale = 'it' }) {
     locked: lock === 'alias' || lock === 'question' ? lock : null,
     required: Boolean(spec?.required),
     inLetter: Boolean(spec?.inLetter) || field.key === 'email',
+    inCv: Boolean(spec?.inCv),
     validation: lock ? null : fieldRule(field.key, locale),
   };
+  // The permit status is chosen, never typed (decision 2): the six options in the candidate's language. A value
+  // that is none of them (the CV's own words, an older text) stays shown and selected; no status is pre-selected.
+  if (!lock && spec?.choice === 'permit') {
+    const options = permitOptions(locale);
+    const value = String(field.value || '').trim();
+    view.options = value && !options.includes(value) ? [value, ...options] : options;
+  }
+  return view;
 }
 
-function checkField(key, text, locale) {
+function checkField(key, text, locale, todayIso) {
   const spec = EDITABLE_FIELDS[key];
   if (!text) return spec.required ? say('required', locale) : '';
   if (text.length > spec.rule.maxLength) return say('tooLong', locale);
   const question = { type: 'text', required: false, validation: fieldRule(key, locale) };
   const result = validateAnswer(text, question);
-  return result.ok ? '' : answerMessage(result, question, locale);
+  if (!result.ok) return answerMessage(result, question, locale);
+  if (spec.choice === 'permit' && !permitStatusOf(text)) return answerMessage({ ok: false, reason: 'not_an_option', message: '' }, {}, locale);
+  if (spec.birthDate) {
+    const iso = isoDateOf(text);
+    if (!iso || iso > todayIso) return say('birthDate', locale);
+  }
+  return '';
 }
 
 function checkText(key, text, locale) {
@@ -234,7 +286,8 @@ const signatureOf = (identity) => [identity.name, identity.email, identity.phone
  * @param {{coverLetterText?:string, emailSubject?:string, emailBody?:string, fields?:Record<string,string>}} raw
  * @returns {{errors:Record<string,string>, changed:string[], overrides:object, draftPatch:object, identityChanged:boolean, candidateText:string}}
  */
-export function planCandidateEdits(raw, { order, draft, flow, locale = 'it' }) {
+export function planCandidateEdits(raw, { order, draft, flow, locale = 'it', nowMs = Date.now() }) {
+  const todayIso = new Date(nowMs).toISOString().slice(0, 10);
   const errors = {};
   const changed = [];
   const draftPatch = {};
@@ -253,7 +306,7 @@ export function planCandidateEdits(raw, { order, draft, flow, locale = 'it' }) {
       errors[key] = say(lock === 'question' ? 'question' : 'alias', locale);
       continue;
     }
-    const problem = checkField(key, text, locale);
+    const problem = checkField(key, text, locale, todayIso);
     if (problem) {
       errors[key] = problem;
       continue;

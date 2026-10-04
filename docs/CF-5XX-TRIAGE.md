@@ -223,6 +223,20 @@ segno **conclusivo** che `serve_stale` scatta davvero — la prima volta da quan
   origine del payload. `--by-hour` correla `originResponseStatus` e `cacheStatus` alle righe
   del singolo URL quando la query è completa; per attribuire il tratto tunnel vs receiver
   servono comunque i log di quei componenti. Non dedurre un rimedio CDN o Pages da questi host.
+  **Il 530 su questi due host è atteso a Mac in stop e non conia issue del sito** (decisione del
+  proprietario del 2026-10-04, site#8839/site#8840): è il tunnel senza connettore, e nessuna
+  modifica a questo repo può farlo cessare. `scripts/cf-5xx-issue-sync.mjs` (`isTunnelOffline530`)
+  lo separa e stampa un `::notice title=cf-5xx webhook tunnel offline::` nel log del run; resta
+  in `bySurface` dello snapshot (`data/cf-5xx-history.jsonl`). L'osservatore è nel workspace:
+  `bin/github-coordinator-health.mjs` con gli allarmi `tunnel_not_ready`,
+  `webhook_receiver_down` e `host_slept`, più i log timestampati del receiver
+  (`bin/github-webhook-receiver.mjs`, fase e causa di ogni 5xx/400). Gli altri status sugli
+  stessi host (502/503/524: tunnel su, receiver rotto) continuano a coniare, con `**REPO**:
+  workspace` nella scheda; le righe orarie del 530 escono anche dalla forma del burst, così
+  un 530 dell'ora del run non tiene «vivo» un 502 finito ore prima. Quelle issue 502/503 non
+  vengono chiuse dalla riconciliazione finché il 530 compare nel report o nello snapshot
+  (`checkUrlClean` e `cf5xxSeenNow` contano ogni status): la chiusura resta manuale, con
+  evidenza, finché il proprietario non cambia il criterio.
 - **Un burst senza righe orarie non è un guasto attuale verificato.** Il feeder mantiene la
   issue per prudenza se le righe mancano o la query tocca il limite, ma il body deve dire che
   recency e origine sono sconosciute. L'assenza di righe non è un verde né una diagnosi.

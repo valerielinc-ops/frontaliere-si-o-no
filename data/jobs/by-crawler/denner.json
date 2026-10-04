@@ -223,7 +223,6 @@
         "betriebstechniker-aclens-denner-sa-aclens",
         "obiettivi-tecnici-operativi-denner-sa-aclens",
         "technicien-ne-d-exploitation-aclens-denner",
-        "betriebstechniker-aclens-denner-aclens",
         "techniker-fur-die-aklensoperationen-denner-aclens"
       ],
       "previousSlugsByLocale": {
@@ -240,7 +239,6 @@
         "de": [
           "technicien-ne-d-exploitation-aclens-denner-sa-aclens-3k6zx9",
           "betriebstechniker-aclens-denner-sa-aclens",
-          "betriebstechniker-aclens-denner-aclens",
           "techniker-fur-die-aklensoperationen-denner-aclens"
         ],
         "fr": [
@@ -660,8 +658,6 @@
         "assistente-nella-gestione-delle-branche-denner-ag-adliswil",
         "assistent-in-filialleitung-denner-4",
         "assistant-in-branch-management-denner-ag-adliswil",
-        "assistent-in-filialleitung-denner-ag-zurich-mlzv0z",
-        "vice-direttore-di-filiale-denner-ag-zurich-3cd714",
         "assistent-in-filialleitung-denner-mlzv0z"
       ],
       "needsRetranslation": true,
@@ -773,7 +769,6 @@
           "directeur-de-succursale-stv-in-denner-ag-zurich"
         ],
         "en": [
-          "deputy-branch-manager-denner-ag-zurich-6527ca",
           "stv-filialleiter-in-denner-zurich",
           "stv-filialleiter-in-denner-zurich-gdn8qz"
         ]
@@ -806,7 +801,6 @@
         "stv-filialleiter-in-denner-16",
         "stv-filialleiter-in-denner-amriswil",
         "stv-filialleiter-in-denner-zurich",
-        "deputy-branch-manager-denner-ag-zurich-6527ca",
         "stv-filialleiter-in-denner-zurich-gdn8qz"
       ],
       "needsRetranslation": true,
@@ -1126,7 +1120,6 @@
       "previousSlugs": [
         "filialleiter-in-denner",
         "filialleiter-in-denner-ilanz",
-        "gestionnaire-de-magasin-denner-ag-ilanz",
         "adjoint-e-d-agence-denner-ilanz"
       ],
       "needsRetranslation": true,
@@ -1428,8 +1421,7 @@
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
-        "verkaufer-in-im-stundenlohn-denner-amriswil",
-        "verkaufer-in-im-stundenlohn-denner-5bzt2h"
+        "verkaufer-in-im-stundenlohn-denner-amriswil"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-25T10:59:13.898Z",
@@ -1764,7 +1756,7 @@
         "fr": "Vendeur"
       },
       "slugByLocale": {
-        "it": "venditore-denner-st-gallen",
+        "it": "venditore-denner-st-gallen-5d4619",
         "en": "shop-assistant-denner-st-gallen",
         "de": "verkaufer-in-denner-st-gallen",
         "fr": "vendeur-denner-st-gallen-5d4619"
@@ -1821,15 +1813,13 @@
       "previousSlugs": [
         "verkaufer-in-denner-4",
         "verkaufer-in-denner",
-        "verkaufer-in-denner-st-gallen",
-        "venditore-denner-st-gallen-5d4619"
+        "verkaufer-in-denner-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-4",
           "verkaufer-in-denner",
-          "verkaufer-in-denner-st-gallen",
-          "venditore-denner-st-gallen-5d4619"
+          "verkaufer-in-denner-st-gallen"
         ],
         "en": [
           "verkaufer-in-denner-st-gallen"
@@ -2799,7 +2789,7 @@
       "slugByLocale": {
         "it": "vice-direttoredifiliale-denner-luzern",
         "en": "stv-filialleiter-in-denner-luzern-7ltn3x",
-        "de": "stv-filialleiter-in-denner-luzern",
+        "de": "stv-filialleiter-in-denner-luzern-7ltn3x",
         "fr": "directeur-trice-adjoint-e-de-succursale-denner-luzern"
       },
       "company": "Denner",
@@ -2876,7 +2866,8 @@
           "stv-filialleiter-in-denner-luzern"
         ],
         "de": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-filialleiter-in-denner-luzern"
         ],
         "en": [
           "stv-filialleiter-in-denner-luzern"
@@ -2981,8 +2972,7 @@
       "previousSlugs": [
         "verkaufer-in-denner-8",
         "verkaufer-in-denner",
-        "verkaufer-in-denner-gossau-zh",
-        "verkaufer-in-denner-vxx2vp"
+        "verkaufer-in-denner-gossau-zh"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
@@ -3089,7 +3079,6 @@
         "verkaufer-in-denner",
         "verkaufer-in-denner-24",
         "verkaufer-in-denner-frauenfeld",
-        "sales-associate-denner-ag-frauenfeld",
         "shop-assistant-denner-frauenfeld"
       ],
       "firstSeenAt": "2026-07-17T11:18:40.683Z",
@@ -5503,8 +5492,7 @@
           "verkaufer-in-im-stundenlohn-denner-ag-oberwil-bl",
           "verkaufer-in-im-stundenlohn-denner-ag-oberwil-bl-dlp26n",
           "addetto-vendite-a-ore-denner-ag-oberwil-bl",
-          "verkaufer-in-im-stundenlohn-denner",
-          "venditore-nel-salario-orario-denner-ag-oberwil-bl"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-oberwil-bl-dlp26n"
@@ -5520,8 +5508,7 @@
         "verkaufer-in-im-stundenlohn-denner-ag-oberwil-bl",
         "verkaufer-in-im-stundenlohn-denner-ag-oberwil-bl-dlp26n",
         "addetto-vendite-a-ore-denner-ag-oberwil-bl",
-        "verkaufer-in-im-stundenlohn-denner",
-        "venditore-nel-salario-orario-denner-ag-oberwil-bl"
+        "verkaufer-in-im-stundenlohn-denner"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
@@ -5609,15 +5596,11 @@
           "assistent-in-filialleitung-denner"
         ],
         "it": [
-          "assistent-in-filialleitung-denner",
-          "assistente-nella-gestione-delle-branche-denner-ag-biel-bienne"
+          "assistent-in-filialleitung-denner"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner",
-        "assistente-nella-gestione-delle-branche-denner-ag-biel-bienne",
-        "assistant-branch-manager-denner-ag-biel-bienne-a20fa2",
-        "directeur-adjoint-de-succursale-denner-ag-biel-bienne-a20fa2"
+        "assistent-in-filialleitung-denner"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T16:05:08.450Z",
@@ -5818,7 +5801,6 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-ibach",
-        "seller-denner-ag-ibach",
         "shop-assistant-denner-ibach"
       ],
       "needsRetranslation": true,
@@ -5917,8 +5899,7 @@
       "previousSlugs": [
         "stv-filialleiter-in-denner-5",
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-brugg-be",
-        "stv-filialleiter-in-denner-aztzmm"
+        "stv-filialleiter-in-denner-brugg-be"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-22T22:33:45.051Z",
@@ -5948,7 +5929,7 @@
       "slugByLocale": {
         "it": "vice-direttoredifiliale-denner-amriswil",
         "en": "stv-filialleiter-in-denner-amriswil-3nkluz",
-        "de": "stv-filialleiter-in-denner-amriswil",
+        "de": "stv-filialleiter-in-denner-amriswil-3nkluz",
         "fr": "directeur-trice-adjoint-e-de-succursale-denner-amriswil"
       },
       "company": "Denner",
@@ -6015,7 +5996,8 @@
           "stv-filialleiter-in-denner-amriswil"
         ],
         "de": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-filialleiter-in-denner-amriswil"
         ],
         "en": [
           "stv-filialleiter-in-denner-amriswil"
@@ -6209,7 +6191,6 @@
       "crawledAt": "2026-10-04T09:13:29.615Z",
       "previousSlugs": [
         "controller-in-denner",
-        "controleur-denner-zurich",
         "controller-in-denner-zurich"
       ],
       "previousSlugsByLocale": {
@@ -6220,7 +6201,6 @@
           "controller-in-denner"
         ],
         "fr": [
-          "controleur-denner-zurich",
           "controller-in-denner-zurich"
         ]
       },
@@ -6448,7 +6428,6 @@
         "seller-denner-ag-basel-129873",
         "vendeur-denner-ag-basel",
         "verkaufer-in-denner-basel",
-        "seller-denner-ag-basel-66c0e2",
         "shop-assistant-denner-basel"
       ],
       "needsRetranslation": true,
@@ -7683,8 +7662,7 @@
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-wadenswil",
-        "deputy-branch-manager-denner-ag-wadenswil"
+        "stv-filialleiter-in-denner-wadenswil"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
@@ -8101,9 +8079,6 @@
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "vice-direttore-di-negozio-denner-ag-zurich",
-        "deputy-branch-manager-denner-ag-zurich",
-        "directeur-adjoint-de-la-succursale-denner-ag-zurich",
         "stv-filialleiter-in-denner-zurich-geicje"
       ],
       "salaryMin": 83000,
@@ -8538,7 +8513,6 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-bern-bumpliz",
-        "seller-denner-ag-bern-bumpliz",
         "shop-assistant-denner-bern-bumpliz"
       ],
       "needsRetranslation": true,
@@ -8929,17 +8903,11 @@
           "assistent-in-filialleitung-denner"
         ],
         "it": [
-          "assistent-in-filialleitung-denner",
-          "vice-direttore-di-filiale-denner-ag-wadenswil-23a774"
+          "assistent-in-filialleitung-denner"
         ]
       },
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "vice-direttore-di-filiale-denner-ag-wadenswil-23a774",
-        "assistant-branch-manager-denner-ag-wadenswil-23a774",
-        "directeur-adjoint-de-succursale-denner-ag-wadenswil-23a774",
-        "assistent-in-filialleitung-denner-ag-wadenswil-dmwt2p",
-        "assistent-in-filialleitung-denner-wadenswil",
         "assistent-in-filialleitung-denner-dmwt2p"
       ],
       "needsRetranslation": true,
@@ -9989,9 +9957,6 @@
       },
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistente-nella-gestione-delle-branche-denner-ag-zurich",
-        "assistant-in-branch-management-denner-ag-zurich",
-        "assistant-dans-la-gestion-des-succursales-denner-ag-zurich",
         "assistant-dans-la-gestion-des-succursales-denner-flawil",
         "assistent-in-filialleitung-denner-ag-arlesheim-yvf3vq",
         "assistent-in-filialleitung-denner-yvf3vq",
@@ -10294,8 +10259,7 @@
           "verkaufer-in-im-stundenlohn-denner-ag-wollerau",
           "verkaufer-in-im-stundenlohn-denner-ag-wollerau-xz6mtm",
           "verkaufer-in-im-stundenlohn-denner-wollerau",
-          "verkaufer-in-im-stundenlohn-denner",
-          "venditore-nel-salario-orario-denner-ag-wollerau"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-wollerau-xz6mtm"
@@ -10311,8 +10275,7 @@
         "verkaufer-in-im-stundenlohn-denner-ag-wollerau",
         "verkaufer-in-im-stundenlohn-denner-ag-wollerau-xz6mtm",
         "verkaufer-in-im-stundenlohn-denner-wollerau",
-        "verkaufer-in-im-stundenlohn-denner",
-        "venditore-nel-salario-orario-denner-ag-wollerau"
+        "verkaufer-in-im-stundenlohn-denner"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T09:55:09.264Z",
@@ -10505,13 +10468,11 @@
           "verkaufer-in-denner-gebenstorf",
           "verkaufer-in-denner-ag-gebenstorf-y28jsm",
           "verkaufer-in-denner-ag-gebenstorf",
-          "verkaufer-in-denner",
-          "addetto-a-alle-vendite-denner-ag-gebenstorf"
+          "verkaufer-in-denner"
         ],
         "en": [
           "verkaufer-in-denner-ag-gebenstorf-y28jsm",
           "verkaufer-in-denner-ag-gebenstorf",
-          "sales-associate-denner-ag-gebenstorf",
           "seller-denner-gebenstorf"
         ],
         "fr": [
@@ -10524,8 +10485,6 @@
         "verkaufer-in-denner-ag-gebenstorf-y28jsm",
         "verkaufer-in-denner-ag-gebenstorf",
         "verkaufer-in-denner",
-        "addetto-a-alle-vendite-denner-ag-gebenstorf",
-        "sales-associate-denner-ag-gebenstorf",
         "seller-denner-gebenstorf"
       ],
       "needsRetranslation": true,
@@ -10838,7 +10797,6 @@
           "verkaufer-in-denner-ag-interlaken-kk53ro",
           "verkaufer-in-denner-ag-interlaken",
           "seller-denner-ag-interlaken-a375b5",
-          "sales-associate-denner-ag-interlaken",
           "seller-denner-interlaken"
         ],
         "fr": [
@@ -10887,7 +10845,6 @@
         "verkaufer-in-denner-29",
         "verkaufer-in-denner-16",
         "verkaufer-in-denner-15",
-        "sales-associate-denner-ag-interlaken",
         "seller-denner-interlaken"
       ],
       "needsRetranslation": true,
@@ -11099,7 +11056,6 @@
       "crawledAt": "2026-10-04T09:13:21.696Z",
       "previousSlugsByLocale": {
         "de": [
-          "assistent-in-filialleitung-denner-7z9mhg",
           "assistent-in-filialleitung-denner",
           "assistent-in-filialleitung-denner-schlieren"
         ],
@@ -11109,7 +11065,6 @@
       },
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-7z9mhg",
         "assistent-in-filialleitung-denner-schlieren"
       ],
       "needsRetranslation": true,
@@ -11689,7 +11644,6 @@
       "crawledAt": "2026-10-04T09:13:20.292Z",
       "previousSlugsByLocale": {
         "de": [
-          "assistent-in-filialleitung-denner-llez8j",
           "assistent-in-filialleitung-denner",
           "assistent-in-filialleitung-denner-zurich"
         ],
@@ -11699,7 +11653,6 @@
       },
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-llez8j",
         "assistent-in-filialleitung-denner-zurich"
       ],
       "needsRetranslation": true,
@@ -12999,8 +12952,7 @@
       "previousSlugs": [
         "verkaufer-in-denner-21",
         "verkaufer-in-denner",
-        "verkaufer-in-denner-meilen",
-        "verkaufer-in-denner-8b2ele"
+        "verkaufer-in-denner-meilen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
@@ -13085,7 +13037,6 @@
       "crawledAt": "2026-10-04T09:13:17.778Z",
       "previousSlugsByLocale": {
         "de": [
-          "assistent-in-filialleitung-denner-i9fhcw",
           "assistent-in-filialleitung-denner",
           "assistent-in-filialleitung-denner-gossau-zh"
         ],
@@ -13095,7 +13046,6 @@
       },
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-i9fhcw",
         "assistent-in-filialleitung-denner-gossau-zh"
       ],
       "needsRetranslation": true,
@@ -13578,18 +13528,14 @@
           "filialleiter-in-in-ausbildung-denner"
         ],
         "en": [
-          "branch-manager-in-training-denner-ag-kirchberg",
           "filialleiter-in-ausbildung-denner-kirchberg"
         ],
         "fr": [
-          "directeur-de-branche-en-formation-denner-ag-kirchberg",
           "filialleiter-in-ausbildung-denner-kirchberg"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
-        "branch-manager-in-training-denner-ag-kirchberg",
-        "directeur-de-branche-en-formation-denner-ag-kirchberg",
         "filialleiter-in-ausbildung-denner-kirchberg"
       ],
       "needsRetranslation": true,
@@ -14035,7 +13981,6 @@
         "fr": [
           "assistent-in-filialleitung-denner-ag-ebikon-3lj55e",
           "assistant-dans-la-gestion-des-succursales-denner-ag-ebikon",
-          "directeur-adjoint-de-succursale-denner-ag-ebikon",
           "assistant-dans-la-gestion-des-succursales-denner-ebikon"
         ]
       },
@@ -14044,7 +13989,6 @@
         "assistent-in-filialleitung-denner-ag-ebikon-3lj55e",
         "assistent-in-filialleitung-denner",
         "assistant-dans-la-gestion-des-succursales-denner-ag-ebikon",
-        "directeur-adjoint-de-succursale-denner-ag-ebikon",
         "assistant-dans-la-gestion-des-succursales-denner-ebikon"
       ],
       "needsRetranslation": true,
@@ -14782,7 +14726,6 @@
         "assistent-in-filialleitung-denner-ag-langnau-am-albis",
         "assistent-in-filialleitung-denner-ag-langnau-am-albis-0ojthu",
         "assistent-in-filialleitung-denner",
-        "assistente-nella-gestione-delle-branche-denner-ag-langnau-am-albis",
         "assistent-in-filialleitung-denner-0ojthu"
       ],
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
@@ -14995,8 +14938,7 @@
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-basel",
-        "deputy-branch-manager-denner-ag-basel"
+        "stv-filialleiter-in-denner-basel"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
@@ -15988,15 +15930,13 @@
           "assistent-in-filialleitung-denner-ag-basel",
           "assistent-in-filialleitung-denner-ag-basel-lvyhnb",
           "assistent-in-filialleitung-denner-basel",
-          "assistent-in-filialleitung-denner",
-          "vice-direttore-di-filiale-denner-ag-basel"
+          "assistent-in-filialleitung-denner"
         ],
         "en": [
           "assistent-in-filialleitung-denner-ag-basel-lvyhnb"
         ],
         "fr": [
           "assistent-in-filialleitung-denner-ag-basel-lvyhnb",
-          "directeur-adjoint-de-succursale-denner-ag-basel",
           "assistant-dans-la-gestion-des-succursales-denner-basel"
         ],
         "de": [
@@ -16008,9 +15948,6 @@
         "assistent-in-filialleitung-denner-ag-basel-lvyhnb",
         "assistent-in-filialleitung-denner-basel",
         "assistent-in-filialleitung-denner",
-        "vice-direttore-di-filiale-denner-ag-basel",
-        "directeur-adjoint-de-succursale-denner-ag-basel",
-        "assistente-nella-gestione-delle-branche-denner-basel",
         "assistant-dans-la-gestion-des-succursales-denner-basel",
         "assistent-in-filialleitung-denner-lvyhnb"
       ],
@@ -16138,7 +16075,6 @@
         "stv-filialleiter-in-denner-ag-steinhausen",
         "assistent-in-filialleitung-denner",
         "assistente-nella-gestione-delle-branche-denner-steinhausen",
-        "assistente-nella-gestione-delle-branche-denner-ag-steinhausen",
         "assistent-in-filialleitung-denner-g1nzab"
       ],
       "needsRetranslation": true,
@@ -16235,8 +16171,7 @@
           "verkaufer-in-im-stundenlohn-denner-ag-interlaken",
           "verkaufer-in-im-stundenlohn-denner-ag-interlaken-4dg1bh",
           "verkaufer-in-im-stundenlohn-denner-interlaken",
-          "verkaufer-in-im-stundenlohn-denner",
-          "venditore-nel-salario-orario-denner-ag-interlaken"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-interlaken-4dg1bh"
@@ -16253,8 +16188,7 @@
         "verkaufer-in-im-stundenlohn-denner-ag-interlaken",
         "verkaufer-in-im-stundenlohn-denner-ag-interlaken-4dg1bh",
         "verkaufer-in-im-stundenlohn-denner-interlaken",
-        "verkaufer-in-im-stundenlohn-denner",
-        "venditore-nel-salario-orario-denner-ag-interlaken"
+        "verkaufer-in-im-stundenlohn-denner"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-25T10:59:14.461Z",
@@ -17198,7 +17132,6 @@
       "previousSlugs": [
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-zurich-2zbait",
-        "assistant-store-manager-denner-ag-zurich",
         "stv-filialleiter-in-denner-zurich"
       ],
       "needsRetranslation": true,
@@ -17750,8 +17683,7 @@
           "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag",
           "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag-02xhun",
           "verkaufer-in-im-stundenlohn-denner-reinach-ag",
-          "verkaufer-in-im-stundenlohn-denner",
-          "venditore-nel-salario-orario-denner-ag-reinach-ag"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag-02xhun"
@@ -17768,8 +17700,7 @@
         "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag",
         "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag-02xhun",
         "verkaufer-in-im-stundenlohn-denner-reinach-ag",
-        "verkaufer-in-im-stundenlohn-denner",
-        "venditore-nel-salario-orario-denner-ag-reinach-ag"
+        "verkaufer-in-im-stundenlohn-denner"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T09:55:09.779Z",
@@ -17993,8 +17924,7 @@
           "vice-direttore-di-filiale-denner-basel",
           "stv-branch-manager-in-denner-ag-einsiedeln",
           "stv-branch-manager-in-denner-einsiedeln",
-          "stv-filialleiter-in-denner",
-          "vice-direttore-di-filiale-denner-ag-einsiedeln"
+          "stv-filialleiter-in-denner"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-einsiedeln-jkrp0n"
@@ -18014,8 +17944,7 @@
         "vice-direttore-di-filiale-denner-basel",
         "stv-branch-manager-in-denner-ag-einsiedeln",
         "stv-branch-manager-in-denner-einsiedeln",
-        "stv-filialleiter-in-denner",
-        "vice-direttore-di-filiale-denner-ag-einsiedeln"
+        "stv-filialleiter-in-denner"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T11:06:33.256Z",
@@ -18054,10 +17983,10 @@
       "title": "Verkäufer*in",
       "description": "Arbeitsort: Denner AG, Oftringen Bernstrasse, Bernstrasse 4, 4665 Oftringen\n\nFrischprodukte, die ihren Namen verdienen. Regale gefüllt. Bestellungen rechtzeitig ausgelöst. Fläche sauber. Kasse stimmt. Kundinnen und Kunden zufrieden. Das ist unser Laden. Und bald auch deiner. Wechsle jetzt ins frische Siegerteam.\n\n**Luogo di lavoro:** Denner AG, Oftringen Bernstrasse, Bernstrasse 4, 4665 Oftringen\n\n## Wichtige Hinweise\nQuer- und Wiedereinsteigende erwünscht.\n\n## Mansioni\n- Kasse bedienen und abrechnen\n- Frischprodukte und natürlich alle anderen Waren annehmen, prüfen und in die Regale in deinem Laden füllen\n- Mindesthaltbarkeitsdaten bei den Produkten kontrollieren\n- Ordnung und Sauberkeit in der Filiale und im Lager sicherstellen\n- Vorgaben im Ladenlayout korrekt umsetzen\n\n## Requisiti\n- Idealerweise mehr als zwei Jahre Berufserfahrung: im Detailhandel (Lebensmittel)\n- Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal\n- Bereit, schon auch mal jenseits von «nine to five» zu arbeiten – und die Freizeit zu geniessen, wenn andere arbeiten\n- Körperlich fit, manche Colis sind bis zu 10 Kilo schwer\n- Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an\n- Gerne unter Menschen, eine gute Portion Herzlichkeit und eine positive Grundhaltung\n- Deutsch (gute Kenntnisse)\n\n## Cosa offriamo\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n- Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.\n- Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr.\n\n## Contatto\n**Bewerbung & Kontakt**\nFabienne Contini\nRecruiter Verkauf Mittelland\n\n**Rekrutierungsprozess**\n\n- Vorselektion der Bewerbungen: Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen\n- Persönliches Video- oder Telefongespräch: Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche\n- Probearbeiten: Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen\n- Angebot & Vertragsausstellung: Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen\n\n**Hinweis für Personaldienstleister**\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 50-60%",
       "descriptionByLocale": {
-        "it": "Prodotti freschi che meritano il loro nome. Scaffali pieni. Ordini attivati in tempo. Zona pulita. Il cassiere ha ragione. Clienti soddisfatti. Questo e' il nostro negozio. E presto anche il tuo. Ora passare alla nuova squadra vincente.\n\n## Mansioni\n- Deposito e contabilità\n- Accettare prodotti freschi e, naturalmente, tutte le altre merci, controllarli e riempirli sugli scaffali del tuo negozio\n- Controllare i dati di durata minima sui prodotti\n- Assicurare ordine e pulizia nel negozio e nel magazzino\n- Specifiche di esecuzione correttamente nel layout del negozio\n\n## Requisiti\n- Idealmente più di due anni di esperienza professionale: nel commercio al dettaglio (cibo)\n- Apprendistato professionale completo (EBA): nel commercio al dettaglio (cibo) o nella professione correlata sarebbe ideale\n- Pronti a lavorare oltre “da nove a cinque” – e godere del tempo libero quando altri lavorano\n- Fisicamente in forma, alcuni colis sono fino a 10 libbre pesanti\n- Familiare con PC, tablet e smartphone - e con altri helper digitali (ad esempio per la gestione delle merci) si fanno rapidamente amici\n- Come tra le persone, una buona porzione di calore e un atteggiamento positivo\n- Tedesco (buona conoscenza)\n\n## Cosa di Friamo\n- Parte del Gruppo Migros: Forte marchio ancorato nel commercio al dettaglio sotto l'ombrello del Gruppo Migros\n- Lavoro sano: elevati standard nella sicurezza del lavoro, nell'ergonomia e nell'igiene.\n- congedo di maternità / congedo di paternità: 5 settimane più lunga baby break (19 settimane) per le madri al 100% salario. I padri godono la prole 4 settimane pagate.\n- Sconti equi: 13 salari mensili e aumenti salariali fissi per tutti invece di bonus per pochi.\n- Abbonamento mobile: A scelta: Con Galaxus Mobile, Wingo o Sunrise già da CHF 10.- uno o l'altro realmente connessi.\n- Migros Bank: Meglio off con interessi e tasse sui vostri conti privati, di investimento o di ipoteca.\n- I dipendenti offrono: 10 per cento sul prossimo acquisto principale (due volte all'anno).\n- Vacanze: 6 settimane vacanze per tutti e ancora più giorni per gli anniversari di servizio.\n- Offerte per il tempo libero e culturale: Vari sconti per noleggio auto, hotel, eventi e molte altre aree.\n\n## Contatto\n## Applicazione & Contatto Fabienne Contini Recruiter Vendite Mittelland - LinkedIn ## Processo di reclutamento Rivediamo continuamente le applicazioni ricevute, creiamo una preselezione e le rilasciamo al gestore per la visualizzazione. La decisione sul progresso o il ritiro dal processo di reclutamento sarà comunicata telefonicamente o via e-mail. Durata fino al feedback: Fino a tre settimane Video personale o conversazione telefonica Conduciamo facoltativamente una conversazione telefonica personale o video per un gran numero di candidati. Questo ci dà l'opportunità di conoscere più candidati in breve tempo per invitare persone adatte per il prossimo round. Durata fino al feedback: fino a una settimana di test Un giorno di prova o mezza giornata offre la possibilità di conoscere meglio l'ambiente di lavoro futuro e i membri del team. E viceversa, ci dà la possibilità di valutare quanto bene qualcuno si inserisce nella squadra. Durata fino al feedback: fino a tre settimane offrono emissione di contratti Dopo la nostra offerta di lavoro orale, i punti di contratto più importanti sono verificati di nuovo. Dopo l'accordo, il contratto viene commissionato e inviato per posta. Durata fino al feedback: fino a tre settimane ## Nota per i fornitori di servizi del personale Per questa posizione consideriamo solo applicazioni dirette.\n\n**Grado di occupazione: ** 50-60 %",
-        "en": "Fresh products that deserve their name. Shelves filled. Orders triggered in time. Area clean. Cashier is right. Customers satisfied. This is our store. And soon yours too. Now switch to the fresh winning team.\n\n## Mansioni\n- Depository and accounting\n- Accept fresh produce and of course all other goods, check and fill them on the shelves in your store\n- Checking minimum durability data on products\n- Ensure order and cleanliness in the store and warehouse\n- Implement specifications correctly in the store layout\n\n## Requirements\n- Ideally more than two years of professional experience: in the retail trade (food)\n- Completed vocational apprenticeship (EBA): in the retail trade (food) or related profession would be ideal\n- Ready to work beyond “nine to five” – and enjoy free time when others work\n- Physically fit, some colis are up to 10 pounds heavy\n- Familiar with PC, tablet and smartphone - and with other digital helpers (e.g. for goods management) you quickly make friends\n- Like among people, a good portion of warmth and a positive attitude\n- German (good knowledge)\n\n## Cosa of Friamo\n- Part of the Migros Group: Strong brand anchored in the retail trade under the Migros Group umbrella\n- Healthy work: High standards in occupational safety, ergonomics and hygiene.\n- Maternity leave / paternity leave: 5 weeks longer baby break (19 weeks) for mothers at 100% wage. Fathers enjoy the offspring 4 paid weeks.\n- Fair wages: 13 monthly wages and fixed wage increases for all instead of bonuses for a few.\n- Mobile subscription: Spoiled for choice: With Galaxus Mobile, Wingo or Sunrise already from CHF 10.- one or the other really connected.\n- Migros Bank: Better off with interest and fees on your private, investment or mortgage accounts.\n- Employee offers: 10 percent on the next major purchase (twice a year).\n- Holidays: 6 weeks holidays for all and even more days for service anniversaries.\n- Leisure and cultural offers: Various discounts for car rentals, hotels, events and many more areas.\n\n## Contatto\n## Application & Contact Fabienne Contini Recruiter Sales Mittelland - LinkedIn ## Recruitment process Pre-selection of applications We continuously review applications received, create a pre-selection and release them to the manager for viewing. The decision on progress or withdrawal from the recruitment process will be communicated by telephone or email. Duration until feedback: Up to three weeks Personal video or telephone conversation We optionally conduct a personal telephone or video conversation for a large number of applicants. This gives us the opportunity to get to know more candidates within a short time in order to invite suitable people for the next round. Duration until feedback: up to one week of test work A trial day or half day gives the opportunity to get to know the future working environment and the team members better. And vice versa, it gives us a chance to assess how well someone fits into the team. Duration until feedback: Up to three weeks offer & contract issuance After our oral job offer, the most important contract points are verified again. After agreement, the contract is commissioned and sent by post. Duration until feedback: Up to three weeks ## Note for personnel service providers For this position we only consider direct applications.\n\n**Grado di occupazione:** 50-60 %",
+        "it": "Luogo di lavoro: Denner AG, Oftringen Bernstrasse, Bernstrasse 4, 4665 Oftringen\n\nProdotti freschi che meritano il loro nome. Scaffali pieni. Ordini attivati in tempo. Zona pulita. Il cassiere ha ragione. Clienti soddisfatti. Questo e' il nostro negozio. E presto anche il tuo. Ora passare alla nuova squadra vincente.\n\nLuogo di lavoro: Denner AG, Oftringen Bernstrasse, Bernstrasse 4, 4665 Oftringen\n\n## Informazioni importanti\nSono desiderati in seguito e rientro.\n\n## Mansioni\n- Deposito e contabilità\n- Accettare prodotti freschi e, naturalmente, tutte le altre merci, controllarli e riempirli sugli scaffali del tuo negozio\n- Controllare i dati di durata minima sui prodotti\n- Assicurare ordine e pulizia nel negozio e nel magazzino\n- Applica correttamente le specifiche nel layout del negozio\n\n## Requisiti\n- Idealmente, più di due anni di esperienza professionale: nel commercio al dettaglio (cibo)\n- Apprendistato professionale completo (EBA): nel commercio al dettaglio (cibo) o nella professione correlata sarebbe ideale\n- Pronti a lavorare oltre “no a cinque” – e godere del tempo libero quando altri lavorano\n- Fisicamente in forma, alcuni colis sono fino a 10 libbre pesanti\n- Familiare con PC, tablet e smartphone - e con altri helper digitali (ad esempio per la gestione delle merci) si fanno rapidamente amici\n- Come tra le persone, una buona porzione di calore e un atteggiamento positivo\n- Tedesco (buona conoscenza)\n\n## Cosa di friamo\n- Parte del Gruppo Migros: Forte marchio ancorato nel commercio al dettaglio sotto l'ombrello del Gruppo Migros\n- Lavoro sano: elevati standard nella sicurezza del lavoro, nell'ergonomia e nell'igiene.\n- congedo di maternità / congedo di paternità: 5 settimane più lunga baby break (19 settimane) per le madri al 100% salario. I padri godono la prole 4 settimane pagate.\n- Pagamenti equi: 13 salari mensili e aumenti salariali fissi per tutti invece di bonus per pochi.\n- Abbonamento mobile: A scelta: Con Galaxus Mobile, Wingo o Sunrise già da CHF 10.- uno o l'altro realmente connessi.\n- Migros Bank: migliore corsa su interessi e tasse dei vostri conti privati, di investimento o di ipoteca.\n- Il dipendente offre: 10 per cento sul prossimo acquisto principale (due volte all'anno).\n- Vacanze: 6 settimane vacanze per tutti e ancora più giorni per gli anniversari di servizio.\n- Offerte per il tempo libero e culturale: vari sconti per noleggio auto, hotel, eventi e molte altre aree.\n\n## Contatto\nApplicazione e contatto\nFabienne Contini\nRecruiter vendita Mittelland\n\n Processo di reclutamento\n\n- Preselezione delle applicazioni: Controlliamo le applicazioni ricevute su base continuativa, creiamo una pre-selezione e le rilasciamo al gestore per la visualizzazione. La decisione di anticipare o revocare il processo di reclutamento sarà comunicata telefonicamente o via email. Durata del feedback: fino a tre settimane\n- Video personale o conversazione telefonica: Per un gran numero di candidati, conduciamo facoltativamente un telefono personale o una conversazione video. Questo ci dà l'opportunità di conoscere più candidati in breve tempo per invitare persone adatte al prossimo round. Durata del feedback: fino a una settimana\n- Test: Un giorno di prova o mezza giornata offre l'opportunità di conoscere meglio l'ambiente di lavoro futuro e i membri del team. E al contrario, ci dà la possibilità di valutare quanto bene qualcuno si inserisce nella squadra. Durata del feedback: fino a tre settimane\n- Offer & Contract Exhibition: Dopo la nostra offerta di lavoro orale, i punti contrattuali più importanti sono verificati di nuovo. Dopo accordo, il contratto viene commissionato e inviato per posta. Durata del feedback: fino a tre settimane\n\nNota per i fornitori di servizi del personale*\nPer questa posizione, consideriamo solo applicazioni dirette.\n\nGrado di occupazione: 50-60 %",
+        "en": "Place of work: Denner AG, Oftringen Bernstrasse, Bernstrasse 4, 4665 Oftringen\n\nFresh products that deserve their name. Shelves filled. Orders triggered in time. Area clean. Cashier is right. Customers satisfied. This is our store. And soon yours too. Now switch to the new winning team.\n\nLuogo di lavoro: Denner AG, Oftringen Bernstrasse, Bernstrasse 4, 4665 Oftringen\n\n## Important information\nLateral and re-entering are desired.\n\n## Mansioni\n- Depository and accounting\n- Accept fresh produce and of course all other goods, check and fill them on the shelves in your store\n- Checking minimum durability data on products\n- Ensure order and cleanliness in the store and in the warehouse\n- Correctly implement specifications in the store layout\n\n## Requirements\n- Ideally, more than two years of professional experience: in the retail trade (food)\n- Completed vocational apprenticeship (EBA): in the retail trade (food) or related profession would be ideal\n- Ready to work beyond “nine to five” – and enjoy free time when others work\n- Physically fit, some colis are up to 10 pounds heavy\n- Familiar with PC, tablet and smartphone - and with other digital helpers (e.g. for goods management) you quickly make friends\n- Like among people, a good portion of warmth and a positive attitude\n- German (good knowledge)\n\n## Cosa of friamo\n- Part of the Migros Group: Strong brand anchored in the retail trade under the Migros Group umbrella\n- Healthy work: High standards in occupational safety, ergonomics and hygiene.\n- Maternity leave / paternity leave: 5 weeks longer baby break (19 weeks) for mothers at 100% wage. Fathers enjoy the offspring 4 paid weeks.\n- Fair wages: 13 monthly wages and fixed wage increases for all instead of bonuses for a few.\n- Mobile subscription: Spoiled for choice: With Galaxus Mobile, Wingo or Sunrise already from CHF 10.- one or the other really connected.\n- Migros Bank: Better ride on interest and fees of your private, investment or mortgage accounts.\n- Employee offers: 10 percent on the next major purchase (twice a year).\n- Holidays: 6 weeks holidays for all and even more days for service anniversaries.\n- Leisure and cultural offers: Various discounts for car rentals, hotels, events and many more areas.\n\n## Contatto\nApplication and contact * *\nFabienne Contini\nRecruiter sale Mittelland\n\nRecruitment process * *\n\n- Pre-selection of applications: We check applications received on an ongoing basis, create a pre-selection and release them to the manager for viewing. The decision to advance or withdraw from the recruitment process will be communicated by telephone or email. Duration to feedback: Up to three weeks\n- Personal video or telephone conversation: For a large number of applicants, we optionally conduct a personal telephone or video conversation. This gives us the opportunity to get to know more candidates within a short time in order to invite suitable people for the next round. Duration to feedback: Up to one week\n- Test work: A trial day or half day gives the opportunity to get to know the future working environment and the team members better. And conversely, it gives us a chance to assess how well someone fits into the team. Duration to feedback: Up to three weeks\n- Offer & Contract Exhibition: After our oral job offer, the most important contract points are verified again. After agreement, the contract is commissioned and sent by post. Duration to feedback: Up to three weeks\n\nNote for personnel service providers* *\nFor this position, we only consider direct applications.\n\nGrado di occupazione: 50-60 %",
         "de": "Arbeitsort: Denner AG, Oftringen Bernstrasse, Bernstrasse 4, 4665 Oftringen\n\nFrischprodukte, die ihren Namen verdienen. Regale gefüllt. Bestellungen rechtzeitig ausgelöst. Fläche sauber. Kasse stimmt. Kundinnen und Kunden zufrieden. Das ist unser Laden. Und bald auch deiner. Wechsle jetzt ins frische Siegerteam.\n\n**Luogo di lavoro:** Denner AG, Oftringen Bernstrasse, Bernstrasse 4, 4665 Oftringen\n\n## Wichtige Hinweise\nQuer- und Wiedereinsteigende erwünscht.\n\n## Mansioni\n- Kasse bedienen und abrechnen\n- Frischprodukte und natürlich alle anderen Waren annehmen, prüfen und in die Regale in deinem Laden füllen\n- Mindesthaltbarkeitsdaten bei den Produkten kontrollieren\n- Ordnung und Sauberkeit in der Filiale und im Lager sicherstellen\n- Vorgaben im Ladenlayout korrekt umsetzen\n\n## Requisiti\n- Idealerweise mehr als zwei Jahre Berufserfahrung: im Detailhandel (Lebensmittel)\n- Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal\n- Bereit, schon auch mal jenseits von «nine to five» zu arbeiten – und die Freizeit zu geniessen, wenn andere arbeiten\n- Körperlich fit, manche Colis sind bis zu 10 Kilo schwer\n- Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an\n- Gerne unter Menschen, eine gute Portion Herzlichkeit und eine positive Grundhaltung\n- Deutsch (gute Kenntnisse)\n\n## Cosa offriamo\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n- Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.\n- Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr.\n\n## Contatto\n**Bewerbung & Kontakt**\nFabienne Contini\nRecruiter Verkauf Mittelland\n\n**Rekrutierungsprozess**\n\n- Vorselektion der Bewerbungen: Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen\n- Persönliches Video- oder Telefongespräch: Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche\n- Probearbeiten: Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen\n- Angebot & Vertragsausstellung: Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen\n\n**Hinweis für Personaldienstleister**\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 50-60%",
-        "fr": "Des produits frais qui méritent leur nom. Des étagères remplies. Ordres déclenchés à temps. Zone propre. Caissier a raison. Les clients sont satisfaits. C'est notre magasin. Et bientôt le tien aussi. Maintenant, passez à la nouvelle équipe gagnante.\n\n## Mansioni\n- Dépôt et comptabilité\n- Acceptez les produits frais et bien sûr toutes les autres marchandises, vérifiez et remplissez-les sur les étagères de votre magasin\n- Vérification des données minimales de durabilité des produits\n- Assurer l'ordre et la propreté dans le magasin et l'entrepôt\n- Implémenter les spécifications correctement dans la disposition du magasin\n\n## Exigences\n- Idéalement plus de deux ans d'expérience professionnelle: dans le commerce de détail (alimentaire)\n- Apprentissage professionnel achevé (EBA): dans le commerce de détail (alimentaire) ou la profession connexe serait idéal\n- Prête à travailler au-delà de l'unité de travail – et profiter du temps libre lorsque les autres travaillent\n- Physiquement en forme, certains colis sont jusqu'à 10 livres lourds\n- Familiariser avec PC, tablette et smartphone - et avec d'autres aides numériques (par exemple pour la gestion des marchandises) vous vous faites rapidement des amis\n- Comme chez les gens, une bonne partie de la chaleur et une attitude positive\n- Allemand (bonne connaissance)\n\n## Cosa de Friamo\n- Partie du groupe Migros : Une marque forte ancrée dans le commerce de détail sous l'égide du groupe Migros\n- Travail sain : Des normes élevées en matière de sécurité, d'ergonomie et d'hygiène au travail.\n- Congé de maternité / congé de paternité: 5 semaines de congé de maternité (19 semaines) pour les mères à 100% de salaire. Les pères apprécient la progéniture 4 semaines rémunérées.\n- Salaire équitable: 13 salaires mensuels et augmentations de salaire fixes pour tous au lieu de primes pour quelques-uns.\n- Abonnement mobile: Spoiled au choix: Avec Galaxus Mobile, Wingo ou Sunrise déjà à partir de CHF 10.- l'un ou l'autre vraiment connecté.\n- Migros Bank : Mieux vaut payer les intérêts et les frais sur vos comptes privés, d'investissement ou hypothécaires.\n- Offre de l'employé: 10% sur le prochain achat majeur (deux fois par an).\n- Vacances: 6 semaines de vacances pour tous et encore plus de jours pour les anniversaires de service.\n- Loisirs et offres culturelles: Divers rabais pour la location de voitures, hôtels, événements et bien d'autres zones.\n\n## Contatto\n## Demande et contact Fabienne Contini Recruter Sales Mittelland - LinkedIn ## Processus de recrutement Sélection préalable des demandes Nous revoyons continuellement les demandes reçues, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée jusqu'à la rétroaction : Jusqu'à trois semaines Vidéo personnelle ou conversation téléphonique Nous effectuons en option une conversation téléphonique ou vidéo personnelle pour un grand nombre de candidats. Cela nous donne l'occasion d'apprendre à connaître plus de candidats en peu de temps afin d'inviter des personnes appropriées pour le prochain tour. Durée jusqu'à la rétroaction : jusqu'à une semaine de travail d'essai Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée jusqu'à retour d'information : jusqu'à trois semaines d'offre et d'émission de contrat Après notre offre orale, les points contractuels les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé par la poste. Durée jusqu'à la rétroaction : Jusqu'à trois semaines ## Note pour les fournisseurs de services au personnel Pour cette position, nous ne considérons que les demandes directes.\n\n**Grade di occupation:** 50-60 %"
+        "fr": "Lieu de travail: Denner AG, Ostringen Bernstrasse, Bernstrasse 4, 4665 Ostringen\n\nDes produits frais qui méritent leur nom. Des étagères remplies. Ordres déclenchés à temps. Zone propre. Caissier a raison. Clients satisfaits. C'est notre magasin. Et bientôt le tien aussi. Passez maintenant à la nouvelle équipe gagnante.\n\nLuogo di lavoro: Denner AG, Oftringen Bernstrasse, Bernstrasse 4, 4665 Oftringen\n\n## Informations importantes\nLa suite et le retour sont souhaités.\n\n## Mansioni\n- Dépositaire et comptabilité\n- Acceptez les produits frais et bien sûr toutes les autres marchandises, vérifiez et remplissez-les sur les étagères de votre magasin\n- Vérification des données minimales de durabilité des produits\n- Assurer l'ordre et la propreté dans le magasin et dans l'entrepôt\n- Implémenter correctement les spécifications dans la disposition du magasin\n\n## Exigences\n- Idéalement, plus de deux ans d'expérience professionnelle : dans le commerce de détail (alimentaire)\n- Apprentissage professionnel achevé (EBA): dans le commerce de détail (alimentaire) ou la profession connexe serait idéal\n- Prête à travailler au-delà de l'unité de travail – et profiter du temps libre lorsque les autres travaillent\n- Physiquement en forme, certains colis sont jusqu'à 10 livres lourds\n- Familiariser avec PC, tablette et smartphone - et avec d'autres aides numériques (par exemple pour la gestion des marchandises) vous vous faites rapidement des amis\n- Comme chez les gens, une bonne partie de la chaleur et une attitude positive\n- Allemand (bonne connaissance)\n\n## Cosa de friamo\n- Partie du groupe Migros : Une marque forte ancrée dans le commerce de détail sous l'égide du groupe Migros\n- Travail sain: Des normes élevées en matière de sécurité, d'ergonomie et d'hygiène au travail.\n- Congé de maternité / congé de paternité : 5 semaines de congé de maternité (19 semaines) pour les mères à 100% de salaire. Les pères apprécient la progéniture 4 semaines rémunérées.\n- Salaire équitable: 13 salaires mensuels et augmentations de salaire fixes pour tous au lieu de primes pour quelques-uns.\n- Abonnement mobile : porté au choix : Avec Galaxus Mobile, Wingo ou Sunrise déjà à partir de CHF 10.- l'un ou l'autre vraiment connecté.\n- Migros Bank: Mieux vaut rouler sur les intérêts et les frais de vos comptes privés, d'investissement ou hypothécaires.\n- Offre des employés : 10 % sur le prochain achat majeur (deux fois par an).\n- Vacances: 6 semaines de vacances pour tous et encore plus de jours pour les anniversaires de service.\n- Loisirs et offres culturelles: Divers rabais pour la location de voitures, hôtels, événements et beaucoup plus de zones.\n\n## Contatto\n Demande et contact * *\nFabienne Contini\nVente de recruteur Mittelland\n\n Processus de recrutement * *\n\n- Pré-sélection des demandes : Nous vérifions les demandes reçues de façon continue, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancer ou de se retirer du processus de recrutement sera communiquée par téléphone ou par courriel. Durée de la rétroaction : Jusqu'à trois semaines\n- Vidéo ou conversation téléphonique personnelle : Pour un grand nombre de candidats, nous effectuons en option une conversation téléphonique ou vidéo personnelle. Cela nous donne l'occasion d'apprendre à connaître plus de candidats en peu de temps afin d'inviter des personnes appropriées pour le prochain tour. Durée de la rétroaction: Jusqu'à une semaine\n- Travail d'essai : Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et inversement, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée de la rétroaction : Jusqu'à trois semaines\n- Offer & Contract Exhibition: Après notre offre orale, les points de contrat les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé par la poste. Durée de la rétroaction : Jusqu'à trois semaines\n\nNote pour les fournisseurs de services au personnel* *\nPour cette position, nous ne considérons que les demandes directes.\n\nGrade di occupation: 50-60 %"
       },
       "requirements": [
         "Idealerweise mehr als zwei Jahre Berufserfahrung: im Detailhandel (Lebensmittel)",
@@ -18128,7 +18057,6 @@
         "verkaufer-in-denner-16",
         "verkaufer-in-denner-36"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-27T22:21:05.566Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -18951,7 +18879,7 @@
       "slugByLocale": {
         "it": "venditore-con-retribuzione-oraria-denner-zug",
         "en": "hourly-wage-salesperson-denner-zug",
-        "de": "verkaufer-in-im-stundenlohn-denner-zug",
+        "de": "verkaufer-in-im-stundenlohn-denner-zug-2hx21o",
         "fr": "vendeur-eusea-l-heure-denner-zug"
       },
       "company": "Denner",
@@ -19023,7 +18951,8 @@
           "verkaufer-in-im-stundenlohn-denner-zug"
         ],
         "de": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-zug"
         ]
       },
       "needsRetranslation": true,
@@ -20239,7 +20168,7 @@
       "slugByLocale": {
         "it": "venditore-con-retribuzione-oraria-denner-sursee",
         "en": "hourly-wage-salesperson-denner-sursee",
-        "de": "verkaufer-in-im-stundenlohn-denner-sursee",
+        "de": "verkaufer-in-im-stundenlohn-denner-sursee-mgc9um",
         "fr": "vendeur-eusea-l-heure-denner-sursee"
       },
       "company": "Denner",
@@ -20311,7 +20240,8 @@
           "verkaufer-in-im-stundenlohn-denner-sursee"
         ],
         "de": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-sursee"
         ]
       },
       "needsRetranslation": true,
@@ -20820,7 +20750,6 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-urdorf",
-        "seller-denner-ag-urdorf",
         "shop-assistant-denner-urdorf"
       ],
       "needsRetranslation": true,
@@ -21515,7 +21444,6 @@
         "verkaufer-in-denner",
         "verkaufer-in-denner-ag-konolfingen-97uhx7",
         "verkaufer-in-denner-konolfingen",
-        "seller-denner-ag-konolfingen",
         "shop-assistant-denner-konolfingen"
       ],
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
@@ -22649,7 +22577,7 @@
       "slugByLocale": {
         "it": "venditore-denner-sissach",
         "en": "shop-assistant-denner-sissach",
-        "de": "verkaufer-in-denner-sissach",
+        "de": "verkaufer-in-denner-sissach-31lvmi",
         "fr": "vendeur-denner-sissach"
       },
       "company": "Denner",
@@ -22721,7 +22649,8 @@
           "verkaufer-in-denner-sissach"
         ],
         "de": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-sissach"
         ]
       },
       "needsRetranslation": true,
@@ -24070,7 +23999,7 @@
       "slugByLocale": {
         "it": "venditore-con-retribuzione-oraria-denner-steinhausen",
         "en": "hourly-wage-salesperson-denner-steinhausen",
-        "de": "verkaufer-in-im-stundenlohn-denner-steinhausen",
+        "de": "verkaufer-in-im-stundenlohn-denner-steinhausen-dms7sa",
         "fr": "vendeur-eusea-l-heure-denner-steinhausen"
       },
       "company": "Denner",
@@ -24140,7 +24069,8 @@
           "verkaufer-in-im-stundenlohn-denner-steinhausen"
         ],
         "de": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-steinhausen"
         ]
       },
       "needsRetranslation": true,
@@ -24658,7 +24588,7 @@
       "slugByLocale": {
         "it": "venditore-con-retribuzione-oraria-denner-st-gallen",
         "en": "hourly-wage-salesperson-denner-st-gallen",
-        "de": "verkaufer-in-im-stundenlohn-denner-st-gallen",
+        "de": "verkaufer-in-im-stundenlohn-denner-st-gallen-bcenat",
         "fr": "vendeur-eusea-l-heure-denner-st-gallen"
       },
       "company": "Denner",
@@ -24728,7 +24658,8 @@
           "verkaufer-in-im-stundenlohn-denner-st-gallen"
         ],
         "de": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-st-gallen"
         ]
       },
       "needsRetranslation": true,

@@ -112,11 +112,15 @@ import {
   loadGeocodeCache,
   saveGeocodeCache,
   enrichEventsWithGeoComune,
+  hasConfidentPrice,
+  hasParsedPrice,
+  withEventPriceSource,
 } from './lib/events-utils.mjs';
 import { loadCursor, saveCursor, loadGenericCursor, saveGenericCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
 import { fetchEventBookingPrice, supportedEventBookingUrl } from './lib/event-booking-price.mjs';
 import {
   extractEventOfferMetadata,
+  extractStructuredEventPrice,
   parseEventPriceText,
   extractEventPeopleFromText,
   extractEventPeopleFromTitle,
@@ -321,11 +325,16 @@ export function extractCategory(doc, locale) {
   return value || undefined;
 }
 
-/** Price from the "Preis"/"Prezzo"/… accordion, or undefined when absent. */
+/**
+ * Price from the "Preis"/"Prezzo"/… accordion, or undefined when absent. The
+ * accordion is organizer-written tariff text, so a parsed value is stamped
+ * `priceField: 'price-accordion'`: recorded, never reliable on its own.
+ */
 export function extractPrice(doc, locale) {
   const acc = findAccordion(doc, PRICE_LABELS[locale]);
   if (!acc) return undefined;
-  return parseEventPriceText(text(acc));
+  const price = parseEventPriceText(text(acc));
+  return hasParsedPrice(price) ? withEventPriceSource(price, SOURCE.key, 'price-accordion') : price;
 }
 
 /**
@@ -377,11 +386,17 @@ export function mapDetailPageToLocaleData(html, locale, baseUrl) {
     || normalizeEventPeople(titlePeople.performer, SITE_ORIGIN);
 
   const category = extractCategory(doc, locale);
-  const price = extractPrice(doc, locale);
+  // Guidle's structured field is the Event JSON-LD `offers`/`isAccessibleForFree`
+  // (rarely filled); when present it wins over the accordion text.
+  const structuredPrice = occurrences
+    .map((occurrence) => extractStructuredEventPrice(occurrence, baseUrl || occurrence.url || SITE_ORIGIN, SOURCE.key))
+    .find(Boolean);
+  const price = structuredPrice || extractPrice(doc, locale);
   const offerMetadata = occurrences
     .map((occurrence) => extractEventOfferMetadata(occurrence.offers, baseUrl || occurrence.url))
     .find(Boolean);
-  const enrichedPrice = price && offerMetadata ? { ...price, ...offerMetadata } : price;
+  // A structured price already carries the metadata of the Offer it came from.
+  const enrichedPrice = !structuredPrice && price && offerMetadata ? { ...price, ...offerMetadata } : price;
   const { geo, canton } = extractGeoAndCanton(doc);
 
   return {
@@ -453,7 +468,7 @@ export function mapGuidleEvent(code, localeResults) {
       url: primary.url,
       sourceKey: SOURCE.key,
       sourceName: SOURCE.label,
-      price: primary.price,
+      price: LOCALES.map((locale) => localeResults[locale]?.price).find(hasConfidentPrice) || primary.price,
       address: primary.address,
       geo: primary.geo,
       recurring: primary.recurring,
@@ -621,7 +636,8 @@ async function main() {
       const { event, imageSourceUrl, addressLocality, cantonHint } = mapped;
       if (!Number.isFinite(event.price?.amount) && mapped.bookingUrl) {
         const bookingPrice = await fetchEventBookingPrice(event, mapped.bookingUrl);
-        if (bookingPrice) event.price = { ...event.price, ...bookingPrice };
+        // A third-party ticketing page is not a Guidle field: recorded, not reliable.
+        if (bookingPrice) event.price = { ...event.price, ...withEventPriceSource(bookingPrice, SOURCE.key, 'booking-page') };
       }
       const { comune, canton } = resolveComuneNationwide(
         { venue: [event.venue, addressLocality].filter(Boolean).join(' '), title: event.title, region: undefined },

@@ -1,4 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 /**
  * Regression tests for the recency gate in scripts/cf-5xx-issue-sync.mjs
@@ -253,6 +256,120 @@ describe('cf-5xx-issue-sync.mjs — #5231 / #5232 must not be filed', () => {
     // The old label called 24 the number of REQUESTS; the asset served 22,387
     // that day. It is the number of 5xx responses.
     expect(body).toContain('**5xx responses (last 23h):** 24');
+  });
+});
+
+describe('webhook tunnel offline (530) non conia nel sito', () => {
+  // site#8839 / site#8840: il 530 dei due host webhook e' il tunnel senza
+  // connettore (Mac in stop). Decisione del proprietario 2026-10-04: l'allarme
+  // vive in bin/github-coordinator-health.mjs del workspace, non nel sito.
+  // I NEGATIVE CONTROL pinnano che la regola resta UNA coppia (due host, 530).
+  const GH_DEFAULT = 'gh-default.frontaliereticino.ch/github/webhook';
+  const GH_NANAKO = 'gh-nanako.frontaliereticino.ch/github/webhook';
+  const CURRENT_HOUR = '2026-08-06T06:00:00Z';
+
+  /** Una riga `detail` + la sua riga oraria corrente, cosi' il gate di recency la tiene. */
+  function liveReport(rows: Array<{ status: number; url: string; count: number }>) {
+    mockReport({
+      detail: rows,
+      detailByHourComplete: true,
+      detailByHour: rows.map((r) => ({ ...r, hour: CURRENT_HOUR })),
+    });
+  }
+  function createdTitles(): string[] {
+    return createCalls().map((c) => c[c.indexOf('--title') + 1]);
+  }
+
+  it('530 su gh-default con burst corrente: nessuna issue, e il log lo nomina', async () => {
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    liveReport([{ status: 530, url: GH_DEFAULT, count: 5365 }]);
+
+    await cfSync.main();
+
+    expect(createCalls()).toHaveLength(0);
+    const printed = log.mock.calls.map((c) => String(c[0])).join('\n');
+    expect(printed).toContain('cf-5xx webhook tunnel offline');
+    expect(printed).toContain('tunnel_not_ready');
+    expect(printed).toContain(`solo ${cfSync.TUNNEL_OFFLINE_STATUS} del tunnel webhook`);
+    log.mockRestore();
+  });
+
+  it('NEGATIVE CONTROL: stesso URL con 502 conia ancora', async () => {
+    liveReport([{ status: 502, url: GH_DEFAULT, count: 173 }]);
+
+    await cfSync.main();
+
+    expect(createdTitles()).toEqual([`CF 5xx: ${GH_DEFAULT}`]);
+  });
+
+  it('NEGATIVE CONTROL: 503 su gh-default e 502 su gh-nanako coniano, il 530 accanto no', async () => {
+    liveReport([
+      { status: 530, url: GH_NANAKO, count: 1487 },
+      { status: 503, url: GH_DEFAULT, count: 121 },
+      { status: 502, url: GH_NANAKO, count: 40 },
+    ]);
+
+    await cfSync.main();
+
+    // Una issue per ciascuna riga non-530, nessuna per il 530 di gh-nanako.
+    expect([...createdTitles()].sort()).toEqual([`CF 5xx: ${GH_DEFAULT}`, `CF 5xx: ${GH_NANAKO}`].sort());
+    const statuses = createCalls().map((c) => c[c.indexOf('--body') + 1].split('\n')[0]);
+    expect(statuses).not.toContain('**Status:** 530');
+  });
+
+  it('NEGATIVE CONTROL: un 530 su worker-shard o sul CDN conia (la regola non si allarga)', async () => {
+    const shard = 'frontaliereticino.ch/en/jobs/';
+    const cdn = 'cdn.frontaliereticino.ch/assets/app.js';
+    liveReport([
+      { status: 530, url: shard, count: 50 },
+      { status: 530, url: cdn, count: 30 },
+    ]);
+
+    await cfSync.main();
+
+    const titles = createdTitles();
+    expect(titles).toContain(`CF 5xx: ${shard}`);
+    expect(titles).toContain(`CF 5xx: ${cdn}`);
+    expect(cfSync.isTunnelOffline530({ status: 530, url: shard })).toBe(false);
+    expect(cfSync.isTunnelOffline530({ status: '530', url: GH_NANAKO })).toBe(true);
+  });
+
+  it('il body di un 502 webhook assegna la fix al workspace, non al sito', () => {
+    const body = buildIssueBody({ url: GH_DEFAULT, status: 502, count: 173, shape: undefined });
+    expect(body).toContain('**REPO**: workspace');
+    expect(body).toContain('bin/github-webhook-receiver.mjs');
+    expect(body).toContain('bin/github-coordinator-health.mjs');
+    expect(body).not.toContain('**REPO**: sito');
+  });
+
+  it('il triage nomina l\'osservatore a cui e\' passato l\'allarme', () => {
+    const triage = readFileSync(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'docs', 'CF-5XX-TRIAGE.md'), 'utf8');
+    expect(triage).toContain('tunnel_not_ready');
+  });
+
+  it('un 530 dell\'ora del run non tiene vivo un 502 finito ore prima sullo stesso URL', async () => {
+    // Il cron gira alle 03:50 UTC, a Mac quasi sempre in stop: senza filtrare
+    // le righe orarie del 530, `summarizeBursts` (per URL, status mescolati)
+    // vedrebbe l'ultima ora nel 530 e ricommenterebbe il 502 del pomeriggio.
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    mockReport({
+      detail: [
+        { status: 502, url: GH_DEFAULT, count: 40 },
+        { status: 530, url: GH_DEFAULT, count: 300 },
+      ],
+      detailByHourComplete: true,
+      detailByHour: [
+        { status: 502, url: GH_DEFAULT, hour: '2026-08-05T14:00:00Z', count: 40 },
+        { status: 530, url: GH_DEFAULT, hour: CURRENT_HOUR, count: 300 },
+      ],
+    });
+
+    await cfSync.main();
+
+    expect(createCalls()).toHaveLength(0);
+    const printed = log.mock.calls.map((c) => String(c[0])).join('\n');
+    expect(printed).toContain(`skip ${GH_DEFAULT}`);
+    log.mockRestore();
   });
 });
 

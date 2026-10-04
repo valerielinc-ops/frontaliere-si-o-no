@@ -16,6 +16,8 @@
 import { LETTER_FILE_LABEL, safeFileStem } from './assistedApplicationAiDraftCore.js';
 import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
 import { extraDocumentFileName } from './assistedApplicationExtraDocuments.js';
+import { isoDateOf } from './lib/cvPeriod.js';
+import { permitStatement, printedPermitText } from './lib/permitStatus.js';
 
 const text = (value, max = 500) => String(value ?? '').trim().slice(0, max);
 
@@ -70,9 +72,11 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
       website: text(profile.website, 300),
     },
     profile: {
-      dateOfBirth: text(profile.dateOfBirth, 20),
+      // In a form the extension reads (parseDate reads only numeric dates).
+      dateOfBirth: text(isoDateOf(profile.dateOfBirth) || profile.dateOfBirth, 20),
       nationality: text(profile.nationality, 100),
-      workPermit: text(profile.workPermit, 200),
+      // The status the candidate chose, as the portal planner's sentence; nothing chosen: the CV's own words.
+      workPermit: text(profile.permitStatus ? permitStatement(profile.permitStatus, language) : printedPermitText(profile.workPermit), 200),
       availability: text(profile.availability, 200),
       salary: text(answers.salary_expectation, 200),
     },

@@ -1716,9 +1716,9 @@
       "slug": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne",
       "slugByLocale": {
         "it": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne",
-        "en": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne",
+        "en": "specialist-technician-industrial-ffs-officine-ferrovie-federali-biel-bienne",
         "de": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne",
-        "fr": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne"
+        "fr": "technicien-ne-specialise-e-dans-l-industrie-ffs-officine-ferrovie-federali-biel-bienne"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -2362,12 +2362,12 @@
     },
     {
       "id": "sbb-a1445683f5ef",
-      "slug": "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz",
+      "slug": "pianificatore-di-plotone-livello-b2-ffs-officine-ferrovie-federali-muttenz-55d01c",
       "slugByLocale": {
-        "it": "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz",
-        "en": "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz",
+        "it": "pianificatore-di-plotone-livello-b2-ffs-officine-ferrovie-federali-muttenz-55d01c",
+        "en": "platoon-planner-level-b2-ffs-officine-ferrovie-federali-muttenz-55d01c",
         "de": "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz",
-        "fr": "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz"
+        "fr": "planificateur-de-peloton-niveau-b2-ffs-officine-ferrovie-federali-muttenz-55d01c"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -2375,9 +2375,9 @@
       "title": "Zugvorbereiter/in Level B2",
       "titleByLocale": {
         "de": "Zugvorbereiter/in Level B2",
-        "it": "Zugvorbereiter/in Level B2",
-        "en": "Zugvorbereiter/in Level B2",
-        "fr": "Zugvorbereiter/in Level B2"
+        "it": "Pianificatore di Plotone Livello B2",
+        "en": "Platoon Planner Level B2",
+        "fr": "Planificateur de peloton niveau B2"
       },
       "description": "SBB | SBB Cargo International: Zugvorbereiter/in Level B2\n-\n-\n-\nSBB Cargo International ist im europäischen Schienengüterverkehr Marktführer auf der Nord-Süd-Achse. Dank unseren über 1'000 Mitarbeitenden in der Schweiz, Deutschland, den Niederlanden, Italien und Frankreich fahren wir wöchentlich rund 550 Züge von den Nordseehäfen nach Italien und zurück. Dabei verlagern wir tausende Nettotonnen von der Strasse auf die Schiene und leisten einen aktiven Beitrag zu mehr Klimaschutz.\nMöchtest du die Weichen für deine Zukunft neu stellen und Verantwortung im europäischen Güterverkehr übernehmen? Dann werde Teil unseres Teams als\nZugvorbereiter/in Level B2\nin Muttenz\n\n## Ihre Aufgaben\nAls Mitglied des Zugvorbereitungsteams trägst du massgeblich zur Betriebssicherheit bei und führst technische Abgangs- oder Unterwegskontrollen durch. Du prüfst Güterwagen und Ladungen und behebst festgestellte Schäden und Mängel, soweit möglich, selbstständig. Du führst Qualitätskontrollen gemäss AVV / UIC 471-3 (RID) durch und arbeitest eng mit Triebfahrzeugführerinnen und Triebfahrzeugführern, der Leitstelle, externen Partnern sowie den Mitarbeitenden des Rangierteams zusammen. Zudem führst du bei Ereignissen Interventionen an Güterzügen in der Deutschschweiz durch.\n\n## Ihr Profil\nWir wenden uns an eine engagierte und teamfähige Persönlichkeit mit hoher Lösungsorientierung und einer selbstständigen Arbeitsweise. Du verfügst idealerweise über eine Ausbildung als Visiteur/Wagenmeister oder eine vergleichbare technische Ausbildung im Bahnumfeld. Mehrjährige Berufserfahrung sowie Kenntnisse im internationalen Güterverkehr sind erwünscht. Du kommunizierst sicher in Deutsch, sowohl mündlich als auch schriftlich. Italienisch- und Französischkenntnisse sind von Vorteil. Die Bereitschaft zur Schichtarbeit (24/7) sowie ein Führerausweis der Kategorie B werden vorausgesetzt.\n\n## Kontakt\nInteressiert? Weitere Auskünfte erteilen Dir gerne Dominik Spengler +41 79 123 87 15 sowie Gjirokaster Begaj, HR Business Partnerin (gjirokaster.begaj@sbbcargoint.com, Tel. 079 801 14 13).\nWir freuen uns auf deine Bewerbung über den Link auf unserer Website .\nBewerbungen per Post oder E-Mail können wir leider nicht berücksichtigen. Für diese Stelle nehmen wir keine Dossiers von Personalvermittlern entgegen.",
       "descriptionByLocale": {
@@ -2421,11 +2421,19 @@
       "firstSeenAt": "2026-09-08T13:56:26.560Z",
       "previousSlugsByLocale": {
         "it": [
-          "pianificatore-di-plotone-livello-b2-ffs-officine-ferrovie-federali-muttenz-wp5s78"
+          "pianificatore-di-plotone-livello-b2-ffs-officine-ferrovie-federali-muttenz-wp5s78",
+          "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz"
+        ],
+        "en": [
+          "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz"
+        ],
+        "fr": [
+          "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz"
         ]
       },
       "previousSlugs": [
-        "pianificatore-di-plotone-livello-b2-ffs-officine-ferrovie-federali-muttenz-wp5s78"
+        "pianificatore-di-plotone-livello-b2-ffs-officine-ferrovie-federali-muttenz-wp5s78",
+        "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz"
       ],
       "datePosted": "2026-09-29T22:00:00Z",
       "postingDateSource": "reported"

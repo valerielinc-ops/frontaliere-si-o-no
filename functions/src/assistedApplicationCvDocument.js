@@ -4,13 +4,17 @@
  * report-cv-lettera §4; SDBB/CSFO templates, SECO, BIZ Bern). Built in code
  * from the profile (every fact) and the model's sanitized text (headline,
  * summary, competencies, bullets, skills); any renderer prints it as it is.
+ * The personal data are the candidate's own statements, printed from
+ * lib/permitStatus.js: the permit status they chose by its official name, the
+ * nationality with its EU/EFTA tag, the dates the Swiss way.
  *
  * Layout rules measured in the study and kept by every renderer: one real
  * column, the dates on a line under the role (never a date column), "Label:
  * value" pairs on one line, no icons.
  */
 
-import { formatPeriod } from './lib/cvPeriod.js';
+import { formatCvDate, formatPeriod } from './lib/cvPeriod.js';
+import { nationalityCvValue, permitCvValue, printedPermitText } from './lib/permitStatus.js';
 
 export const SECTION_TITLES = {
   de: {
@@ -107,9 +111,14 @@ export function buildCvDocument(cv, { identity, profile = {}, language = 'it', t
   };
   for (const kind of ['experience', 'internships', 'trial', 'jobs', 'volunteer']) if (sections[kind]) content[kind] = { items: sections[kind] };
 
+  const status = profile.permitStatus || '';
   const personal = [
-    ['born', profile.dateOfBirth], ['nationality', profile.nationality], ['permit', profile.workPermit],
-    ['availability', profile.availability], ['licence', profile.drivingLicence],
+    ['born', formatCvDate(profile.dateOfBirth, language)],
+    ['nationality', nationalityCvValue(profile.nationality, { status, language })],
+    // The status the candidate chose, by its official name; nothing chosen: the CV's own words (decisions 2, 3).
+    ['permit', status ? permitCvValue(status, { nationality: profile.nationality, language }) : printedPermitText(profile.workPermit)],
+    ['availability', formatCvDate(profile.availability, language)],
+    ['licence', profile.drivingLicence],
   ].filter(([, value]) => String(value || '').trim()).map(([key, value]) => [labels[key], String(value).trim()]);
 
   return {

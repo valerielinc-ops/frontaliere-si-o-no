@@ -279,6 +279,12 @@ const ignoredRe = GRAPH_IGNORED_RE;
 const githubAssetRe = /^\.github\/.+\.(?:ya?ml|json)$/i;
 const testFixtureRe = /^tests\/.+\.json$/i;
 const assetLiteralRe = /(?:\.github|tests)\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
+// La stessa dipendenza costruita a SEGMENTI: `path.join(ROOT, '.github',
+// 'workflows')` o `path.resolve(__dirname, '..', '.github', 'workflows', 'x.yml')`.
+// La sequenza di letterali consecutivi separati da virgola che inizia con
+// `'.github'` vale come il path unito con `/`.
+const segmentedAssetRe = /(['"])\.github\1(?:\s*,\s*(['"])[A-Za-z0-9._-][A-Za-z0-9._/-]*\2)+/g;
+const segmentLiteralRe = /['"]([^'"]+)['"]/g;
 // Contratti di processo in prosa alla radice del repo. Come gli asset sotto
 // `.github/` non si importano: i test che ne congelano le frasi li aprono per
 // path letterale (`readFileSync(join(ROOT, 'AGENTS.md'))`,
@@ -493,7 +499,11 @@ function importsOf(file, fileSet, assets) {
   // letterale come `` `.github/…/crawler-group-${g}.yml` `` non produce arco, e
   // non serve: quei file non cambiano mai senza `contract.json`, che ne porta
   // gli sha256 ed e' nominato per esteso.
-  for (const [rawLiteral] of code.matchAll(assetLiteralRe)) {
+  const literals = [...code.matchAll(assetLiteralRe)].map((m) => m[0]);
+  for (const [sequence] of code.matchAll(segmentedAssetRe)) {
+    literals.push([...sequence.matchAll(segmentLiteralRe)].map((m) => m[1]).join('/'));
+  }
+  for (const rawLiteral of literals) {
     // La barra finale va tolta: un riferimento costruito per template —
     // `` `.github/workflows/${name}` `` o `'.github/corpus-workflows/' + file` —
     // lascia il letterale con lo slash e senza normalizzazione non matcha.
@@ -537,7 +547,9 @@ function loadGraph(files, assets) {
   // `version` lo copriva una volta sola. Ora l'insieme degli asset entra nella
   // chiave di validità: se cambia, il grafo si ricalcola. La versione 7 segna
   // gli archi verso i contratti di radice (`rootDocContracts`): una entry
-  // della versione 6 non li ha anche quando la firma del sorgente è invariata.
+  // della versione 6 non li ha anche quando la firma del sorgente è invariata. La
+  // versione 8 segna gli archi costruiti a segmenti (`path.join(ROOT, '.github',
+  // 'workflows')`): una entry della versione 7 non li ha.
   const assetsDigest = createHash('sha1').update([...assets].sort().join('\n')).digest('hex');
   try {
     const cached = JSON.parse(readFileSync(graphFile, 'utf8'));
@@ -545,7 +557,7 @@ function loadGraph(files, assets) {
     previousVersion = cached.version || 0;
     previousAssets = cached.assets || null;
   } catch {}
-  const reusable = previousVersion === 7 && previousAssets === assetsDigest;
+  const reusable = previousVersion === 8 && previousAssets === assetsDigest;
   const fileSet = new Set(files);
   // Keep old entries for deleted files: a deleted module can still be a
   // changed root, and its cached reverse edges identify the tests that used
@@ -560,7 +572,7 @@ function loadGraph(files, assets) {
       : { signature: sig, deps: importsOf(file, fileSet, assets) };
   }
   mkdirSync(path.dirname(graphFile), { recursive: true });
-  writeFileSync(graphFile, JSON.stringify({ version: 7, assets: assetsDigest, files: graph }));
+  writeFileSync(graphFile, JSON.stringify({ version: 8, assets: assetsDigest, files: graph }));
   return graph;
 }
 
