@@ -1,8 +1,11 @@
-import { resolveReportedPostingDate } from './job-posting-date.mjs';
+import { compareValidatedPostingDates, resolveReportedPostingDate } from './job-posting-date.mjs';
 
 const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
-/** Normalize only dates actually supplied by an employer; never use crawl time. */
+/**
+ * Normalize only dates actually supplied by an employer; never use crawl time.
+ * @returns {{ datePosted: string, postedDate: string, postingDateSource: 'reported' | 'unknown' }}
+ */
 export function sourcePostingDateFields(raw, now = new Date()) {
   let value = typeof raw === 'string' ? raw.trim() : '';
   const human = /^(\d{1,2}) ([A-Za-z]{3}|Sept) (\d{4})$/.exec(value);
@@ -29,7 +32,7 @@ export function sourcePostingDateCandidatesFields(candidates = [], now = new Dat
 export function mergeSourcePostingDates(previous = {}, fresh = {}, now = new Date()) {
   const before = resolveReportedPostingDate(previous, now);
   const after = resolveReportedPostingDate(fresh, now);
-  const date = before && after ? (Date.parse(before) < Date.parse(after) ? before : after) : before || after;
+  const date = before && after ? (compareValidatedPostingDates(before, after) < 0 ? before : after) : before || after;
   return date
     ? { datePosted: date, postedDate: date, postingDateSource: 'reported' }
     : { datePosted: '', postedDate: '', postingDateSource: 'unknown' };
@@ -49,4 +52,16 @@ export function sourceRssPostingDateFields(raw = '', now = new Date()) {
   const day = sourcePostingDateFields(`${rss[1]} ${rss[2]} ${rss[3]}`, calendarReference).postedDate;
   const zone = /^[+-]/.test(rss[5]) ? `${rss[5].slice(0, 3)}:${rss[5].slice(3)}` : 'Z';
   return sourcePostingDateFields(day ? `${day}T${rss[4]}${zone}` : '', now);
+}
+
+/** Normalize basic ISO offsets only on an explicit source publication field; preserve the full timestamp. */
+export function sourceCompactOffsetPostingDateFields(raw, now = new Date()) {
+  const value = typeof raw === 'string' ? raw.replace(/([+-]\d{2})(\d{2})$/, '$1:$2') : '';
+  return sourcePostingDateFields(value, now);
+}
+
+/** Preserve the source timestamp while projecting the historical calendar-day alias. */
+export function withLegacyPostingDay(fields, now = new Date()) {
+  const publication = mergeSourcePostingDates({}, fields, now);
+  return { ...publication, postedDate: publication.datePosted.slice(0, 10) };
 }

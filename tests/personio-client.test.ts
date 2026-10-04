@@ -143,6 +143,8 @@ describe('rendered page as the published description', () => {
   it('withRenderedPersonioPage keeps the listing record when the page cannot be read', async () => {
     vi.spyOn(globalThis, 'fetch').mockResolvedValueOnce(new Response('gone', { status: 404 }));
     const record = { id: 1, name: 'Role', description: '<p>Listing body</p>' };
-    await expect(withRenderedPersonioPage(record, 'https://x.jobs.personio.com/job/1')).resolves.toEqual(record);
+    await expect(withRenderedPersonioPage(record, 'https://x.jobs.personio.com/job/1')).resolves.toEqual({
+      ...record, datePosted: '', postedDate: '', postingDateSource: 'unknown', postedAt: null,
+    });
   });
 });

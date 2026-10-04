@@ -46,6 +46,7 @@
  *   - detectCategory() / detectEmploymentType() / detectExperienceLevel()
  *   - STRABAG_KEY / STRABAG_COMPANY_NAME / STRABAG_COMPANY_DOMAIN
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -312,12 +313,7 @@ export async function fetchAllStrabagJobs({ fetchPage = fetchHtml } = {}) {
     const workHours = posting.workHours || '';
     const employmentType = detectEmploymentType(title, workHours);
 
-    const postedDate = (() => {
-      const raw = posting.datePosted;
-      if (!raw) return new Date().toISOString().slice(0, 10);
-      const d = new Date(raw);
-      return Number.isNaN(d.getTime()) ? new Date().toISOString().slice(0, 10) : d.toISOString().slice(0, 10);
-    })();
+
 
     let validThrough;
     if (posting.validThrough) {
@@ -362,7 +358,7 @@ export async function fetchAllStrabagJobs({ fetchPage = fetchHtml } = {}) {
       sector: 'Edilizia / Costruzioni',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...sourcePostingDateFields(posting?.datePosted),
       ...(validThrough ? { validThrough } : {}),
       applyUrl: sourceUrl,
       requirements: [],
