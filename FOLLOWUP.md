@@ -18,7 +18,7 @@ Ogni bucket va da `State: collecting` a `State: sealed`. In raccolta non porta `
 
 Ogni item ha ID stabile `FU-YYYY-MM-DD-NNN` e campi `State`, `Sources`, `Target repository`, `Target file`, `Original text`, `Suggested action`, `Acceptance token`. Dedup su `target repository + target file + token/azione normalizzata`; match → accorpa `Sources`. Append concorrenti: rileggi e ricostruisci se la baseline diverge; sealing/demozione anche in commenti append-only.
 
-Il drainer promuove bucket `sealed` con item `open` senza PR che ne dichiari l'ID; `issue-fix` ne seleziona uno per run. PR parziale: `Addresses #<bucket>` + `Follow-up item: FU-YYYY-MM-DD-NNN`, mai `Closes #<bucket>`. Il reconciler chiude solo con tutti gli item validi `done` e provati; body/stato/acceptance/prova non affidabili lasciano aperto.
+Il drainer promuove bucket `sealed` con item `open` senza PR che ne dichiari l'ID; `issue-fix` ne seleziona uno per run. PR parziale: `Addresses #<bucket>` + `Follow-up item: FU-YYYY-MM-DD-NNN`, mai `Closes #<bucket>`. Il reconciler chiude solo con tutti gli item validi `done` e provati; body/stato/acceptance/prova non affidabili lasciano aperto (§ Stati dell'item, scrittori e chiusura).
 
 ## Gate grandchild-suppression (zero-agente, PRIMA del triage)
 
@@ -128,9 +128,26 @@ Conseguenza: senza `- Suggested action:` con token-codice l'item non sopravvive.
 
 Il ramo è in `hasFalsifiableAcceptance()`, condiviso da apertura/chiusura. Item ammesso senza token mantiene `detectAlreadyResolved()` a `false`: allarga il conio, non la chiusura.
 
-**Un token già presente al conio non conferma l'item:** con `FU_ITEM_BORN_SATISFIED` non diventa `done` e blocca il bucket (`born-satisfied-token`).
-
 **Il metro vale sulla tua `Suggested action`, non sul grezzo; il token si DERIVA.** `suggestedActionText()` grezzo include `Original text`, la chiusura no: falso match → `no-valid-item`. `citedTokens()` può dare `["manifest.counts"]` sul grezzo e `[]` sull'item. Aggiungi file/simbolo/campo (`nomeFunzione()`, `oggetto.campo`, `COSTANTE >= 1`), non identificatore/path nudo rifiutato da `isDistinctiveToken()`. Rinuncia solo senza nulla da toccare.
+
+**Token assente oggi.** Il token derivato è ciò che un `grep` troverà DOPO la fix e NON trova oggi nel `Target file`. Se il residuo è già vero su `main`, niente item: motivo `already-on-main` nel commento di triage. **Instradamento dal manifest di mirror** (`routes` del bundle, regola di `bin/where-to-fix`): un file `identical` si conia nel sito col suo `sitePath`; `repo: unknown` → repository della PR con la nota `route-unverified`.
+
+### Ammissione al conio: demozioni e osservazioni
+
+Il gate sul conio passa ogni item a `mintAdmission()` (`scripts/ci/lib/followup-mint-admission.mjs`). I codici sono i valori di `MINT_OBSERVATIONS`, contati nella riga `MINT_GATE_TALLY`. Un item demoto esce dal corpo e resta, integrale, nel commento sulla PR sorgente.
+
+| codice | effetto | quando |
+|---|---|---|
+| `closed-state-bullet` | demozione | l'`Original text` è un bullet già chiuso secondo `nonCandidateVerdict()` (`per scelta`, `in questa PR`, «falso positivo»…); non legge file |
+| `target-file-missing` | demozione | il `Target file` non esiste nel repository del bucket, neanche col nome che gli dà il manifest |
+| `target-in-twin` | annota la demozione | il manifest lo assegna al gemello: il commento nomina repo e path, nessuno spostamento automatico |
+| `target-rewritten` | ammesso, campo riscritto | esiste qui con un altro nome (`identical` → `sitePath`, `engine/` ↔ `packages/articles/engine/`) |
+| `target-identical-in-corpus` | ammesso, contato | bucket del corpus con `Target file` `identical`: si corregge nel sito |
+| `acceptance-already-true` | ammesso + `FU_ITEM_BORN_SATISFIED` | token già vero al conio (stesso oracolo della chiusura); misura, non demozione: `DEMOTE_BORN_SATISFIED = false` |
+| `token-is-declaration` | ammesso, contato | token `nome()` con `nome` solo dichiarato nel file: diventa vero quando una fix lo chiama |
+| `admission-unknown` | ammesso, contato | manifest o lettura non disponibili: mai una demozione |
+
+**Un token già vero al conio non conferma l'item:** con `FU_ITEM_BORN_SATISFIED` non diventa `done` e blocca il bucket (`born-satisfied-token`).
 
 ## Dedup
 
@@ -236,9 +253,36 @@ Tutti `Dropped`/`Skipped` (zero item da QUESTA PR, anche con bucket esistente) �
 
 Per un bucket il veto è item-per-item: body/ID/stato/acceptance/item/token/evidenza invalidi impediscono la chiusura. Chiudi solo con **ogni item valido** `done` e prova `isStrongAutoCloseEvidence()`. Fix parziale: `Addresses #N` + `Follow-up item: FU-...`, mai `Closes #N`. Le label **keep-open/pinned/revenue/tracker/do-not-close** sono veti umani; rimozione dopo il flag = **obiezione umana**. `RECONCILE_NO_AUTOCLOSE=1` torna flag-only. Logica in `tests/reconcile-followups-decision.test.ts`; matcher `issue-fix` in `followup-resolution-match.mjs`, AGENTS.md #6.
 
-**Un verdetto `already-fixed` annota l'item (poi `blocked`), non lo chiude:** un bucket sigillato senza item `open` riceve UNA `FU_BUCKET_VERIFY_REQUEST` con la METRICA, mai una chiusura.
-
 Gap: un refactor senza token non viene flaggato; reconcile cerca token verbatim.
+
+## Stati dell'item, scrittori e chiusura
+
+Lo stato vive nel corpo (`- State:` dell'item), la prova nei commenti come marker: i letterali escono solo da `scripts/ci/lib/followup-item-evidence.mjs` (più `FU_BUCKET_VERIFY_REQUEST` da `scripts/ci/reconcile-followups.mjs`) e contano solo da autori fidati. Stati ammessi dal parser: `open`, `in-progress`, `done`, `blocked`. Ogni transizione automatica ha uno scrittore deterministico:
+
+| transizione | scrittore | condizione |
+|---|---|---|
+| conio → `blocked` | triage (`post-merge-followup.yml`) | bullet `blocked:` con causa non di codice, scritta in `Blocked on:` |
+| `open` → `done` | SOLO il reconciler (`scripts/ci/reconcile-followups.mjs`) | token confermato da `detectAlreadyResolved()` e non nato vero |
+| `open` → `blocked` | `scripts/ci/route-already-fixed.mjs` (post-step del fixer) | `already-fixed` con terna verificata e legata all'item → `awaiting-verification`; secondo `already-fixed` senza prova → `already-fixed-unverified` |
+| `blocked` → `done` | reconciler (`scripts/ci/lib/followup-blocked-recheck.mjs`) | token confermato e non nato vero (marker, o la stessa misura sul file a fine giorno del bucket) |
+| `blocked` → `open` | reconciler, UNA volta per item | commit nuovo su `main` che tocca il `Target file` dopo il blocco; mai con `awaiting-verification` |
+
+Nessun'altra transizione è automatica: `in-progress` non ha scrittore automatico e il gate sul conio non tocca gli item `done`. Una persona può riportare un item a `open` o chiuderlo con evidenza.
+
+`FU_ITEM_BLOCKED` porta un motivo dell'insieme chiuso `ITEM_BLOCKED_REASONS`: `awaiting-verification`, `already-fixed-unverified`, `no-root-cause`, `blocked-admin-settings`. Gli ultimi due sono verdetti non ritentabili del fixer; su `main` nessuno scrittore li emette ancora a grana item.
+
+| marker | scrittore | effetto |
+|---|---|---|
+| `FU_ITEM_ATTEMPT` | `route-already-fixed.mjs`, a ogni esito del fixer sull'item | conta i tentativi: il secondo `already-fixed` senza prova blocca |
+| `FU_ITEM_EVIDENCE` | `route-already-fixed.mjs`, con `awaiting-verification` | PR, commit, run e legame (`target-file`, `source-pr`) da verificare; copre il verdetto per il drainer |
+| `FU_ITEM_BLOCKED` | `route-already-fixed.mjs` | motivo del blocco; copre il verdetto per il drainer |
+| `FU_ITEM_BORN_SATISFIED` | gate sul conio (`acceptance-already-true`); reconciler per i `blocked` coniati prima del marker | quel token non conferma l'item: niente `done`, bucket bloccato (`born-satisfied-token`) |
+| `FU_ITEM_UNBLOCKED` | reconciler, al rientro `blocked` → `open` | rientro speso: l'item non rientra più |
+| `FU_BUCKET_VERIFY_REQUEST` | reconciler, una volta per insieme di item | bucket `sealed` senza item `open`/`in-progress` ma con item non confermati: chiede la verifica con la METRICA |
+
+**Regola di chiusura.** Un bucket si chiude da solo SOLO quando ogni item è `done` confermato da un token non nato vero, con le due conferme in run separate (`maybe-resolved`, poi chiusura) e senza veti. Un verdetto `already-fixed`, una PR mergiata, un commit o una run verde NON chiudono: annotano l'item (poi `blocked`). Un item in attesa di verifica lo chiude una persona con evidenza, misurando la `METRICA` della scheda quando esiste.
+
+**Finestra di gara.** Triage, reconciler e drainer condividono il mutex `followup-daily-<repo>`. `route-already-fixed.mjs` gira nel job del fixer, fuori dal mutex: rilegge titolo e corpo subito prima di scrivere e rinuncia se sono cambiati (un aggiornamento perso costa una run, non un corpo rotto).
 
 ## Routing cross-repository
 
