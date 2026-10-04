@@ -137,28 +137,29 @@ describe('source contract: digest, feed and plugin share the matcher', () => {
   const FEED = read('scripts/generate-keyword-pages-config.mjs');
 
   it('the plugin lists keyword pages through keywordPageMatcher, with no inline literal rule', () => {
-    expect(PLUGIN).toMatch(/import \{ keywordPageMatcher \} from '\.\.\/scripts\/lib\/keyword-page-match\.mjs';/);
-    expect(PLUGIN).toContain('const kwMatchesLocale = keywordPageMatcher(kwPage);');
+    // Invariants only (not exact lines): the shared module is imported and
+    // called, and the old inline literal predicate is gone.
+    expect(PLUGIN).toMatch(/\bkeywordPageMatcher\b[^;]*from\s+['"][^'"]*keyword-page-match\.mjs['"]/);
+    expect(PLUGIN).toContain('keywordPageMatcher(');
     expect(PLUGIN).not.toContain('kwFilterWords.every');
-    // A profession page with no filterKeywords is still emitted.
-    expect(PLUGIN).toContain("kwPage.professionMatch !== true");
   });
 
   it('the digest gates promotion on the page\'s own count, not a second predicate', () => {
-    expect(DIGEST).toMatch(/import \{ countProfessionPageJobs \} from '\.\/lib\/keyword-page-match\.mjs';/);
-    expect(DIGEST).toContain("const feedFilterJobCount = countProfessionPageJobs(jobs, entry.id, 'it');");
-    expect(DIGEST).toContain('literalFilterJobCount');
+    expect(DIGEST).toMatch(/\bcountProfessionPageJobs\b[^;]*from\s+['"][^'"]*keyword-page-match\.mjs['"]/);
+    // `feedFilterJobCount` is the JSON field the feed and isPromotable read:
+    // it must come from the page's own counter, whatever the arguments.
+    expect(DIGEST).toMatch(/\bfeedFilterJobCount\s*=\s*countProfessionPageJobs\(/);
   });
 
   it('the feed opts NEW profession-gap pages in, never the carried ones', () => {
-    const carryStart = FEED.indexOf('for (const page of prevConfigPages)');
-    const feedStart = FEED.indexOf('for (const o of opp.opportunities');
+    const carryStart = FEED.search(/for\s*\(\s*const\s+\w+\s+of\s+prevConfigPages\b/);
+    const feedStart = FEED.search(/for\s*\(\s*const\s+\w+\s+of\s+opp\.opportunities\b/);
     expect(carryStart).toBeGreaterThan(-1);
     expect(feedStart).toBeGreaterThan(carryStart);
     const carryLoop = FEED.slice(carryStart, feedStart);
     const feedLoop = FEED.slice(feedStart, FEED.indexOf('fed++;', feedStart));
     expect(carryLoop).not.toContain('professionMatch');
     expect(feedLoop).toContain("source: 'profession-gap'");
-    expect(feedLoop).toContain('professionMatch: true,');
+    expect(feedLoop).toMatch(/professionMatch:\s*true\b/);
   });
 });

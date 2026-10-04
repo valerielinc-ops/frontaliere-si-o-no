@@ -80,8 +80,9 @@ describe('taxonomy invariants', () => {
     const ids = PROFESSION_TAXONOMY.map((e) => e.id);
     expect(new Set(ids).size).toBe(ids.length);
     for (const entry of PROFESSION_TAXONOMY) {
-      // feedFilter becomes jobsSeoPagesPlugin filterKeywords (ANDed):
-      // exactly one non-empty lowercase substring per profession.
+      // feedFilter becomes jobsSeoPagesPlugin filterKeywords (ANDed on
+      // literal pages; `professionMatch` pages list via the taxonomy
+      // matcher instead): exactly one non-empty lowercase substring.
       expect(entry.feedFilter, entry.id).toBeTruthy();
       expect(entry.feedFilter).toBe(entry.feedFilter.toLowerCase());
       expect(entry.aliases.length, entry.id).toBeGreaterThan(0);
