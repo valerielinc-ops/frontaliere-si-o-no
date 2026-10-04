@@ -11,6 +11,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields, sourcePostingDateCandidatesFields, sourceRssPostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
 import { jsonLdBlocks } from './prospector/extract.mjs';
@@ -257,7 +258,7 @@ function selectCsdJobPostingNode(nodes, { url = '', title = '' } = {}, renderedT
  * not need a second, subtly different JSON-LD implementation.
  *
  * @param {{ url?: string, title?: string } | string} expectedDetail
- * @returns {{ city: string, postalCode: string, street: string, description: string, employmentType: string, datePosted: string } | null}
+ * @returns {{ city: string, postalCode: string, street: string, description: string, employmentType: string, datePosted: string, postedDate: string, postingDateSource: string } | null}
  */
 export function parseCsdDetailPage(html = '', expectedDetail = {}) {
   if (!html || typeof html !== 'string') return null;
@@ -276,6 +277,12 @@ export function parseCsdDetailPage(html = '', expectedDetail = {}) {
   // entity-escaped JSON syntax remains parseable. The first pass decodes those
   // entities; the second pass strips the HTML tags they reveal.
   const description = data.description ? stripHtml(stripHtml(data.description)) : '';
+  const identities = structuredUrlValues(data);
+  const pageIdentity = canonicalDetailUrl(expected.url);
+  // A title-only or singleton selection does not establish publication identity.
+  const sameVacancy = pageIdentity && identities.length > 0 && identities.every((value) =>
+    typeof value === 'string' && canonicalDetailUrl(value, expected.url) === pageIdentity);
+  const publication = sourcePostingDateFields(sameVacancy ? data.datePosted : '');
 
   return {
     city: normalizeSpace(address.addressLocality || ''),
@@ -283,13 +290,13 @@ export function parseCsdDetailPage(html = '', expectedDetail = {}) {
     street: normalizeSpace(address.streetAddress || ''),
     description: description.length >= 50 ? description : '',
     employmentType: normalizeSpace(data.employmentType || ''),
-    datePosted: normalizeSpace(data.datePosted || ''),
+    ...publication,
   };
 }
 
 /**
  * Fetch a detail page and extract structured data from JSON-LD.
- * Returns { city, postalCode, street, description, employmentType, datePosted } or null.
+ * Returns location/body metadata and the verified publication tuple, or null.
  */
 async function fetchDetailPage(url, title = '') {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15_000;
@@ -393,15 +400,11 @@ export async function fetchAllCsdEngineersJobs() {
     const jobSlug = slugify(`${title} csd-engineers ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    // Parse date from RSS pubDate or JSON-LD datePosted
-    let postedDate = '';
-    if (detail?.datePosted) {
-      postedDate = detail.datePosted.split('T')[0];
-    } else if (item.pubDate) {
-      try {
-        postedDate = new Date(item.pubDate).toISOString().split('T')[0];
-      } catch { /* fallback below */ }
-    }
+    // Validate independent publication evidence; invalid detail must not mask RSS.
+    const publication = sourcePostingDateCandidatesFields([
+      detail?.datePosted,
+      sourceRssPostingDateFields(item.pubDate).datePosted,
+    ]);
 
     const job = {
       // ── Required fields ──
@@ -435,7 +438,7 @@ export async function fetchAllCsdEngineersJobs() {
       sector: 'Ingegneria / Ambiente',
       currency: 'CHF',
       featured: false,
-      postedDate: postedDate || new Date().toISOString().split('T')[0],
+      ...publication,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
