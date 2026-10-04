@@ -94,7 +94,7 @@ import {
   selectFirstOpenItem,
 } from './followup-resolution-match.mjs';
 import { parseItemMarkers } from './lib/followup-item-evidence.mjs';
-import { decomposedIntoNumbers, reopenedAfterDecomposition } from './lib/parent-close-recurrence.mjs';
+import { decomposedChildNumbers, reopenedAfterDecomposition } from './lib/parent-close-recurrence.mjs';
 import { isTrustedAuthor } from './route-already-fixed.mjs';
 
 export {
@@ -594,21 +594,11 @@ export function isDecomposedParent(iss) {
   return names(iss).includes(LBL_DECOMPOSED);
 }
 
-/**
- * Numeri delle sub-issue dichiarate dall'ULTIMO marker `DECOMPOSED_INTO` nei
- * commenti (l'ultimo vince: una decomposizione corretta a mano sovrascrive la
- * precedente). Dedup, ordina, ignora garbage. Pura → testabile.
- * @param {Array<{body?: string}>} comments
- * @returns {number[]}
- */
-export function decomposedChildNumbers(comments) {
-  let nums = null;
-  for (const c of comments || []) {
-    const parsed = decomposedIntoNumbers(c?.body);
-    if (parsed.length) nums = parsed;
-  }
-  return nums || [];
-}
+// `decomposedChildNumbers` (l'ULTIMO marker `DECOMPOSED_INTO` vince) vive in
+// `./lib/parent-close-recurrence.mjs` ed è ri-esportata qui per i chiamanti
+// esistenti: `decompose-route-check.mjs` la importa dal modulo puro senza
+// trascinare il grafo di import del drainer nel job `decompose`.
+export { decomposedChildNumbers };
 
 // Age-out close: il post-merge-followup apre 1 follow-up per PR mergiata e
 // NESSUN workflow le chiude mai → ratchet monotòno (osservate 41 aperte). Un

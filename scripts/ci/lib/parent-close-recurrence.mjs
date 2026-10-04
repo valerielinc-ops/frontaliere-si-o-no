@@ -44,6 +44,24 @@ export function decomposedIntoNumbers(body) {
   )].sort((a, b) => a - b);
 }
 
+/**
+ * Numeri delle sub-issue dichiarate dall'ULTIMO marker `DECOMPOSED_INTO` nei
+ * commenti (l'ultimo vince: una decomposizione corretta a mano sovrascrive la
+ * precedente). Dedup, ordina, ignora garbage. Vive qui, e il drainer la
+ * ri-esporta, perché anche `decompose-route-check.mjs` la usa: importarla dal
+ * drainer porterebbe tutto il suo grafo di import nel job `decompose`.
+ * @param {Array<{body?: string}> | null | undefined} comments
+ * @returns {number[]}
+ */
+export function decomposedChildNumbers(comments) {
+  let nums = null;
+  for (const c of comments || []) {
+    const parsed = decomposedIntoNumbers(c?.body);
+    if (parsed.length) nums = parsed;
+  }
+  return nums || [];
+}
+
 /** Millisecondi epoch di `createdAt`, o `null` se manca o non è parsabile. */
 function createdAtMs(comment) {
   const raw = comment?.createdAt;
