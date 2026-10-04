@@ -25,7 +25,7 @@ import { htmlToMarkdown } from './axpo-job-parser.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
-import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { sourcePostingDateFields, sourceCompactOffsetPostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { extractJobPostingDescription, extractJobPostingField } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -214,7 +214,7 @@ async function fetchJobListings() {
         rawLocation: normalizeSpace(raw?.location || raw?.cityStateCountry || raw?.city || ''),
         url,
         applyUrl: raw.applyUrl || url,
-        ...sourcePostingDateFields(typeof raw.postedDate === 'string' ? raw.postedDate.replace(/([+-]\d{2})(\d{2})$/, '$1:$2') : ''),
+        ...sourceCompactOffsetPostingDateFields(raw.postedDate),
         description: raw.descriptionTeaser || '',
         jobReqId: jobId,
         category: raw.category || (Array.isArray(raw.multi_category) ? raw.multi_category[0] : ''),
