@@ -12527,6 +12527,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-04.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 4. Oktober 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-10-04.seoDescription': 'Grenzgänger-Bulletin vom 4. Oktober 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-10-04.ogDescription': 'Die Zahlen vom 4. Oktober 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.sindacati-miazzina-diritti-9-ottobre.title': 'Miazzina, Gewerkschaften am 9 ottobre: \'Wir fordern Respekt\'',
+    'blog.article.sindacati-miazzina-diritti-9-ottobre.excerpt': 'Gewerkschaftliche Mobilisierung am 9. Oktober um 14 Uhr im Eremo di Miazzina, initiiert von Cgil Novara Vco, Cisl Piemonte Orientale und Uil Novara Vco, zu den Themen Arbeit, Betreuung und Unterstützung der Familien.',
+    'blog.article.sindacati-miazzina-diritti-9-ottobre.imageAlt': 'Gewerkschaftsdemonstration in der Einsiedelei von Miazzina mit Bannern, die Respekt für Arbeitnehmer, Pflegebedürftige und Familien fordern.',
 };
 
 export default blogMetaDe;

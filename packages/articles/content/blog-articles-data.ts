@@ -37588,6 +37588,16 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'sindacati-miazzina-diritti-9-ottobre',
+ category: 'novita',
+ date: '2026-10-04T11:20:31.538Z',
+ image: '/images/blog/sindacati-miazzina-diritti-9-ottobre.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
