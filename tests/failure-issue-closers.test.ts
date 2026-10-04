@@ -458,7 +458,7 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       ].join('\n'),
       'w.yml',
     );
-    expect(coverageOf(record.openers[0], record)?.detail).toBeTruthy();
+    expect(coverageOf(record.openers[0], record)).toBeNull();
   });
 
   it('la stessa forma con un gemello `--resolve` a titolo identico nel workflow è coperta da quello', () => {

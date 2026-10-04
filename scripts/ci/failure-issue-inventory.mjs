@@ -380,13 +380,11 @@ export function coverageOf(opener, record) {
     // chiude gia': coperto, a prescindere dalla firma.
     if (record.closers.some((c) => c.title === opener.title)) return { by: 'sibling-resolve-step' };
     // `--resolve` esamina solo le issue con la firma dello scanner nel body.
-    // Un opener che non la dichiara SEMBRA coperto dalla forma del titolo e non
-    // si chiude: lo stesso caso peggiore del nome che `gh run list` non risolve.
-    if (opener.signature === JOB_TIMEOUT_REPORT_SIGNATURE) return { by: SCOPED_TIMEOUT_CLOSER };
-    return {
-      by: SCOPED_TIMEOUT_CLOSER,
-      detail: `titolo della famiglia \`CI Failure (<evento>)\` senza la firma \`${JOB_TIMEOUT_REPORT_SIGNATURE}\` nel body → \`--resolve\` non la tocca`,
-    };
+    // Un opener che non la dichiara SEMBRA coperto dalla forma del titolo ma
+    // non si chiude: l'inventory deve restituirlo come scoperto, non inventare
+    // un `closedBy` con un dettaglio diagnostico.
+    if (opener.signature !== JOB_TIMEOUT_REPORT_SIGNATURE) return null;
+    return { by: SCOPED_TIMEOUT_CLOSER };
   }
   if (record.closers.some((c) => c.title === opener.title)) {
     return { by: 'sibling-resolve-step' };

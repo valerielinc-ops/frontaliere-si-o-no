@@ -453,7 +453,11 @@ describe('resolveScopedTimeoutIssues — il cablaggio con `gh`', () => {
     expect(commentOnGithubIssue).toHaveBeenCalledTimes(1);
     expect(commentOnGithubIssue.mock.calls[0][0]).toBe(10809);
     expect(commentOnGithubIssue.mock.calls[0][1]).toContain(RUN_URL(37133614819));
-    expect(resolveGithubIssue).toHaveBeenCalledWith(TITLE_10809, expect.objectContaining({ exactTitle: true, workflow: WF }));
+    expect(resolveGithubIssue).toHaveBeenCalledWith(TITLE_10809, expect.objectContaining({
+      exactTitle: true,
+      issueNumber: 10809,
+      workflow: WF,
+    }));
     // Il listing delle run è quello della popolazione: stesso workflow, stesso evento.
     const listCall = execFileSync.mock.calls.find(([, a]) => a[0] === 'run' && a[1] === 'list')![1];
     expect(listCall).toEqual(expect.arrayContaining(['-w', WF, '-e', 'pull_request', '-s', 'completed']));

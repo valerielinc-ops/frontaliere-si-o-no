@@ -1199,9 +1199,9 @@ export async function resolveScopedTimeoutIssues({ dryRun = DRY_RUN, nowMs = Dat
       console.log(`[scan-job-timeouts] --resolve: ${tag} → keep (label ${exempt})`);
       continue;
     }
-    // `resolveGithubIssue` chiude per TITOLO la piu' recente fra le aperte: con due
-    // gemelle chiuderebbe quella che non e' stata valutata (firma, label, apertura).
-    // Le gemelle restano aperte e si dice perche'; il listing e' gia' in memoria.
+    // Le gemelle gia' visibili restano aperte e si dice perche'; il listing e' in
+    // memoria. Se una gemella nasce nella race dopo questo controllo, il resolver
+    // riceve comunque il numero valutato e non puo' reindirizzare la chiusura.
     const twins = issues.filter((other) => other?.title === issue.title);
     if (twins.length > 1) {
       console.log(
@@ -1267,6 +1267,7 @@ export async function resolveScopedTimeoutIssues({ dryRun = DRY_RUN, nowMs = Dat
     }
     try {
       const result = resolveGithubIssue(issue.title, {
+        issueNumber: issue.number,
         workflow,
         runUrl: decision.counted[0]?.run?.url,
         exactTitle: true,
