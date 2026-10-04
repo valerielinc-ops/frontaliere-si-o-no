@@ -37538,6 +37538,16 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vescovi-openjobmetis-della-valle',
+ category: 'novita',
+ date: '2026-10-04T07:52:54.137Z',
+ image: '/images/blog/vescovi-openjobmetis-della-valle.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -12512,6 +12512,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fondazione-morandini-eventi-ottobre-2026.title': 'Eventi ottobre 2026: Fondazione Morandini a Varese',
     'blog.article.fondazione-morandini-eventi-ottobre-2026.excerpt': 'La Fondazione Marcello Morandini di Varese propone quattro appuntamenti a ottobre 2026, tra visite, concerto, catalogo e laboratorio, a corredo della mostra \'Antonio Barrese: Morfologie di luce\' aperta fino al 20 dicembre 2026.',
     'blog.article.fondazione-morandini-eventi-ottobre-2026.imageAlt': 'Interno della Fondazione Marcello Morandini a Varese con installazioni luminose della mostra \'Antonio Barrese: Morfologie di luce\'.',
+    'blog.article.vescovi-openjobmetis-della-valle.title': 'Cecco vescovi: della valle uomo chiave openjobmetis',
+    'blog.article.vescovi-openjobmetis-della-valle.excerpt': 'Cecco Vescovi, ospite a «Luci a Masnago», ha analizzato la sconfitta della Openjobmetis Varese contro la Virtus Bologna, sottolineando le assenze e il ruolo chiave di Della Valle.',
+    'blog.article.vescovi-openjobmetis-della-valle.imageAlt': 'Azione di gioco durante una partita di basket in un palazzetto dello sport, con giocatori in movimento e pubblico sugli spalti.',
 };
 
 export default blogMetaIt;

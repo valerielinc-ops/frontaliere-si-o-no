@@ -12511,6 +12511,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fondazione-morandini-eventi-ottobre-2026.title': 'October 2026 events: Fondazione Morandini in Varese',
     'blog.article.fondazione-morandini-eventi-ottobre-2026.excerpt': 'The Marcello Morandini Foundation of Varese is offering four events in October 2026, including visits, a concert, a catalogue and a workshop, accompanying the exhibition \'Antonio Barrese: Morphologies of Light\' open until December 20, 2026.',
     'blog.article.fondazione-morandini-eventi-ottobre-2026.imageAlt': 'Interior of the Marcello Morandini Foundation in Varese with light installations from the \'Antonio Barrese: Morfologie di luce\' exhibition.',
+    'blog.article.vescovi-openjobmetis-della-valle.title': 'Cecco Vescovi: Della Valle is the key man for Openjobmetis',
+    'blog.article.vescovi-openjobmetis-della-valle.excerpt': 'Cecco Vescovi, a guest on «Luci a Masnago», analyzed the defeat suffered by Openjobmetis Varese against Virtus Bologna, emphasizing the absences and Della Valle\'s key role.',
+    'blog.article.vescovi-openjobmetis-della-valle.imageAlt': 'Basketball game action in an indoor sports arena, with players in motion and spectators in the stands.',
 };
 
 export default blogMetaEn;
