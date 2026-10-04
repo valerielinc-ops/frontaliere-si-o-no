@@ -95,6 +95,63 @@ const INLINE_HTML_ENTITY_MAP: Record<string, string> = {
  apos: "'",
 };
 
+type AngleNavToken = {
+ start: number;
+ end: number;
+ action: string;
+ closing: boolean;
+};
+
+const protectMismatchedAngleNavSequences = (line: string): {
+ normalized: string;
+ protectedSequences: string[];
+} => {
+ const tokens: AngleNavToken[] = Array.from(line.matchAll(ANGLE_NAV_TOKEN_RX), (match) => {
+  const start = match.index ?? 0;
+  const raw = match[0];
+  return {
+   start,
+   end: start + raw.length,
+   action: match[1],
+   closing: raw.startsWith('</'),
+  };
+ });
+ const mismatchedRanges: Array<[number, number]> = [];
+ const stack: AngleNavToken[] = [];
+
+ for (const token of tokens) {
+  if (!token.closing) {
+   stack.push(token);
+   continue;
+  }
+
+  const opening = stack.at(-1);
+  if (!opening) continue;
+  if (opening.action.toLowerCase() === token.action.toLowerCase()) {
+   stack.pop();
+   continue;
+  }
+
+  // A mismatched close makes the whole open-to-close region ambiguous. Keep
+  // it intact so the cleanup below cannot silently rewrite indexed copy.
+  mismatchedRanges.push([stack[0]!.start, token.end]);
+  stack.length = 0;
+ }
+
+ if (!mismatchedRanges.length) return { normalized: line, protectedSequences: [] };
+
+ const protectedSequences: string[] = [];
+ let normalized = line;
+ for (let i = mismatchedRanges.length - 1; i >= 0; i--) {
+  const [start, end] = mismatchedRanges[i];
+  const token = `\u0000legacy-angle-nav-sequence-${protectedSequences.length}\u0000`;
+  protectedSequences.push(line.slice(start, end));
+  normalized = normalized.slice(0, start) + token + normalized.slice(end);
+ }
+
+ return { normalized, protectedSequences };
+};
+
 const canonicalLegacyAngleNavAction = (action: string): string | null => {
  const normalized = action.toLowerCase();
  return LEGACY_ANGLE_NAV_ACTIONS.has(normalized) ? normalized : null;
@@ -102,7 +159,11 @@ const canonicalLegacyAngleNavAction = (action: string): string | null => {
 
 /** Convert only the observed legacy angle aliases to the supported nav marker. */
 const normalizeLegacyAngleNavMarkers = (line: string): string => {
- let normalized = line.replace(ANGLE_NAV_TAG_PAIR_RX, (whole, action: string, label: string) => {
+ const protectedResult = protectMismatchedAngleNavSequences(line);
+ const { protectedSequences } = protectedResult;
+ let normalized = protectedResult.normalized;
+
+ normalized = normalized.replace(ANGLE_NAV_TAG_PAIR_RX, (whole, action: string, label: string) => {
   const canonicalAction = canonicalLegacyAngleNavAction(action);
   if (!canonicalAction) return whole;
   const visibleLabel = label.trim();
@@ -118,8 +179,14 @@ const normalizeLegacyAngleNavMarkers = (line: string): string => {
   canonicalLegacyAngleNavAction(action) ? '' : whole
  ));
 
- return normalized.replace(ANGLE_NAV_TOKEN_RX, (whole, action: string) => (
+ // Only tokens left outside protected malformed sequences reach this cleanup;
+ // an allowlisted token is therefore safe to remove only when it is standalone.
+ normalized = normalized.replace(ANGLE_NAV_TOKEN_RX, (whole, action: string) => (
   canonicalLegacyAngleNavAction(action) ? '' : whole
+ ));
+
+ return normalized.replace(/\u0000legacy-angle-nav-sequence-(\d+)\u0000/g, (_, index: string) => (
+  protectedSequences[Number(index)] ?? _
  ));
 };
 
