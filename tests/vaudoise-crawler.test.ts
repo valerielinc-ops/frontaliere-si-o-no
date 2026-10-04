@@ -435,6 +435,15 @@ describe('Vaudoise Assurances crawler parser', () => {
     const detailHtml = `<script type="application/ld+json">{"@type":"JobPosting","description":"<p>${longDetailDesc}</p>"}</script>`;
     const detailFetcher = async () => detailHtml;
 
+    it('preserves an explicit detail publication timestamp instead of the ambiguous display date', async () => {
+      const date = new Date(Date.now() - 86400000).toISOString();
+      const { runtime } = makeRuntime([{ title: 'Product Manager', url: '../job/64653009/Product-Manager', location: 'Lausanne', postedDate: '5/8/26', id: '64653009', audience: 'Expérimenté', jobCategory: 'Prévoyance' }]);
+      const jobs = await fetchAllVaudoiseJobs({ _runtime: async () => runtime,
+        _detailFetcher: async () => `<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', description: longDetailDesc, datePosted: date })}</script>` });
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({ datePosted: date, postedDate: date, postingDateSource: 'reported' });
+    });
+
     it('builds NormalizedJob shape from a Softgarden row', async () => {
       const row: RowShape = {
         title: 'Product Manager/in Vorsorge (m/w/d) - 80-100%',
@@ -463,7 +472,8 @@ describe('Vaudoise Assurances crawler parser', () => {
       expect(job.country).toBe('CH');
       expect(job.url).toBe('https://vaudoise.softgarden.io/job/64653009/Product-Manager-in-Vorsorge');
       expect(job.applyUrl).toBe(job.url);
-      expect(job.postedDate).toBe('5/8/26');
+      // Ambiguous listing display date is not evidence; the detail fixture is undated.
+      expect(job).toMatchObject({ postedDate: '', datePosted: '', postingDateSource: 'unknown' });
       expect(job.experienceLevel).toBe('senior');
       // Title has "80-100%" → part-time bracket
       expect(job.employmentType).toBe('PART_TIME');
