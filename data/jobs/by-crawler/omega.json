@@ -308,7 +308,7 @@
       "companyDomain": "omegawatches.com",
       "title": "Solution Architect ANAPLAN / Model Builder ANAPLAN",
       "titleByLocale": {
-        "it": "Solution Architect ANAPLAN / Model Builder ANAPLAN",
+        "it": "Soluzione Architect ANAPLAN / Model Builder ANAPLAN",
         "en": "ANAPLAN Architect Solution / Model Builder ANAPLAN",
         "de": "ANAPLAN Architektenlösung / Modellbauer ANAPLAN",
         "fr": "Solution Architecte ANAPLAN / Model Builder ANAPLAN"
@@ -354,7 +354,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:17:44.352Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -367,7 +366,8 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "omega-33154",
