@@ -6,6 +6,7 @@ import {
   runL4,
   validateAlertReturn,
 } from '../scripts/ci/loop-l4-alert-return.mjs';
+import { updateSnoozeState } from '../scripts/lib/alerts/snoozer.mjs';
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
 
@@ -190,5 +191,54 @@ describe('L4 Alert → Return', () => {
       logger: { log() {} },
     })).rejects.toThrow('issue service unavailable');
     expect(fs.existsSync(path.join(reportDir, 'l4-result.json'))).toBe(false);
+  });
+});
+
+describe('L4 Alert to Return: snoozedUntil null dello snoozer rifiutato dal validatore', () => {
+  // The writer is the real snoozer, not a fixture: an alert counted for fewer
+  // days than the threshold is stored with `snoozedUntil: null` ("not snoozed"),
+  // one that reached it gets a date. Both shapes must pass the validator.
+  const day = (iso: string) => Date.parse(`${iso}T00:00:00Z`);
+
+  function snoozerState(daysFired: number) {
+    let state = { version: 1, snoozes: {} as Record<string, unknown> };
+    const alerts = [{ id: 'B.2.gsc-fetch-failure' }];
+    for (let i = 0; i < daysFired; i += 1) {
+      state = updateSnoozeState(state, alerts, config(), { now: day('2026-09-10') + i * 86_400_000 });
+    }
+    return state;
+  }
+
+  it('accepts the counted-but-not-snoozed rows the snoozer writes (snoozedUntil: null)', () => {
+    const state = snoozerState(2);
+    expect(state.snoozes['B.2.gsc-fetch-failure']).toMatchObject({ consecutiveDays: 2, snoozedUntil: null });
+    const verdict = validateAlertReturn({ config: config(), snoozes: state, outcomes: outcomes() }, { now: NOW });
+    expect(verdict.issues).toEqual([]);
+    expect(verdict.candidates).toEqual([]);
+    expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
+  });
+
+  it('accepts the snoozed rows the snoozer writes once the threshold is reached', () => {
+    const state = snoozerState(config().snooze_after_consecutive_days);
+    expect(state.snoozes['B.2.gsc-fetch-failure']).toMatchObject({ snoozedUntil: expect.any(String) });
+    const verdict = validateAlertReturn({ config: config(), snoozes: state, outcomes: outcomes() }, { now: NOW });
+    expect(verdict.issues).toEqual([]);
+  });
+
+  it('still rejects a missing, malformed or contradictory snoozedUntil', () => {
+    const state = {
+      version: 1,
+      snoozes: {
+        'a.missing': { consecutiveDays: 1, lastSeen: '2026-09-11' },
+        'b.garbage': { consecutiveDays: 1, lastSeen: '2026-09-11', snoozedUntil: 'not-a-date' },
+        'c.threshold': { consecutiveDays: config().snooze_after_consecutive_days, lastSeen: '2026-09-11', snoozedUntil: null },
+      },
+    };
+    const verdict = validateAlertReturn({ config: config(), snoozes: state, outcomes: outcomes() }, { now: NOW });
+    expect(verdict.ok).toBe(false);
+    expect(verdict.candidates.map((candidate: { key: string }) => candidate.key)).toEqual(['a.missing', 'b.garbage', 'c.threshold']);
+    expect(verdict.issues.join('\n')).toContain('snoozes.a.missing: snoozedUntil is missing or invalid');
+    expect(verdict.issues.join('\n')).toContain('snoozes.b.garbage: snoozedUntil is missing or invalid');
+    expect(verdict.issues.join('\n')).toContain('snoozes.c.threshold: snoozedUntil is null although consecutiveDays reached the snooze threshold');
   });
 });

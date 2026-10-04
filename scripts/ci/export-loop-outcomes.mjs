@@ -982,6 +982,9 @@ export function buildL4OutcomeLedger({
 
   const eligibleAlerts = new Map();
   const consentedAlerts = new Map();
+  // Every alert row read, consented or not: tells a delivery whose alert row
+  // is gone apart from one whose alert exists but has no consent.
+  const knownAlertKeys = new Set();
   let consentChecked = true;
   let suppressedWithoutConsent = 0;
   for (const row of alertRows) {
@@ -998,6 +1001,7 @@ export function buildL4OutcomeLedger({
       consent = { allowed: false, reason: 'consent-evaluation-failed' };
     }
     const alertKey = buildAlertKey(email, child.childId);
+    knownAlertKeys.add(alertKey);
     if (consent?.allowed === true) {
       // Delivery attribution is historical: an alert can be paused, deleted or
       // suppressed after a message was sent without invalidating the consent
@@ -1026,6 +1030,12 @@ export function buildL4OutcomeLedger({
     missingAlertId: 0,
     missingSentAt: 0,
     noConsentedAlert: 0,
+  };
+  // Diagnostic split of noConsentedAlert (counts only). It never attributes a
+  // row: both causes keep consentChecked/deduplicationChecked false.
+  const noConsentedAlertCauses = {
+    alertRowMissing: 0,
+    consentNotAllowed: 0,
   };
   let quietHoursEvidenceComplete = true;
   let deliveryRowCount = 0;
@@ -1072,7 +1082,11 @@ export function buildL4OutcomeLedger({
       incrementCount(unattributedDeliveryShapes, String(alertId.length));
       if (!alertId) unattributedDeliveryReasons.missingAlertId += 1;
       else if (sentAt == null) unattributedDeliveryReasons.missingSentAt += 1;
-      else unattributedDeliveryReasons.noConsentedAlert += 1;
+      else {
+        unattributedDeliveryReasons.noConsentedAlert += 1;
+        if (knownAlertKeys.has(key)) noConsentedAlertCauses.consentNotAllowed += 1;
+        else noConsentedAlertCauses.alertRowMissing += 1;
+      }
       continue;
     }
     const deliveryId = row.name || `${email}/${child.childId}`;
@@ -1162,6 +1176,7 @@ export function buildL4OutcomeLedger({
       externalDeliveryUntouched: true,
       unattributedDeliveries,
       unattributedDeliveryReasons,
+      noConsentedAlertCauses,
       unattributedDeliveryShapes,
       deliveryRows: deliveryRowCount,
       deliveryRowsByProvider,

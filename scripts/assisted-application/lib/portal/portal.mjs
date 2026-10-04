@@ -29,6 +29,8 @@ import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
 import { holdsValue, planPage } from './plan.mjs';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
+import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
+import { permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, findButton, locatorFor } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { awaitCaptcha, CAPTCHA_TIMEOUT_MS, launchNopechaContext } from './nopecha.mjs';
@@ -128,13 +130,17 @@ export function slugId(text) {
     .replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 50) || 'question';
 }
 
-/** What the planner may use, with the alias as the e-mail (candidateIdentity). */
-export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [] }) {
+/**
+ * What the planner may use, with the alias as the e-mail (candidateIdentity).
+ * `language`: the form's, for the candidate's Swiss status as a full sentence.
+ */
+export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it' }) {
   const parts = String(identity.name || '').trim().split(/\s+/);
   // The split the candidate chose on the review page, else the last word is the surname.
   const chosen = typeof identity.firstName === 'string';
   const latest = (profile.experience || [])[0] || {};
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
+  const status = profile.permitStatus || '';
   return {
     identity: {
       fullName: identity.name,
@@ -158,12 +164,19 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
       languages: profile.languages || [],
       education: (profile.education || []).slice(0, 4)
         .map(({ degree = '', institution = '', start = '', end = '' }) => ({ degree, institution, start, end })),
-      workPermit: profile.workPermit || '',
+      // Nothing chosen: the CV's own words, never a permit to come nor «no permit» (lib/permitStatus.js).
+      workPermit: status ? '' : printedPermitText(profile.workPermit),
       availability: profile.availability || '',
-      dateOfBirth: profile.dateOfBirth || '',
+      // In the form the portals read.
+      dateOfBirth: isoDateOf(profile.dateOfBirth) || profile.dateOfBirth || '',
       nationality: profile.nationality || '',
     },
-    answers,
+    // The Swiss status the candidate chose, as a full sentence in the form's language (decision 9). Outside
+    // `answers` and `profile`: the substring rule (plan.mjs knownValuesOf) never reads it, so a label holding
+    // «Svizzera» or «Schweiz» never backs a nationality answer.
+    swissStatus: status ? { code: status, statement: permitStatement(status, language) } : null,
+    // The status chosen replaces the answer to the permit question: the statement says it.
+    answers: status ? Object.fromEntries(Object.entries(answers).filter(([id]) => id !== 'work_permit')) : answers,
     portalQuestionsAnswered: portalQuestions.filter((question) => String(answers[question.id] ?? '').trim())
       .map((question) => ({ question: question.question, answer: answers[question.id] })),
     texts: {

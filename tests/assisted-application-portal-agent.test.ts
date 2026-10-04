@@ -14,7 +14,7 @@ import {
   withoutSecrets,
 } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import { isoDates, knownAnswer, knownValuesOf, planSystemPrompt } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { machineLabel } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { candidateForForm, machineLabel } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const act = (action: Record<string, string>) => ({ ref: 'e5', action: 'click', value: '', document: 'none', question: '', answer: '', source: 'widget', ...action });
 const turn = (status: string, actions: any[] = [], questions: any[] = []) => ({ status, reason: '', advanceRef: '', actions, questions });
@@ -164,5 +164,28 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     const publicMode = /ariaSnapshot\(options\?: \{[^}]*mode\?: "ai"/.test(types);
     const privateCall = existsSync(legacy) && readFileSync(legacy, 'utf8').includes('async _snapshotForAI(');
     expect(publicMode || privateCall).toBe(true);
+  });
+});
+
+// Owner decisions of 2026-10-03 (P4, decision 9): on a permit or nationality question the agent's answer must name
+// the candidate's own status or nationality as the catalogue words it.
+describe('portal agentic fallback: the candidate’s Swiss status and nationality', () => {
+  const candidate = (profile: Record<string, any>) => candidateForForm({ identity: { name: 'Giulia Verdi', email: 'c-abc@candidature.frontaliereticino.ch', phone: '' }, profile, language: 'de' });
+
+  it('grounds a permit answer that names the status the candidate chose, asks any other', () => {
+    const question = 'Haben Sie eine Arbeitserlaubnis?';
+    const grounded = guardAgentStep(turn('act', [act({ ref: 'e7', action: 'select', value: 'Ausweis G', question, answer: 'Ausweis G', source: 'profile' })]), candidate({ permitStatus: 'permit_g' }));
+    expect(grounded).toMatchObject({ status: 'act', questions: [] });
+    expect(grounded.actions).toHaveLength(1);
+    const asked = guardAgentStep(turn('act', [act({ ref: 'e7', action: 'select', value: 'B', question, answer: 'B', source: 'profile' })]), candidate({ permitStatus: 'none' }));
+    expect(asked).toMatchObject({ status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question })] });
+  });
+
+  it('grounds a nationality the candidate gave, in the form’s language', () => {
+    const question = 'Welche Staatsangehörigkeit haben Sie?';
+    const grounded = guardAgentStep(turn('act', [act({ ref: 'e8', action: 'select', value: 'Italien', question, answer: 'Italien', source: 'profile' })]), candidate({ nationality: 'italiana' }));
+    expect(grounded).toMatchObject({ status: 'act', questions: [] });
+    const other = guardAgentStep(turn('act', [act({ ref: 'e8', action: 'select', value: 'Deutschland', question, answer: 'Deutschland', source: 'profile' })]), candidate({ nationality: 'italiana' }));
+    expect(other.status).toBe('needs_candidate');
   });
 });
