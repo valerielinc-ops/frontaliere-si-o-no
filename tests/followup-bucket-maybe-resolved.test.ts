@@ -22,6 +22,7 @@ import {
   maybeResolvedReleaseCommentBody,
   planBucketAlarm,
   planMaybeResolvedRelease,
+  releaseMaybeResolved,
   shouldEnsureVerifyLabel,
 } from '../scripts/ci/reconcile-followups.mjs';
 import { canonicalDailyBucket } from '../scripts/ci/rebuild-daily-bucket.mjs';
@@ -109,6 +110,49 @@ describe('Bucket follow-up illeggibili: maybe-resolved residuo con item open e b
       const forged = { ...stranger, body: maybeResolvedReleaseCommentBody({ ids: [`FU-${DAY}-001`] }) };
       expect(hasLiveReconcileFlag([flag, forged])).toBe(true);
       expect(shouldEnsureVerifyLabel({ comments: [flag, forged], labelNames: ['follow-up'] })).toBe(false);
+    });
+
+    it('scrive il marker solo dopo edit + rilettura confermati, mantenendo il flag se il rilascio fallisce', () => {
+      const calls: string[][] = [];
+      let labels = ['follow-up', 'maybe-resolved'];
+      const execute = (args: string[]) => {
+        calls.push(args);
+        if (args[1] === 'view') return JSON.stringify({ labels: labels.map((name) => ({ name })) });
+        if (args[1] === 'edit' && args.includes('--remove-label')) {
+          labels = labels.filter((name) => name !== 'maybe-resolved');
+          return '';
+        }
+        if (args[1] === 'comment') return 'comment-created';
+        return '';
+      };
+      expect(releaseMaybeResolved(10831, [`FU-${DAY}-001`], { execute })).toBe(true);
+      expect(calls.map((args) => args[1])).toEqual(['view', 'edit', 'view', 'comment']);
+      expect(calls.at(-1)?.at(-1)).toContain(MAYBE_RESOLVED_RELEASE_MARKER);
+      expect(hasLiveReconcileFlag([flag, { ...bot, body: calls.at(-1)?.at(-1) }])).toBe(false);
+
+      const failedCalls: string[][] = [];
+      const failedExecute = (args: string[]) => {
+        failedCalls.push(args);
+        if (args[1] === 'view') return JSON.stringify({ labels: [{ name: 'maybe-resolved' }] });
+        if (args[1] === 'edit' && args.includes('--remove-label')) return null;
+        return '';
+      };
+      expect(releaseMaybeResolved(10831, [`FU-${DAY}-001`], { execute: failedExecute })).toBe(false);
+      expect(failedCalls.map((args) => args[1])).toEqual(['view', 'edit']);
+      expect(failedCalls.some((args) => args[1] === 'comment')).toBe(false);
+      expect(hasLiveReconcileFlag([flag])).toBe(true);
+    });
+
+    it('non firma una label gia’ rimossa da un altro processo', () => {
+      const calls: string[][] = [];
+      const execute = (args: string[]) => {
+        calls.push(args);
+        if (args[1] === 'view') return JSON.stringify({ labels: [{ name: 'follow-up' }] });
+        return '';
+      };
+      expect(releaseMaybeResolved(10831, [`FU-${DAY}-001`], { execute })).toBe(false);
+      expect(calls.map((args) => args[1])).toEqual(['view']);
+      expect(hasLiveReconcileFlag([flag])).toBe(true);
     });
   });
 

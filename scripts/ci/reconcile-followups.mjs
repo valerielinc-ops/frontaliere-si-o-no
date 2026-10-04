@@ -1348,17 +1348,45 @@ function alreadyCommented(number, comments = undefined) {
 }
 
 /**
- * Toglie `maybe-resolved` per conto del reconciler: prima il commento con
- * `RELEASE_MARKER` (se fallisce la label resta, e al giro dopo si riprova),
- * poi la label. In quest'ordine un guasto non trasforma mai la rimozione del
- * bot in un'obiezione umana.
- * @returns {boolean} true se la label e' stata tolta
+ * Toglie `maybe-resolved` per conto del reconciler in modo fail-closed:
+ * rilettura con label presente, rimozione, rilettura senza label, poi marker.
+ * Se la rimozione o una delle riletture non e' confermata, il marker non viene
+ * scritto e il flag precedente resta vivo. Se il commento del marker fallisce,
+ * la label viene rimessa per rendere il rilascio ritentabile al giro seguente.
+ * @param {number} number
+ * @param {string[]} ids
+ * @param {{execute?: (args: string[], options?: object) => string|null}} [deps]
+ * @returns {boolean} true solo se la label e il marker sono stati confermati
  */
-function releaseMaybeResolved(number, ids) {
-  const posted = gh(['issue', 'comment', String(number), ...repoArgs, '--body', maybeResolvedReleaseCommentBody({ ids })], { allowFail: true });
-  if (posted === null) return false;
+export function releaseMaybeResolved(number, ids, { execute = gh } = {}) {
+  const run = (args, options) => execute(args, options);
+  const hasLabel = () => {
+    const current = parseIssueJson(run(['issue', 'view', String(number), ...repoArgs, '--json', 'labels'], { allowFail: true }));
+    if (!current || !Array.isArray(current.labels)) return null;
+    return current.labels.some((label) => String(labelName(label) ?? '').toLowerCase() === LABEL);
+  };
+  const restoreLabel = () => {
+    const restored = run(['issue', 'edit', String(number), ...repoArgs, '--add-label', LABEL], { allowFail: true });
+    if (restored === null) console.log(`::warning::reconcile-followups: impossibile ripristinare \`${LABEL}\` su #${number} dopo un rilascio incompleto`);
+  };
+
+  // Una label gia' tolta da un altro processo non e' una rimozione del
+  // reconciler: senza questa guardia il marker azzererebbe un'obiezione umana.
+  if (hasLabel() !== true) return false;
+  const removed = run(['issue', 'edit', String(number), ...repoArgs, '--remove-label', LABEL], { allowFail: true });
+  if (removed === null) return false;
+  if (hasLabel() !== false) {
+    restoreLabel();
+    return false;
+  }
+
+  const posted = run(['issue', 'comment', String(number), ...repoArgs, '--body', maybeResolvedReleaseCommentBody({ ids })], { allowFail: true });
+  if (posted === null) {
+    restoreLabel();
+    return false;
+  }
   issueCommentCache.delete(number);
-  return gh(['issue', 'edit', String(number), ...repoArgs, '--remove-label', LABEL], { allowFail: true }) !== null;
+  return true;
 }
 
 function evidenceLines(evidence) {

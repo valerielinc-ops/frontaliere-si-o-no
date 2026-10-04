@@ -388,6 +388,25 @@ export function releasesVerifyLabel(args) {
   return list.some((arg, i) => arg === '--remove-label' && list[i + 1] === VERIFY_LABEL);
 }
 
+function issueHasLabel(issue, label) {
+  if (!Array.isArray(issue?.labels)) return false;
+  const wanted = String(label).toLowerCase();
+  return issue.labels.some((entry) => String(entry?.name ?? entry ?? '').toLowerCase() === wanted);
+}
+
+function withoutLabelRemoval(args, label) {
+  const list = Array.isArray(args) ? args : [];
+  const next = [];
+  for (let i = 0; i < list.length; i += 1) {
+    if (list[i] === '--remove-label' && list[i + 1] === label) {
+      i += 1;
+      continue;
+    }
+    next.push(list[i]);
+  }
+  return next;
+}
+
 export function routedCommentBody(evidence, verified) {
   const parts = [
     evidence.pr !== null ? `pr=${evidence.pr}` : null,
@@ -711,20 +730,24 @@ function routeBucketItem({ repo, issue, view, runStartedAt, deliveryStatus }) {
   if (typeof composed !== 'string') return skip(`marker-non-componibile:${composed.error}`);
   const labels = Array.isArray(view?.labels) ? view.labels.map((l) => l?.name).filter(Boolean) : [];
   const labelArgs = bucketLabelEditArgs(labels, { openRemaining: decision.openRemaining });
-  // Togliere `maybe-resolved` qui (restano item `open`) e' un automatismo, non
-  // un'obiezione umana a un flag del reconciler: il marker lo dice. In coda,
-  // perche' la prima riga resta `ALREADY_FIXED_ROUTED` quando c'e'.
-  const comment = releasesVerifyLabel(labelArgs) ? `${composed}\n${MAYBE_RESOLVED_RELEASE_MARKER}` : composed;
+  const releasesMaybeResolved = releasesVerifyLabel(labelArgs);
   // Rilettura-confronto: lo step gira fuori dal mutex del bucket.
   let fresh;
   try {
-    fresh = JSON.parse(gh(['issue', 'view', String(issue), '--repo', repo, '--json', 'title,body,state']));
+    fresh = JSON.parse(gh(['issue', 'view', String(issue), '--repo', repo, '--json', 'title,body,state,labels']));
   } catch (e) {
     return attemptOnly(`rilettura non disponibile: ${String(e?.message ?? e).slice(0, 80)}`);
   }
   if (fresh?.state !== 'OPEN' || fresh?.title !== view?.title || fresh?.body !== view?.body) {
     return attemptOnly('corpo o titolo cambiati fra lettura e scrittura');
   }
+  // Se un umano ha gia' tolto `maybe-resolved`, il successivo edit non puo'
+  // essere attribuito al reconciler: conserva il flag precedente e posta solo
+  // i marker dell'item. La rimozione va confermata anche dopo l'edit.
+  const freshHasMaybeResolved = issueHasLabel(fresh, VERIFY_LABEL);
+  const labelArgsToWrite = releasesMaybeResolved && !freshHasMaybeResolved
+    ? withoutLabelRemoval(labelArgs, VERIFY_LABEL)
+    : labelArgs;
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'route-already-fixed-'));
   try {
     const bodyFile = path.join(dir, 'body.md');
@@ -739,13 +762,27 @@ function routeBucketItem({ repo, issue, view, runStartedAt, deliveryStatus }) {
   }
   // Da qui l'item E' `blocked`: il marker va postato comunque, anche se le
   // label falliscono (il gate sul conio ripara la coda al giro successivo).
-  if (labelArgs.length > 0) {
+  let labelEditSucceeded = true;
+  if (labelArgsToWrite.length > 0) {
     try {
-      gh(['issue', 'edit', String(issue), '--repo', repo, ...labelArgs]);
+      gh(['issue', 'edit', String(issue), '--repo', repo, ...labelArgsToWrite]);
     } catch (e) {
+      labelEditSucceeded = false;
       console.log(`::warning::route-already-fixed: edit label fallito (${String(e?.message ?? e).slice(0, 120)}).`);
     }
   }
+  let releaseConfirmed = false;
+  if (releasesMaybeResolved && freshHasMaybeResolved && labelEditSucceeded) {
+    try {
+      const after = JSON.parse(gh(['issue', 'view', String(issue), '--repo', repo, '--json', 'state,labels']));
+      releaseConfirmed = after?.state === 'OPEN' && Array.isArray(after.labels) && !issueHasLabel(after, VERIFY_LABEL);
+    } catch (e) {
+      console.log(`::warning::route-already-fixed: rilascio di \`${VERIFY_LABEL}\` non confermato (${String(e?.message ?? e).slice(0, 120)}); marker del rilascio omesso.`);
+    }
+  }
+  // Marker di rilascio solo dopo edit riuscito + rilettura senza label. In ogni
+  // altro caso il flag precedente resta interpretabile come obiezione umana.
+  const comment = releaseConfirmed ? `${composed}\n${MAYBE_RESOLVED_RELEASE_MARKER}` : composed;
   setOutput('routed', 'true');
   postComment(comment);
   console.log(`route-already-fixed: bucket #${issue}, item ${itemId} → blocked (${decision.blockedReason}, link=${link}).`);
