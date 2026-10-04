@@ -12545,6 +12545,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lido-san-domenico-lugano-concorsi.title': 'Lido San Domenico: Lugano veröffentlicht zwei Ausschreibungen',
     'blog.article.lido-san-domenico-lugano-concorsi.excerpt': 'Die Stadtregierung hat die Ausschreibungen für die Führung der Buvette und die Renovierung der Räumlichkeiten im Rahmen einer öffentlich-privaten Partnerschaft eingeleitet.',
     'blog.article.lido-san-domenico-lugano-concorsi.imageAlt': 'Blick auf die Luganer Seepromenade mit dem Lido San Domenico im Hintergrund',
+    'blog.article.gordola-avviso-scomparsa-revocato.title': 'Gordola: Vermisstenmeldung widerrufen',
+    'blog.article.gordola-avviso-scomparsa-revocato.excerpt': 'Die Kantonspolizei Tessin hat die Vermisstenmeldung für eine 41-Jährige aus Gordola widerrufen, die seit dem 2. Oktober als vermisst galt. Die Meldung war am Samstag verbreitet worden.',
+    'blog.article.gordola-avviso-scomparsa-revocato.imageAlt': 'Gordola im Tessin, wo eine Vermisstenanzeige aufgehoben wurde',
 };
 
 export default blogMetaDe;
