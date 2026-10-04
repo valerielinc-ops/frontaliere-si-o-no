@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "ipersonal-e29c96f20590",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-steinen-schwyz",
+      "slug": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-steinen-schwyz",
       "slugByLocale": {
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-steinen-schwyz",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-steinen-schwyz",
+        "it": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-steinen-schwyz",
+        "en": "dipl-specialist-expert-operations-engineering-hf-medipersonal-steinen-schwyz",
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-steinen-schwyz",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-steinen-schwyz"
+        "fr": "dipl-specialiste-expert-genie-des-operations-hf-medipersonal-steinen-schwyz"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -62,16 +62,30 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-steinen-schwyz"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-steinen-schwyz"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-steinen-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-steinen-schwyz"
+      ]
     },
     {
       "id": "ipersonal-a67965316808",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-bassersdorf-zurich",
+      "slug": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-bassersdorf-zurich",
       "slugByLocale": {
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-bassersdorf-zurich",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-bassersdorf-zurich",
+        "it": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-bassersdorf-zurich",
+        "en": "dipl-specialist-expert-operations-engineering-hf-medipersonal-bassersdorf-zurich",
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-bassersdorf-zurich",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-bassersdorf-zurich"
+        "fr": "dipl-specialiste-expert-genie-des-operations-hf-medipersonal-bassersdorf-zurich"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -124,16 +138,30 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-bassersdorf-zurich"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-bassersdorf-zurich"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-bassersdorf-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-bassersdorf-zurich"
+      ]
     },
     {
       "id": "ipersonal-546bcc546cb7",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-hergiswil-b-willisau-luzern",
+      "slug": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-hergiswil-b",
       "slugByLocale": {
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-hergiswil-b-willisau-luzern",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-hergiswil-b-willisau-luzern",
-        "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-hergiswil-b-willisau-luzern",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-hergiswil-b-willisau-luzern"
+        "it": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-hergiswil-b",
+        "en": "dipl-professional-specialist-operational-engineering-hf-medipersonal-hergiswil-b",
+        "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-hergiswil-b",
+        "fr": "dipl-professional-specialiste-genie-operationnel-hf-medipersonal-hergiswil-b"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -185,16 +213,33 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-hergiswil-b-willisau-luzern"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-hergiswil-b-willisau-luzern"
+        ],
+        "de": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-hergiswil-b-willisau-luzern"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-hergiswil-b-willisau-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-hergiswil-b-willisau-luzern"
+      ]
     },
     {
       "id": "ipersonal-cb0a40ceb442",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-obersaxen-graubunden",
+      "slug": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-obersaxen-graubunden",
       "slugByLocale": {
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-obersaxen-graubunden",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-obersaxen-graubunden",
+        "it": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-obersaxen-graubunden",
+        "en": "dipl-professional-specialist-operational-engineering-hf-medipersonal-obersaxen-graubunden",
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-obersaxen-graubunden",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-obersaxen-graubunden"
+        "fr": "dipl-professional-specialiste-genie-operationnel-hf-medipersonal-obersaxen-graubunden"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -246,16 +291,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-obersaxen-graubunden"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-obersaxen-graubunden"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-obersaxen-graubunden"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-obersaxen-graubunden"
+      ]
     },
     {
       "id": "ipersonal-cd1975b29258",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-oberstammheim-zurich",
+      "slug": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-oberstammheim-zurich",
       "slugByLocale": {
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-oberstammheim-zurich",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-oberstammheim-zurich",
+        "it": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-oberstammheim-zurich",
+        "en": "dipl-specialist-expert-operations-engineering-hf-medipersonal-oberstammheim-zurich",
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-oberstammheim-zurich",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-oberstammheim-zurich"
+        "fr": "dipl-specialiste-expert-genie-des-operations-hf-medipersonal-oberstammheim-zurich"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -307,16 +366,30 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-oberstammheim-zurich"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-oberstammheim-zurich"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-oberstammheim-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-oberstammheim-zurich"
+      ]
     },
     {
       "id": "ipersonal-9606f562e4cb",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-willisau-luzern",
+      "slug": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-willisau-luzern",
       "slugByLocale": {
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-willisau-luzern",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-willisau-luzern",
+        "it": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-willisau-luzern",
+        "en": "dipl-specialist-expert-operations-engineering-hf-medipersonal-willisau-luzern",
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-willisau-luzern",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-willisau-luzern"
+        "fr": "dipl-specialiste-expert-genie-des-operations-hf-medipersonal-willisau-luzern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -369,16 +442,30 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-willisau-luzern"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-willisau-luzern"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-willisau-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-willisau-luzern"
+      ]
     },
     {
       "id": "ipersonal-4dbcf2aa9ac4",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-meiringen-bern",
+      "slug": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-meiringen-bern",
       "slugByLocale": {
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-meiringen-bern",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-meiringen-bern",
+        "it": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-meiringen-bern",
+        "en": "dipl-professional-specialist-operational-engineering-hf-medipersonal-meiringen-bern",
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-meiringen-bern",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-meiringen-bern"
+        "fr": "dipl-professional-specialiste-genie-operationnel-hf-medipersonal-meiringen-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -431,16 +518,30 @@
           "maxValue": 95500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-meiringen-bern"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-meiringen-bern"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-meiringen-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-meiringen-bern"
+      ]
     },
     {
       "id": "ipersonal-0bc3813aae8e",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-suhr-aargau",
+      "slug": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-suhr-aargau",
       "slugByLocale": {
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-suhr-aargau",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-suhr-aargau",
+        "it": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-suhr-aargau",
+        "en": "dipl-professional-specialist-operational-engineering-hf-medipersonal-suhr-aargau",
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-suhr-aargau",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-suhr-aargau"
+        "fr": "dipl-professional-specialiste-genie-operationnel-hf-medipersonal-suhr-aargau"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -493,16 +594,30 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-suhr-aargau"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-suhr-aargau"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-suhr-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-suhr-aargau"
+      ]
     },
     {
       "id": "ipersonal-c58af6d08ec0",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-worb-bern",
+      "slug": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-worb-bern",
       "slugByLocale": {
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-worb-bern",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-worb-bern",
+        "it": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-worb-bern",
+        "en": "dipl-professional-specialist-operational-engineering-hf-medipersonal-worb-bern",
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-worb-bern",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-worb-bern"
+        "fr": "dipl-professional-specialiste-genie-operationnel-hf-medipersonal-worb-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -555,16 +670,30 @@
           "maxValue": 95500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-worb-bern"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-worb-bern"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-worb-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-worb-bern"
+      ]
     },
     {
       "id": "ipersonal-55d63a14e423",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-weinfelden-thurgau",
+      "slug": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-weinfelden-thurgau",
       "slugByLocale": {
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-weinfelden-thurgau",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-weinfelden-thurgau",
+        "it": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-weinfelden-thurgau",
+        "en": "dipl-specialist-expert-operations-engineering-hf-medipersonal-weinfelden-thurgau",
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-weinfelden-thurgau",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-weinfelden-thurgau"
+        "fr": "dipl-specialiste-expert-genie-des-operations-hf-medipersonal-weinfelden-thurgau"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -617,16 +746,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-weinfelden-thurgau"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-weinfelden-thurgau"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-weinfelden-thurgau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-weinfelden-thurgau"
+      ]
     },
     {
       "id": "ipersonal-54bdeb3f37fb",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-langnau-am-albis-zurich",
+      "slug": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-langnau-am-albis-zurich",
       "slugByLocale": {
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-langnau-am-albis-zurich",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-langnau-am-albis-zurich",
+        "it": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-langnau-am-albis-zurich",
+        "en": "dipl-professional-specialist-operational-engineering-hf-medipersonal-langnau-am-albis-zurich",
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-langnau-am-albis-zurich",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-langnau-am-albis-zurich"
+        "fr": "dipl-professional-specialiste-genie-operationnel-hf-medipersonal-langnau-am-albis-zurich"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -679,16 +822,30 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-langnau-am-albis-zurich"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-langnau-am-albis-zurich"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-langnau-am-albis-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-langnau-am-albis-zurich"
+      ]
     },
     {
       "id": "ipersonal-85820f006dc4",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-buren-an-der-aare-bern",
+      "slug": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-buren-an-der-aare-bern",
       "slugByLocale": {
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-buren-an-der-aare-bern",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-buren-an-der-aare-bern",
+        "it": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-buren-an-der-aare-bern",
+        "en": "dipl-specialist-expert-operations-engineering-hf-medipersonal-buren-an-der-aare-bern",
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-buren-an-der-aare-bern",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-buren-an-der-aare-bern"
+        "fr": "dipl-specialiste-expert-genie-des-operations-hf-medipersonal-buren-an-der-aare-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -741,16 +898,30 @@
           "maxValue": 95500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-buren-an-der-aare-bern"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-buren-an-der-aare-bern"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-buren-an-der-aare-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-buren-an-der-aare-bern"
+      ]
     },
     {
       "id": "ipersonal-43cbdea37523",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-allschwil-basel-land",
+      "slug": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-allschwil-basel-land",
       "slugByLocale": {
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-allschwil-basel-land",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-allschwil-basel-land",
+        "it": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-allschwil-basel-land",
+        "en": "dipl-professional-specialist-operational-engineering-hf-medipersonal-allschwil-basel-land",
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-allschwil-basel-land",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-allschwil-basel-land"
+        "fr": "dipl-professional-specialiste-genie-operationnel-hf-medipersonal-allschwil-basel-land"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -802,16 +973,30 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-allschwil-basel-land"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-allschwil-basel-land"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-allschwil-basel-land"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-allschwil-basel-land"
+      ]
     },
     {
       "id": "ipersonal-6af8e11878a5",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-feusisberg-schwyz",
+      "slug": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-feusisberg-schwyz",
       "slugByLocale": {
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-feusisberg-schwyz",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-feusisberg-schwyz",
+        "it": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-feusisberg-schwyz",
+        "en": "dipl-professional-specialist-operational-engineering-hf-medipersonal-feusisberg-schwyz",
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-feusisberg-schwyz",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-feusisberg-schwyz"
+        "fr": "dipl-professional-specialiste-genie-operationnel-hf-medipersonal-feusisberg-schwyz"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -864,16 +1049,30 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-feusisberg-schwyz"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-feusisberg-schwyz"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-feusisberg-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-feusisberg-schwyz"
+      ]
     },
     {
       "id": "ipersonal-eaa536c6888c",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-lyss-bern",
+      "slug": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-lyss-bern",
       "slugByLocale": {
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-lyss-bern",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-lyss-bern",
+        "it": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-lyss-bern",
+        "en": "dipl-specialist-expert-operations-engineering-hf-medipersonal-lyss-bern",
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-lyss-bern",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-lyss-bern"
+        "fr": "dipl-specialiste-expert-genie-des-operations-hf-medipersonal-lyss-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -926,7 +1125,21 @@
           "maxValue": 95500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-lyss-bern"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-lyss-bern"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-lyss-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-lyss-bern"
+      ]
     }
   ]
 }
