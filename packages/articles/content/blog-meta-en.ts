@@ -12534,6 +12534,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.italia-mondiale-baseball-ciechi-varese.title': 'Italy are world champions in blind baseball',
     'blog.article.italia-mondiale-baseball-ciechi-varese.excerpt': 'Italy triumphs in Castiglione della Pescaia: Cuba defeated 10-4. Varese players Oliveri (MVP) and Trombini (best young player) were the protagonists.',
     'blog.article.italia-mondiale-baseball-ciechi-varese.imageAlt': 'Italy wins the Blind Baseball World Cup in Castiglione della Pescaia',
+    'blog.article.urto-spartitraffico-camorino.title': 'Accident in Camorino, woman injured near the A2',
+    'blog.article.urto-spartitraffico-camorino.excerpt': 'After losing control on a bend, the car hit a median barrier and overturned. The southbound entrance to the A2 remained closed for more than an hour.',
+    'blog.article.urto-spartitraffico-camorino.imageAlt': 'Camorino interchange toward the A2 with a traffic divider, scene of the accident.',
 };
 
 export default blogMetaEn;

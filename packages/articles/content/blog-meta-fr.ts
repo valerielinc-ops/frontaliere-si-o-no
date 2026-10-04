@@ -12536,6 +12536,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.italia-mondiale-baseball-ciechi-varese.title': 'L\'Italie championne du monde de baseball pour aveugles',
     'blog.article.italia-mondiale-baseball-ciechi-varese.excerpt': 'Triomphe italien à Castiglione della Pescaia : Cuba battue 10-4. Les Varésans Oliveri (MVP) et Trombini (meilleur jeune) en sont les protagonistes.',
     'blog.article.italia-mondiale-baseball-ciechi-varese.imageAlt': 'L\'Italie remporte la Coupe du monde de baseball pour aveugles à Castiglione della Pescaia',
+    'blog.article.urto-spartitraffico-camorino.title': 'Accident à Camorino, une femme blessée en direction de l\'A2',
+    'blog.article.urto-spartitraffico-camorino.excerpt': 'Après avoir perdu le contrôle dans un virage, la voiture a heurté un séparateur central et s\'est renversée. L\'entrée vers le sud de l\'A2 est restée fermée pendant plus d\'une heure.',
+    'blog.article.urto-spartitraffico-camorino.imageAlt': 'Échangeur de Camorino vers l\'A2 avec séparateur, lieu de l\'accident.',
 };
 
 export default blogMetaFr;
