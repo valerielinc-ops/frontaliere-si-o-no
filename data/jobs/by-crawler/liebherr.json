@@ -52,6 +52,7 @@
       "requirementsByLocale": {},
       "sourceLocale": "fr_FR",
       "liebherrSourceJobId": "81310",
+      "needsRetranslation": true,
       "previousSlugs": [
         "turmkrantechniker-h-f-liebherr-daillens",
         "technicien-grues-a-tour-h-f-liebherr-daillens",
@@ -64,22 +65,18 @@
       "previousSlugsByLocale": {
         "it": [
           "technicien-grues-a-tour-h-f-liebherr-daillens",
-          "technicien-grues-a-tour-m-w-d-liebherr-daillens",
-          "tecnico-di-gru-a-torre-h-f-liebherr-daillens"
-        ],
-        "en": [
-          "technicien-grues-a-tour-m-w-d-liebherr-daillens",
-          "tower-crane-technician-h-f-liebherr-daillens"
+          "technicien-grues-a-tour-m-w-d-liebherr-daillens"
         ],
         "de": [
           "turmkrantechniker-h-f-liebherr-daillens",
           "technicien-grues-a-tour-m-w-d-liebherr-daillens",
           "drehkrantechniker-h-f-liebherr-daillens",
           "turmkrantechniker-m-w-d-liebherr-daillens"
+        ],
+        "en": [
+          "technicien-grues-a-tour-m-w-d-liebherr-daillens"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.412Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -92,7 +89,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-10T09:03:08.412Z"
     },
     {
       "id": "liebherr-5247f4283f10",
@@ -163,8 +161,7 @@
         ],
         "fr": [
           "directeur-de-compte-principal-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden",
-          "key-account-manager-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden",
-          "gestionnaire-de-comptes-cle-energie-renouvelable-energie-eolienne-m-w-d-liebherr-baden"
+          "key-account-manager-bereich-erneuerbare-energien-windenergie-m-w-d-liebherr-baden"
         ]
       },
       "salaryMin": 85500,
@@ -247,7 +244,6 @@
           "soutien-aux-ventes-suisse-h-f-d-liebherr-nussbaumen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:33:44.747Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -261,7 +257,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "liebherr-6fe27c3c767f",
@@ -977,14 +974,12 @@
       "requirementsByLocale": {},
       "sourceLocale": "de_DE",
       "liebherrSourceJobId": "80547",
+      "needsRetranslation": true,
       "previousSlugs": [
         "monteur-turmdrehkrane-m-w-liebherr-reiden",
         "monteur-turmdrehkrane-m-w-d-liebherr-reiden",
         "service-techniker-monteur-fur-turmdrehkrane-m-w-liebherr-reiden",
-        "gru-a-torre-di-installazione-m-w-liebherr-reiden",
-        "service-techniker-monteur-fur-turmdrehkrane-m-w-d-liebherr-reiden",
-        "installer-tower-cranes-m-w-liebherr-reiden",
-        "grues-a-tour-d-installation-m-w-liebherr-reiden"
+        "service-techniker-monteur-fur-turmdrehkrane-m-w-d-liebherr-reiden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -994,19 +989,15 @@
           "gru-a-torre-di-installazione-m-w-liebherr-reiden"
         ],
         "en": [
-          "service-techniker-monteur-fur-turmdrehkrane-m-w-d-liebherr-reiden",
-          "installer-tower-cranes-m-w-liebherr-reiden"
+          "service-techniker-monteur-fur-turmdrehkrane-m-w-d-liebherr-reiden"
         ],
         "de": [
           "service-techniker-monteur-fur-turmdrehkrane-m-w-liebherr-reiden"
         ],
         "fr": [
-          "service-techniker-monteur-fur-turmdrehkrane-m-w-d-liebherr-reiden",
-          "grues-a-tour-d-installation-m-w-liebherr-reiden"
+          "service-techniker-monteur-fur-turmdrehkrane-m-w-d-liebherr-reiden"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T21:29:08.707Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1019,7 +1010,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-17T21:29:08.707Z"
     },
     {
       "id": "liebherr-2d7c6e72a1c0",
@@ -1150,11 +1142,9 @@
       "requirementsByLocale": {},
       "sourceLocale": "de_DE",
       "liebherrSourceJobId": "82726",
+      "needsRetranslation": true,
       "previousSlugs": [
         "vertriebsassistenz-m-w-d-liebherr-nussbaumen",
-        "assistant-commercial-m-f-d-liebherr-nussbaumen",
-        "assistente-alle-vendite-l-f-d-liebherr-nussbaumen",
-        "sales-assistant-m-f-d-liebherr-nussbaumen",
         "assistance-aux-ventes-m-w-d-liebherr-nussbaumen"
       ],
       "previousSlugsByLocale": {
@@ -1163,8 +1153,7 @@
           "assistente-alle-vendite-l-f-d-liebherr-nussbaumen"
         ],
         "en": [
-          "vertriebsassistenz-m-w-d-liebherr-nussbaumen",
-          "sales-assistant-m-f-d-liebherr-nussbaumen"
+          "vertriebsassistenz-m-w-d-liebherr-nussbaumen"
         ],
         "fr": [
           "vertriebsassistenz-m-w-d-liebherr-nussbaumen",
@@ -1172,8 +1161,6 @@
           "assistance-aux-ventes-m-w-d-liebherr-nussbaumen"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.388Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1186,7 +1173,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-10T09:03:08.388Z"
     },
     {
       "id": "liebherr-decbac76aebb",
@@ -1735,6 +1723,7 @@
       "requirementsByLocale": {},
       "sourceLocale": "de_DE",
       "liebherrSourceJobId": "83467",
+      "needsRetranslation": true,
       "previousSlugs": [
         "tecnico-di-servizio-di-moto-terrestre-liebherr-reiden",
         "service-techniker-erdbewegung-liebherr-reiden",
@@ -1743,8 +1732,7 @@
         "sachbearbeiter-kundendienst-erdbewegung-60-80-m-w-liebherr-reiden",
         "personnel-service-a-la-clientele-mouvement-terrestre-60-80-m-f-liebherr-reiden",
         "service-techniker-erdbewegung-deutschschweiz-m-w-liebherr-reiden",
-        "service-techniker-erdbewegung-deutschschweiz-m-w-d-liebherr-reiden",
-        "tecnico-di-servizio-movimento-terra-liebherr-reiden"
+        "service-techniker-erdbewegung-deutschschweiz-m-w-d-liebherr-reiden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1755,8 +1743,7 @@
           "sachbearbeiter-kundendienst-erdbewegung-60-80-m-w-liebherr-reiden",
           "personnel-service-a-la-clientele-mouvement-terrestre-60-80-m-f-liebherr-reiden",
           "service-techniker-erdbewegung-deutschschweiz-m-w-liebherr-reiden",
-          "service-techniker-erdbewegung-deutschschweiz-m-w-d-liebherr-reiden",
-          "tecnico-di-servizio-movimento-terra-liebherr-reiden"
+          "service-techniker-erdbewegung-deutschschweiz-m-w-d-liebherr-reiden"
         ],
         "en": [
           "personnel-customer-service-earth-movement-60-80-m-f-liebherr-reiden"
@@ -1769,8 +1756,6 @@
           "personnel-service-a-la-clientele-mouvement-terrestre-60-80-m-f-liebherr-reiden"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-02T11:53:16.860Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1783,7 +1768,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-02T11:53:16.860Z"
     },
     {
       "id": "liebherr-3a485ed3b81d",
@@ -1850,11 +1836,9 @@
           "tecnico-di-servizio-movimento-terra-nord-est-della-svizzera-m-f-liebherr-reiden"
         ],
         "fr": [
-          "service-techniker-erdbewegung-nordostschweiz-m-w-d-liebherr-reiden",
-          "technicien-des-services-mouvement-terrestre-au-nord-est-de-la-suisse-m-f-liebherr-reiden"
+          "service-techniker-erdbewegung-nordostschweiz-m-w-d-liebherr-reiden"
         ]
       },
-      "firstSeenAt": "2026-07-02T11:53:17.327Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1867,7 +1851,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-02T11:53:17.327Z"
     },
     {
       "id": "liebherr-01110ad3f015",
@@ -1919,6 +1904,7 @@
       "requirementsByLocale": {},
       "sourceLocale": "fr_FR",
       "liebherrSourceJobId": "83180",
+      "needsRetranslation": true,
       "previousSlugs": [
         "macchinari-meccanizzati-liebherr-daillens",
         "mechanic-earthworks-machinery-liebherr-daillens",
@@ -1931,13 +1917,11 @@
       "previousSlugsByLocale": {
         "it": [
           "macchinari-meccanizzati-liebherr-daillens",
-          "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
-          "meccanico-per-macchinari-da-costruzione-per-movimenti-terra-liebherr-daillens"
+          "mecanicien-machines-de-chantier-terrassement-liebherr-daillens"
         ],
         "en": [
           "mechanic-earthworks-machinery-liebherr-daillens",
-          "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
-          "earthmoving-construction-machinery-mechanic-liebherr-daillens"
+          "mecanicien-machines-de-chantier-terrassement-liebherr-daillens"
         ],
         "de": [
           "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
@@ -1945,8 +1929,6 @@
           "maschinen-fur-mechanische-erdarbeiten-liebherr-daillens"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-16T15:09:06.399Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1959,7 +1941,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-16T15:09:06.399Z"
     },
     {
       "id": "liebherr-2fa417fcfecc",
@@ -2410,6 +2393,7 @@
       "requirementsByLocale": {},
       "sourceLocale": "de_DE",
       "liebherrSourceJobId": "83601",
+      "needsRetranslation": true,
       "previousSlugs": [
         "servizio-tecnico-torre-gru-m-w-liebherr-reiden",
         "service-technician-tower-cranes-m-w-liebherr-reiden",
@@ -2419,9 +2403,7 @@
         "gru-a-torre-di-servizio-m-f-liebherr-reiden",
         "grues-a-tour-de-location-et-de-service-m-f-liebherr-reiden",
         "service-techniker-mobilbaukrane-m-w-liebherr-reiden",
-        "service-techniker-mobilbaukrane-m-w-d-liebherr-reiden",
-        "tecnico-di-servizio-gru-da-costruzione-mobili-m-w-liebherr-reiden",
-        "technicien-des-services-grues-mobiles-de-construction-m-m-liebherr-reiden"
+        "service-techniker-mobilbaukrane-m-w-d-liebherr-reiden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2445,12 +2427,9 @@
         "fr": [
           "grues-a-tour-de-technicien-de-service-m-p-liebherr-reiden",
           "service-techniker-mobilbaukrane-m-w-liebherr-reiden",
-          "service-techniker-mobilbaukrane-m-w-d-liebherr-reiden",
-          "technicien-des-services-grues-mobiles-de-construction-m-m-liebherr-reiden"
+          "service-techniker-mobilbaukrane-m-w-d-liebherr-reiden"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-15T11:11:59.714Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2463,7 +2442,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-15T11:11:59.714Z"
     },
     {
       "id": "liebherr-b6fc7f90abdd",
@@ -2766,15 +2746,12 @@
           "meccanico-di-costruzione-movimento-terra-m-w-liebherr-reiden"
         ],
         "en": [
-          "baumaschinenmechaniker-erdbewegung-m-w-d-liebherr-reiden",
-          "construction-machinery-mechanic-earth-movement-m-w-liebherr-reiden"
+          "baumaschinenmechaniker-erdbewegung-m-w-d-liebherr-reiden"
         ],
         "fr": [
-          "baumaschinenmechaniker-erdbewegung-m-w-d-liebherr-reiden",
-          "mecanicien-de-la-construction-mouvement-terrestre-m-p-liebherr-reiden"
+          "baumaschinenmechaniker-erdbewegung-m-w-d-liebherr-reiden"
         ]
       },
-      "firstSeenAt": "2026-06-11T14:25:10.368Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -2787,7 +2764,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-11T14:25:10.368Z"
     },
     {
       "id": "liebherr-d28aa2534f2f",
@@ -2921,32 +2899,25 @@
       "requirementsByLocale": {},
       "sourceLocale": "de_DE",
       "liebherrSourceJobId": "70315",
+      "needsRetranslation": true,
       "previousSlugs": [
         "mecanicien-genie-du-beton-melangeur-de-camions-m-p-liebherr-reiden",
         "mechaniker-betontechnik-fahrmischer-m-w-liebherr-reiden",
-        "mechaniker-betontechnik-fahrmischer-m-w-d-liebherr-reiden",
-        "meccanico-di-ingegneria-del-calcestruzzo-miscelatore-del-camion-m-w-liebherr-reiden",
-        "mechanic-concrete-engineering-truck-mixer-m-w-liebherr-reiden",
-        "mecanique-genie-du-beton-melangeur-de-camion-m-p-liebherr-reiden"
+        "mechaniker-betontechnik-fahrmischer-m-w-d-liebherr-reiden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mechaniker-betontechnik-fahrmischer-m-w-liebherr-reiden",
-          "mechaniker-betontechnik-fahrmischer-m-w-d-liebherr-reiden",
-          "meccanico-di-ingegneria-del-calcestruzzo-miscelatore-del-camion-m-w-liebherr-reiden"
-        ],
-        "en": [
-          "mechaniker-betontechnik-fahrmischer-m-w-d-liebherr-reiden",
-          "mechanic-concrete-engineering-truck-mixer-m-w-liebherr-reiden"
+          "mechaniker-betontechnik-fahrmischer-m-w-d-liebherr-reiden"
         ],
         "fr": [
           "mecanicien-genie-du-beton-melangeur-de-camions-m-p-liebherr-reiden",
-          "mechaniker-betontechnik-fahrmischer-m-w-d-liebherr-reiden",
-          "mecanique-genie-du-beton-melangeur-de-camion-m-p-liebherr-reiden"
+          "mechaniker-betontechnik-fahrmischer-m-w-d-liebherr-reiden"
+        ],
+        "en": [
+          "mechaniker-betontechnik-fahrmischer-m-w-d-liebherr-reiden"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.407Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -2959,7 +2930,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-10T09:03:08.407Z"
     },
     {
       "id": "liebherr-84ea1bc04b31",
@@ -3095,20 +3067,17 @@
       "requirementsByLocale": {},
       "sourceLocale": "de_DE",
       "liebherrSourceJobId": "78155",
+      "needsRetranslation": true,
       "previousSlugs": [
         "elektriker-service-techniker-betontechnik-m-w-liebherr-reiden",
-        "elektriker-service-techniker-betontechnik-m-w-d-liebherr-reiden",
-        "tecnico-elettrico-servizio-tecnologia-di-cemento-m-f-liebherr-reiden"
+        "elektriker-service-techniker-betontechnik-m-w-d-liebherr-reiden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "elektriker-service-techniker-betontechnik-m-w-liebherr-reiden",
-          "elektriker-service-techniker-betontechnik-m-w-d-liebherr-reiden",
-          "tecnico-elettrico-servizio-tecnologia-di-cemento-m-f-liebherr-reiden"
+          "elektriker-service-techniker-betontechnik-m-w-d-liebherr-reiden"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.406Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3121,7 +3090,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-10T09:03:08.406Z"
     },
     {
       "id": "liebherr-3f9651585070",
@@ -3173,15 +3143,14 @@
       "requirementsByLocale": {},
       "sourceLocale": "fr_FR",
       "liebherrSourceJobId": "77552",
+      "needsRetranslation": true,
       "previousSlugs": [
         "development-ingegnere-m-w-x-liebherr-bulle",
         "development-engineer-m-w-x-liebherr-bulle",
         "entwicklungsingenieur-m-w-x-liebherr-bulle",
         "ingenieur-en-developpement-l-mer-x-liebherr-bulle",
         "ingenieur-process-h-f-x-methods-time-measurement-liebherr-bulle",
-        "ingenieur-process-m-w-d-methods-time-measurement-liebherr-bulle",
-        "ingegnere-di-processo-h-f-x-liebherr-bulle",
-        "prozessingenieur-h-f-x-methode-zeit-messung-liebherr-bulle"
+        "ingenieur-process-m-w-d-methods-time-measurement-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3190,23 +3159,19 @@
           "entwicklungsingenieur-m-w-x-liebherr-bulle",
           "ingenieur-en-developpement-l-mer-x-liebherr-bulle",
           "ingenieur-process-h-f-x-methods-time-measurement-liebherr-bulle",
-          "ingenieur-process-m-w-d-methods-time-measurement-liebherr-bulle",
-          "ingegnere-di-processo-h-f-x-liebherr-bulle"
+          "ingenieur-process-m-w-d-methods-time-measurement-liebherr-bulle"
         ],
         "en": [
           "development-engineer-m-w-x-liebherr-bulle"
         ],
         "de": [
           "entwicklungsingenieur-m-w-x-liebherr-bulle",
-          "ingenieur-process-m-w-d-methods-time-measurement-liebherr-bulle",
-          "prozessingenieur-h-f-x-methode-zeit-messung-liebherr-bulle"
+          "ingenieur-process-m-w-d-methods-time-measurement-liebherr-bulle"
         ],
         "fr": [
           "ingenieur-en-developpement-l-mer-x-liebherr-bulle"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-10T09:03:08.372Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -3219,7 +3184,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-06-10T09:03:08.372Z"
     },
     {
       "id": "liebherr-b8371a0c23b9",
@@ -3630,12 +3596,11 @@
           "product-manager-defense-m-f-x-liebherr-bulle",
           "product-manager-difesa-m-f-x-liebherr-bulle"
         ],
-        "de": [
-          "product-manager-defense-m-w-d-liebherr-bulle",
-          "produktmanager-verteidigung-m-w-x-liebherr-bulle"
-        ],
         "fr": [
           "gestionnaire-de-produits-defense-m-f-x-liebherr-bulle"
+        ],
+        "de": [
+          "product-manager-defense-m-w-d-liebherr-bulle"
         ]
       },
       "salaryMin": 94500,
@@ -3883,8 +3848,11 @@
           "acquirente-servizi-m-f-x-getti-liebherr-bulle",
           "acheteur-commodites-h-f-x-pieces-moulees-liebherr-bulle",
           "servizi-dell-acquirente-h-f-x-liebherr-bulle",
-          "acheteur-commodites-h-f-x-pieces-de-fonderie-liebherr-bulle",
-          "acheteur-de-marchandises-h-f-x-castings-liebherr-bulle"
+          "acheteur-commodites-h-f-x-pieces-de-fonderie-liebherr-bulle"
+        ],
+        "en": [
+          "acheteur-commodites-h-f-x-pieces-moulees-liebherr-bulle",
+          "buyer-amenities-h-f-x-cast-parts-liebherr-bulle"
         ],
         "it": [
           "commodity-buyer-h-f-x-castings-liebherr-bulle",
@@ -3892,19 +3860,12 @@
           "servizi-dell-acquirente-h-f-x-liebherr-bulle",
           "acheteur-commodites-h-f-x-pieces-de-fonderie-liebherr-bulle",
           "commodity-buyer-m-w-d-fusioni-liebherr-bulle",
-          "acquirente-servizi-m-f-x-getti-liebherr-bulle",
-          "commodity-buyer-h-f-x-fusioni-liebherr-bulle"
-        ],
-        "en": [
-          "acheteur-commodites-h-f-x-pieces-moulees-liebherr-bulle",
-          "buyer-amenities-h-f-x-cast-parts-liebherr-bulle",
-          "commodity-buyer-h-f-x-castings-liebherr-bulle"
+          "acquirente-servizi-m-f-x-getti-liebherr-bulle"
         ],
         "de": [
           "acheteur-commodites-h-f-x-pieces-moulees-liebherr-bulle",
           "warenkaufer-m-w-d-gusserzeugnisse-liebherr-bulle",
-          "ausstattung-des-kaufers-h-w-x-gussteile-liebherr-bulle",
-          "warenkaufer-h-w-x-gusserzeugnisse-liebherr-bulle"
+          "ausstattung-des-kaufers-h-w-x-gussteile-liebherr-bulle"
         ]
       },
       "previousSlugs": [
@@ -3916,10 +3877,7 @@
         "warenkaufer-m-w-d-gusserzeugnisse-liebherr-bulle",
         "buyer-amenities-h-f-x-cast-parts-liebherr-bulle",
         "commodity-buyer-m-w-d-fusioni-liebherr-bulle",
-        "ausstattung-des-kaufers-h-w-x-gussteile-liebherr-bulle",
-        "acheteur-de-marchandises-h-f-x-castings-liebherr-bulle",
-        "commodity-buyer-h-f-x-fusioni-liebherr-bulle",
-        "warenkaufer-h-w-x-gusserzeugnisse-liebherr-bulle"
+        "ausstattung-des-kaufers-h-w-x-gussteile-liebherr-bulle"
       ],
       "firstSeenAt": "2026-06-26T11:46:30.973Z",
       "salaryMin": 68500,
@@ -4540,10 +4498,10 @@
       "id": "liebherr-a2ee910fd683",
       "slug": "domanda-non-richiesta-liebherr-bulle",
       "slugByLocale": {
-        "it": "domanda-non-richiesta-liebherr-bulle",
+        "it": "applicazione-speculativa-liebherr-bulle",
         "en": "speculative-application-liebherr-bulle",
-        "de": "initativbewerbung-liebherr-bulle",
-        "fr": "candidature-non-sollicitee-liebherr-bulle"
+        "de": "spekulative-anwendung-liebherr-bulle",
+        "fr": "candidature-spontanee-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -4601,7 +4559,6 @@
         "de": [
           "spontane-anwendung-liebherr-bulle",
           "unerbetene-anwendung-liebherr-bulle",
-          "spekulative-anwendung-liebherr-bulle",
           "initativbewerbung-liebherr-bulle"
         ],
         "fr": [
@@ -4610,15 +4567,14 @@
           "unerbetene-anwendung-liebherr-bulle",
           "spontaneous-application-liebherr-bulle",
           "speculative-application-liebherr-bulle",
-          "candidature-spontanee-liebherr-bulle"
+          "candidature-non-sollicitee-liebherr-bulle"
         ],
         "en": [
           "initiativbewerbung-liebherr-bulle",
           "candidature-spontanee-liebherr-bulle",
           "spontaneous-application-liebherr-bulle",
           "applicazione-speculativa-liebherr-bulle",
-          "unsolicited-application-liebherr-bulle",
-          "speculative-application-liebherr-bulle"
+          "unsolicited-application-liebherr-bulle"
         ],
         "it": [
           "initiativebewerbung-liebherr-bulle",
@@ -4626,9 +4582,7 @@
           "applicazione-spontanea-liebherr-bulle",
           "applicazione-non-richiesta-liebherr-bulle",
           "candidature-spontanee-liebherr-bulle",
-          "speculative-application-liebherr-bulle",
-          "applicazione-speculativa-liebherr-bulle",
-          "domanda-non-richiesta-liebherr-bulle"
+          "speculative-application-liebherr-bulle"
         ]
       },
       "previousSlugs": [
@@ -4643,9 +4597,8 @@
         "unerbetene-anwendung-liebherr-bulle",
         "applicazione-speculativa-liebherr-bulle",
         "speculative-application-liebherr-bulle",
-        "spekulative-anwendung-liebherr-bulle",
         "unsolicited-application-liebherr-bulle",
-        "domanda-non-richiesta-liebherr-bulle"
+        "candidature-non-sollicitee-liebherr-bulle"
       ],
       "firstSeenAt": "2026-06-10T09:03:08.375Z",
       "salaryMin": 68500,
@@ -5233,27 +5186,22 @@
       "previousSlugs": [
         "key-account-manager-defense-m-f-x-liebherr-bulle",
         "gestione-account-chiave-difesa-m-f-x-liebherr-bulle",
-        "le-gestionnaire-de-compte-cle-defense-m-f-x-liebherr-bulle",
-        "key-account-manager-defense-m-f-x-liebherr-bulle-2",
-        "gestionnaire-de-compte-cle-defense-m-f-x-liebherr-bulle"
+        "le-gestionnaire-de-compte-cle-defense-m-f-x-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "key-account-manager-defense-m-f-x-liebherr-bulle",
-          "gestione-account-chiave-difesa-m-f-x-liebherr-bulle",
-          "key-account-manager-defense-m-f-x-liebherr-bulle-2"
+          "gestione-account-chiave-difesa-m-f-x-liebherr-bulle"
         ],
         "en": [
           "key-account-manager-defense-m-f-x-liebherr-bulle"
         ],
         "de": [
-          "key-account-manager-defense-m-f-x-liebherr-bulle",
-          "key-account-manager-defense-m-f-x-liebherr-bulle-2"
+          "key-account-manager-defense-m-f-x-liebherr-bulle"
         ],
         "fr": [
           "key-account-manager-defense-m-f-x-liebherr-bulle",
-          "le-gestionnaire-de-compte-cle-defense-m-f-x-liebherr-bulle",
-          "gestionnaire-de-compte-cle-defense-m-f-x-liebherr-bulle"
+          "le-gestionnaire-de-compte-cle-defense-m-f-x-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-07-31T22:10:08.557Z",
@@ -5405,10 +5353,7 @@
       "previousSlugs": [
         "mecanicien-prototypes-w-m-x-ed-liebherr-bulle",
         "mecanicien-prototypes-w-m-x-liebherr-bulle",
-        "mecanicien-prototypes-m-w-d-liebherr-bulle",
-        "prototypes-mechanic-w-m-x-ed-liebherr-bulle",
-        "prototipi-meccanico-w-m-x-ed-liebherr-bulle",
-        "mechanische-prototypen-w-m-x-ed-liebherr-bulle"
+        "mecanicien-prototypes-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -5423,8 +5368,7 @@
         ],
         "de": [
           "mecanicien-prototypes-w-m-x-ed-liebherr-bulle",
-          "mecanicien-prototypes-m-w-d-liebherr-bulle",
-          "mechanische-prototypen-w-m-x-ed-liebherr-bulle"
+          "mecanicien-prototypes-m-w-d-liebherr-bulle"
         ]
       },
       "salaryMin": 77000,

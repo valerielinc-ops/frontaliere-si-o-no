@@ -12081,14 +12081,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dachdecker-100-anker-swiss-ticino-ag-tagerig-77ffc95f",
-        "dachdecker-100-anker-swiss-ticino-ag-tagerig-34a1c8f2",
-        "copertura-100-anker-swiss-ticino-ag-tagerig-34a1c8f2"
+        "dachdecker-100-anker-swiss-ticino-ag-tagerig-34a1c8f2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dachdecker-100-anker-swiss-ticino-ag-tagerig-77ffc95f",
-          "dachdecker-100-anker-swiss-ticino-ag-tagerig-34a1c8f2",
-          "copertura-100-anker-swiss-ticino-ag-tagerig-34a1c8f2"
+          "dachdecker-100-anker-swiss-ticino-ag-tagerig-34a1c8f2"
         ],
         "en": [
           "dachdecker-100-anker-swiss-ticino-ag-tagerig-77ffc95f"
@@ -13695,16 +13693,14 @@
         "schreiner-100-anker-swiss-ticino-ag-interlaken-f939a010",
         "schreiner-100-anker-swiss-ticino-ag-interlaken-c77251f1",
         "schreiner-100-anker-swiss-ticino-ag-interlaken-ad63b54d",
-        "schreiner-100-anker-swiss-ticino-ag-interlaken-5e78c832",
-        "carpentiere-100-anker-swiss-ticino-ag-interlaken-5e78c832"
+        "schreiner-100-anker-swiss-ticino-ag-interlaken-5e78c832"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schreiner-100-anker-swiss-ticino-ag-interlaken-f939a010",
           "schreiner-100-anker-swiss-ticino-ag-interlaken-c77251f1",
           "schreiner-100-anker-swiss-ticino-ag-interlaken-ad63b54d",
-          "schreiner-100-anker-swiss-ticino-ag-interlaken-5e78c832",
-          "carpentiere-100-anker-swiss-ticino-ag-interlaken-5e78c832"
+          "schreiner-100-anker-swiss-ticino-ag-interlaken-5e78c832"
         ],
         "de": [
           "schreiner-100-anker-swiss-ticino-ag-interlaken-f939a010",
@@ -15522,7 +15518,6 @@
           "parquet-au-sol-100-anker-swiss-ticino-ag-steinach-6e0962c1"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:23:14.378Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -15536,7 +15531,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "anker-swiss-a6b72ab89185",
@@ -15669,13 +15665,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "metallbauer-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684",
-        "lavoratori-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684"
+        "metallbauer-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "metallbauer-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684",
-          "lavoratori-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684"
+          "metallbauer-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684"
         ],
         "en": [
           "metallbauer-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684"
@@ -15765,7 +15759,6 @@
           "coqueur-100-anker-swiss-ticino-ag-wetzikon-zh-a159b92b"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:23:14.378Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -15779,7 +15772,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "anker-swiss-78e9c1b5bd32",
@@ -15851,7 +15845,6 @@
           "jardiniers-100-anker-swiss-ticino-ag-dudingen-78e9c1b5"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:23:14.377Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -15865,7 +15858,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "anker-swiss-96a71d95fa74",
@@ -15932,7 +15926,6 @@
           "coqueur-100-anker-swiss-ticino-ag-wurenlingen-96a71d95"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:23:14.377Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -15946,7 +15939,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "anker-swiss-1910ed0c731e",
@@ -16018,7 +16012,6 @@
           "jardiniers-100-anker-swiss-ticino-ag-olten-1910ed0c"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:23:14.376Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -16032,7 +16025,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "anker-swiss-0b26806402f0",
@@ -16104,7 +16098,6 @@
           "jardiniers-100-anker-swiss-ticino-ag-solothurn-0b268064"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:23:14.376Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -16118,7 +16111,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "anker-swiss-e30e99981a4d",
@@ -16190,7 +16184,6 @@
           "jardiniers-100-anker-swiss-ticino-ag-jaberg-e30e9998"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:23:14.376Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -16204,7 +16197,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "anker-swiss-f6e8dced1fd3",
@@ -16256,14 +16250,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/metallbauer-1442152/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "metallbauer-100-anker-swiss-ticino-ag-eyholz-4e760492",
-        "metallbauer-100-anker-swiss-ticino-ag-eyholz-14b7d55c",
-        "metallbauer-100-anker-swiss-ticino-ag-eyholz-f6e8dced",
-        "lavoratori-100-anker-swiss-ticino-ag-eyholz-f6e8dced",
-        "metalworkers-100-anker-swiss-ticino-ag-eyholz-f6e8dced",
-        "metaux-100-anker-swiss-ticino-ag-eyholz-f6e8dced"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "metallbauer-100-anker-swiss-ticino-ag-eyholz-4e760492",
@@ -16276,16 +16262,20 @@
           "metallbauer-100-anker-swiss-ticino-ag-eyholz-14b7d55c"
         ],
         "en": [
-          "metalworkers-100-anker-swiss-ticino-ag-eyholz-f6e8dced",
           "metallbauer-100-anker-swiss-ticino-ag-eyholz-f6e8dced"
         ],
         "fr": [
-          "metaux-100-anker-swiss-ticino-ag-eyholz-f6e8dced",
           "metallbauer-100-anker-swiss-ticino-ag-eyholz-f6e8dced"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:23:14.375Z",
+      "previousSlugs": [
+        "metallbauer-100-anker-swiss-ticino-ag-eyholz-4e760492",
+        "metallbauer-100-anker-swiss-ticino-ag-eyholz-14b7d55c",
+        "metallbauer-100-anker-swiss-ticino-ag-eyholz-f6e8dced",
+        "lavoratori-100-anker-swiss-ticino-ag-eyholz-f6e8dced",
+        "metalworkers-100-anker-swiss-ticino-ag-eyholz-f6e8dced",
+        "metaux-100-anker-swiss-ticino-ag-eyholz-f6e8dced"
+      ],
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -16298,7 +16288,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-03T09:23:14.375Z",
+      "needsRetranslation": true
     },
     {
       "id": "anker-swiss-a999cc574c2d",
@@ -16350,12 +16342,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/metallbau-projektleiter-1442142/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "metallbau-projektleiter-100-anker-swiss-ticino-ag-zunzgen-a999cc57",
-        "metallbau-projektleiter-100-anker-swiss-ticino-ag-zunzgen",
-        "metal-construction-project-manager-100-anker-swiss-ticino-ag-zunzgen-a999cc57",
-        "chef-de-projet-de-construction-metallique-100-anker-swiss-ticino-ag-zunzgen-a999cc57"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "metallbau-projektleiter-100-anker-swiss-ticino-ag-zunzgen-a999cc57",
@@ -16367,8 +16353,12 @@
           "chef-de-projet-de-construction-metallique-100-anker-swiss-ticino-ag-zunzgen-a999cc57"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:23:14.376Z",
+      "previousSlugs": [
+        "metallbau-projektleiter-100-anker-swiss-ticino-ag-zunzgen-a999cc57",
+        "metallbau-projektleiter-100-anker-swiss-ticino-ag-zunzgen",
+        "metal-construction-project-manager-100-anker-swiss-ticino-ag-zunzgen-a999cc57",
+        "chef-de-projet-de-construction-metallique-100-anker-swiss-ticino-ag-zunzgen-a999cc57"
+      ],
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -16381,7 +16371,9 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-03T09:23:14.376Z",
+      "needsRetranslation": true
     },
     {
       "id": "anker-swiss-43e21100b087",
@@ -16433,12 +16425,20 @@
       "applyUrl": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1443336/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "gipser-trockenbauer-100-anker-swiss-ticino-ag-thun-43e21100",
-        "asciugamani-100-anker-swiss-ticino-ag-thun-43e21100",
-        "plaster-dryers-100-anker-swiss-ticino-ag-thun-43e21100",
-        "sechoirs-a-plaques-100-anker-swiss-ticino-ag-thun-43e21100"
-      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-03T09:23:14.375Z",
       "previousSlugsByLocale": {
         "it": [
           "gipser-trockenbauer-100-anker-swiss-ticino-ag-thun-43e21100",
@@ -16453,21 +16453,13 @@
           "sechoirs-a-plaques-100-anker-swiss-ticino-ag-thun-43e21100"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:23:14.375Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "gipser-trockenbauer-100-anker-swiss-ticino-ag-thun-43e21100",
+        "asciugamani-100-anker-swiss-ticino-ag-thun-43e21100",
+        "plaster-dryers-100-anker-swiss-ticino-ag-thun-43e21100",
+        "sechoirs-a-plaques-100-anker-swiss-ticino-ag-thun-43e21100"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "anker-swiss-d9e2b5be3991",
@@ -16519,12 +16511,20 @@
       "applyUrl": "https://anker-swiss.ch/stellen/metallbauer-1442674/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "metallbauer-100-anker-swiss-ticino-ag-lausen-d9e2b5be",
-        "lavoratori-100-anker-swiss-ticino-ag-lausen-d9e2b5be",
-        "metalworkers-100-anker-swiss-ticino-ag-lausen-d9e2b5be",
-        "metaux-100-anker-swiss-ticino-ag-lausen-d9e2b5be"
-      ],
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-03T09:23:14.375Z",
       "previousSlugsByLocale": {
         "it": [
           "metallbauer-100-anker-swiss-ticino-ag-lausen-d9e2b5be",
@@ -16539,21 +16539,13 @@
           "metaux-100-anker-swiss-ticino-ag-lausen-d9e2b5be"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:23:14.375Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "metallbauer-100-anker-swiss-ticino-ag-lausen-d9e2b5be",
+        "lavoratori-100-anker-swiss-ticino-ag-lausen-d9e2b5be",
+        "metalworkers-100-anker-swiss-ticino-ag-lausen-d9e2b5be",
+        "metaux-100-anker-swiss-ticino-ag-lausen-d9e2b5be"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "anker-swiss-4ad9a7102ee2",
@@ -16605,12 +16597,20 @@
       "applyUrl": "https://anker-swiss.ch/stellen/maler-1442395/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "maler-100-anker-swiss-ticino-ag-oberburen-4ad9a710",
-        "pittura-100-anker-swiss-ticino-ag-oberburen-4ad9a710",
-        "painter-100-anker-swiss-ticino-ag-oberburen-4ad9a710",
-        "peintre-100-anker-swiss-ticino-ag-oberburen-4ad9a710"
-      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-03T09:23:14.375Z",
       "previousSlugsByLocale": {
         "it": [
           "maler-100-anker-swiss-ticino-ag-oberburen-4ad9a710",
@@ -16625,21 +16625,13 @@
           "peintre-100-anker-swiss-ticino-ag-oberburen-4ad9a710"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:23:14.375Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "maler-100-anker-swiss-ticino-ag-oberburen-4ad9a710",
+        "pittura-100-anker-swiss-ticino-ag-oberburen-4ad9a710",
+        "painter-100-anker-swiss-ticino-ag-oberburen-4ad9a710",
+        "peintre-100-anker-swiss-ticino-ag-oberburen-4ad9a710"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "anker-swiss-f86d8ccb6104",
@@ -16691,12 +16683,20 @@
       "applyUrl": "https://anker-swiss.ch/stellen/techniker-metallbau-1444843/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "techniker-metallbau-100-anker-swiss-ticino-ag-schwarzenburg-f86d8ccb",
-        "tecnico-costruzione-in-metallo-100-anker-swiss-ticino-ag-schwarzenburg-f86d8ccb",
-        "technician-metal-construction-100-anker-swiss-ticino-ag-schwarzenburg-f86d8ccb",
-        "technicien-construction-metallique-100-anker-swiss-ticino-ag-schwarzenburg-f86d8ccb"
-      ],
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 116500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-03T09:23:14.374Z",
       "previousSlugsByLocale": {
         "it": [
           "techniker-metallbau-100-anker-swiss-ticino-ag-schwarzenburg-f86d8ccb",
@@ -16711,21 +16711,13 @@
           "technicien-construction-metallique-100-anker-swiss-ticino-ag-schwarzenburg-f86d8ccb"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:23:14.374Z",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 116500,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "techniker-metallbau-100-anker-swiss-ticino-ag-schwarzenburg-f86d8ccb",
+        "tecnico-costruzione-in-metallo-100-anker-swiss-ticino-ag-schwarzenburg-f86d8ccb",
+        "technician-metal-construction-100-anker-swiss-ticino-ag-schwarzenburg-f86d8ccb",
+        "technicien-construction-metallique-100-anker-swiss-ticino-ag-schwarzenburg-f86d8ccb"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "anker-swiss-dbd505bb9d86",
@@ -16777,12 +16769,20 @@
       "applyUrl": "https://anker-swiss.ch/stellen/metallbauer-1444607/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "metallbauer-100-anker-swiss-ticino-ag-muntschemier-dbd505bb",
-        "lavoratori-100-anker-swiss-ticino-ag-muntschemier-dbd505bb",
-        "metalworkers-100-anker-swiss-ticino-ag-muntschemier-dbd505bb",
-        "metaux-100-anker-swiss-ticino-ag-muntschemier-dbd505bb"
-      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-03T09:23:14.374Z",
       "previousSlugsByLocale": {
         "it": [
           "metallbauer-100-anker-swiss-ticino-ag-muntschemier-dbd505bb",
@@ -16797,30 +16797,22 @@
           "metaux-100-anker-swiss-ticino-ag-muntschemier-dbd505bb"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:23:14.374Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "metallbauer-100-anker-swiss-ticino-ag-muntschemier-dbd505bb",
+        "lavoratori-100-anker-swiss-ticino-ag-muntschemier-dbd505bb",
+        "metalworkers-100-anker-swiss-ticino-ag-muntschemier-dbd505bb",
+        "metaux-100-anker-swiss-ticino-ag-muntschemier-dbd505bb"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "anker-swiss-5464c385152c",
-      "slug": "metallbauer-100-anker-swiss-ticino-ag-thun-5464c385",
+      "slug": "lavoratori-100-anker-swiss-ticino-ag-thun-5464c385",
       "slugByLocale": {
-        "it": "metallbauer-100-anker-swiss-ticino-ag-thun-5464c385",
-        "en": "metallbauer-100-anker-swiss-ticino-ag-thun-5464c385",
         "de": "metallbauer-100-anker-swiss-ticino-ag-thun-5464c385",
-        "fr": "metallbauer-100-anker-swiss-ticino-ag-thun-5464c385"
+        "it": "lavoratori-100-anker-swiss-ticino-ag-thun-5464c385",
+        "en": "metalworkers-100-anker-swiss-ticino-ag-thun-5464c385",
+        "fr": "metaux-100-anker-swiss-ticino-ag-thun-5464c385"
       },
       "slugDisambiguator": "5464c385",
       "company": "Anker Swiss Ticino AG",
@@ -16868,23 +16860,27 @@
         "metallbauer-100-anker-swiss-ticino-ag-thun-49c97b3a",
         "lavoratori-100-anker-swiss-ticino-ag-thun-49c97b3a",
         "metalworkers-100-anker-swiss-ticino-ag-thun-49c97b3a",
-        "metaux-100-anker-swiss-ticino-ag-thun-49c97b3a"
+        "metaux-100-anker-swiss-ticino-ag-thun-49c97b3a",
+        "metallbauer-100-anker-swiss-ticino-ag-thun-5464c385"
       ],
       "previousSlugsByLocale": {
         "it": [
           "metallbauer-100-anker-swiss-ticino-ag-thun-49c97b3a",
-          "lavoratori-100-anker-swiss-ticino-ag-thun-49c97b3a"
+          "lavoratori-100-anker-swiss-ticino-ag-thun-49c97b3a",
+          "metallbauer-100-anker-swiss-ticino-ag-thun-5464c385"
         ],
         "en": [
           "metallbauer-100-anker-swiss-ticino-ag-thun-49c97b3a",
-          "metalworkers-100-anker-swiss-ticino-ag-thun-49c97b3a"
+          "metalworkers-100-anker-swiss-ticino-ag-thun-49c97b3a",
+          "metallbauer-100-anker-swiss-ticino-ag-thun-5464c385"
         ],
         "de": [
           "metallbauer-100-anker-swiss-ticino-ag-thun-49c97b3a"
         ],
         "fr": [
           "metallbauer-100-anker-swiss-ticino-ag-thun-49c97b3a",
-          "metaux-100-anker-swiss-ticino-ag-thun-49c97b3a"
+          "metaux-100-anker-swiss-ticino-ag-thun-49c97b3a",
+          "metallbauer-100-anker-swiss-ticino-ag-thun-5464c385"
         ]
       },
       "salaryMin": 68500,
@@ -16952,12 +16948,20 @@
       "applyUrl": "https://anker-swiss.ch/stellen/automobil-fachmann-1445713/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "automobil-fachmann-100-anker-swiss-ticino-ag-givisiez-86ec785e",
-        "specialista-automobilistico-100-anker-swiss-ticino-ag-givisiez-86ec785e",
-        "automotive-specialist-100-anker-swiss-ticino-ag-givisiez-86ec785e",
-        "specialiste-automobile-100-anker-swiss-ticino-ag-givisiez-86ec785e"
-      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-03T09:23:14.371Z",
       "previousSlugsByLocale": {
         "it": [
           "automobil-fachmann-100-anker-swiss-ticino-ag-givisiez-86ec785e",
@@ -16972,21 +16976,13 @@
           "specialiste-automobile-100-anker-swiss-ticino-ag-givisiez-86ec785e"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:23:14.371Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "automobil-fachmann-100-anker-swiss-ticino-ag-givisiez-86ec785e",
+        "specialista-automobilistico-100-anker-swiss-ticino-ag-givisiez-86ec785e",
+        "automotive-specialist-100-anker-swiss-ticino-ag-givisiez-86ec785e",
+        "specialiste-automobile-100-anker-swiss-ticino-ag-givisiez-86ec785e"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "anker-swiss-d24e4574784f",
@@ -17338,14 +17334,10 @@
       "applyUrl": "https://anker-swiss.ch/stellen/elektroinstallateur-1451034/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "elektroinstallateur-100-anker-swiss-ticino-ag-bern-a1f4949c",
-        "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-bern"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-100-anker-swiss-ticino-ag-bern-a1f4949c",
-          "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-bern"
+          "elektroinstallateur-100-anker-swiss-ticino-ag-bern-a1f4949c"
         ],
         "en": [
           "elektroinstallateur-100-anker-swiss-ticino-ag-bern-a1f4949c"
@@ -17354,8 +17346,9 @@
           "elektroinstallateur-100-anker-swiss-ticino-ag-bern-a1f4949c"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:23:14.367Z",
+      "previousSlugs": [
+        "elektroinstallateur-100-anker-swiss-ticino-ag-bern-a1f4949c"
+      ],
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -17368,7 +17361,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-03T09:23:14.367Z"
     },
     {
       "id": "anker-swiss-455e4325733e",
@@ -17502,14 +17496,10 @@
       "applyUrl": "https://anker-swiss.ch/stellen/elektroinstallateur-1451049/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "elektroinstallateur-100-anker-swiss-ticino-ag-steffisburg-20121ef6",
-        "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-steffisburg"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-100-anker-swiss-ticino-ag-steffisburg-20121ef6",
-          "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-steffisburg"
+          "elektroinstallateur-100-anker-swiss-ticino-ag-steffisburg-20121ef6"
         ],
         "en": [
           "elektroinstallateur-100-anker-swiss-ticino-ag-steffisburg-20121ef6"
@@ -17518,8 +17508,9 @@
           "elektroinstallateur-100-anker-swiss-ticino-ag-steffisburg-20121ef6"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:23:14.367Z",
+      "previousSlugs": [
+        "elektroinstallateur-100-anker-swiss-ticino-ag-steffisburg-20121ef6"
+      ],
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -17532,7 +17523,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-03T09:23:14.367Z"
     },
     {
       "id": "anker-swiss-8a442a226749",

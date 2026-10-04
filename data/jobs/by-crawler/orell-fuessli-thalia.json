@@ -1547,10 +1547,10 @@
       "id": "orell-fuessli-thalia-65aaeaf8c4dc",
       "slug": "buchhandler-in-70-90-a-orell-fussli-thalia-bern",
       "slugByLocale": {
-        "it": "buchhandler-in-70-90-a-orell-fussli-thalia-bern",
-        "en": "buchhandler-in-70-90-a-orell-fussli-thalia-bern",
         "de": "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
-        "fr": "buchhandler-in-70-90-a-orell-fussli-thalia-bern"
+        "en": "buchhandler-in-70-90-a-orell-fussli-thalia-bern",
+        "it": "libreria-70-90-a-orell-fussli-thalia-bern",
+        "fr": "librairie-70-90-a-orell-fussli-thalia-bern"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -1593,6 +1593,7 @@
       "jobReqId": null,
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
         "libreria-70-90-a-orell-fussli-thalia-bern",
@@ -1604,13 +1605,8 @@
           "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
           "libreria-70-90-a-orell-fussli-thalia-bern",
           "buchhandler-in-70-90-a-orell-fussli-thalia-bern"
-        ],
-        "fr": [
-          "librairie-70-90-a-orell-fussli-thalia-bern"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T23:11:57.952Z",
       "salaryMin": 69800,
       "salaryMax": 106700,
       "salarySource": "estimated",
@@ -1623,7 +1619,8 @@
           "maxValue": 106700,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-19T23:11:57.952Z"
     },
     {
       "id": "orell-fuessli-thalia-5444e3a466dc",

@@ -962,12 +962,12 @@
     },
     {
       "id": "valora-4c80410311ef",
-      "slug": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
+      "slug": "venditore-venditore-k-chiosco-20-ore-valora-group-kandersteg",
       "slugByLocale": {
-        "it": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
-        "en": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
+        "it": "venditore-venditore-k-chiosco-20-ore-valora-group-kandersteg",
+        "en": "seller-k-kiosk-20-hrs-valora-group-kandersteg",
         "de": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-jo0tq3",
-        "fr": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
+        "fr": "vendeuse-vendeur-k-kiosk-20-heures-valora-group-kandersteg"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -1024,7 +1024,21 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
+      ]
     },
     {
       "id": "valora-efda2feac9b1",

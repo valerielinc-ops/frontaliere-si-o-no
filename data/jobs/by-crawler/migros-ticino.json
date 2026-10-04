@@ -3343,7 +3343,7 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "allrounder-in-vendita-genossenschaft-migros-luzern-grkcs8",
-        "en": "allrounder-in-verkauf-genossenschaft-migros-luzern-grkcs8",
+        "en": "all-rounder-sales-genossenschaft-migros-luzern-luzern",
         "de": "allrounder-in-verkauf-genossenschaft-migros-luzern-grkcs8",
         "fr": "allrounder-in-vente-genossenschaft-migros-luzern-grkcs8"
       },
@@ -3365,10 +3365,14 @@
       "previousSlugsByLocale": {
         "it": [
           "allrounder-in-verkauf-genossenschaft-migros-luzern"
+        ],
+        "en": [
+          "allrounder-in-verkauf-genossenschaft-migros-luzern-grkcs8"
         ]
       },
       "previousSlugs": [
-        "allrounder-in-verkauf-genossenschaft-migros-luzern"
+        "allrounder-in-verkauf-genossenschaft-migros-luzern",
+        "allrounder-in-verkauf-genossenschaft-migros-luzern-grkcs8"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -57801,6 +57805,13 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
+        "en": [
+          "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-grenchen",
+          "head-of-department-in-butchery-genossenschaft-migros-aare-grenchen"
+        ],
+        "fr": [
+          "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-grenchen"
+        ],
         "it": [
           "collaboratore-trice-in-metzgerei-genossenschaft-migros-aare-grenchen-wc643s",
           "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-grenchen-wc643s",
@@ -57808,15 +57819,8 @@
           "employe-dans-la-boucherie-genossenschaft-migros-aare-grenchen",
           "capo-reparto-in-macelleria-genossenschaft-migros-aare-grenchen"
         ],
-        "en": [
-          "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-grenchen",
-          "head-of-department-in-butchery-genossenschaft-migros-aare-grenchen"
-        ],
         "de": [
           "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-grenchen-wc643s"
-        ],
-        "fr": [
-          "mitarbeiter-in-metzgerei-genossenschaft-migros-aare-grenchen"
         ]
       },
       "previousSlugs": [
