@@ -461,6 +461,11 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
     expect(coverageOf(record.openers[0], record)?.detail).toBeTruthy();
   });
 
+  it('la stessa forma con un gemello `--resolve` a titolo identico nel workflow è coperta da quello', () => {
+    const title = 'CI Failure (schedule): W';
+    expect(coverageOf({ title }, { closers: [{ title }] })).toEqual({ by: 'sibling-resolve-step' });
+  });
+
   it('`CI Failure (deploy|build)` hanno UN solo chiuditore: quello del loro workflow', () => {
     // Stessa forma del titolo dello scanner, ma `deploy`/`build` non sono eventi:
     // un secondo chiuditore con un criterio sui timeout chiuderebbe un guasto

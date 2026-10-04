@@ -45,7 +45,9 @@ const {
   decideScopedTimeoutResolution,
   resolveEvidenceComment,
   resolveScopedTimeoutIssues,
+  RESOLVE_EVIDENCE_MARKER,
 } = await import('../scripts/ci/scan-job-timeouts.mjs');
+const { timeoutReportSourceRun } = await import('../scripts/ci/route-already-fixed.mjs');
 
 const WORKFLOWS_DIR = path.resolve(__dirname, '..', '.github', 'workflows');
 const WF = 'Assisted application portal e2e';
@@ -140,7 +142,15 @@ function jobsFor(r: Run) {
     total_count: 2,
     jobs: [
       { name: 'extension', status: 'completed', conclusion: 'success', steps: [] },
-      { name: 'e2e', status: 'completed', conclusion: 'cancelled', check_run_url: `cr/${r.databaseId}`, steps: [] },
+      // Il job `e2e` cancellato ha GIRATO (concorrenza o timeout a meta' corsa):
+      // e' il caso in cui le sue annotazioni vanno lette.
+      {
+        name: 'e2e', status: 'completed', conclusion: 'cancelled', check_run_url: `cr/${r.databaseId}`,
+        steps: [
+          { name: 'Set up job', status: 'completed', conclusion: 'success' },
+          { name: 'Portal runner on the fake portal', status: 'completed', conclusion: 'cancelled' },
+        ],
+      },
     ],
   };
 }
@@ -209,6 +219,12 @@ describe('la famiglia: elenco CHIUSO di eventi più la firma dello scanner', () 
     expect(hasScannerSignature('Un timeout, senza dire chi l\'ha visto.')).toBe(false);
     // Citato in prosa senza backtick non è la firma del reporter.
     expect(hasScannerSignature('vedi scripts/ci/scan-job-timeouts.mjs')).toBe(false);
+  });
+
+  it('`route-already-fixed.mjs` riconosce le stesse issue (copia letterale della firma, allineata)', () => {
+    for (const body of [BODY_10809, 'vedi scripts/ci/scan-job-timeouts.mjs', '', 'timeout visto a mano']) {
+      expect(timeoutReportSourceRun(body, 'valerielinc-ops/frontaliere-si-o-no').required, body).toBe(hasScannerSignature(body));
+    }
   });
 });
 
@@ -294,6 +310,50 @@ describe('decideScopedTimeoutResolution — i casi limite', () => {
     }
   });
 
+  it('un job cancellato che non ha eseguito step (attesa di `needs:`) non è un timeout né un\'illeggibile', () => {
+    // Misurato su `tests` 37171177520 (pull_request, cancelled): `vitest` cancellato
+    // con annotazioni leggibili, `post-review` cancellato con steps=[] e annotations=[].
+    const reads: string[] = [];
+    const v = classifyRunForResolve(run(1, 'cancelled', t(1), 'a'), {
+      jobsData: {
+        total_count: 2,
+        jobs: [
+          {
+            name: 'vitest', status: 'completed', conclusion: 'cancelled', check_run_url: 'cr/vitest',
+            steps: [{ name: 'Run vitest', status: 'completed', conclusion: 'cancelled' }],
+          },
+          { name: 'post-review', status: 'completed', conclusion: 'cancelled', check_run_url: 'cr/post-review', steps: [] },
+        ],
+      },
+      readAnnotations: (job: { name: string }) => { reads.push(job.name); return job.name === 'post-review' ? [] : CONCURRENCY_ANNOTATIONS; },
+    });
+    expect(v.verdict).toBe('ignored');
+    expect(reads).toEqual(['vitest']);
+  });
+
+  it('`steps` assente non prova che il job non sia partito: annotazioni vuote → keep', () => {
+    const v = classifyRunForResolve(run(1, 'cancelled', t(1), 'a'), {
+      jobsData: { total_count: 1, jobs: [{ name: 'e2e', status: 'completed', conclusion: 'cancelled', check_run_url: 'cr/e2e' }] },
+      readAnnotations: () => [],
+    });
+    expect(v.verdict).toBe('unknown');
+  });
+
+  it('uno step `in_progress` ancora nella finestra di assestamento dell\'host-kill → illeggibile, non `clean-failure`', () => {
+    const v = classifyRunForResolve(run(1, 'failure', t(1), 'a'), {
+      jobsData: {
+        total_count: 1,
+        jobs: [{
+          name: 'e2e', status: 'completed', conclusion: 'failure', completed_at: t(1),
+          steps: [{ number: 5, name: 'Build', status: 'in_progress' }],
+        }],
+      },
+      readAnnotations: () => null,
+      nowMs: Date.parse(t(1)) + 30_000,
+    });
+    expect(v.verdict).toBe('unknown');
+  });
+
   it('jobs incompleti (total_count ≠ jobs) → keep', () => {
     const v = classifyRunForResolve(run(1, 'cancelled', t(1), 'a'), {
       jobsData: { total_count: 3, jobs: [] }, readAnnotations: () => CONCURRENCY_ANNOTATIONS,
@@ -335,7 +395,10 @@ describe('decideScopedTimeoutResolution — i casi limite', () => {
 
 describe('resolveScopedTimeoutIssues — il cablaggio con `gh`', () => {
   let logs: string[];
-  let issues: Array<{ number: number; title: string; labels: Array<{ name: string }>; createdAt: string; body: string }>;
+  let issues: Array<{
+    number: number; title: string; labels: Array<{ name: string }>; createdAt: string; body: string;
+    comments?: Array<{ body: string }>;
+  }>;
   let runList: Run[];
 
   beforeEach(() => {
@@ -350,11 +413,11 @@ describe('resolveScopedTimeoutIssues — il cablaggio con `gh`', () => {
     execFileSync.mockImplementation((cmd: string, args: string[]) => {
       if (cmd !== 'gh') throw new Error(`unexpected ${cmd}`);
       if (args[0] === 'issue' && args[1] === 'list') {
-        return JSON.stringify(issues.map(({ body: _body, ...rest }) => rest));
+        return JSON.stringify(issues.map(({ body: _body, comments: _comments, ...rest }) => rest));
       }
       if (args[0] === 'issue' && args[1] === 'view') {
         const found = issues.find((i) => String(i.number) === args[2]);
-        return JSON.stringify({ body: found?.body ?? '' });
+        return JSON.stringify({ body: found?.body ?? '', comments: found?.comments ?? [] });
       }
       if (args[0] === 'run' && args[1] === 'list') return JSON.stringify(runList);
       if (args[0] === 'api' && /actions\/runs\/(\d+)\/jobs/.test(args[1])) {
@@ -416,6 +479,50 @@ describe('resolveScopedTimeoutIssues — il cablaggio con `gh`', () => {
     expect(execFileSync.mock.calls.some(([, a]) => a[0] === 'run' && a[1] === 'list')).toBe(false);
     expect(commentOnGithubIssue).not.toHaveBeenCalled();
     expect(resolveGithubIssue).not.toHaveBeenCalled();
+  });
+
+  it('due gemelle aperte con lo stesso titolo: nessun commento, nessuna chiusura', async () => {
+    // `resolveGithubIssue` chiude per titolo la più recente: valutando la vecchia
+    // chiuderebbe la nuova, che porta `keep-open` e non è mai stata esaminata.
+    issues = [
+      { number: 11000, title: TITLE_10809, labels: [{ name: 'keep-open' }], createdAt: '2026-10-02T08:00:00Z', body: 'aperta a mano' },
+      { number: 10809, title: TITLE_10809, labels: [], createdAt: OPENED_10809, body: BODY_10809 },
+    ];
+    commentOnGithubIssue.mockReturnValue(true);
+    resolveGithubIssue.mockReturnValue({ number: 11000, persisted: true });
+    await resolveScopedTimeoutIssues({ dryRun: false });
+    expect(logs.join('\n')).toMatch(/#10809 .*→ keep \(gemelle aperte: #11000, #10809\)/);
+    expect(commentOnGithubIssue).not.toHaveBeenCalled();
+    expect(resolveGithubIssue).not.toHaveBeenCalled();
+  });
+
+  it('una chiusura che conferma un numero diverso da quello valutato è un errore', async () => {
+    issues = [{ number: 10809, title: TITLE_10809, labels: [], createdAt: OPENED_10809, body: BODY_10809 }];
+    commentOnGithubIssue.mockReturnValue(true);
+    resolveGithubIssue.mockReturnValue({ number: 11000, persisted: true });
+    await expect(resolveScopedTimeoutIssues({ dryRun: false })).rejects.toThrow(/chiusa #11000 invece di #10809/);
+  });
+
+  it('evidenza già in coda dal tick precedente: non la ripete, ritenta solo la chiusura', async () => {
+    issues = [{
+      number: 10809, title: TITLE_10809, labels: [], createdAt: OPENED_10809, body: BODY_10809,
+      comments: [{ body: '🔁 di nuovo' }, { body: `${RESOLVE_EVIDENCE_MARKER}\n✅ Timeout non più osservato` }],
+    }];
+    resolveGithubIssue.mockReturnValue({ number: 10809, persisted: true });
+    await resolveScopedTimeoutIssues({ dryRun: false });
+    expect(commentOnGithubIssue).not.toHaveBeenCalled();
+    expect(resolveGithubIssue).toHaveBeenCalledTimes(1);
+  });
+
+  it('una ricorrenza dopo l\'evidenza precedente: l\'evidenza si riscrive', async () => {
+    issues = [{
+      number: 10809, title: TITLE_10809, labels: [], createdAt: OPENED_10809, body: BODY_10809,
+      comments: [{ body: `${RESOLVE_EVIDENCE_MARKER}\nvecchia` }, { body: '🔁 di nuovo' }],
+    }];
+    commentOnGithubIssue.mockReturnValue(true);
+    resolveGithubIssue.mockReturnValue({ number: 10809, persisted: true });
+    await resolveScopedTimeoutIssues({ dryRun: false });
+    expect(commentOnGithubIssue).toHaveBeenCalledTimes(1);
   });
 
   it('commento non scritto → niente chiusura, ed esce in errore', async () => {

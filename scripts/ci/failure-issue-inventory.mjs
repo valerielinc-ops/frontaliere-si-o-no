@@ -376,6 +376,9 @@ export function coverageOf(opener, record) {
     return { by: 'report-validate-dist-failure' };
   }
   if (SCOPED_TIMEOUT_TITLE_RE.test(opener.title)) {
+    // Uno step gemello `--resolve` con titolo identico nello stesso workflow lo
+    // chiude gia': coperto, a prescindere dalla firma.
+    if (record.closers.some((c) => c.title === opener.title)) return { by: 'sibling-resolve-step' };
     // `--resolve` esamina solo le issue con la firma dello scanner nel body.
     // Un opener che non la dichiara SEMBRA coperto dalla forma del titolo e non
     // si chiude: lo stesso caso peggiore del nome che `gh run list` non risolve.
