@@ -168,6 +168,10 @@ describe('contentsApiIo — il main del repository del bucket, non il disco', ()
     expect(io.status('scripts/a.mjs')).toBe('present');
     expect(io.status('scripts/b.mjs')).toBe('unknown');
     expect(io.status('scripts/a.mjs')).toBe('present');
+    // Lo stesso path oltre il tetto consultato di nuovo (fileExists, readFile)
+    // resta unknown e non gonfia `capped`: conta i path non letti.
+    expect(io.fileExists('scripts/b.mjs')).toBe(false);
+    expect(io.readFile('scripts/b.mjs')).toBeNull();
     expect(calls).toBe(1);
     expect(io.stats()).toEqual({ reads: 1, cap: 1, capped: 1, errors: 0 });
   });

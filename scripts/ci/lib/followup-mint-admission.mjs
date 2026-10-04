@@ -210,8 +210,11 @@ function encodeRepoPath(path) {
  * sparse, o del repository sbagliato) e cosi' fanno tutti lo stesso controllo.
  *
  * - Cache per run: una sola chiamata per path.
- * - Tetto dichiarato: oltre `cap` chiamate un path nuovo vale `unknown`.
+ * - Tetto dichiarato: oltre `cap` chiamate un path nuovo vale `unknown`
+ *   (`stats().capped` = path distinti non letti).
  * - 404 → `missing`; ogni altro errore → `unknown` (mai un «no» inventato).
+ *   Limite noto: l'API risponde 404 anche a un token senza accesso a un
+ *   repository privato; ogni passaggio usa il token del repository del bucket.
  *
  * @param {{repo: string, ref?: string, gh: (args: string[]) => string, cap?: number}} options
  *   `gh(args)` ritorna lo stdout o lancia un errore con `stderr`/`message`.
@@ -229,9 +232,11 @@ export function contentsApiIo({ repo, ref = 'main', gh, cap = DEFAULT_ADMISSION_
     } else if (!repo || typeof gh !== 'function') {
       entry = { status: 'unknown', content: null };
     } else if (stats.reads >= limit) {
+      // In cache anche il rifiuto: un path oltre il tetto resta `unknown` per
+      // tutta la run e `capped` conta i PATH non letti, non le consultazioni
+      // (lo stesso path e' citato in piu' sezioni e riletto da piu' controlli).
       stats.capped += 1;
-      // Non in cache: un path oltre il tetto resta `unknown` per tutta la run.
-      return { status: 'unknown', content: null };
+      entry = { status: 'unknown', content: null };
     } else {
       stats.reads += 1;
       try {
