@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pictet",
-  "assembledAt": "2026-10-03T21:18:35.652Z",
+  "assembledAt": "2026-10-04T09:17:01.112Z",
   "jobs": [
     {
       "id": "pictet-8872eca504a7",
@@ -33,7 +33,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125052&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:18:30.882Z",
+      "crawledAt": "2026-10-04T09:16:54.671Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -51,11 +51,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva"
+        "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva",
+        "junior-researcher-contratto-a-tempo-determinato-programma-2-anni-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva"
+          "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva",
+          "junior-researcher-contratto-a-tempo-determinato-programma-2-anni-pictet-group-geneva"
         ]
       },
       "needsRetranslation": true,
@@ -105,7 +107,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125071&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:18:29.712Z",
+      "crawledAt": "2026-10-04T09:16:53.686Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -185,7 +187,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125106&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:18:29.210Z",
+      "crawledAt": "2026-10-04T09:16:53.173Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -203,11 +205,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "private-assets-operations-specialist-pictet-geneva"
+        "private-assets-operations-specialist-pictet-geneva",
+        "private-assets-operations-specialista-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "private-assets-operations-specialist-pictet-geneva"
+          "private-assets-operations-specialist-pictet-geneva",
+          "private-assets-operations-specialista-pictet-group-geneva"
         ],
         "de": [
           "private-assets-operations-specialist-pictet-geneva"
@@ -217,6 +221,7 @@
         ]
       },
       "firstSeenAt": "2026-09-25T14:49:40.787Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -262,7 +267,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125130&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:18:28.163Z",
+      "crawledAt": "2026-10-04T09:16:52.182Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -299,8 +304,8 @@
       "id": "pictet-10b84f68e866",
       "slug": "legal-consulente-pictet-group-geneva",
       "slugByLocale": {
-        "en": "legal-advisor-pictet-geneva",
         "it": "legal-consulente-pictet-group-geneva",
+        "en": "legal-advisor-pictet-geneva",
         "de": "legal-berater-pictet-group-geneva",
         "fr": "legal-conseiller-pictet-group-geneva"
       },
@@ -326,7 +331,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125075&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:18:27.614Z",
+      "crawledAt": "2026-10-04T09:16:51.605Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -344,11 +349,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "legal-advisor-pictet-geneva"
+        "legal-advisor-pictet-geneva",
+        "legal-consulente-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "legal-advisor-pictet-geneva"
+          "legal-advisor-pictet-geneva",
+          "legal-consulente-pictet-group-geneva"
         ],
         "de": [
           "legal-advisor-pictet-geneva"
@@ -357,6 +364,7 @@
           "legal-advisor-pictet-geneva"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:22:12.934Z",
       "salaryMin": 69000,
       "salaryMax": 118000,
@@ -370,83 +378,7 @@
           "maxValue": 118000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
-    },
-    {
-      "id": "pictet-9e0df2bb217f",
-      "slug": "physical-security-coordinatore-pictet-group-geneva",
-      "slugByLocale": {
-        "it": "physical-security-coordinatore-pictet-group-geneva",
-        "en": "physical-security-coordinator-pictet-geneva",
-        "de": "physical-security-koordinator-pictet-group-geneva",
-        "fr": "physical-security-coordinator-pictet-geneva"
-      },
-      "company": "Pictet Group",
-      "companyKey": "pictet",
-      "companyDomain": "pictet.com",
-      "title": "Physical Security coordinator",
-      "titleByLocale": {
-        "it": "Physical Security Coordinatore",
-        "en": "Physical Security coordinator",
-        "de": "Physical Security Koordinator",
-        "fr": "Physical Security Coordinateur"
-      },
-      "description": "Votre équipe\n\nLa division Group Corporate Services offre aux clients et aux collaborateurs du groupe Pictet une gamme étendue de services; elle gère les bâtiments du siège du Groupe à Genève ainsi que ceux des filiales, succursales et bureaux de ce dernier en Suisse et à l’étranger, et en assure la sécurité physique.\n\nAfin de renforcer l’équipe Management du département Physical Security , notre bureau de Genève recherche un/une:\n\nPhysical Security Coordinator (100%)\n\nVotre rôle\n\nVous aurez pour mission d’assurer la gestion des accès et des incidents du Groupe en Suisse et à l’étranger. Vous contribuerez à la réalisation de contrôles des dispositifs de sécurité et suivrez les installations de contrôle d’accès.\n\nResponsabilités :\n\n• Gestion des accès et des incidents\n\nDéfinir la stratégie des contrôles d’accès.\nGérer les droits d’accès physiques aux bâtiments et zones sensibles pour les différentes catégories de personnes.\nProcéder à l’enregistrement technique des nouveaux collaborateurs et consultants.\nParticiper à la gestion des incidents techniques de sécurité (analyse, reporting, suivi des actions correctives).\n\n• Contrôle, conformité et reporting\n\nRéaliser des contrôles réguliers pour s’assurer du bon fonctionnement des dispositifs de contrôle d’accès.\nElaborer des procédures sur diverses thématiques de sécurité physique.\nRépondre aux questions de sécurité physique pour les audits internes et externes.\n\n• Gestion et maintenance des équipements\n\nSuivre et assurer la maintenance des installations de contrôle d’accès: disponibilité des équipements, maintenance préventive et curative.\nSuivre les interventions des prestataires techniques.\nParticiper à l’analyse des besoins techniques et à la définition des solutions.\nAssurer, en collaboration avec la personne responsable des aspects de sécurité IT, le support technique, la maintenance et l’évolution des solutions de contrôle d’accès et de vidéo protection.\n\nVotre profil\n\n• Formation CFC dans un domaine technique ou informatique.\n\n• Expérience significative dans le suivi préventif et curatif d’installations techniques de sécurité physique, de préférence dans un environnement bancaire ou à haut niveau de sécurité.\n\n• Solides connaissances techniques au niveau des systèmes de contrôle d’accès.\n\n• Connaissances des outils de gestion des accès physiques et des technologies de sécurité, un atout.\n\n• Intérêt prononcé pour les dernières innovations en sécurité physique.\n\n• Maîtrise du pack Microsoft Office, utilisation aisée des outils de gestion administrative.\n\n• Organisation, priorisation et planification des tâches.\n\n• Suivi rigoureux des dossiers et respect des délais.\n\n• Vigilance et sens des responsabilités.\n\n• Sens du service et de l’écoute.\n\n• Proactivité et autonomie.\n\n• Capacité à travailler en équipe et sur différents sujets en parallèle.\n\n• Excellente maîtrise du français (C1 minimum), très bonne maîtrise de l’anglais (B2 minimum).\n\n• Domicile en Suisse requis.\n\nRéf.: SPSC/SBP/DM\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-      "descriptionByLocale": {
-        "it": "La tua squadra\n\nLa divisione Servizi Aziendali del Gruppo offre ai clienti e ai dipendenti di Pictet Group una vasta gamma di servizi; gestisce la sede del Gruppo a Ginevra e le sue filiali, filiali e uffici in Svizzera e all'estero e garantisce la loro sicurezza fisica.\n\nAl fine di rafforzare il team di gestione del dipartimento di sicurezza fisica, il nostro ufficio di Ginevra sta cercando uno / uno:\n\nCoordinatore della Sicurezza Fisica (100%)\n\nIl tuo ruolo\n\nLa vostra missione sarà quella di gestire l'accesso e gli incidenti del Gruppo in Svizzera e all'estero. Contribuirai all'attuazione dei controlli di sicurezza e monitorerai le strutture di controllo degli accessi.\n\nResponsabilità:\n\n• Gestione degli accessi e degli incidenti\n\nDefinire la strategia di controllo degli accessi.\nGestire i diritti di accesso fisico a edifici e aree sensibili per diverse categorie di persone.\nEffettuare la registrazione tecnica di nuovi dipendenti e consulenti.\nPartecipa alla gestione di incidenti di sicurezza tecnica (analisi, reporting, follow-up di azioni correttive).\n\n• Monitoraggio, conformità e reporting\n\nEseguire controlli regolari per garantire il corretto funzionamento dei dispositivi di controllo dell'accesso.\nSviluppare procedure su vari temi di sicurezza fisica.\nRivolgersi a questioni di sicurezza fisica per audit interni ed esterni.\n\n• Gestione e manutenzione delle attrezzature\n\nMonitorare e mantenere le strutture di controllo degli accessi: disponibilità di attrezzature, manutenzione preventiva e curativa.\nSeguire gli interventi dei fornitori tecnici.\nPartecipare all'analisi delle esigenze tecniche e alla definizione delle soluzioni.\nAssicurarsi, in collaborazione con il responsabile degli aspetti di sicurezza IT, il supporto tecnico, la manutenzione e l'evoluzione delle soluzioni di controllo accessi e protezione video.\n\nIl tuo profilo\n\n• Formazione SWC in un campo tecnico o informatico.\n\n• Esperienza significativa nel monitoraggio preventivo e curativo delle strutture di sicurezza fisica tecnica, preferibilmente in un ambiente bancario o ad un alto livello di sicurezza.\n\n• Forte conoscenza tecnica dei sistemi di controllo degli accessi.\n\n• Conoscenza degli strumenti di gestione dell'accesso fisico e delle tecnologie di sicurezza, un bene.\n\n• Interessi nelle ultime innovazioni nella sicurezza fisica.\n\n• Mastery del pacchetto Microsoft Office, facile utilizzo degli strumenti di gestione amministrativa.\n\n• Organizzazione, priorità e pianificazione dei compiti.\n\n• Monitoraggio accurato dei file e tempestività.\n\n• Vigilanza e responsabilità.\n\n• Servizio e ascolto.\n\n• Proattività e autonomia.\n\n• Capacità di lavorare in team e su diversi argomenti in parallelo.\n\n• Ottima padronanza del francese (minimo C1), ottima padronanza dell'inglese (minimo B2).\n\n• Casa in Svizzera richiesto.\n\nRif.: SPSC/SBP/DM\n\nNota\n\nNon accetteremo alcun CV tramite agenzie\n\nDiversità e inclusione\n\nPictet è una pari opportunità di lavoro e si impegna a creare un ambiente diverso. Rispettiamo tutto l'individuo e cerchiamo la loro inclusione nel posto di lavoro.\n\nApplicare\n\nSalva lavoro\n\nEmail a un contatto\n\nTorna alla lista\n\n•\n\n\n\n\n\nIl lavoro è stato inviato\n\nSi prega di fornire le informazioni qui sotto",
-        "en": "Your team\n\nThe Group Corporate Services division offers Pictet Group customers and employees a wide range of services; it manages the Group's headquarters in Geneva and its subsidiaries, branches and offices in Switzerland and abroad, and ensures their physical security.\n\nIn order to strengthen the Management team of the Physical Security Department, our Geneva office is looking for one/one:\n\nPhysical Security Coordinator (100%)\n\nYour role\n\nYour mission will be to manage the Group's access and incidents in Switzerland and abroad. You will contribute to the implementation of security controls and monitor access control facilities.\n\nResponsibilities:\n\n• Access and incident management\n\nDefine the access control strategy.\nManage physical access rights to buildings and sensitive areas for different categories of persons.\nMake technical registration of new employees and consultants.\nParticipate in the management of technical security incidents (analysis, reporting, follow-up of corrective actions).\n\n• Monitoring, compliance and reporting\n\nPerform regular checks to ensure the proper functioning of access control devices.\nDevelop procedures on various physical security topics.\nAddress physical security issues for internal and external audits.\n\n• Equipment management and maintenance\n\nMonitor and maintain access control facilities: equipment availability, preventive and curative maintenance.\nFollow the interventions of technical providers.\nParticipate in technical needs analysis and solution definition.\nEnsure, in collaboration with the person responsible for IT security aspects, the technical support, maintenance and evolution of access control and video protection solutions.\n\nYour profile\n\n• SWC training in a technical or computer field.\n\n• Significant experience in preventive and curative monitoring of technical physical security facilities, preferably in a banking environment or at a high level of security.\n\n• Strong technical knowledge of access control systems.\n\n• Knowledge of physical access management tools and security technologies, an asset.\n\n• Interest in the latest innovations in physical safety.\n\n• Mastery of the Microsoft Office package, easy use of administrative management tools.\n\n• Organization, prioritization and planning of tasks.\n\n• Accurate monitoring of files and timeliness.\n\n• Vigilance and responsibility.\n\n• Service and listening.\n\n• Proactivity and autonomy.\n\n• Ability to work in teams and on different topics in parallel.\n\n• Excellent mastery of French (C1 minimum), very good mastery of English (B2 minimum).\n\n• Home in Switzerland required.\n\nRef.: SPSC/SBP/DM\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employ and is committed to creating a diverse environment. We respect all individual and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-        "de": "Dein Team\n\nDie Division Group Corporate Services bietet Kunden und Mitarbeitern der Pictet Group ein breites Spektrum an Dienstleistungen an; sie verwaltet den Hauptsitz der Gruppe in Genf und ihre Tochtergesellschaften, Niederlassungen und Büros im In- und Ausland und gewährleistet deren physische Sicherheit.\n\nUm das Managementteam der Abteilung für physische Sicherheit zu stärken, sucht unser Büro in Genf nach einem/einem:\n\nPhysischer Sicherheitskoordinator (100%)\n\nDeine Rolle\n\nIhre Mission ist es, den Zugang und die Vorfälle der Gruppe in der Schweiz und im Ausland zu verwalten. Sie tragen zur Implementierung von Sicherheitskontrollen bei und überwachen Zugangskontrolleinrichtungen.\n\nZuständigkeiten:\n\n• Access und Incident Management\n\nDefinieren Sie die Zutrittskontrollstrategie.\nVerwalten Sie physische Zugangsrechte zu Gebäuden und sensiblen Bereichen für verschiedene Personenkategorien.\nFühren Sie die technische Registrierung neuer Mitarbeiter und Berater durch.\nBeteiligen Sie sich am Management von technischen Sicherheitsvorfällen (Analyse, Berichterstattung, Nachverfolgung von Korrekturmaßnahmen).\n\n• Überwachung, Einhaltung und Berichterstattung\n\nFühren Sie regelmäßige Kontrollen durch, um das ordnungsgemäße Funktionieren der Zugangskontrollgeräte sicherzustellen.\nEntwicklung von Verfahren zu verschiedenen physischen Sicherheitsthemen.\nBehandeln Sie physische Sicherheitsprobleme für interne und externe Audits.\n\n• Betriebsmittelmanagement und -wartung\n\nÜberwachung und Wartung der Zugangskontrolleinrichtungen: Verfügbarkeit der Ausrüstung, vorbeugende und kurative Wartung.\nFolgen Sie den Interventionen der technischen Anbieter.\nBeteiligen Sie sich an der technischen Bedarfsanalyse und Lösungsdefinition.\nIn Zusammenarbeit mit der für IT-Sicherheitsaspekte zuständigen Person die technische Unterstützung, Wartung und Weiterentwicklung von Zutrittskontroll- und Videoschutzlösungen sicherstellen.\n\nDein Profil\n\n• SWC-Training in einem technischen oder Computerbereich.\n\n• Bedeutende Erfahrung in der präventiven und kurativen Überwachung von technischen physischen Sicherheitseinrichtungen, vorzugsweise im Bankenumfeld oder auf hohem Sicherheitsniveau.\n\n• Starkes technisches Wissen über Zugangskontrollsysteme.\n\n• Wissen über physische Zugriffsmanagement-Tools und Sicherheitstechnologien, ein Asset.\n\n• Interesse an den neuesten Innovationen in der physischen Sicherheit.\n\n• Beherrschung des Microsoft Office-Pakets, einfache Verwendung von Verwaltungsmanagement-Tools.\n\n• Organisation, Priorisierung und Planung von Aufgaben.\n\n• Genaue Überwachung von Dateien und Aktualität.\n\n• Wachsamkeit und Verantwortung.\n\n• Service und Zuhören.\n\n• Proaktivität und Autonomie.\n\n• Fähigkeit, in Teams und zu verschiedenen Themen parallel zu arbeiten.\n\n• Hervorragende Beherrschung von Französisch (C1 Minimum), sehr gute Beherrschung von Englisch (B2 Minimum).\n\n• Heimat in der Schweiz erforderlich.\n\nRef.: SPSC/SBP/DM\n\nAnmerkung:\n\nWir akzeptieren keine CVs über Agenturen\n\nVielfalt & Inklusion\n\nPictet ist eine Chancengleichheit und engagiert sich für die Schaffung eines vielfältigen Umfelds. Wir respektieren jeden Einzelnen und suchen seine Einbeziehung in den Arbeitsplatz.\n\nBeantragen\n\nSave Job\n\nE-Mail an einen Kontakt\n\nZurück zur Liste\n\n•\n\n\n\n\n\nDer Job wurde geschickt an\n\nBitte geben Sie die nachstehenden Informationen an:",
-        "fr": "Votre équipe\n\nLa division Group Corporate Services offre aux clients et aux collaborateurs du groupe Pictet une gamme étendue de services; elle gère les bâtiments du siège du Groupe à Genève ainsi que ceux des filiales, succursales et bureaux de ce dernier en Suisse et à l’étranger, et en assure la sécurité physique.\n\nAfin de renforcer l’équipe Management du département Physical Security , notre bureau de Genève recherche un/une:\n\nPhysical Security Coordinator (100%)\n\nVotre rôle\n\nVous aurez pour mission d’assurer la gestion des accès et des incidents du Groupe en Suisse et à l’étranger. Vous contribuerez à la réalisation de contrôles des dispositifs de sécurité et suivrez les installations de contrôle d’accès.\n\nResponsabilités :\n\n• Gestion des accès et des incidents\n\nDéfinir la stratégie des contrôles d’accès.\nGérer les droits d’accès physiques aux bâtiments et zones sensibles pour les différentes catégories de personnes.\nProcéder à l’enregistrement technique des nouveaux collaborateurs et consultants.\nParticiper à la gestion des incidents techniques de sécurité (analyse, reporting, suivi des actions correctives).\n\n• Contrôle, conformité et reporting\n\nRéaliser des contrôles réguliers pour s’assurer du bon fonctionnement des dispositifs de contrôle d’accès.\nElaborer des procédures sur diverses thématiques de sécurité physique.\nRépondre aux questions de sécurité physique pour les audits internes et externes.\n\n• Gestion et maintenance des équipements\n\nSuivre et assurer la maintenance des installations de contrôle d’accès: disponibilité des équipements, maintenance préventive et curative.\nSuivre les interventions des prestataires techniques.\nParticiper à l’analyse des besoins techniques et à la définition des solutions.\nAssurer, en collaboration avec la personne responsable des aspects de sécurité IT, le support technique, la maintenance et l’évolution des solutions de contrôle d’accès et de vidéo protection.\n\nVotre profil\n\n• Formation CFC dans un domaine technique ou informatique.\n\n• Expérience significative dans le suivi préventif et curatif d’installations techniques de sécurité physique, de préférence dans un environnement bancaire ou à haut niveau de sécurité.\n\n• Solides connaissances techniques au niveau des systèmes de contrôle d’accès.\n\n• Connaissances des outils de gestion des accès physiques et des technologies de sécurité, un atout.\n\n• Intérêt prononcé pour les dernières innovations en sécurité physique.\n\n• Maîtrise du pack Microsoft Office, utilisation aisée des outils de gestion administrative.\n\n• Organisation, priorisation et planification des tâches.\n\n• Suivi rigoureux des dossiers et respect des délais.\n\n• Vigilance et sens des responsabilités.\n\n• Sens du service et de l’écoute.\n\n• Proactivité et autonomie.\n\n• Capacité à travailler en équipe et sur différents sujets en parallèle.\n\n• Excellente maîtrise du français (C1 minimum), très bonne maîtrise de l’anglais (B2 minimum).\n\n• Domicile en Suisse requis.\n\nRéf.: SPSC/SBP/DM\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below"
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124982&selected_lang=en_GB",
-      "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:16:45.996Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banca privata",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-23",
-      "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124982&selected_lang=en_GB",
-      "jobReqId": "124982",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "physical-security-coordinator-pictet-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "physical-security-coordinator-pictet-geneva"
-        ],
-        "de": [
-          "physical-security-coordinator-pictet-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:44:47.250Z",
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 104500,
-          "maxValue": 183500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      }
     }
   ]
 }
