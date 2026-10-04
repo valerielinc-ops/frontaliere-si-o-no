@@ -7,6 +7,7 @@
  * markdown description.
  */
 
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 
@@ -180,7 +181,7 @@ export function parseSmartRecruitersDetail(data = {}) {
     canton,
     country,
     applyUrl: data.applyUrl || '',
-    postedDate: data.releasedDate ? data.releasedDate.split('T')[0] : '',
+    ...sourcePostingDateFields(data.releasedDate),
     sourceTextLength: totalSourceLen,
     sectionCount,
     requirements: extractLastminuteRequirements(description),
