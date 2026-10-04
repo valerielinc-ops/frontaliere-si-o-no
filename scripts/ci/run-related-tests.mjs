@@ -162,6 +162,11 @@ const sourceTreeLintTests = new Map([
   ['tests/is-invoked-directly.test.ts', /^scripts\/.+\.(?:mjs|cjs|js|ts)$/],
   ['tests/translation-protected-tokens.test.ts', /^scripts\/.+\.mjs$/],
   ['tests/slug-write-encapsulation.test.ts', /^scripts\/.+\.(?:ts|mjs|js)$/],
+  // Ratchet sulle chiusure per titolo: legge da disco ogni sorgente che usa
+  // `resolveGithubIssue` e lo confronta con l'elenco dichiarato. Un closer
+  // nuovo non importa il test, quindi senza questa voce entrerebbe senza
+  // farlo partire (stessa lezione della PR 11308). Perimetro = quello dello scan.
+  ['tests/resolve-issue-by-title-ratchet.test.ts', /^(?:scripts\/.+\.mjs|functions\/.+\.(?:js|mjs|ts))$/],
   // Stessa classe per le allow-list sparse di `bing-seo-loop.yml`: PR 10941
   // ha aggiunto un import a `scripts/lib/jobBoardSections.mjs`, verde, e la
   // run del crawler e' morta con ERR_MODULE_NOT_FOUND. Il perimetro e' un
@@ -180,6 +185,18 @@ const sourceTreeLintTests = new Map([
     test,
     /^(?:vite\.config\.ts|constants\.ts|(?:build-plugins|services|scripts|components|data|functions|infra|packages\/articles)\/.+\.(?:[mc]?[jt]sx?))$/,
   ]),
+  // I due pin del SiteShellContract (golden delle funzioni e digest degli
+  // scalari) confrontano il bootstrap con file letti da disco che il corpus
+  // asserisce identici. `services/` e `build-plugins/` li raggiungono gia' col
+  // grafo; `data/` invece e' fuori dal grafo (GRAPH_IGNORED_RE), e la chiusura
+  // del bootstrap ne importa moduli: `data/authors.ts` (getAuthorBySlug) e i
+  // JSON dei cantoni e delle professioni. La PR 11327 ha cambiato la bio di
+  // marco-ferrari in `data/authors.ts`, il diff ha selezionato zero test e il
+  // golden e' diventato rosso su main e sulle PR successive (11381).
+  // Perimetro: i file di primo livello di `data/` che un modulo puo'
+  // importare; il test costa meno di un secondo.
+  ['tests/articles-shell-contract-functions.test.ts', /^data\/[^/]+\.(?:[cm]?[jt]sx?|json)$/],
+  ['tests/articles-shell-contract-fingerprint.test.ts', /^data\/[^/]+\.(?:[cm]?[jt]sx?|json)$/],
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint

@@ -8,9 +8,8 @@
  *   FR: /fr/reports/marche-emploi-frontaliers-tessin-2026/
  *
  * Data sources (read-only at build time, degrade gracefully if missing):
- *   - data/jobs-stats.json  (leaders, salary coverage, top salaries per company/location/title)
- *   - data/jobs.json        (optional — fall back to jobs-stats if jobs.json is gitignored)
- *   - logical job stats history store  (optional — trend arrow)
+ *   - data/jobs-stats.json  (source processing timestamp only)
+ *   - data/jobs.json        (Ticino 2026 observation panel; no estimated fallback)
  *
  * Page shape (per locale):
  *   - H1 + lede with headline numbers (total jobs, active companies, median salary)
@@ -34,6 +33,8 @@ import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
+import { loadReportJobPanel, isReportSalaryJob, type ReportJob } from './shared/reportJobPanel';
+import { jobSalaryMidpoint } from './shared/realSalaryMedian';
 import { formatSourceDate, sourceDateIso } from '../services/dataFreshness';
 import { formatUpdatedDate } from './shared/humanDate';
 import {
@@ -146,13 +147,43 @@ function esc(s: unknown): string {
 }
 
 function loadJobsStats(rootDir: string): JobsStatsFile | null {
-  const p = path.join(rootDir, 'data', 'jobs-stats.json');
-  if (!fs.existsSync(p)) return null;
+  const panel = loadReportJobPanel(rootDir, 2026);
+  if (panel === null) return null;
+  let generatedAt: string | undefined;
   try {
-    return JSON.parse(fs.readFileSync(p, 'utf-8')) as JobsStatsFile;
-  } catch {
-    return null;
-  }
+    const metadata = JSON.parse(fs.readFileSync(path.join(rootDir, 'data/jobs-stats.json'), 'utf8'));
+    generatedAt = sourceDateIso(metadata?.generatedAt);
+  } catch { /* Missing metadata does not justify manufacturing a source date. */ }
+  const reported = panel.filter(isReportSalaryJob);
+  const mean = (rows: readonly ReportJob[]): number | undefined => rows.length
+    ? Math.round(rows.reduce((sum, job) => sum + jobSalaryMidpoint(job)!, 0) / rows.length) : undefined;
+  const groups = (rows: readonly ReportJob[], field: 'company' | 'location', salary = false): JobsStatsLeader[] => {
+    const buckets = new Map<string, ReportJob[]>();
+    for (const job of rows) {
+      const name = job[field]?.trim();
+      if (!name) continue;
+      const bucket = buckets.get(name) ?? [];
+      bucket.push(job);
+      buckets.set(name, bucket);
+    }
+    return [...buckets].map(([name, jobs]) => ({
+      key: name.toLowerCase(), name, count: jobs.length,
+      ...(salary ? { avgMid: mean(jobs) } : {}),
+    })).sort((a, b) => salary ? (b.avgMid ?? 0) - (a.avgMid ?? 0) : b.count - a.count);
+  };
+  const companies = groups(panel, 'company');
+  const locations = groups(panel, 'location');
+  // Current listings do not provide historical removals or comparable annual
+  // snapshots. Do not infer hiring growth from this single surviving panel.
+  return {
+    generatedAt,
+    totals: { activeJobs: panel.length, activeCompanies: companies.length, activeLocations: locations.length },
+    leaders: { topCompaniesActive: companies, topLocationsActive: locations },
+    salary: {
+      coverage: { jobsWithSalary: reported.length, coveragePct: panel.length ? reported.length / panel.length * 100 : 0, avgMid: mean(reported) },
+      leaders: { topSalaryCompanies: groups(reported, 'company', true), topSalaryLocations: groups(reported, 'location', true) },
+    },
+  };
 }
 
 function formatCHF(n: number | undefined | null): string {
@@ -161,7 +192,7 @@ function formatCHF(n: number | undefined | null): string {
 }
 
 function formatNumber(n: number | undefined | null): string {
-  if (!n || !Number.isFinite(n)) return '0';
+  if (n == null || !Number.isFinite(n)) return 'N/D';
   return Math.round(n).toLocaleString('de-CH');
 }
 
@@ -189,7 +220,7 @@ interface Copy {
   // render time from the same `avgMid` source of truth used by the stat
   // tile / embed snippet / Dataset JSON-LD, so this copy can't drift into
   // a stale hardcoded figure (sibling of #4394 — was a hardcoded "CHF 73 000").
-  salaryP: (avgMid: number | null) => string;
+  salaryP: (avgMid: number | null, salaryCount: number | undefined, totalCount: number | undefined) => string;
   topSalaryCompaniesH3: string;
   topSalaryLocationsH3: string;
   sectorsH2: string;
@@ -226,30 +257,29 @@ interface Copy {
 const COPY: Record<Locale, Copy> = {
   it: {
     title: 'Mercato del lavoro frontalieri Ticino 2026 — Report dati originali | Frontaliere Ticino',
-    description: "Report 2026 sul mercato del lavoro frontalieri in Ticino: stipendi medi per azienda e città, top datori di lavoro, settori in crescita. Dati aggregati dai job board svizzeri.",
+    description: "Report 2026 sul mercato del lavoro frontalieri in Ticino: stipendi medi per azienda e città, top datori di lavoro, limiti del campione. Dati aggregati dai job board svizzeri.",
     h1: 'Mercato del lavoro frontalieri Ticino 2026',
     updatedLabel: 'Dati elaborati',
     generatedLabel: 'Pagina generata',
     unknownDateLabel: 'Data di elaborazione non disponibile',
     sourceLabel: 'Fonte',
-    ledeIntro: "Il mercato del lavoro per i frontalieri tra Italia e Svizzera nel 2026 è più dinamico e segmentato che mai. Questo report — il primo studio quantitativo indipendente pubblicato da Frontaliere Ticino — aggrega in tempo reale gli annunci attivi sui principali job board svizzeri (oltre cinquanta crawler dedicati) per fornire fotografia precisa di stipendi, aziende che assumono e città con più offerte. I dati che leggi qui sotto non provengono da survey volontarie o stime campionarie: sono il risultato di crawling giornaliero sulle pagine carriere di aziende pubbliche e private, convertiti in metriche comparabili tramite AI-assisted normalization. Il report viene aggiornato automaticamente ogni mese.",
+    ledeIntro: `Il report descrive gli annunci del Ticino pubblicati nel 2026 e ancora presenti nel panel disponibile. I conteggi indicano annunci osservati, non assunzioni concluse o posti dell’intero mercato. Le tabelle permettono di esplorare aziende e località rappresentate. Le statistiche salariali usano soltanto range annuali in CHF con provenienza dichiarata: le stime automatiche non sono salari offerti misurati. In assenza di dati il report indica N/D. Per valutare un’offerta, verifica sempre requisiti, orario e retribuzione nella fonte originale.`,
     headlineActiveJobsLabel: 'Posizioni attive',
     headlineCompaniesLabel: 'Aziende che assumono',
     headlineMedianSalaryLabel: 'Stipendio medio annuo',
     headlineAddedLast7dLabel: 'Nuove offerte ultimi 7 giorni',
     topEmployersH2: 'Top 10 aziende che assumono frontalieri',
-    topEmployersP: "Le dieci aziende qui sotto concentrano la quota più alta di annunci rivolti a profili frontalieri nel nostro panel. Include sia grandi gruppi internazionali con sede in Ticino sia cliniche pubbliche, banche e studi professionali. Il dato include solo offerte effettivamente attive alla data di aggiornamento: le vacancy sostituite o rimosse vengono eliminate dall'indice entro 24 ore.",
+    topEmployersP: `La classifica ordina le aziende per numero di annunci presenti nel panel selezionato. Non misura assunzioni concluse, dimensione aziendale o qualità del datore di lavoro. Verifica la disponibilità nella pagina originale prima di candidarti: il panel può risentire dei tempi di raccolta e rimozione.`,
     topCitiesH2: 'Top 10 città con più offerte per frontalieri',
-    topCitiesP: "Il baricentro geografico del mercato frontaliero è in continua evoluzione. Lugano resta la prima scelta per chi cerca ruoli in finanza, assicurazioni e consulenza; Bellinzona cresce per sanità pubblica e amministrazione cantonale; Chiasso e Mendrisio tengono per industria, logistica e retail. La tabella mostra la distribuzione reale in base al numero di posizioni aperte — non in base alla popolarità percepita.",
+    topCitiesP: `La tabella ordina le località per numero di annunci osservati. Le differenze possono dipendere dalla copertura delle fonti e dalla composizione delle offerte; non indicano crescita nel tempo o probabilità di assunzione.`,
     salaryH2: 'Stipendi frontalieri: chi paga di più',
-    salaryP: (avgMid) =>
-      `Nei nostri annunci con range salariale dichiarato (il 100 % del panel), lo stipendio medio annuo si attesta intorno a ${formatCHF(avgMid)} lordi. La distribuzione è però fortemente bimodale: i ruoli retail, ristorazione e logistica pagano sotto i CHF 55 000 lordi, mentre finanza specialistica, IT senior e sanità specialistica superano facilmente i CHF 110 000. Di seguito le aziende con lo stipendio medio più alto nel nostro indice.`,
+    salaryP: (avgMid, salaryCount, totalCount) => `Nei range annuali dichiarati ammissibili, lo stipendio medio annuo si attesta intorno a ${formatCHF(avgMid)} lordi. Osservazioni salariali ammissibili: ${formatNumber(salaryCount)} su ${formatNumber(totalCount)} annunci del panel. È la media dei punti medi dei range, non dei salari effettivamente pagati. Le tabelle salariali richiedono almeno tre osservazioni per azienda o località; non rappresentano tutti i dipendenti o tutti gli annunci.`,
     topSalaryCompaniesH3: 'Aziende con lo stipendio medio più alto',
     topSalaryLocationsH3: 'Città con lo stipendio medio più alto',
-    sectorsH2: 'Settori che assumono di più',
-    sectorsP: "Dal punto di vista settoriale, la domanda per il 2026 si concentra su cinque aree principali: sanità (infermieri, medici specialisti, fisioterapisti), finanza & assicurazioni (compliance, controller, private banking), IT (software engineer, data, cyber), industria e retail. I settori sanità e IT mostrano il trend di crescita più marcato: +12-18 % YoY di posizioni aperte, con salari di ingresso mediamente superiori del 15 % rispetto alla media del panel.",
+    sectorsH2: 'Come confrontare i settori',
+    sectorsP: `Le professioni rappresentate dipendono dalle fonti presenti nel panel. Un volume elevato di annunci in un settore può riflettere copertura dei crawler, ripubblicazioni o stagionalità. Questo snapshot non misura crescita annuale, carenza di candidati o premio salariale d’ingresso. Per confrontare settori occorrono definizioni e copertura coerenti in più periodi.`,
     methodologyH2: 'Metodologia',
-    methodologyP: "Il report è generato da uno script di aggregazione che parte dalla tabella jobs.json (dataset proprietario di Frontaliere Ticino), alimentata da oltre cinquanta crawler dedicati che interrogano quotidianamente le pagine carriere di aziende svizzere e gruppi internazionali. I range salariali vengono estratti dai testi degli annunci con un modello AI supervisionato (Gemini 2.5 + validator custom); le coppie senza range vengono escluse dalle statistiche salariali ma restano nei conteggi di volume. Le città sono normalizzate su un registry svizzero di codici postali (7 500 voci) per evitare doppi conteggi. Non sono inclusi i contratti temp via agenzie (Adecco, Randstad) per ragioni di omogeneità della fonte.",
+    methodologyP: `Il panel è filtrato sul Canton Ticino e sull’anno di pubblicazione 2026. Aziende e località sono raggruppate usando i nomi disponibili negli annunci; varianti di denominazione possono rimanere separate. Gli annunci senza nome restano nel conteggio totale ma non nelle rispettive classifiche. Per i salari si richiedono provenienza reported, valuta CHF, periodo annuale esplicito ed estremi finiti ordinati tra CHF 20 000 e CHF 300 000. Importi stimati, ambigui o mensili sono esclusi. Non si applicano conversioni valutarie né tredicesime presunte. Le classifiche salariali mostrano gruppi con almeno tre osservazioni. I conteggi non provano che ogni annuncio corrisponda a un’assunzione distinta. Senza una serie storica comparabile non vengono calcolati crescita o nuovi annunci settimanali.`,
     embedH2: 'Embed e citazioni',
     embedP: "Questo report è pubblicato con licenza di citazione libera. Se vuoi riprendere i dati nei tuoi articoli, comunicati stampa o reportistica, basta citare Frontaliere Ticino con link di ritorno alla pagina. Di seguito uno snippet di embed già pronto con i numeri chiave.",
     embedSnippetLabel: 'Copia e incolla questo snippet HTML',
@@ -266,42 +296,41 @@ const COPY: Record<Locale, Copy> = {
     openingsLabel: 'Posizioni aperte',
     avgSalaryLabel: 'Stipendio medio (CHF)',
     analysisH2: 'Cosa dicono i dati',
-    analysisP1: "La prima conclusione è netta: il mercato frontaliero nel 2026 non è in contrazione. Il volume complessivo di offerte attive ha superato per due mesi consecutivi il record storico, e il flusso netto di assunzioni (added − removed) resta positivo di circa 300-400 posizioni settimana su settimana. La narrativa di “saturazione del mercato” o “tagli post-accordo 2026” non trova conferma nei dati reali.",
-    analysisP2: "La seconda conclusione riguarda la polarizzazione salariale. Tra i ruoli con range salariale dichiarato, la differenza tra il decile superiore e il decile inferiore è aumentata nell'ultimo anno — un segnale di maggiore specializzazione. Per il frontaliere tipico, questo significa che la scelta del settore pesa sempre di più sul netto in busta paga: la differenza tra retail entry-level e IT senior può superare i CHF 60 000 lordi l'anno.",
-    analysisP3: "La terza conclusione è geografica. Chur e Zurigo compaiono ormai stabilmente tra le prime dieci città per offerte rivolte a profili frontalieri — un'estensione della catchment area ben oltre i 20 km dal confine. Il permesso G continua a essere concesso per commuting giornaliero verso l'intera Confederazione, e sempre più aziende del Nord Est svizzero reclutano attivamente in Italia.",
+    analysisP1: `Il totale descrive il panel osservato. Per dimostrare un record storico, una contrazione o un saldo positivo servono snapshot comparabili e dati sulle rimozioni. Queste misure non sono disponibili nel report; non si deducono dal solo numero di annunci presenti.`,
+    analysisP2: `La media salariale dipende dalla composizione del campione: professioni, esperienza, orario e aziende. Non dimostra una polarizzazione o l’aumento del divario tra decili. Confronta range riferiti a ruoli e condizioni equivalenti prima di trarre conclusioni sul tuo reddito.`,
+    analysisP3: `Le tabelle geografiche riguardano gli annunci classificati nel Canton Ticino. Il luogo di lavoro non dimostra da solo l’idoneità a un permesso o a un regime fiscale. Per i requisiti personali consulta le guide e le autorità competenti.`,
     trendsH2: 'Trend da tenere d\'occhio',
-    trendsP: "Tre fenomeni meritano attenzione per il 2026-2027:",
-    trendsBullet1: "Il nuovo Accordo frontalieri 2026 separa fiscalmente i “nuovi” dai “vecchi” frontalieri. Gli annunci per cantoni confinanti (Ticino, Grigioni, Vallese) mantengono l'appeal storico grazie al limite dei 20 km, ma la quota di “vecchi frontalieri” in pensione o prossimi alla pensione aumenta l'asimmetria intergenerazionale.",
-    trendsBullet2: "La richiesta di figure IT e sanitarie cresce più rapidamente dell'offerta: questo si traduce in stipendi di ingresso più alti, bonus di trasferimento, pacchetti di relocation anche per frontalieri puri. Non è raro vedere annunci con sign-on bonus di CHF 5 000-10 000 per profili senior.",
-    trendsBullet3: "Il retail e l'hospitality affrontano invece la pressione combinata di costo del personale e rotazione alta. Diverse catene stanno sostituendo le vacancy frontaliere con contratti a chiamata di residenti — un segnale da monitorare nei prossimi trimestri.",
-    cautionP: "Questo report è un documento vivo: i numeri cambiano ogni mese. La data di ultimo aggiornamento è indicata in alto. Se usi questi dati in pubblicazioni, citiamo la fonte e il link di ritorno alla pagina aiuta a mantenere il dataset gratuito.",
+    trendsP: `Per monitorare i prossimi periodi occorre confrontare dati omogenei:`,
+    trendsBullet1: `Conservare per ogni rilevazione data, elenco delle fonti e regole di inclusione: aggiungere un crawler può aumentare il panel senza indicare crescita economica.`,
+    trendsBullet2: `Distinguere la retribuzione dichiarata dalle stime e verificare componenti variabili, mensilità e percentuale di impiego. Un bonus presente in una singola offerta non misura la frequenza di quel beneficio nel mercato.`,
+    trendsBullet3: `Separare nuove pubblicazioni, ripubblicazioni e annunci rimossi. La scomparsa di un annuncio non prova un’assunzione, così come la sua permanenza non dimostra una carenza di candidati.`,
+    cautionP: `La pagina mostra un campione aggiornabile, non un censimento. Per citare i risultati conserva la data della consultazione e specifica anno, cantone, fonti e limiti del campione. La data di elaborazione, quando disponibile, non è una prova di revisione individuale di ogni annuncio.`,
   },
   en: {
     title: 'Ticino Cross-Border Job Market Report 2026 — Original Data | Frontaliere Ticino',
-    description: "2026 report on the Ticino cross-border (frontaliere) job market: average salaries by company and city, top employers, fastest-growing sectors. Data aggregated from Swiss job boards.",
+    description: "2026 report on the Ticino cross-border (frontaliere) job market: average salaries by company and city, top employers, sample limitations. Data aggregated from Swiss job boards.",
     h1: 'Ticino cross-border job market 2026',
     updatedLabel: 'Data compiled',
     generatedLabel: 'Page generated',
     unknownDateLabel: 'Compilation date unavailable',
     sourceLabel: 'Source',
-    ledeIntro: "The cross-border labour market between Italy and Switzerland in 2026 is more dynamic and segmented than ever. This report — the first independent quantitative study published by Frontaliere Ticino — aggregates in real time the active listings on major Swiss job boards (over fifty dedicated crawlers) to give you a precise picture of salaries, hiring companies and cities with the most openings. The figures below don't come from voluntary surveys or sample estimates: they are the result of daily crawling of public and private company career pages, converted into comparable metrics through AI-assisted normalization. The report is refreshed automatically every month.",
+    ledeIntro: `This report describes Ticino listings published in 2026 and still present in the available panel. Counts measure observed listings, not completed hires or the entire labour market. Tables identify represented employers and locations. Salary statistics use only explicitly annual CHF ranges with reported provenance; automated estimates are not measured offers. Missing values appear as N/D. Before evaluating an offer, check its requirements, working hours and pay in the original source.`,
     headlineActiveJobsLabel: 'Active openings',
     headlineCompaniesLabel: 'Hiring companies',
     headlineMedianSalaryLabel: 'Average annual salary',
     headlineAddedLast7dLabel: 'New listings (last 7 days)',
     topEmployersH2: 'Top 10 employers hiring cross-border workers',
-    topEmployersP: "The ten companies below concentrate the largest share of listings aimed at cross-border profiles in our panel. They include both large international groups headquartered in Ticino and public clinics, banks and professional firms. The data include only jobs that are actually active on the update date: replaced or removed vacancies are purged from the index within 24 hours.",
+    topEmployersP: `The ranking orders employers by listings present in the selected panel. It does not measure completed hires, company size or employer quality. Check availability on the original page before applying: collection and removal delays can affect the panel.`,
     topCitiesH2: 'Top 10 cities with the most cross-border openings',
-    topCitiesP: "The geographic centre of gravity of the cross-border market is constantly shifting. Lugano remains the top choice for finance, insurance and consulting roles; Bellinzona is growing for public healthcare and cantonal administration; Chiasso and Mendrisio hold steady for industry, logistics and retail. The table below shows the real distribution based on the number of open positions — not on perceived popularity.",
+    topCitiesP: `The table ranks locations by observed listing counts. Differences may reflect source coverage and offer composition; they do not establish growth over time or hiring probability.`,
     salaryH2: 'Cross-border salaries: who pays the most',
-    salaryP: (avgMid) =>
-      `In our panel of listings with a declared salary range, the average annual salary sits around ${formatCHF(avgMid)} gross. The distribution is strongly bimodal though: retail, hospitality and logistics roles pay below CHF 55,000, while specialised finance, senior IT and specialised healthcare easily exceed CHF 110,000. Below the companies with the highest average salary in our index.`,
+    salaryP: (avgMid, salaryCount, totalCount) => `Among eligible reported annual ranges, the average annual salary sits around ${formatCHF(avgMid)} gross. Eligible salary observations: ${formatNumber(salaryCount)} of ${formatNumber(totalCount)} panel listings. This averages range midpoints, not salaries actually paid. Salary tables require at least three observations per employer or location and do not represent all employees or listings.`,
     topSalaryCompaniesH3: 'Companies with the highest average salary',
     topSalaryLocationsH3: 'Cities with the highest average salary',
-    sectorsH2: 'Sectors hiring the most',
-    sectorsP: "From a sector perspective, demand in 2026 is concentrated in five main areas: healthcare (nurses, specialists, physiotherapists), finance & insurance (compliance, controllers, private banking), IT (software engineers, data, cyber), industry and retail. Healthcare and IT show the steepest growth trend: +12–18 % YoY in open positions, with entry-level salaries averaging 15 % above the panel mean.",
+    sectorsH2: 'How to compare sectors',
+    sectorsP: `Represented occupations depend on the sources included in the panel. A large listing count can reflect crawler coverage, republication or seasonality. This snapshot does not measure annual growth, candidate shortages or entry-pay premiums. Comparing sectors requires consistent definitions and coverage over several periods.`,
     methodologyH2: 'Methodology',
-    methodologyP: "The report is generated by an aggregation script that starts from the jobs.json table (Frontaliere Ticino's proprietary dataset), fed by over fifty dedicated crawlers that query Swiss company career pages and international groups daily. Salary ranges are extracted from listing text using a supervised AI model (Gemini 2.5 + custom validator); listings without a range are excluded from salary statistics but remain in volume counts. Cities are normalised against a Swiss postal-code registry (7,500 entries) to avoid double-counting. Temp contracts via staffing agencies (Adecco, Randstad) are excluded for source homogeneity.",
+    methodologyP: `The panel is filtered to Canton Ticino and publication year 2026. Employers and locations are grouped by the names available in listings; naming variants may remain separate. Unnamed listings remain in total counts but not the corresponding rankings. Salaries require reported provenance, explicit CHF currency and annual period, and finite ordered bounds from CHF 20,000 to CHF 300,000. Estimated, ambiguous and monthly amounts are excluded. No currency conversion or assumed thirteenth payment is applied. Salary rankings require three observations per group. Counts do not establish that every listing represents a distinct hire. Without comparable historical snapshots, neither growth nor weekly new-listing counts are calculated.`,
     embedH2: 'Embed & citations',
     embedP: "This report is published under a free-citation licence. If you want to reuse the data in your articles, press releases or reports, just cite Frontaliere Ticino with a back-link to the page. Below is a ready-to-use HTML embed snippet with the key numbers.",
     embedSnippetLabel: 'Copy and paste this HTML snippet',
@@ -318,42 +347,41 @@ const COPY: Record<Locale, Copy> = {
     openingsLabel: 'Open positions',
     avgSalaryLabel: 'Avg salary (CHF)',
     analysisH2: 'What the data tells us',
-    analysisP1: "The first takeaway is clear: the cross-border market in 2026 is not contracting. Total active listings have exceeded the historical record for two consecutive months, and net hiring flow (added − removed) stays positive by roughly 300–400 positions week on week. The narrative of “market saturation” or “post-2026-agreement cuts” is not supported by the real data.",
-    analysisP2: "The second takeaway concerns salary polarisation. Among listings with a declared salary range, the gap between the top decile and the bottom decile has widened over the past year — a sign of greater specialisation. For the typical cross-border worker, this means sector choice weighs more than ever on net pay: the gap between entry-level retail and senior IT can exceed CHF 60,000 gross per year.",
-    analysisP3: "The third takeaway is geographic. Chur and Zurich now consistently appear in the top ten cities for listings aimed at cross-border profiles — a catchment-area extension well beyond the 20-km border limit. The G permit still allows daily commuting across the entire Confederation, and more and more companies in North-East Switzerland are actively recruiting in Italy.",
+    analysisP1: `The total describes the observed panel. Proving a historic record, contraction or positive balance requires comparable snapshots and removal data. These measurements are unavailable here and cannot be inferred from the current listing total.`,
+    analysisP2: `Average pay depends on sample composition: occupations, experience, working hours and employers. It does not establish polarisation or a widening decile gap. Compare equivalent roles and conditions before drawing conclusions about personal income.`,
+    analysisP3: `Geographic tables cover listings classified in Canton Ticino. A workplace alone does not establish eligibility for a permit or tax treatment. Consult the relevant guides and authorities for individual requirements.`,
     trendsH2: 'Trends to watch',
-    trendsP: "Three phenomena deserve attention for 2026–2027:",
-    trendsBullet1: "The new 2026 cross-border agreement separates “new” from “old” cross-border workers fiscally. Listings for border cantons (Ticino, Grisons, Valais) keep their historical appeal thanks to the 20-km rule, but the share of “old cross-borders” close to retirement is increasing inter-generational asymmetry.",
-    trendsBullet2: "Demand for IT and healthcare profiles is growing faster than supply: this translates into higher entry-level salaries, relocation bonuses, and relocation packages even for pure cross-border hires. Sign-on bonuses of CHF 5,000–10,000 for senior profiles are no longer uncommon.",
-    trendsBullet3: "Retail and hospitality face combined pressure from personnel cost and high turnover. Several chains are replacing cross-border vacancies with on-call resident contracts — a signal worth watching in coming quarters.",
-    cautionP: "This report is a living document: the numbers change every month. The last-update date is shown at the top. If you use these figures in publications, a citation and a back-link to the page help keep the dataset free to access.",
+    trendsP: `Monitoring subsequent periods requires comparable data:`,
+    trendsBullet1: `Preserve the observation date, source list and inclusion rules. Adding a crawler may enlarge the panel without indicating economic growth.`,
+    trendsBullet2: `Distinguish reported pay from estimates and check variable components, payment frequency and employment percentage. A bonus in one offer does not measure how common that benefit is across the market.`,
+    trendsBullet3: `Separate new publications, republications and removed listings. A disappearing listing does not prove a hire, just as continued publication does not prove a candidate shortage.`,
+    cautionP: `This page is an updateable sample, not a census. When citing results, preserve your access date and state the year, canton, sources and sample limitations. A processing date, where available, does not prove individual review of every listing.`,
   },
   de: {
     title: 'Tessiner Grenzgänger-Arbeitsmarkt 2026 — Originaldaten | Frontaliere Ticino',
-    description: "Bericht 2026 zum Tessiner Grenzgänger-Arbeitsmarkt: Durchschnittslöhne nach Unternehmen und Stadt, Top-Arbeitgeber, wachsende Branchen. Daten aggregiert aus Schweizer Jobbörsen.",
+    description: "Bericht 2026 zum Tessiner Grenzgänger-Arbeitsmarkt: Durchschnittslöhne nach Unternehmen und Stadt, Top-Arbeitgeber, Grenzen der Stichprobe. Daten aggregiert aus Schweizer Jobbörsen.",
     h1: 'Tessiner Grenzgänger-Arbeitsmarkt 2026',
     updatedLabel: 'Daten aufbereitet',
     generatedLabel: 'Seite erstellt',
     unknownDateLabel: 'Aufbereitungsdatum nicht verfügbar',
     sourceLabel: 'Quelle',
-    ledeIntro: "Der Grenzgänger-Arbeitsmarkt zwischen Italien und der Schweiz ist 2026 dynamischer und segmentierter denn je. Dieser Bericht — die erste unabhängige quantitative Studie von Frontaliere Ticino — aggregiert in Echtzeit die aktiven Stellenausschreibungen auf den wichtigsten Schweizer Jobbörsen (über fünfzig dedizierte Crawler), um ein präzises Bild von Löhnen, einstellenden Unternehmen und Städten mit den meisten Angeboten zu liefern. Die Zahlen stammen nicht aus freiwilligen Befragungen oder Stichprobenschätzungen: Sie sind das Ergebnis eines täglichen Crawlings der Karriereseiten öffentlicher und privater Unternehmen, über KI-gestützte Normalisierung in vergleichbare Kennzahlen überführt. Der Bericht wird monatlich automatisch aktualisiert.",
+    ledeIntro: `Der Bericht beschreibt Tessiner Anzeigen aus dem Jahr 2026, die im verfügbaren Panel enthalten sind. Gezählt werden beobachtete Anzeigen, keine abgeschlossenen Einstellungen oder Stellen des gesamten Arbeitsmarkts. Die Tabellen zeigen vertretene Arbeitgeber und Orte. Lohnstatistiken verwenden nur ausdrücklich jährliche CHF-Spannen mit deklarierter Herkunft; automatische Schätzungen sind keine gemessenen Angebote. Fehlende Werte erscheinen als N/D. Prüfen Sie Anforderungen, Arbeitszeit und Vergütung in der Originalquelle.`,
     headlineActiveJobsLabel: 'Aktive Stellen',
     headlineCompaniesLabel: 'Einstellende Firmen',
     headlineMedianSalaryLabel: 'Durchschnittliches Jahresgehalt',
     headlineAddedLast7dLabel: 'Neue Anzeigen (letzte 7 Tage)',
     topEmployersH2: 'Top 10 Arbeitgeber für Grenzgänger',
-    topEmployersP: "Die zehn Unternehmen unten konzentrieren den grössten Anteil an Stellenanzeigen für Grenzgänger-Profile in unserem Panel. Sie umfassen sowohl grosse internationale Konzerne mit Sitz im Tessin als auch öffentliche Kliniken, Banken und Beratungsfirmen. Die Daten enthalten nur am Stichtag tatsächlich aktive Stellen: ersetzte oder entfernte Vakanzen werden innerhalb von 24 Stunden aus dem Index entfernt.",
+    topEmployersP: `Die Rangliste ordnet Arbeitgeber nach Anzeigen im ausgewählten Panel. Sie misst weder abgeschlossene Einstellungen noch Unternehmensgrösse oder Arbeitgeberqualität. Prüfen Sie die Verfügbarkeit auf der Originalseite: Erfassungs- und Entfernungslaufzeiten können den Datenstand beeinflussen.`,
     topCitiesH2: 'Top 10 Städte mit den meisten Grenzgänger-Stellen',
-    topCitiesP: "Der geographische Schwerpunkt des Grenzgänger-Marktes verschiebt sich ständig. Lugano bleibt die erste Wahl für Finanz-, Versicherungs- und Beratungsstellen; Bellinzona wächst im öffentlichen Gesundheitswesen und in der kantonalen Verwaltung; Chiasso und Mendrisio halten sich für Industrie, Logistik und Handel. Die Tabelle zeigt die tatsächliche Verteilung nach Anzahl offener Stellen — nicht nach empfundener Beliebtheit.",
+    topCitiesP: `Die Tabelle ordnet Orte nach beobachteten Anzeigenzahlen. Unterschiede können Quellenabdeckung und Zusammensetzung widerspiegeln; sie belegen weder zeitliches Wachstum noch Einstellungschancen.`,
     salaryH2: 'Grenzgänger-Löhne: Wer zahlt am meisten',
-    salaryP: (avgMid) =>
-      `In unserem Panel mit ausgewiesenem Gehaltsband liegt der durchschnittliche Jahreslohn bei rund ${formatCHF(avgMid)} brutto. Die Verteilung ist allerdings stark bimodal: Retail-, Gastronomie- und Logistikrollen zahlen unter CHF 55 000, während spezialisierte Finance-, Senior-IT- und Facharztrollen die CHF 110 000 leicht überschreiten. Es folgen die Unternehmen mit den höchsten Durchschnittslöhnen im Index.`,
+    salaryP: (avgMid, salaryCount, totalCount) => `Unter den zulässigen deklarierten Jahresspannen beträgt der mittlere Jahreslohn rund ${formatCHF(avgMid)} brutto. Zulässige Lohnbeobachtungen: ${formatNumber(salaryCount)} von ${formatNumber(totalCount)} Panel-Anzeigen. Gemittelt werden Spannenmittelpunkte, nicht ausbezahlte Löhne. Die Lohntabellen verlangen mindestens drei Beobachtungen je Arbeitgeber oder Ort und vertreten nicht alle Beschäftigten oder Anzeigen.`,
     topSalaryCompaniesH3: 'Unternehmen mit höchstem Durchschnittslohn',
     topSalaryLocationsH3: 'Städte mit höchstem Durchschnittslohn',
-    sectorsH2: 'Branchen mit höchster Einstellungsquote',
-    sectorsP: "Aus Branchensicht konzentriert sich die Nachfrage 2026 auf fünf Kerngebiete: Gesundheitswesen (Pflegekräfte, Fachärzte, Physiotherapeuten), Finanzwesen & Versicherungen (Compliance, Controller, Private Banking), IT (Software Engineers, Data, Cyber), Industrie und Handel. Gesundheitswesen und IT zeigen den steilsten Wachstumstrend: +12–18 % YoY offene Stellen, mit Einstiegsgehältern im Schnitt 15 % über dem Panel-Mittel.",
+    sectorsH2: 'Branchen vergleichen',
+    sectorsP: `Die vertretenen Berufe hängen von den Quellen im Panel ab. Hohe Anzeigenzahlen können Abdeckung, Wiederveröffentlichung oder Saisonalität widerspiegeln. Dieser Datenstand misst weder Jahreswachstum noch Bewerbermangel oder Einstiegslohnprämien. Branchenvergleiche brauchen einheitliche Definitionen und Abdeckung über mehrere Perioden.`,
     methodologyH2: 'Methodik',
-    methodologyP: "Der Bericht wird von einem Aggregations-Skript generiert, das von der jobs.json-Tabelle (proprietärer Datensatz von Frontaliere Ticino) ausgeht, gespeist durch über fünfzig dedizierte Crawler, die täglich die Karriereseiten Schweizer Unternehmen und internationaler Konzerne abfragen. Gehaltsbänder werden über ein überwachtes KI-Modell (Gemini 2.5 + Custom Validator) aus den Anzeigentexten extrahiert; Anzeigen ohne Band fallen aus der Gehaltsstatistik, bleiben aber in der Volumenzählung. Städte werden gegen ein Schweizer PLZ-Register (7 500 Einträge) normalisiert, um Doppelzählungen zu vermeiden. Temporärverträge über Personaldienstleister (Adecco, Randstad) werden aus Homogenitätsgründen ausgeschlossen.",
+    methodologyP: `Das Panel wird auf Kanton Tessin und Publikationsjahr 2026 gefiltert. Arbeitgeber und Orte werden nach den verfügbaren Namen gruppiert; Namensvarianten können getrennt bleiben. Anzeigen ohne Namen zählen zum Gesamtbestand, aber nicht zur jeweiligen Rangliste. Löhne benötigen Herkunft reported, ausdrückliche CHF-Währung und Jahresperiode sowie endliche geordnete Grenzen zwischen CHF 20 000 und CHF 300 000. Geschätzte, unklare und monatliche Beträge werden ausgeschlossen. Keine Währungsumrechnung oder vermutete dreizehnte Zahlung wird verwendet. Lohnranglisten verlangen drei Beobachtungen je Gruppe. Anzeigenzahlen belegen keine einzelnen Einstellungen. Ohne vergleichbare historische Daten werden weder Wachstum noch wöchentliche Neuanzeigen berechnet.`,
     embedH2: 'Einbettung & Zitate',
     embedP: "Dieser Bericht steht unter einer freien Zitat-Lizenz. Wenn Sie die Daten in Ihren Artikeln, Pressemitteilungen oder Reports wiederverwenden möchten, zitieren Sie Frontaliere Ticino mit einem Rückverweis auf die Seite. Unten ein gebrauchsfertiges HTML-Embed-Snippet mit den Kennzahlen.",
     embedSnippetLabel: 'Dieses HTML-Snippet kopieren',
@@ -370,42 +398,41 @@ const COPY: Record<Locale, Copy> = {
     openingsLabel: 'Offene Stellen',
     avgSalaryLabel: 'Ø Lohn (CHF)',
     analysisH2: 'Was die Daten sagen',
-    analysisP1: "Die erste Erkenntnis ist eindeutig: Der Grenzgänger-Markt 2026 schrumpft nicht. Das Gesamtvolumen aktiver Stellenangebote hat zwei Monate in Folge den historischen Rekord überschritten, und der Netto-Einstellungsfluss (added − removed) bleibt wöchentlich bei rund 300–400 Positionen positiv. Das Narrativ einer „Marktsättigung“ oder „Kürzungen nach dem Abkommen 2026“ findet in den realen Daten keine Bestätigung.",
-    analysisP2: "Die zweite Erkenntnis betrifft die Lohnpolarisierung. Bei Anzeigen mit ausgewiesenem Band hat sich der Abstand zwischen oberem und unterem Dezil im letzten Jahr vergrössert — ein Zeichen stärkerer Spezialisierung. Für den typischen Grenzgänger heisst das: Die Branchenwahl wirkt sich stärker denn je auf das Nettoeinkommen aus: Die Differenz zwischen Einstiegs-Retail und Senior-IT kann CHF 60 000 brutto pro Jahr übersteigen.",
-    analysisP3: "Die dritte Erkenntnis ist geographisch. Chur und Zürich erscheinen inzwischen stabil in den Top 10 für Grenzgänger-Stellen — eine Ausweitung des Einzugsgebiets weit über die 20-km-Grenze hinaus. Der G-Ausweis erlaubt weiterhin tägliches Pendeln in die gesamte Eidgenossenschaft, und immer mehr Unternehmen in der Nordostschweiz rekrutieren aktiv in Italien.",
+    analysisP1: `Der Gesamtbestand beschreibt das beobachtete Panel. Historische Rekorde, Rückgänge oder positive Salden erfordern vergleichbare Datenstände und entfernte Anzeigen. Diese Messungen fehlen hier und lassen sich nicht aus dem aktuellen Bestand ableiten.`,
+    analysisP2: `Der Durchschnittslohn hängt von Berufen, Erfahrung, Arbeitszeit und Arbeitgebern im Sample ab. Er belegt weder Polarisierung noch wachsende Dezilabstände. Vergleichen Sie gleichwertige Funktionen und Bedingungen vor Rückschlüssen auf Ihr Einkommen.`,
+    analysisP3: `Die Ortstabellen umfassen Anzeigen, die dem Kanton Tessin zugeordnet sind. Ein Arbeitsort allein belegt keine Bewilligungs- oder Steuerberechtigung. Beachten Sie die Leitfäden und zuständigen Behörden für persönliche Voraussetzungen.`,
     trendsH2: 'Zu beobachtende Trends',
-    trendsP: "Drei Phänomene verdienen für 2026–2027 besondere Aufmerksamkeit:",
-    trendsBullet1: "Das neue Abkommen 2026 trennt „neue“ und „alte“ Grenzgänger steuerlich. Anzeigen für Grenzkantone (Tessin, Graubünden, Wallis) behalten ihre historische Anziehungskraft dank der 20-km-Regel, aber der Anteil „alter Grenzgänger“ kurz vor der Pensionierung erhöht die Generationen-Asymmetrie.",
-    trendsBullet2: "Die Nachfrage nach IT- und Gesundheitsprofilen wächst schneller als das Angebot: höhere Einstiegslöhne, Umzugsboni, Relocation-Pakete auch für reine Grenzgänger. Sign-on-Boni von CHF 5 000–10 000 für Senior-Profile sind keine Seltenheit mehr.",
-    trendsBullet3: "Einzelhandel und Gastgewerbe stehen dagegen unter dem kombinierten Druck von Personalkosten und hoher Fluktuation. Mehrere Ketten ersetzen Grenzgänger-Vakanzen durch Abrufverträge für Einheimische — ein Signal, das in den kommenden Quartalen zu verfolgen ist.",
-    cautionP: "Dieser Bericht ist ein lebendiges Dokument: Die Zahlen ändern sich monatlich. Das Aktualisierungsdatum steht oben. Wenn Sie diese Daten in Publikationen verwenden, helfen Quellenangabe und Rückverweis, den Datensatz frei zugänglich zu halten.",
+    trendsP: `Für die Beobachtung weiterer Perioden braucht es vergleichbare Daten:`,
+    trendsBullet1: `Bewahren Sie Beobachtungsdatum, Quellen und Einschlussregeln auf. Ein zusätzlicher Crawler kann das Panel ohne wirtschaftliches Wachstum vergrössern.`,
+    trendsBullet2: `Trennen Sie deklarierte Löhne von Schätzungen und prüfen Sie variable Bestandteile, Zahlungsfrequenz und Beschäftigungsgrad. Ein Bonus in einem Angebot misst nicht dessen Häufigkeit im Markt.`,
+    trendsBullet3: `Unterscheiden Sie neue, erneut veröffentlichte und entfernte Anzeigen. Eine verschwundene Anzeige beweist keine Einstellung; eine fortbestehende beweist keinen Bewerbermangel.`,
+    cautionP: `Die Seite zeigt eine aktualisierbare Stichprobe, keine Vollerhebung. Nennen Sie beim Zitieren Abrufdatum, Jahr, Kanton, Quellen und Grenzen. Ein Verarbeitungsdatum belegt keine individuelle Prüfung jeder Anzeige.`,
   },
   fr: {
     title: "Marché de l'emploi frontaliers Tessin 2026 — Rapport de données | Frontaliere Ticino",
-    description: "Rapport 2026 sur le marché de l'emploi frontalier au Tessin : salaires moyens par entreprise et par ville, principaux employeurs, secteurs en croissance. Données agrégées depuis les plateformes suisses.",
+    description: "Rapport 2026 sur le marché de l'emploi frontalier au Tessin : salaires moyens par entreprise et par ville, principaux employeurs, limites du panel. Données agrégées depuis les plateformes suisses.",
     h1: "Marché de l'emploi frontaliers au Tessin en 2026",
     updatedLabel: 'Données compilées',
     generatedLabel: 'Page générée',
     unknownDateLabel: 'Date de compilation indisponible',
     sourceLabel: 'Source',
-    ledeIntro: "Le marché du travail frontalier entre l'Italie et la Suisse en 2026 est plus dynamique et segmenté que jamais. Ce rapport — la première étude quantitative indépendante publiée par Frontaliere Ticino — agrège en temps réel les annonces actives sur les principales plateformes suisses (plus de cinquante crawlers dédiés) pour dresser un portrait précis des salaires, des entreprises qui recrutent et des villes les plus demandeuses. Les chiffres ci-dessous ne proviennent pas de sondages volontaires ou d'estimations sur échantillon : ils résultent d'un crawling quotidien des pages carrières d'entreprises publiques et privées, convertis en métriques comparables grâce à une normalisation assistée par IA. Le rapport est rafraîchi automatiquement chaque mois.",
+    ledeIntro: `Ce rapport décrit les annonces tessinoises publiées en 2026 et encore présentes dans le panel disponible. Les effectifs mesurent des annonces observées, non des recrutements conclus ou tout le marché du travail. Les tableaux identifient les employeurs et lieux représentés. Les statistiques salariales retiennent uniquement des fourchettes annuelles explicites en CHF de provenance déclarée ; les estimations automatiques ne sont pas des offres mesurées. Les valeurs absentes apparaissent N/D. Vérifiez exigences, horaire et rémunération dans la source originale.`,
     headlineActiveJobsLabel: 'Postes ouverts',
     headlineCompaniesLabel: 'Entreprises qui recrutent',
     headlineMedianSalaryLabel: 'Salaire annuel moyen',
     headlineAddedLast7dLabel: 'Nouvelles annonces (7 derniers jours)',
     topEmployersH2: 'Top 10 employeurs recrutant des frontaliers',
-    topEmployersP: "Les dix entreprises ci-dessous concentrent la plus forte part d'annonces destinées aux profils frontaliers dans notre panel. Elles incluent à la fois de grands groupes internationaux basés au Tessin et des cliniques publiques, banques et cabinets professionnels. Les données ne retiennent que les offres réellement actives à la date de mise à jour : les vacances remplacées ou retirées sont purgées de l'index sous 24 heures.",
+    topEmployersP: `Le classement ordonne les employeurs selon les annonces du panel sélectionné. Il ne mesure ni recrutements conclus, ni taille, ni qualité de l’employeur. Vérifiez la disponibilité sur la page originale : les délais de collecte et de retrait peuvent affecter le panel.`,
     topCitiesH2: 'Top 10 villes avec le plus d\'offres frontaliers',
-    topCitiesP: "Le centre de gravité géographique du marché frontalier évolue en permanence. Lugano reste le premier choix pour les rôles en finance, assurance et conseil ; Bellinzone progresse dans la santé publique et l'administration cantonale ; Chiasso et Mendrisio tiennent pour l'industrie, la logistique et le commerce. Le tableau ci-dessous montre la distribution réelle selon le nombre de postes ouverts — et non la popularité perçue.",
+    topCitiesP: `Le tableau classe les lieux selon le nombre d’annonces observées. Les écarts peuvent refléter la couverture des sources et la composition des offres ; ils ne démontrent ni croissance dans le temps ni probabilité de recrutement.`,
     salaryH2: 'Salaires frontaliers : qui paie le plus',
-    salaryP: (avgMid) =>
-      `Dans notre panel d'annonces avec fourchette salariale déclarée, le salaire annuel moyen se situe autour de ${formatCHF(avgMid)} brut. La distribution est toutefois fortement bimodale : les rôles retail, restauration et logistique paient en dessous de CHF 55 000, tandis que la finance spécialisée, l'IT senior et la santé spécialisée dépassent facilement les CHF 110 000. Voici les entreprises affichant le salaire moyen le plus élevé dans notre index.`,
+    salaryP: (avgMid, salaryCount, totalCount) => `Parmi les fourchettes annuelles déclarées admissibles, le salaire annuel moyen se situe autour de ${formatCHF(avgMid)} brut. Observations salariales admissibles : ${formatNumber(salaryCount)} sur ${formatNumber(totalCount)} annonces du panel. Il s’agit de la moyenne des milieux de fourchettes, non des salaires versés. Les tableaux exigent trois observations par employeur ou lieu et ne représentent pas tous les salariés ou annonces.`,
     topSalaryCompaniesH3: 'Entreprises avec le salaire moyen le plus élevé',
     topSalaryLocationsH3: 'Villes avec le salaire moyen le plus élevé',
-    sectorsH2: 'Secteurs qui recrutent le plus',
-    sectorsP: "Du point de vue sectoriel, la demande en 2026 se concentre sur cinq domaines principaux : santé (infirmiers, médecins spécialistes, physiothérapeutes), finance & assurances (compliance, contrôleurs, private banking), IT (software engineers, data, cyber), industrie et retail. Santé et IT affichent la tendance de croissance la plus marquée : +12–18 % YoY de postes ouverts, avec des salaires d'entrée en moyenne 15 % au-dessus de la moyenne du panel.",
+    sectorsH2: 'Comment comparer les secteurs',
+    sectorsP: `Les métiers représentés dépendent des sources du panel. Un nombre élevé d’annonces peut refléter la couverture, les republications ou la saisonnalité. Cet instantané ne mesure ni croissance annuelle, ni pénurie de candidats, ni prime salariale d’entrée. La comparaison exige des définitions et une couverture cohérentes sur plusieurs périodes.`,
     methodologyH2: 'Méthodologie',
-    methodologyP: "Le rapport est généré par un script d'agrégation qui part de la table jobs.json (jeu de données propriétaire de Frontaliere Ticino), alimentée par plus de cinquante crawlers dédiés qui interrogent quotidiennement les pages carrières d'entreprises suisses et de groupes internationaux. Les fourchettes salariales sont extraites du texte des annonces via un modèle IA supervisé (Gemini 2.5 + validateur personnalisé) ; les annonces sans fourchette sont exclues des statistiques salariales mais restent dans les comptages de volume. Les villes sont normalisées contre un registre postal suisse (7 500 entrées) pour éviter les doublons. Les contrats temporaires via agences (Adecco, Randstad) sont exclus pour homogénéité de source.",
+    methodologyP: `Le panel est filtré sur le Canton du Tessin et l’année de publication 2026. Employeurs et lieux sont regroupés selon les noms disponibles ; des variantes peuvent rester séparées. Les annonces sans nom comptent dans le total mais pas dans le classement correspondant. Les salaires exigent une provenance reported, une devise CHF et une période annuelle explicites, ainsi que des bornes finies ordonnées entre CHF 20 000 et CHF 300 000. Les montants estimés, ambigus ou mensuels sont exclus. Aucune conversion ni treizième versement supposé n’est appliqué. Les classements salariaux exigent trois observations par groupe. Les effectifs ne prouvent pas des recrutements distincts. Sans historique comparable, ni croissance ni nouvelles annonces hebdomadaires ne sont calculées.`,
     embedH2: 'Intégration et citations',
     embedP: "Ce rapport est publié sous licence de citation libre. Pour réutiliser les données dans vos articles, communiqués de presse ou rapports, citez simplement Frontaliere Ticino avec un lien retour vers la page. Voici un extrait HTML prêt à l'emploi avec les chiffres clés.",
     embedSnippetLabel: 'Copier-coller ce snippet HTML',
@@ -422,15 +449,15 @@ const COPY: Record<Locale, Copy> = {
     openingsLabel: 'Postes ouverts',
     avgSalaryLabel: 'Salaire moyen (CHF)',
     analysisH2: 'Ce que disent les données',
-    analysisP1: "Le premier constat est net : le marché frontalier en 2026 ne se contracte pas. Le volume global d'annonces actives a dépassé le record historique deux mois consécutifs, et le flux net d'embauches (added − removed) reste positif d'environ 300–400 postes semaine après semaine. Le récit d'une « saturation du marché » ou de « coupes post-accord 2026 » n'est pas corroboré par les données réelles.",
-    analysisP2: "Le deuxième constat concerne la polarisation salariale. Parmi les annonces avec fourchette déclarée, l'écart entre le décile supérieur et le décile inférieur s'est creusé au cours de l'année — signe d'une spécialisation accrue. Pour le frontalier type, cela signifie que le choix du secteur pèse plus que jamais sur le net : l'écart entre retail entry-level et IT senior peut dépasser CHF 60 000 brut par an.",
-    analysisP3: "Le troisième constat est géographique. Coire et Zurich apparaissent désormais stablement dans le top 10 des villes pour les annonces destinées aux profils frontaliers — une extension de la zone de chalandise bien au-delà des 20 km de la frontière. Le permis G reste délivré pour le commuting quotidien vers toute la Confédération, et de plus en plus d'entreprises du Nord-Est suisse recrutent activement en Italie.",
+    analysisP1: `Le total décrit le panel observé. Un record historique, une contraction ou un solde positif exige des instantanés comparables et des données de retrait. Ces mesures sont indisponibles ici et ne se déduisent pas du seul effectif actuel.`,
+    analysisP2: `Le salaire moyen dépend des métiers, expériences, horaires et employeurs de l’échantillon. Il ne démontre ni polarisation ni écart croissant entre déciles. Comparez des rôles et conditions équivalents avant de conclure sur votre revenu.`,
+    analysisP3: `Les tableaux géographiques concernent les annonces classées dans le Canton du Tessin. Le lieu de travail ne suffit pas à démontrer un droit au permis ou à un régime fiscal. Consultez les guides et autorités compétentes pour les conditions individuelles.`,
     trendsH2: 'Tendances à surveiller',
-    trendsP: "Trois phénomènes méritent l'attention pour 2026–2027 :",
-    trendsBullet1: "Le nouvel accord frontaliers 2026 sépare fiscalement les « nouveaux » des « anciens » frontaliers. Les annonces pour cantons frontaliers (Tessin, Grisons, Valais) gardent leur attrait historique grâce à la règle des 20 km, mais la part d'« anciens frontaliers » proches de la retraite augmente l'asymétrie inter-générationnelle.",
-    trendsBullet2: "La demande pour les profils IT et santé croît plus vite que l'offre : salaires d'entrée plus élevés, bonus de transfert, packages de relocation même pour des frontaliers purs. Les sign-on bonus de CHF 5 000–10 000 pour profils seniors ne sont plus rares.",
-    trendsBullet3: "Retail et hospitality font face à la pression combinée du coût du personnel et d'une forte rotation. Plusieurs chaînes remplacent les vacances frontalières par des contrats à la demande pour résidents — signal à surveiller dans les trimestres à venir.",
-    cautionP: "Ce rapport est un document vivant : les chiffres changent chaque mois. La date de dernière mise à jour est indiquée en haut. Si vous utilisez ces chiffres dans des publications, une citation et un lien retour vers la page aident à maintenir le jeu de données libre d'accès.",
+    trendsP: `Le suivi des périodes suivantes exige des données comparables :`,
+    trendsBullet1: `Conservez la date d’observation, les sources et les règles d’inclusion. Ajouter un crawler peut agrandir le panel sans indiquer une croissance économique.`,
+    trendsBullet2: `Distinguez salaires déclarés et estimations ; vérifiez composantes variables, fréquence des versements et taux d’activité. Un bonus dans une offre ne mesure pas sa fréquence sur le marché.`,
+    trendsBullet3: `Séparez nouvelles publications, republications et annonces retirées. Une disparition ne prouve pas un recrutement ; une publication persistante ne prouve pas une pénurie de candidats.`,
+    cautionP: `Cette page présente un échantillon actualisable, non un recensement. Lors d’une citation, conservez la date de consultation et précisez année, canton, sources et limites. Une date de traitement ne prouve pas la révision individuelle de chaque annonce.`,
   },
 };
 
@@ -474,9 +501,9 @@ function renderReport(opts: {
   const alternates = renderHreflangTags(hreflangPaths as HreflangPaths);
 
   // Extract data
-  const activeJobs = stats?.totals?.activeJobs ?? 0;
-  const activeCompanies = stats?.totals?.activeCompanies ?? 0;
-  const added7d = stats?.totals?.last7d?.added ?? 0;
+  const activeJobs = stats?.totals?.activeJobs;
+  const activeCompanies = stats?.totals?.activeCompanies;
+  const added7d = stats?.totals?.last7d?.added;
   const salaryCoverage = stats?.salary?.coverage;
   // No hardcoded fallback here (was `?? 73000`, a stale figure that made
   // the tile/embed/JSON-LD confidently assert a fabricated number whenever
@@ -484,7 +511,6 @@ function renderReport(opts: {
   // degrades to 'N/D', and the Dataset JSON-LD PropertyValue below is
   // omitted entirely rather than emitting a false `value: null`.
   const avgMid = salaryCoverage?.avgMid ?? null;
-  const medianMid = salaryCoverage?.medianMid ?? null;
 
   const topEmployers = (stats?.leaders?.topCompaniesActive ?? []).slice(0, 10);
   const topCities = (stats?.leaders?.topLocationsActive ?? []).slice(0, 10);
@@ -519,7 +545,7 @@ function renderReport(opts: {
   // Tables
   const topEmployersRows = topEmployers.map((e, i) => [
     `#${i + 1}`,
-    `<a href="${esc(e.url ?? '#')}" style="${LINK_ACCENT_STYLE}">${esc(e.name)}</a>`,
+    e.url ? `<a href="${esc(e.url)}" style="${LINK_ACCENT_STYLE}">${esc(e.name)}</a>` : esc(e.name),
     formatNumber(e.count),
   ]);
   const cityHubSet = new Set<string>(CITY_HUB_KEYS as readonly string[]);
@@ -542,7 +568,7 @@ function renderReport(opts: {
 
   const topSalaryCompaniesRows = topSalaryCompanies.map((e, i) => [
     `#${i + 1}`,
-    `<a href="${esc(e.url ?? '#')}" style="${LINK_ACCENT_STYLE}">${esc(e.name)}</a>`,
+    e.url ? `<a href="${esc(e.url)}" style="${LINK_ACCENT_STYLE}">${esc(e.name)}</a>` : esc(e.name),
     esc(formatCHF(e.avgMid)),
   ]);
   const topSalaryLocationsRows = topSalaryLocations.map((l, i) => {
@@ -637,9 +663,9 @@ function renderReport(opts: {
       : locale === 'fr' ? ['frontaliers', 'Tessin', 'salaires', 'marché du travail', 'salaires suisses']
       : ['frontalieri', 'Ticino', 'stipendi', 'mercato del lavoro', 'salari svizzeri'],
     variableMeasured: [
-      { '@type': 'PropertyValue', name: copy.headlineActiveJobsLabel, value: activeJobs },
-      { '@type': 'PropertyValue', name: copy.headlineCompaniesLabel, value: activeCompanies },
-      // Omitted (not emitted as `value: null`) when jobs-stats.json has no
+      ...(activeJobs != null ? [{ '@type': 'PropertyValue', name: copy.headlineActiveJobsLabel, value: activeJobs }] : []),
+      ...(activeCompanies != null ? [{ '@type': 'PropertyValue', name: copy.headlineCompaniesLabel, value: activeCompanies }] : []),
+      // Omitted (not emitted as `value: null`) when the source panel has no
       // salary coverage — see the avgMid fallback comment above.
       ...(avgMid !== null
         ? [{ '@type': 'PropertyValue', name: copy.headlineMedianSalaryLabel, unitCode: 'CHF', value: avgMid }]
@@ -661,7 +687,7 @@ function renderReport(opts: {
       <span>${esc(copy.h1)}</span>
     </nav>
     <header class="s-sy52lX">
-      <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${esc(dataUpdatedLabel)} · ${esc(copy.sourceLabel)}: data/jobs-stats.json<br>${esc(copy.generatedLabel)}: ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+      <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${esc(dataUpdatedLabel)} · ${esc(copy.sourceLabel)}: data/jobs.json<br>${esc(copy.generatedLabel)}: ${esc(formatUpdatedDate(dateStamp, locale))}</p>
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(copy.ledeIntro)}</p>
     </header>
@@ -680,7 +706,7 @@ function renderReport(opts: {
     </section>
     <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(copy.salaryH2)}</h2>
-      <p style="${BODY_STYLE}">${esc(copy.salaryP(avgMid))}</p>
+      <p style="${BODY_STYLE}">${esc(copy.salaryP(avgMid, salaryCoverage?.jobsWithSalary, activeJobs))}</p>
       ${topSalaryCompaniesTable ? `<h3 class="s-QiTCCv">${esc(copy.topSalaryCompaniesH3)}</h3>${topSalaryCompaniesTable}` : ''}
       ${topSalaryLocationsTable ? `<h3 class="s-QiTCCv">${esc(copy.topSalaryLocationsH3)}</h3>${topSalaryLocationsTable}` : ''}
     </section>
@@ -788,7 +814,7 @@ export function marketReportPlugin(rootDir: string): Plugin {
 
       const stats = loadJobsStats(rootDir);
       if (!stats) {
-        console.warn('\x1b[33m[market-report]\x1b[0m data/jobs-stats.json missing — emitting report with fallback zeroes');
+        console.warn('\x1b[33m[market-report]\x1b[0m data/jobs.json unavailable — emitting report with unavailable observations');
       }
 
       const collector = new WriteCollector({

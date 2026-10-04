@@ -549,6 +549,32 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(observerWorkflow);
   }, 120_000);
 
+  it('un closer nuovo sotto scripts/ o functions/ seleziona il ratchet sulle chiusure per titolo', () => {
+    // Il 2026-10-04 tre closer (PR 11317, 11358, 11355) decidevano su un numero
+    // e chiudevano per titolo. Il ratchet legge i sorgenti da disco: un closer
+    // nuovo non lo importa, e il path qui non esiste apposta.
+    const ratchet = 'tests/resolve-issue-by-title-ratchet.test.ts';
+    expect(selectionFor(['scripts/ci/future-issue-closer.mjs'])).toContain(ratchet);
+    expect(selectionFor(['functions/src/futureIssueCloser.js'])).toContain(ratchet);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(ratchet);
+  }, 120_000);
+
+  it('un dato importato dal bootstrap della shell seleziona i pin del SiteShellContract', () => {
+    // PR 11327: la bio di marco-ferrari in `data/authors.ts` e' cambiata,
+    // `data/` e' fuori dal grafo e il diff ha selezionato zero test; il golden
+    // di getAuthorBySlug e' diventato rosso su main e sulla 11381.
+    const functions = 'tests/articles-shell-contract-functions.test.ts';
+    const fingerprint = 'tests/articles-shell-contract-fingerprint.test.ts';
+    const authors = selectionFor(['data/authors.ts']);
+    expect(authors).toContain(functions);
+    expect(authors).toContain(fingerprint);
+    // Anche i JSON di primo livello che la chiusura del bootstrap importa.
+    expect(selectionFor(['data/canton-url-slugs.json'])).toContain(functions);
+    // Le sottocartelle di `data/` sono dati dei cron, non moduli importati.
+    expect(selectionFor(['data/jobs/by-crawler/future.json'])).not.toContain(functions);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(functions);
+  }, 120_000);
+
   it('uno script shell cambiato non scavalca i lint con l\'uscita anticipata', () => {
     // Un `.sh` non è un candidato del grafo: prima l'uscita «nessun sorgente
     // nel diff» precedeva i lint dell'albero dei sorgenti e li saltava.
