@@ -1,3 +1,4 @@
+import { METHODOLOGY_COPY } from '../services/editorialMethodology';
 import { describe, expect, it } from 'vitest';
 import { lstatSync, readdirSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -422,7 +423,10 @@ describe('every policy URL points at something that exists', () => {
     // zero `id` attributes, so the fragment resolved to nothing.
     const fragment = ORGANIZATION_POLICIES.verificationFactCheckingPolicy.split('#')[1];
     expect(fragment).toBeTruthy();
-    expect(read('components/pages/Metodologia.tsx')).toContain(`id="${fragment}"`);
+    for (const copy of Object.values(METHODOLOGY_COPY)) {
+      expect(copy.sections.some(section => section.id === fragment)).toBe(true);
+    }
+    expect(read('components/pages/Metodologia.tsx')).toContain('id={section.id}');
   });
 
   it.each([
