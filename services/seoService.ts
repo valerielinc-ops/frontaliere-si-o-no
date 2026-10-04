@@ -34,6 +34,7 @@ import { resolveJobApplicationUrl } from './jobApplicationDestination';
 import { getCantonDisplayName } from '../build-plugins/shared/cantonDisplay';
 import { resolveJobCanton } from '../build-plugins/shared/cantonSection';
 import { buildTitleWithBrand, buildJobTitleWithLocation, clampMetaDescription, truncateHeadline, truncateTitleAtClauseBoundary, MIN_PEELED_TITLE_CHARS } from '../build-plugins/shared/titleSuffix';
+import { resolveGuideLocaleSeo } from '../build-plugins/shared/guideLocaleSeo';
 import { ROBOTS_INDEX_ENHANCED_CONTENT } from '../build-plugins/shared/robotsDirective';
 import { truncateCodeUnits } from '../build-plugins/shared/safeTruncate';
 import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescription } from '../build-plugins/shared/borderCrossingTitle';
@@ -1381,6 +1382,16 @@ function resolveLocalizedSeoContent(section: string, metadata: SEOMetadata, loca
    title,
    description: hub.description,
    keywords: getLocalizedSeoKeywords(hub.title, locale, metadata.keywords),
+  };
+ }
+
+ const localizedGuideSeo = resolveGuideLocaleSeo(section, locale);
+ if (localizedGuideSeo) {
+  const title = buildTitleWithBrand(localizedGuideSeo.title);
+  return {
+   title,
+   description: localizedGuideSeo.description,
+   keywords: getLocalizedSeoKeywords(localizedGuideSeo.title, locale, metadata.keywords),
   };
  }
 

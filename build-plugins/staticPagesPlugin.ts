@@ -125,6 +125,7 @@ import {
   TITLE_MAX_CHARS,
   truncateHeadlineToMeasuredBudget,
 } from './shared/titleSuffix';
+import { resolveGuideLocaleSeoByPath } from './shared/guideLocaleSeo';
 // Border-crossing <title> cascade + its slug→label transform. Leaf module so
 // the #4828 regression suite can assert the 66-char cap over every id in
 // ALL_BORDER_CROSSING_IDS without importing this plugin's data graph.
@@ -2978,6 +2979,23 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  if (sourceCanonicalPath === '/correzioni/') {
  const page = buildCorrezioniSeo(locale as CorrectionsLocale);
  return { title: page.title, desc: page.description, ogT: page.title, ogD: page.description, sd: JSON.stringify([page.jsonLd]) };
+ }
+
+ // Keep the static head in lockstep with the SPA's localized Guide metadata.
+ // The previous fallback title-cased the translated slug (for example,
+ // "Unemployment Benefits | Frontaliere Ticino") and used a broad generic
+ // description, hiding the actual page intent from the SERP. Resolve all
+ // evergreen Guide siblings from the shared map before the generic fallback.
+ const localizedGuideSeo = resolveGuideLocaleSeoByPath(sourceCanonicalPath, locale);
+ if (localizedGuideSeo) {
+  const title = buildTitleWithBrand(localizedGuideSeo.title);
+  return {
+   title,
+   desc: localizedGuideSeo.description,
+   ogT: title,
+   ogD: localizedGuideSeo.description,
+   sd: italianSeo.sd,
+  };
  }
 
  // ── Salary-landing net-comparison pages (4 scenarios × 3 non-IT locales) ──

@@ -666,10 +666,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  guide: {
  title: 'Guida frontaliere Svizzera 2026: permesso G, tasse e dogana',
  h1: 'Frontalieri Svizzera — guida completa 2026 a permesso G, tasse, dogana e primo giorno',
- description: 'Guida frontalieri Svizzera 2026: permesso G, Nuovo Accordo fiscale, tempi dogana, primo giorno, LAMal, trasferimento auto. 78.000 frontalieri/giorno.',
+ description: 'Guida frontalieri Svizzera 2026: permesso G, tasse, LAMal, dogana, auto e primo giorno. Requisiti, costi e strumenti pratici.',
  keywords: 'frontalieri svizzera, guida frontaliere svizzera, permesso g come ottenerlo, nuovo accordo frontalieri 2026, primo giorno frontaliere, dogana svizzera tempi, trasferire auto svizzera, disoccupazione frontaliere, comuni di frontiera svizzera, lamal frontalieri',
  ogTitle: 'Guida frontaliere Svizzera 2026 — permesso G, tasse e dogana',
- ogDescription: 'La guida più completa per frontalieri in Svizzera: permesso G (20 km, 5 anni), Nuovo Accordo fiscale 2026, LAMal, dogana, primo giorno, trasferimento auto. 78.000 frontalieri/giorno.',
+ ogDescription: 'Guida frontalieri Svizzera 2026: permesso G, tasse, LAMal, dogana e auto. Requisiti, costi e checklist pratiche per iniziare.',
  canonicalPath: '/guida-frontaliere/',
  structuredData: [
  {
@@ -2157,11 +2157,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  border: {
- title: 'Traffico Dogana Chiasso 2026: Tempi Attesa Brogeda',
+ title: 'Traffico Dogana Chiasso 2026: Attese e Brogeda Live',
  description: 'Traffico dogana Chiasso 2026: tempi attesa live Brogeda A2, Chiasso Strada e Ponte Chiasso, webcam BAZG e valichi alternativi Gaggiolo e Ponte Tresa.',
  keywords: 'traffico dogana chiasso brogeda, tempi di attesa dogana chiasso, coda dogana chiasso, valichi frontiera svizzera italia, dogana chiasso, tempi attesa dogana, ponte tresa orari, gaggiolo brogeda, stabio valico, percorsi alternativi frontiera, coda brogeda',
  ogTitle: 'Traffico Dogana Chiasso Brogeda | Tempi di Attesa e Code',
- ogDescription: 'Traffico dogana Chiasso e Brogeda: tempi di attesa, code, orari apertura e percorsi alternativi per frontalieri.',
+ ogDescription: 'Traffico dogana Chiasso e Brogeda: tempi di attesa live, webcam e valichi alternativi per evitare le code.',
  canonicalPath: '/guida-frontaliere/tempi-attesa-dogana/',
  structuredData: [
  {
@@ -2375,10 +2375,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  unemployment: {
  title: 'Disoccupazione Frontalieri Svizzera: NASpI e PD U1 2026',
- description: 'Disoccupazione frontalieri Svizzera: quando serve il PD U1, come chiedere la NASpI in Italia, importi 2026 e passaggi dopo il licenziamento.',
+ description: 'Disoccupazione frontalieri: cosa fare dopo il licenziamento in Svizzera, PD U1, NASpI in Italia, importi 2026 e tempi.',
  keywords: 'disoccupazione frontalieri, naspi frontalieri svizzera, disoccupazione svizzera ALV, PD U1 formulario, indennità disoccupazione frontaliere, naspi italia procedura, assicurazione disoccupazione svizzera, URC ticino, cassa disoccupazione',
  ogTitle: 'Disoccupazione Frontalieri Svizzera: NASpI e PD U1',
- ogDescription: 'Cosa fare dopo il licenziamento in Svizzera: PD U1, NASpI Italia, importi 2026 e tempi pratici.',
+ ogDescription: 'Licenziamento in Svizzera? PD U1, NASpI Italia, importi e passaggi pratici per i frontalieri.',
  canonicalPath: '/guida-frontaliere/disoccupazione-transfrontaliera/',
  structuredData: [
  {
@@ -2739,11 +2739,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'border-map': {
- title: 'Mappa confine Italia-Svizzera 2026 | Valichi del Ticino',
- description: 'Mappa interattiva del confine Italia-Svizzera in Ticino: valichi, tempi di attesa live, webcam e comuni di frontiera.',
+ title: 'Mappa Confine Svizzera-Italia 2026: Valichi e Tempi Live',
+ description: 'Mappa interattiva confine Svizzera-Italia: valichi del Ticino, tempi di attesa live, webcam e comuni italiani entro 20 km.',
  keywords: 'mappa valichi ticino, mappa dogane svizzera italia, valichi confine ticino, chiasso brogeda mappa, gaggiolo ponte tresa mappa, webcam valichi confine, tempi attesa dogane ticino, comuni frontiera svizzera, mappa comuni frontalieri, addizionale irpef comuni confine, dove vivere frontaliere, comuni como varese frontalieri, affitti comuni frontiera',
- ogTitle: 'Mappa confine Italia-Svizzera 2026 | Valichi del Ticino',
- ogDescription: 'Mappa interattiva del confine Italia-Svizzera in Ticino: valichi, tempi di attesa live, webcam e comuni di frontiera.',
+ ogTitle: 'Mappa Confine Svizzera-Italia 2026: Valichi e Tempi Live',
+ ogDescription: 'Mappa interattiva del confine Svizzera-Italia: valichi, tempi live, webcam e comuni di frontiera.',
  canonicalPath: '/guida-frontaliere/mappa-confine/',
  h1: 'Mappa confine Svizzera-Italia 2026 — valichi, comuni 20 km e addizionali IRPEF',
  structuredData: [
@@ -2951,11 +2951,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  carTransfer: {
- title: 'Trasferire Auto in Svizzera 2026: Dogana, Targhe e Costi',
- description: 'Trasferire l\'auto in Svizzera 2026: sdoganamento BAZG, collaudo MFK, targhe svizzere, cambio patente e assicurazione RC obbligatoria. Passaggi e costi reali.',
+ title: 'Importare Auto in Svizzera 2026: Dogana, Targhe e Costi',
+ description: 'Importare un\'auto in Svizzera 2026: dogana BAZG, collaudo MFK, targhe, patente e RC. Passaggi e costi reali.',
  keywords: 'trasferire auto svizzera, immatricolare auto ticino, targhe svizzere, cambio patente svizzera, dogana veicolo, MFK collaudo, assicurazione auto svizzera, PRA radiazione',
- ogTitle: 'Trasferire Auto in Svizzera | Guida Completa',
- ogDescription: '🚗 Come immatricolare la tua auto in Svizzera: dogana, targhe TI, cambio patente, assicurazione RC e costi.',
+ ogTitle: 'Importare Auto in Svizzera | Guida Completa',
+ ogDescription: 'Come importare l\'auto in Svizzera: dogana, targhe, patente, assicurazione RC e costi.',
  canonicalPath: '/guida-frontaliere/trasferire-auto-svizzera/',
  structuredData: [
  {
@@ -7022,12 +7022,12 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // ───────────────────────────────────────────────────────────────
 
  'tassa-salute-frontalieri': {
- title: 'Tassa Salute Frontalieri 2026: Regole e Importi',
+ title: 'Tassa Salute Frontalieri 2026: Importo, Chi Paga e Regole',
  h1: 'Tassa salute frontalieri 2026 — importo, chi paga, norme e applicazione regionale',
- description: 'Contributo SSN frontalieri: soggetti previsti dalla legge, quota sul salario netto, diritto di opzione e provvedimenti regionali per il 2026.',
+ description: 'Tassa salute frontalieri 2026: chi paga il contributo SSN, come si calcola il 3–6% sul salario netto e perché importi e scadenze dipendono dalla Regione.',
  keywords: 'tassa salute frontalieri, contributo sanitario SSN, vecchi frontalieri, salario netto, quota regionale',
  ogTitle: 'Tassa Salute Frontalieri 2026 — Importo e Chi Paga',
- ogDescription: 'Contributo sanitario italiano: regole nazionali, vecchi frontalieri e opzione SSN, importi e applicazione territoriale.',
+ ogDescription: 'Contributo SSN per frontalieri: chi è interessato, importo 3–6%, diritto d’opzione e attuazione regionale.',
  canonicalPath: '/guida-frontaliere/tassa-salute-frontalieri/',
  structuredData: [
  {
@@ -7101,12 +7101,12 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'lamal-frontalieri': {
- title: 'LAMal frontalieri 2026: premi e diritto d\'opzione',
+ title: 'LAMal Frontalieri 2026: Premi, Costi e Diritto d\'Opzione',
  h1: 'LAMal frontalieri 2026 — diritto d\'opzione, premi, casse malati, come scegliere',
- description: 'LAMal frontalieri 2026: diritto d\'opzione tra assicurazione svizzera e SSN italiano, premi delle 14 casse malati Ticino, franchigie, rimborsi e scadenze.',
+ description: 'LAMal frontalieri 2026: premi, costo mensile e diritto d\'opzione tra assicurazione svizzera e SSN. Confronto casse malati e scadenze.',
  keywords: 'lamal frontalieri, assicurazione malattia frontalieri, casse malati frontalieri, diritto di opzione lamal, premi lamal ticino, franchigia lamal, SSN o lamal frontalieri',
- ogTitle: 'LAMal Frontalieri 2026 — Guida Completa Diritto d\'Opzione',
- ogDescription: '🏥 Guida pillar alla LAMal per frontalieri: diritto d\'opzione, confronto casse malati Ticino, premi 2026, franchigie e come scegliere tra LAMal e SSN.',
+ ogTitle: 'LAMal Frontalieri 2026 — Premi e Diritto d\'Opzione',
+ ogDescription: 'LAMal frontalieri 2026: premi, diritto d\'opzione e confronto con il SSN italiano.',
  canonicalPath: '/guida-frontaliere/lamal-frontalieri/',
  structuredData: [
  {
