@@ -21,6 +21,8 @@
  *
  * Clinic location: Avenue de la Roseraie 76 bis, 1205 Genève (GE).
  */
+import { JSDOM } from 'jsdom';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, normalizeDescriptionBullets } from './crawler-template.mjs';
@@ -72,29 +74,24 @@ export function isTrustedDomain(rawUrl = '') {
  * Parse the listing HTML and return one row per open position.
  *
  * @param {string} html
- * @returns {Array<{ url: string, title: string, postedDate: string|null }>}
+ * @returns {Array<{ url: string, title: string, datePosted: string, postedDate: string, postingDateSource: string }>}
  */
 export function parseListing(html = '') {
-  const out = [];
-  const seen = new Set();
-  // Anchor in <h2 class="wp-show-posts-entry-title">. Some themes wrap the
-  // anchor inside extra spans; capture href + visible text robustly.
-  const re = /<h2\s+class="wp-show-posts-entry-title"[^>]*>\s*<a\s+href="(https:\/\/laplaine\.ch\/emploi\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
-  let m;
-  while ((m = re.exec(html)) !== null) {
-    const url = m[1];
-    if (seen.has(url)) continue;
-    seen.add(url);
-    const titleRaw = normalizeSpace(decodeEntities(m[2].replace(/<[^>]+>/g, ' ')));
-    if (!titleRaw || titleRaw.length < 3) continue;
-    // Try to recover the entry-date associated with this article. Search
-    // forward up to ~2 KB for the nearest <time datetime="…">.
-    const slice = html.slice(m.index, m.index + 2048);
-    const dateMatch = slice.match(/<time\s+class="wp-show-posts-entry-date[^"]*"\s+datetime="([^"]+)"/i);
-    const postedDate = dateMatch ? dateMatch[1].slice(0, 10) : null;
-    out.push({ url, title: titleRaw, postedDate });
-  }
-  return out;
+  const dom = new JSDOM(html);
+  try {
+    const out = [];
+    const seen = new Set();
+    for (const article of dom.window.document.querySelectorAll('article.wp-show-posts-single')) {
+      const anchor = article.querySelector('h2.wp-show-posts-entry-title a[href]');
+      const url = anchor?.getAttribute('href') || '';
+      const title = normalizeSpace(anchor?.textContent || '');
+      if (!/^https:\/\/laplaine\.ch\/emploi\//.test(url) || seen.has(url) || title.length < 3) continue;
+      seen.add(url);
+      const date = article.querySelector('time.wp-show-posts-entry-date:not(.updated)')?.getAttribute('datetime');
+      out.push({ url, title, ...sourcePostingDateFields(date) });
+    }
+    return out;
+  } finally { dom.window.close(); }
 }
 
 /**
@@ -155,7 +152,6 @@ export async function fetchAllCliniqueDeLaPlaineJobs() {
   console.log(`  ✓ ${rows.length} listing rows parsed`);
   if (rows.length === 0) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const r = rows[i];
@@ -204,7 +200,7 @@ export async function fetchAllCliniqueDeLaPlaineJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: r.postedDate || todayIso,
+      ...sourcePostingDateFields(r.datePosted),
       applyUrl: r.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
