@@ -53,7 +53,28 @@ export const RUN_LIST_LIMIT = 1000;
 export const FIX_JOB_INSPECTION_LIMIT = 40;
 export const ZOMBIE_PR_CHECK_LIMIT = 40;
 export const LABEL_LIST_LIMIT = 200;
-const REVIEW_BOT_LOGIN = /^(?:claude|frontaliere-automation)(?:\[bot\])?$/i;
+// Il revisore automatico pubblica con un'identità diversa per repo: nel sito
+// come `frontaliere-automation` (o `claude`), nel corpus come `github-actions`
+// (GITHUB_TOKEN del workflow). Un login fisso faceva leggere al report del
+// corpus «0 review del bot» su ogni PR. `github-actions` da solo è generico
+// (qualunque workflow può recensire con quel token): lì vale come revisore solo
+// la review che porta il marcatore d'ingresso del revisore. Repo sconosciuto →
+// regola del sito, cioè il comportamento precedente.
+const REVIEW_INPUT_MARKER = /<!--\s*REVIEW_INPUT_REVISION:/;
+const SITE_REVIEW_BOT = Object.freeze({
+  login: /^(?:claude|frontaliere-automation)(?:\[bot\])?$/i,
+  marker: null,
+});
+export const REVIEW_BOT_BY_REPO = Object.freeze({
+  'valerielinc-ops/frontaliere-si-o-no': SITE_REVIEW_BOT,
+  'nanakokyobashi-rgb/frontaliere-articles': Object.freeze({
+    login: /^github-actions(?:\[bot\])?$/i,
+    marker: REVIEW_INPUT_MARKER,
+  }),
+});
+export function reviewBotFor(repo) {
+  return REVIEW_BOT_BY_REPO[String(repo || '').toLowerCase()] || SITE_REVIEW_BOT;
+}
 const TERMINAL_CONCLUSIONS = new Set([
   'success',
   'failure',
@@ -363,15 +384,17 @@ export function repairAllocation({
   return { repairRuns, issueFixRuns: issueFixValue, ratio };
 }
 
-export function botReviewCount(pr) {
+export function botReviewCount(pr, repo = REPO) {
+  const bot = reviewBotFor(repo);
   return (Array.isArray(pr?.reviews) ? pr.reviews : [])
-    .filter((review) => REVIEW_BOT_LOGIN.test(review?.author?.login || '')).length;
+    .filter((review) => bot.login.test(review?.author?.login || '')
+      && (!bot.marker || bot.marker.test(String(review?.body || '')))).length;
 }
 
-export function mergedPrStats(since, runGh = gh) {
+export function mergedPrStats(since, runGh = gh, { repo = REPO } = {}) {
   let prs;
   try {
-    prs = runGh(['pr', 'list', '--repo', REPO, '--state', 'merged',
+    prs = runGh(['pr', 'list', '--repo', repo, '--state', 'merged',
       '--search', `merged:>${since}`, '--limit', String(MERGED_PR_LIST_LIMIT), '--json', 'number,reviews']);
   } catch {
     return {
@@ -407,9 +430,9 @@ export function mergedPrStats(since, runGh = gh) {
     };
   }
   const merged = prs.length;
-  const singleReview = prs.filter((pr) => botReviewCount(pr) === 1).length;
-  const zeroReview = prs.filter((pr) => botReviewCount(pr) === 0).length;
-  const totalReviews = prs.reduce((sum, pr) => sum + botReviewCount(pr), 0);
+  const singleReview = prs.filter((pr) => botReviewCount(pr, repo) === 1).length;
+  const zeroReview = prs.filter((pr) => botReviewCount(pr, repo) === 0).length;
+  const totalReviews = prs.reduce((sum, pr) => sum + botReviewCount(pr, repo), 0);
   return {
     measured: true,
     merged,
