@@ -137,7 +137,7 @@ import {
   createGithubIssue,
   commentOnGithubIssue,
   isFailureReportingDisabled,
-  resolveGithubIssue,
+  resolveGithubIssueByNumber,
   searchSafePrefix,
 } from '../lib/github-issue-creator.mjs';
 // Il body di queste issue non deve MAI citare un path `.github/workflows/**`:
@@ -1265,16 +1265,18 @@ export async function resolveScopedTimeoutIssues({ dryRun = DRY_RUN, nowMs = Dat
       failures.push(`${tag}: commento di evidenza non scritto`);
       continue;
     }
+    // Si chiude il NUMERO valutato, riletto subito prima della scrittura: chiusa o
+    // rinominata dopo la decisione → nessuna scrittura (stessa API di LC-24c).
     try {
-      const result = resolveGithubIssue(issue.title, {
-        issueNumber: issue.number,
+      const result = resolveGithubIssueByNumber(issue.number, {
+        expectedTitle: issue.title,
         workflow,
         runUrl: decision.counted[0]?.run?.url,
-        exactTitle: true,
       });
-      if (result?.persisted && Number(result.number) === Number(issue.number)) closed += 1;
-      else if (result?.persisted) failures.push(`${tag}: chiusa #${result.number} invece di #${issue.number}`);
-      else failures.push(`${tag}: resolve senza conferma di chiusura`);
+      if (result?.persisted === true) closed += 1;
+      else if (result?.skipped === 'not-open' || result?.skipped === 'title-changed') {
+        console.log(`[scan-job-timeouts] --resolve: ${tag} → non chiusa (${result.skipped} dopo la decisione)`);
+      } else failures.push(`${tag}: resolve senza conferma di chiusura${result?.skipped ? ` (${result.skipped})` : ''}`);
     } catch (err) {
       failures.push(`${tag}: ${err.message}`);
     }

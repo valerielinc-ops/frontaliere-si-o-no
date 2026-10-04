@@ -15,20 +15,20 @@ import YAML from 'yaml';
  * issue è rimasta aperta finché una persona non l'ha chiusa.
  *
  * `gh` è finto e instradato per sotto-comando, come negli altri test dello
- * scanner; la chiusura vera (`resolveGithubIssue`) e il commento sono spiati.
+ * scanner; la chiusura vera (`resolveGithubIssueByNumber`) e il commento sono spiati.
  */
 const execFileSync = vi.fn();
 vi.mock('node:child_process', () => {
   const mock = { execFileSync: (...args: unknown[]) => execFileSync(...args) };
   return { ...mock, default: mock };
 });
-const resolveGithubIssue = vi.fn();
+const resolveGithubIssueByNumber = vi.fn();
 const commentOnGithubIssue = vi.fn();
 vi.mock('../scripts/lib/github-issue-creator.mjs', async (importOriginal) => {
   const actual = await importOriginal<Record<string, unknown>>();
   return {
     ...actual,
-    resolveGithubIssue: (...args: unknown[]) => resolveGithubIssue(...args),
+    resolveGithubIssueByNumber: (...args: unknown[]) => resolveGithubIssueByNumber(...args),
     commentOnGithubIssue: (...args: unknown[]) => commentOnGithubIssue(...args),
   };
 });
@@ -406,7 +406,7 @@ describe('resolveScopedTimeoutIssues — il cablaggio con `gh`', () => {
     vi.spyOn(console, 'log').mockImplementation((...a: unknown[]) => { logs.push(a.join(' ')); });
     vi.spyOn(console, 'warn').mockImplementation(() => {});
     execFileSync.mockReset();
-    resolveGithubIssue.mockReset();
+    resolveGithubIssueByNumber.mockReset();
     commentOnGithubIssue.mockReset();
     issues = [];
     runList = asOf('2026-10-03T16:00:00Z');
@@ -442,20 +442,21 @@ describe('resolveScopedTimeoutIssues — il cablaggio con `gh`', () => {
     // La issue di deploy non viene nemmeno aperta in lettura.
     expect(execFileSync.mock.calls.some(([, a]) => a[0] === 'issue' && a[1] === 'view')).toBe(false);
     expect(commentOnGithubIssue).not.toHaveBeenCalled();
-    expect(resolveGithubIssue).not.toHaveBeenCalled();
+    expect(resolveGithubIssueByNumber).not.toHaveBeenCalled();
   });
 
-  it('la 10809 al 03-10: commento con le run, poi chiusura a titolo esatto', async () => {
+  it('la 10809 al 03-10: commento con le run, poi chiusura del numero valutato', async () => {
     issues = [{ number: 10809, title: TITLE_10809, labels: [{ name: 'ci-timeout' }], createdAt: OPENED_10809, body: BODY_10809 }];
     commentOnGithubIssue.mockReturnValue(true);
-    resolveGithubIssue.mockReturnValue({ number: 10809, persisted: true });
+    resolveGithubIssueByNumber.mockReturnValue({ number: 10809, persisted: true });
     await resolveScopedTimeoutIssues({ dryRun: false });
     expect(commentOnGithubIssue).toHaveBeenCalledTimes(1);
     expect(commentOnGithubIssue.mock.calls[0][0]).toBe(10809);
     expect(commentOnGithubIssue.mock.calls[0][1]).toContain(RUN_URL(37133614819));
-    expect(resolveGithubIssue).toHaveBeenCalledWith(TITLE_10809, expect.objectContaining({
-      exactTitle: true,
-      issueNumber: 10809,
+    // Il numero giudicato, e il titolo su cui si è deciso: il resolver lo
+    // rilegge prima di scrivere e non chiude se nel frattempo è cambiato.
+    expect(resolveGithubIssueByNumber).toHaveBeenCalledWith(10809, expect.objectContaining({
+      expectedTitle: TITLE_10809,
       workflow: WF,
     }));
     // Il listing delle run è quello della popolazione: stesso workflow, stesso evento.
@@ -468,7 +469,7 @@ describe('resolveScopedTimeoutIssues — il cablaggio con `gh`', () => {
     await resolveScopedTimeoutIssues({ dryRun: true });
     expect(logs.join('\n')).toMatch(/#10809 .*→ close \(3 run senza timeout/);
     expect(commentOnGithubIssue).not.toHaveBeenCalled();
-    expect(resolveGithubIssue).not.toHaveBeenCalled();
+    expect(resolveGithubIssueByNumber).not.toHaveBeenCalled();
   });
 
   it('senza la firma dello scanner, o con keep-open / claim, non si tocca', async () => {
@@ -482,29 +483,40 @@ describe('resolveScopedTimeoutIssues — il cablaggio con `gh`', () => {
     expect(logs.join('\n')).toContain('4 issue della famiglia');
     expect(execFileSync.mock.calls.some(([, a]) => a[0] === 'run' && a[1] === 'list')).toBe(false);
     expect(commentOnGithubIssue).not.toHaveBeenCalled();
-    expect(resolveGithubIssue).not.toHaveBeenCalled();
+    expect(resolveGithubIssueByNumber).not.toHaveBeenCalled();
   });
 
   it('due gemelle aperte con lo stesso titolo: nessun commento, nessuna chiusura', async () => {
-    // `resolveGithubIssue` chiude per titolo la più recente: valutando la vecchia
-    // chiuderebbe la nuova, che porta `keep-open` e non è mai stata esaminata.
+    // Due issue con lo stesso titolo sono una famiglia ambigua: la nuova porta
+    // `keep-open` e non è mai stata esaminata, quindi nessuna delle due si chiude.
     issues = [
       { number: 11000, title: TITLE_10809, labels: [{ name: 'keep-open' }], createdAt: '2026-10-02T08:00:00Z', body: 'aperta a mano' },
       { number: 10809, title: TITLE_10809, labels: [], createdAt: OPENED_10809, body: BODY_10809 },
     ];
     commentOnGithubIssue.mockReturnValue(true);
-    resolveGithubIssue.mockReturnValue({ number: 11000, persisted: true });
+    resolveGithubIssueByNumber.mockReturnValue({ number: 11000, persisted: true });
     await resolveScopedTimeoutIssues({ dryRun: false });
     expect(logs.join('\n')).toMatch(/#10809 .*→ keep \(gemelle aperte: #11000, #10809\)/);
     expect(commentOnGithubIssue).not.toHaveBeenCalled();
-    expect(resolveGithubIssue).not.toHaveBeenCalled();
+    expect(resolveGithubIssueByNumber).not.toHaveBeenCalled();
   });
 
-  it('una chiusura che conferma un numero diverso da quello valutato è un errore', async () => {
+  it('chiusa o rinominata dopo la decisione: nessuna chiusura e nessun errore', async () => {
     issues = [{ number: 10809, title: TITLE_10809, labels: [], createdAt: OPENED_10809, body: BODY_10809 }];
     commentOnGithubIssue.mockReturnValue(true);
-    resolveGithubIssue.mockReturnValue({ number: 11000, persisted: true });
-    await expect(resolveScopedTimeoutIssues({ dryRun: false })).rejects.toThrow(/chiusa #11000 invece di #10809/);
+    for (const skipped of ['not-open', 'title-changed']) {
+      resolveGithubIssueByNumber.mockReturnValueOnce({ number: 10809, persisted: false, skipped });
+      await resolveScopedTimeoutIssues({ dryRun: false });
+      expect(logs.join('\n')).toContain(`#10809 «${TITLE_10809}» → non chiusa (${skipped} dopo la decisione)`);
+    }
+  });
+
+  it('una rilettura fallita prima della chiusura è un errore', async () => {
+    issues = [{ number: 10809, title: TITLE_10809, labels: [], createdAt: OPENED_10809, body: BODY_10809 }];
+    commentOnGithubIssue.mockReturnValue(true);
+    resolveGithubIssueByNumber.mockReturnValue({ number: 10809, persisted: false, skipped: 'unreadable' });
+    await expect(resolveScopedTimeoutIssues({ dryRun: false }))
+      .rejects.toThrow(/resolve senza conferma di chiusura \(unreadable\)/);
   });
 
   it('evidenza già in coda dal tick precedente: non la ripete, ritenta solo la chiusura', async () => {
@@ -512,10 +524,10 @@ describe('resolveScopedTimeoutIssues — il cablaggio con `gh`', () => {
       number: 10809, title: TITLE_10809, labels: [], createdAt: OPENED_10809, body: BODY_10809,
       comments: [{ body: '🔁 di nuovo' }, { body: `${RESOLVE_EVIDENCE_MARKER}\n✅ Timeout non più osservato` }],
     }];
-    resolveGithubIssue.mockReturnValue({ number: 10809, persisted: true });
+    resolveGithubIssueByNumber.mockReturnValue({ number: 10809, persisted: true });
     await resolveScopedTimeoutIssues({ dryRun: false });
     expect(commentOnGithubIssue).not.toHaveBeenCalled();
-    expect(resolveGithubIssue).toHaveBeenCalledTimes(1);
+    expect(resolveGithubIssueByNumber).toHaveBeenCalledTimes(1);
   });
 
   it('una ricorrenza dopo l\'evidenza precedente: l\'evidenza si riscrive', async () => {
@@ -524,7 +536,7 @@ describe('resolveScopedTimeoutIssues — il cablaggio con `gh`', () => {
       comments: [{ body: `${RESOLVE_EVIDENCE_MARKER}\nvecchia` }, { body: '🔁 di nuovo' }],
     }];
     commentOnGithubIssue.mockReturnValue(true);
-    resolveGithubIssue.mockReturnValue({ number: 10809, persisted: true });
+    resolveGithubIssueByNumber.mockReturnValue({ number: 10809, persisted: true });
     await resolveScopedTimeoutIssues({ dryRun: false });
     expect(commentOnGithubIssue).toHaveBeenCalledTimes(1);
   });
@@ -533,6 +545,6 @@ describe('resolveScopedTimeoutIssues — il cablaggio con `gh`', () => {
     issues = [{ number: 10809, title: TITLE_10809, labels: [], createdAt: OPENED_10809, body: BODY_10809 }];
     commentOnGithubIssue.mockReturnValue(false);
     await expect(resolveScopedTimeoutIssues({ dryRun: false })).rejects.toThrow(/commento di evidenza/);
-    expect(resolveGithubIssue).not.toHaveBeenCalled();
+    expect(resolveGithubIssueByNumber).not.toHaveBeenCalled();
   });
 });

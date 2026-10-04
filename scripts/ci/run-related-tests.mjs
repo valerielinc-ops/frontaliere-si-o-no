@@ -156,6 +156,11 @@ const sourceTreeLintTests = new Map([
   ['tests/is-invoked-directly.test.ts', /^scripts\/.+\.(?:mjs|cjs|js|ts)$/],
   ['tests/translation-protected-tokens.test.ts', /^scripts\/.+\.mjs$/],
   ['tests/slug-write-encapsulation.test.ts', /^scripts\/.+\.(?:ts|mjs|js)$/],
+  // Ratchet sulle chiusure per titolo: legge da disco ogni sorgente che usa
+  // `resolveGithubIssue` e lo confronta con l'elenco dichiarato. Un closer
+  // nuovo non importa il test, quindi senza questa voce entrerebbe senza
+  // farlo partire (stessa lezione della PR 11308). Perimetro = quello dello scan.
+  ['tests/resolve-issue-by-title-ratchet.test.ts', /^(?:scripts\/.+\.mjs|functions\/.+\.(?:js|mjs|ts))$/],
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint
