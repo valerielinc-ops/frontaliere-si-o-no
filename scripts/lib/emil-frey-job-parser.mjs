@@ -11,6 +11,9 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { identifiedPostingPublication } from './identified-posting-publication.mjs';
+import { extractJobPostingsLd } from './jsonld-jobposting.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
@@ -184,7 +187,7 @@ function parseListingArticle(block) {
  * Fetch one schema.org JobPosting JSON-LD object from a rexx detail page.
  * Returns null if the page can't be fetched or has no JobPosting block.
  */
-async function fetchDetailJsonLd(url) {
+async function fetchDetailJsonLd(url, expectedTitle) {
   let html;
   try {
     html = await fetchHtml(url, { headers: { 'User-Agent': BROWSER_UA } });
@@ -206,7 +209,13 @@ async function fetchDetailJsonLd(url) {
     }
     const candidates = Array.isArray(data) ? data : [data];
     for (const c of candidates) {
-      if (c && c['@type'] === 'JobPosting') return c;
+      if (c && c['@type'] === 'JobPosting') {
+        // Preserve the existing body selection; a date requires one identified vacancy.
+        const publication = extractJobPostingsLd(html).length === 1
+          ? identifiedPostingPublication(html, url, expectedTitle)
+          : sourcePostingDateFields();
+        return { ...c, ...publication };
+      }
     }
   }
   return null;
@@ -262,7 +271,7 @@ async function fetchJobListings() {
   // Enrich each with its detail JSON-LD (full address, datePosted, org name).
   const listings = [];
   for (const stub of stubs) {
-    const ld = await fetchDetailJsonLd(stub.url);
+    const ld = await fetchDetailJsonLd(stub.url, stub.title);
     listings.push({ ...stub, ld });
     await new Promise((r) => setTimeout(r, 200));
   }
@@ -361,9 +370,7 @@ export async function fetchAllEmilFreyJobs() {
       sector: 'Automotive retail / dealership group',
       currency: 'CHF',
       featured: false,
-      postedDate:
-        (ld && ld.datePosted ? String(ld.datePosted).slice(0, 10) : '') ||
-        new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, ld || {}),
       applyUrl: publicUrl,
       hiringOrganizationName: hiringOrg || EMIL_FREY_COMPANY_NAME,
       requirements: [],
