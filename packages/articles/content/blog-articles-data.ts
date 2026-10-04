@@ -37503,6 +37503,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'licenza-sospesa-bar-busto-2026',
+ category: 'novita',
+ date: '2026-10-04T06:49:38.466Z',
+ image: '/images/blog/licenza-sospesa-bar-busto-2026.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

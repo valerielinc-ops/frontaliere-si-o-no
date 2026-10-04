@@ -12506,6 +12506,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.maga-giornata-contemporaneo.title': 'Al MA*GA di gallarate la giornata del contemporaneo',
     'blog.article.maga-giornata-contemporaneo.excerpt': 'Sabato 10 ottobre al Museo MA*GA di Gallarate ingresso gratuito, finissage di tre mostre, libri, video e performance per la XXII Giornata del Contemporaneo.',
     'blog.article.maga-giornata-contemporaneo.imageAlt': 'Il Museo MA*GA di Gallarate per la Giornata del Contemporaneo',
+    'blog.article.licenza-sospesa-bar-busto-2026.title': 'Busto Arsizio: licenza sospesa 15 giorni per aggressione',
+    'blog.article.licenza-sospesa-bar-busto-2026.excerpt': 'Il Questore di Varese ha sospeso per 15 giorni la licenza di un bar di Busto Arsizio dopo l\'aggressione del 20 settembre con lancio di pietre vicino a una coppia con passeggino; il ferito è stato portato all\'ospedale di Gallarate.',
+    'blog.article.licenza-sospesa-bar-busto-2026.imageAlt': 'Bar di Busto Arsizio con polizia dopo aggressione',
 };
 
 export default blogMetaIt;

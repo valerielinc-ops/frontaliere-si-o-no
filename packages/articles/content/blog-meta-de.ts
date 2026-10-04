@@ -12504,6 +12504,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.maga-giornata-contemporaneo.title': 'Der Tag der zeitgenössischen Kunst im MA*GA in Gallarate',
     'blog.article.maga-giornata-contemporaneo.excerpt': 'Samstag 10 ottobre im Museum MA*GA in Gallarate: freier Eintritt, Finissage von drei Ausstellungen, Bücher, Videos und Performances zur XXII Giornata del Contemporaneo.',
     'blog.article.maga-giornata-contemporaneo.imageAlt': 'Das MA*GA-Museum in Gallarate am Tag der zeitgenössischen Kunst',
+    'blog.article.licenza-sospesa-bar-busto-2026.title': 'Busto Arsizio: Lizenz wegen eines Angriffs für 15 Tage ausgesetzt',
+    'blog.article.licenza-sospesa-bar-busto-2026.excerpt': 'Der Polizeipräsident von Varese hat die Lizenz einer Bar in Busto Arsizio für 15 Tage ausgesetzt, nachdem es am 20. September in der Nähe eines Paares mit Kinderwagen zu einem Angriff mit Steinwürfen gekommen war; der Verletzte wurde in das Krankenhaus von Gallarate gebracht.',
+    'blog.article.licenza-sospesa-bar-busto-2026.imageAlt': 'Bar in Busto Arsizio mit Polizei nach Steinwurf‑Attacke',
 };
 
 export default blogMetaDe;

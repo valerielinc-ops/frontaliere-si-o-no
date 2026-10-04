@@ -12505,6 +12505,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.maga-giornata-contemporaneo.title': 'At the MA*GA in Gallarate, the Contemporary Day',
     'blog.article.maga-giornata-contemporaneo.excerpt': 'Saturday 10 October at the MA*GA Museum in Gallarate, free admission, closing event for three exhibitions, books, video and performance for the XXII Contemporary Day.',
     'blog.article.maga-giornata-contemporaneo.imageAlt': 'The MA*GA Museum in Gallarate for Contemporary Art Day',
+    'blog.article.licenza-sospesa-bar-busto-2026.title': 'Busto Arsizio: license suspended for 15 days for assault',
+    'blog.article.licenza-sospesa-bar-busto-2026.excerpt': 'The Police Commissioner of Varese suspended the license of a bar in Busto Arsizio for 15 days after the September 20 assault involving stones being thrown near a couple with a stroller; the injured person was taken to the hospital in Gallarate.',
+    'blog.article.licenza-sospesa-bar-busto-2026.imageAlt': 'Bar in Busto Arsizio with police after stone‑throwing attack',
 };
 
 export default blogMetaEn;
