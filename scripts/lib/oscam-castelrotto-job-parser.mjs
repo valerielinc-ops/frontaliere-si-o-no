@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 /**
  * Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi), Castelrotto (TI).
  *
@@ -219,7 +220,6 @@ export async function fetchAllOscamCastelrottoJobs() {
     return [];
   }
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
 
   for (const listing of listings) {
@@ -284,7 +284,7 @@ export async function fetchAllOscamCastelrottoJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(''),
       applyUrl: listing.pdfUrl || url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

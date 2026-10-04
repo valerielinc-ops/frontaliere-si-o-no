@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Gruppo Ospedaliero Moncucco job parser — Fetcher and job builder.
  *
@@ -234,10 +236,12 @@ export async function fetchAllMoncuccoJobs() {
   const jobs = [];
   for (const listing of listings) {
     let description = '';
+    let publication = sourcePostingDateFields('');
     if (listing.url) {
       try {
         const detailHtml = await fetchHtml(listing.url, { timeoutMs: 15000 });
         description = parseDetailPage(detailHtml);
+        publication = sourcePostingDateFields(extractJobPostingLd(detailHtml)?.datePosted);
       } catch (err) {
         console.warn(`  Detail fetch failed for ${listing.url}: ${err.message}`);
       }
@@ -277,7 +281,7 @@ export async function fetchAllMoncuccoJobs() {
       employmentType: empType,
       experienceLevel: detectExperienceLevel(listing.title),
       featured: false,
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...publication,
       url: listing.url,
       applyUrl: listing.url,
       source: 'Gruppo Ospedaliero Moncucco Dedicated Parser',
