@@ -13,9 +13,10 @@ import path from 'node:path';
 import { exitCrawlerOnError, fetchHtml, isConnectionLevelFetchError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
-import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
+import { writeJobsCrawlerSlice, writeJobsCrawlerSliceVerified, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
@@ -135,6 +136,7 @@ async function fetchJobs(summaryCounts = null) {
       summaryCounts.abortKind = isConnectionLevelFetchError(err)
         ? 'connection-level-fetch'
         : 'no-jobs-parsed';
+      summaryCounts.authoritativeEmptySnapshot = false;
     }
     console.error(`❌ Failed to fetch Interroll careers page: ${err.message}`);
     return [];
@@ -146,6 +148,7 @@ async function fetchJobs(summaryCounts = null) {
       summaryCounts.parsed = 0;
       summaryCounts.lastFetchOutcome = 'selector_miss';
       summaryCounts.abortKind = 'no-jobs-parsed';
+      summaryCounts.authoritativeEmptySnapshot = false;
     }
     console.error('❌ Interroll careers page returned no HTML.');
     return [];
@@ -156,6 +159,7 @@ async function fetchJobs(summaryCounts = null) {
   if (summaryCounts) {
     summaryCounts.discovered = classification.discovered;
     summaryCounts.lastFetchOutcome = classification.lastFetchOutcome;
+    summaryCounts.authoritativeEmptySnapshot = classification.authoritativeEmptySnapshot;
   }
   console.log(`  📋 Total jobs: ${classification.discovered}`);
   const swissJobs = classification.listings;
@@ -190,6 +194,8 @@ async function fetchJobs(summaryCounts = null) {
       : classification.lastFetchOutcome === 'filtered_empty'
         ? 'filtered_empty'
         : 'selector_miss';
+    summaryCounts.authoritativeEmptySnapshot = mapped.length === 0
+      && classification.authoritativeEmptySnapshot;
     summaryCounts.abortKind = summaryCounts.lastFetchOutcome === 'filtered_empty' || mapped.length > 0
       ? null
       : 'no-jobs-parsed';
@@ -247,6 +253,7 @@ function writeInterrollSummary({ counts, sliceJobs = [], diff = null }) {
     written: sliceJobs.length,
     lastFetchOutcome: counts.lastFetchOutcome,
     abortKind: counts.abortKind,
+    authoritativeEmptySnapshot: counts.authoritativeEmptySnapshot === true && sliceJobs.length === 0,
     newCount: summaryDiff.newJobs.length,
     updatedCount: summaryDiff.updatedJobs.length,
     removedCount: summaryDiff.removedJobs.length,
@@ -261,9 +268,34 @@ function writeInterrollSummary({ counts, sliceJobs = [], diff = null }) {
   });
 }
 
+async function publishAuthoritativeEmptySnapshot(beforeSnapshot, counts) {
+  const priorJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob);
+  const diff = computeCrawlDiff(beforeSnapshot, snapshotJobSlugs([]));
+  const archived = archiveRemovedJobsToSlice(priorJobs, COMPANY_KEY);
+  if (archived > 0) {
+    console.log(`📦 Archived ${archived} expired Interroll job(s) → data/jobs/expired/by-crawler/${COMPANY_KEY}.json`);
+  }
+
+  // The source read proved that the complete global board has no Swiss card.
+  // Accept the deliberate N→0 shrink and publish the proof with the summary;
+  // an unproven/partial zero stays on the preserving heartbeat path below.
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, [], {
+    isTargetJob: isCompanyJob,
+    skipShrinkGuard: true,
+  });
+  writeInterrollSummary({ counts, sliceJobs: [], diff });
+  await assembleJobsDataset();
+}
+
 async function main() {
   setCrawlerStartTime();
-  const summaryCounts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
+  const summaryCounts = {
+    discovered: null,
+    parsed: null,
+    lastFetchOutcome: null,
+    abortKind: null,
+    authoritativeEmptySnapshot: false,
+  };
   registerCrawlerSummaryGuard(COMPANY_KEY, COMPANY_NAME, summaryCounts);
   console.log('═══════════════════════════════════════════════');
   console.log('  Interroll Group — Dedicated Crawler');
@@ -274,8 +306,13 @@ async function main() {
   const discovered = await fetchJobs(summaryCounts);
   if (!discovered.length) {
     if (summaryCounts.lastFetchOutcome === 'filtered_empty') {
-      console.log('⚠️ No Interroll Swiss jobs found after filtering; publishing a filtered-empty heartbeat and preserving the existing slice.');
-      writeInterrollSummary({ counts: summaryCounts });
+      if (summaryCounts.authoritativeEmptySnapshot) {
+        console.log('✅ Interroll global board was read with no Swiss listings; publishing the verified empty snapshot.');
+        await publishAuthoritativeEmptySnapshot(beforeSnapshot, summaryCounts);
+      } else {
+        console.log('⚠️ No Interroll Swiss jobs found after filtering; publishing a filtered-empty heartbeat and preserving the existing slice.');
+        writeInterrollSummary({ counts: summaryCounts });
+      }
     } else {
       console.log('⚠️ No Interroll Swiss jobs discovered; preserving the existing slice.');
     }

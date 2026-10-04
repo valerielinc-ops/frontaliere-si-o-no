@@ -1,7 +1,7 @@
 {
   "key": "oetiker",
   "label": "Oetiker",
-  "generatedAt": "2026-10-03T21:19:12.840Z",
+  "generatedAt": "2026-10-04T09:15:05.742Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -14,10 +14,10 @@
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3991,
-  "avgDurationMs": 3991,
+  "durationMs": 4053,
+  "avgDurationMs": 4053,
   "durationHistory": [
-    3991
+    4053
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000152841739-head-quality-hse-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:04.493Z",
+      "crawledAt": "2026-10-04T09:14:57.167Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -72,7 +72,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000150080009-lehrstelle-als-polymechaniker-in-efz-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:04.523Z",
+      "crawledAt": "2026-10-04T09:14:57.203Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -89,7 +89,6 @@
       "postedDate": "2026-09-17",
       "applyUrl": "https://jobs.smartrecruiters.com/Oetiker/744000150080009-lehrstelle-als-polymechaniker-in-efz-all-?oga=true",
       "jobReqId": "744000150080009",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-19T22:53:36.248Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -111,7 +110,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000149925798-leiter-einkauf-avor-pps-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:04.543Z",
+      "crawledAt": "2026-10-04T09:14:57.211Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -149,7 +148,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000147421499-junior-firmware-engineer-embedded-systems-c-c-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:04.532Z",
+      "crawledAt": "2026-10-04T09:14:57.199Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -166,8 +165,8 @@
       "postedDate": "2026-09-04",
       "applyUrl": "https://jobs.smartrecruiters.com/Oetiker/744000147421499-junior-firmware-engineer-embedded-systems-c-c-all-?oga=true",
       "jobReqId": "744000147421499",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:28:05.533Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -188,7 +187,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000147495900-head-r-d-project-automatic-assembly-tools-oetiker-group-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:04.536Z",
+      "crawledAt": "2026-10-04T09:14:57.207Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -227,7 +226,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000135999378-it-service-management-specialist-emea-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:04.548Z",
+      "crawledAt": "2026-10-04T09:14:57.215Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -257,5 +256,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

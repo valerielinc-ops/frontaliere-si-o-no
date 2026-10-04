@@ -28,6 +28,7 @@ import {
   applyCoopJsonLdToJob,
   applyCoopSourceDetailToJob,
   enrichCoopSourceBackedJobs,
+  fetchCoopDetailPage,
   resolveCoopCantonCode,
   collapseRepublishedCoopVacancies,
   withoutRepublishedCoopVacancies,
@@ -778,6 +779,33 @@ describe('extractJsonLd — Coop pages', () => {
   });
 });
 
+describe('fetchCoopDetailPage timeout handling', () => {
+  it('settles when the detail fetch ignores AbortSignal', async () => {
+    let observedSignal: AbortSignal | undefined;
+    const result = await fetchCoopDetailPage(
+      'https://jobs.coopjobs.ch/offene-stellen/slow/11111111-1111-4111-8111-111111111111',
+      10,
+      async (_url, options) => {
+        observedSignal = options?.signal;
+        return new Promise(() => {});
+      },
+    );
+
+    expect(result).toBeNull();
+    expect(observedSignal?.aborted).toBe(true);
+  });
+
+  it('also bounds a response whose body read never settles', async () => {
+    const result = await fetchCoopDetailPage(
+      'https://jobs.coopjobs.ch/offene-stellen/slow-body/22222222-2222-4222-8222-222222222222',
+      10,
+      async () => ({ ok: true, text: async () => new Promise(() => {}) }),
+    );
+
+    expect(result).toBeNull();
+  });
+});
+
 // ──────────────────────────────────────────────────────────────
 // coopDescHtmlToMarkdown tests
 // ──────────────────────────────────────────────────────────────
@@ -1273,6 +1301,27 @@ describe('Coop-family source-detail contract (#5253)', () => {
     expect(result.description).not.toContain('Listing boilerplate');
     expect(result.description.trim().split(/\s+/).length).toBeGreaterThanOrEqual(50);
     for (const [key, value] of Object.entries(identity)) expect(result[key]).toEqual(value);
+  });
+
+  it('listingAddressEvidence() keeps the listing locality ahead of a conflicting HQ JSON-LD address', () => {
+    const listing = {
+      id: 'coop-store-stable', companyKey: 'coop-ticino',
+      url: 'https://jobs.coopjobs.ch/offene-stellen/test/55555555-5555-4555-8555-555555555555',
+      title: 'Verkäuferin Verkäufer', description: 'listing fallback',
+      location: 'Fallback Hauptsitz', addressLocality: 'Zürich',
+      canton: 'ZH', addressRegion: 'ZH', addressCountry: 'CH', sourceLang: 'de',
+    };
+    const result = applyCoopSourceDetailToJob(
+      listing,
+      jsonLd(listing.title, 'Oberbüren', 'St. Gallen'),
+    );
+
+    expect(result).toMatchObject({
+      location: 'Zürich', addressLocality: 'Zürich', canton: 'ZH', addressRegion: 'ZH',
+      postalCode: '', streetAddress: '',
+    });
+    expect(result.location).not.toBe('Oberbüren');
+    expect(result.description.trim().split(/\s+/).length).toBeGreaterThanOrEqual(50);
   });
 
   it('fails the whole enrichment before publishing a partial or malformed detail batch', async () => {

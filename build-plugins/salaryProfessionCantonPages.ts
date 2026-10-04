@@ -566,7 +566,7 @@ export function renderSalaryProfessionCantonPage(opts: {
   // its configured height so the static page does not shift as ads load.
   const salaryProfessionInlineAd = `<div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</div>`;
 
-  const main = `<div class="cl-fun">${breadcrumb}
+  const mainContent = `<div class="cl-fun">${breadcrumb}
 ${header}
 ${tiles}
 ${DRIVEBY_AD_SNIPPET}
@@ -578,7 +578,11 @@ ${salaryProfessionInlineAd}
 ${hubs}
 ${methodology}
 ${sourcesBlock}
-${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
+${prose}</div>`;
+  const main = mainContent.replace(
+    /<\/div>$/,
+    `${endOfContentMultiplexHtml({ indexable: true, contentHtml: mainContent })}</div>`,
+  );
 
   const breadcrumbLd = {
     '@context': 'https://schema.org',

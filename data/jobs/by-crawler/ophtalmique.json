@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ophtalmique",
-  "assembledAt": "2026-10-03T21:22:03.032Z",
+  "assembledAt": "2026-10-04T09:26:36.740Z",
   "jobs": [
     {
       "id": "ophtalmique-9465a455f2a5",
@@ -34,7 +34,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1920",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:21:57.957Z",
+      "crawledAt": "2026-10-04T09:26:30.631Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -53,11 +53,13 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://emploi.ophtalmique.ch/",
       "previousSlugs": [
-        "collaborateur-trice-facturation-ophtalmique-lausanne"
+        "collaborateur-trice-facturation-ophtalmique-lausanne",
+        "collaboratore-di-fatturazione-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-facturation-ophtalmique-lausanne"
+          "collaborateur-trice-facturation-ophtalmique-lausanne",
+          "collaboratore-di-fatturazione-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
         ],
         "en": [
           "collaborateur-trice-facturation-ophtalmique-lausanne"
@@ -113,7 +115,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1922",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:21:57.583Z",
+      "crawledAt": "2026-10-04T09:26:30.258Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -133,12 +135,14 @@
       "careerSiteUrl": "https://emploi.ophtalmique.ch/",
       "previousSlugs": [
         "gestionnaire-administratif-ophtalmique-lausanne",
-        "gestionnaire-administratif-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
+        "gestionnaire-administratif-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+        "gestione-amministrativa-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-administratif-ophtalmique-lausanne",
-          "gestionnaire-administratif-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
+          "gestionnaire-administratif-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+          "gestione-amministrativa-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
         ],
         "en": [
           "gestionnaire-administratif-ophtalmique-lausanne"
@@ -148,16 +152,16 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:23:59.418Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
+      "salaryMin": 116500,
+      "salaryMax": 162500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
+          "minValue": 116500,
+          "maxValue": 162500,
           "unitText": "YEAR"
         }
       }
@@ -177,7 +181,7 @@
       "title": "Ergothérapeute basse-vision",
       "titleByLocale": {
         "it": "Terapeuta occupazionale a bassa frequenza",
-        "en": "Low-vision occupational therapist",
+        "en": "Ergothérapeute basse-vision",
         "de": "Low-Vision Ergotherapeut",
         "fr": "Ergothérapeute basse-vision"
       },
@@ -194,7 +198,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1916",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:21:57.216Z",
+      "crawledAt": "2026-10-04T09:26:29.892Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -217,12 +221,14 @@
         "ergoterapisti-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
         "ergotherapeute-basse-vision-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
         "ergotherapeut-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
-        "ergotherapeute-basse-vision-ophtalmique-lausanne"
+        "ergotherapeute-basse-vision-ophtalmique-lausanne",
+        "terapeuta-occupazionale-a-bassa-frequenza-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ergoterapisti-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
-          "ergotherapeute-basse-vision-ophtalmique-lausanne"
+          "ergotherapeute-basse-vision-ophtalmique-lausanne",
+          "terapeuta-occupazionale-a-bassa-frequenza-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
         ],
         "en": [
           "ergotherapist-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
@@ -281,7 +287,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1913",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:21:56.849Z",
+      "crawledAt": "2026-10-04T09:26:29.526Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -300,11 +306,13 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://emploi.ophtalmique.ch/",
       "previousSlugs": [
-        "infirmier-ere-ems-clair-soleil-ophtalmique-lausanne"
+        "infirmier-ere-ems-clair-soleil-ophtalmique-lausanne",
+        "infermiera-ems-clair-soleil-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-ems-clair-soleil-ophtalmique-lausanne"
+          "infirmier-ere-ems-clair-soleil-ophtalmique-lausanne",
+          "infermiera-ems-clair-soleil-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
         ],
         "en": [
           "infirmier-ere-ems-clair-soleil-ophtalmique-lausanne"
@@ -356,7 +364,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1888",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:21:56.381Z",
+      "crawledAt": "2026-10-04T09:26:29.061Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -375,11 +383,13 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://emploi.ophtalmique.ch/",
       "previousSlugs": [
-        "assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne"
+        "assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne",
+        "assistente-per-la-salute-e-la-cura-della-comunita-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne"
+          "assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne",
+          "assistente-per-la-salute-e-la-cura-della-comunita-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
         ],
         "en": [
           "assistant-e-en-soins-et-sante-communautaire-ophtalmique-lausanne"

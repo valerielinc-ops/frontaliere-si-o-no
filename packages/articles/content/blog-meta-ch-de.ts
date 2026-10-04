@@ -7673,6 +7673,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.title': 'Genf: 1.500 für Palästina auf der Straße, Sanktionen gegen Israel gefordert',
     'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.excerpt': 'Etwa 1.500 Demonstrierende in Genf fordern eine Blockade der Beziehungen zu Israel und die Festnahme von Netanyahu. Bern: keine Festnahme aus Verhandlungsgründen.',
     'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.imageAlt': 'Pro-Palästina-Demonstration in Genf mit palästinensischen und Schweizer Flaggen',
+    'blog.article.swiss-steel-ristrutturazione-germania.title': 'Swiss Steel kündigt Umstrukturierung und Stellenabbau in Deutschland an',
+    'blog.article.swiss-steel-ristrutturazione-germania.excerpt': 'Der multinationale Konzern aus Luzern leitet eine Reorganisation ein, um bis 2028 wieder profitabel zu werden. Kantonale Unterstützung in Höhe von 17 Millionen für die Tochtergesellschaft Steeltec.',
+    'blog.article.swiss-steel-ristrutturazione-germania.imageAlt': 'Schweizer Stahlwerk in einer industriellen Umgebung',
+    'blog.article.salario-minimo-zurigo-requisiti.title': 'Kantonaler Mindestlohn im Kanton Zürich: Voraussetzungen und Anwendung',
+    'blog.article.salario-minimo-zurigo-requisiti.excerpt': 'In der Schweiz gibt es keinen eidgenössischen Mindestlohn: In Zürich müssen kantonale Regelung, Gesamtarbeitsverträge, Kontrollen und Zuständigkeiten geprüft werden.',
+    'blog.article.salario-minimo-zurigo-requisiti.imageAlt': 'Unterlagen zum Mindestlohn in einem Schweizer Kantonsbüro',
+    'blog.article.assistenza-sociale-zurigo-domanda.title': 'Sozialhilfe im Kanton Zürich: Anforderungen und Nachfrage',
+    'blog.article.assistenza-sociale-zurigo-domanda.excerpt': 'Im Kanton Zürich geht der Antrag von einer Bedürfnisvoraussetzung aus: Zuständiges Amt, Dokumente, Leistungen und Mitwirkungspflichten.',
+    'blog.article.assistenza-sociale-zurigo-domanda.imageAlt': 'Schweizer Gemeindestelle für einen Antrag auf Sozialhilfe',
+    'blog.article.imposta-auto-zurigo-pagamento.title': 'Motorfahrzeugsteuer in Zürich: Berechnung und Zahlung',
+    'blog.article.imposta-auto-zurigo-pagamento.excerpt': 'Im Kanton Zürich richten sich Berechnung, Fälligkeiten und Zahlung der Motorfahrzeugsteuer nach kantonalen Regeln; prüfen Sie auch den Fahrzeug- und Adresswechsel.',
+    'blog.article.imposta-auto-zurigo-pagamento.imageAlt': 'Autos und Unterlagen zur Motorfahrzeugsteuer in einem kantonalen Amt in Zürich.',
+    'blog.article.incentivi-energetici-zurigo-domanda.title': 'Energieförderungen in Zürich: Voraussetzungen und Antrag',
+    'blog.article.incentivi-energetici-zurigo-domanda.excerpt': 'Zürich: Energieförderungen für Gebäude und Anlagen. Voraussetzungen, Beträge und Fristen sind vor der Antragstellung zu prüfen; der Antrag ist vor Beginn der Arbeiten einzureichen.',
+    'blog.article.incentivi-energetici-zurigo-domanda.imageAlt': 'Energieanreize für die Sanierung eines Gebäudes im Kanton Zürich',
 };
 
 export default blogMetaChDe;

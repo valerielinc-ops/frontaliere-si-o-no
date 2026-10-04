@@ -102,6 +102,7 @@ import {
 // its locale-aware URL construction — the implementation is the canonical
 // shared helper (also used by send-newsletter.mjs, send-saved-jobs-digest.mjs).
 import { localePathPrefix } from './lib/articleContent.mjs';
+import { translationHoldReleasedMs } from './lib/translation-publication-hold.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -506,8 +507,10 @@ function firstParsableMs(...values) {
 // `crawledAt` means "last verified live" for the rolling inventory and is
 // intentionally excluded here: publisher projections refresh it on every sync.
 // Real novelty is anchored to the immutable discovery/source dates instead.
+// An agency job held out of publication until its titles were translated is
+// new to the site from its release (scripts/lib/translation-publication-hold.mjs).
 export function jobRealFreshnessMs(job) {
-  return firstParsableMs(job?.firstSeenAt, job?.postedDate);
+  return Math.max(firstParsableMs(job?.firstSeenAt, job?.postedDate), translationHoldReleasedMs(job));
 }
 
 /**
