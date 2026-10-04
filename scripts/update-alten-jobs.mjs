@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -90,9 +91,7 @@ function toIsoDate(raw = '') {
     const [dd, mm, yyyy] = value.split('/');
     return `${yyyy}-${mm}-${dd}`;
   }
-  const parsed = new Date(value);
-  if (Number.isNaN(parsed.getTime())) return new Date().toISOString().slice(0, 10);
-  return parsed.toISOString().slice(0, 10);
+  return sourcePostingDateFields(value).postedDate;
 }
 
 function isTargetJob(job = {}) {
@@ -317,7 +316,7 @@ function buildAltenJobFromHtml(html, listing) {
     sector: 'IT Consulting & Engineering',
     source: 'alten-dedicated-crawler',
     sourceLang: detectLang(parsed.description || '', 'en'),
-    postedDate: toIsoDate(parsed.postedDate || listing.postedDate),
+    ...sourcePostingDateFields(toIsoDate(parsed.postedDate || listing.postedDate)),
     validThrough: '',
     description: parsed.description,
     titleByLocale: parsed.titleByLocale,
@@ -457,6 +456,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -485,7 +485,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton || DEFAULT_CANTON,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

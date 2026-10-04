@@ -16,6 +16,7 @@
  * 5. Updates adapter config
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -345,7 +346,7 @@ export function buildAxaJob(row) {
     sector: 'assicurazioni',
     source: 'axa-dedicated-crawler',
     sourceLang: lang,
-    postedDate: new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(row.postedDate),
     employmentType,
     contractType: employmentType,
     workload: row.workload || '',
@@ -385,6 +386,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -413,7 +415,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

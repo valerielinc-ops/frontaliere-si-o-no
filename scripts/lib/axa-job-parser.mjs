@@ -436,7 +436,7 @@ export function parseAxaJibeListing(json) {
       address: [street, [postalCode, locality].filter(Boolean).join(' ')].filter(Boolean).join(', '),
       postalCode,
       lang: language.slice(0, 2).toLowerCase(),
-      postedDate: String(data.posted_date || '').slice(0, 10),
+      postedDate: String(data.posted_date || '').trim().replace(/([+-]\d{2})(\d{2})$/, '$1:$2'),
     });
   }
   return { total: Number(json?.totalCount) || 0, seen: jobs.length, rows };

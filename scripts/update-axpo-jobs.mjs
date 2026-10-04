@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourceRssPostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -97,10 +98,6 @@ function jobMatchKey(job) {
 
 function isSwissLocation(city = '') {
   return isSwissLocationText(city);
-}
-
-function todayIso() {
-  return new Date().toISOString().slice(0, 10);
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -221,6 +218,7 @@ function filterSwissJobs(items) {
   return swissJobs;
 }
 
+
 function buildJob(item) {
   const title = item.title || '';
   const link = item.link || '';
@@ -249,14 +247,7 @@ function buildJob(item) {
   const category = inferCategory(item.department, title);
   const empType = mapEmploymentType(item.role || title);
 
-  // Parse pubDate
-  let postedDate = todayIso();
-  if (item.pubDate) {
-    try {
-      const d = new Date(item.pubDate);
-      if (!isNaN(d.getTime())) postedDate = d.toISOString().slice(0, 10);
-    } catch { /* keep default */ }
-  }
+  const publicationDate = sourceRssPostingDateFields(item.pubDate);
 
   return {
     title,
@@ -277,7 +268,7 @@ function buildJob(item) {
     department: item.department || '',
     source: 'axpo-dedicated-crawler',
     sourceLang,
-    postedDate,
+    ...publicationDate,
     validThrough: '',
     employmentType: empType,
     contractType: empType === 'internship' ? 'stage' : 'permanent',
@@ -320,6 +311,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       // Issue #3453-class: never reset descriptionByLocale to a source-only
       // map on a large content delta — sourceLocale-aware merge already

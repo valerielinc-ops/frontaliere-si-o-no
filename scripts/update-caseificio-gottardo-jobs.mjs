@@ -17,6 +17,7 @@
  *   6. Post-process: fix company name, location, canton
  *   7. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
@@ -414,7 +415,7 @@ export async function fetchCaseificioJobs() {
       employmentType: detectEmploymentType(listing.title, listing.location),
       experienceLevel: detectExperienceLevel(listing.title, listing.category),
       source: 'caseificio-gottardo-crawler',
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...sourcePostingDateFields(''),
       titleByLocale: { it: listing.title },
       descriptionByLocale: { it: description },
       slugByLocale: { it: slug },
@@ -490,6 +491,7 @@ async function mergeJobs(discoveredJobs) {
     if (ex) {
       const updatedJob = {
         ...ex,
+        ...mergeSourcePostingDates(ex, discovered),
         title: discovered.title || ex.title,
         company: COMPANY_NAME,
         companyKey: COMPANY_KEY,
