@@ -48,6 +48,8 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
@@ -350,13 +352,7 @@ async function fetchJobDetail(detailUrl) {
   }
 
   const dateM = html.match(/itemprop="datePosted"\s+content="([^"]+)"/);
-  let postedDate = '';
-  if (dateM) {
-    const d = new Date(dateM[1]);
-    if (!Number.isNaN(d.getTime())) postedDate = d.toISOString().slice(0, 10);
-  }
-
-  return { descriptionHtml, postedDate };
+  return { descriptionHtml, ...successFactorsPostingDateFields(dateM?.[1] || '') };
 }
 
 /**
@@ -442,7 +438,7 @@ export async function fetchAllHolcimJobs() {
       sector: 'Materiali da costruzione / Cemento',
       currency: 'CHF',
       featured: false,
-      postedDate: (detail && detail.postedDate) || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, detail || {}),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
