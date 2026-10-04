@@ -38,6 +38,9 @@ export const MATCHER_HEALTH_MAX_PROBES = 200;
 /** Reserved, non-deliverable recipient of the synthetic alerts. */
 export const MATCHER_HEALTH_PROBE_EMAIL = 'matcher-health-probe@frontaliereticino.invalid';
 
+/** The locale used by the synthetic alert passed to planAlertMatch. */
+export const MATCHER_HEALTH_PROBE_LOCALE = 'it';
+
 export const MATCHER_HEALTH_PROBE_KINDS = {
   TITLE_KEYWORD: 'title-keyword',
   CATEGORY: 'category',
@@ -87,12 +90,13 @@ export function titleProfessionToken(title) {
 /**
  * A listing can seed a probe only when the send loop itself would score it
  * for an ordinary recipient: canary listings are reserved to the owner, and a
- * listing awaiting retranslation is skipped for recipients of another locale.
+ * listing awaiting retranslation is skipped only for recipients of another
+ * locale. Keep the fallback source locale aligned with planAlertMatch.
  */
-function canSeedProbe(job) {
+function canSeedProbe(job, probeLocale = MATCHER_HEALTH_PROBE_LOCALE) {
   return Boolean(job)
     && job.canary !== true
-    && job.needsRetranslation !== true
+    && (job.needsRetranslation !== true || probeLocale === (job.sourceLang || 'it'))
     && jobCanton(job).trim() !== ''
     && titleProfessionToken(job.title) !== '';
 }
@@ -105,7 +109,7 @@ function probeAlert({ id, keyword, canton }) {
   return {
     id,
     email: MATCHER_HEALTH_PROBE_EMAIL,
-    locale: 'it',
+    locale: MATCHER_HEALTH_PROBE_LOCALE,
     active: true,
     keywords: [keyword],
     cantonFilter: [canton],

@@ -19,6 +19,7 @@ import { describe, expect, it } from 'vitest';
 import {
   MATCHER_HEALTH_PROBE_EMAIL,
   MATCHER_HEALTH_PROBE_KINDS,
+  MATCHER_HEALTH_PROBE_LOCALE,
   buildMatcherHealthProbes,
   evaluateMatcherHealth,
   getMatcherHealthMonitorAction,
@@ -53,6 +54,7 @@ const INVENTORY = [
   // closed listing.
   job('ge-canary', { title: 'Canary listing do not send', category: 'Other', canton: 'GE', canary: true }),
   job('vd-retranslate', { title: 'Comptable fiduciaire', category: 'Finance', canton: 'VD', needsRetranslation: true, sourceLang: 'fr' }),
+  job('it-retranslate', { title: 'Infermiere diplomato', category: 'Sanità', canton: 'TI', needsRetranslation: true, sourceLang: 'it' }),
   job('nocanton', { title: 'Consulente commerciale', category: 'Sales' }),
   job('ti-closed', { title: 'Cuoco di linea stagionale', category: 'Ristorazione', canton: 'TI', status: 'expired' }),
 ];
@@ -92,12 +94,22 @@ describe('buildMatcherHealthProbes', () => {
     }
   });
 
-  it('never seeds a probe from a canary, a listing pending retranslation or a listing without canton', () => {
+  it('applies needsRetranslation per synthetic probe locale', () => {
     const { probes } = buildMatcherHealthProbes(ACTIVE);
     const seeds = new Set(probes.map((p) => p.sourceJobId));
     expect(seeds.has('ge-canary')).toBe(false);
     expect(seeds.has('vd-retranslate')).toBe(false);
+    expect(seeds.has('it-retranslate')).toBe(true);
     expect(seeds.has('nocanton')).toBe(false);
+    expect(probes.every((probe) => probe.alert.locale === MATCHER_HEALTH_PROBE_LOCALE)).toBe(true);
+
+    const sourceLocaleHealth = runJobAlertMatcherHealth(
+      [INVENTORY.find((candidate) => candidate.id === 'it-retranslate')],
+      { now: NOW },
+    );
+    expect(sourceLocaleHealth.failures).toEqual([]);
+    expect(buildMatcherHealthProbes([INVENTORY.find((candidate) => candidate.id === 'vd-retranslate')]).probes)
+      .toHaveLength(0);
   });
 
   it('picks the same seed on a rerun, whatever the inventory order', () => {
