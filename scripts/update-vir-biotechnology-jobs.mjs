@@ -126,6 +126,7 @@ async function fetchGreenhouseJobs(counts) {
     console.log(`  📋 Swiss jobs found: ${classified.parsed} (of ${classified.discovered} source jobs)`);
     return classified.jobs;
   } catch (err) {
+    // fetch-failure-empty-ok: bespoke runner outside runStandardCrawlerPipeline: a throw is an unclassified exit 1, not the template connection-level soft exit
     const classified = classifyGreenhouseFetchError(err);
     Object.assign(counts, {
       discovered: 0,

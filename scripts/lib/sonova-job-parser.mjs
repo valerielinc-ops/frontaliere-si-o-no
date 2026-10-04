@@ -270,7 +270,10 @@ async function fetchJobListings() {
       html = await fetchHtml(url, { headers: { 'User-Agent': CRAWLER_UA } });
     } catch (err) {
       console.error(`❌ listing fetch failed (startrow=${startrow}): ${err?.message || err}`);
-      break;
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     }
     const rows = parseTilePage(html);
     if (rows.length === 0) {

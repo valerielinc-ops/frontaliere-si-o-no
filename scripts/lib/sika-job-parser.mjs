@@ -145,7 +145,10 @@ async function fetchJobListings() {
       data = await fetchJson(url, { headers });
     } catch (err) {
       console.warn(`   ⚠️ Listing fetch failed at offset=${offset}: ${err?.message || err}`);
-      break;
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     }
 
     const items = assertJsonListShape(data, { key: 'items', source: 'sika' });

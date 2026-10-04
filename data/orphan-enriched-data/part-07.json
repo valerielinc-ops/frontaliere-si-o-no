@@ -1586,10 +1586,10 @@
         "fr": "addetto-alle-vendite-food-coop-genossenschaft-killwangen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/addetto-alle-vendite-food-coop-genossenschaft-killwangen",
-        "en": "/en/find-jobs-zurich/addetto-alle-vendite-food-coop-genossenschaft-killwangen",
+        "it": "/cerca-lavoro-berna/addetto-alle-vendite-food-coop-genossenschaft-killwangen",
+        "en": "/en/find-jobs-bern/addetto-alle-vendite-food-coop-genossenschaft-killwangen",
         "de": "/de/jobs-im-bern/addetto-alle-vendite-food-coop-genossenschaft-killwangen",
-        "fr": "/fr/trouver-emploi-zurich/addetto-alle-vendite-food-coop-genossenschaft-killwangen"
+        "fr": "/fr/trouver-emploi-berne/addetto-alle-vendite-food-coop-genossenschaft-killwangen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -6507,10 +6507,10 @@
         "fr": "assistent-in-filialleitung-denner-wadenswil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/assistent-in-filialleitung-denner-wadenswil",
-        "en": "/en/find-jobs-lucerne/assistent-in-filialleitung-denner-wadenswil",
-        "de": "/de/jobs-in-luzern/assistent-in-filialleitung-denner-wadenswil",
-        "fr": "/fr/trouver-emploi-lucerne/assistent-in-filialleitung-denner-wadenswil"
+        "it": "/cerca-lavoro-zurigo/assistent-in-filialleitung-denner-wadenswil",
+        "en": "/en/find-jobs-zurich/assistent-in-filialleitung-denner-wadenswil",
+        "de": "/de/jobs-in-zurich/assistent-in-filialleitung-denner-wadenswil",
+        "fr": "/fr/trouver-emploi-zurich/assistent-in-filialleitung-denner-wadenswil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -6559,10 +6559,10 @@
         "fr": "assistente-alla-vendita-di-pane-per-prodotti-freschi-coop-genossenschaft-basel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/assistente-alla-vendita-di-pane-per-prodotti-freschi-coop-genossenschaft-basel",
-        "en": "/en/find-jobs-basel/assistente-alla-vendita-di-pane-per-prodotti-freschi-coop-genossenschaft-basel",
-        "de": "/de/jobs-in-basel/assistente-alla-vendita-di-pane-per-prodotti-freschi-coop-genossenschaft-basel",
-        "fr": "/fr/trouver-emploi-bale/assistente-alla-vendita-di-pane-per-prodotti-freschi-coop-genossenschaft-basel"
+        "it": "/cerca-lavoro-berna/assistente-alla-vendita-di-pane-per-prodotti-freschi-coop-genossenschaft-basel",
+        "en": "/en/find-jobs-bern/assistente-alla-vendita-di-pane-per-prodotti-freschi-coop-genossenschaft-basel",
+        "de": "/de/jobs-in-bern/assistente-alla-vendita-di-pane-per-prodotti-freschi-coop-genossenschaft-basel",
+        "fr": "/fr/trouver-emploi-berne/assistente-alla-vendita-di-pane-per-prodotti-freschi-coop-genossenschaft-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -7673,10 +7673,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "it": "assistente-medico-80-100-m-f-d-luzerner-psychiatrie-lups-kriens",
+        "en": "assistant-doctor-80-100-m-f-d-luzerner-psychiatrie-lups-kriens",
         "de": "assistenzarztin-80-100-m-w-d-lups-kriens",
-        "en": "assistant-physician-80-100-m-f-d-luzerner-psychiatrie-lups-kriens",
-        "fr": "medecin-assistant-80-100-h-f-d-luzerner-psychiatrie-lups-kriens",
-        "it": "assistente-medico-80-100-m-f-d-luzerner-psychiatrie-lups-kriens"
+        "fr": "assistant-medecin-80-100-h-f-d-luzerner-psychiatrie-lups-kriens"
       },
       "localePaths": {
         "it": "/cerca-lavoro-lucerna/assistente-medico-80-100-m-f-d-luzerner-psychiatrie-lups-kriens",
@@ -9448,10 +9448,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "baker-confectioner-coop-genossenschaft-baar",
+        "it": "baker-pasticceria-coop-genossenschaft-baar",
         "en": "baker-confectioner-coop-genossenschaft-baar",
-        "de": "baker-confectioner-coop-genossenschaft-baar",
-        "fr": "baker-confectioner-coop-genossenschaft-baar"
+        "de": "backer-in-konditor-in-coop-genossenschaft-baar",
+        "fr": "baker-confiseur-coop-genossenschaft-baar"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zugo/baker-confectioner-coop-genossenschaft-baar",
@@ -9465,6 +9465,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -10730,8 +10731,8 @@
       "observedPaths": {
         "de": "/de/jobs-im-tessin/buchhalter",
         "it": "/cerca-lavoro-ticino/buchhalter",
-        "en": "/en/find-jobs-ticino/buchhalter",
-        "fr": "/fr/trouver-emploi-tessin/buchhalter"
+        "en": "/en/find-jobs-jura/buchhalter",
+        "fr": "/fr/trouver-emploi-jura/buchhalter"
       },
       "queries": [
         {
@@ -10746,6 +10747,11 @@
         },
         {
           "query": "buchhalter schweiz",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "buchhalter jobs lugano",
           "clicks": 0,
           "impressions": 2
         },
@@ -10765,11 +10771,6 @@
           "impressions": 1
         },
         {
-          "query": "buchhalter jobs lugano",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
           "query": "rowi buchhalter",
           "clicks": 0,
           "impressions": 1
@@ -10785,7 +10786,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 27,
+      "totalImpressions": 28,
       "totalClicks": 0,
       "topQuery": "job jura",
       "title": "Buchhalter",
@@ -11576,10 +11577,10 @@
         "fr": "cadranographe-tampographe-h-f-rolex-geneve"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-friburgo/cadranographe-tampographe-h-f-rolex-geneve",
-        "en": "/en/find-jobs-fribourg/cadranographe-tampographe-h-f-rolex-geneve",
+        "it": "/cerca-lavoro-ginevra/cadranographe-tampographe-h-f-rolex-geneve",
+        "en": "/en/find-jobs-geneva/cadranographe-tampographe-h-f-rolex-geneve",
         "de": "/de/jobs-im-freiburg/cadranographe-tampographe-h-f-rolex-geneve",
-        "fr": "/fr/trouver-emploi-fribourg/cadranographe-tampographe-h-f-rolex-geneve"
+        "fr": "/fr/trouver-emploi-geneve/cadranographe-tampographe-h-f-rolex-geneve"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -33772,7 +33773,17 @@
           "impressions": 1
         },
         {
+          "query": "certo",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "come frontaliere",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "insurance jobs",
           "clicks": 0,
           "impressions": 1
         },
@@ -33782,7 +33793,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 3,
+      "totalImpressions": 5,
       "totalClicks": 0,
       "topQuery": "calingo jobs",
       "title": "Insurance",
@@ -35159,12 +35170,12 @@
     {
       "slug": "juridique",
       "locale": "fr",
-      "path": "/fr/trouver-emploi-valais/juridique/",
+      "path": "/fr/trouver-emploi-lucerne/juridique/",
       "observedPaths": {
-        "it": "/cerca-lavoro-basilea/juridique",
+        "de": "/de/jobs-im-wallis/juridique",
+        "it": "/cerca-lavoro-vallese/juridique",
         "fr": "/fr/trouver-emploi-bale/juridique",
-        "en": "/en/find-jobs-basel/juridique",
-        "de": "/de/jobs-im-basel/juridique"
+        "en": "/en/find-jobs-basel/juridique"
       },
       "queries": [
         {
@@ -35173,9 +35184,19 @@
           "impressions": 16
         },
         {
+          "query": "offre emploi suisse frontalier",
+          "clicks": 1,
+          "impressions": 7
+        },
+        {
           "query": "emploi suisse frontalier",
           "clicks": 0,
           "impressions": 6
+        },
+        {
+          "query": "job suisse frontalier",
+          "clicks": 0,
+          "impressions": 5
         },
         {
           "query": "emploi commune valais",
@@ -35188,9 +35209,19 @@
           "impressions": 5
         },
         {
+          "query": "suisse emploi frontalier",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
           "query": "travail suisse frontalier",
           "clicks": 0,
           "impressions": 4
+        },
+        {
+          "query": "recherche emploi frontalier suisse",
+          "clicks": 0,
+          "impressions": 3
         },
         {
           "query": "emploi frontalier suisse",
@@ -35206,6 +35237,21 @@
           "query": "recherche emploi frontalier suisse",
           "clicks": 0,
           "impressions": 3
+        },
+        {
+          "query": "emploi suisse frontalier",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "entreprise suisse qui recrute frontaliers",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "travailler frontiere suisse",
+          "clicks": 0,
+          "impressions": 2
         },
         {
           "query": "emploi administration valais",
@@ -35231,45 +35277,10 @@
           "query": "etat du valais emploi",
           "clicks": 0,
           "impressions": 2
-        },
-        {
-          "query": "frontalier suisse emploi",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "offre d'emploi suisse frontalier",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "recherche emploi valais",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "suisse emploi frontalier",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "état du valais emploi",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "offre emploi bale",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "annonce emploi suisse frontalier",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 85,
-      "totalClicks": 1,
+      "totalImpressions": 120,
+      "totalClicks": 2,
       "topQuery": "emploi valais",
       "title": "Juridique",
       "titleByLocale": {
@@ -35297,10 +35308,10 @@
         "fr": "juridique"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vallese/juridique",
-        "en": "/en/find-jobs-valais/juridique",
-        "de": "/de/jobs-im-wallis/juridique",
-        "fr": "/fr/trouver-emploi-valais/juridique"
+        "it": "/cerca-lavoro-lucerna/juridique",
+        "en": "/en/find-jobs-lucerne/juridique",
+        "de": "/de/jobs-im-luzern/juridique",
+        "fr": "/fr/trouver-emploi-lucerne/juridique"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -38806,10 +38817,10 @@
         "it": "macellaio-a-specialista-in-carne-coop-genossenschaft-basel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/macellaio-a-specialista-in-carne-coop-genossenschaft-basel",
-        "en": "/en/find-jobs-basel/macellaio-a-specialista-in-carne-coop-genossenschaft-basel",
+        "it": "/cerca-lavoro-zurigo/macellaio-a-specialista-in-carne-coop-genossenschaft-basel",
+        "en": "/en/find-jobs-zurich/macellaio-a-specialista-in-carne-coop-genossenschaft-basel",
         "de": "/de/jobs-im-graubunden/macellaio-a-specialista-in-carne-coop-genossenschaft-basel",
-        "fr": "/fr/trouver-emploi-bale/macellaio-a-specialista-in-carne-coop-genossenschaft-basel"
+        "fr": "/fr/trouver-emploi-zurich/macellaio-a-specialista-in-carne-coop-genossenschaft-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -38906,9 +38917,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-affoltern-am-albis",
-        "en": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-affoltern-am-albis",
-        "de": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-affoltern-am-albis",
-        "fr": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-affoltern-am-albis"
+        "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-affoltern-am-albis",
+        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-affoltern-am-albis",
+        "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-affoltern-am-albis"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-affoltern-am-albis",
@@ -38922,6 +38933,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -40374,15 +40386,20 @@
       "path": "/fr/trouver-emploi-bale/medecins/",
       "observedPaths": {
         "de": "/de/jobs-im-nidwalden/medecins",
+        "it": "/cerca-lavoro-basilea/medecins",
         "en": "/en/find-jobs-nidwalden/medecins",
-        "fr": "/fr/trouver-emploi-nidwald/medecins",
-        "it": "/cerca-lavoro-nidvaldo/medecins"
+        "fr": "/fr/trouver-emploi-nidwald/medecins"
       },
       "queries": [
         {
           "query": "agence de recrutement altdorf ur",
           "clicks": 0,
-          "impressions": 6
+          "impressions": 10
+        },
+        {
+          "query": "agence interim altdorf ur",
+          "clicks": 0,
+          "impressions": 3
         },
         {
           "query": "date versement salaire hug 2026",
@@ -40390,7 +40407,7 @@
           "impressions": 2
         },
         {
-          "query": "agence interim altdorf ur",
+          "query": "expert en cybersecurité onex",
           "clicks": 0,
           "impressions": 2
         },
@@ -40405,12 +40422,12 @@
           "impressions": 1
         },
         {
-          "query": "expert en cybersecurité onex",
+          "query": "agence interim obwald",
           "clicks": 0,
           "impressions": 1
         },
         {
-          "query": "agence interim obwald",
+          "query": "emploi medecin suisse",
           "clicks": 0,
           "impressions": 1
         },
@@ -40420,7 +40437,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 15,
+      "totalImpressions": 22,
       "totalClicks": 0,
       "topQuery": "agence de recrutement altdorf ur",
       "title": "Medecins",
@@ -45164,8 +45181,8 @@
       "observedPaths": {
         "en": "/en/find-jobs-vaud/page-24",
         "fr": "/fr/trouver-emploi-vaud/page-24",
-        "de": "/de/jobs-im-waadt/page-24",
-        "it": "/cerca-lavoro-vaud/page-24"
+        "it": "/cerca-lavoro-zurigo/page-24",
+        "de": "/de/jobs-im-waadt/page-24"
       },
       "queries": [
         {
@@ -46708,6 +46725,11 @@
           "impressions": 1
         },
         {
+          "query": "agence placement fixe hotellerie delemont",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "offre d'emploi porrentruy",
           "clicks": 0,
           "impressions": 1
@@ -46741,9 +46763,14 @@
           "query": "agence interim payerne",
           "clicks": 0,
           "impressions": 1
+        },
+        {
+          "query": "je suis physiothérapeute et je cherche le salaire moyen en suisse pour un poste en cabinet à vaud par rapport à un hôpital.",
+          "clicks": 0,
+          "impressions": 1
         }
       ],
-      "totalImpressions": 22,
+      "totalImpressions": 24,
       "totalClicks": 0,
       "topQuery": "agence interim tessin",
       "title": "Physiotherapeutes",
@@ -49491,9 +49518,7 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "en": "production-planning-expert-ordonnanceur-mikron",
-        "it": "esperto-di-pianificazione-della-produzione-ordonnanceur-mikron-group-boudry",
-        "de": "produktionsplanungsexperte-ordonnanceur-mikron-group-boudry",
-        "fr": "esperto-di-pianificazione-della-produzione-ordonnanceur-mikron-group-boudry"
+        "de": "produktionsplanungsexperte-ordonnanceur-mikron-group-boudry"
       },
       "localePaths": {
         "it": "/cerca-lavoro-neuchatel/production-planning-expert-ordonnanceur-mikron",
@@ -59569,9 +59594,9 @@
       "path": "/cerca-lavoro-grigioni/settori/",
       "observedPaths": {
         "it": "/cerca-lavoro-svizzera/settori",
+        "de": "/de/jobs-im-graubunden/settori",
         "en": "/en/find-jobs-ticino/settori",
-        "de": "/de/jobs-im-tessin/settori",
-        "fr": "/fr/trouver-emploi-tessin/settori"
+        "fr": "/fr/trouver-emploi-grisons/settori"
       },
       "queries": [
         {
@@ -59586,6 +59611,11 @@
         },
         {
           "query": "in ticino",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "offerte di lavoro canton ticino per frontalieri",
           "clicks": 0,
           "impressions": 2
         },
@@ -59668,14 +59698,9 @@
           "query": "in svizzera",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "lavoro oss in svizzera",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 40,
+      "totalImpressions": 41,
       "totalClicks": 0,
       "topQuery": "frontaliere ticino offerte di lavoro",
       "title": "Settori",
@@ -68922,9 +68947,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "tribunale-d-appello-amministrazione-cantonale-ticino-bellinzona",
-        "en": "tribunale-d-appello-amministrazione-cantonale-ticino-bellinzona",
-        "de": "tribunale-d-appello-amministrazione-cantonale-ticino-bellinzona",
-        "fr": "tribunale-d-appello-amministrazione-cantonale-ticino-bellinzona"
+        "en": "court-of-appeal-amministrazione-cantonale-ticino-bellinzona",
+        "de": "berufungsgericht-amministrazione-cantonale-ticino-bellinzona",
+        "fr": "cour-de-recours-amministrazione-cantonale-ticino-bellinzona"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/tribunale-d-appello-amministrazione-cantonale-ticino-bellinzona",
@@ -68932,12 +68957,13 @@
         "de": "/de/jobs-im-tessin/tribunale-d-appello-amministrazione-cantonale-ticino-bellinzona",
         "fr": "/fr/trouver-emploi-tessin/tribunale-d-appello-amministrazione-cantonale-ticino-bellinzona"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4283",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -74552,10 +74578,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-genossenschaft-opfikon",
-        "en": "verkaufer-in-frischprodukte-coop-genossenschaft-opfikon",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-opfikon",
+        "en": "seller-fresh-products-coop-genossenschaft-opfikon",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-opfikon",
-        "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-opfikon"
+        "fr": "vendeur-de-produits-frais-coop-genossenschaft-opfikon"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/verkaufer-in-frischprodukte-coop-genossenschaft-opfikon",
@@ -74569,6 +74595,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -74709,10 +74736,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-genossenschaft-volketswil",
-        "en": "verkaufer-in-frischprodukte-coop-genossenschaft-volketswil",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-volketswil-56370e",
+        "en": "seller-fresh-products-coop-genossenschaft-volketswil-56370e",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-volketswil",
-        "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-volketswil"
+        "fr": "vendeur-de-produits-frais-coop-genossenschaft-volketswil-56370e"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/verkaufer-in-frischprodukte-coop-genossenschaft-volketswil",
@@ -74726,6 +74753,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -75082,10 +75110,10 @@
         "fr": "verkaufer-in-kassen-services-coop-genossenschaft-zollikofen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/verkaufer-in-kassen-services-coop-genossenschaft-zollikofen",
-        "en": "/en/find-jobs-basel/verkaufer-in-kassen-services-coop-genossenschaft-zollikofen",
+        "it": "/cerca-lavoro-zurigo/verkaufer-in-kassen-services-coop-genossenschaft-zollikofen",
+        "en": "/en/find-jobs-zurich/verkaufer-in-kassen-services-coop-genossenschaft-zollikofen",
         "de": "/de/jobs-im-bern/verkaufer-in-kassen-services-coop-genossenschaft-zollikofen",
-        "fr": "/fr/trouver-emploi-bale/verkaufer-in-kassen-services-coop-genossenschaft-zollikofen"
+        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-kassen-services-coop-genossenschaft-zollikofen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

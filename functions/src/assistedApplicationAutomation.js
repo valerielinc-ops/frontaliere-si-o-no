@@ -468,12 +468,32 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
 const ACKNOWLEDGED = Object.freeze({ type: 'submit_acknowledged' });
 
 /**
+ * A send whose outcome was uncertain, now confirmed (Valerie's «Segna come inviata», or the employer's
+ * e-mail on the alias): the record the runner wrote before it (`sentAttempt`,
+ * scripts/assisted-application/lib/submit.mjs) becomes the record of what left (`sent`), with who
+ * confirmed it. Only on the round's own draft; nothing when there is no attempt.
+ * @param {{db, orderId:string, round?:number, confirmedBy:'owner'|'acknowledgement', nowMs?:number}} args
+ * @returns {Promise<boolean>} whether a record was confirmed
+ */
+export async function confirmSentAttempt({ db, orderId, round, confirmedBy, nowMs = Date.now() }) {
+  const ref = draftRefFor(db, orderId);
+  return db.runTransaction(async (transaction) => {
+    const draft = (await transaction.get(ref)).data() || {};
+    const attempt = draft.sentAttempt;
+    if (!attempt || typeof attempt !== 'object' || (round && Number(draft.round) !== Number(round))) return false;
+    transaction.set(ref, { sent: { ...attempt, confirmedBy, confirmedAt: nowMs }, sentAttempt: null }, { merge: true });
+    return true;
+  });
+}
+
+/**
  * career-ops apply.md: an application is sent on the success page OR the
  * confirmation e-mail. A submit of unknown outcome (a portal after its final
  * click, an e-mail send nobody confirmed) stays "sending" in the submission
  * guard and the flow holds it for Valerie; an acknowledgement or a reply of
  * the employer on the order's alias proves it arrived. The guard goes on
- * record as sent, then the flow moves to `submitted` as on submit_succeeded.
+ * record as sent, then the flow moves to `submitted` as on submit_succeeded,
+ * and the runner's record of the attempt becomes the record of what left.
  * Nothing happens when nothing left (no final click: the message is about
  * something else), for a message older than the send, or once the flow is
  * past it: a second message finds it submitted.
@@ -506,6 +526,11 @@ export async function confirmSubmissionByEmployer({ db, orderId, receivedAt, run
     nowMs,
     patchFlow: () => ({ submittedVia: record.channel }),
   });
+  // What the runner was sending is what arrived: its record follows the send (best effort, the flow is settled).
+  if (result.ok) {
+    await confirmSentAttempt({ db, orderId, round: flow.round, confirmedBy: 'acknowledgement', nowMs })
+      .catch((error) => console.warn('[assistedApplicationAutomation] sent record not confirmed', orderId, error instanceof Error ? error.message : String(error)));
+  }
   if (result.ok && record.channel === 'email') await scheduleConfirmedEmailFollowups(db, orderId, leftAt);
   return result;
 }

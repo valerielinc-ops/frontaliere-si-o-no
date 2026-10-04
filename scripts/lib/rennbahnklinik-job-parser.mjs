@@ -159,8 +159,11 @@ export async function fetchAllRennbahnklinikJobs() {
   try {
     listingHtml = await fetchHtml(LISTING_URL);
   } catch (err) {
-    console.warn(`  ⚠️ Rennbahnklinik listing fetch failed: ${err?.message || err}. Returning [].`);
-    return [];
+    console.warn(`  ⚠️ Rennbahnklinik listing fetch failed: ${err?.message || err}.`);
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
 
   const items = parseListingHtml(listingHtml);
