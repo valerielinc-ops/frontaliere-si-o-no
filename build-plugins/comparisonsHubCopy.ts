@@ -84,6 +84,7 @@ export interface ComparisonsHubCopy {
   salaryIntro: string;
   taxIntro: string;
   healthIntro: string;
+  healthUnavailable: string;
   benefitsIntro: string;
   costIntro: string;
 
@@ -141,14 +142,14 @@ const IT: ComparisonsHubCopy = {
     { label: 'Single, CHF 120.000 lordi, residenza Milano (>20 km, nuovo regime)', chPct: '~23,5%', itPct: '~31,2%', delta: '+€9.100/anno a favore CH' },
   ],
 
-  tHealthCaption: 'Tabella 3 — Premio LAMal 2026 standard adulto (26+) per cantone vs SSN italiano',
+  tHealthCaption: "Tabella 3 — Premi LAMal per residenti in Svizzera: mediana delle osservazioni cantonali",
   tHealthColCanton: 'Cantone (CH)',
   tHealthColMonthly: 'Premio mensile mediano (CHF)',
   tHealthColAnnual: 'Costo annuo (CHF)',
   tHealthFooter:
-    'Fonte: UFSP/BAG — tariffario premi LAMal 2026 ([priminfo.admin.ch](https://www.priminfo.admin.ch/)). Mediana calcolata sugli assicuratori ordinari per modello standard (franchigia 300 CHF).',
+    "Fonte: [UFSP/Priminfo](https://www.priminfo.admin.ch/). Calcolo della mediana delle tariffe osservate per assicuratore e regione: adulti da 26 anni, modello standard, franchigia CHF 300, senza infortuni. Importi arrotondati; non è una media ponderata per assicurati né un preventivo personale.",
   tHealthContext:
-    'Confronto SSN Italia: il Servizio Sanitario Nazionale è finanziato tramite fiscalità generale (addizionale IRPEF regionale 1,23-3,33%, IRAP 3,9% sul valore della produzione a carico datoriale). Un cittadino italiano non paga un premio assicurativo dedicato; un frontaliere con opzione SSN paga un contributo forfettario in busta paga CH per garantirsi copertura italiana. Il nuovo frontaliere 2026 è obbligato alla LAMal salvo deroghe specifiche ([fonte: UFSP](https://www.bag.admin.ch/it/assicurazione-malattie)).',
+    "Per chi risiede in Italia valgono i premi UE del Paese di domicilio, non questa tabella cantonale. Il diritto di opzione SSN richiede, per gli aventi diritto, domanda formale al Cantone di lavoro entro tre mesi. Il contributo sanitario delle categorie previste dalla legge 213/2023 è distinto dai premi LAMal e dall’iscrizione volontaria SSN: 3–6% del salario netto svizzero, minimo 30 e massimo 200 EUR per mese lavorato, versati alla Regione secondo i provvedimenti applicabili. Verificare requisiti, aliquota e scadenze. [Decreto 14 novembre 2025](https://www.gazzettaufficiale.it/eli/id/2025/12/18/25A06706/sg).",
 
   tBenefitsCaption: 'Tabella 4 — Prestazioni sociali obbligatorie: CH (AVS/LPP/AD/LAINF) vs IT (INPS/INAIL)',
   tBenefitsColArea: 'Prestazione',
@@ -187,9 +188,10 @@ const IT: ComparisonsHubCopy = {
   taxIntro:
     'La Tabella 2 calcola il prelievo totale (imposta alla fonte svizzera + IRPEF italiano dopo franchigia €10.000 del nuovo regime 2026) in tre scenari tipici. Per il vecchio frontaliere (accordi bilaterali 1974-2020) il prelievo italiano non si applica perché lo stipendio è tassato solo in Svizzera. Per il nuovo frontaliere (assunto dopo il 17 luglio 2023) l\'Italia ritiene la differenza fra IRPEF teorico e quanto già versato in Svizzera, concedendo il credito d\'imposta ex art. 165 TUIR ([fonte: Agenzia delle Entrate](https://www.agenziaentrate.gov.it/)).',
   healthIntro:
-    'La Tabella 3 mette in fila i 26 cantoni svizzeri ordinati alfabeticamente con il premio mensile mediano LAMal per l\'adulto standard (26+, modello base franchigia 300 CHF). I cantoni urbani (GE, BS, VD, NE) hanno premi strutturalmente più alti per la densità di ricovero; cantoni rurali (AI, NW, OW, UR) restano sotto i CHF 320. Il Ticino (CHF 425) si colloca in fascia alta per costi ospedalieri specifici e demografia anziana.',
+    "La tabella confronta soltanto osservazioni disponibili per residenti in Svizzera. I cantoni senza almeno tre osservazioni standard verificabili non ricevono un prezzo sostitutivo. Il premio personale dipende da assicuratore e regione: per il domicilio italiano usare il comparatore con residenza Italia.",
+  healthUnavailable: "Dati cantonali verificabili non disponibili per questo anno. Consulta Priminfo; nessun premio viene stimato in sostituzione.",
   benefitsIntro:
-    'La Tabella 4 confronta la struttura delle prestazioni sociali obbligatorie: sulla carta la Svizzera sembra meno generosa perché il 2° pilastro (LPP) è parzialmente a carico del lavoratore, ma il sistema è a capitalizzazione individuale e il capitale accumulato è trasferibile all\'uscita del Paese (possibile riscatto in caso di rientro definitivo in Italia, soggetto a imposizione speciale).',
+    "La Tabella 4 confronta le prestazioni sociali. I contributi AVS non vengono trasferiti all’INPS: ciascuno Stato determina e paga la propria pensione. Per il 2° pilastro occorre distinguere le prestazioni al pensionamento dal prelievo anticipato per partenza prima del pensionamento.",
   costIntro:
     'La Tabella 5 confronta un paniere realistico di spesa Lugano vs Varese/Como. Il frontaliere che mantiene la residenza italiana e fa pendolarismo combina il vantaggio (salario CH) con il costo contenuto (spesa + affitto IT): è questa l\'equazione che rende il pendolarismo economicamente conveniente per molti ruoli qualificati.',
 
@@ -213,7 +215,7 @@ const IT: ComparisonsHubCopy = {
     {
       question: 'Il 2° pilastro (LPP) è recuperabile in Italia?',
       answer:
-        'Sì ma con vincoli. Se si cessa l\'attività in Svizzera e si rientra definitivamente in Italia senza riprendere lavoro CH, la quota "sovraobbligatoria" del 2° pilastro è riscattabile in contanti (soggetta a imposta alla fonte 7-8%). La quota "obbligatoria" resta vincolata a un conto di libero passaggio fino all\'età pensionabile AVS, salvo acquisto prima casa o invalidità. È l\'area in cui la pianificazione con un commercialista transfrontaliero genera il maggior valore.',
+        "Il rientro in Italia prima del pensionamento non rende automaticamente prelevabile tutto il 2° pilastro. In caso di assicurazione obbligatoria italiana per vecchiaia, invalidità e superstiti, la parte LPP obbligatoria resta vincolata in Svizzera. La parte sovraobbligatoria segue regole distinte: la cassa pensione verifica le condizioni del pagamento. Non è un divieto generale delle prestazioni al pensionamento. [Fonte: AVS/AI, Lasciare la Svizzera](https://www.ahv-iv.ch/p/880.i).",
     },
     {
       question: 'Come si calcola il prelievo fiscale totale del nuovo frontaliere 2026?',
@@ -273,14 +275,14 @@ const EN: ComparisonsHubCopy = {
     { label: 'Single, CHF 120,000 gross, Milan (>20 km, new regime)', chPct: '~23.5%', itPct: '~31.2%', delta: '+€9,100/year in favour of CH' },
   ],
 
-  tHealthCaption: 'Table 3 — LAMal 2026 standard adult (26+) premium per canton vs Italian NHS',
+  tHealthCaption: "Table 3 — LAMal for Swiss residents: median of observed canton premiums",
   tHealthColCanton: 'Canton (CH)',
   tHealthColMonthly: 'Median monthly premium (CHF)',
   tHealthColAnnual: 'Annual cost (CHF)',
   tHealthFooter:
-    'Source: UFSP/BAG — 2026 LAMal premium tariff ([priminfo.admin.ch](https://www.priminfo.admin.ch/)). Median across ordinary insurers for the standard model (CHF 300 deductible).',
+    "Source: [FOPH/Priminfo](https://www.priminfo.admin.ch/). Median of observed insurer/region tariffs: adults aged 26+, standard model, CHF 300 deductible, without accident cover. Rounded amounts; neither an insured-population weighted average nor a personal quote.",
   tHealthContext:
-    'Italian NHS comparison: SSN is funded via general taxation (regional IRPEF surcharge 1.23-3.33%, employer-side IRAP 3.9%). An Italian citizen does not pay a dedicated health insurance premium; a cross-border worker with the SSN opt-in pays a flat CH payroll contribution to secure Italian coverage. New 2026 cross-border workers are required to take LAMal subject to specific opt-out cases ([source: UFSP](https://www.bag.admin.ch/)).',
+    "Italian residents use country-of-residence EU premiums, not this canton table. Eligible workers opting for the SSN must formally request exemption from their canton of employment within three months. The health contribution for the categories covered by Law 213/2023 differs from LAMal premiums and voluntary SSN registration: 3–6% of net Swiss salary, EUR 30–200 per worked month, paid to the Region under applicable measures. Check eligibility, rate and deadlines. [Decree of 14 November 2025](https://www.gazzettaufficiale.it/eli/id/2025/12/18/25A06706/sg).",
 
   tBenefitsCaption: 'Table 4 — Mandatory social benefits: CH (AVS/LPP/AD/LAINF) vs IT (INPS/INAIL)',
   tBenefitsColArea: 'Benefit',
@@ -319,9 +321,10 @@ const EN: ComparisonsHubCopy = {
   taxIntro:
     'Table 2 computes the total tax burden (Swiss withholding tax + Italian IRPEF after the €10,000 new-regime allowance) in three typical scenarios. For "old" cross-border workers (bilateral agreements 1974-2020) the Italian levy does not apply; "new" cross-border workers (hired after July 17, 2023) pay the gap between theoretical IRPEF and Swiss withholding, with tax credit under TUIR art. 165 ([source: Agenzia delle Entrate](https://www.agenziaentrate.gov.it/)).',
   healthIntro:
-    'Table 3 lists all 26 Swiss cantons alphabetically with the 2026 median adult (26+) LAMal premium (standard CHF 300 deductible). Urban cantons (GE, BS, VD, NE) are structurally more expensive; rural cantons (AI, NW, OW, UR) stay below CHF 320. Ticino (CHF 425) sits high due to hospital cost base and aging demographics.',
+    "The table compares available observations for Swiss residents only. Cantons without at least three verifiable standard-premium observations receive no substitute price. Personal premiums depend on insurer and region; residents of Italy should select Italy in the comparator.",
+  healthUnavailable: "Verifiable canton data is unavailable for this year. Consult Priminfo; no substitute premium is estimated.",
   benefitsIntro:
-    'Table 4 compares the structure of mandatory social benefits: on paper Switzerland looks less generous because the 2nd pillar (LPP) is partly employee-funded, but it is a funded individual-account system and the accumulated capital is portable when leaving the country.',
+    "Table 4 compares social benefits. OASI contributions are not transferred to INPS: each country determines and pays its own pension. For occupational pensions, distinguish retirement benefits from an early cash withdrawal on departure before retirement.",
   costIntro:
     'Table 5 compares a realistic consumer basket Lugano vs Varese/Como. A cross-border worker keeping Italian residence combines CH salary with IT cost of living — the arithmetic that makes commuting economically worthwhile for many qualified roles.',
 
@@ -345,7 +348,7 @@ const EN: ComparisonsHubCopy = {
     {
       question: 'Can I recover my 2nd-pillar (LPP) in Italy?',
       answer:
-        'Yes, with restrictions. If you permanently leave Switzerland and don\'t resume CH employment, the "over-mandatory" portion is redeemable in cash (subject to 7-8% withholding tax). The mandatory portion stays in a vested-benefits account until AVS retirement age unless you buy a primary home or become disabled. This is where transcontinental tax planning delivers the most value.',
+        "Returning to Italy before retirement does not automatically make the entire occupational pension withdrawable. If compulsory Italian old-age, disability and survivors insurance applies, the mandatory pension portion remains vested in Switzerland. The extra-mandatory portion follows separate rules: the pension fund checks the payment conditions. This is not a general restriction on normal retirement benefits. [Source: OASI/DI, Leaving Switzerland](https://www.ahv-iv.ch/p/880.i).",
     },
     {
       question: 'How do I compute the total tax burden of a 2026 new cross-border worker?',
@@ -405,14 +408,14 @@ const DE: ComparisonsHubCopy = {
     { label: 'Alleinstehend, CHF 120.000 brutto, Mailand (>20 km, neu)', chPct: '~23,5%', itPct: '~31,2%', delta: '+€9.100/Jahr zugunsten CH' },
   ],
 
-  tHealthCaption: 'Tabelle 3 — KVG-Prämie Erwachsene (26+) 2026 pro Kanton vs italienisches NHS',
+  tHealthCaption: "Tabelle 3 — KVG für Schweizer Wohnsitz: Median beobachteter Kantonsprämien",
   tHealthColCanton: 'Kanton (CH)',
   tHealthColMonthly: 'Medianprämie/Monat (CHF)',
   tHealthColAnnual: 'Jahreskosten (CHF)',
   tHealthFooter:
-    'Quelle: BAG — KVG-Prämientarif 2026 ([priminfo.admin.ch](https://www.priminfo.admin.ch/)). Median über ordentliche Versicherer für Standardmodell (Franchise CHF 300).',
+    "Quelle: [BAG/Priminfo](https://www.priminfo.admin.ch/). Median beobachteter Versicherer-/Regionstarife: Erwachsene ab 26, Standardmodell, Franchise CHF 300, ohne Unfall. Gerundete Beträge; kein nach Versicherten gewichteter Durchschnitt und keine persönliche Offerte.",
   tHealthContext:
-    'Vergleich SSN Italien: Das Servizio Sanitario Nazionale wird über die allgemeine Steuer finanziert (regionaler IRPEF-Zuschlag 1,23-3,33%, IRAP 3,9% beim Arbeitgeber). Italienische Bürger zahlen keine dedizierte Versicherungsprämie; Grenzgänger mit SSN-Option zahlen einen pauschalen Beitrag vom CH-Lohn. Neue Grenzgänger 2026 sind KVG-pflichtig, Ausnahmen möglich ([Quelle: BAG](https://www.bag.admin.ch/)).',
+    "Bei Wohnsitz in Italien gelten EU-Prämien des Wohnsitzlands, nicht diese Kantonstabelle. Berechtigte müssen die SSN-Option binnen drei Monaten formell beim Arbeitskanton beantragen. Der Gesundheitsbeitrag für Kategorien nach Gesetz 213/2023 ist von KVG-Prämien und freiwilliger SSN-Einschreibung zu unterscheiden: 3–6% des Schweizer Nettolohns, 30–200 EUR je gearbeitetem Monat, gemäss regionalen Bestimmungen an die Region bezahlt. Voraussetzungen, Satz und Fristen prüfen. [Dekret vom 14. November 2025](https://www.gazzettaufficiale.it/eli/id/2025/12/18/25A06706/sg).",
 
   tBenefitsCaption: 'Tabelle 4 — Obligatorische Sozialleistungen: CH (AHV/BVG/ALV/UVG) vs IT (INPS/INAIL)',
   tBenefitsColArea: 'Leistung',
@@ -451,9 +454,10 @@ const DE: ComparisonsHubCopy = {
   taxIntro:
     'Tabelle 2 berechnet die Gesamtsteuerlast (CH-Quellensteuer + IT-IRPEF nach €10.000-Freibetrag des neuen Regimes 2026) in drei typischen Szenarien. Alte Grenzgänger (bilaterale Abkommen 1974-2020) zahlen keine IT-Steuer; neue Grenzgänger (Einstellung nach 17.07.2023) zahlen die Differenz mit Steuergutschrift gem. TUIR Art. 165.',
   healthIntro:
-    'Tabelle 3 listet alle 26 Schweizer Kantone alphabetisch mit der KVG-Medianprämie Erwachsene (26+) 2026 im Standardmodell (Franchise CHF 300).',
+    "Die Tabelle vergleicht nur verfügbare Beobachtungen für Personen mit Schweizer Wohnsitz. Für Kantone mit weniger als drei überprüfbaren Standardprämien wird kein Ersatzpreis angezeigt. Persönliche Prämien hängen von Versicherer und Region ab; bei Wohnsitz Italien im Vergleich Italien auswählen.",
+  healthUnavailable: "Für dieses Jahr sind keine überprüfbaren Kantonsdaten verfügbar. Priminfo konsultieren; es werden keine Ersatzprämien geschätzt.",
   benefitsIntro:
-    'Tabelle 4 vergleicht die Struktur der obligatorischen Sozialleistungen. Auf dem Papier wirkt die Schweiz weniger grosszügig, weil die 2. Säule (BVG) teils arbeitnehmerfinanziert ist, aber es handelt sich um ein kapitalgedecktes Individualkonto, das beim Verlassen des Landes portabel ist.',
+    "Tabelle 4 vergleicht Sozialleistungen. AHV-Beiträge werden nicht an die INPS übertragen: Jeder Staat bestimmt und zahlt seine eigene Rente. Bei der beruflichen Vorsorge sind Altersleistungen von einer vorzeitigen Barauszahlung wegen Wegzugs vor der Pensionierung zu unterscheiden.",
   costIntro:
     'Tabelle 5 vergleicht einen realistischen Warenkorb Lugano vs Varese/Como. Ein Grenzgänger mit italienischem Wohnsitz kombiniert den CH-Lohn mit den italienischen Lebenshaltungskosten — das ist die ökonomische Grundlage für viele qualifizierte Rollen.',
 
@@ -477,7 +481,7 @@ const DE: ComparisonsHubCopy = {
     {
       question: 'Kann ich mein BVG-Guthaben nach Italien mitnehmen?',
       answer:
-        'Ja, eingeschränkt. Der "überobligatorische" Anteil ist bei definitivem Wegzug bar beziehbar (Quellensteuer 7-8%). Der obligatorische Anteil bleibt bis zum AHV-Rentenalter auf einem Freizügigkeitskonto, ausser bei Eigenheimkauf oder Invalidität.',
+        "Die Rückkehr nach Italien vor der Pensionierung ermöglicht nicht automatisch den Bezug des gesamten BVG-Guthabens. Bei obligatorischer Versicherung für Alter, Invalidität und Hinterlassene in Italien bleibt der obligatorische Anteil in der Schweiz gebunden. Für den überobligatorischen Anteil gelten andere Regeln; die Pensionskasse prüft die Auszahlungsvoraussetzungen. Das ist kein allgemeines Verbot regulärer Altersleistungen. [Quelle: AHV/IV, Die Schweiz verlassen](https://www.ahv-iv.ch/p/880.i).",
     },
     {
       question: 'Wie berechne ich die Gesamtsteuerlast eines neuen Grenzgängers 2026?',
@@ -537,14 +541,14 @@ const FR: ComparisonsHubCopy = {
     { label: 'Célibataire, CHF 120.000 brut, Milan (>20 km, nouveau)', chPct: '~23,5%', itPct: '~31,2%', delta: '+€9.100/an en faveur CH' },
   ],
 
-  tHealthCaption: 'Tableau 3 — Prime LAMal adulte standard (26+) 2026 par canton vs SSN italien',
+  tHealthCaption: "Tableau 3 — LAMal pour résidents suisses : médiane des primes cantonales observées",
   tHealthColCanton: 'Canton (CH)',
   tHealthColMonthly: 'Prime mensuelle médiane (CHF)',
   tHealthColAnnual: 'Coût annuel (CHF)',
   tHealthFooter:
-    'Source : OFSP — Tarif primes LAMal 2026 ([priminfo.admin.ch](https://www.priminfo.admin.ch/)). Médiane sur les assureurs ordinaires, modèle standard (franchise CHF 300).',
+    "Source : [OFSP/Priminfo](https://www.priminfo.admin.ch/). Médiane des tarifs observés par assureur et région : adultes dès 26 ans, modèle standard, franchise CHF 300, sans accidents. Montants arrondis ; ni moyenne pondérée par assurés ni devis personnel.",
   tHealthContext:
-    'Comparaison SSN italien : le Service sanitaire national est financé par la fiscalité générale (surtaxe IRPEF régionale 1,23-3,33%, IRAP 3,9% employeur). Un citoyen italien ne paie pas de prime dédiée ; un frontalier avec option SSN verse une cotisation forfaitaire sur sa paie CH. Les nouveaux frontaliers 2026 sont soumis à LAMal sauf dérogation ([source : OFSP](https://www.bag.admin.ch/)).',
+    "Les résidents italiens utilisent les primes UE du pays de domicile, et non ce tableau cantonal. Les ayants droit choisissant le SSN doivent demander formellement une exemption au canton de travail dans les trois mois. La contribution des catégories visées par la loi 213/2023 se distingue des primes LAMal et de l’inscription volontaire au SSN : 3–6% du salaire suisse net, 30–200 EUR par mois travaillé, versés à la Région selon les mesures applicables. Vérifier conditions, taux et délais. [Décret du 14 novembre 2025](https://www.gazzettaufficiale.it/eli/id/2025/12/18/25A06706/sg).",
 
   tBenefitsCaption: 'Tableau 4 — Prestations sociales obligatoires : CH (AVS/LPP/AC/LAA) vs IT (INPS/INAIL)',
   tBenefitsColArea: 'Prestation',
@@ -583,9 +587,10 @@ const FR: ComparisonsHubCopy = {
   taxIntro:
     'Le Tableau 2 calcule la pression totale (impôt à la source CH + IRPEF IT après franchise €10.000 du nouveau régime 2026) dans trois scénarios typiques. L\'ancien frontalier (accords bilatéraux 1974-2020) ne paie pas l\'impôt IT ; le nouveau (embauché après le 17/07/2023) paie la différence avec crédit d\'impôt TUIR art. 165.',
   healthIntro:
-    'Le Tableau 3 liste les 26 cantons suisses avec la prime LAMal mensuelle médiane adulte (26+) 2026 en modèle standard (franchise CHF 300).',
+    "Le tableau compare uniquement les observations disponibles pour les résidents suisses. Aucun prix de remplacement n’est attribué aux cantons comptant moins de trois observations standard vérifiables. La prime personnelle dépend de l’assureur et de la région ; les résidents italiens doivent sélectionner Italie dans le comparateur.",
+  healthUnavailable: "Les données cantonales vérifiables sont indisponibles pour cette année. Consulter Priminfo ; aucune prime de remplacement n’est estimée.",
   benefitsIntro:
-    'Le Tableau 4 compare la structure des prestations sociales obligatoires : sur le papier la Suisse paraît moins généreuse car la 2e pilier (LPP) est partiellement à la charge du salarié, mais c\'est un système à capitalisation individuelle portable en sortie de pays.',
+    "Le Tableau 4 compare les prestations sociales. Les cotisations AVS ne sont pas transférées à l’INPS : chaque État détermine et verse sa propre pension. Pour le 2e pilier, il faut distinguer les prestations de retraite du retrait anticipé en espèces lié au départ avant la retraite.",
   costIntro:
     'Le Tableau 5 compare un panier réaliste Lugano vs Varese/Côme. Le frontalier qui garde sa résidence italienne combine le salaire CH avec le coût de la vie IT — l\'arithmétique qui rend la navette économiquement rentable pour de nombreux rôles qualifiés.',
 
@@ -609,7 +614,7 @@ const FR: ComparisonsHubCopy = {
     {
       question: 'Puis-je récupérer ma LPP en Italie ?',
       answer:
-        'Oui, sous conditions. En cas de départ définitif, la part "surobligatoire" peut être retirée en cash (impôt source 7-8%). La part obligatoire reste sur un compte de libre passage jusqu\'à l\'âge AVS, sauf achat de résidence ou invalidité.',
+        "Le retour en Italie avant la retraite ne permet pas automatiquement de retirer tout le 2e pilier. En cas d’assurance obligatoire en Italie pour la vieillesse, l’invalidité et les survivants, la part LPP obligatoire reste liée en Suisse. La part surobligatoire suit des règles distinctes : la caisse de pension vérifie les conditions du paiement. Ce n’est pas une interdiction générale des prestations normales de retraite. [Source : AVS/AI, Quitter la Suisse](https://www.ahv-iv.ch/p/880.i).",
     },
     {
       question: 'Comment calculer la pression totale d\'un nouveau frontalier 2026 ?',

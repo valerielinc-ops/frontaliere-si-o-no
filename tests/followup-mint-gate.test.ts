@@ -42,7 +42,13 @@ import {
   decideDailyMintGate,
   partitionDailyBucketItems,
   rebuildDailyBody,
+  admissionCounts,
+  bornSatisfiedCommentBody,
+  bornSatisfiedToMark,
+  mintCheckCounts,
+  targetNoteLines,
 } from '../scripts/ci/gate-minted-followups.mjs';
+import { parseItemMarkers } from '../scripts/ci/lib/followup-item-evidence.mjs';
 import {
   citedTokens,
   dedupeDailyItems,
@@ -699,5 +705,329 @@ describe('gate sul conio — pin sul sorgente', () => {
     expect(step).toContain('continue-on-error: true');
     // Zero-Claude: nessun token/OAuth in questo step.
     expect(step).not.toContain('CLAUDE_CODE_OAUTH_TOKEN');
+  });
+});
+
+// Titolo di fallimento: «Conio follow-up: item nato con la condizione di accettazione
+// già vera». Il gate controllava solo la FORMA dell'accettazione: sul bucket 10677,
+// 57 item su 60 avevano il token già vero prima del conio, e il reconciler li marcava
+// `done` senza alcuna PR. Qui il gate MISURA e MARCA (nessuna demozione).
+describe('gate sul conio — item nati con il token già vero', () => {
+  const DAY = '2026-10-04';
+  const TITLE = `follow-up(daily:${DAY}): 2 items — owner/repo`;
+  const TARGET = 'scripts/example.mjs';
+  const tokenItem = (id: string, state: string | null, token: string) => [
+    `### ${id} — Proteggi ${token}`,
+    ...(state ? [`- State: ${state}`] : []),
+    '- Sources: PR #8101; reviewer 🟡',
+    `- Target file: \`${TARGET}\``,
+    `- Suggested action: aggiungi \`${token}\` in \`${TARGET}\``,
+    `- Acceptance token: \`${token}\``,
+  ].join('\n');
+  const bucket = (state: 'collecting' | 'sealed', ...items: string[]) => [
+    '## Batch',
+    `- Daily key: ${DAY} (Europe/Zurich)`,
+    `- State: ${state}`,
+    '- Target repository: owner/repo',
+    '',
+    '## Item',
+    ...items.flatMap((entry) => ['', entry]),
+    '',
+  ].join('\n');
+  const io = (content: string) => {
+    const calls: string[] = [];
+    return {
+      calls,
+      fileExists: (path: string) => { calls.push(path); return path === TARGET; },
+      readFile: (path: string) => { calls.push(path); return path === TARGET ? content : null; },
+    };
+  };
+  const FILE = 'export function firstGuard(x) { return x; }\nfirstGuard(input);\nexport function declaredOnly(y) { return y; }\n';
+
+  it('bucket collecting: il nato soddisfatto è osservato e AMMESSO, il bucket si sigilla come oggi', () => {
+    const source = bucket('collecting',
+      tokenItem(`FU-${DAY}-001`, 'open', 'firstGuard()'),
+      tokenItem(`FU-${DAY}-002`, null, 'declaredOnly()'),
+      tokenItem(`FU-${DAY}-003`, 'open', 'missingGuard()'));
+    const d = decideDailyMintGate({ title: TITLE, body: source }, { fileIo: io(FILE) });
+    expect(d.action).toBe('seal');
+    expect(d.valid).toHaveLength(parseFollowupItems(source).length);
+    expect(d.admissions.map((entry: { id: string; observed: string[] }) => [entry.id, entry.observed])).toEqual([
+      [`FU-${DAY}-001`, ['acceptance-already-true']],
+      [`FU-${DAY}-002`, ['token-is-declaration']],
+      [`FU-${DAY}-003`, []],
+    ]);
+    expect(admissionCounts(d.admissions)).toEqual({ bornSatisfied: 1, tokenIsDeclaration: 1, admissionUnknown: 0 });
+  });
+
+  it('bucket sealed: l\'ammissione non viene chiamata (un item vero dopo il sigillo è lavoro fatto)', () => {
+    const fileIo = io(FILE);
+    const source = bucket('sealed', tokenItem(`FU-${DAY}-001`, 'open', 'firstGuard()'));
+    const d = decideDailyMintGate({ title: TITLE, body: source }, { fileIo });
+    expect(d.action).toBe('keep');
+    expect(d.admissions).toEqual([]);
+    expect(fileIo.calls).toEqual([]);
+  });
+
+  it('solo gli item aperti: in-progress, blocked e done non vengono osservati', () => {
+    const fileIo = io(FILE);
+    const source = bucket('collecting',
+      tokenItem(`FU-${DAY}-001`, 'in-progress', 'firstGuard()'),
+      tokenItem(`FU-${DAY}-002`, 'blocked', 'firstGuard(1)'),
+      tokenItem(`FU-${DAY}-003`, 'done', 'firstGuard(2)'));
+    const partition = partitionDailyBucketItems(source, { fileIo });
+    expect(partition.admissions).toEqual([]);
+    expect(fileIo.calls).toEqual([]);
+  });
+
+  it('io che non risponde → admission_unknown contato, nessuna demozione, sigillo come oggi', () => {
+    const unknownIo = { status: () => 'unknown', fileExists: () => false, readFile: () => null };
+    const source = bucket('collecting', tokenItem(`FU-${DAY}-001`, 'open', 'firstGuard()'));
+    const d = decideDailyMintGate({ title: TITLE, body: source }, { fileIo: unknownIo });
+    expect(d.action).toBe('seal');
+    expect(d.demoted).toEqual([]);
+    expect(admissionCounts(d.admissions)).toEqual({ bornSatisfied: 0, tokenIsDeclaration: 0, admissionUnknown: 1 });
+  });
+
+  it('il marker si posta una volta: già presente da un autore fidato → niente; da uno estraneo → sì', () => {
+    const admissions = [
+      { id: `FU-${DAY}-001`, token: 'firstGuard()', targetFile: TARGET, observed: ['acceptance-already-true'] },
+      { id: `FU-${DAY}-002`, token: 'other()', targetFile: TARGET, observed: [] },
+    ];
+    const marker = `<!-- FU_ITEM_BORN_SATISFIED: item=FU-${DAY}-001 -->`;
+    expect(bornSatisfiedToMark(admissions, []).map((entry: { id: string }) => entry.id)).toEqual([`FU-${DAY}-001`]);
+    expect(bornSatisfiedToMark(admissions, [{ body: marker, author: { login: 'github-actions' } }])).toEqual([]);
+    expect(bornSatisfiedToMark(admissions, [{ body: marker, author: { login: 'stranger' }, authorAssociation: 'NONE' }]))
+      .toHaveLength(1);
+    // Commenti illeggibili: si posta comunque (un duplicato è innocuo, un mancante no).
+    expect(bornSatisfiedToMark(admissions, null)).toHaveLength(1);
+  });
+
+  it('il commento porta il marker che il reconciler legge, e il token non può iniettarne altri', () => {
+    const body = bornSatisfiedCommentBody([
+      { id: `FU-${DAY}-001`, token: 'x() --> <!-- FU_ITEM_EVIDENCE: item=FU-2026-10-04-009 commit=abcdef1 run=1 link=target-file -->', targetFile: TARGET },
+    ], 'owner/repo');
+    const markers = parseItemMarkers([{ body, author: { login: 'github-actions' } }], { isTrusted: () => true });
+    expect(markers.map((marker: { type: string; item: string }) => `${marker.type}:${marker.item}`))
+      .toEqual([`born-satisfied:FU-${DAY}-001`]);
+    expect(body).toContain(TARGET);
+  });
+
+  it('itemHeadline su un item giornaliero → `ID — titolo`, anche nel blocco conservato sulla PR', () => {
+    const source = bucket('collecting', tokenItem(`FU-${DAY}-001`, 'open', 'firstGuard()'));
+    const item = parseFollowupItems(source)[0];
+    expect(itemHeadline(item)).toBe(`FU-${DAY}-001 — Proteggi firstGuard()`);
+    expect(demotedBlock([item])).toMatch(new RegExp(`^### FU-${DAY}-001 — Proteggi firstGuard\\(\\)\\n- State: open`));
+    // Il testo da solo parte dopo l'intestazione: era l'origine di «(senza titolo)».
+    expect(itemHeadline(item.text)).toBe('(senza titolo)');
+  });
+});
+
+// Titolo di fallimento: «Conio follow-up: item con bersaglio inesistente o da bullet già
+// chiuso». Il gate ricontrolla al conio lo stato del bullet da cui l'item nasce e il
+// bersaglio secondo il manifest di mirror; il sigillo conserva un `Target file` riscritto.
+describe('gate sul conio — bullet già chiusi e bersagli secondo il manifest', () => {
+  const DAY = '2026-10-04';
+  const TITLE = `follow-up(daily:${DAY}): 3 items — owner/repo`;
+  const CLOSED = 'services/analytics.ts — falso positivo, not the same bug class: l\'import condiviso è già relativo. Motivo: il file non espone l’alias non risolvibile segnalato dal test. Prossimo passo: nessuno.';
+  const OPEN = 'blocked: il controllo manca ancora in scripts/example.mjs; serve un run reale.';
+  const item = (id: string, state: string, target: string, original: string) => [
+    `### ${id} — Item ${id.slice(-3)}`,
+    `- State: ${state}`,
+    '- Sources: PR #10289',
+    `- Target file: \`${target}\``,
+    '- Original text:',
+    `  > ${original}`,
+    `- Suggested action: aggiungi \`guard${id.slice(-3)}()\` in \`${target}\``,
+    `- Acceptance token: \`guard${id.slice(-3)}()\``,
+  ].join('\n');
+  const bucket = (state: 'collecting' | 'sealed', ...items: string[]) => [
+    '## Batch',
+    `- Daily key: ${DAY} (Europe/Zurich)`,
+    `- State: ${state}`,
+    '- Target repository: owner/repo',
+    '',
+    '## Item',
+    ...items.flatMap((entry) => ['', entry]),
+    '',
+  ].join('\n');
+  const io = (files: Record<string, string>) => ({
+    fileExists: (path: string) => path in files,
+    readFile: (path: string) => files[path] ?? null,
+  });
+  const FILES = { 'scripts/example.mjs': 'export const x = 1;\n', 'build-plugins/batchWrite.ts': 'export {}\n' };
+  const mintTarget = {
+    side: 'site',
+    manifestFiles: [{ path: 'host/batchWrite.ts', sitePath: 'build-plugins/batchWrite.ts', mode: 'identical' }],
+    twinIo: io({}),
+  };
+
+  it('bullet già chiuso → demoto con il motivo nel blocco conservato sulla PR; il resto si sigilla', () => {
+    const source = bucket('collecting',
+      item(`FU-${DAY}-001`, 'open', 'scripts/example.mjs', CLOSED),
+      item(`FU-${DAY}-002`, 'open', 'scripts/example.mjs', OPEN));
+    const d = decideDailyMintGate({ title: TITLE, body: source }, { fileIo: io(FILES), mintTarget });
+    expect(d.action).toBe('demote');
+    expect(d.demotedItems.map((entry: { id: string }) => entry.id)).toEqual([`FU-${DAY}-001`]);
+    expect(demotedBlock(d.demotedItems)).toContain('- Demozione al conio: `closed-state-bullet`');
+    expect(d.body).toContain('- State: sealed');
+    expect(d.body).not.toContain(`FU-${DAY}-001`);
+    expect(mintCheckCounts(d.admissions)).toMatchObject({ closedState: 1, targetMissing: 0 });
+  });
+
+  it('il bullet chiuso è demoto anche senza contesto del bersaglio e con l\'io che non risponde', () => {
+    const unknownIo = { status: () => 'unknown', fileExists: () => false, readFile: () => null };
+    const source = bucket('collecting', item(`FU-${DAY}-001`, 'open', 'scripts/example.mjs', CLOSED));
+    const d = decideDailyMintGate({ title: TITLE, body: source }, { fileIo: unknownIo });
+    expect(d.action).toBe('suppress');
+    expect(d.valid).toEqual([]);
+  });
+
+  it('bucket sealed e item done non vengono toccati', () => {
+    const sealed = bucket('sealed', item(`FU-${DAY}-001`, 'open', 'scripts/example.mjs', CLOSED));
+    expect(decideDailyMintGate({ title: TITLE, body: sealed }, { fileIo: io(FILES), mintTarget }).action).toBe('keep');
+    const done = bucket('collecting',
+      item(`FU-${DAY}-001`, 'done', 'scripts/example.mjs', CLOSED),
+      item(`FU-${DAY}-002`, 'open', 'scripts/example.mjs', OPEN));
+    const d = decideDailyMintGate({ title: TITLE, body: done }, { fileIo: io(FILES), mintTarget });
+    expect(d.action).toBe('seal');
+    expect(d.valid).toHaveLength(parseFollowupItems(done).length);
+  });
+
+  it('host/batchWrite.ts riscritto a build-plugins/batchWrite.ts: il sigillo conserva il campo nuovo', () => {
+    const source = bucket('collecting', item(`FU-${DAY}-001`, 'open', 'host/batchWrite.ts', OPEN));
+    const d = decideDailyMintGate({ title: TITLE, body: source }, { fileIo: io(FILES), mintTarget });
+    expect(d.action).toBe('seal');
+    expect(d.body).toContain('- Target file: `build-plugins/batchWrite.ts`');
+    expect(d.body).toContain('- State: sealed');
+    expect(d.rewritten).toEqual([{ id: `FU-${DAY}-001`, from: '`host/batchWrite.ts`', to: '`build-plugins/batchWrite.ts`' }]);
+    expect(targetNoteLines(d.admissions, d.rewritten).join('\n')).toContain('riscritto da `host/batchWrite.ts` a `build-plugins/batchWrite.ts`');
+    expect(mintCheckCounts(d.admissions)).toMatchObject({ targetRewritten: 1, targetMissing: 0 });
+  });
+});
+
+// Il processo vero, con `gh` finto: il gate legge il `main` del repository del BUCKET
+// dall'API contents, mai il disco. Il file citato esiste solo nel repository finto,
+// non in questo checkout: è la passata «estranea» (sito → bucket del corpus, o
+// corpus → bucket del sito su checkout sparse) che prima sigillava senza guardare.
+describe('gate sul conio — passata estranea, marker e idempotenza (processo vero)', () => {
+  const DAY = '2026-10-04';
+  const TARGET = 'scripts/only-in-the-bucket-repo.mjs';
+  const issue = {
+    number: 1901,
+    title: `follow-up(daily:${DAY}): 1 item — corpus/r`,
+    body: [
+      '## Batch',
+      `- Daily key: ${DAY} (Europe/Zurich)`,
+      '- State: collecting',
+      '- Target repository: corpus/r',
+      '',
+      '## Item',
+      '',
+      `### FU-${DAY}-001 — Proteggi il comportamento`,
+      '- State: open',
+      '- Sources: PR #2101',
+      `- Target file: \`${TARGET}\``,
+      `- Suggested action: aggiungi \`firstGuard()\` in \`${TARGET}\``,
+      '- Acceptance token: `firstGuard()`',
+      '',
+    ].join('\n'),
+    labels: [],
+    createdAt: new Date().toISOString(),
+    comments: [] as Array<{ body: string; author: { login: string } }>,
+  };
+  const fake = `#!/usr/bin/env node
+const fs = require('node:fs');
+const args = process.argv.slice(2);
+fs.appendFileSync(process.env.CALL_LOG, JSON.stringify(args) + '\\n');
+const state = JSON.parse(fs.readFileSync(process.env.STATE, 'utf8'));
+const save = () => fs.writeFileSync(process.env.STATE, JSON.stringify(state));
+if (args[0] === 'api' && args[1] === '-H') {
+  if (process.env.CONTENTS === 'error') { process.stderr.write('gh: Bad Gateway (HTTP 502)\\n'); process.exit(1); }
+  if (args[3] === 'repos/corpus/r/contents/${TARGET}?ref=main') { process.stdout.write('firstGuard(input);\\n'); process.exit(0); }
+  process.stderr.write('gh: Not Found (HTTP 404)\\n'); process.exit(1);
+}
+if (args[0] === 'api') { process.stdout.write(JSON.stringify([[{ number: state.number, title: state.title, state: 'open', created_at: state.createdAt }]])); process.exit(0); }
+if (args[0] === 'issue' && args[1] === 'view') {
+  const fields = args[args.indexOf('--json') + 1];
+  if (fields === 'comments') { process.stdout.write(JSON.stringify({ comments: state.comments })); process.exit(0); }
+  const { comments, ...issue } = state;
+  process.stdout.write(JSON.stringify(issue)); process.exit(0);
+}
+if (args[0] === 'pr' && args[1] === 'view') { process.stdout.write(JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage: zero outstanding items.' }] })); process.exit(0); }
+if (args[0] === 'issue' && args[1] === 'comment') { state.comments.push({ body: args[args.indexOf('--body') + 1], author: { login: 'github-actions' } }); save(); process.exit(0); }
+if (args[0] === 'issue' && args[1] === 'edit' && args.includes('--body-file')) {
+  if (process.env.FAIL_EDIT === '1') { process.stderr.write('HTTP 502\\n'); process.exit(1); }
+  state.body = fs.readFileSync(args[args.indexOf('--body-file') + 1], 'utf8');
+  const t = args.indexOf('--title');
+  if (t >= 0) state.title = args[t + 1];
+  save(); process.exit(0);
+}
+process.exit(0);
+`;
+
+  function run(dir: string, env: Record<string, string>) {
+    return spawnSync('node', [GATE_SRC], {
+      encoding: 'utf-8',
+      env: {
+        ...process.env,
+        PATH: `${dir}:${process.env.PATH ?? ''}`,
+        BATCH_PRS: '',
+        DRY_RUN: '0',
+        GH_REPO: 'corpus/r',
+        COLLECTION_OK: 'true',
+        TRIAGE_COMPLETE: 'false',
+        GITHUB_STEP_SUMMARY: '',
+        CALL_LOG: join(dir, 'calls.log'),
+        STATE: join(dir, 'state.json'),
+        ...env,
+      },
+    });
+  }
+  function withFakeGh(body: (dir: string) => void) {
+    const dir = mkdtempSync(join(tmpdir(), 'mint-gate-born-'));
+    try {
+      writeFileSync(join(dir, 'gh'), fake);
+      chmodSync(join(dir, 'gh'), 0o755);
+      writeFileSync(join(dir, 'calls.log'), '');
+      writeFileSync(join(dir, 'state.json'), JSON.stringify(issue));
+      body(dir);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }
+  const markerComments = (dir: string) => (JSON.parse(readFileSync(join(dir, 'state.json'), 'utf-8')).comments as Array<{ body: string }>)
+    .filter((comment) => comment.body.includes('FU_ITEM_BORN_SATISFIED'));
+
+  it('marca l\'item una volta, prima del sigillo; la seconda passata non ricommenta', () => {
+    withFakeGh((dir) => {
+      // Prima passata: il sigillo fallisce DOPO il marker → bucket ancora collecting.
+      const first = run(dir, { FAIL_EDIT: '1' });
+      expect(first.status).toBe(0);
+      expect(first.stdout).toMatch(/MINT_GATE_TALLY repo=corpus\/r [^\n]*action=seal [^\n]*born_satisfied=1 token_is_declaration=0 admission_unknown=0/);
+      expect(first.stdout).toContain(`::warning::conio: FU-${DAY}-001 nasce con il token già vero (firstGuard())`);
+      expect(first.stdout).toMatch(/MINT_GATE_ADMISSION repo=corpus\/r reads=1 read_cap=200 read_capped=0 read_errors=0/);
+      expect(markerComments(dir)).toHaveLength(1);
+      expect(JSON.parse(readFileSync(join(dir, 'state.json'), 'utf-8')).body).toContain('- State: collecting');
+      // L'API contents del repository del bucket, ramo main: non il disco.
+      expect(readFileSync(join(dir, 'calls.log'), 'utf-8'))
+        .toContain(JSON.stringify(['api', '-H', 'Accept: application/vnd.github.raw', `repos/corpus/r/contents/${TARGET}?ref=main`]));
+
+      // Seconda passata sullo stesso bucket: il marker c'è già → nessun secondo commento.
+      const second = run(dir, {});
+      expect(second.stdout).toMatch(/action=seal [^\n]*born_satisfied=1/);
+      expect(markerComments(dir)).toHaveLength(1);
+      expect(JSON.parse(readFileSync(join(dir, 'state.json'), 'utf-8')).body).toContain('- State: sealed');
+    });
+  });
+
+  it('API contents in errore → admission_unknown, nessun marker, sigillo come oggi', () => {
+    withFakeGh((dir) => {
+      const out = run(dir, { CONTENTS: 'error' });
+      expect(out.stdout).toMatch(/action=seal [^\n]*born_satisfied=0 token_is_declaration=0 admission_unknown=1/);
+      expect(out.stdout).toMatch(/read_errors=1/);
+      expect(markerComments(dir)).toHaveLength(0);
+      expect(JSON.parse(readFileSync(join(dir, 'state.json'), 'utf-8')).body).toContain('- State: sealed');
+    });
   });
 });
