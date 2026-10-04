@@ -57,7 +57,7 @@ export const AUTHORS: ReadonlyArray<Author> = Object.freeze([
     slug: 'marco-ferrari',
     name: 'Marco Ferrari',
     role: 'Esperto fiscalità frontaliera',
-    bio: "Marco Ferrari è specializzato in fiscalità transfrontaliera tra Italia e Svizzera, con particolare attenzione alla disciplina applicabile ai lavoratori frontalieri del Canton Ticino. Si occupa quotidianamente di dichiarazione dei redditi modello 730 e Redditi PF, di imposta alla fonte cantonale e federale, di ristorni IRPEF e di applicazione pratica del nuovo accordo Italia-Svizzera del 2026 sui frontalieri. Segue le novità dell'Agenzia delle Entrate, dell'AFC ticinese e dei comunicati congiunti del Ministero dell'Economia. Su Frontaliere Ticino cura le guide operative su acconti, scadenze, doppia imposizione e calcolo dell'imposta netta in CHF ed EUR. Pubblica analisi sulle implicazioni della soglia di 20 km dal confine, sulla figura del «nuovo frontaliere» e sui regimi transitori per chi ha iniziato a lavorare in Svizzera prima e dopo il 17 luglio 2023. Risponde a quesiti dei lettori sui casi limite della residenza fiscale italiana.",
+    bio: "Marco Ferrari è specializzato in fiscalità transfrontaliera tra Italia e Svizzera, con particolare attenzione alla disciplina applicabile ai lavoratori frontalieri del Canton Ticino. Si occupa quotidianamente di dichiarazione dei redditi modello 730 e Redditi PF, di imposta alla fonte cantonale e federale, di ristorni IRPEF e di applicazione pratica dell’accordo Italia-Svizzera sui frontalieri. Segue le novità dell'Agenzia delle Entrate, dell'AFC ticinese e dei comunicati congiunti del Ministero dell'Economia. Su Frontaliere Ticino cura le guide operative su acconti, scadenze, doppia imposizione e calcolo dell'imposta netta in CHF ed EUR. Pubblica analisi sulle implicazioni della soglia di 20 km dal confine, sulla figura del «nuovo frontaliere» e sui regimi transitori per chi ha iniziato a lavorare in Svizzera prima e dopo il 17 luglio 2023. Risponde a quesiti dei lettori sui casi limite della residenza fiscale italiana.",
     photoPath: '/images/authors/marco-ferrari.jpg',
     email: 'marco.ferrari@frontaliereticino.ch',
     social: {
@@ -68,7 +68,7 @@ export const AUTHORS: ReadonlyArray<Author> = Object.freeze([
       '730',
       'dichiarazione redditi',
       'imposta alla fonte',
-      'accordo Italia-Svizzera 2026',
+      'accordo Italia-Svizzera',
     ],
     joinedAt: '2024-09-01',
   },
@@ -76,7 +76,7 @@ export const AUTHORS: ReadonlyArray<Author> = Object.freeze([
     slug: 'laura-bianchi',
     name: 'Laura Bianchi',
     role: 'Specialista previdenza svizzera',
-    bio: "Laura Bianchi è specialista in previdenza sociale svizzera applicata ai lavoratori frontalieri italiani in Canton Ticino. Si occupa di AVS (1° pilastro), LPP (2° pilastro), assicurazione contro gli infortuni LAINF e copertura sanitaria LAMal, includendo l'opzione del diritto di scelta verso la cassa malati italiana per i frontalieri. Su Frontaliere Ticino redige guide su rendite di vecchiaia, prestazioni di libero passaggio, riscatto del 2° pilastro alla cessazione del rapporto di lavoro, terzo pilastro 3a/3b e adempimenti presso le casse di compensazione. Segue da vicino la riforma AVS 21, l'andamento dei tassi di conversione LPP minimi, le franchigie cantonali LAMal e le decisioni del Consiglio federale in materia di assicurazioni sociali. Aiuta i lettori a leggere correttamente il certificato LPP annuale e a confrontare le casse pensione con simulatori dedicati al confronto frontaliere/residente B.",
+    bio: "Laura Bianchi è specialista in previdenza sociale svizzera applicata ai lavoratori frontalieri italiani in Canton Ticino. Si occupa di AVS (1° pilastro), LPP (2° pilastro), assicurazione contro gli infortuni LAINF e copertura sanitaria LAMal, includendo l'opzione del diritto di scelta verso la cassa malati italiana per i frontalieri. Su Frontaliere Ticino redige guide su rendite di vecchiaia, prestazioni di libero passaggio, riscatto del 2° pilastro alla cessazione del rapporto di lavoro, terzo pilastro 3a/3b e adempimenti presso le casse di compensazione. Segue da vicino la riforma AVS 21, l'andamento dei tassi di conversione LPP minimi, i premi e le coperture LAMal secondo la residenza e le decisioni del Consiglio federale in materia di assicurazioni sociali. Aiuta i lettori a leggere correttamente il certificato LPP annuale e a confrontare le casse pensione con simulatori dedicati al confronto frontaliere/residente B.",
     photoPath: '/images/authors/laura-bianchi.jpg',
     email: 'laura.bianchi@frontaliereticino.ch',
     social: {

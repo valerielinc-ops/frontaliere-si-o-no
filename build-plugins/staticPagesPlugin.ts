@@ -8,6 +8,7 @@
  */
 
 import type { Plugin } from 'vite';
+import { renderAuthorEditorial, resolveAuthorStaticSeo } from './shared/authorEditorial';
 import { localizeArticlePageIdentity } from '../services/seo/article-page-identity';
 import { editorialModifiedDate } from './shared/editorialDates';
 import { renderBorderDashboardLink } from './shared/borderDashboardLink';
@@ -3215,7 +3216,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const italianPageExists = ogPagesPaths.has(normalizedPath) || fs.existsSync(filePath);
 
  // Look up SEO data — fall back to URL-derived title if no explicit entry
- let seo = seoMap.get(seoKey(url.path));
+ let seo: SeoEntry | undefined = resolveAuthorStaticSeo(url.path, 'it', JSON_LD_SCRIPT_SEPARATOR) ?? seoMap.get(seoKey(url.path));
  if (!seo) {
  // Derive a basic page from URL path so every sitemap URL gets a static HTML file
  const pathLabel = url.path.split('/').filter(Boolean).pop() || url.path;
@@ -3447,7 +3448,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // If the entry has an 'it' key, use it instead of the inline chain below.
  const sectionKey = SECTION_EDITORIAL_KEYS
  .find(prefix => italianPath.startsWith(prefix));
- if (italianPath.replace(/\/+$/, '') === '/correzioni') {
+ const authorEditorial = renderAuthorEditorial(sourcePathForContent, locale as 'it' | 'en' | 'de' | 'fr');
+ if (authorEditorial) {
+ editorialBlocks.push(...authorEditorial);
+ } else if (italianPath.replace(/\/+$/, '') === '/correzioni') {
  editorialBlocks.push(...renderCorrectionsEditorial(locale as CorrectionsLocale));
  } else if (sectionKey && SECTION_EDITORIAL[sectionKey]?.[locale]) {
  editorialBlocks.push(...SECTION_EDITORIAL[sectionKey][locale]);
@@ -4843,60 +4847,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `</ul>`,
  `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">AFC</a> · <a class="s-OsohZU" href="https://www.bfs.admin.ch" rel="noopener">UST/BFS</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a></p>`,
  );
- } else if (canonicalPath.startsWith('/autori/') && canonicalPath !== '/autori/' && canonicalPath !== '/autori') {
- // Author profile pages (Google News A1) — render bio + expertise + links
- // back to chi-siamo and other author pages so the static HTML has rich
- // crawl-discoverable text and the page is reachable from the site graph.
- const authorSlug = canonicalPath.replace(/^\/autori\//, '').replace(/\/$/, '');
- const authorMeta: Record<string, { name: string; role: string; bio: string; expertise: string[]; linkedin: string }> = {
- 'marco-ferrari': {
- name: 'Marco Ferrari',
- role: 'Esperto fiscalità frontaliera',
- bio: "Marco Ferrari è specializzato in fiscalità transfrontaliera tra Italia e Svizzera, con particolare attenzione alla disciplina applicabile ai lavoratori frontalieri del Canton Ticino. Si occupa quotidianamente di dichiarazione dei redditi modello 730 e Redditi PF, di imposta alla fonte cantonale e federale, di ristorni IRPEF e di applicazione pratica del nuovo accordo Italia-Svizzera del 2026 sui frontalieri.",
- expertise: ['fiscalità frontaliera', '730', 'dichiarazione redditi', 'imposta alla fonte', 'accordo Italia-Svizzera 2026'],
- linkedin: 'https://www.linkedin.com/in/marco-ferrari-frontaliere-ticino/',
- },
- 'laura-bianchi': {
- name: 'Laura Bianchi',
- role: 'Specialista previdenza svizzera',
- bio: "Laura Bianchi è specialista in previdenza sociale svizzera applicata ai lavoratori frontalieri italiani in Canton Ticino. Si occupa di AVS (1° pilastro), LPP (2° pilastro), assicurazione contro gli infortuni LAINF e copertura sanitaria LAMal, includendo l'opzione del diritto di scelta verso la cassa malati italiana per i frontalieri.",
- expertise: ['AVS', 'LPP', 'LAMal', 'pensioni', 'assicurazioni sociali svizzere'],
- linkedin: 'https://www.linkedin.com/in/laura-bianchi-previdenza-svizzera/',
- },
- 'redazione': {
- name: 'Redazione Frontaliere Ticino',
- role: 'Team editoriale',
- bio: "La Redazione di Frontaliere Ticino è il team editoriale dedicato alla copertura quotidiana dei temi rilevanti per i lavoratori frontalieri italiani in Canton Ticino. Cura aggiornamenti su mercato del lavoro ticinese, livelli salariali per settore, contratti collettivi nazionali (CCNL) svizzeri, mobilità transfrontaliera e politiche doganali ai principali valichi.",
- expertise: ['lavoro frontaliere', 'salari', 'trasporti transfrontalieri', 'dogana'],
- linkedin: 'https://www.linkedin.com/company/frontaliere-ticino/',
- },
- 'samuele-valente': {
- name: 'Samuele Valente',
- role: 'Autore ospite — fiscalità transfrontaliera',
- bio: "Samuele Valente è un professionista esperto di fiscalità internazionale e transfrontaliera tra Italia e Svizzera. Collabora con Frontaliere Ticino come autore ospite, proponendo analisi e commenti sulla prassi dell'Agenzia delle Entrate e sull'applicazione del nuovo Accordo tra Italia e Svizzera sui lavoratori frontalieri, entrato in vigore dal 1° gennaio 2024. Nei suoi contributi approfondisce in particolare le risposte a interpello, i requisiti dell'area di frontiera, la nozione di residenza fiscale e i meccanismi di imposizione concorrente che riguardano i frontalieri del Canton Ticino e delle regioni italiane di confine.",
- expertise: ['fiscalità transfrontaliera', 'accordo Italia-Svizzera', 'interpelli Agenzia delle Entrate', 'residenza fiscale', 'frontalieri'],
- linkedin: 'https://www.linkedin.com/in/samuele-valente-9b8a4335b/',
- },
- };
- const meta = authorMeta[authorSlug];
- if (meta) {
- const tagsHtml = meta.expertise.map((t) => `<li class="s-S0sOCN">${t}</li>`).join('');
- const otherAuthorsHtml = Object.entries(authorMeta)
- .filter(([s]) => s !== authorSlug)
- .map(([s, m]) => `<li class="s-wP4Jn1"><a class="s-OsohZU" href="/autori/${s}/" rel="author">${m.name}</a> — ${m.role}.</li>`)
- .join('');
- editorialBlocks.push(
- `<h2 class="s-o3IET6">${meta.name} — ${meta.role}</h2>`,
- `<p class="s-F2hp6o">${meta.bio}</p>`,
- `<h2 class="s-o3IET6">Aree di competenza</h2>`,
- `<ul class="s-QkRjp8">${tagsHtml}</ul>`,
- `<h2 class="s-o3IET6">Profilo pubblico e contatti</h2>`,
- `<p class="s-F2hp6o">Profilo pubblico LinkedIn: <a class="s-OsohZU" href="${meta.linkedin}" rel="noopener me" target="_blank">${meta.linkedin}</a>. Per scrivere alla redazione: <a class="s-OsohZU" href="mailto:redazione@frontaliereticino.ch">redazione@frontaliereticino.ch</a>.</p>`,
- `<h2 class="s-o3IET6">Altre firme di Frontaliere Ticino</h2>`,
- `<ul class="s-QkRjp8">${otherAuthorsHtml}</ul>`,
- `<p class="s-tTvoK-">Riferimenti: <a class="s-OsohZU" href="/chi-siamo/">Chi Siamo</a> · <a class="s-OsohZU" href="/correzioni/">Correzioni</a></p>`,
- );
- }
  } else if (canonicalPath === '/metodologia' || canonicalPath === '/metodologia/') {
  editorialBlocks.push(
  `<h2 class="s-o3IET6">Come scriviamo gli articoli — metodologia editoriale</h2>`,
@@ -5913,7 +5863,7 @@ ${hrefTags}
  // variants, so always regenerate so JSON-LD reflects current translations.
 
  // Look up locale-specific SEO or derive locale-appropriate metadata
- const locSeo = seoMap.get(seoKey(locPath)) ?? deriveLocaleSeo(locPath, hl.lang, seo, url.path);
+ const locSeo: SeoEntry = resolveAuthorStaticSeo(locPath, hl.lang as 'it' | 'en' | 'de' | 'fr', JSON_LD_SCRIPT_SEPARATOR) ?? seoMap.get(seoKey(locPath)) ?? deriveLocaleSeo(locPath, hl.lang, seo, url.path);
 
  // Dynamic override for per-locale job-board landings (en/de/fr): inject
  // live active-job count + fire emoji so each locale ships a unique title
