@@ -202,7 +202,7 @@ const sourceTreeLintTests = new Map([
   // `data/authors.ts` e `data/authorLocales.ts` sono fuori dal grafo e i due
   // sorgenti giudicati sono letti da disco: dopo la PR 11327 la bio corretta nel
   // registro e' rimasta vecchia nelle copie a mano senza che nulla fallisse.
-  ['tests/author-metadata-single-source.test.ts', /^(?:data\/[^/]+\.(?:[cm]?[jt]sx?|json)|services\/seo\/seo-pages\.ts|build-plugins\/staticPagesPlugin\.ts)$/],
+  ['tests/author-metadata-single-source.test.ts', /^(?:data\/[^/]+\.(?:[cm]?[jt]sx?|json)|services\/seo\/seo-pages\.ts|build-plugins\/staticPagesPlugin\.ts|build-plugins\/shared\/authorEditorial\.ts|scripts\/lib\/llms-txt-generator\.mjs|services\/seo\/authorProfileMetadata\.ts)$/], // Scope producers: build-plugins/shared/authorEditorial.ts, scripts/lib/llms-txt-generator.mjs, services/seo/authorProfileMetadata.ts.
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint
