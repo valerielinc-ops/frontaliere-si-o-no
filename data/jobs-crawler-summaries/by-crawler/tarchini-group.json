@@ -1,16 +1,16 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-10-03T21:13:19.241Z",
+  "generatedAt": "2026-10-04T09:13:50.788Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4260,
-  "avgDurationMs": 4260,
+  "durationMs": 4812,
+  "avgDurationMs": 4812,
   "durationHistory": [
-    4260
+    4812
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -43,13 +43,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-01T09:14:30.664Z",
-      "needsRetranslation": true,
-      "_qualityScore": 89,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:13:44.446Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -70,7 +72,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -83,12 +85,15 @@
       "firstSeenAt": "2026-04-13T22:32:13.614Z",
       "salarySource": "reported",
       "applicationEmail": "info@tarchinigroup.com",
-      "_qualityScore": 92,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:13:44.463Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -110,7 +115,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -120,16 +125,19 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-29T21:13:20.401Z",
-      "_qualityScore": 89,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:13:44.467Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }
