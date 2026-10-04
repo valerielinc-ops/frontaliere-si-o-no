@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksbl",
-  "assembledAt": "2026-10-04T09:27:21.342Z",
+  "assembledAt": "2026-10-04T10:54:29.904Z",
   "jobs": [
     {
       "id": "ksbl-461de2f9be97",
@@ -135,6 +135,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict",
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
         "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
         "assistente-di-stazione-assistente-medico-interno-a-kantonsspital-baselland-ksbl-liestal",
@@ -147,11 +148,11 @@
         "rotation-des-medecins-de-famille-a-station-kantonsspital-baselland-ksbl-liestal",
         "assistant-de-poste-en-medecine-interne-a-kantonsspital-baselland-ksbl-liestal",
         "stationsassistentin-stationsassistent-innere-medizin-a-kantonsspital-baselland-ksbl-liestal",
-        "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict",
         "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict",
           "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
           "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
           "assistente-di-stazione-assistente-medico-interno-a-kantonsspital-baselland-ksbl-liestal",
@@ -164,7 +165,6 @@
           "rotation-des-medecins-de-famille-a-station-kantonsspital-baselland-ksbl-liestal",
           "assistant-de-poste-en-medecine-interne-a-kantonsspital-baselland-ksbl-liestal",
           "stationsassistentin-stationsassistent-innere-medizin-a-kantonsspital-baselland-ksbl-liestal",
-          "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict",
           "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "en": [
@@ -7461,7 +7461,8 @@
       "previousSlugsByLocale": {
         "it": [
           "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-          "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal"
+          "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
+          "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict"
         ],
         "en": [
           "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal"
@@ -7474,7 +7475,8 @@
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
         "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
         "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal",
-        "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
+        "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal",
+        "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
