@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-10-03T21:26:27.270Z",
+  "assembledAt": "2026-10-04T09:23:46.735Z",
   "jobs": [
     {
       "id": "coopers-ab1752bb6b8f",
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:26:22.639Z",
+      "crawledAt": "2026-10-04T09:23:40.077Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -80,12 +80,14 @@
         "lead-expeditor-m-f-d-coopers-wallis",
         "leiter-m-f-d-coopers-group-ag-wallis",
         "expediteur-de-plomb-m-f-d-coopers-group-ag-wallis",
-        "engineering-planner-m-f-d-coopers-wallis"
+        "engineering-planner-m-f-d-coopers-wallis",
+        "piano-di-ingegneria-m-f-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "engineering-planer-m-f-d-coopers-wallis",
-          "engineering-planner-m-f-d-coopers-wallis"
+          "engineering-planner-m-f-d-coopers-wallis",
+          "piano-di-ingegneria-m-f-d-coopers-group-ag-wallis"
         ],
         "en": [
           "engineering-planner-m-f-d-coopers-group-ag-wallis",
@@ -111,15 +113,14 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "coopers-52cb4b048a24",
       "slug": "senior-java-entwickler-in-m-w-d-coopers-luzern",
       "slugByLocale": {
         "it": "senior-java-entwickler-in-m-w-d-coopers-luzern",
-        "en": "senior-java-entwickler-in-m-w-d-coopers-luzern",
+        "en": "senior-java-developer-m-f-d-coopers-group-ag-luzern",
         "de": "senior-java-entwickler-in-m-w-d-coopers-luzern",
         "fr": "senior-java-entwickler-in-m-w-d-coopers-luzern"
       },
@@ -145,7 +146,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=1R4I0V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:21.664Z",
+      "crawledAt": "2026-10-04T09:23:39.162Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -207,7 +208,7 @@
       "title": "Senior Fullstack Software Engineer - Java/Angular (m/w/d)",
       "titleByLocale": {
         "it": "Senior Fullstack Software Ingegnere - Java/Angular (m/w/d)",
-        "en": "Senior Fullstack Software Engineer - Java/Angular (m/w/d)",
+        "en": "Senior Fullstack Software Engineer - Java/Angular (m/f/d)",
         "de": "Senior Fullstack Software Ingenieur - Java/Angular (m/w/d)",
         "fr": "Senior Fullstack Software Ingénieur - Java/Angular (m/w/d)"
       },
@@ -223,7 +224,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=VWR329",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:20.626Z",
+      "crawledAt": "2026-10-04T09:23:38.222Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -287,7 +288,7 @@
       "title": "ICT Infrastructure Engineer (Microsoft & Network) 80 bis 100 % (m/w/d)",
       "titleByLocale": {
         "it": "ICT System & Network Ingegnere 80 bis 100% (m/w/d)",
-        "en": "ICT Infrastructure Engineer (Microsoft & Network) 80 bis 100 % (m/w/d)",
+        "en": "ICT Infrastructure Engineer (Microsoft & Network) 80 to 100% (m/f/d)",
         "de": "ICT Infrastructure Ingenieur (Microsoft & Network) 80 bis 100 % (m/w/d)",
         "fr": "ICT System & Network Ingénieur 80 bis 100% (m/w/d)"
       },
@@ -303,7 +304,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5T0BU4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:19.662Z",
+      "crawledAt": "2026-10-04T09:23:37.280Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -338,14 +339,17 @@
       "firstSeenAt": "2026-07-27T22:23:50.233Z",
       "previousSlugsByLocale": {
         "it": [
-          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug"
+          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug",
+          "ict-system-network-engineer-80-bis-100-m-w-d-coopers-zug"
         ],
         "de": [
-          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug"
+          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug",
+          "ict-system-network-engineer-80-bis-100-m-w-d-coopers-zug"
         ]
       },
       "previousSlugs": [
-        "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug"
+        "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug",
+        "ict-system-network-engineer-80-bis-100-m-w-d-coopers-zug"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -392,7 +396,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C17UR4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:18.700Z",
+      "crawledAt": "2026-10-04T09:23:36.333Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -425,11 +429,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern"
+        "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern",
+        "senior-responsabile-di-progetto-neuausschreibung-client-hardware-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern"
+          "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern",
+          "senior-responsabile-di-progetto-neuausschreibung-client-hardware-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern"
@@ -469,7 +475,7 @@
       "title": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
       "titleByLocale": {
         "it": "Project Management Officer (PMO) & Service Calculations (m/f/d)",
-        "en": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
+        "en": "Project Management Officer (PMO) & Service Calculations (m/f/d)",
         "de": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
         "fr": "Fonctionnaire chargé de la gestion des projets et calcul des services (m/f/d)"
       },
@@ -485,7 +491,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=49GUV9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:17.697Z",
+      "crawledAt": "2026-10-04T09:23:35.392Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -530,7 +536,8 @@
         "specialiste-principal-de-la-gestion-des-projets-m-m-j-coopers-group-ag-bern",
         "projektassistenz-assistenz-der-leitung-it-m-w-d-coopers-bern",
         "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-bern",
-        "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-group-ag-bern"
+        "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-group-ag-bern",
+        "gestione-del-progetto-ufficio-pmo-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -538,7 +545,8 @@
           "projectmanagement-officer-pmo-assistenz-der-geschaftsleitung-m-w-d-coopers-bern",
           "projektassistenz-assistenz-der-geschaftsleitung-m-w-d-coopers-bern",
           "projektassistenz-assistenz-der-leitung-it-m-w-d-coopers-bern",
-          "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-bern"
+          "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-bern",
+          "gestione-del-progetto-ufficio-pmo-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "projectmanagement-officer-pmo-m-w-d-coopers-bern"
@@ -600,7 +608,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DE041O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:16.727Z",
+      "crawledAt": "2026-10-04T09:23:34.161Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -630,11 +638,13 @@
         ]
       },
       "previousSlugs": [
-        "it-applikationsmanager-80-100-m-w-d-coopers-thurgau"
+        "it-applikationsmanager-80-100-m-w-d-coopers-thurgau",
+        "it-application-manager-80-100-m-f-d-coopers-group-ag-thurgau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-applikationsmanager-80-100-m-w-d-coopers-thurgau"
+          "it-applikationsmanager-80-100-m-w-d-coopers-thurgau",
+          "it-application-manager-80-100-m-f-d-coopers-group-ag-thurgau"
         ],
         "en": [
           "it-applikationsmanager-80-100-m-w-d-coopers-thurgau"
@@ -690,7 +700,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GS86S5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:15.763Z",
+      "crawledAt": "2026-10-04T09:23:33.237Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -771,7 +781,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W060PD",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:14.794Z",
+      "crawledAt": "2026-10-04T09:23:32.302Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -805,13 +815,15 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "senior-it-projektleiter-in-20-m-w-d-coopers-bern"
+          "senior-it-projektleiter-in-20-m-w-d-coopers-bern",
+          "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern"
         ],
         "it": [
           "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern",
           "senior-it-responsabile-di-progetto-reporting-data-m-w-d-coopers-group-ag-bern",
           "senior-it-projektleiter-in-reporting-data-m-w-d-coopers-bern",
-          "senior-it-projektleiter-in-20-m-w-d-coopers-bern"
+          "senior-it-projektleiter-in-20-m-w-d-coopers-bern",
+          "it-responsabile-di-progetto-infrastruktur-20-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern"
@@ -825,7 +837,8 @@
         "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern",
         "senior-it-responsabile-di-progetto-reporting-data-m-w-d-coopers-group-ag-bern",
         "senior-it-projektleiter-in-reporting-data-m-w-d-coopers-bern",
-        "senior-it-projektleiter-in-20-m-w-d-coopers-bern"
+        "senior-it-projektleiter-in-20-m-w-d-coopers-bern",
+        "it-responsabile-di-progetto-infrastruktur-20-m-w-d-coopers-group-ag-bern"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T09:53:46.212Z",
@@ -874,7 +887,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:13.835Z",
+      "crawledAt": "2026-10-04T09:23:31.373Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -905,11 +918,13 @@
         ]
       },
       "previousSlugs": [
-        "teamlead-business-applications-proalpha-m-w-d-coopers-bern"
+        "teamlead-business-applications-proalpha-m-w-d-coopers-bern",
+        "applicazioni-aziendali-proalpha-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamlead-business-applications-proalpha-m-w-d-coopers-bern"
+          "teamlead-business-applications-proalpha-m-w-d-coopers-bern",
+          "applicazioni-aziendali-proalpha-m-f-d-coopers-group-ag-bern"
         ]
       },
       "needsRetranslation": true,
@@ -959,7 +974,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FEW938",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:26:12.875Z",
+      "crawledAt": "2026-10-04T09:23:30.422Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -992,11 +1007,13 @@
       },
       "previousSlugs": [
         "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers",
-        "senior-engineering-maintenance-expert-ibex-readiness-operations-directeur-m-f-d-coopers-group-ag-wallis"
+        "senior-engineering-maintenance-expert-ibex-readiness-operations-directeur-m-f-d-coopers-group-ag-wallis",
+        "senior-engineering-maintenance-expert-ibex-readiness-operations-direttore-m-f-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers"
+          "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers",
+          "senior-engineering-maintenance-expert-ibex-readiness-operations-direttore-m-f-d-coopers-group-ag-wallis"
         ],
         "de": [
           "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers"
@@ -1053,7 +1070,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=97WWQ3",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:11.913Z",
+      "crawledAt": "2026-10-04T09:23:29.507Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1085,11 +1102,13 @@
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern"
+        "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern",
+        "responsabile-di-progetto-isds-weiterentwicklung-m-w-d-coopers-group-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern"
+          "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern",
+          "responsabile-di-progetto-isds-weiterentwicklung-m-w-d-coopers-group-ag-luzern"
         ],
         "en": [
           "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern"
@@ -1145,7 +1164,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=XY130U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:10.943Z",
+      "crawledAt": "2026-10-04T09:23:28.577Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1176,11 +1195,13 @@
         ]
       },
       "previousSlugs": [
-        "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt"
+        "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt",
+        "talent-acquisition-specialista-basel-m-w-d-coopers-group-ag-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt"
+          "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt",
+          "talent-acquisition-specialista-basel-m-w-d-coopers-group-ag-basel-stadt"
         ],
         "fr": [
           "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt"
@@ -1233,7 +1254,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=O4UI83",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:09.951Z",
+      "crawledAt": "2026-10-04T09:23:27.640Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1269,11 +1290,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-software-engineer-go-developer-m-w-d-coopers-bern"
+        "senior-software-engineer-go-developer-m-w-d-coopers-bern",
+        "senior-software-ingegnere-go-sviluppatore-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-go-developer-m-w-d-coopers-bern"
+          "senior-software-engineer-go-developer-m-w-d-coopers-bern",
+          "senior-software-ingegnere-go-sviluppatore-m-w-d-coopers-group-ag-bern"
         ]
       },
       "needsRetranslation": true,
@@ -1323,7 +1346,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=00FKF7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:08.963Z",
+      "crawledAt": "2026-10-04T09:23:26.719Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1356,11 +1379,13 @@
         ]
       },
       "previousSlugs": [
-        "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft"
+        "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft",
+        "specialista-di-sistema-in-f5-m-f-d-coopers-group-ag-basel-landschaft"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft"
+          "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft",
+          "specialista-di-sistema-in-f5-m-f-d-coopers-group-ag-basel-landschaft"
         ],
         "en": [
           "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft"
@@ -1416,7 +1441,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4UVZ38",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:07.999Z",
+      "crawledAt": "2026-10-04T09:23:25.794Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1449,12 +1474,14 @@
       },
       "previousSlugs": [
         "senior-aem-entwickler-in-m-w-d-coopers-luzern",
-        "sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern"
+        "sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern",
+        "sviluppatore-senior-aem-m-f-d-coopers-group-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-aem-entwickler-in-m-w-d-coopers-luzern",
-          "sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern"
+          "sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern",
+          "sviluppatore-senior-aem-m-f-d-coopers-group-ag-luzern"
         ],
         "en": [
           "senior-aem-entwickler-in-m-w-d-coopers-luzern"
@@ -1510,7 +1537,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=16F3NB",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:06.964Z",
+      "crawledAt": "2026-10-04T09:23:24.858Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1540,11 +1567,13 @@
         ]
       },
       "previousSlugs": [
-        "sheq-specialist-schwerpunkt-arbeitssicherheit-m-w-d-coopers-aargau"
+        "sheq-specialist-schwerpunkt-arbeitssicherheit-m-w-d-coopers-aargau",
+        "sheq-specialista-schwerpunkt-arbeitssicherheit-m-w-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sheq-specialist-schwerpunkt-arbeitssicherheit-m-w-d-coopers-aargau"
+          "sheq-specialist-schwerpunkt-arbeitssicherheit-m-w-d-coopers-aargau",
+          "sheq-specialista-schwerpunkt-arbeitssicherheit-m-w-d-coopers-group-ag-aargau"
         ],
         "fr": [
           "sheq-specialist-schwerpunkt-arbeitssicherheit-m-w-d-coopers-aargau"
@@ -1597,7 +1626,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4QDT87",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:06.008Z",
+      "crawledAt": "2026-10-04T09:23:23.937Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1632,11 +1661,13 @@
         ]
       },
       "previousSlugs": [
-        "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern"
+        "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern",
+        "sviluppatore-sharepoint-in-on-premises-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern"
+          "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern",
+          "sviluppatore-sharepoint-in-on-premises-m-f-d-coopers-group-ag-bern"
         ],
         "en": [
           "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern"
@@ -1689,7 +1720,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=Q94TV4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:05.037Z",
+      "crawledAt": "2026-10-04T09:23:23.016Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1767,7 +1798,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C632JR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:26:04.082Z",
+      "crawledAt": "2026-10-04T09:23:22.089Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1853,7 +1884,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=SY6F22",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:03.100Z",
+      "crawledAt": "2026-10-04T09:23:21.138Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1885,11 +1916,13 @@
         ]
       },
       "previousSlugs": [
-        "people-attraction-manager-m-w-d-coopers-bern"
+        "people-attraction-manager-m-w-d-coopers-bern",
+        "gestore-di-attrazione-delle-persone-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "people-attraction-manager-m-w-d-coopers-bern"
+          "people-attraction-manager-m-w-d-coopers-bern",
+          "gestore-di-attrazione-delle-persone-m-f-d-coopers-group-ag-bern"
         ],
         "fr": [
           "people-attraction-manager-m-w-d-coopers-bern"
@@ -1942,7 +1975,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0R36QX",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:26:02.132Z",
+      "crawledAt": "2026-10-04T09:23:20.215Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1974,11 +2007,13 @@
         ]
       },
       "previousSlugs": [
-        "cold-chain-project-coordinator-m-f-d-coopers-wallis"
+        "cold-chain-project-coordinator-m-f-d-coopers-wallis",
+        "cold-chain-project-coordinatore-m-f-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cold-chain-project-coordinator-m-f-d-coopers-wallis"
+          "cold-chain-project-coordinator-m-f-d-coopers-wallis",
+          "cold-chain-project-coordinatore-m-f-d-coopers-group-ag-wallis"
         ],
         "de": [
           "cold-chain-project-coordinator-m-f-d-coopers-wallis"
@@ -2034,7 +2069,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=57J0ZU",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:26:01.149Z",
+      "crawledAt": "2026-10-04T09:23:19.293Z",
       "addressLocality": "Waadt",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2112,7 +2147,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=IS127K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:00.175Z",
+      "crawledAt": "2026-10-04T09:23:18.367Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2145,12 +2180,14 @@
       },
       "previousSlugs": [
         "ikt-projektleiter-in-bauvorhaben-m-w-d-coopers-bern",
-        "ikt-projektleiter-in-m-w-d-coopers-bern"
+        "ikt-projektleiter-in-m-w-d-coopers-bern",
+        "ikt-responsabile-di-progetto-bauvorhaben-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ikt-projektleiter-in-bauvorhaben-m-w-d-coopers-bern",
-          "ikt-projektleiter-in-m-w-d-coopers-bern"
+          "ikt-projektleiter-in-m-w-d-coopers-bern",
+          "ikt-responsabile-di-progetto-bauvorhaben-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "ikt-projektleiter-in-bauvorhaben-m-w-d-coopers-bern"
@@ -2206,7 +2243,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=O30O2Z",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:59.207Z",
+      "crawledAt": "2026-10-04T09:23:17.431Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2238,11 +2275,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-ict-security-architect-m-w-d-coopers-bern"
+        "senior-ict-security-architect-m-w-d-coopers-bern",
+        "senior-ict-security-architetto-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-ict-security-architect-m-w-d-coopers-bern"
+          "senior-ict-security-architect-m-w-d-coopers-bern",
+          "senior-ict-security-architetto-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "senior-ict-security-architect-m-w-d-coopers-bern"
@@ -2295,7 +2334,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8NMC01",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:58.246Z",
+      "crawledAt": "2026-10-04T09:23:16.499Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2329,11 +2368,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-ict-infrastructure-network-architect-m-w-d-coopers-bern"
+        "senior-ict-infrastructure-network-architect-m-w-d-coopers-bern",
+        "senior-ict-infrastructure-network-architetto-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-ict-infrastructure-network-architect-m-w-d-coopers-bern"
+          "senior-ict-infrastructure-network-architect-m-w-d-coopers-bern",
+          "senior-ict-infrastructure-network-architetto-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "senior-ict-infrastructure-network-architect-m-w-d-coopers-bern"
@@ -2386,7 +2427,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=R028DI",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:57.286Z",
+      "crawledAt": "2026-10-04T09:23:15.544Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2418,11 +2459,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-ict-data-integration-architect-m-w-d-coopers-bern"
+        "senior-ict-data-integration-architect-m-w-d-coopers-bern",
+        "senior-ict-data-integration-architetto-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-ict-data-integration-architect-m-w-d-coopers-bern"
+          "senior-ict-data-integration-architect-m-w-d-coopers-bern",
+          "senior-ict-data-integration-architetto-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "senior-ict-data-integration-architect-m-w-d-coopers-bern"
@@ -2475,7 +2518,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=F65WS0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:56.321Z",
+      "crawledAt": "2026-10-04T09:23:14.593Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2554,7 +2597,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=KP22M2",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:55.352Z",
+      "crawledAt": "2026-10-04T09:23:13.664Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2587,11 +2630,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-itsm-servicenow-engineer-m-w-d-coopers-bern"
+        "senior-itsm-servicenow-engineer-m-w-d-coopers-bern",
+        "senior-itsm-servicenow-ingegnere-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-itsm-servicenow-engineer-m-w-d-coopers-bern"
+          "senior-itsm-servicenow-engineer-m-w-d-coopers-bern",
+          "senior-itsm-servicenow-ingegnere-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "senior-itsm-servicenow-engineer-m-w-d-coopers-bern"
@@ -2644,7 +2689,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=SD224W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:54.368Z",
+      "crawledAt": "2026-10-04T09:23:12.743Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2679,11 +2724,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-security-encryption-engineer-m-w-d-coopers-bern"
+        "senior-security-encryption-engineer-m-w-d-coopers-bern",
+        "senior-security-encryption-ingegnere-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-security-encryption-engineer-m-w-d-coopers-bern"
+          "senior-security-encryption-engineer-m-w-d-coopers-bern",
+          "senior-security-encryption-ingegnere-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "senior-security-encryption-engineer-m-w-d-coopers-bern"
@@ -2736,7 +2783,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=6A9K7N",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:53.380Z",
+      "crawledAt": "2026-10-04T09:23:11.822Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2814,7 +2861,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5CUJ92",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:52.391Z",
+      "crawledAt": "2026-10-04T09:23:10.888Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2850,11 +2897,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-infrastructure-network-security-engineer-m-w-d-coopers-bern"
+        "senior-infrastructure-network-security-engineer-m-w-d-coopers-bern",
+        "senior-infrastructure-network-security-ingegnere-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-infrastructure-network-security-engineer-m-w-d-coopers-bern"
+          "senior-infrastructure-network-security-engineer-m-w-d-coopers-bern",
+          "senior-infrastructure-network-security-ingegnere-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "senior-infrastructure-network-security-engineer-m-w-d-coopers-bern"
@@ -2907,7 +2956,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=44RK3F",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:51.430Z",
+      "crawledAt": "2026-10-04T09:23:09.958Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2943,11 +2992,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "it-projektleiter-in-betriebsorganisation-m-w-d-coopers-bern"
+          "it-projektleiter-in-betriebsorganisation-m-w-d-coopers-bern",
+          "senior-business-transformation-operational-readiness-manager-m-w-d-coopers-bern"
         ],
         "it": [
           "it-projektleiter-in-betriebsorganisation-m-w-d-coopers-bern",
-          "senior-business-transformation-operational-readiness-manager-m-w-d-coopers-bern"
+          "senior-business-transformation-operational-readiness-manager-m-w-d-coopers-bern",
+          "it-project-manager-organizzazione-operativa-m-f-d-coopers-group-ag-bern"
         ],
         "en": [
           "senior-business-transformation-operational-readiness-manager-m-w-d-coopers-bern"
@@ -2955,7 +3006,8 @@
       },
       "previousSlugs": [
         "it-projektleiter-in-betriebsorganisation-m-w-d-coopers-bern",
-        "senior-business-transformation-operational-readiness-manager-m-w-d-coopers-bern"
+        "senior-business-transformation-operational-readiness-manager-m-w-d-coopers-bern",
+        "it-project-manager-organizzazione-operativa-m-f-d-coopers-group-ag-bern"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:57:58.876Z",
@@ -3004,7 +3056,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9OZ1U1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:25:50.379Z",
+      "crawledAt": "2026-10-04T09:23:09.043Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3035,11 +3087,13 @@
         ]
       },
       "previousSlugs": [
-        "biospecimen-specialist-employee-specimen-donation-program-coordinator-m-f-d-coopers-zug"
+        "biospecimen-specialist-employee-specimen-donation-program-coordinator-m-f-d-coopers-zug",
+        "biospecimen-specialista-employee-specimen-donation-program-coordinatore-m-f-d-coopers-group-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "biospecimen-specialist-employee-specimen-donation-program-coordinator-m-f-d-coopers-zug"
+          "biospecimen-specialist-employee-specimen-donation-program-coordinator-m-f-d-coopers-zug",
+          "biospecimen-specialista-employee-specimen-donation-program-coordinatore-m-f-d-coopers-group-ag-zug"
         ],
         "de": [
           "biospecimen-specialist-employee-specimen-donation-program-coordinator-m-f-d-coopers-zug"
@@ -3095,7 +3149,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=39BZE7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:25:49.419Z",
+      "crawledAt": "2026-10-04T09:23:08.038Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3130,11 +3184,13 @@
         ]
       },
       "previousSlugs": [
-        "biospecimen-specialist-biorepository-specialist-m-f-d-coopers-zug"
+        "biospecimen-specialist-biorepository-specialist-m-f-d-coopers-zug",
+        "biospecimen-specialista-biorepository-specialista-m-f-d-coopers-group-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "biospecimen-specialist-biorepository-specialist-m-f-d-coopers-zug"
+          "biospecimen-specialist-biorepository-specialist-m-f-d-coopers-zug",
+          "biospecimen-specialista-biorepository-specialista-m-f-d-coopers-group-ag-zug"
         ],
         "de": [
           "biospecimen-specialist-biorepository-specialist-m-f-d-coopers-zug"
@@ -3190,7 +3246,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5R7C9Y",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:48.451Z",
+      "crawledAt": "2026-10-04T09:23:07.103Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3276,7 +3332,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3TX5I5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:47.478Z",
+      "crawledAt": "2026-10-04T09:23:06.171Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3308,11 +3364,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-it-integration-devops-engineer-m-w-d-coopers-bern"
+        "senior-it-integration-devops-engineer-m-w-d-coopers-bern",
+        "senior-it-integration-devops-ingegnere-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-it-integration-devops-engineer-m-w-d-coopers-bern"
+          "senior-it-integration-devops-engineer-m-w-d-coopers-bern",
+          "senior-it-integration-devops-ingegnere-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "senior-it-integration-devops-engineer-m-w-d-coopers-bern"
@@ -3365,7 +3423,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=36VY1K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:46.523Z",
+      "crawledAt": "2026-10-04T09:23:05.220Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3397,11 +3455,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-api-integration-engineer-m-w-d-coopers-bern"
+        "senior-api-integration-engineer-m-w-d-coopers-bern",
+        "senior-api-integration-ingegnere-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-api-integration-engineer-m-w-d-coopers-bern"
+          "senior-api-integration-engineer-m-w-d-coopers-bern",
+          "senior-api-integration-ingegnere-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "senior-api-integration-engineer-m-w-d-coopers-bern"
@@ -3454,7 +3514,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=75BIF6",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:45.556Z",
+      "crawledAt": "2026-10-04T09:23:04.289Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3536,7 +3596,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B567TP",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:44.584Z",
+      "crawledAt": "2026-10-04T09:23:03.171Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3570,11 +3630,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-test-collaboration-engineer-m-w-d-coopers-bern"
+        "senior-test-collaboration-engineer-m-w-d-coopers-bern",
+        "senior-test-collaboration-ingegnere-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-test-collaboration-engineer-m-w-d-coopers-bern"
+          "senior-test-collaboration-engineer-m-w-d-coopers-bern",
+          "senior-test-collaboration-ingegnere-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "senior-test-collaboration-engineer-m-w-d-coopers-bern"
@@ -3627,7 +3689,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0IC2T1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:43.613Z",
+      "crawledAt": "2026-10-04T09:23:02.239Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3705,7 +3767,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=J99KY6",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:25:42.651Z",
+      "crawledAt": "2026-10-04T09:23:01.301Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3737,11 +3799,13 @@
         ]
       },
       "previousSlugs": [
-        "gxp-compliance-expert-m-f-d-coopers-aargau"
+        "gxp-compliance-expert-m-f-d-coopers-aargau",
+        "esperto-di-conformita-gxp-m-f-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gxp-compliance-expert-m-f-d-coopers-aargau"
+          "gxp-compliance-expert-m-f-d-coopers-aargau",
+          "esperto-di-conformita-gxp-m-f-d-coopers-group-ag-aargau"
         ]
       },
       "needsRetranslation": true,
@@ -3791,7 +3855,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=42FNN0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:41.685Z",
+      "crawledAt": "2026-10-04T09:23:00.371Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3823,11 +3887,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-java-ee-entwickler-in-m-w-d-coopers-luzern"
+        "senior-java-ee-entwickler-in-m-w-d-coopers-luzern",
+        "sviluppatore-java-ee-senior-m-f-d-coopers-group-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-java-ee-entwickler-in-m-w-d-coopers-luzern"
+          "senior-java-ee-entwickler-in-m-w-d-coopers-luzern",
+          "sviluppatore-java-ee-senior-m-f-d-coopers-group-ag-luzern"
         ],
         "en": [
           "senior-java-ee-entwickler-in-m-w-d-coopers-luzern"
@@ -3883,7 +3949,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=AE331U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:40.717Z",
+      "crawledAt": "2026-10-04T09:22:59.441Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -3916,11 +3982,13 @@
         ]
       },
       "previousSlugs": [
-        "product-owner-m-w-d-coopers-solothurn"
+        "product-owner-m-w-d-coopers-solothurn",
+        "proprietario-del-prodotto-m-f-d-coopers-group-ag-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-owner-m-w-d-coopers-solothurn"
+          "product-owner-m-w-d-coopers-solothurn",
+          "proprietario-del-prodotto-m-f-d-coopers-group-ag-solothurn"
         ],
         "fr": [
           "product-owner-m-w-d-coopers-solothurn"
@@ -3973,7 +4041,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9JMN86",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:39.752Z",
+      "crawledAt": "2026-10-04T09:22:58.514Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4008,11 +4076,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "ict-technische-r-projektleiter-in-senior-m-w-d-coopers-bern"
+          "ict-technische-r-projektleiter-in-senior-m-w-d-coopers-bern",
+          "ict-teilprojektleiter-in-m-w-d-coopers-bern"
         ],
         "it": [
           "ict-teilprojektleiter-in-m-w-d-coopers-bern",
-          "ict-technische-r-projektleiter-in-senior-m-w-d-coopers-bern"
+          "ict-technische-r-projektleiter-in-senior-m-w-d-coopers-bern",
+          "ict-technische-r-responsabile-di-progetto-senior-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "ict-teilprojektleiter-in-m-w-d-coopers-bern"
@@ -4023,7 +4093,8 @@
       },
       "previousSlugs": [
         "ict-teilprojektleiter-in-m-w-d-coopers-bern",
-        "ict-technische-r-projektleiter-in-senior-m-w-d-coopers-bern"
+        "ict-technische-r-projektleiter-in-senior-m-w-d-coopers-bern",
+        "ict-technische-r-responsabile-di-progetto-senior-m-w-d-coopers-group-ag-bern"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T14:51:02.495Z",
@@ -4072,7 +4143,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=80N9VI",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:38.774Z",
+      "crawledAt": "2026-10-04T09:22:57.578Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4105,11 +4176,13 @@
         ]
       },
       "previousSlugs": [
-        "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft"
+        "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft",
+        "commissioning-qualification-ingegnere-cqe-m-w-d-coopers-group-ag-basel-landschaft"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft"
+          "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft",
+          "commissioning-qualification-ingegnere-cqe-m-w-d-coopers-group-ag-basel-landschaft"
         ],
         "fr": [
           "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft"
@@ -4162,7 +4235,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=LC8J59",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:37.807Z",
+      "crawledAt": "2026-10-04T09:22:56.649Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -4241,7 +4314,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FV93U1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:36.844Z",
+      "crawledAt": "2026-10-04T09:22:55.721Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4274,11 +4347,13 @@
         ]
       },
       "previousSlugs": [
-        "power-plattform-developer-m-w-d-coopers-schaffhausen"
+        "power-plattform-developer-m-w-d-coopers-schaffhausen",
+        "power-plattform-sviluppatore-m-w-d-coopers-group-ag-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "power-plattform-developer-m-w-d-coopers-schaffhausen"
+          "power-plattform-developer-m-w-d-coopers-schaffhausen",
+          "power-plattform-sviluppatore-m-w-d-coopers-group-ag-schaffhausen"
         ],
         "fr": [
           "power-plattform-developer-m-w-d-coopers-schaffhausen"
@@ -4331,7 +4406,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3YU8C5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:35.879Z",
+      "crawledAt": "2026-10-04T09:22:54.797Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4363,11 +4438,13 @@
         ]
       },
       "previousSlugs": [
-        "system-engineer-it-infrastruktur-m-w-d-coopers-aargau"
+        "system-engineer-it-infrastruktur-m-w-d-coopers-aargau",
+        "system-ingegnere-it-infrastruktur-m-w-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "system-engineer-it-infrastruktur-m-w-d-coopers-aargau"
+          "system-engineer-it-infrastruktur-m-w-d-coopers-aargau",
+          "system-ingegnere-it-infrastruktur-m-w-d-coopers-group-ag-aargau"
         ],
         "fr": [
           "system-engineer-it-infrastruktur-m-w-d-coopers-aargau"
@@ -4420,7 +4497,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=20U4FB",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:34.900Z",
+      "crawledAt": "2026-10-04T09:22:53.865Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4451,27 +4528,29 @@
           "CIO, Project Management, PMO, Strategy Development"
         ]
       },
-      "previousSlugsByLocale": {
-        "de": [
-          "senior-cio-office-manager-safe-m-w-d-coopers-luzern",
-          "senior-cio-office-manager-m-w-d-coopers-luzern"
-        ],
-        "it": [
-          "leiter-in-cio-office-it-strategy-m-w-d-coopers-luzern",
-          "senior-cio-office-manager-safe-m-w-d-coopers-luzern",
-          "senior-cio-office-manager-m-w-d-coopers-luzern",
-          "leiter-in-cio-office-m-w-d-coopers-luzern"
-        ],
-        "en": [
-          "leiter-in-cio-office-it-strategy-m-w-d-coopers-luzern"
-        ]
-      },
       "previousSlugs": [
         "leiter-in-cio-office-it-strategy-m-w-d-coopers-luzern",
         "senior-cio-office-manager-safe-m-w-d-coopers-luzern",
         "senior-cio-office-manager-m-w-d-coopers-luzern",
-        "leiter-in-cio-office-m-w-d-coopers-luzern"
+        "leiter-in-cio-office-m-w-d-coopers-luzern",
+        "responsabile-cio-office-it-strategy-m-w-d-coopers-group-ag-luzern"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-cio-office-it-strategy-m-w-d-coopers-luzern",
+          "senior-cio-office-manager-safe-m-w-d-coopers-luzern",
+          "senior-cio-office-manager-m-w-d-coopers-luzern",
+          "leiter-in-cio-office-m-w-d-coopers-luzern",
+          "responsabile-cio-office-it-strategy-m-w-d-coopers-group-ag-luzern"
+        ],
+        "en": [
+          "leiter-in-cio-office-it-strategy-m-w-d-coopers-luzern"
+        ],
+        "de": [
+          "senior-cio-office-manager-safe-m-w-d-coopers-luzern",
+          "senior-cio-office-manager-m-w-d-coopers-luzern"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:21:03.690Z",
       "salaryMin": 96000,
@@ -4519,7 +4598,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=56NR3K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:33.936Z",
+      "crawledAt": "2026-10-04T09:22:52.934Z",
       "addressLocality": "Bern Grossraum",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4552,11 +4631,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-devsecops-engineer-kubernetes-m-w-d-coopers-bern-grossraum"
+        "senior-devsecops-engineer-kubernetes-m-w-d-coopers-bern-grossraum",
+        "senior-devsecops-ingegnere-kubernetes-m-w-d-coopers-group-ag-bern-grossraum"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-devsecops-engineer-kubernetes-m-w-d-coopers-bern-grossraum"
+          "senior-devsecops-engineer-kubernetes-m-w-d-coopers-bern-grossraum",
+          "senior-devsecops-ingegnere-kubernetes-m-w-d-coopers-group-ag-bern-grossraum"
         ],
         "fr": [
           "senior-devsecops-engineer-kubernetes-m-w-d-coopers-bern-grossraum"
@@ -4609,7 +4690,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=X62Z0K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:32.976Z",
+      "crawledAt": "2026-10-04T09:22:52.007Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4640,11 +4721,13 @@
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "pi-engineer-m-w-d-coopers-aargau"
+        "pi-engineer-m-w-d-coopers-aargau",
+        "pi-ingegnere-m-w-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pi-engineer-m-w-d-coopers-aargau"
+          "pi-engineer-m-w-d-coopers-aargau",
+          "pi-ingegnere-m-w-d-coopers-group-ag-aargau"
         ]
       },
       "firstSeenAt": "2026-09-28T21:21:00.849Z",
@@ -4693,7 +4776,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=K763LV",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:25:32.009Z",
+      "crawledAt": "2026-10-04T09:22:51.081Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -4725,11 +4808,13 @@
         ]
       },
       "previousSlugs": [
-        "software-engineer-m-w-d-coopers-wallis"
+        "software-engineer-m-w-d-coopers-wallis",
+        "software-ingegnere-m-w-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-m-w-d-coopers-wallis"
+          "software-engineer-m-w-d-coopers-wallis",
+          "software-ingegnere-m-w-d-coopers-group-ag-wallis"
         ],
         "de": [
           "software-engineer-m-w-d-coopers-wallis"
@@ -4782,7 +4867,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=N938EM",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:25:31.035Z",
+      "crawledAt": "2026-10-04T09:22:50.061Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -4814,11 +4899,13 @@
         ]
       },
       "previousSlugs": [
-        "it-engineer-m-w-d-coopers-wallis"
+        "it-engineer-m-w-d-coopers-wallis",
+        "it-ingegnere-m-w-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-engineer-m-w-d-coopers-wallis"
+          "it-engineer-m-w-d-coopers-wallis",
+          "it-ingegnere-m-w-d-coopers-group-ag-wallis"
         ],
         "de": [
           "it-engineer-m-w-d-coopers-wallis"
@@ -4871,7 +4958,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W26J4V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:30.061Z",
+      "crawledAt": "2026-10-04T09:22:49.135Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4905,11 +4992,13 @@
         ]
       },
       "previousSlugs": [
-        "m365-senior-system-administrator-m-w-d-coopers-bern"
+        "m365-senior-system-administrator-m-w-d-coopers-bern",
+        "m365-amministratore-di-sistema-senior-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "m365-senior-system-administrator-m-w-d-coopers-bern"
+          "m365-senior-system-administrator-m-w-d-coopers-bern",
+          "m365-amministratore-di-sistema-senior-m-f-d-coopers-group-ag-bern"
         ],
         "fr": [
           "m365-senior-system-administrator-m-w-d-coopers-bern"
@@ -4962,7 +5051,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=14PJ2J",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:25:29.093Z",
+      "crawledAt": "2026-10-04T09:22:48.200Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4998,15 +5087,18 @@
       },
       "previousSlugs": [
         "logistics-specialist-global-clinical-distribution-m-f-d-coopers-aargau",
-        "global-clinical-logistics-distribution-specialist-m-f-d-coopers-aargau"
+        "global-clinical-logistics-distribution-specialist-m-f-d-coopers-aargau",
+        "logistica-specialista-global-clinical-distribution-m-f-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistics-specialist-global-clinical-distribution-m-f-d-coopers-aargau",
-          "global-clinical-logistics-distribution-specialist-m-f-d-coopers-aargau"
+          "global-clinical-logistics-distribution-specialist-m-f-d-coopers-aargau",
+          "logistica-specialista-global-clinical-distribution-m-f-d-coopers-group-ag-aargau"
         ]
       },
       "firstSeenAt": "2026-08-17T22:06:05.062Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -5052,7 +5144,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=912RAL",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:28.121Z",
+      "crawledAt": "2026-10-04T09:22:47.278Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5130,7 +5222,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GH26V9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:27.153Z",
+      "crawledAt": "2026-10-04T09:22:46.344Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5210,7 +5302,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=N0P2X0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:26.185Z",
+      "crawledAt": "2026-10-04T09:22:45.422Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5291,7 +5383,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=R1HY31",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:25.218Z",
+      "crawledAt": "2026-10-04T09:22:44.486Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5367,7 +5459,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=873AAR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:25:24.248Z",
+      "crawledAt": "2026-10-04T09:22:43.556Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -5398,10 +5490,14 @@
           "MES, GMP"
         ]
       },
-      "firstSeenAt": "2026-09-30T21:17:22.647Z",
+      "previousSlugs": [
+        "mes-system-engineer-m-f-d-coopers-wallis",
+        "mes-system-ingegnere-m-f-d-coopers-group-ag-wallis"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "mes-system-engineer-m-f-d-coopers-wallis"
+          "mes-system-engineer-m-f-d-coopers-wallis",
+          "mes-system-ingegnere-m-f-d-coopers-group-ag-wallis"
         ],
         "de": [
           "mes-system-engineer-m-f-d-coopers-wallis"
@@ -5410,9 +5506,8 @@
           "mes-system-engineer-m-f-d-coopers-wallis"
         ]
       },
-      "previousSlugs": [
-        "mes-system-engineer-m-f-d-coopers-wallis"
-      ],
+      "firstSeenAt": "2026-09-30T21:17:22.647Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -5458,7 +5553,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=HWB224",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:23.266Z",
+      "crawledAt": "2026-10-04T09:22:42.620Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5534,7 +5629,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=S7U6M4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:22.280Z",
+      "crawledAt": "2026-10-04T09:22:41.689Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -5564,18 +5659,21 @@
           "Catia, CAD, SolidWorks, ISO 8015"
         ]
       },
-      "firstSeenAt": "2026-09-30T21:17:20.802Z",
+      "previousSlugs": [
+        "senior-mechanical-engineer-m-w-d-coopers-zug",
+        "senior-mechanical-ingegnere-m-w-d-coopers-group-ag-zug"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-mechanical-engineer-m-w-d-coopers-zug"
+          "senior-mechanical-engineer-m-w-d-coopers-zug",
+          "senior-mechanical-ingegnere-m-w-d-coopers-group-ag-zug"
         ],
         "fr": [
           "senior-mechanical-engineer-m-w-d-coopers-zug"
         ]
       },
-      "previousSlugs": [
-        "senior-mechanical-engineer-m-w-d-coopers-zug"
-      ],
+      "firstSeenAt": "2026-09-30T21:17:20.802Z",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 162500,
       "salarySource": "estimated",
@@ -5621,7 +5719,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=BX0J02",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:21.301Z",
+      "crawledAt": "2026-10-04T09:22:40.756Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5672,9 +5770,9 @@
       "id": "coopers-ba7ed6a137ca",
       "slug": "responsabile-vendite-svizzera-m-f-d-coopers-group-ag-solothurn",
       "slugByLocale": {
-        "de": "sales-manager-schweiz-m-w-d-coopers-solothurn",
         "it": "responsabile-vendite-svizzera-m-f-d-coopers-group-ag-solothurn",
         "en": "sales-manager-schweiz-m-w-d-coopers-solothurn",
+        "de": "sales-manager-schweiz-m-w-d-coopers-solothurn",
         "fr": "directeur-des-ventes-suisse-h-f-d-coopers-group-ag-solothurn"
       },
       "company": "Coopers Group AG",
@@ -5683,7 +5781,7 @@
       "title": "Sales Manager Schweiz (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile vendite Svizzera (m/f/d)",
-        "en": "Sales Manager Switzerland (m/f/d)",
+        "en": "Sales Manager Schweiz (m/w/d)",
         "de": "Sales Manager Schweiz (m/w/d)",
         "fr": "Directeur des ventes Suisse (h/f/d)"
       },
@@ -5699,7 +5797,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8A0OK8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:20.330Z",
+      "crawledAt": "2026-10-04T09:22:39.833Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -5730,19 +5828,21 @@
         ]
       },
       "previousSlugs": [
+        "sales-manager-schweiz-m-w-d-coopers-solothurn",
         "responsabile-vendite-svizzera-m-f-d-coopers-group-ag-solothurn",
-        "directeur-des-ventes-suisse-h-f-d-coopers-group-ag-solothurn",
-        "sales-manager-schweiz-m-w-d-coopers-solothurn"
+        "directeur-des-ventes-suisse-h-f-d-coopers-group-ag-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-manager-schweiz-m-w-d-coopers-solothurn"
+          "sales-manager-schweiz-m-w-d-coopers-solothurn",
+          "responsabile-vendite-svizzera-m-f-d-coopers-group-ag-solothurn"
         ],
         "fr": [
-          "directeur-des-ventes-suisse-h-f-d-coopers-group-ag-solothurn",
-          "sales-manager-schweiz-m-w-d-coopers-solothurn"
+          "sales-manager-schweiz-m-w-d-coopers-solothurn",
+          "directeur-des-ventes-suisse-h-f-d-coopers-group-ag-solothurn"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:22:33.293Z",
       "salaryMin": 109000,
       "salaryMax": 167000,
@@ -5756,15 +5856,14 @@
           "maxValue": 167000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "coopers-0e5dac2613de",
       "slug": "delivery-direttore-data-lakehouse-ai-platform-m-f-d-coopers-group-ag-genf",
       "slugByLocale": {
-        "en": "delivery-director-data-lakehouse-ai-platform-m-f-d-coopers-genf",
         "it": "delivery-direttore-data-lakehouse-ai-platform-m-f-d-coopers-group-ag-genf",
+        "en": "delivery-director-data-lakehouse-ai-platform-m-f-d-coopers-genf",
         "de": "delivery-direktor-data-lakehouse-ai-platform-m-f-d-coopers-group-ag-genf",
         "fr": "directeur-de-livraison-data-lakehouse-ai-platform-h-f-d-coopers-group-ag-genf"
       },
@@ -5776,7 +5875,7 @@
         "it": "Delivery Direttore - Data Lakehouse & AI Platform (m/f/d)",
         "en": "Delivery Director - Data Lakehouse & AI Platform (m/f/d)",
         "de": "Delivery Direktor - Data Lakehouse & AI Platform (m/f/d)",
-        "fr": "Directeur de livraison - Data Lakehouse & AI Platform (h/f/d)"
+        "fr": "Delivery Director - Data Lakehouse & AI Platform (m/f/d)"
       },
       "description": "For a longterm project at our client in Geneva, we are looking for an experienced, motivated and open-minded Delivery Director – Data Lakehouse & AI Platform .\n\nOur client is seeking an experienced and commercially minded Delivery Director / Programme Director to lead both the bid and delivery phases of a strategic Data Lakehouse & AI Platform initiative for a major Swiss healthcare organization. This role combines executive-level delivery leadership, public tender expertise, stakeholder management, and deep understanding of modern data platform architectures and AI-enabled ecosystems.\n\nThe successful candidate will be responsible for shaping the delivery strategy during the tender phase and, subject to contract award, leading the end-to-end implementation and long-term delivery of the platform.\n\nYour Tasks:\n• Own and lead all delivery-related aspects of the bid process\n• Define the overall delivery strategy, governance model, and implementation approach\n• Contribute to the preparation and submission of the complete bid package\n• Lead delivery-related customer presentations, auditions, and evaluation sessions\n• Coordinate and manage the Proof of Concept (PoC)\n• Ensure delivery feasibility, resource planning, quality assurance, and timeline adherence\n• Coordinate internal teams, implementation partners, and third-party vendors\n• Take end-to-end responsibility for the delivery of the Data Lakehouse & AI Platform\n• Lead mobilisation, implementation, testing, go-live, and stabilisation activities\n• Establish and manage programme governance, reporting, and decision-making structures\n• Oversee resources, budgets, risks, dependencies, escalations, and delivery milestones\n• Manage commercial topics including TCO, SLAs, rate cards, contracts, and change requests\n• Build and maintain long-term relationships with customer stakeholders and executives\n• Ensure successful delivery within agreed scope, quality, budget, and timelines\n\nYour Profile:\n• Own and lead all delivery-related aspects of the bid process\n• Define the overall delivery strategy, governance model, and implementation approach\n• Contribute to the preparation and submission of the complete bid package\n• Lead delivery-related customer presentations, auditions, and evaluation sessions\n• Coordinate and manage the Proof of Concept (PoC)\n• Ensure delivery feasibility, resource planning, quality assurance, and timeline adherence\n• Coordinate internal teams, implementation partners, and third-party vendors\n• Take end-to-end responsibility for the delivery of the Data Lakehouse & AI Platform\n• Lead mobilisation, implementation, testing, go-live, and stabilisation activities\n• Establish and manage programme governance, reporting, and decision-making structures\n• Oversee resources, budgets, risks, dependencies, escalations, and delivery milestones\n• Manage commercial topics including TCO, SLAs, rate cards, contracts, and change requests\n• Build and maintain long-term relationships with customer stakeholders and executives\n• Ensure successful delivery within agreed scope, quality, budget, and timelines\n• Fluency in French and English\n\nJob profile\n• IT - Data Science / Digital\n• IT - IT Infrastructure & Operations\n• Genf\n• Contracting\n• Part Time, 60-100%\n• Immediately - 12+ months\n• LLM, Governance, Data Lakehouse\n\nJob benefits\n• First-name terms\n• Home Office\n• Modern workspace",
       "descriptionByLocale": {
@@ -5790,7 +5889,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2NU77Z",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:25:19.306Z",
+      "crawledAt": "2026-10-04T09:22:38.864Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -5823,21 +5922,22 @@
           "LLM, Governance, Data Lakehouse"
         ]
       },
-      "firstSeenAt": "2026-10-03T09:22:32.330Z",
+      "previousSlugs": [
+        "delivery-director-data-lakehouse-ai-platform-m-f-d-coopers-genf",
+        "delivery-direttore-data-lakehouse-ai-platform-m-f-d-coopers-group-ag-genf",
+        "delivery-direktor-data-lakehouse-ai-platform-m-f-d-coopers-group-ag-genf"
+      ],
       "previousSlugsByLocale": {
         "it": [
+          "delivery-director-data-lakehouse-ai-platform-m-f-d-coopers-genf",
           "delivery-direttore-data-lakehouse-ai-platform-m-f-d-coopers-group-ag-genf"
         ],
         "de": [
           "delivery-direktor-data-lakehouse-ai-platform-m-f-d-coopers-group-ag-genf"
         ]
       },
-      "previousSlugs": [
-        "delivery-director-data-lakehouse-ai-platform-m-f-d-coopers-genf",
-        "directeur-de-livraison-data-lakehouse-ai-platform-h-f-d-coopers-group-ag-genf",
-        "delivery-direttore-data-lakehouse-ai-platform-m-f-d-coopers-group-ag-genf",
-        "delivery-direktor-data-lakehouse-ai-platform-m-f-d-coopers-group-ag-genf"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:22:32.330Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -5850,12 +5950,11 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "coopers-5a6ab26c279e",
-      "slug": "global-clinical-distribution-lead-m-w-d-coopers-group-ag-aargau",
+      "slug": "piombo-di-distribuzione-clinica-globale-m-f-d-coopers-group-ag-aargau",
       "slugByLocale": {
         "it": "piombo-di-distribuzione-clinica-globale-m-f-d-coopers-group-ag-aargau",
         "en": "global-clinical-distribution-lead-m-f-d-coopers-aargau",
@@ -5884,7 +5983,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8Y16NP",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:25:18.338Z",
+      "crawledAt": "2026-10-04T09:22:37.942Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5916,11 +6015,13 @@
         ]
       },
       "previousSlugs": [
-        "global-clinical-distribution-lead-m-f-d-coopers-aargau"
+        "global-clinical-distribution-lead-m-f-d-coopers-aargau",
+        "global-clinical-distribution-lead-m-w-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-clinical-distribution-lead-m-f-d-coopers-aargau"
+          "global-clinical-distribution-lead-m-f-d-coopers-aargau",
+          "global-clinical-distribution-lead-m-w-d-coopers-group-ag-aargau"
         ]
       },
       "needsRetranslation": true,
@@ -5970,7 +6071,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=63IRD1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:25:17.366Z",
+      "crawledAt": "2026-10-04T09:22:36.999Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -5998,6 +6099,18 @@
           "Medizintechnik, Quality"
         ]
       },
+      "previousSlugs": [
+        "product-quality-engineer-m-w-d-coopers-zug",
+        "product-quality-ingegnere-m-w-d-coopers-group-ag-zug"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "product-quality-engineer-m-w-d-coopers-zug",
+          "product-quality-ingegnere-m-w-d-coopers-group-ag-zug"
+        ]
+      },
+      "firstSeenAt": "2026-10-01T09:21:06.768Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -6010,17 +6123,6 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-01T09:21:06.768Z",
-      "previousSlugs": [
-        "product-quality-engineer-m-w-d-coopers-zug",
-        "product-quality-ingegnere-m-w-d-coopers-group-ag-zug"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "product-quality-engineer-m-w-d-coopers-zug",
-          "product-quality-ingegnere-m-w-d-coopers-group-ag-zug"
-        ]
       }
     },
     {
@@ -6054,7 +6156,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W186PG",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:25:16.401Z",
+      "crawledAt": "2026-10-04T09:22:36.052Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6101,457 +6203,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "coopers-a0203c0aca15",
-      "slug": "agile-r-it-projekt-manager-technischer-projekt-leiter-m-w-d-coopers-group-ag-bern",
-      "slugByLocale": {
-        "it": "agile-r-it-projekt-manager-technischer-projekt-leiter-m-w-d-coopers-group-ag-bern",
-        "en": "agile-r-it-project-manager-technical-project-head-m-f-d-coopers-group-ag-bern",
-        "de": "agile-r-it-projekt-manager-technischer-projekt-leiter-m-w-d-coopers-bern",
-        "fr": "agile-r-gestionnaire-de-projet-informatique-chef-de-projet-technique-h-f-d-coopers-group-ag-bern"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Agile:r IT Projekt Manager / Epic Owner (m/w/d)",
-      "titleByLocale": {
-        "it": "Agile:r IT Project Manager / Technical Project Head (m/f/d)",
-        "en": "Agile:r IT Projekt Manager / Epic Owner (m/w/d)",
-        "de": "Agile:r IT Projekt Manager / Epic Owner (m/w/d)",
-        "fr": "Agile:r Gestionnaire de projet informatique / Chef de projet technique (h/f/d)"
-      },
-      "description": "Für ein langfristiges und technologisch anspruchsvolles Transformationsprogramm suchen wir für unseren Kunden aus Bern eine:n erfahrene:n agile:r IT Projekt Manager / Epic Owner .\n\nFür ein strategisches Digitalisierungsprogramm suchen wir eine erfahrene Persönlichkeit mit fundierter Erfahrung in agilen Grossprojekten. In dieser Rolle unterstützt du die Steuerung komplexer DevSecOps-Initiativen, stellst Transparenz über Fortschritt und Risiken sicher und trägst zur erfolgreichen Umsetzung von Vorhaben innerhalb eines SAFe-Umfelds bei.\n\nDeine Aufgaben:\n• Verantwortung für Stakeholdermanagement sowie Aufbau eines adressatengerechten Berichtswesens auf Team-, ART- und Managementebene\n• Unterstützung bei der Steuerung von Backlogs, Prioritäten, Scope und Outcomes innerhalb eines agilen DevSecOps-Umfelds\n• Sicherstellung von Transparenz hinsichtlich Fortschritt, Lieferfähigkeit, Qualität, Kapazitäten und Abhängigkeiten\n• Unterstützung und Begleitung von PI-Plannings, Iterationsplanungen sowie der kontinuierlichen Backlog-Steuerung\n• Etablierung und Weiterentwicklung von Risiko-, Qualitäts- und Änderungsmanagement-Prozessen\n• Sicherstellung der Einhaltung von Security-, Compliance- und Qualitätsanforderungen innerhalb der Delivery- und Entwicklungsprozesse\n\nDein Profil:\n• Mehrjährige Erfahrung in der ICT-Projektleitung oder als PMO/EPIC-Owner-Unterstützung in agilen Grossprojekten\n• Fundierte Kenntnisse von SAFe, DevSecOps sowie modernen Delivery- und Governance-Prozessen\n• Erfahrung im Stakeholdermanagement sowie in der Erstellung und Steuerung von Management-Reportings\n• Praxis im Risiko-, Qualitäts- und Changemanagement innerhalb komplexer Projektumgebungen\n• Ausgeprägte Kommunikations-, Moderations- und Organisationsfähigkeiten\n• Strukturierte, analytische und lösungsorientierte Arbeitsweise mit hoher Eigenverantwortung\n• Sehr gute Deutschkenntnisse\n• Einwandfreier Leumund ist zwingend\n\nJob profile\n• IT - Project Management\n• Bern\n• Contracting\n• Part Time, 100%\n• 01.12.2026 - 30.11.2028\n• Project Management, Project Lifecycle, agile\n\nJob benefits\n• Coopers Care\n• Good public transport connection\n• Home Office\n• Modern workspace",
-      "descriptionByLocale": {
-        "it": "Für ein langfristiges und technologisch anspruchsvolles Transformationsprogramm suchen wir für unseren Kunden aus Bern eine:n erfahrene:n agile:r IT Projekt Manager / Epic Owner .\n\nFür ein strategisches Digitalisierungsprogramm suchen wir eine erfahrene Persönlichkeit mit fundierter Erfahrung in agilen Grossprojekten. In dieser Rolle unterstützt du die Steuerung komplexer DevSecOps-Initiativen, stellst Transparenz über Fortschritt und Risiken sicher und trägst zur erfolgreichen Umsetzung von Vorhaben innerhalb eines SAFe-Umfelds bei.\n\nDeine Aufgaben:\n• Verantwortung für Stakeholdermanagement sowie Aufbau eines adressatengerechten Berichtswesens auf Team-, ART- und Managementebene\n• Unterstützung bei der Steuerung von Backlogs, Prioritäten, Scope und Outcomes innerhalb eines agilen DevSecOps-Umfelds\n• Sicherstellung von Transparenz hinsichtlich Fortschritt, Lieferfähigkeit, Qualität, Kapazitäten und Abhängigkeiten\n• Unterstützung und Begleitung von PI-Plannings, Iterationsplanungen sowie der kontinuierlichen Backlog-Steuerung\n• Etablierung und Weiterentwicklung von Risiko-, Qualitäts- und Änderungsmanagement-Prozessen\n• Sicherstellung der Einhaltung von Security-, Compliance- und Qualitätsanforderungen innerhalb der Delivery- und Entwicklungsprozesse\n\nDein Profil:\n• Mehrjährige Erfahrung in der ICT-Projektleitung oder als PMO/EPIC-Owner-Unterstützung in agilen Grossprojekten\n• Fundierte Kenntnisse von SAFe, DevSecOps sowie modernen Delivery- und Governance-Prozessen\n• Erfahrung im Stakeholdermanagement sowie in der Erstellung und Steuerung von Management-Reportings\n• Praxis im Risiko-, Qualitäts- und Changemanagement innerhalb komplexer Projektumgebungen\n• Ausgeprägte Kommunikations-, Moderations- und Organisationsfähigkeiten\n• Strukturierte, analytische und lösungsorientierte Arbeitsweise mit hoher Eigenverantwortung\n• Sehr gute Deutschkenntnisse\n• Einwandfreier Leumund ist zwingend\n\nJob profile\n• IT - Project Management\n• Bern\n• Contracting\n• Part Time, 100%\n• 01.12.2026 - 30.11.2028\n• Project Management, Project Lifecycle, agile\n\nJob benefits\n• Coopers Care\n• Good public transport connection\n• Home Office\n• Modern workspace",
-        "en": "Für ein langfristiges und technologisch anspruchsvolles Transformationsprogramm suchen wir für unseren Kunden aus Bern eine:n erfahrene:n agile:r IT Projekt Manager / Epic Owner .\n\nFür ein strategisches Digitalisierungsprogramm suchen wir eine erfahrene Persönlichkeit mit fundierter Erfahrung in agilen Grossprojekten. In dieser Rolle unterstützt du die Steuerung komplexer DevSecOps-Initiativen, stellst Transparenz über Fortschritt und Risiken sicher und trägst zur erfolgreichen Umsetzung von Vorhaben innerhalb eines SAFe-Umfelds bei.\n\nDeine Aufgaben:\n• Verantwortung für Stakeholdermanagement sowie Aufbau eines adressatengerechten Berichtswesens auf Team-, ART- und Managementebene\n• Unterstützung bei der Steuerung von Backlogs, Prioritäten, Scope und Outcomes innerhalb eines agilen DevSecOps-Umfelds\n• Sicherstellung von Transparenz hinsichtlich Fortschritt, Lieferfähigkeit, Qualität, Kapazitäten und Abhängigkeiten\n• Unterstützung und Begleitung von PI-Plannings, Iterationsplanungen sowie der kontinuierlichen Backlog-Steuerung\n• Etablierung und Weiterentwicklung von Risiko-, Qualitäts- und Änderungsmanagement-Prozessen\n• Sicherstellung der Einhaltung von Security-, Compliance- und Qualitätsanforderungen innerhalb der Delivery- und Entwicklungsprozesse\n\nDein Profil:\n• Mehrjährige Erfahrung in der ICT-Projektleitung oder als PMO/EPIC-Owner-Unterstützung in agilen Grossprojekten\n• Fundierte Kenntnisse von SAFe, DevSecOps sowie modernen Delivery- und Governance-Prozessen\n• Erfahrung im Stakeholdermanagement sowie in der Erstellung und Steuerung von Management-Reportings\n• Praxis im Risiko-, Qualitäts- und Changemanagement innerhalb komplexer Projektumgebungen\n• Ausgeprägte Kommunikations-, Moderations- und Organisationsfähigkeiten\n• Strukturierte, analytische und lösungsorientierte Arbeitsweise mit hoher Eigenverantwortung\n• Sehr gute Deutschkenntnisse\n• Einwandfreier Leumund ist zwingend\n\nJob profile\n• IT - Project Management\n• Bern\n• Contracting\n• Part Time, 100%\n• 01.12.2026 - 30.11.2028\n• Project Management, Project Lifecycle, agile\n\nJob benefits\n• Coopers Care\n• Good public transport connection\n• Home Office\n• Modern workspace",
-        "de": "Für ein langfristiges und technologisch anspruchsvolles Transformationsprogramm suchen wir für unseren Kunden aus Bern eine:n erfahrene:n agile:r IT Projekt Manager / Epic Owner .\n\nFür ein strategisches Digitalisierungsprogramm suchen wir eine erfahrene Persönlichkeit mit fundierter Erfahrung in agilen Grossprojekten. In dieser Rolle unterstützt du die Steuerung komplexer DevSecOps-Initiativen, stellst Transparenz über Fortschritt und Risiken sicher und trägst zur erfolgreichen Umsetzung von Vorhaben innerhalb eines SAFe-Umfelds bei.\n\nDeine Aufgaben:\n• Verantwortung für Stakeholdermanagement sowie Aufbau eines adressatengerechten Berichtswesens auf Team-, ART- und Managementebene\n• Unterstützung bei der Steuerung von Backlogs, Prioritäten, Scope und Outcomes innerhalb eines agilen DevSecOps-Umfelds\n• Sicherstellung von Transparenz hinsichtlich Fortschritt, Lieferfähigkeit, Qualität, Kapazitäten und Abhängigkeiten\n• Unterstützung und Begleitung von PI-Plannings, Iterationsplanungen sowie der kontinuierlichen Backlog-Steuerung\n• Etablierung und Weiterentwicklung von Risiko-, Qualitäts- und Änderungsmanagement-Prozessen\n• Sicherstellung der Einhaltung von Security-, Compliance- und Qualitätsanforderungen innerhalb der Delivery- und Entwicklungsprozesse\n\nDein Profil:\n• Mehrjährige Erfahrung in der ICT-Projektleitung oder als PMO/EPIC-Owner-Unterstützung in agilen Grossprojekten\n• Fundierte Kenntnisse von SAFe, DevSecOps sowie modernen Delivery- und Governance-Prozessen\n• Erfahrung im Stakeholdermanagement sowie in der Erstellung und Steuerung von Management-Reportings\n• Praxis im Risiko-, Qualitäts- und Changemanagement innerhalb komplexer Projektumgebungen\n• Ausgeprägte Kommunikations-, Moderations- und Organisationsfähigkeiten\n• Strukturierte, analytische und lösungsorientierte Arbeitsweise mit hoher Eigenverantwortung\n• Sehr gute Deutschkenntnisse\n• Einwandfreier Leumund ist zwingend\n\nJob profile\n• IT - Project Management\n• Bern\n• Contracting\n• Part Time, 100%\n• 01.12.2026 - 30.11.2028\n• Project Management, Project Lifecycle, agile\n\nJob benefits\n• Coopers Care\n• Good public transport connection\n• Home Office\n• Modern workspace",
-        "fr": "Für ein langfristiges und technologisch anspruchsvolles Transformationsprogramm suchen wir für unseren Kunden aus Bern eine:n erfahrene:n agile:r IT Projekt Manager / Epic Owner .\n\nFür ein strategisches Digitalisierungsprogramm suchen wir eine erfahrene Persönlichkeit mit fundierter Erfahrung in agilen Grossprojekten. In dieser Rolle unterstützt du die Steuerung komplexer DevSecOps-Initiativen, stellst Transparenz über Fortschritt und Risiken sicher und trägst zur erfolgreichen Umsetzung von Vorhaben innerhalb eines SAFe-Umfelds bei.\n\nDeine Aufgaben:\n• Verantwortung für Stakeholdermanagement sowie Aufbau eines adressatengerechten Berichtswesens auf Team-, ART- und Managementebene\n• Unterstützung bei der Steuerung von Backlogs, Prioritäten, Scope und Outcomes innerhalb eines agilen DevSecOps-Umfelds\n• Sicherstellung von Transparenz hinsichtlich Fortschritt, Lieferfähigkeit, Qualität, Kapazitäten und Abhängigkeiten\n• Unterstützung und Begleitung von PI-Plannings, Iterationsplanungen sowie der kontinuierlichen Backlog-Steuerung\n• Etablierung und Weiterentwicklung von Risiko-, Qualitäts- und Änderungsmanagement-Prozessen\n• Sicherstellung der Einhaltung von Security-, Compliance- und Qualitätsanforderungen innerhalb der Delivery- und Entwicklungsprozesse\n\nDein Profil:\n• Mehrjährige Erfahrung in der ICT-Projektleitung oder als PMO/EPIC-Owner-Unterstützung in agilen Grossprojekten\n• Fundierte Kenntnisse von SAFe, DevSecOps sowie modernen Delivery- und Governance-Prozessen\n• Erfahrung im Stakeholdermanagement sowie in der Erstellung und Steuerung von Management-Reportings\n• Praxis im Risiko-, Qualitäts- und Changemanagement innerhalb komplexer Projektumgebungen\n• Ausgeprägte Kommunikations-, Moderations- und Organisationsfähigkeiten\n• Strukturierte, analytische und lösungsorientierte Arbeitsweise mit hoher Eigenverantwortung\n• Sehr gute Deutschkenntnisse\n• Einwandfreier Leumund ist zwingend\n\nJob profile\n• IT - Project Management\n• Bern\n• Contracting\n• Part Time, 100%\n• 01.12.2026 - 30.11.2028\n• Project Management, Project Lifecycle, agile\n\nJob benefits\n• Coopers Care\n• Good public transport connection\n• Home Office\n• Modern workspace"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=6V5HS0",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:24:59.123Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-16",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=6V5HS0",
-      "requirements": [
-        "IT - Project Management",
-        "Bern",
-        "Contracting",
-        "Part Time, 100%",
-        "01.12.2026 - 30.11.2028",
-        "Project Management, Project Lifecycle, agile"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "IT - Project Management",
-          "Contracting",
-          "Part Time, 100%",
-          "01.12.2026 - 30.11.2028",
-          "Project Management, Project Lifecycle, agile"
-        ]
-      },
-      "previousSlugsByLocale": {
-        "de": [
-          "agile-r-it-projekt-manager-epic-owner-m-w-d-coopers-bern"
-        ],
-        "it": [
-          "agile-r-it-projekt-manager-technischer-projekt-leiter-m-w-d-coopers-bern",
-          "agile-r-it-projekt-manager-epic-owner-m-w-d-coopers-bern"
-        ],
-        "en": [
-          "agile-r-it-projekt-manager-technischer-projekt-leiter-m-w-d-coopers-bern"
-        ],
-        "fr": [
-          "agile-r-it-projekt-manager-technischer-projekt-leiter-m-w-d-coopers-bern"
-        ]
-      },
-      "previousSlugs": [
-        "agile-r-it-projekt-manager-technischer-projekt-leiter-m-w-d-coopers-bern",
-        "agile-r-it-projekt-manager-epic-owner-m-w-d-coopers-bern"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T22:57:59.809Z",
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113000,
-          "maxValue": 192000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "coopers-ec940b19b374",
-      "slug": "ikt-responsabile-di-progetto-m-w-d-coopers-group-ag-bern",
-      "slugByLocale": {
-        "it": "ikt-responsabile-di-progetto-m-w-d-coopers-group-ag-bern",
-        "en": "ikt-project-manager-m-w-d-coopers-group-ag-bern",
-        "de": "ikt-projektleiter-in-m-w-d-coopers-bern",
-        "fr": "ikt-chef-de-projet-m-w-d-coopers-group-ag-bern"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "IKT-Projektleiter:in - Bauvorhaben (m/w/d)",
-      "titleByLocale": {
-        "it": "IKT-Responsabile di progetto (m/w/d)",
-        "en": "IKT-Project Manager (m/w/d)",
-        "de": "IKT-Projektleiter:in - Bauvorhaben (m/w/d)",
-        "fr": "IKT-Chef de projet (m/w/d)"
-      },
-      "description": "Für unseren Kunden in Bern, suchen wir eine:n erfahrene:n und aufgeschlossene:n IKT-Projektleiter:in - Bauvorhaben .\n\nFür ein langfristiges Digitalisierungs- und Infrastrukturprogramm suchen wir eine erfahrene Persönlichkeit im Bereich ICT-Projektleitung und IKT-Fachplanung . In dieser Rolle verantwortest du die ICT-Bedarfsplanung, die Koordination von Bauprojekten sowie die Planung und Einführung moderner ICT-Services und Netzwerkkomponenten in sicherheitskritischen Umgebungen.\n\nDeine Aufgaben:\n• Erhebung, Analyse und Planung von ICT-Bedarfen im Rahmen komplexer Bau- und Infrastrukturprojekte\n• Beratung von Projektteams und Fachbereichen zu verfügbaren ICT-Services, Lösungsansätzen und technischen Umsetzungsmöglichkeiten\n• Erstellung von Projektmanagementplänen, Analysen, Studien sowie Migrations- und Integrationskonzepten\n• Verantwortung für die ICT-Rolloutplanung sowie die Spezifikation und Koordination von ICT-Komponenten und Lieferobjekten in Bauprojekten\n• Steuerung von Teilprojekten, Lieferanten und Serviceentwicklungen inklusive Qualitätsmanagement, Risikoüberwachung und Abnahmeprozessen\n• Erstellung von Status- und Risikoberichten, Stakeholdermanagement sowie Sicherstellung einer transparenten Kommunikation gegenüber Projektbeteiligten und Lieferanten\n\nDein Profil:\n• Mehrjährige Erfahrung in der ICT-Projektleitung sowie in der Planung und Umsetzung von Bau-, Infrastruktur- oder Integrationsprojekten\n• Fundierte Kenntnisse in der Bedarfsanalyse, Fachplanung und Konzeption von ICT-Lösungen in Bau- oder Infrastrukturprojekten\n• Erfahrung in der Projektorganisation sowie im Umgang mit Projektmanagement- und Planungstools\n• Kenntnisse von Projektmethoden und Frameworks wie SAFe sowie idealerweise Erfahrung im Umfeld von SIA-Methodiken\n• Ausgeprägte Beratungs-, Kommunikations- und Managementkompetenz sowie Erfahrung im Stakeholder- und Risikomanagement\n• Verständnis für Beschaffungsprozesse, Wirtschaftlichkeitsbetrachtungen sowie ICT- und OT-Komponenten im Infrastrukturumfeld\n• Fliessende Deutschkenntnisse\n• Einwandfreier Leumund ist zwingend\n\nJob profile\n• IT - Project Management\n• Bern\n• Contracting\n• Full Time\n• 01.12.2026 - 30.11.2028\n• Project Management",
-      "descriptionByLocale": {
-        "it": "Für unseren Kunden in Bern, suchen wir eine:n erfahrene:n und aufgeschlossene:n IKT-Projektleiter:in - Bauvorhaben .\n\nFür ein langfristiges Digitalisierungs- und Infrastrukturprogramm suchen wir eine erfahrene Persönlichkeit im Bereich ICT-Projektleitung und IKT-Fachplanung . In dieser Rolle verantwortest du die ICT-Bedarfsplanung, die Koordination von Bauprojekten sowie die Planung und Einführung moderner ICT-Services und Netzwerkkomponenten in sicherheitskritischen Umgebungen.\n\nDeine Aufgaben:\n• Erhebung, Analyse und Planung von ICT-Bedarfen im Rahmen komplexer Bau- und Infrastrukturprojekte\n• Beratung von Projektteams und Fachbereichen zu verfügbaren ICT-Services, Lösungsansätzen und technischen Umsetzungsmöglichkeiten\n• Erstellung von Projektmanagementplänen, Analysen, Studien sowie Migrations- und Integrationskonzepten\n• Verantwortung für die ICT-Rolloutplanung sowie die Spezifikation und Koordination von ICT-Komponenten und Lieferobjekten in Bauprojekten\n• Steuerung von Teilprojekten, Lieferanten und Serviceentwicklungen inklusive Qualitätsmanagement, Risikoüberwachung und Abnahmeprozessen\n• Erstellung von Status- und Risikoberichten, Stakeholdermanagement sowie Sicherstellung einer transparenten Kommunikation gegenüber Projektbeteiligten und Lieferanten\n\nDein Profil:\n• Mehrjährige Erfahrung in der ICT-Projektleitung sowie in der Planung und Umsetzung von Bau-, Infrastruktur- oder Integrationsprojekten\n• Fundierte Kenntnisse in der Bedarfsanalyse, Fachplanung und Konzeption von ICT-Lösungen in Bau- oder Infrastrukturprojekten\n• Erfahrung in der Projektorganisation sowie im Umgang mit Projektmanagement- und Planungstools\n• Kenntnisse von Projektmethoden und Frameworks wie SAFe sowie idealerweise Erfahrung im Umfeld von SIA-Methodiken\n• Ausgeprägte Beratungs-, Kommunikations- und Managementkompetenz sowie Erfahrung im Stakeholder- und Risikomanagement\n• Verständnis für Beschaffungsprozesse, Wirtschaftlichkeitsbetrachtungen sowie ICT- und OT-Komponenten im Infrastrukturumfeld\n• Fliessende Deutschkenntnisse\n• Einwandfreier Leumund ist zwingend\n\nJob profile\n• IT - Project Management\n• Bern\n• Contracting\n• Full Time\n• 01.12.2026 - 30.11.2028\n• Project Management",
-        "en": "Für unseren Kunden in Bern, suchen wir eine:n erfahrene:n und aufgeschlossene:n IKT-Projektleiter:in - Bauvorhaben .\n\nFür ein langfristiges Digitalisierungs- und Infrastrukturprogramm suchen wir eine erfahrene Persönlichkeit im Bereich ICT-Projektleitung und IKT-Fachplanung . In dieser Rolle verantwortest du die ICT-Bedarfsplanung, die Koordination von Bauprojekten sowie die Planung und Einführung moderner ICT-Services und Netzwerkkomponenten in sicherheitskritischen Umgebungen.\n\nDeine Aufgaben:\n• Erhebung, Analyse und Planung von ICT-Bedarfen im Rahmen komplexer Bau- und Infrastrukturprojekte\n• Beratung von Projektteams und Fachbereichen zu verfügbaren ICT-Services, Lösungsansätzen und technischen Umsetzungsmöglichkeiten\n• Erstellung von Projektmanagementplänen, Analysen, Studien sowie Migrations- und Integrationskonzepten\n• Verantwortung für die ICT-Rolloutplanung sowie die Spezifikation und Koordination von ICT-Komponenten und Lieferobjekten in Bauprojekten\n• Steuerung von Teilprojekten, Lieferanten und Serviceentwicklungen inklusive Qualitätsmanagement, Risikoüberwachung und Abnahmeprozessen\n• Erstellung von Status- und Risikoberichten, Stakeholdermanagement sowie Sicherstellung einer transparenten Kommunikation gegenüber Projektbeteiligten und Lieferanten\n\nDein Profil:\n• Mehrjährige Erfahrung in der ICT-Projektleitung sowie in der Planung und Umsetzung von Bau-, Infrastruktur- oder Integrationsprojekten\n• Fundierte Kenntnisse in der Bedarfsanalyse, Fachplanung und Konzeption von ICT-Lösungen in Bau- oder Infrastrukturprojekten\n• Erfahrung in der Projektorganisation sowie im Umgang mit Projektmanagement- und Planungstools\n• Kenntnisse von Projektmethoden und Frameworks wie SAFe sowie idealerweise Erfahrung im Umfeld von SIA-Methodiken\n• Ausgeprägte Beratungs-, Kommunikations- und Managementkompetenz sowie Erfahrung im Stakeholder- und Risikomanagement\n• Verständnis für Beschaffungsprozesse, Wirtschaftlichkeitsbetrachtungen sowie ICT- und OT-Komponenten im Infrastrukturumfeld\n• Fliessende Deutschkenntnisse\n• Einwandfreier Leumund ist zwingend\n\nJob profile\n• IT - Project Management\n• Bern\n• Contracting\n• Full Time\n• 01.12.2026 - 30.11.2028\n• Project Management",
-        "de": "Für unseren Kunden in Bern, suchen wir eine:n erfahrene:n und aufgeschlossene:n IKT-Projektleiter:in - Bauvorhaben .\n\nFür ein langfristiges Digitalisierungs- und Infrastrukturprogramm suchen wir eine erfahrene Persönlichkeit im Bereich ICT-Projektleitung und IKT-Fachplanung . In dieser Rolle verantwortest du die ICT-Bedarfsplanung, die Koordination von Bauprojekten sowie die Planung und Einführung moderner ICT-Services und Netzwerkkomponenten in sicherheitskritischen Umgebungen.\n\nDeine Aufgaben:\n• Erhebung, Analyse und Planung von ICT-Bedarfen im Rahmen komplexer Bau- und Infrastrukturprojekte\n• Beratung von Projektteams und Fachbereichen zu verfügbaren ICT-Services, Lösungsansätzen und technischen Umsetzungsmöglichkeiten\n• Erstellung von Projektmanagementplänen, Analysen, Studien sowie Migrations- und Integrationskonzepten\n• Verantwortung für die ICT-Rolloutplanung sowie die Spezifikation und Koordination von ICT-Komponenten und Lieferobjekten in Bauprojekten\n• Steuerung von Teilprojekten, Lieferanten und Serviceentwicklungen inklusive Qualitätsmanagement, Risikoüberwachung und Abnahmeprozessen\n• Erstellung von Status- und Risikoberichten, Stakeholdermanagement sowie Sicherstellung einer transparenten Kommunikation gegenüber Projektbeteiligten und Lieferanten\n\nDein Profil:\n• Mehrjährige Erfahrung in der ICT-Projektleitung sowie in der Planung und Umsetzung von Bau-, Infrastruktur- oder Integrationsprojekten\n• Fundierte Kenntnisse in der Bedarfsanalyse, Fachplanung und Konzeption von ICT-Lösungen in Bau- oder Infrastrukturprojekten\n• Erfahrung in der Projektorganisation sowie im Umgang mit Projektmanagement- und Planungstools\n• Kenntnisse von Projektmethoden und Frameworks wie SAFe sowie idealerweise Erfahrung im Umfeld von SIA-Methodiken\n• Ausgeprägte Beratungs-, Kommunikations- und Managementkompetenz sowie Erfahrung im Stakeholder- und Risikomanagement\n• Verständnis für Beschaffungsprozesse, Wirtschaftlichkeitsbetrachtungen sowie ICT- und OT-Komponenten im Infrastrukturumfeld\n• Fliessende Deutschkenntnisse\n• Einwandfreier Leumund ist zwingend\n\nJob profile\n• IT - Project Management\n• Bern\n• Contracting\n• Full Time\n• 01.12.2026 - 30.11.2028\n• Project Management",
-        "fr": "Für unseren Kunden in Bern, suchen wir eine:n erfahrene:n und aufgeschlossene:n IKT-Projektleiter:in - Bauvorhaben .\n\nFür ein langfristiges Digitalisierungs- und Infrastrukturprogramm suchen wir eine erfahrene Persönlichkeit im Bereich ICT-Projektleitung und IKT-Fachplanung . In dieser Rolle verantwortest du die ICT-Bedarfsplanung, die Koordination von Bauprojekten sowie die Planung und Einführung moderner ICT-Services und Netzwerkkomponenten in sicherheitskritischen Umgebungen.\n\nDeine Aufgaben:\n• Erhebung, Analyse und Planung von ICT-Bedarfen im Rahmen komplexer Bau- und Infrastrukturprojekte\n• Beratung von Projektteams und Fachbereichen zu verfügbaren ICT-Services, Lösungsansätzen und technischen Umsetzungsmöglichkeiten\n• Erstellung von Projektmanagementplänen, Analysen, Studien sowie Migrations- und Integrationskonzepten\n• Verantwortung für die ICT-Rolloutplanung sowie die Spezifikation und Koordination von ICT-Komponenten und Lieferobjekten in Bauprojekten\n• Steuerung von Teilprojekten, Lieferanten und Serviceentwicklungen inklusive Qualitätsmanagement, Risikoüberwachung und Abnahmeprozessen\n• Erstellung von Status- und Risikoberichten, Stakeholdermanagement sowie Sicherstellung einer transparenten Kommunikation gegenüber Projektbeteiligten und Lieferanten\n\nDein Profil:\n• Mehrjährige Erfahrung in der ICT-Projektleitung sowie in der Planung und Umsetzung von Bau-, Infrastruktur- oder Integrationsprojekten\n• Fundierte Kenntnisse in der Bedarfsanalyse, Fachplanung und Konzeption von ICT-Lösungen in Bau- oder Infrastrukturprojekten\n• Erfahrung in der Projektorganisation sowie im Umgang mit Projektmanagement- und Planungstools\n• Kenntnisse von Projektmethoden und Frameworks wie SAFe sowie idealerweise Erfahrung im Umfeld von SIA-Methodiken\n• Ausgeprägte Beratungs-, Kommunikations- und Managementkompetenz sowie Erfahrung im Stakeholder- und Risikomanagement\n• Verständnis für Beschaffungsprozesse, Wirtschaftlichkeitsbetrachtungen sowie ICT- und OT-Komponenten im Infrastrukturumfeld\n• Fliessende Deutschkenntnisse\n• Einwandfreier Leumund ist zwingend\n\nJob profile\n• IT - Project Management\n• Bern\n• Contracting\n• Full Time\n• 01.12.2026 - 30.11.2028\n• Project Management"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=H01K7W",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:23:44.525Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-20",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=H01K7W",
-      "requirements": [
-        "IT - Project Management",
-        "Bern",
-        "Contracting",
-        "Full Time",
-        "01.12.2026 - 30.11.2028",
-        "Project Management"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "IT - Project Management",
-          "Contracting",
-          "Full Time",
-          "01.12.2026 - 30.11.2028",
-          "Project Management"
-        ]
-      },
-      "previousSlugs": [
-        "ikt-projektleiter-in-m-w-d-coopers-bern",
-        "ikt-projektleiter-in-bauvorhaben-m-w-d-coopers-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ikt-projektleiter-in-m-w-d-coopers-bern",
-          "ikt-projektleiter-in-bauvorhaben-m-w-d-coopers-bern"
-        ],
-        "en": [
-          "ikt-projektleiter-in-m-w-d-coopers-bern"
-        ],
-        "fr": [
-          "ikt-projektleiter-in-m-w-d-coopers-bern"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:44:05.399Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "coopers-4fc7a8959bc6",
-      "slug": "verification-and-compliance-ingegnere-m-f-d-coopers-group-ag-zug",
-      "slugByLocale": {
-        "it": "verification-and-compliance-ingegnere-m-f-d-coopers-group-ag-zug",
-        "en": "verification-and-compliance-engineer-m-f-d-coopers-zug",
-        "de": "verification-and-compliance-ingenieur-m-f-d-coopers-group-ag-zug",
-        "fr": "verification-and-compliance-ingenieur-m-f-d-coopers-group-ag-zug"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Verification and Compliance Engineer (m/f/d)",
-      "titleByLocale": {
-        "it": "Verification and Compliance Ingegnere (m/f/d)",
-        "en": "Verification and Compliance Engineer (m/f/d)",
-        "de": "Verification and Compliance Ingenieur (m/f/d)",
-        "fr": "Verification and Compliance Ingénieur (m/f/d)"
-      },
-      "description": "In this role, you will be responsible for the independent regulatory verification and evaluation of third-party products (3rd party products) in relation to the applicable European (EU-MDR / EU- IVDR) and Swiss regulations (MedDO / IvDV).\n\nResponsibilities:\n• Regulatory verification: Independent review and evaluation of technical documentation, declarations of conformity (DoC), CE certificates and markings of 3rd party medical devices and in vitro diagnostics, verification of the correct labeling with regard to CH-REP (Swiss Authorized Representative) and importer obligations according to MedDO/IvDO.\n• Vendor & Partner Management: Communication with suppliers and partners to demand, review and clarify missing regulatory evidence and quality agreements.\n• PRRC Support: Creation of recommendations for the release or blocking of third-party products for the Swiss market.\n• Operational support in the area of regulatory as required: e.g. supplier enquiries, document review (non-exhaustive list)\n\nMust Haves:\n• Successfully completed studies in the field of medical technology, natural sciences, industrial engineering or a comparable qualification\n• Fluent in German and English, both written and spoken\n• Regulatory expertise: Demonstrable, several years (3+ years) of professional experience in Regulatory Affairs / Quality Management in the medtech or IVD sector\n• In-depth knowledge\n•\n• Focus: Swiss In-vitro Diagnostics Ordinance (IvDV)\n• Swiss Medical Devices Ordinance (MedDO)\n• Experience with 3rd party processes: Hands-on experience in auditing, approving or verifying supplier and third-party documentation\n\nJob profile\n• Life Sciences - Quality Management\n• Zug\n• Contracting\n• Full Time\n• As soon as possible/latest start date 1.11.2026 - 6 months\n• Compliance, IVD, Medtech",
-      "descriptionByLocale": {
-        "it": "In this role, you will be responsible for the independent regulatory verification and evaluation of third-party products (3rd party products) in relation to the applicable European (EU-MDR / EU- IVDR) and Swiss regulations (MedDO / IvDV).\n\nResponsibilities:\n• Regulatory verification: Independent review and evaluation of technical documentation, declarations of conformity (DoC), CE certificates and markings of 3rd party medical devices and in vitro diagnostics, verification of the correct labeling with regard to CH-REP (Swiss Authorized Representative) and importer obligations according to MedDO/IvDO.\n• Vendor & Partner Management: Communication with suppliers and partners to demand, review and clarify missing regulatory evidence and quality agreements.\n• PRRC Support: Creation of recommendations for the release or blocking of third-party products for the Swiss market.\n• Operational support in the area of regulatory as required: e.g. supplier enquiries, document review (non-exhaustive list)\n\nMust Haves:\n• Successfully completed studies in the field of medical technology, natural sciences, industrial engineering or a comparable qualification\n• Fluent in German and English, both written and spoken\n• Regulatory expertise: Demonstrable, several years (3+ years) of professional experience in Regulatory Affairs / Quality Management in the medtech or IVD sector\n• In-depth knowledge\n•\n• Focus: Swiss In-vitro Diagnostics Ordinance (IvDV)\n• Swiss Medical Devices Ordinance (MedDO)\n• Experience with 3rd party processes: Hands-on experience in auditing, approving or verifying supplier and third-party documentation\n\nJob profile\n• Life Sciences - Quality Management\n• Zug\n• Contracting\n• Full Time\n• As soon as possible/latest start date 1.11.2026 - 6 months\n• Compliance, IVD, Medtech",
-        "en": "In this role, you will be responsible for the independent regulatory verification and evaluation of third-party products (3rd party products) in relation to the applicable European (EU-MDR / EU- IVDR) and Swiss regulations (MedDO / IvDV).\n\nResponsibilities:\n• Regulatory verification: Independent review and evaluation of technical documentation, declarations of conformity (DoC), CE certificates and markings of 3rd party medical devices and in vitro diagnostics, verification of the correct labeling with regard to CH-REP (Swiss Authorized Representative) and importer obligations according to MedDO/IvDO.\n• Vendor & Partner Management: Communication with suppliers and partners to demand, review and clarify missing regulatory evidence and quality agreements.\n• PRRC Support: Creation of recommendations for the release or blocking of third-party products for the Swiss market.\n• Operational support in the area of regulatory as required: e.g. supplier enquiries, document review (non-exhaustive list)\n\nMust Haves:\n• Successfully completed studies in the field of medical technology, natural sciences, industrial engineering or a comparable qualification\n• Fluent in German and English, both written and spoken\n• Regulatory expertise: Demonstrable, several years (3+ years) of professional experience in Regulatory Affairs / Quality Management in the medtech or IVD sector\n• In-depth knowledge\n•\n• Focus: Swiss In-vitro Diagnostics Ordinance (IvDV)\n• Swiss Medical Devices Ordinance (MedDO)\n• Experience with 3rd party processes: Hands-on experience in auditing, approving or verifying supplier and third-party documentation\n\nJob profile\n• Life Sciences - Quality Management\n• Zug\n• Contracting\n• Full Time\n• As soon as possible/latest start date 1.11.2026 - 6 months\n• Compliance, IVD, Medtech",
-        "de": "In this role, you will be responsible for the independent regulatory verification and evaluation of third-party products (3rd party products) in relation to the applicable European (EU-MDR / EU- IVDR) and Swiss regulations (MedDO / IvDV).\n\nResponsibilities:\n• Regulatory verification: Independent review and evaluation of technical documentation, declarations of conformity (DoC), CE certificates and markings of 3rd party medical devices and in vitro diagnostics, verification of the correct labeling with regard to CH-REP (Swiss Authorized Representative) and importer obligations according to MedDO/IvDO.\n• Vendor & Partner Management: Communication with suppliers and partners to demand, review and clarify missing regulatory evidence and quality agreements.\n• PRRC Support: Creation of recommendations for the release or blocking of third-party products for the Swiss market.\n• Operational support in the area of regulatory as required: e.g. supplier enquiries, document review (non-exhaustive list)\n\nMust Haves:\n• Successfully completed studies in the field of medical technology, natural sciences, industrial engineering or a comparable qualification\n• Fluent in German and English, both written and spoken\n• Regulatory expertise: Demonstrable, several years (3+ years) of professional experience in Regulatory Affairs / Quality Management in the medtech or IVD sector\n• In-depth knowledge\n•\n• Focus: Swiss In-vitro Diagnostics Ordinance (IvDV)\n• Swiss Medical Devices Ordinance (MedDO)\n• Experience with 3rd party processes: Hands-on experience in auditing, approving or verifying supplier and third-party documentation\n\nJob profile\n• Life Sciences - Quality Management\n• Zug\n• Contracting\n• Full Time\n• As soon as possible/latest start date 1.11.2026 - 6 months\n• Compliance, IVD, Medtech",
-        "fr": "In this role, you will be responsible for the independent regulatory verification and evaluation of third-party products (3rd party products) in relation to the applicable European (EU-MDR / EU- IVDR) and Swiss regulations (MedDO / IvDV).\n\nResponsibilities:\n• Regulatory verification: Independent review and evaluation of technical documentation, declarations of conformity (DoC), CE certificates and markings of 3rd party medical devices and in vitro diagnostics, verification of the correct labeling with regard to CH-REP (Swiss Authorized Representative) and importer obligations according to MedDO/IvDO.\n• Vendor & Partner Management: Communication with suppliers and partners to demand, review and clarify missing regulatory evidence and quality agreements.\n• PRRC Support: Creation of recommendations for the release or blocking of third-party products for the Swiss market.\n• Operational support in the area of regulatory as required: e.g. supplier enquiries, document review (non-exhaustive list)\n\nMust Haves:\n• Successfully completed studies in the field of medical technology, natural sciences, industrial engineering or a comparable qualification\n• Fluent in German and English, both written and spoken\n• Regulatory expertise: Demonstrable, several years (3+ years) of professional experience in Regulatory Affairs / Quality Management in the medtech or IVD sector\n• In-depth knowledge\n•\n• Focus: Swiss In-vitro Diagnostics Ordinance (IvDV)\n• Swiss Medical Devices Ordinance (MedDO)\n• Experience with 3rd party processes: Hands-on experience in auditing, approving or verifying supplier and third-party documentation\n\nJob profile\n• Life Sciences - Quality Management\n• Zug\n• Contracting\n• Full Time\n• As soon as possible/latest start date 1.11.2026 - 6 months\n• Compliance, IVD, Medtech"
-      },
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4BWC73",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-01T21:23:37.629Z",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-24",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=4BWC73",
-      "requirements": [
-        "Life Sciences - Quality Management",
-        "Contracting",
-        "Full Time",
-        "As soon as possible/latest start date 1.11.2026 - 6 months",
-        "Compliance, IVD, Medtech"
-      ],
-      "requirementsByLocale": {
-        "en": [
-          "Life Sciences - Quality Management",
-          "Contracting",
-          "Full Time",
-          "As soon as possible/latest start date 1.11.2026 - 6 months",
-          "Compliance, IVD, Medtech"
-        ]
-      },
-      "previousSlugs": [
-        "verification-and-compliance-engineer-m-f-d-coopers-zug"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verification-and-compliance-engineer-m-f-d-coopers-zug"
-        ],
-        "de": [
-          "verification-and-compliance-engineer-m-f-d-coopers-zug"
-        ],
-        "fr": [
-          "verification-and-compliance-engineer-m-f-d-coopers-zug"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-25T14:50:57.678Z",
-      "salaryMin": 78500,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 78500,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "coopers-4c65b0608cd3",
-      "slug": "it-business-applications-consulente-proalpha-m-w-d-coopers-group-ag-bern-grossraum",
-      "slugByLocale": {
-        "it": "it-business-applications-consulente-proalpha-m-w-d-coopers-group-ag-bern-grossraum",
-        "en": "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum",
-        "de": "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum",
-        "fr": "conseiller-en-applications-operationnelles-de-ti-proalpha-coopers-group-ag-bern-grossraum"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "IT Business Applications Consultant (proALPHA) (m/w/d)",
-      "titleByLocale": {
-        "it": "IT Business Applications Consulente (proALPHA) (m/w/d)",
-        "en": "IT Business Applications Consultant (proALPHA) (m/w/d)",
-        "de": "IT Business Applications Berater (proALPHA) (m/w/d)",
-        "fr": "Conseiller en applications d'affaires en TI (proALPHA) (h/f/d)"
-      },
-      "description": "Für einen international tätigen Kunden aus dem industriellen Produktionsumfeld suchen wir eine engagierte Persönlichkeit im Bereich Business Applications ProALPHA\n\nIhre Aufgaben:\n• Betreuung und Weiterentwicklung des ERP-Systems (proALPHA)\n• Analyse, Optimierung und Abbildung von Geschäftsprozessen in enger Abstimmung mit den Fachbereichen\n• Unterstützung bei Customizing, Konfiguration und Systemanpassungen\n• Mitarbeit bei Release-Wechseln, Upgrades und internationalen Rollouts\n• Unterstützung im Second- und Third-Level-Support\n• Mitwirkung in Digitalisierungs- und Automatisierungsprojekten\n• Sicherstellung von Datenqualität, Systemstabilität und Prozessstandardisierung\n• Zusammenarbeit mit internen Stakeholdern sowie externen Partnern\n\nIhr Profil:\n• Abgeschlossene Ausbildung oder Studium im Bereich Wirtschaftsinformatik, Informatik oder Betriebswirtschaft\n• Erfahrung im Bereich ERP-Systeme mit proALPHA\n• Verständnis für End-to-End-Geschäftsprozesse in einem industriellen Umfeld\n• Erfahrung in Systembetrieb, Customizing oder Prozessanalyse\n• Projekt-Erfahrung (z. B. in Rollouts, Upgrades oder Optimierungsprojekten)\n• Analytische und strukturierte Arbeitsweise\n• Teamorientierte Persönlichkeit mit Kommunikationsstärke\n• Sehr gute Deutsch- und gute Englischkenntnisse\n\nJob profile\n• IT - ERP & Applications\n• Bern Grossraum\n• Festanstellung\n• Part Time, 100%\n• proalpha\n\nJob benefits\n• Company laptop\n• Excellent social insurance\n• Flat hierarchy\n• Modern workspace",
-      "descriptionByLocale": {
-        "it": "Für einen international tätigen Kunden aus dem industriellen Produktionsumfeld suchen wir eine engagierte Persönlichkeit im Bereich Business Applications ProALPHA\n\nIhre Aufgaben:\n• Betreuung und Weiterentwicklung des ERP-Systems (proALPHA)\n• Analyse, Optimierung und Abbildung von Geschäftsprozessen in enger Abstimmung mit den Fachbereichen\n• Unterstützung bei Customizing, Konfiguration und Systemanpassungen\n• Mitarbeit bei Release-Wechseln, Upgrades und internationalen Rollouts\n• Unterstützung im Second- und Third-Level-Support\n• Mitwirkung in Digitalisierungs- und Automatisierungsprojekten\n• Sicherstellung von Datenqualität, Systemstabilität und Prozessstandardisierung\n• Zusammenarbeit mit internen Stakeholdern sowie externen Partnern\n\nIhr Profil:\n• Abgeschlossene Ausbildung oder Studium im Bereich Wirtschaftsinformatik, Informatik oder Betriebswirtschaft\n• Erfahrung im Bereich ERP-Systeme mit proALPHA\n• Verständnis für End-to-End-Geschäftsprozesse in einem industriellen Umfeld\n• Erfahrung in Systembetrieb, Customizing oder Prozessanalyse\n• Projekt-Erfahrung (z. B. in Rollouts, Upgrades oder Optimierungsprojekten)\n• Analytische und strukturierte Arbeitsweise\n• Teamorientierte Persönlichkeit mit Kommunikationsstärke\n• Sehr gute Deutsch- und gute Englischkenntnisse\n\nJob profile\n• IT - ERP & Applications\n• Bern Grossraum\n• Festanstellung\n• Part Time, 100%\n• proalpha\n\nJob benefits\n• Company laptop\n• Excellent social insurance\n• Flat hierarchy\n• Modern workspace",
-        "en": "Für einen international tätigen Kunden aus dem industriellen Produktionsumfeld suchen wir eine engagierte Persönlichkeit im Bereich Business Applications ProALPHA\n\nIhre Aufgaben:\n• Betreuung und Weiterentwicklung des ERP-Systems (proALPHA)\n• Analyse, Optimierung und Abbildung von Geschäftsprozessen in enger Abstimmung mit den Fachbereichen\n• Unterstützung bei Customizing, Konfiguration und Systemanpassungen\n• Mitarbeit bei Release-Wechseln, Upgrades und internationalen Rollouts\n• Unterstützung im Second- und Third-Level-Support\n• Mitwirkung in Digitalisierungs- und Automatisierungsprojekten\n• Sicherstellung von Datenqualität, Systemstabilität und Prozessstandardisierung\n• Zusammenarbeit mit internen Stakeholdern sowie externen Partnern\n\nIhr Profil:\n• Abgeschlossene Ausbildung oder Studium im Bereich Wirtschaftsinformatik, Informatik oder Betriebswirtschaft\n• Erfahrung im Bereich ERP-Systeme mit proALPHA\n• Verständnis für End-to-End-Geschäftsprozesse in einem industriellen Umfeld\n• Erfahrung in Systembetrieb, Customizing oder Prozessanalyse\n• Projekt-Erfahrung (z. B. in Rollouts, Upgrades oder Optimierungsprojekten)\n• Analytische und strukturierte Arbeitsweise\n• Teamorientierte Persönlichkeit mit Kommunikationsstärke\n• Sehr gute Deutsch- und gute Englischkenntnisse\n\nJob profile\n• IT - ERP & Applications\n• Bern Grossraum\n• Festanstellung\n• Part Time, 100%\n• proalpha\n\nJob benefits\n• Company laptop\n• Excellent social insurance\n• Flat hierarchy\n• Modern workspace",
-        "de": "Für einen international tätigen Kunden aus dem industriellen Produktionsumfeld suchen wir eine engagierte Persönlichkeit im Bereich Business Applications ProALPHA\n\nIhre Aufgaben:\n• Betreuung und Weiterentwicklung des ERP-Systems (proALPHA)\n• Analyse, Optimierung und Abbildung von Geschäftsprozessen in enger Abstimmung mit den Fachbereichen\n• Unterstützung bei Customizing, Konfiguration und Systemanpassungen\n• Mitarbeit bei Release-Wechseln, Upgrades und internationalen Rollouts\n• Unterstützung im Second- und Third-Level-Support\n• Mitwirkung in Digitalisierungs- und Automatisierungsprojekten\n• Sicherstellung von Datenqualität, Systemstabilität und Prozessstandardisierung\n• Zusammenarbeit mit internen Stakeholdern sowie externen Partnern\n\nIhr Profil:\n• Abgeschlossene Ausbildung oder Studium im Bereich Wirtschaftsinformatik, Informatik oder Betriebswirtschaft\n• Erfahrung im Bereich ERP-Systeme mit proALPHA\n• Verständnis für End-to-End-Geschäftsprozesse in einem industriellen Umfeld\n• Erfahrung in Systembetrieb, Customizing oder Prozessanalyse\n• Projekt-Erfahrung (z. B. in Rollouts, Upgrades oder Optimierungsprojekten)\n• Analytische und strukturierte Arbeitsweise\n• Teamorientierte Persönlichkeit mit Kommunikationsstärke\n• Sehr gute Deutsch- und gute Englischkenntnisse\n\nJob profile\n• IT - ERP & Applications\n• Bern Grossraum\n• Festanstellung\n• Part Time, 100%\n• proalpha\n\nJob benefits\n• Company laptop\n• Excellent social insurance\n• Flat hierarchy\n• Modern workspace",
-        "fr": "Für einen international tätigen Kunden aus dem industriellen Produktionsumfeld suchen wir eine engagierte Persönlichkeit im Bereich Business Applications ProALPHA\n\nIhre Aufgaben:\n• Betreuung und Weiterentwicklung des ERP-Systems (proALPHA)\n• Analyse, Optimierung und Abbildung von Geschäftsprozessen in enger Abstimmung mit den Fachbereichen\n• Unterstützung bei Customizing, Konfiguration und Systemanpassungen\n• Mitarbeit bei Release-Wechseln, Upgrades und internationalen Rollouts\n• Unterstützung im Second- und Third-Level-Support\n• Mitwirkung in Digitalisierungs- und Automatisierungsprojekten\n• Sicherstellung von Datenqualität, Systemstabilität und Prozessstandardisierung\n• Zusammenarbeit mit internen Stakeholdern sowie externen Partnern\n\nIhr Profil:\n• Abgeschlossene Ausbildung oder Studium im Bereich Wirtschaftsinformatik, Informatik oder Betriebswirtschaft\n• Erfahrung im Bereich ERP-Systeme mit proALPHA\n• Verständnis für End-to-End-Geschäftsprozesse in einem industriellen Umfeld\n• Erfahrung in Systembetrieb, Customizing oder Prozessanalyse\n• Projekt-Erfahrung (z. B. in Rollouts, Upgrades oder Optimierungsprojekten)\n• Analytische und strukturierte Arbeitsweise\n• Teamorientierte Persönlichkeit mit Kommunikationsstärke\n• Sehr gute Deutsch- und gute Englischkenntnisse\n\nJob profile\n• IT - ERP & Applications\n• Bern Grossraum\n• Festanstellung\n• Part Time, 100%\n• proalpha\n\nJob benefits\n• Company laptop\n• Excellent social insurance\n• Flat hierarchy\n• Modern workspace"
-      },
-      "location": "Bern Grossraum",
-      "canton": "BE",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=P121CU",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:22:11.688Z",
-      "addressLocality": "Bern Grossraum",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-11-26",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=P121CU",
-      "requirements": [
-        "IT - ERP & Applications",
-        "Bern Grossraum",
-        "Festanstellung",
-        "Part Time, 100%",
-        "proalpha"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "IT - ERP & Applications",
-          "Bern Grossraum",
-          "Festanstellung",
-          "Full Time",
-          "proalpha",
-          "Part Time, 100%"
-        ]
-      },
-      "previousSlugs": [
-        "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-02T23:12:53.050Z",
-      "salaryMin": 73000,
-      "salaryMax": 124500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 124500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "coopers-be3528585b0c",
-      "slug": "network-and-capability-manager-m-f-d-coopers-aargau",
-      "slugByLocale": {
-        "it": "network-and-capability-manager-m-f-d-coopers-aargau",
-        "en": "network-and-capability-manager-m-f-d-coopers-aargau",
-        "de": "netzwerk-und-kapazitatsmanager-m-w-d-coopers-group-ag-aargau",
-        "fr": "gestionnaire-de-reseau-et-de-capacites-h-f-d-coopers-group-ag-aargau"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Network and Capability Manager (m/f/d)",
-      "titleByLocale": {
-        "it": "Network e Capability Manager (m/f/d)",
-        "en": "Network and Capability Manager (m/f/d)",
-        "de": "Netzwerk- und Kapazitätsmanager (m/w/d)",
-        "fr": "Gestionnaire de réseau et de capacités (h/f/d)"
-      },
-      "description": "Are you an experienced clinical supply chain professional with strong expertise in global distribution networks, supplier relationship management and GxP-regulated environments? In this senior role, you will shape and optimize a complex international clinical distribution network, improve operational capabilities and ensure reliable, compliant and cost-effective delivery to clinical trials worldwide.\n\nStart Date: Oct/Nov 2026\nEnd Date: 12-month contract (with the option of extension)\nWorkload: 100%\nLocation: Kaiseraugst\nWork Model: Hybrid, three days on-site and two days working from home\nTravel: Possible, approximately three to four trips per year\n\nTasks & Responsibilities\n• You are responsible for overseeing and optimizing the distribution network, handling more than 100,000 shipments per year, to enable timely, reliable and efficient delivery for global clinical trials. You partner closely with internal stakeholders in Supply Chain, Procurement and Quality, customers in Clinical Operations, and external partners such as third-party logistics providers and logistics service providers.\n• You contribute to and execute the Network & Capabilities strategy in alignment with the overall distribution strategy. This includes ensuring future network and capability readiness, establishing new locations and maintaining a strong focus on Supplier Relationship Management.\n• You oversee, manage and optimize distribution costs and an annual spend exceeding CHF 50 million.\n• You drive best practices, standardization and optimization of distribution network processes in collaboration with Business Capability Leads and Quality Assurance to ensure supply chain reliability.\n• You co-create and execute objectives for the global Network & Capabilities organization, enabling continuous improvement and supporting the cultural transition toward a self-managed team and organization.\n• You ensure the overall compliance of the distribution network with GxP and GCP standards.\n\nMust Haves\n• You hold a bachelor’s degree, master’s degree or MBA in a technical, business or supply chain-related field, or possess equivalent relevant professional experience. Certifications or training in APICS, SCOR, Operational Excellence, Six Sigma or Lean are considered an advantage.\n• You have a strong understanding of end-to-end supply chain management, including warehouse management, transportation management, logistics and regulatory requirements for clinical trials.\n• You bring relevant GxP experience.\n• You possess excellent knowledge of clinical supply chain distribution processes, Supplier Relationship Management, including negotiations and industry best practices, as well as the tools and systems required to enable operational excellence.\n• You act as an architect and catalyst within the distribution organization, take smart risks and streamline or discontinue non-value-adding activities.\n• You demonstrate excellent communication and presentation skills and can simplify complex issues and convey key messages effectively to senior leadership.\n• You have at least six years, ideally more than ten years, of operational experience in supply chain, distribution, planning and/or manufacturing, including significant expertise in clinical supply chain distribution management.\n\nWhat You Can Expect\n• A strategically important role within a complex global clinical distribution environment\n• Responsibility for optimizing an international network with significant operational scope and budget\n• Close collaboration with senior stakeholders, Quality, Procurement, Clinical Operations and external logistics partners\n• The opportunity to drive standardization, operational excellence and organizational development\n• A hybrid working model with limited international travel\n\nJob profile\n• Life Sciences - Supply Chain / Operations\n• Aargau\n• Contracting\n• Full Time\n• Oct/Nov 2026 - 12-month contract (with the option of extension)\n• APICS, SCOR, GxP\n\nJob benefits\n• Company laptop\n• Coopers Care\n• Home Office\n• Modern workspace",
-      "descriptionByLocale": {
-        "it": "Are you an experienced clinical supply chain professional with strong expertise in global distribution networks, supplier relationship management and GxP-regulated environments? In this senior role, you will shape and optimize a complex international clinical distribution network, improve operational capabilities and ensure reliable, compliant and cost-effective delivery to clinical trials worldwide.\n\nStart Date: Oct/Nov 2026\nEnd Date: 12-month contract (with the option of extension)\nWorkload: 100%\nLocation: Kaiseraugst\nWork Model: Hybrid, three days on-site and two days working from home\nTravel: Possible, approximately three to four trips per year\n\nTasks & Responsibilities\n• You are responsible for overseeing and optimizing the distribution network, handling more than 100,000 shipments per year, to enable timely, reliable and efficient delivery for global clinical trials. You partner closely with internal stakeholders in Supply Chain, Procurement and Quality, customers in Clinical Operations, and external partners such as third-party logistics providers and logistics service providers.\n• You contribute to and execute the Network & Capabilities strategy in alignment with the overall distribution strategy. This includes ensuring future network and capability readiness, establishing new locations and maintaining a strong focus on Supplier Relationship Management.\n• You oversee, manage and optimize distribution costs and an annual spend exceeding CHF 50 million.\n• You drive best practices, standardization and optimization of distribution network processes in collaboration with Business Capability Leads and Quality Assurance to ensure supply chain reliability.\n• You co-create and execute objectives for the global Network & Capabilities organization, enabling continuous improvement and supporting the cultural transition toward a self-managed team and organization.\n• You ensure the overall compliance of the distribution network with GxP and GCP standards.\n\nMust Haves\n• You hold a bachelor’s degree, master’s degree or MBA in a technical, business or supply chain-related field, or possess equivalent relevant professional experience. Certifications or training in APICS, SCOR, Operational Excellence, Six Sigma or Lean are considered an advantage.\n• You have a strong understanding of end-to-end supply chain management, including warehouse management, transportation management, logistics and regulatory requirements for clinical trials.\n• You bring relevant GxP experience.\n• You possess excellent knowledge of clinical supply chain distribution processes, Supplier Relationship Management, including negotiations and industry best practices, as well as the tools and systems required to enable operational excellence.\n• You act as an architect and catalyst within the distribution organization, take smart risks and streamline or discontinue non-value-adding activities.\n• You demonstrate excellent communication and presentation skills and can simplify complex issues and convey key messages effectively to senior leadership.\n• You have at least six years, ideally more than ten years, of operational experience in supply chain, distribution, planning and/or manufacturing, including significant expertise in clinical supply chain distribution management.\n\nWhat You Can Expect\n• A strategically important role within a complex global clinical distribution environment\n• Responsibility for optimizing an international network with significant operational scope and budget\n• Close collaboration with senior stakeholders, Quality, Procurement, Clinical Operations and external logistics partners\n• The opportunity to drive standardization, operational excellence and organizational development\n• A hybrid working model with limited international travel\n\nJob profile\n• Life Sciences - Supply Chain / Operations\n• Aargau\n• Contracting\n• Full Time\n• Oct/Nov 2026 - 12-month contract (with the option of extension)\n• APICS, SCOR, GxP\n\nJob benefits\n• Company laptop\n• Coopers Care\n• Home Office\n• Modern workspace",
-        "en": "Are you an experienced clinical supply chain professional with strong expertise in global distribution networks, supplier relationship management and GxP-regulated environments? In this senior role, you will shape and optimize a complex international clinical distribution network, improve operational capabilities and ensure reliable, compliant and cost-effective delivery to clinical trials worldwide.\n\nStart Date: Oct/Nov 2026\nEnd Date: 12-month contract (with the option of extension)\nWorkload: 100%\nLocation: Kaiseraugst\nWork Model: Hybrid, three days on-site and two days working from home\nTravel: Possible, approximately three to four trips per year\n\nTasks & Responsibilities\n• You are responsible for overseeing and optimizing the distribution network, handling more than 100,000 shipments per year, to enable timely, reliable and efficient delivery for global clinical trials. You partner closely with internal stakeholders in Supply Chain, Procurement and Quality, customers in Clinical Operations, and external partners such as third-party logistics providers and logistics service providers.\n• You contribute to and execute the Network & Capabilities strategy in alignment with the overall distribution strategy. This includes ensuring future network and capability readiness, establishing new locations and maintaining a strong focus on Supplier Relationship Management.\n• You oversee, manage and optimize distribution costs and an annual spend exceeding CHF 50 million.\n• You drive best practices, standardization and optimization of distribution network processes in collaboration with Business Capability Leads and Quality Assurance to ensure supply chain reliability.\n• You co-create and execute objectives for the global Network & Capabilities organization, enabling continuous improvement and supporting the cultural transition toward a self-managed team and organization.\n• You ensure the overall compliance of the distribution network with GxP and GCP standards.\n\nMust Haves\n• You hold a bachelor’s degree, master’s degree or MBA in a technical, business or supply chain-related field, or possess equivalent relevant professional experience. Certifications or training in APICS, SCOR, Operational Excellence, Six Sigma or Lean are considered an advantage.\n• You have a strong understanding of end-to-end supply chain management, including warehouse management, transportation management, logistics and regulatory requirements for clinical trials.\n• You bring relevant GxP experience.\n• You possess excellent knowledge of clinical supply chain distribution processes, Supplier Relationship Management, including negotiations and industry best practices, as well as the tools and systems required to enable operational excellence.\n• You act as an architect and catalyst within the distribution organization, take smart risks and streamline or discontinue non-value-adding activities.\n• You demonstrate excellent communication and presentation skills and can simplify complex issues and convey key messages effectively to senior leadership.\n• You have at least six years, ideally more than ten years, of operational experience in supply chain, distribution, planning and/or manufacturing, including significant expertise in clinical supply chain distribution management.\n\nWhat You Can Expect\n• A strategically important role within a complex global clinical distribution environment\n• Responsibility for optimizing an international network with significant operational scope and budget\n• Close collaboration with senior stakeholders, Quality, Procurement, Clinical Operations and external logistics partners\n• The opportunity to drive standardization, operational excellence and organizational development\n• A hybrid working model with limited international travel\n\nJob profile\n• Life Sciences - Supply Chain / Operations\n• Aargau\n• Contracting\n• Full Time\n• Oct/Nov 2026 - 12-month contract (with the option of extension)\n• APICS, SCOR, GxP\n\nJob benefits\n• Company laptop\n• Coopers Care\n• Home Office\n• Modern workspace",
-        "de": "Are you an experienced clinical supply chain professional with strong expertise in global distribution networks, supplier relationship management and GxP-regulated environments? In this senior role, you will shape and optimize a complex international clinical distribution network, improve operational capabilities and ensure reliable, compliant and cost-effective delivery to clinical trials worldwide.\n\nStart Date: Oct/Nov 2026\nEnd Date: 12-month contract (with the option of extension)\nWorkload: 100%\nLocation: Kaiseraugst\nWork Model: Hybrid, three days on-site and two days working from home\nTravel: Possible, approximately three to four trips per year\n\nTasks & Responsibilities\n• You are responsible for overseeing and optimizing the distribution network, handling more than 100,000 shipments per year, to enable timely, reliable and efficient delivery for global clinical trials. You partner closely with internal stakeholders in Supply Chain, Procurement and Quality, customers in Clinical Operations, and external partners such as third-party logistics providers and logistics service providers.\n• You contribute to and execute the Network & Capabilities strategy in alignment with the overall distribution strategy. This includes ensuring future network and capability readiness, establishing new locations and maintaining a strong focus on Supplier Relationship Management.\n• You oversee, manage and optimize distribution costs and an annual spend exceeding CHF 50 million.\n• You drive best practices, standardization and optimization of distribution network processes in collaboration with Business Capability Leads and Quality Assurance to ensure supply chain reliability.\n• You co-create and execute objectives for the global Network & Capabilities organization, enabling continuous improvement and supporting the cultural transition toward a self-managed team and organization.\n• You ensure the overall compliance of the distribution network with GxP and GCP standards.\n\nMust Haves\n• You hold a bachelor’s degree, master’s degree or MBA in a technical, business or supply chain-related field, or possess equivalent relevant professional experience. Certifications or training in APICS, SCOR, Operational Excellence, Six Sigma or Lean are considered an advantage.\n• You have a strong understanding of end-to-end supply chain management, including warehouse management, transportation management, logistics and regulatory requirements for clinical trials.\n• You bring relevant GxP experience.\n• You possess excellent knowledge of clinical supply chain distribution processes, Supplier Relationship Management, including negotiations and industry best practices, as well as the tools and systems required to enable operational excellence.\n• You act as an architect and catalyst within the distribution organization, take smart risks and streamline or discontinue non-value-adding activities.\n• You demonstrate excellent communication and presentation skills and can simplify complex issues and convey key messages effectively to senior leadership.\n• You have at least six years, ideally more than ten years, of operational experience in supply chain, distribution, planning and/or manufacturing, including significant expertise in clinical supply chain distribution management.\n\nWhat You Can Expect\n• A strategically important role within a complex global clinical distribution environment\n• Responsibility for optimizing an international network with significant operational scope and budget\n• Close collaboration with senior stakeholders, Quality, Procurement, Clinical Operations and external logistics partners\n• The opportunity to drive standardization, operational excellence and organizational development\n• A hybrid working model with limited international travel\n\nJob profile\n• Life Sciences - Supply Chain / Operations\n• Aargau\n• Contracting\n• Full Time\n• Oct/Nov 2026 - 12-month contract (with the option of extension)\n• APICS, SCOR, GxP\n\nJob benefits\n• Company laptop\n• Coopers Care\n• Home Office\n• Modern workspace",
-        "fr": "Are you an experienced clinical supply chain professional with strong expertise in global distribution networks, supplier relationship management and GxP-regulated environments? In this senior role, you will shape and optimize a complex international clinical distribution network, improve operational capabilities and ensure reliable, compliant and cost-effective delivery to clinical trials worldwide.\n\nStart Date: Oct/Nov 2026\nEnd Date: 12-month contract (with the option of extension)\nWorkload: 100%\nLocation: Kaiseraugst\nWork Model: Hybrid, three days on-site and two days working from home\nTravel: Possible, approximately three to four trips per year\n\nTasks & Responsibilities\n• You are responsible for overseeing and optimizing the distribution network, handling more than 100,000 shipments per year, to enable timely, reliable and efficient delivery for global clinical trials. You partner closely with internal stakeholders in Supply Chain, Procurement and Quality, customers in Clinical Operations, and external partners such as third-party logistics providers and logistics service providers.\n• You contribute to and execute the Network & Capabilities strategy in alignment with the overall distribution strategy. This includes ensuring future network and capability readiness, establishing new locations and maintaining a strong focus on Supplier Relationship Management.\n• You oversee, manage and optimize distribution costs and an annual spend exceeding CHF 50 million.\n• You drive best practices, standardization and optimization of distribution network processes in collaboration with Business Capability Leads and Quality Assurance to ensure supply chain reliability.\n• You co-create and execute objectives for the global Network & Capabilities organization, enabling continuous improvement and supporting the cultural transition toward a self-managed team and organization.\n• You ensure the overall compliance of the distribution network with GxP and GCP standards.\n\nMust Haves\n• You hold a bachelor’s degree, master’s degree or MBA in a technical, business or supply chain-related field, or possess equivalent relevant professional experience. Certifications or training in APICS, SCOR, Operational Excellence, Six Sigma or Lean are considered an advantage.\n• You have a strong understanding of end-to-end supply chain management, including warehouse management, transportation management, logistics and regulatory requirements for clinical trials.\n• You bring relevant GxP experience.\n• You possess excellent knowledge of clinical supply chain distribution processes, Supplier Relationship Management, including negotiations and industry best practices, as well as the tools and systems required to enable operational excellence.\n• You act as an architect and catalyst within the distribution organization, take smart risks and streamline or discontinue non-value-adding activities.\n• You demonstrate excellent communication and presentation skills and can simplify complex issues and convey key messages effectively to senior leadership.\n• You have at least six years, ideally more than ten years, of operational experience in supply chain, distribution, planning and/or manufacturing, including significant expertise in clinical supply chain distribution management.\n\nWhat You Can Expect\n• A strategically important role within a complex global clinical distribution environment\n• Responsibility for optimizing an international network with significant operational scope and budget\n• Close collaboration with senior stakeholders, Quality, Procurement, Clinical Operations and external logistics partners\n• The opportunity to drive standardization, operational excellence and organizational development\n• A hybrid working model with limited international travel\n\nJob profile\n• Life Sciences - Supply Chain / Operations\n• Aargau\n• Contracting\n• Full Time\n• Oct/Nov 2026 - 12-month contract (with the option of extension)\n• APICS, SCOR, GxP\n\nJob benefits\n• Company laptop\n• Coopers Care\n• Home Office\n• Modern workspace"
-      },
-      "location": "Aargau",
-      "canton": "AG",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=YI9T77",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:21:38.020Z",
-      "addressLocality": "Aargau",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-16",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=YI9T77",
-      "requirements": [
-        "Life Sciences - Supply Chain / Operations",
-        "Aargau",
-        "Contracting",
-        "Full Time",
-        "Oct/Nov 2026 - 12-month contract (with the option of extension)",
-        "APICS, SCOR, GxP"
-      ],
-      "requirementsByLocale": {
-        "en": [
-          "Life Sciences - Supply Chain / Operations",
-          "Contracting",
-          "Full Time",
-          "Oct/Nov 2026 - 12-month contract (with the option of extension)",
-          "APICS, SCOR, GxP"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:44:19.430Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

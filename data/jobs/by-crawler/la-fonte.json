@@ -1,6 +1,6 @@
 {
   "crawlerKey": "la-fonte",
-  "assembledAt": "2026-10-03T21:25:11.812Z",
+  "assembledAt": "2026-10-04T09:22:04.707Z",
   "jobs": [
     {
       "title": "Stagiaire",
@@ -18,7 +18,7 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
       "source": "la-fonte-crawler",
-      "postedDate": "2026-05-17",
+      "postedDate": "",
       "titleByLocale": {
         "it": "Stagiaire",
         "en": "Intern",
@@ -33,8 +33,8 @@
       },
       "slugByLocale": {
         "it": "apprendistato-fondazione-la-fonte-luganese-malcantone",
-        "en": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
-        "de": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
+        "en": "intern-fondazione-la-fonte-luganese-malcantone",
+        "de": "praktikum-fondazione-la-fonte-luganese-malcantone",
         "fr": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
       },
       "sourceLang": "it",
@@ -46,6 +46,7 @@
       "id": "la-fonte-fbf80dc4d87c",
       "previousSlugsByLocale": {
         "en": [
+          "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
           "intern-fondazione-la-fonte-luganese-malcantone"
         ],
         "fr": [
@@ -55,15 +56,17 @@
           "stagiaire-la-fonte-luganese-malcantone"
         ],
         "de": [
-          "praktikant-fondazione-la-fonte-luganese-malcantone"
+          "praktikant-fondazione-la-fonte-luganese-malcantone",
+          "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
         ]
       },
       "previousSlugs": [
         "stagiaire-fondazione-la-fonte-luganese-malcantone",
         "stagiaire-la-fonte-luganese-malcantone",
         "apprendistato-fondazione-la-fonte-lugano",
-        "intern-fondazione-la-fonte-luganese-malcantone",
-        "praktikant-fondazione-la-fonte-luganese-malcantone"
+        "praktikant-fondazione-la-fonte-luganese-malcantone",
+        "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
+        "intern-fondazione-la-fonte-luganese-malcantone"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -85,7 +88,9 @@
       "addressCountry": "CH",
       "firstSeenAt": "2026-05-17T10:35:50.358Z",
       "salarySource": "estimated",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "title": "Apprendisti/e operatori/trici socioassistenziali AFC",
@@ -103,7 +108,7 @@
       "employmentType": "INTERN",
       "experienceLevel": "ENTRY",
       "source": "la-fonte-crawler",
-      "postedDate": "2026-05-17",
+      "postedDate": "",
       "titleByLocale": {
         "it": "Apprendisti/e operatori/trici socioassistenziali AFC",
         "en": "Apprentices in Social Care AFC",
@@ -165,7 +170,9 @@
           "apprendisti-e-operatori-trici-socioassistenziali-afc-la-fonte"
         ]
       },
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     }
   ]
 }

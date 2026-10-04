@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bps-suisse",
-  "assembledAt": "2026-10-03T21:29:30.147Z",
+  "assembledAt": "2026-10-04T09:28:49.212Z",
   "jobs": [
     {
       "id": "bps-suisse-ec1de76eae01",
@@ -45,9 +45,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-10-03T21:29:24.668Z",
+      "crawledAt": "2026-10-04T09:28:41.942Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -67,7 +67,10 @@
       },
       "firstSeenAt": "2026-04-13T10:08:40.551Z",
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php"
+      "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "bps-suisse-cf081dc653a5",
@@ -112,9 +115,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-10-03T21:29:24.271Z",
+      "crawledAt": "2026-10-04T09:28:41.664Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -134,7 +137,9 @@
       },
       "firstSeenAt": "2026-07-14T22:34:05.339Z",
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-consulente_alla_clientela_commerciale_ipotecaria__100_.php"
+      "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-consulente_alla_clientela_commerciale_ipotecaria__100_.php",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "bps-suisse-ca3147dfc767",
@@ -179,9 +184,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-10-03T21:29:23.832Z",
+      "crawledAt": "2026-10-04T09:28:41.356Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -209,7 +214,9 @@
         "specialiste-du-respect-des-dispositions-bps-banca-popolare-di-sondrio-suisse-lugano"
       ],
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-compliance_officer.php"
+      "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-compliance_officer.php",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "bps-suisse-7e40eb648fab",
@@ -254,9 +261,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-10-03",
+      "postedDate": "",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-10-03T21:29:23.227Z",
+      "crawledAt": "2026-10-04T09:28:40.956Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -276,7 +283,9 @@
       },
       "firstSeenAt": "2026-07-31T11:46:31.059Z",
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-consulente_alla_clientela_individuale__100_.php"
+      "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-consulente_alla_clientela_individuale__100_.php",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     }
   ]
 }

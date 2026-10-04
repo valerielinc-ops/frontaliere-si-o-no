@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rittmeyer-ag",
-  "assembledAt": "2026-10-03T21:26:49.397Z",
+  "assembledAt": "2026-10-04T09:33:20.239Z",
   "jobs": [
     {
       "title": "Service Techniker (a) Region Churer Rheintal, Imboden, Viamala, Sarganserland, Werdenberg",
@@ -22,7 +22,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-16",
+      "postedDate": "",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -41,9 +41,9 @@
       },
       "slugByLocale": {
         "it": "service-techniker-a-region-churer-rheintal-imboden-viamala-sarganserland-werdenberg-rittmeyer-ag-sudostschweiz",
-        "en": "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
+        "en": "service-technician-a-region-churer-rheintal-imboden-viamala-sarganserland-sindberg-rittmeyer-ag-baar",
         "de": "service-techniker-a-region-churer-rheintal-imboden-viamala-sarganserland-werdenberg-rittmeyer-ag-baar",
-        "fr": "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
+        "fr": "technicien-des-services-a-region-churer-rheintal-imboden-viamala-sarganserland-sindberg-rittmeyer-ag-baar"
       },
       "id": "rittmeyer-ag-a890f8cce287",
       "previousSlugsByLocale": {
@@ -52,10 +52,12 @@
         ],
         "en": [
           "service-technicians-a-churer-rheintal-region-imboden-viamala-sarganserland-werdenberg-rittmeyer-ag-baar",
+          "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
           "service-technician-a-region-churer-rheintal-imboden-viamala-sarganserland-sindberg-rittmeyer-ag-baar"
         ],
         "fr": [
           "service-techniker-a-region-churer-rheintal-imboden-viamala-sarganserland-werdenberg-rittmeyer-ag-baar",
+          "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
           "technicien-des-services-a-region-churer-rheintal-imboden-viamala-sarganserland-sindberg-rittmeyer-ag-baar"
         ]
       },
@@ -63,6 +65,8 @@
         "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
         "service-technicians-a-churer-rheintal-region-imboden-viamala-sarganserland-werdenberg-rittmeyer-ag-baar",
         "service-techniker-a-region-churer-rheintal-imboden-viamala-sarganserland-werdenberg-rittmeyer-ag-baar",
+        "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
+        "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
         "service-technician-a-region-churer-rheintal-imboden-viamala-sarganserland-sindberg-rittmeyer-ag-baar",
         "technicien-des-services-a-region-churer-rheintal-imboden-viamala-sarganserland-sindberg-rittmeyer-ag-baar"
       ],
@@ -81,7 +85,10 @@
       },
       "firstSeenAt": "2026-06-03T00:50:36.287Z",
       "salarySource": "reported",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:07.999Z"
     },
     {
       "title": "Projektingenieur (a) Wasserkraftwerke",
@@ -103,7 +110,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-07-17",
+      "postedDate": "",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -122,7 +129,7 @@
       },
       "slugByLocale": {
         "it": "ingeniero-progetto-a-im-settore-idroenergetico-rittmeyer-ag-baar",
-        "en": "projektingenieur-a-wasserkraftwerke-rittmeyer-ag-baar",
+        "en": "project-engineer-a-hydropower-plants-rittmeyer-ag-baar",
         "de": "projektingenieur-a-wasserkraftwerke-rittmeyer-ag-baar",
         "fr": "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
       },
@@ -130,7 +137,6 @@
       "previousSlugsByLocale": {
         "en": [
           "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
-          "project-engineer-a-hydropower-plants-rittmeyer-ag-baar",
           "projektingenieur-a-wasserkraftwerke-rittmeyer-ag-baar"
         ],
         "it": [
@@ -145,8 +151,8 @@
         "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
         "ingegnere-di-progetto-a-impianti-di-idroelettrica-rittmeyer-ag-baar",
         "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
-        "projektingenieur-a-wasserkraftwerke-rittmeyer-ag-baar",
-        "project-engineer-a-hydropower-plants-rittmeyer-ag-baar"
+        "project-engineer-a-hydropower-plants-rittmeyer-ag-baar",
+        "projektingenieur-a-wasserkraftwerke-rittmeyer-ag-baar"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -163,7 +169,10 @@
       },
       "firstSeenAt": "2026-07-17T11:00:49.806Z",
       "salarySource": "estimated",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:08.717Z"
     },
     {
       "title": "Sachbearbeiter Einkauf (a)",
@@ -185,7 +194,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-10-01",
+      "postedDate": "",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -225,6 +234,9 @@
       },
       "firstSeenAt": "2026-10-01T09:27:19.173Z",
       "needsRetranslation": true,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:09.533Z",
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-einkauf-a-rittmeyer-ag-baar"
@@ -260,7 +272,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-26",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -319,7 +331,10 @@
         }
       },
       "firstSeenAt": "2026-09-26T14:26:58.217Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:10.332Z"
     },
     {
       "title": "Teamleiter Lager & Logistik (a)",
@@ -341,7 +356,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-11",
+      "postedDate": "",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -360,9 +375,9 @@
       },
       "slugByLocale": {
         "it": "team-leader-warehouse-logistics-a-rittmeyer-ag-baar",
-        "en": "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
+        "en": "team-leader-warehouse-logistics-a-rittmeyer-ag-baar",
         "de": "teamleiter-lager-logistik-a-rittmeyer-ag-baar",
-        "fr": "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
+        "fr": "chef-d-equipe-entrepot-et-logistique-a-rittmeyer-ag-baar"
       },
       "id": "rittmeyer-ag-3774c5188ee0",
       "previousSlugsByLocale": {
@@ -374,19 +389,21 @@
           "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin"
         ],
         "fr": [
+          "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
           "teamleiter-lager-logistik-a-rittmeyer-ag-baar",
           "chef-d-equipe-entrepot-et-logistique-a-rittmeyer-ag-baar"
         ],
         "en": [
+          "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
           "teamleiter-lager-logistik-a-rittmeyer-ag-baar"
         ]
       },
       "previousSlugs": [
         "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
         "teamleiter-magazzino-logistik-a-rittmeyer-ag-baar",
+        "teamleiter-lager-logistik-a-rittmeyer-ag-baar",
         "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
         "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
-        "teamleiter-lager-logistik-a-rittmeyer-ag-baar",
         "chef-d-equipe-entrepot-et-logistique-a-rittmeyer-ag-baar"
       ],
       "salaryMin": 69500,
@@ -404,7 +421,10 @@
         }
       },
       "firstSeenAt": "2026-09-11T23:25:37.393Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:11.297Z"
     },
     {
       "title": "AI Enablement Specialist",
@@ -426,7 +446,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-04",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -447,7 +467,7 @@
         "it": "ai-enablement-specialista-rittmeyer-ag-baar",
         "en": "ai-enablement-specialist-rittmeyer-ag-baar",
         "de": "ai-enablement-spezialist-rittmeyer-ag-baar",
-        "fr": "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
+        "fr": "ai-enablement-specialiste-rittmeyer-ag-baar"
       },
       "id": "rittmeyer-ag-503b3a7ff12c",
       "previousSlugsByLocale": {
@@ -458,6 +478,7 @@
           "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin"
         ],
         "fr": [
+          "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
           "ai-enablement-specialiste-rittmeyer-ag-baar"
         ],
         "it": [
@@ -467,8 +488,8 @@
       "previousSlugs": [
         "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
         "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
-        "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
         "ai-enablement-specialist-rittmeyer-ag-baar",
+        "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
         "ai-enablement-specialiste-rittmeyer-ag-baar"
       ],
       "salaryMin": 69500,
@@ -486,7 +507,10 @@
         }
       },
       "firstSeenAt": "2026-09-04T23:12:55.553Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:12.103Z"
     },
     {
       "title": "Technicien de service Automation & Réseaux industriels (a) Région Fribourg, Bulle, Yverdon et environ",
@@ -508,7 +532,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-08-12",
+      "postedDate": "",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -527,8 +551,8 @@
       },
       "slugByLocale": {
         "it": "technicien-de-service-a-region-fribourg-bulle-yverdon-et-environ-rittmeyer-ag-la-chaux-de-fonds",
-        "en": "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
-        "de": "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
+        "en": "service-technician-automation-industrial-networks-a-region-fribourg-bulle-yverdon-and-about-rittmeyer-ag-baar",
+        "de": "servicetechniker-automation-industrial-networks-a-region-freiburg-bulle-yverdon-und-uber-rittmeyer-ag-baar",
         "fr": "technicien-de-service-automation-reseaux-industriels-a-region-fribourg-bulle-yverdon-et-environ-rittmeyer-ag-baar"
       },
       "id": "rittmeyer-ag-13b910b1b09d",
@@ -538,10 +562,12 @@
         ],
         "en": [
           "technicien-de-service-automation-reseaux-industriels-a-region-fribourg-bulle-yverdon-et-environ-rittmeyer-ag-baar",
+          "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
           "service-technician-automation-industrial-networks-a-region-fribourg-bulle-yverdon-and-about-rittmeyer-ag-baar"
         ],
         "de": [
           "technicien-de-service-automation-reseaux-industriels-a-region-fribourg-bulle-yverdon-et-environ-rittmeyer-ag-baar",
+          "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
           "servicetechniker-automation-industrial-networks-a-region-freiburg-bulle-yverdon-und-uber-rittmeyer-ag-baar"
         ],
         "it": [
@@ -551,9 +577,9 @@
       "previousSlugs": [
         "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
         "technicien-de-service-automation-reseaux-industriels-a-region-fribourg-bulle-yverdon-et-environ-rittmeyer-ag-baar",
+        "technicien-de-service-automation-reseaux-industriels-a-region-fribourg-bulle-yverdon-et-environ-rittmeyer-ag-romandie",
         "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
         "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
-        "technicien-de-service-automation-reseaux-industriels-a-region-fribourg-bulle-yverdon-et-environ-rittmeyer-ag-romandie",
         "service-technician-automation-industrial-networks-a-region-fribourg-bulle-yverdon-and-about-rittmeyer-ag-baar",
         "servicetechniker-automation-industrial-networks-a-region-freiburg-bulle-yverdon-und-uber-rittmeyer-ag-baar"
       ],
@@ -572,7 +598,10 @@
       },
       "firstSeenAt": "2026-08-12T22:07:29.169Z",
       "salarySource": "reported",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:12.902Z"
     },
     {
       "title": "Technicien de service (a) Région Fribourg, Bulle, Yverdon et environ",
@@ -594,7 +623,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-08-14",
+      "postedDate": "",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -613,8 +642,8 @@
       },
       "slugByLocale": {
         "it": "technicien-de-service-a-region-fribourg-bulle-yverdon-et-environ-rittmeyer-ag-romandie",
-        "en": "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
-        "de": "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
+        "en": "service-technician-a-region-fribourg-bulle-yverdon-and-about-rittmeyer-ag-baar",
+        "de": "servicetechniker-a-region-fribourg-bulle-yverdon-und-uber-rittmeyer-ag-baar",
         "fr": "technicien-de-service-a-region-fribourg-bulle-yverdon-et-environ-rittmeyer-ag-baar"
       },
       "id": "rittmeyer-ag-c43f7de101f9",
@@ -627,10 +656,12 @@
         ],
         "en": [
           "technicien-de-service-a-region-fribourg-bulle-yverdon-et-environ-rittmeyer-ag-baar",
+          "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
           "service-technician-a-region-fribourg-bulle-yverdon-and-about-rittmeyer-ag-baar"
         ],
         "de": [
           "technicien-de-service-a-region-fribourg-bulle-yverdon-et-environ-rittmeyer-ag-baar",
+          "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
           "servicetechniker-a-region-fribourg-bulle-yverdon-und-uber-rittmeyer-ag-baar"
         ]
       },
@@ -638,6 +669,8 @@
         "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
         "technicien-de-service-a-region-fribourg-bulle-yverdon-et-environ-rittmeyer-ag-la-ch-cbfnjn",
         "technicien-de-service-a-region-fribourg-bulle-yverdon-et-environ-rittmeyer-ag-baar",
+        "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
+        "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
         "service-technician-a-region-fribourg-bulle-yverdon-and-about-rittmeyer-ag-baar",
         "servicetechniker-a-region-fribourg-bulle-yverdon-und-uber-rittmeyer-ag-baar"
       ],
@@ -656,7 +689,10 @@
       },
       "firstSeenAt": "2026-08-14T10:29:24.869Z",
       "salarySource": "estimated",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:13.748Z"
     },
     {
       "title": "Service Techniker (a) Region Winterthur, Wil, St. Gallen",
@@ -678,7 +714,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-07-06",
+      "postedDate": "",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -697,9 +733,9 @@
       },
       "slugByLocale": {
         "it": "servizio-tecnico-a-regione-winterthur-wil-st-gallen-rittmeyer-ag-baar",
-        "en": "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
+        "en": "service-technician-m-w-d-winterthur-wil-st-gallen-region-rittmeyer-ag-baar",
         "de": "service-techniker-a-region-winterthur-wil-st-gallen-rittmeyer-ag-baar",
-        "fr": "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
+        "fr": "technicien-de-service-m-w-d-region-winterthur-wil-st-gallen-rittmeyer-ag-baar"
       },
       "id": "rittmeyer-ag-748d4050a623",
       "previousSlugsByLocale": {
@@ -707,9 +743,11 @@
           "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin"
         ],
         "en": [
+          "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
           "service-technician-m-w-d-winterthur-wil-st-gallen-region-rittmeyer-ag-baar"
         ],
         "fr": [
+          "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
           "technicien-de-service-m-w-d-region-winterthur-wil-st-gallen-rittmeyer-ag-baar"
         ],
         "it": [
@@ -718,9 +756,9 @@
       },
       "previousSlugs": [
         "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
+        "service-techniker-a-region-winterthur-wil-st-gallen-rittmeyer-ag-nordostschweiz",
         "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
         "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
-        "service-techniker-a-region-winterthur-wil-st-gallen-rittmeyer-ag-nordostschweiz",
         "service-technician-m-w-d-winterthur-wil-st-gallen-region-rittmeyer-ag-baar",
         "technicien-de-service-m-w-d-region-winterthur-wil-st-gallen-rittmeyer-ag-baar"
       ],
@@ -739,7 +777,10 @@
       },
       "firstSeenAt": "2026-07-06T15:19:20.855Z",
       "salarySource": "estimated",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:14.470Z"
     },
     {
       "title": "Projektleiter (a) Wasser- und Energieversorgung",
@@ -761,7 +802,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-16",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -779,10 +820,10 @@
         "en": "Möchtest Du Projekte in der Wasser- und Energieversorgung von Anfang bis Ende begleiten und dabei wirklich etwas bewegen? Arbeitest Du gerne selbstständig, behältst aber gleichzeitig den Überblick über Termine, Kosten und Qualität? Dann könntest Du gut in unser Team passen!\n\nDie Rittmeyer Gruppe\n\nrethink. automate. innovate.\n\nAls Teil der BRUGG-Gruppe liefern wir als Spezialistin unseren weltweiten Kunden im Bereich Wasser- und Energieversorgung innovative Mess- und Automatisierungslösungen sowie datenbasierte Dienstleistungen mit Schwerpunkten in der Energiewende, Nachhaltigkeit und Infrastruktursicherheit.\n\n## Was du bei uns bewegen kannst\n- Betreuung von Kunden der Wasser- und Energieversorgung in der Deutschschweiz sowie Abwicklung eigener Kundenprojekte von der Verkaufsphase bis zur Übergabe an Service, Sicherstellung der Kundenzufriedenheit\n- Gesamtverantwortung für die Planung, Durchführung und Kontrolle von Automatisierungsprojekten\n- Erstellung von Auftragsbestätigungen. Abklärung und Detailabstimmung der technischen Anforderungen mit interne/externen Schnittstellen\n- Bestandsaufnahmen direkt bei unseren Kunden\n- Betreuung der Projektteams und Sicherstellung von Terminen, Kosten und Qualität\n- Selbstständige Ausarbeitung von Angeboten sowie Unterstützung des Verkaufs bei technischen Fragen in der Angebotserstellung\n\n## Was du mitbringst\n- Abgeschlossene elektrotechnische Ausbildung, ergänzt durch eine betriebswirtschaftliche Weiterbildung\n- Fundierte Kenntnisse in Mess-, Leit-, Netzwerk- und Elektrotechnik sowie im Anlagenbau\n- Praktische Erfahrung in der Projektabwicklung und -planung\n- Du bist offen, kommunikativ und bringst organisatorisches Talent mit\n- Verantwortungsvolles Handeln und ein ausgeprägter Kundenfokus\n- Erfahrungen im Bereich Wasser, Gas und Strom sind vorteilhaft\n- Sehr gute Deutschkenntnisse\n\n## Was wir dir bieten\n- Jobs mit Zukunft: Sinnstiftendes Arbeiten in einem zukunftsorientierten und umweltbewussten Unternehmen mit langjähriger Tradition.\n- Vertrauensvolle Arbeitskultur: DU-Kultur, Kommunikation auf Augenhöhe und offene Türen (bis zum CEO)\n- Flexibilität und Work-Life-Balance: Jahresarbeitszeitmodell, 5-6 Wochen Ferien, bezahlte Brückentage und nicht gesetzliche Feiertage (Vorholtage), flexibles Arbeiten, Homeoffice, Third Place, Teilzeitarbeit\n- Mobilität: Top-Lage unserer Standorte mit Autobahnverbindung und ÖV-Anbindung. Drei Standorte in der Schweiz: Baar, Avry und Camorino. Weltweite Standorte: Schweiz, Deutschland, Österreich, Kroatien, Italien, Frankreich, USA und Singapur\n- Arbeitsplatz: Tolle Büroräumlichkeiten mit ergonomischen Arbeitsplätzen und moderner IT-Infrastruktur\n- Vergünstigungen: Von gratis Früchten zu vergünstigten Mittagsmenüs, gestellter Arbeitskleidung bis hin zur individuellen Nutzung von Velos sowie Poolfahrzeugen"
       },
       "slugByLocale": {
-        "it": "projektleiter-a-wasser-e-energieversorgung-rittmeyer-ag-baar",
+        "it": "project-manager-a-approvvigionamento-idrico-ed-energetico-rittmeyer-ag-baar",
         "en": "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
         "de": "projektleiter-a-wasser-und-energieversorgung-rittmeyer-ag-baar",
-        "fr": "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
+        "fr": "a-approvisionnement-en-eau-et-en-energie-rittmeyer-ag-baar"
       },
       "id": "rittmeyer-ag-427f1bbe2ec0",
       "previousSlugsByLocale": {
@@ -794,14 +835,15 @@
           "project-manager-a-approvvigionamento-idrico-ed-energetico-rittmeyer-ag-baar"
         ],
         "fr": [
+          "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
           "projektleiter-a-wasser-und-energieversorgung-rittmeyer-ag-baar",
           "a-approvisionnement-en-eau-et-en-energie-rittmeyer-ag-baar"
         ]
       },
       "previousSlugs": [
         "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
-        "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
         "projektleiter-a-wasser-und-energieversorgung-rittmeyer-ag-baar",
+        "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
         "project-manager-a-approvvigionamento-idrico-ed-energetico-rittmeyer-ag-baar",
         "a-approvisionnement-en-eau-et-en-energie-rittmeyer-ag-baar"
       ],
@@ -820,7 +862,10 @@
       },
       "firstSeenAt": "2026-06-03T00:50:36.287Z",
       "salarySource": "reported",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:15.290Z"
     },
     {
       "title": "Techniker Verkaufsinnendienst (a)",
@@ -842,7 +887,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-16",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -863,7 +908,7 @@
         "it": "servizio-di-vendita-tecnico-a-rittmeyer-ag-baar",
         "en": "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
         "de": "techniker-verkaufsinnendienst-a-rittmeyer-ag-baar",
-        "fr": "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
+        "fr": "technicien-en-vente-a-rittmeyer-ag-baar"
       },
       "id": "rittmeyer-ag-38e98fe3e26e",
       "previousSlugsByLocale": {
@@ -871,6 +916,7 @@
           "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin"
         ],
         "fr": [
+          "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
           "techniker-verkaufsinnendienst-a-rittmeyer-ag-baar",
           "technicien-en-vente-a-rittmeyer-ag-baar"
         ],
@@ -880,8 +926,8 @@
       },
       "previousSlugs": [
         "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
-        "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
         "techniker-verkaufsinnendienst-a-rittmeyer-ag-baar",
+        "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
         "technicien-en-vente-a-rittmeyer-ag-baar"
       ],
       "salaryMin": 59000,
@@ -899,7 +945,10 @@
       },
       "firstSeenAt": "2026-06-03T00:50:36.287Z",
       "salarySource": "reported",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:16.129Z"
     },
     {
       "title": "Sales Project Engineer (a) Ticino",
@@ -919,7 +968,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-06-16",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -986,7 +1035,10 @@
         ]
       },
       "firstSeenAt": "2026-04-13T22:18:55.902Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:33:16.868Z"
     }
   ]
 }

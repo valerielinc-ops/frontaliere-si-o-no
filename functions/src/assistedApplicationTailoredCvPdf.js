@@ -11,6 +11,7 @@
  * speaking Switzerland, optional in Romandy and Ticino (SDBB/CSFO templates).
  */
 
+import { randomUUID } from 'node:crypto';
 import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
 import { buildInPlaceDocx, documentXmlOf } from './assistedApplicationDocxInPlace.js';
 import { pdfRendererMode, renderCvPdf } from './assistedApplicationPdfRenderer.js';
@@ -25,6 +26,54 @@ export function photoAdvice(language) {
 }
 
 /**
+ * Whether a JPG arrived whole: its segments chain from the start marker to a
+ * frame with a size, and its scans run to the end marker. Typst copies a JPG's
+ * data into the PDF as it is, so a file cut on the way still compiles and
+ * prints half grey (a cut PNG fails the compile); its first bytes alone cannot
+ * tell. A thumbnail inside a segment (EXIF) is skipped with the segment, and
+ * what follows the end marker (some phones append data) is not the picture.
+ */
+export function jpegIsWhole(buffer) {
+  if (buffer.length < 4 || buffer[0] !== 0xff || buffer[1] !== 0xd8) return false;
+  let frame = false;
+  let scanned = false;
+  let offset = 2;
+  while (offset + 1 < buffer.length) {
+    const marker = buffer[offset + 1];
+    // Fill bytes (0xFF) and stray bytes between segments are skipped, as libjpeg does.
+    if (buffer[offset] !== 0xff || marker === 0xff || marker === 0x00) {
+      offset += 1;
+      continue;
+    }
+    if (marker === 0xd9) return scanned;
+    if (marker === 0xd8) return false;
+    // TEM and the restart markers carry no length.
+    if (marker === 0x01 || (marker >= 0xd0 && marker <= 0xd7)) {
+      offset += 2;
+      continue;
+    }
+    if (offset + 4 > buffer.length) return false;
+    const length = buffer.readUInt16BE(offset + 2);
+    if (length < 2 || offset + 2 + length > buffer.length) return false;
+    // A frame header (SOF0-15 but DHT, JPG and DAC), with a height and a width.
+    if (marker >= 0xc0 && marker <= 0xcf && marker !== 0xc4 && marker !== 0xc8 && marker !== 0xcc) {
+      if (length < 8 || !buffer.readUInt16BE(offset + 5) || !buffer.readUInt16BE(offset + 7)) return false;
+      frame = true;
+    }
+    offset += 2 + length;
+    if (marker !== 0xda) continue;
+    if (!frame) return false;
+    // The scan's data runs to the next marker: 0xFF 0x00 is a data byte, 0xFF 0xD0-0xD7 a restart.
+    const scanStart = offset;
+    while (offset + 1 < buffer.length && (buffer[offset] !== 0xff || buffer[offset + 1] === 0x00 || (buffer[offset + 1] >= 0xd0 && buffer[offset + 1] <= 0xd7))) offset += 1;
+    // A scan header followed at once by the next marker holds no image.
+    if (offset === scanStart) return false;
+    scanned = true;
+  }
+  return false;
+}
+
+/**
  * The photo the candidate gave on the review page, ready for the renderer:
  * `{ photo, photoType }`, or `{}` without one. The runner's next round reads
  * it too, so a new tailored CV keeps the photo the page says it has.
@@ -36,9 +85,30 @@ export async function candidatePhoto(flow, bucket) {
 }
 
 /**
+ * Whether the tailored-CV PDF on the draft carries the candidate's photo. The
+ * standard-font writer never printed one, whatever a record from before the
+ * result was recorded says (it recorded that a photo was given).
+ */
+export function tailoredCvCarriesPhoto(draft) {
+  return draft?.tailoredCv?.photo === true && draft.tailoredCv.renderer !== 'legacy';
+}
+
+/**
+ * The draft's tailored-CV PDF when it carries the photo. Once a new PDF replaces
+ * it (a rebuild on the review page, the next round's draft) no document names
+ * it, and it is deleted after that commit: a photo the candidate takes back
+ * does not stay in a superseded PDF until the purge.
+ * @returns {string|null}
+ */
+export function supersededPhotoPdf(draft) {
+  return tailoredCvCarriesPhoto(draft) ? draft.tailoredCv.pdfKey || null : null;
+}
+
+/**
  * @param {{bucket:object, order:object, orderId:string, draft:object, flow?:object, cv?:object, nowMs:number, mode?:string, log?:Function}} input
  *   cv: the tailored CV to print (default: the draft's)
- * @returns {Promise<{pdfKey:string, renderer:string}|null>} null when the draft has no tailored CV to rebuild
+ * @returns {Promise<{pdfKey:string, renderer:string, photo:boolean}|null>} photo: the PDF carries the candidate's photo;
+ *   null when the draft has no tailored CV to rebuild
  */
 export async function rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow = {}, cv, nowMs, mode, log }) {
   const tailored = draft?.tailoredCv;
@@ -47,10 +117,11 @@ export async function rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow
   const { identity, profile } = candidateWithEdits({ order, draft, flow });
   // The candidate's line-by-line choices of this round hold through every rebuild (photo, corrected header).
   const document = tailoredCvDocument(applyCvLineChoices(source, cvChoicesOf(draft, flow), { profile }), { identity, profile });
-  const { pdf, renderer } = await renderCvPdf({ ...document, ...await candidatePhoto(flow, bucket) }, { mode: mode || await pdfRendererMode(), log });
-  const pdfKey = `assisted-application-uploads/${orderId}/ai-cv-r${draft.round || 1}-candidate-${nowMs}.pdf`;
+  const { pdf, renderer, photo } = await renderCvPdf({ ...document, ...await candidatePhoto(flow, bucket) }, { mode: mode || await pdfRendererMode(), log });
+  // A key of its own per rebuild: a request refused at its commit deletes its PDF, never the one another request published.
+  const pdfKey = `assisted-application-uploads/${orderId}/ai-cv-r${draft.round || 1}-candidate-${nowMs}-${randomUUID().slice(0, 8)}.pdf`;
   await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
-  return { pdfKey, renderer };
+  return { pdfKey, renderer, photo };
 }
 
 /**

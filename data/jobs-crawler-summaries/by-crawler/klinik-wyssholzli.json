@@ -1,7 +1,7 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-10-03T21:24:39.665Z",
+  "generatedAt": "2026-10-04T09:28:01.698Z",
   "total": 5,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -9,10 +9,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10269,
-  "avgDurationMs": 10269,
+  "durationMs": 3340,
+  "avgDurationMs": 3340,
   "durationHistory": [
-    10269
+    3340
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,9 @@
       "contractType": "full-time",
       "source": "klinik-wyssholzli-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-25",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -45,12 +47,12 @@
       },
       "id": "klinik-wyssholzli-478e6191e986",
       "firstSeenAt": "2026-09-25T15:00:02.770Z",
-      "_qualityScore": 81,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 17
+        "completeness": 15
       }
     },
     {
@@ -74,7 +76,9 @@
       "contractType": "full-time",
       "source": "klinik-wyssholzli-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-20",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -82,12 +86,12 @@
       },
       "id": "klinik-wyssholzli-f225c2a9307c",
       "firstSeenAt": "2026-05-20T05:18:02.474Z",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 15
       }
     },
     {
@@ -111,7 +115,9 @@
       "contractType": "full-time",
       "source": "klinik-wyssholzli-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-25",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -119,12 +125,12 @@
       },
       "id": "klinik-wyssholzli-7ae216cba293",
       "firstSeenAt": "2026-09-25T15:00:02.770Z",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 17
+        "completeness": 15
       }
     },
     {
@@ -148,7 +154,9 @@
       "contractType": "full-time",
       "source": "klinik-wyssholzli-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -156,12 +164,12 @@
       },
       "id": "klinik-wyssholzli-9eb3b2cca6b8",
       "firstSeenAt": "2026-09-30T21:26:48.276Z",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 15
       }
     },
     {
@@ -185,7 +193,9 @@
       "contractType": "full-time",
       "source": "klinik-wyssholzli-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-20",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "validThrough": "",
       "needsRetranslation": true,
       "_meta": {
@@ -193,16 +203,16 @@
       },
       "id": "klinik-wyssholzli-7463016231c7",
       "firstSeenAt": "2026-05-20T05:18:02.474Z",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 17
+        "completeness": 15
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

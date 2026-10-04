@@ -13,6 +13,7 @@ import { slugify } from '../scripts/lib/crawler-template.mjs';
 const workdayReplay = vi.hoisted(() => ({
   listings: [] as Array<Record<string, unknown>>,
   details: new Map<string, Record<string, unknown>>(),
+  emptyDetailPaths: new Set<string>(),
 }));
 
 vi.mock('../scripts/lib/ats-clients/workday-client.mjs', async (importOriginal) => {
@@ -25,10 +26,12 @@ vi.mock('../scripts/lib/ats-clients/workday-client.mjs', async (importOriginal) 
     fetchWorkdayJobDetail: async (_apiBase: string, externalPath: string) =>
       workdayReplay.details.get(externalPath) ?? null,
     // A real vacancy body: a req without one is not published (issue 5253).
-    fetchWorkdayJobDetailParts: async () => ({
-      text: 'Responsibilities and requirements of the role, described at length by the employer, with the team context and the application steps. You bring relevant experience, good German or English skills and a structured way of working. We offer flexible working hours, further training and a modern workplace in a friendly team.',
-      info: {},
-    }),
+    fetchWorkdayJobDetailParts: async (_apiBase: string, externalPath: string) => workdayReplay.emptyDetailPaths.has(externalPath)
+      ? { text: '', info: {} }
+      : {
+        text: 'Responsibilities and requirements of the role, described at length by the employer, with the team context and the application steps. You bring relevant experience, good German or English skills and a structured way of working. We offer flexible working hours, further training and a modern workplace in a friendly team.',
+        info: {},
+      },
   };
 });
 
@@ -49,6 +52,7 @@ describe('Novartis crawler parser', () => {
     afterEach(() => {
       workdayReplay.listings = [];
       workdayReplay.details.clear();
+      workdayReplay.emptyDetailPaths.clear();
       vi.restoreAllMocks();
     });
 
@@ -76,6 +80,31 @@ describe('Novartis crawler parser', () => {
           ['Director, CRM DU Strategy & Engagement (80-100%)', 'Basel (City)', 'BS'],
           ['Scientist', 'Stein Aargau', 'AG'],
         ]);
+    });
+
+    it('skips a Swiss vacancy whose detail has no body and never emits a Key details stub', async () => {
+      const path = '/job/Basel-City/Clinical-Research-Associate_REQ-10000002';
+      workdayReplay.listings.push({
+        title: 'Clinical Research Associate',
+        externalPath: path,
+        locationsText: 'Basel (City)',
+        postedOn: 'Posted 3 Days Ago',
+        bulletFields: ['REQ-10000002'],
+      });
+      workdayReplay.details.set(path, {
+        jobPostingInfo: { title: 'Clinical Research Associate', location: 'Basel (City)' },
+      });
+      workdayReplay.emptyDetailPaths.add(path);
+      vi.spyOn(globalThis, 'setTimeout').mockImplementation(((fn: () => void) => {
+        fn();
+        return 0;
+      }) as unknown as typeof setTimeout);
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+
+      const jobs = await fetchAllNovartisJobs();
+
+      expect(jobs).toEqual([]);
+      expect(JSON.stringify(jobs)).not.toContain('Key details');
     });
   });
 

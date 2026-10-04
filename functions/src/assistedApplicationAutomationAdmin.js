@@ -14,6 +14,7 @@ import {
   letterText,
   parseLetterText,
 } from './assistedApplicationAiDraftCore.js';
+import { randomUUID } from 'node:crypto';
 import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import { isPlausibleEmail } from './assistedApplicationAiJob.js';
 import { formAnswersWithEdits } from './assistedApplicationCandidateEdits.js';
@@ -31,6 +32,7 @@ import {
   startAutomation,
 } from './assistedApplicationAutomation.js';
 import { ensureOrderAlias } from './assistedApplicationAlias.js';
+import { factCheckTokens } from './assistedApplicationFlow.js';
 import { buildFillKit } from './assistedApplicationFillKit.js';
 import { extraDocumentsToSend } from './assistedApplicationExtraDocuments.js';
 import { submissionGuard } from './assistedApplicationSubmissionGuard.js';
@@ -215,22 +217,46 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
   if (letterRaw && bucket) {
     // The header as the candidate corrected it (name, phone, place).
     const rebuilt = await rebuildLetterPdf({ order, orderId, draft, flow: flowSnapshot.data() || {}, letter: coverLetter, nowMs });
-    coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-edit-${nowMs}.pdf`;
+    // A name of its own per edit: two edits in the same millisecond never share a file, so the one
+    // refused below deletes only its own PDF, never the one the committed draft points to.
+    coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-edit-${nowMs}-${randomUUID().slice(0, 8)}.pdf`;
     coverLetterRenderer = rebuilt.renderer;
     await bucket.file(coverLetterPdfKey).save(rebuilt.pdf, { contentType: 'application/pdf', resumable: false });
   }
-  await draftRef.set({
-    coverLetter: { ...coverLetter, text, subject: draft.coverLetter?.subject || '' },
-    applicationEmail,
-    channel,
-    factCheck: { ...factCheck, basis: draft.factCheck?.basis || null },
-    // An edit is a new text: a previous acknowledgement does not cover it.
-    factCheckAcknowledgedAt: factCheck.ok ? draft.factCheckAcknowledgedAt || null : null,
-    coverLetterPdfKey,
-    ...(coverLetterRenderer ? { coverLetterRenderer } : {}),
-    editedAt: nowMs,
-    editedBy: adminEmail,
-  }, { merge: true });
+  // Written only on the draft it was built from, as the candidate's own writes are
+  // (assistedApplicationReview.js commitRebuild): a candidate edit, a line choice or
+  // a photo saved meanwhile changes one of these, and the owner reloads instead of
+  // overwriting it unseen.
+  const unchanged = (current) => current
+    && current.round === draft.round
+    && (current.coverLetterPdfKey || null) === (draft.coverLetterPdfKey || null)
+    && (current.candidateEditedAt || null) === (draft.candidateEditedAt || null)
+    && (current.editedAt || null) === (draft.editedAt || null);
+  const committed = await db.runTransaction(async (transaction) => {
+    const current = await transaction.get(draftRef);
+    if (!current.exists || !unchanged(current.data())) return false;
+    transaction.set(draftRef, {
+      coverLetter: { ...coverLetter, text, subject: draft.coverLetter?.subject || '' },
+      applicationEmail,
+      channel,
+      factCheck: { ...factCheck, basis: draft.factCheck?.basis || null },
+      // An edit is a new text: a previous acknowledgement does not cover it, whichever way it was
+      // given (the gate at submit reads both, as the flow does: factCheckAcknowledged).
+      factCheckAcknowledgedAt: factCheck.ok ? draft.factCheckAcknowledgedAt || null : null,
+      ...(factCheck.ok ? {} : { acknowledgedFlags: { fact_check: null }, factCheckAcknowledgedTokens: null }),
+      coverLetterPdfKey,
+      ...(coverLetterRenderer ? { coverLetterRenderer } : {}),
+      editedAt: nowMs,
+      editedBy: adminEmail,
+    }, { merge: true });
+    return true;
+  });
+  if (!committed) {
+    if (coverLetterPdfKey !== draft.coverLetterPdfKey) {
+      await bucket.file(coverLetterPdfKey).delete().catch((error) => console.warn('[assisted-application] owner letter not deleted:', coverLetterPdfKey.split('/').pop(), error?.code || error?.message));
+    }
+    throw new AutomationAdminError('changed_meanwhile', 409);
+  }
   await orderRef.collection('events').doc().set(buildAssistedApplicationEvent('automation_draft_edited', {
     actorEmail: adminEmail,
     factWarnings: factCheck.unsupported.length,
@@ -282,6 +308,10 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       // Any other owner flag (no posting text, unknown channel, a suspicious posting) is acknowledged by name.
       const flags = (Array.isArray(raw.acknowledgeFlags) ? raw.acknowledgeFlags : []).filter((flag) => OWNER_FLAGS.has(flag));
       if (flags.length) acknowledgements.acknowledgedFlags = Object.fromEntries(flags.map((flag) => [flag, nowMs]));
+      // The fact warnings are confirmed as the owner saw them: a warning found later is not covered.
+      if (raw.acknowledgeFactWarnings === true || flags.includes('fact_check')) {
+        acknowledgements.factCheckAcknowledgedTokens = factCheckTokens((await draftRefFor(db, orderId).get()).data()?.factCheck);
+      }
       if (Object.keys(acknowledgements).length) {
         await draftRefFor(db, orderId).set({ ...acknowledgements, acknowledgedBy: adminEmail }, { merge: true });
       }
@@ -295,6 +325,13 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
     case 'automationRegenerate':
       return apply({ type: 'owner_regenerate' });
     case 'automationRetrySubmit':
+      // A submit the fact gate stopped (fact_check_not_acknowledged) leaves again only with the
+      // owner's confirmation of the warnings, written to the draft as on approval.
+      if (raw.acknowledgeFactWarnings === true) {
+        const draftRef = draftRefFor(db, orderId);
+        const factCheckAcknowledgedTokens = factCheckTokens((await draftRef.get()).data()?.factCheck);
+        await draftRef.set({ factCheckAcknowledgedAt: nowMs, factCheckAcknowledgedTokens, acknowledgedBy: adminEmail }, { merge: true });
+      }
       return apply({ type: 'owner_retry_submit' });
     case 'automationHandoff':
       return apply({ type: 'owner_handoff' });

@@ -1,16 +1,16 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-10-03T21:21:28.299Z",
+  "generatedAt": "2026-10-04T09:18:51.353Z",
   "total": 13,
   "newCount": 0,
-  "updatedCount": 10,
+  "updatedCount": 11,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 42289,
-  "avgDurationMs": 42289,
+  "unchangedCount": 2,
+  "durationMs": 44312,
+  "avgDurationMs": 44312,
   "durationHistory": [
-    42289
+    44312
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -126,7 +126,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
       "source": "arca24",
-      "salaryMin": 73140,
+      "salaryMin": 65680,
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
@@ -135,10 +135,10 @@
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
-        "textHash": "a260c57b63fb42569d03",
+        "textHash": "fd6f6c1c131fdc8ec6a0",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-05-24T22:36:16.166Z"
+        "extractedAt": "2026-10-04T09:18:44.598Z"
       },
       "id": "lis-lugano-istituti-sociali-46ddf621dede",
       "addressLocality": "Pregassona",
@@ -148,10 +148,57 @@
       "firstSeenAt": "2026-05-14T11:20:10.630Z",
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=33-operatori-sociosanitari-pregassona&language=it",
-      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 23
+      }
+    },
+    {
+      "title": "Assistenti di cura",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=34-assistenti-di-cura-pregassona&language=it",
+      "slug": "assistenti-di-cura",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "datePosted": "2026-01-26",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Sanità",
+      "source": "arca24",
+      "salaryMin": 65680,
+      "salaryMax": 77502,
+      "salaryCurrency": "CHF",
+      "salaryClass": "10",
+      "crawledAt": "",
+      "sourceLang": "it",
+      "currency": "CHF",
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "7b6de0bf699a0eacbdd0",
+        "source": "lis_regex_text",
+        "confidence": 0.98,
+        "extractedAt": "2026-06-19T22:12:20.738Z"
+      },
+      "id": "lis-lugano-istituti-sociali-3e5d8c322840",
+      "addressLocality": "Pregassona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "salarySource": "reported",
+      "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=34-assistenti-di-cura-pregassona&language=it",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
         "richness": 20,
         "translation": 25,
         "completeness": 23
@@ -245,6 +292,8 @@
       "firstSeenAt": "2026-05-14T11:20:10.630Z",
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=36-operatori-settore-animazione-pregassona&language=it",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -292,7 +341,6 @@
       "firstSeenAt": "2026-05-14T22:20:25.346Z",
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=37-fisioterapisti-ergoterapisti-pregassona&language=it",
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -388,7 +436,6 @@
       "firstSeenAt": "2026-05-14T22:20:25.346Z",
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=40-educatori-dell-infanzia-pregassona&language=it",
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -456,7 +503,7 @@
       "country": "CH",
       "postalCode": "6963",
       "streetAddress": "Via alla Bozzoreda 15",
-      "datePosted": "2026-01-25",
+      "datePosted": "2026-01-26",
       "validThrough": "2026-12-13",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
@@ -495,54 +542,6 @@
   "removedJobs": [],
   "unchangedJobs": [
     {
-      "title": "Assistenti di cura",
-      "company": "LIS – Lugano Istituti Sociali",
-      "companyKey": "lis-lugano-istituti-sociali",
-      "companyDomain": "lugano-lis.ch",
-      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=34-assistenti-di-cura-pregassona&language=it",
-      "slug": "assistenti-di-cura",
-      "location": "Pregassona",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6963",
-      "streetAddress": "Via alla Bozzoreda 15",
-      "datePosted": "2026-01-25",
-      "validThrough": "2026-12-13",
-      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Sanità",
-      "source": "arca24",
-      "salaryMin": 65680,
-      "salaryMax": 77502,
-      "salaryCurrency": "CHF",
-      "salaryClass": "10",
-      "crawledAt": "",
-      "sourceLang": "it",
-      "currency": "CHF",
-      "salaryExtraction": {
-        "strategyVersion": "lis_salary_v2",
-        "textHash": "7b6de0bf699a0eacbdd0",
-        "source": "lis_regex_text",
-        "confidence": 0.98,
-        "extractedAt": "2026-06-19T22:12:20.738Z"
-      },
-      "id": "lis-lugano-istituti-sociali-3e5d8c322840",
-      "addressLocality": "Pregassona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T22:20:25.346Z",
-      "salarySource": "reported",
-      "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=34-assistenti-di-cura-pregassona&language=it",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
       "title": "Operatori socioassistenziali (infanza)",
       "company": "LIS – Lugano Istituti Sociali",
       "companyKey": "lis-lugano-istituti-sociali",
@@ -554,7 +553,7 @@
       "country": "CH",
       "postalCode": "6963",
       "streetAddress": "Via alla Bozzoreda 15",
-      "datePosted": "2026-01-25",
+      "datePosted": "2026-01-26",
       "validThrough": "2026-12-13",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Sanità",
@@ -581,6 +580,8 @@
       "firstSeenAt": "2026-05-14T11:20:10.630Z",
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=39-operatori-socioassistenziali-infanza-pregassona&language=it",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -628,6 +629,8 @@
       "firstSeenAt": "2026-05-14T22:20:25.346Z",
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=43-addetti-servizi-alla-casa-pregassona&language=it",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
@@ -637,5 +640,5 @@
       }
     }
   ],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

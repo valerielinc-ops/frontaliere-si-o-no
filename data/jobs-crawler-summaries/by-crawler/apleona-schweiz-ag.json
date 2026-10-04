@@ -1,23 +1,23 @@
 {
   "key": "apleona-schweiz-ag",
   "label": "Apleona Schweiz AG",
-  "generatedAt": "2026-10-03T21:26:34.724Z",
-  "total": 12,
+  "generatedAt": "2026-10-04T09:23:11.948Z",
+  "total": 10,
   "discovered": null,
   "parsed": 10,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 12,
+  "written": 10,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 18635,
-  "avgDurationMs": 18635,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 17568,
+  "avgDurationMs": 17568,
   "durationHistory": [
-    18635
+    17568
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2575/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:20.727Z",
+      "crawledAt": "2026-10-04T09:23:01.326Z",
       "addressLocality": "Köniz-Liebefeld",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -49,17 +49,17 @@
       "applyUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2575/Description/1",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:28:11.482Z",
-      "_qualityScore": 78,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 21,
         "completeness": 14
       }
     },
     {
       "id": "apleona-schweiz-ag-2922d3471608",
-      "slug": "sektorleiter-unterhaltsreinigung-m-w-d-apleona-schweiz-ag-region-zug",
+      "slug": "direttore-di-manutenzione-m-f-d-apleona-schweiz-ag-region-zug",
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
       "companyDomain": "recruitingapp-2765.umantis.com",
@@ -69,7 +69,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2570/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:21.030Z",
+      "crawledAt": "2026-10-04T09:23:01.629Z",
       "addressLocality": "Region Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -85,11 +85,11 @@
       "applyUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2570/Description/1",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:28:11.784Z",
-      "_qualityScore": 75,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -105,7 +105,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2574/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:21.334Z",
+      "crawledAt": "2026-10-04T09:23:01.932Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -140,7 +140,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2525/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:21.638Z",
+      "crawledAt": "2026-10-04T09:23:02.233Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -176,7 +176,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2573/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:22.244Z",
+      "crawledAt": "2026-10-04T09:23:02.855Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2554/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:22.546Z",
+      "crawledAt": "2026-10-04T09:23:03.156Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -247,7 +247,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2572/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:22.852Z",
+      "crawledAt": "2026-10-04T09:23:03.461Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -282,7 +282,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2571/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:23.154Z",
+      "crawledAt": "2026-10-04T09:23:03.763Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -318,7 +318,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2569/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:23.465Z",
+      "crawledAt": "2026-10-04T09:23:04.066Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -353,7 +353,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2548/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:26:21.942Z",
+      "crawledAt": "2026-10-04T09:23:02.553Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -377,8 +377,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "apleona-schweiz-ag-a0a6929b8778",
       "slug": "responsabile-della-proprieta-m-f-d-apleona-schweiz-ag-zurich-wollishofen",
@@ -458,5 +457,6 @@
       }
     }
   ],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

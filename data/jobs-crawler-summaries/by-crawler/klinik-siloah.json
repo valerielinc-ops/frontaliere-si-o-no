@@ -1,7 +1,7 @@
 {
   "key": "klinik-siloah",
   "label": "Privatklinik Siloah",
-  "generatedAt": "2026-10-03T21:19:08.969Z",
+  "generatedAt": "2026-10-04T09:19:19.163Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -14,10 +14,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5511,
-  "avgDurationMs": 5511,
+  "durationMs": 5503,
+  "avgDurationMs": 5503,
   "durationHistory": [
-    5511
+    5503
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152629300-dipl-pflegefachperson-hf-fh-mit-berufsbildnerfunktion-80-100-",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:01.103Z",
+      "crawledAt": "2026-10-04T09:19:08.882Z",
       "addressLocality": "Muri bei Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -48,8 +48,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
-      "datePosted": "2026-09-30",
+      "datePosted": "2026-09-30T08:53:52.163Z",
+      "postedDate": "2026-09-30T08:53:52.163Z",
+      "postingDateSource": "reported",
       "firstSeenAt": "2026-09-30T21:17:08.487Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -73,7 +74,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152146630-care-manager-in-dipl-pflegefachperson-hf-fh",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:01.103Z",
+      "crawledAt": "2026-10-04T09:19:08.881Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -86,8 +87,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
-      "datePosted": "2026-09-28",
+      "datePosted": "2026-09-28T11:25:47.749Z",
+      "postedDate": "2026-09-28T11:25:47.749Z",
+      "postingDateSource": "reported",
       "firstSeenAt": "2026-09-28T21:19:40.693Z",
       "_qualityScore": 78,
       "_qualityBreakdown": {
@@ -100,5 +102,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

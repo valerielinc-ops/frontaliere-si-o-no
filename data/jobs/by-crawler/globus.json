@@ -1,6 +1,6 @@
 {
   "crawlerKey": "globus",
-  "assembledAt": "2026-10-03T21:10:58.125Z",
+  "assembledAt": "2026-10-04T09:10:20.455Z",
   "jobs": [
     {
       "id": "globus-56f2423406b6",
@@ -33,7 +33,7 @@
       "url": "https://jobs.globus.ch/Lehrstelle-als-Detailhandelsfachfrau-mann-EFZ-Herrenmode-de-j2469.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:10:52.798Z",
+      "crawledAt": "2026-10-04T09:10:14.663Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -47,16 +47,20 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-01",
       "postedDate": "2026-08-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Lehrstelle-als-Detailhandelsfachfrau-mann-EFZ-Herrenmode-de-j2469.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsfachfrau-mann-efz-herrenmode-globus-ch"
+        "lehrstelle-als-detailhandelsfachfrau-mann-efz-herrenmode-globus-ch",
+        "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-cfc-herrenmode-globus-zurich-bahnhofstrasse"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsfachfrau-mann-efz-herrenmode-globus-ch"
+          "lehrstelle-als-detailhandelsfachfrau-mann-efz-herrenmode-globus-ch",
+          "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-cfc-herrenmode-globus-zurich-bahnhofstrasse"
         ],
         "en": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-herrenmode-globus-ch"
@@ -66,6 +70,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:31:07.864Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -111,7 +116,7 @@
       "url": "https://jobs.globus.ch/Lehrstelle-als-Detailhandelsfachfrau-mann-EFZ-Lebensmittel-de-j2470.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:10:52.797Z",
+      "crawledAt": "2026-10-04T09:10:14.662Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -125,16 +130,20 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-01",
       "postedDate": "2026-08-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Lehrstelle-als-Detailhandelsfachfrau-mann-EFZ-Lebensmittel-de-j2470.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch"
+        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch",
+        "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-cfc-alimentari-globus-zurich-bahnhofstrasse"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch"
+          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch",
+          "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-cfc-alimentari-globus-zurich-bahnhofstrasse"
         ],
         "en": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch"
@@ -189,7 +198,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Home-Lifestyle-40-50-wmd-de-j2484.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:10:52.796Z",
+      "crawledAt": "2026-10-04T09:10:14.661Z",
       "addressLocality": "St. Gallen",
       "streetAddress": "Multergasse 47",
       "postalCode": "9001",
@@ -203,7 +212,9 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-05",
       "postedDate": "2026-08-05",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Verkaufsberaterin-Home-Lifestyle-40-50-wmd-de-j2484.html",
       "requirements": [],
       "requirementsByLocale": {},
@@ -225,7 +236,8 @@
         "verkaufsberater-in-kids-papeterie-home-lifestyle-80-w-m-d-globus-ch",
         "consultant-en-ventes-enfants-papeterie-maison-et-mode-de-vie-80-f-m-d-globus-basel",
         "consultant-en-ventes-dans-home-lifestyle-80-f-m-d-globus-zurich-bahnhofstrasse",
-        "sales-consultant-in-home-lifestyle-80-f-m-d-globus-zurich-bahnhofstrasse"
+        "sales-consultant-in-home-lifestyle-80-f-m-d-globus-zurich-bahnhofstrasse",
+        "consulente-commerciale-in-home-lifestyle-40-50-f-m-d-globus-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -246,7 +258,8 @@
           "verkaufsberater-in-kids-papeterie-home-lifestyle-80-w-m-d-globus-ch",
           "consultant-en-ventes-enfants-papeterie-maison-et-mode-de-vie-80-f-m-d-globus-basel",
           "consultant-en-ventes-dans-home-lifestyle-80-f-m-d-globus-zurich-bahnhofstrasse",
-          "sales-consultant-in-home-lifestyle-80-f-m-d-globus-zurich-bahnhofstrasse"
+          "sales-consultant-in-home-lifestyle-80-f-m-d-globus-zurich-bahnhofstrasse",
+          "consulente-commerciale-in-home-lifestyle-40-50-f-m-d-globus-st-gallen"
         ],
         "en": [
           "verkaufsberater-in-home-lifestyle-40-50-w-m-d-globus-ch",
@@ -261,6 +274,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:41:20.485Z",
+      "needsRetranslation": true,
       "salaryMin": 34300,
       "salaryMax": 52500,
       "salarySource": "estimated",
@@ -306,7 +320,7 @@
       "url": "https://jobs.globus.ch/Mitarbeiterin-Warenservice-delicatessa-Grundnahrungsmittel-de-j2488.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:10:52.795Z",
+      "crawledAt": "2026-10-04T09:10:14.660Z",
       "addressLocality": "Basel",
       "streetAddress": "Marktplatz 2",
       "postalCode": "4001",
@@ -320,16 +334,20 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-07",
       "postedDate": "2026-08-07",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Mitarbeiterin-Warenservice-delicatessa-Grundnahrungsmittel-de-j2488.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-warenservice-delicatessa-grundnahrungsmittel-40-befristet-bis-31-12-2026-w"
+        "mitarbeiter-in-warenservice-delicatessa-grundnahrungsmittel-40-befristet-bis-31-12-2026-w",
+        "collaboratore-trice-warenservice-delicatessa-grundnahrungsmittel-40-befristet-bis-31-12-2026-m-w-d-globus-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-warenservice-delicatessa-grundnahrungsmittel-40-befristet-bis-31-12-2026-w"
+          "mitarbeiter-in-warenservice-delicatessa-grundnahrungsmittel-40-befristet-bis-31-12-2026-w",
+          "collaboratore-trice-warenservice-delicatessa-grundnahrungsmittel-40-befristet-bis-31-12-2026-m-w-d-globus-basel"
         ],
         "en": [
           "mitarbeiter-in-warenservice-delicatessa-grundnahrungsmittel-40-befristet-bis-31-12-2026-w"
@@ -339,6 +357,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:20:45.394Z",
+      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37600,
       "salarySource": "estimated",
@@ -384,7 +403,7 @@
       "url": "https://jobs.globus.ch/Conseillerre-de-vente-80-pour-notre-rayon-produits-frais-d-fr-j2493.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:10:52.794Z",
+      "crawledAt": "2026-10-04T09:10:14.659Z",
       "addressLocality": "Genève",
       "streetAddress": "Rue du Rhône 48",
       "postalCode": "1204 ",
@@ -398,19 +417,23 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-10",
       "postedDate": "2026-08-10",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Conseillerre-de-vente-80-pour-notre-rayon-produits-frais-d-fr-j2493.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
           "conseiller-ere-de-vente-aux-secteurs-produits-frais-de-notre-delicatessa-a-80-globus-ch",
-          "conseiller-ere-de-vente-a-80-pour-notre-rayon-produits-frais-de-notre-delicatessa-en-cdd"
+          "conseiller-ere-de-vente-a-80-pour-notre-rayon-produits-frais-de-notre-delicatessa-en-cdd",
+          "conseiller-ere-de-vente-a-80-pour-notre-rayon-produits-frais-de-notre-delicatessa-globus"
         ],
         "it": [
           "conseiller-ere-de-vente-aux-secteurs-produits-frais-de-notre-delicatessa-a-80-globus-ch",
           "conseiller-ere-de-vente-a-80-pour-notre-rayon-produits-frais-de-notre-delicatessa-globus",
-          "conseiller-ere-de-vente-a-80-pour-notre-rayon-produits-frais-de-notre-delicatessa-en-cdd"
+          "conseiller-ere-de-vente-a-80-pour-notre-rayon-produits-frais-de-notre-delicatessa-en-cdd",
+          "consulente-di-vendita-ai-settori-di-prodotti-freschi-della-nostra-delicatessa-all-80-globus-geneve"
         ],
         "en": [
           "conseiller-ere-de-vente-aux-secteurs-produits-frais-de-notre-delicatessa-a-80-globus-ch"
@@ -422,7 +445,8 @@
       "previousSlugs": [
         "conseiller-ere-de-vente-aux-secteurs-produits-frais-de-notre-delicatessa-a-80-globus-ch",
         "conseiller-ere-de-vente-a-80-pour-notre-rayon-produits-frais-de-notre-delicatessa-globus",
-        "conseiller-ere-de-vente-a-80-pour-notre-rayon-produits-frais-de-notre-delicatessa-en-cdd"
+        "conseiller-ere-de-vente-a-80-pour-notre-rayon-produits-frais-de-notre-delicatessa-en-cdd",
+        "consulente-di-vendita-ai-settori-di-prodotti-freschi-della-nostra-delicatessa-all-80-globus-geneve"
       ],
       "firstSeenAt": "2026-08-10T21:45:15.386Z",
       "salaryMin": 48400,
@@ -470,7 +494,7 @@
       "url": "https://jobs.globus.ch/Lehrstelle-als-Polydesigner-in-3D-EFZ-de-j2494.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:10:52.792Z",
+      "crawledAt": "2026-10-04T09:10:14.658Z",
       "addressLocality": "St. Gallen",
       "streetAddress": "Multergasse 47",
       "postalCode": "9001",
@@ -484,18 +508,22 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-12",
       "postedDate": "2026-08-12",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Lehrstelle-als-Polydesigner-in-3D-EFZ-de-j2494.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-polydesigner-in-3d-efz-globus-ch-2",
-        "lehrstelle-als-polydesigner-in-3d-efz-globus-ch"
+        "lehrstelle-als-polydesigner-in-3d-efz-globus-ch",
+        "apprendistato-come-polydesigner-in-3d-cfc-globus-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-polydesigner-in-3d-efz-globus-ch-2",
-          "lehrstelle-als-polydesigner-in-3d-efz-globus-ch"
+          "lehrstelle-als-polydesigner-in-3d-efz-globus-ch",
+          "apprendistato-come-polydesigner-in-3d-cfc-globus-st-gallen"
         ],
         "en": [
           "lehrstelle-als-polydesigner-in-3d-efz-globus-ch-2"
@@ -554,7 +582,7 @@
       "url": "https://jobs.globus.ch/Lehrstelle-als-Detailhandelsfachfrau-mann-EFZ-Damenmode-de-j2495.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:10:52.791Z",
+      "crawledAt": "2026-10-04T09:10:14.656Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -568,16 +596,20 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-14",
       "postedDate": "2026-08-14",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Lehrstelle-als-Detailhandelsfachfrau-mann-EFZ-Damenmode-de-j2495.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsfachfrau-mann-efz-damenmode-globus-ch"
+        "lehrstelle-als-detailhandelsfachfrau-mann-efz-damenmode-globus-ch",
+        "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-cfc-damenmode-globus-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsfachfrau-mann-efz-damenmode-globus-ch"
+          "lehrstelle-als-detailhandelsfachfrau-mann-efz-damenmode-globus-ch",
+          "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-cfc-damenmode-globus-wallisellen"
         ],
         "en": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-damenmode-globus-ch"
@@ -632,7 +664,7 @@
       "url": "https://jobs.globus.ch/Lehrstelle-als-Detailhandelsfachfrau-mann-EFZ-Lebensmittel-de-j2496.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:10:52.788Z",
+      "crawledAt": "2026-10-04T09:10:14.653Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -646,18 +678,22 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-14",
       "postedDate": "2026-08-14",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Lehrstelle-als-Detailhandelsfachfrau-mann-EFZ-Lebensmittel-de-j2496.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch-2",
-        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch"
+        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch",
+        "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-cfc-alimentari-globus-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch-2",
-          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch"
+          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch",
+          "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-cfc-alimentari-globus-wallisellen"
         ]
       },
       "firstSeenAt": "2026-08-14T10:15:17.797Z",
@@ -706,7 +742,7 @@
       "url": "https://jobs.globus.ch/Sales-Support-fuer-Einsaetze-im-Food-Bereich-20-vorwiegend-de-j2507.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:10:52.765Z",
+      "crawledAt": "2026-10-04T09:10:14.632Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -720,14 +756,17 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-02",
       "postedDate": "2026-09-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Sales-Support-fuer-Einsaetze-im-Food-Bereich-20-vorwiegend-de-j2507.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
           "sales-support-samstagseinsatze-20-im-bereich-food-w-m-d-globus-ch",
-          "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-befristet"
+          "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-befristet",
+          "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch"
         ],
         "it": [
           "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch",
@@ -742,7 +781,8 @@
           "sales-support-saturday-assignments-20-area-non-food-f-m-d-globus-basel",
           "sales-support-samstagseinsatze-20-bereich-non-food-w-m-d-globus-ch",
           "soutien-aux-ventes-affectations-du-samedi-20-zone-non-alimentaire-f-m-j-globus-basel",
-          "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-befristet"
+          "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-befristet",
+          "supporto-di-vendita-per-incarichi-nel-settore-alimentare-20-principalmente-sabato-assegnazioni-m-f-d-globus-zurich"
         ],
         "en": [
           "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch",
@@ -766,7 +806,8 @@
         "sales-support-saturday-assignments-20-area-non-food-f-m-d-globus-basel",
         "sales-support-samstagseinsatze-20-bereich-non-food-w-m-d-globus-ch",
         "soutien-aux-ventes-affectations-du-samedi-20-zone-non-alimentaire-f-m-j-globus-basel",
-        "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-befristet"
+        "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-befristet",
+        "supporto-di-vendita-per-incarichi-nel-settore-alimentare-20-principalmente-sabato-assegnazioni-m-f-d-globus-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-02T13:31:50.590Z",
@@ -815,7 +856,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Damenmode-60-80-wmd-de-j2513.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:10:52.764Z",
+      "crawledAt": "2026-10-04T09:10:14.631Z",
       "addressLocality": "Bern",
       "streetAddress": "Spitalgasse 17 - 21",
       "postalCode": "3001",
@@ -829,18 +870,22 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-10",
       "postedDate": "2026-09-10",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Verkaufsberaterin-Damenmode-60-80-wmd-de-j2513.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsberater-in-damenmode-60-80-w-m-d-globus-ch",
-        "verkaufsberater-in-damenmode-60-80-w-m-d-globus-bern"
+        "verkaufsberater-in-damenmode-60-80-w-m-d-globus-bern",
+        "consulente-di-vendita-moda-femminile-60-80-m-f-d-globus-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-damenmode-60-80-w-m-d-globus-ch",
-          "verkaufsberater-in-damenmode-60-80-w-m-d-globus-bern"
+          "verkaufsberater-in-damenmode-60-80-w-m-d-globus-bern",
+          "consulente-di-vendita-moda-femminile-60-80-m-f-d-globus-bern"
         ],
         "en": [
           "verkaufsberater-in-damenmode-60-80-w-m-d-globus-bern"
@@ -895,7 +940,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Damenmode-20-40-wmd-de-j2514.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:10:52.762Z",
+      "crawledAt": "2026-10-04T09:10:14.629Z",
       "addressLocality": "Bern",
       "streetAddress": "Spitalgasse 17 - 21",
       "postalCode": "3001",
@@ -909,18 +954,22 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-10",
       "postedDate": "2026-09-10",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Verkaufsberaterin-Damenmode-20-40-wmd-de-j2514.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsberater-in-damenmode-20-40-w-m-d-globus-ch",
-        "verkaufsberater-in-damenmode-20-40-w-m-d-globus-bern"
+        "verkaufsberater-in-damenmode-20-40-w-m-d-globus-bern",
+        "consulente-di-vendita-moda-femminile-20-40-m-f-d-globus-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-damenmode-20-40-w-m-d-globus-ch",
-          "verkaufsberater-in-damenmode-20-40-w-m-d-globus-bern"
+          "verkaufsberater-in-damenmode-20-40-w-m-d-globus-bern",
+          "consulente-di-vendita-moda-femminile-20-40-m-f-d-globus-bern"
         ],
         "en": [
           "verkaufsberater-in-damenmode-20-40-w-m-d-globus-bern"
@@ -930,6 +979,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:05:04.079Z",
+      "needsRetranslation": true,
       "salaryMin": 31000,
       "salaryMax": 47400,
       "salarySource": "estimated",
@@ -940,86 +990,6 @@
           "@type": "QuantitativeValue",
           "minValue": 31000,
           "maxValue": 47400,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "globus-ca5205d2b434",
-      "slug": "gioielli-da-donna-per-il-marchio-kapels-s-30-60-m-f-d-globus-zurich-bahnhofstrasse",
-      "slugByLocale": {
-        "it": "gioielli-da-donna-per-il-marchio-kapels-s-30-60-m-f-d-globus-zurich-bahnhofstrasse",
-        "en": "fashion-consultant-women-s-jewellery-for-the-brand-kapels-s-30-60-m-f-d-globus-zurich-bahnhofstrasse",
-        "de": "modeberater-in-damenschmuck-fur-die-marke-kapels-s-30-60-w-m-d-globus-ch",
-        "fr": "bijoux-femme-de-consultant-de-mode-pour-la-marque-kapels-s-30-60-h-f-d-globus-zurich-bahnhofstrasse"
-      },
-      "company": "Globus",
-      "companyKey": "globus",
-      "companyDomain": "globus.ch",
-      "title": "Modeberater:in Damenschmuck für die Marke KAPELS`S - 30-60% (w/m/d)",
-      "titleByLocale": {
-        "it": "Gioielli da donna per il marchio KAPELS`S - 30-60% (m/f/d)",
-        "en": "Fashion consultant women's jewellery for the brand KAPELS`S - 30-60% (m/f/d)",
-        "de": "Modeberater:in Damenschmuck für die Marke KAPELS`S - 30-60% (w/m/d)",
-        "fr": "Bijoux femme de consultant de mode pour la marque KAPELS`S - 30-60% (h/f/d)"
-      },
-      "description": "KAPEL’S ist Europas führender Anbieter einer einzigartigen Auswahl an Vintage-Modeschmuck der weltweit luxuriösesten Marken. Wir sind spezialisiert auf außergewöhnliche Stücke aus den 1940er- bis 2000er-Jahren und bieten exklusive Modelle direkt vom Laufsteg an.\n Für unseren Stand im Globus Warenhaus an der prächtigen Bahnhofstrasse suchen wir ein zuverlässiges, motiviertes und modebewusstes neues Teammitglied im Pensum von 30-60%, bestenfalls ab September 2026.\n\nHIER MACHST DU DEN UNTERSCHIED\n\n• Begrüssen Sie anspruchsvolle Kunden aus dem In- und Ausland und sorgen Sie dafür, dass sie ein besonderes Einkaufserlebnis genießen.\n\n• Sie präsentieren unser herausragendes Schmucksortiment und beraten unsere Kunden in Sachen Stil, Farbabstimmung und Modetrends.\n\n• Sie bereiten Verkäufe vor und schließen sie ab.\n\n• Sie bauen enge Beziehungen zu unseren Kunden auf und pflegen diese langfristig.\n\n• Sie sorgen dafür, dass der Stand stets in bestem Zustand ist.\n DAS ZEICHNET DICH AUS\n\n• Ausgeprägte Kundenorientierung.\n\n• Sie sind sehr zuverlässig und vertrauenswürdig.\n\n• Sie verfügen über ein ausgezeichnetes Auge fürs Detail.\n\n• Sie haben eine große Leidenschaft für Luxusmode, Schmuck und Kunst.\n\n• Sie verfolgen die saisonalen Haute-Couture-Kollektionen und -Trends.\n\n• Sie verfügen über ein ausgezeichnetes Gespür für Ästhetik und Design (Farben und Texturen).\n\n• Sie sind in der Lage, Kunden bei der Zusammenstellung ihrer Outfits mit der passenden Schmuckauswahl zu beraten.\n\n• Sie verfügen über tadellose Umgangsformen und ein gepflegtes Erscheinungsbild.\n\n• Sie verfügen über ausgezeichnete Kommunikationsfähigkeiten in Deutsch und Englisch; weitere Sprachen sind von großem Vorteil.\n\n• Erfahrung im Einzelhandel und im Verkauf ist von Vorteil.\n BENEFITS FÜR DICH\n Bis zu 30 % Rabatt in allen Globus-Kaufhäusern.\n Alle gesetzlich vorgeschriebenen Versicherungen sind abgedeckt.\n Teilnahme an speziell konzipierten Globus-Schulungen.\n Dein Kontakt\n Wenn Sie an dieser Stelle interessiert sind, freuen wir uns auf Ihre Bewerbung per E-Mail an info@kapels.com",
-      "descriptionByLocale": {
-        "it": "KAPEL’S è il fornitore leader dell’Europa di una selezione unica di gioielli vintage delle marche più lussuose del mondo. Siamo specializzati in pezzi eccezionali dal 1940 al 2000 e offriamo modelli esclusivi direttamente dalla passerella.\nPer il nostro stand nel reparto Globus sulla magnifica Bahnhofstrasse siamo alla ricerca di un nuovo team affidabile, motivato e di moda membro nella quantità di 30-60%, al meglio dal settembre 2026.\n\nQui fai la differenza\n\n• Benvenuto clienti esigenti da casa e dall'estero e assicurarsi di godere di una speciale esperienza di shopping.\n\n• Presentano la nostra straordinaria gamma di gioielli e consigliano ai nostri clienti le tendenze di stile, colore e moda.\n\n• Preparano le vendite e li chiudono.\n\n• Costruiscono relazioni strette con i nostri clienti e li mantengono a lungo termine.\n\n• Assicurano che lo stand sia sempre nella migliore condizione.\nQuesto ti tira fuori\n\n• Forte orientamento al cliente.\n\n• Sono molto affidabili e affidabili.\n\n• Hanno un occhio eccellente per i dettagli.\n\n• Hanno una grande passione per la moda di lusso, gioielli e arte.\n\n• Essi seguono le collezioni e le tendenze di alta moda stagionali.\n\n• Hanno una sensazione eccellente per Ästetica e design (colori e texture).\n\n• Essi sono in grado di consigliare i clienti quando mettendo insieme i loro abiti con la selezione appropriata di gioielli.\n\n• Hanno buone maniere e un aspetto ben curato.\n\n• Hanno eccellenti capacità di comunicazione in tedesco e inglese; altre lingue sono di grande vantaggio.\n\n• L'esperienza nella vendita al dettaglio e le vendite è vantaggioso.\nPer te\nFino al 30% di sconto in tutti i grandi magazzini Globus.\nTutta l'assicurazione obbligatoria è coperta.\nPartecipazione a corsi di formazione Globus appositamente progettati.\nIl tuo contatto\nSe siete interessati a questo punto, non vediamo l'ora di ricevere la vostra domanda via email a info@kapels.com",
-        "en": "KAPEL’S is Europe’s leading provider of a unique selection of vintage fashion jewelry from the world’s most luxurious brands. We specialize in exceptional pieces from the 1940s to 2000s and offer exclusive models directly from the catwalk.\nFor our stand in the Globus department store on the magnificent Bahnhofstrasse we are looking for a reliable, motivated and fashion-conscious new team member in the amount of 30-60%, at best from September 2026.\n\nHere you make the difference\n\n• Welcome discerning customers from home and abroad and ensure that they enjoy a special shopping experience.\n\n• They present our outstanding range of jewellery and advise our customers on style, color matching and fashion trends.\n\n• They prepare sales and close them.\n\n• They build close relationships with our customers and maintain them in the long term.\n\n• They ensure that the stand is always in the best condition.\nThat draws you out\n\n• Strong customer orientation.\n\n• They are very reliable and trustworthy.\n\n• They have an excellent eye for detail.\n\n• They have a great passion for luxury fashion, jewelry and art.\n\n• They follow the seasonal haute couture collections and trends.\n\n• They have an excellent feel for Ästhetics and design (colors and textures).\n\n• They are able to advise customers when putting together their outfits with the appropriate selection of jewelry.\n\n• They have perfect manners and a well-groomed appearance.\n\n• They have excellent communication skills in German and English; Other languages are of great advantage.\n\n• Experience in retail and sales is beneficial.\nBENEFITS FOR YOU\nUp to 30% discount in all Globus department stores.\nAll legally required insurance is covered.\nParticipation in specially designed Globus training courses.\nYour contact\nIf you are interested at this point, we look forward to receiving your application by email to info@kapels.com",
-        "de": "KAPEL’S ist Europas führender Anbieter einer einzigartigen Auswahl an Vintage-Modeschmuck der weltweit luxuriösesten Marken. Wir sind spezialisiert auf außergewöhnliche Stücke aus den 1940er- bis 2000er-Jahren und bieten exklusive Modelle direkt vom Laufsteg an.\nFür unseren Stand im Globus Warenhaus an der prächtigen Bahnhofstrasse suchen wir ein zuverlässiges, motiviertes und modebewusstes neues Teammitglied im Pensum von 30-60%, bestenfalls ab September 2026.\n\nHIER MACHST DU DEN UNTERSCHIED\n\n• Begrüssen Sie anspruchsvolle Kunden aus dem In- und Ausland und sorgen Sie dafür, dass sie ein besonderes Einkaufserlebnis genießen.\n\n• Sie präsentieren unser herausragendes Schmucksortiment und beraten unsere Kunden in Sachen Stil, Farbabstimmung und Modetrends.\n\n• Sie bereiten Verkäufe vor und schließen sie ab.\n\n• Sie bauen enge Beziehungen zu unseren Kunden auf und pflegen diese langfristig.\n\n• Sie sorgen dafür, dass der Stand stets in bestem Zustand ist.\nDAS ZEICHNET DICH AUS\n\n• Ausgeprägte Kundenorientierung.\n\n• Sie sind sehr zuverlässig und vertrauenswürdig.\n\n• Sie verfügen über ein ausgezeichnetes Auge fürs Detail.\n\n• Sie haben eine große Leidenschaft für Luxusmode, Schmuck und Kunst.\n\n• Sie verfolgen die saisonalen Haute-Couture-Kollektionen und -Trends.\n\n• Sie verfügen über ein ausgezeichnetes Gespür für Ästhetik und Design (Farben und Texturen).\n\n• Sie sind in der Lage, Kunden bei der Zusammenstellung ihrer Outfits mit der passenden Schmuckauswahl zu beraten.\n\n• Sie verfügen über tadellose Umgangsformen und ein gepflegtes Erscheinungsbild.\n\n• Sie verfügen über ausgezeichnete Kommunikationsfähigkeiten in Deutsch und Englisch; weitere Sprachen sind von großem Vorteil.\n\n• Erfahrung im Einzelhandel und im Verkauf ist von Vorteil.\nBENEFITS FÜR DICH\nBis zu 30 % Rabatt in allen Globus-Kaufhäusern.\nAlle gesetzlich vorgeschriebenen Versicherungen sind abgedeckt.\nTeilnahme an speziell konzipierten Globus-Schulungen.\nDein Kontakt\nWenn Sie an dieser Stelle interessiert sind, freuen wir uns auf Ihre Bewerbung per E-Mail an info@kapels.com",
-        "fr": "KAPELS est le principal fournisseur d'Europe d'une sélection unique de bijoux vintage de mode des marques les plus luxueuses du monde. Nous nous spécialisons dans des pièces exceptionnelles des années 1940 aux années 2000 et proposons des modèles exclusifs directement depuis la passerelle.\nPour notre stand dans le grand magasin Globus sur la magnifique Bahnhofstrasse, nous sommes à la recherche d'un nouveau membre fiable, motivé et soucieux de la mode dans le montant de 30-60%, au mieux à partir de septembre 2026.\n\nIci vous faites la différence\n\n• Bienvenue aux clients avertis de chez eux et à l'étranger et assurez-vous qu'ils profitent d'une expérience d'achat spéciale.\n\n• Ils présentent notre gamme exceptionnelle de bijoux et conseillent nos clients sur le style, la couleur et les tendances de la mode.\n\n• Ils préparent les ventes et les ferment.\n\n• Ils établissent des relations étroites avec nos clients et les maintiennent à long terme.\n\n• Ils s'assurent que le stand est toujours dans le meilleur état.\nÇa t'attire.\n\n• Une forte orientation client.\n\n• Ils sont très fiables et dignes de confiance.\n\n• Ils ont un excellent œil pour les détails.\n\n• Ils ont une grande passion pour la mode de luxe, les bijoux et l'art.\n\n• Ils suivent les collections et tendances saisonnières de haute couture.\n\n• Ils ont une excellente sensation pour la esthétique et le design de Ä (couleurs et textures).\n\n• Ils sont en mesure de conseiller les clients lors de la mise en place de leurs tenues avec la sélection appropriée de bijoux.\n\n• Ils ont des manières parfaites et une apparence soignée.\n\n• Ils ont d'excellentes compétences en communication en allemand et en anglais; D'autres langues sont d'un grand avantage.\n\n• L'expérience dans le commerce de détail et de vente est bénéfique.\nAVANTAGES POUR VOUS\nJusqu'à 30% de réduction dans tous les grands magasins Globus.\nToutes les assurances légales sont couvertes.\nParticipation à des cours de formation Globus spécialement conçus.\nVotre contact\nSi vous êtes intéressé à ce point, nous nous réjouissons de recevoir votre demande par courriel à info@kapels.com"
-      },
-      "location": "Zürich Bahnhofstrasse",
-      "canton": "ZH",
-      "url": "https://jobs.globus.ch/Modeberaterin-Damenschmuck-fuer-die-Marke-KAPELSS-30-60-wm-de-j2521.html",
-      "source": "Globus Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:10:52.760Z",
-      "addressLocality": "Zürich Bahnhofstrasse",
-      "streetAddress": "Schweizergasse 11",
-      "postalCode": "8001",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail (department store / luxury)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-16",
-      "applyUrl": "https://jobs.globus.ch/Modeberaterin-Damenschmuck-fuer-die-Marke-KAPELSS-30-60-wm-de-j2521.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "modeberater-in-damenschmuck-fur-die-marke-kapels-s-30-60-w-m-d-globus-ch",
-        "modeberater-in-damenschmuck-per-la-marke-kapels-s-30-60-m-w-d-globus-zurich-bahnhofstrasse"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "modeberater-in-damenschmuck-fur-die-marke-kapels-s-30-60-w-m-d-globus-ch",
-          "modeberater-in-damenschmuck-per-la-marke-kapels-s-30-60-m-w-d-globus-zurich-bahnhofstrasse"
-        ],
-        "en": [
-          "modeberater-in-damenschmuck-fur-die-marke-kapels-s-30-60-w-m-d-globus-ch"
-        ],
-        "fr": [
-          "modeberater-in-damenschmuck-fur-die-marke-kapels-s-30-60-w-m-d-globus-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:49:17.176Z",
-      "salaryMin": 44100,
-      "salaryMax": 66900,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 44100,
-          "maxValue": 66900,
           "unitText": "YEAR"
         }
       }
@@ -1055,7 +1025,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Heimtextilien-fuer-die-Marke-Schlossberg-de-j2525.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:10:52.759Z",
+      "crawledAt": "2026-10-04T09:10:14.628Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -1069,16 +1039,20 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-18",
       "postedDate": "2026-09-18",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Verkaufsberaterin-Heimtextilien-fuer-die-Marke-Schlossberg-de-j2525.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufsberater-in-heimtextilien-fur-die-marke-schlossberg-80-100-w-m-d-globus-ch"
+        "verkaufsberater-in-heimtextilien-fur-die-marke-schlossberg-80-100-w-m-d-globus-ch",
+        "verkaufsberater-in-heimtextilien-per-la-marke-schlossberg-80-100-m-w-d-globus-zurich-bahnhofstrasse"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-heimtextilien-fur-die-marke-schlossberg-80-100-w-m-d-globus-ch"
+          "verkaufsberater-in-heimtextilien-fur-die-marke-schlossberg-80-100-w-m-d-globus-ch",
+          "verkaufsberater-in-heimtextilien-per-la-marke-schlossberg-80-100-m-w-d-globus-zurich-bahnhofstrasse"
         ],
         "en": [
           "verkaufsberater-in-heimtextilien-fur-die-marke-schlossberg-80-100-w-m-d-globus-ch"
@@ -1099,6 +1073,91 @@
           "@type": "QuantitativeValue",
           "minValue": 83000,
           "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "globus-ca5205d2b434",
+      "slug": "gioielli-da-donna-per-il-marchio-kapels-s-30-60-m-f-d-globus-zurich-bahnhofstrasse",
+      "slugByLocale": {
+        "it": "gioielli-da-donna-per-il-marchio-kapels-s-30-60-m-f-d-globus-zurich-bahnhofstrasse",
+        "en": "fashion-consultant-women-s-jewellery-for-the-brand-kapels-s-30-60-m-f-d-globus-zurich-bahnhofstrasse",
+        "de": "modeberater-in-damenschmuck-fur-die-marke-kapels-s-30-60-w-m-d-globus-ch",
+        "fr": "bijoux-femme-de-consultant-de-mode-pour-la-marque-kapels-s-30-60-h-f-d-globus-zurich-bahnhofstrasse"
+      },
+      "company": "Globus",
+      "companyKey": "globus",
+      "companyDomain": "globus.ch",
+      "title": "Modeberater:in Damenschmuck für die Marke KAPELS`S - 30-60% (w/m/d)",
+      "titleByLocale": {
+        "it": "Gioielli da donna per il marchio KAPELS`S - 30-60% (m/f/d)",
+        "en": "Fashion consultant women's jewellery for the brand KAPELS`S - 30-60% (m/f/d)",
+        "de": "Modeberater:in Damenschmuck für die Marke KAPELS`S - 30-60% (w/m/d)",
+        "fr": "Bijoux femme de consultant de mode pour la marque KAPELS`S - 30-60% (h/f/d)"
+      },
+      "description": "KAPEL’S ist Europas führender Anbieter einer einzigartigen Auswahl an Vintage-Modeschmuck der weltweit luxuriösesten Marken. Wir sind spezialisiert auf außergewöhnliche Stücke aus den 1940er- bis 2000er-Jahren und bieten exklusive Modelle direkt vom Laufsteg an.\n Für unseren Stand im Globus Warenhaus an der prächtigen Bahnhofstrasse suchen wir ein zuverlässiges, motiviertes und modebewusstes neues Teammitglied im Pensum von 30-60%, bestenfalls ab September 2026.\n\nHIER MACHST DU DEN UNTERSCHIED\n\n• Begrüssen Sie anspruchsvolle Kunden aus dem In- und Ausland und sorgen Sie dafür, dass sie ein besonderes Einkaufserlebnis genießen.\n\n• Sie präsentieren unser herausragendes Schmucksortiment und beraten unsere Kunden in Sachen Stil, Farbabstimmung und Modetrends.\n\n• Sie bereiten Verkäufe vor und schließen sie ab.\n\n• Sie bauen enge Beziehungen zu unseren Kunden auf und pflegen diese langfristig.\n\n• Sie sorgen dafür, dass der Stand stets in bestem Zustand ist.\n DAS ZEICHNET DICH AUS\n\n• Ausgeprägte Kundenorientierung.\n\n• Sie sind sehr zuverlässig und vertrauenswürdig.\n\n• Sie verfügen über ein ausgezeichnetes Auge fürs Detail.\n\n• Sie haben eine große Leidenschaft für Luxusmode, Schmuck und Kunst.\n\n• Sie verfolgen die saisonalen Haute-Couture-Kollektionen und -Trends.\n\n• Sie verfügen über ein ausgezeichnetes Gespür für Ästhetik und Design (Farben und Texturen).\n\n• Sie sind in der Lage, Kunden bei der Zusammenstellung ihrer Outfits mit der passenden Schmuckauswahl zu beraten.\n\n• Sie verfügen über tadellose Umgangsformen und ein gepflegtes Erscheinungsbild.\n\n• Sie verfügen über ausgezeichnete Kommunikationsfähigkeiten in Deutsch und Englisch; weitere Sprachen sind von großem Vorteil.\n\n• Erfahrung im Einzelhandel und im Verkauf ist von Vorteil.\n BENEFITS FÜR DICH\n Bis zu 30 % Rabatt in allen Globus-Kaufhäusern.\n Alle gesetzlich vorgeschriebenen Versicherungen sind abgedeckt.\n Teilnahme an speziell konzipierten Globus-Schulungen.\n Dein Kontakt\n Wenn Sie an dieser Stelle interessiert sind, freuen wir uns auf Ihre Bewerbung per E-Mail an info@kapels.com",
+      "descriptionByLocale": {
+        "it": "KAPEL’S è il fornitore leader dell’Europa di una selezione unica di gioielli vintage delle marche più lussuose del mondo. Siamo specializzati in pezzi eccezionali dal 1940 al 2000 e offriamo modelli esclusivi direttamente dalla passerella.\nPer il nostro stand nel reparto Globus sulla magnifica Bahnhofstrasse siamo alla ricerca di un nuovo team affidabile, motivato e di moda membro nella quantità di 30-60%, al meglio dal settembre 2026.\n\nQui fai la differenza\n\n• Benvenuto clienti esigenti da casa e dall'estero e assicurarsi di godere di una speciale esperienza di shopping.\n\n• Presentano la nostra straordinaria gamma di gioielli e consigliano ai nostri clienti le tendenze di stile, colore e moda.\n\n• Preparano le vendite e li chiudono.\n\n• Costruiscono relazioni strette con i nostri clienti e li mantengono a lungo termine.\n\n• Assicurano che lo stand sia sempre nella migliore condizione.\nQuesto ti tira fuori\n\n• Forte orientamento al cliente.\n\n• Sono molto affidabili e affidabili.\n\n• Hanno un occhio eccellente per i dettagli.\n\n• Hanno una grande passione per la moda di lusso, gioielli e arte.\n\n• Essi seguono le collezioni e le tendenze di alta moda stagionali.\n\n• Hanno una sensazione eccellente per Ästetica e design (colori e texture).\n\n• Essi sono in grado di consigliare i clienti quando mettendo insieme i loro abiti con la selezione appropriata di gioielli.\n\n• Hanno buone maniere e un aspetto ben curato.\n\n• Hanno eccellenti capacità di comunicazione in tedesco e inglese; altre lingue sono di grande vantaggio.\n\n• L'esperienza nella vendita al dettaglio e le vendite è vantaggioso.\nPer te\nFino al 30% di sconto in tutti i grandi magazzini Globus.\nTutta l'assicurazione obbligatoria è coperta.\nPartecipazione a corsi di formazione Globus appositamente progettati.\nIl tuo contatto\nSe siete interessati a questo punto, non vediamo l'ora di ricevere la vostra domanda via email a info@kapels.com",
+        "en": "KAPEL’S is Europe’s leading provider of a unique selection of vintage fashion jewelry from the world’s most luxurious brands. We specialize in exceptional pieces from the 1940s to 2000s and offer exclusive models directly from the catwalk.\nFor our stand in the Globus department store on the magnificent Bahnhofstrasse we are looking for a reliable, motivated and fashion-conscious new team member in the amount of 30-60%, at best from September 2026.\n\nHere you make the difference\n\n• Welcome discerning customers from home and abroad and ensure that they enjoy a special shopping experience.\n\n• They present our outstanding range of jewellery and advise our customers on style, color matching and fashion trends.\n\n• They prepare sales and close them.\n\n• They build close relationships with our customers and maintain them in the long term.\n\n• They ensure that the stand is always in the best condition.\nThat draws you out\n\n• Strong customer orientation.\n\n• They are very reliable and trustworthy.\n\n• They have an excellent eye for detail.\n\n• They have a great passion for luxury fashion, jewelry and art.\n\n• They follow the seasonal haute couture collections and trends.\n\n• They have an excellent feel for Ästhetics and design (colors and textures).\n\n• They are able to advise customers when putting together their outfits with the appropriate selection of jewelry.\n\n• They have perfect manners and a well-groomed appearance.\n\n• They have excellent communication skills in German and English; Other languages are of great advantage.\n\n• Experience in retail and sales is beneficial.\nBENEFITS FOR YOU\nUp to 30% discount in all Globus department stores.\nAll legally required insurance is covered.\nParticipation in specially designed Globus training courses.\nYour contact\nIf you are interested at this point, we look forward to receiving your application by email to info@kapels.com",
+        "de": "KAPEL’S ist Europas führender Anbieter einer einzigartigen Auswahl an Vintage-Modeschmuck der weltweit luxuriösesten Marken. Wir sind spezialisiert auf außergewöhnliche Stücke aus den 1940er- bis 2000er-Jahren und bieten exklusive Modelle direkt vom Laufsteg an.\nFür unseren Stand im Globus Warenhaus an der prächtigen Bahnhofstrasse suchen wir ein zuverlässiges, motiviertes und modebewusstes neues Teammitglied im Pensum von 30-60%, bestenfalls ab September 2026.\n\nHIER MACHST DU DEN UNTERSCHIED\n\n• Begrüssen Sie anspruchsvolle Kunden aus dem In- und Ausland und sorgen Sie dafür, dass sie ein besonderes Einkaufserlebnis genießen.\n\n• Sie präsentieren unser herausragendes Schmucksortiment und beraten unsere Kunden in Sachen Stil, Farbabstimmung und Modetrends.\n\n• Sie bereiten Verkäufe vor und schließen sie ab.\n\n• Sie bauen enge Beziehungen zu unseren Kunden auf und pflegen diese langfristig.\n\n• Sie sorgen dafür, dass der Stand stets in bestem Zustand ist.\nDAS ZEICHNET DICH AUS\n\n• Ausgeprägte Kundenorientierung.\n\n• Sie sind sehr zuverlässig und vertrauenswürdig.\n\n• Sie verfügen über ein ausgezeichnetes Auge fürs Detail.\n\n• Sie haben eine große Leidenschaft für Luxusmode, Schmuck und Kunst.\n\n• Sie verfolgen die saisonalen Haute-Couture-Kollektionen und -Trends.\n\n• Sie verfügen über ein ausgezeichnetes Gespür für Ästhetik und Design (Farben und Texturen).\n\n• Sie sind in der Lage, Kunden bei der Zusammenstellung ihrer Outfits mit der passenden Schmuckauswahl zu beraten.\n\n• Sie verfügen über tadellose Umgangsformen und ein gepflegtes Erscheinungsbild.\n\n• Sie verfügen über ausgezeichnete Kommunikationsfähigkeiten in Deutsch und Englisch; weitere Sprachen sind von großem Vorteil.\n\n• Erfahrung im Einzelhandel und im Verkauf ist von Vorteil.\nBENEFITS FÜR DICH\nBis zu 30 % Rabatt in allen Globus-Kaufhäusern.\nAlle gesetzlich vorgeschriebenen Versicherungen sind abgedeckt.\nTeilnahme an speziell konzipierten Globus-Schulungen.\nDein Kontakt\nWenn Sie an dieser Stelle interessiert sind, freuen wir uns auf Ihre Bewerbung per E-Mail an info@kapels.com",
+        "fr": "KAPELS est le principal fournisseur d'Europe d'une sélection unique de bijoux vintage de mode des marques les plus luxueuses du monde. Nous nous spécialisons dans des pièces exceptionnelles des années 1940 aux années 2000 et proposons des modèles exclusifs directement depuis la passerelle.\nPour notre stand dans le grand magasin Globus sur la magnifique Bahnhofstrasse, nous sommes à la recherche d'un nouveau membre fiable, motivé et soucieux de la mode dans le montant de 30-60%, au mieux à partir de septembre 2026.\n\nIci vous faites la différence\n\n• Bienvenue aux clients avertis de chez eux et à l'étranger et assurez-vous qu'ils profitent d'une expérience d'achat spéciale.\n\n• Ils présentent notre gamme exceptionnelle de bijoux et conseillent nos clients sur le style, la couleur et les tendances de la mode.\n\n• Ils préparent les ventes et les ferment.\n\n• Ils établissent des relations étroites avec nos clients et les maintiennent à long terme.\n\n• Ils s'assurent que le stand est toujours dans le meilleur état.\nÇa t'attire.\n\n• Une forte orientation client.\n\n• Ils sont très fiables et dignes de confiance.\n\n• Ils ont un excellent œil pour les détails.\n\n• Ils ont une grande passion pour la mode de luxe, les bijoux et l'art.\n\n• Ils suivent les collections et tendances saisonnières de haute couture.\n\n• Ils ont une excellente sensation pour la esthétique et le design de Ä (couleurs et textures).\n\n• Ils sont en mesure de conseiller les clients lors de la mise en place de leurs tenues avec la sélection appropriée de bijoux.\n\n• Ils ont des manières parfaites et une apparence soignée.\n\n• Ils ont d'excellentes compétences en communication en allemand et en anglais; D'autres langues sont d'un grand avantage.\n\n• L'expérience dans le commerce de détail et de vente est bénéfique.\nAVANTAGES POUR VOUS\nJusqu'à 30% de réduction dans tous les grands magasins Globus.\nToutes les assurances légales sont couvertes.\nParticipation à des cours de formation Globus spécialement conçus.\nVotre contact\nSi vous êtes intéressé à ce point, nous nous réjouissons de recevoir votre demande par courriel à info@kapels.com"
+      },
+      "location": "Zürich Bahnhofstrasse",
+      "canton": "ZH",
+      "url": "https://jobs.globus.ch/Modeberaterin-Damenschmuck-fuer-die-Marke-KAPELSS-30-60-wm-de-j2521.html",
+      "source": "Globus Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-04T09:10:14.628Z",
+      "addressLocality": "Zürich Bahnhofstrasse",
+      "streetAddress": "Schweizergasse 11",
+      "postalCode": "8001",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail (department store / luxury)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-16",
+      "postedDate": "2026-09-16",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.globus.ch/Modeberaterin-Damenschmuck-fuer-die-Marke-KAPELSS-30-60-wm-de-j2521.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "modeberater-in-damenschmuck-fur-die-marke-kapels-s-30-60-w-m-d-globus-ch",
+        "modeberater-in-damenschmuck-per-la-marke-kapels-s-30-60-m-w-d-globus-zurich-bahnhofstrasse",
+        "gioielli-da-donna-per-il-marchio-kapels-s-30-60-m-f-d-globus-zurich-bahnhofstrasse"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "modeberater-in-damenschmuck-fur-die-marke-kapels-s-30-60-w-m-d-globus-ch",
+          "modeberater-in-damenschmuck-per-la-marke-kapels-s-30-60-m-w-d-globus-zurich-bahnhofstrasse",
+          "gioielli-da-donna-per-il-marchio-kapels-s-30-60-m-f-d-globus-zurich-bahnhofstrasse"
+        ],
+        "en": [
+          "modeberater-in-damenschmuck-fur-die-marke-kapels-s-30-60-w-m-d-globus-ch"
+        ],
+        "fr": [
+          "modeberater-in-damenschmuck-fur-die-marke-kapels-s-30-60-w-m-d-globus-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:49:17.176Z",
+      "needsRetranslation": true,
+      "salaryMin": 44100,
+      "salaryMax": 66900,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 44100,
+          "maxValue": 66900,
           "unitText": "YEAR"
         }
       }
@@ -1134,7 +1193,7 @@
       "url": "https://jobs.globus.ch/Mitarbeiterin-KundendienstService-Desk-60-befristet-wmd-de-j2528.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:10:52.758Z",
+      "crawledAt": "2026-10-04T09:10:14.626Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -1148,18 +1207,22 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-23",
       "postedDate": "2026-09-23",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Mitarbeiterin-KundendienstService-Desk-60-befristet-wmd-de-j2528.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-kundendienst-service-desk-60-befristet-w-m-d-globus-ch",
-        "collaboratore-trice-kundendienst-service-desk-60-befristet-m-w-d-globus-zurich-bahnhofstrasse"
+        "collaboratore-trice-kundendienst-service-desk-60-befristet-m-w-d-globus-zurich-bahnhofstrasse",
+        "servizio-clienti-servizio-dipendenti-60-temporaneo-m-f-d-globus-zurich-bahnhofstrasse"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kundendienst-service-desk-60-befristet-w-m-d-globus-ch",
-          "collaboratore-trice-kundendienst-service-desk-60-befristet-m-w-d-globus-zurich-bahnhofstrasse"
+          "collaboratore-trice-kundendienst-service-desk-60-befristet-m-w-d-globus-zurich-bahnhofstrasse",
+          "servizio-clienti-servizio-dipendenti-60-temporaneo-m-f-d-globus-zurich-bahnhofstrasse"
         ],
         "en": [
           "mitarbeiter-in-kundendienst-service-desk-60-befristet-w-m-d-globus-ch"
@@ -1214,7 +1277,7 @@
       "url": "https://jobs.globus.ch/Collaborateurtrice-pour-notre-Service-Clients-80-en-CDD-du-fr-j2530.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:10:52.757Z",
+      "crawledAt": "2026-10-04T09:10:14.624Z",
       "addressLocality": "Genève",
       "streetAddress": "Rue du Rhône 48",
       "postalCode": "1204 ",
@@ -1228,16 +1291,20 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-25",
       "postedDate": "2026-09-25",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Collaborateurtrice-pour-notre-Service-Clients-80-en-CDD-du-fr-j2530.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-trice-pour-notre-service-clients-a-80-en-cdd-du-16-11-au-31-12-2026-globus"
+        "collaborateur-trice-pour-notre-service-clients-a-80-en-cdd-du-16-11-au-31-12-2026-globus",
+        "collaboratore-per-il-servizio-clienti-80-in-csd-dal-16-11-al-31-12-2026-globus-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-pour-notre-service-clients-a-80-en-cdd-du-16-11-au-31-12-2026-globus"
+          "collaborateur-trice-pour-notre-service-clients-a-80-en-cdd-du-16-11-au-31-12-2026-globus",
+          "collaboratore-per-il-servizio-clienti-80-in-csd-dal-16-11-al-31-12-2026-globus-geneve"
         ],
         "en": [
           "collaborateur-trice-pour-notre-service-clients-a-80-en-cdd-du-16-11-au-31-12-2026-globus"
@@ -1293,7 +1360,7 @@
       "url": "https://jobs.globus.ch/Sales-Supportin-Samstagseinsaetze-im-Bereich-Food-20-befri-de-j2531.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:10:52.755Z",
+      "crawledAt": "2026-10-04T09:10:14.623Z",
       "addressLocality": "Basel",
       "streetAddress": "Marktplatz 2",
       "postalCode": "4001",
@@ -1307,7 +1374,9 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-25",
       "postedDate": "2026-09-25",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Sales-Supportin-Samstagseinsaetze-im-Bereich-Food-20-befri-de-j2531.html",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1371,7 +1440,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-delicatessa-Kasse-Kundendienst-Geschenks-de-j2532.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:10:52.754Z",
+      "crawledAt": "2026-10-04T09:10:14.622Z",
       "addressLocality": "Bern",
       "streetAddress": "Spitalgasse 17 - 21",
       "postalCode": "3001",
@@ -1385,7 +1454,9 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-28",
       "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Verkaufsberaterin-delicatessa-Kasse-Kundendienst-Geschenks-de-j2532.html",
       "requirements": [],
       "requirementsByLocale": {},
@@ -1436,7 +1507,7 @@
       "url": "https://jobs.globus.ch/Conseillerre-de-vente-80-pour-notre-rayon-Beauty-etou-Maro-fr-j2533.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:10:52.753Z",
+      "crawledAt": "2026-10-04T09:10:14.620Z",
       "addressLocality": "Genève",
       "streetAddress": "Rue du Rhône 48",
       "postalCode": "1204 ",
@@ -1450,16 +1521,20 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-10-02",
       "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Conseillerre-de-vente-80-pour-notre-rayon-Beauty-etou-Maro-fr-j2533.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-de-vente-a-80-pour-notre-rayon-beauty-et-ou-maroquinerie-en-cdd-jusqu-au-16"
+        "conseiller-ere-de-vente-a-80-pour-notre-rayon-beauty-et-ou-maroquinerie-en-cdd-jusqu-au-16",
+        "consulente-di-vendita-80-age-per-il-nostro-reparto-di-bellezza-e-o-pelletteria-in-cdd-fino-al-16-gennaio-2027-globus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-de-vente-a-80-pour-notre-rayon-beauty-et-ou-maroquinerie-en-cdd-jusqu-au-16"
+          "conseiller-ere-de-vente-a-80-pour-notre-rayon-beauty-et-ou-maroquinerie-en-cdd-jusqu-au-16",
+          "consulente-di-vendita-80-age-per-il-nostro-reparto-di-bellezza-e-o-pelletteria-in-cdd-fino-al-16-gennaio-2027-globus"
         ],
         "en": [
           "conseiller-ere-de-vente-a-80-pour-notre-rayon-beauty-et-ou-maroquinerie-en-cdd-jusqu-au-16"
@@ -1515,7 +1590,7 @@
       "url": "https://jobs.globus.ch/Sales-Support-im-Non-Food-Bereich-20-vorwiegend-Samstagsei-de-j2534.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:10:52.751Z",
+      "crawledAt": "2026-10-04T09:10:14.619Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -1529,18 +1604,22 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-30",
       "postedDate": "2026-09-30",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Sales-Support-im-Non-Food-Bereich-20-vorwiegend-Samstagsei-de-j2534.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "sales-support-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-befristet-bis-31-12",
-        "sales-support-im-non-food-bereich-20-vorwiegend-samstagseinsatze-m-w-d-befristet-bis-31-12-2026-globus-zurich-bahnhofstrasse"
+        "sales-support-im-non-food-bereich-20-vorwiegend-samstagseinsatze-m-w-d-befristet-bis-31-12-2026-globus-zurich-bahnhofstrasse",
+        "supporto-di-vendita-nella-zona-non-alimentare-20-principalmente-sabato-assegnazioni-m-f-d-temporaneo-fino-al-31-12-2026"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sales-support-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-befristet-bis-31-12",
-          "sales-support-im-non-food-bereich-20-vorwiegend-samstagseinsatze-m-w-d-befristet-bis-31-12-2026-globus-zurich-bahnhofstrasse"
+          "sales-support-im-non-food-bereich-20-vorwiegend-samstagseinsatze-m-w-d-befristet-bis-31-12-2026-globus-zurich-bahnhofstrasse",
+          "supporto-di-vendita-nella-zona-non-alimentare-20-principalmente-sabato-assegnazioni-m-f-d-temporaneo-fino-al-31-12-2026"
         ],
         "en": [
           "sales-support-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-befristet-bis-31-12"
@@ -1596,7 +1675,7 @@
       "url": "https://jobs.globus.ch/Sales-Support-20-samedis-en-CDD-jusquau-31122026-fr-j2515.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:10:52.747Z",
+      "crawledAt": "2026-10-04T09:10:14.615Z",
       "addressLocality": "Genève",
       "streetAddress": "Rue du Rhône 48",
       "postalCode": "1204 ",
@@ -1610,16 +1689,20 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-30",
       "postedDate": "2026-09-30",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Sales-Support-20-samedis-en-CDD-jusquau-31122026-fr-j2515.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-support-a-20-samedis-en-cdd-jusqu-au-31-12-2026-globus-ch"
+        "sales-support-a-20-samedis-en-cdd-jusqu-au-31-12-2026-globus-ch",
+        "supporto-vendite-20-sabate-in-cdd-fino-al-31-12-2026-globus-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-support-a-20-samedis-en-cdd-jusqu-au-31-12-2026-globus-ch"
+          "sales-support-a-20-samedis-en-cdd-jusqu-au-31-12-2026-globus-ch",
+          "supporto-vendite-20-sabate-in-cdd-fino-al-31-12-2026-globus-geneve"
         ]
       },
       "needsRetranslation": true,
@@ -1669,7 +1752,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Diptyque-40-60-wmd-de-j2535.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:10:52.745Z",
+      "crawledAt": "2026-10-04T09:10:14.612Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -1683,16 +1766,20 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-30",
       "postedDate": "2026-09-30",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Verkaufsberaterin-Diptyque-40-60-wmd-de-j2535.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufsberater-in-diptyque-40-60-w-m-d-globus-ch"
+        "verkaufsberater-in-diptyque-40-60-w-m-d-globus-ch",
+        "verkaufsberater-in-diptyque-40-60-w-m-d-globus-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-diptyque-40-60-w-m-d-globus-ch"
+          "verkaufsberater-in-diptyque-40-60-w-m-d-globus-ch",
+          "verkaufsberater-in-diptyque-40-60-w-m-d-globus-wallisellen"
         ]
       },
       "needsRetranslation": true,
@@ -1742,7 +1829,7 @@
       "url": "https://jobs.globus.ch/Conseillerre-de-vente-pour-notre-rayon-Kids-Fashion-80-fr-j2536.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:10:52.718Z",
+      "crawledAt": "2026-10-04T09:10:14.586Z",
       "addressLocality": "Lausanne",
       "streetAddress": "Rue du Pont 5",
       "postalCode": "1003 ",
@@ -1756,16 +1843,20 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-10-02",
       "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Conseillerre-de-vente-pour-notre-rayon-Kids-Fashion-80-fr-j2536.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-de-vente-pour-notre-rayon-kids-fashion-a-80-globus-ch"
+        "conseiller-ere-de-vente-pour-notre-rayon-kids-fashion-a-80-globus-ch",
+        "consulente-vendite-per-il-nostro-dipartimento-di-moda-per-bambini-all-80-globus-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-de-vente-pour-notre-rayon-kids-fashion-a-80-globus-ch"
+          "conseiller-ere-de-vente-pour-notre-rayon-kids-fashion-a-80-globus-ch",
+          "consulente-vendite-per-il-nostro-dipartimento-di-moda-per-bambini-all-80-globus-lausanne"
         ],
         "en": [
           "conseiller-ere-de-vente-pour-notre-rayon-kids-fashion-a-80-globus-ch"
@@ -1805,7 +1896,7 @@
       "title": "Manager Qualitätsmanagement (w/m/d)",
       "titleByLocale": {
         "it": "Gestione della qualità (m/f/d)",
-        "en": "Manager Quality Management (m/f/d)",
+        "en": "Manager Qualitätsmanagement (w/m/d)",
         "de": "Manager Qualitätsmanagement (w/m/d)",
         "fr": "Gestionnaire Gestion de la qualité (h/f/d)"
       },
@@ -1821,7 +1912,7 @@
       "url": "https://jobs.globus.ch/Manager-Qualitaetsmanagement-wmd-de-j2537.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:10:52.713Z",
+      "crawledAt": "2026-10-04T09:10:14.582Z",
       "addressLocality": "Zürich Headquarter",
       "streetAddress": "Schweizergasse 12",
       "postalCode": "8001",
@@ -1835,18 +1926,22 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-10-02",
       "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.globus.ch/Manager-Qualitaetsmanagement-wmd-de-j2537.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "manager-qualitatsmanagement-w-m-d-globus-ch",
-        "manager-qualitatsmanagement-w-m-d-globus-zurich-headquarter"
+        "manager-qualitatsmanagement-w-m-d-globus-zurich-headquarter",
+        "gestione-della-qualita-m-f-d-globus-zurich-headquarter"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manager-qualitatsmanagement-w-m-d-globus-ch",
-          "manager-qualitatsmanagement-w-m-d-globus-zurich-headquarter"
+          "manager-qualitatsmanagement-w-m-d-globus-zurich-headquarter",
+          "gestione-della-qualita-m-f-d-globus-zurich-headquarter"
         ],
         "en": [
           "manager-qualitatsmanagement-w-m-d-globus-zurich-headquarter"
