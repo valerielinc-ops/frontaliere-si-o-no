@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pantr-ch",
-  "assembledAt": "2026-10-03T21:29:59.922Z",
+  "assembledAt": "2026-10-04T09:35:12.657Z",
   "jobs": [
     {
       "id": "pantr-ch-cfd0a7b808cb",
@@ -34,7 +34,7 @@
       "url": "https://pantr.ch/jobs/finanzbuchhalter-in-136/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:54.352Z",
+      "crawledAt": "2026-10-04T09:35:08.056Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "Switzerland",
@@ -54,6 +54,72 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-01T09:35:20.253Z",
+      "salaryMin": 113000,
+      "salaryMax": 198500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113000,
+          "maxValue": 198500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "pantr-ch-8a66d4156bf6",
+      "slug": "generalist-in-finanzen-pantr-gmbh-ruti-zurich-8a66d4156bf6",
+      "slugByLocale": {
+        "it": "generalist-in-finanzen-pantr-gmbh-ruti-zurich-8a66d4156bf6",
+        "en": "generalist-in-finanzen-pantr-gmbh-ruti-zurich-8a66d4156bf6",
+        "de": "generalist-in-finanzen-pantr-gmbh-ruti-zurich-8a66d4156bf6",
+        "fr": "generalist-in-finanzen-pantr-gmbh-ruti-zurich-8a66d4156bf6"
+      },
+      "slugDisambiguator": "8a66d4156bf6",
+      "company": "Pantr GmbH",
+      "companyKey": "pantr-ch",
+      "companyDomain": "pantr.ch",
+      "title": "Generalist/in Finanzen",
+      "titleByLocale": {
+        "it": "Generalist/in Finanzen",
+        "en": "Generalist/in Finanzen",
+        "de": "Generalist/in Finanzen",
+        "fr": "Generalist/in Finanzen"
+      },
+      "description": "Für ein führendes Schweizer Unternehmen in der Bio-Branche suchen wir eine zahlenaffine und zuverlässige Persönlichkeit als Generalist:in Finanzen. Im schönen Zürcher Oberland (Rüti ZH) erwartet dich ein familiäres Betriebsklima in einem nachhaltigen, zukunftsorientierten Umfeld. Das Team arbeitet aus Überzeugung vor Ort zusammen – per sofort oder nach Vereinbarung suchen wir genau dich!\nDas kannst du bei uns verantworten:\n- Debi- & Kreditorenbuchhaltung: Bearbeitung und Erfassung aller eingehenden Fakturen, Abwicklung von Zahlungen sowie die Kontrolle der Zahlungseingänge und das Mahnwesen.\n- Hauptbuch & Löhne: Führung der Buchhaltung verschiedener Mandate und Darlehensübersichten, Erfassung von Lohn- und Spesenabrechnungen, Abwesenheitsmanagement sowie Verwaltung der Kasse und Kreditkartenabrechnungen.\n- Abschlüsse & Nachwuchs: Aktive Mitarbeit bei der Erstellung von Quartals- und Jahresabschlüssen sowie die Mitbetreuung, Ausbildung und Förderung von kaufmännischen Lernenden.\nDamit überzeugst du:\n- Ausbildung: Abgeschlossene kaufmännische Grundausbildung (Kauffrau/Kaufmann EFZ), idealerweise ergänzt durch fachspezifische Weiterbildungen im Finanzbereich.\n- Erfahrung: Mehrjährige fundierte Berufserfahrung mit hoher Eigenverantwortung in einem vergleichbaren Aufgabenbereich sowie vertiefte Kenntnisse buchhalterischer Zusammenhänge.\n- Arbeitsweise: Eine planmässige, strukturierte und zielstrebige Vorgehensweise mit hohem Qualitätsanspruch, Belastbarkeit und Loyalität.\n- Mindset: Eine hohe Bereitschaft für die Zusammenarbeit im Team vor Ort sowie eine überzeugte, positive Einstellung zum Thema Nachhaltigkeit und Bio-Produkte.\nDamit überzeugen wir dich:\n- Kultur & Umfeld: Ein landwirtschaftlich schöner Arbeitsort mit familiärem Betriebsklima, flachen Hierarchien und viel persönlichem Gestaltungsfreiraum.\n- Benefits & Infrastruktur: Kantine und Ruheraum vor Ort, Gratisparkplätze, Dienstaltersgeschenke sowie die Option auf unbezahlten Urlaub.\n- Teamgeist & Entwicklung: Regelmässige Mitarbeiterevents (Sommerfest, Teamevents, Weihnachtsanlass) sowie vielseitige Weiterbildungs- und Entwicklungsmöglichkeiten.\nAkzeptierte Dateitypen sind DOC, DOCX, PDF, HTML, and TXT. (Max. Dateigrösse: 5 MB)\nMax. Dateigrösse: 5 MB pro Datei\nWeitere Informationen findest du in unserer Datenschutzerklärung.",
+      "descriptionByLocale": {
+        "it": "Per un'azienda svizzera leader nel settore organico, stiamo cercando una personalità numerica e affidabile come generalista: nella finanza. Nella splendida Oberland di Zurigo (Rüti ZH) ci si può aspettare un'atmosfera familiare in un ambiente sostenibile e orientato al futuro. Il team lavora insieme in loco con convinzione – immediatamente o con accordo ti stiamo cercando!\nPuoi rispondere per questo con noi:\n- Contabilità del debito e del creditore: elaborazione e registrazione di tutte le fatture in arrivo, elaborazione dei pagamenti, nonché il controllo dei pagamenti in entrata e in esecuzione.\n- Conti generali: gestione della contabilità di vari mandati e dichiarazioni di prestito, registrazione delle dichiarazioni di pagamento e di spesa, gestione delle assenze e gestione delle dichiarazioni di contanti e carta di credito.\n- Titoli e giovani professionisti: partecipazione attiva alla preparazione di conti trimestrali e annuali, nonché il supporto, la formazione e la promozione degli studenti commerciali.\nQuesto vi convincerà:\n- Formazione: Completata la formazione commerciale di base (Kauffrau/Kaufmann EFZ), integrata idealmente dalla formazione specifica in materia nel settore finanziario.\n- Esperienza: Diversi anni di esperienza professionale approfondita con un alto livello di responsabilità personale in un ambito di responsabilità comparabile e una conoscenza approfondita dei contesti contabili.\n- Metodo di lavoro: Un approccio pianificato, strutturato e mirato con elevati standard di qualità, resilienza e lealtà.\n- Mindset: Un'elevata disponibilità alla cooperazione nel team locale e un atteggiamento convinto e positivo verso la sostenibilità e i prodotti biologici.\nQui vi convinciamo:\n- Cultura & Ambiente: Un luogo di lavoro agricolomente bello con un ambiente di lavoro familiare, gerarchie piatte e molta libertà personale di design.\n- Vantaggi & Infrastrutture: mensa e ripostiglio in loco, parcheggio gratuito, regali di anzianità e la possibilità di congedo non pagato.\n- Spirito di squadra & sviluppo: regolari eventi dei dipendenti (festa estiva, eventi di squadra, evento di Natale) così come opportunità di formazione e sviluppo versatili.\nI tipi di file accettati sono DOC, DOCX, PDF, HTML e TXT. (Massima dimensione del file: 5 MB)\nMax. Dimensione del file: 5 MB per file\nUlteriori informazioni possono essere trovate nella nostra dichiarazione di protezione dei dati.",
+        "en": "For a leading Swiss company in the organic industry, we are looking for a numerical and reliable personality as a generalist: in finance. In the beautiful Zurich Oberland (Rüti ZH) you can expect a family working atmosphere in a sustainable, future-oriented environment. The team works together on site with conviction – immediately or by agreement we are looking for you!\nYou can answer for this with us:\n- Debit and creditor accounting: processing and recording of all incoming invoices, processing of payments as well as the control of incoming payments and dunning.\n- General ledger & wages: management of the accounting of various mandates and loan statements, recording of pay and expense statements, absence management as well as management of cash and credit card statements.\n- Degrees & Young Professionals: Active participation in the preparation of quarterly and annual accounts as well as the support, training and promotion of commercial learners.\nThis will convince you:\n- Training: Completed basic commercial training (Kauffrau/Kaufmann EFZ), ideally supplemented by subject-specific training in the financial sector.\n- Experience: Several years of in-depth professional experience with a high level of personal responsibility in a comparable area of responsibility as well as in-depth knowledge of accounting contexts.\n- Working method: A planned, structured and purposeful approach with high quality standards, resilience and loyalty.\n- Mindset: A high willingness for cooperation in the local team as well as a convinced, positive attitude towards sustainability and organic products.\nHere we convince you:\n- Culture & Environment: An agriculturally beautiful place of work with a familiar working atmosphere, flat hierarchies and a lot of personal freedom of design.\n- Benefits & Infrastructure: Canteen and rest room on site, free parking, seniority gifts and the option of unpaid leave.\n- Team spirit & development: Regular employee events (summer festival, team events, Christmas event) as well as versatile training and development opportunities.\nAccepted file types are DOC, DOCX, PDF, HTML, and TXT. (Max. file size: 5 MB)\nMax. File size: 5 MB per file\nFurther information can be found in our data protection declaration.",
+        "de": "Für ein führendes Schweizer Unternehmen in der Bio-Branche suchen wir eine zahlenaffine und zuverlässige Persönlichkeit als Generalist:in Finanzen. Im schönen Zürcher Oberland (Rüti ZH) erwartet dich ein familiäres Betriebsklima in einem nachhaltigen, zukunftsorientierten Umfeld. Das Team arbeitet aus Überzeugung vor Ort zusammen – per sofort oder nach Vereinbarung suchen wir genau dich!\nDas kannst du bei uns verantworten:\n- Debi- & Kreditorenbuchhaltung: Bearbeitung und Erfassung aller eingehenden Fakturen, Abwicklung von Zahlungen sowie die Kontrolle der Zahlungseingänge und das Mahnwesen.\n- Hauptbuch & Löhne: Führung der Buchhaltung verschiedener Mandate und Darlehensübersichten, Erfassung von Lohn- und Spesenabrechnungen, Abwesenheitsmanagement sowie Verwaltung der Kasse und Kreditkartenabrechnungen.\n- Abschlüsse & Nachwuchs: Aktive Mitarbeit bei der Erstellung von Quartals- und Jahresabschlüssen sowie die Mitbetreuung, Ausbildung und Förderung von kaufmännischen Lernenden.\nDamit überzeugst du:\n- Ausbildung: Abgeschlossene kaufmännische Grundausbildung (Kauffrau/Kaufmann EFZ), idealerweise ergänzt durch fachspezifische Weiterbildungen im Finanzbereich.\n- Erfahrung: Mehrjährige fundierte Berufserfahrung mit hoher Eigenverantwortung in einem vergleichbaren Aufgabenbereich sowie vertiefte Kenntnisse buchhalterischer Zusammenhänge.\n- Arbeitsweise: Eine planmässige, strukturierte und zielstrebige Vorgehensweise mit hohem Qualitätsanspruch, Belastbarkeit und Loyalität.\n- Mindset: Eine hohe Bereitschaft für die Zusammenarbeit im Team vor Ort sowie eine überzeugte, positive Einstellung zum Thema Nachhaltigkeit und Bio-Produkte.\nDamit überzeugen wir dich:\n- Kultur & Umfeld: Ein landwirtschaftlich schöner Arbeitsort mit familiärem Betriebsklima, flachen Hierarchien und viel persönlichem Gestaltungsfreiraum.\n- Benefits & Infrastruktur: Kantine und Ruheraum vor Ort, Gratisparkplätze, Dienstaltersgeschenke sowie die Option auf unbezahlten Urlaub.\n- Teamgeist & Entwicklung: Regelmässige Mitarbeiterevents (Sommerfest, Teamevents, Weihnachtsanlass) sowie vielseitige Weiterbildungs- und Entwicklungsmöglichkeiten.\nAkzeptierte Dateitypen sind DOC, DOCX, PDF, HTML, and TXT. (Max. Dateigrösse: 5 MB)\nMax. Dateigrösse: 5 MB pro Datei\nWeitere Informationen findest du in unserer Datenschutzerklärung.",
+        "fr": "Pour une entreprise suisse de premier plan dans l'industrie biologique, nous recherchons une personnalité numérique et fiable en tant que généraliste : en finance. Dans le magnifique Oberland de Zurich (Rüti ZH), vous pouvez vous attendre à une ambiance de travail familiale dans un environnement durable et tourné vers l'avenir. L'équipe travaille sur place avec conviction – immédiatement ou d'un commun accord, nous vous recherchons!\nVous pouvez répondre avec nous:\n- Comptabilité débit/créancier: traitement et enregistrement de toutes les factures reçues, traitement des paiements ainsi que contrôle des paiements reçus et dunning.\n- Registre général et salaires : gestion de la comptabilité de divers mandats et états de prêts, enregistrement des états de paie et de dépenses, gestion des absences et gestion des états de caisse et de carte de crédit.\n- Diplômes et jeunes professionnels: Participation active à la préparation des comptes trimestriels et annuels ainsi qu'au soutien, à la formation et à la promotion des apprenants commerciaux.\nCela vous convaincra :\n- Formation: Formation commerciale de base (Kauffrau/Kaufmann EFZ), complétée idéalement par une formation spécifique au secteur financier.\n- Expérience: Plusieurs années d'expérience professionnelle approfondie avec un haut niveau de responsabilité personnelle dans un domaine de responsabilité comparable ainsi qu'une connaissance approfondie des contextes comptables.\n- Méthode de travail: Une approche planifiée, structurée et ciblée avec des normes de qualité élevées, résilience et fidélité.\n- Mindset: Une grande volonté de coopération au sein de l'équipe locale ainsi qu'une attitude convaincue et positive envers la durabilité et les produits biologiques.\nIci, nous vous convainquons :\n- Culture & Environnement: Un lieu de travail agricolement beau avec une atmosphère de travail familière, des hiérarchies plates et beaucoup de liberté personnelle du design.\n- Avantages et infrastructures: salle de cantine et de repos sur place, parking gratuit, cadeaux d'ancienneté et possibilité de congé non payé.\n- Esprit d'équipe et développement : événements réguliers pour les employés (fête d'été, événements d'équipe, événement de Noël) ainsi que des possibilités de formation et de perfectionnement polyvalentes.\nLes types de fichiers acceptés sont DOC, DOCX, PDF, HTML et TXT. (taille maximale du fichier : 5 Mo)\nC'est ça. Taille du fichier: 5 Mo par fichier\nDe plus amples informations sont disponibles dans notre déclaration de protection des données."
+      },
+      "location": "Rüti, Zürich",
+      "canton": "ZH",
+      "url": "https://pantr.ch/jobs/generalist-in-finanzen-143/",
+      "source": "Pantr GmbH Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-04T09:35:08.055Z",
+      "addressLocality": "Rüti",
+      "addressRegion": "Zürich",
+      "addressCountry": "Switzerland",
+      "country": "Switzerland",
+      "postalCode": "8630",
+      "streetAddress": "Neuhofstrasse 12",
+      "category": "Finanza",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Revisione contabile e servizi fiduciari",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-24T10:13:53+00:00",
+      "applyUrl": "https://pantr.ch/jobs/generalist-in-finanzen-143/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-01T09:35:20.252Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -100,7 +166,7 @@
       "url": "https://pantr.ch/jobs/financial-accountant-138/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:54.351Z",
+      "crawledAt": "2026-10-04T09:35:08.055Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "Switzerland",
@@ -118,20 +184,12 @@
       "applyUrl": "https://pantr.ch/jobs/financial-accountant-138/",
       "requirements": [],
       "requirementsByLocale": {},
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-10-01T09:35:20.253Z",
+      "previousSlugs": [
+        "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
+        "comptables-financiers-pantr-gmbh-zurich-fa865fd8b331",
+        "financial-contabile-pantr-gmbh-zurich-fa865fd8b331",
+        "financial-accountant-pantr-gmbh-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
@@ -146,75 +204,18 @@
           "financial-accountant-pantr-gmbh-zurich"
         ]
       },
-      "previousSlugs": [
-        "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
-        "comptables-financiers-pantr-gmbh-zurich-fa865fd8b331",
-        "financial-contabile-pantr-gmbh-zurich-fa865fd8b331",
-        "financial-accountant-pantr-gmbh-zurich"
-      ]
-    },
-    {
-      "id": "pantr-ch-8a66d4156bf6",
-      "slug": "generalist-in-finanzen-pantr-gmbh-ruti-zurich-8a66d4156bf6",
-      "slugByLocale": {
-        "it": "generalist-in-finanzen-pantr-gmbh-ruti-zurich-8a66d4156bf6",
-        "en": "generalist-in-finanzen-pantr-gmbh-ruti-zurich-8a66d4156bf6",
-        "de": "generalist-in-finanzen-pantr-gmbh-ruti-zurich-8a66d4156bf6",
-        "fr": "generalist-in-finanzen-pantr-gmbh-ruti-zurich-8a66d4156bf6"
-      },
-      "slugDisambiguator": "8a66d4156bf6",
-      "company": "Pantr GmbH",
-      "companyKey": "pantr-ch",
-      "companyDomain": "pantr.ch",
-      "title": "Generalist/in Finanzen",
-      "titleByLocale": {
-        "it": "Generalist/in Finanzen",
-        "en": "Generalist/in Finanzen",
-        "de": "Generalist/in Finanzen",
-        "fr": "Generalist/in Finanzen"
-      },
-      "description": "Für ein führendes Schweizer Unternehmen in der Bio-Branche suchen wir eine zahlenaffine und zuverlässige Persönlichkeit als Generalist:in Finanzen. Im schönen Zürcher Oberland (Rüti ZH) erwartet dich ein familiäres Betriebsklima in einem nachhaltigen, zukunftsorientierten Umfeld. Das Team arbeitet aus Überzeugung vor Ort zusammen – per sofort oder nach Vereinbarung suchen wir genau dich!\nDas kannst du bei uns verantworten:\n- Debi- & Kreditorenbuchhaltung: Bearbeitung und Erfassung aller eingehenden Fakturen, Abwicklung von Zahlungen sowie die Kontrolle der Zahlungseingänge und das Mahnwesen.\n- Hauptbuch & Löhne: Führung der Buchhaltung verschiedener Mandate und Darlehensübersichten, Erfassung von Lohn- und Spesenabrechnungen, Abwesenheitsmanagement sowie Verwaltung der Kasse und Kreditkartenabrechnungen.\n- Abschlüsse & Nachwuchs: Aktive Mitarbeit bei der Erstellung von Quartals- und Jahresabschlüssen sowie die Mitbetreuung, Ausbildung und Förderung von kaufmännischen Lernenden.\nDamit überzeugst du:\n- Ausbildung: Abgeschlossene kaufmännische Grundausbildung (Kauffrau/Kaufmann EFZ), idealerweise ergänzt durch fachspezifische Weiterbildungen im Finanzbereich.\n- Erfahrung: Mehrjährige fundierte Berufserfahrung mit hoher Eigenverantwortung in einem vergleichbaren Aufgabenbereich sowie vertiefte Kenntnisse buchhalterischer Zusammenhänge.\n- Arbeitsweise: Eine planmässige, strukturierte und zielstrebige Vorgehensweise mit hohem Qualitätsanspruch, Belastbarkeit und Loyalität.\n- Mindset: Eine hohe Bereitschaft für die Zusammenarbeit im Team vor Ort sowie eine überzeugte, positive Einstellung zum Thema Nachhaltigkeit und Bio-Produkte.\nDamit überzeugen wir dich:\n- Kultur & Umfeld: Ein landwirtschaftlich schöner Arbeitsort mit familiärem Betriebsklima, flachen Hierarchien und viel persönlichem Gestaltungsfreiraum.\n- Benefits & Infrastruktur: Kantine und Ruheraum vor Ort, Gratisparkplätze, Dienstaltersgeschenke sowie die Option auf unbezahlten Urlaub.\n- Teamgeist & Entwicklung: Regelmässige Mitarbeiterevents (Sommerfest, Teamevents, Weihnachtsanlass) sowie vielseitige Weiterbildungs- und Entwicklungsmöglichkeiten.\nAkzeptierte Dateitypen sind DOC, DOCX, PDF, HTML, and TXT. (Max. Dateigrösse: 5 MB)\nMax. Dateigrösse: 5 MB pro Datei\nWeitere Informationen findest du in unserer Datenschutzerklärung.",
-      "descriptionByLocale": {
-        "it": "Per un'azienda svizzera leader nel settore organico, stiamo cercando una personalità numerica e affidabile come generalista: nella finanza. Nella splendida Oberland di Zurigo (Rüti ZH) ci si può aspettare un'atmosfera familiare in un ambiente sostenibile e orientato al futuro. Il team lavora insieme in loco con convinzione – immediatamente o con accordo ti stiamo cercando!\nPuoi rispondere per questo con noi:\n- Contabilità del debito e del creditore: elaborazione e registrazione di tutte le fatture in arrivo, elaborazione dei pagamenti, nonché il controllo dei pagamenti in entrata e in esecuzione.\n- Conti generali: gestione della contabilità di vari mandati e dichiarazioni di prestito, registrazione delle dichiarazioni di pagamento e di spesa, gestione delle assenze e gestione delle dichiarazioni di contanti e carta di credito.\n- Titoli e giovani professionisti: partecipazione attiva alla preparazione di conti trimestrali e annuali, nonché il supporto, la formazione e la promozione degli studenti commerciali.\nQuesto vi convincerà:\n- Formazione: Completata la formazione commerciale di base (Kauffrau/Kaufmann EFZ), integrata idealmente dalla formazione specifica in materia nel settore finanziario.\n- Esperienza: Diversi anni di esperienza professionale approfondita con un alto livello di responsabilità personale in un ambito di responsabilità comparabile e una conoscenza approfondita dei contesti contabili.\n- Metodo di lavoro: Un approccio pianificato, strutturato e mirato con elevati standard di qualità, resilienza e lealtà.\n- Mindset: Un'elevata disponibilità alla cooperazione nel team locale e un atteggiamento convinto e positivo verso la sostenibilità e i prodotti biologici.\nQui vi convinciamo:\n- Cultura & Ambiente: Un luogo di lavoro agricolomente bello con un ambiente di lavoro familiare, gerarchie piatte e molta libertà personale di design.\n- Vantaggi & Infrastrutture: mensa e ripostiglio in loco, parcheggio gratuito, regali di anzianità e la possibilità di congedo non pagato.\n- Spirito di squadra & sviluppo: regolari eventi dei dipendenti (festa estiva, eventi di squadra, evento di Natale) così come opportunità di formazione e sviluppo versatili.\nI tipi di file accettati sono DOC, DOCX, PDF, HTML e TXT. (Massima dimensione del file: 5 MB)\nMax. Dimensione del file: 5 MB per file\nUlteriori informazioni possono essere trovate nella nostra dichiarazione di protezione dei dati.",
-        "en": "For a leading Swiss company in the organic industry, we are looking for a numerical and reliable personality as a generalist: in finance. In the beautiful Zurich Oberland (Rüti ZH) you can expect a family working atmosphere in a sustainable, future-oriented environment. The team works together on site with conviction – immediately or by agreement we are looking for you!\nYou can answer for this with us:\n- Debit and creditor accounting: processing and recording of all incoming invoices, processing of payments as well as the control of incoming payments and dunning.\n- General ledger & wages: management of the accounting of various mandates and loan statements, recording of pay and expense statements, absence management as well as management of cash and credit card statements.\n- Degrees & Young Professionals: Active participation in the preparation of quarterly and annual accounts as well as the support, training and promotion of commercial learners.\nThis will convince you:\n- Training: Completed basic commercial training (Kauffrau/Kaufmann EFZ), ideally supplemented by subject-specific training in the financial sector.\n- Experience: Several years of in-depth professional experience with a high level of personal responsibility in a comparable area of responsibility as well as in-depth knowledge of accounting contexts.\n- Working method: A planned, structured and purposeful approach with high quality standards, resilience and loyalty.\n- Mindset: A high willingness for cooperation in the local team as well as a convinced, positive attitude towards sustainability and organic products.\nHere we convince you:\n- Culture & Environment: An agriculturally beautiful place of work with a familiar working atmosphere, flat hierarchies and a lot of personal freedom of design.\n- Benefits & Infrastructure: Canteen and rest room on site, free parking, seniority gifts and the option of unpaid leave.\n- Team spirit & development: Regular employee events (summer festival, team events, Christmas event) as well as versatile training and development opportunities.\nAccepted file types are DOC, DOCX, PDF, HTML, and TXT. (Max. file size: 5 MB)\nMax. File size: 5 MB per file\nFurther information can be found in our data protection declaration.",
-        "de": "Für ein führendes Schweizer Unternehmen in der Bio-Branche suchen wir eine zahlenaffine und zuverlässige Persönlichkeit als Generalist:in Finanzen. Im schönen Zürcher Oberland (Rüti ZH) erwartet dich ein familiäres Betriebsklima in einem nachhaltigen, zukunftsorientierten Umfeld. Das Team arbeitet aus Überzeugung vor Ort zusammen – per sofort oder nach Vereinbarung suchen wir genau dich!\nDas kannst du bei uns verantworten:\n- Debi- & Kreditorenbuchhaltung: Bearbeitung und Erfassung aller eingehenden Fakturen, Abwicklung von Zahlungen sowie die Kontrolle der Zahlungseingänge und das Mahnwesen.\n- Hauptbuch & Löhne: Führung der Buchhaltung verschiedener Mandate und Darlehensübersichten, Erfassung von Lohn- und Spesenabrechnungen, Abwesenheitsmanagement sowie Verwaltung der Kasse und Kreditkartenabrechnungen.\n- Abschlüsse & Nachwuchs: Aktive Mitarbeit bei der Erstellung von Quartals- und Jahresabschlüssen sowie die Mitbetreuung, Ausbildung und Förderung von kaufmännischen Lernenden.\nDamit überzeugst du:\n- Ausbildung: Abgeschlossene kaufmännische Grundausbildung (Kauffrau/Kaufmann EFZ), idealerweise ergänzt durch fachspezifische Weiterbildungen im Finanzbereich.\n- Erfahrung: Mehrjährige fundierte Berufserfahrung mit hoher Eigenverantwortung in einem vergleichbaren Aufgabenbereich sowie vertiefte Kenntnisse buchhalterischer Zusammenhänge.\n- Arbeitsweise: Eine planmässige, strukturierte und zielstrebige Vorgehensweise mit hohem Qualitätsanspruch, Belastbarkeit und Loyalität.\n- Mindset: Eine hohe Bereitschaft für die Zusammenarbeit im Team vor Ort sowie eine überzeugte, positive Einstellung zum Thema Nachhaltigkeit und Bio-Produkte.\nDamit überzeugen wir dich:\n- Kultur & Umfeld: Ein landwirtschaftlich schöner Arbeitsort mit familiärem Betriebsklima, flachen Hierarchien und viel persönlichem Gestaltungsfreiraum.\n- Benefits & Infrastruktur: Kantine und Ruheraum vor Ort, Gratisparkplätze, Dienstaltersgeschenke sowie die Option auf unbezahlten Urlaub.\n- Teamgeist & Entwicklung: Regelmässige Mitarbeiterevents (Sommerfest, Teamevents, Weihnachtsanlass) sowie vielseitige Weiterbildungs- und Entwicklungsmöglichkeiten.\nAkzeptierte Dateitypen sind DOC, DOCX, PDF, HTML, and TXT. (Max. Dateigrösse: 5 MB)\nMax. Dateigrösse: 5 MB pro Datei\nWeitere Informationen findest du in unserer Datenschutzerklärung.",
-        "fr": "Pour une entreprise suisse de premier plan dans l'industrie biologique, nous recherchons une personnalité numérique et fiable en tant que généraliste : en finance. Dans le magnifique Oberland de Zurich (Rüti ZH), vous pouvez vous attendre à une ambiance de travail familiale dans un environnement durable et tourné vers l'avenir. L'équipe travaille sur place avec conviction – immédiatement ou d'un commun accord, nous vous recherchons!\nVous pouvez répondre avec nous:\n- Comptabilité débit/créancier: traitement et enregistrement de toutes les factures reçues, traitement des paiements ainsi que contrôle des paiements reçus et dunning.\n- Registre général et salaires : gestion de la comptabilité de divers mandats et états de prêts, enregistrement des états de paie et de dépenses, gestion des absences et gestion des états de caisse et de carte de crédit.\n- Diplômes et jeunes professionnels: Participation active à la préparation des comptes trimestriels et annuels ainsi qu'au soutien, à la formation et à la promotion des apprenants commerciaux.\nCela vous convaincra :\n- Formation: Formation commerciale de base (Kauffrau/Kaufmann EFZ), complétée idéalement par une formation spécifique au secteur financier.\n- Expérience: Plusieurs années d'expérience professionnelle approfondie avec un haut niveau de responsabilité personnelle dans un domaine de responsabilité comparable ainsi qu'une connaissance approfondie des contextes comptables.\n- Méthode de travail: Une approche planifiée, structurée et ciblée avec des normes de qualité élevées, résilience et fidélité.\n- Mindset: Une grande volonté de coopération au sein de l'équipe locale ainsi qu'une attitude convaincue et positive envers la durabilité et les produits biologiques.\nIci, nous vous convainquons :\n- Culture & Environnement: Un lieu de travail agricolement beau avec une atmosphère de travail familière, des hiérarchies plates et beaucoup de liberté personnelle du design.\n- Avantages et infrastructures: salle de cantine et de repos sur place, parking gratuit, cadeaux d'ancienneté et possibilité de congé non payé.\n- Esprit d'équipe et développement : événements réguliers pour les employés (fête d'été, événements d'équipe, événement de Noël) ainsi que des possibilités de formation et de perfectionnement polyvalentes.\nLes types de fichiers acceptés sont DOC, DOCX, PDF, HTML et TXT. (taille maximale du fichier : 5 Mo)\nC'est ça. Taille du fichier: 5 Mo par fichier\nDe plus amples informations sont disponibles dans notre déclaration de protection des données."
-      },
-      "location": "Rüti, Zürich",
-      "canton": "ZH",
-      "url": "https://pantr.ch/jobs/generalist-in-finanzen-143/",
-      "source": "Pantr GmbH Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:54.350Z",
-      "addressLocality": "Rüti",
-      "addressRegion": "Zürich",
-      "addressCountry": "Switzerland",
-      "country": "Switzerland",
-      "postalCode": "8630",
-      "streetAddress": "Neuhofstrasse 12",
-      "category": "Finanza",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Revisione contabile e servizi fiduciari",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-24T10:13:53+00:00",
-      "applyUrl": "https://pantr.ch/jobs/generalist-in-finanzen-143/",
-      "requirements": [],
-      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-01T09:35:20.253Z",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:35:20.252Z",
-      "salaryMin": 113000,
-      "salaryMax": 198500,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 113000,
-          "maxValue": 198500,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -251,7 +252,7 @@
       "url": "https://pantr.ch/jobs/steuerberater-159/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:54.349Z",
+      "crawledAt": "2026-10-04T09:35:08.054Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "Switzerland",
@@ -269,20 +270,6 @@
       "applyUrl": "https://pantr.ch/jobs/steuerberater-159/",
       "requirements": [],
       "requirementsByLocale": {},
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-10-01T09:35:20.251Z",
       "previousSlugs": [
         "steuerberater-pantr-gmbh-zurich-ba1b6fb7d144",
         "consulenti-fiscali-pantr-gmbh-zurich-ba1b6fb7d144"
@@ -298,6 +285,87 @@
         "fr": [
           "steuerberater-pantr-gmbh-zurich-ba1b6fb7d144"
         ]
+      },
+      "firstSeenAt": "2026-10-01T09:35:20.251Z",
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "pantr-ch-dbf01c94d0ef",
+      "slug": "senior-business-controller-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef",
+      "slugByLocale": {
+        "it": "senior-business-controller-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef",
+        "en": "senior-business-controller-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef",
+        "de": "senior-business-controller-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef",
+        "fr": "controleur-principal-des-entreprises-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef"
+      },
+      "slugDisambiguator": "dbf01c94d0ef",
+      "company": "Pantr GmbH",
+      "companyKey": "pantr-ch",
+      "companyDomain": "pantr.ch",
+      "title": "Senior Business Controller",
+      "titleByLocale": {
+        "it": "Senior Business Controller",
+        "en": "Senior Business Controller",
+        "de": "Senior Business Controller",
+        "fr": "Senior Business Controller"
+      },
+      "description": "Für eine international führende, krisensichere Schweizer Fashion- und Wäschemarke mit einer über 80-jährigen Tradition suchen wir am Hauptsitz im Raum Sursee (Oberkirch) eine analytisch starke Persönlichkeit als Senior Business Controller Sales. In einem dynamischen Umfeld, das seit jeher auf Nachhaltigkeit und höchste Qualität setzt, berätst du das Sales Management sowie die Geschäftsleitung direkt mit wertvollen Insights. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDein Wirkungsfeld:\n- Business Partnering: Proaktive Beratung der Geschäftsleitung, des Sales Managements und verschiedener Fachbereiche in allen betriebswirtschaftlichen Belangen.\n- Analysen & Entscheidungsfindung: Erstellung fundierter Wirtschaftlichkeits-, Profitabilitäts- und Business-Case-Analysen sowie das Ableiten konkreter Handlungsempfehlungen aus Umsatz-, Margen- und Ergebnisentwicklungen.\n- Reporting & Business Intelligence: Kontinuierliche Weiterentwicklung des Management-Reportings, Mitgestaltung der internen BI-Landschaft sowie Optimierung von Controlling- und Planungsprozessen.\n- Planung & Steuerung: Mitwirkung bei Budget-, Forecast- und Mittelfristplanungen, Durchführung von Soll-Ist-Vergleichen sowie Bewertung relevanter Performance-Kennzahlen.\n- Projekte & Datenqualität: Mitarbeit in bereichsübergreifenden Projekten zur Sicherstellung einer hohen Transparenz und Datenqualität aller Finanzinformationen.\nDas bringst du mit:\n- Ausbildung: Abgeschlossenes betriebswirtschaftliches Studium (Universität, Fachhochschule oder vergleichbare Ausbildung) mit Schwerpunkt Finance/Controlling.\n- Erfahrung: Mehrjährige, fundierte Berufserfahrung im Business Controlling, idealerweise gesammelt im Vertriebs- oder FMCG/Retail-Umfeld.\n- IT-Skills: Sattelfeste Anwenderkenntnisse in MS Excel; praktische Erfahrung mit SAP sowie Cognos Analytics oder vergleichbaren BI-Tools ist ein klarer Vorteil.\n- Sprachen: Stilsichere Kommunikation in Deutsch und Englisch für die tägliche Zusammenarbeit im internationalen Umfeld.\n- Persönlichkeit: Analytisches und vernetztes Denken, selbstständige und lösungsorientierte Arbeitsweise, ausgeprägte Beratungskompetenz sowie hohe Eigeninitiative.\nDas erwartet dich beim Kunden:\n- Work-Life-Balance & Flexibilität: Flexible Arbeitszeiten mit Mobile / Remote Working sowie die vollständige Kostenübernahme der KTG- und NBU-Prämien.\n- Benefits & Infrastruktur: Kostenlose Parkplätze am Hauptsitz, vergünstigte Verpflegung im eigenen Personalrestaurant, attraktive Mitarbeitendenrabatte auf das gesamte Markensortiment sowie regelmässige Rampenverkäufe.\n- Kultur & Events: Eine von Werten und Nachhaltigkeit geprägte Unternehmenskultur mit regelmässigen Teamevents, Firmen-Apéros und einzigartigen Anlässen.\n- Entwicklung: Gezielte berufliche und persönliche Entwicklungsmöglichkeiten durch finanzielle Kostenbeteiligung an externen Weiterbildungen.\nAkzeptierte Dateitypen sind DOC, DOCX, PDF, HTML, and TXT. (Max. Dateigrösse: 5 MB)\nMax. Dateigrösse: 5 MB pro Datei\nWeitere Informationen findest du in unserer Datenschutzerklärung.",
+      "descriptionByLocale": {
+        "it": "Per un marchio svizzero di moda e lavanderia a prova di crisi leader a livello internazionale con oltre 80 anni di tradizione, stiamo cercando una personalità analiticamente forte come Senior Business Controller Sales presso la nostra sede nella zona di Sursee (Oberkirch). In un ambiente dinamico che si è sempre concentrato sulla sostenibilità e la massima qualità, si consiglia la gestione delle vendite e la gestione direttamente con preziose informazioni. Immediatamente o con accordo, ti stiamo cercando!\nIl tuo campo di attività:\n- Business Partnering: consulenza attiva per la gestione, la gestione delle vendite e vari dipartimenti in tutti gli aspetti aziendali.\n- Analizzazioni e processi decisionali: creazione di una sana redditività, redditività e analisi dei casi aziendali, nonché la derivazione di raccomandazioni concrete per l'azione da sviluppi di vendite, margini e guadagni.\n- Reporting & Business Intelligence: sviluppo continuo del reporting gestionale, co-design del paesaggio BI interno e ottimizzazione dei processi di controllo e pianificazione.\n- Pianificazione e controllo: partecipazione a budget, previsioni e pianificazione a medio termine, implementazione di confronti obiettivi e valutazione di indicatori di performance rilevanti.\n- Progetti & Data Quality: Lavorare in progetti cross-divisionali per garantire elevata trasparenza e qualità dei dati di tutte le informazioni finanziarie.\nQuesto è ciò che portate con voi:\n- Formazione: studi aziendali completi (università, università di scienze applicate o formazione comparabile) con un focus sulla finanza / controllo.\n- Esperienza: Diversi anni di profonda esperienza professionale nel controllo aziendale, idealmente raccolti nell'ambiente di vendita o FMCG/retail.\n- Competenze informatiche: abilità utente sella-hard in MS Excel; esperienza pratica con SAP così come Cognos Analytics o strumenti BI comparabili è un chiaro vantaggio.\n- Lingue: Comunicazione stilistica in tedesco e inglese per la cooperazione quotidiana in un ambiente internazionale.\n- Personalità: pensiero analitico e in rete, metodi di lavoro indipendenti e orientati alla soluzione, competenza di consulenza pronunciata e un alto livello di iniziativa.\nQuesto è ciò che vi aspetta dal cliente:\n- Work-Life Balance & Flessibilità: Ore lavorative flessibili con Mobile / Remote Working e la copertura completa dei costi dei premi KTG e NBU.\n- Vantaggi & Infrastrutture: Parcheggio gratuito presso la sede, cibo scontato nel nostro ristorante personale, interessanti sconti sui dipendenti sull'intera gamma di marchi e regolari vendite di rampa.\n- Cultura & Eventi: Una cultura aziendale caratterizzata da valori e sostenibilità con regolari eventi di team, apéros aziendali e eventi unici.\n- Sviluppo: Opportunità di sviluppo professionale e personale mirate attraverso la partecipazione finanziaria all'ulteriore istruzione esterna.\nI tipi di file accettati sono DOC, DOCX, PDF, HTML e TXT. (Massima dimensione del file: 5 MB)\nMax. Dimensione del file: 5 MB per file\nUlteriori informazioni possono essere trovate nella nostra dichiarazione di protezione dei dati.",
+        "en": "For an internationally leading, crisis-proof Swiss fashion and laundry brand with over 80 years of tradition, we are looking for an analytically strong personality as Senior Business Controller Sales at our headquarters in the Sursee (Oberkirch) area. In a dynamic environment that has always focused on sustainability and the highest quality, you will advise sales management and management directly with valuable insights. Immediately or by agreement, we are looking for you!\nYour field of activity:\n- Business Partnering: Proactive advice to the management, sales management and various departments in all business aspects.\n- Analyses & decision-making: Creation of sound profitability, profitability and business case analyses as well as the derivation of concrete recommendations for action from sales, margin and earnings developments.\n- Reporting & Business Intelligence: Continuous development of management reporting, co-design of the internal BI landscape and optimization of controlling and planning processes.\n- Planning & Control: Participation in budget, forecast and medium-term planning, implementation of target-actual comparisons and evaluation of relevant performance indicators.\n- Projects & Data Quality: Working in cross-divisional projects to ensure high transparency and data quality of all financial information.\nThis is what you bring with you:\n- Training: Completed business studies (university, university of applied sciences or comparable training) with a focus on finance/controlling.\n- Experience: Several years of profound professional experience in business controlling, ideally collected in the sales or FMCG/retail environment.\n- IT skills: saddle-hard user skills in MS Excel; Practical experience with SAP as well as Cognos Analytics or comparable BI tools is a clear advantage.\n- Languages: Stylistic communication in German and English for daily cooperation in an international environment.\n- Personality: Analytical and networked thinking, independent and solution-oriented working methods, pronounced consulting competence and a high level of initiative.\nThis is what awaits you from the customer:\n- Work-Life Balance & Flexibility: Flexible working hours with Mobile / Remote Working as well as the full cost coverage of KTG and NBU premiums.\n- Benefits & Infrastructure: Free parking at headquarters, discounted food in our own staff restaurant, attractive employee discounts on the entire brand range and regular ramp sales.\n- Culture & Events: A corporate culture characterized by values and sustainability with regular team events, company apéros and unique events.\n- Development: Targeted professional and personal development opportunities through financial participation in external further education.\nAccepted file types are DOC, DOCX, PDF, HTML, and TXT. (Max. file size: 5 MB)\nMax. File size: 5 MB per file\nFurther information can be found in our data protection declaration.",
+        "de": "Für eine international führende, krisensichere Schweizer Fashion- und Wäschemarke mit einer über 80-jährigen Tradition suchen wir am Hauptsitz im Raum Sursee (Oberkirch) eine analytisch starke Persönlichkeit als Senior Business Controller Sales. In einem dynamischen Umfeld, das seit jeher auf Nachhaltigkeit und höchste Qualität setzt, berätst du das Sales Management sowie die Geschäftsleitung direkt mit wertvollen Insights. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDein Wirkungsfeld:\n- Business Partnering: Proaktive Beratung der Geschäftsleitung, des Sales Managements und verschiedener Fachbereiche in allen betriebswirtschaftlichen Belangen.\n- Analysen & Entscheidungsfindung: Erstellung fundierter Wirtschaftlichkeits-, Profitabilitäts- und Business-Case-Analysen sowie das Ableiten konkreter Handlungsempfehlungen aus Umsatz-, Margen- und Ergebnisentwicklungen.\n- Reporting & Business Intelligence: Kontinuierliche Weiterentwicklung des Management-Reportings, Mitgestaltung der internen BI-Landschaft sowie Optimierung von Controlling- und Planungsprozessen.\n- Planung & Steuerung: Mitwirkung bei Budget-, Forecast- und Mittelfristplanungen, Durchführung von Soll-Ist-Vergleichen sowie Bewertung relevanter Performance-Kennzahlen.\n- Projekte & Datenqualität: Mitarbeit in bereichsübergreifenden Projekten zur Sicherstellung einer hohen Transparenz und Datenqualität aller Finanzinformationen.\nDas bringst du mit:\n- Ausbildung: Abgeschlossenes betriebswirtschaftliches Studium (Universität, Fachhochschule oder vergleichbare Ausbildung) mit Schwerpunkt Finance/Controlling.\n- Erfahrung: Mehrjährige, fundierte Berufserfahrung im Business Controlling, idealerweise gesammelt im Vertriebs- oder FMCG/Retail-Umfeld.\n- IT-Skills: Sattelfeste Anwenderkenntnisse in MS Excel; praktische Erfahrung mit SAP sowie Cognos Analytics oder vergleichbaren BI-Tools ist ein klarer Vorteil.\n- Sprachen: Stilsichere Kommunikation in Deutsch und Englisch für die tägliche Zusammenarbeit im internationalen Umfeld.\n- Persönlichkeit: Analytisches und vernetztes Denken, selbstständige und lösungsorientierte Arbeitsweise, ausgeprägte Beratungskompetenz sowie hohe Eigeninitiative.\nDas erwartet dich beim Kunden:\n- Work-Life-Balance & Flexibilität: Flexible Arbeitszeiten mit Mobile / Remote Working sowie die vollständige Kostenübernahme der KTG- und NBU-Prämien.\n- Benefits & Infrastruktur: Kostenlose Parkplätze am Hauptsitz, vergünstigte Verpflegung im eigenen Personalrestaurant, attraktive Mitarbeitendenrabatte auf das gesamte Markensortiment sowie regelmässige Rampenverkäufe.\n- Kultur & Events: Eine von Werten und Nachhaltigkeit geprägte Unternehmenskultur mit regelmässigen Teamevents, Firmen-Apéros und einzigartigen Anlässen.\n- Entwicklung: Gezielte berufliche und persönliche Entwicklungsmöglichkeiten durch finanzielle Kostenbeteiligung an externen Weiterbildungen.\nAkzeptierte Dateitypen sind DOC, DOCX, PDF, HTML, and TXT. (Max. Dateigrösse: 5 MB)\nMax. Dateigrösse: 5 MB pro Datei\nWeitere Informationen findest du in unserer Datenschutzerklärung.",
+        "fr": "Pour une marque suisse de mode et de lessive à la pointe de la scène internationale et résistante à la crise avec plus de 80 ans de tradition, nous recherchons une personnalité analytique forte en tant que Senior Business Controller Sales à notre siège dans la région de Sursee (Oberkirch). Dans un environnement dynamique qui a toujours été axé sur la durabilité et la plus haute qualité, vous conseillerez directement la gestion et la gestion des ventes avec des idées précieuses. Immédiatement ou d'accord, nous vous recherchons !\nVotre domaine d'activité:\n- Partenaires d'affaires : Conseils proactifs à la direction, à la gestion des ventes et à divers ministères dans tous les aspects d'affaires.\n- Analyses et prise de décision: Création d'analyses solides de rentabilité, de rentabilité et d'analyses de rentabilisation, ainsi que de recommandations concrètes pour l'action à partir de l'évolution des ventes, des marges et des bénéfices.\n- Reporting & Business Intelligence: Développement continu des rapports de gestion, co-conception du paysage interne BI et optimisation des processus de contrôle et de planification.\n- Planification et contrôle: participation au budget, aux prévisions et à la planification à moyen terme, mise en œuvre de comparaisons entre objectifs et faits et évaluation des indicateurs de performance pertinents.\n- Projets & Qualité des données: Travailler dans des projets interdivisions pour assurer une grande transparence et la qualité des données de toutes les informations financières.\nC'est ce que vous apportez avec vous :\n- Formation : Études d'entreprise terminées (université, université de sciences appliquées ou formation comparable) en mettant l'accent sur la finance et le contrôle.\n- Expérience: Plusieurs années d'expérience professionnelle profonde dans le contrôle d'entreprise, idéalement collectées dans l'environnement des ventes ou FMCG/de détail.\n- Compétences informatiques : compétences utilisateur difficiles en MS Excel ; une expérience pratique avec SAP ainsi que Cognos Analytics ou des outils BI comparables est un avantage évident.\n- Langues : Communication styliste en allemand et en anglais pour une coopération quotidienne dans un environnement international.\n- Personnalité: réflexion analytique et en réseau, méthodes de travail indépendantes et orientées vers la solution, compétence de conseil prononcée et haut niveau d'initiative.\nC'est ce qui vous attend du client :\n- Équilibre et flexibilité entre le travail et la vie personnelle : horaires flexibles avec travail à distance et couverture complète des coûts des primes KTG et NBU.\n- Avantages et infrastructures: Parking gratuit au siège social, restauration à prix réduit dans notre propre restaurant personnel, rabais attrayants pour les employés sur toute la gamme de la marque et les ventes régulières de rampes.\n- Culture & Événements: Une culture d'entreprise caractérisée par des valeurs et la durabilité avec des événements d'équipe réguliers, des apéros d'entreprise et des événements uniques.\n- Développement : Des possibilités de perfectionnement professionnel et personnel ciblées grâce à la participation financière à des études complémentaires externes.\nLes types de fichiers acceptés sont DOC, DOCX, PDF, HTML et TXT. (taille maximale du fichier : 5 Mo)\nC'est ça. Taille du fichier: 5 Mo par fichier\nDe plus amples informations sont disponibles dans notre déclaration de protection des données."
+      },
+      "location": "Oberkirch, Luzern",
+      "canton": "LU",
+      "url": "https://pantr.ch/jobs/senior-business-controller-196/",
+      "source": "Pantr GmbH Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-04T09:35:08.053Z",
+      "addressLocality": "Oberkirch",
+      "addressRegion": "Luzern",
+      "addressCountry": "Switzerland",
+      "country": "Switzerland",
+      "postalCode": "6208",
+      "streetAddress": "Bahnstrasse 40",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Finanza / Revisione contabile e servizi fiduciari",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-08T14:52:06+00:00",
+      "applyUrl": "https://pantr.ch/jobs/senior-business-controller-196/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-01T09:35:20.250Z",
+      "salaryMin": 96000,
+      "salaryMax": 146000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 146000,
+          "unitText": "YEAR"
+        }
       }
     },
     {
@@ -332,7 +400,7 @@
       "url": "https://pantr.ch/jobs/dipl-wirtschaftspruefer-in-als-mandatsleiter-in-165/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:54.348Z",
+      "crawledAt": "2026-10-04T09:35:08.053Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "Switzerland",
@@ -377,72 +445,6 @@
       }
     },
     {
-      "id": "pantr-ch-dbf01c94d0ef",
-      "slug": "senior-business-controller-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef",
-      "slugByLocale": {
-        "it": "senior-business-controller-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef",
-        "en": "senior-business-controller-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef",
-        "de": "senior-business-controller-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef",
-        "fr": "controleur-principal-des-entreprises-pantr-gmbh-oberkirch-luzern-dbf01c94d0ef"
-      },
-      "slugDisambiguator": "dbf01c94d0ef",
-      "company": "Pantr GmbH",
-      "companyKey": "pantr-ch",
-      "companyDomain": "pantr.ch",
-      "title": "Senior Business Controller",
-      "titleByLocale": {
-        "it": "Senior Business Controller",
-        "en": "Senior Business Controller",
-        "de": "Senior Business Controller",
-        "fr": "Senior Business Controller"
-      },
-      "description": "Für eine international führende, krisensichere Schweizer Fashion- und Wäschemarke mit einer über 80-jährigen Tradition suchen wir am Hauptsitz im Raum Sursee (Oberkirch) eine analytisch starke Persönlichkeit als Senior Business Controller Sales. In einem dynamischen Umfeld, das seit jeher auf Nachhaltigkeit und höchste Qualität setzt, berätst du das Sales Management sowie die Geschäftsleitung direkt mit wertvollen Insights. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDein Wirkungsfeld:\n- Business Partnering: Proaktive Beratung der Geschäftsleitung, des Sales Managements und verschiedener Fachbereiche in allen betriebswirtschaftlichen Belangen.\n- Analysen & Entscheidungsfindung: Erstellung fundierter Wirtschaftlichkeits-, Profitabilitäts- und Business-Case-Analysen sowie das Ableiten konkreter Handlungsempfehlungen aus Umsatz-, Margen- und Ergebnisentwicklungen.\n- Reporting & Business Intelligence: Kontinuierliche Weiterentwicklung des Management-Reportings, Mitgestaltung der internen BI-Landschaft sowie Optimierung von Controlling- und Planungsprozessen.\n- Planung & Steuerung: Mitwirkung bei Budget-, Forecast- und Mittelfristplanungen, Durchführung von Soll-Ist-Vergleichen sowie Bewertung relevanter Performance-Kennzahlen.\n- Projekte & Datenqualität: Mitarbeit in bereichsübergreifenden Projekten zur Sicherstellung einer hohen Transparenz und Datenqualität aller Finanzinformationen.\nDas bringst du mit:\n- Ausbildung: Abgeschlossenes betriebswirtschaftliches Studium (Universität, Fachhochschule oder vergleichbare Ausbildung) mit Schwerpunkt Finance/Controlling.\n- Erfahrung: Mehrjährige, fundierte Berufserfahrung im Business Controlling, idealerweise gesammelt im Vertriebs- oder FMCG/Retail-Umfeld.\n- IT-Skills: Sattelfeste Anwenderkenntnisse in MS Excel; praktische Erfahrung mit SAP sowie Cognos Analytics oder vergleichbaren BI-Tools ist ein klarer Vorteil.\n- Sprachen: Stilsichere Kommunikation in Deutsch und Englisch für die tägliche Zusammenarbeit im internationalen Umfeld.\n- Persönlichkeit: Analytisches und vernetztes Denken, selbstständige und lösungsorientierte Arbeitsweise, ausgeprägte Beratungskompetenz sowie hohe Eigeninitiative.\nDas erwartet dich beim Kunden:\n- Work-Life-Balance & Flexibilität: Flexible Arbeitszeiten mit Mobile / Remote Working sowie die vollständige Kostenübernahme der KTG- und NBU-Prämien.\n- Benefits & Infrastruktur: Kostenlose Parkplätze am Hauptsitz, vergünstigte Verpflegung im eigenen Personalrestaurant, attraktive Mitarbeitendenrabatte auf das gesamte Markensortiment sowie regelmässige Rampenverkäufe.\n- Kultur & Events: Eine von Werten und Nachhaltigkeit geprägte Unternehmenskultur mit regelmässigen Teamevents, Firmen-Apéros und einzigartigen Anlässen.\n- Entwicklung: Gezielte berufliche und persönliche Entwicklungsmöglichkeiten durch finanzielle Kostenbeteiligung an externen Weiterbildungen.\nAkzeptierte Dateitypen sind DOC, DOCX, PDF, HTML, and TXT. (Max. Dateigrösse: 5 MB)\nMax. Dateigrösse: 5 MB pro Datei\nWeitere Informationen findest du in unserer Datenschutzerklärung.",
-      "descriptionByLocale": {
-        "it": "Per un marchio svizzero di moda e lavanderia a prova di crisi leader a livello internazionale con oltre 80 anni di tradizione, stiamo cercando una personalità analiticamente forte come Senior Business Controller Sales presso la nostra sede nella zona di Sursee (Oberkirch). In un ambiente dinamico che si è sempre concentrato sulla sostenibilità e la massima qualità, si consiglia la gestione delle vendite e la gestione direttamente con preziose informazioni. Immediatamente o con accordo, ti stiamo cercando!\nIl tuo campo di attività:\n- Business Partnering: consulenza attiva per la gestione, la gestione delle vendite e vari dipartimenti in tutti gli aspetti aziendali.\n- Analizzazioni e processi decisionali: creazione di una sana redditività, redditività e analisi dei casi aziendali, nonché la derivazione di raccomandazioni concrete per l'azione da sviluppi di vendite, margini e guadagni.\n- Reporting & Business Intelligence: sviluppo continuo del reporting gestionale, co-design del paesaggio BI interno e ottimizzazione dei processi di controllo e pianificazione.\n- Pianificazione e controllo: partecipazione a budget, previsioni e pianificazione a medio termine, implementazione di confronti obiettivi e valutazione di indicatori di performance rilevanti.\n- Progetti & Data Quality: Lavorare in progetti cross-divisionali per garantire elevata trasparenza e qualità dei dati di tutte le informazioni finanziarie.\nQuesto è ciò che portate con voi:\n- Formazione: studi aziendali completi (università, università di scienze applicate o formazione comparabile) con un focus sulla finanza / controllo.\n- Esperienza: Diversi anni di profonda esperienza professionale nel controllo aziendale, idealmente raccolti nell'ambiente di vendita o FMCG/retail.\n- Competenze informatiche: abilità utente sella-hard in MS Excel; esperienza pratica con SAP così come Cognos Analytics o strumenti BI comparabili è un chiaro vantaggio.\n- Lingue: Comunicazione stilistica in tedesco e inglese per la cooperazione quotidiana in un ambiente internazionale.\n- Personalità: pensiero analitico e in rete, metodi di lavoro indipendenti e orientati alla soluzione, competenza di consulenza pronunciata e un alto livello di iniziativa.\nQuesto è ciò che vi aspetta dal cliente:\n- Work-Life Balance & Flessibilità: Ore lavorative flessibili con Mobile / Remote Working e la copertura completa dei costi dei premi KTG e NBU.\n- Vantaggi & Infrastrutture: Parcheggio gratuito presso la sede, cibo scontato nel nostro ristorante personale, interessanti sconti sui dipendenti sull'intera gamma di marchi e regolari vendite di rampa.\n- Cultura & Eventi: Una cultura aziendale caratterizzata da valori e sostenibilità con regolari eventi di team, apéros aziendali e eventi unici.\n- Sviluppo: Opportunità di sviluppo professionale e personale mirate attraverso la partecipazione finanziaria all'ulteriore istruzione esterna.\nI tipi di file accettati sono DOC, DOCX, PDF, HTML e TXT. (Massima dimensione del file: 5 MB)\nMax. Dimensione del file: 5 MB per file\nUlteriori informazioni possono essere trovate nella nostra dichiarazione di protezione dei dati.",
-        "en": "For an internationally leading, crisis-proof Swiss fashion and laundry brand with over 80 years of tradition, we are looking for an analytically strong personality as Senior Business Controller Sales at our headquarters in the Sursee (Oberkirch) area. In a dynamic environment that has always focused on sustainability and the highest quality, you will advise sales management and management directly with valuable insights. Immediately or by agreement, we are looking for you!\nYour field of activity:\n- Business Partnering: Proactive advice to the management, sales management and various departments in all business aspects.\n- Analyses & decision-making: Creation of sound profitability, profitability and business case analyses as well as the derivation of concrete recommendations for action from sales, margin and earnings developments.\n- Reporting & Business Intelligence: Continuous development of management reporting, co-design of the internal BI landscape and optimization of controlling and planning processes.\n- Planning & Control: Participation in budget, forecast and medium-term planning, implementation of target-actual comparisons and evaluation of relevant performance indicators.\n- Projects & Data Quality: Working in cross-divisional projects to ensure high transparency and data quality of all financial information.\nThis is what you bring with you:\n- Training: Completed business studies (university, university of applied sciences or comparable training) with a focus on finance/controlling.\n- Experience: Several years of profound professional experience in business controlling, ideally collected in the sales or FMCG/retail environment.\n- IT skills: saddle-hard user skills in MS Excel; Practical experience with SAP as well as Cognos Analytics or comparable BI tools is a clear advantage.\n- Languages: Stylistic communication in German and English for daily cooperation in an international environment.\n- Personality: Analytical and networked thinking, independent and solution-oriented working methods, pronounced consulting competence and a high level of initiative.\nThis is what awaits you from the customer:\n- Work-Life Balance & Flexibility: Flexible working hours with Mobile / Remote Working as well as the full cost coverage of KTG and NBU premiums.\n- Benefits & Infrastructure: Free parking at headquarters, discounted food in our own staff restaurant, attractive employee discounts on the entire brand range and regular ramp sales.\n- Culture & Events: A corporate culture characterized by values and sustainability with regular team events, company apéros and unique events.\n- Development: Targeted professional and personal development opportunities through financial participation in external further education.\nAccepted file types are DOC, DOCX, PDF, HTML, and TXT. (Max. file size: 5 MB)\nMax. File size: 5 MB per file\nFurther information can be found in our data protection declaration.",
-        "de": "Für eine international führende, krisensichere Schweizer Fashion- und Wäschemarke mit einer über 80-jährigen Tradition suchen wir am Hauptsitz im Raum Sursee (Oberkirch) eine analytisch starke Persönlichkeit als Senior Business Controller Sales. In einem dynamischen Umfeld, das seit jeher auf Nachhaltigkeit und höchste Qualität setzt, berätst du das Sales Management sowie die Geschäftsleitung direkt mit wertvollen Insights. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDein Wirkungsfeld:\n- Business Partnering: Proaktive Beratung der Geschäftsleitung, des Sales Managements und verschiedener Fachbereiche in allen betriebswirtschaftlichen Belangen.\n- Analysen & Entscheidungsfindung: Erstellung fundierter Wirtschaftlichkeits-, Profitabilitäts- und Business-Case-Analysen sowie das Ableiten konkreter Handlungsempfehlungen aus Umsatz-, Margen- und Ergebnisentwicklungen.\n- Reporting & Business Intelligence: Kontinuierliche Weiterentwicklung des Management-Reportings, Mitgestaltung der internen BI-Landschaft sowie Optimierung von Controlling- und Planungsprozessen.\n- Planung & Steuerung: Mitwirkung bei Budget-, Forecast- und Mittelfristplanungen, Durchführung von Soll-Ist-Vergleichen sowie Bewertung relevanter Performance-Kennzahlen.\n- Projekte & Datenqualität: Mitarbeit in bereichsübergreifenden Projekten zur Sicherstellung einer hohen Transparenz und Datenqualität aller Finanzinformationen.\nDas bringst du mit:\n- Ausbildung: Abgeschlossenes betriebswirtschaftliches Studium (Universität, Fachhochschule oder vergleichbare Ausbildung) mit Schwerpunkt Finance/Controlling.\n- Erfahrung: Mehrjährige, fundierte Berufserfahrung im Business Controlling, idealerweise gesammelt im Vertriebs- oder FMCG/Retail-Umfeld.\n- IT-Skills: Sattelfeste Anwenderkenntnisse in MS Excel; praktische Erfahrung mit SAP sowie Cognos Analytics oder vergleichbaren BI-Tools ist ein klarer Vorteil.\n- Sprachen: Stilsichere Kommunikation in Deutsch und Englisch für die tägliche Zusammenarbeit im internationalen Umfeld.\n- Persönlichkeit: Analytisches und vernetztes Denken, selbstständige und lösungsorientierte Arbeitsweise, ausgeprägte Beratungskompetenz sowie hohe Eigeninitiative.\nDas erwartet dich beim Kunden:\n- Work-Life-Balance & Flexibilität: Flexible Arbeitszeiten mit Mobile / Remote Working sowie die vollständige Kostenübernahme der KTG- und NBU-Prämien.\n- Benefits & Infrastruktur: Kostenlose Parkplätze am Hauptsitz, vergünstigte Verpflegung im eigenen Personalrestaurant, attraktive Mitarbeitendenrabatte auf das gesamte Markensortiment sowie regelmässige Rampenverkäufe.\n- Kultur & Events: Eine von Werten und Nachhaltigkeit geprägte Unternehmenskultur mit regelmässigen Teamevents, Firmen-Apéros und einzigartigen Anlässen.\n- Entwicklung: Gezielte berufliche und persönliche Entwicklungsmöglichkeiten durch finanzielle Kostenbeteiligung an externen Weiterbildungen.\nAkzeptierte Dateitypen sind DOC, DOCX, PDF, HTML, and TXT. (Max. Dateigrösse: 5 MB)\nMax. Dateigrösse: 5 MB pro Datei\nWeitere Informationen findest du in unserer Datenschutzerklärung.",
-        "fr": "Pour une marque suisse de mode et de lessive à la pointe de la scène internationale et résistante à la crise avec plus de 80 ans de tradition, nous recherchons une personnalité analytique forte en tant que Senior Business Controller Sales à notre siège dans la région de Sursee (Oberkirch). Dans un environnement dynamique qui a toujours été axé sur la durabilité et la plus haute qualité, vous conseillerez directement la gestion et la gestion des ventes avec des idées précieuses. Immédiatement ou d'accord, nous vous recherchons !\nVotre domaine d'activité:\n- Partenaires d'affaires : Conseils proactifs à la direction, à la gestion des ventes et à divers ministères dans tous les aspects d'affaires.\n- Analyses et prise de décision: Création d'analyses solides de rentabilité, de rentabilité et d'analyses de rentabilisation, ainsi que de recommandations concrètes pour l'action à partir de l'évolution des ventes, des marges et des bénéfices.\n- Reporting & Business Intelligence: Développement continu des rapports de gestion, co-conception du paysage interne BI et optimisation des processus de contrôle et de planification.\n- Planification et contrôle: participation au budget, aux prévisions et à la planification à moyen terme, mise en œuvre de comparaisons entre objectifs et faits et évaluation des indicateurs de performance pertinents.\n- Projets & Qualité des données: Travailler dans des projets interdivisions pour assurer une grande transparence et la qualité des données de toutes les informations financières.\nC'est ce que vous apportez avec vous :\n- Formation : Études d'entreprise terminées (université, université de sciences appliquées ou formation comparable) en mettant l'accent sur la finance et le contrôle.\n- Expérience: Plusieurs années d'expérience professionnelle profonde dans le contrôle d'entreprise, idéalement collectées dans l'environnement des ventes ou FMCG/de détail.\n- Compétences informatiques : compétences utilisateur difficiles en MS Excel ; une expérience pratique avec SAP ainsi que Cognos Analytics ou des outils BI comparables est un avantage évident.\n- Langues : Communication styliste en allemand et en anglais pour une coopération quotidienne dans un environnement international.\n- Personnalité: réflexion analytique et en réseau, méthodes de travail indépendantes et orientées vers la solution, compétence de conseil prononcée et haut niveau d'initiative.\nC'est ce qui vous attend du client :\n- Équilibre et flexibilité entre le travail et la vie personnelle : horaires flexibles avec travail à distance et couverture complète des coûts des primes KTG et NBU.\n- Avantages et infrastructures: Parking gratuit au siège social, restauration à prix réduit dans notre propre restaurant personnel, rabais attrayants pour les employés sur toute la gamme de la marque et les ventes régulières de rampes.\n- Culture & Événements: Une culture d'entreprise caractérisée par des valeurs et la durabilité avec des événements d'équipe réguliers, des apéros d'entreprise et des événements uniques.\n- Développement : Des possibilités de perfectionnement professionnel et personnel ciblées grâce à la participation financière à des études complémentaires externes.\nLes types de fichiers acceptés sont DOC, DOCX, PDF, HTML et TXT. (taille maximale du fichier : 5 Mo)\nC'est ça. Taille du fichier: 5 Mo par fichier\nDe plus amples informations sont disponibles dans notre déclaration de protection des données."
-      },
-      "location": "Oberkirch, Luzern",
-      "canton": "LU",
-      "url": "https://pantr.ch/jobs/senior-business-controller-196/",
-      "source": "Pantr GmbH Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:54.347Z",
-      "addressLocality": "Oberkirch",
-      "addressRegion": "Luzern",
-      "addressCountry": "Switzerland",
-      "country": "Switzerland",
-      "postalCode": "6208",
-      "streetAddress": "Bahnstrasse 40",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Finanza / Revisione contabile e servizi fiduciari",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-08T14:52:06+00:00",
-      "applyUrl": "https://pantr.ch/jobs/senior-business-controller-196/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:35:20.250Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "pantr-ch-09f427342f61",
       "slug": "responsabile-steuerteam-pantr-gmbh-basel",
       "slugByLocale": {
@@ -474,7 +476,7 @@
       "url": "https://pantr.ch/jobs/leiter-in-steuerteam-212/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:54.345Z",
+      "crawledAt": "2026-10-04T09:35:08.052Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "Switzerland",
@@ -550,7 +552,7 @@
       "url": "https://pantr.ch/jobs/senior-assistant-wirtschaftspruefung-206/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:29:54.342Z",
+      "crawledAt": "2026-10-04T09:35:08.050Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "Switzerland",
@@ -568,20 +570,6 @@
       "applyUrl": "https://pantr.ch/jobs/senior-assistant-wirtschaftspruefung-206/",
       "requirements": [],
       "requirementsByLocale": {},
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-10-01T09:35:20.247Z",
       "previousSlugs": [
         "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554",
         "audit-aggiunto-senior-pantr-gmbh-st-gallen-7008056e5554"
@@ -594,6 +582,21 @@
         "fr": [
           "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554"
         ]
+      },
+      "firstSeenAt": "2026-10-01T09:35:20.247Z",
+      "needsRetranslation": true,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
       }
     }
   ]
