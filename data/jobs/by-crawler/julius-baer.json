@@ -1,6 +1,6 @@
 {
   "crawlerKey": "julius-baer",
-  "assembledAt": "2026-10-04T09:11:27.341Z",
+  "assembledAt": "2026-10-04T21:15:59.829Z",
   "jobs": [
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Quantitative-Analyst--GPS--100---f-m-d-_r-18318-2",
@@ -246,6 +246,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-01T09:13:13.433Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -984,6 +985,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-23T23:36:02.791Z",
+      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "currency": "CHF",
@@ -1565,7 +1567,6 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-21T15:57:50.187Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
