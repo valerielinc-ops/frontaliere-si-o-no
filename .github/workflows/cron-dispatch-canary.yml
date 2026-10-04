@@ -146,7 +146,7 @@ jobs:
       - name: Open PR with the sample
         if: github.event_name == 'schedule'
         env:
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           set -euo pipefail
           body="$RUNNER_TEMP/cron-dispatch-refresh-pr-body.md"

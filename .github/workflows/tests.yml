@@ -4164,7 +4164,7 @@ jobs:
         if: ${{ needs.vitest.outputs.autorebase == 'true' }}
         continue-on-error: true
         env:
-          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           DRY_RUN: 'false'
         run: node scripts/ci/pr-autorebase.mjs
