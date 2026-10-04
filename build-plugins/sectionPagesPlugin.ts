@@ -1046,7 +1046,7 @@ function renderSectionPage(opts: {
       <p class="s-q3nqK4"><a href="${esc(homeUrl)}" style="${LINK_ACCENT_STYLE}">← ${esc(localeCopy.editorialOrg)}</a></p>
     </section>`;
 
-  const bodyHtml = `<div class="s-it71Rt">${body}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
+  const bodyHtml = `<div class="s-it71Rt">${body}${endOfContentMultiplexHtml({ indexable: true, contentHtml: body })}</div>`;
 
   const html = buildSeoPageHtml({
     locale,

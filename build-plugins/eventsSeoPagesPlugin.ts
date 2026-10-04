@@ -99,6 +99,12 @@ type EventPrice = {
   validFrom?: string;
   url?: string;
   evidence?: 'structured-zero' | 'structured-free-access' | 'label-free' | 'numeric' | 'unknown';
+  // Provenance (owner decision 2026-10-04): which admitted source and which of
+  // its fields produced the value. hasConfidentPrice() publishes only
+  // structured fields (JSON-LD offers.price / isAccessibleForFree).
+  priceSource?: string;
+  priceField?: string;
+  priceConflicts?: Array<{ eventId: string; amount: number; currency: string; isFree: boolean; priceSource?: string; priceField?: string }>;
 };
 
 interface SiteEvent {
@@ -1283,7 +1289,8 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     // (no canonicalUrl) we keep the source URL.
     url: canonicalUrl || event.url,
     ...(canonicalUrl && event.url ? { sameAs: [event.url] } : {}),
-    ...(event.price?.isFree ? { isAccessibleForFree: true } : {}),
+    // Free admission is a price claim too: only a structured source field may assert it.
+    ...(confidentPrice && event.price?.isFree ? { isAccessibleForFree: true } : {}),
     ...(offer ? { offers: offer } : {}),
   };
 }
@@ -2149,7 +2156,8 @@ export function renderHubPage(params: {
 
   const wordCount = countHtmlBodyWords(body);
   const indexable = wordCount >= MIN_INDEXABLE_WORDS;
-  const bodyHtml = `${injectEventListingAd(body, locale, indexable)}${endOfContentMultiplexHtml({ indexable })}`;
+  const contentHtml = injectEventListingAd(body, locale, indexable);
+  const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
     locale,
     title: copy.hubTitle,
@@ -2280,7 +2288,8 @@ export function renderEventsIndexPage(params: {
 
   const wordCount = countHtmlBodyWords(body);
   const indexable = wordCount >= MIN_INDEXABLE_WORDS;
-  const bodyHtml = `${injectEventListingAd(body, locale, indexable)}${endOfContentMultiplexHtml({ indexable })}`;
+  const contentHtml = injectEventListingAd(body, locale, indexable);
+  const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
     locale,
     title: copy.metaTitle,
@@ -2404,7 +2413,8 @@ export function renderComunePage(params: {
 
   const wordCount = countHtmlBodyWords(body);
   const indexable = wordCount >= MIN_INDEXABLE_WORDS;
-  const bodyHtml = `${injectEventListingAd(body, locale, indexable)}${endOfContentMultiplexHtml({ indexable })}`;
+  const contentHtml = injectEventListingAd(body, locale, indexable);
+  const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
     locale,
     title: copy.comuneTitle(comune),
@@ -2665,7 +2675,8 @@ export function renderOtherEventsPage(params: {
 
   const wordCount = countHtmlBodyWords(body);
   const indexable = wordCount >= MIN_INDEXABLE_WORDS;
-  const bodyHtml = `${injectEventListingAd(body, locale, indexable)}${endOfContentMultiplexHtml({ indexable })}`;
+  const contentHtml = injectEventListingAd(body, locale, indexable);
+  const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
     locale,
     title: oeCopy.metaTitle,
@@ -2788,7 +2799,8 @@ export function renderOverflowLadderPage(params: {
 
   const wordCount = countHtmlBodyWords(body);
   const indexable = isIndexableWordCount(wordCount);
-  const bodyHtml = `${injectEventListingAd(body, locale, indexable)}${endOfContentMultiplexHtml({ indexable })}`;
+  const contentHtml = injectEventListingAd(body, locale, indexable);
+  const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
     locale,
     title: ladderTitle,
@@ -3356,7 +3368,7 @@ export function renderEventDetailPage(params: {
     </section>`
     : '';
   const bodyWithAds = body.replace(inlineAdMarker, inlineAd);
-  const bodyHtml = `${bodyWithAds}${endOfContentMultiplexHtml({ indexable })}`;
+  const bodyHtml = `${bodyWithAds}${endOfContentMultiplexHtml({ indexable, contentHtml: bodyWithAds })}`;
   const html = buildSeoPageHtml({
     locale,
     title: dc.metaTitle(title, displayComune),
@@ -3598,7 +3610,8 @@ export function renderDigestPage(params: {
 
   const wordCount = countHtmlBodyWords(body);
   const indexable = events.length > 0 && wordCount >= MIN_INDEXABLE_WORDS;
-  const bodyHtml = `${injectEventListingAd(body, locale, indexable)}${endOfContentMultiplexHtml({ indexable })}`;
+  const contentHtml = injectEventListingAd(body, locale, indexable);
+  const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
     locale,
     title: dc.title,

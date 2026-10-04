@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "med-ipersonal-03dd4e2381a4",
-      "slug": "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-wattwil-ipersonal-ag-wattwil-st-gallen",
+      "slug": "camion-chauffeur-recycling-chauffeur-c-e-springer-m-f-d-regione-wattwil-ipersonal-ag-wattwil-st-gallen",
       "slugByLocale": {
         "de": "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-wattwil-ipersonal-ag-wattwil-st-gallen",
-        "it": "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-wattwil-ipersonal-ag-wattwil-st-gallen",
-        "en": "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-wattwil-ipersonal-ag-wattwil-st-gallen",
-        "fr": "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-wattwil-ipersonal-ag-wattwil-st-gallen"
+        "it": "camion-chauffeur-recycling-chauffeur-c-e-springer-m-f-d-regione-wattwil-ipersonal-ag-wattwil-st-gallen",
+        "en": "truck-chauffeur-recycling-chauffeur-c-e-springer-m-f-d-wattwil-region-ipersonal-ag-wattwil-st-gallen",
+        "fr": "chauffeur-de-camion-recyclage-chauffeur-c-e-springer-m-f-j-region-de-wattwil-ipersonal-ag-wattwil-st-gallen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -61,16 +61,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:34:28.055Z"
+      "firstSeenAt": "2026-10-04T09:34:28.055Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-wattwil-ipersonal-ag-wattwil-st-gallen"
+        ],
+        "en": [
+          "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-wattwil-ipersonal-ag-wattwil-st-gallen"
+        ],
+        "fr": [
+          "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-wattwil-ipersonal-ag-wattwil-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-wattwil-ipersonal-ag-wattwil-st-gallen"
+      ]
     },
     {
       "id": "med-ipersonal-a80498b08df0",
-      "slug": "heizungsinstallateur-100-in-der-region-sursee-gesucht-ipersonal-ag-sursee",
+      "slug": "riscaldamento-installatore-100-ricercato-nella-regione-di-sursee-ipersonal-ag-sursee",
       "slugByLocale": {
         "de": "heizungsinstallateur-100-in-der-region-sursee-gesucht-ipersonal-ag-sursee",
-        "it": "heizungsinstallateur-100-in-der-region-sursee-gesucht-ipersonal-ag-sursee",
-        "en": "heizungsinstallateur-100-in-der-region-sursee-gesucht-ipersonal-ag-sursee",
-        "fr": "heizungsinstallateur-100-in-der-region-sursee-gesucht-ipersonal-ag-sursee"
+        "it": "riscaldamento-installatore-100-ricercato-nella-regione-di-sursee-ipersonal-ag-sursee",
+        "en": "heating-installer-100-sought-after-in-the-sursee-region-ipersonal-ag-sursee",
+        "fr": "installateur-de-chauffage-100-recherche-dans-la-region-du-sursee-ipersonal-ag-sursee"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -122,16 +136,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:34:27.755Z"
+      "firstSeenAt": "2026-10-04T09:34:27.755Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-100-in-der-region-sursee-gesucht-ipersonal-ag-sursee"
+        ],
+        "en": [
+          "heizungsinstallateur-100-in-der-region-sursee-gesucht-ipersonal-ag-sursee"
+        ],
+        "fr": [
+          "heizungsinstallateur-100-in-der-region-sursee-gesucht-ipersonal-ag-sursee"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-100-in-der-region-sursee-gesucht-ipersonal-ag-sursee"
+      ]
     },
     {
       "id": "med-ipersonal-ce6c79f6689d",
-      "slug": "hr-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich",
+      "slug": "risorse-umane-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich",
       "slugByLocale": {
         "de": "hr-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich",
-        "it": "hr-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich",
+        "it": "risorse-umane-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich",
         "en": "hr-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich",
-        "fr": "hr-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+        "fr": "ressources-humaines-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -184,7 +212,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:35:31.860Z"
+      "firstSeenAt": "2026-10-01T21:35:31.860Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "risorse-umane-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich",
+          "hr-specialist-wadenswil-region-ipersonal-ag-wadenswil-zurich",
+          "ressources-humaines-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich",
+          "hr-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+        ],
+        "en": [
+          "hr-specialist-wadenswil-region-ipersonal-ag-wadenswil-zurich"
+        ],
+        "fr": [
+          "ressources-humaines-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich",
+          "hr-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "risorse-umane-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich",
+        "hr-specialist-wadenswil-region-ipersonal-ag-wadenswil-zurich",
+        "ressources-humaines-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich",
+        "hr-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+      ]
     },
     {
       "id": "med-ipersonal-71b6c621fb37",
@@ -192,8 +241,8 @@
       "slugByLocale": {
         "de": "lastwagenchauffeur-chauffeur-springer-100-m-w-d-100-fur-die-region-dagmersellen-freie-stelle-ipersonal-ag-dagmersellen",
         "it": "lastwagenchauffeur-chauffeur-springer-100-m-w-d-100-per-la-region-dagmersellen-freie-stelle-ipersonal-ag-dagmersellen",
-        "en": "lastwagenchauffeur-chauffeur-springer-100-m-w-d-100-fur-die-region-dagmersellen-freie-stelle-ipersonal-ag-dagmersellen",
-        "fr": "lastwagenchauffeur-chauffeur-springer-100-m-w-d-100-fur-die-region-dagmersellen-freie-stelle-ipersonal-ag-dagmersellen"
+        "en": "truck-chauffeur-chauffeur-springer-100-m-f-d-100-for-the-dagmersellen-region-vacancy-ipersonal-ag-dagmersellen",
+        "fr": "chauffeur-chauffeur-springer-100-h-f-d-100-pour-la-region-dagmersellen-vacance-ipersonal-ag-dagmersellen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -236,6 +285,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lastwagenchauffeur-chauffeur-springer-100-m-w-d-100-fur-die-region-dagmersellen-freie-stelle-ipersonal-ag-dagmersellen"
+        ],
+        "en": [
+          "lastwagenchauffeur-chauffeur-springer-100-m-w-d-100-fur-die-region-dagmersellen-freie-stelle-ipersonal-ag-dagmersellen"
+        ],
+        "fr": [
+          "lastwagenchauffeur-chauffeur-springer-100-m-w-d-100-fur-die-region-dagmersellen-freie-stelle-ipersonal-ag-dagmersellen"
         ]
       },
       "previousSlugs": [
@@ -262,8 +317,8 @@
       "slugByLocale": {
         "de": "lastwagenchauffeur-chauffeur-springer-100-m-w-d-100-fur-die-region-schotz-gesucht-ipersonal-ag-schotz",
         "it": "lastwagenchauffeur-chauffeur-springer-100-m-w-d-100-per-la-region-schotz-gesucht-ipersonal-ag-schotz",
-        "en": "lastwagenchauffeur-chauffeur-springer-100-m-w-d-100-fur-die-region-schotz-gesucht-ipersonal-ag-schotz",
-        "fr": "lastwagenchauffeur-chauffeur-springer-100-m-w-d-100-fur-die-region-schotz-gesucht-ipersonal-ag-schotz"
+        "en": "truck-chauffeur-chauffeur-springer-100-m-f-d-100-sought-for-the-schotz-region-ipersonal-ag-schotz",
+        "fr": "chauffeur-de-camion-chauffeur-springer-100-h-f-d-100-recherche-pour-la-region-de-schotz-ipersonal-ag-schotz"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -306,6 +361,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lastwagenchauffeur-chauffeur-springer-100-m-w-d-100-fur-die-region-schotz-gesucht-ipersonal-ag-schotz"
+        ],
+        "en": [
+          "lastwagenchauffeur-chauffeur-springer-100-m-w-d-100-fur-die-region-schotz-gesucht-ipersonal-ag-schotz"
+        ],
+        "fr": [
+          "lastwagenchauffeur-chauffeur-springer-100-m-w-d-100-fur-die-region-schotz-gesucht-ipersonal-ag-schotz"
         ]
       },
       "previousSlugs": [
@@ -328,12 +389,12 @@
     },
     {
       "id": "med-ipersonal-a79ae41af04b",
-      "slug": "risorse-umane-fachmann-100-per-la-region-obfelden-temporarburo-ipersonal-ag-obfelden",
+      "slug": "risorse-umane-fachmann-100-per-la-region-obfelden-temporarburo-ipersonal-ipersonal-ag-obfelden",
       "slugByLocale": {
         "de": "hr-fachmann-100-fur-die-region-obfelden-temporarburo-ipersonal-ipersonal-ag-obfelden",
-        "it": "risorse-umane-fachmann-100-per-la-region-obfelden-temporarburo-ipersonal-ag-obfelden",
-        "en": "hr-fachmann-100-fur-die-region-obfelden-temporarburo-ipersonal-ipersonal-ag-obfelden",
-        "fr": "hr-fachmann-100-fur-die-region-obfelden-temporarburo-ipersonal-ipersonal-ag-obfelden"
+        "it": "risorse-umane-fachmann-100-per-la-region-obfelden-temporarburo-ipersonal-ipersonal-ag-obfelden",
+        "en": "100-hr-specialist-for-the-obfelden-region-temporary-office-ipersonal-ipersonal-ag-obfelden",
+        "fr": "ressources-humaines-fachmann-100-fur-die-region-obfelden-temporarburo-ipersonal-ipersonal-ag-obfelden"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -375,11 +436,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "hr-fachmann-100-fur-die-region-obfelden-temporarburo-ipersonal-ipersonal-ag-obfelden",
+          "risorse-umane-fachmann-100-per-la-region-obfelden-temporarburo-ipersonal-ag-obfelden"
+        ],
+        "en": [
+          "hr-fachmann-100-fur-die-region-obfelden-temporarburo-ipersonal-ipersonal-ag-obfelden"
+        ],
+        "fr": [
           "hr-fachmann-100-fur-die-region-obfelden-temporarburo-ipersonal-ipersonal-ag-obfelden"
         ]
       },
       "previousSlugs": [
-        "hr-fachmann-100-fur-die-region-obfelden-temporarburo-ipersonal-ipersonal-ag-obfelden"
+        "hr-fachmann-100-fur-die-region-obfelden-temporarburo-ipersonal-ipersonal-ag-obfelden",
+        "risorse-umane-fachmann-100-per-la-region-obfelden-temporarburo-ipersonal-ag-obfelden"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -398,12 +467,12 @@
     },
     {
       "id": "med-ipersonal-bc3e8595c155",
-      "slug": "risorse-umane-fachmann-100-per-la-region-rumlang-temporarburo-ipersonal-ag-rumlang",
+      "slug": "risorse-umane-fachmann-100-per-la-region-rumlang-temporarburo-ipersonal-ipersonal-ag-rumlang",
       "slugByLocale": {
         "de": "hr-fachmann-100-fur-die-region-rumlang-temporarburo-ipersonal-ipersonal-ag-rumlang",
-        "it": "risorse-umane-fachmann-100-per-la-region-rumlang-temporarburo-ipersonal-ag-rumlang",
-        "en": "hr-fachmann-100-fur-die-region-rumlang-temporarburo-ipersonal-ipersonal-ag-rumlang",
-        "fr": "hr-fachmann-100-fur-die-region-rumlang-temporarburo-ipersonal-ipersonal-ag-rumlang"
+        "it": "risorse-umane-fachmann-100-per-la-region-rumlang-temporarburo-ipersonal-ipersonal-ag-rumlang",
+        "en": "100-hr-specialist-for-the-rumlang-region-temporary-office-ipersonal-ipersonal-ag-rumlang",
+        "fr": "ressources-humaines-fachmann-100-fur-die-region-rumlang-temporarburo-ipersonal-ipersonal-ag-rumlang"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -445,11 +514,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "hr-fachmann-100-fur-die-region-rumlang-temporarburo-ipersonal-ipersonal-ag-rumlang",
+          "risorse-umane-fachmann-100-per-la-region-rumlang-temporarburo-ipersonal-ag-rumlang"
+        ],
+        "en": [
+          "hr-fachmann-100-fur-die-region-rumlang-temporarburo-ipersonal-ipersonal-ag-rumlang"
+        ],
+        "fr": [
           "hr-fachmann-100-fur-die-region-rumlang-temporarburo-ipersonal-ipersonal-ag-rumlang"
         ]
       },
       "previousSlugs": [
-        "hr-fachmann-100-fur-die-region-rumlang-temporarburo-ipersonal-ipersonal-ag-rumlang"
+        "hr-fachmann-100-fur-die-region-rumlang-temporarburo-ipersonal-ipersonal-ag-rumlang",
+        "risorse-umane-fachmann-100-per-la-region-rumlang-temporarburo-ipersonal-ag-rumlang"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -468,12 +545,12 @@
     },
     {
       "id": "med-ipersonal-debe509399cf",
-      "slug": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-amriswil-ipersonal-ag-amriswil-thurgau",
+      "slug": "camion-autista-silo-chauffeur-cat-c-e-da-dietikon-m-f-d-regione-amriswil-ipersonal-ag-amriswil-thurgau",
       "slugByLocale": {
         "de": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-amriswil-ipersonal-ag-amriswil-thurgau",
-        "it": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-amriswil-ipersonal-ag-amriswil-thurgau",
-        "en": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-amriswil-ipersonal-ag-amriswil-thurgau",
-        "fr": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-amriswil-ipersonal-ag-amriswil-thurgau"
+        "it": "camion-autista-silo-chauffeur-cat-c-e-da-dietikon-m-f-d-regione-amriswil-ipersonal-ag-amriswil-thurgau",
+        "en": "truck-chauffeur-silo-chauffeur-cat-c-e-from-dietikon-m-f-d-region-amriswil-ipersonal-ag-amriswil-thurgau",
+        "fr": "chauffeur-de-camion-silo-chauffeur-cat-c-e-de-dietikon-h-f-d-region-amriswil-ipersonal-ag-amriswil-thurgau"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -525,16 +602,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:34:25.944Z"
+      "firstSeenAt": "2026-10-04T09:34:25.944Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-amriswil-ipersonal-ag-amriswil-thurgau"
+        ],
+        "en": [
+          "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-amriswil-ipersonal-ag-amriswil-thurgau"
+        ],
+        "fr": [
+          "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-amriswil-ipersonal-ag-amriswil-thurgau"
+        ]
+      },
+      "previousSlugs": [
+        "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-amriswil-ipersonal-ag-amriswil-thurgau"
+      ]
     },
     {
       "id": "med-ipersonal-b64346c6b14c",
-      "slug": "immobilientreuhander-region-neerach-ipersonal-ag-neerach-zurich",
+      "slug": "immobiliare-trustees-regione-di-neerach-ipersonal-ag-neerach-zurich",
       "slugByLocale": {
         "de": "immobilientreuhander-region-neerach-ipersonal-ag-neerach-zurich",
-        "it": "immobilientreuhander-region-neerach-ipersonal-ag-neerach-zurich",
-        "en": "immobilientreuhander-region-neerach-ipersonal-ag-neerach-zurich",
-        "fr": "immobilientreuhander-region-neerach-ipersonal-ag-neerach-zurich"
+        "it": "immobiliare-trustees-regione-di-neerach-ipersonal-ag-neerach-zurich",
+        "en": "real-estate-trustees-neerach-region-ipersonal-ag-neerach-zurich",
+        "fr": "fiducies-immobilieres-region-de-neerach-ipersonal-ag-neerach-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -586,16 +677,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:34:25.638Z"
+      "firstSeenAt": "2026-10-04T09:34:25.638Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilientreuhander-region-neerach-ipersonal-ag-neerach-zurich"
+        ],
+        "en": [
+          "immobilientreuhander-region-neerach-ipersonal-ag-neerach-zurich"
+        ],
+        "fr": [
+          "immobilientreuhander-region-neerach-ipersonal-ag-neerach-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "immobilientreuhander-region-neerach-ipersonal-ag-neerach-zurich"
+      ]
     },
     {
       "id": "med-ipersonal-6cc27c3167fe",
-      "slug": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-buch-sh-ipersonal-ag-buch-sh-schaffhausen",
+      "slug": "camion-autista-silo-chauffeur-cat-c-e-da-dietikon-m-f-d-regione-del-libro-sh-ipersonal-ag-buch-sh-schaffhausen",
       "slugByLocale": {
         "de": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-buch-sh-ipersonal-ag-buch-sh-schaffhausen",
-        "it": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-buch-sh-ipersonal-ag-buch-sh-schaffhausen",
-        "en": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-buch-sh-ipersonal-ag-buch-sh-schaffhausen",
-        "fr": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-buch-sh-ipersonal-ag-buch-sh-schaffhausen"
+        "it": "camion-autista-silo-chauffeur-cat-c-e-da-dietikon-m-f-d-regione-del-libro-sh-ipersonal-ag-buch-sh-schaffhausen",
+        "en": "truck-chauffeur-silo-chauffeur-cat-c-e-from-dietikon-m-f-d-book-region-sh-ipersonal-ag-buch-sh-schaffhausen",
+        "fr": "chauffeur-de-camion-silo-chauffeur-cat-c-e-de-dietikon-h-f-d-ipersonal-ag-buch-sh-schaffhausen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -647,16 +752,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:34:25.334Z"
+      "firstSeenAt": "2026-10-04T09:34:25.334Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-buch-sh-ipersonal-ag-buch-sh-schaffhausen"
+        ],
+        "en": [
+          "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-buch-sh-ipersonal-ag-buch-sh-schaffhausen"
+        ],
+        "fr": [
+          "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-buch-sh-ipersonal-ag-buch-sh-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-buch-sh-ipersonal-ag-buch-sh-schaffhausen"
+      ]
     },
     {
       "id": "med-ipersonal-92117d1ed1d4",
-      "slug": "heizungsinstallateur-100-in-der-region-neuenkirch-gesucht-ipersonal-ag-neuenkirch",
+      "slug": "riscaldamento-installatore-100-ricercato-nella-regione-di-neuenkirch-ipersonal-ag-neuenkirch",
       "slugByLocale": {
         "de": "heizungsinstallateur-100-in-der-region-neuenkirch-gesucht-ipersonal-ag-neuenkirch",
-        "it": "heizungsinstallateur-100-in-der-region-neuenkirch-gesucht-ipersonal-ag-neuenkirch",
-        "en": "heizungsinstallateur-100-in-der-region-neuenkirch-gesucht-ipersonal-ag-neuenkirch",
-        "fr": "heizungsinstallateur-100-in-der-region-neuenkirch-gesucht-ipersonal-ag-neuenkirch"
+        "it": "riscaldamento-installatore-100-ricercato-nella-regione-di-neuenkirch-ipersonal-ag-neuenkirch",
+        "en": "heating-installer-100-sought-in-the-region-of-neuenkirch-ipersonal-ag-neuenkirch",
+        "fr": "installateur-de-chauffage-100-recherche-dans-la-region-de-neuenkirch-ipersonal-ag-neuenkirch"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -708,7 +827,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:34:25.030Z"
+      "firstSeenAt": "2026-10-04T09:34:25.030Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-100-in-der-region-neuenkirch-gesucht-ipersonal-ag-neuenkirch"
+        ],
+        "en": [
+          "heizungsinstallateur-100-in-der-region-neuenkirch-gesucht-ipersonal-ag-neuenkirch"
+        ],
+        "fr": [
+          "heizungsinstallateur-100-in-der-region-neuenkirch-gesucht-ipersonal-ag-neuenkirch"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-100-in-der-region-neuenkirch-gesucht-ipersonal-ag-neuenkirch"
+      ]
     }
   ]
 }

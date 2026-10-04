@@ -700,28 +700,14 @@ export function createWorkdaySwissParser(config) {
   }
 
   /**
-   * Zero-listing run: stamp it only when the Swiss-faceted query itself said
-   * `total: 0` on a page it completed, and the unfiltered board proves the
-   * site is live without Switzerland in its country facet. Anything else — a
-   * facet the tenant rejected, an anti-bot `[]`, a missing total, a board with
-   * no postings at all, a failed proof read — stays a bare `[]`, which the
-   * runner's validator refuses (previous slice kept, monitor keeps counting).
-   * Returns null when the unfiltered board explicitly lists Switzerland: the
-   * faceted zero is then inconsistent with the source and the caller must
-   * refetch the unfiltered board through the strict per-listing CH gate.
-   * `facetParameter` is the key the faceted query actually used (declared or
-   * discovered): the board must be read on that same facet. `boardCache` holds
-   * the unfiltered summary already read in this run (by facet discovery or an
-   * earlier proof attempt), so the board is read at most once per run; a failed
-   * read is not cached.
+   * Read the unfiltered board once and stamp an empty result only when that
+   * board proves the tenant is live without Switzerland in the configured
+   * facet. A missing or ambiguous proof stays a bare `[]`; a board that lists
+   * Switzerland returns null so the caller can retry through the strict
+   * per-listing CH gate.
    */
-  async function proveSwissAbsentEmpty(facetApplied, facetStats, facetParameter, boardCache) {
+  async function proveSwissAbsentOnLiveBoard(facetParameter, boardCache, reason) {
     const empty = [];
-    const facetSaidZero = facetApplied
-      && facetStats?.firstPageTotal === 0
-      && facetStats?.endReason === 'empty-page'
-      && facetStats?.yielded === 0;
-    if (!facetSaidZero) return empty;
     let summary = boardCache?.summary;
     if (!summary) {
       try {
@@ -741,11 +727,36 @@ export function createWorkdaySwissParser(config) {
       return empty;
     }
     const locations = workdayFacetLeafValues(summary.facets, facetParameter);
-    const evidence = `${companyName} Workday site ${sitePath}: Swiss-faceted query total 0; live board `
+    const evidence = `${companyName} Workday site ${sitePath}: ${reason}; live board `
       + `${summary.total} posting(s) across ${locations.length} location value(s) (${locations.slice(0, 5).map((c) => c.descriptor).join(', ')}`
       + `${locations.length > 5 ? ', …' : ''}), Switzerland not among them`;
     console.log(`  🧾 Proven empty Swiss board — ${evidence}`);
     return markAuthoritativeEmptySnapshot(empty, evidence);
+  }
+
+  /**
+   * Zero-listing run: stamp it only when the Swiss-faceted query itself said
+   * `total: 0` on a page it completed, and the unfiltered board proves the
+   * site is live without Switzerland in its country facet. Anything else — a
+   * facet the tenant rejected, an anti-bot `[]`, a missing total, a board with
+   * no postings at all, a failed proof read — stays a bare `[]`, which the
+   * runner's validator refuses (previous slice kept, monitor keeps counting).
+   * Returns null when the unfiltered board explicitly lists Switzerland: the
+   * faceted zero is then inconsistent with the source and the caller must
+   * refetch the unfiltered board through the strict per-listing CH gate.
+   * `facetParameter` is the key the faceted query actually used (declared or
+   * discovered): the board must be read on that same facet. `boardCache` holds
+   * the unfiltered summary already read in this run (by facet discovery or an
+   * earlier proof attempt), so the board is read at most once per run; a failed
+   * read is not cached.
+   */
+  async function proveSwissAbsentEmpty(facetApplied, facetStats, facetParameter, boardCache) {
+    const facetSaidZero = facetApplied
+      && facetStats?.firstPageTotal === 0
+      && facetStats?.endReason === 'empty-page'
+      && facetStats?.yielded === 0;
+    if (!facetSaidZero) return [];
+    return proveSwissAbsentOnLiveBoard(facetParameter, boardCache, 'Swiss-faceted query total 0');
   }
 
   /**
@@ -824,10 +835,19 @@ export function createWorkdaySwissParser(config) {
     // simply return the full, unfiltered global board anyway (confirmed on
     // Everest Re: identical `total` with/without the facet). A genuinely
     // CH-scoped board never contains an explicitly-foreign listing, so any
-    // hit here proves the facet was silently ignored — downgrade to the
-    // strict per-listing gate using the SAME (already unfiltered) listings,
-    // no extra fetch needed.
+    // hit here proves the facet was silently ignored. First use the same
+    // source-level Swiss-absence proof as the empty-facet path; if it cannot
+    // prove absence, downgrade to the strict per-listing gate using the SAME
+    // (already unfiltered) listings.
     if (facetApplied && listings.some((l) => isLocationExplicitlyForeign(l.locationRaw))) {
+      if (proveSwissAbsentFromLiveBoard) {
+        const proof = await proveSwissAbsentOnLiveBoard(
+          facetParameter,
+          boardCache,
+          'Swiss-faceted query returned foreign listing(s)',
+        );
+        if (isAuthoritativeEmptySnapshot(proof)) return proof;
+      }
       console.warn(`⚠️ ${companyName}: ${facetParameter} facet silently ignored (foreign listings present in "filtered" board). Applying strict CH gate.`);
       facetApplied = false;
     }

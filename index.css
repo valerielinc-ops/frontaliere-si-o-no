@@ -1048,10 +1048,16 @@ input[type=number] { -moz-appearance: textfield; }
   }
 }
 
+/* The cover-photo credit (.ft-image-credit, P14): <small> marks a credit line,
+   shown at the footer's own size (text-sm) rather than preflight's 80%. */
+.ft-image-credit small { font-size: inherit; }
+
 /* Print styles */
 @media print {
   body { background: white !important; }
-  header, footer, nav, aside, .print\:hidden,
+  /* The cover-photo credit (.ft-image-credit, P14) is a <footer> inside the
+     article: the cover prints, so its author and licence print with it. */
+  header, footer:not(.ft-image-credit), nav, aside, .print\:hidden,
   [aria-label="cookie"], [class*="adsense"], [class*="AdSense"],
   [class*="bottom-sheet"], [class*="SocialProof"], [class*="AdSense"],
   button:not([data-print-keep]), details, [class*="skeleton"] { display: none !important; }

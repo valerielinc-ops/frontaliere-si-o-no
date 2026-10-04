@@ -509,7 +509,7 @@ function renderPage(opts: RenderOpts): RenderResult {
   const indexableBody = indexable
     ? body
     : body.replace(DRIVEBY_AD_SNIPPET, '').replace(frSalaireInlineAd, '');
-  const bodyHtml = `<main class="s-xzWvwM">${indexableBody}${endOfContentMultiplexHtml({ indexable })}</main>`;
+  const bodyHtml = `<main class="s-xzWvwM">${indexableBody}${endOfContentMultiplexHtml({ indexable, contentHtml: indexableBody })}</main>`;
 
   const html = buildSeoPageHtml({
     locale: LOCALE,

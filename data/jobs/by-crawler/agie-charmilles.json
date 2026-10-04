@@ -385,7 +385,8 @@
       ],
       "sourceIdentity": "url:https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-automatiker-werkzeugmaschinen-mwd",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "title": "Teamleader Elektroschrankmontage 100%",
@@ -449,24 +450,19 @@
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
-          "teamleader-elektroschrankmontage-100-agie-charmilles-biel-bienne",
-          "armadio-elettrico-teamleader-100-agie-charmilles-sa-biel-bienne"
+          "teamleader-elektroschrankmontage-100-agie-charmilles-biel-bienne"
         ],
         "en": [
-          "teamleader-electrical-cabinet-assembly-100-agie-charmilles-sa-biel-bienne",
           "teamleader-elektroschrankmontage-100-agie-charmilles-biel-bienne"
         ],
         "fr": [
-          "armoire-electrique-teamleader-100-agie-charmilles-sa-biel-bienne",
           "teamleader-elektroschrankmontage-100-agie-charmilles-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "teamleader-elektroschrankmontage-100-agie-charmilles-biel-bienne",
-        "armadio-elettrico-teamleader-100-agie-charmilles-sa-biel-bienne",
-        "teamleader-electrical-cabinet-assembly-100-agie-charmilles-sa-biel-bienne",
-        "armoire-electrique-teamleader-100-agie-charmilles-sa-biel-bienne"
-      ]
+        "teamleader-elektroschrankmontage-100-agie-charmilles-biel-bienne"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Polymechaniker (w/m/d)",
@@ -545,7 +541,8 @@
       "firstSeenAt": "2026-07-30T11:50:54.703Z",
       "sourceIdentity": "url:https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-polymechaniker-wmd",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "title": "Engineer Hard- und Software",
@@ -1152,7 +1149,8 @@
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-operativer-einkaufer-wmd",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "title": "Teamleader Elektroschrankmontage",
@@ -1290,7 +1288,8 @@
       "firstSeenAt": "2026-09-04T13:33:20.073Z",
       "sourceIdentity": "url:https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-application-engineer-milling-wmd",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "title": "Diagnose Engineer",
@@ -1794,14 +1793,20 @@
       },
       "slugByLocale": {
         "it": "logistiker-d-w-m-100-agie-charmilles-sa-biel-bienne",
-        "en": "logistiker-d-w-m-100-agie-charmilles-biel-bienne",
+        "en": "logistician-d-f-m-100-agie-charmilles-sa-biel-bienne",
         "de": "logistiker-d-w-m-100-agie-charmilles-biel-bienne",
-        "fr": "logistiker-d-w-m-100-agie-charmilles-biel-bienne"
+        "fr": "logisticien-j-f-m-100-agie-charmilles-sa-biel-bienne"
       },
       "id": "agie-charmilles-c6d457cfded6",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-d-w-m-100-agie-charmilles-biel-bienne"
+        ],
+        "en": [
+          "logistiker-d-w-m-100-agie-charmilles-biel-bienne"
+        ],
+        "fr": [
           "logistiker-d-w-m-100-agie-charmilles-biel-bienne"
         ]
       },
@@ -1925,13 +1930,19 @@
       },
       "slugByLocale": {
         "it": "logistiker-d-w-m-agie-charmilles-sa-biel-bienne",
-        "en": "logistiker-d-w-m-agie-charmilles-biel-bienne",
+        "en": "logistician-d-f-m-agie-charmilles-sa-biel-bienne",
         "de": "logistiker-d-w-m-agie-charmilles-biel-bienne",
-        "fr": "logistiker-d-w-m-agie-charmilles-biel-bienne"
+        "fr": "logisticien-d-f-m-agie-charmilles-sa-biel-bienne"
       },
       "id": "agie-charmilles-1619f7d7fab2",
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-d-w-m-agie-charmilles-biel-bienne"
+        ],
+        "en": [
+          "logistiker-d-w-m-agie-charmilles-biel-bienne"
+        ],
+        "fr": [
           "logistiker-d-w-m-agie-charmilles-biel-bienne"
         ]
       },

@@ -178,7 +178,7 @@
         "it": "prezioso-responsabile-del-controllo-del-metallo-mks-pamp-castel-san-pietro",
         "en": "pre-hisical-control-manager-mks-pamp-castel-san-pietro",
         "de": "edelmetallkontrollmanager-mks-pamp-castel-san-pietro",
-        "fr": "responsable-du-controle-des-metaux-precieux-mks-pamp-castel-san-pietro"
+        "fr": "precious-metal-control-manager-mks-pamp-castel-san-pietro"
       },
       "id": "mks-pamp-a1552294ce80",
       "salaryMin": 68000,
@@ -201,7 +201,7 @@
           "precious-metal-control-manager-mks-pamp-castel-san-pietro"
         ],
         "fr": [
-          "precious-metal-control-manager-mks-pamp-castel-san-pietro"
+          "responsable-du-controle-des-metaux-precieux-mks-pamp-castel-san-pietro"
         ],
         "de": [
           "precious-metal-control-manager-mks-pamp-castel-san-pietro"
@@ -211,7 +211,8 @@
         ]
       },
       "previousSlugs": [
-        "precious-metal-control-manager-mks-pamp-castel-san-pietro"
+        "precious-metal-control-manager-mks-pamp-castel-san-pietro",
+        "responsable-du-controle-des-metaux-precieux-mks-pamp-castel-san-pietro"
       ],
       "datePosted": "2026-08-19T12:39:04+02:00",
       "postingDateSource": "reported",
@@ -276,8 +277,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-08-11T17:56:17+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-04T09:34:15.903Z",
-      "needsRetranslation": true
+      "crawledAt": "2026-10-04T09:34:15.903Z"
     },
     {
       "title": "Tecnico di laboratorio",
@@ -378,7 +378,7 @@
       "slugByLocale": {
         "it": "operatore-reparto-raffineria-mks-pamp-castel-san-pietro",
         "en": "refinery-department-operator-mks-pamp-castel-san-pietro",
-        "de": "veranstalter-raffineria-mks-pamp-castel-san-pietro",
+        "de": "betreiber-der-raffinerieabteilung-mks-pamp-castel-san-pietro",
         "fr": "operateur-service-raffinerie-mks-pamp-castel-san-pietro"
       },
       "id": "mks-pamp-6b726144ffd1",
@@ -409,7 +409,6 @@
         "laboratory-technician-mks-pamp-castel-san-pietro",
         "laboratoriumstechniker-mks-pamp-castel-san-pietro",
         "technicien-de-laboratoire-mks-pamp-castel-san-pietro",
-        "betreiber-der-raffinerieabteilung-mks-pamp-castel-san-pietro",
         "veranstalter-raffineria-mks-pamp-castel-san-pietro"
       ],
       "previousSlugsByLocale": {
@@ -419,7 +418,6 @@
         ],
         "de": [
           "betreiberbehandlungen-reflui-mks-pamp-castel-san-pietro",
-          "betreiber-der-raffinerieabteilung-mks-pamp-castel-san-pietro",
           "veranstalter-raffineria-mks-pamp-castel-san-pietro"
         ],
         "fr": [

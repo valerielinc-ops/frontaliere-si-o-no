@@ -355,7 +355,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:59:03.777Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -433,7 +432,29 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistente-in-laboratorio-junior-chemist-r-t-arxada-visp",
+          "laboratory-assistant-junior-chemist-r-d-arxada-visp",
+          "assistant-de-laboratoire-chimiste-junior-r-t-arxada-visp",
+          "lab-assistant-in-junior-chemist-r-t-arxada-visp",
+          "lab-assistant-in-junior-chemist-r-t-arxada-ch-yy8ui5"
+        ],
+        "en": [
+          "laboratory-assistant-junior-chemist-r-d-arxada-visp"
+        ],
+        "fr": [
+          "assistant-de-laboratoire-chimiste-junior-r-t-arxada-visp"
+        ]
+      },
+      "previousSlugs": [
+        "assistente-in-laboratorio-junior-chemist-r-t-arxada-visp",
+        "laboratory-assistant-junior-chemist-r-d-arxada-visp",
+        "assistant-de-laboratoire-chimiste-junior-r-t-arxada-visp",
+        "lab-assistant-in-junior-chemist-r-t-arxada-visp",
+        "lab-assistant-in-junior-chemist-r-t-arxada-ch-yy8ui5"
+      ]
     }
   ]
 }

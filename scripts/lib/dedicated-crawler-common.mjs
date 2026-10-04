@@ -1115,7 +1115,7 @@ async function runSharedCrawlerInProcess({ root, env }) {
   try {
     // Dynamic import to avoid loading 7k-line module at parse time
     const { runSharedCrawlerPipeline } = await import('./shared-jobs-crawler.mjs');
-    await runSharedCrawlerPipeline();
+    return await runSharedCrawlerPipeline();
   } finally {
     // Restore original env values
     for (const [key, value] of Object.entries(originals)) {
@@ -4573,7 +4573,7 @@ export async function runDedicatedBaseCrawler({
   // lafonte, … and the standard template) is covered without per-script seeds.
   seedCrawlerSlicesFromDataJobs(root, scopedCompanyKeys, resolvedDataJobsPath);
 
-  await runSharedCrawlerInProcess({ root, env });
+  return runSharedCrawlerInProcess({ root, env });
 }
 
 /**
@@ -5559,8 +5559,22 @@ export function isLikelyGenericCareerTitle(title = '') {
 export function isLikelyJobDetailUrl(rawUrl = '') {
   const url = String(rawUrl || '').toLowerCase();
   if (!url) return false;
+  let parsedUrl = null;
   let host = '';
-  try { host = new URL(url).hostname.toLowerCase(); } catch {}
+  try {
+    parsedUrl = new URL(url);
+    host = parsedUrl.hostname.toLowerCase();
+  } catch {}
+  // The Swiss Timing central board keeps the listing path
+  // (`/company/job-offers`) for detail pages and identifies the vacancy with
+  // `?company=<id>&job=<id>`. The path alone is still a listing; only the
+  // numeric detail query makes it a job page.
+  const isSwissTimingDetail =
+    (host === 'swisstiming.com' || host.endsWith('.swisstiming.com')) &&
+    /^\/company\/job-offers\/?$/.test(parsedUrl?.pathname || '') &&
+    /^\d+$/.test(parsedUrl?.searchParams.get('company') || '') &&
+    /^\d+$/.test(parsedUrl?.searchParams.get('job') || '');
+  if (isSwissTimingDetail) return true;
   if (/\/job\b/.test(url) && /[?&]id=\d/.test(url)) return true;
   if (/\/vacanc(?:y|ies)\/?(?:[?#]|$)/.test(url)) return false;
   if (/\/(jobs?|careers?|karriere|offene-stellen|open-positions?)\/?(?:[?#]|$)/.test(url)) return false;

@@ -3070,7 +3070,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // through the shared page shell, while the static slot is the policy failure
   // reproduced by issue #9244 on short, enriched cluster pages.
   const bodyHtml = `${bodyContentHtml}
-    ${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(bodyContentHtml) >= ADSENSE_THIN_WORDS })}
+    ${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(bodyContentHtml) >= ADSENSE_THIN_WORDS, contentHtml: bodyContentHtml })}
   </div>`;
 
   // Cluster keywords can exceed 60+ chars when the candidate slug is a long
@@ -3300,6 +3300,7 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
   const bodyHtml = `${hubBodyContentHtml}
     ${endOfContentMultiplexHtml({
       indexable: countHtmlBodyWords(hubBodyContentHtml) >= ADSENSE_THIN_WORDS,
+      contentHtml: hubBodyContentHtml,
     })}
   </article>`;
 

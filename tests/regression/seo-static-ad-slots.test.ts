@@ -23,6 +23,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { infeedAdListItemHtml, infeedAdGridBlockHtml, endOfContentMultiplexHtml } from '../../build-plugins/lib/adSlotHtml';
 import { AD_SLOTS } from '../../services/adsenseSlots';
+import { ADSENSE_MIN_CHARS_PER_AD_SLOT } from '../../scripts/adsense-prereview-thresholds.mjs';
 import { renderProfessionBelowFloorBridge } from '../../build-plugins/shared/professionJobsFloor';
 import type { AnyProfessionId } from '../../build-plugins/professionLandingsData';
 
@@ -183,11 +184,12 @@ describe('SEO SSG-family end-of-content multiplex (#4485)', () => {
   });
 
   it('emits nothing on non-indexable (thin/noindex) pages — MFA-safety gate', () => {
-    expect(endOfContentMultiplexHtml({ indexable: false })).toBe('');
+    expect(endOfContentMultiplexHtml({ indexable: false, contentHtml: '<p>short</p>' })).toBe('');
   });
 
   it('emits the SSG_END_MULTIPLEX <ins> with reserved min-height on indexable pages', () => {
-    const html = endOfContentMultiplexHtml({ indexable: true });
+    const contentHtml = `<p>${'contenuto '.repeat(ADSENSE_MIN_CHARS_PER_AD_SLOT)}</p>`;
+    const html = endOfContentMultiplexHtml({ indexable: true, contentHtml });
     expect(html).toContain('class="adsbygoogle"');
     expect(html).toContain(`data-ad-slot="${AD_SLOTS.SSG_END_MULTIPLEX.slot}"`);
     expect(html).toContain('data-ad-format="autorelaxed"');
@@ -195,10 +197,15 @@ describe('SEO SSG-family end-of-content multiplex (#4485)', () => {
     expect(html).toContain('aria-label="advertisement"');
   });
 
+  it('suppresses the manual slot when the visible content cannot support its ratio', () => {
+    const contentHtml = `<p>${'contenuto '.repeat(20)}</p>`;
+    expect(endOfContentMultiplexHtml({ indexable: true, contentHtml })).toBe('');
+  });
+
   it('pharmacy directory gates its multiplex on the same indexable flag as robots', () => {
     const src = fs.readFileSync(path.join(ROOT, 'build-plugins/pharmacyDirectoryPagesPlugin.ts'), 'utf8');
     expect(src).toMatch(/descriptor\.kind !== 'duty-city'\s*&&\s*wordCount >= MIN_INDEXABLE_WORDS;/);
-    expect(src).toMatch(/endOfContentMultiplexHtml\(\{ indexable \}\)/);
+    expect(src).toMatch(/endOfContentMultiplexHtml\(\{ indexable, contentHtml: body \}\)/);
     expect(src).not.toContain('endOfContentMultiplexHtml({ indexable: true })');
   });
 
