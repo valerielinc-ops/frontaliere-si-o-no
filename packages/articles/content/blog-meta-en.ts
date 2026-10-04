@@ -12463,6 +12463,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ambri-vince-friborgo-2-1.title': 'Hockey, Ambrì conquer the BCF Arena: Fribourg beaten 2-1',
     'blog.article.ambri-vince-friborgo-2-1.excerpt': 'After two defeats, Ambrì rediscover their solidity and win 2-1 in Fribourg. Goals by Müller and Schnarr prove decisive in an evening of great defensive sacrifice.',
     'blog.article.ambri-vince-friborgo-2-1.imageAlt': 'Ambrì wins 2-1 against Fribourg at the BCF Arena',
+    'blog.article.fondo-13esima-avs-giovani.title': 'AVS Fund in Ticino: the 13th payment for young people',
+    'blog.article.fondo-13esima-avs-giovani.excerpt': 'A Fund was presented in Ticino: those who will be able and willing to waive the 13th AVS payment will support projects dedicated to the younger generations for the benefit of the community.',
+    'blog.article.fondo-13esima-avs-giovani.imageAlt': 'Pensioners and young people at a meeting about the AVS fund in Ticino',
 };
 
 export default blogMetaEn;

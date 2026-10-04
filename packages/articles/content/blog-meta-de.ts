@@ -12462,6 +12462,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ambri-vince-friborgo-2-1.title': 'Hockey, Ambrì erobert die BCF Arena: Freiburg besiegt 2-1',
     'blog.article.ambri-vince-friborgo-2-1.excerpt': 'Nach zwei Niederlagen findet Ambrì wieder Konkretheit und gewinnt 2: 1 in Freiburg. Entscheidend waren die Tore von Müller und Schnarr an einem Abend großer Abwehropfer.',
     'blog.article.ambri-vince-friborgo-2-1.imageAlt': 'Ambrì gewinnt 2-1 gegen Fribourg in der BCF Arena',
+    'blog.article.fondo-13esima-avs-giovani.title': 'AHV-Fonds im Tessin: 13. für Jugendliche',
+    'blog.article.fondo-13esima-avs-giovani.excerpt': 'Im Tessin wird ein Fonds präsentiert: Wer auf die 13. AHV verzichten kann und will, unterstützt Projekte für die neue Generation zugunsten der Allgemeinheit.',
+    'blog.article.fondo-13esima-avs-giovani.imageAlt': 'Pensionierte und junge Menschen bei einem Treffen zum AVS-Fonds im Tessin',
 };
 
 export default blogMetaDe;
