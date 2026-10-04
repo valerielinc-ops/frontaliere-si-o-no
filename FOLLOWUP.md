@@ -262,14 +262,14 @@ Lo stato vive nel corpo (`- State:` dell'item), la prova nei commenti come marke
 | transizione | scrittore | condizione |
 |---|---|---|
 | conio → `blocked` | triage (`post-merge-followup.yml`) | bullet `blocked:` con causa non di codice, scritta in `Blocked on:` |
-| `open` → `done` | SOLO il reconciler (`scripts/ci/reconcile-followups.mjs`) | token confermato da `detectAlreadyResolved()` e non nato vero |
-| `open` → `blocked` | `scripts/ci/route-already-fixed.mjs` (post-step del fixer) | `already-fixed` con terna verificata e legata all'item → `awaiting-verification`; secondo `already-fixed` senza prova → `already-fixed-unverified` |
+| `open`/`in-progress` → `done` | SOLO il reconciler (`scripts/ci/reconcile-followups.mjs`) | token confermato da `detectAlreadyResolved()` e non nato vero |
+| `open` → `blocked` | `scripts/ci/route-already-fixed.mjs` (post-step del fixer) | `already-fixed` con terna verificata e legata all'item → `awaiting-verification`; secondo `already-fixed` senza prova → `already-fixed-unverified`; verdetto non ritentabile (`ITEM_BLOCKING_OUTCOMES`: `no-root-cause`, `blocked-admin-settings`) senza PR consegnata → motivo = esito (con PR consegnata o delivery illeggibile, solo il tentativo) |
 | `blocked` → `done` | reconciler (`scripts/ci/lib/followup-blocked-recheck.mjs`) | token confermato e non nato vero (marker, o la stessa misura sul file a fine giorno del bucket) |
 | `blocked` → `open` | reconciler, UNA volta per item | commit nuovo su `main` che tocca il `Target file` dopo il blocco; mai con `awaiting-verification` |
 
-Nessun'altra transizione è automatica: `in-progress` non ha scrittore automatico e il gate sul conio non tocca gli item `done`. Una persona può riportare un item a `open` o chiuderlo con evidenza.
+Nessun'altra transizione è automatica: nessuno scrittore automatico porta un item a `in-progress` e il gate sul conio non tocca gli item `done`. Una persona può riportare un item a `open` o chiuderlo con evidenza.
 
-`FU_ITEM_BLOCKED` porta un motivo dell'insieme chiuso `ITEM_BLOCKED_REASONS`: `awaiting-verification`, `already-fixed-unverified`, `no-root-cause`, `blocked-admin-settings`. Gli ultimi due sono verdetti non ritentabili del fixer; su `main` nessuno scrittore li emette ancora a grana item.
+`FU_ITEM_BLOCKED` porta un motivo dell'insieme chiuso `ITEM_BLOCKED_REASONS`: `awaiting-verification`, `already-fixed-unverified`, `no-root-cause`, `blocked-admin-settings`. Gli ultimi due sono i verdetti non ritentabili del fixer (`ITEM_BLOCKING_OUTCOMES` in `route-already-fixed.mjs`), scritti a grana item: il bucket resta in coda per l'item successivo.
 
 | marker | scrittore | effetto |
 |---|---|---|

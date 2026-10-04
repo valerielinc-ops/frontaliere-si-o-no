@@ -26,6 +26,7 @@ import {
   ITEM_UNBLOCKED_MARKER,
 } from '../scripts/ci/lib/followup-item-evidence.mjs';
 import { BUCKET_VERIFY_REQUEST_MARKER } from '../scripts/ci/reconcile-followups.mjs';
+import { ITEM_BLOCKING_OUTCOMES } from '../scripts/ci/route-already-fixed.mjs';
 import { parseFollowupItems, updateFollowupItemState } from '../scripts/ci/followup-resolution-match.mjs';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
@@ -96,6 +97,13 @@ describe('FOLLOWUP.md nomina ciò che il codice usa', () => {
     const states = section(STATE_HEADING);
     expect(ITEM_BLOCKED_REASONS.length).toBeGreaterThan(0);
     for (const reason of ITEM_BLOCKED_REASONS) expect(states, `motivo: ${reason}`).toContain(`\`${reason}\``);
+  });
+
+  it('la riga `open` → `blocked` nomina ogni verdetto che route-already-fixed blocca a grana item', () => {
+    const row = section(STATE_HEADING).split('\n').find((line) => /^\|\s*`open`\s*→\s*`blocked`\s*\|/u.test(line)) ?? '';
+    expect(row, 'riga `open` → `blocked`').not.toBe('');
+    expect(ITEM_BLOCKING_OUTCOMES.length).toBeGreaterThan(0);
+    for (const outcome of ITEM_BLOCKING_OUTCOMES) expect(row, `ITEM_BLOCKING_OUTCOMES: ${outcome}`).toContain(`\`${outcome}\``);
   });
 
   it('gli stati dichiarati sono esattamente quelli che il parser accetta', () => {
