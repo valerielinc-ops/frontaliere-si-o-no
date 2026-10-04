@@ -42,6 +42,7 @@ import {
   SOURCE_DETAIL_UNEXPLAINED_FAILURE_MAX_PCT,
   filledLocaleCount,
   getSourceDetailImplementationVersions,
+  SOURCE_DETAIL_EXTRACTOR_ENTRYPOINTS,
   SOURCE_DETAIL_EXTRACTOR_VERSION_FILES,
   SOURCE_DETAIL_NORMALIZER_VERSION_FILES,
   vacancyHeadingSublineFields,
@@ -69,6 +70,8 @@ import {
   classifyDuplicateListingGroups,
 } from '../../scripts/audit-parser-quality.mjs';
 import { createHash } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import { collectRelativeImportClosure } from '../helpers/collectRelativeImportClosure';
 import { extractDetailFields, extractJsonLd } from '../../scripts/lib/prospector/extract.mjs';
 import {
   SOURCE_DETAIL_EVIDENCE_FAILURE_FORMAT,
@@ -1579,6 +1582,26 @@ describe('source-detail fidelity checks', () => {
     }
   });
 
+  it('versions exactly the static import closure of the extractor entry points', () => {
+    // A hand-kept list drifted: extract.mjs started importing job-url-host,
+    // job-posting-date and source-posting-date, and a change to any of them
+    // left the fingerprint — and every sealed replay — as it was. The list is
+    // now held to the closure the entry points really import, both ways: a
+    // module missing from it is an extractor change the fingerprint cannot
+    // see, a module only in it is a stale input nobody reads.
+    const repoRoot = fileURLToPath(new URL('../..', import.meta.url));
+    expect(SOURCE_DETAIL_EXTRACTOR_ENTRYPOINTS).toContain('scripts/lib/prospector/extract.mjs');
+    const closure = new Set(SOURCE_DETAIL_EXTRACTOR_ENTRYPOINTS
+      .flatMap((entrypoint) => collectRelativeImportClosure(repoRoot, entrypoint)));
+    const listed = new Set(SOURCE_DETAIL_EXTRACTOR_VERSION_FILES);
+
+    expect(listed.size, 'duplicate fingerprint input').toBe(SOURCE_DETAIL_EXTRACTOR_VERSION_FILES.length);
+    expect([...closure].filter((input) => !listed.has(input)).sort(), 'imported by the extractor, absent from its fingerprint')
+      .toEqual([]);
+    expect([...listed].filter((input) => !closure.has(input)).sort(), 'fingerprinted, imported by no extractor entry point')
+      .toEqual([]);
+  });
+
   it('changes each implementation fingerprint when any real closure input changes', () => {
     const readFixture = (changedPath = '') => (absolutePath: string) => {
       const relativePath = path.relative(process.cwd(), absolutePath);
@@ -1586,20 +1609,6 @@ describe('source-detail fidelity checks', () => {
     };
     const baseline = getSourceDetailImplementationVersions({ readFile: readFixture() });
 
-    expect(SOURCE_DETAIL_EXTRACTOR_VERSION_FILES).toEqual([
-      'scripts/lib/prospector/extract.mjs',
-      'scripts/lib/pdf-job-content.mjs',
-      'scripts/lib/prospector/registrable.mjs',
-      'scripts/lib/prospector/entities.mjs',
-      'scripts/lib/decode-html-entities.mjs',
-      'scripts/lib/html-attr.mjs',
-      'scripts/lib/prospector/location-evidence.mjs',
-      'scripts/lib/target-swiss-locations.mjs',
-      'scripts/lib/crawler-location-config.mjs',
-      'scripts/lib/prospector/country-inventory.mjs',
-      'scripts/lib/prospector/subdivision-inventory.mjs',
-      'data/canton-municipalities.json',
-    ]);
     expect(SOURCE_DETAIL_NORMALIZER_VERSION_FILES).toEqual([
       'scripts/audit-parser-quality.mjs',
       'scripts/lib/parser-quality-source-detail-replay.mjs',
