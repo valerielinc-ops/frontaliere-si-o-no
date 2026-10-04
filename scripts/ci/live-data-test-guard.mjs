@@ -449,6 +449,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'data/jobs/by-crawler is only the anchor of a crawler key relative to the real slice directory: the slice, the housekeeping proofs and every write live in a mkdtemp directory under os.tmpdir(), and the test aborts if the resolved path escapes it',
   },
   {
+    file: 'tests/translation-stats-honest-reporting.test.ts',
+    roots: ['data/jobs/'],
+    reason: 'data/jobs/by-crawler e` creato dentro un mkdtemp sotto os.tmpdir() e passato a log-translation-stats.mjs con TRANSLATION_STATS_ROOT; la storia e il sidecar della coorte nascono nella stessa cartella temporanea. Dal checkout si legge solo lo script sotto test (#11286)',
+  },
+  {
     file: 'tests/job-board-seo-titles.test.ts',
     roots: ['data/jobs.json'],
     reason: 'data/jobs.json is written and read only under fs.mkdtempSync; the separate checkout read is the staticPagesPlugin.ts source used to verify the static landing call',
@@ -543,6 +548,12 @@ export const LIVE_DATA_PARTIAL_TESTS = Object.freeze([
   // Traccia del 2026-10-03 con `VITEST_SKIP_LIVE_DATA=true`: zero accessi a
   // `services/locales/blog-*` e a `packages/articles/content/`.
   { file: "tests/i18n-completeness.test.ts", roots: ["services/locales/"], since: "2026-10-03", evidence: "trace", runtime: true, movedFromFullExclusion: true },
+  // ─── 2026-10-04. Il produttore dei verdetti L6 legge l'elenco articoli con
+  // una regex: il corpus E' il soggetto del solo caso vivo (la regex legge
+  // tante voci quante un conteggio indipendente di `blog-articles-data.ts`,
+  // nessun conteggio letterale). Tutti gli altri casi usano fixture e restano
+  // nel gate delle PR.
+  { file: "tests/loop-l6-source-verdict-producer.test.ts", roots: ["packages/articles/content/"], since: "2026-10-04", evidence: "review", runtime: true },
 ]);
 
 /**

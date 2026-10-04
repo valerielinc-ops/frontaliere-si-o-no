@@ -1,3 +1,5 @@
+import { hasPostingDateProvenance } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 import { normalizeJobSearchTokens as normalizeTokens, occupationalRoleTokens, tokenMatchesStem } from '../services/jobSearchRelevance';
 /**
  * Orphan-query cluster landing — pure data/path helpers.
@@ -79,6 +81,7 @@ export interface OrphanCountableJob {
   salaryMin?: number;
   salaryMax?: number;
   currency?: string;
+  postingDateSource?: string;
   postedDate?: string;
   datePosted?: string;
   url?: string;
@@ -321,7 +324,7 @@ function getJobIndex(jobs: readonly OrphanCountableJob[]): JobMatchIndex {
     const j = jobs[i];
     entries[i] = {
       // Same call, same argument order as the old inline comparator.
-      postedMs: firstParsableMs(j?.postedDate, j?.datePosted),
+      postedMs: hasPostingDateProvenance(j) ? firstParsableMs(resolveReportedPostingDate(j)) : firstParsableMs(j?.postedDate, j?.datePosted),
       activeByLocale: {},
       titleTokensByLocale: {},
     };

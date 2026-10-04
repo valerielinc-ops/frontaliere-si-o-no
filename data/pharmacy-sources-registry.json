@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T16:16:44.003Z",
+  "generatedAt": "2026-10-04T00:38:13.856Z",
   "sources": {
     "aargau": {
       "canton": "Argovia",
@@ -10,8 +10,14 @@
       "sourceType": "association",
       "owner": "platform",
       "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Fonte associativa con pagina di ingresso per il servizio di emergenza delle farmacie; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito."
+      "lastVerifiedAt": "2026-10-04T00:00:00.000Z",
+      "notes": "Fonte associativa con pagina di ingresso per il servizio di emergenza delle farmacie; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito.",
+      "audit": {
+        "verdict": "no-machine-readable",
+        "auditedAt": "2026-10-04T00:00:00.000Z",
+        "reason": "La pagina rimanda al numero gratuito cantonale 0800 300 001, alla rubrica «Notfalldienst» dei quotidiani e agli avvisi esposti nelle farmacie. Nessun elenco di farmacie, date o orari sulla pagina e nessun documento collegato.",
+        "evidenceUrl": "https://apotheken-aargau.ch/notfall/"
+      }
     },
     "appenzell-innerrhoden": {
       "canton": "Appenzello Interno",
@@ -22,8 +28,14 @@
       "sourceType": "official",
       "owner": "platform",
       "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Pagina ufficiale cantonale su soccorso e assistenza d'emergenza; URL verificato nella ricognizione del 15 settembre 2026, ma senza calendario di turno collegato al sito."
+      "lastVerifiedAt": "2026-10-04T00:00:00.000Z",
+      "notes": "Pagina ufficiale cantonale su soccorso e assistenza d'emergenza; URL verificato nella ricognizione del 15 settembre 2026, ma senza calendario di turno collegato al sito.",
+      "audit": {
+        "verdict": "no-machine-readable",
+        "auditedAt": "2026-10-04T00:00:00.000Z",
+        "reason": "Pagina cantonale su soccorso e urgenze: 144, telefono di triage 071 788 73 34, studi MEAS di Appenzell e ANOS di Herisau. Non nomina farmacie di turno e non collega calendari o documenti.",
+        "evidenceUrl": "https://ai.ch/themen/gesundheit-alter-und-soziales/gesundheitsversorgung/rettungswesen-und-notfallversorgung"
+      }
     },
     "appenzell-ausserrhoden": {
       "canton": "Appenzello Esterno",
@@ -34,8 +46,14 @@
       "sourceType": "official",
       "owner": "platform",
       "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Pagina ufficiale cantonale di triage e orientamento medico; URL verificato nella ricognizione del 15 settembre 2026, ma senza calendario di turno collegato al sito."
+      "lastVerifiedAt": "2026-10-04T00:00:00.000Z",
+      "notes": "Pagina ufficiale cantonale di triage e orientamento medico; URL verificato nella ricognizione del 15 settembre 2026, ma senza calendario di turno collegato al sito.",
+      "audit": {
+        "verdict": "no-machine-readable",
+        "auditedAt": "2026-10-04T00:00:00.000Z",
+        "reason": "Pagina della Triagestelle cantonale: consulenza telefonica e invio ai medici di turno. Non nomina farmacie di turno e non collega calendari o documenti.",
+        "evidenceUrl": "https://ar.ch/verwaltung/departement-gesundheit-und-soziales/amt-fuer-gesundheit/abteilung-medizinische-dienste/kantonsaerztlicher-dienst/triagestelle/"
+      }
     },
     "bern": {
       "canton": "Berna",
@@ -46,8 +64,14 @@
       "sourceType": "association",
       "owner": "platform",
       "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Fonte associativa con pagina di ingresso per il servizio di emergenza delle farmacie; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito."
+      "lastVerifiedAt": "2026-10-04T00:00:00.000Z",
+      "notes": "Fonte associativa con pagina di ingresso per il servizio di emergenza delle farmacie; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito.",
+      "audit": {
+        "verdict": "no-machine-readable",
+        "auditedAt": "2026-10-04T00:00:00.000Z",
+        "reason": "Pagina descrittiva dell'associazione: afferma una copertura d'urgenza regionale 24 ore ma non elenca farmacie, date, orari né un numero dedicato; l'unico documento collegato è l'informativa privacy.",
+        "evidenceUrl": "https://apobern.ch/dienstleistungen/notfalldienst/"
+      }
     },
     "basel-landschaft": {
       "canton": "Basilea Campagna",
@@ -74,7 +98,7 @@
       "dutiesPath": "data/pharmacy-duties-swiss-cantons.json",
       "dutiesKey": "BS",
       "notes": "La pagina ufficiale cantonale identifica la 24 Stunden Apotheke Basel AG (Petersgraben 3, 4051 Basel) e dichiara apertura lun-dom 24 ore, 365 giorni inclusi i festivi; l'adattatore verifica identità, indirizzo e dichiarazione di apertura prima di generare il calendario annuale.",
-      "sourceFetchedAt": "2026-10-03T16:16:44.003Z"
+      "sourceFetchedAt": "2026-10-04T00:38:13.856Z"
     },
     "fribourg": {
       "canton": "Friburgo",
@@ -85,8 +109,14 @@
       "sourceType": "association",
       "owner": "platform",
       "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Fonte associativa con pagina di ingresso per le farmacie di guardia; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito."
+      "lastVerifiedAt": "2026-10-04T00:00:00.000Z",
+      "notes": "Fonte associativa con pagina di ingresso per le farmacie di guardia; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito.",
+      "audit": {
+        "verdict": "no-machine-readable",
+        "auditedAt": "2026-10-04T00:00:00.000Z",
+        "reason": "Numero unico 0800 146 000. I tre PDF collegati (opuscolo 2025 fr/de/en) descrivono 6 zone e le fasce di apertura (domenica 11-12 e 17-18, notte su chiamata) ma non nominano la farmacia di turno per data.",
+        "evidenceUrl": "https://www.pharmaciesfribourg.ch/fr/prestations-et-conseils/pharmacie-de-garde"
+      }
     },
     "geneva": {
       "canton": "Ginevra",
@@ -109,8 +139,14 @@
       "sourceType": "official",
       "owner": "platform",
       "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Pagina ufficiale cantonale di numeri di emergenza; URL verificato nella ricognizione del 15 settembre 2026, ma senza calendario di turno collegato al sito."
+      "lastVerifiedAt": "2026-10-04T00:00:00.000Z",
+      "notes": "Pagina ufficiale cantonale di numeri di emergenza; URL verificato nella ricognizione del 15 settembre 2026, ma senza calendario di turno collegato al sito.",
+      "audit": {
+        "verdict": "no-machine-readable",
+        "auditedAt": "2026-10-04T00:00:00.000Z",
+        "reason": "Pagina dei numeri di emergenza: medici di turno per Glarus Nord, Glarus e Glarus Süd, dentisti, Tox Info. Non nomina farmacie di turno e non collega calendari.",
+        "evidenceUrl": "https://www.gl.ch/verwaltung/finanzen-und-gesundheit/gesundheit/gesundheitsversorgung/notfallnummern.html/1691"
+      }
     },
     "graubunden": {
       "canton": "Grigioni",
@@ -121,8 +157,14 @@
       "sourceType": "association",
       "owner": "platform",
       "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Fonte associativa con pagina di ingresso per il servizio di emergenza delle farmacie; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito."
+      "lastVerifiedAt": "2026-10-04T00:00:00.000Z",
+      "notes": "Fonte associativa con pagina di ingresso per il servizio di emergenza delle farmacie; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito.",
+      "audit": {
+        "verdict": "partial-or-proximity",
+        "auditedAt": "2026-10-04T00:00:00.000Z",
+        "reason": "Mostra solo il turno in corso (sab 03.10.2026 08:00 - sab 10.10.2026 08:00, Loë Apotheke) e solo per la regione Chur, Domat/Ems e Bonaduz, più il numero 081 256 20 89. Nessun calendario dei turni successivi né delle altre regioni del cantone.",
+        "evidenceUrl": "https://notfall.apotheke-chur.ch/"
+      }
     },
     "jura": {
       "canton": "Giura",
@@ -134,7 +176,7 @@
       "owner": "platform",
       "status": "active",
       "lastVerifiedAt": "2026-09-29T00:00:00.000Z",
-      "sourceFetchedAt": "2026-10-03T16:16:44.003Z",
+      "sourceFetchedAt": "2026-10-04T00:38:13.856Z",
       "dutiesPath": "data/pharmacy-duties-swiss-cantons.json",
       "dutiesKey": "JU",
       "notes": "La pagina ufficiale del Cantone pubblica i piani PDF 2026 di Delémont, Ajoie e Moutier. L'adattatore verifica testo, calendario colorato e identità prima di rendere il release operativo."
@@ -148,8 +190,14 @@
       "sourceType": "association",
       "owner": "platform",
       "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Fonte associativa con pagina di ingresso per il servizio di emergenza delle farmacie; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito."
+      "lastVerifiedAt": "2026-10-04T00:00:00.000Z",
+      "notes": "Fonte associativa con pagina di ingresso per il servizio di emergenza delle farmacie; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito.",
+      "audit": {
+        "verdict": "partial-or-proximity",
+        "auditedAt": "2026-10-04T00:00:00.000Z",
+        "reason": "Indica una sola farmacia fissa fuori orario (BENU Bahnhofapotheke Luzern, lun-sab 8-21, dom 9-20); di notte rinvia al servizio medico 0900 11 14 14. Nessuna rotazione di turni né copertura delle altre regioni del cantone.",
+        "evidenceUrl": "https://www.apoluzern.ch/apotheken/notfalldienst"
+      }
     },
     "neuchatel": {
       "canton": "Neuchâtel",
@@ -160,8 +208,14 @@
       "sourceType": "association",
       "owner": "platform",
       "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Fonte associativa con pagina di ingresso per le farmacie di garde; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito."
+      "lastVerifiedAt": "2026-10-04T00:00:00.000Z",
+      "notes": "Fonte associativa con pagina di ingresso per le farmacie di garde; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito.",
+      "audit": {
+        "verdict": "partial-or-proximity",
+        "auditedAt": "2026-10-04T00:00:00.000Z",
+        "reason": "Tabella delle farmacie di guardia per le sole domeniche 04.10 e 11.10.2026 e per le sole La Chaux-de-Fonds e Le Locle, con fasce orarie; fuori fascia rinvia al 0848 134 134. Nessun dato per i giorni feriali né per le altre regioni.",
+        "evidenceUrl": "https://www.pharmacies-gardes-ne.ch/"
+      }
     },
     "nidwalden": {
       "canton": "Nidvaldo",
@@ -172,8 +226,14 @@
       "sourceType": "official",
       "owner": "platform",
       "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Pagina istituzionale ospedaliera per la medicina d'urgenza; URL verificato nella ricognizione del 15 settembre 2026, ma senza calendario di farmacie di turno collegato al sito."
+      "lastVerifiedAt": "2026-10-04T00:00:00.000Z",
+      "notes": "Pagina istituzionale ospedaliera per la medicina d'urgenza; URL verificato nella ricognizione del 15 settembre 2026, ma senza calendario di farmacie di turno collegato al sito.",
+      "audit": {
+        "verdict": "no-machine-readable",
+        "auditedAt": "2026-10-04T00:00:00.000Z",
+        "reason": "Pagina della Hausarzt-Notfallpraxis dello Spital Nidwalden: numero 041 610 81 61 e giorni di apertura dello studio medico d'urgenza. Non nomina farmacie di turno.",
+        "evidenceUrl": "https://www.spital-nidwalden.ch/standorte/spital-nidwalden/hausarzt-notfallpraxis/"
+      }
     },
     "obwalden": {
       "canton": "Obvaldo",
@@ -184,8 +244,14 @@
       "sourceType": "official",
       "owner": "platform",
       "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Pagina istituzionale ospedaliera di emergenza; URL verificato nella ricognizione del 15 settembre 2026, ma senza calendario di farmacie di turno collegato al sito."
+      "lastVerifiedAt": "2026-10-04T00:00:00.000Z",
+      "notes": "Pagina istituzionale ospedaliera di emergenza; URL verificato nella ricognizione del 15 settembre 2026, ma senza calendario di farmacie di turno collegato al sito.",
+      "audit": {
+        "verdict": "no-machine-readable",
+        "auditedAt": "2026-10-04T00:00:00.000Z",
+        "reason": "Pagina urgenze del Kantonsspital Obwalden: 144, servizio medico 041 660 33 77, pronto soccorso 041 666 41 20, Tox Info 145. Non nomina farmacie di turno.",
+        "evidenceUrl": "https://www.ksow.ch/notfall"
+      }
     },
     "st-gallen": {
       "canton": "San Gallo",
@@ -196,8 +262,14 @@
       "sourceType": "official",
       "owner": "platform",
       "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Pagina istituzionale di orientamento all'aiuto medico; URL verificato nella ricognizione del 15 settembre 2026, ma senza calendario di farmacie di turno collegato al sito."
+      "lastVerifiedAt": "2026-10-04T00:00:00.000Z",
+      "notes": "Pagina istituzionale di orientamento all'aiuto medico; URL verificato nella ricognizione del 15 settembre 2026, ma senza calendario di farmacie di turno collegato al sito.",
+      "audit": {
+        "verdict": "no-machine-readable",
+        "auditedAt": "2026-10-04T00:00:00.000Z",
+        "reason": "Pagina di orientamento: dice che esistono farmacie d'urgenza e che l'elenco locale è esposto nelle vetrine delle farmacie. Nessun elenco online, date o orari.",
+        "evidenceUrl": "https://www.hallo.sg.ch/de/gesundheit/medizinische-hilfe.html"
+      }
     },
     "schaffhausen": {
       "canton": "Sciaffusa",
@@ -224,7 +296,7 @@
       "dutiesPath": "data/pharmacy-duties-swiss-cantons.json",
       "dutiesKey": "SO",
       "notes": "La fonte associativa AVSO pubblica il calendario corrente con identità, indirizzi e date per tutte le tre regioni del cantone; l'adattatore verifica le identità allowlistate. Le fasce correnti sono verificate sulla pagina ufficiale del Gesundheitsamt SO (Olten/Solothurn 10:00-12:00) e sulla pagina corrente Saner Dornach (Dorneck-Thierstein 09:00-12:00).",
-      "sourceFetchedAt": "2026-10-03T16:16:44.003Z"
+      "sourceFetchedAt": "2026-10-04T00:38:13.856Z"
     },
     "schwyz": {
       "canton": "Svitto",
@@ -235,8 +307,14 @@
       "sourceType": "official",
       "owner": "platform",
       "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Pagina ufficiale cantonale di orientamento ai servizi di emergenza; URL verificato nella ricognizione del 15 settembre 2026, ma senza calendario di farmacie di turno collegato al sito."
+      "lastVerifiedAt": "2026-10-04T00:00:00.000Z",
+      "notes": "Pagina ufficiale cantonale di orientamento ai servizi di emergenza; URL verificato nella ricognizione del 15 settembre 2026, ma senza calendario di farmacie di turno collegato al sito.",
+      "audit": {
+        "verdict": "no-machine-readable",
+        "auditedAt": "2026-10-04T00:00:00.000Z",
+        "reason": "La pagina dichiara che nel Canton Svitto non esiste una farmacia d'urgenza e rimanda a quelle di Lucerna, Zugo e Zurigo; i PDF collegati sono regolamenti del servizio medico e sanitario.",
+        "evidenceUrl": "https://www.sz.ch/departement-des-innern/amt-fuer-gesundheit-und-soziales/gesundheit/medizinische-dienste/notfalldienste.html/8756-8758-8802-9317-9316-12587-12685-12632"
+      }
     },
     "thurgau": {
       "canton": "Turgovia",
@@ -247,8 +325,14 @@
       "sourceType": "association",
       "owner": "platform",
       "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Fonte associativa con pagina di ingresso per il servizio di picchetto delle farmacie; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito."
+      "lastVerifiedAt": "2026-10-04T00:00:00.000Z",
+      "notes": "Fonte associativa con pagina di ingresso per il servizio di picchetto delle farmacie; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito.",
+      "audit": {
+        "verdict": "no-machine-readable",
+        "auditedAt": "2026-10-04T00:00:00.000Z",
+        "reason": "Due numeri di picchetto (Thurgau West 079 698 31 31, Thurgau Ost 079 698 31 32) per domeniche e festivi 8-18; la farmacia di turno decide al telefono. Nessun calendario né documento.",
+        "evidenceUrl": "https://www.apotheken-thurgau.ch/pikettdienst/"
+      }
     },
     "ticino": {
       "canton": "Ticino",
@@ -287,8 +371,14 @@
       "sourceType": "official",
       "owner": "platform",
       "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Pagina ufficiale cantonale di orientamento ai servizi di emergenza; URL verificato nella ricognizione del 15 settembre 2026, ma senza calendario di farmacie di turno collegato al sito."
+      "lastVerifiedAt": "2026-10-04T00:00:00.000Z",
+      "notes": "Pagina ufficiale cantonale di orientamento ai servizi di emergenza; URL verificato nella ricognizione del 15 settembre 2026, ma senza calendario di farmacie di turno collegato al sito.",
+      "audit": {
+        "verdict": "no-machine-readable",
+        "auditedAt": "2026-10-04T00:00:00.000Z",
+        "reason": "Elenco dei numeri di emergenza (144, medico di turno 041 870 03 03, dentista 1811, ospedale cantonale). Non nomina farmacie di turno.",
+        "evidenceUrl": "https://www.ur.ch/dienstleistungen/3677"
+      }
     },
     "vaud": {
       "canton": "Vaud",
@@ -299,8 +389,14 @@
       "sourceType": "association",
       "owner": "platform",
       "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Fonte associativa con pagina di ingresso per le farmacie di garde; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito."
+      "lastVerifiedAt": "2026-10-04T00:00:00.000Z",
+      "notes": "Fonte associativa con pagina di ingresso per le farmacie di garde; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito.",
+      "audit": {
+        "verdict": "partial-or-proximity",
+        "auditedAt": "2026-10-04T00:00:00.000Z",
+        "reason": "La pagina chiede posizione o indirizzo e data/ora e restituisce le farmacie più vicine (audit del 29.09.2026: lista di prossimità limitata a 50 risultati); centrale 0848 133 133. Nessun calendario cantonale senza input dell'utente.",
+        "evidenceUrl": "https://garde.svph.ch/"
+      }
     },
     "valais": {
       "canton": "Vallese",
@@ -311,8 +407,14 @@
       "sourceType": "association",
       "owner": "platform",
       "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Fonte associativa con pagina di ingresso per le farmacie di garde; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito."
+      "lastVerifiedAt": "2026-10-04T00:00:00.000Z",
+      "notes": "Fonte associativa con pagina di ingresso per le farmacie di garde; URL verificato nella ricognizione del 15 settembre 2026, ma senza connettore o calendario live nel sito.",
+      "audit": {
+        "verdict": "partial-or-proximity",
+        "auditedAt": "2026-10-04T00:00:00.000Z",
+        "reason": "Ricerca della farmacia di guardia per regione (Martigny, Sion, Haut-Valais, Sierre, Monthey) e data, via modulo: richiede input dell'utente. L'unico documento è il PDF estivo 2026 per Verbier.",
+        "evidenceUrl": "https://www.pharmavalais.ch/pharmacie-valais/pharmacie-garde-51.html"
+      }
     },
     "zug": {
       "canton": "Zugo",
@@ -323,8 +425,14 @@
       "sourceType": "official",
       "owner": "platform",
       "status": "unverified",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Pagina ufficiale cantonale sul comportamento in caso di emergenza; URL verificato nella ricognizione del 15 settembre 2026, ma senza calendario di farmacie di turno collegato al sito."
+      "lastVerifiedAt": "2026-10-04T00:00:00.000Z",
+      "notes": "Pagina ufficiale cantonale sul comportamento in caso di emergenza; URL verificato nella ricognizione del 15 settembre 2026, ma senza calendario di farmacie di turno collegato al sito.",
+      "audit": {
+        "verdict": "no-machine-readable",
+        "auditedAt": "2026-10-04T00:00:00.000Z",
+        "reason": "Pagina «Verhalten im Notfall» e Merkblatt PDF collegati: consigli generali (farmacia per bisogni semplici, medico di famiglia, servizio medico, 144). Non nomina farmacie di turno.",
+        "evidenceUrl": "https://zg.ch/de/gesundheit/notfall-und-rettungsdienst/verhalten-im-notfall"
+      }
     },
     "zurich": {
       "canton": "Zurigo",
@@ -339,7 +447,7 @@
       "dutiesPath": "data/pharmacy-duties-swiss-cantons.json",
       "dutiesKey": "ZH",
       "notes": "La pagina dell'Apothekerverband des Kantons Zürich e della Notfalldienst-Kommission identifica la Bellevue Apotheke (Theaterstrasse 14, Zürich) come aperta ogni giorno 24 ore e dichiara la disponibilità delle farmacie di emergenza per l'intero cantone; l'adattatore verifica identità, indirizzo e dichiarazioni 24h/365 prima di generare il calendario annuale.",
-      "sourceFetchedAt": "2026-10-03T16:16:44.003Z"
+      "sourceFetchedAt": "2026-10-04T00:38:13.856Z"
     }
   }
 }

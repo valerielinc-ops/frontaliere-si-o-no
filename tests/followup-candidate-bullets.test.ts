@@ -7,6 +7,12 @@ import {
   mirrorRoute,
   renderCandidateBulletsSection,
 } from '../scripts/ci/followup-candidate-bullets.mjs';
+import { isCandidateItem } from '../scripts/ci/followup-has-candidates.mjs';
+import {
+  decisionDeferralFindings,
+  nonImplementedSection,
+  topLevelBullets,
+} from '../scripts/lib/pr-body-sections-check.mjs';
 
 // Titolo di fallimento: «Triage follow-up: il prompt conia item con token già
 // vero o nel repository sbagliato».
@@ -266,13 +272,12 @@ describe('classifyCandidateBullets', () => {
     expect(existsTwin).not.toHaveBeenCalled();
   });
 
-  it('le righe di chiusura e «Nessuno» con motivo non diventano candidati', () => {
-    // Forme reali: PR 11113 («Nessuno — snapshot automatizzato, senza residui.»)
-    // e PR 11195 (`Addresses #7079` in coda alla sezione).
+  it('le righe di chiusura non diventano bullet e «Nessuno» da solo è una sezione vuota', () => {
+    // Forma reale: PR 11195 (`Addresses #7079` in coda alla sezione).
     const body = [
       '## Non implementato (ancora)',
       '',
-      '- Nessuno — snapshot automatizzato, senza residui.',
+      '- Nessuno.',
       '',
       'Addresses #7079',
       'Closes #12',
@@ -282,13 +287,98 @@ describe('classifyCandidateBullets', () => {
     ].join('\n');
     const bullets = classifyCandidateBullets({ pr: { body }, side: 'site', manifestFiles: MANIFEST });
     expect(bullets).toEqual([{
-      text: 'Nessuno — snapshot automatizzato, senza residui.',
+      text: 'Nessuno.',
       kind: 'empty-declared',
       state: null,
       candidate: false,
       reason: 'empty',
       routes: [],
     }]);
+  });
+
+  // Review della PR corpus 2080: la regex era ancorata solo all'inizio, quindi
+  // «Nessuno» seguito da un segno e poi da un'azione usciva `reason: empty` e il
+  // triage lo scartava, mentre l'oracolo condiviso lo dichiara candidato.
+  it.each([
+    ['Nessuno.'],
+    ['**Nessuno**'],
+    ['none'],
+    ['_Niente._'],
+    ['Nothing —'],
+  ])('«%s» da solo è una sezione dichiarata vuota', (line) => {
+    const body = `## Non implementato (ancora)\n- ${line}\n`;
+    const [bullet] = classifyCandidateBullets({ pr: { body }, side: 'site', manifestFiles: MANIFEST });
+    expect(bullet).toMatchObject({ kind: 'empty-declared', candidate: false, reason: 'empty' });
+  });
+
+  it.each([
+    ['Nessuno: aggiornare `scripts/ci/foo.mjs`', ['scripts/ci/foo.mjs']],
+    ['Nessuno — aggiungere il guard', []],
+    // Forma reale della PR 11113: il motivo è testo, e il testo lo giudica
+    // l'oracolo condiviso, non un elenco di frasi «non residue».
+    ['Nessuno — snapshot automatizzato, senza residui.', []],
+  ])('«%s»: «Nessuno» seguito da un\'azione resta materia dell\'oracolo', (line, paths) => {
+    const body = `## Non implementato (ancora)\n- ${line}\n`;
+    const [bullet] = classifyCandidateBullets({
+      pr: { body }, side: 'site', manifestFiles: MANIFEST, existsHere: only('scripts/ci/foo.mjs'), existsTwin: only(),
+    });
+    expect(bullet).toMatchObject({ kind: 'bullet', candidate: isCandidateItem(line), reason: null });
+    expect(bullet.candidate).toBe(true);
+    expect(bullet.routes.map((r) => r.path)).toEqual(paths);
+  });
+
+  it('fuori dalla sezione vuota il verdetto è sempre quello di isCandidateItem()', () => {
+    // Osservatore di parità: il bundle non deve mai dire `candidate: false` a
+    // un item che l'oracolo dichiara candidato, salvo la sola dichiarazione vuota.
+    const lines = [
+      'Nessuno: aggiornare `scripts/ci/foo.mjs`',
+      'Nessuno — aggiungere il guard',
+      'Niente; resta da portare il parser nel gemello',
+      'none (see `scripts/ci/foo.mjs`)',
+      'Nessuno dei crawler sibling è stato corretto',
+      'Altro lavoro — in questa PR',
+      'Nessuno.',
+      '**Nessuno**',
+    ];
+    const body = `## Non implementato (ancora)\n${lines.map((l) => `- ${l}`).join('\n')}\n`;
+    const bullets = classifyCandidateBullets({
+      pr: { body }, side: 'site', manifestFiles: MANIFEST, existsHere: only(), existsTwin: only(),
+    });
+    for (const bullet of bullets) {
+      if (bullet.kind === 'empty-declared') continue;
+      expect([bullet.text, bullet.candidate]).toEqual([bullet.text, isCandidateItem(bullet.text)]);
+    }
+    expect(bullets.filter((b) => b.kind === 'empty-declared').map((b) => b.text)).toEqual(['Nessuno.', '**Nessuno**']);
+  });
+
+  it('i sub-bullet di una voce si leggono con la voce, non come item separati', () => {
+    // Adversarial check della PR corpus 2080: `Motivo`/`Prossimo passo` su righe
+    // annidate uscivano come tre `kind: bullet` candidati, e il genitore `per
+    // scelta`, letto senza il suo motivo, diventava candidato anche lui.
+    const body = [
+      '## Non implementato (ancora)',
+      '- Portare il guard nel gemello — per scelta',
+      '  - **Motivo:** il gemello scende col transport.',
+      '  - **Prossimo passo:** rebase della 2080 dopo il merge.',
+      '- Sibling da correggere:',
+      '  - `scripts/ci/foo.mjs`',
+      '    1. `scripts/ci/bar.mjs`',
+      '- Estendere il fix ai crawler sibling',
+    ].join('\n');
+    const bullets = classifyCandidateBullets({
+      pr: { body }, side: 'site', manifestFiles: MANIFEST, existsHere: only('scripts/ci/foo.mjs', 'scripts/ci/bar.mjs'), existsTwin: only(),
+    });
+    expect(bullets.map((b) => [b.kind, b.state, b.candidate, b.reason])).toEqual([
+      ['bullet', 'by-choice', false, 'closing-state'],
+      ['bullet', null, true, null],
+      ['bullet', null, true, null],
+    ]);
+    // Il testo è quello che giudica il contratto (`topLevelBullets()`): i
+    // sub-bullet tengono il proprio marker.
+    expect(bullets[0].text).toBe(
+      'Portare il guard nel gemello — per scelta - **Motivo:** il gemello scende col transport. - **Prossimo passo:** rebase della 2080 dopo il merge.',
+    );
+    expect(bullets[1].routes.map((r) => r.path)).toEqual(['scripts/ci/foo.mjs', 'scripts/ci/bar.mjs']);
   });
 
   it('«Nessuno» seguito da testo è un residuo, non una sezione vuota', () => {
@@ -298,15 +388,23 @@ describe('classifyCandidateBullets', () => {
   });
 
   it('distingue le righe di lista dalla prosa: solo i bullet sono materia di conio', () => {
+    // Prima della review della PR corpus 2080 le tre righe sotto la voce
+    // uscivano come item a sé. Il contratto le unisce alla voce, e il bundle
+    // con lui: è prosa solo ciò che precede il primo bullet.
     const body = [
       '## Non implementato (ancora)',
+      'Nota per il revisore.',
+      '1. Portare la guardia nel gemello',
       '- Estendere il fix ai crawler sibling',
       '  resta da coprire il parser paginato',
       '1. Portare la guardia nel gemello',
       'Nota per il revisore.',
     ].join('\n');
     const bullets = classifyCandidateBullets({ pr: { body }, side: 'site', manifestFiles: MANIFEST });
-    expect(bullets.map((b) => b.kind)).toEqual(['bullet', 'prose', 'bullet', 'prose']);
+    expect(bullets.map((b) => b.kind)).toEqual(['prose', 'bullet', 'bullet']);
+    expect(bullets[2].text).toBe(
+      'Estendere il fix ai crawler sibling resta da coprire il parser paginato 1. Portare la guardia nel gemello Nota per il revisore.',
+    );
   });
 
   it('dichiara perché un bullet non è candidato: stato che chiude oppure match lessicale', () => {
@@ -339,6 +437,184 @@ describe('classifyCandidateBullets', () => {
   it('un body senza sezione non produce bullet', () => {
     expect(classifyCandidateBullets({ pr: { body: '## Implementato\n- x' }, side: 'site', manifestFiles: MANIFEST })).toEqual([]);
     expect(classifyCandidateBullets({ pr: {}, side: 'site', manifestFiles: MANIFEST })).toEqual([]);
+  });
+});
+
+// Review della PR corpus 2080 (commit 9e6cced576), due 🔴 sul gemello:
+//   1. le continuazioni senza marker restavano item separati, mentre il parser
+//      del contratto le unisce alla voce: `- residuo` seguito da `per scelta`
+//      su una riga sotto usciva `candidate: true`;
+//   2. i path nella root (`FOLLOWUP.md`, `REVIEW.md`) non ricevevano `routes`,
+//      e senza route il prompt ricade sulla mappa «tutto il resto → sito».
+describe('continuazioni: stessa regola del parser del contratto', () => {
+  it('una continuazione semplice con `per scelta` chiude la voce', () => {
+    const body = [
+      '## Non implementato (ancora)',
+      '- Portare il guard nel gemello',
+      '  per scelta. Motivo: il gemello scende col transport del manifest. Prossimo passo: rebase della 2080 dopo il merge.',
+    ].join('\n');
+    const bullets = classifyCandidateBullets({
+      pr: { body }, side: 'site', manifestFiles: MANIFEST,
+      existsHere: never('existsHere'), existsTwin: never('existsTwin'),
+    });
+    expect(bullets.map((b) => [b.kind, b.state, b.candidate, b.reason])).toEqual([
+      ['bullet', 'by-choice', false, 'closing-state'],
+    ]);
+    // Il contratto la giudica una deroga completa: nessun finding.
+    expect(decisionDeferralFindings(body)).toEqual([]);
+  });
+
+  it('`blocked: <causa>` su una riga di continuazione ha il verdetto del contratto', () => {
+    const technical = [
+      '## Non implementato (ancora)',
+      '- Salari per cantone in `host/batchWrite.ts`',
+      '  blocked: fonte assente, l\'ufficio statistico non pubblica ancora la serie.',
+    ].join('\n');
+    const existsTwin = never('existsTwin');
+    const [tech, ...restTech] = classifyCandidateBullets({
+      pr: { body: technical }, side: 'site', manifestFiles: MANIFEST, existsHere: only(), existsTwin,
+    });
+    expect(restTech).toEqual([]);
+    expect(tech).toMatchObject({ kind: 'bullet', state: 'blocked-technical', candidate: true, reason: null });
+    expect(tech.routes.map((r) => [r.path, r.repo])).toEqual([['host/batchWrite.ts', 'site']]);
+
+    const owner = [
+      '## Non implementato (ancora)',
+      '- Riattivare il canale newsletter settimanale',
+      '  blocked: decisione del proprietario — Motivo: il canale resta spento finché non cambia il budget. Prossimo passo: rileggere la decisione alla revisione di novembre.',
+    ].join('\n');
+    const ownerBullets = classifyCandidateBullets({ pr: { body: owner }, side: 'site', manifestFiles: MANIFEST });
+    expect(ownerBullets.map((b) => [b.state, b.candidate, b.reason])).toEqual([['blocked-owner', false, 'closing-state']]);
+    expect(decisionDeferralFindings(owner)).toEqual([]);
+  });
+
+  it('la prosa prima del primo bullet resta un item a sé, le righe dopo si uniscono alla voce', () => {
+    const body = [
+      '## Non implementato (ancora)',
+      'Nota per il revisore.',
+      '- Estendere il fix ai crawler sibling',
+      '  resta da coprire il parser paginato',
+      '',
+      '1. Portare la guardia nel gemello',
+    ].join('\n');
+    const bullets = classifyCandidateBullets({ pr: { body }, side: 'site', manifestFiles: MANIFEST });
+    expect(bullets.map((b) => [b.kind, b.text])).toEqual([
+      ['prose', 'Nota per il revisore.'],
+      ['bullet', 'Estendere il fix ai crawler sibling resta da coprire il parser paginato 1. Portare la guardia nel gemello'],
+    ]);
+  });
+
+  it('un heading chiude la sezione, come nel contratto', () => {
+    const body = [
+      '## Non implementato (ancora)',
+      '- Altro lavoro — in questa PR',
+      '### Sibling',
+      '- `scripts/ci/foo.mjs` — da correggere',
+    ].join('\n');
+    const bullets = classifyCandidateBullets({ pr: { body }, side: 'site', manifestFiles: MANIFEST });
+    expect(bullets.map((b) => b.text)).toEqual(['Altro lavoro — in questa PR']);
+  });
+
+  // Osservatore di parità: il raggruppamento del bundle È quello del contratto
+  // (`topLevelBullets()`), e su ogni voce che dichiara una decisione il verdetto
+  // del bundle coincide con quello di `decisionDeferralFindings()`.
+  const PARITY_BODIES: Array<[string, string]> = [
+    ['continuazione semplice', [
+      '## Non implementato (ancora)',
+      '- `scripts/ci/foo.mjs`: allineare il gemello',
+      '  per scelta. Motivo: il gemello scende col transport del manifest. Prossimo passo: rebase della 2080 dopo il merge.',
+      '- Riallineare `scripts/ci/bar.mjs`',
+      '  per scelta, senza motivo scritto.',
+      '- Sistemare il parser — in questa PR',
+    ].join('\n')],
+    ['sub-bullet con i due campi', [
+      '## Non implementato (ancora)',
+      '',
+      '- Portare il guard nel gemello — per scelta',
+      '  - **Motivo:** il gemello scende col transport.',
+      '  - **Prossimo passo:** rebase della 2080 dopo il merge.',
+      '- `scripts/ci/baz.mjs` — falso positivo, solo lessicalmente simile.',
+      '  Motivo: condivide il token ma non la classe di bug.',
+      '- by construction: il guard copre già il caso.',
+      '',
+      'Paragrafo di chiusura che il contratto attacca all\'ultima voce. Prossimo passo: nessuna azione richiesta qui.',
+    ].join('\n')],
+    ['lista indentata e continuazione dopo una riga vuota', [
+      '## Non implementato (ancora)',
+      '  - Riattivare il canale newsletter',
+      '',
+      '    blocked: decisione del proprietario — Motivo: budget non approvato.',
+      '    Prossimo passo: rileggere la decisione alla revisione di novembre.',
+      '  - Salari per cantone — blocked: fonte assente',
+    ].join('\n')],
+  ];
+
+  it.each(PARITY_BODIES)('parità col parser del contratto: %s', (_label, body) => {
+    const contract = topLevelBullets(nonImplementedSection(body));
+    const bullets = classifyCandidateBullets({
+      pr: { body }, side: 'site', manifestFiles: MANIFEST, existsHere: only(), existsTwin: only(),
+    });
+    expect(bullets.map((b) => b.text)).toEqual(contract.map((b: { text: string }) => b.text.replace(/^[-*+][ \t]+/, '')));
+    expect(bullets.every((b) => b.kind === 'bullet')).toBe(true);
+    const flagged = new Set(decisionDeferralFindings(body).map((f: { index: number }) => f.index));
+    bullets.forEach((bullet, i) => {
+      if (!['by-choice', 'by-construction', 'blocked-owner'].includes(bullet.state as string)) return;
+      // Voce di decisione: è candidata esattamente quando il contratto la boccia.
+      expect([bullet.text, bullet.candidate]).toEqual([bullet.text, flagged.has(i + 1)]);
+    });
+  });
+});
+
+describe('path nella root', () => {
+  const ROOT_MANIFEST = [
+    ...MANIFEST,
+    { path: 'FOLLOWUP.md', mode: 'adapted' },
+    { path: 'REVIEW.md', mode: 'adapted' },
+    { path: 'AGENTS.md', mode: 'adapted' },
+  ];
+
+  it('`FOLLOWUP.md` citato da una PR del corpus resta nel corpus, mai sulla mappa del sito', () => {
+    const body = '## Non implementato (ancora)\n- Allineare la regola di chiusura in `FOLLOWUP.md` e in `REVIEW.md:L12`\n';
+    const [bullet] = classifyCandidateBullets({
+      pr: { body }, side: 'corpus', manifestFiles: ROOT_MANIFEST,
+      existsHere: only('FOLLOWUP.md', 'REVIEW.md'), existsTwin: never('existsTwin'),
+    });
+    expect(bullet.candidate).toBe(true);
+    expect(bullet.routes).toEqual([
+      { path: 'FOLLOWUP.md', repo: 'corpus', targetPath: 'FOLLOWUP.md', why: 'manifest:adapted:exists-here' },
+      { path: 'REVIEW.md', repo: 'corpus', targetPath: 'REVIEW.md', why: 'manifest:adapted:exists-here' },
+    ]);
+  });
+
+  it('`AGENTS.md` citato da una PR del sito resta nel sito', () => {
+    const body = '## Non implementato (ancora)\n- Documentare il gate in `AGENTS.md`\n';
+    const [bullet] = classifyCandidateBullets({
+      pr: { body }, side: 'site', manifestFiles: ROOT_MANIFEST,
+      existsHere: only('AGENTS.md'), existsTwin: never('existsTwin'),
+    });
+    expect(bullet.routes.map((r) => [r.path, r.repo])).toEqual([['AGENTS.md', 'site']]);
+  });
+
+  it('`package.json` e `res.json` non hanno voce nel manifest: nessuna route', () => {
+    const body = '## Non implementato (ancora)\n- Aggiornare `package.json` e il parsing di `res.json` in `scripts/ci/foo.mjs`\n';
+    const existsHere = only('scripts/ci/foo.mjs', 'package.json');
+    const [bullet] = classifyCandidateBullets({
+      pr: { body }, side: 'site', manifestFiles: ROOT_MANIFEST, existsHere, existsTwin: only(),
+    });
+    expect(bullet.routes.map((r) => r.path)).toEqual(['scripts/ci/foo.mjs']);
+    expect(existsHere).not.toHaveBeenCalledWith('package.json');
+  });
+
+  it('citedPaths accetta un nome nella root solo se è fra quelli dichiarati', () => {
+    const text = '`FOLLOWUP.md`, `package.json`, `README.md` e `scripts/ci/foo.mjs`';
+    expect(citedPaths(text)).toEqual(['scripts/ci/foo.mjs']);
+    expect(citedPaths(text, { rootFiles: new Set(['FOLLOWUP.md']) })).toEqual(['FOLLOWUP.md', 'scripts/ci/foo.mjs']);
+  });
+
+  it('senza manifest un nome nella root non diventa una route', () => {
+    const body = '## Non implementato (ancora)\n- Allineare `FOLLOWUP.md`\n';
+    const [bullet] = classifyCandidateBullets({ pr: { body }, side: 'corpus', manifestFiles: null });
+    expect(bullet.routes).toEqual([]);
   });
 });
 

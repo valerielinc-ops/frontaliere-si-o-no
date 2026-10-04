@@ -17,8 +17,10 @@
  * read it by path instead of importing it. Test-tree lints (tests that scan
  * every test file instead of importing one) join the selection whenever the
  * diff touches a test file; source-tree lints (tests that scan `.github`,
- * `scripts` and `bin` by directory, or the whole tracked tree for
- * credential-shaped literals) join it whenever the diff touches their scope.
+ * `scripts` and `bin` by directory, the whole tracked tree for
+ * credential-shaped literals, or data files that no import connects to them,
+ * such as the loop-fleet ledger replay) join it whenever the diff touches
+ * their scope.
  * `--select-only`
  * computes the same selection without invoking Vitest and emits the
  * pre-assembly dataset decision for tests.yml.
@@ -33,7 +35,9 @@ import { shouldSkipFullSuiteFallback } from './lib/orphan-fallback.mjs';
 import { selectMaxWorkers, vitestChildEnv } from './lib/select-max-workers.mjs';
 import { missingFullCheckoutArtifacts } from './lib/typecheck-sparse.mjs';
 import { GRAPH_IGNORED_RE, GRAPH_SOURCE_RE, isGraphSourceFile } from './lib/related-graph-scope.mjs';
+import { CRAWLER_GENERATION_RUNTIME_PATHS } from '../lib/crawler-generation-runtime-paths.mjs';
 import { isScanned as isSecretScanned } from './scan-site-hardcoded-secrets.mjs';
+import { TRANSPORT_MANIFEST, transportManifestPaths } from './corpus-ahead-check.mjs';
 
 const changedPathFile = process.env.CHANGED_PATHS_FILE || 'changed-paths.txt';
 const changedStatusFile = process.env.CHANGED_PATHS_STATUS_FILE || 'changed-paths-status.txt';
@@ -61,6 +65,14 @@ const runnerRegressionTests = new Set([
 const testTreeLintTests = new Set([
   'tests/check-cron-count-literals.test.ts',
 ]);
+// Perimetro del transport verso nanako: il manifest e i path che consegna.
+// Letto alla prima domanda, non all'avvio: la maggior parte dei diff si ferma
+// prima dei lint. Glob `dir/**` espansi contro l'albero reale, come nel guard.
+let transportScope = null;
+const isTransportScope = (file) => {
+  transportScope ??= new Set([TRANSPORT_MANIFEST, ...transportManifestPaths(process.cwd())]);
+  return transportScope.has(file);
+};
 // Lint dell'albero dei SORGENTI: scandiscono `.github`, `scripts` e `bin` per
 // directory e non nominano i file che giudicano, quindi né il grafo inverso né
 // l'indice dei letterali `.github/…` li collegano al diff. Girano quando il
@@ -74,17 +86,117 @@ const testTreeLintTests = new Set([
 // PR 10336 una chiave Google Maps di terzi è entrata in una fixture HTML di
 // `tests/fixtures/`: il gate la riconosceva, ma un `.html` non è né sorgente né
 // asset indicizzato, quindi il diff selezionava zero test e lui non girava.
+// Nel perimetro anche il modulo che definisce l'elenco: cambiarlo cambia la
+// closure dichiarata dal generatore.
+const crawlerGenerationRuntimePaths = new Set([
+  ...CRAWLER_GENERATION_RUNTIME_PATHS,
+  'scripts/lib/crawler-generation-runtime-paths.mjs',
+]);
 const sourceTreeLintTests = new Map([
   ['tests/gh-slurp-jq-guard.test.ts', /^(?:\.github|scripts|bin)\//],
   ['tests/no-hardcoded-secrets.test.ts', isSecretScanned],
+  // Chiusura per import del transport verso nanako: il test legge il manifest
+  // e gli import dei file trasportati da disco, quindi non importa nessuno dei
+  // file che giudica. La PR 10973 ha fatto importare a
+  // `build-plugins/borderWaitData.ts` (trasportato) un modulo non consegnato:
+  // il diff non lo selezionava e il rosso e' emerso giorni dopo sulla 11299.
+  // Il perimetro e' il manifest stesso, parsato dalla funzione del guard.
+  ['tests/mirror-transport-import-closure.test.ts', isTransportScope],
   // Elenchi di run per `branch` senza finestra `created`: l'API li restituisce
   // a tratti fermi a settimane prima (resolver dell'artifact Pages, 02-10).
   ['tests/run-listing-created-window.test.ts', /^(?:\.github|scripts|bin|functions)\//],
+  // La lista sparse dell'observer delle generazioni crawler sta nel YAML: il
+  // test la confronta con la chiusura degli import di
+  // `scripts/crawler-generation-observer.mjs`, ma nessun import lo lega ai
+  // moduli della chiusura. Sulla PR 11262 un import nuovo in
+  // `crawler-grace-policy.mjs` e' uscito dalla lista e main e' rimasto rosso
+  // in latenza. I moduli JS della chiusura vivono in `scripts/` e
+  // `functions/` (githubApiHeaders.js); l'unico file fuori
+  // (`data/canton-municipalities.json`) e' un JSON foglia e non puo'
+  // aggiungere import. Il test costa meno di un secondo.
+  ['tests/crawler-generation-observer-workflow.test.ts', /^(?:scripts|functions)\//],
   // La lista sparse di housekeeping sta in un file, non nel YAML (il corpus
   // pinna il YAML, il codice e' quello di main): il test calcola la chiusura
   // degli import degli entrypoint, quindi nessun import lo collega al modulo
   // che ne aggiunge uno fuori lista. Deve girare proprio su quel diff.
   ['tests/housekeeping-sparse-paths.test.ts', /^(?:scripts|packages\/articles\/engine)\/|^\.github\/workflows\/housekeeping-jobs-logic\.yml$/],
+  // Stessa forma per i gruppi crawler: il generatore dichiara la chiusura degli
+  // import del finalizer con un elenco e il test la confronta con quella reale
+  // letta da disco. Sulla PR 11262 un import nuovo in crawler-grace-policy.mjs
+  // e' passato senza che il test girasse. Il perimetro e' l'elenco stesso, non
+  // una regex che possa divergere da esso.
+  ['tests/generate-crawler-group-workflows.test.ts', (file) => crawlerGenerationRuntimePaths.has(file)],
+  // Il ledger durevole dei loop e' riletto a runtime contro il registry
+  // corrente: un cambio di sourceRefs senza historicalSourceRefs lo rende
+  // illeggibile. Registry e ledger sono dati, nessun import li collega al test
+  // che li rilegge. Sulla PR 11001 un diff del solo registry e' passato verde e
+  // l'observer del lifecycle e' caduto al cron dopo (issue 11178).
+  ['tests/loop-fleet-registry-ledger-replay.test.ts', /^(?:data\/loop-fleet\/|scripts\/lib\/loop-fleet-contract\.mjs$)/],
+  // Il gate di famiglia j2w scopre i parser leggendo da disco ogni `.mjs` sotto
+  // `scripts/lib/`, ricorsivo: un modulo nuovo non e' importato dal test e il
+  // grafo inverso non lo collega. La PR 11308 ha aggiunto un registro che
+  // il predicato eleggeva ed e' passata verde; il rosso e' emerso sulla 11346,
+  // che toccava per caso un import del test. Il perimetro e' quello dello scan.
+  ['tests/successfactors-parser-quality.test.ts', /^scripts\/lib\/.+\.mjs$/],
+  // Stessa forma, altri gate che eleggono la loro popolazione leggendo
+  // `scripts/lib/` da disco: ognuno col perimetro del proprio scan.
+  ['tests/successfactors-jobs2web-widget-guard.test.ts', /^scripts\/lib\/[^/]+\.mjs$/],
+  ['tests/prospective-ch-shared-parser-contract.test.ts', /^scripts\/lib\/[^/]+-job-parser\.mjs$/],
+  ['tests/crawler-brand-domain-pairing.test.ts', /^scripts\/lib\/[^/]+-job-parser\.mjs$/],
+  ['tests/listing-url-fallback-audit.test.ts', /^scripts\/lib\/[^/]+-job-parser\.mjs$/],
+  // Legge sia i parser sia gli `update-*-jobs.mjs` al primo livello di scripts/.
+  ['tests/bespoke-crawler-slug-boundary.test.ts', /^scripts\/(?:update-[^/]*-jobs\.mjs|lib\/[^/]+-job-parser\.mjs)$/],
+  // Il ratchet a due lati dei runner senza contatori conta gli
+  // `update-*-jobs.mjs` leggendoli da disco (piu' il template, letto per
+  // testo): il diff che strumenta, aggiunge o toglie un runner non tocca nessun
+  // import del test. Senza questa voce il budget restava stantio sulla PR che
+  // cambia il conteggio e il rosso `RATCHET STALE` cadeva sulla PR successiva.
+  ['tests/crawler-zero-path-contract.test.ts', /^scripts\/(?:update-[^/]*-jobs\.mjs|lib\/crawler-template\.mjs)$/],
+  // Lo scan copre scripts/lib/** piu' un file nominato fuori da lib.
+  ['tests/sanitize-control-chars.test.ts', /^scripts\/(?:lib\/.+\.(?:mjs|cjs|js)|publish-article-fast\.mjs)$/],
+  ['tests/bounded-parallel.test.ts', /^scripts\/lib\/[^/]+\.sh$/],
+  // Questi scandiscono ricorsivamente tutto scripts/, ognuno con le proprie
+  // estensioni; costano pochi secondi.
+  ['tests/score-ledger-persistence.test.ts', /^scripts\/.+\.mjs$/],
+  ['tests/undici-dispatcher-fetch-pairing.test.ts', /^scripts\/.+\.(?:mjs|js)$/],
+  ['tests/is-invoked-directly.test.ts', /^scripts\/.+\.(?:mjs|cjs|js|ts)$/],
+  ['tests/translation-protected-tokens.test.ts', /^scripts\/.+\.mjs$/],
+  ['tests/slug-write-encapsulation.test.ts', /^scripts\/.+\.(?:ts|mjs|js)$/],
+  // Ratchet sulle chiusure per titolo: legge da disco ogni sorgente che usa
+  // `resolveGithubIssue` e lo confronta con l'elenco dichiarato. Un closer
+  // nuovo non importa il test, quindi senza questa voce entrerebbe senza
+  // farlo partire (stessa lezione della PR 11308). Perimetro = quello dello scan.
+  ['tests/resolve-issue-by-title-ratchet.test.ts', /^(?:scripts\/.+\.mjs|functions\/.+\.(?:js|mjs|ts))$/],
+  // Stessa classe per le allow-list sparse di `bing-seo-loop.yml`: PR 10941
+  // ha aggiunto un import a `scripts/lib/jobBoardSections.mjs`, verde, e la
+  // run del crawler e' morta con ERR_MODULE_NOT_FOUND. Il perimetro e' un
+  // path, non un import; il test verifica che la chiusura dei job ci stia.
+  ['tests/seo/bing-seo-loop-sparse-closure.test.ts', /^(?:scripts|build-plugins\/shared|packages\/articles\/engine)\/|^\.github\/workflows\/bing-seo-loop\.yml$/],
+  // Grafo di `vite.config.ts`: i due test lo percorrono da disco (walker AST
+  // ed esbuild come lo usa Vite) e non importano i moduli che giudicano. La
+  // PR 11327 ha fatto importare a `build-plugins/shared/authorEditorial.ts`
+  // `services/seo/seo-authors.ts`, che usava `@/data/authors`: il walker
+  // esisteva e falliva, ma il diff non lo selezionava, e la CI delle PR non
+  // carica mai il config. Il deploy e' rimasto fermo dal 03-10 16:59Z. Il
+  // perimetro copre le cartelle da cui il grafo prende moduli oggi (esbuild ~0,4 s).
+  // `tsconfig.json` resta fuori: un alias nuovo diventa un rischio solo quando
+  // un sorgente lo usa, e quel sorgente e' gia' nel perimetro.
+  ...['tests/vite-config-import-graph.test.ts', 'tests/vite-config-graph-no-alias.test.ts'].map((test) => [
+    test,
+    /^(?:vite\.config\.ts|constants\.ts|(?:build-plugins|services|scripts|components|data|functions|infra|packages\/articles)\/.+\.(?:[mc]?[jt]sx?))$/,
+  ]),
+  // I due pin del SiteShellContract (golden delle funzioni e digest degli
+  // scalari) confrontano il bootstrap con file letti da disco che il corpus
+  // asserisce identici. `services/` e `build-plugins/` li raggiungono gia' col
+  // grafo; `data/` invece e' fuori dal grafo (GRAPH_IGNORED_RE), e la chiusura
+  // del bootstrap ne importa moduli: `data/authors.ts` (getAuthorBySlug) e i
+  // JSON dei cantoni e delle professioni. La PR 11327 ha cambiato la bio di
+  // marco-ferrari in `data/authors.ts`, il diff ha selezionato zero test e il
+  // golden e' diventato rosso su main e sulle PR successive (11381).
+  // Perimetro: i file di primo livello di `data/` che un modulo puo'
+  // importare; il test costa meno di un secondo.
+  ['tests/articles-shell-contract-functions.test.ts', /^data\/[^/]+\.(?:[cm]?[jt]sx?|json)$/],
+  ['tests/articles-shell-contract-fingerprint.test.ts', /^data\/[^/]+\.(?:[cm]?[jt]sx?|json)$/],
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint

@@ -14,6 +14,7 @@
 # - scripts/lib/crawler-grace-policy.mjs
 # - scripts/lib/crawler-location-config.mjs
 # - scripts/lib/crawler-slice-integrity.mjs
+# - scripts/lib/detail-failure-reuse-policy.mjs
 # - scripts/lib/global-data-pipeline-lease.mjs
 # - scripts/lib/job-match-key.mjs
 # - scripts/lib/job-url-key.mjs
@@ -254,6 +255,7 @@ jobs:
           started_path="$state_dir/orell-fuessli-thalia.started"
           watchdog_path="$state_dir/orell-fuessli-thalia.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/orell-fuessli-thalia.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -261,6 +263,13 @@ jobs:
           # ---- orell-fuessli-thalia: run crawler (verbatim from original workflow) ----
           node scripts/update-orell-fuessli-thalia-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::orell-fuessli-thalia: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- orell-fuessli-thalia: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -315,6 +324,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/orell-fuessli-thalia.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/orell-fuessli-thalia.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/orell-fuessli-thalia.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/orell-fuessli-thalia.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -432,6 +442,7 @@ jobs:
           started_path="$state_dir/stadtspital-zuerich.started"
           watchdog_path="$state_dir/stadtspital-zuerich.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/stadtspital-zuerich.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -439,6 +450,13 @@ jobs:
           # ---- stadtspital-zuerich: run crawler (verbatim from original workflow) ----
           node scripts/update-stadtspital-zuerich-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::stadtspital-zuerich: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- stadtspital-zuerich: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -493,6 +511,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/stadtspital-zuerich.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/stadtspital-zuerich.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/stadtspital-zuerich.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/stadtspital-zuerich.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -610,6 +629,7 @@ jobs:
           started_path="$state_dir/dormakaba.started"
           watchdog_path="$state_dir/dormakaba.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/dormakaba.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -617,6 +637,13 @@ jobs:
           # ---- dormakaba: run crawler (verbatim from original workflow) ----
           node scripts/update-dormakaba-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::dormakaba: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- dormakaba: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -671,6 +698,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/dormakaba.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/dormakaba.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/dormakaba.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/dormakaba.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -788,6 +816,7 @@ jobs:
           started_path="$state_dir/ksbl.started"
           watchdog_path="$state_dir/ksbl.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/ksbl.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -795,6 +824,13 @@ jobs:
           # ---- ksbl: run crawler (verbatim from original workflow) ----
           node scripts/update-ksbl-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::ksbl: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- ksbl: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -849,6 +885,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/ksbl.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/ksbl.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/ksbl.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/ksbl.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -966,6 +1003,7 @@ jobs:
           started_path="$state_dir/marriott.started"
           watchdog_path="$state_dir/marriott.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/marriott.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -973,6 +1011,13 @@ jobs:
           # ---- marriott: run crawler (verbatim from original workflow) ----
           node scripts/update-marriott-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::marriott: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- marriott: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -1027,6 +1072,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/marriott.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/marriott.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/marriott.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/marriott.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1144,6 +1190,7 @@ jobs:
           started_path="$state_dir/kellerhals-carrard.started"
           watchdog_path="$state_dir/kellerhals-carrard.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/kellerhals-carrard.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1151,6 +1198,13 @@ jobs:
           # ---- kellerhals-carrard: run crawler (verbatim from original workflow) ----
           node scripts/update-kellerhals-carrard-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::kellerhals-carrard: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- kellerhals-carrard: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -1205,6 +1259,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/kellerhals-carrard.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/kellerhals-carrard.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/kellerhals-carrard.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/kellerhals-carrard.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1322,6 +1377,7 @@ jobs:
           started_path="$state_dir/klinik-sonnenhalde.started"
           watchdog_path="$state_dir/klinik-sonnenhalde.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/klinik-sonnenhalde.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1329,6 +1385,13 @@ jobs:
           # ---- klinik-sonnenhalde: run crawler (verbatim from original workflow) ----
           node scripts/update-klinik-sonnenhalde-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::klinik-sonnenhalde: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- klinik-sonnenhalde: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -1383,6 +1446,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/klinik-sonnenhalde.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/klinik-sonnenhalde.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/klinik-sonnenhalde.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/klinik-sonnenhalde.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1500,6 +1564,7 @@ jobs:
           started_path="$state_dir/logitech.started"
           watchdog_path="$state_dir/logitech.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/logitech.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1507,6 +1572,13 @@ jobs:
           # ---- logitech: run crawler (verbatim from original workflow) ----
           node scripts/update-logitech-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::logitech: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- logitech: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -1561,6 +1633,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/logitech.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/logitech.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/logitech.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/logitech.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1678,6 +1751,7 @@ jobs:
           started_path="$state_dir/vtg.started"
           watchdog_path="$state_dir/vtg.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/vtg.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1685,6 +1759,13 @@ jobs:
           # ---- vtg: run crawler (verbatim from original workflow) ----
           npm run jobs:update:vtg
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::vtg: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- vtg: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -1739,6 +1820,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/vtg.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/vtg.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/vtg.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/vtg.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -1856,6 +1938,7 @@ jobs:
           started_path="$state_dir/spital-buelach.started"
           watchdog_path="$state_dir/spital-buelach.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/spital-buelach.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1863,6 +1946,13 @@ jobs:
           # ---- spital-buelach: run crawler (verbatim from original workflow) ----
           node scripts/update-spital-buelach-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::spital-buelach: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- spital-buelach: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -1917,6 +2007,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/spital-buelach.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/spital-buelach.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/spital-buelach.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/spital-buelach.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2034,6 +2125,7 @@ jobs:
           started_path="$state_dir/pdag.started"
           watchdog_path="$state_dir/pdag.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/pdag.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2041,6 +2133,13 @@ jobs:
           # ---- pdag: run crawler (verbatim from original workflow) ----
           node scripts/update-pdag-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::pdag: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- pdag: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -2095,6 +2194,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/pdag.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/pdag.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/pdag.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/pdag.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2212,6 +2312,7 @@ jobs:
           started_path="$state_dir/ricola.started"
           watchdog_path="$state_dir/ricola.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/ricola.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2219,6 +2320,13 @@ jobs:
           # ---- ricola: run crawler (verbatim from original workflow) ----
           node scripts/update-ricola-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::ricola: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- ricola: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -2273,6 +2381,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/ricola.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/ricola.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/ricola.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/ricola.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2390,6 +2499,7 @@ jobs:
           started_path="$state_dir/omega.started"
           watchdog_path="$state_dir/omega.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/omega.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2397,6 +2507,13 @@ jobs:
           # ---- omega: run crawler (verbatim from original workflow) ----
           node scripts/update-omega-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::omega: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- omega: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -2451,6 +2568,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/omega.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/omega.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/omega.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/omega.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2568,6 +2686,7 @@ jobs:
           started_path="$state_dir/michaelpage.started"
           watchdog_path="$state_dir/michaelpage.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/michaelpage.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2575,6 +2694,13 @@ jobs:
           # ---- michaelpage: run crawler (verbatim from original workflow) ----
           node scripts/update-michaelpage-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::michaelpage: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- michaelpage: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -2629,6 +2755,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/michaelpage.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/michaelpage.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/michaelpage.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/michaelpage.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2746,6 +2873,7 @@ jobs:
           started_path="$state_dir/galderma.started"
           watchdog_path="$state_dir/galderma.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/galderma.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2753,6 +2881,13 @@ jobs:
           # ---- galderma: run crawler (verbatim from original workflow) ----
           node scripts/update-galderma-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::galderma: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- galderma: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -2807,6 +2942,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/galderma.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/galderma.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/galderma.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/galderma.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -2924,6 +3060,7 @@ jobs:
           started_path="$state_dir/six-group.started"
           watchdog_path="$state_dir/six-group.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/six-group.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2931,6 +3068,13 @@ jobs:
           # ---- six-group: run crawler (verbatim from original workflow) ----
           node scripts/update-six-group-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::six-group: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- six-group: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -2985,6 +3129,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/six-group.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/six-group.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/six-group.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/six-group.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3102,6 +3247,7 @@ jobs:
           started_path="$state_dir/hoch-health.started"
           watchdog_path="$state_dir/hoch-health.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/hoch-health.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -3109,6 +3255,13 @@ jobs:
           # ---- hoch-health: run crawler (verbatim from original workflow) ----
           node scripts/update-hoch-health-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::hoch-health: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- hoch-health: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -3163,6 +3316,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/hoch-health.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/hoch-health.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/hoch-health.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/hoch-health.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3280,6 +3434,7 @@ jobs:
           started_path="$state_dir/liebherr.started"
           watchdog_path="$state_dir/liebherr.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/liebherr.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -3287,6 +3442,13 @@ jobs:
           # ---- liebherr: run crawler (verbatim from original workflow) ----
           node scripts/update-liebherr-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::liebherr: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- liebherr: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -3341,6 +3503,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/liebherr.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/liebherr.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/liebherr.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/liebherr.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3458,6 +3621,7 @@ jobs:
           started_path="$state_dir/cambiavalute.started"
           watchdog_path="$state_dir/cambiavalute.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/cambiavalute.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -3465,6 +3629,13 @@ jobs:
           # ---- cambiavalute: run crawler (verbatim from original workflow) ----
           npm run jobs:update:cambiavalute
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::cambiavalute: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- cambiavalute: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -3519,6 +3690,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/cambiavalute.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/cambiavalute.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/cambiavalute.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/cambiavalute.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3636,6 +3808,7 @@ jobs:
           started_path="$state_dir/livit.started"
           watchdog_path="$state_dir/livit.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/livit.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -3643,6 +3816,13 @@ jobs:
           # ---- livit: run crawler (verbatim from original workflow) ----
           node scripts/update-livit-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::livit: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- livit: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -3697,6 +3877,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/livit.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/livit.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/livit.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/livit.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3814,6 +3995,7 @@ jobs:
           started_path="$state_dir/flury-stiftung.started"
           watchdog_path="$state_dir/flury-stiftung.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/flury-stiftung.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -3821,6 +4003,13 @@ jobs:
           # ---- flury-stiftung: run crawler (verbatim from original workflow) ----
           node scripts/update-flury-stiftung-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::flury-stiftung: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- flury-stiftung: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -3875,6 +4064,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/flury-stiftung.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/flury-stiftung.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/flury-stiftung.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/flury-stiftung.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -3992,6 +4182,7 @@ jobs:
           started_path="$state_dir/bps-suisse.started"
           watchdog_path="$state_dir/bps-suisse.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/bps-suisse.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -3999,6 +4190,13 @@ jobs:
           # ---- bps-suisse: run crawler (verbatim from original workflow) ----
           npm run jobs:update:bps-suisse
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::bps-suisse: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- bps-suisse: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -4053,6 +4251,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/bps-suisse.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/bps-suisse.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/bps-suisse.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/bps-suisse.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -4170,6 +4369,7 @@ jobs:
           started_path="$state_dir/beekeeper.started"
           watchdog_path="$state_dir/beekeeper.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/beekeeper.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -4177,6 +4377,13 @@ jobs:
           # ---- beekeeper: run crawler (verbatim from original workflow) ----
           node scripts/update-beekeeper-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::beekeeper: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- beekeeper: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -4231,6 +4438,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/beekeeper.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/beekeeper.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/beekeeper.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/beekeeper.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -4348,6 +4556,7 @@ jobs:
           started_path="$state_dir/ardian.started"
           watchdog_path="$state_dir/ardian.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/ardian.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -4355,6 +4564,13 @@ jobs:
           # ---- ardian: run crawler (verbatim from original workflow) ----
           node scripts/update-ardian-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::ardian: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- ardian: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -4409,6 +4625,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/ardian.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/ardian.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/ardian.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/ardian.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -4527,6 +4744,7 @@ jobs:
           started_path="$state_dir/clinique-le-noirmont.started"
           watchdog_path="$state_dir/clinique-le-noirmont.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/clinique-le-noirmont.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -4534,6 +4752,13 @@ jobs:
           # ---- clinique-le-noirmont: run crawler (verbatim from original workflow) ----
           node scripts/update-clinique-le-noirmont-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::clinique-le-noirmont: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- clinique-le-noirmont: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -4588,6 +4813,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/clinique-le-noirmont.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/clinique-le-noirmont.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/clinique-le-noirmont.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/clinique-le-noirmont.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -4705,6 +4931,7 @@ jobs:
           started_path="$state_dir/geberit.started"
           watchdog_path="$state_dir/geberit.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/geberit.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -4712,6 +4939,13 @@ jobs:
           # ---- geberit: run crawler (verbatim from original workflow) ----
           node scripts/update-geberit-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::geberit: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- geberit: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -4766,6 +5000,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/geberit.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/geberit.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/geberit.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/geberit.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -4883,6 +5118,7 @@ jobs:
           started_path="$state_dir/lombard-odier.started"
           watchdog_path="$state_dir/lombard-odier.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/lombard-odier.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -4890,6 +5126,13 @@ jobs:
           # ---- lombard-odier: run crawler (verbatim from original workflow) ----
           node scripts/update-lombard-odier-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::lombard-odier: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- lombard-odier: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -4944,6 +5187,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/lombard-odier.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/lombard-odier.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/lombard-odier.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/lombard-odier.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -5061,6 +5305,7 @@ jobs:
           started_path="$state_dir/kone.started"
           watchdog_path="$state_dir/kone.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/kone.crawl-exit"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -5068,6 +5313,13 @@ jobs:
           # ---- kone: run crawler (verbatim from original workflow) ----
           node scripts/update-kone-jobs.mjs
           crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::kone: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
           git_commit_exit=0
 
           # ---- kone: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
@@ -5122,6 +5374,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-21/kone.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-21/kone.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-21/kone.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-21/kone.crawl-exit"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?

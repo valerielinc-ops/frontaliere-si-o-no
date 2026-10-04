@@ -56,6 +56,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -371,8 +372,8 @@ function extractJobDescriptionHtml(html) {
 
 /**
  * Fetch one detail page and pull out the structured fields + description.
- * Returns null (never throws) if the fetch fails — the caller falls back
- * to listing-only stub data.
+ * Returns null (never throws) if the fetch fails; a listing without source
+ * body text is not enough to publish a vacancy.
  */
 async function fetchJobDetail(url) {
   let html;
@@ -496,9 +497,8 @@ export async function fetchAllTotalEnergiesJobs() {
     const location = normalizeSpace(city || HQ.city);
 
     const descriptionText = normalizeSpace(detail.description || '');
-    const description = descriptionText.split(/\s+/).length >= 50
-      ? descriptionText
-      : `${title} presso TotalEnergies a ${location}, Svizzera. TotalEnergies è una multinazionale energetica francese con attività di trading, shipping e gas & power a livello globale; questa posizione opera dall'ufficio di ${location} (World Trade Center). Candidati direttamente su jobs.totalenergies.com. ${descriptionText}`.trim();
+    if (!meetsSourceBodyFloor(descriptionText)) continue;
+    const description = descriptionText;
 
     const publicUrl = listing.url || CAREER_URL;
     const sourceLang = detectLang(descriptionText || title, 'en');

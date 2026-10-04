@@ -118,7 +118,7 @@ jobs:
           set -e
           if [ "$export_code" -ne 0 ]; then
             echo '::warning::L1 live telemetry export failed; recording an explicitly unavailable outcome'
-            node scripts/ci/export-loop-outcomes.mjs --loop L1 --unavailable --out "$output_path" --reason 'live PostHog telemetry export failed'
+            node scripts/ci/export-loop-outcomes.mjs --loop L1 --unavailable --out "$output_path" --reason 'live GA4 telemetry export failed'
           fi
       - name: Audit reliability telemetry
         env:

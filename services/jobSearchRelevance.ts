@@ -41,9 +41,17 @@ export function occupationalRoleTokens(tokens: readonly string[]): string[] {
 
 export function matchesJobOccupation(job: JobOccupationFields, locale: string, roles: readonly string[]): boolean {
   if (roles.length === 0) return true;
+  return matchesPreparedJobOccupation(prepareJobOccupationTerms(job, locale), roles);
+}
+
+/** Build-scoped callers can reuse these terms while the job snapshot is immutable. */
+export function prepareJobOccupationTerms(job: JobOccupationFields, locale: string): readonly string[] {
   const localizedTitle = job.titleByLocale?.[locale] || job.title;
   const titles = [...normalizeJobSearchTokens(job.title), ...normalizeJobSearchTokens(localizedTitle), ...normalizeJobSearchTokens(job.company), ...normalizeJobSearchTokens(professionSynonymText(localizedTitle))];
-  const terms = [...titles, ...titles.map(stemSearchToken)];
+  return [...titles, ...titles.map(stemSearchToken)];
+}
+
+export function matchesPreparedJobOccupation(terms: readonly string[], roles: readonly string[]): boolean {
   return roles.every((role) => tokenMatchesStem(terms, role));
 }
 

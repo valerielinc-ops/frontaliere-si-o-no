@@ -13,6 +13,7 @@
  * 4. Merges into data/jobs.json
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -236,7 +237,8 @@ export function buildPwcJob(row) {
     sector: 'Consulenza',
     source: 'pwc-dedicated-crawler',
     sourceLang: localized.sourceLang,
-    postedDate: row.startDate ? row.startDate.slice(0, 10) : new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(row.startDate),
+    crawledAt: new Date().toISOString(),
     validThrough: row.endDate ? row.endDate.slice(0, 10) : '',
     employmentType: row.employmentType || 'full-time',
     contractType: row.employmentType || 'full-time',
@@ -247,7 +249,7 @@ export function buildPwcJob(row) {
   };
 }
 
-function jobMatchKey(job = {}) {
+export function jobMatchKey(job = {}) {
   // Key on the stable identifier embedded in the source URL (UUID, numeric ID,
   // content hash) rather than the full URL. PwC and similar vendors rewrite
   // the slug-portion of the URL when titles change while keeping the same
@@ -336,6 +338,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       // Fresh text wins in the SOURCE slot only; translations are kept.
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
@@ -367,7 +370,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton || '',
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...sourcePostingDateFields(job.postingDateSource === 'reported' ? (job.postedDate || job.datePosted) : ''),
     };
   }
   writeJson(ADAPTER_PATH, {

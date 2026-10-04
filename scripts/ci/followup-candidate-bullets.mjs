@@ -38,11 +38,16 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { bulletState, decisionDeferralSpecificity } from '../lib/pr-body-sections-check.mjs';
-import { extractNonImplementedItems, isCandidateItem } from './followup-has-candidates.mjs';
+import {
+  bulletState,
+  decisionDeferralSpecificity,
+  nonImplementedSection,
+  topLevelBullets,
+} from '../lib/pr-body-sections-check.mjs';
+import { isCandidateItem } from './followup-has-candidates.mjs';
 
 export const MANIFEST_PATH = 'scripts/ci/loop-sync-manifest.json';
-const DEFAULT_REPOS = Object.freeze({
+export const DEFAULT_REPOS = Object.freeze({
   site: 'valerielinc-ops/frontaliere-si-o-no',
   corpus: 'nanakokyobashi-rgb/frontaliere-articles',
 });
@@ -181,16 +186,47 @@ const SAFE_PATH_RE = /^[A-Za-z0-9_@()[\]+.-]+(?:\/[A-Za-z0-9_@()[\]+.-]+)+$/;
 const FILE_EXT_RE = /\.[A-Za-z0-9]{1,8}$/;
 
 /**
- * I path citati fra backtick in un bullet: almeno una `/`, un'estensione,
- * nessuno spazio, nessun glob e nessun segmento `..`.
+ * I nomi nella root che il manifest di mirror dichiara, su uno dei due lati
+ * (`FOLLOWUP.md`, `REVIEW.md`, `AGENTS.md`, `ISSUES.md`: tutti `adapted`).
+ *
+ * Perché il manifest e non l'elenco dei file tracciati nella root: un nome
+ * senza `/` fra backtick è spesso un identificatore (`res.json`) o un file che
+ * esiste in entrambi i repository senza vincolo di mirror (`package.json`,
+ * `README.md`), e instradarlo per sola esistenza è proprio ciò che questo
+ * script esclude. I file nella root il cui repository NON è ovvio, cioè i
+ * contratti condivisi, sono esattamente quelli che il manifest elenca: senza
+ * una route il prompt li manderebbe sulla mappa «tutto il resto → sito»
+ * anche quando il residuo è sulla copia del corpus.
+ *
+ * @param {Array<object>|null} manifestFiles
+ * @returns {Set<string>}
+ */
+export function manifestRootFiles(manifestFiles) {
+  const names = new Set();
+  if (!Array.isArray(manifestFiles)) return names;
+  for (const entry of manifestFiles) {
+    const sides = entryNames(entry);
+    for (const name of [sides?.site, sides?.corpus]) {
+      if (name && !name.includes('/')) names.add(name);
+    }
+  }
+  return names;
+}
+
+/**
+ * I path citati fra backtick in un bullet: almeno una `/` (oppure un nome
+ * nella root presente in `rootFiles`), un'estensione, nessuno spazio, nessun
+ * glob e nessun segmento `..`.
  * @param {string} text
+ * @param {{rootFiles?: Set<string>}} [options]
  * @returns {string[]}
  */
-export function citedPaths(text) {
+export function citedPaths(text, { rootFiles } = {}) {
   const found = [];
   for (const match of String(text ?? '').matchAll(/`([^`\n]+)`/g)) {
     const candidate = normalizeCitedPath(match[1]);
-    if (!SAFE_PATH_RE.test(candidate) || !FILE_EXT_RE.test(candidate)) continue;
+    const declaredRoot = rootFiles?.has(candidate) === true;
+    if (!(declaredRoot || SAFE_PATH_RE.test(candidate)) || !FILE_EXT_RE.test(candidate)) continue;
     if (candidate.startsWith('-') || candidate.split('/').includes('..')) continue;
     if (!found.includes(candidate)) found.push(candidate);
   }
@@ -206,23 +242,49 @@ const FOLLOWUP_ITEM_TRAILER_RE = /^follow-up item:\s*FU-/i;
 const isTrailer = (item) =>
   ATTRIBUTION_TRAILER_RE.test(item) || CLOSING_REF_TRAILER_RE.test(item) || FOLLOWUP_ITEM_TRAILER_RE.test(item);
 
-// «Nessuno — snapshot automatizzato, senza residui.»: la sezione dichiara di
-// essere vuota e ne dà il motivo. La parola deve essere seguita da un segno,
-// non da altro testo: «Nessuno dei sibling è stato corretto» resta un residuo.
-const EMPTY_DECLARED_RE = /^[*_`]*(?:nessuno|niente|none|nothing)[*_`]*\s*(?:$|[.:;,(—–-])/i;
+// «Nessuno.», «**Nessuno**», «none»: la sezione dichiara di essere vuota. Vale
+// SOLO se la dichiarazione è l'intero testo, con al più punteggiatura ed
+// enfasi: ancorata all'inizio E alla fine. Ancorata solo all'inizio, «Nessuno:
+// aggiornare `scripts/ci/foo.mjs`» usciva `reason: empty` e il triage lo
+// scartava, mentre `isCandidateItem()` lo dichiara candidato. Qualunque altro
+// testo dopo la parola — un'azione, un motivo, «dei sibling è stato corretto» —
+// lo giudica l'oracolo condiviso, non un elenco di frasi «non residue».
+const EMPTY_DECLARED_RE = /^[*_`]*(?:nessuno|niente|none|nothing)[*_`.:;,!—–\s-]*$/i;
 
+// Una riga di lista, numerata compresa: decide `kind` delle sole righe che
+// precedono il primo bullet, che il contratto non attacca a nessuna voce.
 const LIST_MARKER_RE = /^\s*(?:[-*+]|\d+[.)])\s+\S/;
-// Stessa normalizzazione di `extractNonImplementedItems()`: serve solo a
-// riconoscere, fra gli item che l'oracolo restituisce, quelli nati da una riga
-// di lista.
-const oracleForm = (line) => line.replace(/^\s*[-*]\s+/, '').trim();
+const LEADING_MARKER_RE = /^[-*+][ \t]+/;
 
-function listItemForms(body) {
-  const forms = new Set();
-  for (const line of String(body ?? '').split('\n')) {
-    if (LIST_MARKER_RE.test(line)) forms.add(oracleForm(line));
-  }
-  return forms;
+/**
+ * Le voci di `## Non implementato` raggruppate con la regola del CONTRATTO:
+ * `topLevelBullets()` di `scripts/lib/pr-body-sections-check.mjs`, non una
+ * seconda regola scritta qui. Un sub-bullet e ogni riga non vuota sotto una
+ * voce (`per scelta`, `blocked: ...`, `Motivo:` su una riga a sé) si leggono
+ * con la voce: giudicata senza, la voce `per scelta` usciva candidata mentre il
+ * contratto la dichiarava chiusa (review della PR corpus 2080). Stessa
+ * sezione del contratto, quindi anche lo stesso confine: il primo heading,
+ * `###` compreso, la chiude.
+ *
+ * Unica differenza, e solo in uscita: le righe di servizio (`Closes`/
+ * `Addresses #N`, `Follow-up item:`, attribuzione) si tolgono PRIMA di
+ * raggruppare, altrimenti diventerebbero la coda dell'ultima voce. Le righe
+ * prima del primo bullet, che il contratto ignora, restano item a sé.
+ *
+ * @param {string} body
+ * @returns {Array<{text: string, listLine: boolean}>}
+ */
+function sectionItems(body) {
+  const section = nonImplementedSection(body);
+  if (section === null) return [];
+  const content = section
+    .split('\n')
+    .filter((line) => !isTrailer(line.trim().replace(LEADING_MARKER_RE, '').trim()))
+    .join('\n');
+  return topLevelBullets(content, { includePreamble: true }).map((item) => ({
+    text: item.text.replace(LEADING_MARKER_RE, '').trim(),
+    listLine: !item.preamble || LIST_MARKER_RE.test(item.text),
+  }));
 }
 
 // Perché un item non è candidato. `closing-state` ed `empty` sono verdetti;
@@ -235,12 +297,27 @@ function nonCandidateReason(item, state) {
 }
 
 /**
+ * Perché UN bullet non è candidato: `null` se lo è, altrimenti `empty`,
+ * `closing-state` (verdetti) o `hard-exclude` (solo un indizio lessicale).
+ * Il gate sul conio demota soltanto sui verdetti.
+ * @param {string} text @returns {'empty'|'closing-state'|'hard-exclude'|null}
+ */
+export function nonCandidateVerdict(text) {
+  const item = String(text ?? '');
+  if (isCandidateItem(item)) return null;
+  if (EMPTY_DECLARED_RE.test(item)) return 'empty';
+  return nonCandidateReason(item, bulletState(item));
+}
+
+/**
  * Classifica e instrada le righe di `## Non implementato (ancora)`.
  *
- * `kind`: `bullet` (riga di lista: materia di conio), `empty-declared`
- * («Nessuno» con motivo: mai candidato), `prose` (riga non di lista:
- * continuazione o nota, il bundle non decide per lei). Le righe di servizio
- * (`Closes|Addresses #N`, `Follow-up item:`, attribuzione) non compaiono.
+ * `kind`: `bullet` (voce di lista: materia di conio), `empty-declared`
+ * («Nessuno» da solo, al più con punteggiatura: mai candidato), `prose` (riga
+ * non di lista prima del primo bullet: una nota, il bundle non decide per lei).
+ * Sub-bullet e continuazioni si accodano alla voce che li precede con la regola
+ * del contratto (`sectionItems()`). Le righe di servizio (`Closes|Addresses
+ * #N`, `Follow-up item:`, attribuzione) non compaiono.
  *
  * @param {{
  *   pr: {body?: string},
@@ -254,10 +331,9 @@ function nonCandidateReason(item, state) {
  *   routes: Array<{path: string, repo: string, targetPath: string, why: string}>}>}
  */
 export function classifyCandidateBullets({ pr, side, manifestFiles, existsHere, existsTwin }) {
-  const listForms = listItemForms(pr?.body);
-  return extractNonImplementedItems(pr?.body)
-    .filter((item) => !isTrailer(item))
-    .map((item) => {
+  const rootFiles = manifestRootFiles(manifestFiles);
+  return sectionItems(pr?.body)
+    .map(({ text: item, listLine }) => {
       const state = bulletState(item);
       if (EMPTY_DECLARED_RE.test(item)) {
         return { text: item, kind: 'empty-declared', state, candidate: false, reason: 'empty', routes: [] };
@@ -266,14 +342,14 @@ export function classifyCandidateBullets({ pr, side, manifestFiles, existsHere, 
       // Una riga che non si conia non ha un bersaglio da instradare: niente
       // lookup, quindi niente chiamate al gemello.
       const routes = candidate
-        ? citedPaths(item).map((cited) => ({
+        ? citedPaths(item, { rootFiles }).map((cited) => ({
           path: cited,
           ...mirrorRoute({ path: cited, side, manifestFiles, existsHere, existsTwin }),
         }))
         : [];
       return {
         text: item,
-        kind: listForms.has(item) ? 'bullet' : 'prose',
+        kind: listLine ? 'bullet' : 'prose',
         state,
         candidate,
         reason: candidate ? null : nonCandidateReason(item, state),
@@ -298,12 +374,12 @@ export function classifyCandidateBullets({ pr, side, manifestFiles, existsHere, 
 export const CANDIDATE_BULLETS_READING_RULES = Object.freeze([
   '### Regole di lettura',
   '',
-  '- `candidate: false` con `reason: closing-state` (`in questa PR` · `PR concatenata #N` · `per scelta` / «falso positivo» · `by construction` · `blocked: decisione del proprietario`) o `reason: empty` («Nessuno» con motivo) → NON creare issue: decide questa sezione, non una rilettura.',
+  '- `candidate: false` con `reason: closing-state` (`in questa PR` · `PR concatenata #N` · `per scelta` / «falso positivo» · `by construction` · `blocked: decisione del proprietario`) o `reason: empty` («Nessuno» da solo, senza altro testo) → NON creare issue: decide questa sezione, non una rilettura.',
   '- `candidate: false` con `reason: hard-exclude` → è un match LESSICALE, non un verdetto: il triage applica le proprie regole hard-exclude, compresa l\'eccezione del residuo che mescola una prova live con un\'edit concreta (quello resta actionable).',
   '- `candidate: true` significa AMMISSIBILE, non «da coniare»: l\'item passa comunque dai filtri successivi (hard-exclude, condizione di accettazione, dedup, in-flight overlap).',
   '- `candidate: true` con `blocked: <causa>` → resta candidato; la causa va nel campo `Blocked on:` dell\'item. Se la causa NON è di codice (fonte esterna, terzi, decisione attesa) l\'item si conia con `State: blocked`: resta tracciato e non entra nella selezione del fixer.',
   '- `candidate: true` senza stato → resta candidato (fail-safe: un residuo non qualificato è lavoro potenzialmente dovuto, e tacerlo è peggio che generare una traccia).',
-  '- Solo `kind: bullet` è materia di conio decisa da questa sezione. `kind: prose` è una riga non di lista (continuazione del bullet che la precede, o una nota): va letta come contesto e coniata solo se da sola descrive lavoro residuo. Le righe di servizio (`Closes`/`Addresses #N`, `Follow-up item:`) non sono in questa sezione e non si coniano.',
+  '- Solo `kind: bullet` è materia di conio decisa da questa sezione. `kind: prose` è una riga non di lista prima del primo bullet (una nota; le continuazioni sono già dentro la voce, come le legge il contratto): va letta come contesto e coniata solo se da sola descrive lavoro residuo. Le righe di servizio (`Closes`/`Addresses #N`, `Follow-up item:`) non sono in questa sezione e non si coniano.',
 ]);
 
 export function renderCandidateBulletsSection(entries, { manifestOk, repos = DEFAULT_REPOS }) {
@@ -311,7 +387,7 @@ export function renderCandidateBulletsSection(entries, { manifestOk, repos = DEF
     '## Candidate bullets',
     '',
     'Righe di `## Non implementato (ancora)` già classificate da `scripts/ci/followup-candidate-bullets.mjs`.',
-    '`kind: bullet` = riga di lista; `empty-declared` = «Nessuno» con motivo; `prose` = riga non di lista (contesto).',
+    '`kind: bullet` = voce di lista con le sue continuazioni; `empty-declared` = «Nessuno» da solo; `prose` = riga non di lista prima del primo bullet (contesto).',
     '`candidate: false` con `reason: closing-state|empty` = non coniare; `reason: hard-exclude` = match lessicale, da confermare.',
     '`candidate: true` = ammissibile, soggetto ai filtri del triage. `routes[].repo` + `targetPath` = `Target repository` + `Target file`',
     `(\`site\` = ${repos.site}, \`corpus\` = ${repos.corpus}, \`unknown\` = non verificato).`,

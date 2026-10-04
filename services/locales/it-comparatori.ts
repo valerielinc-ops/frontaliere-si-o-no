@@ -535,7 +535,7 @@ const translations: Record<string, string> = {
  'banks.hype.con3': 'Funzionalità avanzate solo con Premium',
 
  // --- Tax Calendar ---
- 'health.title': 'Premi LAMal Frontaliere 2026',
+ 'health.title': 'Premi LAMal Frontaliere',
  'health.lamalSsn.incomeLabel': 'Reddito annuo netto (CHF)',
  'health.lamalSsn.ageLabel': 'Et\u00e0',
  'health.lamalSsn.franchiseLabel': 'Franchigia LAMal',
@@ -543,9 +543,9 @@ const translations: Record<string, string> = {
  'health.lamalSsn.lamalCostLabel': 'Costo LAMal stimato',
  'health.lamalSsn.ssnCostLabel': 'Contributo SSN stimato',
  'health.lamalSsn.cheapestWith': 'con {insurer}, modello standard, senza infortuni',
- 'health.lamalSsn.ssnRateNote': '3\u20136% del reddito netto, aliquota decisa dalla regione (L. 213/2023)',
- 'health.lamalSsn.verdictLamal': 'Conviene la LAMal: risparmi almeno {amount} CHF/anno rispetto al contributo SSN minimo.',
- 'health.lamalSsn.verdictSsn': 'Conviene il SSN: risparmi almeno {amount} CHF/anno rispetto alla LAMal pi\u00f9 economica.',
+ 'health.lamalSsn.ssnRateNote': "Stima per frontalieri soggetti al contributo, non iscrizione volontaria SSN: 3–6% del salario netto, min 30 e max 200 EUR/mese, su 12 mesi. Limiti convertiti in CHF al cambio indicativo di {rate} EUR/CHF. Verifica requisiti, aliquota e scadenza regionali (DM 14 novembre 2025).",
+ 'health.lamalSsn.verdictLamal': "LAMal: costo non superiore al SSN stimato; risparmio minimo {amount} CHF/anno.",
+ 'health.lamalSsn.verdictSsn': "SSN: costo non superiore alla LAMal stimata; risparmio minimo {amount} CHF/anno.",
  'health.lamalSsn.verdictDepends': 'Dipende dall\u2019aliquota della tua regione: sotto il {pct}% conviene il SSN, sopra conviene la LAMal.',
  'health.lamalSsn.enterIncome': 'Inserisci il tuo reddito netto per il verdetto personalizzato basato sui premi UFSP reali.',
  'health.lamalSsn.emailCtaTitle': 'Ricevi il confronto in PDF via email',
@@ -807,5 +807,16 @@ const translations: Record<string, string> = {
  'comparatori.salaryCompare.intro.p1': 'Il confronto stipendio ti permette di calcolare il reddito netto di un frontaliero in Svizzera rispetto a un equivalente in Italia, tenendo conto di imposte, contributi AVS (5,3%) e costo della vita. Oltre 79.000 frontalieri lavorano in Svizzera ogni giorno (UST, IV trim. 2025).',
  'comparatori.mortgage.intro.p1': 'Il comparatore mutui mette a confronto le soluzioni di finanziamento immobiliare in Svizzera e in Italia. I mutui svizzeri offrono tassi tipicamente variabili (SARON) o fissi, spesso più competitivi per i frontalieri con reddito in CHF.',
  'comparatori.bank.intro.p1': 'Il comparatore banche aiuta i frontalieri a scegliere tra istituti svizzeri e italiani per ottimizzare i costi di conversione CHF-EUR, le commissioni di conto e la gestione del salario in franchi svizzeri.',
+ "health.residence.label": "Paese di residenza",
+ "health.residence.italy": "Italia — frontaliere",
+ "health.residence.switzerland": "Svizzera — residente",
+ "health.residence.italyIntro": "Premi LAMal per residenti in Italia, per età e copertura infortuni.",
+ "health.residence.swissIntro": "Confronto per residenti in Svizzera, per Cantone e Comune di domicilio.",
+ "health.residence.italyRules": "Per chi risiede in Italia si applicano i premi del Paese di domicilio e il modello standard: franchigia CHF300 per adulti/giovani, CHF0 per bambini. Non sono disponibili HMO, Telmed o franchigie opzionali. Le riduzioni per terzo figlio non sono applicate automaticamente.",
+ "health.residence.region": "Regione di premio del domicilio",
+ "health.residence.swissUnavailable": "Premi svizzeri per questo profilo non disponibili: verifica il domicilio e consulta Priminfo.",
+ "health.residence.swissRules": "Premi pubblicati per regione svizzera, età, franchigia e infortuni. Per ogni assicuratore e categoria mostriamo la tariffa più bassa disponibile; verifica il prodotto e le condizioni su Priminfo.",
+ "health.residence.unavailable": "Premi Italia non ancora disponibili per l’anno indicato. Non utilizziamo premi cantonali svizzeri come sostituti. Consulta la tabella ufficiale:",
+ 'health.residence.premiumsAndDeductible': 'Premi + franchigia annui',
 };
 export default translations;

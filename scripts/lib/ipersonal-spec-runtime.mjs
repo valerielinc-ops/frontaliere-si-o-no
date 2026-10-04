@@ -6,7 +6,10 @@ import { isSufficientVacancyDescription } from './prospector/extract.mjs';
 import { resolveDetailOrListingSwissGeography } from './prospector/location-evidence.mjs';
 import { resolveProspectorFetch } from './prospector/public-fetch-policy.mjs';
 import { runSpecInProduction, templateToRegex } from './prospector/spec-crawler.mjs';
-import { isDetailFailureWithinGrace } from './crawler-grace-policy.mjs';
+import {
+  applyDetailFailureReuse,
+  isDetailFailureWithinGrace,
+} from './detail-failure-reuse-policy.mjs';
 
 const VERIFIED_SOURCE_GEOGRAPHY = Symbol('ipersonal-source-backed-geography');
 const IPERSONAL_MAINTENANCE_PAGE_RE = /(?:\bun momento,\s*per favore\b|\b(?:wartungsarbeiten|under maintenance)\b|\btemporarily unavailable\b)/iu;
@@ -344,18 +347,6 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
       { feedEndpointUnavailable: true, sourceUnavailableKind: 'maintenance' },
     );
   }
-  const previousByUrl = new Map();
-  const duplicatePreviousUrls = new Set();
-  for (const previous of Array.isArray(runtime.previousJobs) ? runtime.previousJobs : []) {
-    const previousUrl = canonicalUrl(previous?.url || '');
-    if (!previousUrl) continue;
-    if (previousByUrl.has(previousUrl)) {
-      duplicatePreviousUrls.add(previousUrl);
-      previousByUrl.set(previousUrl, null);
-      continue;
-    }
-    previousByUrl.set(previousUrl, previous);
-  }
   const enriched = rows.map((row) => {
     const attemptedUrl = canonicalUrl(row.url);
     const description = extractIpersonalDescription(pages.get(attemptedUrl) || '');
@@ -428,56 +419,80 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
       || isSufficientVacancyDescription(extractIpersonalDescription(sourceMarkup));
     if (!geography || !descriptionProven) qualityDroppedUrls.add(attemptedUrl);
   }
-  const reusedDetailUrls = new Set();
-  for (const attemptedUrl of detailFailureUrls) {
-    const previous = previousByUrl.get(attemptedUrl);
-    const fallback = previousDetailFallbackRow(previous || {});
-    if (!fallback) continue;
-    const location = String(fallback.location || '').trim();
-    const canton = String(fallback.canton || '').trim();
-    if (location && canton) {
-      const addressCountry = String(fallback.addressCountry || fallback.country || '').trim();
-      Object.defineProperty(fallback, VERIFIED_SOURCE_GEOGRAPHY, {
-        value: Object.freeze({ location, canton, ...(addressCountry ? { addressCountry } : {}) }),
-        enumerable: false,
-      });
-    }
-    enriched.push(fallback);
-    reusedDetailUrls.add(attemptedUrl);
+  const detailReuse = applyDetailFailureReuse({
+    freshRows: enriched,
+    failedIdentities: detailFailureUrls,
+    attemptedCount: attemptedDetailUrls.size,
+    previousRows: runtime.previousJobs,
+    identityOf: (row) => row?.url,
+    normalizeIdentity: canonicalUrl,
+    requireReuse: true,
+    fallbackOf: (previous) => {
+      const fallback = previousDetailFallbackRow(previous || {});
+      if (!fallback) return null;
+      const location = String(fallback.location || '').trim();
+      const canton = String(fallback.canton || '').trim();
+      if (location && canton) {
+        const addressCountry = String(fallback.addressCountry || fallback.country || '').trim();
+        Object.defineProperty(fallback, VERIFIED_SOURCE_GEOGRAPHY, {
+          value: Object.freeze({ location, canton, ...(addressCountry ? { addressCountry } : {}) }),
+          enumerable: false,
+        });
+      }
+      return fallback;
+    },
+  });
+  if (!detailReuse.canPublish) {
+    throw new Error(
+      `[${spec.companyKey}] detail failure/reuse policy rejected ${detailReuse.detailFailureCount}/`
+      + `${detailReuse.attemptedCount} attempted detail(s)`,
+    );
   }
-  if (reusedDetailUrls.size > 0) {
+  const outputRows = detailReuse.rows;
+  const reusedDetailUrls = detailReuse.reusedDetailIdentities;
+  for (const key of [
+    'discoveredCount',
+    'expectedSeedCount',
+    'loadedSeedCount',
+    'resolvedDetailCount',
+    'parsedDetailCount',
+  ]) {
+    Object.defineProperty(outputRows, key, {
+      value: enriched[key],
+      enumerable: false,
+    });
+  }
+  if (reusedDetailUrls.length > 0) {
     console.warn(
-      `[prospector:${spec.companyKey}] riuso di ${reusedDetailUrls.size}/${detailFailureUrls.size} detail `
+      `[prospector:${spec.companyKey}] riuso di ${reusedDetailUrls.length}/${detailFailureUrls.size} detail `
       + 'dallo snapshot precedente; il validator manterrà il limite di failure e identità.',
     );
   }
-  const previousSnapshotIdentityCollisionCount = [...duplicatePreviousUrls]
-    .filter((url) => detailFailureUrls.has(url)).length;
-  Object.defineProperty(enriched, 'qualityDroppedCount', {
+  Object.defineProperty(outputRows, 'qualityDroppedCount', {
     value: qualityDroppedUrls.size,
     enumerable: false,
   });
-  Object.defineProperty(enriched, 'detailFailureCount', {
-    value: detailFailureUrls.size,
+  Object.defineProperty(outputRows, 'detailFailureCount', {
+    value: detailReuse.detailFailureCount,
     enumerable: false,
   });
-  Object.defineProperty(enriched, 'detailFailureUrls', {
-    value: [...detailFailureUrls],
+  Object.defineProperty(outputRows, 'detailFailureUrls', {
+    value: detailReuse.detailFailureIdentities,
     enumerable: false,
   });
-  Object.defineProperty(enriched, 'reusedDetailCount', {
-    value: reusedDetailUrls.size,
+  Object.defineProperty(outputRows, 'reusedDetailCount', {
+    value: detailReuse.reusedDetailCount,
     enumerable: false,
   });
-  Object.defineProperty(enriched, 'reusedDetailUrls', {
-    value: [...reusedDetailUrls],
+  Object.defineProperty(outputRows, 'reusedDetailUrls', {
+    value: reusedDetailUrls,
     enumerable: false,
   });
-  Object.defineProperty(enriched, 'previousSnapshotIdentityCollisionCount', {
-    value: previousSnapshotIdentityCollisionCount,
+  Object.defineProperty(outputRows, 'previousSnapshotIdentityCollisionCount', {
+    value: detailReuse.previousSnapshotIdentityCollisionCount,
     enumerable: false,
   });
-  Object.defineProperty(enriched, 'sourceIdentityCollisionCount', {
+  Object.defineProperty(outputRows, 'sourceIdentityCollisionCount', {
     value: [...responseIdentityCounts.values()].reduce((total, count) => total + Math.max(0, count - 1), 0),
     enumerable: false,
   });
@@ -485,12 +500,12 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     ...attemptedDetailUrls,
     ...resolvedDetailsByAttempt.values(),
   ]);
-  Object.defineProperty(enriched, 'unaccountedReturnedCount', {
+  Object.defineProperty(outputRows, 'unaccountedReturnedCount', {
     value: [...returnedUrls].filter((url) => !attemptedIdentities.has(url)).length,
     enumerable: false,
   });
   return /** @type {Array<Record<string, any>> & { discoveredCount: number, expectedSeedCount: number, loadedSeedCount: number, resolvedDetailCount: number, parsedDetailCount: number, qualityDroppedCount: number, detailFailureCount: number, detailFailureUrls: string[], reusedDetailCount: number, reusedDetailUrls: string[], previousSnapshotIdentityCollisionCount: number, sourceIdentityCollisionCount: number, unaccountedReturnedCount: number }} */ (
-    /** @type {unknown} */ (enriched)
+    /** @type {unknown} */ (outputRows)
   );
 }
 

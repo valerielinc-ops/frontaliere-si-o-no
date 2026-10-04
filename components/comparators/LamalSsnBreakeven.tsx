@@ -4,9 +4,9 @@
  * Replaces the static "LAMal svizzera vs SSN italiano" prose with a
  * personalised numeric verdict:
  *   - inputs: net yearly income (CHF), age, LAMal franchise
- *   - LAMal side: cheapest real premium from data/health-premiums.json
- *     (standard model, no accident cover) via the parent comparator
- *   - SSN side: the voluntary-registration contribution for frontalieri,
+ *   - LAMal side: cheapest real premium from data/health-premiums-eu/{year}.json
+ *     (standard model, no accident cover) for Italian residents via the parent comparator
+ *   - SSN side: the contribution for eligible frontier workers,
  *     3–6% of net income depending on the region (L. 213/2023)
  *   - CTA: email capture → PDF report via the sendCalculatorReport Cloud
  *     Function with the dedicated 'lamal_ssn_tool' acquisitionSource
@@ -30,16 +30,17 @@ import { generateLamalSsnPdfReport, pdfBlobToBase64 } from '@/services/pdfReport
 import { SEND_CALCULATOR_REPORT_URL } from '@/services/functionsBase';
 import { reportCaughtError } from '@/services/errorReporter';
 
-/** SSN voluntary-registration contribution bounds (share of net income, L. 213/2023). */
-const SSN_RATE_MIN = 0.03;
-const SSN_RATE_MAX = 0.06;
+import { DEFAULT_EXCHANGE_RATE } from '@/constants';
+import { compareFrontierSsnWithLamal } from '@/services/frontierHealthContribution';
 
 type BreakevenAgeGroup = '0-18' | '19-25' | '26+';
-type Verdict = 'lamal' | 'ssn' | 'depends';
 
 export interface CheapestPremium {
  premium: number;
  insurerName: string;
+ premiumYear?: number;
+ residenceCountry?: string;
+ premiumSourceUrl?: string;
 }
 
 interface LamalSsnBreakevenProps {
@@ -50,7 +51,7 @@ interface LamalSsnBreakevenProps {
  /**
   * Cheapest monthly LAMal premium (standard model, no accident) for the
   * given franchise + age group, computed by the parent from the loaded
-  * UFSP dataset. Null while data is loading or unavailable.
+  * country-of-residence UFSP dataset. Null while data is loading or unavailable.
   */
  computeCheapestPremium: (franchise: number, ageGroup: BreakevenAgeGroup) => CheapestPremium | null;
 }
@@ -91,12 +92,7 @@ const LamalSsnBreakeven: React.FC<LamalSsnBreakevenProps> = ({
  const result = useMemo(() => {
  if (!cheapest || !Number.isFinite(income) || income <= 0) return null;
  const lamalAnnual = cheapest.premium * 12;
- const ssnMin = income * SSN_RATE_MIN;
- const ssnMax = income * SSN_RATE_MAX;
- const breakevenPct = (lamalAnnual / income) * 100;
- const verdict: Verdict = lamalAnnual < ssnMin ? 'lamal' : lamalAnnual > ssnMax ? 'ssn' : 'depends';
- const saving = verdict === 'lamal' ? ssnMin - lamalAnnual : verdict === 'ssn' ? lamalAnnual - ssnMax : 0;
- return { lamalAnnual, ssnMin, ssnMax, breakevenPct, verdict, saving };
+ return { lamalAnnual, ...compareFrontierSsnWithLamal(income, lamalAnnual, DEFAULT_EXCHANGE_RATE) };
  }, [cheapest, income]);
 
  const handleSendPdf = async (e: React.FormEvent) => {
@@ -137,6 +133,9 @@ const LamalSsnBreakeven: React.FC<LamalSsnBreakevenProps> = ({
  lamalMonthlyCHF: cheapest.premium,
  lamalAnnualCHF: result.lamalAnnual,
  cheapestInsurer: cheapest.insurerName,
+ premiumYear: cheapest.premiumYear,
+ residenceCountry: cheapest.residenceCountry,
+ premiumSourceUrl: cheapest.premiumSourceUrl,
  ssnMinCHF: result.ssnMin,
  ssnMaxCHF: result.ssnMax,
  breakevenPct: result.breakevenPct,
@@ -250,7 +249,7 @@ const LamalSsnBreakeven: React.FC<LamalSsnBreakevenProps> = ({
  <div className="p-3 bg-surface-alt/60 rounded-lg">
  <p className="text-xs text-muted uppercase font-bold">{t('health.lamalSsn.ssnCostLabel')}</p>
  <p className="text-lg font-bold text-strong">CHF {fmtCHF(result.ssnMin)} – {fmtCHF(result.ssnMax)}<span className="text-xs font-normal text-muted">/{t('health.lamalSsn.year')}</span></p>
- <p className="text-xs text-muted">{t('health.lamalSsn.ssnRateNote')}</p>
+ <p className="text-xs text-muted">{t('health.lamalSsn.ssnRateNote', { rate: String(DEFAULT_EXCHANGE_RATE) })}</p>
  </div>
  </div>
  <p className="text-sm font-semibold text-strong flex items-start gap-2">
@@ -258,7 +257,7 @@ const LamalSsnBreakeven: React.FC<LamalSsnBreakevenProps> = ({
  <span>
  {result.verdict === 'lamal' && t('health.lamalSsn.verdictLamal', { amount: fmtCHF(result.saving) })}
  {result.verdict === 'ssn' && t('health.lamalSsn.verdictSsn', { amount: fmtCHF(result.saving) })}
- {result.verdict === 'depends' && t('health.lamalSsn.verdictDepends', { pct: result.breakevenPct.toFixed(1) })}
+ {result.verdict === 'depends' && result.breakevenPct !== null && t('health.lamalSsn.verdictDepends', { pct: result.breakevenPct.toFixed(1) })}
  </span>
  </p>
  </>

@@ -62,6 +62,41 @@ process.stdout.write('');
   return { dir, log };
 }
 
+function makeCreateFailureGhStub() {
+  const dir = mkdtempSync(join(tmpdir(), 'gh-create-failure-stub-'));
+  dirs.push(dir);
+  writeFileSync(join(dir, 'gh'), `#!/usr/bin/env node
+const args = process.argv.slice(2);
+if (args[0] === 'issue' && args[1] === 'list') {
+  process.stdout.write('[]');
+  process.exit(0);
+}
+if (args[0] === 'label' && args[1] === 'create') process.exit(0);
+if (args[0] === 'issue' && args[1] === 'create') {
+  process.stderr.write('simulated issue rejection');
+  process.exit(1);
+}
+process.exit(0);
+`, { mode: 0o755 });
+  chmodSync(join(dir, 'gh'), 0o755);
+  return { dir };
+}
+
+function runCreateFailureCli(stub: { dir: string }, strict: boolean) {
+  return spawnSync(process.execPath, [
+    SCRIPT,
+    '--title', 'Strict owner persistence test',
+    '--description', 'owner write rejected',
+    '--priority', '3',
+    '--label', 'Bug',
+    '--no-reopen',
+    ...(strict ? ['--require-persisted'] : []),
+  ], {
+    encoding: 'utf8',
+    env: { ...process.env, PATH: `${stub.dir}:${process.env.PATH}`, GH_REPO: 'o/r' },
+  });
+}
+
 function runCli(stub: { dir: string; log: string }, extraArgs: string[]) {
   const res = spawnSync(process.execPath, [
     SCRIPT,
@@ -126,6 +161,16 @@ describe('github-issue-creator CLI: --build-sha reaches the reopen guard', () =>
 
     expect(reopened(calls)).toBe(true);
     expect(calls.some((a) => a[0] === 'api' && String(a[1]).includes('/commits/'))).toBe(false);
+  });
+});
+
+describe('github-issue-creator CLI: strict owner persistence is opt-in', () => {
+  it('returns non-zero when the issue create is rejected, without changing the default', () => {
+    const strictStub = makeCreateFailureGhStub();
+    expect(runCreateFailureCli(strictStub, true).status).toBe(1);
+
+    const bestEffortStub = makeCreateFailureGhStub();
+    expect(runCreateFailureCli(bestEffortStub, false).status).toBe(0);
   });
 });
 

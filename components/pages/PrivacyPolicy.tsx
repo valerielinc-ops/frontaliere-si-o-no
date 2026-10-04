@@ -197,7 +197,7 @@ export const PrivacyPolicy: React.FC = () => {
           </div>
           <div>
             <h1 className="text-2xl sm:text-3xl font-light font-display text-heading">Privacy Policy</h1>
-            <p className="text-sm text-muted mt-1">Ultimo aggiornamento: 14 settembre 2026</p>
+            <p className="text-sm text-muted mt-1">Ultimo aggiornamento: 3 ottobre 2026</p>
           </div>
         </div>
         <p className="text-subtle leading-relaxed">
@@ -455,12 +455,25 @@ export const PrivacyPolicy: React.FC = () => {
                 <strong>Cosa conserviamo.</strong> Sul tuo record di iscrizione: conteggio e data di aperture/clic,
                 il punteggio di engagement corrente, la data dell'ultimo bollettino inviato, l'intervallo corrente
                 in giorni, il numero di invii consecutivi senza interazione e l'eventuale frequenza che hai scelto
-                tu. Non profiliamo il contenuto dei clic oltre al fatto che sono avvenuti.
+                tu. Quale annuncio hai cliccato lo usiamo solo per l'ordine degli annunci nelle email, come descritto qui
+                sotto.
+              </p>
+              <p className="text-sm mt-2">
+                <strong>Ordine degli annunci in base ai clic.</strong> Quando clicchi un'offerta di lavoro in una
+                newsletter o in un job alert registriamo quale annuncio hai cliccato e quattro sue caratteristiche:
+                categoria, cantone, azienda e settore. Da questi clic ricaviamo un profilo di interessi associato a
+                un identificativo pseudonimo, non al tuo indirizzo email in chiaro, e lo usiamo solo per decidere in
+                che ordine mostrarti gli annunci già selezionati per te nelle nostre email. Il profilo non cambia
+                quali email ricevi né quante, e non viene comunicato a inserzionisti o partner. Si aggiorna a ogni
+                clic e viene cancellato automaticamente 180 giorni dopo l'ultimo clic, oppure subito se ti cancelli
+                da tutte le nostre comunicazioni o elimini l'account. Puoi opporti in qualsiasi momento scrivendo a{' '}
+                <a href={`mailto:${PRIVACY_EMAIL}`} className="text-accent underline">{PRIVACY_EMAIL}</a>: da quel
+                momento ricevi gli annunci nell'ordine standard.
               </p>
               <p className="text-sm mt-2">
                 <strong>Base giuridica e opposizione.</strong> Legittimo interesse a misurare l'efficacia degli
                 invii, limitarne la frequenza verso chi non li legge e non continuare a scrivere a indirizzi
-                inattivi. Dal link <em>«Gestisci preferenze»</em> in fondo a ogni email puoi fissare tu la
+                inattivi. Vale lo stesso legittimo interesse a mostrare per primi gli annunci più pertinenti. Dal link <em>«Gestisci preferenze»</em> in fondo a ogni email puoi fissare tu la
                 frequenza del bollettino (da giornaliera a settimanale), disattivare il solo bollettino lasciando
                 attivi newsletter e job alert, oppure cancellarti del tutto. Una frequenza scelta da te prevale
                 sempre sull'algoritmo.
@@ -766,7 +779,7 @@ export const PrivacyPolicy: React.FC = () => {
               Non adottiamo processi decisionali <strong>esclusivamente automatizzati</strong> che producano effetti
               giuridici o incidano in modo analogo significativo sull'utente ai sensi dell'art. 22 GDPR. Eventuale
               profilazione è limitata all'ottimizzazione dei contenuti (es. selezione dei job alert e delle
-              comunicazioni più pertinenti) e non determina conseguenze legali o economiche automatiche.
+              comunicazioni più pertinenti, incluso l'ordine degli annunci nelle email in base ai clic descritto nella sezione sul tracciamento) e non determina conseguenze legali o economiche automatiche.
             </p>
           </div>
         </div>
@@ -892,7 +905,7 @@ export const PrivacyPolicy: React.FC = () => {
               su questa pagina; in caso di modifiche sostanziali ne daremo evidenza aggiornando la data sottostante.
             </p>
             <p className="text-sm italic">
-              Data ultimo aggiornamento: <strong>14 settembre 2026</strong>
+              Data ultimo aggiornamento: <strong>3 ottobre 2026</strong>
             </p>
           </div>
         </div>

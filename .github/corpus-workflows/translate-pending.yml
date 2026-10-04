@@ -115,6 +115,8 @@ jobs:
           }
           status_page_size=100
           status_page_limit=3
+          proof_page_limit=5
+          run_lifetime_days=35
           confirm_read_delay_seconds=1
           dedupe_rows_by_id='group_by(.id) | map(.[-1]) | .[]'
           # Reads every page of one status into status_rows / status_rows_read /
@@ -146,6 +148,52 @@ jobs:
               status_page=$((status_page + 1))
             done
           }
+          # Proves the queue on the run list of this workflow WITHOUT a status filter,
+          # limited to the runs created in the last run_lifetime_days days: GitHub
+          # cancels a run after 35 days, queue included, so an older run cannot be
+          # alive, and the bound keeps the short final page reachable as the list grows
+          # (why, and the closing criterion: see the comment above its call).
+          # Called directly (never in a subshell) so fail_closed ends the step; reads
+          # go through guard_api, so they share the one time budget.
+          prove_queue_beyond_union() {
+            local proof_page=1
+            local runs_path proof_json proof_returned_count proof_page_unfinished proof_criterion known_ids proof_unfinished_count proof_new_ids proof_since proof_page_total proof_page_ids proof_seen_count
+            local proof_unfinished=""
+            local proof_ids=""
+            local proof_min_total=-1
+            if ! proof_since="$(jq -rn --argjson days "$run_lifetime_days" '(now - ($days * 86400)) | strftime("%Y-%m-%d")')"; then fail_closed "workflow_runs_unfiltered_window" "${queue_proof_reasons}"; fi
+            if [ -z "$proof_since" ]; then fail_closed "workflow_runs_unfiltered_window" "${queue_proof_reasons}"; fi
+            while :; do
+              runs_path="repos/${GITHUB_REPOSITORY}/actions/workflows/translate-pending.yml/runs?per_page=${status_page_size}&page=${proof_page}&created=%3E%3D${proof_since}"
+              if ! proof_json="$(guard_api "$runs_path")"; then fail_closed "workflow_runs_unfiltered" "${queue_proof_reasons}; page=${proof_page}"; fi
+              if ! printf "%s" "$proof_json" | jq -e 'type == "object" and ((.total_count | type) == "number") and (.total_count >= 0) and (.total_count == (.total_count | floor)) and (.workflow_runs | type) == "array" and all(.workflow_runs[]; (.id != null) and ((.created_at | type) == "string") and ((.status | type) == "string"))' >/dev/null; then fail_closed "workflow_runs_unfiltered_payload" "${queue_proof_reasons}; page=${proof_page}"; fi
+              proof_returned_count="$(printf "%s" "$proof_json" | jq -r '.workflow_runs | length')"
+              proof_page_total="$(printf "%s" "$proof_json" | jq -r '.total_count')"
+              if [ "$proof_min_total" -lt 0 ] || [ "$proof_page_total" -lt "$proof_min_total" ]; then proof_min_total="$proof_page_total"; fi
+              if ! proof_page_ids="$(printf "%s" "$proof_json" | jq -r '.workflow_runs[] | .id | tostring')"; then fail_closed "workflow_runs_unfiltered_rows" "${queue_proof_reasons}; page=${proof_page}"; fi
+              if [ -n "$proof_page_ids" ]; then proof_ids="${proof_ids}${proof_ids:+$'\n'}${proof_page_ids}"; fi
+              proof_seen_count="$(printf "%s\n" "$proof_ids" | awk 'NF && !seen[$0]++ {count++} END {print count + 0}')"
+              if ! proof_page_unfinished="$(printf "%s" "$proof_json" | jq -c '.workflow_runs[] | select(.status != "completed")')"; then fail_closed "workflow_runs_unfiltered_rows" "${queue_proof_reasons}; page=${proof_page}"; fi
+              if [ -n "$proof_page_unfinished" ]; then proof_unfinished="${proof_unfinished}${proof_unfinished:+$'\n'}${proof_page_unfinished}"; fi
+              if [ "$proof_returned_count" -lt "$status_page_size" ]; then
+                if [ "$proof_seen_count" -lt "$proof_min_total" ]; then fail_closed "workflow_runs_unfiltered_incomplete" "${queue_proof_reasons}; unfiltered rows=${proof_seen_count} total_count=${proof_min_total} since ${proof_since}, short page ${proof_page} before the end of the list"; fi
+                proof_criterion="a (page ${proof_page} has ${proof_returned_count} row(s) and ends the list of runs created since ${proof_since}; ${proof_seen_count} distinct row(s) cover total_count=${proof_min_total})"
+                break
+              fi
+              if [ "$proof_page" -ge "$proof_page_limit" ]; then
+                if [ "$proof_seen_count" -lt "$proof_min_total" ]; then fail_closed "workflow_runs_queue_unproven" "${queue_proof_reasons}; unfiltered pages=${proof_page} since ${proof_since}, rows=${proof_seen_count} total_count=${proof_min_total}, no short final page"; fi
+                proof_criterion="b (page ${proof_page} is full and is the page ceiling; ${proof_seen_count} distinct row(s) cover total_count=${proof_min_total} of the runs created since ${proof_since})"
+                break
+              fi
+              proof_page=$((proof_page + 1))
+            done
+            if ! known_ids="$(printf "%s\n" "$active_runs" | jq -cs '[.[] | .id | tostring] | unique')"; then fail_closed "workflow_runs_unfiltered_union"; fi
+            if ! proof_unfinished_count="$(printf "%s\n" "$proof_unfinished" | jq -rs --arg current "$GITHUB_RUN_ID" '[.[] | .id | tostring | select(. != $current)] | unique | length')"; then fail_closed "workflow_runs_unfiltered_union"; fi
+            if ! proof_new_ids="$(printf "%s\n" "$proof_unfinished" | jq -rs --arg current "$GITHUB_RUN_ID" --argjson known "$known_ids" '[.[] | .id | tostring | select(. != $current)] | unique | map(select(. as $id | $known | any(.[]; . == $id) | not)) | .[:10] | join(",")')"; then fail_closed "workflow_runs_unfiltered_union"; fi
+            if [ -n "$proof_unfinished" ]; then active_runs="${active_runs}${active_runs:+$'\n'}${proof_unfinished}"; fi
+            echo "::notice::translate-pending queue guard: count still above rows after the confirm read (${queue_proof_reasons}); the unfiltered run list proves the queue by criterion ${proof_criterion}; ${proof_unfinished_count} unfinished run(s) besides the current one, new vs the per-status reads: ${proof_new_ids:-none}."
+          }
+          queue_proof_reasons=""
           active_runs=""
           for run_status in queued pending waiting requested in_progress; do
             read_status_rows "$run_status"
@@ -167,9 +215,32 @@ jobs:
               if ! status_rows="$(printf "%s\n%s\n" "$first_rows" "$status_rows" | jq -cs "$dedupe_rows_by_id")"; then fail_closed "workflow_runs_${run_status}_union"; fi
               union_rows="$(printf "%s\n" "$status_rows" | awk 'NF {count++} END {print count + 0}')"
               echo "::notice::translate-pending queue guard: ${run_status} total_count=${first_total_count} but rows=${first_rows_read}; confirm read total_count=${status_total_count}, rows=${status_rows_read}; deciding on the union of both reads (${union_rows} row(s))."
+              if [ "$status_rows_read" -lt "$status_total_count" ]; then queue_proof_reasons="${queue_proof_reasons}${queue_proof_reasons:+, }${run_status} total_count=${status_total_count} rows=${status_rows_read}"; fi
             fi
             if [ -n "$status_rows" ]; then active_runs="${active_runs}${active_runs:+$'\n'}${status_rows}"; fi
           done
+          # A count still above the rows after the confirm read has two readings.
+          # (1) Phantom count, measured: a status-filtered list declares runs it never
+          #     returns (corpus runs 37122259464 and 37101329262, 2026-10-03:
+          #     total_count > 0 with zero rows, for days). Failing closed on the count
+          #     there is the incident: translation stayed off for 13 runs out of 14.
+          # (2) Rows really missing, never observed: an older waiting run left out of
+          #     the list, which deciding on the union would let the current run jump.
+          # The union alone cannot tell them apart, so the queue is PROVEN on a source
+          # without the phantom count: the run list of this workflow with no status
+          # filter (its total_count is the total of the runs and pagination honours
+          # it). Its unfinished rows join active_runs (the dedupe below keeps one row
+          # per id). A full page cannot rule out an older waiting run on the next
+          # page, even if all rows there except the current one are completed, so
+          # below the ceiling the next page is always read. The proof closes on a
+          # short page or on a full page at the ceiling, and in both cases only when
+          # the distinct rows read cover the lowest total_count seen (a run created
+          # between two reads raises the later counts, is newer than the current run
+          # and leaves the rows already read complete). Fewer distinct rows than the
+          # count on a short page is an incoherent list, and at the ceiling a queue
+          # longer than the guard can read: fail closed. Called once per guard run,
+          # however many statuses disagree, and only then.
+          if [ -n "$queue_proof_reasons" ]; then prove_queue_beyond_union; fi
           # One row per run, latest read wins: statuses are read in sequence, so a run
           # that moved from queued to in_progress mid-scan was listed twice and would
           # count both as waiting and as an active heavy run.

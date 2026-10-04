@@ -1,18 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-10-03T09:23:05.593Z",
+  "generatedAt": "2026-10-03T21:18:45.129Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5429,
-  "avgDurationMs": 5429,
+  "durationMs": 6530,
+  "avgDurationMs": 6530,
   "durationHistory": [
-    5031,
-    5279,
-    5429
+    6530
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -57,6 +55,7 @@
       "slug": "banca-del-sempione-junior-legal-banca-del-sempione-lugano",
       "sourceLang": "it",
       "id": "banca-sempione-00a6adcf50af",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-19T23:02:49.693Z",
       "crawledAt": "",
       "applyUrl": "https://www.bancasempione.ch/job/junior-legal-banca-del-sempione-lugano/",
@@ -149,8 +148,8 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://www.bancasempione.ch/job/private-banking-assistant/",
-      "sourceIdentity": "url:https://www.bancasempione.ch/job/private-banking-assistant",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -159,5 +158,6 @@
         "completeness": 16
       }
     }
-  ]
+  ],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

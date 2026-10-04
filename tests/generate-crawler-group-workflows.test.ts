@@ -20,9 +20,10 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { memberCrawlStateDir, readMemberCrawlOutcomes } from '../scripts/crawler-group-generation-finalizer.mjs';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource } from '../scripts/generate-crawler-group-workflows.mjs';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource } from '../scripts/generate-crawler-group-workflows.mjs';
 import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
@@ -751,6 +752,125 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     expect(normalizedStdout).toContain('WORKFLOW=Run test-crawler');
   });
 
+  // ── OSSERVATORE CR-04b: l'exit del SOLO crawl ─────────────────────────────
+  //
+  // Se scatta: «Gruppo crawler: l'exit del solo crawl non viene più scritto —
+  // il gate di consegna torna cieco fra crawl fallito e consegna fallita».
+  // L'exit del corpo (`.status`) è 1 sia per un crawl fallito sia per un crawl
+  // riuscito il cui descrittore di commit è fallito: solo `.crawl-exit` li
+  // distingue per readMemberCrawlOutcomes nel finalizer.
+  describe('member crawl exit signal (CR-04b)', () => {
+    function runBodyWithCrawlExitFile(body: string, crawlExitFile: string | null) {
+      const env: NodeJS.ProcessEnv = { ...process.env };
+      delete env.CRAWLER_MEMBER_CRAWL_EXIT_FILE;
+      if (crawlExitFile !== null) env.CRAWLER_MEMBER_CRAWL_EXIT_FILE = crawlExitFile;
+      try {
+        const stdout = execFileSync('bash', ['-c', body], { encoding: 'utf8', env });
+        return { exitCode: 0, stdout };
+      } catch (err: any) {
+        return { exitCode: err.status ?? 1, stdout: err.stdout ?? '' };
+      }
+    }
+    const readCrawlExit = (file: string) => fs.readFileSync(file, 'utf8');
+
+    it('crawl exits 2 -> crawl-exit records 2, body exits 1', () => {
+      const crawlExitFile = path.join(tmpDir, 'test-crawler.crawl-exit');
+      const crawler = crawlerFixture({ runCommand: "bash -c 'exit 2'", commitCommand: writeFixtureCommitScript(0) });
+
+      const { exitCode } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(readCrawlExit(crawlExitFile)).toBe('2\n');
+      expect(exitCode).toBe(1);
+    });
+
+    it('crawl succeeds, deferred commit exits 1 -> crawl-exit records 0 while the body stays red', () => {
+      const crawlExitFile = path.join(tmpDir, 'test-crawler.crawl-exit');
+      const crawler = crawlerFixture({ commitCommand: writeFixtureCommitScript(1) });
+
+      const { exitCode } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(readCrawlExit(crawlExitFile)).toBe('0\n');
+      expect(exitCode).toBe(1);
+    });
+
+    it('crawl succeeds, shared precondition exits 43 -> crawl-exit records 0, body keeps 43', () => {
+      const crawlExitFile = path.join(tmpDir, 'test-crawler.crawl-exit');
+      const crawler = crawlerFixture({ commitCommand: writeFixtureCommitScript(43) });
+
+      const { exitCode } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(readCrawlExit(crawlExitFile)).toBe('0\n');
+      expect(exitCode).toBe(43);
+    });
+
+    it('timed variant: the inner work phase records the crawl exit too', () => {
+      const crawlExitFile = path.join(tmpDir, 'test-crawler.crawl-exit');
+      const crawler = {
+        ...crawlerFixture({ commitCommand: writeFixtureCommitScript(1) }),
+        targetTimeoutMinutes: 30,
+      };
+
+      const { exitCode } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(readCrawlExit(crawlExitFile)).toBe('0\n');
+      expect(exitCode).toBe(1);
+    });
+
+    it('timed variant: a crawl killed by the target deadline records 124', () => {
+      const crawlExitFile = path.join(tmpDir, 'test-crawler.crawl-exit');
+      const crawler = {
+        ...crawlerFixture({ commitCommand: writeFixtureCommitScript(0) }),
+        targetTimeoutMinutes: 30,
+      };
+      process.env.TEST_FORCE_TARGET_TIMEOUT = '1';
+
+      const { exitCode } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(readCrawlExit(crawlExitFile)).toBe('124\n');
+      expect(exitCode).toBe(124);
+    });
+
+    it('timed variant: a deadline after a finished crawl keeps the recorded crawl exit', () => {
+      // The crawl finished (0) and only the commit overran: that is a lost
+      // delivery, not a failed crawl, so the outer fallback must not turn it
+      // into 124. Modelled by a file the work phase already wrote.
+      const crawlExitFile = path.join(tmpDir, 'test-crawler.crawl-exit');
+      fs.writeFileSync(crawlExitFile, '0\n');
+      const crawler = { ...crawlerFixture(), targetTimeoutMinutes: 30 };
+      process.env.TEST_FORCE_TARGET_TIMEOUT = '1';
+
+      const { exitCode } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(readCrawlExit(crawlExitFile)).toBe('0\n');
+      expect(exitCode).toBe(124);
+    });
+
+    it.each([
+      ['untimed', {}],
+      ['timed', { targetTimeoutMinutes: 30 }],
+    ])('%s body run by hand (variable unset) writes nothing and keeps its exit', (_label, extra) => {
+      const crawler = { ...crawlerFixture({ commitCommand: writeFixtureCommitScript(1) }), ...extra };
+      const before = fs.readdirSync(tmpDir).sort();
+
+      const { exitCode, stdout } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), null);
+
+      expect(exitCode).toBe(1);
+      expect(fs.readdirSync(tmpDir).sort()).toEqual(before);
+      expect(stdout).not.toContain('could not record the crawl exit');
+    });
+
+    it('an unwritable target warns but never changes the body exit', () => {
+      const crawlExitFile = path.join(tmpDir, 'missing-dir', 'test-crawler.crawl-exit');
+      const crawler = crawlerFixture({ commitCommand: writeFixtureCommitScript(0) });
+
+      const { exitCode, stdout } = runBodyWithCrawlExitFile(buildCrawlerShellBody(crawler), crawlExitFile);
+
+      expect(exitCode).toBe(0);
+      expect(stdout).toContain('could not record the crawl exit');
+      expect(fs.existsSync(crawlExitFile)).toBe(false);
+    });
+  });
+
   it('rejects an invalid target timeout instead of silently falling back to the group limit', () => {
     const crawler = {
       ...crawlerFixture(),
@@ -920,6 +1040,100 @@ describe('buildCrawlerLaunchShellBody — runner cleanup isolation', () => {
     expect(crawlerWorkerWatchdogMinutes({ targetTimeoutMinutes: 320 })).toBe(330);
     expect(crawlerWorkerWatchdogMinutes({ durationMs: 60 * 60 * 1000 })).toBe(180);
     expect(crawlerWorkerWatchdogMinutes({ durationMs: 0 })).toBe(330);
+  });
+});
+
+describe('member crawl exit signal end to end (CR-04b writer -> finalizer reader)', () => {
+  // Real launcher -> worker -> body chain, read back by the finalizer's own
+  // reader. flock/setsid/timeout are shimmed so this runs on macOS too: the
+  // semaphore and the watchdog are not what is under test, the file key and
+  // its contents are.
+  function launchMember(runCommand: string, commitExit: number) {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-crawl-exit-'));
+    const bin = path.join(temp, 'bin');
+    fs.mkdirSync(bin);
+    fs.writeFileSync(path.join(bin, 'flock'), [
+      '#!/usr/bin/env bash',
+      'while [[ "${1:-}" == -* ]]; do shift; done',
+      'shift',
+      'if [ "${1:-}" = "-c" ]; then exec bash -c "$2"; fi',
+      'exec "$@"',
+      '',
+    ].join('\n'), { mode: 0o755 });
+    fs.writeFileSync(path.join(bin, 'setsid'), '#!/usr/bin/env bash\nexec "$@"\n', { mode: 0o755 });
+    fs.writeFileSync(path.join(bin, 'timeout'), [
+      '#!/usr/bin/env bash',
+      'while [[ "${1:-}" == --* ]]; do shift; done',
+      'shift',
+      'exec "$@"',
+      '',
+    ].join('\n'), { mode: 0o755 });
+    const lib = path.join(temp, 'lib');
+    fs.mkdirSync(lib);
+    fs.writeFileSync(path.join(lib, 'git-commit-data.sh'), `#!/usr/bin/env bash\nexit ${commitExit}\n`, { mode: 0o755 });
+    // Slug and roster id differ on purpose (the group-07 `guess` /
+    // `guess-europe` shape): the file must be keyed by the roster id.
+    const body = buildCrawlerLaunchShellBody({
+      slug: 'acme',
+      durationMs: 60_000,
+      runStep: { env: { JOBS_HOUSEKEEPING_SCOPE: 'acme-europe' }, run: runCommand },
+      postSteps: [
+        { name: 'Commit and push', env: {}, run: `bash ${lib}/git-commit-data.sh` },
+      ],
+    } as any, 15);
+    execFileSync('bash', ['-e', '-c', body], {
+      env: { ...process.env, PATH: `${bin}:${process.env.PATH ?? ''}`, RUNNER_TEMP: temp },
+      encoding: 'utf8',
+    });
+    const stateDir = memberCrawlStateDir(temp, '15');
+    const statusFile = path.join(stateDir, 'acme.status');
+    const deadline = Date.now() + 20_000;
+    while (!fs.existsSync(statusFile) && Date.now() < deadline) execFileSync('sleep', ['0.1']);
+    return { temp, stateDir, statusFile };
+  }
+
+  it('failed crawl: status 1, crawl-exit keyed by the roster id, reader says crawl_failed', () => {
+    const { temp, stateDir, statusFile } = launchMember("bash -c 'exit 2'", 0);
+    try {
+      expect(fs.readFileSync(statusFile, 'utf8').trim()).toBe('1');
+      expect(fs.readFileSync(path.join(stateDir, 'acme-europe.crawl-exit'), 'utf8')).toBe('2\n');
+      expect(fs.existsSync(path.join(stateDir, 'acme.crawl-exit'))).toBe(false);
+      expect(readMemberCrawlOutcomes(stateDir, ['acme-europe'])).toEqual({ 'acme-europe': 'crawl_failed' });
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it('crawl fine, commit descriptor failed: status 1 but reader says crawl_ok (delivery loss stays visible)', () => {
+    const { temp, stateDir, statusFile } = launchMember('true', 1);
+    try {
+      expect(fs.readFileSync(statusFile, 'utf8').trim()).toBe('1');
+      expect(readMemberCrawlOutcomes(stateDir, ['acme-europe'])).toEqual({ 'acme-europe': 'crawl_ok' });
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it('every committed corpus group exports one crawl-exit file per expected roster crawler', () => {
+    const corpusDir = path.resolve(import.meta.dirname, '../.github/corpus-workflows');
+    const files = fs.readdirSync(corpusDir).filter((file) => /^crawler-group-\d+\.yml$/.test(file));
+    expect(files.length).toBeGreaterThan(0);
+    for (const file of files) {
+      const doc = YAML.parse(fs.readFileSync(path.join(corpusDir, file), 'utf8'));
+      const job = doc.jobs[Object.keys(doc.jobs)[0]];
+      const finalizer = job.steps.find((step: any) => step.id === 'crawler-generation-finalizer');
+      expect(finalizer, file).toBeDefined();
+      const group = finalizer.env.CRAWLER_GENERATION_GROUP;
+      const expected = JSON.parse(finalizer.env.CRAWLER_GENERATION_EXPECTED_CRAWLERS)
+        .map((entry: any) => entry.crawlerId).sort();
+      const exported = crawlerLaunchSteps(job.steps).map((step: any) => {
+        const match = String(step.run).match(
+          new RegExp(`export CRAWLER_MEMBER_CRAWL_EXIT_FILE="\\$RUNNER_TEMP/crawler-generation/group-${group}/([^"/]+)\\.crawl-exit"`),
+        );
+        return match?.[1] ?? null;
+      }).sort();
+      expect(exported, file).toEqual(expected);
+    }
   });
 });
 
@@ -2089,6 +2303,34 @@ describe('cross-repo crawler execution artifacts', () => {
       .toThrow(/40-character source commit SHA/);
   });
 
+  it('il contratto committato non indica mai il merge sintetico di una pull request', () => {
+    const onMain = { sourceCommit: 'a'.repeat(40), sourceRef: 'main' };
+    expect(assertCommittedContractSource(onMain, {})).toEqual(onMain);
+    for (const sourceRef of ['11227/merge', 'refs/pull/11227/merge', 'pull/11227/head', '42/head']) {
+      expect(() => assertCommittedContractSource({ ...onMain, sourceRef }, {}))
+        .toThrow(/is a pull request ref, not a branch/);
+    }
+    // In un evento pull_request GITHUB_SHA e' il merge sintetico
+    // `refs/pull/<N>/merge`: senza CRAWLER_SOURCE_COMMIT esplicito non puo'
+    // diventare la lineage che il corpus rilegge.
+    const pullRequestEnv = { GITHUB_EVENT_NAME: 'pull_request', GITHUB_SHA: 'b'.repeat(40) };
+    expect(() => assertCommittedContractSource({ sourceCommit: 'b'.repeat(40), sourceRef: 'main' }, pullRequestEnv))
+      .toThrow(/synthetic merge commit of a pull_request run/);
+    expect(assertCommittedContractSource(
+      { sourceCommit: 'b'.repeat(40), sourceRef: 'main' },
+      { ...pullRequestEnv, CRAWLER_SOURCE_COMMIT: 'b'.repeat(40) },
+    )).toEqual({ sourceCommit: 'b'.repeat(40), sourceRef: 'main' });
+    // Osservatore sul file committato, che il trasporto copia nel corpus byte
+    // per byte: la PR 11227 vi aveva scritto `11227/merge`.
+    const committed = JSON.parse(fs.readFileSync(path.join(repoRoot, '.github/corpus-workflows/contract.json'), 'utf8'));
+    expect(() => assertCommittedContractSource({ sourceCommit: committed.sourceCommit, sourceRef: committed.sourceRef }, {}))
+      .not.toThrow();
+    expect(() => assertCommittedContractSource({
+      sourceCommit: committed.artifactObservation.sourceCommit,
+      sourceRef: committed.artifactObservation.sourceRef,
+    }, {})).not.toThrow();
+  });
+
   it('add/remove arriva al corpus eseguito e una nuova data lascia baseline allineate byte-identiche', () => {
     const manifestPath = path.join(tmp, 'manifest.json');
     const baselinePath = path.join(repoRoot, 'data/crawler-workflow-duration-baseline.json');
@@ -2724,6 +2966,66 @@ describe('cross-repo crawler execution artifacts', () => {
     const confirmBlock = guardCode.slice(confirmAt, guardCode.indexOf('fi', confirmAt));
     expect(confirmBlock.some((line) => line.includes('read_status_rows'))).toBe(true);
     expect(confirmBlock.filter((line) => line.includes('fail_closed')).every((line) => line.includes('_union"'))).toBe(true);
+    // Dopo la rilettura un conteggio ancora maggiore delle righe non fa
+    // fail_closed: chiede la prova sull'elenco senza filtro di stato, una sola
+    // volta per run del guard e solo in quel caso.
+    expect(confirmBlock.some((line) => line.includes('queue_proof_reasons='))).toBe(true);
+    const proofCallLines = guardCode.filter((line) => /\bprove_queue_beyond_union\b/.test(line) && !line.endsWith('{'));
+    expect(proofCallLines).toEqual(['if [ -n "$queue_proof_reasons" ]; then prove_queue_beyond_union; fi']);
+    const proofStart = guardCode.indexOf('prove_queue_beyond_union() {');
+    const proofEnd = guardCode.indexOf('}', proofStart);
+    expect(proofStart).toBeGreaterThan(-1);
+    const proofBody = guardCode.slice(proofStart, proofEnd);
+    const proofReads = proofBody.filter((line) => line.includes('/runs?'));
+    expect(proofReads.length).toBeGreaterThan(0);
+    expect(proofReads.every((line) => !line.includes('status='))).toBe(true);
+    expect(proofBody.some((line) => line.includes('$(guard_api "$runs_path")'))).toBe(true);
+    // Nella prova il conteggio decide solo se l'elenco letto e' completo: API,
+    // payload, righe illeggibili, elenco incoerente (pagina corta sotto il
+    // conteggio) e coda non dimostrabile AL TETTO di pagine.
+    const proofFailReasons = proofBody
+      .filter((line) => line.includes('fail_closed'))
+      .map((line) => line.match(/fail_closed "([^"]+)"/)?.[1]);
+    expect(new Set(proofFailReasons)).toEqual(new Set([
+      'workflow_runs_unfiltered_window',
+      'workflow_runs_unfiltered',
+      'workflow_runs_unfiltered_payload',
+      'workflow_runs_unfiltered_rows',
+      'workflow_runs_unfiltered_incomplete',
+      'workflow_runs_queue_unproven',
+      'workflow_runs_unfiltered_union',
+    ]));
+    const completenessChecks = proofBody.filter((line) => line.startsWith('if [ "$proof_seen_count" -lt "$proof_min_total" ]; then fail_closed'));
+    expect(completenessChecks.map((line) => line.match(/fail_closed "([^"]+)"/)?.[1]))
+      .toEqual(['workflow_runs_unfiltered_incomplete', 'workflow_runs_queue_unproven']);
+    // Il conteggio e' il MINIMO visto e le righe sono contate per id distinto:
+    // una run creata fra due letture alza i conteggi successivi e ripete una
+    // riga gia' letta senza rendere incompleta la prova.
+    expect(proofBody).toContain('if [ "$proof_min_total" -lt 0 ] || [ "$proof_page_total" -lt "$proof_min_total" ]; then proof_min_total="$proof_page_total"; fi');
+    expect(proofBody.some((line) => line.includes('!seen[$0]++'))).toBe(true);
+    // La prova chiude in due soli punti, la pagina corta e il tetto, e ognuno
+    // passa prima dal controllo di completezza: nessun ramo chiude sul solo
+    // contenuto di una pagina piena (review della PR di lockstep 2066 del
+    // corpus) ne' sulla sola pagina corta (review della PR di lockstep 2076).
+    const breakAt = proofBody.flatMap((line, index) => (line === 'break' ? [index] : []));
+    const breakBlocks = breakAt.map((at) => {
+      let openAt = at - 1;
+      while (openAt >= 0 && !/^if \[.*\]; then$/.test(proofBody[openAt])) openAt -= 1;
+      return proofBody.slice(openAt, at);
+    });
+    expect(breakBlocks.map((block) => block[0])).toEqual([
+      'if [ "$proof_returned_count" -lt "$status_page_size" ]; then',
+      'if [ "$proof_page" -ge "$proof_page_limit" ]; then',
+    ]);
+    for (const block of breakBlocks) {
+      expect(block[1]).toMatch(/^if \[ "\$proof_seen_count" -lt "\$proof_min_total" \]; then fail_closed /);
+    }
+    // L'elenco senza filtro e' limitato alla vita massima di una run (35 giorni):
+    // senza il limite cresce con ogni run e oltre il tetto la prova fallirebbe
+    // sempre, spegnendo di nuovo la traduzione.
+    expect(proofReads.every((line) => line.includes('&created=%3E%3D${proof_since}'))).toBe(true);
+    expect(guardCode).toContain('run_lifetime_days=35');
+    expect(guardCode).toContain('proof_page_limit=5');
     // Le letture passano tutte da guard_api: un solo budget di tempo.
     expect(guardStep.run.match(/guard_total_timeout_seconds=/g)).toEqual(['guard_total_timeout_seconds=']);
     expect(guardCode.filter((line) => /\bgh api\b/.test(line)).every((line) => line.includes('timeout --kill-after=0s'))).toBe(true);
@@ -2892,7 +3194,9 @@ esac
     const guardStep = translation.jobs.translate_queue_guard.steps
       .find((step: any) => step.id === 'translate_queue_guard');
     // Conteggio fantasma persistente: stessa risposta alla prima lettura e alla
-    // rilettura di conferma. E' il caso che spegneva la traduzione.
+    // rilettura di conferma. E' il caso che spegneva la traduzione. L'unione
+    // non basta: la coda e' provata sull'elenco senza filtro di stato, che qui
+    // finisce in una pagina corta (criterio a) con la sola corrente non conclusa.
     const { stdout, output, calls } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
 set -euo pipefail
 endpoint="$2"
@@ -2903,6 +3207,9 @@ case "$endpoint" in
     ;;
   *"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
     printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"/runs?per_page=100&page=1&created=%3E%3D"*)
+    printf '%s\n' '{"total_count":3,"workflow_runs":[{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"},{"id":399,"created_at":"2026-09-30T09:00:00Z","status":"completed"},{"id":398,"created_at":"2026-09-30T08:00:00Z","status":"completed"}]}'
     ;;
   */actions/runs/400)
     printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
@@ -2928,6 +3235,297 @@ esac
     expect(readsOf('pending')).toBe(1);
     expect(readsOf('queued')).toBe(readsOf('pending') + 1);
     expect(readsOf('in_progress')).toBe(readsOf('pending'));
+    // La prova: una sola pagina dell'elenco senza filtro, chiusa dal criterio a.
+    const unfilteredReads = calls.filter((endpoint) => endpoint.includes('/runs?') && !endpoint.includes('status='));
+    expect(unfilteredReads).toHaveLength(1);
+    const since = unfilteredReads[0].match(/translate-pending\.yml\/runs\?per_page=100&page=1&created=%3E%3D(\d{4}-\d{2}-\d{2})$/)?.[1];
+    expect(since).toBeTruthy();
+    expect(Math.abs(Date.parse(`${since}T00:00:00Z`) - (Date.now() - 35 * 86400000))).toBeLessThan(2 * 86400000);
+    expect(stdout).toContain(
+      `count still above rows after the confirm read (queued total_count=3 rows=0); the unfiltered run list proves the queue by criterion a (page 1 has 3 row(s) and ends the list of runs created since ${since}; 3 distinct row(s) cover total_count=3); 0 unfinished run(s) besides the current one, new vs the per-status reads: none.`,
+    );
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('non accetta una pagina piena senza leggere la pagina finale corta', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // Prima pagina senza filtro piena: la corrente e 99 run concluse. La
+    // seconda pagina contiene una run queued piu' vecchia: il guard deve
+    // leggerla invece di concludere dal solo contenuto della prima pagina.
+    const { stdout, output, calls } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+printf '%s\n' "$endpoint" >> "$(dirname "$0")/../gh-calls.log"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":3,"workflow_runs":[]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"/runs?per_page=100&page=1&created=%3E%3D"*)
+    jq -cn '{total_count: 5000, workflow_runs: ([{id: 400, created_at: "2026-09-30T10:00:00Z", status: "in_progress"}] + [range(1; 100) | {id: (400 - .), created_at: "2026-09-30T09:00:00Z", status: "completed"}])}'
+    ;;
+  *"/runs?per_page=100&page=2&created=%3E%3D"*)
+    printf '%s\n' '{"total_count":101,"workflow_runs":[{"id":90,"created_at":"2026-09-30T07:00:00Z","status":"queued"}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).not.toContain('could not inspect GitHub Actions');
+    expect(stdout).toContain('by criterion a (page 2 has 1 row(s) and ends the list of runs created since ');
+    expect(stdout).toContain('found older run 90');
+    expect(output).toContain('run=false');
+    expect(output).toMatch(/^guard_error=$/m);
+    const unfilteredReads = calls.filter((endpoint) => endpoint.includes('/runs?') && !endpoint.includes('status='));
+    const pendingReads = calls.filter((endpoint) => endpoint.endsWith('status=pending'));
+    expect(unfilteredReads.length).toBe(pendingReads.length + 1);
+    expect(unfilteredReads[0]).toMatch(/&page=1&created=%3E%3D\d{4}-\d{2}-\d{2}$/);
+    expect(unfilteredReads[1]).toMatch(/&page=2&created=%3E%3D\d{4}-\d{2}-\d{2}$/);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('la prova senza filtro porta fra i candidati la run davvero mancante dalle letture per stato', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // L'ipotesi del reviewer: l'elenco per stato omette la run 90, piu' vecchia
+    // della corrente e ancora in coda. L'elenco senza filtro la mostra.
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":1,"workflow_runs":[]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"/runs?per_page=100&page=1&created=%3E%3D"*)
+    printf '%s\n' '{"total_count":3,"workflow_runs":[{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"},{"id":90,"created_at":"2026-09-30T07:00:00Z","status":"queued"},{"id":89,"created_at":"2026-09-30T06:00:00Z","status":"completed"}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).not.toContain('could not inspect GitHub Actions');
+    expect(stdout).toContain('1 unfinished run(s) besides the current one, new vs the per-status reads: 90.');
+    expect(stdout).toContain('found older run 90');
+    expect(output).toContain('run=false');
+    expect(output).toContain('waiting_runs=1');
+    // Duplicato legittimo deciso sui dati, non guard cieco.
+    expect(output).toMatch(/^guard_error=$/m);
+    expect(output).not.toMatch(/^guard_error=.+$/m);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('resta fail-closed quando l’elenco senza filtro non dimostra la coda entro il tetto di pagine', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // Cinque pagine piene (il tetto della prova), nessuna corta: la coda e'
+    // piu' lunga di cio' che il guard puo' vedere. Una sesta pagina non esiste
+    // nella fixture.
+    const { stdout, output, calls } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+printf '%s\n' "$endpoint" >> "$(dirname "$0")/../gh-calls.log"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":3,"workflow_runs":[]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"/runs?per_page=100&page="[1-5]"&created=%3E%3D"*)
+    page="$(printf '%s' "$endpoint" | sed -E 's/.*&page=([0-9]+)&created.*/\1/')"
+    jq -cn --argjson page "$page" '{total_count: 5000, workflow_runs: [range(0; 100) | {id: (10000 * $page + .), created_at: "2026-09-30T11:00:00Z", status: (if . == 0 then "queued" else "completed" end)}]}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).toContain(
+      'could not inspect GitHub Actions (workflow_runs_queue_unproven; queued total_count=3 rows=0; unfiltered pages=5 since ',
+    );
+    expect(output).toContain('run=false');
+    expect(output).toContain('waiting_runs=-1');
+    // guard_error valorizzato: lo step «Fail the run when the queue guard was
+    // blind» rende rossa la run (contratto coperto dal test del guard cieco).
+    expect(output).toMatch(/^guard_error=workflow_runs_queue_unproven$/m);
+    const unfilteredPages = calls.filter((endpoint) => endpoint.includes('/runs?') && !endpoint.includes('status='));
+    expect(new Set(unfilteredPages).size).toBe(unfilteredPages.length);
+    expect(unfilteredPages[unfilteredPages.length - 1]).toMatch(/&page=5&created=/);
+    expect(stdout).toContain(', rows=500 total_count=5000, no short final page)');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('resta fail-closed quando una pagina corta dell’elenco senza filtro ha meno righe distinte del conteggio', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // Review della PR di lockstep 2076 del corpus: la pagina corta da sola non
+    // dimostra la fine dell'elenco. Qui GitHub dichiara 5 run e ne restituisce
+    // 3 in una pagina corta: una run piu' vecchia ancora in coda potrebbe essere
+    // fra le due mancanti, quindi la corrente non viene ammessa.
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":3,"workflow_runs":[]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"/runs?per_page=100&page=1&created=%3E%3D"*)
+    printf '%s\n' '{"total_count":5,"workflow_runs":[{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"},{"id":399,"created_at":"2026-09-30T09:00:00Z","status":"completed"},{"id":398,"created_at":"2026-09-30T08:00:00Z","status":"completed"}]}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).toContain('could not inspect GitHub Actions (workflow_runs_unfiltered_incomplete; queued total_count=3 rows=0; unfiltered rows=3 total_count=5 since ');
+    expect(stdout).toContain(', short page 1 before the end of the list)');
+    expect(output).toContain('run=false');
+    expect(output).toContain('waiting_runs=-1');
+    expect(output).toMatch(/^guard_error=workflow_runs_unfiltered_incomplete$/m);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('una run creata fra due letture dell’elenco senza filtro non rende incompleta la prova', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // Fra la prima e la seconda lettura nasce una run nuova: la seconda pagina
+    // dichiara 101 run e ripete l'ultima riga della prima (301), spostata in
+    // giu' di una posizione. Le 100 run distinte lette coprono il conteggio
+    // minimo (100): la run nuova e' piu' recente della corrente e non cambia la
+    // sua posizione in coda.
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":3,"workflow_runs":[]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"/runs?per_page=100&page=1&created=%3E%3D"*)
+    jq -cn '{total_count: 100, workflow_runs: ([{id: 400, created_at: "2026-09-30T10:00:00Z", status: "in_progress"}] + [range(1; 100) | {id: (400 - .), created_at: "2026-09-30T09:00:00Z", status: "completed"}])}'
+    ;;
+  *"/runs?per_page=100&page=2&created=%3E%3D"*)
+    printf '%s\n' '{"total_count":101,"workflow_runs":[{"id":301,"created_at":"2026-09-30T09:00:00Z","status":"completed"}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).not.toContain('could not inspect GitHub Actions');
+    expect(stdout).toContain('by criterion a (page 2 has 1 row(s) and ends the list of runs created since ');
+    expect(stdout).toContain('; 100 distinct row(s) cover total_count=100)');
+    expect(output).toContain('run=true');
+    expect(output).toMatch(/^guard_error=$/m);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('al tetto di pagine un’ultima pagina piena che chiude esattamente l’elenco decide sui dati', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    // Review della PR di lockstep 2076 del corpus: esattamente 500 run nella
+    // finestra riempiono le cinque pagine del tetto. Le righe distinte coprono
+    // il conteggio, quindi l'elenco e' finito: niente guard cieco.
+    const { stdout, output, calls } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+printf '%s\n' "$endpoint" >> "$(dirname "$0")/../gh-calls.log"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":3,"workflow_runs":[]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"/runs?per_page=100&page="[1-5]"&created=%3E%3D"*)
+    page="$(printf '%s' "$endpoint" | sed -E 's/.*&page=([0-9]+)&created.*/\1/')"
+    jq -cn --argjson page "$page" '{total_count: 500, workflow_runs: [range(0; 100) | {id: (if $page == 1 and . == 0 then 400 else 10000 * $page + . end), created_at: "2026-09-30T09:00:00Z", status: (if $page == 1 and . == 0 then "in_progress" else "completed" end)}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).not.toContain('could not inspect GitHub Actions');
+    expect(stdout).toContain('by criterion b (page 5 is full and is the page ceiling; 500 distinct row(s) cover total_count=500 of the runs created since ');
+    expect(output).toContain('run=true');
+    expect(output).toMatch(/^guard_error=$/m);
+    const unfilteredPages = calls.filter((endpoint) => endpoint.includes('/runs?') && !endpoint.includes('status='));
+    expect(unfilteredPages[unfilteredPages.length - 1]).toMatch(/&page=5&created=/);
+    expect(unfilteredPages.some((endpoint) => /&page=6&/.test(endpoint))).toBe(false);
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('resta fail-closed quando l’elenco senza filtro restituisce un payload non valido', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":3,"workflow_runs":[]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"/runs?per_page=100&page=1&created=%3E%3D"*)
+    printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":400,"created_at":"2026-09-30T10:00:00Z"}]}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).toContain('could not inspect GitHub Actions (workflow_runs_unfiltered_payload; queued total_count=3 rows=0; page=1)');
+    expect(output).toContain('run=false');
+    expect(output).toMatch(/^guard_error=workflow_runs_unfiltered_payload$/m);
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('la rilettura di conferma porta fra i candidati una run elencata in ritardo', () => {
@@ -2937,7 +3535,7 @@ esac
       .find((step: any) => step.id === 'translate_queue_guard');
     // Prima lettura: il conteggio dichiara una run che l'elenco non mostra
     // ancora. Seconda lettura: la run (piu' vecchia della corrente) compare.
-    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+    const { stdout, output, calls } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
 set -euo pipefail
 endpoint="$2"
 calls_log="$(dirname "$0")/../gh-calls.log"
@@ -2973,6 +3571,11 @@ esac
     // Duplicato legittimo, non guard cieco: la run resta verde.
     expect(output).toMatch(/^guard_error=$/m);
     expect(output).not.toMatch(/^guard_error=.+$/m);
+    // La rilettura copre il conteggio: la prova senza filtro non serve e
+    // l'elenco senza `status=` non viene letto.
+    expect(stdout).not.toContain('unfiltered run list');
+    expect(calls.filter((endpoint) => endpoint.includes('/runs?') && !endpoint.includes('status='))).toEqual([]);
+    expect(calls.some((endpoint) => endpoint.endsWith('status=queued'))).toBe(true);
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('conta una sola volta la run letta sotto due stati (queued, poi in_progress)', () => {

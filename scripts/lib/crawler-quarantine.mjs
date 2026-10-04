@@ -74,6 +74,28 @@ function isIssueNumber(value) {
   return Number.isSafeInteger(value) && value > 0;
 }
 
+/**
+ * The `reason` an AUTOMATIC retirement writes into `retired[slug]`, and its
+ * recognizer, side by side so the two cannot drift (a test round-trips them).
+ *
+ * A threshold retirement says only "it stayed red long enough": it is not the
+ * triangulated evidence DECISIONS 2026-09-23 asks for before calling a source
+ * gone. `scripts/ci/close-retired-crawler-issues.mjs` uses the recognizer to
+ * tell such a retirement apart from one whose reason was written by hand.
+ */
+export function automaticRetireReason({ streak, retireRedWaves, days, failingSince, retireDays }) {
+  return streak >= retireRedWaves
+    ? `${streak} ondate rosse consecutive (soglia ${retireRedWaves})`
+    : `${Math.floor(days)} giorni di fallimenti da ${String(failingSince).slice(0, 10)} (soglia ${retireDays})`;
+}
+
+export const AUTOMATIC_RETIRE_REASON_RE =
+  /^(?:\d+ ondate rosse consecutive|\d+ giorni di fallimenti da \d{4}-\d{2}-\d{2}) \(soglia \d+\)$/;
+
+export function isAutomaticRetireReason(reason) {
+  return typeof reason === 'string' && AUTOMATIC_RETIRE_REASON_RE.test(reason.trim());
+}
+
 /** YYYY-MM-DD of the last day a known failure is still excluded from the verdict. */
 export function quarantineDeadline(entry, retireDays = QUARANTINE_RETIRE_DAYS) {
   if (!entry?.failingSince) return null;
@@ -345,9 +367,9 @@ export function decideQuarantine({
           homeGroup: entry.homeGroup,
           issue: entry.issue,
           failingSince: entry.failingSince,
-          reason: s.streak >= retireRedWaves
-            ? `${s.streak} ondate rosse consecutive (soglia ${retireRedWaves})`
-            : `${Math.floor(days)} giorni di fallimenti da ${entry.failingSince.slice(0, 10)} (soglia ${retireDays})`,
+          reason: automaticRetireReason({
+            streak: s.streak, retireRedWaves, days, failingSince: entry.failingSince, retireDays,
+          }),
           evidence,
         });
         continue;

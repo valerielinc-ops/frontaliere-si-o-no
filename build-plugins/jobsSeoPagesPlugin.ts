@@ -1,3 +1,5 @@
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import { hasPostingDateProvenance, resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { G_PERMIT_FACTS, CROSS_BORDER_TAX_FACTS, G_PERMIT_SOURCE, CROSS_BORDER_TAX_SOURCE, type EmploymentFactsLocale } from '../services/crossBorderEmploymentFacts';
 import { renderJobDescriptionGate } from './shared/jobDescriptionGate';
 import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendations';
@@ -16,6 +18,7 @@ import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendatio
 // riprenda. E' gia' costato due bug silenziosi (pdfWhitepapersPlugin,
 // staticPagesPlugin): le hero card venivano drenate prima di essere registrate.
 import fs from 'node:fs';
+import { renderSitemapLastmod } from './shared/sitemapLastmod';
 import { decodeHtmlText } from '../packages/articles/engine/shared/htmlEntities';
 import np from 'node:path';
 import path from 'path';
@@ -33,6 +36,7 @@ import { isListingInventoryJob, normalizeListingIdentity, selectJobBoardInventor
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import { readOrphanEnriched } from '../scripts/lib/orphan-enriched-store.mjs';
+import { keywordPageMatcher } from '../scripts/lib/keyword-page-match.mjs';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from './shared/jobPostingFaq';
 import { hostFromUrl } from './shared/hostFromUrl';
@@ -120,7 +124,7 @@ import {
  isKnownTicinoCommuterCity, CALC_HREF,
 } from './shared/jobBoardCommuterContext';
 import { FX_HREF } from './shared/comparatorHref';
-import { formatUpdatedSentence } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { renderCompanyHubFrontalierContext } from './shared/companyHubFrontalierContext';
 import { companyFollowMountPlaceholder } from './shared/companyFollowMountPlaceholder';
 import { resolveHubCompanyKey } from './shared/companyFollowIdentity';
@@ -249,7 +253,7 @@ import {
 } from '../services/seo/meta-descriptions';
 import { COMPANY_HQ_ADDRESSES, CANTON_CAPITAL_ADDRESSES, localityMatchesHq } from './shared/companyHqAddresses';
 import { normalizePostalCityKey } from './shared/postalCodes';
-import { buildJobPostingSchema, sanitizeLocalityForRegion, type JobInput } from './shared/jobPostingSchema';
+import { buildJobPostingFacts, buildJobPostingSchema, sanitizeLocalityForRegion, type JobInput } from './shared/jobPostingSchema';
 import { normalizeCantonCode, inferAnyCanton } from '../scripts/lib/target-swiss-locations.mjs';
 import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location-display.mjs';
 import { buildJobListEntry } from './shared/jobListEntry';
@@ -689,7 +693,7 @@ export function pickJobDisambiguator(
  }
 
  // (4) posted month — "apr 2027". Always available, very compact.
- const dateStr = String(job.postedDate ?? '');
+ const dateStr = resolveRolloutPostingDate(job, () => String(job.postedDate ?? '')) || '';
  const dateMatch = dateStr.match(/^(\d{4})-(\d{2})/);
  if (dateMatch) {
   const year = dateMatch[1];
@@ -880,7 +884,7 @@ const ACTIVE_JOB_REUSE_MARKERS = Object.freeze({
 });
 
 type ActiveJobReuseFragments = {
- jobPostingDatePosted: string;
+ jobPostingDatePosted: string | null;
  jobPostingValidThrough: string;
  heroBadges: string;
  mobileAction: string;
@@ -905,9 +909,10 @@ function replaceActiveJobReuseFragment(
 
 export function replaceActiveJobPostingDates(
  fragment: string,
- datePosted: string,
+ datePosted: string | null,
  validThrough: string,
 ): string {
+ if (!datePosted) return '';
  const scriptMatch = fragment.match(
   /<script\b[^>]*type=(['"])application\/ld\+json\1[^>]*>[\s\S]*?<\/script>/i,
  );
@@ -3304,9 +3309,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
     perJob_salaryCurrency,
    );
    return {
-   jobPostingDatePosted: safeIsoDate(job?.postedDate)
-    || safeIsoDate(job?.crawledAt)
-    || toIsoDateTime('', jobsSeoReuseBuildNow),
+   jobPostingDatePosted: resolveReportedPostingDate(job, jobsSeoReuseBuildNow),
    jobPostingValidThrough: toValidThrough(
     String(job?.postedDate || ''),
     job?.crawledAt,
@@ -3691,6 +3694,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  addressCountry,
  postalCode,
  streetAddress,
+ postingDateSource: job.postingDateSource,
+ datePosted: job.datePosted,
  postedDate: job.postedDate,
  crawledAt: job.crawledAt,
  updatedAt: job.updatedAt,
@@ -3733,11 +3738,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  isTicino: faqResolvedCanton === 'TI',
  isRemote,
  };
- const jobFaqPairs = buildJobPostingFaqPairs(canonicalSchema, faqOpts);
+ const jobFaqPairs = buildJobPostingFaqPairs(buildJobPostingFacts(canonicalJobInput, locale), faqOpts);
  // Merge editorial-only fields that sit outside the 9-mandatory core.
  // The canonical block is authoritative for every required field — only
  // optional enrichment data is layered on.
- const jobLd = inlineScriptJson({
+ const jobLd = canonicalSchema ? inlineScriptJson({
  ...canonicalSchema,
  // validThrough from the legacy helper (may differ from builder default).
  validThrough: toValidThrough(job.postedDate, job.crawledAt, jobsSeoReuseBuildNow),
@@ -3748,7 +3753,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ...(canonicalResponsibilities.length > 0 ? { responsibilities: canonicalResponsibilities.join('\n') } : {}),
  ...(canonicalKeywords.length > 0 ? { skills: canonicalKeywords.join(', ') } : {}),
  ...(canonicalRequirements.length > 0 ? { qualifications: canonicalRequirements.join('\n') } : {}),
- });
+ }) : null;
  const breadcrumbLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
@@ -3825,7 +3830,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta property="og:image:alt" content="${esc(ogTitle)}">
  <link rel="canonical" href="${effectiveCanonicalUrl}">
 ${hreflangHtml}
- <!-- jobs-seo-reuse:job-posting:start --><script type="application/ld+json">${jobLd}</script><!-- jobs-seo-reuse:job-posting:end -->
+ <!-- jobs-seo-reuse:job-posting:start -->${jobLd ? `<script type="application/ld+json">${jobLd}</script>` : ''}<!-- jobs-seo-reuse:job-posting:end -->
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${jobFaqLd}</script>
  <script type="application/ld+json">${inlineScriptJson({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,inLanguage:locale,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g,'/'))}`,name:cantonSectionName(locale,dc)}})}</script>
@@ -5328,6 +5333,7 @@ ${companyFollowHtml}
      company: string;
      location: string;
      href: string;
+     postingDateSource?: string;
      datePosted?: string;
      titleByLocale?: Partial<Record<'it' | 'en' | 'de' | 'fr', string>>;
      companyKey?: string;
@@ -5360,6 +5366,7 @@ ${companyFollowHtml}
          featured: item.featured,
          logo: item.logo,
          addressLocality: item.addressLocality,
+         postingDateSource: item.postingDateSource,
          datePosted: item.datePosted,
          companyDomain: item.companyDomain,
          url: item.url,
@@ -5627,7 +5634,7 @@ ${companyFollowHtml}
  const emitted = _writtenPaths.has(dirIndex) || _writtenPaths.has(flatHtml) || fs.existsSync(dirIndex) || fs.existsSync(flatHtml);
  if (!emitted) continue;
  }
- editorialSitemapEntries.push(` <url>\n <loc>${BASE_URL}${path}</loc>\n${alternateLinks}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>${priority}</priority>\n </url>`);
+ editorialSitemapEntries.push(` <url>\n <loc>${BASE_URL}${path}</loc>\n${alternateLinks}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <changefreq>daily</changefreq>\n <priority>${priority}</priority>\n </url>`);
  }
  };
 
@@ -5783,7 +5790,7 @@ ${staticAnalyticsHtml}
  ${railGutters(true).open}
  <main class="seo-static-content s-xzWvwM">
  <header class="s-S_0cal sx-hero">
- <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+ <p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -5947,7 +5954,7 @@ ${staticAnalyticsHtml}
  ${railGutters(true).open}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
- <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+ <p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -6123,7 +6130,7 @@ ${staticAnalyticsHtml}
  ${railGutters(true).open}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
- <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+ <p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -6311,7 +6318,7 @@ ${staticAnalyticsHtml}
  ${railGutters(true).open}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
- <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+ <p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -6489,7 +6496,7 @@ ${staticAnalyticsHtml}
  <span>${esc(model.heading)}</span>
  </nav>
  <header class="s-S_0cal sx-hero">
- <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+ <p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -6687,7 +6694,7 @@ ${staticAnalyticsHtml}
  <span>${esc(model.heading)}</span>
  </nav>
  <header class="s-S_0cal sx-hero">
- <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+ <p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -6965,7 +6972,7 @@ ${staticAnalyticsHtml}
  ${railGutters(true).open}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
- <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+ <p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(pageH1)}</h1>
  <p class="s-wU5Nrr">${esc(pageDesc)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -7077,7 +7084,7 @@ ${staticAnalyticsHtml}
  const altPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${CITY_HUB_SLUG[locale][cityHubKey]}/`.replace(/\/+/g, '/');
  return ` <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${altPath}" />`;
  }).join('\n');
- editorialSitemapEntries.push(` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${alternateLinks}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.85</priority>\n </url>`);
+ editorialSitemapEntries.push(` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${alternateLinks}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <changefreq>daily</changefreq>\n <priority>0.85</priority>\n </url>`);
  }
  }
 
@@ -7192,7 +7199,7 @@ ${staticAnalyticsHtml}
  ${railGutters(true).open}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
- <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+ <p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -7360,7 +7367,7 @@ ${staticAnalyticsHtml}
  ${railGutters(true).open}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
- <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+ <p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -7710,7 +7717,7 @@ ${staticAnalyticsHtml}
  // styles bind without per-page CSS. Before this template the body was
  // a bare `<h1><p><p><ul>` which rendered visibly unstyled next to TI
  // siblings.
- const updatedDate = new Date().toISOString().slice(0, 10);
+ const generationDate = new Date().toISOString().slice(0, 10);
  const jobCountLabel = locale === 'it' ? 'Offerte attive'
    : locale === 'en' ? 'Open positions'
    : locale === 'de' ? 'Offene Stellen'
@@ -7728,7 +7735,7 @@ ${staticAnalyticsHtml}
    : locale === 'de' ? `Stellenangebote in ${cityDisplay}`
    : `Offres d'emploi à ${cityDisplay}`;
  const tilesHtml = `<section class="s-S6PRaY"><div class="s-CGuDZg"><div class="s-JFi4vt">${esc(jobCountLabel)}</div><div class="s-9UotdJ">${cityJobs.length}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(cantonTileLabel)}</div><div class="s-9UotdJ">${esc(canton)}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(permitTileLabel)}</div><div class="s-9UotdJ">G</div></div></section>`;
- const bodyHtml = `<header class="s-S_0cal sx-hero"><p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(updatedDate, locale))}</p><h1 class="s-P0Hs0W">${esc(cityHubSeo.h1)}</h1><p class="s-wU5Nrr">${esc(pageDesc)}</p>${intro}</header>${tilesHtml}<section class="s-KZc0LQ"><div class="s-r2QmTP"><h2 class="s-CqexyJ">${esc(listHeading)}</h2><a class="s-YszcPD" href="${sectionRootUrl}">${esc(backLabel)}</a></div><ul class="s-0WjlyL">${listHtml}</ul></section>${renderCompanyCityLinks(cityCompanyCityLinks, locale, companyCityCityHubHeading(locale, cityDisplay), (l) => l.companyName, (l) => `${BASE_URL}${companyCityHubPath(locale, canton, l.companySlug, l.citySlug)}`)}${nearbyEventsBlockForJobPage(locale, canton, cityDisplay, cDisplay)}${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
+ const bodyHtml = `<header class="s-S_0cal sx-hero"><p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(generationDate, locale))}</p><h1 class="s-P0Hs0W">${esc(cityHubSeo.h1)}</h1><p class="s-wU5Nrr">${esc(pageDesc)}</p>${intro}</header>${tilesHtml}<section class="s-KZc0LQ"><div class="s-r2QmTP"><h2 class="s-CqexyJ">${esc(listHeading)}</h2><a class="s-YszcPD" href="${sectionRootUrl}">${esc(backLabel)}</a></div><ul class="s-0WjlyL">${listHtml}</ul></section>${renderCompanyCityLinks(cityCompanyCityLinks, locale, companyCityCityHubHeading(locale, cityDisplay), (l) => l.companyName, (l) => `${BASE_URL}${companyCityHubPath(locale, canton, l.companySlug, l.citySlug)}`)}${nearbyEventsBlockForJobPage(locale, canton, cityDisplay, cDisplay)}${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
  // Use buildSeoPageHtml (NOT buildSimplePage) so the page emits
  // `<main class="seo-static-content">` OUTSIDE `<div id="root">` +
  // `<div id="footer-root"></div>`. The legacy path (buildSimplePage default
@@ -7818,7 +7825,7 @@ ${staticAnalyticsHtml}
  const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
  if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
- cityHubSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.85</priority>\n </url>`);
+ cityHubSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <changefreq>daily</changefreq>\n <priority>0.85</priority>\n </url>`);
  }
  }
  }
@@ -7951,7 +7958,7 @@ ${staticAnalyticsHtml}
  const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
  if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
- paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
+ paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPath}" />\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
  }
  }
  if (paginationPageCount > 0) console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${paginationPageCount} paginated listing pages (${totalListingPages - 1} pages \u00d7 4 locales)`);
@@ -8081,7 +8088,7 @@ ${staticAnalyticsHtml}
  const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
  if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
- paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPathCanton}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
+ paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPathCanton}" />\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
  }
  }
  }
@@ -8234,7 +8241,7 @@ ${staticAnalyticsHtml}
  const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
  if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
- categorySitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${catSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${catItPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`);
+ categorySitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${catSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${catItPath}" />\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`);
  }
  }
  }
@@ -8397,7 +8404,7 @@ ${staticAnalyticsHtml}
  const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
  if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
- categorySitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${catSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${catItPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`);
+ categorySitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${catSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${catItPath}" />\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`);
  }
  }
  }
@@ -8586,7 +8593,9 @@ ${staticAnalyticsHtml}
  const sFreshCount = sJobs.filter((j: any) => {
  // First PARSEABLE date, not first truthy: a malformed postedDate must not
  // shadow a valid crawledAt and undercount the fresh tile (see firstParsableMs).
- const t = firstParsableMs(j.datePosted, j.postedDate, j.crawledAt);
+ const t = hasPostingDateProvenance(j)
+ ? firstParsableMs(resolveReportedPostingDate(j))
+ : firstParsableMs(j.datePosted, j.postedDate, j.crawledAt);
  return t >= sectorFreshCutoff && t <= sectorFreshMax;
  }).length;
  const intro = (() => {
@@ -8621,8 +8630,8 @@ ${staticAnalyticsHtml}
  // propagated from the TI sector hubs (PR #1118). The H1/headline keyword stays
  // clean (emoji is aria-hidden, only in the eyebrow). Secondary tiles drop out
  // when their signal is 0, so a thin sector degrades to one clean tile.
- const updatedEyebrow = locale === 'it' ? `Aggiornato · ${dateStamp}` : locale === 'en' ? `Updated · ${dateStamp}` : locale === 'de' ? `Aktualisiert · ${dateStamp}` : `Mis à jour · ${dateStamp}`;
- const eyebrowHtml = `<p style="${HERO_EYEBROW_STYLE}"><span aria-hidden="true" style="font-size:15px">${SECTOR_HUB_EMOJI[sector]}</span> ${esc(updatedEyebrow)}</p>`;
+ const generationEyebrow = formatPageGenerationDate(dateStamp, locale);
+ const eyebrowHtml = `<p style="${HERO_EYEBROW_STYLE}"><span aria-hidden="true" style="font-size:15px">${SECTOR_HUB_EMOJI[sector]}</span> ${esc(generationEyebrow)}</p>`;
  const activeLabel = locale === 'it' ? 'Offerte attive' : locale === 'en' ? 'Active jobs' : locale === 'de' ? 'Aktive Stellen' : 'Offres actives';
  const freshLabel = locale === 'it' ? 'Nuove · 7gg' : locale === 'en' ? 'New · 7d' : locale === 'de' ? 'Neu · 7T' : 'Récent · 7j';
  const companiesLabel = locale === 'it' ? 'Aziende' : locale === 'en' ? 'Companies' : locale === 'de' ? 'Unternehmen' : 'Entreprises';
@@ -8688,7 +8697,7 @@ ${staticAnalyticsHtml}
  const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
  if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
- sectorHubSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.8</priority>\n </url>`);
+ sectorHubSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <changefreq>daily</changefreq>\n <priority>0.8</priority>\n </url>`);
  }
  }
  }
@@ -9198,7 +9207,7 @@ ${staticAnalyticsHtml}
  const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
  if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
- companyCantonSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.75</priority>\n </url>`);
+ companyCantonSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <changefreq>daily</changefreq>\n <priority>0.75</priority>\n </url>`);
  }
  }
  }
@@ -9452,7 +9461,7 @@ ${staticAnalyticsHtml}
  const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
  if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
- companyCitySitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.65</priority>\n </url>`);
+ companyCitySitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <changefreq>daily</changefreq>\n <priority>0.65</priority>\n </url>`);
  }
  }
  }
@@ -9487,21 +9496,18 @@ ${staticAnalyticsHtml}
  for (const kwPage of kwPages) {
  const kwSlug = String(kwPage.slug || '').trim();
  const kwFilterWords: string[] = Array.isArray(kwPage.filterKeywords) ? kwPage.filterKeywords : [];
- if (!kwSlug || kwFilterWords.length === 0) continue;
+ if (!kwSlug || (kwFilterWords.length === 0 && kwPage.professionMatch !== true)) continue;
  const itCopy = kwPage.copy?.it;
  if (!itCopy) continue;
  // Match jobs where ALL filter keywords appear in title/description/company/location,
  // scoped to THIS locale's own translation — never blended across all 4 locales.
  // A mistranslated title in one locale must not leak a job into (or out of)
  // another locale's keyword-landing membership (#4715).
- const kwMatchesLocale = (j: any, locale: string): boolean => {
- const haystack = [
- String(j?.titleByLocale?.[locale] || j.title || ''),
- String(j?.descriptionByLocale?.[locale] || j.description || ''),
- String(j.company || ''), String(j.location || ''),
- ].join(' ').toLowerCase();
- return kwFilterWords.every((kw: string) => haystack.includes(kw));
- };
+ // Profession pages (`professionMatch: true` + `professionId`) match with the
+ // taxonomy matcher on this locale's title instead — the SAME function the
+ // weekly digest counts promotion with (scripts/lib/keyword-page-match.mjs,
+ // #7915), so the page lists exactly the ads the digest promised.
+ const kwMatchesLocale = keywordPageMatcher(kwPage);
  // ── Cross-locale eligibility, decided BEFORE any locale is written ──
  //
  // The floor below is evaluated against THIS locale's own translations
@@ -9810,7 +9816,7 @@ ${staticAnalyticsHtml}
  for (const l of localeList) {
  if (!kwSitemapLocales.has(l)) continue;
  const p = kwLocalePaths.get(l)!;
- keywordSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${kwSmAlternates}${kwXDefault}\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
+ keywordSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${kwSmAlternates}${kwXDefault}\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
  }
  }
  } catch (e) {
@@ -10074,7 +10080,7 @@ ${staticAnalyticsHtml}
  const dirIndex = np.join(distDir, lp.slice(1).replace(/\/$/, ''), 'index.html');
  if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
- searchSitemapEntries.push(` <url>\n <loc>${lUrl}</loc>\n${sAlternates}\n${sXDefault}\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
+ searchSitemapEntries.push(` <url>\n <loc>${lUrl}</loc>\n${sAlternates}\n${sXDefault}\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
  }
  }
  }
@@ -10277,7 +10283,7 @@ ${staticAnalyticsHtml}
  const dirIndex = np.join(distDir, cp.slice(1).replace(/\/$/, ''), 'index.html');
  if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
- searchSitemapEntries.push(` <url>\n <loc>${lUrl}</loc>\n${cAlternates}\n${cXDefault}\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
+ searchSitemapEntries.push(` <url>\n <loc>${lUrl}</loc>\n${cAlternates}\n${cXDefault}\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
  }
  }
  };
@@ -10494,7 +10500,7 @@ ${staticAnalyticsHtml}
  // instead of being stripped as referenced-but-never-listed.
  const landingEntry = localeList.map((l) => {
  const p = withSlash(`${localePrefix[l]}/${sectionByLocale[l]}`.replace(/\/+/g, '/'));
- return ` <url>\n <loc>${BASE_URL}${p}</loc>\n${landingAlternates}\n${landingXDefault}\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.9</priority>\n </url>`;
+ return ` <url>\n <loc>${BASE_URL}${p}</loc>\n${landingAlternates}\n${landingXDefault}\n <changefreq>daily</changefreq>\n <priority>0.9</priority>\n </url>`;
  }).join('\n');
 
  // Filter out thin content jobs (<50 words IT description) from sitemap (FRO-278).
@@ -10555,8 +10561,7 @@ ${staticAnalyticsHtml}
  ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${p}" />`,
  ).join('\n');
  const xDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />`;
- const jobLastmod = (safeIsoDate(job.crawledAt) || '').slice(0, 10) || dateStamp;
- return ` <url>\n <loc>${itUrl}</loc>\n${alternateLinks}\n${xDefault}\n <lastmod>${jobLastmod}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`;
+ return ` <url>\n <loc>${itUrl}</loc>\n${alternateLinks}\n${xDefault}\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`;
  }).filter((s) => s.length > 0).join('\n');
 
  // FRO-SEO / seo/sitemap-crawl-budget: previousSlugs bridge pages are NOT
@@ -10596,7 +10601,6 @@ ${staticAnalyticsHtml}
  return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}" />`;
  }).join('\n');
  const xDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${currentItPath}" />`;
- const jobLastmod = (safeIsoDate(job.crawledAt) || '').slice(0, 10) || dateStamp;
 
  const addEntry = (ps: string, locale: 'it' | 'en' | 'de' | 'fr') => {
  const currentSlug = localizedSlug(job, locale);
@@ -10609,7 +10613,7 @@ ${staticAnalyticsHtml}
  if (prevSlugSitemapPaths.has(psRelPath)) return;
  prevSlugSitemapPaths.add(psRelPath);
  const psPath = withSlash(`/${psRelPath}`);
- prevSlugEntries.push(` <url>\n <loc>${BASE_URL}${psPath}</loc>\n${canonicalAlternates}\n${xDefault}\n <lastmod>${jobLastmod}</lastmod>\n <changefreq>monthly</changefreq>\n <priority>0.3</priority>\n </url>`);
+ prevSlugEntries.push(` <url>\n <loc>${BASE_URL}${psPath}</loc>\n${canonicalAlternates}\n${xDefault}\n <changefreq>monthly</changefreq>\n <priority>0.3</priority>\n </url>`);
  };
 
  // Locale-specific previousSlugs → sitemap entry under their locale prefix
@@ -10651,7 +10655,7 @@ ${staticAnalyticsHtml}
  const dirIndex = np.join(distDir, p.slice(1), 'index.html');
  if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
- entries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${alternateLinks}\n${xDefault}\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.7</priority>\n </url>`);
+ entries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${alternateLinks}\n${xDefault}\n <changefreq>weekly</changefreq>\n <priority>0.7</priority>\n </url>`);
  }
  return entries;
  }).join('\n');
@@ -10837,7 +10841,7 @@ ${staticAnalyticsHtml}
    // NOTE: this mirrors `jobEntries` above. We build a fresh list so the
    // legacy `<urlset>` and the new sharded index are byte-for-byte
    // independent — no shared mutation, no surprise across plugins.
-   type ShardUrl = { loc: string; lastmod: string; changefreq: string; priority: number; _canton: string; alternates?: Array<{ hreflang: string; href: string }> };
+   type ShardUrl = { loc: string; changefreq: string; priority: number; _canton: string; alternates?: Array<{ hreflang: string; href: string }> };
    const shardUrls: ShardUrl[] = [];
    for (const [, group] of groups) {
      const job = group.canonical;
@@ -10861,7 +10865,6 @@ ${staticAnalyticsHtml}
      const itPathLegacy = withSlash(`/${itSectionForGroup}/${perLocaleSlugMap.it}`.replace(/\/+/g, '/'));
      const itUrlLegacy = `${BASE_URL}${itPathLegacy}`;
      if (resolveCanonicalUrl(perLocaleSlugMap.it, itUrlLegacy) !== itUrlLegacy) continue;
-     const lastmod = (safeIsoDate(job.crawledAt) || '').slice(0, 10) || dateStamp;
      for (const locale of localeList) {
        // Canton-aware section matches the actual job-detail URL emitted by
        // the per-job loop. For TI jobs this returns the legacy frozen slug
@@ -10888,7 +10891,6 @@ ${staticAnalyticsHtml}
        if (!emittedActiveJobPaths.has(emittedKey)) continue;
        shardUrls.push({
          loc: localeUrl,
-         lastmod,
          changefreq: 'weekly',
          priority: 0.6,
          _canton: groupJobCanton,
@@ -11099,7 +11101,7 @@ ${staticAnalyticsHtml}
      // despite being emitted index,follow with self-canonicals. Push indexable
      // roots only: a noindex URL in a sitemap trips audit:sitemap-canonicals.
      if (meetsThreshold) {
-       shardUrls.push({ loc: canonicalUrl, lastmod: dateStamp, changefreq: 'daily', priority: 0.7, _canton: entry.key,
+       shardUrls.push({ loc: canonicalUrl, changefreq: 'daily', priority: 0.7, _canton: entry.key,
          alternates: buildLocaleAlternateEntries({ eligibleLocales: localeList, hrefFor: (locale) => `${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, entry.key)}`.replace(/\/+/g, '/'))}` }),
        });
      }
@@ -11931,7 +11933,7 @@ ${staticAnalyticsHtml}
    for (const tiLocale of localeList) {
      const tiSection = buildCantonAwareSection(tiLocale, 'TI');
      const tiPath = withSlash(`${localePrefix[tiLocale]}/${tiSection}`.replace(/\/+/g, '/'));
-     shardUrls.push({ loc: `${BASE_URL}${tiPath}`, lastmod: dateStamp, changefreq: 'daily', priority: 0.7, _canton: 'TI',
+     shardUrls.push({ loc: `${BASE_URL}${tiPath}`, changefreq: 'daily', priority: 0.7, _canton: 'TI',
        alternates: buildLocaleAlternateEntries({ eligibleLocales: localeList, hrefFor: (locale) => `${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}`.replace(/\/+/g, '/'))}` }),
      });
    }
@@ -13244,7 +13246,7 @@ ${staticAnalyticsHtml}
  const jobCanton = sharedResolveJobCanton({ canton: ejData?.canton, location: jobLocation });
  const jobSector = String(ejData?.sector || '');
  const jobContract = String(ejData?.contract || '');
- const jobDatePosted = String(ejData?.datePosted || '');
+ const jobDatePosted = resolveRolloutPostingDate(ejData || {}, () => String(ejData?.datePosted || '')) || '';
  const jobExpiredAt = String(ejData?.expiredAt || '');
  const sameCompanyActiveJobs = jobCompany
  ? (companyActiveJobsMap.get(`${jobCanton}:${jobCompany.toLowerCase()}`) || [])
@@ -13748,17 +13750,8 @@ ${staticAnalyticsHtml}
  .find((date): date is string => date !== null && Date.parse(date) < archiveNowMs);
  if (!realTitle || !realValidThrough || !realCompany) return '';
  const validThroughMs = Date.parse(realValidThrough);
- // Preserve source publication dates that form a positive historical window.
- const sourceDatePosted = [ejData?.datePosted, ejData?.postedDate]
- .map(safeIsoDate)
- .find((date): date is string => date !== null && Date.parse(date) < validThroughMs);
- const observedDatePosted = [ejData?.firstSeenAt, ejData?.crawledAt]
- .map(safeIsoDate)
- .find((date): date is string => date !== null && Date.parse(date) < validThroughMs);
- // With no usable publication/earlier observation, retain the bounded historical
- // estimate: 30 days before the real past deadline, never relative to the build.
- const expiredDatePosted = sourceDatePosted || observedDatePosted
- || new Date(validThroughMs - 30 * 86400000).toISOString();
+ const expiredDatePosted = resolveReportedPostingDate(ejData || {});
+ if (!expiredDatePosted || Date.parse(expiredDatePosted) >= validThroughMs) return '';
  // Match the builder's 50-character guarantee after visible-text normalization,
  // so short historical copy never falls back to an active application prompt.
  const archivedDescription = capJsonLdDescription(jobDescription);
@@ -13792,6 +13785,7 @@ ${staticAnalyticsHtml}
  addressRegion: jobCanton || undefined,
  postalCode: ejData?.postalCode || slugInfo?.postalCode,
  streetAddress: ejData?.streetAddress,
+ postingDateSource: ejData?.postingDateSource,
  datePosted: expiredDatePosted,
  validThrough: realValidThrough,
  contract: ejData?.contract,
@@ -13808,7 +13802,7 @@ ${staticAnalyticsHtml}
  baseUrl: BASE_URL,
  });
 
- return `<script type="application/ld+json">${inlineScriptJson(expiredSchema)}</script>`;
+ return expiredSchema ? `<script type="application/ld+json">${inlineScriptJson(expiredSchema)}</script>` : '';
  })();
 
  const jsonLdScripts = breadcrumbLd + '\n ' + archivePageLd + (jobPostingLd ? '\n ' + jobPostingLd : '');
@@ -13986,7 +13980,7 @@ ${staticAnalyticsHtml}
  return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}" />`;
  }).filter(Boolean).join('\n');
  const xDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />`;
- const lastmod = (safeIsoDate(ejData?.expiredAt) || '').slice(0, 10) || dateStamp;
+ const lastmod = renderSitemapLastmod(ejData?.expiredAt);
  // Per-locale push (#3499): non-IT locales additionally require their own
  // soft-landing page to actually exist on disk -- `paths` is shard-invariant
  // (see above) but render/emit is shard-gated (`shouldEmitLocale`, L~11223),
@@ -14001,7 +13995,7 @@ ${staticAnalyticsHtml}
  const lPageFile = np.join(distDir, lFullPath.slice(1).replace(/\/$/, ''), 'index.html');
  if (!_writtenPaths.has(lPageFile) && !fs.existsSync(lPageFile)) continue;
  }
- expiredSitemapEntries.push(` <url>\n <loc>${BASE_URL}${lFullPath}</loc>\n${altLinks}\n${xDefault}\n <lastmod>${lastmod}</lastmod>\n <changefreq>monthly</changefreq>\n <priority>0.3</priority>\n </url>`);
+ expiredSitemapEntries.push(` <url>\n <loc>${BASE_URL}${lFullPath}</loc>\n${altLinks}\n${xDefault}\n ${lastmod}\n <changefreq>monthly</changefreq>\n <priority>0.3</priority>\n </url>`);
  }
  }
  // Bound the WriteCollector background-flush backlog INSIDE this

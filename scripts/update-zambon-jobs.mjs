@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 /**
  * Dedicated Zambon Svizzera SA Swiss-source crawler runner.
  *
@@ -106,7 +107,7 @@ export function buildZambonJob({ id = '', url, title, datePosted = '', contract 
     descriptionByLocale: description ? { [sourceLang]: description } : {},
     slug,
     category: detectCategory(title),
-    datePosted: datePosted || new Date().toISOString().split('T')[0],
+    ...sourcePostingDateFields(datePosted),
     source,
     employmentType: inferEmploymentType(title, contract || description),
     experienceLevel: detectExperienceLevel(title),
@@ -164,7 +165,7 @@ async function fetchJobs() {
       id: `zambon-${raw.id}`,
       url: raw.web_url || `https://app.ncoreplat.com/jobposition/${raw.id}`,
       title: (raw.title || '').trim(),
-      datePosted: raw.opening_date ? parseZambonDate(raw.opening_date) : '',
+      datePosted: raw.opening_date || '',
       contract: raw.contract_type_3 || '',
       department: raw.job_family || '',
       seniority: raw.seniority || '',
@@ -195,14 +196,6 @@ async function fetchJobs() {
   })));
 }
 
-/** Parse "27 Mar 2026" → "2026-03-27" */
-function parseZambonDate(dateStr) {
-  try {
-    const d = new Date(dateStr);
-    if (!isNaN(d.getTime())) return d.toISOString().split('T')[0];
-  } catch {}
-  return new Date().toISOString().split('T')[0];
-}
 
 function storedZambonSourceBody(job = {}) {
   const text = String(job?.descriptionByLocale?.[job?.sourceLang] || job?.description || '').trim();

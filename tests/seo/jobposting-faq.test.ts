@@ -11,7 +11,7 @@
  */
 import { describe, it, expect } from 'vitest';
 import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from '../../build-plugins/shared/jobPostingFaq';
-import { buildJobPostingSchema, type JobInput } from '../../build-plugins/shared/jobPostingSchema';
+import { buildJobPostingFacts, type JobInput } from '../../build-plugins/shared/jobPostingSchema';
 
 const BASE_OPTS = { locale: 'it', url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/dettaglio-offerta/test-slug/' };
 
@@ -47,7 +47,7 @@ function faqOptsFor(job: JobInput, isTicino: boolean, cantonDisplay: string): Bu
 
 describe('buildJobPostingFaqPairs', () => {
   it('returns exactly 4 non-empty Q&A pairs', () => {
-    const schema = buildJobPostingSchema(TICINO_JOB, BASE_OPTS);
+    const schema = buildJobPostingFacts(TICINO_JOB, BASE_OPTS.locale);
     const pairs = buildJobPostingFaqPairs(schema, faqOptsFor(TICINO_JOB, true, 'Ticino'));
     expect(pairs).toHaveLength(4);
     for (const pair of pairs) {
@@ -57,7 +57,7 @@ describe('buildJobPostingFaqPairs', () => {
   });
 
   it('is a pure function — same input always returns the same output', () => {
-    const schema = buildJobPostingSchema(TICINO_JOB, BASE_OPTS);
+    const schema = buildJobPostingFacts(TICINO_JOB, BASE_OPTS.locale);
     const opts = faqOptsFor(TICINO_JOB, true, 'Ticino');
     const first = buildJobPostingFaqPairs(schema, opts);
     const second = buildJobPostingFaqPairs(schema, opts);
@@ -65,7 +65,7 @@ describe('buildJobPostingFaqPairs', () => {
   });
 
   it('embeds the real company name and salary figures, not a generic placeholder', () => {
-    const schema = buildJobPostingSchema(TICINO_JOB, BASE_OPTS);
+    const schema = buildJobPostingFacts(TICINO_JOB, BASE_OPTS.locale);
     const pairs = buildJobPostingFaqPairs(schema, faqOptsFor(TICINO_JOB, true, 'Ticino'));
     const joined = pairs.map((p) => `${p.q} ${p.a}`).join(' ');
     expect(joined).toContain('Acme SA');
@@ -73,8 +73,8 @@ describe('buildJobPostingFaqPairs', () => {
   });
 
   it('produces different answers for two different jobs (no cross-job duplication)', () => {
-    const schemaA = buildJobPostingSchema(TICINO_JOB, BASE_OPTS);
-    const schemaB = buildJobPostingSchema(GENEVA_JOB, BASE_OPTS);
+    const schemaA = buildJobPostingFacts(TICINO_JOB, BASE_OPTS.locale);
+    const schemaB = buildJobPostingFacts(GENEVA_JOB, BASE_OPTS.locale);
     const pairsA = buildJobPostingFaqPairs(schemaA, faqOptsFor(TICINO_JOB, true, 'Ticino'));
     const pairsB = buildJobPostingFaqPairs(schemaB, faqOptsFor(GENEVA_JOB, false, 'Ginevra'));
     expect(pairsA).not.toEqual(pairsB);
@@ -84,7 +84,7 @@ describe('buildJobPostingFaqPairs', () => {
   });
 
   it('gives Ticino jobs the detailed G-permit answer, not the generic canton answer', () => {
-    const schema = buildJobPostingSchema(TICINO_JOB, BASE_OPTS);
+    const schema = buildJobPostingFacts(TICINO_JOB, BASE_OPTS.locale);
     const pairs = buildJobPostingFaqPairs(schema, faqOptsFor(TICINO_JOB, true, 'Ticino'));
     const permitPair = pairs[2];
     expect(permitPair.a).toContain('20 km');
@@ -92,14 +92,14 @@ describe('buildJobPostingFaqPairs', () => {
   });
 
   it('gives non-Ticino jobs the general cross-border answer referencing the correct canton', () => {
-    const schema = buildJobPostingSchema(GENEVA_JOB, BASE_OPTS);
+    const schema = buildJobPostingFacts(GENEVA_JOB, BASE_OPTS.locale);
     const pairs = buildJobPostingFaqPairs(schema, faqOptsFor(GENEVA_JOB, false, 'Ginevra'));
     const permitPair = pairs[2];
     expect(permitPair.a).toContain('Ginevra');
   });
 
   it('supports all 4 locales without throwing and with locale-appropriate text', () => {
-    const schema = buildJobPostingSchema(TICINO_JOB, BASE_OPTS);
+    const schema = buildJobPostingFacts(TICINO_JOB, BASE_OPTS.locale);
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       const pairs = buildJobPostingFaqPairs(schema, { ...faqOptsFor(TICINO_JOB, true, 'Ticino'), locale });
       expect(pairs).toHaveLength(4);
@@ -111,7 +111,7 @@ describe('buildJobPostingFaqPairs', () => {
   });
 
   it('mentions the apply URL hostname in the how-to-apply answer', () => {
-    const schema = buildJobPostingSchema(TICINO_JOB, BASE_OPTS);
+    const schema = buildJobPostingFacts(TICINO_JOB, BASE_OPTS.locale);
     const pairs = buildJobPostingFaqPairs(schema, faqOptsFor(TICINO_JOB, true, 'Ticino'));
     expect(pairs[3].a).toContain('acme.example.com');
   });
@@ -127,7 +127,7 @@ describe('buildJobPostingFaqPairs', () => {
       ...TICINO_JOB,
       url: 'https://www.rheinmetall.com/en/job/ux_ui___xr_designer__m_w_d_/1081238',
     };
-    const schema = buildJobPostingSchema(job, BASE_OPTS);
+    const schema = buildJobPostingFacts(job, BASE_OPTS.locale);
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       const pairs = buildJobPostingFaqPairs(schema, { ...faqOptsFor(job, true, 'Ticino'), locale });
       expect(pairs[3].a).not.toMatch(/[_=~]{3,}/);

@@ -1,3 +1,5 @@
+import { hasPostingDateProvenance } from '../../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 import { hasActiveSalarySearchIntent } from '../../services/jobSearchIntent';
 import { getJobSearchRoleTokens, matchesJobOccupation } from '../../services/jobSearchRelevance';
 import { jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
@@ -18,7 +20,7 @@ import { cdnImageUrl } from '@/services/cdnImageBase';
 import { resolveJobApplicationUrl } from '@/services/jobApplicationDestination';
 import { requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
 import { baseCompanySlug, rawCompanySlug } from '@/build-plugins/shared/companyProfileSlug.mjs';
-import { firstParsableDateStr, firstParsableMs } from '@/build-plugins/shared/firstParsableDate';
+import { firstParsableMs } from '@/build-plugins/shared/firstParsableDate';
 import { parseJsonResponse } from '@/services/jsonResponseParser';
 const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm'));
 const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobAlertStickyBanner'));
@@ -33,6 +35,7 @@ const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatch
 const JobBoardFilterAlertCta = lazyRetry(() => import('@/components/community/JobBoardFilterAlertCta'));
 const AssistedApplicationOffer = lazyRetry(() => import('@/components/community/AssistedApplicationOffer'));
 const RewardedApplicationOffer = lazyRetry(() => import('@/components/community/RewardedApplicationOffer'));
+import type { RewardedOfferUnavailableInfo } from '@/components/community/RewardedApplicationOffer';
 const AssistedApplicationUpload = lazyRetry(() => import('@/components/community/AssistedApplicationUpload'));
 const AssistedApplicationReview = lazyRetry(() => import('@/components/community/AssistedApplicationReview'));
 const SavedJobsAlertNudge = lazyRetry(() => import('@/components/community/SavedJobsAlertNudge'));
@@ -100,7 +103,7 @@ import {
 } from '@/services/personalizationScoring';
 import { type JobMatchProfileData, loadJobMatchProfile, mergeNewsletterSignals } from '@/services/jobMatchProfile';
 import NewJobsCounter from '@/components/community/NewJobsCounter';
-import TrendingSection from '@/components/community/TrendingSection';
+import TrendingSection, { selectRecommendationJobs } from '@/components/community/TrendingSection';
 import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader';
 import EmployerHubCta from '@/components/community/EmployerHubCta';
 import PopularSearchChips from '@/components/community/PopularSearchChips';
@@ -172,10 +175,10 @@ import { isKnownCityHub } from '@/build-plugins/cityJobsHub';
 import { normalizeCitySlug } from '@/build-plugins/shared/cantonCities';
 import { firstPageIndexFileName } from '@/build-plugins/shared/slimJobIndex';
 import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/shared/titleSuffix';
-import { buildJobPostingSchema, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
+import { buildJobPostingFacts, buildJobPostingSchema, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
 import { buildJobPostingFaqPairs, type JobFaqPair } from '@/build-plugins/shared/jobPostingFaq';
 import { getCantonDisplayName } from '@/build-plugins/shared/cantonDisplay';
-import { SALARY_ESTIMATE_SUFFIX } from '@/build-plugins/shared/salaryEstimateSuffix';
+import { salaryProvenanceSuffix } from '@/build-plugins/shared/salaryEstimateSuffix';
 import { callNativeHistory } from '@/services/nativeHistoryCall';
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
@@ -449,6 +452,8 @@ export interface JobListing {
  addressLocality?: string;
  addressCountry?: string;
  featured: boolean;
+ postingDateSource?: string;
+ datePosted?: string;
  postedDate: string;
  crawledAt?: string;
  firstSeenAt?: string;
@@ -792,10 +797,11 @@ export function normalizeIncomingJob(raw: any): JobListing {
  ? raw.requirements.map((item: unknown) => String(item || '').trim()).filter(Boolean)
  : [],
  featured: Boolean(raw?.featured),
- // A recrawl must never make an undated listing look newly published. Prefer
- // the source publication date, then the first discovery timestamp; crawledAt
- // is only a last-resort fallback because it changes on every recrawl.
- postedDate: firstParsableDateStr(raw?.postedDate, raw?.firstSeenAt, raw?.crawledAt) || new Date().toISOString().slice(0, 10),
+ // Only verified employer publication dates populate these aliases.
+ // Observation timestamps remain separate and cannot establish publication.
+ postingDateSource: raw?.postingDateSource,
+ datePosted: resolveReportedPostingDate(raw || {}) || undefined,
+ postedDate: resolveReportedPostingDate(raw || {}) || '',
  // Do not promote job.url (which may be an ATS host) into ownership proof.
  // Static SEO and runtime JSON-LD must both use the crawler's raw domain.
  companyDomain: rawCompanyDomain || undefined,
@@ -871,7 +877,8 @@ export function formatSalary(
  const range = max ? `${job.currency} ${min}k – ${max}k` : `${job.currency} ${min}k+`;
  // Estimated bands are declared as such, same convention as the SSG job
  // cards (`SALARY_ESTIMATE_SUFFIX` in build-plugins/shared/jobCardHtml.ts).
- return job.salarySource === 'estimated' ? `${range} ${SALARY_ESTIMATE_SUFFIX[locale]}` : range;
+ const suffix = salaryProvenanceSuffix(job.salarySource, locale);
+ return suffix ? `${range} ${suffix}` : range;
 }
 
 function contractTranslationKey(job: Pick<JobListing, 'contract' | 'title' | 'description'>): string {
@@ -2061,7 +2068,7 @@ const DATE_RANGE_MS: Record<DateRange, number> = {
   '90d': 90 * 24 * 60 * 60 * 1000,
 };
 
-type JobDateFields = Pick<JobListing, 'postedDate' | 'firstSeenAt'>;
+type JobDateFields = Pick<JobListing, 'postedDate' | 'firstSeenAt' | 'datePosted' | 'postingDateSource'>;
 
 type CachedJobDates = {
  postedAt: number;
@@ -2078,7 +2085,9 @@ function cachedJobDates(job: JobDateFields): CachedJobDates {
  const cached = jobDateCache.get(objectJob);
  if (cached) return cached;
  const parsed: CachedJobDates = {
-  postedAt: firstParsableMs(job.postedDate, job.firstSeenAt),
+  postedAt: hasPostingDateProvenance(job)
+   ? firstParsableMs(resolveReportedPostingDate(job))
+   : firstParsableMs(job.postedDate, job.firstSeenAt),
   firstSeenAt: firstParsableMs(job.firstSeenAt, job.postedDate),
  };
  jobDateCache.set(objectJob, parsed);
@@ -2667,9 +2676,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const deferredUserProfile = useDeferredValue(userProfile);
  // Job-popularity map, fetched instead of bundled (#5001 — see
  // services/jobPopularityService.ts for the measurement that motivated it).
- // Starts as the frozen empty map: getTrendingByLocation() returns [] for it
- // and TrendingSection only renders at 3+ matches, so the pre-load state is
- // simply "no trending strip yet" — the same thing an offline user already saw.
+ // Starts as the frozen empty map: getTrendingByLocation() returns [] for it.
+ // The recommendation slot shows already loaded jobs until popularity arrives,
+ // preserving its geometry even when this optional request fails.
  const [popularity, setPopularity] = useState<Record<string, number>>(EMPTY_JOB_POPULARITY);
  // Deferred for the same reason as the three values above (#4302): it is an
  // enhancement-only input that lands via a post-mount effect, and its arrival
@@ -5708,6 +5717,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
    : `${baseTitle} — ${t('jobBoard.resultsCount', { count: String(filteredJobs.length) })}`;
  }, [activeSearchHeadingQuery, selectedJob, companySlugFilter, locationSlugFilter, editorialLandingDescriptor, resultsResolving, filteredJobs.length, t]);
 
+ const recommendationJobs = useMemo(
+ () => selectRecommendationJobs(filteredJobs, trendingJobs, enablePersonalization),
+ [filteredJobs, trendingJobs, enablePersonalization],
+ );
+
  const totalPages = Math.max(1, Math.ceil(filteredJobs.length / pageSize));
  const currentPage = Math.min(page, totalPages);
 
@@ -5794,6 +5808,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  location: job.location,
  canton: job.canton,
  contract: job.contract,
+ postingDateSource: job.postingDateSource,
+ datePosted: job.datePosted,
  postedDate: job.postedDate,
  crawledAt: job.crawledAt,
  salaryMin: job.salaryMin,
@@ -5940,6 +5956,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  addressCountry: job.addressCountry,
  postalCode,
  streetAddress: sourcePostalCoherent && isValidAddr(rawStreet) ? rawStreet : '',
+ postingDateSource: job.postingDateSource,
+ datePosted: job.datePosted,
  postedDate: job.postedDate,
  crawledAt: job.crawledAt,
  contract: job.contract,
@@ -5962,7 +5980,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // (e.g., slim index loaded first without description), preserve the
  // static HTML's JobPosting injected by the build plugin. The full data
  // will load shortly and re-trigger this effect with a valid schema.
- if (selectedJob && jobPostings.length === 0) {
+ if (selectedJob && jobPostings.length === 0 && resolveReportedPostingDate(selectedJob)) {
  return;
  }
 
@@ -5993,7 +6011,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (hasJobPosting(data)) el.remove();
  } catch { /* non-JSON or malformed — leave it */ }
  });
- document.head.appendChild(script);
+ if (jobPostings.length > 0) document.head.appendChild(script);
 
  return () => {
  const el = document.getElementById('jobposting-structured-data');
@@ -6088,6 +6106,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [filteredJobs, locale, selectedJob, initialJobSlug, selectedSector, selectedLocation, companyDisplayName, searchSlugFilter, companySlugFilter, locationSlugFilter, editorialLandingDescriptor, searchHeadingQuery, cantonI18n, t]);
 
  const daysSincePosted = (dateStr: string) => {
+ if (!dateStr || !Number.isFinite(Date.parse(dateStr))) return ({
+ it: 'Data di pubblicazione non verificata', en: 'Publication date unverified',
+ de: 'Veröffentlichungsdatum ungeprüft', fr: 'Date de publication non vérifiée',
+ })[locale];
  const diff = Math.floor((Date.now() - new Date(dateStr).getTime()) / 86400000);
  if (diff === 0) return t('jobBoard.today');
  if (diff === 1) return t('jobBoard.yesterday');
@@ -7208,14 +7230,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
   void intentSettled.then(() => window.location.reload());
  };
 
- const handleRewardedApplicationUnavailable = (reason: string): Promise<boolean> | undefined => {
+ const handleRewardedApplicationUnavailable = (
+  reason: string,
+  info?: RewardedOfferUnavailableInfo,
+ ): Promise<boolean> | undefined => {
   const job = rewardedApplicationJob;
   if (!job) return;
   // The Offerwall and its GPT fallback could not LOAD, or the visitor refused
-  // the ad (ads refused in the CMP, consent card declined, Offerwall closed
-  // without its reward): when enabled, the same click opens the paid offer,
-  // whose free external button opens the employer in a new tab.
-  if (offerwallPaidFallbackEnabled && shouldOfferPaidFallback(reason)) {
+  // the ad (ads refused in the CMP, consent message unanswered, Offerwall
+  // closed without its reward): when enabled, the same click opens the paid
+  // offer, whose free external button opens the employer in a new tab. A
+  // visitor who already saw the paid choice before the Offerwall and took the
+  // free path gets no second paid offer (owner decision 2026-10-03).
+  if (offerwallPaidFallbackEnabled && shouldOfferPaidFallback(reason) && !info?.paidOfferShown) {
    setRewardedApplicationJob(null);
    setAssistedCheckoutError(null);
    setAssistedOfferSource('offerwall_fallback');
@@ -7257,18 +7284,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
   });
  };
 
- const handleAssistedPaid = async () => {
+ const handleAssistedPaid = () => {
   const job = assistedApplicationJob;
-  if (!job || !assistedOfferAvailable || assistedCheckoutBusy) return;
+  if (!job || !assistedOfferAvailable) return;
+  return startAssistedCheckout(job);
+ };
+
+ // The paid offer's checkout, from the assisted-application offer or from the
+ // paid choice the rewarded offer shows before the Offerwall (`trigger`).
+ const startAssistedCheckout = async (job: JobListing, extra: Record<string, unknown> = {}) => {
+  if (assistedCheckoutBusy) return;
   setAssistedCheckoutBusy(true);
   setAssistedCheckoutError(null);
   trackAssistedApplicationEvent(
    'assisted_application_choose_paid',
-   { ...assistedApplicationJobContext(job, assistedApplicationVariant), price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), ...extra, price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
   );
   trackAssistedApplicationEvent(
    'checkout_started',
-   { ...assistedApplicationJobContext(job, assistedApplicationVariant), price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), ...extra, price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
   );
   try {
    const user = authUser?.getIdToken ? authUser : await ensureAssistedApplicationAuth();
@@ -7838,10 +7872,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
     jobTitle={sanitizeJobTitle(rewardedApplicationJob.titleByLocale?.[locale] ?? rewardedApplicationJob.title)}
     onContinue={handleRewardedApplicationContinue}
     onUnavailable={handleRewardedApplicationUnavailable}
-    onDismiss={() => setRewardedApplicationJob(null)}
+    onDismiss={() => {
+     setRewardedApplicationJob(null);
+     setAssistedCheckoutBusy(false);
+     setAssistedCheckoutError(null);
+    }}
     resumed={rewardedApplicationResumed}
     startInHandoff={rewardedApplicationOpenCardOnly}
     onReload={handleRewardedApplicationReload}
+    // The paid offer first, the Offerwall prepared hidden behind it (owner
+    // decision 2026-10-03), under the same Remote Config flag as the paid
+    // fallback: ASSISTED_APPLICATION_OFFERWALL_FALLBACK off restores the
+    // Offerwall-only click.
+    paidChoice={offerwallPaidFallbackEnabled ? {
+     onChoosePaid: () => startAssistedCheckout(rewardedApplicationJob, { trigger: 'offerwall_first' }),
+     paidLoading: assistedCheckoutBusy,
+     error: assistedCheckoutError,
+    } : undefined}
    />
   </Suspense>
  ) : null;
@@ -9874,6 +9921,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  addressCountry: selectedJob.addressCountry,
  postalCode: selectedJob.postalCode,
  streetAddress: selectedJob.streetAddress,
+ postingDateSource: selectedJob.postingDateSource,
+ datePosted: selectedJob.datePosted,
  postedDate: selectedJob.postedDate,
  crawledAt: selectedJob.crawledAt,
  contract: selectedJob.contract,
@@ -9890,11 +9939,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  const faqIsTicino = detailJobCanton === 'TI';
  const faqCantonDisplay = getCantonDisplayName(detailJobCanton, locale);
- const faqSchema = buildJobPostingSchema(faqJobInput, {
- locale,
- url: detailPageUrl,
- baseUrl: PUBLIC_SITE_URL,
- });
+ const faqSchema = buildJobPostingFacts(faqJobInput, locale);
  const jobFaqPairs: JobFaqPair[] = buildJobPostingFaqPairs(faqSchema, {
  locale,
  jobUrl: resolveJobApplicationUrl(selectedJob, detailPageUrl),
@@ -11200,8 +11245,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {boardFilterAlertCtaJsx}
 
- {/* ── Personalization: NewJobsCounter + Personalizzato pill + TrendingSection ── */}
- {enablePersonalization && (
+ {/* A neutral, useful recommendation slot exists before Remote Config resolves.
+     The flag only opts into popularity ranking; false keeps ordinary job cards. */}
+ <TrendingSection
+ trendingJobs={recommendationJobs.map((j) => ({
+ ...j,
+ logoUrl: companyLogoUrl(j),
+ href: j.slug ? buildPath({ activeTab: 'job-board' as any, jobSlug: j.slug }, locale) : undefined,
+ }))}
+ popularity={enablePersonalization ? deferredPopularity : EMPTY_JOB_POPULARITY}
+ heading={t('jobBoard.recommendations.heading')}
+ ariaLabel={t('jobBoard.recommendations.heading')}
+ emptyLabel={t(resultsResolving ? 'jobBoard.loadingResults' : 'jobBoard.noResults')}
+ onJobClick={(slug) => {
+ Analytics.trackSelectContent('trending_section_click', slug);
+ const job = recommendationJobs.find((j) => j.slug === slug);
+ if (job) openDetail(job);
+ }}
+ />
+
+ {/* ── Personalization notices (no empty wrapper when the flag resolves) ── */}
+ {enablePersonalization && ((!newJobsDismissed && newJobsInfo.total > 0) || isPersonalizationActive || (jobMatchAlertVisible && userId && userEmail)) && (
  <div className="space-y-3">
  {!newJobsDismissed && newJobsInfo.total > 0 && (
  <NewJobsCounter
@@ -11256,23 +11320,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  </Suspense>
  )}
- {trendingJobs.length >= 3 && (
- <TrendingSection
- trendingJobs={trendingJobs.map((j) => ({
- ...j,
- logoUrl: companyLogoUrl(j),
- href: j.slug ? buildPath({ activeTab: 'job-board' as any, jobSlug: j.slug }, locale) : undefined,
- }))}
- popularity={deferredPopularity}
- heading={t('jobBoard.trending.heading')}
- ariaLabel={t('jobBoard.trending.aria')}
- onJobClick={(slug) => {
- Analytics.trackSelectContent('trending_section_click', slug);
- const job = jobs.find((j) => j.slug === slug);
- if (job) openDetail(job);
- }}
- />
- )}
+
  </div>
  )}
 

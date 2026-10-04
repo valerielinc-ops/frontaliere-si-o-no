@@ -208,21 +208,24 @@ export interface LamalSsnSnapshot {
   incomeCHF: number;
   age: number;
   franchiseCHF: number;
-  /** Cheapest real LAMal premium (standard model) from data/health-premiums.json. */
+  /** Cheapest real LAMal premium (standard model) for the recorded country of residence and premium year. */
   lamalMonthlyCHF: number;
   lamalAnnualCHF: number;
   cheapestInsurer: string;
-  /** SSN voluntary-registration contribution range (3–6% of net income, L. 213/2023). */
+  premiumYear?: number;
+  residenceCountry?: string;
+  premiumSourceUrl?: string;
+  /** Annual frontier-worker SSN contribution range, after EUR limits (DM 14 November 2025). */
   ssnMinCHF: number;
   ssnMaxCHF: number;
   /** Regional SSN rate (%) at which LAMal and SSN cost the same. */
-  breakevenPct: number;
+  breakevenPct: number | null;
   verdict: 'lamal' | 'ssn' | 'depends';
   generatedAt?: Date;
 }
 
 const LAMAL_SSN_DISCLAIMER =
-  'Report generato automaticamente a scopo informativo. Stime basate sui premi UFSP/BAG (modello standard, senza infortuni) e sul contributo SSN 3-6% (L. 213/2023). Non costituisce consulenza. Opzione SSN: domanda formale al Cantone entro tre mesi per gli aventi diritto. Un nuovo esercizio, ad esempio dopo nascita di un figlio per chi aveva LAMal, va verificato con Cantone e ASL.';
+  'Report generato automaticamente a scopo informativo. Stime basate sui premi UFSP/BAG (modello standard, senza infortuni) e sul contributo dei frontalieri aventi diritto al SSN, 3-6% del netto con limiti di 30-200 EUR/mese, su 12 mesi (DM 14 novembre 2025). Non e iscrizione volontaria SSN: verificare requisiti e attuazione regionale. Non costituisce consulenza. Opzione SSN: domanda formale al Cantone entro tre mesi per gli aventi diritto. Un nuovo esercizio, ad esempio dopo nascita di un figlio per chi aveva LAMal, va verificato con Cantone e ASL.';
 
 /**
  * Generate a Blob containing the LAMal-vs-SSN breakeven PDF report.
@@ -262,23 +265,28 @@ export async function generateLamalSsnPdfReport(
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(71, 85, 105);
   doc.text(`Inviato a: ${email}`, 14, 52);
+  if (snapshot.premiumSourceUrl) {
+    doc.textWithLink('Fonte premi: UFSP / Priminfo UE/AELS/UK', 14, 58, { url: snapshot.premiumSourceUrl });
+  }
 
   const verdictLabel =
     snapshot.verdict === 'lamal'
-      ? 'Conviene la LAMal svizzera'
+      ? 'LAMal: costo non superiore al SSN stimato'
       : snapshot.verdict === 'ssn'
-        ? 'Conviene il SSN italiano'
-        : `Dipende dall'aliquota regionale (break-even: ${formatPercent(snapshot.breakevenPct)})`;
+        ? 'SSN: costo non superiore alla LAMal stimata'
+        : `Dipende dall'aliquota regionale (break-even: ${snapshot.breakevenPct === null ? 'Nessun cambio di convenienza nel range previsto' : formatPercent(snapshot.breakevenPct)})`;
 
   const body = [
+    ...(snapshot.residenceCountry ? [['Paese di residenza', snapshot.residenceCountry]] : []),
+    ...(snapshot.premiumYear ? [['Anno premi UFSP', String(snapshot.premiumYear)]] : []),
     ['Reddito annuo netto', formatCHF(snapshot.incomeCHF)],
     ['Eta', String(Math.round(snapshot.age))],
     ['Franchigia LAMal', formatCHF(snapshot.franchiseCHF)],
     [`Premio LAMal piu economico (${snapshot.cheapestInsurer})`, `${formatCHF(snapshot.lamalMonthlyCHF)}/mese`],
     ['Costo LAMal annuo stimato', formatCHF(snapshot.lamalAnnualCHF)],
-    ['Contributo SSN stimato (3%)', formatCHF(snapshot.ssnMinCHF)],
-    ['Contributo SSN stimato (6%)', formatCHF(snapshot.ssnMaxCHF)],
-    ['Aliquota di break-even', formatPercent(snapshot.breakevenPct)],
+    ['Contributo SSN minimo dopo limiti', formatCHF(snapshot.ssnMinCHF)],
+    ['Contributo SSN massimo dopo limiti', formatCHF(snapshot.ssnMaxCHF)],
+    ['Aliquota di break-even', snapshot.breakevenPct === null ? 'Nessun cambio di convenienza nel range previsto' : formatPercent(snapshot.breakevenPct)],
     ['Verdetto', verdictLabel],
   ];
 

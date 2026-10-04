@@ -28,7 +28,8 @@ import np from 'node:path';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords, replaceRobotsMeta } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
-import { buildDayStampIso } from './shared/buildDayStamp';
+import { sourceDateIso } from '../services/dataFreshness';
+import { renderSitemapLastmod } from './shared/sitemapLastmod';
 import { renderHreflangTags, renderSitemapHreflangTags } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
@@ -942,7 +943,7 @@ function webPageLd(
   canonicalUrl: string,
   title: string,
   description: string,
-  dayStamp: string,
+  sourceModifiedAt: string,
 ): string {
   return inlineScriptJson({
     '@context': 'https://schema.org',
@@ -951,7 +952,7 @@ function webPageLd(
     name: title,
     description,
     inLanguage: locale,
-    dateModified: dayStamp,
+    ...(sourceDateIso(sourceModifiedAt) ? { dateModified: sourceDateIso(sourceModifiedAt) } : {}),
     isPartOf: { '@type': 'WebSite', url: BASE_URL, name: 'Frontaliere Ticino' },
   });
 }
@@ -1039,7 +1040,6 @@ function generateHubPage(
   locale: ExchangeLocale,
   snapshot: ExchangeSnapshot,
   distDir: string,
-  dayStamp: string,
 ): PageOut {
   const copy = COPY[locale];
   const canonicalPath = buildExchangeHubPath(locale);
@@ -1199,7 +1199,7 @@ ${endOfContentMultiplexHtml({ indexable })}
     hreflangHtml: hreflangFor(alternates),
     bodyHtml,
     jsonLdScripts: [
-      webPageLd(locale, canonicalUrl, title, description, dayStamp),
+      webPageLd(locale, canonicalUrl, title, description, snapshot.rateDate),
       breadcrumbLd(locale, [
         { name: copy.breadcrumbHome, path: HOME_PATH[locale] },
         { name: copy.hubBreadcrumb, path: canonicalPath },
@@ -1220,7 +1220,6 @@ function generateAmountPage(
   amount: number,
   snapshot: ExchangeSnapshot,
   distDir: string,
-  dayStamp: string,
 ): PageOut {
   const copy = COPY[locale];
   const canonicalPath = buildExchangeAmountPath(locale, amount);
@@ -1376,7 +1375,7 @@ ${endOfContentMultiplexHtml({ indexable })}
     hreflangHtml: hreflangFor(alternates),
     bodyHtml,
     jsonLdScripts: [
-      webPageLd(locale, canonicalUrl, title, description, dayStamp),
+      webPageLd(locale, canonicalUrl, title, description, snapshot.rateDate),
       breadcrumbLd(locale, [
         { name: copy.breadcrumbHome, path: HOME_PATH[locale] },
         { name: copy.hubBreadcrumb, path: buildExchangeHubPath(locale) },
@@ -1405,14 +1404,13 @@ export function generateExchangePages(opts: {
 }): GenerateExchangePagesResult {
   const { snapshot } = opts;
   const distDir = opts.distDir ?? '';
-  const dayStamp = buildDayStampIso();
   const pages: PageOut[] = [];
   const itCanonicalPaths: string[] = [];
 
   for (const locale of EXCHANGE_LOCALES) {
-    pages.push(generateHubPage(locale, snapshot, distDir, dayStamp));
+    pages.push(generateHubPage(locale, snapshot, distDir));
     for (const amount of EXCHANGE_AMOUNTS) {
-      pages.push(generateAmountPage(locale, amount, snapshot, distDir, dayStamp));
+      pages.push(generateAmountPage(locale, amount, snapshot, distDir));
     }
   }
   itCanonicalPaths.push(buildExchangeHubPath('it'));
@@ -1426,7 +1424,7 @@ export function generateExchangePages(opts: {
 
 const SITEMAP_FILENAME = 'sitemap-exchange.xml';
 
-function buildSitemapXml(itPaths: string[], dateStamp: string): string {
+export function buildExchangeSitemapXml(itPaths: string[], modifiedAt: string | undefined): string {
   const entries = itPaths
     .map((itPath) => {
       const isHub = itPath === buildExchangeHubPath('it');
@@ -1450,7 +1448,7 @@ function buildSitemapXml(itPaths: string[], dateStamp: string): string {
       return `  <url>
     <loc>${BASE_URL}${itPath}</loc>
 ${alt}
-    <lastmod>${dateStamp}</lastmod>
+    ${renderSitemapLastmod(modifiedAt)}
     <changefreq>daily</changefreq>
     <priority>${isHub ? '0.8' : '0.6'}</priority>
   </url>`;
@@ -1548,7 +1546,7 @@ export function exchangeRatePagesPlugin(rootDir: string): Plugin {
       await collector.flush();
 
       try {
-        fs.writeFileSync(np.join(distDir, SITEMAP_FILENAME), buildSitemapXml(itCanonicalPaths, dayKey), 'utf-8');
+        fs.writeFileSync(np.join(distDir, SITEMAP_FILENAME), buildExchangeSitemapXml(itCanonicalPaths, snapshot.rateDate), 'utf-8');
       } catch (err) {
         console.warn('[exchange-ssg] failed to write sitemap', err);
       }

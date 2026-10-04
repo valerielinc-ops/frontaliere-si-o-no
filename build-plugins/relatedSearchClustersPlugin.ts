@@ -1,6 +1,6 @@
 import { CALC_HREF } from './shared/calcHref';
 import { buildSalaryAnswer, searchSalaryMedian, hasSalaryIntent } from './shared/searchSalaryAnswer';
-import { matchesJobOccupation, getJobSearchRoleTokens } from '../services/jobSearchRelevance';
+import { prepareJobOccupationTerms, matchesPreparedJobOccupation, getJobSearchRoleTokens } from '../services/jobSearchRelevance';
 /**
  * Related-search cluster landings — Vite build plugin.
  *
@@ -465,7 +465,9 @@ const CACHE_KEY_INPUTS = [
 // until issue #4943: it no longer builds at all — it audits the live site over
 // HTTP — because the monolith build it ran to produce dist/ was OOM-killed by
 // the host on every run since 2026-07-07.)
-const CACHE_VERSION = 'v12';
+// v13: aggregate sitemap URLs have no build-clock lastmod. Reject older
+// manifests before restoring any files; a current cache hit needs no rewriting.
+const CACHE_VERSION = 'v13';
 
 // `SITEMAP_SHARD_CAP` and `padShardIndex` are imported from
 // scripts/lib/sitemap-limits.mjs — see that module for why 39,000 and not
@@ -662,26 +664,6 @@ export async function tryRestoreFromCache(
     return null;
   }
 
-  // Each shard carries a `<lastmod>` per URL; refresh today's date on every
-  // restored sitemap-search-clusters*.xml so the master sitemap signals
-  // freshness even when the body is unchanged. Walks the actual restored
-  // shard set (legacy single-file caches will surface as a single match;
-  // post-sharding caches have N matches — both handled uniformly).
-  const today = new Date().toISOString().slice(0, 10);
-  if (fs.existsSync(distDir)) {
-    const shardRe = new RegExp(`^${SITEMAP_SHARD_PREFIX}(?:-\\d+)?\\.xml$`);
-    for (const file of fs.readdirSync(distDir)) {
-      if (!shardRe.test(file)) continue;
-      const p = path.join(distDir, file);
-      try {
-        const xml = fs.readFileSync(p, 'utf-8')
-          .replace(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, `<lastmod>${today}</lastmod>`);
-        fs.writeFileSync(p, xml, 'utf-8');
-      } catch {
-        // best-effort refresh
-      }
-    }
-  }
   return { ...manifest, emittedCount: restored };
 }
 
@@ -1144,6 +1126,7 @@ export function buildRelatedSitemapManifestInput(input: {
 // per-candidate scan applied via queryMatchScore. Stemming is intentionally
 // skipped (matches plurals/feminines via substring, like the SPA filter).
 export class TokenIndex {
+  private occupationTermsByLocale = new Map<Locale, WeakMap<RawJob, readonly string[]>>();
   private haystacksByLocale = new Map<Locale, string[]>();
   private postingsByLocale = new Map<Locale, Map<string, number[]>>();
   private gramPostingsByLocale = new Map<Locale, Map<string, number[]>>();
@@ -1238,8 +1221,28 @@ export class TokenIndex {
     return matchingIdx.map((idx) => this.jobs[idx]);
   }
 
+  /** Keep occupational filtering before the result cap, without retokenizing each job per query. */
+  matchingOccupationJobs(locale: Locale, tokens: readonly string[], maxJobs: number, minOrScore: number, roles: readonly string[]): RawJob[] {
+    if (roles.length === 0) return this.matchingJobs(locale, tokens, maxJobs, minOrScore);
+    let prepared = this.occupationTermsByLocale.get(locale);
+    if (!prepared) {
+      prepared = new WeakMap<RawJob, readonly string[]>();
+      this.occupationTermsByLocale.set(locale, prepared);
+    }
+    const termsByJob = prepared;
+    return this.matchingJobs(locale, tokens, maxJobs, minOrScore, (job) => {
+      let terms = termsByJob.get(job);
+      if (!terms) {
+        terms = prepareJobOccupationTerms(job, locale);
+        termsByJob.set(job, terms);
+      }
+      return matchesPreparedJobOccupation(terms, roles);
+    });
+  }
+
   /** Free the haystack + postings cache once index queries are complete. */
   clear(): void {
+    this.occupationTermsByLocale.clear();
     this.haystacksByLocale.clear();
     this.postingsByLocale.clear();
     this.gramPostingsByLocale.clear();
@@ -1528,8 +1531,7 @@ export function buildClusterContext(
 
   const __tMatch = profileStart();
   const roles = getJobSearchRoleTokens(keyword);
-  const matching = index.matchingJobs(candidate.locale, tokens, MAX_JOBS_PER_PAGE, minOrScore,
-    (job) => matchesJobOccupation({ title: job.title, titleByLocale: job.titleByLocale, company: job.company }, candidate.locale, roles));
+  const matching = index.matchingOccupationJobs(candidate.locale, tokens, MAX_JOBS_PER_PAGE, minOrScore, roles);
   profileRecord('bc:match', __tMatch);
 
   if (matching.length < MIN_MATCHING_JOBS) return null;
@@ -3208,12 +3210,7 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
     url: canonicalUrl,
     description: copy.hubDescription,
     inLanguage: locale,
-    // Day-granularity (matches the visible `dateStamp` rendered on the page),
-    // NOT a full build timestamp: a sub-second `new Date().toISOString()` here
-    // made every search-cluster/listing page churn on every deploy. Stable
-    // within the UTC day → same-day deploys no longer rewrite these pages from
-    // dateModified alone. See build-plugins/shared/buildDayStamp.ts.
-    dateModified: `${dateStamp}T00:00:00.000Z`,
+    // Rebuilding the same collection does not establish a content update.
     mainEntity: {
       '@type': 'ItemList',
       // numberOfItems reports the full list size; itemListElement is a sample.
@@ -3966,7 +3963,7 @@ async function writeSitemap(
       const __tSerialize = profileStart();
       const slice = locs.slice(i * SITEMAP_SHARD_CAP, (i + 1) * SITEMAP_SHARD_CAP);
       const entries = slice.map((loc) =>
-        `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+        `  <url>\n    <loc>${loc}</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
       ).join('\n');
       const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
       profileRecord('sw:serialize-xml', __tSerialize);
@@ -4377,9 +4374,14 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
 
       const contexts: ClusterContext[] = [];
       const __tContextBuild = profileStart();
+      const contextStartedAt = Date.now();
+      let processedContexts = 0;
       for (const cand of candidates) {
         const ctx = buildClusterContext(cand, tokenIndex, jobs);
         if (ctx) contexts.push(ctx);
+        if (++processedContexts % 10_000 === 0) {
+          console.log(`[related-search-clusters] contexts ${processedContexts}/${candidates.length} elapsed_ms=${Date.now() - contextStartedAt} heap_mb=${Math.round(process.memoryUsage().heapUsed / 1048576)}`);
+        }
       }
       profileRecord('build-contexts', __tContextBuild);
       console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${contexts.length} clusters survived match-≥${MIN_MATCHING_JOBS} filter`);

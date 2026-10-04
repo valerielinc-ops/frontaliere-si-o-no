@@ -1,28 +1,28 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-10-03T09:09:23.875Z",
-  "total": 11,
+  "generatedAt": "2026-10-03T21:09:25.969Z",
+  "total": 10,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 11,
+  "written": 10,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 36695,
-  "avgDurationMs": 36695,
+  "unchangedCount": 1,
+  "durationMs": 39608,
+  "avgDurationMs": 39608,
   "durationHistory": [
-    34598,
-    35729,
-    36695
+    39608
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-zollikerberg-53f791050fa5",
       "slug": "apprendista-logistikerin-apprendista-logistiker-cfc-diverses-spital-zollikerberg",
@@ -55,6 +55,7 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -64,6 +65,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

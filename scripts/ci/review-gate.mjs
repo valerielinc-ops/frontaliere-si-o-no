@@ -25,6 +25,7 @@ import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
 import { boundReviewsToFirstHeadVerdict } from './lib/pr-review-admission.mjs';
 import {
   contributionFingerprint,
+  findingAcceptanceClauses,
   isCarryForwardReview,
   verifyCarryForwardReview,
 } from './lib/review-carry-forward.mjs';
@@ -43,7 +44,6 @@ import {
   changedLinesFromPatch,
   dedupeFindingsById,
   isMalformedReviewBody,
-  isExplicitNonFunnelDisposition,
   reviewBodyDefects,
   stableFindingId,
   unchangedLineImportants,
@@ -62,7 +62,6 @@ const ZERO_IMPORTANT_RE = /^(?:0|none|nessuno)\s*$/iu;
 const NEGATIVE_IMPORTANT_SUMMARY_PREFIX_RE = /^\s*(?:[-*+>]\s*)?(?:nessun[oa]?|no)\s+$/iu;
 const IMPORTANT_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?:[:—-]\s*|(?=\s+\S))/u;
 const FINDING_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?:[:—-]|(?=\s+\S))|🔴|🟡\s*\*{0,2}\s*Nit\s*\*{0,2}(?:[:—-]|(?=\s+\S))|🟣\s*\*{0,2}\s*Pre-existing\s*\*{0,2}(?:[:—-]|(?=\s+\S))|❓\s*q\s*:/gu;
-const QUESTION_MARKER_RE = /❓\s*q\s*:/iu;
 const REVIEWER_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/iu;
 // This is deliberately narrower than REVIEWER_LOGIN_RE and is accepted only
 // together with a validated Codex evidence file plus an exact HEAD commit and
@@ -334,14 +333,6 @@ function emptyClassification(findings = []) {
     outsideOnly: false,
     blocking: false,
   };
-}
-
-// An adversarial `❓ q:` may still describe a funnel-critical risk. The
-// outside-only exception is safe without `## LGTM` only when the reviewer
-// explicitly disposes of every question as non-funnel/deferred.
-function hasUnresolvedFunnelQuestion(body) {
-  return normalizeReviewBody(body).split(/\r?\n/u).some((line) =>
-    QUESTION_MARKER_RE.test(line) && !isExplicitNonFunnelDisposition(line));
 }
 
 /**
@@ -772,17 +763,19 @@ function ledgerOnlyClause(clause) {
  * meta-finding («il finding storico X resta open senza anchor») si sono
  * rialzati da soli per 55 review, portando il ledger a 111 voci aperte, mentre
  * il codice aveva già quattro `## LGTM`. Su 120 PR mergiate prima: zero 🔴
- * senza file, quindi zero casi toccati. Ogni clausola vale fino a fine riga,
- * così un rilievo vero che cita un meta-finding resta bloccante. Un 🔴
- * ancorato a `PR body:L<n>` resta sulle regole del body
- * (`isContractDomainBodyFinding`) e sulla sua conferma esatta.
+ * senza file, quindi zero casi toccati. Ogni clausola vale fino alla
+ * clausola successiva o alla fine del finding (`findingAcceptanceClauses`):
+ * troncata al primo a capo, un comando sulla riga di continuazione non veniva
+ * letto e il 🔴 vero era declassato (review 11321). Formato non riconosciuto o
+ * clausola troncata: resta bloccante. Un 🔴 ancorato a `PR body:L<n>` resta
+ * sulle regole del body (`isContractDomainBodyFinding`) e sulla sua conferma
+ * esatta.
  */
 export function isLedgerAcceptanceFinding(finding) {
   if ((finding?.citations || []).length > 0) return false;
   if (prBodyAnchor(finding?.line) !== null || prBodyAnchor(finding?.text) !== null) return false;
-  const clauses = [...String(finding?.text || '').matchAll(/(?:Accettazione|Acceptance)\s*:\s*([^\n]*)/giu)]
-    .map((match) => match[1]);
-  return clauses.length > 0 && clauses.every(ledgerOnlyClause);
+  const clauses = findingAcceptanceClauses(finding?.text);
+  return clauses !== null && clauses.length > 0 && clauses.every(ledgerOnlyClause);
 }
 
 export function unanchoredConfirmationTarget(finding) {
@@ -2372,19 +2365,10 @@ export async function runReviewGate({
     logClassification(classification);
   }
 
-  // A reviewer must not approve while an Important finding is still in scope
-  // (or cannot be resolved). Once every Important is conservatively classified
-  // outside this PR diff, however, the finding is debt recorded in the
-  // aggregate follow-up and the review has no in-scope blocker left to approve.
-  // Requiring a literal LGTM in that one case deadlocks otherwise safe PRs:
-  // Claude correctly withholds LGTM for the historical out-of-diff finding,
-  // while this gate correctly declassifies it. Keep the literal requirement
-  // for empty, in-scope, and unresolved verdicts.
-  const outsideOnlyWithoutLgtm = !body.includes('## LGTM')
-    && classification.outsideOnly
-    && !classification.blocking
-    && !hasUnresolvedFunnelQuestion(body);
-  if (!body.includes('## LGTM') && !outsideOnlyWithoutLgtm) {
+  // An out-of-diff Important is recorded in the aggregate follow-up, but it
+  // does not replace the reviewer's explicit verdict for the current HEAD.
+  // Every successful review must carry the literal LGTM marker.
+  if (!body.includes('## LGTM')) {
     return { approved: false, reason: 'manca ## LGTM', classification, review: latest };
   }
   if (classification.blocking) {

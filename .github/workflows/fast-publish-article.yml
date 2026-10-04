@@ -283,17 +283,32 @@ jobs:
       - name: Recheck article chunk source before publication
         id: recheck_chunk_source_before_publish
         if: inputs.dry_run != true && inputs.dry_run != 'true' && steps.verify_chunk_lock_before_publish.outcome == 'success'
+        env:
+          INPUT_ARTICLE_ID: ${{ inputs.article_id }}
+          INPUT_SECTION: ${{ inputs.section }}
         run: |
           set -euo pipefail
           SOURCE_SHA="$(git rev-parse HEAD)"
           git fetch --no-tags --depth=1 origin main
           MAIN_SHA="$(git rev-parse origin/main)"
           CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
-          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
           if [ "$CURRENT" != "true" ]; then
-            echo "::error::article chunk source advanced after the pre-publication freshness check: source $SOURCE_SHA is not current origin/main $MAIN_SHA"
-            exit 1
+            echo "::notice::Refreshing stale article chunk source $SOURCE_SHA to current origin/main $MAIN_SHA before publication"
+            git checkout --detach --force origin/main
+            SOURCE_SHA="$(git rev-parse HEAD)"
+            rm -rf /tmp/fast-publish/dist /tmp/fast-publish/summary.json
+            npx -y tsx@4.23.15 scripts/publish-article-fast.mjs \
+              --id "$INPUT_ARTICLE_ID" \
+              --section "$INPUT_SECTION" \
+              --out /tmp/fast-publish/dist \
+              --summary /tmp/fast-publish/summary.json
+            CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+            if [ "$CURRENT" != "true" ]; then
+              echo "::error::article chunk source refresh did not reach origin/main $MAIN_SHA"
+              exit 1
+            fi
           fi
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
 
       # The article hub shard and the client registry are two representations
       # of the same publish. Publish the section's companions first, then its

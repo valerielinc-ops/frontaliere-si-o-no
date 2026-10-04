@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rehab-basel",
-  "assembledAt": "2026-10-03T09:18:59.545Z",
+  "assembledAt": "2026-10-03T21:15:26.809Z",
   "jobs": [
     {
       "id": "rehab-basel-af1fb99cf471",
@@ -33,7 +33,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-diatkoch-in-100-m-w-d_201.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:18:54.937Z",
+      "crawledAt": "2026-10-03T21:15:22.838Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -74,14 +74,12 @@
       },
       "previousSlugs": [
         "diatkoch-in-100-m-w-d-rehab-basel-basel",
-        "cucina-dietetica-100-m-w-d-rehab-basel-basel",
-        "cuoco-dietetico-al-100-m-f-d-rehab-basel-basel"
+        "cucina-dietetica-100-m-w-d-rehab-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diatkoch-in-100-m-w-d-rehab-basel-basel",
-          "cucina-dietetica-100-m-w-d-rehab-basel-basel",
-          "cuoco-dietetico-al-100-m-f-d-rehab-basel-basel"
+          "cucina-dietetica-100-m-w-d-rehab-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T10:00:47.507Z",
@@ -97,8 +95,7 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "rehab-basel-df8651885ba3",
@@ -131,7 +128,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-sowie-praktiker-in-eba-m-w-d_284.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:18:54.297Z",
+      "crawledAt": "2026-10-03T21:15:22.181Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -165,14 +162,12 @@
         "lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-sowie-praktiker-in-eba",
         "borsa-di-apprendistato-2027-per-esperto-esperta-servizi-alberghieri-e-gestione-domestica-efz-e-operatore-operatrice-eba",
         "apprenticeship-2027-as-hotel-housekeeping-specialist-efz-and-eba-practitioner-m-w-e-rehab-basel-basel",
-        "apprentissage-2027-en-gestion-hoteliere-et-menagere-efz-et-operateur-trice-eba-m-w-e-rehab-basel-basel",
-        "apprendistato-2027-come-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-sowie-praktiker-in-afp-m-w-d-rehab-basel"
+        "apprentissage-2027-en-gestion-hoteliere-et-menagere-efz-et-operateur-trice-eba-m-w-e-rehab-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-sowie-praktiker-in-eba",
-          "borsa-di-apprendistato-2027-per-esperto-esperta-servizi-alberghieri-e-gestione-domestica-efz-e-operatore-operatrice-eba",
-          "apprendistato-2027-come-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-sowie-praktiker-in-afp-m-w-d-rehab-basel"
+          "borsa-di-apprendistato-2027-per-esperto-esperta-servizi-alberghieri-e-gestione-domestica-efz-e-operatore-operatrice-eba"
         ],
         "en": [
           "apprenticeship-2027-as-hotel-housekeeping-specialist-efz-and-eba-practitioner-m-w-e-rehab-basel-basel"
@@ -194,7 +189,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rehab-basel-0307a3ec451b",
@@ -227,7 +223,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-assistenzarzt-arztin-fur-allgemeine-innere-medizin-oder-neurologie-100-m-w-d_133.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:18:53.673Z",
+      "crawledAt": "2026-10-03T21:15:21.571Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -271,8 +267,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "rehab-basel-b8eda22f8fff",
@@ -281,7 +276,7 @@
         "it": "psicoterapeut-in-60-80-m-w-d-rehab-basel-basel",
         "en": "psychotherapeut-in-60-80-m-w-d-rehab-basel-basel",
         "de": "psychotherapeut-in-60-80-m-w-d-rehab-basel",
-        "fr": "psychotherapeut-in-60-80-m-w-d-rehab-basel"
+        "fr": "psychotherapie-dans-60-80-m-m-j-rehab-basel-basel"
       },
       "company": "REHAB Basel",
       "companyKey": "rehab-basel",
@@ -289,7 +284,7 @@
       "title": "Psychotherapeut*in 60% - 80% m/w/d",
       "titleByLocale": {
         "it": "Psicoterapeuta 60% - 80% m/f/d",
-        "en": "Psychotherapist 60% - 80% m/f/d",
+        "en": "Psychotherapeut*in 60% - 80% m/w/d",
         "de": "Psychotherapeut*in 60% - 80% m/w/d",
         "fr": "Psychothérapie 60% - 80% h/f/d"
       },
@@ -305,7 +300,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-psychotherapeut-in-60-80-m-w-d_292.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:18:53.094Z",
+      "crawledAt": "2026-10-03T21:15:21.000Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -326,14 +321,11 @@
         "psychotherapeut-in-60-80-m-w-d-rehab-basel-basel",
         "psychotherapeute-60-80-m-w-d-rehab-basel",
         "psycho-tax-in-60-80-m-w-d-rehab-basel-basel",
-        "psychotherapeut-in-60-80-m-w-d-rehab-basel",
-        "psicoterapeut-in-60-80-m-w-d-rehab-basel-basel",
-        "psychotherapie-dans-60-80-m-m-j-rehab-basel-basel"
+        "psychotherapeut-in-60-80-m-w-d-rehab-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychotherapeut-in-60-80-m-w-d-rehab-basel-basel",
-          "psicoterapeut-in-60-80-m-w-d-rehab-basel-basel"
+          "psychotherapeut-in-60-80-m-w-d-rehab-basel-basel"
         ],
         "de": [
           "psycho-tax-in-60-80-m-w-d-rehab-basel-basel",
@@ -342,8 +334,8 @@
         "fr": [
           "psychotherapeut-in-60-80-m-w-d-rehab-basel-basel",
           "psychotherapeute-60-80-m-w-d-rehab-basel",
-          "psychotherapie-dans-60-80-m-m-j-rehab-basel-basel",
-          "psychotherapeut-in-60-80-m-w-d-rehab-basel"
+          "psychotherapeut-in-60-80-m-w-d-rehab-basel",
+          "psychotherapie-dans-60-80-m-m-j-rehab-basel-basel"
         ]
       },
       "firstSeenAt": "2026-07-09T12:16:45.753Z",
@@ -359,7 +351,8 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rehab-basel-93a34777e8c7",
@@ -393,7 +386,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-fachperson-gesundheit-fage-fruhrehabilitation-80-100-m-w-d_282.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:18:52.476Z",
+      "crawledAt": "2026-10-03T21:15:20.374Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -412,21 +405,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachperson-gesundheit-fage-fruhrehabilitation-80-100-m-w-d-rehab-basel-basel",
-          "gesundheitsfachperson-fage-fruhrehabilitation-80-100-m-w-d-rehab-basel-basel"
+          "fachperson-gesundheit-fage-fruhrehabilitation-80-100-m-w-d-rehab-basel-basel"
         ],
         "it": [
-          "fachperson-gesundheit-fage-fruhrehabilitation-80-100-m-w-d-rehab-basel-basel",
-          "esperto-in-sanita-fage-riabilitazione-precoce-80-100-m-w-d-rehab-basel-basel"
+          "fachperson-gesundheit-fage-fruhrehabilitation-80-100-m-w-d-rehab-basel-basel"
         ],
         "fr": [
           "fachperson-gesundheit-fage-fruhrehabilitation-80-100-m-w-d-rehab-basel-basel"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-fage-fruhrehabilitation-80-100-m-w-d-rehab-basel-basel",
-        "gesundheitsfachperson-fage-fruhrehabilitation-80-100-m-w-d-rehab-basel-basel",
-        "esperto-in-sanita-fage-riabilitazione-precoce-80-100-m-w-d-rehab-basel-basel"
+        "fachperson-gesundheit-fage-fruhrehabilitation-80-100-m-w-d-rehab-basel-basel"
       ],
       "firstSeenAt": "2026-05-19T10:00:47.504Z",
       "salaryMin": 88000,
@@ -475,7 +464,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-dipl-pflegefachperson-fruhrehabilitation-80-100-m-w-d_137.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:18:51.845Z",
+      "crawledAt": "2026-10-03T21:15:19.777Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -494,20 +483,16 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-fruhrehabilitation-80-100-m-w-d-rehab-basel-basel",
-          "dipl-hydrichffjr-fjr-meldegradierung-80-100-m-w-d-rehab-basel-basel"
+          "dipl-pflegefachperson-fruhrehabilitation-80-100-m-w-d-rehab-basel-basel"
         ],
         "it": [
           "dipl-pflegefachperson-fruhrehabilitation-80-100-m-w-d-rehab-basel-basel",
-          "diplomata-infermiera-specializzata-in-riabilitazione-precoce-80-100-m-m-w-rehab-basel-basel",
-          "dipl-infermiere-di-riabilitazione-precoce-80-100-m-w-d-rehab-basel-basel"
+          "diplomata-infermiera-specializzata-in-riabilitazione-precoce-80-100-m-m-w-rehab-basel-basel"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-fruhrehabilitation-80-100-m-w-d-rehab-basel-basel",
-        "diplomata-infermiera-specializzata-in-riabilitazione-precoce-80-100-m-m-w-rehab-basel-basel",
-        "dipl-hydrichffjr-fjr-meldegradierung-80-100-m-w-d-rehab-basel-basel",
-        "dipl-infermiere-di-riabilitazione-precoce-80-100-m-w-d-rehab-basel-basel"
+        "diplomata-infermiera-specializzata-in-riabilitazione-precoce-80-100-m-m-w-rehab-basel-basel"
       ],
       "firstSeenAt": "2026-05-19T10:00:47.506Z",
       "salaryMin": 88000,
@@ -556,7 +541,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-fachperson-gesundheit-fage-neurorehabilitation-80-100-m-w-d_290.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:18:51.216Z",
+      "crawledAt": "2026-10-03T21:15:19.128Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -575,21 +560,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachperson-gesundheit-fage-neurorehabilitation-80-100-m-w-d-rehab-basel-basel",
-          "fachperson-gesundheit-fage-neuroreh-storung-80-100-m-w-d-rehab-basel-basel"
+          "fachperson-gesundheit-fage-neurorehabilitation-80-100-m-w-d-rehab-basel-basel"
         ],
         "it": [
-          "fachperson-gesundheit-fage-neurorehabilitation-80-100-m-w-d-rehab-basel-basel",
-          "persona-responsabile-della-somministrazione-fage-neuroreabilitazione-80-100-m-p-d-rehab-basel-basel"
+          "fachperson-gesundheit-fage-neurorehabilitation-80-100-m-w-d-rehab-basel-basel"
         ],
         "fr": [
           "fachperson-gesundheit-fage-neurorehabilitation-80-100-m-w-d-rehab-basel-basel"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-fage-neurorehabilitation-80-100-m-w-d-rehab-basel-basel",
-        "fachperson-gesundheit-fage-neuroreh-storung-80-100-m-w-d-rehab-basel-basel",
-        "persona-responsabile-della-somministrazione-fage-neuroreabilitazione-80-100-m-p-d-rehab-basel-basel"
+        "fachperson-gesundheit-fage-neurorehabilitation-80-100-m-w-d-rehab-basel-basel"
       ],
       "firstSeenAt": "2026-06-24T12:18:04.354Z",
       "salaryMin": 119000,
@@ -638,7 +619,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-dipl-pflegefachperson-neurorehabilitation-80-100-m-w-d-_289.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:18:50.576Z",
+      "crawledAt": "2026-10-03T21:15:18.348Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -657,13 +638,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-neurorehabilitation-80-100-m-w-d-rehab-basel-basel",
-          "dipl-hydrich-hydrich-meldegradation-80-100-m-w-d-rehab-basel-basel"
+          "dipl-pflegefachperson-neurorehabilitation-80-100-m-w-d-rehab-basel-basel"
         ],
         "it": [
           "infermiere-a-diplomato-a-in-neuroriabilitazione-80-100-m-f-d-rehab-basel-basel",
-          "dipl-pflegefachperson-neurorehabilitation-80-100-m-w-d-rehab-basel-basel",
-          "dipl-neuroreabilitazione-specialista-infermieristica-80-100-m-f-d-rehab-basel-basel"
+          "dipl-pflegefachperson-neurorehabilitation-80-100-m-w-d-rehab-basel-basel"
         ],
         "fr": [
           "infirmier-ere-diplome-e-en-neuroreadaptation-80-100-h-f-d-rehab-basel-basel"
@@ -674,9 +653,7 @@
         "infirmier-ere-diplome-e-en-neuroreadaptation-80-100-h-f-d-rehab-basel-basel",
         "dipl-infermiere-i-neuroriabilitazione-80-100-m-f-d-rehab-basel-basel",
         "dipl-pflegefachperson-neurorehabilitation-80-100-m-w-d-m-w-d-rehab-basel-basel",
-        "dipl-pflegefachperson-neurorehabilitation-80-100-m-w-d-rehab-basel-basel",
-        "dipl-hydrich-hydrich-meldegradation-80-100-m-w-d-rehab-basel-basel",
-        "dipl-neuroreabilitazione-specialista-infermieristica-80-100-m-f-d-rehab-basel-basel"
+        "dipl-pflegefachperson-neurorehabilitation-80-100-m-w-d-rehab-basel-basel"
       ],
       "firstSeenAt": "2026-06-24T22:52:05.793Z",
       "salaryMin": 88000,
@@ -724,7 +701,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-fachperson-gesundheit-fage-paraplegiologie-80-100-m-w-d_258.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:18:49.948Z",
+      "crawledAt": "2026-10-03T21:15:17.759Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -768,15 +745,13 @@
         "esperto-in-riabilitazione-neurologica-e-paraplegia-80-100-rehab-basel-basel",
         "salute-specialistica-fage-paraplegiologia-80-100-m-w-d-rehab-basel-basel",
         "professionnel-de-la-sante-fage-en-paraplegie-80-100-rehab-basel-basel",
-        "professionnel-de-sante-fage-paraplegie-80-100-m-f-d-rehab-basel-basel",
-        "specialista-della-salute-fage-paraplegiologia-80-100-m-w-d-rehab-basel-basel"
+        "professionnel-de-sante-fage-paraplegie-80-100-m-f-d-rehab-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-fage-paraplegiologie-80-100-m-w-d-rehab-basel-basel",
           "esperto-in-riabilitazione-neurologica-e-paraplegia-80-100-rehab-basel-basel",
-          "salute-specialistica-fage-paraplegiologia-80-100-m-w-d-rehab-basel-basel",
-          "specialista-della-salute-fage-paraplegiologia-80-100-m-w-d-rehab-basel-basel"
+          "salute-specialistica-fage-paraplegiologia-80-100-m-w-d-rehab-basel-basel"
         ],
         "fr": [
           "professionnel-de-la-sante-fage-en-paraplegie-80-100-rehab-basel-basel",
@@ -796,7 +771,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rehab-basel-c6b62e5159ef",
@@ -830,7 +806,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-dipl-pflegefachperson-paraplegiologie-80-100-m-w-d-_136.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:18:49.303Z",
+      "crawledAt": "2026-10-03T21:15:17.174Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -852,15 +828,13 @@
         "dipl-pflegefachperson-paraplegiologie-80-100-m-p-g-rehab-basel-basel",
         "diplomata-infermiera-specializzata-in-paraplegia-80-100-m-w-d-rehab-basel-basel",
         "infirmier-e-en-paraplegiologie-80-100-h-f-rehab-basel-basel",
-        "diplomee-a-infirmiere-specialisee-paraplegie-80-100-m-f-d-rehab-basel-basel",
-        "dipl-infermiere-specializzato-in-paraplegiologia-80-100-m-w-d-rehab-basel-basel"
+        "diplomee-a-infirmiere-specialisee-paraplegie-80-100-m-f-d-rehab-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-paraplegiologie-80-100-m-w-d-rehab-basel-basel",
           "dipl-pflegefachperson-paraplegiologie-80-100-m-p-g-rehab-basel-basel",
-          "diplomata-infermiera-specializzata-in-paraplegia-80-100-m-w-d-rehab-basel-basel",
-          "dipl-infermiere-specializzato-in-paraplegiologia-80-100-m-w-d-rehab-basel-basel"
+          "diplomata-infermiera-specializzata-in-paraplegia-80-100-m-w-d-rehab-basel-basel"
         ],
         "fr": [
           "infirmier-e-en-paraplegiologie-80-100-h-f-rehab-basel-basel",
@@ -890,7 +864,7 @@
       "slug": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel",
-        "en": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel",
+        "en": "dipl-care-professional-imcu-80-100-m-f-d-rehab-basel-basel",
         "de": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel",
         "fr": "dipl-pflegefachperson-imcu-80-100-m-w-d-rehab-basel-basel"
       },
@@ -917,7 +891,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-dipl-pflegefachperson-imcu-80-100-m-w-d_291.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:18:48.651Z",
+      "crawledAt": "2026-10-03T21:15:16.540Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -981,7 +955,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-fachperson-gesundheit-fage-80-100-sap-station-m-w-d_166.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:18:48.025Z",
+      "crawledAt": "2026-10-03T21:15:15.895Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -999,13 +973,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-fage-80-100-sap-station-m-w-d-rehab-basel-basel",
-        "salute-fage-80-100-sap-station-m-f-d-rehab-basel-basel"
+        "fachperson-gesundheit-fage-80-100-sap-station-m-w-d-rehab-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-fage-80-100-sap-station-m-w-d-rehab-basel-basel",
-          "salute-fage-80-100-sap-station-m-f-d-rehab-basel-basel"
+          "fachperson-gesundheit-fage-80-100-sap-station-m-w-d-rehab-basel-basel"
         ],
         "fr": [
           "fachperson-gesundheit-fage-80-100-sap-station-m-w-d-rehab-basel-basel"
@@ -1058,7 +1030,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-dipl-pflegefachperson-80-100-sap-station-m-w-d_167.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:18:47.396Z",
+      "crawledAt": "2026-10-03T21:15:15.308Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1077,21 +1049,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-80-100-sap-station-m-w-d-rehab-basel-basel",
-          "dipl-hydrich-person-80-100-sap-station-m-w-d-rehab-basel-basel"
+          "dipl-pflegefachperson-80-100-sap-station-m-w-d-rehab-basel-basel"
         ],
         "it": [
-          "dipl-pflegefachperson-80-100-sap-station-m-w-d-rehab-basel-basel",
-          "diplomata-pflegefachperson-80-100-stazione-sap-lunedi-mercoledi-giorno-rehab-basel-basel"
+          "dipl-pflegefachperson-80-100-sap-station-m-w-d-rehab-basel-basel"
         ],
         "fr": [
           "dipl-pflegefachperson-80-100-sap-station-m-w-d-rehab-basel-basel"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-80-100-sap-station-m-w-d-rehab-basel-basel",
-        "dipl-hydrich-person-80-100-sap-station-m-w-d-rehab-basel-basel",
-        "diplomata-pflegefachperson-80-100-stazione-sap-lunedi-mercoledi-giorno-rehab-basel-basel"
+        "dipl-pflegefachperson-80-100-sap-station-m-w-d-rehab-basel-basel"
       ],
       "firstSeenAt": "2026-06-23T12:11:32.793Z",
       "salaryMin": 88000,
@@ -1140,7 +1108,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-stationsleitung-80-100-m-w-d_295.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:18:46.741Z",
+      "crawledAt": "2026-10-03T21:15:14.672Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1170,15 +1138,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "de": [
-          "stationen-n-80-100-m-w-d-rehab-basel-basel"
-        ]
-      },
-      "previousSlugs": [
-        "stationen-n-80-100-m-w-d-rehab-basel-basel"
-      ]
+      }
     },
     {
       "id": "rehab-basel-08ad96f51b8e",
@@ -1212,7 +1172,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-fachexpert-in-physiotherapie-60-80-m-w-d_296.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:18:46.115Z",
+      "crawledAt": "2026-10-03T21:15:13.938Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1242,15 +1202,7 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "de": [
-          "fachexpertin-in-physiotherapie-60-80-m-w-d-rehab-basel-basel"
-        ]
-      },
-      "previousSlugs": [
-        "fachexpertin-in-physiotherapie-60-80-m-w-d-rehab-basel-basel"
-      ]
+      }
     },
     {
       "id": "rehab-basel-cfe333ec9b90",
@@ -1284,7 +1236,7 @@
       "url": "https://rehabbasel-career.talent-soft.com/stelle/stelle-ergotherapeut-in-bsc-90-100-m-w-d_297.aspx",
       "source": "REHAB Basel Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:18:45.493Z",
+      "crawledAt": "2026-10-03T21:15:13.356Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",

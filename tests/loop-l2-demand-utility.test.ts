@@ -212,6 +212,52 @@ describe('L2 Demand → Utility', () => {
     expect(issues[0].description).toContain('- Minimum sample: 1000');
   });
 
+  it('passes awaiting-sample with the measured window when the sample is the only failed check', async () => {
+    const input = tempFile(snapshot({
+      outcomes: { eligibleLandingSessions: 42, usefulActions: 1 },
+      telemetryWindow: { startDate: '2026-09-24', endDate: '2026-10-01', lagDays: 2 },
+    }));
+    const issues: any[] = [];
+    await runL2({
+      now: NOW,
+      sourcePath: input.file,
+      issue: true,
+      createIssueImpl: async (payload) => { issues.push(payload); },
+      logger: { log() {} },
+    });
+    expect(issues).toHaveLength(1);
+    expect(issues[0]).toMatchObject({
+      title: OUTCOME_SAMPLE_ISSUE_TITLE,
+      state: 'awaiting-sample',
+      sample: { current: 42, minimum: 1000, windowDays: 8 },
+    });
+  });
+
+  it('keeps an undersized sample a failure when another check fails with it', async () => {
+    const withBrokenCluster = tempFile(snapshot({
+      clusters: [cluster(), cluster({ clusterId: 'broken', canonicalSlug: 'other', locale: 'xx' })],
+      outcomes: { eligibleLandingSessions: 54, usefulActions: 0 },
+    }));
+    const withConflictingJoin = tempFile(snapshot({
+      outcomes: { eligibleLandingSessions: 54, usefulActions: 0 },
+      metrics: { outcomes: { eligibleLandingSessions: 55, usefulActions: 0 } },
+    }));
+    for (const input of [withBrokenCluster, withConflictingJoin]) {
+      const issues: any[] = [];
+      const result = await runL2({
+        now: NOW,
+        sourcePath: input.file,
+        issue: true,
+        createIssueImpl: async (payload) => { issues.push(payload); },
+        logger: { log() {} },
+      });
+      expect(result.verdict.ok).toBe(false);
+      expect(issues).toHaveLength(1);
+      expect(issues[0].state).toBeUndefined();
+      expect(issues[0].sample).toBeUndefined();
+    }
+  });
+
   it('keeps a missing source unmeasurable with null metrics', async () => {
     const result = await runL2({
       now: NOW,

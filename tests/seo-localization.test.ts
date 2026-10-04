@@ -34,10 +34,24 @@ describe('SEO localization', () => {
     expect(jsonLd).toContain('"inLanguage":"de"');
   });
 
-  it('resolves localized job detail slugs when building runtime SEO tags', async () => {
+  it('keeps the localized Guide head specific to the page intent', async () => {
+    await loadAllLocaleChunks('en');
+    setLocale('en');
+    window.history.replaceState({}, '', '/en/cross-border-guide/unemployment-benefits/');
+    await updateMetaTags('unemployment');
+
+    expect(document.title).toBe('Unemployment: Switzerland and Italy | Frontaliere Ticino');
+    const description = document.querySelector('meta[name="description"]')?.getAttribute('content') || '';
+    expect(description).toContain('PD U1');
+    expect(description).not.toContain('free tools and expert guides');
+  });
+
+  it.each(['unknown', 'reported', undefined] as const)('resolves localized runtime SEO with publication provenance %s', async (postingDateSource) => {
+    const suffix = postingDateSource || 'legacy';
+    const publicationDate = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
     const route: AppRoute = {
       activeTab: 'job-board',
-      jobSlug: 'responsabile-fondi-pensione-efg-international-ag-lugano',
+      jobSlug: `responsabile-fondi-pensione-efg-international-ag-lugano-${suffix}`,
     };
     const section = getSeoSection(route);
     const path = buildPath(route, 'it');
@@ -51,24 +65,20 @@ describe('SEO localization', () => {
       if (String(input) === '/data/jobs-it-index.json') {
         return {
           ok: true,
-          json: async () => ([
-            {
-              id: 'efg-5967',
-              slug: 'responsabile-fondi-pensione-efg-international-ag-lugano',
-              title: 'Responsabile Fondazione',
-              company: 'EFG International AG',
-              location: 'Lugano',
-              contract: 'permanent',
-              postedDate: '2026-03-06',
-            },
-          ]),
+          json: async () => (['unknown', 'reported', undefined].map((source) => ({
+            id: `efg-5967-${source || 'legacy'}`,
+            slug: `responsabile-fondi-pensione-efg-international-ag-lugano-${source || 'legacy'}`,
+            title: 'Responsabile Fondazione', company: 'EFG International AG', location: 'Lugano',
+            contract: 'permanent', postedDate: publicationDate, postingDateSource: source,
+          }))),
         } as Response;
       }
-      if (String(input) === '/data/job-detail/efg-5967.json') {
+      if (String(input) === `/data/job-detail/efg-5967-${suffix}.json`) {
         return {
           ok: true,
           json: async () => ({
-            id: 'efg-5967',
+            id: `efg-5967-${suffix}`,
+            postingDateSource, postedDate: publicationDate,
             title: 'Responsabile Fondazione',
             description: 'Gestione e amministrazione del fondo pensione aziendale a Lugano.',
             company: 'EFG International AG',
@@ -92,10 +102,20 @@ describe('SEO localization', () => {
     expect(document.title).toContain('EFG International AG');
 
     const canonical = document.querySelector('link[rel="canonical"]')?.getAttribute('href') || '';
-    expect(canonical).toContain('/cerca-lavoro-ticino/responsabile-fondi-pensione-efg-international-ag-lugano/');
+    expect(canonical).toContain(`/cerca-lavoro-ticino/responsabile-fondi-pensione-efg-international-ag-lugano-${suffix}/`);
 
     const description = document.querySelector('meta[name="description"]')?.getAttribute('content') || '';
     expect(description).toContain('fondo pensione aziendale');
+
+    // Explicit unknown retains metadata/FAQ but never revives publication.
+    // Missing markers also lack verified employer publication evidence.
+    const graph = [...document.querySelectorAll('script[type="application/ld+json"]')]
+      .map((script) => JSON.parse(script.textContent || '{}'));
+    const types = JSON.stringify(graph);
+    if (postingDateSource !== 'reported') expect(types).not.toContain('"@type":"JobPosting"');
+    else expect(types).toContain('"@type":"JobPosting"');
+    expect(types).toContain('"@type":"FAQPage"');
+
 
     vi.unstubAllGlobals();
     globalThis.fetch = originalFetch;

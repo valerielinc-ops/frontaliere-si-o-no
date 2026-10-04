@@ -3,6 +3,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  l9FindingKind,
   runL9,
   validateEmployerActivation,
   validateEmployerProfiles,
@@ -158,17 +159,73 @@ describe('L9 Employer Supply → Paid Activation', () => {
     expect(verdict.issues.join(' ')).toContain('outcomes.export.pricesUntouched');
   });
 
-  it('rejects a stale cross-source join and conflicting metric copies', () => {
+  it('rejects a join on a different profile cohort and conflicting metric copies', () => {
     const verdict = validateEmployerActivation({
       profiles: profiles(),
       outcomes: outcomes({
-        generatedAt: '2026-09-10T11:30:00.000Z',
+        inventoryScope: { ...outcomes().inventoryScope, profileGeneratedAt: '2026-09-08T04:40:00.000Z' },
         metrics: { paidActivations: 11 },
       }),
     }, { now: NOW });
     expect(verdict.quality).toBe('partial');
-    expect(verdict.issues.join(' ')).toContain('profile/outcome snapshots are');
+    expect(verdict.issues.join(' ')).toContain('does not match the profile snapshot');
     expect(verdict.issues.join(' ')).toContain('conflicting duplicate representations');
+  });
+
+  // I profili si rigenerano lunedi' e giovedi' (refresh-employer-profiles.yml),
+  // il ledger si esporta a ogni run: fra i due orologi ci sono fino a 96 h con
+  // un sistema sano. La coerenza fra i due lati e' l'uguaglianza esatta della
+  // coorte (inventoryScope.profileGeneratedAt), la freschezza e' per lato.
+  describe('cross-source coherence is the exact cohort, not a clock skew', () => {
+    // Run push di sabato 12-09: profili rigenerati giovedi' 10-09 alle 04:40Z
+    // (cron '40 4 * * 1,4'), ledger esportato 51,5 h dopo, alle 08:10Z.
+    const PROFILES_AT = '2026-09-10T04:40:00.000Z';
+    const LEDGER_AT = '2026-09-12T08:10:00.000Z';
+    const LATE_NOW = new Date('2026-09-12T08:15:00.000Z');
+
+    function profilesAt(generatedAt: string) {
+      const base = profiles();
+      return { ...base, _meta: { ...base._meta, generatedAt } };
+    }
+
+    function ledgerAttesting(profileGeneratedAt: string) {
+      return outcomes({
+        generatedAt: LEDGER_AT,
+        inventoryScope: { ...outcomes().inventoryScope, profileGeneratedAt },
+      });
+    }
+
+    it('accepts profiles 51.5h older than the ledger when the ledger attests that exact cohort', () => {
+      const verdict = validateEmployerActivation({
+        profiles: profilesAt(PROFILES_AT),
+        outcomes: ledgerAttesting(PROFILES_AT),
+      }, { now: LATE_NOW });
+      expect(verdict.issues.join(' ')).not.toMatch(/apart/);
+      expect(verdict).toMatchObject({ ok: true, quality: 'observed', issues: [] });
+      expect(verdict.snapshot.crossSourceSkewHours).toBe(51.5);
+    });
+
+    it('still rejects the same clocks when the ledger attests a different profile cohort', () => {
+      const verdict = validateEmployerActivation({
+        profiles: profilesAt(PROFILES_AT),
+        outcomes: ledgerAttesting('2026-09-07T04:40:00.000Z'),
+      }, { now: LATE_NOW });
+      expect(verdict).toMatchObject({ ok: false, quality: 'partial' });
+      expect(verdict.issues).toContain('outcomes.inventoryScope.profileGeneratedAt does not match the profile snapshot');
+      expect(verdict.snapshot.crossSourceSkewHours).toBe(51.5);
+    });
+
+    it('still rejects profiles older than maxAgeHours on their own side', () => {
+      // Lunedi' 31-08 04:40Z: oltre 240 h prima di LATE_NOW.
+      const staleAt = '2026-08-31T04:40:00.000Z';
+      const verdict = validateEmployerActivation({
+        profiles: profilesAt(staleAt),
+        outcomes: ledgerAttesting(staleAt),
+      }, { now: LATE_NOW });
+      expect(verdict).toMatchObject({ ok: false, quality: 'stale' });
+      expect(verdict.issues.join(' ')).toMatch(/employer profiles are [\d.]+h old \(max 240h\)/);
+      expect(verdict.issues.join(' ')).not.toMatch(/apart/);
+    });
   });
 
   it('keeps stale employer evidence out of the paid metric', async () => {
@@ -246,6 +303,87 @@ describe('L9 Employer Supply → Paid Activation', () => {
         outcomeLedgerMissing: false,
         profileInventoryComplete: true,
       });
+  });
+
+  describe('awaiting-sample', () => {
+    const ZERO_FUNNEL = {
+      eligibleEmployerAccounts: 0,
+      profileViewAccounts: 0,
+      leadAccounts: 0,
+      checkoutStartAccounts: 0,
+      paidActivations: 0,
+      activeSubscriptions: 0,
+      attachedJobs: 0,
+      renewals: 0,
+      freeProfiles: 0,
+      sponsoredProfiles: 0,
+      mrrRecognizedChf: 0,
+    };
+    const SMALL_FUNNEL = {
+      ...ZERO_FUNNEL,
+      eligibleEmployerAccounts: 3,
+      profileViewAccounts: 0,
+      leadAccounts: 0,
+      checkoutStartAccounts: 2,
+      paidActivations: 1,
+      activeSubscriptions: 1,
+      mrrRecognizedChf: 98,
+      export: { ...outcomes().export, anonymousFunnelExcluded: true, anonymousFunnelReason: 'no publisherUid on CTA events' },
+    };
+
+    async function reported(ledger: Record<string, unknown>) {
+      const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l9-test-'));
+      const issues: any[] = [];
+      const profilesPath = writeJson(dir, 'profiles.json', profiles());
+      const result = await runL9({
+        now: NOW,
+        profilesPath,
+        // Lo scope del ledger deve attestare lo STESSO file di inventario letto dalla run.
+        outcomePath: writeJson(dir, 'outcomes.json', outcomes({
+          inventoryScope: { ...outcomes().inventoryScope, profileSource: profilesPath },
+          ...ledger,
+        })),
+        issue: true,
+        createIssueImpl: async (payload) => { issues.push(payload); },
+        logger: { log() {} },
+      });
+      return { result, issues };
+    }
+
+    it('passes awaiting-sample when zero eligible accounts is the only finding', async () => {
+      const { result, issues } = await reported(ZERO_FUNNEL);
+      expect(result.verdict).toMatchObject({ ok: false, quality: 'zero', issues: [] });
+      expect(l9FindingKind(result.verdict)).toBe('underpowered-sample');
+      expect(issues).toHaveLength(1);
+      expect(issues[0]).toMatchObject({
+        state: 'awaiting-sample',
+        sample: { current: 0, minimum: 20, windowDays: null },
+      });
+    });
+
+    it('passes awaiting-sample when the sample is under minimum and nothing else fails', async () => {
+      const { result, issues } = await reported(SMALL_FUNNEL);
+      expect(result.verdict.issues).toEqual(['eligibleEmployerAccounts is below minimum sample (3 < 20)']);
+      expect(issues[0]).toMatchObject({ state: 'awaiting-sample', sample: { current: 3, minimum: 20 } });
+    });
+
+    it('keeps an undersized sample a failure when another check fails with it', async () => {
+      const otherCohort = await reported({
+        ...SMALL_FUNNEL,
+        inventoryScope: { ...outcomes().inventoryScope, profileGeneratedAt: '2026-09-08T04:40:00.000Z' },
+      });
+      expect(otherCohort.result.verdict.issues.join(' ')).toContain('does not match the profile snapshot');
+      expect(l9FindingKind(otherCohort.result.verdict)).toBe('ledger-failure');
+      expect(otherCohort.issues[0].state).toBeUndefined();
+
+      const unattested = await reported({ ...ZERO_FUNNEL, independent: false });
+      expect(l9FindingKind(unattested.result.verdict)).toBe('ledger-failure');
+      expect(unattested.issues[0].state).toBeUndefined();
+
+      const broken = await reported({ ...ZERO_FUNNEL, paidActivations: 1 });
+      expect(l9FindingKind(broken.result.verdict)).toBe('ledger-failure');
+      expect(broken.issues[0].state).toBeUndefined();
+    });
   });
 
   it('does not persist a result when issue creation fails', async () => {

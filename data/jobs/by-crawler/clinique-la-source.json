@@ -1,12 +1,12 @@
 {
   "crawlerKey": "clinique-la-source",
-  "assembledAt": "2026-10-03T09:13:12.518Z",
+  "assembledAt": "2026-10-03T21:11:41.013Z",
   "jobs": [
     {
       "id": "clinique-la-source-71b89c53db19",
       "slug": "technologue-en-dispositifs-medicaux-clinique-de-la-source-lausanne",
       "slugByLocale": {
-        "it": "technologue-en-dispositifs-medicaux-clinique-de-la-source-lausanne",
+        "it": "tecnologo-del-dispositivo-medico-clinique-de-la-source-lausanne",
         "en": "medical-device-technologist-clinique-de-la-source-lausanne",
         "de": "medizintechniker-clinique-de-la-source-lausanne",
         "fr": "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne"
@@ -34,7 +34,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=762",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:13:07.185Z",
+      "crawledAt": "2026-10-03T21:11:33.966Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -53,13 +53,11 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://emploi.lasource.ch/",
       "previousSlugs": [
-        "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne",
-        "tecnologo-del-dispositivo-medico-clinique-de-la-source-lausanne"
+        "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne",
-          "tecnologo-del-dispositivo-medico-clinique-de-la-source-lausanne"
+          "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne"
         ],
         "en": [
           "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne"
@@ -115,7 +113,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=783",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:13:06.666Z",
+      "crawledAt": "2026-10-03T21:11:33.411Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -134,13 +132,11 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://emploi.lasource.ch/",
       "previousSlugs": [
-        "infirmier-ere-expert-e-en-soins-intensifs-clinique-la-source-lausanne",
-        "intensiva-cura-infermiera-clinique-de-la-source-lausanne"
+        "infirmier-ere-expert-e-en-soins-intensifs-clinique-la-source-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-expert-e-en-soins-intensifs-clinique-la-source-lausanne",
-          "intensiva-cura-infermiera-clinique-de-la-source-lausanne"
+          "infirmier-ere-expert-e-en-soins-intensifs-clinique-la-source-lausanne"
         ],
         "en": [
           "infirmier-ere-expert-e-en-soins-intensifs-clinique-la-source-lausanne"
@@ -195,7 +191,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=779",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:13:06.171Z",
+      "crawledAt": "2026-10-03T21:11:32.890Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -214,13 +210,11 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://emploi.lasource.ch/",
       "previousSlugs": [
-        "infirmier-ere-en-chirurgie-urologique-et-viscerale-clinique-la-source-lausanne",
-        "infermiera-in-chirurgia-urologica-e-viscerale-clinique-de-la-source-lausanne"
+        "infirmier-ere-en-chirurgie-urologique-et-viscerale-clinique-la-source-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-en-chirurgie-urologique-et-viscerale-clinique-la-source-lausanne",
-          "infermiera-in-chirurgia-urologica-e-viscerale-clinique-de-la-source-lausanne"
+          "infirmier-ere-en-chirurgie-urologique-et-viscerale-clinique-la-source-lausanne"
         ],
         "en": [
           "infirmier-ere-en-chirurgie-urologique-et-viscerale-clinique-la-source-lausanne"
@@ -242,8 +236,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "clinique-la-source-faf10ccc1bad",
@@ -277,7 +270,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=789",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:13:05.644Z",
+      "crawledAt": "2026-10-03T21:11:32.348Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -295,6 +288,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "careerSiteUrl": "https://emploi.lasource.ch/",
+      "previousSlugs": [
+        "infirmier-ere-au-pool-clinique-la-source-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-au-pool-clinique-la-source-lausanne"
+        ],
+        "en": [
+          "infirmier-ere-au-pool-clinique-la-source-lausanne"
+        ],
+        "de": [
+          "infirmier-ere-au-pool-clinique-la-source-lausanne"
+        ]
+      },
       "firstSeenAt": "2026-07-15T22:06:03.073Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -308,21 +315,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-au-pool-clinique-la-source-lausanne"
-        ],
-        "en": [
-          "infirmier-ere-au-pool-clinique-la-source-lausanne"
-        ],
-        "de": [
-          "infirmier-ere-au-pool-clinique-la-source-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "infirmier-ere-au-pool-clinique-la-source-lausanne"
-      ]
+      }
     },
     {
       "id": "clinique-la-source-f23d76030166",
@@ -356,7 +349,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=781",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:13:05.111Z",
+      "crawledAt": "2026-10-03T21:11:31.818Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -375,13 +368,11 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://emploi.lasource.ch/",
       "previousSlugs": [
-        "cuisinier-ere-en-dietetique-clinique-la-source-lausanne",
-        "cucina-alimentare-clinique-de-la-source-lausanne"
+        "cuisinier-ere-en-dietetique-clinique-la-source-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cuisinier-ere-en-dietetique-clinique-la-source-lausanne",
-          "cucina-alimentare-clinique-de-la-source-lausanne"
+          "cuisinier-ere-en-dietetique-clinique-la-source-lausanne"
         ],
         "en": [
           "cuisinier-ere-en-dietetique-clinique-la-source-lausanne"
@@ -437,7 +428,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=750",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:13:04.603Z",
+      "crawledAt": "2026-10-03T21:11:31.267Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -487,13 +478,11 @@
       },
       "careerSiteUrl": "https://emploi.lasource.ch/",
       "previousSlugs": [
-        "responsable-du-centre-de-chirurgie-ambulatoire-clinique-la-source-lausanne",
-        "responsabile-centro-di-chirurgia-ambulatoriale-clinique-de-la-source-lausanne"
+        "responsable-du-centre-de-chirurgie-ambulatoire-clinique-la-source-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-du-centre-de-chirurgie-ambulatoire-clinique-la-source-lausanne",
-          "responsabile-centro-di-chirurgia-ambulatoriale-clinique-de-la-source-lausanne"
+          "responsable-du-centre-de-chirurgie-ambulatoire-clinique-la-source-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-19T11:37:52.867Z",
@@ -543,7 +532,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=767",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:13:04.086Z",
+      "crawledAt": "2026-10-03T21:11:30.744Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -561,6 +550,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "careerSiteUrl": "https://emploi.lasource.ch/",
+      "previousSlugs": [
+        "infirmier-ere-au-centre-de-chirurgie-ambulatoire-clinique-la-source-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-au-centre-de-chirurgie-ambulatoire-clinique-la-source-lausanne"
+        ],
+        "en": [
+          "infirmier-ere-au-centre-de-chirurgie-ambulatoire-clinique-la-source-lausanne"
+        ],
+        "de": [
+          "infirmier-ere-au-centre-de-chirurgie-ambulatoire-clinique-la-source-lausanne"
+        ]
+      },
       "firstSeenAt": "2026-07-02T21:34:21.540Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -574,21 +577,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-au-centre-de-chirurgie-ambulatoire-clinique-la-source-lausanne"
-        ],
-        "en": [
-          "infirmier-ere-au-centre-de-chirurgie-ambulatoire-clinique-la-source-lausanne"
-        ],
-        "de": [
-          "infirmier-ere-au-centre-de-chirurgie-ambulatoire-clinique-la-source-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "infirmier-ere-au-centre-de-chirurgie-ambulatoire-clinique-la-source-lausanne"
-      ]
+      }
     },
     {
       "id": "clinique-la-source-0715e1566420",
@@ -621,7 +610,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=782",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:13:03.600Z",
+      "crawledAt": "2026-10-03T21:11:30.156Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -640,13 +629,11 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://emploi.lasource.ch/",
       "previousSlugs": [
-        "assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-la-source-lausanne",
-        "assistente-tecnico-nella-sala-operatoria-atsso-clinique-de-la-source-lausanne"
+        "assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-la-source-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-la-source-lausanne",
-          "assistente-tecnico-nella-sala-operatoria-atsso-clinique-de-la-source-lausanne"
+          "assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-la-source-lausanne"
         ],
         "en": [
           "assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-la-source-lausanne"
@@ -665,8 +652,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "clinique-la-source-cd41f78f0a3b",
@@ -700,7 +686,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=788",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:13:03.102Z",
+      "crawledAt": "2026-10-03T21:11:29.644Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -718,6 +704,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "careerSiteUrl": "https://emploi.lasource.ch/",
+      "previousSlugs": [
+        "aide-technique-en-endoscopie-clinique-la-source-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-technique-en-endoscopie-clinique-la-source-lausanne"
+        ],
+        "en": [
+          "aide-technique-en-endoscopie-clinique-la-source-lausanne"
+        ],
+        "de": [
+          "aide-technique-en-endoscopie-clinique-la-source-lausanne"
+        ]
+      },
       "firstSeenAt": "2026-09-30T21:13:46.501Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -731,23 +731,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "aide-technique-en-endoscopie-clinique-la-source-lausanne",
-          "assistenza-tecnica-endoscopia-clinique-de-la-source-lausanne"
-        ],
-        "en": [
-          "aide-technique-en-endoscopie-clinique-la-source-lausanne"
-        ],
-        "de": [
-          "aide-technique-en-endoscopie-clinique-la-source-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "aide-technique-en-endoscopie-clinique-la-source-lausanne",
-        "assistenza-tecnica-endoscopia-clinique-de-la-source-lausanne"
-      ]
+      }
     },
     {
       "id": "clinique-la-source-9e9a317e503f",
@@ -755,7 +739,7 @@
       "slugByLocale": {
         "it": "coordinatore-di-prenotazione-clinique-de-la-source-lausanne",
         "en": "booking-co-ordinator-clinique-de-la-source-lausanne",
-        "de": "mitarbeiter-in-reservierungen-clinique-de-la-source-lausanne",
+        "de": "buchungskoordinator-clinique-de-la-source-lausanne",
         "fr": "collaborateur-trice-aux-reservations-clinique-la-source-lausanne"
       },
       "company": "Clinique de La Source",
@@ -781,7 +765,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=780",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:13:02.565Z",
+      "crawledAt": "2026-10-03T21:11:29.120Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -801,21 +785,17 @@
       "careerSiteUrl": "https://emploi.lasource.ch/",
       "previousSlugs": [
         "collaborateur-trice-aux-reservations-clinique-la-source-lausanne",
-        "buchungskoordinator-clinique-de-la-source-lausanne",
-        "coordinatore-di-prenotazione-clinique-de-la-source-lausanne",
         "mitarbeiter-in-reservierungen-clinique-de-la-source-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-aux-reservations-clinique-la-source-lausanne",
-          "coordinatore-di-prenotazione-clinique-de-la-source-lausanne"
+          "collaborateur-trice-aux-reservations-clinique-la-source-lausanne"
         ],
         "en": [
           "collaborateur-trice-aux-reservations-clinique-la-source-lausanne"
         ],
         "de": [
           "collaborateur-trice-aux-reservations-clinique-la-source-lausanne",
-          "buchungskoordinator-clinique-de-la-source-lausanne",
           "mitarbeiter-in-reservierungen-clinique-de-la-source-lausanne"
         ]
       },

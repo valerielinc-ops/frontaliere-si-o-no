@@ -80,15 +80,10 @@ import {
 import { savedJobsDigestChoice } from '../services/savedJobsDigestActivation.mjs';
 import { deriveSavedJobsAlertCriteria } from '../services/savedJobsAlertCriteria.ts';
 import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
-// Shared with send-job-alerts.mjs's coverage numbers (#5536 measurement,
-// 2.548-job sample): resolveLogoUrl joins the SAME manifest that measurement
-// used (data/company-logos-manifest.json, 453 companies), and parseDateField
-// is the DD/MM/YY-safe date reader (#2630) — re-parsing postedDate locally
-// would risk the same day/month swap that fix closed.
-// formatSalary/emailTagChip/normalizeContract are shared with
-// send-job-alerts.mjs (#6104/#6xxx "align saved-jobs digest to the job-alert
-// layout") so the two job-card renderers can't drift apart.
-import { resolveLogoUrl, parseDateField, formatSalary, emailTagChip, normalizeContract } from '../services/newsletter-content.mjs';
+// The card renderer is shared with the one-shot application-intent reminder,
+// so logo, salary, contract, location, date and sector stay aligned across
+// both email channels.
+import { renderJobCard as renderSharedJobCard, formatPostedDate } from '../services/newsletter/jobCard.mjs';
 import { renderRecommendedBlock } from '../services/newsletter/recommendedBlock.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
@@ -217,7 +212,6 @@ export async function markSavedJobsDigestRecord(db, { email, activationSource = 
 // so the job-alert and saved-jobs-digest emails read as one product.
 const BRAND_ORANGE = '#f97316';
 const BRAND_DARK = '#0f172a';
-const DARK_CARD = '#1e293b';
 const LIGHT_BG = '#f1f5f9';
 const WHITE = '#ffffff';
 const MUTED = '#64748b';
@@ -796,105 +790,13 @@ function escapeHtml(s) {
   return String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
-const POSTED_DATE_LOCALE = { it: 'it-CH', en: 'en-GB', de: 'de-CH', fr: 'fr-CH' };
-
-// `postedDate` alone is 98.67% covered on real inventory (#5536 measurement,
-// 2.548-job sample) — no fallback to crawledAt/validThrough here on purpose:
-// those are build-time-derived windows, not source dates, and #5536 is
-// explicit that a synthetic value must never be presented as one. Missing or
-// unparseable → '' → caller omits the line entirely (conditional, never a
-// placeholder).
-function formatPostedDate(raw, locale) {
-  if (!raw) return '';
-  const ts = parseDateField(raw);
-  if (!Number.isFinite(ts)) return '';
-  const localeTag = POSTED_DATE_LOCALE[locale] || POSTED_DATE_LOCALE.it;
-  try {
-    return new Date(ts).toLocaleDateString(localeTag, { day: 'numeric', month: 'short', year: 'numeric' });
-  } catch {
-    return '';
-  }
-}
-
-// Card fields, each independently conditional (#5536): a card that shows a
-// hole for a missing field is worse than a card without that field.
-//   - logo:     data/company-logos-manifest.json join, 72.9% of jobs — falls
-//               back to a coloured initial-letter avatar, never a blank box.
-//   - location: `location` (100%) preferred over `canton` alone (99.96%).
-//   - date:     `postedDate` (98.67%), see formatPostedDate above.
-//   - sector:   `sector` (88.30%) preferred, `category` (100%) as fallback so
-//               the tag is present whenever ANY classification exists.
-//
-// Card chrome (dark card, whole-card link, badge row) is deliberately aligned
-// with buildAlertEmail's jobCards in send-job-alerts.mjs — same avatar size,
-// same NEW/salary/contract/location badge set in the same order, same
-// palette — so the saved-jobs reminder and the job alert read as one
-// product. postedDate/sector stay saved-digest-only additions (job-alert
-// doesn't carry them) rendered as a small detail line under the badges.
-function renderJobCard(entry, locale, s, { expired, applicationIntent = false }) {
-  const url = expired ? legacyJobBoardUrl(locale) : entry.url;
-  const titleBadges = [];
-  if (expired) {
-    titleBadges.push(`<span style="display:inline-block;background:rgba(239,68,68,0.2);color:#fca5a5;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;margin-left:8px;">${s.expiredBadge}</span>`);
-  }
-  if (applicationIntent) {
-    titleBadges.push(`<span style="display:inline-block;background:rgba(249,115,22,0.2);color:#fdba74;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;margin-left:8px;">${s.applicationIntentBadge}</span>`);
-  }
-  const titleBadge = titleBadges.join('');
-
-  const locationLabel = entry.location || entry.canton || '';
-  const dateLabel = expired ? '' : formatPostedDate(entry.postedDate, locale);
-  const sectorLabel = entry.sector || entry.category || '';
-
-  const logoSrc = expired ? null : resolveLogoUrl(entry);
-  const initial = (entry.company || '?').trim().charAt(0).toUpperCase() || '?';
-  const avatarHtml = logoSrc
-    ? `<img src="${logoSrc}" alt="${escapeHtml(entry.company || '')}" width="44" height="44" style="display:block;width:44px;height:44px;border-radius:10px;background:#ffffff;object-fit:contain;padding:4px;box-sizing:border-box;">`
-    : `<div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,${BRAND_DARK},#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${escapeHtml(initial)}</div>`;
-
-  const metaLine = `${s.at} ${escapeHtml(entry.company)}${locationLabel ? ` · ${escapeHtml(locationLabel)}` : ''}`;
-
-  // Badge row — same fields/order/palette as send-job-alerts.mjs's jobCards:
-  // NEW, salary, contract, location. formatSalary/normalizeContract return
-  // null/falsy for an expired entry (no live salaryMin/contract survives to
-  // it), so those chips drop out on their own without a separate branch.
-  const badges = [];
-  if (!expired) {
-    const firstSeen = entry.firstSeenAt ? new Date(entry.firstSeenAt).getTime() : 0;
-    if (firstSeen > 0 && (Date.now() - firstSeen) < 48 * 60 * 60 * 1000) {
-      badges.push(emailTagChip(s.newBadge, 'green'));
-    }
-  }
-  const salaryLabel = formatSalary(entry, locale);
-  if (salaryLabel) badges.push(emailTagChip(escapeHtml(salaryLabel), 'blue'));
-  if (entry.contract) badges.push(emailTagChip(escapeHtml(normalizeContract(entry.contract, locale))));
-  if (locationLabel) badges.push(emailTagChip(escapeHtml(locationLabel)));
-  const badgesHtml = badges.length ? `<div style="margin-top:6px;">${badges.join(' ')}</div>` : '';
-
-  const detailParts = [];
-  if (dateLabel) detailParts.push(`${escapeHtml(s.postedOn)} ${escapeHtml(dateLabel)}`);
-  if (sectorLabel) detailParts.push(escapeHtml(sectorLabel));
-  const detailHtml = detailParts.length
-    ? `<div style="font-size:12px;color:${MUTED_ON_DARK};margin-top:6px;">${detailParts.join(' &middot; ')}</div>`
-    : '';
-
-  return `
-    <tr><td style="padding:0 0 10px;">
-      <a target="_blank" rel="noopener noreferrer" href="${url}" style="text-decoration:none;display:block;">
-        <table width="100%" cellpadding="0" cellspacing="0" style="background:${DARK_CARD};border-radius:12px;">
-          <tr>
-            <td width="58" style="padding:16px 0 16px 18px;vertical-align:top;">${avatarHtml}</td>
-            <td style="padding:16px 18px 16px 14px;vertical-align:top;">
-              <div style="font-size:15px;font-weight:700;color:#f1f5f9;">${escapeHtml(entry.title)}${titleBadge}</div>
-              <div style="font-size:13px;color:${MUTED_ON_DARK};margin-top:2px;">${metaLine}</div>
-              ${badgesHtml}
-              ${detailHtml}
-              <div style="margin-top:8px;font-size:13px;color:${BRAND_ORANGE};font-weight:600;">${s.viewJob}</div>
-            </td>
-          </tr>
-        </table>
-      </a>
-    </td></tr>`;
+function renderJobCard(entry, locale, strings, options = {}) {
+  const expired = options.expired === true;
+  return renderSharedJobCard(entry, locale, strings, {
+    ...options,
+    expired,
+    expiredUrl: options.expiredUrl || (expired ? legacyJobBoardUrl(locale) : null),
+  });
 }
 
 // Structure aligned with buildAlertEmail in send-job-alerts.mjs: dark top
@@ -911,7 +813,10 @@ export function buildEmailHtml({ locale, s, savedEntries = [], applicationIntent
   const sectionLabel = hasSaved ? s.sectionLabel : s.applicationSectionLabel;
   const sectionTitle = hasSaved ? s.sectionTitle : s.applicationSectionTitle;
   const sectionDesc = hasSaved ? s.sectionDesc : s.applicationSectionDesc;
-  const cardsHtml = savedEntries.map((e) => renderJobCard(e, locale, s, { expired: e.expired })).join('');
+  const cardsHtml = savedEntries.map((e) => renderJobCard(e, locale, s, {
+    expired: e.expired,
+    expiredUrl: legacyJobBoardUrl(locale),
+  })).join('');
   const applicationCardsHtml = applicationIntentEntries
     .map((e) => renderJobCard(e, locale, s, { expired: false, applicationIntent: true }))
     .join('');

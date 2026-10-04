@@ -1,3 +1,4 @@
+import { hasPostingDateProvenance, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { repairJobTranslationSemanticsInPlace } from './job-title-semantic-repair.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
@@ -7883,8 +7884,12 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
         fresh[key] = old[key];
       }
     };
-    preserveOlder('postedDate');
-    preserveOlder('datePosted');
+    if (hasPostingDateProvenance(old) || hasPostingDateProvenance(fresh)) {
+      Object.assign(fresh, mergeSourcePostingDates(old, fresh));
+    } else {
+      preserveOlder('postedDate');
+      preserveOlder('datePosted');
+    }
 
     return markIncompleteLocaleText(fresh, fresh.sourceLang || srcLang || null);
   });
@@ -8466,6 +8471,9 @@ function mergeDuplicateJobPreservingSlugHistory(a, b) {
   // `datePosted`. Same older-wins rule as mergeAndDeduplicate's merge below.
   const mergedPostedDate = pickMergedPostedDate(a, b);
   if (mergedPostedDate) chosen.postedDate = mergedPostedDate;
+  if (hasPostingDateProvenance(a) || hasPostingDateProvenance(b)) {
+    Object.assign(chosen, mergeSourcePostingDates(a, b));
+  }
   // crawledAt = last-seen-live (newest-wins, see pickMergedCrawledAt below):
   // the two colliding records are the SAME posting, so whichever side loses
   // preferJob() must not take the fresher "seen live" proof down with it —
@@ -8563,6 +8571,9 @@ export function isForeignAtsUrlLocation(rawUrl = '') {
 // `next` only wins when it is actually older (it probably learned to read the
 // real posting timestamp from the page).
 export function pickMergedPostedDate(prev = {}, next = {}) {
+  if (hasPostingDateProvenance(prev) || hasPostingDateProvenance(next)) {
+    return mergeSourcePostingDates(prev, next).postedDate;
+  }
   const prevVal = prev.postedDate || prev.datePosted || '';
   const nextVal = next.postedDate || next.datePosted || '';
   if (!prevVal) return nextVal;
@@ -8747,7 +8758,9 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       ...prev,
       ...next,
       id: prev.id || next.id,
-      postedDate: pickMergedPostedDate(prev, next) || nowIsoDate,
+      ...(hasPostingDateProvenance(prev) || hasPostingDateProvenance(next)
+        ? mergeSourcePostingDates(prev, next)
+        : { postedDate: pickMergedPostedDate(prev, next) || nowIsoDate }),
       // crawledAt = last-seen-live (newest-wins, see pickMergedCrawledAt):
       // `next` was scraped THIS run (stamped nowIsoTs above), which proves
       // the posting is still up. The old `prev.crawledAt || …` order froze
@@ -8879,6 +8892,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     // postedDate would silently win — force the merged date onto whichever
     // side was picked.
     chosen.postedDate = best.postedDate;
+    if (hasPostingDateProvenance(best)) Object.assign(chosen, mergeSourcePostingDates({}, best));
     // Same bare-preferJob() discard pattern for crawledAt: `best.crawledAt`
     // already holds the newest-wins last-seen-live timestamp; if preferJob
     // returned `prev` wholesale (e.g. higher quality score), prev's stale
