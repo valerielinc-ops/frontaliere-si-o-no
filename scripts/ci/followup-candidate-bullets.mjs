@@ -329,13 +329,23 @@ export function nonCandidateVerdict(text) {
 // deve comparire insieme a cosa ha bloccato (`suite` compresa: «il resource
 // guard blocca l'esecuzione…; la stessa suite viene verificata dal percorso CI
 // della PR», FU-2026-09-30-005), oppure il rinvio esplicito alla CI come oracolo.
-export const OWN_VERIFICATION_GUARD_RE = /\bresource[-\s]guard\b|\bguardia\s+(?:delle\s+)?risorse\b|\bswap\b/i;
-export const OWN_VERIFICATION_SUBJECT_RE = /\b(?:vitest|tsc|test|suite)/i;
+// `swap` da solo non è la guardia («lo swap del dominio»): vale solo accanto a
+// una soglia in percentuale («swap > 85%», «swap all'89-92%»).
+export const OWN_VERIFICATION_GUARD_RE = /\bresource[-\s]guard\b|\bguardia\s+(?:delle\s+)?risorse\b|\bswap\b[^.;\n]{0,40}?\d+\s*%/i;
+export const OWN_VERIFICATION_SUBJECT_RE = /\b(?:vitest|tsc|tests?|suite)\b/i;
 export const OWN_VERIFICATION_CI_ORACLE_RE = /\bla\s+CI\s+(?:di\s+questa\s+PR\s+)?(?:fa\s+da|è\s+l['’])\s*oracolo\b/i;
 // Una prova che la run `tests` della PR non può dare resta lavoro sospeso,
 // anche se il bullet nomina la guardia: deploy, verifica live, «run
-// naturale», `live-data gates` (fuori dal gate PR per costruzione).
-export const OWN_VERIFICATION_EXCLUDE_RE = /\bdeploy|\blive\b|\brun\s+naturale\b|\bproduzione\b/i;
+// naturale», `live-data gates` (fuori dal gate PR per costruzione), e ogni
+// rinvio a una run diversa da quella della PR — cron, run schedulata,
+// post-merge, la «prossima run», nightly, dispatch manuale. «dopo il merge» da
+// solo non basta a escludere: «la PR #10096 viene ribasata su questa dopo il
+// merge» (bucket 10283) è un passo di processo, non una prova.
+export const OWN_VERIFICATION_EXCLUDE_RE = /\bdeploy|\blive\b|\brun\s+naturale\b|\bproduzione\b|\bcron\b|\bschedul|\bpost[-\s]?merge\b|\bprossim[ao]\s+run\b|\bnightly\b|\bworkflow_dispatch\b/i;
+// La guardia e il soggetto non bastano: il bullet deve rinviare alla CI della
+// PR stessa (`CI`, «di questa PR», «della PR»). Tutti i 15 item misurati sui
+// bucket 10433 e 10283 lo fanno; un rinvio ad altro resta lavoro sospeso.
+export const OWN_VERIFICATION_PR_CI_RE = /\bCI\b|\bquesta\s+PR\b|\bdella\s+PR\b/;
 const BLOCKED_DECLARATION_RE = /\bblocked\s*:/i;
 
 /**
@@ -350,7 +360,8 @@ export function isOwnVerificationBullet(text) {
   if (!declaration) return false;
   const cause = item.slice(declaration.index + declaration[0].length);
   if (OWN_VERIFICATION_EXCLUDE_RE.test(cause)) return false;
-  return (OWN_VERIFICATION_GUARD_RE.test(cause) && OWN_VERIFICATION_SUBJECT_RE.test(cause))
+  return (OWN_VERIFICATION_GUARD_RE.test(cause) && OWN_VERIFICATION_SUBJECT_RE.test(cause)
+    && OWN_VERIFICATION_PR_CI_RE.test(cause))
     || OWN_VERIFICATION_CI_ORACLE_RE.test(cause);
 }
 
@@ -386,8 +397,10 @@ const LOGGED_TEST_PATH = String.raw`(\S+\.(?:test|spec)\.[cm]?[jt]sx?)`;
 // Il reporter di vitest stampa una riga per file: `✓  node  tests/x.test.ts (3 tests) 12ms`
 // (la parola dopo il segno è il project). Solo le righe che INIZIANO col segno:
 // il body della PR stampato nel log nomina gli stessi file e non deve contare.
-const VITEST_FILE_GREEN_RE = new RegExp(String.raw`^\s*✓\s+(?:[a-z][\w-]*\s+)?${LOGGED_TEST_PATH}\s+\(\d+\s+tests?\b`);
-const VITEST_FILE_FAILED_RE = new RegExp(String.raw`^\s*(?:❯|×|✗|FAIL)\s+(?:[a-z][\w-]*\s+)?${LOGGED_TEST_PATH}(?=\s|$)`);
+// Senza colori vitest stampa il project fra barre (`✓ |node| tests/x.test.ts`).
+const VITEST_PROJECT = String.raw`(?:\|[\w-]+\|\s+|[a-z][\w-]*\s+)?`;
+const VITEST_FILE_GREEN_RE = new RegExp(String.raw`^\s*✓\s+${VITEST_PROJECT}${LOGGED_TEST_PATH}\s+\(\d+\s+tests?\b`);
+const VITEST_FILE_FAILED_RE = new RegExp(String.raw`^\s*(?:❯|×|✗|FAIL)\s+${VITEST_PROJECT}${LOGGED_TEST_PATH}(?=\s|$)`);
 
 /**
  * L'esito per file del reporter vitest in un log di run.
@@ -425,7 +438,16 @@ export function namedFileStatus(results, file) {
 
 const OWN_VERIFICATION_VERDICTS = new Set(['executed-green', 'not-executed', 'unknown']);
 
-function ownVerificationOf(item, { pr, mergeRunVerdict, existsHere }) {
+// Il runner e la cartella dei test per lato: il sito usa vitest sotto
+// `tests/`, il corpus `node --test` sotto `generator/tests/` (lo script scende
+// identico nel corpus e lì gira con `--side corpus`).
+const TEST_RUNNER_BY_SIDE = {
+  site: { command: 'npx vitest run', testsDir: 'tests' },
+  corpus: { command: 'node --test', testsDir: 'generator/tests' },
+};
+
+function ownVerificationOf(item, { pr, side, mergeRunVerdict, existsHere }) {
+  const runner = TEST_RUNNER_BY_SIDE[side] ?? TEST_RUNNER_BY_SIDE.site;
   const testFiles = namedTestFiles(item);
   let result;
   try {
@@ -443,12 +465,13 @@ function ownVerificationOf(item, { pr, mergeRunVerdict, existsHere }) {
   };
   if (verdict !== 'executed-green' && testFiles.length > 0) {
     // La scheda dell'item: un comando che nomina il referente (con una `/`,
-    // come chiede la regola D3). Un nome nudo diventa `tests/<nome>` solo se
-    // quel file esiste davvero qui.
-    const referents = testFiles.map((file) => (
-      !file.includes('/') && lookup(existsHere, `tests/${file}`) === true ? `tests/${file}` : file
-    ));
-    ownVerification.command = `npx vitest run ${referents.join(' ')}`;
+    // come chiede la regola D3). Un nome nudo diventa `<cartella dei test>/<nome>`
+    // solo se quel file esiste davvero qui.
+    const referents = testFiles.map((file) => {
+      const inTestsDir = `${runner.testsDir}/${file}`;
+      return !file.includes('/') && lookup(existsHere, inTestsDir) === true ? inTestsDir : file;
+    });
+    ownVerification.command = `${runner.command} ${referents.join(' ')}`;
   }
   return ownVerification;
 }
@@ -494,7 +517,7 @@ export function classifyCandidateBullets({ pr, side, manifestFiles, existsHere, 
       let candidate = isCandidateItem(item);
       let reason = candidate ? null : nonCandidateReason(item, state);
       const ownVerification = candidate && listLine && isOwnVerificationBullet(item)
-        ? ownVerificationOf(item, { pr, mergeRunVerdict, existsHere })
+        ? ownVerificationOf(item, { pr, side, mergeRunVerdict, existsHere })
         : null;
       if (ownVerification?.verdict === 'executed-green') {
         candidate = false;

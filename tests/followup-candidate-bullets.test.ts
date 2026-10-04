@@ -719,6 +719,30 @@ describe('own-verification: la verifica rinviata alla CI la decide la run del me
     ]) expect(isOwnVerificationBullet(text)).toBe(false);
   });
 
+  it('un rinvio a una run diversa da quella della PR resta lavoro sospeso, anche con la guardia', () => {
+    // Senza file nominati, una run `tests` verde basterebbe ad archiviarli:
+    // la prova che chiedono non è quella run.
+    for (const text of [
+      '- Copertura crawler: blocked: il resource guard blocca vitest con swap al 90%. Prossimo passo: osservare la prossima run schedulata del cron crawler.',
+      '- Traduzioni: blocked: il resource guard blocca vitest; serve la run post-merge di translate-pending.',
+      '- Dati: blocked: guardia risorse, vitest rifiutato; si verifica dopo il merge con la run nightly.',
+      '- Parser: blocked: resource guard su vitest. Prossimo passo: `gh workflow run x.yml` (workflow_dispatch).',
+      // Anche quando nomina la CI della PR, il rinvio a un cron resta fuori.
+      '- Crawler: blocked: il resource guard blocca vitest; la CI di questa PR esegue la suite, poi va osservata la run del cron crawler.',
+    ]) expect(isOwnVerificationBullet(text)).toBe(false);
+  });
+
+  it('la guardia vale solo con il rinvio alla CI della PR; «dopo il merge» da solo non esclude', () => {
+    // Bucket 10283, verbatim: il «dopo il merge» è un rebase, non una prova.
+    expect(isOwnVerificationBullet('- Verifica locale con vitest: blocked: la resource-guard locale blocca i comandi pesanti con lo swap sopra l\'85%. Motivo: la macchina è satura. Prossimo passo: la run `tests` di questa PR è l\'oracolo; la PR #10096 viene ribasata su questa dopo il merge.')).toBe(true);
+    expect(isOwnVerificationBullet('- Suite locale: blocked: il resource guard blocca vitest; si rilancia quando la macchina si libera.')).toBe(false);
+  });
+
+  it('`swap` è la guardia solo con una soglia, e `test` non vale dentro `testo`', () => {
+    expect(isOwnVerificationBullet('- Portale: blocked: lo swap del dominio richiede il testo legale del fornitore; ne parla la CI della PR.')).toBe(false);
+    expect(isOwnVerificationBullet('- Suite locale: blocked: swap oltre la soglia dell\'85%, vitest rifiutato; la verifica è della CI della PR.')).toBe(true);
+  });
+
   it('riconosce il rinvio esplicito alla CI come oracolo, e la guardia solo se dopo `blocked:`', () => {
     expect(isOwnVerificationBullet('- Verifica locale con vitest: blocked: macchina satura. Prossimo passo: la CI di questa PR fa da oracolo.')).toBe(true);
     expect(isOwnVerificationBullet('- Vitest bloccato dal resource guard (swap 92%): blocked: attendo la decisione sul crawler.')).toBe(false);
@@ -739,6 +763,25 @@ describe('own-verification: la verifica rinviata alla CI la decide la run del me
       logLine(' ^[[33m↓^[[39m tests/d.test.ts ^[[2m(3 tests | 3 skipped)^[[22m'),
     ].join('\n'));
     expect(Object.fromEntries(results)).toEqual({ 'tests/a.test.ts': 'green', 'tests/b.test.ts': 'failed' });
+  });
+
+  it('il reporter senza colori (`|node|`) vale come quello colorato', () => {
+    const results = parseVitestFileResults([
+      logLine(' ✓ |node| tests/a.test.ts (3 tests) 12ms'),
+      logLine(' ❯ |node| tests/b.test.ts (3 tests | 1 failed) 9ms'),
+    ].join('\n'));
+    expect(Object.fromEntries(results)).toEqual({ 'tests/a.test.ts': 'green', 'tests/b.test.ts': 'failed' });
+  });
+
+  it('lato corpus il comando della scheda usa `node --test` e `generator/tests/`', () => {
+    const [bullet] = classifyCandidateBullets({
+      pr: { body: body('- Test del parser `x.test.mjs`: blocked: il resource guard blocca i test (swap 91%); li esegue la CI della PR.'), headRefOid: HEAD } as { body: string },
+      side: 'corpus', manifestFiles: MANIFEST, existsHere: only('generator/tests/x.test.mjs'), existsTwin: only(),
+    });
+    expect(bullet).toMatchObject({
+      candidate: true,
+      ownVerification: { verdict: 'unknown', command: 'node --test generator/tests/x.test.mjs' },
+    });
   });
 
   it('file nominato verde nel log della run → non candidato, `verified-by-merge-run` con l\'id della run', () => {
