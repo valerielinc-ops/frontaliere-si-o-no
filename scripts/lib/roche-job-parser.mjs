@@ -18,12 +18,13 @@ import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
   fetchWorkdayJobDetailParts,
-  parseWorkdayPostedDate,
+  workdayPostingDateFields,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
 import { fetchWorkdayPrimarySwissLocation, fetchWorkdaySwissCanton } from './workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -170,7 +171,7 @@ async function fetchJobListings() {
         title: id.title,
         location: id.location,
         url: id.applyUrl,
-        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        ...workdayPostingDateFields(posting),
         externalPath: id.externalPath,
         jobReqId: id.jobReqId,
       });
@@ -292,7 +293,7 @@ export async function fetchAllRocheJobs() {
       sector: 'Farmaceutico',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(listing, workdayPostingDateFields({ jobPostingInfo: detailInfo })),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
