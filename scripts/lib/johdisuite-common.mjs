@@ -27,6 +27,7 @@
  *   - Hôpital du Jura (H-JU) → ats.johdisuite.ch (flow=web, locale=fr)
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -186,7 +187,6 @@ export function createJohdiSuiteParser(config) {
     }
     console.log(`  ✓ ${listing.length} openings in listing JSON`);
 
-    const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     let failed = 0;
     for (let i = 0; i < listing.length; i += 1) {
@@ -232,14 +232,12 @@ export function createJohdiSuiteParser(config) {
       const activityText = actMin === actMax ? `${actMin}%` : `${actMin}% - ${actMax}%`;
       const employmentType = detectHealthcareEmploymentType(`${title} ${activityText}`);
 
-      // Publication date
-      const pubRaw = detail?.publication_date || item.publication_date || '';
-      const postedDate = pubRaw
-        ? (() => {
-            const d = new Date(pubRaw);
-            return Number.isNaN(d.getTime()) ? todayIso : d.toISOString().slice(0, 10);
-          })()
-        : todayIso;
+      // Both API endpoints label original publication explicitly. Validate
+      // independently so an invalid detail does not mask a valid listing.
+      const publication = mergeSourcePostingDates(
+        sourcePostingDateFields(item.publication_date),
+        sourcePostingDateFields(detail?.publication_date),
+      );
 
       const detailLang = detectLang(descriptionRaw || title, sourceLang);
       const publicUrl = buildPublicUrl({ ...item, ...detail, slug: detail?.slug || item.slug });
@@ -276,7 +274,7 @@ export function createJohdiSuiteParser(config) {
         sector: 'Sanità / Ospedali',
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...publication,
         applyUrl: publicUrl,
         requirements: [],
         requirementsByLocale: { [detailLang]: [] },
