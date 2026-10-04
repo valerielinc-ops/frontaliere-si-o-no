@@ -47,6 +47,12 @@ const TITLE_DECIDERS: Record<string, Entry> = {
     calls: 3,
     why: 'lo stato del heartbeat (missing/inconclusive/observed) apre e chiude due titoli stabili',
   },
+  'scripts/ci/reconcile-followups.mjs': {
+    // 0 chiamate dirette: l'unico uso passa dal default iniettabile
+    // `resolve = resolveGithubIssue` di applyBucketAlarm (sostituibile nei test).
+    calls: 0,
+    why: 'allarme dei bucket illeggibili (FU-12, PR 11359): un solo titolo stabile, BUCKET_ALARM_TITLE con exactTitle, aperto o chiuso dal piano su TUTTE le issue lette, non su un numero valutato',
+  },
   'scripts/ci/report-synced-article-fabrication.mjs': {
     calls: 1,
     why: 'scope calcolabile in questo sync → chiude il titolo stabile «guard scollegato» che lo stesso script apre',
