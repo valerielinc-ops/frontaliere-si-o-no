@@ -258,11 +258,8 @@ import { normalizeCantonCode, inferAnyCanton } from '../scripts/lib/target-swiss
 import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location-display.mjs';
 import { buildJobListEntry } from './shared/jobListEntry';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
-import {
- employerProfilesFlushed,
- resolveJobsSeoPagesFlushed,
- setActiveJobSitemapLocs,
-} from './shared/buildSignals';
+import { employerProfilesFlushed, resolveJobsSeoPagesFlushed } from './shared/buildSignals';
+import { setActiveJobSitemapLocs } from './shared/buildSignals';
 import { listJobsSeoAdapterFiles, listJobsSeoExpiredSliceFiles } from './shared/jobsSeoDeterministicInputs';
 import type { EmittedEmployerProfile } from './shared/buildSignals';
 import { employerTitleCandidates, type EmployerProfileLocale } from './employerProfilePagesPlugin';
