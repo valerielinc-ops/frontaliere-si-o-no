@@ -1457,6 +1457,24 @@ describe('createWorkdaySwissParser — country facet discovery after HTTP 400', 
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
   });
 
+  it('proves a complete unfiltered fallback board when every primary country is foreign', async () => {
+    const bodies = mockTenant({
+      accepts: {},
+      board: [FOREIGN_POSTING],
+      boardTotal: 1,
+      facets: [
+        { facetParameter: 'jobFamilyGroup', values: [{ id: 'eng', descriptor: 'Engineering', count: 1 }] },
+        { facetParameter: 'locationMainGroup', values: [{ facetParameter: 'locations', descriptor: 'Locations', values: [{ id: 'lyon', descriptor: 'Lyon', count: 1 }] }] },
+      ],
+    });
+
+    const jobs = await makeParser({ proveForeignOnlyBoardEmpty: true }).fetchAllJobs();
+
+    expect(bodies.map((body) => Object.keys(body.appliedFacets))).toEqual([['locationCountry'], [], []]);
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+  });
+
   it('never second-guesses a key the parser declared', async () => {
     const bodies = mockTenant({
       accepts: { Country: [SWISS_POSTING] },
