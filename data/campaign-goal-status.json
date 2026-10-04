@@ -7,14 +7,14 @@
       "matureAt": "2026-07-31",
       "state": "failing",
       "lastValue": {
-        "rate": 0.01898890258939581,
-        "created": 77,
-        "shown": 4055,
+        "rate": 0.018147086914995225,
+        "created": 95,
+        "shown": 5235,
         "ctaSurfaceNotSetShare": 0
       },
-      "detail": "77/4055 utenti = 1.90%, cta_surface (not set) 0.00% [GA4 fallback — PostHog non misurabile]",
+      "detail": "95/5235 utenti = 1.81%, cta_surface (not set) 0.00% [GA4 fallback — PostHog non misurabile]",
       "targetDescription": ">= 5% (utenti job_alert_created / utenti job_alert_cta_shown, 14gg, fallback GA4)",
-      "lastCheckAt": "2026-09-27T10:48:23.402Z",
+      "lastCheckAt": "2026-10-04T11:17:44.078Z",
       "note": "sorgente non misurabile: posthog ingested < 500 events/day on 9 of 14 complete day(s) in the 14d window: 2026-08-21 (10), 2026-08-22 (15), 2026-08-23 (14), 2026-08-24 (29), 2026-08-25 (26), 2026-08-26 (21), 2026-08-27 (11), 2026-08-28 (12), 2026-08-29 (11)"
     },
     "dead_clicks_reduction": {
@@ -54,8 +54,8 @@
       "issueRef": "#4307",
       "matureAt": "2026-08-16",
       "state": "unmeasurable",
-      "lastCheckAt": "2026-09-27T10:48:23.402Z",
-      "note": "sorgente non misurabile: posthog ingested < 500 events/day on 22 of 30 complete day(s) in the 30d window: 2026-08-28 (12), 2026-08-29 (11), 2026-08-30 (12), 2026-08-31 (55), 2026-09-01 (21), 2026-09-02 (8), 2026-09-03 (16), 2026-09-04 (5), 2026-09-05 (15), 2026-09-06 (32), 2026-09-07 (18), 2026-09-08 (18), 2026-09-17 (36), 2026-09-18 (9), 2026-09-19 (8), 2026-09-20 (30), 2026-09-21 (22), 2026-09-22 (19), 2026-09-23 (30), 2026-09-24 (8), 2026-09-25 (7), 2026-09-26 (3)"
+      "lastCheckAt": "2026-10-04T11:17:44.078Z",
+      "note": "sorgente non misurabile: posthog ingested < 500 events/day on 22 of 30 complete day(s) in the 30d window: 2026-09-04 (5), 2026-09-05 (15), 2026-09-06 (32), 2026-09-07 (18), 2026-09-08 (18), 2026-09-17 (36), 2026-09-18 (9), 2026-09-19 (8), 2026-09-20 (30), 2026-09-21 (22), 2026-09-22 (19), 2026-09-23 (30), 2026-09-24 (8), 2026-09-25 (7), 2026-09-26 (3), 2026-09-27 (27), 2026-09-28 (12), 2026-09-29 (4), 2026-09-30 (10), 2026-10-01 (75), 2026-10-02 (87), 2026-10-03 (11)"
     },
     "canton_hub_positions": {
       "title": "Hub cantonali: svizzera<20 E zurigo<14",
@@ -113,6 +113,6 @@
       "state": "observing"
     }
   },
-  "generatedAt": "2026-09-27T10:48:23.402Z",
+  "generatedAt": "2026-10-04T11:17:44.078Z",
   "campaignStart": "2026-07-17"
 }
