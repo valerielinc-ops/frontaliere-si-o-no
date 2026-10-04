@@ -479,7 +479,9 @@ describe('source relay crawler client', () => {
     expect(stadt).toContain('fetchSourceViaRelay(url)');
     expect(has).toContain('fetchSourceViaRelay(url)');
     expect(stadt).toContain('if (res.ok) return await res.text();');
-    expect(has).toContain('relayFallback = res.status === 403;');
+    // Since #11133 the relay is the fallback of a failed direct fetch (WAF block
+    // or connection-level error), no longer a `res.status === 403` branch.
+    expect(has).toContain('if (isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status)) {');
     expect(stadt).toContain('const DETAIL_DELAY_MS = 1_000;');
     expect(has).toContain('const DETAIL_DELAY_MS = 1_000;');
     expect(has).toContain('setTimeout(r, DETAIL_DELAY_MS)');
