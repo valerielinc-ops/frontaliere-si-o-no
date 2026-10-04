@@ -2,7 +2,9 @@
 
 /** Aggregate deterministic full-tree crawler reports into a backlog report. */
 
-import { readdirSync, readFileSync, mkdirSync, writeFileSync } from 'node:fs';
+import {
+  closeSync, mkdirSync, openSync, readdirSync, readFileSync, writeFileSync, writeSync,
+} from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -64,9 +66,56 @@ function mergeCounters(target, source) {
 
 function ensureParent(filePath) { mkdirSync(dirname(resolve(filePath)), { recursive: true }); }
 
-function writeJson(filePath, value) {
+// The full-tree summary embeds every out-of-sitemap URL and every finding:
+// with the internal frontier aggregated it outgrew V8's maximum string length
+// and `JSON.stringify(summary, null, 2)` threw `RangeError: Invalid string
+// length` before the issue body was written (run 36996732377). Write it in
+// bounded pieces instead: every array is emitted one element per line, so no
+// single string ever holds the whole document. Non-array top-level values are
+// small counters/maps and keep the previous indented form.
+export function writeJsonStreaming(filePath, value, { chunkChars = 4_000_000, onChunk } = {}) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    throw new TypeError('writeJsonStreaming expects a plain object');
+  }
   ensureParent(filePath);
-  writeFileSync(resolve(filePath), `${JSON.stringify(value, null, 2)}\n`);
+  const fd = openSync(resolve(filePath), 'w');
+  let pending = '';
+  const flush = () => {
+    if (!pending) return;
+    writeSync(fd, pending);
+    if (onChunk) onChunk(pending.length);
+    pending = '';
+  };
+  const emit = (piece) => {
+    if (pending && pending.length + piece.length > chunkChars) flush();
+    pending += piece;
+    if (pending.length >= chunkChars) flush();
+  };
+  try {
+    const entries = Object.entries(value).filter(([, item]) => item !== undefined && typeof item !== 'function');
+    emit('{');
+    entries.forEach(([key, item], index) => {
+      emit(`${index === 0 ? '' : ','}\n  ${JSON.stringify(key)}: `);
+      if (Array.isArray(item)) {
+        if (item.length === 0) {
+          emit('[]');
+          return;
+        }
+        emit('[');
+        for (let i = 0; i < item.length; i += 1) {
+          const element = item[i] === undefined || typeof item[i] === 'function' ? null : item[i];
+          emit(`${i === 0 ? '' : ','}\n    ${JSON.stringify(element)}`);
+        }
+        emit('\n  ]');
+      } else {
+        emit(JSON.stringify(item, null, 2).replace(/\n/g, '\n  '));
+      }
+    });
+    emit(entries.length === 0 ? '}\n' : '\n}\n');
+    flush();
+  } finally {
+    closeSync(fd);
+  }
 }
 
 export function readPartitionReports(reportsDir, prefix = 'partition-') {
@@ -429,7 +478,9 @@ async function main() {
     supplementalCoverageErrors: supplementalCoverageError ? [supplementalCoverageError] : [],
   });
   if (transientRescue) summary.transientRescue = transientRescue;
-  writeJson(output, summary);
+  // The issue body is the small, human-facing output: write it before the
+  // large summary so a failure while serializing the artifact JSON can never
+  // leave the backlog issue without a description.
   if (issueBodyPath && (summary.actionableCount > 0 || !summary.coverageOk)) {
     const server = process.env.GITHUB_SERVER_URL || 'https://github.com';
     const repo = process.env.GITHUB_REPOSITORY || '';
@@ -438,6 +489,7 @@ async function main() {
     ensureParent(issueBodyPath);
     writeFileSync(resolve(issueBodyPath), `${buildIssueBody(summary, { artifactUrl })}\n`);
   }
+  writeJsonStreaming(output, summary);
   console.log(JSON.stringify({
     manifestCount: summary.manifestCount,
     checkedCount: summary.checkedCount,
