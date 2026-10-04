@@ -98619,6 +98619,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gordola-avviso-scomparsa-revocato': {
+    title: 'Gordola: revocato l\'avviso di scomparsa | Frontaliere Ticino',
+    description: 'Avviso revocato a Gordola: la Polizia cantonale ticinese ha revocato l\'annuncio per una 41enne data per scomparsa dal 2 ottobre. Era stato diramato sabato.',
+    keywords: 'frontalieri, ticino, svizzera, italia, gordola, revocato, avviso, scomparsa',
+    ogTitle: 'Gordola: revocato l\'avviso di scomparsa',
+    ogDescription: 'Una 41enne di Gordola era data per scomparsa dal 2 ottobre. La Polizia cantonale ticinese ha revocato l\'annuncio di scomparsa diramato sabato. L\'aggiornamento riguarda la segnalazione indicata dalla fonte e non aggiunge altri elementi sulla vicenda.',
+    canonicalPath: '/articoli-frontaliere/gordola-avviso-scomparsa-revocato/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gordola: revocato l'avviso di scomparsa",
+      "description": "Avviso revocato a Gordola: la Polizia cantonale ticinese ha revocato l'annuncio per una 41enne data per scomparsa dal 2 ottobre. Era stato diramato sabato.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gordola-avviso-scomparsa-revocato.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gordola in Ticino, dove è stato revocato un avviso di scomparsa"
+      },
+      "datePublished": "2026-10-04T21:37:47+00:00",
+      "dateModified": "2026-10-04T21:37:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gordola-avviso-scomparsa-revocato/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

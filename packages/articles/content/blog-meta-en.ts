@@ -12546,6 +12546,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lido-san-domenico-lugano-concorsi.title': 'Lido San Domenico: Lugano publishes two calls for tenders',
     'blog.article.lido-san-domenico-lugano-concorsi.excerpt': 'The Municipal Council has launched the calls for tenders for the management of the refreshment bar and the renovation of the spaces through a public-private partnership.',
     'blog.article.lido-san-domenico-lugano-concorsi.imageAlt': 'View of the Lugano lakeside with Lido San Domenico in the background',
+    'blog.article.gordola-avviso-scomparsa-revocato.title': 'Gordola: missing-person notice revoked',
+    'blog.article.gordola-avviso-scomparsa-revocato.excerpt': 'Ticino cantonal police have withdrawn the alert for a 41-year-old woman from Gordola, who had been reported missing since October 2. The announcement had been issued on Saturday.',
+    'blog.article.gordola-avviso-scomparsa-revocato.imageAlt': 'Gordola in Ticino, where a missing person alert was revoked',
 };
 
 export default blogMetaEn;
