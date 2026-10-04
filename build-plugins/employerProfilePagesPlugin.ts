@@ -823,16 +823,17 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         // adversarial check). Rendering is reused in the emit loop below.
         const rendered = LOCALES.map((locale) => {
           // Probe without manual ad markup; noindex/thin pages must not carry
-          // manual slots. Indexable pages are rendered again with the shared
-          // list renderer, which inserts ads after cards 3, 6, 9, … up to the
-          // site's account-safety cap.
+          // manual slots. Employer profiles keep the page-level multiplex as
+          // their single static unit; the job-list in-feed cadence can make a
+          // long profile fail the audit's content/slot ratio before Auto Ads
+          // even run, so it stays disabled on this family.
           const bodyHtml = renderProfileBody(liveProfile, listed, locale, group, {
             interleaveInfeedAds: false,
           });
           const meetsFloor = liveActive >= MIN_ACTIVE_JOBS || demandHold;
           const indexable = meetsFloor && countHtmlBodyWords(bodyHtml) >= MIN_INDEXABLE_WORDS;
           const renderedBodyHtml = indexable
-            ? renderProfileBody(liveProfile, listed, locale, group, { interleaveInfeedAds: true })
+            ? renderProfileBody(liveProfile, listed, locale, group, { interleaveInfeedAds: false })
             : bodyHtml;
           return { locale, bodyHtml: renderedBodyHtml, indexable };
         });
