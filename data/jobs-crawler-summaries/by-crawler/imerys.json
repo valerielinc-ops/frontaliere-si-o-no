@@ -1,7 +1,7 @@
 {
   "key": "imerys",
   "label": "Imerys",
-  "generatedAt": "2026-10-03T21:22:56.103Z",
+  "generatedAt": "2026-10-04T09:26:16.692Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -10,16 +10,17 @@
   "sourceBodyFailures": [],
   "written": 3,
   "authoritativeEmptySnapshot": false,
-  "newCount": 3,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5859,
-  "avgDurationMs": 5859,
+  "durationMs": 5063,
+  "avgDurationMs": 5063,
   "durationHistory": [
-    5859
+    5063
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "imerys-7191e7a6ea97",
       "slug": "communication-manager-imerys-ch",
@@ -33,7 +34,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bironico-Switzerland/Communication-Manager_REQ-11963",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:22:42.940Z",
+      "crawledAt": "2026-10-04T09:26:05.784Z",
       "addressLocality": "Bironico",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -45,14 +46,17 @@
       "sector": "Industria mineraria / Materiali speciali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-09",
       "postedDate": "2026-09-09",
+      "postingDateSource": "reported",
       "applyUrl": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bironico-Switzerland/Communication-Manager_REQ-11963",
       "jobReqId": "REQ - 11963",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-10-03T21:22:42.940Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -69,7 +73,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bironico-Switzerland/HR-Director-IGC-H-F_REQ-11508-1",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:22:43.626Z",
+      "crawledAt": "2026-10-04T09:26:06.454Z",
       "addressLocality": "Bironico",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -81,14 +85,17 @@
       "sector": "Industria mineraria / Materiali speciali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "2026-07-30",
+      "postedDate": "2026-07-30",
+      "postingDateSource": "reported",
       "applyUrl": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bironico-Switzerland/HR-Director-IGC-H-F_REQ-11508-1",
       "jobReqId": "REQ - 11508",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-10-03T21:22:43.626Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -105,7 +112,7 @@
       "url": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bodio-Switzerland/MECHANICAL-MAINTENANCE-SUPERVISOR_REQ-11824",
       "source": "Imerys Dedicated Parser (Workday)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-03T21:22:44.358Z",
+      "crawledAt": "2026-10-04T09:26:07.199Z",
       "addressLocality": "Bodio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -117,20 +124,22 @@
       "sector": "Industria mineraria / Materiali speciali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "2026-07-29",
+      "postedDate": "2026-07-29",
+      "postingDateSource": "reported",
       "applyUrl": "https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bodio-Switzerland/MECHANICAL-MAINTENANCE-SUPERVISOR_REQ-11824",
       "jobReqId": "REQ - 11824",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-10-03T21:22:44.358Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

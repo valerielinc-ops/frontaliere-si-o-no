@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sygnum",
-  "assembledAt": "2026-10-03T21:21:01.246Z",
+  "assembledAt": "2026-10-04T09:24:37.025Z",
   "jobs": [
     {
       "id": "sygnum-1e743fa07863",
@@ -33,7 +33,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN268",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:20:54.126Z",
+      "crawledAt": "2026-10-04T09:24:30.152Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -98,7 +98,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN217",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:20:53.254Z",
+      "crawledAt": "2026-10-04T09:24:29.564Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -119,17 +119,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "internship-product-management-digital-assets-custody-wallets-sygnum-bank-zurich",
-        "internship-product-management-digital-assets-custody-wallets-sygnum-zurich"
+        "internship-product-management-digital-assets-custody-wallets-sygnum-zurich",
+        "internship-product-management-digital-assets-custodia-e-portafogli-sygnum-bank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-product-management-digital-assets-custody-wallets-sygnum-zurich"
+          "internship-product-management-digital-assets-custody-wallets-sygnum-zurich",
+          "internship-product-management-digital-assets-custodia-e-portafogli-sygnum-bank-zurich"
         ],
         "fr": [
           "internship-product-management-digital-assets-custody-wallets-sygnum-bank-zurich"
         ]
       },
       "firstSeenAt": "2026-09-23T23:50:29.915Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -175,7 +178,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN283",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:20:52.647Z",
+      "crawledAt": "2026-10-04T09:24:29.012Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -199,7 +202,8 @@
         "gestione-delle-comunicazioni-sygnum-bank-zurich",
         "communications-manager-sygnum-zurich",
         "kommunikationsmanager-sygnum-bank-zurich",
-        "gestionnaire-des-communications-sygnum-bank-zurich"
+        "gestionnaire-des-communications-sygnum-bank-zurich",
+        "gestione-del-rischio-di-sicurezza-delle-informazioni-sygnum-bank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -207,7 +211,8 @@
           "gestione-delle-comunicazioni-sygnum-bank-zurich",
           "communications-manager-sygnum-zurich",
           "kommunikationsmanager-sygnum-bank-zurich",
-          "gestionnaire-des-communications-sygnum-bank-zurich"
+          "gestionnaire-des-communications-sygnum-bank-zurich",
+          "gestione-del-rischio-di-sicurezza-delle-informazioni-sygnum-bank-zurich"
         ],
         "en": [
           "communications-manager-sygnum-zurich"
@@ -267,7 +272,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN269",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:20:52.042Z",
+      "crawledAt": "2026-10-04T09:24:28.424Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -289,15 +294,18 @@
       "previousSlugsByLocale": {
         "it": [
           "crescita-piombo-senior-vice-president-b2b-sygnum-bank-zurich",
-          "growth-lead-b2b-switzerland-liechtenstein-sygnum-zurich"
+          "growth-lead-b2b-switzerland-liechtenstein-sygnum-zurich",
+          "growth-lead-senior-vice-president-b2b-sygnum-zurich"
         ],
         "en": [
-          "growth-lead-b2b-switzerland-liechtenstein-sygnum-zurich"
+          "growth-lead-b2b-switzerland-liechtenstein-sygnum-zurich",
+          "growth-lead-senior-vice-president-b2b-sygnum-zurich"
         ]
       },
       "previousSlugs": [
         "crescita-piombo-senior-vice-president-b2b-sygnum-bank-zurich",
-        "growth-lead-b2b-switzerland-liechtenstein-sygnum-zurich"
+        "growth-lead-b2b-switzerland-liechtenstein-sygnum-zurich",
+        "growth-lead-senior-vice-president-b2b-sygnum-zurich"
       ],
       "firstSeenAt": "2026-07-16T11:50:21.833Z",
       "salaryMin": 114500,
@@ -345,7 +353,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN287",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:20:51.001Z",
+      "crawledAt": "2026-10-04T09:24:27.455Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -365,11 +373,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "credit-lending-intern-sygnum-zurich"
+        "credit-lending-intern-sygnum-zurich",
+        "credit-lending-tirocinante-sygnum-bank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "credit-lending-intern-sygnum-zurich"
+          "credit-lending-intern-sygnum-zurich",
+          "credit-lending-tirocinante-sygnum-bank-zurich"
         ],
         "de": [
           "credit-lending-intern-sygnum-zurich"
@@ -379,6 +389,7 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:20:07.341Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -424,7 +435,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN288",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:20:49.871Z",
+      "crawledAt": "2026-10-04T09:24:25.863Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -490,7 +501,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN240",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:20:49.247Z",
+      "crawledAt": "2026-10-04T09:24:25.269Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -510,11 +521,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-relationship-manager-private-banking-sygnum-zurich"
+        "senior-relationship-manager-private-banking-sygnum-zurich",
+        "senior-responsabile-relazioni-private-banking-sygnum-bank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-relationship-manager-private-banking-sygnum-zurich"
+          "senior-relationship-manager-private-banking-sygnum-zurich",
+          "senior-responsabile-relazioni-private-banking-sygnum-bank-zurich"
         ],
         "fr": [
           "senior-relationship-manager-private-banking-sygnum-zurich"
@@ -567,7 +580,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN233",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:20:48.370Z",
+      "crawledAt": "2026-10-04T09:24:24.706Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -587,6 +600,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-11T10:24:35.636Z",
+      "needsRetranslation": true,
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
@@ -632,7 +646,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN192",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:20:47.572Z",
+      "crawledAt": "2026-10-04T09:24:24.103Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -652,11 +666,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-application-security-engineer-sygnum-zurich"
+        "senior-application-security-engineer-sygnum-zurich",
+        "senior-application-security-ingegnere-sygnum-bank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-application-security-engineer-sygnum-zurich"
+          "senior-application-security-engineer-sygnum-zurich",
+          "senior-application-security-ingegnere-sygnum-bank-zurich"
         ],
         "de": [
           "senior-application-security-engineer-sygnum-zurich"
