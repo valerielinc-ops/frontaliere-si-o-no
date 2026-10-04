@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { buildJobTodayLandingModel } from '../build-plugins/jobEditorialLanding';
+import { buildJobRecencyLandingModel } from '../build-plugins/jobRecencyLanding';
 import { buildJobIntentLandingModel } from '../build-plugins/jobIntentLanding';
 
 const now = new Date();
@@ -15,6 +16,12 @@ const records = [
 describe('publication provenance in editorial and intent landing models', () => {
   it.each(['it', 'en', 'de', 'fr'] as const)('%s preserves mixed provenance without promoting observations into publication', (locale) => {
     const options = { jobs: records, locale, now, localizedSlug: (job: Record<string, unknown>) => String(job.slug), baseUrl: 'https://frontaliereticino.ch', sectionSlug: 'cerca-lavoro-ticino', localePrefix: locale === 'it' ? '' : `/${locale}` };
+    for (const variant of ['last-3-days', 'since-yesterday'] as const) {
+      const recency = buildJobRecencyLandingModel({ ...options, variant, maxJobs: 1 });
+      expect(recency.totalJobs).toBe(2);
+      expect(recency.jobs).toHaveLength(1);
+      expect(recency.jobs[0].href).toContain('/legacy/');
+    }
     const editorial = buildJobTodayLandingModel(options);
     expect(editorial.sections.last24Hours.jobs.map((job) => job.href.split('/').at(-2))).toEqual(['legacy', 'reported']);
     expect(editorial.sections.last3Days.jobs).toHaveLength(2);

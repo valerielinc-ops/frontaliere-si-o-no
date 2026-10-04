@@ -1,3 +1,9 @@
+import { aggregateProfessionJobs, _resetProfessionJobsAggregateCache } from '../build-plugins/professionJobsAggregate';
+import { aggregateNursingJobs, _resetNursingJobsAggregateCache } from '../build-plugins/nursingJobsAggregate';
+import { aggregateCityJobs, _resetCityJobsAggregateCache } from '../build-plugins/cityJobsAggregate';
+import { aggregateCareerLandings, _resetCareerJobsAggregateCache } from '../build-plugins/careerJobsAggregate';
+import { aggregateHealthFacilityJobs, _resetHealthFacilityJobsAggregateCache } from '../build-plugins/healthFacilitiesJobsAggregate';
+import { HEALTH_FACILITIES } from '../build-plugins/healthFacilitiesData';
 import { describe, expect, it } from 'vitest';
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, readdirSync, rmSync, cpSync } from 'node:fs';
 import { join } from 'node:path';
@@ -34,6 +40,36 @@ function temporaryRoot() {
 }
 
 describe('publication provenance through remaining listing consumers', () => {
+  it('keeps unknown publication out of fresh counts and featured ordering in all five aggregate families', () => {
+    const root = temporaryRoot();
+    const facility = HEALTH_FACILITIES.find((item) => item.companyKeys.length > 0)!;
+    expect(facility).toBeDefined();
+    const records = jobs.map((job) => ({ ...job, companyKey: facility.companyKeys[0], employmentType: 'INTERN' }));
+    writeFileSync(join(root, 'data/jobs.json'), JSON.stringify(records));
+    try {
+      const now = Date.now();
+      const snapshots = [
+        aggregateProfessionJobs(root, now).infermiere,
+        aggregateNursingJobs(root, now).nurses,
+        aggregateCityJobs(root, 'lugano', now),
+        aggregateCareerLandings(root, now)['stage-lugano'],
+        aggregateHealthFacilityJobs(root, now).get(facility.slug)!,
+      ];
+      for (const snapshot of snapshots) {
+        expect(snapshot.liveCount).toBe(36);
+        expect(snapshot.fresh30Count).toBe(16);
+        expect(snapshot.featured.slice(0, 3).map((job) => job.id)).toEqual(['date-sibling-20', 'date-sibling-21', 'date-sibling-22']);
+      }
+    } finally {
+      _resetProfessionJobsAggregateCache();
+      _resetNursingJobsAggregateCache();
+      _resetCityJobsAggregateCache();
+      _resetCareerJobsAggregateCache();
+      _resetHealthFacilityJobsAggregateCache();
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it.each(locales)('preserves explicit provenance through weekly aggregation and %s cards', (locale) => {
     const stats = buildCompanyCityStats({ city: 'lugano', companySlug: 'example-sa', employerKey: 'example-sa', locale, jobs, limitJobs: 100 });
     expect(stats).not.toBeNull();
