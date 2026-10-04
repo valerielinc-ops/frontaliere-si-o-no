@@ -81,6 +81,7 @@ import {
   updateFollowupItemState,
 } from './followup-resolution-match.mjs';
 import {
+  MAYBE_RESOLVED_RELEASE_MARKER,
   countItemAttempts,
   inertCommentText,
   itemAttemptMarker,
@@ -90,6 +91,7 @@ import {
   itemMetricLine,
   parseItemMarkers,
 } from './lib/followup-item-evidence.mjs';
+import { issueLabelDeleteArgs, labelDeleteResponseConfirms } from './lib/issue-label-release.mjs';
 import { DELIVERY_STATUS, normalizeDeliveryEvidence } from './lib/pr-delivery-evidence.mjs';
 
 export const VERIFY_LABEL = 'maybe-resolved';
@@ -381,6 +383,31 @@ export function routingEditArgs(labels) {
   return args;
 }
 
+/** Se gli argomenti di `gh issue edit` tolgono la label di verifica. */
+export function releasesVerifyLabel(args) {
+  const list = Array.isArray(args) ? args : [];
+  return list.some((arg, i) => arg === '--remove-label' && list[i + 1] === VERIFY_LABEL);
+}
+
+function issueHasLabel(issue, label) {
+  if (!Array.isArray(issue?.labels)) return false;
+  const wanted = String(label).toLowerCase();
+  return issue.labels.some((entry) => String(entry?.name ?? entry ?? '').toLowerCase() === wanted);
+}
+
+function withoutLabelRemoval(args, label) {
+  const list = Array.isArray(args) ? args : [];
+  const next = [];
+  for (let i = 0; i < list.length; i += 1) {
+    if (list[i] === '--remove-label' && list[i + 1] === label) {
+      i += 1;
+      continue;
+    }
+    next.push(list[i]);
+  }
+  return next;
+}
+
 export function routedCommentBody(evidence, verified) {
   const parts = [
     evidence.pr !== null ? `pr=${evidence.pr}` : null,
@@ -562,6 +589,23 @@ function gh(args) {
   return execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 32 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] });
 }
 
+/**
+ * Conferma che questo route step ha rimosso `maybe-resolved`, non che la label
+ * sia semplicemente assente. Il chiamante arriva qui solo dopo il pre-check
+ * positivo e l'edit del corpo/altre label.
+ * @param {{repo: string, issue: string|number, execute?: (args: string[]) => string}} input
+ */
+export function confirmBucketMaybeResolvedRelease({ repo, issue, execute = gh }) {
+  try {
+    const removed = execute(issueLabelDeleteArgs({ issue, label: VERIFY_LABEL, repo }));
+    if (!labelDeleteResponseConfirms(removed, VERIFY_LABEL)) return false;
+    const after = JSON.parse(execute(['issue', 'view', String(issue), '--repo', repo, '--json', 'state,labels']));
+    return after?.state === 'OPEN' && Array.isArray(after.labels) && !issueHasLabel(after, VERIFY_LABEL);
+  } catch {
+    return false;
+  }
+}
+
 function readJson(file) {
   if (!file) return null;
   try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return null; }
@@ -693,7 +737,7 @@ function routeBucketItem({ repo, issue, view, runStartedAt, deliveryStatus }) {
 
   // Tutto il commento si costruisce PRIMA di scrivere: un marker non
   // componibile non deve lasciare un corpo modificato senza la sua prova.
-  const comment = compose({
+  const composed = compose({
     blockedReason: decision.blockedReason,
     evidence,
     verified,
@@ -701,17 +745,27 @@ function routeBucketItem({ repo, issue, view, runStartedAt, deliveryStatus }) {
     metric: itemMetricLine(decision.item),
     openRemaining: decision.openRemaining,
   });
-  if (typeof comment !== 'string') return skip(`marker-non-componibile:${comment.error}`);
+  if (typeof composed !== 'string') return skip(`marker-non-componibile:${composed.error}`);
+  const labels = Array.isArray(view?.labels) ? view.labels.map((l) => l?.name).filter(Boolean) : [];
+  const labelArgs = bucketLabelEditArgs(labels, { openRemaining: decision.openRemaining });
+  const releasesMaybeResolved = releasesVerifyLabel(labelArgs);
   // Rilettura-confronto: lo step gira fuori dal mutex del bucket.
   let fresh;
   try {
-    fresh = JSON.parse(gh(['issue', 'view', String(issue), '--repo', repo, '--json', 'title,body,state']));
+    fresh = JSON.parse(gh(['issue', 'view', String(issue), '--repo', repo, '--json', 'title,body,state,labels']));
   } catch (e) {
     return attemptOnly(`rilettura non disponibile: ${String(e?.message ?? e).slice(0, 80)}`);
   }
   if (fresh?.state !== 'OPEN' || fresh?.title !== view?.title || fresh?.body !== view?.body) {
     return attemptOnly('corpo o titolo cambiati fra lettura e scrittura');
   }
+  // Se un umano ha gia' tolto `maybe-resolved`, il successivo edit non puo'
+  // essere attribuito al reconciler: conserva il flag precedente e posta solo
+  // i marker dell'item. La rimozione va confermata anche dopo l'edit.
+  const freshHasMaybeResolved = issueHasLabel(fresh, VERIFY_LABEL);
+  const labelArgsToWrite = releasesMaybeResolved
+    ? withoutLabelRemoval(labelArgs, VERIFY_LABEL)
+    : labelArgs;
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'route-already-fixed-'));
   try {
     const bodyFile = path.join(dir, 'body.md');
@@ -726,15 +780,27 @@ function routeBucketItem({ repo, issue, view, runStartedAt, deliveryStatus }) {
   }
   // Da qui l'item E' `blocked`: il marker va postato comunque, anche se le
   // label falliscono (il gate sul conio ripara la coda al giro successivo).
-  const labels = Array.isArray(view?.labels) ? view.labels.map((l) => l?.name).filter(Boolean) : [];
-  const labelArgs = bucketLabelEditArgs(labels, { openRemaining: decision.openRemaining });
-  if (labelArgs.length > 0) {
+  let labelEditSucceeded = true;
+  if (labelArgsToWrite.length > 0) {
     try {
-      gh(['issue', 'edit', String(issue), '--repo', repo, ...labelArgs]);
+      gh(['issue', 'edit', String(issue), '--repo', repo, ...labelArgsToWrite]);
     } catch (e) {
+      labelEditSucceeded = false;
       console.log(`::warning::route-already-fixed: edit label fallito (${String(e?.message ?? e).slice(0, 120)}).`);
     }
   }
+  let releaseConfirmed = false;
+  if (releasesMaybeResolved && freshHasMaybeResolved && labelEditSucceeded) {
+    // `gh issue edit --remove-label` is idempotent: a concurrent human
+    // removal still exits 0. REST DELETE returns 404 in that case, so the
+    // release marker is allowed only after its response proves this run's
+    // removal and the authoritative reread still sees the label absent.
+    releaseConfirmed = confirmBucketMaybeResolvedRelease({ repo, issue });
+    if (!releaseConfirmed) console.log(`::warning::route-already-fixed: rilascio di \`${VERIFY_LABEL}\` non confermato; marker del rilascio omesso.`);
+  }
+  // Marker di rilascio solo dopo DELETE riuscita + rilettura senza label. In
+  // ogni altro caso il flag precedente resta interpretabile come obiezione umana.
+  const comment = releaseConfirmed ? `${composed}\n${MAYBE_RESOLVED_RELEASE_MARKER}` : composed;
   setOutput('routed', 'true');
   postComment(comment);
   console.log(`route-already-fixed: bucket #${issue}, item ${itemId} → blocked (${decision.blockedReason}, link=${link}).`);

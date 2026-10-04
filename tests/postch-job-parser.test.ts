@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   carryPostSourceBody,
   formatPostJobLocation,
@@ -21,6 +21,42 @@ function token(content = '') {
 function buildPage(values: Record<number, string>, tokenCount: number) {
   return `<div id="search-wrapper">${Array.from({ length: tokenCount }, (_, index) => token(values[index] || '')).join('')}</div>`;
 }
+
+describe('Post.ch publication timestamps', () => {
+  afterEach(() => vi.useRealTimers());
+
+  it('validates JSON-LD before truncating time or normalizing an impossible calendar', () => {
+    const year = new Date().getUTCFullYear();
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(`${year}-06-15T12:00:00Z`));
+    const parse = (datePosted: string) => parsePostJobDetail(
+      `<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', title: 'Post vacancy', datePosted })}</script>`,
+      'https://job.post.ch/v2/job-vacancies/test/id',
+    ).datePosted;
+    expect(parse(`${year}-06-15T23:00:00Z`)).toBe('');
+    expect(parse(`${year}-02-30T10:00:00Z`)).toBe('');
+    expect(parse(`${year}-06-15Tbad`)).toBe('');
+    expect(parse(`${year}-06-15T13:00:00+02:00`)).toBe(`${year}-06-15T13:00:00+02:00`);
+    expect(parse('')).toBe('');
+  });
+
+  it('preserves ISO token time and interprets four-digit locale dates before Date parsing', () => {
+    const year = new Date().getUTCFullYear();
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(`${year}-06-15T12:00:00Z`));
+    const parse = (date: string, locale = 'de_DE') => parsePostJobDetail(buildPage({
+      0: 'Post vacancy', 3: 'Bern|Bern|BE|Schweiz|CHE', 12: date,
+      13: `${year + 1}-01-01`,
+      18: 'This is the original description of a regular position with enough text to select its documented token layout.',
+    }, 19), `https://job.post.ch/default/job/test/123-${locale}`);
+    expect(parse(`${year}-06-15T23:00:00Z`).datePosted).toBe('');
+    expect(parse(`${year}-02-30T10:00:00Z`).datePosted).toBe('');
+    expect(parse(`04/05/${year}`).datePosted).toBe(`${year}-05-04`);
+    expect(parse(`04/05/${year}`, 'en_US').datePosted).toBe(`${year}-04-05`);
+    expect(parse(`31/04/${year}`).datePosted).toBe('');
+    expect(parse(`04/05/${year}`).validThrough).toBe(`${year + 1}-01-01`);
+  });
+});
 
 describe('Post.ch SuccessFactors detail parser', () => {
   it('keeps regular descriptions after nested inline spans', () => {

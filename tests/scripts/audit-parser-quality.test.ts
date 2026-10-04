@@ -46,6 +46,8 @@ import {
   SOURCE_DETAIL_EXTRACTOR_VERSION_FILES,
   SOURCE_DETAIL_NORMALIZER_VERSION_FILES,
   vacancyHeadingSublineFields,
+  vacancyHeadingIntroFields,
+  vacancyNationwideScopeHeadings,
   workdayPrimaryLocationFromUrl,
   assignSeverity,
   duplicateBucketSourceSample,
@@ -2040,6 +2042,64 @@ describe('source-detail location measurement (issue 5253)', () => {
     expect((await run(livit, 'Lausanne')).locationMismatch).toBe(true);
     // Una riga dopo un H1 che non è il titolo della vacancy non è un campo della vacancy.
     expect(vacancyHeadingSublineFields('<h1>Karriere bei uns</h1><p>Zürich, Basel, Bern</p>', 'Chef de Rang')).toEqual([]);
+  });
+
+  // Fixture anonimizzate dal markup reale delle due pagine che il 2026-10-04
+  // tenevano rosso lo strict (issue 5253): in entrambe il JSON-LD porta la sede
+  // dell'azienda e la pagina stessa dice un'altra cosa.
+  const fixtureRun = async (fixture: string, url: string, published: string) => {
+    const body = fs.readFileSync(path.join(process.cwd(), 'tests/fixtures/parser-quality', fixture, 'sample-detail.html'), 'utf8');
+    const [result] = await checkSourceDetailsBatch(
+      [{ url, crawlerKey: 'fixture', job: { url, location: published, addressLocality: published, description: desc } }],
+      1,
+      { fetchPage: async () => ({ ok: true, status: 200, body, url, host: new URL(url).hostname }) },
+    );
+    return result;
+  };
+
+  it('reads the intro line before the vacancy title against a head-office JSON-LD', async () => {
+    // jobs.sbb.ch, template delle società affiliate: JSON-LD con la sede SBB
+    // (3000 Bern), riga sotto l'H1 vuota, luogo di lavoro nella frase che
+    // precede l'H1 («Steig ein bei uns – in Stansstad –»).
+    const url = 'https://jobs.sbb.ch/v2/offene-stellen/fachspezialist-in-umwelt/00000000-0000-4000-8000-000000000001';
+    const stansstad = await fixtureRun('sbb-subsidiary-intro', url, 'Stansstad');
+    expect(stansstad.locationMismatch).toBe(false);
+    expect(stansstad.locationAuthority).toBe('source-internal-conflict');
+    // Un comune che la pagina non nomina resta una contraddizione autorevole.
+    expect((await fixtureRun('sbb-subsidiary-intro', url, 'Winterthur')).locationMismatch).toBe(true);
+    // Il blocco prima di un H1 che non è il titolo della vacancy non è suo.
+    expect(vacancyHeadingIntroFields('<p>Arbeiten in Zürich</p><h1>Karriere bei uns</h1>', 'Chef de Rang')).toEqual([]);
+    expect(vacancyHeadingIntroFields('<div class="text">Steig ein – in Chur – per sofort.</div><h1>Chef de Rang</h1>', 'Chef de Rang'))
+      .toEqual(['Steig ein – in Chur – per sofort.']);
+  });
+
+  it('reads a nationwide heading of the vacancy page against an employer-seat JSON-LD', async () => {
+    // premiumpflege24: JobPosting con la sede (4553 Subingen, anche nel
+    // footer); la pagina dice «Jobs in der ganzen Schweiz» e il crawler
+    // pubblica la portata nazionale «Schweiz».
+    const url = 'https://premiumpflege24.ch/job-registrierung/';
+    const nationwide = await fixtureRun('nationwide-care-application', url, 'Schweiz');
+    expect(nationwide.locationMismatch).toBe(false);
+    expect(nationwide.locationAuthority).toBe('source-internal-conflict');
+    // Una città pubblicata che la pagina non nomina resta una contraddizione.
+    expect((await fixtureRun('nationwide-care-application', url, 'Olten')).locationMismatch).toBe(true);
+    // Il paese al posto della città, senza una dichiarazione nazionale nel
+    // contenuto della vacancy, resta il difetto che il controllo esiste a
+    // sollevare: header, nav e footer (logo, elenco delle aree servite) non
+    // sono la vacancy.
+    const chromeOnly = fs.readFileSync(
+      path.join(process.cwd(), 'tests/fixtures/parser-quality/nationwide-care-application/sample-detail.html'),
+      'utf8',
+    ).replace('Jobs in der ganzen Schweiz', 'Jobs bei uns');
+    expect(vacancyNationwideScopeHeadings(chromeOnly)).toEqual([]);
+    const [countryFallback] = await checkSourceDetailsBatch(
+      [{ url, crawlerKey: 'fixture', job: { url, location: 'Schweiz', addressLocality: 'Schweiz', description: desc } }],
+      1,
+      { fetchPage: async () => ({ ok: true, status: 200, body: chromeOnly, url, host: 'premiumpflege24.ch' }) },
+    );
+    expect(countryFallback.locationMismatch).toBe(true);
+    expect(vacancyNationwideScopeHeadings('<h2>Postes dans toute la Suisse</h2>')).toEqual(['Postes dans toute la Suisse']);
+    expect(vacancyNationwideScopeHeadings('<h2>Lavoro in Svizzera</h2>')).toEqual([]);
   });
 });
 

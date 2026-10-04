@@ -73,6 +73,7 @@
  *   - isTrustedDomain()     — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, guessCategory, normalizeContract } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -221,7 +222,7 @@ export function resolveAddress(rawLoc = {}) {
 /**
  * Fetch the Switzerland-only Kiabi postings from the SmartRecruiters API
  * (tenant "KIABI", country=ch). Returns an array of raw listing objects
- * {title, location, url, postedAt, description, jobReqId, rawLocation}.
+ * {title, location, url, datePosted, postedDate, postingDateSource, description, jobReqId, rawLocation}.
  */
 async function fetchJobListings() {
   console.log(`   Fetching SmartRecruiters tenant "${SR_TENANT}" (country=ch)`);
@@ -242,7 +243,7 @@ async function fetchJobListings() {
         title: job.title,
         location: job.location,
         url: job.applyUrl,
-        postedAt: job.postedAt,
+        ...mergeSourcePostingDates({}, job),
         description: job.descriptionHtml || '',
         jobReqId: job.jobReqId || raw.id || '',
         rawLocation: raw.location || {},
@@ -334,8 +335,6 @@ export async function fetchAllKiabiJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(listing.employmentLabel || title);
     const contract = normalizeContract(listing.employmentLabel || '', title, description);
-    const postedDate = (listing.postedAt && String(listing.postedAt).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -370,7 +369,7 @@ export async function fetchAllKiabiJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       jobReqId: listing.jobReqId || null,
       requirements: [],

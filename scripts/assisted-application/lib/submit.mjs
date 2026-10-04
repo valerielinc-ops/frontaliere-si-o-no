@@ -18,12 +18,12 @@
  */
 
 import {
-  LETTER_FILE_LABEL,
+  applicationFileName,
   checkDraftTexts,
   safeFileStem,
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { rebuildLetterPdf } from '../../../functions/src/assistedApplicationLetterPdf.js';
-import { cvChoiceOf } from '../../../functions/src/assistedApplicationDocxInPlace.js';
+import { cvToSend } from '../../../functions/src/assistedApplicationDocxInPlace.js';
 import { candidateWithEdits, factSourcesNow, formAnswersWithEdits } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import { classifyApplicationChannel, isPlausibleEmail, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
@@ -58,17 +58,11 @@ export function openRequiredQuestions(draft, answers = {}) {
  * `cvKey`: where the CV that leaves is in Storage (the record of the send names it).
  */
 export async function chooseCv({ draft, flow, bucket, cvBuffer, cvType, cvKey = null }) {
-  const tailored = draft?.tailoredCv;
-  const choice = cvChoiceOf(draft, flow);
-  if (tailored?.status === 'ready' && choice === 'inplace') {
-    const [buffer] = await bucket.file(tailored.inplace.docxKey).download();
-    return { cvBuffer: Buffer.from(buffer), cvType: 'docx', cvSent: 'inplace', cvKey: tailored.inplace.docxKey };
-  }
-  if (tailored?.status === 'ready' && tailored.pdfKey && choice !== 'original') {
-    const [buffer] = await bucket.file(tailored.pdfKey).download();
-    return { cvBuffer: Buffer.from(buffer), cvType: 'pdf', cvSent: 'tailored', cvKey: tailored.pdfKey };
-  }
-  return { cvBuffer, cvType, cvSent: 'original', cvKey };
+  // The rule the owner's fill kit and the candidate's page apply too (cvToSend).
+  const cv = cvToSend(draft, flow);
+  if (cv.cv === 'original') return { cvBuffer, cvType, cvSent: 'original', cvKey };
+  const [buffer] = await bucket.file(cv.key).download();
+  return { cvBuffer: Buffer.from(buffer), cvType: cv.extension, cvSent: cv.cv, cvKey: cv.key };
 }
 
 /**
@@ -221,14 +215,13 @@ export async function submitApplication(ctx) {
     const { identity } = candidateWithEdits({ order, draft, flow });
     const letter = await letterForSubmission({ bucket, order, orderId, draft, flow, nowMs });
     const stem = safeFileStem(identity.name);
-    const letterLabel = safeFileStem(LETTER_FILE_LABEL[draft.language] || LETTER_FILE_LABEL.it);
     const extras = await downloadExtraDocuments({ bucket, draft, flow, orderId, name: identity.name });
     // How the files leave (dossier.mjs): the posting's own instruction, then the switch; by
     // default the CV and the letter apart and the requested documents grouped.
     const packaged = await packageAttachments({
       language: draft.language, name: identity.name, stem, ad: adPackaging(draft), nowMs,
-      cv: { buffer: cvBuffer, type: cvType, name: `CV_${stem}.${EXTENSION[cvType] || 'pdf'}`, key: cvKey },
-      letter: { buffer: letter.pdf, name: `${letterLabel}_${stem}.pdf`, key: letter.key },
+      cv: { buffer: cvBuffer, type: cvType, name: applicationFileName('cv', { name: identity.name, language: draft.language, extension: EXTENSION[cvType] || 'pdf' }), key: cvKey },
+      letter: { buffer: letter.pdf, name: applicationFileName('letter', { name: identity.name, language: draft.language, extension: 'pdf' }), key: letter.key },
       extras, mode: dossierMode(), candidateType: draftCandidateType(draft),
     });
     // Codes and counts only: the file names carry the candidate's name.
@@ -366,10 +359,9 @@ export async function submitApplication(ctx) {
     try {
       dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-'));
       const letter = await letterForSubmission({ bucket, order, orderId, draft, flow, nowMs });
-      const stem = safeFileStem(identity.name);
       const files = {
-        cv: path.join(dir, `CV_${stem}.${EXTENSION[cvType] || 'pdf'}`),
-        cover_letter: path.join(dir, `${safeFileStem(LETTER_FILE_LABEL[draft.language] || LETTER_FILE_LABEL.it)}_${stem}.pdf`),
+        cv: path.join(dir, applicationFileName('cv', { name: identity.name, language: draft.language, extension: EXTENSION[cvType] || 'pdf' })),
+        cover_letter: path.join(dir, applicationFileName('letter', { name: identity.name, language: draft.language, extension: 'pdf' })),
       };
       await writeFile(files.cv, cvBuffer);
       await writeFile(files.cover_letter, letter.pdf);

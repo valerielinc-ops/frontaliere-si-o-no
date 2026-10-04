@@ -142,7 +142,7 @@ jobs:
         env:
           # Prefer the long-lived PAT for this potentially hour-long sweep;
           # fall back to the App identity when the PAT is unavailable.
-          GH_TOKEN: ${{ env.GITHUB_PAT || env.APP_TOKEN }}
+          GH_TOKEN: ${{ env.GITHUB_PAT || env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || '' }}
         run: |
           body="$RUNNER_TEMP/discover-404s-pr-body.md"
           {
