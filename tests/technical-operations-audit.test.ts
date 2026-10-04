@@ -670,6 +670,149 @@ describe('technical operations audit', () => {
     expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
   });
 
+  it('segue il file passato con --github-output "$GITHUB_OUTPUT" a uno script delegato', () => {
+    const planScript = (target: string) => [
+      "import fs from 'node:fs';",
+      'function parseArgs(argv) { return Object.fromEntries([]); }',
+      'function writeGithubOutputs(file, plan) {',
+      '  if (!file) return;',
+      '  const lines = {',
+      '    allowed: String(plan.allowed),',
+      '    tail_locales: JSON.stringify(plan.tailLocales || []),',
+      '    reason: plan.reason,',
+      '  };',
+      `  fs.appendFileSync(${target}, \`\${Object.entries(lines).map(([key, value]) => \`\${key}=\${value}\`).join('\\n')}\\n\`);`,
+      '}',
+      'function main() {',
+      '  const args = parseArgs(process.argv.slice(2));',
+      '  const reportPath = args.report;',
+      "  writeGithubOutputs(args['github-output'], { allowed: true, tailLocales: [], reason: 'ok' });",
+      '}',
+      'main();',
+    ].join('\n');
+    const files = new Map([
+      ['/repo/scripts/plan.mjs', planScript('file')],
+      ['/repo/scripts/plan-report.mjs', planScript('reportPath')],
+    ]);
+    const workflow = (script: string, target: string, extraKey = '') => [
+      'name: flag-output',
+      'on: [push]',
+      'jobs:',
+      '  plan:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: producer',
+      '        id: plan',
+      '        run: |',
+      '          set -euo pipefail',
+      `          node ${script} \\`,
+      '            --jobs-file "$RUNNER_TEMP/jobs.json" \\',
+      `            --github-output ${target} | tee -a "$GITHUB_STEP_SUMMARY"`,
+      '      - name: consumer',
+      `        run: echo "\${{ steps.plan.outputs.allowed }} \${{ steps.plan.outputs.tail_locales }} \${{ steps.plan.outputs.reason }}${extraKey}"`,
+    ].join('\n');
+    const audit = (source: string) => auditWorkflowText('.github/workflows/flag-output.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    }).filter((item: any) => item.rule === 'workflow.output-not-produced');
+
+    expect(audit(workflow('scripts/plan.mjs', '"$GITHUB_OUTPUT"'))).toEqual([]);
+    expect(audit(workflow('scripts/plan.mjs', '"${GITHUB_OUTPUT}"'))).toEqual([]);
+    // Negativi: una regressione vera resta visibile.
+    // 1. il flag riceve un file qualsiasi, non GITHUB_OUTPUT;
+    expect(audit(workflow('scripts/plan.mjs', '"$RUNNER_TEMP/plan.txt"')).map((item: any) => item.evidence))
+      .toEqual(['steps.plan.outputs.allowed', 'steps.plan.outputs.tail_locales', 'steps.plan.outputs.reason']);
+    // 2. la chiave letta non è nella mappa scritta;
+    expect(audit(workflow('scripts/plan.mjs', '"$GITHUB_OUTPUT"', ' ${{ steps.plan.outputs.build_id }}')).map((item: any) => item.evidence))
+      .toEqual(['steps.plan.outputs.build_id']);
+    // 3. lo script legge il flag ma scrive la mappa in un altro file.
+    expect(audit(workflow('scripts/plan-report.mjs', '"$GITHUB_OUTPUT"')).map((item: any) => item.evidence))
+      .toEqual(['steps.plan.outputs.allowed', 'steps.plan.outputs.tail_locales', 'steps.plan.outputs.reason']);
+  });
+
+  it('riconosce le chiavi di un helper che restituisce un template k=${...}', () => {
+    const helperScript = (target: string) => [
+      "import fs from 'node:fs';",
+      'export function formatStepOutputs(result) {',
+      "  const reasonText = result.reasons?.length > 0 ? result.reasons.join(',') : 'none';",
+      "  return `ready=${result.ready}\\ndispatch_mode=${result.dispatchMode}\\ncorpus_commit=${result.corpus ?? ''}`",
+      '    + `\\nreasons=${reasonText}`',
+      '    + `\\nfallback_stale=${result.ready === true && result.stale === true}\\n`;',
+      '}',
+      'const env = process.env;',
+      'const reportPath = env.REPORT_PATH;',
+      `if (env.GITHUB_OUTPUT) fs.appendFileSync(${target}, formatStepOutputs({ ready: true }));`,
+      "if (env.GITHUB_OUTPUT) fs.appendFileSync(env.GITHUB_OUTPUT, 'shadow_ready=true\\n');",
+    ].join('\n');
+    const files = new Map([
+      ['/repo/scripts/dispatch.mjs', helperScript('env.GITHUB_OUTPUT')],
+      ['/repo/scripts/dispatch-report.mjs', helperScript('reportPath')],
+    ]);
+    const workflow = (script: string, extraKey = '') => [
+      'name: template-output',
+      'on: [push]',
+      'jobs:',
+      '  dispatch:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: preflight',
+      '        id: preflight',
+      `        run: node ${script} preflight`,
+      '      - name: consumer',
+      `        run: echo "\${{ steps.preflight.outputs.ready }} \${{ steps.preflight.outputs.dispatch_mode }} \${{ steps.preflight.outputs.corpus_commit }} \${{ steps.preflight.outputs.reasons }} \${{ steps.preflight.outputs.fallback_stale }}${extraKey}"`,
+    ].join('\n');
+    const audit = (source: string) => auditWorkflowText('.github/workflows/template-output.yml', source, {
+      root: '/repo',
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    }).filter((item: any) => item.rule === 'workflow.output-not-produced').map((item: any) => item.evidence);
+
+    expect(audit(workflow('scripts/dispatch.mjs'))).toEqual([]);
+    // Negativi: chiave assente dal template, e template scritto in un report.
+    expect(audit(workflow('scripts/dispatch.mjs', ' ${{ steps.preflight.outputs.site_code_commit }}')))
+      .toEqual(['steps.preflight.outputs.site_code_commit']);
+    expect(audit(workflow('scripts/dispatch-report.mjs'))).toEqual([
+      'steps.preflight.outputs.ready',
+      'steps.preflight.outputs.dispatch_mode',
+      'steps.preflight.outputs.corpus_commit',
+      'steps.preflight.outputs.reasons',
+      'steps.preflight.outputs.fallback_stale',
+    ]);
+  });
+
+  it('non tratta come riferimento uno script citato in testo stampato da printf/echo', () => {
+    const workflow = (run: string[]) => [
+      'name: printed-script',
+      'on: [push]',
+      'jobs:',
+      '  check:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: body',
+      '        run: |',
+      ...run.map((line) => `          ${line}`),
+    ].join('\n');
+    const audit = (run: string[]) => auditWorkflowText('.github/workflows/printed-script.yml', workflow(run), {
+      root: '/repo',
+      exists: () => false,
+    }).filter((item: any) => item.rule === 'workflow.script-reference').map((item: any) => item.message);
+
+    expect(audit([
+      'if [ "$touched" -eq 1 ]; then',
+      "  printf '%s\\n' \\",
+      "    '- blocked: run `npx -y tsx@4 generator/tests/shell-contract-coverage.mjs` and `node scripts/missing.mjs` on this branch.' \\",
+      '    >> "$body"',
+      'fi',
+      'echo "see scripts/also-missing.mjs for details" >> "$body"',
+    ])).toEqual([]);
+    // Negativi: un path eseguito resta un riferimento verificato.
+    expect(audit(["node 'scripts/missing.mjs'"])).toEqual(['script referenziato ma non trovato: scripts/missing.mjs']);
+    expect(audit(["printf 'start\\n' && node scripts/missing.mjs"])).toEqual(['script referenziato ma non trovato: scripts/missing.mjs']);
+    expect(audit(["bash -c 'node scripts/missing.mjs'"])).toEqual(['script referenziato ma non trovato: scripts/missing.mjs']);
+    expect(audit(['echo "$(node scripts/missing.mjs)"'])).toEqual(['script referenziato ma non trovato: scripts/missing.mjs']);
+  });
+
   it('riconosce output prodotti da node -e multiline e grep verso GITHUB_OUTPUT', () => {
     const source = [
       'name: inline-output',
