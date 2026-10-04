@@ -12510,6 +12510,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.licenza-sospesa-bar-busto-2026.title': 'Buste Arsizio : licence suspendue 15 jours pour agression',
     'blog.article.licenza-sospesa-bar-busto-2026.excerpt': 'Le commissaire de Varese a suspendu pendant 15 jours la licence d\'un bar de Busto Arsizio après l\'agression du 20 septembre avec des jets de pierres près d\'un couple avec une poussette ; le blessé a été emmené à l\'hôpital de Gallarate.',
     'blog.article.licenza-sospesa-bar-busto-2026.imageAlt': 'Bar de Busto Arsizio avec police après attaque à la pierre',
+    'blog.article.fondazione-morandini-eventi-ottobre-2026.title': 'Événements d\'octobre 2026 : Fondazione Morandini à Varese',
+    'blog.article.fondazione-morandini-eventi-ottobre-2026.excerpt': 'La Fondazione Marcello Morandini de Varese propose quatre rendez-vous en octobre 2026, entre visites, concert, catalogue et atelier, en complément de l\'exposition \'Antonio Barrese : Morphologies de la lumière\', ouverte jusqu\'au 20 décembre 2026.',
+    'blog.article.fondazione-morandini-eventi-ottobre-2026.imageAlt': 'Intérieur de la Fondation Marcello Morandini à Varèse avec des installations lumineuses de l\'exposition \'Antonio Barrese: Morfologie di luce\'. (Varese)',
 };
 
 export default blogMetaFr;
