@@ -74,7 +74,6 @@
           "apprentissage-spontane-corner-banca-switzerland"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:02:58.679Z",
       "salaryMin": 59500,
       "salaryMax": 104000,
@@ -285,7 +284,6 @@
           "bancario-di-sicurezza-senior-grc-governance-risk-compliance-rif-1109-corner-banca-lugano"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-14T10:12:28.229Z",
       "salaryMin": 142000,
       "salaryMax": 249500,
@@ -501,7 +499,6 @@
           "fi-administration-et-soutien-aux-entreprises-2-corner-banca-lugano"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T21:34:20.594Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -698,7 +695,6 @@
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
       "crawledAt": "2026-10-03T21:28:05.992Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-19T21:44:21.463Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -773,17 +769,6 @@
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
       "crawledAt": "2026-10-03T21:28:05.991Z",
-      "previousSlugs": [
-        "customer-retention-e-growth-ref-1118-corner-banca-lugano",
-        "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "customer-retention-e-growth-ref-1118-corner-banca-lugano",
-          "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano"
-        ]
-      },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T20:12:11.446Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -802,7 +787,17 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118"
+      "applyUrl": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-retention-e-growth-ref-1118-corner-banca-lugano",
+          "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "customer-retention-e-growth-ref-1118-corner-banca-lugano",
+        "ritenzione-e-crescita-del-cliente-rif-1118-corner-banca-lugano"
+      ]
     },
     {
       "id": "corner-banca-e13869b20e59",
@@ -877,7 +872,6 @@
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
       "crawledAt": "2026-10-03T21:28:05.990Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:49:26.507Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -952,7 +946,6 @@
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
       "crawledAt": "2026-10-03T21:28:05.989Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:49:26.508Z",
       "salaryMin": 59000,
       "salaryMax": 90500,

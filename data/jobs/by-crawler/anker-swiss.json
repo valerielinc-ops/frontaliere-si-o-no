@@ -2887,7 +2887,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/hostess-1322921/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:44:43.244Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3037,7 +3036,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/unterhaltspraktiker-1333406/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-09T13:56:34.361Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -8698,7 +8696,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/montage-elektriker-1369386/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:05:17.426Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -15380,10 +15377,7 @@
       "applyUrl": "https://anker-swiss.ch/stellen/kranfuehrer-1435055/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "kranfuhrer-100-anker-swiss-ticino-ag-zug-0efb3116",
-        "operatore-di-gru-al-100-anker-swiss-ticino-ag-zug-0efb3116"
-      ],
+      "firstSeenAt": "2026-09-30T21:23:35.554Z",
       "previousSlugsByLocale": {
         "it": [
           "kranfuhrer-100-anker-swiss-ticino-ag-zug-0efb3116",
@@ -15396,8 +15390,10 @@
           "kranfuhrer-100-anker-swiss-ticino-ag-zug-0efb3116"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-30T21:23:35.554Z",
+      "previousSlugs": [
+        "kranfuhrer-100-anker-swiss-ticino-ag-zug-0efb3116",
+        "operatore-di-gru-al-100-anker-swiss-ticino-ag-zug-0efb3116"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",

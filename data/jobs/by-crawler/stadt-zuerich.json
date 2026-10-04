@@ -11712,7 +11712,7 @@
         "it": "insegnante-di-infanzia-in-hf-stadt-zurich-zurich",
         "en": "childhood-teacher-in-hf-stadt-zurich-zurich",
         "de": "kindheitspadagog-in-hf-stadt-zuerich-zurigo-50694",
-        "fr": "kindheitspadagog-in-hf-stadt-zurich"
+        "fr": "kindheitspadagog-in-hf-stadt-zurich-et7nyg"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -12957,7 +12957,6 @@
           "co-sl-scherr-80-90-1-stadt-zuerich-zurigo-51722"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-30T23:39:05.711Z",
       "salaryMin": 56700,
       "salaryMax": 104900,
@@ -25351,7 +25350,6 @@
           "diplomierte-pflegefachperson-hf-standort-gehrenholz-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-30T21:45:09.507Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -26927,7 +26925,26 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-03T21:32:52.351Z"
+      "firstSeenAt": "2026-10-03T21:32:52.351Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbilder-in-applikationsschulung-stadt-zuerich-zurigo-51852",
+          "ausbilder-in-applikationsschulung-stadt-zurich-zurich"
+        ],
+        "en": [
+          "ausbilder-in-applikationsschulung-stadt-zurich-zurich"
+        ],
+        "de": [
+          "ausbilder-in-applikationsschulung-stadt-zuerich-zurigo-51852"
+        ],
+        "fr": [
+          "ausbilder-in-applikationsschulung-stadt-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "ausbilder-in-applikationsschulung-stadt-zuerich-zurigo-51852",
+        "ausbilder-in-applikationsschulung-stadt-zurich-zurich"
+      ]
     },
     {
       "id": "stadt-zuerich-fffa6d446439",
@@ -29489,6 +29506,20 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Waidberg",
       "referenceNumber": "51832",
+      "salaryMin": 63000,
+      "salaryMax": 116500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 116500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-01T09:33:56.785Z",
       "previousSlugs": [
         "co-hortleitung-betreuung-schule-weinberg-turner-stadt-zuerich-zurigo-51832",
         "cura-co-hosted-scuola-weinberg-turner-stadt-zurich-zurich"
@@ -29504,21 +29535,6 @@
         "fr": [
           "co-hortleitung-betreuung-schule-weinberg-turner-stadt-zuerich-zurigo-51832"
         ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:33:56.785Z",
-      "salaryMin": 63000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 116500,
-          "unitText": "YEAR"
-        }
       }
     },
     {
@@ -31095,12 +31111,29 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-oder-hortleitung-befristet-schule-riedtli-stadt-zuerich-zurigo-51856",
-          "fachperson-betreuung-o-hortleitung-befristet-schule-riedtli-stadt-zurich"
+          "fachperson-betreuung-o-hortleitung-befristet-schule-riedtli-stadt-zurich",
+          "fachperson-betreuung-oder-hortleitung-schule-riedtli-befristet-stadt-zuerich-zurigo-51856",
+          "fachperson-betreuung-o-hortleitung-schule-riedtli-befristet-stadt-zurich"
+        ],
+        "en": [
+          "fachperson-betreuung-oder-hortleitung-schule-riedtli-befristet-stadt-zuerich-zurigo-51856",
+          "specialist-supervision-or-management-school-riedtli-temporary-stadt-zurich-zurich"
+        ],
+        "de": [
+          "fachperson-betreuung-oder-hortleitung-schule-riedtli-befristet-stadt-zuerich-zurigo-51856"
+        ],
+        "fr": [
+          "fachperson-betreuung-oder-hortleitung-schule-riedtli-befristet-stadt-zuerich-zurigo-51856",
+          "supervision-ou-gestion-specialisee-ecole-riedtli-temporaire-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "fachperson-betreuung-oder-hortleitung-befristet-schule-riedtli-stadt-zuerich-zurigo-51856",
-        "fachperson-betreuung-o-hortleitung-befristet-schule-riedtli-stadt-zurich"
+        "fachperson-betreuung-o-hortleitung-befristet-schule-riedtli-stadt-zurich",
+        "fachperson-betreuung-oder-hortleitung-schule-riedtli-befristet-stadt-zuerich-zurigo-51856",
+        "fachperson-betreuung-o-hortleitung-schule-riedtli-befristet-stadt-zurich",
+        "specialist-supervision-or-management-school-riedtli-temporary-stadt-zurich-zurich",
+        "supervision-ou-gestion-specialisee-ecole-riedtli-temporaire-stadt-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,

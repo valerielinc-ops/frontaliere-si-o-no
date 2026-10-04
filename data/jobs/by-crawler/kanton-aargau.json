@@ -3159,7 +3159,7 @@
       "slugByLocale": {
         "it": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-2",
         "en": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-2",
-        "de": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
+        "de": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-qsbtky",
         "fr": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-2"
       },
       "company": "Kanton Aargau",
@@ -3213,13 +3213,15 @@
         "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-2",
         "interno-legale-interno-legale-100-kanton-aargau-aarau",
         "legal-intern-legal-intern-100-kanton-aargau-aarau",
-        "stage-juridique-stage-juridique-100-kanton-aargau-aarau"
+        "stage-juridique-stage-juridique-100-kanton-aargau-aarau",
+        "tirocinante-legale-al-100-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
           "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-2",
-          "interno-legale-interno-legale-100-kanton-aargau-aarau"
+          "interno-legale-interno-legale-100-kanton-aargau-aarau",
+          "tirocinante-legale-al-100-kanton-aargau-aarau"
         ],
         "de": [
           "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
@@ -3768,7 +3770,7 @@
       "id": "kanton-aargau-58b07298469d",
       "slug": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch-2",
       "slugByLocale": {
-        "de": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch",
+        "de": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch-6wixxl",
         "it": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch-2",
         "en": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch-2",
         "fr": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch-2"
@@ -4196,7 +4198,7 @@
       "slugByLocale": {
         "it": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-3",
         "en": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-3",
-        "de": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
+        "de": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4ky3jo",
         "fr": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-3"
       },
       "company": "Kanton Aargau",
@@ -5079,7 +5081,7 @@
       "id": "kanton-aargau-7bb7d35fdb90",
       "slug": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch-2",
       "slugByLocale": {
-        "de": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch",
+        "de": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch-l3fw79",
         "it": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch-2",
         "en": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch-2",
         "fr": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch-2"
@@ -5606,7 +5608,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-aargau-25d9e1071958",
@@ -6047,7 +6050,7 @@
       "slugByLocale": {
         "it": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4",
         "en": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4",
-        "de": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
+        "de": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-vh0yih",
         "fr": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4"
       },
       "company": "Kanton Aargau",
@@ -6462,7 +6465,7 @@
       "id": "kanton-aargau-1a31d2263dc4",
       "slug": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-5",
       "slugByLocale": {
-        "de": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
+        "de": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-j2u2cr",
         "it": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-5",
         "en": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-5",
         "fr": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-5"
@@ -6527,6 +6530,9 @@
       "firstSeenAt": "2026-07-04T11:08:20.236Z",
       "previousSlugsByLocale": {
         "it": [
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
+        ],
+        "de": [
           "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
         ]
       },

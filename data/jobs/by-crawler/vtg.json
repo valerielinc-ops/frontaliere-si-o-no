@@ -128,12 +128,25 @@
       "addressRegion": "ZH",
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf"
+          "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf",
+          "ingenieur-in-luftwaffe-c2air-system-florako-confederazione-dubendorf"
+        ],
+        "en": [
+          "ingenieur-in-luftwaffe-c2air-system-florako-confederazione-dubendorf"
+        ],
+        "de": [
+          "ingenieur-in-luftwaffe-c2air-system-florako-confederazione-dubendorf"
+        ],
+        "fr": [
+          "ingenieur-in-luftwaffe-c2air-system-florako-confederazione-dubendorf"
         ]
       },
       "previousSlugs": [
-        "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf"
+        "ingenieur-in-luftwaffe-c2air-system-florako-swiss-armed-forces-vtg-dubendorf",
+        "ingenieur-in-luftwaffe-c2air-system-florako-confederazione-dubendorf"
       ],
+      "salaryMin": 83000,
+      "salaryMax": 126000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -145,9 +158,7 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME",
-      "salaryMin": 83000,
-      "salaryMax": 126000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-pwipp8",
@@ -202,12 +213,27 @@
       "streetAddress": "Stauffacherstrasse 65",
       "previousSlugsByLocale": {
         "it": [
-          "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-swiss-armed-forces-vtg-bern"
+          "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-swiss-armed-forces-vtg-bern",
+          "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern",
+          "lehrgang-come-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-svizzera-bern"
+        ],
+        "en": [
+          "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern"
+        ],
+        "de": [
+          "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern"
+        ],
+        "fr": [
+          "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern"
         ]
       },
       "previousSlugs": [
-        "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-swiss-armed-forces-vtg-bern"
+        "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-swiss-armed-forces-vtg-bern",
+        "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern",
+        "lehrgang-come-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-svizzera-bern"
       ],
+      "salaryMin": 66000,
+      "salaryMax": 112000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -219,9 +245,7 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME",
-      "salaryMin": 66000,
-      "salaryMax": 112000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-v2ihnk",
@@ -731,12 +755,25 @@
       "previousSlugsByLocale": {
         "it": [
           "logistikfachmann-frau-stv-chef-in-lager-swiss-armed-forces-vtg-gundlischwand",
-          "logistikfachmann-frau-stv-chef-in-lager-swiss-armed-forces-vtg-gundlischwand-7d09qp"
+          "logistikfachmann-frau-stv-chef-in-lager-swiss-armed-forces-vtg-gundlischwand-7d09qp",
+          "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand",
+          "logistikfachmann-frau-stv-chef-in-magazzino-confederazione-svizzera-gundlischwand"
+        ],
+        "en": [
+          "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand"
+        ],
+        "de": [
+          "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand"
+        ],
+        "fr": [
+          "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand"
         ]
       },
       "previousSlugs": [
         "logistikfachmann-frau-stv-chef-in-lager-swiss-armed-forces-vtg-gundlischwand",
-        "logistikfachmann-frau-stv-chef-in-lager-swiss-armed-forces-vtg-gundlischwand-7d09qp"
+        "logistikfachmann-frau-stv-chef-in-lager-swiss-armed-forces-vtg-gundlischwand-7d09qp",
+        "logistikfachmann-frau-stv-chef-in-lager-confederazione-gundlischwand",
+        "logistikfachmann-frau-stv-chef-in-magazzino-confederazione-svizzera-gundlischwand"
       ],
       "salarySource": "estimated",
       "baseSalary": {

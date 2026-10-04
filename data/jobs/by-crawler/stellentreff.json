@@ -26271,6 +26271,20 @@
       "applyUrl": "https://www.stellentreff.ch/stellen/kunststofftechnologe-login-dietikon-dauerstelle-117654/",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-01T09:44:18.707Z",
       "previousSlugs": [
         "kunststofftechnologe-login-plexiglas-kunststoffe-dietikon-zurich-stellentreff-ch",
         "plastics-technologist-login-plexiglas-plastics-stellentreff-ag-dietikon-zurich",
@@ -26290,21 +26304,6 @@
           "kunststofftechnologe-login-plexiglas-kunststoffe-dietikon-zurich-stellentreff-ch",
           "technologue-en-plastique-login-plexiglas-plastiques-stellentreff-ag-dietikon-zurich"
         ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:44:18.707Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
       }
     },
     {
@@ -50153,7 +50152,7 @@
       "slugByLocale": {
         "it": "lavoratori-metallici-lavoratori-ausiliari-varie-facciate-di-montaggio-costruzione-in-acciaio-stellentreff-ag-frauenfeld",
         "en": "metalworkers-auxiliary-workers-various-mounting-facades-steel-construction-stellentreff-ag-frauenfeld",
-        "de": "metallbauer-in-hilfsarbeiter-in-diverse-montagen-fassaden-stahlbau-frauenfeld-thurgau",
+        "de": "metallbauer-in-hilfsarbeiter-in-diverse-montagen-fassaden-stahlbau-frauenfeld-thurgau-pmwlbq",
         "fr": "metaux-ouvriers-auxiliaires-differentes-facades-de-montage-construction-en-acier-stellentreff-ag-frauenfeld"
       },
       "company": "Stellentreff AG",
