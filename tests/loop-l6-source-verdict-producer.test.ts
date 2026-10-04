@@ -176,6 +176,44 @@ describe('produceVerdicts', () => {
     expect(summary.skipped['fetch-failed']).toBe(1);
   });
 
+  it('a body that stalls, a stream that breaks or a malformed redirect is fetch-failed, and the run keeps the other rows', async () => {
+    const ids = ['notizia-lenta', 'notizia-interrotta', 'notizia-redirect-rotto', 'notizia-recente'];
+    const root = tempRoot(ids.map((id) => ({ id })));
+    const brokenSources: Record<string, (init: RequestInit) => Response> = {
+      stall: (init) => new Response(new ReadableStream({
+        start(controller) {
+          controller.enqueue(new TextEncoder().encode('<html><body>'));
+          init.signal?.addEventListener('abort', () => controller.error(new DOMException('aborted', 'AbortError')));
+        },
+      }), { status: 200, headers: { 'content-type': 'text/html' } }),
+      broken: () => new Response(new ReadableStream({
+        start(controller) {
+          controller.enqueue(new TextEncoder().encode('<html><body>'));
+          controller.error(new TypeError('terminated'));
+        },
+      }), { status: 200, headers: { 'content-type': 'text/html' } }),
+      badRedirect: () => new Response(null, { status: 302, headers: { location: 'http://[::1' } }),
+    };
+    const sourceFor: Record<string, keyof typeof brokenSources> = {
+      'notizia-lenta': 'stall',
+      'notizia-interrotta': 'broken',
+      'notizia-redirect-rotto': 'badRedirect',
+    };
+    for (const id of Object.keys(sourceFor)) {
+      const file = path.join(root, bodyPath('it', id));
+      fs.writeFileSync(file, bodyModule(id, IT_BODY.replace(SOURCE_URL, `https://www.ticinonews.ch/${id}`)));
+    }
+    const fetchImpl = async (url: string, init: RequestInit) => {
+      const id = Object.keys(sourceFor).find((key) => url.endsWith(`/${key}`));
+      return id ? brokenSources[sourceFor[id]](init) : htmlResponse(SOURCE_HTML);
+    };
+    const { rows, summary } = await produceVerdicts({ root, ids, fetchImpl, timeoutMs: 50 });
+    expect(summary.skipped['fetch-failed']).toBe(Object.keys(sourceFor).length);
+    expect(summary.skippedDetail.map((entry: { articleId: string }) => entry.articleId)).toEqual(Object.keys(sourceFor));
+    expect(summary.skippedDetail[0].detail).toMatch(/timeout after 50ms/);
+    expect(rows.map((row) => row.articleId)).toEqual(['notizia-recente', 'notizia-recente', 'notizia-recente', 'notizia-recente']);
+  });
+
   it('refuses a redirect towards an IP literal and records a followed third-party redirect', async () => {
     const root = tempRoot([{ id: 'notizia-recente' }]);
     const toIp = await produceVerdicts({

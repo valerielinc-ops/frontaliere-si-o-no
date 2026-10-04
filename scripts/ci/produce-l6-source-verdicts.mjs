@@ -31,6 +31,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { extractBodies } from '../lib/blog-body-io.mjs';
 import {
+  AUTOMATED_METHOD,
   L6_LOCALES,
   buildVerdictRows,
   extractKeyFigures,
@@ -131,6 +132,27 @@ class SourceError extends Error {
   }
 }
 
+/**
+ * A network failure at any stage of one download (request, redirect target,
+ * body stream) is a `fetch-failed` skip, not a program error: one slow or
+ * unstable site must not abort the run and lose the rows already computed.
+ */
+function asFetchFailed(error, url, timeoutMs) {
+  if (error instanceof SourceError) return error;
+  const detail = error?.name === 'AbortError' || error?.name === 'TimeoutError'
+    ? `timeout after ${timeoutMs}ms`
+    : error?.message || String(error);
+  return new SourceError('fetch-failed', `${url}: ${detail}`);
+}
+
+async function discardBody(response) {
+  try {
+    await response.body?.cancel?.();
+  } catch {
+    // The connection is being dropped anyway.
+  }
+}
+
 async function readCapped(response, maxBytes) {
   if (!response.body || typeof response.body.getReader !== 'function') {
     const buffer = Buffer.from(await response.arrayBuffer());
@@ -189,20 +211,34 @@ export async function fetchSource(url, {
           headers: { 'user-agent': USER_AGENT, accept: 'text/html,application/xhtml+xml,text/plain;q=0.9' },
         });
       } catch (error) {
-        throw new SourceError('fetch-failed', `${current}: ${error?.name === 'AbortError' ? `timeout after ${timeoutMs}ms` : error?.message || error}`);
+        throw asFetchFailed(error, current, timeoutMs);
       }
       if (response.status >= 300 && response.status < 400) {
         const location = response.headers.get('location');
+        await discardBody(response);
         if (!location) throw new SourceError('fetch-failed', `${current}: HTTP ${response.status} without location`);
-        current = new URL(location, current).href;
+        try {
+          current = new URL(location, current).href;
+        } catch (error) {
+          throw new SourceError('fetch-failed', `${current}: invalid redirect location (${error?.message || error})`);
+        }
         continue;
       }
-      if (response.status !== 200) throw new SourceError('fetch-failed', `${current}: HTTP ${response.status}`);
+      if (response.status !== 200) {
+        await discardBody(response);
+        throw new SourceError('fetch-failed', `${current}: HTTP ${response.status}`);
+      }
       const contentType = response.headers.get('content-type') || '';
       if (contentType && !/text\/html|application\/xhtml\+xml|text\/plain/i.test(contentType)) {
+        await discardBody(response);
         throw new SourceError('source-unreadable', `${current}: content-type ${contentType.split(';')[0]} is not a readable page`);
       }
-      const buffer = await readCapped(response, maxBytes);
+      let buffer;
+      try {
+        buffer = await readCapped(response, maxBytes);
+      } catch (error) {
+        throw asFetchFailed(error, current, timeoutMs);
+      }
       const raw = decodeBody(buffer, contentType);
       const text = /text\/plain/i.test(contentType) ? raw : htmlToText(raw);
       if (text.length < MIN_SOURCE_TEXT_CHARS) {
@@ -229,6 +265,7 @@ export async function produceVerdicts({
   ids,
   fetchImpl = globalThis.fetch,
   now = () => new Date(),
+  timeoutMs = FETCH_TIMEOUT_MS,
 } = {}) {
   const skipped = Object.fromEntries(SKIP_REASONS.map((reason) => [reason, 0]));
   const skippedDetail = [];
@@ -256,7 +293,7 @@ export async function produceVerdicts({
     }
     let source;
     try {
-      source = await fetchSource(citation.url, { fetchImpl, now });
+      source = await fetchSource(citation.url, { fetchImpl, now, timeoutMs });
     } catch (error) {
       if (!(error instanceof SourceError)) throw error;
       skip(error.reason, articleId, error.message);
@@ -276,7 +313,7 @@ export async function produceVerdicts({
     rows,
     summary: {
       generatedAt: now().toISOString(),
-      method: 'figures-in-source+locale-numeric-parity',
+      method: AUTOMATED_METHOD,
       selected: ids.length,
       rowsWritten: rows.length,
       articlesWithRows: checkedArticles.length,

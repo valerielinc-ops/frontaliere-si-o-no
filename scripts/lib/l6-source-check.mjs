@@ -32,10 +32,13 @@
  * (`1,500` is both 1.5 and 1500): a lenient match can only turn a doubtful
  * case into "found", never into a false defect.
  */
-import { independentSourceUrlIssue } from '../ci/export-l6-factuality-outcomes.mjs';
+import {
+  AUTOMATED_METHOD,
+  AUTOMATED_REVIEWER_TYPE,
+  independentSourceUrlIssue,
+} from '../ci/export-l6-factuality-outcomes.mjs';
 
-export const AUTOMATED_REVIEWER_TYPE = 'automated-source-check';
-export const AUTOMATED_METHOD = 'figures-in-source+locale-numeric-parity';
+export { AUTOMATED_METHOD, AUTOMATED_REVIEWER_TYPE };
 export const L6_LOCALES = ['it', 'en', 'de', 'fr'];
 export const EVIDENCE_SCOPE = 'figures listed under "Fatti chiave"/"In breve" only; not the interpretation or the prose';
 
