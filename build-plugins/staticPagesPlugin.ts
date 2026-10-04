@@ -1,4 +1,4 @@
-import { buildMethodologyEditorial } from './shared/editorialMethodology';
+import { buildMethodologyEditorial, localizeMethodologyStructuredData } from './shared/editorialMethodology';
 import { METHODOLOGY_COPY, type MethodologyLocale } from '../services/editorialMethodology';
 /**
  * Generate static HTML landing pages for every URL in the sitemaps.
@@ -2984,7 +2984,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  if (sourceCanonicalPath === '/metodologia/') {
  const copy = METHODOLOGY_COPY[locale as MethodologyLocale];
  const title = `${copy.title} | Frontaliere Ticino`;
- return { title, desc: copy.description, ogT: title, ogD: copy.description, sd: italianSeo.sd };
+ return { title, desc: copy.description, ogT: title, ogD: copy.description, sd: localizeMethodologyStructuredData(italianSeo.sd, locale as MethodologyLocale, JSON_LD_SCRIPT_SEPARATOR) };
  }
 
  // ── Salary-landing net-comparison pages (4 scenarios × 3 non-IT locales) ──
