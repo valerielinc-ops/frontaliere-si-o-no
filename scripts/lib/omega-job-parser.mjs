@@ -46,6 +46,8 @@
  *   - isTrustedDomain()       — Validate URLs belong to this company
  * plus parseListPage()/parseDetailPage() for fixture tests.
  */
+import { identifiedPostingPublication } from './identified-posting-publication.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
@@ -368,7 +370,7 @@ function balancedDivEnd(src, from) {
 /**
  * Parse a job detail page (language-independent CSS hooks).
  */
-export function parseDetailPage(html = '') {
+export function parseDetailPage(html = '', pageUrl = '', expectedTitle = '') {
   const src = String(html || '');
   const sections = {};
 
@@ -408,7 +410,9 @@ export function parseDetailPage(html = '') {
 
   const isOmegaBrand = src.includes(OMEGA_LOGO_MARKER);
 
-  return { title, sections, locationText, applyUrl, isOmegaBrand };
+  return { title, sections, locationText, applyUrl, isOmegaBrand,
+    ...identifiedPostingPublication(src, pageUrl, expectedTitle),
+  };
 }
 
 /**
@@ -509,7 +513,7 @@ export async function fetchAllOmegaJobs() {
     let detail = { title: '', sections: {}, locationText: '', applyUrl: '', isOmegaBrand: true };
     try {
       const detailHtml = await fetchPage(listing.url);
-      detail = parseDetailPage(detailHtml);
+      detail = parseDetailPage(detailHtml, listing.url, listing.title);
       await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS)); // Rate limiting
     } catch (err) {
       console.warn(`  ⚠️ Failed to fetch detail page for "${listing.title}": ${err?.message || err}`);
@@ -571,7 +575,7 @@ export async function fetchAllOmegaJobs() {
       sector: 'Orologeria di lusso',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, detail),
       applyUrl,
 
       // ── Requirements ──
