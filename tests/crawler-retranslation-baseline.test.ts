@@ -71,6 +71,24 @@ describe('retranslationSourceHash', () => {
     expect(retranslationSourceHash({ ...before, sourceLang: 'fr' }))
       .not.toBe(retranslationSourceHash(before));
   });
+
+  it('uses Italian source slots when sourceLang is absent', () => {
+    const { before: fixtureBefore, after: fixtureAfter } = pair('source-unchanged');
+    const before = structuredClone(fixtureBefore);
+    const after = structuredClone(fixtureAfter);
+    delete before.sourceLang;
+    delete after.sourceLang;
+    delete before.title;
+    delete after.title;
+    delete before.description;
+    delete after.description;
+    after.titleByLocale.it = `${after.titleByLocale.it} aggiornata`;
+
+    expect(Object.keys(after.titleByLocale)).toEqual(expect.arrayContaining(['it', 'en', 'de', 'fr']));
+    expect(Object.keys(after.descriptionByLocale)).toEqual(expect.arrayContaining(['it', 'en', 'de', 'fr']));
+    expect(isIncomplete(after)).toBe(false);
+    expect(retranslationSourceHash(after)).not.toBe(retranslationSourceHash(before));
+  });
 });
 
 describe('dropSpuriousRetranslationFlags', () => {
@@ -90,6 +108,24 @@ describe('dropSpuriousRetranslationFlags', () => {
 
   it('keeps the flag when the source text really changed, complete translations or not', () => {
     const { before, after } = pair('source-changed');
+    const report = dropSpuriousRetranslationFlags([after], [before], { isIncomplete });
+    expect(after.needsRetranslation).toBe(true);
+    expect(report).toMatchObject({ dropped: 0, keptSourceChanged: 1 });
+  });
+
+  it('keeps a changed Italian source flag when sourceLang is absent', () => {
+    const { before: fixtureBefore, after: fixtureAfter } = pair('source-unchanged');
+    const before = structuredClone(fixtureBefore);
+    const after = structuredClone(fixtureAfter);
+    delete before.sourceLang;
+    delete after.sourceLang;
+    delete before.title;
+    delete after.title;
+    delete before.description;
+    delete after.description;
+    after.titleByLocale.it = `${after.titleByLocale.it} aggiornata`;
+
+    expect(isIncomplete(after)).toBe(false);
     const report = dropSpuriousRetranslationFlags([after], [before], { isIncomplete });
     expect(after.needsRetranslation).toBe(true);
     expect(report).toMatchObject({ dropped: 0, keptSourceChanged: 1 });

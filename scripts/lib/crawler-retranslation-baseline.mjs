@@ -66,7 +66,7 @@ function normalizeSourceText(value) {
  * words hashes identically (the "formal only" class of change).
  */
 export function retranslationSourceHash(job) {
-  const sourceLang = String(job?.sourceLang || '').trim().toLowerCase();
+  const sourceLang = String(job?.sourceLang || 'it').trim().toLowerCase() || 'it';
   const title = job?.title || job?.titleByLocale?.[sourceLang] || '';
   const description = job?.description || job?.descriptionByLocale?.[sourceLang] || '';
   return createHash('sha256')
