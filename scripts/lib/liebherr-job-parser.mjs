@@ -39,6 +39,9 @@
  *   - isTrustedDomain()       — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { JSDOM } from 'jsdom';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
 import { createHash } from 'node:crypto';
 import {
   addPreviousSlugForLocale,
@@ -632,11 +635,19 @@ async function fetchLiebherrDetailPage(url, jobReqId = '') {
       timeoutMs: 15000,
       headers: { 'User-Agent': USER_AGENT },
     });
-    return {
-      descriptionHtml: extractMicrodataDescription(html),
-      sourceLocale: extractLiebherrSourceLocale(html, jobReqId),
-      sourceJobId: extractLiebherrSourceJobId(html),
-    };
+    const dom = new JSDOM(html);
+    try {
+      const publicationNode = dom.window.document.querySelector('[itemprop="datePosted"]');
+      const publication = successFactorsPostingDateFields(publicationNode?.getAttribute('content') || publicationNode?.textContent || '');
+      return {
+        descriptionHtml: extractMicrodataDescription(html),
+        sourceLocale: extractLiebherrSourceLocale(html, jobReqId),
+        sourceJobId: extractLiebherrSourceJobId(html),
+        ...publication,
+      };
+    } finally {
+      dom.window.close();
+    }
   } catch {
     return { descriptionHtml: '', sourceLocale: '', sourceJobId: '' }; // network/timeout → the listing is not published
   }
@@ -729,7 +740,7 @@ export async function fetchAllLiebherrJobs() {
       sector: LIEBHERR_SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: publicUrl,
       jobReqId: listing.jobReqId || null,
       requirements: [],
