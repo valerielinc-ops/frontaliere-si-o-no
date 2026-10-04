@@ -325,12 +325,8 @@ export async function fetchAllKuhnRikonJobs() {
     const employmentType = detectEmploymentType(tile.workload, title);
     const contract = employmentType === 'PART_TIME' ? 'part-time' : 'full-time';
 
-    // Jobalino emits six fractional digits. Remove only redundant zeroes beyond
-    // milliseconds: non-zero excess precision stays unsupported, never rounded.
-    const sourceDate = typeof jsonLd?.datePosted === 'string'
-      ? jsonLd.datePosted.replace(/(\.\d{3})0+(?=Z$|[+-]\d{2}:\d{2}$)/, '$1')
-      : jsonLd?.datePosted;
-    const publication = sourcePostingDateFields(sourceDate);
+    // The strict resolver preserves supported source precision and its offset.
+    const publication = sourcePostingDateFields(jsonLd?.datePosted);
 
     const jobSlug = slugify(`${title} ${KUHN_RIKON_KEY} ${city}`);
     const urlHash = createHash('sha1').update(`${KUHN_RIKON_KEY}:${tile.id}`).digest('hex').slice(0, 12);

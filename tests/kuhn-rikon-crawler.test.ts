@@ -318,7 +318,7 @@ describe('Kuhn Rikon crawler parser', () => {
       expect(job.postalCode).toBe('7302');
       expect(job.streetAddress).toBe('Bahnhofstrasse 12');
       expect(job.employmentType).toBe('PART_TIME'); // title carries "(50% - 80%)"
-      expect(job.postedDate).toBe(`${new Date().getUTCFullYear() - 1}-06-15T08:00:00.000+00:00`);
+      expect(job.postedDate).toBe(jsonLd.datePosted);
       expect(job.hiringOrganizationName).toBe(KUHN_RIKON_COMPANY_NAME);
       expect(job.sector).not.toMatch(/sanit|ospedal/i);
     });
@@ -589,8 +589,8 @@ describe('Kuhn Rikon crawler parser', () => {
 });
 
 describe('Kuhn Rikon fractional publication precision', () => {
-  for (const fraction of ['120000', '120001']) {
-    it(`normalizes only redundant trailing zeros: ${fraction}`, async () => {
+  for (const fraction of ['120000', '120001', '1200001']) {
+    it(`preserves supported publication precision: ${fraction}`, async () => {
       const year = new Date().getUTCFullYear() - 1;
       const source = `${year}-06-15T08:00:00.${fraction}+02:00`;
       const ld = jobPostingJsonLd({ datePosted: source });
@@ -598,8 +598,8 @@ describe('Kuhn Rikon fractional publication precision', () => {
       vi.stubGlobal('fetch', vi.fn(async (url: string) => textResponse(200, url === LISTING_URL ? listingJsonp(tile) : detailHtml(ld))));
       const jobs = await fetchAllKuhnRikonJobs();
       expect(jobs).toHaveLength(1);
-      expect(jobs[0]).toMatchObject(fraction === '120000'
-        ? { datePosted: `${year}-06-15T08:00:00.120+02:00`, postedDate: `${year}-06-15T08:00:00.120+02:00`, postingDateSource: 'reported' }
+      expect(jobs[0]).toMatchObject(fraction.length <= 6
+        ? { datePosted: source, postedDate: source, postingDateSource: 'reported' }
         : { datePosted: '', postedDate: '', postingDateSource: 'unknown' });
     });
   }
