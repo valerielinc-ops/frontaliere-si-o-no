@@ -16,6 +16,8 @@
  * 1889. ~14 open positions at parser creation, all German-language.
  */
 import { createHash } from 'node:crypto';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
@@ -191,7 +193,16 @@ export async function fetchKsmDetailPage(detailUrl) {
   // data too; otherwise the KSM origin can interpret it differently.
   const fetchUrl = safeUrl.replace(/\+/g, '%2B');
   const detailHtml = await fetchHtml(fetchUrl);
-  return extractKsmDetail(detailHtml);
+  const posting = extractJobPostingLd(detailHtml);
+  const identities = [posting?.url, posting?.sameAs].flat().filter((value) => value != null);
+  const sameVacancy = identities.length > 0 && identities.every((value) => {
+    if (typeof value !== 'string' || !value.trim()) return false;
+    return normalizeKsmJobUrl(value) === normalizeKsmJobUrl(detailUrl);
+  });
+  return {
+    ...extractKsmDetail(detailHtml),
+    ...sourcePostingDateFields(sameVacancy ? posting?.datePosted : ''),
+  };
 }
 
 export async function fetchAllKlinikSchlossMammernJobs() {
@@ -204,18 +215,19 @@ export async function fetchAllKlinikSchlossMammernJobs() {
   console.log(`  ✓ ${urls.length} job URLs in sitemap`);
   if (!urls.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
 
   for (const detailUrl of urls) {
     let title = '';
     let description = '';
+    let publication = sourcePostingDateFields('');
     try {
       const d = await fetchKsmDetailPage(detailUrl);
       if (d) {
         title = d.title;
         description = d.description;
+        publication = mergeSourcePostingDates({}, d);
         if (description) detailHits++;
       }
     } catch (err) {
@@ -272,7 +284,7 @@ export async function fetchAllKlinikSchlossMammernJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...publication,
       applyUrl: detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
