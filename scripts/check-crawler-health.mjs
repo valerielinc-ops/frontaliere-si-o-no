@@ -724,7 +724,7 @@ export function applyGenerationSummaryAbsence(observations, { groups, ledgerEntr
       const observation = bySlug.get(slug);
       if (!observation) continue;
       const at = generatedAtOf(slug);
-      if (Number.isFinite(at) && at > previousAt) continue;
+      if (Number.isFinite(at) && at > previousAt && at <= latestAt) continue;
       replacements.set(slug, {
         ...observation,
         freshnessAt: latest.checkedAt,

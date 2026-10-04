@@ -169,6 +169,19 @@ describe('crawler health: a group member that exits without a summary', () => {
     expect(absent).toEqual([]);
   });
 
+  it('does not treat a summary after the latest generation as its publication', () => {
+    const future = new Date(Date.parse(GEN_LATEST) + HOUR_MS).toISOString();
+    const { absent } = applyGenerationSummaryAbsence(
+      [
+        summaryObs('a-group', FROZEN_AT, 0),
+        summaryObs('luks', at(3.3), 12),
+        summaryObs('pictet', future, 4),
+      ],
+      { groups: GROUPS, ledgerEntries: parseCrawlerGenerationLedger(LEDGER) },
+    );
+    expect(absent.map((entry: { slug: string }) => entry.slug)).toEqual(['a-group', 'pictet']);
+  });
+
   it('skips malformed ledger lines instead of failing the monitor', () => {
     const entries = parseCrawlerGenerationLedger(`not json\n{"group":"11"}\n${LEDGER}`);
     expect(entries.map((e: { callerRunId: string }) => e.callerRunId)).toEqual(['100', '200', '300']);
