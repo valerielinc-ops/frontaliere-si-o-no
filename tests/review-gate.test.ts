@@ -1975,6 +1975,10 @@ describe('review gate: an acceptance checked only on the review bundle/ledger is
       '🔴 Important: [process] x. Accettazione: confirmed-fixed',
       '🔴 Important: [process] x. Accettazione: review-bundle.md exists and scripts/ci/review-gate.mjs is correct',
       '🔴 Important: [process] x. Accettazione: il prossimo bundle deterministico è rigenerato da `npx vitest run tests/review-gate.test.ts`.',
+      // Review 11321: la clausola su più righe si legge fino alla fine del
+      // finding, quindi il comando sulla riga di continuazione la tiene di codice
+      // (senza un path: un file citato renderebbe il finding ancorato comunque).
+      '🔴 Important: [process] x. Accettazione: il prossimo bundle deterministico lo marca `confirmed-fixed`\ndopo `npm run build`.',
     ]) {
       const [finding] = importantFindings(text);
       expect(isLedgerAcceptanceFinding(finding), text.slice(0, 60)).toBe(false);
