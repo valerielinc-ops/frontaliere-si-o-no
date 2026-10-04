@@ -14,6 +14,7 @@ import { describe, expect, it } from 'vitest';
 import {
   FUEL_DAILY_LOCALES,
   FUEL_DAILY_ROUTES,
+  FUEL_SITEMAP_FILES,
   FUEL_SECTION_SLUG,
   FUEL_TYPES,
   FUEL_ZONES,
@@ -21,6 +22,7 @@ import {
   buildFuelTodayPath,
   isFuelDailyPath,
   isFuelMonthArchivePath,
+  isFuelSitemapFile,
   listFuelTodayPaths,
 } from '../build-plugins/fuelDailyData';
 import {
@@ -67,6 +69,22 @@ describe('fuelDailyData — slug tables', () => {
 
   it('exposes exactly 5 zones', () => {
     expect(FUEL_ZONES).toEqual(['chiasso', 'mendrisio', 'lugano', 'bellinzona', 'locarno']);
+  });
+
+  it('recognises current fuel sitemaps and legacy numbered shards', () => {
+    expect(FUEL_SITEMAP_FILES).toEqual([
+      'sitemap-fuel-daily.xml',
+      'sitemap-fuel-stations.xml',
+      'sitemap-fuel-italian-cities.xml',
+      'sitemap-fuel-italian-stations.xml',
+      'sitemap-fuel-indexes.xml',
+    ]);
+    for (const filename of FUEL_SITEMAP_FILES) {
+      expect(isFuelSitemapFile(filename)).toBe(true);
+    }
+    expect(isFuelSitemapFile('sitemap-fuel-stations-1.xml')).toBe(true);
+    expect(isFuelSitemapFile('sitemap-fuel-stations-old.xml')).toBe(false);
+    expect(isFuelSitemapFile('sitemap-jobs-1.xml')).toBe(false);
   });
 
   it('uses expected section slugs per locale × fuel', () => {

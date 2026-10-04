@@ -1,23 +1,23 @@
 {
   "key": "smg-swiss-marketplace-group",
   "label": "SMG Swiss Marketplace Group",
-  "generatedAt": "2026-10-03T21:14:55.846Z",
-  "total": 8,
+  "generatedAt": "2026-10-04T09:15:08.087Z",
+  "total": 7,
   "discovered": null,
   "parsed": 7,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 8,
+  "written": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4838,
-  "avgDurationMs": 4838,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4914,
+  "avgDurationMs": 4914,
   "durationHistory": [
-    4838
+    4914
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000153174976-private-customer-support-expert-real-estate-w-m-d-80-100-hybrid-zurich?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:14:43.566Z",
+      "crawledAt": "2026-10-04T09:14:56.119Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -70,7 +70,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000151631259-senior-seo-manager-f-m-d-80-100-hybrid-zurich-switzerland?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:14:43.562Z",
+      "crawledAt": "2026-10-04T09:14:56.113Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -106,7 +106,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000149645499-credit-operations-specialist-f-m-d-100-hybrid-working-model-zurich?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:14:43.568Z",
+      "crawledAt": "2026-10-04T09:14:56.122Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -142,7 +142,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000147848019-head-of-sales-real-estate-f-m-d-100-hybrid-working-model-zurich-switzerland?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:14:43.560Z",
+      "crawledAt": "2026-10-04T09:14:56.117Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -178,7 +178,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000146430970-corporate-communication-manager-f-m-d-100-hybrid-working-model-zurich?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:14:43.556Z",
+      "crawledAt": "2026-10-04T09:14:56.124Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -214,7 +214,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000145976936-werkstudent-in-real-estate-valuation-f-m-d-40-hybrid-working-model-zurich?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:14:43.576Z",
+      "crawledAt": "2026-10-04T09:14:56.126Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -250,7 +250,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000142145079-staff-frontend-engineer-f-m-d-80-100-hybrid-working-model-zurich?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T21:14:43.573Z",
+      "crawledAt": "2026-10-04T09:14:56.129Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -274,8 +274,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "smg-swiss-marketplace-group-fb84b416e8d8",
       "slug": "supporto-clienti-privato-esperto-immobiliare-m-f-d-80-100-hybrid-zurich-smg-swiss-marketplace-group-zurich",
@@ -318,5 +317,6 @@
       }
     }
   ],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

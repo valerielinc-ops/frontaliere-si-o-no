@@ -47,9 +47,9 @@ name: cathedral-seo-gates-check
 #
 # 2026-10-02 — one classification for both places. Each gate now declares its
 # `gateKey` in scripts/ci/lib/seo-gate-classes.mjs, the same table validate-dist
-# reads to decide whether a red gate sequesters `publish` (only class A; owner
-# decision 2026-10-02: B and C open an issue for the autofixer and never block
-# publication). The verdict carries class and mode, and the regression issue
+# reads to decide whether a red gate sequesters `publish` (none does since
+# 2026-10-03; owner decisions: B and C on 2026-10-02, A on 2026-10-03, open an
+# issue for the autofixer). The verdict carries class and mode, and the regression issue
 # takes its priority from the mode (A=1, B=2, C=3) and carries a sample of the
 # offenders, so the same gate has one weight in both places. Its
 # title family `SEO gates regression: …` is also excluded from the
@@ -470,7 +470,7 @@ jobs:
           # `set -euo pipefail` hazard the raw `gh` call carried here.
           node scripts/lib/github-issue-creator.mjs \
             --title "$title" \
-            --description "$(cat /tmp/issue-body.md)" \
+            --description-file /tmp/issue-body.md \
             --priority 4 \
             --label seo-gates \
             --workflow "${{ github.workflow }}"
@@ -506,11 +506,11 @@ jobs:
               audit_cmd=$(jq -r --arg n "$name" '.gates[] | select(.name == $n) | .auditCmd'       data/cathedral-seo-gates-verdict.json)
               notes=$(jq -r --arg n "$name"     '.gates[] | select(.name == $n) | .notes'          data/cathedral-seo-gates-verdict.json)
               # Class, mode and priority come from the shared classification
-              # (scripts/ci/lib/seo-gate-classes.mjs): A=1 (blocks `publish` in
-              # validate-dist), B=2, C=3 (never block, owner 2026-10-02). A gate
-              # the table does not know reports class `?`, priority 1.
+              # (scripts/ci/lib/seo-gate-classes.mjs): A=1, B=2, C=3 (none blocks
+              # `publish`, owner 2026-10-02/03). A gate the table does not know
+              # reports class `?`, mode `unclassified`, priority 1.
               gclass=$(jq -r --arg n "$name"    '.gates[] | select(.name == $n) | .class // "?"'   data/cathedral-seo-gates-verdict.json)
-              gmode=$(jq -r --arg n "$name"     '.gates[] | select(.name == $n) | .mode // "blocking"' data/cathedral-seo-gates-verdict.json)
+              gmode=$(jq -r --arg n "$name"     '.gates[] | select(.name == $n) | .mode // "unclassified"' data/cathedral-seo-gates-verdict.json)
               priority=$(jq -r --arg n "$name"  '.gates[] | select(.name == $n) | .issuePriority // 1' data/cathedral-seo-gates-verdict.json)
               # `## Offender` section built by the checker from the audit's
               # own report (scripts/ci/lib/gate-issue-offenders.mjs): the
@@ -546,7 +546,7 @@ jobs:
               } > /tmp/issue-body.md
               node scripts/lib/github-issue-creator.mjs \
                 --title "$title" \
-                --description "$(cat /tmp/issue-body.md)" \
+                --description-file /tmp/issue-body.md \
                 --priority "$priority" \
                 --label seo-gates \
                 --label regression \

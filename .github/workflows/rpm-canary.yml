@@ -193,7 +193,7 @@ jobs:
           set -euo pipefail
           node scripts/lib/github-issue-creator.mjs \
             --title "RPM canary: AdSense RPM crash detected" \
-            --description "$(cat rpm-canary-issue-body.md)" \
+            --description-file rpm-canary-issue-body.md \
             --priority 1 \
             --label Bug \
             --label rpm-canary \

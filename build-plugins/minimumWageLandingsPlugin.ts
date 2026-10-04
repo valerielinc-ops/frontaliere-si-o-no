@@ -895,7 +895,7 @@ function renderPage(opts: {
   const indexable = wordCount >= MIN_INDEXABLE_WORDS;
   // End-of-content multiplex ONLY on the hub (index) page, gated on
   // index,follow — leaf/detail pages keep Auto Ads only.
-  const multiplex = isHub ? endOfContentMultiplexHtml({ indexable }) : '';
+  const multiplex = isHub ? endOfContentMultiplexHtml({ indexable, contentHtml: body }) : '';
   const bodyHtml = `<main class="s-xzWvwM">${body}${multiplex}</main>`;
 
   const html = buildSeoPageHtml({

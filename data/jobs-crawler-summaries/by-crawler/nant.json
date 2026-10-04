@@ -1,7 +1,7 @@
 {
   "key": "nant",
   "label": "Fondation de Nant",
-  "generatedAt": "2026-10-03T21:09:34.226Z",
+  "generatedAt": "2026-10-04T09:10:56.990Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -14,10 +14,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3800,
-  "avgDurationMs": 3800,
+  "durationMs": 3494,
+  "avgDurationMs": 3494,
   "durationHistory": [
-    3800
+    3494
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://app.beehire.com/invite/62T5zjL5K",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:09:23.871Z",
+      "crawledAt": "2026-10-04T09:10:46.676Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -51,11 +51,11 @@
       "applyUrl": "https://app.beehire.com/invite/62T5zjL5K",
       "careerSiteUrl": "https://nant.ch/carrieres/",
       "firstSeenAt": "2026-10-03T09:10:53.391Z",
-      "_qualityScore": 78,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 18,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -72,7 +72,7 @@
       "url": "https://app.beehire.com/invite/H-XsEq5iP",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:09:23.858Z",
+      "crawledAt": "2026-10-04T09:10:46.668Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://app.beehire.com/invite/PfepkyPQG",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:09:23.872Z",
+      "crawledAt": "2026-10-04T09:10:46.679Z",
       "addressLocality": "Château-d’Œx",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -147,7 +147,7 @@
       "url": "https://app.beehire.com/invite/RHzt2eCrM",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:09:23.865Z",
+      "crawledAt": "2026-10-04T09:10:46.673Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -185,7 +185,7 @@
       "url": "https://app.beehire.com/invite/ERrUfAGgv",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:09:23.866Z",
+      "crawledAt": "2026-10-04T09:10:46.675Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -213,5 +213,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

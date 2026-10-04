@@ -20,6 +20,8 @@ import {
   MIN_SERVED_SHARE,
   TITLE_POPULATION,
   assertPopulationUnchanged,
+  countPopulationSlots,
+  heldPopulationSlots,
   measureDescriptionLocales,
   measureTitleLocales,
 } from '../scripts/lib/job-locale-population.mjs';
@@ -281,5 +283,67 @@ describe('job-locale population identity', () => {
       expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, 62944)).toThrow(/\[population-changed\]/);
       expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, 34594)).toThrow(/\[population-changed\]/);
     });
+  });
+});
+
+/**
+ * Agency admission threshold (owner decision 2026-10-03): held agency jobs are
+ * corpus but not in the assembled data/jobs.json. Both expectedSlots were
+ * measured with them published, so the guard counts them on both sides: the
+ * assembler records their slots (countPopulationSlots, same filters) in
+ * data/jobs-meta.json and the guard adds them back. No tolerance change.
+ */
+describe('held-for-translation jobs in the population guard', () => {
+  const titleNever = () => ({ untranslated: false });
+  const descNever = (_t: string, locale: string) => ({ lang: locale, confidence: 0 });
+
+  it('countPopulationSlots uses exactly the ratchets\' slot filters', () => {
+    const jobs = makeJobs(25, { wrong: 4, queued: 6 });
+    jobs[0].titleByLocale.en = ''; // empty title slot: not in the population
+    jobs[1].descriptionByLocale.fr = 'short'; // < 120 chars: not in the population
+    expect(countPopulationSlots(jobs)).toEqual({
+      titles: measureTitleLocales(jobs, titleNever, LOCALES).slots,
+      descriptions: measureDescriptionLocales(jobs, descNever, LOCALES).slots,
+    });
+  });
+
+  it('a held share large enough to leave the band is no population change once held slots are counted', () => {
+    // 22% of the corpus held: published-only would read as a [population-changed].
+    const corpus = makeJobs(100);
+    const held = corpus.slice(0, 22);
+    const published = corpus.slice(22);
+    const spec = { ...TITLE_POPULATION, expectedSlots: countPopulationSlots(corpus).titles };
+    const publishedSlots = measureTitleLocales(published, titleNever, LOCALES).slots;
+    expect(() => assertPopulationUnchanged(spec, publishedSlots)).toThrow(/\[population-changed\]/);
+
+    const meta = { totalJobs: published.length, translationHold: { held: held.length, populationSlots: countPopulationSlots(held) } };
+    const heldSlots = heldPopulationSlots(meta, published.length);
+    expect(heldSlots).not.toBeNull();
+    expect(() => assertPopulationUnchanged(spec, publishedSlots + heldSlots!.titles)).not.toThrow();
+    const dspec = { ...DESCRIPTION_POPULATION, expectedSlots: countPopulationSlots(corpus).descriptions };
+    const publishedDesc = measureDescriptionLocales(published, descNever, LOCALES).slots;
+    expect(() => assertPopulationUnchanged(dspec, publishedDesc + heldSlots!.descriptions)).not.toThrow();
+  });
+
+  it('a real population loss still trips the guard with held slots counted', () => {
+    const corpus = makeJobs(100);
+    const spec = { ...TITLE_POPULATION, expectedSlots: countPopulationSlots(corpus).titles };
+    const survivors = corpus.slice(0, 70); // 30% of the corpus gone, 2 jobs held
+    const meta = { totalJobs: 68, translationHold: { held: 2, populationSlots: countPopulationSlots(survivors.slice(0, 2)) } };
+    const heldSlots = heldPopulationSlots(meta, 68)!;
+    const publishedSlots = measureTitleLocales(survivors.slice(2), titleNever, LOCALES).slots;
+    expect(() => assertPopulationUnchanged(spec, publishedSlots + heldSlots.titles)).toThrow(/\[population-changed\]/);
+  });
+
+  it('adds nothing when the held count is missing, invalid or from another assembly', () => {
+    const slots = { titles: 30, descriptions: 40 };
+    expect(heldPopulationSlots(null, 10)).toBeNull();
+    expect(heldPopulationSlots({ totalJobs: 10 }, 10)).toBeNull(); // assembler before the threshold
+    expect(heldPopulationSlots({ totalJobs: 10, translationHold: { held: 3 } }, 10)).toBeNull();
+    // A projection with held jobs inside data/jobs.json (translate-pending), or a stale meta.
+    expect(heldPopulationSlots({ totalJobs: 10, translationHold: { populationSlots: slots } }, 13)).toBeNull();
+    expect(heldPopulationSlots({ totalJobs: 10, translationHold: { populationSlots: { titles: -1, descriptions: 4 } } }, 10)).toBeNull();
+    expect(heldPopulationSlots({ totalJobs: 10, translationHold: { populationSlots: { titles: '30', descriptions: 4 } } }, 10)).toBeNull();
+    expect(heldPopulationSlots({ totalJobs: 10, translationHold: { populationSlots: slots } }, 10)).toEqual(slots);
   });
 });

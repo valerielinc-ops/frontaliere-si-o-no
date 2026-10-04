@@ -1,23 +1,23 @@
 {
   "key": "clinique-de-valere",
   "label": "Clinique de Valère",
-  "generatedAt": "2026-10-03T21:16:42.878Z",
-  "total": 2,
+  "generatedAt": "2026-10-04T09:15:48.249Z",
+  "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 2,
+  "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5485,
-  "avgDurationMs": 5485,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5210,
+  "avgDurationMs": 5210,
   "durationHistory": [
-    5485
+    5210
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144287819-aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-80-100-",
       "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:16:33.147Z",
+      "crawledAt": "2026-10-04T09:15:37.635Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -48,8 +48,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-19",
-      "datePosted": "2026-08-19",
+      "datePosted": "2026-08-19T11:02:33.599Z",
+      "postedDate": "2026-08-19T11:02:33.599Z",
+      "postingDateSource": "reported",
       "firstSeenAt": "2026-08-19T21:35:03.134Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -60,8 +61,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "clinique-de-valere-54dc562b182d",
       "slug": "70-assistente-medico-policlinico-clinique-de-valere-sion",
@@ -95,7 +95,6 @@
       "salaryMax": 84400,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -105,5 +104,6 @@
       }
     }
   ],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

@@ -320,6 +320,7 @@ export function buildCoverLetterPdf({
   // About 16 mm above the typed name: room for a handwritten or scanned signature.
   if (signature) blocks.push({ text: signature, gapBefore: 44 });
   const listed = enclosures.filter(Boolean);
-  if (listed.length) blocks.push({ text: `${enclosuresLabel ? `${enclosuresLabel}: ` : ''}${listed.join(', ')}`, size: 9.5, gapBefore: 18 });
+  // The label carries its own colon («Annexes :», «Allegato:»).
+  if (listed.length) blocks.push({ text: `${enclosuresLabel ? `${enclosuresLabel} ` : ''}${listed.join(', ')}`, size: 9.5, gapBefore: 18 });
   return renderPdf(blocks, { title });
 }

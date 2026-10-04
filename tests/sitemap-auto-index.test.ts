@@ -16,6 +16,7 @@ import path from 'node:path';
 import {
   buildSitemapIndexXml,
   discoverSitemapFiles,
+  reconcileSitemapFuelWithDist,
   type DiscoveredSitemap,
 } from '@/build-plugins/sitemapAliasPlugin';
 
@@ -37,6 +38,33 @@ function seedSitemap(distDir: string, filename: string, mtime?: Date): void {
   if (mtime) {
     fs.utimesSync(filepath, mtime, mtime);
   }
+}
+
+function seedSitemapWithLocs(distDir: string, filename: string, locs: string[]): void {
+  const urlEntries = locs
+    .map((loc) => `  <url>\n    <loc>${loc}</loc>\n  </url>`)
+    .join('\n');
+  fs.writeFileSync(
+    path.join(distDir, filename),
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urlEntries}\n</urlset>\n`,
+    'utf-8',
+  );
+}
+
+function seedHtmlPage(
+  distDir: string,
+  urlPath: string,
+  options: { canonical?: string; noindex?: boolean } = {},
+): void {
+  const pageDir = path.join(distDir, urlPath.replace(/^\/+/, ''));
+  fs.mkdirSync(pageDir, { recursive: true });
+  const canonical = options.canonical ?? `${BASE_URL}${urlPath}`;
+  const robots = options.noindex ? '<meta name="robots" content="noindex,follow">' : '';
+  fs.writeFileSync(
+    path.join(pageDir, 'index.html'),
+    `<!doctype html><html><head>${robots}<link rel="canonical" href="${canonical}"></head><body>Fuel station</body></html>`,
+    'utf-8',
+  );
 }
 
 describe('sitemapAliasPlugin — auto-discovery', () => {
@@ -274,5 +302,52 @@ describe('sitemapAliasPlugin — integration: discover + build', () => {
 
     // <loc> count matches expected list length.
     expect((xml.match(/<loc>/g) ?? []).length).toBe(expected.length);
+  });
+});
+
+describe('sitemapAliasPlugin — final fuel dist reconciliation', () => {
+  let distDir: string;
+
+  beforeEach(() => {
+    distDir = makeTmpDist();
+  });
+
+  afterEach(() => {
+    if (distDir && fs.existsSync(distDir)) {
+      fs.rmSync(distDir, { recursive: true, force: true });
+    }
+  });
+
+  it('removes stale fuel shard entries whose final pages are missing, noindex, or non-self-canonical', async () => {
+    const livePath = '/prezzi-benzina/chiasso/oggi/';
+    const noindexPath = '/prezzi-benzina/mendrisio/oggi/';
+    const driftPath = '/prezzi-benzina/lugano/oggi/';
+    const missingPath = '/prezzi-benzina/locarno/oggi/';
+    const staleShardPath = '/prezzi-benzina/bellinzona/oggi/';
+    const loc = (urlPath: string) => `${BASE_URL}${urlPath}`;
+
+    seedSitemapWithLocs(distDir, 'sitemap-fuel-stations.xml', [
+      loc(livePath),
+      loc(noindexPath),
+      loc(driftPath),
+      loc(missingPath),
+    ]);
+    seedSitemapWithLocs(distDir, 'sitemap-fuel-stations-1.xml', [loc(staleShardPath)]);
+    seedHtmlPage(distDir, livePath);
+    seedHtmlPage(distDir, noindexPath, { noindex: true });
+    seedHtmlPage(distDir, driftPath, { canonical: `${BASE_URL}/prezzi-benzina/oggi/` });
+    seedHtmlPage(distDir, staleShardPath);
+
+    await expect(reconcileSitemapFuelWithDist(distDir)).resolves.toBe(3);
+
+    expect(fs.existsSync(path.join(distDir, 'sitemap-fuel-stations-1.xml'))).toBe(false);
+    const remaining = fs.readFileSync(
+      path.join(distDir, 'sitemap-fuel-stations.xml'),
+      'utf-8',
+    );
+    expect(remaining).toContain(`<loc>${loc(livePath)}</loc>`);
+    expect(remaining).not.toContain(`<loc>${loc(noindexPath)}</loc>`);
+    expect(remaining).not.toContain(`<loc>${loc(driftPath)}</loc>`);
+    expect(remaining).not.toContain(`<loc>${loc(missingPath)}</loc>`);
   });
 });

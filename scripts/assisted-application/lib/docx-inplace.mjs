@@ -21,7 +21,7 @@ import path from 'node:path';
 import { promisify } from 'node:util';
 import { PDFDocument } from 'pdf-lib';
 import { DOCX_CONTENT_TYPE, buildInPlaceDocx, docxInPlaceMode } from '../../../functions/src/assistedApplicationDocxInPlace.js';
-import { ensurePackages } from './cv-text.mjs';
+import { converterEnv, ensurePackages } from './cv-text.mjs';
 
 const execFile = promisify(execFileCallback);
 
@@ -31,8 +31,9 @@ export async function convertWithLibreOffice(buffer, from, to, run = execFile) {
   try {
     const input = path.join(dir, `cv.${from}`);
     await writeFile(input, buffer);
-    // Its own profile folder: a second soffice never waits on the lock of the first.
-    await run('soffice', [`-env:UserInstallation=file://${path.join(dir, 'profile')}`, '--headless', '--norestore', '--convert-to', to, '--outdir', dir, input], { timeout: 120_000 });
+    // Its own throwaway profile folder: no user configuration is read, and a second soffice never waits
+    // on the lock of the first. The candidate's file is parsed without the job's secrets in the environment.
+    await run('soffice', [`-env:UserInstallation=file://${path.join(dir, 'profile')}`, '--headless', '--norestore', '--convert-to', to, '--outdir', dir, input], { timeout: 120_000, env: converterEnv(dir) });
     return await readFile(path.join(dir, `cv.${to}`));
   } finally {
     await rm(dir, { recursive: true, force: true });
@@ -51,6 +52,14 @@ async function pagesOf(docx, run) {
  * @param {string} input.cvType 'pdf' | 'docx' | 'doc'
  * @param {string} input.cvKey the CV's Storage key (the base of a DOCX)
  * @param {object} input.cv the tailored CV that passed the fact gate
+ * @param {object} [input.profile]
+ * @param {object} [input.identity]
+ * @param {object} [input.bucket] Storage bucket
+ * @param {string} [input.orderId]
+ * @param {number} [input.round]
+ * @param {number} [input.nowMs]
+ * @param {Function} [input.log]
+ * @param {Function} [input.run] how a program is started (execFile; tests pass a fake)
  * @returns {Promise<object|null>} the draft's `tailoredCv.inplace`, null when the switch is off or the CV is a PDF
  */
 export async function inPlaceCvRecord({ mode = docxInPlaceMode(), cvBuffer, cvType, cvKey, cv, profile, identity, bucket, orderId, round, nowMs, log = () => {}, run = execFile }) {

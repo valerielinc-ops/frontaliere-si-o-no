@@ -37,6 +37,7 @@ import {
   normalizeApplicationIntentRequest,
 } from '../functions/src/applicationIntentCore.js';
 import { buildApplicationIntentJobKey } from '../services/applicationIntentRanking.mjs';
+import { hasSubscriptionBasis, isSavedJobsDigestAnchorOnly } from '../services/subscriberConsent.mjs';
 import {
   __setFirestoreAdminForTest,
   __setJobsForTest,
@@ -189,6 +190,38 @@ describe('application-intent reminder sender — main()', () => {
     const second = await runSender(db);
     expect(second).toContain('sent 0, skipped 1');
     expect(second).toContain('already_delivered=1');
+    expect(cascade.calls).toHaveLength(1);
+  });
+
+  // Without a central row a complaint about the reminder had nowhere to land
+  // (UNKNOWN_RECIPIENT): the sender now creates the saved-jobs digest's
+  // address record first, which is not a subscription.
+  it('creates the address record for an account with no central row, and a complaint on it stops the next reminder', async () => {
+    const first = job(1);
+    const second = job(2);
+    __setJobsForTest([first, second]);
+    const { db, docs } = memoryDb();
+    const ROW = 'newsletter_subscribers/uid-1@example.invalid';
+    const intent = producerRecord('uid-1', first, 3);
+    docs.set(`application_intents/${intent.intentId}`, intent.data);
+
+    expect(await runSender(db)).toContain('sent 1, skipped 0');
+    const record = docs.get(ROW);
+    expect(record).toMatchObject({
+      email: 'uid-1@example.invalid',
+      auth_uid: 'uid-1',
+      saved_jobs_digest_anchor: { activation_source: 'application_intent' },
+    });
+    expect(isSavedJobsDigestAnchorOnly(record)).toBe(true);
+    expect(hasSubscriptionBasis(record)).toBe(false);
+
+    // What the provider webhook writes on a complaint about that reminder.
+    docs.set(ROW, { ...record, status: 'complained', isActive: false, active: false });
+    const next = producerRecord('uid-1', second, 3);
+    docs.set(`application_intents/${next.intentId}`, next.data);
+    const output = await runSender(db);
+    expect(output).toContain('sent 0, skipped 1');
+    expect(output).toContain('cross_channel_stop=1');
     expect(cascade.calls).toHaveLength(1);
   });
 
