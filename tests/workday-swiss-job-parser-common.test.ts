@@ -226,7 +226,9 @@ describe('createWorkdaySwissParser — faceted Workday auth fallback', () => {
           if (Object.keys(body.appliedFacets || {}).length > 0) {
             return new Response(JSON.stringify({ total: 0, jobPostings: [] }), { status: 200 });
           }
-          if (listingRequests.length === 2) {
+          // Unfiltered page 0 (the proof's board summary and the retry alike)
+          // answers 20 of 21; the next page is blocked.
+          if (body.offset === 0) {
             return new Response(JSON.stringify({ total: 21, jobPostings: partialPage }), { status: 200 });
           }
           return new Response('', { status: 403 });
@@ -234,21 +236,21 @@ describe('createWorkdaySwissParser — faceted Workday auth fallback', () => {
         throw new Error(`detail fetch should not run after a partial anti-bot block: ${urlStr}`);
       }) as any;
 
-      // This case pins the unfiltered retry's transport outcome; the proof's
-      // board-summary read would take the second listing slot of the mock.
-      const jobsPromise = makeParser({ proveSwissAbsentFromLiveBoard: false }).fetchAllJobs();
+      // Default configuration: the zero proof reads the board summary (no
+      // country facet on it, so nothing is proven) before the unfiltered retry.
+      const jobsPromise = makeParser().fetchAllJobs();
       await vi.runAllTimersAsync();
       const jobs = await jobsPromise;
 
       expect(jobs).toHaveLength(20);
       expect((jobs as any).fetchOutcome).toBe('anti_bot_block');
       expect(jobs[0]).toMatchObject({ title: 'Swiss role 1', locationRaw: 'Zurich, Switzerland' });
-      expect(listingRequests).toHaveLength(3);
-      expect(listingRequests[0].appliedFacets).toEqual({
-        locationCountry: ['187134fccb084a0ea9b4b95f23890dbe'],
-      });
-      expect(listingRequests[1].appliedFacets).toEqual({});
-      expect(listingRequests[2].appliedFacets).toEqual({});
+      expect(listingRequests.map((body) => [body.appliedFacets, body.offset])).toEqual([
+        [{ locationCountry: ['187134fccb084a0ea9b4b95f23890dbe'] }, 0],
+        [{}, 0],
+        [{}, 0],
+        [{}, partialPage.length],
+      ]);
     } finally {
       vi.useRealTimers();
     }
@@ -1404,11 +1406,12 @@ describe('createWorkdaySwissParser — country facet discovery after HTTP 400', 
 
     const jobs = await makeParser().fetchAllJobs();
 
+    // The board summary read for discovery is reused by the proof: no second
+    // unfiltered read.
     expect(bodies.map((body) => body.appliedFacets)).toEqual([
       { locationCountry: [CH_ID] },
       {},
       { Location_Country: [CH_ID] },
-      {},
     ]);
     expect(jobs).toHaveLength(0);
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
@@ -1554,7 +1557,10 @@ describe('Workday factory parsers — opting out of the default-on zero proof', 
     .map((name) => ({ name, text: readFileSync(join(LIB, name), 'utf8') }))
     .filter(({ text }) => text.includes('createWorkdaySwissParser('));
 
-  const COMMENT_RE = /(?:\/\/|\/\*|^\s*\*)\s*\S.{7,}/;
+  // Same line: a comment after the key. Line above: a line that is ONLY a
+  // comment — a trailing comment there belongs to another property.
+  const COMMENT_RE = /(?:\/\/|\/\*)\s*\S.{7,}/;
+  const COMMENT_LINE_RE = /^\s*(?:\/\/|\/\*|\*)\s*\S.{7,}/;
 
   function unexplainedOptOuts(text: string) {
     const lines = text.split('\n');
@@ -1562,7 +1568,7 @@ describe('Workday factory parsers — opting out of the default-on zero proof', 
       if (!/proveSwissAbsentFromLiveBoard\s*:\s*false\b/.test(line)) return [];
       const sameLine = line.slice(line.search(/proveSwissAbsentFromLiveBoard/));
       if (COMMENT_RE.test(sameLine)) return [];
-      if (index > 0 && COMMENT_RE.test(lines[index - 1])) return [];
+      if (index > 0 && COMMENT_LINE_RE.test(lines[index - 1])) return [];
       return [index + 1];
     });
   }
@@ -1575,6 +1581,7 @@ describe('Workday factory parsers — opting out of the default-on zero proof', 
     expect(unexplainedOptOuts('  proveSwissAbsentFromLiveBoard: false,\n')).toEqual([1]);
     expect(unexplainedOptOuts('  proveSwissAbsentFromLiveBoard: false, // board facet lists HQ only\n')).toEqual([]);
     expect(unexplainedOptOuts('  // the country facet lists HQ only\n  proveSwissAbsentFromLiveBoard: false,\n')).toEqual([]);
+    expect(unexplainedOptOuts("  countryFacetParameter: 'Country', // Imerys KONE\n  proveSwissAbsentFromLiveBoard: false,\n")).toEqual([2]);
   });
 
   it('every opt-out in scripts/lib carries its reason', () => {

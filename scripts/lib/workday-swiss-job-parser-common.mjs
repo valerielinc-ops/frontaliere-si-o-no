@@ -708,21 +708,27 @@ export function createWorkdaySwissParser(config) {
    * faceted zero is then inconsistent with the source and the caller must
    * refetch the unfiltered board through the strict per-listing CH gate.
    * `facetParameter` is the key the faceted query actually used (declared or
-   * discovered): the board must be read on that same facet.
+   * discovered): the board must be read on that same facet. `boardCache` holds
+   * the unfiltered summary already read in this run (by facet discovery or an
+   * earlier proof attempt), so the board is read at most once per run; a failed
+   * read is not cached.
    */
-  async function proveSwissAbsentEmpty(facetApplied, facetStats, facetParameter) {
+  async function proveSwissAbsentEmpty(facetApplied, facetStats, facetParameter, boardCache) {
     const empty = [];
     const facetSaidZero = facetApplied
       && facetStats?.firstPageTotal === 0
       && facetStats?.endReason === 'empty-page'
       && facetStats?.yielded === 0;
     if (!facetSaidZero) return empty;
-    let summary;
-    try {
-      summary = await fetchWorkdayBoardSummary(API_BASE);
-    } catch (err) {
-      console.warn(`⚠️ ${companyName}: could not read the unfiltered Workday board to prove the Swiss zero (${err?.message || err}).`);
-      return empty;
+    let summary = boardCache?.summary;
+    if (!summary) {
+      try {
+        summary = await fetchWorkdayBoardSummary(API_BASE);
+      } catch (err) {
+        console.warn(`⚠️ ${companyName}: could not read the unfiltered Workday board to prove the Swiss zero (${err?.message || err}).`);
+        return empty;
+      }
+      if (boardCache) boardCache.summary = summary;
     }
     if (!provesWorkdaySwissAbsentFromBoard(summary, { facetParameter, swissIds: locationFilters })) {
       console.warn(`⚠️ ${companyName}: the unfiltered Workday board does not prove the Swiss zero `
@@ -746,8 +752,9 @@ export function createWorkdaySwissParser(config) {
    * unfiltered board's facets and pick the tenant's own country facet. Any
    * other failure (anti-bot, 5xx, network), a key the parser declared, or a
    * board that does not name one facet unambiguously → `null`, today's path.
+   * The summary read here is kept in `boardCache` for the zero proof.
    */
-  async function discoverCountryFacetAfterRejection(err) {
+  async function discoverCountryFacetAfterRejection(err, boardCache) {
     if (countryFacetDeclared) return null;
     if (err instanceof WorkdayAuthError || err?.statusCode !== 400) return null;
     let summary;
@@ -757,6 +764,7 @@ export function createWorkdaySwissParser(config) {
       console.warn(`⚠️ ${companyName}: could not read the Workday board facets to find the country facet (${summaryErr?.message || summaryErr}).`);
       return null;
     }
+    if (boardCache) boardCache.summary = summary;
     const discovered = discoverWorkdayCountryFacet(summary, { rejectedParameter: countryFacetParameter, swissIds: locationFilters });
     if (!discovered) {
       const names = (summary?.facets || []).map((facet) => facet?.facetParameter).filter(Boolean);
@@ -780,11 +788,14 @@ export function createWorkdaySwissParser(config) {
     // The facet key the Swiss-scoped query ends up using: the declared one, or
     // the one discovered on the board after the default was rejected.
     let facetParameter = countryFacetParameter;
+    // The unfiltered board summary, read at most once per run and shared by
+    // facet discovery and the zero proof.
+    const boardCache = {};
     try {
       listings = await fetchJobListings({ useCountryFacet: true, stats: facetStats, facetParameter });
     } catch (err) {
       console.warn(`⚠️ ${companyName}: ${countryFacetParameter} facet rejected (${err?.message || err}).`);
-      const discovered = await discoverCountryFacetAfterRejection(err);
+      const discovered = await discoverCountryFacetAfterRejection(err, boardCache);
       let discoveredListings = null;
       if (discovered) {
         console.warn(`⚠️ ${companyName}: using the board's own country facet "${discovered.facetParameter}" `
@@ -827,7 +838,7 @@ export function createWorkdaySwissParser(config) {
     if (facetApplied && listings.length === 0) {
       facetReturnedEmpty = true;
       if (proveSwissAbsentFromLiveBoard) {
-        emptyProof = await proveSwissAbsentEmpty(true, facetStats, facetParameter);
+        emptyProof = await proveSwissAbsentEmpty(true, facetStats, facetParameter, boardCache);
         if (isAuthoritativeEmptySnapshot(emptyProof)) return emptyProof;
       }
       console.warn(`⚠️ ${companyName}: Swiss facet returned no listings. Refetching unfiltered with strict CH gate.`);
@@ -848,7 +859,7 @@ export function createWorkdaySwissParser(config) {
       if (listings?.fetchOutcome === 'anti_bot_block') return listings;
       if (proveSwissAbsentFromLiveBoard) {
         const proof = emptyProof === undefined
-          ? await proveSwissAbsentEmpty(facetReturnedEmpty || facetApplied, facetStats, facetParameter)
+          ? await proveSwissAbsentEmpty(facetReturnedEmpty || facetApplied, facetStats, facetParameter, boardCache)
           : emptyProof;
         if (isAuthoritativeEmptySnapshot(proof)) return proof;
       }
@@ -1084,7 +1095,7 @@ export function createWorkdaySwissParser(config) {
     // produces no Swiss jobs. Preserve an unproven result as a bare batch.
     if (proveSwissAbsentFromLiveBoard && facetReturnedEmpty && jobs.length === 0) {
       const proven = emptyProof === undefined || (Array.isArray(emptyProof) && !isAuthoritativeEmptySnapshot(emptyProof))
-        ? await proveSwissAbsentEmpty(true, facetStats, facetParameter)
+        ? await proveSwissAbsentEmpty(true, facetStats, facetParameter, boardCache)
         : emptyProof;
       if (isAuthoritativeEmptySnapshot(proven)) return proven;
     }
