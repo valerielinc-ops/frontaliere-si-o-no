@@ -81,6 +81,11 @@ Fonti: [`fonti/permesso-e-dati-personali.md`](fonti/permesso-e-dati-personali.md
 - Per una candidatura WhatsApp è il candidato a scegliere, tra «I tuoi documenti», quale CV mandare nella chat: il proprio o quello preparato (decisione del proprietario).
 - Limite dichiarato: la copia Word è verificata con LibreOffice e con un lettore di DOCX, non con Microsoft Word.
 
+**Attuazione (4 ottobre 2026).** PR #11539, elencata nel §9 del [report](report-cv-lettera.md).
+- Il link scade quando è prevista la cancellazione: dalla data del rimborso o, se non c'è, dal caricamento del CV, più 90 giorni.
+- Un ordine che la cancellazione non raggiunge (consenso al talent pool, nessuna data) riceve un link di 30 giorni come gli altri, non un link senza scadenza.
+- Su WhatsApp il CV adattato è segnalato come «Proposto da noi»; quale CV il candidato manda non viene registrato.
+
 ## 5. Allegati di una candidatura via e-mail
 
 Fonti: [`fonti/dossier-in-un-pdf.md`](fonti/dossier-in-un-pdf.md), 111 affermazioni confermate; **la raccomandazione della ricerca non ha retto alla verifica**.
@@ -199,3 +204,14 @@ Un parametro assente vale come il valore deciso. I valori di questi tre parametr
 **Fatti.** Il generatore degli articoli cerca le copertine su Wikimedia Commons e ne salva l'indirizzo, ma non l'autore né la licenza (`iiprop=url|size|mime`). Le mappe dei due repository elencano 1.504 copertine prese da Commons, di cui 1.475 in articoli pubblicati; sono immagini Creative Commons che chiedono di citare autore e licenza. I dati strutturati (`imageObjectLd`) le dichiarano tutte «© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.», e nessuna pagina mostra un credito.
 
 **Decisione del proprietario (3 ottobre 2026).** Si recuperano autore e licenza di ogni immagine da Commons e si correggono i dati strutturati (autore, licenza, link alla pagina del file). Quando la licenza chiede un testo visibile, il credito compare in fondo all'articolo, non sotto la copertina. Il generatore salva autore e licenza delle immagini nuove. I Termini (sezione 3.1) già non rivendicano le immagini di terzi.
+
+**Attuazione (4 ottobre 2026).** Le PR sono elencate nel §9 del [report](report-cv-lettera.md). Le scelte di dettaglio sono state proposte al proprietario il 4 ottobre e applicate in assenza di risposta:
+
+- Copertine con persone riconoscibili (restrizione di personalità su Commons), con insegne o con funzionari (licenza GODL-India): sostituite da foto Commons senza persone, ognuna con il suo credito (25 file, 55 articoli).
+- Copertine non prese da Commons (Pixabay, Pexels, generate): restano con la dicitura del sito, perché la loro provenienza non si ricostruisce dal repository.
+- Una rilettura mensile di Commons, in sola lettura, apre una sola issue se un file è stato cancellato o ne sono cambiati licenza, autore o restrizioni.
+- I file delle copertine sostituite restano su disco.
+- Lo stesso file Commons non va su un secondo articolo finché ce n'è uno libero (il controllo è per file, non per indirizzo).
+- Il credito compare anche per le immagini in pubblico dominio o CC0, come cortesia.
+- Le 44 pagine degli articoli scritte a mano mostrano il credito come le altre.
+- La mappa delle copertine del sito resta, perché due script legacy la leggono ancora; la storia completa è nel corpus.
