@@ -64,10 +64,12 @@
  */
 
 import { XMLParser } from 'fast-xml-parser';
+import { sourcePostingDateFields } from '../source-posting-date.mjs';
 import { httpFetchWithRetry } from '../transient-fetch.mjs';
 import {
   extractJobPostingAddress,
   extractJobPostingDescription,
+  extractJobPostingField,
 } from '../jobposting-jsonld.mjs';
 import { decodeEntities, extractBalancedTagBlock } from '../hospital-custom-html-helpers.mjs';
 
@@ -100,12 +102,6 @@ function normalizeSpace(s = '') {
 function toArray(val) {
   if (val == null) return [];
   return Array.isArray(val) ? val : [val];
-}
-
-function toIsoDate(val) {
-  if (!val) return null;
-  const d = new Date(val);
-  return Number.isNaN(d.getTime()) ? null : d.toISOString();
 }
 
 /**
@@ -148,7 +144,8 @@ function concatJobDescriptions(rawPosition) {
  * @param {string} [options.subdomain] Used to compose the public job URL.
  * @returns {{
  *   jobReqId: string, title: string, location: string, department: string,
- *   postedAt: string|null, applyUrl: string, descriptionHtml: string,
+ *   postedAt: string|null, datePosted: string, postedDate: string,
+ *   postingDateSource: "reported"|"unknown", applyUrl: string, descriptionHtml: string,
  *   employmentType: string, seniority: string, schedule: string,
  *   rawPosition: Object, locationDetail: Object|null,
  * }}
@@ -167,7 +164,9 @@ export function normalizePersonioJob(rawPosition, options = {}) {
     title,
     location,
     department: normalizeSpace(rawPosition?.department || ''),
-    postedAt: toIsoDate(rawPosition?.createdAt),
+    // XML createdAt is record creation, not evidence of public release.
+    ...sourcePostingDateFields(),
+    postedAt: null,
     applyUrl,
     descriptionHtml: concatJobDescriptions(rawPosition),
     employmentType: normalizeSpace(rawPosition?.employmentType || ''),
@@ -255,14 +254,14 @@ export function preferRenderedPersonioContent(detail, listing = {}) {
  * Fetch one public job page and return everything the per-company parsers
  * read from it: the rendered vacancy (title + full body, see
  * `extractPersonioRenderedJob`), the JSON-LD description fallback and the
- * JSON-LD workplace address.
+ * JSON-LD workplace address and explicit publication date.
  *
  * @param {string} url public `/job/{id}` URL (`.jobs.personio.de` or `.com`)
  * @param {{ timeoutMs?: number, userAgent?: string }} [options]
- * @returns {Promise<{ title: string, renderedDescriptionHtml: string, descriptionHtml: string, locationDetail: object|null }>}
+ * @returns {Promise<{ title: string, renderedDescriptionHtml: string, descriptionHtml: string, locationDetail: object|null, datePosted: string, postedDate: string, postingDateSource: "reported"|"unknown" }>}
  */
 export async function fetchPersonioJobDetailData(url, options = {}) {
-  const empty = { title: '', renderedDescriptionHtml: '', descriptionHtml: '', locationDetail: null };
+  const empty = { title: '', renderedDescriptionHtml: '', descriptionHtml: '', locationDetail: null, ...sourcePostingDateFields() };
   if (!url) return empty;
   const { timeoutMs = DEFAULT_TIMEOUT_MS, userAgent = POLITE_UA } = options;
   try {
@@ -279,6 +278,7 @@ export async function fetchPersonioJobDetailData(url, options = {}) {
       renderedDescriptionHtml: rendered.descriptionHtml,
       descriptionHtml: extractJobPostingDescription(html),
       locationDetail: extractJobPostingAddress(html),
+      ...sourcePostingDateFields(extractJobPostingField(html, 'datePosted')),
     };
   } catch {
     return empty;
@@ -304,7 +304,8 @@ export async function withRenderedPersonioPage(record, publicUrl, options = {}) 
     title: record?.name,
     descriptionHtml: record?.description,
   });
-  return { ...record, name: title, description: descriptionHtml };
+  const postingDates = sourcePostingDateFields(detail.datePosted);
+  return { ...record, name: title, description: descriptionHtml, ...postingDates, postedAt: postingDates.postedDate || null };
 }
 
 /**
@@ -370,6 +371,8 @@ export async function fetchPersonioJobs(subdomain, options = {}) {
     const detail = await fetchPersonioJobDetailData(job.applyUrl, { timeoutMs, userAgent });
     Object.assign(job, preferRenderedPersonioContent(detail, job));
     job.locationDetail = detail.locationDetail;
+    const postingDates = sourcePostingDateFields(detail.datePosted);
+    Object.assign(job, postingDates, { postedAt: postingDates.postedDate || null });
   }
 
   return jobs;
