@@ -54,23 +54,66 @@
  * cf-purge-cache.mjs treats >30 as a hard error rather than truncating
  * silently, so batching into groups of 30 is this script's job.
  *
- * FAILURE POSTURE: always exits 0. A missed purge degrades to "the edge serves
- * the previous bytes until the object's own max-age lapses" — the bounded
- * staleness the companion Cache-Control change in deploy-it-pages-prep.sh
- * guarantees — which must never fail a deploy that otherwise succeeded. Every
- * failure is surfaced as a ::warning:: instead.
+ * STATE, NOT ONE RUN'S LOG (NX-SKEW-2b, Refs #9465/#8612): the rclone log only
+ * names what THIS invocation uploaded. A run that uploads `assets/*` and then
+ * dies, or skips the purge, leaves those keys new in R2 and stale at the edge —
+ * and the next run's `copy --checksum` sees them as "Unchanged skipping", so
+ * its log is empty and nobody ever purges them (the 7-day max-age is the only
+ * way out). `shared-services.js` stayed at the old bytes that way after deploy
+ * 36706485937 (30-09). The fix is a ledger: an R2 object (LEDGER_KEY) holding,
+ * per key, the MD5 of the bytes the edge was last SUCCESSFULLY purged for. The
+ * set to purge is "R2 now vs ledger" plus this run's log, and a key only takes
+ * its new fingerprint once its own purge batch succeeded — so a missed purge
+ * stays dirty and is retried by the next deploy instead of being forgotten.
+ *
+ * WHERE "R2 NOW" COMES FROM — no listing on the steady path. The first version
+ * of this ledger (#11318) read it from `rclone lsjson -R --hash` of the whole
+ * `assets/` prefix (~54k objects); that call had no time limit and wedged the
+ * production deploy for hours (runs 37178543559, 37198287938; reverted by
+ * #11489). It is not needed: after `rclone copy --checksum` of the stage exits
+ * 0, every stage key holds in R2 exactly the stage file's bytes — that is what
+ * the exit code certifies — so the MD5 of the local stage file IS the R2
+ * fingerprint of that key (`fingerprintStageDir`, local disk only). Keys
+ * outside the stage are not referenced by this build's HTML, and the additive
+ * copy never rewrites them, so they need no fingerprint. The only R2 listing
+ * left is the one-off SEED below, made before the sync when no ledger exists,
+ * prefix-limited, without hashes or per-object HEADs (`list-objects-v2`
+ * returns each ETag in the page itself) and under a wall-clock limit.
+ *
+ * FAILURE POSTURE: always exits 0 in purge mode. A missed purge degrades to
+ * "the edge serves the previous bytes until the next deploy retries it (ledger)
+ * or the object's own max-age lapses" — which must never fail a deploy that
+ * otherwise succeeded. A failed batch is an ::error:: (the dirty state is real
+ * and persistent until a later run clears it) plus a step-summary line.
  *
  * USAGE:
  *   node scripts/ci/purge-changed-cdn-assets.mjs <rclone-json-log> <key-prefix>
+ *       [--stage-dir=<dir> --ledger-in=<json> --ledger-out=<json> --build-id=<id>]
  *     <rclone-json-log>  file written by `rclone --use-json-log -v --log-file=…`
+ *                        (missing or empty is fine in ledger mode)
  *     <key-prefix>       R2 key prefix the sync targeted, e.g. `assets`
+ *     --stage-dir        the local dir that `rclone copy` just synced, with exit
+ *                        0. Without it, or without --ledger-in: log-only (the
+ *                        pre-ledger behaviour) and no ledger is written.
+ *     --ledger-in        the ledger as read from R2 (validated, or just seeded).
+ *     --ledger-out       where to write the new ledger; the caller uploads it.
  *
- * Env: CF_API_TOKEN (needs Zone→Cache Purge) — absent is a no-op exit 0,
- *      handled by cf-purge-cache.mjs itself. CDN_PURGE_BASE overrides the
- *      public origin (default https://cdn.frontaliereticino.ch).
+ *   node scripts/ci/purge-changed-cdn-assets.mjs --check-ledger --ledger-in=<json>
+ *     exit 0 only for a readable version-1 ledger.
+ *
+ *   node scripts/ci/purge-changed-cdn-assets.mjs --seed <key-prefix>
+ *       --stage-dir=<dir> --seed-listing=<json> --ledger-out=<json>
+ *     first-run baseline from a PRE-sync `aws s3api list-objects-v2` of the
+ *     prefix; exit 1 (nothing written) when the listing is unusable.
+ *
+ * Env: CF_API_TOKEN (needs Zone→Cache Purge) — absent means nothing is purged
+ *      and no key is marked clean. CDN_PURGE_BASE overrides the public origin
+ *      (default https://cdn.frontaliereticino.ch). CDN_PURGE_BATCH_TIMEOUT_MS
+ *      bounds one cf-purge-cache.mjs call (default 60000).
  */
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { appendFileSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
 // The purge cap lives in ONE place (AGENTS.md #6). cf-purge-cache.mjs — which
@@ -203,64 +246,441 @@ export function keyToUrl(key, base = DEFAULT_CDN_BASE) {
   return new URL(key.replace(/^\/+/, ''), base.endsWith('/') ? base : `${base}/`).href;
 }
 
-function main(argv) {
-  const [logPath, keyPrefix] = argv;
-  if (!logPath || !keyPrefix) {
-    console.log('[purge-changed-cdn-assets] usage: <rclone-json-log> <key-prefix> — skipping');
-    return;
-  }
+// ── Purge ledger (NX-SKEW-2b) ────────────────────────────────────────────────
+//
+// The ledger lives OUTSIDE `assets/` on purpose: `_janitor_cdn_r2` only scans
+// `assets/`, and the `rclone copy` of the stage dirs never writes this prefix,
+// so neither can delete or overwrite it. It is public (same bucket, same host)
+// and holds only paths and MD5s of assets that are themselves public.
 
-  let logText = '';
+/** R2 key of the purge ledger for the `assets/` prefix. */
+export const LEDGER_KEY = 'purge-ledger/assets.json';
+export const LEDGER_VERSION = 1;
+
+const MD5_RE = /^[0-9a-f]{32}$/;
+
+/**
+ * `{ "<prefix>/<path>": md5 }` for every file under the synced stage dir,
+ * source maps left out (no page loads them, `selectPurgeKeys` never purges
+ * them). Local disk only — no network, so it cannot wedge the deploy. Valid as
+ * the R2 state of those keys only after `rclone copy --checksum` of this same
+ * dir exited 0: the caller passes `--stage-dir` only then.
+ *
+ * @param {string} dir
+ * @param {string} keyPrefix
+ * @returns {Record<string,string>}
+ */
+export function fingerprintStageDir(dir, keyPrefix) {
+  const prefix = String(keyPrefix || '').replace(/^\/+|\/+$/g, '');
+  /** @type {Record<string,string>} */
+  const out = {};
+  const walk = (abs, rel) => {
+    for (const entry of readdirSync(abs, { withFileTypes: true })) {
+      const childRel = rel ? `${rel}/${entry.name}` : entry.name;
+      if (entry.isDirectory()) walk(join(abs, entry.name), childRel);
+      else if (entry.isFile() && !SOURCE_MAP_KEY_RE.test(entry.name)) {
+        const key = prefix ? `${prefix}/${childRel}` : childRel;
+        out[key] = createHash('md5').update(readFileSync(join(abs, entry.name))).digest('hex');
+      }
+    }
+  };
+  walk(dir, '');
+  return out;
+}
+
+/**
+ * Fingerprint of an S3 `ETag` as `list-objects-v2` returns it (quoted). A
+ * single-part upload's ETag is the MD5 of the bytes — measured 2026-10-04 on
+ * the production bucket: 53,945 objects under `assets/`, zero composite ETags.
+ * A composite (multipart) ETag cannot equal any MD5, so it is kept verbatim
+ * with an `etag:` tag: the key then reads as dirty and is purged once, never
+ * silently matched.
+ *
+ * @param {unknown} etag
+ * @returns {string|null}
+ */
+export function fingerprintFromEtag(etag) {
+  if (typeof etag !== 'string') return null;
+  const raw = etag.trim().replace(/^"+|"+$/g, '').toLowerCase();
+  if (!raw) return null;
+  return MD5_RE.test(raw) ? raw : `etag:${raw}`;
+}
+
+/**
+ * Parse `aws s3api list-objects-v2 --query 'Contents[].{Key:Key,ETag:ETag}'`
+ * output into `{ key: fingerprint }`, maps left out. aws prints `null` when
+ * the prefix holds nothing, which reads as an empty listing here.
+ *
+ * @param {string} text
+ * @returns {Record<string,string>|null} null when the output is not JSON
+ */
+export function parseSeedListing(text) {
+  let entries;
   try {
-    logText = readFileSync(logPath, 'utf8');
+    entries = JSON.parse(String(text || '').trim() || 'null');
+  } catch {
+    return null;
+  }
+  if (entries === null) return {};
+  if (!Array.isArray(entries)) return null;
+  /** @type {Record<string,string>} */
+  const out = {};
+  for (const entry of entries) {
+    const key = typeof entry?.Key === 'string' ? entry.Key.replace(/^\/+/, '') : '';
+    if (!key || SOURCE_MAP_KEY_RE.test(key)) continue;
+    const fp = fingerprintFromEtag(entry.ETag);
+    if (fp) out[key] = fp;
+  }
+  return out;
+}
+
+/**
+ * First-run baseline, built from a listing taken BEFORE the assets sync: per
+ * key of this build's stage, the bytes R2 held before this run touched it —
+ * i.e. "the edge is as fresh as R2 was", exactly the assumption the log-only
+ * purge has always made. Taking it before the sync is what keeps a partial
+ * upload of THIS run dirty (review of #11318): a seed taken after it would
+ * record those new bytes as already purged and lose the retry forever.
+ *
+ * Stage keys absent from R2 stay out of the seed, i.e. dirty: they are new
+ * and this run uploads (and purges) them anyway. A listing that names fewer
+ * than half the stage's keys is refused (null): seeding from it would leave
+ * most of the bundle dirty and the next purge would hit ~2,000 URLs at once —
+ * the cold-fill stampede against R2 this script exists to avoid.
+ *
+ * @param {Record<string,string>|null} listing parseSeedListing output
+ * @param {Record<string,string>} stage      fingerprintStageDir output
+ * @returns {{ version: number, keys: Record<string,string> }|null}
+ */
+export function seedFromListing(listing, stage) {
+  if (!listing) return null;
+  const stageKeys = Object.keys(stage || {});
+  /** @type {Record<string,string>} */
+  const keys = {};
+  for (const key of stageKeys) {
+    if (Object.prototype.hasOwnProperty.call(listing, key)) keys[key] = listing[key];
+  }
+  if (stageKeys.length > 0 && Object.keys(keys).length * 2 < stageKeys.length) return null;
+  return { version: LEDGER_VERSION, keys };
+}
+
+/**
+ * Parse a stored ledger. Anything that is not a version-1 ledger with a `keys`
+ * object is treated as unusable (null) — the caller then reseeds, because a
+ * ledger nobody can read would otherwise never be rewritten.
+ *
+ * @param {string} text
+ * @returns {{ version: number, updatedAt?: string, build_id?: string, keys: Record<string,string> }|null}
+ */
+export function parseLedger(text) {
+  let ledger;
+  try {
+    ledger = JSON.parse(String(text || ''));
+  } catch {
+    return null;
+  }
+  if (!ledger || ledger.version !== LEDGER_VERSION) return null;
+  if (!ledger.keys || typeof ledger.keys !== 'object' || Array.isArray(ledger.keys)) return null;
+  return ledger;
+}
+
+/**
+ * Keys whose bytes in R2 the edge has not been purged for yet: present now and
+ * either missing from the ledger or recorded with a different fingerprint. A
+ * key the ledger knows with the same fingerprint is NOT returned — its edge
+ * copy is already the current one, and evicting it would cost a cold fill for
+ * nothing.
+ *
+ * @param {Record<string,string>} current  fingerprintStageDir output
+ * @param {{ keys?: Record<string,string> }|null} ledger
+ * @returns {string[]} sorted keys
+ */
+export function diffAgainstLedger(current, ledger) {
+  const known = ledger?.keys || {};
+  return Object.keys(current || {})
+    .filter((key) => known[key] !== current[key])
+    .sort();
+}
+
+/**
+ * A stage naming fewer than half the keys the ledger knows is not trusted to
+ * say which keys are GONE (a degenerate or truncated build). Merging it as-is
+ * would shrink the ledger, and the next normal deploy would find ~2,000 keys
+ * "new" and purge them all at once. The keys it does name are still compared
+ * and purged; only the "dropped" inference is suspended (`keepUnlisted`).
+ *
+ * @param {Record<string,string>|null} current
+ * @param {{ keys?: Record<string,string> }|null} ledger
+ */
+export function listingLooksTruncated(current, ledger) {
+  const known = Object.keys(ledger?.keys || {}).length;
+  if (known === 0) return false;
+  return Object.keys(current || {}).length * 2 < known;
+}
+
+/**
+ * The ledger to store after this run. ONLY keys whose purge batch succeeded take
+ * their current fingerprint; every other key keeps the fingerprint the edge was
+ * last purged for (or stays absent), so it is still dirty for the next run.
+ * Keys no longer in the build drop out (the ledger stays the size of one
+ * bundle) — unless `keepUnlisted`, in which case they keep their entry.
+ *
+ * @param {{ previous: { keys?: Record<string,string> }|null, current: Record<string,string>,
+ *           purgedKeys: Iterable<string>, buildId?: string, now: Date, keepUnlisted?: boolean }} args
+ */
+export function mergeLedger({ previous, current, purgedKeys, buildId, now, keepUnlisted = false }) {
+  const purged = new Set(purgedKeys);
+  const prev = previous?.keys || {};
+  const listed = current || {};
+  const names = new Set(Object.keys(listed));
+  if (keepUnlisted) for (const key of Object.keys(prev)) names.add(key);
+  /** @type {Record<string,string>} */
+  const keys = {};
+  for (const key of [...names].sort()) {
+    const inR2 = Object.prototype.hasOwnProperty.call(listed, key);
+    if (inR2 && purged.has(key)) keys[key] = listed[key];
+    else if (Object.prototype.hasOwnProperty.call(prev, key)) keys[key] = prev[key];
+  }
+  return {
+    version: LEDGER_VERSION,
+    updatedAt: now.toISOString(),
+    build_id: buildId || '',
+    keys,
+  };
+}
+
+/**
+ * Decide what to purge.
+ *
+ *   - no stage state or no ledger → `log-only`: this run's uploads, no ledger
+ *     write. The caller lands here whenever the ledger read, the seed listing
+ *     or the assets sync failed or ran out of time: the fail-open fallback.
+ *   - otherwise                   → `ledger`: stage-vs-ledger diff ∪ this run's
+ *     uploads; `truncated` when the stage names under half the ledger's keys.
+ *
+ * @param {{ logKeys: string[], current: Record<string,string>|null, ledger: object|null }} args
+ * @returns {{ mode: 'log-only'|'ledger', candidates: string[], truncated?: boolean }}
+ */
+export function planPurge({ logKeys, current, ledger }) {
+  if (!current || !ledger) return { mode: 'log-only', candidates: [...logKeys] };
+  const seen = new Set(logKeys);
+  const candidates = [...logKeys];
+  for (const key of diffAgainstLedger(current, ledger)) {
+    if (!seen.has(key)) {
+      seen.add(key);
+      candidates.push(key);
+    }
+  }
+  return { mode: 'ledger', candidates, truncated: listingLooksTruncated(current, ledger) };
+}
+
+/**
+ * Purge `keys` in batches through an injected `purgeBatch(urls)` (throws on a
+ * failed batch) and report which KEYS made it — per batch, because that is the
+ * granularity at which Cloudflare accepts or rejects a purge.
+ *
+ * @param {string[]} keys
+ * @param {{ purgeBatch: (urls: string[]) => void, base?: string, size?: number }} opts
+ * @returns {{ purgedKeys: string[], failed: { index: number, keys: string[], error: string }[], batches: number }}
+ */
+export function purgeInBatches(keys, { purgeBatch, base = DEFAULT_CDN_BASE, size = PURGE_BATCH_SIZE }) {
+  const groups = batch(keys, size);
+  const purgedKeys = [];
+  const failed = [];
+  for (const [index, group] of groups.entries()) {
+    try {
+      purgeBatch(group.map((k) => keyToUrl(k, base)));
+      purgedKeys.push(...group);
+    } catch (err) {
+      failed.push({ index, keys: group, error: err?.message || String(err) });
+    }
+  }
+  return { purgedKeys, failed, batches: groups.length };
+}
+
+function parseFlags(args) {
+  const positional = [];
+  /** @type {Record<string,string|true>} */
+  const flags = {};
+  for (const arg of args) {
+    const m = /^--([a-z-]+)(?:=(.*))?$/.exec(arg);
+    if (m) flags[m[1]] = m[2] === undefined ? true : m[2];
+    else positional.push(arg);
+  }
+  return { positional, flags };
+}
+
+function readText(path) {
+  try {
+    return readFileSync(path, 'utf8');
+  } catch {
+    return null;
+  }
+}
+
+function stepSummary(line) {
+  const file = process.env.GITHUB_STEP_SUMMARY;
+  if (!file) return;
+  try {
+    appendFileSync(file, `${line}\n`);
+  } catch {
+    // best-effort: the ::error:: line in the log is the primary signal
+  }
+}
+
+const TAG = '[purge-changed-cdn-assets]';
+
+function readStage(dir, keyPrefix) {
+  try {
+    return fingerprintStageDir(dir, keyPrefix);
   } catch (err) {
-    console.log(`[purge-changed-cdn-assets] no rclone log at ${logPath} (${err.code}) — nothing to purge`);
+    console.log(`::warning::${TAG} could not fingerprint ${dir} (${err?.code || err?.message}) — purging this run's uploads only, ledger untouched`);
+    return null;
+  }
+}
+
+function seedMain(flags, keyPrefix) {
+  const stageDir = flags['stage-dir'];
+  const listingPath = flags['seed-listing'];
+  const out = flags['ledger-out'];
+  if (typeof stageDir !== 'string' || typeof listingPath !== 'string' || typeof out !== 'string') {
+    console.log(`::warning::${TAG} --seed needs --stage-dir, --seed-listing and --ledger-out — not seeding`);
+    return 1;
+  }
+  const stage = readStage(stageDir, keyPrefix);
+  const listing = parseSeedListing(readText(listingPath) ?? '');
+  const seed = stage ? seedFromListing(listing, stage) : null;
+  if (!seed) {
+    console.log(
+      `::warning::${TAG} pre-sync R2 listing unusable (${listing ? `${Object.keys(listing).length} key(s) for ${Object.keys(stage || {}).length} in the stage` : 'not JSON'}) — ledger not seeded`,
+    );
+    return 1;
+  }
+  writeFileSync(out, `${JSON.stringify(seed)}\n`);
+  const dirty = Object.keys(stage).length - Object.keys(seed.keys).length;
+  console.log(`::notice::${TAG} purge ledger seeded from the pre-sync R2 state: ${Object.keys(seed.keys).length} key(s), ${dirty} not yet in R2`);
+  return 0;
+}
+
+function main(argv) {
+  const { positional, flags } = parseFlags(argv);
+
+  if (flags['check-ledger'] === true) {
+    const ok = typeof flags['ledger-in'] === 'string' && parseLedger(readText(flags['ledger-in']) ?? '') !== null;
+    process.exitCode = ok ? 0 : 1;
+    return;
+  }
+  if (flags.seed === true) {
+    process.exitCode = seedMain(flags, positional[0] || 'assets');
     return;
   }
 
-  const transferred = parseTransferredKeys(logText, keyPrefix);
-  if (transferred.length === 0) {
-    console.log(`[purge-changed-cdn-assets] no ${keyPrefix}/ objects re-uploaded — edge stays warm, no purge needed`);
+  const [logPath, keyPrefix] = positional;
+  if (!logPath || !keyPrefix) {
+    console.log(`${TAG} usage: <rclone-json-log> <key-prefix> [--stage-dir=… --ledger-in=… --ledger-out=…] — skipping`);
     return;
   }
-  const { selected: keys, skippedMaps, droppedOther, codeOverCap } = selectPurgeKeys(transferred);
+
+  const logText = readText(logPath);
+  if (logText === null) console.log(`${TAG} no rclone log at ${logPath} — this run uploaded nothing it can name`);
+  const transferred = parseTransferredKeys(logText || '', keyPrefix);
+
+  const current = typeof flags['stage-dir'] === 'string' ? readStage(flags['stage-dir'], keyPrefix) : null;
+  let ledger = null;
+  if (typeof flags['ledger-in'] === 'string') {
+    ledger = parseLedger(readText(flags['ledger-in']) ?? '');
+    if (!ledger) console.log(`::warning::${TAG} purge ledger at ${flags['ledger-in']} is not a v${LEDGER_VERSION} ledger — purging this run's uploads only, ledger untouched`);
+  }
+
+  const { mode, candidates, truncated } = planPurge({ logKeys: transferred, current, ledger });
+  if (truncated) {
+    console.log(
+      `::warning::${TAG} the stage names ${Object.keys(current).length} ${keyPrefix}/ key(s) but the ledger knows ${Object.keys(ledger.keys).length} — keys it does not name keep their ledger entry instead of being dropped`,
+    );
+  }
+  if (mode === 'ledger') {
+    console.log(`${TAG} ledger: ${transferred.length} key(s) uploaded by this run, ${candidates.length - transferred.length} more changed in R2 since the last successful purge`);
+  } else {
+    console.log(`${TAG} log-only: purging the ${transferred.length} key(s) this run uploaded; the ledger is neither read nor written`);
+  }
+
+  const writeLedger = (purgedKeys) => {
+    if (mode !== 'ledger' || typeof flags['ledger-out'] !== 'string') return;
+    const next = mergeLedger({
+      previous: ledger,
+      current,
+      purgedKeys,
+      buildId: typeof flags['build-id'] === 'string' ? flags['build-id'] : '',
+      now: new Date(),
+      keepUnlisted: truncated === true,
+    });
+    writeFileSync(flags['ledger-out'], `${JSON.stringify(next)}\n`);
+    const dirty = diffAgainstLedger(current, next).length;
+    console.log(`${TAG} ledger written: ${Object.keys(next.keys).length} key(s), ${dirty} still dirty`);
+  };
+
+  if (candidates.length === 0) {
+    console.log(`${TAG} no ${keyPrefix}/ object to purge — edge stays warm`);
+    writeLedger([]);
+    return;
+  }
+  const { selected: keys, skippedMaps, droppedOther, codeOverCap } = selectPurgeKeys(candidates);
   if (skippedMaps > 0) {
-    console.log(`[purge-changed-cdn-assets] ${skippedMaps} source map(s) not purged — no page loads them`);
+    console.log(`${TAG} ${skippedMaps} source map(s) not purged — no page loads them`);
   }
   if (codeOverCap) {
     console.log(
-      `::warning::[purge-changed-cdn-assets] more changed code keys than MAX_KEYS_PER_RUN=${MAX_KEYS_PER_RUN} — purging all of them anyway (a stale chunk breaks module linking); check the rclone log parse if this is unexpected`,
+      `::warning::${TAG} more changed code keys than MAX_KEYS_PER_RUN=${MAX_KEYS_PER_RUN} — purging all of them anyway (a stale chunk breaks module linking); check the rclone log parse if this is unexpected`,
     );
   }
   if (droppedOther > 0) {
     console.log(
-      `::warning::[purge-changed-cdn-assets] ${droppedOther} non-code ${keyPrefix}/ key(s) over MAX_KEYS_PER_RUN=${MAX_KEYS_PER_RUN} not purged (they fall back to their Cache-Control max-age)`,
+      `::warning::${TAG} ${droppedOther} non-code ${keyPrefix}/ key(s) over MAX_KEYS_PER_RUN=${MAX_KEYS_PER_RUN} not purged (left dirty in the ledger for the next run)`,
     );
   }
-  if (keys.length === 0) return;
+  if (keys.length === 0) {
+    writeLedger([]);
+    return;
+  }
+
+  // cf-purge-cache.mjs exits 0 as a no-op without a token, which would read as
+  // a successful purge and mark every key clean. Without a token nothing is
+  // purged, and the ledger must say so.
+  if (!process.env.CF_API_TOKEN) {
+    console.log(`::warning::${TAG} CF_API_TOKEN not set — ${keys.length} ${keyPrefix}/ key(s) not purged, left dirty`);
+    writeLedger([]);
+    return;
+  }
 
   const base = process.env.CDN_PURGE_BASE || DEFAULT_CDN_BASE;
-  const batches = batch(keys.map((k) => keyToUrl(k, base)));
   const purgeScript = join(dirname(dirname(fileURLToPath(import.meta.url))), 'cf-purge-cache.mjs');
-
-  let purged = 0;
-  for (const [i, urls] of batches.entries()) {
-    try {
-      execFileSync('node', [purgeScript, `--files=${urls.join(',')}`], { stdio: 'inherit' });
-      purged += urls.length;
-    } catch (err) {
-      // Non-fatal by design: the object's own max-age still bounds staleness.
-      console.log(
-        `::warning::[purge-changed-cdn-assets] batch ${i + 1}/${batches.length} failed (${err.message}) — those keys stay edge-cached until max-age lapses`,
-      );
-    }
+  // One batch normally takes ~0.6 s (1000 keys in 34 batches in 20 s, deploy
+  // 36088944074). cf-purge-cache.mjs has no fetch timeout of its own, so a
+  // wedged call is killed here and counted as a failed batch (keys stay dirty).
+  const batchTimeout = Number(process.env.CDN_PURGE_BATCH_TIMEOUT_MS) || 60000;
+  const { purgedKeys, failed, batches } = purgeInBatches(keys, {
+    base,
+    purgeBatch: (urls) =>
+      execFileSync('node', [purgeScript, `--files=${urls.join(',')}`], {
+        stdio: 'inherit',
+        timeout: batchTimeout,
+        killSignal: 'SIGKILL',
+      }),
+  });
+  for (const f of failed) {
+    console.log(`${TAG} batch ${f.index + 1}/${batches} failed (${f.error})`);
   }
-  // "dispatched", not "purged": cf-purge-cache.mjs is itself a no-op exit-0
-  // when CF_API_TOKEN is absent, so a clean run here does not by itself prove
-  // the edge was invalidated — that script's own output is authoritative.
-  console.log(
-    `[purge-changed-cdn-assets] dispatched purge for ${purged}/${keys.length} changed ${keyPrefix}/ key(s) in ${batches.length} batch(es)`,
-  );
+  if (failed.length > 0) {
+    const dirtyKeys = failed.reduce((n, f) => n + f.keys.length, 0);
+    const where = mode === 'ledger' ? `dirty in ${LEDGER_KEY}; the next deploy retries them` : 'not tracked (log-only run)';
+    const msg = `${failed.length}/${batches} purge batch(es) failed — ${dirtyKeys} ${keyPrefix}/ key(s) stay stale at the edge, ${where}`;
+    console.log(`::error::${TAG} ${msg}`);
+    stepSummary(`- :x: CDN asset purge: ${msg}`);
+  }
+  // "dispatched", not "purged": cf-purge-cache.mjs's own output is the
+  // authoritative record of what the edge accepted.
+  console.log(`${TAG} dispatched purge for ${purgedKeys.length}/${keys.length} changed ${keyPrefix}/ key(s) in ${batches} batch(es)`);
+  writeLedger(purgedKeys);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

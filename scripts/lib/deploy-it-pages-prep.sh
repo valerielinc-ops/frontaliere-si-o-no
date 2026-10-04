@@ -164,7 +164,7 @@ _publish_cdn_r2() {
     # anyway (>= 2 are the real errors), so gating the install on rc == 0
     # threw away a working binary and skipped the whole R2 sync. The binary on
     # disk is the contract, not unzip's exit code.
-    if curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors \
+    if curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors --connect-timeout 15 --max-time 120 \
          https://downloads.rclone.org/rclone-current-linux-amd64.zip -o "$rtmp/rclone.zip"; then
       unzip_rc=0
       unzip -q -o -j "$rtmp/rclone.zip" '*/rclone' -d "$rtmp/rclone-bin" || unzip_rc=$?
@@ -175,7 +175,7 @@ _publish_cdn_r2() {
       fi
       if [ "$unzip_rc" -lt 2 ] && [ -s "$rtmp/rclone-bin/rclone" ] \
          && chmod +x "$rtmp/rclone-bin/rclone" 2>/dev/null \
-         && "$rtmp/rclone-bin/rclone" version >/dev/null 2>&1; then
+         && timeout -k 5 30 "$rtmp/rclone-bin/rclone" version >/dev/null 2>&1; then
         export PATH="$rtmp/rclone-bin:$PATH"
       fi
     fi
@@ -184,6 +184,8 @@ _publish_cdn_r2() {
   # On-the-fly S3 remote (no config file). --checksum = content-hash compare;
   # --no-update-modtime avoids rewriting metadata on skipped files;
   # --s3-no-check-bucket skips a HeadBucket (1 fewer op, no CreateBucket perm).
+  # --contimeout/--timeout: connect and IO-idle limits of each request, so a
+  # silent connection errors out and is retried instead of hanging.
   local RC=(rclone
     --s3-provider=Cloudflare
     --s3-access-key-id="$R2_ACCESS_KEY_ID"
@@ -191,30 +193,54 @@ _publish_cdn_r2() {
     --s3-endpoint="$R2_S3_ENDPOINT"
     --s3-region=auto
     --s3-no-check-bucket
+    --contimeout=15s --timeout=60s
     --checksum --no-update-modtime --transfers=24 --checkers=48 --fast-list)
+  # WALL-CLOCK LIMIT ON EVERY R2 CALL (NX-SKEW-2b). The IO-idle limit above does
+  # not bound a call that keeps making slow progress, or that retries forever:
+  # #11318 added an `rclone lsjson -R --hash` of the whole assets/ prefix with no
+  # limit of any kind, and runs 37178543559 / 37198287938 sat in this step until
+  # the 6 h job timeout while `pages-build-run` (cancel-in-progress: false) held
+  # every later deploy behind them (03-10 16:59Z → 04-10). So every rclone/aws
+  # call in this file runs under coreutils `timeout` (present on the runner);
+  # tests/r2-calls-bounded.test.ts fails on one that does not. Budgets are ~3x
+  # the slowest measured duration (deploys 36088944074 and 37138892066):
+  #   copy assets 66-135 s → 420 · og 61-83 s → 300 · images 16-26 s → 120
+  #   copy data 153-201 s → 600 · job-canon 4-6 s → 120
+  #   one object (index.html, marker, ledger) ~1 s → 60
+  #   list-objects-v2 of assets/ (54k objects) 42-53 s → 180
+  # A call that runs out fails like any other failed call: a sync sets ok=0
+  # (marker withheld, the full prep retries the push), a ledger/listing call
+  # falls back to the log-only purge. The step itself has `timeout-minutes` in
+  # deploy.yml as the last backstop.
+  local _t_obj="${R2_TIMEOUT_OBJECT_S:-60}" _t_list="${R2_TIMEOUT_LIST_S:-180}" _t_purge="${R2_TIMEOUT_PURGE_S:-300}"
+  local AWS=(env "AWS_ACCESS_KEY_ID=$R2_ACCESS_KEY_ID" "AWS_SECRET_ACCESS_KEY=$R2_SECRET_ACCESS_KEY" "AWS_DEFAULT_REGION=auto"
+    aws --endpoint-url "$R2_S3_ENDPOINT" --cli-connect-timeout 15 --cli-read-timeout 60)
   local bkt=":s3:$R2_BUCKET" ok=1
   echo "CDN→R2 (rclone --checksum): payload $(du -sh "$stage" | cut -f1) → $bkt"
-  _r2_sync() { # <src-dir> <dst-prefix> <cache-control> [json-log] — COPY (additive, no delete)
-    [ -d "$1" ] || return 0
+  _r2_sync() { # <limit-s> <src-dir> <dst-prefix> <cache-control> [json-log] — COPY (additive, no delete)
+    [ -d "$2" ] || return 0
     local sync_status=0
-    if [ -n "${4:-}" ]; then
+    if [ -n "${5:-}" ]; then
       # Capture WHICH objects actually moved so the caller can purge exactly
       # those at the edge (see the assets/ call below). --log-file swallows
       # rclone's stderr, so the log is echoed back to the deploy output after
       # the run — a sync error must stay visible in the job log.
-      if ! "${RC[@]}" copy "$1" "$bkt/$2" --header-upload "Cache-Control: $3" --stats=0 \
-        -v --use-json-log --log-file="$4"; then
+      if ! timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" --header-upload "Cache-Control: $4" --stats=0 \
+        -v --use-json-log --log-file="$5"; then
         ok=0
         sync_status=1
       fi
       # `if`, not `[ -s … ] && cat`: an EMPTY log (nothing changed — the common
       # case) is normal and must not alter the sync result returned below.
-      if [ -s "$4" ]; then cat "$4"; fi
+      if [ -s "$5" ]; then cat "$5"; fi
     else
-      if ! "${RC[@]}" copy "$1" "$bkt/$2" --header-upload "Cache-Control: $3" --stats=0; then
+      if ! timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" --header-upload "Cache-Control: $4" --stats=0; then
         ok=0
         sync_status=1
       fi
+    fi
+    if [ "$sync_status" != 0 ]; then
+      echo "::warning::[r2] sync of $3/ failed or exceeded its ${1}s limit"
     fi
     return "$sync_status"
   }
@@ -282,23 +308,112 @@ _publish_cdn_r2() {
   # `immutable`.
   local _assets_log="$(mktemp -t r2-assets-XXXXXX.jsonl 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/r2-assets.jsonl")"
   local assets_sync_ok=0 assets_sync_status=0
-  _r2_sync "$stage/assets"    assets    "public,max-age=604800" "$_assets_log"
+  # ── Purge ledger, read BEFORE the assets sync (NX-SKEW-2b, Refs #9465/#8612)
+  # The purge below diffs this build's assets against purge-ledger/assets.json
+  # (per key, the MD5 the edge was last purged for), so a key a dead run
+  # uploaded without purging is still purged by the next run even though its
+  # rclone log no longer names it. See purge-changed-cdn-assets.mjs's header.
+  # Every step here is fail-open: whatever fails or runs out of time leaves
+  # _ledger_state != present, and the purge falls back to this run's upload
+  # log, i.e. exactly the behaviour before the ledger existed.
+  local _pdir _ledger_key="purge-ledger/assets.json" _ledger_state=unreadable _rrc=0
+  _pdir="$(mktemp -d "${RUNNER_TEMP:-/tmp}/r2-purge.XXXXXX" 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/r2-purge.$$")"
+  mkdir -p "$_pdir"
+  if [ -d "$stage/assets" ]; then
+    # rclone exits 0 and writes NOTHING when the object does not exist
+    # (measured 2026-10-04 on this bucket, rclone v1.74.3) — the exit codes 3/4
+    # #11318 relied on never occur here. Non-zero is a real read failure.
+    timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$bkt/$_ledger_key" "$_pdir/ledger-in.json" --retries=1 \
+      2> "$_pdir/ledger.err" || _rrc=$?
+    if [ "$_rrc" -ne 0 ]; then
+      echo "::warning::[r2] purge ledger read failed or exceeded ${_t_obj}s (exit $_rrc) — purge falls back to this run's upload log: $(tail -c 300 "$_pdir/ledger.err" 2>/dev/null)"
+    elif [ ! -s "$_pdir/ledger-in.json" ]; then
+      _ledger_state=absent
+    elif node scripts/ci/purge-changed-cdn-assets.mjs --check-ledger --ledger-in="$_pdir/ledger-in.json"; then
+      _ledger_state=present
+    else
+      echo "::warning::[r2] stored purge ledger is not a readable v1 ledger — reseeding it"
+      _ledger_state=absent
+    fi
+  fi
+  if [ "$_ledger_state" = absent ]; then
+    # First run (or unreadable ledger): seed it from what R2 holds NOW, before
+    # this run's upload can change it — a seed taken after the sync would
+    # record a partial upload as already purged (review of #11318). One
+    # prefix-limited list-objects-v2: the ETag of each object comes in the
+    # listing page itself, so no per-object HEAD and no hashing (#11318's
+    # `lsjson -R --hash` is what wedged). Measured on the production bucket:
+    # 53,945 objects under assets/, 42-53 s on the runner (janitor scan of
+    # deploys 36088944074 / 37138892066), 43 s from a laptop (2026-10-04).
+    _rrc=0
+    if ! command -v aws >/dev/null 2>&1; then
+      echo "::warning::[r2] purge ledger absent and no aws CLI to seed it — purge falls back to this run's upload log"
+      _ledger_state=unreadable
+    else
+      timeout -k 10 "$_t_list" "${AWS[@]}" s3api list-objects-v2 --bucket "$R2_BUCKET" --prefix "assets/" \
+        --query 'Contents[].{Key:Key,ETag:ETag}' --output json \
+        > "$_pdir/seed-listing.json" 2> "$_pdir/seed-listing.err" || _rrc=$?
+      if [ "$_rrc" -ne 0 ]; then
+        echo "::warning::[r2] pre-sync listing of assets/ failed or exceeded ${_t_list}s (exit $_rrc) — purge ledger not seeded, purge falls back to this run's upload log: $(tail -c 300 "$_pdir/seed-listing.err" 2>/dev/null)"
+        _ledger_state=unreadable
+      elif node scripts/ci/purge-changed-cdn-assets.mjs --seed assets --stage-dir="$stage/assets" \
+             --seed-listing="$_pdir/seed-listing.json" --ledger-out="$_pdir/ledger-in.json"; then
+        _ledger_state=present
+        # Persist it now, so a run that dies mid-upload still leaves the
+        # next one a pre-upload baseline. Failing to persist only costs that.
+        if timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_pdir/ledger-in.json" "$bkt/$_ledger_key" \
+             --header-upload "Content-Type: application/json; charset=utf-8" \
+             --header-upload "Cache-Control: no-store, max-age=0"; then
+          echo "::notice::[r2] purge ledger seed persisted before the assets/ sync"
+        else
+          echo "::warning::[r2] could not persist the purge ledger seed — this run still uses it"
+        fi
+      else
+        _ledger_state=unreadable
+      fi
+    fi
+  fi
+  _r2_sync 420 "$stage/assets"    assets    "public,max-age=604800" "$_assets_log"
   assets_sync_status=$?
   if [ "$assets_sync_status" -eq 0 ]; then
     assets_sync_ok=1
   fi
-  _r2_sync "$stage/og"        og        "public,max-age=86400"
-  _r2_sync "$stage/images"    images    "public,max-age=86400"
-  _r2_sync "$stage/data"      data      "public,max-age=600"
-  _r2_sync "$stage/job-canon" job-canon "public,max-age=600"
-  "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
+  _r2_sync 300 "$stage/og"        og        "public,max-age=86400"
+  _r2_sync 120 "$stage/images"    images    "public,max-age=86400"
+  _r2_sync 600 "$stage/data"      data      "public,max-age=600"
+  _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600"
+  timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
     --header-upload "Content-Type: text/html; charset=utf-8" --header-upload "Cache-Control: public,max-age=600" || ok=0
   _purge_r2_changed_assets() {
-    if [ "$assets_sync_ok" = 1 ] && [ -s "$_assets_log" ]; then
-      node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
-        || echo "::warning::targeted CDN asset purge failed — edge falls back to the 7d max-age"
+    local _prc=0
+    if [ "$assets_sync_ok" = 1 ] && [ "$_ledger_state" = present ]; then
+      # Stateful: --stage-dir is valid R2 state only because the assets sync
+      # exited 0 (see the script's header). The log still goes in (union).
+      timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
+        --stage-dir="$stage/assets" --ledger-in="$_pdir/ledger-in.json" \
+        --ledger-out="$_pdir/ledger-out.json" --build-id="${DEPLOY_BUILD_ID:-}" || _prc=$?
+      if [ "$_prc" -ne 0 ]; then
+        echo "::error::[r2] targeted CDN asset purge exited $_prc (124 = over ${_t_purge}s) — ledger not updated, the next deploy re-diffs and retries"
+        rm -f "$_pdir/ledger-out.json" 2>/dev/null || true
+      fi
+      # Written only AFTER the purge, and only with what the script recorded:
+      # a key takes its new MD5 only if its own batch succeeded. no-store so a
+      # read of it is never an edge copy.
+      if [ -s "$_pdir/ledger-out.json" ]; then
+        timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_pdir/ledger-out.json" "$bkt/$_ledger_key" \
+          --header-upload "Content-Type: application/json; charset=utf-8" \
+          --header-upload "Cache-Control: no-store, max-age=0" \
+          || echo "::error::[r2] purge ledger write failed or exceeded ${_t_obj}s — the next deploy re-diffs against the previous ledger"
+      fi
+    elif [ "$assets_sync_ok" = 1 ] && [ -s "$_assets_log" ]; then
+      # Fallback (ledger unread, unseeded or timed out): this run's uploads only.
+      timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
+        || echo "::warning::targeted CDN asset purge failed or exceeded ${_t_purge}s — edge falls back to the 7d max-age"
+    elif [ "$assets_sync_ok" != 1 ]; then
+      echo "⚠️ [r2] assets/ sync failed — no edge purge this run; with a ledger, what it did upload stays dirty for the next deploy"
     fi
     rm -f "$_assets_log" 2>/dev/null || true
+    rm -rf "$_pdir" 2>/dev/null || true
   }
   if [ "$ok" != 1 ]; then
     echo "⚠️ R2 payload sync had errors — NOT writing marker (shard gate keeps last good live)"
@@ -310,16 +425,19 @@ _publish_cdn_r2() {
   fi
   # Marker LAST (atomicity #2569): only now is this build's full payload on R2.
   printf '%s' "${DEPLOY_BUILD_ID:-}" > "$stage/cdn-build-id.txt"
-  if "${RC[@]}" copyto "$stage/cdn-build-id.txt" "$bkt/cdn-build-id.txt" \
+  if timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/cdn-build-id.txt" "$bkt/cdn-build-id.txt" \
        --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
     export_env CDN_BASE "https://cdn.frontaliereticino.ch"
     echo "✅ synced CDN payload to R2 ($R2_BUCKET); marker=${DEPLOY_BUILD_ID:-<empty>}"
   else
     echo "⚠️ R2 marker PUT failed — offload skipped, og/data stay in dist"
   fi
-  # Invalidate the edge for EXACTLY the assets/ keys whose bytes just changed.
-  # Runs only past the `ok != 1` guard above, so the full payload is already on
-  # R2. Targeted (`--files=`, batches of 30) and never `purge_everything`: this
+  # Invalidate the edge for EXACTLY the assets/ keys whose bytes changed since
+  # the edge was last purged for them (ledger diff ∪ this run's uploads; the
+  # log alone when the ledger is unavailable). In this success path it runs
+  # after the marker, so the shard gate never waits on it; the `ok != 1` branch
+  # above runs it too, because a later prefix failing does not un-upload
+  # assets/. Targeted (`--files=`, batches of 30) and never `purge_everything`: this
   # host serves ~634k eyeball requests/day at a ~93% edge hit ratio, and
   # dropping all of that at once produces the cold-fill stampede against R2
   # whose edge→origin failures (`originResponseStatus: 0`) Cloudflare returns to
@@ -416,16 +534,19 @@ _janitor_cdn_r2() {
   cutoff_epoch=$(( $(date -u +%s) - grace_days * 86400 ))
 
   local aws_env=(env "AWS_ACCESS_KEY_ID=$R2_ACCESS_KEY_ID" "AWS_SECRET_ACCESS_KEY=$R2_SECRET_ACCESS_KEY" "AWS_DEFAULT_REGION=auto")
-  local AWS=("${aws_env[@]}" aws --endpoint-url "$R2_S3_ENDPOINT")
+  local AWS=("${aws_env[@]}" aws --endpoint-url "$R2_S3_ENDPOINT" --cli-connect-timeout 15 --cli-read-timeout 60)
+  # Wall-clock limits (NX-SKEW-2b, see _publish_cdn_r2): this scan runs inside
+  # the deploy's CDN push step on every deploy. Its listing measured 42-53 s.
+  local t_list="${R2_TIMEOUT_LIST_S:-180}" t_obj="${R2_TIMEOUT_OBJECT_S:-60}"
 
   local active_list; active_list="$(mktemp)"
   ( cd "$stage/assets" && ls -1 ) > "$active_list" 2>/dev/null || true
 
   local listing; listing="$(mktemp)"
-  if ! "${AWS[@]}" s3api list-objects-v2 --bucket "$R2_BUCKET" --prefix "assets/" \
+  if ! timeout -k 10 "$t_list" "${AWS[@]}" s3api list-objects-v2 --bucket "$R2_BUCKET" --prefix "assets/" \
        --query 'Contents[].{Key:Key,Size:Size,LastModified:LastModified,ETag:ETag}' \
        --output json > "$listing" 2>/tmp/r2-janitor-list.err; then
-    echo "::warning::[r2-janitor] list-objects-v2 failed — $(cat /tmp/r2-janitor-list.err 2>/dev/null)"
+    echo "::warning::[r2-janitor] list-objects-v2 failed or exceeded ${t_list}s — $(cat /tmp/r2-janitor-list.err 2>/dev/null)"
     rm -f "$active_list" "$listing"
     return 0
   fi
@@ -478,14 +599,14 @@ _janitor_cdn_r2() {
     # Anti-clobber re-check (see header comment) — trust nothing older than
     # "right now".
     local live_etag
-    live_etag="$("${AWS[@]}" s3api head-object --bucket "$R2_BUCKET" --key "$key" \
+    live_etag="$(timeout -k 10 "$t_obj" "${AWS[@]}" s3api head-object --bucket "$R2_BUCKET" --key "$key" \
       --query 'ETag' --output text 2>/dev/null || true)"
     if [ -z "$live_etag" ] || [ "$live_etag" != "$etag" ]; then
       echo "[r2-janitor] skip (changed/vanished since scan): $key"
       skipped_changed=$((skipped_changed + 1))
       continue
     fi
-    if "${AWS[@]}" s3 rm "s3://$R2_BUCKET/$key" >/dev/null 2>&1; then
+    if timeout -k 10 "$t_obj" "${AWS[@]}" s3 rm "s3://$R2_BUCKET/$key" >/dev/null 2>&1; then
       deleted=$((deleted + 1))
     else
       echo "::warning::[r2-janitor] delete failed: $key"
@@ -959,4 +1080,10 @@ main() {
   echo "✅ deploy-it-pages-prep complete"
 }
 
-main "$@"
+# Run only when executed (`bash deploy-it-pages-prep.sh`, as deploy.yml does).
+# Sourced, it only defines the functions: that is how the janitor's manual
+# `. deploy-it-pages-prep.sh; _janitor_cdn_r2 <stage> apply` recipe above and
+# tests/r2-calls-bounded.test.ts call one function without the whole prep.
+if [ "${BASH_SOURCE[0]}" = "$0" ]; then
+  main "$@"
+fi
