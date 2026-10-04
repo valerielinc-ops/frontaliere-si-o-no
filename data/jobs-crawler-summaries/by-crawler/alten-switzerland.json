@@ -1,7 +1,7 @@
 {
   "key": "alten-switzerland",
   "label": "ALTEN Switzerland",
-  "generatedAt": "2026-10-03T21:22:32.701Z",
+  "generatedAt": "2026-10-04T09:25:29.786Z",
   "total": 2,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 72966,
-  "avgDurationMs": 72966,
+  "durationMs": 14843,
+  "avgDurationMs": 14843,
   "durationHistory": [
-    72966
+    14843
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -45,6 +45,8 @@
       "firstSeenAt": "2026-07-13T13:04:00.984Z",
       "sourceIdentity": "url:https://www.alten.ch/jobs/903-pipe-project-manager-it",
       "salarySource": "estimated",
+      "datePosted": "2026-03-04",
+      "postingDateSource": "reported",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -83,6 +85,8 @@
       "firstSeenAt": "2026-04-14T21:02:53.441Z",
       "sourceIdentity": "url:https://www.alten.ch/jobs/879-google-cloud-platform",
       "salarySource": "reported",
+      "datePosted": "2026-07-06",
+      "postingDateSource": "reported",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -94,5 +98,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }
