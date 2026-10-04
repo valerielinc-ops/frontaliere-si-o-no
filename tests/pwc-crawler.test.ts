@@ -6,7 +6,23 @@
  * using mock API response fixtures.
  */
 import { afterEach, describe, it, expect, vi } from 'vitest';
-import { buildPwcJob, fetchAllListings, fetchAllPwcJobs, jobMatchKey } from '../scripts/update-pwc-jobs.mjs';
+
+const mergeMocks = vi.hoisted(() => ({
+  readExistingCrawlerJobs: vi.fn(),
+  writeJsonAtomic: vi.fn(),
+}));
+
+vi.mock('../scripts/assemble-jobs-dataset.mjs', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../scripts/assemble-jobs-dataset.mjs')>()),
+  readExistingCrawlerJobs: mergeMocks.readExistingCrawlerJobs,
+}));
+
+vi.mock('../scripts/lib/atomic-write-json.mjs', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../scripts/lib/atomic-write-json.mjs')>()),
+  writeJsonAtomic: mergeMocks.writeJsonAtomic,
+}));
+
+import { buildPwcJob, fetchAllListings, fetchAllPwcJobs, jobMatchKey, mergeJobs } from '../scripts/update-pwc-jobs.mjs';
 
 import {
   parsePwcJobs,
@@ -442,6 +458,84 @@ const PWC_UUID = '3e3dc2f3-629d-4764-a803-82d199746aba';
 const PWC_REPOST_UUID = 'f196cf47-50ab-4981-9717-2d5aadfe62ff';
 const PWC_URL = `https://jobs.pwc.ch/job-vacancies/senior-tax-consultant/${PWC_UUID}`;
 const PWC_REPOST_URL = `https://jobs.pwc.ch/job-vacancies/senior-tax-consultant-1/${PWC_REPOST_UUID}`;
+
+const mergeIdentityJob = ({
+  city,
+  slug,
+  marker,
+  previousSlugs = [],
+}: {
+  city: string;
+  slug: string;
+  marker: string;
+  previousSlugs?: string[];
+}) => ({
+  id: `pwc-${city.toLowerCase()}`,
+  title: `Senior Tax Consultant (${city})`,
+  slug,
+  url: `https://jobs.pwc.ch/job-vacancies/${slug}/${PWC_UUID}`,
+  applyUrl: `https://jobs.pwc.ch/job-vacancies/${slug}/${PWC_UUID}`,
+  company: 'PwC Switzerland',
+  companyKey: 'pwc',
+  location: city,
+  addressLocality: city,
+  addressRegion: city === 'Lugano' ? 'TI' : 'ZH',
+  addressCountry: 'CH',
+  canton: city === 'Lugano' ? 'TI' : 'ZH',
+  country: 'CH',
+  sourceLang: 'en',
+  description: `Source description for ${marker}, with enough detail to represent the vacancy.`,
+  titleByLocale: { en: `Senior Tax Consultant (${city})` },
+  descriptionByLocale: { en: `Source description for ${marker}, with enough detail to represent the vacancy.` },
+  slugByLocale: { it: slug, en: slug, de: slug, fr: slug },
+  previousSlugs,
+});
+
+describe('PwC mergeJobs identity', () => {
+  it('keeps same-UUID records and slug history distinct per city', () => {
+    mergeMocks.readExistingCrawlerJobs.mockReset();
+    mergeMocks.writeJsonAtomic.mockReset();
+    mergeMocks.readExistingCrawlerJobs.mockReturnValue([
+      mergeIdentityJob({
+        city: 'Lugano',
+        slug: 'old-lugano-tax',
+        marker: 'old Lugano',
+        previousSlugs: ['legacy-lugano-tax'],
+      }),
+      mergeIdentityJob({
+        city: 'Zürich',
+        slug: 'old-zurich-tax',
+        marker: 'old Zürich',
+        previousSlugs: ['legacy-zurich-tax'],
+      }),
+    ]);
+
+    const writes: unknown[][] = [];
+    mergeMocks.writeJsonAtomic.mockImplementation((_path: string, jobs: unknown[]) => {
+      writes.push(jobs);
+    });
+
+    const stats = mergeJobs([
+      mergeIdentityJob({ city: 'Lugano', slug: 'fresh-lugano-tax', marker: 'fresh Lugano' }),
+      mergeIdentityJob({ city: 'Zürich', slug: 'fresh-zurich-tax', marker: 'fresh Zürich' }),
+    ]);
+
+    expect(stats).toMatchObject({ total: 2, added: 0, updated: 2 });
+    expect(writes).toHaveLength(2);
+    const merged = writes[0] as Array<Record<string, any>>;
+    expect(merged).toHaveLength(2);
+
+    const byCity = new Map(merged.map((job) => [job.addressLocality, job]));
+    expect(byCity.get('Lugano')?.previousSlugs).toEqual(expect.arrayContaining([
+      'legacy-lugano-tax',
+    ]));
+    expect(byCity.get('Lugano')?.previousSlugs).not.toContain('legacy-zurich-tax');
+    expect(byCity.get('Zürich')?.previousSlugs).toEqual(expect.arrayContaining([
+      'legacy-zurich-tax',
+    ]));
+    expect(byCity.get('Zürich')?.previousSlugs).not.toContain('legacy-lugano-tax');
+  });
+});
 
 const PWC_INTRO = 'Join our Tax and Legal team in Lugano and advise private and corporate clients on Swiss and international tax matters.';
 const PWC_TASKS = ['Advise clients on cross-border tax structures and compliance questions', 'Prepare tax returns, rulings and documentation for our clients'];
