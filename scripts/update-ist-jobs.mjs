@@ -31,6 +31,7 @@
  * postings from the group's worldwide portal are discarded after parsing;
  * missing or unresolved locations are never assigned a historical default.
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -563,9 +564,7 @@ export async function fetchIstJobs() {
       ...sourceSlotTitleAndSlug(title, slug, sourceLang),
       slug,
       category: detectCategory(title),
-      datePosted: detail.datePosted
-        ? new Date(detail.datePosted).toISOString().split('T')[0]
-        : new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(detail.datePosted),
       source: 'ist-inspirededu-crawler',
       sourceLang,
       employmentType: 'FULL_TIME',
