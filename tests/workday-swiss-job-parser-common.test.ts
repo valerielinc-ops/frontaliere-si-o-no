@@ -761,8 +761,10 @@ describe('createWorkdaySwissParser — HQ default is not a fallback on the facet
  * "aborted before looking" — keeping the 3 HQ-stamped records live forever.
  *
  * With `proveForeignOnlyBoardEmpty` the parser stamps that zero as
- * source-proven. Every other empty stays a bare `[]`, which the runner's
- * validator refuses (fail-closed, previous slice kept).
+ * source-proven. The same opt-in also covers a complete unfiltered fallback
+ * after a tenant rejects its country facet. Every other empty stays a bare
+ * `[]`, which the runner's validator refuses (fail-closed, previous slice
+ * kept).
  */
 describe('createWorkdaySwissParser — foreign-only Swiss board is a proven empty (#9651)', () => {
   const ORIGINAL_FETCH = global.fetch;
@@ -1274,8 +1276,9 @@ describe('createWorkdaySwissParser — countryFacetParameter', () => {
  * that calls its country facet `Country` / `Location_Country` answers HTTP 400
  * to the default `locationCountry`, the run fell back to the whole board, and
  * the zero could never be proven (the proof needs an ACCEPTED faceted query).
- * Ferring, KONE, Imerys and Temenos each got a hand-written key. The factory
- * now reads the board's facets after that 400 and picks the key itself.
+ * Ferring, KONE and Imerys each got a hand-written key. The factory now reads
+ * the board's facets after that 400 and picks the key itself; a board such as
+ * Temenos with no usable country facet falls back to its complete-board proof.
  */
 describe('createWorkdaySwissParser — country facet discovery after HTTP 400', () => {
   const ORIGINAL_FETCH = global.fetch;

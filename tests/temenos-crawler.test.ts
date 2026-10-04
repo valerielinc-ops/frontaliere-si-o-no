@@ -52,7 +52,7 @@ afterEach(() => {
 });
 
 describe('Temenos crawler parser', () => {
-  it('uses the tenant facet and proves a live board with no Swiss roles', async () => {
+  it('proves a live board with no Swiss roles', async () => {
     const calls = mockTemenosWorkday({
       faceted: { total: 0, jobPostings: [], facets: [] },
       unfiltered: {
