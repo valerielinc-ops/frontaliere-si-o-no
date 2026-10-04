@@ -142,7 +142,7 @@ const CARD_AUCTION_LINK_RE = /<a\b[^>]*\bhref\s*=\s*["'][^"']*\/auction\/[^"']*[
 /**
  * True only for the card platform's own complete page with no current cards.
  *
- * The AG/BE/VD platform returns the normal catalogue shell after a daily
+ * The shared card platform returns the normal catalogue shell after a daily
  * auction closes, but with no `auction-element-link` cards. Treating every
  * empty card parse as healthy would hide parser drift, so require the stable
  * shell and reject any auction link that the current parser did not consume.
