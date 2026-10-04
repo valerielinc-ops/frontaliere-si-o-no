@@ -124,7 +124,7 @@ jobs:
           # priority:medium); no auto-route label (crawler/follow-up) → manual fix.
           node scripts/lib/github-issue-creator.mjs \
             --title "404-risk: URLs that would return a GitHub Pages 404" \
-            --description "$(cat /tmp/r/desc.md)" \
+            --description-file /tmp/r/desc.md \
             --priority 3 \
             --label bug \
             --label funnel-seo \

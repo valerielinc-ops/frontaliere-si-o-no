@@ -470,7 +470,7 @@ jobs:
           # `set -euo pipefail` hazard the raw `gh` call carried here.
           node scripts/lib/github-issue-creator.mjs \
             --title "$title" \
-            --description "$(cat /tmp/issue-body.md)" \
+            --description-file /tmp/issue-body.md \
             --priority 4 \
             --label seo-gates \
             --workflow "${{ github.workflow }}"
@@ -546,7 +546,7 @@ jobs:
               } > /tmp/issue-body.md
               node scripts/lib/github-issue-creator.mjs \
                 --title "$title" \
-                --description "$(cat /tmp/issue-body.md)" \
+                --description-file /tmp/issue-body.md \
                 --priority "$priority" \
                 --label seo-gates \
                 --label regression \

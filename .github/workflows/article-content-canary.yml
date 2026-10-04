@@ -119,7 +119,7 @@ jobs:
           set -euo pipefail
           node scripts/lib/github-issue-creator.mjs \
             --title "Article content canary: regression detected" \
-            --description "$(cat canary-issue-body.md)" \
+            --description-file canary-issue-body.md \
             --priority 1 \
             --label Bug \
             --label article-content-canary \

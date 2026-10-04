@@ -105,6 +105,16 @@ describe('Bing SEO live contract', () => {
     expect(install?.env?.ONNXRUNTIME_NODE_INSTALL).toBe('skip');
   });
 
+  it('passes the full-tree issue report by file, not through process argv', () => {
+    const workflow = fs.readFileSync(
+      path.resolve('.github/workflows/bing-seo-loop.yml'),
+      'utf8',
+    );
+
+    expect(workflow).toContain('--description-file "$RUNNER_TEMP/bing-site-tree-issue.md"');
+    expect(workflow).not.toContain('--description "$(cat "$RUNNER_TEMP/bing-site-tree-issue.md")"');
+  });
+
   it('checks out the crawler import closure for every tree job', () => {
     const workflow = YAML.parse(
       fs.readFileSync(path.resolve('.github/workflows/bing-seo-loop.yml'), 'utf8'),
