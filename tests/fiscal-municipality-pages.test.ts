@@ -102,6 +102,25 @@ describe('fiscal above-floor page render (#4484)', () => {
     expect(html).toContain('Tasse frontaliere Como');
     expect(html).not.toContain('vivere da frontaliere e lavorare in Ticino');
   });
+
+  it('renders the data-backed profile rankings in every locale', () => {
+    const labels = {
+      it: 'Per popolazione, questo comune è al posto',
+      en: 'By population, this town ranks',
+      de: 'Nach Einwohnerzahl liegt diese Gemeinde auf Rang',
+      fr: 'Par population, cette commune est',
+    } as const;
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const { html } = renderAboveFloorPage({
+        municipality: como,
+        locale,
+        dateStamp: '2026-07-19',
+        distDir: DIST,
+      });
+      expect(html).toContain('data-nearest-comparison');
+      expect(html).toContain(labels[locale]);
+    }
+  });
 });
 
 describe('fiscal page "vivere a" cross-link is gated on the Ticino corridor (issue #4893)', () => {
