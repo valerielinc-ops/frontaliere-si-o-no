@@ -22,15 +22,8 @@ export function dossierMode(env = process.env) {
   return String(env[DOSSIER_KEY] || '').trim().toLowerCase() === 'single' ? 'single' : 'separate';
 }
 
-/**
- * The draft's type of application as a string: the draft keeps `{ type, sector }`
- * (assistedApplicationCandidateType.js), a plain string is read too. '' when the
- * draft is older than the types.
- */
-export function draftCandidateType(draft) {
-  const value = draft?.candidateType;
-  return String((typeof value === 'string' ? value : value?.type) || '');
-}
+// The draft's type of application as a string, read in one place with the letter's rebuild.
+export { draftCandidateType } from '../../../functions/src/assistedApplicationCandidateType.js';
 
 /** Never for an apprentice, nor for a draft whose type is unknown. */
 export function wantsDossier({ mode, channelType, candidateType }) {
