@@ -56,6 +56,33 @@ describe('automation e-mails', () => {
     }
   });
 
+  // Close-out of 2026-10-03: the e-mail promises the page's list only when there is one, and its answers
+  // only when the page asks questions (the wording comes from assistedApplicationFitNotice.js).
+  it('words the fit paragraph for what the page shows, in every language', () => {
+    const expectations: Record<string, { far: RegExp; list: RegExp; answers: RegExp; edit: RegExp }> = {
+      it: { far: /il tuo profilo sembra lontano da quello che chiede l’annuncio/, list: /Nella pagina trovi qual/, answers: /nelle risposte/, edit: /scrivilo nella lettera con «Modifica» o chiedi una nuova versione con «Chiedi modifiche»/ },
+      de: { far: /wirkt dein Profil weit entfernt von dem, was die Stelle verlangt/, list: /Auf der Seite siehst du, welche/, answers: /in den Antworten/, edit: /mit «Bearbeiten» ins Anschreiben oder bitte mit «Änderungen wünschen» um eine neue Version/ },
+      fr: { far: /votre profil semble éloigné de ce que demande l’annonce/, list: /La page indique lesquel|La page indique laquelle/, answers: /dans vos réponses/, edit: /dans la lettre avec « Modifier » ou demandez une nouvelle version avec « Demander des modifications »/ },
+      en: { far: /your profile looks far from what the posting asks for/, list: /The page (lists them|says which)/, answers: /in your answers/, edit: /in the letter with “Edit” or ask for a new version with “Ask for changes”/ },
+    };
+    for (const [locale, words] of Object.entries(expectations)) {
+      const review = (fit: string, fitVia: string) => buildCandidateAutomationEmail('candidate_review', { ...base, locale, deadlineAt: DEADLINE, fit, fitVia } as any);
+      // A verdict «poor» with no decisive requirement missing: no list to point to.
+      const far = review('far', 'answers');
+      expect(far.text).toMatch(words.far);
+      expect(far.html).toMatch(words.far);
+      expect(far.text).not.toMatch(words.list);
+      expect(far.text).toMatch(words.answers);
+      // A draft with no questions: the letter or a new version, the two things the page offers.
+      for (const fit of ['partial', 'low', 'far']) {
+        const edit = review(fit, 'edit');
+        expect(edit.text).toMatch(words.edit);
+        expect(edit.text).not.toMatch(words.answers);
+      }
+      expect(review('partial', 'edit').text).toMatch(words.list);
+    }
+  });
+
   it('never promises an automatic send while questions are open', () => {
     const email = buildCandidateAutomationEmail('candidate_review', { ...base, locale: 'it', held: true, openQuestions: 2, deadlineAt: null });
     expect(email.text).toContain('mi servono alcune informazioni o documenti che solo tu puoi darmi (2)');
@@ -105,9 +132,12 @@ describe('automation e-mails', () => {
     const auto = buildOwnerAutomationEmail('owner_review', { job: 'Infermiera', company: 'Ospedale', orderId: 'o', deadlineAt: DEADLINE, flags: [], verdict: 'buono', summary: 'Ok', channel: 'Lever' });
     expect(auto.subject).toBe('[Candidatura] Bozza pronta: Infermiera — Ospedale');
     expect(auto.text).toMatch(/si approva da sola .*21:30/);
-    const held = buildOwnerAutomationEmail('owner_review', { job: 'Infermiera', company: 'Ospedale', orderId: 'o', flags: ['fact_check', 'knock_out'] });
+    // Two of the flags the flow raises today (#11026 took `knock_out` out of them, and its words out of here).
+    const held = buildOwnerAutomationEmail('owner_review', { job: 'Infermiera', company: 'Ospedale', orderId: 'o', flags: ['fact_check', 'channel_unknown'] });
     expect(held.subject).toContain('Serve il tuo intervento');
     expect(held.text).toContain('numeri, date o contatti che non compaiono nel CV');
+    expect(held.text).toContain('non è chiaro come candidarsi');
+    expect(buildOwnerAutomationEmail('owner_review', { job: 'Infermiera', company: 'Ospedale', orderId: 'o', flags: ['knock_out'] }).text).not.toContain('requisito indispensabile');
     const takeover = buildOwnerAutomationEmail('owner_takeover', { job: 'Infermiera', company: 'Ospedale', orderId: 'o', reason: 'max_rounds' });
     expect(takeover.text).toContain('rifiutato la bozza per 3 volte');
   });
@@ -140,9 +170,13 @@ describe('automation e-mails', () => {
     expect(refused.hint).not.toContain('prima di inviarla di nuovo');
     expect(describeTakeover({ reason: 'portal_ambiguous', stage: 'submit' }).hint).toContain('prima di inviarla di nuovo');
     expect(describeTakeover({ reason: 'portal:portal_needs_candidate', stage: 'submit' }).reason).toBe('l’invio sul portale si è fermato: il robot non è riuscito a completare una pagina del portale');
+    // #11161: a retry completes a WhatsApp application by e-mail when the channel has a PastaHR https link.
     const whatsapp = describeTakeover({ reason: 'portal:whatsapp', stage: 'submit' });
     expect(whatsapp.reason).toContain('solo via WhatsApp');
     expect(whatsapp.hint).toContain('«Affida al candidato»');
+    expect(whatsapp.hint).toContain('nella chat WhatsApp del datore');
+    expect(whatsapp.hint).toContain('Se il canale ha un link PastaHR (https), dalla coda «Riprova l’invio automatico» chiude l’ordine');
+    expect(whatsapp.hint).toContain('Altrimenti premi «Affida al candidato»');
     expect(describeTakeover({ reason: 'Unexpected token', stage: 'draft' })).toEqual({
       reason: 'la bozza non è stata generata',
       hint: expect.stringContaining('Rigenera'),

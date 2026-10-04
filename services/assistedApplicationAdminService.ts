@@ -92,7 +92,6 @@ export interface AssistedApplicationAutomationView {
     formAnswers: Array<{ key: string; label: string; value: string; needsConfirmation: boolean; note: string }>;
     factCheck: { ok: boolean; unsupported: Array<{ field: string; kind: string; token: string; context: string }>; advisories?: Array<{ field: string; kind: string; token: string; context: string }>; basis: string | null } | null;
     factCheckAcknowledgedAt: number | null;
-    knockOutAcknowledgedAt: number | null;
     editedAt: number | null;
     /** When the candidate last saved their own changes on the review page. */
     candidateEditedAt?: number | null;

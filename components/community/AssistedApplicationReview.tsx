@@ -503,7 +503,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
 
         {/* A profile that is not a full match goes on: said here, above the questions, before the candidate decides. */}
         {data && data.fit && data.can.answer && (
-          <AssistedApplicationFitNotice fit={data.fit} locale={pageLocale} />
+          <AssistedApplicationFitNotice fit={data.fit} locale={pageLocale} hasQuestions={data.questions.length > 0} canEdit={Boolean(data.can.edit)} />
         )}
 
         {data && data.can.answer && data.questions.length > 0 && (
