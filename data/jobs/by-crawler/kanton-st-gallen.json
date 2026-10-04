@@ -5480,12 +5480,12 @@
     },
     {
       "id": "kanton-st-gallen-70cff0389efc",
-      "slug": "sachbearbeiter-in-m-w-d-kanton-st-gallen-rapperswil-jona",
+      "slug": "impiegato-m-f-d-kanton-st-gallen-rapperswil-jona",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-m-w-d-kanton-st-gallen-rapperswil-jona",
-        "en": "sachbearbeiter-in-m-w-d-kanton-st-gallen-rapperswil-jona",
+        "it": "impiegato-m-f-d-kanton-st-gallen-rapperswil-jona",
+        "en": "clerk-m-f-d-kanton-st-gallen-rapperswil-jona",
         "de": "sachbearbeiter-in-m-w-d-kanton-st-gallen-ch",
-        "fr": "sachbearbeiter-in-m-w-d-kanton-st-gallen-rapperswil-jona"
+        "fr": "commis-h-f-d-kanton-st-gallen-rapperswil-jona"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -5530,11 +5530,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-m-w-d-kanton-st-gallen-ch"
+        "sachbearbeiter-in-m-w-d-kanton-st-gallen-ch",
+        "sachbearbeiter-in-m-w-d-kanton-st-gallen-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-m-w-d-kanton-st-gallen-ch"
+          "sachbearbeiter-in-m-w-d-kanton-st-gallen-ch",
+          "sachbearbeiter-in-m-w-d-kanton-st-gallen-rapperswil-jona"
+        ],
+        "en": [
+          "sachbearbeiter-in-m-w-d-kanton-st-gallen-rapperswil-jona"
+        ],
+        "fr": [
+          "sachbearbeiter-in-m-w-d-kanton-st-gallen-rapperswil-jona"
         ]
       },
       "firstSeenAt": "2026-09-10T23:10:11.094Z",

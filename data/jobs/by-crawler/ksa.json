@@ -595,7 +595,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -639,8 +639,7 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -650,8 +649,7 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
         ]
       },
       "needsRetranslation": true,
@@ -3086,12 +3084,12 @@
     },
     {
       "id": "ksa-7d65eaf40072",
-      "slug": "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau",
+      "slug": "assistente-medico-assistente-medico-kantonsspital-aarau-ksa-aarau-4c9543",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau",
-        "en": "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau",
+        "it": "assistente-medico-assistente-medico-kantonsspital-aarau-ksa-aarau-4c9543",
+        "en": "assistant-doctor-assistant-doctor-kantonsspital-aarau-ksa-aarau-4c9543",
         "de": "assistenzarztin-assistenzarzt-ksa-ch",
-        "fr": "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau"
+        "fr": "assistant-medecin-assistant-medecin-kantonsspital-aarau-ksa-aarau-4c9543"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3134,11 +3132,19 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-ksa-ch"
+        "assistenzarztin-assistenzarzt-ksa-ch",
+        "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-ksa-ch"
+          "assistenzarztin-assistenzarzt-ksa-ch",
+          "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-26T09:53:28.951Z",

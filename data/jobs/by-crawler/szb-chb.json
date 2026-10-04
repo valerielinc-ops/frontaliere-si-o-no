@@ -4136,12 +4136,12 @@
     },
     {
       "id": "szb-chb-ce57cf599cf9",
-      "slug": "entwicklungspadiater-in-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "slug": "pediatra-dello-sviluppo-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
-        "it": "entwicklungspadiater-in-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "en": "entwicklungspadiater-in-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "it": "pediatra-dello-sviluppo-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "en": "developmental-pediatrician-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "de": "entwicklungspadiater-in-50-100-szb-chb-biel-bienne",
-        "fr": "entwicklungspadiater-in-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "fr": "pediatre-du-developpement-a-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -4185,11 +4185,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "entwicklungspadiater-in-50-100-szb-chb-biel-bienne"
+        "entwicklungspadiater-in-50-100-szb-chb-biel-bienne",
+        "entwicklungspadiater-in-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "entwicklungspadiater-in-50-100-szb-chb-biel-bienne"
+          "entwicklungspadiater-in-50-100-szb-chb-biel-bienne",
+          "entwicklungspadiater-in-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        ],
+        "en": [
+          "entwicklungspadiater-in-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        ],
+        "fr": [
+          "entwicklungspadiater-in-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-09-04T13:27:41.208Z",
@@ -4212,9 +4220,9 @@
       "slug": "dipl-hebamme-pool-station-mutter-e-kind-gynakologie-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
         "it": "dipl-hebamme-pool-station-mutter-e-kind-gynakologie-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "en": "dipl-hebamme-pool-station-mutter-und-kind-gynakologie-szb-chb-biel-bienne",
+        "en": "dipl-midwife-pool-station-mother-and-child-gynaecology-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "de": "dipl-hebamme-pool-station-mutter-und-kind-gynakologie-szb-chb-biel-bienne",
-        "fr": "dipl-hebamme-pool-station-mutter-und-kind-gynakologie-szb-chb-biel-bienne"
+        "fr": "sage-femme-dipl-piscine-station-mere-et-enfant-gynecologie-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -4263,6 +4271,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-hebamme-pool-station-mutter-und-kind-gynakologie-szb-chb-biel-bienne"
+        ],
+        "en": [
+          "dipl-hebamme-pool-station-mutter-und-kind-gynakologie-szb-chb-biel-bienne"
+        ],
+        "fr": [
+          "dipl-hebamme-pool-station-mutter-und-kind-gynakologie-szb-chb-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-09-07T15:08:05.012Z",
@@ -4282,12 +4296,12 @@
     },
     {
       "id": "szb-chb-e018f9bf92a6",
-      "slug": "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-spitalzentrum-biel-centre-hospitalier",
+      "slug": "assistente-medico-nefrologia-60-100-lunedi-venerdi-anche-fage-possibile-spitalzentrum-biel-centre-hospitalier-bienne",
       "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-spitalzentrum-biel-centre-hospitalier",
-        "en": "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-spitalzentrum-biel-centre-hospitalier",
+        "it": "assistente-medico-nefrologia-60-100-lunedi-venerdi-anche-fage-possibile-spitalzentrum-biel-centre-hospitalier-bienne",
+        "en": "medical-practice-assistant-nephrology-60-100-mon-fri-fage-also-possible-spitalzentrum-biel-centre-hospitalier-bienne",
         "de": "medizinische-r-praxisassistent-in-nephrologie-60-100-szb-chb-biel-bienne",
-        "fr": "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-spitalzentrum-biel-centre-hospitalier"
+        "fr": "assistant-medical-en-nephrologie-60-100-du-lundi-au-vendredi-fage-egalement-possible-spitalzentrum-biel-centre"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -4333,14 +4347,22 @@
       "firstSeenAt": "2026-09-08T23:22:49.015Z",
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-szb-chb-biel"
+          "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-szb-chb-biel",
+          "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-spitalzentrum-biel-centre-hospitalier"
         ],
         "de": [
           "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-szb-chb-biel"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-spitalzentrum-biel-centre-hospitalier"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-spitalzentrum-biel-centre-hospitalier"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-szb-chb-biel"
+        "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-szb-chb-biel",
+        "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-spitalzentrum-biel-centre-hospitalier"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -4434,12 +4456,12 @@
     },
     {
       "id": "szb-chb-19661195b67b",
-      "slug": "medizinische-codiererin-medizinischer-codierer-80-szb-chb-biel-bienne",
+      "slug": "codificatore-medico-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
-        "it": "medizinische-codiererin-medizinischer-codierer-80-szb-chb-biel-bienne",
-        "en": "medizinische-codiererin-medizinischer-codierer-80-szb-chb-biel-bienne",
+        "it": "codificatore-medico-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "en": "medical-coder-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "de": "medizinische-codiererin-medizinischer-codierer-80-szb-chb-biel-bienne",
-        "fr": "medizinische-codiererin-medizinischer-codierer-80-szb-chb-biel-bienne"
+        "fr": "codificateur-medical-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -4495,16 +4517,30 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-codiererin-medizinischer-codierer-80-szb-chb-biel-bienne"
+        ],
+        "en": [
+          "medizinische-codiererin-medizinischer-codierer-80-szb-chb-biel-bienne"
+        ],
+        "fr": [
+          "medizinische-codiererin-medizinischer-codierer-80-szb-chb-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-codiererin-medizinischer-codierer-80-szb-chb-biel-bienne"
+      ]
     },
     {
       "id": "szb-chb-cd8f560b9652",
-      "slug": "diplomierte-r-pflegefachfrau-mann-hamodialyse-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "slug": "infermiere-qualificato-in-emodialisi-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
-        "it": "diplomierte-r-pflegefachfrau-mann-hamodialyse-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "en": "diplomierte-r-pflegefachfrau-mann-hamodialyse-80-100-szb-chb-biel-bienne",
+        "it": "infermiere-qualificato-in-emodialisi-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "en": "qualified-nurse-hemodialysis-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "de": "diplomierte-r-pflegefachfrau-mann-hamodialyse-80-100-szb-chb-biel-bienne",
-        "fr": "diplomierte-r-pflegefachfrau-mann-hamodialyse-80-100-szb-chb-biel-bienne"
+        "fr": "infirmiere-qualifiee-en-hemodialyse-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -4548,10 +4584,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "diplomierte-r-pflegefachfrau-mann-hamodialyse-80-100-szb-chb-biel-bienne"
+        "diplomierte-r-pflegefachfrau-mann-hamodialyse-80-100-szb-chb-biel-bienne",
+        "diplomierte-r-pflegefachfrau-mann-hamodialyse-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "diplomierte-r-pflegefachfrau-mann-hamodialyse-80-100-szb-chb-biel-bienne",
+          "diplomierte-r-pflegefachfrau-mann-hamodialyse-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        ],
+        "en": [
+          "diplomierte-r-pflegefachfrau-mann-hamodialyse-80-100-szb-chb-biel-bienne"
+        ],
+        "fr": [
           "diplomierte-r-pflegefachfrau-mann-hamodialyse-80-100-szb-chb-biel-bienne"
         ]
       },

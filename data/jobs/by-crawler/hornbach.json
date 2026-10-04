@@ -1521,9 +1521,9 @@
       "slug": "verkaufer-in-pflanzen-hornbach-luzern-littau",
       "slugByLocale": {
         "it": "verkaufer-in-pflanzen-hornbach-luzern-littau",
-        "en": "verkaufer-in-pflanzen-hornbach-luzern-littau",
+        "en": "plant-salesperson-hornbach-luzern-littau",
         "de": "verkaufer-in-pflanzen-hornbach-luzern-littau",
-        "fr": "verkaufer-in-pflanzen-hornbach-luzern-littau"
+        "fr": "vendeur-dans-les-plantes-hornbach-luzern-littau"
       },
       "company": "Hornbach",
       "companyKey": "hornbach",
@@ -1614,9 +1614,9 @@
       "slug": "verkaufer-in-fliesen-hornbach-sirnach",
       "slugByLocale": {
         "it": "verkaufer-in-fliesen-hornbach-sirnach",
-        "en": "verkaufer-in-fliesen-hornbach-sirnach",
+        "en": "seller-tiles-hornbach-sirnach",
         "de": "verkaufer-in-fliesen-hornbach-sirnach",
-        "fr": "verkaufer-in-fliesen-hornbach-sirnach"
+        "fr": "vendeur-en-carrelage-hornbach-sirnach"
       },
       "company": "Hornbach",
       "companyKey": "hornbach",
@@ -1781,12 +1781,12 @@
     },
     {
       "id": "hornbach-155153",
-      "slug": "verkaufer-in-farben-hornbach-luzern-littau",
+      "slug": "colori-dei-venditori-hornbach-luzern-littau",
       "slugByLocale": {
-        "it": "verkaufer-in-farben-hornbach-luzern-littau",
-        "en": "verkaufer-in-farben-hornbach-luzern-littau",
+        "it": "colori-dei-venditori-hornbach-luzern-littau",
+        "en": "seller-colors-hornbach-luzern-littau",
         "de": "verkaufer-in-farben-hornbach-luzern-littau",
-        "fr": "verkaufer-in-farben-hornbach-luzern-littau"
+        "fr": "couleurs-des-vendeurs-hornbach-luzern-littau"
       },
       "company": "Hornbach",
       "companyKey": "hornbach",
@@ -1833,19 +1833,23 @@
       "previousSlugs": [
         "couleurs-des-fournisseurs-hornbach-luzern-littau",
         "vendor-colours-hornbach-luzern-littau",
-        "colore-del-venditore-hornbach-luzern-littau"
+        "colore-del-venditore-hornbach-luzern-littau",
+        "verkaufer-in-farben-hornbach-luzern-littau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "couleurs-des-fournisseurs-hornbach-luzern-littau",
           "vendor-colours-hornbach-luzern-littau",
-          "colore-del-venditore-hornbach-luzern-littau"
+          "colore-del-venditore-hornbach-luzern-littau",
+          "verkaufer-in-farben-hornbach-luzern-littau"
         ],
         "en": [
-          "vendor-colours-hornbach-luzern-littau"
+          "vendor-colours-hornbach-luzern-littau",
+          "verkaufer-in-farben-hornbach-luzern-littau"
         ],
         "fr": [
-          "couleurs-des-fournisseurs-hornbach-luzern-littau"
+          "couleurs-des-fournisseurs-hornbach-luzern-littau",
+          "verkaufer-in-farben-hornbach-luzern-littau"
         ]
       },
       "needsRetranslation": true,

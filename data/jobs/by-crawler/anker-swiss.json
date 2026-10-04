@@ -8717,7 +8717,7 @@
       "slug": "zimmermann-100-anker-swiss-ticino-ag-marstetten-acfc931a",
       "slugByLocale": {
         "it": "zimmermann-100-anker-swiss-ticino-ag-marstetten-acfc931a",
-        "en": "zimmermann-100-anker-swiss-ticino-ag-marstetten-acfc931a",
+        "en": "carpenter-100-anker-swiss-ticino-ag-marstetten-acfc931a",
         "de": "zimmermann-100-anker-swiss-ticino-ag-marstetten-acfc931a",
         "fr": "zimmermann-100-anker-swiss-ticino-ag-marstetten-acfc931a"
       },
@@ -12683,12 +12683,12 @@
     },
     {
       "id": "anker-swiss-28414a926b1c",
-      "slug": "betonwerker-100-anker-swiss-ticino-ag-veltheim-ag-28414a92",
+      "slug": "lavoratore-del-calcestruzzo-al-100-anker-swiss-ticino-ag-veltheim-ag-28414a92",
       "slugByLocale": {
-        "it": "betonwerker-100-anker-swiss-ticino-ag-veltheim-ag-28414a92",
-        "en": "betonwerker-100-anker-swiss-ticino-ag-veltheim-ag-28414a92",
+        "it": "lavoratore-del-calcestruzzo-al-100-anker-swiss-ticino-ag-veltheim-ag-28414a92",
+        "en": "concrete-worker-100-anker-swiss-ticino-ag-veltheim-ag-28414a92",
         "de": "betonwerker-100-anker-swiss-ticino-ag-veltheim-ag-28414a92",
-        "fr": "betonwerker-100-anker-swiss-ticino-ag-veltheim-ag-28414a92"
+        "fr": "travailleur-du-beton-a-100-anker-swiss-ticino-ag-veltheim-ag-28414a92"
       },
       "slugDisambiguator": "28414a92",
       "company": "Anker Swiss Ticino AG",
@@ -12745,7 +12745,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "betonwerker-100-anker-swiss-ticino-ag-veltheim-ag-28414a92"
+        ],
+        "en": [
+          "betonwerker-100-anker-swiss-ticino-ag-veltheim-ag-28414a92"
+        ],
+        "fr": [
+          "betonwerker-100-anker-swiss-ticino-ag-veltheim-ag-28414a92"
+        ]
+      },
+      "previousSlugs": [
+        "betonwerker-100-anker-swiss-ticino-ag-veltheim-ag-28414a92"
+      ]
     },
     {
       "id": "anker-swiss-c17e64545f27",
@@ -14954,10 +14968,10 @@
     },
     {
       "id": "anker-swiss-62ee037db1de",
-      "slug": "metallbauer-100-anker-swiss-ticino-ag-neuenhof-62ee037d",
+      "slug": "metallurgia-al-100-anker-swiss-ticino-ag-neuenhof-62ee037d",
       "slugByLocale": {
         "de": "metallbauer-100-anker-swiss-ticino-ag-neuenhof-62ee037d",
-        "it": "metallbauer-100-anker-swiss-ticino-ag-neuenhof-62ee037d",
+        "it": "metallurgia-al-100-anker-swiss-ticino-ag-neuenhof-62ee037d",
         "en": "metalworker-100-anker-swiss-ag-anker-swiss-ticino-ag-neuenhof-62ee037d",
         "fr": "constructeur-metallique-100-anker-swiss-ag-anker-swiss-ticino-ag-neuenhof-62ee037d"
       },
@@ -15016,7 +15030,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-06T23:02:38.219Z"
+      "firstSeenAt": "2026-09-06T23:02:38.219Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-100-anker-swiss-ticino-ag-neuenhof-62ee037d"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-100-anker-swiss-ticino-ag-neuenhof-62ee037d"
+      ]
     },
     {
       "id": "anker-swiss-0efb3116cacd",

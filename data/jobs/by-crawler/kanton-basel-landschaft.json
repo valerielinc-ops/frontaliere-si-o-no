@@ -6203,12 +6203,12 @@
     },
     {
       "id": "kanton-basel-landschaft-a805409577dc",
-      "slug": "amtliche-tierarztin-amtlicher-tierarzt-kanton-basel-landschaft-liestal",
+      "slug": "veterinario-ufficiale-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
-        "it": "amtliche-tierarztin-amtlicher-tierarzt-kanton-basel-landschaft-liestal",
-        "en": "amtliche-tierarztin-amtlicher-tierarzt-kanton-basel-landschaft-liestal",
+        "it": "veterinario-ufficiale-kantonale-verwaltung-basel-landschaft-liestal",
+        "en": "official-veterinarian-kantonale-verwaltung-basel-landschaft-liestal",
         "de": "amtliche-tierarztin-amtlicher-tierarzt-kanton-basel-landschaft-liestal",
-        "fr": "amtliche-tierarztin-amtlicher-tierarzt-kanton-basel-landschaft-liestal"
+        "fr": "veterinaire-officiel-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -6264,7 +6264,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "amtliche-tierarztin-amtlicher-tierarzt-kanton-basel-landschaft-liestal"
+        ],
+        "en": [
+          "amtliche-tierarztin-amtlicher-tierarzt-kanton-basel-landschaft-liestal"
+        ],
+        "fr": [
+          "amtliche-tierarztin-amtlicher-tierarzt-kanton-basel-landschaft-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "amtliche-tierarztin-amtlicher-tierarzt-kanton-basel-landschaft-liestal"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-416432c0931f",

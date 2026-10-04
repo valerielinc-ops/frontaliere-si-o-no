@@ -1716,9 +1716,9 @@
       "slug": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne",
       "slugByLocale": {
         "it": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne",
-        "en": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne",
+        "en": "specialist-technician-industrial-ffs-officine-ferrovie-federali-biel-bienne",
         "de": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne",
-        "fr": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne"
+        "fr": "technicien-ne-specialise-e-dans-l-industrie-ffs-officine-ferrovie-federali-biel-bienne"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -2362,12 +2362,12 @@
     },
     {
       "id": "sbb-a1445683f5ef",
-      "slug": "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz",
+      "slug": "pianificatore-di-plotone-livello-b2-ffs-officine-ferrovie-federali-muttenz-55d01c",
       "slugByLocale": {
-        "it": "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz",
-        "en": "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz",
+        "it": "pianificatore-di-plotone-livello-b2-ffs-officine-ferrovie-federali-muttenz-55d01c",
+        "en": "platoon-planner-level-b2-ffs-officine-ferrovie-federali-muttenz-55d01c",
         "de": "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz",
-        "fr": "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz"
+        "fr": "planificateur-de-peloton-niveau-b2-ffs-officine-ferrovie-federali-muttenz-55d01c"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -2421,11 +2421,19 @@
       "firstSeenAt": "2026-09-08T13:56:26.560Z",
       "previousSlugsByLocale": {
         "it": [
-          "pianificatore-di-plotone-livello-b2-ffs-officine-ferrovie-federali-muttenz-wp5s78"
+          "pianificatore-di-plotone-livello-b2-ffs-officine-ferrovie-federali-muttenz-wp5s78",
+          "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz"
+        ],
+        "en": [
+          "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz"
+        ],
+        "fr": [
+          "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz"
         ]
       },
       "previousSlugs": [
-        "pianificatore-di-plotone-livello-b2-ffs-officine-ferrovie-federali-muttenz-wp5s78"
+        "pianificatore-di-plotone-livello-b2-ffs-officine-ferrovie-federali-muttenz-wp5s78",
+        "zugvorbereiter-in-level-b2-ffs-officine-ferrovie-federali-muttenz"
       ],
       "datePosted": "2026-09-29T22:00:00Z",
       "postingDateSource": "reported"

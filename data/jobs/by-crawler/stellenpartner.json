@@ -45166,7 +45166,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-fur-innen-und-aussenarbeiten-luzern-luzern-stellenpartner-ch",
-        "pittori-interni-ed-esterni-stellenpartner-ag-luzern-luzern-f382e1",
         "maler-in-per-innen-e-aussenarbeiten-stellenpartner-ag-luzern",
         "pittori-interni-ed-esterni-stellenpartner-ag-luzern-luzern",
         "interior-and-exterior-painters-stellenpartner-ag-luzern-luzern",
@@ -45175,7 +45174,6 @@
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-innen-und-aussenarbeiten-luzern-luzern-stellenpartner-ch",
-          "pittori-interni-ed-esterni-stellenpartner-ag-luzern-luzern-f382e1",
           "maler-in-per-innen-e-aussenarbeiten-stellenpartner-ag-luzern",
           "pittori-interni-ed-esterni-stellenpartner-ag-luzern-luzern",
           "interior-and-exterior-painters-stellenpartner-ag-luzern-luzern",
@@ -49641,9 +49639,9 @@
       "slug": "anlagen-e-apparatebauer-in-per-metallbau-e-schweissarbeiten-stellenpartner-ag-bremgarten",
       "slugByLocale": {
         "it": "anlagen-e-apparatebauer-in-per-metallbau-e-schweissarbeiten-stellenpartner-ag-bremgarten",
-        "en": "anlagen-und-apparatebauer-in-fur-metallbau-und-schweissarbeiten-stellenpartner-ag-bremgarten",
+        "en": "plant-and-apparatus-engineer-for-metal-construction-and-welding-work-stellenpartner-ag-bremgarten-aargau",
         "de": "anlagen-und-apparatebauer-in-fur-metallbau-und-schweissarbeiten-bremgarten-aargau",
-        "fr": "anlagen-und-apparatebauer-in-fur-metallbau-und-schweissarbeiten-stellenpartner-ag-bremgarten"
+        "fr": "ingenieur-d-usine-et-d-appareils-pour-la-construction-metallique-et-les-travaux-de-soudure-stellenpartner-ag-bremgarten"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -49684,11 +49682,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-fur-metallbau-und-schweissarbeiten-bremgarten-aargau"
+        "anlagen-und-apparatebauer-in-fur-metallbau-und-schweissarbeiten-bremgarten-aargau",
+        "anlagen-und-apparatebauer-in-fur-metallbau-und-schweissarbeiten-stellenpartner-ag-bremgarten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "anlagen-und-apparatebauer-in-fur-metallbau-und-schweissarbeiten-bremgarten-aargau"
+        ],
+        "en": [
+          "anlagen-und-apparatebauer-in-fur-metallbau-und-schweissarbeiten-stellenpartner-ag-bremgarten"
+        ],
+        "fr": [
+          "anlagen-und-apparatebauer-in-fur-metallbau-und-schweissarbeiten-stellenpartner-ag-bremgarten"
         ]
       },
       "needsRetranslation": true,
@@ -50000,9 +50005,9 @@
       "slug": "maler-in-per-fassaden-e-innenanstriche-stellenpartner-ag-muri-ag",
       "slugByLocale": {
         "it": "maler-in-per-fassaden-e-innenanstriche-stellenpartner-ag-muri-ag",
-        "en": "maler-in-fur-fassaden-und-innenanstriche-muri-ag-aargau-stellenpartner-ch",
+        "en": "painter-for-facade-and-interior-painting-stellenpartner-ag-muri-ag-aargau",
         "de": "maler-in-fur-fassaden-und-innenanstriche-muri-ag-aargau-stellenpartner-ch",
-        "fr": "maler-in-fur-fassaden-und-innenanstriche-muri-ag-aargau-stellenpartner-ch"
+        "fr": "peintre-pour-la-peinture-de-facade-et-d-interieur-stellenpartner-ag-muri-ag-aargau"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -50047,6 +50052,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-fassaden-und-innenanstriche-muri-ag-aargau-stellenpartner-ch"
+        ],
+        "en": [
+          "maler-in-fur-fassaden-und-innenanstriche-muri-ag-aargau-stellenpartner-ch"
+        ],
+        "fr": [
           "maler-in-fur-fassaden-und-innenanstriche-muri-ag-aargau-stellenpartner-ch"
         ]
       },

@@ -31882,7 +31882,6 @@
           "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen"
         ],
         "en": [
-          "baker-in-confectioner-in-genossenschaft-migros-ostschweiz-schaffhausen",
           "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen",
           "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen-ndg9s3"
         ],
@@ -43304,7 +43303,7 @@
       },
       "slugByLocale": {
         "it": "data-analista-onlineshop-m-w-d-galaxus-zurich-82atlo",
-        "en": "data-analyst-onlineshop-m-w-d-galaxus-zurich-82atlo",
+        "en": "data-analyst-online-shop-m-f-d-galaxus-zurich",
         "de": "data-analyst-onlineshop-m-w-d-galaxus-zurich-82atlo",
         "fr": "data-analyste-onlineshop-m-w-d-galaxus-zurich-82atlo"
       },
@@ -43326,10 +43325,14 @@
       "previousSlugsByLocale": {
         "it": [
           "data-analyst-onlineshop-m-w-d-galaxus-zurich"
+        ],
+        "en": [
+          "data-analyst-onlineshop-m-w-d-galaxus-zurich-82atlo"
         ]
       },
       "previousSlugs": [
-        "data-analyst-onlineshop-m-w-d-galaxus-zurich"
+        "data-analyst-onlineshop-m-w-d-galaxus-zurich",
+        "data-analyst-onlineshop-m-w-d-galaxus-zurich-82atlo"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -98994,13 +98997,11 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "istruttore-di-fitness-f-m-d-activ-fitness-zofingen",
           "fitness-instructor-m-w-d-activ-fitness-zofingen-2rd7hs",
           "instructeur-de-fitness-f-m-d-activ-fitness-zofingen-94e4f2",
           "istruttore-di-fitness-f-m-d-activ-fitness-zofingen-94e4f2"
         ],
         "fr": [
-          "instructeur-de-fitness-f-m-d-activ-fitness-zofingen",
           "instructeur-de-fitness-f-m-d-activ-fitness-zofingen-94e4f2"
         ],
         "en": [
@@ -99008,8 +99009,6 @@
         ]
       },
       "previousSlugs": [
-        "istruttore-di-fitness-f-m-d-activ-fitness-zofingen",
-        "instructeur-de-fitness-f-m-d-activ-fitness-zofingen",
         "fitness-instructor-m-w-d-activ-fitness-zofingen-2rd7hs",
         "instructeur-de-fitness-f-m-d-activ-fitness-zofingen-94e4f2",
         "istruttore-di-fitness-f-m-d-activ-fitness-zofingen-94e4f2"

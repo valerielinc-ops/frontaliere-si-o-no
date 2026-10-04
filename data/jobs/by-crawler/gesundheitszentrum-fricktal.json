@@ -81,12 +81,12 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-d531a35d514a",
-      "slug": "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "professionista-sanitario-emergenza-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "professionista-sanitario-emergenza-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "healthcare-professional-emergency-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "de": "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "specialiste-sante-urgence-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -141,7 +141,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     },
     {
       "id": "gesundheitszentrum-fricktal-f20b8847e2e9",
@@ -494,7 +508,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "dipl-cura-professionale-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden-eaffa8",
         "dipl-soins-professionnels-hf-h-f-d-gesundheitszentrum-fricktal-rheinfelden-ed6af0",
         "infermiera-hf-m-f-gesundheitszentrum-fricktal-rheinfelden",
         "dipl-pflegefachperson-hf-m-w-gesundheitszentrum-fricktal-rheinfelden",
@@ -2009,12 +2022,12 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-c250bb95783f",
-      "slug": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "esperto-certificato-in-infermieristica-di-anestesia-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "it": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "esperto-certificato-in-infermieristica-di-anestesia-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "certified-expert-in-anaesthesia-nursing-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "de": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "expert-certifie-en-soins-infirmiers-en-anesthesie-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -2069,7 +2082,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     },
     {
       "id": "gesundheitszentrum-fricktal-7066cac2481f",

@@ -50,13 +50,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt",
-        "sales-associate-m-f-dal-26-al-27-aprile-all-80-fusalp-zermatt"
+        "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt",
-          "sales-associate-m-f-dal-26-al-27-aprile-all-80-fusalp-zermatt"
+          "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt"
         ],
         "de": [
           "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt"
@@ -130,13 +128,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-associate-m-w-dec-26-to-april-27-100-fusalp-st-moritz",
-        "sales-associate-m-f-dal-26-al-27-aprile-al-100-fusalp-st-moritz"
+        "sales-associate-m-w-dec-26-to-april-27-100-fusalp-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-associate-m-w-dec-26-to-april-27-100-fusalp-st-moritz",
-          "sales-associate-m-f-dal-26-al-27-aprile-al-100-fusalp-st-moritz"
+          "sales-associate-m-w-dec-26-to-april-27-100-fusalp-st-moritz"
         ],
         "de": [
           "sales-associate-m-w-dec-26-to-april-27-100-fusalp-st-moritz"
@@ -274,13 +270,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "store-manager-m-w-100-fixed-term-contract-permanent-opportunity-fusalp-aubonne",
-        "store-manager-m-f-100-contratto-a-tempo-fisso-opportunita-permanente-fusalp-aubonne"
+        "store-manager-m-w-100-fixed-term-contract-permanent-opportunity-fusalp-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "store-manager-m-w-100-fixed-term-contract-permanent-opportunity-fusalp-aubonne",
-          "store-manager-m-f-100-contratto-a-tempo-fisso-opportunita-permanente-fusalp-aubonne"
+          "store-manager-m-w-100-fixed-term-contract-permanent-opportunity-fusalp-aubonne"
         ],
         "de": [
           "store-manager-m-w-100-fixed-term-contract-permanent-opportunity-fusalp-aubonne"
@@ -353,13 +347,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027-fusalp-aubonne",
-        "sales-associate-m-f-inglese-e-francese-contratto-a-termine-fisso-fino-al-31-marzo-2027-fusalp-aubonne"
+        "sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027-fusalp-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027-fusalp-aubonne",
-          "sales-associate-m-f-inglese-e-francese-contratto-a-termine-fisso-fino-al-31-marzo-2027-fusalp-aubonne"
+          "sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027-fusalp-aubonne"
         ],
         "de": [
           "sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027-fusalp-aubonne"
@@ -386,11 +378,11 @@
     },
     {
       "id": "fusalp-3744771338a4",
-      "slug": "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen",
+      "slug": "store-manager-m-f-contratto-a-tempo-indeterminato-100-1-novembre-2026-fusalp-saanen",
       "slugByLocale": {
-        "it": "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen",
+        "it": "store-manager-m-f-contratto-a-tempo-indeterminato-100-1-novembre-2026-fusalp-saanen",
         "en": "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen",
-        "de": "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen",
+        "de": "filialleiter-m-w-festanstellung-100-1-november-2026-fusalp-saanen",
         "fr": "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen"
       },
       "company": "Fusalp",
@@ -446,7 +438,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen"
+        ],
+        "de": [
+          "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen"
+        ]
+      },
+      "previousSlugs": [
+        "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen"
+      ]
     }
   ]
 }
