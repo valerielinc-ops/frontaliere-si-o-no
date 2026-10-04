@@ -48,6 +48,11 @@ describe('SuccessFactors publication provenance', () => {
     expect(parseCsbSearchResults(row.replace('deadline', 'colDate'))[0]).toMatchObject({ postedDate: date, postingDateSource: 'reported' });
   });
 
+  it('restores the positional CSB publication date when the date cell is unlabelled', () => {
+    const row = `<tr><td><a href="/job/Engineer/123/">Engineer</a></td><td>Engineering</td><td>Lugano, TI, CH</td><td>${date}</td></tr>`;
+    expect(parseCsbSearchResults(row)[0]).toMatchObject({ postedDate: date, datePosted: date, postingDateSource: 'reported' });
+  });
+
   it('carries the original JSON-LD date through the actual detail fetch and normalizer', async () => {
     vi.stubGlobal('fetch', vi.fn(async () => new Response(`<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', title: 'Engineer', identifier: { value: '123' }, datePosted: timestamp, url: 'https://jobs.mobiliar.ch/job/Engineer/123/' })}</script>`)));
     const results = [];
@@ -58,6 +63,14 @@ describe('SuccessFactors publication provenance', () => {
 
   it('preserves a labeled jobs2web source date through the real fetch and identity boundary', async () => {
     vi.stubGlobal('fetch', vi.fn(async () => new Response(`<table><tr><td><a href="/job/Engineer/123/">Engineer</a></td><td class="colDate">${date}</td><td>Lugano</td></tr></table>`)));
+    const results = [];
+    for await (const item of fetchSuccessFactorsJobs('https://careers.oerlikon.com/search/', { minDelayMs: 0, maxPages: 1 })) results.push(item);
+    expect(results).toHaveLength(1);
+    expect(results[0]).toMatchObject({ postedAt: date, postedDate: date, datePosted: date, postingDateSource: 'reported' });
+  });
+
+  it('restores the positional jobs2web publication date when the date cell is unlabelled', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(`<table><tr><td><a href="/job/Engineer/123/">Engineer</a></td><td>Engineering</td><td>Lugano</td><td>${date}</td></tr></table>`)));
     const results = [];
     for await (const item of fetchSuccessFactorsJobs('https://careers.oerlikon.com/search/', { minDelayMs: 0, maxPages: 1 })) results.push(item);
     expect(results).toHaveLength(1);

@@ -935,7 +935,8 @@ function parseJobs2WebSearchRows(html = '', pageUrl = '') {
     const cellRe = /<td[^>]*>([\s\S]*?)<\/td>/gi;
     let cm;
     while ((cm = cellRe.exec(rowHtml)) !== null) {
-      cells.push(normalizeSpace(stripTags(cm[1])));
+      const className = cm[0].match(/\bclass=["']([^"']*)["']/i)?.[1] || '';
+      cells.push({ text: normalizeSpace(stripTags(cm[1])), className });
     }
     const titleA = rowHtml.match(/<a[^>]+href="[^"]*\/job\/[^"]*"[^>]*>([\s\S]*?)<\/a>/i);
     const title = titleA
@@ -943,15 +944,21 @@ function parseJobs2WebSearchRows(html = '', pageUrl = '') {
           /^(?:Title|Titre|Bezeichnung|Titolo|Titulo)\s*:\s*/i,
           ''
         )
-      : cells[0] || '';
+      : cells[0]?.text || '';
     if (!title || title.length < 3) continue;
     const dateCell = rowHtml.match(/<td[^>]*class=["'][^"']*\b(?:colDate|jobDate)\b[^"']*["'][^>]*>([\s\S]*?)<\/td>/i);
-    const publication = successFactorsPostingDateFields(dateCell ? normalizeSpace(stripTags(dateCell[1])) : '');
+    const positionalDateCell = cells.length >= 3 ? cells.at(-1) : null;
+    const positionalDate = positionalDateCell && !/\bdeadline\b/i.test(positionalDateCell.className)
+      ? positionalDateCell.text
+      : '';
+    const publication = successFactorsPostingDateFields(
+      dateCell ? normalizeSpace(stripTags(dateCell[1])) : positionalDate,
+    );
     rows.push({
       title,
       url,
       jobId,
-      location: cells[2] || '',
+      location: cells[2]?.text || '',
       postedAt: publication.postedDate || null,
       ...publication,
     });

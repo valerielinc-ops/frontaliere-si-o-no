@@ -186,18 +186,25 @@ export function parseCsbSearchResults(html) {
     let cellMatch;
     while ((cellMatch = cellRe.exec(rowHtml)) !== null) {
       const raw = decodeEntities(normalizeSpace(stripHtml(cellMatch[1])));
+      const className = cellMatch[0].match(/\bclass=["']([^"']*)["']/i)?.[1] || '';
       // Normalize every cell silently first. If the heuristic elects this
       // cell as the location below, strip it again with the warning enabled;
       // title/department/date cells must never produce discarded-office
       // telemetry.
-      cells.push({ raw, text: stripSuccessFactorsMoreLocations(raw, { warn: false }) });
+      cells.push({ raw, text: stripSuccessFactorsMoreLocations(raw, { warn: false }), className });
     }
 
     // Fallback: heuristic — find the cell that looks like a location ("City,
     // CC[,…]"). Cells have already had the marker stripped, so compare them
     // with the equally stripped title to avoid electing a title cell.
     const dateCell = rowHtml.match(/<td[^>]*class=["'][^"']*\b(?:colDate|jobDate)\b[^"']*["'][^>]*>([\s\S]*?)<\/td>/i);
-    const publication = successFactorsPostingDateFields(dateCell ? decodeEntities(normalizeSpace(stripHtml(dateCell[1]))) : '');
+    const positionalDateCell = cells.length >= 3 ? cells.at(-1) : null;
+    const positionalDate = positionalDateCell && !/\bdeadline\b/i.test(positionalDateCell.className)
+      ? positionalDateCell.raw
+      : '';
+    const publication = successFactorsPostingDateFields(
+      dateCell ? decodeEntities(normalizeSpace(stripHtml(dateCell[1]))) : positionalDate,
+    );
     for (const cell of cells) {
       if (
         !location
