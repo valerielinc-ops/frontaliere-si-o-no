@@ -56,6 +56,8 @@ const INVENTORY = [
   job('nocanton', { title: 'Consulente commerciale', category: 'Sales' }),
   job('ti-closed', { title: 'Cuoco di linea stagionale', category: 'Ristorazione', canton: 'TI', status: 'expired' }),
 ];
+// What main() hands the probe builder: the open listings only.
+const ACTIVE = INVENTORY.filter((j) => j.status !== 'expired');
 
 describe('titleProfessionToken', () => {
   it('takes the longest letter-only word of the title, lowercased', () => {
@@ -71,7 +73,7 @@ describe('titleProfessionToken', () => {
 
 describe('buildMatcherHealthProbes', () => {
   it('derives one title-keyword probe per canton×profession group, plus a category probe when the seed has one', () => {
-    const { probes, groupCount, sampledGroupCount } = buildMatcherHealthProbes(INVENTORY);
+    const { probes, groupCount, sampledGroupCount } = buildMatcherHealthProbes(ACTIVE);
     const titleProbes = probes.filter((p) => p.kind === MATCHER_HEALTH_PROBE_KINDS.TITLE_KEYWORD);
     const categoryProbes = probes.filter((p) => p.kind === MATCHER_HEALTH_PROBE_KINDS.CATEGORY);
 
@@ -91,7 +93,7 @@ describe('buildMatcherHealthProbes', () => {
   });
 
   it('never seeds a probe from a canary, a listing pending retranslation or a listing without canton', () => {
-    const { probes } = buildMatcherHealthProbes(INVENTORY);
+    const { probes } = buildMatcherHealthProbes(ACTIVE);
     const seeds = new Set(probes.map((p) => p.sourceJobId));
     expect(seeds.has('ge-canary')).toBe(false);
     expect(seeds.has('vd-retranslate')).toBe(false);
@@ -99,14 +101,14 @@ describe('buildMatcherHealthProbes', () => {
   });
 
   it('picks the same seed on a rerun, whatever the inventory order', () => {
-    const forward = buildMatcherHealthProbes(INVENTORY).probes.map((p) => p.alert.id + p.sourceJobId);
-    const reversed = buildMatcherHealthProbes([...INVENTORY].reverse()).probes.map((p) => p.alert.id + p.sourceJobId);
+    const forward = buildMatcherHealthProbes(ACTIVE).probes.map((p) => p.alert.id + p.sourceJobId);
+    const reversed = buildMatcherHealthProbes([...ACTIVE].reverse()).probes.map((p) => p.alert.id + p.sourceJobId);
     expect(reversed.sort()).toEqual(forward.sort());
   });
 
   it('samples round-robin across cantons when the cap is below the group count', () => {
-    const cantons = new Set(buildMatcherHealthProbes(INVENTORY).probes.map((p) => p.canton));
-    const capped = buildMatcherHealthProbes(INVENTORY, { maxProbes: cantons.size });
+    const cantons = new Set(buildMatcherHealthProbes(ACTIVE).probes.map((p) => p.canton));
+    const capped = buildMatcherHealthProbes(ACTIVE, { maxProbes: cantons.size });
     expect(capped.probes).toHaveLength(cantons.size);
     expect(new Set(capped.probes.map((p) => p.canton))).toEqual(cantons);
     expect(capped.sampledGroupCount).toBeLessThan(capped.groupCount);
@@ -120,7 +122,7 @@ describe('runJobAlertMatcherHealth (real matcher, active inventory)', () => {
     expect(health.failures).toEqual([]);
     expect(health.passedCount).toBe(health.probeCount);
     // The closed listing is not part of the active inventory.
-    expect(health.activeInventoryCount).toBe(INVENTORY.filter((j) => j.status !== 'expired').length);
+    expect(health.activeInventoryCount).toBe(ACTIVE.length);
   });
 
   it('healthy matcher + nothing new since the last send → zero yield, but no alarm', () => {
@@ -149,7 +151,9 @@ describe('runJobAlertMatcherHealth (real matcher, active inventory)', () => {
 
   it('a criterion that no longer matches (broken keyword path) → alarm', () => {
     const broken = (alert, context) => planAlertMatch(
-      { ...alert, keywords: alert.keywords.map((k) => `${k}§broken`) },
+      // Reversed, not suffixed: a suffixed word could still fuzzy-match the
+      // profession taxonomy and bring the original aliases back.
+      { ...alert, keywords: alert.keywords.map((k) => [...k].reverse().join('')) },
       context,
     );
     const health = runJobAlertMatcherHealth(INVENTORY, { now: NOW, planMatch: broken });
@@ -178,7 +182,7 @@ describe('runJobAlertMatcherHealth (real matcher, active inventory)', () => {
 
 describe('evaluateMatcherHealth', () => {
   it('counts a probe as failed only when the matcher ranks nothing', () => {
-    const { probes } = buildMatcherHealthProbes(INVENTORY);
+    const { probes } = buildMatcherHealthProbes(ACTIVE);
     const failing = probes[0].alert.id;
     const result = evaluateMatcherHealth(probes, (alert) => (
       alert.id === failing
