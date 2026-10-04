@@ -128,7 +128,7 @@ jobs:
       - name: Recycle deeply-stale stale-review PRs
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          PAT: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
           REPO: ${{ github.repository }}
           # Posture: lo SCHEDULE agisce (false) — è l'intento autonomo; il
           # DISPATCH manuale resta safe-by-default (input default true) per test.

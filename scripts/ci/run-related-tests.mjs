@@ -105,6 +105,15 @@ const sourceTreeLintTests = new Map([
   // Elenchi di run per `branch` senza finestra `created`: l'API li restituisce
   // a tratti fermi a settimane prima (resolver dell'artifact Pages, 02-10).
   ['tests/run-listing-created-window.test.ts', /^(?:\.github|scripts|bin|functions)\//],
+  // Lint del token App su TUTTI i workflow (issue 10114): un workflow nuovo
+  // che pusha con `env.APP_TOKEN || ...` non importa niente, e uno script in
+  // `scripts/` puo' cominciare a pushare o a leggere APP_TOKEN senza che il
+  // workflow che lo lancia cambi. Il test legge entrambi da disco. Il runner
+  // stesso e' escluso: non pusha, e la sua suite di regressione ha un budget.
+  [
+    'tests/workflow-app-token-capability.test.ts',
+    (file) => /^(?:\.github\/workflows|scripts)\//.test(file) && file !== 'scripts/ci/run-related-tests.mjs',
+  ],
   // La lista sparse dell'observer delle generazioni crawler sta nel YAML: il
   // test la confronta con la chiusura degli import di
   // `scripts/crawler-generation-observer.mjs`, ma nessun import lo lega ai

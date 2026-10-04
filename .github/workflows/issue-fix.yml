@@ -1293,7 +1293,9 @@ jobs:
       - name: Configure git identity
         if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
-          APP_TOKEN: ${{ env.APP_TOKEN }}
+          # Capacita' di push verificata dal conio (contents+pull_requests),
+          # non la sola presenza del token: vuoto → identita' GITHUB_TOKEN.
+          APP_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || '' }}
           APP_TOKEN_WORKFLOWS: ${{ env.APP_TOKEN_WORKFLOWS }}
           REPO: ${{ github.repository }}
         run: |
@@ -1335,7 +1337,7 @@ jobs:
               echo "push identity: GitHub App (permesso workflows NON concesso sull'installazione — .github/workflows/** resta non pushabile)"
             fi
           else
-            echo "push identity: GITHUB_TOKEN (nessun APP_TOKEN — .github/workflows/** resta non pushabile)"
+            echo "push identity: GITHUB_TOKEN (nessun APP_TOKEN con contents+pull_requests verificati — .github/workflows/** resta non pushabile)"
           fi
 
       - name: Install deterministic PR body gate
@@ -1581,7 +1583,9 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          APP_TOKEN: ${{ env.APP_TOKEN }}
+          # Capacita' di push verificata dal conio (contents+pull_requests),
+          # non la sola presenza del token: vuoto → identita' GITHUB_TOKEN.
+          APP_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || '' }}
           REPO: ${{ github.repository }}
           ISSUE: ${{ github.event.issue.number }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
