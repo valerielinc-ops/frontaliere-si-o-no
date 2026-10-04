@@ -177,20 +177,28 @@ describe('L9 Employer Supply → Paid Activation', () => {
   // un sistema sano. La coerenza fra i due lati e' l'uguaglianza esatta della
   // coorte (inventoryScope.profileGeneratedAt), la freschezza e' per lato.
   describe('cross-source coherence is the exact cohort, not a clock skew', () => {
-    // Run push del sabato: profili di giovedi' 11:00Z, ledger esportato 51,5 h dopo.
-    const PROFILES_AT = '2026-09-12T11:00:00.000Z';
-    const LEDGER_AT = '2026-09-14T14:30:00.000Z';
-    const LATE_NOW = new Date('2026-09-14T14:35:00.000Z');
+    // Run push di sabato 12-09: profili rigenerati giovedi' 10-09 alle 04:40Z
+    // (cron '40 4 * * 1,4'), ledger esportato 51,5 h dopo, alle 08:10Z.
+    const PROFILES_AT = '2026-09-10T04:40:00.000Z';
+    const LEDGER_AT = '2026-09-12T08:10:00.000Z';
+    const LATE_NOW = new Date('2026-09-12T08:15:00.000Z');
 
     function profilesAt(generatedAt: string) {
       const base = profiles();
       return { ...base, _meta: { ...base._meta, generatedAt } };
     }
 
+    function ledgerAttesting(profileGeneratedAt: string) {
+      return outcomes({
+        generatedAt: LEDGER_AT,
+        inventoryScope: { ...outcomes().inventoryScope, profileGeneratedAt },
+      });
+    }
+
     it('accepts profiles 51.5h older than the ledger when the ledger attests that exact cohort', () => {
       const verdict = validateEmployerActivation({
         profiles: profilesAt(PROFILES_AT),
-        outcomes: outcomes({ generatedAt: LEDGER_AT }),
+        outcomes: ledgerAttesting(PROFILES_AT),
       }, { now: LATE_NOW });
       expect(verdict.issues.join(' ')).not.toMatch(/apart/);
       expect(verdict).toMatchObject({ ok: true, quality: 'observed', issues: [] });
@@ -200,10 +208,7 @@ describe('L9 Employer Supply → Paid Activation', () => {
     it('still rejects the same clocks when the ledger attests a different profile cohort', () => {
       const verdict = validateEmployerActivation({
         profiles: profilesAt(PROFILES_AT),
-        outcomes: outcomes({
-          generatedAt: LEDGER_AT,
-          inventoryScope: { ...outcomes().inventoryScope, profileGeneratedAt: '2026-09-08T04:40:00.000Z' },
-        }),
+        outcomes: ledgerAttesting('2026-09-07T04:40:00.000Z'),
       }, { now: LATE_NOW });
       expect(verdict).toMatchObject({ ok: false, quality: 'partial' });
       expect(verdict.issues).toContain('outcomes.inventoryScope.profileGeneratedAt does not match the profile snapshot');
@@ -211,13 +216,11 @@ describe('L9 Employer Supply → Paid Activation', () => {
     });
 
     it('still rejects profiles older than maxAgeHours on their own side', () => {
-      const staleAt = '2026-09-03T11:00:00.000Z';
+      // Lunedi' 31-08 04:40Z: oltre 240 h prima di LATE_NOW.
+      const staleAt = '2026-08-31T04:40:00.000Z';
       const verdict = validateEmployerActivation({
         profiles: profilesAt(staleAt),
-        outcomes: outcomes({
-          generatedAt: LEDGER_AT,
-          inventoryScope: { ...outcomes().inventoryScope, profileGeneratedAt: staleAt },
-        }),
+        outcomes: ledgerAttesting(staleAt),
       }, { now: LATE_NOW });
       expect(verdict).toMatchObject({ ok: false, quality: 'stale' });
       expect(verdict.issues.join(' ')).toMatch(/employer profiles are [\d.]+h old \(max 240h\)/);
