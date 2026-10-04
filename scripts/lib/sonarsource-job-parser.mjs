@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { mergeSourcePostingDates, sourcePostingDateFields } from './source-posting-date.mjs';
 /**
  * SonarSource (Sonar) job parser — Fetcher and job builder.
  *
@@ -133,7 +133,7 @@ async function fetchJobListings() {
     title: j.title,
     location: j.location,
     url: j.applyUrl,
-    ...mergeSourcePostingDates({}, j),
+    ...sourcePostingDateFields(j.postedAt),
     description: j.descriptionHtml || '',
     jobReqId: j.jobReqId,
   }));

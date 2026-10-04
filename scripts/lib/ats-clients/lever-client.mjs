@@ -44,8 +44,9 @@
  * @property {string} title             Job title (whitespace-normalised), from `text`.
  * @property {string} location          `categories.location` string.
  * @property {string} company           Company display name (passed via options).
- * @property {string|null} postedAt     ISO timestamp — prefers `createdAt` (ms),
- *                                      falls back to `updatedAt`, else null.
+ * @property {string|null} postedAt     Explicit source publication timestamp,
+ *                                      else null. Creation/update timestamps are
+ *                                      compatibility metadata, not publication evidence.
  * @property {string} applyUrl          Lever `hostedUrl`.
  * @property {string} [descriptionHtml] HTML body, assembled from the posting's
  *   `description` (intro), `lists[]` (qualifications/requirements sections,
@@ -286,7 +287,11 @@ export function normalizeLeverJob(rawJob, options = {}) {
   const title = normalizeSpace(rawJob?.text || '');
   const location = normalizeSpace(rawJob?.categories?.location || '');
   const applyUrl = String(rawJob?.hostedUrl || '').trim();
-  const postedAt = msToIso(rawJob?.createdAt) || msToIso(rawJob?.updatedAt) || null;
+  const postedAt = typeof rawJob?.postedAt === 'number'
+    ? msToIso(rawJob.postedAt)
+    : typeof rawJob?.postedAt === 'string'
+      ? rawJob.postedAt.trim() || null
+      : null;
   const slug = slugify(title) || (id ? `lever-${id.slice(0, 8)}` : '');
   const descriptionHtml = buildLeverDescriptionHtml(rawJob) || undefined;
 

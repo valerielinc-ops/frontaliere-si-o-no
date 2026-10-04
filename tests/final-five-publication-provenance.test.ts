@@ -17,6 +17,18 @@ for (const [name, producer, city] of [['ANYbotics', fetchAllAnyboticsJobs, 'Zuri
     expect(jobs[0]).toMatchObject({ ...unknown, title: 'Software Engineer' });
     expect(jobs[0].crawledAt).toBeTruthy();
   });
+
+  it(`${name}: preserves an explicit Lever postedAt value as reported publication evidence`, async () => {
+    const postedAt = past();
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify([{
+      id: 'fixture', text: 'Software Engineer', categories: { location: city },
+      hostedUrl: 'https://jobs.lever.co/fixture/1', applyUrl: 'https://jobs.lever.co/fixture/1/apply',
+      postedAt, createdAt: Date.now() - 86400000, updatedAt: Date.now(), description: body,
+    }]), { status: 200 })));
+    const jobs = await producer();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ datePosted: postedAt, postedDate: postedAt, postingDateSource: 'reported' });
+  });
 }
 it('GHOL: collection and unverified campaign dates cannot become publication', async () => {
   vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ campaigns: [{ _id: 'fixture', title: { '1': 'Infirmier spécialisé' }, description: { '1': body }, language: 1, inviteKey: 'fixture', location: { city: 'Nyon', state: 'VD', country: 'CH', zip: '1260' }, createdAt: past(), updatedAt: past() }] }), { status: 200 })));
