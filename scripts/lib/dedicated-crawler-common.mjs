@@ -1668,10 +1668,20 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
             job.needsRetranslation = true;
             jobChanged = true;
           }
-        } else if (placeholder && DEFAULT_LOCALES.includes(titleSourceLang)) {
-          job.titleByLocale[locale] = placeholder;
-          job.needsRetranslation = true;
-          jobChanged = true;
+        } else if (DEFAULT_LOCALES.includes(titleSourceLang)) {
+          // With no `job.title` and no description there is nothing to detect
+          // from: titleSourceLang falls back to 'it' and its slot can be empty
+          // while the record's only title sits in another published slot
+          // (e.g. `titleByLocale: { de }`). Copy that title instead of leaving
+          // the slot blocking the publish gate; the record stays flagged.
+          const sourceCopy = placeholder ||
+            DEFAULT_LOCALES.map((l) => String(job.titleByLocale[l] || '').trim()).find(hasUsableTitle) ||
+            '';
+          if (sourceCopy) {
+            job.titleByLocale[locale] = sourceCopy;
+            job.needsRetranslation = true;
+            jobChanged = true;
+          }
         }
       }
       {
