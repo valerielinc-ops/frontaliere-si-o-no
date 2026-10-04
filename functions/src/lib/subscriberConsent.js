@@ -228,6 +228,56 @@ export function hasSubscriberCreationStamp(row) {
 }
 
 /**
+ * Marker of a `newsletter_subscribers/{email}` row that exists ONLY as the
+ * address record of the weekly saved-jobs digest (owner decision 2026-10-03,
+ * "includili al salvataggio").
+ *
+ * The digest needs that row, and not a newsletter relationship: the provider
+ * webhooks record a bounce or a complaint on it and record nothing for an
+ * address without one (UNKNOWN_RECIPIENT in lib/subscriberReactivation.js), so
+ * without it a complaint about the digest would never stop the digest. About
+ * 3% of the accounts created in early September have no row (a sign-in whose
+ * registration write failed: scripts/lib/authSignupSubscriberMetrics.mjs), and
+ * for them scripts/send-saved-jobs-digest.mjs creates this one, with the
+ * Admin SDK, for a verified Auth address only. The browser cannot write the
+ * marker (firestore.rules lists it among the subscription-state fields).
+ */
+export const SAVED_JOBS_DIGEST_ANCHOR_FIELD = 'saved_jobs_digest_anchor';
+
+/**
+ * Whether the row is still nothing but that digest record.
+ *
+ * It stops being one at the first act that creates a relationship: a capture
+ * (every subscription write leaves a `source_channel`, and on an uncaptured
+ * row a creation stamp), accepted registration terms, a consent record or a
+ * confirmation stamp. What the machines write on it does NOT count: a
+ * provider webhook writes `status`/`isActive`/`active` (`complained`,
+ * `bounced`, `suppressed`, and on a later delivery the recovery to `active`),
+ * the suppression decay and the Mailtrap retry write `pending`. Those make the
+ * address stop or resume; none of them is the person asking for the
+ * newsletter, so none of them may turn the row into a subscription.
+ *
+ * @param {({doc?: object} & Record<string, unknown>) | null | undefined} row
+ * @returns {boolean}
+ */
+export function isSavedJobsDigestAnchorOnly(row) {
+  if (!row || typeof row !== 'object') return false;
+  const anchor = readField(row, SAVED_JOBS_DIGEST_ANCHOR_FIELD);
+  if (!anchor || typeof anchor !== 'object') return false;
+  if (hasSubscriberCreationStamp(row)) return false;
+  if (hasText(readField(row, 'source_channel', 'sourceChannel'))) return false;
+  if (readField(row, 'registration_terms_accepted', 'registrationTermsAccepted') === true) return false;
+  if (hasText(readField(row, 'consent_basis', 'consentBasis'))) return false;
+  if (readField(row, 'consent_given', 'consentGiven') === true) return false;
+  if (hasText(readField(row, 'consent_text', 'consentText'))) return false;
+  if (hasConfirmationStamp(row)) return false;
+  if (typeof readField(row, 'confirmed') === 'boolean') return false;
+  const preferences = readField(row, 'preferences');
+  if (preferences && typeof preferences === 'object') return false;
+  return true;
+}
+
+/**
  * Whether the row records ANY relationship that allows ordinary
  * communications — the floor under the #8754 policy, not a proof gate.
  *
@@ -259,12 +309,17 @@ export function hasSubscriberCreationStamp(row) {
  * still be excluded by the channel's own stop predicates, and a row without
  * one is excluded whatever those say.
  *
+ * The saved-jobs digest record (`isSavedJobsDigestAnchorOnly`) is never a
+ * relationship, whatever `status` a webhook, the suppression decay or the
+ * Mailtrap retry later wrote on it: it is checked first.
+ *
  * @param {({doc?: object} & Record<string, unknown>) | null | undefined} row
  *   Raw Firestore row or a projection carrying it on `.doc`.
  * @returns {boolean}
  */
 export function hasSubscriptionBasis(row) {
   if (!row || typeof row !== 'object') return false;
+  if (isSavedJobsDigestAnchorOnly(row)) return false;
   if (hasText(readField(row, 'status'))) return true;
   if (readField(row, 'registration_terms_accepted', 'registrationTermsAccepted') === true) return true;
   if (hasText(readField(row, 'consent_basis', 'consentBasis'))) return true;

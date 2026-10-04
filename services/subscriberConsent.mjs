@@ -22,5 +22,7 @@ export {
   hasUnifiedEmailConsent,
   isBaseCommunicationsReady,
   isNewsletterConfirmationEvent,
+  isSavedJobsDigestAnchorOnly,
+  SAVED_JOBS_DIGEST_ANCHOR_FIELD,
   UNIFIED_EMAIL_CONSENT_PURPOSE,
 } from '../functions/src/lib/subscriberConsent.js';

@@ -6,15 +6,17 @@ import {
 
 describe('validate-dist integrity annotation', () => {
   it('states that publish is blocked when an integrity gate fails', () => {
+    // An unclassified validator: the class A SEO gates (validate:sitemap-pages
+    // among them) open a P1 issue and no longer block, owner 2026-10-03.
     const verdict = evaluateIntegrity([
-      'validate:sitemap-pages',
+      'validate:crawler-summaries',
       'audit:all/text-html-ratio',
     ]);
     const annotation = formatIntegrityAnnotation(verdict);
 
     expect(verdict.integrityOk).toBe(false);
     expect(annotation).toContain('blocked publish');
-    expect(annotation).toContain('validate:sitemap-pages');
+    expect(annotation).toContain('validate:crawler-summaries');
     expect(annotation).toContain('Quality gate(s) also failed');
     expect(annotation).not.toContain('Publish is not sequestered');
   });

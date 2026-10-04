@@ -31,6 +31,7 @@ import {
   normalizeExpiredAtEntries,
 } from './lib/expired-jobs-archive.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
+import { isHeldFromPublication } from './lib/translation-publication-hold.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
@@ -592,6 +593,9 @@ export function backfillFromCommits({
       const afterSlugMap = buildSlugToJobsMap(afterJobs);
       for (const [key, beforeJob] of beforeMap.entries()) {
         if (afterMap.has(key)) continue;
+        // A loser held out of publication for translation was never served:
+        // an expired soft landing for it would publish a URL nobody had.
+        if (isHeldFromPublication(beforeJob)) continue;
         const slug = typeof beforeJob.slug === 'string' ? beforeJob.slug.trim() : '';
         if (!slug) continue;
         // Class B = removed AND its slug remains in the post-commit slice.

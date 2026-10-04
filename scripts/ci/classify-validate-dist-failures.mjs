@@ -56,15 +56,17 @@
 import { publishNonBlockingGateRationales } from './lib/seo-gate-classes.mjs';
 
 /**
- * Gates whose failure does NOT sequester `publish`: every SEO gate of class B
- * or C in `scripts/ci/lib/seo-gate-classes.mjs`, the ONE classification
- * shared with `cathedral-seo-gates-check`.
+ * Gates whose failure does NOT sequester `publish`: every SEO gate classified
+ * in `scripts/ci/lib/seo-gate-classes.mjs`, the ONE classification shared
+ * with `cathedral-seo-gates-check`.
  *
  * Owner decision, 2026-10-02: «Nessuno blocca la pubblicazione: apriamo solo
- * issue per gli errori riscontrati e poi saranno gli autofixer a sistemarle».
- *   - A (blocking): data/markup Google requires, or certain damage (blank
- *     shell, unparseable JSON-LD, sitemap/canonical that `publish` would
- *     submit verbatim). Any failure blocks — unchanged.
+ * issue per gli errori riscontrati e poi saranno gli autofixer a sistemarle»,
+ * extended to class A on 2026-10-03.
+ *   - A (issue on failure): data/markup Google requires, or certain damage
+ *     (blank shell, unparseable JSON-LD, sitemap/canonical that `publish`
+ *     would submit verbatim). Any failure turns the run red and opens a P1
+ *     issue; `publish` proceeds.
  *   - B (issue on regression): documented impact, measured backlog. A
  *     regression turns the run red and opens a P2 issue that only the gate's
  *     own recovery closes; `publish` proceeds.

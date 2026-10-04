@@ -1748,6 +1748,7 @@ const UserProfile: React.FC = () => {
  mode="auth"
  email={profileEmail}
  userId={user.uid}
+ emailVerified={user.emailVerified === true}
  locale={getLocale()}
  />
  </div>

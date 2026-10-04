@@ -286,9 +286,11 @@ describe('the historical backfill is report-only by default and writes only with
 
   it('does not write in report mode', async () => {
     const writes: unknown[] = [];
+    // A captured subscription (every capture writes a status): the batch now
+    // applies the live trigger's hasNewsletterSubscriberRecord gate first.
     const docs = [{
       id: 'a@b.ch',
-      data: () => ({ source_channel: 'newsletter_page' }),
+      data: () => ({ source_channel: 'newsletter_page', status: 'pending' }),
     }];
     const db = {
       collection: (name: string) => {
@@ -310,6 +312,24 @@ describe('the historical backfill is report-only by default and writes only with
     expect(result.counts.written).toBe(0);
     expect(writes).toEqual([]);
     expect(logs.join('\n')).toMatch(/report only/i);
+  });
+
+  it('skips a row that is not a subscription, as the live trigger does', async () => {
+    // A profile-only sign-in row: the trigger's hasNewsletterSubscriberRecord
+    // gate refuses it, so the batch must not manufacture the alert either.
+    const docs = [{
+      id: 'profile-only@example.invalid',
+      data: () => ({ auth_uid: 'uid-1', name: 'A', lastLoginAt: new Date(Date.now() - 86400000).toISOString() }),
+    }];
+    const db = {
+      collection: () => ({
+        get: async () => ({ size: docs.length, docs }),
+        doc: () => ({ collection: () => ({ doc: () => ({ get: async () => ({ exists: false }) }) }) }),
+      }),
+    };
+    const result = await runBackfill({ db: db as any, write: false, log: () => {} });
+    expect(result.counts['no-subscriber-record']).toBe(1);
+    expect(result.counts.wouldWrite).toBe(0);
   });
 });
 

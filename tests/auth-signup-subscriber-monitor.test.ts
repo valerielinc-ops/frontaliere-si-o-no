@@ -37,6 +37,12 @@ describe('classificazione', () => {
     expect(classifySubscriberDoc({ status: '  ' })).toBe('stub');
     expect(classifySubscriberDoc({ status: 'confirmed' })).toBe('subscribed');
     expect(classifySubscriberDoc({ status: 'unsubscribed' })).toBe('subscribed');
+    // La riga del digest dei salvati resta senza relazione, qualunque status
+    // vi scriva una macchina; una cattura la rende un'iscrizione.
+    const digestRow = { email: 'a@example.invalid', auth_uid: 'u', saved_jobs_digest_anchor: { created_at: 1 } };
+    expect(classifySubscriberDoc(digestRow)).toBe('stub');
+    expect(classifySubscriberDoc({ ...digestRow, status: 'active' })).toBe('stub');
+    expect(classifySubscriberDoc({ ...digestRow, status: 'pending', source_channel: 'auth_google' })).toBe('subscribed');
   });
 
   it('riconosce i canali di login', () => {

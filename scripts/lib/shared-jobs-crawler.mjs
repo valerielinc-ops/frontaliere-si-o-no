@@ -4041,8 +4041,12 @@ async function crawlWorkdayJobs(
           requirementsByLocale = detailPayload.requirementsByLocale || {};
 
           // AI enrichment only if still thin or locale coverage is missing.
+          // Never inside the orchestrated crawl (SKIP_AI_TRANSLATION=1): the
+          // job falls through to enrichJobLocalesDCC, which marks it
+          // needsRetranslation for translate-pending, as every other crawler.
           const localeCoverage = Object.keys(descriptionByLocale).length;
           if (
+            process.env.SKIP_AI_TRANSLATION !== '1' &&
             crawlerConfig?.aiLocalizationEnabled &&
             aiLocalizationCalls < (crawlerConfig?.aiLocalizationMaxJobsPerRun || 0) &&
             localeCoverage === 0 &&

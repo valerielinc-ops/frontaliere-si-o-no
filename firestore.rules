@@ -115,6 +115,11 @@ service cloud.firestore {
         'last_complained_at', 'suppressed_at', 'drip_started_at',
         'drip_last_step', 'drip_last_sent_at', 'drip_completed',
         'welcome_sent_at', 'welcome_trigger', 'autologin_revoked_before',
+        // The saved-jobs digest record (scripts/send-saved-jobs-digest.mjs,
+        // Admin SDK only). Its presence takes a row with no other marker out
+        // of every newsletter audience (isSavedJobsDigestAnchorOnly), so a
+        // browser writing it onto somebody else's row would unsubscribe them.
+        'saved_jobs_digest_anchor',
       ]);
     }
 

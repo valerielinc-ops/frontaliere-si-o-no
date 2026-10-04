@@ -1880,6 +1880,8 @@ describe('the page the formula points at cannot change without saying so (#5765)
     '2026-09-25.2': '473abb454e6e1791',
     '2026-09-28.1': 'c2e8edf95491a55f',
     '2026-10-01.1': '6b80754fa587c1fb',
+    // #11236 — the sitemap entry without a build-time <lastmod>.
+    '2026-10-04.1': '3fbfaa874cf97511',
   };
 
   it('matches the current page against the fingerprint of the current version', () => {

@@ -46,6 +46,7 @@ import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { createFirstSeenMetadataIndex } from './lib/first-seen-history.mjs';
+import { isHeldFromPublication } from './lib/translation-publication-hold.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -216,6 +217,9 @@ function processSlice(sliceFile) {
   // metadata index sees every historical version, including jobs that are
   // active today, so legacy archive entries can recover firstSeenAt too.
   const lostById = new Map();
+  // Ids whose most recent historical version was held out of publication for
+  // translation: never public, so never archived (no expired soft-landing).
+  const heldLostIds = new Set();
   const historicalExpiredBySlug = new Map();
   const historicalIndex = createFirstSeenMetadataIndex();
   for (const sha of sliceCommits) {
@@ -232,7 +236,11 @@ function processSlice(sliceFile) {
         if (!job?.id || !job?.slug) continue;
         if (currentIds.has(job.id)) continue;
         if (currentSlugs.has(job.slug)) continue; // same slug, different id — treat as kept
-        if (lostById.has(job.id)) continue;
+        if (lostById.has(job.id) || heldLostIds.has(job.id)) continue;
+        if (isHeldFromPublication(job)) {
+          heldLostIds.add(job.id);
+          continue;
+        }
         lostById.set(job.id, job);
       }
     }

@@ -14,14 +14,14 @@
  */
 
 /** `CONSENT_TEXTS.communicationsOptIn.version` in services/consentTexts.ts. */
-export const REGISTRATION_TERMS_VERSION = '2026-10-01.1';
+export const REGISTRATION_TERMS_VERSION = '2026-10-04.1';
 
 /** `consentDisplayText('communicationsOptIn', locale)`, per locale. */
 export const REGISTRATION_TERMS_TEXT = Object.freeze({
-  it: 'Registrandomi accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-10-01.1).',
-  en: 'By registering I accept the terms and subscribe to Frontaliere Ticino communications. Terms (v. 2026-10-01.1).',
-  de: 'Mit der Registrierung akzeptiere ich die Bedingungen und abonniere die Mitteilungen von Frontaliere Ticino. Bedingungen (V. 2026-10-01.1).',
-  fr: 'En m’inscrivant, j’accepte les conditions et m’inscris aux communications de Frontaliere Ticino. Conditions (v. 2026-10-01.1).',
+  it: 'Registrandomi accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-10-04.1).',
+  en: 'By registering I accept the terms and subscribe to Frontaliere Ticino communications. Terms (v. 2026-10-04.1).',
+  de: 'Mit der Registrierung akzeptiere ich die Bedingungen und abonniere die Mitteilungen von Frontaliere Ticino. Bedingungen (V. 2026-10-04.1).',
+  fr: 'En m’inscrivant, j’accepte les conditions et m’inscris aux communications de Frontaliere Ticino. Conditions (v. 2026-10-04.1).',
 });
 
 /** The sentence for a locale, Italian when the locale is not one of the four. */

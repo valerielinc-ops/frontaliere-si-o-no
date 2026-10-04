@@ -119,6 +119,7 @@ import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl, BASE_URL } from '
 import { FIRESTORE_BATCH_SIZE } from './lib/firestore-batch.mjs';
 import { isImmediateCompanyAlert, IMMEDIATE_FREQUENCY } from './lib/company-alert-routing.mjs';
 import { companyAlertQuarantineReason } from './lib/company-alert-routing.mjs';
+import { translationHoldReleasedMs } from './lib/translation-publication-hold.mjs';
 /**
  * `/aziende-seguite/` per locale — ONE literal segment for every language, like
  * `/aziende/` in services/companyAlertEmail.mjs.
@@ -255,6 +256,11 @@ export function isOpenCompanyAlertJob(job, nowMs) {
 
 /**
  * Jobs first seen inside the novelty window.
+ *
+ * An agency job held out of publication until its titles were translated
+ * (scripts/lib/translation-publication-hold.mjs) is new to the site when it is
+ * released, not when the crawler first saw it: its release stamp is the
+ * novelty clock, so it alerts exactly like a job that just appeared.
  * @param {object[]} jobs
  * @param {number} nowMs
  * @param {number} [windowMs]
@@ -263,7 +269,7 @@ export function isOpenCompanyAlertJob(job, nowMs) {
 export function selectNewlyPublishedJobs(jobs, nowMs, windowMs = IMMEDIATE_WINDOW_MS) {
   const cutoff = nowMs - windowMs;
   return (jobs || []).filter((j) => {
-    const seen = toMillis(j?.firstSeenAt);
+    const seen = Math.max(toMillis(j?.firstSeenAt), translationHoldReleasedMs(j));
     return seen > 0 && seen >= cutoff && isOpenCompanyAlertJob(j, nowMs);
   });
 }

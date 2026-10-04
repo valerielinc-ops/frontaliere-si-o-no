@@ -43,6 +43,8 @@
  *   16-19/09  372 account, 2 scoperti (0,5%)
  */
 
+import { isSavedJobsDigestAnchorOnly } from '../../services/subscriberConsent.mjs';
+
 /** Prefisso dei canali di login (authService.ts: authProviderSourceChannel). */
 export const AUTH_CHANNEL_PREFIX = 'auth_';
 
@@ -68,6 +70,11 @@ export const MIN_ACCOUNTS_FOR_SHARE = 10;
  */
 export function classifySubscriberDoc(data) {
   if (!data || typeof data !== 'object') return 'missing';
+  // La riga del digest dei salvati (decisione del 2026-10-03) non è una
+  // relazione di comunicazione: lo status che vi scrivono un webhook, il decay
+  // o il retry Mailtrap è l'indirizzo che si ferma o riparte, non un'iscrizione
+  // (isSavedJobsDigestAnchorOnly in functions/src/lib/subscriberConsent.js).
+  if (isSavedJobsDigestAnchorOnly(data)) return 'stub';
   const status = typeof data.status === 'string' ? data.status.trim() : '';
   return status ? 'subscribed' : 'stub';
 }
