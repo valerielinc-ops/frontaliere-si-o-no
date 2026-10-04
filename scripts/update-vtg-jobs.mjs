@@ -16,6 +16,7 @@
  * VTG has military facilities throughout Switzerland, including Rivera,
  * Ambrì, and Claro (TI).
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
@@ -137,12 +138,6 @@ function normalizeCantonCode(raw = '', fallback = '') {
   return fallback || '';
 }
 
-function dateOnly(raw = '') {
-  const dt = new Date(raw || Date.now());
-  if (Number.isNaN(dt.getTime())) return new Date().toISOString().slice(0, 10);
-  return dt.toISOString().slice(0, 10);
-}
-
 function buildSeedMetaFromApiJob(job) {
   const arbeitsort = String(job?.attributes?.['arbeitsort']?.[0] || '').trim();
   const region = String(job?.attributes?.['region']?.[0] || '').trim();
@@ -192,7 +187,7 @@ function buildSeedMetaFromApiJob(job) {
     ...(workplaceLocation ? { workplaceLocation } : {}),
     ...(seedCanton ? { canton: seedCanton } : {}),
     company: normalizeFederalDepartmentCompany(dept, VTG_COMPANY_NAME) || VTG_COMPANY_NAME,
-    ...(job?.start_date ? { postedDate: dateOnly(job.start_date) } : {}),
+    ...sourcePostingDateFields(job?.start_date),
   };
 }
 
