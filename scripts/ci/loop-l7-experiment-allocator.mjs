@@ -23,6 +23,7 @@ const ISSUE_WORKFLOW = 'Loop L7 Experiment Allocator';
 export const DEFAULT_CANDIDATES_PATH = path.join('data', 'experimental-candidates.json');
 export const DEFAULT_OUTCOME_PATH = path.join('data', 'experiment-outcomes.json');
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
+export const DEFAULT_ACTIVE_EXPERIMENTS_PATH = path.join('data', 'experiments', 'active-experiments.json');
 export const DEFAULT_MAX_AGE_HOURS = 192;
 export const MAX_CANDIDATES = 50;
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
@@ -232,8 +233,13 @@ const OUTCOME_COUNT_FIELDS = Object.freeze([
  * explicitly independent, sourced, and reports no participation; anything
  * else is a finding like any other ledger defect.
  */
-function validateIdleOutcomes(outcomes, { now, maxAgeHours, sourcePath }) {
+function validateIdleOutcomes(outcomes, { now, maxAgeHours, sourcePath, declaredActiveExperiments }) {
   const issues = [];
+  // Defense in depth: the export's own idle claim must agree with the
+  // declaration it was derived from, or a blind ledger would read as idle.
+  if (integer(declaredActiveExperiments) && declaredActiveExperiments > 0) {
+    issues.push(`outcomes.activeExperiments is 0 but ${declaredActiveExperiments} experiment(s) are registered as active`);
+  }
   const evidence = outcomes.evidence || outcomes.provenance;
   if (outcomes.independent !== true) {
     issues.push('outcomes.independent must be explicitly true for a declared idle state');
@@ -296,6 +302,7 @@ function validateOutcomes(outcomes, {
   primaryMetric,
   guardrails,
   candidateTtlHours,
+  declaredActiveExperiments,
 } = {}) {
   if (!object(outcomes)) {
     return {
@@ -323,7 +330,7 @@ function validateOutcomes(outcomes, {
     };
   }
   if (outcomes.activeExperiments === 0) {
-    return validateIdleOutcomes(outcomes, { now, maxAgeHours, sourcePath });
+    return validateIdleOutcomes(outcomes, { now, maxAgeHours, sourcePath, declaredActiveExperiments });
   }
   const issues = [];
   const evidence = outcomes.evidence || outcomes.provenance;
@@ -472,6 +479,9 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
   outcomePath = DEFAULT_OUTCOME_PATH,
   minimumSample,
   loopRegistry,
+  // Number of experiments in the active-experiments declaration, when the
+  // caller read it; an idle export is rejected if it disagrees.
+  declaredActiveExperiments,
 } = {}) {
   const { registry: validatedLoopRegistry, policy: loopPolicy } = requireL7Policy(loopRegistry);
   const effectiveMinimumSample = minimumSample === undefined
@@ -492,6 +502,7 @@ export function validateExperimentAllocator({ registry, outcomes = null }, {
     primaryMetric: loopPolicy.primaryMetric,
     guardrails: loopPolicy.guardrails,
     candidateTtlHours: loopPolicy.lifecycle.candidateTtlHours,
+    declaredActiveExperiments,
   });
   const issues = [...candidateVerdict.issues, ...outcomeVerdict.issues];
   const warnings = [...candidateVerdict.warnings];
@@ -547,6 +558,18 @@ function readJson(filePath, label) {
   const absolute = path.resolve(filePath);
   if (!fs.existsSync(absolute)) throw new Error(`${label} is missing: ${filePath}`);
   return JSON.parse(fs.readFileSync(absolute, 'utf8'));
+}
+
+/**
+ * Count the experiments declared active. A missing or malformed declaration
+ * throws, so an idle export is never accepted without its source of truth.
+ */
+export function readDeclaredActiveExperimentCount(filePath = DEFAULT_ACTIVE_EXPERIMENTS_PATH) {
+  const declaration = readJson(filePath, 'active experiments declaration');
+  if (!object(declaration) || !Array.isArray(declaration.experiments)) {
+    throw new Error(`${filePath} must list { experiments: [] }`);
+  }
+  return declaration.experiments.length;
 }
 
 function readOptionalJson(filePath) {
@@ -736,6 +759,7 @@ export async function runL7({
   candidatesPath = DEFAULT_CANDIDATES_PATH,
   outcomePath = DEFAULT_OUTCOME_PATH,
   registryPath = DEFAULT_REGISTRY_PATH,
+  activeExperimentsPath = DEFAULT_ACTIVE_EXPERIMENTS_PATH,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   // Undefined lets the validated registry set the floor; an explicit value
   // is treated by loadLoopPolicyForRun as a strengthening override only.
@@ -758,6 +782,9 @@ export async function runL7({
   try {
     sourceRegistry = readJson(candidatesPath, 'experimental candidates');
     sourceOutcomes = readOptionalJson(outcomePath);
+    const declaredActiveExperiments = object(sourceOutcomes) && sourceOutcomes.activeExperiments === 0
+      ? readDeclaredActiveExperimentCount(activeExperimentsPath)
+      : undefined;
     verdict = validateExperimentAllocator({
       registry: sourceRegistry,
       outcomes: sourceOutcomes,
@@ -768,6 +795,7 @@ export async function runL7({
       outcomePath,
       minimumSample: policyMinimumSample,
       loopRegistry,
+      declaredActiveExperiments,
     });
   } catch (error) {
     verdict = baseVerdict({ sourcePath: candidatesPath, now, quality: 'unmeasurable', ok: false, reason: error.message });
@@ -891,6 +919,7 @@ function parseArgs(argv) {
     candidatesPath: valueAfter('--candidates', DEFAULT_CANDIDATES_PATH),
     outcomePath: valueAfter('--outcomes', DEFAULT_OUTCOME_PATH),
     registryPath: valueAfter('--registry', DEFAULT_REGISTRY_PATH),
+    activeExperimentsPath: valueAfter('--active-experiments', DEFAULT_ACTIVE_EXPERIMENTS_PATH),
     maxAgeHours,
     minimumSample,
     reportDir: valueAfter('--report-dir', process.env.RUNNER_TEMP ? path.join(process.env.RUNNER_TEMP, 'loop-fleet-l7') : path.join(os.tmpdir(), 'loop-fleet-l7')),

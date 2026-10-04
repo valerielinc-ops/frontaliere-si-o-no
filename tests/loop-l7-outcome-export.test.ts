@@ -280,7 +280,9 @@ describe('L7 declared idle state', () => {
  *
  * Failure title: "L7: esperimento attivo senza emettitore o senza sorgente viva".
  */
-const CLIENT_DIRS = ['services', 'components', 'hooks'];
+// build-plugins: the HTML template and thin shells inject inline client scripts
+// that call Analytics/gtag, so an inline emission is a client emission too.
+const CLIENT_DIRS = ['services', 'components', 'hooks', 'build-plugins'];
 const CLIENT_ROOT_FILES = ['App.tsx', 'index.tsx'];
 const ANALYTICS_FILE = 'services/analytics.ts';
 

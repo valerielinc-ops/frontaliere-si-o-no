@@ -7,6 +7,7 @@ import {
   validateExperimentAllocator,
   validateCandidateRegistry,
 } from '../scripts/ci/loop-l7-experiment-allocator.mjs';
+import { buildIdleL7ExperimentOutcome } from '../scripts/ci/export-l7-experiment-outcomes.mjs';
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
 const GUARDRAILS = ['persistent assignment', 'minimum sample', 'explicit expiry', 'no automatic price change'];
@@ -536,6 +537,44 @@ describe('L7 Experiment Allocator', () => {
       expect(result.verdict.candidates.length).toBe(registry().candidates.length);
     });
 
+    it('accepts the idle export exactly as the exporter builds it', () => {
+      const verdict = validateExperimentAllocator({
+        registry: registry(),
+        outcomes: buildIdleL7ExperimentOutcome({ now: NOW }),
+      }, { now: NOW, loopRegistry: FLEET_LOOP_REGISTRY, declaredActiveExperiments: 0 });
+      expect(verdict).toMatchObject({ ok: true, quality: 'zero', reason: 'no active experiment: nothing to allocate' });
+    });
+
+    it('rejects an idle export that contradicts the active-experiments declaration', async () => {
+      const files = tempFiles(registry(), idleExport());
+      const declarationPath = path.join(path.dirname(files.outcomePath), 'active-experiments.json');
+      fs.writeFileSync(declarationPath, JSON.stringify({ schemaVersion: 1, experiments: [{ experimentId: 'x' }] }));
+      let issues = 0;
+      const result = await runL7({
+        now: NOW,
+        candidatesPath: files.candidatesPath,
+        outcomePath: files.outcomePath,
+        activeExperimentsPath: declarationPath,
+        reportDir: files.reportDir,
+        issue: true,
+        createIssueImpl: async () => { issues += 1; return { persisted: true }; },
+        logger: { log() {} },
+      });
+      expect(result.verdict.ok).toBe(false);
+      expect(result.verdict.issues.join(' ')).toContain('1 experiment(s) are registered as active');
+      expect(issues).toBe(1);
+
+      const missing = await runL7({
+        now: NOW,
+        candidatesPath: files.candidatesPath,
+        outcomePath: files.outcomePath,
+        activeExperimentsPath: path.join(path.dirname(files.outcomePath), 'missing.json'),
+        reportDir: files.reportDir,
+        logger: { log() {} },
+      });
+      expect(missing.verdict).toMatchObject({ ok: false, quality: 'unmeasurable' });
+    });
+
     it('still fails on candidate defects while idle', () => {
       const verdict = validateExperimentAllocator({
         registry: registry({ candidates: [candidate({ sources: [] })] }),
@@ -585,4 +624,3 @@ describe('L7 Experiment Allocator', () => {
     });
   });
 });
-
