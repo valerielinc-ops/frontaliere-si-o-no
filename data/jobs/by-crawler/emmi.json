@@ -7906,14 +7906,21 @@
           "• Motivation, Offenheit, Flexibilität, Verantwortungsbewusstsein und Zuverlässigkeit beschreiben deine Person."
         ]
       },
-      "previousSlugs": [
-        "operateur-de-reseau-dans-les-usines-d-embouteillage-emmi-dagmersellen-luzern",
-        "system-operator-in-bottling-plants-emmi-dagmersellen-luzern",
-        "operatore-di-sistema-negli-impianti-di-imbottigliamento-emmi-dagmersellen-luzern",
-        "plant-operator-bottling-equipment-emmi-dagmersellen-luzern",
-        "materiel-d-embouteillage-pour-operateurs-d-usines-emmi-dagmersellen-luzern",
-        "anlagenfuhrer-in-abfullanlagen-emmi-ch"
-      ],
+      "needsRetranslation": true,
+      "salaryMin": 96000,
+      "salaryMax": 146000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 146000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-12T10:27:57.881Z",
       "previousSlugsByLocale": {
         "it": [
           "operateur-de-reseau-dans-les-usines-d-embouteillage-emmi-dagmersellen-luzern",
@@ -7934,21 +7941,14 @@
           "anlagenfuhrer-in-abfullanlagen-emmi-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-12T10:27:57.881Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "operateur-de-reseau-dans-les-usines-d-embouteillage-emmi-dagmersellen-luzern",
+        "system-operator-in-bottling-plants-emmi-dagmersellen-luzern",
+        "operatore-di-sistema-negli-impianti-di-imbottigliamento-emmi-dagmersellen-luzern",
+        "plant-operator-bottling-equipment-emmi-dagmersellen-luzern",
+        "materiel-d-embouteillage-pour-operateurs-d-usines-emmi-dagmersellen-luzern",
+        "anlagenfuhrer-in-abfullanlagen-emmi-ch"
+      ]
     },
     {
       "id": "emmi-849900ec6806",
