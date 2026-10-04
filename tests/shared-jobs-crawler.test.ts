@@ -15,7 +15,7 @@ const { buildKnownJobUrlsSet } = __testables;
 
 describe('central job-board detail URLs', () => {
   const listingUrl = 'https://www.swisstiming.com/company/job-offers/';
-  const detailUrl = 'https://www.swisstiming.com/company/job-offers?company=81&job=276771';
+  const detailUrl = `${listingUrl}?company=81&job=276771`;
 
   it('distinguishes a query-param detail page from its listing path', () => {
     expect(isLikelyJobDetailUrl(listingUrl)).toBe(false);
