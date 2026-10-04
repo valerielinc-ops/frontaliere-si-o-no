@@ -8,11 +8,12 @@
  *
  * Source: https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
-import { firstLocationSegment } from './ats-clients/workday-client.mjs';
+import { firstLocationSegment, workdayPostingDateFields } from './ats-clients/workday-client.mjs';
 import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 import {
   dropSameSourceReference,
@@ -418,7 +419,7 @@ export async function fetchAllLonzaJobs() {
       sector: 'Farmaceutica / Biotecnologia',
       currency: 'CHF',
       featured: false,
-      postedDate: info.startDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(workdayPostingDateFields(listing), workdayPostingDateFields(detail)),
       url: publicUrl,
       applyUrl: publicUrl,
       source: 'Lonza Dedicated Parser (Workday)',

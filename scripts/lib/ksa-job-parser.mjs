@@ -37,6 +37,7 @@
  *   - isTrustedDomain()  — Validate URLs belong to KSA / Umantis tenant 122706
  *   - KSA_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import {
   slugify,
@@ -455,6 +456,13 @@ export async function fetchAllKsaJobs() {
   console.log(`  📖 Fetching rich bodies from Prospective medium ${PROSPECTIVE_MEDIUM_ID}…`);
   const prospectiveJobs = await fetchProspectiveJobs();
   const descriptionByVacancyId = buildProspectiveDescriptionMap(prospectiveJobs);
+  // KSA medium 1003009 start_date matches the linked JobPosting.datePosted.
+  // Join by this tenant's explicit Umantis application ID, never by array index.
+  const publicationByVacancyId = new Map();
+  for (const source of prospectiveJobs) {
+    const vacancyId = String(source?.szas?.sza_apply_link || '').trim();
+    if (/^\d+$/.test(vacancyId)) publicationByVacancyId.set(vacancyId, sourcePostingDateFields(source?.start_date));
+  }
   console.log(`  📖 Prospective bodies indexed: ${descriptionByVacancyId.size} (from ${prospectiveJobs.length} listings)\n`);
 
   const jobs = [];
@@ -514,7 +522,7 @@ export async function fetchAllKsaJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...(publicationByVacancyId.get(listing.vacancyId) || sourcePostingDateFields('')),
       applyUrl: listing.applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
