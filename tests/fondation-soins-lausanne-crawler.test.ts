@@ -201,15 +201,18 @@ describe('Fondation Soins Lausanne crawler parser (jobup.ch SERP)', () => {
         expect(job.postedDate).toBe(kind === 'past' ? date : '');
         expect(job.datePosted).toBe(job.postedDate);
         expect(job.postingDateSource).toBe(kind === 'past' ? 'reported' : 'unknown');
-      // Exercise the actual shared consumer: unknown dates suppress only rich-result markup.
+      // Exercise the actual shared consumer: unknown dates keep their marker
+      // while required JobPosting JSON-LD receives a valid fallback date.
       for (const locale of ['it', 'en', 'de', 'fr']) {
         const schema = buildJobPostingSchema(job, { locale, url: job.url });
+        expect(schema).not.toBeNull();
         if (kind === 'past') {
           expect(schema?.datePosted).toBe(job.datePosted);
-          expect(schema?.hiringOrganization.name).toBeTruthy();
         } else {
-          expect(schema).toBeNull();
+          expect(typeof schema?.datePosted).toBe('string');
+          expect(Number.isFinite(Date.parse(schema?.datePosted || ''))).toBe(true);
         }
+        expect(schema?.hiringOrganization.name).toBeTruthy();
         expect(buildJobPostingFacts(job, locale).hiringOrganization.name).toBeTruthy();
       }
       expect(job.url).toMatch(/^https:\/\//);
