@@ -109,7 +109,7 @@ describe('profession-canton recent-listing comparison', () => {
 
 
 describe('recent-listing period boundary', () => {
-  it('excludes future dates and falls back from invalid publication dates', () => {
+  it('counts verified publication boundaries and falls back only to another reported date', () => {
     const root = mkdtempSync(join(tmpdir(), 'profession-recency-'));
     const now = Date.now();
     const day = 86_400_000;
@@ -122,13 +122,16 @@ describe('recent-listing period boundary', () => {
       _resetNursingJobsAggregateCache();
     };
     const dates = [
-      { postedDate: at(1), firstSeenAt: at(-1) },
-      { postedDate: at(-31) },
-      { postedDate: at(-30) },
-      { postedDate: at(0) },
-      { postedDate: 'invalid', firstSeenAt: at(-2) },
-      { firstSeenAt: at(-3) },
-      { postedDate: 'invalid', firstSeenAt: 'invalid' },
+      { postingDateSource: 'reported', postedDate: at(1), firstSeenAt: at(-1) },
+      { postingDateSource: 'reported', postedDate: at(-31) },
+      { postingDateSource: 'reported', postedDate: at(-30) },
+      { postingDateSource: 'reported', postedDate: at(0) },
+      { postingDateSource: 'reported', datePosted: 'invalid', postedDate: at(-2), firstSeenAt: at(-40) },
+      { postingDateSource: 'reported', datePosted: at(-3), postedDate: 'invalid' },
+      { postingDateSource: 'reported', postedDate: 'invalid', firstSeenAt: at(-2) },
+      { postingDateSource: 'unknown', firstSeenAt: at(-3) },
+      { postingDateSource: 'unknown', postedDate: at(-1), firstSeenAt: at(-1) },
+      { postingDateSource: 'reported', postedDate: 'invalid', firstSeenAt: 'invalid' },
     ];
     try {
       mkdirSync(join(root, 'data'));
@@ -143,7 +146,7 @@ describe('recent-listing period boundary', () => {
         aggregateNursingJobs(root, now).nurses,
       ];
       for (const sample of samples) {
-        expect(sample.liveCount).toBe(7);
+        expect(sample.liveCount).toBe(dates.length);
         expect(sample.fresh30Count).toBe(4);
       }
     } finally {
