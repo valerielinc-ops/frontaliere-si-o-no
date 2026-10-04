@@ -95,6 +95,10 @@ export function evaluateStagnation(history, currentCount, now = new Date()) {
   const daysUnchanged = daysBetween(sinceDate, nowStr);
   return {
     stagnant: daysUnchanged >= STAGNANT_THRESHOLD_DAYS,
+    // Positive evidence of movement: the history records a different value.
+    // Only this lets the monitor close its issue — a short or reset history
+    // is "not stagnant yet", not "moving again".
+    changedOn: changeDate,
     daysUnchanged,
     reason: changeDate
       ? `invariato dal ${sinceDate} (ultimo valore diverso registrato il ${changeDate})`
@@ -120,6 +124,11 @@ function defaultSaveHistory(path, history, entry) {
   withoutToday.sort((a, b) => a.date.localeCompare(b.date));
   mkdirSync(dirname(path), { recursive: true });
   writeFileSync(path, withoutToday.map((e) => JSON.stringify(e)).join('\n') + '\n');
+}
+
+async function defaultResolveIssue(title) {
+  const { resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
+  return resolveGithubIssue(title, { workflow: 'Telegram Member Count Monitor' });
 }
 
 async function defaultCreateIssue({ title, description }) {
@@ -164,8 +173,8 @@ export function buildIssueBody({ chatId, count, daysUnchanged, reason }) {
       ],
       osservatore: [
         '`.github/workflows/monitor-telegram-member-count.yml`, che rivaluta ogni run e tiene',
-        "aperta questa issue finche' il contatore resta fermo. Non esiste un closer",
-        "automatico: il comando qui sopra e' il criterio con cui chiuderla.",
+        "aperta questa issue finche' il contatore resta fermo e la chiude al primo run che",
+        "registra un valore diverso. A mano il comando qui sopra e' il criterio.",
       ],
       fallimento: `\`${STABLE_ISSUE_TITLE}\``,
     }),
@@ -183,6 +192,7 @@ export async function runMemberCountMonitor({
   saveHistoryImpl = defaultSaveHistory,
   getChatMemberCountImpl = getChatMemberCount,
   createIssueImpl = defaultCreateIssue,
+  resolveIssueImpl = defaultResolveIssue,
   credentials = resolveTelegramCredentials(),
   dryRun = false,
 } = {}) {
@@ -211,12 +221,17 @@ export async function runMemberCountMonitor({
     });
   }
 
+  // The mirror of the open path: the count moved within the threshold, so
+  // the stagnation issue (if open) no longer describes the channel.
+  const resolved = !stagnation.stagnant && Boolean(stagnation.changedOn) && !dryRun;
+  if (resolved) await resolveIssueImpl(STABLE_ISSUE_TITLE);
+
   if (!dryRun) {
     const dateStr = now.toISOString().slice(0, 10);
     saveHistoryImpl(historyPath, history, { date: dateStr, count: result.count });
   }
 
-  return { skipped: false, count: result.count, stagnation };
+  return { skipped: false, count: result.count, stagnation, resolved };
 }
 
 // ---------------------------------------------------------------------------
