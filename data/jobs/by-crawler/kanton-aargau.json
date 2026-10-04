@@ -3377,12 +3377,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Amt für Justizvollzug / JVA Lenzburg",
-      "previousSlugs": [
-        "prigionieri-prigionieri-central-prison-entry-central-prison-100-kanton-aargau-lenzburg",
-        "prisoners-prisoners-central-prison-entry-central-prison-100-kanton-aargau-lenzburg",
-        "prisonniers-prisonniers-prison-centrale-entree-prison-centrale-100-kanton-aargau-lenzburg",
-        "vollzugsangestellte-vollzugsangestellter-zentraler-hafteintritt-zentralgefangnis-100"
-      ],
+      "firstSeenAt": "2026-08-20T10:27:56.297Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
       "previousSlugsByLocale": {
         "it": [
           "prigionieri-prigionieri-central-prison-entry-central-prison-100-kanton-aargau-lenzburg",
@@ -3397,20 +3405,12 @@
           "vollzugsangestellte-vollzugsangestellter-zentraler-hafteintritt-zentralgefangnis-100"
         ]
       },
-      "firstSeenAt": "2026-08-20T10:27:56.297Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "prigionieri-prigionieri-central-prison-entry-central-prison-100-kanton-aargau-lenzburg",
+        "prisoners-prisoners-central-prison-entry-central-prison-100-kanton-aargau-lenzburg",
+        "prisonniers-prisonniers-prison-centrale-entree-prison-centrale-100-kanton-aargau-lenzburg",
+        "vollzugsangestellte-vollzugsangestellter-zentraler-hafteintritt-zentralgefangnis-100"
+      ]
     },
     {
       "id": "kanton-aargau-a6c285348f06",

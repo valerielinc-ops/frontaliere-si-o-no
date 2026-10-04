@@ -608,6 +608,19 @@
       "jobReqId": "744000152843981",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
       "firstSeenAt": "2026-08-04T11:35:03.323Z",
       "previousSlugsByLocale": {
         "it": [
@@ -622,20 +635,7 @@
       },
       "previousSlugs": [
         "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee"
-      ],
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "imad-f33aac1f6db9",
