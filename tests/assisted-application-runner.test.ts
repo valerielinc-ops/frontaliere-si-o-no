@@ -46,14 +46,14 @@ function fakeBucket() {
 const POSTING = 'L’Ospedale cerca un’infermiera per il reparto di medicina. Requisiti: diploma SUP in cure infermieristiche, esperienza di reparto, tedesco B1. '
   + 'Inviare il CV con le pretese salariali. '.repeat(3);
 
-function fakeFetch({ employerStatus = 200, employerHtml = '<main><p>Descrizione del posto di lavoro in reparto.</p><a>Candidati ora</a></main>' } = {}) {
+function fakeFetch({ employerStatus = 200, employerHtml = '<main><p>Descrizione del posto di lavoro in reparto.</p><a>Candidati ora</a></main>', title = 'Infermiera di reparto' } = {}) {
   return vi.fn(async (url: string, init: any = {}) => {
     if (url.startsWith('https://cdn.frontaliereticino.ch/data/job-detail/')) {
       if (init.method === 'HEAD') return new Response(null, { status: 200 });
       return new Response(JSON.stringify({
         description: POSTING,
         applyUrl: 'https://jobs.lever.co/ospedale/1/apply',
-        titleByLocale: { it: 'Infermiera di reparto' },
+        titleByLocale: { it: title },
         addressLocality: 'Lugano',
       }), { status: 200 });
     }
@@ -157,6 +157,22 @@ describe('draft mode', () => {
     expect(draft.applicationEmail.body).toContain('Maria Rossi');
     // The subject names the position and the candidate (the model's "Candidatura infermiera" is not used).
     expect(draft.applicationEmail.subject).toMatch(/^Candidatura per la posizione di .+ – Maria Rossi$/);
+    // The e-mail framed like the letter: the code's salutation and closing, once each, the model's own removed.
+    expect(draft.applicationEmail.body).toBe('Gentili signore e signori,\n\nin allegato CV e lettera.\n\nCordiali saluti\n\nMaria Rossi\nmaria.rossi@example.com\n+41 79 123 45 67');
+    const documentsPrompt = (codex.mock.calls as any[]).find(([request]) => request.schema === DOCUMENTS_SCHEMA)[0].prompt;
+    expect(documentsPrompt).toContain('emailBody is the message only: no greeting, no closing formula and no signature');
+  });
+
+  it('writes an apprenticeship’s subject from the trade, and the fact gate reads that subject as a name', async () => {
+    const draft = await buildDraft({
+      order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      codex: fakeCodex(), bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch({ title: 'Apprendista impiegato/a di commercio AFC' }), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+    });
+    expect(draft.candidateType.type).toBe('apprentice');
+    expect(draft.coverLetter.subject).toBe('Candidatura per un posto di tirocinio come impiegato/a di commercio AFC');
+    expect(draft.applicationEmail.subject).toBe('Candidatura per un posto di tirocinio come impiegato/a di commercio AFC – Maria Rossi');
+    // «AFC» in the subject is the trade's, not a diploma the CV must show: only the invented «7 anni» is flagged.
+    expect(draft.factCheck.unsupported.map((item: any) => item.token)).toEqual(['7']);
   });
 
   it('writes the next round from the candidate as corrected on the review page', async () => {

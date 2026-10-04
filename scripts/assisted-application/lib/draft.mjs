@@ -11,6 +11,7 @@
 
 import { pdfRendererMode, renderLetterPdf } from '../../../functions/src/assistedApplicationPdfRenderer.js';
 import {
+  applicationEmailText,
   applyLetterConventions,
   buildFormAnswers,
   checkDraftTexts,
@@ -19,6 +20,7 @@ import {
   letterEnclosures,
   letterPdfBlocks,
   letterText,
+  printedTitles,
   salutationQuestion,
   sanitizeDocuments,
   swissTypography,
@@ -98,7 +100,9 @@ function candidateLocale(order) {
  * @param {object} ctx.bucket Storage bucket
  * @param {Buffer} ctx.runKey evidence key
  * @param {typeof fetch} [ctx.fetchImpl]
+ * @param {Function} [ctx.resolve] DNS lookup of the posting's hosts (tests pass a fake)
  * @param {number} [ctx.nowMs]
+ * @param {Function} [ctx.log]
  * @returns {Promise<object>} the draft document to write
  */
 export async function buildDraft(ctx) {
@@ -216,7 +220,10 @@ export async function buildDraft(ctx) {
   // language, no "ß", no line break inside "81 %".
   const contactPerson = requirements.contactPerson || posting.contactPerson;
   documents.coverLetter = applyLetterConventions(documents.coverLetter, { language, contactPerson });
-  for (const key of ['emailBody', 'motivationShort', 'whyCompany']) documents[key] = swissTypography(documents[key], language);
+  // The e-mail framed like the letter: the model writes only the message (2026-10-03).
+  documents.emailBody = applicationEmailText(documents.emailBody, { language, contactPerson, signature: [identity.name, identity.email, identity.phone] });
+  if (!documents.emailBody) throw new DraftAbort('draft_failed', 'documents_empty');
+  for (const key of ['motivationShort', 'whyCompany']) documents[key] = swissTypography(documents[key], language);
   const requiredDocuments = requiredDocumentsFromRequirements(requirements);
   const letterAddress = letterAddressOf(posting, contactPerson);
 
@@ -225,7 +232,8 @@ export async function buildDraft(ctx) {
   const factSources = {
     text: cvText.slice(0, MAX_SOURCE_CHARS),
     posting: postingText.slice(0, MAX_SOURCE_CHARS),
-    order: [order.jobTitle, order.companyName, identity.name, identity.email, identity.phone, title].join('\n'),
+    // The title also as the letter prints it (protected space, an apprenticeship's subject): a name, not a claim.
+    order: [order.jobTitle, order.companyName, identity.name, identity.email, identity.phone, ...printedTitles(language, title, kind.type)].join('\n'),
     // The work place backs a place name in the letter, never a figure.
     place: String(posting.location || '').slice(0, 200),
     // The candidate's own words: answers, notes, the changes asked for, the fields they corrected.
@@ -237,7 +245,7 @@ export async function buildDraft(ctx) {
     ].join('\n'),
   };
   const letterBody = letterText(documents.coverLetter);
-  const emailSubject = swissTypography(applicationEmailSubject(language, title, identity.name, documents.emailSubject), language);
+  const emailSubject = swissTypography(applicationEmailSubject(language, title, identity.name, documents.emailSubject, kind.type), language);
   const factCheck = checkDraftTexts({
     coverLetter: letterBody,
     emailSubject,
@@ -291,7 +299,7 @@ export async function buildDraft(ctx) {
   const rendererMode = await pdfRendererMode();
   const { pdf, renderer: letterRenderer } = await renderLetterPdf(letterPdfBlocks({
     identity, profile, posting: letterAddress, companyName: order.companyName, language, letter: documents.coverLetter, title, now: new Date(nowMs),
-    enclosures: letterEnclosures(language, enclosedDocumentLabels({ requiredDocuments }, null, orderId)),
+    enclosures: letterEnclosures(language, enclosedDocumentLabels({ requiredDocuments }, null, orderId)), type: kind.type,
   }), { mode: rendererMode, log });
   const pdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${round}-${nowMs}.pdf`;
   await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
@@ -339,7 +347,7 @@ export async function buildDraft(ctx) {
     summaryIt: match.summaryIt,
     checksIt: match.checksIt,
     questions,
-    coverLetter: { ...documents.coverLetter, text: letterBody, subject: letterSubject(language, title) },
+    coverLetter: { ...documents.coverLetter, text: letterBody, subject: swissTypography(letterSubject(language, title, kind.type), language) },
     applicationEmail: {
       to: channel.email || '',
       subject: emailSubject,

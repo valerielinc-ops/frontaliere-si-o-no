@@ -6,7 +6,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue
 const { renderCvPdf, renderLetterPdf, pdfRendererMode } = await import('../functions/src/assistedApplicationPdfRenderer.js');
 const { buildCvDocument } = await import('../functions/src/assistedApplicationCvDocument.js');
 const { sanitizeTailoredCv } = await import('../functions/src/assistedApplicationTailoredCv.js');
-const { applyLetterConventions, letterEnclosures, letterPdfBlocks, sanitizeProfile } = await import('../functions/src/assistedApplicationAiDraftCore.js');
+const { applyLetterConventions, letterEnclosures, letterPdfBlocks, parseLetterText, sanitizeProfile } = await import('../functions/src/assistedApplicationAiDraftCore.js');
 const { checkPdfForAts } = await import('../scripts/assisted-application/lib/pdf-ats-check.mjs');
 
 // Invented candidates of the study 2026-10-02 (report-cv-lettera).
@@ -108,8 +108,22 @@ describe('tailored CV PDFs pass the ATS checks (Typst, embedded font)', () => {
   }, 60_000);
 });
 
+// Where each text starts on the page, in mm from the left edge (pdf.js text items).
+async function textStarts(pdf: Uint8Array) {
+  const { getDocumentProxy } = await import('unpdf');
+  const document = await getDocumentProxy(new Uint8Array(pdf));
+  const items = (await (await document.getPage(1)).getTextContent()).items as any[];
+  return items.filter((item) => 'str' in item && item.str.trim()).map((item) => ({ text: item.str as string, mm: item.transform[4] * 25.4 / 72 }));
+}
+const startOf = (items: Array<{ text: string, mm: number }>, text: string) => items.filter((item) => item.text.includes(text)).at(-1)?.mm ?? -1;
+
+const ENGLISH = {
+  key: 'developer_en', language: 'en', identity: { name: 'Marco Bianchi', email: 'candidatura-8h2m@frontaliereticino.ch', phone: '+39 333 555 0101' },
+  title: 'Full-stack developer', profile: { location: 'Como (I)' },
+};
+
 describe('letter PDFs (Typst): Swiss layout per language', () => {
-  for (const test of CASES) {
+  for (const test of [...CASES, ENGLISH]) {
     it(`${test.key}: embedded font, sender first, salutation, closing and enclosures`, async () => {
       const profile = sanitizeProfile(test.profile);
       const letter = applyLetterConventions({ paragraphs: ['Erster Absatz mit 81 % und CHF 80\'000.', 'Zweiter Absatz.'] }, { language: test.language, contactPerson: 'Frau Sandra Beispiel' });
@@ -119,8 +133,42 @@ describe('letter PDFs (Typst): Swiss layout per language', () => {
       });
       const { pdf, renderer } = await renderLetterPdf(blocks);
       expect(renderer).toBe('typst');
-      const check = await checkPdfForAts(pdf, { name: test.identity.name, facts: [letter.salutation, letter.closing, `${blocks.enclosuresLabel}: ${blocks.enclosures.join(', ')}`, "80'000"], maxPages: 1 });
+      // The label carries its colon; the extracted text has plain spaces where the letter has protected ones.
+      const enclosureLine = `${blocks.enclosuresLabel} ${blocks.enclosures.join(', ')}`.replace(/\s+/g, ' ');
+      const check = await checkPdfForAts(pdf, { name: test.identity.name, facts: [letter.salutation, letter.closing, enclosureLine, "80'000"], maxPages: 1 });
       expect(check.failures).toEqual([]);
     }, 60_000);
   }
+
+  it('prints each formula as the sources print it, a closing sentence in the body and a bare closing above the signature', async () => {
+    const render = async (language: string, letter: any, enclosures: string[] = []) => {
+      const blocks = letterPdfBlocks({
+        identity: CASES[1].identity, profile: sanitizeProfile({ location: 'Viale Varese 5, Como' }), posting: { contactPerson: 'Madame Claire Dupont' },
+        companyName: 'Clinique Exemple SA', language, letter, title: 'infirmière', now: new Date(Date.UTC(2026, 2, 1, 12)), enclosures,
+      });
+      const { pdf } = await renderLetterPdf(blocks);
+      return { text: (await checkPdfForAts(pdf, { maxPages: 1 })).text, starts: await textStarts(pdf) };
+    };
+    const left = (mm: number) => Math.abs(mm - 25) < 1;
+    const right = (mm: number) => Math.abs(mm - 117) < 1;
+
+    const french = await render('fr', applyLetterConventions({ paragraphs: ['Vous trouverez ci-joint mon dossier.'] }, { language: 'fr', contactPerson: 'Madame Claire Dupont' }), ['CV']);
+    for (const fact of ['Como, le 1er mars 2026', 'Candidature au poste d’infirmière', 'Madame,', 'Je vous prie de recevoir, Madame, mes meilleures salutations.', 'Annexe : CV']) {
+      expect(french.text).toContain(fact);
+    }
+    expect(left(startOf(french.starts, 'Je vous prie'))).toBe(true);
+    expect(right(startOf(french.starts, 'Élodie Marchetti'))).toBe(true);
+
+    const italian = await render('it', applyLetterConventions({ paragraphs: ['Le scrivo per il posto di infermiera.'] }, { language: 'it' }), ['Curriculum vitae', 'Diplomi']);
+    for (const fact of ['Como, 1° marzo 2026', 'Gentili signore e signori,', 'Le scrivo per il posto di infermiera.', 'Allegati: Curriculum vitae, Diplomi']) expect(italian.text).toContain(fact);
+    expect(right(startOf(italian.starts, 'Cordiali saluti'))).toBe(true);
+    // The candidate deleted the closing: the last paragraph stays in the body, not in the narrow right column.
+    const deleted = await render('it', parseLetterText('Gentile signora Rossi,\n\nprimo paragrafo.\n\nResto a disposizione per un colloquio.'));
+    expect(left(startOf(deleted.starts, 'Resto a disposizione'))).toBe(true);
+
+    const english = await render('en', applyLetterConventions({ paragraphs: ['I enclose my application.'] }, { language: 'en', contactPerson: 'Dr Anna Muster' }), ['CV']);
+    for (const fact of ['Dear Dr Muster I enclose', 'Kind regards', 'Enclosures: CV']) expect(english.text).toContain(fact);
+    expect(english.text).not.toContain('Dear Dr Muster,');
+    expect(left(startOf(english.starts, 'Kind regards'))).toBe(true);
+  }, 60_000);
 });
