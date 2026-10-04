@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dxt-commodities",
-  "assembledAt": "2026-10-02T09:12:18.925Z",
+  "assembledAt": "2026-10-04T09:16:26.590Z",
   "jobs": [
     {
       "url": "https://dxt.com/careers/?panel=20897_1#offset_20897_1",
@@ -32,7 +32,9 @@
       },
       "slug": "quant-internship-mercato-del-potere-dxt-commodities-s-a-lugano",
       "category": "finance",
-      "datePosted": "2026-07-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "source": "dxt-careers-crawler",
       "sourceLang": "en",
       "employmentType": "FULL_TIME",
@@ -104,7 +106,7 @@
         "it": "Junior Contabile",
         "en": "Junior Accountant",
         "de": "Junior Buchhalter",
-        "fr": "Comptable junior"
+        "fr": "Junior Accountant"
       },
       "slugByLocale": {
         "it": "junior-contabile-dxt-commodities-s-a-lugano",
@@ -114,7 +116,9 @@
       },
       "slug": "junior-contabile-dxt-commodities-s-a-lugano",
       "category": "general",
-      "datePosted": "2026-09-11",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "source": "dxt-careers-crawler",
       "sourceLang": "en",
       "employmentType": "FULL_TIME",
@@ -161,7 +165,8 @@
       "streetAddress": "Corso Elvezia 14",
       "postalCode": "6900",
       "addressLocality": "Lugano",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "needsRetranslation": true
     }
   ]
 }
