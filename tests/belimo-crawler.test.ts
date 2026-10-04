@@ -165,7 +165,7 @@ describe('Belimo crawler parser', () => {
 
     it('normalizes datePosted to ISO (shared SF date parser)', () => {
       const parsed = parseBelimoDetailPage(html)!;
-      expect(parsed.postedDate).toBe('2026-06-23');
+      expect(parsed.postedDate).toBe('2026-06-23T00:00:00Z');
     });
 
     it('captures the jobdescription body without the apply chrome', () => {

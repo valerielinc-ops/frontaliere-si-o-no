@@ -10,72 +10,24 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { assertDomesticHealthQuotes } from '../scripts/lib/domestic-health-premiums.mjs';
 import type { DomesticHealthQuotes } from '../services/healthPremiumResidency';
+import { loadReportJobPanel, isReportSalaryJob, type ReportJob } from './shared/reportJobPanel';
+import { jobSalaryMidpoint } from './shared/realSalaryMedian';
 
 // ── Salary aggregation from data/jobs.json ──────────────────────
 
-interface RawJob {
-  id?: string;
-  sector?: string;
-  canton?: string;
-  location?: string;
-  salaryMin?: number | null;
-  salaryMax?: number | null;
-  currency?: string;
-}
 
 export interface SalarySectorRow {
   /** Raw sector label (as stored in data/jobs.json). */
   sector: string;
   /** Count of observations used to compute medianCHF. */
   count: number;
-  /** Median annual salary in CHF (gross, 13 months). */
+  /** Median of explicitly annual gross CHF ranges. */
   medianCHF: number;
-  /**
-   * Paired estimated Italian gross salary for an equivalent role. Derived
-   * from publicly reported ratios: Italian averages are ~40-55% of Swiss
-   * for the same sector (sources: SECO, ISTAT SILC, INAPP).
-   */
-  estimatedItalyEUR: number;
-  /** Gap ratio (Swiss median CHF / Italy estimate EUR, informative only). */
-  ratio: number;
+  /** No comparable Italian salary panel is supplied by the source data. */
+  estimatedItalyEUR: number | null;
+  /** No ratio is published without comparable observed salaries. */
+  ratio: number | null;
 }
-
-/**
- * Sector → ratio of Italian median gross to Swiss median gross in CHF→EUR
- * terms. Conservative anchors based on public aggregate data:
- *   - SECO Swiss salary structure 2024 (aggregate by NOGA sector)
- *   - ISTAT Rilevazione sulla Struttura delle Retribuzioni 2022
- *   - INAPP XXIV Rapporto sul mercato del lavoro 2024
- *
- * Where the sector in data/jobs.json is unusual or not in these anchors
- * we default to the global cross-sector ratio (~0.45).
- */
-const IT_RATIO_BY_SECTOR: Record<string, number> = {
-  // Keys match the Italian sector labels used in data/jobs.json.
-  'Sanità': 0.38,
-  'Sanità e assistenza sociale': 0.38,
-  'Finanza': 0.42,
-  'Finanza e assicurazioni': 0.42,
-  'Bancario': 0.42,
-  'ICT': 0.48,
-  'Informatica': 0.48,
-  'Informatica ed elettronica': 0.48,
-  'Ingegneria': 0.46,
-  'Edilizia': 0.50,
-  'Costruzioni': 0.50,
-  'Industria': 0.50,
-  'Logistica': 0.55,
-  'Trasporti': 0.55,
-  'Ristorazione': 0.60,
-  'Retail': 0.58,
-  'Commercio': 0.58,
-  'Amministrazione': 0.52,
-  'Pubblica amministrazione': 0.52,
-  'Istruzione': 0.55,
-  'Educazione': 0.55,
-};
-
-const DEFAULT_IT_RATIO = 0.45;
 
 function median(values: readonly number[]): number {
   if (values.length === 0) return 0;
@@ -87,43 +39,19 @@ function median(values: readonly number[]): number {
   return sorted[mid];
 }
 
-function loadJobs(rootDir: string): RawJob[] {
-  const p = path.join(rootDir, 'data', 'jobs.json');
-  if (!fs.existsSync(p)) return [];
-  try {
-    const raw = JSON.parse(fs.readFileSync(p, 'utf-8'));
-    return Array.isArray(raw) ? (raw as RawJob[]) : [];
-  } catch {
-    return [];
-  }
-}
-
-/**
- * Aggregate `data/jobs.json` by sector and emit the top-N rows for the
- * salary comparison table. Keeps only sectors with ≥10 observations so the
- * medians are statistically meaningful.
- *
- * Italian counterpart is an *estimate* derived from the sector ratio above
- * and explicitly flagged as such in the table footer. We refuse to invent
- * per-company figures — only a ratio from published aggregate sources.
- */
+/** Same Ticino observation panel and salary policy as the linked annual CSV. */
 export function aggregateSalaryBySector(
   rootDir: string,
   topN = 10,
-): readonly SalarySectorRow[] {
-  const jobs = loadJobs(rootDir);
+): readonly SalarySectorRow[] | null {
+  const jobs = loadReportJobPanel(rootDir, 2026);
+  if (jobs === null) return null;
 
-  const withSalary: Array<RawJob & { mid: number }> = [];
+  const withSalary: Array<ReportJob & { mid: number }> = [];
   for (const j of jobs) {
-    const min = typeof j.salaryMin === 'number' ? j.salaryMin : null;
-    const max = typeof j.salaryMax === 'number' ? j.salaryMax : null;
-    if (!min || !max || min <= 0 || max <= 0) continue;
-    const currency = (j.currency ?? 'CHF').toUpperCase();
-    if (currency !== 'CHF') continue;
-    let mid = Math.round((min + max) / 2);
-    // Heuristic: < 10k likely monthly — annualise across 13 months.
-    if (mid < 10000) mid *= 13;
-    if (mid < 20000 || mid > 400000) continue;
+    if (!isReportSalaryJob(j)) continue;
+    const mid = jobSalaryMidpoint(j);
+    if (mid === null) continue;
     withSalary.push({ ...j, mid });
   }
 
@@ -139,17 +67,12 @@ export function aggregateSalaryBySector(
   for (const [sector, values] of bySector.entries()) {
     if (values.length < 10) continue;
     const medianCHF = median(values);
-    const ratio = IT_RATIO_BY_SECTOR[sector] ?? DEFAULT_IT_RATIO;
-    // Swiss→Italy: assume CHF ≈ EUR 1.04 for conservative estimate (2026
-    // average exchange). Keep the rounding coarse to signal the approximate
-    // nature of the pairing.
-    const estimatedItalyEUR = Math.round((medianCHF * ratio * 1.04) / 1000) * 1000;
     rows.push({
       sector,
       count: values.length,
       medianCHF,
-      estimatedItalyEUR,
-      ratio,
+      estimatedItalyEUR: null,
+      ratio: null,
     });
   }
   rows.sort((a, b) => b.count - a.count);

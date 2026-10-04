@@ -501,6 +501,29 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(j2wFamily);
   }, 120_000);
 
+  it('un modulo raggiungibile da vite.config.ts seleziona i gate del grafo del config', () => {
+    // PR 11327: `build-plugins/shared/authorEditorial.ts` ha iniziato a
+    // importare `services/seo/seo-authors.ts`, che usava `@/data/authors`.
+    // Il walker del grafo falliva gia', ma nessun import lo lega ai moduli che
+    // giudica: il diff non lo selezionava e il deploy e' rimasto fermo.
+    const walker = 'tests/vite-config-import-graph.test.ts';
+    const bundler = 'tests/vite-config-graph-no-alias.test.ts';
+    for (const file of [
+      'build-plugins/shared/authorEditorial.ts',
+      'services/seo/seo-authors.ts',
+      'data/authors.ts',
+      'scripts/lib/events-utils.mjs',
+      'components/pages/chiSiamoCopy.ts',
+      'vite.config.ts',
+    ]) {
+      const selected = selectionFor([file]);
+      expect(selected, file).toContain(walker);
+      expect(selected, file).toContain(bundler);
+    }
+    expect(selectionFor(['public/x.svg'])).not.toContain(bundler);
+    expect(selectionFor(['docs/LOCAL-DEV.md'])).not.toContain(bundler);
+  }, 120_000);
+
   it('un file scandito dal gate dei segreti lo seleziona, anche se il grafo non lo conosce', () => {
     // PR 10336: una chiave Google Maps di terzi dentro una fixture HTML di
     // `tests/fixtures/`. Il gate la riconosceva, ma un `.html` non è né un
@@ -524,6 +547,32 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['functions/src/githubApiHeaders.js'])).toContain(observerWorkflow);
     expect(selectionFor(['build-plugins/shared/seoPageShell.ts'])).not.toContain(observerWorkflow);
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(observerWorkflow);
+  }, 120_000);
+
+  it('un closer nuovo sotto scripts/ o functions/ seleziona il ratchet sulle chiusure per titolo', () => {
+    // Il 2026-10-04 tre closer (PR 11317, 11358, 11355) decidevano su un numero
+    // e chiudevano per titolo. Il ratchet legge i sorgenti da disco: un closer
+    // nuovo non lo importa, e il path qui non esiste apposta.
+    const ratchet = 'tests/resolve-issue-by-title-ratchet.test.ts';
+    expect(selectionFor(['scripts/ci/future-issue-closer.mjs'])).toContain(ratchet);
+    expect(selectionFor(['functions/src/futureIssueCloser.js'])).toContain(ratchet);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(ratchet);
+  }, 120_000);
+
+  it('un dato importato dal bootstrap della shell seleziona i pin del SiteShellContract', () => {
+    // PR 11327: la bio di marco-ferrari in `data/authors.ts` e' cambiata,
+    // `data/` e' fuori dal grafo e il diff ha selezionato zero test; il golden
+    // di getAuthorBySlug e' diventato rosso su main e sulla 11381.
+    const functions = 'tests/articles-shell-contract-functions.test.ts';
+    const fingerprint = 'tests/articles-shell-contract-fingerprint.test.ts';
+    const authors = selectionFor(['data/authors.ts']);
+    expect(authors).toContain(functions);
+    expect(authors).toContain(fingerprint);
+    // Anche i JSON di primo livello che la chiusura del bootstrap importa.
+    expect(selectionFor(['data/canton-url-slugs.json'])).toContain(functions);
+    // Le sottocartelle di `data/` sono dati dei cron, non moduli importati.
+    expect(selectionFor(['data/jobs/by-crawler/future.json'])).not.toContain(functions);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(functions);
   }, 120_000);
 
   it('uno script shell cambiato non scavalca i lint con l\'uscita anticipata', () => {

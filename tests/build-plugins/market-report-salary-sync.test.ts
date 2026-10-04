@@ -3,7 +3,7 @@
  * (annualReportPlugin's hardcoded-vs-computed median drift). `salaryP` used
  * to hardcode "CHF 73 000" in narrative prose across all 4 locales while
  * the stat tile / embed snippet / Dataset JSON-LD rendered a dynamically
- * computed `avgMid` from `data/jobs-stats.json` — the exact same class of
+ * computed `avgMid` from reported `data/jobs.json` observations — the exact same class of
  * bug, found via the mandatory sibling-pattern grep (AGENTS.md §6) while
  * fixing #4394. `salaryP` is now a function of `avgMid`, so the narrative
  * copy can't drift from the displayed stat again. The `avgMid` fallback
@@ -27,12 +27,13 @@ afterEach(() => {
   }
 });
 
-async function buildItHtml(jobsStats: unknown): Promise<string> {
+async function buildItHtml(jobsStats: unknown, jobs: object[] = []): Promise<string> {
   const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'market-report-salary-sync-'));
   tempRoots.push(tempRoot);
   fs.mkdirSync(path.join(tempRoot, 'dist'));
   fs.mkdirSync(path.join(tempRoot, 'data'), { recursive: true });
   fs.writeFileSync(path.join(tempRoot, 'data', 'jobs-stats.json'), JSON.stringify(jobsStats));
+  fs.writeFileSync(path.join(tempRoot, 'data', 'jobs.json'), JSON.stringify(jobs));
 
   const plugin = marketReportPlugin(tempRoot) as unknown as { closeBundle: () => Promise<void> };
   await plugin.closeBundle();
@@ -46,15 +47,15 @@ async function buildItHtml(jobsStats: unknown): Promise<string> {
 }
 
 describe('marketReportPlugin — salaryP tracks avgMid, no stale/fake hardcode', () => {
-  it('interpolates a real jobs-stats.json avgMid into the narrative copy', async () => {
+  it('interpolates the reported jobs.json average, ignoring precomputed estimates', async () => {
     const html = await buildItHtml({
       totals: { activeJobs: 500, activeCompanies: 80, last7d: { added: 12 } },
       leaders: { topCompaniesActive: [], topLocationsActive: [] },
       salary: {
-        coverage: { jobsWithSalary: 200, coveragePct: 40, avgMid: 91500, medianMid: 89000 },
+        coverage: { jobsWithSalary: 200, coveragePct: 40, avgMid: 73000, medianMid: 73000 },
         leaders: {},
       },
-    });
+    }, [{ canton: 'TI', datePosted: '2026-06-15', salaryMin: 90000, salaryMax: 93000, currency: 'CHF', salarySource: 'reported', salaryPeriod: 'YEAR' }]);
 
     expect(html).not.toMatch(/CHF 73[ .,'’]?000/);
     expect(html).toMatch(/stipendio medio annuo si attesta intorno a CHF 91[.,'’]?500 lordi/);
