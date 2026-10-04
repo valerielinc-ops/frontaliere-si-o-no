@@ -3841,9 +3841,9 @@
       "slug": "collaboratore-trice-services-m-w-d-raiffeisen-obergosgen",
       "slugByLocale": {
         "it": "collaboratore-trice-services-m-w-d-raiffeisen-obergosgen",
-        "en": "mitarbeiter-services-w-m-d-raiffeisen-obergosgen",
+        "en": "employee-services-m-f-d-raiffeisen-obergosgen",
         "de": "mitarbeiter-services-w-m-d-raiffeisen-obergosgen",
-        "fr": "mitarbeiter-services-w-m-d-raiffeisen-obergosgen"
+        "fr": "services-aux-employes-h-f-d-raiffeisen-obergosgen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -3891,6 +3891,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-services-w-m-d-raiffeisen-obergosgen"
+        ],
+        "en": [
+          "mitarbeiter-services-w-m-d-raiffeisen-obergosgen"
+        ],
+        "fr": [
           "mitarbeiter-services-w-m-d-raiffeisen-obergosgen"
         ]
       },
@@ -11324,12 +11330,12 @@
     },
     {
       "id": "raiffeisen-734a0b9bd5d2",
-      "slug": "strategischer-berater-w-m-d-raiffeisen-st-gallen",
+      "slug": "consulente-strategico-m-f-d-raiffeisen-st-gallen",
       "slugByLocale": {
-        "it": "strategischer-berater-w-m-d-raiffeisen-st-gallen",
-        "en": "strategischer-berater-w-m-d-raiffeisen-st-gallen",
+        "it": "consulente-strategico-m-f-d-raiffeisen-st-gallen",
+        "en": "strategic-advisor-m-f-d-raiffeisen-st-gallen",
         "de": "strategischer-berater-w-m-d-raiffeisen-st-gallen",
-        "fr": "strategischer-berater-w-m-d-raiffeisen-st-gallen"
+        "fr": "conseiller-strategique-h-f-d-raiffeisen-st-gallen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11385,7 +11391,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "strategischer-berater-w-m-d-raiffeisen-st-gallen"
+        ],
+        "en": [
+          "strategischer-berater-w-m-d-raiffeisen-st-gallen"
+        ],
+        "fr": [
+          "strategischer-berater-w-m-d-raiffeisen-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "strategischer-berater-w-m-d-raiffeisen-st-gallen"
+      ]
     },
     {
       "id": "raiffeisen-fcb31fa3713a",
@@ -11546,12 +11566,12 @@
     },
     {
       "id": "raiffeisen-ae8bfd3d2851",
-      "slug": "senior-kundenberater-basis-raiffeisen-untersiggenthal",
+      "slug": "consulente-senior-base-raiffeisen-untersiggenthal",
       "slugByLocale": {
-        "it": "senior-kundenberater-basis-raiffeisen-untersiggenthal",
-        "en": "senior-kundenberater-basis-raiffeisen-untersiggenthal",
+        "it": "consulente-senior-base-raiffeisen-untersiggenthal",
+        "en": "senior-client-advisor-basis-raiffeisen-untersiggenthal",
         "de": "senior-kundenberater-basis-raiffeisen-untersiggenthal",
-        "fr": "senior-kundenberater-basis-raiffeisen-untersiggenthal"
+        "fr": "conseiller-a-la-clientele-senior-base-raiffeisen-untersiggenthal"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11597,19 +11617,23 @@
       "previousSlugs": [
         "consulente-clienti-senior-raiffeisen-untersiggenthal",
         "senior-customer-advisor-basis-raiffeisen-untersiggenthal",
-        "conseiller-principal-a-la-clientele-raiffeisen-untersiggenthal"
+        "conseiller-principal-a-la-clientele-raiffeisen-untersiggenthal",
+        "senior-kundenberater-basis-raiffeisen-untersiggenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-clienti-senior-raiffeisen-untersiggenthal",
           "senior-customer-advisor-basis-raiffeisen-untersiggenthal",
-          "conseiller-principal-a-la-clientele-raiffeisen-untersiggenthal"
+          "conseiller-principal-a-la-clientele-raiffeisen-untersiggenthal",
+          "senior-kundenberater-basis-raiffeisen-untersiggenthal"
         ],
         "en": [
-          "senior-customer-advisor-basis-raiffeisen-untersiggenthal"
+          "senior-customer-advisor-basis-raiffeisen-untersiggenthal",
+          "senior-kundenberater-basis-raiffeisen-untersiggenthal"
         ],
         "fr": [
-          "conseiller-principal-a-la-clientele-raiffeisen-untersiggenthal"
+          "conseiller-principal-a-la-clientele-raiffeisen-untersiggenthal",
+          "senior-kundenberater-basis-raiffeisen-untersiggenthal"
         ]
       },
       "firstSeenAt": "2026-08-31T17:14:36.236Z",
@@ -12551,12 +12575,12 @@
     },
     {
       "id": "raiffeisen-d990fdfc5d72",
-      "slug": "assistent-vertrieb-w-m-d-raiffeisen-meilen",
+      "slug": "assistente-vendite-m-f-d-raiffeisen-meilen",
       "slugByLocale": {
-        "it": "assistent-vertrieb-w-m-d-raiffeisen-meilen",
-        "en": "assistent-vertrieb-w-m-d-raiffeisen-meilen",
+        "it": "assistente-vendite-m-f-d-raiffeisen-meilen",
+        "en": "sales-assistant-m-f-d-raiffeisen-meilen",
         "de": "assistent-vertrieb-w-m-d-raiffeisen-meilen",
-        "fr": "assistent-vertrieb-w-m-d-raiffeisen-meilen"
+        "fr": "assistant-commercial-h-f-d-raiffeisen-meilen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12612,7 +12636,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-vertrieb-w-m-d-raiffeisen-meilen"
+        ],
+        "en": [
+          "assistent-vertrieb-w-m-d-raiffeisen-meilen"
+        ],
+        "fr": [
+          "assistent-vertrieb-w-m-d-raiffeisen-meilen"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-vertrieb-w-m-d-raiffeisen-meilen"
+      ]
     },
     {
       "id": "raiffeisen-03316028fd8f",

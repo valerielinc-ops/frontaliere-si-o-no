@@ -2329,12 +2329,12 @@
     },
     {
       "id": "senevita-55df8afc8599",
-      "slug": "dipl-pflegefachperson-60-100-senevita-zh-herrliberg",
+      "slug": "infermiere-dipl-dal-60-al-100-senevita-zh-herrliberg",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-60-100-senevita-zh-herrliberg",
-        "en": "dipl-pflegefachperson-60-100-senevita-zh-herrliberg",
+        "it": "infermiere-dipl-dal-60-al-100-senevita-zh-herrliberg",
+        "en": "qualified-nurse-60-100-senevita-zh-herrliberg",
         "de": "dipl-pflegefachperson-60-100-senevita-zh-herrliberg",
-        "fr": "dipl-pflegefachperson-60-100-senevita-zh-herrliberg"
+        "fr": "infirmier-diplome-60-100-senevita-zh-herrliberg"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -2390,7 +2390,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-60-100-senevita-zh-herrliberg"
+        ],
+        "en": [
+          "dipl-pflegefachperson-60-100-senevita-zh-herrliberg"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-60-100-senevita-zh-herrliberg"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-60-100-senevita-zh-herrliberg"
+      ]
     },
     {
       "id": "senevita-3a9216cd7e35",

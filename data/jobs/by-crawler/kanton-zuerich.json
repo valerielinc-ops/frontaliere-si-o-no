@@ -88,12 +88,12 @@
     },
     {
       "id": "kanton-zuerich-f20ac86e495e",
-      "slug": "diensthundefuhrer-in-kantonale-verwaltung-zurich-regensdorf",
+      "slug": "driver-del-cane-di-servizio-kantonale-verwaltung-zurich-regensdorf",
       "slugByLocale": {
-        "it": "diensthundefuhrer-in-kantonale-verwaltung-zurich-regensdorf",
-        "en": "diensthundefuhrer-in-kantonale-verwaltung-zurich-regensdorf",
+        "it": "driver-del-cane-di-servizio-kantonale-verwaltung-zurich-regensdorf",
+        "en": "service-dog-drivers-kantonale-verwaltung-zurich-regensdorf",
         "de": "diensthundefuhrer-in-kanton-zuerich-regensdorf",
-        "fr": "diensthundefuhrer-in-kantonale-verwaltung-zurich-regensdorf"
+        "fr": "conducteurs-de-chiens-de-service-kantonale-verwaltung-zurich-regensdorf"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -140,11 +140,19 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "diensthundefuhrer-in-kanton-zuerich-regensdorf"
+        "diensthundefuhrer-in-kanton-zuerich-regensdorf",
+        "diensthundefuhrer-in-kantonale-verwaltung-zurich-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diensthundefuhrer-in-kanton-zuerich-regensdorf"
+          "diensthundefuhrer-in-kanton-zuerich-regensdorf",
+          "diensthundefuhrer-in-kantonale-verwaltung-zurich-regensdorf"
+        ],
+        "en": [
+          "diensthundefuhrer-in-kantonale-verwaltung-zurich-regensdorf"
+        ],
+        "fr": [
+          "diensthundefuhrer-in-kantonale-verwaltung-zurich-regensdorf"
         ]
       },
       "firstSeenAt": "2026-09-22T00:14:51.947Z",
@@ -332,12 +340,12 @@
     },
     {
       "id": "kanton-zuerich-67b3da75cee6",
-      "slug": "arzt-arztin-kanton-zuerich-regensdorf",
+      "slug": "dottore-dottore-kantonale-verwaltung-zurich-regensdorf",
       "slugByLocale": {
-        "it": "arzt-arztin-kanton-zuerich-regensdorf",
-        "en": "arzt-arztin-kanton-zuerich-regensdorf",
+        "it": "dottore-dottore-kantonale-verwaltung-zurich-regensdorf",
+        "en": "doctor-doctor-kantonale-verwaltung-zurich-regensdorf",
         "de": "arzt-arztin-kantonale-verwaltung-zurich-regensdorf",
-        "fr": "arzt-arztin-kanton-zuerich-regensdorf"
+        "fr": "docteur-doctorant-kantonale-verwaltung-zurich-regensdorf"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -396,7 +404,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arzt-arztin-kanton-zuerich-regensdorf"
+        ],
+        "en": [
+          "arzt-arztin-kanton-zuerich-regensdorf"
+        ],
+        "fr": [
+          "arzt-arztin-kanton-zuerich-regensdorf"
+        ]
+      },
+      "previousSlugs": [
+        "arzt-arztin-kanton-zuerich-regensdorf"
+      ]
     },
     {
       "id": "kanton-zuerich-38af55051091",
@@ -893,12 +915,12 @@
     },
     {
       "id": "kanton-zuerich-7e9e48eb236a",
-      "slug": "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf",
+      "slug": "assistente-di-officina-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf",
       "slugByLocale": {
-        "it": "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf",
-        "en": "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf",
+        "it": "assistente-di-officina-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf",
+        "en": "temporary-workshop-supervisor-temporary-kantonale-verwaltung-zurich-regensdorf",
         "de": "aushilfe-werkstattbetreuer-in-befristet-kanton-zuerich-regensdorf",
-        "fr": "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf"
+        "fr": "assistant-e-assistant-e-d-atelier-pour-une-duree-limitee-kantonale-verwaltung-zurich-regensdorf"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -964,10 +986,12 @@
           "assistenti-temporanei-temporanei-kantonale-verwaltung-zurich-regensdorf"
         ],
         "en": [
-          "temporary-temporary-assistant-workshop-manager-kantonale-verwaltung-zurich-regensdorf"
+          "temporary-temporary-assistant-workshop-manager-kantonale-verwaltung-zurich-regensdorf",
+          "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf"
         ],
         "fr": [
-          "assistant-temporaire-responsable-de-l-atelier-kantonale-verwaltung-zurich-regensdorf"
+          "assistant-temporaire-responsable-de-l-atelier-kantonale-verwaltung-zurich-regensdorf",
+          "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf"
         ]
       },
       "firstSeenAt": "2026-09-03T13:47:00.841Z",
@@ -1685,8 +1709,8 @@
       "id": "kanton-zuerich-f19a068caf60",
       "slug": "stage-presso-il-segretariato-generale-della-direzione-finanziaria-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "praktikum-im-generalsekretariat-der-finanzdirektion-kantonale-verwaltung-zurich-zurich",
-        "en": "praktikum-im-generalsekretariat-der-finanzdirektion-kantonale-verwaltung-zurich-zurich",
+        "it": "stage-presso-il-segretariato-generale-della-direzione-finanziaria-kantonale-verwaltung-zurich-zurich",
+        "en": "internship-in-the-general-secretariat-of-the-financial-directorate-kantonale-verwaltung-zurich-zurich",
         "de": "praktikum-im-generalsekretariat-der-finanzdirektion-kanton-zuerich-zurich",
         "fr": "praktikum-im-generalsekretariat-der-finanzdirektion-kantonale-verwaltung-zurich-zurich"
       },
@@ -1736,14 +1760,15 @@
       "pensum": "100%",
       "previousSlugs": [
         "praktikum-im-generalsekretariat-der-finanzdirektion-kanton-zuerich-zurich",
-        "internship-in-the-general-secretariat-of-the-financial-directorate-kantonale-verwaltung-zurich-zurich"
+        "praktikum-im-generalsekretariat-der-finanzdirektion-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-im-generalsekretariat-der-finanzdirektion-kanton-zuerich-zurich"
+          "praktikum-im-generalsekretariat-der-finanzdirektion-kanton-zuerich-zurich",
+          "praktikum-im-generalsekretariat-der-finanzdirektion-kantonale-verwaltung-zurich-zurich"
         ],
         "en": [
-          "internship-in-the-general-secretariat-of-the-financial-directorate-kantonale-verwaltung-zurich-zurich"
+          "praktikum-im-generalsekretariat-der-finanzdirektion-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-19T23:06:30.492Z",
@@ -3169,7 +3194,7 @@
       "slugByLocale": {
         "de": "rektor-rektorin-kanton-zuerich-zurich",
         "it": "rettore-rettore-kantonale-verwaltung-zurich-zurich",
-        "en": "rektor-rektorin-kantonale-verwaltung-zurich-zurich",
+        "en": "rector-rector-kantonale-verwaltung-zurich-zurich",
         "fr": "recteur-recteur-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
@@ -3223,14 +3248,16 @@
           "rector-rector-kantonale-verwaltung-zurich-zurich"
         ],
         "en": [
-          "rektor-rektorin-kantonale-verwaltung-zurich"
+          "rektor-rektorin-kantonale-verwaltung-zurich",
+          "rektor-rektorin-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "rektor-rektorin-kanton-zuerich-zurich",
         "rettore-rettore-kantonale-verwaltung-zurich-zurich-b5c31k",
         "rektor-rektorin-kantonale-verwaltung-zurich",
-        "rector-rector-kantonale-verwaltung-zurich-zurich"
+        "rector-rector-kantonale-verwaltung-zurich-zurich",
+        "rektor-rektorin-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3483,12 +3510,12 @@
     },
     {
       "id": "kanton-zuerich-69044215eb3c",
-      "slug": "milieutherapeut-in-fpa-kantonale-verwaltung-zurich-regensdorf",
+      "slug": "terapista-ambientale-fpa-kantonale-verwaltung-zurich-regensdorf",
       "slugByLocale": {
-        "it": "milieutherapeut-in-fpa-kantonale-verwaltung-zurich-regensdorf",
-        "en": "milieutherapeut-in-fpa-kantonale-verwaltung-zurich-regensdorf",
+        "it": "terapista-ambientale-fpa-kantonale-verwaltung-zurich-regensdorf",
+        "en": "environmental-therapist-fpa-kantonale-verwaltung-zurich-regensdorf",
         "de": "milieutherapeut-in-fpa-kanton-zuerich-regensdorf",
-        "fr": "milieutherapeut-in-fpa-kantonale-verwaltung-zurich-regensdorf"
+        "fr": "therapeute-en-milieu-de-vie-fpa-kantonale-verwaltung-zurich-regensdorf"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3540,7 +3567,8 @@
         "milieu-therapeute-fpa-kantonale-verwaltung-zurich-regensdorf",
         "milieutherapeut-in-fpa-kantonale-verwaltung-zurich-regensdorf-b4sv6w",
         "milieutherapeute-afp-kantonale-verwaltung-zurich-regensdorf",
-        "milieutherapist-fpa-kantonale-verwaltung-zurich-regensdorf"
+        "milieutherapist-fpa-kantonale-verwaltung-zurich-regensdorf",
+        "milieutherapeut-in-fpa-kantonale-verwaltung-zurich-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3550,13 +3578,16 @@
           "milieu-therapeute-fpa-kantonale-verwaltung-zurich-regensdorf",
           "milieutherapeut-in-fpa-kantonale-verwaltung-zurich-regensdorf-b4sv6w",
           "milieutherapeute-afp-kantonale-verwaltung-zurich-regensdorf",
-          "milieutherapist-fpa-kantonale-verwaltung-zurich-regensdorf"
+          "milieutherapist-fpa-kantonale-verwaltung-zurich-regensdorf",
+          "milieutherapeut-in-fpa-kantonale-verwaltung-zurich-regensdorf"
         ],
         "en": [
-          "milieu-therapist-fpa-kantonale-verwaltung-zurich-regensdorf"
+          "milieu-therapist-fpa-kantonale-verwaltung-zurich-regensdorf",
+          "milieutherapeut-in-fpa-kantonale-verwaltung-zurich-regensdorf"
         ],
         "fr": [
-          "milieu-therapeute-fpa-kantonale-verwaltung-zurich-regensdorf"
+          "milieu-therapeute-fpa-kantonale-verwaltung-zurich-regensdorf",
+          "milieutherapeut-in-fpa-kantonale-verwaltung-zurich-regensdorf"
         ]
       },
       "firstSeenAt": "2026-08-31T17:33:14.800Z",
@@ -4152,12 +4183,12 @@
     },
     {
       "id": "kanton-zuerich-1c6ea8a39b5b",
-      "slug": "schnupperauditorat-2027-kantonale-verwaltung-zurich-zurich",
+      "slug": "auditore-di-prova-2027-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "schnupperauditorat-2027-kantonale-verwaltung-zurich-zurich",
-        "en": "schnupperauditorat-2027-kantonale-verwaltung-zurich-zurich",
+        "it": "auditore-di-prova-2027-kantonale-verwaltung-zurich-zurich",
+        "en": "trial-auditor-2027-kantonale-verwaltung-zurich-zurich",
         "de": "schnupperauditorat-2027-kanton-zuerich-zurich",
-        "fr": "schnupperauditorat-2027-kantonale-verwaltung-zurich-zurich"
+        "fr": "verificateur-des-proces-2027-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -4204,11 +4235,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "schnupperauditorat-2027-kanton-zuerich-zurich"
+        "schnupperauditorat-2027-kanton-zuerich-zurich",
+        "schnupperauditorat-2027-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schnupperauditorat-2027-kanton-zuerich-zurich"
+          "schnupperauditorat-2027-kanton-zuerich-zurich",
+          "schnupperauditorat-2027-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "schnupperauditorat-2027-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "schnupperauditorat-2027-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-08-14T10:32:30.340Z",
@@ -4552,12 +4591,12 @@
     },
     {
       "id": "kanton-zuerich-acb02596ec50",
-      "slug": "schulsozialarbeiter-in-primarschule-hausen-am-albis-kantonale-verwaltung-zurich-hausen-am-albis",
+      "slug": "scuola-social-worker-scuola-primaria-case-a-albis-kantonale-verwaltung-zurich-hausen-am-albis",
       "slugByLocale": {
-        "it": "schulsozialarbeiter-in-primarschule-hausen-am-albis-kantonale-verwaltung-zurich-hausen-am-albis",
-        "en": "schulsozialarbeiter-in-primarschule-hausen-am-albis-kantonale-verwaltung-zurich-hausen-am-albis",
+        "it": "scuola-social-worker-scuola-primaria-case-a-albis-kantonale-verwaltung-zurich-hausen-am-albis",
+        "en": "school-social-worker-primary-school-houses-at-albis-kantonale-verwaltung-zurich-hausen-am-albis",
         "de": "schulsozialarbeiter-in-primarschule-hausen-am-albis-kanton-zuerich-hausen-am-albis",
-        "fr": "schulsozialarbeiter-in-primarschule-hausen-am-albis-kantonale-verwaltung-zurich-hausen-am-albis"
+        "fr": "ecole-social-worker-maisons-d-ecole-primaire-a-albis-kantonale-verwaltung-zurich-hausen-am-albis"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -4603,11 +4642,19 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "schulsozialarbeiter-in-primarschule-hausen-am-albis-kanton-zuerich-hausen-am-albis"
+        "schulsozialarbeiter-in-primarschule-hausen-am-albis-kanton-zuerich-hausen-am-albis",
+        "schulsozialarbeiter-in-primarschule-hausen-am-albis-kantonale-verwaltung-zurich-hausen-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schulsozialarbeiter-in-primarschule-hausen-am-albis-kanton-zuerich-hausen-am-albis"
+          "schulsozialarbeiter-in-primarschule-hausen-am-albis-kanton-zuerich-hausen-am-albis",
+          "schulsozialarbeiter-in-primarschule-hausen-am-albis-kantonale-verwaltung-zurich-hausen-am-albis"
+        ],
+        "en": [
+          "schulsozialarbeiter-in-primarschule-hausen-am-albis-kantonale-verwaltung-zurich-hausen-am-albis"
+        ],
+        "fr": [
+          "schulsozialarbeiter-in-primarschule-hausen-am-albis-kantonale-verwaltung-zurich-hausen-am-albis"
         ]
       },
       "firstSeenAt": "2026-09-21T16:11:10.099Z",
@@ -5749,12 +5796,12 @@
     },
     {
       "id": "kanton-zuerich-2576728d2ab3",
-      "slug": "sachbearbeiter-in-kundendienst-gesprachsvermittlung-stv-ressortleiterin-kantonale-verwaltung-zurich-zurich",
+      "slug": "impiegato-per-il-servizio-clienti-e-il-collocamento-delle-chiamate-vice-capo-dipartimento-kantonale-verwaltung-zurich",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-kundendienst-gesprachsvermittlung-stv-ressortleiterin-kantonale-verwaltung-zurich-zurich",
-        "en": "sachbearbeiter-in-kundendienst-gesprachsvermittlung-stv-ressortleiterin-kantonale-verwaltung-zurich-zurich",
+        "it": "impiegato-per-il-servizio-clienti-e-il-collocamento-delle-chiamate-vice-capo-dipartimento-kantonale-verwaltung-zurich",
+        "en": "clerk-for-customer-service-call-placement-deputy-head-of-department-kantonale-verwaltung-zurich-zurich",
         "de": "sachbearbeiter-in-kundendienst-gesprachsvermittlung-stv-ressortleiterin-kanton-zuerich",
-        "fr": "sachbearbeiter-in-kundendienst-gesprachsvermittlung-stv-ressortleiterin-kantonale-verwaltung-zurich-zurich"
+        "fr": "commis-au-service-a-la-clientele-et-au-placement-d-appels-adjoint-chef-de-departement-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -5801,11 +5848,19 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "sachbearbeiter-in-kundendienst-gesprachsvermittlung-stv-ressortleiterin-kanton-zuerich"
+        "sachbearbeiter-in-kundendienst-gesprachsvermittlung-stv-ressortleiterin-kanton-zuerich",
+        "sachbearbeiter-in-kundendienst-gesprachsvermittlung-stv-ressortleiterin-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-kundendienst-gesprachsvermittlung-stv-ressortleiterin-kanton-zuerich"
+          "sachbearbeiter-in-kundendienst-gesprachsvermittlung-stv-ressortleiterin-kanton-zuerich",
+          "sachbearbeiter-in-kundendienst-gesprachsvermittlung-stv-ressortleiterin-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-in-kundendienst-gesprachsvermittlung-stv-ressortleiterin-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "sachbearbeiter-in-kundendienst-gesprachsvermittlung-stv-ressortleiterin-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-10T23:21:51.444Z",
@@ -7751,12 +7806,12 @@
     },
     {
       "id": "kanton-zuerich-f708b9c762da",
-      "slug": "einsatzdisponent-in-einsatzzentrale-kantonale-verwaltung-zurich-zurich",
+      "slug": "centro-operativo-responsabile-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "einsatzdisponent-in-einsatzzentrale-kantonale-verwaltung-zurich-zurich",
-        "en": "einsatzdisponent-in-einsatzzentrale-kantonale-verwaltung-zurich-zurich",
+        "it": "centro-operativo-responsabile-kantonale-verwaltung-zurich-zurich",
+        "en": "responsible-operations-centre-kantonale-verwaltung-zurich-zurich",
         "de": "einsatzdisponent-in-einsatzzentrale-kanton-zuerich-zurich",
-        "fr": "einsatzdisponent-in-einsatzzentrale-kantonale-verwaltung-zurich-zurich"
+        "fr": "centre-des-operations-responsables-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -7803,11 +7858,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "einsatzdisponent-in-einsatzzentrale-kanton-zuerich-zurich"
+        "einsatzdisponent-in-einsatzzentrale-kanton-zuerich-zurich",
+        "einsatzdisponent-in-einsatzzentrale-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einsatzdisponent-in-einsatzzentrale-kanton-zuerich-zurich"
+          "einsatzdisponent-in-einsatzzentrale-kanton-zuerich-zurich",
+          "einsatzdisponent-in-einsatzzentrale-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "einsatzdisponent-in-einsatzzentrale-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "einsatzdisponent-in-einsatzzentrale-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-21T16:10:48.047Z",
@@ -7830,9 +7893,9 @@
       "slug": "aufseher-in-betreuer-in-con-einsatz-in-administration-e-zentrale-kantonale-verwaltung-zurich-horgen",
       "slugByLocale": {
         "it": "aufseher-in-betreuer-in-con-einsatz-in-administration-e-zentrale-kantonale-verwaltung-zurich-horgen",
-        "en": "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kanton-zuerich-horgen",
+        "en": "supervisor-supervisor-with-assignment-in-administration-and-headquarters-kantonale-verwaltung-zurich-horgen",
         "de": "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kanton-zuerich-horgen",
-        "fr": "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kantonale-verwaltung-zurich-horgen"
+        "fr": "superviseur-superviseur-affecte-a-l-administration-et-au-siege-social-kantonale-verwaltung-zurich-horgen"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -7879,11 +7942,18 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kanton-zuerich-horgen"
+        "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kanton-zuerich-horgen",
+        "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kantonale-verwaltung-zurich-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kanton-zuerich-horgen"
+        ],
+        "en": [
+          "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kanton-zuerich-horgen"
+        ],
+        "fr": [
+          "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kantonale-verwaltung-zurich-horgen"
         ]
       },
       "firstSeenAt": "2026-09-04T13:46:42.444Z",
@@ -8001,12 +8071,12 @@
     },
     {
       "id": "kanton-zuerich-c812d815ae55",
-      "slug": "fachperson-facility-management-gebaudemanagement-kantonale-verwaltung-zurich-urdorf",
+      "slug": "gestione-delle-strutture-specialista-nella-gestione-delle-strutture-kantonale-verwaltung-zurich-urdorf",
       "slugByLocale": {
-        "it": "fachperson-facility-management-gebaudemanagement-kantonale-verwaltung-zurich-urdorf",
-        "en": "fachperson-facility-management-gebaudemanagement-kantonale-verwaltung-zurich-urdorf",
+        "it": "gestione-delle-strutture-specialista-nella-gestione-delle-strutture-kantonale-verwaltung-zurich-urdorf",
+        "en": "facility-management-facility-management-specialist-kantonale-verwaltung-zurich-urdorf",
         "de": "fachperson-facility-management-gebaudemanagement-kanton-zuerich-urdorf",
-        "fr": "fachperson-facility-management-gebaudemanagement-kantonale-verwaltung-zurich-urdorf"
+        "fr": "specialiste-en-gestion-des-installations-gestion-des-installations-kantonale-verwaltung-zurich-urdorf"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -8053,11 +8123,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "fachperson-facility-management-gebaudemanagement-kanton-zuerich-urdorf"
+        "fachperson-facility-management-gebaudemanagement-kanton-zuerich-urdorf",
+        "fachperson-facility-management-gebaudemanagement-kantonale-verwaltung-zurich-urdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-facility-management-gebaudemanagement-kanton-zuerich-urdorf"
+          "fachperson-facility-management-gebaudemanagement-kanton-zuerich-urdorf",
+          "fachperson-facility-management-gebaudemanagement-kantonale-verwaltung-zurich-urdorf"
+        ],
+        "en": [
+          "fachperson-facility-management-gebaudemanagement-kantonale-verwaltung-zurich-urdorf"
+        ],
+        "fr": [
+          "fachperson-facility-management-gebaudemanagement-kantonale-verwaltung-zurich-urdorf"
         ]
       },
       "firstSeenAt": "2026-09-04T13:47:38.863Z",
@@ -10488,12 +10566,12 @@
     },
     {
       "id": "kanton-zuerich-d213e5d2e053",
-      "slug": "ausbildungsverantwortliche-r-kantonale-verwaltung-zurich-zurich",
+      "slug": "responsabile-della-formazione-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "ausbildungsverantwortliche-r-kantonale-verwaltung-zurich-zurich",
-        "en": "ausbildungsverantwortliche-r-kantonale-verwaltung-zurich-zurich",
+        "it": "responsabile-della-formazione-kantonale-verwaltung-zurich-zurich",
+        "en": "responsible-for-training-r-kantonale-verwaltung-zurich-zurich",
         "de": "ausbildungsverantwortliche-r-kanton-zuerich-zurich",
-        "fr": "ausbildungsverantwortliche-r-kantonale-verwaltung-zurich-zurich"
+        "fr": "responsable-de-la-formation-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -10543,20 +10621,24 @@
         "ausbildungsverantwortliche-r-kanton-zuerich-zurich",
         "responsabile-della-formazione-kantonale-verwaltung-zurich-zurich-6f0122",
         "responsible-for-training-r-kantonale-verwaltung-zurich-zurich-6f0122",
-        "responsable-de-la-formation-kantonale-verwaltung-zurich-zurich-6f0122"
+        "responsable-de-la-formation-kantonale-verwaltung-zurich-zurich-6f0122",
+        "ausbildungsverantwortliche-r-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ausbildungsverantwortliche-r-kanton-zuerich-zurich",
           "responsabile-della-formazione-kantonale-verwaltung-zurich-zurich-6f0122",
           "responsible-for-training-r-kantonale-verwaltung-zurich-zurich-6f0122",
-          "responsable-de-la-formation-kantonale-verwaltung-zurich-zurich-6f0122"
+          "responsable-de-la-formation-kantonale-verwaltung-zurich-zurich-6f0122",
+          "ausbildungsverantwortliche-r-kantonale-verwaltung-zurich-zurich"
         ],
         "en": [
-          "responsible-for-training-r-kantonale-verwaltung-zurich-zurich-6f0122"
+          "responsible-for-training-r-kantonale-verwaltung-zurich-zurich-6f0122",
+          "ausbildungsverantwortliche-r-kantonale-verwaltung-zurich-zurich"
         ],
         "fr": [
-          "responsable-de-la-formation-kantonale-verwaltung-zurich-zurich-6f0122"
+          "responsable-de-la-formation-kantonale-verwaltung-zurich-zurich-6f0122",
+          "ausbildungsverantwortliche-r-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-21T16:10:36.847Z",
@@ -11593,9 +11675,9 @@
       "slug": "personalvermittler-in-stellenmeldezentrum-smz-befristet-per-ein-jahr-con-option-auf-festanstellung-kantonale-verwaltung-zurich",
       "slugByLocale": {
         "it": "personalvermittler-in-stellenmeldezentrum-smz-befristet-per-ein-jahr-con-option-auf-festanstellung-kantonale-verwaltung-zurich",
-        "en": "personalvermittler-in-stellenmeldezentrum-smz-befristet-fur-ein-jahr-mit-option-auf",
+        "en": "recruiter-job-registration-centre-smz-for-a-limited-period-of-one-year-with-option-of-permanent-employment-kantonale",
         "de": "personalvermittler-in-stellenmeldezentrum-smz-befristet-fur-ein-jahr-mit-option-auf",
-        "fr": "personalvermittler-in-stellenmeldezentrum-smz-befristet-fur-ein-jahr-mit-option-auf"
+        "fr": "recruteur-recruteuse-centre-d-enregistrement-des-offres-d-emploi-cms-pour-une-duree-limitee-d-un-an-avec-option-d-emploi"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -11655,10 +11737,12 @@
           "agence-de-recrutement-centre-d-inscription-au-poste-smz-pour-une-duree-determinee-d-un-an-avec-option-d-emploi-permanent"
         ],
         "en": [
-          "recruitment-agency-job-registration-centre-smz-for-a-fixed-term-period-of-one-year-with-permanent-employment-option"
+          "recruitment-agency-job-registration-centre-smz-for-a-fixed-term-period-of-one-year-with-permanent-employment-option",
+          "personalvermittler-in-stellenmeldezentrum-smz-befristet-fur-ein-jahr-mit-option-auf"
         ],
         "fr": [
-          "agence-de-recrutement-centre-d-inscription-au-poste-smz-pour-une-duree-determinee-d-un-an-avec-option-d-emploi-permanent"
+          "agence-de-recrutement-centre-d-inscription-au-poste-smz-pour-une-duree-determinee-d-un-an-avec-option-d-emploi-permanent",
+          "personalvermittler-in-stellenmeldezentrum-smz-befristet-fur-ein-jahr-mit-option-auf"
         ]
       },
       "firstSeenAt": "2026-09-01T14:26:30.823Z",
@@ -11858,12 +11942,12 @@
     },
     {
       "id": "kanton-zuerich-7bc8820aa9ae",
-      "slug": "facharbeiter-in-strassenunterhalt-kantonale-verwaltung-zurich-wila",
+      "slug": "lavoratori-qualificati-manutenzione-stradale-kantonale-verwaltung-zurich-wila",
       "slugByLocale": {
-        "it": "facharbeiter-in-strassenunterhalt-kantonale-verwaltung-zurich-wila",
-        "en": "facharbeiter-in-strassenunterhalt-kantonale-verwaltung-zurich-wila",
+        "it": "lavoratori-qualificati-manutenzione-stradale-kantonale-verwaltung-zurich-wila",
+        "en": "skilled-workers-road-maintenance-kantonale-verwaltung-zurich-wila",
         "de": "facharbeiter-in-strassenunterhalt-kanton-zuerich-wila",
-        "fr": "facharbeiter-in-strassenunterhalt-kantonale-verwaltung-zurich-wila"
+        "fr": "travailleurs-qualifies-entretien-des-routes-kantonale-verwaltung-zurich-wila"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -11910,11 +11994,19 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "facharbeiter-in-strassenunterhalt-kanton-zuerich-wila"
+        "facharbeiter-in-strassenunterhalt-kanton-zuerich-wila",
+        "facharbeiter-in-strassenunterhalt-kantonale-verwaltung-zurich-wila"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharbeiter-in-strassenunterhalt-kanton-zuerich-wila"
+          "facharbeiter-in-strassenunterhalt-kanton-zuerich-wila",
+          "facharbeiter-in-strassenunterhalt-kantonale-verwaltung-zurich-wila"
+        ],
+        "en": [
+          "facharbeiter-in-strassenunterhalt-kantonale-verwaltung-zurich-wila"
+        ],
+        "fr": [
+          "facharbeiter-in-strassenunterhalt-kantonale-verwaltung-zurich-wila"
         ]
       },
       "firstSeenAt": "2026-09-24T14:46:06.629Z",
@@ -12359,12 +12451,12 @@
     },
     {
       "id": "kanton-zuerich-62db7914d490",
-      "slug": "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich",
+      "slug": "aspirante-poliziotto-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich",
-        "en": "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich",
+        "it": "aspirante-poliziotto-kantonale-verwaltung-zurich-zurich",
+        "en": "police-aspirant-kantonale-verwaltung-zurich-zurich",
         "de": "polizeiaspirant-in-kanton-zuerich-zurich",
-        "fr": "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich"
+        "fr": "aspirant-policier-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -12411,11 +12503,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "polizeiaspirant-in-kanton-zuerich-zurich"
+        "polizeiaspirant-in-kanton-zuerich-zurich",
+        "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polizeiaspirant-in-kanton-zuerich-zurich"
+          "polizeiaspirant-in-kanton-zuerich-zurich",
+          "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-08T13:51:26.443Z",

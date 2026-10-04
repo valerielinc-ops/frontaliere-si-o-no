@@ -7935,9 +7935,9 @@
     },
     {
       "id": "roche-ab83569f3467",
-      "slug": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
+      "slug": "consulente-legale-senior-sviluppo-aziendale-legale-e-societario-roche-basel",
       "slugByLocale": {
-        "it": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
+        "it": "consulente-legale-senior-sviluppo-aziendale-legale-e-societario-roche-basel",
         "en": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
         "de": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
         "fr": "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
@@ -7980,11 +7980,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-legal-counsel-legal-business-development-corporate-roche-basel"
+        "senior-legal-counsel-legal-business-development-corporate-roche-basel",
+        "senior-legal-counsel-legal-business-development-corporate-roche-ch"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "senior-legal-counsel-legal-business-development-corporate-roche-basel"
+        ],
+        "it": [
+          "senior-legal-counsel-legal-business-development-corporate-roche-ch"
         ]
       },
       "needsRetranslation": true,
