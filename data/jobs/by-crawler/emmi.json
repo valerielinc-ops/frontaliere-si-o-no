@@ -3834,12 +3834,12 @@
     },
     {
       "id": "emmi-5ce9878c66b7",
-      "slug": "automatiker-in-betriebselektriker-in-emmi-kirchberg",
+      "slug": "operatore-automatico-elettricista-operativo-emmi-kirchberg-bern",
       "slugByLocale": {
-        "it": "automatiker-in-betriebselektriker-in-emmi-kirchberg",
-        "en": "automatiker-in-betriebselektriker-in-emmi-kirchberg",
+        "it": "operatore-automatico-elettricista-operativo-emmi-kirchberg-bern",
+        "en": "automated-electrician-plant-electrician-emmi-kirchberg-bern",
         "de": "automatiker-in-betriebselektriker-in-emmi-ch",
-        "fr": "automatiker-in-betriebselektriker-in-emmi-kirchberg"
+        "fr": "automaticien-ne-electricien-ne-d-exploitation-emmi-kirchberg-bern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -3900,7 +3900,8 @@
         "operatore-automatico-elettricista-operativo-emmi-kirchberg-ms3slx",
         "automaticien-ne-electricien-ne-d-exploitation-emmi-kirchberg",
         "automated-electrician-plant-electrician-emmi-kirchberg",
-        "operatore-automatico-elettricista-operativo-emmi-kirchberg"
+        "operatore-automatico-elettricista-operativo-emmi-kirchberg",
+        "automatiker-in-betriebselektriker-in-emmi-kirchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3908,13 +3909,16 @@
           "operatore-automatico-elettricista-operativo-emmi-kirchberg-ms3slx",
           "automaticien-ne-electricien-ne-d-exploitation-emmi-kirchberg",
           "automated-electrician-plant-electrician-emmi-kirchberg",
-          "operatore-automatico-elettricista-operativo-emmi-kirchberg"
+          "operatore-automatico-elettricista-operativo-emmi-kirchberg",
+          "automatiker-in-betriebselektriker-in-emmi-kirchberg"
         ],
         "en": [
-          "automated-electrician-plant-electrician-emmi-kirchberg"
+          "automated-electrician-plant-electrician-emmi-kirchberg",
+          "automatiker-in-betriebselektriker-in-emmi-kirchberg"
         ],
         "fr": [
-          "automaticien-ne-electricien-ne-d-exploitation-emmi-kirchberg"
+          "automaticien-ne-electricien-ne-d-exploitation-emmi-kirchberg",
+          "automatiker-in-betriebselektriker-in-emmi-kirchberg"
         ]
       },
       "needsRetranslation": true,
@@ -4216,12 +4220,12 @@
     },
     {
       "id": "emmi-77526ccf1041",
-      "slug": "anlagenfuhrer-in-kaserei-emmi-ch-2",
+      "slug": "direttore-delle-piante-di-formaggio-emmi-emmen-luzern",
       "slugByLocale": {
-        "it": "anlagenfuhrer-in-kaserei-emmi-ch-2",
-        "en": "anlagenfuhrer-in-kaserei-emmi-ch-2",
+        "it": "direttore-delle-piante-di-formaggio-emmi-emmen-luzern",
+        "en": "cheese-plant-manager-emmi-emmen-luzern",
         "de": "anlagenfuhrer-in-kaserei-emmi-ch",
-        "fr": "anlagenfuhrer-in-kaserei-emmi-ch-2"
+        "fr": "directeur-de-l-usine-de-fromage-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -4280,7 +4284,8 @@
         "responsabile-impianti-caseificio-emmi-emmen",
         "manager-in-cheese-factory-emmi-emmen",
         "responsable-d-installations-de-fromagerie-emmi-emmen",
-        "responsabile-impianti-caseificio-emmi-emmen-q2xl8i"
+        "responsabile-impianti-caseificio-emmi-emmen-q2xl8i",
+        "anlagenfuhrer-in-kaserei-emmi-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4288,13 +4293,16 @@
           "responsabile-impianti-caseificio-emmi-emmen",
           "manager-in-cheese-factory-emmi-emmen",
           "responsable-d-installations-de-fromagerie-emmi-emmen",
-          "responsabile-impianti-caseificio-emmi-emmen-q2xl8i"
+          "responsabile-impianti-caseificio-emmi-emmen-q2xl8i",
+          "anlagenfuhrer-in-kaserei-emmi-ch-2"
         ],
         "en": [
-          "manager-in-cheese-factory-emmi-emmen"
+          "manager-in-cheese-factory-emmi-emmen",
+          "anlagenfuhrer-in-kaserei-emmi-ch-2"
         ],
         "fr": [
-          "responsable-d-installations-de-fromagerie-emmi-emmen"
+          "responsable-d-installations-de-fromagerie-emmi-emmen",
+          "anlagenfuhrer-in-kaserei-emmi-ch-2"
         ]
       },
       "needsRetranslation": true,
@@ -7030,9 +7038,9 @@
       "slug": "betriebsmechaniker-in-emmi-emmen",
       "slugByLocale": {
         "it": "betriebsmechaniker-in-emmi-emmen",
-        "en": "betriebsmechaniker-in-emmi-emmen",
+        "en": "operational-mechanic-emmi-emmen-luzern",
         "de": "betriebsmechaniker-in-emmi-ch",
-        "fr": "betriebsmechaniker-in-emmi-emmen"
+        "fr": "mecanicien-ne-d-exploitation-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",

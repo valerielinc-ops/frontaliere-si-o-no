@@ -10,7 +10,9 @@ import {
   textWidth,
   wrapText,
 } from '../functions/src/assistedApplicationAiDocuments.js';
-import { checkDraftFacts, salutationQuestion } from '../functions/src/assistedApplicationAiDraftCore.js';
+import { buildFormAnswers, checkDraftFacts, ensureRequiredQuestions, salutationQuestion } from '../functions/src/assistedApplicationAiDraftCore.js';
+import { documentsSystemPrompt, documentsUserText, matchSystemPrompt, matchUserText } from '../functions/src/assistedApplicationAiPrompts.js';
+import { permitOptions } from '../functions/src/lib/permitStatus.js';
 import { buildFactIndex, checkGeneratedFacts } from '../functions/src/assistedApplicationAiFactCheck.js';
 import {
   classifyApplicationChannel,
@@ -388,6 +390,65 @@ describe('form of address', () => {
     expect(salutationQuestion({ channel: portal, questions: [{ id: 'titolo', question: 'Qual è il tuo titolo di studio?', options: ['Diploma', 'Laurea'] }], locale: 'it' })).toMatchObject({ id: 'salutation' });
     // One option that looks like a form of address is no form of address.
     expect(salutationQuestion({ channel: portal, questions: [{ id: 'x', question: 'Reparto', options: ['M', 'Chirurgia'] }], locale: 'it' })).toMatchObject({ id: 'salutation' });
+  });
+});
+
+// Owner decisions of 2026-10-03 (P4): one permit question, with the fixed options, whoever asks it.
+describe('permit status question', () => {
+  const quote = { workPermitQuote: 'Permesso G o B richiesto.' };
+  const model = (extra: Record<string, any>) => ({ id: 'x', question: '?', why: '', type: 'text', options: [], required: false, validation: null, source: 'match', ...extra });
+
+  it('asks it on the posting’s request when the CV is silent: the six statuses in the candidate’s language, required', () => {
+    for (const [locale, question, why] of [
+      ['it', 'Hai la cittadinanza svizzera o un permesso svizzero valido oggi?', 'L’annuncio lo chiede e il CV non lo indica.'],
+      ['de', 'Hast du das Schweizer Bürgerrecht oder eine heute gültige Schweizer Bewilligung?', 'Das Inserat fragt danach und der Lebenslauf nennt es nicht.'],
+      ['fr', 'Avez-vous la nationalité suisse ou un permis suisse valable aujourd’hui ?', 'L’annonce le demande et le CV ne l’indique pas.'],
+      ['en', 'Are you a Swiss citizen, or do you hold a Swiss permit valid today?', 'The ad asks for it and the CV does not state it.'],
+    ]) {
+      const [asked] = ensureRequiredQuestions([], { requirements: quote, profile: {}, locale });
+      expect(asked).toMatchObject({ id: 'work_permit', question, why, type: 'choice', options: permitOptions(locale), required: true, source: 'rule' });
+    }
+    // Answered already, or the CV states it: not asked by the backstop.
+    expect(ensureRequiredQuestions([], { requirements: quote, profile: {}, answers: { work_permit: 'G' } })).toEqual([]);
+    expect(ensureRequiredQuestions([], { requirements: quote, profile: { workPermit: 'Permesso G' } })).toEqual([]);
+  });
+
+  it('gives a model’s permit question, under any id, the fixed options; required only on the posting’s request', () => {
+    const [own] = ensureRequiredQuestions([model({ id: 'work_permit', question: 'Hai un permesso?', type: 'choice', options: ['Permesso G', 'Non ancora'], required: true })], { requirements: {}, profile: {}, locale: 'it' });
+    expect(own).toMatchObject({ id: 'work_permit', options: permitOptions('it'), required: false, why: 'Facoltativo: lo riportiamo nel CV solo se lo scegli tu.', source: 'match' });
+    const renamed = ensureRequiredQuestions([model({ id: 'permesso_lavoro', question: 'Hai un permesso di lavoro svizzero?' }), model({ id: 'work_permit', question: 'Permesso?' })], { requirements: quote, profile: {}, locale: 'it' });
+    expect(renamed).toEqual([expect.objectContaining({ id: 'work_permit', required: true, options: permitOptions('it'), source: 'match' })]);
+    // Nobody is asked the nationality or the date of birth; a driving licence stays the model's question.
+    const kept = ensureRequiredQuestions([
+      model({ id: 'nazionalita', question: 'Qual è la tua nazionalità?' }), model({ id: 'data_nascita', question: 'Data di nascita?' }),
+      model({ id: 'driving_licence', question: 'Hai la patente B?', type: 'yes_no' }),
+    ], { requirements: {}, profile: {}, locale: 'it' });
+    expect(kept.map((question: any) => question.id)).toEqual(['driving_licence']);
+  });
+
+  it('shows a legacy answer as its label in the candidate’s language', () => {
+    const fields = buildFormAnswers({ identity: { name: 'Maria Rossi', email: 'm@example.com', phone: '' }, profile: {}, documents: {}, answers: { work_permit: 'none' }, locale: 'fr' });
+    expect(fields.find((field: any) => field.key === 'workPermit')).toMatchObject({ value: 'Je n’ai aujourd’hui aucun permis suisse', needsConfirmation: false });
+  });
+
+  it('tells the match that a permit an EU/EFTA national does not hold yet is no knock-out (decision of 2026-10-04)', () => {
+    const payload = (nationality: string) => JSON.parse(matchUserText({ profile: { nationality }, requirements: {}, answers: {}, postingExcerpt: '' }).split('\n\n<<<')[0]);
+    expect(payload('italiana').euEftaNational).toBe(true);
+    expect(payload('Norwegen').euEftaNational).toBe(true);
+    expect(payload('albanese').euEftaNational).toBe(false);
+    expect(payload('').euEftaNational).toBe(false);
+    expect(matchSystemPrompt('it')).toContain('A Swiss permit that an EU/EFTA national (euEftaNational true) does not hold yet is no knock-out clearly missing');
+    // The model asks the permit only under its id, never the nationality or the birth date.
+    expect(matchSystemPrompt('it')).toContain('always this id: the code sets its options and whether it is required); never ask the nationality or the date of birth');
+  });
+
+  it('gives the letter the permit by its official name only when it may be named', () => {
+    const payload = (profile: Record<string, any>, language = 'it') => JSON.parse(documentsUserText({ candidateName: '', profile, requirements: {}, matches: [], answers: {}, feedback: [], posting: {}, postingExcerpt: '', language }).split('\n\n<<<')[0]).swissPermit;
+    expect(payload({ permitStatus: 'permit_b', nationality: '' }, 'de')).toEqual({ status: 'permit_b', name: 'Aufenthaltsbewilligung B' });
+    expect(payload({ permitStatus: 'permit_g', nationality: 'albanese' })).toEqual({ status: 'permit_g', name: '' });
+    expect(payload({ permitStatus: 'none' })).toEqual({ status: 'none', name: '' });
+    expect(payload({})).toEqual({ status: '', name: '' });
+    expect(documentsSystemPrompt('it')).toContain('Never write that a permit is to be requested, applied for, pending, due, guaranteed or not needed');
   });
 });
 

@@ -11,6 +11,19 @@
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
+import {
+  BIRTH_FIELD_RE,
+  NATIONALITY_FIELD_RE,
+  PERMIT_FIELD_RE,
+  WORK_AUTHORISATION_RE,
+  asksHeldStatus,
+  isNationalityField,
+  isPermitField,
+  nationalityCodes,
+  nationalityOf,
+  permitOptionCode,
+  permitStatusOf,
+} from '../../../../functions/src/lib/permitStatus.js';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -48,6 +61,8 @@ ${candidateRules(candidateLocale)}`;
 export function candidateRules(candidateLocale) {
   return `- Use ONLY the candidate data given. Never invent facts, numbers, dates, employers, degrees or answers.
 - Work permit, visa, nationality, date of birth, salary expectation, notice period, start date, availability, relocation, criminal record, disability, gender, ethnicity or any other legal or demographic question: answer only when the candidate data states it (answers or profile). Otherwise, for a demographic question (gender, ethnicity, disability) choose the "prefer not to say / keine Angabe" option when one exists; failing that, when the field is required, put it in missingRequired; when optional, skip it.
+- Swiss work permit, work authorisation, residence status, visa or sponsorship: swissStatus.statement is the candidate's own statement of their Swiss status today (null: the candidate did not choose one; then only what profile.workPermit states). Choose the option, or write the value, that says exactly that status, never one that says more (a permit pending, to be requested or not needed); never answer whether the candidate needs a permit, a visa or sponsorship, and never infer a status from the nationality, the address or the place of birth. When no option says it, the field is missing (required) or skipped (optional).
+- Nationality or citizenship: only profile.nationality, choosing the option that names the same country (italiana = Italien = Italy); never from the address, the languages or the place of birth.
 - Eligibility questions (years of experience, degree or diploma, driving licence, language level, certificates, professional registration): answer only what the candidate data shows, and put in evidence a short exact quote of the candidate data (profile or answers) that supports the answer. Never answer "yes" or a level the data does not show to meet a requirement: when the data does not say, the question is missing (required) or skipped (optional). evidence is "" for every other field.
 - Work history and education sections (employer, role, dates, place; school, degree, year): fill them from profile.experience and profile.education, one entry per item, in the order given.
 - Checkboxes: check the ones that are REQUIRED to submit this application (privacy notice, data processing, terms for this application). Leave newsletters, marketing, job alerts, talent pools and sharing with other companies unchecked.
@@ -97,7 +112,9 @@ export function planUserText({ snapshot, candidate }) {
 
 // The date of birth too (JOIN: "Quando sei nato?"): only the candidate knows it.
 // JOIN asks "Che sesso sei?": sex in Italian and French is demographic too.
-export const SENSITIVE = /permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|\bsesso\b|\bsexe\b|\bsex\b|ethnic|criminal|strafregister|casellario|birth|geburt|nascita|\bnat[oa]\b|naissance/i;
+// The permit, work-authorisation, nationality and citizenship wordings of the four languages
+// (lib/permitStatus.js: «Arbeitserlaubnis», «authorised to work», «Nazionalità», «Cittadinanza»…).
+export const SENSITIVE = new RegExp(String.raw`permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|\bsesso\b|\bsexe\b|\bsex\b|ethnic|criminal|strafregister|casellario|${BIRTH_FIELD_RE.source}|${PERMIT_FIELD_RE.source}|${NATIONALITY_FIELD_RE.source}`, 'i');
 // Questions that can rule the candidate out (career-ops apply.md, knock-outs), a CEFR level ("Deutsch C1?") among them:
 // answered only with a quote of the candidate's data that supports the answer.
 export const KNOCK_OUT = /\b[abc][12]\b|anni di esperienza|years? of (professional |work )?experience|berufserfahrung|jahre[n]? (an )?erfahrung|ann[ée]es d.exp[ée]rience|titolo di studio|\blaurea\b|\bdiplom|\bdegree\b|\bbachelor|\bmaster\b|abschluss|ausbildung|patente|f[üu]hrerschein|fahrausweis|driving licen[cs]e|permis de conduire|livello|niveau\b|\blevel\b|sprachkenntnisse|conoscenza (del|della|dell)|certificat|zertifi|abilitazione|iscrizione all|\balbo\b|berufsausübungsbewilligung|registrierung bei/i;
@@ -107,8 +124,10 @@ export const KNOCK_OUT = /\b[abc][12]\b|anni di esperienza|years? of (profession
 // apply, nor a box that also declares a fact (a permit, a licence, a level).
 const OWN_CONSENT = /(privacy|datenschutz|data protection|data processing|protezione dei dati|trattamento dei (miei |tuoi |propri )?dati|informativa|protection des données|traitement de(s| mes| vos) données|terms|nutzungsbedingungen|teilnahmebedingungen|termini e condizioni|conditions (générales|d.utilisation))/i;
 const OPTIONAL_CONSENT = /(newsletter|marketing|job.?alert|job.?abo|talent.?pool|future (openings|opportunities|positions|vacancies)|other (companies|vacancies|positions)|weitere stellen|andere stellen|altre (posizioni|offerte|società)|autres (postes|offres|sociétés)|third part|dritte|\bterzi\b|\btiers\b)/i;
-// «I hold a valid work permit and accept the privacy policy»: a fact only the candidate can state.
-const DECLARES_FACT = /(permit|bewilligung|permesso di (lavoro|soggiorno|domicilio)|\bvisa\b|patente|f[üu]hrerschein|fahrausweis|driving licen[cs]e|permis de (conduire|travail|séjour)|\b[abc][12]\b|years? of|berufserfahrung|anni di esperienza|ann[ée]es d.exp[ée]rience|strafregister|casellario|criminal|\bdiplom|\bdegree\b|abschluss|\blaurea\b)/i;
+// «I hold a valid work permit and accept the privacy policy»: a fact only the candidate can state. So is a work
+// authorisation or a citizenship («Ich habe eine gültige Arbeitserlaubnis und akzeptiere…», «Ho la cittadinanza
+// svizzera e accetto…»); not the bare «permesso»: «Do il permesso al trattamento dei dati» is the consent.
+const DECLARES_FACT = new RegExp(String.raw`(permit|bewilligung|permesso di (lavoro|soggiorno|domicilio)|\bvisa\b|patente|f[üu]hrerschein|fahrausweis|driving licen[cs]e|permis de (conduire|travail|séjour)|\b[abc][12]\b|years? of|berufserfahrung|anni di esperienza|ann[ée]es d.exp[ée]rience|strafregister|casellario|criminal|\bdiplom|\bdegree\b|abschluss|\blaurea\b|${WORK_AUTHORISATION_RE.source}|${NATIONALITY_FIELD_RE.source})`, 'i');
 
 /** A required checkbox that is the application's own consent, and nothing else. */
 export function ownConsent(field) {
@@ -158,6 +177,35 @@ export function evidenceSupports(question, answer, evidence) {
     return held.length > 0 && Math.max(...held) >= Math.max(...required);
   }
   return !/\d/.test(String(question));
+}
+
+/**
+ * A permit or nationality field (decision 9): the answer must name the
+ * candidate's own status or nationality as the catalogue words it, never a
+ * value that merely occurs somewhere in the data (a «Ja» occurs everywhere).
+ * null: not such a field, the other rules decide.
+ */
+export function ownStatusAnswer(candidate, label, value, { option = false } = {}) {
+  if (!candidate) return null;
+  const profile = candidate.profile || {};
+  const same = (left, right) => Boolean(String(left || '').trim()) && String(left).trim().toLowerCase() === String(right || '').trim().toLowerCase();
+  if (isPermitField(label)) {
+    // Whether the candidate needs a permit, a visa or sponsorship is never answered from the data: they say it.
+    if (!asksHeldStatus(questionFromLabel(label))) return false;
+    const status = candidate.swissStatus?.code || '';
+    const code = option ? permitOptionCode(value) : permitStatusOf(value) || permitOptionCode(value);
+    if (status) return code === status || same(value, candidate.swissStatus.statement);
+    // Nothing chosen: only the CV's own words (decision 2).
+    const own = permitStatusOf(profile.workPermit);
+    return same(value, profile.workPermit) || (Boolean(own) && code === own);
+  }
+  if (isNationalityField(label)) {
+    // Every nationality the candidate gave (a dual national names two), and Swiss for the status «swiss».
+    const own = new Set([...nationalityCodes(profile.nationality), ...(candidate.swissStatus?.code === 'swiss' ? ['CH'] : [])]);
+    const code = nationalityOf(value)?.code;
+    return Boolean(code && own.has(code)) || same(value, profile.nationality);
+  }
+  return null;
 }
 
 /** The candidate already answered this very question with this answer (review page). */
@@ -219,10 +267,20 @@ export function guardPlan(plan, fields, candidate = null) {
   const agencyIds = new Set(fields.filter((field) => isAgencyQuestion(field)).map((field) => field.id));
   const agencyNo = new Map(fields.map((field) => [field.id, agencyNoOption(field)]).filter(([, option]) => option));
   for (const [fieldId, option] of agencyNo) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'rule', evidence: '' });
+  // The Swiss status the candidate chose, on a field that asks the permit held (decision 9): the one option that
+  // says exactly that status, whatever the plan chose; none, or two, and the plan's answer is judged as any other.
+  // A field that asks what the candidate needs or applies for is never answered by the code.
+  const status = candidate?.swissStatus?.code || '';
+  const statusPick = new Map(status ? fields
+    .filter((field) => field.options?.length && isPermitField(field.label) && asksHeldStatus(questionFromLabel(field.label)))
+    .map((field) => [field.id, field.options.filter((option) => permitOptionCode(option.label) === status)])
+    .filter(([, options]) => options.length === 1)
+    .map(([fieldId, [option]]) => [fieldId, option]) : []);
+  for (const [fieldId, option] of statusPick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'rule', evidence: '' });
   plan = {
     ...plan,
-    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId)),
-    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId)),
+    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId) && !statusPick.has(action.fieldId)),
+    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId) && !statusPick.has(item.fieldId)),
   };
   for (const item of plan.missingRequired || []) {
     if (!missing.some((other) => other.fieldId === item.fieldId)) missing.push(item);
@@ -250,7 +308,15 @@ export function guardPlan(plan, fields, candidate = null) {
     }
     const fromCandidate = ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, value);
     const declines = action.action === 'select' && field.options?.length && PREFER_NOT.test(action.value);
-    if (SENSITIVE.test(field.label) && ['fill', 'select'].includes(action.action) && !fromCandidate && !declines) {
+    // A permit or nationality field: the candidate's own status or nationality as the catalogue words it, their
+    // answer to this very question, or declining; never the substring rule (decision 9).
+    const own = ['fill', 'select'].includes(action.action) ? ownStatusAnswer(candidate, field.label, action.value, { option: action.action === 'select' }) : null;
+    if (own !== null) {
+      if (!own && !answeredByCandidate(candidate, field.label, action.value) && !declines) {
+        ask(field);
+        continue;
+      }
+    } else if (SENSITIVE.test(field.label) && ['fill', 'select'].includes(action.action) && !fromCandidate && !declines) {
       ask(field);
       continue;
     }
