@@ -16,6 +16,9 @@
  *   - isTrustedDomain()       -- Validate URLs belong to this company
  *   - slugify() / stripHtml() -- Re-exported from crawler-template.mjs
  */
+import { extractJsonLd as extractPostingRecords } from './prospector/extract.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml, normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
@@ -354,10 +357,20 @@ export async function fetchAllKantonGrJobs() {
 
     // Fetch detail page for description + pensum
     let detail = { description: '', pensumMin: null, pensumMax: null };
+    let publication = sourcePostingDateFields();
     if (row.detailUrl) {
       try {
         const detailHtml = await fetchPage(row.detailUrl);
         detail = parseDetailPage(detailHtml);
+        const posting = extractJobPostingLd(detailHtml);
+        const explicitUrls = [posting?.url, posting?.sameAs].filter(Boolean);
+        let sameUrl = explicitUrls.length === 0 && extractPostingRecords(detailHtml, row.detailUrl).length === 1;
+        if (explicitUrls.length) {
+          try { sameUrl = explicitUrls.every((value) => new URL(value, row.detailUrl).href === new URL(row.detailUrl).href); }
+          catch { sameUrl = false; }
+        }
+        const sameTitle = normalizeSpace(posting?.title || '').toLowerCase() === normalizeSpace(title).toLowerCase();
+        publication = sourcePostingDateFields(sameTitle && sameUrl ? posting?.datePosted : '');
         await new Promise((r) => setTimeout(r, delayMs));
       } catch (err) {
         console.warn(`  ⚠️ Failed to fetch detail for "${title}": ${err.message}`);
@@ -430,7 +443,7 @@ export async function fetchAllKantonGrJobs() {
       sector: 'Amministrazione Pubblica',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...publication,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
