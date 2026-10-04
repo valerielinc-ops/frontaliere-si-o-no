@@ -245,13 +245,14 @@ describe('pharmacy directory page matrix', () => {
     // own freshness, and a duty there can start at the very same instant
     // (2026-10-03: the Jura duties started at 08:00 like the Ticino sample, so
     // `not.toContain('03.10.2026 08:00')` failed on a page that was correct).
-    const sampleDuty = new RegExp(`data-duty-id=(?:"${sample!.id}"|${sample!.id})(?=[\\s>])`);
+    const dutyIdPattern = `data-duty-id=(?:"${sample!.id}"|${sample!.id})(?=[\\s>])`;
     expect(before.indexable).toBe(false);
-    expect(before.html).not.toMatch(sampleDuty);
+    expect(before.html).not.toMatch(new RegExp(dutyIdPattern));
     expect(after.indexable).toBe(true);
-    expect(after.html).toContain(formatDutyDateTime(sample!.startsAt));
-    expect(after.html).toContain(formatDutyDateTime(sample!.endsAt));
-    expect(after.html).toMatch(sampleDuty);
+    const publishedDuty = after.html.match(new RegExp(`<li\\b[^>]*${dutyIdPattern}[^>]*>[\\s\\S]*?<\\/li>`))?.[0];
+    expect(publishedDuty).toBeDefined();
+    expect(publishedDuty).toContain(formatDutyDateTime(sample!.startsAt));
+    expect(publishedDuty).toContain(formatDutyDateTime(sample!.endsAt));
   });
 
   it('keeps every indexable directory page above the text-html ratio floor', { timeout: 90000 }, () => {

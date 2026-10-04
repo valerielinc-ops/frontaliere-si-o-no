@@ -1,3 +1,4 @@
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { fuelObservation } from './shared/fuelObservation';
 /**
  * Vite build plugin — emits daily-fresh static HTML for fuel price pages
@@ -1718,7 +1719,8 @@ function renderPage(inp: PageInputs): string {
   // Alternates — includes x-default pointing at the IT href (shared helper).
   const alternatesHtml = renderHreflangTags(alternates);
 
-  // JSON-LD
+  // JSON-LD: this renderer has no editorial publication/change timestamp.
+  // The build clock and acquisition timestamps are not publication dates.
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -2007,7 +2009,6 @@ function renderArchive(inp: ArchiveInputs): string {
     </div>`
     : '';
 
-  const dateStamp = today.toISOString().slice(0, 10);
   const title = clampSiteSuffix(h1, 'Frontaliere Ticino');
   // Archive pages: H1 includes the month-key tail, but if the headline is
   // long enough that buildTitleWithBrand drops the brand from <title>, the
@@ -2036,7 +2037,6 @@ function renderArchive(inp: ArchiveInputs): string {
     url: canonicalUrl,
     description: intro,
     inLanguage: locale,
-    dateModified: dateStamp,
   });
 
   // SEO content gate (text-to-HTML ratio): the monthly archive pages
@@ -2476,7 +2476,6 @@ interface StationRedesignLabels {
   readonly historyAriaLabel: (zone: string, fuel: string, avgFmt: string) => string;
   readonly historyAriaLabelStation: (brand: string, fuel: string, avgFmt: string) => string;
   readonly historyTrendLabel: string;
-  readonly historyLastUpdated: (dateStamp: string) => string;
   readonly adviceCheaper: (delta: string, zone: string) => string;
   readonly adviceMedian: (zone: string) => string;
   readonly advicePremium: (delta: string, zone: string) => string;
@@ -2502,7 +2501,6 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     historyAriaLabel: (z, f, avg) => `Andamento storico del prezzo ${f.toLowerCase()} nella zona ${z}, media ${avg} CHF/litro nell'intervallo selezionato.`,
     historyAriaLabelStation: (b, f, avg) => `Andamento storico del prezzo ${f.toLowerCase()} alla stazione ${b}, media ${avg} CHF/litro nell'intervallo selezionato.`,
     historyTrendLabel: 'Andamento prezzo',
-    historyLastUpdated: (d) => `Ultimo aggiornamento: ${d}`,
     adviceCheaper: (delta, z) => `Buona scelta: oggi questa stazione è ${delta} CHF/litro più economica della media zona ${z}.`,
     adviceMedian: (z) => `Prezzo in linea con la media della zona ${z}: scegli in base alla comodità del percorso.`,
     advicePremium: (delta, z) => `Attenzione: oggi questa stazione è ${delta} CHF/litro più cara della media zona ${z}. Valuta una stazione più economica nella classifica.`,
@@ -2526,7 +2524,6 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     historyAriaLabel: (z, f, avg) => `Historical ${f.toLowerCase()} price trend in the ${z} zone, average ${avg} CHF/litre over the selected range.`,
     historyAriaLabelStation: (b, f, avg) => `Historical ${f.toLowerCase()} price trend at ${b}, average ${avg} CHF/litre over the selected range.`,
     historyTrendLabel: 'Price trend',
-    historyLastUpdated: (d) => `Last updated: ${d}`,
     adviceCheaper: (delta, z) => `Good pick: today this station is ${delta} CHF/litre cheaper than the ${z}-zone average.`,
     adviceMedian: (z) => `Price in line with the ${z}-zone average: pick by route convenience.`,
     advicePremium: (delta, z) => `Heads up: today this station is ${delta} CHF/litre above the ${z}-zone average. Consider a cheaper one from the ranking.`,
@@ -2550,7 +2547,6 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     historyAriaLabel: (z, f, avg) => `Historischer ${f}-Preisverlauf in der Zone ${z}, Durchschnitt ${avg} CHF/Liter im ausgewählten Zeitraum.`,
     historyAriaLabelStation: (b, f, avg) => `Historischer ${f}-Preisverlauf bei ${b}, Durchschnitt ${avg} CHF/Liter im ausgewählten Zeitraum.`,
     historyTrendLabel: 'Preisverlauf',
-    historyLastUpdated: (d) => `Zuletzt aktualisiert: ${d}`,
     adviceCheaper: (delta, z) => `Gute Wahl: heute ist diese Tankstelle ${delta} CHF/Liter günstiger als der Zonen-${z}-Schnitt.`,
     adviceMedian: (z) => `Preis im Schnitt der Zone ${z}: wähle nach Route.`,
     advicePremium: (delta, z) => `Achtung: heute ist diese Tankstelle ${delta} CHF/Liter teurer als der Zonen-${z}-Schnitt. Eine günstigere findest du in der Rangliste.`,
@@ -2574,7 +2570,6 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     historyAriaLabel: (z, f, avg) => `Tendance historique du prix ${frFuelOf(f)} dans la zone ${z}, moyenne ${avg} CHF/litre sur la période sélectionnée.`,
     historyAriaLabelStation: (b, f, avg) => `Tendance historique du prix ${frFuelOf(f)} chez ${b}, moyenne ${avg} CHF/litre sur la période sélectionnée.`,
     historyTrendLabel: 'Tendance du prix',
-    historyLastUpdated: (d) => `Dernière mise à jour : ${d}`,
     adviceCheaper: (delta, z) => `Bon choix : aujourd'hui cette station est ${delta} CHF/litre moins chère que la moyenne de la zone ${z}.`,
     adviceMedian: (z) => `Prix conforme à la moyenne de la zone ${z} : choisissez selon votre itinéraire.`,
     advicePremium: (delta, z) => `Attention : aujourd'hui cette station est ${delta} CHF/litre plus chère que la moyenne de la zone ${z}. Voyez le classement pour une option moins chère.`,
@@ -2817,7 +2812,7 @@ function renderStationHistoryCard(inp: StationHistoryInput): string {
       seriesByRange: stationSeriesByRange,
       currency: 'CHF',
     });
-    const lastUpdatedLine = `<p class="s-oF62Kj">${esc(labels.historyLastUpdated(inp.today.toISOString().slice(0, 10)))}</p>`;
+    const lastUpdatedLine = `<p class="s-oF62Kj">${esc(formatPageGenerationDate(inp.today.toISOString().slice(0, 10), inp.locale))}</p>`;
     return `<section class="s-ziawP1" aria-labelledby="stationHistory">
   <h2 id="stationHistory" class="s-h2" style="margin:0 0 8px;font-size:20px">${esc(labels.historyHeadingStation(inp.brand))}</h2>
   <p class="s-MZT5qc">${esc(labels.historyCaptionStation)}</p>
@@ -2850,7 +2845,7 @@ function renderStationHistoryCard(inp: StationHistoryInput): string {
     seriesByRange: zoneSeriesByRange,
     currency: 'CHF',
   });
-  const lastUpdatedLine = `<p class="s-oF62Kj">${esc(labels.historyLastUpdated(inp.today.toISOString().slice(0, 10)))}</p>`;
+  const lastUpdatedLine = `<p class="s-oF62Kj">${esc(formatPageGenerationDate(inp.today.toISOString().slice(0, 10), inp.locale))}</p>`;
   return `<section class="s-ziawP1" aria-labelledby="stationHistory">
   <h2 id="stationHistory" class="s-h2" style="margin:0 0 8px;font-size:20px">${esc(labels.historyHeading(inp.zoneLabel))}</h2>
   <p class="s-YUEhlJ">${esc(labels.historyDisclaimer)}</p>
@@ -3008,8 +3003,6 @@ function renderStationPage(opts: {
     url: canonicalUrl,
     description: intro,
     inLanguage: locale,
-    dateModified: today.toISOString(),
-    datePublished: today.toISOString(),
   });
 
   // GasStation + Place (geo)
@@ -3549,6 +3542,41 @@ function renderItalianCityFrontalierExtra(args: {
   </section>`;
 }
 
+/**
+ * Pre-suffix `<title>` for an Italian fuel page whose H1 embeds a free-length
+ * name (comune, station): the H1 cut on a word boundary to `budget` chars,
+ * with the dangling clause tail peeled, then " (date)" only when it still
+ * fits. Only the `<title>` uses this — the visible H1 stays whole.
+ *
+ * `wholeClauses`: when the cut lands inside the clause after the last " — "
+ * that fits, keep only the text before that dash. The city H1 is
+ * "{keyword} — {qualifier}", and a half qualifier ("— stazioni più",
+ * "— stations les moins") reads worse in the SERP than none; the peel cannot
+ * catch it because "più"/"moins" are content words.
+ */
+function fitHeadingToTitleBudget(
+  h1: string,
+  dateStamp: string,
+  budget = 60,
+  wholeClauses = false,
+): string {
+  const trimmedH1 = h1.length <= budget
+    ? h1
+    : (() => {
+        if (wholeClauses) {
+          const dash = h1.lastIndexOf(' — ', budget);
+          if (dash > 0) return peelDanglingClauseTail(h1.slice(0, dash));
+        }
+        const slice = h1.slice(0, budget);
+        const lastSpace = slice.lastIndexOf(' ');
+        const base = lastSpace > 30 ? slice.slice(0, lastSpace) : slice;
+        // Shared peel — a word-boundary cut still stops mid-clause.
+        return peelDanglingClauseTail(base);
+      })();
+  const dated = `${trimmedH1} (${dateStamp})`;
+  return dated.length <= budget ? dated : trimmedH1;
+}
+
 function renderItalianCityPage(opts: {
   entry: ItalianCityEntry;
   locale: FuelDailyLocale;
@@ -3747,8 +3775,6 @@ function renderItalianCityPage(opts: {
     url: canonicalUrl,
     description: intro,
     inLanguage: locale,
-    dateModified: today.toISOString(),
-    datePublished: today.toISOString(),
   });
 
   const itemListLd = inlineScriptJson({
@@ -3770,13 +3796,12 @@ function renderItalianCityPage(opts: {
     })),
   });
 
-  // Phase 3A — clamp combined title to 60 chars; drop brand first, then
-  // dated suffix if even with the date alone the budget overflows.
-  const titleWithDate60 = (() => {
-    const dated = `${h1} (${dateStamp})`;
-    return dated.length <= 60 ? dated : h1;
-  })();
-  const title = clampSiteSuffix(titleWithDate60, 'Frontaliere Ticino');
+  // Phase 3A — the pre-suffix title is the H1 cut to 60 chars at the
+  // " — qualifier" boundary (long comuni such as "Bardello con Malgesso e
+  // Bregano" used to ship the full 67-79 char H1), plus the dated badge when
+  // it still fits. clampSiteSuffix never truncates its base, so the cut must
+  // happen here.
+  const title = clampSiteSuffix(fitHeadingToTitleBudget(h1, dateStamp, 60, true), 'Frontaliere Ticino', 66);
   // Differentiate H1 ↔ <title> after brand drop. See station-detail branch.
   h1 = differentiateH1FromTitle(h1, title, locale);
   // Pre-cut removed: clampMetaDescription (160) runs downstream and is
@@ -4752,8 +4777,6 @@ function renderItalianStationPage(opts: {
     url: canonicalUrl,
     description: intro,
     inLanguage: locale,
-    dateModified: today.toISOString(),
-    datePublished: today.toISOString(),
   });
 
   const gasStationLd = inlineScriptJson({
@@ -4783,18 +4806,7 @@ function renderItalianStationPage(opts: {
   // Phase 3A — total <title> ≤60 char (Semrush W2): trim H1 to fit, then
   // optionally append the dated badge + brand suffix as long as room remains.
   const titleBudget = 60;
-  const trimmedH1 = h1.length <= titleBudget
-    ? h1
-    : (() => {
-        const slice = h1.slice(0, titleBudget);
-        const lastSpace = slice.lastIndexOf(' ');
-        const base = lastSpace > 30 ? slice.slice(0, lastSpace) : slice;
-        // Shared peel — a word-boundary cut still stops mid-clause.
-        return peelDanglingClauseTail(base);
-      })();
-  const dated = `${trimmedH1} (${dateStamp})`;
-  const withDate = dated.length <= titleBudget ? dated : trimmedH1;
-  const title = clampSiteSuffix(withDate, 'Frontaliere Ticino', titleBudget);
+  const title = clampSiteSuffix(fitHeadingToTitleBudget(h1, dateStamp, titleBudget), 'Frontaliere Ticino', titleBudget);
   // When buildTitleWithBrand drops the brand suffix (headline + brand > 66
   // chars), the rendered <title> collapses to the H1 string verbatim. The
   // helper appends a locale-aware narrative tag so the
@@ -4877,7 +4889,7 @@ function renderItalianStationPage(opts: {
         lng: ctx.station.lng as number,
       })
     : '';
-  const lastUpdatedLine = `<p class="s-oF62Kj">${esc(redesignLabels.historyLastUpdated(dateStamp))}</p>`;
+  const lastUpdatedLine = `<p class="s-oF62Kj">${esc(formatPageGenerationDate(dateStamp, locale))}</p>`;
 
   const bodyHtml = `<article class="s-xzWvwM">
   <nav aria-label="Breadcrumb" class="s-bcr">
@@ -5467,10 +5479,9 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       const writeSitemap = (paths: string[], filename: string, changefreq: string): void => {
         if (paths.length === 0) return;
         try {
-          const dateStamp = today.toISOString().slice(0, 10);
           const urlEntries = paths
             .map((p) => {
-              return `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>0.6</priority>\n  </url>`;
+              return `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <changefreq>${changefreq}</changefreq>\n    <priority>0.6</priority>\n  </url>`;
             })
             .join('\n');
           const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>

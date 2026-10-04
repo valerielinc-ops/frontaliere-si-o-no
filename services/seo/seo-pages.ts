@@ -29,7 +29,7 @@ const HOWTO_CALCULATOR = {
  "step": [
  { "@type": "HowToStep", "position": 1, "name": "Inserisci il salario lordo annuo", "text": "Inserisci il tuo salario lordo annuo in CHF nel campo dedicato.", "url": `${BASE_URL}/calcola-stipendio/` },
  { "@type": "HowToStep", "position": 2, "name": "Seleziona stato civile e figli", "text": "Scegli stato civile (single, coniugato, genitore solo) e numero di figli per determinare la tabella d'imposta corretta (A, B, C o H).", "url": `${BASE_URL}/calcola-stipendio/` },
- { "@type": "HowToStep", "position": 3, "name": "Scegli vecchio o nuovo frontaliere", "text": "Indica se sei stato assunto prima o dopo il 17 luglio 2023 e se risiedi entro o oltre 20 km dal confine svizzero.", "url": `${BASE_URL}/calcola-stipendio/` },
+ { "@type": "HowToStep", "position": 3, "name": "Scegli vecchio o nuovo frontaliere", "text": "Indica lo status fiscale verificato: attività qualificante come frontaliere tra il 31 dicembre 2018 e il 17 luglio 2023, Comune nell’elenco ufficiale e rientro in principio quotidiano. La data dell’ultimo contratto da sola non basta.", "url": `${BASE_URL}/calcola-stipendio/` },
  { "@type": "HowToStep", "position": 4, "name": "Analizza i risultati", "text": "Visualizza il dettaglio di imposta alla fonte, contributi sociali (AVS, AC, LAA, LPP), eventuale IRPEF italiana e stipendio netto mensile in CHF e EUR.", "url": `${BASE_URL}/calcola-stipendio/` }
  ]
  };
@@ -150,15 +150,15 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "FAQPage",
  "mainEntity": [
- { "@type": "Question", "name": "Qual è la differenza tra vecchio e nuovo frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Il vecchio frontaliere (assunto prima del 17 luglio 2023 nei comuni entro 20 km dal confine) paga solo l'imposta alla fonte in Svizzera. Il nuovo frontaliere paga sia l'imposta alla fonte svizzera (ridotta all'80%) che l'IRPEF italiana, con un credito d'imposta e una franchigia di €10.000. Come spiega l'Avv. Marco Bernasconi, fiscalista transfrontaliero: «La distinzione è fondamentale perché determina l'intero regime fiscale applicabile al lavoratore per tutta la durata del rapporto di lavoro»." } },
+ { "@type": "Question", "name": "Qual è la differenza tra vecchio e nuovo frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Il vecchio frontaliere qualificato dall’articolo 9 ha svolto attività come frontaliere fiscale in Ticino, Grigioni o Vallese tra il 31 dicembre 2018 e il 17 luglio 2023: il salario interessato è tassato esclusivamente in Svizzera. I nuovi frontalieri fiscali pagano l’80% dell’imposta alla fonte ordinaria svizzera e le imposte italiane con credito per quelle svizzere. Contano anche Comune di residenza ammesso e rientro in principio quotidiano, non soltanto la data dell’ultimo contratto. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
  { "@type": "Question", "name": "Conviene lavorare come vecchio o nuovo frontaliere nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Dipende dal salario, stato civile, figli e comune di residenza. Il vecchio regime è generalmente più vantaggioso per salari medio-alti (>CHF 60.000). Il nuovo regime può convenire con salari più bassi grazie alla franchigia €10.000. Usa il simulatore gratuito su frontaliereticino.ch per calcolare il tuo caso specifico." } },
  { "@type": "Question", "name": "Come si calcola l'imposta alla fonte in Canton Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "L'imposta alla fonte in Ticino si calcola sul salario lordo annuo con aliquote progressive: 0% sotto CHF 18.000, dal 4% al 24% per redditi superiori, variando in base a stato civile (tabelle A singolo, B sposato mono-reddito, C sposato doppio reddito, H genitore solo) e numero di figli. Ogni figlio riduce l'aliquota di circa 1-2 punti percentuali." } },
  { "@type": "Question", "name": "Quanto guadagna netto un frontaliere con CHF 80.000 lordi nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Un frontaliere single senza figli con CHF 80.000 lordi/anno guadagna circa CHF 4.900-5.100/mese netti con il vecchio accordo (solo imposta alla fonte), oppure circa CHF 4.400-4.600/mese netti con il nuovo accordo (imposta alla fonte ridotta + IRPEF italiana con franchigia €10.000 e credito d'imposta). I contributi sociali svizzeri (AVS 5,3%, AC 1,1%, LAA, LPP) vengono detratti dal lordo." } },
  { "@type": "Question", "name": "Quanto costa l'assicurazione sanitaria LAMal per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "I premi LAMal per frontalieri in Canton Ticino variano da CHF 270 a CHF 560/mese a seconda dell'assicuratore, modello (Standard, Telmed, HMO) e franchigia (CHF 300-2.500). Le opzioni più economiche sono Assura e Agrisano con modello Telmed e franchigia CHF 2.500, a circa CHF 270-300/mese. Il comparatore su frontaliereticino.ch confronta 14 assicuratori in 7 cantoni. Come consiglia Laura Mantovani, broker assicurativo LAMal: «Confrontare almeno 3-4 offerte prima di scegliere può far risparmiare oltre CHF 2.000 all'anno»." } },
  { "@type": "Question", "name": "Come funziona la pensione per i frontalieri svizzeri?", "acceptedAnswer": { "@type": "Answer", "text": "Il sistema distingue previdenza statale AVS, professionale LPP e individuale volontaria. Requisiti e prestazioni vanno verificati presso gli enti competenti. Il terzo pilastro non comporta una deduzione automatica per tutti i frontalieri. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
- { "@type": "Question", "name": "Cos'è la franchigia di €10.000 per i nuovi frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "La franchigia è un'esenzione fiscale annuale di €10.000 introdotta dal nuovo accordo frontalieri 2024. Per i nuovi frontalieri, i primi €10.000 del reddito svizzero convertito in EUR sono esenti dall'IRPEF italiana. Su uno stipendio di CHF 60.000, questa esenzione fa risparmiare circa €2.000-2.500/anno di tasse italiane. Secondo la Dott.ssa Elena Colombo, commercialista specializzata in fiscalità internazionale: «La franchigia si applica automaticamente nella dichiarazione dei redditi e rappresenta un beneficio concreto per tutti i nuovi frontalieri»." } },
+ { "@type": "Question", "name": "Cos'è la franchigia di €10.000 per i nuovi frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "La norma italiana esclude dall’imponibile i primi €10.000 annui dei redditi qualificati di lavoro dipendente prestato all’estero, in zone di frontiera o Paesi limitrofi, in via continuativa e come oggetto esclusivo del rapporto da residenti in Italia. Non dipende dalla sola data di assunzione né dalla fascia dei Comuni entro 20 km. Sul salario dei vecchi frontalieri coperto dall’articolo 9 opera invece l’esenzione italiana del regime. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm" } },
  { "@type": "Question", "name": "Qual è il modo migliore per cambiare CHF in EUR?", "acceptedAnswer": { "@type": "Answer", "text": "Wise (ex TransferWise) e Revolut offrono i tassi migliori con markup dello 0,25-0,5% sul tasso interbancario. Le banche tradizionali (UBS, PostFinance) applicano markup del 2-3%. Per un frontaliere che cambia CHF 5.000/mese, Wise fa risparmiare circa CHF 100-150/mese rispetto alla banca tradizionale, ovvero CHF 1.200-1.800/anno." } },
- { "@type": "Question", "name": "I frontalieri devono fare la dichiarazione dei redditi in Italia?", "acceptedAnswer": { "@type": "Answer", "text": "I nuovi frontalieri (assunti dal 17 luglio 2023) devono obbligatoriamente fare la dichiarazione dei redditi italiana (Modello 730 o Modello Redditi PF) per dichiarare il reddito svizzero e richiedere il credito d'imposta per le tasse pagate in Svizzera. I vecchi frontalieri (assunti prima del luglio 2023, entro 20 km) sono generalmente esenti per il reddito da lavoro svizzero." } },
+ { "@type": "Question", "name": "I frontalieri devono fare la dichiarazione dei redditi in Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Per i nuovi frontalieri fiscali il salario svizzero è imponibile anche in Italia, con credito per le imposte svizzere. I vecchi qualificati dall’articolo 9 sono esenti sul salario coperto dal regime, ma possono avere obblighi italiani per altri redditi o monitoraggio. Lo status dipende dai requisiti fiscali e dall’attività qualificante tra il 31 dicembre 2018 e il 17 luglio 2023, non soltanto dall’ultima assunzione. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
  { "@type": "Question", "name": "Quanti frontalieri lavorano in Canton Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Circa 79.000 lavoratori frontalieri pendolano quotidianamente dall'Italia al Canton Ticino (dati BFS 2025). Il Ticino è il cantone svizzero con la più alta concentrazione di frontalieri, che rappresentano circa il 30% della forza lavoro cantonale. Il numero cresce del 2-3% annuo. I settori principali sono manifattura, costruzioni, finanza, sanità, ospitalità e IT." } },
  { "@type": "Question", "name": "Cosa sono i ristorni fiscali?", "acceptedAnswer": { "@type": "Answer", "text": "L’articolo 9 prevede una compensazione all’Italia pari al 40% del gettito sui vecchi frontalieri fino all’anno fiscale 2033, senza riduzione graduale della percentuale. Dopo tale anno la Svizzera conserva il gettito. Questo non fa passare automaticamente i vecchi frontalieri al regime concorrente. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
  { "@type": "Question", "name": "Quanto guadagna un frontaliere in Svizzera al mese?", "acceptedAnswer": { "@type": "Answer", "text": "Un frontaliere in Canton Ticino guadagna in media CHF 5.600 lordi al mese (mediana USS), pari a circa CHF 4.300–4.600 netti dopo imposta alla fonte e contributi AVS/LPP/AC. Profili qualificati (IT, ingegneria, farma, finanza) arrivano a CHF 7.000–9.000 lordi, mentre operai e commercio si attestano intorno a CHF 4.200–4.800. Usa il simulatore gratuito su frontaliereticino.ch per stimare il netto esatto in base a stato civile, figli e comune." } },
@@ -275,8 +275,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  mainEntity: [
  { '@type': 'Question', name: "Cos'è l'imposta alla fonte per i frontalieri in Ticino?", acceptedAnswer: { '@type': 'Answer', text: "L'imposta alla fonte (Quellensteuer) è la trattenuta fiscale che il datore di lavoro svizzero preleva ogni mese direttamente dallo stipendio lordo del frontaliere e versa al Canton Ticino. Sostituisce la dichiarazione dei redditi cantonale per chi non è residente e copre imposte federali, cantonali e comunali. Per il 2026, con il nuovo accordo Italia-Svizzera, i nuovi frontalieri pagano l'80% dell'aliquota ordinaria (riduzione del 20%)." } },
  { '@type': 'Question', name: "Come si calcola l'imposta alla fonte in Canton Ticino?", acceptedAnswer: { '@type': 'Answer', text: "L'aliquota dipende da quattro variabili: salario lordo annuo, stato civile, numero di figli a carico e tabella applicabile (A single, B sposato mono-reddito, C doppio reddito, H genitore solo). Le aliquote sono progressive: circa 0% sotto CHF 18.000, 4% a CHF 40.000, 9–10% a CHF 80.000, fino al 24% oltre CHF 200.000. Ogni figlio riduce l'aliquota di 1–2 punti percentuali." } },
- { '@type': 'Question', name: "Qual è la differenza tra imposta alla fonte e IRPEF per un frontaliere?", acceptedAnswer: { '@type': 'Answer', text: "L'imposta alla fonte è svizzera, trattenuta in busta paga dal datore di lavoro ticinese. L'IRPEF è italiana e si paga solo in dichiarazione dei redditi. I vecchi frontalieri (entro 20 km, assunti prima del 17 luglio 2023) pagano solo l'imposta alla fonte. I nuovi frontalieri pagano entrambe, con credito d'imposta per evitare la doppia tassazione e franchigia di €10.000." } },
- { '@type': 'Question', name: "Le tabelle dell'imposta alla fonte cambiano ogni anno?", acceptedAnswer: { '@type': 'Answer', text: "Sì. La Divisione delle Contribuzioni del Canton Ticino aggiorna le tabelle ogni anno fiscale (tipicamente a fine dicembre per l'anno successivo). Le aliquote 2026 riflettono il nuovo accordo fiscale CH-IT e la riduzione dell'80% per i nuovi frontalieri. È importante verificare che il datore di lavoro applichi la tabella corretta in busta paga." } },
+ { '@type': 'Question', name: "Qual è la differenza tra imposta alla fonte e IRPEF per un frontaliere?", acceptedAnswer: { '@type': 'Answer', text: "L’imposta alla fonte svizzera è trattenuta dal datore sul salario; l’IRPEF è l’imposta italiana sul reddito. I nuovi frontalieri fiscali sono soggetti a entrambe, con credito italiano per le imposte svizzere. Sul salario coperto dall’articolo 9, i vecchi frontalieri qualificati sono invece tassati esclusivamente in Svizzera. La sola data dell’ultimo contratto non distingue i due regimi. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
+ { '@type': 'Question', name: "Le tabelle dell'imposta alla fonte cambiano ogni anno?", acceptedAnswer: { '@type': 'Answer', text: "Per ogni anno fiscale va consultato il tariffario cantonale applicabile alla propria situazione. Per i nuovi frontalieri fiscali si applica l’80% dell’imposta alla fonte ordinaria: è una riduzione del 20%, non dell’80%. Verifica sul cedolino che il datore abbia usato la tariffa corretta per status e situazione familiare. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
  { '@type': 'Question', name: "Posso chiedere un rimborso dell'imposta alla fonte?", acceptedAnswer: { '@type': 'Answer', text: "Una trattenuta errata va distinta dalla richiesta di deduzioni aggiuntive: verifica conteggio e termini di correzione con datore e autorità cantonale. Per i frontalieri fiscali dell’accordo Italia–Svizzera, la FAQ 5.3 AFC esclude la TOU. Per altre categorie verifica condizioni e procedura con l’autorità fiscale. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
  { '@type': 'Question', name: "Il nuovo accordo 2026 ha cambiato l'imposta alla fonte?", acceptedAnswer: { '@type': 'Answer', text: "Per i nuovi frontalieri fiscali la Svizzera applica l’80% dell’aliquota ordinaria dell’imposta alla fonte; l’Italia tassa il reddito concedendo il credito per l’imposta svizzera. L’80% non è una ripartizione del gettito tra i due Paesi. I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } }
  ],
@@ -298,7 +298,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  '@context': 'https://schema.org',
  '@type': 'FAQPage',
  mainEntity: [
- { '@type': 'Question', name: "Cos'è l'IRPEF e perché riguarda anche i frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "L'IRPEF (Imposta sul Reddito delle Persone Fisiche) è la principale imposta italiana sui redditi. I nuovi frontalieri (assunti dal 17 luglio 2023) devono dichiararla in Italia ogni anno perché il nuovo accordo CH-IT prevede la tassazione concorrente: in Svizzera alla fonte ridotta, in Italia in sede di dichiarazione con credito d'imposta per evitare la doppia tassazione." } },
+ { '@type': 'Question', name: "Cos'è l'IRPEF e perché riguarda anche i frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "L’IRPEF è l’imposta italiana sul reddito delle persone fisiche. Riguarda il salario svizzero dei nuovi frontalieri fiscali perché l’accordo prevede imposizione italiana con credito per l’imposta svizzera. Il salario dei vecchi frontalieri qualificati dall’articolo 9 resta invece soggetto alla sola imposizione svizzera. Non basta una data di assunzione per stabilire il regime. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
  { '@type': 'Question', name: "Quali sono gli scaglioni IRPEF 2026 per un frontaliere?", acceptedAnswer: { '@type': 'Answer', text: "Nel 2026 gli scaglioni IRPEF italiani sono: 23% fino a €28.000, 33% tra €28.000 e €50.000, 43% oltre €50.000. A questi si sommano addizionale regionale (1,23%–3,33%) e comunale (0–0,9%). Per i nuovi frontalieri, i primi €10.000 di reddito svizzero convertito in EUR sono esenti grazie alla franchigia." } },
  { '@type': 'Question', name: "Come si dichiara il reddito svizzero nel 730 o nel Redditi PF?", acceptedAnswer: { '@type': 'Answer', text: "Il reddito lordo svizzero va convertito in euro al cambio medio annuo BCE dell'anno d'imposta e indicato nel quadro RC (lavoro dipendente estero) del Redditi PF o nel quadro C del 730. Va allegata copia della Lohnausweis svizzera. L'imposta alla fonte pagata in Svizzera si indica nel quadro CE come credito d'imposta per evitare la doppia tassazione." } },
  { '@type': 'Question', name: "Come funziona il credito d'imposta per la doppia tassazione?", acceptedAnswer: { '@type': 'Answer', text: "Il credito d'imposta permette di detrarre dall'IRPEF italiana le imposte già pagate in Svizzera sullo stesso reddito. Il credito è limitato alla quota di IRPEF proporzionalmente riferita al reddito estero. In pratica si paga la differenza tra IRPEF italiana teorica e imposta alla fonte svizzera effettivamente versata, evitando la doppia imposizione come previsto dalla Convenzione contro le doppie imposizioni." } },
@@ -323,7 +323,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  '@context': 'https://schema.org',
  '@type': 'FAQPage',
  mainEntity: [
- { '@type': 'Question', name: "Cos'è la franchigia di €10.000 per i nuovi frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "La franchigia è un'esenzione fiscale IRPEF introdotta dal nuovo accordo Italia-Svizzera in vigore dal 2024: i primi €10.000 di reddito da lavoro svizzero convertito in euro sono esenti dall'imposta italiana per i nuovi frontalieri. Su uno stipendio di CHF 60.000, la franchigia fa risparmiare circa €2.000–2.500 di IRPEF all'anno." } },
+ { '@type': 'Question', name: "Cos'è la franchigia di €10.000 per i nuovi frontalieri?", acceptedAnswer: { '@type': 'Answer', text: "La norma italiana esclude dall’imponibile i primi €10.000 annui dei redditi qualificati di lavoro dipendente prestato all’estero, in zone di frontiera o Paesi limitrofi, in via continuativa e come oggetto esclusivo del rapporto da residenti in Italia. Non dipende dalla sola data di assunzione né dalla fascia dei Comuni entro 20 km. Sul salario dei vecchi frontalieri coperto dall’articolo 9 opera invece l’esenzione italiana del regime. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm" } },
  { '@type': 'Question', name: "Chi può usufruire della franchigia €10.000?", acceptedAnswer: { '@type': 'Answer', text: "La franchigia di 10.000 euro riguarda i redditi di lavoro dipendente prestato continuativamente e come oggetto esclusivo del rapporto in zone di frontiera o paesi limitrofi da residenti italiani, alle condizioni dell’articolo 4 della legge 83/2023. Non è limitata ai soli comuni entro 20 km. I vecchi frontalieri qualificati non ne hanno bisogno per il salario già esente da imposizione italiana ai sensi dell’articolo 9. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm" } },
  { '@type': 'Question', name: "Come si applica in pratica la franchigia in dichiarazione?", acceptedAnswer: { '@type': 'Answer', text: "In dichiarazione dei redditi (Modello Redditi PF o 730), la franchigia si indica nel quadro RC riducendo il reddito imponibile svizzero di €10.000. L'operazione è automatica nei software CAF/commercialisti aggiornati. Se il reddito svizzero annuo è inferiore a €10.000, non si paga IRPEF sulla parte lavoro dipendente svizzero." } },
  { '@type': 'Question', name: "La franchigia vale anche per la tredicesima e i bonus?", acceptedAnswer: { '@type': 'Answer', text: "Sì. La franchigia si applica sul reddito complessivo da lavoro dipendente svizzero dichiarato in un anno fiscale, quindi include stipendio base, tredicesima, bonus, gratifiche e indennità tassabili. Non si applica invece ai redditi di capitale, a quelli da fabbricati o ai riscatti del 2° pilastro LPP, che seguono regole proprie." } },
@@ -1127,7 +1127,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "HowTo",
  "name": "Come simulare le tasse come nuovo frontaliere",
- "description": "Guida passo-passo per calcolare le tasse come nuovo frontaliere (assunto dopo luglio 2023) con il simulatore gratuito di Frontaliere Ticino.",
+ "description": "Guida al calcolo delle tasse per i nuovi frontalieri fiscali: imposta svizzera, IRPEF italiana e credito d’imposta nel simulatore gratuito di Frontaliere Ticino.",
  "totalTime": "PT2M",
  "step": [
  { "@type": "HowToStep", "position": 1, "name": "Inserisci lo stipendio lordo annuo in CHF", "text": "Inserisci il tuo stipendio lordo annuo in franchi svizzeri. Il simulatore lo userà per calcolare contributi sociali (AVS 5,3%, LPP, AC 1,1%) e imposta alla fonte.", "url": `${BASE_URL}/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/` },
@@ -1145,7 +1145,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Come vengono tassati i nuovi frontalieri dal 2024?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "I nuovi frontalieri (assunti dopo il 17/07/2023) pagano l'imposta alla fonte in Svizzera (80% dell'aliquota ordinaria in Ticino) e l'IRPEF in Italia con una franchigia di €10.000 sul reddito estero. Un credito d'imposta evita la doppia imposizione."
+ "text": "Dal 2024 i nuovi frontalieri fiscali ammessi dall’accordo pagano l’80% dell’ordinaria imposta alla fonte svizzera e l’imposta italiana con credito per quella svizzera. Sono nuovi coloro che soddisfano la definizione fiscale ma non beneficiano dell’articolo 9 per attività qualificante tra il 31 dicembre 2018 e il 17 luglio 2023. La franchigia italiana di €10.000 richiede separatamente i requisiti della normativa italiana. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  }
  },
  {
@@ -1153,7 +1153,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Cos'è la franchigia di €10.000 per i nuovi frontalieri?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "La franchigia di €10.000 è una deduzione sul reddito da lavoro dipendente prodotto in Svizzera: i primi €10.000 di reddito non vengono tassati in Italia. Si applica a tutti i lavoratori frontalieri con rientro giornaliero (Art. 1 c.175 L.147/2013, modificato da Art. 4 L.83/2023)."
+ "text": "La norma italiana esclude dall’imponibile i primi €10.000 annui dei redditi qualificati di lavoro dipendente prestato all’estero, in zone di frontiera o Paesi limitrofi, in via continuativa e come oggetto esclusivo del rapporto da residenti in Italia. Non dipende dalla sola data di assunzione né dalla fascia dei Comuni entro 20 km. Sul salario dei vecchi frontalieri coperto dall’articolo 9 opera invece l’esenzione italiana del regime. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm"
  }
  },
  {
@@ -1185,7 +1185,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Qual è la franchigia per nuovi frontalieri?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "La franchigia per i nuovi frontalieri è di €10.000 annui. Questo significa che i primi €10.000 di reddito da lavoro prodotto in Svizzera sono esenti da IRPEF in Italia. La franchigia si applica automaticamente in fase di dichiarazione dei redditi e riduce significativamente il carico fiscale italiano rispetto all'imposizione ordinaria."
+ "text": "La norma italiana esclude dall’imponibile i primi €10.000 annui dei redditi qualificati di lavoro dipendente prestato all’estero, in zone di frontiera o Paesi limitrofi, in via continuativa e come oggetto esclusivo del rapporto da residenti in Italia. Non dipende dalla sola data di assunzione né dalla fascia dei Comuni entro 20 km. Sul salario dei vecchi frontalieri coperto dall’articolo 9 opera invece l’esenzione italiana del regime. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm"
  }
  },
  {
@@ -1193,7 +1193,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Differenza tra vecchi e nuovi frontalieri per le tasse?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "I vecchi frontalieri (assunti prima del 17/07/2023 e residenti entro 20 km dal confine) pagano solo l'imposta alla fonte in Svizzera e sono esenti IRPEF in Italia. I nuovi frontalieri pagano sia l'imposta alla fonte svizzera (ridotta all'80%) sia l'IRPEF italiana, ma beneficiano della franchigia di €10.000 e del credito d'imposta. Per stipendi sotto €35.000 la differenza netta è spesso inferiore a €100/mese."
+ "text": "Per i vecchi frontalieri qualificati dall’articolo 9 il salario coperto dal regime è imponibile soltanto in Svizzera. Per i nuovi frontalieri fiscali la Svizzera applica l’80% dell’imposta alla fonte ordinaria e l’Italia tassa il reddito con credito per l’imposta svizzera. L’attività qualificante tra il 31 dicembre 2018 e il 17 luglio 2023, la residenza e il rientro distinguono gli status: la differenza netta va simulata sul caso concreto. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  }
  }
  ]
@@ -1578,7 +1578,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  feedback: {
  title: 'Aiutaci a Migliorare | Segnalazioni e Suggerimenti',
  description: 'Hai trovato un errore o vuoi proporre una nuova funzionalità? Apri una segnalazione su GitHub e aiutaci a migliorare il simulatore fiscale per frontalieri.',
- keywords: 'segnalazione bug frontalieri, suggerimenti simulatore, feedback frontalieri, migliorare simulatore tasse, contribuire open source frontalieri',
+ keywords: 'segnalazione bug frontalieri, suggerimenti simulatore, feedback frontalieri, migliorare simulatore tasse',
  ogTitle: 'Aiutaci a Migliorare | Frontaliere Ticino',
  ogDescription: '🐛 Segnala un problema o suggerisci una funzionalità per il simulatore fiscale frontalieri CH-IT. Contribuisci al miglioramento!',
  canonicalPath: '/supporto/',
@@ -1776,7 +1776,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "HowToStep",
  "position": 5,
  "name": "Rinnova alla scadenza",
- "text": "Il rinnovo è automatico su richiesta del datore di lavoro, purché il rapporto di lavoro sia ancora in essere."
+ "text": "Verifica la scadenza del permesso e presenta la richiesta di rinnovo secondo la procedura del cantone competente, documentando il rapporto di lavoro. La prosecuzione del contratto non sostituisce gli adempimenti richiesti."
  }
  ]
  },
@@ -2694,7 +2694,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "mainEntity": [
  { "@type": "Question", "name": "Qual è la differenza tra RAL italiana e salario lordo svizzero?", "acceptedAnswer": { "@type": "Answer", "text": "La RAL italiana (Retribuzione Annua Lorda) è il totale lordo prima di tasse e contributi sociali dipendente. In Svizzera, il concetto equivalente è il salario lordo annuo (Bruttolohn), ma la composizione cambia: l'INPS (9,19% dipendente) e l'IRPEF sono sostituiti da AVS (5,3%), AC (1,1%), LPP (variabile per età) e imposta alla fonte. A parità di RAL CHF 80.000, il netto svizzero è tipicamente più alto del 25–35%." } },
  { "@type": "Question", "name": "Come si confronta il netto tra Italia e Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Il confronto corretto considera: 1) RAL in valuta locale (EUR in Italia, CHF in Svizzera), 2) Contributi sociali obbligatori, 3) Imposte (IRPEF+addizionali in Italia, imposta alla fonte in Svizzera), 4) Costo vita. Un frontaliere con CHF 70.000 lordi/anno ha netto circa CHF 4.600/mese; lo stesso professionista a Milano con €45.000 RAL ha circa €2.300/mese netti. La differenza reale dipende anche da affitto, trasporti e assicurazione." } },
- { "@type": "Question", "name": "Per un nuovo frontaliere, il confronto cambia?", "acceptedAnswer": { "@type": "Answer", "text": "Sì. Un nuovo frontaliere con CHF 70.000 netti in Svizzera (regime tassazione concorrente) guadagna circa CHF 4.100–4.300/mese netti dopo imposta alla fonte ridotta al 80%, IRPEF italiana con credito d'imposta e franchigia €10.000. Il differenziale rispetto all'Italia resta circa +60–80% netto, inferiore ai CHF 1.000/mese di vantaggio rispetto al vecchio regime, ma comunque significativo." } },
+ { "@type": "Question", "name": "Per un nuovo frontaliere, il confronto cambia?", "acceptedAnswer": { "@type": "Answer", "text": "Sì. Per confrontare stipendi italiani e svizzeri devi includere, oltre a contributi e imposta svizzera, l’imposta italiana con credito per le imposte svizzere. Per un nuovo frontaliere fiscale la trattenuta svizzera è l’80% dell’ordinaria. Franchigia, detrazioni, cambio e costi di viaggio incidono sul netto: non si può dedurre un vantaggio percentuale fisso dal solo status. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
  { "@type": "Question", "name": "Il 13° stipendio è incluso nella RAL?", "acceptedAnswer": { "@type": "Answer", "text": "In Italia sì: la RAL di norma include 13esima (e 14esima dove prevista dal CCNL). In Svizzera la tredicesima non è obbligatoria per legge ma è tipicamente contrattuale: il contratto può indicare 12 mensilità più tredicesima (total package) oppure 13 mensilità esplicite. Verificare sempre il contratto e il CCL di settore: la differenza tra 12 e 13 mensilità vale circa CHF 5.000–7.000/anno." } },
  { "@type": "Question", "name": "Come incide il comune di residenza italiana sul confronto?", "acceptedAnswer": { "@type": "Answer", "text": "Per i nuovi frontalieri, il comune italiano di residenza determina l'addizionale comunale IRPEF (0–0,9%) e indirettamente altre imposte locali (IMU, TARI, TASI). Un frontaliere residente a Como (addizionale 0,8%) paga centinaia di euro in più rispetto a un residente in un comune con addizionale azzerata grazie ai ristorni. Il simulatore include i dati dei principali comuni di frontiera per un confronto preciso." } },
  { "@type": "Question", "name": "Come si usa il confronto RAL per una trattativa salariale?", "acceptedAnswer": { "@type": "Answer", "text": "Simula il netto mensile in euro con il tuo lordo attuale e quello proposto dal datore svizzero. Aggiungi costi extra del frontalierato: LAMal o SSN, trasporti casa-lavoro, carburante, tempo pendolarismo. Chiedi incrementi di RAL svizzera che coprano almeno 120% del differenziale (sicurezza margine). Il confronto preciso evita decisioni emotive: molti pensano di guadagnare il doppio, ma il vantaggio reale netto è spesso del 30–60%." } }
@@ -2764,7 +2764,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "FAQPage",
  "mainEntity": [
  { "@type": "Question", "name": "Quanti valichi di confine ci sono tra Ticino e Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Il Ticino ha 9 valichi stradali principali verso l'Italia: Chiasso-Brogeda A2 (autostradale, il più trafficato), Chiasso Centro (Ponte Chiasso, SS35), Chiasso-Strada (alternativa a Brogeda), Gaggiolo/Cantello-Stabio (SS344), Ponte Tresa (SS233), Bizzarone-Novazzano, Luino-Fornasette, Zenna-Dirinella (Lago Maggiore), Maslianico-Roggiana. Tutti sono aperti 24 ore su 24, con orari di punta mattino 06:00-09:00 e sera 16:30-19:30." } },
- { "@type": "Question", "name": "Qual è la fascia di 20 km per il nuovo accordo frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Il Nuovo Accordo fiscale Italia-Svizzera 2026 definisce 'frontaliere fiscale' chi risiede in un comune italiano la cui casa dista al massimo 20 km in linea d'aria dal confine svizzero. I comuni ammessi sono elencati nell'Accordo: province di Como, Varese, Lecco e Sondrio (oltre a Verbano-Cusio-Ossola per il settore frontalieri VCO). Vivere entro la fascia dà diritto al regime di tassazione concorrente (imposta alla fonte CH ridotta all'80% + IRPEF con credito d'imposta e franchigia €10.000)." } },
+ { "@type": "Question", "name": "Qual è la fascia di 20 km per il nuovo accordo frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Il requisito riguarda il Comune di residenza fiscale incluso nell’elenco ufficiale concordato dai due Stati, non la distanza della singola casa dal confine. La residenza nella fascia non basta: servono attività in Ticino, Grigioni o Vallese e rientro in linea di principio quotidiano. La distinzione vecchi/nuovi dipende inoltre dall’attività qualificante nel periodo 31 dicembre 2018–17 luglio 2023. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
  { "@type": "Question", "name": "Quali valichi hanno meno coda al mattino?", "acceptedAnswer": { "@type": "Answer", "text": "I valichi con tempi medi d'attesa più bassi al mattino sono Zenna-Dirinella (2-5 min, Locarnese), Ponte Tresa (5-15 min, Luganese ovest), Luino-Fornasette (4-10 min, Malcantone) e Bizzarone-Novazzano (4-10 min, Mendrisiotto). Brogeda A2 e Chiasso Centro restano i più congestionati con 15-30 minuti di coda nelle fasce di punta. Verifica i tempi aggiornati sulle webcam BAZG/USTRA incorporate nelle schede di ogni valico." } },
  { "@type": "Question", "name": "Come funzionano le addizionali IRPEF nei comuni di frontiera?", "acceptedAnswer": { "@type": "Answer", "text": "I comuni italiani entro la fascia 20 km applicano un'addizionale comunale IRPEF che va da 0% (comuni che azzerano grazie ai ristorni fiscali svizzeri) fino a 0,9%. Comuni con zero addizionale grazie ai ristorni: Maslianico, Bizzarone, Ronago, Cermenate. Comuni con addizionale massima: Como città (0,8%), Varese città (0,8%). Per un frontaliere con reddito CHF 80.000 la differenza tra 0% e 0,8% di addizionale è circa €570/anno di IRPEF in più. La scelta del comune di residenza ha quindi un impatto netto misurabile." } },
  { "@type": "Question", "name": "Le webcam dei valichi sono in diretta?", "acceptedAnswer": { "@type": "Answer", "text": "Sì: la mappa incorpora i feed live di BAZG (Ufficio federale della dogana e della sicurezza dei confini) e di USTRA (Ufficio federale delle strade) per i valichi autostradali Chiasso-Brogeda e Gaggiolo. I feed si aggiornano ogni 60-120 secondi. Per i valichi minori senza webcam ufficiale pubblichiamo i tempi medi calcolati dai dati storici BAZG delle ultime 12 settimane per ogni fascia oraria." } },
@@ -3143,7 +3143,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Che cos'è il Nuovo Accordo frontalieri 2026?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Il Nuovo Accordo fiscale Italia-Svizzera (in vigore dal 2024 e pienamente applicato nel 2026) distingue tra 'vecchi' e 'nuovi' frontalieri. I nuovi frontalieri (assunti dal 17/07/2023) che risiedono entro 20 km dal confine pagano l'80% dell'imposta alla fonte in Svizzera e dichiarano il reddito in Italia con franchigia di €10.000 e credito d'imposta. Oltre i 20 km, la trattenuta svizzera sale al 100%."
+ "text": "È l’accordo fiscale Italia-Svizzera entrato in vigore il 17 luglio 2023 e applicabile dal 1° gennaio 2024, non un nuovo accordo stipulato nel 2026. Distingue i vecchi frontalieri qualificati dall’articolo 9, tassati solo in Svizzera sul salario interessato, dai nuovi frontalieri fiscali: per questi ultimi imposta svizzera all’80% dell’ordinaria e imposizione italiana con credito. La sola data di assunzione non determina lo status. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  }
  },
  {
@@ -3243,7 +3243,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Un frontaliere con permesso G paga le tasse in Italia e in Svizzera?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "I nuovi frontalieri (assunti dal 17/07/2023) pagano l'imposta alla fonte in Svizzera (80%) E l'IRPEF in Italia (con franchigia €10.000 e credito d'imposta per le tasse svizzere). I vecchi frontalieri pagano solo in Svizzera fino alla scadenza del periodo transitorio. Come chiarisce l'Avv. Marco Bernasconi, fiscalista transfrontaliero: «Il credito d'imposta è il meccanismo chiave per evitare la doppia imposizione effettiva sui nuovi frontalieri»."
+ "text": "Il permesso G da solo non determina il regime fiscale. I nuovi frontalieri che soddisfano l’accordo pagano l’80% dell’imposta alla fonte ordinaria svizzera e le imposte italiane con credito per quelle svizzere. Per i vecchi frontalieri qualificati dall’articolo 9, il salario interessato resta imponibile soltanto in Svizzera: il 2033 chiude la compensazione tra Stati, non questo trattamento. Altri redditi e obblighi dichiarativi vanno valutati separatamente. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  }
  },
  {
@@ -3490,7 +3490,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Ogni quanto va rinnovato il permesso G per frontalieri?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Il permesso G ha validità di 5 anni per i cittadini UE/AELS e viene rinnovato automaticamente se il rapporto di lavoro con il datore svizzero prosegue, senza necessità di presentare una nuova domanda."
+ "text": "Per cittadini UE/AELS con contratto indeterminato o superiore a un anno il permesso G dura normalmente cinque anni; per contratti più brevi la validità segue la durata. Verifica la scadenza e segui la procedura cantonale di rinnovo: il rapporto di lavoro in corso non elimina gli adempimenti richiesti. https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html"
  }
  }
  ]
@@ -3534,7 +3534,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Qual è la differenza tra credito d'imposta per vecchi e nuovi frontalieri?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "I vecchi frontalieri (ante luglio 2023) pagano solo in Svizzera e non dichiarano in Italia, quindi non usano il credito d'imposta. I nuovi frontalieri pagano l'80% delle tasse in Svizzera e dichiarano in Italia con franchigia di €10.000, usando il credito d'imposta per l'imposta svizzera pagata."
+ "text": "Sul salario svizzero coperto dall’articolo 9, il vecchio frontaliere qualificato non deve IRPEF italiana e quindi non usa il credito per quel reddito. Ciò non elimina eventuali obblighi italiani per altri redditi o monitoraggio. Il nuovo frontaliere fiscale dichiara il reddito in Italia e può scomputare l’imposta svizzera nei limiti del credito spettante; l’80% riguarda l’imposta alla fonte ordinaria svizzera, non un limite generale al credito italiano. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  }
  },
  {
@@ -4076,7 +4076,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Posso usare il 730 o devo fare il Modello Redditi PF?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "I frontalieri con redditi esteri devono usare il Modello Redditi PF (ex Unico). Il 730 non è sufficiente."
+ "text": "La sola assenza di un sostituto d’imposta italiano non esclude il modello 730: esiste il 730 senza sostituto. La scelta fra 730 e Redditi PF dipende dai redditi da dichiarare e dai requisiti previsti dalle istruzioni dell’anno. Verifica la tua posizione e il trattamento del reddito svizzero prima di scegliere il modello. https://infoprecompilata.agenziaentrate.gov.it/portale/invia"
  }
  },
  {
@@ -4140,7 +4140,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Il frontaliere deve fare il 730 o il Modello Redditi PF?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Il frontaliere con solo reddito da lavoro dipendente svizzero deve usare il Modello Redditi PF (ex Unico), perché il 730 è riservato ai lavoratori con sostituto d'imposta italiano. Il 730 si può usare solo se si ha anche un reddito italiano con CU. Come precisa la Dott.ssa Elena Colombo, commercialista specializzata in fiscalità internazionale: «L'errore più comune è usare il 730 senza sostituto d'imposta italiano, il che invalida la dichiarazione»."
+ "text": "La sola assenza di un sostituto d’imposta italiano non esclude il modello 730: esiste il 730 senza sostituto. La scelta fra 730 e Redditi PF dipende dai redditi da dichiarare e dai requisiti previsti dalle istruzioni dell’anno. Verifica la tua posizione e il trattamento del reddito svizzero prima di scegliere il modello. https://infoprecompilata.agenziaentrate.gov.it/portale/invia"
  }
  },
  {
@@ -4148,7 +4148,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Cos'è la franchigia di €10.000 per i nuovi frontalieri?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Con il nuovo accordo fiscale 2026, i frontalieri assunti dal 17 luglio 2023 beneficiano di una franchigia di €10.000: i primi €10.000 di reddito convertito in euro non sono tassati in Italia. Si paga IRPEF solo sulla parte eccedente."
+ "text": "La norma italiana esclude dall’imponibile i primi €10.000 annui dei redditi qualificati di lavoro dipendente prestato all’estero, in zone di frontiera o Paesi limitrofi, in via continuativa e come oggetto esclusivo del rapporto da residenti in Italia. Non dipende dalla sola data di assunzione né dalla fascia dei Comuni entro 20 km. Sul salario dei vecchi frontalieri coperto dall’articolo 9 opera invece l’esenzione italiana del regime. https://documenti.camera.it/leg19/dossier/testi/FI0093.htm"
  }
  },
  {
@@ -4534,7 +4534,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "description": "Serie storica mensile del tasso di disoccupazione registrata in Svizzera (SECO) dal 2016",
  "dateModified": "2016-01-01",
  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
- "creator": { "@type": "Organization", "name": "SECO — Segreteria di Stato dell'economia", "url": "https://www.seco.admin.ch" },
+ "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+ "isBasedOn": { "@type": "CreativeWork", "name": "Statistiche del mercato del lavoro della SECO", "url": "https://www.seco.admin.ch" },
  "datePublished": "2016-01-01",
  "temporalCoverage": "2016/2026",
  "variableMeasured": [
@@ -5111,7 +5112,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Gli articoli coprono anche le novità del nuovo accordo fiscale 2024?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Sì. La sezione 'Fisco' raccoglie tutte le guide dedicate al nuovo accordo Italia-Svizzera: tassazione concorrente, soglia dei 20 km, CU italiana per i 'nuovi frontalieri', ristorni, telelavoro fino a 45 giorni e regole transitorie per chi lavorava in Svizzera prima del 17 luglio 2023."
+ "text": "Sì: tassazione concorrente, Comuni ammessi, status dei vecchi frontalieri, ristorni e telelavoro. Il telelavoro fiscale a domicilio fino al 25% segue una disciplina distinta dai 45 mancati rientri annui per motivi professionali: questi ultimi non sono un contingente di giorni di lavoro da remoto. https://www.bsv.admin.ch/it/newnsb/KIyFJwwqspqaOcHDaT7u0 https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  }
  },
  {
@@ -6485,7 +6486,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "I frontalieri devono fare la dichiarazione dei redditi in Italia?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "I nuovi frontalieri (dal 17 luglio 2023) devono obbligatoriamente presentare la dichiarazione italiana (Modello 730 o Redditi PF) per dichiarare il reddito svizzero e richiedere il credito d'imposta. I vecchi frontalieri (ante 2023, entro 20 km) sono generalmente esenti per il reddito da lavoro svizzero. La scadenza per il 730 e il 30 settembre, per il Modello Redditi PF il 30 novembre."
+ "text": "Per i nuovi frontalieri fiscali il salario svizzero è imponibile anche in Italia, con credito per le imposte svizzere. I vecchi qualificati dall’articolo 9 sono esenti sul salario coperto dal regime, ma possono avere obblighi italiani per altri redditi o monitoraggio. Lo status dipende dai requisiti fiscali e dall’attività qualificante tra il 31 dicembre 2018 e il 17 luglio 2023, non soltanto dall’ultima assunzione. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf"
  }
  },
  {
@@ -6835,18 +6836,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  'correzioni': {
  title: 'Correzioni — Politica di rettifica e registro pubblico | Frontaliere Ticino',
- description: 'Politica di correzione di Frontaliere Ticino: SLA 48 ore, tipologie accettate (errore fattuale, refuso, chiarimento) e registro pubblico cronologico delle rettifiche.',
+ description: 'Come segnalare un errore a Frontaliere Ticino e consultare le rettifiche presenti nel registro pubblico.',
  keywords: 'correzioni frontaliere ticino, errata corrige, rettifica articolo, policy correzione, trasparenza editoriale',
  ogTitle: 'Correzioni — Politica di rettifica e registro pubblico',
- ogDescription: 'Come segnaliamo e registriamo le correzioni: SLA 48 ore, tipologie accettate, registro pubblico cronologico.',
+ ogDescription: 'Come segnalare un errore e consultare le rettifiche presenti nel registro pubblico.',
  canonicalPath: '/correzioni/',
- // staticPagesPlugin.ts text-parses this literal at build time (regex +
- // JSON.parse, not a real JS import) — cannot reference buildCorrezioniSeo()
- // here. That builder (services/seo/seo-correzioni.ts) mirrors this exact
- // shape for the client-rendered copy in Correzioni.tsx and additionally
- // computes `lastReviewed` from the real corrections log, which this static
- // literal deliberately omits (no safe way to keep it fresh without either
- // a stale hand-bumped date or the BUILD_DATE_ISO false-freshness bug).
+ // Italian metadata is parsed from this registry. Non-Italian static pages
+ // and the React page use buildCorrezioniSeo(locale), sharing localized copy.
+ // This literal omits lastReviewed; the builder adds only a recorded log date.
  structuredData: [
  {
  "@context": "https://schema.org",
@@ -7024,23 +7021,23 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // ───────────────────────────────────────────────────────────────
 
  'tassa-salute-frontalieri': {
- title: 'Tassa Salute Frontalieri 2026: Importo, Esenzioni, Come Funziona',
- h1: 'Tassa salute frontalieri 2026 — importo, chi paga, come viene trattenuta',
- description: 'Tassa salute frontalieri 2026: importo aggiornato, chi è soggetto o esente, come viene trattenuta dal Cantone Ticino ai nuovi frontalieri, differenza con LAMal.',
- keywords: 'tassa salute frontalieri, contributo sanitario frontalieri, tassa salute ticino, tassa sanitaria frontalieri svizzera, nuovi frontalieri tassa salute, regioni frontaliere salute, trattenuta salute ticino',
+ title: 'Tassa Salute Frontalieri 2026: Regole e Importi',
+ h1: 'Tassa salute frontalieri 2026 — importo, chi paga, norme e applicazione regionale',
+ description: 'Contributo SSN frontalieri: soggetti previsti dalla legge, quota sul salario netto, diritto di opzione e provvedimenti regionali per il 2026.',
+ keywords: 'tassa salute frontalieri, contributo sanitario SSN, vecchi frontalieri, salario netto, quota regionale',
  ogTitle: 'Tassa Salute Frontalieri 2026 — Importo e Chi Paga',
- ogDescription: '💰 Guida completa alla tassa salute frontalieri 2026: importo ufficiale, chi è soggetto o esente, come viene trattenuta e rimborsata alle Regioni di confine.',
+ ogDescription: 'Contributo sanitario italiano: regole nazionali, vecchi frontalieri e opzione SSN, importi e applicazione territoriale.',
  canonicalPath: '/guida-frontaliere/tassa-salute-frontalieri/',
  structuredData: [
  {
  "@context": "https://schema.org",
  "@type": "Article",
  "headline": "Tassa salute frontalieri 2026: importo, esenzioni e funzionamento",
- "description": "Guida completa al contributo sanitario a carico dei nuovi frontalieri previsto dal Nuovo Accordo Italia-Svizzera 2026: importo, soggetti esenti, meccanismo di trattenuta e destinazione alle Regioni di confine.",
+ "description": "Contributo sanitario previsto dalla legge italiana 213/2023 e dal decreto 14 novembre 2025: condizioni, quota sul netto e competenze regionali.",
  "author": { "@type": "Organization", "name": "Frontaliere Ticino" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
  "datePublished": "2026-04-22",
- "dateModified": "2026-04-22",
+ "dateModified": "2026-10-03",
  "inLanguage": "it",
  "mainEntityOfPage": `${BASE_URL}/guida-frontaliere/tassa-salute-frontalieri/`,
  "speakable": SPEAKABLE_SECTION
@@ -7054,7 +7051,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Cos'è la tassa salute per i frontalieri?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "La tassa salute (contributo sanitario frontalieri) è un prelievo introdotto dall'art. 9 del Nuovo Accordo Italia-Svizzera entrato in vigore il 17 luglio 2023. Si applica ai nuovi frontalieri — coloro che hanno iniziato a lavorare in Svizzera dopo tale data — ed è destinata a finanziare il Servizio Sanitario Nazionale nelle Regioni di confine (Lombardia, Piemonte, Valle d'Aosta, Trentino-Alto Adige). Viene trattenuta direttamente dal datore di lavoro svizzero in busta paga."
+ "text": "Il contributo al SSN è previsto dalla legge italiana 213/2023, articolo 1, commi 237–239, e dal decreto 14 novembre 2025. Riguarda le categorie previste dalla legge, compresi i vecchi frontalieri dell'articolo 9 che hanno esercitato l'opzione per l'assistenza italiana, e i familiari a carico. Non è un'imposta svizzera sui soli nuovi frontalieri."
  }
  },
  {
@@ -7062,7 +7059,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Quanto è la tassa salute frontalieri nel 2026?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "La tassa salute ammonta al 6% dell'imposta alla fonte lorda trattenuta dal Cantone svizzero di lavoro. L'aliquota, fissata dall'art. 9 del Nuovo Accordo, è stata confermata dalla Legge di Bilancio italiana e dalla circolare dell'Agenzia delle Entrate. Per uno stipendio lordo di CHF 72.000 con imposta fonte del 9%, il prelievo mensile è di circa CHF 32 (6% di CHF 540 mensili)."
+ "text": "La legge prevede il 3–6% del salario netto svizzero, con quota familiare progressiva e limiti di 30–200 euro per mese lavorato, raddoppiabili in caso di omesso pagamento o comunicazione. La quota annuale è definita dalla Regione o Provincia autonoma competente: per importo e scadenza 2026 occorre consultare il relativo provvedimento, non applicare automaticamente il 6%."
  }
  },
  {
@@ -7070,7 +7067,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "I vecchi frontalieri devono pagare la tassa salute?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "No. La tassa salute si applica esclusivamente ai nuovi frontalieri (assunti dal 17/07/2023 in avanti) e non ai vecchi frontalieri, che restano nel regime transitorio con tassazione esclusiva in Svizzera fino al 2033. Anche i frontalieri con permesso B (dimora) sono esenti, in quanto residenti fiscali in Svizzera."
+ "text": "I vecchi frontalieri non sono esclusi: la legge richiama espressamente quelli dell'articolo 9, paragrafo 1, che hanno esercitato il diritto d'opzione per il SSN. Occorre verificare copertura sanitaria, condizioni personali e provvedimenti territoriali; il solo permesso G o la data di assunzione non bastano."
  }
  },
  {
@@ -7078,7 +7075,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Chi incassa materialmente la tassa salute frontalieri?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Il Cantone svizzero di lavoro trattiene la somma alla fonte insieme all'imposta ordinaria e la riversa alla Confederazione, che a sua volta la trasferisce alle Regioni italiane di confine tramite un meccanismo di compensazione finanziaria. Le Regioni la destinano poi al finanziamento del SSN locale a cui il frontaliere ha comunque diritto di accesso mantenendo la residenza in Italia."
+ "text": "Il decreto 14 novembre 2025 prevede un versamento annuale degli interessati direttamente alla Regione o alla Provincia autonoma di Bolzano tramite gli strumenti di pagamento dell'articolo 5 del Codice dell'amministrazione digitale. Non prevede una trattenuta del datore svizzero o un trasferimento tramite la Confederazione."
  }
  },
  {
@@ -7086,7 +7083,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "La tassa salute è detraibile in dichiarazione dei redditi?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Sì. Il contributo sanitario frontalieri concorre al credito d'imposta per le imposte pagate in Svizzera riconosciuto in dichiarazione dei redditi (Quadro CE del modello Redditi PF o Quadro G del 730). Conservare sempre la certificazione annuale svizzera (Lohnausweis) e la traduzione giurata se richiesta dal CAF, perché il credito riduce euro su euro l'IRPEF dovuta in Italia."
+ "text": "Non va inserito automaticamente nel credito per le imposte pagate in Svizzera: si tratta di un contributo al servizio sanitario italiano. Prima di indicarlo in dichiarazione verifica le istruzioni fiscali applicabili al tuo caso con il CAF o un professionista, conservando ricevute e avviso dell'ente competente."
  }
  },
  {
@@ -7094,41 +7091,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "name": "Tassa salute e LAMal sono la stessa cosa?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "No, sono due prelievi completamente diversi. La LAMal è il premio dell'assicurazione sanitaria svizzera obbligatoria (CHF 400-600/mese) che il frontaliere può scegliere di pagare se esercita il diritto d'opzione; la tassa salute è un tributo pubblico (6% dell'imposta fonte) trattenuto dallo Stato svizzero per finanziare il SSN italiano. Un nuovo frontaliere paga sempre la tassa salute, indipendentemente dal fatto che abbia scelto LAMal o SSN come assicurazione."
+ "text": "No. La LAMal riguarda l'assicurazione malattie svizzera; il contributo sanitario italiano dipende dalle categorie e dalle condizioni stabilite dalla legge. Non si può affermare che ogni nuovo frontaliere debba pagare entrambi: va verificato il diritto d'opzione e il proprio inquadramento sanitario."
  }
- }
- ]
- },
- {
- "@context": "https://schema.org",
- "@type": "HowTo",
- "name": "Come si calcola la tassa salute frontalieri",
- "description": "Procedura per determinare l'importo della tassa salute dovuta da un nuovo frontaliere in base allo stipendio lordo svizzero.",
- "totalTime": "PT10M",
- "step": [
- {
- "@type": "HowToStep",
- "position": 1,
- "name": "Determina l'imposta alla fonte lorda annua",
- "text": "Prendi il lordo annuo in CHF e applica l'aliquota alla fonte cantonale (tabella A/B/C/H del Ticino 2026) per ottenere l'imposta fonte lorda."
- },
- {
- "@type": "HowToStep",
- "position": 2,
- "name": "Applica l'aliquota del 6%",
- "text": "Moltiplica l'imposta fonte lorda annua per 0,06 per ottenere il contributo salute annuo."
- },
- {
- "@type": "HowToStep",
- "position": 3,
- "name": "Dividi per 12 o 13 mensilità",
- "text": "Dividi il contributo annuo per le mensilità previste in busta paga per ottenere il prelievo mensile visibile sul Lohnausweis."
- },
- {
- "@type": "HowToStep",
- "position": 4,
- "name": "Verifica e conserva la documentazione",
- "text": "Controlla che la voce 'contributo salute' o 'tassa frontalieri' compaia in busta paga e conserva il Lohnausweis annuale per la dichiarazione dei redditi italiana."
  }
  ]
  }
@@ -7393,7 +7357,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "FAQPage",
  "mainEntity": [
- { "@type": "Question", "name": "Quanto pagano di tasse i frontalieri in Svizzera nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "L'imposta alla fonte in Canton Ticino varia dal 3% al 35% in base a stipendio, stato civile e figli. Per un single con CHF 70.000 lordi l'aliquota media è circa 10-12%; per un coniugato con due figli e CHF 80.000 lordi scende al 5-7%. Dal 2024 i nuovi frontalieri (assunti dal 17/07/2023) pagano anche l'IRPEF in Italia con franchigia di €10.000 e credito d'imposta per le tasse già versate in Svizzera." } },
+ { "@type": "Question", "name": "Quanto pagano di tasse i frontalieri in Svizzera nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "L’imposta dipende dalla tariffa cantonale, dal reddito e dalla situazione familiare. Per i nuovi frontalieri fiscali si applica l’80% dell’ordinaria imposta alla fonte svizzera, a cui si affianca l’imposta italiana con credito. I vecchi qualificati dall’articolo 9 restano tassati solo in Svizzera sul salario interessato. Usa il tariffario dell’anno e il tuo status documentato, non una percentuale media generalizzata. https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
  { "@type": "Question", "name": "Qual è la differenza fra nuovi e vecchi frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Per i nuovi frontalieri fiscali la Svizzera applica l’80% dell’aliquota ordinaria dell’imposta alla fonte; l’Italia tassa il reddito concedendo il credito per l’imposta svizzera. L’80% non è una ripartizione del gettito tra i due Paesi. I vecchi frontalieri che soddisfano l’articolo 9 mantengono la tassazione esclusiva svizzera sul salario interessato. Il regime non termina automaticamente nel 2033 o nel 2034: il 2033 è l’ultimo anno fiscale dei ristorni svizzeri all’Italia. Fonte ESTV: https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf" } },
  { "@type": "Question", "name": "Cos'è il credito d'imposta per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Il credito d'imposta permette al nuovo frontaliere di detrarre dall'IRPEF italiana l'imposta alla fonte già versata in Svizzera. Si compila nel quadro CE del 730/Redditi allegando l'attestazione dell'imposta svizzera (art. 15 Convenzione Italia-Svizzera). Evita la doppia imposizione sullo stesso reddito." } },
  { "@type": "Question", "name": "Le tasse svizzere sono più basse di quelle italiane?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, mediamente le aliquote svizzere sono più basse soprattutto sui redditi medio-alti. Un lordo di CHF 80.000 produce un netto di circa CHF 65.000 in Ticino (18% di prelievo totale) mentre in Italia un lordo equivalente in euro avrebbe un'aliquota IRPEF del 35-38% più INPS. Il vantaggio fiscale è il principale motivo per fare il frontaliere." } },
@@ -7423,9 +7387,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ClaimReview",
  "url": `${BASE_URL}/tasse-e-pensione/tasse-svizzere-frontalieri/`,
- "claimReviewed": "I nuovi frontalieri (assunti dal 17/07/2023) beneficiano di una franchigia IRPEF di 10.000 euro annui in Italia.",
+ "claimReviewed": "La franchigia IRPEF di 10.000 euro annui riguarda i redditi di lavoro dipendente frontaliero qualificati dalla normativa italiana; non dipende dalla sola data di assunzione né dalla fascia dei Comuni entro 20 km.",
  "author": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
  "datePublished": "2026-04-23",
+ "dateModified": "2026-10-03",
  "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1", "alternateName": "Vero" },
  "itemReviewed": {
  "@type": "Claim",

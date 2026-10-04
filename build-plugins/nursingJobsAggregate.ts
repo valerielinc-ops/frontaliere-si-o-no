@@ -1,3 +1,5 @@
+import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 /**
  * Build-time aggregator for the nursing/healthcare landings (template B).
  *
@@ -24,7 +26,7 @@ import {
 } from './nursingLandingsData';
 import type { ProfessionJobsSnapshot, FeaturedJob } from './professionJobsAggregate';
 import { resolveJobCanton } from './shared/cantonSection';
-import { realSalaryMedianChf } from './shared/realSalaryMedian';
+import { reportedSalarySummary } from './shared/realSalaryMedian';
 import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
 import { SECTION_LEGACY_TI_ROOT } from './shared/cantonSection';
 
@@ -54,6 +56,9 @@ interface JobRecord {
   salaryMin?: number | null;
   salaryMax?: number | null;
   currency?: string;
+  salarySource?: string;
+  postingDateSource?: string;
+  datePosted?: string;
   postedDate?: string;
   firstSeenAt?: string;
   featured?: boolean;
@@ -145,8 +150,8 @@ function toFeatured(job: JobRecord, now: number): NursingFeaturedJob | null {
   if (!job.id || !job.title || !job.slug) return null;
   // First PARSEABLE date, not first truthy: a malformed postedDate must not
   // shadow a valid firstSeenAt and render "Pubblicata 9999 giorni fa".
-  const postedDate = firstParsableDateStr(job.postedDate, job.firstSeenAt);
-  const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
+  const postedDate = resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)) || '';
+  const ts = firstParsableMs(postedDate);
   const daysAgo = ts ? Math.max(0, Math.round((now - ts) / DAY_MS)) : 9999;
   return {
     id: job.id,
@@ -161,6 +166,10 @@ function toFeatured(job: JobRecord, now: number): NursingFeaturedJob | null {
     contract: job.employmentType ?? job.contract ?? null,
     salaryMin: typeof job.salaryMin === 'number' ? job.salaryMin : null,
     salaryMax: typeof job.salaryMax === 'number' ? job.salaryMax : null,
+    salarySource: job.salarySource,
+    currency: job.currency,
+    postingDateSource: job.postingDateSource ?? undefined,
+    datePosted: resolveReportedPostingDate(job, new Date(now)),
     postedDate,
     daysAgo,
     slug: job.slug,
@@ -185,10 +194,10 @@ function buildSnapshotForId(
   let fresh30 = 0;
   for (const job of matches) {
     const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
-    if (ts && ts >= last30) fresh30++;
+    if (ts && ts >= last30 && ts <= now) fresh30++;
   }
 
-  const medianSalary = realSalaryMedianChf(matches);
+  const medianSalary = reportedSalarySummary(matches).medianChf;
 
   const employerCounts = new Map<string, number>();
   for (const job of matches) {
@@ -221,6 +230,7 @@ function buildSnapshotForId(
     liveCount: matches.length,
     fresh30Count: fresh30,
     medianSalaryChf: medianSalary,
+    reportedSalary: reportedSalarySummary(matches),
     featured,
     topEmployers,
   };

@@ -802,6 +802,7 @@ const translations: Record<string, string> = {
  'jobBoard.quickFilters.nurse': 'Infermiere',
  'jobBoard.quickFilters.engineer': 'Ingegnere',
  'jobBoard.quickFilters.driver': 'Autista',
+ 'jobBoard.recommendations.heading': 'Offerte da esplorare',
  'jobBoard.trending.heading': 'Popolari nella tua zona',
  'jobBoard.trending.aria': 'Lavori popolari nella tua zona',
  'jobBoard.contract.all': 'Tutti i contratti',

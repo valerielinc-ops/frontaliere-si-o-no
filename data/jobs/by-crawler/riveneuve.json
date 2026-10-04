@@ -1,6 +1,6 @@
 {
   "crawlerKey": "riveneuve",
-  "assembledAt": "2026-10-03T09:11:17.241Z",
+  "assembledAt": "2026-10-03T21:14:54.271Z",
   "jobs": [
     {
       "id": "riveneuve-6211b5c5e83a",
@@ -9,7 +9,7 @@
         "it": "infermiere-a-a-tempo-pieno-tasso-negoziabile-fondation-rive-neuve-blonay",
         "en": "full-time-nurse-negotiable-rate-fondation-rive-neuve-blonay",
         "de": "vollzeit-pflegekraft-verhandelbarer-satz-fondation-rive-neuve-blonay",
-        "fr": "un-e-infirmier-ere-a-100-taux-negociable-riveneuve-blonay"
+        "fr": "un-e-infirmier-ere-a-100-taux-negociable-fondation-rive-neuve-blonay"
       },
       "company": "Fondation Rive-Neuve",
       "companyKey": "riveneuve",
@@ -34,7 +34,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32273/fr/un-e-infirmier-ere-a-100-taux-negociable",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:12.235Z",
+      "crawledAt": "2026-10-03T21:14:49.114Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -81,8 +81,8 @@
       },
       "previousSlugs": [
         "un-e-infirmier-ere-a-100-taux-negociable-riveneuve-blonay",
-        "un-e-infirmier-ere-a-100-taux-negociable-fondation-rive-neuve-blonay",
-        "infermiere-a-a-tempo-pieno-tasso-negoziabile-fondation-rive-neuve-blonay"
+        "infermiere-a-a-tempo-pieno-tasso-negoziabile-fondation-rive-neuve-blonay",
+        "un-e-infirmier-ere-a-100-taux-negociable-fondation-rive-neuve-blonay"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -90,8 +90,8 @@
           "infermiere-a-a-tempo-pieno-tasso-negoziabile-fondation-rive-neuve-blonay"
         ],
         "fr": [
-          "un-e-infirmier-ere-a-100-taux-negociable-fondation-rive-neuve-blonay",
-          "un-e-infirmier-ere-a-100-taux-negociable-riveneuve-blonay"
+          "un-e-infirmier-ere-a-100-taux-negociable-riveneuve-blonay",
+          "un-e-infirmier-ere-a-100-taux-negociable-fondation-rive-neuve-blonay"
         ]
       },
       "firstSeenAt": "2026-05-19T11:37:46.973Z",
@@ -116,7 +116,7 @@
         "it": "assistente-a-in-cure-e-salute-comunitaria-all-80-fondation-rive-neuve-blonay",
         "en": "80-community-health-and-care-assistant-fondation-rive-neuve-blonay",
         "de": "80-assistent-in-fur-gesundheit-und-gemeindepflege-fondation-rive-neuve-blonay",
-        "fr": "un-e-assistant-e-en-soins-et-sante-communautaire-a-80-riveneuve-blonay"
+        "fr": "un-e-assistant-e-en-soins-et-sante-communautaire-a-80-fondation-rive-neuve-blonay"
       },
       "company": "Fondation Rive-Neuve",
       "companyKey": "riveneuve",
@@ -140,7 +140,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32285/fr/un-e-assistant-e-en-soins-et-sante-communautaire-a-80",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:11.391Z",
+      "crawledAt": "2026-10-03T21:14:48.008Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -178,8 +178,8 @@
       },
       "previousSlugs": [
         "un-e-assistant-e-en-soins-et-sante-communautaire-a-80-riveneuve-blonay",
-        "un-e-assistant-e-en-soins-et-sante-communautaire-a-80-fondation-rive-neuve-blonay",
-        "assistente-a-in-cure-e-salute-comunitaria-all-80-fondation-rive-neuve-blonay"
+        "assistente-a-in-cure-e-salute-comunitaria-all-80-fondation-rive-neuve-blonay",
+        "un-e-assistant-e-en-soins-et-sante-communautaire-a-80-fondation-rive-neuve-blonay"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -187,8 +187,8 @@
           "assistente-a-in-cure-e-salute-comunitaria-all-80-fondation-rive-neuve-blonay"
         ],
         "fr": [
-          "un-e-assistant-e-en-soins-et-sante-communautaire-a-80-fondation-rive-neuve-blonay",
-          "un-e-assistant-e-en-soins-et-sante-communautaire-a-80-riveneuve-blonay"
+          "un-e-assistant-e-en-soins-et-sante-communautaire-a-80-riveneuve-blonay",
+          "un-e-assistant-e-en-soins-et-sante-communautaire-a-80-fondation-rive-neuve-blonay"
         ]
       },
       "firstSeenAt": "2026-05-19T11:37:46.266Z",
@@ -204,8 +204,7 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "riveneuve-45a8da7c68c9",
@@ -214,7 +213,7 @@
         "it": "assistente-a-in-cure-e-salute-comunitaria-a-tempo-pieno-fondation-rive-neuve-blonay",
         "en": "full-time-community-health-and-care-assistant-fondation-rive-neuve-blonay",
         "de": "vollzeit-assistent-in-fur-gemeindegesundheit-und-pflege-fondation-rive-neuve-blonay",
-        "fr": "un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere-riveneuve-blonay"
+        "fr": "un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere-fondation-rive-neuve-blonay"
       },
       "company": "Fondation Rive-Neuve",
       "companyKey": "riveneuve",
@@ -239,7 +238,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32286/fr/un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:10.417Z",
+      "crawledAt": "2026-10-03T21:14:46.847Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -277,8 +276,8 @@
       },
       "previousSlugs": [
         "un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere-riveneuve-blonay",
-        "un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere-fondation-rive-neuve-blonay",
-        "assistente-a-in-cure-e-salute-comunitaria-a-tempo-pieno-fondation-rive-neuve-blonay"
+        "assistente-a-in-cure-e-salute-comunitaria-a-tempo-pieno-fondation-rive-neuve-blonay",
+        "un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere-fondation-rive-neuve-blonay"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -286,8 +285,8 @@
           "assistente-a-in-cure-e-salute-comunitaria-a-tempo-pieno-fondation-rive-neuve-blonay"
         ],
         "fr": [
-          "un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere-fondation-rive-neuve-blonay",
-          "un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere-riveneuve-blonay"
+          "un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere-riveneuve-blonay",
+          "un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere-fondation-rive-neuve-blonay"
         ]
       },
       "firstSeenAt": "2026-05-19T11:37:45.530Z",
@@ -312,7 +311,7 @@
         "it": "infermiere-a-diurno-fondation-rive-neuve-blonay",
         "en": "day-nurse-fondation-rive-neuve-blonay",
         "de": "pflegefachperson-tagdienst-fondation-rive-neuve-blonay",
-        "fr": "un-e-infirmier-ere-journalier-ere-riveneuve-blonay"
+        "fr": "un-e-infirmier-ere-journalier-ere-fondation-rive-neuve-blonay"
       },
       "company": "Fondation Rive-Neuve",
       "companyKey": "riveneuve",
@@ -336,7 +335,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32287/fr/un-e-infirmier-ere-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:11:09.426Z",
+      "crawledAt": "2026-10-03T21:14:45.926Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -386,8 +385,8 @@
       },
       "previousSlugs": [
         "un-e-infirmier-ere-journalier-ere-riveneuve-blonay",
-        "un-e-infirmier-ere-journalier-ere-fondation-rive-neuve-blonay",
-        "infermiere-a-diurno-fondation-rive-neuve-blonay"
+        "infermiere-a-diurno-fondation-rive-neuve-blonay",
+        "un-e-infirmier-ere-journalier-ere-fondation-rive-neuve-blonay"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -395,8 +394,8 @@
           "infermiere-a-diurno-fondation-rive-neuve-blonay"
         ],
         "fr": [
-          "un-e-infirmier-ere-journalier-ere-fondation-rive-neuve-blonay",
-          "un-e-infirmier-ere-journalier-ere-riveneuve-blonay"
+          "un-e-infirmier-ere-journalier-ere-riveneuve-blonay",
+          "un-e-infirmier-ere-journalier-ere-fondation-rive-neuve-blonay"
         ]
       },
       "firstSeenAt": "2026-05-19T11:37:44.377Z",
@@ -412,8 +411,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }

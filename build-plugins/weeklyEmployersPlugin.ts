@@ -43,7 +43,6 @@ import {
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderGuideHubBridge } from './shared/guideHubBridge';
 import { firstParsableMs } from './shared/firstParsableDate';
-import { buildDayStampIso } from './shared/buildDayStamp';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { renderPeerComparison, type PeerRow } from './shared/peerCohortComparison';
 import { WriteCollector } from './batchWrite';
@@ -2601,7 +2600,6 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
     name: t.topHubTitle,
     url: canonicalUrl,
     inLanguage: locale,
-    dateModified: dateStamp,
   });
 
   // Heading for the new commute-context section. Locale-specific.
@@ -3234,8 +3232,6 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     url: canonicalUrl,
     description: heroSummary,
     inLanguage: locale,
-    dateModified: buildDayStampIso(),
-    datePublished: buildDayStampIso(),
   });
 
   const faqLd = inlineScriptJson({
@@ -3657,8 +3653,6 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     url: canonicalUrl,
     description: heroSummary,
     inLanguage: locale,
-    dateModified: buildDayStampIso(),
-    datePublished: buildDayStampIso(),
   });
 
   const itemListLd = inlineScriptJson({
@@ -4575,7 +4569,7 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
               const isCurrent = !archiveRe.test(p);
               const changefreq = isCurrent ? 'weekly' : 'monthly';
               const priority = isCurrent ? '0.8' : '0.5';
-              return `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+              return `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
             })
             .join('\n');
           const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>

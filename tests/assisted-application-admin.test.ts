@@ -31,7 +31,8 @@ vi.mock('../functions/src/stripePublisherCore.js', () => ({
 
 type Store = Record<string, Record<string, any>>;
 
-function makeDb(initial: Record<string, any> = {}) {
+// `meta`: the server-only documents (meta/{id}); without it the collection is unknown here, as any other.
+function makeDb(initial: Record<string, any> = {}, meta: Record<string, any> | null = null) {
   const store: Store = { assisted_applications: { ...initial } };
   const events: Record<string, any[]> = {};
   let eventNumber = 0;
@@ -85,6 +86,9 @@ function makeDb(initial: Record<string, any> = {}) {
 
   const db = {
     collection(name: string) {
+      if (name === 'meta' && meta) {
+        return { doc: (id: string) => ({ id, get: async () => ({ id, exists: meta[id] != null, data: () => meta[id] }) }) };
+      }
       if (name !== 'assisted_applications') throw new Error(`unexpected collection ${name}`);
       return applicationCollection;
     },
@@ -222,6 +226,39 @@ describe('handleAssistedApplicationAdmin', () => {
     expect(byId.infected).toMatchObject({ hasCv: true, cvUrl: null, cvScanStatus: 'infected' });
     expect(byId.mismatch).toMatchObject({ hasCv: true, cvUrl: null, cvFileCheck: 'type_mismatch' });
     expect(mocks.resolveCvLink).toHaveBeenCalledTimes(2);
+  });
+
+  // The self-check of the PDF renderer (functions/src/assistedApplicationRendererCheck.js), read and never run here.
+  it('returns the last self-check of the PDF renderer next to the orders', async () => {
+    const check = {
+      status: 'failed', switch: 'typst', error: 'assisted-letter.typ: 0: file not found', node: 'v22.0.0',
+      service: 'sweepassistedapplicationfollowups', revision: 'sweepassistedapplicationfollowups-00042-abc', rssMb: 180, checkedAt: 2_000, failingSince: 1_000,
+    };
+    const order = { ready: { paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission', createdAt: '2026-09-15T10:00:00.000Z' } };
+
+    mocks.getAdminDb.mockReturnValue(makeDb(order, { assistedApplicationPdfRenderer: check }).db);
+    const stored = await handleAssistedApplicationAdmin(request());
+    mocks.getAdminDb.mockReturnValue(makeDb(order, {}).db);
+    const never = await handleAssistedApplicationAdmin(request());
+
+    expect(stored.body).toMatchObject({ ok: true, pdfRenderer: check, orders: [expect.objectContaining({ orderId: 'ready' })] });
+    // Before the first check.
+    expect(never.body).toMatchObject({ ok: true, pdfRenderer: null });
+  });
+
+  it('lists the queue when the self-check cannot be read', async () => {
+    // No `meta` here: the fake database throws on it, as a failing read would.
+    mocks.getAdminDb.mockReturnValue(makeDb({
+      ready: { paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission', createdAt: '2026-09-15T10:00:00.000Z' },
+    }).db);
+    const logged = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    const result = await handleAssistedApplicationAdmin(request());
+
+    expect(result.status).toBe(200);
+    expect(result.body).toMatchObject({ ok: true, pdfRenderer: null, orders: [expect.objectContaining({ orderId: 'ready' })] });
+    expect(logged).toHaveBeenCalledWith('[manageAssistedApplicationAdmin] renderer check not read', 'unexpected collection meta');
+    logged.mockRestore();
   });
 
   it('lists paid orders still waiting for materials with the checkout email and email status', async () => {

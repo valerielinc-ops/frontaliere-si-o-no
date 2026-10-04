@@ -1,18 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-10-03T09:30:01.555Z",
+  "generatedAt": "2026-10-03T21:28:57.286Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18949,
-  "avgDurationMs": 18949,
+  "durationMs": 24503,
+  "avgDurationMs": 24503,
   "durationHistory": [
-    9916,
-    22756,
-    18949
+    24503
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -266,8 +264,8 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-c9466442ed83",
-      "firstSeenAt": "2026-08-05T22:30:35.763Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-05T22:30:35.763Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -299,8 +297,8 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-e17590d2cde8",
-      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -375,5 +373,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }

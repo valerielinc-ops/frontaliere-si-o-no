@@ -41,6 +41,7 @@
  *   6. Per-job canton via inferAnyCanton on the city slug (all 26 cantons);
  *      drop jobs whose canton does not resolve to a Swiss canton (non-CH)
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import { decodeSitemapLoc } from './lib/sitemap-loc.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -788,7 +789,9 @@ async function buildJobFromRecruitingApiEntry(entry) {
     sourceLang,
     department: category,
     category: category || 'servizi-finanziari',
-    datePosted: entry.unifiedStandardStart || new Date().toISOString().split('T')[0],
+    // The API scheduling field is not proof of publication; the detail path reads datePosted.
+    ...sourcePostingDateFields(''),
+    crawledAt: new Date().toISOString(),
     validThrough: entry.unifiedStandardEnd || '',
     source: 'postfinance-careers-crawler',
     employmentType: category ? detectEmploymentType({ employmentType: category }) : 'FULL_TIME',
@@ -938,7 +941,8 @@ async function fetchAndParseJobDetails(urls, v2Map = new Map()) {
       sourceLang,
       department: detail.industry || '',
       category: detail.industry || 'servizi-finanziari',
-      datePosted: detail.datePosted || new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(detail.datePosted),
+      crawledAt: new Date().toISOString(),
       validThrough: detail.validThrough || '',
       source: 'postfinance-careers-crawler',
       employmentType: detail.employmentType ? detectEmploymentType(detail) : 'FULL_TIME',
