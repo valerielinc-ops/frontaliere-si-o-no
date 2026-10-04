@@ -37638,6 +37638,16 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lido-san-domenico-lugano-concorsi',
+ category: 'novita',
+ date: '2026-10-04T20:03:35.587Z',
+ image: '/images/blog/lido-san-domenico-lugano-concorsi.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

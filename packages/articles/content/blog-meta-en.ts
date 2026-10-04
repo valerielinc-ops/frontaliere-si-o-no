@@ -12543,6 +12543,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stra-woman-varese-2026.title': 'StraWoman Varese 2026: almost 4 thousand at the Giardini Estensi',
     'blog.article.stra-woman-varese-2026.excerpt': 'Almost 4 thousand participants ran or walked 5 km in the Giardini Estensi for the sixteenth StraWoman Varese, part of the 21 stages from March to November, promoting sport, breast cancer prevention and solidarity.',
     'blog.article.stra-woman-varese-2026.imageAlt': 'Women participants in StraWoman Varese 2026 at Giardini Estensi, a non‑competitive 5 km run/walk focused on health prevention and solidarity.',
+    'blog.article.lido-san-domenico-lugano-concorsi.title': 'Lido San Domenico: Lugano publishes two calls for tenders',
+    'blog.article.lido-san-domenico-lugano-concorsi.excerpt': 'The Municipal Council has launched the calls for tenders for the management of the refreshment bar and the renovation of the spaces through a public-private partnership.',
+    'blog.article.lido-san-domenico-lugano-concorsi.imageAlt': 'View of the Lugano lakeside with Lido San Domenico in the background',
 };
 
 export default blogMetaEn;

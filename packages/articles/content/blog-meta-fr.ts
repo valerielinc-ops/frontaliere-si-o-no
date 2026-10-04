@@ -12545,6 +12545,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stra-woman-varese-2026.title': 'StraWoman Varese 2026 : presque 4mila aux Giardini Estensi',
     'blog.article.stra-woman-varese-2026.excerpt': 'Près de 4mila participants ont couru ou marché 5 km dans les Giardini Estensi pour la seizième StraWoman Varese, l’une des 21 étapes de mars à novembre, promouvant le sport, la prévention du cancer du sein et la solidarité.',
     'blog.article.stra-woman-varese-2026.imageAlt': 'Femmes participantes à la StraWoman Varese 2026 aux Giardini Estensi, une course/marche non compétitive de 5 km axée sur la prévention de la santé et la solidarité.',
+    'blog.article.lido-san-domenico-lugano-concorsi.title': 'Lido San Domenico : Lugano publie deux appels d\'offres',
+    'blog.article.lido-san-domenico-lugano-concorsi.excerpt': 'La Municipalité a lancé les appels d\'offres pour la gestion de la buvette et la rénovation des espaces par le biais d\'un partenariat public-privé.',
+    'blog.article.lido-san-domenico-lugano-concorsi.imageAlt': 'Vue du bord du lac de Lugano avec le Lido San Domenico en arrière-plan',
 };
 
 export default blogMetaFr;
