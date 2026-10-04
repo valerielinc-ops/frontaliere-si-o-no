@@ -10,6 +10,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
@@ -65,14 +66,6 @@ export function hermesAddressFields(location, canton) {
     postalCode: isGenevaHq ? '1204' : undefined,
     addressRegion: isGenevaHq ? 'Genève' : canton,
   };
-}
-
-/** Coerce a date-ish value to an ISO YYYY-MM-DD string, or '' if unparseable. */
-function normalizeDate(value) {
-  if (!value) return '';
-  const d = new Date(value);
-  if (Number.isNaN(d.getTime())) return '';
-  return d.toISOString().split('T')[0];
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -347,7 +340,7 @@ export async function fetchAllHermesJobs() {
       sector: 'Luxury goods / fashion / watchmaking',
       currency: 'CHF',
       featured: false,
-      postedDate: normalizeDate(listing.postedAt) || new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(listing.postedAt),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

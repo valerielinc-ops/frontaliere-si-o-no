@@ -16,6 +16,7 @@
  * grade a statement about a different program.
  */
 import fs from 'node:fs';
+import { mergeSourcePostingDates } from '../source-posting-date.mjs';
 import path from 'node:path';
 import { lookup as dnsLookup } from 'node:dns/promises';
 import {
@@ -902,6 +903,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       if (templateRx && !matchesDetailTemplate(sourceUrl, templateRx)) continue;
       if (bySlug.has(v.url)) continue;
       const listingEvidence = umantisListingEvidence.get(umantisVacancyIdentity(sourceUrl));
+      const publication = mergeSourcePostingDates({}, vacancy);
       bySlug.set(v.url, {
         title: v.title,
         url: v.url,
@@ -916,7 +918,8 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         // Stessa piega dell'evidenza di listing che applica il sintetizzatore.
         ...listingEvidenceFields(vacancy, listingEvidence),
         description: vacancy.description || '',
-        postedAt: vacancy.postedDate || null,
+        ...publication,
+        postedAt: publication.postedDate || null,
         company: vacancy.company || spec.companyName,
       });
     }
@@ -1192,6 +1195,9 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
  *   location: string,
  *   description: string,
  *   postedAt: string|null,
+ *   postedDate: string,
+ *   datePosted: string,
+ *   postingDateSource: 'reported'|'unknown',
  *   company: string,
  *   addressLocality?: string,
  *   addressRegion?: string,
@@ -1262,8 +1268,10 @@ export async function runSpecInProduction(spec, runtime = {}) {
             detailCandidateDrops++;
             continue;
           }
+          const publication = mergeSourcePostingDates(row, detail);
           const publishable = { ...row, title: detail.title || row.title, description,
-            postedAt: detail.postedDate || row.postedAt,
+            ...publication,
+            postedAt: publication.postedDate || null,
             employmentType: detail.employmentType || row.employmentType };
           // Free-text NPA variance is measured for diagnostics, but its current
           // precision/recall is not an authority for indexed job geography.
