@@ -123,6 +123,97 @@ export function decideNoCodeDeltaTier({ reviews, headSha, priorCommit, fpHead, f
   };
 }
 
+// Un 🔴 la cui `Accettazione:` si verifica sul body della PR, anche se il
+// reviewer l'ha ancorato a una riga di codice. REVIEW.md step 7 (claim perf
+// senza baseline misurabile solo su main) prescrive proprio questa forma:
+// «`Accettazione:` sul body». PR 11241 (review 5402530184): ancorato a
+// `scripts/cleanup-jobs.mjs:L1014`, «Accettazione: PR-body input→output — the
+// memory item is `blocked: misura post-merge`…». Il body corretto alla lettera
+// è stato letto dalla review `minimal` successiva (5403591492), che però
+// riportava identico ogni 🔴 «di codice»: il finding restava aperto finché un
+// commit di codice inventato non usciva dal tier. La forma va all'inizio della
+// clausola e nomina la PR (o è il «sul/nel body» di REVIEW.md): «body of
+// `parse()`» è il corpo di una funzione, non il body della PR.
+const BODY_ACCEPTANCE_START_RE = /^[\s`*_"'“«(]*(?:(?:the\s+)?(?:PR|pull[- ]request)[- ]?(?:body|description)\b|(?:on|in)\s+the\s+(?:PR|pull[- ]request)\s+(?:body|description)\b|(?:sul|nel)\s+(?:PR[- ]?)?body\b|(?:body|descrizione)\s+(?:della|of\s+the)\s+PR\b)/iu;
+// Una clausola che esegue codice del repository verifica la PR, non il body:
+// resta di codice anche se comincia dal body (stessa lista di comandi del
+// classificatore ledger-only del review gate, più i lettori `rg`/`grep`/`jq`).
+const REPO_COMMAND_RE = /\b(?:npm|npx|node|vitest|tsx|git|bash|sh|rg|grep|jq)\b/iu;
+// Una clausola che, dopo aver nominato il body, cita un file del repository o
+// chiama una funzione verifica (anche) il codice: «PR body cita la soglia;
+// `scripts/x.mjs` restituisce 0» non si chiude sulla sola metà body. I file si
+// riconoscono con `extractFileCitations` del review gate, passato dal chiamante
+// (il gate importa già questo modulo: l'import inverso sarebbe circolare, e una
+// copia della regex divergerebbe). Senza estrattore nessuna clausola è body.
+// I workflow sono esclusi: le accettazioni di REVIEW.md step 7 nominano il
+// workflow della misura post-merge.
+const WORKFLOW_FILE_RE = /^\.github\/workflows\/[A-Za-z0-9_.@-]+\.ya?ml$/iu;
+const FUNCTION_CALL_RE = /[A-Za-z_$][\w$]*\(/u;
+const ACCEPTANCE_CLAUSE_RE = /(?:Accettazione|Acceptance)\s*:\s*([\s\S]*?)(?=(?:Accettazione|Acceptance)\s*:|$)/giu;
+const PR_BODY_ANCHOR_RE = /^\s*(?:[-*]\s*)?`?PR body[:#]L?[1-9]\d*/iu;
+
+function citesRepoCode(clause, extractCitations) {
+  if (FUNCTION_CALL_RE.test(clause)) return true;
+  return extractCitations(clause).some((citation) => !WORKFLOW_FILE_RE.test(String(citation?.path || '')));
+}
+
+function bodyOnlyAcceptanceClause(clause, extractCitations) {
+  return BODY_ACCEPTANCE_START_RE.test(clause)
+    && !REPO_COMMAND_RE.test(clause)
+    && !citesRepoCode(clause, extractCitations);
+}
+
+/**
+ * `'body'` quando il 🔴 si chiude correggendo il body: ancorato a
+ * `PR body:L<n>`, oppure con OGNI clausola `Accettazione:` sul body e nessun
+ * comando, file citato (salvo `.github/workflows/*.yml`) o chiamata di
+ * funzione sul repository. Tutto il resto, incluso un 🔴 senza `Accettazione:`
+ * o con una clausola mista, è `'code'`: in dubbio il finding resta riportato
+ * identico come prima, quindi il classificatore non può allentare il gate.
+ * `extractCitations` è `extractFileCitations` del review gate; senza, la sola
+ * forma riconosciuta è l'anchor `PR body:L<n>`.
+ */
+export function findingAcceptanceScope(finding, { extractCitations } = {}) {
+  const line = String(finding?.line || '');
+  const text = String(finding?.text || '');
+  if ((finding?.citations || []).length === 0 && (PR_BODY_ANCHOR_RE.test(line) || PR_BODY_ANCHOR_RE.test(text))) {
+    return 'body';
+  }
+  if (typeof extractCitations !== 'function') return 'code';
+  const clauses = [...text.matchAll(ACCEPTANCE_CLAUSE_RE)].map((match) => match[1]);
+  return clauses.length > 0 && clauses.every((clause) => bodyOnlyAcceptanceClause(clause, extractCitations))
+    ? 'body'
+    : 'code';
+}
+
+/**
+ * Tier `minimal` (contributo di codice invariato o body corretto sulla stessa
+ * HEAD): i 🔴 aperti con accettazione sul body si rigiudicano contro il body
+ * attuale (`reJudge`), quelli di codice si riportano identici (`carried`).
+ * Nessun 🔴 di codice entra mai in `reJudge`. È la partizione che usa il ledger
+ * del bundle (`prefetch` in tests.yml).
+ */
+export function partitionCodeUnchangedFindings(open = [], options = {}) {
+  const reJudge = [];
+  const carried = [];
+  for (const finding of open) {
+    (findingAcceptanceScope(finding, options) === 'body' ? reJudge : carried).push(finding);
+  }
+  return { reJudge, carried };
+}
+
+/**
+ * Intestazione del ledger nel bundle per un 🔴 aperto con accettazione sul
+ * body. La chiusura resta quella che il gate accetta: l'id stabile più una
+ * conferma `path:L<n>` per ogni file citato, o `PR body:L<n>` senza file.
+ */
+export function bodyAcceptanceLedgerHeader({ id, anchors = '', confirmationTarget = null } = {}) {
+  const close = anchors
+    ? `se il body attuale la soddisfa, Fix di \`${id}\`: ok. più Fix di \`path:L<riga attuale>\`: ok. per ogni file citato`
+    : `se il body attuale la soddisfa, Fix di \`${confirmationTarget || id}\`: ok.`;
+  return `- Open Important \`${id}\` (${anchors ? `${anchors}; ` : ''}**accettazione sul body**: rigiudicala sul body attuale anche a codice invariato; ${close}; altrimenti riportala identica):`;
+}
+
 export function renderCarryForwardBody({ priorReviewId, priorCommit, fingerprint, reviewRevision }) {
   const revision = normalizeReviewInputRevision(reviewRevision);
   if (!revision) throw new Error('review input revision mancante per carry-forward');
