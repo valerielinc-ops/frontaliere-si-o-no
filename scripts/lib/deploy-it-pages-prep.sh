@@ -275,70 +275,7 @@ _publish_cdn_r2() {
   # at most a week". Do NOT raise this back to a year, and do NOT re-add
   # `immutable`.
   local _assets_log="$(mktemp -t r2-assets-XXXXXX.jsonl 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/r2-assets.jsonl")"
-  local _pdir _ledger_key="purge-ledger/assets.json" _pre_sync_ledger="" _pre_sync_ledger_publish=0 _pre_sync_baseline_valid=0
-  _pdir="$(mktemp -d -t r2-purge-XXXXXX 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/r2-purge.$$")"
-  mkdir -p "$_pdir"
-  # Snapshot the bytes currently in R2 BEFORE the assets sync. If the ledger is
-  # absent or corrupt, publish that snapshot as the baseline before a partial
-  # upload can change R2: seeding from the post-sync listing would label those
-  # new bytes edge-fresh and lose the retry forever.
-  if "${RC[@]}" lsjson -R --files-only --hash --hash-type md5 --use-server-modtime \
-       "$bkt/assets" > "$_pdir/pre-sync-state.json" 2> "$_pdir/pre-sync-state.err"; then
-    local _pre_ledger_rc=0
-    if "${RC[@]}" copyto "$bkt/$_ledger_key" "$_pdir/pre-sync-ledger.json" --retries=1 \
-         2> "$_pdir/pre-sync-ledger.err"; then
-      if node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
-           --ledger-in="$_pdir/pre-sync-ledger.json" --check-ledger; then
-        _pre_sync_ledger="$_pdir/pre-sync-ledger.json"
-        _pre_sync_baseline_valid=1
-      elif node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
-           --state="$_pdir/pre-sync-state.json" \
-           --ledger-in="$_pdir/pre-sync-ledger.json" \
-           --ledger-out="$_pdir/pre-sync-ledger-out.json" --baseline-only; then
-        _pre_sync_ledger="$_pdir/pre-sync-ledger-out.json"
-        _pre_sync_ledger_publish=1
-        _pre_sync_baseline_valid=1
-      fi
-    else
-      _pre_ledger_rc=$?
-      case "$_pre_ledger_rc" in
-        3|4)
-          if node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
-               --state="$_pdir/pre-sync-state.json" --ledger-absent \
-               --ledger-out="$_pdir/pre-sync-ledger-out.json" --baseline-only; then
-            _pre_sync_ledger="$_pdir/pre-sync-ledger-out.json"
-            _pre_sync_ledger_publish=1
-            _pre_sync_baseline_valid=1
-          fi
-          ;;
-        *)
-          echo "::warning::[r2] pre-sync purge ledger read failed (rclone exit $_pre_ledger_rc): $(tail -c 300 "$_pdir/pre-sync-ledger.err" 2>/dev/null)"
-          ;;
-      esac
-    fi
-    if [ "$_pre_sync_ledger_publish" = 1 ] && [ -s "$_pre_sync_ledger" ]; then
-      if "${RC[@]}" copyto "$_pre_sync_ledger" "$bkt/$_ledger_key" \
-           --header-upload "Content-Type: application/json; charset=utf-8" \
-           --header-upload "Cache-Control: no-store, max-age=0"; then
-        echo "::notice::[r2] purge ledger baseline persisted before assets/ sync"
-      else
-        echo "::warning::[r2] could not persist the pre-sync purge ledger baseline — retaining local snapshot for this run"
-      fi
-    fi
-  else
-    echo "::warning::[r2] could not snapshot $bkt/assets before sync — no pre-sync purge ledger baseline: $(tail -c 300 "$_pdir/pre-sync-state.err" 2>/dev/null)"
-  fi
-  if [ "$_pre_sync_baseline_valid" != 1 ] || [ ! -s "$_pre_sync_ledger" ]; then
-    echo "::error::[r2] refusing assets/ sync — no validated v1 purge ledger baseline was available before the upload"
-    rm -f "$_assets_log" 2>/dev/null || true
-    rm -rf "$_pdir" 2>/dev/null || true
-    return 0
-  fi
   _r2_sync "$stage/assets"    assets    "public,max-age=604800" "$_assets_log"
-  # assets/ is the first sync, so `ok` here is ITS outcome alone. The purge
-  # below keys on this, not on the whole-payload `ok`: a later prefix failing
-  # (og, images, data, job-canon, index.html) does not un-upload assets/.
-  local _assets_synced="$ok"
   _r2_sync "$stage/og"        og        "public,max-age=86400"
   _r2_sync "$stage/images"    images    "public,max-age=86400"
   _r2_sync "$stage/data"      data      "public,max-age=600"
@@ -347,36 +284,20 @@ _publish_cdn_r2() {
     --header-upload "Content-Type: text/html; charset=utf-8" --header-upload "Cache-Control: public,max-age=600" || ok=0
   if [ "$ok" != 1 ]; then
     echo "⚠️ R2 payload sync had errors — NOT writing marker (shard gate keeps last good live)"
-  else
-    # Marker LAST (atomicity #2569): only now is this build's full payload on R2.
-    printf '%s' "${DEPLOY_BUILD_ID:-}" > "$stage/cdn-build-id.txt"
-    if "${RC[@]}" copyto "$stage/cdn-build-id.txt" "$bkt/cdn-build-id.txt" \
-         --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
-      export_env CDN_BASE "https://cdn.frontaliereticino.ch"
-      echo "✅ synced CDN payload to R2 ($R2_BUCKET); marker=${DEPLOY_BUILD_ID:-<empty>}"
-    else
-      echo "⚠️ R2 marker PUT failed — offload skipped, og/data stay in dist"
-    fi
+    return 0
   fi
-  # Invalidate the edge for EXACTLY the assets/ keys whose bytes changed since
-  # the last SUCCESSFUL purge — not just the ones this run uploaded.
-  #
-  # STATE, NOT THIS RUN'S LOG (NX-SKEW-2, Refs #9465/#8612). This used to run
-  # only past the `ok != 1` return above and only when this run's rclone log was
-  # non-empty. Together that lost keys for good: run A uploads assets/ and then
-  # fails on another prefix (ok=0 → no purge) or dies; run B re-runs, rclone
-  # finds assets/ "Unchanged skipping", the log is empty → no purge; the edge
-  # keeps the old bytes for the full 7-day max-age while R2 serves new ones —
-  # the cross-chunk skew (shared-services.js after deploy 36706485937, 30-09).
-  # Now the purge runs whenever the assets/ sync itself succeeded, whatever the
-  # other prefixes did, and purge-changed-cdn-assets.mjs diffs the R2 listing
-  # against a ledger (LEDGER_KEY there) that records, per key, the bytes the
-  # edge was last successfully purged for. A failed batch leaves its keys dirty
-  # in the ledger and the next deploy retries them. The marker semantics above
-  # are unchanged, and in the success path the purge still follows the marker,
-  # so wait-cdn-build-id.sh sees it no later than before.
-  #
-  # Targeted (`--files=`, batches of 30) and never `purge_everything`: this
+  # Marker LAST (atomicity #2569): only now is this build's full payload on R2.
+  printf '%s' "${DEPLOY_BUILD_ID:-}" > "$stage/cdn-build-id.txt"
+  if "${RC[@]}" copyto "$stage/cdn-build-id.txt" "$bkt/cdn-build-id.txt" \
+       --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
+    export_env CDN_BASE "https://cdn.frontaliereticino.ch"
+    echo "✅ synced CDN payload to R2 ($R2_BUCKET); marker=${DEPLOY_BUILD_ID:-<empty>}"
+  else
+    echo "⚠️ R2 marker PUT failed — offload skipped, og/data stay in dist"
+  fi
+  # Invalidate the edge for EXACTLY the assets/ keys whose bytes just changed.
+  # Runs only past the `ok != 1` guard above, so the full payload is already on
+  # R2. Targeted (`--files=`, batches of 30) and never `purge_everything`: this
   # host serves ~634k eyeball requests/day at a ~93% edge hit ratio, and
   # dropping all of that at once produces the cold-fill stampede against R2
   # whose edge→origin failures (`originResponseStatus: 0`) Cloudflare returns to
@@ -392,61 +313,11 @@ _publish_cdn_r2() {
   # Cache-Control comment for the queue jam that caused it. The jam is fixed;
   # the decoupling stays, because the failure mode it protects against is
   # "the publish chain stopped running", not "this particular bug existed".
-  if [ "$_assets_synced" = 1 ]; then
-    local _lrc=0
-    local _purge_args=()
-    # --use-server-modtime: LastModified from the LIST, no per-object HEAD.
-    if "${RC[@]}" lsjson -R --files-only --hash --hash-type md5 --use-server-modtime \
-         "$bkt/assets" > "$_pdir/state.json" 2> "$_pdir/state.err"; then
-      _purge_args+=("--state=$_pdir/state.json")
-      "${RC[@]}" copyto "$bkt/$_ledger_key" "$_pdir/ledger-in.json" --retries=1 \
-        2> "$_pdir/ledger.err" || _lrc=$?
-      # rclone exit 3/4 = directory/file not found → use the trusted pre-sync
-      # baseline instead of seeding from the post-sync listing.
-      # Anything other than a validated v1 ledger is unsafe for stateful
-      # seeding, so fall back to the validated pre-sync baseline.
-      case "$_lrc" in
-        0)
-          if node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
-               --ledger-in="$_pdir/ledger-in.json" --check-ledger; then
-            _purge_args+=("--ledger-in=$_pdir/ledger-in.json")
-          else
-            _purge_args+=("--ledger-in=$_pre_sync_ledger")
-            echo "::warning::[r2] post-sync purge ledger is not a readable v1 ledger — using the trusted pre-sync baseline"
-          fi
-          ;;
-        3|4)
-          _purge_args+=("--ledger-in=$_pre_sync_ledger")
-          echo "::warning::[r2] purge ledger is still absent after sync — using the trusted pre-sync baseline"
-          ;;
-        *)
-          _purge_args+=("--ledger-in=$_pre_sync_ledger")
-          echo "::warning::[r2] purge ledger read failed after sync (rclone exit $_lrc) — using the trusted pre-sync baseline: $(tail -c 300 "$_pdir/ledger.err" 2>/dev/null)"
-          ;;
-      esac
-      _purge_args+=("--ledger-out=$_pdir/ledger-out.json" "--build-id=${DEPLOY_BUILD_ID:-}")
-    else
-      echo "::warning::[r2] could not list $bkt/assets — purging this run's uploads only: $(tail -c 300 "$_pdir/state.err" 2>/dev/null)"
-    fi
-    node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets ${_purge_args[@]+"${_purge_args[@]}"} \
-      || echo "::error::targeted CDN asset purge crashed — edge falls back to the 7d max-age until a later deploy"
-    # Written only by the script, and only AFTER the purge: a key takes its new
-    # fingerprint only if its own batch succeeded. no-store so a read of it is
-    # never an edge copy.
-    if [ -s "$_pdir/ledger-out.json" ]; then
-      "${RC[@]}" copyto "$_pdir/ledger-out.json" "$bkt/$_ledger_key" \
-        --header-upload "Content-Type: application/json; charset=utf-8" \
-        --header-upload "Cache-Control: no-store, max-age=0" \
-        || echo "::error::[r2] purge ledger write failed — the next deploy re-diffs against the previous ledger"
-    fi
-    rm -rf "$_pdir" 2>/dev/null || true
-  else
-    echo "⚠️ [r2] assets/ sync failed — no edge purge this run; whatever it did upload stays dirty in the purge ledger for the next deploy"
-    rm -rf "$_pdir" 2>/dev/null || true
+  if [ -s "$_assets_log" ]; then
+    node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
+      || echo "::warning::targeted CDN asset purge failed — edge falls back to the 7d max-age"
   fi
   rm -f "$_assets_log" 2>/dev/null || true
-  # The janitor scan is diagnostics for a COMPLETE publish only (as before).
-  [ "$ok" = 1 ] || return 0
   # GC visibility scan (Refs #2886, follow-up of #2883's "GC storage R2
   # (janitor): skippato" deferral). DRY-RUN ONLY at this automatic call site —
   # see _janitor_cdn_r2's header comment for why. This just makes bucket growth
