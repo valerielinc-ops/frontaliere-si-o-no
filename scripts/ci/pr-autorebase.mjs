@@ -1902,8 +1902,8 @@ const handoffIssueIndex = createHandoffIssueIndex(readOpenHandoffRows);
 /**
  * Che cosa fare degli hand-off gia' aperti per la stessa PR di origine. Pura.
  *   - nessuno → `create`;
- *   - quello eletto (`electHandoffKeeper`, la stessa elezione del
- *     riconciliatore) e' gia' instradato o reclamato e porta la stessa HEAD →
+ *   - quello eletto (`electHandoffKeeper`, la funzione del riconciliatore,
+ *     qui senza l'elenco delle PR aperte) e' gia' instradato o reclamato e porta la stessa HEAD →
  *     `already-handed-off`: nessuna scrittura, anche se il marker sulla PR
  *     manca (l'idempotenza non dipende da un secondo write riuscito);
  *   - altrimenti → `reuse`: si riusa il keeper (niente retitle: un `edited`
@@ -1921,9 +1921,12 @@ export function planConflictHandoff({ existing, num, head }) {
 
 /**
  * Elegge la issue di hand-off canonica con `electHandoffKeeper` (claim, poi
- * instradata, poi la piu' vecchia: la stessa elezione del riconciliatore) e
- * chiude le altre come duplicate, salvo quelle create da meno di
- * `MIN_DUPLICATE_AGE_MINUTES` (un'altra run sta ancora instradandole).
+ * instradata, poi la piu' vecchia: la funzione del riconciliatore, ma senza
+ * l'elenco delle PR aperte, quindi una riapplicazione in volo senza claim qui
+ * non si vede) e chiude le altre come duplicate, salvo quelle con un claim
+ * (come `planDuplicateClosures`) e quelle create da meno di
+ * `MIN_DUPLICATE_AGE_MINUTES` (un'altra run sta ancora instradandole): le
+ * decide il riconciliatore, che vede anche le PR aperte.
  * Deterministico su ogni sweep: due run concorrenti eleggono la stessa.
  * Ritorna il numero canonico.
  * @param {Array<{number:number, labels:string[], created_at:string|null}>} members non vuoto
@@ -1935,6 +1938,10 @@ function closeDuplicateHandoffIssues(members, num) {
   for (const member of members) {
     const dup = member.number;
     if (dup === canonical) continue;
+    if (handoffBusy(member, num, [])) {
+      console.log(`issue di hand-off #${dup} duplicata di #${canonical} ma reclamata dal fixer → resta, decide il riconciliatore.`);
+      continue;
+    }
     if (!duplicateOldEnough(member, now)) {
       console.log(`issue di hand-off #${dup} duplicata di #${canonical} ma creata da meno di ${MIN_DUPLICATE_AGE_MINUTES} minuti → resta, decide il prossimo giro.`);
       continue;

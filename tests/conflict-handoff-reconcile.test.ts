@@ -405,6 +405,12 @@ describe('originContentOnMain: tutto o non provato', () => {
     const withHeader = [{ filename: 'a.ts', status: 'modified', patch: `+++ b/a.ts\n${patch(['  // due  spazi'])}` }];
     expect(originContentOnMain(withHeader, main('\t// due spazi\r\n')).proven).toBe(true);
   });
+
+  it('dentro un hunk una riga che inizia con ++ è una riga aggiunta, non un\'intestazione', () => {
+    const plusPlus = [{ filename: 'a.ts', status: 'modified', patch: patch(['++i;', 'const x = 1;']) }];
+    expect(originContentOnMain(plusPlus, main('const x = 1;\n')).proven).toBe(false);
+    expect(originContentOnMain(plusPlus, main('++i;\nconst x = 1;\n'))).toEqual({ proven: true, checked: 2, files: ['a.ts'] });
+  });
 });
 
 describe('decideHandoff: PR di origine CHIUSA senza merge', () => {
@@ -607,6 +613,11 @@ describe('wiring: pre-flight e drainer chiudono, non lasciano maybe-resolved', (
     const source = readFileSync('scripts/ci/reconcile-conflict-handoffs.mjs', 'utf8');
     const main = source.slice(source.indexOf('function main() {'));
     expect(main).toContain('const closedLong = originClosedPastGrace(originPr, now)');
+    // Nessuna lettura quando la decisione e' comunque keep (riapplicazione in volo o PR aperte illeggibili).
+    const closedLongExpr = main.slice(main.indexOf('const closedLong ='), main.indexOf('const contentProof ='));
+    expect(closedLongExpr).toContain('Array.isArray(openPrs)');
+    expect(closedLongExpr).toContain('reapplyInFlight(openPrs, { issueNumber: keeper.number, originNumber: origin }) === null');
+    expect(closedLongExpr).toContain('budget.canAfford(CONTENT_PROOF_BUDGET_MS)');
     expect(main).toContain('const contentProof = closedLong ? readContentProof(origin) : null;');
     expect(main).toContain('const originIssues = closedLong ? readOriginIssues(originPr) : null;');
     expect(main).toContain('planDuplicateClosures(');

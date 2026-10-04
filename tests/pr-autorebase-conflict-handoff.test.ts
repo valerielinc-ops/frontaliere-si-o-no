@@ -205,6 +205,9 @@ describe('REPLAY #11147 — un solo hand-off per PR di origine, anche se il LGTM
     const dedupe = SOURCE.slice(SOURCE.indexOf('function closeDuplicateHandoffIssues('), SOURCE.indexOf('function handOffConflictToFixer('));
     expect(dedupe).toContain('electHandoffKeeper(members, num, [])');
     expect(dedupe).toContain('duplicateOldEnough(member, now)');
+    // Un duplicato reclamato dal fixer non si chiude qui (come planDuplicateClosures del riconciliatore).
+    expect(dedupe).toContain('handoffBusy(member, num, [])');
+    expect(dedupe.indexOf('handoffBusy(member, num, [])')).toBeLessThan(dedupe.indexOf("'issue', 'close'"));
   });
 });
 

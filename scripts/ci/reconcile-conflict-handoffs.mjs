@@ -229,8 +229,8 @@ export function planDuplicateClosures({ origin, duplicates }, openPrs, now = Dat
  *
  * `files` = `[{ filename, status, patch }]` di `pulls/<n>/files`. Provato SOLO
  * se ogni file ha un `patch` leggibile, nessuno e' `removed`, ogni file porta
- * almeno una riga aggiunta non vuota e OGNI riga aggiunta non vuota (`+`,
- * esclusa l'intestazione `+++`) compare identica fra le righe del file su
+ * almeno una riga aggiunta non vuota e OGNI riga aggiunta non vuota (`+`
+ * dentro un hunk `@@`, quindi mai l'intestazione `+++ b/…`) compare identica fra le righe del file su
  * `main`, a meno dei soli spazi (bordi e sequenze ridotti a uno: misurato sulla
  * PR #10865, una riga di commento con due spazi poi normalizzati da #11201).
  * Niente soglie: o tutto, o non provato. Una rimozione non si puo' dimostrare
@@ -254,8 +254,13 @@ export function originContentOnMain(files, readMainFile) {
     if (String(file?.status || '') === 'removed') return { proven: false, reason: `${name}: rimosso dalla PR, rimozione non dimostrabile` };
     if (typeof file?.patch !== 'string' || file.patch === '') return { proven: false, reason: `${name}: patch assente (binario o troppo grande)` };
     const added = [];
+    // L'intestazione `+++ b/…` puo' stare solo prima del primo `@@` (la patch
+    // di `pulls/<n>/files` non la porta): dentro un hunk ogni `+` e' una riga
+    // aggiunta, anche `++i;` (che diventa `+++i;`).
+    let inHunk = false;
     for (const line of file.patch.split('\n')) {
-      if (!line.startsWith('+') || line.startsWith('+++')) continue;
+      if (line.startsWith('@@')) { inHunk = true; continue; }
+      if (!inHunk || !line.startsWith('+')) continue;
       const text = normalizeLine(line.slice(1));
       if (text !== '') added.push(text);
     }
@@ -447,6 +452,9 @@ function readOrigin(num) {
 // Oltre questo numero di file la prova di contenuto non si tenta (una lettura
 // di main per file): l'hand-off resta al ramo «superato» con i suoi vincoli.
 export const CONTENT_PROOF_MAX_FILES = 100;
+// Stima del costo di una prova di contenuto (elenco file + letture di main +
+// issue dell'origine) per il budget della run.
+export const CONTENT_PROOF_BUDGET_MS = 30_000;
 
 /** `[{ filename, status, patch }]` della PR, o `null` se illeggibile. */
 function readOriginFiles(num) {
@@ -562,8 +570,18 @@ function main() {
     // Gli eventi servono solo a una PR di origine aperta (prova da merge-tree).
     const conflictEvents = String(originPr?.state || '').toUpperCase() === 'OPEN' ? readConflictEvents(origin) : null;
     // File, contenuto di main e issue dell'origine servono solo a un'origine
-    // CHIUSA oltre la grazia senza claim (rara): costo trascurabile.
-    const closedLong = originClosedPastGrace(originPr, now) && !labelNames(keeper).includes(CLAIM_LABEL);
+    // CHIUSA oltre la grazia, senza claim e senza una riapplicazione in volo
+    // (o PR aperte illeggibili): in quei casi `decideClosedOrigin` risponde
+    // `keep` senza usarli, e le letture si ripeterebbero a ogni tick.
+    const closedLong = originClosedPastGrace(originPr, now) && !labelNames(keeper).includes(CLAIM_LABEL)
+      && Array.isArray(openPrs) && reapplyInFlight(openPrs, { issueNumber: keeper.number, originNumber: origin }) === null;
+    // La prova di contenuto legge main una volta per file (fino a
+    // CONTENT_PROOF_MAX_FILES): se il budget della run non la copre, l'hand-off
+    // passa intero al prossimo tick.
+    if (closedLong && !budget.canAfford(CONTENT_PROOF_BUDGET_MS)) {
+      budget.defer(`#${keeper.number} (prova di contenuto)`);
+      continue;
+    }
     const contentProof = closedLong ? readContentProof(origin) : null;
     const originIssues = closedLong ? readOriginIssues(originPr) : null;
     const decision = decideHandoff({
