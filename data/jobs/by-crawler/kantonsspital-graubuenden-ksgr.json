@@ -3881,9 +3881,7 @@
       "canton": "GR",
       "postalCode": "7000",
       "streetAddress": "Loëstrasse 170",
-      "datePosted": "2026-05-03",
       "postedDate": "2026-05-03",
-      "postingDateSource": "reported",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-10-04T09:23:42.962Z",
@@ -3918,7 +3916,9 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-05-17T10:33:43.517Z"
+      "firstSeenAt": "2026-05-17T10:33:43.517Z",
+      "datePosted": "2026-05-03",
+      "postingDateSource": "reported"
     },
     {
       "id": "10020180",

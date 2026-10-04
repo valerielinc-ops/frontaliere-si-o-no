@@ -1419,12 +1419,6 @@
       "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-in-der-epileptologie-a-im-frueh-und-spaetdienst/ccab9860-04f6-4a79-9a85-03efb56f4fb1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich",
-        "dipl-nurse-in-epileptology-a-in-early-and-late-service-klinik-lengg-zurich",
-        "dipl-infirmiere-en-epileptologie-a-en-debut-et-en-fin-de-service-klinik-lengg-zurich",
-        "dipl-infermiera-in-epileptologia-a-in-servizio-anticipato-e-tardivo-klinik-lengg-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich",
@@ -1439,7 +1433,12 @@
           "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-19T09:51:02.915Z",
+      "previousSlugs": [
+        "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich",
+        "dipl-nurse-in-epileptology-a-in-early-and-late-service-klinik-lengg-zurich",
+        "dipl-infirmiere-en-epileptologie-a-en-debut-et-en-fin-de-service-klinik-lengg-zurich",
+        "dipl-infermiera-in-epileptologia-a-in-servizio-anticipato-e-tardivo-klinik-lengg-zurich"
+      ],
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -1452,7 +1451,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-19T09:51:02.915Z"
     }
   ]
 }

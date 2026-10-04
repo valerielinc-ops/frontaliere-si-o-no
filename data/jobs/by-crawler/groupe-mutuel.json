@@ -269,8 +269,6 @@
       },
       "category": "general",
       "datePosted": "2026-09-29",
-      "postedDate": "2026-09-29",
-      "postingDateSource": "reported",
       "source": "groupe-mutuel-csod-crawler",
       "sourceLang": "fr",
       "employmentType": "FULL_TIME",
@@ -285,20 +283,6 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T21:51:09.427Z",
       "crawledAt": "",
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
-        ],
-        "en": [
-          "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
-        ],
-        "de": [
-          "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
-        ]
-      },
-      "previousSlugs": [
-        "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
-      ],
       "salaryMin": 51000,
       "salaryMax": 77500,
       "currency": "CHF",
@@ -314,7 +298,23 @@
         }
       },
       "addressLocality": "Lausanne",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
+        ],
+        "en": [
+          "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
+        ],
+        "de": [
+          "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
+      ]
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4376?c=groupemutuel&lang=fr-FR",

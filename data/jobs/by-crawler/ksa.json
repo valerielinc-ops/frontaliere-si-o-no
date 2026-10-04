@@ -1090,7 +1090,6 @@
         "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch",
         "med-assistente-pratico-in-consulenza-per-l-infanzia-kantonsspital-aarau-ksa-aarau"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -2313,7 +2312,7 @@
       "title": "Pflegeexpertin / Pflegeexperte",
       "titleByLocale": {
         "it": "Esperto di cura / esperto di cura",
-        "en": "Pflegeexpertin / Pflegeexperte",
+        "en": "Nursing expert",
         "de": "Pflegeexpertin / Pflegeexperte",
         "fr": "Expert en soins / expert en soins"
       },
@@ -2377,7 +2376,6 @@
           "expert-en-soins-expert-en-soins-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -4250,7 +4248,7 @@
       "title": "Pflegeexpertin / Pflegeexperte",
       "titleByLocale": {
         "it": "Infermiera /Esperto infermieristico",
-        "en": "Pflegeexpertin / Pflegeexperte",
+        "en": "Nursing expert",
         "de": "Pflegeexpertin / Pflegeexperte",
         "fr": "Experte /Experte en soins infirmiers"
       },
@@ -7719,6 +7717,19 @@
       "department": "Kantonsspital Aarau AG",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T22:00:59.200Z",
+      "salaryMin": 119000,
+      "salaryMax": 166000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 119000,
+          "maxValue": 166000,
+          "unitText": "YEAR"
+        }
+      },
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-ksa-ch"
@@ -7732,20 +7743,7 @@
       },
       "previousSlugs": [
         "oberarztin-oberarzt-ksa-ch"
-      ],
-      "salaryMin": 119000,
-      "salaryMax": 166000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 119000,
-          "maxValue": 166000,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "ksa-453e035366c3",

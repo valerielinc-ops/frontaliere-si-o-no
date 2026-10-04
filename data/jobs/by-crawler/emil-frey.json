@@ -1739,7 +1739,7 @@
       "companyDomain": "emilfrey.ch",
       "title": "Dellentechniker/-in",
       "titleByLocale": {
-        "it": "Dellentechniker/-in",
+        "it": "Tecnico di bordo",
         "en": "Dent Technician",
         "de": "Dellentechniker/-in",
         "fr": "Technicien/technicienne en débosselage"
@@ -6693,24 +6693,7 @@
       "hiringOrganizationName": "Kia Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-technischer-kundendienst-emil-frey-safenwil",
-        "servizio-tecnico-clerks-emil-frey-safenwil"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-technischer-kundendienst-emil-frey-safenwil",
-          "servizio-tecnico-clerks-emil-frey-safenwil"
-        ],
-        "en": [
-          "sachbearbeiter-technischer-kundendienst-emil-frey-safenwil"
-        ],
-        "fr": [
-          "sachbearbeiter-technischer-kundendienst-emil-frey-safenwil"
-        ]
-      },
       "firstSeenAt": "2026-10-03T09:14:18.966Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -6723,7 +6706,23 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-technischer-kundendienst-emil-frey-safenwil",
+          "servizio-tecnico-clerks-emil-frey-safenwil"
+        ],
+        "en": [
+          "sachbearbeiter-technischer-kundendienst-emil-frey-safenwil"
+        ],
+        "fr": [
+          "sachbearbeiter-technischer-kundendienst-emil-frey-safenwil"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-technischer-kundendienst-emil-frey-safenwil",
+        "servizio-tecnico-clerks-emil-frey-safenwil"
+      ]
     },
     {
       "id": "emil-frey-ac096a24079b",
@@ -6863,19 +6862,6 @@
       "hiringOrganizationName": "Carmarket AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "technical-product-manager-owner-emil-frey-zurich",
-        "responsabile-tecnico-del-prodotto-proprietario-emil-frey-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technical-product-manager-owner-emil-frey-zurich",
-          "responsabile-tecnico-del-prodotto-proprietario-emil-frey-zurich"
-        ],
-        "fr": [
-          "technical-product-manager-owner-emil-frey-zurich"
-        ]
-      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:14:18.962Z",
       "salaryMin": 113500,
@@ -6890,7 +6876,20 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-product-manager-owner-emil-frey-zurich",
+          "responsabile-tecnico-del-prodotto-proprietario-emil-frey-zurich"
+        ],
+        "fr": [
+          "technical-product-manager-owner-emil-frey-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "technical-product-manager-owner-emil-frey-zurich",
+        "responsabile-tecnico-del-prodotto-proprietario-emil-frey-zurich"
+      ]
     },
     {
       "id": "emil-frey-950899fbfe8c",
