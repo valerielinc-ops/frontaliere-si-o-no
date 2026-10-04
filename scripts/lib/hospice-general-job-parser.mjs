@@ -33,6 +33,7 @@
  *   - slugify() / stripHtml()      — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -170,7 +171,7 @@ function resolveAddress(rawLoc = {}) {
 /**
  * Fetch the Switzerland-only Hospice général postings from the
  * SmartRecruiters API (tenant "Hospicegeneral", country=ch). Returns an
- * array of raw listing objects {title, location, url, postedAt,
+ * array of listing objects {title, location, url, postedDate, datePosted, postingDateSource,
  * description, jobReqId, rawLocation}.
  */
 async function fetchJobListings() {
@@ -190,7 +191,7 @@ async function fetchJobListings() {
         title: job.title,
         location: job.location,
         url: job.applyUrl,
-        postedAt: job.postedAt,
+        ...mergeSourcePostingDates({}, job),
         description: job.descriptionHtml || '',
         jobReqId: job.jobReqId || raw.id || '',
         rawLocation: raw.location || {},
@@ -248,9 +249,6 @@ export async function fetchAllHospiceGeneralJobs() {
     const jobSlug = slugify(`${title} hospice general ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(listing.employmentLabel || title);
-    const postedDate = (listing.postedAt && String(listing.postedAt).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
-
     const job = {
       // ── Required fields ──
       id: `${HOSPICE_GENERAL_KEY}-${urlHash}`,
@@ -284,7 +282,7 @@ export async function fetchAllHospiceGeneralJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       jobReqId: listing.jobReqId || null,
       requirements: [],

@@ -10,6 +10,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -134,7 +135,7 @@ async function fetchJobListings() {
       title: j.title,
       location: j.location,
       url: j.applyUrl,
-      postedAt: j.postedAt,
+      ...mergeSourcePostingDates({}, j),
       description: j.descriptionHtml || '',
       jobReqId: j.jobReqId,
     }));
@@ -213,7 +214,7 @@ export async function fetchAllScanditJobs() {
       sector: 'IT', // Computer vision / smart data capture software
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

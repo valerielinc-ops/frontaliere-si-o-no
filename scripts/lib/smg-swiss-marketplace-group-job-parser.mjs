@@ -27,6 +27,7 @@
  * - slugify() / stripHtml()                 — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { isSwissLocationText, inferAnyCanton } from './target-swiss-locations.mjs';
@@ -204,7 +205,7 @@ function postingToListing(posting) {
     country: normalizeSpace(loc.country || 'CH'),
     url: posting?.applyUrl || (posting?.id ? `https://jobs.smartrecruiters.com/${SR_TENANT}/${posting.id}` : CAREER_URL),
     timeType: posting?.typeOfEmployment?.label || '',
-    postedDate: (posting?.releasedDate || posting?.createdOn || '').slice(0, 10),
+    ...sourcePostingDateFields(posting?.releasedDate),
   };
 }
 
@@ -310,7 +311,7 @@ export async function fetchAllSmgSwissMarketplaceGroupJobs() {
         sector: 'Marketplace digitale / Tecnologia',
         currency: 'CHF',
         featured: false,
-        postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+        ...mergeSourcePostingDates({}, listing),
         applyUrl: publicUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

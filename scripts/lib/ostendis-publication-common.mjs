@@ -27,6 +27,7 @@
  *     scraping anchors. Some widget bundles take 4-6 s to inject anchors.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -223,7 +224,7 @@ export function createOstendisPublicationParser(config) {
             if (types.includes('JobPosting')) {
               title = title || String(node.title || '').trim();
               descriptionHtml = descriptionHtml || String(node.description || '');
-              postedAt = postedAt || node.datePosted || node.validThrough || null;
+              postedAt = postedAt || node.datePosted || null;
             }
           }
         } catch {
@@ -259,13 +260,6 @@ export function createOstendisPublicationParser(config) {
     // (the shared pipeline's thin-source path).
     const desc = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
-    const postedDate = (() => {
-      if (!postedAt) return new Date().toISOString().slice(0, 10);
-      const d = new Date(postedAt);
-      if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-      return d.toISOString().slice(0, 10);
-    })();
-
     const employmentType = detectHealthcareEmploymentType(cleanTitle);
 
     return {
@@ -297,7 +291,7 @@ export function createOstendisPublicationParser(config) {
       sector,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...sourcePostingDateFields(postedAt),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

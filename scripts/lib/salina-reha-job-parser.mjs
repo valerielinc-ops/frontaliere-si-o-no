@@ -22,6 +22,7 @@
  * Ostendis detail page, and parse the schema.org `JobPosting` JSON-LD.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -251,13 +252,6 @@ function buildParsedJob({ title, descriptionHtml, postedAt, publicUrl, city }) {
   // pipeline's thin-source path).
   const desc = meetsSourceBodyFloor(descriptionText) ? descriptionText : '';
 
-  const postedDate = (() => {
-    if (!postedAt) return new Date().toISOString().slice(0, 10);
-    const d = new Date(postedAt);
-    if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-    return d.toISOString().slice(0, 10);
-  })();
-
   return {
     id: `salina-reha-${urlHash}`,
     slug: jobSlug,
@@ -287,7 +281,7 @@ function buildParsedJob({ title, descriptionHtml, postedAt, publicUrl, city }) {
     sector: 'Sanità',
     currency: 'CHF',
     featured: false,
-    postedDate,
+    ...sourcePostingDateFields(postedAt),
     applyUrl: publicUrl,
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },

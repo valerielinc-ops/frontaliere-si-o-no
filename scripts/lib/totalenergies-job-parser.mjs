@@ -52,6 +52,8 @@
  *   - isTrustedDomain()            — Validate URLs belong to this company
  *   - TOTALENERGIES_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
@@ -230,13 +232,6 @@ function detectContractLabel(employmentType) {
   return 'full-time';
 }
 
-// The listing card's "list-item-jobCreationDate" field is DD-MM-YYYY.
-function parseTotalEnergiesDate(raw = '') {
-  const m = String(raw || '').trim().match(/^(\d{1,2})-(\d{1,2})-(\d{4})$/);
-  if (!m) return '';
-  return `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`;
-}
-
 /* ── Address Resolution ───────────────────────────────────────
  * Every currently-open Swiss posting on this ATS resolves to Geneva (the
  * "GENEVE-WTC1" workplace code), so the canton-gated HQ fallback mirrors
@@ -385,6 +380,7 @@ async function fetchJobDetail(url) {
   }
 
   return {
+    datePosted: extractJobPostingField(html, 'datePosted'),
     country: extractField(html, 'Country'),
     city: extractField(html, 'City'),
     workplace: extractField(html, 'Workplace location'),
@@ -508,9 +504,8 @@ export async function fetchAllTotalEnergiesJobs() {
     const jobSlug = slugify(`${title} totalenergies ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(detail.contract || listing.listContract || '');
-    const postedDate =
-      parseTotalEnergiesDate(listing.listDateRaw) ||
-      new Date().toISOString().split('T')[0];
+    // The listing's jobCreationDate is not proven publication evidence.
+
 
     const job = {
       // ── Required fields ──
@@ -545,7 +540,7 @@ export async function fetchAllTotalEnergiesJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...sourcePostingDateFields(detail.datePosted),
       applyUrl: publicUrl,
       jobReqId: listing.jobReqId || null,
       hiringOrganizationName: detail.employer || listing.listEmployer || TOTALENERGIES_COMPANY_NAME,
