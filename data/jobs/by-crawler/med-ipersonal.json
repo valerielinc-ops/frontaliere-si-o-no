@@ -6,10 +6,10 @@
       "id": "med-ipersonal-d6915d5db765",
       "slug": "installatore-trice-elettrico-a-100-per-la-region-wallisellen-temporar-dauerstelle-ipersonal-ag-wallisellen",
       "slugByLocale": {
+        "de": "elektroinstallateur-100-fur-die-region-wallisellen-temporar-dauerstelle-ipersonal-ag-wallisellen",
         "it": "installatore-trice-elettrico-a-100-per-la-region-wallisellen-temporar-dauerstelle-ipersonal-ag-wallisellen",
-        "en": "elektroinstallateur-100-fur-die-region-wallisellen-temporar-amp-dauerstelle-ipersonal-ag-wallisellen",
-        "de": "elektroinstallateur-100-fur-die-region-wallisellen-temporar-amp-dauerstelle-ipersonal-ag-wallisellen",
-        "fr": "elektroinstallateur-100-fur-die-region-wallisellen-temporar-amp-dauerstelle-ipersonal-ag-wallisellen"
+        "en": "electrical-installer-100-for-the-region-wallisellen-temporary-permanent-office-ipersonal-ag-wallisellen",
+        "fr": "installation-electrique-100-pour-la-region-wallisellen-bureau-temporaire-permanent-ipersonal-ag-wallisellen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -53,6 +53,15 @@
         "it": [
           "elektroinstallateur-100-fur-die-region-wallisellen-temporar-amp-dauerstelle-ipersonal-ag-wallisellen",
           "installatore-trice-elettrico-a-100-per-la-region-wallisellen-temporar-dauerstelle-ipersonal-ag-wallisellen"
+        ],
+        "en": [
+          "elektroinstallateur-100-fur-die-region-wallisellen-temporar-amp-dauerstelle-ipersonal-ag-wallisellen"
+        ],
+        "de": [
+          "elektroinstallateur-100-fur-die-region-wallisellen-temporar-amp-dauerstelle-ipersonal-ag-wallisellen"
+        ],
+        "fr": [
+          "elektroinstallateur-100-fur-die-region-wallisellen-temporar-amp-dauerstelle-ipersonal-ag-wallisellen"
         ]
       },
       "previousSlugs": [
@@ -76,12 +85,12 @@
     },
     {
       "id": "med-ipersonal-51088c0674f3",
-      "slug": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-in-der-region-baden-temporarburo-ipersonal-ipersonal-ag-baden",
+      "slug": "plant-manager-kocherei-m-f-d-100-nella-regione-del-baden-ufficio-temporaneo-ipersonal-ipersonal-ag-baden",
       "slugByLocale": {
-        "it": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-in-der-region-baden-temporarburo-ipersonal-ipersonal-ag-baden",
-        "en": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-in-der-region-baden-temporarburo-ipersonal-ipersonal-ag-baden",
         "de": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-in-der-region-baden-temporarburo-ipersonal-ipersonal-ag-baden",
-        "fr": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-in-der-region-baden-temporarburo-ipersonal-ipersonal-ag-baden"
+        "it": "plant-manager-kocherei-m-f-d-100-nella-regione-del-baden-ufficio-temporaneo-ipersonal-ipersonal-ag-baden",
+        "en": "plant-manager-plant-manager-kocherei-m-f-d-100-100-in-the-baden-region-temporary-office-ipersonal-ipersonal-ag-baden",
+        "fr": "responsable-de-l-usine-responsable-de-l-usine-kocherei-h-f-d-100-100-dans-la-region-de-baden-bureau-temporaire-ipersonal"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -134,16 +143,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-03T09:31:00.717Z"
+      "firstSeenAt": "2026-10-03T09:31:00.717Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-in-der-region-baden-temporarburo-ipersonal-ipersonal-ag-baden"
+        ],
+        "en": [
+          "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-in-der-region-baden-temporarburo-ipersonal-ipersonal-ag-baden"
+        ],
+        "fr": [
+          "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-in-der-region-baden-temporarburo-ipersonal-ipersonal-ag-baden"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-in-der-region-baden-temporarburo-ipersonal-ipersonal-ag-baden"
+      ]
     },
     {
       "id": "med-ipersonal-26ded405465f",
       "slug": "installatore-trice-elettrico-a-100-in-der-region-niederglatt-zh-freie-stelle-ipersonal-ag-niederglatt-zh",
       "slugByLocale": {
-        "it": "installatore-trice-elettrico-a-100-in-der-region-niederglatt-zh-freie-stelle-ipersonal-ag-niederglatt-zh",
-        "en": "elektroinstallateur-100-in-der-region-niederglatt-zh-freie-stelle-ipersonal-ag-niederglatt-zh",
         "de": "elektroinstallateur-100-in-der-region-niederglatt-zh-freie-stelle-ipersonal-ag-niederglatt-zh",
-        "fr": "elektroinstallateur-100-in-der-region-niederglatt-zh-freie-stelle-ipersonal-ag-niederglatt-zh"
+        "it": "installatore-trice-elettrico-a-100-in-der-region-niederglatt-zh-freie-stelle-ipersonal-ag-niederglatt-zh",
+        "en": "electrical-installer-100-in-the-niederglatt-zh-region-vacant-position-ipersonal-ag-niederglatt-zh",
+        "fr": "installateur-electrique-100-dans-la-region-de-niederglatt-zh-poste-vacant-ipersonal-ag-niederglatt-zh"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -186,6 +209,12 @@
         "it": [
           "elektroinstallateur-100-in-der-region-niederglatt-zh-freie-stelle-ipersonal-ag-niederglatt-zh",
           "installatore-trice-elettrico-a-100-in-der-region-niederglatt-zh-freie-stelle-ipersonal-ag-niederglatt-zh"
+        ],
+        "en": [
+          "elektroinstallateur-100-in-der-region-niederglatt-zh-freie-stelle-ipersonal-ag-niederglatt-zh"
+        ],
+        "fr": [
+          "elektroinstallateur-100-in-der-region-niederglatt-zh-freie-stelle-ipersonal-ag-niederglatt-zh"
         ]
       },
       "previousSlugs": [
@@ -209,12 +238,12 @@
     },
     {
       "id": "med-ipersonal-63378579d379",
-      "slug": "installatore-trice-elettrico-a-service-region-wettswil-ipersonal-ag-wettswil",
+      "slug": "installatore-trice-elettrico-a-service-region-wettswil-ipersonal-ag-wettswil-zurich",
       "slugByLocale": {
-        "it": "installatore-trice-elettrico-a-service-region-wettswil-ipersonal-ag-wettswil",
-        "en": "elektroinstallateur-service-region-wettswil-ipersonal-ag-wettswil-zurich",
         "de": "elektroinstallateur-service-region-wettswil-ipersonal-ag-wettswil-zurich",
-        "fr": "elektroinstallateur-service-region-wettswil-ipersonal-ag-wettswil-zurich"
+        "it": "installatore-trice-elettrico-a-service-region-wettswil-ipersonal-ag-wettswil-zurich",
+        "en": "electrical-installer-service-wettswil-region-ipersonal-ag-wettswil-zurich",
+        "fr": "service-d-installation-electrique-region-de-wettswil-ipersonal-ag-wettswil-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -257,6 +286,12 @@
         "it": [
           "elektroinstallateur-service-region-wettswil-ipersonal-ag-wettswil-zurich",
           "installatore-trice-elettrico-a-service-region-wettswil-ipersonal-ag-wettswil"
+        ],
+        "en": [
+          "elektroinstallateur-service-region-wettswil-ipersonal-ag-wettswil-zurich"
+        ],
+        "fr": [
+          "elektroinstallateur-service-region-wettswil-ipersonal-ag-wettswil-zurich"
         ]
       },
       "previousSlugs": [
@@ -280,12 +315,12 @@
     },
     {
       "id": "med-ipersonal-2323d2cc8929",
-      "slug": "heizungsinstallateur-region-wattwil-ipersonal-ag-wattwil-st-gallen",
+      "slug": "installatore-di-riscaldamento-regione-di-wattwil-ipersonal-ag-wattwil-st-gallen",
       "slugByLocale": {
-        "it": "heizungsinstallateur-region-wattwil-ipersonal-ag-wattwil-st-gallen",
-        "en": "heizungsinstallateur-region-wattwil-ipersonal-ag-wattwil-st-gallen",
         "de": "heizungsinstallateur-region-wattwil-ipersonal-ag-wattwil-st-gallen",
-        "fr": "heizungsinstallateur-region-wattwil-ipersonal-ag-wattwil-st-gallen"
+        "it": "installatore-di-riscaldamento-regione-di-wattwil-ipersonal-ag-wattwil-st-gallen",
+        "en": "heating-installer-wattwil-region-ipersonal-ag-wattwil-st-gallen",
+        "fr": "installation-de-chauffage-region-de-wattwil-ipersonal-ag-wattwil-st-gallen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -338,16 +373,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-03T09:30:59.814Z"
+      "firstSeenAt": "2026-10-03T09:30:59.814Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-region-wattwil-ipersonal-ag-wattwil-st-gallen"
+        ],
+        "en": [
+          "heizungsinstallateur-region-wattwil-ipersonal-ag-wattwil-st-gallen"
+        ],
+        "fr": [
+          "heizungsinstallateur-region-wattwil-ipersonal-ag-wattwil-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-region-wattwil-ipersonal-ag-wattwil-st-gallen"
+      ]
     },
     {
       "id": "med-ipersonal-e115dfb176e0",
       "slug": "progettista-elettrico-a-100-per-la-region-au-sg-gesucht-ipersonal-ag-au-sg",
       "slugByLocale": {
-        "it": "progettista-elettrico-a-100-per-la-region-au-sg-gesucht-ipersonal-ag-au-sg",
-        "en": "elektroplaner-100-fur-die-region-au-sg-gesucht-ipersonal-ag-au-sg",
         "de": "elektroplaner-100-fur-die-region-au-sg-gesucht-ipersonal-ag-au-sg",
-        "fr": "elektroplaner-100-fur-die-region-au-sg-gesucht-ipersonal-ag-au-sg"
+        "it": "progettista-elettrico-a-100-per-la-region-au-sg-gesucht-ipersonal-ag-au-sg",
+        "en": "electrical-planner-100-fur-die-region-au-sg-gesucht-ipersonal-ag-au-sg",
+        "fr": "planificateur-trice-electrique-100-fur-die-region-au-sg-gesucht-ipersonal-ag-au-sg"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -386,18 +435,23 @@
       "featured": false,
       "postedDate": "2026-10-03",
       "applyUrl": "https://www.ipersonal.ch/jobs/elektroplaner-100-fuer-die-region-au-sg-gesucht/",
-      "previousSlugs": [
-        "elektroplaner-100-fur-die-region-au-sg-gesucht-ipersonal-ag-au-sg",
-        "progettista-elettrico-a-100-per-la-region-au-sg-gesucht-ipersonal-ag-au-sg"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "elektroplaner-100-fur-die-region-au-sg-gesucht-ipersonal-ag-au-sg",
           "progettista-elettrico-a-100-per-la-region-au-sg-gesucht-ipersonal-ag-au-sg"
+        ],
+        "en": [
+          "elektroplaner-100-fur-die-region-au-sg-gesucht-ipersonal-ag-au-sg"
+        ],
+        "fr": [
+          "elektroplaner-100-fur-die-region-au-sg-gesucht-ipersonal-ag-au-sg"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:30:59.513Z",
+      "previousSlugs": [
+        "elektroplaner-100-fur-die-region-au-sg-gesucht-ipersonal-ag-au-sg",
+        "progettista-elettrico-a-100-per-la-region-au-sg-gesucht-ipersonal-ag-au-sg"
+      ],
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -410,16 +464,17 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-03T09:30:59.513Z"
     },
     {
       "id": "med-ipersonal-3949e84cf680",
-      "slug": "risorse-umane-fachmann-region-winterthur-ipersonal-ag-winterthur",
+      "slug": "risorse-umane-fachmann-region-winterthur-ipersonal-ag-winterthur-zurich",
       "slugByLocale": {
-        "it": "risorse-umane-fachmann-region-winterthur-ipersonal-ag-winterthur",
-        "en": "hr-fachmann-region-winterthur-ipersonal-ag-winterthur-zurich",
         "de": "hr-fachmann-region-winterthur-ipersonal-ag-winterthur-zurich",
-        "fr": "ressources-humaines-fachmann-region-winterthur-ipersonal-ag-winterthur"
+        "it": "risorse-umane-fachmann-region-winterthur-ipersonal-ag-winterthur-zurich",
+        "en": "hr-specialist-winterthur-region-ipersonal-ag-winterthur-zurich",
+        "fr": "ressources-humaines-fachmann-region-winterthur-ipersonal-ag-winterthur-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -475,24 +530,31 @@
       "firstSeenAt": "2026-10-03T09:30:59.212Z",
       "previousSlugsByLocale": {
         "it": [
-          "hr-fachmann-region-winterthur-ipersonal-ag-winterthur-zurich"
+          "hr-fachmann-region-winterthur-ipersonal-ag-winterthur-zurich",
+          "risorse-umane-fachmann-region-winterthur-ipersonal-ag-winterthur"
         ],
         "fr": [
+          "hr-fachmann-region-winterthur-ipersonal-ag-winterthur-zurich",
+          "ressources-humaines-fachmann-region-winterthur-ipersonal-ag-winterthur"
+        ],
+        "en": [
           "hr-fachmann-region-winterthur-ipersonal-ag-winterthur-zurich"
         ]
       },
       "previousSlugs": [
-        "hr-fachmann-region-winterthur-ipersonal-ag-winterthur-zurich"
+        "hr-fachmann-region-winterthur-ipersonal-ag-winterthur-zurich",
+        "risorse-umane-fachmann-region-winterthur-ipersonal-ag-winterthur",
+        "ressources-humaines-fachmann-region-winterthur-ipersonal-ag-winterthur"
       ]
     },
     {
       "id": "med-ipersonal-98aa8063c4f3",
-      "slug": "anlagenfuhrer-kocherei-m-w-d-100-per-la-region-sins-freie-stelle-ipersonal-ag-sins",
+      "slug": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-per-la-region-sins-freie-stelle-ipersonal-ag-sins",
       "slugByLocale": {
-        "it": "anlagenfuhrer-kocherei-m-w-d-100-per-la-region-sins-freie-stelle-ipersonal-ag-sins",
-        "en": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-fur-die-region-sins-freie-stelle-ipersonal-ag-sins",
         "de": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-fur-die-region-sins-freie-stelle-ipersonal-ag-sins",
-        "fr": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-fur-die-region-sins-freie-stelle-ipersonal-ag-sins"
+        "it": "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-per-la-region-sins-freie-stelle-ipersonal-ag-sins",
+        "en": "plant-manager-plant-manager-cookery-m-f-d-100-100-for-the-sins-region-vacant-job-ipersonal-ag-sins",
+        "fr": "gestionnaire-d-usines-gestionnaire-d-usines-cookery-h-f-d-ipersonal-ag-sins"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -534,11 +596,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-fur-die-region-sins-freie-stelle-ipersonal-ag-sins",
+          "anlagenfuhrer-kocherei-m-w-d-100-per-la-region-sins-freie-stelle-ipersonal-ag-sins"
+        ],
+        "en": [
+          "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-fur-die-region-sins-freie-stelle-ipersonal-ag-sins"
+        ],
+        "fr": [
           "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-fur-die-region-sins-freie-stelle-ipersonal-ag-sins"
         ]
       },
       "previousSlugs": [
-        "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-fur-die-region-sins-freie-stelle-ipersonal-ag-sins"
+        "anlagenfuhrer-anlagenfuhrer-kocherei-w-m-d-100-100-fur-die-region-sins-freie-stelle-ipersonal-ag-sins",
+        "anlagenfuhrer-kocherei-m-w-d-100-per-la-region-sins-freie-stelle-ipersonal-ag-sins"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -559,10 +629,10 @@
       "id": "med-ipersonal-3facd1f7d636",
       "slug": "immobilienbewerter-100-per-la-region-uster-gesucht-jetzt-bewerben-ipersonal-ag-uster",
       "slugByLocale": {
-        "it": "immobilienbewerter-100-per-la-region-uster-gesucht-jetzt-bewerben-ipersonal-ag-uster",
-        "en": "immobilienbewerter-100-fur-die-region-uster-gesucht-jetzt-bewerben-ipersonal-ag-uster",
         "de": "immobilienbewerter-100-fur-die-region-uster-gesucht-jetzt-bewerben-ipersonal-ag-uster",
-        "fr": "immobilienbewerter-100-fur-die-region-uster-gesucht-jetzt-bewerben-ipersonal-ag-uster"
+        "it": "immobilienbewerter-100-per-la-region-uster-gesucht-jetzt-bewerben-ipersonal-ag-uster",
+        "en": "real-estate-appraiser-100-wanted-for-the-uster-region-apply-now-ipersonal-ag-uster",
+        "fr": "appreciateur-immobilier-100-recherche-pour-la-region-d-uster-postuler-maintenant-ipersonal-ag-uster"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -604,6 +674,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "immobilienbewerter-100-fur-die-region-uster-gesucht-jetzt-bewerben-ipersonal-ag-uster"
+        ],
+        "en": [
+          "immobilienbewerter-100-fur-die-region-uster-gesucht-jetzt-bewerben-ipersonal-ag-uster"
+        ],
+        "fr": [
           "immobilienbewerter-100-fur-die-region-uster-gesucht-jetzt-bewerben-ipersonal-ag-uster"
         ]
       },
@@ -689,12 +765,12 @@
     },
     {
       "id": "med-ipersonal-1dcb155a29c0",
-      "slug": "hr-fachmann-100-in-der-region-horgen-temporarburo-ipersonal-ipersonal-ag-horgen",
+      "slug": "risorse-umane-fachmann-100-in-der-region-horgen-temporarburo-ipersonal-ipersonal-ag-horgen",
       "slugByLocale": {
-        "it": "hr-fachmann-100-in-der-region-horgen-temporarburo-ipersonal-ipersonal-ag-horgen",
-        "en": "hr-fachmann-100-in-der-region-horgen-temporarburo-ipersonal-ipersonal-ag-horgen",
         "de": "hr-fachmann-100-in-der-region-horgen-temporarburo-ipersonal-ipersonal-ag-horgen",
-        "fr": "hr-fachmann-100-in-der-region-horgen-temporarburo-ipersonal-ipersonal-ag-horgen"
+        "it": "risorse-umane-fachmann-100-in-der-region-horgen-temporarburo-ipersonal-ipersonal-ag-horgen",
+        "en": "hr-specialist-100-in-the-horgen-region-temporary-office-ipersonal-ipersonal-ag-horgen",
+        "fr": "ressources-humaines-fachmann-100-in-der-region-horgen-temporarburo-ipersonal-ipersonal-ag-horgen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -747,16 +823,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-03T09:30:58.306Z"
+      "firstSeenAt": "2026-10-03T09:30:58.306Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-fachmann-100-in-der-region-horgen-temporarburo-ipersonal-ipersonal-ag-horgen"
+        ],
+        "en": [
+          "hr-fachmann-100-in-der-region-horgen-temporarburo-ipersonal-ipersonal-ag-horgen"
+        ],
+        "fr": [
+          "hr-fachmann-100-in-der-region-horgen-temporarburo-ipersonal-ipersonal-ag-horgen"
+        ]
+      },
+      "previousSlugs": [
+        "hr-fachmann-100-in-der-region-horgen-temporarburo-ipersonal-ipersonal-ag-horgen"
+      ]
     },
     {
       "id": "med-ipersonal-3548c6ec484d",
-      "slug": "fachmann-gesundheit-100-in-der-region-kerzers-freie-stelle-ipersonal-ag-kerzers",
+      "slug": "salute-professionale-100-nella-regione-kerzers-vacanza-ipersonal-ag-kerzers",
       "slugByLocale": {
-        "it": "fachmann-gesundheit-100-in-der-region-kerzers-freie-stelle-ipersonal-ag-kerzers",
-        "en": "fachmann-gesundheit-100-in-der-region-kerzers-freie-stelle-ipersonal-ag-kerzers",
         "de": "fachmann-gesundheit-100-in-der-region-kerzers-freie-stelle-ipersonal-ag-kerzers",
-        "fr": "fachmann-gesundheit-100-in-der-region-kerzers-freie-stelle-ipersonal-ag-kerzers"
+        "it": "salute-professionale-100-nella-regione-kerzers-vacanza-ipersonal-ag-kerzers",
+        "en": "professional-health-100-in-the-kerzers-region-vacancy-ipersonal-ag-kerzers",
+        "fr": "sante-professionnelle-100-dans-la-region-de-kerzers-vacance-ipersonal-ag-kerzers"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -809,7 +899,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-03T09:30:58.004Z"
+      "firstSeenAt": "2026-10-03T09:30:58.004Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmann-gesundheit-100-in-der-region-kerzers-freie-stelle-ipersonal-ag-kerzers"
+        ],
+        "en": [
+          "fachmann-gesundheit-100-in-der-region-kerzers-freie-stelle-ipersonal-ag-kerzers"
+        ],
+        "fr": [
+          "fachmann-gesundheit-100-in-der-region-kerzers-freie-stelle-ipersonal-ag-kerzers"
+        ]
+      },
+      "previousSlugs": [
+        "fachmann-gesundheit-100-in-der-region-kerzers-freie-stelle-ipersonal-ag-kerzers"
+      ]
     }
   ]
 }

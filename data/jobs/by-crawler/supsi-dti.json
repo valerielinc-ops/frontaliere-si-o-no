@@ -49,9 +49,9 @@
       },
       "slugByLocale": {
         "it": "assistente-risorse-umane-supsi-dti-manno",
-        "en": "assistente-risorse-umane-supsi-dti-manno",
-        "de": "assistente-risorse-umane-supsi-dti-manno",
-        "fr": "assistente-risorse-umane-supsi-dti-manno"
+        "en": "human-resources-assistant-supsi-dti-manno",
+        "de": "personalassistent-supsi-dti-manno",
+        "fr": "assistant-aux-ressources-humaines-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -109,14 +109,7 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "en": [
-          "human-resource-assistant-supsi-dti-manno",
-          "human-resources-assistant-supsi-dti-manno"
-        ],
-        "de": [
-          "personalassistent-supsi-dti-manno"
-        ],
-        "fr": [
-          "assistant-aux-ressources-humaines-supsi-dti-manno"
+          "human-resource-assistant-supsi-dti-manno"
         ],
         "it": [
           "assistente-risorse-umane-supsi-manno"
@@ -178,9 +171,9 @@
       },
       "slugByLocale": {
         "it": "generalista-risorse-umane-supsi-dti-lugano",
-        "en": "generalista-risorse-umane-supsi-dti-lugano",
+        "en": "generalist-human-resources-supsi-dti-lugano",
         "de": "generalista-risorse-umane-supsi-dti-lugano",
-        "fr": "generalista-risorse-umane-supsi-dti-lugano"
+        "fr": "generaliste-ressources-humaines-supsi-dti-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -239,12 +232,6 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
-        "en": [
-          "generalist-human-resources-supsi-dti-lugano"
-        ],
-        "fr": [
-          "generaliste-ressources-humaines-supsi-dti-lugano"
-        ],
         "it": [
           "generalista-risorse-umane-supsi-lugano"
         ]
@@ -301,9 +288,9 @@
       },
       "slugByLocale": {
         "it": "dottoranda-dottorando-in-informatica-human-computer-interaction-con-focus-sulla-validita-e-sull-usabilita-di-strumenti-di-annotazione-semi-a-7dvau3",
-        "en": "dottoranda-dottorando-in-informatica-human-computer-interaction-con-focus-sulla-validita-e-sull-usabilita-di-strumenti-di-annotazione-semi-a-7dvau3",
-        "de": "dottoranda-dottorando-in-informatica-human-computer-interaction-con-focus-sulla-validita-e-sull-usabilita-di-strumenti-di-annotazione-semi-a-7dvau3",
-        "fr": "dottoranda-dottorando-in-informatica-human-computer-interaction-con-focus-sulla-validita-e-sull-usabilita-di-strumenti-di-annotazione-semi-a-7dvau3"
+        "en": "phd-phd-in-computer-science-human-computer-interaction-with-focus-on-the-validity-and-usability-of-semi-automatized",
+        "de": "phd-phd-in-informatik-mensch-computer-interaktion-mit-schwerpunkt-auf-der-gultigkeit-und-nutzbarkeit-von",
+        "fr": "phd-phd-en-informatique-interaction-homme-ordinateur-avec-l-accent-sur-la-validite-et-la-facilite-d-utilisation-des"
       },
       "requirementsByLocale": {
         "it": [
@@ -343,8 +330,7 @@
           "dottoranda-dottorando-in-informatica-human-computer-interaction-con-focus-sulla-validita-e-sull-usabilita-di-strumenti-di-annotazione-semi-a"
         ],
         "en": [
-          "dottoranda-dottorando-in-informatica-human-computer-interaction-con-focus-sulla-validita-e-sull-usabilita-di-strumenti-di-annotazione-semi",
-          "phd-phd-in-computer-science-human-computer-interaction-with-focus-on-the-validity-and-usability-of-semi-automatized"
+          "dottoranda-dottorando-in-informatica-human-computer-interaction-con-focus-sulla-validita-e-sull-usabilita-di-strumenti-di-annotazione-semi"
         ],
         "de": [
           "dottoranda-dottorando-in-informatica-human-computer-interaction-con-focus-sulla-validita-e-sull-usabilita-di-strumenti-di-annotazione-semi",
@@ -358,7 +344,6 @@
       "previousSlugs": [
         "dottoranda-dottorando-in-informatica-human-computer-interaction-con-focus-sulla-validita-e-sull-usabilita-di-strumenti-di-annotazione-semi",
         "dottoranda-dottorando-in-informatica-human-computer-interaction-con-focus-sulla-validita-e-sull-usabilita-di-strumenti-di-annotazione-semi-a",
-        "phd-phd-in-computer-science-human-computer-interaction-with-focus-on-the-validity-and-usability-of-semi-automatized",
         "phd-phd-in-informatik-mensch-computer-interaktion-mit-schwerpunkt-auf-der-gultigkeit-und-nutzbarkeit-von-semi",
         "phd-phd-en-informatique-interaction-homme-informatique-avec-l-accent-sur-la-validite-et-la-facilite-d-utilisation-des"
       ],
@@ -438,7 +423,7 @@
         "it": "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-dti-manno",
         "en": "senior-researcher-in-trustworthy-artificial-intelligence-supsi-dti-manno",
         "de": "senior-researcher-fur-zuverlassige-kunstliche-intelligenz-supsi-dti-manno",
-        "fr": "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-dti-manno"
+        "fr": "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -530,14 +515,10 @@
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno"
-        ],
-        "fr": [
-          "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno",
-        "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
+        "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno"
       ],
       "needsRetranslation": true
     },
@@ -1108,9 +1089,9 @@
       },
       "slugByLocale": {
         "it": "stagista-52-settimane-supsi-dti-manno",
-        "en": "stagista-52-settimane-supsi-dti-manno",
-        "de": "stagista-52-settimane-supsi-dti-manno",
-        "fr": "stagista-52-settimane-supsi-dti-manno"
+        "en": "stagist-52-weeks-supsi-dti-manno",
+        "de": "stagist-52-wochen-supsi-dti-manno",
+        "fr": "stagiaire-52-semaines-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -1157,22 +1138,10 @@
       "previousSlugsByLocale": {
         "it": [
           "stagista-52-settimane-supsi-manno"
-        ],
-        "en": [
-          "stagist-52-weeks-supsi-dti-manno"
-        ],
-        "de": [
-          "stagist-52-wochen-supsi-dti-manno"
-        ],
-        "fr": [
-          "stagiaire-52-semaines-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "stagista-52-settimane-supsi-manno",
-        "stagist-52-weeks-supsi-dti-manno",
-        "stagist-52-wochen-supsi-dti-manno",
-        "stagiaire-52-semaines-supsi-dti-manno"
+        "stagista-52-settimane-supsi-manno"
       ],
       "crawlerMissStreak": 2
     },
@@ -1215,7 +1184,7 @@
         "it": "stage-anno-preformativo-per-l-ammissione-al-bachelor-of-science-in-sostenibilita-e-transizione-sistemica-supsi-dti-manno",
         "en": "preformative-year-for-admission-to-the-bachelor-of-science-in-sustainability-and-systemic-transition-supsi-dti-manno",
         "de": "vorjahr-fur-die-zulassung-zum-bachelor-of-science-in-sustainability-and-systemic-transition-supsi-dti-manno",
-        "fr": "stage-anno-preformativo-per-l-ammissione-al-bachelor-of-science-in-sostenibilita-e-transizione-sistemica-supsi-dti-manno"
+        "fr": "annee-preparatoire-a-l-admission-au-baccalaureat-en-sciences-en-durabilite-et-transition-systemique-supsi-dti-manno"
       },
       "titleByLocale": {
         "fr": "Année préparatoire à l'admission au baccalauréat en sciences en durabilité et transition systémique",
@@ -1283,9 +1252,6 @@
         ],
         "en": [
           "internship-position-for-the-professional-practice-year-admission-to-the-bachelor-of-science-in-sustainability-and-systemic-transition-supsi"
-        ],
-        "fr": [
-          "annee-preparatoire-a-l-admission-au-baccalaureat-en-sciences-en-durabilite-et-transition-systemique-supsi-dti-manno"
         ]
       },
       "previousSlugs": [

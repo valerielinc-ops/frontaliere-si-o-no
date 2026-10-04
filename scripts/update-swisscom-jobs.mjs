@@ -19,6 +19,7 @@
  *   7. Post-process: fix company name, location, canton
  *   8. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -445,7 +446,8 @@ export function buildSwisscomJob(listing = {}, detail = {}) {
       en: slug,
     },
     category: detectCategory(title),
-    datePosted: info.startDate || new Date().toISOString().split('T')[0],
+    ...sourcePostingDateFields(info.startDate),
+    crawledAt: new Date().toISOString(),
     source: 'swisscom-workday-crawler',
     employmentType,
     experienceLevel: detectExperienceLevel(title),

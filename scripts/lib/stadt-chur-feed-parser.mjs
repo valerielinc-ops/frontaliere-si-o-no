@@ -37,7 +37,7 @@ export function parseAtomEntries(xmlText = '') {
       link: getAttr('link', 'href') || get('link'),
       id: get('id'),
       summary: get('summary'),
-      updated: get('updated'),
+      updated: get('published'),
       category: getAttr('category', 'term'),
     });
   }

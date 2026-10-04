@@ -2559,14 +2559,10 @@
       "requirementsByLocale": {},
       "postalCode": "1196",
       "streetAddress": "Chemin de la Crétaux 33",
-      "previousSlugs": [
-        "regulatory-reporting-specialist-swissquote-gland",
-        "regulatory-reporting-specialista-swissquote-gland"
-      ],
+      "firstSeenAt": "2026-08-13T10:41:35.239Z",
       "previousSlugsByLocale": {
         "it": [
-          "regulatory-reporting-specialist-swissquote-gland",
-          "regulatory-reporting-specialista-swissquote-gland"
+          "regulatory-reporting-specialist-swissquote-gland"
         ],
         "de": [
           "regulatory-reporting-specialist-swissquote-gland"
@@ -2575,7 +2571,9 @@
           "regulatory-reporting-specialist-swissquote-gland"
         ]
       },
-      "firstSeenAt": "2026-08-13T10:41:35.239Z",
+      "previousSlugs": [
+        "regulatory-reporting-specialist-swissquote-gland"
+      ],
       "salaryMin": 69000,
       "salaryMax": 118000,
       "salarySource": "estimated",
@@ -2658,12 +2656,12 @@
     },
     {
       "id": "swissquote-180d86f6e4ff",
-      "slug": "relationship-manager-external-asset-managers-eam-swissquote-gland",
+      "slug": "gestione-delle-relazioni-gestione-delle-risorse-esterne-eam-swissquote-gland",
       "slugByLocale": {
-        "it": "relationship-manager-external-asset-managers-eam-swissquote-gland",
         "en": "relationship-manager-external-asset-managers-eam-swissquote-gland",
+        "it": "gestione-delle-relazioni-gestione-delle-risorse-esterne-eam-swissquote-gland",
         "de": "relationship-manager-external-asset-managers-eam-swissquote-gland",
-        "fr": "relationship-manager-external-asset-managers-eam-swissquote-gland"
+        "fr": "gestionnaire-de-relations-gestionnaires-d-actifs-externes-gae-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -2713,15 +2711,15 @@
         "relationship-manager-external-asset-managers-eam-swissquote-gland"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "relationship-manager-externe-asset-manager-eam-swissquote-gland",
+        "it": [
           "relationship-manager-external-asset-managers-eam-swissquote-gland"
         ],
         "fr": [
           "gestionnaire-de-relations-gestionnaires-d-actifs-externes-gae-swissquote-gland",
           "relationship-manager-external-asset-managers-eam-swissquote-gland"
         ],
-        "it": [
+        "de": [
+          "relationship-manager-externe-asset-manager-eam-swissquote-gland",
           "relationship-manager-external-asset-managers-eam-swissquote-gland"
         ]
       },
@@ -2833,7 +2831,6 @@
         "de": "We are looking for an Android Developer to join our Banking Services team to contribute to the development and evolution of modern Android applications related to Payments, Cards or Cryptocurrencies, among others.\nIn this role, you will build clean, scalable, and maintainable mobile solutions using Kotlin, Coroutines, Flows, and Jetpack Compose, following Clean Architecture principles and industry best practices.\nBeyond strong development skills, we are looking for someone who takes ownership of features end-to-end, understands the product and technical context, enjoys solving problems, and collaborates effectively with the team to continuously improve both development processes and the product itself.\n\nThe role requires a strong engineering mindset, with particular attention to code quality, maintainability, architectural consistency, and production readiness.\nKey Responsibilities :\n\n• Design, develop, test, and maintain Android applications following Clean Architecture and modern development practices.\n\n• Take end-to-end ownership of technical topics, from requirements clarification and solution design to implementation and production follow-up.\n\n• Contribute to the architecture and evolution of existing mobile systems, identifying opportunities to improve scalability, reliability, and maintainability.\n\n• Build and maintain UI components using Jetpack Compose, ensuring a consistent, performant, and accessible user experience.\n\n• Implement asynchronous logic and reactive data flows using Kotlin Coroutines and Flows.\n\n• Produce clean, well-tested code following established engineering best practices and the team's architectural guidelines.\n\n• Review code and technical solutions proposed by other engineers and provide constructive feedback.\n\n• Collaborate closely with engineers, product stakeholders and designers.\n\n• Support production releases and contribute to maintaining a high level of app stability and user experience quality.\n\n• Contribute to improving engineering practices, automated testing coverage, and technical documentation within the team.\n\n• Mentor less experienced engineers and contribute to raising the overall technical level of the team.\n\nTechnical Skills & Experience Required :\n\n• Strong professional experience in Android application development, ideally in Kotlin-based environments.\n\n• Strong proficiency in Kotlin, including Coroutines and Flows for asynchronous and reactive programming.\n\n• Strong proficiency in Jetpack Compose and the modern Android UI toolkit.\n\n• Solid understanding of Clean Architecture, separation of concerns, and common design patterns in Android.\n\n• Experience with Dependency Injection frameworks (e.g., Koin) and modular project structure.\n\n• Strong experience with Gradle.\n\n• Strong experience with automated testing, including unit tests and e2e testing.\n\n• Ability to understand and safely modify existing complex or legacy Android codebases.\n\n• Strong focus on code quality, maintainability, and long-term evolvability of the codebase.\n\n• Enthusiasm for AI adoption in the development workflow.\n\n• Fluent in English, both written and spoken\nNice to Have :\n\n• Previous experience building applications for consumer-facing, high-traffic, or business-critical mobile products.\n\n• Experience with MVVM / MVI architectures and unidirectional data flow.\n\n• Experience with Room, Retrofit, and other Jetpack libraries for data persistence and networking.\n\n• Experience with Firebase ecosystem or similar.\n\n• Knowledge of app analytics, crash reporting, and production diagnostics tools (e.g., Crashlytics).\n\n• Experience working in cross-functional, agile teams and collaborate with product stakeholders and designers.\n\n• Hands-on experience with agentic models or AI-assisted development tools.\n\n\"Please note that Swissquote never requests sensitive personal information or payment of any kind during the recruitment process. Any such request is fraudulent.”",
         "fr": "We are looking for an Android Developer to join our Banking Services team to contribute to the development and evolution of modern Android applications related to Payments, Cards or Cryptocurrencies, among others.\nIn this role, you will build clean, scalable, and maintainable mobile solutions using Kotlin, Coroutines, Flows, and Jetpack Compose, following Clean Architecture principles and industry best practices.\nBeyond strong development skills, we are looking for someone who takes ownership of features end-to-end, understands the product and technical context, enjoys solving problems, and collaborates effectively with the team to continuously improve both development processes and the product itself.\n\nThe role requires a strong engineering mindset, with particular attention to code quality, maintainability, architectural consistency, and production readiness.\nKey Responsibilities :\n\n• Design, develop, test, and maintain Android applications following Clean Architecture and modern development practices.\n\n• Take end-to-end ownership of technical topics, from requirements clarification and solution design to implementation and production follow-up.\n\n• Contribute to the architecture and evolution of existing mobile systems, identifying opportunities to improve scalability, reliability, and maintainability.\n\n• Build and maintain UI components using Jetpack Compose, ensuring a consistent, performant, and accessible user experience.\n\n• Implement asynchronous logic and reactive data flows using Kotlin Coroutines and Flows.\n\n• Produce clean, well-tested code following established engineering best practices and the team's architectural guidelines.\n\n• Review code and technical solutions proposed by other engineers and provide constructive feedback.\n\n• Collaborate closely with engineers, product stakeholders and designers.\n\n• Support production releases and contribute to maintaining a high level of app stability and user experience quality.\n\n• Contribute to improving engineering practices, automated testing coverage, and technical documentation within the team.\n\n• Mentor less experienced engineers and contribute to raising the overall technical level of the team.\n\nTechnical Skills & Experience Required :\n\n• Strong professional experience in Android application development, ideally in Kotlin-based environments.\n\n• Strong proficiency in Kotlin, including Coroutines and Flows for asynchronous and reactive programming.\n\n• Strong proficiency in Jetpack Compose and the modern Android UI toolkit.\n\n• Solid understanding of Clean Architecture, separation of concerns, and common design patterns in Android.\n\n• Experience with Dependency Injection frameworks (e.g., Koin) and modular project structure.\n\n• Strong experience with Gradle.\n\n• Strong experience with automated testing, including unit tests and e2e testing.\n\n• Ability to understand and safely modify existing complex or legacy Android codebases.\n\n• Strong focus on code quality, maintainability, and long-term evolvability of the codebase.\n\n• Enthusiasm for AI adoption in the development workflow.\n\n• Fluent in English, both written and spoken\nNice to Have :\n\n• Previous experience building applications for consumer-facing, high-traffic, or business-critical mobile products.\n\n• Experience with MVVM / MVI architectures and unidirectional data flow.\n\n• Experience with Room, Retrofit, and other Jetpack libraries for data persistence and networking.\n\n• Experience with Firebase ecosystem or similar.\n\n• Knowledge of app analytics, crash reporting, and production diagnostics tools (e.g., Crashlytics).\n\n• Experience working in cross-functional, agile teams and collaborate with product stakeholders and designers.\n\n• Hands-on experience with agentic models or AI-assisted development tools.\n\n\"Please note that Swissquote never requests sensitive personal information or payment of any kind during the recruitment process. Any such request is fraudulent.”"
       },
-      "needsRetranslation": true,
       "location": "Gland",
       "canton": "VD",
       "url": "https://jobs.smartrecruiters.com/Swissquote/744000152980529-android-software-engineer",
@@ -2858,25 +2855,19 @@
       "requirementsByLocale": {},
       "postalCode": "1196",
       "streetAddress": "Chemin de la Crétaux 33",
-      "previousSlugs": [
-        "android-software-engineer-swissquote-gland",
-        "android-software-ingegnere-swissquote-gland",
-        "android-software-ingenieur-swissquote-gland"
-      ],
+      "firstSeenAt": "2026-10-03T09:29:15.234Z",
       "previousSlugsByLocale": {
         "it": [
-          "android-software-engineer-swissquote-gland",
           "android-software-ingegnere-swissquote-gland"
         ],
         "de": [
-          "android-software-engineer-swissquote-gland",
           "android-software-ingenieur-swissquote-gland"
-        ],
-        "fr": [
-          "android-software-engineer-swissquote-gland"
         ]
       },
-      "firstSeenAt": "2026-10-03T09:29:15.234Z",
+      "previousSlugs": [
+        "android-software-ingegnere-swissquote-gland",
+        "android-software-ingenieur-swissquote-gland"
+      ],
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -2889,7 +2880,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swissquote-8a89632b4f44",

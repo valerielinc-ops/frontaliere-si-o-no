@@ -746,16 +746,16 @@ function migrateCompanyJobKeys(jobs, companyKeyResolver) {
  * (data/jobs/by-crawler/*.json) are committed and contain translated data.
  * Falling back to slices preserves translations across crawler runs.
  */
-function readExistingJobsFromSlices(scopedKeys) {
-  if (!fs.existsSync(BY_CRAWLER_DIR)) return [];
-  const files = listSliceFileNames(BY_CRAWLER_DIR);
+function readExistingJobsFromSlices(scopedKeys, sliceDir = BY_CRAWLER_DIR) {
+  if (!fs.existsSync(sliceDir)) return [];
+  const files = listSliceFileNames(sliceDir);
   const scopedKeySet = scopedKeys && scopedKeys.length > 0 ? new Set(scopedKeys) : null;
   const jobs = [];
   for (const file of files) {
     const key = file.replace(/\.json$/, '');
     // When running a scoped crawler, only load that crawler's slice
     if (scopedKeySet && !scopedKeySet.has(key)) continue;
-    const data = readJson(path.join(BY_CRAWLER_DIR, file), null);
+    const data = readJson(path.join(sliceDir, file), null);
     if (data && Array.isArray(data.jobs)) {
       jobs.push(...data.jobs);
     }
@@ -6848,6 +6848,9 @@ export const __testables = {
   crawlWorkdayJobs,
   buildCompanyKeyResolver,
   migrateCompanyJobKeys,
+  // The committed slice is what a run starts from when the scratch dataset is
+  // absent (every CI run), including the run after a failed one.
+  readExistingJobsFromSlices,
   pruneStaleCrawlerJobs,
   getCompanyAdapter,
   absoluteLinks,

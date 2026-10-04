@@ -547,3 +547,20 @@ describe('buildSmnClinicDescriptionFields (the posting text, never a substitute 
     expect(JSON.stringify(fields)).not.toMatch(/Poste ouvert|Offene Stelle|Posizione aperta|premier groupe hospitalier/);
   });
 });
+
+
+describe('SMN clinic publication evidence', () => {
+  it('uses raw public releasedDate, never normalized creation time or crawl time', async () => {
+    const publication = new Date(Date.now() - 5 * 86400000).toISOString();
+    const future = new Date(Date.now() + 86400000).toISOString();
+    const parser = createSmnClinicParser({ companyKey: 'test-clinic', companyName: 'Hôpital de Moutier', clinicCode: 'MOU', defaultCanton: 'JU', defaultCity: 'Moutier', defaultPostalCode: '2740' });
+    for (const releasedDate of [publication, '', 'invalid', future]) {
+      const raw = posting({ releasedDate, createdOn: publication, jobAd: { sections: { jobDescription: { text: '<p>Source vacancy description.</p>' } } } });
+      vi.stubGlobal('fetch', vi.fn(async (url) => new Response(JSON.stringify(String(url).includes('/postings?') ? { totalFound: 1, content: [raw] } : raw), { headers: { 'content-type': 'application/json' } })));
+      const result = await parser.fetchAllJobs();
+      expect(result.jobs[0]).toMatchObject(releasedDate === publication
+        ? { datePosted: publication, postedDate: publication, postingDateSource: 'reported' }
+        : { datePosted: '', postedDate: '', postingDateSource: 'unknown' });
+    }
+  });
+});
