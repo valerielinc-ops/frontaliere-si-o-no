@@ -22,8 +22,9 @@
  * bucket del 21-22-09 e 02-10, 4 file coniati nel bucket del sito e assenti
  * dal sito):
  *   - `closed-state-bullet`: l'`Original text` e' un bullet che
- *     `isCandidateItem()` dichiara gia' chiuso (`per scelta`, «falso
- *     positivo», `in questa PR`…). Non legge file.
+ *     `nonCandidateVerdict()` dichiara gia' chiuso (`per scelta`, «falso
+ *     positivo», `in questa PR`…); un semplice match lessicale
+ *     (`hard-exclude`) non basta. Non legge file.
  *   - `target-file-missing`: il `Target file` non esiste nel repository del
  *     bucket; prima si prova il nome che il manifest di mirror gli da' QUI
  *     (riscrittura del solo campo), e il manifest dice se va coniato nel
@@ -44,8 +45,7 @@ import {
   normalizeAcceptanceToken,
   schedaCommand,
 } from '../followup-resolution-match.mjs';
-import { isCandidateItem } from '../followup-has-candidates.mjs';
-import { mirrorRoute } from '../followup-candidate-bullets.mjs';
+import { mirrorRoute, nonCandidateVerdict } from '../followup-candidate-bullets.mjs';
 
 /** Interruttore della demozione degli item nati soddisfatti. Spento: solo misura. */
 export const DEMOTE_BORN_SATISFIED = false;
@@ -243,21 +243,27 @@ export function originalTextOf(itemText) {
 }
 
 /**
- * Il bullet da cui l'item nasce e' gia' chiuso? Stesso oracolo del no-op gate
- * (`isCandidateItem()`, solo importato): un bullet non candidato (`per scelta`
- * o «falso positivo» motivati, `by construction`, `in questa PR`, `PR
- * concatenata #N`, hard-exclude) non e' lavoro residuo. Non legge file. Senza
- * `Original text` non c'e' niente da giudicare → `false`.
+ * Il bullet da cui l'item nasce e' gia' chiuso? Stesso oracolo del bundle del
+ * triage (`nonCandidateVerdict()`, sopra `isCandidateItem()`): demota solo i
+ * VERDETTI (`closing-state`: `per scelta` o «falso positivo» motivati, `by
+ * construction`, `in questa PR`, `PR concatenata #N`; `empty`: «Nessuno»).
+ * `hard-exclude` e' un match lessicale («post-deploy», «deferred», «add a
+ * test»…), sicuro solo come gate aggregato: bullet per bullet resta un indizio
+ * e l'item coniato dal triage resta ammesso. Non legge file. Senza `Original
+ * text` non c'e' niente da giudicare → `false`.
  */
 export function closedStateBullet(item) {
   const original = originalTextOf(typeof item === 'string' ? item : item?.text);
-  return Boolean(original) && !isCandidateItem(original);
+  if (!original) return false;
+  const verdict = nonCandidateVerdict(original);
+  return verdict === 'closing-state' || verdict === 'empty';
 }
 
 // ── Il bersaglio: esiste nel repository del bucket? ─────────────────
 
 const ARTICLES_PACKAGE_PREFIX = 'packages/articles/';
 const SAFE_TARGET_RE = /^[\w@()[\]+.-]+(?:\/[\w@()[\]+.-]+)*\/?$/u;
+const PLACEHOLDER_TARGET_RE = /^(?:n\/?a|none|nessuno|tbd|-+)$/iu;
 const isWorkflowPath = (path) => /^\.github\/(?:workflows|corpus-workflows)\//u.test(path);
 
 /** Il nome del motore articoli sull'altro lato (`engine/x` ↔ `packages/articles/engine/x`). */
@@ -289,7 +295,12 @@ const statusAsBoolean = (status) => (status === 'present' ? true : status === 'm
  */
 export function targetResolves(item, io, { side, manifestFiles, twinIo } = {}) {
   const target = normalizeRepoPath(item?.targetFile);
-  if (!target || !SAFE_TARGET_RE.test(target) || target.split('/').includes('..')) return { status: 'ok', target };
+  // Niente da controllare: vuoto, non un path, oppure un segnaposto (`n/a`,
+  // `none`, `-`, una parola senza directory ne' estensione).
+  if (!target || !SAFE_TARGET_RE.test(target) || target.split('/').includes('..')
+    || PLACEHOLDER_TARGET_RE.test(target) || (!target.includes('/') && !target.includes('.'))) {
+    return { status: 'ok', target };
+  }
   const files = () => (typeof manifestFiles === 'function' ? manifestFiles() : manifestFiles);
   const here = pathStatus(io, target);
   if (here === 'present') {
@@ -300,9 +311,9 @@ export function targetResolves(item, io, { side, manifestFiles, twinIo } = {}) {
   }
   if (here !== 'missing') return { status: 'unknown', target };
   const command = schedaCommand(String(item?.text ?? ''));
-  const futureOrMissing = () => (command && command.replace(/`/gu, '').split(/\s+/u).includes(target)
-    ? { status: 'ok', target, future: true }
-    : { status: 'missing', target });
+  const named = Boolean(command) && command.replace(/[`'"]/gu, '').split(/\s+/u)
+    .some((token) => normalizeRepoPath(token) === target);
+  const futureOrMissing = () => (named ? { status: 'ok', target, future: true } : { status: 'missing', target });
 
   const alias = engineAlias(target, side);
   if (alias) {
@@ -318,6 +329,8 @@ export function targetResolves(item, io, { side, manifestFiles, twinIo } = {}) {
     existsHere: (path) => statusAsBoolean(pathStatus(io, path)),
     existsTwin: (path) => statusAsBoolean(pathStatus(twinIo, path)),
   });
+  // Port pendente verso il sito: il file va CREATO qui, l'item ne e' il referente futuro.
+  if (route.why === 'manifest:corpus-only-pending' && route.repo === side) return { status: 'ok', target, future: true };
   if (route.repo === side && route.targetPath && route.targetPath !== target) {
     if (isWorkflowPath(target) || isWorkflowPath(route.targetPath)) return { status: 'missing', target };
     const status = pathStatus(io, route.targetPath);
@@ -348,7 +361,7 @@ export function rewriteTargetFileField(text, path) {
       fence = mark;
       return line;
     }
-    const field = /^(-\s+Target file\s*:\s*)\S.*$/iu.exec(line);
+    const field = /^(\s*-\s+Target file\s*:\s*)\S.*$/iu.exec(line);
     if (!field) return line;
     done = true;
     return `${field[1]}\`${path}\``;

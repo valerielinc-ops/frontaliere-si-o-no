@@ -105,14 +105,10 @@ import {
   mintAdmission,
 } from './lib/followup-mint-admission.mjs';
 import { inertCommentText, itemBornSatisfiedMarker, parseItemMarkers } from './lib/followup-item-evidence.mjs';
-import { fetchManifestFiles } from './followup-candidate-bullets.mjs';
+import { DEFAULT_REPOS as DEFAULT_FOLLOWUP_REPOS, fetchManifestFiles } from './followup-candidate-bullets.mjs';
 import { isTrustedAuthor } from './route-already-fixed.mjs';
 
 const TRIAGE_MARKER_PREFIX = '## Post-merge follow-up triage';
-const DEFAULT_FOLLOWUP_REPOS = Object.freeze({
-  site: 'valerielinc-ops/frontaliere-si-o-no',
-  corpus: 'nanakokyobashi-rgb/frontaliere-articles',
-});
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const MAX_AGE_MIN = intFromEnv('GATE_MAX_AGE_MIN', 240);
@@ -1420,6 +1416,15 @@ export function targetNoteLines(admissions, rewritten = []) {
   return lines;
 }
 
+/**
+ * Il blocco `Bersagli:` del commento sul bucket, dalla decisione CORRENTE: se
+ * il corpo cambia dopo la lista la decisione si ricalcola, e le note con lei.
+ */
+function targetNotesBlock(decision) {
+  const notes = targetNoteLines(decision?.admissions, decision?.rewritten);
+  return notes.length ? `\n\nBersagli:\n${notes.join('\n')}` : '';
+}
+
 function inertCodeSpanText(value) {
   return `\`${inertCodeSpan(String(value ?? '').replace(/`/g, ''))}\``;
 }
@@ -1629,8 +1634,6 @@ function main() {
           if (!entry.observed.includes(MINT_OBSERVATIONS.bornSatisfied)) continue;
           console.log(`::warning::conio: ${entry.id} nasce con il token già vero (${workflowCommandText(entry.token || 'token da Suggested action')})`);
         }
-        const targetNotes = targetNoteLines(d.admissions, d.rewritten);
-        const targetNotesText = targetNotes.length ? `\n\nBersagli:\n${targetNotes.join('\n')}` : '';
         if (d.action === 'skip' || d.action === 'keep') {
           // Sealing and label mutation are separate GitHub writes. If the label
           // call failed after a successful body edit, a later retry sees `keep`
@@ -1687,7 +1690,7 @@ function main() {
               + (queueBlockReason(iss) === 'labels non verificabili' ? 'labels non verificabili' : `${queueBlockReason(iss)} è presente`)
               + ': nessuna nuova coda automatica.';
           gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
-            MINT_GATE_MARKER + '\n' + queueMessage + targetNotesText], { allowFail: true });
+            MINT_GATE_MARKER + '\n' + queueMessage + targetNotesBlock(d)], { allowFail: true });
           if (queueEligible) addQueueLabelIfEligible({
             ...iss,
             title: newTitle === null ? iss.title : newTitle,
@@ -1817,7 +1820,7 @@ function main() {
             continue;
           }
           gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
-            `${why}\n\nRimoss${d.demoted.length === 1 ? 'o' : 'i'} dal corpo; ${d.valid.length} item valid${d.valid.length === 1 ? 'o' : 'i'} rest${d.valid.length === 1 ? 'a' : 'ano'}.${targetNotesText}`],
+            `${why}\n\nRimoss${d.demoted.length === 1 ? 'o' : 'i'} dal corpo; ${d.valid.length} item valid${d.valid.length === 1 ? 'o' : 'i'} rest${d.valid.length === 1 ? 'a' : 'ano'}.${targetNotesBlock(d)}`],
             { allowFail: true });
           if (daily && bucketState(d.body) === 'sealed' && selectFirstOpenItem(d.body)) {
             const queueEligible = canMintQueueLabel(iss);

@@ -255,6 +255,18 @@ describe('ammissione al conio — bullet già chiusi e bersagli', () => {
     expect(mintAdmission(item, fakeIo({})).admit).toBe(true);
   });
 
+  it('un match lessicale hard-exclude («post-deploy», «deferred», «missing test») non è un bullet chiuso', () => {
+    for (const original of [
+      '🟡 the deferred import in scripts/x.mjs swallows errors',
+      'post-deploy: anche fixX() in scripts/x.mjs va corretto',
+      'missing test: il test tests/a.test.ts usa una data assoluta, da correggere',
+    ]) {
+      const item = minted(original);
+      expect(closedStateBullet(item)).toBe(false);
+      expect(mintAdmission(item, fakeIo({})).admit).toBe(true);
+    }
+  });
+
   it('Original text in linea e in un fence si legge come quello citato', () => {
     const closed = 'scripts/x.mjs — falso positivo: legge solo. **Motivo:** non tocca X. **Prossimo passo:** nessuna modifica.';
     expect(originalTextOf(`- Original text: > ${closed}\n- Suggested action: x`)).toBe(closed);
@@ -337,6 +349,36 @@ describe('ammissione al conio — bullet già chiusi e bersagli', () => {
       ['- METRICA: prima=0 atteso=1 | COMANDO: npx vitest run tests/new-guard.test.ts']);
     expect(verdict.admit).toBe(true);
     expect(admit('tests/new-guard.test.ts', context({})).admit).toBe(false);
+  });
+
+  it('COMANDO con ./ o ancora di riga nomina comunque il referente futuro', () => {
+    expect(admit('tests/new-guard.test.ts', context({}),
+      ['- METRICA: prima=0 atteso=1 | COMANDO: `npx vitest run ./tests/new-guard.test.ts`']).admit).toBe(true);
+  });
+
+  it('segnaposto senza path (n/a) e port corpus-only-pending verso il sito → nessuna demozione', () => {
+    expect(admit('n/a', context({})).admit).toBe(true);
+    const pending = [{ path: 'scripts/lib/ported.mjs', mode: 'corpus-only-pending' }];
+    const verdict = admit('scripts/lib/ported.mjs', context({}, { 'scripts/lib/ported.mjs': 'x' }, pending));
+    expect(verdict.admit).toBe(true);
+    expect(verdict.demotion).toBeUndefined();
+  });
+
+  it('il campo Target file indentato viene riscritto davvero, non solo annunciato', () => {
+    const item = parsed([
+      `### FU-${DAY}-005 — Bersaglio indentato`,
+      '- State: open',
+      '- Sources: PR #9508',
+      '  - Target file: `host/batchWrite.ts`',
+      '- Suggested action: aggiungi `firstGuard()` in `host/batchWrite.ts`',
+      '- Acceptance token: `firstGuard()`',
+      '',
+    ].join('\n'));
+    const { io, ...target } = context({ 'build-plugins/batchWrite.ts': 'x' });
+    const verdict = mintAdmission(item, io, { target });
+    expect(verdict.observed).toContain(MINT_OBSERVATIONS.targetRewritten);
+    expect(verdict.item?.text).toContain('  - Target file: `build-plugins/batchWrite.ts`');
+    expect(verdict.item?.text).not.toContain('Target file: `host/batchWrite.ts`');
   });
 
   it('bucket del corpus su un file identical → nessuna demozione, target-identical-in-corpus', () => {
