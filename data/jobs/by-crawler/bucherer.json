@@ -395,10 +395,10 @@
       "companyDomain": "bucherer.com",
       "title": "Client Advisor Horlogerie 100% (m/f/d) - Genève",
       "titleByLocale": {
+        "fr": "Client Conseiller Horlogerie 100% (m/f/d) - Genève",
+        "en": "Client Advisor Watches 100% (m/f/d) Geneva",
         "it": "Client Consulente Horlogerie 100% (m/f/d) - Genève",
-        "en": "Client Advisor Horlogerie 100% (m/f/d) - Genève",
-        "de": "Client Berater Horlogerie 100% (m/f/d) - Genève",
-        "fr": "Client Conseiller Horlogerie 100% (m/f/d) - Genève"
+        "de": "Client Berater Horlogerie 100% (m/f/d) - Genève"
       },
       "description": "Votre rôle au sein de notre maison:\n\n• Vous accueillez et conseillez notre clientèle suisse et internationale exigeante lors de l'achat de montres de marque, ainsi que de bijoux et pierres précieuses, vous offrez un service premium.\n• Vous construisez, développez et fidélisez notre clientèle.\n• Vous êtes ambassadeur/-rice d'une marque, vous analysez et gérez les quantités et assurez une présentation valorisant le produit.\n• Vous gérez les données au moyen du système de gestion Salesforce, vous assurez leur qualité.\n• Vous prenez en charge des tâches administratives inhérentes à la vente, tels que les emails, la gestion du service après-vente, l’inventaire, le transfert et la réception de marchandises.\n• Vous assurez un flux d'information impeccable entre collègues et les soutenez activement.\n• Vous vous tenez au courant des tendances et vous suivez des formations pour rester à la pointe des disciplines clés de votre métier.\n\nVotre profil:\n\n• Vous êtes un/-e passionné/-e de l'horlogerie et vous avez une affinité pour la joaillerie.\n• Vous avez plusieurs années d'expérience dans la vente de produits horlogers, dans des services haut de gamme ou dans l'hôtellerie de luxe.\n• Vous possédez un sens aigu du service et une orientation clients exemplaires.\n• Vous avez idéalement accompli une formation en tant que Gestionnaire du commerce de détail (CFC) dans le domaine du conseil de vente en joaillerie/bijouterie et en horlogerie.\n• Votre langue maternelle est le français, vous avez une excellente maîtrise de l'anglais, toute langue additionnelle serait un atout.\n• Vous avez de la facilité avec la gestion des systèmes informatiques.\n• Vous vous démarquez par votre rigueur professionnelle et le sens du détail qui fait la différence pour notre clientèle.\n• Vous possédez un sens des responsabilités prononcé, un excellent esprit d'équipe et êtes flexible.\n• Votre apparence est soignée et professionnelle.",
       "descriptionByLocale": {
@@ -431,8 +431,6 @@
       "jobReqId": 197,
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:15:30.476Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -445,7 +443,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-03T09:15:30.476Z",
+      "needsRetranslation": true
     },
     {
       "id": "bucherer-fe46e97e779b",

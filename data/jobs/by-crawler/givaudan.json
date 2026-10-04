@@ -101,7 +101,7 @@
       "title": "Project Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Project Ingegnere (m/w/d)",
-        "en": "Project Engineer (m/w/d)",
+        "en": "Project Engineer (m/f/d)",
         "de": "Project Ingenieur (m/w/d)",
         "fr": "Project Ingénieur (m/w/d)"
       },
@@ -147,7 +147,6 @@
           "project-engineer-m-w-d-givaudan-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:30:34.096Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -161,7 +160,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "givaudan-b63c3a595a48",
