@@ -1,3 +1,5 @@
+import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 /**
  * healthFacilitiesJobsAggregate.ts — build-time live aggregator for the
  * health-facilities hub (epic #4455 / sub #4457).
@@ -44,6 +46,8 @@ interface JobRecord {
   salaryMax?: number | null;
   salarySource?: string;
   currency?: string;
+  postingDateSource?: string;
+  datePosted?: string;
   postedDate?: string;
   firstSeenAt?: string;
   crawledAt?: string;
@@ -76,6 +80,7 @@ export interface FacilityFeaturedJob {
   readonly salaryMax: number | null;
   readonly salarySource: string | null;
   readonly currency: string | null;
+  readonly postingDateSource?: string;
   readonly postedDate: string | null;
   readonly datePosted: string | null;
   readonly validThrough: string | null;
@@ -107,8 +112,8 @@ let _cacheRootDir: string | null = null;
 
 function toFeatured(job: JobRecord, now: number): FacilityFeaturedJob | null {
   if (!job.id || !job.title || !job.slug) return null;
-  const postedDate = firstParsableDateStr(job.postedDate, job.firstSeenAt);
-  const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
+  const postedDate = resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)) || '';
+  const ts = firstParsableMs(postedDate);
   const daysAgo = ts ? Math.max(0, Math.round((now - ts) / DAY_MS)) : 9999;
   return {
     id: job.id,
@@ -129,8 +134,9 @@ function toFeatured(job: JobRecord, now: number): FacilityFeaturedJob | null {
     salaryMax: typeof job.salaryMax === 'number' ? job.salaryMax : null,
     salarySource: job.salarySource ?? null,
     currency: job.currency ?? null,
+    postingDateSource: job.postingDateSource ?? undefined,
+    datePosted: resolveReportedPostingDate(job, new Date(now)),
     postedDate,
-    datePosted: postedDate,
     validThrough: job.validThrough ?? null,
     crawledAt: job.crawledAt ?? null,
     daysAgo,

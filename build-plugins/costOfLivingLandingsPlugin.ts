@@ -184,6 +184,8 @@ export function renderFeaturedJobs(
       salaryMax: j.salaryMax,
       salarySource: j.salarySource,
       currency: j.currency,
+      postingDateSource: j.postingDateSource,
+      datePosted: j.datePosted ?? undefined,
       postedDate: j.postedDate,
       url: j.url ?? undefined,
     } satisfies JobCardJob,
