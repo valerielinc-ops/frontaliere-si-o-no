@@ -315,6 +315,33 @@ dataset dà popolazione, distanza su strada e valico più vicino, e il blocco de
 confronto le espone già tutte e tre. Alzare quella coorte vuol dire trovare un
 fatto per-comune che oggi non abbiamo, non riscrivere quello che c'è.
 
+## #11432 — Fiscale: il profilo relazionale del comune
+
+La coorte italiana `it:/tasse-frontalieri-comune/~79b3fa` partiva da circa
+**9,0 %**: la tabella mostrava aliquota, distanza, affitto e popolazione, ma la
+maschera dei numeri trasformava quei valori in `#` e il testo normativo era
+condiviso. La causa era quindi la stessa classe di mail-merge rilevata da
+#5002, non un problema del dataset o del calcolo fiscale.
+
+La pagina mantiene il confronto geografico locale e ora aggiunge fatti
+relazionali calcolati sui dati già pubblicati: posizione tra tutti i comuni
+above-floor per popolazione, distanza dal confine e affitto indicativo,
+posizione sull'addizionale solo per i comuni che la applicano, e i comuni della
+stessa provincia con popolazione più vicina. I pari merito non vengono ordinati
+come se fossero diversi: `rankPeerRows` usa il confronto stretto e lo slug solo
+come tie-break deterministico. Il regime senza addizionale della Valle d'Aosta
+resta escluso dalla classifica fiscale, come già richiede
+`services/irpefAddizionaleRegime.ts`.
+
+La misura pre-merge sul renderer italiano, con tutte le 69 pagine above-floor,
+porta la coorte target a **40,35 % su 47 pagine**, con **0 pagine a gain zero**.
+Le altre due coorti strutturali misurano 39,66 % su 16 pagine e 45,37 % su 4
+pagine. L'osservatore in `tests/information-gain-families-floor.test.ts` pinna
+il target della issue a 40 % senza modificare il floor generale del gate. Il
+comando live ufficiale resta
+`node scripts/ci/information-gain-live-scan.mjs --per-family=12` e va
+ricontrollato dopo il deploy.
+
 ## #6444 — Francia: il confronto numerico diventa prosa nominata
 
 La ricorrenza di `it:/vivere-in-francia-lavorare-in-svizzera/` partiva da una
@@ -711,3 +738,8 @@ aggiungere una sezione uguale su tutte le pagine.
 - **Esperienze dirette, interviste, commenti di esperti.** La issue le chiede e
   restano da raccogliere: non sono generabili, e generarle sarebbe fabbricare
   testimonianze. Nessuno script in questo repo può chiuderle.
+pagine. L'osservatore in `tests/information-gain-families-floor.test.ts` pinna
+il target della issue a 40 % senza modificare il floor generale del gate. Il
+comando live ufficiale resta
+`node scripts/ci/information-gain-live-scan.mjs --per-family=12` e va
+ricontrollato dopo il deploy.

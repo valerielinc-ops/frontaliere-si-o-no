@@ -213,6 +213,12 @@ interface Copy {
   rentMetric: string;
   populationMetric: string;
   distanceMetric: string;
+  noPeer: string;
+  profilePopulation: (rank: number, total: number, value: string, ahead: string, behind: string) => string;
+  profileDistance: (rank: number, total: number, value: string, ahead: string, behind: string) => string;
+  profileRent: (rank: number, total: number, value: string, ahead: string, behind: string) => string;
+  profileTax: (rank: number, total: number, value: string, ahead: string, behind: string) => string;
+  profileProvince: (province: string, peers: string) => string;
   /** Computed euro delta against the cheapest / dearest comune of the group. */
   deltaVsCheapest: (other: string, amount: string) => string;
   deltaIsCheapest: (other: string, amount: string) => string;
@@ -276,6 +282,17 @@ const COPY: Record<FiscalLocale, Copy> = {
     rentMetric: "l'affitto mensile indicativo",
     populationMetric: 'la popolazione',
     distanceMetric: 'la distanza dal confine',
+    noPeer: 'nessun comune',
+    profilePopulation: (rank, total, value, ahead, behind) =>
+      `Per popolazione, questo comune è al posto ${rank} su ${total} con ${value} abitanti; subito sopra: ${ahead}; subito sotto: ${behind}.`,
+    profileDistance: (rank, total, value, ahead, behind) =>
+      `Per distanza dal confine, questo comune è al posto ${rank} su ${total} con ${value}; subito sopra: ${ahead}; subito sotto: ${behind}.`,
+    profileRent: (rank, total, value, ahead, behind) =>
+      `Per affitto mensile indicativo, questo comune è al posto ${rank} su ${total} con ${value}; subito sopra: ${ahead}; subito sotto: ${behind}.`,
+    profileTax: (rank, total, value, ahead, behind) =>
+      `Per addizionale comunale, questo comune è al posto ${rank} su ${total} con ${value}; subito sopra: ${ahead}; subito sotto: ${behind}.`,
+    profileProvince: (province, peers) =>
+      `Nella provincia ${province}, i comuni con popolazione più simile sopra la soglia sono ${peers}.`,
     deltaVsCheapest: (other, amount) =>
       `Nel nuovo regime, a parità di profilo, la differenza di addizionale rispetto a ${other} — il più basso del gruppo — vale circa ${amount} di netto all'anno.`,
     deltaIsCheapest: (other, amount) =>
@@ -344,6 +361,17 @@ const COPY: Record<FiscalLocale, Copy> = {
     rentMetric: 'indicative monthly rent',
     populationMetric: 'population',
     distanceMetric: 'distance to the border',
+    noPeer: 'no town',
+    profilePopulation: (rank, total, value, ahead, behind) =>
+      `By population, this town ranks ${rank} of ${total} with ${value} residents; immediately above: ${ahead}; immediately below: ${behind}.`,
+    profileDistance: (rank, total, value, ahead, behind) =>
+      `By distance to the border, this town ranks ${rank} of ${total} at ${value}; immediately above: ${ahead}; immediately below: ${behind}.`,
+    profileRent: (rank, total, value, ahead, behind) =>
+      `By indicative monthly rent, this town ranks ${rank} of ${total} at ${value}; immediately above: ${ahead}; immediately below: ${behind}.`,
+    profileTax: (rank, total, value, ahead, behind) =>
+      `By municipal surcharge, this town ranks ${rank} of ${total} at ${value}; immediately above: ${ahead}; immediately below: ${behind}.`,
+    profileProvince: (province, peers) =>
+      `In province ${province}, the towns with the closest population above the floor are ${peers}.`,
     deltaVsCheapest: (other, amount) =>
       `Under the new regime, same profile, the surcharge gap against ${other} — the lowest in the group — is worth about ${amount} of net pay a year.`,
     deltaIsCheapest: (other, amount) =>
@@ -412,6 +440,17 @@ const COPY: Record<FiscalLocale, Copy> = {
     rentMetric: 'die Richtmiete pro Monat',
     populationMetric: 'die Einwohnerzahl',
     distanceMetric: 'die Entfernung zur Grenze',
+    noPeer: 'keine Gemeinde',
+    profilePopulation: (rank, total, value, ahead, behind) =>
+      `Nach Einwohnerzahl liegt diese Gemeinde auf Rang ${rank} von ${total} (${value} Einwohner); direkt davor: ${ahead}; direkt dahinter: ${behind}.`,
+    profileDistance: (rank, total, value, ahead, behind) =>
+      `Nach Entfernung zur Grenze liegt diese Gemeinde auf Rang ${rank} von ${total} (${value}); direkt davor: ${ahead}; direkt dahinter: ${behind}.`,
+    profileRent: (rank, total, value, ahead, behind) =>
+      `Nach Richtmiete pro Monat liegt diese Gemeinde auf Rang ${rank} von ${total} (${value}); direkt davor: ${ahead}; direkt dahinter: ${behind}.`,
+    profileTax: (rank, total, value, ahead, behind) =>
+      `Nach Gemeindezuschlag liegt diese Gemeinde auf Rang ${rank} von ${total} (${value}); direkt davor: ${ahead}; direkt dahinter: ${behind}.`,
+    profileProvince: (province, peers) =>
+      `In der Provinz ${province} liegen diese Gemeinden bei der Einwohnerzahl am nächsten über der Schwelle: ${peers}.`,
     deltaVsCheapest: (other, amount) =>
       `Im neuen Regime, gleiches Profil, entspricht der Zuschlagsunterschied zu ${other} — dem niedrigsten der Gruppe — rund ${amount} Netto pro Jahr.`,
     deltaIsCheapest: (other, amount) =>
@@ -480,6 +519,17 @@ const COPY: Record<FiscalLocale, Copy> = {
     rentMetric: 'le loyer mensuel indicatif',
     populationMetric: 'la population',
     distanceMetric: 'la distance de la frontière',
+    noPeer: 'aucune commune',
+    profilePopulation: (rank, total, value, ahead, behind) =>
+      `Par population, cette commune est ${rank}e sur ${total} avec ${value} habitants ; juste devant : ${ahead} ; juste derrière : ${behind}.`,
+    profileDistance: (rank, total, value, ahead, behind) =>
+      `Par distance de la frontière, cette commune est ${rank}e sur ${total} avec ${value} ; juste devant : ${ahead} ; juste derrière : ${behind}.`,
+    profileRent: (rank, total, value, ahead, behind) =>
+      `Par loyer mensuel indicatif, cette commune est ${rank}e sur ${total} avec ${value} ; juste devant : ${ahead} ; juste derrière : ${behind}.`,
+    profileTax: (rank, total, value, ahead, behind) =>
+      `Par surtaxe communale, cette commune est ${rank}e sur ${total} avec ${value} ; juste devant : ${ahead} ; juste derrière : ${behind}.`,
+    profileProvince: (province, peers) =>
+      `Dans la province ${province}, les communes dont la population est la plus proche au-dessus du seuil sont ${peers}.`,
     deltaVsCheapest: (other, amount) =>
       `Sous le nouveau régime, à profil égal, l'écart de surtaxe avec ${other} — la plus basse du groupe — vaut environ ${amount} de net par an.`,
     deltaIsCheapest: (other, amount) =>
@@ -558,6 +608,147 @@ function breadcrumbLd(locale: FiscalLocale, name: string, canonicalUrl: string):
   });
 }
 
+const FISCAL_POPULATION_RANK = [...FISCAL_ABOVE_FLOOR].sort(
+  (a, b) => b.population - a.population || a.slug.localeCompare(b.slug),
+);
+const FISCAL_DISTANCE_RANK = [...FISCAL_ABOVE_FLOOR].sort(
+  (a, b) => a.distanceKm - b.distanceKm || a.slug.localeCompare(b.slug),
+);
+const FISCAL_RENT_RANK = [...FISCAL_ABOVE_FLOOR].sort(
+  (a, b) => a.avgRentMonthly - b.avgRentMonthly || a.slug.localeCompare(b.slug),
+);
+const FISCAL_TAX_RANK = FISCAL_ABOVE_FLOOR.filter(leviesIrpefAddizionale).sort(
+  (a, b) => a.irpefAddizionale - b.irpefAddizionale || a.slug.localeCompare(b.slug),
+);
+
+const FISCAL_BY_PROVINCE: ReadonlyMap<string, readonly FiscalMunicipality[]> = (() => {
+  const groups = new Map<string, FiscalMunicipality[]>();
+  for (const municipality of FISCAL_ABOVE_FLOOR) {
+    const group = groups.get(municipality.province);
+    if (group) group.push(municipality);
+    else groups.set(municipality.province, [municipality]);
+  }
+  return groups;
+})();
+
+interface FiscalRankDetails {
+  rank: number;
+  total: number;
+  value: string;
+  ahead: string[];
+  behind: string[];
+}
+
+function fiscalRankDetails(
+  rows: readonly FiscalMunicipality[],
+  current: FiscalMunicipality,
+  valueOf: (municipality: FiscalMunicipality) => number,
+  higherIsBetter: boolean,
+  formatValue: (value: number) => string,
+): FiscalRankDetails {
+  const ranked = rankPeerRows(
+    rows.map((municipality) => ({
+      key: municipality.slug,
+      name: municipality.name,
+      value: valueOf(municipality),
+    })),
+    higherIsBetter,
+  );
+  const currentRow = ranked.find((row) => row.key === current.slug);
+  if (!currentRow) {
+    throw new Error(`Fiscal ranking is missing the current municipality: ${current.slug}`);
+  }
+  const isAhead = (value: number): boolean => (higherIsBetter ? value > currentRow.value : value < currentRow.value);
+  const isBehind = (value: number): boolean => (higherIsBetter ? value < currentRow.value : value > currentRow.value);
+  return {
+    rank: currentRow.rank,
+    total: ranked.length,
+    value: formatValue(currentRow.value),
+    ahead: ranked
+      .filter((row) => row.key !== current.slug && isAhead(row.value))
+      .slice(-2)
+      .map((row) => row.name),
+    behind: ranked
+      .filter((row) => row.key !== current.slug && isBehind(row.value))
+      .slice(0, 2)
+      .map((row) => row.name),
+  };
+}
+
+function joinFiscalNames(names: readonly string[], locale: FiscalLocale, fallback: string): string {
+  if (names.length === 0) return fallback;
+  if (names.length === 1) return names[0];
+  const conjunction = locale === 'it' ? ' e ' : locale === 'de' ? ' und ' : locale === 'fr' ? ' et ' : ' and ';
+  return `${names.slice(0, -1).join(', ')}${conjunction}${names[names.length - 1]}`;
+}
+
+function buildFiscalProfileProse(locale: FiscalLocale, current: FiscalMunicipality): string[] {
+  const c = COPY[locale];
+  const names = (values: readonly string[]) => joinFiscalNames(values, locale, c.noPeer);
+  const population = fiscalRankDetails(
+    FISCAL_POPULATION_RANK,
+    current,
+    (municipality) => municipality.population,
+    true,
+    (value) => intFmt(value, locale),
+  );
+  const distance = fiscalRankDetails(
+    FISCAL_DISTANCE_RANK,
+    current,
+    (municipality) => municipality.distanceKm,
+    false,
+    (value) => `${intFmt(value, locale)} km`,
+  );
+  const rent = fiscalRankDetails(
+    FISCAL_RENT_RANK,
+    current,
+    (municipality) => municipality.avgRentMonthly,
+    false,
+    (value) => eur(value, locale),
+  );
+  const tax = leviesIrpefAddizionale(current)
+    ? fiscalRankDetails(
+        FISCAL_TAX_RANK,
+        current,
+        (municipality) => municipality.irpefAddizionale,
+        false,
+        (value) => pct(value, locale),
+      )
+    : null;
+  const provincePeers = (FISCAL_BY_PROVINCE.get(current.province) ?? [])
+    .filter((municipality) => municipality.slug !== current.slug)
+    .sort(
+      (a, b) =>
+        Math.abs(a.population - current.population) - Math.abs(b.population - current.population) ||
+        a.slug.localeCompare(b.slug),
+    )
+    .slice(0, 2)
+    .map((municipality) => municipality.name);
+
+  const prose = [
+    c.profilePopulation(
+      population.rank,
+      population.total,
+      population.value,
+      names(population.ahead),
+      names(population.behind),
+    ),
+    c.profileDistance(
+      distance.rank,
+      distance.total,
+      distance.value,
+      names(distance.ahead),
+      names(distance.behind),
+    ),
+    c.profileRent(rent.rank, rent.total, rent.value, names(rent.ahead), names(rent.behind)),
+    c.profileProvince(current.province, names(provincePeers)),
+  ];
+  if (tax) {
+    prose.push(c.profileTax(tax.rank, tax.total, tax.value, names(tax.ahead), names(tax.behind)));
+  }
+  return prose;
+}
+
 /**
  * `computeRegimes` memoised by rate.
  *
@@ -614,9 +805,6 @@ function renderRelated(locale: FiscalLocale, current: FiscalMunicipality): strin
         // precisely because treating it as the cheapest value on the same
         // scale is the bug it documents. Excluded from the spread sentence,
         // still shown in the table with its own label.
-        numeric: (m) => (leviesIrpefAddizionale(m) ? m.irpefAddizionale : null),
-        formatNumeric: (value) => pct(value, locale),
-        spreadLabel: c.spreadAddizionale,
       },
       {
         header: c.colBorderDistance,
@@ -631,15 +819,15 @@ function renderRelated(locale: FiscalLocale, current: FiscalMunicipality): strin
     extraProse: ({ current: self, neighbours }) => {
       const places = [self, ...neighbours.map((entry) => entry.place)];
       const proseFor = (
-        key: 'avgRentMonthly' | 'population' | 'distanceKm',
         metricLabel: string,
+        valueOf: (place: FiscalMunicipality) => number | null,
         formatValue: (value: number, valueLocale: FiscalLocale) => string,
         higherIsBetter: boolean,
       ) =>
         buildPeerProse({
           locale,
           ranked: rankPeerRows(
-            places.map((place) => ({ key: place.slug, name: place.name, value: place[key] })),
+            places.map((place) => ({ key: place.slug, name: place.name, value: valueOf(place) })),
             higherIsBetter,
           ),
           currentKey: self.slug,
@@ -648,18 +836,37 @@ function renderRelated(locale: FiscalLocale, current: FiscalMunicipality): strin
           higherIsBetter,
         });
 
-      // The table exposes the raw values. These ranked summaries state what
-      // those values mean for a reader comparing residences; the peer names
-      // survive the information-gain identity mask while the figures remain
-      // visible and count as data rather than disguised prose.
       const prose = [
-        ...proseFor('avgRentMonthly', c.rentMetric, (value, valueLocale) => eur(value, valueLocale), false),
-        ...proseFor('population', c.populationMetric, (value, valueLocale) => intFmt(value, valueLocale), true),
-        ...proseFor('distanceKm', c.distanceMetric, (value, valueLocale) => `${intFmt(value, valueLocale)} km`, false),
+        ...proseFor(
+          c.spreadAddizionale,
+          (place) => (leviesIrpefAddizionale(place) ? place.irpefAddizionale : null),
+          (value, valueLocale) => pct(value, valueLocale),
+          false,
+        ),
+        ...proseFor(
+          c.rentMetric,
+          (place) => place.avgRentMonthly,
+          (value, valueLocale) => eur(value, valueLocale),
+          false,
+        ),
+        ...proseFor(
+          c.populationMetric,
+          (place) => place.population,
+          (value, valueLocale) => intFmt(value, valueLocale),
+          true,
+        ),
+        ...proseFor(
+          c.distanceMetric,
+          (place) => place.distanceKm,
+          (value, valueLocale) => `${intFmt(value, valueLocale)} km`,
+          false,
+        ),
+        ...buildFiscalProfileProse(locale, self),
       ];
 
       // Only comuni that actually levy the surcharge can be compared on it —
-      // see the `numeric` note above.
+      // the table still shows the regime-specific label for the others, while
+      // the ranked prose above leaves them out of the percentage comparison.
       // A comune that levies no surcharge at all (Valle d'Aosta, l. cost.
       // 4/1948) has no gap to state: "the difference against the lowest of the
       // group" would present a zero produced by a different regime as if it

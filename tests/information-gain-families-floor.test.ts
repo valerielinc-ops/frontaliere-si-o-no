@@ -179,7 +179,11 @@ const renderProfessionCantonFamily = (): Rendered[] => {
 const FAMILIES: Array<{ name: string; minMedian: number; render: () => Rendered[] }> = [
   {
     name: 'tasse-frontalieri-comune',
-    minMedian: 8, // misurato 9,1 % (era 0,0 %)
+    // Issue #11432: the target cohort `it:/tasse-frontalieri-comune/~79b3fa`
+    // now measures 40,35 %. `measure()` selects that 47-page cohort as the
+    // family cohort; the two smaller structural cohorts remain separately
+    // observable and are not hidden by this assertion.
+    minMedian: 40,
     render: () =>
       FISCAL_ABOVE_FLOOR.map((m) =>
         renderFiscal({ municipality: m, locale: 'it', dateStamp: '2026-08-24', distDir: DIST } as never),
