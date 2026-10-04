@@ -23,6 +23,7 @@ import {
 } from './ats-clients/successfactors-client.mjs';
 import { parseCsbDetailPage } from './successfactors-shared-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -152,7 +153,7 @@ async function fetchJobListings() {
         title: posting.title,
         location: posting.location,
         url: posting.applyUrl,
-        postedAt: posting.postedAt,
+        ...mergeSourcePostingDates({}, posting),
         jobReqId: posting.jobReqId,
       });
     }
@@ -166,11 +167,11 @@ async function fetchJobListings() {
   return out.filter((job) => isSwissLocation(job.location));
 }
 
-export async function fetchJobDescriptionText(
+async function fetchNestleDetail(
   listingUrl,
   { timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000 } = {},
 ) {
-  if (!listingUrl) return '';
+  if (!listingUrl) return { description: '', ...sourcePostingDateFields('') };
   try {
     const res = await fetch(listingUrl, {
       headers: {
@@ -180,13 +181,22 @@ export async function fetchJobDescriptionText(
       redirect: 'follow',
       signal: AbortSignal.timeout(timeoutMs),
     });
-    if (!res.ok) return '';
+    if (!res.ok) return { description: '', ...sourcePostingDateFields('') };
     // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
     const html = await rescueHtmlIfChallenged(await res.text(), listingUrl, {});
-    return parseNestleDetailDescription(html);
+    const detail = parseCsbDetailPage(html);
+    return { description: normalizeNestleDescription(detail), ...mergeSourcePostingDates({}, detail) };
   } catch {
-    return '';
+    return { description: '', ...sourcePostingDateFields('') };
   }
+}
+
+export async function fetchJobDescriptionText(listingUrl, options = {}) {
+  return (await fetchNestleDetail(listingUrl, options)).description;
+}
+
+function normalizeNestleDescription(detail) {
+  return normalizeDescriptionSpace(String(detail?.descriptionText || '').replace(/\u00a0/g, ' ').replace(/\r\n?/g, '\n'));
 }
 
 /**
@@ -204,7 +214,7 @@ export async function fetchJobDescriptionText(
  * length cap, the whole posting is the description.
  */
 export function parseNestleDetailDescription(html = '') {
-  return normalizeDescriptionSpace(String(parseCsbDetailPage(html)?.descriptionText || '').replace(/\u00a0/g, ' ').replace(/\r\n?/g, '\n'));
+  return normalizeNestleDescription(parseCsbDetailPage(html));
 }
 
 /**
@@ -257,14 +267,14 @@ export async function fetchAllNestleJobs() {
     const location = splitJobLocation(rawLocation, canton).city || rawLocation;
     const publicUrl = listing.url || CAREER_URL;
 
-    const detailDescription = await fetchJobDescriptionText(publicUrl);
+    const detail = await fetchNestleDetail(publicUrl);
     await new Promise((r) => setTimeout(r, 400));
 
     // The SuccessFactors detail can repeat the feed's country/canton marker in
     // its location line (for example "Konolfingen, CH, Kanton BE"). Remove
     // only that audit-detectable marker; the rest of the employer's prose is
     // source content and must remain untouched.
-    const descriptionText = stripLocationRegionMarkers(detailDescription, location, canton);
+    const descriptionText = stripLocationRegionMarkers(detail.description, location, canton);
 
     // Only the posting's own text is published (issue 5253). A detail page
     // without a vacancy body used to go out as a synthetic "Key details"
@@ -295,7 +305,7 @@ export async function fetchAllNestleJobs() {
       location,
       canton,
       url: publicUrl,
-      source: 'Nestlé Switzerland Dedicated Parser (Workday)',
+      source: 'Nestlé Switzerland Dedicated Parser (SuccessFactors)',
       sourceLang,
       crawledAt: new Date().toISOString(),
 
@@ -310,7 +320,7 @@ export async function fetchAllNestleJobs() {
       sector: 'Food / Beverage',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedAt || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates(listing, detail),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
