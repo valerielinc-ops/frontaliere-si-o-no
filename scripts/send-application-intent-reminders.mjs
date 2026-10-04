@@ -18,6 +18,7 @@ import { isCrossChannelStop } from '../services/emailSuppression.mjs';
 import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
 import { localePathPrefix } from './lib/articleContent.mjs';
 import { verifiedEmailForUid } from './lib/verifiedAccountEmail.mjs';
+import { ensureAccountMailRecord, isUnmarkedSavedJobsDigestRecord } from './lib/savedJobsDigestAnchor.mjs';
 import {
   APPLICATION_INTENTS_COLLECTION,
   APPLICATION_INTENT_APPLICATION_MODES,
@@ -551,6 +552,25 @@ export async function main() {
       excludedJobIds,
     });
     const recommendations = recommendedJobs.map((job) => recommendationEntry(job, locale));
+
+    // An address with no central row, or a legacy row with no relationship,
+    // gets the address record the saved-jobs digest creates
+    // (scripts/lib/savedJobsDigestAnchor.mjs): without it a bounce or a
+    // complaint about this reminder is never recorded and never stops the next
+    // one. Fails closed: no record, no send.
+    if (!DRY_RUN && (!subscriberData || isUnmarkedSavedJobsDigestRecord(subscriberData))) {
+      let record;
+      try {
+        record = await ensureAccountMailRecord(db, { uid, email, activationSource: 'application_intent' });
+      } catch {
+        skip('address_record_failed');
+        continue;
+      }
+      if (record && isCrossChannelStop(record)) {
+        skip('cross_channel_stop');
+        continue;
+      }
+    }
 
     let claimedIds = selectedEntries.map((entry) => entry.intentId).filter(Boolean);
     if (!DRY_RUN) {

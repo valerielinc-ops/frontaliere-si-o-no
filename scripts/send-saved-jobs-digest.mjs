@@ -73,10 +73,11 @@ import { fileURLToPath } from 'node:url';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isCrossChannelStop } from '../services/emailSuppression.mjs';
 import {
-  SAVED_JOBS_DIGEST_ANCHOR_FIELD,
-  hasSubscriptionBasis,
-  isSavedJobsDigestAnchorOnly,
-} from '../services/subscriberConsent.mjs';
+  buildSavedJobsDigestAnchor,
+  ensureSavedJobsDigestAnchor,
+  isUnmarkedSavedJobsDigestRecord,
+  markSavedJobsDigestRecord,
+} from './lib/savedJobsDigestAnchor.mjs';
 import { savedJobsDigestChoice } from '../services/savedJobsDigestActivation.mjs';
 import { deriveSavedJobsAlertCriteria } from '../services/savedJobsAlertCriteria.ts';
 import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
@@ -134,79 +135,15 @@ export function isSavedJobsDigestEligible(userData, subscriberData, _legacyOptio
   return true;
 }
 
-/**
- * The record this sender creates for an account with no central row: the
- * address, the uid (account deletion finds email-keyed rows by it, see
- * functions/src/authAccountCleanup.js) and the digest's own marker, nothing
- * else. No status, terms, consent, `source_channel` or creation stamp: those
- * are what make a row a subscription, and `isSavedJobsDigestAnchorOnly`
- * (functions/src/lib/subscriberConsent.js) reads their absence.
- */
-export function buildSavedJobsDigestAnchor({ uid, email, activationSource = null, now = new Date() }) {
-  return {
-    email,
-    auth_uid: uid,
-    [SAVED_JOBS_DIGEST_ANCHOR_FIELD]: {
-      created_at: now,
-      activation_source: activationSource || null,
-    },
-  };
-}
-
-/**
- * Create that record unless a row appeared meanwhile, and return the row the
- * eligibility check must read: a concurrent sign-in may have registered the
- * address, an unsubscribe may have landed. Never overwrites an existing row.
- */
-export async function ensureSavedJobsDigestAnchor(db, { uid, email, activationSource = null }) {
-  const ref = db.collection('newsletter_subscribers').doc(email);
-  return db.runTransaction(async (transaction) => {
-    const snapshot = await transaction.get(ref);
-    const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists;
-    if (exists) return snapshot.data?.() || {};
-    const anchor = buildSavedJobsDigestAnchor({ uid, email, activationSource });
-    transaction.create(ref, anchor);
-    return anchor;
-  });
-}
-
-/**
- * Whether the marker would make this row the digest's record: no marker yet,
- * no subscription basis (marking a row that has one would take the newsletter
- * away from it), and none of the capture or consent acts that
- * `isSavedJobsDigestAnchorOnly` reads as a relationship (a row carrying one
- * would ignore the marker anyway).
- */
-export function isUnmarkedSavedJobsDigestRecord(data) {
-  if (!data || typeof data !== 'object' || data[SAVED_JOBS_DIGEST_ANCHOR_FIELD]) return false;
-  if (hasSubscriptionBasis(data)) return false;
-  return isSavedJobsDigestAnchorOnly({ ...data, [SAVED_JOBS_DIGEST_ANCHOR_FIELD]: {} });
-}
-
-/**
- * A row that exists but holds no relationship is the digest's address record
- * in fact: the legacy profile-only documents a sign-in wrote before #8341's
- * reconciliation stopped it (name, photo, `auth_uid`, `lastLoginAt`; 235 rows
- * measured 2026-09-24, see `hasSubscriptionBasis`). The digest already mails
- * them, so a bounce, a recovery, the decay or the Mailtrap retry can write a
- * `status` on them, and any status is a subscription basis: the newsletter
- * would start. Stamping the digest's marker, and nothing else, puts them under
- * the same protection as the record created above. A row that holds a
- * relationship, or already carries the marker, is returned untouched.
- */
-export async function markSavedJobsDigestRecord(db, { email, activationSource = null, now = new Date() }) {
-  const ref = db.collection('newsletter_subscribers').doc(email);
-  return db.runTransaction(async (transaction) => {
-    const snapshot = await transaction.get(ref);
-    const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists;
-    if (!exists) return null;
-    const data = snapshot.data?.() || {};
-    if (!isUnmarkedSavedJobsDigestRecord(data)) return data;
-    const marker = { created_at: now, activation_source: activationSource || null };
-    transaction.set(ref, { [SAVED_JOBS_DIGEST_ANCHOR_FIELD]: marker }, { merge: true });
-    return { ...data, [SAVED_JOBS_DIGEST_ANCHOR_FIELD]: marker };
-  });
-}
+// The address record for an account with no central row, and the marker on a
+// legacy row with no relationship, live in scripts/lib/savedJobsDigestAnchor.mjs:
+// the application-intent reminder creates the same record.
+export {
+  buildSavedJobsDigestAnchor,
+  ensureSavedJobsDigestAnchor,
+  isUnmarkedSavedJobsDigestRecord,
+  markSavedJobsDigestRecord,
+} from './lib/savedJobsDigestAnchor.mjs';
 
 // Brand palette — same tokens/values as buildAlertEmail in send-job-alerts.mjs
 // so the job-alert and saved-jobs-digest emails read as one product.
