@@ -70019,9 +70019,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-28T00:00:00+02:00",
       "postedDate": "2026-09-28T00:00:00+02:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://www.fachkraft.ch/stellen/polymechaniker-in-cnc-fertigung-langenthal-dauerstelle-304625/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -70049,7 +70047,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-28T00:00:00+02:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "fachkraft-165216014589",
@@ -73384,9 +73384,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-08-17T00:00:00+02:00",
       "postedDate": "2026-08-17T00:00:00+02:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://www.fachkraft.ch/stellen/polymechaniker-in-cnc-fertigung-wil-sg-dauerstelle-304055/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -73422,7 +73420,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-17T00:00:00+02:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "fachkraft-a5462e4625d1",
@@ -75870,9 +75870,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-08-13T00:00:00+02:00",
       "postedDate": "2026-08-13T00:00:00+02:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://www.fachkraft.ch/stellen/polymechaniker-in-cnc-fertigung-buelach-dauerstelle-302433/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -75914,7 +75912,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-13T00:00:00+02:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "fachkraft-bf42982b3fcb",
@@ -76548,7 +76548,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/polymechaniker-in-cnc-fertigung-olten-dauerstelle-300583/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-23T21:50:24.843Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -79032,9 +79031,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://www.fachkraft.ch/stellen/montage-elektriker-in-sursee-dauerstelle-303317/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -79068,7 +79065,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "fachkraft-456c85d3577b",
@@ -79500,9 +79499,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://www.fachkraft.ch/stellen/montage-elektriker-in-winterthur-dauerstelle-302570/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -79530,7 +79527,9 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "fachkraft-e47173d2af8b",
@@ -97713,9 +97712,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-16T00:00:00+02:00",
       "postedDate": "2026-09-16T00:00:00+02:00",
-      "postingDateSource": "reported",
       "applyUrl": "https://www.fachkraft.ch/stellen/maurer-in-schaffhausen-dauerstelle-301392/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -97741,7 +97738,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-16T00:00:00+02:00",
+      "postingDateSource": "reported"
     },
     {
       "id": "fachkraft-8f50ef06640c",
@@ -97859,16 +97858,11 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://www.fachkraft.ch/stellen/maurer-in-bischofszell-dauerstelle-300405/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "maurer-in-fur-neu-und-umbauten-bischofszell-thurgau-fachkraft-ch",
-        "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-bischofszell"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "maurer-in-fur-neu-und-umbauten-bischofszell-thurgau-fachkraft-ch",
@@ -97881,8 +97875,10 @@
           "maurer-in-fur-neu-und-umbauten-bischofszell-thurgau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:48:15.478Z",
+      "previousSlugs": [
+        "maurer-in-fur-neu-und-umbauten-bischofszell-thurgau-fachkraft-ch",
+        "maurer-in-per-neu-e-umbauten-fachkraft-ch-gmbh-bischofszell"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -97895,7 +97891,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-23T21:48:15.478Z",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "fachkraft-1c0baffc330b",
@@ -104047,9 +104046,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://www.fachkraft.ch/stellen/maler-in-sursee-dauerstelle-303289/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -104077,7 +104074,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "fachkraft-13025655c1d0",
@@ -116528,9 +116527,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://www.fachkraft.ch/stellen/heizungspraktiker-in-sursee-dauerstelle-300591/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -116558,7 +116555,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "fachkraft-55409540588b",
@@ -127375,24 +127374,21 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://www.fachkraft.ch/stellen/gaertner-in-garten-und-landschaftsbau-wil-sg-dauerstelle-300255/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "gartner-in-garten-und-landschaftsbau-mit-fundierter-berufserfahrung-wil-sg-st-gallen",
-        "gartner-in-garten-e-landschaftsbau-con-fundierter-berufserfahrung-fachkraft-ch-gmbh-wil-sg"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-garten-und-landschaftsbau-mit-fundierter-berufserfahrung-wil-sg-st-gallen",
           "gartner-in-garten-e-landschaftsbau-con-fundierter-berufserfahrung-fachkraft-ch-gmbh-wil-sg"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:44:29.985Z",
+      "previousSlugs": [
+        "gartner-in-garten-und-landschaftsbau-mit-fundierter-berufserfahrung-wil-sg-st-gallen",
+        "gartner-in-garten-e-landschaftsbau-con-fundierter-berufserfahrung-fachkraft-ch-gmbh-wil-sg"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -127405,7 +127401,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-23T21:44:29.985Z",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "fachkraft-aa93ae2aeb2e",
@@ -189446,9 +189445,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://www.fachkraft.ch/stellen/maler-in-baden-temporaer-298907/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -189492,7 +189489,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "fachkraft-955753c73028",
@@ -194072,9 +194071,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://www.fachkraft.ch/stellen/maler-in-aarau-temporaer-301660/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -194102,7 +194099,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "fachkraft-deba840a7bb0",
@@ -205908,9 +205907,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://www.fachkraft.ch/stellen/schreiner-in-buelach-temporaer-301508/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -205936,7 +205933,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "fachkraft-b39cb889a0e0",
