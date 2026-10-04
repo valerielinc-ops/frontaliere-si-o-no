@@ -342,7 +342,6 @@ function buildJobFromApiFields(fields, detailUrl) {
     streetAddress: String(fields?.address || '').trim(),
     category: '',
     contract: meta.contract || normalizeLidlContract(fields?.contractType || ''),
-    datePosted: new Date().toISOString().split('T')[0],
     url: detailUrl,
     applyUrl: fields?.applyUrl || detailUrl,
     source: 'Lidl team.lidl.ch api/v1/search',

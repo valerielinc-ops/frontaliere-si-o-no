@@ -10,6 +10,7 @@
  * 5. Updates adapter config
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -279,7 +280,7 @@ function buildHitachiJob(row) {
     sector: inferSector(row.jobFunction),
     source: 'hitachi-energy-dedicated-crawler',
     sourceLang: localized.sourceLang,
-    postedDate: row.publicationDate || new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(row.publicationDate),
     employmentType: mapEmploymentType(row.jobType, row.contractType),
     contractType: normalize(row.contractType) || 'full-time',
     validThrough: '',
@@ -313,6 +314,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       // Fresh text wins in the SOURCE slot only; translations are kept.
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
@@ -343,7 +345,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

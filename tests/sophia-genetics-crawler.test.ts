@@ -234,6 +234,31 @@ describe('SOPHiA GENETICS crawler parser', () => {
       global.fetch = originalFetch;
     });
 
+    it.each(['missing', 'invalid', 'future'] as const)('does not publish collection or creation time for %s source dates', async (kind) => {
+      const published = kind === 'missing' ? '' : kind === 'invalid' ? '2025-02-30' : new Date(Date.now() + 86400000).toISOString();
+      global.fetch = vi.fn(async (url: string) => new Response(JSON.stringify(
+        String(url) === WIDGET_URL
+          ? { jobs: [widgetRow({ published_on: published, created_at: new Date(Date.now() - 86400000).toISOString() })] }
+          : detailPayload({ published }),
+      ), { status: 200 })) as unknown as typeof fetch;
+      const jobs = await fetchAllSophiaGeneticsJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({ postedDate: '', datePosted: '', postingDateSource: 'unknown' });
+      expect(jobs[0].crawledAt).toBeTruthy();
+    });
+
+    it('keeps valid listing publication when the detail publication is malformed', async () => {
+      const date = new Date(Date.now() - 7 * 86400000).toISOString();
+      global.fetch = vi.fn(async (url: string) => new Response(JSON.stringify(
+        String(url) === WIDGET_URL
+          ? { jobs: [widgetRow({ published_on: date })] }
+          : detailPayload({ published: 'not-a-date' }),
+      ), { status: 200 })) as unknown as typeof fetch;
+      const jobs = await fetchAllSophiaGeneticsJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({ datePosted: date, postedDate: date, postingDateSource: 'reported' });
+    });
+
     it('marks a valid empty widget feed as an authoritative zero', async () => {
       global.fetch = vi.fn(async (url: string) => {
         expect(String(url)).toBe(WIDGET_URL);
@@ -299,7 +324,7 @@ describe('SOPHiA GENETICS crawler parser', () => {
       expect(job.title).toBe('IVD Development & Validation Lead');
       expect(typeof job.description).toBe('string');
       expect(job.description.length).toBeGreaterThan(0);
-      expect(job.postedDate).toBe('2026-04-02');
+      expect(job).toMatchObject({ postedDate: detailPayload().published, datePosted: detailPayload().published, postingDateSource: 'reported' });
       expect(job.company).toBe('SOPHiA GENETICS');
       expect(job.addressLocality).toBe('Rolle');
       expect(job.postalCode).toBe('1180');

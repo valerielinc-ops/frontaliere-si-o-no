@@ -5,6 +5,7 @@
  * Source: https://www.bellinzona.ch/assunzioni
  * Application portal: bellinz.pi-asp.de/bewerber-web/
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -146,7 +147,7 @@ async function main() {
       location: 'Bellinzona', canton: HQ.canton, addressLocality: 'Bellinzona', addressRegion: HQ.addressRegion, addressCountry: 'CH',
       postalCode: HQ.postalCode, streetAddress: 'Piazza Nosetto',
       category: 'public-admin', contract: 'full-time', employmentType: inferEmploymentType(raw.title, raw.description || ''), currency: 'CHF', featured: false,
-      postedDate: raw.datePosted, validThrough: raw.deadline || undefined,
+      ...sourcePostingDateFields(raw.datePosted), validThrough: raw.deadline || undefined,
       url: raw.url, pdfUrl: raw.pdfUrl, applyUrl: raw.applyUrl,
       source: 'Bellinzona Dedicated Parser', sourceLang, crawledAt: new Date().toISOString(),
       ...(pdfFailed

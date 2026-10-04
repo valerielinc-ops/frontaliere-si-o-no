@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -152,7 +153,7 @@ function buildJob({ title, pdfUrl, pdfText }) {
     sector: 'Consulenza',
     source: 'lwphr-dedicated-crawler',
     sourceLang,
-    postedDate: new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
@@ -232,7 +233,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton || '',
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

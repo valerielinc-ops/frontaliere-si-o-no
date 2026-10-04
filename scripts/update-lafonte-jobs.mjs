@@ -20,6 +20,7 @@
  *   7. Post-process: fix company name, location, canton
  *   8. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -348,7 +349,7 @@ async function fetchLaFonteJobs() {
       employmentType: detectEmploymentType(listing.title, listing.rawDesc),
       experienceLevel: detectExperienceLevel(listing.title, listing.rawDesc),
       source: 'la-fonte-crawler',
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...sourcePostingDateFields(),
       titleByLocale: { it: listing.title },
       descriptionByLocale: description ? { it: description } : {},
       slugByLocale: { it: slug },
@@ -412,7 +413,7 @@ async function mergeJobs(discoveredJobs) {
       // Card without a body this run: keep the body read from the page on an
       // earlier run, or leave the job out — never a made-up text.
       if (ex && laFonteHasSourceBody(ex)) {
-        merged.push(scrubLaFonteLegacyFrame({ ...ex, url: discovered.url || ex.url }));
+        merged.push(scrubLaFonteLegacyFrame({ ...ex, ...mergeSourcePostingDates(ex, discovered), url: discovered.url || ex.url }));
         updated++;
       } else {
         withoutSourceBody++;
@@ -424,6 +425,7 @@ async function mergeJobs(discoveredJobs) {
     if (ex) {
       const updatedJob = {
         ...ex,
+        ...mergeSourcePostingDates(ex, discovered),
         title: discovered.title || ex.title,
         company: COMPANY_NAME,
         companyKey: COMPANY_KEY,

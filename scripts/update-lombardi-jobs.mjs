@@ -10,6 +10,7 @@
  * 5. Updates adapter config
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -178,7 +179,7 @@ function buildLombardiJob(raw, detail) {
     sector: 'Ingegneria civile',
     source: 'lombardi-dedicated-crawler',
     sourceLang,
-    postedDate: new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(),
     employmentType: occupancy.includes('100%') ? 'full-time' : 'part-time',
     contractType: 'permanent',
     validThrough: '',
@@ -221,7 +222,7 @@ function mergeJobs(discoveredJobs) {
       // on an earlier run, or leave the job out — never a made-up text.
       if (prev && lombardiHasSourceBody(prev)) {
         updated += 1;
-        mergedTarget.push(scrubLombardiLegacyLocaleCopies(prev));
+        mergedTarget.push(scrubLombardiLegacyLocaleCopies({ ...prev, ...mergeSourcePostingDates(prev, job) }));
       } else {
         withoutSourceBody += 1;
         console.log(`  ⏭️ ${job.title} — detail body unavailable, not published this run`);
@@ -243,6 +244,7 @@ function mergeJobs(discoveredJobs) {
     const clean = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, srcLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale || {}, { ...prevDesc, ...(job.descriptionByLocale || {}) }, 30, srcLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3, srcLang),
@@ -278,7 +280,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: DEFAULT_CANTON,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

@@ -26,6 +26,7 @@
  * stores across Switzerland (Zurich, Landquart outlet, etc.), making
  * their positions relevant for Italian cross-border workers.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -118,12 +119,6 @@ function normalizeKey(value = '') {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-}
-
-function toIsoDate(value = '') {
-  const parsed = new Date(String(value || '').trim());
-  if (Number.isNaN(parsed.getTime())) return new Date().toISOString().slice(0, 10);
-  return parsed.toISOString().slice(0, 10);
 }
 
 function isTargetJob(job = {}) {
@@ -333,7 +328,7 @@ async function buildGiorgioArmaniJob(discovery) {
     sector: 'Moda & Lusso',
     source: 'giorgio-armani-dedicated-crawler',
     sourceLang: localized.sourceLang,
-    postedDate: toIsoDate(),
+    ...sourcePostingDateFields(),
     employmentType: 'full-time',
     contractType: 'full-time',
     validThrough: '',
@@ -371,6 +366,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       // Fresh text wins in the SOURCE slot only; translations are kept.
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
@@ -401,7 +397,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

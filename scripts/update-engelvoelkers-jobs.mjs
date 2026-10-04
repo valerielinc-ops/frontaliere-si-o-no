@@ -14,6 +14,7 @@
  * Listings may belong to any Engel & Völkers Swiss licensee.
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -212,7 +213,7 @@ async function enrichWithDetails(listings) {
       enriched.push({
         ...item,
         description: '',
-        datePosted: new Date().toISOString().slice(0, 10),
+        ...sourcePostingDateFields(),
       });
     }
     if (i < toFetch.length - 1) await sleep(DETAIL_DELAY_MS);
@@ -273,7 +274,7 @@ function buildJob(row) {
     sector: 'Immobiliare',
     source: 'engelvoelkers-dedicated-crawler',
     sourceLang,
-    postedDate: row.datePosted || new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(row.datePosted),
     employmentType: inferEmploymentType(row.employmentType || ''),
     contractType: inferEmploymentType(row.employmentType || ''),
     validThrough: '',
@@ -329,6 +330,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -361,7 +363,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton,
       company: job.company || COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...mergeSourcePostingDates({}, job),
     };
   }
   writeJson(ADAPTER_PATH, {

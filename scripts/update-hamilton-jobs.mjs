@@ -24,6 +24,7 @@
  *   4. Merges into data/jobs.json.
  *   5. Translates missing locales.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import { decode as decodeHTML } from 'html-entities';
 import path from 'node:path';
@@ -258,7 +259,7 @@ function buildJob(listing, detail) {
 
   // Detail page data
   const info = detail?.jobPostingInfo || {};
-  const postedDate = info.startDate || new Date().toISOString().slice(0, 10);
+  const postingDates = sourcePostingDateFields(info.startDate);
   const endDate = info.endDate || '';
   const timeType = info.timeType || 'Full time';
   const rawDescription = info.jobDescription || '';
@@ -331,7 +332,7 @@ function buildJob(listing, detail) {
     department: department || '',
     source: 'hamilton-dedicated-crawler',
     sourceLang,
-    postedDate,
+    ...postingDates,
     validThrough: endDate,
     employmentType,
     contractType,
@@ -364,6 +365,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),

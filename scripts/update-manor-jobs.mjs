@@ -20,6 +20,7 @@
  * from the store city encoded in the URL via inferAnyCanton; the region gate
  * is isTargetSwissLocation across all 26 Swiss cantons.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import { decodeSitemapLoc } from './lib/sitemap-loc.mjs';
 import fs from 'node:fs';
 import { sourceBodyWordCount } from './lib/source-body-floor.mjs';
@@ -662,14 +663,8 @@ export function parseJobPage(html, url) {
     : null;
   const rawDesc = normalizeManorSourceDescription(detail?.description || '');
 
-  // Extract posted date from itemprop="datePosted"
-  const dateMatch = html.match(/itemprop="datePosted"\s+content="([^"]+)"/);
-  let postedDate = '';
-  if (dateMatch) {
-    try {
-      postedDate = new Date(dateMatch[1]).toISOString().slice(0, 10);
-    } catch { /* ignore */ }
-  }
+  // Keep publication evidence with the source value; missing or invalid stays unknown.
+  const postingDates = sourcePostingDateFields(readItempropContent(html, 'datePosted'));
 
   // SuccessFactors currently exposes only a combined `streetAddress` value
   // such as "Chavannes-de-Bogis, CH". Preserve every address signal that is
@@ -686,7 +681,7 @@ export function parseJobPage(html, url) {
     title,
     description: rawDesc,
     descriptionLang: readManorDescriptionLang(html),
-    postedDate,
+    ...postingDates,
     location,
     addressLocality,
     addressRegion,
@@ -863,7 +858,7 @@ export async function fetchManorJobs() {
       employmentType: detectManorEmploymentType(title),
       description,
       descriptionByLocale,
-      postedDate: pageData.postedDate || '',
+      ...mergeSourcePostingDates({}, pageData),
       source: 'company-website',
       slug: baseSlug,
       slugByLocale: {

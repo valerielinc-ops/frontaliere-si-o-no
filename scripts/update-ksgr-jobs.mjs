@@ -4,6 +4,7 @@
  * Source discovery is API-first via Prospective.ch, then detail extraction
  * is delegated to the shared crawler using the SSR job detail pages.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -206,7 +207,7 @@ function buildJobFromApiData(apiJob, existingByUrl, extras = null) {
     canton: HQ.canton,
     postalCode: apiJob.postalCode || '7000',
     streetAddress: apiJob.streetAddress || '',
-    postedDate: apiJob.postedDate || new Date().toISOString().slice(0, 10),
+    ...mergeSourcePostingDates(existing, sourcePostingDateFields(apiJob.postedDate)),
     employmentType: apiJob.employmentType || '',
     category: apiJob.industry || 'healthcare',
     crawledAt: new Date().toISOString(),

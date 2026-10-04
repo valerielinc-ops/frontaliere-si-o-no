@@ -1,3 +1,4 @@
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { decode as decodeHTML } from 'html-entities';
 /**
  * Città di Locarno — job listing parser
@@ -143,9 +144,9 @@ export function isTitleTooGeneric(title = '') {
  */
 export function parseLocarnoDate(dateStr = '') {
   const s = dateStr.trim();
-  const m = s.match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
-  if (!m) return new Date().toISOString().split('T')[0];
-  return `${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`;
+  const m = s.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
+  if (!m) return '';
+  return sourcePostingDateFields(`${m[3]}-${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}`).postedDate;
 }
 
 /**

@@ -23,6 +23,7 @@
  *   7. Post-process: fix company name, location, canton
  *   8. Validate locale coverage across IT/EN/DE/FR
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -204,7 +205,7 @@ async function fetchLinneaJobs() {
       ...sourceSlotTitleAndSlug(parsed.title, slug, sourceLang),
       slug,
       category: detectCategory(parsed.title),
-      datePosted: new Date().toISOString().split('T')[0],
+      ...sourcePostingDateFields(),
       source: 'linnea-careers-crawler',
       employmentType,
       experienceLevel: detectExperienceLevel(parsed.title),
