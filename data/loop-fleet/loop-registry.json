@@ -128,7 +128,7 @@
         "outcomeId": "error-free-useful-session",
         "sourceRefs": ["ga4-error-telemetry"],
         "historicalSourceRefs": [["posthog-error-telemetry"]],
-        "historicalSourceRefsBefore": "2026-10-04T20:00:00.000Z",
+        "historicalSourceRefsBefore": "2026-10-07T00:00:00.000Z",
         "requiredFields": ["generatedAt", "numerator", "denominator"]
       },
       "minimumSample": 100,

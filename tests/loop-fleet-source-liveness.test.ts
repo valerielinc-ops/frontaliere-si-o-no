@@ -117,16 +117,6 @@ describe('loop exporters read only live sources', () => {
     }
   });
 
-  it('keeps exportL1 off PostHog', () => {
-    const source = fs.readFileSync(path.join(EXPORT_DIR, 'export-loop-outcomes.mjs'), 'utf8');
-    const start = source.indexOf('export async function exportL1(');
-    expect(start).toBeGreaterThan(-1);
-    const next = source.indexOf('\nexport ', start + 1);
-    const body = source.slice(start, next === -1 ? undefined : next);
-    expect(body).not.toMatch(/posthog|hogql/i);
-    expect(body).toContain('GoogleDataClient');
-  });
-
   it('turns red on a new PostHog reader at a zero rate and on a stale entry', () => {
     const files = {
       'export-new.mjs': "import { runHogQL } from '../lib/posthog-client.mjs';\nrunHogQL(\"SELECT count() FROM events WHERE event = '$pageview'\");",

@@ -258,7 +258,7 @@ export async function runL1({
     denominator: verdict.ok ? denominator : null,
     observedAt: generatedAt?.toISOString() || null,
     reason: verdict.ok
-      ? 'fresh PostHog useful-session export contains the complete session outcome'
+      ? 'fresh GA4 useful-session export contains the complete session outcome'
       : `useful-session outcome is ${verdict.quality}; no reliability change is authorized`,
     now,
   });

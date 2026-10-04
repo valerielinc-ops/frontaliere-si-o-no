@@ -1110,7 +1110,12 @@ function exactGa4TotalMetricValues(report, label, metricCount) {
     throw new Error(`${label} returned ${rows.length} rows for a dimensionless total`);
   }
   // GA4 omits the row entirely when the event never occurred in the window.
-  return Array.from({ length: metricCount }, (_, index) => rows[0]?.metricValues?.[index]?.value ?? 0);
+  if (rows.length === 0) return Array.from({ length: metricCount }, () => 0);
+  const metricValues = Array.isArray(rows[0]?.metricValues) ? rows[0].metricValues : [];
+  if (metricValues.length !== metricCount) {
+    throw new Error(`${label} returned ${metricValues.length} metric values, expected ${metricCount}`);
+  }
+  return metricValues.map((metric) => metric?.value ?? 0);
 }
 
 export function buildL3OutcomeExport({
@@ -1670,7 +1675,15 @@ export async function main({ argv = process.argv.slice(2) } = {}) {
       fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(outcome, null, 2)}\n`);
       return outcome;
     }
-    return exportL1({ inputPath, outputPath, now });
+    const days = Number(valueAfter(argv, '--days', DEFAULT_L1_WINDOW_DAYS));
+    if (!Number.isInteger(days) || days < 1) throw new Error('--days must be a positive integer');
+    return exportL1({
+      inputPath,
+      outputPath,
+      now,
+      days,
+      propertyId: valueAfter(argv, '--property', null),
+    });
   }
   if (loop === 'L3') {
     const days = Number(valueAfter(argv, '--days', DEFAULT_L3_WINDOW_DAYS));

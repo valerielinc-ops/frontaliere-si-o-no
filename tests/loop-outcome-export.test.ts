@@ -181,8 +181,16 @@ describe('read-only loop outcome exporters', () => {
       });
       await expect(exportL1({ inputPath: input, outputPath: path.join(dir, 'b.json'), now: NOW, client: split.client as any }))
         .rejects.toThrow('GA4 L1 report for error events returned 2 rows');
+      // A row that carries fewer metrics than requested is malformed, not zero.
+      const truncated = l1Client({
+        useful: { rows: [{ metricValues: [{ value: '1000' }] }] },
+        errors: { rows: [{ metricValues: [{ value: '40' }] }] },
+      });
+      await expect(exportL1({ inputPath: input, outputPath: path.join(dir, 'c.json'), now: NOW, client: truncated.client as any }))
+        .rejects.toThrow('GA4 L1 report for error events returned 1 metric values, expected 2');
       expect(fs.existsSync(path.join(dir, 'a.json'))).toBe(false);
       expect(fs.existsSync(path.join(dir, 'b.json'))).toBe(false);
+      expect(fs.existsSync(path.join(dir, 'c.json'))).toBe(false);
     });
 
     it('labels the unavailable placeholder with the registry source, not PostHog', () => {
