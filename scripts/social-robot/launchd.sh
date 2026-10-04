@@ -94,14 +94,16 @@ snapshot() {
 }
 
 # SOCIAL_ROBOT_MODE from Remote Config, through the site's loader. Prints the
-# word or nothing; the robot reads nothing as `dry`.
+# raw value or nothing; run.mjs normalises it exactly like the CI posters do
+# (resolveSocialRobotMode: trimmed, lower case, unknown → `dry`), so ` Live`
+# means the same thing on the Mac and in Actions.
 rc_mode() {
   runner=$1
   [ -f "$sa_file" ] || { log "service account missing ($sa_file): SOCIAL_ROBOT_MODE unknown, dry run"; return 0; }
   line=$(GOOGLE_APPLICATION_CREDENTIALS="$sa_file" node "$runner/scripts/load-rc-env.mjs" 2>/dev/null \
-    | /usr/bin/grep -E "^export SOCIAL_ROBOT_MODE='[a-z]{1,8}'$" | /usr/bin/head -n 1)
+    | /usr/bin/grep -E "^export SOCIAL_ROBOT_MODE='[^']{0,32}'$" | /usr/bin/head -n 1)
   [ -n "$line" ] || return 0
-  printf '%s\n' "$line" | /usr/bin/sed -E "s/^export SOCIAL_ROBOT_MODE='([a-z]+)'$/\\1/"
+  printf '%s\n' "$line" | /usr/bin/sed -E "s/^export SOCIAL_ROBOT_MODE='([^']*)'$/\\1/"
 }
 
 cmd_run() {

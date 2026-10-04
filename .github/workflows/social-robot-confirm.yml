@@ -111,13 +111,15 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CHANNEL: ${{ inputs.channel }}
+          QUEUE_ID: ${{ inputs.queue_id }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
             --title "Workflow Failure: ${{ github.workflow }}" \
             --description "## Workflow fallito
           Un post pubblicato dal robot social NON è entrato nel ledger: finché non ci entra, il picker giornaliero può riproporlo.
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          **Canale:** ${{ inputs.channel }} · **Coda:** ${{ inputs.queue_id }}" \
+          **Canale:** $CHANNEL · **Coda:** $QUEUE_ID" \
             --priority 2 \
             --label Bug \
             --workflow "${{ github.workflow }}"

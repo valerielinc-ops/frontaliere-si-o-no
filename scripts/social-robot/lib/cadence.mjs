@@ -8,10 +8,13 @@
  *   - how many posts did this machine press today (the daily cap);
  *   - which queue entries did it press and is the confirm commit still on its
  *     way (never press them twice);
- *   - which platforms are paused after a login wall or a challenge.
+ *   - which platforms are paused after a login wall or a challenge, or held
+ *     after a press that showed no confirmation.
  */
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
+
+import { ledgerKey } from '../../lib/social-publish-queue.mjs';
 
 /** Posts pressed per platform per calendar day (Europe/Zurich). */
 export const MAX_POSTS_PER_DAY_PER_PLATFORM = 2;
@@ -89,9 +92,46 @@ export function pressedToday(journal, channel, now, timeZone = ROBOT_TIME_ZONE) 
   return journal.attempts.filter((a) => a.channel === channel && PRESSED.has(a.outcome) && localDay(a.at, timeZone) === today).length;
 }
 
-/** Queue ids this machine must never press again on `channel`. */
-export function blockedQueueIds(journal, channel) {
-  return new Set(journal.attempts.filter((a) => a.channel === channel && PRESSED.has(a.outcome)).map((a) => a.queueId));
+/**
+ * Queue ids this machine must not press on `channel`: every id it already
+ * pressed, plus — when `skipDryRun` — every id it already took to the button
+ * in a dry run (an unattended dry run proves nothing new the second time and
+ * only adds automation signals on the accounts).
+ */
+export function blockedQueueIds(journal, channel, { skipDryRun = false } = {}) {
+  return new Set(journal.attempts
+    .filter((a) => a.channel === channel && (PRESSED.has(a.outcome) || (skipDryRun && a.outcome === 'dry-run')))
+    .map((a) => a.queueId));
+}
+
+/**
+ * Ledger keys of the posts this machine pressed on `channel` that the ledger
+ * on origin/main does not hold yet (confirm still on its way, dropped, or the
+ * press was never confirmed). The posters dedup only against the ledger, so
+ * the next day's queue entry may carry the same articles under a new id: the
+ * robot must not press those either.
+ *
+ * @param {(queueId: string) => boolean} isConfirmed  queue id already in the ledger
+ */
+export function unsettledLedgerKeys(journal, channel, isConfirmed = () => false) {
+  const keys = new Set();
+  for (const a of journal.attempts) {
+    // `resolvedAt`: a human checked the press and found the post NOT online.
+    if (a.channel !== channel || !PRESSED.has(a.outcome) || a.resolvedAt || isConfirmed(a.queueId)) continue;
+    for (const e of a.ledgerEntries || []) keys.add(ledgerKey(e));
+  }
+  return keys;
+}
+
+/**
+ * Presses on `channel` that showed no confirmation and that no human has
+ * settled yet. While one exists the robot stops on that platform: if the
+ * confirmation detection is wrong, every new press would be a duplicate. A
+ * human settles it by registering the post (the ledger then holds its queue
+ * id), by adding `resolvedAt` to the journal line, or by deleting the line.
+ */
+export function openUnconfirmed(journal, channel, isConfirmed = () => false) {
+  return journal.attempts.filter((a) => a.channel === channel && a.outcome === 'unconfirmed' && !a.resolvedAt && !isConfirmed(a.queueId));
 }
 
 export function pausedUntil(journal, channel, now) {
@@ -103,7 +143,30 @@ export function pauseChannel(journal, channel, now, hours = PAUSE_AFTER_BLOCK_HO
   journal.pausedUntil = { ...journal.pausedUntil, [channel]: new Date(new Date(now).getTime() + hours * 3600_000).toISOString() };
 }
 
-/** Published posts whose confirm dispatch has not been accepted yet. */
-export function pendingConfirmations(journal) {
-  return journal.attempts.filter((a) => a.outcome === 'published' && a.confirmDispatched !== true);
+/**
+ * A dispatched confirm that has not reached the ledger after this long is sent
+ * again: GitHub keeps one pending run per concurrency group, so a confirm
+ * queued behind the poster can be dropped, and a confirm run can fail.
+ */
+export const CONFIRM_REDISPATCH_AFTER_HOURS = 2;
+/** Older published presses are left to the human the confirm workflow's issue alerted. */
+export const CONFIRM_REDISPATCH_MAX_DAYS = 7;
+
+/**
+ * Published posts whose confirmation has not reached the ledger: never
+ * dispatched successfully, or dispatched more than
+ * CONFIRM_REDISPATCH_AFTER_HOURS ago and still missing from the ledger.
+ *
+ * @param {{ now?: number, isConfirmed?: (channel: string, queueId: string) => boolean }} [opts]
+ */
+export function pendingConfirmations(journal, { now = Date.now(), isConfirmed = () => false } = {}) {
+  const nowMs = new Date(now).getTime();
+  return journal.attempts.filter((a) => {
+    if (a.outcome !== 'published' || isConfirmed(a.channel, a.queueId)) return false;
+    if (a.confirmDispatched !== true) return true;
+    const pressedAt = Date.parse(a.at ?? '');
+    if (!Number.isFinite(pressedAt) || nowMs - pressedAt > CONFIRM_REDISPATCH_MAX_DAYS * 24 * 3600_000) return false;
+    const sentAt = Date.parse(a.confirmDispatchedAt ?? a.at ?? '');
+    return Number.isFinite(sentAt) && nowMs - sentAt >= CONFIRM_REDISPATCH_AFTER_HOURS * 3600_000;
+  });
 }

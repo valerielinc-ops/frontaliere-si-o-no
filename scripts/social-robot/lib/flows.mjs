@@ -6,8 +6,9 @@
  * there, after a screenshot; otherwise it presses the button and returns
  * `published` ONLY once the platform's own confirmation is on the page. A
  * press without a visible confirmation throws `confirmation-missing` with
- * `pressed: true`: the caller must treat the post as possibly online and never
- * press it again on its own.
+ * `pressed: true`, and so does any other error after the press (a challenge,
+ * a login wall, a closed page — each keeps its class): the caller must treat
+ * the post as possibly online and never press it again on its own.
  *
  * Selectors are role/text based with a few structural fallbacks, in the four
  * UI languages the accounts may use (it/en/de/fr). They were written against
@@ -70,6 +71,25 @@ export function classifyError(err) {
   const wrapped = new RobotError('unexpected', String(err?.message || err));
   wrapped.stack = err?.stack;
   return wrapped;
+}
+
+/** Steps at or after the press of the publish button: the post may be online. */
+export const PRESSED_STEPS = Object.freeze(['publish', 'confirmation']);
+
+/**
+ * Run `afterPress` — the press itself and the wait for the confirmation — and
+ * mark ANY error it throws as `pressed`, keeping its class: a challenge or a
+ * login wall that appears after the press still pauses the platform, but the
+ * post is then also `unconfirmed` and never pressed again on its own.
+ */
+async function pressed(afterPress) {
+  try {
+    return await afterPress();
+  } catch (err) {
+    const e = classifyError(err);
+    e.pressed = true;
+    throw e;
+  }
 }
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -305,15 +325,17 @@ export async function instagramFlow({ page, files, caption, dryRun, human, snap,
   if (dryRun) return { status: 'dry-run', step: 'share-button' };
 
   step.set('publish');
-  await share.click();
-  step.set('confirmation');
-  const confirmation = await findFirst([page.getByText(RX.igConfirm)], { timeout: t.confirm, guard });
-  if (!confirmation) {
-    throw new RobotError('confirmation-missing', 'Share was pressed but Instagram showed no confirmation', { step: 'confirmation', pressed: true });
-  }
-  const evidence = normalize(await confirmation.innerText().catch(() => 'confirmation visible'));
-  await snap('confirmed');
-  return { status: 'published', evidence };
+  return pressed(async () => {
+    await share.click();
+    step.set('confirmation');
+    const confirmation = await findFirst([page.getByText(RX.igConfirm)], { timeout: t.confirm, guard });
+    if (!confirmation) {
+      throw new RobotError('confirmation-missing', 'Share was pressed but Instagram showed no confirmation', { step: 'confirmation', pressed: true });
+    }
+    const evidence = normalize(await confirmation.innerText().catch(() => 'confirmation visible'));
+    await snap('confirmed');
+    return { status: 'published', evidence };
+  });
 }
 
 /** Same contract as instagramFlow. */
@@ -352,26 +374,28 @@ export async function tiktokFlow({ page, files, caption, dryRun, human, snap, st
   if (dryRun) return { status: 'dry-run', step: 'post-button' };
 
   step.set('publish');
-  await post.click();
-  // TikTok may ask once more ("content check still running — post now?").
-  await optionalClick([page.getByRole('button', { name: RX.ttPostNow })], { guard, timeout: 5_000 });
-  step.set('confirmation');
-  const deadline = Date.now() + t.confirm;
-  for (;;) {
-    await guard();
-    if (RX.ttConfirmUrl.test(page.url())) {
-      await snap('confirmed');
-      return { status: 'published', evidence: `redirected to ${new URL(page.url()).pathname}` };
+  return pressed(async () => {
+    await post.click();
+    // TikTok may ask once more ("content check still running — post now?").
+    await optionalClick([page.getByRole('button', { name: RX.ttPostNow })], { guard, timeout: 5_000 });
+    step.set('confirmation');
+    const deadline = Date.now() + t.confirm;
+    for (;;) {
+      await guard();
+      if (RX.ttConfirmUrl.test(page.url())) {
+        await snap('confirmed');
+        return { status: 'published', evidence: `redirected to ${new URL(page.url()).pathname}` };
+      }
+      const text = await findFirst([page.getByText(RX.ttConfirm)], { timeout: 1_000 });
+      if (text) {
+        const evidence = normalize(await text.innerText().catch(() => 'confirmation visible'));
+        await snap('confirmed');
+        return { status: 'published', evidence };
+      }
+      if (Date.now() >= deadline) break;
     }
-    const text = await findFirst([page.getByText(RX.ttConfirm)], { timeout: 1_000 });
-    if (text) {
-      const evidence = normalize(await text.innerText().catch(() => 'confirmation visible'));
-      await snap('confirmed');
-      return { status: 'published', evidence };
-    }
-    if (Date.now() >= deadline) break;
-  }
-  throw new RobotError('confirmation-missing', 'Post was pressed but TikTok showed no confirmation', { step: 'confirmation', pressed: true });
+    throw new RobotError('confirmation-missing', 'Post was pressed but TikTok showed no confirmation', { step: 'confirmation', pressed: true });
+  });
 }
 
 export const FLOWS = Object.freeze({ instagram: instagramFlow, tiktok: tiktokFlow });

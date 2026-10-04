@@ -16,6 +16,8 @@
  *   - publish on both: pressed once, confirmation seen, caption and slides
  *     received by the fake platform;
  *   - a press with no confirmation: `confirmation-missing`, pressed = true;
+ *   - a challenge (Instagram) or a captcha (TikTok) right after the press:
+ *     keeps its class, pressed = true — the post may be online;
  *   - login wall, challenge, a video-only upload field: classified, nothing sent;
  *   - one whole runRobot() publish through the persistent profile: the confirm
  *     dispatch happens after the confirmation, never in a dry run.
@@ -35,7 +37,7 @@ const CAPTION = '📰 I 5 articoli più letti di ieri su frontaliereticino.ch\n\
 
 const page = (title, body, script = '') => `<!doctype html><html lang="it"><head><meta charset="utf-8"><title>${title}</title></head><body>${body}<script>${script}</script></body></html>`;
 
-function instagramPage({ confirm = true } = {}) {
+function instagramPage({ confirm = true, afterShare = '' } = {}) {
   return page('Instagram', `
 <nav><a href="#" id="create" role="link">Crea</a><a href="/">Home</a></nav>
 <div id="menu" hidden><a href="#" id="post-item" role="link">Post</a><a href="#">Diretta</a></div>
@@ -57,13 +59,13 @@ document.querySelectorAll('.next').forEach((b) => b.onclick = () => { const i = 
 $('share').onclick = async () => {
   await fetch('/api/ig/share', { method: 'POST', body: JSON.stringify({ caption: $('caption').innerText, files: count }) });
   $('share-step').hidden = true;
-  ${confirm ? "$('done').hidden = false;" : ''}
+  ${afterShare ? `location.href = '${afterShare}';` : confirm ? "$('done').hidden = false;" : ''}
 };`);
 }
 
 const instagramLogin = () => page('Login • Instagram', '<form><input name="username" aria-label="Username"><input name="password" type="password" aria-label="Password"><button>Accedi</button></form>');
 
-function tiktokPage({ accept = 'image/*,video/*', captcha = false } = {}) {
+function tiktokPage({ accept = 'image/*,video/*', captcha = false, captchaAfterPost = false } = {}) {
   return page('TikTok Studio', `
 <main>
   ${captcha ? '<div id="captcha-verify-container"><p>Drag the slider to fit the puzzle</p></div>' : ''}
@@ -82,7 +84,9 @@ $('file').onchange = () => {
 };
 $('post').onclick = async () => {
   await fetch('/api/tt/post', { method: 'POST', body: JSON.stringify({ caption: $('caption').innerText, files: count }) });
-  location.href = '/tiktokstudio/content';
+  ${captchaAfterPost
+    ? "document.querySelector('main').insertAdjacentHTML('afterbegin', '<div id=\"captcha-verify-container\"><p>Drag the slider to fit the puzzle</p></div>');"
+    : "location.href = '/tiktokstudio/content';"}
 };`);
 }
 
@@ -108,11 +112,14 @@ function fakePlatforms() {
     switch (url.pathname) {
       case '/ig/': return send(200, instagramPage());
       case '/ig-silent/': return send(200, instagramPage({ confirm: false }));
+      case '/ig-challenge-after-share/': return send(200, instagramPage({ afterShare: '/challenge/' }));
+      case '/challenge/': return send(200, page('Instagram', '<h1>Help us confirm it\'s you</h1>'));
       case '/ig-logged-out/': return send(302, '', 'text/plain', { location: '/accounts/login/' });
       case '/accounts/login/': return send(200, instagramLogin());
       case '/tiktokstudio/upload': return send(200, tiktokPage());
       case '/tt-captcha/tiktokstudio/upload': return send(200, tiktokPage({ captcha: true }));
       case '/tt-video-only/tiktokstudio/upload': return send(200, tiktokPage({ accept: 'video/*' }));
+      case '/tt-captcha-after-post/tiktokstudio/upload': return send(200, tiktokPage({ captchaAfterPost: true }));
       case '/tiktokstudio/content': return send(200, page('Manage posts', '<h1>Manage your posts</h1>'));
       default: return send(404, 'not found', 'text/plain');
     }
@@ -168,6 +175,11 @@ async function main() {
     r = await run('instagram', `${base}/ig-silent/`, { dryRun: false, label: 'ig-silent' });
     check(r.error instanceof RobotError && r.error.errorClass === 'confirmation-missing' && r.error.pressed === true, 'a press without confirmation is confirmation-missing, pressed');
 
+    const sharesBeforeChallenge = state.igShares.length;
+    r = await run('instagram', `${base}/ig-challenge-after-share/`, { dryRun: false, label: 'ig-challenge-after' });
+    check(state.igShares.length === sharesBeforeChallenge + 1, 'the share reached the platform before the challenge');
+    check(r.error?.errorClass === 'challenge' && r.error.pressed === true, `a challenge after the press stays a challenge, pressed (${r.error?.errorClass}, pressed=${r.error?.pressed})`);
+
     const before = state.igShares.length;
     r = await run('instagram', `${base}/ig-logged-out/`, { dryRun: false, label: 'ig-login' });
     check(r.error?.errorClass === 'login-required', 'a login wall is login-required');
@@ -189,6 +201,9 @@ async function main() {
     r = await run('tiktok', `${base}/tt-video-only/tiktokstudio/upload`, { dryRun: false, label: 'tt-video' });
     check(r.error?.errorClass === 'upload-unsupported', 'a video-only upload field is upload-unsupported');
     check(state.ttPosts.length === 1, 'nothing posted from a captcha or a video-only page');
+    r = await run('tiktok', `${base}/tt-captcha-after-post/tiktokstudio/upload`, { dryRun: false, label: 'tt-captcha-after' });
+    check(state.ttPosts.length === 2, 'the post reached the platform before the captcha');
+    check(r.error?.errorClass === 'challenge' && r.error.pressed === true, `a captcha after the press stays a challenge, pressed (${r.error?.errorClass}, pressed=${r.error?.pressed})`);
 
     console.log('runRobot, persistent profile');
     const entry = buildQueueEntry({

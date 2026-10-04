@@ -25,6 +25,7 @@ import {
   upsertPending,
 } from '../scripts/lib/social-publish-queue.mjs';
 import {
+  CONFIRM_REDISPATCH_AFTER_HOURS,
   MAX_POSTS_PER_DAY_PER_PLATFORM,
   PAUSE_AFTER_BLOCK_HOURS,
   emptyJournal,
@@ -312,6 +313,87 @@ describe('runRobot', () => {
     expect(h.calls.flow).toEqual([]);
   });
 
+  it('treats ANY error after the press as a press: unconfirmed, paused, never pressed again', async () => {
+    // A challenge seen while waiting for the confirmation: the flow marks it
+    // pressed (lib/flows.mjs); robot.mjs also treats the step as a press when
+    // the flag is missing, which is the case this test pins.
+    const h = harness({ flow: async () => { throw new RobotError('challenge', 'identity check', { step: 'confirmation' }); } });
+    const out = await runRobot(h.deps());
+    expect(out.results[0]).toMatchObject({ outcome: 'unconfirmed', errorClass: 'challenge' });
+    expect(pausedUntil(h.journal(), 'instagram', NOW)).not.toBeNull();
+    expect(h.calls.issues[0].labels).toContain('needs-human');
+    expect(h.calls.issues[0].description).toContain('**sì**');
+    h.advance(PAUSE_AFTER_BLOCK_HOURS * HOUR + 1);
+    const later = await runRobot(h.deps());
+    expect(later.results[0].outcome).toBe('held');
+    expect(h.calls.flow).toHaveLength(1);
+  });
+
+  it('holds the platform after an unconfirmed press, even for the next day\'s post with a new id', async () => {
+    const day1 = entry('article', '2026-10-03');
+    const day2 = entry('article', '2026-10-04', { now: NOW + 20 * HOUR }); // same slug, new id
+    let queue = { pending: [day1] };
+    const h = harness({ flow: async () => { throw new RobotError('confirmation-missing', 'no confirmation', { step: 'confirmation', pressed: true }); } });
+    const reader = { readQueue: () => queue, readLedger: () => ({ posted: [] }) };
+    await runRobot(h.deps({ reader }));
+    queue = { pending: [day2] };
+    h.advance(24 * HOUR);
+    const held = await runRobot(h.deps({ reader }));
+    expect(held.results[0]).toMatchObject({ outcome: 'held', queueId: day1.id });
+    expect(h.calls.flow).toHaveLength(1);
+    // A human settles the line as "not online": the hold lifts and the same
+    // articles may go out under the new id; the old id is never pressed again.
+    const settled = h.journal();
+    settled.attempts[0].resolvedAt = new Date(NOW + 25 * HOUR).toISOString();
+    const h2 = harness({ journal: settled, queue: { pending: [day1, day2] } });
+    h2.advance(24 * HOUR);
+    const after = await runRobot(h2.deps());
+    expect(after.results[0]).toMatchObject({ outcome: 'published', queueId: day2.id });
+    expect(h2.calls.flow.map((c) => c.id)).toEqual([day2.id]);
+  });
+
+  it('lifts the hold by itself once the ledger on main holds the unconfirmed post', async () => {
+    const journal = emptyJournal();
+    journal.attempts.push({ channel: 'instagram', outcome: 'unconfirmed', at: new Date(NOW - 30 * HOUR).toISOString(), queueId: 'article-2026-10-02', ledgerEntries: [{ id: 'old-slug', kind: 'article' }] });
+    const h = harness({ journal });
+    const reader = { readQueue: () => ({ pending: [entry('article')] }), readLedger: () => ({ posted: [{ id: 'old-slug', kind: 'article', queueId: 'article-2026-10-02' }] }) };
+    const out = await runRobot(h.deps({ reader }));
+    expect(out.results[0]).toMatchObject({ outcome: 'published', queueId: 'article-2026-10-03' });
+  });
+
+  it('does not press a new entry that repeats the articles of a press still missing from the ledger', async () => {
+    const journal = emptyJournal();
+    journal.attempts.push({ channel: 'instagram', outcome: 'published', at: new Date(NOW - HOUR).toISOString(), confirmDispatched: true, confirmDispatchedAt: new Date(NOW - HOUR).toISOString(), queueId: 'article-2026-10-02', ledgerEntries: [{ id: 'article-slug-a', kind: 'article' }] });
+    const other = buildQueueEntry({ channel: 'instagram', kind: 'job', day: '2026-10-03', caption: 'job', imageUrls: [cdn('job-0.jpg')], ledgerEntries: [{ id: 'job-slug', kind: 'job' }], now: NOW });
+    const h = harness({ journal, queue: { pending: [entry('article'), other] } });
+    const out = await runRobot(h.deps());
+    expect(h.calls.flow.map((c) => c.id)).toEqual([other.id]);
+    expect(out.results[0]).toMatchObject({ outcome: 'published', queueId: other.id });
+  });
+
+  it('re-dispatches a confirm that has not reached the ledger after the grace period', async () => {
+    const sentAt = NOW - (CONFIRM_REDISPATCH_AFTER_HOURS + 1) * HOUR;
+    const pressed = { channel: 'instagram', outcome: 'published', at: new Date(sentAt).toISOString(), confirmDispatched: true, confirmDispatchedAt: new Date(sentAt).toISOString(), queueId: 'article-2026-10-02', evidence: 'ok', ledgerEntries: [{ id: 'x', kind: 'article' }] };
+    const fresh = { ...pressed, queueId: 'job-2026-10-02', at: new Date(NOW - HOUR).toISOString(), confirmDispatchedAt: new Date(NOW - HOUR).toISOString() };
+    const landed = { ...pressed, queueId: 'border-2026-09-28' };
+    const journal = emptyJournal();
+    journal.attempts.push(pressed, fresh, landed);
+    const h = harness({ journal, queue: { pending: [] } });
+    await runRobot(h.deps({ reader: { readQueue: () => ({ pending: [] }), readLedger: () => ({ posted: [{ id: 'b', queueId: 'border-2026-09-28' }] }) } }));
+    expect(h.calls.dispatch.map((d) => d.queueId)).toEqual(['article-2026-10-02']);
+    expect(h.journal().attempts[0].confirmDispatchedAt).toBe(new Date(NOW).toISOString());
+  });
+
+  it('takes each queue entry to the button once in an unattended dry run, every time by hand', async () => {
+    const h = harness();
+    await runRobot(h.deps({ cliMode: 'publish', rcMode: 'dry', repeatDryRun: false }));
+    const second = await runRobot(h.deps({ cliMode: 'publish', rcMode: 'dry', repeatDryRun: false }));
+    expect(second.results[0].outcome).toBe('empty');
+    expect(h.calls.flow).toHaveLength(1);
+    await runRobot(h.deps({ cliMode: 'dry-run', rcMode: 'dry' }));
+    expect(h.calls.flow).toHaveLength(2);
+  });
+
   it('retries a confirm dispatch that failed before doing anything new', async () => {
     const journal = emptyJournal();
     journal.attempts.push({ channel: 'tiktok', outcome: 'published', at: new Date(NOW - HOUR).toISOString(), queueId: 'job-2026-10-03', confirmDispatched: false, evidence: 'ok', ledgerEntries: [{ id: 'j', kind: 'job' }] });
@@ -394,6 +476,12 @@ describe('workflows', () => {
       const resolved = group.replace('${{ inputs.channel }}', channel);
       expect(resolved).toBe(String(wf(`${channel}-daily-broadcast.yml`).concurrency.group));
     }
+  });
+
+  it('warns on a token-less Instagram run unless the robot is live', () => {
+    const steps = wf('instagram-daily-broadcast.yml').jobs.post.steps as Array<{ name?: string; if?: string }>;
+    const warn = steps.find((s) => /credentials are absent/.test(s.name ?? ''));
+    expect(warn?.if).toBe("env.INSTAGRAM_ACCESS_TOKEN == '' && env.SOCIAL_ROBOT_MODE != 'live'");
   });
 
   it('commits the queue file in the same step that commits the ledger', () => {

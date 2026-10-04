@@ -113,6 +113,9 @@ async function main() {
         reader: gitMainReader({ repoDir }),
         journalStore: fileJournalStore(stateDir),
         fetchImages: (entry) => downloadImages(entry, path.join(downloadsDir(stateDir), entry.channel, entry.id)),
+        // --jitter marks the unattended launchd run: there a queue entry gets
+        // one dry run, not one per window; by hand every --dry-run runs.
+        repeatDryRun: !opts.jitter,
         diagnosticsFor: (channel, entry, at) => path.join(diagnosticsDir(stateDir), `${stamp(at)}-${channel}-${entry?.id || 'none'}`),
         publishWith: async (channel, entry, files, { dryRun, human, diagnosticsDir: dir }) => {
           const p = await page();
@@ -149,6 +152,7 @@ function readUsage() {
     'node scripts/social-robot/run.mjs --login [--platform=...]',
     '',
     '--publish presses the button only when Remote Config SOCIAL_ROBOT_MODE=live. See scripts/social-robot/README.md.',
+    '--jitter (the launchd job) waits up to 20 minutes first and takes each queue entry to the button once in a dry run.',
   ].join('\n');
 }
 

@@ -10,7 +10,9 @@
  *   - publish: press, and only with the platform's confirmation on the page
  *     dispatch social-robot-confirm.yml, which moves the entry into the
  *     ledger on main. A press without confirmation is `unconfirmed`: never
- *     pressed again automatically, and an issue asks a human to look.
+ *     pressed again automatically, an issue asks a human to look, and the
+ *     platform is held — nothing else is pressed there — until a human
+ *     settles it.
  * Any error: screenshot + HTML in the diagnostics folder, one issue with a
  * stable title per platform (github-issue-creator.mjs dedups and comments),
  * no retry in the same run; a login wall or a challenge pauses the platform.
@@ -23,6 +25,7 @@ import path from 'node:path';
 import {
   SOCIAL_CHANNELS,
   isAllowedImageUrl,
+  isConfirmedInLedger,
   parseLedger,
   parseQueue,
   selectNextPending,
@@ -35,13 +38,15 @@ import {
   MAX_POSTS_PER_RUN_PER_PLATFORM,
   TYPING_DELAY_MS,
   blockedQueueIds,
+  openUnconfirmed,
   pauseChannel,
   pausedUntil,
   pendingConfirmations,
   pressedToday,
   randomBetween,
+  unsettledLedgerKeys,
 } from './cadence.mjs';
-import { classifyError, RobotError } from './flows.mjs';
+import { PRESSED_STEPS, classifyError, RobotError } from './flows.mjs';
 
 export const SITE_REPO = 'valerielinc-ops/frontaliere-si-o-no';
 export const CONFIRM_WORKFLOW = 'social-robot-confirm.yml';
@@ -52,10 +57,13 @@ export function issueTitleFor(channel) {
   return `Robot social: pubblicazione ${PLATFORM_LABEL[channel] || channel} non riuscita`;
 }
 
+/** A press followed by any error (not only a missing confirmation) leaves the post possibly online. */
+const NEXT_STEP_AFTER_PRESS = 'Il bottone di pubblicazione è stato premuto prima dell\'errore: controllare a mano sul profilo se il post è online. Se sì, registrarlo con `gh workflow run social-robot-confirm.yml` (input del journal); se no, aggiungere `resolvedAt` alla riga `unconfirmed` del journal del robot (o cancellarla). Il robot resta fermo su questa piattaforma finché la riga non è risolta.';
+
 const NEXT_STEP = {
   'login-required': 'Il proprietario apre il profilo e fa il login: `node scripts/social-robot/run.mjs --login --platform=<piattaforma>` sul Mac host agenti.',
   challenge: 'Il proprietario apre il profilo (`node scripts/social-robot/run.mjs --login`) e supera la verifica della piattaforma. Il robot resta in pausa sulla piattaforma per 12 ore.',
-  'confirmation-missing': 'Controllare a mano sul profilo se il post è online. Se sì, registrarlo con `gh workflow run social-robot-confirm.yml` (input del journal); se no, cancellare la riga `unconfirmed` dal journal del robot. Il robot non ripubblica questo post da solo.',
+  'confirmation-missing': 'Controllare a mano sul profilo se il post è online. Se sì, registrarlo con `gh workflow run social-robot-confirm.yml` (input del journal); se no, aggiungere `resolvedAt` alla riga `unconfirmed` del journal del robot (o cancellarla). Il robot non ripubblica questo post da solo e resta fermo su questa piattaforma finché la riga non è risolta.',
   'selector-missing': 'Confrontare screenshot e HTML della diagnosi con i selettori di `scripts/social-robot/lib/flows.mjs`, aggiornarli e coprirli in `scripts/social-robot/robot-e2e.mjs`.',
   'upload-unsupported': 'La pagina non accetta foto: verificare il flusso di caricamento dal web della piattaforma.',
   download: 'Le immagini della coda non sono scaricabili dalla CDN: verificare `images/social/` su R2.',
@@ -78,7 +86,7 @@ export function buildIssueDescription({ channel, error, entry, diagnostics, mode
     `- Bottone premuto: ${error.pressed ? '**sì** (il post potrebbe essere online)' : 'no'}`,
     `- Diagnosi sul Mac host: \`${diagnostics ? displayPath(diagnostics) : 'n/d'}\` (screenshot + HTML)`,
     '',
-    `**Prossimo passo:** ${NEXT_STEP[error.errorClass] || 'Leggere la diagnosi e il log del robot (`~/Library/Logs/frontaliere/social-robot.log`).'}`,
+    `**Prossimo passo:** ${(error.pressed && error.errorClass !== 'confirmation-missing' ? `${NEXT_STEP_AFTER_PRESS} ` : '') + (NEXT_STEP[error.errorClass] || 'Leggere la diagnosi e il log del robot (`~/Library/Logs/frontaliere/social-robot.log`).')}`,
   ].join('\n');
 }
 
@@ -170,6 +178,7 @@ export function ghConfirmDispatcher({ ghBin = 'gh', exec = execFileSync, repo = 
  * @param {(args: object) => Promise<{ok: boolean, reason?: string}>} deps.dispatchConfirm
  * @param {(args: { title: string, description: string, labels: string[] }) => Promise<unknown>} deps.reportIssue
  * @param {(channel: string, entry: object|null, at: number) => string} deps.diagnosticsFor
+ * @param {boolean} [deps.repeatDryRun]  false for an unattended run: one dry run per queue entry
  * @param {Pick<Console, 'log'|'warn'|'error'>} [deps.log]
  */
 export async function runRobot(deps) {
@@ -187,6 +196,7 @@ export async function runRobot(deps) {
     dispatchConfirm,
     reportIssue,
     diagnosticsFor,
+    repeatDryRun = true,
     log = console,
   } = deps;
 
@@ -205,10 +215,18 @@ export async function runRobot(deps) {
   };
 
   const journal = journalStore.load();
+  const ledgers = new Map();
+  const ledgerOf = (channel) => {
+    if (!ledgers.has(channel)) ledgers.set(channel, reader.readLedger(channel));
+    return ledgers.get(channel);
+  };
+  const confirmedOn = (channel) => (queueId) => isConfirmedInLedger(ledgerOf(channel), queueId);
 
-  // A post already pressed and confirmed whose confirm dispatch failed: retry
-  // the dispatch first, so the ledger catches up before anything new.
-  for (const attempt of pendingConfirmations(journal)) {
+  // A post already pressed and confirmed whose confirmation has not reached
+  // the ledger (dispatch failed, or dispatched but dropped/failed on the
+  // GitHub side): dispatch again first, so the ledger catches up before
+  // anything new. confirmQueueEntry is idempotent.
+  for (const attempt of pendingConfirmations(journal, { now: now(), isConfirmed: (channel, queueId) => confirmedOn(channel)(queueId) })) {
     const res = await dispatchConfirm({
       channel: attempt.channel,
       queueId: attempt.queueId,
@@ -217,6 +235,7 @@ export async function runRobot(deps) {
       ledgerEntries: attempt.ledgerEntries,
     });
     attempt.confirmDispatched = res.ok;
+    if (res.ok) attempt.confirmDispatchedAt = new Date(now()).toISOString();
     log.log(`${res.ok ? '✅' : '⚠️ '} confirm re-dispatch ${attempt.channel}/${attempt.queueId}${res.ok ? '' : `: ${res.reason}`}`);
   }
   journalStore.save(journal);
@@ -230,6 +249,12 @@ export async function runRobot(deps) {
       results.push({ channel, outcome: 'paused' });
       continue;
     }
+    const held = openUnconfirmed(journal, channel, confirmedOn(channel));
+    if (held.length) {
+      log.log(`✋ ${channel}: held — ${held.map((a) => a.queueId).join(', ')} was pressed without a confirmation and no human has settled it yet`);
+      results.push({ channel, outcome: 'held', queueId: held[0].queueId });
+      continue;
+    }
     if (!dryRun && pressedToday(journal, channel, at) >= MAX_POSTS_PER_DAY_PER_PLATFORM) {
       log.log(`🛑 ${channel}: daily cap of ${MAX_POSTS_PER_DAY_PER_PLATFORM} reached`);
       results.push({ channel, outcome: 'cap' });
@@ -240,8 +265,9 @@ export async function runRobot(deps) {
       const entry = selectNextPending(reader.readQueue(channel), {
         channel,
         now: at,
-        ledger: reader.readLedger(channel),
-        blockedIds: blockedQueueIds(journal, channel),
+        ledger: ledgerOf(channel),
+        blockedIds: blockedQueueIds(journal, channel, { skipDryRun: dryRun && !repeatDryRun }),
+        blockedLedgerKeys: unsettledLedgerKeys(journal, channel, confirmedOn(channel)),
       });
       if (!entry) {
         log.log(`ℹ️  ${channel}: nothing ready in data/${channel}-queue.json on origin/main`);
@@ -276,6 +302,7 @@ export async function runRobot(deps) {
             ledgerEntries: entry.ledgerEntries,
           });
           attempt.confirmDispatched = dispatched.ok;
+          if (dispatched.ok) attempt.confirmDispatchedAt = new Date(now()).toISOString();
           journalStore.save(journal);
           log.log(`✅ ${channel}: published ${entry.id} (${attempt.evidence})${dispatched.ok ? '' : ` — confirm dispatch failed, retried next run: ${dispatched.reason}`}`);
           results.push({ channel, outcome: 'published', queueId: entry.id, confirmDispatched: dispatched.ok });
@@ -289,6 +316,9 @@ export async function runRobot(deps) {
         }
       } catch (raw) {
         const error = classifyError(raw);
+        // Second layer behind the flows' own marking: an error raised at or
+        // after the press step is a press, whatever the error says.
+        if (PRESSED_STEPS.includes(error.step)) error.pressed = true;
         const outcome = error.pressed ? 'unconfirmed' : 'error';
         journal.attempts.push({
           channel,

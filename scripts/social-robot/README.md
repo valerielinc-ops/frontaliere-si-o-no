@@ -24,8 +24,18 @@ insiste mai dopo un errore.
    CDN e le pubblica dalla pagina web della piattaforma.
 3. Solo dopo aver **visto la conferma** della piattaforma nella pagina,
    lancia `social-robot-confirm.yml`, che sposta il post dalla coda al ledger
-   `data/<canale>-posted.json`. Un clic senza conferma visibile resta
-   `unconfirmed`: il robot non lo ripubblica e apre una issue.
+   `data/<canale>-posted.json`. Un clic senza conferma visibile — o seguito da
+   qualunque errore, anche una verifica o un muro di login — resta
+   `unconfirmed`: il robot non lo ripubblica, apre una issue `needs-human` e
+   **si ferma su quella piattaforma** finché un umano non risolve la riga.
+   Non preme nemmeno un post successivo che ripete gli stessi articoli di un
+   clic non ancora arrivato nel ledger.
+
+Risolvere un `unconfirmed` (nel journal
+`~/Library/Application Support/frontaliere/social-robot/journal.json`):
+se il post è online, registrarlo con `gh workflow run social-robot-confirm.yml`
+(il ledger ne contiene allora l'id e il blocco cade da solo); se non lo è,
+aggiungere `"resolvedAt": "<ora ISO>"` alla riga, o cancellarla.
 
 ## Interruttore (Firebase Remote Config)
 
@@ -69,7 +79,12 @@ sessione grafica aperta sul Mac: il browser non è headless.
 - al massimo 2 post al giorno per piattaforma, 1 per finestra;
 - 1,2-4,5 s fra un'azione e l'altra, digitazione carattere per carattere;
 - 1,5-6 minuti fra Instagram e TikTok nella stessa finestra;
-- dopo un muro di login o una verifica: piattaforma in pausa 12 ore.
+- dopo un muro di login o una verifica: piattaforma in pausa 12 ore;
+- dopo un clic senza conferma: piattaforma ferma finché un umano non risolve;
+- nel launch agent (`--jitter`) una sola prova a secco per post in coda, non
+  una per finestra; a mano `--dry-run` la ripete sempre;
+- una conferma inviata che dopo 2 ore non è ancora nel ledger viene rinviata
+  alla finestra successiva (fino a 7 giorni dal clic).
 
 ## Dove guardare
 
