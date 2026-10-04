@@ -3900,7 +3900,12 @@ function staleJobShardLocs(
   files: ReadonlyArray<{ file: string; xml: string }>,
   activeLocs: ReadonlySet<string> | null,
 ): string[] {
-  if (activeLocs === null) return [];
+  // The source-stale predicate is meaningful only when the producer's exact
+  // source sitemap is present. A shard-only dist (for example a locale leg
+  // that emitted `sitemap-jobs-ti.xml` without `sitemap-jobs.xml`) has no
+  // authoritative allowlist to compare against; treating the recovered empty
+  // set as authoritative would delete every priority-0.6 detail URL.
+  if (activeLocs === null || !files.some(({ file }) => file === 'sitemap-jobs.xml')) return [];
   const active = new Set([...activeLocs].map(normalizeLocForCanonicalCmp));
   const stale: string[] = [];
   const urlBlockRe = /[ \t]*<url>[\s\S]*?<\/url>\n?/g;

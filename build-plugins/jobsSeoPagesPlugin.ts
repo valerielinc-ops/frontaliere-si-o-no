@@ -311,6 +311,31 @@ const COMPANY_JOB_PAYLOAD_CAP = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
 /**
+ * Build the canonical detail path shared by the legacy job sitemap allowlist
+ * and every canton shard. Keeping the resolver in one place prevents a shard
+ * from drifting back to the frozen TI section while the allowlist is
+ * canton-aware.
+ */
+export function buildCantonAwareJobDetailPath(
+ locale: (typeof JOB_SEO_LOCALES)[number],
+ cantonCode: string,
+ slug: string,
+): string {
+  const path = [locale === 'it' ? '' : locale, sharedResolveCantonSection(locale, cantonCode), slug]
+    .filter(Boolean)
+    .join('/');
+  return '/' + path + '/';
+}
+
+export function buildCantonAwareJobDetailUrl(
+ locale: (typeof JOB_SEO_LOCALES)[number],
+ cantonCode: string,
+ slug: string,
+): string {
+ return `${BASE_URL}${buildCantonAwareJobDetailPath(locale, cantonCode, slug)}`;
+}
+
+/**
  * Role x Ticino combo pages — driven by internal search demand
  * (Medico, Infermiere, Autista, Cuoco, Piastrellista, …).
  *
@@ -10530,9 +10555,7 @@ ${staticAnalyticsHtml}
   const jobCantonForSitemap = sharedResolveJobCanton(job as { canton?: string; location?: string });
   for (const locale of localeList) {
    const slug = localizedSlug(job, locale);
-   const section = buildCantonAwareSection(locale, jobCantonForSitemap);
-   const pathForLocale = withSlash(`${localePrefix[locale]}/${section}/${slug}`.replace(/\/+/g, '/'));
-   const localeUrl = `${BASE_URL}${pathForLocale}`;
+   const localeUrl = buildCantonAwareJobDetailUrl(locale, jobCantonForSitemap, slug);
    if (resolveCanonicalUrl(slug, localeUrl) !== localeUrl) continue;
    if (!emittedActiveJobPaths.has(`${jobCantonForSitemap}:${locale}:${slug}`)) continue;
    activeJobSitemapLocs.add(localeUrl);
@@ -10856,8 +10879,8 @@ ${staticAnalyticsHtml}
    let cantonIndexNoindex = 0;
 
    // Build the URL list for the sharded sitemap. One entry per (group, locale)
-   // = 4 × group-count entries. URL preserves the legacy frozen path
-   // (sectionByLocale[locale]) — slug-registry is honored verbatim. The
+   // = 4 × group-count entries. Detail URLs use the same canton-aware path
+   // helper as the active allowlist — slug-registry is honored verbatim. The
    // shardKey is the canton, so high-confidence jobs cluster into per-canton
    // shards while AGGREGATE jobs land in sitemap-jobs-svizzera.xml.
    //
@@ -10889,12 +10912,10 @@ ${staticAnalyticsHtml}
      const itUrlLegacy = `${BASE_URL}${itPathLegacy}`;
      if (resolveCanonicalUrl(perLocaleSlugMap.it, itUrlLegacy) !== itUrlLegacy) continue;
      for (const locale of localeList) {
-       // Canton-aware section matches the actual job-detail URL emitted by
-       // the per-job loop. For TI jobs this returns the legacy frozen slug
-       // (sectionByLocale[locale]) via resolveCantonSection's early-return.
-       const section = buildCantonAwareSection(locale, groupJobCanton);
-       const path = withSlash(`${localePrefix[locale]}/${section}/${perLocaleSlugMap[locale]}`.replace(/\/+/g, '/'));
-       const localeUrl = `${BASE_URL}${path}`;
+       // This is the same canton-aware path admitted to
+       // activeJobSitemapLocs above. For TI jobs the shared resolver retains
+       // the frozen legacy section; non-TI jobs stay in their own canton.
+       const localeUrl = buildCantonAwareJobDetailUrl(locale, groupJobCanton, perLocaleSlugMap[locale]);
        // Per-locale canonical-override gate. canonicalOverrides is keyed by
        // per-locale slug (e.g. `expediter-casale-sa-lugano` for EN,
        // `beschleuniger-…` for DE) — an entry can target a single locale

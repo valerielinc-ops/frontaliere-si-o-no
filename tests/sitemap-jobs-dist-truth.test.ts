@@ -186,6 +186,19 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     expect(fs.existsSync(path.join(dist, 'sitemap-jobs.xml'))).toBe(false);
   });
 
+  it('keeps a priority-0.6 shard URL when the exact source sitemap is absent', async () => {
+    const current = `${BASE}/cerca-lavoro-ticino/shard-only-detail/`;
+    const shardPath = path.join(dist, 'sitemap-jobs-ti.xml');
+    fs.rmSync(path.join(dist, 'sitemap-jobs.xml'));
+    fs.writeFileSync(shardPath, wrapJobUrls([current]), 'utf-8');
+    writePage(current, selfCanonical(current));
+
+    await reconcileSitemapJobsWithDist(dist, []);
+
+    expect(fs.existsSync(shardPath)).toBe(true);
+    expect(extractSitemapLocs(fs.readFileSync(shardPath, 'utf-8'))).toEqual([current]);
+  });
+
   it('removes exactly the offending run-30376520728 cohort and nothing else', async () => {
     await reconcileSitemapJobsWithDist(dist, []);
     expect(extractSitemapLocs(readSitemap())).toEqual([HEALTHY, HEALTHY_2, KNOWN_MIRROR]);
