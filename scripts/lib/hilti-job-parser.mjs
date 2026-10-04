@@ -23,6 +23,7 @@
  *   - isTrustedDomain()    — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
@@ -177,12 +178,6 @@ function detectEmploymentType(text = '') {
 
 /* ── Date helper ──────────────────────────────────────────── */
 
-/** Normalise an ISO-ish datePosted to "YYYY-MM-DD". Returns '' on failure. */
-function toDateOnly(raw = '') {
-  const m = String(raw || '').trim().match(/(\d{4})-(\d{2})-(\d{2})/);
-  return m ? `${m[1]}-${m[2]}-${m[3]}` : '';
-}
-
 /* ── Schema.org extraction ─────────────────────────────────── */
 
 /**
@@ -311,7 +306,7 @@ async function fetchDetailPage(context, url) {
     const description = normalizeDescriptionBullets(stripHtml(jp.description || ''));
 
     return {
-      datePosted: toDateOnly(jp.datePosted || ''),
+      ...sourcePostingDateFields(jp.datePosted),
       employmentType: typeof jp.employmentType === 'string' ? jp.employmentType : '',
       addressLocality: primaryLocation?.addressLocality || '',
       addressRegion: primaryLocation?.addressRegion || '',
@@ -355,7 +350,7 @@ async function fetchJobListings() {
         url: row.url,
         jobReqId: row.jobReqId,
         team: row.team,
-        postedAt: detail?.datePosted || '',
+        ...mergeSourcePostingDates({}, detail || {}),
         description: detail?.description || '',
         employmentType: detail?.employmentType || '',
         addressLocality: detail?.addressLocality || '',
@@ -464,7 +459,7 @@ export async function fetchAllHiltiJobs() {
       sector: HILTI_SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedAt || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
