@@ -18,8 +18,9 @@
  *     PARENT-CLOSE del drainer, `decomposedChildNumbers`);
  *   - estrae dal corpo i token con forma di path del repository (`extractRepoPaths`);
  *   - MISROUTED se e solo se almeno un path è ASSENTE nel sito e PRESENTE su
- *     `main` del corpus. Un path assente in entrambi è un file nuovo: nessuna
- *     decisione. Prima di tutto una sonda su un path che nel corpus esiste di
+ *     `main` del corpus, e nessun path nominato esiste nel sito (una figlia
+ *     che tocca anche file del sito resta del sito). Un path assente in
+ *     entrambi è un file nuovo: nessuna decisione. Prima di tutto una sonda su un path che nel corpus esiste di
  *     certo: se fallisce, il corpus non è leggibile con questo token e la run
  *     non decide niente (una riga di log, zero scritture);
  *   - su una figlia misrouted: label `keep-open` (in `FIXER_EXEMPT_LABELS`:
@@ -73,6 +74,13 @@ export function extractRepoPaths(body) {
 
 /**
  * Verdetto di instradamento di una figlia. Pura.
+ *
+ * Basta UN path presente nel sito perché la figlia resti del sito: una scheda
+ * che porta nel sito un costrutto del corpus (o lo cita come riferimento)
+ * nomina legittimamente anche file che vivono solo lì, e pinnarla la
+ * toglierebbe dalla coda di fix senza motivo. Misrouted è la figlia i cui
+ * file esistenti vivono TUTTI solo nel corpus (10925, 10923); i path assenti
+ * in entrambi sono file nuovi e non pesano.
  * @param {string[]} paths
  * @param {Record<string, boolean|null>} siteHas   true/false; null = non letto
  * @param {Record<string, boolean|null>} corpusHas true/false; null = non letto
@@ -81,6 +89,7 @@ export function extractRepoPaths(body) {
 export function classifyChildRoute(paths, siteHas, corpusHas) {
   if (!paths.length) return { verdict: 'no-paths', corpusOnly: [] };
   const corpusOnly = paths.filter((p) => siteHas[p] === false && corpusHas[p] === true);
+  if (paths.some((p) => siteHas[p] === true)) return { verdict: 'ok', corpusOnly };
   return { verdict: corpusOnly.length ? 'misrouted' : 'ok', corpusOnly };
 }
 
@@ -149,10 +158,10 @@ export function runRouteCheck({ parentNumber, io, dryRun = false, corpusRepo = C
     const paths = extractRepoPaths(child.body);
     const siteHas = {};
     const corpusHas = {};
-    for (const p of paths) {
-      siteHas[p] = io.siteHas(p);
-      corpusHas[p] = siteHas[p] === false ? io.corpusHas(p) : null;
-    }
+    for (const p of paths) siteHas[p] = io.siteHas(p);
+    // Un path del sito decide già «ok»: il corpus si interroga solo se serve.
+    const anySite = paths.some((p) => siteHas[p] === true);
+    for (const p of paths) corpusHas[p] = !anySite && siteHas[p] === false ? io.corpusHas(p) : null;
     const { verdict, corpusOnly } = classifyChildRoute(paths, siteHas, corpusHas);
     io.log(`#${n}: ${verdict}${corpusOnly.length ? ` (${corpusOnly.join(', ')})` : ''}`);
     if (verdict !== 'misrouted') continue;

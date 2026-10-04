@@ -123,6 +123,16 @@ describe('classifyChildRoute', () => {
     expect(classifyChildRoute([p], { [p]: false }, { [p]: null }).verdict).toBe('ok');
     expect(classifyChildRoute([], {}, {}).verdict).toBe('no-paths');
   });
+
+  it('una figlia che nomina anche un file del sito resta del sito', () => {
+    const corpusOnly = 'generator/scripts/x.mjs';
+    const site = 'packages/articles/src/x.ts';
+    expect(classifyChildRoute(
+      [corpusOnly, site],
+      { [corpusOnly]: false, [site]: true },
+      { [corpusOnly]: true, [site]: null },
+    ).verdict).toBe('ok');
+  });
 });
 
 describe('runRouteCheck', () => {
@@ -165,6 +175,19 @@ describe('runRouteCheck', () => {
     const result = runRouteCheck({ parentNumber: PARENT, io });
     expect(result.misrouted).toEqual([]);
     expect(writes).toEqual([]);
+  });
+
+  it('path del corpus citato accanto a un file del sito: nessuna scrittura, corpus non interrogato', () => {
+    const sitePath = 'scripts/ci/followup-drainer.mjs';
+    const corpusPath = 'scripts/lib/corpus-floors.mjs';
+    const { io, writes, corpusReads } = fakeIo({
+      children: [child(3, `CAUSA: come \`${corpusPath}\` nel corpus. FIX: \`${sitePath}\``, ['agent:fix-queued'])],
+      site: new Set([sitePath]),
+      corpus: new Set([CORPUS_PROBE_PATH, corpusPath]),
+    });
+    expect(runRouteCheck({ parentNumber: PARENT, io }).misrouted).toEqual([]);
+    expect(writes).toEqual([]);
+    expect(corpusReads).toEqual([CORPUS_PROBE_PATH]);
   });
 
   it('file presente nel sito: ok, il corpus non viene nemmeno interrogato per quel path', () => {
@@ -251,5 +274,27 @@ describe('contratto di issue-decompose.yml', () => {
     const load = idx((s) => s.run === 'node scripts/load-rc-env.mjs');
     expect(load).toBeGreaterThanOrEqual(0);
     expect(load).toBeLessThan(idx((s) => s.id === 'codex_decompose'));
+  });
+
+  it('il prompt legge il corpus dalla fotografia locale, non da `gh api` (Codex è senza rete e il bridge resta nello scope del sito)', () => {
+    const agentIdx = idx((s) => s.id === 'codex_decompose');
+    const prompt = String(steps[agentIdx].with?.prompt ?? '');
+    expect(prompt).not.toMatch(/gh api "?repos\/nanakokyobashi-rgb\/frontaliere-articles/);
+    expect(prompt).toContain('.decompose-corpus/.paths');
+
+    const snapIdx = idx((s) => /Snapshot corpus for child routing/.test(s.name ?? ''));
+    expect(snapIdx).toBeGreaterThanOrEqual(0);
+    expect(snapIdx).toBeLessThan(agentIdx);
+    const snap = steps[snapIdx];
+    expect(snap['continue-on-error']).toBe(true);
+    expect(snap.env?.CORPUS_SNAPSHOT_DIR).toBe('.decompose-corpus');
+    const run = String(snap.run ?? '');
+    expect(run).toContain('https://github.com/nanakokyobashi-rgb/frontaliere-articles.git');
+    expect(run).toContain('--filter=blob:none');
+    // L'indice copre TUTTO main, anche i path non materializzati.
+    expect(run).toMatch(/ls-tree -r --name-only HEAD/);
+    expect(run).toContain('"$CORPUS_SNAPSHOT_DIR/.paths"');
+    // Niente repository annidato nel workspace del sito.
+    expect(run).toContain('rm -rf "$CORPUS_SNAPSHOT_DIR/.git"');
   });
 });
