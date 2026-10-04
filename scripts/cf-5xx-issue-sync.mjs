@@ -61,12 +61,19 @@
  * still `on` first; a recurrence with it on is a genuinely new signal.
  */
 import { execFileSync } from 'node:child_process';
-import { pathToFileURL } from 'node:url';
+import path from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { sanitizeUrlLikeText } from './lib/sanitizeTrackedDiagnostics.mjs';
 import { classifyCfErrorUrl, SURFACES } from './lib/cf-error-surface.mjs';
 import { syncErrorIssues } from './lib/error-issue-sync.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
+import {
+  CHECK_URL_DEFAULT_SNAPSHOTS,
+  checkUrlClean,
+  historyUrlKey,
+  loadHistory,
+} from './ci/cf-5xx-snapshot.mjs';
 
 const HOURS = process.env.CF_5XX_HOURS || '23';
 const MIN_COUNT = intFromEnv('CF_5XX_MIN_COUNT', 20);
@@ -227,10 +234,97 @@ export function buildIssueBody(e, hours = HOURS) {
         '`.github/workflows/cf-5xx-monitor.yml`, che ogni giorno alle 03:50 UTC riconia questa',
         "issue se l'URL torna sopra soglia e appende uno snapshot a",
         '`data/cf-5xx-history.jsonl` — la serie su cui il COMANDO qui sopra si verifica.',
+        "Lo stesso passo chiude questa issue quando il COMANDO esce 0 e l'URL manca anche dal",
+        'report del giorno (`scripts/lib/monitor-issue-reconcile.mjs`).',
       ],
       fallimento: `\`CF 5xx: ${url.slice(0, 80)}\``,
     }),
   ].join('\n');
+}
+
+/** La serie su cui si misura il criterio di chiusura: quella gia' mergiata su main. */
+const HISTORY_FILE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'data', 'cf-5xx-history.jsonl');
+const ISSUE_TITLE_PREFIX = 'CF 5xx: ';
+const ISSUE_FAMILY_LABEL = 'cloudflare-5xx';
+/** Le ragioni di `checkUrlClean` che sono una MISURA; tutte le altre dicono «non so». */
+const COMPLETE_CHECK_CODES = new Set(['clean', 'still-failing']);
+
+/**
+ * L'URL della issue, dalla riga `**URL:** …` del corpo. Non dal titolo: il
+ * titolo e' tagliato a 80 caratteri, e una chiave tagliata non fa mai match
+ * con la storia (`checkUrlClean` la rifiuterebbe come «mai osservato»).
+ */
+export function issueUrlFromBody(body) {
+  const m = String(body ?? '').match(/^\*\*URL:\*\*[ \t]*(\S+)[ \t\r]*$/m);
+  return m ? m[1] : '';
+}
+
+/**
+ * Il verdetto del chiuditore per UNA issue `CF 5xx:` — lo stesso del comando
+ * della scheda (`cf-5xx-snapshot.mjs --check-url <url> --snapshots 7`), piu' un
+ * vincolo che il comando non puo' vedere: la storia letta qui e' quella gia'
+ * mergiata, e lo snapshot di oggi arriva su main DOPO questo passo. Un URL
+ * presente nel report corrente (`detail`, qualunque conteggio) non e' pulito,
+ * anche se i 7 snapshot precedenti lo sono.
+ *
+ * `complete` e' vero solo quando la risposta e' una misura (`clean` o
+ * `still-failing`): storia corta, serie ferma, dettagli troncati, URL mai
+ * osservato o URL illeggibile dal corpo sono «non so» → nessuna scrittura.
+ *
+ * @param {{body?:string}} issue
+ * @param {{history:Array<object>, seenNow?:Map<string,number>, hours?:string|number, now?:number}} ctx
+ */
+export function cf5xxVerdict(issue, { history, seenNow = new Map(), hours = HOURS, now = Date.now() } = {}) {
+  const url = issueUrlFromBody(issue?.body);
+  if (!url) {
+    return { clean: false, complete: false, evidence: 'URL non leggibile dal corpo della issue (riga `**URL:**` assente)' };
+  }
+  const command = `node scripts/ci/cf-5xx-snapshot.mjs --check-url '${url}' --snapshots ${CHECK_URL_DEFAULT_SNAPSHOTS}`;
+  const live = seenNow.get(historyUrlKey(url));
+  if (live) {
+    return {
+      clean: false,
+      complete: true,
+      evidence: `ancora nel report corrente: ${live} risposte 5xx nelle ultime ${hours}h`,
+      command,
+    };
+  }
+  const res = checkUrlClean(history, url, { now });
+  const lastTs = (history || []).filter((s) => s && s.ts).at(-1)?.ts;
+  return {
+    clean: res.ok === true,
+    complete: COMPLETE_CHECK_CODES.has(res.code),
+    evidence: res.reason,
+    command,
+    measure: lastTs,
+    measuredAt: lastTs,
+  };
+}
+
+/**
+ * La configurazione della fase «riconcilia» per questa famiglia.
+ * `confirmations: 1` perche' `checkUrlClean` e' gia' un criterio sostenuto
+ * (7 snapshot completi e freschi): una seconda conferma sarebbe un'ottava.
+ */
+export function cf5xxReconcile(data, { historyFile = HISTORY_FILE, hours = HOURS } = {}) {
+  const seenNow = new Map();
+  for (const r of data?.detail || []) {
+    const n = Number(r?.count) || 0;
+    if (n <= 0 || !r?.url) continue;
+    const k = historyUrlKey(r.url);
+    seenNow.set(k, (seenNow.get(k) || 0) + n);
+  }
+  let history = null;
+  return {
+    family: 'cf-5xx',
+    labels: [ISSUE_FAMILY_LABEL],
+    titlePrefix: ISSUE_TITLE_PREFIX,
+    confirmations: 1,
+    verdictFor: (issue) => {
+      history ??= loadHistory(historyFile);
+      return cf5xxVerdict(issue, { history, seenNow, hours });
+    },
+  };
 }
 
 export async function main() {
@@ -252,12 +346,29 @@ export async function main() {
     return;
   }
 
+  // Da qui in poi i dati di Cloudflare sono stati letti: ogni ramo, anche
+  // quello che non conia niente, passa dalla fase «riconcilia». Il caso
+  // «nessun path sopra soglia» e' proprio quello in cui le issue guarite si
+  // chiudono; con un `return` secco non si chiuderebbero mai.
+  const syncOptions = {
+    dryRun: process.argv.includes('--dry-run'),
+    maxIssues: MAX_ISSUES,
+    labels: ['stability', ISSUE_FAMILY_LABEL],
+    source: `Cloudflare 5xx Monitor — last ${HOURS}h (zone-wide)`,
+    priorityFor: (e) => (e.count >= MIN_COUNT * 5 ? 2 : 3),
+    titleFor: (e) => `${ISSUE_TITLE_PREFIX}${sanitizeUrlLikeText(e.url).slice(0, 80)}`,
+    bodyFor: (e) => buildIssueBody(e, HOURS),
+    reconcile: cf5xxReconcile(data),
+  };
+  const reconcileOnly = () => syncErrorIssues({ ...syncOptions, entries: [] });
+
   const overThreshold = (data.detail || [])
     .filter((r) => r.count >= MIN_COUNT)
     .sort((a, b) => b.count - a.count);
 
   if (!overThreshold.length) {
     console.log(`[cf-5xx-issue-sync] no path with >= ${MIN_COUNT} 5xx in last ${HOURS}h — nothing to sync`);
+    await reconcileOnly();
     return;
   }
 
@@ -293,19 +404,11 @@ export async function main() {
       `[cf-5xx-issue-sync] ${overThreshold.length} path(s) over threshold, all with no 5xx in the ` +
         `last ${MAX_AGE_HOURS}h — nothing live to sync`,
     );
+    await reconcileOnly();
     return;
   }
 
-  return syncErrorIssues({
-    entries,
-    dryRun: process.argv.includes('--dry-run'),
-    maxIssues: MAX_ISSUES,
-    labels: ['stability', 'cloudflare-5xx'],
-    source: `Cloudflare 5xx Monitor — last ${HOURS}h (zone-wide)`,
-    priorityFor: (e) => (e.count >= MIN_COUNT * 5 ? 2 : 3),
-    titleFor: (e) => `CF 5xx: ${sanitizeUrlLikeText(e.url).slice(0, 80)}`,
-    bodyFor: (e) => buildIssueBody(e, HOURS),
-  });
+  return syncErrorIssues({ ...syncOptions, entries });
 }
 
 // Run only when invoked directly (not when imported by the test suite), so
