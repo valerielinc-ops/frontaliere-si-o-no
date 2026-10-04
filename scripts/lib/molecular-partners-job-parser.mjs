@@ -19,6 +19,8 @@
  * HQ, so location/canton default to Schlieren/ZH unless the detail page
  * states otherwise.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingsLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
@@ -207,22 +209,31 @@ export function extractMolecularPartnersDetailDescription(html = '') {
   return normalizeSpace(stripHtml(extractTalentsoftOfferHtml(html)));
 }
 
-async function fetchDetail(detailUrl) {
+async function fetchDetail(detailUrl, expectedTitle) {
   try {
     const html = await fetchHtml(detailUrl);
-    if (!html) return { description: '', location: '' };
+    if (!html) return { description: '', location: '', ...sourcePostingDateFields() };
 
     const description = extractMolecularPartnersDetailDescription(html);
+    const postings = extractJobPostingsLd(html);
+    const matching = postings.filter((posting) => {
+      if (normalizeSpace(posting.title || '').toLowerCase() !== normalizeSpace(expectedTitle).toLowerCase()) return false;
+      const urls = [posting.url, posting.sameAs].filter(Boolean);
+      if (!urls.length) return postings.length === 1;
+      try { return urls.every((value) => new URL(value, detailUrl).href === new URL(detailUrl).href); }
+      catch { return false; }
+    });
+    const publication = sourcePostingDateFields(matching.length === 1 ? matching[0].datePosted : '');
 
     const locMatch = html.match(/id="fldlocation_location_geographicalareacollection"[^>]*>([\s\S]*?)<\/p>/);
     const location = locMatch
       ? normalizeSpace(decodeEntities(locMatch[1].replace(/<[^>]+>/g, '')))
       : '';
 
-    return { description, location };
+    return { description, location, ...publication };
   } catch (err) {
     console.warn(`  ⚠️ Molecular Partners detail fetch failed (${detailUrl}): ${err?.message || err}`);
-    return { description: '', location: '' };
+    return { description: '', location: '', ...sourcePostingDateFields() };
   }
 }
 
@@ -261,12 +272,12 @@ export async function fetchAllMolecularPartnersJobs() {
   console.log(`  ✓ ${rows.length} Talentsoft offers (deduped across pages)`);
   if (!rows.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const r = rows[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
-    const { description: detailText, location: detailLocation } = await fetchDetail(r.detailUrl);
+    const detail = await fetchDetail(r.detailUrl, r.title);
+    const { description: detailText, location: detailLocation } = detail;
 
     const location = detailLocation || 'Zürich, Schlieren';
     const canton = inferSwissTargetCanton(location) || 'ZH';
@@ -310,7 +321,7 @@ export async function fetchAllMolecularPartnersJobs() {
       sector: 'Biotecnologie / Farmaceutica',
       currency: 'CHF',
       featured: false,
-      postedDate: r.postedDate || todayIso,
+      ...sourcePostingDateFields(detail.datePosted),
       applyUrl: r.detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
