@@ -371,10 +371,10 @@ async function main() {
         stdio: ['ignore', 'pipe', 'pipe'],
         cwd: head.cwd,
         // The checker caches results per head in tmpdir, keyed on its cache
-        // version and the refs, not on its own code. An unpinned working-tree
-        // checker must not fill that cache with verdicts a revision's checker
-        // would later be served.
-        env: source.kind === 'local' ? { ...process.env, CHECK_SIBLING_PATTERNS_CACHE: '0' } : process.env,
+        // version and the refs, not on its own code. Every source can carry a
+        // different checker revision, so no invocation may reuse a verdict
+        // produced by another revision.
+        env: { ...process.env, CHECK_SIBLING_PATTERNS_CACHE: '0' },
       });
       result = JSON.parse(jsonOutput);
       candidates = Array.isArray(result?.candidates) ? result.candidates : [];
