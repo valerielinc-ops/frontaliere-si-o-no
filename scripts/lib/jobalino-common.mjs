@@ -42,6 +42,7 @@
  *     gefunden"); its openings flow through `michel-gruppe-ag`.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, classAttrRx, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -324,7 +325,6 @@ export function createJobalinoParser(config) {
       : tiles;
     console.log(`  ✓ ${tiles.length} tiles parsed (${filteredTiles.length} after company filter)`);
 
-    const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     let detailHits = 0;
     let failed = 0;
@@ -372,9 +372,7 @@ export function createJobalinoParser(config) {
         && !/festanstellung|permanent|unbefristet/i.test(tile.jobtype || '');
       const contract = isTemporary ? 'temporary' : 'full-time';
 
-      const postedDate = jsonLd?.datePosted && /^\d{4}-\d{2}-\d{2}/.test(jsonLd.datePosted)
-        ? String(jsonLd.datePosted).slice(0, 10)
-        : todayIso;
+      const postingDates = sourcePostingDateFields(jsonLd?.datePosted);
 
       const jobSlug = slugify(`${title} ${companyKey} ${city}`);
       const urlHash = createHash('sha1')
@@ -413,7 +411,7 @@ export function createJobalinoParser(config) {
         sector: 'Sanità / Ospedali',
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...postingDates,
         applyUrl: publicUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },
