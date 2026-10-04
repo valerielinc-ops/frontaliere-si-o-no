@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
+import { JPEG_2X2 } from './helpers/pdfImages';
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   getRemoteConfigValue: vi.fn(async () => ''),
@@ -254,6 +255,16 @@ describe('candidate review API', () => {
       await post({ action: 'document_remove', documentId: 'reports', fileId: store.read(`${BASE}/automation/flow`).documents.reports.files[4].key.split('/').pop() });
       await upload('reports', PDF, { clientCheck: { verdict: 'trust_me' } });
       expect(store.read(`${BASE}/automation/flow`).documents.reports.files.at(-1).clientCheck).toEqual({ verdict: 'unreadable', matched: '' });
+    });
+
+    // A cut JPG would print half grey inside the grouped PDF of the documents (lib/dossier.mjs).
+    it('refuses a JPG cut on the way, as the photo is, and says so in the four languages', async () => {
+      expect(await upload('reports', JPEG_2X2.subarray(0, JPEG_2X2.length - 2), { fileName: 'scan.jpg' })).toMatchObject({ status: 400, body: { error: 'file_unreadable' } });
+      expect(saved.size).toBe(0);
+      expect(store.read(`${BASE}/automation/flow`).documents?.reports?.files ?? []).toEqual([]);
+      expect(await upload('reports', JPEG_2X2, { fileName: 'scan.jpg' })).toMatchObject({ status: 200 });
+      expect([...saved.keys()][0]).toMatch(/\.jpg$/);
+      for (const strings of [itCore, enCore, deCore, frCore]) expect(String(strings['jobBoard.assisted.review.error.file_unreadable'] || '').trim()).not.toBe('');
     });
 
     it('removes a file, and a document waived is taken back by a file given', async () => {

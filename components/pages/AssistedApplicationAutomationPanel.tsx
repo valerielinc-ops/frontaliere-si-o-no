@@ -7,6 +7,7 @@ import {
   type AutomationAdminAction,
 } from '@/services/assistedApplicationAdminService';
 import { LEGACY_RENDERER_NOTE } from '@/services/assistedApplicationPdfRendererStatus';
+import { sentSummaryIt } from '@/services/assistedApplicationSentRecord';
 
 /**
  * Owner view of the automated assisted application for one order: flow
@@ -64,6 +65,7 @@ const HELD_LABELS: Record<string, string> = {
   posting_closed: 'annuncio chiuso (rimborso automatico)',
   portal_needs_candidate: 'il portale richiede il candidato',
   fact_check_not_acknowledged: 'invio fermato dal controllo dei fatti: serve la tua conferma',
+  sent_files_not_stored: 'file della candidatura non salvati: l’email non è partita',
   owner: 'presa in carico manuale',
 };
 
@@ -335,9 +337,27 @@ export default function AssistedApplicationAutomationPanel({
         </div>
       )}
 
-      {(automation?.followup || automation?.interviewPrep) && (
+      {(automation?.followup || automation?.interviewPrep || draft?.sent) && (
         <div className="rounded-lg border border-edge bg-surface p-3 text-xs text-body">
           <p className="font-semibold uppercase tracking-wide text-muted">Dopo l’invio</p>
+          {draft?.sent && (
+            <div className="mt-1">
+              <p><strong>Inviato</strong> {formatMs(draft.sent.at)}: {sentSummaryIt(draft.sent)}</p>
+              {(draft.sent.files.length > 0 || draft.sent.letterUrl) && (
+                <p className="text-muted">
+                  {draft.sent.files.map((file, index) => (
+                    <span key={`${file.kind}-${index}`}>
+                      {index > 0 ? ' · ' : ''}
+                      {file.url ? <a className="text-link hover:underline" href={file.url} target="_blank" rel="noreferrer">{file.name}</a> : file.name}
+                    </span>
+                  ))}
+                  {draft.sent.packaging === 'single' && draft.sent.letterUrl && (
+                    <> · <a className="text-link hover:underline" href={draft.sent.letterUrl} target="_blank" rel="noreferrer">lettera da sola</a></>
+                  )}
+                </p>
+              )}
+            </div>
+          )}
           {automation?.followup && (
             <p className="mt-1">
               <strong>Solleciti:</strong> {FOLLOWUP_STATES[automation.followup.state || ''] || automation.followup.state} · inviati {automation.followup.sent}/2

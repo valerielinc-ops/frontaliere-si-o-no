@@ -877,6 +877,7 @@ const frCore: Record<string, string> = {
  'jobBoard.assisted.review.error.file_type_not_allowed': "Format non accepté : utilisez PDF, Word, JPG ou PNG.",
  'jobBoard.assisted.review.error.too_many_files': "Vous avez déjà téléversé le nombre maximum de fichiers pour ce document.",
  'jobBoard.assisted.review.error.invalid_file': "Le fichier est illisible ou n’existe plus. Réessayez.",
+ 'jobBoard.assisted.review.error.file_unreadable': "Nous n’arrivons pas à lire cette image : le fichier semble endommagé ou incomplet. Téléversez-le à nouveau ou utilisez un PDF.",
  'jobBoard.assisted.review.error.storage_unavailable': "Le téléversement n’est pas disponible pour le moment. Réessayez bientôt.",
  'jobBoard.assisted.review.autoApproveAt': "Si vous ne faites rien, la candidature partira automatiquement telle quelle {deadline}.",
  'jobBoard.assisted.review.fit.partialTitle': "Certaines exigences de l’annonce ne ressortent pas de votre CV",

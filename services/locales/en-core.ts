@@ -900,6 +900,7 @@ const enCore: Record<string, string> = {
  'jobBoard.assisted.review.error.file_type_not_allowed': "Format not accepted: use PDF, Word, JPG or PNG.",
  'jobBoard.assisted.review.error.too_many_files': "You have already uploaded the maximum number of files for this document.",
  'jobBoard.assisted.review.error.invalid_file': "The file cannot be read or no longer exists. Try again.",
+ 'jobBoard.assisted.review.error.file_unreadable': "We cannot read this image: the file seems damaged or incomplete. Upload it again or use a PDF.",
  'jobBoard.assisted.review.error.storage_unavailable': "Uploading is not available right now. Try again shortly.",
  'jobBoard.assisted.review.autoApproveAt': "If you do nothing, the application will be sent automatically as it is {deadline}.",
  'jobBoard.assisted.review.fit.partialTitle': "Some requirements of the posting do not show in your CV",

@@ -541,6 +541,9 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
     if (buffer.length > MAX_DOCUMENT_BYTES) throw new ReviewError('file_too_large', 413);
     const type = detectDocumentType(buffer.subarray(0, 16));
     if (!type) throw new ReviewError('file_type_not_allowed');
+    // A JPG cut on the way passes the first-bytes check and would print half grey inside the grouped
+    // PDF of the documents (scripts/assisted-application/lib/dossier.mjs): refused here, as the photo is.
+    if (type === 'jpg' && !jpegIsWhole(buffer)) throw new ReviewError('file_unreadable');
     if (filesOf(flow).length >= MAX_FILES_PER_DOCUMENT) throw new ReviewError('too_many_files', 409);
     const key = `assisted-application-uploads/${orderId}/doc-${requested.id.slice(0, 30)}-${nowMs}-${randomUUID().slice(0, 8)}.${type}`;
     if (!bucket) throw new ReviewError('storage_unavailable', 503);

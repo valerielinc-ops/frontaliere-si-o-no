@@ -374,6 +374,8 @@ const RUNNER_ERRORS = [
   // JOIN, giro di prova 2026-10-01: the page stayed on the send button, invisible reCAPTCHA v3 on the portal.
   [/^portal_antibot_ambiguous$/,'dopo il clic finale la pagina del portale non è cambiata e il portale usa un controllo anti-robot invisibile (reCAPTCHA): molto probabilmente la candidatura NON è arrivata. Controlla sul portale e, se manca, completala tu: il robot non la reinvia'],
   [/^portal_validation$/, 'il portale ha rifiutato i dati del modulo'],
+  // The runner keeps what leaves next to the order before sending (submit.mjs).
+  [/^sent_files_not_stored$/, 'lo Storage non ha salvato i file della candidatura, quindi l’email NON è partita'],
 ];
 const STAGE_LABELS = { draft: 'la bozza non è stata generata', submit: 'l’invio non è riuscito' };
 // Why the portal runner stopped (scripts/assisted-application/lib/portal/portal.mjs).
@@ -405,6 +407,8 @@ const RUNNER_HINTS = {
   portal_refused: 'Non serve controllare il portale. Su un portale con controllo anti-robot (come JOIN) un nuovo invio automatico di solito viene rifiutato di nuovo: completala tu sul portale (link, risposte e documenti sono nel pannello) e poi premi «Segna come inviata».',
   // The gate is run again right before sending: nothing left, there is nothing to check at the employer.
   fact_check_not_acknowledged: 'Non è partito nulla. Nel pannello della coda trovi i fatti che il controllo non trova nel CV: se sono corretti spunta «Ho verificato», altrimenti correggi i testi e salva le modifiche; poi premi «Riprova l’invio automatico».',
+  // The files are kept before the send is claimed: nothing left either.
+  sent_files_not_stored: 'Non è partito nulla e non c’è niente da controllare presso il datore: «Riprova l’invio automatico».',
 };
 
 /**
