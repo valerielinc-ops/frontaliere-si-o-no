@@ -416,6 +416,9 @@ const discoverJ2wListingModules = (root = path.resolve(process.cwd(), 'scripts',
  * discovered, is what makes a new omission reviewable instead of silent.
  */
 const J2W_LISTING_MODULES_WITHOUT_LOCATION: Record<string, string> = {
+  // Health-monitor registry: selector tokens occur only in comments documenting
+  // an empty-source investigation; this module exports sets, not a row parser.
+  'crawler-empty-ok-registry.mjs': 'health registry comments mention selectors; no listing parser',
   // Tile listing (`li.job-tile`), and `parseListingTiles()` emits no location
   // field at all: the marker has nowhere to leak into.
   'stadt-zuerich-job-parser.mjs': 'listing tiles carry no location field',
