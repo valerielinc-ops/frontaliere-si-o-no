@@ -8,6 +8,7 @@
  * Otis uses a Workday portal for job listings. This crawler uses the
  * Workday JSON API (POST for listings, GET for details).
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -218,7 +219,7 @@ async function main() {
       employmentType: detail?.employmentType || inferEmploymentType(raw.title, description),
       currency: 'CHF',
       featured: false,
-      postedDate: detail?.datePosted || new Date().toISOString().slice(0, 10),
+      ...sourcePostingDateFields(detail?.datePosted),
       url: publicUrl,
       source: 'Otis Dedicated Parser (Workday)',
       crawledAt: new Date().toISOString(),
