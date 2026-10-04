@@ -10,10 +10,11 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { extractDetailFields } from './prospector/extract.mjs';
+import { extractDetailFields, extractJsonLd, extractMicrodata } from './prospector/extract.mjs';
 import {
   fetchHtml as sharedFetchHtml,
   normalizeDescriptionSpace,
@@ -276,16 +277,31 @@ export function extractBmsBuildingDetailFields(html = '', pageUrl = '', opts = {
   const dom = new JSDOM(source);
   try {
     const details = dom.window.document.querySelector(BMS_DETAIL_SELECTOR);
-    if (!details) return { ...base, description: '' };
+    if (!details) return { ...base, ...mergeSourcePostingDates({}, {}), description: '' };
 
     const content = details.cloneNode(true);
     content.querySelectorAll('header, footer, nav, .footer-frame, .job-title').forEach((node) => node.remove());
     const description = normalizeDescriptionSpace(
       stripHtml(content.innerHTML).replace(/^[ \t]*•[ \t]+/gm, '- '),
     );
+    const renderedTitle = normalizeSpace(details.querySelector('.job-title')?.textContent || '');
+    const title = renderedTitle || base.title || '';
+    const records = [...extractJsonLd(source, pageUrl), ...extractMicrodata(source, pageUrl)];
+    const sameIdentity = Boolean(renderedTitle) && records.length > 0 && records.every((record) => {
+      if (normalizeSpace(record.title).toLowerCase() !== title.toLowerCase()) return false;
+      if (!record.urlExplicit) return true;
+      try {
+        const actual = new URL(record.url);
+        const expected = new URL(opts.recordUrl || pageUrl);
+        return actual.origin === expected.origin
+          && actual.pathname.replace(/\/$/, '') === expected.pathname.replace(/\/$/, '')
+          && actual.search === expected.search && actual.hash === expected.hash;
+      } catch { return false; }
+    });
     return {
       ...base,
-      title: normalizeSpace(details.querySelector('.job-title')?.textContent || base.title || ''),
+      ...mergeSourcePostingDates({}, sameIdentity ? base : {}),
+      title,
       description: meetsSourceBodyFloor(description) ? description : '',
     };
   } finally {
@@ -353,7 +369,7 @@ export async function fetchAllBmsBuildingJobs() {
   for (const entry of swissEntries) {
     try {
       const detailHtml = await fetchHtml(entry.url);
-      const detail = parseDetailPage(detailHtml);
+      const detail = parseDetailPage(detailHtml, entry.url);
 
       const title = detail?.title || entry.title;
       const location = entry.city || '';
@@ -398,7 +414,7 @@ export async function fetchAllBmsBuildingJobs() {
         sector: 'Edilizia / Materiali da costruzione',
         currency: 'CHF',
         featured: false,
-        postedDate: new Date().toISOString().split('T')[0],
+        ...mergeSourcePostingDates({}, detail || {}),
         applyUrl: detail?.applyUrl || entry.url,
         requirements: detail?.requirements || [],
         requirementsByLocale: { [sourceLang]: detail?.requirements || [] },
