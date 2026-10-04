@@ -1,24 +1,26 @@
 {
   "key": "clinique-le-noirmont",
   "label": "Clinique Le Noirmont",
-  "generatedAt": "2026-10-04T09:29:06.297Z",
+  "generatedAt": "2026-10-04T21:45:11.316Z",
   "total": 3,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4286,
-  "avgDurationMs": 4286,
+  "unchangedCount": 3,
+  "durationMs": 4526,
+  "avgDurationMs": 4526,
   "durationHistory": [
-    4286
+    4526
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Responsable technique et sécurité (F/H) 80%-100%",
-      "slug": "responsable-technique-et-securite-f-h-80-100-clinique-le-noirmont",
+      "slug": "responsabile-tecnico-e-sicurezza-m-f-80-100-clinique-le-noirmont-le-noirmont",
       "url": "https://www.cliniquelenoirmont.ch/FileDownload/Download/1046",
       "applyUrl": "https://www.cliniquelenoirmont.ch/La-clinique/Offres-demploi",
       "company": "Clinique Le Noirmont",
@@ -47,12 +49,16 @@
       },
       "id": "clinique-le-noirmont-b014ca95d60e",
       "firstSeenAt": "2026-09-25T15:13:01.629Z",
-      "_qualityScore": 79,
+      "salaryMin": 116000,
+      "salaryMax": 162000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 15
+        "completeness": 20
       }
     },
     {
@@ -80,23 +86,26 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "validThrough": "",
-      "needsRetranslation": true,
       "_meta": {
         "sourceIdentifier": "dl:1040"
       },
       "id": "clinique-le-noirmont-d8b8b702f14c",
       "firstSeenAt": "2026-08-20T21:38:25.587Z",
-      "_qualityScore": 83,
+      "salaryMin": 77400,
+      "salaryMax": 108000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 15
+        "completeness": 20
       }
     },
     {
       "title": "Places d'apprentissage 2027",
-      "slug": "places-d-apprentissage-2027-clinique-le-noirmont",
+      "slug": "luoghi-di-apprendimento-2027-clinique-le-noirmont-le-noirmont",
       "url": "https://www.cliniquelenoirmont.ch/FileDownload/Download/1037",
       "applyUrl": "https://www.cliniquelenoirmont.ch/La-clinique/Offres-demploi",
       "company": "Clinique Le Noirmont",
@@ -125,16 +134,18 @@
       },
       "id": "clinique-le-noirmont-4d14fffb276a",
       "firstSeenAt": "2026-08-12T10:17:37.356Z",
-      "_qualityScore": 79,
+      "salaryMin": 86000,
+      "salaryMax": 120000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 15
+        "completeness": 20
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }
