@@ -118,15 +118,15 @@ describe('Bucket follow-up illeggibili: maybe-resolved residuo con item open e b
       const execute = (args: string[]) => {
         calls.push(args);
         if (args[1] === 'view') return JSON.stringify({ labels: labels.map((name) => ({ name })) });
-        if (args[1] === 'edit' && args.includes('--remove-label')) {
+        if (args[0] === 'api' && args[1].includes('/labels/') && args.includes('DELETE')) {
           labels = labels.filter((name) => name !== 'maybe-resolved');
-          return '';
+          return JSON.stringify(labels.map((name) => ({ name })));
         }
         if (args[1] === 'comment') return 'comment-created';
         return '';
       };
       expect(releaseMaybeResolved(10831, [`FU-${DAY}-001`], { execute })).toBe(true);
-      expect(calls.map((args) => args[1])).toEqual(['view', 'edit', 'view', 'comment']);
+      expect(calls.map((args) => args[0] === 'api' ? 'api' : args[1])).toEqual(['view', 'api', 'view', 'comment']);
       expect(calls.at(-1)?.at(-1)).toContain(MAYBE_RESOLVED_RELEASE_MARKER);
       expect(hasLiveReconcileFlag([flag, { ...bot, body: calls.at(-1)?.at(-1) }])).toBe(false);
 
@@ -134,12 +134,38 @@ describe('Bucket follow-up illeggibili: maybe-resolved residuo con item open e b
       const failedExecute = (args: string[]) => {
         failedCalls.push(args);
         if (args[1] === 'view') return JSON.stringify({ labels: [{ name: 'maybe-resolved' }] });
-        if (args[1] === 'edit' && args.includes('--remove-label')) return null;
+        if (args[0] === 'api' && args[1].includes('/labels/') && args.includes('DELETE')) return null;
         return '';
       };
       expect(releaseMaybeResolved(10831, [`FU-${DAY}-001`], { execute: failedExecute })).toBe(false);
-      expect(failedCalls.map((args) => args[1])).toEqual(['view', 'edit']);
+      expect(failedCalls.map((args) => args[0] === 'api' ? 'api' : args[1])).toEqual(['view', 'api']);
       expect(failedCalls.some((args) => args[1] === 'comment')).toBe(false);
+      expect(hasLiveReconcileFlag([flag])).toBe(true);
+    });
+
+    it('non firma se la label viene tolta tra pre-check e DELETE REST', () => {
+      const calls: string[][] = [];
+      let labels = ['follow-up', 'maybe-resolved'];
+      let firstRead = true;
+      const execute = (args: string[]) => {
+        calls.push(args);
+        if (args[1] === 'view') {
+          const beforeRace = JSON.stringify({ labels: labels.map((name) => ({ name })) });
+          if (firstRead) {
+            firstRead = false;
+            // Rimozione umana concorrente dopo il pre-check, prima della
+            // DELETE del reconciler: il server risponderebbe 404.
+            labels = labels.filter((name) => name !== 'maybe-resolved');
+          }
+          return beforeRace;
+        }
+        if (args[0] === 'api' && args[1].includes('/labels/') && args.includes('DELETE')) return null;
+        if (args[1] === 'comment') return 'comment-created';
+        return '';
+      };
+      expect(releaseMaybeResolved(10831, [`FU-${DAY}-001`], { execute })).toBe(false);
+      expect(calls.map((args) => args[0] === 'api' ? 'api' : args[1])).toEqual(['view', 'api']);
+      expect(calls.some((args) => args[1] === 'comment')).toBe(false);
       expect(hasLiveReconcileFlag([flag])).toBe(true);
     });
 

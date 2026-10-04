@@ -76,6 +76,7 @@ import {
   planBlockedRecheck,
   unblockedCommentBody,
 } from './lib/followup-blocked-recheck.mjs';
+import { issueLabelDeleteArgs, labelDeleteResponseConfirms } from './lib/issue-label-release.mjs';
 import { isTrustedAuthor } from './route-already-fixed.mjs';
 import { rebuildDailyBody } from './gate-minted-followups.mjs';
 import { createGithubIssue, resolveGithubIssue } from '../lib/github-issue-creator.mjs';
@@ -1373,8 +1374,14 @@ export function releaseMaybeResolved(number, ids, { execute = gh } = {}) {
   // Una label gia' tolta da un altro processo non e' una rimozione del
   // reconciler: senza questa guardia il marker azzererebbe un'obiezione umana.
   if (hasLabel() !== true) return false;
-  const removed = run(['issue', 'edit', String(number), ...repoArgs, '--remove-label', LABEL], { allowFail: true });
-  if (removed === null) return false;
+  // `gh issue edit --remove-label` is idempotent: a concurrent human removal
+  // still exits 0. REST DELETE returns 404 in that case, so only its confirmed
+  // response can authorize the release marker.
+  const removed = run(issueLabelDeleteArgs({ issue: number, label: LABEL, repo: process.env.GH_REPO }), { allowFail: true });
+  if (removed === null || !labelDeleteResponseConfirms(removed, LABEL)) {
+    if (removed !== null) restoreLabel();
+    return false;
+  }
   if (hasLabel() !== false) {
     restoreLabel();
     return false;
