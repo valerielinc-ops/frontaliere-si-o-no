@@ -3,6 +3,8 @@
  * in-place DOCX needs (phase 5 of the CV study, 2026-10-02). Every entry the
  * caller does not replace is copied byte for byte, compressed as it was, so
  * styles, fonts and pictures of the candidate's file are not touched.
+ * `createZip` writes a new archive from names and bytes (the candidate's Word
+ * copy, assistedApplicationDocx.js).
  *
  * Only what Word and LibreOffice write is accepted: methods `stored` (0) and
  * `deflate` (8), no encryption, no ZIP64. Sizes are read from the central
@@ -169,4 +171,23 @@ export function writeZip(entries, replace = new Map()) {
   end.writeUInt32LE(directory.length, 12);
   end.writeUInt32LE(offset, 16);
   return Buffer.concat([...locals, directory, end]);
+}
+
+// 1980-01-01 00:00, the first date a ZIP entry can carry: the same input always gives the same bytes.
+const DOS_EPOCH_DATE = 0x0021;
+
+/**
+ * A new archive from names and bytes, in the given order, every entry deflated.
+ * @param {Array<{name:string, data:Buffer}>} files
+ * @returns {Buffer}
+ */
+export function createZip(files) {
+  const names = new Set();
+  for (const { name } of files) {
+    // writeZip would write a second entry of the same name, and readZip then refuses the archive.
+    if (names.has(name)) throw new ZipError('duplicate_entry');
+    names.add(name);
+  }
+  const entries = files.map(({ name }) => ({ name, flags: 0, time: 0, date: DOS_EPOCH_DATE, internalAttributes: 0, externalAttributes: 0 }));
+  return writeZip(entries, new Map(files.map(({ name, data }) => [name, Buffer.from(data)])));
 }
