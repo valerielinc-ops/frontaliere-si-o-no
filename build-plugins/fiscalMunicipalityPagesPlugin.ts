@@ -42,6 +42,7 @@ import { inlineScriptJson } from './shared/inlineJsonScript';
 import { calculateSimulation } from '../services/calculationService';
 import { scenarioToInputs, type SalaryHubScenario } from './salaryHubScenarios';
 import { renderNearestComparison } from './shared/nearestMunicipalityComparison';
+import { buildPeerProse, rankPeerRows } from './shared/peerCohortComparison';
 import { resolveFiscalMunicipalitiesFlushed } from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import {
@@ -208,6 +209,10 @@ interface Copy {
   colRent: string;
   spreadAddizionale: string;
   comparisonSource: string;
+  comparisonPeerNoun: string;
+  rentMetric: string;
+  populationMetric: string;
+  distanceMetric: string;
   /** Computed euro delta against the cheapest / dearest comune of the group. */
   deltaVsCheapest: (other: string, amount: string) => string;
   deltaIsCheapest: (other: string, amount: string) => string;
@@ -267,6 +272,10 @@ const COPY: Record<FiscalLocale, Copy> = {
     colRent: 'Affitto bilocale',
     spreadAddizionale: 'l\u2019addizionale comunale',
     comparisonSource: 'Addizionale IRPEF 2024, distanza dal confine e affitto indicativo dallo stesso dataset comunale usato nello scenario qui sopra.',
+    comparisonPeerNoun: 'comuni',
+    rentMetric: "l'affitto mensile indicativo",
+    populationMetric: 'la popolazione',
+    distanceMetric: 'la distanza dal confine',
     deltaVsCheapest: (other, amount) =>
       `Nel nuovo regime, a parità di profilo, la differenza di addizionale rispetto a ${other} — il più basso del gruppo — vale circa ${amount} di netto all'anno.`,
     deltaIsCheapest: (other, amount) =>
@@ -331,6 +340,10 @@ const COPY: Record<FiscalLocale, Copy> = {
     colRent: 'One-bedroom rent',
     spreadAddizionale: 'the municipal surcharge',
     comparisonSource: '2024 IRPEF surcharge, distance to the border and indicative rent from the same municipal dataset used in the scenario above.',
+    comparisonPeerNoun: 'towns',
+    rentMetric: 'indicative monthly rent',
+    populationMetric: 'population',
+    distanceMetric: 'distance to the border',
     deltaVsCheapest: (other, amount) =>
       `Under the new regime, same profile, the surcharge gap against ${other} — the lowest in the group — is worth about ${amount} of net pay a year.`,
     deltaIsCheapest: (other, amount) =>
@@ -395,6 +408,10 @@ const COPY: Record<FiscalLocale, Copy> = {
     colRent: 'Miete 2-Zimmer',
     spreadAddizionale: 'der Gemeindezuschlag',
     comparisonSource: 'IRPEF-Gemeindezuschlag 2024, Entfernung zur Grenze und Richtmiete aus demselben Gemeindedatensatz wie im Szenario oben.',
+    comparisonPeerNoun: 'Gemeinden',
+    rentMetric: 'die Richtmiete pro Monat',
+    populationMetric: 'die Einwohnerzahl',
+    distanceMetric: 'die Entfernung zur Grenze',
     deltaVsCheapest: (other, amount) =>
       `Im neuen Regime, gleiches Profil, entspricht der Zuschlagsunterschied zu ${other} — dem niedrigsten der Gruppe — rund ${amount} Netto pro Jahr.`,
     deltaIsCheapest: (other, amount) =>
@@ -459,6 +476,10 @@ const COPY: Record<FiscalLocale, Copy> = {
     colRent: 'Loyer deux-pièces',
     spreadAddizionale: 'la surtaxe communale',
     comparisonSource: 'Surtaxe IRPEF 2024, distance de la frontière et loyer indicatif issus du même jeu de données communal que le scénario ci-dessus.',
+    comparisonPeerNoun: 'communes',
+    rentMetric: 'le loyer mensuel indicatif',
+    populationMetric: 'la population',
+    distanceMetric: 'la distance de la frontière',
     deltaVsCheapest: (other, amount) =>
       `Sous le nouveau régime, à profil égal, l'écart de surtaxe avec ${other} — la plus basse du groupe — vaut environ ${amount} de net par an.`,
     deltaIsCheapest: (other, amount) =>
@@ -608,6 +629,35 @@ function renderRelated(locale: FiscalLocale, current: FiscalMunicipality): strin
     ],
     sourceNote: c.comparisonSource,
     extraProse: ({ current: self, neighbours }) => {
+      const places = [self, ...neighbours.map((entry) => entry.place)];
+      const proseFor = (
+        key: 'avgRentMonthly' | 'population' | 'distanceKm',
+        metricLabel: string,
+        formatValue: (value: number, valueLocale: FiscalLocale) => string,
+        higherIsBetter: boolean,
+      ) =>
+        buildPeerProse({
+          locale,
+          ranked: rankPeerRows(
+            places.map((place) => ({ key: place.slug, name: place.name, value: place[key] })),
+            higherIsBetter,
+          ),
+          currentKey: self.slug,
+          labels: { heading: '', metricLabel, peerNoun: c.comparisonPeerNoun },
+          formatValue,
+          higherIsBetter,
+        });
+
+      // The table exposes the raw values. These ranked summaries state what
+      // those values mean for a reader comparing residences; the peer names
+      // survive the information-gain identity mask while the figures remain
+      // visible and count as data rather than disguised prose.
+      const prose = [
+        ...proseFor('avgRentMonthly', c.rentMetric, (value, valueLocale) => eur(value, valueLocale), false),
+        ...proseFor('population', c.populationMetric, (value, valueLocale) => intFmt(value, valueLocale), true),
+        ...proseFor('distanceKm', c.distanceMetric, (value, valueLocale) => `${intFmt(value, valueLocale)} km`, false),
+      ];
+
       // Only comuni that actually levy the surcharge can be compared on it —
       // see the `numeric` note above.
       // A comune that levies no surcharge at all (Valle d'Aosta, l. cost.
@@ -616,15 +666,15 @@ function renderRelated(locale: FiscalLocale, current: FiscalMunicipality): strin
       // were a rate on the same scale — the exact confusion
       // services/irpefAddizionaleRegime.ts exists to prevent. Its own table
       // cell already says the surcharge does not apply.
-      if (!leviesIrpefAddizionale(self)) return [];
+      if (!leviesIrpefAddizionale(self)) return prose;
       const group = [self, ...neighbours.map((entry) => entry.place)].filter(leviesIrpefAddizionale);
-      if (group.length < 2) return [];
+      if (group.length < 2) return prose;
       const sorted = [...group].sort(
         (a, b) => a.irpefAddizionale - b.irpefAddizionale || (a.slug < b.slug ? -1 : 1),
       );
       const lowest = sorted[0];
       const highest = sorted[sorted.length - 1];
-      if (lowest.irpefAddizionale === highest.irpefAddizionale) return [];
+      if (lowest.irpefAddizionale === highest.irpefAddizionale) return prose;
 
       const selfIsLowest = self.irpefAddizionale === lowest.irpefAddizionale;
       const other = selfIsLowest ? highest : lowest;
@@ -635,13 +685,10 @@ function renderRelated(locale: FiscalLocale, current: FiscalMunicipality): strin
         regimesFor(self.irpefAddizionale).newNetAnnualEUR -
           regimesFor(other.irpefAddizionale).newNetAnnualEUR,
       );
-      if (delta < 1) return [];
+      if (delta < 1) return prose;
       const amount = eur(delta, locale);
-      return [
-        selfIsLowest
-          ? c.deltaIsCheapest(other.name, amount)
-          : c.deltaVsCheapest(other.name, amount),
-      ];
+      prose.push(selfIsLowest ? c.deltaIsCheapest(other.name, amount) : c.deltaVsCheapest(other.name, amount));
+      return prose;
     },
   });
 }
