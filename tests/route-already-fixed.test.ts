@@ -5,11 +5,13 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { parseFollowupItems, selectFirstOpenItem } from '../scripts/ci/followup-resolution-match.mjs';
-import { ITEM_BLOCKED_REASONS, parseItemMarkers } from '../scripts/ci/lib/followup-item-evidence.mjs';
+import { ITEM_BLOCKED_REASONS, MAYBE_RESOLVED_RELEASE_MARKER, parseItemMarkers } from '../scripts/ci/lib/followup-item-evidence.mjs';
+import { hasLiveReconcileFlag } from '../scripts/ci/reconcile-followups.mjs';
 import { bucketVerdictCoverage, isTrustedMarkerAuthor } from '../scripts/ci/followup-drainer.mjs';
 import {
   ITEM_BLOCKING_OUTCOMES,
   bucketLabelEditArgs,
+  confirmBucketMaybeResolvedRelease,
   decideAlreadyFixedRouting,
   decideBucketItemRouting,
   isTrustedAuthor,
@@ -220,6 +222,41 @@ describe('mutazione', () => {
   });
 });
 
+describe('attribuzione del rilascio maybe-resolved', () => {
+  it('race dopo il pre-check → DELETE fallita, nessuna conferma e flag precedente vivo', () => {
+    const calls: string[][] = [];
+    const priorFlag = comment('<!-- reconcile-bot:flag -->\n🤖 **Reconcile (auto)**');
+    const execute = (args: string[]) => {
+      calls.push(args);
+      if (args[0] === 'api') return null; // label rimossa concorrente → REST 404
+      throw new Error('la rilettura non deve partire dopo un DELETE non confermato');
+    };
+    expect(confirmBucketMaybeResolvedRelease({
+      repo: 'valerielinc-ops/frontaliere-si-o-no', issue: 8061, execute,
+    })).toBe(false);
+    expect(calls).toHaveLength(1);
+    expect(calls[0]).toContain('DELETE');
+    expect(hasLiveReconcileFlag([
+      priorFlag,
+      { body: '<!-- FU_ITEM_BLOCKED: item=FU-2026-10-03-001 reason=no-root-cause -->', author: { login: 'frontaliere-automation' }, authorAssociation: 'NONE' },
+    ], { isTrusted: () => true })).toBe(true);
+  });
+
+  it('risposta DELETE confermata + rilettura senza label → autorizza il marker', () => {
+    const calls: string[][] = [];
+    const execute = (args: string[]) => {
+      calls.push(args);
+      if (args[0] === 'api') return JSON.stringify([{ name: 'follow-up' }]);
+      return JSON.stringify({ state: 'OPEN', labels: [{ name: 'follow-up' }] });
+    };
+    expect(confirmBucketMaybeResolvedRelease({
+      repo: 'valerielinc-ops/frontaliere-si-o-no', issue: 8061, execute,
+    })).toBe(true);
+    expect(calls[0]).toContain('DELETE');
+    expect(calls[1]).toEqual(['issue', 'view', '8061', '--repo', 'valerielinc-ops/frontaliere-si-o-no', '--json', 'state,labels']);
+  });
+});
+
 // Replay end-to-end della CLI con un `gh` finto in PATH: la METRICA della
 // scheda #9742 («una run `already-fixed` con evidenza non lascia `agent:fix` e
 // produce un marker verificabile») misurata sulle chiamate reali dello script.
@@ -234,13 +271,16 @@ describe('CLI end-to-end (gh finto)', () => {
     "const logged = bf === -1 ? args : args.map((a, i) => (i === bf + 1 ? fs.readFileSync(a, 'utf8') : a));",
     "fs.appendFileSync(process.env.FAKE_GH_LOG, JSON.stringify(logged) + '\\n');",
     "const fx = JSON.parse(fs.readFileSync(process.env.FAKE_GH_FIXTURE, 'utf8'));",
-    // La rilettura prima della scrittura chiede solo titolo, corpo e stato.
+    // La rilettura prima della scrittura chiede titolo, corpo, stato e label;
+    // dopo l'edit label il fixture simula lo stato autorevole successivo.
     "const reread = args[0] === 'issue' && args[1] === 'view' && !args[args.indexOf('--json') + 1].includes('comments');",
     "if (reread && fx.issueReread) process.stdout.write(JSON.stringify(fx.issueReread));",
     "else if (args[0] === 'issue' && args[1] === 'view') process.stdout.write(JSON.stringify(fx.issue));",
     "else if (args[0] === 'pr' && args[1] === 'view') process.stdout.write(JSON.stringify(fx.pr));",
+    "else if (args[0] === 'api' && args[1].includes('/issues/') && args[1].includes('/labels/')) { if (process.env.FAKE_GH_RACE_LABEL_REMOVAL === '1') process.exit(1); fx.issue.labels = fx.issue.labels.filter((label) => label.name !== 'maybe-resolved'); fs.writeFileSync(process.env.FAKE_GH_FIXTURE, JSON.stringify(fx)); process.stdout.write(JSON.stringify(fx.issue.labels)); }",
     "else if (args[0] === 'api' && args[1].includes('/actions/runs/')) { const id = /\\/actions\\/runs\\/(\\d+)/.exec(args[1])?.[1]; process.stdout.write(JSON.stringify(fx.runs?.[id] || fx.run)); }",
     "else if (args[0] === 'api' && args[1].includes('/compare/')) process.stdout.write(fx.compare + '\\n');",
+    "else if (args[0] === 'issue' && args[1] === 'edit') { if (process.env.FAKE_GH_LABEL_EDIT_FAIL === '1' && !args.includes('--body-file')) process.exit(1); if (args.includes('--body-file')) fx.issue.body = fs.readFileSync(args[args.indexOf('--body-file') + 1], 'utf8'); for (let i = 0; i < args.length; i++) { if (args[i] === '--remove-label') fx.issue.labels = fx.issue.labels.filter((label) => label.name !== args[i + 1]); if (args[i] === '--add-label' && !fx.issue.labels.some((label) => label.name === args[i + 1])) fx.issue.labels.push({ name: args[i + 1] }); } fs.writeFileSync(process.env.FAKE_GH_FIXTURE, JSON.stringify(fx)); }",
     '',
   ].join('\n');
 
@@ -248,7 +288,7 @@ describe('CLI end-to-end (gh finto)', () => {
     issueComments: unknown[],
     delivery: unknown = { status: 'verified-none', reason: null, prNumber: null },
     issueBody = '',
-    bucket: { title?: string; labels?: string[]; itemId?: string; reread?: unknown; prFiles?: string[] } = {},
+    bucket: { title?: string; labels?: string[]; itemId?: string; reread?: unknown; prFiles?: string[]; failLabelEdit?: boolean; raceLabelRemoval?: boolean } = {},
   ) {
     const dir = mkdtempSync(path.join(os.tmpdir(), 'route-already-fixed-'));
     try {
@@ -291,6 +331,8 @@ describe('CLI end-to-end (gh finto)', () => {
           PATH: `${dir}${path.delimiter}${process.env.PATH ?? ''}`,
           FAKE_GH_LOG: log,
           FAKE_GH_FIXTURE: fixture,
+          FAKE_GH_LABEL_EDIT_FAIL: bucket.failLabelEdit ? '1' : '0',
+          FAKE_GH_RACE_LABEL_REMOVAL: bucket.raceLabelRemoval ? '1' : '0',
           REPO: 'valerielinc-ops/frontaliere-si-o-no',
           ISSUE: '8061',
           GITHUB_RUN_ID: '36030725501',
@@ -412,10 +454,12 @@ describe('CLI end-to-end (gh finto)', () => {
       expect(doneCount(next)).toBe(0);
       // Restano item aperti: niente `maybe-resolved` (quello residuo va via) e la
       // coda non viene tolta.
-      expect(labelArgs(calls)).toEqual(['--remove-label', 'agent:fix', '--remove-label', 'maybe-resolved']);
+      expect(labelArgs(calls)).toEqual(['--remove-label', 'agent:fix']);
+      expect(calls.some((a) => a[0] === 'api' && a[1].includes('/issues/8061/labels/maybe-resolved') && a.includes('DELETE'))).toBe(true);
       const posted = postedComments(calls);
       expect(posted).toHaveLength(1);
       expect(posted[0].split('\n')[0]).toBe(`<!-- ALREADY_FIXED_ROUTED: pr=9215 commit=${FIX_SHA} run=35435111061 -->`);
+      expect(posted[0]).toContain(MAYBE_RESOLVED_RELEASE_MARKER);
       expect(posted[0]).toContain('in attesa di verifica esplicita: la terna prova che la PR esiste, non che l\'item sia risolto');
       const markers = parseItemMarkers(trusted(posted[0]), { isTrusted: isTrustedAuthor });
       expect(markers).toEqual([
@@ -424,6 +468,57 @@ describe('CLI end-to-end (gh finto)', () => {
         { type: 'blocked', item: FIRST, reason: 'awaiting-verification', createdAt: null },
       ]);
       expect(calls.some((a) => a[0] === 'issue' && a[1] === 'close')).toBe(false);
+    });
+
+    it('rimozione label fallita → posta solo i marker dell’item e conserva il flag precedente', () => {
+      const body = bucketBody(item(FIRST, 'open'), item(SECOND, 'open'));
+      const priorFlag = comment('<!-- reconcile-bot:flag -->\n🤖 **Reconcile (auto)**');
+      const { calls } = runCli([priorFlag, comment(alreadyFixedBody())], undefined, body, {
+        title: title(2), labels: QUEUED, itemId: FIRST, prFiles: [TARGET], failLabelEdit: true,
+      });
+      const posted = postedComments(calls);
+      expect(posted).toHaveLength(1);
+      expect(posted[0]).not.toContain(MAYBE_RESOLVED_RELEASE_MARKER);
+      expect(hasLiveReconcileFlag([
+        priorFlag,
+        { body: posted[0], author: { login: 'frontaliere-automation' }, authorAssociation: 'NONE' },
+      ], { isTrusted: () => true })).toBe(true);
+    });
+
+    it('label rimossa concorrente → non la attribuisce al route step e non firma il rilascio', () => {
+      const body = bucketBody(item(FIRST, 'open'), item(SECOND, 'open'));
+      const priorFlag = comment('<!-- reconcile-bot:flag -->\n🤖 **Reconcile (auto)**');
+      const fresh = {
+        state: 'OPEN', title: title(2), body,
+        labels: [{ name: 'follow-up' }, { name: 'agent:fix-queued' }],
+      };
+      const { calls } = runCli([priorFlag, comment(alreadyFixedBody())], undefined, body, {
+        title: title(2), labels: QUEUED, itemId: FIRST, prFiles: [TARGET], reread: fresh,
+      });
+      const posted = postedComments(calls);
+      expect(posted).toHaveLength(1);
+      expect(posted[0]).not.toContain(MAYBE_RESOLVED_RELEASE_MARKER);
+      expect(labelArgs(calls)).toEqual(['--remove-label', 'agent:fix']);
+      expect(hasLiveReconcileFlag([
+        priorFlag,
+        { body: posted[0], author: { login: 'frontaliere-automation' }, authorAssociation: 'NONE' },
+      ], { isTrusted: () => true })).toBe(true);
+    });
+
+    it('label rimossa tra pre-check e DELETE REST → no marker di rilascio', () => {
+      const body = bucketBody(item(FIRST, 'open'), item(SECOND, 'open'));
+      const priorFlag = comment('<!-- reconcile-bot:flag -->\n🤖 **Reconcile (auto)**');
+      const { calls } = runCli([priorFlag, comment(alreadyFixedBody())], undefined, body, {
+        title: title(2), labels: QUEUED, itemId: FIRST, prFiles: [TARGET], raceLabelRemoval: true,
+      });
+      const posted = postedComments(calls);
+      expect(posted).toHaveLength(1);
+      expect(posted[0]).not.toContain(MAYBE_RESOLVED_RELEASE_MARKER);
+      expect(calls.some((a) => a[0] === 'api' && a[1].includes('/issues/8061/labels/maybe-resolved') && a.includes('DELETE'))).toBe(true);
+      expect(hasLiveReconcileFlag([
+        priorFlag,
+        { body: posted[0], author: { login: 'frontaliere-automation' }, authorAssociation: 'NONE' },
+      ], { isTrusted: () => true })).toBe(true);
     });
 
     it('senza coda e senza veti la coda viene riaggiunta; con un veto no', () => {
