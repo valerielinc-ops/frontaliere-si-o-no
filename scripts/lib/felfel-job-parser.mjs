@@ -274,7 +274,7 @@ export async function fetchAllFelfelJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      ...mergeSourcePostingDates({}, (nj.datePosted || nj.postedDate) ? nj : sourcePostingDateFields(nj.postedAt)),
+      ...mergeSourcePostingDates({}, (nj.datePosted || nj.postedDate || nj.postingDateSource != null) ? nj : sourcePostingDateFields(nj.postedAt)),
       applyUrl: publicUrl,
       jobReqId: nj.jobReqId || null,
       requirements: [],

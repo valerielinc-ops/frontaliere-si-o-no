@@ -15,15 +15,27 @@ const daysAgo = (days: number) => new Date(Date.now() - days * 86400000).toISOSt
 describe('FELFEL publication provenance', () => {
   beforeEach(() => mockFetchPersonioJobs.mockReset());
 
-  it('maps an explicit normalized postedAt value when legacy date fields are empty', async () => {
+  it('maps an explicit postedAt value only for a genuinely legacy shape', async () => {
     const postedAt = daysAgo(2);
     mockFetchPersonioJobs.mockResolvedValue([{
       id: 'felfel-1', title: 'Engineer', location: 'Zürich', applyUrl: 'https://felfel.jobs.personio.de/job/1',
+      descriptionHtml: '<p>Source description retained.</p>', department: '', schedule: 'full-time', seniority: '',
+      postedAt, datePosted: '', postedDate: '',
+    }] as never);
+
+    const [job] = await fetchAllFelfelJobs();
+    expect(job).toMatchObject({ postingDateSource: 'reported', datePosted: postedAt, postedDate: postedAt });
+  });
+
+  it('keeps postedAt unknown when the normalized record carries an unknown marker', async () => {
+    const postedAt = daysAgo(2);
+    mockFetchPersonioJobs.mockResolvedValue([{
+      id: 'felfel-2', title: 'Analyst', location: 'Zürich', applyUrl: 'https://felfel.jobs.personio.de/job/2',
       descriptionHtml: '<p>Source description retained.</p>', department: '', schedule: 'full-time', seniority: '',
       postedAt, datePosted: '', postedDate: '', postingDateSource: 'unknown',
     }] as never);
 
     const [job] = await fetchAllFelfelJobs();
-    expect(job).toMatchObject({ postingDateSource: 'reported', datePosted: postedAt, postedDate: postedAt });
+    expect(job).toMatchObject({ postingDateSource: 'unknown', datePosted: '', postedDate: '' });
   });
 });
