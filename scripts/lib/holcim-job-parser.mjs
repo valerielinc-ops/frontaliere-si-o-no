@@ -278,8 +278,11 @@ async function listSwissJobs() {
     try {
       html = await fetchHtml(pageUrl, { timeoutMs: 20000 });
     } catch (err) {
-      if (page === 0) console.warn(`⚠️ Failed to fetch Holcim search page: ${err.message}`);
-      break;
+      console.warn(`⚠️ Failed to fetch Holcim search page at page=${page}: ${err.message}`);
+      // A transport/server failure is not an empty listing. Let the standard
+      // crawler pipeline preserve the previous slice and record the real
+      // connection-level/HTTP failure instead of publishing no-jobs-parsed.
+      throw err;
     }
     const { rows, total } = parseSearchPage(html);
     if (page === 0) expectedTotal = total;
