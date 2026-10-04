@@ -9,6 +9,7 @@
  * The page uses Drupal Views with AJAX filtering; the crawler reads the
  * national listing and resolves each posting's Swiss canton.
  */
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -198,7 +199,8 @@ async function fetchMikronJobs() {
       // Title and slug in the body's source slot, not a fixed `en`/`it`.
       ...sourceSlotTitleAndSlug(title, slug, sourceLang), slug,
       sourceLang,
-      category: detectCategory(title), datePosted: new Date().toISOString().split('T')[0],
+      category: detectCategory(title), ...sourcePostingDateFields(''),
+      crawledAt: new Date().toISOString(),
       source: 'mikron-html-crawler', employmentType,
       experienceLevel: detectExperienceLevel(title), sector: 'Manifattura / Precision Manufacturing',
       _targetScope: { canton, location: city0 },

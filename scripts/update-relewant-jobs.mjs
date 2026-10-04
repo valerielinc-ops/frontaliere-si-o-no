@@ -9,6 +9,7 @@
  * 4. Updates adapter config
  */
 
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -149,7 +150,8 @@ function buildRelewantJob(parsed) {
     sector: 'Consulenza IT',
     source: 'relewant-dedicated-crawler',
     sourceLang,
-    postedDate: new Date().toISOString().slice(0, 10),
+    ...sourcePostingDateFields(''),
+    crawledAt: new Date().toISOString(),
     employmentType: parsed.jobType?.toLowerCase().includes('parziale') ? 'part-time' : 'full-time',
     contractType: parsed.jobType?.toLowerCase().includes('parziale') ? 'part-time' : 'full-time',
     validThrough: '',
@@ -200,6 +202,7 @@ async function mergeJobs(discoveredJobs) {
     const updatedJob = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergedDescByLocale,
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
@@ -231,7 +234,7 @@ function updateAdapterConfig(jobs) {
       location: job.location,
       canton: job.canton || '',
       company: COMPANY_NAME,
-      postedDate: job.postedDate,
+      ...sourcePostingDateFields(job.postingDateSource === 'reported' ? (job.postedDate || job.datePosted) : ''),
     };
   }
   writeJson(ADAPTER_PATH, {

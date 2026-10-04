@@ -36,7 +36,13 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
+  # The weekly snapshot reaches main through the stable PR branch
+  # chore/cwv-monitor-history (scripts/lib/open-data-refresh-pr.sh): the main
+  # ruleset requires the vitest check, which only exists on a PR head. The
+  # direct push it replaced was cancelled on 2026-09-30 (run 36727205394) and
+  # lost that week's snapshot.
   contents: write
+  pull-requests: write
   issues: write
 
 jobs:
@@ -49,7 +55,7 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 1
-          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: false
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
             /*
@@ -94,6 +100,69 @@ jobs:
       - name: Load RC secrets
         run: node scripts/load-rc-env.mjs
 
+      # The App identity re-triggers pull-request checks. If the installation
+      # is unavailable, the long-lived PAT loaded above remains the fallback.
+      - name: Mint App token (primary PR identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      # A regression is coined on two consecutive recorded weeks, and the
+      # publisher keeps only the newest copy of a JSON snapshot when the stable
+      # branch already changed it. Bring a snapshot PR still in flight into the
+      # workspace before measuring, so last week's row reaches both the verdict
+      # and the next PR instead of being replaced by a history rebuilt from main.
+      - name: Carry forward pending CWV snapshot PR
+        env:
+          # actions/checkout uses persist-credentials=false; probe and fetch
+          # the stable branch with the same identity the publisher uses below.
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
+        run: |
+          set -euo pipefail
+          branch='chore/cwv-monitor-history'
+          history_path='data/cwv-monitor-history.json'
+          [ -n "$GH_TOKEN" ] || {
+            echo "::error::No authenticated refresh token is available to probe the stable CWV snapshot branch"
+            exit 1
+          }
+          remote_url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          probe="$RUNNER_TEMP/cwv-monitor-history-remote-head"
+          if ! git ls-remote "$remote_url" "refs/heads/${branch}" >"$probe" 2>/dev/null; then
+            echo "::error::Unable to authenticate or probe the stable CWV snapshot branch"
+            exit 1
+          fi
+          if [ ! -s "$probe" ]; then
+            echo "No in-flight CWV snapshot PR branch found."
+            exit 0
+          fi
+          if ! open_pr=$(gh pr list \
+            --repo "$GITHUB_REPOSITORY" \
+            --base main \
+            --head "$branch" \
+            --state open \
+            --json number \
+            --jq '.[0].number // empty'); then
+            echo "::error::Unable to determine whether the stable CWV branch backs an open PR"
+            exit 1
+          fi
+          if [ -z "$open_pr" ]; then
+            echo "Stable CWV branch has no open PR; ignoring stale branch."
+            exit 0
+          fi
+          if ! git fetch --no-tags --depth=1 "$remote_url" \
+            "refs/heads/${branch}:refs/remotes/origin/${branch}" \
+            >/dev/null 2>&1; then
+            echo "::error::Unable to fetch the stable CWV snapshot branch"
+            exit 1
+          fi
+          if git cat-file -e "refs/remotes/origin/${branch}:${history_path}" 2>/dev/null; then
+            git restore --source="refs/remotes/origin/${branch}" -- "$history_path"
+            echo "Loaded pending CWV history from ${branch}."
+          fi
+
       - name: Check CWV regressions + record weekly snapshot
         id: measure
         continue-on-error: true
@@ -108,33 +177,34 @@ jobs:
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
           exit 0
 
-      - name: Commit weekly snapshot if changed
+      # The stable branch is pushed with a lease and reconciled by the helper,
+      # so a busy main no longer races this job: the snapshot is measured once
+      # and never re-queried from PostHog on a retry.
+      - name: Open PR with snapshot
         if: always() && steps.measure.outcome != 'cancelled'
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/cwv-monitor-history.json
-          if git diff --cached --quiet; then
-            echo "No change to cwv-monitor-history.json"
-            exit 0
-          fi
-          git commit -m "chore: record weekly CWV snapshot"
+          body="$RUNNER_TEMP/cwv-monitor-refresh-pr-body.md"
+          run_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          {
+            printf 'Auto-generated by [workflow run %s](%s).\n\n' \
+              "$GITHUB_RUN_ID" "$run_url"
+            cat <<'EOF'
+          ## Implementato
+          - Lo snapshot settimanale CWV (`data/cwv-monitor-history.json`) viene proposto tramite il branch stabile `chore/cwv-monitor-history`, così il required check `vitest (unit + integration)` gira prima dell'ingresso su `main`.
 
-          # Push with rebase-and-retry. Re-querying PostHog on a retry can
-          # shift the recorded values slightly (later data point, same day
-          # key) — the script overwrites-in-place per today's date, so a
-          # regenerate-on-rebase retry stays safe and idempotent per day.
-          # Keep the retry budget below this job's 10-minute cap: the shared
-          # helper defaults to 40 attempts, whose backoff can outlive the job
-          # and turn a recoverable push race into an unreported cancellation.
-          bash scripts/lib/git-push-with-retry.sh \
-            --max-attempts 8 \
-            --regenerate-cmd "node scripts/cwv-monitor-check.mjs && git add data/cwv-monitor-history.json"
-        env:
-          GH_REPO: ${{ github.repository }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CWV_MONITOR_WINDOW_DAYS: ${{ inputs.windowDays || '7' }}
+          ## Non implementato (ancora)
+          Nessuno — snapshot automatizzato, senza residui.
+          EOF
+          } > "$body"
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --path data/cwv-monitor-history.json \
+            --branch chore/cwv-monitor-history \
+            --commit-message "chore: record weekly CWV snapshot" \
+            --title "chore(data): record weekly CWV snapshot" \
+            --body-file "$body"
 
       - name: Fail closed when the weekly measurement is incomplete
         if: always() && steps.measure.outputs.exit_code != '0'

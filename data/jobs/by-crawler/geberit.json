@@ -831,13 +831,11 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "previousSlugs": [
-        "it-application-analyst-plm-cax-a-80-100-geberit-ch",
-        "it-application-analista-plm-cax-a-80-100-geberit-rapperswil-jona"
+        "it-application-analyst-plm-cax-a-80-100-geberit-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-application-analyst-plm-cax-a-80-100-geberit-ch",
-          "it-application-analista-plm-cax-a-80-100-geberit-rapperswil-jona"
+          "it-application-analyst-plm-cax-a-80-100-geberit-ch"
         ]
       },
       "salaryMin": 60000,
@@ -1840,8 +1838,7 @@
       "previousSlugsByLocale": {
         "it": [
           "plant-manager-efz-a-100-geberit-rapperswil-jona",
-          "anlagenfuhrer-efz-a-100-geberit-ch",
-          "anlagenfuhrer-cfc-a-100-geberit-rapperswil-jona"
+          "anlagenfuhrer-efz-a-100-geberit-ch"
         ],
         "en": [
           "plant-manager-efz-a-100-geberit-rapperswil-jona"
@@ -1913,27 +1910,21 @@
       "applyUrl": "https://jobs.geberit.com/job-invite/2189/?locale=sv_SE",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
-        "betriebsleiter-gastronomie-a-80-100-geberit-ch",
-        "responsabile-della-ristorazione-a-80-100-geberit-rapperswil-jona",
-        "manager-of-catering-a-80-100-geberit-rapperswil-jona",
-        "directeur-de-la-restauration-a-80-100-geberit-rapperswil-jona"
+        "betriebsleiter-gastronomie-a-80-100-geberit-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsleiter-gastronomie-a-80-100-geberit-ch",
-          "responsabile-della-ristorazione-a-80-100-geberit-rapperswil-jona"
+          "betriebsleiter-gastronomie-a-80-100-geberit-ch"
         ],
         "en": [
-          "betriebsleiter-gastronomie-a-80-100-geberit-ch",
-          "manager-of-catering-a-80-100-geberit-rapperswil-jona"
+          "betriebsleiter-gastronomie-a-80-100-geberit-ch"
         ],
         "fr": [
-          "betriebsleiter-gastronomie-a-80-100-geberit-ch",
-          "directeur-de-la-restauration-a-80-100-geberit-rapperswil-jona"
+          "betriebsleiter-gastronomie-a-80-100-geberit-ch"
         ]
       },
+      "firstSeenAt": "2026-09-24T00:09:27.509Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -1947,7 +1938,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T00:09:27.509Z"
+      "needsRetranslation": true
     },
     {
       "id": "geberit-2243",
@@ -2177,8 +2168,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-empfang-telefonie-a-40-geberit-ch",
         "it": "collaboratore-trice-empfang-telefonie-a-40-geberit-rapperswil-jona",
-        "en": "mitarbeiter-empfang-telefonie-a-40-geberit-ch",
-        "fr": "mitarbeiter-empfang-telefonie-a-40-geberit-ch"
+        "en": "staff-reception-telephony-a-40-geberit-rapperswil-jona",
+        "fr": "reception-du-personnel-et-telephone-a-40-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -2255,12 +2246,12 @@
     },
     {
       "id": "geberit-2237",
-      "slug": "leiter-empfang-zentrale-dienste-a-50-geberit-rapperswil-jona",
+      "slug": "capo-della-reception-e-dei-servizi-centrali-a-50-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "leiter-empfang-zentrale-dienste-a-50-geberit-ch",
-        "it": "leiter-empfang-zentrale-dienste-a-50-geberit-rapperswil-jona",
-        "en": "leiter-empfang-zentrale-dienste-a-50-geberit-ch",
-        "fr": "leiter-empfang-zentrale-dienste-a-50-geberit-ch"
+        "it": "capo-della-reception-e-dei-servizi-centrali-a-50-geberit-rapperswil-jona",
+        "en": "head-of-reception-central-services-a-50-geberit-rapperswil-jona",
+        "fr": "chef-de-la-reception-et-des-services-centraux-a-50-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
