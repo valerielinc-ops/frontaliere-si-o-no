@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rsbj",
-  "assembledAt": "2026-10-03T21:27:07.819Z",
+  "assembledAt": "2026-10-04T09:27:06.371Z",
   "jobs": [
     {
       "id": "rsbj-97f459a61e1e",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "medici-con-titolo-post-laurea-federale-in-medicina-interna-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
         "en": "doctors-carrying-the-post-graduate-federal-title-of-internal-medicine-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte",
-        "de": "arzt-arztin-mit-federalem-postgraduierten-titel-in-innerer-medizin-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
+        "de": "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-praktikant-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
         "fr": "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-intern-rsbj-sainte-croix"
       },
       "company": "Réseau Santé Balcon du Jura Vaudois (RSBJ)",
@@ -17,7 +17,7 @@
       "title": "Des médecins porteurs du titre fédéral postgradué de Médecine Intern...",
       "titleByLocale": {
         "it": "Des médecins porteurs du titre fédéral postgradué de Médecine Tirocinante...",
-        "en": "Doctors carrying the post-graduate federal title of Internal Medicine...",
+        "en": "Des médecins porteurs du titre fédéral postgradué de Médecine Intern...",
         "de": "Des médecins porteurs du titre fédéral postgradué de Médecine Praktikant...",
         "fr": "Des médecins porteurs du titre fédéral postgradué de Médecine Stagiaire..."
       },
@@ -34,7 +34,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_18026/fr/des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-interne-generale-fmh",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:26:59.375Z",
+      "crawledAt": "2026-10-04T09:26:56.842Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -53,16 +53,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-intern-rsbj-sainte-croix",
+        "arzt-arztin-mit-federalem-postgraduierten-titel-in-innerer-medizin-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
+        "medici-con-titolo-post-laurea-federale-in-medicina-interna-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
         "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-praktikant-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-intern-rsbj-sainte-croix"
+          "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-intern-rsbj-sainte-croix",
+          "medici-con-titolo-post-laurea-federale-in-medicina-interna-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix"
         ],
         "en": [
           "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-intern-rsbj-sainte-croix"
         ],
         "de": [
+          "arzt-arztin-mit-federalem-postgraduierten-titel-in-innerer-medizin-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
           "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-praktikant-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix"
         ]
       },
@@ -112,7 +116,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_42203/fr/un-e-medecin-generaliste-/-medecin-de-famille-independant-ou-dependant-taux-a-definir",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:26:58.086Z",
+      "crawledAt": "2026-10-04T09:26:56.003Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -130,11 +134,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-e-medecin-generaliste-medecin-de-famille-independant-ou-depend-rsbj-sainte-croix"
+        "un-e-medecin-generaliste-medecin-de-famille-independant-ou-depend-rsbj-sainte-croix",
+        "medico-di-famiglia-medico-generale-indipendente-o-dipendente-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-e-medecin-generaliste-medecin-de-famille-independant-ou-depend-rsbj-sainte-croix"
+          "un-e-medecin-generaliste-medecin-de-famille-independant-ou-depend-rsbj-sainte-croix",
+          "medico-di-famiglia-medico-generale-indipendente-o-dipendente-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix"
         ]
       },
       "firstSeenAt": "2026-06-22T14:59:53.389Z",
@@ -178,12 +184,13 @@
         "de": "Art des Vertrags: CDI\nRate: 30 %\nStartdatum: 1. Juli 2026 oder noch zu vereinbaren\n\nDiese Funktion spielt eine Schlüsselrolle für die Sicherheit von Akteuren, Mitarbeitern und Besuchern. Durch Ihre Expertise tragen Sie aktiv dazu bei, Infektionsrisiken zu reduzieren und eine starke institutionelle Kultur der Hygiene und Pflegequalität zu fördern.\nIhre Missionen:\n• Definition, Bereitstellung und Bewertung von Protokollen und Verfahren zur Infektionsprävention und -kontrolle\n• Analysieren Sie epidemiologische Daten, um konkrete und messbare Maßnahmen zu leiten\n• Unterstützen Sie Fachleute täglich, indem Sie ihre Fähigkeiten und Wachsamkeit angesichts von Infektionsrisiken stärken\n• Koordinierung der Maßnahmen der Schwerpunkte Gesundheit und Infektionsprävention\n• Vorbereiten und Hosten von HPCI-Sitzungen mit dem Management\n• Nutzung von Praktiken durch gezielte Audits und Verbesserungsempfehlungen\n• Beteiligen Sie sich am Management von Risikosituationen (Epidemien, Infektionswarnungen) und koordinieren Sie die erforderlichen Maßnahmen\n• Gewährleistung der regulatorischen und wissenschaftlichen Aufsicht in Bezug auf kantonale und föderale Empfehlungen\n• Teilnahme an den Sicherheits- und Qualitätskommissionen des RSBJ\n• Gewährleistung der Einhaltung von Hygienestandards in institutionellen Projekten (Arbeit, Ausrüstung, spezifische Prozesse)\nIhr Profil:\n• Tertiärer Abschluss: Bachelor of Nursing oder gleichwertig\n• Bundesdiplom von EPIAS\n• Mehrjährige Erfahrung in der Akutversorgung\n• Fachübergreifende Koordinierung\n• Selbstvertrauen und Organisationssinn\n• Computerkenntnisse\nAmtsantritt: 1. Juli 2026 oder noch zu vereinbaren\nVollständige Bewerbungsdatei zu senden an: jobs@rsbj.ch",
         "fr": "Type de Contrat : CDI\nTaux : 30 %\nDate d'entrée : 1er juillet 2026 ou à convenir\n\nCette fonction joue un rôle clé dans la sécurité des actients, des collaborateurs et des visiteurs. Par votre expertise, vous contribuez activement à réduire les risques infectieux et à promouvoir une culture institutionnelle forte en matière d’hygiène et de qualité des soins.\nVos missions :\n• Définir, déployer et évaluer les protocoles et procédures en matière de prévention et de contrôle des infections\n• Analyser les données épidémiologiques pour orienter des actions concrètes et mesurables\n• Accompagner les professionnels au quotidien en renforçant leurs compétences et leur vigilance face aux risques infectieux\n• Coordonner les actions des référents en hygiène et prévention des infections\n• Préparer et animer les séances HPCI avec la Direction\n• Influencer durablement les pratiques grâce à des audits ciblés et des recommandations d’amélioration\n• Participer à la gestion des situations à risque (épidémies, alertes infectieuses) et coordonner les actions nécessaires\n• Assurer une veille réglementaire et scientifique en lien avec les recommandations cantonales et fédérales\n• Participer aux commissions sécurité-qualité du RSBJ\n• Garantir le respect des normes d’hygiène dans les projets institutionnels (travaux, équipements, processus spécifiques)\nVotre profil :\n• Diplôme de titre tertiaire : Bachelor en soins infirmier ou titre équivalent\n• Diplôme fédéral d’EPIAS\n• Expérience de plusieurs années en soins aigus\n• Coordination interprofessionnelle\n• Autonomie et sens de l’organisation\n• Habilités au niveau informatique\nEntrée en fonction : 1 er juillet 2026 ou à convenir\nDossier de candidature complet à faire parvenir à : jobs@rsbj.ch"
       },
+      "needsRetranslation": true,
       "location": "Sainte-Croix",
       "canton": "VD",
       "url": "https://www.rsbj.ch/jcms/rsbj_54318/fr/infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-soins-epias",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T21:26:56.741Z",
+      "crawledAt": "2026-10-04T09:26:54.912Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -201,11 +208,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-so-rsbj-sainte-croix"
+        "infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-so-rsbj-sainte-croix",
+        "infermiera-esperto-nella-prevenzione-delle-infezioni-associate-cosi-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-so-rsbj-sainte-croix"
+          "infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-so-rsbj-sainte-croix",
+          "infermiera-esperto-nella-prevenzione-delle-infezioni-associate-cosi-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte"
         ],
         "en": [
           "infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-so-rsbj-sainte-croix"

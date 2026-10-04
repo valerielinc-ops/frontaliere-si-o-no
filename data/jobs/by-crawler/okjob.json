@@ -1,6 +1,6 @@
 {
   "crawlerKey": "okjob",
-  "assembledAt": "2026-10-03T21:30:11.879Z",
+  "assembledAt": "2026-10-04T09:30:49.472Z",
   "jobs": [
     {
       "id": "okjob-f093879b2638",
@@ -67,7 +67,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:29:09.364Z"
+      "firstSeenAt": "2026-10-01T09:29:09.364Z",
+      "crawlerMissStreak": 1
     }
   ]
 }
