@@ -38,6 +38,28 @@ describe('translation semantic completeness', () => {
     expect(result.issues.map((issue) => issue.code)).not.toContain('translation-semantic-truncation');
   });
 
+  // Il floor di 40 parole protegge le sezioni brevi dalla varianza naturale fra
+  // lingue, non un body che non contiene alcuna parola: «...» o «—» al posto di
+  // una sezione italiana breve e' una traduzione assente, e uscita con un punto
+  // passava ogni controllo di punteggiatura.
+  it.each(['...', '…', ' — ', '**...**'])('flags a short section translated as the placeholder %j', (placeholder) => {
+    const result = runFactualityGates({
+      sections: { body1: placeholder },
+      locale: 'en',
+      italianSections: { body1: 'La sezione breve spiega dove ritirare il modulo.' },
+    });
+    const found = result.issues.find((issue) => issue.code === 'translation-semantic-truncation');
+    expect(found?.severity).toBe('critical');
+    expect(result.blocking.map((issue) => issue.code)).toContain('translation-semantic-truncation');
+  });
+
+  it('keeps the 40-word floor for a short section that is actually translated', () => {
+    const issues = detectTruncation('The short section explains where to collect the form.', {
+      label: 'en/body1', locale: 'en', referenceText: 'La sezione breve spiega dove ritirare il modulo.',
+    });
+    expect(issues.map((issue) => issue.code)).not.toContain('translation-semantic-truncation');
+  });
+
   it('reports a whole body section missing from the translation', () => {
     const result = runFactualityGates({
       sections: { body1: 'The first section remains available and ends correctly.' },
