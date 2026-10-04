@@ -54,6 +54,13 @@ const MAX_LISTED = 15;
 export const DUPLICATE_ISSUE_KEY = '[duplicate-crawler]';
 export const COVERAGE_GAP_ISSUE_KEY = '[crawler-coverage-gap]';
 export const STALE_SNAPSHOT_ISSUE_KEY = '[crawler-snapshot-stale]';
+const ISSUE_WORKFLOW = 'audit-duplicate-crawlers';
+
+function currentRunUrl() {
+  return process.env.GITHUB_RUN_ID
+    ? `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
+    : undefined;
+}
 
 /**
  * @param {string[]} urls
@@ -387,27 +394,57 @@ async function main() {
     console.log('\n(report-only: passa --issues per aprire/aggiornare le issue di backlog)');
     return;
   }
-  if (!duplicates.length && !gaps.length && !staleSnapshots.length) {
-    console.log('\nnessun finding — nessuna issue da aprire.');
-    return;
-  }
+  await reportFindingIssues({ duplicates, gaps, staleSnapshots });
+}
 
-  const { createGithubIssue } = await import('./lib/github-issue-creator.mjs');
-  if (duplicates.length) {
-    const { title, description, dedupKey, signals } = duplicateIssue(duplicates);
-    await createGithubIssue({ title, description, dedupKey, signals, priority: 2, labels: ['crawler'], workflow: 'audit-duplicate-crawlers' });
-    console.log(`\n→ issue duplicate-identity: ${title}`);
+/**
+ * One issue family per finding class, opened/updated while the class has
+ * findings and CLOSED when the audit measures 0 for it. Without the resolve
+ * branch a family stayed open after its last finding was fixed (the same gap
+ * as the weekly logo audit, issue 6504). The resolve matches on the stable
+ * family key, so it also reaches an issue still carrying a historical
+ * count-bearing title. A close GitHub refuses throws and fails the run.
+ * Coverage gaps are not resolved while a witness snapshot is stale: classify
+ * masks the gaps of that pair as not comparable, so a 0 there is an
+ * incomplete measurement, not a green.
+ *
+ * `createIssue` / `resolveIssue` default to github-issue-creator.mjs and are
+ * injectable for tests. Only reached after main() read at least one slice: an
+ * empty or missing checkout exits before any write.
+ */
+export async function reportFindingIssues(
+  { duplicates, gaps, staleSnapshots },
+  { createIssue, resolveIssue, runUrl = currentRunUrl() } = {},
+) {
+  const creator = (createIssue && resolveIssue)
+    ? null
+    : await import('./lib/github-issue-creator.mjs');
+  const create = createIssue || creator.createGithubIssue;
+  const resolve = resolveIssue || creator.resolveGithubIssue;
+  const families = [
+    { findings: duplicates, build: duplicateIssue, key: DUPLICATE_ISSUE_KEY, label: 'duplicate-identity', complete: true },
+    { findings: gaps, build: gapIssue, key: COVERAGE_GAP_ISSUE_KEY, label: 'coverage-gap', complete: staleSnapshots.length === 0 },
+    { findings: staleSnapshots, build: staleSnapshotIssue, key: STALE_SNAPSHOT_ISSUE_KEY, label: 'snapshot-stale', complete: true },
+  ];
+  const outcome = {};
+  for (const { findings, build, key, label, complete } of families) {
+    if (!findings.length && !complete) {
+      console.log(`→ ${label}: 0 finding ma misura incompleta (witness stale) — issue ${key} lasciata com'è`);
+      outcome[label] = 'unchanged';
+      continue;
+    }
+    if (!findings.length) {
+      await resolve(key, { workflow: ISSUE_WORKFLOW, runUrl });
+      console.log(`→ ${label}: nessun finding — issue ${key} chiusa se aperta`);
+      outcome[label] = 'resolved';
+      continue;
+    }
+    const { title, description, dedupKey, signals } = build(findings);
+    await create({ title, description, dedupKey, signals, priority: 2, labels: ['crawler'], workflow: ISSUE_WORKFLOW });
+    console.log(`→ issue ${label}: ${title}`);
+    outcome[label] = 'reported';
   }
-  if (gaps.length) {
-    const { title, description, dedupKey, signals } = gapIssue(gaps);
-    await createGithubIssue({ title, description, dedupKey, signals, priority: 2, labels: ['crawler'], workflow: 'audit-duplicate-crawlers' });
-    console.log(`→ issue coverage-gap: ${title}`);
-  }
-  if (staleSnapshots.length) {
-    const { title, description, dedupKey, signals } = staleSnapshotIssue(staleSnapshots);
-    await createGithubIssue({ title, description, dedupKey, signals, priority: 2, labels: ['crawler'], workflow: 'audit-duplicate-crawlers' });
-    console.log(`→ issue snapshot-stale: ${title}`);
-  }
+  return outcome;
 }
 
 // Only run when invoked directly, so the tests can import the pure helpers.
