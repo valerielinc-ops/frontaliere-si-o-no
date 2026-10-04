@@ -406,7 +406,7 @@ export function renderSalaryStatsPage(opts: {
   // `cl-fun` wrapper turns on the shared micro-interaction layer (tile rise +
   // hover pop, CTA glow, emoji wave, FAQ chevron) — all gated behind
   // `prefers-reduced-motion: reduce` in seo-static.css.
-  const main = `<div class="cl-fun">${breadcrumb}
+  const mainContent = `<div class="cl-fun">${breadcrumb}
 ${header}
 ${tiles}
 ${DRIVEBY_AD_SNIPPET}
@@ -417,7 +417,11 @@ ${cta}
 ${comparisonBlock}
 ${methodology}
 ${sourcesBlock}
-${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
+${prose}</div>`;
+  const main = mainContent.replace(
+    /<\/div>$/,
+    `${endOfContentMultiplexHtml({ indexable: true, contentHtml: mainContent })}</div>`,
+  );
 
   const breadcrumbLd = {
     '@context': 'https://schema.org',

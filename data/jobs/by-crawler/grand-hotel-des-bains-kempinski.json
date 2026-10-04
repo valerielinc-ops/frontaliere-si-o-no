@@ -1,6 +1,6 @@
 {
   "crawlerKey": "grand-hotel-des-bains-kempinski",
-  "assembledAt": "2026-10-03T21:09:22.132Z",
+  "assembledAt": "2026-10-04T09:11:40.080Z",
   "jobs": [
     {
       "title": "Florist (f/m/d)",
@@ -21,7 +21,7 @@
       "department": "Housekeeping & Laundry",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-29",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -44,7 +44,7 @@
         "de": "florist-m-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "fleuriste-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.076Z",
+      "crawledAt": "2026-10-04T09:11:33.258Z",
       "id": "grand-hotel-des-bains-kempinski-0d48596e0883",
       "previousSlugsByLocale": {
         "it": [
@@ -80,7 +80,9 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "firstSeenAt": "2026-06-29T13:20:35.672Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "title": "In-Room Dining Supervisor (f/m/d)",
@@ -101,7 +103,7 @@
       "department": "Food & Beverage",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-16",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -124,7 +126,7 @@
         "de": "room-service-vorgesetzter-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "room-service-superviseur-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.081Z",
+      "crawledAt": "2026-10-04T09:11:33.259Z",
       "id": "grand-hotel-des-bains-kempinski-6f74aa1f5a3e",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -167,7 +169,9 @@
         "in-room-dining-supervisore-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "in-room-dining-supervisor-f-m-d-461567"
       ],
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "title": "Apprentice \"Fachfrau/-mann Hotellerie-Hauswirtschaft EFZ\" (f/m/d) from August 2027",
@@ -188,7 +192,7 @@
       "department": "Human Resources & Training",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-16",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "APPRENTICE",
       "contractType": "apprenticeship",
@@ -211,7 +215,7 @@
         "de": "apprentice-fachfrau-mann-hotellerie-hauswirtschaft-efz-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz",
         "fr": "apprenti-fachfrau-mann-hotellerie-hauswirtschaft-efz-f-m-d-a-partir-d-aout-2027-grand-hotel-des-bains-kempinski-st"
       },
-      "crawledAt": "2026-10-03T21:09:16.082Z",
+      "crawledAt": "2026-10-04T09:11:33.259Z",
       "id": "grand-hotel-des-bains-kempinski-f76a49b25e01",
       "previousSlugs": [
         "apprentice-fachfrau-mann-hotellerie-hauswirtschaft-cfc-m-w-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz",
@@ -246,7 +250,9 @@
         "fr": [
           "apprentice-fachfrau-mann-hotellerie-hauswirtschaft-efz-f-m-d-from-august-2027-511313"
         ]
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "title": "Apprentice \"Hotel-Kommunikationsfach EFZ\" (f/m/d) from August 2027",
@@ -267,7 +273,7 @@
       "department": "Human Resources & Training",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-16",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "APPRENTICE",
       "contractType": "apprenticeship",
@@ -290,7 +296,7 @@
         "de": "apprentice-hotel-kommunikationsfach-efz-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "apprentissage-hotel-kommunikationsfach-efz-f-m-d-a-partir-d-aout-2027-grand-hotel-des-bains-kempinski-st-moritz-st"
       },
-      "crawledAt": "2026-10-03T21:09:16.086Z",
+      "crawledAt": "2026-10-04T09:11:33.260Z",
       "id": "grand-hotel-des-bains-kempinski-a9bbd3ecacbf",
       "previousSlugsByLocale": {
         "it": [
@@ -321,7 +327,9 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "firstSeenAt": "2026-05-19T22:37:17.858Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "title": "Apprentice \"Koch EFZ\" (f/m/d) from August 2027",
@@ -342,7 +350,7 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-16",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "APPRENTICE",
       "contractType": "apprenticeship",
@@ -365,7 +373,7 @@
         "de": "apprentice-koch-efz-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "apprenti-koch-efz-f-m-d-a-partir-d-aout-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.087Z",
+      "crawledAt": "2026-10-04T09:11:33.262Z",
       "id": "grand-hotel-des-bains-kempinski-f5bd3c6e6c87",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -406,6 +414,8 @@
         "apprentice-koch-efz-f-m-d-from-august-2027-511326"
       ],
       "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "needsRetranslation": true
     },
     {
@@ -427,7 +437,7 @@
       "department": "Housekeeping & Laundry",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-29",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -436,7 +446,7 @@
         "it": "Laundry Attendant/ Seamstress (f/m/d)",
         "en": "Laundry Attendant/Seamstress (f/m/d)",
         "de": "Laundry Attendant/ Seamstress (w/m/d)",
-        "fr": "Service de blanchisserie/soudresse (h/f/d)"
+        "fr": "Service de blanchisserie/sacrelle (h/f/d)"
       },
       "descriptionByLocale": {
         "it": "Hai un occhio per i dettagli e anche lavorare in situazioni stressanti organizzate e accurate? Per supportare il nostro team di pulizia dinamico e altamente motivato, ti stiamo cercando per la prossima stagione invernale! # I vostri compiti principali:\n• Pulizia di uniformi, vestiti privati e materiali\n• Servizio stiratura\n• Cucitura di utensili\n• Adozione di lavanderia all'ordine | Competenze e qualifiche desiderate:\n• Resilienza, pulizia, così come la consapevolezza di qualità molto alta\n• Metodi di lavoro strutturati e organizzati\n• Grande interesse per il lavoro orientato al team\n• Buona conoscenza della lingua tedesca e inglese\n• Conoscenza significativa dell'utilizzo di una macchina da cucire | Attendere per voi:\n• Vivere e lavorare al centro delle Alpi Engadine\n• Varie possibilità di design\n• Piacevole atmosfera di lavoro in un team giovane e dinamico\n• Prospettive internazionali di carriera e opportunità di sviluppo\n• Vantaggi eccezionali per i dipendenti in tutti gli hotel Kempinski\n• Alloggio personale nelle immediate vicinanze dell'hotel incl. Lavatrice, sala comune fitness, cucina e una ricca offerta di cibo nel nostro ristorante personale\n• Uso gratuito dell'asilo interno per la cura dei bambini dipendenti\n• Attività mensili dei dipendenti come corsi di sci, snowboard e cross-country, escursioni, serate spa e corsi di tedesco\n• Interno “Feel Good Committee” per la co-creazione in tutti gli argomenti del welfare",
@@ -450,7 +460,7 @@
         "de": "laundry-attendant-seamstress-w-m-d-534444",
         "fr": "laundry-attendant-seamstress-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.088Z",
+      "crawledAt": "2026-10-04T09:11:33.262Z",
       "id": "grand-hotel-des-bains-kempinski-b523a0cd6007",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -485,7 +495,9 @@
         "service-de-blanchisserie-soutien-m-j-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "laundry-attendant-seamstress-w-m-d-534444"
       ],
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "title": "Room Attendant (f/m/d)",
@@ -506,7 +518,7 @@
       "department": "Rooms Division, Front Office & Guest Services",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-04",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -529,7 +541,7 @@
         "de": "zimmerbegleiter-m-w-d-grand-hotel-des-bains-kempinski-st-moritz",
         "fr": "room-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.096Z",
+      "crawledAt": "2026-10-04T09:11:33.263Z",
       "id": "grand-hotel-des-bains-kempinski-01ad278bee64",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -560,7 +572,9 @@
         "zimmerbegleiter-m-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "room-attendant-f-m-d-537572"
       ],
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "title": "Technician (f/m/d) Billionaire Dinner Show",
@@ -581,7 +595,7 @@
       "department": "Engineering",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-15",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -604,7 +618,7 @@
         "de": "techniker-f-m-d-billionaire-dinner-show-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "technicien-f-m-d-billionaire-dinner-show-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.097Z",
+      "crawledAt": "2026-10-04T09:11:33.263Z",
       "id": "grand-hotel-des-bains-kempinski-b09ecffbab81",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -622,7 +636,9 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "firstSeenAt": "2026-07-15T22:00:09.508Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "title": "Commis de Rang (f/m/d) Neora Restaurant",
@@ -643,7 +659,7 @@
       "department": "Food & Beverage",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-21",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -666,7 +682,7 @@
         "de": "host-hostess-und-commis-de-rang-w-m-d-restaurant-neora-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "host-hostess-and-commis-de-rang-f-m-d-neora-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.098Z",
+      "crawledAt": "2026-10-04T09:11:33.264Z",
       "id": "grand-hotel-des-bains-kempinski-00cc210d24ec",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -701,7 +717,9 @@
         "host-hostess-and-commis-de-rang-f-m-d-neora-restaurant-546070",
         "commis-de-rang-f-m-d-neora-restaurant-546070"
       ],
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "title": "Chef de Rang (f/m/d) Restaurant Les Saisons",
@@ -722,7 +740,7 @@
       "department": "Food & Beverage",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-21",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -745,7 +763,7 @@
         "de": "chef-de-rang-f-m-d-546082",
         "fr": "chef-de-rang-f-m-d-restaurant-les-saisons-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.099Z",
+      "crawledAt": "2026-10-04T09:11:33.264Z",
       "id": "grand-hotel-des-bains-kempinski-f43b146e1210",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -764,6 +782,8 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-07-21T11:14:40.057Z",
       "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
           "chef-de-rang-f-m-d-restaurant-les-saisons-546082"
@@ -792,7 +812,7 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-21",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -815,7 +835,7 @@
         "de": "steward-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "deplacement-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.109Z",
+      "crawledAt": "2026-10-04T09:11:33.265Z",
       "id": "grand-hotel-des-bains-kempinski-2e3f24dbd9cf",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -847,7 +867,9 @@
         "intendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "steward-f-m-d-546102"
       ],
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "title": "Asian Specialty Chef (f/m/d)",
@@ -868,7 +890,7 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-22",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -891,7 +913,7 @@
         "de": "asian-specialty-chef-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "chef-de-specialite-asiatique-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.110Z",
+      "crawledAt": "2026-10-04T09:11:33.265Z",
       "id": "grand-hotel-des-bains-kempinski-c4882d52cb49",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -910,6 +932,8 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-07-22T22:05:43.599Z",
       "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
           "asian-specialty-chef-f-m-d-546974"
@@ -944,7 +968,7 @@
       "department": "Rooms Division, Front Office & Guest Services",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-23",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -967,7 +991,7 @@
         "de": "offentlicher-besucher-m-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "presence-dans-la-zone-publique-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.110Z",
+      "crawledAt": "2026-10-04T09:11:33.265Z",
       "id": "grand-hotel-des-bains-kempinski-26e82e31aa49",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -986,6 +1010,8 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-07-23T11:17:04.992Z",
       "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
           "public-area-attendant-f-m-d-548486"
@@ -1020,7 +1046,7 @@
       "department": "Rooms Division, Front Office & Guest Services",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-24",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -1043,7 +1069,7 @@
         "de": "empfang-von-schaltanfuhrern-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "reception-du-chef-de-quart-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.111Z",
+      "crawledAt": "2026-10-04T09:11:33.266Z",
       "id": "grand-hotel-des-bains-kempinski-863b9883f13c",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1062,6 +1088,8 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-07-24T22:06:14.299Z",
       "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
           "shiftleader-reception-f-m-d-549722"
@@ -1096,7 +1124,7 @@
       "department": "Food & Beverage",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-31",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "INTERN",
       "contractType": "internship",
@@ -1119,7 +1147,7 @@
         "de": "trainee-food-beverage-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "apprenti-food-beverage-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.122Z",
+      "crawledAt": "2026-10-04T09:11:33.267Z",
       "id": "grand-hotel-des-bains-kempinski-25e074da8fec",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -1138,6 +1166,8 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-07-31T22:07:08.493Z",
       "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
           "trainee-food-beverage-f-m-d-554190"
@@ -1169,7 +1199,7 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-04",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -1192,7 +1222,7 @@
         "de": "pizza-chef-m-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "chef-de-pizza-f-m-j-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.123Z",
+      "crawledAt": "2026-10-04T09:11:33.267Z",
       "id": "grand-hotel-des-bains-kempinski-29aad5ceb1a9",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1210,7 +1240,9 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "firstSeenAt": "2026-08-04T11:32:43.446Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "title": "Commis de Cuisine (f/m/d)",
@@ -1231,7 +1263,7 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-04",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -1254,7 +1286,7 @@
         "de": "commis-de-cuisine-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "commission-de-cuisine-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.129Z",
+      "crawledAt": "2026-10-04T09:11:33.268Z",
       "id": "grand-hotel-des-bains-kempinski-7ef74a44160d",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1273,6 +1305,8 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-08-04T11:32:43.447Z",
       "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
           "commis-de-cuisine-f-m-d-555389"
@@ -1307,7 +1341,7 @@
       "department": "Food & Beverage",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-07",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -1316,7 +1350,7 @@
         "it": "Commissione di Rang (m/f/d) Crazy Pizza Restaurant",
         "en": "Commis de Rang (f/m/d) Crazy Pizza Restaurant",
         "de": "Commis de Rang (m/w/d) Verrückte Pizza Restaurant",
-        "fr": "Commissaire de Rang (h/f/d) Crazy Pizza Restaurant"
+        "fr": "Commissaire de Rang (h/f/d) Restaurant Pizza Crazy"
       },
       "descriptionByLocale": {
         "it": "Sotto un nome ricco di tradizione, Kempinski, albergatori dal 1897, ha viaggiato per il mondo alla ricerca di destinazioni affascinanti, senza mai dimenticare le sue tradizioni e il suo patrimonio europeo. Gli spaziosi resort e gli eleganti hotel di città e benessere riflettono un carattere individuale e unico, soprattutto per gli ospiti che apprezzano il servizio a 5 stelle e il lusso sulle loro attività o viaggi privati. Immergetevi nel mondo della Crazy Pizza, dove la tradizione italiana incontra la modernità. Godetevi le pizze fatte a mano, preparate con i migliori ingredienti e un pizzico di creatività. Ti piace misurarti contro gli elevati standard? Sei soddisfatto solo quando i tuoi ospiti sono troppo? Sei molto motivato e apprezzi la competenza di un team ben coordinato? Per rafforzare il nostro innovativo team di ristoranti a Crazy Pizza, ti stiamo cercando come una dinamica e motivata Commis de Rang per la prossima stagione invernale 2026/2027! | Responsabilità chiave:\n• Consultare gli ospiti sulla selezione di cibi e bevande à la carte\n• Accoglienza e cura degli ospiti\n• Quotidiano mise en place and office work\n• Pulizia e mantenimento del ristorante\n• Rispetto degli standard interni dell'hotel\n• Abilità, conoscenza e competenza:\n• Formazione completa in un hotel comparabile e diversi anni di esperienza professionale in gastronomia di lusso.\n• Resilienza, tidiness e una consapevolezza molto alta della qualità.\n• Modo di lavoro strutturato e organizzato.\n• Keen interesse per il lavoro orientato al team.\n• Il vostro motto è quello di essere un ospite perfetto e amabile per ogni ospite\n• Molto buone abilità inglesi e italiane sono un prerequisito; conoscenza di base di un'altra lingua straniera, come il tedesco, è auspicabile | Vantaggi:\n• Vivere e lavorare nel cuore delle Alpi Engadine\n• Una vasta gamma di opportunità per modellare la tua carriera\n• Una piacevole atmosfera di lavoro in un team giovane e dinamico\n• Prospettive internazionali di carriera e opportunità di sviluppo\n• Vantaggi eccezionali dei dipendenti in tutti gli hotel Kempinski, tra gli altri\n• Alloggio personale nelle immediate vicinanze dell'hotel, compresi i servizi di lavanderia, una sala fitness e comune, una cucina e una vasta gamma di piatti nel nostro ristorante personale\n• Uso gratuito del centro diurno interno per i bambini dipendenti\n• Attività del personale mensile come sci, snowboard e sci di fondo, escursioni, serate spa e corsi di tedesco\n• Interno «Comitato Buono» per contribuire a plasmare tutte le questioni di benessere",
@@ -1330,7 +1364,7 @@
         "de": "commis-de-rang-w-m-d-crazy-pizza-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "commission-de-rang-f-m-d-restaurant-pizza-fou-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.130Z",
+      "crawledAt": "2026-10-04T09:11:33.269Z",
       "id": "grand-hotel-des-bains-kempinski-87d0a0cfad06",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1362,7 +1396,9 @@
         "commis-de-rang-f-m-d-crazy-pizza-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "commis-de-rang-f-m-d-crazy-pizza-restaurant-557848"
       ],
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "title": "Hairdresser (f/m/d)",
@@ -1383,7 +1419,7 @@
       "department": "Spa & Recreation",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-17",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -1406,7 +1442,7 @@
         "de": "friseur-m-w-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "hairdresser-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.136Z",
+      "crawledAt": "2026-10-04T09:11:33.272Z",
       "id": "grand-hotel-des-bains-kempinski-4704e5d428c3",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1425,6 +1461,8 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-08-17T21:31:57.360Z",
       "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
           "hairdresser-f-m-d-562525"
@@ -1456,7 +1494,7 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-23",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -1479,7 +1517,7 @@
         "de": "chef-de-partie-m-w-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "chef-de-partie-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.140Z",
+      "crawledAt": "2026-10-04T09:11:33.273Z",
       "id": "grand-hotel-des-bains-kempinski-ae402e3ee7d8",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -1498,6 +1536,8 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "firstSeenAt": "2026-09-23T23:34:47.772Z",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
           "chef-de-partie-f-m-d-563054"
@@ -1526,7 +1566,7 @@
       "department": "Rooms Division, Front Office & Guest Services",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-20",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -1549,7 +1589,7 @@
         "de": "guest-relations-agent-dame-in-rot-m-w-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "agent-de-relations-avec-les-invites-dame-en-rouge-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.141Z",
+      "crawledAt": "2026-10-04T09:11:33.273Z",
       "id": "grand-hotel-des-bains-kempinski-02a594ff176a",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1568,6 +1608,8 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-08-20T21:31:07.414Z",
       "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
           "guest-relations-agent-lady-in-red-f-m-d-564945"
@@ -1602,7 +1644,7 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-31",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -1625,7 +1667,7 @@
         "de": "demi-chef-de-partie-m-w-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "demi-chef-de-partie-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.142Z",
+      "crawledAt": "2026-10-04T09:11:33.274Z",
       "id": "grand-hotel-des-bains-kempinski-97336d6e268d",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -1644,6 +1686,8 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "firstSeenAt": "2026-08-31T17:01:37.419Z",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
           "demi-chef-de-partie-f-m-d-569812"
@@ -1675,7 +1719,7 @@
       "department": "Food & Beverage",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-01",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -1698,7 +1742,7 @@
         "de": "sommelier-chef-de-rang-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "sommelier-chef-de-rang-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.144Z",
+      "crawledAt": "2026-10-04T09:11:33.275Z",
       "id": "grand-hotel-des-bains-kempinski-c96aa9b457b7",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -1717,6 +1761,8 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "firstSeenAt": "2026-09-01T14:09:07.390Z",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
           "sommelier-chef-de-rang-f-m-d-571226"
@@ -1748,7 +1794,7 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-18",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -1771,7 +1817,7 @@
         "de": "commis-de-cuisine-m-w-d-personalkantine-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "commissaire-de-cuisine-h-f-d-staff-canteen-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.147Z",
+      "crawledAt": "2026-10-04T09:11:33.276Z",
       "id": "grand-hotel-des-bains-kempinski-7c0e780ef191",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -1790,6 +1836,8 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "firstSeenAt": "2026-09-18T23:09:20.347Z",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
           "commis-de-cuisine-f-m-d-staff-canteen-581976"
@@ -1821,7 +1869,7 @@
       "department": "Security",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-18",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "PART_TIME",
       "contractType": "seasonal",
@@ -1844,7 +1892,7 @@
         "de": "sicherheit-m-w-d-milliardar-dinner-show-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "securite-h-f-d-billionaire-diner-show-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.148Z",
+      "crawledAt": "2026-10-04T09:11:33.276Z",
       "id": "grand-hotel-des-bains-kempinski-4f9e9f33e68a",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -1874,7 +1922,9 @@
       "previousSlugs": [
         "security-f-m-d-billionaire-dinner-show-582037",
         "security-f-m-d-billionaire-dinner-show-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
-      ]
+      ],
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "title": "Commis Pastry (f/m/d)",
@@ -1895,7 +1945,7 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-26",
+      "postedDate": "",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -1918,7 +1968,7 @@
         "de": "commis-pastry-m-w-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "commission-patisserie-h-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-10-03T21:09:16.153Z",
+      "crawledAt": "2026-10-04T09:11:33.277Z",
       "id": "grand-hotel-des-bains-kempinski-481876cb8f89",
       "previousSlugsByLocale": {
         "it": [
@@ -1952,7 +2002,9 @@
       },
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
-      "firstSeenAt": "2026-09-26T13:52:21.174Z"
+      "firstSeenAt": "2026-09-26T13:52:21.174Z",
+      "datePosted": "",
+      "postingDateSource": "unknown"
     }
   ]
 }

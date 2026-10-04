@@ -7673,6 +7673,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.title': 'Genève : 1 500 pro-Palestine demandent des sanctions',
     'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.excerpt': 'Environ 1.500 manifestants à Genève demandent le blocage des relations avec Israël et l\'arrestation de Netanyahu. Berne : pas d\'arrestation pour des raisons de négociation.',
     'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.imageAlt': 'Manifestation pro-Palestine à Genève avec drapeaux palestiniens et suisses',
+    'blog.article.swiss-steel-ristrutturazione-germania.title': 'Swiss Steel : restructuration et coupes en Allemagne',
+    'blog.article.swiss-steel-ristrutturazione-germania.excerpt': 'La multinationale de Lucerne lance une réorganisation pour renouer avec les bénéfices d’ici 2028. Soutien de 17 millions du canton pour la filiale Steeltec.',
+    'blog.article.swiss-steel-ristrutturazione-germania.imageAlt': 'Usine sidérurgique suisse dans un cadre industriel',
+    'blog.article.salario-minimo-zurigo-requisiti.title': 'Salaire minimum cantonal à Zurich : conditions et application',
+    'blog.article.salario-minimo-zurigo-requisiti.excerpt': 'En Suisse, il n’existe pas de salaire minimum fédéral : à Zurich, il faut vérifier la réglementation cantonale, les conventions collectives, les contrôles et les compétences.',
+    'blog.article.salario-minimo-zurigo-requisiti.imageAlt': 'Documents sur le salaire minimum dans un bureau cantonal suisse',
+    'blog.article.assistenza-sociale-zurigo-domanda.title': 'Aide sociale dans le canton de Zurich : conditions requises et demande',
+    'blog.article.assistenza-sociale-zurigo-domanda.excerpt': 'Dans le canton de Zurich, la demande part d\'une situation de besoin : office compétent, documents, prestations et obligations de collaboration.',
+    'blog.article.assistenza-sociale-zurigo-domanda.imageAlt': 'Bureau communal suisse pour une demande d\'aide sociale',
+    'blog.article.imposta-auto-zurigo-pagamento.title': 'Impôt sur les véhicules automobiles à Zurich : calcul et paiement',
+    'blog.article.imposta-auto-zurigo-pagamento.excerpt': 'Dans le canton de Zurich, le calcul, les échéances et le paiement de l\'impôt sur les véhicules automobiles suivent les règles cantonales ; vérifiez également le changement de véhicule et d\'adresse.',
+    'blog.article.imposta-auto-zurigo-pagamento.imageAlt': 'Voitures et documents pour l\'impôt automobile dans un office cantonal à Zurich.',
 };
 
 export default blogMetaChFr;

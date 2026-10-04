@@ -1,23 +1,21 @@
 {
   "key": "tpl-lugano",
   "label": "TPL Lugano",
-  "generatedAt": "2026-10-03T21:15:38.626Z",
+  "generatedAt": "2026-10-04T09:20:46.343Z",
   "total": 1,
   "discovered": 1,
   "written": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4103,
-  "avgDurationMs": 4103,
+  "unchangedCount": 0,
+  "durationMs": 4628,
+  "avgDurationMs": 4628,
   "durationHistory": [
-    4103
+    4628
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Addetto/a rimessa",
       "company": "TPL - Trasporti Pubblici Luganesi",
@@ -32,7 +30,7 @@
       "employmentType": "FULL_TIME",
       "source": "tpl-lugano-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-09-12",
+      "postedDate": "2026-09-11",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "postalCode": "6900",
@@ -41,7 +39,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "",
+      "crawledAt": "2026-10-04T09:20:39.829Z",
       "slug": "addetto-a-rimessa-tpl-lugano",
       "id": "tpl-trasporti-pubblici-luganesi-38d6a2d08982",
       "salaryMin": 70500,
@@ -49,6 +47,8 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-12T13:03:25.263Z",
+      "datePosted": "2026-09-11",
+      "postingDateSource": "reported",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -58,5 +58,7 @@
       }
     }
   ],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

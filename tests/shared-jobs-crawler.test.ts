@@ -9,8 +9,52 @@ import {
   ensureLocaleFields,
   __testables,
 } from '../scripts/lib/shared-jobs-crawler.mjs';
+import { isLikelyJobDetailUrl } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const { buildKnownJobUrlsSet } = __testables;
+
+describe('central job-board detail URLs', () => {
+  const listingUrl = 'https://www.swisstiming.com/company/job-offers/';
+  const detailUrl = `${listingUrl}?company=81&job=276771`;
+
+  it('distinguishes a query-param detail page from its listing path', () => {
+    expect(isLikelyJobDetailUrl(listingUrl)).toBe(false);
+    expect(isLikelyJobDetailUrl(detailUrl)).toBe(true);
+  });
+
+  it('does not treat a generic job query as a detail page', () => {
+    expect(isLikelyJobDetailUrl('https://example.test/job-offers/?job=269611')).toBe(false);
+    expect(isLikelyJobDetailUrl('https://www.swisstiming.com/company/job-offers/?job=269611')).toBe(false);
+  });
+
+  it('allows the shared JSON-LD parser to consume the detail page', () => {
+    const result = __testables.toJobFromJsonLd(
+      {
+        '@type': 'JobPosting',
+        title: 'Data Scientist (all genders) - On-Site Presence',
+        description: 'Build reliable analytics solutions with an interdisciplinary technology team at Swiss Timing.',
+        hiringOrganization: { name: 'Swiss Timing LTD' },
+        jobLocation: {
+          '@type': 'Place',
+          address: {
+            addressCountry: 'Switzerland',
+            addressLocality: 'Corgémont',
+            addressRegion: 'BE',
+          },
+        },
+      },
+      'Swiss Timing (Swatch Group)',
+      detailUrl,
+    );
+
+    expect(result.reason).toBeNull();
+    expect(result.job).toMatchObject({
+      url: detailUrl,
+      company: 'Swiss Timing LTD',
+      canton: 'BE',
+    });
+  });
+});
 
 describe('shared locale normalization', () => {
   it('does not heuristically publish an unsupported Romansh source into supported slots', () => {

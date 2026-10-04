@@ -1,7 +1,7 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-10-03T21:20:14.575Z",
+  "generatedAt": "2026-10-04T09:18:47.684Z",
   "total": 9,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5235,
-  "avgDurationMs": 5235,
+  "durationMs": 5789,
+  "avgDurationMs": 5789,
   "durationHistory": [
-    5235
+    5789
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,10 +34,10 @@
       "sector": "Lusso & Gioielleria",
       "source": "damiani-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-10-01",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-10-03",
+      "validThrough": "",
       "id": "damiani-group-ab68c04a261c",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -47,12 +47,14 @@
       "firstSeenAt": "2026-08-04T11:36:36.581Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-finance-&-accounting-integration-specialist/1362895655",
-      "_qualityScore": 94,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -73,10 +75,10 @@
       "sector": "Lusso & Gioielleria",
       "source": "damiani-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-10-01",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-10-03",
+      "validThrough": "",
       "id": "damiani-group-90a504da8d41",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -87,12 +89,14 @@
       "salarySource": "estimated",
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-graphic-designer-freelance/1362881255",
       "needsRetranslation": true,
-      "_qualityScore": 99,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -113,10 +117,10 @@
       "sector": "Lusso & Gioielleria",
       "source": "damiani-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-30",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-10-03",
+      "validThrough": "",
       "id": "damiani-group-6c6c860d598c",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -126,12 +130,14 @@
       "postalCode": "6850",
       "firstSeenAt": "2026-09-01T17:55:44.457Z",
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-marketing-manager/1366255755",
-      "_qualityScore": 97,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -152,10 +158,10 @@
       "sector": "Lusso & Gioielleria",
       "source": "damiani-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-09-26",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-10-03",
+      "validThrough": "",
       "id": "damiani-group-d11e38db046a",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -165,12 +171,14 @@
       "firstSeenAt": "2026-07-01T22:08:15.321Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-consolidation-&-reporting-specialist/1359074255",
-      "_qualityScore": 95,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -191,10 +199,10 @@
       "sector": "Lusso & Gioielleria",
       "source": "damiani-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-09-20",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-10-03",
+      "validThrough": "",
       "id": "damiani-group-5460459c212f",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -205,12 +213,14 @@
       "salarySource": "estimated",
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-it-support-&-junior-system-administrator/1362036255",
       "needsRetranslation": true,
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 23,
-        "completeness": 25
+        "translation": 25,
+        "completeness": 23
       }
     },
     {
@@ -231,10 +241,10 @@
       "sector": "Lusso & Gioielleria",
       "source": "damiani-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-20",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-10-03",
+      "validThrough": "",
       "id": "damiani-group-f5ab2d7c6cb7",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -244,12 +254,14 @@
       "firstSeenAt": "2026-05-27T22:45:37.761Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-ecommerce-merchandising-specialist/1353588155",
-      "_qualityScore": 99,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -270,10 +282,10 @@
       "sector": "Lusso & Gioielleria",
       "source": "damiani-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-13",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-10-03",
+      "validThrough": "",
       "id": "damiani-group-604443163c6a",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -283,12 +295,14 @@
       "firstSeenAt": "2026-06-18T22:39:21.798Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-customer-service-specialist-german-speaking/1355847255",
-      "_qualityScore": 99,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -309,10 +323,10 @@
       "sector": "Lusso & Gioielleria",
       "source": "damiani-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-09-08",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-10-03",
+      "validThrough": "",
       "id": "damiani-group-855284947b4a",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -322,12 +336,14 @@
       "postalCode": "6850",
       "firstSeenAt": "2026-09-08T13:38:59.607Z",
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-legal-senior-specialist/1367555455",
-      "_qualityScore": 99,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -348,10 +364,10 @@
       "sector": "Lusso & Gioielleria",
       "source": "damiani-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-09-08",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-10-03",
+      "validThrough": "",
       "id": "damiani-group-6264e557372d",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -359,17 +375,18 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-08T23:23:15.400Z",
       "sourceIdentity": "url:https://careers.damianigroup.com/job/lugano-sales-advisor-salvini-gioielli-manor/1367607755",
-      "needsRetranslation": true,
-      "_qualityScore": 91,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
+  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
 }

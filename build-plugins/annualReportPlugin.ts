@@ -855,7 +855,7 @@ function renderReport(opts: {
   const heroImageUrl = seoHeroImageUrl(hero);
   // buildSeoPageHtml emits the canonical outer <main class="seo-static-content">
   // wrapper. Keep the report body a div so every report has one main landmark.
-  const bodyHtml = `<div class="s-xzWvwM">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</div>`;
+  const bodyHtml = `<div class="s-xzWvwM">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}</div>`;
 
   const html = buildSeoPageHtml({
     locale,

@@ -399,8 +399,9 @@ describe('application e-mail subject', () => {
       .toBe('Candidatura per la posizione di Infermiere/a diplomato/a 80-100% – Luigi Prova');
     expect(applicationEmailSubject('de', 'Pflegefachperson HF', 'Maria Rossi', 'Bewerbung Kennziffer 4711'))
       .toBe('Bewerbung als Pflegefachperson HF – Maria Rossi (Kennziffer 4711)');
+    // «de» elides before a vowel (CSFO, SECO: «au poste d’assistante»).
     expect(applicationEmailSubject('fr', 'Infirmier', 'Luca Bianchi', 'Candidature réf. INF-2026-17'))
-      .toBe('Candidature au poste de Infirmier – Luca Bianchi (réf. INF-2026-17)');
+      .toBe('Candidature au poste d’Infirmier – Luca Bianchi (réf. INF-2026-17)');
     // "Referenzen" is not a reference number.
     expect(applicationEmailSubject('de', 'Koch', 'Anna Keller', 'Bewerbung mit Referenzen')).toBe('Bewerbung als Koch – Anna Keller');
     expect(applicationEmailSubject('en', 'Nurse', '', '')).toBe('Application for the position of Nurse');

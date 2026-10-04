@@ -200,7 +200,7 @@ describe('employerProfilePagesPlugin', () => {
     expect(html).toContain('I conteggi riflettono gli annunci attivi disponibili al momento della compilazione');
   });
 
-  it('renders the complete active list and uses the shared in-feed cadence', () => {
+  it('renders the complete active list without a low-ratio in-feed cadence', () => {
     const html = read('aziende/acme-corp/index.html');
     // buildSeoPageHtml minifies simple class attributes without quotes in the
     // test output; assert on the semantic class token instead of serialization.
@@ -213,11 +213,7 @@ describe('employerProfilePagesPlugin', () => {
     // Six valid detail slugs are emitted; the seventh fixture is intentionally
     // slugless and must stay excluded from both the card list and ItemList.
     expect(cardCount).toBe(6);
-    expect(infeedAdCount).toBe(1); // after card 3, never after the last card
-    const cardPositions = [...html.matchAll(/\bjc-card\b/g)].map((m) => m.index ?? -1);
-    const adPosition = html.indexOf('ft-infeed-ad');
-    expect(adPosition).toBeGreaterThan(cardPositions[2]);
-    expect(adPosition).toBeLessThan(cardPositions[3]);
+    expect(infeedAdCount).toBe(0); // the profile keeps one page-level static unit; Auto Ads remain active
     expect(itemList.numberOfItems).toBe(cardCount);
     expect(itemList.itemListElement).toHaveLength(cardCount);
   });

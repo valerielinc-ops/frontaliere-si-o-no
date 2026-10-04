@@ -21,6 +21,7 @@ import {
   applyQuarantineDecisions,
   assertQuarantineMembership,
   decideQuarantine,
+  dueRetirementReviews,
   holdLastQuarantineMember,
   isMutatingDecision,
   quarantineDeadline,
@@ -33,7 +34,9 @@ import { assignGroupsStable, generate } from '../scripts/generate-crawler-group-
 import {
   buildQuarantineReviewPrBody,
   collectWaves,
+  ensureRetirementReviewIssues,
   isTransientGithubMutationError,
+  retirementReviewTitle,
   withTransientGithubMutationRetry,
 } from '../scripts/crawler-quarantine-review.mjs';
 import { validatePrBody } from '../scripts/ci/pr-body-check-gate.mjs';
@@ -91,6 +94,60 @@ describe('validateQuarantineRegistry', () => {
       .toThrow(/homeGroup/);
     expect(() => validateQuarantineRegistry(registryOf({}, { y: { retiredAt: '2026-09-28T00:00:00Z' } }), { groupCount: 24 }))
       .toThrow(/retirement must name the issue/);
+  });
+});
+
+describe('temporary retirement: reviewAfter', () => {
+  const retired = {
+    bally: { retiredAt: '2026-10-03T13:45:10Z', issue: 11073, homeGroup: 18, reason: 'nessun canale leggibile', reviewAfter: '2027-01-03' },
+    'knowledge-lab': { retiredAt: '2026-09-30T23:17:26Z', issue: 10662, homeGroup: 15, reason: '11 ondate rosse' },
+  };
+
+  it('accepts an ISO review date and rejects anything else', () => {
+    expect(() => validateQuarantineRegistry(registryOf({}, retired), { groupCount: 24 })).not.toThrow();
+    expect(() => validateQuarantineRegistry(registryOf({}, { bally: { ...retired.bally, reviewAfter: 'tra 3 mesi' } }), { groupCount: 24 }))
+      .toThrow(/retired\.bally\.reviewAfter must be an ISO date/);
+  });
+
+  it('is due from the review date on, and only for retirements that carry one', () => {
+    expect(dueRetirementReviews(registryOf({}, retired), '2027-01-02T23:59:59Z')).toEqual([]);
+    expect(dueRetirementReviews(registryOf({}, retired), '2027-01-03T00:00:00Z')).toEqual([
+      { slug: 'bally', reviewAfter: '2027-01-03', retiredAt: '2026-10-03T13:45:10Z', issue: 11073, reason: 'nessun canale leggibile' },
+    ]);
+  });
+
+  it('opens the review issue once, reuses the open one and reopens one closed while the retirement stands', () => {
+    const created: Array<{ title: string, body: string, labels: string[] }> = [];
+    const reopened: number[] = [];
+    const issues = new Map<string, { number: number, state: string }>();
+    const find = (title: string) => issues.get(title) ?? null;
+    const create = (issue: { title: string, body: string, labels: string[] }) => {
+      created.push(issue);
+      issues.set(issue.title, { number: 500 + created.length, state: 'OPEN' });
+      return 500 + created.length;
+    };
+    const reopen = (number: number) => {
+      reopened.push(number);
+      for (const [title, issue] of issues) if (issue.number === number) issues.set(title, { ...issue, state: 'OPEN' });
+    };
+    const registry = registryOf({}, retired);
+    expect(ensureRetirementReviewIssues({ registry, now: '2026-12-01T00:00:00Z', find, create, reopen })).toEqual({});
+    expect(ensureRetirementReviewIssues({ registry, now: '2027-01-03T08:00:00Z', find, create, reopen })).toEqual({ bally: 501 });
+    expect(ensureRetirementReviewIssues({ registry, now: '2027-01-03T14:00:00Z', find, create, reopen })).toEqual({ bally: 501 });
+    // Closed by hand while data/crawler-quarantine.json still retires bally:
+    // the same issue comes back, no duplicate is opened.
+    issues.set(retirementReviewTitle('bally'), { number: 501, state: 'CLOSED' });
+    expect(ensureRetirementReviewIssues({ registry, now: '2027-01-04T08:00:00Z', find, create, reopen })).toEqual({ bally: 501 });
+    expect(reopened).toEqual([501]);
+    expect(created).toHaveLength(1);
+    expect(created[0].title).toBe(retirementReviewTitle('bally'));
+    expect(created[0].body).toContain('retired.bally.reviewAfter');
+    expect(created[0].body).toContain('#11073');
+  });
+
+  it('the committed registry gives bally a three-month review', () => {
+    const doc = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/crawler-quarantine.json'), 'utf8'));
+    expect(doc.retired.bally.reviewAfter).toBe('2027-01-03');
   });
 });
 

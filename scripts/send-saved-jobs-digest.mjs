@@ -30,6 +30,22 @@
  * (UNKNOWN_RECIPIENT, functions/src/lib/subscriberReactivation.js), and a
  * complaint about this digest would then never stop it.
  *
+ * ACCOUNTS WITHOUT THAT RECORD (owner decision 2026-10-03, "includili al
+ * salvataggio"). About 3% of the accounts created in early September have no
+ * record at all (a sign-in whose registration write failed, see
+ * scripts/lib/authSignupSubscriberMetrics.mjs), so a save activated a digest
+ * nobody received. For an account whose digest is on, this sender now creates
+ * the record itself, right before the first send: the address Firebase Auth
+ * holds for the uid, only when Auth marks it verified and it matches the
+ * profile (scripts/lib/verifiedAccountEmail.mjs), and only the digest's own
+ * marker on it (`buildSavedJobsDigestAnchor`). That record is not a
+ * subscription: it carries no status, terms, consent or creation stamp, and
+ * `hasSubscriptionBasis`/`hasNewsletterSubscriberRecord` refuse it whatever a
+ * webhook writes on it later (functions/src/lib/subscriberConsent.js), so the
+ * newsletter, the daily brief, the lifecycle mails, the paid-ad blast and the
+ * job-alert backfill all keep skipping the address. The browser cannot create
+ * it (firestore.rules admits no create without a consent basis), hence here.
+ *
  * The channel-specific preference stays on the user document and must never
  * mutate `newsletter_subscribers` or `job_alert_subscribers/*`. An explicit
  * unsubscribe, legacy stop-all flag or hard address suppression reaches this
@@ -56,6 +72,13 @@ import { createHmac } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isCrossChannelStop } from '../services/emailSuppression.mjs';
+import {
+  buildSavedJobsDigestAnchor,
+  ensureSavedJobsDigestAnchor,
+  isUnmarkedSavedJobsDigestRecord,
+  markSavedJobsDigestRecord,
+} from './lib/savedJobsDigestAnchor.mjs';
+import { savedJobsDigestChoice } from '../services/savedJobsDigestActivation.mjs';
 import { deriveSavedJobsAlertCriteria } from '../services/savedJobsAlertCriteria.ts';
 import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
 // The card renderer is shared with the one-shot application-intent reminder,
@@ -78,6 +101,7 @@ import {
 // send-newsletter.mjs, send-job-alerts.mjs, AGENTS.md #6).
 import { localePathPrefix } from './lib/articleContent.mjs';
 import { rankSimilarApplicationJobs, snapshotData } from './lib/applicationIntentReminder.mjs';
+import { verifiedEmailForUid } from './lib/verifiedAccountEmail.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -110,6 +134,16 @@ export function isSavedJobsDigestEligible(userData, subscriberData, _legacyOptio
   }
   return true;
 }
+
+// The address record for an account with no central row, and the marker on a
+// legacy row with no relationship, live in scripts/lib/savedJobsDigestAnchor.mjs:
+// the application-intent reminder creates the same record.
+export {
+  buildSavedJobsDigestAnchor,
+  ensureSavedJobsDigestAnchor,
+  isUnmarkedSavedJobsDigestRecord,
+  markSavedJobsDigestRecord,
+} from './lib/savedJobsDigestAnchor.mjs';
 
 // Brand palette — same tokens/values as buildAlertEmail in send-job-alerts.mjs
 // so the job-alert and saved-jobs-digest emails read as one product.
@@ -1061,6 +1095,8 @@ async function main() {
 
   let sentCount = 0;
   let skippedCount = 0;
+  let anchorCount = 0;
+  let markedCount = 0;
 
   for (const [uid, sources] of byUid) {
     const savedSourceEntries = sources;
@@ -1161,7 +1197,40 @@ async function main() {
     // This channel requires its own saved-jobs activation. An application
     // intent can improve recommendations, but must never activate this digest.
     const subscriberDoc = await db.collection('newsletter_subscribers').doc(email.toLowerCase()).get();
-    const subscriberData = subscriberDoc.exists ? subscriberDoc.data() || {} : null;
+    let subscriberData = subscriberDoc.exists ? subscriberDoc.data() || {} : null;
+    if (!subscriberData && savedJobsDigestChoice(userData.savedJobsDigest) === 'on') {
+      // No central row: create the digest's own record (see the header), for
+      // the verified Auth address only. An explicit stop or a digest never
+      // turned on never gets here, so no record is created for them.
+      let verifiedEmail = '';
+      try {
+        verifiedEmail = await verifiedEmailForUid(uid, userData);
+      } catch {
+        verifiedEmail = '';
+      }
+      if (!verifiedEmail) {
+        skippedCount++;
+        continue;
+      }
+      const activationSource = userData.savedJobsDigest?.activationSource || null;
+      if (DRY_RUN) {
+        subscriberData = buildSavedJobsDigestAnchor({ uid, email: verifiedEmail, activationSource });
+      } else {
+        subscriberData = await ensureSavedJobsDigestAnchor(db, { uid, email: verifiedEmail, activationSource });
+      }
+      anchorCount++;
+    } else if (
+      isUnmarkedSavedJobsDigestRecord(subscriberData)
+      && savedJobsDigestChoice(userData.savedJobsDigest) === 'on'
+    ) {
+      // A row with no relationship that this digest is about to use: mark it
+      // as the digest's record before the first send (see markSavedJobsDigestRecord).
+      const activationSource = userData.savedJobsDigest?.activationSource || null;
+      if (!DRY_RUN) {
+        subscriberData = await markSavedJobsDigestRecord(db, { email: email.toLowerCase(), activationSource }) || subscriberData;
+      }
+      markedCount++;
+    }
     if (!isSavedJobsDigestEligible(userData, subscriberData)) {
       skippedCount++;
       continue;
@@ -1247,6 +1316,12 @@ async function main() {
   }
 
   console.log(`\n📊 Done — sent ${sentCount}, skipped ${skippedCount}${DRY_RUN ? ' (dry-run)' : ''}`);
+  if (anchorCount > 0) {
+    console.log(`   ⚓ digest-only record ${DRY_RUN ? 'would be created' : 'created or found'} for ${anchorCount} account(s) without a central row`);
+  }
+  if (markedCount > 0) {
+    console.log(`   ⚓ digest marker ${DRY_RUN ? 'would be stamped' : 'stamped'} on ${markedCount} existing row(s) with no relationship`);
+  }
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

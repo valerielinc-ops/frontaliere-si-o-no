@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tarchini-group",
-  "assembledAt": "2026-10-03T21:13:16.246Z",
+  "assembledAt": "2026-10-04T09:13:47.564Z",
   "jobs": [
     {
       "title": "Analista investimenti e strategia",
@@ -21,7 +21,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-10-01",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -59,7 +59,10 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:14:30.664Z"
+      "firstSeenAt": "2026-10-01T09:14:30.664Z",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:13:44.446Z"
     },
     {
       "title": "Sales Manager",
@@ -79,7 +82,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-16",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -146,7 +149,10 @@
       },
       "firstSeenAt": "2026-04-13T22:32:13.614Z",
       "salarySource": "reported",
-      "applicationEmail": "info@tarchinigroup.com"
+      "applicationEmail": "info@tarchinigroup.com",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:13:44.463Z"
     },
     {
       "title": "Tecnico di cantiere e coordinatore per i lavori di manutenzione e ristrutturazione",
@@ -167,7 +173,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-09-29",
+      "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -205,7 +211,10 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:13:20.401Z"
+      "firstSeenAt": "2026-09-29T21:13:20.401Z",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-04T09:13:44.467Z"
     }
   ]
 }
