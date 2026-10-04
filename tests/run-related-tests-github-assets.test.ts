@@ -133,6 +133,7 @@ function createRunnerVariant(source: string) {
     'corpus-wide-tests.mjs',
     'dataset-dependent-tests.mjs',
     'scan-site-hardcoded-secrets.mjs',
+    'corpus-ahead-check.mjs',
   ]) {
     fs.symlinkSync(path.join(ROOT, 'scripts/ci', file), path.join(ciDir, file));
   }
@@ -415,6 +416,16 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     // `build-plugins/` non e' nella lista ne' nella chiusura: non lo seleziona.
     expect(selectionFor(['build-plugins/shared/seoPageShell.ts'])).not.toContain(housekeeping);
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(housekeeping);
+
+    // PR 10973 -> 11299: `build-plugins/borderWaitData.ts` e' nel manifest del
+    // transport e ha preso un import non consegnato. Il test di chiusura legge
+    // il manifest da disco, quindi solo il perimetro del manifest lo seleziona.
+    const closure = 'tests/mirror-transport-import-closure.test.ts';
+    expect(selectionFor(['build-plugins/borderWaitData.ts'])).toContain(closure);
+    expect(selectionFor(['.github/transport/nanako-generator-manifest.txt'])).toContain(closure);
+    // Glob `scripts/lib/discovery/**` espanso contro l'albero, come nel guard.
+    expect(selectionFor(['scripts/lib/discovery/discoveryScore.mjs'])).toContain(closure);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(closure);
   }, 120_000);
 
   it('un modulo della chiusura del finalizer crawler seleziona il test del generatore', () => {
