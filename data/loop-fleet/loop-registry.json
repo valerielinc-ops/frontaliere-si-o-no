@@ -49,7 +49,8 @@
   },
   "sourceCatalog": {
     "manifest-api-corpus": "Published corpus/API manifest",
-    "posthog-error-telemetry": "PostHog error and useful-session telemetry",
+    "posthog-error-telemetry": "Retired historical L1 PostHog error and useful-session telemetry",
+    "ga4-error-telemetry": "GA4 error and useful-session telemetry",
     "gsc": "Google Search Console snapshot",
     "posthog-landing-path": "Retired historical L2 PostHog landing-path and useful-action telemetry",
     "ga4-landing-path": "GA4 landing-path and useful-action session telemetry",
@@ -120,12 +121,14 @@
       "goal": "Reliability & UX",
       "owner": "CTO / Reliability",
       "oracle": "independent synthetic path and error telemetry",
-      "sourceRefs": ["posthog-error-telemetry"],
+      "sourceRefs": ["ga4-error-telemetry"],
       "cadence": "hourly / daily",
       "primaryMetric": "error_free_useful_session_rate",
       "outcome": {
         "outcomeId": "error-free-useful-session",
-        "sourceRefs": ["posthog-error-telemetry"],
+        "sourceRefs": ["ga4-error-telemetry"],
+        "historicalSourceRefs": [["posthog-error-telemetry"]],
+        "historicalSourceRefsBefore": "2026-10-07T00:00:00.000Z",
         "requiredFields": ["generatedAt", "numerator", "denominator"]
       },
       "minimumSample": 100,
