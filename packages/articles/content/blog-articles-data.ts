@@ -37403,6 +37403,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sequestro-stupefacenti-camper-varese',
+ category: 'novita',
+ date: '2026-10-04T01:50:38.530Z',
+ image: '/images/blog/sequestro-stupefacenti-camper-varese.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

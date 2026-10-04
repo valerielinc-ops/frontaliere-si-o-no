@@ -12471,6 +12471,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.asilo-carluccio-como-lettera.title': 'Asilo Carluccio Como: Das Personal schreibt an die Stadtverwaltung',
     'blog.article.asilo-carluccio-como-lettera.excerpt': 'Das Personal des Kindergartens Carluccio in der Via Volta schreibt an den Bürgermeister gegen die Kürzungen: Die Schule ist kein Kostenfaktor, sondern eine Investition in die Gemeinschaft.',
     'blog.article.asilo-carluccio-como-lettera.imageAlt': 'Carluccio Kindergarten in Como, Via Volta.',
+    'blog.article.sequestro-stupefacenti-camper-varese.title': 'Varese: 70 kg Drogen im Wohnmobil, Festnahmen',
+    'blog.article.sequestro-stupefacenti-camper-varese.excerpt': 'Die Guardia di Finanza stoppt ein spanisches Wohnmobil: 19 kg Kokain, 49 kg Marihuana und ein einer Familie anvertrauter Dackel beschlagnahmt.',
+    'blog.article.sequestro-stupefacenti-camper-varese.imageAlt': 'Waldgebiet in der Provinz Varese, wo die Drogenlast beschlagnahmt wurde',
 };
 
 export default blogMetaDe;

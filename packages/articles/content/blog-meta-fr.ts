@@ -12474,6 +12474,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.asilo-carluccio-como-lettera.title': 'Asile Carluccio Como : le personnel écrit à la municipalité',
     'blog.article.asilo-carluccio-como-lettera.excerpt': 'Le personnel de l\'école maternelle Carluccio de la via Volta écrit au maire pour s\'opposer aux coupes budgétaires : l\'école n\'est pas un coût, mais un investissement pour la communauté.',
     'blog.article.asilo-carluccio-como-lettera.imageAlt': 'École maternelle Carluccio à Côme, Via Volta. (Como)',
+    'blog.article.sequestro-stupefacenti-camper-varese.title': 'Varese : 70 kg de drogue dans le camping-car, arrestations',
+    'blog.article.sequestro-stupefacenti-camper-varese.excerpt': 'La Guardia di Finanza immobilise un camping-car espagnol : 19 kg de cocaïne et 49 de marijuana saisis, et un teckel confié à une famille.',
+    'blog.article.sequestro-stupefacenti-camper-varese.imageAlt': 'Zone boisée dans la province de Varèse où la cargaison de drogue a été saisie (Varese)',
 };
 
 export default blogMetaFr;

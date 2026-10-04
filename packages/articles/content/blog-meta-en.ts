@@ -12472,6 +12472,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.asilo-carluccio-como-lettera.title': 'Carluccio Nursery School Como: staff writes to the Municipality',
     'blog.article.asilo-carluccio-como-lettera.excerpt': 'The staff of the Carluccio preschool on Via Volta writes to the Mayor to oppose the cuts: the school is not a cost, but a community investment.',
     'blog.article.asilo-carluccio-como-lettera.imageAlt': 'Carluccio kindergarten in Como, Via Volta.',
+    'blog.article.sequestro-stupefacenti-camper-varese.title': 'Varese: 70 kg of drugs in camper, arrests',
+    'blog.article.sequestro-stupefacenti-camper-varese.excerpt': 'The Guardia di Finanza stops a Spanish camper van: 19 kg of cocaine, 49 of marijuana seized, and a dachshund entrusted to a family.',
+    'blog.article.sequestro-stupefacenti-camper-varese.imageAlt': 'Wooded area in the province of Varese where the drug load was seized',
 };
 
 export default blogMetaEn;
