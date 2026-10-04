@@ -805,6 +805,9 @@ function renderRelated(locale: FiscalLocale, current: FiscalMunicipality): strin
         // precisely because treating it as the cheapest value on the same
         // scale is the bug it documents. Excluded from the spread sentence,
         // still shown in the table with its own label.
+        numeric: (m) => (leviesIrpefAddizionale(m) ? m.irpefAddizionale : null),
+        formatNumeric: (value) => pct(value, locale),
+        spreadLabel: c.spreadAddizionale,
       },
       {
         header: c.colBorderDistance,

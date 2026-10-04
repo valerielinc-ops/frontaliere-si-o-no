@@ -334,8 +334,8 @@ resta escluso dalla classifica fiscale, come già richiede
 `services/irpefAddizionaleRegime.ts`.
 
 La misura pre-merge sul renderer italiano, con tutte le 69 pagine above-floor,
-porta la coorte target a **40,35 % su 47 pagine**, con **0 pagine a gain zero**.
-Le altre due coorti strutturali misurano 39,66 % su 16 pagine e 45,37 % su 4
+porta la coorte target a **42,37 % su 47 pagine**, con **0 pagine a gain zero**.
+Le altre due coorti strutturali misurano 41,23 % su 16 pagine e 46,37 % su 4
 pagine. L'osservatore in `tests/information-gain-families-floor.test.ts` pinna
 il target della issue a 40 % senza modificare il floor generale del gate. Il
 comando live ufficiale resta

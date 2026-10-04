@@ -180,7 +180,7 @@ const FAMILIES: Array<{ name: string; minMedian: number; render: () => Rendered[
   {
     name: 'tasse-frontalieri-comune',
     // Issue #11432: the target cohort `it:/tasse-frontalieri-comune/~79b3fa`
-    // now measures 40,35 %. `measure()` selects that 47-page cohort as the
+    // now measures 42,37 %. `measure()` selects that 47-page cohort as the
     // family cohort; the two smaller structural cohorts remain separately
     // observable and are not hidden by this assertion.
     minMedian: 40,
