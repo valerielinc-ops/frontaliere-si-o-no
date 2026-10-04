@@ -304,7 +304,7 @@ describe('Raiffeisen VC bilingual discovery invariants', () => {
       urls: [detail], pagesSucceeded: 2, duplicateIdentity: 1, sourceZero: false,
     });
     const unavailable = async () => new Response('down', { status: 503 });
-    await expect(fetchRaiffeisenJobUrls({ fetchImpl: unavailable, timeoutMs: 1000 })).rejects.toThrow(/503/);
+    await expect(fetchRaiffeisenJobUrls({ fetchImpl: unavailable, timeoutMs: 1000, retries: 0 })).rejects.toThrow(/503/);
   });
 
   it('retries a transient careers-page fetch before applying the bilingual discovery guard', async () => {
