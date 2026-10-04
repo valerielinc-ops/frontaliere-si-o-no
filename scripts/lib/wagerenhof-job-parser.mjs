@@ -12,6 +12,7 @@
  * Custom TYPO3 page; vacancies render server-side as <li>…<a href="…vacancy-details?reference=…"> …
  * with <span class="job-title">TITLE</span> and a <span class="job-count">DATE</span>.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
@@ -141,7 +142,6 @@ export async function fetchAllWagerenhofJobs() {
   console.log(`  📋 Found ${listings.length} positions on listing\n`);
   if (!listings.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const it of listings) {
     let detail = { title: '', description: '' };
@@ -194,7 +194,7 @@ export async function fetchAllWagerenhofJobs() {
       sector: 'Sociale / Educazione',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(''),
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
