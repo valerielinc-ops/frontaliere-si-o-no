@@ -70,6 +70,7 @@ const staticPagesSignal = makeSignal();
 const professionLandingsSignal = makeSignal();
 const salaryHubSignal = makeSignal();
 const jobsSeoPagesSignal = makeSignal();
+let activeJobSitemapLocs: ReadonlySet<string> | null = null;
 const sectorPagesSignal = makeSignal();
 const professionCantonsSignal = makeValueSignal<readonly string[]>();
 const professionCitiesSignal = makeValueSignal<readonly string[]>();
@@ -145,6 +146,23 @@ export function resolveSalaryHubFlushed(): void {
 export const jobsSeoPagesFlushed: Promise<void> = jobsSeoPagesSignal.promise;
 export function resolveJobsSeoPagesFlushed(): void {
   jobsSeoPagesSignal.resolve();
+}
+
+/**
+ * The exact self-canonical job-detail URLs admitted by the current jobs
+ * sitemap build.  Consumers use this registry to reject stale shard entries
+ * even when the corresponding foreign-locale HTML is absent from the current
+ * build tree by design.
+ *
+ * `null` means the jobs producer has not reached its sitemap decision yet;
+ * an empty set is a valid completed result for a corpus with no eligible jobs.
+ */
+export function setActiveJobSitemapLocs(paths: ReadonlySet<string> | null): void {
+  activeJobSitemapLocs = paths;
+}
+
+export function getActiveJobSitemapLocs(): ReadonlySet<string> | null {
+  return activeJobSitemapLocs;
 }
 
 /**

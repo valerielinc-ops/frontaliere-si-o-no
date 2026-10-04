@@ -2,10 +2,22 @@ import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
+import { buildCantonAwareJobDetailUrl } from '../../build-plugins/jobsSeoPagesPlugin';
+
+const BASE = 'https://frontaliereticino.ch';
 
 const DIST = path.resolve(__dirname, '../../dist');
 
 describe('sitemap shards partition jobs by canton (P1-C)', () => {
+  it('uses the canton-aware detail path for non-TI sitemap URLs', () => {
+    expect(buildCantonAwareJobDetailUrl('it', 'ZH', 'job-slug')).toBe(
+      `${BASE}/cerca-lavoro-zurigo/job-slug/`,
+    );
+    expect(buildCantonAwareJobDetailUrl('de', 'ZH', 'job-slug')).toBe(
+      `${BASE}/de/jobs-in-zurich/job-slug/`,
+    );
+  });
+
   it('non-TI canton job URLs appear in the matching canton shard, not TI', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     if (!fs.existsSync(DIST)) return;
     const tiShardPath = path.join(DIST, 'sitemap-jobs-ticino.xml');

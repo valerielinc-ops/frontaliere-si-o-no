@@ -41,18 +41,34 @@ const FOREIGN_CANONICAL = `${BASE}/cerca-lavoro-ticino/ricerca-allianz-job/`;
 const KNOWN_MIRROR = `${BASE}/cerca-lavoro-ticino/ricerca-projektleiter-m-w-d/`;
 const SHARD_NOINDEX = `${BASE}/de/jobs-im-aargau/bridge-noindex/`;
 const SHARD_HEALTHY = `${BASE}/de/jobs-im-aargau/bridge-healthy/`;
+const META_REFRESH = `${BASE}/de/jobs-im-tessin/legacy-refresh/`;
+const MISSING_CANONICAL = `${BASE}/de/jobs-im-tessin/missing-canonical/`;
+const UNQUOTED_CANONICAL = `${BASE}/de/jobs-im-tessin/unquoted-canonical/`;
 
 const selfCanonical = (loc: string) =>
   `<!doctype html><html><head><link rel="canonical" href="${loc}"></head><body>ok</body></html>`;
 const noindexBridge = (canonical: string) =>
   `<!doctype html><html><head><meta name="robots" content="noindex,follow">` +
   `<link rel="canonical" href="${canonical}"></head><body>bridge</body></html>`;
+const metaRefreshBridge = (canonical: string) =>
+  `<!doctype html><html><head><meta http-equiv="refresh" content="0;url=${canonical}">` +
+  `<link rel="canonical" href="${canonical}"></head><body>bridge</body></html>`;
+const unquotedCanonical = (canonical: string) =>
+  `<!doctype html><html><head><link href=${canonical} rel=canonical></head><body>bridge</body></html>`;
+const missingCanonical = () =>
+  '<!doctype html><html><head><meta name="description" content="page"></head><body>bridge</body></html>';
 
 const urlBlock = (loc: string) =>
   `  <url>\n    <loc>${loc}</loc>\n    <lastmod>2026-07-28</lastmod>\n  </url>`;
+const jobUrlBlock = (loc: string) =>
+  `  <url>\n    <loc>${loc}</loc>\n    <priority>0.6</priority>\n  </url>`;
 const wrap = (locs: string[]) =>
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${locs
     .map(urlBlock)
+    .join('\n')}\n</urlset>\n`;
+const wrapJobUrls = (locs: string[]) =>
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${locs
+    .map(jobUrlBlock)
     .join('\n')}\n</urlset>\n`;
 
 let dist: string;
@@ -121,6 +137,28 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     expect(readSitemap()).not.toContain('ricerca-allianz-job');
   });
 
+  it('drops a meta-refresh redirect even when its canonical is temporarily self-canonical', async () => {
+    fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([META_REFRESH]), 'utf-8');
+    writePage(META_REFRESH, metaRefreshBridge(META_REFRESH));
+    await reconcileSitemapJobsWithDist(dist, []);
+    expect(readSitemap()).not.toContain('legacy-refresh');
+    expect(fs.existsSync(pageFile(META_REFRESH))).toBe(true);
+  });
+
+  it('drops a sitemap URL whose final HTML has no canonical tag', async () => {
+    fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([MISSING_CANONICAL]), 'utf-8');
+    writePage(MISSING_CANONICAL, missingCanonical());
+    await reconcileSitemapJobsWithDist(dist, []);
+    expect(readSitemap()).not.toContain('missing-canonical');
+  });
+
+  it('parses quote-free canonical attributes before applying the self-canonical check', async () => {
+    fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([UNQUOTED_CANONICAL]), 'utf-8');
+    writePage(UNQUOTED_CANONICAL, unquotedCanonical(`${BASE}/cerca-lavoro-svizzera/`));
+    await reconcileSitemapJobsWithDist(dist, []);
+    expect(readSitemap()).not.toContain('unquoted-canonical');
+  });
+
   it('still drops a known cross-section mirror passed in explicitly (#911)', async () => {
     await reconcileSitemapJobsWithDist(dist, [KNOWN_MIRROR]);
     expect(readSitemap()).not.toContain('ricerca-projektleiter-m-w-d');
@@ -148,6 +186,19 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     expect(fs.existsSync(path.join(dist, 'sitemap-jobs.xml'))).toBe(false);
   });
 
+  it('keeps a priority-0.6 shard URL when the exact source sitemap is absent', async () => {
+    const current = `${BASE}/cerca-lavoro-ticino/shard-only-detail/`;
+    const shardPath = path.join(dist, 'sitemap-jobs-ti.xml');
+    fs.rmSync(path.join(dist, 'sitemap-jobs.xml'));
+    fs.writeFileSync(shardPath, wrapJobUrls([current]), 'utf-8');
+    writePage(current, selfCanonical(current));
+
+    await reconcileSitemapJobsWithDist(dist, []);
+
+    expect(fs.existsSync(shardPath)).toBe(true);
+    expect(extractSitemapLocs(fs.readFileSync(shardPath, 'utf-8'))).toEqual([current]);
+  });
+
   it('removes exactly the offending run-30376520728 cohort and nothing else', async () => {
     await reconcileSitemapJobsWithDist(dist, []);
     expect(extractSitemapLocs(readSitemap())).toEqual([HEALTHY, HEALTHY_2, KNOWN_MIRROR]);
@@ -164,6 +215,68 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     const shardXml = fs.readFileSync(shardPath, 'utf-8');
     expect(shardXml).not.toContain('bridge-noindex');
     expect(shardXml).toContain('bridge-healthy');
+  });
+
+  it('removes a shard file after its last URL is filtered out', async () => {
+    const shardPath = path.join(dist, 'sitemap-jobs-stale.xml');
+    fs.writeFileSync(shardPath, wrap([MISSING]), 'utf-8');
+    await reconcileSitemapJobsWithDist(dist, []);
+    expect(fs.existsSync(shardPath)).toBe(false);
+  });
+
+  it('drops source-stale detail URLs from a shard even when foreign HTML is absent', async () => {
+    const stale = `${BASE}/de/jobs-im-tessin/old-legacy-detail/`;
+    const current = `${BASE}/de/jobs-im-tessin/current-detail/`;
+    const shardPath = path.join(dist, 'sitemap-jobs-ticino.xml');
+    fs.writeFileSync(shardPath, wrapJobUrls([stale, current]), 'utf-8');
+
+    const previousBuildLocale = process.env.BUILD_LOCALE;
+    process.env.BUILD_LOCALE = 'it';
+    try {
+      vi.resetModules();
+      const shard = await import('../build-plugins/relatedSearchClustersPlugin');
+      const out = await import('../build-plugins/shared/buildSignals');
+      out.setActiveJobSitemapLocs(new Set([current]));
+      await shard.reconcileSitemapJobsWithDist(dist, []);
+      expect(shard.extractSitemapLocs(fs.readFileSync(shardPath, 'utf-8'))).toEqual([current]);
+    } finally {
+      if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousBuildLocale;
+      const out = await import('../build-plugins/shared/buildSignals');
+      out.setActiveJobSitemapLocs(null);
+    }
+  });
+
+  it('rebuilds the active allowlist on a cache-hit path before dropping stale foreign details', async () => {
+    const stale = `${BASE}/de/jobs-im-tessin/old-cache-detail/`;
+    const current = `${BASE}/de/jobs-im-tessin/current-cache-detail/`;
+    const currentIt = `${BASE}/cerca-lavoro-ticino/current-cache-detail/`;
+    const shardPath = path.join(dist, 'sitemap-jobs-ticino.xml');
+    fs.writeFileSync(shardPath, wrapJobUrls([stale, current]), 'utf-8');
+    fs.writeFileSync(
+      path.join(dist, 'sitemap-jobs.xml'),
+      `<?xml version="1.0" encoding="UTF-8"?>\n` +
+        `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n` +
+        `  <url><loc>${currentIt}</loc><xhtml:link rel="alternate" hreflang="de" href="${current}" /><priority>0.6</priority></url>\n` +
+        `</urlset>\n`,
+      'utf-8',
+    );
+
+    const previousBuildLocale = process.env.BUILD_LOCALE;
+    process.env.BUILD_LOCALE = 'it';
+    try {
+      vi.resetModules();
+      const shard = await import('../build-plugins/relatedSearchClustersPlugin');
+      const signals = await import('../build-plugins/shared/buildSignals');
+      signals.setActiveJobSitemapLocs(null);
+      await shard.reconcileSitemapJobsWithDist(dist, []);
+      expect(shard.extractSitemapLocs(fs.readFileSync(shardPath, 'utf-8'))).toEqual([current]);
+    } finally {
+      if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousBuildLocale;
+      const signals = await import('../build-plugins/shared/buildSignals');
+      signals.setActiveJobSitemapLocs(null);
+    }
   });
 
   it('runs the final dist-truth gate for both dynamic sitemap families', async () => {

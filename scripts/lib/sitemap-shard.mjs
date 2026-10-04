@@ -50,7 +50,28 @@ import { SITEMAP_SHARD_CAP, padShardIndex } from './sitemap-limits.mjs';
 // and not Google's 50,000 (issue #5066).
 const DEFAULT_CAP_PER_SHARD = SITEMAP_SHARD_CAP;
 const FILENAME_PREFIX = 'sitemap-jobs';
+const JOB_SITEMAP_FILE_RE = /^sitemap-jobs(?:-[a-z0-9][a-z0-9-]*)?\.xml$/i;
 const JOB_SITEMAP_SHARD_RE = /^sitemap-jobs-[a-z0-9][a-z0-9-]*\.xml$/i;
+
+/**
+ * Shared filename predicates for the job sitemap family. Keeping these in
+ * the shard writer prevents the final dist reconciler from drifting away from
+ * the stale-shard cleanup population.
+ *
+ * @param {unknown} filename
+ * @returns {boolean}
+ */
+export function isJobSitemapFilename(filename) {
+  return typeof filename === 'string' && JOB_SITEMAP_FILE_RE.test(filename);
+}
+
+/**
+ * @param {unknown} filename
+ * @returns {boolean}
+ */
+export function isJobSitemapShardFilename(filename) {
+  return typeof filename === 'string' && JOB_SITEMAP_SHARD_RE.test(filename);
+}
 
 /**
  * Escape XML-reserved characters in a string.
@@ -281,7 +302,7 @@ export async function removeStaleJobSitemapShards(distDir) {
   }
 
   const stale = entries
-    .filter((entry) => entry.isFile() && JOB_SITEMAP_SHARD_RE.test(entry.name))
+    .filter((entry) => entry.isFile() && isJobSitemapShardFilename(entry.name))
     .map((entry) => path.join(distDir, entry.name));
   await Promise.all(stale.map((file) => unlink(file)));
   return stale;
