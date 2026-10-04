@@ -3,6 +3,8 @@ import path from 'node:path';
 import React from 'react';
 import { render, screen, waitFor, fireEvent, cleanup } from '@testing-library/react';
 import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest';
+import { isAddressSuppressed, isCrossChannelStop } from '../services/emailSuppression.mjs';
+import { hasSubscriptionBasis } from '../services/subscriberConsent.mjs';
 
 // Mock the service module BEFORE importing the component.
 vi.mock('@/services/newsletterSubscribers', () => ({
@@ -608,12 +610,26 @@ describe('SubscriptionPreferencesController — auth-mode source check', () => {
   const noRow = setter.slice(noRowBranch, elseBranch);
   // A stop on the row still wins; only a missing row with an unverified
   // address fails; everything else falls through to the account-preference write.
-  expect(noRow).toContain("if (subscriberData && isCrossChannelStop(subscriberData)) throw new Error('email-suppressed');");
+  expect(noRow).toContain("if (subscriberData && (isAddressSuppressed(subscriberData.status) || isCrossChannelStop(subscriberData))) {");
+  expect(noRow).toContain("throw new Error('email-suppressed');");
   expect(noRow).toContain("if (!subscriberData && !emailVerified) throw new Error('subscriber-not-created');");
   expect(noRow).not.toContain('upsertUnifiedEmailSubscriber');
   // The central writer (a subscription) runs only on an existing row.
   expect(setter.indexOf('upsertUnifiedEmailSubscriber')).toBeGreaterThan(elseBranch);
   expect(src).toContain('await authSetSavedJobsDigest(userId, email, next, emailVerified);');
+ });
+
+ // Review acceptance (2026-10-04): a bounced digest record takes the
+ // no-relationship branch and is refused there, before any preference write.
+ it('refuses to re-enable the digest on a suppressed record that has no relationship', () => {
+  const bouncedDigestRecord = { saved_jobs_digest_anchor: { created_at: 1 }, status: 'bounced' };
+  expect(hasSubscriptionBasis(bouncedDigestRecord)).toBe(false);
+  expect(isAddressSuppressed(bouncedDigestRecord.status)).toBe(true);
+  expect(isCrossChannelStop(bouncedDigestRecord)).toBe(true);
+  const setStart = src.indexOf('async function authSetSavedJobsDigest');
+  const setter = src.slice(setStart, src.indexOf('\n}\n', setStart));
+  // The refusal comes before the account-preference write.
+  expect(setter.indexOf("throw new Error('email-suppressed');")).toBeLessThan(setter.indexOf('savedJobsDigest: {'));
  });
 
  it('shows the saved-jobs digest as on only when the sender would send it', () => {

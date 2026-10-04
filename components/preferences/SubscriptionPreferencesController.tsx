@@ -945,7 +945,9 @@ async function authSetSavedJobsDigest(
    // click into a newsletter subscription. A stop recorded on the row still
    // wins, and an address with no row that Auth does not mark verified is
    // never reached, so the switch cannot promise it.
-   if (subscriberData && isCrossChannelStop(subscriberData)) throw new Error('email-suppressed');
+   if (subscriberData && (isAddressSuppressed(subscriberData.status) || isCrossChannelStop(subscriberData))) {
+    throw new Error('email-suppressed');
+   }
    if (!subscriberData && !emailVerified) throw new Error('subscriber-not-created');
   } else {
    // Enabling this digest is an explicit click by the authenticated owner. It

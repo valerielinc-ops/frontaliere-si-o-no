@@ -223,7 +223,7 @@ function findOpenIssueByExactTitle(title) {
 
 /** The issue with exactly this title in any state, the open one first, else the most recent. */
 function findIssueByExactTitle(title) {
-  const found = ghJson(['issue', 'list', '--state', 'all', '--search', `"${title}" in:title`, '--limit', '20', '--json', 'number,title,state'])
+  const found = ghJson(['issue', 'list', '--state', 'all', '--search', `"${title}" in:title sort:created-desc`, '--limit', '20', '--json', 'number,title,state'])
     .filter((issue) => issue.title === title);
   const open = found.find((issue) => issue.state === 'OPEN');
   const pick = open ?? found[0];
