@@ -978,7 +978,11 @@ export function latestIssuePerWorkflow(issues) {
     const workflowName = workflowNameFromIssue(issue);
     if (!workflowName) continue;
 
-    const candidate = { number: issue.number, updatedAt: issue.updatedAt ?? null };
+    const candidate = {
+      number: issue.number,
+      title: issue.title ?? null,
+      updatedAt: issue.updatedAt ?? null,
+    };
     const previous = byWorkflow.get(workflowName);
     if (!previous) {
       byWorkflow.set(workflowName, candidate);
@@ -996,6 +1000,21 @@ export function latestIssuePerWorkflow(issues) {
     }
   }
   return byWorkflow;
+}
+
+/**
+ * Prova che il reporter owner del verdetto abbia lasciato una issue aperta.
+ *
+ * `VERDICT_STEPS.owner` è un prefisso di titolo, non il nome del workflow: una
+ * `CI Failure:` centrale aperta non dimostra che il reporter `[crawler-health]`
+ * abbia persistito il segnale. Il listing aperto è già stato letto fail-closed
+ * prima della scansione; se la voce non c'è o il titolo non ha il prefisso owner,
+ * il verdetto resta reportable.
+ */
+export function isVerdictOwnerPersisted(openIssues, workflowName, ownerPrefix) {
+  const issue = openIssues?.get(workflowName);
+  const prefix = String(ownerPrefix ?? '');
+  return Boolean(issue && prefix && String(issue.title ?? '').startsWith(prefix));
 }
 
 /**
@@ -1204,7 +1223,16 @@ export async function scanFailures() {
     // per run e PRIMA del raggruppamento, così una run mista più vecchia nella stessa
     // finestra resta segnalabile. Job illeggibili → non è di solo verdetto (fail-closed).
     const verdictEntry = VERDICT_STEPS[wf?.path || ''];
-    if (verdictEntry && isVerdictOnlyFailure(wf.path, readRunJobs(run.id).jobs)) {
+    const jobs = verdictEntry ? readRunJobs(run.id).jobs : null;
+    if (verdictEntry && isVerdictOnlyFailure(wf.path, jobs)) {
+      if (!isVerdictOwnerPersisted(openIssues, workflowName, verdictEntry.owner)) {
+        console.warn(
+          `[scan-unreported-failures] ${workflowName}: run ${run.id} è di solo verdetto, ma il reporter owner `
+            + `«${verdictEntry.owner}» non risulta persistito → resta reportable come «CI Failure: ${workflowName}».`,
+        );
+        reportable.push({ ...run, workflowName });
+        continue;
+      }
       console.log(
         `[scan-unreported-failures] ${workflowName}: run ${run.id} rossa per il solo step-verdetto `
           + `«${verdictEntry.verdict}» → segnale già portato dalle issue «${verdictEntry.owner}…», nessuna segnalazione.`,

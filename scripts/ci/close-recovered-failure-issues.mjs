@@ -1204,7 +1204,11 @@ export function isVerdictOnlyFailure(workflowPath, jobs) {
     // fallito lascia verde il job ma è un guasto vero, e accanto al verdetto non deve
     // far passare la run per «solo verdetto». Step illeggibili → non si sa (fail-closed).
     if (!Array.isArray(job.steps)) return false;
-    const failedSteps = job.steps.filter((s) => s?.conclusion === 'failure');
+    // Un record step senza conclusion è una risposta parziale, non uno step verde:
+    // ignorarlo qui permetterebbe a un guasto non classificabile di passare accanto al
+    // verdetto. La classificazione è fail-closed prima di filtrare i fallimenti.
+    if (job.steps.some((step) => typeof step?.conclusion !== 'string')) return false;
+    const failedSteps = job.steps.filter((s) => s.conclusion === 'failure');
     if (job.conclusion === 'failure') {
       failedJobs++;
       // Un job fallito senza step fallito non è attribuibile: non si può dire che sia il verdetto.
@@ -1274,14 +1278,16 @@ const CI_FAILURE_TITLE_RE = /^CI Failure: (.+)$/;
  * e il solo rosso è il segnale che la famiglia `owner` porta già.
  *
  * Fail-safe sulla FINESTRA letta (le `VERDICT_JOBS_READ_LIMIT` `failure` più recenti):
- * una rossa successiva all'apertura vale come guasto sia quando è stata esaminata e non è
- * di solo verdetto (`verdictOnly: false`), sia quando è oltre la finestra e nessuno ne ha
- * letto i job (campo assente). Altrimenti un guasto vero dopo l'apertura, invecchiato
- * fuori finestra, lascerebbe chiudere il thread `not planned` alla run-verdetto successiva
- * senza che nessuno l'abbia mai verificato. Il prezzo: un thread come la issue 9243, che
- * contiene la run 36717595714 del 2026-09-30 (guasto vero in «Commit updated health
- * state»), resta aperto finché quella rossa non esce dallo storico letto
- * (`RUN_HISTORY_LIMIT` run nella finestra `--created`) o non lo chiude un verde vero.
+ * una failure già esaminata e non di solo verdetto (`verdictOnly: false`) resta un
+ * blocco anche quando precede l'apertura della issue — può essere proprio la failure
+ * reale che ha generato il thread. Una rossa successiva all'apertura vale come guasto
+ * anche quando è oltre la finestra e nessuno ne ha letto i job (campo assente).
+ * Altrimenti un guasto vero dopo l'apertura, invecchiato fuori finestra, lascerebbe
+ * chiudere il thread `not planned` alla run-verdetto successiva senza che nessuno ne
+ * abbia mai verificato i job. Il prezzo: un thread come la issue 9243, che contiene la
+ * run 36717595714 del 2026-09-30 (guasto vero in «Commit updated health state»), resta
+ * aperto finché quella rossa non esce dallo storico letto (`RUN_HISTORY_LIMIT` run nella
+ * finestra `--created`) o non lo chiude un verde vero.
  *
  * Un `Workflow Failure:` sullo stesso workflow NON rientra: è il crash vero, e la regola
  * non lo tocca.
@@ -1300,13 +1306,18 @@ export function decideVerdictOnlyThread({ issue, history } = {}) {
   const opened = Date.parse(issue?.createdAt ?? '');
   const created = Date.parse(head.createdAt ?? '');
   if (!Number.isFinite(opened) || !Number.isFinite(created) || created < opened) return { ...none, entry };
-  // Una rossa dopo l'apertura che non sia PROVATA di solo verdetto tiene aperto il thread:
-  // esaminata e mista (`verdictOnly: false`) oppure oltre la finestra letta (campo assente).
-  // Solo `success`/`skipped` non sono rosse; data illeggibile → successiva (fail-closed).
-  const unprovenRedAfterOpening = history.some((r) => r?.verdictOnly !== true
-    && !NOT_RED_CONCLUSIONS.has(r?.conclusion)
-    && !(Date.parse(r?.createdAt ?? '') < opened));
-  if (unprovenRedAfterOpening) return { ...none, entry };
+  // Una failure già esaminata e reale (`verdictOnly: false`) tiene aperto il thread
+  // anche se precede l'apertura: può essere la failure che ha generato la issue. Una
+  // rossa senza classificazione tiene aperto il thread quando è successiva all'apertura
+  // (o ha una data illeggibile); una rossa vecchia senza prova non è invece attribuita a
+  // questo thread. Solo `success`/`skipped` non sono rosse.
+  const unprovenRed = history.some((r) => {
+    if (NOT_RED_CONCLUSIONS.has(r?.conclusion)) return false;
+    if (r?.verdictOnly === true) return false;
+    if (r?.verdictOnly === false) return true;
+    return !(Date.parse(r?.createdAt ?? '') < opened);
+  });
+  if (unprovenRed) return { ...none, entry };
   return { close: true, entry, run: head };
 }
 

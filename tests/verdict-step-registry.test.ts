@@ -120,6 +120,21 @@ describe('isVerdictOnlyFailure — fixture reali del monitor', () => {
     expect(isVerdictOnlyFailure(MONITOR_PATH, unattributed)).toBe(false);
   });
 
+  it('uno step senza `conclusion` rende il payload parziale e non classificabile', () => {
+    const partial = {
+      total_count: 1,
+      jobs: [{
+        name: 'check',
+        conclusion: 'failure',
+        steps: [
+          { name: 'Fail if any crawler stale', conclusion: 'failure' },
+          { name: 'Unreadable step' },
+        ],
+      }],
+    } as unknown as Jobs;
+    expect(isVerdictOnlyFailure(MONITOR_PATH, partial)).toBe(false);
+  });
+
   it('un workflow fuori registro non è mai di solo verdetto', () => {
     expect(isVerdictOnlyFailure('.github/workflows/altro.yml', VERDICT_ONLY)).toBe(false);
   });
@@ -285,8 +300,8 @@ describe('decideFailureIssueClose — regola verdict-only-thread', () => {
     ];
     const unclassifiedAfter = [...verdicts, { createdAt: '2026-10-01T01:00:00Z' }];
     expect(decideVerdictOnlyThread({ issue: thread, history: unclassifiedAfter }).close).toBe(false);
-    // Caso legittimo: tutte le rosse dopo l'apertura sono lette e di solo verdetto, le
-    // rosse non lette sono PRIMA dell'apertura, le verdi non contano → chiude.
+    // Caso legittimo: tutte le rosse dopo l'apertura sono lette e di solo verdetto, la
+    // rossa non letta è PRIMA dell'apertura e non è classificata, le verdi non contano → chiude.
     const legit = [
       ...verdicts,
       { conclusion: 'success', createdAt: '2026-10-01T02:00:00Z' },
@@ -296,14 +311,23 @@ describe('decideFailureIssueClose — regola verdict-only-thread', () => {
     expect(decideVerdictOnlyThread({ issue: thread, history: legit }).close).toBe(true);
   });
 
-  it('un guasto vero LETTO dopo l\'apertura tiene aperto il thread; prima dell\'apertura no', () => {
+  it('un guasto vero LETTO tiene aperto il thread anche quando precede l\'apertura', () => {
     const realAfter = [verdictRun(0.2), verdictRun(1.2), run('failure', 2.2, { verdictOnly: false }), verdictRun(3.2)];
     const kept = decide({ issue: issue(CI, 14), history: realAfter, comments: null });
     expect(kept.action).toBe('keep');
     expect(kept.reason).toBe('still-red');
 
     const realBefore = [verdictRun(0.2), verdictRun(1.2), run('failure', 20, { verdictOnly: false })];
-    expect(decide({ issue: issue(CI, 14), history: realBefore, comments: null }).action).toBe('close-not-planned');
+    expect(decide({ issue: issue(CI, 14), history: realBefore, comments: null }).action).toBe('keep');
+  });
+
+  it('una failure reale prima dell\'apertura blocca la chiusura not-planned', () => {
+    const thread = { title: CI, createdAt: '2026-10-01T01:00:00Z' };
+    const history = [
+      { conclusion: 'failure', verdictOnly: true, createdAt: '2026-10-02T00:00:00Z' },
+      { conclusion: 'failure', verdictOnly: false, createdAt: '2026-10-01T00:00:00Z' },
+    ];
+    expect(decideVerdictOnlyThread({ issue: thread, history }).close).toBe(false);
   });
 
   // La forma della chiamata di `main()`: la run che decide è SEMPRE passata, calcolata
@@ -392,9 +416,9 @@ describe('scan-unreported-failures — una run di solo verdetto non è un fallim
         if (args[3] !== 'open' || !openIssue) return '[]';
         return JSON.stringify([{
           number: 9243,
-          title: `CI Failure: ${MONITOR_NAME}`,
+          title: '[crawler-health] stale-example: crawler unhealthy',
           updatedAt: '2026-10-01T00:00:00Z',
-          body: '',
+          body: `**Workflow:** ${MONITOR_NAME}`,
         }]);
       }
       if (args[0] === 'issue' && args[1] === 'view') return JSON.stringify({ body: '', comments: [] });
@@ -443,10 +467,12 @@ describe('scan-unreported-failures — una run di solo verdetto non è un fallim
     expect(issueCalls('comment').map((c) => (c[1] as string[])[2])).toEqual(['9243']);
   });
 
-  it('nessun thread: la run di solo verdetto non apre «CI Failure:», quella mista sì', async () => {
+  it('owner non persistito: la run di solo verdetto resta reportable come «CI Failure:», quella mista sì', async () => {
     mockGithub({ jobs: VERDICT_ONLY, openIssue: false });
     await scanFailures();
-    expect(issueCalls('create')).toEqual([]);
+    const verdictCreate = issueCalls('create').map((c) => (c[1] as string[]));
+    expect(verdictCreate.length).toBe(1);
+    expect(verdictCreate[0][verdictCreate[0].indexOf('--title') + 1]).toBe(`CI Failure: ${MONITOR_NAME}`);
 
     execFileSync.mockReset();
     mockGithub({ jobs: REAL_FAILURE, openIssue: false });

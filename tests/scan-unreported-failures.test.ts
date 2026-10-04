@@ -122,10 +122,12 @@ describe('dedup con issue canoniche che dichiarano il workflow nel corpo', () =>
 
     expect(latestIssuePerWorkflow(issues).get('cathedral-seo-gates-check')).toEqual({
       number: 9195,
+      title: 'SEO gates regression: max-bfs-depth above baseline',
       updatedAt: '2026-09-19T12:39:07Z',
     });
     expect(latestIssuePerWorkflow([...issues].reverse()).get('cathedral-seo-gates-check')).toEqual({
       number: 9195,
+      title: 'SEO gates regression: max-bfs-depth above baseline',
       updatedAt: '2026-09-19T12:39:07Z',
     });
   });
