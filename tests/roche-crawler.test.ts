@@ -100,7 +100,7 @@ describe('Roche crawler parser', () => {
 
     const jobs = await fetchAllRocheJobs();
 
-    expect(jobs).toEqual([]);
+    expect(jobs).toHaveLength(0);
     expect(JSON.stringify(jobs)).not.toContain('Key details');
     expect(mocks.fetchWorkdayJobDetailParts).toHaveBeenCalledTimes(1);
   });
