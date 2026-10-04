@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-10-03T21:19:59.033Z",
+  "assembledAt": "2026-10-04T09:23:12.132Z",
   "jobs": [
     {
       "id": "abraxas-a11a2b656e85",
@@ -33,7 +33,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/system-engineer-mit-projekterfahrung-80-100-8712",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:53.436Z",
+      "crawledAt": "2026-10-04T09:23:05.683Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -57,11 +57,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "system-engineer-mit-projekterfahrung-80-100-abraxas-st-gallen"
+        "system-engineer-mit-projekterfahrung-80-100-abraxas-st-gallen",
+        "system-ingegnere-con-projekterfahrung-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "system-engineer-mit-projekterfahrung-80-100-abraxas-st-gallen"
+          "system-engineer-mit-projekterfahrung-80-100-abraxas-st-gallen",
+          "system-ingegnere-con-projekterfahrung-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "system-engineer-mit-projekterfahrung-80-100-abraxas-st-gallen"
@@ -113,7 +115,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-solution-architektin-80-100-mit-schwerpunkt-pre-sales-7856",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:53.001Z",
+      "crawledAt": "2026-10-04T09:23:05.244Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -182,7 +184,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-data-migration-80-100-6005",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:52.569Z",
+      "crawledAt": "2026-10-04T09:23:04.795Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -250,7 +253,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-im-steuerbereich-80-100-6610",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:52.133Z",
+      "crawledAt": "2026-10-04T09:23:04.358Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -274,26 +277,24 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "software-architetto-nell-area-fiscale-80-100-abraxas-informatik-ag-st-gallen",
-        "software-architect-in-the-tax-area-80-100-abraxas-informatik-ag-st-gallen",
-        "architecte-logiciel-dans-le-domaine-fiscal-80-100-abraxas-informatik-ag-st-gallen",
         "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen",
-        "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen-4up842"
+        "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen-4up842",
+        "software-architetto-nell-area-fiscale-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-architetto-nell-area-fiscale-80-100-abraxas-informatik-ag-st-gallen",
           "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen",
-          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen-4up842"
+          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen-4up842",
+          "software-architetto-nell-area-fiscale-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
         ],
-        "fr": [
-          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
-        ],
         "de": [
           "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen-4up842"
+        ],
+        "fr": [
+          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
         ]
       },
       "firstSeenAt": "2026-08-25T20:16:00.058Z",
@@ -316,7 +317,7 @@
       "slug": "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
       "slugByLocale": {
         "it": "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
-        "en": "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8",
+        "en": "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen",
         "de": "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
         "fr": "servicenow-ki-solutions-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
       },
@@ -326,7 +327,7 @@
       "title": "ServiceNow KI Solutions Engineer 80-100 %",
       "titleByLocale": {
         "it": "ServiceNow KI Solutions Ingegnere 80-100 %",
-        "en": "ServiceNow AI Solutions Engineer 80-100%",
+        "en": "ServiceNow KI Solutions Engineer 80-100 %",
         "de": "ServiceNow KI Solutions Ingenieur 80-100 %",
         "fr": "ServiceNow KI Solutions Ingénieur 80-100 %"
       },
@@ -342,7 +343,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-ki-solutions-engineer-80-100-3109",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:51.702Z",
+      "crawledAt": "2026-10-04T09:23:03.919Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -366,14 +368,18 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
+        "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8",
+        "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
         "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
+          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
+          "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "en": [
           "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
+          "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8",
           "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
@@ -426,7 +432,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-projektleitung-im-bereich-steuerloesungen-80-100-6736",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:51.255Z",
+      "crawledAt": "2026-10-04T09:23:03.481Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -450,11 +456,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
+        "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen",
+        "gestione-senior-del-progetto-nel-settore-delle-soluzioni-fiscali-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
+          "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen",
+          "gestione-senior-del-progetto-nel-settore-delle-soluzioni-fiscali-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
@@ -509,7 +517,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-openstack-engineer-80-100-6985",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:50.827Z",
+      "crawledAt": "2026-10-04T09:23:03.045Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -535,14 +544,16 @@
         "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
         "senior-linux-ingegnere-abraxas-informatik-ag-zurich-flughafen",
         "senior-linux-engineer-abraxas-zurich-flughafen",
-        "senior-linux-ingenieur-abraxas-informatik-ag-zurich-flughafen"
+        "senior-linux-ingenieur-abraxas-informatik-ag-zurich-flughafen",
+        "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
           "senior-linux-ingegnere-abraxas-informatik-ag-zurich-flughafen",
           "senior-linux-engineer-abraxas-zurich-flughafen",
-          "senior-linux-ingenieur-abraxas-informatik-ag-zurich-flughafen"
+          "senior-linux-ingenieur-abraxas-informatik-ag-zurich-flughafen",
+          "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "de": [
           "senior-linux-engineer-abraxas-zurich-flughafen"
@@ -598,7 +609,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-2438",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:50.397Z",
+      "crawledAt": "2026-10-04T09:23:02.604Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -623,12 +634,14 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-bern",
-        "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-st-gallen"
+        "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-st-gallen",
+        "linux-ingegnere-con-aws-e-kubernetes-erfahrung-80-100-abraxas-informatik-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-bern",
-          "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-st-gallen"
+          "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-st-gallen",
+          "linux-ingegnere-con-aws-e-kubernetes-erfahrung-80-100-abraxas-informatik-ag-bern"
         ],
         "de": [
           "linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-abraxas-bern"
@@ -680,7 +693,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-services-engineer-windows-server-100-4522",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:49.961Z",
+      "crawledAt": "2026-10-04T09:23:02.159Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -749,7 +762,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-operations-engineer-engineer-staedte-amp-gemeinden-80-100-8816",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:49.527Z",
+      "crawledAt": "2026-10-04T09:23:01.717Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -773,11 +786,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen"
+        "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen",
+        "it-operazioni-ingegnere-ingegnere-citta-e-comuni-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen"
+          "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen",
+          "it-operazioni-ingegnere-ingegnere-citta-e-comuni-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "it-operations-engineer-engineer-stadte-gemeinden-80-100-abraxas-st-gallen"
@@ -829,7 +844,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-6332",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:49.084Z",
+      "crawledAt": "2026-10-04T09:23:01.278Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -855,12 +870,14 @@
       "previousSlugs": [
         "ict-system-engineer-betrieb-80-100-abraxas-st-gallen",
         "ict-system-ingenieur-betrieb-80-100-abraxas-informatik-ag-st-gallen",
-        "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen"
+        "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen",
+        "ict-system-engineer-operation-80-100-abraxas-informatik-ag-st-gallen-82091c"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ict-system-engineer-betrieb-80-100-abraxas-st-gallen",
-          "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen"
+          "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen",
+          "ict-system-engineer-operation-80-100-abraxas-informatik-ag-st-gallen-82091c"
         ],
         "fr": [
           "ict-system-engineer-betrieb-80-100-abraxas-st-gallen",
@@ -913,7 +930,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-9599",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:48.655Z",
+      "crawledAt": "2026-10-04T09:23:00.840Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -981,7 +999,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/dwh-softwareengineer-80-100-9720",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:48.225Z",
+      "crawledAt": "2026-10-04T09:23:00.390Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1005,11 +1023,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "dwh-softwareengineer-80-100-abraxas-zurich-flughafen"
+        "dwh-softwareengineer-80-100-abraxas-zurich-flughafen",
+        "dwh-software-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dwh-softwareengineer-80-100-abraxas-zurich-flughafen"
+          "dwh-softwareengineer-80-100-abraxas-zurich-flughafen",
+          "dwh-software-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "en": [
           "dwh-softwareengineer-80-100-abraxas-zurich-flughafen"
@@ -1061,7 +1081,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/business-analyst-80-100-4539",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:47.786Z",
+      "crawledAt": "2026-10-04T09:22:59.950Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1085,11 +1105,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "business-analyst-80-100-abraxas-zurich-flughafen"
+        "business-analyst-80-100-abraxas-zurich-flughafen",
+        "business-analista-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-80-100-abraxas-zurich-flughafen"
+          "business-analyst-80-100-abraxas-zurich-flughafen",
+          "business-analista-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "business-analyst-80-100-abraxas-zurich-flughafen"
@@ -1141,7 +1163,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-7621",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:47.266Z",
+      "crawledAt": "2026-10-04T09:22:59.512Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1166,13 +1189,15 @@
       "previousSlugs": [
         "abacus-consultant-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
         "consultant-abacus-en-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
-        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
+        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
+        "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "abacus-consultant-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
           "consultant-abacus-en-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
-          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
+          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
+          "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
@@ -1227,7 +1252,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-amp-abareport-80-100-4304",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T21:19:46.744Z",
+      "crawledAt": "2026-10-04T09:22:58.965Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1264,169 +1289,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "abraxas-03c2563c44ac",
-      "slug": "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-st-gallen",
-      "slugByLocale": {
-        "de": "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-st-gallen",
-        "it": "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-st-gallen",
-        "en": "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-st-gallen",
-        "fr": "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-st-gallen"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "Software Architekt mit Fokus KI im SSDLC 80–100 %",
-      "titleByLocale": {
-        "de": "Software Architekt mit Fokus KI im SSDLC 80–100 %",
-        "en": "Software architect with focus on AI in SSDLC 80-100%",
-        "it": "Software Architekt con Fokus KI im SSDLC 80–100 %",
-        "fr": "Architecte logiciel axé sur l'IA dans SSDLC 80–100 %"
-      },
-      "description": "Du machst aus KI mehr als nur einen Copilot auf dem Desktop. Du entwickelst Standards, Architekturprinzipien und Best Practices für den produktiven Einsatz von KI und gestaltest die Weiterentwicklung des AI-enabled SSDLC. Dein Fokus liegt auf Engineering Excellence und organisationsweitem Enablement. Gleichzeitig bringst du dein Know-how in Kundenprojekten ein und unterstützt Teams bei der Umsetzung anspruchsvoller KI-Lösungen. Du verbindest Architektur, Software Engineering, DevOps und KI und sorgst dafür, dass aus Experimenten nachhaltige Lösungen werden.\nDeine Rolle\n• Du entwickelst Referenzarchitekturen, Architekturprinzipien und Standards für den Einsatz von KI im Software Engineering und SSDLC\n• Du definierst Best Practices sowie wiederverwendbare Architektur-, Integrations- und Lösungsmuster für Agenten, Prompts, Kontextmodelle und RAG-Lösungen\n• Du entwickelst den AI-enabled SSDLC kontinuierlich weiter und unterstützt die Integration von KI in Entwicklungs-, Test-, Architektur- und Betriebsprozesse\n• Du berätst und coachst Teams bei Einführung, Nutzung und Skalierung von KI und förderst den organisationsweiten Wissens- und Erfahrungsaustausch\n• Du evaluierst neue Technologien, Modelle und Frameworks und definierst gemeinsam mit AI Engineering Standard-Setups\n• Du definierst Qualitätsanforderungen für KI-Lösungen und stellst sicher, dass diese nachvollziehbar, wartbar und skalierbar bleiben\n• Du unterstützt strategisch relevante Kundenprojekte und Transformationsvorhaben bei der Konzeption, Architektur und Einführung von KI-Lösungen\n• Du wirkst an der Weiterentwicklung der AI-Strategie, Architektur-Governance und Engineering Excellence von Abraxas mit\nDein Profil\n• Langjährige Erfahrung als ICT-Architekt, Lead Developer oder Principal Engineer\n• Sehr gutes Verständnis moderner Software- und Plattformarchitekturen\n• Erfahrung in Architektur- und Technologie-Transformationen\n• Fundierte Kenntnisse von DevOps, CI/CD und modernen Engineering-Plattformen\n• Erfahrung mit LLM-, Agent- und RAG-Konzepten\n• Fähigkeit, technische Standards organisationsweit zu etablieren\n• Erfahrung im Coaching und Enablement von Entwicklungsorganisationen\n• Fähigkeit, strategische Architekturarbeit mit den praktischen Anforderungen von Kundenprojekten und Transformationsvorhaben zu verbinden\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Ferienkauf (2 Wochen pro Jahr)\n• 4 1h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-      "descriptionByLocale": {
-        "de": "Du machst aus KI mehr als nur einen Copilot auf dem Desktop. Du entwickelst Standards, Architekturprinzipien und Best Practices für den produktiven Einsatz von KI und gestaltest die Weiterentwicklung des AI-enabled SSDLC. Dein Fokus liegt auf Engineering Excellence und organisationsweitem Enablement. Gleichzeitig bringst du dein Know-how in Kundenprojekten ein und unterstützt Teams bei der Umsetzung anspruchsvoller KI-Lösungen. Du verbindest Architektur, Software Engineering, DevOps und KI und sorgst dafür, dass aus Experimenten nachhaltige Lösungen werden.\nDeine Rolle\n• Du entwickelst Referenzarchitekturen, Architekturprinzipien und Standards für den Einsatz von KI im Software Engineering und SSDLC\n• Du definierst Best Practices sowie wiederverwendbare Architektur-, Integrations- und Lösungsmuster für Agenten, Prompts, Kontextmodelle und RAG-Lösungen\n• Du entwickelst den AI-enabled SSDLC kontinuierlich weiter und unterstützt die Integration von KI in Entwicklungs-, Test-, Architektur- und Betriebsprozesse\n• Du berätst und coachst Teams bei Einführung, Nutzung und Skalierung von KI und förderst den organisationsweiten Wissens- und Erfahrungsaustausch\n• Du evaluierst neue Technologien, Modelle und Frameworks und definierst gemeinsam mit AI Engineering Standard-Setups\n• Du definierst Qualitätsanforderungen für KI-Lösungen und stellst sicher, dass diese nachvollziehbar, wartbar und skalierbar bleiben\n• Du unterstützt strategisch relevante Kundenprojekte und Transformationsvorhaben bei der Konzeption, Architektur und Einführung von KI-Lösungen\n• Du wirkst an der Weiterentwicklung der AI-Strategie, Architektur-Governance und Engineering Excellence von Abraxas mit\nDein Profil\n• Langjährige Erfahrung als ICT-Architekt, Lead Developer oder Principal Engineer\n• Sehr gutes Verständnis moderner Software- und Plattformarchitekturen\n• Erfahrung in Architektur- und Technologie-Transformationen\n• Fundierte Kenntnisse von DevOps, CI/CD und modernen Engineering-Plattformen\n• Erfahrung mit LLM-, Agent- und RAG-Konzepten\n• Fähigkeit, technische Standards organisationsweit zu etablieren\n• Erfahrung im Coaching und Enablement von Entwicklungsorganisationen\n• Fähigkeit, strategische Architekturarbeit mit den praktischen Anforderungen von Kundenprojekten und Transformationsvorhaben zu verbinden\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Ferienkauf (2 Wochen pro Jahr)\n• 4 1h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "it": "Du machst aus KI mehr als nur einen Copilot auf dem Desktop. Du entwickelst Standards, Architekturprinzipien und Best Practices für den produktiven Einsatz von KI und gestaltest die Weiterentwicklung des AI-enabled SSDLC. Dein Fokus liegt auf Engineering Excellence und organisationsweitem Enablement. Gleichzeitig bringst du dein Know-how in Kundenprojekten ein und unterstützt Teams bei der Umsetzung anspruchsvoller KI-Lösungen. Du verbindest Architektur, Software Engineering, DevOps und KI und sorgst dafür, dass aus Experimenten nachhaltige Lösungen werden.\nDeine Rolle\n• Du entwickelst Referenzarchitekturen, Architekturprinzipien und Standards für den Einsatz von KI im Software Engineering und SSDLC\n• Du definierst Best Practices sowie wiederverwendbare Architektur-, Integrations- und Lösungsmuster für Agenten, Prompts, Kontextmodelle und RAG-Lösungen\n• Du entwickelst den AI-enabled SSDLC kontinuierlich weiter und unterstützt die Integration von KI in Entwicklungs-, Test-, Architektur- und Betriebsprozesse\n• Du berätst und coachst Teams bei Einführung, Nutzung und Skalierung von KI und förderst den organisationsweiten Wissens- und Erfahrungsaustausch\n• Du evaluierst neue Technologien, Modelle und Frameworks und definierst gemeinsam mit AI Engineering Standard-Setups\n• Du definierst Qualitätsanforderungen für KI-Lösungen und stellst sicher, dass diese nachvollziehbar, wartbar und skalierbar bleiben\n• Du unterstützt strategisch relevante Kundenprojekte und Transformationsvorhaben bei der Konzeption, Architektur und Einführung von KI-Lösungen\n• Du wirkst an der Weiterentwicklung der AI-Strategie, Architektur-Governance und Engineering Excellence von Abraxas mit\nDein Profil\n• Langjährige Erfahrung als ICT-Architekt, Lead Developer oder Principal Engineer\n• Sehr gutes Verständnis moderner Software- und Plattformarchitekturen\n• Erfahrung in Architektur- und Technologie-Transformationen\n• Fundierte Kenntnisse von DevOps, CI/CD und modernen Engineering-Plattformen\n• Erfahrung mit LLM-, Agent- und RAG-Konzepten\n• Fähigkeit, technische Standards organisationsweit zu etablieren\n• Erfahrung im Coaching und Enablement von Entwicklungsorganisationen\n• Fähigkeit, strategische Architekturarbeit mit den praktischen Anforderungen von Kundenprojekten und Transformationsvorhaben zu verbinden\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Ferienkauf (2 Wochen pro Jahr)\n• 4 1h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "en": "Du machst aus KI mehr als nur einen Copilot auf dem Desktop. Du entwickelst Standards, Architekturprinzipien und Best Practices für den produktiven Einsatz von KI und gestaltest die Weiterentwicklung des AI-enabled SSDLC. Dein Fokus liegt auf Engineering Excellence und organisationsweitem Enablement. Gleichzeitig bringst du dein Know-how in Kundenprojekten ein und unterstützt Teams bei der Umsetzung anspruchsvoller KI-Lösungen. Du verbindest Architektur, Software Engineering, DevOps und KI und sorgst dafür, dass aus Experimenten nachhaltige Lösungen werden.\nDeine Rolle\n• Du entwickelst Referenzarchitekturen, Architekturprinzipien und Standards für den Einsatz von KI im Software Engineering und SSDLC\n• Du definierst Best Practices sowie wiederverwendbare Architektur-, Integrations- und Lösungsmuster für Agenten, Prompts, Kontextmodelle und RAG-Lösungen\n• Du entwickelst den AI-enabled SSDLC kontinuierlich weiter und unterstützt die Integration von KI in Entwicklungs-, Test-, Architektur- und Betriebsprozesse\n• Du berätst und coachst Teams bei Einführung, Nutzung und Skalierung von KI und förderst den organisationsweiten Wissens- und Erfahrungsaustausch\n• Du evaluierst neue Technologien, Modelle und Frameworks und definierst gemeinsam mit AI Engineering Standard-Setups\n• Du definierst Qualitätsanforderungen für KI-Lösungen und stellst sicher, dass diese nachvollziehbar, wartbar und skalierbar bleiben\n• Du unterstützt strategisch relevante Kundenprojekte und Transformationsvorhaben bei der Konzeption, Architektur und Einführung von KI-Lösungen\n• Du wirkst an der Weiterentwicklung der AI-Strategie, Architektur-Governance und Engineering Excellence von Abraxas mit\nDein Profil\n• Langjährige Erfahrung als ICT-Architekt, Lead Developer oder Principal Engineer\n• Sehr gutes Verständnis moderner Software- und Plattformarchitekturen\n• Erfahrung in Architektur- und Technologie-Transformationen\n• Fundierte Kenntnisse von DevOps, CI/CD und modernen Engineering-Plattformen\n• Erfahrung mit LLM-, Agent- und RAG-Konzepten\n• Fähigkeit, technische Standards organisationsweit zu etablieren\n• Erfahrung im Coaching und Enablement von Entwicklungsorganisationen\n• Fähigkeit, strategische Architekturarbeit mit den praktischen Anforderungen von Kundenprojekten und Transformationsvorhaben zu verbinden\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Ferienkauf (2 Wochen pro Jahr)\n• 4 1h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "Du machst aus KI mehr als nur einen Copilot auf dem Desktop. Du entwickelst Standards, Architekturprinzipien und Best Practices für den produktiven Einsatz von KI und gestaltest die Weiterentwicklung des AI-enabled SSDLC. Dein Fokus liegt auf Engineering Excellence und organisationsweitem Enablement. Gleichzeitig bringst du dein Know-how in Kundenprojekten ein und unterstützt Teams bei der Umsetzung anspruchsvoller KI-Lösungen. Du verbindest Architektur, Software Engineering, DevOps und KI und sorgst dafür, dass aus Experimenten nachhaltige Lösungen werden.\nDeine Rolle\n• Du entwickelst Referenzarchitekturen, Architekturprinzipien und Standards für den Einsatz von KI im Software Engineering und SSDLC\n• Du definierst Best Practices sowie wiederverwendbare Architektur-, Integrations- und Lösungsmuster für Agenten, Prompts, Kontextmodelle und RAG-Lösungen\n• Du entwickelst den AI-enabled SSDLC kontinuierlich weiter und unterstützt die Integration von KI in Entwicklungs-, Test-, Architektur- und Betriebsprozesse\n• Du berätst und coachst Teams bei Einführung, Nutzung und Skalierung von KI und förderst den organisationsweiten Wissens- und Erfahrungsaustausch\n• Du evaluierst neue Technologien, Modelle und Frameworks und definierst gemeinsam mit AI Engineering Standard-Setups\n• Du definierst Qualitätsanforderungen für KI-Lösungen und stellst sicher, dass diese nachvollziehbar, wartbar und skalierbar bleiben\n• Du unterstützt strategisch relevante Kundenprojekte und Transformationsvorhaben bei der Konzeption, Architektur und Einführung von KI-Lösungen\n• Du wirkst an der Weiterentwicklung der AI-Strategie, Architektur-Governance und Engineering Excellence von Abraxas mit\nDein Profil\n• Langjährige Erfahrung als ICT-Architekt, Lead Developer oder Principal Engineer\n• Sehr gutes Verständnis moderner Software- und Plattformarchitekturen\n• Erfahrung in Architektur- und Technologie-Transformationen\n• Fundierte Kenntnisse von DevOps, CI/CD und modernen Engineering-Plattformen\n• Erfahrung mit LLM-, Agent- und RAG-Konzepten\n• Fähigkeit, technische Standards organisationsweit zu etablieren\n• Erfahrung im Coaching und Enablement von Entwicklungsorganisationen\n• Fähigkeit, strategische Architekturarbeit mit den praktischen Anforderungen von Kundenprojekten und Transformationsvorhaben zu verbinden\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Ferienkauf (2 Wochen pro Jahr)\n• 4 1h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architekt-mit-fokus-ki-im-ssdlc-80-100-4606",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:24:13.201Z",
-      "needsRetranslation": true,
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9001",
-      "streetAddress": "St. Leonhard-Strasse 80",
-      "category": "IT / Infrastruttura",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-10-01",
-      "applyUrl": "https://apply.refline.ch/215876/2515/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "externalId": "215876-2515",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-19T21:34:01.914Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "architetto-software-con-focus-su-ai-nel-ssdlc-80-100-abraxas-informatik-ag-st-gallen",
-          "software-architect-with-focus-on-ai-in-the-ssdlc-80-100-abraxas-informatik-ag-st-gallen",
-          "architecte-logiciel-avec-accent-sur-l-ia-dans-le-ssdlc-80-100-abraxas-informatik-ag-st-gallen",
-          "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-informatik-ag-st-gallen"
-        ],
-        "en": [
-          "software-architect-with-focus-on-ai-in-the-ssdlc-80-100-abraxas-informatik-ag-st-gallen"
-        ],
-        "fr": [
-          "architecte-logiciel-avec-accent-sur-l-ia-dans-le-ssdlc-80-100-abraxas-informatik-ag-st-gallen"
-        ]
-      },
-      "previousSlugs": [
-        "architetto-software-con-focus-su-ai-nel-ssdlc-80-100-abraxas-informatik-ag-st-gallen",
-        "software-architect-with-focus-on-ai-in-the-ssdlc-80-100-abraxas-informatik-ag-st-gallen",
-        "architecte-logiciel-avec-accent-sur-l-ia-dans-le-ssdlc-80-100-abraxas-informatik-ag-st-gallen",
-        "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-informatik-ag-st-gallen"
-      ],
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "abraxas-c3450fe11f56",
-      "slug": "account-manager-100-abraxas-zurich-flughafen",
-      "slugByLocale": {
-        "it": "account-manager-100-abraxas-zurich-flughafen",
-        "en": "account-manager-100-abraxas-zurich-flughafen",
-        "de": "account-manager-100-abraxas-zurich-flughafen",
-        "fr": "gestionnaire-de-compte-100-abraxas-informatik-ag-zurich-flughafen"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "Account Manager 100 %",
-      "titleByLocale": {
-        "it": "Account Manager",
-        "en": "Account Manager 100 %",
-        "de": "Account Manager 100 %",
-        "fr": "Gestionnaire de compte à 100 %"
-      },
-      "description": "In unserem engagierten Sales-Team für kantonale Verwaltungen sowie kantonsnahe Unternehmen begleitest du unsere Kund:innen auf ihrer digitalen Transformation. Mit viel Eigenverantwortung, Leidenschaft und einem ausgeprägten Verständnis für Kundenbedürfnisse entwickelst du nachhaltige Lösungen für die Herausforderungen von heute und morgen.\nFür unseren Standort am Zürich-Flughafen suchen wir per sofort oder nach Vereinbarung eine überzeugende Persönlichkeit als Account Manager öffentliche Verwaltung.\nDeine Rolle\n• Entwicklung und Betreuung von bestehenden und neuen Geschäftsbeziehungen im öffentlichen Sektor\n• Strategische Geschäftsentwicklung im Bereich IT-Infrastruktur und Fachanwendungen\n• Identifikation von Kundenbedürfnissen und Erarbeitung lösungsorientierter Lösungskonzepte\n• Qualifizieren und Bearbeiten von öffentlichen Ausschreibungen\n• Zusammenarbeit mit internen Fachbereichen zur Umsetzung einfacher und komplexer Kundenanforderungen\n• Zusammenarbeit mit Behörden, Verwaltungen, öffentlichen Betrieben und politischen Entscheidungsträgern\nDein Profil\n• Mehrjährige Erfahrung im öffentlichen Sektor, idealerweise mit einem etablierten Netzwerk in kantonalen Verwaltungen\n• Langjährige und erfolgreiche Erfahrung im Account Management\n• Fundierte Kenntnisse im Bereich IT-Lösungen, IT-Infrastruktur oder Digitalisierung\n• Erfahrung im Umgang mit öffentlichen Ausschreibungen und Vergabeverfahren\n• Selbstständige, strukturierte und unternehmerische Arbeitsweise\n• Ausgeprägte Kundenorientierung sowie die Fähigkeit, Kundenbedürfnisse zu verstehen und in nachhaltige Verkaufschancen zu überführen\n• Kommunikationsstarke, gewinnende Persönlichkeit mit hohem Mass an Eigeninitiative und Verhandlungsgeschick\nDeine Benefits\n• Maximal 40% Home-Office bei einem 100 % Pensum möglich, Fokus auf Präsenz beim Kunden und im Office\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100% finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-      "descriptionByLocale": {
-        "it": "Nel nostro team di vendita dedicato alle amministrazioni cantonali e alle aziende cantonali, accompagnerete i nostri clienti nella loro trasformazione digitale. Con molta proprietà, passione e una forte comprensione delle esigenze dei clienti, svilupperete soluzioni sostenibili per le sfide di oggi e di domani. Stiamo cercando una persona convincente come responsabile account per la nostra posizione all'aeroporto di Zurigo, da subito o su appuntamento.\n\nIl vostro ruolo\n• Sviluppo e supporto delle relazioni commerciali esistenti e nuove nel settore pubblico\n• Sviluppo strategico delle imprese nel settore delle infrastrutture e applicazioni IT\n• Identificazione delle esigenze dei clienti e sviluppo di soluzioni orientate alla soluzione\n• Qualificazione e modifica di offerte pubbliche\n• Cooperazione con i dipartimenti interni per implementare esigenze semplici e complesse dei clienti\n• Cooperazione con autorità, amministrazioni, imprese pubbliche e responsabili politici Il vostro profilo\n• Esperienza pluriennale nel campo della\n\nsettore pubblico, idealmente con una rete consolidata in una amministrazione di cantona\n• Esperienza a lungo termine e di successo nella gestione dei conti\n• Conoscenza fondata nel campo delle soluzioni informatiche, dell'infrastruttura informatica o della digitalizzazione\n• Esperienza nel campo degli appalti pubblici e delle procedure di appalto\n• Metodi di lavoro autonomi, strutturati e imprenditoriali\n• Orientamento espresso dei clienti e capacità di comprendere le esigenze dei clienti e tradurle in opportunità di vendita sostenibili\n• Comunicazione forte, personalità vincente con un alto grado di autoiniziativa\n\nLe tue capacità di negoziazione sono gratuite\n• Massimo 40% home office con un carico di lavoro del 100% possibile, concentrarsi sulla presenza del cliente e l'ufficio\n• Acquisto di un giorno (2 settimane all'anno)\n• 41h settimana con orari di lavoro flessibili in un punto a tempo pieno\n• Mente.\n\n25 giorni di vacanze all'anno\n• Promozione di una formazione al 100% finanziaria o temporale\n• Gratis SBB abbonamento a metà imposta per tutti i dipendenti Manteniamo una cultura aperta della du-culture. quindi non esitate a inviarci la vostra domanda direttamente sotto forma di du-form.",
-        "en": "In our dedicated sales team for cantonal administrations and canton-based companies, you will accompany our customers on their digital transformation. With a lot of ownership, passion and a strong understanding of customer needs, you will develop sustainable solutions for the challenges of today and tomorrow. We are looking for a convincing person as an account manager for our location at Zurich Airport by immediately or by appointment.\n\nYour role\n• Development and support of existing and new business relationships in the public sector\n• Strategic business development in the area of IT infrastructure and applications\n• Identification of customer needs and development of solution-oriented solution concepts\n• Qualifying and editing public tenders\n• Cooperation with internal departments to implement simple and complex customer requirements\n• Cooperation with authorities, administrations, public enterprises and policy makers Your profile\n• Multi-year experience in the field of\n\npublic sector, ideally with an established network in cantonal administrations\n• Long-term and successful experience in account management\n• Well-founded knowledge in the field of IT solutions, IT infrastructure or digitalization\n• experience in dealing with public procurement and procurement procedures\n• Self-employed, structured and entrepreneurial working methods\n• Expressed customer orientation and the ability to understand customer needs and translate them into sustainable sales opportunities\n• Communication-strong, winning personality with a high degree of self-initiative\n\nand negotiation skills Yours are free\n• Maximum 40% home office with a 100% workload possible, focus on customer presence and office\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours at a full-time point\n• Mind.\n\n25 days of holidays per year\n• Promoting training at 100% financial or temporal\n• Free SBB half-tax subscription for all employees We maintain an open culture of du-culture – so feel free to send us your application directly in the form of a du-form.",
-        "de": "In unserem engagierten Sales-Team für kantonale Verwaltungen sowie kantonsnahe Unternehmen begleitest du unsere Kund:innen auf ihrer digitalen Transformation. Mit viel Eigenverantwortung, Leidenschaft und einem ausgeprägten Verständnis für Kundenbedürfnisse entwickelst du nachhaltige Lösungen für die Herausforderungen von heute und morgen.\nFür unseren Standort am Zürich-Flughafen suchen wir per sofort oder nach Vereinbarung eine überzeugende Persönlichkeit als Account Manager öffentliche Verwaltung.\nDeine Rolle\n• Entwicklung und Betreuung von bestehenden und neuen Geschäftsbeziehungen im öffentlichen Sektor\n• Strategische Geschäftsentwicklung im Bereich IT-Infrastruktur und Fachanwendungen\n• Identifikation von Kundenbedürfnissen und Erarbeitung lösungsorientierter Lösungskonzepte\n• Qualifizieren und Bearbeiten von öffentlichen Ausschreibungen\n• Zusammenarbeit mit internen Fachbereichen zur Umsetzung einfacher und komplexer Kundenanforderungen\n• Zusammenarbeit mit Behörden, Verwaltungen, öffentlichen Betrieben und politischen Entscheidungsträgern\nDein Profil\n• Mehrjährige Erfahrung im öffentlichen Sektor, idealerweise mit einem etablierten Netzwerk in kantonalen Verwaltungen\n• Langjährige und erfolgreiche Erfahrung im Account Management\n• Fundierte Kenntnisse im Bereich IT-Lösungen, IT-Infrastruktur oder Digitalisierung\n• Erfahrung im Umgang mit öffentlichen Ausschreibungen und Vergabeverfahren\n• Selbstständige, strukturierte und unternehmerische Arbeitsweise\n• Ausgeprägte Kundenorientierung sowie die Fähigkeit, Kundenbedürfnisse zu verstehen und in nachhaltige Verkaufschancen zu überführen\n• Kommunikationsstarke, gewinnende Persönlichkeit mit hohem Mass an Eigeninitiative und Verhandlungsgeschick\nDeine Benefits\n• Maximal 40% Home-Office bei einem 100 % Pensum möglich, Fokus auf Präsenz beim Kunden und im Office\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100% finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "Dans notre équipe dédiée aux ventes pour les administrations cantonales et les entreprises cantonales, vous accompagnerez nos clients dans leur transformation numérique. Forte de leur appropriation, de leur passion et de leur compréhension des besoins de nos clients, vous développerez des solutions durables pour les défis d'aujourd'hui et de demain. Nous recherchons une personne convaincante en tant que responsable de compte pour notre implantation à l'aéroport de Zurich sur rendez-vous ou immédiatement.\n\nVotre rôle\n• Développement et soutien des relations d'affaires existantes et nouvelles dans le secteur public\n• Développement stratégique des entreprises dans le domaine de l'infrastructure et des applications informatiques\n• Identification des besoins des clients et développement de concepts de solutions orientées vers la solution\n• Qualification et édition des appels d'offres publics\n• Coopération avec les services internes pour mettre en œuvre des exigences de clientèle simples et complexes\n• Coopération avec les autorités, les administrations, les entreprises publiques et les décideurs Votre profil\n• Expérience pluriannuelle dans le domaine de la technologie\n\n• Expériences de longue durée et de réussite en gestion de comptes\n• Connaissances solides dans le domaine des solutions informatiques, de l'infrastructure informatique ou de la numérisation\n• Expérience dans le traitement des procédures de passation de marchés publics et de passation de marchés\n• Méthodes de travail indépendantes, structurées et entrepreneuriales\n• Orientation client exprimée et capacité à comprendre les besoins des clients et à les traduire en opportunités de vente durables\n• Personnalité forte en communication et gagnante avec un haut degré d'initiative\n\net compétences en négociation Vos compétences sont gratuites\n• maximum de 40% de la charge de travail à domicile possible, en se concentrant sur la présence client et le bureau\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec des heures de travail flexibles à plein temps\n• Esprit.\n\n25 jours de congé par an\n• Promotion de la formation à 100% financière ou temporelle\n• Inscription gratuite aux CFF demi-taxes pour tous les employés Nous maintenons une culture ouverte de la du-culture – alors n'hésitez pas à nous envoyer votre demande directement sous forme de du-forme."
-      },
-      "location": "Zürich-Flughafen",
-      "canton": "ZH",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/account-manager-100-1448",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:18:53.809Z",
-      "needsRetranslation": true,
-      "addressLocality": "Zürich-Flughafen",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8058",
-      "streetAddress": "",
-      "category": "IT / Infrastruttura",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-31",
-      "applyUrl": "https://apply.refline.ch/215876/2536/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2536",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "firstSeenAt": "2026-08-31T17:29:17.582Z",
-      "salaryMin": 121500,
-      "salaryMax": 206500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 121500,
-          "maxValue": 206500,
-          "unitText": "YEAR"
-        }
-      },
-      "sourceIdentity": "url:https://www.abraxas.ch/de/karriere/offene-stellen/account-manager-100-1448",
-      "crawlerMissStreak": 2
     }
   ]
 }
