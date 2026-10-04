@@ -46,6 +46,9 @@ permissions:
   # AZZERA gli scope non elencati: senza questa riga la chiamata risponde 403 e il
   # body degrada in silenzio al vecchio run+trigger+ref.
   actions: read
+  # scripts/ci/run-superseded.mjs legge le annotazioni del check-run del job
+  # (firma del timeout) per distinguere un timeout da una sostituzione.
+  checks: read
 
 env:
   NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169'
@@ -122,6 +125,23 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
+      # `cancel-in-progress: true` cancels this job whenever a newer run of the
+      # group is queued (the workflow_run nudge vs the cron backstop): that run
+      # supersedes this one and is NOT a failure (issue 5253, run 37112269877).
+      # A timeout is cancelled too and must still be reported, so the verdict
+      # needs a newer run AND no timeout annotation AND elapsed time away from
+      # the limit; any unreadable input reports (fail-closed). Explicit
+      # `if: cancelled()`: without a status function the implicit success()
+      # would never run it. JOB_TIMEOUT_MINUTES must equal `timeout-minutes`
+      # above (tests/cancel-superseded-reporter-contract.test.ts).
+      - name: Detect superseded cancellation
+        id: superseded
+        if: cancelled()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JOB_TIMEOUT_MINUTES: '60'
+        run: node scripts/ci/run-superseded.mjs
+
       # Reporter diagnostico (#5437): il body dice QUALE step è fallito, con
       # quale comando, come si riproduce in locale e quali script guardare
       # (`## Suggested action` — la sezione che il fixer autonomo estrae).
@@ -134,7 +154,11 @@ jobs:
         # report upload above deliberately still runs and fails if no JSON was
         # finalized; include cancelled() so that exact fail-closed path also
         # reaches the durable issue reporter (run 33525971231 skipped it).
-        if: failure() || cancelled()
+        # A cancellation by a newer run of the same concurrency group is not
+        # reported (step `superseded` above). failure() is false in a cancelled
+        # job even when the upload step failed (run 33525971231), so the guard
+        # on the cancelled() branch is the whole gate.
+        if: failure() || (cancelled() && steps.superseded.outputs.superseded != 'true')
         uses: ./.github/actions/report-failure
         with:
           title: 'Workflow Failure: ${{ github.workflow }}'
