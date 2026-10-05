@@ -359,7 +359,7 @@ describe("McDonald's Switzerland crawler parser", () => {
     it('preserves both publication aliases with source provenance and full precision', () => {
       const job = buildMcdoJob(parsed)!;
       expect(job).toMatchObject({ datePosted: '2026-07-10T08:12:10.733560+00:00',
-        postedDate: '2026-07-10T08:12:10.733560+00:00', postingDateSource: 'reported' });
+        postedDate: '2026-07-10', postingDateSource: 'reported' });
     });
 
     it('keeps publication unknown when the source has no date', () => {

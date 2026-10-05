@@ -20,7 +20,7 @@ for (const kind of ['valid', 'missing', 'invalid', 'future']) {
     vi.stubGlobal('fetch', transport);
     const pending = fetchAllPostAutoJobs(); await vi.runAllTimersAsync(); const jobs = await pending;
     expect(jobs).toHaveLength(1);
-    expect(jobs[0]).toMatchObject(kind === 'valid' ? { datePosted: raw, postedDate: raw, postingDateSource: 'reported' } : unknown);
+    expect(jobs[0]).toMatchObject(kind === 'valid' ? { datePosted: raw, postedDate: raw!.slice(0, 10), postingDateSource: 'reported' } : unknown);
     expect(jobs[0].description).toContain('sorveglianza fisica'); expect(jobs[0].crawledAt).toBeTruthy();
     expect(jobs[0].url).toBe('https://job.post.ch/default/job/Chauffeur/74240-de_DE');
     expect(transport).toHaveBeenCalledTimes(5);
@@ -40,7 +40,7 @@ for (const kind of ['valid', 'missing', 'invalid', 'future', 'foreign-url', 'for
     const pending = fetchAllProtectasJobs(); await vi.runAllTimersAsync(); const jobs = await pending;
     expect(jobs).toHaveLength(1);
     const accepted = ['valid', 'url-less', 'micro-only', 'invalid-json-valid-micro'].includes(kind);
-    expect(jobs[0]).toMatchObject(accepted ? { datePosted: publication('valid'), postedDate: publication('valid'), postingDateSource: 'reported' } : unknown);
+    expect(jobs[0]).toMatchObject(accepted ? { datePosted: publication('valid'), postedDate: publication('valid')!.slice(0, 10), postingDateSource: 'reported' } : unknown);
     expect(jobs[0].description).toContain('sorveglianza fisica'); expect(jobs[0].crawledAt).toBeTruthy();
     expect(jobs[0].url).toBe(['foreign-url', 'foreign-url-valid-micro'].includes(kind) ? 'https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000150722999/' : url);
     expect(transport).toHaveBeenCalledTimes(2);

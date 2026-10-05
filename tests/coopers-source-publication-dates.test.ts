@@ -18,7 +18,7 @@ afterEach(() => vi.unstubAllGlobals());
 async function expectDate(expected = '') {
   const jobs = await fetchAllCoopersJobs();
   expect(jobs).toHaveLength(1);
-  expect(jobs[0]).toMatchObject({ url, location: 'Basel', companyKey: 'coopers', datePosted: expected, postedDate: expected, postingDateSource: expected ? 'reported' : 'unknown' });
+  expect(jobs[0]).toMatchObject({ url, location: 'Basel', companyKey: 'coopers', datePosted: expected, postedDate: expected ? expected.slice(0, 10) : '', postingDateSource: expected ? 'reported' : 'unknown' });
   expect(jobs[0].description.split(/\s+/).length).toBeGreaterThan(50);
 }
 describe('Coopers source date through listing, fetched detail and final builder', () => {

@@ -19,7 +19,7 @@ afterEach(() => vi.unstubAllGlobals());
 async function expectPublication(expected = '') {
   const jobs = await fetchAllFusalpJobs();
   expect(jobs).toHaveLength(1);
-  expect(jobs[0]).toMatchObject({ url, companyKey: 'fusalp', canton: 'VS', datePosted: expected, postedDate: expected, postingDateSource: expected ? 'reported' : 'unknown' });
+  expect(jobs[0]).toMatchObject({ url, companyKey: 'fusalp', canton: 'VS', datePosted: expected, postedDate: expected ? expected.slice(0, 10) : '', postingDateSource: expected ? 'reported' : 'unknown' });
   expect(jobs[0].description.split(/\s+/).length).toBeGreaterThan(50);
 }
 describe('Fusalp publication evidence through the real fetch and builder', () => {

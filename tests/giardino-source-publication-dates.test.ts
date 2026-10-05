@@ -20,7 +20,7 @@ async function crawl(ld: unknown, english = false) {
 async function expectPublication(ld: unknown, expected = '', english = false) {
   const jobs = await crawl(ld, english);
   expect(jobs).toHaveLength(1);
-  expect(jobs[0]).toMatchObject({ url, companyKey: 'giardino', canton: 'TI', datePosted: expected, postedDate: expected, postingDateSource: expected ? 'reported' : 'unknown' });
+  expect(jobs[0]).toMatchObject({ url, companyKey: 'giardino', canton: 'TI', datePosted: expected, postedDate: expected ? expected.slice(0, 10) : '', postingDateSource: expected ? 'reported' : 'unknown' });
   expect(jobs[0].description.split(/\s+/).length).toBeGreaterThan(50);
 }
 describe('Giardino publication evidence follows the actual fetched language page', () => {

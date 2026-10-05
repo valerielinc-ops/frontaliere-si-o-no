@@ -11,7 +11,7 @@ import { fetchAllOmegaJobs } from '../scripts/lib/omega-job-parser.mjs';
 const TITLE = 'Service Engineer';
 const DATE = '2020-06-15T10:11:12.123+02:00';
 const UNKNOWN = { datePosted: '', postedDate: '', postingDateSource: 'unknown' };
-const reported = (date = DATE) => ({ datePosted: date, postedDate: date, postingDateSource: 'reported' });
+const reported = (date = DATE) => ({ datePosted: date, postedDate: date.slice(0, 10), postingDateSource: 'reported' });
 const urls = {
   mcdo: 'https://jobs.mcdonalds.ch/fr-ch/service-engineer/job/P8-test',
   newyorker: 'https://jobs.newyorker.de/karriere-schweiz/service-engineer-de-j123.html',

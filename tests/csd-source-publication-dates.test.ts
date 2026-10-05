@@ -18,7 +18,7 @@ afterEach(() => vi.unstubAllGlobals());
 async function expectDate(expected = '') {
   const jobs = await fetchAllCsdEngineersJobs();
   expect(jobs).toHaveLength(1);
-  expect(jobs[0]).toMatchObject({ url, canton: 'TI', datePosted: expected, postedDate: expected, postingDateSource: expected ? 'reported' : 'unknown' });
+  expect(jobs[0]).toMatchObject({ url, canton: 'TI', datePosted: expected, postedDate: expected ? expected.slice(0, 10) : '', postingDateSource: expected ? 'reported' : 'unknown' });
   expect(jobs[0].description.split(/\s+/).length).toBeGreaterThan(50);
 }
 describe('CSD publication evidence from real RSS/detail producer', () => {
@@ -53,7 +53,7 @@ describe('CSD publication evidence from real RSS/detail producer', () => {
     stub([{ url, posting: posting(date) }, { url: other, posting: posting(undefined, other) }]);
     const jobs = await fetchAllCsdEngineersJobs();
     expect(jobs).toHaveLength(2);
-    expect(jobs[0]).toMatchObject({ url, datePosted: date, postedDate: date, postingDateSource: 'reported' });
+    expect(jobs[0]).toMatchObject({ url, datePosted: date, postedDate: date.slice(0, 10), postingDateSource: 'reported' });
     expect(jobs[1]).toMatchObject({ url: other, datePosted: '', postedDate: '', postingDateSource: 'unknown' });
   });
 });

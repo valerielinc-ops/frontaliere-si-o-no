@@ -12,7 +12,7 @@ describe('CSEB corroborated Abacus publication start',()=>{
       const jobs=await fetchAllCsebJobs();
       expect(jobs).toHaveLength(1);
       const expected=name==='timestamp'?date:name==='day'?date.slice(0,10):'';
-      expect(jobs[0]).toMatchObject({datePosted:expected,postedDate:expected,postingDateSource:expected?'reported':'unknown',canton:'GR',location:'Scuol'});
+      expect(jobs[0]).toMatchObject({datePosted:expected,postedDate:expected?expected.slice(0,10):'',postingDateSource:expected?'reported':'unknown',canton:'GR',location:'Scuol'});
       expect(jobs[0].description.split(/\s+/).length).toBeGreaterThan(50);
       expect(jobs[0].url).toBe('https://jobs.cseb.ch/job-advertisement/portal/one');
     });
@@ -22,7 +22,7 @@ describe('CSEB corroborated Abacus publication start',()=>{
     const jobs=await fetchAllCsebJobs();
     expect(jobs).toHaveLength(2);
     expect(jobs[0]).toMatchObject({postedDate:'',datePosted:'',postingDateSource:'unknown'});
-    expect(jobs[1]).toMatchObject({postedDate:date,datePosted:date,postingDateSource:'reported'});
+    expect(jobs[1]).toMatchObject({postedDate:date.slice(0,10),datePosted:date,postingDateSource:'reported'});
     expect(jobs[0].id).not.toBe(jobs[1].id);
   });
 });

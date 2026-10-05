@@ -5,7 +5,7 @@ import { fetchAllKlinikSeeschauJobs, KLINIK_SEESCHAU_CAREERS_URL } from '../scri
 import { fetchAllKudelskiNagraJobs } from '../scripts/lib/kudelski-nagra-job-parser.mjs';
 const date = '2025-09-29T23:45:12+02:00';
 const text = 'Professionelle Teams begleiten Menschen mit Aufmerksamkeit und Sorgfalt. Zu den Aufgaben gehören die Planung und Dokumentation sowie die Zusammenarbeit mit Kollegen und Angehörigen. Wir bieten eine verantwortungsvolle Tätigkeit und unterstützen die fachliche Weiterbildung unserer Mitarbeitenden im täglichen Arbeitsalltag. '.repeat(4);
-const tuple = (value = '') => ({ datePosted: value, postedDate: value, postingDateSource: value ? 'reported' : 'unknown' });
+const tuple = (value = '') => ({ datePosted: value, postedDate: value ? value.slice(0, 10) : '', postingDateSource: value ? 'reported' : 'unknown' });
 afterEach(() => vi.unstubAllGlobals());
 const ksmUrl = 'https://ksm-jobs.ch/job/pflegefachperson/';
 const ksmPosting = (raw: unknown) => ({ '@type': 'JobPosting', url: ksmUrl, datePosted: raw });

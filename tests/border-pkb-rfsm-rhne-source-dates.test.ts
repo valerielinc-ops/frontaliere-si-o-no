@@ -3,7 +3,7 @@ import { fetchPkbJobUrls, fetchPkbDetailPage, buildPkbJob } from '../scripts/lib
 import { fetchAllRfsmFribourgJobs } from '../scripts/lib/rfsm-fribourg-job-parser.mjs';
 import { fetchAllRhneJobs } from '../scripts/lib/rhne-reseau-hospitalier-neuchatelois-job-parser.mjs';
 const unknown = { datePosted: '', postedDate: '', postingDateSource: 'unknown' };
-const reported = (value: string) => ({ datePosted: value, postedDate: value, postingDateSource: 'reported' });
+const reported = (value: string) => ({ datePosted: value, postedDate: value.slice(0, 10), postingDateSource: 'reported' });
 afterEach(() => vi.unstubAllGlobals());
 
 describe('PKB runner discovery/detail/builder contract', () => {

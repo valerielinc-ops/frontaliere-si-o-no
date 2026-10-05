@@ -18,7 +18,7 @@ for (const [name, producer] of [['Somosa', fetchAllModellstationSomosaJobs], ['M
       const transport = vi.fn(async (input: string | URL | Request) => new Response(String(input) === url ? detail : String(input).includes('&page=2') ? '' : listing, { status: 200 }));
       vi.stubGlobal('fetch', transport); const pending = producer(); await vi.runAllTimersAsync(); const jobs = await pending;
       expect(jobs).toHaveLength(1);
-      expect(jobs[0]).toMatchObject(['valid', 'singleton-url-less'].includes(kind) ? { datePosted: raw, postedDate: raw, postingDateSource: 'reported' } : { datePosted: '', postedDate: '', postingDateSource: 'unknown' });
+      expect(jobs[0]).toMatchObject(['valid', 'singleton-url-less'].includes(kind) ? { datePosted: raw, postedDate: raw!.slice(0, 10), postingDateSource: 'reported' } : { datePosted: '', postedDate: '', postingDateSource: 'unknown' });
       expect(jobs[0].description).toContain('engagierten Team'); expect(jobs[0].url).toBe(url); expect(jobs[0].crawledAt).toBeTruthy();
       expect(transport).toHaveBeenCalledTimes(name === 'Molecular' ? 3 : 2);
     });

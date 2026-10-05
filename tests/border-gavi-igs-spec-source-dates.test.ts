@@ -10,7 +10,7 @@ import { fetchAllGaviJobs } from '../scripts/lib/gavi-job-parser.mjs';
 import { fetchAllIgsBernJobs } from '../scripts/lib/igs-bern-job-parser.mjs';
 const date = '2025-09-29T23:45:12+02:00';
 const text = 'Qualified professionals work together to support clients and maintain reliable services. Responsibilities include careful planning and documentation as well as collaboration with colleagues and partners throughout every project. '.repeat(5);
-const expected = (value = '') => ({ datePosted: value, postedDate: value, postingDateSource: value ? 'reported' : 'unknown' });
+const expected = (value = '') => ({ datePosted: value, postedDate: value ? value.slice(0, 10) : '', postingDateSource: value ? 'reported' : 'unknown' });
 afterEach(() => { vi.unstubAllGlobals(); source.rows = []; });
 
 // These two suites isolate the producer contract. Upstream spec extraction is

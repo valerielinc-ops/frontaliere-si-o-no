@@ -35,7 +35,7 @@ for (const kind of ['valid', 'missing', 'invalid', 'future', 'updated-only']) {
     const row = { id: 123, title, content: body, absolute_url: url, location: { name: 'Visp, Switzerland' }, first_published: raw, updated_at: `${year}-07-01T12:00:00Z` };
     const transport = vi.fn(async () => new Response(JSON.stringify({ jobs: [row] }), { status: 200 }));
     vi.stubGlobal('fetch', transport); const pending = fetchAllVaxcyteJobs(); await vi.runAllTimersAsync(); const jobs = await pending;
-    expect(jobs).toHaveLength(1); expect(jobs[0]).toMatchObject(kind === 'valid' ? { datePosted: raw, postedDate: raw, postingDateSource: 'reported' } : unknown);
+    expect(jobs).toHaveLength(1); expect(jobs[0]).toMatchObject(kind === 'valid' ? { datePosted: raw, postedDate: raw!.slice(0, 10), postingDateSource: 'reported' } : unknown);
     expect(jobs[0].url).toBe(url); expect(jobs[0].description).toContain('engagierten Team'); expect(jobs[0].crawledAt).toBeTruthy(); expect(transport).toHaveBeenCalledTimes(1);
   });
 }
@@ -48,7 +48,7 @@ for (const kind of ['valid', 'missing', 'invalid', 'future', 'foreign-url', 'for
     const detail = `<script type="application/ld+json">${JSON.stringify(posting)}</script>${kind === 'ambiguous' ? `<script type="application/ld+json">${JSON.stringify({ ...posting, datePosted: `${year}-01-01` })}</script>` : ''}`;
     const transport = vi.fn(async (input: string | URL | Request) => new Response(String(input) === url ? detail : `<a class="job job-123" href="${url}" title="${title}">Details</a>`, { status: 200 }));
     vi.stubGlobal('fetch', transport); const pending = fetchAllValiantBankJobs(); await vi.runAllTimersAsync(); const jobs = await pending;
-    expect(jobs).toHaveLength(1); expect(jobs[0]).toMatchObject(['valid', 'url-less'].includes(kind) ? { datePosted: raw, postedDate: raw, postingDateSource: 'reported' } : unknown);
+    expect(jobs).toHaveLength(1); expect(jobs[0]).toMatchObject(['valid', 'url-less'].includes(kind) ? { datePosted: raw, postedDate: raw!.slice(0, 10), postingDateSource: 'reported' } : unknown);
     expect(jobs[0].url).toBe(url); expect(jobs[0].description).toContain('engagierten Team'); expect(jobs[0].crawledAt).toBeTruthy(); expect(transport).toHaveBeenCalledTimes(2);
   });
 }

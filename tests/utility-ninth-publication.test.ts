@@ -20,7 +20,7 @@ for (const [name, producer] of [['Sodexo', fetchAllSodexoJobs], ['Somedia', fetc
       const transport = vi.fn(async (input: string | URL | Request) => new Response(String(input) === url ? detail : listing, { status: 200 }));
       vi.stubGlobal('fetch', transport); const pending = producer(); await vi.runAllTimersAsync(); const jobs = await pending;
       expect(jobs).toHaveLength(1);
-      expect(jobs[0]).toMatchObject(['valid', 'url-less'].includes(kind) ? { datePosted: raw, postedDate: raw, postingDateSource: 'reported' } : unknown);
+      expect(jobs[0]).toMatchObject(['valid', 'url-less'].includes(kind) ? { datePosted: raw, postedDate: raw!.slice(0, 10), postingDateSource: 'reported' } : unknown);
       expect(jobs[0].url).toBe(url); expect(jobs[0].description).toContain('engagierten Team'); expect(jobs[0].crawledAt).toBeTruthy();
       expect(transport).toHaveBeenCalledTimes(2);
     });
@@ -37,7 +37,7 @@ for (const kind of ['gmt', 'local-day', 'modified-only', 'invalid', 'future']) {
     vi.stubGlobal('fetch', transport); const pending = fetchAllSpitalLachenJobs(); await vi.runAllTimersAsync(); const jobs = await pending;
     expect(jobs).toHaveLength(1);
     const expected = kind === 'gmt' ? `${date}Z` : kind === 'local-day' ? `${year}-06-15` : '';
-    expect(jobs[0]).toMatchObject(expected ? { datePosted: expected, postedDate: expected, postingDateSource: 'reported' } : unknown);
+    expect(jobs[0]).toMatchObject(expected ? { datePosted: expected, postedDate: expected.slice(0, 10), postingDateSource: 'reported' } : unknown);
     expect(jobs[0].url).toBe(url); expect(jobs[0].description).toContain('engagierten Team'); expect(jobs[0].crawledAt).toBeTruthy();
     expect(transport).toHaveBeenCalledTimes(2); expect(String(transport.mock.calls[0][0])).toContain('date_gmt');
   });
