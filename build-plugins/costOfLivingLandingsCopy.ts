@@ -592,11 +592,12 @@ export function buildCitySections(
   ] as const;
   const rentTableHtml = `
     <table class="seo-table s-JN75g4">
+      <caption class="sr-only">${L.rentTableTitle(cityName)}</caption>
       <thead><tr>
         ${L.rentTableHeaders
           .map(
             (h) =>
-              `<th class="t-h">${h}</th>`,
+              `<th scope="col" class="t-h">${h}</th>`,
           )
           .join('')}
       </tr></thead>
@@ -632,11 +633,12 @@ export function buildCitySections(
   ] as const;
   const basketTableHtml = `
     <table class="seo-table s-JN75g4">
+      <caption class="sr-only">${L.basketTableTitle(province)}</caption>
       <thead><tr>
         ${L.basketTableHeaders
           .map(
             (h) =>
-              `<th class="t-h">${h}</th>`,
+              `<th scope="col" class="t-h">${h}</th>`,
           )
           .join('')}
       </tr></thead>
@@ -695,11 +697,12 @@ export function buildCitySections(
     );
     return `
       <table class="seo-table s-JN75g4">
+        <caption class="sr-only">${L.comparisonTitle(cityName, province)}</caption>
         <thead><tr>
-          <th class="t-h">${r.voice}</th>
-          <th class="t-h">${r.ch}</th>
-          <th class="t-h">${r.it}</th>
-          <th class="t-h">${r.delta}</th>
+          <th scope="col" class="t-h">${r.voice}</th>
+          <th scope="col" class="t-h">${r.ch}</th>
+          <th scope="col" class="t-h">${r.it}</th>
+          <th scope="col" class="t-h">${r.delta}</th>
         </tr></thead>
         <tbody>
           <tr>
