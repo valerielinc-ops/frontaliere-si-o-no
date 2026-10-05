@@ -7733,6 +7733,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.autisti-uber-svizzera-condizioni.title': 'Soixante-dix francs pour neuf heures de travail : la protestation',
     'blog.article.autisti-uber-svizzera-condizioni.excerpt': 'Les conducteurs d\'Uber en Suisse dénoncent la dégradation de leurs conditions et demandent davantage de droits et de protections. Entre tarifs bas et arrivée de Bolt.',
     'blog.article.autisti-uber-svizzera-condizioni.imageAlt': 'Les chauffeurs Uber en Suisse demandent de meilleures conditions',
+    'blog.article.allarme-aumento-affitti-svizzera.title': 'Loyers en Suisse : +32% en vingt ans, l\'alerte de l\'ASI',
+    'blog.article.allarme-aumento-affitti-svizzera.excerpt': 'L\'Association suisse des locataires signale une hausse de 32,1% entre 2005 et 2025. Les bas revenus sont sous pression : les personnes qui gagnent moins de 4\'000 francs consacrent 37,8% au logement.',
+    'blog.article.allarme-aumento-affitti-svizzera.imageAlt': 'Immeuble résidentiel dans une ville suisse',
 };
 
 export default blogMetaChFr;
