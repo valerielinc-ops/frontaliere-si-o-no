@@ -1659,9 +1659,10 @@ export function corpusSectionCdnKey(canonicalDir) {
 }
 
 // A site path a registry redirect may point at: same-origin, absolute,
-// slash-terminated. No scheme, no `//host`, no backslash or whitespace — a
-// registry entry must never be able to turn this Worker into an open redirect.
-const CORPUS_REDIRECT_TARGET_RE = /^\/(?!\/)[^\s\\?#]*\/$/;
+// slash-terminated — the site root `/` included. No scheme, no `//host`, no
+// backslash or whitespace: a registry entry must never be able to turn this
+// Worker into an open redirect.
+const CORPUS_REDIRECT_TARGET_RE = /^\/(?:(?!\/)[^\s\\?#]*\/)?$/;
 
 function isPlainObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);

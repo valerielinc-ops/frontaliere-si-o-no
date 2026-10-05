@@ -151,7 +151,7 @@ if (targetFiles) {
         ? `add ${expectedCompanion} (the R2 key the Worker serves it from) to the SAME --files list`
         : 'add the URL on the host that actually serves it (shard origin, or the cdn.frontaliereticino.ch key for an EDGE_PUSHED_FILES path)';
     console.log(
-      `::warning title=Apex purge does not move the served copy::${url} matches the Cloudflare Worker route \`${pattern}\`, so the entry visitors read is keyed on the shard ORIGIN host, not on this apex URL. This URL will still report ✅ and change nothing — ${fix}. See scripts/lib/cf-worker-routes.mjs (#5483).`,
+      `::warning title=Apex purge does not move the served copy::${url} matches the Cloudflare Worker route \`${pattern}\`, so the entry visitors read is keyed on ${expectedCompanion ? 'the R2 object behind it (cdn.frontaliereticino.ch)' : 'the shard ORIGIN host'}, not on this apex URL. This URL will still report ✅ and change nothing — ${fix}. See scripts/lib/cf-worker-routes.mjs (#5483).`,
     );
   }
 }

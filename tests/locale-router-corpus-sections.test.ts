@@ -160,6 +160,16 @@ describe('registry validation (schema 1)', () => {
     expect(r?.sections['canton-ti'].gone.has('/en/ticino-articles/old-one/')).toBe(true);
   });
 
+  it.each(['/', '/de/', '/articoli-svizzera/', '/en/ticino-articles/fuel/'])(
+    'accepts the same-origin redirect target %s',
+    (target) => {
+      const r = parseCorpusSectionRegistry(
+        registry({ 'canton-ti': { status: 'live', redirects: { '/articoli-ticino/vecchio/': target } } }),
+      );
+      expect(r?.sections['canton-ti'].redirects.get('/articoli-ticino/vecchio/')).toBe(target);
+    },
+  );
+
   it.each([
     ['not an object', null],
     ['wrong schema', { ...registry({}), schema: 2 }],
@@ -173,6 +183,8 @@ describe('registry validation (schema 1)', () => {
     ['redirect source not canonical', registry({ 'canton-ti': { status: 'live', redirects: { '/articoli-ticino/x': '/' } } })],
     ['open redirect target', registry({ 'canton-ti': { status: 'live', redirects: { '/articoli-ticino/x/': '//evil.example/' } } })],
     ['absolute URL target', registry({ 'canton-ti': { status: 'live', redirects: { '/articoli-ticino/x/': 'https://evil.example/' } } })],
+    ['protocol-relative root target', registry({ 'canton-ti': { status: 'live', redirects: { '/articoli-ticino/x/': '//' } } })],
+    ['target without trailing slash', registry({ 'canton-ti': { status: 'live', redirects: { '/articoli-ticino/x/': '/de' } } })],
     ['self redirect', registry({ 'canton-ti': { status: 'live', redirects: { '/articoli-ticino/x/': '/articoli-ticino/x/' } } })],
     ['gone not an array', registry({ 'canton-ti': { status: 'live', gone: '/articoli-ticino/x/' } as unknown as Section })],
     ['gone outside the section', registry({ 'canton-ti': { status: 'live', gone: ['/articoli-frontaliere/x/'] } })],
