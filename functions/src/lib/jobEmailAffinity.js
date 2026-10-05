@@ -2,9 +2,9 @@
  * jobEmailAffinity.js — profilo di interessi per persona, ricavato dai clic
  * sugli annunci delle email (job alert e newsletter).
  *
- * COSA PROMETTE LA PRIVACY POLICY (components/pages/PrivacyPolicy.tsx,
- * paragrafo «Ordine degli annunci in base ai clic»), e questo modulo e i suoi
- * scrittori rispettano alla lettera:
+ * COSA PROMETTE LA PRIVACY POLICY (services/legal/privacy.ts, localizzata in
+ * it/en/de/fr, paragrafo «Ordine degli annunci in base ai clic»), e questo
+ * modulo e i suoi scrittori rispettano alla lettera:
  *  - si registra quale annuncio e' stato cliccato e quattro caratteristiche:
  *    categoria, cantone, azienda, settore. Nient'altro entra nel profilo;
  *  - il profilo e' associato a un identificativo pseudonimo (HMAC dell'email con
@@ -15,7 +15,8 @@
  *    `expires_at`, firestore.indexes.json), oppure viene cancellato subito alla
  *    disiscrizione da tutte le comunicazioni o alla cancellazione dell'account
  *    (jobEmailAffinityStore.js e i suoi chiamanti);
- *  - chi si oppone scrivendo all'indirizzo privacy riceve l'ordine standard:
+ *  - chi si oppone scrivendo a PUBLIC_CONTACT_EMAIL (services/publicContact)
+ *    riceve l'ordine standard:
  *    l'amministratore imposta a mano `ranking_personalization_opt_out: true` su
  *    `newsletter_subscribers/{email}` e lancia
  *    `node scripts/build-job-email-affinity.mjs --forget-email <email>`, che

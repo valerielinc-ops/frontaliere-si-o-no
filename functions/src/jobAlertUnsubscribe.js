@@ -25,8 +25,7 @@ import { createHmac, timingSafeEqual } from 'node:crypto';
 import { FieldValue } from 'firebase-admin/firestore';
 import { ensureAdminApp, getAdminDb } from './newsletterResendWebhookCore.js';
 import { forensicsFields } from './lib/requestForensics.js';
-import { isStoppedFromAllEmail } from './lib/jobEmailAffinity.js';
-import { eraseJobEmailAffinityProfile } from './lib/jobEmailAffinityStore.js';
+import { eraseJobEmailAffinityProfileIfNoEmailLeft } from './lib/jobEmailAffinityStore.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
@@ -112,24 +111,6 @@ function buildConfirmationHtml({ title, message, success }) {
 </html>`;
 }
 
-/**
- * Turning off EVERY job alert is a partial opt-out while the newsletter still
- * mails this address: the click-affinity profile keeps ordering its jobs. It
- * becomes a stop from all email (privacy policy: profile deleted at once) only
- * when the newsletter document no longer allows any mail.
- */
-async function eraseAffinityIfNothingLeft(db, normalizedEmail, secret) {
- try {
- const newsletterSnap = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
- const newsletter = newsletterSnap.exists ? (newsletterSnap.data() || {}) : null;
- if (isStoppedFromAllEmail({ newsletter, jobAlert: null })) {
- await eraseJobEmailAffinityProfile(db, normalizedEmail, { secret });
- }
- } catch (error) {
- console.warn('⚠️ job_email_affinity: verifica della disiscrizione totale fallita:', error?.message || error);
- }
-}
-
 export async function handleJobAlertUnsubscribe({ alertId, email, token, secret, action, forensics, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
  // Allowlist-copied and error-swallowing by construction (see forensicsFields):
@@ -168,7 +149,9 @@ export async function handleJobAlertUnsubscribe({ alertId, email, token, secret,
  .get();
 
  if (alertsSnap.empty) {
- await eraseAffinityIfNothingLeft(db, email.toLowerCase().trim(), secret);
+ // All alerts off: the click-affinity profile goes only if the newsletter
+ // no longer mails this address either (otherwise a partial opt-out).
+ await eraseJobEmailAffinityProfileIfNoEmailLeft(db, email.toLowerCase().trim(), { secret });
  return {
  status: 200,
  html: buildConfirmationHtml({
@@ -190,7 +173,9 @@ export async function handleJobAlertUnsubscribe({ alertId, email, token, secret,
  });
  }
  await batch.commit();
- await eraseAffinityIfNothingLeft(db, email.toLowerCase().trim(), secret);
+ // All alerts off: the click-affinity profile goes only if the newsletter
+ // no longer mails this address either (otherwise a partial opt-out).
+ await eraseJobEmailAffinityProfileIfNoEmailLeft(db, email.toLowerCase().trim(), { secret });
 
  return {
  status: 200,

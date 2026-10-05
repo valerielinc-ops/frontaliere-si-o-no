@@ -13,7 +13,8 @@
  *    serve ancora a ordinare gli annunci della newsletter);
  *  - i cinque webhook dei provider su `complaint` e `unsubscribed`;
  *  - authAccountCleanup.js alla cancellazione dell'account;
- *  - scripts/lib/eraseSubscriberData.mjs (cancellazione manuale, fail-closed).
+ *  - lo strumento di cancellazione manuale dell'operatore in scripts/lib
+ *    (non importa questo modulo: legge e cancella da se', fail-closed).
  *
  * IL SEGRETO. L'id e' un HMAC dell'email con NEWSLETTER_SECRET. Nelle Cloud
  * Functions il segreto NON e' in process.env (remoteConfigSecrets.js non lo
@@ -25,7 +26,7 @@
  * cancella. Il log non contiene email ne' pseudonimi.
  */
 
-import { JOB_EMAIL_AFFINITY_COLLECTION, affinityDocId } from './jobEmailAffinity.js';
+import { JOB_EMAIL_AFFINITY_COLLECTION, affinityDocId, isStoppedFromAllEmail } from './jobEmailAffinity.js';
 
 const REMOTE_CONFIG_TIMEOUT_MS = 5000;
 
@@ -71,6 +72,25 @@ export async function eraseJobEmailAffinityProfile(db, email, { secret } = {}) {
     console.warn('⚠️ job_email_affinity: cancellazione del profilo fallita:', error?.message || error);
     return { deleted: false, reason: 'delete_failed' };
   }
+}
+
+/**
+ * Dopo lo spegnimento di TUTTI i job alert: e' una disiscrizione parziale
+ * finche' la newsletter scrive ancora a questo indirizzo (il profilo serve a
+ * ordinarne gli annunci), totale quando il documento newsletter non consente
+ * piu' nessun invio. Solo lettura del documento newsletter, mai scrittura.
+ */
+export async function eraseJobEmailAffinityProfileIfNoEmailLeft(db, email, { secret } = {}) {
+  const normalized = String(email || '').trim().toLowerCase();
+  try {
+    const snapshot = await db.collection('newsletter_subscribers').doc(normalized).get();
+    const newsletter = snapshot.exists ? (snapshot.data() || {}) : null;
+    if (!isStoppedFromAllEmail({ newsletter, jobAlert: null })) return { deleted: false, reason: 'partial_opt_out' };
+  } catch (error) {
+    console.warn('⚠️ job_email_affinity: verifica della disiscrizione totale fallita:', error?.message || error);
+    return { deleted: false, reason: 'read_failed' };
+  }
+  return eraseJobEmailAffinityProfile(db, normalized, { secret });
 }
 
 /** Eventi dei provider che equivalgono a una disiscrizione da tutto. */
