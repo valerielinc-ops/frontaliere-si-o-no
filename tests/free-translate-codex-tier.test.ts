@@ -42,7 +42,7 @@ fs.writeFileSync(SOCKET, '');
 
 const premium = { deepl: 200, azure: 200 };
 // MyMemory che rimanda la sorgente: eco rifiutato, la cascata prosegue fino in fondo.
-const free = { mymemoryEcho: false, googleEcho: false, mymemoryDown: false };
+const free = { mymemoryEcho: false, googleEcho: false, mymemoryDown: false, lingvaEcho: false };
 const realFetch = globalThis.fetch;
 let ft: FreeTranslate;
 let codexModel: string;
@@ -72,6 +72,10 @@ beforeAll(async () => {
       return { ok: true, status: 200, text: async () => JSON.stringify([[[q, q]]]) };
     }
     if (free.mymemoryDown && u.includes('api.mymemory.translated.net')) throw new Error('offline nel test');
+    if (free.lingvaEcho && u.includes('/api/v1/')) {
+      const q = decodeURIComponent(u.split('/').pop() || '');
+      return { ok: true, status: 200, json: async () => ({ translation: q }) };
+    }
     if (u.includes('api.mymemory.translated.net')) {
       const translatedText = free.mymemoryEcho ? new URL(u).searchParams.get('q') : `MYMEMORY ${EN}`;
       return { ok: true, json: async () => ({ responseData: { translatedText, match: 1 } }) };
@@ -673,6 +677,25 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     } finally {
       free.mymemoryEcho = false;
       free.googleEcho = false;
+      vi.stubEnv('FREE_TRANSLATE_CODEX_TIER', '');
+    }
+  });
+
+  it('FREE_TRANSLATE_CODEX_TIER=last: l\'eco di un\'istanza in gara (Lingva) conta come motore', async () => {
+    // Le istanze in gara hanno un outcome proprio: senza il set condiviso
+    // Lingva non entrava fra i motori e Codex partiva lo stesso.
+    vi.stubEnv('FREE_TRANSLATE_CODEX_TIER', 'last');
+    free.lingvaEcho = true;
+    free.mymemoryEcho = true;
+    try {
+      const calls = stubCodex(`CODEX ${EN}`);
+      const lingvaBefore = ft.getCascadeStats().tierPassthroughs.lingva || 0;
+      expect(await tr()).toBe('');
+      expect((ft.getCascadeStats().tierPassthroughs.lingva || 0) - lingvaBefore).toBeGreaterThanOrEqual(1);
+      expect(calls).toHaveLength(0);
+    } finally {
+      free.lingvaEcho = false;
+      free.mymemoryEcho = false;
       vi.stubEnv('FREE_TRANSLATE_CODEX_TIER', '');
     }
   });

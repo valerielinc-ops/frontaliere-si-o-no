@@ -825,6 +825,17 @@ function acceptedRaceAnswer(tierName, source, translated, attemptOutcome) {
   return translated;
 }
 
+// Outcome of one raced instance. It shares the caller's set of echoing engines
+// (`_echoTiersByOutcome`), so an instance that hands the source back counts
+// its tier for the `last` Codex guard like any other engine; the counters stay
+// per attempt and reach the caller through mergeTranslationOutcome().
+function _raceAttemptOutcome(parent) {
+  const attempt = { passthroughs: 0, errors: 0, incomplete: false };
+  const echoes = parent ? _echoTiersByOutcome.get(parent) : null;
+  if (echoes) _echoTiersByOutcome.set(attempt, echoes);
+  return attempt;
+}
+
 // ── Parallel Race Helper ─────────────────────────────────────────────────────
 // Probe multiple instances in parallel, return the first valid translation.
 // Much faster than sequential probing when some instances are slow/down.
@@ -835,7 +846,7 @@ async function raceInstances(instances, fetchFn, outcome = null) {
     const oldest = instances[0];
     if (oldest) {
       instanceHealth.delete(oldest);
-      const attemptOutcome = { passthroughs: 0, errors: 0, incomplete: false };
+      const attemptOutcome = _raceAttemptOutcome(outcome);
       const result = await fetchFn(oldest, undefined, attemptOutcome);
       mergeTranslationOutcome(outcome, attemptOutcome);
       if (!result && attemptOutcome.passthroughs === 0 && attemptOutcome.errors === 0) {
@@ -851,7 +862,7 @@ async function raceInstances(instances, fetchFn, outcome = null) {
   const controller = new AbortController();
 
   const promises = batch.map(async (base) => {
-    const attemptOutcome = { passthroughs: 0, errors: 0, incomplete: false };
+    const attemptOutcome = _raceAttemptOutcome(outcome);
     try {
       const result = await fetchFn(base, controller.signal, attemptOutcome);
       mergeTranslationOutcome(outcome, attemptOutcome);
@@ -881,7 +892,7 @@ async function raceInstances(instances, fetchFn, outcome = null) {
 
   // Try remaining healthy instances sequentially
   for (const base of healthy.slice(3)) {
-    const attemptOutcome = { passthroughs: 0, errors: 0, incomplete: false };
+    const attemptOutcome = _raceAttemptOutcome(outcome);
     try {
       const result = await fetchFn(base, undefined, attemptOutcome);
       mergeTranslationOutcome(outcome, attemptOutcome);
