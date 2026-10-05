@@ -1664,6 +1664,28 @@ export function corpusSectionCdnKey(canonicalDir) {
 // Worker into an open redirect.
 const CORPUS_REDIRECT_TARGET_RE = /^\/(?:(?!\/)[^\s\\?#]*\/)?$/;
 
+/**
+ * True when following the registry redirects can come back to a path already
+ * visited (`a → b → a`, also across sections): served as-is that is a
+ * permanent 301 loop on live URLs, so the whole registry is refused instead.
+ */
+function hasRedirectCycle(sections) {
+  const next = new Map();
+  for (const entry of Object.values(sections)) {
+    for (const [from, to] of entry.redirects) next.set(from, to);
+  }
+  for (const start of next.keys()) {
+    const seen = new Set([start]);
+    let cur = next.get(start);
+    while (cur !== undefined && next.has(cur)) {
+      if (seen.has(cur)) return true;
+      seen.add(cur);
+      cur = next.get(cur);
+    }
+  }
+  return false;
+}
+
 function isPlainObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
 }
@@ -1725,6 +1747,7 @@ export function parseCorpusSectionRegistry(raw) {
     }
     sections[id] = Object.freeze({ status: entry.status, redirects, gone });
   }
+  if (hasRedirectCycle(sections)) return null;
   return Object.freeze({ commit: raw.commit, sections: Object.freeze(sections) });
 }
 

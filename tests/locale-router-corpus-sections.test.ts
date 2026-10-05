@@ -160,6 +160,18 @@ describe('registry validation (schema 1)', () => {
     expect(r?.sections['canton-ti'].gone.has('/en/ticino-articles/old-one/')).toBe(true);
   });
 
+  it('accepts a redirect chain without a cycle', () => {
+    const r = parseCorpusSectionRegistry(
+      registry({
+        'canton-ti': {
+          status: 'live',
+          redirects: { '/articoli-ticino/a/': '/articoli-ticino/b/', '/articoli-ticino/b/': '/articoli-ticino/c/' },
+        },
+      }),
+    );
+    expect(r?.sections['canton-ti'].redirects.size).toBe(2);
+  });
+
   it.each(['/', '/de/', '/articoli-svizzera/', '/en/ticino-articles/fuel/'])(
     'accepts the same-origin redirect target %s',
     (target) => {
@@ -185,6 +197,12 @@ describe('registry validation (schema 1)', () => {
     ['absolute URL target', registry({ 'canton-ti': { status: 'live', redirects: { '/articoli-ticino/x/': 'https://evil.example/' } } })],
     ['protocol-relative root target', registry({ 'canton-ti': { status: 'live', redirects: { '/articoli-ticino/x/': '//' } } })],
     ['target without trailing slash', registry({ 'canton-ti': { status: 'live', redirects: { '/articoli-ticino/x/': '/de' } } })],
+    ['two-step redirect cycle', registry({ 'canton-ti': { status: 'live', redirects: { '/articoli-ticino/a/': '/articoli-ticino/b/', '/articoli-ticino/b/': '/articoli-ticino/a/' } } })],
+    ['three-step cycle across sections', registry({
+      'canton-ti': { status: 'live', redirects: { '/articoli-ticino/a/': '/articoli-grigioni/b/' } },
+      'canton-gr': { status: 'live', redirects: { '/articoli-grigioni/b/': '/articoli-berna/x/' } },
+      'canton-be': { status: 'live', redirects: { '/articoli-berna/x/': '/articoli-ticino/a/' } },
+    })],
     ['self redirect', registry({ 'canton-ti': { status: 'live', redirects: { '/articoli-ticino/x/': '/articoli-ticino/x/' } } })],
     ['gone not an array', registry({ 'canton-ti': { status: 'live', gone: '/articoli-ticino/x/' } as unknown as Section })],
     ['gone outside the section', registry({ 'canton-ti': { status: 'live', gone: ['/articoli-frontaliere/x/'] } })],
