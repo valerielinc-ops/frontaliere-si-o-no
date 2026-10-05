@@ -348,7 +348,7 @@ describe('Raiffeisen VC bilingual discovery invariants', () => {
         ? 'Derzeit haben wir keine offenen Stellen.'
         : 'Attualmente non ci sono posizioni aperte.';
       return new Response(
-        `${marker}<section><h2>Offene Stellen</h2><p>${emptyText}</p></section></main></html>`,
+        `${marker.replace('</main>', '')}<section><h2>Offene Stellen</h2><p>${emptyText}</p></section></main></html>`,
         { status: 200 },
       );
     };
