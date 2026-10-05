@@ -99061,6 +99061,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-raduno-auto-moto-cocquio': {
+    title: 'Cocquio Trevisago: raduno non autorizzato in via Appennini',
+    description: 'Raduno non autorizzato di moto e auto in via Appennini a Cocquio Trevisago: residenti chiamano i carabinieri di Besozzo. Dettagli sull\'intervento.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cocquio, trevisago, raduno, autorizzato',
+    ogTitle: 'Cocquio Trevisago: raduno non autorizzato in via Appennini',
+    ogDescription: 'Domenica 4 ottobre un raduno non autorizzato di moto e auto in via Appennini a Cocquio Trevisago ha richiesto l\'intervento dei carabinieri di Besozzo dopo le segnalazioni dei residenti.',
+    canonicalPath: '/articoli-frontaliere/raduno-auto-moto-cocquio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cocquio Trevisago: raduno non autorizzato in via Appennini",
+      "description": "Raduno non autorizzato di moto e auto in via Appennini a Cocquio Trevisago: residenti chiamano i carabinieri di Besozzo. Dettagli sull'intervento.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/raduno-auto-moto-cocquio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Intervento dei carabinieri in via Appennini a Cocquio Trevisago"
+      },
+      "datePublished": "2026-10-05T06:57:36+00:00",
+      "dateModified": "2026-10-05T06:57:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/raduno-auto-moto-cocquio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
