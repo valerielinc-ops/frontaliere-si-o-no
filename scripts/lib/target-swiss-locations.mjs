@@ -494,6 +494,29 @@ export function normalizeCantonCode(raw = '') {
   return '';
 }
 
+/**
+ * Normalize a structured Swiss canton field without treating a municipality
+ * or a representative city alias as a canton. Some schema.org producers put
+ * the country code next to the canton (`ZH,CH`, `CH-ZH`); that pair is still
+ * Swiss subdivision evidence even when `addressCountry` is absent.
+ *
+ * @param {string} raw
+ * @returns {string}
+ */
+export function normalizeSwissCantonCode(raw = '') {
+  const normalized = normalizeSwissTargetLocationText(raw);
+  if (!normalized) return '';
+  const upper = normalized.toUpperCase();
+  if (Object.hasOwn(SWISS_CANTONS, upper)) return upper;
+  const paired = /^(?:CH\s+([A-Z]{2})|([A-Z]{2})\s+CH)$/.exec(upper);
+  const pairedCode = paired?.[1] || paired?.[2] || '';
+  if (pairedCode && Object.hasOwn(SWISS_CANTONS, pairedCode)) return pairedCode;
+  for (const [code, names] of Object.entries(CANTON_EXPLICIT_NAMES)) {
+    if (names.some((name) => normalizeSwissTargetLocationText(name) === normalized)) return code;
+  }
+  return '';
+}
+
 // ─── Target location check ────────────────────────────────────────────────
 
 export function isTargetSwissLocation(text = '', {

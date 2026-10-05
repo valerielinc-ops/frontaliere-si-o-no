@@ -5,6 +5,7 @@ import {
   isKnownSwissMunicipality,
   isKnownSwissMunicipalityInCanton,
   isLiechtensteinPostalCode,
+  normalizeSwissCantonCode,
   normalizeSwissTargetLocationText,
   swissMunicipalityCantons,
 } from '../target-swiss-locations.mjs';
@@ -69,57 +70,9 @@ const CODE_OPEN_DELIMITERS = '\\s(,;/|.!?:';
 const CODE_CLOSE_DELIMITERS = '\\s),;/|.!?:';
 const COMMON_INITIAL_LOCATION_TOKENS = new Set(['ST', 'LA', 'LE']);
 
-// `normalizeCantonCode()` intentionally accepts municipalities and curated
-// city aliases because it is a free-text helper. `addressRegion`, however, is
-// a subdivision field: accepting `Buchs` there as SG manufactures canton
-// evidence from a city name. Keep a narrow, versioned list of the 26 official
-// canton names (and their official-language spellings) for structured region
-// slots.
-const OFFICIAL_CANTON_NAMES = Object.freeze({
-  AG: ['aargau', 'argovie', 'argovia'],
-  AI: ['appenzell innerrhoden', 'appenzell rhodes interieures', 'appenzello interno'],
-  AR: ['appenzell ausserrhoden', 'appenzell rhodes exterieures', 'appenzello esterno'],
-  BE: ['bern', 'berne', 'berna'],
-  BL: ['basel landschaft', 'bale campagne', 'basilea campagna'],
-  BS: ['basel stadt', 'bale ville', 'basilea citta'],
-  FR: ['fribourg', 'freiburg', 'friburgo'],
-  GE: ['geneve', 'genf', 'ginevra', 'geneva'],
-  GL: ['glarus', 'glaris', 'glarona'],
-  GR: ['graubunden', 'grisons', 'grigioni', 'grischun'],
-  JU: ['jura', 'giura'],
-  LU: ['luzern', 'lucerne', 'lucerna'],
-  NE: ['neuchatel', 'neuenburg'],
-  NW: ['nidwalden', 'nidwald', 'nidvaldo'],
-  OW: ['obwalden', 'obwald', 'obvaldo'],
-  SG: ['st gallen', 'saint gall', 'san gallo', 'sankt gallen'],
-  SH: ['schaffhausen', 'schaffhouse', 'sciaffusa'],
-  SO: ['solothurn', 'soleure', 'soletta'],
-  SZ: ['schwyz', 'svitto'],
-  TG: ['thurgau', 'thurgovie', 'turgovia'],
-  TI: ['ticino', 'tessin'],
-  UR: ['uri'],
-  VD: ['vaud', 'waadt'],
-  VS: ['valais', 'wallis', 'vallese'],
-  ZG: ['zug', 'zoug', 'zugo'],
-  ZH: ['zurich', 'zuerich', 'zurigo'],
-});
-
-function normalizeOfficialCantonCode(value) {
-  const normalized = normalizeSwissTargetLocationText(value);
-  if (!normalized) return '';
-  const code = normalized.toUpperCase();
-  if (Object.hasOwn(OFFICIAL_CANTON_NAMES, code)) return code;
-  const isoCode = /^CH\s+([A-Z]{2})$/.exec(code)?.[1] || '';
-  if (Object.hasOwn(OFFICIAL_CANTON_NAMES, isoCode)) return isoCode;
-  for (const [candidate, names] of Object.entries(OFFICIAL_CANTON_NAMES)) {
-    if (names.includes(normalized)) return candidate;
-  }
-  return '';
-}
-
 function locationRegionKey(value, addressCountry = '') {
   const raw = String(value || '').trim();
-  const canton = normalizeOfficialCantonCode(raw);
+  const canton = normalizeSwissCantonCode(raw);
   if (canton) return canton;
   const region = normalizeSwissTargetLocationText(raw);
   if (!region) return '';
@@ -183,7 +136,7 @@ function hasUncorroboratedForeignSubdivision(value) {
   // ...). A colliding suffix remains Swiss only when the locality independently
   // corroborates that canton; unfamiliar NY/ON and named foreign subdivisions
   // remain authoritative negative evidence.
-  return !codes.some(({ code }) => normalizeOfficialCantonCode(code)
+  return !codes.some(({ code }) => normalizeSwissCantonCode(code)
     && explicitCorroboratedCanton(value, [{ code }], withoutCodes) === code);
 }
 
@@ -241,7 +194,7 @@ export function resolveSourceBackedSwissGeography(value, addressCountry = '') {
   // explicit terminal country segment from the source outranks that fuzzy
   // token match. Multi-location rows that also name Switzerland remain valid.
   if (isExplicitlyForeign(location, country) || hasUncorroboratedForeignSubdivision(location)) return null;
-  const structuredCanton = normalizeOfficialCantonCode(addressRegion);
+  const structuredCanton = normalizeSwissCantonCode(addressRegion);
   // addressRegion is an explicit subdivision slot. A value that is not one of
   // the 26 Swiss cantons is authoritative negative evidence, irrespective of
   // whether it came from a familiar foreign inventory entry such as NY/ON or
@@ -463,7 +416,7 @@ export function evaluateSourceBackedSwissGeography(candidates = []) {
     const region = String(candidate?.addressRegion || '').trim();
     if (isExplicitlyForeign(location, country)
       || hasUncorroboratedForeignSubdivision(location)
-      || (region && !normalizeOfficialCantonCode(region))
+      || (region && !normalizeSwissCantonCode(region))
       || isKnownForeignSubdivision(region)) {
       explicitlyForeign = true;
       continue;
