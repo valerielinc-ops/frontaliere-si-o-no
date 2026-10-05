@@ -70,14 +70,15 @@ import {
 import { preserveEventHistory, publishedEventRoutes } from './lib/events-retention.mjs';
 import { cantonAtPoint } from './lib/swiss-canton-geo.mjs';
 import { eventDateIssues } from './lib/events-date-quality.mjs';
+import { assertNoPrivateEvents, isPrivateEventRecord } from './lib/private-event-sources.mjs';
 
-function readSlices() {
-  if (!existsSync(EVENTS_SLICE_DIR)) return [];
-  return readdirSync(EVENTS_SLICE_DIR)
+function readSlices(sliceDir = EVENTS_SLICE_DIR) {
+  if (!existsSync(sliceDir)) return [];
+  return readdirSync(sliceDir)
     .filter((f) => f.endsWith('.json'))
     .map((f) => {
       try {
-        return JSON.parse(readFileSync(path.join(EVENTS_SLICE_DIR, f), 'utf-8'));
+        return JSON.parse(readFileSync(path.join(sliceDir, f), 'utf-8'));
       } catch {
         return null;
       }
@@ -402,18 +403,30 @@ export function attachCantonFromGeo(events, cantonAt = cantonAtPoint) {
   return attached;
 }
 
-function assemble() {
-  const priorDataset = loadEventsDataset(EVENTS_DATASET_PATH);
+/**
+ * Paths are injectable only so tests can assemble into a temp dir
+ * (tests/events-private-source-exclusions.test.ts); the CLI uses the defaults.
+ */
+export function assemble({ sliceDir = EVENTS_SLICE_DIR, datasetPath = EVENTS_DATASET_PATH } = {}) {
+  const priorDataset = loadEventsDataset(datasetPath);
   const priorById = new Map(priorDataset.events.map((event) => [event.id, event]));
   const priorRoutes = publishedEventRoutes(priorDataset.events, priorDataset.generatedAt?.slice(0, 10));
-  const slices = readSlices();
+  const slices = readSlices(sliceDir);
   const byId = new Map();
   let invalidRecords = 0;
+  let privateRecords = 0;
 
   for (const slice of slices) {
     const sliceTs = Date.parse(slice.assembledAt || '') || 0;
     for (const ev of slice.events) {
       if (!ev || !ev.id || !ev.startDate || !ev.title) continue;
+      // Eventfrog & co. (scripts/lib/private-event-sources.mjs): a record of a
+      // private source must never reach data/events.json or its public copy,
+      // which the corpus republishes as an open API (AGB §17(3)).
+      if (isPrivateEventRecord(ev)) {
+        privateRecords += 1;
+        continue;
+      }
       const dateIssues = eventDateIssues(ev);
       if (dateIssues.length > 0) {
         invalidRecords += 1;
@@ -457,8 +470,12 @@ function assemble() {
     totalEvents: events.length,
     events,
   };
+  // Second line of defense: the prior dataset is read back above, so a record
+  // that leaked into it once must not be carried forward either.
+  assertNoPrivateEvents(events, 'data/events.json and public/data/events.json');
+  if (privateRecords > 0) console.warn(`[assemble-events] dropped ${privateRecords} private-source record(s) found in public slices`);
   const json = `${JSON.stringify(out, null, 2)}\n`;
-  writeFileSync(EVENTS_DATASET_PATH, json, 'utf-8');
+  writeFileSync(datasetPath, json, 'utf-8');
 
   // Second copy under public/, mirroring what compute-border-wait-averages.mjs
   // does for its own dataset and for the same reason (issue #4974 item 3).
@@ -471,7 +488,7 @@ function assemble() {
   // the crawling itself stays here, because it is a site data pipeline (§0.2).
   // Derived from EVENTS_DATASET_PATH (…/data/events.json) rather than a second
   // root computation, so the two copies cannot drift apart if the layout moves.
-  const publicPath = path.join(path.dirname(EVENTS_DATASET_PATH), '..', 'public', 'data', 'events.json');
+  const publicPath = path.join(path.dirname(datasetPath), '..', 'public', 'data', 'events.json');
   mkdirSync(path.dirname(publicPath), { recursive: true });
   writeFileSync(publicPath, json, 'utf-8');
 
@@ -481,6 +498,8 @@ function assemble() {
     mergedAway,
     frontierAttached,
     invalidRecords,
+    privateRecords,
+    publicPath,
     cantonless: { before: cantonlessBefore, fromGeo: cantonFromGeo },
   };
 }
