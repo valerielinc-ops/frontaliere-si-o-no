@@ -1,0 +1,123 @@
+name: Lighthouse runner trace (diagnostic)
+
+# Manual diagnostic for issue 11666. Lighthouse CI measures / and
+# /cerca-lavoro-ticino/ in two modes: on fast runners (benchmarkIndex ~3,400)
+# the static HTML paints before DOMContentLoaded; on slower ones (~2,400) the
+# first frame arrives only after the app starts, with the main thread mostly
+# idle and no render-blocking resource in flight, and the simulated mobile FCP
+# jumps from ~4.6 s to 8-13 s. LHRs carry no trace, and the slow mode does not
+# reproduce on a developer machine, so the mechanism has to be read on a
+# GitHub runner. This job runs the Lighthouse CLI with the same mobile settings
+# as lighthouserc.json and --save-assets (trace + devtools log), 5 cold runs
+# per page, and uploads them with the LHRs. It audits production, writes
+# nothing, opens no issue and gates nothing.
+
+on:
+  workflow_dispatch:
+    inputs:
+      runs:
+        description: 'Cold Lighthouse runs per page'
+        required: false
+        default: '5'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lighthouse-runner-trace
+  cancel-in-progress: false
+
+jobs:
+  trace:
+    runs-on: ubuntu-latest
+    # 2 pages x 5 runs at ~40-60 s each under the mobile config, plus setup.
+    timeout-minutes: 40
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            scripts/ci/lighthouse-runner-class.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Describe the runner
+        run: |
+          set -uo pipefail
+          {
+            echo "### Runner"
+            echo
+            echo '```'
+            nproc
+            lscpu | grep -E 'Model name|^CPU\(s\)|Thread|MHz' || true
+            free -m | head -2
+            google-chrome --version || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Run Lighthouse with saved traces
+        env:
+          RUNS: ${{ inputs.runs }}
+        run: |
+          set -uo pipefail
+          mkdir -p lighthouse-runner-trace
+          # Same settings as lighthouserc.json (MOBILE leg); Lighthouse 12.6.1
+          # is the version that produced the 2026-10-05 LHRs.
+          UA='Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36'
+          failures=0
+          for page in / /cerca-lavoro-ticino/; do
+            slug="$(printf '%s' "$page" | tr -c 'a-z0-9' '-' | sed 's/^-*//;s/-*$//')"
+            [ -n "$slug" ] || slug=home
+            for i in $(seq 1 "$RUNS"); do
+              if ! npx --yes lighthouse@12.6.1 "https://frontaliereticino.ch$page" \
+                --quiet \
+                --only-categories=performance \
+                --form-factor=mobile \
+                --screenEmulation.mobile \
+                --screenEmulation.width=412 \
+                --screenEmulation.height=823 \
+                --screenEmulation.deviceScaleFactor=1.75 \
+                --emulated-user-agent="$UA" \
+                --throttling-method=simulate \
+                --throttling.rttMs=150 \
+                --throttling.throughputKbps=1638.4 \
+                --throttling.cpuSlowdownMultiplier=4 \
+                --throttling.requestLatencyMs=562.5 \
+                --throttling.downloadThroughputKbps=1474.56 \
+                --throttling.uploadThroughputKbps=675 \
+                --max-wait-for-load=60000 \
+                --chrome-flags="--headless=new --disable-dev-shm-usage --no-sandbox --disable-gpu" \
+                --save-assets \
+                --output=json \
+                --output-path="lighthouse-runner-trace/${slug}-${i}.report.json"; then
+                echo "::warning title=Lighthouse runner trace::run $i on $page failed"
+                failures=$((failures + 1))
+              fi
+            done
+          done
+          ls -la lighthouse-runner-trace
+          echo "failures=$failures"
+
+      - name: Summarize runner class and paint mode
+        if: always()
+        run: |
+          set -uo pipefail
+          {
+            echo "### Runner class and paint mode"
+            echo
+            node scripts/ci/lighthouse-runner-class.mjs --dir lighthouse-runner-trace
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload traces and LHRs
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: lighthouse-runner-trace
+          path: lighthouse-runner-trace/
+          retention-days: 14
+          if-no-files-found: warn

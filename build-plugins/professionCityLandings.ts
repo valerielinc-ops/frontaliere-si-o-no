@@ -76,6 +76,7 @@ import {
   differentiateH1FromTitle,
 } from './shared/seoContentTokens';
 import { resolveProfessionCitiesFlushed } from './shared/buildSignals';
+import { renderProfessionCityInsights, type ProfessionCitySnapshots } from './professionCityInsights';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 
 /** Minimum real active jobs for a (city, profession) page to be emitted. */
@@ -99,6 +100,8 @@ interface Copy {
   tileLive: string;
   tileFresh: string;
   employersHeading: (city: string) => string;
+  /** Lead sentence of the employer list, so the names read as prose and not only as pills. */
+  employersLead: (role: string, city: string, list: string) => string;
   cta: (city: string) => string;
   breadcrumbHome: string;
   breadcrumbTicino: string;
@@ -114,6 +117,7 @@ const COPY: Record<ProfessionLocale, Copy> = {
     tileLive: 'Offerte attive',
     tileFresh: 'Pubblicate (30 gg)',
     employersHeading: (c) => `Chi assume a ${c}`,
+    employersLead: (r, c, list) => `Datori di lavoro con più offerte attive per ${r} a ${c}: ${list}.`,
     cta: (c) => `Vedi tutte le offerte a ${c}`,
     breadcrumbHome: 'Home',
     breadcrumbTicino: 'Ticino',
@@ -127,6 +131,7 @@ const COPY: Record<ProfessionLocale, Copy> = {
     tileLive: 'Active openings',
     tileFresh: 'Posted (30 days)',
     employersHeading: (c) => `Who is hiring in ${c}`,
+    employersLead: (r, c, list) => `Employers with the most active ${r} openings in ${c}: ${list}.`,
     cta: (c) => `See all openings in ${c}`,
     breadcrumbHome: 'Home',
     breadcrumbTicino: 'Ticino',
@@ -140,6 +145,7 @@ const COPY: Record<ProfessionLocale, Copy> = {
     tileLive: 'Aktive Stellen',
     tileFresh: 'Veröffentlicht (30 Tage)',
     employersHeading: (c) => `Wer in ${c} einstellt`,
+    employersLead: (r, c, list) => `Arbeitgeber mit den meisten aktiven ${r}-Stellen in ${c}: ${list}.`,
     cta: (c) => `Alle Stellen in ${c} ansehen`,
     breadcrumbHome: 'Home',
     breadcrumbTicino: 'Tessin',
@@ -153,6 +159,7 @@ const COPY: Record<ProfessionLocale, Copy> = {
     tileLive: 'Offres actives',
     tileFresh: 'Publiées (30 j)',
     employersHeading: (c) => `Qui recrute à ${c}`,
+    employersLead: (r, c, list) => `Employeurs avec le plus d'offres actives pour ${r} à ${c} : ${list}.`,
     cta: (c) => `Voir toutes les offres à ${c}`,
     breadcrumbHome: 'Accueil',
     breadcrumbTicino: 'Tessin',
@@ -276,9 +283,15 @@ export function renderProfessionCityPage(opts: {
   cityKey: CityHubKey;
   id: ProfessionId;
   snapshot: ProfessionJobsSnapshot;
+  /**
+   * Every (city, profession) snapshot of the build — the two peer axes of the
+   * insights block (#11678). Optional so a single-page caller keeps working:
+   * the block then shows only this pair's own offers.
+   */
+  byCity?: ProfessionCitySnapshots;
   distDir: string;
 }): { html: string; words: number } {
-  const { locale, cityKey, id, snapshot, distDir } = opts;
+  const { locale, cityKey, id, snapshot, byCity, distDir } = opts;
   const c = COPY[locale];
   const def = resolveCityDef(cityKey);
   const cityDisplay = def.display;
@@ -308,8 +321,14 @@ export function renderProfessionCityPage(opts: {
     { label: salary.label, value: salary.value, tone: 'accent' },
   ]);
 
+  const andWord = { it: ' e ', en: ' and ', de: ' und ', fr: ' et ' }[locale];
+  const employerNames = snapshot.topEmployers.map((e) => `${e.name} (${e.count})`);
+  const employerList = employerNames.length <= 1
+    ? employerNames.join('')
+    : `${employerNames.slice(0, -1).join(', ')}${andWord}${employerNames[employerNames.length - 1]}`;
   const employers = snapshot.topEmployers.length > 0
     ? `<h2 style="${H2_STYLE}">${esc(c.employersHeading(cityDisplay))}</h2>
+<p class="my-2">${esc(c.employersLead(role, cityDisplay, employerList))}</p>
 <ul class="flex flex-wrap gap-2 my-2">${snapshot.topEmployers
         .map((e) => `<li class="rounded-full bg-surface-alt px-3 py-1 text-sm">${esc(e.name)} <span class="text-subtle">(${e.count})</span></li>`)
         .join('')}</ul>`
@@ -329,6 +348,11 @@ export function renderProfessionCityPage(opts: {
     ctaLabel: c.cta(cityDisplay),
   };
   const prose = renderCantonSeoProse(proseOpts);
+
+  // Il contenuto che solo questa coppia ha: i titoli reali delle sue offerte,
+  // la stessa professione nelle altre città e le altre professioni della
+  // città, nominati (#11678). Vuoto quando non c'è dato: niente sezione.
+  const insights = renderProfessionCityInsights({ locale, cityKey, id, snapshot, byCity, minJobs: MIN_JOBS });
 
   const professionCityInlineAd = `<div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</div>`;
 
@@ -365,6 +389,7 @@ ${tiles}
 ${salary.noteHtml}
 ${DRIVEBY_AD_SNIPPET}
 ${employers}
+${insights}
 <p class="my-4"><a href="${esc(ctaHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta(cityDisplay))} →</a></p>
 ${professionCityInlineAd}
 ${prose}</div>`;
@@ -535,7 +560,7 @@ export async function emitProfessionCityPages(opts: { rootDir: string; distDir: 
       // bridge's hub target.
       const rendered = PROFESSION_LOCALES.map((locale) => ({
         locale,
-        ...renderProfessionCityPage({ locale, cityKey, id, snapshot, distDir: opts.distDir }),
+        ...renderProfessionCityPage({ locale, cityKey, id, snapshot, byCity, distDir: opts.distDir }),
       }));
       if (rendered.some((r) => r.words < MIN_INDEXABLE_WORDS)) {
         result.pagesSkippedForWordCount += PROFESSION_LOCALES.length;

@@ -34,6 +34,11 @@ Host: https://frontaliereticino.ch
 # compliance" — do not remove without updating that test's requirement too).
 Sitemap: https://frontaliereticino.ch/sitemap.xml
 Sitemap: https://frontaliereticino.ch/sitemap-news.xml
+# Canton article sections, published by the article corpus (not by this
+# site's build) and served by the edge Worker. A second index, because sitemap
+# indexes cannot nest and sitemap.xml is fixed at build time. Answers 404 until
+# the corpus publishes its first live canton section.
+Sitemap: https://frontaliereticino.ch/sitemap-cantons.xml
 
 # AI-readable content files (llmstxt.org standard)
 # /llms.txt — structured site summary for AI systems

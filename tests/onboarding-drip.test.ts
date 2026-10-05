@@ -16,6 +16,7 @@ import {
   resolveDripCards,
   resolveDripSegment,
   computeNextStep,
+  DRIP_MIN_SPACING_DAYS,
   buildDripEmail,
 } from '../services/newsletter/onboardingDrip.mjs';
 
@@ -64,6 +65,19 @@ describe('computeNextStep (no double sends, stops when complete)', () => {
 
   it('returns null once the sequence is complete', () => {
     expect(computeNextStep({ startedAtMs: started, lastStep: 3, nowMs: started + 100 * DAY })).toBeNull();
+  });
+
+  it('spaces out a subscriber who fell behind instead of sending on consecutive days', () => {
+    // 40 days late: steps 2 and 3 are both overdue, but step 1 went out yesterday.
+    const now = started + 40 * DAY;
+    expect(DRIP_MIN_SPACING_DAYS).toBe(2);
+    expect(computeNextStep({ startedAtMs: started, lastStep: 1, nowMs: now, lastSentAtMs: now - 1 * DAY })).toBeNull();
+    expect(computeNextStep({ startedAtMs: started, lastStep: 1, nowMs: now, lastSentAtMs: now - 2 * DAY })).toBe(2);
+  });
+
+  it('never delays an on-time schedule (its gaps exceed the minimum spacing)', () => {
+    expect(computeNextStep({ startedAtMs: started, lastStep: 0, nowMs: started + 3 * DAY, lastSentAtMs: started })).toBe(1);
+    expect(computeNextStep({ startedAtMs: started, lastStep: 1, nowMs: started + 7 * DAY, lastSentAtMs: started + 3 * DAY })).toBe(2);
   });
 });
 

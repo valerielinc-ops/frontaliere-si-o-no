@@ -1,8 +1,10 @@
 /**
  * When saving a listing turns the weekly saved-jobs digest on.
  *
- * Owner decision of 2026-10-02: the digest is activated by saving a listing,
- * with no backfill of accounts that saved before this change. The state lives
+ * Owner decision of 2026-10-02: the digest is activated by saving a listing.
+ * Accounts that saved before that change were activated once by
+ * scripts/backfill-saved-jobs-digest-optin.mjs (owner decision of 2026-10-05,
+ * `activationSource: 'saved_job_backfill'`). The state lives
  * on `users/{uid}.savedJobsDigest` and has three values, not two:
  *
  *   - `optedOut === true`  → turned off by the person: the one-click link in

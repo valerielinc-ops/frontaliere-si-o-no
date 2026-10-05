@@ -39,11 +39,14 @@
  *   NO_AUTOCLOSE   "1" → force tier-1 behavior only (flag, never close). Escape hatch.
  *   BLOCKED_RECHECK_MAX_READS      tetto di letture `gh api` della rimisura dei `blocked` (default 60).
  *   BLOCKED_RECHECK_MAX_REENTRIES  tetto di rientri `blocked` → `open` per run (default 3).
+ *   CI_SUITE_PROOF_MAX_READS       tetto di letture `gh` della prova CI degli item bloccati solo
+ *                                  dalla guardia risorse locale (default 120; decisione I4 del 2026-10-05).
  */
 
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -76,6 +79,19 @@ import {
   planBlockedRecheck,
   unblockedCommentBody,
 } from './lib/followup-blocked-recheck.mjs';
+import {
+  CI_SUITE_REPORT_ARTIFACT,
+  CI_SUITE_WORKFLOW_FILE,
+  applyCiSuiteProof,
+  ciSuiteProofCommentBody,
+  ciSuiteProofSummary,
+  latestCompletedRun,
+  planCiSuiteProof,
+  suiteResultsFromJobLog,
+  suiteResultsFromVitestReport,
+  vitestStepConclusion,
+} from './lib/followup-ci-suite-proof.mjs';
+import { VITEST_CHECK_NAME } from './lib/constants.mjs';
 import { issueLabelDeleteArgs, labelDeleteResponseConfirms } from './lib/issue-label-release.mjs';
 import { isTrustedAuthor } from './route-already-fixed.mjs';
 import { rebuildDailyBody } from './gate-minted-followups.mjs';
@@ -92,6 +108,9 @@ const MAX_ISSUES = intFromEnv('MAX_ISSUES', 100);
 const BLOCKED_RECHECK_MAX_READS = intFromEnv('BLOCKED_RECHECK_MAX_READS', 60);
 // Ogni rientro costa al piu' una run del fixer.
 const BLOCKED_RECHECK_MAX_REENTRIES = intFromEnv('BLOCKED_RECHECK_MAX_REENTRIES', 3);
+// Prova CI degli item bloccati solo dalla guardia locale: una PR costa al piu'
+// 9 letture (PR, due run, due job, due elenchi di artifact, report o log).
+const CI_SUITE_PROOF_MAX_READS = intFromEnv('CI_SUITE_PROOF_MAX_READS', 120);
 const MARKER = '<!-- reconcile-bot -->';
 const FLAG_MARKER = '<!-- reconcile-bot:flag -->';
 const CLOSE_MARKER = '<!-- reconcile-bot:autoclose -->';
@@ -301,11 +320,24 @@ export function bornSatisfiedItemIds(markers) {
 }
 
 /**
+ * Gli item con la prova `FU_ITEM_CI_SUITE` (decisione I4 del 2026-10-05): la
+ * CI required della loro PR ha eseguito verde la suite di un item bloccato
+ * solo dalla guardia risorse locale. Marker gia' filtrati per autore fidato.
+ * @param {Array<{type: string, item: string}>} markers
+ * @returns {Set<string>}
+ */
+export function ciSuiteProvenItemIds(markers) {
+  return itemIdSet((Array.isArray(markers) ? markers : [])
+    .filter((marker) => marker?.type === 'ci-suite')
+    .map((marker) => marker.item));
+}
+
+/**
  * Gli input dei gate giornalieri, calcolati in UN punto: `gateArgs` sono gli
  * argomenti posizionali dal terzo in poi che `main()` passa a
  * `reconcileDailyItems` e a entrambe le chiamate di `dailyBucketCloseGate`
- * (chiave, repository e conteggio dal titolo, poi l'insieme born-satisfied dai
- * commenti fidati), cosi' i tre punti di chiamata non possono divergere.
+ * (chiave, repository e conteggio dal titolo, poi gli insiemi born-satisfied e
+ * ci-suite dai commenti fidati), cosi' i tre punti di chiamata non possono divergere.
  * `null` se il titolo non e' un bucket giornaliero o se i commenti non sono
  * leggibili (senza commenti non si esclude un marker born-satisfied).
  * @returns {{daily: object, itemMarkers: object[], bornSatisfied: Set<string>, gateArgs: unknown[]}|null}
@@ -315,11 +347,13 @@ export function dailyBucketGateInputs(title, comments) {
   if (!daily || !Array.isArray(comments)) return null;
   const itemMarkers = parseItemMarkers(comments, { isTrusted: isTrustedAuthor });
   const bornSatisfied = bornSatisfiedItemIds(itemMarkers);
+  const ciSuiteProven = ciSuiteProvenItemIds(itemMarkers);
   return {
     daily,
     itemMarkers,
     bornSatisfied,
-    gateArgs: [daily.dailyKey, daily.targetRepository, daily.itemCount, bornSatisfied],
+    ciSuiteProven,
+    gateArgs: [daily.dailyKey, daily.targetRepository, daily.itemCount, bornSatisfied, ciSuiteProven],
   };
 }
 
@@ -331,6 +365,11 @@ export function dailyBucketGateInputs(title, comments) {
  * `bornSatisfiedIds`: item il cui token era gia' vero al conio. Il token non
  * prova nulla per loro, quindi bloccano con `born-satisfied-token` anche se
  * sono `done`: il bucket lo chiude una persona con evidenza, non il reconciler.
+ *
+ * `ciSuiteProvenIds`: item `done` con il marker `FU_ITEM_CI_SUITE` (decisione
+ * I4 del 2026-10-05). La loro conferma e' la run required che ha eseguito
+ * verde la suite dell'item, non un token: contano come confermati con
+ * evidenza forte. Senza `State: done` il marker da solo non conferma nulla.
  */
 export function dailyBucketCloseGate(
   body,
@@ -339,6 +378,7 @@ export function dailyBucketCloseGate(
   expectedTargetRepository = null,
   expectedItemCount = null,
   bornSatisfiedIds = null,
+  ciSuiteProvenIds = null,
 ) {
   if (hasUnterminatedMarkdownFence(body)) {
     return { blocks: true, reason: 'unterminated-markdown-fence', validItems: [], unresolvedItems: [] };
@@ -369,6 +409,7 @@ export function dailyBucketCloseGate(
   const invalid = items.filter((item) => !hasFalsifiableAcceptance(item.text));
   if (invalid.length) return { blocks: true, reason: 'invalid-item', validItems: items.filter((item) => !invalid.includes(item)), unresolvedItems: invalid };
   const born = itemIdSet(bornSatisfiedIds);
+  const ciProven = itemIdSet(ciSuiteProvenIds);
   const evidenceById = new Map();
   const unresolvedItems = [];
   const weakItems = [];
@@ -376,6 +417,11 @@ export function dailyBucketCloseGate(
   for (const item of items) {
     const result = detectAlreadyResolved(item.text, io, { acceptanceToken: item.acceptanceToken });
     evidenceById.set(item.id, result.evidence || []);
+    if (item.state === 'done' && ciProven.has(String(item.id ?? '').toUpperCase())) {
+      // Un token per item: l'evidenza del bucket resta distinta item per item.
+      evidenceById.set(item.id, [{ file: 'CI required', tok: `FU_ITEM_CI_SUITE ${item.id}` }]);
+      continue;
+    }
     if (born.has(item.id)) {
       bornSatisfiedItems.push(item);
       continue;
@@ -1311,6 +1357,113 @@ function blockedRecheckReaders(repository) {
   };
 }
 
+// Letture GitHub della prova CI (decisione I4), con tetto per run e cache.
+let ciSuiteReads = 0;
+const ciSuiteCache = new Map();
+
+/** `gh` in sola lettura per la prova CI: `ok` con stdout, `not-found`, `error` o `budget`. */
+function ghCiRead(args) {
+  if (ciSuiteReads >= CI_SUITE_PROOF_MAX_READS) return { status: 'budget' };
+  ciSuiteReads += 1;
+  try {
+    const stdout = execFileSync('gh', args, {
+      encoding: 'utf-8',
+      maxBuffer: 256 * 1024 * 1024,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    return { status: 'ok', stdout };
+  } catch (e) {
+    return /HTTP 404\b/u.test(String(e?.stderr ?? '')) ? { status: 'not-found' } : { status: 'error' };
+  }
+}
+
+function ciCached(key, read) {
+  if (!ciSuiteCache.has(key)) ciSuiteCache.set(key, read());
+  return ciSuiteCache.get(key);
+}
+
+function parseJsonRead(read) {
+  if (read.status !== 'ok') return undefined;
+  try {
+    return JSON.parse(read.stdout);
+  } catch {
+    return undefined;
+  }
+}
+
+/** Il report JSON di vitest dell'artifact della run, o `null` (scaduto, assente, illeggibile). */
+function downloadVitestReport(repo, runId) {
+  const listing = parseJsonRead(ghCiRead(['api', `repos/${repo}/actions/runs/${runId}/artifacts?per_page=100`]));
+  const artifact = (Array.isArray(listing?.artifacts) ? listing.artifacts : [])
+    .find((entry) => entry?.name === CI_SUITE_REPORT_ARTIFACT && entry?.expired === false);
+  if (!artifact) return null;
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'reconcile-ci-suite-'));
+  try {
+    const read = ghCiRead(['run', 'download', String(runId), '--repo', repo, '-n', CI_SUITE_REPORT_ARTIFACT, '-D', dir]);
+    if (read.status !== 'ok') return null;
+    const file = path.join(dir, `${CI_SUITE_REPORT_ARTIFACT}.json`);
+    if (!fs.existsSync(file)) return null;
+    return suiteResultsFromVitestReport(JSON.parse(fs.readFileSync(file, 'utf8')));
+  } catch {
+    return null;
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+}
+
+/**
+ * Lettori iniettati in `planCiSuiteProof` per un repository (forma in
+ * `readCiSuiteCandidates`). Gli esiti per file vengono dal report JSON di
+ * vitest finche' l'artifact esiste (7 giorni), poi dal log del job.
+ */
+function ciSuiteProofReaders(repository) {
+  const repo = String(repository || '').trim();
+  const valid = /^[\w.-]+\/[\w.-]+$/u.test(repo);
+  const fail = { status: 'error' };
+  return {
+    pull(number) {
+      if (!valid) return fail;
+      return ciCached(`pull\0${repo}\0${number}`, () => {
+        const pr = parseJsonRead(ghCiRead(['api', `repos/${repo}/pulls/${Number(number)}`]));
+        if (!pr || typeof pr !== 'object') return fail;
+        return { status: 'ok', merged: Boolean(pr.merged_at), mergeSha: String(pr.merge_commit_sha ?? ''), headSha: String(pr.head?.sha ?? '') };
+      });
+    },
+    latestRun(sha) {
+      if (!valid) return fail;
+      return ciCached(`run\0${repo}\0${sha}`, () => {
+        const data = parseJsonRead(ghCiRead(['api', '-X', 'GET', `repos/${repo}/actions/workflows/${CI_SUITE_WORKFLOW_FILE}/runs`, '-f', `head_sha=${sha}`, '-f', 'per_page=30']));
+        if (!Array.isArray(data?.workflow_runs)) return fail;
+        const run = latestCompletedRun(data.workflow_runs);
+        return { status: 'ok', run: run ? { id: Number(run.id), conclusion: run.conclusion ?? null } : null };
+      });
+    },
+    vitestJob(runId) {
+      if (!valid) return fail;
+      return ciCached(`job\0${repo}\0${runId}`, () => {
+        const data = parseJsonRead(ghCiRead(['api', `repos/${repo}/actions/runs/${Number(runId)}/jobs?per_page=100`]));
+        if (!Array.isArray(data?.jobs)) return fail;
+        const job = data.jobs.find((entry) => entry?.name === VITEST_CHECK_NAME);
+        return {
+          status: 'ok',
+          job: job ? { id: Number(job.id), conclusion: job.conclusion ?? null, vitestStep: vitestStepConclusion(job.steps) } : null,
+        };
+      });
+    },
+    results(runId, jobId) {
+      if (!valid) return fail;
+      return ciCached(`results\0${repo}\0${runId}\0${jobId}`, () => {
+        const report = downloadVitestReport(repo, Number(runId));
+        if (report) return { status: 'ok', results: report, source: 'report' };
+        const log = ghCiRead(['api', `repos/${repo}/actions/jobs/${Number(jobId)}/logs`]);
+        if (log.status === 'not-found') return { status: 'ok', results: null, source: null };
+        if (log.status !== 'ok') return fail;
+        return { status: 'ok', results: suiteResultsFromJobLog(log.stdout), source: 'log' };
+      });
+    },
+  };
+}
+
 /**
  * Item-done comments share the historical `MARKER`; only an aggregate reconcile
  * flag counts as the prior grace-window confirmation. Keep accepting old flag
@@ -1520,6 +1673,77 @@ function runBlockedRecheck({ iss, daily, itemMarkers, bornSatisfied, labelNames,
   return { results, body: nextBody, labelNames: nextLabels, skipIssue: false };
 }
 
+/**
+ * Prova CI degli item bloccati SOLO dalla guardia risorse locale (decisione I4
+ * del 2026-10-05; piano puro in `lib/followup-ci-suite-proof.mjs`). Ordine
+ * delle scritture, scelto perche' un guasto non lasci mai un `done` senza
+ * prova: rilettura-confronto del corpo → commento `FU_ITEM_CI_SUITE` di ogni
+ * item (se un marker fidato non c'e' gia') → un solo edit del corpo. Un
+ * marker postato con l'edit fallito resta e si riusa al giro dopo, che
+ * rimisura comunque la run. Il marker entra subito in `ciSuiteProven`.
+ * @returns {{results: object[], body: string, skipIssue: boolean}}
+ */
+function runCiSuiteProof({ iss, daily, itemMarkers, ciSuiteProven, labelNames }) {
+  const body = iss.body || '';
+  const plan = planCiSuiteProof({
+    body,
+    labels: labelNames,
+    readers: ciSuiteProofReaders(daily.targetRepository),
+    targetRepository: daily.targetRepository,
+    localRepository: process.env.GH_REPO || '',
+  });
+  const results = plan.results.map((entry) => ({ ...entry, number: iss.number }));
+  const unchanged = { results, body, skipIssue: false };
+  const done = results.filter((entry) => entry.outcome === 'done');
+  if (plan.skipped || !done.length) return unchanged;
+  const demote = (entry, why) => { entry.outcome = 'unknown'; entry.why = why; };
+
+  if (!DRY_RUN) {
+    const latest = parseIssueJson(gh(['issue', 'view', String(iss.number), ...repoArgs, '--json', 'title,body'], { allowFail: true }));
+    if (!latest
+        || String(latest.title || '') !== String(iss.title || '')
+        || String(latest.body || '') !== body) {
+      console.log(`#${iss.number}: titolo/body cambiato/non leggibile durante la prova CI → skip, nessun overwrite.`);
+      for (const entry of done) demote(entry, 'body-changed');
+      return { ...unchanged, skipIssue: true };
+    }
+    for (const entry of done) {
+      const already = (itemMarkers || []).some((marker) => marker?.type === 'ci-suite' && marker.item === entry.id);
+      if (already) continue;
+      let text;
+      try {
+        text = ciSuiteProofCommentBody({ id: entry.id, pr: entry.pr, proof: entry.proof, repository: daily.targetRepository });
+      } catch {
+        demote(entry, 'proof-marker-invalid');
+        continue;
+      }
+      const posted = gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body', text], { allowFail: true });
+      if (posted === null) demote(entry, 'proof-marker-not-posted');
+    }
+  }
+  const proven = done.filter((entry) => entry.outcome === 'done');
+  const { body: nextBody, applied } = applyCiSuiteProof(body, proven.map((entry) => entry.id));
+  for (const entry of proven) {
+    if (!applied.includes(entry.id)) { demote(entry, 'state-not-updatable'); continue; }
+    ciSuiteProven.add(entry.id);
+    console.log(`#${iss.number}: item ${entry.id} → done (decisione I4: CI required della PR #${entry.pr}, ${entry.proof.kind} ${entry.proof.sha.slice(0, 12)}, run ${entry.proof.run}, job ${entry.proof.job}, ${entry.proof.source}: ${entry.proof.files.join(' ')})${DRY_RUN ? ' (dry-run)' : ''}.`);
+  }
+  if (nextBody === body) return unchanged;
+  if (DRY_RUN) return { results, body: nextBody, skipIssue: false };
+
+  const bodyFile = writeBodyFile(nextBody);
+  const edited = gh(['issue', 'edit', String(iss.number), ...repoArgs, '--body-file', bodyFile], { allowFail: true });
+  fs.rmSync(bodyFile, { force: true });
+  if (edited === null) {
+    console.log(`::warning::reconcile-followups: prova CI su #${iss.number} non scritta nel corpo; i marker postati restano e il giro dopo rimisura.`);
+    for (const entry of proven) {
+      if (entry.outcome === 'done') { demote(entry, 'body-edit-failed'); ciSuiteProven.delete(entry.id); }
+    }
+    return { ...unchanged, skipIssue: true };
+  }
+  return { results, body: nextBody, skipIssue: false };
+}
+
 async function main() {
   const raw = gh([
     'issue', 'list', '--label', 'follow-up', '--state', 'open',
@@ -1583,6 +1807,7 @@ async function main() {
   const bucketLines = [];
   const verifyRequests = [];
   const blockedResults = [];
+  const ciSuiteResults = [];
   const reentryBudget = { remaining: BLOCKED_RECHECK_MAX_REENTRIES };
   let unclassifiableSkipped = 0;
 
@@ -1619,14 +1844,19 @@ async function main() {
         console.log(`::warning::reconcile-followups: impossibile leggere i commenti di #${iss.number}; bucket lasciato invariato (nessun done, nessuna richiesta di verifica)`);
         continue;
       }
-      const { itemMarkers, bornSatisfied } = gateInputs;
+      const { itemMarkers, bornSatisfied, ciSuiteProven } = gateInputs;
       // Rimisura degli item `blocked` (token o un rientro su commit nuovo),
       // PRIMA di reconcileDailyItems e solo su un bucket strutturalmente valido.
       // Daily buckets are reconciled item-by-item. An issue-wide token hit would let
       // one completed item hide another open item, which is precisely the aggregate
       // closure bug this format removes.
+      // Prima la prova CI degli item bloccati solo dalla guardia locale
+      // (decisione I4), poi la rimisura dei `blocked` sul corpo che ne esce.
       const step = recheckThenReconcileDailyItems(iss.body || '', diskIo, gateInputs.gateArgs, () => {
-        const result = runBlockedRecheck({ iss, daily, itemMarkers, bornSatisfied, labelNames, reentryBudget });
+        const proof = runCiSuiteProof({ iss, daily, itemMarkers, ciSuiteProven, labelNames });
+        ciSuiteResults.push(...proof.results);
+        if (proof.skipIssue) return { results: [], body: iss.body || '', labelNames, skipIssue: true };
+        const result = runBlockedRecheck({ iss: { ...iss, body: proof.body }, daily, itemMarkers, bornSatisfied, labelNames, reentryBudget });
         blockedResults.push(...result.results);
         return result;
       });
@@ -1855,6 +2085,8 @@ Chiusa come **completed** (done-but-open). Si **riapre da sola** se il segnale s
   console.log(summary);
   const blockedLine = `Blocked recheck: ${blockedRecheckSummary(blockedResults)} reads=${blockedRecheckReads}/${BLOCKED_RECHECK_MAX_READS} reentry_cap=${BLOCKED_RECHECK_MAX_REENTRIES}`;
   console.log(blockedLine);
+  const ciSuiteLine = `CI suite proof (I4): ${ciSuiteProofSummary(ciSuiteResults)} reads=${ciSuiteReads}/${CI_SUITE_PROOF_MAX_READS}`;
+  console.log(ciSuiteLine);
   for (const entry of blockedResults.filter((candidate) => candidate.outcome === 'unknown' || candidate.outcome === 'waiting')) {
     console.log(`  #${entry.number} ${entry.id}: ${entry.outcome} (${entry.why}), bloccato da ${entry.ageDays ?? '?'} giorni (${entry.blockedSource}${entry.reason ? `, reason=${entry.reason}` : ''})`);
   }
@@ -1864,7 +2096,7 @@ Chiusa come **completed** (done-but-open). Si **riapre da sola** se il segnale s
     const cl = closed.map((c) => `- ✅ #${c.number} ${c.title} (auto-closed, ${c.evidence.length} match)`).join('\n');
     const vr = verifyRequests.map((v) => `- 🔎 #${v.number} richiesta di verifica: ${v.ids.join(',')}`).join('\n');
     const bk = bucketLines.map((line) => `- \`${line}\``).join('\n');
-    const bl = `- \`${blockedLine}\``;
+    const bl = `- \`${blockedLine}\`\n- \`${ciSuiteLine}\``;
     const ub = bucketAlarmPlan.unparseable.map((entry) => `- 🚨 #${entry.number} bucket illeggibile dal parser (${entry.reason})`).join('\n');
     const lc = bucketAlarmPlan.conflicts.map((entry) => `- ⚠️ #${entry.number} label contraddittorie: ${entry.conflicts.join('; ')}`).join('\n');
     fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## ${summary}\n${[uc, cl, fl, vr, ub, lc, bk, bl].filter(Boolean).join('\n')}\n`);
