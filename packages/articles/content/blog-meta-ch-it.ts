@@ -7736,6 +7736,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.allarme-aumento-affitti-svizzera.title': 'Affitti in Svizzera: +32% in vent\'anni, l\'allarme dell\'ASI',
     'blog.article.allarme-aumento-affitti-svizzera.excerpt': 'L\'Associazione svizzera inquilini segnala un rincaro del 32,1% tra il 2005 e il 2025. Sotto pressione i redditi bassi: chi guadagna meno di 4\'000 franchi spende il 37,8% per la casa.',
     'blog.article.allarme-aumento-affitti-svizzera.imageAlt': 'Edificio residenziale urbano in Svizzera',
+    'blog.article.affitti-svizzera-aumento-asi.title': 'Affitti in Svizzera: aumento del 32% in vent\'anni',
+    'blog.article.affitti-svizzera-aumento-asi.excerpt': 'L\'Associazione svizzera inquilini segnala rincari del 32,1% tra il 2005 e il 2025. Pressione su redditi bassi e medi e nuove richieste politiche.',
+    'blog.article.affitti-svizzera-aumento-asi.imageAlt': 'Palazzi di residenza in Svizzera con affitti in aumento',
 };
 
 export default blogMetaChIt;

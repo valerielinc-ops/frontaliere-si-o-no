@@ -2601,6 +2601,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'startup-ticinesi-top100-2026': { it: 'startup-ticinesi-top100-2026', en: 'ticino-startups-top100-2026', de: 'tessiner-start-ups-top100-2026', fr: 'start-up-tessinoises-top100-2026' },
  'autisti-uber-svizzera-condizioni': { it: 'autisti-uber-svizzera-condizioni', en: 'uber-drivers-switzerland-conditions', de: 'uber-fahrer-schweiz-bedingungen', fr: 'chauffeurs-uber-suisse-conditions' },
  'allarme-aumento-affitti-svizzera': { it: 'allarme-aumento-affitti-svizzera', en: 'rent-hike-alarm-switzerland', de: 'mieterhoehungen-alarm-schweiz', fr: 'hausse-loyers-alerte-suisse' },
+ 'affitti-svizzera-aumento-asi': { it: 'affitti-svizzera-aumento-asi', en: 'switzerland-rents-increase-asi', de: 'mieten-schweiz-anstieg-asi', fr: 'loyers-suisse-hausse-asi' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
