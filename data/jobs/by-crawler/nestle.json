@@ -1527,9 +1527,9 @@
     },
     {
       "id": "nestle-1441859833",
-      "slug": "global-procurement-manager-contract-manufacturing-nestle-ch",
+      "slug": "global-procurement-manager-produzione-a-contratto-nestle-la-tour-de-peilz",
       "slugByLocale": {
-        "it": "global-procurement-manager-contract-manufacturing-nestle-ch",
+        "it": "global-procurement-manager-produzione-a-contratto-nestle-la-tour-de-peilz",
         "en": "global-procurement-manager-contract-manufacturing-nestle-ch",
         "de": "global-procurement-manager-auftragsfertigung-nestle-la-tour-de-peilz",
         "fr": "gestionnaire-des-achats-mondiaux-fabrication-de-contrats-nestle-la-tour-de-peilz"
@@ -1588,7 +1588,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-procurement-manager-contract-manufacturing-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-procurement-manager-contract-manufacturing-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1403467433",
@@ -2559,7 +2567,7 @@
       "slugByLocale": {
         "it": "senior-acquisizioni-business-development-manager-nestle-vevey",
         "en": "senior-acquisitions-business-development-manager-nestle-ch",
-        "de": "senior-acquisitions-business-development-manager-nestle-ch",
+        "de": "senior-manager-fur-akquisitionen-und-geschaftsentwicklung-nestle-vevey",
         "fr": "gestionnaire-principal-des-acquisitions-et-du-developpement-des-affaires-nestle-vevey"
       },
       "company": "Nestlé",
@@ -2604,6 +2612,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "senior-acquisitions-business-development-manager-nestle-ch"
+        ],
+        "de": [
           "senior-acquisitions-business-development-manager-nestle-ch"
         ]
       },
@@ -7348,12 +7359,12 @@
     },
     {
       "id": "nestle-1441914833",
-      "slug": "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch",
+      "slug": "prodotti-speciali-per-operatori-di-impianti-prodotti-probiotici-nestle-konolfingen",
       "slugByLocale": {
-        "it": "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch",
-        "en": "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch",
+        "it": "prodotti-speciali-per-operatori-di-impianti-prodotti-probiotici-nestle-konolfingen",
+        "en": "plant-operator-special-products-probiotic-products-nestle-konolfingen",
         "de": "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch",
-        "fr": "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch"
+        "fr": "produits-speciaux-pour-operateurs-d-usine-produits-probiotiques-nestle-konolfingen"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -7409,7 +7420,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch"
+        ],
+        "en": [
+          "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch"
+        ],
+        "fr": [
+          "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-in-special-products-probiotische-produkte-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1440164533",

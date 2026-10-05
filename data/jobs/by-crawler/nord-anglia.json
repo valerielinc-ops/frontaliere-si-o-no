@@ -699,15 +699,13 @@
       "previousSlugs": [
         "nurse-on-call-nord-anglia-geneva",
         "nurse-on-call-nord-anglia-education-switzerland-geneve",
-        "infermiera-su-chiamata-nord-anglia-education-switzerland-geneva",
-        "infermiere-reperibile-nord-anglia-education-switzerland-geneva"
+        "infermiera-su-chiamata-nord-anglia-education-switzerland-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "nurse-on-call-nord-anglia-geneva",
           "nurse-on-call-nord-anglia-education-switzerland-geneve",
-          "infermiera-su-chiamata-nord-anglia-education-switzerland-geneva",
-          "infermiere-reperibile-nord-anglia-education-switzerland-geneva"
+          "infermiera-su-chiamata-nord-anglia-education-switzerland-geneva"
         ],
         "de": [
           "nurse-on-call-nord-anglia-geneva"
@@ -1278,12 +1276,12 @@
     },
     {
       "id": "nord-anglia-297806b01ea6",
-      "slug": "learning-support-teacher-temporary-100-nord-anglia-geneva",
+      "slug": "insegnante-di-supporto-di-apprendimento-temporary-100-nord-anglia-education-switzerland-geneva",
       "slugByLocale": {
         "en": "learning-support-teacher-temporary-100-nord-anglia-geneva",
-        "it": "learning-support-teacher-temporary-100-nord-anglia-geneva",
-        "de": "learning-support-teacher-temporary-100-nord-anglia-geneva",
-        "fr": "learning-support-teacher-temporary-100-nord-anglia-geneva"
+        "it": "insegnante-di-supporto-di-apprendimento-temporary-100-nord-anglia-education-switzerland-geneva",
+        "de": "lernunterstutzung-lehrer-temporar-100-nord-anglia-education-switzerland-geneva",
+        "fr": "aide-a-l-apprentissage-enseignant-temporaire-100-nord-anglia-education-switzerland-geneva"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -1344,7 +1342,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T10:34:53.444Z"
+      "firstSeenAt": "2026-10-05T10:34:53.444Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "learning-support-teacher-temporary-100-nord-anglia-geneva"
+        ],
+        "de": [
+          "learning-support-teacher-temporary-100-nord-anglia-geneva"
+        ],
+        "fr": [
+          "learning-support-teacher-temporary-100-nord-anglia-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "learning-support-teacher-temporary-100-nord-anglia-geneva"
+      ]
     }
   ]
 }

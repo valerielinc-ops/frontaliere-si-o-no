@@ -1,13 +1,14 @@
 name: jobgate-experiment-monitor
 
-# Monitor giornaliero del test A/B `jobgate-v3` sul job gate (#9725), con
+# Monitor giornaliero del test A/B del job gate (round in corso: `jobgate-v4`,
+# id in scripts/experiments/jobgate-plan.mjs; v3 era #9725), con
 # promozione del braccio vincente solo dopo approvazione manuale.
 #
-# Ogni giro (scripts/experiments/jobgate-v3-monitor.mjs):
+# Ogni giro (scripts/experiments/jobgate-monitor.mjs):
 #   - readout in sola lettura (GA4 + Firestore, robot esclusi) sull'ultima
 #     finestra assestata e, dalla durata minima, sull'ultima finestra di
 #     settimane intere;
-#   - aggiorna UNA issue di stato «[jobgate-v3] Monitor esperimento: stato
+#   - aggiorna UNA issue di stato «[<id>] Monitor esperimento: stato
 #     giornaliero» (giorni, persone e iscritti per braccio, CR con IC, SRM,
 #     potenza, data prevista della decisione);
 #   - apre (dedup) o chiude le issue di allarme: SRM, braccio significativamente
@@ -15,9 +16,9 @@ name: jobgate-experiment-monitor
 #     non cambia mai Remote Config;
 #   - propone la promozione SOLO se tutte le condizioni del piano sono vere;
 #     il cron non scrive su Remote Config e solo workflow_dispatch con apply=true approva
-#     (scripts/experiments/jobgate-v3-plan.mjs, pinnate da
+#     (scripts/experiments/jobgate-plan.mjs, pinnate da
 #     tests/experiment-monitor.test.ts): pubblica JOBGATE_EXPERIMENT_FORCE
-#     con scripts/experiments/jobgate-v3-rc.mjs (etag, niente force). Il giro
+#     con scripts/experiments/jobgate-rc.mjs (etag, niente force). Il giro
 #     dopo FORCE è impostato e il monitor non ripubblica.
 #
 # Il run schedulato aggiorna il monitor ma non scrive su Remote Config;
@@ -128,7 +129,7 @@ jobs:
           set -euo pipefail
           flags=(--issues --out "$RUNNER_TEMP/jobgate-monitor")
           if [ "${APPLY}" = "true" ]; then flags+=(--apply --approve-promotion); fi
-          node scripts/experiments/jobgate-v3-monitor.mjs "${flags[@]}"
+          node scripts/experiments/jobgate-monitor.mjs "${flags[@]}"
 
       - name: Job summary
         if: always()
@@ -145,7 +146,7 @@ jobs:
         run: |
           node scripts/lib/github-issue-creator.mjs \
             --title "Workflow Failure: ${{ github.workflow }}" \
-            --description "## Monitor dell'esperimento jobgate-v3 fallito
+            --description "## Monitor dell'esperimento jobgate fallito
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           **Trigger:** ${{ github.event_name }}
           Oggi il test A/B non è stato letto: nessun allarme valutato e nessuna promozione. Se il log mostra \`Pubblicazione Remote Config FALLITA\`, la promozione era pronta ma non è stata pubblicata: il giro successivo riprova." \

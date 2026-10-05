@@ -2730,18 +2730,30 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // here (not in 90 parsers) so the whole class is fixed by-construction.
   const existingPostedDate = new Map();
   const existingPostingEvidence = new Map();
-  for (const ej of (priorJobs || [])) {
-    const identity = buildStableJobIdentity(ej);
-    if (!identity) continue;
-    if (ej.firstSeenAt) existingFirstSeen.set(identity, ej.firstSeenAt);
-    if (ej.postedDate) existingPostedDate.set(identity, ej.postedDate);
-    existingPostingEvidence.set(identity, ej);
-  }
   const expiredSlice = readJson(path.join(EXPIRED_SLICES_DIR, `${crawlerKey}.json`), []);
   const firstSeenHistory = carryForwardFirstSeenAt(hardened.jobs, {
     existingJobs: priorJobs || [],
     archivedJobs: Array.isArray(expiredSlice) ? expiredSlice : [],
   });
+  // The carry-forward key. A stable identity shared by several postings (a
+  // crawler that writes the listing page as every job's URL — Galenica,
+  // État de Vaud, …) names a page, not a posting: keyed on it, every NEW
+  // posting inherited the firstSeenAt/postedDate of whichever prior posting
+  // was indexed last, so it was never "new" for the CompanyAlert sender. Such
+  // an identity falls back to the posting's own id (scripts/lib/first-seen-history.mjs).
+  const carryKey = (job) => {
+    const identity = buildStableJobIdentity(job);
+    if (!identity || !firstSeenHistory.ambiguousIdentities.has(identity)) return identity;
+    const id = String(job?.id ?? '').trim();
+    return id ? `id:${id}` : '';
+  };
+  for (const ej of (priorJobs || [])) {
+    const identity = carryKey(ej);
+    if (!identity) continue;
+    if (ej.firstSeenAt) existingFirstSeen.set(identity, ej.firstSeenAt);
+    if (ej.postedDate) existingPostedDate.set(identity, ej.postedDate);
+    existingPostingEvidence.set(identity, ej);
+  }
   if (firstSeenHistory.restored > 0 || firstSeenHistory.suppressed > 0) {
     console.log(
       `  🕰️ firstSeenAt history: restored ${firstSeenHistory.restored}, `
@@ -2750,7 +2762,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   }
   const now = new Date().toISOString();
   for (const job of hardened.jobs) {
-    const identity = buildStableJobIdentity(job);
+    const identity = carryKey(job);
     if (!job.firstSeenAt && !firstSeenHistory.suppressedJobs.has(job)) {
       job.firstSeenAt = (identity && existingFirstSeen.get(identity)) || job.crawledAt || now;
     }

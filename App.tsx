@@ -777,7 +777,7 @@ const App: React.FC = () => {
  });
  const customToken = await exchangeLinkedInCode(code, linkedInAttribution, {
   surface: linkedInConsentSurface,
-  // jobgate-v3 arm of an enrolled gate login: the Cloud Function creates the
+  // jobgate arm of an enrolled gate login: the Cloud Function creates the
   // subscriber, so the readout's join key has to reach it.
   variant: jobGateSubscriberVariantFor(savedJobCtx, linkedInConsentSurface),
  });

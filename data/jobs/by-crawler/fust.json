@@ -2265,9 +2265,9 @@
       },
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-rickenbach",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-rickenbach",
+        "en": "retail-specialist-efz-designing-shopping-experiences-fust-rickenbach",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-rickenbach",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-rickenbach"
+        "fr": "specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-fust-rickenbach"
       },
       "requirementsByLocale": {},
       "addressLocality": "Rickenbach",
@@ -2304,6 +2304,12 @@
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen",
           "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-2q7nu2",
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-9"
+        ],
+        "en": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-rickenbach"
+        ],
+        "fr": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-rickenbach"
         ]
       },
       "datePosted": "2026-09-28",
@@ -2313,7 +2319,7 @@
     },
     {
       "id": "company-ljaybp",
-      "slug": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg",
+      "slug": "tecnico-di-consegna-a-domicilio-di-elettrodomestici-elettrici-per-la-casa-fust-lenzburg",
       "company": "Fust",
       "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
       "location": "Lenzburg",
@@ -2351,10 +2357,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg",
-        "en": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg",
+        "it": "tecnico-di-consegna-a-domicilio-di-elettrodomestici-elettrici-per-la-casa-fust-lenzburg",
+        "en": "home-delivery-technician-of-electrical-household-appliances-fust-lenzburg",
         "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg",
-        "fr": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg"
+        "fr": "technicien-de-livraison-a-domicile-d-appareils-electromenagers-electriques-fust-lenzburg"
       },
       "requirementsByLocale": {},
       "addressLocality": "Lenzburg",
@@ -2378,7 +2384,21 @@
       "datePosted": "2026-09-28",
       "postingDateSource": "reported",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "previousSlugsByLocale": {
+        "it": [
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg"
+        ],
+        "en": [
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg"
+        ],
+        "fr": [
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg"
+        ]
+      },
+      "previousSlugs": [
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg"
+      ]
     },
     {
       "id": "company-ycfbqu",

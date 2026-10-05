@@ -453,6 +453,9 @@ const BRAND_ALIAS_TO_CANONICAL = Object.freeze({
  'kzu-recruiting': 'kzu',
  'diakoniewerk-neumuenster': 'spital-zollikerberg',
  'capri-holdings-michael-kors-versace': 'michael-kors',
+ usi: 'usi-universita-della-svizzera-italiana',
+ 'ospedale-malcantonese-oscam-fondazione-giuseppe-rossi': 'oscam-ospedale-e-casa-anziani-malcantonese',
+ 'zurich-insurance-sede-ticino': 'zurich-insurance',
 });
 
 // Deployment-boundary mirror of build-plugins/shared/companyFollowGroups.mjs
