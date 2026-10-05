@@ -172,197 +172,6 @@ jobs:
           id_token_include_email: true
           create_credentials_file: false
           export_environment_variables: false
-      - name: Launch has-healthcare
-        id: crawler-launch-has-healthcare
-        if: always() && steps.crawler_group_setup.outcome == 'success'
-        continue-on-error: true
-        env:
-          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-has-healthcare.txt
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
-          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_HAS_HEALTHCARE_STRICT: ${{ inputs.strict_localization || '1' }}
-          CRAWLER_SLICE_ONLY: "1"
-          SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: has-healthcare
-          JOBS_SLICE_FILE: data/jobs/by-crawler/has-healthcare.json
-          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          JOBS_SOURCE_RELAY_URL: https://jobssourcerelay-cekssc5eoa-oa.a.run.app
-          JOBS_SOURCE_RELAY_ID_TOKEN: ${{ steps.source_relay_auth.outputs.id_token }}
-          JOBS_SOURCE_RELAY_REQUIRED: "1"
-        run: |-
-          set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-08"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/has-healthcare.sh"
-          launcher_path="$state_dir/has-healthcare.launcher.sh"
-          worker_path="$state_dir/has-healthcare.worker.sh"
-          log_path="$state_dir/has-healthcare.log"
-          pid_path="$state_dir/has-healthcare.pid"
-          status_path="$state_dir/has-healthcare.status"
-          started_path="$state_dir/has-healthcare.started"
-          watchdog_path="$state_dir/has-healthcare.watchdog"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/has-healthcare.crawl-exit"
-          # shellcheck disable=SC2016,SC1003
-          printf '%s\n' 'set -uo pipefail
-          set +e
-
-          # ---- has-healthcare: run crawler (verbatim from original workflow) ----
-          npm run jobs:update:has-healthcare
-          crawler_exit=$?
-          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
-            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
-            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
-              rm -f "$crawl_exit_tmp" 2>/dev/null
-              echo "::warning::has-healthcare: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
-            fi
-          fi
-          git_commit_exit=0
-
-          # ---- has-healthcare: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
-          if [ "$crawler_exit" -eq 0 ]; then
-            (node scripts/cleanup-jobs.mjs) || true
-          fi
-
-          # ---- has-healthcare: Commit and push (verbatim, only if crawler succeeded) ----
-          if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "🏢 Auto-update HAS Healthcare jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
-            git_commit_exit=$?
-          fi
-
-          # ---- has-healthcare: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
-              --title "Crawler Failure: Run has-healthcare" \
-              --description "## Crawler fallito
-            **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-            **Branch:** ${{ github.ref_name }}
-            **Trigger:** ${{ github.event_name }}" \
-              --priority 2 \
-              --label Bug \
-              --workflow "Run has-healthcare"
-          fi
-          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
-            echo "::warning::has-healthcare: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
-            echo "⚠️ has-healthcare: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
-          fi
-          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
-            echo "::warning::has-healthcare: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
-            echo "⚠️ has-healthcare: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
-          fi
-          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::has-healthcare: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
-            echo "❌ has-healthcare: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
-            exit 43
-          fi
-          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
-            echo "::warning::has-healthcare: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
-            echo "⚠️ has-healthcare: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
-            exit 143
-          fi
-
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            exit 1
-          fi
-          exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
-          printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.log"
-          : > "$started_file"
-          bash "$script_path"
-          crawler_exit=$?
-          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
-          mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
-          printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-08"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.watchdog"
-          worker_watchdog_max=330
-          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
-          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
-            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
-            worker_watchdog_minutes=30
-          fi
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
-          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
-            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
-            printf '\''1\n'\'' > "$status_tmp"
-            mv "$status_tmp" "$status_file"
-            exit 1
-          fi
-          if ! command -v timeout >/dev/null 2>&1; then
-            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
-            printf '\''127\n'\'' > "$status_tmp"
-            mv "$status_tmp" "$status_file"
-            exit 127
-          fi
-          if ! command -v flock >/dev/null 2>&1; then
-            echo "flock is unavailable; running this crawler without the group semaphore"
-            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
-            flock_exit=$?
-            if [ -s "$status_file" ]; then
-              status="$(cat "$status_file" 2>/dev/null || true)"
-              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
-            fi
-            terminal_exit="$flock_exit"
-            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
-            printf "%s\n" "$terminal_exit" > "$status_tmp"
-            mv "$status_tmp" "$status_file"
-            exit "$terminal_exit"
-          fi
-          while :; do
-            for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
-              flock_exit=$?
-              if [ "$flock_exit" -eq 0 ]; then
-                exit 0
-              fi
-              if [ -s "$status_file" ]; then
-                status="$(cat "$status_file" 2>/dev/null || true)"
-                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
-                printf '\''1\n'\'' > "$status_tmp"
-                mv "$status_tmp" "$status_file"
-                exit 1
-              fi
-              if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
-                terminal_exit="$flock_exit"
-                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
-                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
-                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
-                mv "$status_tmp" "$status_file"
-                exit "$terminal_exit"
-              fi
-              if [ "$flock_exit" -ne 1 ]; then
-                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
-                mv "$status_tmp" "$status_file"
-                exit "$flock_exit"
-              fi
-            done
-            sleep 1
-          done' > "$launcher_path"
-          if command -v setsid >/dev/null 2>&1; then
-            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
-          else
-            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
-          fi
-          launcher_pid=$!
-          printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch salina-reha
         id: crawler-launch-salina-reha
         if: always() && steps.crawler_group_setup.outcome == 'success'
@@ -4649,6 +4458,197 @@ jobs:
           while :; do
             for slot_index in $(seq 1 "$max_parallel"); do
               slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch has-healthcare
+        id: crawler-launch-has-healthcare
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-has-healthcare.txt
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
+          JOBS_HAS_HEALTHCARE_STRICT: ${{ inputs.strict_localization || '1' }}
+          CRAWLER_SLICE_ONLY: "1"
+          SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
+          JOBS_HOUSEKEEPING_SCOPE: has-healthcare
+          JOBS_SLICE_FILE: data/jobs/by-crawler/has-healthcare.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          JOBS_SOURCE_RELAY_URL: https://jobssourcerelay-cekssc5eoa-oa.a.run.app
+          JOBS_SOURCE_RELAY_ID_TOKEN: ${{ steps.source_relay_auth.outputs.id_token }}
+          JOBS_SOURCE_RELAY_REQUIRED: "1"
+        run: |-
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-08"
+          mkdir -p "$state_dir/slots"
+          script_path="$state_dir/has-healthcare.sh"
+          launcher_path="$state_dir/has-healthcare.launcher.sh"
+          worker_path="$state_dir/has-healthcare.worker.sh"
+          log_path="$state_dir/has-healthcare.log"
+          pid_path="$state_dir/has-healthcare.pid"
+          status_path="$state_dir/has-healthcare.status"
+          started_path="$state_dir/has-healthcare.started"
+          watchdog_path="$state_dir/has-healthcare.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
+          rm -f "$state_dir/has-healthcare.crawl-exit"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
+          set +e
+
+          # ---- has-healthcare: run crawler (verbatim from original workflow) ----
+          npm run jobs:update:has-healthcare
+          crawler_exit=$?
+          if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
+            crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
+            if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
+              rm -f "$crawl_exit_tmp" 2>/dev/null
+              echo "::warning::has-healthcare: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+            fi
+          fi
+          git_commit_exit=0
+
+          # ---- has-healthcare: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          if [ "$crawler_exit" -eq 0 ]; then
+            (node scripts/cleanup-jobs.mjs) || true
+          fi
+
+          # ---- has-healthcare: Commit and push (verbatim, only if crawler succeeded) ----
+          if [ "$crawler_exit" -eq 0 ]; then
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "🏢 Auto-update HAS Healthcare jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
+            git_commit_exit=$?
+          fi
+
+          # ---- has-healthcare: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+              --title "Crawler Failure: Run has-healthcare" \
+              --description "## Crawler fallito
+            **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            **Branch:** ${{ github.ref_name }}
+            **Trigger:** ${{ github.event_name }}" \
+              --priority 2 \
+              --label Bug \
+              --workflow "Run has-healthcare"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::has-healthcare: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ has-healthcare: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::has-healthcare: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ has-healthcare: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::has-healthcare: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ has-healthcare: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
+          fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::has-healthcare: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ has-healthcare: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
+
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+            exit 1
+          fi
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.log"
+          : > "$started_file"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-08"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-08/has-healthcare.watchdog"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
+            worker_watchdog_minutes=30
+          fi
+          max_parallel=1
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/relay-has-healthcare.lock"
               flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
               flock_exit=$?
               if [ "$flock_exit" -eq 0 ]; then

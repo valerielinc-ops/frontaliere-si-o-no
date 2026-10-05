@@ -1300,6 +1300,11 @@ function isCrawlerLaunchStep(step) {
 export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
   const nn = String(groupIndex).padStart(2, '0');
   const slug = crawler.slug;
+  // A relay member must use its one-hour Google ID token soon after the auth
+  // step minted it, so it never queues behind the group's shared slots: it
+  // takes a private one-process slot and starts as soon as it is launched.
+  // Launch order (and therefore the pinned member order) stays unchanged.
+  const dedicatedSlot = SOURCE_RELAY_SLUG_SET.has(slug);
   const body = buildCrawlerShellBody(crawler);
   // Keyed by the roster crawler id (JOBS_HOUSEKEEPING_SCOPE, the identity the
   // receipts carry), not by the slug: for the step-id overrides the two differ
@@ -1339,7 +1344,9 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     `  echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default ${watchdogMinutes})"`,
     `  worker_watchdog_minutes=${watchdogMinutes}`,
     'fi',
-    `max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-${CRAWLER_GROUP_MAX_PARALLEL}}"`,
+    dedicatedSlot
+      ? 'max_parallel=1'
+      : `max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-${CRAWLER_GROUP_MAX_PARALLEL}}"`,
     'if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then',
     '  echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"',
     '  printf \'1\\n\' > "$status_tmp"',
@@ -1369,7 +1376,9 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     'fi',
     'while :; do',
     '  for slot_index in $(seq 1 "$max_parallel"); do',
-    '    slot_path="$state_dir/slots/slot-${slot_index}.lock"',
+    dedicatedSlot
+      ? `    slot_path="$state_dir/slots/relay-${slug}.lock"`
+      : '    slot_path="$state_dir/slots/slot-${slot_index}.lock"',
     '    flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"',
     '    flock_exit=$?',
     '    if [ "$flock_exit" -eq 0 ]; then',
@@ -2158,19 +2167,15 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCom
     run: 'true',
   });
 
-  // Relay members launch first, right after their token is minted: the first
-  // launchers take free group slots immediately, so the one-hour Google ID
-  // token is used within minutes instead of after a queue behind 27 siblings.
+  // The token is minted right before the launch steps, which all fire within
+  // a minute or two; relay members then start at once on a private slot (see
+  // buildCrawlerLaunchShellBody), so the one-hour token is used fresh.
   const relayMembers = sourceRelayMembers(group.members);
   if (relayMembers.length > 0) {
     steps.push(sourceRelayAuthStep(relayMembers.map((crawler) => crawler.slug)));
   }
-  const launchOrder = [
-    ...relayMembers,
-    ...group.members.filter((crawler) => !SOURCE_RELAY_SLUG_SET.has(crawler.slug)),
-  ];
 
-  for (const crawler of launchOrder) {
+  for (const crawler of group.members) {
     const launchStepId = `crawler-launch-${crawler.slug}`;
     const summaryFile = `/tmp/slug-history-summary-${crawler.slug}.txt`;
 

@@ -103,14 +103,13 @@ describe('crawler groups: WIF auth for the jobs source relay', () => {
     }
   });
 
-  it('relay members launch first, after the token, with the fail-closed env', () => {
+  it('relay members start on a private slot, after the token, with the fail-closed env', () => {
     for (const { file, job } of artifacts) {
       const relays = relayLaunches(job);
       if (relays.length === 0) continue;
       const steps = job.steps as any[];
       const authAt = steps.findIndex((step) => step.id === SOURCE_RELAY_AUTH_STEP_ID);
       const launches = launchSteps(job);
-      expect(launches.slice(0, relays.length).map((step) => step.id), file).toEqual(relays.map((step) => step.id));
       expect(authAt, file).toBeLessThan(steps.indexOf(launches[0]));
       for (const step of relays) {
         expect(step.env, `${file} ${step.id}`).toMatchObject({
@@ -120,9 +119,15 @@ describe('crawler groups: WIF auth for the jobs source relay', () => {
         });
         // A failed auth must not skip siblings: launches keep their own guard.
         expect(step['continue-on-error'], `${file} ${step.id}`).toBe(true);
+        // The token lives one hour: the member never queues on shared slots.
+        const slug = step.id.replace(/^crawler-launch-/u, '');
+        expect(step.run, `${file} ${step.id}`).toContain(`slots/relay-${slug}.lock`);
+        expect(step.run, `${file} ${step.id}`).not.toContain('slots/slot-${slot_index}.lock');
       }
-      for (const step of launches.slice(relays.length)) {
+      for (const step of launches.filter((launch) => !relays.includes(launch))) {
         expect(Object.keys(step.env ?? {}).filter((key) => key.startsWith('JOBS_SOURCE_RELAY_')), `${file} ${step.id}`).toEqual([]);
+        expect(step.run, `${file} ${step.id}`).toContain('slots/slot-${slot_index}.lock');
+        expect(step.run, `${file} ${step.id}`).not.toContain('slots/relay-');
       }
     }
   });
