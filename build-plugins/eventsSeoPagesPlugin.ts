@@ -83,6 +83,10 @@ import {
   cleanEventText,
 } from '../scripts/lib/events-utils.mjs';
 import { allEndedEvents, assignEventSlugsForHistory } from '../scripts/lib/events-retention.mjs';
+// Eventfrog (owner decision D5, AGB §17): ephemeral pages from a private
+// snapshot, never part of data/events.json, never archived, never in digests.
+import { PRIVATE_EVENT_SOURCES, withoutPrivateEvents } from '../scripts/lib/private-event-sources.mjs';
+import { loadEphemeralEvents } from '../scripts/lib/private-event-snapshots.mjs';
 export { cleanEventText } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
@@ -158,6 +162,57 @@ interface SiteEvent {
   imageCredit?: string;
   /** Source-stated status other than scheduled. */
   eventStatus?: 'cancelled' | 'postponed';
+  /** Eventfrog snapshot records are live-only and never enter the archive. */
+  ephemeral?: boolean;
+}
+
+function isEphemeralEvent(event: SiteEvent): boolean {
+  return event.ephemeral === true;
+}
+
+/** Attribution record of an event's source (public registry, then private). */
+function eventSourceRecord(sourceKey: string): { key: string; label: string; homepage: string } {
+  return EVENT_SOURCES[sourceKey] || (PRIVATE_EVENT_SOURCES as Record<string, { key: string; label: string; homepage: string }>)[sourceKey] || SOURCE;
+}
+
+/**
+ * Detail slugs of one live (canton, comune) list. Public events are slugged
+ * exactly as if no ephemeral event existed, so a public URL never moves when
+ * the private snapshot changes; ephemeral events are slugged after them,
+ * around every slug the public events took.
+ */
+export function assignLiveEventSlugs(list: SiteEvent[]): Map<string, string> {
+  const publicList = list.filter((ev) => !isEphemeralEvent(ev));
+  const slugs = assignEventSlugs(publicList);
+  const ephemeralList = list.filter(isEphemeralEvent);
+  if (ephemeralList.length > 0) {
+    const ephemeralSlugs = assignEventSlugs(ephemeralList, new Set(slugs.values()));
+    for (const [id, slug] of ephemeralSlugs) slugs.set(id, slug);
+  }
+  return slugs;
+}
+
+/**
+ * The three event sets of one build. Ephemeral events join the live listing
+ * and their own detail page; the archive (`past`) and the digests read the
+ * public dataset only.
+ */
+export function partitionEventsForBuild(
+  datasetEvents: SiteEvent[],
+  ephemeralEvents: SiteEvent[],
+  dateStamp: string,
+): { all: SiteEvent[]; pastEvents: SiteEvent[] } {
+  const publicEvents = withoutPrivateEvents(datasetEvents) as SiteEvent[];
+  const ephemeral = ephemeralEvents.filter(isEphemeralEvent);
+  return {
+    all: upcomingEvents([...publicEvents, ...ephemeral], dateStamp) as SiteEvent[],
+    pastEvents: allEndedEvents(publicEvents, dateStamp) as SiteEvent[],
+  };
+}
+
+/** Events a time-window digest may list: never an ephemeral one (AGB §17(6)). */
+export function digestEligibleEvents(events: SiteEvent[]): SiteEvent[] {
+  return events.filter((ev) => !isEphemeralEvent(ev));
 }
 
 const EVENT_STATUS_LD: Record<NonNullable<SiteEvent['eventStatus']>, string> = {
@@ -1134,7 +1189,7 @@ function esc(value: unknown): string {
 function distinctEventSources(events: SiteEvent[]): Array<{ key: string; label: string; homepage: string }> {
   const seen = new Map<string, { key: string; label: string; homepage: string }>();
   for (const e of events) {
-    const src = EVENT_SOURCES[e.sourceKey] || SOURCE;
+    const src = eventSourceRecord(e.sourceKey);
     if (!seen.has(src.key)) seen.set(src.key, { key: src.key, label: src.label, homepage: src.homepage });
   }
   if (seen.size === 0) seen.set(SOURCE.key, { key: SOURCE.key, label: SOURCE.label, homepage: SOURCE.homepage });
@@ -1295,13 +1350,16 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const rawDescription = localizedDescription(event, locale);
   const description =
     rawDescription && rawDescription.trim().length >= 30 ? rawDescription.trim() : synthDescription;
-  const eventWithDefaults = fillEventPeopleDefaults(event, EVENT_SOURCES[event.sourceKey] || SOURCE) as SiteEvent;
+  const eventWithDefaults = fillEventPeopleDefaults(event, eventSourceRecord(event.sourceKey)) as SiteEvent;
   const eventImage = mirroredEventImageObject(event) ?? catalogImageObjectLd(event.category, locale);
   const confidentPrice = hasConfidentPrice(event.price);
+  // A "lowest ticket price" field (Eventfrog lowestTicketPrice) is a floor,
+  // not THE price: AggregateOffer.lowPrice says exactly that.
+  const lowestOnly = confidentPrice && isLowestPrice(event.price);
   const offer = (confidentPrice || event.structuredDataDefaultsApplied)
     ? {
-      '@type': 'Offer',
-      ...(confidentPrice ? { price: event.price!.isFree ? 0 : event.price!.amount } : {}),
+      '@type': lowestOnly ? 'AggregateOffer' : 'Offer',
+      ...(confidentPrice ? (lowestOnly ? { lowPrice: event.price!.amount } : { price: event.price!.isFree ? 0 : event.price!.amount }) : {}),
       priceCurrency: event.price?.currency || 'CHF',
       availability: event.price?.availability || 'https://schema.org/InStock',
       validFrom: event.price?.validFrom || event.startDate,
@@ -3184,12 +3242,21 @@ function osmLink(event: SiteEvent, comune: string): { href: string; place: strin
   return { href: `https://www.openstreetmap.org/search?query=${encodeURIComponent(query)}`, place };
 }
 
-function priceLine(event: SiteEvent, dc: DetailCopy): string {
+/** Fields whose amount is the CHEAPEST ticket, rendered "da CHF X" / `AggregateOffer.lowPrice`. */
+const LOWEST_PRICE_FIELDS = new Set(['lowestTicketPrice', 'offers.lowPrice']);
+const PRICE_FROM: Record<Locale, string> = { it: 'da', en: 'from', de: 'ab', fr: 'dès' };
+
+function isLowestPrice(price: EventPrice | undefined): boolean {
+  return Boolean(price && !price.isFree && price.priceField && LOWEST_PRICE_FIELDS.has(price.priceField));
+}
+
+function priceLine(event: SiteEvent, dc: DetailCopy, locale: Locale): string {
   // Keep the visible price confidence gate separate from the detail-page
   // structured-data fallback: an ambiguous price renders nothing rather than
   // a bare "CHF" with no amount.
   if (!hasConfidentPrice(event.price)) return '';
-  const value = event.price!.isFree ? dc.freeLabel : `${event.price!.currency || 'CHF'} ${event.price!.amount}`.trim();
+  const amount = `${event.price!.currency || 'CHF'} ${event.price!.amount}`.trim();
+  const value = event.price!.isFree ? dc.freeLabel : isLowestPrice(event.price) ? `${PRICE_FROM[locale]} ${amount}` : amount;
   return renderMetric(dc.priceLabel, esc(value));
 }
 
@@ -3341,7 +3408,7 @@ export function renderEventDetailPage(params: {
       ${renderMetric(dc.whereLabel, esc(event.venue || displayComune))}
       ${renderMetric(dc.catLabel, esc(cat))}
       ${renderMetric(dc.comuneLabel, esc(displayComune))}
-      ${priceLine(event, dc)}
+      ${priceLine(event, dc, locale)}
       ${addressLine(event, dc)}
     </dl>
 
@@ -3352,6 +3419,7 @@ export function renderEventDetailPage(params: {
       <a class="ev-btn2" href="${comunePath}">${esc(dc.allInComune(displayComune))} →</a>
     </section>
     ${renderOpenAgendaAttribution(event, locale)}
+    ${isEphemeralEvent(event) ? `<p class="ev-p-sm">${esc(copy.source)}: <a class="ev-lnk" href="${esc(eventReferralUrl(event.url, event))}" rel="nofollow noopener" target="_blank">${esc(eventSourceRecord(event.sourceKey).label)}</a></p>` : ''}
 
     <section class="ev-copy">
       <h2 class="ev-h2b">${esc(dc.aboutTitle)}</h2>
@@ -4036,8 +4104,12 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       // at all 4. See build-plugins/constants.ts BUILD_DATE_STAMP doc.
       const dateStamp = BUILD_DATE_STAMP;
       const dataset = loadEventsDataset();
-      const all = upcomingEvents(dataset.events, dateStamp) as SiteEvent[];
-      const pastEvents = allEndedEvents(dataset.events, dateStamp) as SiteEvent[];
+      const ephemeralEvents = loadEphemeralEvents({
+        publicEvents: withoutPrivateEvents(dataset.events),
+        dateStamp,
+        log: (msg: string) => console.log(`\x1b[36m[events-pages]\x1b[0m ${msg}`),
+      }) as SiteEvent[];
+      const { all, pastEvents } = partitionEventsForBuild(dataset.events as SiteEvent[], ephemeralEvents, dateStamp);
 
       if (all.length === 0 && pastEvents.length === 0) {
         console.log('\x1b[36m[events-pages]\x1b[0m no retained events in data/events.json — skipped (run scripts/crawl-tio-agenda.mjs)');
@@ -4090,9 +4162,11 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         const byComune = groupByComune(byCanton.get(canton)!) as Map<string, SiteEvent[]>;
         byCantonComune.set(canton, byComune);
         for (const [comune, list] of byComune) {
-          const slugs = assignEventSlugs(list);
-          liveSlugMigrations.push(...changedEventSlugMigrations(list, canton, comune, slugs));
-          liveSlugMigrations.push(...historicalEventSlugMigrations(list, canton, comune, slugs));
+          const slugs = assignLiveEventSlugs(list);
+          // Ephemeral pages leave no bridge behind: migrations are public-only.
+          const publicList = list.filter((ev) => !isEphemeralEvent(ev));
+          liveSlugMigrations.push(...changedEventSlugMigrations(publicList, canton, comune, slugs));
+          liveSlugMigrations.push(...historicalEventSlugMigrations(publicList, canton, comune, slugs));
           for (const ev of list) {
             detailSlugs.set(ev.id, { canton, comune, slug: slugs.get(ev.id)! });
           }
@@ -4101,9 +4175,10 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         const otherEvents = byCanton.get(canton)!.filter((e) => !e.comune);
         if (otherEvents.length > 0) {
           otherEventsByCanton.set(canton, otherEvents);
-          const slugs = assignEventSlugs(otherEvents);
-          liveSlugMigrations.push(...changedEventSlugMigrations(otherEvents, canton, OTHER_EVENTS_COMUNE_KEY, slugs));
-          liveSlugMigrations.push(...historicalEventSlugMigrations(otherEvents, canton, OTHER_EVENTS_COMUNE_KEY, slugs));
+          const slugs = assignLiveEventSlugs(otherEvents);
+          const publicOther = otherEvents.filter((ev) => !isEphemeralEvent(ev));
+          liveSlugMigrations.push(...changedEventSlugMigrations(publicOther, canton, OTHER_EVENTS_COMUNE_KEY, slugs));
+          liveSlugMigrations.push(...historicalEventSlugMigrations(publicOther, canton, OTHER_EVENTS_COMUNE_KEY, slugs));
           for (const ev of otherEvents) {
             detailSlugs.set(ev.id, { canton, comune: OTHER_EVENTS_COMUNE_KEY, slug: slugs.get(ev.id)! });
           }
@@ -4184,7 +4259,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         // events.length, since the static chrome alone always clears
         // MIN_INDEXABLE_WORDS). Shared across locales, so all 4 hreflang
         // alternates stay consistent (no noindex straddle).
-        const digestEvents = new Map(DIGESTS.map((d) => [d.key, d.filter(events, { todayIso: dateStamp })]));
+        const digestEvents = new Map(DIGESTS.map((d) => [d.key, d.filter(digestEligibleEvents(events), { todayIso: dateStamp })]));
 
         // The ladder of this canton, counted ONCE per locale (#7742). Everything
         // downstream — the hub pills and the emit loop — reads this map instead
@@ -4380,7 +4455,10 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           // reuse — the slug that is still the CURRENT live/indexed URL
           // for that sibling. See reserveLiveSiblingSlugs() doc for why this
           // must use the actual assigned slug, not the raw base.
-          const reservedBaseSlugs = reserveLiveSiblingSlugs(liveSameComune, detailSlugs);
+          // Public siblings only: an archive slug must not depend on the
+          // private snapshot (selectEphemeralEvents already drops any
+          // ephemeral event whose slug equals a public one, past included).
+          const reservedBaseSlugs = reserveLiveSiblingSlugs(liveSameComune.filter((ev) => !isEphemeralEvent(ev)), detailSlugs);
           const pastSlugFor = assignEventSlugs(list, reservedBaseSlugs);
           for (const ev of list) {
             const slug = pastSlugFor.get(ev.id)!;
