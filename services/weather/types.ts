@@ -200,8 +200,8 @@ function parseCityWeather(o: unknown, path: string): ParsedSnapshot<CityWeather>
   // scartarli qui li toglierebbe anche alle citta' riprese dallo snapshot
   // precedente in `mergeWithPrevious`.
   const extra = {
-    ...(isStr(o.canton) ? { canton: o.canton } : {}),
-    ...(isStr(o.name) ? { name: o.name } : {}),
+    ...(isStr(o.canton) && o.canton.trim() ? { canton: o.canton.trim() } : {}),
+    ...(isStr(o.name) && o.name.trim() ? { name: o.name.trim() } : {}),
   };
   return { ok: true, value: { cityId: id.value, ...extra, current: cur.value, hourly24: hourly, daily7: daily, sources: srcs.value, confidence: conf.value, generatedAt: ts.value } };
 }

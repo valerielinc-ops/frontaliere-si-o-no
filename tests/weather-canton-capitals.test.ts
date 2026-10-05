@@ -45,4 +45,23 @@ describe('capoluoghi cantonali nello snapshot meteo (P9f)', () => {
     // una registrazione senza i campi resta valida e senza campi inventati
     expect(parsed.value.cities.como.canton).toBeUndefined();
   });
+
+  it('peso: con l\'orario solo per le citta\' con pagina lo snapshot resta nel budget di 200 KiB del writer', () => {
+    // Misura riproducibile: ogni capoluogo riceve la STESSA risposta (quella di
+    // Lugano nello snapshot committato) e si serializza come update-weather.ts
+    // (JSON indentato a 2). Baseline: orario per tutti; PR: orario omesso ai capoluoghi.
+    const snap = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/weather-snapshot.json'), 'utf8'));
+    const lugano = snap.cities.lugano;
+    const build = (dropHourly: boolean) => {
+      const cities: Record<string, unknown> = { ...snap.cities };
+      for (const c of WEATHER_CANTON_CAPITALS) {
+        cities[c.id] = { ...lugano, cityId: c.id, canton: c.canton, name: c.name, hourly24: dropHourly ? [] : lugano.hourly24 };
+      }
+      return Buffer.byteLength(JSON.stringify({ ...snap, cities }, null, 2));
+    };
+    const baseline = build(false);
+    const pr = build(true);
+    console.log(`[weather-snapshot bytes] baseline orario-per-tutti=${baseline} pr=${pr} budget=204800`);
+    expect(pr).toBeLessThanOrEqual(200 * 1024);
+  });
 });
