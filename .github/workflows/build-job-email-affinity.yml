@@ -111,6 +111,20 @@ jobs:
           if [ "${DRY_RUN:-false}" = "true" ]; then args+=(--dry-run); fi
           node scripts/build-job-email-affinity.mjs "${args[@]}"
 
+      # Metà di chiusura della issue sotto (tests/failure-issue-closers.test.ts):
+      # stesso titolo, risolta al primo giro pulito.
+      - name: Resolve the failure issue on a clean run
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "job_email_affinity: profilo di affinità dai clic non costruito" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --resolve
+
       - name: Report failure to GitHub Issues
         if: failure()
         continue-on-error: true
