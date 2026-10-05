@@ -98891,6 +98891,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-a2-rumore-galbisio': {
+    title: 'A2 e rumore: Città pianifica la terrazza di Galbisio',
+    description: 'Galbisio, A2 e rumore: la Città tutela la frazione dall’impatto fonico e paesaggistico dell’autostrada, dopo l’avallo del Pab5 e il primo passo formale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rumore, città, pianifica, terrazza',
+    ogTitle: 'A2 e rumore: Città pianifica la terrazza di Galbisio',
+    ogDescription: 'La Città ribadisce la volontà di proteggere Galbisio dall’impatto fonico e paesaggistico dell’A2. Il municipale Lepori indica nella pianificazione della terrazza il primo passo formale dopo l’avallo del Pab5, mentre la notizia resta legata alla fase',
+    canonicalPath: '/articoli-frontaliere/a2-rumore-galbisio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A2 e rumore: Città pianifica la terrazza di Galbisio",
+      "description": "Galbisio, A2 e rumore: la Città tutela la frazione dall’impatto fonico e paesaggistico dell’autostrada, dopo l’avallo del Pab5 e il primo passo formale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/a2-rumore-galbisio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "A2 e paesaggio della frazione di Galbisio nel Bellinzonese"
+      },
+      "datePublished": "2026-10-05T03:49:11+00:00",
+      "dateModified": "2026-10-05T03:49:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a2-rumore-galbisio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
