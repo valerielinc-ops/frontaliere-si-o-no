@@ -469,6 +469,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     roots: ['data/jobs-crawler-summaries/', 'data/jobs/'],
     reason: 'same sandbox as assemble-translation-hold: the slice and summary writers run as child processes with cwd in an fs.mkdtempSync directory, and writeJson/readJson resolve every data/jobs and data/jobs-crawler-summaries path under it. From the checkout it copies only the assembler code closure and ASSEMBLE_AUX_DATA_INPUTS, none of them under a live root (PR 11517)',
   },
+  {
+    file: 'tests/crawler-retranslation-baseline.test.ts',
+    roots: ['data/jobs/'],
+    reason: 'data/jobs/by-crawler is written and read under an fs.mkdtempSync root, and seedCrawlerSlicesFromDataJobs resolves every slice under the root it is given. From the checkout the test reads only the pinned pairs in tests/fixtures/crawler-retranslation-flag/ and the source of three scripts/ files (PR 11540)',
+  },
 ]);
 
 
