@@ -51,7 +51,7 @@ export const MIN_SOURCE_TEXT_CHARS = 200;
 export const USER_AGENT = 'frontaliereticino-l6-source-check/1.0 (+https://frontaliereticino.ch/; deterministic figure check of a cited source)';
 export const SKIP_REASONS = ['no-citation', 'no-figures', 'fetch-failed', 'source-unreadable', 'locale-missing'];
 
-const RAW_ARTICLES_START = /const\s+RAW_ARTICLES\s*=\s*\[/;
+const RAW_ARTICLES_START = /const\s+RAW_ARTICLES(?:\s*:\s*Article\[\])?\s*=\s*\[/;
 const ARTICLE_OBJECT = /\{([^{}]*)\}/g;
 
 function field(objectText, name) {
