@@ -306,9 +306,24 @@ describe('il pull cabla davvero la preservazione delle voci', () => {
     const iSnapshot = src.indexOf('localOnlyIds({');
     const iMirror = src.indexOf('mirrorTree(src, DEST');
     const iMerge = src.indexOf('mergeEntries(');
+    const iChunk = src.lastIndexOf('splitBlogArticleRegistry()');
     expect(iSnapshot).toBeGreaterThan(-1);
     expect(iMirror).toBeGreaterThan(iSnapshot);
     expect(iMerge).toBeGreaterThan(iMirror);
+    expect(iChunk).toBeGreaterThan(iMerge);
+  });
+
+  it('riapplica il filtro delle retirement dopo aver aggiunto le chiavi SEO locali', () => {
+    const iSeoKeys = src.indexOf('const localSeoKeys =');
+    const iRetirementFilter = src.lastIndexOf('dropLedgeredRetirements(preserveIdsForSnapshots');
+    expect(iSeoKeys).toBeGreaterThan(-1);
+    expect(iRetirementFilter).toBeGreaterThan(iSeoKeys);
+  });
+
+  it('ripristina una superficie locale quando il file SEO non esiste upstream', () => {
+    expect(src).toContain('const upstreamPath = path.join(src, snap.rel);');
+    expect(src).toContain('if (!fs.existsSync(upstreamPath))');
+    expect(src).toContain('restored local-only file');
   });
 
   it('rifiuta invece di degradare quando una superficie non e\' ricomponibile', () => {
