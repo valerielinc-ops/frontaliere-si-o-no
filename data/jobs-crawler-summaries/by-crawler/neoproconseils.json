@@ -1,7 +1,7 @@
 {
   "key": "neoproconseils",
   "label": "NEO Pro conseils SA",
-  "generatedAt": "2026-10-04T21:16:00.881Z",
+  "generatedAt": "2026-10-05T09:14:15.719Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6223,
-  "avgDurationMs": 6223,
+  "durationMs": 6626,
+  "avgDurationMs": 6626,
   "durationHistory": [
-    6223
+    6626
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +35,7 @@
       "url": "https://neoproconseils.ch/emplois/macon-genie-civil-h-f-ref-75114/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:15:52.467Z",
+      "crawledAt": "2026-10-05T09:14:07.101Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "Suisse",
@@ -46,7 +48,9 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "2026-08-13T15:43:30+02:00",
+      "postedDate": "2026-08-13T15:43:30+02:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://neoproconseils.ch/emplois/macon-genie-civil-h-f-ref-75114/",
       "firstSeenAt": "2026-09-23T23:35:57.253Z",
       "salaryMin": 60500,
@@ -72,7 +76,7 @@
       "url": "https://neoproconseils.ch/emplois/installateur-electricien-h-f-ref-75124/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:15:52.466Z",
+      "crawledAt": "2026-10-05T09:14:07.099Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "Suisse",
@@ -85,7 +89,9 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "2026-09-14T13:46:12+02:00",
+      "postedDate": "2026-09-14T13:46:12+02:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://neoproconseils.ch/emplois/installateur-electricien-h-f-ref-75124/",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:35:57.252Z",
@@ -103,5 +109,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
