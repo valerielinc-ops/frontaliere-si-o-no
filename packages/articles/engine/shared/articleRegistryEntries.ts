@@ -59,7 +59,7 @@ export function parseArticleRegistryEntries(source: string): ArticleRegistryEntr
     const category = stringField(body, 'category');
     const date = stringField(body, 'date');
     const image = stringField(body, 'image');
-    if (!category || date === undefined || !image) continue;
+    if (category === undefined || date === undefined || !image) continue;
     const updatedAt = stringField(body, 'updatedAt');
     seen.add(id);
     out.push(updatedAt === undefined ? { id, category, date, image } : { id, category, date, image, updatedAt });
