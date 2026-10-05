@@ -236,14 +236,21 @@ function serializeOrder(doc, cvUrl) {
   };
 }
 
+const CANDIDATE_SUBMITTED_STATUSES = new Set([
+  'ready_for_manual_submission',
+  'in_progress',
+  'submitted',
+  'blocked',
+]);
+
 /**
  * The state shown by AssistedApplicationUpload for this order. Keep the
- * precedence identical to the candidate page: a queued submission wins over
- * payment, then a confirmed payment wins over the waiting/error states.
+ * precedence identical to the candidate page: a submission already taken in
+ * charge wins over payment, then a confirmed payment wins over waiting/error.
  */
 function candidatePageStateFor(order) {
   const submissionStatus = statusFor(order);
-  if (submissionStatus === 'ready_for_manual_submission') return 'submitted';
+  if (CANDIDATE_SUBMITTED_STATUSES.has(submissionStatus)) return 'submitted';
   if (order?.paymentStatus === 'paid') return 'paid';
   if (order?.paymentStatus === 'failed' || order?.paymentStatus === 'refunded') return 'error';
   return 'pending';

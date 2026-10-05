@@ -238,31 +238,30 @@ describe('handleAssistedApplicationAdmin', () => {
     expect(missing).toEqual({ status: 404, body: { ok: false, error: 'order_not_found' } });
   });
 
-  it('keeps the candidate page precedence when the order is queued for submission', async () => {
+  it('keeps the candidate page precedence once submission is taken in charge', async () => {
     const database = makeDb({
-      received: {
+      ready: {
         paymentStatus: 'paid',
         submissionStatus: 'ready_for_manual_submission',
         updatedAt: '2026-09-15T10:05:00.000Z',
       },
+      in_progress: { paymentStatus: 'paid', submissionStatus: 'in_progress' },
+      submitted: { paymentStatus: 'paid', submissionStatus: 'submitted' },
+      blocked: { paymentStatus: 'paid', submissionStatus: 'blocked' },
     });
     mocks.getAdminDb.mockReturnValue(database.db);
 
-    const result = await handleAssistedApplicationAdmin(request({
-      method: 'POST',
-      body: { action: 'candidateView', orderId: 'received' },
-    }));
+    for (const orderId of ['ready', 'in_progress', 'submitted', 'blocked']) {
+      const result = await handleAssistedApplicationAdmin(request({
+        method: 'POST',
+        body: { action: 'candidateView', orderId },
+      }));
 
-    expect(result).toMatchObject({
-      status: 200,
-      body: {
-        candidateView: {
-          pageState: 'submitted',
-          submissionStatus: 'ready_for_manual_submission',
-          updatedAt: '2026-09-15T10:05:00.000Z',
-        },
-      },
-    });
+      expect(result).toMatchObject({
+        status: 200,
+        body: { candidateView: { orderId, pageState: 'submitted', submissionStatus: orderId === 'ready' ? 'ready_for_manual_submission' : orderId } },
+      });
+    }
   });
 
   it('never hides a paid order and withholds only CV links with a bad or pending verdict', async () => {
