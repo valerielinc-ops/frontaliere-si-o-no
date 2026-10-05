@@ -55,6 +55,8 @@
  * listing-tile field; the parser does not write it into the description as a
  * sentence of its own ("Marke der Planzer-Gruppe: X.", issue 5253).
  */
+import { extractJsonLd } from './prospector/extract.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, fetchHtml, normalizeSpace as templateNormalizeSpace } from './crawler-template.mjs';
@@ -372,11 +374,17 @@ export function extractPlanzerDetailContent(html = '') {
   };
 }
 
-async function fetchDetail(detailUrl) {
+async function fetchDetail(detailUrl, expectedTitle) {
   try {
     const html = await fetchHtml(detailUrl);
     if (!html) return { description: '', locationText: '' };
-    return extractPlanzerDetailContent(html);
+    const records = extractJsonLd(html, detailUrl);
+    const matched = records.find(record => {
+      if (normalizeSpace(record.title || '').toLowerCase() !== normalizeSpace(expectedTitle).toLowerCase()) return false;
+      if (!record.urlExplicit) return records.length === 1;
+      try { return new URL(record.url, detailUrl).href === new URL(detailUrl).href; } catch { return false; }
+    });
+    return { ...extractPlanzerDetailContent(html), ...mergeSourcePostingDates({}, matched) };
   } catch (err) {
     console.warn(` ⚠️ Planzer detail fetch failed (${detailUrl}): ${err?.message || err}`);
     return { description: '', locationText: '' };
@@ -416,14 +424,14 @@ export async function fetchAllPlanzerJobs() {
   console.log(`   ✓ ${rows.length} Solique tiles parsed`);
   if (!rows.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
 
   for (let i = 0; i < rows.length; i += 1) {
     const r = rows[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
 
-    const { description: detailDescription, locationText } = await fetchDetail(r.detailUrl);
+    const detail = await fetchDetail(r.detailUrl, r.title);
+    const { description: detailDescription, locationText } = detail;
     const { city, postalCode, streetAddress, region } = resolveAddress(r.location, locationText);
 
     const hasLocationText = !!(normalizeSpace(r.location) || normalizeSpace(locationText));
@@ -483,7 +491,7 @@ export async function fetchAllPlanzerJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: r.detailUrl,
       externalId: r.id,
       requirements: [],

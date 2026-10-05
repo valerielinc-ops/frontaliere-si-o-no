@@ -26,7 +26,7 @@
  * for secondary sites, e.g. "Zermatt" / "Seewen-Schwyz" / "Delémont").
  * Department is embedded in the listing link's `title` attribute suffix
  * (`"... (Ref. : 2026-245) - Product"`). No posted date in the listing, so
- * we default to today. Detail page content lives under
+ * publication stays unknown without explicit detail metadata. Content lives under
  * `id="contenu-ficheoffre"` and holds structured German/French prose
  * (Beschreibung der Aufgaben / Profil / Benefits / Einsatzort der Stelle).
  *
@@ -39,6 +39,8 @@
  * table, since these secondary sites are well documented but their exact
  * street is not published per-posting).
  */
+import { extractJsonLd } from './prospector/extract.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, normalizeDescriptionBullets } from './crawler-template.mjs';
@@ -260,14 +262,19 @@ export function extractVictorinoxDetailDescription(html = '') {
   return normalizeDescriptionBullets(normalizeSpace(htmlToText(extractTalentsoftOfferHtml(html))));
 }
 
-async function fetchDetailDescription(detailUrl) {
+async function fetchDetailFields(detailUrl, expectedTitle) {
   try {
     const html = await fetchHtml(detailUrl);
-    if (!html) return '';
-    return extractVictorinoxDetailDescription(html);
+    const records = extractJsonLd(html || '', detailUrl);
+    const matched = records.find(record => {
+      if (normalizeSpace(record.title || '').toLowerCase() !== normalizeSpace(expectedTitle).toLowerCase()) return false;
+      if (!record.urlExplicit) return records.length === 1;
+      try { return new URL(record.url, detailUrl).href === new URL(detailUrl).href; } catch { return false; }
+    });
+    return { description: extractVictorinoxDetailDescription(html), ...mergeSourcePostingDates({}, matched) };
   } catch (err) {
     console.warn(` ⚠️ Victorinox detail fetch failed (${detailUrl}): ${err?.message || err}`);
-    return '';
+    return { description: '', ...mergeSourcePostingDates() };
   }
 }
 
@@ -310,12 +317,12 @@ export async function fetchAllVictorinoxJobs() {
   console.log(`   ✓ ${rows.length} Talentsoft offers (deduped across pages)`);
   if (!rows.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const r = rows[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
-    const detailText = await fetchDetailDescription(r.detailUrl);
+    const detail = await fetchDetailFields(r.detailUrl, r.title);
+    const detailText = detail.description;
 
     const { city, postalCode, streetAddress, region } = resolveAddress(r.location);
     const hasLocationText = !!normalizeSpace(r.location);
@@ -376,7 +383,7 @@ export async function fetchAllVictorinoxJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: r.detailUrl,
       jobReqId: r.ref || null,
       requirements: [],

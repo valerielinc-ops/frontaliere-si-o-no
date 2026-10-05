@@ -46,6 +46,8 @@
  *   - isTrustedDomain()      — Validate URLs belong to this company
  *   - resolveAddress()       — City-gated HQ-address resolver (exported for tests)
  */
+import { extractJsonLd } from './prospector/extract.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, normalizeSpace } from './crawler-template.mjs';
@@ -301,9 +303,17 @@ export async function fetchAllSfsGroupJobs() {
     let description = '';
     let applyUrl = publicUrl;
     let jobReqId = '';
+    let publication = mergeSourcePostingDates();
     try {
       const detailHtml = await fetchHtml(publicUrl);
       const parsed = parseSfsGroupDetail(detailHtml);
+      const records = extractJsonLd(detailHtml, publicUrl);
+      const matched = records.find(record => {
+        if (normalizeSpace(record.title || '').toLowerCase() !== title.toLowerCase()) return false;
+        if (!record.urlExplicit) return records.length === 1;
+        try { return new URL(record.url, publicUrl).href === new URL(publicUrl).href; } catch { return false; }
+      });
+      publication = mergeSourcePostingDates({}, matched);
       description = parsed.description;
       applyUrl = parsed.applyUrl || publicUrl;
       jobReqId = parsed.jobReqId;
@@ -329,7 +339,6 @@ export async function fetchAllSfsGroupJobs() {
     const jobSlug = slugify(`${title} sfs group ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const employmentType = detectEmploymentType(percentageSuffix || row.rawTitle);
-    const postedDate = new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -364,7 +373,7 @@ export async function fetchAllSfsGroupJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl,
       jobReqId: jobReqId || null,
       legalEntity,

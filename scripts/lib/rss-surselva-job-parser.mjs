@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Regionalspital Surselva (RSS) job parser — Ostendis JobPublisher API.
  *
@@ -254,7 +256,7 @@ export function stripOstendisApplyFooter(text = '') {
 export function parseDetailPageJsonLd(html = '') {
   const result = {
     description: '',
-    datePosted: '',
+    ...sourcePostingDateFields(''),
     employmentType: '',
     streetAddress: '',
     addressLocality: '',
@@ -262,13 +264,9 @@ export function parseDetailPageJsonLd(html = '') {
     addressRegion: '',
   };
 
-  // Extract JSON-LD block
-  const jsonLdMatch = html.match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
-  if (!jsonLdMatch) return result;
-
   try {
-    const data = JSON.parse(jsonLdMatch[1]);
-    if (data['@type'] !== 'JobPosting') return result;
+    const data = extractJobPostingLd(html);
+    if (!data) return result;
 
     // Extract description (HTML → plain text). Line structure is kept so the
     // `<li>` bullets survive (`normalizeSpace` used to flatten 18/18 rows into
@@ -280,10 +278,7 @@ export function parseDetailPageJsonLd(html = '') {
       );
     }
 
-    // datePosted
-    if (data.datePosted) {
-      result.datePosted = data.datePosted;
-    }
+    Object.assign(result, sourcePostingDateFields(data.datePosted));
 
     // employmentType (can be array or string)
     if (data.employmentType) {
@@ -370,7 +365,7 @@ export function parseOstendisJob(entry, detailData = {}) {
 
   const postalCode = entry.zip || detailData.postalCode || '7130';
   const streetAddress = detailData.streetAddress || 'Spitalstrasse 6';
-  const datePosted = detailData.datePosted || new Date().toISOString().split('T')[0];
+  const publication = mergeSourcePostingDates({}, detailData);
 
   return {
     // ── Required fields ──
@@ -404,7 +399,7 @@ export function parseOstendisJob(entry, detailData = {}) {
     sector: 'Sanità / Assistenza',
     currency: 'CHF',
     featured: false,
-    postedDate: datePosted,
+    ...publication,
     applyUrl,
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },

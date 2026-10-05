@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Klinik Arlesheim job parser — Dualoo ATS (portal s60emmh3).
  *
@@ -89,12 +91,16 @@ export async function fetchAllKlinikArlesheimJobs() {
   if (!items.length) return [];
   console.log(`  📄 Fetching detail pages for rich descriptions...`);
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (const it of items) {
     const title = it.title;
-    const detailContent = await fetchDualooDetail(it.url);
+    let publication = sourcePostingDateFields('');
+    const detailContent = await fetchDualooDetail(it.url, { fetchPage: async (url) => {
+      const detailHtml = await fetchHtml(url);
+      publication = sourcePostingDateFields(extractJobPostingLd(detailHtml)?.datePosted);
+      return detailHtml;
+    } });
     if (detailContent) detailHits++;
     await new Promise((r) => setTimeout(r, 200));
     const description = [
@@ -142,7 +148,7 @@ export async function fetchAllKlinikArlesheimJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...publication,
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

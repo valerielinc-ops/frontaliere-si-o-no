@@ -16,6 +16,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -240,7 +241,8 @@ export async function fetchAllFranklinUniversityJobs() {
       employmentType: detectEmploymentType(listing.title + ' ' + description),
       experienceLevel: detectExperienceLevel(listing.title),
       featured: false,
-      postedDate: new Date().toISOString().slice(0, 10),
+      // The vacancy accordion exposes no publication field.
+      ...sourcePostingDateFields(''),
       url: listing.url,
       applyUrl: listing.url,
       source: 'Franklin University Switzerland Dedicated Parser',
