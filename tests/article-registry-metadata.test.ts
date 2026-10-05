@@ -9,9 +9,9 @@ describe('article registry metadata boundaries', () => {
       {id:'successivo', category:'novita', date:'2026-10-02'},
     ];`);
     expect(records).toEqual([
-      {id:'precedente',category:'pratico'},
-      {id:'ticino-rimborso-lpp-2024',category:'pensione',updatedAt:'2026-10-03',image:'/lpp.webp',authorSlug:'redazione',authorName:'Redazione'},
-      {id:'successivo',category:'novita'},
+      {id:'precedente',category:'pratico',date:'2026-10-01'},
+      {id:'ticino-rimborso-lpp-2024',category:'pensione',date:'2024-01-01',updatedAt:'2026-10-03',image:'/lpp.webp',authorSlug:'redazione',authorName:'Redazione'},
+      {id:'successivo',category:'novita',date:'2026-10-02'},
     ]);
   });
   it('ignores comments, nested objects, strings and templates containing fake metadata', () => {

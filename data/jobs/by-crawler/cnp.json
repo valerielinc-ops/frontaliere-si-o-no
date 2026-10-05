@@ -1346,7 +1346,7 @@
       "title": "Médecin Adjoint en Expertise",
       "titleByLocale": {
         "it": "Assistente Medico in Competenza",
-        "en": "Médecin Adjoint en Expertise",
+        "en": "Assistant Physician in Expertise",
         "de": "Assistenzarzt in Expertise",
         "fr": "Médecin Adjoint en Expertise"
       },
@@ -1410,8 +1410,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "cnp-ca661e72ca20",
@@ -1509,7 +1508,7 @@
       "title": "Médecin adjoint·e - Psychiatrie de Liaison",
       "titleByLocale": {
         "it": "Assistente medico - Psichiatria di collegamento",
-        "en": "Médecin adjoint·e - Psychiatrie de Liaison",
+        "en": "Assistant physician - Liaison psychiatry",
         "de": "Assistenzarzt - Verbindungspsychiatrie",
         "fr": "Médecin adjoint·e - Psychiatrie de Liaison"
       },
@@ -1573,8 +1572,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "cnp-6d27d590bf95",

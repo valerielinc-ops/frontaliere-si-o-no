@@ -30,6 +30,15 @@ export const DEFAULT_TECH_PARAMS = {
 };
 
 /**
+ * Salario annuo massimo assicurato AD (assicurazione contro la disoccupazione).
+ * Vive qui e non solo nel dataset perche' constants.ts e calculationService.ts
+ * sono nel grafo dei build-plugin; `tests/pension-parameters.test.ts` lo
+ * blocca, insieme a `DEFAULT_TECH_PARAMS.avsRate/acRate`, al dataset ufficiale
+ * `data/pension-parameters/latest.json` (promemoria AVS/AI 2.08 e 2.01).
+ */
+export const AC_SALARY_CAP_CHF = 148200;
+
+/**
  * Flat Swiss social-charge rate (AVS/AI/APG + AC + LAINF/IGM + LPP) used to
  * turn a canton GROSS into a resident NET in the per-canton salary estimators.
  * Single source of truth for `components/comparators/SalaryCompare.tsx`,

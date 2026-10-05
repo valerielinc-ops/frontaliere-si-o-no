@@ -694,7 +694,7 @@ export function generateArticleHtml(
   const articleDescription = guardArticleJsonLdDescription(description);
   const articleSchema = JSON.stringify({
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: title,
     description: articleDescription,
     image: `${BASE_URL}/og-image.png`,

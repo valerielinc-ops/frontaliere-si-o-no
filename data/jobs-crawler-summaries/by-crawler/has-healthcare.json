@@ -1,24 +1,28 @@
 {
   "key": "has-healthcare",
   "label": "HAS Healthcare",
-  "generatedAt": "2026-10-05T16:18:25.535Z",
+  "generatedAt": "2026-10-05T17:32:55.163Z",
   "total": 0,
-  "discovered": 1,
+  "discovered": 0,
   "parsed": 0,
-  "lastFetchOutcome": "selector_miss",
-  "sourceBodyFailureCount": 0,
-  "sourceBodyFailures": [],
-  "abortKind": "no-jobs-parsed",
   "written": 0,
+  "lastFetchOutcome": "ok",
+  "abortKind": null,
+  "authoritativeEmptySnapshot": true,
+  "authoritativeSnapshotVerified": true,
+  "authoritativeEmptyEvidence": "e-lavoro.ch/node/104 rendered the portal no-open-offers message in the listing region (view-empty)",
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 11233,
+  "avgDurationMs": 11233,
+  "durationHistory": [
+    11233
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0,
-  "codeCommit": "e6907b26c920b76d7ae0325c41ce8e4d2c525562"
+  "codeCommit": "6a7776e042b7cf4e5bd92a7e2acc0adf4248faea"
 }

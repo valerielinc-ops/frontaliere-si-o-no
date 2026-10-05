@@ -739,7 +739,7 @@ function renderReport(opts: {
   // Optional publication dates stay absent until an editorial history exists.
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     '@id': `${canonicalUrl}#article`,
     headline: copy.h1,
     description: guardArticleJsonLdDescription(copy.description),

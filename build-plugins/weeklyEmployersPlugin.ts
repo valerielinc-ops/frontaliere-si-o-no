@@ -119,7 +119,7 @@ import { renderJobCardHtml, JOB_CARD_ICON_SYMBOLS, type JobCardJob } from './sha
 import { LOGO_IMG_ONERROR } from './shared/companyLogoResolver';
 // Note: resolveFallbackAddress / deriveCantonFromCity are now used indirectly
 // via canonical detail links; JobPosting belongs only on those details.
-import { type JobInput } from './shared/jobPostingSchema';
+import { buildCompanyOrganization, type JobInput } from './shared/jobPostingSchema';
 import { buildJobListEntry } from './shared/jobListEntry';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { NOINDEX_BRIDGE } from './flatHtmlRedirectPlugin';
@@ -2589,14 +2589,18 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
     numberOfItems: Math.min(topCompaniesList.length, 20),
     itemListElement: topCompaniesList.slice(0, 20).map((c, idx) => {
       const href = employerBrandPath(c.employerKey, c.employer, inp.knownSlugs);
+      const organization = buildCompanyOrganization({
+        company: c.employer,
+        companyKey: c.employerKey,
+      }, {
+        locale,
+        baseUrl: BASE_URL,
+        fallbackUrl: href ? `${BASE_URL}${href}` : canonicalUrl,
+      });
       return {
         '@type': 'ListItem',
         position: idx + 1,
-        item: {
-          '@type': 'Organization',
-          name: c.employer,
-          url: href ? `${BASE_URL}${href}` : undefined,
-        },
+        item: organization,
       };
     }),
   });
@@ -3218,17 +3222,22 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     '@type': 'ItemList',
     name: h1,
     numberOfItems: stats.topCompanies.length,
-    itemListElement: stats.topCompanies.map((c, idx) => ({
-      '@type': 'ListItem',
-      position: idx + 1,
-      item: {
-        '@type': 'Organization',
-        name: c.employer,
-        url: employerBrandPath(c.employerKey, c.employer, knownSlugs)
-          ? `${BASE_URL}${employerBrandPath(c.employerKey, c.employer, knownSlugs)}`
-          : undefined,
-      },
-    })),
+    itemListElement: stats.topCompanies.map((c, idx) => {
+      const href = employerBrandPath(c.employerKey, c.employer, knownSlugs);
+      const organization = buildCompanyOrganization({
+        company: c.employer,
+        companyKey: c.employerKey,
+      }, {
+        locale,
+        baseUrl: BASE_URL,
+        fallbackUrl: href ? `${BASE_URL}${href}` : canonicalUrl,
+      });
+      return {
+        '@type': 'ListItem',
+        position: idx + 1,
+        item: organization,
+      };
+    }),
   });
 
   const webPageLd = inlineScriptJson({

@@ -2,6 +2,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { FileText, CheckCircle2, AlertCircle, Calendar, Euro, Building2, ArrowRight, Download, Info, Clock } from 'lucide-react';
 import { getHashSection, pushRoute } from '@/services/router';
+import { PILLAR_3A_MAX_WITH_LPP_CHF } from '@/services/pensionParameters';
 import { lazyRetry } from '@/services/lazyRetry';
 
 const SwissTaxReturn = lazyRetry(() => import('@/components/fisco/SwissTaxReturn'));
@@ -16,7 +17,7 @@ const DEDUCTIONS = [
  { key: 'commuting', maxCHF: 3200, maxEUR: 3200, category: 'work' },
  { key: 'meals', maxCHF: 3200, maxEUR: null, category: 'work' },
  { key: 'lpp', maxCHF: null, maxEUR: null, category: 'pension' },
- { key: 'pillar3a', maxCHF: 7258, maxEUR: null, category: 'pension' },
+ { key: 'pillar3a', maxCHF: PILLAR_3A_MAX_WITH_LPP_CHF, maxEUR: null, category: 'pension' },
  { key: 'healthInsurance', maxCHF: null, maxEUR: null, category: 'personal' },
  { key: 'childcare', maxCHF: 25000, maxEUR: null, category: 'family' },
  { key: 'alimony', maxCHF: null, maxEUR: null, category: 'family' },
