@@ -3195,9 +3195,10 @@ function renderArchivePage(inp: ArchiveInputs): string {
         <section>
           <h2 style="${H2_STYLE}">${esc(copy.hourlyTodayLabel)}</h2>
           <table class="s-tbl" style="font-size:14px">
+            <caption class="sr-only">${esc(copy.hourlyTodayLabel)}</caption>
             <thead><tr>
-              <th class="s-thd">Ora</th>
-              <th class="s-thd" style="text-align:right">${esc(copy.waitMinutesLabel)}</th>
+              <th scope="col" class="s-thd">Ora</th>
+              <th scope="col" class="s-thd" style="text-align:right">${esc(copy.waitMinutesLabel)}</th>
             </tr></thead>
             <tbody>${rows}</tbody>
           </table>

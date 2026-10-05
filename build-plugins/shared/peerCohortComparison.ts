@@ -356,11 +356,11 @@ export function renderPeerComparison(params: {
     .map((row) => {
       const isCurrent = row.key === currentKey;
       const nameCell = isCurrent
-        ? `<th scope="row" class="px-3 py-2 text-left font-semibold text-heading">${esc(row.name)} <span class="font-normal text-muted">(${esc(COPY.thisPage[locale])})</span></th>`
+        ? `<th scope="row" role="rowheader" class="px-3 py-2 text-left font-semibold text-heading">${esc(row.name)} <span class="font-normal text-muted">(${esc(COPY.thisPage[locale])})</span></th>`
         : row.href
-          ? `<th scope="row" class="px-3 py-2 text-left font-normal"><a class="font-semibold text-accent hover:underline" href="${esc(row.href)}">${esc(row.name)}</a></th>`
-          : `<th scope="row" class="px-3 py-2 text-left font-normal">${esc(row.name)}</th>`;
-      return `<tr class="${isCurrent ? 'bg-surface-raised' : ''}">${nameCell}<td class="px-3 py-2 text-right tabular-nums">${esc(String(row.rank))}</td><td class="px-3 py-2 text-right tabular-nums">${esc(formatValue(row.value, locale))}</td></tr>`;
+          ? `<th scope="row" role="rowheader" class="px-3 py-2 text-left font-normal"><a class="font-semibold text-accent hover:underline" href="${esc(row.href)}">${esc(row.name)}</a></th>`
+          : `<th scope="row" role="rowheader" class="px-3 py-2 text-left font-normal">${esc(row.name)}</th>`;
+      return `<tr role="row" class="${isCurrent ? 'bg-surface-raised' : ''}">${nameCell}<td role="cell" class="px-3 py-2 text-right tabular-nums">${esc(String(row.rank))}</td><td role="cell" class="px-3 py-2 text-right tabular-nums">${esc(formatValue(row.value, locale))}</td></tr>`;
     })
     .join('\n            ');
 
@@ -371,11 +371,12 @@ export function renderPeerComparison(params: {
         <h2 class="text-xl font-bold text-heading">${esc(labels.heading)}</h2>
         ${prose}
         <div class="mt-4 overflow-x-auto">
-          <table class="w-full min-w-[28rem] border-collapse text-sm">
-            <thead class="border-b border-edge text-muted">
-              <tr><th scope="col" class="px-3 py-2 text-left font-semibold">${esc(COPY.colPeer[locale])}</th><th scope="col" class="px-3 py-2 text-right font-semibold">${esc(COPY.colRank[locale])}</th><th scope="col" class="px-3 py-2 text-right font-semibold">${esc(labels.metricLabel)}</th></tr>
+          <table role="table" class="w-full min-w-[28rem] border-collapse text-sm">
+            <caption class="sr-only">${esc(labels.heading)}</caption>
+            <thead role="rowgroup" class="border-b border-edge text-muted">
+              <tr role="row"><th scope="col" role="columnheader" class="px-3 py-2 text-left font-semibold">${esc(COPY.colPeer[locale])}</th><th scope="col" role="columnheader" class="px-3 py-2 text-right font-semibold">${esc(COPY.colRank[locale])}</th><th scope="col" role="columnheader" class="px-3 py-2 text-right font-semibold">${esc(labels.metricLabel)}</th></tr>
             </thead>
-            <tbody class="divide-y divide-edge text-body">
+            <tbody role="rowgroup" class="divide-y divide-edge text-body">
             ${tableRows}
             </tbody>
           </table>
