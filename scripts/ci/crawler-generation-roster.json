@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 622,
+  "crawlerCount": 623,
   "groups": {
     "10": [
       "atec-personal",
@@ -411,6 +411,7 @@
       "hugo-boss",
       "lidl-svizzera",
       "mcdonald-s-switzerland",
+      "mediamarkt",
       "migros-hq",
       "nestle",
       "pantr-ch",
@@ -1046,6 +1047,7 @@
     "medacta-international": "data/jobs/by-crawler/medacta-international.json",
     "medartis": "data/jobs/by-crawler/medartis.json",
     "medbase": "data/jobs/by-crawler/medbase.json",
+    "mediamarkt": "data/jobs/by-crawler/mediamarkt.json",
     "medics-labor": "data/jobs/by-crawler/medics-labor.json",
     "medtronic": "data/jobs/by-crawler/medtronic.json",
     "merian-iselin": "data/jobs/by-crawler/merian-iselin.json",
@@ -1298,5 +1300,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:76d05f831f70c398a342bdea173433081a9fe891b8869ac3f225db0b834b8900"
+  "digest": "sha256:74ac58984cda44b0c30573df3a13e0bfca2d49619177e36f9ceabf1ad81d0b8a"
 }

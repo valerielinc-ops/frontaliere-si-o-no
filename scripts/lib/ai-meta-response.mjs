@@ -35,8 +35,12 @@ const A = "['’]"; // apostrophe, ASCII or typographic
 
 // A single-quoted input can contain an apostrophe between letters (for
 // example, `Chef d'équipe`); only allow that internal form so the final quote
-// remains the delimiter. Double and typographic quotes close on their own mark.
-const TRANSLATION_QUOTED_INPUT = String.raw`(?:"[^"\n]{1,160}"|“[^”\n]{1,160}”|«[^»\n]{1,160}»|'(?:[^'\n]|(?<=[\p{L}\p{N}])'(?=[\p{L}\p{N}])){1,160}')`;
+// remains the delimiter. The same holds for the typographic single quotes
+// ‘…’, whose closing mark ’ doubles as the typographic apostrophe
+// (`‘Chef d’équipe’`). An internal mark needs a letter or digit on at least
+// one side (`‘rock ’n’ roll’`); the closing quote stays unambiguous because
+// the surrounding pattern requires « to/into/from …» right after it. Double and angle quotes close on their own mark.
+const TRANSLATION_QUOTED_INPUT = String.raw`(?:"[^"\n]{1,160}"|“[^”\n]{1,160}”|«[^»\n]{1,160}»|'(?:[^'\n]|(?<=[\p{L}\p{N}])'|'(?=[\p{L}\p{N}])){1,160}'|‘(?:[^’\n]|(?<=[\p{L}\p{N}])’|’(?=[\p{L}\p{N}])){1,160}’)`;
 
 // What a clarification request is ABOUT: the input the model was handed (the
 // title, the text, the message, the translation, the job data…), after at most
@@ -44,7 +48,13 @@ const TRANSLATION_QUOTED_INPUT = String.raw`(?:"[^"\n]{1,160}"|“[^”\n]{1,160
 // context of»). «I don't see any reason», «I cannot find a better job in
 // Ticino» or «Ho bisogno di più tempo» are first-person prose of a real ad or
 // letter, not a model asking for its input.
-const EN_INPUT = String.raw`(?:(?:the|a|an|any|your|this|that|which)\s+)?(?:[\w'’-]+\s+){0,3}?(?:job\s+)?(?:titles?|text|message|input|content|translations?|source|document|files?|data|repository|context|description|posting|phrase)\b`;
+// Determiner family shared by every English input pattern below.
+const EN_DET = String.raw`(?:(?:the|a|an|any|your|this|that|which)\s+)?`;
+const EN_INPUT = String.raw`${EN_DET}(?:[\w'’-]+\s+){0,3}?(?:job\s+)?(?:titles?|text|message|input|content|translations?|source|document|files?|data|repository|context|description|posting)\b`;
+// The narration «The user has provided the phrase "x" for translation» needs
+// `phrase`; as a clarification object it would flag «I need to see the phrase
+// you wrote», a legitimate English translation of a non-English source.
+const EN_INPUT_NARRATION = String.raw`${EN_DET}(?:[\w'’-]+\s+){0,3}?(?:job\s+)?(?:titles?|text|message|input|content|translations?|source|document|files?|data|repository|context|description|posting|phrase)\b`;
 const IT_INPUT = String.raw`(?:(?:il|lo|la|i|gli|le|un|uno|una|alcun|nessun)\s+)?(?:[\wàèéìòù'’-]+\s+){0,3}?(?:titol[oi]|test[oi]|messaggio|traduzion[ei]|dati|file|contesto|annuncio)\b`;
 const DE_INPUT = String.raw`(?:[\wäöüß-]+\s+){0,3}?(?:titel|stellentitel|text|nachricht|übersetzung|kontext|daten|datei)\b`;
 const FR_INPUT = String.raw`(?:(?:le|la|les|l['’]|un|une|du|de|des|d['’])\s*)?(?:[\wàâçéèêëîïôûù'’-]+\s+){0,3}?(?:titre|texte|message|traduction|contexte|données|fichier|annonce)s?\b`;
@@ -64,12 +74,14 @@ const LEADING_PATTERNS = [
   // «Non vedo l'ora» open real ads; a request for the missing title or text
   // anywhere in the answer is matched further down.
   ['clarification', new RegExp(`^(?:i need more context\\b|(?:i need to (?:see|check|know|look at|find|verify|search|read|understand|review|confirm) |i (?:don${A}t|do not|can${A}t|cannot|could not|couldn${A}t) (?:see|find) )${EN_INPUT})`, 'i')],
+  // `phrase` is an input only when the request itself says it is to be translated.
+  ['clarification', new RegExp(String.raw`^i need to (?:see|know|check|look at) ${EN_DET}phrase (?:to translate|(?:that|which) (?:needs? (?:to be )?translat|you (?:want|would like|need)(?:ed)? (?:me )?to translat))`, 'i')],
   ['clarification', new RegExp(`^(?:ho bisogno di (?:vedere|sapere|controllare|conoscere|più) |non (?:vedo|trovo) )${IT_INPUT}`, 'i')],
   ['clarification', new RegExp(`^(?:ich benötige |ich brauche |ich sehe (?:keinen|keine|kein) |ich finde (?:keinen|keine|kein) )${DE_INPUT}`, 'i')],
   ['clarification', new RegExp(`^(?:j${A}ai besoin de (?:voir |savoir |vérifier |plus de )|je ne (?:vois|trouve) (?:pas|aucun|aucune) )${FR_INPUT}`, 'i')],
   // ── agent narration: the model announces work instead of doing it ─────────
   ['agent-narration', new RegExp(`^(?:i${A}ll|i will|i${A}m going to|i am going to) (?:translate|check|help|look|search|read|start|first|need|find|review|provide|examine)\\b`, 'i')],
-  ['agent-narration', new RegExp(String.raw`^(?:let me (?:check|see|look|find|search|first|read|translate|help|examine|review|verify)|looking at (?:the|this|your) (?:git|repo|files?|job|title|data|translation|text|message|request)|the user (?:wants|asks|is asking|would like) (?:me|us) to|the user (?:has (?:provided|given)|provided|gave) (?:${EN_INPUT}|${TRANSLATION_QUOTED_INPUT})[^.?!\n]{0,120}\b(?:for (?:translation|translating)|to translate))\b`, 'iu')],
+  ['agent-narration', new RegExp(String.raw`^(?:let me (?:check|see|look|find|search|first|read|translate|help|examine|review|verify)|looking at (?:the|this|your) (?:git|repo|files?|job|title|data|translation|text|message|request)|the user (?:wants|asks|is asking|would like) (?:me|us) to|the user (?:has (?:provided|given)|provided|gave) (?:${EN_INPUT_NARRATION}|${TRANSLATION_QUOTED_INPUT})[^.?!\n]{0,120}\b(?:for (?:translation|translating)|to translate))\b`, 'iu')],
   // «We need to translate "GL & VAT Accountant" to English.»: only with the
   // quoted input AND the target language. «We need to produce…», «We need to
   // translate our software into German» open real ads and articles.

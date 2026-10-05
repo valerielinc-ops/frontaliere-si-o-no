@@ -105,6 +105,12 @@ const sourceTreeLintTests = new Map([
   // Elenchi di run per `branch` senza finestra `created`: l'API li restituisce
   // a tratti fermi a settimane prima (resolver dell'artifact Pages, 02-10).
   ['tests/run-listing-created-window.test.ts', /^(?:\.github|scripts|bin|functions)\//],
+  // Il guard del nome del check vitest legge da disco ogni script sotto
+  // `scripts/ci/`: un file NUOVO che scrive a mano il literal non importa
+  // niente che il test conosca. La PR 11667 l'ha introdotto in
+  // `scripts/ci/lib/followup-ci-suite-proof.mjs` e main e' rimasto rosso in
+  // latenza finche' la 11705 non ha fatto selezionare il test.
+  ['tests/ci-vitest-check-name.test.ts', /^scripts\/ci\//],
   // Lint del token App su TUTTI i workflow (issue 10114): un workflow nuovo
   // che pusha con `env.APP_TOKEN || ...` non importa niente, e uno script in
   // `scripts/` puo' cominciare a pushare o a leggere APP_TOKEN senza che il

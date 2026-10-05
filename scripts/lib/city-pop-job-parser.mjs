@@ -54,6 +54,7 @@ import { detectEmploymentTypeFromOccupation } from './jobup-ch-feed-common.mjs';
 import {
   fetchJobsChCompanyListings,
   fetchJobsChJobPostingLd,
+  jobsChAuthoritativeEmptyOrNull,
   jobsChDetailUrl,
 } from './jobs-ch-search-common.mjs';
 
@@ -172,6 +173,11 @@ export async function fetchAllCityPopJobs() {
 
   const listings = await fetchJobsChCompanyListings({ companyIds: COMPANY_IDS });
   if (!listings || listings.length === 0) {
+    // A zero the jobs.ch API itself declares (`totalHits: 0`) is a healthy
+    // empty employer, not a broken parser (issue #11653). Returned AS IS: the
+    // stamp lives on this array instance.
+    const proven = jobsChAuthoritativeEmptyOrNull(listings, CITY_POP_COMPANY_NAME);
+    if (proven) return proven;
     console.warn('⚠️ No job listings returned.');
     return [];
   }
