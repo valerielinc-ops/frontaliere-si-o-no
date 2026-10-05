@@ -172,15 +172,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Come si calcola la pensione AVS per un frontaliere?": {
  en: {
  q: "How is the AVS pension calculated for a cross-border worker?",
- a: "The AVS pension is based on contribution years and average career income. A full pension (44 years of contributions) ranges from CHF 1,225 to CHF 2,450/month (2026). Missing years reduce the pension by 1/44 per gap year. Swiss and Italian contribution periods can be totalized under the bilateral agreement. According to Andrea Fiorini, pension planning consultant: 'Even a few years of AVS contributions generate pension rights thanks to totalization with INPS periods'."
+ a: "The AVS pension is based on contribution years and average career income. A full pension (44 years of contributions) ranges from CHF 1,260 to CHF 2,520/month (2026). Missing years reduce the pension by 1/44 per gap year. Swiss and Italian contribution periods can be totalized under the bilateral agreement. According to Andrea Fiorini, pension planning consultant: 'Even a few years of AVS contributions generate pension rights thanks to totalization with INPS periods'."
  },
  de: {
  q: "Wie wird die AHV-Rente für einen Grenzgänger berechnet?",
- a: "Die AHV-Rente basiert auf Beitragsjahren und dem durchschnittlichen Karriereeinkommen. Eine Vollrente (44 Beitragsjahre) liegt zwischen CHF 1.225 und CHF 2.450/Monat (2026). Fehlende Jahre reduzieren die Rente um 1/44 pro Lückenjahr. Schweizerische und italienische Beitragszeiten können gemäss dem bilateralen Abkommen zusammengerechnet werden. Wie Andrea Fiorini, Vorsorgeberater, erklärt: «Selbst wenige Jahre AHV-Beiträge begründen dank der Zusammenrechnung mit INPS-Zeiten einen Rentenanspruch»."
+ a: "Die AHV-Rente basiert auf Beitragsjahren und dem durchschnittlichen Karriereeinkommen. Eine Vollrente (44 Beitragsjahre) liegt zwischen CHF 1.260 und CHF 2.520/Monat (2026). Fehlende Jahre reduzieren die Rente um 1/44 pro Lückenjahr. Schweizerische und italienische Beitragszeiten können gemäss dem bilateralen Abkommen zusammengerechnet werden. Wie Andrea Fiorini, Vorsorgeberater, erklärt: «Selbst wenige Jahre AHV-Beiträge begründen dank der Zusammenrechnung mit INPS-Zeiten einen Rentenanspruch»."
  },
  fr: {
  q: "Comment la rente AVS est-elle calculée pour un frontalier ?",
- a: "La rente AVS est basée sur les années de cotisation et le revenu moyen de carrière. Une rente complète (44 ans de cotisations) varie de CHF 1 225 à CHF 2 450/mois (2026). Les années manquantes réduisent la rente de 1/44 par année lacunaire. Les périodes de cotisation suisses et italiennes peuvent être totalisées en vertu de l'accord bilatéral. Comme l'explique Andrea Fiorini, conseiller en prévoyance: «Même quelques années de cotisations AVS génèrent un droit à la retraite grâce à la totalisation avec les périodes INPS»."
+ a: "La rente AVS est basée sur les années de cotisation et le revenu moyen de carrière. Une rente complète (44 ans de cotisations) varie de CHF 1 260 à CHF 2 520/mois (2026). Les années manquantes réduisent la rente de 1/44 par année lacunaire. Les périodes de cotisation suisses et italiennes peuvent être totalisées en vertu de l'accord bilatéral. Comme l'explique Andrea Fiorini, conseiller en prévoyance: «Même quelques années de cotisations AVS génèrent un droit à la retraite grâce à la totalisation avec les périodes INPS»."
  }
  },
 
