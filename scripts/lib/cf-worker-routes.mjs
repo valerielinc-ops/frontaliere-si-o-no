@@ -38,9 +38,14 @@
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import {
+  CDN_BASE,
   SECTION_ROUTES,
   SECTION_ORIGIN,
   SHARD_ORIGIN,
+  corpusEdgeFileForPath,
+  corpusSectionCanonicalDir,
+  corpusSectionCdnKey,
+  matchCorpusSection,
 } from '../../infra/cloudflare-worker/locale-router.js';
 
 export const APEX_HOST = 'frontaliereticino.ch';
@@ -100,6 +105,10 @@ export function workerRouteForUrl(url, patterns = readWorkerRoutePatterns()) {
  */
 export function shardOriginForApexUrl(url) {
   if (url.hostname !== APEX_HOST) return null;
+  // Corpus-owned canton sections are served from R2, not from a shard: their
+  // copy is keyed on the cdn URL (see corpusEdgeUrlForApexUrl). Checked first
+  // because the en/de/fr prefixes would otherwise read as origin-<loc> paths.
+  if (matchCorpusSection(url.pathname)) return null;
   const section = SECTION_ROUTES.find(
     (route) =>
       url.pathname === route.prefix ||
@@ -110,6 +119,23 @@ export function shardOriginForApexUrl(url) {
   const locale = /^\/(en|de|fr)(\/|$|\.html$)/.exec(url.pathname);
   if (locale) return SHARD_ORIGIN[locale[1]] ?? null;
   return null;
+}
+
+/**
+ * The `cdn.frontaliereticino.ch` URL whose cached copy a corpus-served apex
+ * path is answered from, or null for any other path. Canton section pages map
+ * onto `edge/sections/<dir>/index.html` (the Worker's own key function, not a
+ * restatement of it) and the corpus sitemaps onto their `edge/` key. A path the
+ * Worker would never serve (bad shape) has no companion.
+ */
+export function corpusEdgeUrlForApexUrl(url) {
+  if (url.hostname !== APEX_HOST) return null;
+  const file = corpusEdgeFileForPath(url.pathname);
+  if (file) return new URL(file.cdnKey, CDN_BASE).toString();
+  const route = matchCorpusSection(url.pathname);
+  if (!route) return null;
+  const dir = corpusSectionCanonicalDir(url.pathname, route);
+  return dir ? new URL(corpusSectionCdnKey(dir), CDN_BASE).toString() : null;
 }
 
 /**
@@ -142,15 +168,19 @@ export function apexPurgeBlindSpots(urls, patterns = readWorkerRoutePatterns()) 
     if (url.hostname !== APEX_HOST) continue;
     const pattern = workerRouteForUrl(url, patterns);
     if (!pattern) continue; // apex passthrough — this purge is the real one
+    const expectedCompanion = corpusEdgeUrlForApexUrl(url);
     const covered = companions.some(
       (companion) =>
-        companion.pathname === url.pathname || companion.pathname.endsWith(url.pathname),
+        companion.pathname === url.pathname ||
+        companion.pathname.endsWith(url.pathname) ||
+        (expectedCompanion !== null && companion.toString() === expectedCompanion),
     );
     if (covered) continue;
     gaps.push({
       url: url.toString(),
       pattern,
       expectedOrigin: shardOriginForApexUrl(url),
+      expectedCompanion,
     });
   }
   return gaps;
