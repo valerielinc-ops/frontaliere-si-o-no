@@ -1,7 +1,7 @@
 {
   "key": "ricola",
   "label": "Ricola",
-  "generatedAt": "2026-10-04T21:41:36.257Z",
+  "generatedAt": "2026-10-05T09:39:19.693Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5057,
-  "avgDurationMs": 5057,
+  "durationMs": 5382,
+  "avgDurationMs": 5382,
   "durationHistory": [
-    5057
+    5382
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +36,7 @@
       "url": "https://career.ricola.com/Vacancies/1062/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:41:28.264Z",
+      "crawledAt": "2026-10-05T09:39:11.485Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -48,18 +50,20 @@
       "sector": "Industria alimentare / Dolciumi",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career.ricola.com/Vacancies/1062/Description/2",
       "firstSeenAt": "2026-07-09T12:27:34.476Z",
       "salaryMin": 68400,
       "salaryMax": 103600,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -75,7 +79,7 @@
       "url": "https://career.ricola.com/Vacancies/1064/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:41:27.832Z",
+      "crawledAt": "2026-10-05T09:39:11.062Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -89,22 +93,24 @@
       "sector": "Industria alimentare / Dolciumi",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career.ricola.com/Vacancies/1064/Description/2",
       "firstSeenAt": "2026-09-24T00:11:03.696Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 25
+        "completeness": 23
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

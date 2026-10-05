@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fusalp",
-  "assembledAt": "2026-10-04T21:15:21.025Z",
+  "assembledAt": "2026-10-05T09:17:55.691Z",
   "jobs": [
     {
       "id": "fusalp-375e9ddc749d",
@@ -33,7 +33,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-to-april-26-80_zermatt",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:15:14.886Z",
+      "crawledAt": "2026-10-05T09:17:49.095Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -45,7 +45,9 @@
       "sector": "Moda / Abbigliamento sportivo",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-to-april-26-80_zermatt",
       "requirements": [],
       "requirementsByLocale": {},
@@ -111,7 +113,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_annecy",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:15:13.461Z",
+      "crawledAt": "2026-10-05T09:17:46.632Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -123,7 +125,9 @@
       "sector": "Moda / Abbigliamento sportivo",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_annecy",
       "requirements": [],
       "requirementsByLocale": {},
@@ -172,7 +176,7 @@
       "companyDomain": "fusalp.com",
       "title": "ASSISTANT STORE MANAGER (M/W) - FRENCH & ENGLISH",
       "titleByLocale": {
-        "it": "ASSISTANT STORE MANAGER (M/F) - FRANCESE E INGLESE",
+        "it": "ASSISTANT STORE MANAGER (M/W) - FRENCH & ENGLISH",
         "en": "ASSISTANT STORE MANAGER (M/W) - FRENCH & ENGLISH",
         "de": "Assistent STORE MANAGER (M/W) - FRENCH & ENGLISH",
         "fr": "MANAGER ASSISTANT (H/F) - FRANÇAIS & ANGLAIS"
@@ -189,7 +193,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_val-de-bagnes",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:15:07.073Z",
+      "crawledAt": "2026-10-05T09:17:37.881Z",
       "addressLocality": "Val De Bagnes",
       "addressCountry": "CH",
       "country": "CH",
@@ -201,10 +205,20 @@
       "sector": "Moda / Abbigliamento sportivo",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-22",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_val-de-bagnes",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistant-store-manager-m-w-french-english-fusalp-val-de-bagnes"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-store-manager-m-w-french-english-fusalp-val-de-bagnes"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:44:21.012Z",
       "salaryMin": 101500,
@@ -220,15 +234,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-store-manager-m-w-french-english-fusalp-val-de-bagnes"
-        ]
-      },
-      "previousSlugs": [
-        "assistant-store-manager-m-w-french-english-fusalp-val-de-bagnes"
-      ]
+      "addressRegion": "VS"
     },
     {
       "id": "fusalp-aae53abd33f0",
@@ -261,7 +267,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/store-manager-m-w-100-fixed-term-contract-permanent-opportunity_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:15:04.007Z",
+      "crawledAt": "2026-10-05T09:17:33.739Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -273,7 +279,9 @@
       "sector": "Moda / Abbigliamento sportivo",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/store-manager-m-w-100-fixed-term-contract-permanent-opportunity_aubonne",
       "requirements": [],
       "requirementsByLocale": {},
@@ -338,7 +346,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:15:02.992Z",
+      "crawledAt": "2026-10-05T09:17:32.757Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -350,7 +358,9 @@
       "sector": "Moda / Abbigliamento sportivo",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027_aubonne",
       "requirements": [],
       "requirementsByLocale": {},
@@ -415,7 +425,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/store-manager-m-w-permanent-contract-100-1-november-2026_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:15:01.519Z",
+      "crawledAt": "2026-10-05T09:17:31.130Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -427,7 +437,9 @@
       "sector": "Moda / Abbigliamento sportivo",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/store-manager-m-w-permanent-contract-100-1-november-2026_saanen",
       "requirements": [],
       "requirementsByLocale": {},

@@ -467,7 +467,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T13:39:34.568Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -543,7 +542,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:35.997Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -728,7 +726,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:33.116Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -806,7 +803,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:32.536Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -926,7 +922,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:30.817Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -2113,7 +2108,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:52.502Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -2307,7 +2301,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:22.094Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -2383,7 +2376,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:21.519Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -2482,9 +2474,9 @@
       "slug": "system-ingegnere-cbtc-stadler-rail-wallisellen",
       "slugByLocale": {
         "it": "system-ingegnere-cbtc-stadler-rail-wallisellen",
-        "en": "system-engineer-cbtc-stadler-rail-ch",
+        "en": "system-engineer-cbtc-stadler-rail-ch-c74w3g",
         "de": "system-ingenieur-cbtc-stadler-rail-wallisellen",
-        "fr": "system-engineer-cbtc-stadler-rail-ch"
+        "fr": "system-engineer-cbtc-stadler-rail-ch-c74w3g"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -2546,10 +2538,15 @@
         ],
         "de": [
           "system-engineer-cbtc-stadler-rail-ch"
+        ],
+        "en": [
+          "system-engineer-cbtc-stadler-rail-ch"
+        ],
+        "fr": [
+          "system-engineer-cbtc-stadler-rail-ch"
         ]
       },
       "firstSeenAt": "2026-07-15T11:32:23.026Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -2702,7 +2699,6 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:39:56.525Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2975,7 +2971,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:17.494Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -3084,7 +3079,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:18.071Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -3182,7 +3176,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:12.904Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -3264,7 +3257,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:40:14.253Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -3591,7 +3583,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:10.034Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -3848,7 +3839,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T07:40:46.950Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -3932,7 +3922,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T07:40:34.113Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -4905,7 +4894,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:24:13.844Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -4999,8 +4987,7 @@
           "maxValue": 156500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-620b851e9742",
@@ -5151,7 +5138,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:01.951Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -5386,7 +5372,6 @@
         ]
       },
       "firstSeenAt": "2026-09-18T14:23:46.824Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -5468,7 +5453,6 @@
         ]
       },
       "firstSeenAt": "2026-09-18T14:23:33.903Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -5964,7 +5948,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:21:23.418Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -6040,7 +6023,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T12:13:05.293Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -6287,7 +6269,6 @@
         ]
       },
       "firstSeenAt": "2026-06-23T23:11:28.052Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -6608,7 +6589,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T10:03:03.892Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -7021,7 +7001,6 @@
         ]
       },
       "firstSeenAt": "2026-09-24T00:12:14.529Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -7181,7 +7160,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:47.552Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -7502,7 +7480,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:37.752Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 153000,
       "salarySource": "estimated",
@@ -7581,7 +7558,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T10:19:21.289Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -7745,7 +7721,6 @@
         ]
       },
       "firstSeenAt": "2026-09-24T14:46:47.888Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -7982,7 +7957,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:36.016Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -8558,7 +8532,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:29:48.086Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -9813,7 +9786,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:25:22.708Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -9887,7 +9859,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:15.805Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -9965,7 +9936,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:21.015Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -10913,7 +10883,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:08:16.399Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -10989,7 +10958,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:08:16.903Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -11226,7 +11194,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:08.272Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -11389,7 +11356,6 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:38:07.884Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -11703,7 +11669,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:29:40.570Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -11939,7 +11904,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:15.881Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -12135,7 +12099,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:55.613Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -12217,7 +12180,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:17.674Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -12299,7 +12261,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:45:37.382Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -12383,7 +12344,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:45:37.867Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -12539,7 +12499,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:57.895Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -12699,7 +12658,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:25:54.234Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -12781,7 +12739,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:25:53.648Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -12959,7 +12916,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:41:48.066Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",

@@ -1,19 +1,21 @@
 {
   "key": "hes-so-valais",
   "label": "HES-SO Valais-Wallis",
-  "generatedAt": "2026-10-04T21:17:45.530Z",
+  "generatedAt": "2026-10-05T09:21:33.920Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 9677,
-  "avgDurationMs": 9677,
+  "unchangedCount": 3,
+  "durationMs": 8851,
+  "avgDurationMs": 8851,
   "durationHistory": [
-    9677
+    8851
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/collaborateur-administratif-ou-collaboratrice-administrative-bilingue-80-100-***-administrativer-mitarbeiter--administrative-mitarbeiterin-zweisprachig-80-100--215402",
       "applyUrl": "https://www.hevs.ch/fr/recruitee/collaborateur-administratif-ou-collaboratrice-administrative-bilingue-80-100-***-administrativer-mitarbeiter--administrative-mitarbeiterin-zweisprachig-80-100--215402",
@@ -156,7 +158,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

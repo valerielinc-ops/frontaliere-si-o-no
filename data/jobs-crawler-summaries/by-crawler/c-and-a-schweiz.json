@@ -1,7 +1,7 @@
 {
   "key": "c-and-a-schweiz",
   "label": "C&A Schweiz",
-  "generatedAt": "2026-10-04T21:17:28.300Z",
+  "generatedAt": "2026-10-05T09:18:14.276Z",
   "total": 53,
   "discovered": null,
   "parsed": 53,
@@ -9,17 +9,104 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 53,
+  "resurrectedJobs": 2,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
-  "updatedCount": 53,
+  "newCount": 2,
+  "updatedCount": 51,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 21019,
-  "avgDurationMs": 21019,
+  "durationMs": 21065,
+  "avgDurationMs": 21065,
   "durationHistory": [
-    21019
+    21065
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "c-and-a-schweiz-0ad7aafc7330",
+      "slug": "collaboratore-trice-im-vendita-m-w-d-20-per-bern-c-a-schweiz-bern",
+      "company": "C&A Schweiz",
+      "companyKey": "c-and-a-schweiz",
+      "companyDomain": "c-and-a.com",
+      "title": "Mitarbeiter im Verkauf (m/w/d) 20% für Bern",
+      "location": "Bern (CH)",
+      "canton": "BE",
+      "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-20-fur-bern-67143-de-de",
+      "source": "C&A Schweiz Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T09:17:55.705Z",
+      "addressLocality": "Bern",
+      "postalCode": "3000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Commercio al dettaglio",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=67143&career_ns=job_application&lang=de_DE",
+      "needsRetranslation": true,
+      "salaryMin": 15500,
+      "salaryMax": 23700,
+      "salarySource": "estimated",
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-09-28T03:28:11.970Z",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "c-and-a-schweiz-32c86bd3dc22",
+      "slug": "collaboratore-trice-im-vendita-m-w-d-30-per-bern-c-a-schweiz-bern",
+      "company": "C&A Schweiz",
+      "companyKey": "c-and-a-schweiz",
+      "companyDomain": "c-and-a.com",
+      "title": "Mitarbeiter im Verkauf (m/w/d) 30% für Bern",
+      "location": "Bern (CH)",
+      "canton": "BE",
+      "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-30-fur-bern-67142-de-de",
+      "source": "C&A Schweiz Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T09:17:55.388Z",
+      "addressLocality": "Bern",
+      "postalCode": "3000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Commercio al dettaglio",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=67142&career_ns=job_application&lang=de_DE",
+      "needsRetranslation": true,
+      "salaryMin": 23300,
+      "salaryMax": 35600,
+      "salarySource": "estimated",
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-09-28T03:28:11.636Z",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "c-and-a-schweiz-ea8e346e0da2",
@@ -33,7 +120,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-verkauf-fmd-50-mit-schwerpunkt-service-in-gaupark-65300-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:20.180Z",
+      "crawledAt": "2026-10-05T09:18:07.098Z",
       "addressLocality": "Egerkingen",
       "postalCode": "4622",
       "addressCountry": "CH",
@@ -45,7 +132,9 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=65300&career_ns=job_application&lang=de_DE",
       "needsRetranslation": true,
       "localeMismatchSuppressed": true,
@@ -56,12 +145,12 @@
       "salaryMax": 59300,
       "salarySource": "estimated",
       "addressRegion": "SO",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -76,7 +165,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-verkauf-fmd-30-mit-schlusselfunktion-in-bremgarten-65404-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:19.817Z",
+      "crawledAt": "2026-10-05T09:18:06.784Z",
       "addressLocality": "Bremgarten",
       "postalCode": "5620",
       "addressCountry": "CH",
@@ -88,18 +177,20 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=65404&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-09-26T13:56:52.452Z",
       "salaryMin": 17700,
       "salaryMax": 27200,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -114,7 +205,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-60-in-olten-salipark-65540-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:19.496Z",
+      "crawledAt": "2026-10-05T09:18:06.463Z",
       "addressLocality": "Olten",
       "postalCode": "4600",
       "addressCountry": "CH",
@@ -126,7 +217,9 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=65540&career_ns=job_application&lang=de_DE",
       "needsRetranslation": true,
       "localeMismatchSuppressed": true,
@@ -137,12 +230,12 @@
       "salaryMax": 62400,
       "salarySource": "estimated",
       "addressRegion": "SO",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -157,7 +250,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-60-in-regensdorf-65298-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:19.166Z",
+      "crawledAt": "2026-10-05T09:18:06.147Z",
       "addressLocality": "Regensdorf",
       "postalCode": "8105",
       "addressCountry": "CH",
@@ -169,7 +262,9 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-14",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=65298&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-07-03T21:31:42.352Z",
       "needsRetranslation": true,
@@ -177,12 +272,12 @@
       "salaryMax": 66900,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -197,7 +292,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-30-fur-sihlcity-abend-und-samstags-65702-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:18.853Z",
+      "crawledAt": "2026-10-05T09:18:05.828Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "addressCountry": "CH",
@@ -209,19 +304,21 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-21",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=65702&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-07-03T21:31:41.988Z",
       "salaryMin": 24900,
       "salaryMax": 38300,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -236,7 +333,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-leader-assistant-mwd-100-fur-emmen-65892-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:18.523Z",
+      "crawledAt": "2026-10-05T09:18:05.511Z",
       "addressLocality": "Emmenbrücke",
       "postalCode": "6020",
       "addressCountry": "CH",
@@ -248,19 +345,21 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=65892&career_ns=job_application&lang=de_DE",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:56:51.240Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -275,7 +374,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-verkauf-mit-schlusselfunktion-mwd-30-fur-emmen-65780-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:18.211Z",
+      "crawledAt": "2026-10-05T09:18:05.186Z",
       "addressLocality": "Emmenbrücke",
       "postalCode": "6020",
       "addressCountry": "CH",
@@ -287,19 +386,21 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-13",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=65780&career_ns=job_application&lang=de_DE",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:56:50.929Z",
       "salaryMin": 17700,
       "salaryMax": 27200,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -314,7 +415,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-50-in-oerlikon-66092-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:17.862Z",
+      "crawledAt": "2026-10-05T09:18:04.864Z",
       "addressLocality": "Zürich",
       "postalCode": "8050",
       "addressCountry": "CH",
@@ -326,19 +427,21 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-22",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66092&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-07-03T21:31:37.937Z",
       "salaryMin": 41500,
       "salaryMax": 63800,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -353,7 +456,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-20-fur-bern-66200-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:17.540Z",
+      "crawledAt": "2026-10-05T09:18:04.498Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -365,19 +468,21 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66200&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-07-03T21:31:36.461Z",
       "salaryMin": 15500,
       "salaryMax": 23700,
       "salarySource": "estimated",
       "addressRegion": "BE",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -392,7 +497,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-30-fur-bern-66089-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:17.218Z",
+      "crawledAt": "2026-10-05T09:18:04.171Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -404,19 +509,21 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66089&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-07-03T21:31:35.607Z",
       "salaryMin": 23300,
       "salaryMax": 35600,
       "salarySource": "estimated",
       "addressRegion": "BE",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -431,7 +538,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-40-im-volkiland-66278-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:16.906Z",
+      "crawledAt": "2026-10-05T09:18:03.854Z",
       "addressLocality": "Volketswil",
       "postalCode": "8604",
       "addressCountry": "CH",
@@ -443,19 +550,21 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-05",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66278&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-07-03T21:31:34.171Z",
       "salaryMin": 33200,
       "salaryMax": 51000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -470,7 +579,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-wmd-100-fur-bern-66275-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:16.594Z",
+      "crawledAt": "2026-10-05T09:18:03.530Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -482,19 +591,21 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-05",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66275&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-07-03T21:31:33.787Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
       "addressRegion": "BE",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -509,7 +620,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-80-100-chur-66218-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:16.212Z",
+      "crawledAt": "2026-10-05T09:18:03.209Z",
       "addressLocality": "Chur",
       "postalCode": "7001",
       "addressCountry": "CH",
@@ -521,7 +632,9 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-05",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66218&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-07-03T21:31:32.684Z",
       "needsRetranslation": true,
@@ -529,12 +642,12 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -549,7 +662,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-60-in-liestal-66554-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:15.892Z",
+      "crawledAt": "2026-10-05T09:18:02.896Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "addressCountry": "CH",
@@ -561,7 +674,9 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66554&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-07-03T21:31:27.487Z",
       "needsRetranslation": true,
@@ -569,12 +684,12 @@
       "salaryMax": 56400,
       "salarySource": "estimated",
       "addressRegion": "BL",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -589,7 +704,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-80-fur-st-jakob-park-66586-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:15.573Z",
+      "crawledAt": "2026-10-05T09:18:02.585Z",
       "addressLocality": "Basel",
       "postalCode": "4052",
       "addressCountry": "CH",
@@ -601,7 +716,9 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66586&career_ns=job_application&lang=de_DE",
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2485,
@@ -611,12 +728,12 @@
       "salaryMax": 75200,
       "salarySource": "estimated",
       "addressRegion": "BS",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -631,7 +748,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-100-fur-st-gallen-arena-66648-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:15.222Z",
+      "crawledAt": "2026-10-05T09:18:02.267Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressCountry": "CH",
@@ -643,7 +760,9 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-13",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66648&career_ns=job_application&lang=de_DE",
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2485,
@@ -653,12 +772,12 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "SG",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -673,7 +792,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-100-fur-bern-66760-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:14.911Z",
+      "crawledAt": "2026-10-05T09:18:01.960Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -685,19 +804,21 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-20",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66760&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-07-21T11:23:54.561Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
       "addressRegion": "BE",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -712,7 +833,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-40-mit-schlusselfunktion-in-regensdorf-66756-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:14.596Z",
+      "crawledAt": "2026-10-05T09:18:01.632Z",
       "addressLocality": "Regensdorf",
       "postalCode": "8105",
       "addressCountry": "CH",
@@ -724,19 +845,21 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-20",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66756&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-07-23T22:06:22.231Z",
       "salaryMin": 33200,
       "salaryMax": 51000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -751,7 +874,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-40-in-tivoli-spreitenbach-66734-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:14.223Z",
+      "crawledAt": "2026-10-05T09:18:01.275Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressCountry": "CH",
@@ -763,19 +886,21 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-21",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66734&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-07-21T11:23:53.392Z",
       "salaryMin": 29600,
       "salaryMax": 45400,
       "salarySource": "estimated",
       "addressRegion": "AG",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -790,7 +915,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiterin-verkauf-mwd-50-schwerpunkt-service-in-luzern-befristet-bis-ende-feb-2027-66805-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:13.911Z",
+      "crawledAt": "2026-10-05T09:18:00.949Z",
       "addressLocality": "Luzern",
       "postalCode": "6004",
       "addressCountry": "CH",
@@ -802,19 +927,21 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66805&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-07-23T22:06:20.159Z",
       "salaryMin": 39500,
       "salaryMax": 60800,
       "salarySource": "estimated",
       "addressRegion": "LU",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -829,7 +956,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-25-im-letzipark-66825-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:13.596Z",
+      "crawledAt": "2026-10-05T09:18:00.622Z",
       "addressLocality": "Zürich",
       "postalCode": "8048",
       "addressCountry": "CH",
@@ -841,7 +968,9 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-28",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66825&career_ns=job_application&lang=de_DE",
       "needsRetranslation": true,
       "localeMismatchSuppressed": true,
@@ -852,12 +981,12 @@
       "salaryMax": 31900,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -872,7 +1001,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-80-fur-sihlcity-66918-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:13.242Z",
+      "crawledAt": "2026-10-05T09:18:00.300Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "addressCountry": "CH",
@@ -884,19 +1013,21 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66918&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-08-04T22:17:51.959Z",
       "salaryMin": 66400,
       "salaryMax": 102000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -911,7 +1042,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-50-in-regensdorf-66922-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:12.936Z",
+      "crawledAt": "2026-10-05T09:17:59.937Z",
       "addressLocality": "Regensdorf",
       "postalCode": "8105",
       "addressCountry": "CH",
@@ -923,19 +1054,21 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-05",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66922&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-08-05T22:25:24.831Z",
       "salaryMin": 41500,
       "salaryMax": 63800,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -950,7 +1083,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-100-im-volkiland-66912-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:12.602Z",
+      "crawledAt": "2026-10-05T09:17:59.624Z",
       "addressLocality": "Volketswil",
       "postalCode": "8604",
       "addressCountry": "CH",
@@ -962,7 +1095,9 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66912&career_ns=job_application&lang=de_DE",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T10:33:54.433Z",
@@ -970,12 +1105,12 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -990,7 +1125,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-60-im-volkiland-66910-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:12.286Z",
+      "crawledAt": "2026-10-05T09:17:59.301Z",
       "addressLocality": "Volketswil",
       "postalCode": "8604",
       "addressCountry": "CH",
@@ -1002,19 +1137,21 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66910&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-08-10T21:45:02.527Z",
       "salaryMin": 49800,
       "salaryMax": 76500,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1029,7 +1166,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-20-fur-schaffhausen-herblingen-67008-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:11.958Z",
+      "crawledAt": "2026-10-05T09:17:58.976Z",
       "addressLocality": "Schaffhausen",
       "postalCode": "8207",
       "addressCountry": "CH",
@@ -1041,19 +1178,21 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-14",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=67008&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-08-14T21:28:26.506Z",
       "salaryMin": 13700,
       "salaryMax": 21000,
       "salarySource": "estimated",
       "addressRegion": "SH",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1068,7 +1207,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-30-fur-dietlikon-67007-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:11.606Z",
+      "crawledAt": "2026-10-05T09:17:58.659Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressCountry": "CH",
@@ -1080,19 +1219,21 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-14",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=67007&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-08-14T21:28:26.168Z",
       "salaryMin": 24900,
       "salaryMax": 38300,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1107,7 +1248,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-mfd-focus-service-20-cdd-3-mois-crissier-67027-fr-fr",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:17:11.264Z",
+      "crawledAt": "2026-10-05T09:17:58.320Z",
       "addressLocality": "Crissier",
       "postalCode": "1023",
       "addressCountry": "CH",
@@ -1119,7 +1260,9 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-17",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=67027&career_ns=job_application&lang=fr_FR",
       "firstSeenAt": "2026-08-18T09:46:05.216Z",
       "needsRetranslation": true,
@@ -1127,12 +1270,12 @@
       "salaryMax": 18300,
       "salarySource": "estimated",
       "addressRegion": "VD",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1147,7 +1290,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-67028-fr-fr",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:17:10.924Z",
+      "crawledAt": "2026-10-05T09:17:57.976Z",
       "addressLocality": "Crissier",
       "postalCode": "1023",
       "addressCountry": "CH",
@@ -1159,7 +1302,9 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-18",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=67028&career_ns=job_application&lang=fr_FR",
       "firstSeenAt": "2026-08-18T09:46:04.894Z",
       "needsRetranslation": true,
@@ -1167,12 +1312,12 @@
       "salaryMax": 73200,
       "salarySource": "estimated",
       "addressRegion": "VD",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1187,7 +1332,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/lehrstelle-ebaefz-detailhandel-tivoli-spreitenbach-start-1-august-2027-67070-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:10.542Z",
+      "crawledAt": "2026-10-05T09:17:57.645Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressCountry": "CH",
@@ -1199,24 +1344,25 @@
       "sector": "Commercio al dettaglio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-20",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=67070&career_ns=job_application&lang=de_DE",
       "firstSeenAt": "2026-08-20T21:32:23.669Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
       "addressRegion": "AG",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
