@@ -7721,6 +7721,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sostegno-sociale-berna-procedura.title': 'Assistance sociale à Berne : exigences et demande',
     'blog.article.sostegno-sociale-berna-procedura.excerpt': 'Dans le canton de Berne, l\'assistance sociale suit le besoin : demande au bureau compétent, documents et délais à vérifier auprès du canton.',
     'blog.article.sostegno-sociale-berna-procedura.imageAlt': 'Guichet suisse pour une demande d\'aide sociale cantonale',
+    'blog.article.veicoli-berna-calcolo-pratico.title': 'Taxe automobile à Berne : calcul et paiement',
+    'blog.article.veicoli-berna-calcolo-pratico.excerpt': 'Dans le canton de Berne, les critères, les délais, les montants et le bureau compétent pour l\'impôt sur les véhicules automobiles dépendent des règles cantonales.',
+    'blog.article.veicoli-berna-calcolo-pratico.imageAlt': 'Voiture et documents pour l\'impôt cantonal sur les véhicules à Berne.',
 };
 
 export default blogMetaChFr;
