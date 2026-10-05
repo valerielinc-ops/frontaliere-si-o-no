@@ -256,6 +256,7 @@ function httpsUrl(value) {
 /** Pagina pubblica dell'evento su OpenAgenda (il link dell'attribuzione). */
 export function openAgendaEventUrl(agenda, raw) {
   if (typeof raw?.slug === 'string' && raw.slug) {
+    // locale-segment-ok: openAgendaEventUrl() builds an external OpenAgenda portal URL reused unchanged by renderOpenAgendaAttribution() for every app locale; /fr/ is the provider route, not a site-locale path.
     return `https://openagenda.com/fr/${agenda.slug}/events/${encodeURIComponent(raw.slug)}`;
   }
   return `https://openagenda.com/agendas/${agenda.uid}/events/${raw.uid}`;
