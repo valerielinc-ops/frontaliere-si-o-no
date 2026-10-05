@@ -99,4 +99,30 @@ describe('validateJobUrl response deadline', () => {
       { id: 'live', valid: true, reason: 'ok' },
     ]);
   });
+
+  it('cancels timed-out response bodies across consecutive batches', async () => {
+    let liveProbes = 0;
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async (input) => {
+        liveProbes += 1;
+        return {
+          status: 200,
+          url: String(input),
+          body: {
+            cancel: async () => {
+              liveProbes -= 1;
+            },
+          },
+          text: () => new Promise(() => {}),
+        };
+      }),
+    );
+
+    const jobs = [{ id: 'hung', url: 'https://jobs.coopjobs.ch/job/hung' }];
+    await validateJobUrls(jobs, { concurrency: 1, timeoutMs: 20 });
+    await validateJobUrls(jobs, { concurrency: 1, timeoutMs: 20 });
+
+    expect(liveProbes).toBe(0);
+  });
 });

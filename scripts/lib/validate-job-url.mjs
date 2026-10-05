@@ -20,6 +20,7 @@ const DEFAULT_TIMEOUT_MS = 7000;
 const DEFAULT_CONCURRENCY = 10;
 const DEFAULT_USER_AGENT =
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+const RESPONSE_BODY_CLEANUP_TIMEOUT_MS = 1000;
 
 // Fresh protection: jobs crawled within this many hours are never removed
 const DEFAULT_FRESH_PROTECTION_HOURS = 72;
@@ -251,6 +252,54 @@ function hasTiChClosedSignal(htmlLower, url) {
 
 // ── Core validation ─────────────────────────────────────────────────────────
 
+async function boundedBodyCleanup(cleanup) {
+  if (typeof cleanup !== 'function') return;
+  let timer;
+  try {
+    await Promise.race([
+      Promise.resolve().then(cleanup),
+      new Promise((resolve) => {
+        timer = setTimeout(resolve, RESPONSE_BODY_CLEANUP_TIMEOUT_MS);
+      }),
+    ]);
+  } catch {
+    // A cleanup failure is non-definitive; the validator remains fail-open.
+  } finally {
+    if (timer !== undefined) clearTimeout(timer);
+  }
+}
+
+async function readResponseText(response, setCleanup) {
+  const body = response?.body;
+  if (!body || typeof body.getReader !== 'function') {
+    if (typeof body?.cancel === 'function') {
+      setCleanup(() => body.cancel('job URL validation timeout'));
+    }
+    try {
+      return await response.text();
+    } finally {
+      setCleanup(null);
+    }
+  }
+
+  const reader = body.getReader();
+  setCleanup(() => reader.cancel('job URL validation timeout'));
+  try {
+    const decoder = new TextDecoder();
+    let text = '';
+    while (true) {
+      // eslint-disable-next-line no-await-in-loop
+      const { done, value } = await reader.read();
+      if (done) break;
+      text += decoder.decode(value, { stream: true });
+    }
+    return text + decoder.decode();
+  } finally {
+    setCleanup(null);
+    try { reader.releaseLock(); } catch { /* best effort after cancellation */ }
+  }
+}
+
 /**
  * @typedef {Object} ValidationResult
  * @property {string} [id]       - Job ID (passed through)
@@ -289,14 +338,21 @@ export async function validateJobUrl(rawUrl, { timeoutMs, userAgent, id } = {}) 
 
   const controller = new AbortController();
   let timeoutId;
+  let bodyCleanup = null;
+  let timedOut = false;
   // AbortController normally bounds fetch(), but a response body can ignore the
-  // abort and leave res.text() pending. Race the complete probe as well so one
-  // hostile portal cannot strand the crawler before it writes its slice.
+  // abort and leave res.text() pending. Keep a cleanup handle for the body so
+  // one hostile portal cannot strand a live probe behind the crawler timeout.
   const deadline = new Promise((resolve) => {
     timeoutId = setTimeout(() => {
+      timedOut = true;
       controller.abort();
-      // Keep the validator fail-open: an unproven URL must never be archived.
-      resolve({ id, valid: true, status: 0, reason: 'network-timeout' });
+      const cleanup = bodyCleanup;
+      bodyCleanup = null;
+      void boundedBodyCleanup(cleanup).then(() => {
+        // Keep the validator fail-open: an unproven URL must never be archived.
+        resolve({ id, valid: true, status: 0, reason: 'network-timeout' });
+      });
     }, timeout);
   });
 
@@ -311,6 +367,13 @@ export async function validateJobUrl(rawUrl, { timeoutMs, userAgent, id } = {}) 
           'User-Agent': ua,
         },
       });
+
+      // A fetch implementation may resolve after aborting. Do not start a
+      // body read in that case; cancel the response that arrived too late.
+      if (timedOut) {
+        await boundedBodyCleanup(() => res.body?.cancel?.('job URL validation timeout'));
+        return { id, valid: true, status: 0, reason: 'network-timeout' };
+      }
 
       // Strong HTTP-level signal: 404 / 410 — definitive, bypasses fresh protection
       if (res.status === 404 || res.status === 410) {
@@ -334,7 +397,9 @@ export async function validateJobUrl(rawUrl, { timeoutMs, userAgent, id } = {}) 
       }
 
       // Read body for content-level signals
-      const text = await res.text();
+      const text = await readResponseText(res, (cleanup) => {
+        bodyCleanup = cleanup;
+      });
       const htmlLower = normalizeStrongPhraseText(text.slice(0, 300_000));
 
       // Strong "job closed" phrases — definitive, bypasses fresh protection
@@ -366,7 +431,7 @@ export async function validateJobUrl(rawUrl, { timeoutMs, userAgent, id } = {}) 
       return { id, valid: true, status: res.status, reason: 'ok' };
     } catch (err) {
       // Fail-open on network/timeout errors
-      return { id, valid: true, status: 0, reason: 'network-error' };
+      return { id, valid: true, status: 0, reason: timedOut ? 'network-timeout' : 'network-error' };
     }
   })();
 
