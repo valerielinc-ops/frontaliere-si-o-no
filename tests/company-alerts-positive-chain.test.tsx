@@ -28,6 +28,8 @@ const doubles = vi.hoisted(() => {
     subscriber: Record<string, any> | null;
     alerts: FakeAlert[];
     parentWrites: any[];
+    /** Server-side follow intents (company_follow_intents), never alerts. */
+    followIntents: any[];
     confirmationRequests: any[];
     providerMessages: any[];
     impressions: any[];
@@ -37,6 +39,7 @@ const doubles = vi.hoisted(() => {
     subscriber: null,
     alerts: [],
     parentWrites: [],
+    followIntents: [],
     confirmationRequests: [],
     providerMessages: [],
     impressions: [],
@@ -148,6 +151,12 @@ const doubles = vi.hoisted(() => {
   });
 
   const addDoc = vi.fn(async (collectionRef: any, data: Record<string, any>) => {
+    if (String(collectionRef?.path || '').endsWith('/company_follow_intents')) {
+      const id = `intent-${state.followIntents.length + 1}`;
+      const ref = makeRef(`${collectionRef.path}/${id}`, id, collectionRef);
+      state.followIntents.push({ ...data, id, ref });
+      return ref;
+    }
     const id = `generated-${state.alerts.length + 1}`;
     const ref = makeRef(`${collectionRef.path}/${id}`, id, collectionRef);
     state.alerts.push({ ...data, id, ref });
@@ -169,6 +178,7 @@ const doubles = vi.hoisted(() => {
     state.subscriber = null;
     state.alerts.length = 0;
     state.parentWrites.length = 0;
+    state.followIntents.length = 0;
     state.confirmationRequests.length = 0;
     state.providerMessages.length = 0;
     state.impressions.length = 0;
@@ -241,11 +251,11 @@ vi.mock('firebase-admin/firestore', () => ({
 
 vi.mock('firebase/firestore', () => ({
   collectionGroup: vi.fn((db: unknown, name: string) => ({ kind: 'collectionGroup', db, name })),
-  collection: vi.fn((parent: any, name: string) => ({
+  collection: vi.fn((parent: any, ...segments: string[]) => ({
     kind: 'collection',
     parent,
-    name,
-    path: `${parent?.path || ''}/${name}`,
+    name: segments[segments.length - 1],
+    path: `${parent?.path || ''}/${segments.join('/')}`,
   })),
   doc: vi.fn((...args: any[]) => {
     if (args[0] === doubles.db) {
@@ -558,6 +568,11 @@ async function runChain(locale: 'it' | 'en', round: number) {
   expect(doubles.state.confirmationRequests, 'ring 4: confirmation is captured by fake boundary').toHaveLength(1);
   expect(readPendingCompanyFollows(), 'ring 4: pending follow intent exists before confirmation').toHaveLength(1);
   expect(doubles.state.alerts, 'ring 4: pending confirmation creates no CompanyAlert').toHaveLength(0);
+  expect(doubles.state.followIntents, 'ring 4: the follow is also recorded server-side for any device').toHaveLength(1);
+  expect(doubles.state.followIntents[0], 'ring 4: server intent carries the canonical key, pending').toMatchObject({
+    company_key: canonicalCompanyProfileSlug(COMPANY, COMPANY_KEY),
+    status: 'pending',
+  });
   await confirmSyntheticAddress(email);
   expect(doubles.state.subscriber?.status, 'ring 4: confirmed unified address is active').toBe('confirmed');
   expect(doubles.state.subscriber?.isActive, 'ring 4: confirmed unified address is newsletter-active').toBe(true);

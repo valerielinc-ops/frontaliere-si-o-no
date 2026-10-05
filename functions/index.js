@@ -829,6 +829,7 @@ export const newsletterManageSubscription = onRequest(
  if (result.authToken) jsonBody.authToken = result.authToken;
  if (result.alreadyConfirmed != null) jsonBody.alreadyConfirmed = result.alreadyConfirmed;
  if (result.companyFollowFollowup) jsonBody.companyFollowFollowup = result.companyFollowFollowup;
+ if (result.companyFollowFulfilled) jsonBody.companyFollowFulfilled = result.companyFollowFulfilled;
  if (result.loginOnly != null) jsonBody.loginOnly = result.loginOnly;
  res.status(result.status).type('json').json(jsonBody);
  } else {

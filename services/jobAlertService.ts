@@ -189,7 +189,7 @@ function normalizeEmail(email: string): string {
   return email.trim().toLowerCase();
 }
 
-function stableAlertIdempotencyKey(
+export function stableAlertIdempotencyKey(
   userId: string,
   email: string,
   config: JobAlertConfig,
@@ -398,15 +398,15 @@ export async function createAlert(
   if (existingIdempotent) {
     return alertFromStoredData(existingIdempotent.id, existingIdempotent.data() as Record<string, any>, fallback);
   }
-  // A follow group (build-plugins/shared/companyFollowGroups.mjs) is ONE
-  // follow: following `coop` while `coop-genossenschaft` is already followed
-  // returns that alert instead of creating a second one for the same jobs.
-  // The exact key keeps its idempotency-key semantics above.
+  // One followed employer = one alert, whichever writer got there first:
+  // the exact key (the confirmation endpoint may already have created it from
+  // the server-side follow intent, functions/src/companyFollowIntents.js, with
+  // another locale or provenance, i.e. another idempotency key) or another
+  // member of the same follow group (build-plugins/shared/companyFollowGroups.mjs:
+  // following `coop` while `coop-genossenschaft` is followed returns that one).
   const existingFollow = canonicalSpecificCompanyKey
     ? findCompanyAlertForKey(
-      existing.docs
-        .map((d) => ({ doc: d, ...(d.data() as { specificCompanyKey?: string | null; active?: boolean }) }))
-        .filter((row) => row.specificCompanyKey !== canonicalSpecificCompanyKey),
+      existing.docs.map((d) => ({ doc: d, ...(d.data() as { specificCompanyKey?: string | null; active?: boolean }) })),
       canonicalSpecificCompanyKey,
     )
     : null;

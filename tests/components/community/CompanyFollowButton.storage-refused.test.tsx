@@ -4,24 +4,33 @@
  * `onOptInRequested` is its "accept" signal (email flow continues, funnel
  * counts an accept), so it must fire only after a successful park; a refused
  * park surfaces as an error instead.
+ *
+ * Since 2026-10-05 the follow is ALSO recorded server-side (the confirmation
+ * endpoint completes it from any device), so "parked" means: in the browser
+ * OR on the server. Only when both refuse is the flow stopped.
  */
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import CompanyFollowButton from '@/components/community/CompanyFollowButton';
 import { readPendingCompanyFollows } from '@/services/companyFollowIntent';
+import { companyAlertKey } from '@/services/jobAlertService';
 
 const EMAIL = 'company-follow-storage@example.test';
 
 async function submitAnonymousFollow(props: {
   onOptInRequested: (email: string) => void;
   onErrored: (error: unknown) => void;
+  recordIntent?: (intent: unknown) => Promise<boolean>;
+  company?: string;
+  companyKey?: string;
 }) {
+  const recordIntent = props.recordIntent || vi.fn(async () => false);
   const captureEmail = vi.fn(async () => undefined);
   const subscribe = vi.fn(async () => ({ id: 'unexpected' }) as never);
   render(
     <CompanyFollowButton
-      company="Acme"
-      companyKey="acme"
+      company={props.company ?? 'Acme'}
+      companyKey={props.companyKey ?? 'acme'}
       userId={null}
       email={null}
       locale="it"
@@ -29,6 +38,7 @@ async function submitAnonymousFollow(props: {
       captureEmail={captureEmail}
       onOptInRequested={props.onOptInRequested}
       onErrored={props.onErrored}
+      recordIntent={recordIntent as never}
     />,
   );
   const followButton = await waitFor(() => screen.getByRole('button', { name: /Segui questa azienda/i }));
@@ -45,7 +55,7 @@ async function submitAnonymousFollow(props: {
   await waitFor(() => {
     if (captureEmail.mock.calls.length !== 1) throw new Error('capture seam was not called');
   });
-  return { subscribe };
+  return { subscribe, recordIntent };
 }
 
 beforeEach(() => localStorage.clear());
@@ -84,5 +94,52 @@ describe('CompanyFollowButton: parked follow gates the opt-in callback', () => {
     await waitFor(() => expect(onOptInRequested).toHaveBeenCalledWith(EMAIL));
     expect(onErrored).not.toHaveBeenCalled();
     expect(readPendingCompanyFollows()).toHaveLength(1);
+  });
+
+  it('records the follow server-side with the canonical company key', async () => {
+    const onOptInRequested = vi.fn();
+    const onErrored = vi.fn();
+    const recordIntent = vi.fn(async () => true);
+
+    await submitAnonymousFollow({ onOptInRequested, onErrored, recordIntent });
+
+    await waitFor(() => expect(onOptInRequested).toHaveBeenCalledWith(EMAIL));
+    expect(recordIntent).toHaveBeenCalledTimes(1);
+    expect(recordIntent.mock.calls[0][0]).toMatchObject({
+      email: EMAIL,
+      companyKey: 'acme',
+      company: 'Acme',
+      locale: 'it',
+    });
+  });
+
+  it('records the canonical follow key, not the raw crawler key', async () => {
+    // One crawler key can publish several employers (the Migros crawler also
+    // publishes Galaxus): the follow is the employer label's canonical slug,
+    // exactly what subscribeCompanyAlert pins.
+    const onOptInRequested = vi.fn();
+    const recordIntent = vi.fn(async () => true);
+
+    await submitAnonymousFollow({ onOptInRequested, onErrored: vi.fn(), recordIntent, company: 'Galaxus', companyKey: 'migros' });
+
+    await waitFor(() => expect(onOptInRequested).toHaveBeenCalledWith(EMAIL));
+    expect(recordIntent.mock.calls[0][0]).toMatchObject({
+      companyKey: companyAlertKey('Galaxus', 'migros'),
+    });
+    expect(companyAlertKey('Galaxus', 'migros')).toBe('galaxus');
+  });
+
+  it('continues when only the server holds the follow (storage refused)', async () => {
+    vi.spyOn(window.localStorage, 'setItem').mockImplementation(() => {
+      throw new DOMException('quota', 'QuotaExceededError');
+    });
+    const onOptInRequested = vi.fn();
+    const onErrored = vi.fn();
+    const recordIntent = vi.fn(async () => true);
+
+    await submitAnonymousFollow({ onOptInRequested, onErrored, recordIntent });
+
+    await waitFor(() => expect(onOptInRequested).toHaveBeenCalledWith(EMAIL));
+    expect(onErrored).not.toHaveBeenCalled();
   });
 });
