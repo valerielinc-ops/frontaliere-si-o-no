@@ -1068,19 +1068,19 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  // ───── Taxes & Pension ────────────────────────────────────────
  '/tasse-e-pensione/calcola-previdenza': {
  en: [
- 'The pension simulator estimates retirement benefits by combining the first pillar AVS (maximum 2024 pension: CHF 2,450/month), second pillar LPP (contribution credits from 7% to 18% based on age), and the optional third pillar 3a.',
+ 'The pension simulator estimates retirement benefits by combining the first pillar AVS (maximum 2026 pension: CHF 2,520/month), second pillar LPP (contribution credits from 7% to 18% based on age), and the optional third pillar 3a.',
  'For cross-border workers, the Swiss pension is paid even after permanently returning to Italy. AVS contributions accrued in Switzerland are combined with Italian INPS contributions thanks to the bilateral social security convention.',
  'The simulator also shows the impact of different strategies: voluntary third pillar 3a contributions, LPP buy-ins, and the effect of the conversion rate on the final pension, with projections at 5, 10, and 20 years.',
  '<p class="s-tTvoK-">Source: <a class="s-OsohZU" href="https://www.bsv.admin.ch" rel="noopener">Federal Social Insurance Office (FSIO)</a></p>',
  ],
  de: [
- 'Der Vorsorgesimulator schätzt die Rentenleistungen durch Kombination der ersten Säule AHV (maximale Rente 2024: CHF 2.450/Monat), der zweiten Säule BVG (Gutschriften von 7 % bis 18 % je nach Alter) und der freiwilligen dritten Säule 3a.',
+ 'Der Vorsorgesimulator schätzt die Rentenleistungen durch Kombination der ersten Säule AHV (maximale Rente 2026: CHF 2.520/Monat), der zweiten Säule BVG (Gutschriften von 7 % bis 18 % je nach Alter) und der freiwilligen dritten Säule 3a.',
  'Für Grenzgänger wird die Schweizer Rente auch nach der endgültigen Rückkehr nach Italien gezahlt. In der Schweiz angesammelte AHV-Beiträge werden dank des bilateralen Sozialversicherungsabkommens mit italienischen INPS-Beiträgen kombiniert.',
  'Der Simulator zeigt auch die Auswirkung verschiedener Strategien: freiwillige Säule-3a-Einzahlungen, BVG-Einkäufe und den Effekt des Umwandlungssatzes auf die Endrente, mit Prognosen auf 5, 10 und 20 Jahre.',
  '<p class="s-tTvoK-">Quelle: <a class="s-OsohZU" href="https://www.bsv.admin.ch" rel="noopener">Bundesamt für Sozialversicherungen (BSV)</a></p>',
  ],
  fr: [
- 'Le simulateur de prévoyance estime les prestations de retraite en combinant le premier pilier AVS (rente maximale 2024 : CHF 2 450/mois), le deuxième pilier LPP (bonifications de 7 % à 18 % selon l\'âge) et le troisième pilier 3a facultatif.',
+ 'Le simulateur de prévoyance estime les prestations de retraite en combinant le premier pilier AVS (rente maximale 2026 : CHF 2 520/mois), le deuxième pilier LPP (bonifications de 7 % à 18 % selon l\'âge) et le troisième pilier 3a facultatif.',
  'Pour les frontaliers, la pension suisse est versée même après le retour définitif en Italie. Les cotisations AVS accumulées en Suisse s\'ajoutent aux cotisations INPS italiennes grâce à la convention bilatérale de sécurité sociale.',
  'Le simulateur montre également l\'impact de différentes stratégies : versements volontaires au pilier 3a, rachats LPP et effet du taux de conversion sur la rente finale, avec des projections à 5, 10 et 20 ans.',
  '<p class="s-tTvoK-">Source : <a class="s-OsohZU" href="https://www.bsv.admin.ch" rel="noopener">Office fédéral des assurances sociales (OFAS)</a></p>',
