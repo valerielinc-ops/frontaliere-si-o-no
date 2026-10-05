@@ -11,7 +11,11 @@
  *
  *   node scripts/research/local-mt-engine-bench.mjs \
  *     --base /tmp/base-worker.py --requests 600 --cap-seconds 900 \
- *     [--head-env LOCAL_MT_ENGINE=batched] [--base-env LOCAL_MT_ENGINE=legacy]
+ *     [--head-env LOCAL_MT_ENGINE=batched] [--base-env LOCAL_MT_ENGINE=legacy] \
+ *     [--variant name:ENV=VAL,ENV=VAL]...
+ *
+ * Each `--variant` runs the HEAD worker once more with its own environment, so
+ * one bench can tell which part of a change moves the output.
  *
  * Writes a Markdown report to stdout and, when set, to $GITHUB_STEP_SUMMARY.
  */
@@ -116,38 +120,56 @@ function main() {
     base: runWorker(base, input, { capSeconds, env: envOpts('--base-env') }),
     head: runWorker(HEAD_WORKER, input, { capSeconds, env: envOpts('--head-env') }),
   };
+  process.argv.forEach((arg, i) => {
+    if (arg !== '--variant' || !process.argv[i + 1]) return;
+    const [name, spec = ''] = process.argv[i + 1].split(':');
+    const env = Object.fromEntries(spec.split(',').filter(Boolean).map((kv) => {
+      const [k, ...v] = kv.split('=');
+      return [k, v.join('=')];
+    }));
+    runs[name] = runWorker(HEAD_WORKER, input, { capSeconds, env });
+  });
 
-  let both = 0;
-  let identical = 0;
-  const diffs = [];
-  for (const r of sample) {
-    const a = runs.base.responses.get(r.id);
-    const b = runs.head.responses.get(r.id);
-    if (!a?.text || !b?.text) continue;
-    both++;
-    if (a.text === b.text) identical++;
-    else if (diffs.length < 8) diffs.push({ dir: `${r.from}>${r.to}`, base: a.text.slice(0, 160), head: b.text.slice(0, 160) });
-  }
-
-  const row = (name, run) => {
+  const compare = (other) => {
+    let both = 0;
+    let identical = 0;
+    const diffs = [];
+    for (const r of sample) {
+      const a = runs.base.responses.get(r.id);
+      const b = other.responses.get(r.id);
+      if (!a?.text || !b?.text) continue;
+      both++;
+      if (a.text === b.text) identical++;
+      else if (diffs.length < 6) diffs.push({ dir: `${r.from}>${r.to}`, base: a.text.slice(0, 160), head: b.text.slice(0, 160) });
+    }
+    return { both, identical, diffs };
+  };
+  const row = (name, run, same) => {
     const done = [...run.responses.values()].filter((x) => x.text).length;
-    return `| ${name} | ${run.seconds.toFixed(0)} s${run.timedOut ? ' (cap)' : ''} | ${done}/${sample.length} | ${(done / Math.max(1, run.seconds) * 60).toFixed(1)} | ${run.summary.replace(/\|/g, '/')} |`;
+    return `| ${name} | ${run.seconds.toFixed(0)} s${run.timedOut ? ' (cap)' : ''} | ${done}/${sample.length} | ${(done / Math.max(1, run.seconds) * 60).toFixed(1)} | ${same} | ${run.summary.replace(/\|/g, '/')} |`;
   };
   const lines = [
     '## Argos worker bench',
     '',
     `Queue on this tree: ${queued.titles} title + ${queued.descriptions} description requests. Sample: ${sample.length} (${Object.entries(directions).map(([k, v]) => `${k} ${v}`).join(', ')}), cap ${capSeconds}s per worker, ${os.cpus().length} CPUs.`,
     '',
-    '| worker | wall | requests done | requests/min | worker log |',
-    '|---|---|---|---|---|',
-    row('base', runs.base),
-    row('head', runs.head),
-    '',
-    `Responses produced by both: ${both}; byte-identical: ${identical} (${both ? ((100 * identical) / both).toFixed(1) : '0.0'}%).`,
+    '| worker | wall | requests done | requests/min | identical to base | worker log |',
+    '|---|---|---|---|---|---|',
   ];
-  if (diffs.length) {
-    lines.push('', '<details><summary>first differing responses</summary>', '');
-    for (const d of diffs) lines.push(`- \`${d.dir}\`  \n  base: ${JSON.stringify(d.base)}  \n  head: ${JSON.stringify(d.head)}`);
+  const comparisons = {};
+  for (const [name, run] of Object.entries(runs)) {
+    if (name === 'base') {
+      lines.push(row(name, run, '—'));
+      continue;
+    }
+    const c = compare(run);
+    comparisons[name] = c;
+    lines.push(row(name, run, `${c.identical}/${c.both} (${c.both ? ((100 * c.identical) / c.both).toFixed(1) : '0.0'}%)`));
+  }
+  for (const [name, c] of Object.entries(comparisons)) {
+    if (!c.diffs.length) continue;
+    lines.push('', `<details><summary>${name}: first responses that differ from base</summary>`, '');
+    for (const d of c.diffs) lines.push(`- \`${d.dir}\`  \n  base: ${JSON.stringify(d.base)}  \n  ${name}: ${JSON.stringify(d.head)}`);
     lines.push('', '</details>');
   }
   for (const [name, run] of Object.entries(runs)) {

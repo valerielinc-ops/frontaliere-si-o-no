@@ -73,6 +73,9 @@ Env:
   LOCAL_MT_BATCH_TOKENS — CTranslate2 max_batch_size in tokens for the batched
                      engine (default 4096). Argos' own default is 32 tokens, i.e.
                      one or two sentences per forward pass.
+  LOCAL_MT_STANZA_BULK — `1` (default) segments a chunk's paragraphs with one
+                     Stanza call; `0` calls the sentencizer per paragraph, as
+                     Argos does.
   LOCAL_MT_UNIT_CACHE — optional JSONL file of already-translated units. Loaded at
                      start (those units are not translated again) and appended
                      after every chunk, so the work a timeout kill interrupts is
@@ -239,6 +242,7 @@ class _BatchedEngine:
         self.batch_tokens = batch_tokens
         self._chains = {}
         self._memo = {}   # (leg key, text) -> translated text
+        self.stanza_bulk = os.environ.get("LOCAL_MT_STANZA_BULK", "1").strip() != "0"
         for name in ("get_translation_from_codes", "CachedTranslation",
                      "CompositeTranslation", "IdentityTranslation", "PackageTranslation"):
             if not hasattr(tr, name):
@@ -290,7 +294,7 @@ class _BatchedEngine:
         sentencizer per paragraph exactly as Argos calls it."""
         sentencizer = leg.sentencizer
         pipeline = getattr(sentencizer, "lazy_pipeline", None)
-        if pipeline is None:
+        if pipeline is None or not self.stanza_bulk:
             return [sentencizer.split_sentences(p) for p in paragraphs]
         out = [[] for _ in paragraphs]
         live = [i for i, p in enumerate(paragraphs) if p.strip()]
@@ -637,7 +641,7 @@ def translate_stream():
     batch = None
     if engine != "legacy":
         try:
-            batch = _BatchedEngine(tr, _env_int("LOCAL_MT_BATCH_TOKENS", 4096, 64, 65536))
+            batch = _BatchedEngine(tr, _env_int("LOCAL_MT_BATCH_TOKENS", 4096, 1, 65536))
         except Exception as e:  # noqa: BLE001
             log(f"⚠️  batched engine unavailable ({type(e).__name__}: {e}) — legacy path")
     if batch is None:
