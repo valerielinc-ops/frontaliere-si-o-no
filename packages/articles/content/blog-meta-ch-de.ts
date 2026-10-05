@@ -125,7 +125,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-finanziamento-13esima.title': 'Die 13. AHV kommt in die Schlichtungskonferenz',
     'blog.article.avs-finanziamento-13esima.excerpt': 'Keine Einigung zwischen Nationalrat und Ständerat über die Finanzierung der 13. AHV',
     'blog.article.avs-finanziamento-13esima.imageAlt': 'Gebäude des Schweizer Parlaments in Bern mit AHV-Logo',
-    'blog.article.givaudan-licenziamenti.title': 'Givaudan in Vernier (Genf): Entlassungen',
+    'blog.article.givaudan-licenziamenti.title': 'Givaudan entlässt Mitarbeiter',
     'blog.article.givaudan-licenziamenti.excerpt': 'Givaudan, Weltmarktführer bei Aromen und Düften, entlässt Mitarbeiter wegen Diebstahl von Essenzen.',
     'blog.article.givaudan-licenziamenti.imageAlt': 'Chemische Industrie in der Schweiz',
     'blog.article.agefi-nuovi-vertici.title': 'L\'Agefi cambia vertici e cerca nuovi soci',
@@ -7748,6 +7748,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.porte-aperte-login-ticino.title': 'Offene Türen Login Tessin: Bahn, Handel und Gebäude',
     'blog.article.porte-aperte-login-ticino.excerpt': 'Am Samstag, 10. Oktober, 09.00-13.00 Uhr in Bellinzona, präsentiert Porte Aperte Login Tessin Bahn, Handel und die im August 2027 gestartete neue Ausbildung EFZ Gebäude- und Infrastrukturinformatiker/in.',
     'blog.article.porte-aperte-login-ticino.imageAlt': 'Besucher bei den offenen Türen login Ticino beobachten einen Elektrozug und Gebäudeautomatisierungswerkzeuge in Bellinzona',
+    'blog.article.rischi-cyber-pmi-svizzere.title': 'Cyberrisiken: Schweizer KMU unterschätzen die Gefahren',
+    'blog.article.rischi-cyber-pmi-svizzere.excerpt': 'Eine VZ-HSLU-Analyse zeigt, dass Cybervorfälle das weltweit größte Risiko darstellen: In der Schweiz gab es im Jahr 2025 knapp 58\'000 digitale Straftaten.',
+    'blog.article.rischi-cyber-pmi-svizzere.imageAlt': 'Schweizer KMU prüft Cyberrisiken im Büro',
 };
 
 export default blogMetaChDe;
