@@ -1405,7 +1405,21 @@ export function resetHardenCache() {
   _hardenResultCache.clear();
 }
 
-export function hardenJobLocaleFields({ dataJobsPath }) {
+/**
+ * @param {object} opts
+ * @param {string} opts.dataJobsPath
+ * @param {boolean} [opts.fillEmptyWithSourceCopy=true] — when false, an empty
+ *   non-source title/description slot stays empty (flagged
+ *   `needsRetranslation`) instead of receiving a copy of the source text.
+ *   The copy only exists to satisfy the publish gate on the BUILD-TIME dataset
+ *   (deploy.yml `prep` re-hardens the assembled data/jobs.json); a caller that
+ *   writes the per-crawler slices back to git must pass false, otherwise the
+ *   committed slot looks filled, the "empty slot = to translate" convention of
+ *   the crawlers is lost and the description audit counts the copy as a
+ *   stale translation (issue 6109: housekeeping commit of 2026-10-04 turned
+ *   161 empty Coop jobs into source copies).
+ */
+export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = true }) {
   if (!dataJobsPath || !fs.existsSync(dataJobsPath)) {
     return { changed: false, repaired: 0, total: 0 };
   }
@@ -1692,8 +1706,11 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
             placeholder,
             ...DEFAULT_LOCALES.map((l) => String(job.titleByLocale[l] || '').trim()),
           ].find(hasUsableTitle) || placeholder;
-          if (sourceCopy) {
+          if (sourceCopy && fillEmptyWithSourceCopy) {
             job.titleByLocale[locale] = sourceCopy;
+            job.needsRetranslation = true;
+            jobChanged = true;
+          } else if (sourceCopy && !job.needsRetranslation) {
             job.needsRetranslation = true;
             jobChanged = true;
           }
@@ -1706,7 +1723,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
         if (isPlaceholderDescription(descValue)) {
           delete job.descriptionByLocale[locale];
           if (baseDesc && baseDesc.length >= 120 && sourceLocaleIsPublished) {
-            job.descriptionByLocale[locale] = baseDesc;
+            if (fillEmptyWithSourceCopy) job.descriptionByLocale[locale] = baseDesc;
             job.needsRetranslation = true;
           }
           jobChanged = true;
@@ -1736,9 +1753,12 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
           job.needsRetranslation = true;
           jobChanged = true;
         }
-        // Fallback: if description is still empty, copy source description as placeholder.
-        if (!String(job.descriptionByLocale[locale] || '').trim() && baseDesc && baseDesc.length >= 120 && sourceLocaleIsPublished) {
-          job.descriptionByLocale[locale] = baseDesc;
+        // Fallback: if description is still empty, copy source description as
+        // placeholder — build-time only. With fillEmptyWithSourceCopy=false the
+        // slot stays empty ("to translate") and only the flag is set.
+        if (!String(job.descriptionByLocale[locale] || '').trim() && baseDesc && baseDesc.length >= 120 && sourceLocaleIsPublished
+            && (fillEmptyWithSourceCopy || !job.needsRetranslation)) {
+          if (fillEmptyWithSourceCopy) job.descriptionByLocale[locale] = baseDesc;
           job.needsRetranslation = true;
           jobChanged = true;
         }
