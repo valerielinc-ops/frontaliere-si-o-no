@@ -37871,6 +37871,20 @@ const RAW_ARTICLES_CHUNK_21: Article[] = [
  authorName: 'Laura Bianchi',
  },
 ];
+
+const RAW_ARTICLES_CHUNK_22: Article[] = [
+ {
+ id: 'bollettino-frontaliere-2026-10-05',
+ category: 'novita',
+ date: '2026-10-05T12:09:11.088Z',
+ image: '/images/blog/bollettino-frontaliere-2026-10-05.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+];
+
 const RAW_ARTICLES: Article[] = [
  ...RAW_ARTICLES_CHUNK_01,
  ...RAW_ARTICLES_CHUNK_02,
@@ -37893,6 +37907,7 @@ const RAW_ARTICLES: Article[] = [
  ...RAW_ARTICLES_CHUNK_19,
  ...RAW_ARTICLES_CHUNK_20,
  ...RAW_ARTICLES_CHUNK_21,
+ ...RAW_ARTICLES_CHUNK_22,
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
