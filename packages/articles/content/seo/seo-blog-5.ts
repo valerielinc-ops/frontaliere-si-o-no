@@ -98653,6 +98653,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-uyba-esordio-pari-novara': {
+    title: 'Uyba esordisce alla pari con Novara: Igor vince al tie-break',
+    description: 'La Uyba perde 3-2 al tie-break contro Igor Novara al Biella Forum davanti a 1679 spettatori; Grozer segna 26 punti e la squadra conquista un punto nel primo',
+    keywords: 'frontalieri, ticino, svizzera, italia, uyba, esordisce, alla, pari',
+    ogTitle: 'Uyba esordisce alla pari con Novara: Igor vince al tie-break',
+    ogDescription: 'Nel primo turno di Serie A1 femminile, la Laica Busto Arsizio cede 3-2 al tie-break a Igor Novara al Biella Forum. La partita, seguita da 1679 spettatori, vede Leana Grozer chiudere con 26 punti. Nonostante la sconfitta, l\'Uyba porta a casa un punto',
+    canonicalPath: '/articoli-frontaliere/uyba-esordio-pari-novara/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Uyba esordisce alla pari con Novara: Igor vince al tie-break",
+      "description": "La Uyba perde 3-2 al tie-break contro Igor Novara al Biella Forum davanti a 1679 spettatori; Grozer segna 26 punti e la squadra conquista un punto nel primo",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/uyba-esordio-pari-novara.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uyba e Novara in azione al Biella Forum durante il primo set, con il pubblico sugli spalti"
+      },
+      "datePublished": "2026-10-05T00:09:59+00:00",
+      "dateModified": "2026-10-05T00:09:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/uyba-esordio-pari-novara/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

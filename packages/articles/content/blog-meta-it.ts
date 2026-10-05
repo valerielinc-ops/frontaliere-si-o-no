@@ -12550,6 +12550,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gordola-avviso-scomparsa-revocato.title': 'Gordola: revocato l\'avviso di scomparsa',
     'blog.article.gordola-avviso-scomparsa-revocato.excerpt': 'La Polizia cantonale ticinese ha revocato l\'avviso per una 41enne di Gordola, data per scomparsa dal 2 ottobre. L\'annuncio era stato diramato sabato.',
     'blog.article.gordola-avviso-scomparsa-revocato.imageAlt': 'Gordola in Ticino, dove è stato revocato un avviso di scomparsa',
+    'blog.article.uyba-esordio-pari-novara.title': 'Uyba esordisce alla pari con Novara: Igor vince al tie-break',
+    'blog.article.uyba-esordio-pari-novara.excerpt': 'La Laica Busto Arsizio perde 3-2 al tie-break contro Igor Novara al Biella Forum davanti a 1679 spettatori; Grozer chiude con 26 punti e l\'Uyba conquista un punto.',
+    'blog.article.uyba-esordio-pari-novara.imageAlt': 'Uyba e Novara in azione al Biella Forum durante il primo set, con il pubblico sugli spalti',
 };
 
 export default blogMetaIt;

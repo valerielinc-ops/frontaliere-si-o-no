@@ -12549,6 +12549,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gordola-avviso-scomparsa-revocato.title': 'Gordola: missing-person notice revoked',
     'blog.article.gordola-avviso-scomparsa-revocato.excerpt': 'Ticino cantonal police have withdrawn the alert for a 41-year-old woman from Gordola, who had been reported missing since October 2. The announcement had been issued on Saturday.',
     'blog.article.gordola-avviso-scomparsa-revocato.imageAlt': 'Gordola in Ticino, where a missing person alert was revoked',
+    'blog.article.uyba-esordio-pari-novara.title': 'Uyba make an even debut against Novara: Igor win in the tie-break',
+    'blog.article.uyba-esordio-pari-novara.excerpt': 'Laica Busto Arsizio lose 3-2 in the tie-break against Igor Novara at the Biella Forum in front of 1679 spectators; Grozer finishes with 26 points and Uyba earn a point.',
+    'blog.article.uyba-esordio-pari-novara.imageAlt': 'Uyba and Novara players in action at the Biella Forum during the first set, with fans in the stands',
 };
 
 export default blogMetaEn;
