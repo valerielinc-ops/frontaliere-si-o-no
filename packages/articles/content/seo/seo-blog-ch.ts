@@ -97221,6 +97221,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rita-fuhrer-consiglio-federale-donne': {
+    title: 'Consiglio federale senza donne: l\'analisi di Rita Fuhrer',
+    description: 'L\'ex consigliera zurighese Rita Fuhrer commenta la successione in Consiglio federale, ricordando la sua candidatura UDC del 2000 e il dibattito sui criteri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, senza, donne',
+    ogTitle: 'Rita Fuhrer: Nessun problema se in Consiglio federale non ci sono donne',
+    ogDescription: 'L\'ex consigliera di Stato zurighese Rita Fuhrer interviene sul dibattito della successione in Consiglio federale, ripercorrendo la sua candidatura UDC nel 2000 e ribadendo che il criterio principale deve essere l\'idoneità della persona.',
+    canonicalPath: '/articoli-svizzera/rita-fuhrer-consiglio-federale-donne/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale senza donne: l'analisi di Rita Fuhrer",
+      "description": "L'ex consigliera zurighese Rita Fuhrer commenta la successione in Consiglio federale, ricordando la sua candidatura UDC del 2000 e il dibattito sui criteri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rita-fuhrer-consiglio-federale-donne.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo Federale a Berna con cielo sereno"
+      },
+      "datePublished": "2026-10-05T00:21:47+00:00",
+      "dateModified": "2026-10-05T00:21:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rita-fuhrer-consiglio-federale-donne/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
