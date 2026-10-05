@@ -1,60 +1,19 @@
 {
   "key": "afry",
   "label": "AFRY",
-  "generatedAt": "2026-10-05T06:27:56.146Z",
+  "generatedAt": "2026-10-05T09:20:31.428Z",
   "total": 62,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 61,
-  "durationMs": 94764,
-  "avgDurationMs": 94764,
+  "unchangedCount": 62,
+  "durationMs": 95961,
+  "avgDurationMs": 95961,
   "durationHistory": [
-    94764
+    95961
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "title": "Candidatura spontanea - Svizzera",
-      "slug": "candidatura-spontanea-svizzera-afry-zurich",
-      "url": "https://afry.com/en/careers/available-jobs/REF1212E-candidatura-spontanea-svizzera",
-      "applyUrl": "https://jobs.smartrecruiters.com/AFRY/743999888720533-candidatura-spontanea-svizzera?oga=true",
-      "company": "AFRY",
-      "companyKey": "afry",
-      "companyDomain": "afry.com",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria & Consulenza",
-      "source": "afry-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "",
-      "validThrough": "2023-02-24",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "afry-1eed778f8f0e",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-19T23:01:35.571Z",
-      "sourceIdentity": "url:https://afry.com/en/careers/available-jobs/ref1212e-candidatura-spontanea-svizzera",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "needsRetranslation": true,
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -1242,5 +1201,5 @@
       }
     }
   ],
-  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

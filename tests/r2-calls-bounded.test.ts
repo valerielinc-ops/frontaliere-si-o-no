@@ -362,3 +362,105 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
     expect(r.calls.some((c) => /cdn-build-id\.txt/.test(c))).toBe(false);
   });
 });
+
+// ── the limit itself: `timeout 0` is NO limit ───────────────────────────────
+//
+// GNU `timeout` reads a duration of 0 as "never time out", so a limit taken
+// straight from `${R2_TIMEOUT_OBJECT_S:-120}` let `R2_TIMEOUT_OBJECT_S=0` (or
+// an empty-but-set value through `:-`'s cousins, or "2m", "inf") turn every
+// bounded R2 call back into an unbounded one — the shape NX-SKEW-2b exists to
+// forbid. `_r2_timeout_s` takes a whole number of seconds from 1 to 9999 and
+// falls back to the default otherwise.
+
+/** The `_r2_timeout_s() { … }` block of a script, as written. */
+function r2TimeoutFunction(source: string): string | null {
+  return source.match(/^_r2_timeout_s\(\) \{\n[\s\S]*?\n\}\n/m)?.[0] ?? null;
+}
+
+describe('static: R2 limits from the environment go through _r2_timeout_s', () => {
+  for (const file of DEPLOY_R2_SCRIPTS) {
+    it(`${file}: no R2_TIMEOUT_* is read raw with a :- default`, () => {
+      const code = read(file).split('\n').filter((l) => !l.trim().startsWith('#'));
+      expect(code.filter((l) => /\$\{R2_TIMEOUT_\w+:?-/.test(l)).map((l) => l.trim())).toEqual([]);
+    });
+  }
+
+  it('the validator is byte-identical in every deploy R2 script', () => {
+    const copies = DEPLOY_R2_SCRIPTS.map((f) => r2TimeoutFunction(read(f)));
+    for (const [i, copy] of copies.entries()) expect(copy, `${DEPLOY_R2_SCRIPTS[i]}: _r2_timeout_s not found`).toBeTruthy();
+    expect(new Set(copies).size).toBe(1);
+  });
+});
+
+describe('behaviour: _r2_timeout_s rejects 0 and every non-positive or open-ended value', () => {
+  const cases: Array<[string | undefined, string]> = [
+    ['30', '30'],
+    ['1', '1'],
+    ['9999', '9999'],
+    ['0', '120'],
+    ['00', '120'],
+    ['', '120'],
+    [undefined, '120'],
+    ['-5', '120'],
+    ['2m', '120'],
+    ['inf', '120'],
+    ['1.5', '120'],
+    ['10000', '120'],
+    ['99999999999999999999', '120'],
+  ];
+  for (const [value, expected] of cases) {
+    it(`R2_TIMEOUT_OBJECT_S=${value === undefined ? '(unset)' : JSON.stringify(value)} → ${expected}`, () => {
+      const env: Record<string, string> = { PATH: process.env.PATH ?? '' };
+      if (value !== undefined) env.R2_TIMEOUT_OBJECT_S = value;
+      const out = execFileSync(
+        'bash',
+        ['-c', 'set -uo pipefail; source scripts/lib/deploy-it-pages-prep.sh && _r2_timeout_s R2_TIMEOUT_OBJECT_S 120'],
+        { cwd: ROOT, encoding: 'utf8', env, stdio: ['ignore', 'pipe', 'pipe'] },
+      );
+      expect(out.trim()).toBe(expected);
+    });
+  }
+
+  /** Runs upload-cdn-file.sh with a `timeout` stub that records its limit. */
+  function uploadLimit(name: string, value: string): string {
+    const dir = join(SCRATCH, name);
+    const bin = join(dir, 'bin');
+    mkdirSync(bin, { recursive: true });
+    writeFileSync(join(bin, 'rclone'), '#!/usr/bin/env bash\nexit 0\n');
+    writeFileSync(
+      join(bin, 'timeout'),
+      '#!/usr/bin/env bash\n[ "$1" = "-k" ] && shift 2\necho "$1" >> "$STUB_LIMITS"\nshift\nexec "$@"\n',
+    );
+    chmodSync(join(bin, 'rclone'), 0o755);
+    chmodSync(join(bin, 'timeout'), 0o755);
+    const file = join(dir, 'hero.webp');
+    writeFileSync(file, 'x');
+    const limits = join(dir, 'limits.log');
+    writeFileSync(limits, '');
+    const out = execFileSync('bash', ['scripts/lib/upload-cdn-file.sh', file, 'images/hero.webp'], {
+      cwd: ROOT,
+      encoding: 'utf8',
+      timeout: 30_000,
+      env: {
+        PATH: `${bin}:${process.env.PATH ?? ''}`,
+        RUNNER_TEMP: dir,
+        R2_ACCESS_KEY_ID: 'k',
+        R2_SECRET_ACCESS_KEY: 's',
+        R2_S3_ENDPOINT: 'https://r2.invalid',
+        R2_BUCKET: 'bkt',
+        R2_TIMEOUT_OBJECT_S: value,
+        STUB_LIMITS: limits,
+      },
+    });
+    expect(out).toMatch(/✅ uploaded/);
+    return readFileSync(limits, 'utf8').trim();
+  }
+
+  it('upload-cdn-file.sh: R2_TIMEOUT_OBJECT_S=0 still runs the PUT under the 120 s default', () => {
+    expect(uploadLimit('upload-zero', '0')).toBe('120');
+  });
+
+  it('upload-cdn-file.sh: a valid R2_TIMEOUT_OBJECT_S is passed through', () => {
+    expect(uploadLimit('upload-valid', '45')).toBe('45');
+  });
+});

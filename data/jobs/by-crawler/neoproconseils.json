@@ -1,6 +1,6 @@
 {
   "crawlerKey": "neoproconseils",
-  "assembledAt": "2026-10-04T21:15:57.462Z",
+  "assembledAt": "2026-10-05T09:14:12.390Z",
   "jobs": [
     {
       "id": "neoproconseils-14fdde329346",
@@ -33,7 +33,7 @@
       "url": "https://neoproconseils.ch/emplois/macon-genie-civil-h-f-ref-75114/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:15:52.467Z",
+      "crawledAt": "2026-10-05T09:14:07.101Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "Suisse",
@@ -46,7 +46,9 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "2026-08-13T15:43:30+02:00",
+      "postedDate": "2026-08-13T15:43:30+02:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://neoproconseils.ch/emplois/macon-genie-civil-h-f-ref-75114/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -81,9 +83,9 @@
     },
     {
       "id": "neoproconseils-3813e5ada334",
-      "slug": "installatore-elettricista-m-f-neo-pro-conseils-sa-geneve-ge",
+      "slug": "installateur-electricien-m-w-d-neo-pro-conseils-sa-geneve",
       "slugByLocale": {
-        "it": "installatore-elettricista-m-f-neo-pro-conseils-sa-geneve-ge",
+        "it": "installateur-electricien-m-w-d-neo-pro-conseils-sa-geneve",
         "en": "electrical-installer-m-f-neo-pro-conseils-sa-geneve-ge",
         "de": "elektroinstallateur-m-w-neo-pro-conseils-sa-geneve-ge",
         "fr": "installateur-electricien-h-f-geneve-ge-neoproconseils-ch"
@@ -93,7 +95,7 @@
       "companyDomain": "neoproconseils.ch",
       "title": "Installateur électricien (H/F)",
       "titleByLocale": {
-        "it": "Installatore elettricista (M/F)",
+        "it": "Installateur électricien (H/F)",
         "en": "Electrical installer (M/F)",
         "de": "Elektroinstallateur (M/W)",
         "fr": "Installateur électricien (H/F)"
@@ -110,7 +112,7 @@
       "url": "https://neoproconseils.ch/emplois/installateur-electricien-h-f-ref-75124/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:15:52.466Z",
+      "crawledAt": "2026-10-05T09:14:07.099Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "Suisse",
@@ -123,7 +125,9 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "2026-09-14T13:46:12+02:00",
+      "postedDate": "2026-09-14T13:46:12+02:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://neoproconseils.ch/emplois/installateur-electricien-h-f-ref-75124/",
       "requirements": [],
       "requirementsByLocale": {},
@@ -131,6 +135,7 @@
         "installateur-electricien-h-f-geneve-ge-neoproconseils-ch",
         "installateur-electricien-h-f-neo-pro-conseils-sa-geneve",
         "installatore-elettrico-m-f-neo-pro-conseils-sa-geneve-ge",
+        "installatore-elettricista-m-f-neo-pro-conseils-sa-geneve-ge",
         "installateur-electricien-m-w-d-neo-pro-conseils-sa-geneve"
       ],
       "previousSlugsByLocale": {
@@ -138,6 +143,7 @@
           "installateur-electricien-h-f-geneve-ge-neoproconseils-ch",
           "installateur-electricien-h-f-neo-pro-conseils-sa-geneve",
           "installatore-elettrico-m-f-neo-pro-conseils-sa-geneve-ge",
+          "installatore-elettricista-m-f-neo-pro-conseils-sa-geneve-ge",
           "installateur-electricien-m-w-d-neo-pro-conseils-sa-geneve"
         ],
         "en": [

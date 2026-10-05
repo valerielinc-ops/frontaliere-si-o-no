@@ -168,7 +168,7 @@
       "title": "Lead System Elektro-Engineer",
       "titleByLocale": {
         "it": "Lead System Ingegnere Elettrico",
-        "en": "Lead System Elektro-Engineer",
+        "en": "Lead System Electric Engineer",
         "de": "Lead System Elektro-Ingenieur",
         "fr": "Lead System Ingénieur électrique"
       },
@@ -214,7 +214,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:37.139Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -324,7 +323,7 @@
       "companyDomain": "stadlerrail.com",
       "title": "Technical Buyer",
       "titleByLocale": {
-        "it": "Technical Buyer",
+        "it": "Acquirenti tecnici",
         "en": "Technical buyers",
         "de": "Technical Buyer",
         "fr": "Acheteurs techniques"
@@ -379,7 +378,6 @@
         ]
       },
       "firstSeenAt": "2026-08-08T09:53:12.905Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -469,7 +467,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T13:39:34.568Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -545,7 +542,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:35.997Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -730,7 +726,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:33.116Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -808,7 +803,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:32.536Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -928,7 +922,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:30.817Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -2115,7 +2108,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:52.502Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -2309,7 +2301,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:22.094Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -2385,7 +2376,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:21.519Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -2484,9 +2474,9 @@
       "slug": "system-ingegnere-cbtc-stadler-rail-wallisellen",
       "slugByLocale": {
         "it": "system-ingegnere-cbtc-stadler-rail-wallisellen",
-        "en": "system-engineer-cbtc-stadler-rail-ch",
+        "en": "system-engineer-cbtc-stadler-rail-ch-c74w3g",
         "de": "system-ingenieur-cbtc-stadler-rail-wallisellen",
-        "fr": "system-engineer-cbtc-stadler-rail-ch"
+        "fr": "system-engineer-cbtc-stadler-rail-ch-c74w3g"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -2530,6 +2520,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "system-engineer-cbtc-stadler-rail-ch-3kv6vv",
+        "system-ingegnere-cbtc-stadler-rail-wallisellen-3kv6vv",
         "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g",
         "system-engineer-cbtc-stadler-rail-ch",
         "system-engineer-cbtc-stadler-rail-ch-2",
@@ -2537,6 +2529,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "system-engineer-cbtc-stadler-rail-ch-3kv6vv",
+          "system-ingegnere-cbtc-stadler-rail-wallisellen-3kv6vv",
           "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g",
           "system-engineer-cbtc-stadler-rail-ch",
           "system-engineer-cbtc-stadler-rail-ch-2",
@@ -2544,10 +2538,15 @@
         ],
         "de": [
           "system-engineer-cbtc-stadler-rail-ch"
+        ],
+        "en": [
+          "system-engineer-cbtc-stadler-rail-ch"
+        ],
+        "fr": [
+          "system-engineer-cbtc-stadler-rail-ch"
         ]
       },
       "firstSeenAt": "2026-07-15T11:32:23.026Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -2584,9 +2583,9 @@
       "description": "PROFILE\n\n-Completed technical education as electrical, mechanical or computer science engineer (ETH/TU/FH) or comparable training\n-Several years of project experience in Railway Signalling. Prior involvement in CBTC projects is a highly advantageous asset\n-Knowledge of Railway Signalling principles and practices (CBTC and/or mainline Interlocking)\n-Experience in \n• Requirements management with IBM Doors Next Generation (DNG) Tool\n-English and French or German at fluent level (spoken and written). Any other language is considered a plus.\n-Team player, independent, goal- and solution-orientated\n-Willingness to travel (up to 25%)\n\nTASKS\n\n•Alignment of customer requirements with generic product and creation of Project-specific System Description\n•Creation of project-specific documentation like Interface Specifications, customer Manuals, Release Notes, BoM etc\n•Configuration of CBTC sub-systems according to system requirements and project characteristics\n•Support assembly, installation, test and commissioning as well as homologation and any other project activity needed\n•Coordination with internal teams, customers, suppliers, subcontractors and other stakeholders\n•Work in bid teams to complete the technical part of bids, ensuring customer requirements are met while the solution is aligned with the generic product",
       "descriptionByLocale": {
         "en": "PROFILE\n\n-Completed technical education as electrical, mechanical or computer science engineer (ETH/TU/FH) or comparable training\n-Several years of project experience in Railway Signalling. Prior involvement in CBTC projects is a highly advantageous asset\n-Knowledge of Railway Signalling principles and practices (CBTC and/or mainline Interlocking)\n-Experience in \n• Requirements management with IBM Doors Next Generation (DNG) Tool\n-English and French or German at fluent level (spoken and written). Any other language is considered a plus.\n-Team player, independent, goal- and solution-orientated\n-Willingness to travel (up to 25%)\n\nTASKS\n\n•Alignment of customer requirements with generic product and creation of Project-specific System Description\n•Creation of project-specific documentation like Interface Specifications, customer Manuals, Release Notes, BoM etc\n•Configuration of CBTC sub-systems according to system requirements and project characteristics\n•Support assembly, installation, test and commissioning as well as homologation and any other project activity needed\n•Coordination with internal teams, customers, suppliers, subcontractors and other stakeholders\n•Work in bid teams to complete the technical part of bids, ensuring customer requirements are met while the solution is aligned with the generic product",
-        "it": "PROFILE\n\n-Completed technical education as electrical, mechanical or computer science engineer (ETH/TU/FH) or comparable training\n-Several years of project experience in Railway Signalling. Prior involvement in CBTC projects is a highly advantageous asset\n-Knowledge of Railway Signalling principles and practices (CBTC and/or mainline Interlocking)\n-Experience in \n• Requirements management with IBM Doors Next Generation (DNG) Tool\n-English and French or German at fluent level (spoken and written). Any other language is considered a plus.\n-Team player, independent, goal- and solution-orientated\n-Willingness to travel (up to 25%)\n\nTASKS\n\n•Alignment of customer requirements with generic product and creation of Project-specific System Description\n•Creation of project-specific documentation like Interface Specifications, customer Manuals, Release Notes, BoM etc\n•Configuration of CBTC sub-systems according to system requirements and project characteristics\n•Support assembly, installation, test and commissioning as well as homologation and any other project activity needed\n•Coordination with internal teams, customers, suppliers, subcontractors and other stakeholders\n•Work in bid teams to complete the technical part of bids, ensuring customer requirements are met while the solution is aligned with the generic product",
-        "de": "PROFILE\n\n-Completed technical education as electrical, mechanical or computer science engineer (ETH/TU/FH) or comparable training\n-Several years of project experience in Railway Signalling. Prior involvement in CBTC projects is a highly advantageous asset\n-Knowledge of Railway Signalling principles and practices (CBTC and/or mainline Interlocking)\n-Experience in \n• Requirements management with IBM Doors Next Generation (DNG) Tool\n-English and French or German at fluent level (spoken and written). Any other language is considered a plus.\n-Team player, independent, goal- and solution-orientated\n-Willingness to travel (up to 25%)\n\nTASKS\n\n•Alignment of customer requirements with generic product and creation of Project-specific System Description\n•Creation of project-specific documentation like Interface Specifications, customer Manuals, Release Notes, BoM etc\n•Configuration of CBTC sub-systems according to system requirements and project characteristics\n•Support assembly, installation, test and commissioning as well as homologation and any other project activity needed\n•Coordination with internal teams, customers, suppliers, subcontractors and other stakeholders\n•Work in bid teams to complete the technical part of bids, ensuring customer requirements are met while the solution is aligned with the generic product",
-        "fr": "PROFILE\n\n-Completed technical education as electrical, mechanical or computer science engineer (ETH/TU/FH) or comparable training\n-Several years of project experience in Railway Signalling. Prior involvement in CBTC projects is a highly advantageous asset\n-Knowledge of Railway Signalling principles and practices (CBTC and/or mainline Interlocking)\n-Experience in \n• Requirements management with IBM Doors Next Generation (DNG) Tool\n-English and French or German at fluent level (spoken and written). Any other language is considered a plus.\n-Team player, independent, goal- and solution-orientated\n-Willingness to travel (up to 25%)\n\nTASKS\n\n•Alignment of customer requirements with generic product and creation of Project-specific System Description\n•Creation of project-specific documentation like Interface Specifications, customer Manuals, Release Notes, BoM etc\n•Configuration of CBTC sub-systems according to system requirements and project characteristics\n•Support assembly, installation, test and commissioning as well as homologation and any other project activity needed\n•Coordination with internal teams, customers, suppliers, subcontractors and other stakeholders\n•Work in bid teams to complete the technical part of bids, ensuring customer requirements are met while the solution is aligned with the generic product"
+        "it": "PROFESSIONALE\n\n-Istruzione tecnica completa come ingegnere elettrico, meccanico o informatico (ETH/TU/FH) o formazione comparabile\n-Sogni anni di esperienza di progetto in Segnale ferroviario. Il coinvolgimento prioritario dei progetti CBTC è un asset altamente vantaggioso\n-Consapevolezza dei principi e delle pratiche del segnale ferroviario (CBTC e/o Interlocking)\n- Esperienza in\n• Gestione dei requisiti con IBM Doors Next Generation (DNG) Tool\n-Inglese e Francese o Tedesco a livello fluente (parlato e scritto). Qualsiasi altra lingua è considerata un plus.\n-Team player, indipendente, obiettivo- e orientata alla soluzione\n-Willingness to travel (fino al 25%)\n\nTASKS\n\n•Allineamento dei requisiti del cliente con il prodotto generico e la creazione di una descrizione del sistema specifica del progetto\n•Creazione di documentazione specifica del progetto come specifiche di interfaccia, manuali del cliente, note di rilascio, BoM ecc\n•Configurazione dei sottosistemi CBTC secondo i requisiti di sistema e le caratteristiche del progetto\n•Assemblaggio, installazione, test e messa in servizio nonché omologazione e qualsiasi altra attività di progetto necessaria\n•Coordinamento con team interni, clienti, fornitori, subappaltatori e altri stakeholder\n• Lavorare in team di offerta per completare la parte tecnica delle offerte, assicurando che i requisiti del cliente siano soddisfatti mentre la soluzione è allineata al prodotto generico",
+        "de": "PROFIL\n\n-Abgeschlossene technische Ausbildung als Elektro-, Maschinenbau- oder Informatiker (ETH/TU/FH) oder vergleichbare Ausbildung\n-Mehrjährige Projekterfahrung im Bereich Railway Signalling. Vorherige Beteiligung an CBTC-Projekten ist ein sehr vorteilhafter Vermögenswert\nKenntnis der Grundsätze und Praktiken der Eisenbahnsignalisierung (CBTC und/oder Mainline Interlocking)\nErfahrung in\n• Anforderungsmanagement mit IBM Doors Next Generation (DNG) Tool\nEnglisch und Französisch oder Deutsch auf fließendem Niveau (gesprochen und geschrieben). Jede andere Sprache wird als Plus angesehen.\n-Teamplayer, unabhängig, ziel- und lösungsorientiert\nReisebereitschaft (bis zu 25%)\n\nAUFGABEN\n\n• Angleichung der Kundenanforderungen an generische Produkte und Erstellung einer projektspezifischen Systembeschreibung\n• Erstellung von projektspezifischen Dokumentationen wie Schnittstellenspezifikationen, Kundenhandbüchern, Release Notes, BoM etc.\n• Konfiguration von CBTC-Subsystemen nach Systemanforderungen und Projektmerkmalen\n• Unterstützung der Montage, Installation, Prüfung und Inbetriebnahme sowie der Homologation und anderer erforderlicher Projektaktivitäten\n• Koordination mit internen Teams, Kunden, Lieferanten, Subunternehmern und anderen Stakeholdern\n• Arbeiten Sie in Angebotsteams, um den technischen Teil der Angebote abzuschließen, um sicherzustellen, dass die Kundenanforderungen erfüllt werden, während die Lösung auf das generische Produkt ausgerichtet ist",
+        "fr": "PROFIL\n\n-Enseignement technique complet en tant qu'ingénieur électrique, mécanique ou informatique (ETH/TU/FH) ou formation comparable\n-Plusieurs années d'expérience en signalisation ferroviaire. La participation préalable aux projets CBTC est un atout très avantageux\n-Connaissance des principes et des pratiques de signalisation ferroviaire (TCCB et/ou interblocage de ligne principale)\n- Expérience en\n• Gestion des exigences avec IBM Doors Next Generation (DNG) Tool\n- Anglais et français ou allemand au niveau courant (parlé et écrit). Toute autre langue est considérée comme un plus.\n-Joueur d'équipe, indépendant, orienté objectif et solution\n- Volonté de voyager (jusqu'à 25%)\n\nTÂCHES\n\n• Harmonisation des exigences des clients avec le produit générique et création d'un système spécifique au projet Description\n•Création de documentation spécifique au projet comme les spécifications d'interface, les manuels du client, les notes de sortie, BoM etc\n•Configuration des sous-systèmes CBTC selon les exigences du système et les caractéristiques du projet\n• Montage de soutien, installation, essai et mise en service ainsi que l'homologation et toute autre activité de projet nécessaire\n•Coordination avec les équipes internes, les clients, les fournisseurs, les sous-traitants et les autres parties prenantes\n•Travailler en équipe pour compléter la partie technique des offres, en veillant à ce que les exigences des clients soient satisfaites pendant que la solution est alignée sur le produit générique"
       },
       "location": "Wallisellen",
       "canton": "ZH",
@@ -2614,7 +2613,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -2701,7 +2699,6 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:39:56.525Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2974,7 +2971,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:17.494Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -3083,7 +3079,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:18.071Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -3181,7 +3176,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:12.904Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -3263,7 +3257,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:40:14.253Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -3590,7 +3583,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:10.034Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -3847,7 +3839,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T07:40:46.950Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -3931,7 +3922,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T07:40:34.113Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -3961,7 +3951,7 @@
       "title": "Testing & Commissioning Engineer",
       "titleByLocale": {
         "it": "Testing & Commissioning Ingegnere",
-        "en": "Testing & Commissioning Engineer",
+        "en": "Testing and Commissioning Engineer",
         "de": "Testing & Commissioning Ingenieur",
         "fr": "Testing & Commissioning Ingénieur"
       },
@@ -4193,7 +4183,7 @@
       "title": "Testing & Commissioning Engineer",
       "titleByLocale": {
         "it": "Testing & Commissioning Ingegnere",
-        "en": "Testing & Commissioning Engineer",
+        "en": "Testing and Commissioning Engineer",
         "de": "Testing & Commissioning Ingenieur",
         "fr": "Testing & Commissioning Ingénieur"
       },
@@ -4770,7 +4760,7 @@
       "title": "SAP Produktion Consultant",
       "titleByLocale": {
         "it": "SAP Produktion Consulente",
-        "en": "SAP Produktion Consultant",
+        "en": "SAP Production Consultant",
         "de": "SAP Produktion Berater",
         "fr": "Conseiller en production SAP"
       },
@@ -4823,7 +4813,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:24:13.310Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -4905,7 +4894,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:24:13.844Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -4999,8 +4987,7 @@
           "maxValue": 156500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadler-rail-620b851e9742",
@@ -5151,7 +5138,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:01.951Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -5256,7 +5242,7 @@
       "title": "Head of Master Data Management Engineering, Mitglied des Kaders",
       "titleByLocale": {
         "it": "Responsabile Master Data Management Engineering, membro del cadre",
-        "en": "Head of Master Data Management Engineering, Mitglied des Kaders",
+        "en": "Head of Master Data Management Engineering, member of the cadre",
         "de": "Leiter Master Data Management Engineering, Mitglied des Kaders",
         "fr": "Chef de Master Data Management Engineering, membre du cadre"
       },
@@ -5305,7 +5291,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T21:36:20.071Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -5387,7 +5372,6 @@
         ]
       },
       "firstSeenAt": "2026-09-18T14:23:46.824Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -5469,7 +5453,6 @@
         ]
       },
       "firstSeenAt": "2026-09-18T14:23:33.903Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -5965,7 +5948,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:21:23.418Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -6041,7 +6023,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T12:13:05.293Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -6161,7 +6142,7 @@
       "title": "Netzwerk und Cyber Security Engineer",
       "titleByLocale": {
         "it": "Ingegnere di rete e sicurezza informatica",
-        "en": "Netzwerk und Cyber Security Engineer",
+        "en": "Network and Cyber Security Engineer",
         "de": "Netzwerk und Cyber Security Ingenieur",
         "fr": "Ingénieur en réseau et cybersécurité"
       },
@@ -6210,7 +6191,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:40:04.151Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -6289,7 +6269,6 @@
         ]
       },
       "firstSeenAt": "2026-06-23T23:11:28.052Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -6610,7 +6589,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T10:03:03.892Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -6723,7 +6701,7 @@
       "title": "Team Lead Safety / Testing Sicherungsanlagen",
       "titleByLocale": {
         "it": "Sistemi di sicurezza / controllo del team",
-        "en": "Team Lead Safety / Testing Sicherungsanlagen",
+        "en": "Team Lead Safety / Testing Safety Systems",
         "de": "Teamleiter Safety / Testing Sicherungsanlagen",
         "fr": "Chef d'équipe Sécurité / Essais Systèmes de sécurité"
       },
@@ -6778,7 +6756,6 @@
         "capo-team-e-ixl-fundamentals-stadler-rail-olten"
       ],
       "firstSeenAt": "2026-06-25T12:13:52.564Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -7024,7 +7001,6 @@
         ]
       },
       "firstSeenAt": "2026-09-24T00:12:14.529Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -7184,7 +7160,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:47.552Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -7505,7 +7480,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:37.752Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 153000,
       "salarySource": "estimated",
@@ -7584,7 +7558,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T10:19:21.289Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -7748,7 +7721,6 @@
         ]
       },
       "firstSeenAt": "2026-09-24T14:46:47.888Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -7853,7 +7825,7 @@
       "title": "Field-Engineer - Inbetriebsetzung & Flottenbetreuung",
       "titleByLocale": {
         "it": "Ingegnere di campo - Commissioning & Fleet Support",
-        "en": "Field-Engineer - Inbetriebsetzung & Flottenbetreuung",
+        "en": "Field Engineer - Commissioning & Fleet Support",
         "de": "Field-Ingenieur - Inbetriebsetzung & Flottenbetreuung",
         "fr": "Ingénieur de terrain - Mise en service et soutien de la flotte"
       },
@@ -7902,7 +7874,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T12:13:39.645Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -7986,7 +7957,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:36.016Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -8562,7 +8532,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:29:48.086Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -8909,7 +8878,7 @@
       "title": "DevOps & Integration Engineer SRMS",
       "titleByLocale": {
         "it": "DevOps Ingegnere",
-        "en": "DevOps & Integration Engineer SRMS",
+        "en": "DevOps and Integration Engineer SRMS",
         "de": "DevOps & Integration Ingenieur SRMS",
         "fr": "DevOps Ingénieur"
       },
@@ -8960,7 +8929,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:32:12.839Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -9065,7 +9033,7 @@
       "title": "Chief Operations Officer Division Service, Mitglied der Divisionsleitung",
       "titleByLocale": {
         "it": "Capo Operazioni Ufficiale Divisione Servizio, Membro della Direzione Divisione",
-        "en": "Chief Operations Officer Division Service, Mitglied der Divisionsleitung",
+        "en": "Chief Operations Officer Division Service, Member of Division Management",
         "de": "Chief Operations Officer Division Service, Mitglied der Divisionsleitung",
         "fr": "Chef de la Division des opérations Service, Membre de la gestion de la Division"
       },
@@ -9114,7 +9082,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:29:07.531Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 153000,
       "salarySource": "estimated",
@@ -9819,7 +9786,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:25:22.708Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -9893,7 +9859,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:15.805Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -9971,7 +9936,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:21.015Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -10919,7 +10883,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:08:16.399Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -10995,7 +10958,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:08:16.903Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -11232,7 +11194,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:08.272Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -11395,7 +11356,6 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:38:07.884Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -11709,7 +11669,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:29:40.570Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -11945,7 +11904,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:15.881Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -11975,7 +11933,7 @@
       "title": "Software & System Engineer",
       "titleByLocale": {
         "it": "Software & System Ingegnere",
-        "en": "Software & System Engineer",
+        "en": "Software and System Engineer",
         "de": "Software & System Ingenieur",
         "fr": "Software & System Ingénieur"
       },
@@ -12021,7 +11979,6 @@
         ]
       },
       "firstSeenAt": "2026-09-25T15:22:55.131Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -12142,7 +12099,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:55.613Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -12224,7 +12180,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:17.674Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -12306,7 +12261,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:45:37.382Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -12390,7 +12344,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:45:37.867Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -12546,7 +12499,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:57.895Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -12578,7 +12530,7 @@
         "it": "Risorse Umane Business Partner Region Mid",
         "en": "User Safety: safe",
         "de": "Personalwesen Business Partner Region Mid",
-        "fr": "HR Business Partner Region Mid"
+        "fr": "Partenaires en RH Région Mid"
       },
       "description": "PROFIL\n\n• Abgeschlossenes Studium mit Schwerpunkt Human Resources, Betriebswirtschaft oder eine vergleichbare Qualifikation\n\n• Mehrjährige Berufserfahrung als HR Business Partner, in der Personalleitung oder in einer vergleichbaren HR‑Funktion in einem internationalen Umfeld\n\n• Erfahrung in der Zusammenarbeit mit Management‑Stakeholdern sowie in Matrix‑Organisationen\n\n• Fundierte Kenntnisse moderner HR‑Instrumente und ‑Prozesse (z. B. Talent Management, Compensation, Performance Management)\n\n• Sehr gute Kommunikations‑ und Beratungskompetenz sowie ein souveränes Auftreten auf Management‑Ebene\n\n• Ausgeprägtes Verständnis für unterschiedliche Länder‑ und Kulturen sowie Bereitschaft zu moderater Reisetätigkeit\n\n• Fliessende Deutsch‑ und Englischkenntnisse in Wort und Schrift\n\nAUFGABEN\n\nAls HR Business Partner:in Region Mid bist du die zentrale HR‑Ansprechperson für den Regionenleiter und das Management der Region Mid, bestehend aus den Ländergesellschaften in Deutschland, Dänemark, Niederlanden und Österreich. Du stellst die Verbindung zwischen dem HR der Division und den HR‑Teams in den Ländern sicher und trägst aktiv zur Umsetzung der HR‑Strategie auf divisionsebene bei.\n\nDeine Hauptaufgaben umfassen:\n\n• Strategische und operative HR‑Beratung des Regionenleiters sowie der Führungskräfte der Ländergesellschaften\n\n• Enge Zusammenarbeit mit dem HR der Division zur Umsetzung divisionaler HR‑Strategien, Prozesse und Initiativen\n\n• Schnittstellenfunktion zwischen dem divisionalen HR und den HR‑Verantwortlichen der Länder (z. B. Harmonisierung, Abstimmung und Kommunikation)\n\n• Mitarbeit und Leitung von HR‑Projekten mit regionalem Fokus sowie divisionsweiten Projekten\n\n• Coaching und Weiterentwicklung der lokalen HR-Teams\n\n• Steuerung und Monitoring relevanter HR‑KPIs auf regionaler Ebene inkl. Massnahmenplänen\n\n• Beratung bei arbeitsrechtlichen, personalpolitischen und mitbestimmungsrelevanten Fragestellungen in Kooperation mit den lokalen HR‑Teams\n\n• Aufbau und Führung der internen Kommunikation in der Region Mid",
       "descriptionByLocale": {
@@ -12625,7 +12577,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:59.048Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -12707,7 +12658,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:25:54.234Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -12789,7 +12739,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:25:53.648Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -12967,7 +12916,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:41:48.066Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -12997,7 +12945,7 @@
       "title": "Systems Engineer Elektro",
       "titleByLocale": {
         "it": "Ingegnere di Sistemi Elettrico",
-        "en": "Systems Engineer Elektro",
+        "en": "Systems Engineer Electric",
         "de": "Systems Ingenieur Elektro",
         "fr": "Ingénieur systèmes électrique"
       },
@@ -13043,7 +12991,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:51.564Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -13156,7 +13103,7 @@
         "it": "Consulente Logistico Interno SAP",
         "en": "SAP Inhouse Consultant Logistics",
         "de": "SAP Inhouse Berater Logistik",
-        "fr": "SAP Inhouse Consultant Logistik"
+        "fr": "SAP Consultant logistique interne"
       },
       "description": "PROFIL\n\nMindestens 5 Jahre Erfahrung (Design & Konfiguration) mit SAP eWM, sei es im Unterhalt von SAP eWM oder der Implementierung von SAP eWM\n\nErfahrungen in SAP S4/HANA Greenfield Transformationen und Daten Migration\n\nFundierte Kenntnisse von Logistikprozessen, insbesondere interne Lagerprozesse, einschließlich Ein- und Auslagerungslogistik, Bestandsführung, Lagerplatzstrategien, Optimierung von Lageraufgaben und Integration mit SAP Transportation Management (SAP TM).\n\nErfahrung in der Integration von SAP eWM mit Modulen wie MM, SD und TM sowie Drittsystemen von Vorteil\n\nAusgeprägte Fähigkeit, mit Stakeholdern zu interagieren, Workshops durchzuführen, funktionale Spezifikationen zu erstellen sowie User Acceptance Testing (UAT) und Go-Live-Phasen zu unterstützen\n\nFlüssiges Deutsch und Englisch mit ausgezeichneten Kommunikations- und Präsentationsfähigkeiten.\n\nAUFGABEN\n\nAls SAP S4/HANA Inhouse Consultant Logistik verantwortest Du die Konzeption, Umsetzung und Weiterentwicklung von SAP eWM‑Prozessen auf S/4HANA. Du optimierst Logistikabläufe, sicherst reibungslose Integrationen und unterstützet Projekte, Rollouts und den laufenden Betrieb.\n\nDeine Aufgaben\n\n• Design, Konfiguration und Test von SAP S4/HANA eWM‑Funktionen.\n\n• Analyse und Optimierung von Logistikprozessen.\n\n• Sicherstellen einer reibungslosen Integration von SAP eWM mit Modulen wie MM, SD und TM sowie Drittsystemen.\n\n• Unterstützung von S/4HANA‑Rollouts und Change‑Management.\n\n• Bearbeitung von Support‑ und Change‑Requests der Key‑User‑Community.\n\n• Durchführung von Schulungen sowie Sicherstellung der Dokumentation und Best Practices.",
       "descriptionByLocale": {
@@ -13213,7 +13160,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:52.151Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",

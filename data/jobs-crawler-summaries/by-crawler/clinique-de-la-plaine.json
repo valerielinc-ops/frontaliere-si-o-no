@@ -1,7 +1,7 @@
 {
   "key": "clinique-de-la-plaine",
   "label": "Clinique de la Plaine",
-  "generatedAt": "2026-10-04T21:35:01.124Z",
+  "generatedAt": "2026-10-05T09:33:58.019Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3448,
-  "avgDurationMs": 3448,
+  "durationMs": 3579,
+  "avgDurationMs": 3579,
   "durationHistory": [
-    3448
+    3579
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +36,7 @@
       "url": "https://laplaine.ch/emploi/une-aide-de-salle-agent-de-sterilisation-a-80-100/",
       "source": "Clinique de la Plaine Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:34:52.833Z",
+      "crawledAt": "2026-10-05T09:33:49.360Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -47,7 +49,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-23",
+      "datePosted": "2026-04-23T10:20:31+02:00",
+      "postedDate": "2026-04-23T10:20:31+02:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://laplaine.ch/emploi/une-aide-de-salle-agent-de-sterilisation-a-80-100/",
       "firstSeenAt": "2026-05-21T11:31:55.808Z",
       "salaryMin": 86500,
@@ -74,7 +78,7 @@
       "url": "https://laplaine.ch/emploi/directrice-directeur-100/",
       "source": "Clinique de la Plaine Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:34:52.347Z",
+      "crawledAt": "2026-10-05T09:33:48.774Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -87,7 +91,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-14",
+      "datePosted": "2026-09-14T08:00:53+02:00",
+      "postedDate": "2026-09-14T08:00:53+02:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://laplaine.ch/emploi/directrice-directeur-100/",
       "firstSeenAt": "2026-09-19T23:06:32.456Z",
       "salaryMin": 116500,
@@ -104,5 +110,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

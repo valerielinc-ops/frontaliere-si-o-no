@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kulm-hotel",
-  "assembledAt": "2026-10-04T21:19:55.193Z",
+  "assembledAt": "2026-10-05T09:18:20.404Z",
   "jobs": [
     {
       "id": "kulm-hotel-6d5358fd2a15",
@@ -33,7 +33,7 @@
       "url": "https://careers.kulm.com/en/vacancies/708",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:49.271Z",
+      "crawledAt": "2026-10-05T09:18:16.506Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -143,7 +143,7 @@
       "url": "https://careers.kulm.com/en/vacancies/723",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:49.125Z",
+      "crawledAt": "2026-10-05T09:18:16.321Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -235,7 +235,7 @@
       "url": "https://careers.kulm.com/en/vacancies/719",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:48.180Z",
+      "crawledAt": "2026-10-05T09:18:15.337Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -258,8 +258,10 @@
       "requirementsByLocale": {},
       "department": "Kulm Hotel",
       "pensum": "100%",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-29T21:18:44.867Z",
+      "previousSlugs": [
+        "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977",
+        "gestionnaire-de-planification-des-evenements-h-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
@@ -268,10 +270,8 @@
           "gestionnaire-de-planification-des-evenements-h-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
         ]
       },
-      "previousSlugs": [
-        "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977",
-        "gestionnaire-de-planification-des-evenements-h-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-29T21:18:44.867Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -317,7 +317,7 @@
       "url": "https://careers.kulm.com/en/vacancies/680",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:47.232Z",
+      "crawledAt": "2026-10-05T09:18:14.368Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -400,7 +400,7 @@
       "url": "https://careers.kulm.com/en/vacancies/720",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:46.275Z",
+      "crawledAt": "2026-10-05T09:18:13.392Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -486,7 +486,7 @@
       "url": "https://careers.kulm.com/en/vacancies/696",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:45.294Z",
+      "crawledAt": "2026-10-05T09:18:12.410Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -537,8 +537,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "kulm-hotel-30d9a4628931",
@@ -571,7 +570,7 @@
       "url": "https://careers.kulm.com/en/vacancies/690",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:44.339Z",
+      "crawledAt": "2026-10-05T09:18:11.422Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -654,7 +653,7 @@
       "url": "https://careers.kulm.com/en/vacancies/722",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:43.365Z",
+      "crawledAt": "2026-10-05T09:18:10.441Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -733,7 +732,7 @@
       "url": "https://careers.kulm.com/en/vacancies/729",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:42.397Z",
+      "crawledAt": "2026-10-05T09:18:09.451Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -813,7 +812,7 @@
       "url": "https://careers.kulm.com/en/vacancies/679",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:41.446Z",
+      "crawledAt": "2026-10-05T09:18:08.474Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -941,7 +940,7 @@
       "url": "https://careers.kulm.com/en/vacancies/636",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:40.493Z",
+      "crawledAt": "2026-10-05T09:18:07.494Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -1021,7 +1020,7 @@
       "url": "https://careers.kulm.com/en/vacancies/731",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:39.532Z",
+      "crawledAt": "2026-10-05T09:18:06.509Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1105,7 +1104,7 @@
       "url": "https://careers.kulm.com/en/vacancies/717",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:38.584Z",
+      "crawledAt": "2026-10-05T09:18:05.529Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1161,7 +1160,7 @@
         "it": "Chef di partito-Gardemanger (m/f/d)",
         "en": "Chef de Partie - Gardemanger (m/w/d)",
         "de": "Chef de Partie - Gardemanger (m/w/d)",
-        "fr": "Chef de Partie-Garde-Manger (h/f/d)"
+        "fr": "Chef de Partie - Gardemanger (m/w/d)"
       },
       "description": "Chef de Partie - Gardemanger (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Workload: 100%. Contract: Saisonstelle / Seasonal. Start: 2026-10-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | Your mission:: To strengthen our kitchen team, we are looking for a passionate Chef de Partie – Gardemanger (f/m/d) who delivers top quality to the plate with passion, precision, and a flair for cold culinary artistry.\n• Section Ownership: You lead the gardemanger section independently, preparing exquisite cold starters, salads, creative carpaccios, tartares, terrines, and sophisticated canapés to the highest standard (16 GaultMillau points).\n\n• Flawless Mise en Place: You organise your section with structure, precision, and a sharp eye for detail – from handling delicate raw produce and fresh herbs through to the final, immaculate presentation at the pass during service.\n\n• Creative Input: You actively contribute your own ideas for seasonal cold dishes, plating concepts, and innovative culinary techniques to the kitchen brigade.\n\n• Quality & Efficiency: You ensure a smooth service flow at the cold station and maintain exemplary hygiene, cold-chain, and HACCP standards at all times.\n\n• Team Spirit & Mentorship: You provide inspiring leadership to Commis de Cuisine and apprentices on your section, fostering a respectful and encouraging work environment. | This is you::\n• Solid Foundation: Completed professional chef training and several years of experience in fine dining or luxury gastronomy, ideally with specific exposure to the gardemanger station.\n\n• Passion for Produce: Deep knowledge of fresh raw ingredients, cold preparation techniques, and seasoning, paired with a strong commitment to premium quality and aesthetics.\n\n• Precision under Pressure: A calm demeanor, composure, and sharp focus, even during peak service hours when timing is critical.\n\n• Personality: High personal standards of quality, a true team-player mindset, resilience, and a genuine passion for high-end gastronomy.\n\n• Languages: Must-Have: Italian. Ideally, good knowledge of English or German.\nWhat You Can Expect from Us:\n• Shape World-Class Gastronomy: Work within one of the most prestigious kitchen brigades in the Swiss Alps.\n\n• Room for Growth: Tailored professional development opportunities and career advancement prospects within the Kulm Group.\n\n• Attractive Living Environment: Work and live in the breathtaking mountain landscape of the Engadin, featuring attractive staff benefits and employee accommodation. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
       "descriptionByLocale": {
@@ -1175,7 +1174,7 @@
       "url": "https://careers.kulm.com/en/vacancies/732",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:37.624Z",
+      "crawledAt": "2026-10-05T09:18:04.546Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",

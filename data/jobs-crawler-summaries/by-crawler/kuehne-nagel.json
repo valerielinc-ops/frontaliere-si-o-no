@@ -1,7 +1,7 @@
 {
   "key": "kuehne-nagel",
   "label": "Kuehne+Nagel",
-  "generatedAt": "2026-10-04T21:23:22.540Z",
+  "generatedAt": "2026-10-05T09:20:38.383Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 6,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6605,
-  "avgDurationMs": 6605,
+  "durationMs": 7187,
+  "avgDurationMs": 7187,
   "durationHistory": [
-    6605
+    7187
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +35,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL7329EXTERNALENGLOBAL/servicetechniker-logistik-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:13.580Z",
+      "crawledAt": "2026-10-05T09:20:31.416Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -47,7 +49,9 @@
       "sector": "Logistics / Freight Forwarding",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-12-18",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL7329EXTERNALENGLOBAL/servicetechniker-logistik-m-w-d",
       "jobReqId": "7329",
       "needsRetranslation": true,
@@ -55,12 +59,12 @@
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -75,7 +79,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16638EXTERNALENGLOBAL/blue-yonder-wms-specialist-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:23:13.169Z",
+      "crawledAt": "2026-10-05T09:20:31.014Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -89,7 +93,9 @@
       "sector": "Logistics / Freight Forwarding",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-26",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16638EXTERNALENGLOBAL/blue-yonder-wms-specialist-m-w-d",
       "jobReqId": "16638",
       "needsRetranslation": true,
@@ -97,53 +103,12 @@
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "kuehne-nagel-4116e8bfc73f",
-      "slug": "senior-sea-logistica-specialista-m-f-d-geneva-kuehne-nagel-ge-chatelaine",
-      "company": "Kuehne+Nagel",
-      "companyKey": "kuehne-nagel",
-      "companyDomain": "kuehne-nagel.com",
-      "title": "Senior Sea Logistics Specialist (m/f/d) - Geneva",
-      "location": "Ge Chatelaine",
-      "canton": "GE",
-      "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17789EXTERNALENGLOBAL/senior-sea-logistics-specialist-m-f-d-geneva",
-      "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:23:12.815Z",
-      "addressLocality": "Ge Chatelaine",
-      "addressRegion": "GE",
-      "postalCode": "1219",
-      "streetAddress": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Logistics / Freight Forwarding",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-22",
-      "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17789EXTERNALENGLOBAL/senior-sea-logistics-specialist-m-f-d-geneva",
-      "jobReqId": "17789",
-      "firstSeenAt": "2026-09-25T14:44:57.232Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -158,7 +123,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL18789EXTERNALENGLOBAL/speditionskaufmann-frau-luftfracht-export-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:12.481Z",
+      "crawledAt": "2026-10-05T09:20:30.590Z",
       "addressLocality": "Opfikon",
       "addressRegion": "ZH",
       "postalCode": "8152",
@@ -172,7 +137,9 @@
       "sector": "Logistics / Freight Forwarding",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL18789EXTERNALENGLOBAL/speditionskaufmann-frau-luftfracht-export-m-w-d",
       "jobReqId": "18789",
       "needsRetranslation": true,
@@ -180,12 +147,55 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 73,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 16,
-        "completeness": 22
+        "completeness": 20
+      }
+    },
+    {
+      "id": "kuehne-nagel-4116e8bfc73f",
+      "slug": "senior-sea-logistica-specialista-m-f-d-geneva-kuehne-nagel-ge-chatelaine",
+      "company": "Kuehne+Nagel",
+      "companyKey": "kuehne-nagel",
+      "companyDomain": "kuehne-nagel.com",
+      "title": "Senior Sea Logistics Specialist (m/f/d) - Geneva",
+      "location": "Ge Chatelaine",
+      "canton": "GE",
+      "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17789EXTERNALENGLOBAL/senior-sea-logistics-specialist-m-f-d-geneva",
+      "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-05T09:20:30.215Z",
+      "addressLocality": "Ge Chatelaine",
+      "addressRegion": "GE",
+      "postalCode": "1219",
+      "streetAddress": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Logistics / Freight Forwarding",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17789EXTERNALENGLOBAL/senior-sea-logistics-specialist-m-f-d-geneva",
+      "jobReqId": "17789",
+      "firstSeenAt": "2026-09-25T14:44:57.232Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
       }
     },
     {
@@ -200,7 +210,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17233EXTERNALENGLOBAL/senior-internal-auditor",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:23:12.160Z",
+      "crawledAt": "2026-10-05T09:20:29.810Z",
       "addressLocality": "Schindellegi",
       "addressRegion": "SZ",
       "postalCode": "8834",
@@ -214,7 +224,9 @@
       "sector": "Logistics / Freight Forwarding",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-08",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17233EXTERNALENGLOBAL/senior-internal-auditor",
       "jobReqId": "17233",
       "needsRetranslation": true,
@@ -222,12 +234,12 @@
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -242,7 +254,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17016EXTERNALENGLOBAL/speditionskaufmann-frau-seefracht-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:11.857Z",
+      "crawledAt": "2026-10-05T09:20:29.366Z",
       "addressLocality": "Opfikon",
       "addressRegion": "ZH",
       "postalCode": "8152",
@@ -256,7 +268,9 @@
       "sector": "Logistics / Freight Forwarding",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-28",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17016EXTERNALENGLOBAL/speditionskaufmann-frau-seefracht-m-w-d",
       "jobReqId": "17016",
       "needsRetranslation": true,
@@ -264,16 +278,16 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 73,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 16,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

@@ -141,6 +141,30 @@ purpose/rollback. Rule 3 is the subject of this doc:
 - **Rollback:** managed by `scripts/cf-locale-failover-setup.mjs` — re-run that
   script to restore, do not hand-edit.
 
+## Ruleset `http_request_firewall_custom` — managed rules
+
+### `locale-bot-throttle-noindex-scrapers` (managed by `scripts/cf-locale-failover-setup.mjs`)
+
+- **Expression:** the managed block is the OR of the crawler-bot condition on
+  `frontaliereticino.ch` and `(http.host eq "cdn.frontaliereticino.ch" and
+  starts_with(http.request.uri.path, "/assets/") and
+  ends_with(http.request.uri.path, ".map"))`.
+- **Action:** block
+- **Purpose:** production builds no longer emit public Vite source maps, but
+  the R2 asset sync is additive and an older `.map` object can remain until
+  the owner-gated janitor removes it. Keeping the CDN path in this existing
+  block closes the source disclosure immediately without adding a sixth rule
+  to a zone whose five-rule limit already includes two foreign rules. Normal
+  JavaScript/CSS delivery is untouched.
+- **Observability trade-off:** the normal public build leaves PostHog browser
+  error stacks minified because its source maps are deliberately not uploaded
+  to the CDN. If private symbolication is required, create a short-lived
+  `PUBLIC_SOURCEMAPS=1` artifact for the symbolication workflow and keep its
+  maps out of the public R2 sync.
+- **Rollback:** revert the combined expression in
+  `MANAGED_FIREWALL_RULES` and rerun the setup script. A map object can then be
+  removed separately through the owner-gated CDN janitor.
+
 ## Ruleset `ea906d4f1c7d46f099ad16c15864896b` — phase `http_response_headers_transform`
 
 ### `cdn-assets-revalidate` (pre-existing, undocumented before this doc)
@@ -202,14 +226,17 @@ purpose/rollback. Rule 3 is the subject of this doc:
   migrated in place; Cloudflare may issue a new id if the ruleset is recreated)
 - **Expression:** `(http.host eq "frontaliereticino.ch")`
 - **Action:** rewrite response headers:
-  - `Content-Security-Policy: base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests`
+  - `Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; img-src 'self' data: blob: https:; connect-src 'self' https: wss:; frame-src 'self' https:; worker-src 'self' blob:; manifest-src 'self'; form-action 'self' https:; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests`
   - `Referrer-Policy: strict-origin-when-cross-origin`
   - `Strict-Transport-Security: max-age=31536000`
   - `X-Content-Type-Options: nosniff`
   - `X-Frame-Options: SAMEORIGIN`
 - **Purpose:** closes the live missing-CSP, missing-clickjacking-protection,
-  and short-HSTS findings without introducing a resource allowlist that would
-  break the site's analytics, consent, advertising, or CDN integrations.
+  and short-HSTS findings while preserving the site's first-party, consent,
+  analytics, advertising, and CDN integrations. The scheme source is
+  intentional: Partnerize selects a rotating hostname at runtime and the site
+  has multiple user-triggered API integrations. A stricter host list requires a
+  browser inventory plus a nonce/hash migration for existing inline scripts.
 - **Migration:** the script recognizes the previous description ending in
   `CSP/XFO deliberately excluded pending AdSense validation` and replaces it
   in place while preserving every unrelated response-header rule.

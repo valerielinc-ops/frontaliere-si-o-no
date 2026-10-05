@@ -1,59 +1,21 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-10-04T21:24:58.803Z",
+  "generatedAt": "2026-10-05T09:23:25.479Z",
   "total": 0,
   "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 335486,
-  "avgDurationMs": 335486,
+  "durationMs": 357031,
+  "avgDurationMs": 357031,
   "durationHistory": [
-    335486
+    357031
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "company-7uc0r2",
-      "slug": "impiegata-impiegato-in-logistica-apprendistato-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc0r2",
-      "company": "Rado Watch Co. Ltd.",
-      "title": "Logistiker:in Lehrstelle 2027",
-      "location": "Lengnau BE",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "internship",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-24",
-      "url": "https://www.swatchgroup.com/de/job/33225",
-      "applyUrl": "https://www.swatchgroup.com/de/job/33225",
-      "source": "Company Careers Crawler",
-      "companyKey": "rado",
-      "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-09-29T09:22:59.569Z",
-      "firstSeenAt": "2026-09-24T14:28:31.911Z",
-      "sourceLang": "de",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "employmentType": "FULL_TIME",
-      "addressLocality": "Bielstrasse 45 2543 Lengnau (Bern) Schweiz",
-      "addressRegion": "BE",
-      "streetAddress": "Bielstrasse 45",
-      "postalCode": "2543",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

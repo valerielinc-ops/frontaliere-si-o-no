@@ -992,6 +992,27 @@ describe('checkFabricatedNormAcronyms', () => {
     expect(issues[0].code).toBe('fabricated-norm-acronym');
   });
 
+  // `SENTENCE_BREAK_RE` taglia al `;` solo davanti a una maiuscola: il veto
+  // del Tribunale federale deve fermarsi comunque alla clausola (`;`, a capo)
+  // che contiene l'occorrenza, non assolvere la clausola successiva.
+  it('does not let a judicial clause veto a fabricated LTF after a semicolon or line break', () => {
+    const frasiInventate = [
+      'Il Tribunale federale ha respinto il ricorso del conducente; la legge federale sul traffico (LTF) prevede invece un casco obbligatorio per i ciclisti.',
+      'Il Tribunale federale ha respinto il ricorso del conducente\nla legge federale sul traffico (LTF) prevede un casco obbligatorio per i ciclisti.',
+    ];
+    for (const frase of frasiInventate) {
+      expect(codes(checkFabricatedNormAcronyms(frase)), frase).toContain('fabricated-norm-acronym');
+    }
+    const frasiVere = [
+      'Il Tribunale federale ha respinto il ricorso; secondo l\'art. 84a LTF la questione non era di importanza fondamentale.',
+      'Il Tribunale federale ha respinto il ricorso del conducente contro la revoca della licenza di condurre (art. 82 segg. LTF).',
+      'Il contribuente frontaliere può impugnare la tassazione davanti al Tribunale federale secondo la LTF.',
+    ];
+    for (const frase of frasiVere) {
+      expect(checkFabricatedNormAcronyms(frase), frase).toEqual([]);
+    }
+  });
+
   it('flags the invented LMA, LRF and OT citations and leaves their homonyms alone', () => {
     const frasiInventate = [
       'Secondo la legge federale sulla migrazione (LMA), il permesso di dimora B può essere concesso dopo due anni.',

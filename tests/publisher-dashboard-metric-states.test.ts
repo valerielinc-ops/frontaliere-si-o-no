@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
   countPublisherApplications,
+  filterPublisherApplications,
+  formatPublisherApplicationDate,
   readPublisherJobMetrics,
   summarizePublisherDashboardMetrics,
 } from '@/components/pages/PublisherDashboardPage';
@@ -133,6 +135,44 @@ describe('publisher applications preserve the read outcome', () => {
     expect(countPublisherApplications([])).toBe(0);
     expect(summarizePublisherDashboardMetrics([], null).applications).toBeNull();
     expect(summarizePublisherDashboardMetrics([], 0).applications).toBe(0);
+  });
+
+  it('filters by candidate, email, message or linked ad without losing accent-insensitive matches', () => {
+    const applications = [
+      {
+        id: 'a-1',
+        jobId: 'job-1',
+        candidateName: 'Élodie Bianchi',
+        candidateEmail: 'elodie@example.com',
+        message: 'Esperienza in sanità',
+        cvUrl: null,
+        createdAt: 1,
+      },
+      {
+        id: 'a-2',
+        jobId: 'job-2',
+        candidateName: 'Marco Rossi',
+        candidateEmail: 'marco@example.com',
+        message: 'Disponibile da subito',
+        cvUrl: null,
+        createdAt: 2,
+      },
+    ];
+    const jobTitles = new Map([
+      ['job-1', 'Infermiere / Infermiera'],
+      ['job-2', 'Tecnico manutenzione'],
+    ]);
+
+    expect(filterPublisherApplications(applications, 'elodie', jobTitles)?.map((row) => row.id)).toEqual(['a-1']);
+    expect(filterPublisherApplications(applications, 'tecnico', jobTitles)?.map((row) => row.id)).toEqual(['a-2']);
+    expect(filterPublisherApplications(applications, 'sanita', jobTitles)?.map((row) => row.id)).toEqual(['a-1']);
+    expect(filterPublisherApplications(applications, 'nessun risultato', jobTitles)).toEqual([]);
+  });
+
+  it('formats received dates for the dashboard locale and rejects invalid timestamps', () => {
+    expect(formatPublisherApplicationDate(Date.UTC(2026, 0, 5, 12), 'it')).toMatch(/5.*2026/);
+    expect(formatPublisherApplicationDate(null, 'it')).toBeNull();
+    expect(formatPublisherApplicationDate(Number.NaN, 'en')).toBeNull();
   });
 });
 

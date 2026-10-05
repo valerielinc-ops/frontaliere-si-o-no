@@ -1,25 +1,70 @@
 {
   "key": "buergenstock-hotels",
   "label": "Bürgenstock Hotels AG",
-  "generatedAt": "2026-10-04T21:34:34.490Z",
-  "total": 33,
+  "generatedAt": "2026-10-05T09:33:35.616Z",
+  "total": 34,
   "discovered": null,
   "parsed": 33,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 33,
+  "written": 34,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 33,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 28014,
-  "avgDurationMs": 28014,
+  "durationMs": 23672,
+  "avgDurationMs": 23672,
   "durationHistory": [
-    28014
+    23672
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "buergenstock-hotels-a79f431cab0f",
+      "slug": "responsabile-team-elettrotecnica-tecnologie-edilizie-100-m-f-i-burgenstock-hotels-ag-obburgen",
+      "company": "Bürgenstock Hotels AG",
+      "companyKey": "buergenstock-hotels",
+      "companyDomain": "buergenstock.ch",
+      "title": "Elektroinstallateur EFZ als Leiter Gebäudetechnik 100% (m/w/i)",
+      "needsRetranslation": true,
+      "location": "Obbürgen",
+      "canton": "NW",
+      "url": "https://recruitingapp-2850.umantis.com/Vacancies/1508/Description/1",
+      "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T09:33:09.619Z",
+      "addressLocality": "Obbürgen",
+      "addressRegion": "NW",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6363",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1508/Application/CheckLogin/1",
+      "salaryMin": 117000,
+      "salaryMax": 163000,
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-05T09:33:09.619Z",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 19,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "buergenstock-hotels-d9671f408386",
@@ -34,7 +79,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/373/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:24.482Z",
+      "crawledAt": "2026-10-05T09:33:26.557Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -47,18 +92,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-20",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/373/Application/CheckLogin/1",
       "firstSeenAt": "2026-05-20T06:09:02.211Z",
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -74,7 +121,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1437/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:23.986Z",
+      "crawledAt": "2026-10-05T09:33:25.560Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -87,18 +134,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-20",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1437/Application/CheckLogin/1",
       "firstSeenAt": "2026-05-20T06:09:00.831Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -114,7 +163,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1435/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:23.514Z",
+      "crawledAt": "2026-10-05T09:33:24.555Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -127,18 +176,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-20",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1435/Application/CheckLogin/1",
       "firstSeenAt": "2026-05-20T06:08:53.949Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -154,7 +205,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1444/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:22.808Z",
+      "crawledAt": "2026-10-05T09:33:23.557Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -167,18 +218,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1444/Application/CheckLogin/1",
       "firstSeenAt": "2026-05-20T06:08:58.059Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -194,7 +247,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1542/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:22.213Z",
+      "crawledAt": "2026-10-05T09:33:22.904Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -207,18 +260,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1542/Application/CheckLogin/1",
       "firstSeenAt": "2026-07-27T12:37:20.723Z",
       "salaryMin": 77500,
       "salaryMax": 108000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -234,7 +289,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1544/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:21.544Z",
+      "crawledAt": "2026-10-05T09:33:22.429Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -247,18 +302,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1544/Application/CheckLogin/1",
       "firstSeenAt": "2026-08-10T21:43:48.361Z",
       "salaryMin": 69000,
       "salaryMax": 86500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -274,7 +331,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1558/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:20.933Z",
+      "crawledAt": "2026-10-05T09:33:21.956Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -287,18 +344,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-13",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1558/Application/CheckLogin/1",
       "firstSeenAt": "2026-08-13T10:16:55.519Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -314,7 +373,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1563/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:20.359Z",
+      "crawledAt": "2026-10-05T09:33:21.487Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -327,58 +386,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-18",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1563/Application/CheckLogin/1",
       "firstSeenAt": "2026-08-18T09:43:02.284Z",
       "salaryMin": 69000,
       "salaryMax": 86500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "buergenstock-hotels-e134d177a5ce",
-      "slug": "chef-de-partie-im-burgenstock-resort-100-w-m-i-buergenstock-hotels-obburgen",
-      "company": "Bürgenstock Hotels AG",
-      "companyKey": "buergenstock-hotels",
-      "companyDomain": "buergenstock.ch",
-      "title": "Chef de Partie im Bürgenstock Resort 100% (w/m/i)",
-      "needsRetranslation": true,
-      "location": "Obbürgen",
-      "canton": "NW",
-      "url": "https://recruitingapp-2850.umantis.com/Vacancies/1570/Description/1",
-      "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:19.764Z",
-      "addressLocality": "Obbürgen",
-      "addressRegion": "NW",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6363",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-04",
-      "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1570/Application/CheckLogin/1",
-      "firstSeenAt": "2026-09-04T13:39:53.305Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -394,7 +415,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1471/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:19.176Z",
+      "crawledAt": "2026-10-05T09:33:21.018Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -407,18 +428,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-07",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1471/Application/CheckLogin/1",
       "firstSeenAt": "2026-05-20T06:08:34.942Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -434,7 +457,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1567/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:18.474Z",
+      "crawledAt": "2026-10-05T09:33:20.568Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -447,18 +470,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1567/Application/CheckLogin/1",
       "firstSeenAt": "2026-09-10T23:18:45.643Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -474,7 +499,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1573/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:17.905Z",
+      "crawledAt": "2026-10-05T09:33:20.098Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -487,18 +512,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1573/Application/CheckLogin/1",
       "firstSeenAt": "2026-09-19T23:06:48.411Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -514,7 +541,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1565/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:17.294Z",
+      "crawledAt": "2026-10-05T09:33:19.628Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -527,18 +554,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1565/Application/CheckLogin/1",
       "firstSeenAt": "2026-09-03T13:49:24.429Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -554,7 +583,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1575/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:16.579Z",
+      "crawledAt": "2026-10-05T09:33:19.157Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -567,18 +596,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1575/Application/CheckLogin/1",
       "firstSeenAt": "2026-09-19T23:06:46.346Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -594,7 +625,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1577/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:15.973Z",
+      "crawledAt": "2026-10-05T09:33:18.683Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -607,18 +638,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1577/Application/CheckLogin/1",
       "firstSeenAt": "2026-09-24T00:11:47.644Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -634,7 +667,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1572/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:15.372Z",
+      "crawledAt": "2026-10-05T09:33:18.211Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -647,18 +680,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1572/Application/CheckLogin/1",
       "firstSeenAt": "2026-09-24T00:11:47.015Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -674,7 +709,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1576/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:14.773Z",
+      "crawledAt": "2026-10-05T09:33:17.739Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -687,18 +722,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1576/Application/CheckLogin/1",
       "firstSeenAt": "2026-09-24T00:11:46.430Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -714,7 +751,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/425/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:14.064Z",
+      "crawledAt": "2026-10-05T09:33:17.272Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -727,18 +764,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/425/Application/CheckLogin/1",
       "firstSeenAt": "2026-09-24T00:11:45.704Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -754,7 +793,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1482/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:13.380Z",
+      "crawledAt": "2026-10-05T09:33:16.794Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -767,18 +806,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-20",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1482/Application/CheckLogin/1",
       "firstSeenAt": "2026-05-20T06:08:54.638Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -794,7 +835,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1521/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:12.668Z",
+      "crawledAt": "2026-10-05T09:33:16.319Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -807,18 +848,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-20",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1521/Application/CheckLogin/1",
       "firstSeenAt": "2026-07-20T11:52:25.162Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -834,7 +877,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1534/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:11.975Z",
+      "crawledAt": "2026-10-05T09:33:15.847Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -847,18 +890,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-08",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1534/Application/CheckLogin/1",
       "firstSeenAt": "2026-07-06T13:12:59.309Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -874,7 +919,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1574/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:11.252Z",
+      "crawledAt": "2026-10-05T09:33:15.370Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -887,18 +932,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1574/Application/CheckLogin/1",
       "firstSeenAt": "2026-09-19T23:06:49.772Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -914,7 +961,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1578/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:10.651Z",
+      "crawledAt": "2026-10-05T09:33:14.894Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -927,18 +974,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-25",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1578/Application/CheckLogin/1",
       "firstSeenAt": "2026-09-25T15:01:18.335Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -954,7 +1003,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1550/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:10.157Z",
+      "crawledAt": "2026-10-05T09:33:14.414Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -967,18 +1016,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1550/Application/CheckLogin/1",
       "firstSeenAt": "2026-08-04T22:17:40.090Z",
       "salaryMin": 55000,
       "salaryMax": 69000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -994,7 +1045,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1552/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:09.470Z",
+      "crawledAt": "2026-10-05T09:33:13.939Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1007,18 +1058,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1552/Application/CheckLogin/1",
       "firstSeenAt": "2026-08-04T22:17:41.771Z",
       "salaryMin": 77500,
       "salaryMax": 108000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1034,7 +1087,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1553/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:08.781Z",
+      "crawledAt": "2026-10-05T09:33:13.467Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1047,18 +1100,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1553/Application/CheckLogin/1",
       "firstSeenAt": "2026-08-04T22:17:42.548Z",
       "salaryMin": 77500,
       "salaryMax": 108000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1074,7 +1129,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1554/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:08.068Z",
+      "crawledAt": "2026-10-05T09:33:12.991Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1087,18 +1142,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1554/Application/CheckLogin/1",
       "firstSeenAt": "2026-08-04T22:17:43.350Z",
       "salaryMin": 55000,
       "salaryMax": 69000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1114,7 +1171,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1555/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:07.372Z",
+      "crawledAt": "2026-10-05T09:33:12.518Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1127,18 +1184,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1555/Application/CheckLogin/1",
       "firstSeenAt": "2026-08-04T22:17:44.149Z",
       "salaryMin": 55000,
       "salaryMax": 69000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1154,7 +1213,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1556/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:06.654Z",
+      "crawledAt": "2026-10-05T09:33:12.033Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1167,18 +1226,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1556/Application/CheckLogin/1",
       "firstSeenAt": "2026-08-04T22:17:44.917Z",
       "salaryMin": 60000,
       "salaryMax": 106500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1194,7 +1255,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1557/Description/1",
       "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:05.955Z",
+      "crawledAt": "2026-10-05T09:33:11.560Z",
       "addressLocality": "Obbürgen",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -1207,22 +1268,66 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1557/Application/CheckLogin/1",
       "firstSeenAt": "2026-08-04T22:17:45.712Z",
       "salaryMin": 55000,
       "salaryMax": 69000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
+      }
+    },
+    {
+      "id": "buergenstock-hotels-9efbc552969d",
+      "slug": "apprendistato-ict-fachmann-frau-cfc-burgenstock-hotels-ag-obburgen",
+      "company": "Bürgenstock Hotels AG",
+      "companyKey": "buergenstock-hotels",
+      "companyDomain": "buergenstock.ch",
+      "title": "Lehrstelle ICT-Fachmann/-frau EFZ",
+      "needsRetranslation": true,
+      "location": "Obbürgen",
+      "canton": "NW",
+      "url": "https://recruitingapp-2850.umantis.com/Vacancies/1559/Description/1",
+      "source": "Bürgenstock Hotels AG Dedicated Parser (Umantis listing tenant 2850)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T09:33:11.077Z",
+      "addressLocality": "Obbürgen",
+      "addressRegion": "NW",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6363",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1559/Application/CheckLogin/1",
+      "firstSeenAt": "2026-08-06T11:35:58.432Z",
+      "salaryMin": 77500,
+      "salaryMax": 108000,
+      "salarySource": "estimated",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

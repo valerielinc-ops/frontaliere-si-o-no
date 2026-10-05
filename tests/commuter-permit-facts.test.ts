@@ -109,7 +109,7 @@ describe('profession-canton recent-listing comparison', () => {
 
 
 describe('recent-listing period boundary', () => {
-  it('counts only verified publication dates and excludes invalid observation dates', () => {
+  it('counts verified publication boundaries and falls back only to another reported date', () => {
     const root = mkdtempSync(join(tmpdir(), 'profession-recency-'));
     const now = Date.now();
     const day = 86_400_000;
@@ -126,9 +126,11 @@ describe('recent-listing period boundary', () => {
       { postingDateSource: 'reported', postedDate: at(-31) },
       { postingDateSource: 'reported', postedDate: at(-30) },
       { postingDateSource: 'reported', postedDate: at(0) },
-      // An invalid reported date must not fall back to an observation clock.
+      { postingDateSource: 'reported', datePosted: 'invalid', postedDate: at(-2), firstSeenAt: at(-40) },
+      { postingDateSource: 'reported', datePosted: at(-3), postedDate: 'invalid' },
       { postingDateSource: 'reported', postedDate: 'invalid', firstSeenAt: at(-2) },
       { postingDateSource: 'unknown', firstSeenAt: at(-3) },
+      { postingDateSource: 'unknown', postedDate: at(-1), firstSeenAt: at(-1) },
       { postingDateSource: 'reported', postedDate: 'invalid', firstSeenAt: 'invalid' },
     ];
     try {
@@ -144,8 +146,8 @@ describe('recent-listing period boundary', () => {
         aggregateNursingJobs(root, now).nurses,
       ];
       for (const sample of samples) {
-        expect(sample.liveCount).toBe(7);
-        expect(sample.fresh30Count).toBe(2);
+        expect(sample.liveCount).toBe(dates.length);
+        expect(sample.fresh30Count).toBe(4);
       }
     } finally {
       reset();
