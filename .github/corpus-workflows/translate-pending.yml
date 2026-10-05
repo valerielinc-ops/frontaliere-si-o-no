@@ -450,16 +450,6 @@ jobs:
         id: provider_readiness
         continue-on-error: true
         run: node scripts/translation-provider-readiness.mjs --summary --json "$RUNNER_TEMP/translation-provider-readiness.json"
-      - name: Alert on rejected translation credentials (dedup, zero-Claude)
-        if: steps.provider_readiness.outcome == 'success' && inputs.dry_run != true
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
-        run: |
-          node scripts/translation-provider-readiness.mjs \
-            --alert-from "$RUNNER_TEMP/translation-provider-readiness.json" \
-            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
       - name: Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)
         run: |-
           if [ -z "${GITHUB_PAT:-}" ]; then
@@ -570,6 +560,12 @@ jobs:
             --output "$RUNNER_TEMP/translation-observability-before.json" \
             --now "$started_at"
           echo "ready=true" >> "$GITHUB_OUTPUT"
+      - id: setup_claude_haiku_fallback
+        if: inputs.skip_translate != true && inputs.dry_run != true
+        uses: ./.github/actions/setup-claude-haiku-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          broker_idle_ttl_ms: "12600000"
       - name: "Phase 2b: Translate pending jobs (cascade top-up)"
         id: translation_shadow_preflight_v2_decision
         if: inputs.skip_translate != true
@@ -579,6 +575,10 @@ jobs:
           JOBS_CASCADE_WINDOW_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '0' || '1800000' }}
           AZURE_TRANSLATOR_KEY: ""
           AZURE_TRANSLATOR_KEY_2: ""
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_MAX_CALLS: "30"
+          FREE_TRANSLATE_CODEX_MAX_MS: "900000"
+          TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
           MT_LOCAL_OPUSMT: "1"
           TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MAX_JOBS: ${{ inputs.max_jobs || '900' }}
@@ -666,12 +666,6 @@ jobs:
           REPAIR_LANE_DEADLINE_MS: "12600000"
           REPAIR_LANE_MIN_REMAINING_MS: "900000"
         run: node scripts/translate-repair-lane-gate.mjs
-      - id: setup_claude_haiku_fallback
-        if: github.event_name == 'schedule' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'
-        uses: ./.github/actions/setup-claude-haiku-fallback
-        with:
-          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
-          broker_idle_ttl_ms: "12600000"
       - name: "Phase 2d: Fix untranslated titles (free cascade)"
         if: github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'
         env:
@@ -680,6 +674,7 @@ jobs:
           FREE_TRANSLATE_CODEX_TIER: last
           FREE_TRANSLATE_CODEX_MAX_CALLS: "30"
           FREE_TRANSLATE_CODEX_MAX_MS: "900000"
+          TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-titles.mjs
       - name: Commit title fixes
         id: commit_title_fixes
@@ -702,6 +697,7 @@ jobs:
           FREE_TRANSLATE_CODEX_TIER: last
           FREE_TRANSLATE_CODEX_MAX_CALLS: "30"
           FREE_TRANSLATE_CODEX_MAX_MS: "900000"
+          TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-descriptions.mjs --max "$UNTRANSLATED_DESCRIPTION_FIX_MAX"
       - name: Commit description fixes
         id: commit_description_fixes
@@ -721,6 +717,17 @@ jobs:
         run: |-
           if [ -z "$CODEX_AUTH_BROKER_SOCKET" ] || [ ! -S "$CODEX_AUTH_BROKER_SOCKET" ]; then exit 0; fi
           node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" || echo "::warning::Codex auth broker cleanup did not complete"
+      - name: Alert on rejected translation credentials (dedup, zero-Claude)
+        if: always() && steps.provider_readiness.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/translation-provider-readiness.mjs \
+            --alert-from "$RUNNER_TEMP/translation-provider-readiness.json" \
+            --codex-reserve-dir "$RUNNER_TEMP/translation-codex-reserve" \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
       - name: Re-assemble true-final translation dataset
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         env:
@@ -728,6 +735,8 @@ jobs:
         run: node scripts/assemble-jobs-dataset.mjs
       - name: Log translation stats (after)
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        env:
+          TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: |
           if [ "${{ inputs.dry_run }}" = "true" ]; then
             node scripts/log-translation-stats.mjs after

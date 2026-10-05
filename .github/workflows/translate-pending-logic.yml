@@ -224,20 +224,6 @@ jobs:
         continue-on-error: true
         run: node scripts/translation-provider-readiness.mjs --summary --json "$RUNNER_TEMP/translation-provider-readiness.json"
 
-      # A provider whose every credential is rejected is an owner action
-      # (rotate it where this workflow reads it): one deduplicated needs-human issue per
-      # provider, closed by the first run in which the provider answers again.
-      - name: Alert on rejected translation credentials (dedup, zero-Claude)
-        if: steps.provider_readiness.outcome == 'success' && inputs.dry_run != true
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
-        run: |
-          node scripts/translation-provider-readiness.mjs \
-            --alert-from "$RUNNER_TEMP/translation-provider-readiness.json" \
-            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-
       # Bootstrap checkout #2: reconfigure auth with GITHUB_PAT — see header
       # note and crawler-group-NN-logic.yml's identical step for the full
       # chicken-and-egg rationale.
@@ -438,6 +424,29 @@ jobs:
             --now "$started_at"
           echo "ready=true" >> "$GITHUB_OUTPUT"
 
+      # ── Codex Luna Max: reserve of Phase 2b, last-resort tier of 2d/2e ───
+      # Owner decision H7 (2026-10-05): «utilizza codex luna max per le
+      # traduzioni quando falliscono le chiavi». The broker starts after the
+      # Argos bulk pass (Phase 2a) and before the cascade, so Phase 2b gets its
+      # socket with the DEFAULT tier position of free-translate.mjs: Codex
+      # translates a text only once DeepL and Azure can no longer serve the
+      # run (every key rejected or out of quota, or not configured — Azure is
+      # blanked in 2b, see there), and before Google Cloud and the free tiers.
+      # While DeepL answers, Codex is not called. Phases 2d/2e keep it at the
+      # very end of their cascade (FREE_TRANSLATE_CODEX_TIER=last, decision of
+      # 2026-09-25). Every consumer has its own per-process budget; the
+      # subscription is shared with the owner's interactive use. The idle TTL
+      # covers the stretch between 2b and 2d/2e (Argos mop-up, commits) inside
+      # the 210-minute envelope. Without the secret, or with
+      # ENABLE_CODEX_ARTICLE_FALLBACK=0 in Remote Config, the step does nothing
+      # and every phase keeps the cascade it had.
+      - id: setup_claude_haiku_fallback
+        if: inputs.skip_translate != true && inputs.dry_run != true
+        uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          broker_idle_ttl_ms: '12600000'
+
       - name: "Phase 2b: Translate pending jobs (cascade top-up)"
         id: translation_shadow_preflight_v2_decision
         if: inputs.skip_translate != true
@@ -459,6 +468,16 @@ jobs:
           # as it did while Azure answered 401.
           AZURE_TRANSLATOR_KEY: ''
           AZURE_TRANSLATOR_KEY_2: ''
+          # Codex reserve (see the broker step above): default tier position,
+          # at most 30 requests and 15 minutes of the 30-minute window per
+          # run. The jobs queue is traffic-ordered, so the budget goes to the
+          # most visited jobs first. The phase writes its counters to
+          # TRANSLATE_CODEX_RESERVE_DIR for the stats row and the credential
+          # alert (scripts/lib/codex-reserve-report.mjs).
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_MAX_CALLS: '30'
+          FREE_TRANSLATE_CODEX_MAX_MS: '900000'
+          TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
           MT_LOCAL_OPUSMT: '1'
           TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MAX_JOBS: ${{ inputs.max_jobs || '900' }}
@@ -561,21 +580,11 @@ jobs:
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
-      # ── Codex Luna Max: last-resort tier of Phases 2d/2e only ────────────
-      # Owner decision (2026-09-25): in translate-pending Codex translates
-      # only AFTER Argos (Phases 2a and 2c above) and after every tier that
-      # spends no quota. So the broker starts here, after the Argos mop-up and
-      # its commit, and only Phases 2d/2e receive its socket, with
-      # FREE_TRANSLATE_CODEX_TIER=last: free-translate.mjs then tries Codex
-      # solely for a text that every other tier of the cascade left
-      # untranslated. The Phase 2b cascade never sees the socket. The idle TTL
-      # covers the 210-minute envelope of those phases, where Codex can stay
-      # unused for a long stretch. Without the secret or the lane the step
-      # does nothing and the phases keep the cascade they always had.
-      # ── Budget gate for Phases 2d/2e and their Codex broker ─────────────
+      # ── Budget gate for Phases 2d/2e ─────────────────────────────────────
       # The lanes stop at the 210min run-wide deadline, but only inside their
-      # own process: past it the broker still started (~21s) and the commit
-      # step still re-merged every diverged slice to find nothing (137-850s).
+      # own process: past it the broker still started (~21s; it now starts
+      # before Phase 2b) and the commit step still re-merged every diverged
+      # slice to find nothing (137-850s).
       # Corpus runs 36240711198 (2d at 215min) and 36169299281 (2e at 252min,
       # later killed at the 350min cap). Measured productive starts all had
       # >= 57min left, so below one Codex budget (15min) nothing starts and a
@@ -587,13 +596,6 @@ jobs:
           REPAIR_LANE_DEADLINE_MS: '12600000' # same 210min envelope as Phases 2a-2e.
           REPAIR_LANE_MIN_REMAINING_MS: '900000' # 15min = FREE_TRANSLATE_CODEX_MAX_MS.
         run: node scripts/translate-repair-lane-gate.mjs
-
-      - id: setup_claude_haiku_fallback
-        if: github.event_name == 'schedule' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'
-        uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
-        with:
-          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
-          broker_idle_ttl_ms: '12600000'
 
       # ── Phase 2d: Fix source-copy titles (once-daily repair lane)
       - name: "Phase 2d: Fix untranslated titles (free cascade)"
@@ -615,6 +617,7 @@ jobs:
           FREE_TRANSLATE_CODEX_TIER: last
           FREE_TRANSLATE_CODEX_MAX_CALLS: '30'
           FREE_TRANSLATE_CODEX_MAX_MS: '900000'
+          TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-titles.mjs
 
       - name: Commit title fixes
@@ -647,6 +650,7 @@ jobs:
           FREE_TRANSLATE_CODEX_TIER: last
           FREE_TRANSLATE_CODEX_MAX_CALLS: '30'
           FREE_TRANSLATE_CODEX_MAX_MS: '900000'
+          TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-descriptions.mjs --max "$UNTRANSLATED_DESCRIPTION_FIX_MAX"
 
       - name: Commit description fixes
@@ -669,6 +673,26 @@ jobs:
           if [ -z "$CODEX_AUTH_BROKER_SOCKET" ] || [ ! -S "$CODEX_AUTH_BROKER_SOCKET" ]; then exit 0; fi
           node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" || echo "::warning::Codex auth broker cleanup did not complete"
 
+      # A provider whose every credential is rejected is an owner action
+      # (rotate it where this workflow reads it): one deduplicated needs-human
+      # issue per provider, closed by the first run in which the provider
+      # answers again. Since the Codex reserve (owner decision H7, 2026-10-05)
+      # a rejected key is expected and covered while Codex translates: the
+      # step runs after every translating phase, reads their reserve reports,
+      # and opens or comments the issue only when Codex failed too or was not
+      # there (scripts/translation-provider-readiness.mjs, `--codex-reserve-dir`).
+      - name: Alert on rejected translation credentials (dedup, zero-Claude)
+        if: always() && steps.provider_readiness.outcome == 'success' && inputs.dry_run != true
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/translation-provider-readiness.mjs \
+            --alert-from "$RUNNER_TEMP/translation-provider-readiness.json" \
+            --codex-reserve-dir "$RUNNER_TEMP/translation-codex-reserve" \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
       # Phases 2d/2e write slices. This is the final translation-bearing
       # persistence barrier; Phase 3 below changes only slugs.
       - name: Re-assemble true-final translation dataset
@@ -684,6 +708,10 @@ jobs:
       # point for the tree that was (or can be) published.
       - name: Log translation stats (after)
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        env:
+          # Codex reserve counters of this run (translated / rejected), summed
+          # into the `after` row as `codexReserve`.
+          TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: |
           if [ "${{ inputs.dry_run }}" = "true" ]; then
             node scripts/log-translation-stats.mjs after
