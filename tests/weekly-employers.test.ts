@@ -41,6 +41,7 @@ import {
 import {
   buildCityWeeklyStats,
   generateWeeklyEmployerPages,
+  renderTopHubPage,
   jobMatchesCity,
   renderWeeklyEmployersPage,
   type JobsSnapshot,
@@ -50,6 +51,23 @@ import { htmlAttr, htmlTagWithAttrs } from './utils/htmlAttr';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
+
+function extractOrganizationItems(html: string): Array<Record<string, unknown>> {
+  const scripts = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+    .map((match) => JSON.parse(match[1]) as Record<string, unknown>);
+  const itemList = scripts.find((script) => {
+    if (script['@type'] !== 'ItemList') return false;
+    const items = script.itemListElement;
+    return Array.isArray(items)
+      && items.length > 0
+      && (items[0] as Record<string, unknown>)?.item
+      && ((items[0] as Record<string, unknown>).item as Record<string, unknown>)['@type'] === 'Organization';
+  });
+  if (!itemList || !Array.isArray(itemList.itemListElement)) return [];
+  return itemList.itemListElement.map((entry) =>
+    (entry as Record<string, unknown>).item as Record<string, unknown>,
+  );
+}
 
 // ── Constants / slug tables ──────────────────────────────────
 
@@ -451,6 +469,76 @@ describe('renderWeeklyEmployersPage', () => {
     // (b) the employer name is never emitted as an un-linked <strong>.
     expect(html).not.toContain(`<strong>${newcomerName}</strong>`);
     expect(html).not.toMatch(/<strong>Zzqx Newcomer GmbH/);
+  });
+
+  it('does not merge unknown employers into the page Organization identity', () => {
+    const unknown = {
+      employer: 'Zzqx Unknown GmbH',
+      employerKey: 'zzqx-unknown',
+      active: 4,
+      delta: 1,
+    };
+    const knownBrand = {
+      employer: 'EOC — Ente Ospedaliero Cantonale',
+      employerKey: 'eoc-ente-ospedaliero-cantonale',
+      active: 3,
+      delta: 0,
+    };
+    const knownEmployerProfileSlugs = new Set<string>();
+    const expectedBrandUrl =
+      'https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale/';
+
+    const topHubHtml = renderTopHubPage({
+      locale: 'it',
+      today: new Date('2026-04-20T12:00:00Z'),
+      jobsCount: 7,
+      companiesCount: 2,
+      topCompanies: [unknown, knownBrand],
+      knownEmployerProfileSlugs,
+      hasHistoricalDelta: true,
+    });
+    const topHubOrganizations = extractOrganizationItems(topHubHtml);
+    expect(topHubOrganizations).toHaveLength(2);
+    expect(topHubOrganizations[0]).not.toHaveProperty('@id');
+    expect(topHubOrganizations[0]).not.toHaveProperty('url');
+    expect(topHubHtml).not.toContain(
+      'https://frontaliereticino.ch/aziende-che-assumono/ticino/settimana-corrente/#organization',
+    );
+    expect(topHubOrganizations[1]).toMatchObject({
+      '@id': `${expectedBrandUrl}#organization`,
+      url: expectedBrandUrl,
+    });
+
+    const cityHtml = renderWeeklyEmployersPage({
+      locale: 'it',
+      city: 'lugano',
+      variant: 'current',
+      weekNum: 17,
+      year: 2026,
+      stats: {
+        city: 'lugano',
+        activeJobsCount: 7,
+        topCompanies: [unknown, knownBrand],
+        newcomers: [],
+        topRoles: [],
+      },
+      hasHistoricalDelta: true,
+      canonicalPath: buildCurrentWeekPath('it', 'lugano'),
+      today: new Date('2026-04-20T12:00:00Z'),
+      indexable: true,
+      knownEmployerProfileSlugs,
+    });
+    const cityOrganizations = extractOrganizationItems(cityHtml);
+    expect(cityOrganizations).toHaveLength(2);
+    expect(cityOrganizations[0]).not.toHaveProperty('@id');
+    expect(cityOrganizations[0]).not.toHaveProperty('url');
+    expect(cityHtml).not.toContain(
+      'https://frontaliereticino.ch/aziende-che-assumono/lugano/settimana-corrente/#organization',
+    );
+    expect(cityOrganizations[1]).toMatchObject({
+      '@id': `${expectedBrandUrl}#organization`,
+      url: expectedBrandUrl,
+    });
   });
 
   it('uses cold-start copy when no historical delta is available', () => {

@@ -1,19 +1,59 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-10-05T09:15:40.823Z",
+  "generatedAt": "2026-10-05T21:27:54.796Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 8,
-  "durationMs": 18433,
-  "avgDurationMs": 18433,
+  "unchangedCount": 7,
+  "durationMs": 19424,
+  "avgDurationMs": 19424,
   "durationHistory": [
-    18433
+    19424
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "title": "Verfahrenstechniker 100% (w/m/div.) - REF297511W",
+      "slug": "ingegnere-di-processo-100-w-m-div-ref297511w-bosch-thermotechnik-ag-st-niklaus",
+      "url": "https://jobs.bosch.com/en/job/REF297511W-verfahrenstechniker-100-w-m-div-ref297511w",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000153532695-verfahrenstechniker-100-w-m-div-ref297511w?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "St. Niklaus",
+      "addressLocality": "St. Niklaus",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "engineering",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-10-01",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-f4b202c69c6d",
+      "needsRetranslation": true,
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-01T09:13:44.411Z",
+      "datePosted": "2026-10-01",
+      "postingDateSource": "reported",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
+        "completeness": 19
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -173,45 +213,6 @@
       }
     },
     {
-      "title": "Verfahrenstechniker 100% (w/m/div.) - REF297511W",
-      "slug": "ingegnere-di-processo-100-w-m-div-ref297511w-bosch-thermotechnik-ag-st-niklaus",
-      "url": "https://jobs.bosch.com/en/job/REF297511W-verfahrenstechniker-100-w-m-div-ref297511w",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000152877382-verfahrenstechniker-100-w-m-div-ref297511w?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "St. Niklaus",
-      "addressLocality": "St. Niklaus",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "engineering",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-10-01",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-f4b202c69c6d",
-      "needsRetranslation": true,
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-01T09:13:44.411Z",
-      "datePosted": "2026-10-01",
-      "postingDateSource": "reported",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 19
-      }
-    },
-    {
       "title": "Logisitker (w/m/div.) - REF297188H",
       "slug": "logisitker-f-m-div-ref297188-hh-bosch-thermotechnik-ag-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF297188H-logisitker-w-m-div-ref297188h",
@@ -326,5 +327,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }
