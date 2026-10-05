@@ -69,6 +69,7 @@ import {
   isTargetSwissLocation,
   locationFieldHasSwissSignal,
 } from './lib/target-swiss-locations.mjs';
+import { ISO_ALPHA2_COUNTRY_CODES } from './lib/prospector/country-inventory.mjs';
 import {
   exitCrawlerOnError,
   fetchHtml as fetchHtmlShared,
@@ -134,6 +135,7 @@ const IST_SHARED_PORTAL_COMPANIES = new Set([
 ]);
 const IST_DETAIL_TENANT_RE = /\b(?:international\s+school\s+of\s+ticino|scuola\s+internazionale\s+(?:di|del)\s+ticino|école\s+internationale\s+du\s+tessin|internationale\s+schule\s+des\s+tessins)\b/i;
 const IST_ROLE_TENANT_SIGNAL_RE = /(?:\b(?:the\s+)?international\s+school\s+of\s+ticino\s+(?:\([^)]*\)\s+)?(?:is\s+(?:seeking|looking\s+for|recruiting|hiring))\b|\bscuola\s+internazionale\s+(?:di|del)\s+ticino\s+(?:cerca|sta\s+cercando)\b|\bécole\s+internationale\s+du\s+tessin\s+(?:recherche|cherche)\b|\binternationale\s+schule\s+des\s+tessins\s+sucht\b)/i;
+const TRAILING_COUNTRY_CODE_RE = /,\s*([A-Za-z]{2})\s*$/;
 
 function hasVerifiedIstRoleTenantSignal(detail = {}) {
   return IST_ROLE_TENANT_SIGNAL_RE.test(normalizeSpace(detail.description));
@@ -430,10 +432,11 @@ function parseLocation(locText = '') {
  * ambiguous city names that the shared location table can recognize.
  */
 export function parseCountryCode(locText = '') {
-  const parts = String(locText || '').split(',');
-  if (parts.length < 2) return '';
-  const tail = parts[parts.length - 1].trim().toUpperCase();
-  if (!/^[A-Z]{2}$/.test(tail)) return '';
+  const source = String(locText || '');
+  const suffixMatch = source.match(TRAILING_COUNTRY_CODE_RE);
+  if (!suffixMatch) return '';
+  const parts = source.split(',');
+  const tail = suffixMatch[1].toUpperCase();
   // Inspired's location field also uses the final component for Swiss
   // canton codes (for example, "St. Gallen, SG" and "Fribourg, FR"). A
   // matching canton is Swiss evidence, not a foreign-country code. Resolve
@@ -453,12 +456,25 @@ export function hasCompleteIstDetailEvidence(detail = {}) {
   const location = normalizeSpace(detail.location);
   if (!normalizeSpace(detail.title) || !location) return false;
 
+  const resolvedCanton = inferAnyCanton(location);
+  const suffixMatch = location.match(TRAILING_COUNTRY_CODE_RE);
+  const suffix = suffixMatch?.[1]?.toUpperCase() || '';
+  // `parseCountryCode` is intentionally permissive for the publication
+  // filter, but an unassigned/malformed suffix is not evidence that a detail
+  // was classified. Keep it fail-closed for the empty-source receipt. A
+  // recognized Swiss canton suffix is valid even when it is not an ISO country
+  // code (for example `Lugano, TI`).
+  if (suffix && !ISO_ALPHA2_COUNTRY_CODES.has(suffix) && suffix !== resolvedCanton) return false;
+
   const countryCode = parseCountryCode(location);
   const explicitlyForeign = (countryCode && countryCode !== 'CH')
     || isLocationExplicitlyForeign(location);
   if (explicitlyForeign) return true;
 
-  if (!locationFieldHasSwissSignal(location)) return false;
+  // A generic country signal such as `Switzerland` is insufficient: the
+  // detail walk must resolve the actual Swiss canton before it can certify
+  // that a page was classifiable.
+  if (!resolvedCanton || !locationFieldHasSwissSignal(location)) return false;
   if (isIstDetailJob(detail)) return true;
 
   const identityValues = [
@@ -497,11 +513,12 @@ export function classifyIstDetailWalk({ discoveredCount, parsedCount, completeDe
     return { authoritativeEmptySnapshot: false, lastFetchOutcome: 'selector_miss' };
   }
   const complete = discoveredCount === 0 || completeDetailCount === discoveredCount;
+  if (!complete) {
+    return { authoritativeEmptySnapshot: false, lastFetchOutcome: 'selector_miss' };
+  }
   return {
     authoritativeEmptySnapshot: parsedCount === 0 && complete,
-    lastFetchOutcome: parsedCount > 0
-      ? 'ok'
-      : (complete ? 'filtered_empty' : 'selector_miss'),
+    lastFetchOutcome: parsedCount > 0 ? 'ok' : 'filtered_empty',
   };
 }
 

@@ -77,6 +77,32 @@ describe('IST empty-source proof', () => {
       completeDetailCount: 300,
     })).toEqual({ authoritativeEmptySnapshot: false, lastFetchOutcome: 'selector_miss' });
   });
+
+  it('does not certify a Swiss country-only detail without a resolved canton', () => {
+    expect(hasCompleteIstDetailEvidence({
+      title: 'Teacher',
+      location: 'Switzerland',
+      company: 'International School of Ticino',
+      tenant: 'International School of Ticino',
+    })).toBe(false);
+  });
+
+  it('keeps an unrecognized country-like suffix fail-closed', () => {
+    expect(hasCompleteIstDetailEvidence({
+      title: 'Teacher',
+      location: 'Lugano, ZZ',
+      company: 'International School of Ticino',
+      tenant: 'International School of Ticino',
+    })).toBe(false);
+  });
+
+  it('keeps a partially classified detail walk fail-closed even with parsed jobs', () => {
+    expect(classifyIstDetailWalk({
+      discoveredCount: 2,
+      parsedCount: 1,
+      completeDetailCount: 1,
+    })).toEqual({ authoritativeEmptySnapshot: false, lastFetchOutcome: 'selector_miss' });
+  });
 });
 
 describe('IST detail tenant identity', () => {
