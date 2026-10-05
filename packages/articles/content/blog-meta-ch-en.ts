@@ -7709,6 +7709,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.protezione-civile-zurigo.title': 'Civil protection in the Canton of Zurich: requirements and allowances',
     'blog.article.protezione-civile-zurigo.excerpt': 'In the Canton of Zurich, civil protection is coordinated at the cantonal level. Call-ups and allowances are verified with the competent authority.',
     'blog.article.protezione-civile-zurigo.imageAlt': 'Civil protection personnel outside a Swiss public building',
+    'blog.article.assicurazione-immobili-zurigo.title': 'Property insurance in the Canton of Zurich: obligation and premiums',
+    'blog.article.assicurazione-immobili-zurigo.excerpt': 'In Switzerland, building insurance is mandatory or organized differently depending on the canton: a practical guide for Zurich on premiums and claims.',
+    'blog.article.assicurazione-immobili-zurigo.imageAlt': 'Residential building in Zurich canton for a property insurance guide',
 };
 
 export default blogMetaChEn;
