@@ -1007,6 +1007,69 @@ describe('checkFabricatedNormAcronyms', () => {
     }
   });
 
+  // ED-FAB-3. La seconda famiglia di `LTF` inventate: la «legge federale sul
+  // traffico (LTF)» al posto della LCStr (RS 741.01), con le varianti
+  // ferroviaria e aerea, nelle forme reali del corpus anonimizzate. Nessuna di
+  // queste frasi ha un cue fiscale o del lavoro: la guardia della ED-FAB-2 le
+  // lasciava passare tutte.
+  it('flags LTF cited as a road, rail or air traffic law, in every locale', () => {
+    const frasiInventate = [
+      'Secondo la legge federale sul traffico (LTF), i ciclisti devono indossare un casco in caso di incidente.',
+      'La legge federale sul traffico stradale (LTF) stabilisce che la velocità massima sulle autostrade è di 120 km/h.',
+      'Riferimenti: la legge federale sul trasporto ferroviario del 20 ottobre 2005 (LTF).',
+      'Le normative sui biglietti sono cambiate quando è entrata in vigore la legge federale sul traffico aereo (LTF).',
+      'Il progetto è stato approvato in base alla Legge federale sul traffico (LTF) del 1958.',
+      'References: The Federal Rail Transport Act of 20 October 2005 (LTF).',
+      'What is the speed limit on motorways in Switzerland according to the LTF?',
+      'Die Bestimmungen haben sich geändert, als das Bundesgesetz über den Luftverkehr (LTF) in Kraft trat.',
+      'Selon la loi fédérale sur la circulation (LTF), les voitures de plus de 15 ans ne peuvent pas circuler en Suisse.',
+    ];
+    for (const frase of frasiInventate) {
+      expect(codes(checkFabricatedNormAcronyms(frase)), frase).toContain('fabricated-norm-acronym');
+    }
+  });
+
+  it('leaves the real LTF alone in a road traffic judgment', () => {
+    const frasiVere = [
+      'Il Tribunale federale ha respinto il ricorso del conducente contro la revoca della licenza di condurre (art. 82 segg. LTF).',
+      'Secondo la LTF, il Tribunale federale giudica i ricorsi in materia di circolazione stradale.',
+      'Das Bundesgericht trat auf die Beschwerde des Autofahrers nach Art. 42 Abs. 2 LTF nicht ein.',
+    ];
+    for (const frase of frasiVere) {
+      expect(checkFabricatedNormAcronyms(frase), frase).toEqual([]);
+    }
+  });
+
+  // ED-FAB-3. Leggi federali inventate con un'altra sigla: `LFA` (apprendistato,
+  // stranieri, frontalieri), `LSM` (salario minimo federale, che in Svizzera non
+  // esiste), `LCE` (commercio estero). Ognuna ha un contesto, perche' la sigla
+  // da sola ha omonimi leciti: un'azienda, la legge ticinese sul salario
+  // minimo, la legge belga sulle comunicazioni elettroniche.
+  it('flags the invented federal LFA, LSM and LCE citations and leaves their homonyms alone', () => {
+    const frasiInventate = [
+      'Secondo la legge federale sull\'apprendistato (LFA) del 24 marzo 2017, l\'apprendistato deve durare almeno tre anni.',
+      'The short-term L permit is regulated by article 14 of the Federal Law on Foreigners (LFA) of 16 December 2008.',
+      'Das Bundesgesetz über die Lehre (LFA) von 2019 legt die Vorschriften für die Lehre fest.',
+      'Secondo la legge federale sul salario minimo (LSM) del 17 giugno 2015, la retribuzione minima di un apprendista è di 2.500 franchi.',
+      'According to the Federal Minimum Wage Act (LSM) of 17 June 2015, the minimum wage for an apprentice is CHF 2,500.',
+      'La legge federale sul commercio estero (LCE) del 10 ottobre 1977 regola le importazioni e le esportazioni in Svizzera.',
+      'La Loi fédérale sur le commerce extérieur (LCE) du 10 octobre 1977 réglemente les importations.',
+    ];
+    for (const frase of frasiInventate) {
+      expect(codes(checkFabricatedNormAcronyms(frase)), frase).toContain('fabricated-norm-acronym');
+    }
+    const omonimi = [
+      'Il gruppo LFA ha aperto una nuova sede a Lugano.',
+      'La LFA Engineering di Mendrisio ha assunto venti apprendisti.',
+      'In Ticino il salario minimo è fissato dalla legge cantonale (Lsm) e varia per settore.',
+      'La loi belge relative aux communications électroniques (LCE) encadre les opérateurs.',
+      'La legge federale sulla formazione professionale (LFPr) disciplina il tirocinio.',
+    ];
+    for (const frase of omonimi) {
+      expect(checkFabricatedNormAcronyms(frase), frase).toEqual([]);
+    }
+  });
+
   it('does not combine allOf cues across separate sentences', () => {
     expect(checkFabricatedNormAcronyms(
       'IT e OT sono usati nella sicurezza. La nuova ordinanza sulla tassazione è stata pubblicata.',
