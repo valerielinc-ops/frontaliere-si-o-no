@@ -86,7 +86,7 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
     // The budget must EQUAL the count: lower it in the same PR in which a
     // runner starts naming its bail-out; never raise it. Reproduce with:
     //   node -e "const fs=require('fs');let n=0;for(const f of fs.readdirSync('scripts')){if(!/^update-.*-jobs\.mjs$/.test(f))continue;const s=fs.readFileSync('scripts/'+f,'utf8');if(s.includes('registerCrawlerSummaryGuard(')&&!/abortKind\s*[:=]|markCrawlerSummaryAbortKind\(/.test(s))n++}console.log(n)"
-    const NO_ABORT_KIND_BUDGET = 120;
+    const NO_ABORT_KIND_BUDGET = 118;
     const offenders = customRunners
       .filter(({ source }) => !/abortKind\s*[:=]|markCrawlerSummaryAbortKind\(/.test(source))
       .map(({ name }) => name);

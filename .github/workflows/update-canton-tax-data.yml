@@ -1,0 +1,136 @@
+name: Update Canton Tax Data (ESTV)
+
+# Pipeline dati «fisco» per cantone (D11): onere fiscale nei 26 capoluoghi,
+# tariffe dell'imposta alla fonte e pagine cantonali, tutte da fonti ESTV.
+# Producer: scripts/fetch-canton-tax-data.mjs → data/canton-tax/<anno>.json,
+# public/data/canton-tax/<anno>.json, public/data/canton-tax/latest.json.
+# Consumer via HTTP: il corpus (`refresh-canton-tax.mjs`) legge latest.json
+# dal CDN. Il file si riscrive solo se il contenuto cambia, quindi il cron
+# settimanale vede la nuova annata (tariffe pubblicate a fine anno, onere ESTV
+# aggiornato a inizio anno) senza produrre commit vuoti.
+
+on:
+  schedule:
+    # Lunedi' 04:35 UTC: sfasato dai cron di domenica (health-premiums 04:15).
+    - cron: '35 4 * * 1'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Keep the run preview-only unless explicitly disabled.'
+        required: false
+        default: true
+        type: boolean
+
+# Mai cancellare una run in corso: tra il push diretto dei dati e il dispatch
+# del deploy una cancellazione lascerebbe latest.json committato ma non
+# pubblicato, e la run successiva, senza diff, salterebbe il deploy.
+concurrency:
+  group: canton-tax-data
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  update-canton-tax-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+        # Stesso tetto di update-health-premiums.yml: un Checkout impantanato
+        # non deve consumare tutto il budget del job (muore `cancelled`,
+        # invisibile agli `if: failure()`).
+        timeout-minutes: 5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Install zip reader
+        # L'archivio ESTV delle tariffe alla fonte e' uno zip di zip per cantone.
+        run: npm install adm-zip@0.6.1
+
+      - name: Fetch canton tax data
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/fetch-canton-tax-data.mjs
+
+      - name: Validate canton tax data
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/validate-canton-tax-data.mjs
+
+      - name: Preview (dry run)
+        if: inputs.dry_run == true || inputs.dry_run == 'true'
+        run: |
+          CANTON_TAX_OUT_DIR="$RUNNER_TEMP/canton-tax-preview" node scripts/fetch-canton-tax-data.mjs
+          ls -la "$RUNNER_TEMP/canton-tax-preview/public/data/canton-tax"
+
+      - name: Prepare Firebase credentials for push auth
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/load-rc-env.mjs
+
+      - name: Commit and push if changed
+        id: commit
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/canton-tax public/data/canton-tax
+          if git diff --cached --quiet; then
+            echo "ℹ️ No canton tax data changes detected."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "🧾 Auto-update canton tax data (ESTV)"
+            bash scripts/lib/git-push-with-retry.sh \
+              --regenerate-cmd "node scripts/fetch-canton-tax-data.mjs && node scripts/validate-canton-tax-data.mjs && git add data/canton-tax public/data/canton-tax"
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Trigger deploy after data push (GITHUB_TOKEN pushes don't trigger workflows)
+      - name: Install firebase-admin for Remote Config
+        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        run: npm install firebase-admin@14.5.0
+
+      - name: Load secrets from Remote Config
+        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/load-rc-env.mjs
+
+      # Niente `|| true`: se il dispatch fallisce, i dati restano committati ma
+      # non pubblicati sul CDN (latest.json obsoleto per il corpus), e il job
+      # deve diventare rosso per raggiungere il reporter qui sotto.
+      - name: Trigger deploy workflow
+        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        run: bash scripts/lib/trigger-deploy.sh
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

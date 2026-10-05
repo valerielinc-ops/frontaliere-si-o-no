@@ -21,7 +21,8 @@
  * can legitimately say «we need» or «sorry» in its body, a translator never
  * opens a title with «I need to see». Markers that can never belong to a job
  * ad (tool-call markup, the runner's checkout path, our prompt's own field
- * hints) count anywhere. A marker that is also in the source text is the
+ * hints) count anywhere. A marker that the source text carries IN THE SAME
+ * PLACE (an opener the source opens with, an anywhere-marker anywhere) is the
  * source's own wording, not a meta-response, and is ignored.
  *
  * Pure and free of imports: the same file can serve the corpus cascade.
@@ -31,6 +32,22 @@
 const LEADING_WINDOW_CHARS = 320;
 
 const A = "['’]"; // apostrophe, ASCII or typographic
+
+// A single-quoted input can contain an apostrophe between letters (for
+// example, `Chef d'équipe`); only allow that internal form so the final quote
+// remains the delimiter. Double and typographic quotes close on their own mark.
+const TRANSLATION_QUOTED_INPUT = String.raw`(?:"[^"\n]{1,160}"|“[^”\n]{1,160}”|«[^»\n]{1,160}»|'(?:[^'\n]|(?<=[\p{L}\p{N}])'(?=[\p{L}\p{N}])){1,160}')`;
+
+// What a clarification request is ABOUT: the input the model was handed (the
+// title, the text, the message, the translation, the job data…), after at most
+// three words («the actual job title», «the existing translations», «the
+// context of»). «I don't see any reason», «I cannot find a better job in
+// Ticino» or «Ho bisogno di più tempo» are first-person prose of a real ad or
+// letter, not a model asking for its input.
+const EN_INPUT = String.raw`(?:(?:the|a|an|any|your|this|that|which)\s+)?(?:[\w'’-]+\s+){0,3}?(?:job\s+)?(?:titles?|text|message|input|content|translations?|source|document|files?|data|repository|context|description|posting|phrase)\b`;
+const IT_INPUT = String.raw`(?:(?:il|lo|la|i|gli|le|un|uno|una|alcun|nessun)\s+)?(?:[\wàèéìòù'’-]+\s+){0,3}?(?:titol[oi]|test[oi]|messaggio|traduzion[ei]|dati|file|contesto|annuncio)\b`;
+const DE_INPUT = String.raw`(?:[\wäöüß-]+\s+){0,3}?(?:titel|stellentitel|text|nachricht|übersetzung|kontext|daten|datei)\b`;
+const FR_INPUT = String.raw`(?:(?:le|la|les|l['’]|un|une|du|de|des|d['’])\s*)?(?:[\wàâçéèêëîïôûù'’-]+\s+){0,3}?(?:titre|texte|message|traduction|contexte|données|fichier|annonce)s?\b`;
 
 /** Openers: how the answer STARTS. Each is a meta-response by construction. */
 const LEADING_PATTERNS = [
@@ -46,13 +63,20 @@ const LEADING_PATTERNS = [
   // first-person openers: «Can you provide investment recommendations?» or
   // «Non vedo l'ora» open real ads; a request for the missing title or text
   // anywhere in the answer is matched further down.
-  ['clarification', new RegExp(`^(?:i need (?:to (?:see|check|know|look|find|verify|search|read|understand|review|confirm)|more (?:context|information|details))|i (?:don${A}t|do not|can${A}t|cannot|could not|couldn${A}t) (?:see|find) (?:a|an|the|any)\\b)`, 'i')],
-  ['clarification', /^(?:ho bisogno di (?:vedere|sapere|controllare|conoscere|più)|non vedo (?:alcun|nessun|il|un) (?:titolo|testo|messaggio))/i],
-  ['clarification', /^(?:ich benötige (?:den|die|das|mehr|weitere)|ich brauche (?:den|die|das|mehr) (?:titel|text|kontext|informationen)|ich sehe (?:keinen|keine|kein) (?:titel|text|stellentitel))/i],
-  ['clarification', new RegExp(`^(?:j${A}ai besoin de (?:voir|savoir|vérifier|plus)|je ne vois (?:pas|aucun) (?:de |le |d${A})?(?:titre|texte|message))`, 'i')],
+  ['clarification', new RegExp(`^(?:i need more context\\b|(?:i need to (?:see|check|know|look at|find|verify|search|read|understand|review|confirm) |i (?:don${A}t|do not|can${A}t|cannot|could not|couldn${A}t) (?:see|find) )${EN_INPUT})`, 'i')],
+  ['clarification', new RegExp(`^(?:ho bisogno di (?:vedere|sapere|controllare|conoscere|più) |non (?:vedo|trovo) )${IT_INPUT}`, 'i')],
+  ['clarification', new RegExp(`^(?:ich benötige |ich brauche |ich sehe (?:keinen|keine|kein) |ich finde (?:keinen|keine|kein) )${DE_INPUT}`, 'i')],
+  ['clarification', new RegExp(`^(?:j${A}ai besoin de (?:voir |savoir |vérifier |plus de )|je ne (?:vois|trouve) (?:pas|aucun|aucune) )${FR_INPUT}`, 'i')],
   // ── agent narration: the model announces work instead of doing it ─────────
   ['agent-narration', new RegExp(`^(?:i${A}ll|i will|i${A}m going to|i am going to) (?:translate|check|help|look|search|read|start|first|need|find|review|provide|examine)\\b`, 'i')],
-  ['agent-narration', /^(?:let me (?:check|see|look|find|search|first|read|translate|help|examine|review|verify)|looking at (?:the|this|your) (?:git|repo|files?|job|title|data|translation|text|message|request)|we need to (?:translate|output|return|keep|produce)|the user (?:wants|asks|is asking|has|provided|gave))\b/i],
+  ['agent-narration', new RegExp(String.raw`^(?:let me (?:check|see|look|find|search|first|read|translate|help|examine|review|verify)|looking at (?:the|this|your) (?:git|repo|files?|job|title|data|translation|text|message|request)|the user (?:wants|asks|is asking|would like) (?:me|us) to|the user (?:has (?:provided|given)|provided|gave) (?:${EN_INPUT}|${TRANSLATION_QUOTED_INPUT})[^.?!\n]{0,120}\b(?:for (?:translation|translating)|to translate))\b`, 'iu')],
+  // «We need to translate "GL & VAT Accountant" to English.»: only with the
+  // quoted input AND the target language. «We need to produce…», «We need to
+  // translate our software into German» open real ads and articles.
+  ['agent-narration', new RegExp(
+    String.raw`^we need to (?:translate|output|return) (?:(?:(?:the )?(?:job )?title|the phrase)\s+)?${TRANSLATION_QUOTED_INPUT} (?:from (?:the )?[a-z]+(?:[ -][a-z]+)*\s+)?(?:in(?:to)?|to) (?:english|italian|german|french|en|it|de|fr)\b`,
+    'iu',
+  )],
   ['agent-narration', /^(?:the |here(?:'s| is) the )?translat(?:ed|ion)(?: (?:job )?title| text)? (?:is|would be)\b/i],
   ['agent-narration', /^(?:procedo a tradurre|traduco (?:il|questo)|ich übersetze (?:den|diesen)|je vais traduire)\b/i],
   // ── the answer opens with a template label («Traduzione:», «Traduzione:
@@ -95,9 +119,23 @@ function leadingWindow(text) {
     .slice(0, LEADING_WINDOW_CHARS);
 }
 
-function presentInSource(marker, source) {
+/**
+ * The source's own wording, in the SAME context the marker was found in: an
+ * opener only if the source opens with it, a leading-window request only if
+ * the source's leading window carries it, an anywhere-marker anywhere. A
+ * source that merely quotes «I need to see» further down does not excuse a
+ * translation that opens with it.
+ *
+ * @param {string} marker
+ * @param {string} source
+ * @param {'opener'|'head'|'anywhere'} scope
+ */
+function presentInSource(marker, source, scope) {
   if (!source) return false;
-  return String(source).toLowerCase().includes(String(marker).toLowerCase().trim());
+  const needle = String(marker).toLowerCase().trim();
+  if (scope === 'anywhere') return String(source).toLowerCase().includes(needle);
+  const sourceHead = leadingWindow(source).toLowerCase();
+  return scope === 'opener' ? sourceHead.startsWith(needle) : sourceHead.includes(needle);
 }
 
 /**
@@ -116,15 +154,15 @@ export function detectAiMetaResponse(text, { source = '' } = {}) {
   const head = leadingWindow(value);
   for (const [kind, re] of LEADING_PATTERNS) {
     const m = head.match(re);
-    if (m && !presentInSource(m[0], source)) return { kind, marker: m[0] };
+    if (m && !presentInSource(m[0], source, 'opener')) return { kind, marker: m[0] };
   }
   for (const [kind, re] of HEAD_REQUEST_PATTERNS) {
     const m = head.match(re);
-    if (m && !presentInSource(m[0], source)) return { kind, marker: m[0] };
+    if (m && !presentInSource(m[0], source, 'head')) return { kind, marker: m[0] };
   }
   for (const [kind, re] of ANYWHERE_PATTERNS) {
     const m = value.match(re);
-    if (m && !presentInSource(m[0], source)) return { kind, marker: m[0].trim() };
+    if (m && !presentInSource(m[0], source, 'anywhere')) return { kind, marker: m[0].trim() };
   }
   return null;
 }
