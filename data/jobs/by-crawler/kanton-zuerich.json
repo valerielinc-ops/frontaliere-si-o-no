@@ -2526,12 +2526,12 @@
     },
     {
       "id": "kanton-zuerich-eb29cfeb0d77",
-      "slug": "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf",
+      "slug": "terapista-ambientale-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf",
       "slugByLocale": {
-        "it": "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf",
-        "en": "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf",
+        "it": "terapista-ambientale-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf",
+        "en": "environmental-therapist-temporary-kantonale-verwaltung-zurich-regensdorf",
         "de": "milieutherapeut-in-befristet-kanton-zuerich-regensdorf",
-        "fr": "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf"
+        "fr": "therapeute-en-milieu-de-vie-duree-limitee-kantonale-verwaltung-zurich-regensdorf"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -2577,11 +2577,19 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "milieutherapeut-in-befristet-kanton-zuerich-regensdorf"
+        "milieutherapeut-in-befristet-kanton-zuerich-regensdorf",
+        "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "milieutherapeut-in-befristet-kanton-zuerich-regensdorf"
+          "milieutherapeut-in-befristet-kanton-zuerich-regensdorf",
+          "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf"
+        ],
+        "en": [
+          "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf"
+        ],
+        "fr": [
+          "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf"
         ]
       },
       "firstSeenAt": "2026-09-28T21:26:56.238Z",
@@ -9611,9 +9619,9 @@
       "slug": "fachspezialist-in-asylfursorge-sozialhilfe-bzw-adjunkt-in-con-juristischen-aufgaben-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "it": "fachspezialist-in-asylfursorge-sozialhilfe-bzw-adjunkt-in-con-juristischen-aufgaben-kantonale-verwaltung-zurich-zurich",
-        "en": "fachspezialist-in-asylfursorge-sozialhilfe-bzw-adjunkt-in-mit-juristischen-aufgaben-kanton",
+        "en": "specialist-in-asylum-care-social-assistance-or-adjunct-with-legal-duties-kantonale-verwaltung-zurich-zurich",
         "de": "fachspezialist-in-asylfursorge-sozialhilfe-bzw-adjunkt-in-mit-juristischen-aufgaben-kanton",
-        "fr": "fachspezialist-in-asylfursorge-sozialhilfe-bzw-adjunkt-in-mit-juristischen-aufgaben-kanton"
+        "fr": "specialiste-en-aide-a-l-asile-aide-sociale-ou-adjoint-avec-des-taches-juridiques-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -9664,6 +9672,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachspezialist-in-asylfursorge-sozialhilfe-bzw-adjunkt-in-mit-juristischen-aufgaben-kanton"
+        ],
+        "en": [
+          "fachspezialist-in-asylfursorge-sozialhilfe-bzw-adjunkt-in-mit-juristischen-aufgaben-kanton"
+        ],
+        "fr": [
           "fachspezialist-in-asylfursorge-sozialhilfe-bzw-adjunkt-in-mit-juristischen-aufgaben-kanton"
         ]
       },
@@ -12394,7 +12408,7 @@
       "slug": "risorse-umane-it-projektmanager-in-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "it": "risorse-umane-it-projektmanager-in-kantonale-verwaltung-zurich-zurich",
-        "en": "human-resources-it-projektmanager-in-kanton-zuerich-zurich",
+        "en": "human-resources-it-project-manager-kantonale-verwaltung-zurich-zurich",
         "de": "human-resources-it-projektmanager-in-kanton-zuerich-zurich",
         "fr": "human-resources-it-projektmanager-in-kantonale-verwaltung-zurich-zurich"
       },
@@ -12447,6 +12461,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "human-resources-it-projektmanager-in-kanton-zuerich-zurich"
+        ],
+        "en": [
           "human-resources-it-projektmanager-in-kanton-zuerich-zurich"
         ]
       },

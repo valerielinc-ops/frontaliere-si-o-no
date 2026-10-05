@@ -3233,12 +3233,12 @@
     },
     {
       "id": "pdgr-de1a80dcb27b",
-      "slug": "logopade-in-pdgr-ch",
+      "slug": "logopedista-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "logopade-in-pdgr-ch",
-        "en": "logopade-in-pdgr-ch",
+        "it": "logopedista-psychiatrische-dienste-graubunden-chur",
+        "en": "g-id-1-g-speech-therapist-psychiatrische-dienste-graubunden-chur",
         "de": "logopade-in-pdgr-ch",
-        "fr": "logopade-in-pdgr-ch"
+        "fr": "orthophoniste-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3298,7 +3298,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "logopade-in-pdgr-ch"
+        ],
+        "en": [
+          "logopade-in-pdgr-ch"
+        ],
+        "fr": [
+          "logopade-in-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "logopade-in-pdgr-ch"
+      ]
     },
     {
       "id": "pdgr-fe64dad4ad93",
