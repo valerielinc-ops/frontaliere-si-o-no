@@ -99372,6 +99372,39 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pedemontana-avviso-truffa': {
+    title: 'Truffa Pedemontana: falso avviso da 6,95 euro | Frontaliere Ticino',
+    description: 'Un SMS annuncia un pedaggio Pedemontana non pagato da 6,95 euro: il link porta a un sito clone che mira ai dati bancari o della carta. Verifica l\'indirizzo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, truffa, pedemontana, falso, avviso',
+    ogTitle: 'Truffa Pedemontana: falso avviso da 6,95 euro',
+    ogDescription: 'Un SMS chiede 6,95 euro per un pedaggio Pedemontana non pagato e invita a pagare entro 24 ore. Il link porta a una pagina clone con loghi e informazioni di pagamento e mira ai dati bancari o della carta. La fonte indica come verificare l\'indirizzo.',
+    canonicalPath: '/articoli-frontaliere/pedemontana-avviso-truffa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Truffa Pedemontana: falso avviso da 6,95 euro",
+      "description": "Un SMS annuncia un pedaggio Pedemontana non pagato da 6,95 euro: il link porta a un sito clone che mira ai dati bancari o della carta. Verifica l'indirizzo.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pedemontana-avviso-truffa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Avviso falso di pagamento Pedemontana visualizzato su uno smartphone"
+      },
+      "datePublished": "2026-10-05T12:20:02+00:00",
+      "dateModified": "2026-10-05T12:20:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pedemontana-avviso-truffa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_SEO_METADATA_5;
