@@ -352,18 +352,19 @@ function listingTitleFromContainer(container, actionLink) {
   return '';
 }
 
-function listingContainerFor(anchor, listingLinks) {
+function listingContainerFor(anchor, detailLinks, preferredLinks) {
   let current = anchor.parentElement;
   let best = null;
 
   for (let depth = 0; current && depth < 10; depth += 1, current = current.parentElement) {
-    const linksInContainer = listingLinks.filter((candidate) => current.contains(candidate));
+    const linksInContainer = detailLinks.filter((candidate) => current.contains(candidate));
     if (linksInContainer.length !== 1) {
       if (linksInContainer.length > 1 && best) break;
       continue;
     }
 
-    const title = listingTitleFromContainer(current, anchor);
+    const preferred = preferredLinks.find((candidate) => current.contains(candidate)) || anchor;
+    const title = listingTitleFromContainer(current, preferred);
     if (!title) continue;
     best = { container: current, title };
     break;
@@ -402,15 +403,15 @@ export function parseListingPage(html) {
   // Prefer the explicit “view posting” links so a card's title/category links
   // cannot be mistaken for a second listing. If the portal renames that label,
   // the same node-link and bounded-card title checks still provide a fallback.
-  const listingLinks = actionLinks.length > 0 ? actionLinks : detailLinks;
+  const preferredLinks = actionLinks.length > 0 ? actionLinks : detailLinks;
 
   const jobs = [];
   const seenNodeIds = new Set();
-  for (const link of listingLinks) {
+  for (const link of detailLinks) {
     const nodeId = detailNodeId(link);
     if (!nodeId || seenNodeIds.has(nodeId)) continue;
 
-    const { container, title } = listingContainerFor(link, listingLinks);
+    const { container, title } = listingContainerFor(link, detailLinks, preferredLinks);
     if (!title) continue;
 
     seenNodeIds.add(nodeId);

@@ -111,6 +111,26 @@ describe('HAS Healthcare crawler discovery', () => {
     ]);
   });
 
+  it('keeps every detail link when only some cards have an action marker', () => {
+    const html = `
+      <div class="listing-wrapper">
+        <div class="job-card">
+          <span class="job-title-row">First role</span>
+          <a href="/node/123" class="main-list-job-button-view">View job</a>
+        </div>
+        <div class="job-card">
+          <span class="renamed-title-class">Second role</span>
+          <a href="/node/456" class="new-action-class">View job</a>
+        </div>
+      </div>
+    `;
+
+    expect(parseListingPage(html).map(({ detailUrl, title }) => ({ detailUrl, title }))).toEqual([
+      { detailUrl: 'https://e-lavoro.ch/node/123', title: 'First role' },
+      { detailUrl: 'https://e-lavoro.ch/node/456', title: 'Second role' },
+    ]);
+  });
+
   it('records a listing transport failure instead of an unexplained empty source', () => {
     expect(classifyHasHealthcareDiscovery({ listingFetchOutcome: 'connection_error' })).toEqual({
       lastFetchOutcome: 'connection_error',
