@@ -94,28 +94,39 @@ describe('newsletter job selection defaults', () => {
       getNewsletterCandidateLimit,
       rankNewsletterJobs,
     } = await import('../scripts/send-newsletter.mjs');
-    const candidates = Array.from({ length: getNewsletterCandidateLimit('affinity') }, (_, index) => ({
+    // The affinity branch requires both the variant and config.enabled.
+    // Pin it explicitly so the test cannot silently exercise control.
+    const config = { ...JOB_EMAIL_RANKING_DEFAULTS, enabled: true, affinityWeight: 0.5 };
+    // A scorer that only likes the last candidate.
+    const affinityScorer = (attrs: { category: string | null }) => (attrs.category === 'Informatica' ? 1 : 0);
+    const pool = Array.from({ length: 12 }, (_, index) => ({
       slug: `job-${index}`,
       category: index === 11 ? 'Informatica' : 'Edilizia',
       relevanceScore: 1,
     }));
+    // The matcher returns the top `limit` relevant candidates, in its order.
+    const send = (variant: string, scorer: typeof affinityScorer | null, cfg = config) => {
+      const limit = getNewsletterCandidateLimit(variant, { affinityScorer: scorer, config: cfg });
+      return rankNewsletterJobs(pool.slice(0, limit), { variant, affinityScorer: scorer, config: cfg }).map((job: { slug: string }) => job.slug);
+    };
 
-    expect(getNewsletterCandidateLimit('control')).toBe(NEWSLETTER_JOB_LIMIT);
-    // The same twelve relevant candidates the CTR treatment had.
-    expect(getNewsletterCandidateLimit('affinity')).toBe(12);
+    expect(getNewsletterCandidateLimit('control', { affinityScorer, config })).toBe(NEWSLETTER_JOB_LIMIT);
+    // The same twelve relevant candidates the CTR treatment had, only when affinity reorders.
+    expect(getNewsletterCandidateLimit('affinity', { affinityScorer, config })).toBe(12);
+    expect(getNewsletterCandidateLimit('affinity', { affinityScorer: null, config })).toBe(NEWSLETTER_JOB_LIMIT);
+    expect(getNewsletterCandidateLimit('affinity', { affinityScorer, config: { ...config, affinityWeight: 0 } })).toBe(NEWSLETTER_JOB_LIMIT);
+    expect(getNewsletterCandidateLimit('affinity', { affinityScorer, config: { ...config, enabled: false } })).toBe(NEWSLETTER_JOB_LIMIT);
     // The retired label gets no special pool.
-    expect(getNewsletterCandidateLimit('treatment')).toBe(NEWSLETTER_JOB_LIMIT);
-    // A scorer that only likes the last candidate: it reaches the four cards.
-    const affinityScorer = (attrs: { category: string | null }) => (attrs.category === 'Informatica' ? 1 : 0);
-    const ranked = rankNewsletterJobs(candidates, {
-      variant: 'affinity',
-      affinityScorer,
-      // The affinity branch requires both the variant and config.enabled.
-      // Pin it explicitly so the test cannot silently exercise control.
-      config: { ...JOB_EMAIL_RANKING_DEFAULTS, enabled: true },
-    });
-    expect(ranked).toHaveLength(NEWSLETTER_JOB_LIMIT);
-    expect(ranked[0].slug).toBe('job-11');
+    expect(getNewsletterCandidateLimit('treatment', { affinityScorer, config })).toBe(NEWSLETTER_JOB_LIMIT);
+
+    // With a profile the liked candidate reaches the four cards.
+    const withProfile = send('affinity', affinityScorer);
+    expect(withProfile).toHaveLength(NEWSLETTER_JOB_LIMIT);
+    expect(withProfile[0]).toBe('job-11');
+    // Without a profile (or opposed), or with weight 0: the control jobs in the control order.
+    const control = send('control', null);
+    expect(send('affinity', null)).toEqual(control);
+    expect(send('affinity', affinityScorer, { ...config, affinityWeight: 0 })).toEqual(control);
   });
 
   it('newsletter-content.mjs quality gate requires 120+ chars', () => {

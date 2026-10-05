@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   JOB_EMAIL_AFFINITY_ASSIGNMENT_SEED,
   JOB_EMAIL_RANKING_DEFAULTS,
+  affinityReorders,
   assignJobRankingVariant,
   buildEmbeddedRankingUpdate,
   hashUnitInterval,
@@ -219,6 +220,19 @@ describe('job email ranking — order', () => {
       expect(scorer(attrs)).toBeCloseTo(scoreJobAffinity(profile, attrs, NOW), 12);
     }
     expect(createAffinityScorer(null, NOW)).toBeNull();
+  });
+});
+
+describe('job email ranking — when affinity reorders', () => {
+  it('only for the affinity variant, enabled, with a scorer and a positive weight', () => {
+    const scorer = () => 1;
+    const config = { ...JOB_EMAIL_RANKING_DEFAULTS, enabled: true, affinityWeight: 0.5 };
+    expect(affinityReorders({ variant: 'affinity', affinityScorer: scorer, config })).toBe(true);
+    expect(affinityReorders({ variant: 'control', affinityScorer: scorer, config })).toBe(false);
+    expect(affinityReorders({ variant: 'treatment', affinityScorer: scorer, config })).toBe(false);
+    expect(affinityReorders({ variant: 'affinity', affinityScorer: null, config })).toBe(false);
+    expect(affinityReorders({ variant: 'affinity', affinityScorer: scorer, config: { ...config, affinityWeight: 0 } })).toBe(false);
+    expect(affinityReorders({ variant: 'affinity', affinityScorer: scorer, config: { ...config, enabled: false } })).toBe(false);
   });
 });
 

@@ -209,6 +209,20 @@ function finiteAffinity(value) {
 }
 
 /**
+ * True only when the `affinity` branch actually reorders: affinity variant,
+ * ranking enabled, a scorer (valid profile, no opt-out) and a positive weight.
+ * Every caller that changes behaviour for affinity recipients (the ranking
+ * below, the newsletter candidate pool) asks this, so a person without a
+ * profile gets exactly the control jobs in the control order.
+ */
+export function affinityReorders({ variant, affinityScorer = null, config = JOB_EMAIL_RANKING_DEFAULTS } = {}) {
+  return variant === JOB_EMAIL_RANKING_VARIANTS.affinity
+    && Boolean(config.enabled)
+    && typeof affinityScorer === 'function'
+    && finiteAffinity(config.affinityWeight) > 0;
+}
+
+/**
  * Rank an already matched list.
  *
  * `affinityScorer` is the recipient's scorer from createAffinityScorer
@@ -235,7 +249,7 @@ export function rankEmailJobs(jobs, {
   const isAffinity = variant === JOB_EMAIL_RANKING_VARIANTS.affinity && Boolean(config.enabled);
   const scorer = typeof affinityScorer === 'function' ? affinityScorer : null;
   const weight = finiteAffinity(config.affinityWeight);
-  const reorders = isAffinity && scorer !== null && weight > 0;
+  const reorders = affinityReorders({ variant, affinityScorer: scorer, config });
   const variantLabel = isAffinity ? JOB_EMAIL_RANKING_VARIANTS.affinity : JOB_EMAIL_RANKING_VARIANTS.control;
 
   const candidates = source.map((job, sourceIndex) => {

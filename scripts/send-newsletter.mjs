@@ -48,7 +48,7 @@ import { createResumeWriter, fetchAlreadySent as fetchCampaignAlreadySent, resum
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { recordMailerooRef } from '../functions/src/lib/mailerooRef.js';
 import {
-  JOB_EMAIL_RANKING_VARIANTS,
+  affinityReorders,
   assignJobRankingVariant,
   buildJobEmailDeliveryId,
   rankEmailJobs,
@@ -146,10 +146,13 @@ export { NEWSLETTER_JOB_LIMIT };
 
 // The affinity variant picks its four cards among the same twelve relevant
 // candidates the CTR treatment had; control keeps the historical top four.
+// The wider pool applies only when affinity actually reorders: an affinity
+// recipient without a valid profile, who opposed the personalization, or with
+// weight 0 gets the control pool, hence the control jobs in the control order.
 export const NEWSLETTER_AFFINITY_CANDIDATE_LIMIT = 12;
 
-export function getNewsletterCandidateLimit(rankingVariant) {
-  return rankingVariant === JOB_EMAIL_RANKING_VARIANTS.affinity
+export function getNewsletterCandidateLimit(rankingVariant, { affinityScorer = null, config = JOB_EMAIL_RANKING_CONFIG } = {}) {
+  return affinityReorders({ variant: rankingVariant, affinityScorer, config })
     ? NEWSLETTER_AFFINITY_CANDIDATE_LIMIT
     : NEWSLETTER_JOB_LIMIT;
 }
@@ -2520,7 +2523,10 @@ async function main() {
     );
     // The affinity variant chooses among a wider relevant pool (the same
     // twelve the CTR treatment had); control keeps the historical top four.
-    const candidateLimit = getNewsletterCandidateLimit(rankingVariant);
+    const candidateLimit = getNewsletterCandidateLimit(rankingVariant, {
+      affinityScorer,
+      config: JOB_EMAIL_RANKING_CONFIG,
+    });
     const rawMatched = matchJobsForSubscriber(subscriber, eligibleJobContext, candidateLimit, locale);
     const validatedJobs = validateJobUrls(rawMatched, fullNewsletterJobContext).map((job) => ({
       ...job,
