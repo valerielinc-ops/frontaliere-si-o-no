@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "ipersonal-fb6283c524b7",
-      "slug": "dipl-pflegefachfrau-mann-fh-medipersonal-zihlschlacht",
+      "slug": "dipl-pflegefachfrau-mann-fh-medipersonal-zihlschlacht-thurgau",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-fh-medipersonal-zihlschlacht-thurgau",
-        "it": "dipl-pflegefachfrau-mann-fh-medipersonal-zihlschlacht",
+        "it": "dipl-pflegefachfrau-mann-fh-medipersonal-zihlschlacht-thurgau",
         "en": "dipl-pflegefachfrau-mann-fh-medipersonal-zihlschlacht-thurgau",
         "fr": "dipl-pflegefachfrau-mann-fh-medipersonal-zihlschlacht-thurgau"
       },
@@ -52,11 +52,11 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-fh-medipersonal-zihlschlacht-thurgau"
+          "dipl-pflegefachfrau-mann-fh-medipersonal-zihlschlacht"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-fh-medipersonal-zihlschlacht-thurgau"
+        "dipl-pflegefachfrau-mann-fh-medipersonal-zihlschlacht"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -75,12 +75,12 @@
     },
     {
       "id": "ipersonal-9ffcd8c44d38",
-      "slug": "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-susch",
+      "slug": "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-susch-graubunden",
       "slugByLocale": {
         "de": "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-susch-graubunden",
-        "it": "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-susch",
-        "en": "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-susch-graubunden",
-        "fr": "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-susch-graubunden"
+        "it": "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-susch-graubunden",
+        "en": "dipl-expert-expert-for-emergency-care-nds-medipersonal-susch-graubunden",
+        "fr": "dipl-expert-expert-en-soins-d-urgence-nds-medipersonal-susch-graubunden"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -123,11 +123,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-susch-graubunden",
+          "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-susch"
+        ],
+        "en": [
+          "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-susch-graubunden"
+        ],
+        "fr": [
           "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-susch-graubunden"
         ]
       },
       "previousSlugs": [
-        "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-susch-graubunden"
+        "dipl-expertin-experte-fur-notfallpflege-nds-medipersonal-susch-graubunden",
+        "dipl-expertin-experte-per-notfallpflege-nds-medipersonal-susch"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -146,12 +154,12 @@
     },
     {
       "id": "ipersonal-5c439d8ce34f",
-      "slug": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-ranfluh-bern",
+      "slug": "dipl-assistenza-specialistica-esperta-ndk-medipersonal-ranfluh-bern",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-ranfluh-bern",
-        "it": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-ranfluh-bern",
-        "en": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-ranfluh-bern",
-        "fr": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-ranfluh-bern"
+        "it": "dipl-assistenza-specialistica-esperta-ndk-medipersonal-ranfluh-bern",
+        "en": "dipl-specialist-expert-monitoring-care-ndk-medipersonal-ranfluh-bern",
+        "fr": "dipl-soins-de-surveillance-specialises-experts-medipersonal-ranfluh-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -205,16 +213,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:15:56.333Z"
+      "firstSeenAt": "2026-10-05T09:15:56.333Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-ranfluh-bern"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-ranfluh-bern"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-ranfluh-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-ranfluh-bern"
+      ]
     },
     {
       "id": "ipersonal-f54ca19daaee",
-      "slug": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-seewis-dorf-graubunden",
+      "slug": "dipl-assistenza-specialistica-esperta-ndk-medipersonal-seewis-dorf-graubunden",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-seewis-dorf-graubunden",
-        "it": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-seewis-dorf-graubunden",
-        "en": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-seewis-dorf-graubunden",
-        "fr": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-seewis-dorf-graubunden"
+        "it": "dipl-assistenza-specialistica-esperta-ndk-medipersonal-seewis-dorf-graubunden",
+        "en": "dipl-specialist-expert-monitoring-care-ndk-medipersonal-seewis-dorf-graubunden",
+        "fr": "dipl-soins-de-surveillance-specialises-experts-medipersonal-seewis-dorf-graubunden"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -268,16 +290,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:15:56.032Z"
+      "firstSeenAt": "2026-10-05T09:15:56.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-seewis-dorf-graubunden"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-seewis-dorf-graubunden"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-seewis-dorf-graubunden"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-seewis-dorf-graubunden"
+      ]
     },
     {
       "id": "ipersonal-45ff9baf8aa7",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-veltheim-aargau",
+      "slug": "dipl-specialista-infermieristica-fh-bachelor-of-science-in-nursing-medipersonal-veltheim-aargau",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-veltheim-aargau",
-        "it": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-veltheim-aargau",
-        "en": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-veltheim-aargau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-veltheim-aargau"
+        "it": "dipl-specialista-infermieristica-fh-bachelor-of-science-in-nursing-medipersonal-veltheim-aargau",
+        "en": "dipl-nursing-specialist-fh-bachelor-of-science-in-nursing-medipersonal-veltheim-aargau",
+        "fr": "dipl-specialiste-des-soins-infirmiers-fh-bachelor-of-science-in-nursing-medipersonal-veltheim-aargau"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -331,16 +367,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:15:55.730Z"
+      "firstSeenAt": "2026-10-05T09:15:55.730Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-veltheim-aargau"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-veltheim-aargau"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-veltheim-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-veltheim-aargau"
+      ]
     },
     {
       "id": "ipersonal-3ab57f14a1bf",
-      "slug": "facharzt-facharztin-per-allgemeine-innere-medizin-come-standortleitung-medipersonal-gunten",
+      "slug": "facharzt-facharztin-per-allgemeine-innere-medizin-come-standortleitung-medipersonal-gunten-bern",
       "slugByLocale": {
         "de": "facharzt-facharztin-fur-allgemeine-innere-medizin-als-standortleitung-medipersonal-gunten-bern",
-        "it": "facharzt-facharztin-per-allgemeine-innere-medizin-come-standortleitung-medipersonal-gunten",
-        "en": "facharzt-facharztin-fur-allgemeine-innere-medizin-als-standortleitung-medipersonal-gunten-bern",
-        "fr": "facharzt-facharztin-fur-allgemeine-innere-medizin-als-standortleitung-medipersonal-gunten-bern"
+        "it": "facharzt-facharztin-per-allgemeine-innere-medizin-come-standortleitung-medipersonal-gunten-bern",
+        "en": "specialist-specialist-for-general-internal-medicine-as-site-management-medipersonal-gunten-bern",
+        "fr": "specialiste-specialiste-de-la-medecine-interne-generale-comme-gestion-du-site-medipersonal-gunten-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -383,11 +433,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "facharzt-facharztin-fur-allgemeine-innere-medizin-als-standortleitung-medipersonal-gunten-bern",
+          "facharzt-facharztin-per-allgemeine-innere-medizin-come-standortleitung-medipersonal-gunten"
+        ],
+        "en": [
+          "facharzt-facharztin-fur-allgemeine-innere-medizin-als-standortleitung-medipersonal-gunten-bern"
+        ],
+        "fr": [
           "facharzt-facharztin-fur-allgemeine-innere-medizin-als-standortleitung-medipersonal-gunten-bern"
         ]
       },
       "previousSlugs": [
-        "facharzt-facharztin-fur-allgemeine-innere-medizin-als-standortleitung-medipersonal-gunten-bern"
+        "facharzt-facharztin-fur-allgemeine-innere-medizin-als-standortleitung-medipersonal-gunten-bern",
+        "facharzt-facharztin-per-allgemeine-innere-medizin-come-standortleitung-medipersonal-gunten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -406,12 +464,12 @@
     },
     {
       "id": "ipersonal-02fc00d6f0ea",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-heitenried-fribourg-freiburg",
+      "slug": "dipl-specialista-infermieristica-fh-bachelor-of-science-in-nursing-medipersonal-heitenried-fribourg-freiburg",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-heitenried-fribourg-freiburg",
-        "it": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-heitenried-fribourg-freiburg",
-        "en": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-heitenried-fribourg-freiburg",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-heitenried-fribourg-freiburg"
+        "it": "dipl-specialista-infermieristica-fh-bachelor-of-science-in-nursing-medipersonal-heitenried-fribourg-freiburg",
+        "en": "dipl-nursing-specialist-fh-bachelor-of-science-in-nursing-medipersonal-heitenried-fribourg-freiburg",
+        "fr": "dipl-specialiste-des-soins-infirmiers-fh-bachelor-of-science-in-nursing-medipersonal-heitenried-fribourg-freiburg"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -464,14 +522,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:15:55.127Z"
+      "firstSeenAt": "2026-10-05T09:15:55.127Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-heitenried-fribourg-freiburg"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-heitenried-fribourg-freiburg"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-heitenried-fribourg-freiburg"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-heitenried-fribourg-freiburg"
+      ]
     },
     {
       "id": "ipersonal-c5656b5cf149",
-      "slug": "ags-assistent-in-gesundheit-e-soziales-afp-medipersonal-horgen",
+      "slug": "ags-assistent-in-gesundheit-e-soziales-afp-medipersonal-horgen-zurich",
       "slugByLocale": {
         "de": "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-horgen-zurich",
-        "it": "ags-assistent-in-gesundheit-e-soziales-afp-medipersonal-horgen",
+        "it": "ags-assistent-in-gesundheit-e-soziales-afp-medipersonal-horgen-zurich",
         "en": "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-horgen-zurich",
         "fr": "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-horgen-zurich"
       },
@@ -517,11 +589,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-horgen-zurich"
+          "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-horgen-zurich",
+          "ags-assistent-in-gesundheit-e-soziales-afp-medipersonal-horgen"
         ]
       },
       "previousSlugs": [
-        "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-horgen-zurich"
+        "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-horgen-zurich",
+        "ags-assistent-in-gesundheit-e-soziales-afp-medipersonal-horgen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -540,12 +614,12 @@
     },
     {
       "id": "ipersonal-c9157864044a",
-      "slug": "teamleitung-pflege-medipersonal-gossau-zurich",
+      "slug": "cura-della-leadership-del-team-medipersonal-gossau-zurich",
       "slugByLocale": {
         "de": "teamleitung-pflege-medipersonal-gossau-zurich",
-        "it": "teamleitung-pflege-medipersonal-gossau-zurich",
-        "en": "teamleitung-pflege-medipersonal-gossau-zurich",
-        "fr": "teamleitung-pflege-medipersonal-gossau-zurich"
+        "it": "cura-della-leadership-del-team-medipersonal-gossau-zurich",
+        "en": "team-leadership-care-medipersonal-gossau-zurich",
+        "fr": "soins-de-direction-de-l-equipe-medipersonal-gossau-zurich"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -599,16 +673,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:15:54.524Z"
+      "firstSeenAt": "2026-10-05T09:15:54.524Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-pflege-medipersonal-gossau-zurich"
+        ],
+        "en": [
+          "teamleitung-pflege-medipersonal-gossau-zurich"
+        ],
+        "fr": [
+          "teamleitung-pflege-medipersonal-gossau-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-pflege-medipersonal-gossau-zurich"
+      ]
     },
     {
       "id": "ipersonal-0e506c9008e6",
-      "slug": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-gelterkinden-basel-land",
+      "slug": "dipl-expert-expert-anesthesia-care-nds-medipersonal-gelterkinden-basel-land",
       "slugByLocale": {
         "de": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-gelterkinden-basel-land",
-        "it": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-gelterkinden-basel-land",
-        "en": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-gelterkinden-basel-land",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-gelterkinden-basel-land"
+        "it": "dipl-expert-expert-anesthesia-care-nds-medipersonal-gelterkinden-basel-land",
+        "en": "dipl-expert-expert-anesthesia-care-nds-medipersonal-gelterkinden-basel-land",
+        "fr": "dipl-expert-expert-anesthesie-soins-nds-medipersonal-gelterkinden-basel-land"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -661,16 +749,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:15:54.223Z"
+      "firstSeenAt": "2026-10-05T09:15:54.223Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-gelterkinden-basel-land"
+        ],
+        "en": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-gelterkinden-basel-land"
+        ],
+        "fr": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-gelterkinden-basel-land"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-gelterkinden-basel-land"
+      ]
     },
     {
       "id": "ipersonal-e97a931d4907",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-uberwachungspflege-ndk-medipersonal-schwellbrunn-appenzell-ausserrhoden",
+      "slug": "dipl-infermieristica-professionale-infermieristica-monitoraggio-ndk-medipersonal-schwellbrunn-appenzell-ausserrhoden",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-uberwachungspflege-ndk-medipersonal-schwellbrunn-appenzell-ausserrhoden",
-        "it": "dipl-pflegefachfrau-pflegefachmann-uberwachungspflege-ndk-medipersonal-schwellbrunn-appenzell-ausserrhoden",
-        "en": "dipl-pflegefachfrau-pflegefachmann-uberwachungspflege-ndk-medipersonal-schwellbrunn-appenzell-ausserrhoden",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-uberwachungspflege-ndk-medipersonal-schwellbrunn-appenzell-ausserrhoden"
+        "it": "dipl-infermieristica-professionale-infermieristica-monitoraggio-ndk-medipersonal-schwellbrunn-appenzell-ausserrhoden",
+        "en": "dipl-nursing-professional-nursing-specialist-monitoring-care-ndk-medipersonal-schwellbrunn-appenzell-ausserrhoden",
+        "fr": "dipl-professionnels-des-soins-infirmiers-specialiste-des-soins-infirmiers-medipersonal-schwellbrunn-appenzell"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -724,16 +826,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:15:53.921Z"
+      "firstSeenAt": "2026-10-05T09:15:53.921Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-uberwachungspflege-ndk-medipersonal-schwellbrunn-appenzell-ausserrhoden"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-uberwachungspflege-ndk-medipersonal-schwellbrunn-appenzell-ausserrhoden"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-uberwachungspflege-ndk-medipersonal-schwellbrunn-appenzell-ausserrhoden"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-uberwachungspflege-ndk-medipersonal-schwellbrunn-appenzell-ausserrhoden"
+      ]
     },
     {
       "id": "ipersonal-5186cef79e3f",
-      "slug": "fachfrau-fachmann-gesundheit-efz-medipersonal-rebstein-st-gallen",
+      "slug": "fachfrau-fachmann-gesundheit-cfc-medipersonal-rebstein-st-gallen",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-medipersonal-rebstein-st-gallen",
-        "it": "fachfrau-fachmann-gesundheit-efz-medipersonal-rebstein-st-gallen",
-        "en": "fachfrau-fachmann-gesundheit-efz-medipersonal-rebstein-st-gallen",
-        "fr": "fachfrau-fachmann-gesundheit-efz-medipersonal-rebstein-st-gallen"
+        "it": "fachfrau-fachmann-gesundheit-cfc-medipersonal-rebstein-st-gallen",
+        "en": "professional-health-efz-medipersonal-rebstein-st-gallen",
+        "fr": "sante-professionnelle-efz-medipersonal-rebstein-st-gallen"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -788,14 +904,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:15:53.620Z"
+      "firstSeenAt": "2026-10-05T09:15:53.620Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-efz-medipersonal-rebstein-st-gallen"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-medipersonal-rebstein-st-gallen"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-efz-medipersonal-rebstein-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-efz-medipersonal-rebstein-st-gallen"
+      ]
     },
     {
       "id": "ipersonal-0d847fd0402d",
-      "slug": "dipl-pflegefachfrau-mann-fh-medipersonal-burgdorf",
+      "slug": "dipl-pflegefachfrau-mann-fh-medipersonal-burgdorf-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-fh-medipersonal-burgdorf-bern",
-        "it": "dipl-pflegefachfrau-mann-fh-medipersonal-burgdorf",
+        "it": "dipl-pflegefachfrau-mann-fh-medipersonal-burgdorf-bern",
         "en": "dipl-pflegefachfrau-mann-fh-medipersonal-burgdorf-bern",
         "fr": "dipl-pflegefachfrau-mann-fh-medipersonal-burgdorf-bern"
       },
@@ -841,11 +971,11 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-fh-medipersonal-burgdorf-bern"
+          "dipl-pflegefachfrau-mann-fh-medipersonal-burgdorf"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-fh-medipersonal-burgdorf-bern"
+        "dipl-pflegefachfrau-mann-fh-medipersonal-burgdorf"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -864,12 +994,12 @@
     },
     {
       "id": "ipersonal-c3c6aeca0a4b",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-wangen-an-der-aare-bern",
+      "slug": "dipl-infermiere-infermiere-specialista-hf-dn1-medipersonal-wangen-an-der-aare-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-wangen-an-der-aare-bern",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-wangen-an-der-aare-bern",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-wangen-an-der-aare-bern",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-wangen-an-der-aare-bern"
+        "it": "dipl-infermiere-infermiere-specialista-hf-dn1-medipersonal-wangen-an-der-aare-bern",
+        "en": "dipl-nurse-nurse-specialist-hf-dn1-medipersonal-wangen-an-der-aare-bern",
+        "fr": "infirmiere-diplomee-infirmiere-specialiste-hf-dn1-medipersonal-wangen-an-der-aare-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -923,14 +1053,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:15:53.017Z"
+      "firstSeenAt": "2026-10-05T09:15:53.017Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-wangen-an-der-aare-bern"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-wangen-an-der-aare-bern"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-wangen-an-der-aare-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-wangen-an-der-aare-bern"
+      ]
     },
     {
       "id": "ipersonal-d2190d58823e",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-nachtwache-medipersonal-kloten",
+      "slug": "dipl-pflegefachfrau-mann-hf-fh-nachtwache-medipersonal-kloten-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-nachtwache-medipersonal-kloten-zurich",
-        "it": "dipl-pflegefachfrau-mann-hf-fh-nachtwache-medipersonal-kloten",
+        "it": "dipl-pflegefachfrau-mann-hf-fh-nachtwache-medipersonal-kloten-zurich",
         "en": "dipl-pflegefachfrau-mann-hf-fh-nachtwache-medipersonal-kloten-zurich",
         "fr": "dipl-pflegefachfrau-mann-hf-fh-nachtwache-medipersonal-kloten-zurich"
       },
@@ -976,11 +1120,11 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-fh-nachtwache-medipersonal-kloten-zurich"
+          "dipl-pflegefachfrau-mann-hf-fh-nachtwache-medipersonal-kloten"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-nachtwache-medipersonal-kloten-zurich"
+        "dipl-pflegefachfrau-mann-hf-fh-nachtwache-medipersonal-kloten"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

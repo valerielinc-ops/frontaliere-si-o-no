@@ -13198,12 +13198,12 @@
     },
     {
       "id": "ottos-35d923495a96",
-      "slug": "vendeur-auxiliaire-textile-sport-m-w-d-otto-s-ag-delemont",
+      "slug": "rivenditore-tessile-sport-ausiliario-m-f-otto-s-ag-delemont",
       "slugByLocale": {
         "fr": "vendeur-auxiliaire-textile-sport-h-f-ottos-delemont",
-        "it": "vendeur-auxiliaire-textile-sport-m-w-d-otto-s-ag-delemont",
-        "en": "vendeur-auxiliaire-textile-sport-h-f-ottos-delemont",
-        "de": "vendeur-auxiliaire-textile-sport-h-f-ottos-delemont"
+        "it": "rivenditore-tessile-sport-ausiliario-m-f-otto-s-ag-delemont",
+        "en": "auxiliary-textile-sport-seller-m-f-otto-s-ag-delemont",
+        "de": "hilfstextil-sportverkaufer-m-w-otto-s-ag-delemont"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -13256,11 +13256,19 @@
       "pensum": "60 - 80%",
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-auxiliaire-textile-sport-h-f-ottos-delemont",
+          "vendeur-auxiliaire-textile-sport-m-w-d-otto-s-ag-delemont"
+        ],
+        "en": [
+          "vendeur-auxiliaire-textile-sport-h-f-ottos-delemont"
+        ],
+        "de": [
           "vendeur-auxiliaire-textile-sport-h-f-ottos-delemont"
         ]
       },
       "previousSlugs": [
-        "vendeur-auxiliaire-textile-sport-h-f-ottos-delemont"
+        "vendeur-auxiliaire-textile-sport-h-f-ottos-delemont",
+        "vendeur-auxiliaire-textile-sport-m-w-d-otto-s-ag-delemont"
       ],
       "salaryMin": 72000,
       "salaryMax": 110500,

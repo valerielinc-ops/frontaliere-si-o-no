@@ -159,7 +159,7 @@
       "slug": "cuoco-ausiliario-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "cuoco-ausiliario-weisse-arena-gruppe-laax",
-        "en": "hilfskoch-hilfskochin-weisse-arena-gruppe-laax",
+        "en": "auxiliary-cook-weisse-arena-gruppe-laax",
         "de": "hilfskoch-hilfskochin-weisse-arena-ch",
         "fr": "cuisiniere-auxiliaire-weisse-arena-gruppe-laax"
       },
@@ -211,7 +211,6 @@
         "hilfskoch-hilfskochin-weisse-arena-ch",
         "cuisiniere-kochin-weisse-arena-gruppe-laax",
         "cook-kochin-weisse-arena-gruppe-laax",
-        "auxiliary-cook-weisse-arena-gruppe-laax",
         "hilfskoch-hilfskochin-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
@@ -222,7 +221,6 @@
         ],
         "en": [
           "hilfskoch-hilfskochin-weisse-arena-ch",
-          "auxiliary-cook-weisse-arena-gruppe-laax",
           "hilfskoch-hilfskochin-weisse-arena-gruppe-laax"
         ],
         "fr": [
@@ -913,7 +911,7 @@
       "slug": "manopole-in-weisse-arena-gruppe-laax-9ee6bc",
       "slugByLocale": {
         "it": "manopole-in-weisse-arena-gruppe-laax-9ee6bc",
-        "en": "shift-leader-weisse-arena-gruppe-laax",
+        "en": "shiftleader-in-weisse-arena-ch-2",
         "de": "shiftleader-in-weisse-arena-ch",
         "fr": "chef-de-quart-en-weisse-arena-gruppe-laax-9ee6bc"
       },
@@ -963,7 +961,6 @@
       "contractLabel": "Saisonanstellung",
       "previousSlugs": [
         "shiftleader-in-weisse-arena-ch",
-        "shiftleader-in-weisse-arena-ch-2",
         "shift-leader-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
@@ -971,7 +968,6 @@
           "shiftleader-in-weisse-arena-ch"
         ],
         "en": [
-          "shiftleader-in-weisse-arena-ch-2",
           "shift-leader-weisse-arena-gruppe-laax"
         ]
       },
@@ -997,7 +993,7 @@
       "slug": "manopole-in-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "manopole-in-weisse-arena-gruppe-laax",
-        "en": "shift-league-weisse-arena-gruppe-laax",
+        "en": "shiftleader-in-weisse-arena-ch-2-ctf0gg",
         "de": "shiftleader-in-weisse-arena-ch",
         "fr": "chef-de-quart-en-weisse-arena-gruppe-laax"
       },
@@ -1049,7 +1045,6 @@
         "shiftleader-in-weisse-arena-ch",
         "shiftleader-in-weisse-arena-ch-2",
         "shiftleader-in-weisse-arena-ch-ctf0gg",
-        "shiftleader-in-weisse-arena-ch-2-ctf0gg",
         "shift-league-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
@@ -1059,7 +1054,6 @@
         ],
         "en": [
           "shiftleader-in-weisse-arena-ch-2",
-          "shiftleader-in-weisse-arena-ch-2-ctf0gg",
           "shift-league-weisse-arena-gruppe-laax"
         ],
         "de": [
@@ -1364,9 +1358,9 @@
       "slug": "pizzaiolo-a-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "pizzaiolo-a-weisse-arena-gruppe-laax",
-        "en": "pizzaiolo-a-weisse-arena-gruppe-laax",
+        "en": "pizza-maker-weisse-arena-gruppe-laax",
         "de": "pizzaiolo-a-weisse-arena-ch",
-        "fr": "pizzaiolo-a-weisse-arena-gruppe-laax"
+        "fr": "fabrication-de-pizza-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -1413,21 +1407,17 @@
       "pensum": "60 - 100%",
       "contractLabel": "Saisonanstellung",
       "previousSlugs": [
-        "pizzaiolo-a-weisse-arena-ch",
-        "pizza-maker-weisse-arena-gruppe-laax",
-        "fabrication-de-pizza-weisse-arena-gruppe-laax"
+        "pizzaiolo-a-weisse-arena-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pizzaiolo-a-weisse-arena-ch"
         ],
         "en": [
-          "pizzaiolo-a-weisse-arena-ch",
-          "pizza-maker-weisse-arena-gruppe-laax"
+          "pizzaiolo-a-weisse-arena-ch"
         ],
         "fr": [
-          "pizzaiolo-a-weisse-arena-ch",
-          "fabrication-de-pizza-weisse-arena-gruppe-laax"
+          "pizzaiolo-a-weisse-arena-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1539,7 +1529,7 @@
       "slug": "restauro-integrale-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "restauro-integrale-weisse-arena-gruppe-laax",
-        "en": "allrounder-in-restauration-weisse-arena-gruppe-laax",
+        "en": "all-rounder-restoration-weisse-arena-gruppe-laax",
         "de": "allrounder-in-restauration-weisse-arena-ch",
         "fr": "restauration-complete-weisse-arena-gruppe-laax"
       },
@@ -1589,7 +1579,6 @@
       "contractLabel": "Saisonanstellung",
       "previousSlugs": [
         "allrounder-in-restauration-weisse-arena-ch",
-        "all-rounder-restoration-weisse-arena-gruppe-laax",
         "allrounder-in-restauration-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
@@ -1597,7 +1586,6 @@
           "allrounder-in-restauration-weisse-arena-ch"
         ],
         "en": [
-          "all-rounder-restoration-weisse-arena-gruppe-laax",
           "allrounder-in-restauration-weisse-arena-gruppe-laax"
         ]
       },
@@ -2160,7 +2148,7 @@
       "slug": "cucina-cucina-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "cucina-cucina-weisse-arena-gruppe-laax",
-        "en": "koch-kochin-weisse-arena-gruppe-laax-7ljqqk",
+        "en": "cook-cook-weisse-arena-gruppe-laax",
         "de": "koch-kochin-weisse-arena-ch",
         "fr": "cuire-faire-cuire-weisse-arena-gruppe-laax"
       },
@@ -2212,8 +2200,8 @@
         "koch-kochin-weisse-arena-ch",
         "koch-kochin-weisse-arena-ch-2",
         "koch-kochin-weisse-arena-ch-7ljqqk",
-        "cook-cook-weisse-arena-gruppe-laax",
-        "koch-kochin-weisse-arena-gruppe-laax"
+        "koch-kochin-weisse-arena-gruppe-laax",
+        "koch-kochin-weisse-arena-gruppe-laax-7ljqqk"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2222,8 +2210,8 @@
         ],
         "en": [
           "koch-kochin-weisse-arena-ch-2",
-          "cook-cook-weisse-arena-gruppe-laax",
-          "koch-kochin-weisse-arena-gruppe-laax"
+          "koch-kochin-weisse-arena-gruppe-laax",
+          "koch-kochin-weisse-arena-gruppe-laax-7ljqqk"
         ],
         "de": [
           "koch-kochin-weisse-arena-ch-7ljqqk"
@@ -2253,9 +2241,9 @@
       "slug": "koch-kochin-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "de": "koch-kochin-weisse-arena-ch",
-        "it": "koch-kochin-weisse-arena-gruppe-laax",
-        "en": "koch-kochin-weisse-arena-gruppe-laax",
-        "fr": "koch-kochin-weisse-arena-gruppe-laax"
+        "it": "cucina-chef-weisse-arena-gruppe-laax",
+        "en": "cook-chef-weisse-arena-gruppe-laax",
+        "fr": "cuisson-chef-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -2309,25 +2297,19 @@
         "cucina-chef-weisse-arena-gruppe-laax-952c80",
         "cook-chef-weisse-arena-gruppe-laax-952c80",
         "cuisson-chef-weisse-arena-gruppe-laax-952c80",
-        "koch-kochin-weisse-arena-ch",
-        "cucina-chef-weisse-arena-gruppe-laax",
-        "cook-chef-weisse-arena-gruppe-laax",
-        "cuisson-chef-weisse-arena-gruppe-laax"
+        "koch-kochin-weisse-arena-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cucina-kochin-weisse-arena-gruppe-laax",
           "cucina-chef-weisse-arena-gruppe-laax-952c80",
-          "koch-kochin-weisse-arena-ch",
-          "cucina-chef-weisse-arena-gruppe-laax"
+          "koch-kochin-weisse-arena-ch"
         ],
         "en": [
-          "cook-chef-weisse-arena-gruppe-laax-952c80",
-          "cook-chef-weisse-arena-gruppe-laax"
+          "cook-chef-weisse-arena-gruppe-laax-952c80"
         ],
         "fr": [
-          "cuisson-chef-weisse-arena-gruppe-laax-952c80",
-          "cuisson-chef-weisse-arena-gruppe-laax"
+          "cuisson-chef-weisse-arena-gruppe-laax-952c80"
         ]
       },
       "salaryMin": 62000,
@@ -3292,7 +3274,7 @@
         "it": "capo-squadra-di-servizio-weisse-arena-gruppe-laax",
         "en": "service-team-lead-weisse-arena-gruppe-laax",
         "de": "service-teamlead-weisse-arena-ch",
-        "fr": "service-teamlead-weisse-arena-gruppe-laax"
+        "fr": "chef-d-equipe-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -3340,7 +3322,6 @@
       "contractLabel": "Saisonanstellung",
       "previousSlugs": [
         "service-teamlead-weisse-arena-ch",
-        "chef-d-equipe-weisse-arena-gruppe-laax",
         "service-teamlead-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
@@ -3351,7 +3332,6 @@
           "service-teamlead-weisse-arena-ch"
         ],
         "fr": [
-          "chef-d-equipe-weisse-arena-gruppe-laax",
           "service-teamlead-weisse-arena-gruppe-laax"
         ]
       },
@@ -3700,12 +3680,12 @@
     },
     {
       "id": "weisse-arena-4ffc2139dab2",
-      "slug": "allrounder-kuchenhilfe-weisse-arena-ch",
+      "slug": "allrounder-cucina-aiuto-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "de": "allrounder-kuchenhilfe-weisse-arena-ch",
-        "it": "allrounder-kuchenhilfe-weisse-arena-ch",
-        "en": "allrounder-kuchenhilfe-weisse-arena-ch",
-        "fr": "allrounder-kuchenhilfe-weisse-arena-ch"
+        "it": "allrounder-cucina-aiuto-weisse-arena-gruppe-laax",
+        "en": "allrounder-kitchen-help-weisse-arena-gruppe-laax",
+        "fr": "allrounder-aide-cuisine-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -3768,7 +3748,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-05T09:19:22.212Z"
+      "firstSeenAt": "2026-10-05T09:19:22.212Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "allrounder-kuchenhilfe-weisse-arena-ch"
+        ],
+        "en": [
+          "allrounder-kuchenhilfe-weisse-arena-ch"
+        ],
+        "fr": [
+          "allrounder-kuchenhilfe-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-kuchenhilfe-weisse-arena-ch"
+      ]
     }
   ]
 }
