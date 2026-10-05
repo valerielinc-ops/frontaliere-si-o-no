@@ -522,6 +522,7 @@ jobs:
             /scripts/lib/plateAuctionSections.mjs
             /build-plugins/shared/articleSectionCore.mjs
             /packages/articles/engine/shared/articleSectionCore.mjs
+            /packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs
             /data/blog-articles-data.ts
             /data/swiss-articles-data.ts
             /scripts/lib/github-issue-creator.mjs

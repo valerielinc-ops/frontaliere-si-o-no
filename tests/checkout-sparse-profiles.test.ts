@@ -284,8 +284,13 @@ describe('allow-list sparse: il codice caricato deve essere materializzato', () 
   });
 
   it('boccia la allow-list del watchdog arrivata su main con #9835, e accetta quella corretta', () => {
+    // The core now also imports its generated sibling (canton sections), which
+    // the #9835 list misses for the same reason: both targets are reported.
     expect(uncoveredAllowListCode(OLD_WATCHDOG_LIST, WATCHDOG_ENTRIES, { cone: false }))
-      .toEqual(['packages/articles/engine/shared/articleSectionCore.mjs']);
+      .toEqual([
+        'packages/articles/engine/shared/articleSectionCore.mjs',
+        'packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs',
+      ]);
     const doc = YAML.parse(fs.readFileSync(path.join(WF_DIR, 'runtime-reliability-watch.yml'), 'utf8'));
     const checkout = doc.jobs.watch.steps.find((st: any) => String(st?.uses).startsWith('actions/checkout@'));
     const lines = String(checkout.with['sparse-checkout']).split('\n').map((l: string) => l.trim()).filter(Boolean);
