@@ -446,9 +446,9 @@ try {
   // was a deliberate, bridged retirement.
     // they still exist on disk.
     //
-    // Every shared file is scanned, not a curated list of "the surfaces we know
-    // about". A curated list is exactly what would go stale the next time the
-    // generator gains a file, and the failure mode of a stale list here is a
+    // Every destination file is scanned, not a curated list of "the surfaces we
+    // know about". A curated list is exactly what would go stale the next time
+    // the generator gains a file, and the failure mode of a stale list here is a
     // silent half-restore (#5289). Cheap enough to be unconditional: the corpus
     // is ~15k small files and the ones that mention a local-only id are a
     // couple of dozen.
@@ -480,6 +480,10 @@ try {
     for (const key of localSeoKeys) {
       if (!incomingSeoKeys.has(key)) preserveIdsForSnapshots.add(key);
     }
+    // The SEO-only ids above join the same preservation set after the first
+    // retirement filter. Apply it again so a ledgered retirement cannot be
+    // resurrected through a site-owned SEO shard.
+    dropLedgeredRetirements(preserveIdsForSnapshots, verdict.removals);
 
     if (preserveIds.size > 0) {
       console.log(
@@ -506,13 +510,6 @@ try {
   mirrorTree(src, DEST, TREE_OPTS);
   console.log(`[pull-articles-corpus] synced ${srcN} files into packages/articles/content/`);
 
-  const registryChunks = splitBlogArticleRegistry();
-  if (registryChunks > 0) {
-    console.log(
-      `[pull-articles-corpus] split blog article registry into ${registryChunks} typed chunks`,
-    );
-  }
-
     // ── Put the local-only entries back ──────────────────────────────────
     //
     // Refuses rather than degrades, like everything else in this script: an id
@@ -523,6 +520,16 @@ try {
     const unmerged = [];
     for (const snap of snapshots) {
       const abs = path.join(DEST, snap.rel);
+      const upstreamPath = path.join(src, snap.rel);
+      if (!fs.existsSync(upstreamPath)) {
+        // A local-only SEO shard is deleted by mirrorTree because upstream has
+        // no file to merge against. Its complete local content is the surface
+        // we explicitly decided to preserve, so restore it as a whole file.
+        fs.mkdirSync(path.dirname(abs), { recursive: true });
+        fs.writeFileSync(abs, snap.text);
+        console.log(`[pull-articles-corpus] ${snap.rel}: restored local-only file ${snap.ids.join(', ')}`);
+        continue;
+      }
       const upstreamText = fs.readFileSync(abs, 'utf-8');
       const { text, preserved, upstreamWins, missing } =
         mergeEntries(upstreamText, snap.text, snap.ids);
@@ -549,6 +556,16 @@ try {
       );
       process.exit(1);
     }
+
+  // Chunk only after replaying local snapshots: a snapshot can add a
+  // site-owned article back to the upstream registry, and that final output
+  // must receive the same TS2590-safe representation as a clean pull.
+  const registryChunks = splitBlogArticleRegistry();
+  if (registryChunks > 0) {
+    console.log(
+      `[pull-articles-corpus] split blog article registry into ${registryChunks} typed chunks`,
+    );
+  }
 
   // Hand the pin to pull-articles-api.mjs. Published only now, on the success
   // path, so the value in the environment always names a commit the registry on

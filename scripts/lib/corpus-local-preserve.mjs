@@ -57,19 +57,21 @@ export function dropLedgeredRetirements(preserveIds, removals) {
 }
 
 /**
- * Snapshot the local content of files that exist on BOTH sides of the mirror
- * (matched by relative path — those are the ones the mirror is about to
- * overwrite) and mention at least one locally-only article id.
+ * Snapshot the local content of files that the mirror can overwrite or delete
+ * (shared files and destination-only files) and mention at least one
+ * locally-only article id.
  *
  * `preserveIds` is the Set of ids `localOnlyIds()` found: present downstream,
- * absent upstream. A shared file mentioning none of them needs no snapshot —
- * upstream's copy of it carries nothing that would be lost.
+ * absent upstream. A file mentioning none of them needs no snapshot —
+ * upstream's copy carries nothing that would be lost. Source-only files are
+ * skipped because there is no local content to preserve.
  */
 export function collectPreserveSnapshots({ src, dest, preserveIds }) {
   const srcFiles = listRelFiles(src);
   const dstFiles = listRelFiles(dest);
   const snapshots = [];
-  for (const rel of srcFiles) {
+  const candidateFiles = new Set([...srcFiles, ...dstFiles]);
+  for (const rel of candidateFiles) {
     if (!dstFiles.has(rel)) continue; // upstream-only: nothing of ours to lose
     const abs = path.join(dest, rel);
     let text;
