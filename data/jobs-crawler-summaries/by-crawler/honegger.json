@@ -1,7 +1,7 @@
 {
   "key": "honegger",
   "label": "Honegger AG",
-  "generatedAt": "2026-10-04T21:18:13.430Z",
+  "generatedAt": "2026-10-05T09:10:04.831Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 9,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 40357,
-  "avgDurationMs": 40357,
+  "durationMs": 39828,
+  "avgDurationMs": 39828,
   "durationHistory": [
-    40357
+    39828
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +35,7 @@
       "url": "https://honegger.ch/job/fachfrau-fachmann-betriebsunterhalt-m-w-d-region-obwalden-nidwalden-luzern-80-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:05.771Z",
+      "crawledAt": "2026-10-05T09:09:56.615Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "addressRegion": "OW",
@@ -46,7 +48,9 @@
       "sector": "Facility Management / Pulizie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-01-08",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://honegger.ch/job/fachfrau-fachmann-betriebsunterhalt-m-w-d-region-obwalden-nidwalden-luzern-80-100/",
       "pensumMin": 80,
       "pensumMax": 100,
@@ -56,12 +60,12 @@
       "salaryMin": 53000,
       "salaryMax": 71500,
       "salarySource": "estimated",
-      "_qualityScore": 97,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -76,7 +80,7 @@
       "url": "https://honegger.ch/job/unterhaltsreiniger-in-m-w-d-adliswil-horgen-rapperswil-waedenswil-10-50/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:04.530Z",
+      "crawledAt": "2026-10-05T09:09:55.408Z",
       "addressLocality": "Adliswil",
       "postalCode": "8134",
       "addressRegion": "ZH",
@@ -89,7 +93,9 @@
       "sector": "Facility Management / Pulizie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-01-08",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://honegger.ch/job/unterhaltsreiniger-in-m-w-d-adliswil-horgen-rapperswil-waedenswil-10-50/",
       "pensumMin": 10,
       "pensumMax": 50,
@@ -99,12 +105,12 @@
       "salaryMin": 56500,
       "salaryMax": 75500,
       "salarySource": "estimated",
-      "_qualityScore": 97,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -119,7 +125,7 @@
       "url": "https://honegger.ch/job/gaertner-in-m-w-d-stadt-zuerich-umgebung-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:18:00.739Z",
+      "crawledAt": "2026-10-05T09:09:51.048Z",
       "addressLocality": "Zürich",
       "postalCode": "8000",
       "addressRegion": "ZH",
@@ -132,22 +138,23 @@
       "sector": "Facility Management / Pulizie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-01-08",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://honegger.ch/job/gaertner-in-m-w-d-stadt-zuerich-umgebung-100/",
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
       "firstSeenAt": "2026-07-04T11:11:36.995Z",
-      "needsRetranslation": true,
       "salaryMin": 56500,
       "salaryMax": 75500,
       "salarySource": "estimated",
-      "_qualityScore": 97,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -162,7 +169,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-unterhaltsreinigung-m-w-d-25-50-zuerich/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:59.505Z",
+      "crawledAt": "2026-10-05T09:09:49.616Z",
       "addressLocality": "Zürich",
       "postalCode": "8000",
       "addressRegion": "ZH",
@@ -175,7 +182,9 @@
       "sector": "Facility Management / Pulizie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-01-08",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://honegger.ch/job/mitarbeiter-in-unterhaltsreinigung-m-w-d-25-50-zuerich/",
       "pensumMin": 25,
       "pensumMax": 50,
@@ -185,12 +194,12 @@
       "salaryMin": 56500,
       "salaryMax": 75500,
       "salarySource": "estimated",
-      "_qualityScore": 97,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -205,7 +214,7 @@
       "url": "https://honegger.ch/job/vorarbeiter-in-spezialreinigung-m-w-d-region-bern-100-3/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:58.268Z",
+      "crawledAt": "2026-10-05T09:09:48.496Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressRegion": "BE",
@@ -218,7 +227,9 @@
       "sector": "Facility Management / Pulizie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-01-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://honegger.ch/job/vorarbeiter-in-spezialreinigung-m-w-d-region-bern-100-3/",
       "pensumMin": 100,
       "pensumMax": 100,
@@ -228,12 +239,12 @@
       "salaryMin": 52000,
       "salaryMax": 70000,
       "salarySource": "estimated",
-      "_qualityScore": 97,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -248,7 +259,7 @@
       "url": "https://honegger.ch/job/inspektor-in-unterhaltsreinigung-m-w-d-kanton-schwyz-von-thalwil-bis-uznach-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:56.955Z",
+      "crawledAt": "2026-10-05T09:09:47.026Z",
       "addressLocality": "Schwyz",
       "postalCode": "6430",
       "addressRegion": "SZ",
@@ -261,7 +272,9 @@
       "sector": "Facility Management / Pulizie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-31",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://honegger.ch/job/inspektor-in-unterhaltsreinigung-m-w-d-kanton-schwyz-von-thalwil-bis-uznach-100/",
       "pensumMin": 100,
       "pensumMax": 100,
@@ -271,12 +284,12 @@
       "salaryMin": 53000,
       "salaryMax": 71500,
       "salarySource": "estimated",
-      "_qualityScore": 97,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -291,7 +304,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-human-resources-w-m-d-boudry-ne-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:40.354Z",
+      "crawledAt": "2026-10-05T09:09:30.868Z",
       "addressLocality": "Boudry",
       "postalCode": "2017",
       "addressRegion": "NE",
@@ -304,7 +317,9 @@
       "sector": "Facility Management / Pulizie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://honegger.ch/job/mitarbeiter-in-human-resources-w-m-d-boudry-ne-100/",
       "pensumMin": 100,
       "pensumMax": 100,
@@ -313,12 +328,12 @@
       "salaryMin": 49500,
       "salaryMax": 66500,
       "salarySource": "estimated",
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -333,7 +348,7 @@
       "url": "https://honegger.ch/job/teamleiter-in-spezialreinigung-hoehenarbeiten-m-w-d-region-aargau-und-zuerich-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:37.362Z",
+      "crawledAt": "2026-10-05T09:09:28.200Z",
       "addressLocality": "Zürich",
       "postalCode": "8000",
       "addressRegion": "ZH",
@@ -346,22 +361,23 @@
       "sector": "Facility Management / Pulizie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://honegger.ch/job/teamleiter-in-spezialreinigung-hoehenarbeiten-m-w-d-region-aargau-und-zuerich-100/",
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
       "firstSeenAt": "2026-09-23T23:37:06.489Z",
-      "needsRetranslation": true,
       "salaryMin": 56500,
       "salaryMax": 75500,
       "salarySource": "estimated",
-      "_qualityScore": 97,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -376,7 +392,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-spezialreinigung-m-w-d-region-aargau-und-zuerich-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:17:35.647Z",
+      "crawledAt": "2026-10-05T09:09:26.416Z",
       "addressLocality": "Zürich",
       "postalCode": "8000",
       "addressRegion": "ZH",
@@ -389,26 +405,27 @@
       "sector": "Facility Management / Pulizie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://honegger.ch/job/mitarbeiter-in-spezialreinigung-m-w-d-region-aargau-und-zuerich-100/",
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
       "firstSeenAt": "2026-09-23T23:37:05.297Z",
-      "needsRetranslation": true,
       "salaryMin": 56500,
       "salaryMax": 75500,
       "salarySource": "estimated",
-      "_qualityScore": 97,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
