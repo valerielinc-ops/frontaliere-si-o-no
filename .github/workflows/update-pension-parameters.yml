@@ -1,0 +1,142 @@
+name: Update Pension Parameters (AVS/LPP)
+
+# Pipeline dati «pensioni» (D11): parametri federali AVS/AI/IPG/AD/LPP/3a
+# dai promemoria ufficiali AVS/AI e dalle pagine UFAS, soglie LPP e massimali
+# 3a derivati per legge e incrociati, casse di compensazione AVS cantonali,
+# casse pensioni pubbliche (lista curata) e imposta sul prelievo di capitale
+# per capoluogo (ESTV). Producer: scripts/fetch-pension-parameters.mjs →
+# data/pension-parameters/{<anno>,latest}.json + public/data/pension-parameters/
+# {<anno>,latest}.json. I componenti del sito leggono data/.../latest.json a
+# build time (services/pensionParameters.ts); il corpus legge il latest.json
+# pubblico dal CDN. Cadenza mensile: i parametri cambiano al massimo una volta
+# l'anno, e il validatore fallisce dal 1° febbraio se l'anno corrente non e'
+# ancora coperto dalle fonti.
+
+on:
+  schedule:
+    # Giorno 3 del mese, 04:45 UTC: sfasato da health-premiums (dom 04:15) e
+    # canton-tax (lun 04:35).
+    - cron: '45 4 3 * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Keep the run preview-only unless explicitly disabled.'
+        required: false
+        default: true
+        type: boolean
+
+# Mai cancellare una run in corso: tra il push diretto dei dati e il dispatch
+# del deploy una cancellazione lascerebbe latest.json committato ma non
+# pubblicato, e la run successiva, senza diff, salterebbe il deploy.
+concurrency:
+  group: pension-parameters
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  update-pension-parameters:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+        # Stesso tetto di update-health-premiums.yml: un Checkout impantanato
+        # non deve consumare tutto il budget del job (muore `cancelled`,
+        # invisibile agli `if: failure()`).
+        timeout-minutes: 5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Install PDF reader
+        # I promemoria AVS/AI sono PDF: pdfjs-dist e' gia' dipendenza del sito.
+        run: npm install pdfjs-dist@6.3.289
+
+      - name: Fetch pension parameters
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/fetch-pension-parameters.mjs
+
+      - name: Validate pension parameters
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/validate-pension-parameters.mjs
+
+      - name: Preview (dry run)
+        if: inputs.dry_run == true || inputs.dry_run == 'true'
+        run: |
+          PENSION_PARAMETERS_OUT_DIR="$RUNNER_TEMP/pension-preview" node scripts/fetch-pension-parameters.mjs
+          ls -la "$RUNNER_TEMP/pension-preview/public/data/pension-parameters"
+
+      # Prima di entrambi i caricamenti Remote Config: con l'SDK installato il
+      # loader non dipende dal ripiego REST.
+      - name: Install firebase-admin for Remote Config
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: npm install firebase-admin@14.5.0
+
+      - name: Prepare Firebase credentials for push auth
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/load-rc-env.mjs
+
+      - name: Commit and push if changed
+        id: commit
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/pension-parameters public/data/pension-parameters
+          if git diff --cached --quiet; then
+            echo "ℹ️ No pension parameter changes detected."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "🏦 Auto-update pension parameters (AVS/LPP)"
+            bash scripts/lib/git-push-with-retry.sh \
+              --regenerate-cmd "node scripts/fetch-pension-parameters.mjs && node scripts/validate-pension-parameters.mjs && git add data/pension-parameters public/data/pension-parameters"
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Trigger deploy after data push (GITHUB_TOKEN pushes don't trigger workflows)
+      - name: Load secrets from Remote Config
+        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/load-rc-env.mjs
+
+      # Niente `|| true`: un dispatch fallito lascerebbe i parametri committati
+      # ma non pubblicati (latest.json obsoleto sul CDN per il corpus) dietro
+      # una run verde; il job deve diventare rosso e raggiungere il reporter.
+      - name: Trigger deploy workflow
+        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        run: bash scripts/lib/trigger-deploy.sh
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

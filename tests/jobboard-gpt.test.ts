@@ -14,8 +14,10 @@ import {
 } from '@/build-plugins/jobBoardGpt';
 import {
   FC_JOBBOARD_OFFERWALL_GATE_JS,
+  EARLY_BOOT_SCRIPT,
   OFFERWALL_FC_SCRIPT_CONTENT,
   OFFERWALL_FC_SNIPPET,
+  POSTHOG_SNIPPET,
 } from '@/build-plugins/constants';
 import {
   ADS_CONSENT_CHANGE_EVENT,
@@ -66,8 +68,8 @@ describe('job-board GPT bootstrap', () => {
     expect(document.querySelector(GPT_SELECTOR)).not.toBeNull();
   });
 
-  it('emits a synchronous page bootstrap without creating an ad slot', () => {
-    expect(GPT_BOOTSTRAP_TAG).toBe('<script src="/assets/gpt-loader.js"></script>');
+  it('emits a deferred page bootstrap without creating an ad slot', () => {
+    expect(GPT_BOOTSTRAP_TAG).toBe('<script defer src="/assets/gpt-loader.js"></script>');
     expect(GPT_LOADER_CONTENT).toContain('enableServices');
     expect(GPT_LOADER_CONTENT).toContain('collapseDiv');
     expect(GPT_LOADER_CONTENT).not.toContain('adsbygoogle');
@@ -79,14 +81,21 @@ describe('job-board GPT bootstrap', () => {
     expect(tags).toBe(JOB_BOARD_HEAD_TAGS);
     expect(tags).toContain(GPT_BOOTSTRAP_TAG);
     expect(tags).toContain(JOB_BOARD_FC_LOADER_TAG);
+    expect(tags.indexOf(GPT_BOOTSTRAP_TAG)).toBeLessThan(tags.indexOf(JOB_BOARD_FC_LOADER_TAG));
     expect(JOB_BOARD_FC_LOADER_FILENAME).toBe('job-board-fc-loader.js');
     expect(tags).not.toContain(OFFERWALL_FC_SNIPPET);
     expect(OFFERWALL_FC_SCRIPT_CONTENT).toContain('data-fc-loader');
     expect(jobBoardHeadTags('/')).toBe('');
   });
 
+  it('defers analytics and job-board carriers while preserving early-boot timing', () => {
+    expect(POSTHOG_SNIPPET).toBe('<script defer src="/assets/posthog-init.js"></script>');
+    expect(EARLY_BOOT_SCRIPT).toBe('<script src="/assets/early-boot.js"></script>');
+  });
+
   it('installs the click-only Offerwall gate before it can inject GPT', () => {
-    // Synchronous, so it runs before the deferred adsense-loader.js.
+    // The deferred carrier runs before DOMContentLoaded, ahead of the user
+    // interaction that can release the rewarded flow.
     expect(GPT_LOADER_CONTENT.startsWith(FC_JOBBOARD_OFFERWALL_GATE_JS)).toBe(true);
     const win = window as unknown as { googlefc?: { controlledMessagingFunction?: unknown } };
     delete win.googlefc;

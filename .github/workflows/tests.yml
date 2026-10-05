@@ -1217,6 +1217,10 @@ jobs:
             /hooks/
             /infra/
             /scripts/
+            /scripts/ci/check-below-floor-bridge.mjs
+            /scripts/ci/check-sibling-patterns.mjs
+            /scripts/ci/identical-twin-import-gate.mjs
+            /scripts/ci/sample-mem-during.sh
             /server/
             /services/
             /tests/

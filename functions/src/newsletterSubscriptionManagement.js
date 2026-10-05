@@ -426,6 +426,20 @@ const BRAND_ALIAS_TO_CANONICAL = Object.freeze({
  'capri-holdings-michael-kors-versace': 'michael-kors',
 });
 
+// Deployment-boundary mirror of build-plugins/shared/companyFollowGroups.mjs
+// (member slug → group key), parity-tested by tests/company-alert.test.ts.
+// Following one member follows the whole group, so a second pin on another
+// member of the same group returns the existing follow instead of a duplicate.
+const COMPANY_FOLLOW_GROUP_KEY = Object.freeze({
+ coop: 'coop',
+ 'coop-genossenschaft': 'coop',
+});
+
+function companyFollowGroupKey(slug) {
+ const s = String(slug || '');
+ return COMPANY_FOLLOW_GROUP_KEY[s] || s;
+}
+
 export function normalizeCompanyAlertKey(value) {
  const norm = (x) => String(x || '')
  .toLowerCase()
@@ -1535,6 +1549,24 @@ export async function handleSubscriptionManagement({ action, email, token, local
     status: 200,
     json: { success: true, alert: serializeAlertDoc(existingDoc.id, existingDoc.data() || {}) },
    };
+  }
+  // Same follow group, different member (`coop` vs `coop-genossenschaft`):
+  // one follow per group, like services/jobAlertService.ts createAlert.
+  if (companyPin) {
+   let groupFollow = null;
+   existing.forEach((d) => {
+    const data = d.data() || {};
+    if (groupFollow || data.active === false || !data.specificCompanyKey) return;
+    const stored = normalizeCompanyAlertKey(data.specificCompanyKey);
+    if (stored !== companyPin && companyFollowGroupKey(stored) === companyFollowGroupKey(companyPin)) groupFollow = d;
+   });
+   if (groupFollow) {
+    await clearCompanyFollowFollowupPending(db, normalizedEmail);
+    return {
+     status: 200,
+     json: { success: true, alert: serializeAlertDoc(groupFollow.id, groupFollow.data() || {}) },
+    };
+   }
   }
   let activeCount = 0;
  existing.forEach((d) => {

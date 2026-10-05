@@ -144,6 +144,80 @@ export async function fetchTaxBurdenByCanton({ years, incomes, fetchImpl } = {})
   return parseTaxBurdenExport(json, { years, incomes });
 }
 
+export const ESTV_CAPITAL_TAX_EXPORT_URL = `${ESTV_TAX_CALCULATOR_BASE}/delegate/ost-integration/v1/export/capital-tax-values/JSON/DE`;
+export const ESTV_CAPITAL_TAX_TOOL_URL = `${ESTV_TAX_CALCULATOR_BASE}/#/taxburden/capital-payment`;
+
+/**
+ * Scenario dell'imposta sul prelievo di capitale della previdenza (2° pilastro
+ * e 3a): massExportModelId 1 = SINGLE_MAN_WITHOUT_CHILDREN_PAYMENT_WITH_65,
+ * nessuna confessione, capoluoghi cantonali, output 1 = TOTAL_TAX_IN_CHF.
+ * Imposta federale + cantonale + comunale per un RESIDENTE nel capoluogo: un
+ * frontaliere che preleva il capitale e' tassato alla fonte con tariffe
+ * proprie del cantone dell'istituto, che questo scenario non descrive.
+ */
+export const CAPITAL_TAX_SCENARIO = Object.freeze({
+  massExportModelId: 1,
+  taxGroup: 88,
+  confession: 4,
+  belastungsVergleich: 1,
+  output: 1,
+  description:
+    'Uomo solo senza figli, prelievo a 65 anni, nessuna confessione, residente nel capoluogo cantonale: ' +
+    'imposta totale (federale + cantonale + comunale) in CHF sul capitale di previdenza prelevato',
+});
+
+/**
+ * Imposta sul prelievo di capitale per capoluogo cantonale.
+ *
+ * @returns {Promise<Record<string, {municipality: string, bfsId: number, taxCHF: number[]}>>}
+ *   per sigla: imposte nell'ordine di `capitals`.
+ */
+export async function fetchCapitalWithdrawalTaxByCanton({ year, capitals, fetchImpl } = {}) {
+  const body = {
+    massExportModelId: CAPITAL_TAX_SCENARIO.massExportModelId,
+    taxGroup: CAPITAL_TAX_SCENARIO.taxGroup,
+    simKey: null,
+    simName: null,
+    years: [year],
+    capitals,
+    confession1: CAPITAL_TAX_SCENARIO.confession,
+    confession2: CAPITAL_TAX_SCENARIO.confession,
+    belastungsVergleich: CAPITAL_TAX_SCENARIO.belastungsVergleich,
+    output: CAPITAL_TAX_SCENARIO.output,
+  };
+  const doFetch = fetchImpl || ((url, init) => httpFetchWithRetry(url, init, { timeout: 60000, label: 'ESTV capital tax' }));
+  const res = await readOk(
+    await doFetch(ESTV_CAPITAL_TAX_EXPORT_URL, { method: 'POST', headers: JSON_HEADERS, body: JSON.stringify(body) }),
+    'ESTV capital tax export',
+  );
+  return parseCapitalTaxExport(await res.json(), { capitals });
+}
+
+/** Pura: export ESTV dell'imposta sul capitale → { sigla: { municipality, bfsId, taxCHF } }. */
+export function parseCapitalTaxExport(json, { capitals }) {
+  const payload = Array.isArray(json?.payload) ? json.payload : null;
+  if (!payload) throw new Error('ESTV capital tax export: payload[] mancante');
+  const out = {};
+  for (const row of payload) {
+    const code = String(row?.canton || '').toUpperCase();
+    if (!SWISS_CANTON_CODES.includes(code)) continue;
+    // L'export riusa il campo `income` per l'importo del capitale.
+    const i = capitals.indexOf(Number(row.income));
+    if (i < 0) continue;
+    const entry = (out[code] ||= {
+      municipality: String(row.municipality || ''),
+      bfsId: Number(row.bfsId) || null,
+      taxCHF: new Array(capitals.length).fill(null),
+    });
+    // Una sola riga per (cantone, importo): come per l'onere, un duplicato e'
+    // un cambio di formato dell'export, non una riga da scegliere in silenzio.
+    if (entry.taxCHF[i] !== null) throw new Error(`ESTV capital tax export: riga duplicata ${code} ${row.income}`);
+    const v = Number(Array.isArray(row.values) ? row.values[0] : NaN);
+    entry.taxCHF[i] = Number.isFinite(v) ? Math.round(v) : NaN;
+  }
+  return out;
+}
+
 /** Pura: trasforma l'export ESTV in { sigla: { municipality, bfsId, byYear } }. */
 export function parseTaxBurdenExport(json, { years, incomes }) {
   const payload = Array.isArray(json?.payload) ? json.payload : null;

@@ -11276,8 +11276,13 @@ ${staticAnalyticsHtml}
      // only) which looked visually out-of-band vs the rest of the site
      // (sector pages, employer hubs, search results all use the shared
      // renderer). data-listing-grid is preserved for tests / selectors.
+     const listingHeading = entry.locale === 'it' ? `Ultime offerte di lavoro in ${display}`
+       : entry.locale === 'en' ? `Latest job openings in ${display}`
+       : entry.locale === 'de' ? `Aktuelle Stellenangebote in ${display}`
+       : `Dernières offres d'emploi à ${display}`;
      const listingGrid = cantonJobs.length > 0
-       ? `<section data-listing-grid class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 my-6">` +
+       ? `<h2 class="s-iEVPhz">${esc(listingHeading)}</h2>` +
+         `<section data-listing-grid class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 my-6">` +
          JOB_CARD_ICON_SYMBOLS +
          cantonJobs.map((j, jIdx) => {
            const jt = j as {
@@ -11328,10 +11333,10 @@ ${staticAnalyticsHtml}
          `</section>`
        : '';
 
-     // bodyHtml is wrapped in <main> because buildSeoPageHtml runs in
-     // seoContentOutsideRoot=true mode by default — the caller-provided
-     // <main> is hosted as a sibling of <div id="root"> so React's hydration
-     // cannot replace the static SEO content. See SeoPageShellOpts docs.
+     // buildSeoPageHtml already emits the crawler-facing outer
+     // `<main class="seo-static-content">` sibling of `<div id="root">`.
+     // Keep this body a neutral wrapper so each page has exactly one main
+     // landmark while preserving the layout class used by the static CSS.
      //
      // Order per CLAUDE.md NON-NEGOTIABLE #17: breadcrumb → header (H1 +
      // 1-line tagline) → stat tile grid → primary CTA → data area
@@ -11837,15 +11842,15 @@ ${staticAnalyticsHtml}
      }
 
      const bodyHtml = [
-       // #974: drop `seo-static-content` from this INNER <main> (keep the
-       // `s-LFxJYv` layout class). buildSeoPageHtml wraps bodyHtml in the OUTER
-       // main.seo-static-content (display:grid); leaving the class here made the
-       // inner main a nested grid item with default min-width:auto, so its track
+       // #974: keep the `s-LFxJYv` layout class on a neutral inner wrapper.
+       // buildSeoPageHtml wraps bodyHtml in the OUTER main.seo-static-content
+       // (display:grid); putting the class on a nested main made that grid item
+       // default to min-width:auto, so its track
        // could not shrink and wide content forced horizontal overflow on mobile
        // (382px). Mirrors comparisonsHub #962 / borderWaitMap #958. The outer
        // shell main still carries seo-static-content (lite-shell detector +
        // staticOverlay handoff preserved).
-       `<main class="s-LFxJYv">`,
+       `<div class="s-LFxJYv">`,
        `<nav class="s-ZVaIKh"><a class="s-t_pXue" href="/">${esc(homeLabel[entry.locale])}</a> &rarr; <span aria-current="page">${esc(display)}</span></nav>`,
        `<header class="s-TYF4UK"><h1 class="s-Wb8ho2">${esc(display)}</h1><p class="s-b7cYUf">${esc(labels.lede)}</p></header>`,
        tileGrid,
@@ -11872,7 +11877,7 @@ ${staticAnalyticsHtml}
        // Phase 8(g) — TI-parity editorial package (H2, archive navigator,
        // prose, sources, FAQ). Below the data area per #16/#17.
        cantonEditorialSection,
-       `</main>`,
+       `</div>`,
      ].join('\n');
      // SearchAtlas "missing schema markup" audit (2026-06-15): secondary-canton
      // landing pages shipped only a BreadcrumbList, while the Ticino landing

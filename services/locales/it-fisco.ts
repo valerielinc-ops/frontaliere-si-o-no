@@ -773,7 +773,7 @@ const translations: Record<string, string> = {
  'taxReturn.deductions.lpp': 'Contributi LPP (2° pilastro)',
  'taxReturn.deductions.lppDesc': 'I contributi obbligatori al 2° pilastro sono deducibili integralmente dal reddito imponibile.',
  'taxReturn.deductions.pillar3a': 'Versamenti 3° pilastro',
- 'taxReturn.deductions.pillar3aDesc': 'Versamenti al pilastro 3a deducibili fino a CHF 7.056 (con LPP) o CHF 35.280 (senza).',
+ 'taxReturn.deductions.pillar3aDesc': 'Versamenti al pilastro 3a deducibili fino a CHF 7.258 (con LPP) o CHF 36.288 (senza).',
  'taxReturn.deductions.healthInsurance': 'Premi assicurazione sanitaria',
  'taxReturn.deductions.healthInsuranceDesc': 'Premi LAMal/CMU deducibili come oneri detraibili al 19% con franchigia €129.11.',
  'taxReturn.deductions.childcare': 'Spese per figli',

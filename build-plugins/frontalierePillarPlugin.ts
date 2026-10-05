@@ -198,7 +198,7 @@ ${sourcesHtml}
   });
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: copy.h1,
     description: guardArticleJsonLdDescription(copy.description),
     image: seoHeroImageObject(hero),

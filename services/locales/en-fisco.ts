@@ -367,7 +367,7 @@ const enFisco: Record<string, string> = {
  'taxReturn.deductions.lpp': 'LPP contributions (2nd pillar)',
  'taxReturn.deductions.lppDesc': 'Mandatory 2nd pillar contributions are fully deductible from taxable income.',
  'taxReturn.deductions.pillar3a': '3rd pillar payments',
- 'taxReturn.deductions.pillar3aDesc': 'Pillar 3a payments deductible up to CHF 7,056 (with LPP) or CHF 35,280 (without).',
+ 'taxReturn.deductions.pillar3aDesc': 'Pillar 3a payments deductible up to CHF 7,258 (with LPP) or CHF 36,288 (without).',
  'taxReturn.deductions.healthInsurance': 'Health insurance premiums',
  'taxReturn.deductions.healthInsuranceDesc': 'LAMal/CMU premiums deductible as deductible charges at 19% with €129.11 threshold.',
  'taxReturn.deductions.childcare': 'Childcare expenses',
