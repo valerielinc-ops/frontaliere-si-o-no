@@ -27,6 +27,7 @@
  * description built from the listing card (title + category + intro) so the
  * job is never dropped — only its description is thinner (#3836).
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -156,7 +157,6 @@ export async function fetchAllSpitalZollikerbergJobs() {
     { label: SPITAL_ZOLLIKERBERG_KEY },
   );
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const r of rows) {
     const description = buildSpitalZollikerbergDescription(r, detailByUrl.get(r.url) || '');
@@ -200,7 +200,7 @@ export async function fetchAllSpitalZollikerbergJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(''),
       applyUrl: r.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
