@@ -59,7 +59,7 @@ const LEADING_PATTERNS = [
   // translate our software into German» open real ads and articles.
   // Each quote style closes on its own mark, so an apostrophe inside double or
   // typographic quotes («"Chef d'équipe"») stays part of the quoted input.
-  ['agent-narration', /^we need to (?:translate|output|return) (?:"[^"\n]{1,160}"|“[^”\n]{1,160}”|«[^»\n]{1,160}»|'[^'\n]{1,160}') (?:in)?to (?:english|italian|german|french|en|it|de|fr)\b/i],
+  ['agent-narration', /^we need to (?:translate|output|return) (?:(?:the )?(?:job )?title\s+)?(?:"[^"\n]{1,160}"|“[^”\n]{1,160}”|«[^»\n]{1,160}»|'[^'\n]{1,160}') (?:from (?:the )?[a-z]+(?:[ -][a-z]+)*\s+)?(?:in)?to (?:english|italian|german|french|en|it|de|fr)\b/i],
   ['agent-narration', /^(?:the |here(?:'s| is) the )?translat(?:ed|ion)(?: (?:job )?title| text)? (?:is|would be)\b/i],
   ['agent-narration', /^(?:procedo a tradurre|traduco (?:il|questo)|ich übersetze (?:den|diesen)|je vais traduire)\b/i],
   // ── the answer opens with a template label («Traduzione:», «Traduzione:
