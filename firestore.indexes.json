@@ -272,6 +272,7 @@
     { "collectionGroup": "job_email_affinity", "fieldPath": "user_id", "indexes": [] },
     { "collectionGroup": "job_email_affinity", "fieldPath": "dimensions", "indexes": [] },
     { "collectionGroup": "job_email_affinity", "fieldPath": "clicks", "indexes": [] },
+    { "collectionGroup": "job_email_affinity", "fieldPath": "applied_clicks", "indexes": [] },
     { "collectionGroup": "job_email_affinity", "fieldPath": "last_click_at", "indexes": [] },
     { "collectionGroup": "job_email_affinity", "fieldPath": "updated_at", "indexes": [] },
     { "collectionGroup": "job_email_affinity", "fieldPath": "version", "indexes": [] },

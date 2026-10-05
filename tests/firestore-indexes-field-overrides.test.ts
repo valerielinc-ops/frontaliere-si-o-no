@@ -79,6 +79,7 @@ const MUST_BE_EXEMPT: Array<[string, string]> = [
   ['job_email_affinity', 'user_id'],
   ['job_email_affinity', 'dimensions'],
   ['job_email_affinity', 'clicks'],
+  ['job_email_affinity', 'applied_clicks'],
   ['job_email_affinity', 'last_click_at'],
   ['job_email_affinity', 'updated_at'],
   ['job_email_affinity', 'version'],

@@ -37,6 +37,12 @@
  *       sector:      [...],
  *     },
  *     clicks: 3,            // clic applicati in tutta la vita del profilo
+ *     applied_clicks: [{ k: '<16 hex>', at: Date }, ...],
+ *                           // impronte (hash di consegna + annuncio, senza
+ *                           // email) dei clic gia' contati negli ultimi 90
+ *                           // giorni, al massimo 500: un secondo clic sulla
+ *                           // stessa coppia, anche in un giro successivo, non
+ *                           // conta («un clic per consegna e annuncio»)
  *     last_click_at: Date,  // istante dell'ultimo clic applicato
  *     updated_at: Date,
  *     expires_at: Date,     // last_click_at + 180 giorni (TTL Firestore)
@@ -89,6 +95,8 @@ export const AFFINITY_HALF_LIFE_DAYS = 45;
 export const AFFINITY_TTL_DAYS = 180;
 export const AFFINITY_MAX_VALUES_PER_DIMENSION = 30;
 export const AFFINITY_MIN_CLICKS = 2;
+export const AFFINITY_APPLIED_CLICKS_DAYS = 90;
+export const AFFINITY_APPLIED_CLICKS_MAX = 500;
 /** Campo booleano su newsletter_subscribers/{email}: opposizione registrata a mano. */
 export const RANKING_PERSONALIZATION_OPT_OUT_FIELD = 'ranking_personalization_opt_out';
 
@@ -161,6 +169,7 @@ export function emptyAffinityProfile(userId) {
     user_id: userId || null,
     dimensions,
     clicks: 0,
+    applied_clicks: [],
     last_click_at: null,
     updated_at: null,
     expires_at: null,
@@ -174,15 +183,20 @@ export function emptyAffinityProfile(userId) {
  *
  * Un clic non piu' recente di `last_click_at` e' gia' contato: il profilo torna
  * invariato (stesso oggetto). E' questo a rendere idempotente lo scrittore
- * notturno quando un giro viene ripetuto o riparte dopo un errore. Un clic
- * senza nessuna caratteristica lascia il profilo invariato.
+ * notturno quando un giro viene ripetuto o riparte dopo un errore. Con
+ * `clickKey` (impronta di consegna + annuncio) anche un secondo clic sulla
+ * stessa coppia arrivato in un giro successivo torna invariato. Un clic senza
+ * nessuna caratteristica lascia il profilo invariato.
  */
-export function applyAffinityClick(profile, attrs, clickedAt) {
+export function applyAffinityClick(profile, attrs, clickedAt, { clickKey = null } = {}) {
   const clickedMs = toMillis(clickedAt);
   if (clickedMs == null) return profile;
   const base = profile && typeof profile === 'object' ? profile : emptyAffinityProfile(null);
   const lastMs = toMillis(base.last_click_at);
   if (lastMs != null && clickedMs <= lastMs) return profile;
+  const key = clickKey ? String(clickKey) : null;
+  const priorApplied = Array.isArray(base.applied_clicks) ? base.applied_clicks : [];
+  if (key && priorApplied.some((entry) => entry?.k === key)) return profile;
   const normalized = affinityAttributes(attrs);
   if (!AFFINITY_DIMENSIONS.some((dimension) => normalized[dimension])) return profile;
 
@@ -201,10 +215,16 @@ export function applyAffinityClick(profile, attrs, clickedAt) {
       .slice(0, AFFINITY_MAX_VALUES_PER_DIMENSION)
       .map((entry) => ({ key: entry.key, weight: Number(entry.weight.toFixed(6)), at }));
   }
+  const appliedSinceMs = clickedMs - AFFINITY_APPLIED_CLICKS_DAYS * DAY_MS;
+  const applied = priorApplied
+    .filter((entry) => entry?.k && (toMillis(entry.at) ?? 0) >= appliedSinceMs)
+    .map((entry) => ({ k: String(entry.k), at: entry.at }));
+  if (key) applied.push({ k: key, at });
   return {
     user_id: base.user_id || null,
     dimensions,
     clicks: (Number(base.clicks) || 0) + 1,
+    applied_clicks: applied.slice(-AFFINITY_APPLIED_CLICKS_MAX),
     last_click_at: at,
     updated_at: at,
     expires_at: new Date(clickedMs + AFFINITY_TTL_DAYS * DAY_MS),

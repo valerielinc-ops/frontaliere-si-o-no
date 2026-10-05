@@ -261,6 +261,57 @@ describe('runAffinityBuild', () => {
     expect(fake.docs.has(profilePath(BOB))).toBe(false);
   });
 
+  it('un secondo clic sulla stessa consegna e annuncio, in un giro successivo, non conta', async () => {
+    const url = jobUrl({ jobId: 'A', surface: 'job_alert', deliveryId: 'd1' });
+    const fake = createFakeFirestore({
+      ...baseSeed(),
+      ...clickEvent('job_alert_subscribers', BOB, hoursAgo(30), url),
+    });
+    const first = await runAffinityBuild({ db: fake.db, secret: SECRET, now: hoursAgo(10), bootstrapSince: SINCE, resolveCanton });
+    expect(first.clicks_applied).toBe(1);
+    // Lo stesso annuncio della stessa consegna, cliccato di nuovo dopo la fine del primo giro.
+    for (const [docPath, data] of Object.entries(clickEvent('job_alert_subscribers', BOB, hoursAgo(5), url))) fake.docs.set(docPath, data);
+    const second = await runAffinityBuild({ db: fake.db, secret: SECRET, now: NOW, resolveCanton });
+    expect(second.job_clicks_human).toBe(1);
+    expect(second.clicks_applied || 0).toBe(0);
+    expect(second.clicks_already_applied).toBe(1);
+    const profile = fake.docs.get(profilePath(BOB))!;
+    expect(profile.clicks).toBe(1);
+    expect(profile.applied_clicks).toHaveLength(1);
+    expect(JSON.stringify(profile.applied_clicks)).not.toContain(BOB);
+  });
+
+  it('un clic di contesto prima della finestra non nasconde lo stesso annuncio cliccato dentro la finestra', async () => {
+    const url = jobUrl({ jobId: 'A', surface: 'job_alert', deliveryId: 'd1' });
+    const fake = createFakeFirestore({
+      ...baseSeed(),
+      ...clickEvent('job_alert_subscribers', BOB, new Date(Date.parse(SINCE) - 10 * 1000), url),
+      ...clickEvent('job_alert_subscribers', BOB, new Date(Date.parse(SINCE) + 60 * 60 * 1000), url),
+    });
+    const counts = await runAffinityBuild({ db: fake.db, secret: SECRET, now: NOW, bootstrapSince: SINCE, resolveCanton });
+    expect(counts.job_clicks_human).toBe(1);
+    expect(counts.skipped_duplicate || 0).toBe(0);
+    expect(counts.clicks_applied).toBe(1);
+    expect(fake.docs.get(profilePath(BOB))!.clicks).toBe(1);
+  });
+
+  it('clic senza message_id: nessuna raffica fra invii diversi', async () => {
+    const clicks: Record<string, Row> = {};
+    for (let index = 0; index < 5; index += 1) {
+      Object.assign(clicks, clickEvent(
+        'job_alert_subscribers',
+        BOB,
+        new Date(hoursAgo(5).getTime() + index * 500),
+        jobUrl({ jobId: `Z${index}`, surface: 'job_alert', deliveryId: `dz${index}` }),
+        null as unknown as string,
+      ));
+    }
+    const fake = createFakeFirestore({ ...baseSeed(), ...clicks });
+    const counts = await runAffinityBuild({ db: fake.db, secret: SECRET, now: NOW, bootstrapSince: SINCE, resolveCanton });
+    expect(counts.skipped_synthetic_scan_burst || 0).toBe(0);
+    expect(counts.job_clicks_human).toBe(5);
+  });
+
   it('conta un solo clic per consegna e annuncio', async () => {
     const url = jobUrl({ jobId: 'A', surface: 'job_alert', deliveryId: 'd1' });
     const fake = createFakeFirestore({

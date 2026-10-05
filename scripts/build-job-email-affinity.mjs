@@ -50,6 +50,7 @@
  * (eval "$(node scripts/load-rc-env.mjs)").
  */
 
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -211,10 +212,23 @@ function clickRow(doc) {
  * Verdetto umano/sintetico per ogni riga, calcolato per messaggio: e' li' che
  * una raffica di scanner si riconosce (5 link in 3 secondi dallo stesso invio).
  */
+/**
+ * Impronta di un clic per `applied_clicks` del profilo: hash di consegna (o
+ * messaggio) + annuncio, 16 caratteri esadecimali. Non contiene l'email: il
+ * profilo e' gia' della persona.
+ */
+export function clickFingerprint(pairKey) {
+  return createHash('sha256').update(String(pairKey)).digest('hex').slice(0, 16);
+}
+
 function classifyRows(rows, counts) {
   const groups = new Map();
+  let withoutMessage = 0;
   for (const row of rows) {
-    const key = `${row.collection}/${row.email}|${row.messageId || ''}`;
+    // Senza message_id non si sa da quale invio venga il clic: gruppo a se',
+    // mai un gruppo condiviso che renderebbe raffica clic di invii diversi.
+    const messageKey = row.messageId ? `m:${row.messageId}` : `nomsg:${(withoutMessage += 1)}`;
+    const key = `${row.collection}/${row.email}|${messageKey}`;
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(row);
   }
@@ -360,28 +374,32 @@ export async function runAffinityBuild({
   classifyRows(rows, counts);
 
   // 2. Solo link degli annunci, solo persone, un clic per consegna e annuncio.
+  // Le righe prima della finestra servono solo al verdetto delle raffiche
+  // (classifyRows, sopra): qui si scartano subito, prima della deduplica, cosi'
+  // non nascondono un clic della finestra. I clic gia' contati in un giro
+  // precedente li riconosce il profilo (applied_clicks, passo 5).
   const seen = new Set();
   const useful = [];
   rows.sort((a, b) => a.timestampMs - b.timestampMs);
   for (const row of rows) {
-    const inWindow = row.timestampMs >= startMs;
+    if (row.timestampMs < startMs) continue;
     const click = parseJobRankingClick(row.url);
     if (!click) {
-      if (inWindow) bump(counts, 'skipped_not_job_link');
+      bump(counts, 'skipped_not_job_link');
       continue;
     }
     if (row.syntheticReason) {
-      if (inWindow) bump(counts, `skipped_synthetic_${row.syntheticReason.replace(/-/g, '_')}`);
+      bump(counts, `skipped_synthetic_${row.syntheticReason.replace(/-/g, '_')}`);
       continue;
     }
-    const dedupKey = `${row.email}|${click.deliveryId || row.messageId || ''}|${click.jobId}`;
+    const pairKey = `${click.deliveryId || row.messageId || ''}|${click.jobId}`;
+    const dedupKey = `${row.email}|${pairKey}`;
     if (seen.has(dedupKey)) {
-      if (inWindow) bump(counts, 'skipped_duplicate');
+      bump(counts, 'skipped_duplicate');
       continue;
     }
     seen.add(dedupKey);
-    if (!inWindow) continue;
-    useful.push({ ...row, click });
+    useful.push({ ...row, click, clickKey: clickFingerprint(pairKey) });
   }
   counts.job_clicks_human = useful.length;
 
@@ -498,7 +516,7 @@ export async function runAffinityBuild({
       : emptyAffinityProfile(ids[index]);
     const start = profile;
     for (const row of byPerson.get(email) || []) {
-      const next = applyAffinityClick(profile, row.attrs, new Date(row.timestampMs));
+      const next = applyAffinityClick(profile, row.attrs, new Date(row.timestampMs), { clickKey: row.clickKey });
       if (next === profile) bump(counts, 'clicks_already_applied');
       else bump(counts, 'clicks_applied');
       profile = next;

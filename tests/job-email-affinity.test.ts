@@ -46,8 +46,21 @@ describe('applyAffinityClick', () => {
     expect(weightOf(profile, 'sector', 'tech')).toBe(1);
     // Solo le chiavi documentate: niente email, uid o URL.
     expect(Object.keys(profile).sort()).toEqual(
-      ['clicks', 'dimensions', 'expires_at', 'last_click_at', 'updated_at', 'user_id', 'version'],
+      ['applied_clicks', 'clicks', 'dimensions', 'expires_at', 'last_click_at', 'updated_at', 'user_id', 'version'],
     );
+  });
+
+  it('con clickKey, la stessa coppia consegna + annuncio conta una volta sola anche a distanza di giorni', () => {
+    const attrs = { category: 'Informatica', canton: 'TI', company_key: 'acme', sector: 'tech' };
+    const once = applyAffinityClick(null, attrs, new Date('2026-10-01T10:00:00Z'), { clickKey: 'abc123' });
+    const again = applyAffinityClick(once, attrs, new Date('2026-10-04T10:00:00Z'), { clickKey: 'abc123' });
+    expect(again).toBe(once);
+    const other = applyAffinityClick(once, attrs, new Date('2026-10-04T10:00:00Z'), { clickKey: 'def456' });
+    expect(other.clicks).toBe(2);
+    expect(other.applied_clicks.map((entry: { k: string }) => entry.k)).toEqual(['abc123', 'def456']);
+    // Le impronte piu' vecchie di 90 giorni escono dal profilo.
+    const later = applyAffinityClick(other, attrs, new Date('2027-01-15T10:00:00Z'), { clickKey: 'ghi789' });
+    expect(later.applied_clicks.map((entry: { k: string }) => entry.k)).toEqual(['ghi789']);
   });
 
   it('decade il peso esistente con emivita di 45 giorni', () => {
