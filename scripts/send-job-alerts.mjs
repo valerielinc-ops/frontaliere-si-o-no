@@ -1489,6 +1489,7 @@ export async function mailerooMetaOnSent(item, sendResult) {
 export async function persistJobAlertDelivery(item, sendResult) {
   const email = item.recipient?.email?.toLowerCase().trim();
   const alertId = String(item.meta?.alertId || '').trim();
+  const consentProof = item.meta?.consentProof || null;
   if (!email) return;
   try {
     const db = await getFirestoreAdmin();
@@ -1523,10 +1524,10 @@ export async function persistJobAlertDelivery(item, sendResult) {
       // send. Keep the basis and timestamp so the exporter can prove consent
       // existed at send time without trusting a later profile mutation.
       outcome_contract_version: 1,
-      consent_checked: item.meta?.consentProof?.allowed === true,
-      consent_allowed: item.meta?.consentProof?.allowed === true,
-      consent_basis: item.meta?.consentProof?.basis || null,
-      consent_checked_at: item.meta?.consentProof?.checkedAt || null,
+      consent_checked: consentProof ? true : null,
+      consent_allowed: consentProof ? consentProof.allowed === true : null,
+      consent_basis: consentProof?.basis || null,
+      consent_checked_at: consentProof?.checkedAt || null,
       is_operator_verification: !!item.meta?.isOperatorVerification,
       sent_at: sentAt,
     }, { merge: true });

@@ -419,7 +419,7 @@ describe('read-only loop outcome exporters', () => {
     });
   });
 
-  it('keeps a delivery without send-time consent out of the consent and attribution ledgers', () => {
+  it('records a checked consent denial without conflating the deduplication ledger', () => {
     const output = buildL4OutcomeLedger({
       now: NOW,
       alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
@@ -428,7 +428,7 @@ describe('read-only loop outcome exporters', () => {
       deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
         campaign_id: 'a1',
         sent_at: '2026-09-12T09:00:00.000Z',
-        consent_checked: false,
+        consent_checked: true,
         consent_allowed: false,
         consent_basis: 'no-subscription-basis',
         consent_checked_at: '2026-09-12T08:59:00.000Z',
@@ -448,9 +448,40 @@ describe('read-only loop outcome exporters', () => {
       consentViolations: 1,
       export: {
         consentChecked: false,
-        deduplicationChecked: false,
+        deduplicationChecked: true,
         unattributedDeliveries: 1,
         unattributedDeliveryReasons: { consentNotAllowed: 1 },
+      },
+    });
+  });
+
+  it('classifies absent consent proof as missing while keeping a valid deduplication key checked', () => {
+    const output = buildL4OutcomeLedger({
+      now: NOW,
+      alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+      jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+      newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+      deliveryRows: [row('job_alert_subscribers/user@example.test/campaign_deliveries/d1', {
+        campaign_id: 'a1',
+        sent_at: '2026-09-12T09:00:00.000Z',
+        consent_checked: false,
+        consent_allowed: false,
+        outcome_contract_version: 1,
+        delivered_at: '2026-09-12T09:01:00.000Z',
+      })],
+      predicates: {
+        evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }),
+      },
+    });
+    expect(output).toMatchObject({
+      consentViolations: 0,
+      duplicateSends: 0,
+      export: {
+        consentChecked: false,
+        deduplicationChecked: true,
+        unattributedDeliveries: 1,
+        unattributedDeliveryReasons: { missingConsentEvidence: 1 },
+        noConsentedAlertCauses: { missingConsentEvidence: 1 },
       },
     });
   });
@@ -845,7 +876,7 @@ describe('read-only loop outcome exporters', () => {
       expect(output.deliveredAlerts).toBe(0);
       expect(output.export).toMatchObject({
         consentChecked: false,
-        deduplicationChecked: false,
+        deduplicationChecked: true,
         unattributedDeliveries: 1,
         unattributedDeliveryReasons: { noConsentedAlert: 1 },
         unattributedDeliveryShapes: { [String(foreignId.length)]: 1 },
@@ -863,7 +894,7 @@ describe('read-only loop outcome exporters', () => {
           row(`${USER}/campaign_deliveries/d1`, {
             campaign_id: 'refused',
             sent_at: '2026-09-12T09:00:00.000Z',
-            consent_checked: false,
+            consent_checked: true,
             consent_allowed: false,
             consent_basis: 'no-consent',
             consent_checked_at: '2026-09-12T08:59:00.000Z',
@@ -875,7 +906,7 @@ describe('read-only loop outcome exporters', () => {
       });
       expect(output.export).toMatchObject({
         consentChecked: false,
-        deduplicationChecked: false,
+        deduplicationChecked: true,
         unattributedDeliveries: 2,
         unattributedDeliveryReasons: { noConsentedAlert: 1, consentNotAllowed: 1 },
         noConsentedAlertCauses: { alertRowMissing: 1, consentNotAllowed: 1 },

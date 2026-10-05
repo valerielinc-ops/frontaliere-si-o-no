@@ -1011,7 +1011,10 @@ function sendDay(ms) {
 function readDeliveryConsentEvidence(data, sentAt) {
   const checked = first(data, ['consent_checked', 'consentChecked']);
   const allowed = first(data, ['consent_allowed', 'consentAllowed']);
-  if (checked === false || allowed === false) return { status: 'refused' };
+  // `false/false` was the legacy shape written when the sender had no
+  // consentProof at all. Only a recorded check that explicitly denied consent
+  // is a refusal; everything else without a valid allow proof is missing.
+  if (checked === true && allowed === false) return { status: 'refused' };
   const checkedAt = toMillis(first(data, ['consent_checked_at', 'consentCheckedAt']));
   const version = Number(first(data, ['outcome_contract_version', 'outcomeContractVersion']));
   const basis = first(data, ['consent_basis', 'consentBasis']);
@@ -1120,6 +1123,7 @@ export function buildL4OutcomeLedger({
   const opened = new Set();
   const clicked = new Set();
   const dedupGroups = new Map();
+  let deduplicationLedgerComplete = true;
   let unattributedDeliveries = 0;
   const unattributedDeliveryReasons = {
     missingAlertId: 0,
@@ -1176,6 +1180,17 @@ export function buildL4OutcomeLedger({
     const key = buildAlertKey(email, alertId);
     const consentEvidence = sentAt == null ? { status: 'missing' } : readDeliveryConsentEvidence(data, sentAt);
     const knownAlert = knownAlertKeys.has(key);
+
+    // Deduplication is a delivery-ledger invariant, independent of whether
+    // the same row can be attributed to a consented alert. Record every
+    // keyable delivery before the consent gate below.
+    if (!alertId || sentAt == null) {
+      deduplicationLedgerComplete = false;
+    } else {
+      const group = `${email}\u0000${alertId}\u0000${sendDay(sentAt)}`;
+      dedupGroups.set(group, (dedupGroups.get(group) || 0) + 1);
+    }
+
     if (!alertId || sentAt == null || !knownAlert || consentEvidence.status !== 'valid') {
       unattributedDeliveries += 1;
       // Shape only (id length), never the id itself: enough to tell an alert
@@ -1198,9 +1213,6 @@ export function buildL4OutcomeLedger({
     }
     const deliveryId = row.name || `${email}/${child.childId}`;
     attributed.push({ deliveryId, data, email, alertId, sentAt, provider, messageKey, consentEvidence });
-
-    const group = `${email}\u0000${alertId}\u0000${sendDay(sentAt)}`;
-    dedupGroups.set(group, (dedupGroups.get(group) || 0) + 1);
   }
 
   // Events joined by message id belong to their delivery row (attributed or
@@ -1249,7 +1261,7 @@ export function buildL4OutcomeLedger({
   const measuredReturningUsers = ga4ReturnUsers7d == null || returnCohort.status !== 'ready'
     ? null
     : nonNegativeCount(ga4ReturnUsers7d, 'returningUsers7d');
-  const deduplicationChecked = unattributedDeliveries === 0 && duplicateSends === 0;
+  const deduplicationChecked = deduplicationLedgerComplete && duplicateSends === 0;
   const consentEvidenceComplete = consentChecked && unattributedDeliveries === 0;
   const returnMeasurement = measuredReturningUsers == null
     ? {

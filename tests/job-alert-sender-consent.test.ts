@@ -135,9 +135,10 @@ describe('job-alert sender base-relationship and suppression boundary', () => {
 
   it('persists send-time consent proof with every job-alert delivery record', () => {
     const source = read('scripts/send-job-alerts.mjs');
-    expect(source).toMatch(/consent_checked:\s*item\.meta\?\.consentProof\?\.allowed === true/);
-    expect(source).toMatch(/consent_allowed:\s*item\.meta\?\.consentProof\?\.allowed === true/);
-    expect(source).toMatch(/consent_checked_at:\s*item\.meta\?\.consentProof\?\.checkedAt/);
+    expect(source).toMatch(/const consentProof = item\.meta\?\.consentProof \|\| null/);
+    expect(source).toMatch(/consent_checked:\s*consentProof \? true : null/);
+    expect(source).toMatch(/consent_allowed:\s*consentProof \? consentProof\.allowed === true : null/);
+    expect(source).toMatch(/consent_checked_at:\s*consentProof\?\.checkedAt/);
     expect(source).toMatch(/outcome_contract_version:\s*1/);
     expect(source).toMatch(/consentProof:\s*e\.consentProof/);
   });
