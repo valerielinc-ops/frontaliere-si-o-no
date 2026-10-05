@@ -12588,6 +12588,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.raduno-auto-moto-cocquio.title': 'Cocquio Trevisago: unauthorized gathering on via Appennini',
     'blog.article.raduno-auto-moto-cocquio.excerpt': 'Sunday, October 4, around twenty motorcycles and three cars took over via Appennini for speed races and wheelies. Carabinieri officers from Besozzo intervened.',
     'blog.article.raduno-auto-moto-cocquio.imageAlt': 'Carabinieri intervention in via Appennini, Cocquio Trevisago',
+    'blog.article.camion-avaria-san-nicolao.title': 'Truck breakdown in the San Nicolao tunnel',
+    'blog.article.camion-avaria-san-nicolao.excerpt': 'A truck breakdown in the San Nicolao tunnel is causing disruptions on the A2: the left lane is passable southbound and delays of up to 20 minutes northbound.',
+    'blog.article.camion-avaria-san-nicolao.imageAlt': 'Truck breakdown in the San Nicolao tunnel causing disruption on the A2',
 };
 
 export default blogMetaEn;
