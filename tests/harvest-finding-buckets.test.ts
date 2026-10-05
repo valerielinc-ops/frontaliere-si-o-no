@@ -37,6 +37,7 @@ import {
   tallyFindings,
   isGenuinePrBodyContractViolation,
   isGenuineCanonicalSitemapFinding,
+  findingLocationPaths,
 } from '../scripts/ci/harvest-agent-lessons.mjs';
 
 // Verbatim dalle review claude delle PR citate in #901.
@@ -439,6 +440,64 @@ describe('bucketFinding — adsense-thin-content richiede entrambi i segnali (#1
     }));
     const { counts } = tallyFindings(prs);
     expect(counts['adsense-thin-content']).toBe(2);
+  });
+});
+
+// Verbatim (troncate dopo il token del bucket) dalle review degli esempi della
+// riapertura di 9108 del 2026-10-04: 11 finding dopo il cutoff, di cui sei sono
+// parser crawler che LEGGONO il JSON-LD della sorgente o riempiono i campi del
+// JobPosting, e gli altri difetti degli emettitori del sito. Un solo bucket le
+// sommava, quindi nessun gate sugli emettitori poteva farlo scendere.
+const STRUCTURED_DATA_PARSER_FINDINGS: Array<[string, string]> = [
+  ['#11406', "scripts/lib/oerlikon-job-parser.mjs:L28: 🟡 Nit The module comment still says the date comes from the search API, while the new detail path intentionally accepts publication dates only from JSON-LD/microdata; update the"],
+  ['#11303', "scripts/lib/cnp-job-parser.mjs:L39; scripts/lib/jobup-ch-feed-common.mjs:L592; scripts/lib/fachkraft-job-parser.mjs:L819; scripts/lib/fondation-soins-lausanne-job-parser.mjs:L316: 🔴 Important: [funnel] I nuovi call site di `sourcePostingDateFields(...)` emettono `datePosted`/`postedDate` vuoti con `postingDateSource: 'unknown'` per date sorgente mancanti o future; `resolveReportedPostingDate` restituisce quindi `null`, e i consumer JSON-LD JobPosting esistenti"],
+  ['#11297', "scripts/update-fust-jobs.mjs:L273, scripts/lib/sophia-genetics-job-parser.mjs:L303, scripts/update-guess-jobs.mjs:L237, scripts/update-groupe-mutuel-jobs.mjs:L513, scripts/update-efg-jobs.mjs:L542, scripts/update-efg-jobs.mjs:L876: 🔴 Important: [correctness] Each `||` chain selects a non-empty but invalid primary source value before `sourcePostingDateFields`, so a valid fallback publication date is discarded and the emitted JobPosting gets `datePosted`/`postedDate`"],
+  ['#11281', "- scripts/update-agroscope-jobs.mjs:L223, scripts/update-confederazione-jobs.mjs:L536, scripts/update-bracco-jobs.mjs:L473, scripts/update-capri-holdings-jobs.mjs:L673: 🔴 Important: [funnel] Passing `startDate` directly to `sourcePostingDateFields` records a start/employment or posting-window date as verified publication, contradicting the PR contract and producing incorrect JobPosting `datePosted`. Route"],
+  ['#11206', "- scripts/lib/holmes-place-job-parser.mjs:L405: 🔴 Important: [funnel] I fallback generici `article` e `main` non sono container vacancy-scoped: quando i selettori specifici non fanno match, una pagina careers/redirect con oltre 50 parole di chrome passa `meetsSourceBodyFloor` e viene pubblicata come descrizione della vacancy. Limita l'estrazione a un container vacancy-scoped rimuovendo i fallback generici. Accettazione: input HTML senza `JobPosting`, con testo vacancy"],
+  ['#11126', "scripts/lib/croix-rouge-fribourgeoise-job-parser.mjs:L369: 🔴 Important: [funnel] `extractJobupDescription` returns any non-empty JSON-LD `description` and discards"],
+];
+
+const STRUCTURED_DATA_EMITTER_FINDINGS: Array<[string, string]> = [
+  ['#11328', "build-plugins/staticPagesPlugin.ts:L2986: 🔴 Important: [funnel] The localized static methodology branch returns `italianSeo.sd`, so `/en/methodology/`, `/de/methodik/`, and `/fr/methodologie/` keep the Italian AboutPage JSON-LD (`name`, `description`"],
+  ['#10992', "build-plugins/staticPagesPlugin.ts:L3010 e build-plugins/staticPagesPlugin.ts:L3043: 🔴 Important: [funnel] i due rami SSG per hub e leaf del glossario localizzano `title`/`desc` ma continuano a restituire `sd: italianSeo.sd`, quindi il JSON-LD delle route tradotte"],
+  ['#11021', "services/seo/imageObjectLd.ts:L158-L160; services/seo/schema-normalizers.ts:L102-L108: 🔴 Important: [correctness] `imageObjectLd()` and `normalizeSchemaObject()` only rewrite a scalar `@type`; a valid JSON-LD value such as `['NewsMediaOrganization'"],
+  ['#10753', "build-plugins/jobsSeoPagesPlugin.ts:L13835: 🔴 Important: [funnel] The expired-job emitter now replaces the real expired posting’s complete JobPosting JSON-LD with WebPage"],
+];
+
+describe('bucketFinding — structured-data separa emettitori del sito e parser crawler per path (9108)', () => {
+  for (const [pr, line] of STRUCTURED_DATA_PARSER_FINDINGS) {
+    it(`${pr}: un finding localizzato solo su parser crawler va in structured-data-parser`, () => {
+      expect(bucketFinding(line)).toBe('structured-data-parser');
+    });
+  }
+
+  for (const [pr, line] of STRUCTURED_DATA_EMITTER_FINDINGS) {
+    it(`${pr}: un finding su un emettitore del sito resta structured-data`, () => {
+      expect(bucketFinding(line)).toBe('structured-data');
+    });
+  }
+
+  it('un path misto (parser + emettitore) o nessun path resta structured-data', () => {
+    expect(bucketFinding('scripts/lib/cnp-job-parser.mjs:L39, build-plugins/jobsSeoPagesPlugin.ts:L10: 🔴 Important: il JobPosting perde `baseSalary`.')).toBe('structured-data');
+    expect(bucketFinding('🔴 Important: il JSON-LD emette `baseSalary` senza valuta.')).toBe('structured-data');
+  });
+
+  it('un path citato nella prosa non è la posizione del finding', () => {
+    const line = 'build-plugins/staticPagesPlugin.ts:L3043: 🔴 Important: il JSON-LD diverge da quello che legge scripts/lib/cnp-job-parser.mjs.';
+    expect(findingLocationPaths(line)).toEqual(['build-plugins/staticPagesPlugin.ts']);
+    expect(bucketFinding(line)).toBe('structured-data');
+  });
+
+  it('la tally conta le due classi separate, senza perdere un finding', () => {
+    const all = [...STRUCTURED_DATA_PARSER_FINDINGS, ...STRUCTURED_DATA_EMITTER_FINDINGS];
+    const prs = all.map(([number, line]) => ({
+      number: Number(number.slice(1)),
+      mergedAt: '2026-10-04T00:00:00Z',
+      reviews: [{ author: { login: 'claude' }, body: `## Findings\n${line}\n` }],
+    }));
+    const { counts } = tallyFindings(prs);
+    expect(counts['structured-data-parser']).toBe(STRUCTURED_DATA_PARSER_FINDINGS.length);
+    expect(counts['structured-data']).toBe(STRUCTURED_DATA_EMITTER_FINDINGS.length);
   });
 });
 
