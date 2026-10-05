@@ -394,6 +394,16 @@ describe('sync-articles-sitemaps.yml: a skip stops the whole run, not just one s
   const byName = (fragment: string) =>
     steps.jobs.sync.steps.find((s) => s.name?.includes(fragment));
 
+  it('bounds the generated blog registry immediately after every corpus mirror', () => {
+    const script = fs.readFileSync(CORPUS_SCRIPT, 'utf-8');
+    expect(script).toContain(
+      "import { chunkBlogArticleRegistry } from './lib/blog-article-registry-chunker.mjs';",
+    );
+    expect(script).toMatch(
+      /mirrorTree\(src, DEST\);[\s\S]{0,250}const registryChunks = splitBlogArticleRegistry\(\);/,
+    );
+  });
+
   it('does not pull the published surface once the corpus pull has given up', () => {
     expect(byName('Pull published sitemaps')?.if).toContain(
       "steps.pull-corpus.outputs.skipped != 'true'",
