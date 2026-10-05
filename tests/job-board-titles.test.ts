@@ -290,6 +290,57 @@ describe('buildEmployerHubTitle — employer hub', () => {
       expect(t).toContain(co);
     }
   });
+
+  it('keeps a real canton/city discriminator for scoped employer hubs', () => {
+    const longCrawlerName = 'KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)';
+    const bern = buildEmployerHubTitle({
+      locale: 'it',
+      companyDisplay: longCrawlerName,
+      location: 'Berna',
+      count: 12,
+      year: YEAR,
+    });
+    const zurich = buildEmployerHubTitle({
+      locale: 'it',
+      companyDisplay: longCrawlerName,
+      location: 'Zurigo',
+      count: 12,
+      year: YEAR,
+    });
+
+    expect(bern).not.toBe(zurich);
+    expect(bern).toContain('Berna');
+    expect(zurich).toContain('Zurigo');
+    expect(bern).toContain('KSML');
+    expect(zurich).toContain('KSML');
+    expect(isValidTitleLength(bern), bern).toBe(true);
+    expect(isValidTitleLength(zurich), zurich).toBe(true);
+  });
+
+  it('preserves identity when long employer names share a prefix', () => {
+    const sharedPrefix = 'International Research and Development Corporation ';
+    const sharedSuffix = ' Global Holdings';
+    const alpha = buildEmployerHubTitle({
+      locale: 'it',
+      companyDisplay: `${sharedPrefix}Alpha${sharedSuffix}`,
+      location: 'Berna',
+      count: 12,
+      year: YEAR,
+    });
+    const beta = buildEmployerHubTitle({
+      locale: 'it',
+      companyDisplay: `${sharedPrefix}Beta${sharedSuffix}`,
+      location: 'Berna',
+      count: 12,
+      year: YEAR,
+    });
+
+    expect(alpha).not.toBe(beta);
+    expect(alpha).toContain('International');
+    expect(beta).toContain('International');
+    expect(isValidTitleLength(alpha), alpha).toBe(true);
+    expect(isValidTitleLength(beta), beta).toBe(true);
+  });
 });
 
 describe('buildRecencyHubTitle — recency hub (last N days / since yesterday)', () => {

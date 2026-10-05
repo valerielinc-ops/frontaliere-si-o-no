@@ -44,6 +44,11 @@
  * stage rule comes down: at once when it is already in the page, otherwise
  * when Google renders it (the scroll lock it then takes is put back) or at
  * the appear timeout. Other Funding Choices messages are never kept hidden.
+ *
+ * That parked Offerwall is the one a later "Candidati" click on the same page
+ * reuses (`showParkedOfferwall`): the gate is `released` by then, and Funding
+ * Choices did not render another one after a reload (GA4 05-10: 5 resumes of
+ * 5 after an `already_released` reload ended in `appear_timeout`).
  */
 
 import { isJobBoardSectionPathname } from '../scripts/lib/jobBoardSections.mjs';
@@ -69,6 +74,20 @@ declare global {
  * can still come.
  */
 export const OFFERWALL_APPEAR_TIMEOUT_MS = 10_000;
+/**
+ * Appear timeout of a release staged behind the paid choice (owner decision
+ * 2026-10-05). The visitor has been reading the choice meanwhile, so at the
+ * free click most of it has passed: an Offerwall Google did not render in 6 s
+ * (p95 of `shown_ms` 3.8 s mobile, 6.4 s desktop, 29-09 → 03-10) no longer
+ * keeps the visitor waiting up to 10 s before the employer opens.
+ */
+export const OFFERWALL_STAGED_APPEAR_TIMEOUT_MS = 6000;
+/**
+ * After a staged release's choice closed unrevealed, how long a late render
+ * is still watched for and hidden. Longer than any appear timeout: an
+ * Offerwall rendered after the stage came down would show uninvited.
+ */
+export const OFFERWALL_DISCARD_WATCH_MS = 30_000;
 /**
  * Nothing on screen yet this long after the release: reported once through
  * `onSlow`, so a caller can prepare a fallback before the appear timeout.
@@ -277,10 +296,94 @@ export function releaseHeldOfferwall(options: ReleaseHeldOfferwallOptions = {}):
     return Promise.resolve({ outcome: 'not_shown', reason: 'release_refused' });
   }
 
-  const releasedAt = Date.now();
+  return watchOfferwall({
+    win,
+    doc,
+    options,
+    before,
+    presentBefore,
+    entitlementBefore,
+    releasedAt: Date.now(),
+    staged: Boolean(options.staged),
+    appearTimeoutMs,
+    slowMs,
+    stallReportMs,
+    entitlementGraceMs,
+  });
+}
+
+/** A staged Offerwall whose choice closed before the reveal, kept hidden alone. */
+export function parkedOfferwallRoot(doc: Document = document): HTMLElement | null {
+  return fcRoots(doc).find((el) => el.hasAttribute(OFFERWALL_DISCARDED_ATTR)) ?? null;
+}
+
+/**
+ * Put the parked Offerwall (a staged release whose choice closed unrevealed)
+ * back on screen and follow it like a fresh release: same callbacks, same
+ * outcomes. It is complete already, so it has only OFFERWALL_REVEAL_GRACE_MS
+ * to show. `not_held` when there is none.
+ */
+export function showParkedOfferwall(options: ReleaseHeldOfferwallOptions = {}): Promise<OfferwallReleaseResult> {
+  const win = options.win ?? window;
+  const doc = win.document;
+  const root = parkedOfferwallRoot(doc);
+  if (!root) return Promise.resolve({ outcome: 'not_shown', reason: 'not_held' });
+  if (options.signal?.aborted) return Promise.resolve({ outcome: 'not_shown', reason: 'aborted' });
+  const before = new Set(visibleRoots(doc));
+  const presentBefore = new Set(fcRoots(doc).filter((el) => el !== root));
+  const entitlementBefore = readCookie(doc, FC_OFFERWALL_ENTITLEMENT_COOKIE);
+  root.removeAttribute(OFFERWALL_DISCARDED_ATTR);
+  return watchOfferwall({
+    win,
+    doc,
+    options,
+    before,
+    presentBefore,
+    entitlementBefore,
+    releasedAt: Date.now(),
+    staged: false,
+    appearTimeoutMs: options.appearTimeoutMs ?? OFFERWALL_REVEAL_GRACE_MS,
+    slowMs: options.slowMs ?? OFFERWALL_SLOW_MS,
+    stallReportMs: options.stallReportMs ?? OFFERWALL_STALL_REPORT_MS,
+    entitlementGraceMs: options.entitlementGraceMs ?? OFFERWALL_ENTITLEMENT_GRACE_MS,
+  });
+}
+
+interface OfferwallWatch {
+  win: Window;
+  doc: Document;
+  options: ReleaseHeldOfferwallOptions;
+  /** Roots on screen before the release, never taken for the Offerwall. */
+  before: Set<HTMLElement>;
+  /** Roots in the page before the release, never taken for a staged one. */
+  presentBefore: Set<HTMLElement>;
+  entitlementBefore: string | null;
+  releasedAt: number;
+  staged: boolean;
+  appearTimeoutMs: number;
+  slowMs: number;
+  stallReportMs: number;
+  entitlementGraceMs: number;
+}
+
+/** Follow a released Offerwall until its outcome (see releaseHeldOfferwall). */
+function watchOfferwall({
+  win,
+  doc,
+  options,
+  before,
+  presentBefore,
+  entitlementBefore,
+  releasedAt,
+  staged,
+  appearTimeoutMs,
+  slowMs,
+  stallReportMs,
+  entitlementGraceMs,
+}: OfferwallWatch): Promise<OfferwallReleaseResult> {
   // Origin of every reported time and of the slow/stall clocks: the release,
   // or the reveal of a staged Offerwall.
-  let clockAt: number | null = options.staged ? null : releasedAt;
+  let clockAt: number | null = staged ? null : releasedAt;
   return new Promise((resolve) => {
     let shown: { el: HTMLElement; root: string; shownMs: number } | null = null;
     let closedMs: number | null = null;
@@ -304,7 +407,7 @@ export function releaseHeldOfferwall(options: ReleaseHeldOfferwallOptions = {}):
       // cleanup has run, on the first tick).
       let bodyOverflow: string | null = null;
       let restoreTicks = 0;
-      const deadline = releasedAt + appearTimeoutMs;
+      const deadline = releasedAt + Math.max(appearTimeoutMs, OFFERWALL_DISCARD_WATCH_MS);
       const sweep = win.setInterval(() => {
         if (bodyOverflow === null) bodyOverflow = doc.body?.style.overflow ?? '';
         if (restoreTicks > 0) {

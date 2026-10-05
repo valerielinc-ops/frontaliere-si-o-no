@@ -183,6 +183,9 @@ describe('pendingJobAlert', () => {
 
     const followButton = readFileSync(resolve(root, 'components/community/CompanyFollowButton.tsx'), 'utf8');
     expect(followButton).toContain('const parked = savePendingCompanyFollow({');
-    expect(followButton).toMatch(/if \(!parked\) \{\s*setStatus\('error'\);/);
+    // The follow is also recorded server-side (functions/src/companyFollowIntents.js);
+    // the flow stops only when NEITHER the browser nor the server holds it.
+    expect(followButton).toContain('const recorded = await recordIntent({');
+    expect(followButton).toMatch(/if \(!parked && !recorded\) \{\s*setStatus\('error'\);/);
   });
 });

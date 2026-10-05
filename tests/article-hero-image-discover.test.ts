@@ -80,7 +80,7 @@ describe('article NewsArticle JSON-LD carries image dimensions (#5001)', () => {
     // used the helper; the NewsArticle branch — every real article — did not.
     expect(SOURCE).not.toMatch(/^\s*image: imgU,\s*$/m);
     expect(SOURCE).toMatch(
-      /'@type': 'NewsArticle',[\s\S]{0,900}?image: imageObjectLd\(\{[\s\S]{0,300}?url: imgU,/,
+      /'@type': en\.datePub \? 'NewsArticle' : 'WebPage',[\s\S]{0,900}?image: imageObjectLd\(\{[\s\S]{0,300}?url: imgU,/,
     );
   });
 

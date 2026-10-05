@@ -364,6 +364,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // Parse article categories from blog-articles-data.ts for FAQ schema filtering
  const EVERGREEN_CATEGORIES = new Set(['fiscale', 'pratico', 'pensione']);
  const articleCategoryById: Record<string, string> = {};
+ const articlePublishedAtById: Record<string, string> = {};
  const articleUpdatedAtById: Record<string, string> = {};
  // Per-article author (E-E-A-T): was hardcoded to a single Person for every
  // article (JSON-LD + visible byline) — real values live alongside each
@@ -374,6 +375,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const articleDataSrc = fs.readFileSync(np.resolve(rootDir, SECTION.registry), 'utf-8');
  for (const article of readArticleRegistryMetadata(articleDataSrc)) {
  if (article.category !== undefined) articleCategoryById[article.id] = article.category;
+ if (article.date !== undefined) articlePublishedAtById[article.id] = article.date;
  if (article.updatedAt !== undefined) articleUpdatedAtById[article.id] = article.updatedAt;
  if (article.authorSlug !== undefined) articleAuthorSlugById[article.id] = article.authorSlug;
  if (article.authorName !== undefined) articleAuthorNameById[article.id] = article.authorName;
@@ -604,7 +606,13 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // Measured here, next to the resolution that produced the path, so the
  // size and the URL can never be computed from two different candidates.
  const imSize = resolveHeroSize(im);
- const datePub = b.match(/"datePublished":\s*"([^"]+)"/)?.[1] ?? '';
+ // The SEO entry is the preferred source when it carries an explicit editorial
+ // date. Older entries may omit that literal even though the article registry
+ // has one; use the registry as the fallback, and keep `''` when both sources
+ // say the publication date is unknown.
+ const datePub = b.match(/"datePublished":\s*"([^"]+)"/)?.[1]
+ || articlePublishedAtById[articleId]
+ || '';
  // dateModified: prefer updatedAt from blog-articles-data.ts, then sitemap <lastmod>,
  // then the SEO metadata literal (if any). BUILD_DATE_ISO in seo-blog.ts is a variable
  // reference that the regex can't capture, so we need these external sources.
@@ -1383,7 +1391,9 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // NewsArticle — Google News eligibility (Publisher Center answer/9607104)
  ldObj = {
  '@context': 'https://schema.org',
- '@type': 'NewsArticle',
+ // A corpus entry without an editorial publication date is an evergreen
+ // document. Keep it as WebPage until the registry supplies a real date.
+ '@type': en.datePub ? 'NewsArticle' : 'WebPage',
  '@id': `${full}#article`,
  headline: localizedTitle,
  description: localizedDesc,

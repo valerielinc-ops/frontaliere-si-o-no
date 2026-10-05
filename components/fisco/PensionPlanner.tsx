@@ -4,6 +4,7 @@ import { Analytics } from '@/services/analytics';
 import { TrendingUp, PiggyBank, Calendar, Info, AlertCircle, CheckCircle2, Users, Home, Banknote, Calculator, Clock, Globe, Percent, Shield, Share2, Check } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import DataFreshness from '@/components/shared/DataFreshness';
+import { AVS_FULL_CONTRIBUTION_YEARS, AVS_MAX_MONTHLY_CHF, LPP_MIN_CONVERSION_RATE } from '@/services/pensionParameters';
 import { lazyRetry } from '@/services/lazyRetry';
 const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
@@ -110,14 +111,15 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
  lppTotal = lppTotal * (1 + inputs.expectedReturnRate / 100) + contribution;
  }
 
- // LPP monthly pension (conversion rate ~6.8% for 65 years old)
- const conversionRate = 0.068;
+ // LPP monthly pension (minimum statutory conversion rate, art. 14 LPP)
+ const conversionRate = LPP_MIN_CONVERSION_RATE;
  const lppMonthlyPension = (lppTotal * conversionRate) / 12;
 
- // AVS calculation (simplified: full pension ~2450 CHF, proportional to years)
+ // AVS calculation (simplified: maximum full pension, proportional to years).
+ // Figures come from the official dataset (services/pensionParameters.ts).
  const totalWorkYears = inputs.yearsWorkedCH + inputs.plannedYearsCH;
- const requiredYears = 44; // Full AVS requires 44 years
- const avsPensionCHF = Math.min((totalWorkYears / requiredYears) * 2450, 2450);
+ const requiredYears = AVS_FULL_CONTRIBUTION_YEARS;
+ const avsPensionCHF = Math.min((totalWorkYears / requiredYears) * AVS_MAX_MONTHLY_CHF, AVS_MAX_MONTHLY_CHF);
 
  // Italian pension (simplified: ~70% of last salary, proportional to years)
  const italianYears = inputs.yearsWorkedIT;
@@ -491,7 +493,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
  </span>
  </div>
  <div className="mt-2 text-sm text-muted">
- <InfoTooltip text="Tasso conversione 6.8% - Capitale può essere prelevato in parte o totalmente" />
+ <InfoTooltip text={`Tasso conversione ${(LPP_MIN_CONVERSION_RATE * 100).toLocaleString('it-IT')}% - Capitale può essere prelevato in parte o totalmente`} />
  {t('pension.conversionRate')}
  </div>
  </div>
@@ -520,7 +522,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
  <div className="mt-2 w-full bg-surface-raised rounded-full h-2 overflow-hidden">
  <div 
  className="bg-danger-strong h-full rounded-full transition-transform duration-500 origin-left [transform:var(--bar-sx)]"
- style={{ ['--bar-sx']: `scaleX(${Math.min(result.yearsOfContributions.switzerland / 44, 1)})` } as React.CSSProperties}
+ style={{ ['--bar-sx']: `scaleX(${Math.min(result.yearsOfContributions.switzerland / AVS_FULL_CONTRIBUTION_YEARS, 1)})` } as React.CSSProperties}
  />
  </div>
  </div>

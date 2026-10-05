@@ -14,10 +14,10 @@ export const GPT_LOADER_FILENAME = 'gpt-loader.js';
 
 /** Stable, cacheable Funding Choices carrier for job-board pages. */
 export const JOB_BOARD_FC_LOADER_FILENAME = 'job-board-fc-loader.js';
-export const JOB_BOARD_FC_LOADER_TAG = `<script src="/assets/${JOB_BOARD_FC_LOADER_FILENAME}"></script>`;
+export const JOB_BOARD_FC_LOADER_TAG = `<script defer src="/assets/${JOB_BOARD_FC_LOADER_FILENAME}"></script>`;
 
-/** Synchronous bootstrap: it queues GPT before Funding Choices evaluates Offerwall. */
-export const GPT_BOOTSTRAP_TAG = `<script src="/assets/${GPT_LOADER_FILENAME}"></script>`;
+/** Deferred bootstrap: it queues GPT before DOMContentLoaded without blocking parsing. */
+export const GPT_BOOTSTRAP_TAG = `<script defer src="/assets/${GPT_LOADER_FILENAME}"></script>`;
 
 /**
  * Whether a URL belongs to a job-board section (every canton, the Switzerland
@@ -35,11 +35,11 @@ export function isJobBoardPageUrl(value: string): boolean {
   return isJobBoardSectionPathname(pathname);
 }
 
-/** The two parse-time tags required by every statically emitted job-board page. */
+/** The two ordered, deferred tags required by every statically emitted job-board page. */
 export const JOB_BOARD_HEAD_TAGS = `\n ${GPT_BOOTSTRAP_TAG}\n ${JOB_BOARD_FC_LOADER_TAG}`;
 
 /**
- * Parse-time head contract for every statically emitted job-board page.
+ * Head contract for every statically emitted job-board page.
  *
  * Keep the GPT bootstrap and Funding Choices loader together: both are
  * required by the rewarded "Candidati" flow, and emitting only one of them
@@ -64,12 +64,11 @@ const consentGranted = JSON.stringify(ADS_CONSENT_GRANTED);
  * can detect GPT on first entry. The React slot components remain responsible
  * for lazy slot display.
  *
- * It starts with FC_JOBBOARD_OFFERWALL_GATE_JS. This file is synchronous and
- * can inject gpt.js during parsing, before the deferred adsense-loader.js
- * (the gate's usual carrier on these pages) runs; with AdSense covering the
- * whole site a Funding Choices instance reached through GPT must still find
- * the gate installed, or the Offerwall would show on entry. The gate is
- * idempotent: the first copy on the page installs it.
+ * It starts with FC_JOBBOARD_OFFERWALL_GATE_JS. The external carrier is
+ * deferred, so the parser can continue while the page is being built; once
+ * executed it still installs the gate before DOMContentLoaded and before any
+ * user can click the rewarded flow. The gate is idempotent: the first copy on
+ * the page installs it.
  */
 export const GPT_LOADER_CONTENT = `${FC_JOBBOARD_OFFERWALL_GATE_JS}(function(){
   var SCRIPT_SRC=${scriptSrc};

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-05T11:45:03.719Z",
+  "sources": [
+    {
+      "id": "casciago-municipality",
+      "pharmacyId": "it-msal-3907",
+      "kind": "html",
+      "url": "https://comune.casciago.va.it/vivere-il-comune/luoghi/farmacia-internazionale-di-casciago/",
+      "label": "Comune di Casciago",
+      "sourceType": "official",
+      "fields": ["phone", "openingHours", "services", "contactEmail"],
+      "status": "active"
+    }
+  ],
+  "providers": {
+    "googlePlaces": {
+      "enabled": true,
+      "pharmacyIds": ["it-msal-3907"],
+      "maxAgeDays": 30
+    },
+    "facebook": {
+      "enabled": false,
+      "pharmacyIds": [],
+      "maxAgeDays": 30
+    }
+  }
+}

@@ -64,7 +64,7 @@ import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { sanitizeUrlLikeText } from './lib/sanitizeTrackedDiagnostics.mjs';
-import { classifyCfErrorUrl, SURFACES } from './lib/cf-error-surface.mjs';
+import { classifyCfErrorUrl, isWebhookTunnelSurface, SURFACES } from './lib/cf-error-surface.mjs';
 import { syncErrorIssues } from './lib/error-issue-sync.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
@@ -162,18 +162,16 @@ export function isStaleBurst(shape, maxAgeHours = MAX_AGE_HOURS) {
  */
 export const TUNNEL_OFFLINE_STATUS = 530;
 
-/** Le sole superfici su cui un 530 significa «host del tunnel webhook spento». */
-const WEBHOOK_TUNNEL_SURFACES = new Set(['github-webhook-default', 'github-webhook-nanako']);
-
 /**
- * Vero solo per un 530 su uno dei due host del tunnel webhook
- * (`gh-default` / `gh-nanako` `.frontaliereticino.ch`).
+ * Vero solo per un 530 su una superficie del tunnel webhook riconosciuta dalla tassonomia
+ * condivisa (`gh-default`, `gh-default-agenti` o `gh-nanako` `.frontaliereticino.ch`).
  *
  * ─── Perche' questa riga non conia una issue del sito (site#8839, site#8840) ─
- * Quei due host non servono visitatori: il chiamante e' GitHub, e il tunnel
+ * Questi host non servono visitatori: il chiamante e' GitHub, e il tunnel
  * termina sui receiver del coordinatore sul laptop. Il 530 e' il tunnel senza
  * connettore, cioe' il Mac in stop: snapshot del 2026-10-03, 5.365 dei 5.386
- * 5xx di `gh-default` e 1.487 dei 1.493 di `gh-nanako`, ora per ora sovrapposti
+ * 5xx dei receiver webhook osservati, fra cui 5.365 dei 5.386 di `gh-default` e
+ * 1.487 dei 1.493 di `gh-nanako`, ora per ora sovrapposti
  * ai periodi di sonno di `pmset -g log`. Nessuna modifica a questo repo puo'
  * farlo cessare, e il criterio di chiusura («assente da 7 snapshot») resta
  * insoddisfacibile finche' il Mac dorme: le due issue sono state rilavorate 41
@@ -182,7 +180,7 @@ const WEBHOOK_TUNNEL_SURFACES = new Set(['github-webhook-default', 'github-webho
  * (`tunnel_not_ready` / `webhook_receiver_down` / `host_slept` in
  * `bin/github-coordinator-health.mjs` del workspace), non nel sito.
  *
- * La regola e' volutamente stretta: qualunque altro status su quegli host
+ * La regola e' volutamente stretta: qualunque altro status su queste superfici webhook
  * (502/503/524: tunnel su, receiver rotto) e un 530 su qualunque altra
  * superficie continuano a coniare. Lo snapshot (`scripts/ci/cf-5xx-snapshot.mjs`)
  * registra comunque tutto in `bySurface`.
@@ -197,7 +195,7 @@ const WEBHOOK_TUNNEL_SURFACES = new Set(['github-webhook-default', 'github-webho
  */
 export function isTunnelOffline530(entry) {
   if (Number(entry?.status) !== TUNNEL_OFFLINE_STATUS) return false;
-  return WEBHOOK_TUNNEL_SURFACES.has(classifyCfErrorUrl(entry?.url));
+  return isWebhookTunnelSurface(classifyCfErrorUrl(entry?.url));
 }
 
 /** One-line burst description for the issue body. */
@@ -262,7 +260,7 @@ export function buildIssueBody(e, hours = HOURS) {
         'al Worker, alla pagina shard o all\'edge. I campi origin/cache nel report valgono solo',
         `per questo URL quando sono presenti. ${recencyCause}`,
       ],
-      fix: WEBHOOK_TUNNEL_SURFACES.has(surfaceKey)
+      fix: isWebhookTunnelSurface(surfaceKey)
         ? [
             'Host del tunnel webhook: il sito non puo\' correggerlo. | **REPO**: workspace | **MODE**:',
             'nessun vincolo di mirror: receiver `bin/github-webhook-receiver.mjs`, rilascio e riavvio',
@@ -459,7 +457,7 @@ export async function main() {
     .filter((r) => r.count >= MIN_COUNT)
     .sort((a, b) => b.count - a.count);
 
-  // Il 530 dei due host del tunnel webhook non e' un difetto del sito: vedi
+  // Il 530 delle superfici del tunnel webhook non e' un difetto del sito: vedi
   // `isTunnelOffline530`. Resta visibile nel log del run e nello snapshot.
   const overThreshold = [];
   const tunnelOffline = [];

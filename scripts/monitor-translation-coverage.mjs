@@ -152,13 +152,19 @@ export function evaluateCoverage(history, {
   const complete = Number(cohort?.complete);
   if (Number.isFinite(total) && Number.isFinite(complete) && total >= minCohort) {
     const ratio = complete / total;
+    // Rows written before `freshCohort` was introduced did not measure this
+    // cohort at all. They must not make a current cohort alert say
+    // «predicato ignoto»: only rows carrying the same metric can establish
+    // whether its predicate changed. The MA3 classification above still uses
+    // the full comparable history because those rows do participate in MA3.
+    const cohortRows = windowRows.filter((row) => row.freshCohort !== null);
     verdict.cohort = {
       fired: ratio < cohortFloor,
       measured: true,
       total,
       complete,
       ratio,
-      kind: classifyKind(windowRows),
+      kind: classifyKind(cohortRows),
     };
   } else if (Number.isFinite(total) && Number.isFinite(complete)) {
     verdict.cohort = { ...verdict.cohort, total, complete, ratio: total > 0 ? complete / total : null };

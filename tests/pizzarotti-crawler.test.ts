@@ -16,7 +16,7 @@ const PIZZAROTTI_UPDATER = fs.readFileSync(
 describe('Pizzarotti listing classification', () => {
   it('reports a non-empty source filtered to zero Swiss listings', () => {
     const result = classifyPizzarottiListings([
-      { href: '/jobs/parma', title: 'Site manager', location: 'Parma' },
+      { href: '/jobs/unknown', title: 'Site manager', location: 'A newly added place' },
       { href: '/jobs/calabria', title: 'Construction manager', location: 'Calabria' },
     ]);
 
@@ -46,6 +46,20 @@ describe('Pizzarotti listing classification', () => {
     expect(result.authoritativeEmptySnapshot).toBe(true);
     expect(isPizzarottiClassifiableLocation('')).toBe(false);
     expect(isPizzarottiClassifiableLocation('Parma, Italia')).toBe(true);
+  });
+
+  it('proves the current bare Italian InRecruiting locations are foreign', () => {
+    const result = classifyPizzarottiListings([
+      { href: '/jobs/parma', title: 'Site manager', location: 'Parma' },
+      { href: '/jobs/ponte-taro', title: 'Construction manager', location: 'Ponte Taro' },
+      { href: '/jobs/baragiano', title: 'Project manager', location: 'Baragiano' },
+    ]);
+
+    expect(result.discovered).toBe(3);
+    expect(result.listings).toEqual([]);
+    expect(result.lastFetchOutcome).toBe('filtered_empty');
+    expect(result.unclassifiedLocationCount).toBe(0);
+    expect(result.authoritativeEmptySnapshot).toBe(true);
   });
 
   it('does not prove an empty target slice when a location is unknown', () => {

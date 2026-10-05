@@ -155,7 +155,7 @@ const IT: FrontalierePillarCopy = {
   sourcesLabel: 'Fonti',
   sources: [
     { label: 'UST — Statistica dei frontalieri', url: 'https://www.bfs.admin.ch/it' },
-    { label: 'SEM — Permesso per frontalieri G', url: 'https://www.sem.admin.ch/it' },
+    { label: 'SEM — Permesso per frontalieri G', url: 'https://www.sem.admin.ch/sem/it/home.html' },
     { label: 'AFC — Imposizione dei frontalieri (accordo CH-IT 2023)', url: 'https://www.estv.admin.ch/it' },
     { label: 'UFSP — Assicurazione malattie: frontalieri e diritto d\'opzione', url: 'https://www.bag.admin.ch/it' },
   ],
@@ -257,7 +257,7 @@ const EN: FrontalierePillarCopy = {
   sourcesLabel: 'Sources',
   sources: [
     { label: 'FSO — Cross-border commuter statistics', url: 'https://www.bfs.admin.ch/en' },
-    { label: 'SEM — Cross-border commuter permit G', url: 'https://www.sem.admin.ch/en' },
+    { label: 'SEM — Cross-border commuter permit G', url: 'https://www.sem.admin.ch/sem/en/home.html' },
     { label: 'FTA — Taxation of cross-border commuters (2023 CH-IT agreement)', url: 'https://www.estv.admin.ch/en' },
     { label: 'FOPH — Health insurance for cross-border commuters', url: 'https://www.bag.admin.ch/en' },
   ],
@@ -359,7 +359,7 @@ const DE: FrontalierePillarCopy = {
   sourcesLabel: 'Quellen',
   sources: [
     { label: 'BFS — Grenzgängerstatistik', url: 'https://www.bfs.admin.ch/de' },
-    { label: 'SEM — Grenzgängerbewilligung G', url: 'https://www.sem.admin.ch/de' },
+    { label: 'SEM — Grenzgängerbewilligung G', url: 'https://www.sem.admin.ch/sem/de/home.html' },
     { label: 'ESTV — Besteuerung der Grenzgänger (Abkommen CH-IT 2023)', url: 'https://www.estv.admin.ch/de' },
     { label: 'BAG — Krankenversicherung für Grenzgänger', url: 'https://www.bag.admin.ch/de' },
   ],
@@ -461,7 +461,7 @@ const FR: FrontalierePillarCopy = {
   sourcesLabel: 'Sources',
   sources: [
     { label: 'OFS — Statistique des frontaliers', url: 'https://www.bfs.admin.ch/fr' },
-    { label: 'SEM — Autorisation frontalière G', url: 'https://www.sem.admin.ch/fr' },
+    { label: 'SEM — Autorisation frontalière G', url: 'https://www.sem.admin.ch/sem/fr/home.html' },
     { label: 'AFC — Imposition des frontaliers (accord CH-IT 2023)', url: 'https://www.estv.admin.ch/fr' },
     { label: 'OFSP — Assurance-maladie des frontaliers', url: 'https://www.bag.admin.ch/fr' },
   ],

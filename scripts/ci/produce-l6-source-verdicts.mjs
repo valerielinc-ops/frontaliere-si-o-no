@@ -83,12 +83,14 @@ function field(objectText, name) {
   return articleRegistryObjectFields(objectText).get(name) ?? null;
 }
 
-/** The RAW_ARTICLES array literal of blog-articles-data.ts, as text. */
+/** The literal RAW_ARTICLES array (or its generated chunks), as text. */
 export function rawArticlesBlock(dataText) {
   const text = String(dataText ?? '');
   const declarations = [...text.matchAll(RAW_ARTICLES_START)];
   const chunks = declarations.filter((match) => match[1].startsWith('RAW_ARTICLES_CHUNK_'));
   const aggregates = declarations.filter((match) => match[1] === 'RAW_ARTICLES');
+  // The generated aggregate spreads each chunk; it may also receive a normal
+  // appended object between syncs, so include it without duplicating spreads.
   const arrays = chunks.length ? [...chunks, ...aggregates] : aggregates;
   if (arrays.length === 0) throw new Error('RAW_ARTICLES not found in blog-articles-data.ts');
 

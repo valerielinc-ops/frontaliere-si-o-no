@@ -78,6 +78,46 @@ describe('seo-static.css', () => {
     const appSrc = fs.readFileSync(path.resolve(process.cwd(), 'App.tsx'), 'utf8');
     expect(appSrc).toMatch(/setProperty\(\s*'display',\s*'none',\s*'important'\s*\)/);
   });
+
+  it('keeps the homepage SEO panel editorial and responsive', () => {
+    const css = fs.readFileSync(CSS_PATH, 'utf8');
+    const root = postcss.parse(css, { from: CSS_PATH });
+    const rules: postcss.Rule[] = [];
+
+    root.walkRules((rule) => {
+      if (rule.selector === 'aside.seo-footer-block' && rule.parent === root) rules.push(rule);
+    });
+
+    const panelRule = rules.at(-1);
+    expect(panelRule).toBeDefined();
+    expect(panelRule!.toString()).toContain('border-radius:16px');
+    expect(panelRule!.toString()).toContain('background:var(--color-surface-alt)');
+
+    let openDetailsRule: postcss.Rule | undefined;
+    root.walkRules((rule) => {
+      if (rule.selector === 'aside.seo-footer-block details[open]' && rule.parent === root) {
+        openDetailsRule = rule;
+      }
+    });
+    expect(openDetailsRule?.toString()).toContain('border:1px solid var(--color-accent-border)');
+
+    let desktopCardsRule: postcss.Rule | undefined;
+    root.walkRules((rule) => {
+      if (rule.selector === 'aside.seo-footer-block .seo-fb-cards' && rule.parent === root) {
+        desktopCardsRule = rule;
+      }
+    });
+    expect(desktopCardsRule?.toString()).toContain('grid-template-columns:repeat(2,minmax(0,1fr))');
+
+    let mobileCardsRule: postcss.Rule | undefined;
+    root.walkAtRules('media', (media) => {
+      if (media.params !== '(max-width:640px)') return;
+      media.walkRules((rule) => {
+        if (rule.selector === 'aside.seo-footer-block .seo-fb-cards') mobileCardsRule = rule;
+      });
+    });
+    expect(mobileCardsRule?.toString()).toContain('grid-template-columns:1fr');
+  });
 });
 
 // Cascade-source guard (inverted by the visible-pre-hydration contract).
@@ -155,5 +195,36 @@ describe('index.css (SPA bundle source) cascade does not re-hide the cluster bod
         }
       });
     });
+  });
+
+  it('keeps the homepage SEO panel styling in the SPA stylesheet', () => {
+    const css = fs.readFileSync(SPA_CSS_PATH, 'utf8');
+    const root = postcss.parse(css, { from: SPA_CSS_PATH });
+    const lastRootRule = (selector: string): postcss.Rule | undefined => {
+      let match: postcss.Rule | undefined;
+      root.walkRules((rule) => {
+        if (rule.selector === selector && rule.parent === root) match = rule;
+      });
+      return match;
+    };
+
+    const panelRule = lastRootRule('aside.seo-footer-block');
+    expect(panelRule?.toString()).toContain('border-radius: 16px');
+    expect(panelRule?.toString()).toContain('background: var(--color-surface-alt)');
+
+    const openDetailsRule = lastRootRule('aside.seo-footer-block details[open]');
+    expect(openDetailsRule?.toString()).toContain('border: 1px solid var(--color-accent-border)');
+
+    const desktopCardsRule = lastRootRule('aside.seo-footer-block .seo-fb-cards');
+    expect(desktopCardsRule?.toString()).toContain('grid-template-columns: repeat(2, minmax(0, 1fr))');
+
+    let mobileCardsRule: postcss.Rule | undefined;
+    root.walkAtRules('media', (media) => {
+      if (media.params !== '(max-width: 640px)') return;
+      media.walkRules((rule) => {
+        if (rule.selector === 'aside.seo-footer-block .seo-fb-cards') mobileCardsRule = rule;
+      });
+    });
+    expect(mobileCardsRule?.toString()).toContain('grid-template-columns: 1fr');
   });
 });

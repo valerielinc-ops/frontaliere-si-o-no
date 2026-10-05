@@ -72,11 +72,9 @@ const istatData = JSON.parse(
 const FSO_CITIES = fsoData.cities;
 const ISTAT_PROVINCES = istatData.provinces;
 
-const FSO_URL =
-  'https://www.pxweb.bfs.admin.ch/pxweb/fr/px-x-0902030000_101/';
+const FSO_URL = 'https://stats.swiss/';
 const FSO_LABEL = 'FSO rent survey 2023';
-const ISTAT_URL =
-  'https://www.istat.it/it/dati-analisi-e-prodotti/banche-dati/indice-prezzi-consumo';
+const ISTAT_URL = 'https://www.istat.it/statistiche-per-temi/economia/prezzi/';
 const OMI_URL =
   'https://wwwt.agenziaentrate.gov.it/servizi/Consultazione/ricerca.htm';
 

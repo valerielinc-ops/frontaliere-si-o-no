@@ -1,27 +1,42 @@
 import { createHash, createHmac } from 'node:crypto';
 
 /**
- * Ranking configuration for jobs shown in email recommendations.
+ * Ordine degli annunci nelle email con annunci (job alert e newsletter).
  *
- * The defaults intentionally start with a small treatment cohort.  Relevance
- * remains the first gate: this module only reorders jobs that the existing
- * matcher has already deemed relevant.
+ * Due varianti, assegnate una volta per persona (assignJobRankingVariant):
+ *  - `control`: l'ordine del matcher, con la diversita' per azienda a parita'
+ *    di pertinenza;
+ *  - `affinity`: stessa pertinenza, moltiplicata per l'affinita' della persona
+ *    con l'annuncio (profilo di interessi dai clic, ./jobEmailAffinity.js):
+ *    rankingScore = relevanceScore * (1 - w + w * affinita'), w =
+ *    JOB_EMAIL_RANKING_AFFINITY_WEIGHT.
+ *
+ * Il profilo decide SOLO l'ordine fra annunci gia' selezionati per la persona
+ * (privacy policy, services/legal/privacy.ts): nessuna variante aggiunge o
+ * toglie annunci dal pool del matcher, e senza profilo valido, con opposizione
+ * registrata o con w = 0 la variante `affinity` produce l'ordine del control.
+ *
+ * Il vecchio trattamento (`treatment`, riordino per CTR con esplorazione) non
+ * viene piu' emesso; la sua fotografia e' in
+ * scripts/measurements/job-email-ranking-ctr-experiment-2026-09-08_2026-10-03.json.
  */
-export const JOB_EMAIL_RANKING_DEFAULTS = Object.freeze({
-  enabled: true,
-  rollout: 0.15,
-  alpha: 0.8,
-  epsilon: 0.15,
-  windowDays: 60,
-  shrinkK: 25,
-  minImpressions: 50,
-  newJobBoost: 0.15,
-  maxConsecutiveExposures: 3,
+export const JOB_EMAIL_RANKING_VARIANTS = Object.freeze({
+  control: 'control',
+  affinity: 'affinity',
 });
 
-export const JOB_EMAIL_RANKING_WINDOWS = Object.freeze([7, 30, 90]);
+/**
+ * Seme dell'assegnazione: fisso per persona, uguale su tutte le superfici e
+ * tutti i giorni. Cambiarlo rimescola l'intera popolazione dell'esperimento.
+ */
+export const JOB_EMAIL_AFFINITY_ASSIGNMENT_SEED = 'job-email-affinity-2026-10';
 
-const DEFAULT_PRIOR_CTR = 0.05;
+export const JOB_EMAIL_RANKING_DEFAULTS = Object.freeze({
+  enabled: true,
+  rollout: 0.5,
+  affinityWeight: 0.5,
+});
+
 import {
   MAX_SAFE_SCORE,
   stableJobId as stableJobIdPure,
@@ -52,13 +67,7 @@ export function readJobEmailRankingConfig(env = process.env) {
   return Object.freeze({
     enabled: parseBoolean(env.JOB_EMAIL_RANKING_ENABLED, JOB_EMAIL_RANKING_DEFAULTS.enabled),
     rollout: parseNumber(env.JOB_EMAIL_RANKING_ROLLOUT, JOB_EMAIL_RANKING_DEFAULTS.rollout, { min: 0, max: 1 }),
-    alpha: parseNumber(env.JOB_EMAIL_RANKING_ALPHA, JOB_EMAIL_RANKING_DEFAULTS.alpha, { min: 0, max: 1 }),
-    epsilon: parseNumber(env.JOB_EMAIL_RANKING_EPSILON, JOB_EMAIL_RANKING_DEFAULTS.epsilon, { min: 0, max: 1 }),
-    windowDays: parseNumber(env.JOB_EMAIL_RANKING_WINDOW_DAYS, JOB_EMAIL_RANKING_DEFAULTS.windowDays, { min: 1, max: 90, integer: true }),
-    shrinkK: parseNumber(env.JOB_EMAIL_RANKING_SHRINK_K, JOB_EMAIL_RANKING_DEFAULTS.shrinkK, { min: 1, max: 1000, integer: true }),
-    minImpressions: parseNumber(env.JOB_EMAIL_RANKING_MIN_IMPRESSIONS, JOB_EMAIL_RANKING_DEFAULTS.minImpressions, { min: 0, max: 100000, integer: true }),
-    newJobBoost: parseNumber(env.JOB_EMAIL_RANKING_NEW_JOB_BOOST, JOB_EMAIL_RANKING_DEFAULTS.newJobBoost, { min: 0, max: 1 }),
-    maxConsecutiveExposures: parseNumber(env.JOB_EMAIL_RANKING_MAX_CONSECUTIVE_EXPOSURES, JOB_EMAIL_RANKING_DEFAULTS.maxConsecutiveExposures, { min: 0, max: 100, integer: true }),
+    affinityWeight: parseNumber(env.JOB_EMAIL_RANKING_AFFINITY_WEIGHT, JOB_EMAIL_RANKING_DEFAULTS.affinityWeight, { min: 0, max: 1 }),
   });
 }
 
@@ -73,18 +82,20 @@ export function hashUnitInterval(seed) {
 }
 
 /**
- * Assignment is stable for a recipient + campaign, which makes the control
- * and treatment populations reproducible across a retry of the same send.
+ * Variante di una persona: `affinity` se il suo bucket cade sotto il rollout,
+ * altrimenti `control`. Il seme e' solo l'email normalizzata: la stessa persona
+ * ha la stessa variante nei job alert e nella newsletter, oggi e domani, cosi'
+ * l'effetto si misura per persona e non si diluisce cambiando braccio a ogni
+ * invio. `JOB_EMAIL_RANKING_ENABLED` spento rimette tutti in `control`.
  */
 export function assignJobRankingVariant({
   subjectId,
-  surface = 'newsletter',
-  campaignId = '',
   config = JOB_EMAIL_RANKING_DEFAULTS,
 } = {}) {
-  if (!config.enabled || config.rollout <= 0) return 'control';
-  const bucket = hashUnitInterval(`${surface}:${campaignId}:${normalizeSubjectId(subjectId)}`);
-  return bucket < config.rollout ? 'treatment' : 'control';
+  const subject = normalizeSubjectId(subjectId);
+  if (!subject || !config.enabled || !(config.rollout > 0)) return JOB_EMAIL_RANKING_VARIANTS.control;
+  const bucket = hashUnitInterval(`${JOB_EMAIL_AFFINITY_ASSIGNMENT_SEED}:${subject}`);
+  return bucket < config.rollout ? JOB_EMAIL_RANKING_VARIANTS.affinity : JOB_EMAIL_RANKING_VARIANTS.control;
 }
 
 export function stableJobId(jobOrId) {
@@ -108,135 +119,44 @@ export function buildJobEmailDeliveryId({ surface, surfaceId, recipientId, campa
   return `jer_${String(surface || 'email').replace(/[^a-z0-9_-]/gi, '_')}_${digest}`;
 }
 
-export function clamp(value, min = 0, max = 1) {
-  return Math.min(max, Math.max(min, Number.isFinite(Number(value)) ? Number(value) : min));
+// Job attributes carried by every manifest entry and compared with the
+// interest profile. A job_id stops resolving once the listing expires (the
+// expired archive has no id, category or canton), so the manifest itself must
+// say which kind of listing a click was about.
+export const MANIFEST_ATTRIBUTE_MAX_LENGTH = 80;
+
+/** Short, whitespace-normalized string, or null when the value is absent. */
+function manifestAttribute(value) {
+  if (typeof value !== 'string' && typeof value !== 'number') return null;
+  const text = String(value).replace(/\s+/g, ' ').trim();
+  if (!text) return null;
+  // Array.from cuts on code points, never inside a surrogate pair.
+  return Array.from(text).slice(0, MANIFEST_ATTRIBUTE_MAX_LENGTH).join('').trim();
 }
 
-/** Bayesian shrinkage towards the surface/category prior. */
-export function computeSmoothedCtr(clicks, impressions, priorCtr = DEFAULT_PRIOR_CTR, shrinkK = 25) {
-  const c = Math.max(0, Number(clicks) || 0);
-  const i = Math.max(0, Number(impressions) || 0);
-  const prior = clamp(Number(priorCtr) || DEFAULT_PRIOR_CTR);
-  const k = Math.max(1, Number(shrinkK) || 25);
-  return (c + prior * k) / (i + k);
-}
-
-function dateDiffInDays(date, nowMs) {
-  const time = Date.parse(String(date || ''));
-  if (!Number.isFinite(time)) return Infinity;
-  return Math.floor((nowMs - time) / 86_400_000);
-}
-
-function normalizeDayKey(value) {
-  const text = String(value || '');
-  return /^\d{4}-\d{2}-\d{2}$/.test(text) ? text : null;
+/** Two-letter uppercase canton code (`TI`), or null for anything else. */
+function manifestCanton(value) {
+  const code = manifestAttribute(value)?.toUpperCase();
+  return code && /^[A-Z]{2}$/.test(code) ? code : null;
 }
 
 /**
- * Aggregate a daily stats map.  Keeping daily rows lets reporting inspect
- * 7/30/90 day windows while ranking can use one configured window.
+ * The four listing attributes of a job, in the delivery-manifest shape
+ * (jobManifestEntry in ./jobEmailRankingStore.js spreads this). The ranking
+ * compares the same object with the interest profile, so what is recorded on
+ * a click and what is scored at send time cannot drift apart.
  */
-export function aggregateRankingStats(rawStats, { nowMs = Date.now(), windowDays = 60 } = {}) {
-  const stats = rawStats || {};
-  const days = stats.days && typeof stats.days === 'object' ? stats.days : null;
-  let impressions = 0;
-  let clicks = 0;
-  let positionSum = 0;
-  let recentImpressions = 0;
-  let consecutiveExposures = Math.max(0, Number(stats.consecutive_exposures) || 0);
-  const rolling = Object.fromEntries(JOB_EMAIL_RANKING_WINDOWS.map((days) => [days, {
-    impressions: 0,
-    clicks: 0,
-    positionSum: 0,
-  }]));
-  let weightedImpressions = 0;
-  let weightedClicks = 0;
-
-  if (days) {
-    const exposureDays = [];
-    const maxWindow = Math.max(windowDays, ...JOB_EMAIL_RANKING_WINDOWS);
-    for (const [day, row] of Object.entries(days)) {
-      const dayKey = normalizeDayKey(day);
-      if (!dayKey) continue;
-      const age = dateDiffInDays(`${dayKey}T00:00:00.000Z`, nowMs);
-      if (age < 0 || age >= maxWindow) continue;
-      const dayImpressions = Math.max(0, Number(row?.impressions) || 0);
-      const dayClicks = Math.max(0, Number(row?.clicks) || 0);
-      const dayPositionSum = Math.max(0, Number(row?.position_sum) || 0);
-      for (const daysWindow of JOB_EMAIL_RANKING_WINDOWS) {
-        if (age < daysWindow) {
-          rolling[daysWindow].impressions += dayImpressions;
-          rolling[daysWindow].clicks += dayClicks;
-          rolling[daysWindow].positionSum += dayPositionSum;
-        }
-      }
-      if (age < windowDays) {
-        impressions += dayImpressions;
-        clicks += dayClicks;
-        positionSum += dayPositionSum;
-        if (age < 7) recentImpressions += dayImpressions;
-        // Recent observations carry more weight without allowing a one-click
-        // yesterday to erase a well-sampled 30/60-day signal.
-        const recencyWeight = age < 7 ? 1.5 : age < 30 ? 1 : 0.6;
-        weightedImpressions += dayImpressions * recencyWeight;
-        weightedClicks += dayClicks * recencyWeight;
-      }
-      if (dayImpressions > 0 && age < windowDays) exposureDays.push(dayKey);
-    }
-    // A daily row is one observed exposure for this job on this ranking
-    // surface. Counting the most recent contiguous rows gives the configured
-    // rotation cap a useful behavior without a second mutable counter.
-    exposureDays.sort((a, b) => b.localeCompare(a));
-    if (exposureDays.length > 0) {
-      consecutiveExposures = 1;
-      for (let i = 1; i < exposureDays.length; i++) {
-        const previous = Date.parse(`${exposureDays[i - 1]}T00:00:00.000Z`);
-        const current = Date.parse(`${exposureDays[i]}T00:00:00.000Z`);
-        if (previous - current === 86_400_000) consecutiveExposures++;
-        else break;
-      }
-    }
-  } else {
-    impressions = Math.max(0, Number(stats.impressions) || 0);
-    clicks = Math.max(0, Number(stats.clicks) || 0);
-    positionSum = Math.max(0, Number(stats.position_sum) || 0);
-    weightedImpressions = impressions;
-    weightedClicks = clicks;
-    for (const daysWindow of JOB_EMAIL_RANKING_WINDOWS) {
-      rolling[daysWindow] = { impressions, clicks, positionSum };
-    }
-  }
-
+export function jobRankingAttributes(job) {
   return {
-    impressions,
-    clicks,
-    positionSum,
-    positionAvg: impressions > 0 ? positionSum / impressions : null,
-    consecutiveExposures,
-    recentImpressions,
-    weightedImpressions,
-    weightedClicks,
-    rolling,
+    category: manifestAttribute(job?.category),
+    canton: manifestCanton(job?.canton),
+    // companyKey is already the normalized key the crawlers emit
+    // (scripts/lib/company-key.mjs); Cloud Functions cannot import scripts/.
+    company_key: manifestAttribute(job?.companyKey),
+    // A newsletter card's `sector` falls back to the category for display and
+    // alert matching; `rawSector` keeps the listing's own sector key.
+    sector: manifestAttribute(job?.rawSector !== undefined ? job.rawSector : job?.sector),
   };
-}
-
-export function computePriorCtr(statsByJob, fallback = DEFAULT_PRIOR_CTR) {
-  let clicks = 0;
-  let impressions = 0;
-  const values = statsByJob instanceof Map ? [...statsByJob.values()] : Object.values(statsByJob || {});
-  for (const raw of values) {
-    const stats = raw?.impressions === undefined
-      ? aggregateRankingStats(raw)
-      : raw;
-    clicks += Math.max(0, Number(stats.clicks) || 0);
-    impressions += Math.max(0, Number(stats.impressions) || 0);
-  }
-  return impressions > 0 ? clamp(clicks / impressions, 0.001, 0.5) : fallback;
-}
-
-function getStats(statsByJob, jobId) {
-  if (statsByJob instanceof Map) return statsByJob.get(jobId) || {};
-  return statsByJob?.[jobId] || {};
 }
 
 function relevanceFor(job) {
@@ -244,23 +164,9 @@ function relevanceFor(job) {
   return Math.max(0, Math.min(MAX_SAFE_SCORE, Number(value) || 0));
 }
 
-function compareByExposureThenRandom(a, b) {
-  const exposureDiff = (a.ranking.impressions || 0) - (b.ranking.impressions || 0);
-  if (exposureDiff !== 0) return exposureDiff;
-  return b.ranking.randomBoost - a.ranking.randomBoost;
-}
-
-function rankTieBreak(a, b) {
-  const scoreDiff = b.ranking.rankingScore - a.ranking.rankingScore;
-  if (scoreDiff !== 0) return scoreDiff;
-  const freshnessA = Date.parse(a.firstSeenAt || '') || 0;
-  const freshnessB = Date.parse(b.firstSeenAt || '') || 0;
-  return freshnessB - freshnessA;
-}
-
 function companyDiversityKey(job) {
   const company = String(job?.company || '').trim().toLowerCase();
-  return company || '\u2205';
+  return company || '∅';
 }
 
 /**
@@ -297,152 +203,89 @@ function diversifyEqualRankGroups(candidates, scoreFor) {
   return result;
 }
 
-function insertExplorationSlots(exploit, explore, limit, fallback = []) {
-  const safeLimit = Math.max(0, Math.trunc(limit));
-  if (safeLimit === 0) return [];
-  const result = [];
-  const selected = new Set();
-  const add = (candidate) => {
-    if (result.length >= safeLimit || selected.has(candidate)) return;
-    selected.add(candidate);
-    result.push(candidate);
-  };
-
-  if (explore.length === 0) {
-    exploit.forEach(add);
-  }
-
-  let exploitIndex = 0;
-  let exploreIndex = 0;
-  const slots = explore.length;
-  for (let position = 0; explore.length > 0 && position < safeLimit && (exploitIndex < exploit.length || exploreIndex < slots); position++) {
-    const nextExplorePosition = Math.floor(((exploreIndex + 1) * safeLimit) / (slots + 1));
-    if (exploreIndex < slots && position === nextExplorePosition) {
-      add(explore[exploreIndex++]);
-    } else if (exploitIndex < exploit.length) {
-      add(exploit[exploitIndex++]);
-    } else if (exploreIndex < slots) {
-      add(explore[exploreIndex++]);
-    }
-  }
-
-  // `maxConsecutiveExposures` can remove the preferred exploit candidates.
-  // Fill the requested safeLimit from the ranked pool when the interleaving
-  // is short, so `insertExplorationSlots(...)` never under-fills while enough
-  // candidates remain available.
-  fallback.forEach(add);
-  return result;
+function finiteAffinity(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? Math.min(1, Math.max(0, number)) : 0;
 }
 
 /**
- * Rank an already matched list. Control preserves the caller's order, with
- * company diversity as a tie-breaker. The treatment uses smoothed CTR,
- * relevance, deterministic exploration and a small cold-start boost;
- * exploration slots are explicitly injected so a low-impression job is not
- * permanently hidden by the exploit sort.
+ * True only when the `affinity` branch actually reorders: affinity variant,
+ * ranking enabled, a scorer (valid profile, no opt-out) and a positive weight.
+ * Every caller that changes behaviour for affinity recipients (the ranking
+ * below, the newsletter candidate pool) asks this, so a person without a
+ * profile gets exactly the control jobs in the control order.
+ */
+export function affinityReorders({ variant, affinityScorer = null, config = JOB_EMAIL_RANKING_DEFAULTS } = {}) {
+  return variant === JOB_EMAIL_RANKING_VARIANTS.affinity
+    && Boolean(config.enabled)
+    && typeof affinityScorer === 'function'
+    && finiteAffinity(config.affinityWeight) > 0;
+}
+
+/**
+ * Rank an already matched list.
+ *
+ * `affinityScorer` is the recipient's scorer from createAffinityScorer
+ * (./jobEmailAffinity.js), or null when the person has no valid profile or
+ * has opposed the personalization. The ranking module takes the function
+ * instead of the profile so it never imports the profile module (which
+ * imports this one).
+ *
+ * Control, and `affinity` without a scorer or with weight 0, preserve the
+ * caller's order with company diversity as a tie-breaker. `affinity` with a
+ * scorer sorts by relevance * (1 - w + w * affinity), keeping the caller's
+ * order on equal scores, then applies the same company diversity. When a
+ * scorer is given the control branch still records the affinity score of the
+ * jobs it returns (for the measurement), without using it.
  */
 export function rankEmailJobs(jobs, {
-  statsByJob = new Map(),
-  variant = 'control',
-  surface = 'newsletter',
-  surfaceId = '',
-  campaignId = '',
-  randomSeed = '',
+  variant = JOB_EMAIL_RANKING_VARIANTS.control,
+  affinityScorer = null,
   limit = jobs?.length || 0,
   config = JOB_EMAIL_RANKING_DEFAULTS,
-  priorCtr,
-  nowMs = Date.now(),
 } = {}) {
   const source = Array.isArray(jobs) ? jobs : [];
   const safeLimit = Math.max(0, Math.trunc(limit));
-  const prior = priorCtr ?? computePriorCtr(statsByJob);
-  const isTreatment = variant === 'treatment' && config.enabled;
+  const isAffinity = variant === JOB_EMAIL_RANKING_VARIANTS.affinity && Boolean(config.enabled);
+  const scorer = typeof affinityScorer === 'function' ? affinityScorer : null;
+  const weight = finiteAffinity(config.affinityWeight);
+  const reorders = affinityReorders({ variant, affinityScorer: scorer, config });
+  const variantLabel = isAffinity ? JOB_EMAIL_RANKING_VARIANTS.affinity : JOB_EMAIL_RANKING_VARIANTS.control;
+
   const candidates = source.map((job, sourceIndex) => {
-    const jobId = stableJobId(job);
-    const aggregate = aggregateRankingStats(getStats(statsByJob, jobId), {
-      nowMs,
-      windowDays: config.windowDays,
-    });
     const relevanceScore = relevanceFor(job);
-    const ctrShrink = computeSmoothedCtr(
-      aggregate.weightedClicks ?? aggregate.clicks,
-      aggregate.weightedImpressions ?? aggregate.impressions,
-      prior,
-      config.shrinkK,
-    );
-    const normalizedCtr = clamp(ctrShrink / Math.max(0.1, prior * 2));
-    const jobRandomSeed = `${surface}:${surfaceId}:${campaignId}:${normalizeSubjectId(randomSeed)}:${jobId}`;
-    const rawRandomBoost = hashUnitInterval(jobRandomSeed);
-    const coldStartFactor = aggregate.impressions < config.minImpressions
-      ? 1 - clamp(aggregate.impressions / Math.max(1, config.minImpressions))
-      : 0;
-    const randomBoost = clamp(rawRandomBoost + config.newJobBoost * coldStartFactor);
-    const rankingScore = relevanceScore * (
-      config.alpha * normalizedCtr + (1 - config.alpha) * randomBoost
-    );
-    const ranking = {
-      variant: isTreatment ? 'treatment' : 'control',
-      rankingScore: Number.isFinite(rankingScore) ? rankingScore : 0,
-      relevanceScore,
-      ctrShrink,
-      normalizedCtr,
-      randomBoost,
-      impressions: aggregate.impressions,
-      clicks: aggregate.clicks,
-      positionAvg: aggregate.positionAvg,
-      consecutiveExposures: aggregate.consecutiveExposures,
-      sourceIndex,
+    const affinityScore = reorders ? finiteAffinity(scorer(jobRankingAttributes(job))) : null;
+    const rankingScore = reorders
+      ? relevanceScore * (1 - weight + weight * affinityScore)
+      : relevanceScore;
+    return {
+      ...job,
+      jobId: stableJobId(job),
+      ranking: {
+        variant: variantLabel,
+        rankingScore: Number.isFinite(rankingScore) ? rankingScore : 0,
+        relevanceScore,
+        affinityScore,
+        sourceIndex,
+      },
     };
-    return { ...job, ranking, jobId };
   });
 
-  if (!isTreatment) {
-    const ordered = diversifyEqualRankGroups(candidates, (candidate) => candidate.ranking.relevanceScore);
-    return ordered.slice(0, safeLimit).map(({ ranking: meta, ...job }) => ({
-      ...job,
-      ranking: { ...meta, rankingScore: meta.relevanceScore, randomBoost: 0 },
-    }));
-  }
+  const ordered = reorders
+    ? diversifyEqualRankGroups(
+      // Array.prototype.sort is stable: equal scores keep the matcher order.
+      [...candidates].sort((a, b) => b.ranking.rankingScore - a.ranking.rankingScore),
+      (candidate) => candidate.ranking.rankingScore,
+    )
+    : diversifyEqualRankGroups(candidates, (candidate) => candidate.ranking.relevanceScore);
 
-  const sorted = diversifyEqualRankGroups(
-    [...candidates].sort(rankTieBreak),
-    (candidate) => candidate.ranking.rankingScore,
-  );
-  const explorationCount = Math.min(
-    Math.max(0, sorted.length - 1),
-    Math.max(0, Math.round(safeLimit * config.epsilon)),
-  );
-  const explorationPool = [...sorted]
-    .filter((candidate) => candidate.ranking.impressions < config.minImpressions)
-    .sort(compareByExposureThenRandom);
-  // If every candidate is already well sampled, explore a non-top candidate;
-  // falling back to `sorted` would remove the top result from exploit and put
-  // it in an arbitrary middle slot without adding any exploration value.
-  const fallbackExplorationPool = sorted.length > 1 ? sorted.slice(1) : sorted;
-  const explore = (explorationPool.length > 0 ? explorationPool : fallbackExplorationPool)
-    .slice(0, explorationCount);
-  const exploreIds = new Set(explore.map((candidate) => candidate.jobId));
-
-  // Once a job has occupied the same ranking surface repeatedly, prefer the
-  // remaining candidates. If there are no alternatives, retain it so a sparse
-  // alert does not become empty.
-  const capped = config.maxConsecutiveExposures > 0
-    ? sorted.filter((candidate) => candidate.ranking.consecutiveExposures < config.maxConsecutiveExposures)
-    : sorted;
-  const exploitSource = capped.length >= Math.min(safeLimit, sorted.length)
-    ? capped
-    : sorted;
-  const exploit = exploitSource.filter((candidate) => !exploreIds.has(candidate.jobId));
-  const selected = diversifyEqualRankGroups(
-    insertExplorationSlots(exploit, explore, safeLimit, sorted),
-    (candidate) => candidate.ranking.rankingScore,
-  );
-  return selected.map(({ ranking: meta, ...job }, index) => ({
-    ...job,
-    ranking: { ...meta, position: index + 1 },
-  }));
+  return ordered.slice(0, safeLimit).map((candidate, index) => {
+    const ranking = { ...candidate.ranking, position: index + 1 };
+    // Only the returned jobs need a score when it does not drive the order.
+    if (!reorders && scorer) ranking.affinityScore = finiteAffinity(scorer(jobRankingAttributes(candidate)));
+    return { ...candidate, ranking };
+  });
 }
-
 
 /** Safe key for a nested `ranking_stats` field in an alert document. */
 export function rankingStatsKey(jobId) {

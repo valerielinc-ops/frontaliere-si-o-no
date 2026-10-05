@@ -6,7 +6,7 @@ Guida per diagnosticare la famiglia `cloudflare-5xx` senza rifare gli errori del
 
 Per settimane i 5xx sono stati letti come un difetto solo — «R2 non risponde e Cloudflare
 sintetizza il 502». Misurando la zona con `originResponseStatus` e `cacheStatus` sono emerse
-**tre superfici del sito con origin diversi**; i due host webhook sono invece ingressi
+**tre superfici del sito con origin diversi**; gli host webhook sono invece ingressi
 Cloudflare Tunnel distinti:
 
 | superficie | dove | origin | cache rule |
@@ -15,6 +15,7 @@ Cloudflare Tunnel distinti:
 | `worker-shard` | `frontaliereticino.ch/{en,de,fr}/…` | Worker → shard Pages per-locale | `locale-shard-failover-cache` |
 | `apex-pages` | `frontaliereticino.ch/commit-hash.txt`, `/fonts/`, `/favicon.svg` | GitHub Pages | `it-apex-html-cache` |
 | `github-webhook-default` | `gh-default.frontaliereticino.ch/github/webhook` | Cloudflare Tunnel → receiver locale `18787` | nessuna cache rule del sito |
+| `github-webhook-default-agenti` | `gh-default-agenti.frontaliereticino.ch/github/webhook` | Cloudflare Tunnel → receiver webhook degli agenti | nessuna cache rule del sito |
 | `github-webhook-nanako` | `gh-nanako.frontaliereticino.ch/github/webhook` | Cloudflare Tunnel → receiver locale `18788` | nessuna cache rule del sito |
 
 **Il costo di confonderle è concreto.** `serve_stale` è stato applicato alla sola rule del CDN
@@ -22,7 +23,7 @@ e dato per mitigante anche di #5082 — che è un `503` sull'apex e non poteva t
 «perché i 5xx sono scesi» avrebbe archiviato un difetto mai diagnosticato.
 
 La partizione vive in `scripts/lib/cf-error-surface.mjs`. Le tre superfici del sito rispecchiano
-le cache rule possedute da `scripts/cf-locale-failover-setup.mjs`; i due ingressi webhook sono
+le cache rule possedute da `scripts/cf-locale-failover-setup.mjs`; gli ingressi webhook sono
 classificati dagli hostname configurati per i tunnel. `classifySurface()` descrive il percorso
 atteso: da sola non prova quale hop abbia restituito un 5xx.
 
@@ -217,13 +218,14 @@ segno **conclusivo** che `serve_stale` scatta davvero — la prima volta da quan
 
 ## Trappole note
 
-- **I due host webhook non sono CDN, shard locale o apex Pages.** `gh-default` termina sul
-  receiver del coordinator default (`localhost:18787`); `gh-nanako` sul receiver nanako
+- **Gli host webhook non sono CDN, shard locale o apex Pages.** `gh-default` termina sul
+  receiver del coordinator default (`localhost:18787`); `gh-default-agenti` sul receiver
+  webhook degli agenti; `gh-nanako` sul receiver nanako
   (`localhost:18788`). Il codice edge e il totale da soli non distinguono tunnel, receiver e
   origine del payload. `--by-hour` correla `originResponseStatus` e `cacheStatus` alle righe
   del singolo URL quando la query è completa; per attribuire il tratto tunnel vs receiver
   servono comunque i log di quei componenti. Non dedurre un rimedio CDN o Pages da questi host.
-  **Il 530 su questi due host è atteso a Mac in stop e non conia issue del sito** (decisione del
+  **Il 530 su questi host è atteso a Mac in stop e non conia issue del sito** (decisione del
   proprietario del 2026-10-04, site#8839/site#8840): è il tunnel senza connettore, e nessuna
   modifica a questo repo può farlo cessare. `scripts/cf-5xx-issue-sync.mjs` (`isTunnelOffline530`)
   lo separa e stampa un `::notice title=cf-5xx webhook tunnel offline::` nel log del run; resta

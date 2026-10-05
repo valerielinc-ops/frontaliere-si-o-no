@@ -46,11 +46,34 @@ export function summarizeJourneyRows(rows) {
   }
   segments.set(key, segment);
  }
- for (const segment of segments.values()) for (const metric of Object.values(segment.transitions)) {
-  if (metric.numerator > metric.denominator) throw new Error('Incomplete cohort: numerator exceeds its denominator');
-  metric.rate = metric.denominator ? metric.numerator / metric.denominator : null;
+ const incompleteTransitions = [];
+ for (const segment of segments.values()) for (const [transition, metric] of Object.entries(segment.transitions)) {
+  if (metric.numerator > metric.denominator) {
+   // GA4 can retain the later event's cumulative path while the separate
+   // predecessor event is absent from the report (or lands in another
+   // dimension bucket). Preserve the observed counts, but never manufacture
+   // a conversion rate from an incomplete denominator.
+   metric.rate = null;
+   incompleteTransitions.push({
+    cohort: segment.cohort,
+    source: segment.source,
+    entry: segment.entry,
+    device: segment.device,
+    employer: segment.employer,
+    transition,
+    numerator: metric.numerator,
+    denominator: metric.denominator,
+   });
+  } else {
+   metric.rate = metric.denominator ? metric.numerator / metric.denominator : null;
+  }
  }
- return { segments: [...segments.values()], excludedEvents: excluded };
+ return {
+  segments: [...segments.values()],
+  excludedEvents: excluded,
+  quality: incompleteTransitions.length ? 'partial' : 'complete',
+  incompleteTransitions,
+ };
 }
 
 export function journeyReportRequest(startDate, endDate, offset = 0) {

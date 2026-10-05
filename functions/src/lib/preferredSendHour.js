@@ -179,12 +179,14 @@ export async function refreshPreferredSendHour(subscriberRef, FieldValue) {
 
   // Query the events subcollection OUTSIDE of any transaction (Firestore
   // transactions can't mix an initial query read with later ref.get() reads
-  // the way this needs). No `where('event_type', 'in', [...])` filter on
-  // purpose — that would require a composite index (event_type + occurred_at)
-  // that doesn't exist yet. Filtering client-side after limiting to the most
-  // recent 300 events is cheap and avoids that deploy dependency.
+  // the way this needs). Filter server-side before the limit: delivery and
+  // other event rows can greatly outnumber open/click rows, especially after
+  // a newsletter send, and reading them only to discard them locally is
+  // unnecessary billable read amplification. Keep the client-side filter as
+  // a defensive guard for legacy or malformed documents.
   const eventsSnap = await subscriberRef
    .collection('events')
+   .where('event_type', 'in', ['open', 'click'])
    .orderBy('occurred_at', 'desc')
    .limit(300)
    .get();

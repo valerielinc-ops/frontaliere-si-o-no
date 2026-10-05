@@ -12,13 +12,16 @@ import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vite
 type ReleaseResult = { outcome: string; reason?: string };
 type ReleaseOptions = {
   staged?: boolean;
+  appearTimeoutMs?: number;
   onStaged?: (info: { elapsedMs: number; root: string }) => void;
   onShown?: (info: { shownMs: number; root: string }) => void;
 };
 
 const mocks = vi.hoisted(() => ({
   status: 'held' as 'held' | 'released' | 'suppressed' | 'off_board' | 'absent',
+  parked: null as HTMLElement | null,
   releaseHeldOfferwall: vi.fn(),
+  showParkedOfferwall: vi.fn(),
   revealStagedOfferwall: vi.fn(),
   trackAssistedApplicationEvent: vi.fn(),
 }));
@@ -44,10 +47,14 @@ vi.mock('@/services/offerwallClickGate', () => ({
   offerwallGateStatus: () => mocks.status,
   releaseHeldOfferwall: mocks.releaseHeldOfferwall,
   revealStagedOfferwall: mocks.revealStagedOfferwall,
+  parkedOfferwallRoot: () => mocks.parked,
+  showParkedOfferwall: mocks.showParkedOfferwall,
+  OFFERWALL_STAGED_APPEAR_TIMEOUT_MS: 6000,
 }));
 
 import RewardedApplicationOffer from '@/components/community/RewardedApplicationOffer';
 import { setAdsConsent } from '@/services/adsConsent';
+import { takeOfferwallResume } from '@/services/offerwallRecovery';
 import { itReady } from '@/services/i18n';
 
 const tracked = (name: string) => mocks.trackAssistedApplicationEvent.mock.calls
@@ -79,9 +86,11 @@ beforeEach(() => {
   window.sessionStorage.clear();
   window.localStorage.setItem('frontaliere_ads_consent', 'granted');
   mocks.status = 'held';
+  mocks.parked = null;
   mocks.releaseHeldOfferwall.mockImplementation(() => new Promise<ReleaseResult>((resolve) => {
     settleRelease = resolve;
   }));
+  mocks.showParkedOfferwall.mockImplementation(() => new Promise<ReleaseResult>(() => {}));
 });
 
 afterEach(() => {
@@ -100,6 +109,8 @@ describe('RewardedApplicationOffer — paid choice first', () => {
     expect(screen.queryByTestId('rewarded-application-loading')).not.toBeInTheDocument();
     expect(mocks.releaseHeldOfferwall).toHaveBeenCalledTimes(1);
     expect(releaseOptions().staged).toBe(true);
+    // The wait after the free click is short (owner decision 2026-10-05).
+    expect(releaseOptions().appearTimeoutMs).toBe(6000);
     expect(mocks.revealStagedOfferwall).not.toHaveBeenCalled();
     expect(tracked('assisted_application_offer_viewed')).toEqual([
       expect.objectContaining({ variant: 'rewarded_ad', jobId: 'job-1', trigger: 'offerwall_first' }),
@@ -257,12 +268,75 @@ describe('RewardedApplicationOffer — paid choice first', () => {
     expect(releaseOptions().staged).toBe(false);
   });
 
-  it('never shows the paid choice when nothing is held for the click', () => {
+  it('shows the paid choice at once when only a reload can hold the Offerwall, and reloads only on the free path', () => {
     mocks.status = 'released';
     const p = props();
     render(<RewardedApplicationOffer {...p} />);
 
-    expect(screen.queryByTestId('assisted-application-offer')).not.toBeInTheDocument();
+    expect(screen.getByTestId('assisted-application-offer')).toBeInTheDocument();
+    expect(p.onReload).not.toHaveBeenCalled();
+    expect(mocks.releaseHeldOfferwall).not.toHaveBeenCalled();
+
+    fireEvent.click(screen.getByTestId('assisted-application-offer-external'));
+
     expect(p.onReload).toHaveBeenCalledTimes(1);
+    expect(tracked('assisted_application_choose_external')).toEqual([
+      expect.objectContaining({ reason: 'offerwall_reload' }),
+    ]);
+    // The resumed click goes straight to the Offerwall.
+    expect(takeOfferwallResume('job-1')).toEqual({
+      reason: 'already_released',
+      gate_status: 'released',
+      consent_state: 'granted',
+      choice: 'free',
+    });
+  });
+
+  it('never reloads when the visitor pays or closes the choice', () => {
+    mocks.status = 'released';
+    const p = props();
+    render(<RewardedApplicationOffer {...p} />);
+
+    fireEvent.click(screen.getByTestId('assisted-application-offer-paid'));
+    fireEvent.click(screen.getByTestId('assisted-application-offer-close'));
+
+    expect(p.paidChoice.onChoosePaid).toHaveBeenCalledTimes(1);
+    expect(p.onDismiss).toHaveBeenCalledTimes(1);
+    expect(p.onReload).not.toHaveBeenCalled();
+  });
+
+  it('reuses the Offerwall parked by a choice closed earlier on this page', () => {
+    mocks.status = 'released';
+    mocks.parked = document.createElement('div');
+    const p = props();
+    render(<RewardedApplicationOffer {...p} />);
+
+    expect(screen.getByTestId('assisted-application-offer')).toBeInTheDocument();
+    expect(mocks.releaseHeldOfferwall).not.toHaveBeenCalled();
+    expect(mocks.showParkedOfferwall).not.toHaveBeenCalled();
+
+    fireEvent.click(screen.getByTestId('assisted-application-offer-external'));
+
+    expect(p.onReload).not.toHaveBeenCalled();
+    expect(mocks.showParkedOfferwall).toHaveBeenCalledTimes(1);
+    expect(mocks.revealStagedOfferwall).not.toHaveBeenCalled();
+    expect(tracked('assisted_application_choose_external')).toEqual([
+      expect.objectContaining({ reason: 'offerwall_ready', gate_status: 'released' }),
+    ]);
+    expect(tracked('rewarded_offerwall_released')).toEqual([
+      expect.objectContaining({ reason: 'parked_reuse' }),
+    ]);
+  });
+
+  it('sends a resumed free click to the employer without a second paid offer when the Offerwall fails', async () => {
+    const { paidChoice: _paidChoice, ...withoutChoice } = props();
+    render(<RewardedApplicationOffer {...withoutChoice} resumed paidOfferSeen />);
+
+    expect(screen.queryByTestId('assisted-application-offer')).not.toBeInTheDocument();
+    await act(async () => {
+      settleRelease({ outcome: 'not_shown', reason: 'appear_timeout' });
+    });
+
+    expect(withoutChoice.onUnavailable).toHaveBeenCalledWith('offerwall_not_shown', { paidOfferShown: true });
   });
 });

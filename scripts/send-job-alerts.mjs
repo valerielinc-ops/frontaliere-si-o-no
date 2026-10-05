@@ -88,6 +88,8 @@ import {
 } from '../functions/src/lib/jobEmailRanking.js';
 import { appendJobRankingParams } from '../functions/src/lib/jobEmailRankingLinks.js';
 import { buildRankingJobsManifest, recordJobEmailImpressions } from '../functions/src/lib/jobEmailRankingStore.js';
+import { RANKING_PERSONALIZATION_OPT_OUT_FIELD, affinityRankingContext } from '../functions/src/lib/jobEmailAffinity.js';
+import { loadJobEmailAffinityProfiles } from '../functions/src/lib/jobEmailAffinityStore.js';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 import { makePreferencesUrl, generateAutologinCode, makeAuthenticatedUrl as makeAuthenticatedUrlShared } from '../services/newsletterUrls.mjs';
 import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl } from './lib/job-alert-unsub-urls.mjs';
@@ -953,15 +955,6 @@ function behaviorSignals(personalization) {
 // in main() builds a per-alert profile (alert config + source-job intent +
 // newsletter_subscribers profile) and scores every recent job against it.
 
-function embeddedAlertRankingStats(alert) {
-  const stats = new Map();
-  for (const entry of Object.values(alert?.ranking_stats || {})) {
-    const jobId = String(entry?.job_id || '');
-    if (jobId) stats.set(jobId, entry);
-  }
-  return stats;
-}
-
 // ── Email template ───────────────────────────────────────────
 
 // Mirrors the confidence bar used by the upstream needsRetranslation gate
@@ -1232,8 +1225,6 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
         alertId: alert.id,
         rankingScore: job.ranking?.rankingScore,
         relevanceScore: job.ranking?.relevanceScore,
-        ctrShrink: job.ranking?.ctrShrink,
-        randomBoost: job.ranking?.randomBoost,
       });
     }
     const url = wrapJobUrl(rawJobUrl);
@@ -1421,8 +1412,6 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
         alertId: alert.id,
         rankingScore: job.ranking?.rankingScore,
         relevanceScore: job.ranking?.relevanceScore,
-        ctrShrink: job.ranking?.ctrShrink,
-        randomBoost: job.ranking?.randomBoost,
       });
     }
     const url = wrapJobUrl(rawJobUrl);
@@ -1592,6 +1581,7 @@ async function sendBatch(emails) {
         alertId: e.alertId,
         rankingDeliveryId: e.rankingDeliveryId || null,
         rankingVariant: e.rankingVariant || 'control',
+        rankingAffinityProfile: e.rankingAffinityProfile === true,
         rankingJobs: e.sentJobs || [],
         sendTimeSource: e.sendTimeSource || null,
         // is_operator_verification (#3798 report accuracy): ALLOWED_EMAILS set means
@@ -1664,6 +1654,9 @@ async function enqueueFailedEmails(db, failedItems) {
         html: item.payload?.html || '',
         rankingDeliveryId: item.meta?.rankingDeliveryId || null,
         rankingVariant: item.meta?.rankingVariant || null,
+        rankingAffinityProfile: typeof item.meta?.rankingAffinityProfile === 'boolean'
+          ? item.meta.rankingAffinityProfile
+          : null,
         rankingJobs: item.meta?.rankingJobs || [],
         createdAt: FieldValue.serverTimestamp(),
         retryCount: 0,
@@ -1781,6 +1774,10 @@ async function processRetryQueue(db) {
             alertId: item.alertId,
             rankingDeliveryId: item.data.rankingDeliveryId || null,
             rankingVariant: item.data.rankingVariant || 'control',
+            // null for a retry queued before the field existed.
+            rankingAffinityProfile: typeof item.data.rankingAffinityProfile === 'boolean'
+              ? item.data.rankingAffinityProfile
+              : null,
             rankingJobs: item.data.rankingJobs || [],
           },
         });
@@ -1823,6 +1820,7 @@ async function processRetryQueue(db) {
       alertId: item.meta.alertId,
       email: item.recipient?.email,
       variant: item.meta.rankingVariant || 'control',
+      affinityProfile: item.meta.rankingAffinityProfile,
       jobs: item.meta.rankingJobs,
       sentAt: new Date(),
     }));
@@ -2661,6 +2659,30 @@ async function main() {
   // run, not once per alert (#9314). Same windows as selectJobAlertCandidates.
   const selectCandidateWindow = createJobAlertCandidateSelector(inventoryJobs, { nowMs: now });
   const livenessPrefetcher = createJobLivenessPrefetcher(jobLiveCheckCache);
+  // Affinity profiles of this run's recipients: one read per PERSON (not per
+  // alert), batched, for both ranking variants — the measurement compares the
+  // two among people with a profile. The opposition flag lives on the
+  // newsletter document read above; an opted-out person is not read at all.
+  // A failed read degrades to "no profile" (standard order), never blocks.
+  const affinityNow = new Date(now);
+  const { profiles: affinityProfiles, stats: affinityLoadStats } = await loadJobEmailAffinityProfiles(
+    db,
+    alerts.map((alert) => {
+      const emailKey = alert.email.toLowerCase();
+      return {
+        email: emailKey,
+        optOut: subscriberProfiles.get(emailKey)?.[RANKING_PERSONALIZATION_OPT_OUT_FIELD] === true,
+      };
+    }),
+  );
+  const affinityContextByEmail = new Map();
+  const affinityContextFor = (email) => {
+    const emailKey = String(email || '').toLowerCase();
+    if (!affinityContextByEmail.has(emailKey)) {
+      affinityContextByEmail.set(emailKey, affinityRankingContext(affinityProfiles.get(emailKey) ?? null, affinityNow));
+    }
+    return affinityContextByEmail.get(emailKey);
+  };
   const plans = [];
   const cursorReasons = {};
   let cursorCandidateCount = 0;
@@ -2689,19 +2711,13 @@ async function main() {
     });
     const rankingVariant = assignJobRankingVariant({
       subjectId: alert.email,
-      surface: 'job_alert',
-      campaignId: TODAY_ISO,
       config: JOB_EMAIL_RANKING_CONFIG,
     });
+    const { affinityProfile, affinityScorer } = affinityContextFor(alert.email);
     const rankingOptions = {
-      statsByJob: embeddedAlertRankingStats(alert),
       variant: rankingVariant,
-      surface: 'job_alert',
-      surfaceId: alert.id,
-      campaignId: TODAY_ISO,
-      randomSeed: alert.email,
+      affinityScorer,
       config: JOB_EMAIL_RANKING_CONFIG,
-      nowMs: now,
     };
     // Prefetch only the current ranking shortlist. If a page is dead,
     // rankLiveJobsForEmail expands it one replacement at a time after the
@@ -2709,7 +2725,7 @@ async function main() {
     const preflightRanked = plan.matched.length > 0
       ? rankEmailJobs(plan.matched, { ...rankingOptions, limit: MAX_JOB_CARDS })
       : [];
-    plans.push({ ...plan, rankingVariant, rankingOptions, preflightRanked });
+    plans.push({ ...plan, rankingVariant, rankingAffinityProfile: affinityProfile, rankingOptions, preflightRanked });
     if (preflightRanked.length > 0) livenessPrefetcher.enqueue(preflightRanked, nlNormLocale(alert.locale));
     await new Promise((resolve) => setImmediate(resolve));
   }
@@ -2722,6 +2738,15 @@ async function main() {
   const drainMs = Date.now() - planningStartedAt - planningMs;
   console.log(`   ⏱️ Matching split: planning ${(planningMs / 1000).toFixed(1)} s for ${alerts.length} alerts; live-link prefetch ${prefetchAfterPlanning.queued} URL(s), ${prefetchAfterPlanning.pending} still pending after planning, drained in ${(drainMs / 1000).toFixed(1)} s`);
   console.log(`   🧭 Recipient-aware candidate windows: ${JSON.stringify(cursorReasons)} (${cursorCandidateCount} candidate rows before matching)`);
+  {
+    const variantCounts = {};
+    let withProfile = 0;
+    for (const plan of plans) {
+      variantCounts[plan.rankingVariant] = (variantCounts[plan.rankingVariant] || 0) + 1;
+      if (plan.rankingAffinityProfile) withProfile++;
+    }
+    console.log(`   🎯 Job-email ranking: ${JSON.stringify(variantCounts)} alerts; ${withProfile} with a valid affinity profile (profiles ${JSON.stringify(affinityLoadStats)})`);
+  }
   const zeroMatchSummary = summarizeZeroMatchPlans(plans);
 
   // 3b. Build, in the original alert order, with the same logs and counters.
@@ -2732,6 +2757,7 @@ async function main() {
     sentMap,
     matched,
     rankingVariant,
+    rankingAffinityProfile,
     rankingOptions,
     preflightRanked,
   } of plans) {
@@ -2828,6 +2854,7 @@ async function main() {
       sentJobs,
       rankingDeliveryId,
       rankingVariant,
+      rankingAffinityProfile,
       unsubscribeUrl,
       scheduledAt,
       sendTimeSource,
@@ -3005,6 +3032,7 @@ async function main() {
           alertId: email.alertId,
           email: email.to,
           variant: email.rankingVariant || 'control',
+          affinityProfile: email.rankingAffinityProfile === true,
           jobs: email.sentJobs,
           sentAt: new Date(),
         }));

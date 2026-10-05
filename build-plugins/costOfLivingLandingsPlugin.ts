@@ -266,6 +266,53 @@ interface RenderResult {
   readonly wordCount: number;
 }
 
+/**
+ * Build the place entity used by a cost-of-living landing.
+ *
+ * These pages compare city-level data. They do not represent a Frontaliere
+ * Ticino office or storefront, so the schema must remain a City (or the
+ * regional AdministrativeArea) rather than claiming a LocalBusiness at an
+ * invented address. A city postal address is emitted only when the source
+ * dataset supplies a locality; the Ticino roll-up has no physical address.
+ */
+export function buildCostOfLivingPlaceSchema(opts: {
+  locale: ColLocale;
+  city: ColCityId;
+  canonicalUrl: string;
+}): Record<string, unknown> {
+  const { locale, city, canonicalUrl } = opts;
+  const cityName = COL_CITY_DISPLAY[city][locale];
+  const geo = COL_CITY_GEO[city];
+  const place: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': city === 'ticino' ? 'AdministrativeArea' : 'City',
+    '@id': `${canonicalUrl}#place`,
+    name: cityName,
+    url: canonicalUrl,
+  };
+
+  if (geo.addressLocality !== null) {
+    const address: Record<string, unknown> = {
+      '@type': 'PostalAddress',
+      addressCountry: 'CH',
+      addressRegion: 'TI',
+      addressLocality: geo.addressLocality,
+    };
+    if (geo.postalCode !== null) address.postalCode = geo.postalCode;
+    place.address = address;
+  }
+
+  if (geo.lat !== null && geo.lon !== null) {
+    place.geo = {
+      '@type': 'GeoCoordinates',
+      latitude: geo.lat,
+      longitude: geo.lon,
+    };
+  }
+
+  return place;
+}
+
 function renderPage(opts: {
   locale: ColLocale;
   city: ColCityId;
@@ -290,7 +337,6 @@ function renderPage(opts: {
   // <title> only (see COL_CITY_TITLE_DISPLAY's doc comment, issue #5355) —
   // h1/description/JSON-LD keep the full `cityName` above.
   const titleCityName = COL_CITY_TITLE_DISPLAY[city]?.[locale] ?? cityName;
-  const geo = COL_CITY_GEO[city];
   const urlPath = buildCostOfLivingLandingPath(locale, city);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
   const pairedProvince = CITY_PAIRED_PROVINCE[city][locale];
@@ -338,7 +384,7 @@ function renderPage(opts: {
 
   const articleLd = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: h1,
     description: guardArticleJsonLdDescription(description),
     image: `${BASE_URL}/og-image.png`,
@@ -359,56 +405,12 @@ function renderPage(opts: {
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
   };
 
-  // Place JSON-LD — city = AdministrativeArea (TI rollup) or City.
-  const placeLd = {
-    '@context': 'https://schema.org',
-    '@type': city === 'ticino' ? 'AdministrativeArea' : 'City',
-    name: cityName,
-    ...(geo.addressLocality !== null && geo.lat !== null
-      ? {
-          address: {
-            '@type': 'PostalAddress',
-            addressCountry: 'CH',
-            addressRegion: 'TI',
-            addressLocality: geo.addressLocality,
-            postalCode: geo.postalCode ?? undefined,
-          },
-          geo: { '@type': 'GeoCoordinates', latitude: geo.lat, longitude: geo.lon },
-        }
-      : {
-          address: { '@type': 'PostalAddress', addressCountry: 'CH', addressRegion: 'TI' },
-          geo:
-            geo.lat !== null && geo.lon !== null
-              ? { '@type': 'GeoCoordinates', latitude: geo.lat, longitude: geo.lon }
-              : undefined,
-        }),
-    url: canonicalUrl,
-  };
-
-  // LocalBusiness JSON-LD — our org serving this area.
-  const localBusinessLd = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': `${BASE_URL}/#local-business`,
-    name: 'Frontaliere Ticino',
-    url: `${BASE_URL}/`,
-    image: `${BASE_URL}/og-image.png`,
-    areaServed: { '@type': city === 'ticino' ? 'AdministrativeArea' : 'City', name: cityName },
-    description:
-      locale === 'it'
-        ? 'Consulenza frontalieri: simulazione stipendio, costo vita, permessi'
-        : locale === 'en'
-          ? 'Cross-border worker services: salary simulation, cost of living, permits'
-          : locale === 'de'
-            ? 'Grenzgänger-Service: Gehaltssimulation, Lebenshaltungskosten, Bewilligungen'
-            : 'Services frontaliers : simulation salaire, coût de la vie, permis',
-    address: {
-      '@type': 'PostalAddress',
-      addressCountry: 'CH',
-      addressRegion: 'TI',
-      addressLocality: geo.addressLocality ?? 'Lugano',
-    },
-  };
+  // Place JSON-LD — city = AdministrativeArea (TI rollup) or City. The
+  // landing describes a place and its cost data; it is not a branch of a
+  // local business. Do not emit LocalBusiness or fabricate a street address
+  // for the editorial site. The page-scoped ID keeps each city entity
+  // distinct when crawlers compare the generated pages.
+  const placeLd = buildCostOfLivingPlaceSchema({ locale, city, canonicalUrl });
 
   // ── Long-form prose sections (existing rent / basket / comparison /
   //    frontaliere / sources blocks). We need the FSO rent median number
@@ -577,7 +579,6 @@ function renderPage(opts: {
       JSON.stringify(articleLd),
       JSON.stringify(faqLd),
       JSON.stringify(placeLd),
-      JSON.stringify(localBusinessLd),
     ],
     bodyHtml,
     distDir,
@@ -855,3 +856,10 @@ export {
   renderCostOfLivingFeaturedJobsForTest,
   renderCostOfLivingEmployerGridForTest,
 } from './costOfLivingLandingsTestExports';
+
+/** @internal Exported only so schema tests can inspect the generated JSON-LD. */
+export function renderCostOfLivingPageForTest(
+  opts: Parameters<typeof renderPage>[0],
+): ReturnType<typeof renderPage> {
+  return renderPage(opts);
+}

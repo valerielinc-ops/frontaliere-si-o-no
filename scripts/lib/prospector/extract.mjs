@@ -763,6 +763,31 @@ function isContactChromePanel(opening) {
 }
 
 /**
+ * Whether a `<form>` element is the page itself rather than a form on it.
+ * An application form is never vacancy prose, wherever it sits: Yellowshark
+ * renders a Gravity Forms application (contact fields, document upload,
+ * privacy consent) inside the vacancy's `<article>`, and its field wrappers
+ * (`gfield--has-description`, `description_below`) were read as the body —
+ * 629 of 886 published rows started with «Anrede (erforderlich) Frau Herr»
+ * (issue 5253). ASP.NET WebForms, however, wraps the WHOLE page in one
+ * `<form>`: that element holds the vacancy's own title heading, and cutting
+ * it would cut the ad. Only a heading that reads exactly as the vacancy title
+ * exempts a form: an application form with its own `<h1>Bewerbungsformular`
+ * or its own `<article>` container is still a form on the page. Decided by
+ * structure, never by the wording of the labels.
+ *
+ * @param {string} html
+ * @param {HtmlTagIndex} index
+ * @param {HtmlTag} opening the `<form>` opening tag
+ * @param {{ contentEnd: number }} bounds
+ * @param {string[]} titles
+ * @returns {boolean}
+ */
+function formWrapsVacancy(html, index, opening, bounds, titles) {
+  return printRegionCarriesTitle(html, index, opening.end, bounds.contentEnd, titles);
+}
+
+/**
  * Return the union of ranges as non-overlapping intervals.
  *
  * A vacancy page commonly marks one chrome panel at several nesting levels
@@ -812,6 +837,7 @@ function vacancyChromeRanges(html, index, titles, { excludeWorkplaceChrome = fal
     if (!bounds) continue;
     const namedChrome = [readAttr(opening.raw, 'id'), readAttr(opening.raw, 'class')].join(' ');
     const isChrome = FORM_CONTROL_TAGS.has(opening.name)
+      || (opening.name === 'form' && !formWrapsVacancy(html, index, opening, bounds, titles))
       || isHiddenElement(opening.raw)
       || isContactChromePanel(opening)
       || (isPrintLayout(opening.raw)

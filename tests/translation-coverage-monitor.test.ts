@@ -168,6 +168,26 @@ describe('monitor-translation-coverage — coorte 24-48 h', () => {
     expect(evaluateCoverage(history).cohort.fired).toBe(false);
   });
 
+  it('ignora la history precedente alla misura della coorte nel classificare il predicato', () => {
+    const history = [
+      ...[0.9, 0.9, 0.9].map((r, i) => afterRow(i, r, { predicateVersion: undefined })),
+      afterRow(3, 0.9, { predicateVersion: 'aaaaaaaaaaaaaaaa', freshCohort: { total: 100, complete: 40 } }),
+      afterRow(4, 0.9, { predicateVersion: 'bbbbbbbbbbbbbbbb', freshCohort: { total: 100, complete: 40 } }),
+    ];
+    const verdict = evaluateCoverage(history);
+    expect(verdict.cohort.fired).toBe(true);
+    expect(verdict.cohort.kind).toBe(KIND_MEASURE);
+  });
+
+  it('una riga misurata senza predicateVersion mantiene ignota la coorte', () => {
+    const history = [
+      ...base,
+      afterRow(3, 0.9, { predicateVersion: undefined, freshCohort: { total: 100, complete: 40 } }),
+      afterRow(4, 0.9, { predicateVersion: 'aaaaaaaaaaaaaaaa', freshCohort: { total: 100, complete: 40 } }),
+    ];
+    expect(evaluateCoverage(history).cohort.kind).toBe(KIND_UNKNOWN);
+  });
+
   it('sotto il minimo di annunci la coorte non decide', () => {
     const history = [...base, afterRow(3, 0.9, { freshCohort: { total: MIN_COHORT_JOBS - 1, complete: 0 } })];
     const verdict = evaluateCoverage(history);

@@ -425,7 +425,7 @@ export function renderLandingHtml(distDir?: string): { html: string; wordCount: 
 
   const articleLd = inlineScriptJson({
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'WebPage',
     headline: H1,
     description: guardArticleJsonLdDescription(DESCRIPTION),
     image: `${BASE_URL}/og-image.png`,

@@ -128,9 +128,9 @@ describe('a per-question page is the answer to exactly one question', () => {
     expect(answerText).toBe(plain);
   });
 
-  it('declares Article + BreadcrumbList + Speakable, and points back at the hub', () => {
+  it('declares WebPage + BreadcrumbList + Speakable, and points back at the hub', () => {
     const types = [...html.matchAll(/"@type":"([A-Za-z]+)"/g)].map((m) => m[1]);
-    for (const t of ['Article', 'BreadcrumbList', 'FAQPage', 'Question', 'Answer', 'SpeakableSpecification']) {
+    for (const t of ['WebPage', 'BreadcrumbList', 'FAQPage', 'Question', 'Answer', 'SpeakableSpecification']) {
       expect(types, t).toContain(t);
     }
     expect(html).toContain(`https://frontaliereticino.ch${buildFaqHubPath('it')}`);

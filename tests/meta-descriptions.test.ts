@@ -130,6 +130,16 @@ describe('buildCityHubMeta — per-city hub', () => {
       expect(m).toMatch(CTA_KEYWORDS[locale]);
     }
   });
+
+  it('disambiguates repeated Italian city names with their canton', () => {
+    const argovia = buildCityHubMeta({ locale: 'it', cityDisplay: 'Lengnau', cantonDisplay: 'Argovia', count: 1 });
+    const berna = buildCityHubMeta({ locale: 'it', cityDisplay: 'Lengnau', cantonDisplay: 'Berna', count: 1 });
+    expect(argovia).toContain('Lengnau (Canton Argovia)');
+    expect(berna).toContain('Lengnau (Canton Berna)');
+    expect(argovia).not.toBe(berna);
+    expect(isValidMetaLength(argovia)).toBe(true);
+    expect(isValidMetaLength(berna)).toBe(true);
+  });
 });
 
 // Per-canton hub (issue #2996 — canton landings shipped a ~50-char thin lede

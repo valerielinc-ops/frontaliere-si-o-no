@@ -14,6 +14,7 @@ import { seoBlogShardIndexPlugin, RESOLVED_SEO_BLOG_SHARD_INDEX_ID } from './bui
 import { newsTickerDataPlugin } from './build-plugins/newsTickerDataPlugin';
 import { staticScriptsPlugin } from './build-plugins/staticScriptsPlugin';
 import { asyncCssPlugin } from './build-plugins/asyncCssPlugin';
+import { minifyCriticalIndexCssPlugin } from './build-plugins/minifyCriticalIndexCss';
 import { prepareOutDirPlugin } from './build-plugins/prepareOutDirPlugin';
 import { preloadLocalePlugin } from './build-plugins/preloadLocalePlugin';
 import { ogPagesPlugin } from './build-plugins/ogPagesPlugin';
@@ -162,6 +163,7 @@ export default defineConfig(({ mode }) => {
  // individually by withProfile() — most lack a closeBundle hook so the
  // wrapper just returns them unchanged.
  ...react(),
+ minifyCriticalIndexCssPlugin(),
  prepareOutDirPlugin(__dirname),
  // Emits `virtual:seo-blog-shard-index` (blog-<id> → seo-blog shard ordinal).
  // Core, not SEO-gated: services/seoService.ts imports the virtual module, so

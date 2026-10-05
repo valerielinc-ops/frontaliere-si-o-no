@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-05T11:45:03.719Z",
+  "records": {
+    "it-msal-3907": {
+      "checkedAt": "2026-10-05T11:45:03.719Z",
+      "phone": "+39 0332 227362",
+      "openingHours": [
+        { "dayOfWeek": "monday", "opens": "08:30", "closes": "20:00" },
+        { "dayOfWeek": "tuesday", "opens": "08:30", "closes": "20:00" },
+        { "dayOfWeek": "wednesday", "opens": "08:30", "closes": "20:00" },
+        { "dayOfWeek": "thursday", "opens": "08:30", "closes": "20:00" },
+        { "dayOfWeek": "friday", "opens": "08:30", "closes": "20:00" },
+        { "dayOfWeek": "saturday", "opens": "08:30", "closes": "20:00" }
+      ],
+      "services": [
+        "Consegna a domicilio",
+        "Accesso senza barriere"
+      ],
+      "contactEmail": "farmaciadicasciago@enterpoint.it",
+      "fieldSources": {
+        "phone": {
+          "url": "https://comune.casciago.va.it/vivere-il-comune/luoghi/farmacia-internazionale-di-casciago/",
+          "sourceType": "official",
+          "checkedAt": "2026-10-05T11:45:03.719Z"
+        },
+        "openingHours": {
+          "url": "https://comune.casciago.va.it/vivere-il-comune/luoghi/farmacia-internazionale-di-casciago/",
+          "sourceType": "official",
+          "checkedAt": "2026-10-05T11:45:03.719Z"
+        },
+        "services": {
+          "url": "https://comune.casciago.va.it/vivere-il-comune/luoghi/farmacia-internazionale-di-casciago/",
+          "sourceType": "official",
+          "checkedAt": "2026-10-05T11:45:03.719Z"
+        },
+        "contactEmail": {
+          "url": "https://comune.casciago.va.it/vivere-il-comune/luoghi/farmacia-internazionale-di-casciago/",
+          "sourceType": "official",
+          "checkedAt": "2026-10-05T11:45:03.719Z"
+        }
+      },
+      "externalSources": [
+        {
+          "url": "https://comune.casciago.va.it/vivere-il-comune/luoghi/farmacia-internazionale-di-casciago/",
+          "label": "Comune di Casciago",
+          "sourceType": "official",
+          "checkedAt": "2026-10-05T11:45:03.719Z",
+          "sourceUpdatedAt": "2024-05-27T11:04:52+00:00",
+          "fields": ["phone", "openingHours", "services", "contactEmail"],
+          "status": "verified"
+        }
+      ]
+    }
+  },
+  "warnings": []
+}

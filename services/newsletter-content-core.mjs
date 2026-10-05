@@ -925,11 +925,11 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
       logoUrl: resolveLogoUrl(job),
       companyUrl: companyHubUrlIfEmitted(job.company, locale, context.emittedCompanyHubs),
       // Keep the matcher score with the normalized card so downstream email
-      // ranking can combine CTR without reconstructing subscriber signals.
-      // A no-profile match has no keyword score; its existing popularity /
-      // freshness order becomes a monotonic relevance proxy so treatment
-      // ranking does not discard the matcher order and let CTR/randomness
-      // become the only signal.
+      // ranking can weigh it by the reader's affinity without reconstructing
+      // subscriber signals. A no-profile match has no keyword score; its
+      // existing popularity / freshness order becomes a monotonic relevance
+      // proxy so the affinity variant does not discard the matcher order and
+      // let affinity become the only signal.
       relevanceScore: Number(relevanceByJob.get(job)) > 0
         ? Number(relevanceByJob.get(job))
         : Math.max(1, finalJobs.length - index),

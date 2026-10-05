@@ -41,10 +41,10 @@ describe('annual report source dates', () => {
         const doc = dom.window.document;
         const entries = [...doc.querySelectorAll('script[type="application/ld+json"]')]
           .map((script) => JSON.parse(script.textContent || '{}'))
-          .filter((entry) => ['Article', 'Dataset'].includes(entry['@type']));
+          .filter((entry) => ['WebPage', 'Dataset'].includes(entry['@type']));
         expect(entries).toHaveLength(2);
         for (const entry of entries) {
-          if (entry['@type'] === 'Article') {
+          if (entry['@type'] === 'WebPage') {
             expect(entry['@id']).toBe(`${entry.url}#article`);
           }
           expect(entry).not.toHaveProperty('datePublished');

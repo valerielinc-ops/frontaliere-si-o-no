@@ -596,6 +596,188 @@ aside.seo-footer-block .seo-fb-section-body a:hover {
   text-decoration-thickness: 2px;
 }
 
+/* Homepage SEO knowledge panel: give the long-form block a calm editorial
+   container and a clearer reading rhythm after the discovery rails. */
+aside.seo-footer-block {
+  margin: clamp(28px, 5vw, 56px) auto 64px;
+  padding: clamp(24px, 4vw, 40px) clamp(16px, 4vw, 32px) 0;
+  border: 1px solid var(--color-edge);
+  border-radius: 16px;
+  background: var(--color-surface-alt);
+  font-family: inherit;
+  line-height: 1.7;
+}
+aside.seo-footer-block .seo-fb-title {
+  max-width: 24ch;
+  margin: 0 0 12px;
+  color: var(--color-heading);
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+aside.seo-footer-block .seo-fb-intro {
+  max-width: 72ch;
+  margin: 0 0 28px;
+  color: var(--color-body);
+  font-size: 15px;
+  line-height: 1.75;
+}
+aside.seo-footer-block > .google-auto-placed {
+  max-width: 100%;
+  margin: 0 0 24px !important;
+}
+aside.seo-footer-block details {
+  margin: 0;
+  border-top: 1px solid var(--color-edge);
+}
+aside.seo-footer-block details:first-of-type {
+  border-top: 1px solid var(--color-edge);
+}
+aside.seo-footer-block details[open] {
+  margin: 8px 0;
+  padding: 0 16px;
+  border: 1px solid var(--color-accent-border);
+  border-radius: 12px;
+  background: var(--color-surface);
+}
+aside.seo-footer-block summary {
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  padding: 15px 40px 15px 0;
+  color: var(--color-heading);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+aside.seo-footer-block details[open] summary {
+  color: var(--color-link);
+}
+aside.seo-footer-block summary::after {
+  content: "";
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid var(--color-subtle);
+  border-bottom: 1.5px solid var(--color-subtle);
+  transform: translateY(-35%) rotate(45deg);
+}
+aside.seo-footer-block details[open] summary::after {
+  border-color: var(--color-accent);
+  transform: translateY(15%) rotate(225deg);
+}
+aside.seo-footer-block summary:hover {
+  color: var(--color-link);
+}
+aside.seo-footer-block .seo-fb-section-body {
+  max-width: 74ch;
+  padding: 0 0 24px;
+}
+aside.seo-footer-block .seo-fb-section-body p {
+  margin: 0 0 14px;
+  color: var(--color-body);
+  font-size: 15px;
+  line-height: 1.75;
+}
+aside.seo-footer-block .seo-fb-section-body p:last-child {
+  margin-bottom: 0;
+}
+aside.seo-footer-block .seo-fb-cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+aside.seo-footer-block .seo-fb-card {
+  min-width: 0;
+  padding: 16px 18px;
+  border: 1px solid var(--color-edge);
+  border-radius: 10px;
+  background: var(--color-surface);
+}
+aside.seo-footer-block .seo-fb-card h3 {
+  margin: 0 0 7px;
+  color: var(--color-heading);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+aside.seo-footer-block .seo-fb-card p {
+  margin: 0;
+  color: var(--color-body);
+  font-size: 13px;
+  line-height: 1.6;
+}
+aside.seo-footer-block dl {
+  max-width: 74ch;
+}
+aside.seo-footer-block dt {
+  margin: 20px 0 6px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-edge);
+  color: var(--color-heading);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+aside.seo-footer-block dt:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+aside.seo-footer-block dd {
+  margin: 0;
+  color: var(--color-body);
+  font-size: 15px;
+  line-height: 1.75;
+}
+aside.seo-footer-block .seo-fb-disclaimer {
+  max-width: 74ch;
+  margin: 24px 0 0;
+  padding: 18px 0 24px;
+  border-top: 1px solid var(--color-edge);
+  color: var(--color-subtle);
+  font-size: 12.5px;
+  font-style: normal;
+  line-height: 1.65;
+}
+aside.seo-footer-block p a,
+aside.seo-footer-block dd a,
+aside.seo-footer-block .seo-fb-section-body a {
+  color: var(--color-link);
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 0.08em;
+}
+
+@media (max-width: 640px) {
+  aside.seo-footer-block {
+    margin: 24px 12px 48px;
+    padding: 22px 16px 0;
+    border-radius: 14px;
+  }
+  aside.seo-footer-block .seo-fb-title {
+    max-width: 20ch;
+    font-size: 1.5rem;
+  }
+  aside.seo-footer-block .seo-fb-intro,
+  aside.seo-footer-block .seo-fb-section-body p,
+  aside.seo-footer-block dd {
+    font-size: 14px;
+  }
+  aside.seo-footer-block summary {
+    min-height: 52px;
+    padding: 14px 36px 14px 0;
+    font-size: 14.5px;
+  }
+  aside.seo-footer-block details[open] {
+    padding-inline: 12px;
+  }
+  aside.seo-footer-block .seo-fb-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Hide reCAPTCHA badge — required notice is in privacy policy */
 .grecaptcha-badge { visibility: hidden !important; }
 

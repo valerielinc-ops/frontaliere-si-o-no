@@ -484,6 +484,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     roots: ['packages/articles/content/'],
     reason: 'packages/articles/content/cantons/<section>/registry.ts and slugs.ts are the EXPECTED values of the generated canton entries (`registryFile`/`slugDataFile`), compared as strings; the files do not exist and nothing opens them. From the checkout the test reads only data/canton-url-slugs.json (curated, not rewritten by the pipeline), the generated module, the generator, services/router.ts and the Worker source (PR 11623)',
   },
+  {
+    file: 'tests/seo/blog-meta-it-shard-coverage.test.ts',
+    roots: ['packages/articles/'],
+    reason: 'the test verifies the synchronized live article metadata and SEO shards; those files are rewritten by the corpus sync pipeline and are intentionally the subject of the assertion',
+  },
 ]);
 
 
