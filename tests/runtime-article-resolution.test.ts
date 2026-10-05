@@ -328,6 +328,16 @@ describe('articleBodyPartsFromStaticArticle', () => {
     ]);
   });
 
+  it('preserves a deep first heading when static accessibility normalization demotes it', () => {
+    document.body.innerHTML = renderStaticArticle([
+      '### Sotto-sezione\nTesto.',
+    ]);
+
+    expect(articleBodyPartsFromStaticArticle(staticArticle())).toEqual([
+      '### Sotto-sezione\n\nTesto.',
+    ]);
+  });
+
   it('keeps the descriptive headings of the SEO fallback sections', () => {
     // Only the three GENERIC positional labels are scaffolding. The fallback
     // sections ogPagesPlugin appends to thin bodies carry real headings.
