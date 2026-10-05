@@ -412,9 +412,12 @@ export async function traceFromCareersUrl(careersUrl, employerDomain) {
   };
   const page = await politeFetch(careersUrl);
   result.failureStatuses.push(Number(page.status) || 0);
-  if (!page.ok || page.body.length < 300) {
+  const jsSurface = page.ok && isJavascriptCareerSurface(page.body);
+  if (!page.ok || (page.body.length < 300 && !jsSurface)) {
     // A short body is not itself a transient verdict: a small 404 page is a
-    // durable absence, while a small 503 page is a transport failure. Carry
+    // durable absence, while a small 503 page is a transport failure. An HTTP
+    // 200 ATS shell is a third case: it is a valid careers surface even when
+    // hydration has left the server response under the byte threshold. Carry
     // the HTTP classification explicitly so TRACE cannot revive the former.
     result.retryable = isRetryableTraceStatus(page.status);
     return result;
@@ -503,7 +506,8 @@ export async function traceCareers(domain, opts = {}) {
   for (const url of relatedCareerUrls.slice(0, maxCareerPages)) {
     const page = await politeFetch(url);
     result.failureStatuses.push(Number(page.status) || 0);
-    if (!page.ok || page.body.length < 300) {
+    const jsSurface = page.ok && isJavascriptCareerSurface(page.body);
+    if (!page.ok || (page.body.length < 300 && !jsSurface)) {
       if (isRetryableTraceStatus(page.status)) result.retryable = true;
       continue;
     }
@@ -558,7 +562,8 @@ export async function traceCareers(domain, opts = {}) {
     const page = await politeFetch(url);
     result.failureStatuses.push(Number(page.status) || 0);
     if (!page.ok) continue;
-    if (page.body.length < 300) {
+    const jsSurface = isJavascriptCareerSurface(page.body);
+    if (page.body.length < 300 && !jsSurface) {
       if (isRetryableTraceStatus(page.status)) result.retryable = true;
       continue;
     }

@@ -19,6 +19,7 @@ import {
 
 const response = (url: string, body: string) => ({ ok: true, status: 200, url, body, host: url ? new URL(url).hostname : '' });
 const filler = '<p>Informazioni autorevoli sulla struttura alberghiera, i servizi e il territorio.</p>'.repeat(6);
+const jsCareerShell = (title = 'Jobs') => `<html><title>${title}</title><body><mmsg-page class="search"></mmsg-page><script type="module" src="https://csbep-mms-prod.web.app/build/csb.esm.js"></script><h1>${title}</h1></body></html>`;
 
 describe('prospector careers ownership trail', () => {
   beforeEach(() => mocks.politeFetch.mockReset());
@@ -80,6 +81,20 @@ describe('prospector careers ownership trail', () => {
       reachable: false,
       retryable,
       failureStatuses: [status],
+    });
+  });
+
+  it('retains a short HTTP-200 JavaScript careers shell from a known URL', async () => {
+    const url = 'https://careers.example/jobs';
+    mocks.politeFetch.mockResolvedValue(response(url, jsCareerShell()));
+
+    const result = await traceFromCareersUrl(url, 'employer.example');
+
+    expect(result).toMatchObject({
+      reachable: true,
+      retryable: false,
+      selfHosted: true,
+      careersUrls: [url],
     });
   });
 
@@ -217,6 +232,44 @@ describe('prospector careers ownership trail', () => {
     expect(result.careersUrls).toEqual([careersUrl]);
     expect(result.selfHosted).toBe(true);
     expect(result.via).toContain('external-homepage-link');
+  });
+
+  it('retains a short HTTP-200 JavaScript careers shell from a related domain', async () => {
+    const homeUrl = 'https://mediamarkt.ch/';
+    const careersUrl = 'https://careers.mediamarktsaturn.com/MediaMarktCH/?locale=de_CH';
+    const homepage = `<html><title>MediaMarkt</title><body><a href="${careersUrl}">Jobs</a><main>${filler}</main></body></html>`;
+
+    mocks.politeFetch.mockImplementation(async (url: string) => {
+      if (url === homeUrl) return response(homeUrl, homepage);
+      if (url === careersUrl) return response(careersUrl, jsCareerShell('MediaMarkt careers'));
+      return { ok: false, status: 404, url, body: '', host: url ? new URL(url).hostname : '' };
+    });
+
+    const result = await traceCareers('mediamarkt.ch');
+
+    expect(result).toMatchObject({
+      careersUrls: [careersUrl],
+      selfHosted: true,
+    });
+  });
+
+  it('retains a short HTTP-200 JavaScript careers shell from a same-origin link', async () => {
+    const homeUrl = 'https://acme.example/';
+    const careersUrl = 'https://acme.example/jobs';
+    const homepage = `<html><title>Acme</title><body><a href="/jobs">Jobs</a><main>${filler}</main></body></html>`;
+
+    mocks.politeFetch.mockImplementation(async (url: string) => {
+      if (url === homeUrl) return response(homeUrl, homepage);
+      if (url === careersUrl) return response(careersUrl, jsCareerShell('Acme jobs'));
+      return { ok: false, status: 404, url, body: '', host: url ? new URL(url).hostname : '' };
+    });
+
+    const result = await traceCareers('acme.example');
+
+    expect(result).toMatchObject({
+      careersUrls: [careersUrl],
+      selfHosted: true,
+    });
   });
 
   it('recognises a JS-only SuccessFactors surface without inventing vacancy rows', async () => {
