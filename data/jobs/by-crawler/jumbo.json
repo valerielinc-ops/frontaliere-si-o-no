@@ -18070,7 +18070,7 @@
       "id": "jumbo-cad0f8b5-390",
       "slug": "verkaufsberater-in-deco-jumbo-chur-2",
       "slugByLocale": {
-        "de": "verkaufsberater-in-deco-jumbo-chur",
+        "de": "verkaufsberater-in-deco-jumbo-chur-pkl1fu",
         "it": "verkaufsberater-in-deco-jumbo-chur-2",
         "en": "verkaufsberater-in-deco-jumbo-chur-2",
         "fr": "verkaufsberater-in-deco-jumbo-chur-2"
@@ -18147,7 +18147,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:42:44.350Z"
+      "firstSeenAt": "2026-09-23T23:42:44.350Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "verkaufsberater-in-deco-jumbo-chur"
+        ],
+        "it": [
+          "verkaufsberater-in-deco-jumbo-chur"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-deco-jumbo-chur"
+      ]
     },
     {
       "id": "jumbo-58026324-186",

@@ -6875,7 +6875,7 @@
       "slugByLocale": {
         "it": "professionista-dell-universita-confederazione-svizzera-bern",
         "en": "university-practitioner-confederazione-svizzera-bern",
-        "de": "hochschulpraktikant-in-confederazione-svizzera-bern",
+        "de": "hochschulpraktikant-in-confederazione-svizzera-bern-wg36rt",
         "fr": "pratique-universitaire-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-b6ffd30ae968",
@@ -6891,7 +6891,8 @@
           "hochschulpraktikant-in-confederazione-svizzera-bern"
         ],
         "de": [
-          "hochschulpraktikant-in-confederazione-bern"
+          "hochschulpraktikant-in-confederazione-bern",
+          "hochschulpraktikant-in-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
@@ -17612,7 +17613,8 @@
       "retranslationAttempts": 0,
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-devops-engineer-data-analytics-senior/cc6f8275-0088-4fea-847a-f640949bc33b",
       "datePosted": "2026-07-22T11:14:23Z",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Staatsanwältin/Staatsanwalt des Bundes (Cyberkriminalität)",

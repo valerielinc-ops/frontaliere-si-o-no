@@ -5900,7 +5900,6 @@
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "datePosted": "",
       "postingDateSource": "unknown",
       "salaryMin": 57500,
@@ -6017,7 +6016,6 @@
       "addressLocality": "Mellingen",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "datePosted": "",
       "postingDateSource": "unknown",
       "salaryMin": 62000,
@@ -10476,7 +10474,7 @@
         "en": "Specialist Manutenzione Energia ed edifici",
         "de": "Fachmitarbeiter*in Instandhaltung Energie & Gebäude",
         "fr": "Fachmitarbeiter*in Instandhaltung Energie & Gebäude",
-        "it": "Fachmitarbeiter*in Instandhaltung Energie & Gebäude"
+        "it": "Specialist Manutenzione Energia ed edifici"
       },
       "descriptionByLocale": {
         "it": "Assicuratevi che la nostra tecnologia energetica e costruttiva funzioni senza intoppi. Con il vostro know-how tecnico e l'attenzione ai dettagli, assicurate che le piante funzionano in modo efficiente e i nostri standard sono soddisfatti. Diventa parte del nostro team e contribuisce attivamente alla creazione di soluzioni sostenibili per il futuro!\n\n## Mansioni\n- Garantire l'elevata disponibilità tecnica di tutte le installazioni domestiche\n- Eseguire lavori di manutenzione periodica\n- Risoluzione dei problemi e bonifica\n- Analisi delle interruzioni degli investimenti e attuazione delle misure di ottimizzazione\n- Servizi di manutenzione di edifici e infrastrutture\n- Controlli e riparazioni di attrezzature di sicurezza\n- Servizio Pictet\n\n## Requisiti\n- Diversi anni di esperienza: manutenzione\n- Apprendistato completo (EFZ): installatore frigorifero o riscaldamento\n- Ottima conoscenza nel campo di HVAC (riscaldamento, ventilazione, clima, sanitario, elettrico)\n- Lavoro preciso e indipendente\n- Esperienza professionale nella manutenzione è auspicabile\n- personalità orientata al team e affidabile\n- in tedesco (negoziazione certa)\n\n## Cosa di Friamo\n- congedo di maternità / congedo di paternità: 18 settimane di congedo di maternità pagato / 8 settimane di congedo di paternità (4 settimane pagate e 4 settimane non pagate)\n- Abbonamento mobile: Prezzi top su abbonamenti mobili, TV e Internet a Galaxus, Sunrise o Wingo\n- Pensione occupazionale: Comprehensively assicurato nel fondo pensione Migros – con servizi di prima classe e attraenti\n- Prestazioni sociali: 730 giorni di congedo per malattia con salari completi\n- Pasti: Menù di pranzo bilanciato / buffet nel ristorante del personale per max. CHF 7,-\n- Punti Cumulus: 2 volte Cumulus punta sul cibo e 5 volte su prodotti non alimentari\n- Migros Bank: Migros concede tassi di interesse più elevati sul conto privato e sugli investimenti per i suoi dipendenti\n- Vacanze: da 5 a 7 settimane vacanze all'anno a seconda dell'età e del servizio\n- Club School Migros: il rimborso del 70% del corso costa fino ad un massimo di CHF 1.000 all'anno civile\n- Offerte per il tempo libero e culturale: è possibile beneficiare di biglietti scontati in eventi culturali selezionati\n- Offerte di sport e fitness: organizzazione di vari eventi sportivi con sconti\n- Du-culture: A Migros si sente odore – perché è semplicemente più rilassato\n\n## Contatto\n## Applicazione e contatto Fabio Wehrli HR Specialista di reclutamento e assistenza",
@@ -31528,7 +31526,7 @@
       "slugByLocale": {
         "de": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen-ndg9s3",
         "it": "panettiere-pasticcere-genossenschaft-migros-ostschweiz-schaffhausen",
-        "en": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen",
+        "en": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen-ndg9s3",
         "fr": "boulanger-patissier-genossenschaft-migros-ostschweiz-schaffhausen"
       },
       "titleByLocale": {
@@ -56348,7 +56346,7 @@
         "fr": "professeur-de-fitness-bernaqua-bern-brunnen"
       },
       "titleByLocale": {
-        "it": "Fitnessinstruktor*in",
+        "it": "Istruttore di fitness",
         "en": "Fitness instructor",
         "de": "Fitnessinstruktor*in",
         "fr": "instructeur de fitness"
@@ -56390,7 +56388,6 @@
       "employmentType": "FULL_TIME",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -104426,8 +104423,7 @@
       },
       "addressLocality": "Ecublens",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-ov6h7l",
@@ -107037,7 +107033,15 @@
       },
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-project-manager-logistics-automation-m-w-d-galaxus-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "junior-project-manager-logistics-automation-m-w-d-galaxus-zurich"
+      ]
     },
     {
       "id": "company-69r5tr",
