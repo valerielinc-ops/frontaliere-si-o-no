@@ -68,6 +68,7 @@ import os from 'node:os';
 import { spawnSync } from 'node:child_process';
 
 import { ARTICLES_API_BASE } from './lib/articles-api-base.mjs';
+import { chunkBlogArticleRegistry } from './lib/blog-article-registry-chunker.mjs';
 import {
   ARTICLE_REGISTRY_FILES,
   ARTICLE_SECTION_KEYS,
@@ -108,6 +109,7 @@ const BRANCH = process.env.ARTICLES_CORPUS_BRANCH ?? 'main';
 const ROOT = process.cwd();
 const DEST = path.join(ROOT, 'packages', 'articles', 'content');
 const CHECK_ONLY = process.argv.includes('--check');
+const BLOG_REGISTRY_CHUNK_SIZE = 250;
 
 /** Body files below this count mean something went wrong upstream, not a real shrink. */
 const MIN_BODY_FILES = 5000;
@@ -194,6 +196,29 @@ async function fetchManifest(attempts = 3) {
   }
   console.warn(`[pull-articles-corpus] manifest unavailable from ${url} (${lastErr?.message})`);
   return null;
+}
+
+/** Keep the generated blog registry below TypeScript's inferred-union limit. */
+function splitBlogArticleRegistry() {
+  const file = path.join(DEST, 'blog-articles-data.ts');
+  const source = fs.readFileSync(file, 'utf8');
+  const result = chunkBlogArticleRegistry(source, BLOG_REGISTRY_CHUNK_SIZE);
+  if (result.source !== source) fs.writeFileSync(file, result.source);
+  return result.chunkCount;
+}
+
+/** Top-level SEO entries that are site-owned additions to the mirrored file. */
+function readBlogSeoKeys(file) {
+  let source;
+  try {
+    source = fs.readFileSync(file, 'utf8');
+  } catch {
+    return new Set();
+  }
+  return new Set(
+    [...source.matchAll(/^\s*['"](blog-[^'"]+)['"]\s*:\s*\{\s*$/gm)]
+      .map((match) => match[1]),
+  );
 }
 
 // ── Which corpus commit this sync is pinned to (issue #5298) ─────────────────
@@ -434,17 +459,46 @@ try {
     pinRetiredLocaleGroups(verdict.removals);
 
     const snapshots = [];
+    const preserveIdsForSnapshots = new Set(preserveIds);
+    const localSeoFile = path.join(DEST, 'seo', 'seo-blog.ts');
+    const incomingSeoFile = path.join(src, 'seo', 'seo-blog.ts');
+    const incomingSeoKeys = readBlogSeoKeys(incomingSeoFile);
+    const localSeoKeys = readBlogSeoKeys(localSeoFile);
+    for (const key of localSeoKeys) {
+      if (!incomingSeoKeys.has(key)) preserveIdsForSnapshots.add(key);
+    }
+
     if (preserveIds.size > 0) {
       console.log(
         `[pull-articles-corpus] ${preserveIds.size} article id(s) exist only downstream: `
         + `${[...preserveIds].join(', ')}`,
       );
-      snapshots.push(...collectPreserveSnapshots({ src, dest: DEST, preserveIds }));
+    }
+    const localSeoOnly = [...preserveIdsForSnapshots].filter((id) => id.startsWith('blog-'));
+    if (localSeoOnly.length > 0) {
+      console.log(
+        `[pull-articles-corpus] preserving ${localSeoOnly.length} site-owned SEO entr${localSeoOnly.length === 1 ? 'y' : 'ies'}: `
+        + `${localSeoOnly.join(', ')}`,
+      );
+    }
+    if (preserveIdsForSnapshots.size > 0) {
+      snapshots.push(...collectPreserveSnapshots({
+        src,
+        dest: DEST,
+        preserveIds: preserveIdsForSnapshots,
+      }));
     }
 
 
   mirrorTree(src, DEST, TREE_OPTS);
   console.log(`[pull-articles-corpus] synced ${srcN} files into packages/articles/content/`);
+
+  const registryChunks = splitBlogArticleRegistry();
+  if (registryChunks > 0) {
+    console.log(
+      `[pull-articles-corpus] split blog article registry into ${registryChunks} typed chunks`,
+    );
+  }
 
     // ── Put the local-only entries back ──────────────────────────────────
     //
