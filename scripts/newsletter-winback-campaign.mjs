@@ -111,12 +111,9 @@ export async function sendStage1(items) {
         subject,
         html,
         text,
-        // campaign_id tag (#6317/#6765): when the cascade lands on anything
-        // other than Maileroo (mailgun/mailjet/resend/mailtrap), its webhook
-        // reads campaign_id off this tag — Maileroo's own per-message ref
-        // fallback (functions/src/lib/mailerooRef.js defaultCampaignId) never
-        // applies to those, so without it the send fell to the
-        // `unknown:<messageId>` fallback and was filed `unattributed`.
+        // campaign_id tag (#6317/#6765): Maileroo's webhook attributes via the
+        // per-message ref (functions/src/lib/mailerooRef.js), which reads the
+        // campaign off this tag — without it the send is filed `unattributed`.
         tags: [{ name: 'campaign_id', value: 'winback_stage1' }],
         headers: {
           'List-Unsubscribe': `<${unsubscribeUrl}>`,
@@ -127,7 +124,8 @@ export async function sendStage1(items) {
       meta: { type: 'dormant_winback_stage1' },
     };
   });
-  const result = await sendEmailCascade(cascade, { concurrency: 3 });
+  // Same provider as stage 2: the win-back track is Maileroo-only (see sendStage2).
+  const result = await sendEmailCascade(cascade, { concurrency: 3, forceProvider: 'maileroo' });
   logProviderSummary();
   return new Set(
     (result.failed || []).map((f) => String(f?.recipient?.email || f?.payload?.to?.[0] || '').toLowerCase()),
@@ -152,13 +150,9 @@ export async function sendStage2(items) {
         subject,
         html,
         text,
-        tracking: false,
-        // campaign_id tag (#6317/#6765): forceProvider below is Resend,
-        // whose webhook only reads campaign_id off this tag — Maileroo's
-        // per-message ref fallback (functions/src/lib/mailerooRef.js
-        // defaultCampaignId) never applies here, so without it every send
-        // fell to the `unknown:<messageId>` fallback and was filed
-        // `unattributed`.
+        // campaign_id tag (#6317/#6765): Maileroo's webhook attributes via the
+        // per-message ref (functions/src/lib/mailerooRef.js), which reads the
+        // campaign off this tag — without it the send is filed `unattributed`.
         tags: [{ name: 'campaign_id', value: 'winback_stage2' }],
         headers: {
           'List-Unsubscribe': `<${unsubscribeUrl}>`,
@@ -169,13 +163,15 @@ export async function sendStage2(items) {
       meta: { type: 'dormant_winback_stage2' },
     };
   });
-  // forceProvider: 'resend' (#6198) — Maileroo's tracking param is a single
-  // flag (opens+clicks together), so tracking:false above would also blind
-  // the open-rate measurement. Resend's send fn already sets open_tracking
-  // and click_tracking independently, so it's the only cascade provider that
-  // can honor "clicks off, opens on". Volume is weekly/low (dormant cohort
-  // only); the shared cascade enforces Resend's free-plan 100/day ceiling.
-  const result = await sendEmailCascade(cascade, { concurrency: 3, forceProvider: 'resend' });
+  // forceProvider: 'maileroo' — the whole win-back track goes through Maileroo
+  // with open AND click tracking on. Resend was forced here (#6198) only to
+  // keep opens while turning clicks off, and its 100/day free-plan ceiling
+  // failed 75 of 175 stage-2 sends on 2026-10-01. Clicks were turned off only
+  // because Mailgun's tracking domain once served a mismatched TLS cert
+  // (#2836); Maileroo's tracked links resolve fine (2.845 recorded clicks in
+  // the 7 days to 2026-10-05). Opens matter here: they are the engagement
+  // that keeps a dormant subscriber out of the sunset after the grace window.
+  const result = await sendEmailCascade(cascade, { concurrency: 3, forceProvider: 'maileroo' });
   logProviderSummary();
   return new Set(
     (result.failed || []).map((f) => String(f?.recipient?.email || f?.payload?.to?.[0] || '').toLowerCase()),

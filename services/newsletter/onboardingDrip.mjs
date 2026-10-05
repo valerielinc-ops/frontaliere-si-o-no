@@ -200,16 +200,26 @@ export function dripStepDueAtMs(startedAtMs, step) {
 }
 
 /**
+ * Minimum days between two drip sends to the same subscriber. The on-time
+ * schedule never hits it (its gaps are 3/4/7 days); it only spaces out a
+ * subscriber who fell behind, who would otherwise get steps 1, 2 and 3 on
+ * three consecutive days (13,5% of consecutive pairs were < 36h in Sep 2026).
+ */
+export const DRIP_MIN_SPACING_DAYS = 2;
+
+/**
  * The next drip step to send, or null when none is due yet or the sequence is
  * complete. Pure — the runner layers unsubscribe/enrollment gating on top.
- * @param {{ startedAtMs: number, lastStep?: number, nowMs: number }} args
+ * `lastSentAtMs` (optional) enforces DRIP_MIN_SPACING_DAYS after the last send.
+ * @param {{ startedAtMs: number, lastStep?: number, nowMs: number, lastSentAtMs?: number|null }} args
  * @returns {number|null}
  */
-export function computeNextStep({ startedAtMs, lastStep = -1, nowMs }) {
+export function computeNextStep({ startedAtMs, lastStep = -1, nowMs, lastSentAtMs = null }) {
   const prev = Number.isInteger(lastStep) ? lastStep : -1;
   const next = prev + 1;
   if (next >= DRIP_STEP_COUNT) return null;
   if (nowMs < dripStepDueAtMs(startedAtMs, next)) return null;
+  if (Number.isFinite(lastSentAtMs) && nowMs < lastSentAtMs + DRIP_MIN_SPACING_DAYS * 86400000) return null;
   return next;
 }
 

@@ -29,9 +29,9 @@ on:
         default: '0'
         type: string
       max:
-        description: 'Max emails this run'
+        description: 'Max emails this run (empty = no cap, only the provider quota)'
         required: false
-        default: '200'
+        default: ''
         type: string
       dry_run:
         description: 'Keep the run preview-only unless explicitly disabled.'
@@ -103,7 +103,7 @@ jobs:
           MODE: ${{ github.event.inputs.mode || 'send' }}
           TARGET: ${{ github.event.inputs.target_email || '' }}
           TEST_STEP: ${{ github.event.inputs.test_step || '0' }}
-          MAX: ${{ github.event.inputs.max || '200' }}
+          MAX: ${{ github.event.inputs.max || '' }}
           ALLOW_SIDE_EFFECT: 'true'
           EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
         run: |
