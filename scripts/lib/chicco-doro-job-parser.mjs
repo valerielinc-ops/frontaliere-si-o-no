@@ -45,6 +45,16 @@ function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
+function canonicalPostingUrl(rawUrl = '', baseUrl = '') {
+  try {
+    const parsed = new URL(rawUrl, baseUrl || undefined);
+    parsed.pathname = parsed.pathname.replace(/\/+$/, '') || '/';
+    return parsed.href;
+  } catch {
+    return '';
+  }
+}
+
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
@@ -349,7 +359,7 @@ function chiccoPublicationFields(html, pageUrl, listing) {
     if (normalizeSpace(record.title).toLowerCase() !== listing.title.toLowerCase()) continue;
     if (record.urlExplicit) {
       try {
-        if (new URL(record.url).href !== new URL(listing.url || pageUrl).href) continue;
+        if (canonicalPostingUrl(record.url, pageUrl) !== canonicalPostingUrl(listing.url || pageUrl, pageUrl)) continue;
       } catch { continue; }
     } else if (records.length !== 1) {
       // Multiple URL-less records cannot independently identify this listing.

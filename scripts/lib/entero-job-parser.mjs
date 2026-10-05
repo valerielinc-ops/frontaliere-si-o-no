@@ -41,6 +41,16 @@ export const ENTERO_CAREERS_URL = 'https://www.entero.ch/de/karriere';
 
 const DETAIL_DELAY_MS = 450;
 
+function canonicalPostingUrl(rawUrl = '', baseUrl = '') {
+  try {
+    const parsed = new URL(rawUrl, baseUrl || undefined);
+    parsed.pathname = parsed.pathname.replace(/\/+$/, '') || '/';
+    return parsed.href;
+  } catch {
+    return '';
+  }
+}
+
 const ENTERO_SITES = [
   { match: /egliswil/i, city: 'Egliswil', postalCode: '5704' },
   { match: /niederlenz/i, city: 'Niederlenz', postalCode: '5702' },
@@ -216,8 +226,7 @@ export async function fetchAllEnteroJobs() {
     const sameTitle = normalizeSpace(posting?.title || '').toLowerCase() === title.toLowerCase();
     let sameUrl = !posting?.url;
     if (posting?.url) {
-      try { sameUrl = new URL(posting.url, row.url).href === new URL(row.url).href; }
-      catch { sameUrl = false; }
+      sameUrl = canonicalPostingUrl(posting.url, row.url) === canonicalPostingUrl(row.url, row.url);
     }
     const site = resolveDetailSite(detail, title);
     // Our own foundation summary only stands in when the page gave no body;

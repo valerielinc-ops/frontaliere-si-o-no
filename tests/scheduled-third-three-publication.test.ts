@@ -13,8 +13,9 @@ for (const [name, producer] of [['Croix', fetchAllCroixRougeFribourgeoiseJobs], 
     it(`${name}: explicit detail publication ${kind}`, async () => {
       const year = new Date().getUTCFullYear() - 1;
       const raw = ['valid', 'foreign-url', 'other-title'].includes(kind) ? `${year}-06-15T13:00:00+02:00` : kind === 'invalid' ? `${year}-02-30T12:00:00Z` : kind === 'future' ? new Date(Date.now() + 3600000).toISOString() : undefined;
-      const posting = { '@type': 'JobPosting', title: kind === 'other-title' ? 'Another vacancy' : title, url: kind === 'foreign-url' ? 'https://employer.example/jobs/someone-else' : undefined, description: body, datePosted: raw, dateCreated: kind === 'creation-only' ? `${year}-01-01` : undefined, jobLocation: { address: { addressLocality: 'Fribourg' } } };
       const detailUrl = name === 'Croix' ? `https://www.jobup.ch/fr/emplois/detail/${id}/` : name === 'Engadin' ? 'https://www.engadintourismus.ch/ueber-uns/jobs/jobs/fixture' : 'https://www.entero.ch/de/karriere/fixture';
+      const structuredUrl = kind === 'valid' && name !== 'Croix' ? `${detailUrl}/` : undefined;
+      const posting = { '@type': 'JobPosting', title: kind === 'other-title' ? 'Another vacancy' : title, url: kind === 'foreign-url' ? 'https://employer.example/jobs/someone-else' : structuredUrl, description: body, datePosted: raw, dateCreated: kind === 'creation-only' ? `${year}-01-01` : undefined, jobLocation: { address: { addressLocality: 'Fribourg' } } };
       const html = `<main><h1>${title}</h1><div class="ce-bodytext">${body}</div></main><script type="application/ld+json">${JSON.stringify(posting)}</script>`;
       const transport = vi.fn(async (input) => {
         const url = String(input);

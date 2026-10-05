@@ -26,6 +26,16 @@ export const ENGADIN_TOURISMUS_KEY = 'engadin-tourismus';
 export const ENGADIN_TOURISMUS_COMPANY_NAME = 'Engadin Tourismus AG';
 export const ENGADIN_TOURISMUS_COMPANY_DOMAIN = 'engadintourismus.ch';
 
+function canonicalPostingUrl(rawUrl = '', baseUrl = '') {
+  try {
+    const parsed = new URL(rawUrl, baseUrl || undefined);
+    parsed.pathname = parsed.pathname.replace(/\/+$/, '') || '/';
+    return parsed.href;
+  } catch {
+    return '';
+  }
+}
+
 function createDocument(html = '') {
   const sanitized = String(html || '').replace(/<style\b[\s\S]*?<\/style>/gi, '');
   return new JSDOM(sanitized).window.document;
@@ -205,8 +215,7 @@ export async function fetchAllEngadinTourismusJobs() {
         const sameTitle = String(posting?.title || '').trim().toLowerCase() === listing.title.toLowerCase();
         let sameUrl = !posting?.url;
         if (posting?.url) {
-          try { sameUrl = new URL(posting.url, listing.url).href === new URL(listing.url).href; }
-          catch { sameUrl = false; }
+          sameUrl = canonicalPostingUrl(posting.url, listing.url) === canonicalPostingUrl(listing.url, listing.url);
         }
         publication = sourcePostingDateFields(sameTitle && sameUrl ? posting?.datePosted : '');
       } catch (err) {

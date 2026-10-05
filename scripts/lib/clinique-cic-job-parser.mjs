@@ -180,7 +180,7 @@ async function fetchDetailData(detailUrl, title) {
     }
     const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
     if (mainMatch) return { description: normalizeSpace(htmlToText(mainMatch[1])), ...publication };
-    return { description: '', ...sourcePostingDateFields() };
+    return { description: '', ...publication };
   } catch (err) {
     console.warn(`  ⚠️ Detail fetch failed (${detailUrl}): ${err?.message || err}`);
     return { description: '', ...sourcePostingDateFields() };

@@ -36,6 +36,16 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
+function canonicalPostingUrl(rawUrl = '', baseUrl = '') {
+  try {
+    const parsed = new URL(rawUrl, baseUrl || undefined);
+    parsed.pathname = parsed.pathname.replace(/\/+$/, '') || '/';
+    return parsed.href;
+  } catch {
+    return '';
+  }
+}
+
 function firstApiString(record, keys) {
   for (const key of keys) {
     const value = record?.[key];
@@ -499,8 +509,7 @@ export async function fetchAllBlsJobs() {
       const sameTitle = normalizeSpace(jsonLd.title).toLowerCase() === normalizeSpace(entry.title).toLowerCase();
       let sameUrl = !jsonLd.url;
       if (jsonLd.url) {
-        try { sameUrl = new URL(jsonLd.url, entry.url).href === new URL(entry.url).href; }
-        catch { sameUrl = false; }
+        sameUrl = canonicalPostingUrl(jsonLd.url, entry.url) === canonicalPostingUrl(entry.url, entry.url);
       }
       const publication = sourcePostingDateFields(sameTitle && sameUrl ? jsonLd.datePosted : '');
       const validThrough = normalizeSpace(jsonLd.validThrough || '').slice(0, 10);
