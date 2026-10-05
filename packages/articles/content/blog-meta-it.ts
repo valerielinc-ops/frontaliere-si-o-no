@@ -12621,6 +12621,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticinoskills-2026-gordola-event.title': 'TicinoSkills 2026: gare, orientamento e 50 anni SSIC TI',
     'blog.article.ticinoskills-2026-gordola-event.excerpt': 'Dal 1° al 3 ottobre 2026 a Gordola, 44 apprendisti hanno gareggiato nei campionati regionali, oltre 600 studenti in orientamento hanno visitato l\'evento e quasi 400 famiglie hanno partecipato al sabato, in occasione dei 50 anni del SSIC TI.',
     'blog.article.ticinoskills-2026-gordola-event.imageAlt': 'Apprendisti impegnati in una prova pratica durante TicinoSkills 2026 a Gordola, con lo sfondo del centro SSIC TI e bandiere svizzere.',
+    'blog.article.fairtiq-bonus-ticino-2026-2027.title': 'Più viaggi, meno paghi: con FAIRTIQ sconti fino al 20%',
+    'blog.article.fairtiq-bonus-ticino-2026-2027.excerpt': 'Bonus attivo dal 1 ottobre 2026 al 31 marzo 2027, con sconti automatici fino al 20% sui viaggi successivi in Ticino. Soglie mensili a 10, 50 e 100 franchi.',
+    'blog.article.fairtiq-bonus-ticino-2026-2027.imageAlt': 'Vista panoramica di Lugano con lago e montagne, e un mezzo di trasporto pubblico in primo piano.',
 };
 
 export default blogMetaIt;

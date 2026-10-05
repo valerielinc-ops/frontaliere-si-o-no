@@ -99440,6 +99440,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fairtiq-bonus-ticino-2026-2027': {
+    title: 'Più viaggi, meno paghi: con FAIRTIQ sconti fino al 20%',
+    description: 'Scopri il FAIRTIQ Bonus Ticino, l\'iniziativa che offre sconti automatici fino al 20% sui viaggi in Ticino dal 1° ottobre 2026 al 31 marzo 2027. Info su soglie',
+    keywords: 'frontalieri, ticino, svizzera, italia, viaggi, meno, paghi, fairtiq',
+    ogTitle: 'Più viaggi, meno paghi: con FAIRTIQ sconti fino al 20%',
+    ogDescription: 'Il FAIRTIQ Bonus Ticino ti permette di risparmiare sui tuoi spostamenti in Ticino. Dal 1° ottobre 2026 al 31 marzo 2027, ottieni sconti automatici fino al 20% sui viaggi successivi una volta raggiunte le soglie mensili di 10, 50 o 100 franchi',
+    canonicalPath: '/articoli-frontaliere/fairtiq-bonus-ticino-2026-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Più viaggi, meno paghi: con FAIRTIQ sconti fino al 20%",
+      "description": "Scopri il FAIRTIQ Bonus Ticino, l'iniziativa che offre sconti automatici fino al 20% sui viaggi in Ticino dal 1° ottobre 2026 al 31 marzo 2027. Info su soglie",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fairtiq-bonus-ticino-2026-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con lago e montagne, e un mezzo di trasporto pubblico in primo piano."
+      },
+      "datePublished": "2026-10-05T13:47:46+00:00",
+      "dateModified": "2026-10-05T13:47:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fairtiq-bonus-ticino-2026-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

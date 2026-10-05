@@ -12619,6 +12619,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ticinoskills-2026-gordola-event.title': 'TicinoSkills 2026: Rennen, Orientierung und 50 Jahre SBV TI',
     'blog.article.ticinoskills-2026-gordola-event.excerpt': 'Vom 1. bis 3. Oktober 2026 nahmen in Gordola 44 Lernende an regionalen Meisterschaften teil, über 600 Orientierungsstudenten besuchten die Veranstaltung und fast 400 Familien nahmen am Samstag anlässlich des 50-jährigen Bestehens des SBV TI teil.',
     'blog.article.ticinoskills-2026-gordola-event.imageAlt': 'Junge Lernende führen eine praktische Aufgabe bei TicinoSkills 2026 in Gordola aus, im Hintergrund das SSIC TI‑Zentrum und schweizerische Fahnen.',
+    'blog.article.fairtiq-bonus-ticino-2026-2027.title': 'Je mehr du reist, desto weniger zahlst du: Mit FAIRTIQ bis zu 20% Rabatt',
+    'blog.article.fairtiq-bonus-ticino-2026-2027.excerpt': 'Aktiver Bonus vom 1. Oktober 2026 bis 31. März 2027, mit automatischen Rabatten von bis zu 20% auf nachfolgende Reisen im Tessin. Monatsschwellen von 10, 50 und 100 Franken.',
+    'blog.article.fairtiq-bonus-ticino-2026-2027.imageAlt': 'Panoramablick auf Lugano mit See und Bergen, und ein öffentliches Verkehrsmittel im Vordergrund.',
 };
 
 export default blogMetaDe;

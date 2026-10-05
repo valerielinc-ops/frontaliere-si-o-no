@@ -12620,6 +12620,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ticinoskills-2026-gordola-event.title': 'TicinoSkills 2026: competitions, career guidance and 50 years of SSIC TI',
     'blog.article.ticinoskills-2026-gordola-event.excerpt': 'From October 1 to 3, 2026, in Gordola, 44 apprentices competed in the regional championships, more than 600 students receiving career guidance visited the event, and almost 400 families attended on Saturday, on the occasion of the 50th anniversary of the SSIC TI.',
     'blog.article.ticinoskills-2026-gordola-event.imageAlt': 'Young apprentices carrying out a practical task at TicinoSkills 2026 in Gordola, with the SSIC TI centre and Swiss flags in the background.',
+    'blog.article.fairtiq-bonus-ticino-2026-2027.title': 'More trips, less you pay: with FAIRTIQ, discounts of up to 20%',
+    'blog.article.fairtiq-bonus-ticino-2026-2027.excerpt': 'Bonus active from October 1, 2026 to March 31, 2027, with automatic discounts of up to 20% on subsequent trips in Ticino. Monthly thresholds of 10, 50 and 100 francs.',
+    'blog.article.fairtiq-bonus-ticino-2026-2027.imageAlt': 'Panoramic view of Lugano with lake and mountains, and a public transport vehicle in the foreground.',
 };
 
 export default blogMetaEn;
