@@ -22,6 +22,7 @@ const detailHtml = `<html><body><script type="application/ld+json">${JSON.string
   '@context': 'https://schema.org',
   '@type': 'Event',
   name: 'Sample event',
+  startDate: '2099-01-01T20:00:00+01:00',
   location: { '@type': 'Place', name: 'Hall', address: { streetAddress: 'Via Roma 1', postalCode: '6900', addressLocality: 'Lugano', addressRegion: 'TI' } },
 })}</script></body></html>`;
 
