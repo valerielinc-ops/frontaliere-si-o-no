@@ -139,18 +139,25 @@ export function isAplusEmptyListingPage(html = '', listings = parseAplusListings
   };
   const hasVisibleMarker = (value, element) => !isHidden(element) && emptyStateRe.test(normalizeSpace(value));
 
-  // Prefer element text so a marker split across nested spans remains
-  // detectable; also inspect bare text nodes because the portal's empty-state
-  // template has shipped as a direct child of its result container.
-  if ([...(document.body?.querySelectorAll('*') || [])].some((element) =>
-    hasVisibleMarker(element.textContent || '', element))) {
-    return true;
-  }
+  // Aggregate only visible text nodes for each ancestor. Using an ancestor's
+  // textContent would include hidden/template copies and could retire valid
+  // source jobs when the live board is not actually empty.
+  const visibleTextByElement = new Map();
   const walker = document.body
     ? document.createTreeWalker(document.body, 4 /* NodeFilter.SHOW_TEXT */)
     : null;
   for (let node = walker?.nextNode(); node; node = walker.nextNode()) {
-    if (hasVisibleMarker(node.nodeValue || '', node.parentElement)) return true;
+    const parent = node.parentElement;
+    if (!parent || isHidden(parent)) continue;
+    for (let element = parent; element; element = element.parentElement) {
+      visibleTextByElement.set(
+        element,
+        `${visibleTextByElement.get(element) || ''}${node.nodeValue || ''}`
+      );
+    }
+  }
+  for (const [element, value] of visibleTextByElement) {
+    if (hasVisibleMarker(value, element)) return true;
   }
   return false;
 }
