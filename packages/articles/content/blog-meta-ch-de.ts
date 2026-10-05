@@ -7727,6 +7727,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.prezzi-pellet-ticino-aumenti.title': 'Pelletpreise im Tessin: Preissteigerungen und Winterkäufe',
     'blog.article.prezzi-pellet-ticino-aumenti.excerpt': 'Analyse der Pelletpreise im Tessin mit geschätzten Preissteigerungen zwischen 5% und 10% und Empfehlungen für Käufe vor dem Winter.',
     'blog.article.prezzi-pellet-ticino-aumenti.imageAlt': 'Holzpellet-Lager im Tessin mit Säcken und Schüttgut',
+    'blog.article.startup-ticinesi-top100-2026.title': 'Drei Tessiner Unternehmen beim Top100 Swiss Startup Award 2026',
+    'blog.article.startup-ticinesi-top100-2026.excerpt': 'InkVivo, Jaipur Robotics und In Virtuo Laboratories vertreten das Tessin in der Rangliste der hundert vielversprechendsten Schweizer Startups des Jahres 2026.',
+    'blog.article.startup-ticinesi-top100-2026.imageAlt': 'Drei Tessiner Start-ups unter den vielversprechendsten beim Top100 Swiss Startup Award 2026',
 };
 
 export default blogMetaChDe;
