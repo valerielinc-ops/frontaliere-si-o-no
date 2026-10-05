@@ -1,6 +1,6 @@
 {
   "crawlerKey": "valora",
-  "assembledAt": "2026-10-04T21:16:14.721Z",
+  "assembledAt": "2026-10-05T09:15:05.718Z",
   "jobs": [
     {
       "id": "valora-fe3aaf06b9b5",
@@ -33,7 +33,7 @@
       "url": "https://career.valora.com/en/job/229/agenturpartnerin-agenturpartner-kanton-graubunden",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:16:08.396Z",
+      "crawledAt": "2026-10-05T09:14:58.437Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "streetAddress": "Hofackerstrasse 40",
@@ -47,7 +47,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2025-10-16",
       "postedDate": "2025-10-16",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/229/agenturpartnerin-agenturpartner-kanton-graubunden",
       "jobReqId": "12939",
       "requirements": [],
@@ -110,7 +112,7 @@
       "url": "https://career.valora.com/en/job/4743/agenturpartnerin-agenturpartner-prattigau",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:16:08.394Z",
+      "crawledAt": "2026-10-05T09:14:58.436Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "streetAddress": "Hofackerstrasse 40",
@@ -124,7 +126,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2025-10-28",
       "postedDate": "2025-10-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/4743/agenturpartnerin-agenturpartner-prattigau",
       "jobReqId": "20001",
       "requirements": [],
@@ -151,7 +155,7 @@
       "slugByLocale": {
         "it": "venditore-k-chiosco-15-ore-valora-group-uetendorf",
         "en": "seller-k-kiosk-15-hours-valora-group-uetendorf",
-        "de": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-jo1dne",
+        "de": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
         "fr": "kiosque-du-vendeur-k-15-heures-valora-group-uetendorf"
       },
       "company": "Valora Group",
@@ -176,7 +180,7 @@
       "url": "https://career.valora.com/en/job/5792/verkauferin-verkaufer-k-kiosk-15-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.392Z",
+      "crawledAt": "2026-10-05T09:14:58.434Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 32",
@@ -190,13 +194,16 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-06-10",
       "postedDate": "2026-06-10",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/5792/verkauferin-verkaufer-k-kiosk-15-std",
       "jobReqId": "21041",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
+        "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
+        "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-jo1dne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -214,86 +221,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:43:13.456Z",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "valora-e1d1ee4c7c31",
-      "slug": "venditore-venditore-avec-8-6-ore-valora-group-bern",
-      "slugByLocale": {
-        "it": "venditore-venditore-avec-8-6-ore-valora-group-bern",
-        "en": "seller-seller-avec-8-6-hours-valora-group-bern",
-        "de": "verkauferin-verkaufer-avec-8-6-std-valora-bern",
-        "fr": "vendeur-avec-8-6-heures-valora-group-bern"
-      },
-      "company": "Valora Group",
-      "companyKey": "valora",
-      "companyDomain": "valora.com",
-      "title": "Verkäuferin / Verkäufer avec 8.6 Std.",
-      "titleByLocale": {
-        "it": "Venditore / Venditore avec 8.6 ore.",
-        "en": "Seller / Seller avec 8.6 hours.",
-        "de": "Verkäuferin / Verkäufer avec 8.6 Std.",
-        "fr": "Vendeur avec 8,6 heures."
-      },
-      "description": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren avec in Bern Holligen suchen wir ab sofort Verstärkung für 8.6 Stunden/Woche im Stundenlohn . Der Shop befindet sich an einer Tankstelle. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Umsetzung der Verkaufsförderungsmassnahmen und Sicherstellen der Einhaltung von Tankstellen-Sicherheitskonzepten\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
-      "descriptionByLocale": {
-        "it": "Vende la tua passione? Allora abbiamo l'opportunita' perfetta per te. Per il nostro avec a Bern Holligen ora stiamo cercando rinforzi per 8,6 ore / settimana nel salario orario. Il negozio si trova in una stazione di servizio. Sei responsabile di questo\n• Consulenza e vendita amichevoli e professionali nel campo degli alimenti e non alimentari\n• Attuazione delle misure di promozione delle vendite e garanzia del rispetto dei concetti di sicurezza della stazione di servizio\n• Gestione e attuazione delle misure di promozione\n• Contanti e insediamento degli ordini\n• Presentazione attraente delle merci e garantire un posto di lavoro pulito e ordinato\n• Compliance e implementazione delle norme legali nelle vendite Questo ti distingue\n• Affidabile, flessibile, motivato e resistente\n• Esperienza professionale nel commercio al dettaglio o nel settore simile (hotel o catering)\n• Enthusiastic e service-oriented\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Giocatore di squadra con comprensione rapida Questo è ciò che vi offriamo\n• Facendo parte del fornitore di cibo leader e il fascino fortunato per i nostri clienti\n• Ulteriori opportunità di sviluppo e formazione online emozionante presso la nostra Valora Academy\n• Un ambiente dinamico\n• Modelli a strati flessibili\n• Supplemento serale attraente (20:00 – 23:00) oltre a notte, domenica e spese di vacanza pubbliche\n• Uno sconto sui dipendenti con cui puoi acquistare nei nostri negozi al contenuto del tuo cuore",
-        "en": "Is selling your passion? Then we have the perfect opportunity for you. For our avec in Bern Holligen we are now looking for reinforcement for 8.6 hours / week in the hourly wage. The shop is located at a gas station. You are responsible for this\n• Friendly and professional advice and sales in the field of food and non-food\n• Implementation of sales promotion measures and ensuring compliance with service station safety concepts\n• Goods management and implementation of promotion measures\n• Cash and settlement of orders\n• Attractive presentation of goods and ensuring a clean and orderly workplace\n• Compliance and implementation of legal standards in sales This distinguishes you\n• Reliable, flexible, motivated and resilient\n• Professional experience in the retail trade or similar sector (hotel or catering)\n• Enthusiastic and service-oriented\n• Very good knowledge of German in word and writing\n• Team player with fast comprehension This is what we offer you\n• Being part of the leading foodvenience provider and lucky charm for our customers\n• Further development opportunities and exciting online training at our Valora Academy\n• A dynamic environment\n• Flexible layer models\n• Attractive evening surcharge (20:00 – 23:00) in addition to night, Sunday and public holiday surcharges\n• An employee discount with which you can shop in our stores to your heart's content",
-        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren avec in Bern Holligen suchen wir ab sofort Verstärkung für 8.6 Stunden/Woche im Stundenlohn . Der Shop befindet sich an einer Tankstelle. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Umsetzung der Verkaufsförderungsmassnahmen und Sicherstellen der Einhaltung von Tankstellen-Sicherheitskonzepten\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
-        "fr": "Tu vends ta passion ? Alors nous avons la possibilité parfaite pour vous. Pour notre avec à Berne Holligen, nous sommes à la recherche de renfort pour 8,6 heures / semaine dans le salaire horaire. Le magasin est situé à une station-service. Vous en êtes responsable.\n• Conseils et ventes amical et professionnel dans le domaine de l'alimentation et non alimentaire\n• Mise en œuvre de mesures de promotion des ventes et respect des concepts de sécurité des stations-service\n• Gestion des biens et mise en œuvre des mesures de promotion\n• Encaisse et règlement des commandes\n• Une présentation attrayante des marchandises et un lieu de travail propre et ordonné\n• Respect et application des normes juridiques en matière de vente Cela vous distingue\n• Fiabilité, flexibilité, motivation et résilience\n• Expérience professionnelle dans le commerce de détail ou le secteur similaire (hôtel ou restauration)\n• Enthousiastique et axé sur le service\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Joueur d'équipe avec une compréhension rapide C'est ce que nous vous offrons.\n• Faire partie du premier fournisseur de foodvenience et le charme chanceux pour nos clients\n• Possibilités de développement et formation en ligne à notre Valora Academy\n• Un environnement dynamique\n• Modèles de couches flexibles\n• Suppléments de soirée attrayants (20:00 – 23:00) en plus des suppléments de nuit, de dimanche et de jours fériés\n• Une réduction pour les employés avec laquelle vous pouvez magasiner dans nos magasins au contenu de votre cœur"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://career.valora.com/en/job/5864/verkauferin-verkaufer-avec-8-6-std",
-      "source": "Valora Group Dedicated Parser (Custom)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.391Z",
-      "addressLocality": "Bern",
-      "addressRegion": "Bern",
-      "streetAddress": "Könizstrasse 12a",
-      "postalCode": "3008",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Vendita",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail / Foodvenience",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://career.valora.com/en/job/5864/verkauferin-verkaufer-avec-8-6-std",
-      "jobReqId": "21202",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkauferin-verkaufer-avec-8-6-std-valora-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkauferin-verkaufer-avec-8-6-std-valora-bern"
-        ],
-        "en": [
-          "verkauferin-verkaufer-avec-8-6-std-valora-bern"
-        ],
-        "fr": [
-          "verkauferin-verkaufer-avec-8-6-std-valora-bern"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-04T12:43:13.459Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -339,7 +266,7 @@
       "url": "https://career.valora.com/en/job/5635/verkauferin-verkaufer-k-kiosk-13-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.390Z",
+      "crawledAt": "2026-10-05T09:14:58.433Z",
       "addressLocality": "Derendingen",
       "addressRegion": "Solothurn",
       "streetAddress": "Hauptstrasse 22",
@@ -353,7 +280,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-06-10",
       "postedDate": "2026-06-10",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/5635/verkauferin-verkaufer-k-kiosk-13-std",
       "jobReqId": "20293",
       "requirements": [],
@@ -403,6 +332,88 @@
       }
     },
     {
+      "id": "valora-e1d1ee4c7c31",
+      "slug": "venditore-venditore-avec-8-6-ore-valora-group-bern",
+      "slugByLocale": {
+        "it": "venditore-venditore-avec-8-6-ore-valora-group-bern",
+        "en": "seller-seller-avec-8-6-hours-valora-group-bern",
+        "de": "verkauferin-verkaufer-avec-8-6-std-valora-bern",
+        "fr": "vendeur-avec-8-6-heures-valora-group-bern"
+      },
+      "company": "Valora Group",
+      "companyKey": "valora",
+      "companyDomain": "valora.com",
+      "title": "Verkäuferin / Verkäufer avec 8.6 Std.",
+      "titleByLocale": {
+        "it": "Venditore / Venditore avec 8.6 ore.",
+        "en": "Seller / Seller avec 8.6 hours.",
+        "de": "Verkäuferin / Verkäufer avec 8.6 Std.",
+        "fr": "Vendeur avec 8,6 heures."
+      },
+      "description": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren avec in Bern Holligen suchen wir ab sofort Verstärkung für 8.6 Stunden/Woche im Stundenlohn . Der Shop befindet sich an einer Tankstelle. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Umsetzung der Verkaufsförderungsmassnahmen und Sicherstellen der Einhaltung von Tankstellen-Sicherheitskonzepten\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+      "descriptionByLocale": {
+        "it": "Vende la tua passione? Allora abbiamo l'opportunita' perfetta per te. Per il nostro avec a Bern Holligen ora stiamo cercando rinforzi per 8,6 ore / settimana nel salario orario. Il negozio si trova in una stazione di servizio. Sei responsabile di questo\n• Consulenza e vendita amichevoli e professionali nel campo degli alimenti e non alimentari\n• Attuazione delle misure di promozione delle vendite e garanzia del rispetto dei concetti di sicurezza della stazione di servizio\n• Gestione e attuazione delle misure di promozione\n• Contanti e insediamento degli ordini\n• Presentazione attraente delle merci e garantire un posto di lavoro pulito e ordinato\n• Compliance e implementazione delle norme legali nelle vendite Questo ti distingue\n• Affidabile, flessibile, motivato e resistente\n• Esperienza professionale nel commercio al dettaglio o nel settore simile (hotel o catering)\n• Enthusiastic e service-oriented\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Giocatore di squadra con comprensione rapida Questo è ciò che vi offriamo\n• Facendo parte del fornitore di cibo leader e il fascino fortunato per i nostri clienti\n• Ulteriori opportunità di sviluppo e formazione online emozionante presso la nostra Valora Academy\n• Un ambiente dinamico\n• Modelli a strati flessibili\n• Supplemento serale attraente (20:00 – 23:00) oltre a notte, domenica e spese di vacanza pubbliche\n• Uno sconto sui dipendenti con cui puoi acquistare nei nostri negozi al contenuto del tuo cuore",
+        "en": "Is selling your passion? Then we have the perfect opportunity for you. For our avec in Bern Holligen we are now looking for reinforcement for 8.6 hours / week in the hourly wage. The shop is located at a gas station. You are responsible for this\n• Friendly and professional advice and sales in the field of food and non-food\n• Implementation of sales promotion measures and ensuring compliance with service station safety concepts\n• Goods management and implementation of promotion measures\n• Cash and settlement of orders\n• Attractive presentation of goods and ensuring a clean and orderly workplace\n• Compliance and implementation of legal standards in sales This distinguishes you\n• Reliable, flexible, motivated and resilient\n• Professional experience in the retail trade or similar sector (hotel or catering)\n• Enthusiastic and service-oriented\n• Very good knowledge of German in word and writing\n• Team player with fast comprehension This is what we offer you\n• Being part of the leading foodvenience provider and lucky charm for our customers\n• Further development opportunities and exciting online training at our Valora Academy\n• A dynamic environment\n• Flexible layer models\n• Attractive evening surcharge (20:00 – 23:00) in addition to night, Sunday and public holiday surcharges\n• An employee discount with which you can shop in our stores to your heart's content",
+        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren avec in Bern Holligen suchen wir ab sofort Verstärkung für 8.6 Stunden/Woche im Stundenlohn . Der Shop befindet sich an einer Tankstelle. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Umsetzung der Verkaufsförderungsmassnahmen und Sicherstellen der Einhaltung von Tankstellen-Sicherheitskonzepten\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "fr": "Tu vends ta passion ? Alors nous avons la possibilité parfaite pour vous. Pour notre avec à Berne Holligen, nous sommes à la recherche de renfort pour 8,6 heures / semaine dans le salaire horaire. Le magasin est situé à une station-service. Vous en êtes responsable.\n• Conseils et ventes amical et professionnel dans le domaine de l'alimentation et non alimentaire\n• Mise en œuvre de mesures de promotion des ventes et respect des concepts de sécurité des stations-service\n• Gestion des biens et mise en œuvre des mesures de promotion\n• Encaisse et règlement des commandes\n• Une présentation attrayante des marchandises et un lieu de travail propre et ordonné\n• Respect et application des normes juridiques en matière de vente Cela vous distingue\n• Fiabilité, flexibilité, motivation et résilience\n• Expérience professionnelle dans le commerce de détail ou le secteur similaire (hôtel ou restauration)\n• Enthousiastique et axé sur le service\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Joueur d'équipe avec une compréhension rapide C'est ce que nous vous offrons.\n• Faire partie du premier fournisseur de foodvenience et le charme chanceux pour nos clients\n• Possibilités de développement et formation en ligne à notre Valora Academy\n• Un environnement dynamique\n• Modèles de couches flexibles\n• Suppléments de soirée attrayants (20:00 – 23:00) en plus des suppléments de nuit, de dimanche et de jours fériés\n• Une réduction pour les employés avec laquelle vous pouvez magasiner dans nos magasins au contenu de votre cœur"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://career.valora.com/en/job/5864/verkauferin-verkaufer-avec-8-6-std",
+      "source": "Valora Group Dedicated Parser (Custom)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T09:14:58.431Z",
+      "addressLocality": "Bern",
+      "addressRegion": "Bern",
+      "streetAddress": "Könizstrasse 12a",
+      "postalCode": "3008",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Foodvenience",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-06-10",
+      "postedDate": "2026-06-10",
+      "postingDateSource": "reported",
+      "applyUrl": "https://career.valora.com/en/job/5864/verkauferin-verkaufer-avec-8-6-std",
+      "jobReqId": "21202",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkauferin-verkaufer-avec-8-6-std-valora-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-avec-8-6-std-valora-bern"
+        ],
+        "en": [
+          "verkauferin-verkaufer-avec-8-6-std-valora-bern"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-avec-8-6-std-valora-bern"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T12:43:13.459Z",
+      "salaryMin": 77500,
+      "salaryMax": 118500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 118500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "valora-f7847d5e9bd7",
       "slug": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne",
       "slugByLocale": {
@@ -416,7 +427,7 @@
       "companyDomain": "valora.com",
       "title": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
       "titleByLocale": {
-        "it": "barista Caffè Spettacolo - 16,4 ore (m/f/x)",
+        "it": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
         "en": "barista Caffè Spettacolo - 16.4 hours (m/f/x)",
         "de": "barista Caffè Spettacolo - 16.4 Stunden (m/w/x)",
         "fr": "barista Caffè Spettacolo - 16.4 h (h/f/x)"
@@ -433,7 +444,7 @@
       "url": "https://career.valora.com/en/job/5996/barista-caffe-spettacolo-16-4-h-h-f-x",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:16:08.385Z",
+      "crawledAt": "2026-10-05T09:14:58.428Z",
       "addressLocality": "Lausanne",
       "addressRegion": "Waadt",
       "streetAddress": "Rue des Terreaux 25",
@@ -447,7 +458,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-06-19",
       "postedDate": "2026-06-19",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/5996/barista-caffe-spettacolo-16-4-h-h-f-x",
       "jobReqId": "21301",
       "requirements": [],
@@ -499,7 +512,7 @@
       "url": "https://career.valora.com/en/job/6225/verkauferin-verkauferin-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.381Z",
+      "crawledAt": "2026-10-05T09:14:58.424Z",
       "addressLocality": "Lauterbrunnen",
       "addressRegion": "Bern",
       "streetAddress": "Station 469b",
@@ -513,7 +526,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-07-27",
       "postedDate": "2026-07-27",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6225/verkauferin-verkauferin-k-kiosk-10-std",
       "jobReqId": "21576",
       "requirements": [],
@@ -554,7 +569,7 @@
         "it": "manutenzione-del-manubrio-f-m-d-valora-group-emmenbrucke",
         "en": "teamlead-maintenance-f-m-d-valora-group-emmenbrucke",
         "de": "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
-        "fr": "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
+        "fr": "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -578,7 +593,7 @@
       "url": "https://career.valora.com/en/job/5860/mitarbeiter-instandhaltung-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.369Z",
+      "crawledAt": "2026-10-05T09:14:58.415Z",
       "addressLocality": "Emmenbrücke",
       "addressRegion": "Luzern",
       "streetAddress": "Neuenkirchstrasse 91",
@@ -592,7 +607,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-05",
+      "datePosted": "2026-07-29",
+      "postedDate": "2026-07-29",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/5860/mitarbeiter-instandhaltung-w-m-d",
       "jobReqId": "21161",
       "requirements": [],
@@ -612,6 +629,7 @@
         "fr": [
           "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
           "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
+          "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke",
           "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
         ]
       },
@@ -619,6 +637,7 @@
         "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
         "mitarbeiter-instandhaltung-w-m-d-valora-emmenbrucke",
         "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
+        "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke",
         "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
       ],
       "firstSeenAt": "2026-07-22T22:06:00.739Z",
@@ -667,7 +686,7 @@
       "url": "https://career.valora.com/en/job/6276/verkauferin-verkaufer-k-kiosk-15-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.339Z",
+      "crawledAt": "2026-10-05T09:14:58.407Z",
       "addressLocality": "Kandersteg",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofstrasse 7",
@@ -681,7 +700,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-07-31",
       "postedDate": "2026-07-31",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6276/verkauferin-verkaufer-k-kiosk-15-std",
       "jobReqId": "21590",
       "requirements": [],
@@ -732,7 +753,7 @@
         "it": "Agenturpartnerin / Agenturpartner Kanton Soletta",
         "en": "Agenturpartnerin / Agenturpartner Kanton Solothurn",
         "de": "Agenturpartnerin / Agenturpartner Kanton Solothurn",
-        "fr": "Agenturpartnerin / Agenturpartner Kanton Soleure"
+        "fr": "Agenturpartnerin / Agenturpartner Kanton Solothurn"
       },
       "description": "Summary As an established provider of convenience and food services, Valora is offering you the opportunity to become self-employed. Using a tried-and-tested turnkey business model, we will help you open your own store. We will also support you beyond this stage so that you not only get off to a successful start but also feel confident as an agency partner over the long term. You can choose which of our first-class formats suits you best. Choose from avec, Press & Books or k kiosk (at highly frequented locations, such as train stations, airports or petrol stations). You have a welcoming disposition and offer your customers a special shopping experience – from presenting goods in the most appealing way possible to offering comprehensive advice and support. You have very strong communication skills, are open-minded and enjoy meeting people. You are creative, reliable and have a good eye for detail. You are able to inspire and convince others through your passion for food and convenience services. You are an excellent role model for your team and are always willing to pitch in yourself. As a leader with a sensitive mindset, you take care of your employees and help them develop. Become part of the Valora network and brighten up our customers’ day. Tasks and Requirements Tasks that you will enjoy\n• Managing one or more well-frequented Valora stores as an independent entrepreneur with full responsibility.\n• Leading the staff, including scheduling, recruiting, and training employees.\n• Inventory management (inventory taking, stock levels, orders).\n• Proactively advising customers and building/maintaining customer relationships.\n• Collaborating closely with suppliers and the responsible sales management.\n• Continuously optimizing processes and service quality in the store.\n• Ensuring a professional appearance of the store and implementing sales-promoting measures. Requirements you bring\n• Training as a retail specialist EFZ and/or relevant experience in retail, hospitality, or gastronomy.\n• Interest in self-employment and managing one or more stores.\n• Willingness to invest a lot of time, work, and perseverance, especially at the beginning.\n• Entrepreneurial thinking and action, team spirit, and organizational talent.\n• Enjoyment in dealing with people as well as a pronounced customer and service orientation.\n• At least 30,000 CHF (depending on the format) in equity capital for the establishment of a GmbH and for joining as an agency partner.\n• Impeccable reputation.\n• Swiss passport or a residence permit. Success profile\n• Customer oriented\n• Team oriented\n• Entrepreneurial\n• Willing to learn\n• Leadership affine\n• Organized Benefits\n• Opportunity to share experiences with other agencies within the Valora network\n• Advice on turnover and cost planning\n• Turnkey shopfitting in uniform branding/corporate design, plus advertising and communication materials\n• Detailed induction training and preparation for future tasks\n• Well-established stores at highly frequented locations\n• ERP system, category management (structuring of product groups) and central purchasing\n• Attractive prospects for development and the opportunity to take over several stores\n• Comprehensive training programmes, further education and training, plus seminars and expert talks",
       "descriptionByLocale": {
@@ -746,7 +767,7 @@
       "url": "https://career.valora.com/en/job/3181/agenturpartnerin-agenturpartner-kanton-solothurn",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:16:08.337Z",
+      "crawledAt": "2026-10-05T09:14:58.405Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -760,7 +781,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-10-16",
+      "datePosted": "2026-08-03",
+      "postedDate": "2026-08-03",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/3181/agenturpartnerin-agenturpartner-kanton-solothurn",
       "jobReqId": "12938",
       "requirements": [],
@@ -812,7 +835,7 @@
       "url": "https://career.valora.com/en/job/3180/agenturpartnerin-agenturpartner-kanton-bern",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:16:08.336Z",
+      "crawledAt": "2026-10-05T09:14:58.403Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -826,7 +849,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-09-01",
+      "datePosted": "2026-08-03",
+      "postedDate": "2026-08-03",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/3180/agenturpartnerin-agenturpartner-kanton-bern",
       "jobReqId": "12937",
       "requirements": [],
@@ -861,7 +886,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-k-kiosk-20-ore-valora-group-kandersteg",
         "en": "seller-seller-k-kiosk-20-hours-valora-group-kandersteg",
-        "de": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-jo0tq2",
+        "de": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
         "fr": "vendeur-vendeur-k-kiosque-20-heures-valora-group-kandersteg"
       },
       "company": "Valora Group",
@@ -886,7 +911,7 @@
       "url": "https://career.valora.com/en/job/6353/verkauferin-verkaufer-k-kiosk-20-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.333Z",
+      "crawledAt": "2026-10-05T09:14:58.401Z",
       "addressLocality": "Kandersteg",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofstrasse 7",
@@ -900,13 +925,16 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-18",
       "postedDate": "2026-08-18",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6353/verkauferin-verkaufer-k-kiosk-20-std",
       "jobReqId": "21711",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
+        "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
+        "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-jo0tq2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -942,9 +970,9 @@
       "id": "valora-4c80410311ef",
       "slug": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
       "slugByLocale": {
-        "de": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-jo0tq3",
         "it": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
         "en": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
+        "de": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-jo0tq3",
         "fr": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
       },
       "company": "Valora Group",
@@ -952,16 +980,16 @@
       "companyDomain": "valora.com",
       "title": "Verkäuferin / Verkäufer k kiosk 20 Std.",
       "titleByLocale": {
-        "de": "Verkäuferin / Verkäufer k kiosk 20 Std.",
         "it": "Verkäuferin / Verkäufer k kiosk 20 Std.",
         "en": "Verkäuferin / Verkäufer k kiosk 20 Std.",
+        "de": "Verkäuferin / Verkäufer k kiosk 20 Std.",
         "fr": "Verkäuferin / Verkäufer k kiosk 20 Std."
       },
       "description": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Kandersteg suchen wir ab sofort Verstärkung für 20 Std./Woche im Stundenlohn . Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
       "descriptionByLocale": {
-        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Kandersteg suchen wir ab sofort Verstärkung für 20 Std./Woche im Stundenlohn . Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
         "it": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Kandersteg suchen wir ab sofort Verstärkung für 20 Std./Woche im Stundenlohn . Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
         "en": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Kandersteg suchen wir ab sofort Verstärkung für 20 Std./Woche im Stundenlohn . Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Kandersteg suchen wir ab sofort Verstärkung für 20 Std./Woche im Stundenlohn . Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
         "fr": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Kandersteg suchen wir ab sofort Verstärkung für 20 Std./Woche im Stundenlohn . Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst"
       },
       "location": "Kandersteg",
@@ -969,7 +997,7 @@
       "url": "https://career.valora.com/en/job/6352/verkauferin-verkaufer-k-kiosk-20-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.332Z",
+      "crawledAt": "2026-10-05T09:14:58.400Z",
       "addressLocality": "Kandersteg",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofstrasse 7",
@@ -983,14 +1011,15 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-18",
       "postedDate": "2026-08-18",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6352/verkauferin-verkaufer-k-kiosk-20-std",
       "jobReqId": "21710",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-18T21:37:25.993Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -1003,8 +1032,7 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-18T21:37:25.993Z"
+      }
     },
     {
       "id": "valora-efda2feac9b1",
@@ -1037,7 +1065,7 @@
       "url": "https://career.valora.com/en/job/6439/stv-geschaftsfuhrerin-stv-geschaftsfuhrer-80",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.330Z",
+      "crawledAt": "2026-10-05T09:14:58.397Z",
       "addressLocality": "Bagnes",
       "addressRegion": "Wallis",
       "streetAddress": "Place de la Curela 5",
@@ -1051,7 +1079,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-26",
       "postedDate": "2026-08-26",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6439/stv-geschaftsfuhrerin-stv-geschaftsfuhrer-80",
       "jobReqId": "21683",
       "requirements": [],
@@ -1120,7 +1150,7 @@
       "url": "https://career.valora.com/en/job/6438/verkauferin-verkaufer-press-books-21-5-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.314Z",
+      "crawledAt": "2026-10-05T09:14:58.374Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "streetAddress": "Spitzwaldstrasse 215",
@@ -1134,7 +1164,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-26",
       "postedDate": "2026-08-26",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6438/verkauferin-verkaufer-press-books-21-5-std",
       "jobReqId": "21611",
       "requirements": [],
@@ -1212,7 +1244,7 @@
       "url": "https://career.valora.com/en/job/6463/lead-expansion-lease-switzerland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.313Z",
+      "crawledAt": "2026-10-05T09:14:58.372Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstr. 40",
@@ -1226,7 +1258,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-01",
       "postedDate": "2026-09-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6463/lead-expansion-lease-switzerland",
       "jobReqId": "21864",
       "requirements": [],
@@ -1254,87 +1288,6 @@
           "@type": "QuantitativeValue",
           "minValue": 65500,
           "maxValue": 88500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "valora-fb0a74ef2a2e",
-      "slug": "apprendistato-uomo-d-affari-donna-efz-servizio-e-amministrazione-valora-group-muttenz",
-      "slugByLocale": {
-        "it": "apprendistato-uomo-d-affari-donna-efz-servizio-e-amministrazione-valora-group-muttenz",
-        "en": "apprenticeship-businessman-woman-efz-service-and-administration-br-valora-group-muttenz",
-        "de": "lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-lt-br-gt-valora-muttenz",
-        "fr": "apprentissage-homme-d-affaires-femme-efz-service-et-administration-br-valora-group-muttenz"
-      },
-      "company": "Valora Group",
-      "companyKey": "valora",
-      "companyDomain": "valora.com",
-      "title": "Lehrstelle Kaufmann/-frau EFZ Dienstleistung und Administration<br />",
-      "titleByLocale": {
-        "it": "Apprendistato Uomo d'affari / donna EFZ Servizio e amministrazione",
-        "en": "Apprenticeship Businessman/woman EFZ Service and Administration<br />",
-        "de": "Lehrstelle Kaufmann/-frau EFZ Dienstleistung und Administration<br />",
-        "fr": "Apprentissage Homme d'affaires/femme EFZ Service et administration<br />"
-      },
-      "description": "Du möchtest eine kaufmännische Ausbildung machen, aber nicht drei Jahre lang immer die gleichen Aufgaben erledigen? Dann bist du bei Valora genau richtig! Während deiner dreijährigen KV-Lehre am Hauptsitz in Muttenz wechselst du alle sechs Monate die Abteilung. So lernst du ganz unterschiedliche Bereiche kennen und bekommst einen umfassenden Einblick, wie ein grosses und vielseitiges Unternehmen funktioniert. Aufgaben, die Dir gefallen werden\n• Praxisbezogene, abwechslungsreiche und vielseitige kaufmännische Ausbildung in der Branche Handel\n• Kennenlernen eines dynamischen und spannenden Konzernumfeld und Berufsalltags\n• Einblicke in verschiedener Abteilungen\n• Mithilfe bei Projekten und Events Voraussetzungen, die Du mitbringst\n• Obligatorische Schule mit guten bis sehr guten Leistungen abgeschlossen\n• Interesse an kaufmännischen und wirtschaftlichen Zusammenhängen\n• Freude an der Arbeit am Computer und an digitalen Tätigkeiten\n• Zuverlässige, selbstständige und sorgfältige Arbeitsweise\n• Organisationstalent und Fähigkeit, auch bei mehreren Aufgaben den Überblick zu behalten\n• Schnelle Auffassungsgabe und hohe Lernbereitschaft\n• Offene und freundliche Persönlichkeit im Umgang mit anderen Menschen\n• Sehr gute Umgangsformen sowie gepflegtes und professionelles Auftreten\n• Teamorientiert und engagiert\n• Freude an Fremdsprachen (sehr gute Deutsch- sowie gute Französisch- und Englischkenntnisse)\n• Interesse daran, wie ein grosses Unternehmen mit verschiedenen Marken und Verkaufsformaten funktioniert Vorteile, die wir Dir bieten\n• Abwechslungsreiche Berufsbildung mit Einsicht in verschiedene Abteilungen\n• Kompetente Betreuung durch unsere engagierten Berufsbildner\n• Teilnahme an internen und externen Veranstaltungen\n• Entwicklungsmöglichkeiten und Zukunftsperspektiven nach erfolgreich abgeschlossener Grundbildung\n• Grundstein zu einer höheren Berufsbildung und zum Studium\n• Valora bietet die kaufmännische Grundbildung in den zwei Profilen E und M an.",
-      "descriptionByLocale": {
-        "it": "Vuoi fare un'educazione commerciale, ma non sempre fare gli stessi compiti per tre anni? Allora siete esattamente a Valora! Durante l'apprendistato KV di tre anni presso il quartier generale di Muttenz, cambia dipartimento ogni sei mesi. Potrai conoscere aree molto diverse e ottenere una panoramica completa su come una grande e versatile azienda funziona. Compiti che ti piacerà\n• Formazione commerciale pratica, varia e versatile nel settore commerciale\n• Conoscere un ambiente aziendale dinamico ed emozionante e un lavoro quotidiano\n• Insights in vari dipartimenti\n• Assistenza con progetti ed eventi\n• Scuola obbligatoria completata con buone prestazioni\n• Interessi delle connessioni commerciali ed economiche\n• Godimento di lavorare sul computer e sulle attività digitali\n• Metodi di lavoro affidabili, indipendenti e attenti\n• talento organizzativo e capacità di tenere traccia di molteplici compiti\n• Rapida comprensione e grande disponibilità ad imparare\n• Personalità aperta e amichevole nel trattare con altre persone\n• Molto buone maniere e aspetto curato e professionale\n• Gruppo orientato e impegnato\n• Divertimento delle lingue straniere (molto buono tedesco e buone abilità francesi e inglesi)\n• Interessato a come una grande azienda con diversi marchi e formati di vendita funziona Vantaggi vi offriamo\n• Variazione della formazione professionale con una panoramica dei diversi reparti\n• Supporto competente dei nostri formatori professionali dedicati\n• Partecipazione ad eventi interni ed esterni\n• Opportunità di sviluppo e prospettive future dopo aver completato con successo l'istruzione di base\n• Pietra di fondazione per una formazione professionale superiore e uno studio\n• Valora offre l'istruzione commerciale di base nei due profili E e M.",
-        "en": "You want to do a commercial education, but not always do the same tasks for three years? Then you are exactly right at Valora! During your three-year KV apprenticeship at the headquarters in Muttenz, you change department every six months. You will get to know very different areas and get a comprehensive insight into how a large and versatile company works. Tasks you will like\n• Practical, varied and versatile commercial training in the trade sector\n• Getting to know a dynamic and exciting corporate environment and everyday work\n• Insights in various departments\n• Assistance with projects and events Requirements you bring\n• Compulsory school completed with good to very good performance\n• Interest in commercial and economic connections\n• Enjoyment of working on the computer and digital activities\n• Reliable, independent and careful working methods\n• Organizational talent and ability to keep track of multiple tasks\n• Quick comprehension and a high willingness to learn\n• Open and friendly personality in dealing with other people\n• Very good manners and well-groomed and professional appearance\n• Team-oriented and committed\n• Enjoyment of foreign languages (very good German as well as good French and English skills)\n• Interested in how a large company with different brands and sales formats works Advantages we offer you\n• Varied vocational training with insight into different departments\n• Competent support from our dedicated vocational trainers\n• Participation in internal and external events\n• Development opportunities and future prospects after successfully completed basic education\n• Foundation stone for higher vocational training and study\n• Valora offers the basic commercial education in the two profiles E and M.",
-        "de": "Du möchtest eine kaufmännische Ausbildung machen, aber nicht drei Jahre lang immer die gleichen Aufgaben erledigen? Dann bist du bei Valora genau richtig! Während deiner dreijährigen KV-Lehre am Hauptsitz in Muttenz wechselst du alle sechs Monate die Abteilung. So lernst du ganz unterschiedliche Bereiche kennen und bekommst einen umfassenden Einblick, wie ein grosses und vielseitiges Unternehmen funktioniert. Aufgaben, die Dir gefallen werden\n• Praxisbezogene, abwechslungsreiche und vielseitige kaufmännische Ausbildung in der Branche Handel\n• Kennenlernen eines dynamischen und spannenden Konzernumfeld und Berufsalltags\n• Einblicke in verschiedener Abteilungen\n• Mithilfe bei Projekten und Events Voraussetzungen, die Du mitbringst\n• Obligatorische Schule mit guten bis sehr guten Leistungen abgeschlossen\n• Interesse an kaufmännischen und wirtschaftlichen Zusammenhängen\n• Freude an der Arbeit am Computer und an digitalen Tätigkeiten\n• Zuverlässige, selbstständige und sorgfältige Arbeitsweise\n• Organisationstalent und Fähigkeit, auch bei mehreren Aufgaben den Überblick zu behalten\n• Schnelle Auffassungsgabe und hohe Lernbereitschaft\n• Offene und freundliche Persönlichkeit im Umgang mit anderen Menschen\n• Sehr gute Umgangsformen sowie gepflegtes und professionelles Auftreten\n• Teamorientiert und engagiert\n• Freude an Fremdsprachen (sehr gute Deutsch- sowie gute Französisch- und Englischkenntnisse)\n• Interesse daran, wie ein grosses Unternehmen mit verschiedenen Marken und Verkaufsformaten funktioniert Vorteile, die wir Dir bieten\n• Abwechslungsreiche Berufsbildung mit Einsicht in verschiedene Abteilungen\n• Kompetente Betreuung durch unsere engagierten Berufsbildner\n• Teilnahme an internen und externen Veranstaltungen\n• Entwicklungsmöglichkeiten und Zukunftsperspektiven nach erfolgreich abgeschlossener Grundbildung\n• Grundstein zu einer höheren Berufsbildung und zum Studium\n• Valora bietet die kaufmännische Grundbildung in den zwei Profilen E und M an.",
-        "fr": "Vous voulez faire une éducation commerciale, mais pas toujours les mêmes tâches pendant trois ans ? Alors vous êtes exactement à Valora ! Lors de votre apprentissage de trois ans au siège de Muttenz, vous changez de département tous les six mois. Vous apprendrez à connaître des domaines très différents et obtenir un aperçu complet de la façon dont une entreprise grande et polyvalente fonctionne. Tâches que vous aimerez\n• Formation commerciale pratique, variée et polyvalente dans le secteur du commerce\n• Apprendre à connaître un environnement d'entreprise dynamique et passionnant et un travail quotidien\n• Perspectives dans différents départements\n• Assistance aux projets et événements\n• École obligatoire terminée avec de bons à très bons résultats\n• Intérêt pour les relations commerciales et économiques\n• Appréciation du travail sur les activités informatiques et numériques\n• Méthodes de travail fiables, indépendantes et prudentes\n• Compétences organisationnelles et capacité de suivre les tâches multiples\n• Compréhension rapide et grande volonté d'apprendre\n• Personnalité ouverte et amicale face aux autres personnes\n• Très bonnes manières et une apparence professionnelle et soignée\n• Orienté vers l'équipe et engagé\n• Appréciation des langues étrangères (très bon allemand ainsi que de bonnes compétences en français et en anglais)\n• Intéressé par le fonctionnement d'une grande entreprise avec différentes marques et formats de vente Avantages que nous vous offrons\n• Formation professionnelle variée avec un aperçu des différents départements\n• Soutien compétent de nos formateurs professionnels spécialisés\n• Participation à des manifestations internes et externes\n• Possibilités de développement et perspectives d'avenir après avoir réussi l'éducation de base\n• Fondation pour la formation et les études professionnelles supérieures\n• Valora offre l'enseignement commercial de base dans les deux profils E et M."
-      },
-      "location": "Muttenz",
-      "canton": "BL",
-      "url": "https://career.valora.com/en/job/6483/lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-br",
-      "source": "Valora Group Dedicated Parser (Custom)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.311Z",
-      "addressLocality": "Muttenz",
-      "addressRegion": "Baselland",
-      "streetAddress": "Hofackerstrasse 40",
-      "postalCode": "4132",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Retail / Foodvenience",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-08",
-      "applyUrl": "https://career.valora.com/en/job/6483/lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-br",
-      "jobReqId": "21598",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-lt-br-gt-valora-muttenz",
-        "apprendistato-kaufmann-frau-cfc-dienstleistung-e-administration-br-valora-group-muttenz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-lt-br-gt-valora-muttenz",
-          "apprendistato-kaufmann-frau-cfc-dienstleistung-e-administration-br-valora-group-muttenz"
-        ],
-        "en": [
-          "lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-lt-br-gt-valora-muttenz"
-        ],
-        "fr": [
-          "lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-lt-br-gt-valora-muttenz"
-        ]
-      },
-      "firstSeenAt": "2026-09-08T13:35:54.078Z",
-      "salaryMin": 52000,
-      "salaryMax": 78500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 52000,
-          "maxValue": 78500,
           "unitText": "YEAR"
         }
       }
@@ -1370,7 +1323,7 @@
       "url": "https://career.valora.com/en/job/6469/verkauferin-verkaufer-press-books-22-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.311Z",
+      "crawledAt": "2026-10-05T09:14:58.370Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofplatz 10",
@@ -1384,7 +1337,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-02",
       "postedDate": "2026-09-02",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6469/verkauferin-verkaufer-press-books-22-std",
       "jobReqId": "21846",
       "requirements": [],
@@ -1423,161 +1378,85 @@
       }
     },
     {
-      "id": "valora-1cf39074e462",
-      "slug": "venditore-k-chiosco-15-ore-valora-group-uetendorf-71987a",
+      "id": "valora-fb0a74ef2a2e",
+      "slug": "apprendistato-uomo-d-affari-donna-efz-servizio-e-amministrazione-valora-group-muttenz",
       "slugByLocale": {
-        "de": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
-        "it": "venditore-k-chiosco-15-ore-valora-group-uetendorf-71987a",
-        "en": "seller-k-kiosk-15-hours-valora-group-uetendorf-71987a",
-        "fr": "kiosque-du-vendeur-k-15-heures-valora-group-uetendorf-71987a"
+        "it": "apprendistato-uomo-d-affari-donna-efz-servizio-e-amministrazione-valora-group-muttenz",
+        "en": "apprenticeship-businessman-woman-efz-service-and-administration-br-valora-group-muttenz",
+        "de": "lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-lt-br-gt-valora-muttenz",
+        "fr": "apprentissage-homme-d-affaires-femme-efz-service-et-administration-br-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
       "companyDomain": "valora.com",
-      "title": "Verkäuferin/Verkäufer k kiosk 15 Std.",
+      "title": "Lehrstelle Kaufmann/-frau EFZ Dienstleistung und Administration<br />",
       "titleByLocale": {
-        "de": "Verkäuferin/Verkäufer k kiosk 15 Std.",
-        "it": "Venditore k chiosco 15 ore",
-        "en": "Seller k kiosk 15 hours",
-        "fr": "Kiosque du vendeur k 15 heures"
+        "it": "Apprendistato Uomo d'affari / donna EFZ Servizio e amministrazione",
+        "en": "Apprenticeship Businessman/woman EFZ Service and Administration<br />",
+        "de": "Lehrstelle Kaufmann/-frau EFZ Dienstleistung und Administration<br />",
+        "fr": "Apprentissage Homme d'affaires/femme EFZ Service et administration<br />"
       },
-      "description": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Uetendorf suchen wir ab sofort Verstärkung für 15 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+      "description": "Du möchtest eine kaufmännische Ausbildung machen, aber nicht drei Jahre lang immer die gleichen Aufgaben erledigen? Dann bist du bei Valora genau richtig! Während deiner dreijährigen KV-Lehre am Hauptsitz in Muttenz wechselst du alle sechs Monate die Abteilung. So lernst du ganz unterschiedliche Bereiche kennen und bekommst einen umfassenden Einblick, wie ein grosses und vielseitiges Unternehmen funktioniert. Aufgaben, die Dir gefallen werden\n• Praxisbezogene, abwechslungsreiche und vielseitige kaufmännische Ausbildung in der Branche Handel\n• Kennenlernen eines dynamischen und spannenden Konzernumfeld und Berufsalltags\n• Einblicke in verschiedener Abteilungen\n• Mithilfe bei Projekten und Events Voraussetzungen, die Du mitbringst\n• Obligatorische Schule mit guten bis sehr guten Leistungen abgeschlossen\n• Interesse an kaufmännischen und wirtschaftlichen Zusammenhängen\n• Freude an der Arbeit am Computer und an digitalen Tätigkeiten\n• Zuverlässige, selbstständige und sorgfältige Arbeitsweise\n• Organisationstalent und Fähigkeit, auch bei mehreren Aufgaben den Überblick zu behalten\n• Schnelle Auffassungsgabe und hohe Lernbereitschaft\n• Offene und freundliche Persönlichkeit im Umgang mit anderen Menschen\n• Sehr gute Umgangsformen sowie gepflegtes und professionelles Auftreten\n• Teamorientiert und engagiert\n• Freude an Fremdsprachen (sehr gute Deutsch- sowie gute Französisch- und Englischkenntnisse)\n• Interesse daran, wie ein grosses Unternehmen mit verschiedenen Marken und Verkaufsformaten funktioniert Vorteile, die wir Dir bieten\n• Abwechslungsreiche Berufsbildung mit Einsicht in verschiedene Abteilungen\n• Kompetente Betreuung durch unsere engagierten Berufsbildner\n• Teilnahme an internen und externen Veranstaltungen\n• Entwicklungsmöglichkeiten und Zukunftsperspektiven nach erfolgreich abgeschlossener Grundbildung\n• Grundstein zu einer höheren Berufsbildung und zum Studium\n• Valora bietet die kaufmännische Grundbildung in den zwei Profilen E und M an.",
       "descriptionByLocale": {
-        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Uetendorf suchen wir ab sofort Verstärkung für 15 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
-        "it": "Vende la tua passione? Allora abbiamo l'opportunita' perfetta per te. Per il nostro chiosco k in Uetendorf stiamo cercando rinforzi per 15 ore / settimana nel salario orario. Sei responsabile di questo\n• Consulenza e vendita amichevoli e professionali nel campo degli alimenti e non alimentari\n• Gestione e attuazione delle misure di promozione\n• Contanti e insediamento degli ordini\n• Presentazione attraente delle merci e garantire un posto di lavoro pulito e ordinato\n• Compliance e implementazione delle norme legali nelle vendite Questo ti distingue\n• Affidabile, flessibile, motivato e resistente\n• Esperienza professionale nel commercio al dettaglio o nel settore simile (hotel o catering)\n• Enthusiastic e service-oriented\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Giocatore di squadra con comprensione rapida Questo è ciò che vi offriamo\n• Facendo parte del fornitore di cibo leader e il fascino fortunato per i nostri clienti\n• Ulteriori opportunità di sviluppo e formazione online emozionante presso la nostra Valora Academy\n• Un ambiente dinamico\n• Modelli a strati flessibili\n• Supplementi notturni dalle ore 20:00 e domenica e festivi\n• Uno sconto sui dipendenti con cui puoi acquistare nei nostri negozi al contenuto del tuo cuore",
-        "en": "Is selling your passion? Then we have the perfect opportunity for you. For our k kiosk in Uetendorf we are looking for reinforcement for 15 hours / week in the hourly wage. You are responsible for this\n• Friendly and professional advice and sales in the field of food and non-food\n• Goods management and implementation of promotion measures\n• Cash and settlement of orders\n• Attractive presentation of goods and ensuring a clean and orderly workplace\n• Compliance and implementation of legal standards in sales This distinguishes you\n• Reliable, flexible, motivated and resilient\n• Professional experience in the retail trade or similar sector (hotel or catering)\n• Enthusiastic and service-oriented\n• Very good knowledge of German in word and writing\n• Team player with fast comprehension This is what we offer you\n• Being part of the leading foodvenience provider and lucky charm for our customers\n• Further development opportunities and exciting online training at our Valora Academy\n• A dynamic environment\n• Flexible layer models\n• Night surcharges from 8 p.m. and Sunday and public holiday surcharges\n• An employee discount with which you can shop in our stores to your heart's content",
-        "fr": "Tu vends ta passion ? Alors nous avons la possibilité parfaite pour vous. Pour notre kiosque k à Uetendorf nous sommes à la recherche de renfort pour 15 heures / semaine dans le salaire horaire. Vous en êtes responsable.\n• Conseils et ventes amical et professionnel dans le domaine de l'alimentation et non alimentaire\n• Gestion des biens et mise en œuvre des mesures de promotion\n• Encaisse et règlement des commandes\n• Une présentation attrayante des marchandises et un lieu de travail propre et ordonné\n• Respect et application des normes juridiques en matière de vente Cela vous distingue\n• Fiabilité, flexibilité, motivation et résilience\n• Expérience professionnelle dans le commerce de détail ou le secteur similaire (hôtel ou restauration)\n• Enthousiastique et axé sur le service\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Joueur d'équipe avec une compréhension rapide C'est ce que nous vous offrons.\n• Faire partie du premier fournisseur de foodvenience et le charme chanceux pour nos clients\n• Possibilités de développement et formation en ligne à notre Valora Academy\n• Un environnement dynamique\n• Modèles de couches flexibles\n• Suppléments de nuit à partir de 20 h et supplément du dimanche et des jours fériés\n• Une réduction pour les employés avec laquelle vous pouvez magasiner dans nos magasins au contenu de votre cœur"
+        "it": "Vuoi fare un'educazione commerciale, ma non sempre fare gli stessi compiti per tre anni? Allora siete esattamente a Valora! Durante l'apprendistato KV di tre anni presso il quartier generale di Muttenz, cambia dipartimento ogni sei mesi. Potrai conoscere aree molto diverse e ottenere una panoramica completa su come una grande e versatile azienda funziona. Compiti che ti piacerà\n• Formazione commerciale pratica, varia e versatile nel settore commerciale\n• Conoscere un ambiente aziendale dinamico ed emozionante e un lavoro quotidiano\n• Insights in vari dipartimenti\n• Assistenza con progetti ed eventi\n• Scuola obbligatoria completata con buone prestazioni\n• Interessi delle connessioni commerciali ed economiche\n• Godimento di lavorare sul computer e sulle attività digitali\n• Metodi di lavoro affidabili, indipendenti e attenti\n• talento organizzativo e capacità di tenere traccia di molteplici compiti\n• Rapida comprensione e grande disponibilità ad imparare\n• Personalità aperta e amichevole nel trattare con altre persone\n• Molto buone maniere e aspetto curato e professionale\n• Gruppo orientato e impegnato\n• Divertimento delle lingue straniere (molto buono tedesco e buone abilità francesi e inglesi)\n• Interessato a come una grande azienda con diversi marchi e formati di vendita funziona Vantaggi vi offriamo\n• Variazione della formazione professionale con una panoramica dei diversi reparti\n• Supporto competente dei nostri formatori professionali dedicati\n• Partecipazione ad eventi interni ed esterni\n• Opportunità di sviluppo e prospettive future dopo aver completato con successo l'istruzione di base\n• Pietra di fondazione per una formazione professionale superiore e uno studio\n• Valora offre l'istruzione commerciale di base nei due profili E e M.",
+        "en": "You want to do a commercial education, but not always do the same tasks for three years? Then you are exactly right at Valora! During your three-year KV apprenticeship at the headquarters in Muttenz, you change department every six months. You will get to know very different areas and get a comprehensive insight into how a large and versatile company works. Tasks you will like\n• Practical, varied and versatile commercial training in the trade sector\n• Getting to know a dynamic and exciting corporate environment and everyday work\n• Insights in various departments\n• Assistance with projects and events Requirements you bring\n• Compulsory school completed with good to very good performance\n• Interest in commercial and economic connections\n• Enjoyment of working on the computer and digital activities\n• Reliable, independent and careful working methods\n• Organizational talent and ability to keep track of multiple tasks\n• Quick comprehension and a high willingness to learn\n• Open and friendly personality in dealing with other people\n• Very good manners and well-groomed and professional appearance\n• Team-oriented and committed\n• Enjoyment of foreign languages (very good German as well as good French and English skills)\n• Interested in how a large company with different brands and sales formats works Advantages we offer you\n• Varied vocational training with insight into different departments\n• Competent support from our dedicated vocational trainers\n• Participation in internal and external events\n• Development opportunities and future prospects after successfully completed basic education\n• Foundation stone for higher vocational training and study\n• Valora offers the basic commercial education in the two profiles E and M.",
+        "de": "Du möchtest eine kaufmännische Ausbildung machen, aber nicht drei Jahre lang immer die gleichen Aufgaben erledigen? Dann bist du bei Valora genau richtig! Während deiner dreijährigen KV-Lehre am Hauptsitz in Muttenz wechselst du alle sechs Monate die Abteilung. So lernst du ganz unterschiedliche Bereiche kennen und bekommst einen umfassenden Einblick, wie ein grosses und vielseitiges Unternehmen funktioniert. Aufgaben, die Dir gefallen werden\n• Praxisbezogene, abwechslungsreiche und vielseitige kaufmännische Ausbildung in der Branche Handel\n• Kennenlernen eines dynamischen und spannenden Konzernumfeld und Berufsalltags\n• Einblicke in verschiedener Abteilungen\n• Mithilfe bei Projekten und Events Voraussetzungen, die Du mitbringst\n• Obligatorische Schule mit guten bis sehr guten Leistungen abgeschlossen\n• Interesse an kaufmännischen und wirtschaftlichen Zusammenhängen\n• Freude an der Arbeit am Computer und an digitalen Tätigkeiten\n• Zuverlässige, selbstständige und sorgfältige Arbeitsweise\n• Organisationstalent und Fähigkeit, auch bei mehreren Aufgaben den Überblick zu behalten\n• Schnelle Auffassungsgabe und hohe Lernbereitschaft\n• Offene und freundliche Persönlichkeit im Umgang mit anderen Menschen\n• Sehr gute Umgangsformen sowie gepflegtes und professionelles Auftreten\n• Teamorientiert und engagiert\n• Freude an Fremdsprachen (sehr gute Deutsch- sowie gute Französisch- und Englischkenntnisse)\n• Interesse daran, wie ein grosses Unternehmen mit verschiedenen Marken und Verkaufsformaten funktioniert Vorteile, die wir Dir bieten\n• Abwechslungsreiche Berufsbildung mit Einsicht in verschiedene Abteilungen\n• Kompetente Betreuung durch unsere engagierten Berufsbildner\n• Teilnahme an internen und externen Veranstaltungen\n• Entwicklungsmöglichkeiten und Zukunftsperspektiven nach erfolgreich abgeschlossener Grundbildung\n• Grundstein zu einer höheren Berufsbildung und zum Studium\n• Valora bietet die kaufmännische Grundbildung in den zwei Profilen E und M an.",
+        "fr": "Vous voulez faire une éducation commerciale, mais pas toujours les mêmes tâches pendant trois ans ? Alors vous êtes exactement à Valora ! Lors de votre apprentissage de trois ans au siège de Muttenz, vous changez de département tous les six mois. Vous apprendrez à connaître des domaines très différents et obtenir un aperçu complet de la façon dont une entreprise grande et polyvalente fonctionne. Tâches que vous aimerez\n• Formation commerciale pratique, variée et polyvalente dans le secteur du commerce\n• Apprendre à connaître un environnement d'entreprise dynamique et passionnant et un travail quotidien\n• Perspectives dans différents départements\n• Assistance aux projets et événements\n• École obligatoire terminée avec de bons à très bons résultats\n• Intérêt pour les relations commerciales et économiques\n• Appréciation du travail sur les activités informatiques et numériques\n• Méthodes de travail fiables, indépendantes et prudentes\n• Compétences organisationnelles et capacité de suivre les tâches multiples\n• Compréhension rapide et grande volonté d'apprendre\n• Personnalité ouverte et amicale face aux autres personnes\n• Très bonnes manières et une apparence professionnelle et soignée\n• Orienté vers l'équipe et engagé\n• Appréciation des langues étrangères (très bon allemand ainsi que de bonnes compétences en français et en anglais)\n• Intéressé par le fonctionnement d'une grande entreprise avec différentes marques et formats de vente Avantages que nous vous offrons\n• Formation professionnelle variée avec un aperçu des différents départements\n• Soutien compétent de nos formateurs professionnels spécialisés\n• Participation à des manifestations internes et externes\n• Possibilités de développement et perspectives d'avenir après avoir réussi l'éducation de base\n• Fondation pour la formation et les études professionnelles supérieures\n• Valora offre l'enseignement commercial de base dans les deux profils E et M."
       },
-      "location": "Uetendorf",
-      "canton": "BE",
-      "url": "https://career.valora.com/en/job/6515/verkauferin-verkaufer-k-kiosk-15-std",
+      "location": "Muttenz",
+      "canton": "BL",
+      "url": "https://career.valora.com/en/job/6483/lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-br",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.310Z",
-      "addressLocality": "Uetendorf",
-      "addressRegion": "Bern",
-      "streetAddress": "Dorfstrasse 32",
-      "postalCode": "3661",
+      "crawledAt": "2026-10-05T09:14:58.369Z",
+      "addressLocality": "Muttenz",
+      "addressRegion": "Baselland",
+      "streetAddress": "Hofackerstrasse 40",
+      "postalCode": "4132",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Vendita",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-10",
-      "applyUrl": "https://career.valora.com/en/job/6515/verkauferin-verkaufer-k-kiosk-15-std",
-      "jobReqId": "21042",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 77500,
-      "salaryMax": 118500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-04T12:43:13.456Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
-        ],
-        "en": [
-          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
-        ],
-        "fr": [
-          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
-        ]
-      },
-      "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
-      ]
-    },
-    {
-      "id": "valora-fe5a9c0f7815",
-      "slug": "venditore-venditore-k-kiosk-20-ore-valora-group-grenchen",
-      "slugByLocale": {
-        "it": "venditore-venditore-k-kiosk-20-ore-valora-group-grenchen",
-        "en": "seller-seller-k-kiosk-20-hours-valora-group-grenchen",
-        "de": "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen",
-        "fr": "vendeur-vendeur-k-kiosque-20-heures-valora-group-grenchen"
-      },
-      "company": "Valora Group",
-      "companyKey": "valora",
-      "companyDomain": "valora.com",
-      "title": "Verkäuferin / Verkäufer k kiosk 20 Std.",
-      "titleByLocale": {
-        "it": "Venditore / Venditore k kiosk 20 ore.",
-        "en": "Seller / Seller k kiosk 20 hours.",
-        "de": "Verkäuferin / Verkäufer k kiosk 20 Std.",
-        "fr": "Vendeur / Vendeur k kiosque 20 heures."
-      },
-      "description": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Grenchen suchen wir ab sofort Verstärkung für 20 Std./Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
-      "descriptionByLocale": {
-        "it": "Vende la tua passione? Allora abbiamo l'opportunita' perfetta per te. Per il nostro chiosco k a Grenchen siamo ora alla ricerca di rinforzi per 20 ore / settimana nel salario orario. Sei responsabile di questo\n• Consulenza e vendita amichevoli e professionali nel campo degli alimenti e non alimentari\n• Gestione e attuazione delle misure di promozione\n• Contanti e insediamento degli ordini\n• Presentazione attraente delle merci e garantire un posto di lavoro pulito e ordinato\n• Compliance e implementazione delle norme legali nelle vendite Questo ti distingue\n• Affidabile, flessibile, motivato e resistente\n• Esperienza professionale nel commercio al dettaglio o nel settore simile (hotel o catering)\n• Enthusiastic e service-oriented\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Giocatore di squadra con comprensione rapida Questo è ciò che vi offriamo\n• Facendo parte del fornitore di cibo leader e il fascino fortunato per i nostri clienti\n• Ulteriori opportunità di sviluppo e formazione online emozionante presso la nostra Valora Academy\n• Un ambiente dinamico\n• Modelli a strati flessibili\n• Supplementi notturni dalle ore 20:00 e domenica e festivi\n• Uno sconto sui dipendenti con cui puoi acquistare nei nostri negozi al contenuto del tuo cuore",
-        "en": "Is selling your passion? Then we have the perfect opportunity for you. For our k kiosk in Grenchen we are now looking for reinforcements for 20 hours / week in the hourly wage. You are responsible for this\n• Friendly and professional advice and sales in the field of food and non-food\n• Goods management and implementation of promotion measures\n• Cash and settlement of orders\n• Attractive presentation of goods and ensuring a clean and orderly workplace\n• Compliance and implementation of legal standards in sales This distinguishes you\n• Reliable, flexible, motivated and resilient\n• Professional experience in the retail trade or similar sector (hotel or catering)\n• Enthusiastic and service-oriented\n• Very good knowledge of German in word and writing\n• Team player with fast comprehension This is what we offer you\n• Being part of the leading foodvenience provider and lucky charm for our customers\n• Further development opportunities and exciting online training at our Valora Academy\n• A dynamic environment\n• Flexible layer models\n• Night surcharges from 8 p.m. and Sunday and public holiday surcharges\n• An employee discount with which you can shop in our stores to your heart's content",
-        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Grenchen suchen wir ab sofort Verstärkung für 20 Std./Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
-        "fr": "Tu vends ta passion ? Alors nous avons la possibilité parfaite pour vous. Pour notre kiosque k à Grenchen, nous sommes à la recherche de renforts pour 20 heures / semaine dans le salaire horaire. Vous en êtes responsable.\n• Conseils et ventes amical et professionnel dans le domaine de l'alimentation et non alimentaire\n• Gestion des biens et mise en œuvre des mesures de promotion\n• Encaisse et règlement des commandes\n• Une présentation attrayante des marchandises et un lieu de travail propre et ordonné\n• Respect et application des normes juridiques en matière de vente Cela vous distingue\n• Fiabilité, flexibilité, motivation et résilience\n• Expérience professionnelle dans le commerce de détail ou le secteur similaire (hôtel ou restauration)\n• Enthousiastique et axé sur le service\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Joueur d'équipe avec une compréhension rapide C'est ce que nous vous offrons.\n• Faire partie du premier fournisseur de foodvenience et le charme chanceux pour nos clients\n• Possibilités de développement et formation en ligne à notre Valora Academy\n• Un environnement dynamique\n• Modèles de couches flexibles\n• Suppléments de nuit à partir de 20 h et supplément du dimanche et des jours fériés\n• Une réduction pour les employés avec laquelle vous pouvez magasiner dans nos magasins au contenu de votre cœur"
-      },
-      "location": "Grenchen",
-      "canton": "SO",
-      "url": "https://career.valora.com/en/job/6511/verkauferin-verkaufer-k-kiosk-20-std",
-      "source": "Valora Group Dedicated Parser (Custom)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.309Z",
-      "addressLocality": "Grenchen",
-      "addressRegion": "Solothurn",
-      "streetAddress": "Nordbahnhofstrasse 41",
-      "postalCode": "2540",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Vendita",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail / Foodvenience",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-10",
-      "applyUrl": "https://career.valora.com/en/job/6511/verkauferin-verkaufer-k-kiosk-20-std",
-      "jobReqId": "21583",
+      "datePosted": "2026-09-08",
+      "postedDate": "2026-09-08",
+      "postingDateSource": "reported",
+      "applyUrl": "https://career.valora.com/en/job/6483/lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-br",
+      "jobReqId": "21598",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen"
+        "lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-lt-br-gt-valora-muttenz",
+        "apprendistato-kaufmann-frau-cfc-dienstleistung-e-administration-br-valora-group-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen"
+          "lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-lt-br-gt-valora-muttenz",
+          "apprendistato-kaufmann-frau-cfc-dienstleistung-e-administration-br-valora-group-muttenz"
         ],
         "en": [
-          "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen"
+          "lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-lt-br-gt-valora-muttenz"
         ],
         "fr": [
-          "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen"
+          "lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-lt-br-gt-valora-muttenz"
         ]
       },
-      "firstSeenAt": "2026-09-10T23:06:13.978Z",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
+      "firstSeenAt": "2026-09-08T13:35:54.078Z",
+      "needsRetranslation": true,
+      "salaryMin": 52000,
+      "salaryMax": 78500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
+          "minValue": 52000,
+          "maxValue": 78500,
           "unitText": "YEAR"
         }
       }
@@ -1613,7 +1492,7 @@
       "url": "https://career.valora.com/en/job/6510/verkauferin-verkaufer-k-kiosk-8-6-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.308Z",
+      "crawledAt": "2026-10-05T09:14:58.367Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Murtenstrasse 1",
@@ -1627,7 +1506,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-10",
       "postedDate": "2026-09-10",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6510/verkauferin-verkaufer-k-kiosk-8-6-std",
       "jobReqId": "21148",
       "requirements": [],
@@ -1715,6 +1596,168 @@
       }
     },
     {
+      "id": "valora-1cf39074e462",
+      "slug": "venditore-k-chiosco-15-ore-valora-group-uetendorf-71987a",
+      "slugByLocale": {
+        "it": "venditore-k-chiosco-15-ore-valora-group-uetendorf-71987a",
+        "en": "seller-k-kiosk-15-hours-valora-group-uetendorf-71987a",
+        "de": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
+        "fr": "kiosque-du-vendeur-k-15-heures-valora-group-uetendorf-71987a"
+      },
+      "company": "Valora Group",
+      "companyKey": "valora",
+      "companyDomain": "valora.com",
+      "title": "Verkäuferin/Verkäufer k kiosk 15 Std.",
+      "titleByLocale": {
+        "it": "Venditore k chiosco 15 ore",
+        "en": "Seller k kiosk 15 hours",
+        "de": "Verkäuferin/Verkäufer k kiosk 15 Std.",
+        "fr": "Kiosque du vendeur k 15 heures"
+      },
+      "description": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Uetendorf suchen wir ab sofort Verstärkung für 15 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+      "descriptionByLocale": {
+        "it": "Vende la tua passione? Allora abbiamo l'opportunita' perfetta per te. Per il nostro chiosco k in Uetendorf stiamo cercando rinforzi per 15 ore / settimana nel salario orario. Sei responsabile di questo\n• Consulenza e vendita amichevoli e professionali nel campo degli alimenti e non alimentari\n• Gestione e attuazione delle misure di promozione\n• Contanti e insediamento degli ordini\n• Presentazione attraente delle merci e garantire un posto di lavoro pulito e ordinato\n• Compliance e implementazione delle norme legali nelle vendite Questo ti distingue\n• Affidabile, flessibile, motivato e resistente\n• Esperienza professionale nel commercio al dettaglio o nel settore simile (hotel o catering)\n• Enthusiastic e service-oriented\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Giocatore di squadra con comprensione rapida Questo è ciò che vi offriamo\n• Facendo parte del fornitore di cibo leader e il fascino fortunato per i nostri clienti\n• Ulteriori opportunità di sviluppo e formazione online emozionante presso la nostra Valora Academy\n• Un ambiente dinamico\n• Modelli a strati flessibili\n• Supplementi notturni dalle ore 20:00 e domenica e festivi\n• Uno sconto sui dipendenti con cui puoi acquistare nei nostri negozi al contenuto del tuo cuore",
+        "en": "Is selling your passion? Then we have the perfect opportunity for you. For our k kiosk in Uetendorf we are looking for reinforcement for 15 hours / week in the hourly wage. You are responsible for this\n• Friendly and professional advice and sales in the field of food and non-food\n• Goods management and implementation of promotion measures\n• Cash and settlement of orders\n• Attractive presentation of goods and ensuring a clean and orderly workplace\n• Compliance and implementation of legal standards in sales This distinguishes you\n• Reliable, flexible, motivated and resilient\n• Professional experience in the retail trade or similar sector (hotel or catering)\n• Enthusiastic and service-oriented\n• Very good knowledge of German in word and writing\n• Team player with fast comprehension This is what we offer you\n• Being part of the leading foodvenience provider and lucky charm for our customers\n• Further development opportunities and exciting online training at our Valora Academy\n• A dynamic environment\n• Flexible layer models\n• Night surcharges from 8 p.m. and Sunday and public holiday surcharges\n• An employee discount with which you can shop in our stores to your heart's content",
+        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Uetendorf suchen wir ab sofort Verstärkung für 15 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "fr": "Tu vends ta passion ? Alors nous avons la possibilité parfaite pour vous. Pour notre kiosque k à Uetendorf nous sommes à la recherche de renfort pour 15 heures / semaine dans le salaire horaire. Vous en êtes responsable.\n• Conseils et ventes amical et professionnel dans le domaine de l'alimentation et non alimentaire\n• Gestion des biens et mise en œuvre des mesures de promotion\n• Encaisse et règlement des commandes\n• Une présentation attrayante des marchandises et un lieu de travail propre et ordonné\n• Respect et application des normes juridiques en matière de vente Cela vous distingue\n• Fiabilité, flexibilité, motivation et résilience\n• Expérience professionnelle dans le commerce de détail ou le secteur similaire (hôtel ou restauration)\n• Enthousiastique et axé sur le service\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Joueur d'équipe avec une compréhension rapide C'est ce que nous vous offrons.\n• Faire partie du premier fournisseur de foodvenience et le charme chanceux pour nos clients\n• Possibilités de développement et formation en ligne à notre Valora Academy\n• Un environnement dynamique\n• Modèles de couches flexibles\n• Suppléments de nuit à partir de 20 h et supplément du dimanche et des jours fériés\n• Une réduction pour les employés avec laquelle vous pouvez magasiner dans nos magasins au contenu de votre cœur"
+      },
+      "location": "Uetendorf",
+      "canton": "BE",
+      "url": "https://career.valora.com/en/job/6515/verkauferin-verkaufer-k-kiosk-15-std",
+      "source": "Valora Group Dedicated Parser (Custom)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T09:14:58.366Z",
+      "addressLocality": "Uetendorf",
+      "addressRegion": "Bern",
+      "streetAddress": "Dorfstrasse 32",
+      "postalCode": "3661",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Foodvenience",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-10",
+      "postedDate": "2026-09-10",
+      "postingDateSource": "reported",
+      "applyUrl": "https://career.valora.com/en/job/6515/verkauferin-verkaufer-k-kiosk-15-std",
+      "jobReqId": "21042",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:43:13.456Z",
+      "salaryMin": 77500,
+      "salaryMax": 118500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 118500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "valora-fe5a9c0f7815",
+      "slug": "venditore-venditore-k-kiosk-20-ore-valora-group-grenchen",
+      "slugByLocale": {
+        "it": "venditore-venditore-k-kiosk-20-ore-valora-group-grenchen",
+        "en": "seller-seller-k-kiosk-20-hours-valora-group-grenchen",
+        "de": "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen",
+        "fr": "vendeur-vendeur-k-kiosque-20-heures-valora-group-grenchen"
+      },
+      "company": "Valora Group",
+      "companyKey": "valora",
+      "companyDomain": "valora.com",
+      "title": "Verkäuferin / Verkäufer k kiosk 20 Std.",
+      "titleByLocale": {
+        "it": "Venditore / Venditore k kiosk 20 ore.",
+        "en": "Seller / Seller k kiosk 20 hours.",
+        "de": "Verkäuferin / Verkäufer k kiosk 20 Std.",
+        "fr": "Vendeur / Vendeur k kiosque 20 heures."
+      },
+      "description": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Grenchen suchen wir ab sofort Verstärkung für 20 Std./Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+      "descriptionByLocale": {
+        "it": "Vende la tua passione? Allora abbiamo l'opportunita' perfetta per te. Per il nostro chiosco k a Grenchen siamo ora alla ricerca di rinforzi per 20 ore / settimana nel salario orario. Sei responsabile di questo\n• Consulenza e vendita amichevoli e professionali nel campo degli alimenti e non alimentari\n• Gestione e attuazione delle misure di promozione\n• Contanti e insediamento degli ordini\n• Presentazione attraente delle merci e garantire un posto di lavoro pulito e ordinato\n• Compliance e implementazione delle norme legali nelle vendite Questo ti distingue\n• Affidabile, flessibile, motivato e resistente\n• Esperienza professionale nel commercio al dettaglio o nel settore simile (hotel o catering)\n• Enthusiastic e service-oriented\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Giocatore di squadra con comprensione rapida Questo è ciò che vi offriamo\n• Facendo parte del fornitore di cibo leader e il fascino fortunato per i nostri clienti\n• Ulteriori opportunità di sviluppo e formazione online emozionante presso la nostra Valora Academy\n• Un ambiente dinamico\n• Modelli a strati flessibili\n• Supplementi notturni dalle ore 20:00 e domenica e festivi\n• Uno sconto sui dipendenti con cui puoi acquistare nei nostri negozi al contenuto del tuo cuore",
+        "en": "Is selling your passion? Then we have the perfect opportunity for you. For our k kiosk in Grenchen we are now looking for reinforcements for 20 hours / week in the hourly wage. You are responsible for this\n• Friendly and professional advice and sales in the field of food and non-food\n• Goods management and implementation of promotion measures\n• Cash and settlement of orders\n• Attractive presentation of goods and ensuring a clean and orderly workplace\n• Compliance and implementation of legal standards in sales This distinguishes you\n• Reliable, flexible, motivated and resilient\n• Professional experience in the retail trade or similar sector (hotel or catering)\n• Enthusiastic and service-oriented\n• Very good knowledge of German in word and writing\n• Team player with fast comprehension This is what we offer you\n• Being part of the leading foodvenience provider and lucky charm for our customers\n• Further development opportunities and exciting online training at our Valora Academy\n• A dynamic environment\n• Flexible layer models\n• Night surcharges from 8 p.m. and Sunday and public holiday surcharges\n• An employee discount with which you can shop in our stores to your heart's content",
+        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Grenchen suchen wir ab sofort Verstärkung für 20 Std./Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "fr": "Tu vends ta passion ? Alors nous avons la possibilité parfaite pour vous. Pour notre kiosque k à Grenchen, nous sommes à la recherche de renforts pour 20 heures / semaine dans le salaire horaire. Vous en êtes responsable.\n• Conseils et ventes amical et professionnel dans le domaine de l'alimentation et non alimentaire\n• Gestion des biens et mise en œuvre des mesures de promotion\n• Encaisse et règlement des commandes\n• Une présentation attrayante des marchandises et un lieu de travail propre et ordonné\n• Respect et application des normes juridiques en matière de vente Cela vous distingue\n• Fiabilité, flexibilité, motivation et résilience\n• Expérience professionnelle dans le commerce de détail ou le secteur similaire (hôtel ou restauration)\n• Enthousiastique et axé sur le service\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Joueur d'équipe avec une compréhension rapide C'est ce que nous vous offrons.\n• Faire partie du premier fournisseur de foodvenience et le charme chanceux pour nos clients\n• Possibilités de développement et formation en ligne à notre Valora Academy\n• Un environnement dynamique\n• Modèles de couches flexibles\n• Suppléments de nuit à partir de 20 h et supplément du dimanche et des jours fériés\n• Une réduction pour les employés avec laquelle vous pouvez magasiner dans nos magasins au contenu de votre cœur"
+      },
+      "location": "Grenchen",
+      "canton": "SO",
+      "url": "https://career.valora.com/en/job/6511/verkauferin-verkaufer-k-kiosk-20-std",
+      "source": "Valora Group Dedicated Parser (Custom)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T09:14:58.365Z",
+      "addressLocality": "Grenchen",
+      "addressRegion": "Solothurn",
+      "streetAddress": "Nordbahnhofstrasse 41",
+      "postalCode": "2540",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Foodvenience",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-10",
+      "postedDate": "2026-09-10",
+      "postingDateSource": "reported",
+      "applyUrl": "https://career.valora.com/en/job/6511/verkauferin-verkaufer-k-kiosk-20-std",
+      "jobReqId": "21583",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen"
+        ]
+      },
+      "firstSeenAt": "2026-09-10T23:06:13.978Z",
+      "salaryMin": 77500,
+      "salaryMax": 118500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 118500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "valora-4ec494b64e52",
       "slug": "venditore-venditore-k-kiosk-10-ore-valora-group-bern",
       "slugByLocale": {
@@ -1745,7 +1788,7 @@
       "url": "https://career.valora.com/en/job/6519/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.307Z",
+      "crawledAt": "2026-10-05T09:14:58.364Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bubenbergplatz 11",
@@ -1759,7 +1802,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-11",
       "postedDate": "2026-09-11",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6519/verkauferin-verkaufer-k-kiosk-10-std",
       "jobReqId": "21622",
       "requirements": [],
@@ -1836,7 +1881,7 @@
       "url": "https://career.valora.com/en/job/6533/business-information-security-officer-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.306Z",
+      "crawledAt": "2026-10-05T09:14:58.362Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -1850,7 +1895,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-14",
       "postedDate": "2026-09-14",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6533/business-information-security-officer-w-m-d",
       "jobReqId": "21456",
       "requirements": [],
@@ -1902,7 +1949,7 @@
       "url": "https://career.valora.com/en/job/6545/verkauferin-verkaufer-press-books-21-5-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.304Z",
+      "crawledAt": "2026-10-05T09:14:58.361Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofplatz 10",
@@ -1916,7 +1963,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-15",
       "postedDate": "2026-09-15",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6545/verkauferin-verkaufer-press-books-21-5-std",
       "jobReqId": "21220",
       "requirements": [],
@@ -1981,7 +2030,7 @@
       "url": "https://career.valora.com/en/job/6546/verkauferin-verkaufer-k-kiosk-8-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.303Z",
+      "crawledAt": "2026-10-05T09:14:58.360Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Scheibenstrasse 21",
@@ -1995,7 +2044,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-16",
       "postedDate": "2026-09-16",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6546/verkauferin-verkaufer-k-kiosk-8-std",
       "jobReqId": "21962",
       "requirements": [],
@@ -2043,7 +2094,7 @@
       "companyDomain": "valora.com",
       "title": "barista Caffè Spettacolo - 26.4 h (h/f/x)",
       "titleByLocale": {
-        "it": "barista Caffè Spettacolo - 26.4 ore (m/f/x)",
+        "it": "barista Caffè Spettacolo - 26.4 h (h/f/x)",
         "en": "barista Caffè Spettacolo - 26.4 h (m/f/x)",
         "de": "barista Caffè Spettacolo - 26,4 h (m/w/x)",
         "fr": "barista Caffè Spettacolo - 26.4 h (h/f/x)"
@@ -2060,7 +2111,7 @@
       "url": "https://career.valora.com/en/job/6568/barista-caffe-spettacolo-26-4-h-h-f-x",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:16:08.301Z",
+      "crawledAt": "2026-10-05T09:14:58.358Z",
       "addressLocality": "Neuenburg",
       "addressRegion": "Switzerland",
       "streetAddress": "Rue des Terreaux 25",
@@ -2074,12 +2125,15 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-22",
       "postedDate": "2026-09-22",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6568/barista-caffe-spettacolo-26-4-h-h-f-x",
       "jobReqId": "21709",
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-23T23:35:45.537Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -2125,7 +2179,7 @@
       "url": "https://career.valora.com/en/job/5369/agenturpartnerin-agenturpartner-kanton-st-gallen",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:16:08.300Z",
+      "crawledAt": "2026-10-05T09:14:58.357Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "streetAddress": "Hofackerstrasse 40",
@@ -2139,7 +2193,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-01-27",
+      "datePosted": "2026-09-23",
+      "postedDate": "2026-09-23",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/5369/agenturpartnerin-agenturpartner-kanton-st-gallen",
       "jobReqId": "20569",
       "requirements": [],
@@ -2204,7 +2260,7 @@
       "url": "https://career.valora.com/en/job/5800/agenturpartnerin-agenturpartner-kanton-basel-stadt-baselland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:16:08.299Z",
+      "crawledAt": "2026-10-05T09:14:58.354Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "",
@@ -2218,7 +2274,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-22",
+      "datePosted": "2026-09-23",
+      "postedDate": "2026-09-23",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/5800/agenturpartnerin-agenturpartner-kanton-basel-stadt-baselland",
       "jobReqId": "21083",
       "requirements": [],
@@ -2270,7 +2328,7 @@
       "url": "https://career.valora.com/en/job/4745/agenturpartnerin-agenturpartner-sarganserland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:16:08.298Z",
+      "crawledAt": "2026-10-05T09:14:58.352Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "streetAddress": "Hofackerstrasse 40",
@@ -2284,7 +2342,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-10-28",
+      "datePosted": "2026-09-23",
+      "postedDate": "2026-09-23",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/4745/agenturpartnerin-agenturpartner-sarganserland",
       "jobReqId": "20005",
       "requirements": [],
@@ -2347,7 +2407,7 @@
       "url": "https://career.valora.com/en/job/4744/agenturpartnerin-agenturpartner-imboden",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:16:08.296Z",
+      "crawledAt": "2026-10-05T09:14:58.351Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "streetAddress": "Hofackerstrasse 40",
@@ -2361,7 +2421,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-10-28",
+      "datePosted": "2026-09-23",
+      "postedDate": "2026-09-23",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/4744/agenturpartnerin-agenturpartner-imboden",
       "jobReqId": "20004",
       "requirements": [],
@@ -2413,7 +2475,7 @@
       "url": "https://career.valora.com/en/job/2653/agenturpartnerin-agenturpartner-region-berner-oberland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:16:08.295Z",
+      "crawledAt": "2026-10-05T09:14:58.350Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "streetAddress": "Hofackerstrasse 40",
@@ -2427,7 +2489,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-02-12",
+      "datePosted": "2026-09-23",
+      "postedDate": "2026-09-23",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/2653/agenturpartnerin-agenturpartner-region-berner-oberland",
       "jobReqId": "17836",
       "requirements": [],
@@ -2473,7 +2537,7 @@
         "it": "Agenturpartnerin / Agenturpartner Regione Oberwallis",
         "en": "Agenturpartnerin / Agenturpartner Region Oberwallis",
         "de": "Agenturpartnerin/Agenturpartner Region Oberwallis",
-        "fr": "Agenturpartnerin / Agenturpartner Région Oberwallis"
+        "fr": "Agenturpartnerin / Agenturpartner Region Oberwallis"
       },
       "description": "Summary As an established provider of convenience and food services, Valora is offering you the opportunity to become self-employed. Using a tried-and-tested turnkey business model, we will help you open your own store. We will also support you beyond this stage so that you not only get off to a successful start but also feel confident as an agency partner over the long term. You can choose which of our first-class formats suits you best. Choose from avec, Press & Books or k kiosk (at highly frequented locations, such as train stations, airports or petrol stations). You have a welcoming disposition and offer your customers a special shopping experience – from presenting goods in the most appealing way possible to offering comprehensive advice and support. You have very strong communication skills, are open-minded and enjoy meeting people. You are creative, reliable and have a good eye for detail. You are able to inspire and convince others through your passion for food and convenience services. You are an excellent role model for your team and are always willing to pitch in yourself. As a leader with a sensitive mindset, you take care of your employees and help them develop. Become part of the Valora network and brighten up our customers’ day. Tasks and Requirements Tasks that you will enjoy\n• Managing one or more well-frequented Valora stores as an independent entrepreneur with full responsibility.\n• Leading the staff, including scheduling, recruiting, and training employees.\n• Inventory management (inventory taking, stock levels, orders).\n• Proactively advising customers and building/maintaining customer relationships.\n• Collaborating closely with suppliers and the responsible sales management.\n• Continuously optimizing processes and service quality in the store.\n• Ensuring a professional appearance of the store and implementing sales-promoting measures. Requirements you bring\n• Training as a retail specialist EFZ and/or relevant experience in retail, hospitality, or gastronomy.\n• Interest in self-employment and managing one or more stores.\n• Willingness to invest a lot of time, work, and perseverance, especially at the beginning.\n• Entrepreneurial thinking and action, team spirit, and organizational talent.\n• Enjoyment in dealing with people as well as a pronounced customer and service orientation.\n• At least 30,000 CHF (depending on the format) in equity capital for the establishment of a GmbH and for joining as an agency partner.\n• Impeccable reputation.\n• Swiss passport or a residence permit. Success profile\n• Customer oriented\n• Team oriented\n• Entrepreneurial\n• Willing to learn\n• Leadership affine\n• Organized Benefits\n• Opportunity to share experiences with other agencies within the Valora network\n• Advice on turnover and cost planning\n• Turnkey shopfitting in uniform branding/corporate design, plus advertising and communication materials\n• Detailed induction training and preparation for future tasks\n• Well-established stores at highly frequented locations\n• ERP system, category management (structuring of product groups) and central purchasing\n• Attractive prospects for development and the opportunity to take over several stores\n• Comprehensive training programmes, further education and training, plus seminars and expert talks",
       "descriptionByLocale": {
@@ -2487,7 +2551,7 @@
       "url": "https://career.valora.com/en/job/3159/agenturpartnerin-agenturpartner-region-oberwallis",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:16:08.294Z",
+      "crawledAt": "2026-10-05T09:14:58.348Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "streetAddress": "Hofackerstrasse 40",
@@ -2501,7 +2565,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-02-25",
+      "datePosted": "2026-09-23",
+      "postedDate": "2026-09-23",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/3159/agenturpartnerin-agenturpartner-region-oberwallis",
       "jobReqId": "18331",
       "requirements": [],
@@ -2561,7 +2627,7 @@
       "url": "https://career.valora.com/en/job/6640/business-partner-agenturen-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.292Z",
+      "crawledAt": "2026-10-05T09:14:58.347Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstr. 40",
@@ -2575,7 +2641,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-25",
       "postedDate": "2026-09-25",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6640/business-partner-agenturen-w-m-d",
       "jobReqId": "21342",
       "requirements": [],
@@ -2594,6 +2662,7 @@
           "business-partner-agenturen-w-m-d-valora-muttenz"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2639,7 +2708,7 @@
       "url": "https://career.valora.com/en/job/6414/verkauferin-verkaufer-backwerk-24-6-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.290Z",
+      "crawledAt": "2026-10-05T09:14:58.345Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Sihlquai C5",
@@ -2653,7 +2722,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-25",
       "postedDate": "2026-09-25",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6414/verkauferin-verkaufer-backwerk-24-6-std",
       "jobReqId": "21798",
       "requirements": [],
@@ -2719,7 +2790,7 @@
       "url": "https://career.valora.com/en/job/6645/it-program-manager-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.289Z",
+      "crawledAt": "2026-10-05T09:14:58.341Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -2733,7 +2804,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-28",
       "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6645/it-program-manager-w-m-d",
       "jobReqId": "20945",
       "requirements": [],
@@ -2796,7 +2869,7 @@
       "url": "https://career.valora.com/en/job/6642/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.288Z",
+      "crawledAt": "2026-10-05T09:14:58.339Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 21",
@@ -2810,7 +2883,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-28",
       "postedDate": "2026-09-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6642/verkauferin-verkaufer-k-kiosk-10-std",
       "jobReqId": "21040",
       "requirements": [],
@@ -2874,7 +2949,7 @@
       "url": "https://career.valora.com/en/job/6649/marketing-assistent-100-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.281Z",
+      "crawledAt": "2026-10-05T09:14:58.336Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -2888,7 +2963,9 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-29",
       "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6649/marketing-assistent-100-w-m-d",
       "jobReqId": "21661",
       "requirements": [],
@@ -2924,9 +3001,9 @@
       "id": "valora-576ec346d684",
       "slug": "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf",
       "slugByLocale": {
-        "de": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
         "it": "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf",
         "en": "seller-seller-k-kiosk-10-hours-valora-group-uetendorf-5b7d24",
+        "de": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
         "fr": "kiosque-vendeur-vendeur-k-10-heures-valora-group-uetendorf-5b7d24"
       },
       "company": "Valora Group",
@@ -2934,16 +3011,16 @@
       "companyDomain": "valora.com",
       "title": "Verkäuferin/Verkäufer k kiosk 10 Std.",
       "titleByLocale": {
-        "de": "Verkäuferin/Verkäufer k kiosk 10 Std.",
         "it": "Venditore/Venditore k kiosk 10 ore",
         "en": "Seller/Seller k kiosk 10 hours",
+        "de": "Verkäuferin/Verkäufer k kiosk 10 Std.",
         "fr": "Kiosque vendeur / vendeur k 10 heures"
       },
       "description": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Uetendorf suchen wir ab sofort Verstärkung für 10 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
       "descriptionByLocale": {
-        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Uetendorf suchen wir ab sofort Verstärkung für 10 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
         "it": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Uetendorf suchen wir ab sofort Verstärkung für 10 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
         "en": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Uetendorf suchen wir ab sofort Verstärkung für 10 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Uetendorf suchen wir ab sofort Verstärkung für 10 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
         "fr": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Uetendorf suchen wir ab sofort Verstärkung für 10 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst"
       },
       "location": "Uetendorf",
@@ -2951,7 +3028,7 @@
       "url": "https://career.valora.com/en/job/6664/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:08.278Z",
+      "crawledAt": "2026-10-05T09:14:58.333Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 21",
@@ -2965,9 +3042,94 @@
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-10-01",
       "postedDate": "2026-10-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://career.valora.com/en/job/6664/verkauferin-verkaufer-k-kiosk-10-std",
       "jobReqId": "21039",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
+        "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 77500,
+      "salaryMax": 118500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 118500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "valora-7c9ebb689322",
+      "slug": "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare",
+      "slugByLocale": {
+        "de": "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare",
+        "it": "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare",
+        "en": "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare",
+        "fr": "verkauferin-verkauferin-avec-20-std-valora-wangen-a-d-aare"
+      },
+      "company": "Valora Group",
+      "companyKey": "valora",
+      "companyDomain": "valora.com",
+      "title": "Verkäuferin/Verkäuferin avec 20 Std.",
+      "titleByLocale": {
+        "de": "Verkäuferin/Verkäuferin avec 20 Std.",
+        "it": "Verkäuferin/Verkäuferin avec 20 Std.",
+        "en": "Verkäuferin/Verkäuferin avec 20 Std.",
+        "fr": "Verkäuferin/Verkäuferin avec 20 Std."
+      },
+      "description": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren avec in Wangen an der Aare suchen wir ab sofort Verstärkung für 20 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+      "descriptionByLocale": {
+        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren avec in Wangen an der Aare suchen wir ab sofort Verstärkung für 20 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "it": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren avec in Wangen an der Aare suchen wir ab sofort Verstärkung für 20 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "en": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren avec in Wangen an der Aare suchen wir ab sofort Verstärkung für 20 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "fr": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren avec in Wangen an der Aare suchen wir ab sofort Verstärkung für 20 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst"
+      },
+      "location": "Wangen a",
+      "canton": "BE",
+      "url": "https://career.valora.com/en/job/6668/verkauferin-verkauferin-avec-20-std",
+      "source": "Valora Group Dedicated Parser (Custom)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T09:14:58.324Z",
+      "addressLocality": "Wangen a",
+      "addressRegion": "Bern",
+      "streetAddress": "Bahnhofallee 4",
+      "postalCode": "3380",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Foodvenience",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-05",
+      "postedDate": "2026-10-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://career.valora.com/en/job/6668/verkauferin-verkauferin-avec-20-std",
+      "jobReqId": "20999",
       "requirements": [],
       "requirementsByLocale": {
         "de": []
@@ -2985,23 +3147,7 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
-          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
-        ],
-        "en": [
-          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
-        ],
-        "fr": [
-          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
-        ]
-      },
-      "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
-        "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
-      ]
+      }
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "key": "tether",
   "label": "Tether Operations",
-  "generatedAt": "2026-10-04T21:14:40.106Z",
+  "generatedAt": "2026-10-05T09:14:38.240Z",
   "total": 50,
   "discovered": null,
   "parsed": 50,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 50,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 50,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 46455,
-  "avgDurationMs": 46455,
+  "durationMs": 47654,
+  "avgDurationMs": 47654,
   "durationHistory": [
-    46455
+    47654
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +35,7 @@
       "url": "https://tether.recruitee.com/o/solutions-partner-manager-100-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:27.794Z",
+      "crawledAt": "2026-10-05T09:14:24.056Z",
       "addressLocality": "Madrid",
       "addressRegion": "Comunidad de Madrid",
       "addressCountry": "",
@@ -47,21 +49,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2025-11-25",
-      "postedDate": "2025-11-25",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/solutions-partner-manager-100-remote/c/new",
       "department": "Data",
       "firstSeenAt": "2026-06-08T13:53:38.703Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -76,7 +78,7 @@
       "url": "https://tether.recruitee.com/o/research-engineer-intern-videomultimodal-llm-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:27.789Z",
+      "crawledAt": "2026-10-05T09:14:24.047Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -90,20 +92,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2025-11-27",
-      "postedDate": "2025-11-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/research-engineer-intern-videomultimodal-llm-remote/c/new",
       "department": "Data",
       "firstSeenAt": "2026-05-17T11:13:45.067Z",
       "salaryMin": 42640,
       "salaryMax": 61000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -118,7 +121,7 @@
       "url": "https://tether.recruitee.com/o/marketing-project-manager-100-remote-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:26.661Z",
+      "crawledAt": "2026-10-05T09:14:22.924Z",
       "addressLocality": "Lisbon",
       "addressRegion": "Lisboa",
       "addressCountry": "",
@@ -132,21 +135,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-01-09",
-      "postedDate": "2026-01-09",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/marketing-project-manager-100-remote-3/c/new",
       "department": "",
       "firstSeenAt": "2026-05-17T11:13:44.957Z",
-      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 133000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -161,7 +164,7 @@
       "url": "https://tether.recruitee.com/o/head-of-regulatory-affairs-and-licensing-middle-east-4",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:26.632Z",
+      "crawledAt": "2026-10-05T09:14:22.911Z",
       "addressLocality": "Riyadh",
       "addressRegion": "Mecca Province",
       "addressCountry": "",
@@ -175,21 +178,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-02-20",
-      "postedDate": "2026-02-20",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/head-of-regulatory-affairs-and-licensing-middle-east-4/c/new",
       "department": "Regulatory Affairs and Licensing",
       "firstSeenAt": "2026-05-17T11:13:44.806Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
-      "needsRetranslation": true,
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -204,7 +207,7 @@
       "url": "https://tether.recruitee.com/o/head-of-licensing-and-regulatory-authorisations-8",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:26.569Z",
+      "crawledAt": "2026-10-05T09:14:22.874Z",
       "addressLocality": "Abu Dhabi",
       "addressRegion": "Abu Dhabi",
       "addressCountry": "",
@@ -218,20 +221,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-02-22",
-      "postedDate": "2026-02-22",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/head-of-licensing-and-regulatory-authorisations-8/c/new",
       "department": "Regulatory Affairs and Licensing",
       "firstSeenAt": "2026-05-17T11:13:44.782Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -246,7 +250,7 @@
       "url": "https://tether.recruitee.com/o/head-of-regulatory-affairs-ai-and-p2p-100-remote-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:26.547Z",
+      "crawledAt": "2026-10-05T09:14:22.863Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -260,20 +264,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-02-22",
-      "postedDate": "2026-02-22",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/head-of-regulatory-affairs-ai-and-p2p-100-remote-3/c/new",
       "department": "Regulatory Affairs and Licensing",
       "firstSeenAt": "2026-08-04T11:33:16.786Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -288,7 +293,7 @@
       "url": "https://tether.recruitee.com/o/regulatory-affairs-and-licensing-southern-africa-lead-100-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:26.540Z",
+      "crawledAt": "2026-10-05T09:14:22.859Z",
       "addressLocality": "Johannesburg",
       "addressRegion": "Gauteng",
       "addressCountry": "",
@@ -302,8 +307,9 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-03-10",
-      "postedDate": "2026-03-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/regulatory-affairs-and-licensing-southern-africa-lead-100-remote/c/new",
       "department": "Regulatory Affairs and Licensing",
       "needsRetranslation": true,
@@ -311,12 +317,12 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 23,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -331,7 +337,7 @@
       "url": "https://tether.recruitee.com/o/ai-inference-engineer-qvac-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:26.532Z",
+      "crawledAt": "2026-10-05T09:14:22.854Z",
       "addressLocality": "Bogotá",
       "addressRegion": "Distrito Capital de Bogotá",
       "addressCountry": "",
@@ -345,8 +351,9 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-03-11",
-      "postedDate": "2026-03-11",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/ai-inference-engineer-qvac-100-remote-worldwide/c/new",
       "department": "Data",
       "needsRetranslation": true,
@@ -354,12 +361,12 @@
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -374,7 +381,7 @@
       "url": "https://tether.recruitee.com/o/head-of-regulatory-affairs-japan-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:26.525Z",
+      "crawledAt": "2026-10-05T09:14:22.848Z",
       "addressLocality": "Osaka",
       "addressRegion": "Osaka",
       "addressCountry": "",
@@ -388,20 +395,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-04-01",
-      "postedDate": "2026-04-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/head-of-regulatory-affairs-japan-1/c/new",
       "department": "Regulatory Affairs and Licensing",
       "firstSeenAt": "2026-05-17T11:13:44.475Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -416,7 +424,7 @@
       "url": "https://tether.recruitee.com/o/backend-engineer-wallets-100-remote-hn",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:26.518Z",
+      "crawledAt": "2026-10-05T09:14:22.843Z",
       "addressLocality": "Dubai",
       "addressRegion": "Dubai",
       "addressCountry": "",
@@ -430,21 +438,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-10",
-      "postedDate": "2026-09-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/backend-engineer-wallets-100-remote-hn/c/new",
       "department": "Development",
       "firstSeenAt": "2026-09-10T23:06:35.173Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -459,7 +467,7 @@
       "url": "https://tether.recruitee.com/o/backend-engineer-wallets-100-remote-31",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:24.604Z",
+      "crawledAt": "2026-10-05T09:14:21.402Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -473,20 +481,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-10",
-      "postedDate": "2026-09-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/backend-engineer-wallets-100-remote-31/c/new",
       "department": "Development",
       "firstSeenAt": "2026-09-10T23:06:32.857Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -501,7 +510,7 @@
       "url": "https://tether.recruitee.com/o/regulatory-affairs-and-licensing-lead-mexico-and-colombia-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:24.596Z",
+      "crawledAt": "2026-10-05T09:14:21.398Z",
       "addressLocality": "Mexico City",
       "addressRegion": "Ciudad de México",
       "addressCountry": "",
@@ -515,21 +524,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-05-06",
-      "postedDate": "2026-05-06",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/regulatory-affairs-and-licensing-lead-mexico-and-colombia-3/c/new",
       "department": "Regulatory Affairs and Licensing",
       "firstSeenAt": "2026-05-17T11:13:35.548Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -544,7 +553,7 @@
       "url": "https://tether.recruitee.com/o/finance-analyst",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:23.419Z",
+      "crawledAt": "2026-10-05T09:14:20.278Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -558,21 +567,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-05-19",
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/finance-analyst/c/new",
       "department": "Finance",
       "firstSeenAt": "2026-05-25T14:19:17.785Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -587,7 +596,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-agentic-post-training-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:23.409Z",
+      "crawledAt": "2026-10-05T09:14:20.273Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -601,21 +610,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-05-19",
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/ai-research-engineer-agentic-post-training-100-remote-worldwide/c/new",
       "department": "Data",
       "firstSeenAt": "2026-05-19T12:46:16.144Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -630,7 +639,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:22.280Z",
+      "crawledAt": "2026-10-05T09:14:19.160Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -644,20 +653,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-05-19",
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide/c/new",
       "department": "Data",
       "firstSeenAt": "2026-05-19T12:46:16.140Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -672,7 +682,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-multi-modal-vision-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:21.156Z",
+      "crawledAt": "2026-10-05T09:14:18.017Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -686,20 +696,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-05-19",
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/ai-research-engineer-multi-modal-vision-100-remote-worldwide/c/new",
       "department": "Data",
       "firstSeenAt": "2026-05-19T12:46:16.134Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -714,7 +725,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-model-compression-quantization-16",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:18.824Z",
+      "crawledAt": "2026-10-05T09:14:15.725Z",
       "addressLocality": "Bangalore",
       "addressRegion": "Karnātaka",
       "addressCountry": "",
@@ -728,20 +739,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-05-19",
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/ai-research-engineer-model-compression-quantization-16/c/new",
       "department": "Data",
       "firstSeenAt": "2026-07-21T11:15:12.063Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -756,7 +768,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-model-compression-quantization-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:18.815Z",
+      "crawledAt": "2026-10-05T09:14:15.715Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -770,20 +782,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-05-19",
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/ai-research-engineer-model-compression-quantization-100-remote-worldwide/c/new",
       "department": "Data",
       "firstSeenAt": "2026-05-19T23:45:52.194Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -798,7 +811,7 @@
       "url": "https://tether.recruitee.com/o/trading-operations-associate-hedge-fund-exposure",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:17.690Z",
+      "crawledAt": "2026-10-05T09:14:14.596Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -812,21 +825,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-05-27",
-      "postedDate": "2026-05-27",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/trading-operations-associate-hedge-fund-exposure/c/new",
       "department": "Finance",
       "firstSeenAt": "2026-08-20T09:45:17.475Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -841,7 +854,7 @@
       "url": "https://tether.recruitee.com/o/financial-controller-vc-or-hedge-fund-investment-accountant",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:17.683Z",
+      "crawledAt": "2026-10-05T09:14:14.587Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -855,8 +868,9 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-06-02",
-      "postedDate": "2026-06-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/financial-controller-vc-or-hedge-fund-investment-accountant/c/new",
       "department": "Finance",
       "firstSeenAt": "2026-07-17T10:53:32.418Z",
@@ -864,12 +878,12 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -884,7 +898,7 @@
       "url": "https://tether.recruitee.com/o/program-manager-mining-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:17.622Z",
+      "crawledAt": "2026-10-05T09:14:14.550Z",
       "addressLocality": "Barcelona",
       "addressRegion": "Catalunya [Cataluña]",
       "addressCountry": "",
@@ -898,21 +912,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-06-05",
-      "postedDate": "2026-06-05",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/program-manager-mining-100-remote-worldwide/c/new",
       "department": "Natural Assets and Special Projects",
       "firstSeenAt": "2026-06-17T13:52:18.289Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -927,7 +941,7 @@
       "url": "https://tether.recruitee.com/o/brands-event-coordinator-7",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:17.571Z",
+      "crawledAt": "2026-10-05T09:14:14.512Z",
       "addressLocality": "Dubai",
       "addressRegion": "Dubai",
       "addressCountry": "",
@@ -941,20 +955,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-06-08",
-      "postedDate": "2026-06-08",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/brands-event-coordinator-7/c/new",
       "department": "Operations",
       "firstSeenAt": "2026-06-08T13:53:26.870Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -969,7 +984,7 @@
       "url": "https://tether.recruitee.com/o/expansion-event-coordinator-7",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:17.530Z",
+      "crawledAt": "2026-10-05T09:14:14.473Z",
       "addressLocality": "Amsterdam",
       "addressRegion": "Noord-Holland",
       "addressCountry": "",
@@ -983,20 +998,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-06-08",
-      "postedDate": "2026-06-08",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/expansion-event-coordinator-7/c/new",
       "department": "Operations",
       "firstSeenAt": "2026-06-08T13:53:26.852Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -1011,7 +1027,7 @@
       "url": "https://tether.recruitee.com/o/senior-business-analyst-mining-100-remote-10",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:12.592Z",
+      "crawledAt": "2026-10-05T09:14:09.293Z",
       "addressLocality": "Medellin",
       "addressRegion": "Antioquia",
       "addressCountry": "",
@@ -1025,8 +1041,9 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-06-10",
-      "postedDate": "2026-06-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/senior-business-analyst-mining-100-remote-10/c/new",
       "department": "",
       "needsRetranslation": true,
@@ -1034,12 +1051,12 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -1054,7 +1071,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-pre-training-llm-multi-modal-8",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:11.442Z",
+      "crawledAt": "2026-10-05T09:14:08.123Z",
       "addressLocality": "Bangalore",
       "addressRegion": "Karnātaka",
       "addressCountry": "",
@@ -1068,20 +1085,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-06-11",
-      "postedDate": "2026-06-11",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/ai-research-engineer-pre-training-llm-multi-modal-8/c/new",
       "department": "Data",
       "firstSeenAt": "2026-07-21T11:14:43.690Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -1096,7 +1114,7 @@
       "url": "https://tether.recruitee.com/o/program-manager-mining-100-remote-11",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:11.417Z",
+      "crawledAt": "2026-10-05T09:14:08.099Z",
       "addressLocality": "Brasilia",
       "addressRegion": "Distrito Federal",
       "addressCountry": "",
@@ -1110,21 +1128,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-06-16",
-      "postedDate": "2026-06-16",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/program-manager-mining-100-remote-11/c/new",
       "department": "Natural Assets and Special Projects",
       "firstSeenAt": "2026-06-16T23:55:59.305Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -1139,7 +1157,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-multi-modal-vision-6",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:10.285Z",
+      "crawledAt": "2026-10-05T09:14:06.973Z",
       "addressLocality": "Bangalore",
       "addressRegion": "Karnātaka",
       "addressCountry": "",
@@ -1153,20 +1171,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-06-16",
-      "postedDate": "2026-06-16",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/ai-research-engineer-multi-modal-vision-6/c/new",
       "department": "Data",
       "firstSeenAt": "2026-07-21T11:14:40.785Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -1181,7 +1200,7 @@
       "url": "https://tether.recruitee.com/o/expansion-manager-tokenization-100-remote-17",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:10.267Z",
+      "crawledAt": "2026-10-05T09:14:06.954Z",
       "addressLocality": "Mexico City",
       "addressRegion": "Ciudad de México",
       "addressCountry": "",
@@ -1195,21 +1214,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-07-01",
-      "postedDate": "2026-07-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/expansion-manager-tokenization-100-remote-17/c/new",
       "department": "Expansion",
       "firstSeenAt": "2026-07-01T13:11:42.981Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -1224,7 +1243,7 @@
       "url": "https://tether.recruitee.com/o/regulatory-affairs-and-licensing-francophone-africa-lead",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:10.263Z",
+      "crawledAt": "2026-10-05T09:14:06.950Z",
       "addressLocality": "Yamoussoukro",
       "addressRegion": "Lacs",
       "addressCountry": "",
@@ -1238,20 +1257,21 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-07-07",
-      "postedDate": "2026-07-07",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/regulatory-affairs-and-licensing-francophone-africa-lead/c/new",
       "department": "Regulatory Affairs and Licensing",
       "firstSeenAt": "2026-07-07T11:57:19.048Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -1266,7 +1286,7 @@
       "url": "https://tether.recruitee.com/o/blockchain-investigator-and-law-enforcement-liaison",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:14:09.134Z",
+      "crawledAt": "2026-10-05T09:14:05.839Z",
       "addressLocality": "Mexico City",
       "addressRegion": "Ciudad de México",
       "addressCountry": "",
@@ -1280,24 +1300,25 @@
       "sector": "Fintech / Blockchain",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-07-15",
-      "postedDate": "2026-07-15",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://careers.tether.io/o/blockchain-investigator-and-law-enforcement-liaison/c/new",
       "department": "Compliance",
       "firstSeenAt": "2026-07-15T22:00:08.221Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
