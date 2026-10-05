@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gkb",
-  "assembledAt": "2026-10-05T09:12:29.041Z",
+  "assembledAt": "2026-10-05T21:25:39.721Z",
   "jobs": [
     {
       "id": "gkb-f712e7fcb987",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1914/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:22.717Z",
+      "crawledAt": "2026-10-05T21:25:35.212Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1920/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:21.869Z",
+      "crawledAt": "2026-10-05T21:25:34.323Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -199,7 +199,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1919/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:21.023Z",
+      "crawledAt": "2026-10-05T21:25:33.453Z",
       "addressLocality": "Arosa",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1921/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:20.175Z",
+      "crawledAt": "2026-10-05T21:25:32.559Z",
       "addressLocality": "Scuol",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -373,7 +373,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1904/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:19.326Z",
+      "crawledAt": "2026-10-05T21:25:31.664Z",
       "addressLocality": "Arosa",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -412,6 +412,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.923Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -458,7 +459,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1905/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:18.472Z",
+      "crawledAt": "2026-10-05T21:25:30.786Z",
       "addressLocality": "Scuol",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -501,6 +502,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.619Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -547,7 +549,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1906/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:17.635Z",
+      "crawledAt": "2026-10-05T21:25:29.895Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -586,6 +588,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.315Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -632,7 +635,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1892/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:16.794Z",
+      "crawledAt": "2026-10-05T21:25:29.002Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -677,6 +680,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.012Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -723,7 +727,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1925/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:15.972Z",
+      "crawledAt": "2026-10-05T21:25:28.131Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -761,6 +765,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:49.407Z",
+      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -807,7 +812,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1936/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:15.116Z",
+      "crawledAt": "2026-10-05T21:25:27.234Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -842,6 +847,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:48.798Z",
+      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -888,7 +894,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1930/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:14.273Z",
+      "crawledAt": "2026-10-05T21:25:26.341Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -976,7 +982,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1950/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:13.428Z",
+      "crawledAt": "2026-10-05T21:25:25.467Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1049,7 +1055,7 @@
       "title": "Studentenstelle Marketing (60%)",
       "titleByLocale": {
         "it": "Posizione degli studenti di marketing (60%)",
-        "en": "Marketing student position (60%)",
+        "en": "Studentenstelle Marketing (60%)",
         "de": "Studentenstelle Marketing (60%)",
         "fr": "Position étudiante en marketing (60%)"
       },
@@ -1065,7 +1071,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1954/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:12.586Z",
+      "crawledAt": "2026-10-05T21:25:24.572Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1108,6 +1114,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:05:06.647Z",
+      "needsRetranslation": true,
       "salaryMin": 35100,
       "salaryMax": 62100,
       "salarySource": "estimated",
@@ -1154,7 +1161,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:11.751Z",
+      "crawledAt": "2026-10-05T21:25:23.699Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1200,6 +1207,7 @@
         "berater-in-firmenkunden-recovery-80-100-gkb-ch"
       ],
       "firstSeenAt": "2026-07-30T11:16:56.532Z",
+      "needsRetranslation": true,
       "salaryMin": 165000,
       "salaryMax": 290000,
       "salarySource": "estimated",
@@ -1246,7 +1254,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:10.896Z",
+      "crawledAt": "2026-10-05T21:25:22.827Z",
       "addressLocality": "Lenzerheide",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1288,6 +1296,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:12:45.906Z",
+      "needsRetranslation": true,
       "salaryMin": 79200,
       "salaryMax": 139200,
       "salarySource": "estimated",
@@ -1334,7 +1343,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1924/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:10.037Z",
+      "crawledAt": "2026-10-05T21:25:21.935Z",
       "addressLocality": "Thusis",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1378,6 +1387,7 @@
         ]
       },
       "firstSeenAt": "2026-08-18T22:03:08.013Z",
+      "needsRetranslation": true,
       "salaryMin": 39600,
       "salaryMax": 69600,
       "salarySource": "estimated",
@@ -1398,7 +1408,7 @@
       "slug": "stagista-asb-bancario-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis",
       "slugByLocale": {
         "it": "stagista-asb-bancario-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis",
-        "en": "the-commission-has-decided-to-initiate-proceedings-under-article-93-2-of-the-treaty-on-the-functioning-of-the-european",
+        "en": "stagista-asb-banking-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis",
         "de": "stagista-asb-banking-roveredo-da-agosto-2027-gkb-ch",
         "fr": "stagist-asb-banking-roveredo-a-partir-d-aout-2027-graubundner-kantonalbank-thusis"
       },
@@ -1424,7 +1434,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1908/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:09.180Z",
+      "crawledAt": "2026-10-05T21:25:21.036Z",
       "addressLocality": "Thusis",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1446,6 +1456,7 @@
       "previousSlugs": [
         "stagist-asb-banking-roveredo-ab-august-2027-graubundner-kantonalbank-thusis",
         "stagista-asb-banking-roveredo-da-agosto-2027-gkb-ch",
+        "the-commission-has-decided-to-initiate-proceedings-under-article-93-2-of-the-treaty-on-the-functioning-of-the-european",
         "stagista-asb-banking-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis"
       ],
       "previousSlugsByLocale": {
@@ -1453,6 +1464,7 @@
           "stagista-asb-banking-roveredo-da-agosto-2027-gkb-ch"
         ],
         "en": [
+          "the-commission-has-decided-to-initiate-proceedings-under-article-93-2-of-the-treaty-on-the-functioning-of-the-european",
           "stagista-asb-banking-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis"
         ],
         "de": [
@@ -1495,11 +1507,11 @@
         "de": "Spezialist Asset Servicing Processing (80-100%)",
         "fr": "Spécialiste Asset Servicing Processing (80-100%)"
       },
-      "description": "Graubündner Kantonalbank | online seit: 10.09.2026 | Chur, Graubünden / Hybrid | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Das Geschehen an den globalen Finanzmärkten verfolgst du mit Interesse und du fühlst dich in der hochspannenden Welt der Wertpapiere und der Abwicklung von Wertschriftentransaktionen? Dann freuen wir uns dich kennenzulernen. | ab sofort oder nach Vereinbarung |\n• Verarbeitung und Settlement von Börsentransaktionen\n• Verbuchung von Devisen- und Edelmetalltransaktionen\n• Abwicklung von Geldmarkttransaktionen\n• Durchführung diverser Backoffice Aufgaben für Handel & Treasury\n• Ansprechperson für interne und externe Schnittstellen, insbesondere Kundenbetreuende\n• Mitarbeit bei fachspezifischen Projekten, Prozessoptimierungen und IT-Systemtests |\n• Banklehre oder kaufmännische Grundausbildung, idealerweise mit entsprechender Aus- und Weiterbildung (z.B. Bankwirtschafter/in HF)\n• Mehrjährige Berufserfahrung in der Börsenabwicklung oder vertiefte Kenntnisse in der Wertschriftenverarbeitung (Deliveries, Corporate Actions oder ähnliches)\n• Hohe Einsatzbereitschaft, Kundenfokussierung und Qualitätsbewusstsein\n• Stilsichere Deutschkenntnisse und gute Englischkenntnisse\n• Digitale Affinität und ein Hang zur Innovation und Weiterentwicklung bestehender Strukturen und Prozesse und offener Mindset für agile Arbeitsformen | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben",
+      "description": "Graubündner Kantonalbank | online seit: 10.09.2026 | Chur, Graubünden / Hybrid | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Das Geschehen an den globalen Finanzmärkten verfolgst du mit Interesse und du fühlst dich in der hochspannenden Welt der Wertpapiere und der Abwicklung von Wertschriftentransaktionen? Dann freuen wir uns dich kennenzulernen. | ab sofort oder nach Vereinbarung |\n• Verarbeitung und Settlement von Börsentransaktionen\n• Verbuchung von Devisen- und Edelmetalltransaktionen\n• Abwicklung von Geldmarkttransaktionen\n• Durchführung diverser Backoffice Aufgaben für Handel & Treasury\n• Ansprechperson für interne und externe Schnittstellen, insbesondere Kundenbetreuende\n• Mitarbeit bei fachspezifischen Projekten, Prozessoptimierungen und IT-Systemtests |\n• Banklehre oder kaufmännische Grundausbildung, idealerweise mit entsprechender Aus- und Weiterbildung\n• Mehrjährige Berufserfahrung in der Börsenabwicklung oder vertiefte Kenntnisse in der Wertschriftenverarbeitung (Deliveries, Corporate Actions oder ähnliches)\n• Hohe Einsatzbereitschaft, Kundenfokussierung und Qualitätsbewusstsein\n• Stilsichere Deutschkenntnisse und gute Englischkenntnisse\n• Digitale Affinität und ein Hang zur Innovation und Weiterentwicklung bestehender Strukturen und Prozesse und offener Mindset für agile Arbeitsformen | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben",
       "descriptionByLocale": {
         "it": "Graubündner Kantonalbank | online da: 10.09.2026 | Chur, Graubünden / Hybrid | \"Qualsiasi sia il tuo futuro\". A Graubündner Kantonalbank, ci assicuriamo che non sia solo un futuro, ma il miglior futuro di sempre. Stai seguendo gli eventi nei mercati finanziari globali con interesse e ti senti nell'emozionante mondo dei titoli e nel trattamento delle transazioni sui titoli? Allora non vediamo l'ora di incontrarti. | da ora in poi o per accordo |\n• Elaborazione e regolamento delle operazioni di scambio\n• Contabilità delle operazioni di scambio e di metalli preziosi\n• Regolazione delle transazioni sul mercato monetario\n• Attuazione di vari compiti di back office per Handels & Treasury\n• Persona di contatto per interfacce interne ed esterne, in particolare account manager\n• Collaborazione in progetti specifici, ottimizzazioni di processo e test di sistema IT |\n• Apprendistato bancario o formazione commerciale di base, idealmente con formazione adeguata (ad esempio economista bancario / in HF)\n• Diversi anni di esperienza professionale nell'elaborazione delle borse o di conoscenza approfondita del trattamento dei titoli (consegna, azioni societarie o simili)\n• Alto impegno, attenzione al cliente e consapevolezza della qualità\n• Conoscenza sicura della lingua tedesca e buona conoscenza dell'inglese\n• L'affinità digitale e la tendenza all'innovazione e all'ulteriore sviluppo di strutture e processi esistenti e una mentalità aperta per forme agili di lavoro Sei pronto per il tuo futuro migliore? Quindi applicare ora. | Sono interessato e vorrei candidarmi",
         "en": "Graubündner Kantonalbank | online since: 10.09.2026 | Chur, Graubünden / Hybrid | \"Whatever your future will look like\". At Graubündner Kantonalbank, we ensure that it is not just any future, but the best future ever. Are you following the events in the global financial markets with interest and do you feel in the exciting world of securities and the processing of securities transactions? Then we look forward to meeting you. | from now on or by agreement |\n• Processing and settlement of exchange transactions\n• Accounting for foreign exchange and precious metal transactions\n• Settlement of money market transactions\n• Implementation of various back office tasks for Handels & Treasury\n• Contact person for internal and external interfaces, in particular account managers\n• Collaboration in subject-specific projects, process optimizations and IT system tests |\n• Banking apprenticeship or basic commercial training, ideally with appropriate education and training (e.g. bank economist/in HF)\n• Several years of professional experience in stock exchange processing or in-depth knowledge in securities processing (deliveries, corporate actions or similar)\n• High commitment, customer focus and quality awareness\n• Confident knowledge of German and good knowledge of English\n• Digital affinity and a tendency towards innovation and further development of existing structures and processes and an open mindset for agile forms of work | Are you ready for your best future? Then apply now. | I am interested and would like to apply",
-        "de": "Graubündner Kantonalbank | online seit: 10.09.2026 | Chur, Graubünden / Hybrid | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Das Geschehen an den globalen Finanzmärkten verfolgst du mit Interesse und du fühlst dich in der hochspannenden Welt der Wertpapiere und der Abwicklung von Wertschriftentransaktionen? Dann freuen wir uns dich kennenzulernen. | ab sofort oder nach Vereinbarung |\n• Verarbeitung und Settlement von Börsentransaktionen\n• Verbuchung von Devisen- und Edelmetalltransaktionen\n• Abwicklung von Geldmarkttransaktionen\n• Durchführung diverser Backoffice Aufgaben für Handel & Treasury\n• Ansprechperson für interne und externe Schnittstellen, insbesondere Kundenbetreuende\n• Mitarbeit bei fachspezifischen Projekten, Prozessoptimierungen und IT-Systemtests |\n• Banklehre oder kaufmännische Grundausbildung, idealerweise mit entsprechender Aus- und Weiterbildung (z.B. Bankwirtschafter/in HF)\n• Mehrjährige Berufserfahrung in der Börsenabwicklung oder vertiefte Kenntnisse in der Wertschriftenverarbeitung (Deliveries, Corporate Actions oder ähnliches)\n• Hohe Einsatzbereitschaft, Kundenfokussierung und Qualitätsbewusstsein\n• Stilsichere Deutschkenntnisse und gute Englischkenntnisse\n• Digitale Affinität und ein Hang zur Innovation und Weiterentwicklung bestehender Strukturen und Prozesse und offener Mindset für agile Arbeitsformen | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben",
+        "de": "Graubündner Kantonalbank | online seit: 10.09.2026 | Chur, Graubünden / Hybrid | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Das Geschehen an den globalen Finanzmärkten verfolgst du mit Interesse und du fühlst dich in der hochspannenden Welt der Wertpapiere und der Abwicklung von Wertschriftentransaktionen? Dann freuen wir uns dich kennenzulernen. | ab sofort oder nach Vereinbarung |\n• Verarbeitung und Settlement von Börsentransaktionen\n• Verbuchung von Devisen- und Edelmetalltransaktionen\n• Abwicklung von Geldmarkttransaktionen\n• Durchführung diverser Backoffice Aufgaben für Handel & Treasury\n• Ansprechperson für interne und externe Schnittstellen, insbesondere Kundenbetreuende\n• Mitarbeit bei fachspezifischen Projekten, Prozessoptimierungen und IT-Systemtests |\n• Banklehre oder kaufmännische Grundausbildung, idealerweise mit entsprechender Aus- und Weiterbildung\n• Mehrjährige Berufserfahrung in der Börsenabwicklung oder vertiefte Kenntnisse in der Wertschriftenverarbeitung (Deliveries, Corporate Actions oder ähnliches)\n• Hohe Einsatzbereitschaft, Kundenfokussierung und Qualitätsbewusstsein\n• Stilsichere Deutschkenntnisse und gute Englischkenntnisse\n• Digitale Affinität und ein Hang zur Innovation und Weiterentwicklung bestehender Strukturen und Prozesse und offener Mindset für agile Arbeitsformen | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben",
         "fr": "Graubündner Kantonalbank en ligne depuis: 10.09.2026:00 Chur, Graubünden / Hybrid. Chez Graubündner Kantonalbank, nous nous assurons que ce n'est pas n'importe quel avenir, mais le meilleur avenir jamais. Suivez-vous les événements sur les marchés financiers mondiaux avec intérêt et vous sentez-vous dans le monde passionnant des valeurs mobilières et du traitement des transactions sur titres? Alors nous avons hâte de vous rencontrer. Désormais ou par accord\n• Traitement et règlement des opérations de change\n• Comptabilisation des opérations de change et de métaux précieux\n• Règlement des transactions sur le marché monétaire\n• Mise en œuvre de diverses tâches back office pour Handels & Treasury\n• Personne de contact pour les interfaces internes et externes, en particulier les gestionnaires de comptes\n• Collaboration dans des projets spécifiques, des optimisations de processus et des tests de systèmes informatiques\n• Apprentissage bancaire ou formation commerciale de base, idéalement avec une éducation et une formation appropriées (par exemple, économiste bancaire/en HF)\n• Plusieurs années d'expérience professionnelle en transformation boursière ou en connaissance approfondie de la transformation des valeurs mobilières (livraisons, actions d'entreprise ou similaires)\n• Engagement élevé, orientation client et sensibilisation à la qualité\n• Connaissance de l'allemand et bonne connaissance de l'anglais\n• L'affinité numérique et la tendance à l'innovation et au développement des structures et processus existants ainsi qu'un état d'esprit ouvert pour les formes agiles de travail. Êtes-vous prêt pour votre meilleur avenir? Alors appliquez maintenant. Je suis intéressé et je voudrais postuler"
       },
       "location": "Chur",
@@ -1507,7 +1519,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1974/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:08.319Z",
+      "crawledAt": "2026-10-05T21:25:20.133Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1557,6 +1569,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:05:06.872Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 103500,
       "salarySource": "estimated",
@@ -1603,7 +1616,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1976/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:07.468Z",
+      "crawledAt": "2026-10-05T21:25:19.235Z",
       "addressLocality": "Arosa",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1685,7 +1698,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1975/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:06.610Z",
+      "crawledAt": "2026-10-05T21:25:18.340Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1718,6 +1731,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:09.406Z",
+      "needsRetranslation": true,
       "salaryMin": 87500,
       "salaryMax": 154500,
       "salarySource": "estimated",
@@ -1764,7 +1778,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1980/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:05.768Z",
+      "crawledAt": "2026-10-05T21:25:17.447Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1821,11 +1835,11 @@
         "de": "Teilzeitstudent:in Asset Servicing (40-100%)",
         "fr": "Teilzeitstudent:in Asset Servicing (50-60%)"
       },
-      "description": "Graubündner Kantonalbank | online seit: 30.09.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Das Geschehen an den globalen Finanzmärkten verfolgst du mit Interesse und du fühlst dich wohl in der hochspannenden Welt der Wertpapiere und der Abwicklung von Wertschriftentransaktionen. | ab sofort oder nach Vereinbarung |\n• Bearbeitung von Ein- und Austragungen von Schweizer Namenaktien bei Schweizer Aktienregistern\n• Ein- und Auslieferungen von physischen Wertpapieren und Edelmetallen in Depots unserer Kundschaft\n• Allgemeine Tätigkeiten in der spannenden Welt der Wertschriftenverarbeitung |\n• Du startest dein Bachelor- oder Masterstudium, idealerweise in Betriebswirtschaft, Marketing, Kommunikation oder einem verwandten Studiengang\n• Freude an organisatorischen und administrativen Aufgaben sowie an der Zusammenarbeit mit unterschiedlichen Anspruchsgruppen\n• Du bist organisiert, denkst mit und behältst auch in einem dynamischen Umfeld den Überblick\n• Du arbeitest selbstständig, zuverlässig und übernimmst gerne Verantwortung, um Dinge voranzubringen\n• Du bist eine initiative Persönlichkeit mit Macher-Mentalität, Teamgeist und hoher Eigenverantwortung | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben",
+      "description": "Graubündner Kantonalbank | online seit: 30.09.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Das Geschehen an den globalen Finanzmärkten verfolgst du mit Interesse und du fühlst dich wohl in der hochspannenden Welt der Wertpapiere und der Abwicklung von Wertschriftentransaktionen. | ab sofort oder nach Vereinbarung |\n• Bearbeitung von Ein- und Austragungen von Schweizer Namenaktien bei Schweizer Aktienregistern\n• Ein- und Auslieferungen von physischen Wertpapieren und Edelmetallen in Depots unserer Kundschaft\n• Allgemeine Tätigkeiten in der spannenden Welt der Wertschriftenverarbeitung |\n• Du startest dein Bachelor- oder Masterstudium, idealerweise in Betriebswirtschaft oder einem verwandten Studiengang\n• Freude an organisatorischen und administrativen Aufgaben sowie an der Zusammenarbeit mit unterschiedlichen Anspruchsgruppen\n• Du bist organisiert, denkst mit und behältst auch in einem dynamischen Umfeld den Überblick\n• Du arbeitest selbstständig, zuverlässig und übernimmst gerne Verantwortung, um Dinge voranzubringen\n• Du bist eine initiative Persönlichkeit mit Macher-Mentalität, Teamgeist und hoher Eigenverantwortung | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben",
       "descriptionByLocale": {
         "it": "Graubündner Kantonalbank | online da: 30.09.2026 | \"Qualsiasi sia il tuo futuro\". A Graubündner Kantonalbank, ci assicuriamo che non sia solo un futuro, ma il miglior futuro di sempre. Segua quello che sta accadendo nei mercati finanziari globali con interesse e ti senti a tuo agio nell'emozionante mondo dei titoli e nel trattamento delle transazioni sui titoli. | da ora in poi o per accordo |\n• Elaborazione delle entrate e delle entrate delle azioni registrate in Svizzera\n• Consegna e consegna di titoli fisici e metalli preziosi nella custodia del nostro cliente\n• Attività generali nell'emozionante mondo del trattamento dei titoli |\n• Si inizia la laurea o master, idealmente in amministrazione aziendale, marketing, comunicazione o un corso di laurea correlato\n• Goditi compiti organizzativi e amministrativi e la cooperazione con diversi stakeholder\n• Siete organizzati, pensate e tenete una panoramica anche in un ambiente dinamico\n• Lavori in modo indipendente, affidabile e come assumersi la responsabilità di portare avanti le cose\n• Sei una personalità di iniziativa con una mentalità del creatore, spirito di squadra e alta responsabilità personale Sei pronto per il tuo futuro migliore? Quindi applicare ora. | Sono interessato e vorrei candidarmi",
         "en": "Graubündner Kantonalbank | online since: 30.09.2026 | \"Whatever your future will look like\". At Graubündner Kantonalbank, we ensure that it is not just any future, but the best future ever. You follow what is happening in the global financial markets with interest and you feel comfortable in the exciting world of securities and the processing of securities transactions. | from now on or by agreement |\n• Processing of entries and entries of Swiss registered shares in Swiss share registers\n• Deliveries and deliveries of physical securities and precious metals in our client’s custody\n• General activities in the exciting world of securities processing |\n• You start your bachelor's or master's degree, ideally in business administration, marketing, communication or a related degree program\n• Enjoy organizational and administrative tasks as well as cooperation with different stakeholders\n• You are organized, think along and keep an overview even in a dynamic environment\n• You work independently, reliably and like to take responsibility to move things forward\n• You are an initiative personality with a maker mentality, team spirit and high personal responsibility | Are you ready for your best future? Then apply now. | I am interested and would like to apply",
-        "de": "Graubündner Kantonalbank | online seit: 30.09.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Das Geschehen an den globalen Finanzmärkten verfolgst du mit Interesse und du fühlst dich wohl in der hochspannenden Welt der Wertpapiere und der Abwicklung von Wertschriftentransaktionen. | ab sofort oder nach Vereinbarung |\n• Bearbeitung von Ein- und Austragungen von Schweizer Namenaktien bei Schweizer Aktienregistern\n• Ein- und Auslieferungen von physischen Wertpapieren und Edelmetallen in Depots unserer Kundschaft\n• Allgemeine Tätigkeiten in der spannenden Welt der Wertschriftenverarbeitung |\n• Du startest dein Bachelor- oder Masterstudium, idealerweise in Betriebswirtschaft, Marketing, Kommunikation oder einem verwandten Studiengang\n• Freude an organisatorischen und administrativen Aufgaben sowie an der Zusammenarbeit mit unterschiedlichen Anspruchsgruppen\n• Du bist organisiert, denkst mit und behältst auch in einem dynamischen Umfeld den Überblick\n• Du arbeitest selbstständig, zuverlässig und übernimmst gerne Verantwortung, um Dinge voranzubringen\n• Du bist eine initiative Persönlichkeit mit Macher-Mentalität, Teamgeist und hoher Eigenverantwortung | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben",
+        "de": "Graubündner Kantonalbank | online seit: 30.09.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Das Geschehen an den globalen Finanzmärkten verfolgst du mit Interesse und du fühlst dich wohl in der hochspannenden Welt der Wertpapiere und der Abwicklung von Wertschriftentransaktionen. | ab sofort oder nach Vereinbarung |\n• Bearbeitung von Ein- und Austragungen von Schweizer Namenaktien bei Schweizer Aktienregistern\n• Ein- und Auslieferungen von physischen Wertpapieren und Edelmetallen in Depots unserer Kundschaft\n• Allgemeine Tätigkeiten in der spannenden Welt der Wertschriftenverarbeitung |\n• Du startest dein Bachelor- oder Masterstudium, idealerweise in Betriebswirtschaft oder einem verwandten Studiengang\n• Freude an organisatorischen und administrativen Aufgaben sowie an der Zusammenarbeit mit unterschiedlichen Anspruchsgruppen\n• Du bist organisiert, denkst mit und behältst auch in einem dynamischen Umfeld den Überblick\n• Du arbeitest selbstständig, zuverlässig und übernimmst gerne Verantwortung, um Dinge voranzubringen\n• Du bist eine initiative Persönlichkeit mit Macher-Mentalität, Teamgeist und hoher Eigenverantwortung | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. | Ich bin interessiert und möchte mich bewerben",
         "fr": "Graubündner Kantonalbank (en ligne depuis: 30.09.2026) \"Quel que soit votre avenir\". Chez Graubündner Kantonalbank, nous nous assurons que ce n'est pas n'importe quel avenir, mais le meilleur avenir jamais. Vous suivez ce qui se passe sur les marchés financiers mondiaux avec intérêt et vous vous sentez à l'aise dans le monde passionnant des valeurs mobilières et le traitement des transactions sur titres. Désormais ou par accord\n• Traitement des inscriptions et des inscriptions d'actions enregistrées en Suisse dans les registres d'actions suisses\n• Livraisons et livraisons de titres physiques et de métaux précieux sous la garde de notre client\n• Activités générales dans le monde passionnant du traitement des valeurs mobilières\n• Vous commencez votre baccalauréat ou votre maîtrise, idéalement en administration des affaires, marketing, communication ou un programme de diplôme connexe\n• S'acquitter de tâches organisationnelles et administratives et coopérer avec les différentes parties prenantes\n• Vous êtes organisé, réfléchissez et gardez un aperçu même dans un environnement dynamique\n• Vous travaillez de façon indépendante, fiable et aimez prendre la responsabilité de faire avancer les choses\n• Vous êtes une personnalité d'initiative avec une mentalité de créateur, esprit d'équipe et haute responsabilité personnelle. Êtes-vous prêt pour votre meilleur avenir? Alors appliquez maintenant. Je suis intéressé et je voudrais postuler"
       },
       "location": "Chur",
@@ -1833,7 +1847,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1977/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:04.915Z",
+      "crawledAt": "2026-10-05T21:25:16.554Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1912,7 +1926,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1978/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:04.056Z",
+      "crawledAt": "2026-10-05T21:25:15.653Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1966,9 +1980,9 @@
       "id": "gkb-e70a73c1ab5d",
       "slug": "nnh-holding-ag-collaboratore-trice-qualitats-e-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich",
       "slugByLocale": {
-        "de": "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-gkb-ch",
         "it": "nnh-holding-ag-collaboratore-trice-qualitats-e-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich",
         "en": "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich",
+        "de": "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-gkb-ch",
         "fr": "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich"
       },
       "company": "Graubündner Kantonalbank",
@@ -1976,16 +1990,16 @@
       "companyDomain": "gkb.ch",
       "title": "NNH Holding AG: Mitarbeiter:in Qualitäts- und Vertragsmanagement (80-100%), Zürich",
       "titleByLocale": {
-        "de": "NNH Holding AG: Mitarbeiter:in Qualitäts- und Vertragsmanagement (80-100%), Zürich",
         "it": "NNH Holding AG: Collaboratore/trice Qualitäts- e Vertragsmanagement (80-100%), Zürich",
         "en": "NNH Holding AG: Associate Qualitäts- und Vertragsmanagement (80-100%), Zürich",
+        "de": "NNH Holding AG: Mitarbeiter:in Qualitäts- und Vertragsmanagement (80-100%), Zürich",
         "fr": "NNH Holding AG: Collaborateur/trice Qualitäts- und Vertragsmanagement (80-100%), Zürich"
       },
       "description": "Graubündner Kantonalbank | online seit: 05.10.2026 | NNH Holding AG - Wir sind ein Start-Up mit aktuell sechs Mitarbeitenden und arbeiten zusammen mit unseren Aktionären (Kantonalbanken), Beteiligungen und Partnern am Aufbau einer digitalen Plattform im Bereich «Wohnen». Unser Fokus liegt auf der Entwicklung von B2B-Angeboten, die unsere Kunden im Dialog mit ihren Endkunden und intern nutzen. Da wir mit Bankdaten arbeiten, haben Zuverlässigkeit, Qualität und Compliance für uns einen sehr hohen Stellenwert. In deiner neuen Rolle unterstützt du einen effizienten und sicheren Betrieb unserer Plattform. Du übernimmst wesentliche Aufgaben im Testing und bist Ansprechpartner für die Überwachung der Qualität unserer Services. Zudem verantwortest das Vertragsmanagement und entwickelst unsere Prozesse für die Standardisierung der Vertragsdokumente kontinuierlich weiter. Wir bieten dir vielfältige Aufgaben, die du in unternehmensübergreifenden, interdisziplinären Teams zum Erfolg führst. | ab Januar 2027 oder nach Vereinbarung |\n• Durchführung manueller System- und Abnahmetests (UAT) inklusive Dokumentation der Testergebnisse sowie Nachverfolgung von Fehlerbehebungen bis zum erfolgreichen Abschluss\n• Weiterentwicklung von Teststrategien und Testprozessen, Erarbeitung geeigneter Testdaten sowie Koordination der Testaktivitäten\n• Verantwortung für die Messung, Analyse und das Reporting von Qualitätskennzahlen (KPIs)\n• Pflege und laufende Aktualisierung des Vertragsinventars mit Sicherstellung einer lückenlosen Vertragserfassung\n• Überwachung von Vertragslaufzeiten, Kündigungsfristen und vereinbarten Verpflichtungen sowie rechtzeitige Auslösung von Review-Prozessen\n• Verwaltung und Aktualisierung von Standardverträgen und Templates in Abstimmung mit dem Team sowie Sicherstellung der Verwendung der jeweils aktuellen Versionen |\n• Mehrjährige Erfahrung im IT-Betrieb, Testmanagement und/oder Qualitätsmanagement, bevorzugt mit entsprechenden Weiterbildungen\n• Ausgeprägte analytische Fähigkeiten, strukturierte Arbeitsweise und Kommunikationsstärke\n• Kundenorientierte, selbständige und belastbare Persönlichkeit mit hohem Qualitätsanspruch\n• Sprachen: Deutsch verhandlungssicher, Englisch Niveau B2 | Bist du bereit, gemeinsam mit uns B2B-Services rund ums Thema \"Wohnen\" auf einer modernen Cloud-Plattform für unsere Aktionäre und Kunden bereitzustellen? Dann sende deine Bewerbungsunterlagen direkt an Samira ( samira.amanda.luzi@gkb.ch ). Dein Ansprechpartner für weitere Fragen: Ronny Fuchs, CTO NNH Holding AG ronny.fuchs@nnh-holding.ch Dein HR Kontakt: Samira Amanda Luzi, HR Business Partner samira.amanda.luzi@gkb.ch Die NNH Holding AG ist im Besitz von 18 Kantonalbanken. Seit Herbst 2022 arbeitet die NNH als operative Gesellschaft am Thema Ökosystem Wohnen. Zudem hält die NNH Holding zwei Beteiligungen an der newhome AG und der Swiss Digital Home AG. | Ich bin interessiert und möchte mich bewerben",
       "descriptionByLocale": {
-        "de": "Graubündner Kantonalbank | online seit: 05.10.2026 | NNH Holding AG - Wir sind ein Start-Up mit aktuell sechs Mitarbeitenden und arbeiten zusammen mit unseren Aktionären (Kantonalbanken), Beteiligungen und Partnern am Aufbau einer digitalen Plattform im Bereich «Wohnen». Unser Fokus liegt auf der Entwicklung von B2B-Angeboten, die unsere Kunden im Dialog mit ihren Endkunden und intern nutzen. Da wir mit Bankdaten arbeiten, haben Zuverlässigkeit, Qualität und Compliance für uns einen sehr hohen Stellenwert. In deiner neuen Rolle unterstützt du einen effizienten und sicheren Betrieb unserer Plattform. Du übernimmst wesentliche Aufgaben im Testing und bist Ansprechpartner für die Überwachung der Qualität unserer Services. Zudem verantwortest das Vertragsmanagement und entwickelst unsere Prozesse für die Standardisierung der Vertragsdokumente kontinuierlich weiter. Wir bieten dir vielfältige Aufgaben, die du in unternehmensübergreifenden, interdisziplinären Teams zum Erfolg führst. | ab Januar 2027 oder nach Vereinbarung |\n• Durchführung manueller System- und Abnahmetests (UAT) inklusive Dokumentation der Testergebnisse sowie Nachverfolgung von Fehlerbehebungen bis zum erfolgreichen Abschluss\n• Weiterentwicklung von Teststrategien und Testprozessen, Erarbeitung geeigneter Testdaten sowie Koordination der Testaktivitäten\n• Verantwortung für die Messung, Analyse und das Reporting von Qualitätskennzahlen (KPIs)\n• Pflege und laufende Aktualisierung des Vertragsinventars mit Sicherstellung einer lückenlosen Vertragserfassung\n• Überwachung von Vertragslaufzeiten, Kündigungsfristen und vereinbarten Verpflichtungen sowie rechtzeitige Auslösung von Review-Prozessen\n• Verwaltung und Aktualisierung von Standardverträgen und Templates in Abstimmung mit dem Team sowie Sicherstellung der Verwendung der jeweils aktuellen Versionen |\n• Mehrjährige Erfahrung im IT-Betrieb, Testmanagement und/oder Qualitätsmanagement, bevorzugt mit entsprechenden Weiterbildungen\n• Ausgeprägte analytische Fähigkeiten, strukturierte Arbeitsweise und Kommunikationsstärke\n• Kundenorientierte, selbständige und belastbare Persönlichkeit mit hohem Qualitätsanspruch\n• Sprachen: Deutsch verhandlungssicher, Englisch Niveau B2 | Bist du bereit, gemeinsam mit uns B2B-Services rund ums Thema \"Wohnen\" auf einer modernen Cloud-Plattform für unsere Aktionäre und Kunden bereitzustellen? Dann sende deine Bewerbungsunterlagen direkt an Samira ( samira.amanda.luzi@gkb.ch ). Dein Ansprechpartner für weitere Fragen: Ronny Fuchs, CTO NNH Holding AG ronny.fuchs@nnh-holding.ch Dein HR Kontakt: Samira Amanda Luzi, HR Business Partner samira.amanda.luzi@gkb.ch Die NNH Holding AG ist im Besitz von 18 Kantonalbanken. Seit Herbst 2022 arbeitet die NNH als operative Gesellschaft am Thema Ökosystem Wohnen. Zudem hält die NNH Holding zwei Beteiligungen an der newhome AG und der Swiss Digital Home AG. | Ich bin interessiert und möchte mich bewerben",
         "it": "Graubündner Kantonalbank | online da: 05.10.2026 | NNH Holding AG - Siamo una start-up con attualmente sei dipendenti e lavoriamo insieme ai nostri azionisti (bancariche cantoneali), partecipazioni e partner per la creazione di una piattaforma digitale nell'area di \"housing\". Il nostro focus è lo sviluppo di offerte B2B che i nostri clienti utilizzano in dialogo con i loro clienti finali e internamente. Dal momento che lavoriamo con dati bancari, affidabilità, qualità e conformità sono molto importanti per noi. Nel tuo nuovo ruolo, supporta il funzionamento efficiente e sicuro della nostra piattaforma. Voi assumete compiti essenziali nel test e siete il contatto per il monitoraggio della qualità dei nostri servizi. Inoltre, la gestione dei contratti è responsabile e sviluppa continuamente i nostri processi per la standardizzazione dei documenti contrattuali. Vi offriamo una vasta gamma di compiti che vi portano al successo in team cross-company, interdisciplinari. | dal gennaio 2027 o per accordo |\n• Eseguire il sistema manuale e i test di accettazione (UAT) inclusa la documentazione dei risultati del test e il monitoraggio della risoluzione dei problemi fino al completamento di successo\n• Ulteriore sviluppo di strategie di test e processi di test, sviluppo di dati di prova idonei e coordinamento delle attività di test\n• Responsabilità per la misurazione, l'analisi e la segnalazione di indicatori di qualità (KPI)\n• Manutenzione e aggiornamento continuo dell'inventario del contratto con la garanzia della piena entrata del contratto\n• Monitoraggio dei termini contrattuali, dei periodi di preavviso e degli obblighi concordati nonché attivazione tempestiva dei processi di revisione\n• Gestione e aggiornamento di contratti e modelli standard in coordinamento con il team e garantire l'utilizzo delle attuali versioni\n• Diversi anni di esperienza nelle operazioni IT, nella gestione dei test e/o nella gestione della qualità, preferibilmente con una formazione adeguata\n• Forte capacità analitiche, capacità di lavoro e comunicazione strutturate\n• personalità orientata al cliente, indipendente e resiliente con elevati standard di qualità\n• Lingue: tedesco a prova di negoziazione, inglese livello B2 | Siete pronti a fornire servizi B2B per i nostri azionisti e clienti su una moderna piattaforma cloud insieme a noi? Quindi inviare i documenti di richiesta direttamente a Samira (samira.amanda.luzi@gkb.ch ). Il vostro referente per ulteriori domande: Ronny Fuchs, CTO NNH Holding AG ronny.fuchs@nnh-holding.ch Il tuo contatto HR: Samira Amanda Luzi, HR Business Partner samira.amanda.luzi@gkb.ch NNH Holding AG è di proprietà di 18 banche cantonali. Dall'autunno 2022, la NNH lavora come azienda operativa sul tema della vita ecosistemica. Inoltre, NNH Holding detiene due investimenti in newhome AG e Swiss Digital Home AG.",
         "en": "Graubündner Kantonalbank | online since: 05.10.2026 | NNH Holding AG - We are a start-up with currently six employees and work together with our shareholders (cantonal banks), shareholdings and partners on the establishment of a digital platform in the area of \"housing\". Our focus is on developing B2B offerings that our customers use in dialogue with their end customers and internally. Since we work with banking data, reliability, quality and compliance are very important to us. In your new role, you support the efficient and secure operation of our platform. You take on essential tasks in testing and are the contact for monitoring the quality of our services. In addition, contract management is responsible and continuously develops our processes for the standardization of contract documents. We offer you a wide range of tasks that lead you to success in cross-company, interdisciplinary teams. | from January 2027 or by agreement |\n• Performing manual system and acceptance tests (UAT) including documentation of test results and tracking of troubleshooting until successful completion\n• Further development of test strategies and test processes, development of suitable test data and coordination of test activities\n• Responsibility for the measurement, analysis and reporting of quality indicators (KPIs)\n• Maintenance and ongoing updating of the contract inventory with ensuring full contract entry\n• Monitoring of contract terms, notice periods and agreed obligations as well as timely triggering of review processes\n• Management and updating of standard contracts and templates in coordination with the team as well as ensuring the use of the current versions |\n• Several years of experience in IT operations, test management and/or quality management, preferably with appropriate further training\n• Strong analytical skills, structured working and communication skills\n• Customer-oriented, independent and resilient personality with high quality standards\n• Languages: German negotiation-proof, English level B2 | Are you ready to provide B2B services for our shareholders and customers on a modern cloud platform together with us? Then send your application documents directly to Samira (samira.amanda.luzi@gkb.ch ). Your contact person for further questions: Ronny Fuchs, CTO NNH Holding AG ronny.fuchs@nnh-holding.ch Your HR contact: Samira Amanda Luzi, HR Business Partner samira.amanda.luzi@gkb.ch NNH Holding AG is owned by 18 cantonal banks. Since autumn 2022, the NNH has been working as an operating company on the topic of ecosystem living. In addition, NNH Holding holds two investments in newhome AG and Swiss Digital Home AG. | I am interested and would like to apply",
+        "de": "Graubündner Kantonalbank | online seit: 05.10.2026 | NNH Holding AG - Wir sind ein Start-Up mit aktuell sechs Mitarbeitenden und arbeiten zusammen mit unseren Aktionären (Kantonalbanken), Beteiligungen und Partnern am Aufbau einer digitalen Plattform im Bereich «Wohnen». Unser Fokus liegt auf der Entwicklung von B2B-Angeboten, die unsere Kunden im Dialog mit ihren Endkunden und intern nutzen. Da wir mit Bankdaten arbeiten, haben Zuverlässigkeit, Qualität und Compliance für uns einen sehr hohen Stellenwert. In deiner neuen Rolle unterstützt du einen effizienten und sicheren Betrieb unserer Plattform. Du übernimmst wesentliche Aufgaben im Testing und bist Ansprechpartner für die Überwachung der Qualität unserer Services. Zudem verantwortest das Vertragsmanagement und entwickelst unsere Prozesse für die Standardisierung der Vertragsdokumente kontinuierlich weiter. Wir bieten dir vielfältige Aufgaben, die du in unternehmensübergreifenden, interdisziplinären Teams zum Erfolg führst. | ab Januar 2027 oder nach Vereinbarung |\n• Durchführung manueller System- und Abnahmetests (UAT) inklusive Dokumentation der Testergebnisse sowie Nachverfolgung von Fehlerbehebungen bis zum erfolgreichen Abschluss\n• Weiterentwicklung von Teststrategien und Testprozessen, Erarbeitung geeigneter Testdaten sowie Koordination der Testaktivitäten\n• Verantwortung für die Messung, Analyse und das Reporting von Qualitätskennzahlen (KPIs)\n• Pflege und laufende Aktualisierung des Vertragsinventars mit Sicherstellung einer lückenlosen Vertragserfassung\n• Überwachung von Vertragslaufzeiten, Kündigungsfristen und vereinbarten Verpflichtungen sowie rechtzeitige Auslösung von Review-Prozessen\n• Verwaltung und Aktualisierung von Standardverträgen und Templates in Abstimmung mit dem Team sowie Sicherstellung der Verwendung der jeweils aktuellen Versionen |\n• Mehrjährige Erfahrung im IT-Betrieb, Testmanagement und/oder Qualitätsmanagement, bevorzugt mit entsprechenden Weiterbildungen\n• Ausgeprägte analytische Fähigkeiten, strukturierte Arbeitsweise und Kommunikationsstärke\n• Kundenorientierte, selbständige und belastbare Persönlichkeit mit hohem Qualitätsanspruch\n• Sprachen: Deutsch verhandlungssicher, Englisch Niveau B2 | Bist du bereit, gemeinsam mit uns B2B-Services rund ums Thema \"Wohnen\" auf einer modernen Cloud-Plattform für unsere Aktionäre und Kunden bereitzustellen? Dann sende deine Bewerbungsunterlagen direkt an Samira ( samira.amanda.luzi@gkb.ch ). Dein Ansprechpartner für weitere Fragen: Ronny Fuchs, CTO NNH Holding AG ronny.fuchs@nnh-holding.ch Dein HR Kontakt: Samira Amanda Luzi, HR Business Partner samira.amanda.luzi@gkb.ch Die NNH Holding AG ist im Besitz von 18 Kantonalbanken. Seit Herbst 2022 arbeitet die NNH als operative Gesellschaft am Thema Ökosystem Wohnen. Zudem hält die NNH Holding zwei Beteiligungen an der newhome AG und der Swiss Digital Home AG. | Ich bin interessiert und möchte mich bewerben",
         "fr": "Graubündner Kantonalbank.com en ligne depuis: 05.10.2026.com NNH Holding AG - Nous sommes une start-up avec actuellement six employés et travaillons avec nos actionnaires (banques canoniques), actionnaires et partenaires sur la création d'une plateforme numérique dans le domaine du «logement». Notre objectif est de développer des offres B2B que nos clients utilisent en dialogue avec leurs clients finaux et en interne. Puisque nous travaillons avec les données bancaires, la fiabilité, la qualité et la conformité sont très importantes pour nous. Dans votre nouveau rôle, vous soutenez le fonctionnement efficace et sécurisé de notre plateforme. Vous assumez des tâches essentielles dans les tests et êtes le contact pour surveiller la qualité de nos services. De plus, la gestion des contrats est responsable et développe continuellement nos processus de normalisation des documents contractuels. Nous vous offrons un large éventail de tâches qui vous mènent au succès dans les équipes inter-entreprises et interdisciplinaires. à partir de janvier 2027 ou par accord\n• Effectuer des tests manuels de système et d'acceptation (UAT), y compris la documentation des résultats des tests et le suivi du dépannage jusqu'à la réussite\n• Poursuite de l ' élaboration de stratégies et de processus d ' essai, élaboration de données d ' essai appropriées et coordination des activités d ' essai\n• Responsabilité de la mesure, de l'analyse et de la communication des indicateurs de qualité\n• Maintenance et mise à jour continue de l'inventaire des contrats en vue d'assurer la pleine signature du contrat\n• Contrôle des conditions contractuelles, des délais de préavis et des obligations convenues ainsi que déclenchement en temps voulu des processus d'examen\n• Gestion et mise à jour des contrats standard et des modèles en coordination avec l'équipe, et utilisation des versions actuelles\n• Plusieurs années d'expérience dans les opérations informatiques, la gestion des essais et/ou la gestion de la qualité, de préférence avec une formation complémentaire appropriée\n• Compétences analytiques, travail structuré et communication\n• Personnalité orientée vers le client, indépendante et résistante avec des normes de qualité élevées\n• Langues: allemand, négociation, anglais, niveau B2 Êtes-vous prêt à fournir des services B2B à nos actionnaires et clients sur une plateforme cloud moderne avec nous ? Envoyez vos documents de candidature directement à Samira (samira.amanda.luzi@gkb.ch ). Votre personne de contact pour d'autres questions: Ronny Fuchs, CTO NNH Holding AG ronny.fuchs@nnh-holding.ch Votre contact RH: Samira Amanda Luzi, HR Business Partner samira.amanda.luzi@gkb.ch NNH Holding AG appartient à 18 banques cantonales. Depuis l'automne 2022, la NHN travaille comme société d'exploitation sur le thème de la vie écosystémique. En outre, NNH Holding détient deux investissements dans newhome AG et Swiss Digital Home AG."
       },
       "location": "Zürich",
@@ -1993,7 +2007,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1979/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:12:03.189Z",
+      "crawledAt": "2026-10-05T21:25:14.750Z",
       "addressLocality": "Zürich",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2010,21 +2024,20 @@
       "postingDateSource": "reported",
       "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1979/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-gkb-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-gkb-ch"
         ]
       },
-      "previousSlugs": [
-        "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-gkb-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-05T09:12:03.189Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -2038,8 +2051,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-05T09:12:03.189Z"
+      "addressRegion": "ZH"
     }
   ]
 }

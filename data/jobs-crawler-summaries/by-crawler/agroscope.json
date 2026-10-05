@@ -1,30 +1,29 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-10-05T09:16:29.300Z",
-  "total": 9,
-  "newCount": 0,
+  "generatedAt": "2026-10-05T21:28:00.561Z",
+  "total": 10,
+  "newCount": 1,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 15629,
-  "avgDurationMs": 15629,
+  "durationMs": 8432,
+  "avgDurationMs": 8432,
   "durationHistory": [
-    15629
+    8432
   ],
-  "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [
+  "newJobs": [
     {
-      "title": "Forschungsgruppenleiter/-in Extension Gemüsebau",
-      "slug": "responsabile-del-gruppo-di-ricerca-extension-orticoltura-agroscope-8046-zurich",
-      "url": "https://jobs.admin.ch/posti-vacanti/forschungsgruppenleiter-in-extension-gemuesebau/29bbeb33-c800-4870-aeab-f1a7c02e34a0",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=17900",
+      "title": "Postdoktorand/-in zum Thema \"Metaboliten von Pflanzenschutzmitteln im Grundwasser\"",
+      "slug": "postdoktorand-in-zum-thema-metaboliten-von-pflanzenschutzmitteln-im-grundwasser-agroscope-wadenswil",
+      "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-zum-thema-metaboliten-von-pflanzenschutzmitteln-im-grundwasser/e028e811-d953-49c3-9ecd-723157bcc123",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20580",
       "company": "Agroscope",
       "companyKey": "agroscope",
       "companyDomain": "admin.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
+      "location": "Wädenswil",
+      "addressLocality": "Wädenswil",
+      "postalCode": "",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "canton": "ZH",
@@ -33,30 +32,30 @@
       "sector": "Pubblica amministrazione",
       "source": "agroscope-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-25T22:00:00Z",
-      "validThrough": "2026-10-20",
+      "datePosted": "2026-10-05T11:36:49Z",
+      "postedDate": "2026-10-05T11:36:49Z",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-07",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "agroscope-7cdf4cd694c5",
+      "id": "agroscope-2d8958858207",
+      "needsRetranslation": true,
       "salaryMin": 95500,
       "salaryMax": 159000,
       "currency": "CHF",
-      "firstSeenAt": "2026-08-27T00:35:38.161Z",
-      "salarySource": "reported",
-      "postalCode": "8046",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/forschungsgruppenleiter-in-extension-gemuesebau/29bbeb33-c800-4870-aeab-f1a7c02e34a0",
-      "needsRetranslation": true,
-      "datePosted": "2026-08-25T22:00:00Z",
-      "postingDateSource": "reported",
-      "_qualityScore": 90,
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-05T21:27:52.359Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 22
+        "translation": 16,
+        "completeness": 19
       }
     }
   ],
+  "updatedJobs": [],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Sanitär- und Heizungstechniker/in",
@@ -428,5 +427,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }

@@ -9,6 +9,7 @@
     "pdf"
   ],
   "seedUrls": [
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/direttore_ufficio_tecnico.pdf",
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/planner.pdf",
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/sales_e_marketing_manager.pdf",
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/it_security_architect.pdf",
@@ -26,8 +27,15 @@
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/full_stack_developer.pdf"
   ],
   "notes": "Dedicated LWPHR crawler parses the open positions accordion and extracts descriptions directly from the linked PDF files.",
-  "updatedAt": "2026-10-05T09:19:37.550Z",
+  "updatedAt": "2026-10-05T21:26:23.732Z",
   "seedMetaByUrl": {
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/direttore_ufficio_tecnico.pdf": {
+      "canton": "",
+      "company": "LWP Ledermann Wieting & Partners",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown"
+    },
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/planner.pdf": {
       "canton": "",
       "company": "LWP Ledermann Wieting & Partners",
