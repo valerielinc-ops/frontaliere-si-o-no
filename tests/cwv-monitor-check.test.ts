@@ -3,11 +3,11 @@ import { rmSync } from 'node:fs';
 
 /**
  * Coverage for scripts/cwv-monitor-check.mjs — the #4302 weekly CLS/INP
- * regression watchdog (PostHog `$web_vitals` field data → per-page history
+ * regression watchdog (GA4 `web_vitals` field data → per-page history
  * → "2 consecutive weeks over threshold" → GitHub backlog issue via the
  * shared scripts/lib/error-issue-sync.mjs sync).
  *
- * main() guards its live PostHog fetch + gh call behind an
+ * main() guards its live GA4 fetch + gh call behind an
  * `import.meta.url === pathToFileURL(process.argv[1]).href` check (same
  * pattern as scripts/posthog-error-issue-sync.mjs), so importing the module
  * here never fires a real network/gh call on its own — the pure
@@ -30,7 +30,6 @@ const {
   recordSourceUnavailableSnapshots,
   evaluateConsecutiveRegression,
   main,
-  buildQuery,
   ga4CwvSnapshot,
 } = await import('../scripts/cwv-monitor-check.mjs');
 
@@ -94,10 +93,6 @@ describe('evaluateConsecutiveRegression', () => {
     ];
     expect(ga4CwvSnapshot(rows, '/', 'mobile')).toMatchObject({ inp_p75: 1500, inp_n: 30 });
     expect(ga4CwvSnapshot(rows, '/', 'desktop')).toMatchObject({ inp_p75: 100, inp_n: 1000 });
-    const query = buildQuery('/', { startDate: day(6), endDate: day(0) });
-    expect(query).toContain('GROUP BY device');
-    expect(query).toContain(day(6));
-    expect(query).not.toContain('now()');
   });
 });
 
@@ -150,61 +145,69 @@ describe('loadHistory / saveHistory round-trip', () => {
   });
 });
 
-describe('main()', () => {
-  const originalFetch = global.fetch;
+describe('main() — GA4 is the only source (H9)', () => {
   const originalEnv = { ...process.env };
+  const HISTORY = '/tmp/cwv-monitor-check-test-history.json';
+  const ALIVE = { alive: true, reason: 'ga4 alive', source: 'ga4', windowDays: 7, floor: 500 };
+
+  /** GA4 web_vitals rows for every target page except `skip`. */
+  function ga4Rows({ cls = 0.05, inp = 100, count = 50, skip = [] as string[] } = {}) {
+    const rows: any[] = [];
+    for (const page of TARGET_PAGES) {
+      if (skip.includes(page.path)) continue;
+      rows.push({ path: page.path, device: 'mobile', metric: 'CLS', value: cls, count });
+      rows.push({ path: page.path, device: 'mobile', metric: 'INP', value: inp, count });
+    }
+    return Object.assign(rows, { coverage: { timeZone: 'Europe/Zurich' } });
+  }
 
   beforeEach(() => {
     vi.resetAllMocks();
-    process.env.POSTHOG_PERSONAL_API_KEY = 'test-key';
-    process.env.POSTHOG_PROJECT_ID = '123';
-    process.env.CWV_MONITOR_HISTORY_FILE = '/tmp/cwv-monitor-check-test-history.json';
+    process.env.CWV_MONITOR_HISTORY_FILE = HISTORY;
     // In CI l'override vuole un opt-in esplicito, altrimenti main() scrive il
     // file TRACCIATO data/cwv-monitor-history.json (resolve-output-path.mjs).
     process.env.CWV_MONITOR_HISTORY_FILE_ALLOW_CI = '1';
   });
 
   afterEach(() => {
-    global.fetch = originalFetch;
     process.env = { ...originalEnv };
     // Best-effort cleanup of the scratch history file used by this suite.
-    rmSync('/tmp/cwv-monitor-check-test-history.json', { force: true });
+    rmSync(HISTORY, { force: true });
   });
 
-  it('returns early without querying PostHog when credentials are missing', async () => {
-    delete process.env.POSTHOG_PERSONAL_API_KEY;
-    delete process.env.POSTHOG_PROJECT_ID;
-    global.fetch = vi.fn();
-    const result = await main({ ga4FallbackImpl: async () => [] });
-    expect(result.status).toBe('source-unavailable');
-    expect(global.fetch).not.toHaveBeenCalled();
-  });
-
-  it('does not open an issue on the first over-threshold week (needs two in a row)', async () => {
-    global.fetch = vi.fn().mockResolvedValue({
-      ok: true,
-      json: async () => ({ results: [[1.5, 50, 100, 40]] }), // cls_p75=1.5 (way over every threshold)
+  it('abstains without querying GA4 when the GA4 guard says the source is dead', async () => {
+    const ga4FallbackImpl = vi.fn(async () => ga4Rows({ cls: 3.0 }));
+    const result = await main({
+      checkLivenessImpl: async () => ({ alive: false, reason: 'ga4 ingested < 500 events/day', source: 'ga4', windowDays: 7, floor: 500 }),
+      ga4FallbackImpl,
     });
-    const now = new Date();
-    const checkLivenessImpl = vi.fn(async () => ({ alive: true }));
-    const result = await main({ now, checkLivenessImpl, ga4FallbackImpl: async () => [] });
-    expect(checkLivenessImpl).toHaveBeenCalledWith({ windowDays: 7, now: new Date(now.getTime() - 86400000) });
-    expect(result.status).toBe('ok');
-    const snapshot = loadHistory('/tmp/cwv-monitor-check-test-history.json').pages.home.weeks.at(-1);
-    expect(snapshot).toMatchObject({ source: 'posthog', minimumSamples: 30, window: { days: 7, lagDays: 2, timezone: 'UTC' } });
-    expect(snapshot.devices.unknown).toMatchObject({ cls_n: 50, cls_status: 'measured' });
+    expect(result.status).toBe('source-unavailable');
+    expect(ga4FallbackImpl).not.toHaveBeenCalled();
+    const row = loadHistory(HISTORY).pages.home.weeks.at(-1);
+    expect(row.cls_p75).toBeNull();
+    expect(row.sourceUnavailable).toMatch(/ga4 ingested < 500/);
     expect(execFileSync).not.toHaveBeenCalled();
   });
 
-  it('persists null snapshots when PostHog is dead and GA4 has no target observations', async () => {
-    global.fetch = vi.fn().mockResolvedValue({
-      ok: true,
-      json: async () => ({ results: [] }),
-    });
-    const result = await main({ ga4FallbackImpl: async () => [] });
+  it('does not open an issue on the first over-threshold week (needs two in a row)', async () => {
+    const now = new Date();
+    const checkLivenessImpl = vi.fn(async () => ALIVE);
+    const result = await main({ now, checkLivenessImpl, ga4FallbackImpl: async () => ga4Rows({ cls: 1.5 }) });
+    // The GA4 guard has the same lag-2 settled window as the report: no shift.
+    expect(checkLivenessImpl).toHaveBeenCalledWith({ windowDays: 7, now });
+    expect(result.status).toBe('ok');
+    expect(result.source).toBe('ga4');
+    const snapshot = loadHistory(HISTORY).pages.home.weeks.at(-1);
+    expect(snapshot).toMatchObject({ source: 'ga4', minimumSamples: 30, window: { days: 7, lagDays: 2, timezone: 'Europe/Zurich' } });
+    expect(snapshot.devices.mobile).toMatchObject({ cls_n: 50, cls_status: 'measured' });
+    expect(execFileSync).not.toHaveBeenCalled();
+  });
+
+  it('persists null snapshots when GA4 is alive but has no target observations', async () => {
+    const result = await main({ checkLivenessImpl: async () => ALIVE, ga4FallbackImpl: async () => [] });
     expect(result.status).toBe('source-unavailable');
 
-    const history = loadHistory('/tmp/cwv-monitor-check-test-history.json');
+    const history = loadHistory(HISTORY);
     expect(Object.keys(history.pages)).toHaveLength(TARGET_PAGES.length);
     for (const page of TARGET_PAGES) {
       const row = history.pages[page.key].weeks.at(-1);
@@ -212,33 +215,20 @@ describe('main()', () => {
       expect(row.inp_p75).toBeNull();
       expect(row.cls_n).toBe(0);
       expect(row.inp_n).toBe(0);
-      expect(row.sourceUnavailable).toMatch(/GA4 fallback returned no target/);
+      expect(row.sourceUnavailable).toMatch(/GA4 web_vitals report returned no usable target/);
     }
     expect(execFileSync).not.toHaveBeenCalled();
   });
 
   it('fails closed when one live target page has no target observations', async () => {
-    const runHogQLImpl = vi.fn(async (query: string) => {
-      if (query.includes("properties.$pathname = '/cerca-lavoro-ticino/'")) {
-        return { results: [[null, 1, null, 0]] };
-      }
-      return { results: [[0.05, 100, 200, 100]] };
-    });
     const result = await main({
-      checkLivenessImpl: async () => ({
-        alive: true,
-        reason: 'test source alive',
-        source: 'posthog',
-        windowDays: 7,
-        floor: 500,
-      }),
-      runHogQLImpl,
-      ga4FallbackImpl: async () => [],
+      checkLivenessImpl: async () => ALIVE,
+      ga4FallbackImpl: async () => ga4Rows({ skip: ['/cerca-lavoro-ticino/'] }),
     });
 
     expect(result.status).toBe('source-unavailable');
     expect(result.unavailablePages).toContain('cerca_lavoro_ticino');
-    const history = loadHistory('/tmp/cwv-monitor-check-test-history.json');
+    const history = loadHistory(HISTORY);
     expect(history.pages.cerca_lavoro_ticino.weeks.at(-1)).toMatchObject({
       cls_p75: null,
       cls_n: 0,
@@ -247,5 +237,12 @@ describe('main()', () => {
       sourceUnavailable: 'no target observations in 7d window',
     });
     expect(execFileSync).not.toHaveBeenCalled();
+  });
+
+  it('no longer reaches PostHog at runtime', async () => {
+    const { readFileSync } = await import('node:fs');
+    const src = readFileSync(new URL('../scripts/cwv-monitor-check.mjs', import.meta.url), 'utf8');
+    expect(src).not.toMatch(/posthog-client\.mjs|checkPostHogLiveness|runHogQL|POSTHOG_PERSONAL_API_KEY/);
+    expect(src).toMatch(/checkLivenessImpl = checkGa4Liveness/);
   });
 });
