@@ -409,11 +409,11 @@ describe('fachkraft.ch GmbH crawler parser', () => {
         discovered: 2,
         detailCompleted: 2,
       });
-      // Published, but not proof that a stored job is gone (issue 6109).
+      // Published, but not proof that a stored job is gone.
       expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(SNAPSHOT_VALIDATED_PARTIAL);
     });
 
-    it('does not retire stored jobs that a drifting max-observed listing skipped (issue 6109)', async () => {
+    it('does not retire stored jobs that a drifting max-observed listing skipped', async () => {
       // Anonymised shape of group-23 run 01-10: the declared total moves while
       // the listing is paged (3842/3804/3797/…), cards shift between requests,
       // 394 URLs repeat on a later page and as many are never served. Here:

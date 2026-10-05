@@ -338,7 +338,7 @@ async function inspectCrawler(slug) {
       ? Number(summary.parsed)
       : null;
   const detailDrop = detailDropFromSummary(summary);
-  // Jobs back within days of being expired (issue 6109): a crawler flap.
+  // Jobs back within days of being expired: a crawler flap.
   const flap = flapFromSummary(summary);
   // Source-proven empty state (crawler-template `evaluateAuthoritativeSnapshot`):
   // absent for crawlers without an authoritative-snapshot validator. The
@@ -489,7 +489,7 @@ function corpusObservationFromPayloads(slug, data, summary) {
       ? summary.parsed
       : null;
   const detailDrop = detailDropFromSummary(summary);
-  // Jobs back within days of being expired (issue 6109): a crawler flap.
+  // Jobs back within days of being expired: a crawler flap.
   const flap = flapFromSummary(summary);
   const authoritativeEmpty = summaryHasAuthoritativeEmpty(slug, summary);
   // Same fetch verdict as `inspectCrawler` (#7897), mirrored here for the same

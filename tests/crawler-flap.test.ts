@@ -43,7 +43,7 @@ const observation = (flap: unknown, written = 3300) => ({
   exitCode: null,
 });
 
-describe('crawler flap observer (issue 6109)', () => {
+describe('crawler flap observer', () => {
   it('counts only new jobs that were expired inside the window', () => {
     const newJobs = [job(1), job(2), job(3), job(4)];
     const expired = [

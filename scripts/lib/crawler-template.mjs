@@ -889,7 +889,7 @@ export const SNAPSHOT_VALIDATED_PARTIAL = 'validated-partial-snapshot';
  * admission not the whole source — e.g. fachkraft's `max-observed` listing,
  * whose pagination repeats and therefore skips cards. Such a batch is
  * published, and every stored job it does not contain keeps the ordinary miss
- * grace (issue 6109: 277-538 live jobs retired per run, back 1-2 runs later).
+ * grace (277-538 live jobs retired per run, back 1-2 runs later).
  *
  * @param {object[]|undefined|null} parsedJobs
  * @param {{
@@ -1380,7 +1380,7 @@ export async function runStandardCrawlerPipeline(config) {
   // `diff.removedJobs` (full job objects, with slug + locale data) into
   // `data/jobs/expired/by-crawler/<companyKey>.json` so the build plugin
   // can emit the soft-landing page.
-  // Oscillation observer (issue 6109): jobs that are new in this run but were
+  // Oscillation observer: jobs that are new in this run but were
   // retired into the expired slice within the last few days. Read BEFORE this
   // run archives, so only earlier retirements count.
   const flap = countResurrectedJobs(diff.newJobs, readExpiredSlice(companyKey));

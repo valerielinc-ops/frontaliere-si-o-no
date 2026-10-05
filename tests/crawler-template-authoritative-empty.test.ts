@@ -763,7 +763,7 @@ describe('standard crawler authoritative-empty policy', () => {
     );
   });
 
-  it('classifies a validated partial verdict as neither authoritative nor empty-proof (issue 6109)', () => {
+  it('classifies a validated partial verdict as neither authoritative nor empty-proof', () => {
     expect(evaluateAuthoritativeSnapshot([{ id: 'job-1' }], {
       validateAuthoritativeSnapshot: () => SNAPSHOT_VALIDATED_PARTIAL,
       allowAuthoritativeEmptySnapshot: true,
@@ -781,7 +781,7 @@ describe('standard crawler authoritative-empty policy', () => {
     }).authoritativeEmptySnapshot).toBe(false);
   });
 
-  it('keeps miss grace when the validator proves accounting but reports a partial snapshot (issue 6109)', async () => {
+  it('keeps miss grace when the validator proves accounting but reports a partial snapshot', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'validated-partial-root-'));
     mocks.readExistingCrawlerJobs.mockReturnValueOnce([{
       id: 'test-old-1',

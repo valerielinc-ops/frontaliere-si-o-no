@@ -643,7 +643,7 @@ export function validateFachkraftAuthoritativeSnapshot(jobs) {
   // same card shows up on two pages and another card on none. Measured on
   // group 23, 28-09 → 04-10: 98-727 repeated URLs per run, 3307-3487 unique
   // cards against 3786-3842 declared, and 277-538 live jobs retired per run
-  // that came back one or two runs later (issue 6109). Missing jobs therefore
+  // that came back one or two runs later. Missing jobs therefore
   // keep the ordinary miss grace instead of the authoritative retirement.
   return SNAPSHOT_VALIDATED_PARTIAL;
 }

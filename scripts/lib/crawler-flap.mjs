@@ -1,7 +1,7 @@
 import { buildStableJobIdentity } from './job-identity.mjs';
 
 /**
- * Crawler oscillation ("flap") accounting — issue 6109.
+ * Crawler oscillation ("flap") accounting.
  *
  * A flap is a job the crawler retired into its expired archive and then found
  * again a few runs later: the source never closed the vacancy, one run simply
