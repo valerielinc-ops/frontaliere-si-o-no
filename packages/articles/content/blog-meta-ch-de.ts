@@ -7697,6 +7697,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.rita-fuhrer-consiglio-federale.title': 'Keine Frau im Bundesrat notwendig',
     'blog.article.rita-fuhrer-consiglio-federale.excerpt': 'Rita Fuhrer: \'Diese Zeiten sind vorbei: Es muss einfach die am besten geeignete Person sein\'',
     'blog.article.rita-fuhrer-consiglio-federale.imageAlt': 'Rita Fuhrer, ehemalige Zürcher Regierungsrätin, kommentiert die Bundesratsnachfolge',
+    'blog.article.rita-fuhrer-consiglio-federale-donne.title': 'Bundesrat ohne Frauen: die Analyse von Rita Fuhrer',
+    'blog.article.rita-fuhrer-consiglio-federale-donne.excerpt': 'Rita Fuhrer, ehemalige Zürcher Regierungsrätin und ehemalige SVP-Kandidatin im Jahr 2000, kommentiert die Nachfolge in der Regierung und das Thema der Frauenvertretung.',
+    'blog.article.rita-fuhrer-consiglio-federale-donne.imageAlt': 'Bundeshaus in Bern bei klarem Himmel',
 };
 
 export default blogMetaChDe;

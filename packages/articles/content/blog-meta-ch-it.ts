@@ -7697,6 +7697,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.rita-fuhrer-consiglio-federale.title': 'Nessuna donna necessaria in Consiglio federale',
     'blog.article.rita-fuhrer-consiglio-federale.excerpt': 'Rita Fuhrer: \'Quei tempi sono finiti: deve semplicemente essere la persona più adatta\'',
     'blog.article.rita-fuhrer-consiglio-federale.imageAlt': 'Rita Fuhrer, ex consigliera di Stato zurighese, commenta la successione in Consiglio federale',
+    'blog.article.rita-fuhrer-consiglio-federale-donne.title': 'Consiglio federale senza donne: l\'analisi di Rita Fuhrer',
+    'blog.article.rita-fuhrer-consiglio-federale-donne.excerpt': 'Rita Fuhrer, ex consigliera di Stato zurighese ed ex candidata UDC nel 2000, commenta la successione in governo e il tema della presenza femminile.',
+    'blog.article.rita-fuhrer-consiglio-federale-donne.imageAlt': 'Palazzo Federale a Berna con cielo sereno',
 };
 
 export default blogMetaChIt;
