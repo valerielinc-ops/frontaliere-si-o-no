@@ -395,6 +395,51 @@ L'osservatore è `tests/information-gain-families-floor.test.ts`, con soglia
 resta `node scripts/ci/information-gain-live-scan.mjs --per-family=12` e va
 ricontrollato dopo il deploy.
 
+## #11678 — Professione × città: le offerte vere, non i conteggi
+
+La coorte `it:/lavoro-` del live scan non è `/lavoro-ticino-` (le landing per
+cantone) ma la famiglia professione × città di `professionCityLandings.ts`
+(`sitemap-profession-cities.xml`, 91 pagine italiane il 2026-10-05). Live scan
+del 2026-10-05: **14,5 %** su 11 pagine campionate, 8 segmenti propri su 61 per
+pagina. Il resto della pagina era il contesto frontaliere di
+`renderCantonSeoProse` (slot `city-landing`, lo stesso dell'hub città che la
+pagina linka come CTA): circa 45 segmenti identici su tutte le pagine. Il
+payload proprio era numerico (offerte, recenti, benchmark) e i datori stavano
+solo in pillole sotto i 25 caratteri.
+
+`build-plugins/professionCityInsights.ts` aggiunge, dal corpus di annunci del
+build: i titoli reali delle offerte della coppia con il datore (al massimo 12),
+la stessa professione nelle altre città della famiglia e le altre professioni
+della città, in ordine di offerte attive e solo sopra il floor. In più la lista
+dei datori ha una frase di testa, come le landing per cantone. Le frasi sono
+testo semplice in un solo elemento, perché un `<a>` in mezzo alla frase la
+spezzerebbe sotto la soglia di segmento; i link stanno in un elenco a parte.
+
+Misura pre-merge: replay del renderer sul `data/jobs.json` reale disponibile in
+locale (snapshot del 2026-07-22, 22.516 annunci), tutte le coppie sopra il floor:
+
+| coorte più grande | pagine | prima | dopo | pagine a gain zero |
+|---|---|---|---|---|
+| `it:/lavoro-` | 68 | 14,5 % | **27,6 %** | 0 → 0 |
+| `en:/en/jobs-` | 65 | 3,3 % | **22,8 %** | 9 → **0** |
+| `de:/de/arbeit-` | 74 | 1,6 % | **20,3 %** | 17 → **0** |
+| `fr:/fr/travail-` | 63 | 14,3 % | **26,3 %** | 0 → 0 |
+
+Il «prima» italiano coincide con il live scan, quindi il replay è fedele. Il
+40 % non è raggiunto e la soglia non si sposta. Il limite è il contesto
+condiviso: nello stesso replay, togliendo dalla pagina anche il blocco
+`renderCantonSeoProse` la coorte italiana sale al 54,2 % (en 59,1 %, de 59,1 %,
+fr 52,2 %). Togliere quel contesto, insieme alle sue FAQ JSON-LD, è una scelta
+editoriale e SEO che resta aperta. Non è stato fatto qui.
+
+L'osservatore è `tests/profession-city-insights.test.ts`: due sorelle con dati
+diversi producono blocchi diversi, una pagina senza dati non produce il blocco,
+i link puntano solo a coppie sopra il floor, e su un corpus sintetico la coorte
+con il blocco sta sopra la soglia pinnata (misurato 18,3-20,3 %, soglia 17,3 %)
+mentre senza resta sotto (12,5-13,3 %). Il corpus sintetico vale per la
+relazione con/senza blocco, non per l'assoluto: `data/jobs.json` lo assembla la
+CI.
+
 ## I calcolatori di stipendio: le leve, non le cifre (#7385)
 
 La più grande delle cinque famiglie qui sopra — 22 coorti su 37 — è stata

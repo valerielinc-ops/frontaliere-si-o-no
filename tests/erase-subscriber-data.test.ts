@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { lstatSync, readFileSync, readdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -11,6 +11,19 @@ import {
   inventorySubscriberData,
 } from '@/scripts/lib/eraseSubscriberData.mjs';
 import { parseArgs, run } from '@/scripts/erase-subscriber-data.mjs';
+import { affinityDocId } from '@/functions/src/lib/jobEmailAffinity.js';
+
+// The click-affinity profile is keyed by an HMAC of the address: the tool
+// needs NEWSLETTER_SECRET to find it and refuses to run without it.
+const AFFINITY_SECRET = 'erase-test-newsletter-secret';
+const previousSecret = process.env.NEWSLETTER_SECRET;
+beforeAll(() => {
+  process.env.NEWSLETTER_SECRET = AFFINITY_SECRET;
+});
+afterAll(() => {
+  if (previousSecret === undefined) delete process.env.NEWSLETTER_SECRET;
+  else process.env.NEWSLETTER_SECRET = previousSecret;
+});
 
 type Row = Record<string, unknown>;
 
@@ -197,6 +210,7 @@ function makeFakeAuth(
 
 const EMAIL = 'tester@example.com';
 const OTHER = 'keep-me@example.com';
+const affinityPath = (email: string) => 'job_email_affinity/' + affinityDocId(email, AFFINITY_SECRET);
 
 function seedAll(): Record<string, Row> {
   return {
@@ -219,6 +233,8 @@ function seedAll(): Record<string, Row> {
     ['consulting_orders/order1']: { customerEmail: EMAIL, status: 'paid' },
     ['applications/app1']: { candidateEmail: EMAIL },
     ['publishers/pub1']: { email: EMAIL },
+    [affinityPath(EMAIL)]: { clicks: 3, version: 1 },
+    [affinityPath(OTHER)]: { clicks: 5, version: 1 },
   };
 }
 
@@ -287,7 +303,22 @@ describe('operator-only subscriber erasure', () => {
     expect(db.docs.has(JOB_ALERT_COLLECTION + '/' + OTHER)).toBe(true);
     expect(db.docs.has('users/uid-keep')).toBe(true);
     expect(db.docs.has('contact_submissions/cs-keep')).toBe(true);
+    expect(result.before.affinity.exists).toBe(true);
+    expect(result.after.affinity.exists).toBe(false);
+    expect(db.docs.has(affinityPath(EMAIL))).toBe(false);
+    expect(db.docs.has(affinityPath(OTHER))).toBe(true);
+    expect(formatEraseReport(result)).toContain('DELETED affinity={"deleted":true}');
     expect(formatEraseReport(result)).toContain('mode=APPLY_VERIFIED');
+  });
+
+  it('fails closed without NEWSLETTER_SECRET instead of skipping the affinity profile', async () => {
+    const db = makeFakeDb(seedAll());
+    const auth = makeFakeAuth({ email: EMAIL, uid: 'uid-target' });
+    await expect(
+      eraseSubscriberData(db, EMAIL, auth, { apply: true, newsletterSecret: '' }),
+    ).rejects.toMatchObject({ phase: 'input' });
+    expect(db.docs.has(affinityPath(EMAIL))).toBe(true);
+    expect(db.docs.has(NEWSLETTER_COLLECTION + '/' + EMAIL)).toBe(true);
   });
 
   it('fails closed on Firestore query and listCollections errors', async () => {
