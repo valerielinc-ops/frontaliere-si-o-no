@@ -7,13 +7,38 @@ vi.mock('../scripts/lib/prospector/polite-fetch.mjs', async (importOriginal) => 
   politeFetch: mocks.politeFetch,
 }));
 
-import { extractLinks, traceCareers } from '../scripts/lib/prospector/careers-trail.mjs';
+import {
+  careersFromSitemap,
+  extractLinks,
+  isCareerLink,
+  isJavascriptCareerSurface,
+  traceCareers,
+  verifyAtsHost,
+} from '../scripts/lib/prospector/careers-trail.mjs';
 
 const response = (url: string, body: string) => ({ ok: true, status: 200, url, body, host: url ? new URL(url).hostname : '' });
 const filler = '<p>Informazioni autorevoli sulla struttura alberghiera, i servizi e il territorio.</p>'.repeat(6);
 
 describe('prospector careers ownership trail', () => {
   beforeEach(() => mocks.politeFetch.mockReset());
+
+  it('does not mistake a product URL ending in a German compound for a careers link', () => {
+    expect(isCareerLink({
+      url: 'https://www.mediamarkt.ch/de/content/haushalt-kueche/raumklima/elektrokamin-aufstellen',
+      text: 'Elektrokamin aufstellen',
+    })).toBe(false);
+    expect(isCareerLink({ url: 'https://www.mediamarkt.ch/de/unternehmen/karriere/offene-stellen', text: '' })).toBe(true);
+  });
+
+  it('does not promote the same product false positive from a sitemap', async () => {
+    const productUrl = 'https://www.mediamarkt.ch/de/content/raumklima/elektrokamin-aufstellen';
+    mocks.politeFetch.mockResolvedValue(response(
+      'https://www.mediamarkt.ch/sitemap.xml',
+      `<urlset><url><loc>${productUrl}</loc></url></urlset>`,
+    ));
+
+    await expect(careersFromSitemap('https://www.mediamarkt.ch')).resolves.toEqual([]);
+  });
 
   it('does not promote a homepage fallback or its partner-logo footer', async () => {
     const homepage = `<html><title>Villa Garni Gardenia</title><body><main>Benvenuti a Caslano${filler}</main><footer><a href="https://www.hotelleriesuisse.ch/it/"><img alt="Partner"></a></footer></body></html>`;
@@ -25,6 +50,14 @@ describe('prospector careers ownership trail', () => {
     expect(result.externalHosts).toEqual([]);
     expect(result.selfHosted).toBe(false);
     expect(result.via).not.toContain('path-probe');
+  });
+
+  it('keeps a transient homepage failure retryable instead of exhausting the candidate', async () => {
+    mocks.politeFetch.mockResolvedValue({ ok: false, status: 503, url: 'https://transient.example/', body: '', host: 'transient.example' });
+
+    const result = await traceCareers('transient.example');
+
+    expect(result).toMatchObject({ reachable: false, retryable: true, failureStatuses: [503, 503] });
   });
 
   it('retains a page-specific external ATS after vacancy verification', async () => {
@@ -140,5 +173,39 @@ describe('prospector careers ownership trail', () => {
     // request was never touched in place either.
     expect(homeResponse.body).toBe(homepage);
     expect(homeResponse.url).toBe(homeUrl);
+  });
+
+  it('retains an official cross-origin careers portal instead of calling it absent', async () => {
+    const homeUrl = 'https://mediamarkt.ch/';
+    const careersUrl = 'https://careers.mediamarktsaturn.com/MediaMarktCH/?locale=de_CH';
+    const homepage = `<html><title>MediaMarkt</title><body><a href="${careersUrl}">Jobs</a><main>${filler}</main></body></html>`;
+    const careers = '<html><title>MediaMarkt careers</title><body><mmsg-page class="search"></mmsg-page>'
+      + '<script type="module" src="https://csbep-mms-prod.web.app/build/csb.esm.js"></script>'
+      + `<main>${filler}</main></body></html>`;
+
+    mocks.politeFetch.mockImplementation(async (url: string) => {
+      if (url === homeUrl) return response(homeUrl, homepage);
+      if (url === careersUrl) return response(careersUrl, careers);
+      return { ok: false, status: 404, url, body: '', host: url ? new URL(url).hostname : '' };
+    });
+
+    const result = await traceCareers('mediamarkt.ch');
+
+    expect(result.careersUrls).toEqual([careersUrl]);
+    expect(result.selfHosted).toBe(true);
+    expect(result.via).toContain('external-homepage-link');
+  });
+
+  it('recognises a JS-only SuccessFactors surface without inventing vacancy rows', async () => {
+    const atsUrl = 'https://careers.vendor.example/search';
+    const body = '<html><title>Vendor jobs</title><body><mmsg-page class="search"></mmsg-page>'
+      + '<script type="module" src="https://csbep-mms-prod.web.app/build/csb.esm.js"></script>'
+      + '<h1>Search jobs</h1></body></html>';
+    expect(isJavascriptCareerSurface(body)).toBe(true);
+    mocks.politeFetch.mockResolvedValue(response(atsUrl, body));
+
+    const verified = await verifyAtsHost({ host: 'careers.vendor.example', url: atsUrl, text: 'Jobs' });
+    expect(verified.verified).toBe(true);
+    expect(verified.signals).toContain('js-career-surface');
   });
 });

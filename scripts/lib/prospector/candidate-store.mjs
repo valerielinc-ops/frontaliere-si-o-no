@@ -61,6 +61,14 @@ const STORE_VERSION = 2;
  */
 export const MAX_REJECTED_TOMBSTONES = 10_000;
 
+/**
+ * A trace failure caused by transport or source discovery is not proof that
+ * the employer has no careers surface. Keep the candidate in `new` and let a
+ * later run retry it instead of turning one outage into a 90-day tombstone.
+ */
+const RETRYABLE_TRACE_REASON_RX = /(?:sito|dominio|pagina|rete|host|dns|timeout|http|fetch).*(?:irraggiungibile|non risolto|non raggiungibile|tempor|errore|blocc|timeout)|(?:irraggiungibile|non raggiungibile|timeout)/i;
+const TRACE_RETRY_DELAYS_DAYS = [1, 3, 7, 14, 30];
+
 const EMPTY = { version: STORE_VERSION, updatedAt: null, candidates: {}, rejectedTombstones: {} };
 const TOMBSTONE_COUNTS = new WeakMap();
 
@@ -161,6 +169,78 @@ export function loadCandidates(file = CANDIDATES_PATH) {
   } catch {
     return structuredClone(EMPTY);
   }
+}
+
+/**
+ * Whether a stored dead verdict is safe to reopen after a fresh discovery
+ * sighting. Deterministic "no careers page" and explicit rejections stay
+ * terminal; transport/domain failures are probed again.
+ *
+ * @param {string} reason
+ * @returns {boolean}
+ */
+export function isRetryableTraceReason(reason = '') {
+  return RETRYABLE_TRACE_REASON_RX.test(String(reason || '').trim());
+}
+
+/**
+ * A candidate with a future retry timestamp is intentionally absent from the
+ * TRACE queue. `--key=…` remains an explicit operator override in the stage
+ * script, so a stuck candidate can still be inspected immediately.
+ *
+ * @param {Record<string, any>} candidate
+ * @param {number} [now]
+ * @returns {boolean}
+ */
+export function isTraceRetryDue(candidate, now = Date.now()) {
+  const at = Date.parse(String(candidate?.traceRetryAt || ''));
+  return !Number.isFinite(at) || at <= now;
+}
+
+/**
+ * Build bounded exponential backoff metadata for one retryable trace attempt.
+ *
+ * @param {Record<string, any>} candidate
+ * @param {string} reason
+ * @param {number} [now]
+ * @returns {Record<string, any>}
+ */
+export function scheduleTraceRetry(candidate, reason, now = Date.now()) {
+  const attempts = Math.max(0, Number(candidate?.traceAttempts) || 0);
+  const delayDays = TRACE_RETRY_DELAYS_DAYS[Math.min(attempts, TRACE_RETRY_DELAYS_DAYS.length - 1)];
+  const attemptedAt = new Date(now).toISOString();
+  return {
+    reason,
+    traceAttempts: attempts + 1,
+    traceLastAttemptAt: attemptedAt,
+    traceRetryAt: new Date(now + delayDays * 86_400_000).toISOString(),
+  };
+}
+
+/**
+ * Reopen a retryable dead candidate when a new discovery source sees it again.
+ * This is what lets an OSM/SECO sighting recover records written by an older
+ * prospector version, including candidates whose homepage was down only during
+ * the previous trace run.
+ *
+ * @param {ReturnType<typeof loadCandidates>} store
+ * @param {string} key
+ * @param {Record<string, any>} [incoming]
+ * @param {string|null} [ledgerFile]
+ * @returns {Record<string, any>|null}
+ */
+export function reviveRetryableDeadCandidate(store, key, incoming = {}, ledgerFile = LEDGER_PATH) {
+  const candidate = store.candidates[key];
+  if (!candidate || candidate.status !== 'dead') return candidate || null;
+  const hasNewCareerUrl = Boolean(incoming?.careersUrl)
+    && String(incoming.careersUrl) !== String(candidate.careersUrl || '');
+  if (!isRetryableTraceReason(candidate.reason) && !hasNewCareerUrl) return candidate;
+  const revived = setStatus(store, key, 'new', {
+    ...incoming,
+    reason: 'riscontro dopo una nuova scoperta',
+    traceRetryAt: null,
+  }, ledgerFile);
+  return revived;
 }
 
 /**

@@ -26,6 +26,37 @@ import { looksLikeAggregator } from './tenant-enum.mjs';
 import { readAttr } from '../html-attr.mjs';
 
 /**
+ * HTTP outcomes that do not prove an employer site is permanently absent.
+ * 401/403 are included because WAFs and geo/IP fences commonly use them for a
+ * browser-visible site; the next run may reach the same public page.
+ *
+ * @param {number} status
+ * @returns {boolean}
+ */
+export function isRetryableTraceStatus(status) {
+  const code = Number(status) || 0;
+  return code === 0 || code === 401 || code === 403 || code === 408
+    || code === 425 || code === 429 || code >= 500;
+}
+
+/**
+ * Detect a JavaScript-only career surface before the vacancy extractor gives
+ * it a zero score. These pages intentionally contain no server-rendered job
+ * rows, but their custom-element/ATS fingerprints are still strong evidence
+ * that the employer publishes vacancies there.
+ *
+ * @param {string} html
+ * @returns {boolean}
+ */
+export function isJavascriptCareerSurface(html = '') {
+  const source = String(html || '');
+  const customElement = /<mmsg-(?:page|search-results|job-item)\b/i.test(source);
+  const atsShell = /(?:csb\.esm\.js|searchui\.search\.windows\.net|successfactors|data-careersite-propertyid)/i.test(source);
+  return (customElement && atsShell)
+    || (atsShell && /(?:career|careers|job|jobs|search)/i.test(source));
+}
+
+/**
  * Tidy anchor text: decode entities, collapse whitespace, and drop the
  * immediate self-repetition that markup like
  * `<a title="X"><span>X</span></a>` produces once tags are stripped. Left
@@ -147,7 +178,30 @@ export function extractLinks(html = '', baseUrl = '', options = {}) {
 export function isCareerLink(link) {
   let pathPart = '';
   pathPart = safeDecodePath(link.url) || link.url;
-  return CAREER_TOKEN_RX.test(link.text) || CAREER_TOKEN_RX.test(pathPart);
+  return hasCareerToken(link.text) || hasCareerToken(pathPart);
+}
+
+/**
+ * Match a career token only as a standalone word/phrase. The shared token
+ * list is intentionally broad, but an unbounded `stellen` match turns a
+ * normal product URL such as `/elektrokamin-aufstellen` into a fake careers
+ * page. Keep the broad vocabulary while rejecting matches embedded in a
+ * larger word; real slugs such as `/offene-stellen` still pass.
+ *
+ * @param {string} value
+ * @returns {boolean}
+ */
+function hasCareerToken(value = '') {
+  const text = String(value || '');
+  const scanner = new RegExp(CAREER_TOKEN_RX.source, 'gi');
+  for (const match of text.matchAll(scanner)) {
+    const start = match.index ?? 0;
+    const end = start + match[0].length;
+    const before = text[start - 1] || '';
+    const after = text[end] || '';
+    if (!/[a-z0-9à-öø-ÿ]/i.test(before) && !/[a-z0-9à-öø-ÿ]/i.test(after)) return true;
+  }
+  return false;
 }
 
 /**
@@ -178,7 +232,7 @@ export async function careersFromSitemap(origin) {
       let p = '';
       p = safeDecodePath(loc);
       if (!p) continue;
-      if (CAREER_TOKEN_RX.test(p)) found.push(loc);
+      if (hasCareerToken(p)) found.push(loc);
     }
   };
   await read(`${origin}/sitemap.xml`, 0);
@@ -300,11 +354,21 @@ export function isDistinctCareerSurface(homeHtml = '', pageHtml = '', pageUrl = 
  */
 export async function verifyAtsHost(candidate, minScore = 3) {
   const res = await politeFetch(candidate.url);
-  if (!res.ok || res.body.length < 200) {
+  // A JS-only ATS shell can be deliberately tiny: the server returns little
+  // more than its custom element and runtime bootstrap, while the vacancies
+  // arrive after hydration. Recognise that fingerprint before applying the
+  // generic short-body guard, otherwise a valid tenant is discarded as an
+  // unreachable page.
+  const jsSurface = res.ok && isJavascriptCareerSurface(res.body);
+  if (!res.ok || (res.body.length < 200 && !jsSurface)) {
     return { ...candidate, score: 0, signals: ['unreachable'], vacancyCount: 0, verified: false };
   }
   const links = extractLinks(res.body, res.url);
   const scored = scoreVacancyPage(res.body, res.url, links);
+  // A client-rendered ATS can have a completely empty server-side vacancy
+  // list. Its own custom-element/runtime fingerprint is still enough to
+  // retain the career surface; the crawler/synthesizer will use the live page
+  // URL rather than pretending that zero SSR rows means "no careers".
   // A careers link that lands on an aggregator tells us where the employer
   // ADVERTISES, not where it publishes. Recording it would seed the registry
   // with job boards — inventory everyone already has — and the loop exists for
@@ -313,12 +377,12 @@ export async function verifyAtsHost(candidate, minScore = 3) {
   return {
     ...candidate,
     url: res.url,
-    score: scored.score,
-    signals: scored.signals,
+    score: jsSurface ? Math.max(scored.score, minScore) : scored.score,
+    signals: jsSurface ? [...scored.signals, 'js-career-surface'] : scored.signals,
     vacancyCount: scored.vacancies.length,
     aggregator: surface.aggregator,
     distinctCompanies: surface.distinctCompanies,
-    verified: scored.score >= minScore && !surface.aggregator,
+    verified: (scored.score >= minScore || jsSurface) && !surface.aggregator,
   };
 }
 
@@ -335,9 +399,23 @@ export async function verifyAtsHost(candidate, minScore = 3) {
  * @returns {Promise<Awaited<ReturnType<typeof traceCareers>>>}
  */
 export async function traceFromCareersUrl(careersUrl, employerDomain) {
-  const result = { domain: employerDomain, reachable: false, careersUrls: [], externalHosts: [], rejectedHosts: [], selfHosted: false, via: ['known-careers-url'] };
+  const result = {
+    domain: employerDomain,
+    reachable: false,
+    careersUrls: [],
+    externalHosts: [],
+    rejectedHosts: [],
+    failureStatuses: [],
+    retryable: false,
+    selfHosted: false,
+    via: ['known-careers-url'],
+  };
   const page = await politeFetch(careersUrl);
-  if (!page.ok || page.body.length < 300) return result;
+  result.failureStatuses.push(Number(page.status) || 0);
+  if (!page.ok || page.body.length < 300) {
+    result.retryable = isRetryableTraceStatus(page.status) || page.body.length < 300;
+    return result;
+  }
   result.reachable = true;
   result.careersUrls.push(page.url);
   // Same reasoning as traceCareers(): a cross-origin redirect on `careersUrl`
@@ -351,6 +429,7 @@ export async function traceFromCareersUrl(careersUrl, employerDomain) {
   }
   result.externalHosts = checked.filter((c) => c.verified);
   result.rejectedHosts = checked.filter((c) => !c.verified).map((c) => ({ host: c.host, score: c.score, aggregator: c.aggregator || false }));
+  result.retryable = result.failureStatuses.some(isRetryableTraceStatus);
   result.selfHosted = result.externalHosts.length === 0;
   return result;
 }
@@ -363,16 +442,33 @@ export async function traceFromCareersUrl(careersUrl, employerDomain) {
  * @returns {Promise<{
  *   domain: string, reachable: boolean, careersUrls: string[],
  *   externalHosts: { host: string, url: string, text: string, score: number, vacancyCount: number }[],
- *   rejectedHosts?: { host: string, score: number }[], selfHosted: boolean, via: string[]
+ *   rejectedHosts?: { host: string, score: number }[], failureStatuses: number[],
+ *   retryable: boolean, selfHosted: boolean, via: string[]
  * }>}
  */
 export async function traceCareers(domain, opts = {}) {
   const maxCareerPages = opts.maxCareerPages ?? 3;
-  const result = { domain, reachable: false, careersUrls: [], externalHosts: [], selfHosted: false, via: [] };
+  const result = {
+    domain,
+    reachable: false,
+    careersUrls: [],
+    externalHosts: [],
+    failureStatuses: [],
+    retryable: false,
+    selfHosted: false,
+    via: [],
+  };
 
   let home = await politeFetch(`https://${domain}/`);
-  if (!home.ok) home = await politeFetch(`https://www.${domain}/`);
-  if (!home.ok || home.body.length < 300) return result;
+  result.failureStatuses.push(Number(home.status) || 0);
+  if (!home.ok) {
+    home = await politeFetch(`https://www.${domain}/`);
+    result.failureStatuses.push(Number(home.status) || 0);
+  }
+  if (!home.ok || home.body.length < 300) {
+    result.retryable = result.failureStatuses.some(isRetryableTraceStatus) || home.body.length < 300;
+    return result;
+  }
   result.reachable = true;
   const origin = new URL(home.url).origin;
   // A cross-origin redirect can land the homepage on a different registrable
@@ -389,6 +485,32 @@ export async function traceCareers(domain, opts = {}) {
   // Hop 0 — the ATS link is sometimes right on the homepage.
   const fromHome = externalAtsLinks(homeLinks, homeHost);
   if (fromHome.length) { result.externalHosts.push(...fromHome); result.via.push('homepage'); }
+
+  // Some corporate groups publish the careers surface on a related domain
+  // (`mediamarkt.ch` → `careers.mediamarktsaturn.com`). `externalAtsLinks()`
+  // deliberately excludes same-organisation domains so they cannot become a
+  // false platform, but that exclusion must not turn an official careers URL
+  // into "no careers". Fetch and retain these explicit cross-origin links as
+  // career surfaces; only unrelated hosts continue through ATS verification.
+  const relatedCareerUrls = [...new Set(homeLinks
+    .filter((link) => isCareerLink(link))
+    .filter((link) => registrableDomain(link.host) !== registrableDomain(homeHost))
+    .filter((link) => sameOrg(link.host, homeHost))
+    .map((link) => link.url))];
+  for (const url of relatedCareerUrls.slice(0, maxCareerPages)) {
+    const page = await politeFetch(url);
+    result.failureStatuses.push(Number(page.status) || 0);
+    if (!page.ok || page.body.length < 300) {
+      if (page.body.length < 300) result.retryable = true;
+      continue;
+    }
+    result.careersUrls.push(page.url);
+    if (!result.via.includes('external-homepage-link')) result.via.push('external-homepage-link');
+    const links = extractLinks(page.body, page.url, { sameOriginOnly: false });
+    for (const ext of externalAtsLinks(links, normalizeHost(new URL(page.url).hostname), { relaxed: true, globalLinks: homeLinks })) {
+      if (!result.externalHosts.some((e) => e.host === ext.host)) result.externalHosts.push(ext);
+    }
+  }
 
   // Hop 1 — candidate careers pages, cheapest source first.
   const candidates = [];
@@ -431,7 +553,12 @@ export async function traceCareers(domain, opts = {}) {
     if (seen.has(key)) continue;
     seen.add(key);
     const page = await politeFetch(url);
+    result.failureStatuses.push(Number(page.status) || 0);
     if (!page.ok) continue;
+    if (page.body.length < 300) {
+      result.retryable = true;
+      continue;
+    }
     if (!isDistinctCareerSurface(home.body, page.body, page.url, home.url)) continue;
     result.careersUrls.push(page.url);
     const links = extractLinks(page.body, page.url, { sameOriginOnly: false });
@@ -449,6 +576,7 @@ export async function traceCareers(domain, opts = {}) {
   }
   result.externalHosts = checked.filter((c) => c.verified);
   result.rejectedHosts = checked.filter((c) => !c.verified).map((c) => ({ host: c.host, score: c.score, aggregator: c.aggregator || false }));
+  result.retryable = result.retryable || result.failureStatuses.some(isRetryableTraceStatus);
 
   // No third-party host anywhere, but a careers page exists -> the employer
   // publishes on its own site and needs a bespoke crawler rather than a family one.

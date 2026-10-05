@@ -9,7 +9,10 @@ import { describe, expect, it } from 'vitest';
 import {
   loadCandidates,
   MAX_REJECTED_TOMBSTONES,
+  isTraceRetryDue,
   pruneTerminal,
+  reviveRetryableDeadCandidate,
+  scheduleTraceRetry,
   saveCandidates,
   setStatus,
   upsertCandidate,
@@ -125,5 +128,52 @@ describe('prospector candidate store — rejected tombstones (#6903)', () => {
     expect(Object.keys(store.rejectedTombstones)).toHaveLength(MAX_REJECTED_TOMBSTONES);
     expect(store.rejectedTombstones['rejected-00000.example']).toBeUndefined();
     expect(store.rejectedTombstones[`rejected-${String(MAX_REJECTED_TOMBSTONES + 1).padStart(5, '0')}.example`]).toBeDefined();
+  });
+});
+
+describe('prospector candidate store — retryable trace failures', () => {
+  it('schedules bounded retry metadata without changing a candidate out of new', () => {
+    const candidate = { key: 'temporary.example', status: 'new', traceAttempts: 0 };
+    const now = Date.now();
+    const patch = scheduleTraceRetry(candidate, 'sito irraggiungibile', now);
+
+    expect(patch).toMatchObject({
+      reason: 'sito irraggiungibile',
+      traceAttempts: 1,
+      traceLastAttemptAt: new Date(now).toISOString(),
+      traceRetryAt: new Date(now + DAY_MS).toISOString(),
+    });
+    expect(isTraceRetryDue({ ...candidate, ...patch }, now)).toBe(false);
+    expect(isTraceRetryDue({ ...candidate, ...patch }, Date.parse(patch.traceRetryAt))).toBe(true);
+  });
+
+  it('reopens an old unreachable verdict when a discovery source sees it again', () => {
+    const key = 'mediamarkt.ch';
+    const store = storeWith({
+      [key]: {
+        key,
+        status: 'dead',
+        name: 'MediaMarkt',
+        domain: key,
+        reason: 'sito irraggiungibile',
+        firstSeenAt: OLD,
+        updatedAt: OLD,
+      },
+    });
+
+    const revived = reviveRetryableDeadCandidate(store, key, { sourceHint: 'osm' }, null);
+    expect(revived).toMatchObject({ status: 'new', reason: 'riscontro dopo una nuova scoperta' });
+    expect(store.candidates[key].traceRetryAt).toBeNull();
+  });
+
+  it('reopens a non-retryable dead verdict only when a new careers URL arrives', () => {
+    const key = 'employer.ch';
+    const store = storeWith({
+      [key]: { key, status: 'dead', reason: 'nessuna pagina carriere', domain: key },
+    });
+
+    reviveRetryableDeadCandidate(store, key, { careersUrl: 'https://careers.employer-group.com/jobs' }, null);
+    expect(store.candidates[key].status).toBe('new');
+    expect(store.candidates[key].careersUrl).toBe('https://careers.employer-group.com/jobs');
   });
 });
