@@ -151,7 +151,7 @@ async function fetchPizzarottiListings() {
   if (discovery.discovered === 0) {
     throw new Error('Pizzarotti listing page produced no vacancy cards; refusing to publish an empty snapshot.');
   }
-  if (discovery.unclassifiedLocationCount > 0) {
+  if (discovery.listings.length === 0 && discovery.unclassifiedLocationCount > 0) {
     throw new Error(
       `Pizzarotti listing page left ${discovery.unclassifiedLocationCount}/${discovery.discovered} vacancy location(s) unclassified; refusing to publish a filtered-empty snapshot.`,
     );
