@@ -92,6 +92,8 @@ const LEGIT_DESCRIPTION_OPENERS = [
   'We need to keep our customers at the centre of everything we do.',
   // Un apostrofo in un'apertura legittima non la rende una meta-risposta.
   "We need to translate our clients' ideas into working products.",
+  // Una traduzione vera con virgolette tipografiche singole non e' narrazione.
+  'Il ‘Chef d’équipe’ coordina il turno.',
   // Review della PR corpus 2166 su 144b89b227: prosa in prima persona che non
   // parla dell'input («Non vedo alcun motivo…» → «I don't see any reason…»).
   "I don't see any reason why you should not apply.",
@@ -163,6 +165,8 @@ describe('detectAiMetaResponse — casi reali pubblicati', () => {
     'We need to translate the job title "GL & VAT Accountant" from German to English.',
     'We need to translate "GL & VAT Accountant" in English.',
     "We need to translate 'Chef d'équipe' to English.",
+    "We need to translate ‘Chef d'équipe’ into English.",
+    'We need to translate ‘Chef d’équipe’ into English.',
     'We need to translate the phrase "GL & VAT Accountant" to English.',
   ])('riconosce la narrazione con input citato e lingua target: %s', (text) => {
     expect(detectAiMetaResponse(text)).toMatchObject({ kind: 'agent-narration' });

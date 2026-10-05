@@ -60,6 +60,7 @@ import {
 } from './lib/subscriberConsent.js';
 import { REGISTRATION_TERMS_TEXT, REGISTRATION_TERMS_VERSION } from './lib/registrationTermsText.js';
 import { isAccountDeletedTombstone } from './authAccountCleanup.js';
+import { eraseJobEmailAffinityProfile } from './lib/jobEmailAffinityStore.js';
 import {
  verifyAutologinCode,
  resolveAutologinPolicy,
@@ -1119,6 +1120,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  ...(desired ? {} : forensicFields),
  });
 
+ // `unsubscribed` ferma ogni canale (emailSuppression.js): e' la
+ // disiscrizione da tutto che cancella subito il profilo di affinita'.
+ if (!desired) await eraseJobEmailAffinityProfile(db, normalizedEmail, { secret });
+
  return { status: 200, json: { success: true, subscribed: desired } };
  } catch (err) {
  console.error('[toggle_newsletter_subscription] Failed:', err?.message);
@@ -1646,6 +1651,9 @@ export async function handleSubscriptionManagement({ action, email, token, local
  ...forensicFields,
  });
 
+ // Same cross-channel stop as above: the click-affinity profile goes now.
+ await eraseJobEmailAffinityProfile(db, normalizedEmail, { secret });
+
  return {
  status: 200,
  html: buildResponseHtml({
@@ -1707,6 +1715,8 @@ export async function handleSubscriptionManagement({ action, email, token, local
     occurred_at: new Date().toISOString(),
     ...forensicFields,
    });
+
+   await eraseJobEmailAffinityProfile(db, normalizedEmail, { secret });
 
    return {
     status: 200,
