@@ -38,4 +38,22 @@ describe('border wait map landing', () => {
     expect(page.html).toContain('border-wait-hydrate.js');
     expect(page.html).toContain('Valichi monitorati</div><div class=s-tval>26</div>');
   });
+
+  it('gives each crossing Place one locale-independent identity', () => {
+    const page = renderPage({
+      locale: 'de',
+      dateStamp: '2026-09-27',
+      today: new Date('2026-09-27T06:15:00Z'),
+      current: { updatedAt: null, perCrossing: {} },
+    });
+    const scripts = [...page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+      .map((match) => JSON.parse(match[1]) as Record<string, any>);
+    const map = scripts.find((schema) => schema['@type'] === 'Map') as Record<string, any>;
+    const places = map.hasPart as Array<Record<string, any>>;
+
+    expect(places).toHaveLength(TICINO_MAP_CROSSINGS.length);
+    expect(new Set(places.map((place) => place['@id'])).size).toBe(places.length);
+    expect(places.every((place) => place['@id'].startsWith('https://frontaliereticino.ch/traffico-dogane/'))).toBe(true);
+    expect(places.every((place) => place['@id'].endsWith('/oggi/#place'))).toBe(true);
+  });
 });
