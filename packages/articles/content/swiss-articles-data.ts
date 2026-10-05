@@ -23146,6 +23146,16 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'elezioni-cantonali-zurigo-vademecum',
+    category: 'pratico',
+    date: '2026-10-05T01:17:29.052Z',
+    image: '/images/blog/elezioni-cantonali-zurigo-vademecum.webp',
+    hasCalculator: true,
+    articleType: 'evergreen',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

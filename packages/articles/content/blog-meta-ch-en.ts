@@ -7703,6 +7703,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guida-voto-zurigo-referendum.title': 'Cantonal vote in Zurich: guide to initiatives and referendums',
     'blog.article.guida-voto-zurigo-referendum.excerpt': 'Cantonal vote in Zurich: initiatives, referendums, calendar and eligible voters. Federal thresholds: 100\'000 signatures in 18 months and 50\'000 in 100 days.',
     'blog.article.guida-voto-zurigo-referendum.imageAlt': 'Ballot papers for a cantonal vote in the Canton of Zurich',
+    'blog.article.elezioni-cantonali-zurigo-vademecum.title': 'Cantonal elections in Zurich: a guide to the calendar and voting',
+    'blog.article.elezioni-cantonali-zurigo-vademecum.excerpt': 'Practical guide to the cantonal elections in the Canton of Zurich: what to check regarding the election schedule, voting methods, lists, and official information.',
+    'blog.article.elezioni-cantonali-zurigo-vademecum.imageAlt': 'Information material for cantonal elections in the Canton of Zurich',
 };
 
 export default blogMetaChEn;
