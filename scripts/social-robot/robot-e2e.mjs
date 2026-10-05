@@ -20,7 +20,7 @@
  *     page, which is not a confirmation; the success toast is;
  *   - a challenge (Instagram) or a captcha (TikTok) right after the press:
  *     keeps its class, pressed = true — the post may be online;
- *   - login wall, challenge, a video-only upload field: classified, nothing sent;
+ *   - login wall, challenge, and a video-only upload field with processing;
  *   - one whole runRobot() publish through the persistent profile: the confirm
  *     dispatch happens after the confirmation, never in a dry run.
  */
@@ -82,7 +82,7 @@ ${createMenu ? '' : 'bindDialog();'}`);
 
 const instagramLogin = () => page('Login • Instagram', '<form><input name="username" aria-label="Username"><input name="password" type="password" aria-label="Password"><button>Accedi</button></form>');
 
-function tiktokPage({ accept = 'image/*,video/*', captcha = false, captchaAfterPost = false, afterPost = 'redirect' } = {}) {
+function tiktokPage({ accept = 'video/*', captcha = false, captchaAfterPost = false, afterPost = 'redirect' } = {}) {
   const after = {
     redirect: "location.href = '/tiktokstudio/content';",
     // The POST answers 200 and the page stays where it is: no toast, no redirect.
@@ -93,21 +93,32 @@ function tiktokPage({ accept = 'image/*,video/*', captcha = false, captchaAfterP
 <nav><a href="/tiktokstudio/content">Manage your posts</a><a href="/tiktokstudio/upload">Upload</a></nav>
 <main>
   ${captcha ? '<div id="captcha-verify-container"><p>Drag the slider to fit the puzzle</p></div>' : ''}
-  <div id="upload"><input id="file" type="file" accept="${accept}" multiple><p>Select files to upload</p></div>
+  <div id="upload"><input id="file" type="file" accept="${accept}"><p>Select a video to upload</p></div>
+  <div id="processing" data-e2e="upload-progress" role="progressbar" hidden>Processing video…</div>
   <div id="editor" hidden>
-    <div data-e2e="caption_container"><div class="public-DraftEditor-content" contenteditable="true" role="combobox" id="caption"></div></div>
+    <div data-e2e="caption_container"><div class="public-DraftEditor-content" contenteditable="true" role="combobox" id="caption"></div><div id="hashtag-suggestions" role="listbox" hidden><div role="option">different-suggestion</div></div></div>
     <button data-e2e="post_video_button" id="post" disabled>Post</button>
   </div>
 </main>`, `
 const $ = (id) => document.getElementById(id);
 let count = 0;
+let popupEscapes = 0;
 $('file').onchange = () => {
   count = $('file').files.length;
-  setTimeout(() => { $('editor').hidden = false; $('caption').innerText = 'slide-1.jpg'; }, 400);
-  setTimeout(() => { $('post').disabled = false; }, 1200);
+  $('processing').hidden = false;
+  setTimeout(() => { $('editor').hidden = false; $('caption').innerText = 'carousel.mp4'; }, 400);
+  setTimeout(() => { $('processing').hidden = true; $('post').disabled = false; }, 1200);
 };
+$('caption').addEventListener('input', () => {
+  const text = $('caption').innerText;
+  $('hashtag-suggestions').hidden = !(text.includes('#') && !text.endsWith(' '));
+});
+$('caption').addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') { popupEscapes += 1; $('hashtag-suggestions').hidden = true; }
+  if (e.key === ' ') $('hashtag-suggestions').hidden = true;
+});
 $('post').onclick = async () => {
-  await fetch('/api/tt/post', { method: 'POST', body: JSON.stringify({ caption: $('caption').innerText, files: count }) });
+  await fetch('/api/tt/post', { method: 'POST', body: JSON.stringify({ caption: $('caption').innerText, files: count, popupEscapes }) });
   ${captchaAfterPost
     ? "document.querySelector('main').insertAdjacentHTML('afterbegin', '<div id=\"captcha-verify-container\"><p>Drag the slider to fit the puzzle</p></div>');"
     : after}
@@ -169,6 +180,9 @@ async function main() {
     writeFileSync(f, Buffer.from([0xff, 0xd8, 0xff, 0xd9]));
     return f;
   });
+  const video = path.join(work, 'carousel.mp4');
+  writeFileSync(video, Buffer.from('fake-mp4'));
+  const videoFiles = [video];
   const human = { pause: () => new Promise((r) => setTimeout(r, 30)), typeDelay: () => 0 };
   const timeouts = { ui: 5_000, upload: 10_000, confirm: 3_000, optional: 800 };
   const executablePath = process.env.PLAYWRIGHT_CHROMIUM_PATH;
@@ -181,7 +195,7 @@ async function main() {
     const step = stepTracker();
     const snap = (name) => captureDiagnostics(tab, dir, name, { channel, step: step.get() });
     try {
-      return { result: await FLOWS[channel]({ page: tab, files, caption: CAPTION, dryRun, human, snap, startUrl, timeouts, step }), dir };
+      return { result: await FLOWS[channel]({ page: tab, files: channel === 'tiktok' ? videoFiles : files, caption: CAPTION, dryRun, human, snap, startUrl, timeouts, video: channel === 'tiktok' ? { bytes: 8, durationMs: 7_750 } : undefined, step }), dir };
     } catch (err) {
       return { error: err, dir };
     }
@@ -225,18 +239,18 @@ async function main() {
     r = await run('tiktok', `${base}/tiktokstudio/upload`, { dryRun: false, label: 'tt-publish' });
     check(r.result?.status === 'published', `publish returns with the redirect to the content page (${r.result?.evidence || r.error?.message})`);
     check(state.ttPosts.length === 1 && !state.ttPosts[0].caption.includes('slide-1.jpg'), 'the pre-filled file name was replaced by the caption');
-    check(state.ttPosts[0].caption.includes('#ticino') && state.ttPosts[0].files === files.length, 'caption and slides reached the platform');
+    check(state.ttPosts[0].caption.includes('#ticino') && state.ttPosts[0].files === videoFiles.length && state.ttPosts[0].popupEscapes > 0, 'caption, hashtag popup handling and video reached the platform');
 
     r = await run('tiktok', `${base}/tt-captcha/tiktokstudio/upload`, { dryRun: false, label: 'tt-captcha' });
     check(r.error?.errorClass === 'challenge', 'a captcha is a challenge');
     r = await run('tiktok', `${base}/tt-video-only/tiktokstudio/upload`, { dryRun: false, label: 'tt-video' });
-    check(r.error?.errorClass === 'upload-unsupported', 'a video-only upload field is upload-unsupported');
-    check(state.ttPosts.length === 1, 'nothing posted from a captcha or a video-only page');
+    check(r.result?.status === 'published', 'the video-only upload field accepts the MP4');
+    check(state.ttPosts.length === 2, 'only the captcha was skipped');
     r = await run('tiktok', `${base}/tt-captcha-after-post/tiktokstudio/upload`, { dryRun: false, label: 'tt-captcha-after' });
-    check(state.ttPosts.length === 2, 'the post reached the platform before the captcha');
+    check(state.ttPosts.length === 3, 'the post reached the platform before the captcha');
     check(r.error?.errorClass === 'challenge' && r.error.pressed === true, `a captcha after the press stays a challenge, pressed (${r.error?.errorClass}, pressed=${r.error?.pressed})`);
     r = await run('tiktok', `${base}/tt-silent/tiktokstudio/upload`, { dryRun: false, label: 'tt-silent' });
-    check(state.ttPosts.length === 3, 'the silent page sent the post (200, no redirect)');
+    check(state.ttPosts.length === 4, 'the silent page sent the post (200, no redirect)');
     check(r.result?.status !== 'published' && r.error?.errorClass === 'confirmation-missing' && r.error.pressed === true,
       `the persistent "Manage your posts" navigation is no confirmation: confirmation-missing, pressed (${r.result?.status || r.error?.errorClass}, pressed=${r.error?.pressed})`);
     r = await run('tiktok', `${base}/tt-toast/tiktokstudio/upload`, { dryRun: false, label: 'tt-toast' });

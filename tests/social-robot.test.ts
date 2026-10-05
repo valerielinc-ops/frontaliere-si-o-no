@@ -1,5 +1,6 @@
 // @vitest-environment node
 import { execFileSync, spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -37,7 +38,7 @@ import {
   pressedToday,
 } from '../scripts/social-robot/lib/cadence.mjs';
 import { RobotError } from '../scripts/social-robot/lib/flows.mjs';
-import { displayPath, downloadImages, issueTitleFor, runRobot } from '../scripts/social-robot/lib/robot.mjs';
+import { displayPath, downloadEntryFiles, downloadImages, issueTitleFor, runRobot } from '../scripts/social-robot/lib/robot.mjs';
 import { applyConfirmation, parseConfirmArgs } from '../scripts/social-robot/confirm.mjs';
 import { resolveBrowserLaunch } from '../scripts/social-robot/lib/browser.mjs';
 
@@ -55,6 +56,18 @@ afterAll(() => {
 const NOW = Date.parse('2026-10-04T09:30:00Z');
 const HOUR = 3600_000;
 const cdn = (name: string) => `https://cdn.frontaliereticino.ch/images/social/instagram/${name}`;
+const tiktokVideo = (name: string, bytes = 4) => {
+  const body = Buffer.from(Array.from({ length: bytes }, (_, i) => i + 1));
+  return {
+    url: `https://cdn.frontaliereticino.ch/images/social/tiktok/${name}.mp4`,
+    bytes: body.length,
+    sha256: createHash('sha256').update(body).digest('hex'),
+    durationMs: 7_750,
+    width: 1080,
+    height: 1920,
+    body,
+  };
+};
 
 function entry(kind = 'article', day = '2026-10-03', { channel = 'instagram', now = NOW } = {}) {
   return buildQueueEntry({
@@ -314,6 +327,29 @@ function harness({ queue = { pending: [entry('article')] }, journal = emptyJourn
 }
 
 describe('runRobot', () => {
+  it('skips a legacy TikTok queue entry without video and continues to the next one without an issue', async () => {
+    const legacy = entry('article', '2026-10-03', { channel: 'tiktok' });
+    const video = tiktokVideo('job-2026-10-04');
+    const next = buildQueueEntry({
+      channel: 'tiktok',
+      kind: 'job',
+      day: '2026-10-04',
+      caption: 'lavoro in Svizzera\n\n#frontalieri',
+      imageUrls: [cdn('job-2026-10-04-0.jpg')],
+      video,
+      ledgerEntries: [{ id: 'job-slug', kind: 'job' }],
+      now: NOW + 1,
+    });
+    const h = harness({ queue: { pending: [legacy, next] } });
+    const out = await runRobot(h.deps({ platforms: ['tiktok'] }));
+    expect(out.results).toEqual(expect.arrayContaining([
+      { channel: 'tiktok', outcome: 'skipped', reason: 'no-video', queueId: legacy.id },
+      expect.objectContaining({ channel: 'tiktok', outcome: 'published', queueId: next.id }),
+    ]));
+    expect(h.calls.flow.map((call) => call.id)).toEqual([next.id]);
+    expect(h.calls.issues).toEqual([]);
+  });
+
   it('stays a dry run unless the command line AND Remote Config allow publishing', async () => {
     for (const [cliMode, rcMode] of [['dry-run', 'live'], ['publish', 'dry'], ['dry-run', 'dry']] as const) {
       const h = harness();
@@ -489,6 +525,20 @@ describe('robot helpers', () => {
     const html = async () => new Response('<html>', { status: 200, headers: { 'content-type': 'text/html' } });
     await expect(downloadImages(entry('article'), dir, { fetchImpl: html as typeof fetch })).rejects.toMatchObject({ errorClass: 'download' });
     await expect(downloadImages({ imageUrls: ['https://evil.example/a.jpg'] }, dir, { fetchImpl: ok as typeof fetch })).rejects.toMatchObject({ errorClass: 'download' });
+  });
+
+  it('downloads TikTok video only after checking content type, bytes and sha256', async () => {
+    const dir = tempDir();
+    const video = tiktokVideo('article-2026-10-03', 8);
+    const videoEntry = { ...entry('article', '2026-10-03', { channel: 'tiktok' }), video };
+    const fetchImpl = async (url: string) => url.endsWith('.mp4')
+      ? new Response(video.body, { status: 200, headers: { 'content-type': 'video/mp4' } })
+      : new Response(new Uint8Array([0xff, 0xd8]), { status: 200, headers: { 'content-type': 'image/jpeg' } });
+    const files = await downloadEntryFiles(videoEntry, dir, { fetchImpl: fetchImpl as typeof fetch });
+    expect(files.map((file: string) => path.basename(file))).toEqual(['video.mp4']);
+    await expect(downloadEntryFiles({ ...videoEntry, video: { ...video, bytes: video.bytes + 1 } }, dir, { fetchImpl: fetchImpl as typeof fetch })).rejects.toMatchObject({ errorClass: 'download' });
+    const wrongType = async () => new Response(video.body, { status: 200, headers: { 'content-type': 'image/jpeg' } });
+    await expect(downloadEntryFiles(videoEntry, dir, { fetchImpl: wrongType as typeof fetch })).rejects.toMatchObject({ errorClass: 'download' });
   });
 
   it('hides the home folder in paths it publishes', () => {
