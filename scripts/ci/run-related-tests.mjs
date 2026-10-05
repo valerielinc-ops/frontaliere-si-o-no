@@ -181,6 +181,11 @@ const sourceTreeLintTests = new Map([
   ['tests/undici-dispatcher-fetch-pairing.test.ts', /^scripts\/.+\.(?:mjs|js)$/],
   ['tests/is-invoked-directly.test.ts', /^scripts\/.+\.(?:mjs|cjs|js|ts)$/],
   ['tests/translation-protected-tokens.test.ts', /^scripts\/.+\.mjs$/],
+  // Lo UA da browser dei dettagli MySwitzerland e' un'eccezione del
+  // proprietario (D1, 2026-10-05) confinata a quel crawler: il guard legge da
+  // disco ogni sorgente di scripts/, e un file nuovo che la copia non importa
+  // niente che il test conosca.
+  ['tests/myswitzerland-browser-ua-confinement.test.ts', /^scripts\//],
   ['tests/slug-write-encapsulation.test.ts', /^scripts\/.+\.(?:ts|mjs|js)$/],
   // Ratchet sulle chiusure per titolo: legge da disco ogni sorgente che usa
   // `resolveGithubIssue` e lo confronta con l'elenco dichiarato. Un closer
