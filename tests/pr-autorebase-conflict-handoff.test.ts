@@ -254,6 +254,14 @@ describe('pr-autorebase — PR del ciclo in conflitto senza LGTM (#10095, #10098
     expect(agentPrConflictNeedsHandOff({ conflicted: false, nearMerge: false, labels: agent })).toBe(false);
   });
 
+  it('un lock agent:resolving-conflict valido sospende il passaggio di mano', () => {
+    expect(agentPrConflictNeedsHandOff({
+      conflicted: true,
+      nearMerge: false,
+      labels: ['agent:autofix', 'agent:resolving-conflict'],
+    })).toBe(false);
+  });
+
   it('la issue senza LGTM ha un titolo proprio e non promette un contributo approvato', () => {
     const { title, body } = buildConflictHandoffIssue({
       num: 10095,
