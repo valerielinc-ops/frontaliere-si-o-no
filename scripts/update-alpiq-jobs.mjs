@@ -62,7 +62,7 @@ const ALPIQ_SAFE_DEFAULT_ADDRESS = {
 export function resolveAlpiqPostalCode(location = '', canton = '', sourcePostalCode = '') {
   return normalizeSpace(sourcePostalCode)
     || officialLocalityPostalCode(location, canton)
-    || getCantonPostalFallback(canton)
+    || getCantonPostalFallback(canton, location)
     || ALPIQ_SAFE_DEFAULT_ADDRESS.postalCode;
 }
 
