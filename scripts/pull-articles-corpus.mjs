@@ -477,8 +477,15 @@ try {
     const preserveIdsForSnapshots = new Set(preserveIds);
     const incomingSeoKeys = readBlogSeoKeysInTree(src);
     const localSeoKeys = readBlogSeoKeysInTree(DEST);
+    const ledgeredRetirementIds = new Set(
+      verdict.removals
+        .filter((removal) => removal.ledgered)
+        .flatMap((removal) => [removal.id, `blog-${removal.id}`]),
+    );
     for (const key of localSeoKeys) {
-      if (!incomingSeoKeys.has(key)) preserveIdsForSnapshots.add(key);
+      if (!incomingSeoKeys.has(key) && !ledgeredRetirementIds.has(key)) {
+        preserveIdsForSnapshots.add(key);
+      }
     }
     // The SEO-only ids above join the same preservation set after the first
     // retirement filter. Apply it again so a ledgered retirement cannot be
