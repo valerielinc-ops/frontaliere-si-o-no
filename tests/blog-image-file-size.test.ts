@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { statSync } from 'node:fs';
+import { existsSync, statSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { execFileSync } from 'node:child_process';
 
 const MAX_BLOG_IMAGE_BYTES = 200_000;
 const BLOG_IMAGES = [
@@ -40,7 +41,18 @@ const BLOG_IMAGES = [
 describe('article-hub blog image payloads', () => {
   it('keeps the audited article images below the 200 KB warning threshold', () => {
     for (const filename of BLOG_IMAGES) {
-      const bytes = statSync(resolve(__dirname, '..', 'public/images/blog', filename)).size;
+      const relativePath = `public/images/blog/${filename}`;
+      const localPath = resolve(__dirname, '..', relativePath);
+      // CI uses the repository's sparse checkout and intentionally does not
+      // materialize public/images. Read the committed blob size in that case.
+      const bytes = existsSync(localPath)
+        ? statSync(localPath).size
+        : Number(
+            execFileSync('git', ['cat-file', '-s', `HEAD:${relativePath}`], {
+              cwd: resolve(__dirname, '..'),
+              encoding: 'utf8',
+            }).trim(),
+          );
       expect(bytes, filename).toBeLessThanOrEqual(MAX_BLOG_IMAGE_BYTES);
     }
   });
