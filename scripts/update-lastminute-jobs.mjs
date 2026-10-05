@@ -13,7 +13,7 @@
  *   5. Post-processes rows for canonical consistency + dedupe.
  *   6. Enforces Swiss location and locale coverage in strict mode.
  */
-import { mergeSourcePostingDates } from './lib/source-posting-date.mjs';
+import { mergeSourcePostingDates, withLegacyPostingDay } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -708,7 +708,7 @@ export function buildLastminuteSlug(title = '', location = '') {
 }
 
 export function syncLastminutePublication(existing, detail) {
-  const fields = mergeSourcePostingDates(existing, detail);
+  const fields = withLegacyPostingDay(mergeSourcePostingDates(existing, detail));
   const changed = Object.entries(fields).some(([key, value]) => existing[key] !== value);
   Object.assign(existing, fields);
   return changed;
@@ -740,7 +740,7 @@ export function buildLastminuteSourceJob(detail = {}, corpUrl = '') {
     sourceLang,
     category: 'tech',
     sector: 'Tecnologia & IT',
-    ...mergeSourcePostingDates({}, detail),
+    ...withLegacyPostingDay(mergeSourcePostingDates({}, detail)),
     employmentType: 'full-time',
     contractType: 'full-time',
   };

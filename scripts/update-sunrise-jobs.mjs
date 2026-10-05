@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -317,7 +317,7 @@ async function buildSunriseJob(listing) {
     sector: 'Tecnologia & IT',
     source: 'sunrise-dedicated-crawler',
     sourceLang,
-    ...mergeSourcePostingDates({}, detail),
+    ...withLegacyPostingDay(mergeSourcePostingDates({}, detail)),
     crawledAt: new Date().toISOString(),
     employmentType: normalize(detail.employmentType).includes('part') ? 'part-time' : 'full-time',
     contractType: normalize(detail.employmentType).includes('part') ? 'part-time' : 'full-time',
@@ -352,7 +352,7 @@ function mergeJobs(discoveredJobs) {
     const merged = {
       ...prev,
       ...job,
-      ...mergeSourcePostingDates(prev, job),
+      ...withLegacyPostingDay(mergeSourcePostingDates(prev, job)),
       // Fresh text wins in the SOURCE slot only; translations are kept.
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, job.sourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),

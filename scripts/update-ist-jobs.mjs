@@ -31,7 +31,7 @@
  * postings from the group's worldwide portal are discarded after parsing;
  * missing or unresolved locations are never assigned a historical default.
  */
-import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
+import { sourcePostingDateFields, withLegacyPostingDay } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -564,7 +564,7 @@ export async function fetchIstJobs() {
       ...sourceSlotTitleAndSlug(title, slug, sourceLang),
       slug,
       category: detectCategory(title),
-      ...sourcePostingDateFields(detail.datePosted),
+      ...withLegacyPostingDay(sourcePostingDateFields(detail.datePosted)),
       source: 'ist-inspirededu-crawler',
       sourceLang,
       employmentType: 'FULL_TIME',
@@ -629,7 +629,7 @@ async function mergeIstJobs(discoveredJobs) {
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
   const merged = mergePreserveLocaleData(existingIstJobs, discoveredJobs).map((job) => ({
-    ...job,
+    ...withLegacyPostingDay(job),
     company: IST_COMPANY_NAME,
     companyKey: IST_KEY,
     country: 'CH',

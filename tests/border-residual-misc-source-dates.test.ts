@@ -16,7 +16,8 @@ import { fetchHtml } from '../scripts/lib/crawler-template.mjs';
 const body = 'We are seeking an experienced teacher who will support students in their learning and development through carefully planned lessons and collaborative activities. '.repeat(5);
 const unknown = { datePosted: '', postedDate: '', postingDateSource: 'unknown' };
 const stamp = '2020-06-05T12:30:00+02:00';
-const reported = { datePosted: stamp, postedDate: stamp, postingDateSource: 'reported' };
+const reported = { datePosted: stamp, postedDate: stamp.slice(0, 10), postingDateSource: 'reported' };
+const reportedFull = { datePosted: stamp, postedDate: stamp, postingDateSource: 'reported' };
 afterEach(() => { vi.restoreAllMocks(); vi.clearAllMocks(); vi.unstubAllGlobals(); });
 
 describe('Julius Baer Workday source dates', () => {
@@ -24,7 +25,7 @@ describe('Julius Baer Workday source dates', () => {
     expect(parseWorkdayJobDetail({ jobPostingInfo: { title: 'Relationship Manager', location: 'CHE - Lugano', startDate } }, '/job/role_REQ123')).toMatchObject(unknown);
   });
   it('preserves the full source instant and its provenance', () => {
-    expect(parseWorkdayJobDetail({ jobPostingInfo: { title: 'Relationship Manager', location: 'CHE - Lugano', startDate: stamp } }, '/job/role_REQ123')).toMatchObject(reported);
+    expect(parseWorkdayJobDetail({ jobPostingInfo: { title: 'Relationship Manager', location: 'CHE - Lugano', startDate: stamp } }, '/job/role_REQ123')).toMatchObject(reportedFull);
   });
 });
 
@@ -69,7 +70,7 @@ describe('IST live fetch projection and production merge', () => {
     const expected = date === stamp ? reported : unknown;
     expect(jobs[0]).toMatchObject(expected);
     const merged = mergePreserveLocaleData([{ ...jobs[0], datePosted: '2020-01-01', postedDate: '2020-01-01', postingDateSource: undefined }], jobs);
-    expect(merged[0]).toMatchObject(expected);
+    expect(merged[0]).toMatchObject(date === stamp ? reportedFull : unknown);
   });
 });
 
@@ -104,7 +105,7 @@ describe('Grace actual browser callbacks replayed against DOM', () => {
       const jobs = await fetchJobDetails([{ title: 'Receptionist', href: 'https://www.hotelcareer.com/jobs/grace-120155/receptionist-3694182' }]);
       expect(evaluate).toHaveBeenCalledTimes(2);
       expect(jobs).toHaveLength(1);
-      expect(jobs[0]).toMatchObject({ datePosted: expectedDate, postedDate: expectedDate, postingDateSource: expectedDate ? 'reported' : 'unknown' });
+      expect(jobs[0]).toMatchObject({ datePosted: expectedDate, postedDate: expectedDate ? expectedDate.slice(0, 10) : '', postingDateSource: expectedDate ? 'reported' : 'unknown' });
       expect(jobs[0].description).toContain('experienced teacher');
     } finally { dom.window.close(); }
   });

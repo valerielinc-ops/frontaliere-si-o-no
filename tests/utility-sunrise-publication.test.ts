@@ -22,6 +22,6 @@ describe('Sunrise same-detail publication', () => {
     const html = `<script>phApp.ddo = ${JSON.stringify({ jobDetail: { data: { job: { reqId: 'REQ1', title: emittedTitle || title, postedDate: 'invalid', description: '<p>Real source description</p>' } } } })}; phApp.experimentData = {};</script>` + postings.map(p => `<script type="application/ld+json">${JSON.stringify(p)}</script>`).join('');
     const job = parseSunriseJobDetail(html, url, title);
     expect(job.description).toContain('Real source description');
-    expect(job).toMatchObject(expected ? { datePosted: validDate, postedDate: validDate, postingDateSource: 'reported' } : { datePosted: '', postedDate: '', postingDateSource: 'unknown' });
+    expect(job).toMatchObject(expected ? { datePosted: validDate, postedDate: validDate.slice(0, 10), postingDateSource: 'reported' } : { datePosted: '', postedDate: '', postingDateSource: 'unknown' });
   });
 });

@@ -31,7 +31,7 @@
  * for our IT audience.
  */
 import { createHash } from 'node:crypto';
-import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { identifiedPostingPublication } from './identified-posting-publication.mjs';
 import { extractJobPostingsLd, jobPostingDescriptionText } from './jsonld-jobposting.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -335,7 +335,7 @@ export async function fetchAllUkbbJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      ...publication,
+      ...withLegacyPostingDay(publication),
       applyUrl: url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

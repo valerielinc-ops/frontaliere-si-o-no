@@ -12,7 +12,7 @@
  * Output: Updates data/jobs.json with fresh listings
  */
 
-import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
+import { sourcePostingDateFields, withLegacyPostingDay } from './lib/source-posting-date.mjs';
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
@@ -117,7 +117,7 @@ export async function fetchArbeitSwissJobs(): Promise<JobListing[]> {
               description: cleanHtml(posting.description || '').substring(0, 500),
               requirements: [],
               featured: false,
-              ...sourcePostingDateFields(posting.datePosted),
+              ...withLegacyPostingDay(sourcePostingDateFields(posting.datePosted)),
               url: posting.url,
               source: 'Job-Room.ch',
             });
@@ -567,7 +567,7 @@ async function fetchMigrosJobs(): Promise<JobListing[]> {
               description: cleanHtml(posting.description || '').substring(0, 500),
               requirements: [],
               featured: false,
-              ...sourcePostingDateFields(posting.datePosted),
+              ...withLegacyPostingDay(sourcePostingDateFields(posting.datePosted)),
               url: appendReferral(posting.url),
               source: 'Migros/Denner',
             });

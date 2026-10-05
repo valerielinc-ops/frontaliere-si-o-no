@@ -1,4 +1,5 @@
 import { identifiedPostingPublication } from './identified-posting-publication.mjs';
+import { withLegacyPostingDay } from './source-posting-date.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
@@ -200,7 +201,7 @@ export function parseSunriseJobDetail(html = '', requestedUrl = '', expectedTitl
       ''
     ),
     // Phenom postedDate semantics are not corroborated for this tenant.
-    ...identifiedPostingPublication(html, requestedUrl, normalize(title) === normalize(expectedTitle) ? expectedTitle : ''),
+    ...withLegacyPostingDay(identifiedPostingPublication(html, requestedUrl, normalize(title) === normalize(expectedTitle) ? expectedTitle : '')),
     validThrough: String(rawJob?.endDate || jsonLd?.validThrough || '').trim(),
     employmentType: String(rawJob?.jobType || jsonLd?.employmentType || '').trim(),
     applyUrl: String(rawJob?.applyUrl || '').trim(),

@@ -8,7 +8,7 @@ import { fetchAllSpitalZofingenJobs } from '../scripts/lib/spital-zofingen-job-p
 import { fetchAllSpitalZollikerbergJobs } from '../scripts/lib/spital-zollikerberg-job-parser.mjs';
 const UNKNOWN = { datePosted: '', postedDate: '', postingDateSource: 'unknown' };
 const DATE = '2020-06-15T10:11:12.123+02:00';
-const reported = (raw = DATE) => ({ datePosted: raw, postedDate: raw, postingDateSource: 'reported' });
+const reported = (raw = DATE) => ({ datePosted: raw, postedDate: raw.slice(0, 10), postingDateSource: 'reported' });
 const BODY = 'Wir betreuen unsere Patientinnen und Patienten während der stationären Behandlung und begleiten ihre Familien mit grossem Engagement. Sie planen die therapeutischen Massnahmen selbständig, dokumentieren die Fortschritte und arbeiten eng mit dem ärztlichen Dienst zusammen. Wir wünschen uns eine abgeschlossene Ausbildung sowie Erfahrung in der interdisziplinären Zusammenarbeit. Unser Team unterstützt Sie während der Einführung und bietet regelmässige Weiterbildung sowie einen abwechslungsreichen Arbeitsalltag im regionalen Spital mit moderner Infrastruktur.';
 afterEach(() => { vi.unstubAllGlobals(); renderDetails.mockReset(); });
 

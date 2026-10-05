@@ -51,7 +51,7 @@ async function ukbb(raw: unknown, options: { heading?: string; identity?: string
 describe('UKBB same-vacancy publication through sitemap → detail → builder', () => {
   it('preserves the full timestamp and provenance', async () => {
     const date = '2020-06-15T08:12:10.123+02:00';
-    expect(await ukbb(date)).toMatchObject({ datePosted: date, postedDate: date, postingDateSource: 'reported' });
+    expect(await ukbb(date)).toMatchObject({ datePosted: date, postedDate: date.slice(0, 10), postingDateSource: 'reported' });
   });
   it.each([undefined, '', '2020-02-30', '2020-06-15junk', '2999-06-15', '2020-06-15T25:00:00Z'])('rejects absent or invalid source %s', async (raw) => {
     expect(await ukbb(raw)).toMatchObject(UNKNOWN);

@@ -64,7 +64,7 @@
  * - isTrustedDomain() — Validate URLs belong Siemens' domain
  * - SIEMENS_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
-import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
@@ -496,7 +496,7 @@ export async function fetchAllSiemensJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      ...publication,
+      ...withLegacyPostingDay(publication),
       applyUrl: publicUrl,
       jobReqId: detail.jobId || stub.jobReqId || null,
       hiringOrganizationName: companyLabel,

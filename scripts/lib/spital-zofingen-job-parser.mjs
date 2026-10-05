@@ -16,7 +16,7 @@
  * Regional hospital in Zofingen, canton Aargau.
  */
 import { identifiedPostingPublication } from './identified-posting-publication.mjs';
-import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -166,7 +166,7 @@ export async function fetchAllSpitalZofingenJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      ...publication,
+      ...withLegacyPostingDay(publication),
       applyUrl: url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

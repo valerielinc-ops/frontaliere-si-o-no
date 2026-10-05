@@ -24,14 +24,14 @@ describe('manual job writer publication', () => {
     }));
     const task = main(); await vi.runAllTimersAsync(); expect(await task).toBe(1);
     const output = writes.mock.calls.find(([file]) => String(file).endsWith('/jobs.json'));
-    expect(JSON.parse(output![1])).toEqual([expect.objectContaining({ title: 'Engineer', datePosted, postedDate: datePosted, postingDateSource: 'reported' })]);
+    expect(JSON.parse(output![1])).toEqual([expect.objectContaining({ title: 'Engineer', datePosted, postedDate: datePosted.slice(0, 10), postingDateSource: 'reported' })]);
   });
   it.each(['2026-10-02T10:00:00.123456+02:00', '', '2026-02-30', '2026-10-05'])('preserves only genuine valid JSONLD publication %s', async (datePosted) => {
     const posting = { '@type': 'JobPosting', title: 'Engineer', url: 'https://employer.example/job/1', datePosted, description: 'Real role', hiringOrganization: { name: 'Acme' } };
     vi.stubGlobal('fetch', vi.fn(async () => new Response(`<script type="application/ld+json">${JSON.stringify(posting)}</script>`)));
     const jobs = await fetchArbeitSwissJobs(); expect(jobs).toHaveLength(1);
     expect(jobs[0]).toMatchObject(datePosted.startsWith('2026-10-02')
-      ? { datePosted, postedDate: datePosted, postingDateSource: 'reported' }
+      ? { datePosted, postedDate: datePosted.slice(0, 10), postingDateSource: 'reported' }
       : { datePosted: '', postedDate: '', postingDateSource: 'unknown' });
   });
 });

@@ -19,7 +19,7 @@ describe('Chopard source publication date through the real producer', () => {
       postingEffectiveDate: raw, createdDate: '2026-09-01', lastModifiedDate: '2026-10-03' }];
     const jobs = await fetchAllChopardJobs();
     expect(jobs).toHaveLength(1);
-    expect(jobs[0]).toMatchObject({datePosted: expected, postedDate: expected,
+    expect(jobs[0]).toMatchObject({datePosted: expected, postedDate: expected ? expected.slice(0, 10) : '',
       postingDateSource: expected ? 'reported' : 'unknown'});
     expect(jobs[0].crawledAt).toBe('2026-10-04T12:00:00.000Z');
   });

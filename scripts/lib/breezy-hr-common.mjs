@@ -26,7 +26,7 @@
  *   - hopital-fribourgeois → Hôpital fribourgeois (HFR), Fribourg
  */
 import { createHash } from 'node:crypto';
-import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -322,7 +322,7 @@ export function createBreezyHrParser(config) {
         sector: 'Sanità / Ospedali',
         currency: 'CHF',
         featured: false,
-        ...publication,
+        ...withLegacyPostingDay(publication),
         applyUrl: detailUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

@@ -41,7 +41,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { fetchCsodJobs } from './ats-clients/csod-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -280,7 +280,7 @@ export async function fetchAllChopardJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      ...publication,
+      ...withLegacyPostingDay(publication),
       applyUrl: publicUrl,
       jobReqId: String(requisitionId),
       requirements: [],

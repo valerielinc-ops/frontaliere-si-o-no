@@ -14,7 +14,7 @@ beforeEach(() => {
 afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals(); vi.clearAllMocks(); });
 
 function expectPublication(job: Record<string, unknown>, date: string) {
-  expect(job).toMatchObject({ datePosted: date, postedDate: date, postingDateSource: date ? 'reported' : 'unknown' });
+  expect(job).toMatchObject({ datePosted: date, postedDate: date ? date.slice(0, 10) : '', postingDateSource: date ? 'reported' : 'unknown' });
   expect(job.title).toBeTruthy();
   expect(job.description).toBeTruthy();
   expect(job.url).toBeTruthy();
