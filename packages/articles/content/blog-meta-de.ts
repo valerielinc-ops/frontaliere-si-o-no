@@ -12596,6 +12596,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.prevenzione-salute-aziende-ticinesi.title': 'Psychische Gesundheit: DSS bringt Prävention in Unternehmen',
     'blog.article.prevenzione-salute-aziende-ticinesi.excerpt': 'Das DSS und das Forum GSA Tessin fördern die psychische Gesundheit am Arbeitsplatz. Daten: 32,3% der jungen Tessiner fühlen sich leer, 61% der Lernenden leiden.',
     'blog.article.prevenzione-salute-aziende-ticinesi.imageAlt': 'Professionelle Arbeitsumgebung in einem Büro im Tessin.',
+    'blog.article.osservatorio-varese-spettacolo-galileo.title': 'Observatorium von Varese: Das Stück Galileo kommt',
+    'blog.article.osservatorio-varese-spettacolo-galileo.excerpt': 'Samstag, 17. Oktober beherbergt das Observatorium G.V. Schiaparelli das Theaterstück von Corrado D\'Elia, gefolgt von der Beobachtung des Mondes und des Saturns.',
+    'blog.article.osservatorio-varese-spettacolo-galileo.imageAlt': 'Astronomische Sternwarte in Varese',
 };
 
 export default blogMetaDe;
