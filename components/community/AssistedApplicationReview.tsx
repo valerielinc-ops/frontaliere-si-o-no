@@ -5,6 +5,7 @@ import { AssistedApplicationLegalLinks } from '@/components/community/AssistedAp
 import { AssistedApplicationDocuments } from '@/components/community/AssistedApplicationDocuments';
 import { AssistedApplicationFitNotice } from '@/components/community/AssistedApplicationFitNotice';
 import { AssistedApplicationCvChanges } from '@/components/community/AssistedApplicationCvChanges';
+import { AssistedApplicationKeptDocuments, WordCopyLink } from '@/components/community/AssistedApplicationKeptDocuments';
 import type { DocumentCheck } from '@/services/assistedApplicationDocumentCheck';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { answerMessage, validateAnswer } from '@/functions/src/lib/answerRules.js';
@@ -113,6 +114,8 @@ function QuestionField({ question, value, onChange, disabled, error }: {
           aria-invalid={error ? true : undefined}
         />
       )}
+      {/* Only facts: the status held today, never a permit to come (the server's options say it). */}
+      {question.id === 'work_permit' && <span className="mt-1 block text-xs font-normal text-subtle">{t('jobBoard.assisted.review.permitRule')}</span>}
       {error && <span className="mt-1 block text-xs font-normal text-danger" role="alert">{error}</span>}
     </label>
   );
@@ -157,7 +160,14 @@ function EditField({ field, value, onChange, disabled, error }: {
   return (
     <label className="block text-sm font-medium text-body">
       {label}{field.required && <span className="text-danger"> *</span>}
-      {TEXT_FIELDS.has(field.key) ? <textarea rows={3} {...common} /> : <input type={field.key === 'phone' ? 'tel' : 'text'} {...common} />}
+      {field.options?.length ? (
+        // A closed list (the permit status), as the server words it in the candidate's language.
+        <select value={value} onChange={(event) => onChange(event.target.value)} disabled={disabled} className={inputClass} aria-invalid={error ? true : undefined}>
+          <option value="">—</option>
+          {field.options.map((option) => <option key={option} value={option}>{option}</option>)}
+        </select>
+      ) : TEXT_FIELDS.has(field.key) ? <textarea rows={3} {...common} /> : <input type={field.key === 'phone' ? 'tel' : 'text'} {...common} />}
+      {field.key === 'workPermit' && <span className="mt-1 block text-xs font-normal text-subtle">{t('jobBoard.assisted.review.permitRule')}</span>}
       {error && <span className="mt-1 block text-xs font-normal text-danger" role="alert">{error}</span>}
     </label>
   );
@@ -294,9 +304,9 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   const removeDocument = (document: { id: string }, fileId: string) => run('document_remove', { documentId: document.id, fileId });
   const waiveDocument = (document: { id: string }, waive: boolean) => run('document_waive', { documentId: document.id, waive });
 
-  // Fields shown to the candidate: an e-mail application uses only the letter header.
+  // Fields shown to the candidate: an e-mail application uses the letter header and what the tailored CV prints.
   const shownFields = useMemo(
-    () => (data?.formAnswers || []).filter((field) => (data?.job.channel === 'email' ? field.inLetter : true)),
+    () => (data?.formAnswers || []).filter((field) => (data?.job.channel === 'email' ? field.inLetter || field.inCv : true)),
     [data],
   );
 
@@ -337,6 +347,8 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
         if (field.required) errors[field.key] = t('jobBoard.assisted.review.fieldRequired');
         continue;
       }
+      // The server checks only what changed: a CV birth date «14. März 2010» or an older permit text never blocks a save.
+      if (value === String(field.value || '').trim()) continue;
       if (field.validation && value.length > field.validation.maxLength) {
         errors[field.key] = t('jobBoard.assisted.review.textTooLong');
         continue;
@@ -481,6 +493,11 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
           </div>
         ))}
 
+        {/* After the sending: the documents that left, to keep, with the editable Word copies beside them. */}
+        {data && data.state === 'submitted' && data.keptDocuments && (
+          <AssistedApplicationKeptDocuments kept={data.keptDocuments} token={token} cvPhotoPrinted={Boolean(data.tailoredCv?.photoPrinted)} />
+        )}
+
         {data && data.state === 'owner_takeover' && (
           <div className="flex items-start gap-3 rounded-xl border border-info-border bg-info-subtle/60 p-4" role="status">
             <UserCheck className="mt-0.5 h-5 w-5 shrink-0 text-info" aria-hidden="true" />
@@ -557,6 +574,8 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                     <FileText className="h-4 w-4" aria-hidden="true" /> {t('jobBoard.assisted.review.letterPdf')}
                   </a>
                 )}
+                {/* The saved letter, not the edits in progress. */}
+                {data.word?.letter && !editing && <WordCopyLink token={token} file="letter.docx" />}
                 {data.can.edit && !editing && (
                   <button type="button" onClick={startEditing} disabled={Boolean(busy)} className="inline-flex min-h-[36px] items-center gap-1 rounded-lg border border-edge px-3 text-sm font-semibold text-body hover:border-accent hover:text-link disabled:opacity-60">
                     <Pencil className="h-4 w-4" aria-hidden="true" /> {t('jobBoard.assisted.review.edit')}
@@ -564,6 +583,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                 )}
               </div>
             </div>
+            {(data.word?.letter || data.word?.cv) && !editing && <p className="text-xs text-subtle">{t('jobBoard.assisted.review.wordCopyNote')}</p>}
             {done === 'edit' && !editing && <p className="text-xs text-success" role="status">{t('jobBoard.assisted.review.editsSaved')}</p>}
             {editing ? (
               <form className="space-y-4 rounded-xl border border-accent-border bg-accent-subtle/30 p-4" onSubmit={(event) => { event.preventDefault(); void saveEdits(); }}>
@@ -667,13 +687,19 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
               <div className="space-y-2 rounded-xl border border-edge p-4 text-sm">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <h3 className="font-semibold text-heading">{t('jobBoard.assisted.review.cvTitle')}</h3>
-                  {data.tailoredCv.url && (
-                    <a href={data.tailoredCv.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 font-semibold text-link hover:underline">
-                      <FileText className="h-4 w-4" aria-hidden="true" /> {t('jobBoard.assisted.review.cvPdf')}
-                    </a>
-                  )}
+                  <div className="flex flex-wrap items-center gap-3">
+                    {data.tailoredCv.url && (
+                      <a href={data.tailoredCv.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 font-semibold text-link hover:underline">
+                        <FileText className="h-4 w-4" aria-hidden="true" /> {t('jobBoard.assisted.review.cvPdf')}
+                      </a>
+                    )}
+                    {data.word?.cv && <WordCopyLink token={token} file="cv.docx" />}
+                  </div>
                 </div>
                 <p className="text-subtle">{t('jobBoard.assisted.review.cvIntro')}</p>
+                {/* The PDF carries the photo (photoPrinted); the Word copy never does. */}
+                {data.word?.cv && data.tailoredCv.photoPrinted && <p className="text-xs text-subtle">{t('jobBoard.assisted.review.wordCopyNoPhoto')}</p>}
+                {data.tailoredCv.permitOmitted && <p className="text-xs text-subtle">{t('jobBoard.assisted.review.cvPermitOmitted')}</p>}
                 {data.ats?.original && (
                   <p className="text-xs text-subtle">
                     {t('jobBoard.assisted.review.cvAts', {
@@ -690,6 +716,8 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                     </label>
                   ))}
                 </fieldset>
+                {/* The personal data of this page are printed by the tailored CV only: the candidate's own file keeps its own. */}
+                <p className="text-xs text-subtle">{t(data.tailoredCv.inplace ? 'jobBoard.assisted.review.cvPersonalDataNoteInplace' : 'jobBoard.assisted.review.cvPersonalDataNote')}</p>
                 {data.tailoredCv.inplaceNeedsPageCheck && (
                   <p className="text-xs text-subtle">{t('jobBoard.assisted.review.cvInplaceNeedsCheck')}</p>
                 )}

@@ -2365,7 +2365,7 @@
         "de": "/de/jobs-in-zurich/ai-software-ingegnere-avaloq-zurich",
         "fr": "/fr/trouver-emploi-zurich/ai-software-ingegnere-avaloq-zurich"
       },
-      "sourceUrl": "https://www.avaloq.com/careers/job-openings/744000137813919",
+      "sourceUrl": "https://jobs.smartrecruiters.com/avaloq1/744000144691699-ai-software-engineer",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
@@ -8942,10 +8942,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "backer-in-konditor-in-coop-genossenschaft-affoltern-am-albis",
-        "en": "backer-in-konditor-in-coop-genossenschaft-affoltern-am-albis",
+        "it": "baker-pasticceria-coop-genossenschaft-affoltern-am-albis",
+        "en": "baker-confectioner-coop-genossenschaft-affoltern-am-albis",
         "de": "backer-in-konditor-in-coop-genossenschaft-affoltern-am-albis",
-        "fr": "backer-in-konditor-in-coop-genossenschaft-affoltern-am-albis"
+        "fr": "baker-confiseur-coop-genossenschaft-affoltern-am-albis"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/backer-in-konditor-in-coop-genossenschaft-affoltern-am-albis",
@@ -8959,6 +8959,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -13269,6 +13270,64 @@
       "source": [
         "gsc",
         "slug-registry",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "cliniche-grigioni",
+      "locale": "it",
+      "path": "/cerca-lavoro-grigioni/cliniche-grigioni/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-grigioni/cliniche-grigioni/"
+      },
+      "queries": [
+        {
+          "query": "offerte di lavoro grigioni",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "offerte di lavoro grigioni",
+      "title": "Cliniche",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Grigioni",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "cliniche-grigioni",
+        "en": "cliniche-grigioni",
+        "de": "cliniche-grigioni",
+        "fr": "cliniche-grigioni"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-grigioni/cliniche-grigioni",
+        "en": "/en/find-jobs-graubunden/cliniche-grigioni",
+        "de": "/de/jobs-im-graubunden/cliniche-grigioni",
+        "fr": "/fr/trouver-emploi-grisons/cliniche-grigioni"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -25149,10 +25208,10 @@
         "fr": "facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen",
-        "en": "/en/find-jobs-bern/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen",
+        "it": "/cerca-lavoro-basilea/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen",
+        "en": "/en/find-jobs-basel/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen",
         "de": "/de/jobs-im-solothurn/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen",
-        "fr": "/fr/trouver-emploi-berne/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen"
+        "fr": "/fr/trouver-emploi-bale/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -25892,12 +25951,12 @@
           "impressions": 2
         },
         {
-          "query": "datumstempel migros",
+          "query": "taxifahrer jobs genf",
           "clicks": 0,
-          "impressions": 1
+          "impressions": 2
         },
         {
-          "query": "taxifahrer jobs genf",
+          "query": "datumstempel migros",
           "clicks": 0,
           "impressions": 1
         },
@@ -25912,7 +25971,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 93,
+      "totalImpressions": 94,
       "totalClicks": 0,
       "topQuery": "fahrer locarno",
       "title": "Fahrer",
@@ -38121,12 +38180,12 @@
           "impressions": 14
         },
         {
-          "query": "locarno",
+          "query": "werkstudentenjob locarno",
           "clicks": 0,
-          "impressions": 9
+          "impressions": 10
         },
         {
-          "query": "werkstudentenjob locarno",
+          "query": "locarno",
           "clicks": 0,
           "impressions": 9
         },
@@ -38186,7 +38245,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 157,
+      "totalImpressions": 158,
       "totalClicks": 0,
       "topQuery": "jobs locarno",
       "title": "locarno",
@@ -38387,14 +38446,14 @@
           "impressions": 21
         },
         {
+          "query": "offerte di lavoro locarno negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 16
+        },
+        {
           "query": "locarno",
           "clicks": 0,
           "impressions": 15
-        },
-        {
-          "query": "offerte di lavoro locarno negli ultimi 3 giorni",
-          "clicks": 0,
-          "impressions": 14
         },
         {
           "query": "offerte di lavoro locarno",
@@ -38442,17 +38501,17 @@
           "impressions": 3
         },
         {
+          "query": "locarno offerte di lavoro",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
           "query": "offerte di lavoro locarno svizzera",
           "clicks": 0,
           "impressions": 3
         },
         {
           "query": "il team sa locarno",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "locarno offerte di lavoro",
           "clicks": 0,
           "impressions": 2
         },
@@ -38482,7 +38541,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 120,
+      "totalImpressions": 124,
       "totalClicks": 1,
       "topQuery": "lavoro locarno",
       "title": "locarno",
@@ -38890,7 +38949,7 @@
         {
           "query": "stellenangebot lugano",
           "clicks": 0,
-          "impressions": 94
+          "impressions": 95
         },
         {
           "query": "stellenvermittlung lugano",
@@ -38900,7 +38959,7 @@
         {
           "query": "taetigkeitsfelder jobs lugano",
           "clicks": 0,
-          "impressions": 29
+          "impressions": 31
         },
         {
           "query": "jobs lugano",
@@ -38923,12 +38982,12 @@
           "impressions": 18
         },
         {
-          "query": "lehrstellen lugano",
+          "query": "teamleiter jobs lugano",
           "clicks": 0,
-          "impressions": 17
+          "impressions": 18
         },
         {
-          "query": "teamleiter jobs lugano",
+          "query": "lehrstellen lugano",
           "clicks": 0,
           "impressions": 17
         },
@@ -38958,6 +39017,11 @@
           "impressions": 14
         },
         {
+          "query": "pta jobs lugano",
+          "clicks": 0,
+          "impressions": 14
+        },
+        {
           "query": "statistik jobs lugano",
           "clicks": 0,
           "impressions": 14
@@ -38976,14 +39040,9 @@
           "query": "lagerist jobs lugano",
           "clicks": 0,
           "impressions": 12
-        },
-        {
-          "query": "pharmareferent jobs lugano",
-          "clicks": 0,
-          "impressions": 12
         }
       ],
-      "totalImpressions": 949,
+      "totalImpressions": 955,
       "totalClicks": 0,
       "topQuery": "stellen lugano",
       "title": "lugano",
@@ -39027,17 +39086,17 @@
         {
           "query": "full time jobs near me",
           "clicks": 0,
-          "impressions": 161
+          "impressions": 163
+        },
+        {
+          "query": "stellen lugano",
+          "clicks": 0,
+          "impressions": 64
         },
         {
           "query": "stellenangebot lugano",
           "clicks": 0,
           "impressions": 64
-        },
-        {
-          "query": "stellen lugano",
-          "clicks": 0,
-          "impressions": 63
         },
         {
           "query": "jobs lugano",
@@ -39057,7 +39116,7 @@
         {
           "query": "jobs in lugano",
           "clicks": 0,
-          "impressions": 21
+          "impressions": 23
         },
         {
           "query": "emploi lugano",
@@ -39097,12 +39156,17 @@
         {
           "query": "i am considering retail work in lugano and i want to know typical pay.",
           "clicks": 0,
-          "impressions": 8
+          "impressions": 9
         },
         {
           "query": "lugano job",
           "clicks": 0,
-          "impressions": 8
+          "impressions": 9
+        },
+        {
+          "query": "i am looking for lugano sales jobs with a base salary and commission and training and italian required.",
+          "clicks": 0,
+          "impressions": 7
         },
         {
           "query": "job contact lugano",
@@ -39115,17 +39179,12 @@
           "impressions": 7
         },
         {
-          "query": "lugano jobs english speaking",
-          "clicks": 0,
-          "impressions": 7
-        },
-        {
-          "query": "marktforscher jobs lugano",
+          "query": "jobs near me",
           "clicks": 0,
           "impressions": 7
         }
       ],
-      "totalImpressions": 819,
+      "totalImpressions": 839,
       "totalClicks": 4,
       "topQuery": "full time jobs near me",
       "title": "lugano",
@@ -39169,37 +39228,37 @@
         {
           "query": "je vise un emploi à lugano",
           "clicks": 0,
-          "impressions": 85
+          "impressions": 87
         },
         {
           "query": "recrutement lugano",
           "clicks": 0,
-          "impressions": 53
+          "impressions": 57
         },
         {
           "query": "offre d'emploi tessin",
           "clicks": 0,
-          "impressions": 20
+          "impressions": 23
         },
         {
           "query": "offre d'emploi lugano",
           "clicks": 0,
-          "impressions": 11
-        },
-        {
-          "query": "agence de recrutement lugano",
-          "clicks": 0,
-          "impressions": 4
+          "impressions": 14
         },
         {
           "query": "emploi lugano",
           "clicks": 0,
-          "impressions": 4
+          "impressions": 8
+        },
+        {
+          "query": "agence de recrutement lugano",
+          "clicks": 0,
+          "impressions": 5
         },
         {
           "query": "je cherche des offres au tessin",
           "clicks": 0,
-          "impressions": 4
+          "impressions": 5
         },
         {
           "query": "annonce emploi",
@@ -39267,7 +39326,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 220,
+      "totalImpressions": 238,
       "totalClicks": 0,
       "topQuery": "je vise un emploi à lugano",
       "title": "lugano",
@@ -39311,7 +39370,7 @@
         {
           "query": "frontaliere ticino offerte di lavoro",
           "clicks": 0,
-          "impressions": 28
+          "impressions": 29
         },
         {
           "query": "offerte di lavoro lugano negli ultimi 3 giorni",
@@ -39319,7 +39378,17 @@
           "impressions": 9
         },
         {
+          "query": "lavoro lugano negli ultimi 3 giorni",
+          "clicks": 1,
+          "impressions": 5
+        },
+        {
           "query": "frontalieri",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "offerte di lavoro presso città di lugano",
           "clicks": 0,
           "impressions": 5
         },
@@ -39334,14 +39403,9 @@
           "impressions": 4
         },
         {
-          "query": "offerte di lavoro presso città di lugano",
+          "query": "offerte di lavoro canton ticino per frontalieri",
           "clicks": 0,
           "impressions": 4
-        },
-        {
-          "query": "lavoro lugano negli ultimi 3 giorni",
-          "clicks": 1,
-          "impressions": 3
         },
         {
           "query": "agence de recrutement lugano",
@@ -39359,7 +39423,12 @@
           "impressions": 3
         },
         {
-          "query": "offerte di lavoro canton ticino per frontalieri",
+          "query": "lavoro a lugano",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "lugano lavoro",
           "clicks": 0,
           "impressions": 3
         },
@@ -39379,6 +39448,11 @@
           "impressions": 2
         },
         {
+          "query": "concorso logo",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
           "query": "emploi lugano",
           "clicks": 0,
           "impressions": 2
@@ -39392,24 +39466,9 @@
           "query": "lavori a lugano",
           "clicks": 0,
           "impressions": 2
-        },
-        {
-          "query": "lavori lugano",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "lavoro a lugano",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "lavoro a lugano per italiani",
-          "clicks": 0,
-          "impressions": 2
         }
       ],
-      "totalImpressions": 123,
+      "totalImpressions": 131,
       "totalClicks": 2,
       "topQuery": "frontaliere ticino offerte di lavoro",
       "title": "lugano",
@@ -39822,14 +39881,19 @@
       },
       "queries": [
         {
+          "query": "lavoro magazziniere ticino",
+          "clicks": 4,
+          "impressions": 32
+        },
+        {
           "query": "lavoro in svizzera per italiani",
           "clicks": 2,
           "impressions": 32
         },
         {
-          "query": "lavoro magazziniere ticino",
-          "clicks": 2,
-          "impressions": 22
+          "query": "magazziniere svizzera",
+          "clicks": 1,
+          "impressions": 17
         },
         {
           "query": "magazziniere svizzera italiana",
@@ -39839,11 +39903,6 @@
         {
           "query": "magazziniere ticino",
           "clicks": 3,
-          "impressions": 16
-        },
-        {
-          "query": "magazziniere svizzera",
-          "clicks": 1,
           "impressions": 16
         },
         {
@@ -39862,6 +39921,11 @@
           "impressions": 12
         },
         {
+          "query": "magazziniere canton ticino",
+          "clicks": 1,
+          "impressions": 11
+        },
+        {
           "query": "lavoro svizzera magazziniere",
           "clicks": 1,
           "impressions": 10
@@ -39877,9 +39941,9 @@
           "impressions": 9
         },
         {
-          "query": "magazziniere canton ticino",
+          "query": "offerte lavoro magazziniere ticino",
           "clicks": 0,
-          "impressions": 8
+          "impressions": 9
         },
         {
           "query": "magazziniere svizzera stipendio",
@@ -39887,14 +39951,9 @@
           "impressions": 8
         },
         {
-          "query": "offerte lavoro magazziniere ticino",
-          "clicks": 0,
-          "impressions": 8
-        },
-        {
           "query": "magazziniere svizzera canton ticino",
           "clicks": 0,
-          "impressions": 6
+          "impressions": 7
         },
         {
           "query": "magazzinieri",
@@ -39922,9 +39981,9 @@
           "impressions": 5
         }
       ],
-      "totalImpressions": 332,
-      "totalClicks": 16,
-      "topQuery": "lavoro in svizzera per italiani",
+      "totalImpressions": 356,
+      "totalClicks": 21,
+      "topQuery": "lavoro magazziniere ticino",
       "title": "Magazzino",
       "titleByLocale": {
         "it": "",
@@ -40515,10 +40574,10 @@
         "fr": "manor-collaborateur-trice-caisse-papeterie-50-lausanne-collaborateurtrice-caisse-papeterie"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/manor-collaborateur-trice-caisse-papeterie-50-lausanne-collaborateurtrice-caisse-papeterie",
-        "en": "/en/find-jobs-ticino/manor-collaborateur-trice-caisse-papeterie-50-lausanne-collaborateurtrice-caisse-papeterie",
-        "de": "/de/jobs-im-tessin/manor-collaborateur-trice-caisse-papeterie-50-lausanne-collaborateurtrice-caisse-papeterie",
-        "fr": "/fr/trouver-emploi-tessin/manor-collaborateur-trice-caisse-papeterie-50-lausanne-collaborateurtrice-caisse-papeterie"
+        "it": "/cerca-lavoro-vaud/manor-collaborateur-trice-caisse-papeterie-50-lausanne-collaborateurtrice-caisse-papeterie",
+        "en": "/en/find-jobs-vaud/manor-collaborateur-trice-caisse-papeterie-50-lausanne-collaborateurtrice-caisse-papeterie",
+        "de": "/de/jobs-in-der-waadt/manor-collaborateur-trice-caisse-papeterie-50-lausanne-collaborateurtrice-caisse-papeterie",
+        "fr": "/fr/trouver-emploi-vaud/manor-collaborateur-trice-caisse-papeterie-50-lausanne-collaborateurtrice-caisse-papeterie"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -41187,6 +41246,11 @@
           "impressions": 1
         },
         {
+          "query": "short list avvocati",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "installazione ascensori ticino",
           "clicks": 0,
           "impressions": 1
@@ -41202,12 +41266,17 @@
           "impressions": 1
         },
         {
+          "query": "operatore meccanico",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "prova a cercare",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 7,
+      "totalImpressions": 9,
       "totalClicks": 0,
       "topQuery": "meccanici",
       "title": "Meccanici",
@@ -43739,10 +43808,10 @@
         "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-thalwil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-thalwil",
-        "en": "/en/find-jobs-zurich/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-thalwil",
+        "it": "/cerca-lavoro-basilea/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-thalwil",
+        "en": "/en/find-jobs-basel/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-thalwil",
         "de": "/de/jobs-im-basel/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-thalwil",
-        "fr": "/fr/trouver-emploi-zurich/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-thalwil"
+        "fr": "/fr/trouver-emploi-bale/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-thalwil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -48005,7 +48074,7 @@
         "de": "/de/jobs-im-waadt/page-22",
         "en": "/en/find-jobs-vaud/page-22",
         "fr": "/fr/trouver-emploi-vaud/page-22",
-        "it": "/cerca-lavoro-vaud/page-22"
+        "it": "/cerca-lavoro-berna/page-22"
       },
       "queries": [
         {
@@ -50130,7 +50199,7 @@
         "en": "/en/find-jobs-lucerne/plumbers",
         "de": "/de/jobs-im-luzern/plumbers",
         "it": "/cerca-lavoro-lucerna/plumbers",
-        "fr": "/fr/trouver-emploi-lucerne/plumbers"
+        "fr": "/fr/trouver-emploi-argovie/plumbers"
       },
       "queries": [
         {
@@ -67771,10 +67840,10 @@
         "fr": "specialiste-du-commerce-de-detail-cfc-creation-d-experiences-d-achat-jumbo-grigioni"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/specialiste-du-commerce-de-detail-cfc-creation-d-experiences-d-achat-jumbo-grigioni",
-        "en": "/en/find-jobs-zurich/specialiste-du-commerce-de-detail-cfc-creation-d-experiences-d-achat-jumbo-grigioni",
-        "de": "/de/jobs-in-zurich/specialiste-du-commerce-de-detail-cfc-creation-d-experiences-d-achat-jumbo-grigioni",
-        "fr": "/fr/trouver-emploi-zurich/specialiste-du-commerce-de-detail-cfc-creation-d-experiences-d-achat-jumbo-grigioni"
+        "it": "/cerca-lavoro-basilea/specialiste-du-commerce-de-detail-cfc-creation-d-experiences-d-achat-jumbo-grigioni",
+        "en": "/en/find-jobs-basel/specialiste-du-commerce-de-detail-cfc-creation-d-experiences-d-achat-jumbo-grigioni",
+        "de": "/de/jobs-in-basel/specialiste-du-commerce-de-detail-cfc-creation-d-experiences-d-achat-jumbo-grigioni",
+        "fr": "/fr/trouver-emploi-bale/specialiste-du-commerce-de-detail-cfc-creation-d-experiences-d-achat-jumbo-grigioni"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -68279,6 +68348,68 @@
         "slug-registry",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "spezialist-personalwesen-administration-personalwesen-it-80-100-empa-dubendorf",
+      "locale": "de",
+      "path": "/de/jobs-in-zurich/spezialist-personalwesen-administration-personalwesen-it-80-100-empa-dubendorf/",
+      "observedPaths": {
+        "de": "/de/jobs-in-zurich/spezialist-personalwesen-administration-personalwesen-it-80-100-empa-dubendorf/"
+      },
+      "queries": [
+        {
+          "query": "empa jobs",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "empa",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "topQuery": "empa jobs",
+      "title": "Spezialist personalwesen administration personalwesen it empa dubendorf",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "spezialist-personalwesen-administration-personalwesen-it-80-100-empa-dubendorf",
+        "en": "spezialist-personalwesen-administration-personalwesen-it-80-100-empa-dubendorf",
+        "de": "spezialist-personalwesen-administration-personalwesen-it-80-100-empa-dubendorf",
+        "fr": "spezialist-personalwesen-administration-personalwesen-it-80-100-empa-dubendorf"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/spezialist-personalwesen-administration-personalwesen-it-80-100-empa-dubendorf",
+        "en": "/en/find-jobs-zurich/spezialist-personalwesen-administration-personalwesen-it-80-100-empa-dubendorf",
+        "de": "/de/jobs-im-zurich/spezialist-personalwesen-administration-personalwesen-it-80-100-empa-dubendorf",
+        "fr": "/fr/trouver-emploi-zurich/spezialist-personalwesen-administration-personalwesen-it-80-100-empa-dubendorf"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -75305,10 +75436,10 @@
         "fr": "vendeur-de-produits-frais-coop-genossenschaft-bottmingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/vendeur-de-produits-frais-coop-genossenschaft-bottmingen",
-        "en": "/en/find-jobs-basel/vendeur-de-produits-frais-coop-genossenschaft-bottmingen",
+        "it": "/cerca-lavoro-berna/vendeur-de-produits-frais-coop-genossenschaft-bottmingen",
+        "en": "/en/find-jobs-bern/vendeur-de-produits-frais-coop-genossenschaft-bottmingen",
         "de": "/de/jobs-im-basel/vendeur-de-produits-frais-coop-genossenschaft-bottmingen",
-        "fr": "/fr/trouver-emploi-bale/vendeur-de-produits-frais-coop-genossenschaft-bottmingen"
+        "fr": "/fr/trouver-emploi-berne/vendeur-de-produits-frais-coop-genossenschaft-bottmingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -77104,10 +77235,10 @@
         "fr": "vendeur-vendeuse-denner-avenches"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vaud/vendeur-vendeuse-denner-avenches",
-        "en": "/en/find-jobs-vaud/vendeur-vendeuse-denner-avenches",
-        "de": "/de/jobs-in-der-waadt/vendeur-vendeuse-denner-avenches",
-        "fr": "/fr/trouver-emploi-vaud/vendeur-vendeuse-denner-avenches"
+        "it": "/cerca-lavoro-ginevra/vendeur-vendeuse-denner-avenches",
+        "en": "/en/find-jobs-geneva/vendeur-vendeuse-denner-avenches",
+        "de": "/de/jobs-in-genf/vendeur-vendeuse-denner-avenches",
+        "fr": "/fr/trouver-emploi-geneve/vendeur-vendeuse-denner-avenches"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -77780,9 +77911,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "venditore-denner-biel-bienne",
-        "en": "venditore-denner-biel-bienne",
-        "de": "venditore-denner-biel-bienne",
-        "fr": "venditore-denner-biel-bienne"
+        "en": "shop-assistant-denner-biel-bienne",
+        "de": "verkaufer-in-denner",
+        "fr": "vendeur-denner-biel-bienne"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/venditore-denner-biel-bienne",
@@ -77796,6 +77927,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -78575,10 +78707,10 @@
         "fr": "venditore-in-food-coop-genossenschaft-schotz-luzern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/venditore-in-food-coop-genossenschaft-schotz-luzern",
-        "en": "/en/find-jobs-ticino/venditore-in-food-coop-genossenschaft-schotz-luzern",
-        "de": "/de/jobs-im-tessin/venditore-in-food-coop-genossenschaft-schotz-luzern",
-        "fr": "/fr/trouver-emploi-tessin/venditore-in-food-coop-genossenschaft-schotz-luzern"
+        "it": "/cerca-lavoro-lucerna/venditore-in-food-coop-genossenschaft-schotz-luzern",
+        "en": "/en/find-jobs-lucerne/venditore-in-food-coop-genossenschaft-schotz-luzern",
+        "de": "/de/jobs-in-luzern/venditore-in-food-coop-genossenschaft-schotz-luzern",
+        "fr": "/fr/trouver-emploi-lucerne/venditore-in-food-coop-genossenschaft-schotz-luzern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79707,10 +79839,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-cham",
-        "en": "verkaufer-in-food-coop-genossenschaft-cham",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-cham",
+        "en": "seller-food-coop-genossenschaft-cham",
         "de": "verkaufer-in-food-coop-genossenschaft-cham",
-        "fr": "verkaufer-in-food-coop-genossenschaft-cham"
+        "fr": "aliments-pour-vendeurs-coop-genossenschaft-cham"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zugo/verkaufer-in-food-coop-genossenschaft-cham",
@@ -79724,6 +79856,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -80367,10 +80500,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-fleisch-selbstbedienung-coop-genossenschaft-bachenbulach",
-        "en": "verkaufer-in-frischprodukte-fleisch-selbstbedienung-coop-genossenschaft-bachenbulach",
+        "it": "vendita-prodotti-freschi-meat-self-service-coop-genossenschaft-bachenbulach",
+        "en": "seller-fresh-products-meat-self-service-coop-genossenschaft-bachenbulach",
         "de": "verkaufer-in-frischprodukte-fleisch-selbstbedienung-coop-genossenschaft-bachenbulach",
-        "fr": "verkaufer-in-frischprodukte-fleisch-selbstbedienung-coop-genossenschaft-bachenbulach"
+        "fr": "vendeur-de-produits-frais-viande-libre-service-coop-genossenschaft-bachenbulach"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/verkaufer-in-frischprodukte-fleisch-selbstbedienung-coop-genossenschaft-bachenbulach",
@@ -80384,6 +80517,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },

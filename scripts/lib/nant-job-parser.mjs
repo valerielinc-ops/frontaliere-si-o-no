@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 /**
  * Fondation de Nant — Beehire ATS.
  *
@@ -77,12 +78,11 @@ export async function fetchAllNantJobs() {
     campaigns = await fetchBeehireCampaigns(BEEHIRE_SLUG);
   } catch (err) {
     console.warn(`  ⚠️ Beehire feed fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
   console.log(`  ✓ ${campaigns.length} campaigns in Beehire feed`);
   if (!campaigns.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const c of campaigns) {
     const title = beehireTitle(c, PREFERRED_LANGS);
@@ -142,7 +142,7 @@ export async function fetchAllNantJobs() {
       sector: 'Santé mentale / Psychiatrie',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(''),
       applyUrl: url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

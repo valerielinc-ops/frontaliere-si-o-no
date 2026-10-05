@@ -31,6 +31,7 @@
  *   - resolveAddress()        — City-gated (never canton-only) verified office
  *                               address resolver for structured data
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { getCantonForLocation } from './crawler-location-config.mjs';
 import { getCantonPostalFallback } from './canton-postal-fallback.mjs';
@@ -336,7 +337,7 @@ export async function fetchAllDormakabaJobs() {
     records = await fetchSwissJobRecords();
   } catch (err) {
     console.error(`❌ Failed to fetch dormakaba jobs from CSB API: ${err?.message || err}`);
-    return [];
+    throw err;
   }
   console.log(`  📋 Swiss job records returned: ${records.length}`);
 
@@ -405,8 +406,7 @@ export async function fetchAllDormakabaJobs() {
       ? rec.link
       : `https://${ATS_HOST}/job-invite/${internalId}/?locale=${rec.language || 'de_DE'}`;
 
-    const postedDate = String(rec.datePosted || '').slice(0, 10) ||
-      new Date().toISOString().split('T')[0];
+    const publication = sourcePostingDateFields(rec.datePosted);
 
     const empType = rec.jobTypeLabel === 'Full-Time'
       ? 'FULL_TIME'
@@ -447,7 +447,7 @@ export async function fetchAllDormakabaJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       legalEntity: legalEntity || undefined,
       requirements: [],

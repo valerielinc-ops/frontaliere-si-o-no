@@ -54,7 +54,7 @@ import {
   saveGeocodeCache,
   loadEventTitleTranslationCache,
   saveEventTitleTranslationCache,
-  hasConfidentPrice,
+  hasParsedPrice,
 } from './lib/events-utils.mjs';
 import { freeTranslateWithRetryDetailed, asTranslationResult } from './lib/free-translate.mjs';
 import {
@@ -239,7 +239,7 @@ export async function mirrorEventImages(events, mirrorFn = mirrorEventImage) {
 export function extractTioPrice(html) {
   const m = /<strong>\s*Prezzo:\s*<\/strong>\s*([^<]*)/i.exec(html || '');
   const inline = m ? parseEventPriceText(m[1]) : undefined;
-  if (hasConfidentPrice(inline)) return inline;
+  if (hasParsedPrice(inline)) return inline;
 
   // Some detail pages render the label as a plain paragraph, while the
   // amount is text in the same element. Restrict this fallback to paragraphs
@@ -251,7 +251,7 @@ export function extractTioPrice(html) {
     const labelled = /^Prezzo:\s*(.+)$/i.exec(value);
     if (!labelled) continue;
     const parsed = parseEventPriceText(labelled[1]);
-    if (hasConfidentPrice(parsed)) return parsed;
+    if (hasParsedPrice(parsed)) return parsed;
   }
   return undefined;
 }

@@ -103,3 +103,34 @@ it('preserves observed pages and marks the missing GA4 tail as incomplete', asyn
   expect(result.coverage.complete).toBe(false);
   expect(result.error).toContain('absence is not zero traffic');
 });
+
+// Run 37196058978 (issue 11423): 138.894 pagePath in 28 giorni contro un
+// runReport chiesto con limit 100000 e senza offset. La risposta era sempre
+// troncata e seo-health-loop trattava GA4 come fonte assente a ogni run.
+// Il fake rispetta offset/limit come l'API vera.
+function pagedGa4(totalRows: number) {
+  return vi.fn(async (_url: string, init: { body: string }) => {
+    const body = JSON.parse(init.body);
+    const offset = Number(body.offset ?? 0);
+    const end = Math.min(totalRows, offset + Number(body.limit));
+    const rows = [];
+    for (let i = offset; i < end; i += 1) {
+      rows.push({ dimensionValues: [{ value: `/p/${i}/` }], metricValues: [{ value: '5' }, { value: '50' }, { value: '9' }] });
+    }
+    return jsonRes({ rowCount: totalRows, rows });
+  });
+}
+
+it('pagina runReport con offset fino a rowCount: 138894 righe non sono una fonte assente', async () => {
+  const fetchImpl = pagedGa4(138_894);
+  const result = await fetchGa4Pages({
+    propertyId: '123', startDate: '2026-09-06', endDate: '2026-10-03',
+    getTokenImpl: async () => 'test-token', fetchImpl,
+  });
+  expect(result.error).toBeUndefined();
+  expect(result.coverage).toEqual({ complete: true, returnedRows: 138_894, reportedRows: 138_894 });
+  expect(Object.keys(result.pages)).toHaveLength(result.coverage.reportedRows);
+  const offsets = fetchImpl.mock.calls.map(([, init]) => JSON.parse(init.body).offset ?? 0);
+  expect(offsets[0]).toBe(0);
+  expect(offsets.length).toBeGreaterThan(1);
+});

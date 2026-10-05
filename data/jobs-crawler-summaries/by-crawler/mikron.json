@@ -1,16 +1,16 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-10-04T09:27:16.525Z",
+  "generatedAt": "2026-10-04T21:37:36.315Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16713,
-  "avgDurationMs": 16713,
+  "durationMs": 17594,
+  "avgDurationMs": 17594,
   "durationHistory": [
-    16713
+    17594
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T09:26:55.018Z",
+      "crawledAt": "2026-10-04T21:37:15.136Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -44,12 +44,16 @@
       "firstSeenAt": "2026-10-03T09:29:09.375Z",
       "addressLocality": "Agno",
       "addressRegion": "TI",
-      "_qualityScore": 81,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 15
+        "completeness": 20
       }
     },
     {
@@ -69,7 +73,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T09:26:58.549Z",
+      "crawledAt": "2026-10-04T21:37:19.415Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -82,12 +86,16 @@
       "firstSeenAt": "2026-09-04T13:45:42.652Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
-      "_qualityScore": 83,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 23,
-        "completeness": 15
+        "completeness": 20
       }
     },
     {
@@ -107,7 +115,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T09:26:59.699Z",
+      "crawledAt": "2026-10-04T21:37:20.754Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -120,12 +128,16 @@
       "firstSeenAt": "2026-09-26T14:14:20.306Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
-      "_qualityScore": 81,
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 15
+        "completeness": 20
       }
     },
     {
@@ -145,7 +157,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T09:27:03.203Z",
+      "crawledAt": "2026-10-04T21:37:24.993Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -158,12 +170,16 @@
       "firstSeenAt": "2026-09-26T14:14:20.306Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
-      "_qualityScore": 81,
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 15
+        "completeness": 20
       }
     },
     {
@@ -183,7 +199,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T09:27:04.491Z",
+      "crawledAt": "2026-10-04T21:37:26.356Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -196,12 +212,16 @@
       "firstSeenAt": "2026-09-26T14:14:20.306Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
-      "_qualityScore": 77,
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 15
+        "completeness": 20
       }
     },
     {
@@ -221,7 +241,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T09:27:05.671Z",
+      "crawledAt": "2026-10-04T21:37:27.704Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -234,57 +254,20 @@
       "firstSeenAt": "2026-09-26T14:14:20.306Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
-      "_qualityScore": 77,
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 15
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "url": "https://www.mikron.com/en/marketing-generalist-mwd-mit-deutscher-muttersprache",
-      "applyUrl": "https://www.mikron.com/en/marketing-generalist-mwd-mit-deutscher-muttersprache",
-      "title": "Marketing Generalist (m/w/d) mit deutscher Muttersprache",
-      "company": "Mikron Group",
-      "companyKey": "mikron",
-      "location": "Agno",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6982",
-      "streetAddress": "Via Ginnasio 17, 6982 Agno",
-      "slug": "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron",
-      "sourceLang": "de",
-      "category": "technology",
-      "datePosted": "2026-09-26",
-      "source": "mikron-html-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Manifattura / Precision Manufacturing",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Agno"
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:14:20.306Z",
-      "addressLocality": "Agno",
-      "addressRegion": "TI",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
         "completeness": 20
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

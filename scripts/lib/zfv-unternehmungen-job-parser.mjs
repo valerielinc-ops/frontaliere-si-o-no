@@ -56,6 +56,7 @@
  * - isTrustedDomain() — Validate URLs belong to this company
  * - slugify() / stripHtml() — re-exported from crawler-template.mjs by callers
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
@@ -200,7 +201,10 @@ async function fetchAllListings() {
       html = await fetchHtml(url, { headers: { 'User-Agent': UA } });
     } catch (err) {
       console.warn(`  ⚠️ Listing fetch failed at start=${start}: ${err?.message || err}`);
-      break;
+      // A fetch failure is not the end of the listing: let the crawler pipeline
+      // classify it (connection-level soft exit or HTTP error) instead of
+      // publishing a partial or cause-less empty result.
+      throw err;
     }
     const entries = parseRexxListing(html);
     let added = 0;
@@ -278,10 +282,7 @@ export async function fetchAllZfvUnternehmungenJobs() {
           ? 'FULL_TIME'
           : detectEmploymentTypeFromTitle(title);
 
-    const postedDate =
-      posting?.datePosted && !Number.isNaN(new Date(posting.datePosted).getTime())
-        ? new Date(posting.datePosted).toISOString().slice(0, 10)
-        : new Date().toISOString().slice(0, 10);
+    const publication = sourcePostingDateFields(posting?.datePosted);
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} ${ZFV_UNTERNEHMUNGEN_KEY} ${city}`);
@@ -320,7 +321,7 @@ export async function fetchAllZfvUnternehmungenJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: entry.detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

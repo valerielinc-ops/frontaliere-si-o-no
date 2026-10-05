@@ -21,6 +21,8 @@
  *
  * Address: Schönburgstrasse 25, 3000 Bern 25 (BE).
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, normalizeDescriptionBullets } from './crawler-template.mjs';
 import {
@@ -138,10 +140,10 @@ export function parseDetailDescription(html = '') {
 async function fetchDetail(url) {
   try {
     const html = await fetchHtml(url);
-    return parseDetailDescription(html);
+    return { body: parseDetailDescription(html), ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) };
   } catch (err) {
     console.warn(`  ⚠️ Detail fetch failed (${url}): ${err?.message || err}`);
-    return '';
+    return { body: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -155,18 +157,18 @@ export async function fetchAllStiftungDiaconisJobs() {
     listingHtml = await fetchHtml(LISTING_URL);
   } catch (err) {
     console.warn(`⚠️ Listing fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
   const rows = parseListing(listingHtml);
   console.log(`  ✓ ${rows.length} real openings (spontaneous/Schnupper/freiwillig rows dropped)`);
   if (rows.length === 0) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const r = rows[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
-    const description = await fetchDetail(r.url);
+    const detail = await fetchDetail(r.url);
+    const description = detail.body;
     const fallback = `${r.title} bei der ${STIFTUNG_DIACONIS_COMPANY_NAME}, ${HQ_CITY} (${HQ_CANTON}). Stiftung Diaconis betreibt Palliative Care, Wohnen im Alter sowie Arbeitsintegration in Bern.`;
     const safeDescription =
       description && description.split(/\s+/).length >= 30
@@ -209,7 +211,7 @@ export async function fetchAllStiftungDiaconisJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: r.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

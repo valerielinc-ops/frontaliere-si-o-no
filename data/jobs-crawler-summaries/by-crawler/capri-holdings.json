@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-10-04T09:37:37.327Z",
+  "generatedAt": "2026-10-04T21:42:34.473Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 21593,
-  "avgDurationMs": 21593,
+  "durationMs": 22191,
+  "avgDurationMs": 22191,
   "durationHistory": [
-    21593
+    22191
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -18,7 +18,7 @@
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_786577",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_786577",
       "title": "Store Manager, Landquart",
-      "company": "Capri Holdings (Michael Kors / Versace)",
+      "company": "Michael Kors",
       "companyKey": "capri-holdings",
       "location": "Landquart",
       "canton": "GR",
@@ -46,61 +46,20 @@
       "id": "capri-holdings-3d3f64b95ee9",
       "firstSeenAt": "2026-09-11T23:21:22.496Z",
       "crawledAt": "",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-time-fixed-Term-20-_R_786806",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-time-fixed-Term-20-_R_786806",
-      "title": "Sales Associate Part time fixed Term 20%",
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings",
-      "location": "Landquart",
-      "canton": "GR",
-      "country": "CH",
-      "addressLocality": "Landquart",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "postalCode": "7302",
-      "streetAddress": "Bahnhofstrasse 2",
-      "slug": "vendite-associate-part-time-fisso-termine-20-capri-holdings-michael-kors-versace-landquart",
-      "category": "retail",
-      "datePosted": "2026-09-23",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sourceLang": "en",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Michael Kors",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Landquart"
-      },
-      "id": "capri-holdings-bd3ec5feb3ab",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:59:32.011Z",
-      "crawledAt": "",
-      "salaryMin": 13700,
-      "salaryMax": 21000,
+      "salaryMin": 96000,
+      "salaryMax": 147500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 94,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 22
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

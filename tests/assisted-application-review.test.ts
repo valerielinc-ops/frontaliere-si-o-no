@@ -1,12 +1,14 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
+import { JPEG_2X2 } from './helpers/pdfImages';
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   getRemoteConfigValue: vi.fn(async () => ''),
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
 }));
 
-const { handleAssistedApplicationReview, minDateFor } = await import('../functions/src/assistedApplicationReview.js');
+const { handleAssistedApplicationReview, minDateFor, sendReviewResponse } = await import('../functions/src/assistedApplicationReview.js');
+const { permitOptions } = await import('../functions/src/lib/permitStatus.js');
 const { mintReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 const { CANDIDATE_REVIEW_MS } = await import('../functions/src/assistedApplicationFlow.js');
 const { MAX_FIT_GAPS, fitNoticeOf, fitNoticeWording } = await import('../functions/src/assistedApplicationFitNotice.js');
@@ -14,6 +16,12 @@ const { default: itCore } = await import('../services/locales/it-core');
 const { default: enCore } = await import('../services/locales/en-core');
 const { default: deCore } = await import('../services/locales/de-core');
 const { default: frCore } = await import('../services/locales/fr-core');
+const { sanitizeTailoredCv } = await import('../functions/src/assistedApplicationTailoredCv.js');
+const { DOCX_CONTENT_TYPE, paragraphInventory } = await import('../functions/src/assistedApplicationDocxInPlace.js');
+const { entryData, readZip } = await import('../functions/src/lib/zipArchive.js');
+const { formatLetterDate } = await import('../functions/src/assistedApplicationAiPrompts.js');
+const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
+const { runAutomationAdminAction } = await import('../services/assistedApplicationAdminService');
 
 const SECRET = 'r'.repeat(40);
 const T0 = Date.UTC(2026, 8, 30, 10, 0, 0);
@@ -256,6 +264,16 @@ describe('candidate review API', () => {
       expect(store.read(`${BASE}/automation/flow`).documents.reports.files.at(-1).clientCheck).toEqual({ verdict: 'unreadable', matched: '' });
     });
 
+    // A cut JPG would print half grey inside the grouped PDF of the documents (lib/dossier.mjs).
+    it('refuses a JPG cut on the way, as the photo is, and says so in the four languages', async () => {
+      expect(await upload('reports', JPEG_2X2.subarray(0, JPEG_2X2.length - 2), { fileName: 'scan.jpg' })).toMatchObject({ status: 400, body: { error: 'file_unreadable' } });
+      expect(saved.size).toBe(0);
+      expect(store.read(`${BASE}/automation/flow`).documents?.reports?.files ?? []).toEqual([]);
+      expect(await upload('reports', JPEG_2X2, { fileName: 'scan.jpg' })).toMatchObject({ status: 200 });
+      expect([...saved.keys()][0]).toMatch(/\.jpg$/);
+      for (const strings of [itCore, enCore, deCore, frCore]) expect(String(strings['jobBoard.assisted.review.error.file_unreadable'] || '').trim()).not.toBe('');
+    });
+
     it('removes a file, and a document waived is taken back by a file given', async () => {
       await upload('reports', PDF);
       const fileId = store.read(`${BASE}/automation/flow`).documents.reports.files[0].key.split('/').pop();
@@ -401,5 +419,292 @@ describe('candidate review API', () => {
     const confirmed = await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'confirm_submitted' } }, deps());
     expect(confirmed).toMatchObject({ status: 200, body: { state: 'submitted' } });
     expect(effects.at(-1)).toEqual({ type: 'mark_submitted', by: 'candidate' });
+  });
+});
+
+// Owner decisions of 2026-10-03 (P4): the Swiss status on the review page, legacy values kept.
+describe('the candidate’s Swiss status on the review page', () => {
+  const labels = permitOptions('it');
+  const permitQuestion = { id: 'work_permit', question: 'Hai la cittadinanza svizzera o un permesso svizzero valido oggi?', why: '', type: 'choice', options: labels, required: true };
+  const notice = { id: 'notice', question: 'Preavviso?', why: '', type: 'text', options: [], required: false };
+  const orderRef = () => store.db.collection('assisted_applications').doc(ORDER);
+  const seed = async (draftExtra: Record<string, any>, flowPatch: Record<string, any> = {}) => {
+    await orderRef().collection('ai_drafts').doc('current').set(draft(draftExtra));
+    await orderRef().collection('automation').doc('flow').set(flowPatch, { merge: true });
+  };
+  const view = async () => (await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps())).body;
+  const answer = (answers: Record<string, string>) => handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'answers', answers } }, deps());
+
+  it('shows a stored answer that is no option as the last option, and takes it back unchanged', async () => {
+    await seed({ questions: [permitQuestion, notice] }, { answers: { work_permit: 'Permesso B in rinnovo' } });
+    const body = await view();
+    expect(body.questions[0].options).toEqual([...labels, 'Permesso B in rinnovo']);
+    expect(body.answers.work_permit).toBe('Permesso B in rinnovo');
+    expect(await answer({ work_permit: 'Permesso B in rinnovo', notice: '3 mesi' })).toMatchObject({ status: 200 });
+    expect(store.read(`${BASE}/automation/flow`)?.answers).toEqual({ work_permit: 'Permesso B in rinnovo', notice: '3 mesi' });
+    // Any other text is still no option.
+    expect(await answer({ work_permit: 'Permesso B scaduto' })).toMatchObject({ status: 400, body: { fields: { work_permit: 'Scegli una delle opzioni.' } } });
+  });
+
+  it('shows a legacy answer as the option that names the same status', async () => {
+    await seed({ questions: [permitQuestion] }, { answers: { work_permit: 'G' } });
+    const body = await view();
+    expect(body.questions[0].options).toEqual(labels);
+    expect(body.answers.work_permit).toBe(labels[4]);
+  });
+
+  it('shows an e-mail application the fields its tailored CV prints, the permit as a closed list', async () => {
+    await seed({ questions: [], channel: { type: 'email', label: 'E-mail', email: 'hr@clinica.ch' }, applicationEmail: { to: 'hr@clinica.ch', subject: 'x', body: 'y' } });
+    const fields = Object.fromEntries((await view()).formAnswers.map((field: any) => [field.key, field]));
+    for (const key of ['dateOfBirth', 'nationality', 'workPermit', 'availability', 'languages', 'linkedin']) expect([key, fields[key].inCv]).toEqual([key, true]);
+    expect(fields.workPermit).toMatchObject({ editable: true, options: labels });
+    expect(fields.salary.inCv).toBe(false);
+  });
+
+  it('says when the permit G is left out of the tailored CV', async () => {
+    const tailored = { tailoredCv: { status: 'ready', pdfKey: `assisted-application-uploads/${ORDER}/ai-cv-r1-1.pdf`, language: 'it' }, questions: [] };
+    await seed({ ...tailored, profile: { ...draft().profile, nationality: 'albanese' } }, { answers: { work_permit: labels[4] } });
+    expect((await view()).tailoredCv.permitOmitted).toBe(true);
+    await seed({ ...tailored, profile: { ...draft().profile, nationality: 'italiana' } });
+    expect((await view()).tailoredCv.permitOmitted).toBe(false);
+  });
+});
+
+// Close-out P8 (owner decisions of 2026-10-03): after the sending the candidate keeps the documents that
+// left, and the letter and the tailored CV come as an editable Word copy, built at each request, never stored.
+describe('the candidate keeps the documents', () => {
+  const DAY = 86_400_000;
+  const KEY = (name: string) => `assisted-application-uploads/${ORDER}/${name}`;
+  const TAILORED = KEY('ai-cv-r1-1.pdf');
+  const ORIGINAL = KEY(`${T0}-abc-cv.pdf`);
+  // An invented nurse, as in the rest of this file.
+  const profile = {
+    fullName: 'Maria Rossi', email: 'maria@example.com', phone: '+41 91 123 45 67', location: 'Como', summary: 'Infermiera con 6 anni in medicina interna.',
+    languages: [{ language: 'Italiano', level: 'madrelingua' }], skills: [], education: [], certifications: [],
+    experience: [{ role: 'Infermiera', employer: 'Ospedale Esempio', location: 'Como', start: '2019', end: 'oggi', kind: 'job', highlights: ['Turni in medicina interna con 12 pazienti', 'Referente per la gestione del dolore'] }],
+  };
+  const cv = sanitizeTailoredCv({
+    headline: 'Infermiera', summary: 'Infermiera con 6 anni in medicina interna.', competencies: [], skills: [],
+    experience: [{ index: 0, bullets: [{ text: 'Turni in medicina interna con 12 pazienti', source: 0, requirement: 0 }] }],
+  }, { profile, cvText: JSON.stringify(profile), language: 'it' });
+  const keptDraft = (extra: Record<string, any> = {}) => draft({
+    profile,
+    language: 'it',
+    questions: [],
+    coverLetter: {
+      subject: '', salutation: 'Gentili signore e signori,', paragraphs: ['ho lavorato & imparato <molto>.', 'Riga uno.\nRiga due.'], closing: 'Cordiali saluti',
+      text: 'Gentili signore e signori,\n\nho lavorato & imparato <molto>.\n\nRiga uno.\nRiga due.\n\nCordiali saluti',
+    },
+    letterAddress: { contactPerson: '', streetAddress: 'Via Esempio 1', postalCode: '6900', location: 'Lugano' },
+    tailoredCv: { status: 'ready', pdfKey: TAILORED, cv },
+    ...extra,
+  });
+  // The Word copies are built in memory: no Storage call at all.
+  const bucket = { file: vi.fn(() => { throw new Error('storage touched'); }) };
+  const signUrl = vi.fn(async (key: string) => `https://signed.example/${key.split('/').pop()}`);
+  const keptDeps = () => ({ ...deps(), bucket, signUrl });
+  const orderRef = () => store.db.collection('assisted_applications').doc(ORDER);
+  const seed = async ({ order = {}, flow = {}, draftExtra = {} }: { order?: Record<string, any>, flow?: Record<string, any>, draftExtra?: Record<string, any> } = {}) => {
+    await orderRef().set({ cvStorageKey: ORIGINAL, ...order }, { merge: true });
+    await orderRef().collection('automation').doc('flow').set(flow, { merge: true });
+    await orderRef().collection('ai_drafts').doc('current').set(keptDraft(draftExtra));
+  };
+  const view = async (t = token()) => (await handleAssistedApplicationReview({ method: 'GET', query: { t } }, keptDeps())).body;
+  const word = (file: unknown, t = token()) => handleAssistedApplicationReview({ method: 'GET', query: { t, file } }, keptDeps()) as Promise<any>;
+  const texts = (buffer: Buffer) => paragraphInventory(entryData(readZip(buffer).find((entry: any) => entry.name === 'word/document.xml'), 1 << 24).toString('utf8'))
+    .map((paragraph: any) => paragraph.text);
+  const sentFiles = [
+    { kind: 'letter', name: 'Lettera_di_presentazione_Maria_Rossi.pdf', key: KEY(`sent-r1-${T0}-letter.pdf`) },
+    { kind: 'cv', name: 'CV_Maria_Rossi.pdf', key: TAILORED },
+    { kind: 'documents', name: 'Allegati_Maria_Rossi.pdf', key: KEY(`sent-r1-${T0}-documents.pdf`) },
+    { kind: 'cv', name: 'CV_altro.pdf', key: 'assisted-application-uploads/order_OTHER1/x.pdf' },
+    { kind: 'cv', name: 'CV_esterno.pdf', key: 'https://evil.example/x.pdf' },
+    { kind: 'evil', name: 'x.pdf', key: KEY('x.pdf') },
+  ];
+
+  beforeEach(() => {
+    bucket.file.mockClear();
+    signUrl.mockClear();
+  });
+
+  it('offers the Word copies during the review and builds them on request, storing nothing', async () => {
+    await seed();
+    expect((await view()).word).toEqual({ letter: true, cv: true });
+    const before = { draft: store.read(`${BASE}/ai_drafts/current`), flow: store.read(`${BASE}/automation/flow`) };
+    const letter = await word('letter.docx');
+    expect(letter).toMatchObject({ status: 200, file: { contentType: DOCX_CONTENT_TYPE, fileName: 'Lettera_di_presentazione_Maria_Rossi.docx' } });
+    expect(letter.body).toBeUndefined();
+    const lines = texts(letter.file.buffer);
+    expect(lines).toContain('ho lavorato & imparato <molto>.');
+    expect(lines).toContain('Riga uno.\nRiga due.');
+    // Before the sending, the day of the download.
+    expect(lines.some((text: string) => text.includes(formatLetterDate('it', new Date(T0))))).toBe(true);
+    expect(await word('cv.docx')).toMatchObject({ status: 200, file: { contentType: DOCX_CONTENT_TYPE, fileName: 'CV_Maria_Rossi.docx' } });
+    expect(store.read(`${BASE}/ai_drafts/current`)).toEqual(before.draft);
+    expect(store.read(`${BASE}/automation/flow`)).toEqual(before.flow);
+    expect(bucket.file).not.toHaveBeenCalled();
+  });
+
+  it('builds the Word CV with the candidate’s corrections and line choices', async () => {
+    const line = cv.experience?.[0]?.lines?.[0]?.id;
+    expect(line).toBeTruthy();
+    await seed({ flow: { formOverrides: { phone: '+41 91 000 00 00' }, cvChoices: { [line]: { use: 'own', text: 'Turni di notte in medicina interna e pronto soccorso' } }, cvChoicesRound: 1 } });
+    const lines = texts((await word('cv.docx')).file.buffer);
+    expect(lines.some((text: string) => text.includes('+41 91 000 00 00'))).toBe(true);
+    expect(lines).toContain('Turni di notte in medicina interna e pronto soccorso');
+  });
+
+  it('answers 404 when there is nothing to build from, and only to a review link', async () => {
+    await seed({ draftExtra: { tailoredCv: { status: 'fact_check_failed' } } });
+    expect((await view()).word).toEqual({ letter: true, cv: false });
+    expect(await word('cv.docx')).toMatchObject({ status: 404, body: { error: 'not_found' } });
+    // A letter without paragraphs (older drafts): no copy.
+    await orderRef().collection('ai_drafts').doc('current').set(draft());
+    expect((await view()).word).toEqual({ letter: false, cv: false });
+    expect(await word('letter.docx')).toMatchObject({ status: 404, body: { error: 'not_found' } });
+    await seed();
+    for (const file of ['x.docx', '', ['letter.docx', 'cv.docx']]) expect(await word(file)).toMatchObject({ status: 404, body: { error: 'not_found' } });
+    const followup = mintReviewToken({ secret: SECRET, orderId: ORDER, round: 1, nowMs: T0, kind: 'followup' });
+    expect(await word('letter.docx', followup)).toMatchObject({ status: 404, body: { error: 'not_found' } });
+    const forged = token().replace(/.$/, (char) => (char === '0' ? '1' : '0'));
+    expect(await word('letter.docx', forged)).toMatchObject({ status: 403, body: { error: 'invalid_link' } });
+    // A new round on its way: the round-1 draft is no copy of the current round.
+    await orderRef().collection('automation').doc('flow').set({ round: 2, state: 'regenerating' }, { merge: true });
+    expect(await word('letter.docx', token(2))).toMatchObject({ status: 404 });
+    expect((await view(token(2))).word).toEqual({ letter: false, cv: false });
+  });
+
+  it('dates the Word letter of a sent application with the day it left', async () => {
+    await seed({ order: { submittedAt: new Date(T0 - 5 * DAY) }, flow: { state: 'submitted' } });
+    const dated = async () => texts((await word('letter.docx')).file.buffer).join('\n');
+    expect(await dated()).toContain(formatLetterDate('it', new Date(T0 - 5 * DAY)));
+    // The runner's record: the day the letter that left was built.
+    await orderRef().collection('ai_drafts').doc('current').set({ sent: { at: T0 - 6 * DAY, files: [] } }, { merge: true });
+    expect(await dated()).toContain(formatLetterDate('it', new Date(T0 - 6 * DAY)));
+    expect(await dated()).not.toContain(formatLetterDate('it', new Date(T0)));
+  });
+
+  it('lists what really left, signed, from the order’s folder only', async () => {
+    await seed({ flow: { state: 'submitted' }, draftExtra: { sent: { at: T0, channel: 'email', packaging: 'separate', files: sentFiles } } });
+    const body = await view();
+    expect(body.keptDocuments).toEqual({
+      source: 'sent',
+      whatsapp: false,
+      files: [
+        { kind: 'letter', name: 'Lettera_di_presentazione_Maria_Rossi.pdf', url: `https://signed.example/sent-r1-${T0}-letter.pdf`, word: ['letter.docx'], suggested: false },
+        { kind: 'cvTailored', name: 'CV_Maria_Rossi.pdf', url: 'https://signed.example/ai-cv-r1-1.pdf', word: ['cv.docx'], suggested: false },
+        { kind: 'documents', name: 'Allegati_Maria_Rossi.pdf', url: `https://signed.example/sent-r1-${T0}-documents.pdf`, word: [], suggested: false },
+      ],
+    });
+    const signed = signUrl.mock.calls.map(([key]) => key);
+    expect(signed).not.toContain('assisted-application-uploads/order_OTHER1/x.pdf');
+    expect(signed).not.toContain('https://evil.example/x.pdf');
+    // One signature per key and request: the tailored CV is the review's and a kept file.
+    expect(signed.filter((key) => key === TAILORED)).toHaveLength(1);
+    expect(JSON.stringify(body)).not.toContain('assisted-application-uploads/');
+    // The candidate's own Word file with the adapted lines, recorded by its key.
+    const inplace = { status: 'ready', docxKey: KEY('ai-cv-inplace-r1-1.docx') };
+    await seed({ flow: { state: 'submitted' }, draftExtra: { tailoredCv: { status: 'ready', pdfKey: TAILORED, cv, inplace }, sent: { at: T0, files: [{ kind: 'cv', name: 'CV_Maria_Rossi.docx', key: inplace.docxKey }] } } });
+    expect((await view()).keptDocuments.files).toEqual([{ kind: 'cvInplace', name: 'CV_Maria_Rossi.docx', url: 'https://signed.example/ai-cv-inplace-r1-1.docx', word: [], suggested: false }]);
+  });
+
+  it('keeps the stored letter and the CV that leaves for an older order, or a record it cannot sign', async () => {
+    await seed({ flow: { state: 'submitted' } });
+    expect((await view()).keptDocuments).toEqual({
+      source: 'prepared',
+      whatsapp: false,
+      files: [
+        { kind: 'letter', name: 'Lettera_di_presentazione_Maria_Rossi.pdf', url: 'https://signed.example/ai-cover-letter-r1-1.pdf', word: ['letter.docx'], suggested: false },
+        { kind: 'cvTailored', name: 'CV_Maria_Rossi.pdf', url: 'https://signed.example/ai-cv-r1-1.pdf', word: ['cv.docx'], suggested: false },
+      ],
+    });
+    // A record whose only file cannot be signed: the prepared files, not an empty block.
+    await orderRef().collection('ai_drafts').doc('current').set({ sent: { at: T0, files: [{ kind: 'cv', name: 'CV.pdf', key: 'https://evil.example/x.pdf' }] } }, { merge: true });
+    expect((await view()).keptDocuments).toMatchObject({ source: 'prepared', files: [{ kind: 'letter' }, { kind: 'cvTailored' }] });
+    // The original chosen on the review page: named by the type of its bytes, as the runner sent it.
+    await orderRef().set({ cvFileCheck: { key: ORIGINAL, verdict: 'ok', detectedType: 'docx' } }, { merge: true });
+    await orderRef().collection('automation').doc('flow').set({ cvChoice: 'original' }, { merge: true });
+    expect((await view()).keptDocuments.files[1]).toEqual({ kind: 'cvOriginal', name: 'CV_Maria_Rossi.docx', url: `https://signed.example/${T0}-abc-cv.pdf`, word: [], suggested: false });
+  });
+
+  // Owner decision 2026-10-03: in a WhatsApp application the candidate chooses the CV they send in the chat.
+  it('offers a WhatsApp candidate the tailored CV, highlighted, and their own, and stores no choice', async () => {
+    await seed({
+      order: { submissionChannel: 'whatsapp', whatsappApplyUrl: 'https://prod.pastahr.com/api/v1/redirect/COFU2003?remote_job_id=167757' },
+      flow: { state: 'submitted', cvChoice: 'original' },
+      // Whatever a record says, no file left from us.
+      draftExtra: { sent: { at: T0, channel: 'whatsapp', packaging: 'whatsapp', files: sentFiles } },
+    });
+    const before = { draft: store.read(`${BASE}/ai_drafts/current`), flow: store.read(`${BASE}/automation/flow`) };
+    expect((await view()).keptDocuments).toEqual({
+      source: 'prepared',
+      whatsapp: true,
+      files: [
+        { kind: 'letter', name: 'Lettera_di_presentazione_Maria_Rossi.pdf', url: 'https://signed.example/ai-cover-letter-r1-1.pdf', word: ['letter.docx'], suggested: false },
+        { kind: 'cvTailored', name: 'CV_Maria_Rossi.pdf', url: 'https://signed.example/ai-cv-r1-1.pdf', word: ['cv.docx'], suggested: true },
+        { kind: 'cvOriginal', name: 'CV_Maria_Rossi.pdf', url: `https://signed.example/${T0}-abc-cv.pdf`, word: [], suggested: false },
+      ],
+    });
+    expect(store.read(`${BASE}/ai_drafts/current`)).toEqual(before.draft);
+    expect(store.read(`${BASE}/automation/flow`)).toEqual(before.flow);
+    // A CV whose link cannot be made is not offered, and then nothing is left to choose between.
+    const unsigned = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, {
+      ...keptDeps(), signUrl: async (key: string) => (key === ORIGINAL ? null : `https://signed.example/${key.split('/').pop()}`),
+    });
+    expect(unsigned.body.keptDocuments.files.map((file: any) => [file.kind, file.suggested])).toEqual([['letter', false], ['cvTailored', false]]);
+    // No tailored CV past the gate: the candidate's own, nothing to choose between.
+    await orderRef().collection('ai_drafts').doc('current').set(keptDraft({ tailoredCv: { status: 'fact_check_failed' } }));
+    expect((await view()).keptDocuments.files.map((file: any) => [file.kind, file.suggested])).toEqual([['letter', false], ['cvOriginal', false]]);
+    // The page's words for both cases, in the four languages.
+    for (const strings of [itCore, enCore, deCore, frCore] as Array<Record<string, string>>) {
+      for (const key of ['introWhatsapp', 'introWhatsappChoice', 'suggested', 'cvTailored', 'cvOriginal']) expect(String(strings[`jobBoard.assisted.review.kept.${key}`] || '').trim()).not.toBe('');
+    }
+  });
+
+  it('keeps nothing before the sending, and never takes a Word copy as the CV that leaves', async () => {
+    await seed();
+    expect((await view()).keptDocuments).toBeNull();
+    expect(await handleAssistedApplicationReview({ method: 'POST', body: { t: token(), action: 'cv_choice', cvChoice: 'docx' } }, keptDeps()))
+      .toMatchObject({ status: 400, body: { error: 'invalid_cv_choice' } });
+  });
+
+  it('answers a Word copy as a download no cache keeps, anything else as JSON', () => {
+    const calls: unknown[] = [];
+    const res: any = {
+      set: (headers: unknown) => { calls.push(['set', headers]); return res; },
+      status: (code: number) => { calls.push(['status', code]); return res; },
+      send: (data: unknown) => { calls.push(['send', data]); return res; },
+      json: (data: unknown) => { calls.push(['json', data]); return res; },
+    };
+    const buffer = Buffer.from('docx');
+    sendReviewResponse(res, { status: 200, file: { buffer, contentType: DOCX_CONTENT_TYPE, fileName: 'CV_Maria_Rossi.docx' } });
+    expect(calls).toEqual([
+      ['set', { 'Content-Type': DOCX_CONTENT_TYPE, 'Content-Disposition': 'attachment; filename="CV_Maria_Rossi.docx"', 'Cache-Control': 'private, no-store', 'X-Content-Type-Options': 'nosniff' }],
+      ['status', 200],
+      ['send', buffer],
+    ]);
+    calls.length = 0;
+    sendReviewResponse(res, { status: 404, body: { ok: false, error: 'not_found' } });
+    expect(calls).toEqual([['status', 404], ['json', { ok: false, error: 'not_found' }]]);
+  });
+
+  // The letter the candidate keeps stays the one that left: the owner's edit stops with the sending.
+  it('refuses the owner’s edit of a draft whose application left, with its own code and message', async () => {
+    const edit = { action: 'automationEditDraft', orderId: ORDER, emailSubject: 'Candidatura per il posto di infermiera' };
+    await seed({ flow: { state: 'submitted' } });
+    const before = store.read(`${BASE}/ai_drafts/current`);
+    await expect(handleAutomationAdminAction(store.db, edit, 'owner@example.com', { runEffect, nowMs: T0 })).rejects.toMatchObject({ code: 'draft_submitted', status: 409 });
+    expect(store.read(`${BASE}/ai_drafts/current`)).toEqual(before);
+    // The queue tells Valerie why, in Italian.
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ ok: false, error: 'draft_submitted' }), { status: 409 })));
+    try {
+      await expect(runAutomationAdminAction({ getIdToken: async () => 'id-token' } as any, ORDER, 'automationEditDraft', edit))
+        .rejects.toMatchObject({ code: 'draft_submitted', message: 'La candidatura è già stata inviata: la bozza non si può più modificare.' });
+    } finally {
+      vi.unstubAllGlobals();
+    }
+    // Before the sending the same edit goes through.
+    await orderRef().collection('automation').doc('flow').set({ state: 'owner_review' }, { merge: true });
+    await expect(handleAutomationAdminAction(store.db, edit, 'owner@example.com', { runEffect, nowMs: T0 })).resolves.toMatchObject({ ok: true });
   });
 });

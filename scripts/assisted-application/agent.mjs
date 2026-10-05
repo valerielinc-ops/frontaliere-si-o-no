@@ -72,6 +72,26 @@ export function safeErrorCode(error) {
 }
 
 /**
+ * What left with the application (lib/submit.mjs `sent`: how it was packaged and why, the files with
+ * their names and keys), on the draft for the owner's panel and the candidate's page, before the event
+ * moves the flow to `submitted`; the record of the attempt (`sentAttempt`) gives way to it. Never in the
+ * automation event or the log: the file names carry the candidate's name. A dry run keeps nothing. A
+ * write that fails never turns a sent application into a failure: the submission guard and the
+ * encrypted evidence hold the same record.
+ */
+export async function keepSentRecord(event, { draftRef, dryRun }) {
+  if (!event?.sent) return;
+  const { sent } = event;
+  delete event.sent;
+  if (dryRun) return;
+  try {
+    await draftRef.set({ sent, sentAttempt: null }, { merge: true });
+  } catch (error) {
+    summary(`sent record not kept on the draft: ${safeErrorCode(error)}`);
+  }
+}
+
+/**
  * The run's draft, written whole in place of the previous one. The previous
  * tailored CV, when it carried the candidate's photo, is then named by no
  * document and is deleted at once (best effort: the purge of the order's
@@ -187,7 +207,14 @@ async function main() {
       accounts: portalAccountStore({ db, orderId, key: runKey, mask: (value) => maskValues([value]) }),
       // What each portal taught earlier confirmed submissions (self-correction, level 2).
       knowledge: portalKnowledgeStore({ db }),
+      // The record of a send whose outcome may stay unknown, on the draft before the send (null: it failed
+      // for certain). A dry run sends nothing.
+      keepSentAttempt: dryRun ? null : (sentAttempt) => orderRef.collection('ai_drafts').doc('current').set({ sentAttempt }, { merge: true }),
     });
+    // What left (lib/submit.mjs), on the draft first: before the event marks the order sent (whatever it
+    // sets off, the candidate's «inviata» e-mail and the review page, finds it there), and before every
+    // other after-send write, so one of them failing never loses the record of a send that happened.
+    await keepSentRecord(event, { draftRef: orderRef.collection('ai_drafts').doc('current'), dryRun });
     // An application sent by e-mail gets its follow-ups (day 7 and 14); the
     // recipient and subject stay in Firestore, not in the automation event.
     if (event.followup && !dryRun) {

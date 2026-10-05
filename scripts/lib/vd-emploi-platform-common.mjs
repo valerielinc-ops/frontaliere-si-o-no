@@ -28,6 +28,7 @@
  * the most useful ones (workplace, contract, occupation rate) when present.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -378,12 +379,8 @@ export function createVdEmploiPlatformParser(config) {
       const location = decodeEntities(cityRaw || (workplaceLooksLikeCity ? workplaceRaw : '') || defaultCity);
       const canton = inferSwissTargetCanton(location) || defaultCanton;
 
-      const postedDate = (() => {
-        const raw = offer?.dateFrom || offer?.publishedDate || '';
-        const d = new Date(String(raw || ''));
-        if (!Number.isNaN(d.getTime())) return d.toISOString().slice(0, 10);
-        return new Date().toISOString().slice(0, 10);
-      })();
+      // dateFrom orders duplicate offers; it does not establish publication.
+      const postingDates = sourcePostingDateFields(offer?.publishedDate);
 
       const jobSlug = slugify(`${decodedTitle} ${companyKey} ${location}`);
       const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
@@ -424,7 +421,7 @@ export function createVdEmploiPlatformParser(config) {
         sector: 'Sanità / Ospedali',
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...postingDates,
         applyUrl: publicUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

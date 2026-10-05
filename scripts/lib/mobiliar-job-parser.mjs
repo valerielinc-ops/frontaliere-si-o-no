@@ -10,6 +10,8 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { extractJsonLd } from './prospector/extract.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, stripScriptsAndStyles } from './crawler-template.mjs';
@@ -281,6 +283,13 @@ export async function fetchAllMobiliarJobs() {
       const location = parsed.contactCity || urlLocation || 'Bern';
       const canton = inferAnyCanton(location) || '';
       const descriptionText = parsed.description || `${parsed.title} — die Mobiliar`;
+      const records = extractJsonLd(html, jobUrl);
+      const matched = records.find(record => {
+        if (normalizeSpace(record.title || '').toLowerCase() !== parsed.title.toLowerCase()) return false;
+        if (!record.urlExplicit) return records.length === 1;
+        try { return new URL(record.url, jobUrl).href === new URL(jobUrl).href; } catch { return false; }
+      });
+      const publication = sourcePostingDateFields(matched?.datePosted);
 
       const sourceLang = detectLang(descriptionText || parsed.title, 'de');
       const jobSlug = slugify(`${parsed.title} mobiliar ch`);
@@ -317,7 +326,7 @@ export async function fetchAllMobiliarJobs() {
         sector: 'Assicurazioni',
         currency: 'CHF',
         featured: false,
-        postedDate: new Date().toISOString().split('T')[0],
+        ...publication,
         applyUrl: jobUrl,
         ...(parsed.pensum ? { pensum: parsed.pensum } : {}),
         requirements: parsed.requirements,

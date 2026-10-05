@@ -1,24 +1,69 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-10-04T09:18:47.684Z",
+  "generatedAt": "2026-10-04T21:14:10.893Z",
   "total": 9,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
   "newCount": 0,
-  "updatedCount": 9,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5789,
-  "avgDurationMs": 5789,
+  "unchangedCount": 8,
+  "durationMs": 6921,
+  "avgDurationMs": 6921,
   "durationHistory": [
-    5789
+    6921
   ],
   "newJobs": [],
   "updatedJobs": [
     {
+      "title": "IT Support & Junior System Administrator",
+      "slug": "it-support-junior-system-administrator-damiani-group-mendrisio",
+      "url": "https://careers.damianigroup.com/job/Mendrisio-IT-Support-&-Junior-System-Administrator/1362036255/",
+      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1362036255/?locale=en_US",
+      "company": "Damiani Group",
+      "companyKey": "damiani-group",
+      "companyDomain": "damianigroup.com",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "other",
+      "sector": "Lusso & Gioielleria",
+      "source": "damiani-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "damiani-group-5460459c212f",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "streetAddress": "Via Penate 12",
+      "postalCode": "6850",
+      "firstSeenAt": "2026-07-24T11:12:56.301Z",
+      "salarySource": "estimated",
+      "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-it-support-&-junior-system-administrator/1362036255",
+      "needsRetranslation": true,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 23,
+        "completeness": 23
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
       "title": "Finance & Accounting Integration Specialist",
-      "slug": "finance-accounting-integration-specialist-damiani-group-mendrisio",
+      "slug": "finanza-accounting-integration-specialista-damiani-group-mendrisio",
       "url": "https://careers.damianigroup.com/job/Mendrisio-Finance-&-Accounting-Integration-Specialist/1362895655/",
       "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1362895655/?locale=en_US",
       "company": "Damiani Group",
@@ -49,9 +94,9 @@
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-finance-&-accounting-integration-specialist/1362895655",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 92,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 24,
         "translation": 25,
         "completeness": 23
@@ -101,7 +146,7 @@
     },
     {
       "title": "Marketing Manager",
-      "slug": "marketing-manager-damiani-group-mendrisio",
+      "slug": "responsabile-marketing-damiani-group-mendrisio",
       "url": "https://careers.damianigroup.com/job/Mendrisio-Marketing-Manager/1366255755/",
       "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1366255755/?locale=en_US",
       "company": "Damiani Group",
@@ -182,48 +227,6 @@
       }
     },
     {
-      "title": "IT Support & Junior System Administrator",
-      "slug": "it-support-junior-system-administrator-damiani-group-mendrisio",
-      "url": "https://careers.damianigroup.com/job/Mendrisio-IT-Support-&-Junior-System-Administrator/1362036255/",
-      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1362036255/?locale=en_US",
-      "company": "Damiani Group",
-      "companyKey": "damiani-group",
-      "companyDomain": "damianigroup.com",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "other",
-      "sector": "Lusso & Gioielleria",
-      "source": "damiani-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "damiani-group-5460459c212f",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "streetAddress": "Via Penate 12",
-      "postalCode": "6850",
-      "firstSeenAt": "2026-07-24T11:12:56.301Z",
-      "salarySource": "estimated",
-      "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-it-support-&-junior-system-administrator/1362036255",
-      "needsRetranslation": true,
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
       "title": "Ecommerce Merchandising Specialist",
       "slug": "ecommerce-merchandising-specialist-damiani-group-mendrisio",
       "url": "https://careers.damianigroup.com/job/Mendrisio-Ecommerce-Merchandising-Specialist/1353588155/",
@@ -266,7 +269,7 @@
     },
     {
       "title": "Customer Service Specialist - German Speaking",
-      "slug": "customer-service-specialist-german-speaking-damiani-group-mendrisio",
+      "slug": "servizio-clienti-specialista-german-speaking-damiani-group-mendrisio",
       "url": "https://careers.damianigroup.com/job/Mendrisio-Customer-Service-Specialist-German-Speaking/1355847255/",
       "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1355847255/?locale=en_US",
       "company": "Damiani Group",
@@ -377,6 +380,7 @@
       "sourceIdentity": "url:https://careers.damianigroup.com/job/lugano-sales-advisor-salvini-gioielli-manor/1367607755",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -386,7 +390,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

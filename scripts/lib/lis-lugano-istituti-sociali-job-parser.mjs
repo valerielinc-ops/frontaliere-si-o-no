@@ -40,6 +40,7 @@ import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { locateTagByAttribute, extractBalancedTagBlock, stripInlineJsCode } from './hospital-custom-html-helpers.mjs';
 import { normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
 import { readMetaContent } from './html-attr.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 
 const HQ = getCompanyDefaults('lis');
 
@@ -241,7 +242,8 @@ export function parseArca24DetailPage(html, pageUrl = '') {
   const role = extractItemprop(html, 'occupationalCategory') || '';
 
   // Dates
-  const datePosted = parseArca24Date(extractItemprop(html, 'datePosted'));
+  const rawPublication = extractItemprop(html, 'datePosted');
+  const publication = sourcePostingDateFields(rawPublication.replace(/^(\d{2})\/(\d{2})\/(\d{4})$/, '$3-$2-$1'));
   const validThrough = parseArca24Date(extractItemprop(html, 'validThrough'));
 
   // Description: extract main body content
@@ -302,7 +304,7 @@ export function parseArca24DetailPage(html, pageUrl = '') {
     region: region || 'Ticino',
     sector,
     role,
-    datePosted,
+    ...publication,
     validThrough,
     description,
     salary,
@@ -419,7 +421,7 @@ export function buildLisJob(url, parsed) {
     postalCode: parsed.location === 'Pregassona' ? '6963' : '6900',
     streetAddress: parsed.streetAddress || 'Via alla Bozzoreda 15',
     description: parsed.description || '',
-    datePosted: parsed.datePosted || new Date().toISOString().split('T')[0],
+    ...mergeSourcePostingDates({}, parsed),
     validThrough: parsed.validThrough || '',
     sector: parsed.sector || '',
     role: parsed.role || '',

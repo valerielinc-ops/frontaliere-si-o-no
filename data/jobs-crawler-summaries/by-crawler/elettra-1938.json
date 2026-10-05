@@ -1,7 +1,7 @@
 {
   "key": "elettra-1938",
   "label": "Elettra 1938",
-  "generatedAt": "2026-10-04T09:24:58.171Z",
+  "generatedAt": "2026-10-04T21:23:38.847Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -14,13 +14,52 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7119,
-  "avgDurationMs": 7119,
+  "durationMs": 7043,
+  "avgDurationMs": 7043,
   "durationHistory": [
-    7119
+    7043
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "id": "elettra-1938-ef6f82493666",
+      "slug": "operaio-d-esercizio-elettra-1938-ch",
+      "company": "Elettra 1938",
+      "companyKey": "elettra-1938",
+      "companyDomain": "elettra1938.ch",
+      "title": "Operaio d'esercizio",
+      "location": "Sede Stabio Svizzera",
+      "canton": "TI",
+      "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/",
+      "source": "Elettra 1938 Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-10-04T21:23:29.878Z",
+      "addressLocality": "Sede Stabio Svizzera",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6855",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Impiantistica elettrica / Automazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-18",
+      "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/",
+      "firstSeenAt": "2026-09-18T23:20:34.167Z",
+      "salaryMin": 55500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
     {
       "id": "elettra-1938-6cd11cbbc30b",
       "slug": "hw-engineer-elettra-1938-ch",
@@ -33,7 +72,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-729790/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T09:24:47.782Z",
+      "crawledAt": "2026-10-04T21:23:28.401Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -50,52 +89,19 @@
       "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-729790/it/",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T14:55:35.445Z",
-      "_qualityScore": 72,
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "salarySource": "estimated",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 10,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "elettra-1938-ef6f82493666",
-      "slug": "operaio-d-esercizio-elettra-1938-ch",
-      "company": "Elettra 1938",
-      "companyKey": "elettra-1938",
-      "companyDomain": "elettra1938.ch",
-      "title": "Operaio d'esercizio",
-      "location": "Sede Stabio Svizzera",
-      "canton": "TI",
-      "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/",
-      "source": "Elettra 1938 Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-10-04T09:24:49.151Z",
-      "addressLocality": "Sede Stabio Svizzera",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6855",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Impiantistica elettrica / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-18",
-      "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/",
-      "firstSeenAt": "2026-09-18T23:20:34.167Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 17
+        "translation": 21,
+        "completeness": 22
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

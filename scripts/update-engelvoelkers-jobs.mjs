@@ -171,6 +171,7 @@ async function fetchAllListings() {
   try {
     html = await fetchText(CAREERS_URL);
   } catch (err) {
+    // fetch-failure-empty-ok: bespoke runner outside runStandardCrawlerPipeline: a throw is an unclassified exit 1, not the template connection-level soft exit
     console.log(`  ⚠️ Listing page fetch failed: ${err.message}`);
     return [];
   }

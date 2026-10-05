@@ -26,6 +26,7 @@
  *   - isTrustedDomain()     — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -230,13 +231,6 @@ function buildParsedJobFromSf(normalized) {
   const jobSlug = slugify(`${title} pictet ${city || 'geneva'}`);
   const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-  const postedDate = (() => {
-    const raw = normalized?.postedAt || '';
-    if (!raw) return new Date().toISOString().slice(0, 10);
-    const d = new Date(raw);
-    if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-    return d.toISOString().slice(0, 10);
-  })();
 
   return {
     // ── Required fields ──
@@ -269,7 +263,7 @@ function buildParsedJobFromSf(normalized) {
     sector: 'Finanza / Banca privata',
     currency: 'CHF',
     featured: false,
-    postedDate,
+    ...mergeSourcePostingDates({}, normalized),
     applyUrl: publicUrl,
     jobReqId: normalized?.jobReqId || null,
     requirements: [],

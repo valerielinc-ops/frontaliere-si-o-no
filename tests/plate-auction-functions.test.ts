@@ -9,6 +9,7 @@ import { PLATE_AUCTION_COLLECTION, PLATE_AUCTION_SOURCE_COLLECTION, plateAuction
 import { PLATE_AUCTION_API_RELAY_MAX_AGE_MS } from '../scripts/plate-auctions/connectors/api-relay.mjs';
 
 const ECARI_NO_RUNNING_AUCTION = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'fixtures/ecari-no-running-auction.html'), 'utf8');
+const EXPANDED_CARD_EMPTY_SAMPLE = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'fixtures/expanded-card-empty-sample.html'), 'utf8');
 
 const GR_PARTIAL_FEED = `
   <div id="tabContent1"><table><tbody><tr class="L">
@@ -440,6 +441,30 @@ describe('plate-auction Cloud Function: FR e TI geo-fenced, raccolti da Zurigo',
   });
 });
 
+describe('plate-auction Cloud Function: card catalogue between auction rounds', () => {
+  it('keeps an empty official card page healthy and closes expired VD rows', async () => {
+    const fetchedAt = '2026-10-04T21:30:00.000Z';
+    const firestore = statefulFirestore([{
+      id: 'vd-1768', sourceKey: 'VD', canton: 'Vaud', platePrefix: 'VD', plateNumber: '691', normalizedPlate: 'VD691',
+      listingType: 'auction', auctionStatus: 'active', currentBidChf: 950, endsAt: '2026-10-04T20:00:00.000Z',
+      officialAuctionUrl: 'https://www.encheres-vd.ch/de/', sourceFetchedAt: '2026-10-04T12:25:00.000Z',
+      lastVerifiedAt: '2026-10-04T12:25:00.000Z', dataConfidence: 'partial', firstSeenAt: '2026-10-04T12:25:00.000Z',
+    }]);
+    const result = await refreshPlateAuctions({
+      db: firestore.db as never,
+      fetcher: async (url: string) => url.includes('encheres-vd.ch') ? EXPANDED_CARD_EMPTY_SAMPLE : '',
+      now: new Date(fetchedAt),
+    });
+    expect(result.summaries.vd).toMatchObject({ status: 'active', rowCount: 0 });
+    expect(firestore.sources.get('vd')).toMatchObject({
+      status: 'active', rowCount: 0, errorCode: null, lastSuccessAt: fetchedAt,
+    });
+    expect(firestore.current.get('vd-1768')).toMatchObject({
+      auctionStatus: 'closed', closedAt: '2026-10-04T20:00:00.000Z',
+    });
+  });
+});
+
 describe('plate-auction history: a copy only when the observation changed', () => {
   const stored = {
     id: 'ag-58771', sourceKey: 'AG', auctionStatus: 'active', currentBidChf: 1200, bidCount: 4, rawSnapshotHash: 'a',
@@ -552,4 +577,3 @@ describe('plate-auction refresh publishes the public snapshot', () => {
     expect(result.summaries.so).toMatchObject({ status: 'active' });
   });
 });
-

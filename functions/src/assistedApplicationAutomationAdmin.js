@@ -17,14 +17,16 @@ import {
 import { randomUUID } from 'node:crypto';
 import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import { isPlausibleEmail } from './assistedApplicationAiJob.js';
-import { formAnswersWithEdits } from './assistedApplicationCandidateEdits.js';
+import { factSourcesNow, formAnswersWithEdits } from './assistedApplicationCandidateEdits.js';
+import { CvCommitError, saveAnswersWithCv } from './assistedApplicationCvCommit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
-import { cvChoiceOf } from './assistedApplicationDocxInPlace.js';
+import { cvChoiceOf, cvToSend } from './assistedApplicationDocxInPlace.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import {
   AUTOMATION_SUBCOLLECTION,
   applyAutomationEvent,
+  confirmSentAttempt,
   isAutomationEnabledFor,
   draftRefFor,
   flowRefFor,
@@ -34,7 +36,7 @@ import {
 import { ensureOrderAlias } from './assistedApplicationAlias.js';
 import { factCheckTokens } from './assistedApplicationFlow.js';
 import { buildFillKit } from './assistedApplicationFillKit.js';
-import { extraDocumentsToSend } from './assistedApplicationExtraDocuments.js';
+import { MAX_FILES_PER_DOCUMENT, MAX_REQUIRED_DOCUMENTS, extraDocumentsToSend } from './assistedApplicationExtraDocuments.js';
 import { submissionGuard } from './assistedApplicationSubmissionGuard.js';
 import { decryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
@@ -64,6 +66,35 @@ export class AutomationAdminError extends Error {
     this.code = code;
     this.status = status;
   }
+}
+
+// The record of what left (scripts/assisted-application/lib/submit.mjs `sent`): the letter, the CV and every
+// file of every requested document, at most.
+const SENT_KINDS = new Set(['letter', 'cv', 'dossier', 'documents', 'document']);
+const MAX_SENT_FILES = 2 + MAX_REQUIRED_DOCUMENTS * MAX_FILES_PER_DOCUMENT;
+
+/** The record of what left, each file with a signed link in place of its key. */
+async function sentView(sent, sign) {
+  if (!sent || typeof sent !== 'object') return null;
+  const files = (Array.isArray(sent.files) ? sent.files : []).filter((file) => SENT_KINDS.has(file?.kind)).slice(0, MAX_SENT_FILES);
+  const [letterUrl, ...urls] = await Promise.all([sign(sent.letterKey), ...files.map((file) => sign(file.key))]);
+  return {
+    at: Number(sent.at) || null,
+    channel: String(sent.channel || ''),
+    packaging: ['separate', 'single', 'portal', 'whatsapp'].includes(sent.packaging) ? sent.packaging : null,
+    reason: sent.reason ? String(sent.reason) : null,
+    ad: sent.ad === 'single' || sent.ad === 'separate' ? sent.ad : '',
+    adCue: String(sent.adCue || ''),
+    documentsGrouped: Boolean(sent.documentsGrouped),
+    documentsReason: sent.documentsReason ? String(sent.documentsReason) : null,
+    pages: Number(sent.pages) || null,
+    bytes: Number(sent.bytes) || null,
+    letterRenderer: sent.letterRenderer === 'typst' || sent.letterRenderer === 'legacy' ? sent.letterRenderer : null,
+    // A send whose outcome was uncertain, confirmed afterwards (assistedApplicationAutomation.js confirmSentAttempt).
+    confirmedBy: sent.confirmedBy === 'owner' || sent.confirmedBy === 'acknowledgement' ? sent.confirmedBy : null,
+    letterUrl: letterUrl || null,
+    files: files.map((file, index) => ({ kind: file.kind, name: String(file.name || ''), url: urls[index] || null })),
+  };
 }
 
 /** Flow + draft as the owner queue shows them (no raw CV text). */
@@ -114,9 +145,15 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       forwarded: item.forwarded?.status || null,
     }));
   if (!flow && !draft && !inbox.length && !accounts.length && !followup) return null;
-  const signed = (key) => (key && signUrl && isAssistedApplicationCvKey(orderId, key) ? signUrl(key).catch(() => null) : null);
+  // One signature per key and load: the CV that left is usually the tailored CV signed here already.
+  const signatures = new Map();
+  const signed = (key) => {
+    if (!key || !signUrl || !isAssistedApplicationCvKey(orderId, key)) return null;
+    if (!signatures.has(key)) signatures.set(key, signUrl(key).catch(() => null));
+    return signatures.get(key);
+  };
   const inPlaceKey = draft?.tailoredCv?.inplace?.status === 'ready' ? draft.tailoredCv.inplace.docxKey : null;
-  const [letterUrl, tailoredCvUrl, inPlaceUrl] = await Promise.all([signed(draft?.coverLetterPdfKey), signed(draft?.tailoredCv?.pdfKey), signed(inPlaceKey)]);
+  const [letterUrl, tailoredCvUrl, inPlaceUrl, sent] = await Promise.all([signed(draft?.coverLetterPdfKey), signed(draft?.tailoredCv?.pdfKey), signed(inPlaceKey), sentView(draft?.sent, signed)]);
   return {
     inbox,
     accounts,
@@ -181,6 +218,8 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       candidateCvChoice: flow?.cvChoice || null,
       // What the portal already received, for Valerie when she finishes by hand.
       portalAnswers: draft.portalAnswers || null,
+      // What left with the application (submit.mjs), each file with a signed link.
+      sent,
     } : null,
   };
 }
@@ -191,6 +230,8 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
   const [orderSnapshot, draftSnapshot, flowSnapshot] = await Promise.all([orderRef.get(), draftRef.get(), flowRefFor(db, orderId).get()]);
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
   if (!draft || draft.status !== 'ready') throw new AutomationAdminError('draft_not_ready', 409);
+  // Sent: the letter that left is the candidate's to keep, a later edit would only change their Word copy (P8).
+  if (flowSnapshot.data()?.state === 'submitted') throw new AutomationAdminError('draft_submitted', 409);
   const order = orderSnapshot.data() || {};
   const letterRaw = cleanBlock(raw.coverLetterText, 8000);
   const emailSubject = clean(raw.emailSubject, 300);
@@ -209,7 +250,9 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
   const channel = emailTo && draft.channel?.type !== 'email'
     ? { ...draft.channel, type: 'email', label: 'E-mail', email: emailTo, setBy: 'owner' }
     : draft.channel;
-  const factCheck = checkDraftTexts({ coverLetter: text, emailSubject: applicationEmail.subject, emailBody: applicationEmail.body }, draft.factSources || {}, { language: draft.language });
+  // With the candidate's permit status of now (decision 8).
+  const factCheck = checkDraftTexts({ coverLetter: text, emailSubject: applicationEmail.subject, emailBody: applicationEmail.body },
+    factSourcesNow({ order, draft, flow: flowSnapshot.data() || {} }), { language: draft.language });
 
   let coverLetterPdfKey = draft.coverLetterPdfKey;
   let coverLetterRenderer = null;
@@ -336,13 +379,25 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
     case 'automationEditDraft':
       return editDraft(db, orderId, raw, adminEmail, { bucket: deps.bucket, nowMs });
     case 'automationSetAnswers': {
-      const flowSnapshot = await flowRefFor(db, orderId).get();
+      const [orderSnapshot, flowSnapshot, draftSnapshot] = await Promise.all([
+        orderRefFor(db, orderId).get(), flowRefFor(db, orderId).get(), draftRefFor(db, orderId).get(),
+      ]);
       if (!flowSnapshot.exists) throw new AutomationAdminError('no_flow', 404);
       const answers = {};
       for (const [id, value] of Object.entries(raw.answers && typeof raw.answers === 'object' ? raw.answers : {})) {
         if (/^[a-z0-9_]{1,60}$/.test(id)) answers[id] = clean(value, 500);
       }
-      await flowRefFor(db, orderId).set({ answers: { ...(flowSnapshot.data()?.answers || {}), ...answers }, updatedAt: nowMs }, { merge: true });
+      // An answer the tailored CV prints (the permit status, the availability): rebuilt and committed with the
+      // answers, before the event can dispatch the submission (decision 7), as the candidate's answers are.
+      try {
+        await saveAnswersWithCv({
+          db, bucket: deps.bucket, orderId, order: orderSnapshot.data() || {}, flow: flowSnapshot.data() || {},
+          draft: draftSnapshot.exists ? draftSnapshot.data() || null : null, answers, nowMs,
+        });
+      } catch (error) {
+        if (error instanceof CvCommitError) throw new AutomationAdminError(error.code, error.status);
+        throw error;
+      }
       const result = await applyAutomationEvent({ db, orderId, event: { type: 'candidate_answers' }, actor, runEffect: deps.runEffect, nowMs });
       return { ok: true, state: result.flow?.state || flowSnapshot.data()?.state };
     }
@@ -392,7 +447,9 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
  * Valerie sent the application herself (the fill extension, or «Segna come
  * inviata» in either part of the queue): the flow the robot left her closes
  * (owner_submitted) and the round is on record as sent, so no later run or
- * retry presses it again. A flow in any other state is left as it is.
+ * retry presses it again. A flow in any other state is left as it is. When
+ * she confirms a robot's send of uncertain outcome, the runner's record of
+ * that attempt becomes the record of what left.
  * @returns {Promise<{ok:boolean, state?:string, ignored?:string}>}
  */
 export async function recordOwnerSubmission({ db, orderId, adminEmail, via = 'owner', runEffect, nowMs = Date.now() }) {
@@ -402,6 +459,9 @@ export async function recordOwnerSubmission({ db, orderId, adminEmail, via = 'ow
   });
   if (!result.ok) return { ok: false, ignored: result.ignored || 'not_allowed' };
   await submissionGuard(db, orderId, flow.round || 1).markSent({ channel: via, by: adminEmail }, nowMs);
+  // Best effort: the flow is closed; without a record the candidate's page shows the prepared files.
+  await confirmSentAttempt({ db, orderId, round: flow.round || 1, confirmedBy: 'owner', nowMs })
+    .catch((error) => console.warn('[assisted-application] sent record not confirmed', orderId, error instanceof Error ? error.message : String(error)));
   return { ok: true, state: result.flow.state };
 }
 
@@ -462,18 +522,16 @@ async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nowMs
   if (record?.state === 'sending' && record.clickedAt) {
     if (!confirmNotReceived) throw new AutomationAdminError('submission_unconfirmed', 409);
     await guard.release('owner: checked on the portal, not received', nowMs);
+    // The robot's attempt did not arrive: it is no record of what leaves (submit.mjs `sentAttempt`).
+    await draftRefFor(db, orderId).set({ sentAttempt: null }, { merge: true });
   }
   const sign = (key) => (key && deps.signUrl && isAssistedApplicationCvKey(orderId, key) ? deps.signUrl(key).catch(() => null) : null);
-  const choice = cvChoiceOf(draft, flow);
-  const ready = draft.tailoredCv?.status === 'ready';
-  const inPlace = ready && choice === 'inplace';
-  const tailored = ready && draft.tailoredCv.pdfKey && choice !== 'original';
-  const originalKey = String(order.cvStorageKey || '');
+  // The CV the runner would send (cvToSend, as chooseCv): the original named by the type of its bytes.
+  const cv = cvToSend(draft, flow, order);
   const [cvUrl, letterUrl] = await Promise.all([
-    inPlace ? sign(draft.tailoredCv.inplace.docxKey) : tailored ? sign(draft.tailoredCv.pdfKey) : deps.originalCvUrl ? deps.originalCvUrl(orderId, order) : null,
+    cv.cv === 'original' ? (deps.originalCvUrl ? deps.originalCvUrl(orderId, order) : null) : sign(cv.key),
     sign(draft.coverLetterPdfKey),
   ]);
-  const extension = inPlace ? 'docx' : tailored ? 'pdf' : (/\.([a-z0-9]{2,5})$/i.exec(originalKey)?.[1] || 'pdf').toLowerCase();
   // The requested documents the candidate gave, each file a signed link too.
   const extra = await Promise.all(extraDocumentsToSend(draft, flow, orderId).map(async (document) => ({
     ...document,
@@ -484,6 +542,6 @@ async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nowMs
     order,
     draft,
     flow,
-    documents: { cv: cvUrl ? { url: cvUrl, extension } : null, coverLetter: letterUrl ? { url: letterUrl } : null, extra },
+    documents: { cv: cvUrl ? { url: cvUrl, extension: cv.extension } : null, coverLetter: letterUrl ? { url: letterUrl } : null, extra },
   });
 }

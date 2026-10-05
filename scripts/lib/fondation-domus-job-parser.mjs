@@ -10,6 +10,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
@@ -307,10 +308,9 @@ export function parseJobsFromHtml(html = '') {
       || block.match(/contrat\s*:?\s*<\/[^>]+>\s*([^<]+)/i);
     if (contratMatch) contractType = normalizeSpace(stripHtml(contratMatch[1]));
 
-    // Extract date
+    // Only an explicit publication label has publication semantics.
     let dateStr = '';
-    const dateMatch = block.match(/date\s*(?:de\s+(?:d[ée]but|publication))?\s*:?\s*<\/h[45]>\s*([\s\S]*?)(?:<h[45]|<a\s)/i)
-      || block.match(/(\d{1,2}\s+\w+\s+\d{4})/);
+    const dateMatch = block.match(/date\s+de\s+publication\s*:?\s*<\/h[45]>\s*([\s\S]*?)(?:<h[45]|<a\s)/i);
     if (dateMatch) dateStr = normalizeSpace(stripHtml(dateMatch[1]));
 
     // Extract apply URL (JobUp or fondation-domus.ch link)
@@ -330,7 +330,7 @@ export function parseJobsFromHtml(html = '') {
  * Fetch the JobUp.ch detail page and extract the description from
  * JSON-LD JobPosting schema or HTML fallback.
  */
-async function fetchJobUpDescription(jobUpUrl) {
+async function fetchJobUpDescription(jobUpUrl, title) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
 
   try {
@@ -354,7 +354,13 @@ async function fetchJobUpDescription(jobUpUrl) {
           const items = Array.isArray(raw) ? raw : [raw];
           for (const ld of items) {
             if (ld['@type'] === 'JobPosting' && ld.description) {
-              return stripHtml(ld.description).trim();
+              let sameUrl = !ld.url;
+              if (ld.url) {
+                try { sameUrl = new URL(ld.url, jobUpUrl).href === new URL(jobUpUrl).href; }
+                catch { sameUrl = false; }
+              }
+              const sameTitle = normalizeSpace(ld.title || '').toLowerCase() === normalizeSpace(title).toLowerCase();
+              return { description: stripHtml(ld.description).trim(), ...sourcePostingDateFields(sameTitle && sameUrl ? ld.datePosted : '') };
             }
           }
         } catch { /* not valid JSON-LD, skip */ }
@@ -363,7 +369,7 @@ async function fetchJobUpDescription(jobUpUrl) {
 
     // HTML fallback: C_PBODYHTML container
     const bodyMatch = html.match(/<div[^>]*class="[^"]*C_PBODYHTML[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
-    if (bodyMatch) return stripHtml(bodyMatch[1]).trim();
+    if (bodyMatch) return { description: stripHtml(bodyMatch[1]).trim(), ...sourcePostingDateFields() };
 
     return null;
   } catch {
@@ -433,7 +439,7 @@ export async function fetchAllFondationDomusJobs({ fetchPage = fetchCareerPage }
     const city = inferCity(listing.location);
     const canton = inferAnyCanton(city) || 'VS';
     const pct = parseEmploymentPct(listing.percentage || title);
-    const postedDate = parseFrenchDate(listing.dateStr);
+    let publication = sourcePostingDateFields(parseFrenchDate(listing.dateStr));
 
     // Use the career page URL as primary; applyUrl for application link
     const publicUrl = listing.applyUrl || CAREER_URL;
@@ -444,7 +450,9 @@ export async function fetchAllFondationDomusJobs({ fetchPage = fetchCareerPage }
     let descriptionText = '';
     if (listing.applyUrl && listing.applyUrl.includes('jobup.ch')) {
       console.log(`  📄 Fetching detail from JobUp: ${listing.applyUrl.substring(0, 60)}...`);
-      descriptionText = await fetchJobUpDescription(listing.applyUrl) || '';
+      const detail = await fetchJobUpDescription(listing.applyUrl, title);
+      descriptionText = detail?.description || '';
+      if (detail?.postingDateSource === 'reported') publication = sourcePostingDateFields(detail.datePosted);
       await new Promise((r) => setTimeout(r, 300));
     }
 
@@ -491,7 +499,7 @@ export async function fetchAllFondationDomusJobs({ fetchPage = fetchCareerPage }
       sector: 'Social / Fondation',
       currency: 'CHF',
       featured: false,
-      postedDate: postedDate || new Date().toISOString().split('T')[0],
+      ...publication,
       applyUrl: listing.applyUrl || CAREER_URL,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

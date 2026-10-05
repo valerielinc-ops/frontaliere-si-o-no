@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-10-04T09:24:38.491Z",
+  "assembledAt": "2026-10-04T21:36:55.527Z",
   "jobs": [
     {
       "id": "sfs-group-d28e368a8b5c",
@@ -33,7 +33,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/techniker-in-wärmebehandlung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:33.069Z",
+      "crawledAt": "2026-10-04T21:36:51.637Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -54,11 +54,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
+        "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg",
+        "trattamento-tecnico-riscaldamento-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
+          "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg",
+          "trattamento-tecnico-riscaldamento-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
@@ -113,7 +115,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/steuerungstechniker-in-anlagentechniker-in-support-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:32.938Z",
+      "crawledAt": "2026-10-04T21:36:51.504Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -180,7 +182,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/projektleiter-kunststofftechnik-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:32.807Z",
+      "crawledAt": "2026-10-04T21:36:51.370Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "streetAddress": "Altstätten",
@@ -202,12 +204,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-kunststofftechnik-m-f-d-sfs-group-altstatten",
-        "projektleiter-kunststofftechnik-m-w-d-sfs-group-altstatten"
+        "projektleiter-kunststofftechnik-m-w-d-sfs-group-altstatten",
+        "project-manager-plastics-engineering-m-f-d-sfs-group-altstatten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-kunststofftechnik-m-f-d-sfs-group-altstatten",
-          "projektleiter-kunststofftechnik-m-w-d-sfs-group-altstatten"
+          "projektleiter-kunststofftechnik-m-w-d-sfs-group-altstatten",
+          "project-manager-plastics-engineering-m-f-d-sfs-group-altstatten"
         ],
         "en": [
           "projektleiter-kunststofftechnik-m-f-d-sfs-group-altstatten"
@@ -217,6 +221,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:49:47.672Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -262,7 +267,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/project-manager-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:32.675Z",
+      "crawledAt": "2026-10-04T21:36:51.240Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -284,11 +289,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "project-manager-m-f-d-sfs-group-heerbrugg",
-        "project-manager-m-w-d-sfs-group-heerbrugg"
+        "project-manager-m-w-d-sfs-group-heerbrugg",
+        "responsabile-del-progetto-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-m-f-d-sfs-group-heerbrugg"
+          "project-manager-m-f-d-sfs-group-heerbrugg",
+          "responsabile-del-progetto-m-f-d-sfs-group-heerbrugg"
         ],
         "fr": [
           "project-manager-m-f-d-sfs-group-heerbrugg",
@@ -342,7 +349,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/product-manager-rainscreen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:32.544Z",
+      "crawledAt": "2026-10-04T21:36:51.108Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -363,11 +370,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg"
+        "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg",
+        "responsabile-prodotto-parapioggia-m-f-d-80-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg"
+          "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg",
+          "responsabile-prodotto-parapioggia-m-f-d-80-sfs-group-heerbrugg"
         ],
         "fr": [
           "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg"
@@ -420,7 +429,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/process-engineer-aerospace-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:32.412Z",
+      "crawledAt": "2026-10-04T21:36:50.974Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -441,6 +450,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-11T13:52:15.375Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -486,7 +496,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-erosion-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:32.283Z",
+      "crawledAt": "2026-10-04T21:36:50.836Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -538,11 +548,13 @@
         ]
       },
       "previousSlugs": [
-        "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
+        "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg",
+        "polimeccanica-in-erosione-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
+          "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg",
+          "polimeccanica-in-erosione-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
@@ -552,6 +564,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:34.456Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -597,7 +610,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/messtechniker-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:32.149Z",
+      "crawledAt": "2026-10-04T21:36:50.701Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -618,11 +631,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "messtechniker-in-m-f-d-sfs-group-hallau"
+        "messtechniker-in-m-f-d-sfs-group-hallau",
+        "tecnico-di-misura-m-f-d-sfs-group-hallau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "messtechniker-in-m-f-d-sfs-group-hallau"
+          "messtechniker-in-m-f-d-sfs-group-hallau",
+          "tecnico-di-misura-m-f-d-sfs-group-hallau"
         ],
         "en": [
           "messtechniker-in-m-f-d-sfs-group-hallau"
@@ -677,7 +692,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/maschinenbediener-in-umformtechnik-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:32.017Z",
+      "crawledAt": "2026-10-04T21:36:50.566Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -698,11 +713,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg"
+        "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg",
+        "tecnologia-di-formatura-dell-operatore-macchina-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg"
+          "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg",
+          "tecnologia-di-formatura-dell-operatore-macchina-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg"
@@ -757,7 +774,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/logistiker-in-kommissionierung-(2-schicht)-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:31.885Z",
+      "crawledAt": "2026-10-04T21:36:50.435Z",
       "addressLocality": "Rotkreuz",
       "addressRegion": "SG",
       "streetAddress": "Rotkreuz",
@@ -815,7 +832,7 @@
       "title": "Lead Konstrukteur Umformwerkzeuge (m/f/d) 80–",
       "titleByLocale": {
         "it": "Ingegnere di progettazione di piombo che forma gli strumenti (m/f/d) 80–",
-        "en": "Lead Konstrukteur Umformwerkzeuge (m/f/d) 80–",
+        "en": "Lead designer forming tools (m/f/d) 80–",
         "de": "Lead Konstrukteur Umformwerkzeuge (m/f/d) 80–",
         "fr": "Ingénieur de conception principal formant des outils (h/f/d) 80–"
       },
@@ -831,7 +848,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/lead-konstrukteur-umformwerkzeuge-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:31.757Z",
+      "crawledAt": "2026-10-04T21:36:50.303Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -852,11 +869,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
+        "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg",
+        "ingegnere-di-progettazione-di-piombo-che-forma-gli-strumenti-m-f-d-80-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
+          "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg",
+          "ingegnere-di-progettazione-di-piombo-che-forma-gli-strumenti-m-f-d-80-sfs-group-heerbrugg"
         ],
         "en": [
           "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
@@ -865,7 +884,6 @@
           "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:53:56.944Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -912,7 +930,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-für-verfahrenstechnik-spritzgiessen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:31.627Z",
+      "crawledAt": "2026-10-04T21:36:50.169Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "streetAddress": "Altstätten",
@@ -934,12 +952,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kunststofftechnologe-in-fur-verfahrenstechnik-spritzgiessen-m-f-d-sfs-group-altstatten",
-        "kunststofftechnologe-in-per-verfahrenstechnik-spritzgiessen-m-w-d-sfs-group-altstatten"
+        "kunststofftechnologe-in-per-verfahrenstechnik-spritzgiessen-m-w-d-sfs-group-altstatten",
+        "tecnologo-di-plastica-per-l-ingegneria-di-processo-stampaggio-ad-iniezione-m-f-d-sfs-group-altstatten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kunststofftechnologe-in-fur-verfahrenstechnik-spritzgiessen-m-f-d-sfs-group-altstatten",
-          "kunststofftechnologe-in-per-verfahrenstechnik-spritzgiessen-m-w-d-sfs-group-altstatten"
+          "kunststofftechnologe-in-per-verfahrenstechnik-spritzgiessen-m-w-d-sfs-group-altstatten",
+          "tecnologo-di-plastica-per-l-ingegneria-di-processo-stampaggio-ad-iniezione-m-f-d-sfs-group-altstatten"
         ],
         "en": [
           "kunststofftechnologe-in-fur-verfahrenstechnik-spritzgiessen-m-f-d-sfs-group-altstatten"
@@ -994,7 +1014,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:31.495Z",
+      "crawledAt": "2026-10-04T21:36:50.039Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -1016,11 +1036,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kunststofftechnologe-in-m-f-d-sfs-group-hallau",
-        "kunststofftechnologe-in-m-w-d-sfs-group-hallau"
+        "kunststofftechnologe-in-m-w-d-sfs-group-hallau",
+        "tecnologo-delle-materie-plastiche-m-f-d-sfs-group-hallau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kunststofftechnologe-in-m-f-d-sfs-group-hallau"
+          "kunststofftechnologe-in-m-f-d-sfs-group-hallau",
+          "tecnologo-delle-materie-plastiche-m-f-d-sfs-group-hallau"
         ],
         "en": [
           "kunststofftechnologe-in-m-w-d-sfs-group-hallau"
@@ -1030,6 +1052,7 @@
         ]
       },
       "firstSeenAt": "2026-08-09T21:42:09.947Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1049,7 +1072,7 @@
       "slug": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
       "slugByLocale": {
         "it": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
-        "en": "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
+        "en": "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg",
         "de": "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
         "fr": "operateur-operatrice-de-formage-a-froid-m-w-d-sfs-group-heerbrugg"
       },
@@ -1075,7 +1098,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kaltmassivumformer-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:31.364Z",
+      "crawledAt": "2026-10-04T21:36:49.909Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1124,15 +1147,19 @@
         "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
         "convertisseur-de-masse-froide-en-h-f-d-sfs-group-heerbrugg",
         "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg",
+        "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
+        "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
         "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
-          "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg"
+          "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg",
+          "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
+          "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
           "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg"
         ],
         "fr": [
@@ -1176,7 +1203,7 @@
         "it": "Junior costruttore-formatore strumenti (m/f/d) 80–",
         "en": "Junior constructor–forming tools (m/f/d) 80–",
         "de": "Junior Konstrukteur–Umformwerkzeuge (m/f/d) 80–",
-        "fr": "Junior Konstrukteur–Umformwerkzeuge (m/f/d) 80–"
+        "fr": "Outils de formage de concepteur junior (h/f/d) 80–"
       },
       "description": "Du möchtest deinen Karriereweg in einer dynamischen Engineering-Umgebung ausbauen und Verantwortung in der Werkzeugkonstruktion übernehmen? Als Junior-Konstrukteur Umformwerkzeuge gestaltest du innovative Prozesse in der Kaltmassivumformung aktiv mit und setzt präzise Lösungen erfolgreich um. Your Tasks:\n• Konstruktion und Modifikation von Umformwerkzeugen mittels modernem CAD-System (MSTK, MSTG)\n• Auslegung der Stadienfolge nach vorgegebenen Spezifikationen\n• Mitarbeit bei der Prozessentwicklung sowie beim Contract Review für den Bereich Kaltumformen\n• Erstellung und Verantwortung von präzisen Fertigungsunterlagen für Werkzeuge\n• Betreuung und Optimierung über die gesamte Produktelebensdauer Your profile:\n• Abgeschlossene technische Ausbildung und idealerweise erster Berufserfahrung als Konstrukteur\n• Kenntnisse in der Anwendung von CAD-Programmen sowie MS-Office. PLM/PDM-Kenntnisse von Vorteil\n• Erfahrung im allgemeinen Werkzeugbau sowie in der Umformtechnik und Mehrstufen-Pressen-Technik wünschenswert\n• Sehr gute Deutschkenntnisse und gute Englischkenntnisse\n• Lösungsorientierte Arbeitsweise mit hohem Qualitäts- und Verantwortungsbewusstsein We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
       "descriptionByLocale": {
@@ -1190,7 +1217,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/junior-konstrukteur-–-umformwerkzeuge-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:31.235Z",
+      "crawledAt": "2026-10-04T21:36:49.779Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1211,11 +1238,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
+        "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg",
+        "junior-costruttore-formatore-strumenti-m-f-d-80-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
+          "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg",
+          "junior-costruttore-formatore-strumenti-m-f-d-80-sfs-group-heerbrugg"
         ],
         "en": [
           "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
@@ -1224,7 +1253,6 @@
           "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:53:56.333Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -1271,7 +1299,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/hr-specialist-recruiting-administration-–-befristet-bis-31.12.2027-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:31.104Z",
+      "crawledAt": "2026-10-04T21:36:49.644Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1292,14 +1320,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg"
+        "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg",
+        "risorse-umane-specialista-recruiting-administration-befristet-bis-31-12-2027-m-w-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg"
+          "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg",
+          "risorse-umane-specialista-recruiting-administration-befristet-bis-31-12-2027-m-w-d-sfs-group-heerbrugg"
         ]
       },
       "firstSeenAt": "2026-09-19T23:05:36.939Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1345,7 +1376,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/filialleiter-in-handwerkstadt-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:30.971Z",
+      "crawledAt": "2026-10-04T21:36:49.506Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "streetAddress": "Hinwil",
@@ -1366,11 +1397,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
+        "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil",
+        "branch-manager-craft-city-m-f-d-80-sfs-group-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
+          "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil",
+          "branch-manager-craft-city-m-f-d-80-sfs-group-hinwil"
         ],
         "en": [
           "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
@@ -1380,6 +1413,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T10:08:10.879Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1425,7 +1459,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-labor-(metallographie-werkstoffprüfung)-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:30.841Z",
+      "crawledAt": "2026-10-04T21:36:49.377Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1446,11 +1480,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg"
+        "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg",
+        "laboratorio-specialistico-metallografia-test-materiale-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg"
+          "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg",
+          "laboratorio-specialistico-metallografia-test-materiale-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg"
@@ -1505,7 +1541,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-debitorenbuchhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:30.711Z",
+      "crawledAt": "2026-10-04T21:36:49.242Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1557,11 +1593,13 @@
         ]
       },
       "previousSlugs": [
-        "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
+        "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg",
+        "specialista-contabilita-clienti-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
+          "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg",
+          "specialista-contabilita-clienti-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
@@ -1571,6 +1609,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:32:13.503Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1616,7 +1655,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/conseiller-de-vente-cité-de-l'artisan-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:24:30.579Z",
+      "crawledAt": "2026-10-04T21:36:49.112Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "streetAddress": "Sion",
@@ -1637,11 +1676,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
+        "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion",
+        "consulente-commerciale-citta-dell-artigiano-m-f-d-sfs-group-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
+          "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion",
+          "consulente-commerciale-citta-dell-artigiano-m-f-d-sfs-group-sion"
         ],
         "en": [
           "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
@@ -1696,7 +1737,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:30.416Z",
+      "crawledAt": "2026-10-04T21:36:48.981Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1717,11 +1758,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
+        "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg",
+        "modello-di-livello-automatico-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
+          "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg",
+          "modello-di-livello-automatico-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
@@ -1776,7 +1819,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-oder-betriebselektriker-in-–-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:30.285Z",
+      "crawledAt": "2026-10-04T21:36:48.848Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1798,12 +1841,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatiker-in-oder-betriebselektriker-in-instandhaltung-m-f-d-sfs-group-heerbrugg",
-        "automatiker-in-o-betriebselektriker-in-instandhaltung-m-w-d-sfs-group-heerbrugg"
+        "automatiker-in-o-betriebselektriker-in-instandhaltung-m-w-d-sfs-group-heerbrugg",
+        "automatico-o-servizio-elettrico-manutenzione-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-oder-betriebselektriker-in-instandhaltung-m-f-d-sfs-group-heerbrugg",
-          "automatiker-in-o-betriebselektriker-in-instandhaltung-m-w-d-sfs-group-heerbrugg"
+          "automatiker-in-o-betriebselektriker-in-instandhaltung-m-w-d-sfs-group-heerbrugg",
+          "automatico-o-servizio-elettrico-manutenzione-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "automatiker-in-oder-betriebselektriker-in-instandhaltung-m-f-d-sfs-group-heerbrugg"
@@ -1858,7 +1903,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-instandhaltung-im-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:24:30.134Z",
+      "crawledAt": "2026-10-04T21:36:48.696Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",

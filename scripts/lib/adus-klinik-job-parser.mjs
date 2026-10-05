@@ -20,6 +20,7 @@
  * `karriere.adus-klinik.ch`.
  */
 import { createHash } from 'node:crypto';
+import { sourceRssPostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -208,13 +209,6 @@ function buildParsedJob(item) {
   // pipeline's thin-source path).
   const desc = meetsSourceBodyFloor(descText) ? descText : '';
 
-  const postedDate = (() => {
-    if (!item.pubDate) return new Date().toISOString().slice(0, 10);
-    const d = new Date(item.pubDate);
-    if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-    return d.toISOString().slice(0, 10);
-  })();
-
   return {
     id: `adus-klinik-${urlHash}`,
     slug: jobSlug,
@@ -244,7 +238,7 @@ function buildParsedJob(item) {
     sector: 'Sanità',
     currency: 'CHF',
     featured: false,
-    postedDate,
+    ...sourceRssPostingDateFields(item.pubDate),
     applyUrl: publicUrl,
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },
@@ -264,7 +258,10 @@ export async function fetchAllAdusKlinikJobs() {
     xml = await fetchText(RSS_URL);
   } catch (err) {
     console.warn(`⚠️ ADUS Klinik RSS fetch failed: ${err?.message || err}`);
-    return [];
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
   const items = parseRssItems(xml);
   console.log(`   Parsed ${items.length} RSS items`);

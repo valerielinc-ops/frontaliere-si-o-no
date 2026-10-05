@@ -21,6 +21,7 @@ import { createCantonResolvers, AGGREGATE_KEY } from '../../build-plugins/shared
 import { peelDanglingClauseTail } from '../../build-plugins/shared/clauseTail.mjs';
 import { listSliceFileNames } from './crawler-slice-files.mjs';
 import { excludeHeldFromPublication } from './translation-publication-hold.mjs';
+import { parseLedger } from './social-publish-queue.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -449,18 +450,10 @@ export function withUtm(url, { source, medium, campaign, content } = {}) {
  */
 export function loadLedger(filePath) {
   try {
-    if (!existsSync(filePath)) return { schemaVersion: 1, posted: [] };
-    const raw = readFileSync(filePath, 'utf-8');
-    const parsed = JSON.parse(raw);
-    if (!parsed || typeof parsed !== 'object' || !Array.isArray(parsed.posted)) {
-      return { schemaVersion: 1, posted: [] };
-    }
-    return {
-      schemaVersion: Number(parsed.schemaVersion) || 1,
-      posted: parsed.posted,
-    };
+    if (!existsSync(filePath)) return parseLedger('');
+    return parseLedger(readFileSync(filePath, 'utf-8'));
   } catch {
-    return { schemaVersion: 1, posted: [] };
+    return parseLedger('');
   }
 }
 

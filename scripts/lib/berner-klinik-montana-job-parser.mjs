@@ -15,6 +15,8 @@
  *   </article>
  */
 import { createHash } from 'node:crypto';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -110,9 +112,10 @@ export function extractBernerKlinikDetailText(html = '') {
 
 async function fetchDetailContent(detailUrl) {
   try {
-    return extractBernerKlinikDetailText(await fetchHtml(detailUrl));
+    const html = await fetchHtml(detailUrl);
+    return { body: extractBernerKlinikDetailText(html), ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) };
   } catch {
-    return '';
+    return { body: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -125,11 +128,11 @@ export async function fetchAllBernerKlinikMontanaJobs() {
   if (!items.length) return [];
   console.log(`  📄 Fetching detail pages for rich descriptions...`);
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (const it of items) {
-    const detailContent = await fetchDetailContent(it.url);
+    const detail = await fetchDetailContent(it.url);
+    const detailContent = detail.body;
     if (detailContent) detailHits++;
     await new Promise((r) => setTimeout(r, 250));
     // The offer page carries the lead itself (post-excerpt); the listing
@@ -175,7 +178,7 @@ export async function fetchAllBernerKlinikMontanaJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

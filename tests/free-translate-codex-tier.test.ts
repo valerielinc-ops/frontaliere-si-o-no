@@ -133,6 +133,45 @@ function batchItems(messages: Array<{ role: string; content: string }>) {
   return user.startsWith('[') ? JSON.parse(user) as Array<{ id: number; text: string }> : null;
 }
 
+/**
+ * Date in it→de: la regola del prompt chiede di localizzarle (nomi dei mesi,
+ * ordine, ordinali) con gli stessi valori. Gemello dei casi del corpus
+ * (issue nanakokyobashi-rgb/frontaliere-articles 2113).
+ */
+const DATE_CASES = [
+  {
+    source: 'La domanda e\' valida dal 1° gennaio 2024 e il limite e\' di 42 giorni.',
+    de: 'Der Antrag ist ab dem 1. Januar 2024 gültig und die Frist beträgt 42 Tage.',
+  },
+  {
+    source: 'La scadenza e\' il 2 febbraio 2025 e il valore resta 7.',
+    de: 'Die Frist ist am 2. Februar 2025 und der Wert bleibt 7.',
+  },
+  {
+    source: 'Il contratto decorre dal 3 marzo 2026 e prevede 9 mesi.',
+    de: 'Der Vertrag beginnt am 3. März 2026 und sieht 9 Monate vor.',
+  },
+];
+const DATE_CASE_BY_SOURCE = new Map(DATE_CASES.map((item) => [item.source, item]));
+
+function assertLocalizedDateRule(system: string) {
+  expect(system).toMatch(/Localize dates using the target language's customary format/);
+  expect(system).toMatch(/same calendar day, month, year and numeric values/);
+  expect(system).toMatch(/non-date numbers, amounts/);
+  expect(system).not.toMatch(/Copy unchanged:[^\n]*dates/);
+}
+
+function localizedDateAnswer(messages: Array<{ role: string; content: string }>) {
+  assertLocalizedDateRule(messages.find((m) => m.role === 'system')!.content);
+  const items = batchItems(messages);
+  if (items) {
+    return JSON.stringify({ items: items.map(({ id, text }) => ({ id, text: DATE_CASE_BY_SOURCE.get(text)?.de ?? '' })) });
+  }
+  const user = messages.find((m) => m.role === 'user')!.content;
+  const framed = /^BEGIN_TEXT_[A-Z0-9]{8}\n([\s\S]*)\nEND_TEXT_[A-Z0-9]{8}$/.exec(user);
+  return DATE_CASE_BY_SOURCE.get(framed?.[1] ?? '')?.de ?? '';
+}
+
 /** Risponde come Codex: al testo singolo con la traduzione, al gruppo con lo schema a id. */
 function codexAnswer(translate: (text: string) => string = translationOf) {
   return (messages: Array<{ role: string; content: string }>) => {
@@ -177,6 +216,7 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     expect(system).toMatch(/URLs/);
     expect(system).toMatch(/ZQX0XQZ/);
     expect(system).toMatch(/translated text only/);
+    assertLocalizedDateRule(system);
     const user = messages.find((m) => m.role === 'user')!.content;
     const framed = /^BEGIN_TEXT_([A-Z0-9]{8})\n([\s\S]*)\nEND_TEXT_\1$/.exec(user);
     expect(framed, 'testo incorniciato dai marcatori della chiamata').toBeTruthy();
@@ -187,6 +227,24 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     expect(opts.bypassForceChain).toBe(true);
     expect(opts.deadlineMs as number).toBeGreaterThan(Date.now());
     expect(opts.deadlineMs as number).toBeLessThanOrEqual(Date.now() + 180_000);
+  });
+
+  it('le date sono localizzate nella lingua di arrivo, con valori invariati, in singola e batch', async () => {
+    const de = (text: string) => ft.freeTranslate({ text, sourceLang: 'it', targetLang: 'de', fieldType: 'description' });
+    const singleCalls = stubCodex(localizedDateAnswer);
+    expect(await de(DATE_CASES[0].source)).toBe(DATE_CASES[0].de);
+    expect(singleCalls).toHaveLength(1);
+
+    vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '1');
+    try {
+      const batchCalls = stubCodex(localizedDateAnswer);
+      const { value } = await captureLog(() => Promise.all(DATE_CASES.map(({ source }) => de(source))));
+      expect(value).toEqual(DATE_CASES.map(({ de: out }) => out));
+      expect(batchCalls).toHaveLength(2);
+      expect(batchItems(batchCalls[1].messages)).toHaveLength(2);
+    } finally {
+      vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '');
+    }
   });
 
   it('la risposta passa da finalize: cornice tolta, token protetto rimesso nella lingua di arrivo', async () => {
@@ -224,6 +282,45 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     const after = codexCounters();
     expect(after.passthroughs - before.passthroughs).toBe(1);
     expect(after.hits - before.hits).toBe(0);
+  });
+
+  it('un eco del prompt nella risposta singola e\' rifiutato, la cascata prosegue', async () => {
+    const before = codexCounters();
+    // Traduzione plausibile con la regola delle date ricopiata sulla STESSA
+    // riga: una seconda riga la scarterebbe gia' il controllo di confine
+    // strutturale di `tryTier`, e il test non proverebbe la guardia sull'eco.
+    const calls = stubCodex(`${EN} Localize dates using the target language's customary format.`);
+    expect(await tr()).toBe(`MYMEMORY ${EN}`);
+    expect(calls).toHaveLength(1);
+    expect(codexCounters().hits - before.hits).toBe(0);
+  });
+
+  it('un eco del prompt in un batch e\' rifiutato per il solo item guasto', async () => {
+    const texts = numbered(3);
+    vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '1');
+    try {
+      const calls = stubCodex(async (messages) => {
+        // Lascia partire la prima richiesta da sola: le due successive formano
+        // il batch mentre la corsia e' occupata, come nella coda reale.
+        await new Promise((resolve) => setTimeout(resolve, 5));
+        const items = batchItems(messages);
+        if (!items) return translationOf(texts[0]);
+        expect(items).toHaveLength(2);
+        return JSON.stringify({
+          items: [
+            { id: items[0].id, text: `${translationOf(items[0].text)} Copy unchanged: URLs, email addresses.` },
+            { id: items[1].id, text: translationOf(items[1].text) },
+          ],
+        });
+      });
+      const { value } = await captureLog(() => Promise.all(texts.map((text) => tr(text))));
+      expect(value).toEqual([translationOf(texts[0]), `MYMEMORY ${EN}`, translationOf(texts[2])]);
+      expect(calls).toHaveLength(2);
+      expect(batchItems(calls[0].messages)).toBeNull();
+      expect(batchItems(calls[1].messages)).toHaveLength(2);
+    } finally {
+      vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '');
+    }
   });
 
   it('senza lane (socket assente, variabile vuota o lane spenta) il tier si salta in silenzio', async () => {
@@ -591,5 +688,63 @@ describe('codexCallDeadlineMs — clamp della deadline di una chiamata Codex', (
     } finally {
       ft.setCodexTranslateProcessDeadline(null);
     }
+  });
+});
+
+describe('codexPromptEchoMarker — eco del prompt del tier Codex', () => {
+  it('riconosce i frammenti del prompt, compresa la regola delle date, e ignora quelli presenti nella sorgente', () => {
+    for (const echo of [
+      'System instructions:\nYou are a professional translator. Rules:\n- Translate only',
+      'Der Grenzgänger zahlt Steuern.\n- Localize dates using the target language\'s customary format',
+      'Der Grenzgänger zahlt Steuern.\n- Copy unchanged: URLs, email addresses',
+      'BEGIN_TEXT_ABCD1234\nDer Grenzgänger zahlt Steuern.',
+    ]) {
+      expect(ft.codexPromptEchoMarker(echo, 'Il frontaliere paga le imposte.'), echo).not.toBeNull();
+    }
+    // Un frammento presente anche nella sorgente e' testo dell'articolo.
+    expect(ft.codexPromptEchoMarker('Translate only: the rule', 'Translate only: la regola')).toBeNull();
+    expect(ft.codexPromptEchoMarker('x Localize dates using y', 'z')).toBe('Localize dates using');
+    expect(ft.codexPromptEchoMarker('Rules: keep it short', 'Regole: breve')).toBeNull();
+    expect(ft.codexPromptEchoMarker('x System instructions: y', 'z')).toBe('System instructions:');
+  });
+});
+
+describe('titoli di template nel prompt del tier Codex', () => {
+  // Lotto 1 della bonifica Codex del corpus (nanakokyobashi-rgb/
+  // frontaliere-articles#2121, 20 coppie de): con la sola regola «tieni il
+  // Markdown dei titoli» Codex rendeva `## Fatti chiave` come `## Eckdaten` e
+  // `## In breve` come `## Kurz zusammengefasst`, e la guardia dei Fatti chiave
+  // riconosce solo il titolo canonico. I valori attesi sono scritti qui a mano
+  // apposta: la tabella del modulo si genera da ai-search-template.mjs, e un
+  // cambio di quel modulo deve passare da questo test.
+  const EXPECTED: Record<string, [string, string]> = {
+    it: ['## In breve', '## Fatti chiave'],
+    en: ['## TL;DR', '## Key facts'],
+    de: ['## Auf einen Blick', '## Wichtige Fakten'],
+    fr: ['## En bref', '## Faits clés'],
+  };
+  const systemOf = (messages: Array<{ role: string; content: string }>) => messages.find((m) => m.role === 'system')!.content;
+
+  it('la tabella coincide con ai-search-template.mjs per ogni lingua del tier', async () => {
+    const template = await import('../scripts/lib/ai-search-template.mjs');
+    expect(Object.keys(ft.CODEX_TEMPLATE_HEADINGS).sort()).toEqual(['de', 'en', 'fr', 'it']);
+    for (const [lang, headings] of Object.entries(ft.CODEX_TEMPLATE_HEADINGS)) {
+      expect(headings, lang).toEqual([template.getTldrHeading(lang), template.getKeyFactsHeading(lang)]);
+      expect(headings, lang).toEqual(EXPECTED[lang]);
+    }
+  });
+
+  it.each(['en', 'de', 'fr'])('richiesta singola e a gruppi it→%s portano il titolo canonico della lingua di arrivo', (target) => {
+    const [tldr, keyFacts] = EXPECTED[target];
+    const rule = `write the heading line "## In breve" as "${tldr}" and "## Fatti chiave" as "${keyFacts}", exactly, never with a synonym.`;
+    const single = systemOf(ft.codexTranslatePromptsForTests.single('## In breve\n- uno\n\n## Fatti chiave\n- Termine: valore', 'it', target));
+    const batch = systemOf(ft.codexTranslatePromptsForTests.batch(['## In breve\n- uno', '## Fatti chiave\n- Termine: valore'], 'it', target));
+    expect(single).toContain(rule);
+    expect(batch).toContain(rule);
+  });
+
+  it('nessuna regola per una lingua senza template', () => {
+    expect(systemOf(ft.codexTranslatePromptsForTests.single('testo', 'it', 'es'))).not.toContain('Template headings');
+    expect(systemOf(ft.codexTranslatePromptsForTests.batch(['a', 'b'], 'it', 'es'))).not.toContain('Template headings');
   });
 });

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "idorsia",
-  "assembledAt": "2026-10-04T09:22:43.903Z",
+  "assembledAt": "2026-10-04T21:24:23.815Z",
   "jobs": [
     {
       "id": "idorsia-a1d3ffebc851",
@@ -34,7 +34,7 @@
       "url": "https://careers.idorsia.com/job/Allschwil%2C-Basel-Area-Senior-Drug-Safety-Case-Manager-BL/1441795833/",
       "source": "Idorsia Pharmaceuticals Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:22:37.974Z",
+      "crawledAt": "2026-10-04T21:24:18.685Z",
       "addressLocality": "Allschwil, Basel Area",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -99,7 +99,7 @@
       "url": "https://careers.idorsia.com/job/Allschwil%2C-Basel-Area-Senior-Clinical-Pharmacologist-BL/1401790133/",
       "source": "Idorsia Pharmaceuticals Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:22:37.450Z",
+      "crawledAt": "2026-10-04T21:24:18.183Z",
       "addressLocality": "Allschwil, Basel Area",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -121,13 +121,15 @@
       "previousSlugs": [
         "senior-clinical-pharmacologist-idorsia-allschwil",
         "senior-clinical-pharmacologist-idorsia-pharmaceuticals-allschwil",
-        "senior-clinical-pharmacologist-idorsia-allschwil-basel-area"
+        "senior-clinical-pharmacologist-idorsia-allschwil-basel-area",
+        "farmacia-clinica-senior-idorsia-pharmaceuticals-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-clinical-pharmacologist-idorsia-allschwil",
           "senior-clinical-pharmacologist-idorsia-pharmaceuticals-allschwil",
-          "senior-clinical-pharmacologist-idorsia-allschwil-basel-area"
+          "senior-clinical-pharmacologist-idorsia-allschwil-basel-area",
+          "farmacia-clinica-senior-idorsia-pharmaceuticals-allschwil"
         ],
         "en": [
           "senior-clinical-pharmacologist-idorsia-allschwil-basel-area"
@@ -182,7 +184,7 @@
       "url": "https://careers.idorsia.com/job/Allschwil%2C-Basel-Area-Clinical-Development-Lead-BL/1418151633/",
       "source": "Idorsia Pharmaceuticals Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:22:36.923Z",
+      "crawledAt": "2026-10-04T21:24:17.641Z",
       "addressLocality": "Allschwil, Basel Area",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -203,12 +205,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "clinical-development-lead-idorsia-allschwil",
-        "clinical-development-lead-idorsia-allschwil-basel-area"
+        "clinical-development-lead-idorsia-allschwil-basel-area",
+        "piombo-di-sviluppo-clinico-idorsia-pharmaceuticals-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "clinical-development-lead-idorsia-allschwil",
-          "clinical-development-lead-idorsia-allschwil-basel-area"
+          "clinical-development-lead-idorsia-allschwil-basel-area",
+          "piombo-di-sviluppo-clinico-idorsia-pharmaceuticals-allschwil"
         ],
         "en": [
           "clinical-development-lead-idorsia-allschwil-basel-area"
@@ -267,7 +271,7 @@
       "url": "https://careers.idorsia.com/job/Allschwil%2C-Basel-Area-Drug-Safety-Physician-BL/1435848933/",
       "source": "Idorsia Pharmaceuticals Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:22:36.392Z",
+      "crawledAt": "2026-10-04T21:24:17.208Z",
       "addressLocality": "Allschwil, Basel Area",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -288,14 +292,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "drug-safety-physician-idorsia-allschwil-basel-area",
+        "drogensicherheit-arzt-idorsia-pharmaceuticals-allschwil-basel-area",
+        "medicina-di-sicurezza-idorsia-pharmaceuticals-allschwil-basel-area",
         "arzneimittelsicherheitsphysiker-idorsia-pharmaceuticals-allschwil-basel-area"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "drug-safety-physician-idorsia-allschwil-basel-area"
+          "drug-safety-physician-idorsia-allschwil-basel-area",
+          "medicina-di-sicurezza-idorsia-pharmaceuticals-allschwil-basel-area"
         ],
         "de": [
           "drug-safety-physician-idorsia-allschwil-basel-area",
+          "drogensicherheit-arzt-idorsia-pharmaceuticals-allschwil-basel-area",
           "arzneimittelsicherheitsphysiker-idorsia-pharmaceuticals-allschwil-basel-area"
         ],
         "fr": [
@@ -349,7 +357,7 @@
       "url": "https://careers.idorsia.com/job/Allschwil%2C-Basel-Area-CPCTS-Manager/1419134733/",
       "source": "Idorsia Pharmaceuticals Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:22:35.870Z",
+      "crawledAt": "2026-10-04T21:24:16.688Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -369,11 +377,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cpcts-manager-idorsia-allschwil"
+        "cpcts-manager-idorsia-allschwil",
+        "responsabile-del-cpcts-idorsia-pharmaceuticals-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cpcts-manager-idorsia-allschwil"
+          "cpcts-manager-idorsia-allschwil",
+          "responsabile-del-cpcts-idorsia-pharmaceuticals-allschwil"
         ],
         "de": [
           "cpcts-manager-idorsia-allschwil"
@@ -426,7 +436,7 @@
       "url": "https://careers.idorsia.com/job/Allschwil%2C-Basel-Area-Senior-Scientific-Associate-Technical-Manufacturing-Laboratories/1443186933/",
       "source": "Idorsia Pharmaceuticals Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:22:35.303Z",
+      "crawledAt": "2026-10-04T21:24:16.191Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -446,11 +456,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-scientific-associate-technical-manufacturing-laboratories-idorsia-allschwil"
+        "senior-scientific-associate-technical-manufacturing-laboratories-idorsia-allschwil",
+        "senior-scientific-associate-laboratori-di-produzione-tecnica-idorsia-pharmaceuticals-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-scientific-associate-technical-manufacturing-laboratories-idorsia-allschwil"
+          "senior-scientific-associate-technical-manufacturing-laboratories-idorsia-allschwil",
+          "senior-scientific-associate-laboratori-di-produzione-tecnica-idorsia-pharmaceuticals-allschwil"
         ],
         "de": [
           "senior-scientific-associate-technical-manufacturing-laboratories-idorsia-allschwil"
@@ -506,7 +518,7 @@
       "url": "https://careers.idorsia.com/job/Allschwil%2C-Basel-Area-Senior-QA-Compliance-&-Auditing-Manager-%28GMPGDP%29/1419135333/",
       "source": "Idorsia Pharmaceuticals Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:22:34.739Z",
+      "crawledAt": "2026-10-04T21:24:15.707Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -526,11 +538,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-qa-compliance-auditing-manager-gmp-gdp-idorsia-allschwil"
+        "senior-qa-compliance-auditing-manager-gmp-gdp-idorsia-allschwil",
+        "responsabile-senior-della-conformita-e-audit-qa-gmp-gdp-idorsia-pharmaceuticals-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-qa-compliance-auditing-manager-gmp-gdp-idorsia-allschwil"
+          "senior-qa-compliance-auditing-manager-gmp-gdp-idorsia-allschwil",
+          "responsabile-senior-della-conformita-e-audit-qa-gmp-gdp-idorsia-pharmaceuticals-allschwil"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -582,7 +596,7 @@
       "url": "https://careers.idorsia.com/job/Basel-Associate-Director%2C-Technical-Project-Leader-Drug-Substance/1411931933/",
       "source": "Idorsia Pharmaceuticals Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:22:34.190Z",
+      "crawledAt": "2026-10-04T21:24:15.201Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -606,7 +620,8 @@
         "direttore-associato-progetto-tecnico-leader-drug-product-idorsia-pharmaceuticals-basel",
         "associate-director-technical-project-leader-drug-product-idorsia-basel",
         "associate-director-technischer-projektleiter-drug-product-idorsia-pharmaceuticals-basel",
-        "directeur-associe-chef-de-projet-technique-produit-pharmaceutique-idorsia-pharmaceuticals-basel"
+        "directeur-associe-chef-de-projet-technique-produit-pharmaceutique-idorsia-pharmaceuticals-basel",
+        "direttore-associato-responsabile-del-progetto-tecnico-idorsia-pharmaceuticals-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -614,7 +629,8 @@
           "direttore-associato-progetto-tecnico-leader-drug-product-idorsia-pharmaceuticals-basel",
           "associate-director-technical-project-leader-drug-product-idorsia-basel",
           "associate-director-technischer-projektleiter-drug-product-idorsia-pharmaceuticals-basel",
-          "directeur-associe-chef-de-projet-technique-produit-pharmaceutique-idorsia-pharmaceuticals-basel"
+          "directeur-associe-chef-de-projet-technique-produit-pharmaceutique-idorsia-pharmaceuticals-basel",
+          "direttore-associato-responsabile-del-progetto-tecnico-idorsia-pharmaceuticals-basel"
         ],
         "en": [
           "associate-director-technical-project-leader-drug-product-idorsia-basel"
@@ -674,7 +690,7 @@
       "url": "https://careers.idorsia.com/job/Basel-Postdoctoral-Researcher/1425564433/",
       "source": "Idorsia Pharmaceuticals Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:22:33.605Z",
+      "crawledAt": "2026-10-04T21:24:14.680Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -695,14 +711,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "postdoctoral-researcher-idorsia-allschwil"
+          "postdoctoral-researcher-idorsia-allschwil",
+          "postdoctoral-researcher-idorsia-basel"
         ],
         "it": [
-          "postdoctoral-researcher-idorsia-allschwil"
+          "postdoctoral-researcher-idorsia-allschwil",
+          "ricercatore-post-dottorato-idorsia-pharmaceuticals-basel-16c062"
         ]
       },
       "previousSlugs": [
-        "postdoctoral-researcher-idorsia-allschwil"
+        "postdoctoral-researcher-idorsia-allschwil",
+        "postdoctoral-researcher-idorsia-basel",
+        "ricercatore-post-dottorato-idorsia-pharmaceuticals-basel-16c062"
       ],
       "firstSeenAt": "2026-08-12T10:22:46.121Z",
       "salaryMin": 62000,
@@ -750,7 +770,7 @@
       "url": "https://careers.idorsia.com/job/Basel-Postdoctoral-Researcher/1420386033/",
       "source": "Idorsia Pharmaceuticals Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:22:33.062Z",
+      "crawledAt": "2026-10-04T21:24:14.172Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -772,11 +792,13 @@
       "previousSlugsByLocale": {
         "en": [
           "postdoctoral-researcher-idorsia-basel",
-          "postdoctoral-researcher-idorsia-allschwil"
+          "postdoctoral-researcher-idorsia-allschwil",
+          "postdoctoral-researcher-idorsia-pharmaceuticals-basel"
         ],
         "it": [
           "postdoctoral-researcher-idorsia-basel",
-          "postdoctoral-researcher-idorsia-allschwil"
+          "postdoctoral-researcher-idorsia-allschwil",
+          "ricercatore-post-dottorato-idorsia-pharmaceuticals-basel"
         ],
         "de": [
           "postdoctoral-researcher-idorsia-pharmaceuticals-basel"
@@ -785,7 +807,8 @@
       "previousSlugs": [
         "postdoctoral-researcher-idorsia-basel",
         "postdoctoral-researcher-idorsia-pharmaceuticals-basel",
-        "postdoctoral-researcher-idorsia-allschwil"
+        "postdoctoral-researcher-idorsia-allschwil",
+        "ricercatore-post-dottorato-idorsia-pharmaceuticals-basel"
       ],
       "firstSeenAt": "2026-08-12T10:22:46.121Z",
       "salaryMin": 62000,
@@ -833,7 +856,7 @@
       "url": "https://careers.idorsia.com/job/Allschwil-Senior-Payroll-Specialist-%28Switzerland%2C-EU&I%29/1432321133/",
       "source": "Idorsia Pharmaceuticals Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T09:22:32.469Z",
+      "crawledAt": "2026-10-04T21:24:13.679Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -853,11 +876,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-payroll-specialist-switzerland-eu-i-idorsia-allschwil"
+        "senior-payroll-specialist-switzerland-eu-i-idorsia-allschwil",
+        "senior-payroll-specialista-switzerland-eu-i-idorsia-pharmaceuticals-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-payroll-specialist-switzerland-eu-i-idorsia-allschwil"
+          "senior-payroll-specialist-switzerland-eu-i-idorsia-allschwil",
+          "senior-payroll-specialista-switzerland-eu-i-idorsia-pharmaceuticals-allschwil"
         ],
         "de": [
           "senior-payroll-specialist-switzerland-eu-i-idorsia-allschwil"

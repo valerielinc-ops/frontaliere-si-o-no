@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Institution de Lavigny job parser — custom HTML listing on ilavigny.ch.
  *
@@ -140,6 +142,7 @@ export function parseLavignyListing(html) {
       detailText,
       jobupUuid,
       applyUrl,
+      ...sourcePostingDateFields(extractJobPostingLd(block)?.datePosted),
     });
   }
   return out;
@@ -157,13 +160,12 @@ export async function fetchAllInstitutionLavignyJobs() {
     html = await fetchLavignyHtml(LISTING_URL, { timeoutMs: 40000 });
   } catch (err) {
     console.warn(`  ⚠️ Listing fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
   const items = parseLavignyListing(html);
   console.log(`  ✓ ${items.length} offerte trovate`);
   if (!items.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const it of items) {
     const { postalCode, city } = extractPostalCity(it.locationLine);
@@ -222,7 +224,7 @@ export async function fetchAllInstitutionLavignyJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, it),
       applyUrl: finalUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

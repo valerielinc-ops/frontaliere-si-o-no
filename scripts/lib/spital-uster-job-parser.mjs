@@ -21,6 +21,7 @@
  *   - isTrustedDomain()         — Validate URLs belong to Spital Uster / Prospective tenant
  *   - SPITAL_USTER_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
@@ -233,12 +234,9 @@ export async function fetchAllSpitalUsterJobs() {
     const jobSlug = slugify(`${title} ${SPITAL_USTER_KEY} ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    const postedDate = (() => {
-      const raw = listing?.start_date || listing?.last_modification_timestamp || '';
-      const d = new Date(String(raw || ''));
-      if (!Number.isNaN(d.getTime())) return d.toISOString().slice(0, 10);
-      return new Date().toISOString().slice(0, 10);
-    })();
+    // This tenant has no verified listing publication field.
+    // start_date and modification timestamps are not publication evidence.
+    const publication = sourcePostingDateFields();
 
     const job = {
       id: `${SPITAL_USTER_KEY}-${urlHash}`,
@@ -270,7 +268,7 @@ export async function fetchAllSpitalUsterJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: applyLink || publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
@@ -286,7 +284,7 @@ export async function fetchAllSpitalUsterJobs() {
   // The listing payload is 42-56 % of the rendered vacancy (audit 2026-09-29):
   // the "7 Gründe, bei uns zu arbeiten" block and the welcome paragraph exist only on the directlink page, which becomes the description
   // source; the listing text stays the per-job fallback.
-  const { pageDescribed } = await enrichProspectiveJobsFromDetailPages(jobs, { isTrustedDomain, label: SPITAL_USTER_COMPANY_NAME });
+  const { pageDescribed } = await enrichProspectiveJobsFromDetailPages(jobs, { isTrustedDomain, label: SPITAL_USTER_COMPANY_NAME, includePostingDate: true });
   const unique = dropRepostedListings(jobs, SPITAL_USTER_COMPANY_NAME, { pageDescribed });
   console.log(`\n📋 Total ${SPITAL_USTER_COMPANY_NAME} jobs discovered: ${unique.length}`);
   return unique;

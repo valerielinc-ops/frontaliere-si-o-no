@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hornbach",
-  "assembledAt": "2026-10-04T09:15:23.291Z",
+  "assembledAt": "2026-10-04T21:24:18.870Z",
   "jobs": [
     {
       "id": "hornbach-152523",
@@ -33,7 +33,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-elektro/36c4a6e5-c84b-4163-9dc0-1288a8ea5e37?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.609Z",
+      "crawledAt": "2026-10-04T21:24:13.753Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -145,7 +145,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-farben-tapeten-teppiche/32a6ff6c-0bce-41b1-895f-12056c71413e?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.609Z",
+      "crawledAt": "2026-10-04T21:24:13.753Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -230,7 +230,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-pflanzen/1b07a938-e746-4996-83e1-76522d52453d?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.608Z",
+      "crawledAt": "2026-10-04T21:24:13.753Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -317,7 +317,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-garten-hartwaren/45ede6ce-dc61-47f3-b655-b6052d7e8d3a?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.607Z",
+      "crawledAt": "2026-10-04T21:24:13.753Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -402,7 +402,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-gartenmaschinen-und-bew/1faa8478-e0e9-43db-b8eb-abc1925dbadd?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.606Z",
+      "crawledAt": "2026-10-04T21:24:13.752Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -489,7 +489,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-fliesen-plattli/a5511a27-69b8-41ef-be2d-c8d06f4e385d?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.605Z",
+      "crawledAt": "2026-10-04T21:24:13.752Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -584,7 +584,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-baustoffe/455b9249-2e60-46aa-a2fd-8877f1df3f83?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.605Z",
+      "crawledAt": "2026-10-04T21:24:13.752Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -666,7 +666,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-holz-bodenbelage-bauele/d73f0fd5-e0a7-4db5-aaab-c49204ba59ae?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.604Z",
+      "crawledAt": "2026-10-04T21:24:13.751Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -756,7 +756,7 @@
       "url": "https://jobs.hornbach.ch/offer/kassiererin/e51abcb0-9e42-46b0-9381-ddac93d4d92c?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.603Z",
+      "crawledAt": "2026-10-04T21:24:13.750Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -780,14 +780,16 @@
         "cashier-in-hornbach-affoltern-am-albis",
         "caissier-en-hornbach-affoltern-am-albis",
         "cashiers-hornbach-affoltern-am-albis",
-        "kassierer-in-hornbach-affoltern-am-albis"
+        "kassierer-in-hornbach-affoltern-am-albis",
+        "cassiere-hornbach-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cashier-in-hornbach-affoltern-am-albis",
           "caissier-en-hornbach-affoltern-am-albis",
           "cashiers-hornbach-affoltern-am-albis",
-          "kassierer-in-hornbach-affoltern-am-albis"
+          "kassierer-in-hornbach-affoltern-am-albis",
+          "cassiere-hornbach-affoltern-am-albis"
         ],
         "en": [
           "cashiers-hornbach-affoltern-am-albis",
@@ -845,7 +847,7 @@
       "url": "https://jobs.hornbach.ch/offer/mitarbeiterin-kundendienst/4dca2f00-58bf-4812-bdbb-593b96d4bf8d?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.603Z",
+      "crawledAt": "2026-10-04T21:24:13.750Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -872,7 +874,8 @@
         "associate-warenausgabe-hornbach-affoltern-am-albis",
         "collaboratore-trice-warenausgabe-hornbach-affoltern-am-albis",
         "collaborateur-trice-kundendienst-hornbach-affoltern-am-albis",
-        "associate-kundendienst-hornbach-affoltern-am-albis"
+        "associate-kundendienst-hornbach-affoltern-am-albis",
+        "collaboratore-trice-kundendienst-hornbach-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -882,7 +885,8 @@
           "associate-warenausgabe-hornbach-affoltern-am-albis",
           "collaboratore-trice-warenausgabe-hornbach-affoltern-am-albis",
           "collaborateur-trice-kundendienst-hornbach-affoltern-am-albis",
-          "associate-kundendienst-hornbach-affoltern-am-albis"
+          "associate-kundendienst-hornbach-affoltern-am-albis",
+          "collaboratore-trice-kundendienst-hornbach-affoltern-am-albis"
         ],
         "en": [
           "mitarbeiter-in-kundendienst-hornbach-affoltern-am-albis"
@@ -938,7 +942,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-dekoration-und-bilderra/89f9a9f8-4dc9-41c7-9b58-387e2741fe1e?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.602Z",
+      "crawledAt": "2026-10-04T21:24:13.749Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -951,7 +955,9 @@
       "sector": "Retail / Bricolage e Giardinaggio",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-06T00:00:00+02:00",
       "postedDate": "2026-08-06T00:00:00+02:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154780&company=Hornbach&username=",
       "jobReqId": "154780",
       "requirements": [],
@@ -990,9 +996,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-08-06T00:00:00+02:00",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "hornbach-152576",
@@ -1025,7 +1029,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-sanitar/c7b1f197-7be4-4bb4-a8d5-68c977e50746?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.602Z",
+      "crawledAt": "2026-10-04T21:24:13.750Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -1038,7 +1042,9 @@
       "sector": "Retail / Bricolage e Giardinaggio",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-03T00:00:00+02:00",
       "postedDate": "2026-08-03T00:00:00+02:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=152576&company=Hornbach&username=",
       "jobReqId": "152576",
       "requirements": [],
@@ -1078,9 +1084,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-08-03T00:00:00+02:00",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "hornbach-154799",
@@ -1103,17 +1107,17 @@
       },
       "description": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400\n• Mindestens 5 Wochen Ferien pro Jahr\n• Grosszügiger Mutter- und Vaterschaftsurlaub Es gibt immer was zu tun\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt.\n• Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament\n• Du bringst Herzblut für die Kundenberatung mit und stellst die Kundenzufriedenheit an erster Stelle.\n• Du hast ein hohes Verantwortungsbewusstsein und bleibst in stressigen Situationen positiv.\n• Deine guten Kenntnisse im Bereich Garten sowie Deine Kollegialität zeichnen Dich aus.\n• Auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen.\n• Du hast eine Ausbildung als Detailhandelsfachfrau:mann, Gärtner:in, Landschaftsgärtner:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
       "descriptionByLocale": {
-        "it": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400\n• Mindestens 5 Wochen Ferien pro Jahr\n• Grosszügiger Mutter- und Vaterschaftsurlaub Es gibt immer was zu tun\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt.\n• Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament\n• Du bringst Herzblut für die Kundenberatung mit und stellst die Kundenzufriedenheit an erster Stelle.\n• Du hast ein hohes Verantwortungsbewusstsein und bleibst in stressigen Situationen positiv.\n• Deine guten Kenntnisse im Bereich Garten sowie Deine Kollegialität zeichnen Dich aus.\n• Auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen.\n• Du hast eine Ausbildung als Detailhandelsfachfrau:mann, Gärtner:in, Landschaftsgärtner:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
-        "en": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400\n• Mindestens 5 Wochen Ferien pro Jahr\n• Grosszügiger Mutter- und Vaterschaftsurlaub Es gibt immer was zu tun\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt.\n• Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament\n• Du bringst Herzblut für die Kundenberatung mit und stellst die Kundenzufriedenheit an erster Stelle.\n• Du hast ein hohes Verantwortungsbewusstsein und bleibst in stressigen Situationen positiv.\n• Deine guten Kenntnisse im Bereich Garten sowie Deine Kollegialität zeichnen Dich aus.\n• Auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen.\n• Du hast eine Ausbildung als Detailhandelsfachfrau:mann, Gärtner:in, Landschaftsgärtner:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
+        "it": "Non vedo l'ora.\n• Settimana di 39 ore con pause flessibili\n• Quota BVG (Fondo di sospensione) del 65 % versata\n• Equo salario minimo da CHF 4'400\n• Almeno 5 settimane di vacanza all'anno\n• Generoso congedo di maternità e di paternità C'è sempre qualcosa da fare\n• Si consiglia e ispira i nostri clienti nella realizzazione dei loro progetti.\n• Grazie a voi, gli scaffali sono riempiti e i prodotti sono presentati in modo attraente.\n• Sostieni la tua squadra ovunque ci sia qualcosa da fare.\n• Si utilizza attivamente il negozio online come strumento di vendita. La tua fondazione\n• Porti la passione per la consulenza clienti e metti prima la soddisfazione del cliente.\n• Hai un alto senso di responsabilità e rimani positivo in situazioni stressanti.\n• La vostra buona conoscenza del giardino e la vostra collegialità vi distinguono.\n• Possiamo contare sulla vostra flessibilità entro i nostri orari di apertura.\n• Hai completato un apprendistato come specialista al dettaglio: uomo, giardiniere:in, paesaggista:in o simile.\n\nArea: Vendita / Commercio al dettaglio",
+        "en": "You can look forward to it.\n• 39-hour week with flexible breaks\n• BVG share (pension fund) of 65 % paid\n• Fair minimum wage from CHF 4'400\n• At least 5 weeks of vacation per year\n• Generous maternity and paternity leave There is always something to do\n• You advise and inspire our customers in the realization of their projects.\n• Thanks to you, the shelves are filled and the products are presented attractively.\n• You support your team wherever there is something to do.\n• You actively use the online shop as a sales tool. Your foundation\n• You bring passion for customer advice and put customer satisfaction first.\n• You have a high sense of responsibility and stay positive in stressful situations.\n• Your good knowledge of the garden and your collegiality distinguish you.\n• We can rely on your flexibility within our opening hours.\n• You have completed an apprenticeship as a retail specialist:man, gardener:in, landscaper:in or similar.\n\nArea: Sales / Retail Trade",
         "de": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400\n• Mindestens 5 Wochen Ferien pro Jahr\n• Grosszügiger Mutter- und Vaterschaftsurlaub Es gibt immer was zu tun\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt.\n• Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament\n• Du bringst Herzblut für die Kundenberatung mit und stellst die Kundenzufriedenheit an erster Stelle.\n• Du hast ein hohes Verantwortungsbewusstsein und bleibst in stressigen Situationen positiv.\n• Deine guten Kenntnisse im Bereich Garten sowie Deine Kollegialität zeichnen Dich aus.\n• Auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen.\n• Du hast eine Ausbildung als Detailhandelsfachfrau:mann, Gärtner:in, Landschaftsgärtner:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
-        "fr": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400\n• Mindestens 5 Wochen Ferien pro Jahr\n• Grosszügiger Mutter- und Vaterschaftsurlaub Es gibt immer was zu tun\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt.\n• Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament\n• Du bringst Herzblut für die Kundenberatung mit und stellst die Kundenzufriedenheit an erster Stelle.\n• Du hast ein hohes Verantwortungsbewusstsein und bleibst in stressigen Situationen positiv.\n• Deine guten Kenntnisse im Bereich Garten sowie Deine Kollegialität zeichnen Dich aus.\n• Auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen.\n• Du hast eine Ausbildung als Detailhandelsfachfrau:mann, Gärtner:in, Landschaftsgärtner:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel"
+        "fr": "Vous pouvez attendre avec impatience.\n• Semaine de 39 heures avec pauses flexibles\n• Part BVG (fonds de pension) de 65 % versée\n• Salaire minimum équitable à partir de CHF 4'400\n• Au moins 5 semaines de vacances par an\n• Congé de maternité et de paternité généreux Il y a toujours quelque chose à faire.\n• Vous conseillez et inspirez nos clients dans la réalisation de leurs projets.\n• Grâce à vous, les étagères sont remplies et les produits sont présentés de manière attrayante.\n• Vous soutenez votre équipe partout où il y a quelque chose à faire.\n• Vous utilisez activement la boutique en ligne comme outil de vente. Votre fondation\n• Vous apportez la passion pour les conseils à la clientèle et mettre la satisfaction de la clientèle en premier.\n• Vous avez un haut sens des responsabilités et restez positif dans des situations stressantes.\n• Votre bonne connaissance du jardin et votre collégialité vous distinguent.\n• Nous pouvons compter sur votre flexibilité dans nos heures d'ouverture.\n• Vous avez suivi un apprentissage en tant que spécialiste du commerce de détail : homme, jardinier :in, paysagiste :in ou similaire.\n\nDomaine: Vente / Commerce de détail"
       },
       "location": "Sirnach",
       "canton": "TG",
       "url": "https://jobs.hornbach.ch/offer/verkauferin-garten/8f670900-4c3b-4a41-97a8-872f869ad504?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.601Z",
+      "crawledAt": "2026-10-04T21:24:13.749Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -1126,7 +1130,9 @@
       "sector": "Retail / Bricolage e Giardinaggio",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-10T00:00:00+02:00",
       "postedDate": "2026-08-10T00:00:00+02:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154799&company=Hornbach&username=",
       "jobReqId": "154799",
       "requirements": [],
@@ -1160,9 +1166,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-08-10T00:00:00+02:00",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "hornbach-154239",
@@ -1195,7 +1199,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-garten-hartwaren/7cd067a7-86c0-4eeb-adc1-ff6c69427690?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.600Z",
+      "crawledAt": "2026-10-04T21:24:13.748Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -1280,7 +1284,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-eisenwaren-und-werkzeug/0e8e9154-4906-49d0-8a50-5d74fbad01f6?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.600Z",
+      "crawledAt": "2026-10-04T21:24:13.749Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -1375,7 +1379,7 @@
       "url": "https://jobs.hornbach.ch/offer/mitarbeiterin-holzzuschnitt/f5bb2111-3b00-4aca-9348-245041ab4d8c?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.599Z",
+      "crawledAt": "2026-10-04T21:24:13.748Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -1398,13 +1402,15 @@
       "previousSlugs": [
         "mitarbeiter-in-holzzuschnitt-hornbach-biel-bienne",
         "collaborateur-trice-holzzuschnitt-hornbach-biel-bienne",
-        "associate-holzzuschnitt-hornbach-biel-bienne"
+        "associate-holzzuschnitt-hornbach-biel-bienne",
+        "collaboratore-trice-holzzuschnitt-hornbach-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-holzzuschnitt-hornbach-biel-bienne",
           "collaborateur-trice-holzzuschnitt-hornbach-biel-bienne",
-          "associate-holzzuschnitt-hornbach-biel-bienne"
+          "associate-holzzuschnitt-hornbach-biel-bienne",
+          "collaboratore-trice-holzzuschnitt-hornbach-biel-bienne"
         ],
         "en": [
           "mitarbeiter-in-holzzuschnitt-hornbach-biel-bienne"
@@ -1460,7 +1466,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-elektro/36ca56e5-5064-49e2-8d43-d7bc6d71c1d0?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.598Z",
+      "crawledAt": "2026-10-04T21:24:13.747Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -1521,9 +1527,9 @@
       "slug": "verkaufer-in-pflanzen-hornbach-luzern-littau",
       "slugByLocale": {
         "it": "verkaufer-in-pflanzen-hornbach-luzern-littau",
-        "en": "verkaufer-in-pflanzen-hornbach-luzern-littau",
+        "en": "plant-salesperson-hornbach-luzern-littau",
         "de": "verkaufer-in-pflanzen-hornbach-luzern-littau",
-        "fr": "verkaufer-in-pflanzen-hornbach-luzern-littau"
+        "fr": "vendeur-dans-les-plantes-hornbach-luzern-littau"
       },
       "company": "Hornbach",
       "companyKey": "hornbach",
@@ -1547,7 +1553,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-pflanzen/2f4b73d1-386c-414e-b5db-2ffe02aab887?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.597Z",
+      "crawledAt": "2026-10-04T21:24:13.747Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -1614,9 +1620,9 @@
       "slug": "verkaufer-in-fliesen-hornbach-sirnach",
       "slugByLocale": {
         "it": "verkaufer-in-fliesen-hornbach-sirnach",
-        "en": "verkaufer-in-fliesen-hornbach-sirnach",
+        "en": "seller-tiles-hornbach-sirnach",
         "de": "verkaufer-in-fliesen-hornbach-sirnach",
-        "fr": "verkaufer-in-fliesen-hornbach-sirnach"
+        "fr": "vendeur-en-carrelage-hornbach-sirnach"
       },
       "company": "Hornbach",
       "companyKey": "hornbach",
@@ -1640,7 +1646,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-fliesen/05d286b0-0e0c-4ffe-b9b8-2a813d9531c9?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.597Z",
+      "crawledAt": "2026-10-04T21:24:13.747Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -1725,7 +1731,7 @@
       "url": "https://jobs.hornbach.ch/offer/mitarbeiterin-warenausgang/7cd902e1-5122-4f90-8b8d-59d99bb6cd0c?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.596Z",
+      "crawledAt": "2026-10-04T21:24:13.746Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -1748,13 +1754,15 @@
       "previousSlugs": [
         "mitarbeiter-in-warenausgang-hornbach-sirnach",
         "collaborateur-trice-warenausgang-hornbach-sirnach",
-        "associate-warenausgang-hornbach-sirnach"
+        "associate-warenausgang-hornbach-sirnach",
+        "collaboratore-trice-warenausgang-hornbach-sirnach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-warenausgang-hornbach-sirnach",
           "collaborateur-trice-warenausgang-hornbach-sirnach",
-          "associate-warenausgang-hornbach-sirnach"
+          "associate-warenausgang-hornbach-sirnach",
+          "collaboratore-trice-warenausgang-hornbach-sirnach"
         ],
         "en": [
           "mitarbeiter-in-warenausgang-hornbach-sirnach"
@@ -1781,22 +1789,22 @@
     },
     {
       "id": "hornbach-155153",
-      "slug": "verkaufer-in-farben-hornbach-luzern-littau",
+      "slug": "colori-dei-venditori-hornbach-luzern-littau",
       "slugByLocale": {
-        "it": "verkaufer-in-farben-hornbach-luzern-littau",
-        "en": "verkaufer-in-farben-hornbach-luzern-littau",
+        "it": "colori-dei-venditori-hornbach-luzern-littau",
+        "en": "seller-colors-hornbach-luzern-littau",
         "de": "verkaufer-in-farben-hornbach-luzern-littau",
-        "fr": "verkaufer-in-farben-hornbach-luzern-littau"
+        "fr": "couleurs-des-vendeurs-hornbach-luzern-littau"
       },
       "company": "Hornbach",
       "companyKey": "hornbach",
       "companyDomain": "hornbach.ch",
       "title": "Verkäufer:in Farben",
       "titleByLocale": {
-        "it": "Verkäufer:in Farben",
-        "en": "Verkäufer:in Farben",
+        "it": "Colori dei venditori",
+        "en": "Seller Colors",
         "de": "Verkäufer:in Farben",
-        "fr": "Verkäufer:in Farben"
+        "fr": "Couleurs des vendeurs"
       },
       "description": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Fairer Mindestlohn ab CHF 4'400\n• Grosszügiger Mutter- und Vaterschaftsurlaub Es gibt immer was zu tun\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt.\n• Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament\n• Du bringst Herzblut für die Kundenberatung mit und stellst die Kundenzufriedenheit an erster Stelle.\n• Du hast ein hohes Verantwortungsbewusstsein und bleibst in stressigen Situationen positiv.\n• Deine guten Kenntnisse im Bereich Farben sowie Deine Kollegialität zeichnen Dich aus.\n• Auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen.\n• Du hast eine Ausbildung als Detailhandelsfachfrau:mann, Maler:in, Raumausstatter:in, Wohntextilgestalter:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
       "descriptionByLocale": {
@@ -1810,7 +1818,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-farben/0510110e-1a40-4623-a136-7c2cf43ba7d3?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.595Z",
+      "crawledAt": "2026-10-04T21:24:13.746Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -1833,19 +1841,25 @@
       "previousSlugs": [
         "couleurs-des-fournisseurs-hornbach-luzern-littau",
         "vendor-colours-hornbach-luzern-littau",
-        "colore-del-venditore-hornbach-luzern-littau"
+        "colore-del-venditore-hornbach-luzern-littau",
+        "verkaufer-in-farben-hornbach-luzern-littau",
+        "colori-dei-venditori-hornbach-luzern-littau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "couleurs-des-fournisseurs-hornbach-luzern-littau",
           "vendor-colours-hornbach-luzern-littau",
-          "colore-del-venditore-hornbach-luzern-littau"
+          "colore-del-venditore-hornbach-luzern-littau",
+          "verkaufer-in-farben-hornbach-luzern-littau",
+          "colori-dei-venditori-hornbach-luzern-littau"
         ],
         "en": [
-          "vendor-colours-hornbach-luzern-littau"
+          "vendor-colours-hornbach-luzern-littau",
+          "verkaufer-in-farben-hornbach-luzern-littau"
         ],
         "fr": [
-          "couleurs-des-fournisseurs-hornbach-luzern-littau"
+          "couleurs-des-fournisseurs-hornbach-luzern-littau",
+          "verkaufer-in-farben-hornbach-luzern-littau"
         ]
       },
       "needsRetranslation": true,
@@ -1895,7 +1909,7 @@
       "url": "https://jobs.hornbach.ch/offer/mitarbeiterin-wareneingang/59450efe-8c80-44aa-81af-8b43225ea11c?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.595Z",
+      "crawledAt": "2026-10-04T21:24:13.746Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -1922,7 +1936,8 @@
         "associate-holzzuschnitt-hornbach-luzern-littau",
         "collaboratore-trice-holzzuschnitt-hornbach-luzern-littau",
         "collaborateur-trice-wareneingang-hornbach-luzern-littau",
-        "associate-wareneingang-hornbach-luzern-littau"
+        "associate-wareneingang-hornbach-luzern-littau",
+        "collaboratore-trice-wareneingang-hornbach-luzern-littau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1932,7 +1947,8 @@
           "associate-holzzuschnitt-hornbach-luzern-littau",
           "collaboratore-trice-holzzuschnitt-hornbach-luzern-littau",
           "collaborateur-trice-wareneingang-hornbach-luzern-littau",
-          "associate-wareneingang-hornbach-luzern-littau"
+          "associate-wareneingang-hornbach-luzern-littau",
+          "collaboratore-trice-wareneingang-hornbach-luzern-littau"
         ],
         "en": [
           "mitarbeiter-in-wareneingang-hornbach-luzern-littau"
@@ -1988,7 +2004,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-eisenwaren-werkzeuge/3dc00b71-4d7a-4e4b-a63d-6c7289274a3e?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.594Z",
+      "crawledAt": "2026-10-04T21:24:13.746Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -2047,9 +2063,9 @@
       "slug": "verkaufer-in-pflanzen-hornbach-sirnach",
       "slugByLocale": {
         "it": "verkaufer-in-pflanzen-hornbach-sirnach",
-        "en": "verkaufer-in-pflanzen-hornbach-sirnach",
+        "en": "plant-salesperson-hornbach-sirnach",
         "de": "verkaufer-in-pflanzen-hornbach-sirnach",
-        "fr": "verkaufer-in-pflanzen-hornbach-sirnach"
+        "fr": "vendeur-dans-les-plantes-hornbach-sirnach"
       },
       "company": "Hornbach",
       "companyKey": "hornbach",
@@ -2057,9 +2073,9 @@
       "title": "Verkäufer:in Pflanzen",
       "titleByLocale": {
         "it": "Verkäufer:in Pflanzen",
-        "en": "Verkäufer:in Pflanzen",
+        "en": "Plant Salesperson",
         "de": "Verkäufer:in Pflanzen",
-        "fr": "Verkäufer:in Pflanzen"
+        "fr": "Vendeur :dans les plantes"
       },
       "description": "Darauf kannst Du Dich freuen\n• 39-Stunden-Woche mit flexiblen Pausen\n• Teilzeitstelle von 50%\n• BVG-Anteil (Pensionskasse) von 65 % bezahlt\n• Grosszügiger Mutter- und Vaterschaftsurlaub Es gibt immer was zu tun\n• Du berätst und begeisterst unsere Kundschaft bei der Verwirklichung ihrer Projekte.\n• Dank Dir sind die Regale gefüllt und die Produkte ansprechend präsentiert.\n• Du unterstützt Dein Team, wo immer es was zu tun gibt.\n• Den Onlineshop nutzt Du aktiv als Verkaufswerkzeug. Dein Fundament\n• Du bringst Herzblut für die Kundenberatung mit und stellst die Kundenzufriedenheit an erster Stelle.\n• Du hast ein hohes Verantwortungsbewusstsein und bleibst in stressigen Situationen positiv.\n• Deine guten Kenntnisse im Bereich Pflanzen sowie Deine Kollegialität zeichnen Dich aus.\n• Auf Deine Flexibilität im Rahmen unserer Öffnungszeiten können wir uns verlassen.\n• Du hast eine Ausbildung als Detailhandelsfachfrau:mann, Florist:in, Gärtner:in oder ähnliches abgeschlossen.\n\nBereich: Verkauf / Detailhandel",
       "descriptionByLocale": {
@@ -2073,7 +2089,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-pflanzen/0c723bf8-a3c0-4e05-a32a-4809fa5b9051?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.593Z",
+      "crawledAt": "2026-10-04T21:24:13.745Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -2158,7 +2174,7 @@
       "url": "https://jobs.hornbach.ch/offer/mitarbeiterin-wareneingang/1da49b88-2512-499b-8328-128dd0564438?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.593Z",
+      "crawledAt": "2026-10-04T21:24:13.745Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -2181,13 +2197,15 @@
       "previousSlugs": [
         "mitarbeiter-in-wareneingang-hornbach-affoltern-am-albis",
         "collaborateur-trice-wareneingang-hornbach-affoltern-am-albis",
-        "associate-wareneingang-hornbach-affoltern-am-albis"
+        "associate-wareneingang-hornbach-affoltern-am-albis",
+        "collaboratore-trice-wareneingang-hornbach-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-wareneingang-hornbach-affoltern-am-albis",
           "collaborateur-trice-wareneingang-hornbach-affoltern-am-albis",
-          "associate-wareneingang-hornbach-affoltern-am-albis"
+          "associate-wareneingang-hornbach-affoltern-am-albis",
+          "collaboratore-trice-wareneingang-hornbach-affoltern-am-albis"
         ],
         "en": [
           "mitarbeiter-in-wareneingang-hornbach-affoltern-am-albis"
@@ -2243,7 +2261,7 @@
       "url": "https://jobs.hornbach.ch/offer/mitarbeiterin-logistik/010bf789-9e3a-479e-81fa-31b836cc3ec3?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.592Z",
+      "crawledAt": "2026-10-04T21:24:13.745Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -2266,13 +2284,15 @@
       "previousSlugs": [
         "mitarbeiter-in-logistik-hornbach-sirnach",
         "collaborateur-trice-logistik-hornbach-sirnach",
-        "associate-logistik-hornbach-sirnach"
+        "associate-logistik-hornbach-sirnach",
+        "addetto-a-alla-logistica-hornbach-sirnach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-logistik-hornbach-sirnach",
           "collaborateur-trice-logistik-hornbach-sirnach",
-          "associate-logistik-hornbach-sirnach"
+          "associate-logistik-hornbach-sirnach",
+          "addetto-a-alla-logistica-hornbach-sirnach"
         ],
         "en": [
           "mitarbeiter-in-logistik-hornbach-sirnach"
@@ -2328,7 +2348,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-baustoffe/117bbd92-5440-4991-a8a5-9d8b194d9988?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.591Z",
+      "crawledAt": "2026-10-04T21:24:13.744Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -2410,7 +2430,7 @@
       "url": "https://jobs.hornbach.ch/offer/mitarbeiterin-kundendienst/00ffbcd4-eff8-429d-92ae-90931d1f2efc?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.590Z",
+      "crawledAt": "2026-10-04T21:24:13.743Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -2433,13 +2453,15 @@
       "previousSlugs": [
         "mitarbeiter-in-kundendienst-hornbach-sirnach",
         "collaborateur-trice-kundendienst-hornbach-sirnach",
-        "associate-kundendienst-hornbach-sirnach"
+        "associate-kundendienst-hornbach-sirnach",
+        "collaboratore-trice-kundendienst-hornbach-sirnach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kundendienst-hornbach-sirnach",
           "collaborateur-trice-kundendienst-hornbach-sirnach",
-          "associate-kundendienst-hornbach-sirnach"
+          "associate-kundendienst-hornbach-sirnach",
+          "collaboratore-trice-kundendienst-hornbach-sirnach"
         ],
         "en": [
           "mitarbeiter-in-kundendienst-hornbach-sirnach"
@@ -2495,7 +2517,7 @@
       "url": "https://jobs.hornbach.ch/offer/bad-und-kuchenplanerin/754d2347-7db3-4ed9-acd6-ba12a80fd6cb?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.590Z",
+      "crawledAt": "2026-10-04T21:24:13.744Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -2582,7 +2604,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-eisenwaren-und-werkzeug/539d1923-10b0-44ec-b87b-d4747b9fa2a0?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.588Z",
+      "crawledAt": "2026-10-04T21:24:13.742Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -2657,7 +2679,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-holz-baufertigteile/fc165e33-0094-42ec-ab02-fd2b3c324e3a?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.587Z",
+      "crawledAt": "2026-10-04T21:24:13.741Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -2724,7 +2746,7 @@
       "url": "https://jobs.hornbach.ch/offer/verkauferin-baustoffe/f3c0eba1-3c60-450e-b7b3-5819f2d51dca?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.587Z",
+      "crawledAt": "2026-10-04T21:24:13.742Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -2791,7 +2813,7 @@
       "url": "https://jobs.hornbach.ch/offer/lehrstelle-detailhandel-efz-farben/1eb8c806-9503-47a5-9f5e-226054a45f23?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.586Z",
+      "crawledAt": "2026-10-04T21:24:13.741Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -2814,13 +2836,15 @@
       "previousSlugs": [
         "lehrstelle-detailhandel-efz-farben-hornbach-affoltern-am-albis",
         "lehrstelle-commerce-de-detail-efz-farben-hornbach-affoltern-am-albis",
-        "training-centre-for-retail-trade-efz-colours-hornbach-affoltern-am-albis"
+        "training-centre-for-retail-trade-efz-colours-hornbach-affoltern-am-albis",
+        "apprendistato-commercio-al-dettaglio-cfc-farben-hornbach-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-detailhandel-efz-farben-hornbach-affoltern-am-albis",
           "lehrstelle-commerce-de-detail-efz-farben-hornbach-affoltern-am-albis",
-          "training-centre-for-retail-trade-efz-colours-hornbach-affoltern-am-albis"
+          "training-centre-for-retail-trade-efz-colours-hornbach-affoltern-am-albis",
+          "apprendistato-commercio-al-dettaglio-cfc-farben-hornbach-affoltern-am-albis"
         ],
         "en": [
           "training-centre-for-retail-trade-efz-colours-hornbach-affoltern-am-albis"
@@ -2876,7 +2900,7 @@
       "url": "https://jobs.hornbach.ch/offer/lehrstelle-detailhandel-efz-do-it/f94e19f2-c180-452e-8dfd-a055f5c621f0?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.585Z",
+      "crawledAt": "2026-10-04T21:24:13.741Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -2899,13 +2923,15 @@
       "previousSlugs": [
         "lehrstelle-detailhandel-efz-do-it-hornbach-affoltern-am-albis",
         "lehrstelle-commerce-de-detail-efz-do-it-hornbach-affoltern-am-albis",
-        "apprenticeship-for-retail-trade-efz-do-it-hornbach-affoltern-am-albis"
+        "apprenticeship-for-retail-trade-efz-do-it-hornbach-affoltern-am-albis",
+        "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-detailhandel-efz-do-it-hornbach-affoltern-am-albis",
           "lehrstelle-commerce-de-detail-efz-do-it-hornbach-affoltern-am-albis",
-          "apprenticeship-for-retail-trade-efz-do-it-hornbach-affoltern-am-albis"
+          "apprenticeship-for-retail-trade-efz-do-it-hornbach-affoltern-am-albis",
+          "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-affoltern-am-albis"
         ],
         "en": [
           "apprenticeship-for-retail-trade-efz-do-it-hornbach-affoltern-am-albis"
@@ -2961,7 +2987,7 @@
       "url": "https://jobs.hornbach.ch/offer/lehrstelle-logistikerin-efz/afb481e9-39e5-4d37-a7ec-7c08e78c2368?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.584Z",
+      "crawledAt": "2026-10-04T21:24:13.740Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -2974,7 +3000,9 @@
       "sector": "Retail / Bricolage e Giardinaggio",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-03T00:00:00+02:00",
       "postedDate": "2026-08-03T00:00:00+02:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154387&company=Hornbach&username=",
       "jobReqId": "154387",
       "requirements": [],
@@ -2982,13 +3010,15 @@
       "previousSlugs": [
         "lehrstelle-logistiker-in-efz-hornbach-luzern-littau",
         "apprentissage-en-logistique-en-efz-hornbach-luzern-littau",
-        "apprenticeship-in-logistics-in-efz-hornbach-luzern-littau"
+        "apprenticeship-in-logistics-in-efz-hornbach-luzern-littau",
+        "apprendistato-impiegata-impiegato-in-logistica-cfc-hornbach-luzern-littau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-logistiker-in-efz-hornbach-luzern-littau",
           "apprentissage-en-logistique-en-efz-hornbach-luzern-littau",
-          "apprenticeship-in-logistics-in-efz-hornbach-luzern-littau"
+          "apprenticeship-in-logistics-in-efz-hornbach-luzern-littau",
+          "apprendistato-impiegata-impiegato-in-logistica-cfc-hornbach-luzern-littau"
         ],
         "en": [
           "apprenticeship-in-logistics-in-efz-hornbach-luzern-littau"
@@ -3012,9 +3042,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-08-03T00:00:00+02:00",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "hornbach-154369",
@@ -3047,7 +3075,7 @@
       "url": "https://jobs.hornbach.ch/offer/lehrstelle-detailhandel-efz-do-it/77cd4762-3779-4366-8b58-8406c28a68be?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.583Z",
+      "crawledAt": "2026-10-04T21:24:13.740Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -3070,13 +3098,15 @@
       "previousSlugs": [
         "lehrstelle-detailhandel-efz-do-it-hornbach-biel-bienne",
         "lehrstelle-commerce-de-detail-efz-do-it-hornbach-biel-bienne",
-        "apprenticeship-for-retail-trade-efz-do-it-hornbach-biel-bienne"
+        "apprenticeship-for-retail-trade-efz-do-it-hornbach-biel-bienne",
+        "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-detailhandel-efz-do-it-hornbach-biel-bienne",
           "lehrstelle-commerce-de-detail-efz-do-it-hornbach-biel-bienne",
-          "apprenticeship-for-retail-trade-efz-do-it-hornbach-biel-bienne"
+          "apprenticeship-for-retail-trade-efz-do-it-hornbach-biel-bienne",
+          "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-biel-bienne"
         ],
         "en": [
           "apprenticeship-for-retail-trade-efz-do-it-hornbach-biel-bienne"
@@ -3132,7 +3162,7 @@
       "url": "https://jobs.hornbach.ch/offer/lehrstelle-detailhandel-efz-do-it/1f1e4e94-1d2a-45df-9364-3ad1157d9c72?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.582Z",
+      "crawledAt": "2026-10-04T21:24:13.739Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -3155,13 +3185,15 @@
       "previousSlugs": [
         "lehrstelle-detailhandel-efz-do-it-hornbach-luzern-littau",
         "lehrstelle-commerce-de-detail-efz-do-it-hornbach-luzern-littau",
-        "apprenticeship-for-retail-trade-efz-do-it-hornbach-luzern-littau"
+        "apprenticeship-for-retail-trade-efz-do-it-hornbach-luzern-littau",
+        "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-luzern-littau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-detailhandel-efz-do-it-hornbach-luzern-littau",
           "lehrstelle-commerce-de-detail-efz-do-it-hornbach-luzern-littau",
-          "apprenticeship-for-retail-trade-efz-do-it-hornbach-luzern-littau"
+          "apprenticeship-for-retail-trade-efz-do-it-hornbach-luzern-littau",
+          "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-luzern-littau"
         ],
         "en": [
           "apprenticeship-for-retail-trade-efz-do-it-hornbach-luzern-littau"
@@ -3217,7 +3249,7 @@
       "url": "https://jobs.hornbach.ch/offer/lehrstelle-logistik-efz/dbb46bda-99b4-4a2a-82d4-c49c4e595d61?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.581Z",
+      "crawledAt": "2026-10-04T21:24:13.737Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "streetAddress": "Längfeldweg 140",
@@ -3240,13 +3272,15 @@
       "previousSlugs": [
         "lehrstelle-logistik-efz-hornbach-biel-bienne",
         "apprentissage-logistique-efz-hornbach-biel-bienne",
-        "apprenticeship-logistics-efz-hornbach-biel-bienne"
+        "apprenticeship-logistics-efz-hornbach-biel-bienne",
+        "apprendistato-logistik-cfc-hornbach-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-logistik-efz-hornbach-biel-bienne",
           "apprentissage-logistique-efz-hornbach-biel-bienne",
-          "apprenticeship-logistics-efz-hornbach-biel-bienne"
+          "apprenticeship-logistics-efz-hornbach-biel-bienne",
+          "apprendistato-logistik-cfc-hornbach-biel-bienne"
         ],
         "en": [
           "apprenticeship-logistics-efz-hornbach-biel-bienne",
@@ -3304,7 +3338,7 @@
       "url": "https://jobs.hornbach.ch/offer/lehrstelle-detailhandel-efz-do-it/a4dddffd-26ad-4b3a-9a68-913a2d2863c2?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.581Z",
+      "crawledAt": "2026-10-04T21:24:13.739Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "streetAddress": "Ebnetstrasse 5",
@@ -3327,13 +3361,15 @@
       "previousSlugs": [
         "lehrstelle-detailhandel-efz-do-it-hornbach-sirnach",
         "lehrstelle-commerce-de-detail-efz-do-it-hornbach-sirnach",
-        "lehrstelle-retail-efz-do-it-hornbach-sirnach"
+        "lehrstelle-retail-efz-do-it-hornbach-sirnach",
+        "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-sirnach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-detailhandel-efz-do-it-hornbach-sirnach",
           "lehrstelle-commerce-de-detail-efz-do-it-hornbach-sirnach",
-          "lehrstelle-retail-efz-do-it-hornbach-sirnach"
+          "lehrstelle-retail-efz-do-it-hornbach-sirnach",
+          "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-sirnach"
         ],
         "en": [
           "lehrstelle-retail-efz-do-it-hornbach-sirnach"
@@ -3389,7 +3425,7 @@
       "url": "https://jobs.hornbach.ch/offer/lehrstelle-logistikerin-efz/f56080f7-e7f5-4160-ad0c-533518f150a1?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.573Z",
+      "crawledAt": "2026-10-04T21:24:13.737Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -3412,13 +3448,15 @@
       "previousSlugs": [
         "lehrstelle-logistiker-in-efz-hornbach-galgenen",
         "apprentissage-en-logistique-en-efz-hornbach-galgenen",
-        "apprenticeship-in-logistics-in-efz-hornbach-galgenen"
+        "apprenticeship-in-logistics-in-efz-hornbach-galgenen",
+        "apprendistato-impiegata-impiegato-in-logistica-cfc-hornbach-galgenen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-logistiker-in-efz-hornbach-galgenen",
           "apprentissage-en-logistique-en-efz-hornbach-galgenen",
-          "apprenticeship-in-logistics-in-efz-hornbach-galgenen"
+          "apprenticeship-in-logistics-in-efz-hornbach-galgenen",
+          "apprendistato-impiegata-impiegato-in-logistica-cfc-hornbach-galgenen"
         ],
         "en": [
           "apprenticeship-in-logistics-in-efz-hornbach-galgenen"
@@ -3475,7 +3513,7 @@
       "url": "https://jobs.hornbach.ch/offer/lehrstelle-detailhandel-efz-do-it/a0a42d0c-7d58-4e0a-b4b5-e5cdfe67a869?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.572Z",
+      "crawledAt": "2026-10-04T21:24:13.736Z",
       "addressLocality": "Galgenen",
       "addressRegion": "SZ",
       "streetAddress": "Kantonsstrasse 61",
@@ -3498,13 +3536,15 @@
       "previousSlugs": [
         "lehrstelle-detailhandel-efz-do-it-hornbach-galgenen",
         "lehrstelle-commerce-de-detail-efz-do-it-hornbach-galgenen",
-        "lehrstelle-retail-efz-do-it-hornbach-galgenen"
+        "lehrstelle-retail-efz-do-it-hornbach-galgenen",
+        "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-galgenen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-detailhandel-efz-do-it-hornbach-galgenen",
           "lehrstelle-commerce-de-detail-efz-do-it-hornbach-galgenen",
-          "lehrstelle-retail-efz-do-it-hornbach-galgenen"
+          "lehrstelle-retail-efz-do-it-hornbach-galgenen",
+          "apprendistato-commercio-al-dettaglio-cfc-do-it-hornbach-galgenen"
         ],
         "en": [
           "lehrstelle-retail-efz-do-it-hornbach-galgenen"
@@ -3560,7 +3600,7 @@
       "url": "https://jobs.hornbach.ch/offer/kv-lehrstelle-kauffraumann-efz/cdf71f6f-bad7-452f-b342-555efe1ae311?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.571Z",
+      "crawledAt": "2026-10-04T21:24:13.736Z",
       "addressLocality": "Luzern Littau",
       "addressRegion": "Luzern",
       "streetAddress": "Thorenbergstrasse 49",
@@ -3573,7 +3613,9 @@
       "sector": "Retail / Bricolage e Giardinaggio",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-18T00:00:00+02:00",
       "postedDate": "2026-09-18T00:00:00+02:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154526&company=Hornbach&username=",
       "jobReqId": "154526",
       "requirements": [],
@@ -3581,13 +3623,15 @@
       "previousSlugs": [
         "kv-lehrstelle-kauffrau-mann-efz-hornbach-luzern-littau",
         "apprentissage-kv-femme-d-affaires-homme-efz-hornbach-luzern-littau",
-        "kv-apprenticeship-businesswoman-man-efz-hornbach-luzern-littau"
+        "kv-apprenticeship-businesswoman-man-efz-hornbach-luzern-littau",
+        "kv-apprendistato-kauffrau-mann-cfc-hornbach-luzern-littau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kv-lehrstelle-kauffrau-mann-efz-hornbach-luzern-littau",
           "apprentissage-kv-femme-d-affaires-homme-efz-hornbach-luzern-littau",
-          "kv-apprenticeship-businesswoman-man-efz-hornbach-luzern-littau"
+          "kv-apprenticeship-businesswoman-man-efz-hornbach-luzern-littau",
+          "kv-apprendistato-kauffrau-mann-cfc-hornbach-luzern-littau"
         ],
         "en": [
           "kv-apprenticeship-businesswoman-man-efz-hornbach-luzern-littau",
@@ -3612,9 +3656,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-09-18T00:00:00+02:00",
-      "postingDateSource": "reported"
+      }
     },
     {
       "id": "hornbach-154503",
@@ -3647,7 +3689,7 @@
       "url": "https://jobs.hornbach.ch/offer/lehrstelle-detailhandel-efz-eisenwa/0a88e472-b413-4ba0-88fb-afafdd102edd?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.570Z",
+      "crawledAt": "2026-10-04T21:24:13.735Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "streetAddress": "Obfelderstrasse 37",
@@ -3670,13 +3712,15 @@
       "previousSlugs": [
         "lehrstelle-detailhandel-efz-eisenwaren-hornbach-affoltern-am-albis",
         "lehrstelle-commerce-de-detail-efz-eisenwaren-hornbach-affoltern-am-albis",
-        "retail-trade-apprenticeship-efz-iron-goods-hornbach-affoltern-am-albis"
+        "retail-trade-apprenticeship-efz-iron-goods-hornbach-affoltern-am-albis",
+        "apprendistato-commercio-al-dettaglio-cfc-eisenwaren-hornbach-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-detailhandel-efz-eisenwaren-hornbach-affoltern-am-albis",
           "lehrstelle-commerce-de-detail-efz-eisenwaren-hornbach-affoltern-am-albis",
-          "retail-trade-apprenticeship-efz-iron-goods-hornbach-affoltern-am-albis"
+          "retail-trade-apprenticeship-efz-iron-goods-hornbach-affoltern-am-albis",
+          "apprendistato-commercio-al-dettaglio-cfc-eisenwaren-hornbach-affoltern-am-albis"
         ],
         "en": [
           "retail-trade-apprenticeship-efz-iron-goods-hornbach-affoltern-am-albis"
@@ -3715,7 +3759,7 @@
       "companyDomain": "hornbach.ch",
       "title": "Duales Studium - BWL Handel - Bachelor of Arts",
       "titleByLocale": {
-        "it": "Studio duale - Economia e Commercio - Bachelor of Arts",
+        "it": "Duales Studium - BWL Handel - Bachelor of Arts",
         "en": "Dual studies - Business Administration Trade - Bachelor of Arts",
         "de": "Duales Studium - BWL Handel - Bachelor of Arts",
         "fr": "Doubles études - Administration des affaires Commerce - Bachelor of Arts"
@@ -3732,7 +3776,7 @@
       "url": "https://jobs.hornbach.ch/offer/duales-studium-bwl-handel-bachelor-/06eb84c8-516a-4cc0-a55e-ab3b039ff997?showApplicationForm=false",
       "source": "Hornbach Dedicated Parser (job-shop/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:15:16.568Z",
+      "crawledAt": "2026-10-04T21:24:13.734Z",
       "addressLocality": "Sursee",
       "addressRegion": "Luzern",
       "streetAddress": "Schellenrain 9",
@@ -3745,7 +3789,9 @@
       "sector": "Retail / Bricolage e Giardinaggio",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-04T00:00:00+02:00",
       "postedDate": "2026-08-04T00:00:00+02:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=154525&company=Hornbach&username=",
       "jobReqId": "154525",
       "requirements": [],
@@ -3753,18 +3799,20 @@
       "previousSlugs": [
         "doubles-etudes-administration-des-affaires-commerce-bachelor-of-arts-hornbach-sursee",
         "duales-studium-bwl-handel-bachelor-of-arts-hornbach-sursee",
-        "dual-studies-business-administration-trade-bachelor-of-arts-hornbach-sursee"
+        "dual-studies-business-administration-trade-bachelor-of-arts-hornbach-sursee",
+        "studio-duale-economia-e-commercio-bachelor-of-arts-hornbach-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "doubles-etudes-administration-des-affaires-commerce-bachelor-of-arts-hornbach-sursee",
           "duales-studium-bwl-handel-bachelor-of-arts-hornbach-sursee",
-          "dual-studies-business-administration-trade-bachelor-of-arts-hornbach-sursee"
-        ],
-        "fr": [
-          "duales-studium-bwl-handel-bachelor-of-arts-hornbach-sursee"
+          "dual-studies-business-administration-trade-bachelor-of-arts-hornbach-sursee",
+          "studio-duale-economia-e-commercio-bachelor-of-arts-hornbach-sursee"
         ],
         "en": [
+          "duales-studium-bwl-handel-bachelor-of-arts-hornbach-sursee"
+        ],
+        "fr": [
           "duales-studium-bwl-handel-bachelor-of-arts-hornbach-sursee"
         ]
       },
@@ -3782,9 +3830,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "2026-08-04T00:00:00+02:00",
-      "postingDateSource": "reported"
+      }
     }
   ]
 }

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Klinik Adelheid (ZG) job parser — bespoke CMS (MODX-based, no public ATS).
  *
@@ -128,16 +130,17 @@ export async function fetchAllKlinikAdelheidJobs() {
   console.log(`  ✓ ${rows.length} jobs from listing`);
   if (!rows.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
 
   for (const row of rows) {
     const detailUrl = `${SITE_BASE}${row.path}`;
     let description = '';
+    let publication = sourcePostingDateFields('');
     try {
       const detailHtml = await fetchHtml(detailUrl);
       description = extractAdelheidDetail(detailHtml);
+      publication = sourcePostingDateFields(extractJobPostingLd(detailHtml)?.datePosted);
       if (description) detailHits++;
     } catch (err) {
       console.log(`     ⚠ detail fetch failed for ${row.path}: ${err.message}`);
@@ -190,7 +193,7 @@ export async function fetchAllKlinikAdelheidJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...publication,
       applyUrl: detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

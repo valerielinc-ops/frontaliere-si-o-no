@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gesundheitszentrum-fricktal",
-  "assembledAt": "2026-10-04T09:17:14.795Z",
+  "assembledAt": "2026-10-04T21:17:07.487Z",
   "jobs": [
     {
       "id": "gesundheitszentrum-fricktal-b5c0a92280ad",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/857/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:09.195Z",
+      "crawledAt": "2026-10-04T21:17:01.021Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -81,12 +81,12 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-d531a35d514a",
-      "slug": "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "professionista-sanitario-emergenza-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "professionista-sanitario-emergenza-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "healthcare-professional-emergency-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "de": "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "specialiste-sante-urgence-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -111,7 +111,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2124/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:07.190Z",
+      "crawledAt": "2026-10-04T21:16:59.039Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -128,6 +128,20 @@
       "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2124/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "fachperson-gesundheit-notfall-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
       "firstSeenAt": "2026-09-02T13:36:33.484Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -175,7 +189,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2087/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:05.191Z",
+      "crawledAt": "2026-10-04T21:16:57.052Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -254,7 +268,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/1861/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:03.175Z",
+      "crawledAt": "2026-10-04T21:16:55.044Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -333,7 +347,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2222/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:01.200Z",
+      "crawledAt": "2026-10-04T21:16:53.021Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -397,7 +411,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/1790/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:59.201Z",
+      "crawledAt": "2026-10-04T21:16:51.044Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -475,7 +489,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2291/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:57.193Z",
+      "crawledAt": "2026-10-04T21:16:49.038Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -494,7 +508,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "dipl-cura-professionale-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden-eaffa8",
         "dipl-soins-professionnels-hf-h-f-d-gesundheitszentrum-fricktal-rheinfelden-ed6af0",
         "infermiera-hf-m-f-gesundheitszentrum-fricktal-rheinfelden",
         "dipl-pflegefachperson-hf-m-w-gesundheitszentrum-fricktal-rheinfelden",
@@ -526,9 +539,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infermiere-dipl-sss-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-          "dipl-carriera-m-d-piscina-gesundheitszentrum-fricktal-rheinfelden",
-          "dipl-pflegefachperson-w-m-d-pool-gesundheitszentrum-fricktal-rheinfelden",
           "infermiere-diplomata-hf-u-m-d-gesundheitszentrum-fricktal-rheinfelden",
           "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
           "diplome-en-soins-infirmiers-hf-h-f-x-gesundheitszentrum-fricktal-rheinfelden",
@@ -545,7 +555,9 @@
           "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-89uakr",
           "dipl-cura-professionale-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden-ed6af0",
           "dipl-care-professional-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden-ed6af0",
-          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-89ua1q"
+          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-89ua1q",
+          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+          "dipl-carriera-m-d-piscina-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
           "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
@@ -603,7 +615,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2315/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:55.185Z",
+      "crawledAt": "2026-10-04T21:16:47.036Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -690,7 +702,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2073/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:53.191Z",
+      "crawledAt": "2026-10-04T21:16:45.035Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -769,7 +781,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2341/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:51.187Z",
+      "crawledAt": "2026-10-04T21:16:43.019Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -847,7 +859,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2219/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:49.190Z",
+      "crawledAt": "2026-10-04T21:16:41.051Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -924,7 +936,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2134/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:47.187Z",
+      "crawledAt": "2026-10-04T21:16:39.043Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1001,7 +1013,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2198/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:45.192Z",
+      "crawledAt": "2026-10-04T21:16:37.041Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1051,9 +1063,9 @@
       "slug": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "it": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "medical-practice-assistant-mpa-efz-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "de": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "assistant-e-medical-e-au-cabinet-medical-mpa-cfc-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -1061,9 +1073,9 @@
       "title": "Medizinische:r Praxisassistent:in (MPA) EFZ (m/w/d)",
       "titleByLocale": {
         "it": "Medizinische:r Praxisassistent:in (MPA) CFC (m/w/d)",
-        "en": "Medizinische:r Praxisassistent:in (MPA) EFZ (m/w/d)",
+        "en": "Medical practice assistant (MPA) EFZ (m/f/d)",
         "de": "Medizinische:r Praxisassistent:in (MPA) EFZ (m/w/d)",
-        "fr": "Medizinische:r Praxisassistent:in (MPA) EFZ (m/w/d)"
+        "fr": "Assistant (e) médical (e) au cabinet médical (MPA) CFC (h/f/d)"
       },
       "description": "Gesundheitszentrum Fricktal AG | online seit : 11.08.2026\n\nArbeitsort : IAVO Frick\n\nDu schätzt den persönlichen Kontakt zu den Patient:innen und eine individuelle Betreuung ist dir wichtig? Labor, Triage, Sprechstundenassistenz, Infusionen - die Vielfältigkeit des Berufes einer MPA bereitet dir Freude? Du bleibst in hektischen Situationen ruhig? Möchtest du Teil eines wachsenden Verbunds aus modernen Praxen und Mitglied des gesamten GZF-Teams werden? Dann bist du bei uns genau richtig! Wir freuen uns auf deine Verstärkung.\n\n• Du betreust unsere Patientinnen und Patienten vor, während und nach der Untersuchung mit hoher Fachkompetenz und Einfühlungsvermögen\n• Du koordinierst, planst und assistierst die Sprechstunden und bringst dabei deine ausgeprägte organisatorische Stärke ein\n• Du führst eigenständig Blutentnahmen, Laboranalysen, Infusionstherapien sowie weitere Untersuchungen wie EKG, 24h-Blutdruckmessung und Lungenfunktionstests durch\n• Du führst Röntgenbilder durch und gewährleistest dabei eine sorgfältige, sichere und qualitativ hochwertige Bildgebung\n• Du übernimmst administrative Aufgaben, erstellst Abrechnungen nach TARDOC und arbeitest routiniert mit der Praxissoftware Axenita\n• Telefonische Anfragen beantwortest du kompetent und serviceorientiert – stets mit einem freundlichen Auftreten und einem hohen Mass an Kundenorientierung\n\n• Du verfügst über eine abgeschlossene Ausbildung als Medizinische:r Praxisassistent:in EFZ oder eine gleichwertige Qualifikation\n• Du bringst mehrjährige Berufserfahrung im Praxisalltag mit und bleibst auch in unerwarteten Situationen ruhig und souverän\n• Du kommunizierst klar, empathisch und professionell dank deiner sehr guten Deutschkenntnisse in Wort und Schrift\n• Du wirst als offene, herzliche Persönlichkeit wahrgenommen, die gerne im Team arbeitet und ebenso Freude an selbstständigem Arbeit hat\n• Du fühlst dich in einem lebendigen Praxisumfeld wohl, reagierst flexibel auf wechselnde Anforderungen und trägst aktiv zu einem positiven, kollegialen Arbeitsklima bei\n\nhttp://www.gzf.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
       "descriptionByLocale": {
@@ -1078,7 +1090,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2148/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:43.199Z",
+      "crawledAt": "2026-10-04T21:16:35.025Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1142,7 +1154,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2120/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:41.195Z",
+      "crawledAt": "2026-10-04T21:16:33.047Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1205,7 +1217,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2329/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:39.122Z",
+      "crawledAt": "2026-10-04T21:16:30.913Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1259,10 +1271,10 @@
       "companyDomain": "gzf.ch",
       "title": "Assistent:in Gesundheit & Soziales (m/w/d)",
       "titleByLocale": {
-        "it": "Assistent:in Gesundheit & Soziales (m/w/d)",
-        "en": "Assistent:in Gesundheit & Soziales (m/w/d)",
+        "it": "Assistente Salute e Affari Sociali (m/f/d)",
+        "en": "Assistant Health & Social Affairs (m/f/d)",
         "de": "Assistent:in Gesundheit & Soziales (m/w/d)",
-        "fr": "Assistent:in Gesundheit & Soziales (m/w/d)"
+        "fr": "Assistant Santé et Affaires sociales (h/f/d)"
       },
       "description": "Gesundheitszentrum Fricktal AG | online seit : 13.08.2026\n\nArbeitsort : GZF Laufenburg\n\nIn der Seora – Leben im Alter an den beiden Standorten in Laufenburg und Rheinfelden stehen die Bedürfnisse sowie die Selbst- und Mitbestimmung unserer Bewohner:innen im Zentrum. In deinem Seora Team arbeiten Kolleg:innen aus verschiedenen Berufsgruppen – Pflegende, Mitarbeitende der Aktivierung und des Bewohnerservices – respektvoll und auf Augenhöhe zusammen. Gemeinsam sorgt ihr dafür, dass unsere Bewohner:innen in einer familiären Atmosphäre persönlich und herzlich betreut werden – immer unter Berücksichtigung ihrer individuellen Bedürfnisse und Lebensgeschichte. Dank der unmittelbaren Nähe zum Akutspital ist an beiden Standorten rund um die Uhr für qualifizierte ärztliche Hilfe und medizinische Betreuung gesorgt und die interdisziplinäre Zusammenarbeit u.a. mit Case Management und Physiotherapie wird täglich gelebt. Seora ist ein Teil des GZF.\n\n• Du pflegst und betreust unsere Bewohner:innen individuell und gehst auf deren Bedürfnisse und Wünsche ein\n• Du gestaltest den Alltag auf der Abteilung zusammen mit deinem Team\n• Du übernimmst auch hauwirtschaftliche Aufgaben\n• Du führst selbständig und verantwortungsbewusst die Pflegedokumentationen durch\n\n• Du hast eine Ausbildung als Assistebtin Gesundheit & Soziales oder Pflegassistentin FA und bringst von Vorteil einige Jahre Berufserfahrung mit\n• Du hast Freude im Umgang mit älteren und dementen Menschen\n• Du arbeitest gerne selbständig und fühlst dich wohl im Team\n• Bereitschaft zur Schichtarbeit und Wochenenddienst, jedoch keine Nachtwache\n\nhttp://www.gzf.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
       "descriptionByLocale": {
@@ -1277,7 +1289,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2369/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:38.207Z",
+      "crawledAt": "2026-10-04T21:16:30.038Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1386,7 +1398,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2345/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:37.216Z",
+      "crawledAt": "2026-10-04T21:16:28.036Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1461,7 +1473,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2411/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:36.380Z",
+      "crawledAt": "2026-10-04T21:16:26.041Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1541,7 +1553,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2426/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:35.552Z",
+      "crawledAt": "2026-10-04T21:16:24.045Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1624,7 +1636,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2413/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:34.744Z",
+      "crawledAt": "2026-10-04T21:16:22.386Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1702,7 +1714,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2393/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:33.919Z",
+      "crawledAt": "2026-10-04T21:16:21.453Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1759,7 +1771,7 @@
       "slugByLocale": {
         "it": "dipl-cura-di-anestesia-esperto-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "en": "dipl-expert-anesthesia-care-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-        "de": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden-89u99h",
+        "de": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "fr": "dipl-soins-d-anesthesie-experts-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
@@ -1785,7 +1797,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2278/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:33.084Z",
+      "crawledAt": "2026-10-04T21:16:20.499Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1809,7 +1821,8 @@
         "dipl-expert-soins-anesthesiques-h-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "dipl-esperto-nella-cura-dell-anestesia-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "dipl-expert-soins-anesthesiques-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-        "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden-89u99h"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1825,7 +1838,7 @@
           "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "de": [
-          "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+          "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden-89u99h"
         ],
         "fr": [
           "dipl-expert-soins-anesthesiques-h-f-d-gesundheitszentrum-fricktal-rheinfelden",
@@ -1878,7 +1891,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2437/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:32.245Z",
+      "crawledAt": "2026-10-04T21:16:19.566Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1956,7 +1969,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2247/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:31.436Z",
+      "crawledAt": "2026-10-04T21:16:18.618Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2009,22 +2022,22 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-c250bb95783f",
-      "slug": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "esperto-certificato-in-infermieristica-di-anestesia-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "it": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "esperto-certificato-in-infermieristica-di-anestesia-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "certified-expert-in-anaesthesia-nursing-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "de": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "expert-certifie-en-soins-infirmiers-en-anesthesie-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
       "companyDomain": "gzf.ch",
       "title": "Dipl. Expert:in Anästhesiepflege (m/w/d)",
       "titleByLocale": {
-        "it": "Dipl. Expert:in Anästhesiepflege (m/w/d)",
-        "en": "Dipl. Expert:in Anästhesiepflege (m/w/d)",
+        "it": "Esperto certificato in Infermieristica di Anestesia (m/f/d)",
+        "en": "Certified Expert in Anaesthesia Nursing (m/f/d)",
         "de": "Dipl. Expert:in Anästhesiepflege (m/w/d)",
-        "fr": "Dipl. Expert:in Anästhesiepflege (m/w/d)"
+        "fr": "Expert certifié en soins infirmiers en anesthésie (h/f/d)"
       },
       "description": "Gesundheitszentrum Fricktal AG | online seit : 01.10.2026\n\nArbeitsort : GZF Rheinfelden\n\nUnser herzliches, rund 28‑köpfiges Pflegeteam gibt jeden Tag sein Bestes für eine optimale perioperative Versorgung – und vielleicht bald mit dir an unserer Seite. Du schätzt die Zusammenarbeit über Fachgrenzen hinweg, denkst gerne vernetzt und fühlst dich dort wohl, wo an zwei modernen Standorten mit topaktueller Infrastruktur echte Abwechslung entsteht? Dann könnten wir perfekt zueinander passen. Wir freuen uns sehr darauf, dich kennenzulernen und gemeinsam weiterzuwachsen.\n\n• Du führst Anästhesien (Regional- & Vollnarkosen) eigenständig durch bzw. überwachst diese\n• Du betreust Patientinnen und Patienten kompetent während des gesamten perioperativen Prozesses\n• Du assistierst bei ärztlich geleiteten Anästhesien und setzt medizinische Verordnungen sicher um\n• Du bereitest Materialien, Geräte und Medikamente fachgerecht vor und stellst deren Funktionsfähigkeit sicher\n• Du stellst einen reibungslosen Ablauf des OP-Programms sicher und hältst Qualitätsstandards ein\n\n• Du hast die Ausbildung zur Dipl. Expertin / zum Dipl. Experten Anästhesiepflege NDS HF (CH Anerkennung vorausgesetzt)\n• Du verfügst über aktuelles Fachwissen und idealerweise Erfahrung in verschiedenen anästhesiologischen Bereichen\n• Du arbeitest selbstständig, verantwortungsbewusst, exakt und behältst in anspruchsvollen Situationen die Ruhe\n• Du bist belastbar, flexibel und schätzt die interdisziplinäre Zusammenarbeit\n• Du gehst einfühlsam und professionell mit Patientinnen und Patienten um und kommunizierst klar im Team\n• Du bringst Engagement sowie eine strukturierte, vorausschauende Arbeitsweise mit\n\nhttp://www.gzf.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
       "descriptionByLocale": {
@@ -2039,7 +2052,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2193/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:30.709Z",
+      "crawledAt": "2026-10-04T21:16:17.819Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2056,6 +2069,20 @@
       "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2193/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
       "firstSeenAt": "2026-09-10T23:05:35.604Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -2076,9 +2103,9 @@
       "slug": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-3",
       "slugByLocale": {
         "it": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-3",
-        "en": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-3",
+        "en": "medical-practice-assistant-mpa-efz-m-f-d-gesundheitszentrum-fricktal-rheinfelden-686009",
         "de": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-89ualp",
-        "fr": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-3"
+        "fr": "assistant-e-medical-e-au-cabinet-medical-mpa-cfc-h-f-d-gesundheitszentrum-fricktal-rheinfelden-686009"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -2086,9 +2113,9 @@
       "title": "Medizinische:r Praxisassistent:in (MPA) EFZ (m/w/d)",
       "titleByLocale": {
         "it": "Medizinische:r Praxisassistent:in (MPA) CFC (m/w/d)",
-        "en": "Medizinische:r Praxisassistent:in (MPA) EFZ (m/w/d)",
+        "en": "Medical practice assistant (MPA) EFZ (m/f/d)",
         "de": "Medizinische:r Praxisassistent:in (MPA) EFZ (m/w/d)",
-        "fr": "Medizinische:r Praxisassistent:in (MPA) EFZ (m/w/d)"
+        "fr": "Assistant (e) médical (e) au cabinet médical (MPA) CFC (h/f/d)"
       },
       "description": "Gesundheitszentrum Fricktal AG | online seit : 01.10.2026\n\nDu schätzt den persönlichen Kontakt zu den Patient:innen und eine individuelle Betreuung ist dir wichtig? Labor, Triage, Sprechstundenassistenz, Infusionen - die Vielfältigkeit des Berufes einer MPA bereitet dir Freude? Möchtest du Teil eines wachsenden Verbunds aus modernen Praxen und Mitglied des gesamten GZF-Teams werden? Dann bist du bei uns genau richtig! Wir freuen uns auf deine Verstärkung.\n\n• Du betreust unsere Patientinnen und Patienten vor, während und nach der Untersuchung mit hoher Fachkompetenz und Einfühlungsvermögen\n• Du koordinierst, planst und assistierst die Sprechstunden und bringst dabei deine ausgeprägte organisatorische Stärke ein\n• Du führst eigenständig Blutentnahmen, Laboranalysen, Infusionstherapien sowie weitere Untersuchungen wie EKG, 24h-Blutdruckmessung und Lungenfunktionstests durch\n• Du übernimmst administrative Aufgaben, erstellst Abrechnungen nach TARDOC und arbeitest routiniert mit der Praxissoftware Axenita\n• Telefonische Anfragen beantwortest du kompetent und serviceorientiert – stets mit einem freundlichen Auftreten und einem hohen Mass an Kundenorientierung\n\n• Du verfügst über eine abgeschlossene Ausbildung als Medizinische:r Praxisassistent:in EFZ oder eine gleichwertige Qualifikation\n• Du bringst mehrjährige Berufserfahrung im Praxisalltag mit und bleibst auch in unerwarteten Situationen ruhig und souverän\n• Du kommunizierst klar, empathisch und professionell dank deiner sehr guten Deutschkenntnisse in Wort und Schrift\n• Du wirst als offene, herzliche Persönlichkeit wahrgenommen, die gerne im Team arbeitet und ebenso Freude an selbstständigem Arbeit hat\n• Du fühlst dich in einem lebendigen Praxisumfeld wohl, reagierst flexibel auf wechselnde Anforderungen und trägst aktiv zu einem positiven, kollegialen Arbeitsklima bei\n\nhttp://www.gzf.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
       "descriptionByLocale": {
@@ -2103,7 +2130,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2418/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:29.975Z",
+      "crawledAt": "2026-10-04T21:16:17.023Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2178,7 +2205,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2410/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:16:29.264Z",
+      "crawledAt": "2026-10-04T21:16:16.199Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",

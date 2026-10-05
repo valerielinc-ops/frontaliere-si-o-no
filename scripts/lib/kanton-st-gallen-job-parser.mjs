@@ -69,6 +69,7 @@
  * - KANTON_ST_GALLEN_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { parseUmantisListing, decodeEntities, parseSwissDate, umantisListingContract } from './umantis-listing-common.mjs';
 import { slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -318,8 +319,11 @@ export async function fetchAllKantonStGallenJobs() {
   try {
     html = await fetchPage(LISTING_URL);
   } catch (err) {
-    console.warn(`  ⚠️  Kanton St. Gallen listing fetch failed: ${err?.message || err}. Returning 0 jobs.`);
-    return [];
+    console.warn(`  ⚠️  Kanton St. Gallen listing fetch failed: ${err?.message || err}.`);
+    // A fetch failure is not an empty listing: let the crawler pipeline
+    // classify it (connection-level soft exit or HTTP error) instead of
+    // publishing a cause-less no-jobs-parsed abort.
+    throw err;
   }
 
   const collectPage = (pageHtml) => {
@@ -347,7 +351,10 @@ export async function fetchAllKantonStGallenJobs() {
         pageHtml = await fetchPage(pageUrl);
       } catch (err) {
         console.warn(`  ⚠️  Page ${pageNum} fetch failed: ${err?.message || err}`);
-        break;
+        // A fetch failure is not the end of the listing: let the crawler pipeline
+        // classify it (connection-level soft exit or HTTP error) instead of
+        // publishing a partial or cause-less empty result.
+        throw err;
       }
       const added = collectPage(pageHtml);
       if (added === 0) break;
@@ -359,7 +366,6 @@ export async function fetchAllKantonStGallenJobs() {
   console.log(`  ✓ ${allEntries.length} unique jobs across pagination\n`);
   if (!allEntries.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (const entry of allEntries) {
@@ -398,7 +404,7 @@ export async function fetchAllKantonStGallenJobs() {
     const description = meetsSourceBodyFloor(detailContent) ? detailContent : '';
     const employmentType = detectEmploymentType(pensum, title);
 
-    const postedDate = parseSwissDate(datum) || todayIso;
+    const publication = sourcePostingDateFields(parseSwissDate(datum));
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} kanton-st-gallen ch`);
     const urlHash = createHash('sha1').update(`kanton-st-gallen-vacancy-${vacancyId}`).digest('hex').slice(0, 12);
@@ -444,7 +450,7 @@ export async function fetchAllKantonStGallenJobs() {
       sector: 'Amministrazione Pubblica',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

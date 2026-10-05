@@ -190,6 +190,7 @@ describe('jobRecencyLanding — buildJobRecencyLandingModel', () => {
       company: 'EOC',
       location: 'Lugano',
       slug: 'infermiere-eoc-lugano',
+      postingDateSource: 'reported',
       datePosted: '2026-04-20T08:00:00.000Z',
     },
     {
@@ -197,6 +198,7 @@ describe('jobRecencyLanding — buildJobRecencyLandingModel', () => {
       company: 'Lidl',
       location: 'Mendrisio',
       slug: 'addetto-vendita-lidl-mendrisio',
+      postingDateSource: 'reported',
       datePosted: '2026-04-19T08:00:00.000Z',
     },
     {
@@ -204,6 +206,7 @@ describe('jobRecencyLanding — buildJobRecencyLandingModel', () => {
       company: 'DECS',
       location: 'Bellinzona',
       slug: 'insegnante-scuola-media-bellinzona',
+      postingDateSource: 'reported',
       datePosted: '2026-04-18T08:00:00.000Z',
     },
     {
@@ -211,6 +214,7 @@ describe('jobRecencyLanding — buildJobRecencyLandingModel', () => {
       company: 'Foo Ltd',
       location: 'Chiasso',
       slug: 'old-stale-listing',
+      postingDateSource: 'reported',
       datePosted: '2026-04-10T08:00:00.000Z',
     },
   ];

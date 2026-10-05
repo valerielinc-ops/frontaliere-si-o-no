@@ -60,6 +60,7 @@
  *   - isKantonSolothurnJob()        — Match jobs belonging to this employer
  *   - isTrustedDomain()             — Validate URLs belong to this employer
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -251,7 +252,7 @@ async function collectAllJobEntries() {
       html = await fetchHtml(listUrl, { headers: { Accept: 'text/html,application/xhtml+xml' } });
     } catch (err) {
       console.warn(`  ⚠️  Listing fetch failed at offset=${offset}: ${err?.message || err}`);
-      break;
+      throw err;
     }
 
     const entries = extractListingEntries(html);
@@ -352,12 +353,7 @@ export async function fetchAllKantonSolothurnJobs() {
     const jobSlug = slugify(`${title} kanton solothurn ${city}`);
     const urlHash = createHash('sha1').update(jobUrl).digest('hex').slice(0, 12);
 
-    const postedDate = (() => {
-      const parsed = new Date(String(jsonLd.datePosted || ''));
-      return Number.isNaN(parsed.getTime())
-        ? new Date().toISOString().slice(0, 10)
-        : parsed.toISOString().slice(0, 10);
-    })();
+    const postingDates = sourcePostingDateFields(jsonLd.datePosted);
 
     const job = {
       id: `${KANTON_SOLOTHURN_KEY}-${urlHash}`,
@@ -391,7 +387,7 @@ export async function fetchAllKantonSolothurnJobs() {
       sector: 'Amministrazione pubblica',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...postingDates,
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

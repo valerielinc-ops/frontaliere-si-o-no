@@ -45,6 +45,14 @@ vi.mock('@/scripts/lib/mymemory-translate.mjs', () => ({
  *     mordono davvero, non sono decorative.
  */
 
+// I due scenari qui sotto valutano il modulo da un URL `data:`, dove un import
+// relativo non si risolve: ogni import relativo va sostituito. Quello dei titoli
+// di template punta al modulo vero, perche' il tier Codex ne costruisce la
+// tabella al caricamento e un finto non proverebbe niente.
+const AI_SEARCH_TEMPLATE_IMPORT = `import { getKeyFactsHeading, getTldrHeading } from '${
+  new URL('../scripts/lib/ai-search-template.mjs', import.meta.url).href
+}';`;
+
 const IT = [
   '## In breve',
   '- I frontalieri residenti entro venti chilometri dal confine restano nel vecchio regime fiscale',
@@ -179,6 +187,10 @@ function runExhaustedTierSkipScenario(
       .replace(
         "import { hasStructuredContent, preserveStructuredTranslation } from './translation-quality.mjs';",
         "const hasStructuredContent = () => false; const preserveStructuredTranslation = async () => '';",
+      )
+      .replace(
+        "import { getKeyFactsHeading, getTldrHeading } from './ai-search-template.mjs';",
+        ${JSON.stringify(AI_SEARCH_TEMPLATE_IMPORT)},
       );
     globalThis.console.log = () => {};
     globalThis.console.warn = () => {};
@@ -283,6 +295,10 @@ function runRetryOutcomeResetScenario() {
       .replace(
         "import { hasStructuredContent, preserveStructuredTranslation } from './translation-quality.mjs';",
         "const hasStructuredContent = () => false; const preserveStructuredTranslation = async () => '';",
+      )
+      .replace(
+        "import { getKeyFactsHeading, getTldrHeading } from './ai-search-template.mjs';",
+        ${JSON.stringify(AI_SEARCH_TEMPLATE_IMPORT)},
       );
     globalThis.console.log = () => {};
     globalThis.console.warn = () => {};

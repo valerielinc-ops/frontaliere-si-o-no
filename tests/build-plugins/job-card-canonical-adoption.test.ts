@@ -27,6 +27,9 @@ const FIXTURE_JOB = {
   salaryMin: 60000,
   salaryMax: 75000,
   postedDate: new Date(Date.now() - 86400000 * 2).toISOString(),
+  // Publication evidence is required for the shared renderer to emit
+  // the data-posted marker after provenance is enforced fail-closed.
+  postingDateSource: 'reported',
   daysAgo: 2,
   slug: 'educatore-prima-infanzia-asilo-sole-lugano',
   slugByLocale: {},
@@ -54,6 +57,34 @@ describe('professionLandingsPlugin uses canonical job cards', () => {
     for (const m of CANONICAL_MARKERS) {
       expect(html, `missing canonical marker ${m}`).toMatch(m);
     }
+  });
+
+  it('renders the complete profession inventory with in-feed ads between cards', async () => {
+    const mod: any = await import('../../build-plugins/professionLandingsPlugin');
+    const jobs = Array.from({ length: 7 }, (_, index) => ({
+      ...FIXTURE_JOB,
+      id: `job-${index + 1}`,
+      slug: `job-${index + 1}`,
+      title: `Engineer opening ${index + 1}`,
+    }));
+    const html = mod.renderProfessionFeaturedJobsForTest('ingegnere', 'en', {
+      ...EMPTY_SNAPSHOT_BASE,
+      liveCount: jobs.length,
+      featured: jobs.slice(0, 3),
+      jobs,
+    });
+
+    expect(html.match(/<article class="jc-card/g)).toHaveLength(7);
+    // The shared list renderer inserts units after positions 3 and 6, but
+    // never after the final card because the page has an end multiplex slot.
+    expect(html.match(/class="adsbygoogle"/g)).toHaveLength(2);
+    const firstAd = html.indexOf('class="adsbygoogle"');
+    const secondAd = html.indexOf('class="adsbygoogle"', firstAd + 1);
+    expect(firstAd).toBeGreaterThan(html.indexOf('Engineer opening 3'));
+    expect(firstAd).toBeLessThan(html.indexOf('Engineer opening 4'));
+    expect(secondAd).toBeGreaterThan(html.indexOf('Engineer opening 6'));
+    expect(secondAd).toBeLessThan(html.indexOf('Engineer opening 7'));
+    expect(html).toContain('Engineer opening 7');
   });
 });
 

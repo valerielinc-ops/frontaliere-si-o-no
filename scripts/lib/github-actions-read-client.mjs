@@ -54,6 +54,26 @@ function transientResponse(response) {
     || (response.status === 403 && response.headers.has('retry-after'));
 }
 
+/**
+ * An independent copy of one stream chunk, never a view. A reader may hand
+ * back the same buffer on every read (#7483), and a polyfilled body may hand
+ * back a bare ArrayBuffer: over that, `new Uint8Array(value)` is a view on the
+ * producer's memory, so a later write by the producer rewrote bytes already
+ * read. A typed array other than Uint8Array is copied byte by byte, not
+ * element by element. Anything else is not a body chunk.
+ */
+function isCrossRealmArrayBuffer(value) {
+  return Object.prototype.toString.call(value) === '[object ArrayBuffer]';
+}
+
+function copyOfChunk(value) {
+  if (isCrossRealmArrayBuffer(value)) return new Uint8Array(value.slice(0));
+  if (ArrayBuffer.isView(value)) {
+    return new Uint8Array(value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength));
+  }
+  throw new GitHubActionsReadError('github_api_invalid', 'response chunk is not bytes');
+}
+
 async function readBoundedResponse(response, maxBytes) {
   const declared = Number(response.headers.get('content-length'));
   if (Number.isFinite(declared) && declared > maxBytes) {
@@ -67,13 +87,13 @@ async function readBoundedResponse(response, maxBytes) {
     while (true) {
       const { done, value } = await reader.read();
       if (done) break;
-      size += value.byteLength;
+      const chunk = copyOfChunk(value);
+      size += chunk.byteLength;
       if (size > maxBytes) {
         try { await reader.cancel(); } catch { /* the cap remains authoritative */ }
         throw new GitHubActionsReadError('github_response_too_large');
       }
-      // A copy: a reader may hand back the same buffer on every read (#7483).
-      chunks.push(new Uint8Array(value));
+      chunks.push(chunk);
     }
   } finally {
     // Releasing the lock is cleanup and must never replace the verdict: older

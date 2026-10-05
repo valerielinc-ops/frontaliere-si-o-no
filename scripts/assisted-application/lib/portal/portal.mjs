@@ -29,6 +29,8 @@ import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
 import { holdsValue, planPage } from './plan.mjs';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
+import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
+import { permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, findButton, locatorFor } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { awaitCaptcha, CAPTCHA_TIMEOUT_MS, launchNopechaContext } from './nopecha.mjs';
@@ -128,13 +130,17 @@ export function slugId(text) {
     .replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 50) || 'question';
 }
 
-/** What the planner may use, with the alias as the e-mail (candidateIdentity). */
-export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [] }) {
+/**
+ * What the planner may use, with the alias as the e-mail (candidateIdentity).
+ * `language`: the form's, for the candidate's Swiss status as a full sentence.
+ */
+export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it' }) {
   const parts = String(identity.name || '').trim().split(/\s+/);
   // The split the candidate chose on the review page, else the last word is the surname.
   const chosen = typeof identity.firstName === 'string';
   const latest = (profile.experience || [])[0] || {};
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
+  const status = profile.permitStatus || '';
   return {
     identity: {
       fullName: identity.name,
@@ -158,12 +164,19 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
       languages: profile.languages || [],
       education: (profile.education || []).slice(0, 4)
         .map(({ degree = '', institution = '', start = '', end = '' }) => ({ degree, institution, start, end })),
-      workPermit: profile.workPermit || '',
+      // Nothing chosen: the CV's own words, never a permit to come nor «no permit» (lib/permitStatus.js).
+      workPermit: status ? '' : printedPermitText(profile.workPermit),
       availability: profile.availability || '',
-      dateOfBirth: profile.dateOfBirth || '',
+      // In the form the portals read.
+      dateOfBirth: isoDateOf(profile.dateOfBirth) || profile.dateOfBirth || '',
       nationality: profile.nationality || '',
     },
-    answers,
+    // The Swiss status the candidate chose, as a full sentence in the form's language (decision 9). Outside
+    // `answers` and `profile`: the substring rule (plan.mjs knownValuesOf) never reads it, so a label holding
+    // «Svizzera» or «Schweiz» never backs a nationality answer.
+    swissStatus: status ? { code: status, statement: permitStatement(status, language) } : null,
+    // The status chosen replaces the answer to the permit question: the statement says it.
+    answers: status ? Object.fromEntries(Object.entries(answers).filter(([id]) => id !== 'work_permit')) : answers,
     portalQuestionsAnswered: portalQuestions.filter((question) => String(answers[question.id] ?? '').trim())
       .map((question) => ({ question: question.question, answer: answers[question.id] })),
     texts: {
@@ -976,7 +989,8 @@ export async function readPortalQuestions(ctx) {
  * @param {Function} ctx.codex broker call
  * @param {Function} [ctx.launch] browser launcher (tests)
  * @param {boolean} [ctx.dryRun] fill every page but never press submit (nor create an account)
- * @param {Function} [ctx.onBeforeSubmit] called right before the final submit click (submission guard)
+ * @param {Function} [ctx.onBeforeSubmit] called right before the final submit click (submission guard),
+ *   with what went into the form's file fields so far (`{ uploads }`)
  * @param {ReturnType<import('./account.mjs').portalAccountStore>} [ctx.accounts] the order's portal accounts; without it a login page is handed over
  * @returns {Promise<{event:object, evidence:object}>}
  */
@@ -1087,6 +1101,11 @@ export async function submitViaPortal(ctx) {
     // for the interview prep, and for Valerie when she finishes by hand. The last answer wins.
     const given = new Map();
     evidence.answers = [];
+    // What went into the form's file fields, for the record of what left (submit.mjs `sent`): slots and counts only.
+    evidence.uploads = [];
+    const noteUpload = (document, files = 1) => {
+      if (document) evidence.uploads.push({ document: String(document), files: Number(files) || 1 });
+    };
     const record = (question, answer, source) => {
       if (!question || !String(answer ?? '').trim()) return;
       given.set(question, { question: String(question).slice(0, 200), answer: String(answer).slice(0, 2000), source: source || '' });
@@ -1120,6 +1139,9 @@ export async function submitViaPortal(ctx) {
       agentCalls += agent.calls;
       (evidence.steps.at(-1).agent ||= []).push({ ...agent.evidence, status: agent.status, ...(agent.reason ? { reason: agent.reason } : {}) });
       for (const item of agent.answers || []) record(item.question, item.answer, item.source);
+      for (const item of (agent.evidence?.rounds || []).flatMap((round) => round.actions || [])) {
+        if (item.action === 'upload' && item.ok) noteUpload(item.document, item.files);
+      }
       return agent;
     };
     const askCandidate = (questions) => ({ event: { type: 'submit_needs_candidate', questions: questionsFrom(questions) }, evidence });
@@ -1135,7 +1157,10 @@ export async function submitViaPortal(ctx) {
         snapshot = opened.snapshot;
         if (opened.cv) {
           evidence.steps.at(-1).cv = opened.cv;
-          if (opened.cv !== 'unavailable') record('Lebenslauf', uploadLabel('cv', ctx.candidate), 'documents');
+          if (opened.cv !== 'unavailable') {
+            record('Lebenslauf', uploadLabel('cv', ctx.candidate), 'documents');
+            noteUpload('cv');
+          }
         }
       };
       // A password page whose button sends an application may be the form with its
@@ -1217,6 +1242,8 @@ export async function submitViaPortal(ctx) {
         const results = await applyActions(page, snapshot.fields, actions, ctx.files);
         for (const result of results) {
           if (result.ok && actions.some((action) => action.fieldId === result.fieldId && action.action === 'upload')) uploaded.add(uploadKey(result.fieldId));
+          const uploadAction = result.ok && actions.find((item) => item.fieldId === result.fieldId && item.action === 'upload');
+          if (uploadAction) noteUpload(uploadAction.document, result.files);
           const action = result.ok && actions.find((item) => item.fieldId === result.fieldId);
           const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
           if (!field || field.inputType === 'password') continue;
@@ -1337,8 +1364,9 @@ export async function submitViaPortal(ctx) {
       evidence.finalButton = { label: final.label, by: final.by };
       const finalUrl = page.url();
       await diagnostics.beforeSubmit(page);
-      // From here the outcome may be unknown: the submission guard records the click.
-      if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit();
+      // From here the outcome may be unknown: the submission guard records the click, and
+      // submit.mjs what the form holds (the record of an attempt whose outcome may stay unknown).
+      if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit({ uploads: evidence.uploads });
       diagnostics.finalClick();
       await final.click();
       const outcome = await waitForOutcome(page, Boolean(extensionPath));

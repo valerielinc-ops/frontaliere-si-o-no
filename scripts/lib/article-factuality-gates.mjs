@@ -178,9 +178,15 @@ function detectSemanticTruncation(text, referenceText, opts = {}) {
   if (!text.trim() || !referenceText.trim()) return [];
 
   const referenceWords = countTranslationWords(referenceText);
-  if (referenceWords < MIN_TRANSLATION_REFERENCE_WORDS) return [];
-
   const translatedWords = countTranslationWords(text);
+  // Il floor protegge le sezioni brevi dalla varianza naturale fra lingue. Un
+  // body senza ALCUNA parola («...», «…», «—») contro un italiano che ne ha non
+  // e' varianza: e' una traduzione assente, e chiusa da un punto passava ogni
+  // controllo di punteggiatura (`como-fai-giornate-autunno`, 2026-10-03). Il
+  // placeholder si giudica quindi PRIMA del floor; tutto il resto dopo.
+  const placeholder = translatedWords === 0 && referenceWords > 0;
+  if (!placeholder && referenceWords < MIN_TRANSLATION_REFERENCE_WORDS) return [];
+
   const ratio = translatedWords / referenceWords;
   const lostParagraph = countParagraphs(text) < countParagraphs(referenceText);
   const threshold = lostParagraph
@@ -191,14 +197,21 @@ function detectSemanticTruncation(text, referenceText, opts = {}) {
   const label = opts.label ? `[${opts.label}] ` : '';
   const percentage = Math.round(ratio * 100);
   const severity = ratio < TRANSLATION_CRITICAL_RATIO ? 'critical' : 'major';
-  return [issue(
+  // Quale regola ha parlato. `word-ratio`: mancano parole oltre la varianza
+  // fra lingue, con o senza paragrafi persi. `paragraph-drop`: le parole sono
+  // fra il 70% e l'85% e c'e' un paragrafo in meno — un paragrafo omesso OPPURE
+  // una traduzione compatta che ne ha accorpati due. La diagnosi e' la stessa;
+  // chi agisce sul body (il retry del generatore, che lo lascia in attesa se
+  // il retry fallisce) distingue, per non togliere una traduzione valida.
+  const rule = ratio < TRANSLATION_RATIO_THRESHOLD ? 'word-ratio' : 'paragraph-drop';
+  return [{ ...issue(
     'translation-semantic-truncation',
     severity,
     `${label}La traduzione contiene solo ${translatedWords}/${referenceWords} parole dell'italiano (${percentage}%) — possibile paragrafo omesso anche se la frase finale è chiusa`,
     `${label}paragrafi: ${countParagraphs(referenceText)} → ${countParagraphs(text)}; parole: ${referenceWords} → ${translatedWords}`,
     `Confronta la sezione ${label || 'tradotta'} con l'italiano e reintegra ogni paragrafo mancante. `
       + 'Il testo tradotto deve conservare tutto il contenuto, non solo terminare con punteggiatura valida.',
-  )];
+  ), rule }];
 }
 
 /**
@@ -272,6 +285,8 @@ const SCAFFOLDING_MARKERS = [
     ),
     what: 'marcatore di sezione del prompt di generazione, tradotto',
   },
+  { re: /^\s*#{0,4}\s*RIFERIMENTO DEL TITOLO\s*\([^\n]{0,80}\)\s*:/m, what: 'etichetta di input del prompt di espansione' },
+  { re: /^\s*#{0,4}\s*TESTO ATTUALE\s*\(\d+\s+parole\)\s*:/m, what: 'etichetta del testo di input del prompt di espansione' },
   { re: /^\s*#{0,4}\s*(?:ESEMPIO|ESEMPI) CONCRET[OI]\s*:?\s*$/m, what: 'marcatore di sezione del prompt' },
   { re: /^\s*#{0,4}\s*(?:NOTE|NOTA) PER (?:IL|LA) (?:MODELLO|TRADUZIONE)\s*:?/mi, what: 'nota interna del prompt' },
   // Case-SENSITIVE and line-anchored on purpose. The prompt shouts its headings
@@ -1502,8 +1517,10 @@ const NORM_CITATION_CUE =
 // senza la parola `legge`, `art.` o `RS`. Manteniamo il bare match storico e
 // scartiamo soltanto forme esplicitamente da nome di entita'/prodotto, che e'
 // l'intento anti-falso-positivo della meta' corpus senza aprire quel buco.
+// Le forme societarie coprono i quattro locali del corpus, accenti compresi:
+// `soci[eé]t[aàeé]` tiene società/societa e société/societe.
 const benignNormEntity = (acronym) => new RegExp(
-  String.raw`\b(?:gruppo|azienda|societ[aà]|associazione|banca|app|company|group|bank|association|groupe|banque|entreprise|Gruppe|Bank|Unternehmen)\s+${acronym}$`,
+  String.raw`\b(?:gruppo|azienda|soci[eé]t[aàeé]|associazione|banca|app|company|firm|group|bank|association|groupe|banque|entreprise|Gruppe|Bank|Unternehmen|Gesellschaft|Firma)\s+${acronym}$`,
   'i',
 );
 
@@ -2617,12 +2634,19 @@ export function runFactualityGates(params = {}) {
   const fullText = joined(sections);
   const localeOptions = { ...options, locale };
   // A missing/thin source cannot support the learner's negative evidence: an
-  // empty source is not proof that an acronym is fabricated. Keep curated
-  // static guards active, but do not let memory learned from other articles
-  // block this run or feed another unknown observation back into the learner.
+  // empty source is not proof that an acronym is fabricated. So without a
+  // usable source nothing is LEARNED (no observations, below) and the
+  // unconfirmed suspects stay quiet. The DENYLIST is different: an acronym gets
+  // there only as CONFIRMED fabricated, from sourced evidence across articles
+  // (source-less observations never reach the learner), so it is a fact about
+  // the acronym, not about this article's source — exactly like the curated
+  // static guards, which stay active too. Dropping it here switched it off for
+  // every evergreen, whose gate source is '' by construction.
   const hasUsableSourceForLearning = typeof sourceText === 'string'
     && sourceText.length >= MIN_SOURCE_CHARS_FOR_SUPPORT;
-  const learnedMemory = hasUsableSourceForLearning ? memory : {};
+  const learnedMemory = hasUsableSourceForLearning
+    ? memory
+    : { denylist: memory?.denylist, degraded: memory?.degraded };
 
   let issues = [];
   for (const [label, text] of Object.entries(sections)) {

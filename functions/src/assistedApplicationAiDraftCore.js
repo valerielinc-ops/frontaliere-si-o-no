@@ -5,8 +5,9 @@
  * fact gate). No I/O here.
  */
 
-import { buildFactIndex, checkGeneratedFacts } from './assistedApplicationAiFactCheck.js';
+import { buildFactIndex, checkGeneratedFacts, withPermitClaims } from './assistedApplicationAiFactCheck.js';
 import { sanitizeValidation } from './lib/answerRules.js';
+import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, isPermitField, permitLabel, permitOptions } from './lib/permitStatus.js';
 import { letterPlaceDate, letterSubject } from './assistedApplicationAiPrompts.js';
 
 export const LETTER_FILE_LABEL = {
@@ -171,14 +172,16 @@ export const SALARY_RULE_MESSAGES = {
   en: 'Give an amount, for example CHF 80’000 a year.',
 };
 
+// The Swiss status: [question, why when required, why when optional]. The optional «why» never says the CV
+// is silent: the model may ask while the CV states a permit.
+const PERMIT_QUESTION = {
+  it: ['Hai la cittadinanza svizzera o un permesso svizzero valido oggi?', 'L’annuncio lo chiede e il CV non lo indica.', 'Facoltativo: lo riportiamo nel CV solo se lo scegli tu.'],
+  de: ['Hast du das Schweizer Bürgerrecht oder eine heute gültige Schweizer Bewilligung?', 'Das Inserat fragt danach und der Lebenslauf nennt es nicht.', 'Freiwillig: Es steht nur im Lebenslauf, wenn du es wählst.'],
+  fr: ['Avez-vous la nationalité suisse ou un permis suisse valable aujourd’hui ?', 'L’annonce le demande et le CV ne l’indique pas.', 'Facultatif : il ne figure dans le CV que si vous le choisissez.'],
+  en: ['Are you a Swiss citizen, or do you hold a Swiss permit valid today?', 'The ad asks for it and the CV does not state it.', 'Optional: it appears in the CV only if you choose it.'],
+};
+
 const FALLBACK_QUESTIONS = {
-  work_permit: {
-    it: ['Hai un permesso di lavoro svizzero? Quale?', 'L’annuncio chiede il permesso di lavoro e il CV non lo indica.'],
-    de: ['Hast du eine Schweizer Arbeitsbewilligung? Welche?', 'Das Inserat fragt nach der Bewilligung und der Lebenslauf nennt sie nicht.'],
-    fr: ['Avez-vous un permis de travail suisse ? Lequel ?', 'L’annonce demande le permis de travail et le CV ne l’indique pas.'],
-    en: ['Do you have a Swiss work permit? Which one?', 'The ad asks for the work permit and the CV does not state it.'],
-    options: ['G', 'B', 'C', 'CH', 'none'],
-  },
   salary_expectation: {
     it: ['Qual è la tua pretesa salariale annua lorda (CHF)?', 'L’annuncio chiede di indicarla.'],
     de: ['Welche Lohnvorstellung hast du (brutto pro Jahr, CHF)?', 'Das Inserat verlangt sie.'],
@@ -187,19 +190,43 @@ const FALLBACK_QUESTIONS = {
   },
 };
 
+// A question the model wrote about the permit, under any id, or about the nationality or the date of birth.
+// The permit check comes first: «Hai la cittadinanza svizzera o un permesso?» is the permit question.
+// Options never tell a permit question: «Quale categoria hai?» with B, C, D asks the driving licence.
+const asksPermit = (question) => question.id === 'work_permit' || isPermitField(`${question.id.replace(/_/g, ' ')} ${question.question}`);
+const asksPersonal = (question) => NATIONALITY_FIELD_RE.test(`${question.id} ${question.question}`) || BIRTH_FIELD_RE.test(`${question.id} ${question.question}`);
+
 /**
  * Deterministic backstop for the two questions the model must never skip:
  * a posting that asks for the permit or the salary gets the question even if
  * the model forgot it, unless the profile or the answers already cover it.
+ * The permit question keeps its id `work_permit` (the field lock and the
+ * stored answers depend on it) and has the fixed options in the candidate's
+ * language, whoever asks it (decision 11); it is required only on the
+ * backstop's condition: the posting asks (a verified quote) and the CV is
+ * silent. A model question about the nationality or the date of birth is
+ * dropped: the page has fields for them and nobody is asked for them
+ * (decision 5).
  */
 export function ensureRequiredQuestions(questions, { requirements, profile, answers = {}, locale = 'it' }) {
-  const result = [...questions];
+  const permitRequired = Boolean(requirements?.workPermitQuote) && !profile?.workPermit;
+  const [permitText, whyRequired, whyOptional] = PERMIT_QUESTION[String(locale || '').slice(0, 2).toLowerCase()] || PERMIT_QUESTION.it;
+  const permitQuestion = (source) => ({
+    id: 'work_permit', question: permitText, why: permitRequired ? whyRequired : whyOptional, type: 'choice',
+    options: permitOptions(locale), required: permitRequired, validation: sanitizeValidation({}, { type: 'choice' }), source,
+  });
+  const result = [];
+  for (const item of questions) {
+    if (asksPermit(item)) {
+      if (!result.some((other) => other.id === 'work_permit')) result.push(permitQuestion(item.source || 'match'));
+      continue;
+    }
+    if (asksPersonal(item)) continue;
+    result.push(item);
+  }
   const has = (id) => result.some((question) => question.id === id) || String(answers[id] ?? '').trim();
   const text = (id) => FALLBACK_QUESTIONS[id][locale] || FALLBACK_QUESTIONS[id].it;
-  if (requirements?.workPermitQuote && !profile?.workPermit && !has('work_permit')) {
-    const [question, why] = text('work_permit');
-    result.push({ id: 'work_permit', question, why, type: 'choice', options: FALLBACK_QUESTIONS.work_permit.options, required: true, validation: sanitizeValidation({}, { type: 'choice' }), source: 'rule' });
-  }
+  if (permitRequired && !has('work_permit')) result.push(permitQuestion('rule'));
   if (requirements?.salaryRequested && !has('salary_expectation')) {
     const [question, why] = text('salary_expectation');
     // An amount, whatever the format: "CHF 80'000", "80k", "85 000 - 90 000".
@@ -318,12 +345,14 @@ function field(key, label, value, { needsConfirmation = false, note = '' } = {})
 /**
  * Standard portal fields, in the order most forms ask them. Legal, salary and
  * availability answers come from the profile or the candidate's answers only.
+ * `locale`: the candidate's, for the permit status they chose.
  */
-export function buildFormAnswers({ identity, profile, documents, answers = {} }) {
+export function buildFormAnswers({ identity, profile, documents, answers = {}, locale = 'it' }) {
   // The split the candidate chose on the review page, else the last word is the surname.
   const { firstName, lastName } = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const languages = (profile?.languages || []).map((item) => [item.language, item.level].filter(Boolean).join(' ')).filter(Boolean).join(', ');
-  const permit = clean(answers.work_permit, 200) || profile?.workPermit || '';
+  // The status as its label in the candidate's language, a legacy «G» or «none» too (lib/permitStatus.js).
+  const permit = permitLabel(clean(answers.work_permit, 200), locale) || profile?.workPermit || '';
   const availability = clean(answers.availability, 200) || profile?.availability || '';
   const salary = clean(answers.salary_expectation, 200);
   return [
@@ -333,6 +362,8 @@ export function buildFormAnswers({ identity, profile, documents, answers = {} })
     field('phone', 'Telefono', identity.phone),
     field('location', 'Località', profile?.location || ''),
     field('linkedin', 'LinkedIn', profile?.linkedin || ''),
+    field('dateOfBirth', 'Data di nascita', profile?.dateOfBirth || ''),
+    field('nationality', 'Nazionalità', profile?.nationality || ''),
     field('workPermit', 'Permesso di lavoro', permit, { needsConfirmation: !permit, note: permit ? '' : 'Da chiedere al candidato.' }),
     field('availability', 'Disponibilità / preavviso', availability, { needsConfirmation: !availability }),
     field('salary', 'Pretese salariali', salary, { needsConfirmation: !salary, note: salary ? '' : 'Mai inventate.' }),
@@ -830,6 +861,20 @@ export function safeFileStem(value) {
 }
 
 /**
+ * The name a document leaves with, as the runner attaches or uploads it and the owner's fill kit names it
+ * ("CV_Maria_Rossi.pdf", "Lettera_di_presentazione_Maria_Rossi.pdf"); the candidate's Word copy takes the
+ * same name with the extension docx. Only [A-Za-z0-9_.] (safeFileStem): a safe Content-Disposition name.
+ * @param {'cv'|'letter'} kind
+ * @param {{name:string, language?:string, extension:string}} file
+ */
+export function applicationFileName(kind, { name, language, extension }) {
+  const stem = safeFileStem(name);
+  return kind === 'cv'
+    ? `CV_${stem}.${extension}`
+    : `${safeFileStem(LETTER_FILE_LABEL[language] || LETTER_FILE_LABEL.it)}_${stem}.${extension}`;
+}
+
+/**
  * The initials of each line of the order that has two capitalised words or
  * more: "Ente Ospedaliero Cantonale" is also "EOC", the employer's short name
  * in its own posting, not a tool the letter claims.
@@ -882,7 +927,9 @@ export function checkDraftFacts(texts, sources) {
     echoSources: [sources?.posting],
     entitySources: [...candidate, sources?.order, sources?.place, sources?.posting],
   });
-  return checkGeneratedFacts(texts, index, { toolFields: CLAIM_FIELDS });
+  // A Swiss permit or citizenship of a claim field, with the status the sources carry (decision 8); sources
+  // without one, a draft written before it, are judged as they were.
+  return withPermitClaims(checkGeneratedFacts(texts, index, { toolFields: CLAIM_FIELDS }), texts, index, { status: sources?.permitStatus, fields: CLAIM_FIELDS });
 }
 
 /**

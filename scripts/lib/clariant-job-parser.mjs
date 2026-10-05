@@ -65,6 +65,8 @@
  * posting at some other Basel-Landschaft town would NOT incorrectly inherit
  * this street address.
  */
+import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { fetchHtml, slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract, decodeHtmlEntities } from './dedicated-crawler-common.mjs';
@@ -288,19 +290,14 @@ export function extractClariantDetailContent(html = '') {
  * present on every Clariant detail page.
  *
  * @param {string} html
- * @returns {{ datePosted: string|null, hiringOrganization: string, locationLabel: string }}
+ * @returns {{ datePosted: string, postedDate: string, postingDateSource: string, hiringOrganization: string, locationLabel: string }}
  */
 export function parseClariantMicrodata(html = '') {
-  const result = { datePosted: null, hiringOrganization: '', locationLabel: '' };
+  const result = { ...successFactorsPostingDateFields(''), hiringOrganization: '', locationLabel: '' };
   if (!html || typeof html !== 'string') return result;
 
   const dateMatch = html.match(/itemprop="datePosted"\s+content="([^"]+)"/i);
-  if (dateMatch) {
-    const parsed = new Date(dateMatch[1]);
-    if (!Number.isNaN(parsed.getTime())) {
-      result.datePosted = parsed.toISOString().slice(0, 10);
-    }
-  }
+  Object.assign(result, successFactorsPostingDateFields(dateMatch?.[1] || ''));
 
   const orgMatch = html.match(/itemprop="hiringOrganization"\s+content="([^"]+)"/i);
   if (orgMatch) result.hiringOrganization = decodeHtmlEntities(orgMatch[1]).trim();
@@ -420,7 +417,6 @@ export async function fetchAllClariantJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const contract = normalizeContract('', title, description);
     const employmentType = contract === 'part-time' ? 'PART_TIME' : 'FULL_TIME';
-    const postedDate = microdata.datePosted || new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -454,7 +450,7 @@ export async function fetchAllClariantJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, microdata),
       applyUrl: publicUrl,
       jobReqId: jobReqId || null,
       requirements: [],

@@ -20,6 +20,8 @@
  *
  * Detail page: rich `<p>/<li>/<h2-6>` content blocks describing the role.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -77,11 +79,12 @@ export function parseSpitexZuerichListing(html) {
 // role text, so every vacancy fell back to a stub the parser wrote itself.
 async function fetchDetailContent(url) {
   const adUrl = onlyfyFullAdUrl(url);
-  if (!adUrl) return '';
+  if (!adUrl) return { body: '', ...sourcePostingDateFields('') };
   try {
-    return extractOnlyfyJobAdText(await fetchHtml(adUrl));
+    const html = await fetchHtml(adUrl);
+    return { body: extractOnlyfyJobAdText(html), ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) };
   } catch {
-    return '';
+    return { body: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -93,18 +96,18 @@ export async function fetchAllSpitexZuerichJobs() {
     html = await fetchHtml(LISTING_URL);
   } catch (err) {
     console.warn(`⚠️ Spitex Zürich listing fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
   const items = parseSpitexZuerichListing(html);
   console.log(`  ✓ ${items.length} jobs from softgarden onlyfy listing`);
   if (!items.length) return [];
   console.log(`  📄 Fetching detail pages for rich descriptions...`);
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (const it of items) {
-    const rawDetail = await fetchDetailContent(it.url);
+    const detail = await fetchDetailContent(it.url);
+    const rawDetail = detail.body;
     // The text comes from this vacancy's own ad document (addressed by its
     // handle, scoped to the ad template), not from a page that could be
     // listing chrome, so the shell-era title-overlap heuristic does not apply:
@@ -166,7 +169,7 @@ export async function fetchAllSpitexZuerichJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

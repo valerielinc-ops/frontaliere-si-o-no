@@ -736,6 +736,24 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     expect(stdout).toContain('**Causa:** timeout del target dopo 30 minuti (exit 124).');
   });
 
+  it('publishes 1, never 124, when an untimed crawler exits 124 on its own', () => {
+    // FU-2026-09-29-014: 124 is the timeout code. Without targetTimeoutMinutes
+    // the body has no deadline, so a crawler's own 124 must not reach the
+    // durable status as 124: the aggregate would print it as
+    // `target timeout (124)`. The launcher's watchdog marker cannot fire either,
+    // because it is written only when the worker published no status at all.
+    const crawler = withInspectableFailureReporter(crawlerFixture({ runCommand: "bash -c 'exit 124'" }));
+    const body = buildCrawlerShellBody(crawler);
+
+    const { exitCode, stdout } = runBody(body);
+
+    expect(body).not.toContain('timeout --signal=TERM');
+    expect(exitCode).toBe(1);
+    expect(stdout).toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(stdout).not.toContain('nested timeout reached the target deadline');
+    expect(stdout).not.toContain('timeout del target');
+  });
+
   it('keeps the generic failure description, title, and dedup workflow unchanged for non-timeout crashes', () => {
     const crawler = {
       ...withInspectableFailureReporter(crawlerFixture({ runCommand: 'false' })),

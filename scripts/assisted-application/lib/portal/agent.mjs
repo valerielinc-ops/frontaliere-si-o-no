@@ -16,8 +16,9 @@
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
+import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE } from '../../../../functions/src/lib/permitStatus.js';
 import { NEXT_RE, SUBMIT_RE, chooseFiles, documentPaths } from './fill.mjs';
-import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, questionFromLabel } from './plan.mjs';
+import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, ownStatusAnswer, questionFromLabel } from './plan.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -136,13 +137,14 @@ Page snapshot:
 ${snapshot}`;
 }
 
-// The kind of question, so that an answered one is not asked again in other words.
+// The kind of question, so that an answered one is not asked again in other words. The birth date, the permit
+// and the nationality read the shared wordings (lib/permitStatus.js), supersets of the ones used before.
 const TOPICS = [
-  /birth|geburt|nascita|\bnat[oa]\b|naissance/i,
-  /permit|bewilligung|permesso|visa|autorizza|authori[sz]ation/i,
+  BIRTH_FIELD_RE,
+  new RegExp(`${PERMIT_FIELD_RE.source}|visa|autorizza|authori[sz]ation`, 'i'),
   /salar|lohn|gehalt|pretes|rémun|retribu/i,
   /kündigungsfrist|preavviso|notice/i,
-  /nationalit|staatsangeh|nazionalit|cittadinanza/i,
+  NATIONALITY_FIELD_RE,
   /start|disponib|verfügbar|eintritt|inizio/i,
 ];
 const topicOf = (text) => TOPICS.findIndex((pattern) => pattern.test(text));
@@ -177,9 +179,14 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     // A knock-out ("Deutsch C1?") is grounded by the candidate's own answer to it, or by a
     // quote that supports the answer (review of #10715), never by "Ja" occurring in the data.
     const knockOut = !SENSITIVE.test(action.question);
-    const fromCandidate = knockOut
-      ? answeredByCandidate(candidate, action.question, answer)
-      : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, answer);
+    // A permit or nationality question: the candidate's own status or nationality as the catalogue words it, or
+    // their answer to this very question (decision 9), never the value occurring in the data.
+    const own = action.source === 'widget' ? null : ownStatusAnswer(candidate, action.question, answer);
+    const fromCandidate = own !== null
+      ? own || answeredByCandidate(candidate, action.question, answer)
+      : knockOut
+        ? answeredByCandidate(candidate, action.question, answer)
+        : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, answer);
     const quoted = knockOut && action.source !== 'widget' && evidenceInData(knownValues, action.evidence)
       && evidenceSupports(action.question, answer, action.evidence);
     if (fromCandidate || declines || quoted || (knockOut && knownValues === null)) grounded.add(action.question);
@@ -266,11 +273,12 @@ async function chooseOption(page, locator, info, value) {
   await exact.click({ timeout: ACTION_TIMEOUT_MS });
 }
 
+// Returns how many files it set (the record of what left, submit.mjs).
 async function upload(page, locator, info, paths) {
   if (info.tag === 'input' && info.inputType === 'file') {
     const multiple = paths.length > 1 && await locator.evaluate((element) => Boolean(element.multiple)).catch(() => false);
     await chooseFiles(page, locator, multiple ? paths : paths[0]);
-    return;
+    return multiple ? paths.length : 1;
   }
   // An upload button opens the browser's file chooser. The wait never
   // outlives the action: a failed click leaves no rejection behind.
@@ -279,9 +287,10 @@ async function upload(page, locator, info, paths) {
   const opened = await chooser;
   if (!opened) throw new Error('no_file_chooser');
   await opened.setFiles(opened.isMultiple() ? paths : paths[0]);
+  return opened.isMultiple() ? paths.length : 1;
 }
 
-/** One action on its ref; never throws. */
+/** One action on its ref; never throws. `files`: how many files an upload set. */
 export async function runAction(page, action, files = {}) {
   try {
     const locator = page.locator(`aria-ref=${action.ref}`);
@@ -289,6 +298,7 @@ export async function runAction(page, action, files = {}) {
     const refused = refusal(action, info);
     if (refused) return { ok: false, error: refused };
     const value = String(action.value || '');
+    let uploaded = 0;
     if (action.action === 'click') await locator.click({ timeout: ACTION_TIMEOUT_MS });
     else if (action.action === 'fill') await locator.fill(info.tag === 'textarea' ? value : value.replace(/[\r\n]+/g, ' '), { timeout: ACTION_TIMEOUT_MS });
     else if (action.action === 'type') await locator.pressSequentially(value.replace(/[\r\n]+/g, ' '), { delay: 50, timeout: ACTION_TIMEOUT_MS });
@@ -297,9 +307,9 @@ export async function runAction(page, action, files = {}) {
     else if (action.action === 'upload') {
       const paths = documentPaths(files, action.document);
       if (!paths.length) return { ok: false, error: 'document_unavailable' };
-      await upload(page, locator, info, paths);
+      uploaded = await upload(page, locator, info, paths);
     }
-    return { ok: true };
+    return { ok: true, ...(uploaded ? { files: uploaded } : {}) };
   } catch (error) {
     return { ok: false, error: String(error?.message || error).split('\n')[0].slice(0, 160) };
   }
@@ -392,7 +402,11 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
     for (const action of step.actions) {
       const result = await runAction(page, action, files);
       // No values in the evidence's rounds: the answers travel apart, to the encrypted record.
-      record.actions.push({ ref: action.ref, action: action.action, question: action.question, source: action.source, ok: result.ok, ...(result.error ? { error: result.error } : {}) });
+      record.actions.push({
+        ref: action.ref, action: action.action, question: action.question, source: action.source, ok: result.ok, ...(result.error ? { error: result.error } : {}),
+        // Which document went into the form and how many of its files (the record of what left, submit.mjs).
+        ...(action.action === 'upload' && result.ok ? { document: action.document, files: result.files || 1 } : {}),
+      });
       results.push({ ref: action.ref, action: action.action, value: action.value, question: action.question, ...result });
       if (result.ok && action.question && action.source !== 'widget') answers.push({ question: action.question, answer: action.answer || action.value, source: action.source });
       await page.waitForTimeout(400);

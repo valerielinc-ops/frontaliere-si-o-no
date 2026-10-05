@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-10-04T09:17:40.666Z",
+  "assembledAt": "2026-10-04T21:13:57.172Z",
   "jobs": [
     {
       "id": "spital-sts-383c1c35c376",
@@ -33,7 +33,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/45ab28a8-55ed-4e1f-b55c-d66a4e6476cc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:35.167Z",
+      "crawledAt": "2026-10-04T21:13:53.111Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen",
-        "medico-di-servizio-medicina-di-servizio-spital-sts-zweisimmen"
+        "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen",
-          "medico-di-servizio-medicina-di-servizio-spital-sts-zweisimmen"
+          "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
         ],
         "en": [
           "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
@@ -112,7 +110,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/b0c03a03-b14d-4f8f-9b06-c1891cfefebe/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:34.665Z",
+      "crawledAt": "2026-10-04T21:13:51.569Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -146,9 +144,9 @@
     },
     {
       "id": "spital-sts-a2024755541f",
-      "slug": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
+      "slug": "infermiere-a-diplomato-a-in-medicina-spital-sts-thun",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
+        "it": "infermiere-a-diplomato-a-in-medicina-spital-sts-thun",
         "en": "dipl-nursing-specialist-medicine-spital-sts-thun",
         "de": "dipl-pflegefachfrau-mann-medizin-spital-sts-thun",
         "fr": "dipl-medecine-specialisee-en-soins-infirmiers-spital-sts-thun"
@@ -158,7 +156,7 @@
       "companyDomain": "spitalstsag.ch",
       "title": "Dipl. Pflegefachfrau/-mann Medizin",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann Medizin",
+        "it": "Infermiere/a diplomato/a in medicina",
         "en": "Dipl. Nursing specialist medicine",
         "de": "Dipl. Pflegefachfrau/-mann Medizin",
         "fr": "Dipl. Médecine spécialisée en soins infirmiers"
@@ -170,13 +168,12 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nKomme an Bord unserer sanierten Station A3 Nord mit topmoderner Infrastruktur und Schwerpunkt Innere Medizin. Du arbeitest mit dem Pflegewagen und im Tandem mit einer Studierenden, Lernenden oder Assistenzperson. Du legst Wert auf eine professionelle, kompetente und individuelle Betreuung und Behandlung der Patienten/-innen. Elektronische Hilfsmittel unterstützen dich im Berufsalltag.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n\n• Dipl. Pflegefachfrau/-mann mit Berufserfahrung im Akutbereich\n\nSo wirst du Teil unseres Teams\n\n• Belastbar, flexibel und teamfähig\n\n• Inspirierend, engagiert, verantwortungsvoll und professionell - Unsere Spital STS-Werte, die uns wichtig sind",
         "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nVenez à bord de notre station rénovée A3 Nord avec une infrastructure de pointe et un accent sur la médecine interne. Vous travaillez avec la voiture de soins et en tandem avec un étudiant, un apprenant ou un assistant. Vous attachez de l'importance aux soins et au traitement professionnels, compétents et individuels des patients. Les outils électroniques vous accompagnent dans le travail quotidien.\n\nEntrée immédiate ou par accord\n\nÇa vous attend.\n\n• Des défis passionnants avec leur propre domaine de responsabilité\n\n• Bonne coopération avec l'équipe et la direction de la station\n\n• Dipl. Professionnel infirmier ayant une expérience professionnelle en soins actifs\n\nDevenez membre de notre équipe\n\n• Résilient, flexible et capable de travailler en équipe\n\n• Inspirant, engagé, responsable et professionnel, notre hôpital STS valeurs qui sont importantes pour nous"
       },
-      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/cd19526d-68be-4e8f-8eb4-801b4e12c98a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:34.155Z",
+      "crawledAt": "2026-10-04T21:13:51.024Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -199,7 +196,8 @@
         "dipl-pflegefachfrau-mann-medizin-fur-fruh-und-spatdienst-nachtdienst-optional-spital-sts",
         "dipl-medecine-specialisee-en-soins-infirmiers-pour-les-services-precoces-et-tardifs-service-de-nuit-facultatif-spital",
         "dipl-nursing-specialist-spital-sts-thun",
-        "dipl-medicina-specialistica-dell-allattamento-spital-sts-thun"
+        "dipl-medicina-specialistica-dell-allattamento-spital-sts-thun",
+        "dipl-pflegefachfrau-mann-medizin-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -208,7 +206,8 @@
           "dipl-pflegefachfrau-mann-medizin-fur-fruh-und-spatdienst-nachtdienst-optional-spital-sts",
           "dipl-medecine-specialisee-en-soins-infirmiers-pour-les-services-precoces-et-tardifs-service-de-nuit-facultatif-spital",
           "dipl-nursing-specialist-spital-sts-thun",
-          "dipl-medicina-specialistica-dell-allattamento-spital-sts-thun"
+          "dipl-medicina-specialistica-dell-allattamento-spital-sts-thun",
+          "dipl-pflegefachfrau-mann-medizin-spital-sts-thun"
         ],
         "en": [
           "dipl-nursing-specialist-medicine-for-early-and-late-service-night-service-optional-spital-sts-thun"
@@ -267,7 +266,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/5803507c-bc78-4364-a15e-fd5e39a20c8f/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:33.732Z",
+      "crawledAt": "2026-10-04T21:13:50.599Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -286,14 +285,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez",
-        "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun-und-spiez",
-        "vice-capo-della-care-oncology-spital-sts-thun-und-spiez"
+        "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun-und-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez",
-          "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun-und-spiez",
-          "vice-capo-della-care-oncology-spital-sts-thun-und-spiez"
+          "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun-und-spiez"
         ],
         "en": [
           "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez"
@@ -349,7 +346,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/f8aaa339-770b-4789-a160-62d37f28cc96/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:33.223Z",
+      "crawledAt": "2026-10-04T21:13:50.167Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -367,13 +364,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "med-sekretar-in-frauenklinik-spital-sts-thun",
-        "med-clinica-femminile-spital-sts-thun"
+        "med-sekretar-in-frauenklinik-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "med-sekretar-in-frauenklinik-spital-sts-thun",
-          "med-clinica-femminile-spital-sts-thun"
+          "med-sekretar-in-frauenklinik-spital-sts-thun"
         ],
         "en": [
           "med-sekretar-in-frauenklinik-spital-sts-thun"
@@ -429,7 +424,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1f53cea8-175e-41d0-96f6-a3b33cc59cb5/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:32.798Z",
+      "crawledAt": "2026-10-04T21:13:49.715Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -447,13 +442,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharztin-facharzt-notfallzentrum-spital-sts-thun",
-        "specialista-centro-di-emergenza-specializzato-spital-sts-thun"
+        "facharztin-facharzt-notfallzentrum-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-notfallzentrum-spital-sts-thun",
-          "specialista-centro-di-emergenza-specializzato-spital-sts-thun"
+          "facharztin-facharzt-notfallzentrum-spital-sts-thun"
         ],
         "en": [
           "facharztin-facharzt-notfallzentrum-spital-sts-thun"
@@ -482,9 +475,9 @@
       "slug": "med-sekretar-in-urologie-spital-sts-thun",
       "slugByLocale": {
         "it": "med-sekretar-in-urologie-spital-sts-thun",
-        "en": "med-sekretar-in-urologie-spital-sts-thun",
+        "en": "medical-secretary-urology-spital-sts-thun",
         "de": "med-sekretar-in-urologie-spital-sts-thun",
-        "fr": "med-sekretar-in-urologie-spital-sts-thun"
+        "fr": "medecin-secretaire-en-urologie-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -492,9 +485,9 @@
       "title": "Med. Sekretär:in Urologie",
       "titleByLocale": {
         "it": "Med. Sekretär:in Urologie",
-        "en": "Med. Sekretär:in Urologie",
+        "en": "Medical Secretary Urology",
         "de": "Med. Sekretär:in Urologie",
-        "fr": "Med. Sekretär:in Urologie"
+        "fr": "Médecin-secrétaire :en urologie"
       },
       "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nZu Ihren Hauptaufgaben gehören der Empfang der Patient:innen, die Organisation der administrativen Praxisabläufe sowie schriftliches und telefonisches Termin- und Kontaktmanagement. Weiter arbeiten Sie selbstständig in den genannten Bereichen mit, schreiben Arztberichte ab Diktat und erledigen sämtliche administrativen Arbeiten der urologischen Praxis.\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf Sie\n\n• Eine zentrale Funktion im Team Sekretariat Urologie\n\n• Reger Patientenkontakt\n\n• Abwechslungsreiche administrative Arbeit\n\n• Enge Zusammenarbeit mit dem gesamten Urologie-Team\n\n• Regelmässige Arbeitszeiten\n\nSo werden Sie Teil unseres Teams\n\n• Ausbildung als Med. Sekretär:in\n\n• Idealerweise Berufserfahrung in einer Praxis oder einem Spital\n\n• Bereitschaft zur Mitarbeit an der Weiterentwicklung der administrativen Abläufe\n\n• Gute PC-Kenntnisse",
       "descriptionByLocale": {
@@ -509,7 +502,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/58463804-b58f-4b0e-861b-f49ff9710f89/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:32.401Z",
+      "crawledAt": "2026-10-04T21:13:49.300Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -573,7 +566,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7fefd7e3-8955-495c-805e-aea9db9b1ea8/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:31.977Z",
+      "crawledAt": "2026-10-04T21:13:48.854Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -591,13 +584,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
-        "centro-di-emergenza-sanitaria-professionale-spital-sts-thun"
+        "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
-          "centro-di-emergenza-sanitaria-professionale-spital-sts-thun"
+          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
         ],
         "en": [
           "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
@@ -652,7 +643,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1949b04a-7c46-475f-a2f8-90ee4fc5f989/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:31.552Z",
+      "crawledAt": "2026-10-04T21:13:48.433Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -670,23 +661,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
-        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun",
-        "dipl-nursing-professional-dipl-nursing-professional-spital-sts-thun",
-        "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-spital-sts-thun"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
-          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
         ],
         "en": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
-          "dipl-nursing-professional-dipl-nursing-professional-spital-sts-thun"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
         ],
         "fr": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
-          "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-spital-sts-thun"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
         ]
       },
       "firstSeenAt": "2026-10-03T09:19:32.112Z",
@@ -736,7 +721,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/486bc6b8-d20d-4e0d-b7df-d4092e3fe49d/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:17:31.132Z",
+      "crawledAt": "2026-10-04T21:13:47.992Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",

@@ -31,6 +31,8 @@ import { decode as decodeHTML } from 'html-entities';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { readMetaContent } from './html-attr.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { parseJsonLdText } from './json-ld-text.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -76,7 +78,7 @@ function extractJsonLd(html = '') {
   let match;
   while ((match = re.exec(html)) !== null) {
     try {
-      const parsed = JSON.parse(match[1]);
+      const parsed = parseJsonLdText(match[1]);
       if (Array.isArray(parsed)) blocks.push(...parsed);
       else blocks.push(parsed);
     } catch { /* skip malformed JSON-LD */ }
@@ -589,18 +591,16 @@ function parseLocationToken(text = '') {
 
 /**
  * Convert SuccessFactors NES date tokens ("28/04/26", "13.05.26", "5/13/26")
- * into ISO YYYY-MM-DD using the locale embedded in the URL. Returns '' on
- * failure — callers should fall back to a default date.
+ * into ISO using the locale embedded in the URL. Preserve full ISO timestamps
+ * for the publication validator; unknown input remains empty.
  */
 function parseTokenDate(raw = '', url = '') {
   const s = String(raw || '').trim();
   if (!s) return '';
   const isUS = /-en_US\b/i.test(url);
-  // Try ISO first
-  const direct = new Date(s);
-  if (!Number.isNaN(direct.getTime()) && /\d{4}/.test(s)) {
-    return direct.toISOString().slice(0, 10);
-  }
+  // Do not parse/truncate an ISO timestamp before the publication validator.
+  // Locale-specific four-digit-year dates must use the same path as short years.
+  if (/^\d{4}-\d{2}-\d{2}(?:T.*)?$/.test(s)) return s;
   const match = s.match(/^(\d{1,2})[./](\d{1,2})[./](\d{2,4})$/);
   if (!match) return '';
   let [, a, b, y] = match;
@@ -740,7 +740,7 @@ export function parsePostJobDetail(html = '', url = '') {
   const places = flattenPlaces(jobPosting);
   const description = deriveDescription(jobPosting, html);
   const employmentType = deriveEmploymentType(jobPosting);
-  const datePosted = normalizeDate(jobPosting.datePosted || '');
+  const datePosted = sourcePostingDateFields(jobPosting.datePosted).datePosted;
   const validThrough = normalizeDate(jobPosting.validThrough || '');
   const industry = normalizeSpace(jobPosting.industry || jobPosting.occupationalCategory || '');
 

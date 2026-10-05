@@ -5,7 +5,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue
 const { buildFactIndex, checkGeneratedFacts, claimTokens } = await import('../functions/src/assistedApplicationAiFactCheck.js');
 const {
   applicationEmailText, applyLetterConventions, checkDraftFacts, checkDraftTexts, enclosuresLabel, isBareClosing, letterEnclosures, letterPdfBlocks,
-  letterQualityIssues, letterSalutation, letterText, localityOf, parseLetterText, printedTitles, swissTypography,
+  letterQualityIssues, letterSalutation, letterText, localityOf, parseLetterText, printedTitles, sanitizeProfile, swissTypography,
 } = await import('../functions/src/assistedApplicationAiDraftCore.js');
 const { applicationEmailSubject, formatLetterDate, letterPlaceDate, letterSubject } = await import('../functions/src/assistedApplicationAiPrompts.js');
 const { checkTailoredCvFacts, groundedInCv, sanitizeTailoredCv } = await import('../functions/src/assistedApplicationTailoredCv.js');
@@ -785,6 +785,65 @@ describe('fact gate of the tailored CV', () => {
   });
 });
 
+// Owner decisions of 2026-10-03 (P4, decision 8) and of 2026-10-04 (citizenship): a Swiss permit or citizenship in a
+// text that leaves in the candidate's name is the candidate's own statement.
+describe('fact gate: a Swiss permit is named only when the status or the candidate’s texts back it', () => {
+  const NURSE_IT = {
+    text: 'Giulia Verdi\nInfermiera di reparto, Ospedale Civico, Lugano, 2019 – 2025\nLingue: italiano madrelingua, tedesco B1',
+    posting: 'Cerchiamo un’infermiera di reparto. Requisiti: diploma in cure infermieristiche, tedesco B1, permesso G o B.',
+    order: ['Infermiera di reparto', 'Clinica Esempio SA', 'Giulia Verdi'].join('\n'),
+    answers: '',
+    place: 'Mendrisio',
+  };
+  const sources = (permitStatus?: string, extra: Record<string, string> = {}) => ({ ...NURSE_IT, ...extra, ...(permitStatus === undefined ? {} : { permitStatus }) });
+  const letter = (text: string, permitStatus?: string, extra: Record<string, string> = {}) => verdict({ coverLetter: text }, sources(permitStatus, extra));
+  const HOLDER = 'Sono titolare del permesso G e lavoro a Lugano.';
+
+  it('flags a permit the candidate did not state, and passes the one they chose or their CV names', () => {
+    expect(letter(HOLDER, '')).toMatchObject({ ok: false, unsupported: ['permit:permesso G'] });
+    expect(letter(HOLDER, 'permit_g')).toMatchObject({ ok: true, unsupported: [] });
+    expect(letter(HOLDER, '', { text: `${NURSE_IT.text}\nPermesso G` })).toMatchObject({ ok: true, unsupported: [] });
+    // «none» says no permit is held: the CV's old line backs nothing.
+    expect(letter(HOLDER, 'none', { text: `${NURSE_IT.text}\nPermesso G` })).toMatchObject({ ok: false, unsupported: ['permit:permesso G'] });
+    // A CV line that speaks of a permit to come, or says it is not held, backs nothing either.
+    expect(letter(HOLDER, '', { text: `${NURSE_IT.text}\nPermesso G da richiedere` })).toMatchObject({ ok: false });
+    expect(letter(HOLDER, '', { text: `${NURSE_IT.text}\nNon ho ancora il permesso G` })).toMatchObject({ ok: false });
+    // A work permit in general: backed by a held status, never by «swiss».
+    expect(verdict({ coverLetter: 'Ich habe eine Arbeitsbewilligung.' }, sources('permit_b'))).toMatchObject({ ok: true });
+    expect(verdict({ coverLetter: 'Ich habe eine Arbeitsbewilligung.' }, sources('swiss'))).toMatchObject({ ok: false, unsupported: ['permit:Arbeitsbewilligung'] });
+  });
+
+  it('flags a permit to come even with the status, and reports the posting’s permit quoted as not held as an honest gap', () => {
+    expect(letter('Ho diritto al permesso G per questo lavoro.', 'permit_g')).toMatchObject({ ok: false, unsupported: ['permit:permesso G'] });
+    expect(letter('Pur non avendo ancora il permesso G richiesto dall’annuncio, posso iniziare a gennaio.', '')).toEqual({ ok: true, unsupported: [], advisories: ['gap:permesso G'] });
+    // A driving licence is no permit: nothing to judge.
+    expect(verdict({ coverLetter: 'Titulaire du permis B, je me déplace en voiture.' }, sources('none'))).toMatchObject({ ok: true, unsupported: [] });
+  });
+
+  it('judges a draft written before the status as it was', () => {
+    expect(letter(HOLDER)).toMatchObject({ ok: true, unsupported: [] });
+  });
+
+  it('gates a Swiss citizenship like a permit: the status «swiss» or the candidate’s own texts', () => {
+    const SWISS = 'Ho la cittadinanza svizzera e vivo a Mendrisio.';
+    expect(letter(SWISS, '')).toMatchObject({ ok: false, unsupported: ['citizenship:cittadinanza svizzera'] });
+    expect(letter(SWISS, 'swiss')).toMatchObject({ ok: true });
+    expect(letter(SWISS, '', { text: `${NURSE_IT.text}\nNazionalità: svizzera` })).toMatchObject({ ok: true });
+    // A permit holder is no Swiss citizen, whatever an older CV says.
+    expect(letter(SWISS, 'permit_b', { text: `${NURSE_IT.text}\nNazionalità: svizzera` })).toMatchObject({ ok: false, unsupported: ['citizenship:cittadinanza svizzera'] });
+    // The e-mail and the short motivation are claims too; the «why us» text is about the employer.
+    const texts = { emailBody: 'Sono cittadina svizzera.', motivationShort: 'Ho la cittadinanza svizzera.', whyCompany: 'Un’azienda con la cittadinanza svizzera dei suoi soci.' };
+    expect(verdict(texts, sources('')).unsupported.sort()).toEqual(['citizenship:cittadina svizzera', 'citizenship:cittadinanza svizzera']);
+  });
+
+  it('checks the tailored CV with the status its profile carries', () => {
+    const profile = sanitizeProfile({ headline: 'Infermiera', experience: [{ role: 'Infermiera di reparto', employer: 'Ospedale Civico', start: '2019', end: '2025', kind: 'job', highlights: ['Reparto di medicina'] }] });
+    const cv = sanitizeTailoredCv({ summary: 'Frontaliera con permesso G, infermiera di reparto.', experience: [], competencies: [], skills: [] }, { profile, cvText: NURSE_IT.text, language: 'it' });
+    expect(checkTailoredCvFacts(cv, { cvText: NURSE_IT.text, profile: { ...profile, permitStatus: 'none' }, answers: {} })).toMatchObject({ ok: false, unsupported: [expect.objectContaining({ kind: 'permit', token: 'permesso G' })] });
+    expect(checkTailoredCvFacts(cv, { cvText: NURSE_IT.text, profile, answers: {} }).ok).toBe(true);
+  });
+});
+
 describe('Swiss letter conventions in code', () => {
   it('writes the salutation from the honorific the posting gives, never from the first name', () => {
     expect(letterSalutation('de', 'Frau Sandra Beispiel')).toBe('Sehr geehrte Frau Beispiel');
@@ -1340,17 +1399,21 @@ describe('letter at submission', () => {
     };
     const flow = { documents: { diplomi: { files: [{ key: 'assisted-application-uploads/order_X/diplomi.pdf', name: 'diplomi.pdf', detectedType: 'pdf' }] } } };
     const rebuilt = await letterForSubmission({ bucket: bucket('stored'), order, orderId: 'order_X', draft, flow, nowMs: Date.now() });
-    const text = await extractPdfText(rebuilt);
+    // Rebuilt today: its writer is recorded, and it is in Storage nowhere yet.
+    expect(rebuilt).toMatchObject({ renderer: 'typst', key: null });
+    const text = await extractPdfText(rebuilt.pdf);
     expect(text).toContain('Via Esempio 3');
     expect(text).toContain('Allegati: Curriculum vitae, Diplomi');
     // Review of PR 10919: a waived document (no file) is not listed. One enclosure: the singular (Città di Lugano).
-    const waived = await extractPdfText(await letterForSubmission({ bucket: bucket('stored'), order, orderId: 'order_X', draft, flow: { documents: { diplomi: { waivedAt: 1 } } }, nowMs: Date.now() }));
+    const waived = await extractPdfText((await letterForSubmission({ bucket: bucket('stored'), order, orderId: 'order_X', draft, flow: { documents: { diplomi: { waivedAt: 1 } } }, nowMs: Date.now() })).pdf);
     expect(waived).toContain('Allegato: Curriculum vitae');
     expect(waived).not.toContain('Diplomi');
     expect(enclosedDocumentLabels({ requiredDocuments: [{ id: 'diploma', label: 'Diploma', kind: 'diploma', required: true }] }, null, 'order-1')).toEqual(['Diploma']);
     expect(enclosedDocumentLabels({ requiredDocuments: [{ id: 'diploma', label: 'Diploma', kind: 'diploma', required: true }] }, { documents: { diploma: { waivedAt: 1 } } }, 'order-1')).toEqual([]);
     const older = await letterForSubmission({ bucket: bucket('stored'), order, orderId: 'order_X', draft: { ...draft, letterAddress: undefined, coverLetterPdfKey: 'k' }, flow: {}, nowMs: Date.now() });
-    expect(older.toString()).toBe('stored');
+    expect(older.pdf.toString()).toBe('stored');
+    // The stored file leaves: its key, and no writer when the draft does not record one.
+    expect(older).toMatchObject({ renderer: null, key: 'k' });
   });
 });
 

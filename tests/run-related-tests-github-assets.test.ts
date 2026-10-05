@@ -375,10 +375,13 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
       'tests/ci-vitest-check-name.test.ts',
       'tests/agents-related-tests-recipe.test.ts',
     ]));
-    expect(selected).not.toContain('tests/checkout-sparse-profiles.test.ts');
+    // Il runner e' codice che il job `vitest` di tests.yml carica: il guard dei
+    // profili sparse lo giudica come ogni altro file di una chiusura, e resta
+    // fuori dal tetto della suite di regressione.
+    expect(selected).toContain('tests/checkout-sparse-profiles.test.ts');
     expect(selected).not.toContain('tests/faq-readability-gate.test.ts');
     expect(selected).not.toContain('tests/firestore-rules-consent-write.test.ts');
-    expect(selected.length).toBeLessThan(20);
+    expect(selected.filter((test) => test !== 'tests/checkout-sparse-profiles.test.ts').length).toBeLessThan(20);
   }, 120_000);
 
   it('un test cambiato trascina i lint dell\'albero dei test, che nessuno importa', () => {
@@ -449,6 +452,26 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['packages/articles/engine/shared/htmlMarkup.mjs'])).toContain(bingSparse);
     expect(selectionFor(['.github/workflows/bing-seo-loop.yml'])).toContain(bingSparse);
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(bingSparse);
+  }, 120_000);
+
+  it('un workflow o il codice che un job carica seleziona il guard dei profili sparse', () => {
+    // Issue 11301 item 008: `tests/checkout-sparse-profiles.test.ts` stava in
+    // `alwaysExcludedTests` e non girava mai. Il 2026-10-04 su main 6 job
+    // escludevano un bucket che il loro codice nomina e 12 workflow erano in
+    // ritardo sul generatore; la deriva era nata quasi sempre da codice della
+    // chiusura di un job, non dal suo YAML. Un file per ciascuna origine vista.
+    const guard = 'tests/checkout-sparse-profiles.test.ts';
+    expect(selectionFor(['.github/workflows/cf-5xx-monitor.yml'])).toContain(guard);
+    expect(selectionFor(['.github/actions/report-failure/action.yml'])).toContain(guard);
+    expect(selectionFor(['scripts/cf-5xx-issue-sync.mjs'])).toContain(guard);
+    expect(selectionFor(['scripts/assisted-application/lib/portal/portal.mjs'])).toContain(guard);
+    expect(selectionFor(['scripts/lib/deploy-shard-sections.sh'])).toContain(guard);
+    expect(selectionFor(['functions/src/emailCascade.js'])).toContain(guard);
+    expect(selectionFor(['scripts/ci/checkout-buckets.json'])).toContain(guard);
+    expect(selectionFor(['package.json'])).toContain(guard);
+    // Un doc o un componente React non entrano nella chiusura di un job.
+    expect(selectionFor(['docs/CF-5XX-TRIAGE.md'])).not.toContain(guard);
+    expect(selectionFor(['components/ChunkLoadErrorBoundary.tsx'])).not.toContain(guard);
   }, 120_000);
 
   it('un modulo della chiusura del finalizer crawler seleziona il test del generatore', () => {
@@ -640,7 +663,9 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
       // tornasse a essere un candidato orfano, il runner produrrebbe zero.
       expect(selected).toContain('tests/a-plus-plus-job-parser.test.ts');
       expect(selected.length).toBeGreaterThan(100);
-      expect(selected).not.toContain('tests/checkout-sparse-profiles.test.ts');
+      // Non e' piu' un'esclusione deliberata (issue 11301 item 008): il job
+      // `vitest` materializza tutto cio' che il verifier legge.
+      expect(selected).toContain('tests/checkout-sparse-profiles.test.ts');
       expect(selected).not.toContain('tests/faq-readability-gate.test.ts');
       expect(selected).not.toContain('tests/firestore-rules-consent-write.test.ts');
     } finally {
@@ -744,6 +769,44 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(upload).not.toBe(finalize + 1);
     expect(names[finalize + 1]).toBe('Upload thinking A/B rows');
   });
+
+  it('un path .github costruito a segmenti seleziona il lettore, un commento no', () => {
+    // Fixture costruita qui con un runner variante: nessun path sotto radici
+    // vive di dati. `path.join(ROOT, '.github', 'workflows')` non contiene il
+    // letterale `.github/workflows`, ma e' la stessa dipendenza.
+    const dir = createRunnerVariant(fs.readFileSync(RUNNER, 'utf8'));
+    try {
+      const files: Record<string, string> = {
+        '.github/workflows/fixture-new.yml': 'name: fixture\n',
+        'tests/segmented-reader.test.ts':
+          "import path from 'node:path';\nexport const d = path.join(ROOT, '.github', 'workflows');\n",
+        'tests/segmented-file-reader.test.ts':
+          "export const f = path.resolve(__dirname, '..', '.github', 'workflows', 'fixture-new.yml');\n",
+        'tests/commented-reader.test.ts':
+          "// path.join(ROOT, '.github', 'workflows')\n/* path.join(ROOT, '.github', 'workflows') */\nexport {};\n",
+        'tests/other-segments.test.ts': "export const f = path.join(ROOT, '.github', 'actions');\n",
+      };
+      for (const [file, content] of Object.entries(files)) {
+        fs.mkdirSync(path.dirname(path.join(dir, file)), { recursive: true });
+        fs.writeFileSync(path.join(dir, file), content);
+      }
+      execFileSync('git', ['init', '-q', '-b', 'main'], { cwd: dir });
+      execFileSync('git', ['config', 'user.email', 'test@example.invalid'], { cwd: dir });
+      execFileSync('git', ['config', 'user.name', 'related-selection-test'], { cwd: dir });
+      execFileSync('git', ['add', '.'], { cwd: dir });
+      execFileSync('git', ['commit', '-qm', 'segmented fixture'], { cwd: dir });
+      const base = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: dir, encoding: 'utf8' }).trim();
+      execFileSync('git', ['update-ref', 'refs/remotes/origin/main', base], { cwd: dir });
+
+      const { stdout } = runSelectionInFixture(dir, dir, ['.github/workflows/fixture-new.yml'], 'segmented');
+      expect(stdout).toContain('tests/segmented-reader.test.ts');
+      expect(stdout).toContain('tests/segmented-file-reader.test.ts');
+      expect(stdout).not.toContain('tests/commented-reader.test.ts');
+      expect(stdout).not.toContain('tests/other-segments.test.ts');
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  }, 120_000);
 
   it('una cache costruita su un altro insieme di asset non viene riusata', () => {
     // Il caso reale: si AGGIUNGE un workflow. I sorgenti che lo nominano per

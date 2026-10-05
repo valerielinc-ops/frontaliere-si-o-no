@@ -1,5 +1,5 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
-import { hasPostingDateProvenance, resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
+import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { G_PERMIT_FACTS, CROSS_BORDER_TAX_FACTS, G_PERMIT_SOURCE, CROSS_BORDER_TAX_SOURCE, type EmploymentFactsLocale } from '../services/crossBorderEmploymentFacts';
 import { renderJobDescriptionGate } from './shared/jobDescriptionGate';
 import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendations';
@@ -259,6 +259,7 @@ import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location
 import { buildJobListEntry } from './shared/jobListEntry';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
 import { employerProfilesFlushed, resolveJobsSeoPagesFlushed } from './shared/buildSignals';
+import { setActiveJobSitemapLocs } from './shared/buildSignals';
 import { listJobsSeoAdapterFiles, listJobsSeoExpiredSliceFiles } from './shared/jobsSeoDeterministicInputs';
 import type { EmittedEmployerProfile } from './shared/buildSignals';
 import { employerTitleCandidates, type EmployerProfileLocale } from './employerProfilePagesPlugin';
@@ -308,6 +309,31 @@ const COMPANY_JOB_PAYLOAD_CAP = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1
 // helpers; the emitted format is unchanged.
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
+
+/**
+ * Build the canonical detail path shared by the legacy job sitemap allowlist
+ * and every canton shard. Keeping the resolver in one place prevents a shard
+ * from drifting back to the frozen TI section while the allowlist is
+ * canton-aware.
+ */
+export function buildCantonAwareJobDetailPath(
+ locale: (typeof JOB_SEO_LOCALES)[number],
+ cantonCode: string,
+ slug: string,
+): string {
+  const path = [locale === 'it' ? '' : locale, sharedResolveCantonSection(locale, cantonCode), slug]
+    .filter(Boolean)
+    .join('/');
+  return '/' + path + '/';
+}
+
+export function buildCantonAwareJobDetailUrl(
+ locale: (typeof JOB_SEO_LOCALES)[number],
+ cantonCode: string,
+ slug: string,
+): string {
+ return `${BASE_URL}${buildCantonAwareJobDetailPath(locale, cantonCode, slug)}`;
+}
 
 /**
  * Role x Ticino combo pages — driven by internal search demand
@@ -1923,6 +1949,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // forever (build deadlock, no fail-fast, no deploy). No jobs.json → no
  // bridge HTML to flush, so resolving now is correct: the consumer proceeds
  // with an empty/jobless sitemap instead of awaiting writes that never run.
+ setActiveJobSitemapLocs(new Set());
  resolveJobsSeoPagesFlushed();
  return;
  }
@@ -8591,11 +8618,8 @@ ${staticAnalyticsHtml}
  // build day, so a listing posted later today still counts.
  const sectorFreshMax = sectorFreshStamp + 24 * 60 * 60 * 1000;
  const sFreshCount = sJobs.filter((j: any) => {
- // First PARSEABLE date, not first truthy: a malformed postedDate must not
- // shadow a valid crawledAt and undercount the fresh tile (see firstParsableMs).
- const t = hasPostingDateProvenance(j)
- ? firstParsableMs(resolveReportedPostingDate(j))
- : firstParsableMs(j.datePosted, j.postedDate, j.crawledAt);
+ // Only source-verified publication dates contribute to the fresh tile.
+ const t = firstParsableMs(resolveReportedPostingDate(j));
  return t >= sectorFreshCutoff && t <= sectorFreshMax;
  }).length;
  const intro = (() => {
@@ -10517,6 +10541,24 @@ ${staticAnalyticsHtml}
  const wordCount = desc.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
  return wordCount >= 50;
  });
+ // Keep a source-level allowlist for the sharded job sitemap. The per-job
+ // emitter's tuple registry alone is not enough here: it is populated before
+ // the thin-content sitemap filter and a stale shard may contain a URL whose
+ // foreign-locale HTML is intentionally absent from this build tree. Only
+ // self-canonical, actually winning, sitemap-eligible detail paths enter the
+ // registry; the final dist pass consumes it after all shards are assembled.
+ const activeJobSitemapLocs = new Set<string>();
+ for (const job of sitemapEligibleJobs) {
+  const jobCantonForSitemap = sharedResolveJobCanton(job as { canton?: string; location?: string });
+  for (const locale of localeList) {
+   const slug = localizedSlug(job, locale);
+   const localeUrl = buildCantonAwareJobDetailUrl(locale, jobCantonForSitemap, slug);
+   if (resolveCanonicalUrl(slug, localeUrl) !== localeUrl) continue;
+   if (!emittedActiveJobPaths.has(`${jobCantonForSitemap}:${locale}:${slug}`)) continue;
+   activeJobSitemapLocs.add(localeUrl);
+  }
+ }
+ setActiveJobSitemapLocs(activeJobSitemapLocs);
  const jobEntries = sitemapEligibleJobs.map((job) => {
  const perLocaleSlugMap = {
  it: localizedSlug(job, 'it'),
@@ -10554,6 +10596,7 @@ ${staticAnalyticsHtml}
  // missing or points at a different page.
  if (resolveCanonicalUrl(perLocaleSlugMap[l], localeUrl) !== localeUrl) continue;
  if (!emittedActiveJobPaths.has(`${jobCantonForSitemap}:${l}:${perLocaleSlugMap[l]}`)) continue;
+ if (!activeJobSitemapLocs.has(localeUrl)) continue;
  sitemapLocalePaths.set(l, localePath);
  }
  if (!sitemapLocalePaths.has('it')) return '';
@@ -10833,8 +10876,8 @@ ${staticAnalyticsHtml}
    let cantonIndexNoindex = 0;
 
    // Build the URL list for the sharded sitemap. One entry per (group, locale)
-   // = 4 × group-count entries. URL preserves the legacy frozen path
-   // (sectionByLocale[locale]) — slug-registry is honored verbatim. The
+   // = 4 × group-count entries. Detail URLs use the same canton-aware path
+   // helper as the active allowlist — slug-registry is honored verbatim. The
    // shardKey is the canton, so high-confidence jobs cluster into per-canton
    // shards while AGGREGATE jobs land in sitemap-jobs-svizzera.xml.
    //
@@ -10866,12 +10909,10 @@ ${staticAnalyticsHtml}
      const itUrlLegacy = `${BASE_URL}${itPathLegacy}`;
      if (resolveCanonicalUrl(perLocaleSlugMap.it, itUrlLegacy) !== itUrlLegacy) continue;
      for (const locale of localeList) {
-       // Canton-aware section matches the actual job-detail URL emitted by
-       // the per-job loop. For TI jobs this returns the legacy frozen slug
-       // (sectionByLocale[locale]) via resolveCantonSection's early-return.
-       const section = buildCantonAwareSection(locale, groupJobCanton);
-       const path = withSlash(`${localePrefix[locale]}/${section}/${perLocaleSlugMap[locale]}`.replace(/\/+/g, '/'));
-       const localeUrl = `${BASE_URL}${path}`;
+       // This is the same canton-aware path admitted to
+       // activeJobSitemapLocs above. For TI jobs the shared resolver retains
+       // the frozen legacy section; non-TI jobs stay in their own canton.
+       const localeUrl = buildCantonAwareJobDetailUrl(locale, groupJobCanton, perLocaleSlugMap[locale]);
        // Per-locale canonical-override gate. canonicalOverrides is keyed by
        // per-locale slug (e.g. `expediter-casale-sa-lugano` for EN,
        // `beschleuniger-…` for DE) — an entry can target a single locale
@@ -10889,6 +10930,7 @@ ${staticAnalyticsHtml}
        // this key with `emittedActiveJobPaths` — same shape, same delimiter.
        const emittedKey = `${groupJobCanton}:${locale}:${perLocaleSlugMap[locale]}`;
        if (!emittedActiveJobPaths.has(emittedKey)) continue;
+       if (!activeJobSitemapLocs.has(localeUrl)) continue;
        shardUrls.push({
          loc: localeUrl,
          changefreq: 'weekly',

@@ -13,9 +13,11 @@
  * portal asks). The documents travel as signed links the extension downloads.
  */
 
-import { LETTER_FILE_LABEL, safeFileStem } from './assistedApplicationAiDraftCore.js';
+import { LETTER_FILE_LABEL, applicationFileName } from './assistedApplicationAiDraftCore.js';
 import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
 import { extraDocumentFileName } from './assistedApplicationExtraDocuments.js';
+import { isoDateOf } from './lib/cvPeriod.js';
+import { permitStatement, printedPermitText } from './lib/permitStatus.js';
 
 const text = (value, max = 500) => String(value ?? '').trim().slice(0, max);
 
@@ -44,8 +46,6 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
     })
     .slice(0, 60);
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field?.key, field?.value]));
-  // The file names the runner gives them (lib/submit.mjs).
-  const stem = safeFileStem(identity.name);
   const language = LETTER_FILE_LABEL[draft.language] ? draft.language : 'it';
   return {
     version: 1,
@@ -70,9 +70,11 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
       website: text(profile.website, 300),
     },
     profile: {
-      dateOfBirth: text(profile.dateOfBirth, 20),
+      // In a form the extension reads (parseDate reads only numeric dates).
+      dateOfBirth: text(isoDateOf(profile.dateOfBirth) || profile.dateOfBirth, 20),
       nationality: text(profile.nationality, 100),
-      workPermit: text(profile.workPermit, 200),
+      // The status the candidate chose, as the portal planner's sentence; nothing chosen: the CV's own words.
+      workPermit: text(profile.permitStatus ? permitStatement(profile.permitStatus, language) : printedPermitText(profile.workPermit), 200),
       availability: text(profile.availability, 200),
       salary: text(answers.salary_expectation, 200),
     },
@@ -83,8 +85,9 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
       whyCompany: text(motivation.whyCompany, 2000),
     },
     documents: {
-      cv: documents.cv?.url ? { url: documents.cv.url, fileName: `CV_${stem}.${documents.cv.extension || 'pdf'}` } : null,
-      coverLetter: documents.coverLetter?.url ? { url: documents.coverLetter.url, fileName: `${safeFileStem(LETTER_FILE_LABEL[language])}_${stem}.pdf` } : null,
+      // The file names the runner gives them (lib/submit.mjs, applicationFileName).
+      cv: documents.cv?.url ? { url: documents.cv.url, fileName: applicationFileName('cv', { name: identity.name, language, extension: documents.cv.extension || 'pdf' }) } : null,
+      coverLetter: documents.coverLetter?.url ? { url: documents.coverLetter.url, fileName: applicationFileName('letter', { name: identity.name, language, extension: 'pdf' }) } : null,
       // The requested documents (school reports, test results…) the candidate gave, by form slot.
       extra: (documents.extra || []).map((document) => {
         const files = (document.files || []).filter((file) => file?.url);

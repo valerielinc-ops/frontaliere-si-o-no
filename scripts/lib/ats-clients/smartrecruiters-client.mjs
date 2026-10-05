@@ -77,8 +77,10 @@
  * @property {string} title              Job title (whitespace-normalised), from `name`.
  * @property {string} location           `location.fullLocation` || `location.city`.
  * @property {string} company            Company display name (passed via options).
- * @property {string|null} postedAt      ISO date — prefers `releasedDate`,
- *                                       falls back to `createdOn`, else null.
+ * @property {string|null} postedAt      Compatibility alias of validated releasedDate, else null.
+ * @property {string} datePosted        Validated employer release timestamp, else empty.
+ * @property {string} postedDate        Same value as datePosted.
+ * @property {'reported'|'unknown'} postingDateSource Publication evidence marker.
  * @property {string} applyUrl           `applyUrl` (preferred) or composed
  *                                       `https://jobs.smartrecruiters.com/{tenant}/{id}`.
  * @property {string} [descriptionHtml]  Concatenated jobAd sections, if present.
@@ -89,6 +91,7 @@
 
 import { fetchWithRetry } from '../transient-fetch.mjs';
 import { assertJsonListShape } from '../assert-json-list-shape.mjs';
+import { sourcePostingDateFields } from '../source-posting-date.mjs';
 
 /* ── Constants ───────────────────────────────────────────────── */
 
@@ -146,18 +149,6 @@ function slugify(input = '') {
     .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-}
-
-/**
- * Best-effort ISO date conversion. Accepts ISO strings and date-only strings.
- * @param {string|null|undefined} raw
- * @returns {string|null}
- */
-function toIsoDate(raw) {
-  if (!raw || typeof raw !== 'string') return null;
-  const d = new Date(raw);
-  if (Number.isNaN(d.getTime())) return null;
-  return d.toISOString();
 }
 
 /**
@@ -789,7 +780,8 @@ export function normalizeSmartRecruitersJob(rawJob, options = {}) {
   const title = normalizeSpace(rawJob?.name || '');
   const loc = rawJob?.location || {};
   const location = normalizeSpace(loc.fullLocation || loc.city || '');
-  const postedAt = toIsoDate(rawJob?.releasedDate) || toIsoDate(rawJob?.createdOn) || null;
+  // Posting creation is not evidence of publication; preserve the release timestamp.
+  const postingDates = sourcePostingDateFields(rawJob?.releasedDate);
   const fallbackApply = id && tenant
     ? `${SR_PUBLIC_JOBS_BASE}/${encodeURIComponent(tenant)}/${encodeURIComponent(id)}`
     : '';
@@ -804,7 +796,8 @@ export function normalizeSmartRecruitersJob(rawJob, options = {}) {
     title,
     location,
     company,
-    postedAt,
+    postedAt: postingDates.postedDate || null,
+    ...postingDates,
     applyUrl,
     rawPosting: rawJob,
   };

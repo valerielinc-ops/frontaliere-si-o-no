@@ -52,6 +52,8 @@
  * - isTrustedDomain()    — Validate URLs belong to this company
  * - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { extractJsonLd } from './prospector/extract.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, decodeHtmlEntities, decodeNumericEntities, normalizeSpace as normalizeSpaceDCC } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
@@ -274,7 +276,7 @@ async function fetchJobListings(options = {}) {
       html = await fetchPage(buildPageUrl(pageIdx));
     } catch (err) {
       console.warn(`  ⚠️ Ricola: fetch failed on page ${pageIdx} (${err?.message || err}). Stopping pagination.`);
-      break;
+      throw err;
     }
 
     const rows = extractListingRows(html);
@@ -366,17 +368,23 @@ export function extractRicolaDetailContent(html) {
 }
 
 /**
- * Fetch one Umantis detail page and return validated prose content, or ''
+ * Fetch one Umantis detail page and return prose and source publication fields
  * on any failure (the caller then leaves the job out of this run).
  */
-async function fetchDetailContent(detailUrl, options = {}) {
+async function fetchDetailFields(detailUrl, expectedTitle, options = {}) {
   const fetchPage = options._fetchHtml || fetchHtml;
   try {
     const html = await fetchPage(detailUrl);
-    return extractRicolaDetailContent(html);
+    const records = extractJsonLd(html, detailUrl);
+    const matched = records.find(record => {
+      if (normalizeSpace(record.title || '').toLowerCase() !== normalizeSpace(expectedTitle).toLowerCase()) return false;
+      if (!record.urlExplicit) return records.length === 1;
+      try { return new URL(record.url, detailUrl).href === new URL(detailUrl).href; } catch { return false; }
+    });
+    return { description: extractRicolaDetailContent(html), ...mergeSourcePostingDates({}, matched) };
   } catch (err) {
     console.warn(`  ⚠️ Ricola: detail fetch failed for ${detailUrl} (${err?.message || err}).`);
-    return '';
+    return { description: '', ...mergeSourcePostingDates() };
   }
 }
 
@@ -385,7 +393,7 @@ async function fetchDetailContent(detailUrl, options = {}) {
 // Internal export for test injection — not part of the public crawler contract.
 export const __testables = {
   fetchJobListings,
-  fetchDetailContent,
+  fetchDetailFields,
   buildPageUrl,
   resolveDetailUrl,
   parseRowMetadata,
@@ -422,7 +430,8 @@ export async function fetchAllRicolaJobs(options = {}) {
     const { city, postalCode, streetAddress } = resolveAddress(listing.location);
     const canton = inferSwissTargetCanton(city) || HQ.canton;
 
-    const detailContent = await fetchDetailContent(listing.url, options);
+    const detail = await fetchDetailFields(listing.url, title, options);
+    const detailContent = detail.description;
 
     // Source text only (issue 5253): without a detail body over the 50-word
     // floor the job is left out of this run (the standard pipeline keeps the
@@ -481,7 +490,7 @@ export async function fetchAllRicolaJobs(options = {}) {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().slice(0, 10),
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: listing.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

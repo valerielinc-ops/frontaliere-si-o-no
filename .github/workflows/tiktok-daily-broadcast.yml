@@ -47,7 +47,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  contents: write  # commit data/tiktok-posted.json
+  contents: write  # commit data/tiktok-posted.json + data/tiktok-queue.json
   issues: write
 
 jobs:
@@ -105,16 +105,23 @@ jobs:
           # <path>` on a path that has never existed exits 128, not 0/1, so a
           # failed/skipped post (no ledger write yet) fell through into
           # `git add` on a missing pathspec and hard-failed the step.
-          if [ ! -f data/tiktok-posted.json ]; then
-            echo "no ledger file written — nothing to commit"; exit 0
+          # The queue of the Playwright robot (SOCIAL_ROBOT_MODE dry/live, see
+          # scripts/lib/social-publish-queue.mjs) is written by the same step
+          # as the ledger and committed with it.
+          files=()
+          for f in data/tiktok-posted.json data/tiktok-queue.json; do
+            if [ -f "$f" ]; then files+=("$f"); fi
+          done
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "no ledger or queue file written — nothing to commit"; exit 0
           fi
-          git add data/tiktok-posted.json
+          git add "${files[@]}"
           if git diff --cached --quiet; then
             echo "no ledger changes"; exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore(tiktok): track posted carousel content [skip ci]"
+          git commit -m "chore(tiktok): track posted and queued carousel content [skip ci]"
           bash scripts/lib/git-push-with-retry.sh \
             --max-attempts 20 || echo "ledger push skipped (non-fatal)"
 

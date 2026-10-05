@@ -11,6 +11,7 @@
  *   - stripHtml()                — Re-exported from crawler-template.mjs
  *   - buildSlug()                — Shared canonical slug base and disambiguator
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
 import { stripHtml } from './crawler-template.mjs';
@@ -202,7 +203,7 @@ export async function fetchAllMichaelpageJobs() {
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

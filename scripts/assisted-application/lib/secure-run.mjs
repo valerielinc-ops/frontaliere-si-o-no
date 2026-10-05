@@ -15,6 +15,7 @@
  */
 
 import { decryptJson, encryptJson, runKeyFrom as runKeyFromRaw } from '../../../functions/src/lib/evidenceCrypto.js';
+import { isoDateOf } from '../../../functions/src/lib/cvPeriod.js';
 
 export { decryptJson, encryptJson };
 
@@ -30,6 +31,9 @@ function variantsOf(value) {
   if (/\s/.test(text) && !/@/.test(text)) {
     for (const part of text.split(/\s+/)) if (part.length >= 3) out.add(part);
   }
+  // A date (the birth date) in its other form too: the CV prints dd.mm.yyyy, the portals get YYYY-MM-DD.
+  const iso = isoDateOf(text);
+  if (iso) out.add(iso).add(iso.split('-').reverse().join('.'));
   return [...out];
 }
 

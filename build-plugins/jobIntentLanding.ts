@@ -1,5 +1,4 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
-import { hasPostingDateProvenance } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { resolveJobCanton } from './shared/cantonSection';
 import type { JobLandingLocale, LandingJobLink } from './jobEditorialLanding';
 
@@ -161,19 +160,9 @@ function intentText(job: JobLike): string {
   ].map(normalizeSpace).filter(Boolean).join(' ');
 }
 
-function parseDate(value: unknown): Date | null {
-  const raw = normalizeSpace(value);
-  if (!raw) return null;
-  const parsed = new Date(raw);
-  return Number.isNaN(parsed.getTime()) ? null : parsed;
-}
-
 function freshnessDate(job: JobLike, now?: Date): Date | null {
- if (hasPostingDateProvenance(job)) {
-  const reported = resolveReportedPostingDate(job, now);
-  return reported ? new Date(reported) : null;
- }
-  return parseDate(job.postedDate) || parseDate(job.datePosted) || parseDate(job.crawledAt) || parseDate(job.updatedAt);
+ const reported = resolveReportedPostingDate(job, now);
+ return reported ? new Date(reported) : null;
 }
 
 function isInLast3Days(jobDate: Date | null, now: Date): boolean {

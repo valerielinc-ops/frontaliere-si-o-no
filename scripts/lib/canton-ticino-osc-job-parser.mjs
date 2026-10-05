@@ -31,6 +31,8 @@
  * always reads "Mendrisio" for OSC; some DSS jobs may sit in Bellinzona/Lugano.
  */
 import { createHash } from 'node:crypto';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
@@ -205,7 +207,6 @@ export async function fetchAllCantonTicinoOscJobs() {
   if (candidates.length === 0) return [];
 
   const jobs = [];
-  const todayIso = new Date().toISOString().slice(0, 10);
 
   for (const cand of candidates) {
     if (SKIP_TITLE_RE.test(cand.anchorText)) {
@@ -280,7 +281,7 @@ export async function fetchAllCantonTicinoOscJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(extractJobPostingLd(detailHtml)?.datePosted),
       applyUrl: detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

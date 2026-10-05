@@ -182,9 +182,20 @@ describe('GA4 requests', () => {
       { filter: { fieldName: 'pagePath', stringFilter: { value: '/cerca-lavoro', matchType: 'BEGINS_WITH' } } },
     ] } });
     // The exported builders are what main() sends.
-    expect(a).toEqual(attributionRequest(range));
+    // (a) and (c) are whole populations read page by page from offset 0
+    // (issue 11423); (b) is a single top-N request.
+    const paged = (request: any) => ({
+      ...request,
+      orderBys: request.dimensions.map((dimension: any) => ({
+        dimension: { dimensionName: dimension.name },
+        desc: false,
+      })),
+      offset: 0,
+      limit: 100000,
+    });
+    expect(a).toEqual(paged(attributionRequest(range)));
     expect(b).toEqual(selectorRequest(range));
-    expect(c).toEqual(templateRequest(range));
+    expect(c).toEqual(paged(templateRequest(range)));
   });
 
   it('a 400 «not a valid dimension» exits 1 and names the dimension', async () => {

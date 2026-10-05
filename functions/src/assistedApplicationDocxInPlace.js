@@ -50,6 +50,26 @@ export function cvChoiceOf(draft, flow) {
   return flow?.cvChoice === 'inplace' && inPlaceReady(draft) ? 'inplace' : 'tailored';
 }
 
+const CV_EXTENSIONS = new Set(['pdf', 'docx', 'doc']);
+
+/**
+ * The CV that leaves (submit.mjs chooseCv), as the owner's fill kit hands it and the candidate keeps it
+ * after the sending: their own Word file with the adapted lines when they chose it and it is ready, the
+ * tailored PDF unless they chose their original, otherwise their upload, named by the type of its bytes
+ * (the order's CV check, the type the runner detects) before its key's extension.
+ * @returns {{cv:'inplace'|'tailored'|'original', key:string, extension:'pdf'|'docx'|'doc'}}
+ */
+export function cvToSend(draft, flow, order = {}) {
+  const tailored = draft?.tailoredCv;
+  const choice = cvChoiceOf(draft, flow);
+  if (tailored?.status === 'ready' && choice === 'inplace') return { cv: 'inplace', key: tailored.inplace.docxKey, extension: 'docx' };
+  if (tailored?.status === 'ready' && tailored.pdfKey && choice !== 'original') return { cv: 'tailored', key: tailored.pdfKey, extension: 'pdf' };
+  const key = String(order?.cvStorageKey || '');
+  const checked = order?.cvFileCheck?.key === key ? order.cvFileCheck.detectedType : '';
+  const named = (/\.([a-z0-9]{2,5})$/i.exec(key)?.[1] || '').toLowerCase();
+  return { cv: 'original', key, extension: [checked, named].find((type) => CV_EXTENSIONS.has(type)) || 'pdf' };
+}
+
 /** The switch (Remote Config through the runner's environment): 'on' or 'off', off by default. */
 export function docxInPlaceMode({ env = process.env } = {}) {
   return String(env[INPLACE_KEY] || '').trim().toLowerCase() === 'on' ? 'on' : 'off';
@@ -82,8 +102,8 @@ const decode = (text) => text
   .replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCodePoint(Number.parseInt(hex, 16)))
   .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(Number.parseInt(dec, 10)))
   .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&');
-// Characters XML 1.0 forbids are dropped, the rest escaped.
-const escape = (text) => String(text)
+// Characters XML 1.0 forbids are dropped, the rest escaped (the candidate's Word copy too, assistedApplicationDocx.js).
+export const escapeXmlText = (text) => String(text)
   .replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f￾￿]/g, '')
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -264,7 +284,7 @@ function reorderedSkills(text, wanted, profileSkills) {
 function rewrittenParagraph(paragraph, text, keep = 0) {
   const { runs, bookmarks } = keep ? paragraph.label : paragraph.plain;
   const first = runs[keep];
-  const pieces = text.split('\t').map((piece) => (piece ? `<w:t xml:space="preserve">${escape(piece)}</w:t>` : ''));
+  const pieces = text.split('\t').map((piece) => (piece ? `<w:t xml:space="preserve">${escapeXmlText(piece)}</w:t>` : ''));
   const kept = runs.slice(0, keep).map((run) => run.xml).join('');
   return `<w:p${paragraph.attributes}>${paragraph.pPr}${bookmarks.start.join('')}${kept}<w:r${first.attributes}>${first.rPr}${pieces.join('<w:tab/>')}</w:r>${bookmarks.end.join('')}</w:p>`;
 }

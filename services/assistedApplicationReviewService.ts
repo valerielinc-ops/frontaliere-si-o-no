@@ -118,7 +118,33 @@ export interface ReviewFormField {
   required?: boolean;
   /** Printed in the letter header (shown for e-mail applications too). */
   inLetter?: boolean;
+  /** Printed in the tailored CV: shown for e-mail applications too. */
+  inCv?: boolean;
+  /** A closed list (the permit status), in the candidate's language. */
+  options?: string[];
   validation?: ReviewQuestion['validation'];
+}
+
+/** An editable Word copy the server builds on request (functions/src/assistedApplicationReview.js buildWordCopy): never the file that leaves. */
+export type ReviewWordFile = 'letter.docx' | 'cv.docx';
+
+/** A file the candidate keeps after the sending (keptDocumentsOf). */
+export interface ReviewKeptDocument {
+  kind: 'letter' | 'cvTailored' | 'cvOriginal' | 'cvInplace' | 'dossier' | 'documents' | 'document';
+  /** As it left, e.g. CV_Maria_Rossi.pdf. */
+  name: string;
+  url: string;
+  /** The Word copies offered beside it. */
+  word: ReviewWordFile[];
+  /** A WhatsApp application: the CV highlighted among those the candidate chooses from (never stored as a choice). */
+  suggested?: boolean;
+}
+
+export interface ReviewKeptDocuments {
+  /** sent: the files the runner recorded; prepared: an older order, a WhatsApp application. */
+  source: 'sent' | 'prepared';
+  whatsapp: boolean;
+  files: ReviewKeptDocument[];
 }
 
 export interface ReviewPayload {
@@ -174,7 +200,13 @@ export interface ReviewPayload {
     inplace?: { url: string | null; patched: number; kept: number } | null;
     /** The candidate's line choices changed the Word file: it comes back when they match the checked layout. */
     inplaceNeedsPageCheck?: boolean;
+    /** The G permit is left out of the CV: the nationality given is not EU/EFTA. */
+    permitOmitted?: boolean;
   } | null;
+  /** The editable Word copies the server can build now: never sent, never a CV choice. */
+  word?: { letter: boolean; cv: boolean };
+  /** After the sending: the files that left, or the letter and the CV prepared (older order, WhatsApp). */
+  keptDocuments?: ReviewKeptDocuments | null;
   ats: { original: ReviewAtsView | null; tailored: ReviewAtsView | null } | null;
   can: { approve: boolean; reject: boolean; answer: boolean; confirmSubmitted: boolean; chooseCv?: boolean; edit?: boolean; uploadDocuments?: boolean; uploadPhoto?: boolean; reviewCvLines?: boolean };
 }
@@ -213,6 +245,14 @@ export async function fetchReview(token: string): Promise<ReviewPayload | Follow
   const url = new URL(ASSISTED_APPLICATION_REVIEW_URL);
   url.searchParams.set('t', token);
   return parse(await fetch(url.toString(), { method: 'GET' })) as Promise<ReviewPayload | FollowupPayload>;
+}
+
+/** The download link of a Word copy: the page's token, the file the server builds. */
+export function reviewWordUrl(token: string, file: ReviewWordFile): string {
+  const url = new URL(ASSISTED_APPLICATION_REVIEW_URL);
+  url.searchParams.set('t', token);
+  url.searchParams.set('file', file);
+  return url.toString();
 }
 
 export async function sendReviewAction(

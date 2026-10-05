@@ -829,10 +829,10 @@
         "it": "addetto-a-alle-vendite-food-coop-genossenschaft-hallau"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/addetto-a-alle-vendite-food-coop-genossenschaft-hallau",
-        "en": "/en/find-jobs-zurich/addetto-a-alle-vendite-food-coop-genossenschaft-hallau",
+        "it": "/cerca-lavoro-berna/addetto-a-alle-vendite-food-coop-genossenschaft-hallau",
+        "en": "/en/find-jobs-bern/addetto-a-alle-vendite-food-coop-genossenschaft-hallau",
         "de": "/de/jobs-im-st-gallen/addetto-a-alle-vendite-food-coop-genossenschaft-hallau",
-        "fr": "/fr/trouver-emploi-zurich/addetto-a-alle-vendite-food-coop-genossenschaft-hallau"
+        "fr": "/fr/trouver-emploi-berne/addetto-a-alle-vendite-food-coop-genossenschaft-hallau"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -5660,10 +5660,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-sarnen",
-        "en": "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-sarnen",
+        "it": "aspirant-stv-amministratore-delegato-coop-genossenschaft-sarnen",
+        "en": "aspirant-stv-managing-director-coop-genossenschaft-sarnen",
         "de": "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-sarnen",
-        "fr": "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-sarnen"
+        "fr": "aspirant-stv-directeur-general-coop-genossenschaft-sarnen"
       },
       "localePaths": {
         "it": "/cerca-lavoro-obvaldo/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-sarnen",
@@ -5677,6 +5677,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -7464,7 +7465,7 @@
       "slugByLocale": {
         "it": "assistent-in-filialleitung-denner-5",
         "en": "assistent-in-filialleitung-denner-5",
-        "de": "assistent-in-filialleitung-denner-5",
+        "de": "assistent-in-filialleitung-denner",
         "fr": "assistent-in-filialleitung-denner-5"
       },
       "localePaths": {
@@ -7479,6 +7480,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -15918,10 +15920,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "chef-lis-lugano-istituti-sociali-pregassona",
+        "it": "cuochi-lis-lugano-istituti-sociali-pregassona",
         "en": "chef-lis-lugano-istituti-sociali-pregassona",
-        "de": "chef-lis-lugano-istituti-sociali-pregassona",
-        "fr": "chef-lis-lugano-istituti-sociali-pregassona"
+        "de": "koch-lis-lugano-istituti-sociali-pregassona",
+        "fr": "chef-de-cuisine-lis-lugano-istituti-sociali-pregassona"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/chef-lis-lugano-istituti-sociali-pregassona",
@@ -15929,12 +15931,13 @@
         "de": "/de/jobs-im-tessin/chef-lis-lugano-istituti-sociali-pregassona",
         "fr": "/fr/trouver-emploi-tessin/chef-lis-lugano-istituti-sociali-pregassona"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=42-cuochi-pregassona&language=it",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -18749,17 +18752,17 @@
         {
           "query": "i am looking for construction jobs in ticino as a laborer.",
           "clicks": 0,
-          "impressions": 129
+          "impressions": 133
         },
         {
           "query": "please show me construction jobs in ticino for general labor with immediate start and weekly pay options if available.",
           "clicks": 0,
-          "impressions": 91
+          "impressions": 94
         },
         {
           "query": "where can i find full time construction jobs in the canton of aargau if i speak german at b1 level.",
           "clicks": 0,
-          "impressions": 37
+          "impressions": 42
         },
         {
           "query": "please show me construction jobs in ticino for general labor with immediate start and weekly pay options if available.",
@@ -18802,6 +18805,11 @@
           "impressions": 1
         },
         {
+          "query": "i am looking for construction jobs in ticino as a laborer.",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "aiuto muratore",
           "clicks": 0,
           "impressions": 1
@@ -18840,14 +18848,9 @@
           "query": "construction jobs in switzerland",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "construction laborer jobs near me",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 316,
+      "totalImpressions": 330,
       "totalClicks": 1,
       "topQuery": "i am looking for construction jobs in ticino as a laborer.",
       "title": "Construction",
@@ -19141,10 +19144,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg",
         "it": "consulente-assicurativo-100-a-lenzburg-concordia-lenzburg",
-        "en": "consulente-assicurativo-100-a-lenzburg-concordia-lenzburg",
-        "de": "consulente-assicurativo-100-a-lenzburg-concordia-lenzburg",
-        "fr": "consulente-assicurativo-100-a-lenzburg-concordia-lenzburg"
+        "en": "insuranceconsultant-100-in-lenzburg-concordia-lenzburg",
+        "fr": "conseiller-en-assurance-100-a-lenzbourg-concordia-lenzburg"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/consulente-assicurativo-100-a-lenzburg-concordia-lenzburg",
@@ -19158,6 +19161,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -21791,16 +21795,16 @@
       "locale": "it",
       "path": "/cerca-lavoro-ginevra/cybersecurity/",
       "observedPaths": {
+        "fr": "/fr/trouver-emploi-geneve/cybersecurity",
         "it": "/cerca-lavoro-ticino/cybersecurity",
-        "de": "/de/jobs-im-tessin/cybersecurity",
-        "fr": "/fr/trouver-emploi-tessin/cybersecurity",
-        "en": "/en/find-jobs-ticino/cybersecurity"
+        "en": "/en/find-jobs-geneva/cybersecurity",
+        "de": "/de/jobs-im-tessin/cybersecurity"
       },
       "queries": [
         {
           "query": "sicurezza informatica ticino",
           "clicks": 0,
-          "impressions": 16
+          "impressions": 17
         },
         {
           "query": "consulente sicurezza informatica ticino",
@@ -21808,14 +21812,14 @@
           "impressions": 15
         },
         {
+          "query": "audemars piguet carriere",
+          "clicks": 0,
+          "impressions": 9
+        },
+        {
           "query": "sicurezza informatica locarno",
           "clicks": 0,
           "impressions": 6
-        },
-        {
-          "query": "audemars piguet carriere",
-          "clicks": 0,
-          "impressions": 5
         },
         {
           "query": "offerte lavoro frontaliere svizzera",
@@ -21873,7 +21877,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 56,
+      "totalImpressions": 61,
       "totalClicks": 0,
       "topQuery": "sicurezza informatica ticino",
       "title": "Cybersecurity",
@@ -21956,10 +21960,10 @@
         "fr": "data-center-technicien-sion-on-site-reboot-monkey-sion"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-glarona/data-center-technicien-sion-on-site-reboot-monkey-sion",
-        "en": "/en/find-jobs-glarus/data-center-technicien-sion-on-site-reboot-monkey-sion",
-        "de": "/de/jobs-in-glarus/data-center-technicien-sion-on-site-reboot-monkey-sion",
-        "fr": "/fr/trouver-emploi-glaris/data-center-technicien-sion-on-site-reboot-monkey-sion"
+        "it": "/cerca-lavoro-vallese/data-center-technicien-sion-on-site-reboot-monkey-sion",
+        "en": "/en/find-jobs-valais/data-center-technicien-sion-on-site-reboot-monkey-sion",
+        "de": "/de/jobs-im-wallis/data-center-technicien-sion-on-site-reboot-monkey-sion",
+        "fr": "/fr/trouver-emploi-valais/data-center-technicien-sion-on-site-reboot-monkey-sion"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -22011,10 +22015,10 @@
         "fr": "data-center-technicien-switzerland-lupfig-on-site-reboot-monkey-lupfig"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/data-center-technicien-switzerland-lupfig-on-site-reboot-monkey-lupfig",
-        "en": "/en/find-jobs-ticino/data-center-technicien-switzerland-lupfig-on-site-reboot-monkey-lupfig",
-        "de": "/de/jobs-im-tessin/data-center-technicien-switzerland-lupfig-on-site-reboot-monkey-lupfig",
-        "fr": "/fr/trouver-emploi-tessin/data-center-technicien-switzerland-lupfig-on-site-reboot-monkey-lupfig"
+        "it": "/cerca-lavoro-argovia/data-center-technicien-switzerland-lupfig-on-site-reboot-monkey-lupfig",
+        "en": "/en/find-jobs-aargau/data-center-technicien-switzerland-lupfig-on-site-reboot-monkey-lupfig",
+        "de": "/de/jobs-im-aargau/data-center-technicien-switzerland-lupfig-on-site-reboot-monkey-lupfig",
+        "fr": "/fr/trouver-emploi-argovie/data-center-technicien-switzerland-lupfig-on-site-reboot-monkey-lupfig"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -22065,10 +22069,10 @@
         "fr": "data-center-technicien-switzerland-zug-on-site-reboot-monkey-zug"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/data-center-technicien-switzerland-zug-on-site-reboot-monkey-zug",
-        "en": "/en/find-jobs-ticino/data-center-technicien-switzerland-zug-on-site-reboot-monkey-zug",
-        "de": "/de/jobs-im-tessin/data-center-technicien-switzerland-zug-on-site-reboot-monkey-zug",
-        "fr": "/fr/trouver-emploi-tessin/data-center-technicien-switzerland-zug-on-site-reboot-monkey-zug"
+        "it": "/cerca-lavoro-zugo/data-center-technicien-switzerland-zug-on-site-reboot-monkey-zug",
+        "en": "/en/find-jobs-zug/data-center-technicien-switzerland-zug-on-site-reboot-monkey-zug",
+        "de": "/de/jobs-in-zug/data-center-technicien-switzerland-zug-on-site-reboot-monkey-zug",
+        "fr": "/fr/trouver-emploi-zoug/data-center-technicien-switzerland-zug-on-site-reboot-monkey-zug"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -25436,8 +25440,8 @@
       "queries": [
         {
           "query": "imprese edili canton ticino che assumono",
-          "clicks": 5,
-          "impressions": 116
+          "clicks": 7,
+          "impressions": 133
         },
         {
           "query": "lavori edili",
@@ -25455,8 +25459,18 @@
           "impressions": 10
         },
         {
+          "query": "imprese edili lugano cerca personale",
+          "clicks": 2,
+          "impressions": 8
+        },
+        {
           "query": "offerte di lavoro in svizzera edilizia",
           "clicks": 1,
+          "impressions": 7
+        },
+        {
+          "query": "frontaliere ticino offerte di lavoro",
+          "clicks": 0,
           "impressions": 7
         },
         {
@@ -25465,17 +25479,12 @@
           "impressions": 7
         },
         {
-          "query": "imprese edili lugano cerca personale",
-          "clicks": 2,
-          "impressions": 6
+          "query": "please show me construction jobs in ticino for general labor with immediate start and weekly pay options if available.",
+          "clicks": 0,
+          "impressions": 7
         },
         {
           "query": "edilizia",
-          "clicks": 0,
-          "impressions": 6
-        },
-        {
-          "query": "frontaliere ticino offerte di lavoro",
           "clicks": 0,
           "impressions": 6
         },
@@ -25505,11 +25514,6 @@
           "impressions": 5
         },
         {
-          "query": "please show me construction jobs in ticino for general labor with immediate start and weekly pay options if available.",
-          "clicks": 0,
-          "impressions": 5
-        },
-        {
           "query": "cerco lavoro manovale edile",
           "clicks": 1,
           "impressions": 4
@@ -25535,8 +25539,8 @@
           "impressions": 4
         }
       ],
-      "totalImpressions": 359,
-      "totalClicks": 16,
+      "totalImpressions": 393,
+      "totalClicks": 19,
       "topQuery": "imprese edili canton ticino che assumono",
       "title": "Edilizia",
       "titleByLocale": {
@@ -26435,7 +26439,7 @@
         "fr": "/fr/trouver-emploi-vaud/energia",
         "it": "/cerca-lavoro-san-gallo/energia",
         "en": "/en/find-jobs-vaud/energia",
-        "de": "/de/jobs-im-waadt/energia"
+        "de": "/de/jobs-im-tessin/energia"
       },
       "queries": [
         {
@@ -29211,10 +29215,10 @@
         "fr": "food-retail-sales-assistant-coop-genossenschaft-lotzwil-xznjci"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/food-retail-sales-assistant-coop-genossenschaft-lotzwil-xznjci",
-        "en": "/en/find-jobs-zurich/food-retail-sales-assistant-coop-genossenschaft-lotzwil-xznjci",
-        "de": "/de/jobs-in-zurich/food-retail-sales-assistant-coop-genossenschaft-lotzwil-xznjci",
-        "fr": "/fr/trouver-emploi-zurich/food-retail-sales-assistant-coop-genossenschaft-lotzwil-xznjci"
+        "it": "/cerca-lavoro-san-gallo/food-retail-sales-assistant-coop-genossenschaft-lotzwil-xznjci",
+        "en": "/en/find-jobs-st-gallen/food-retail-sales-assistant-coop-genossenschaft-lotzwil-xznjci",
+        "de": "/de/jobs-in-st-gallen/food-retail-sales-assistant-coop-genossenschaft-lotzwil-xznjci",
+        "fr": "/fr/trouver-emploi-saint-gall/food-retail-sales-assistant-coop-genossenschaft-lotzwil-xznjci"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -34325,6 +34329,69 @@
       ]
     },
     {
+      "slug": "host-hostess-mcdonald-s-switzerland-brugg",
+      "locale": "de",
+      "path": "/de/jobs-im-aargau/host-hostess-mcdonald-s-switzerland-brugg/",
+      "observedPaths": {
+        "de": "/de/jobs-im-aargau/host-hostess-mcdonald-s-switzerland-brugg/"
+      },
+      "queries": [
+        {
+          "query": "jobs brugg ag",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "mc donald job",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "jobs brugg ag",
+      "title": "Host hostess",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "McDonald's Switzerland",
+      "companyKey": "mcdonald-s-switzerland",
+      "location": "Brugg",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "host-hostess-mcdonald-s-switzerland-brugg",
+        "en": "host-hostess-mcdonald-s-switzerland-brugg",
+        "de": "host-hostess-mcdonald-s-switzerland-brugg",
+        "fr": "host-hostess-mcdonald-s-switzerland-brugg"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/host-hostess-mcdonald-s-switzerland-brugg",
+        "en": "/en/find-jobs-aargau/host-hostess-mcdonald-s-switzerland-brugg",
+        "de": "/de/jobs-im-aargau/host-hostess-mcdonald-s-switzerland-brugg",
+        "fr": "/fr/trouver-emploi-argovie/host-hostess-mcdonald-s-switzerland-brugg"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "hr-business-partner-in-m-w-d-kanton-st-gallen-ch-uio83u",
       "locale": "de",
       "path": "/de/jobs-in-st-gallen/hr-business-partner-in-m-w-d-kanton-st-gallen-ch-uio83u",
@@ -38315,9 +38382,6 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "it-security-manager-h-f-80-100-groupe-mutuel-martigny",
-        "en": "it-security-manager-h-f-80-100-groupe-mutuel-martigny",
-        "de": "it-security-manager-h-f-80-100-groupe-mutuel-martigny",
         "fr": "responsable-securite-it-h-f-80-100-groupe-mutuel"
       },
       "localePaths": {
@@ -38485,10 +38549,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "junior-civil-engineer-80-100-zurich-afry-zurich",
+        "it": "junior-civil-engineer-80-100-zurigo-afry-zurich",
         "en": "junior-civil-engineer-80-100-zurich-afry-zurich",
-        "de": "junior-civil-engineer-80-100-zurich-afry-zurich",
-        "fr": "junior-civil-engineer-80-100-zurich-afry-zurich"
+        "de": "junior-bauingenieur-in-80-100-zurich-afry-zurich",
+        "fr": "ingenieur-civil-junior-80-100-zurich-afry-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/junior-civil-engineer-80-100-zurich-afry-zurich",
@@ -38496,12 +38560,13 @@
         "de": "/de/jobs-im-zurich/junior-civil-engineer-80-100-zurich-afry-zurich",
         "fr": "/fr/trouver-emploi-zurich/junior-civil-engineer-80-100-zurich-afry-zurich"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://afry.com/en/careers/available-jobs/ref14339y-junior-bauingenieurin-80-100-zurich",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -39767,6 +39832,64 @@
       "source": [
         "gsc",
         "slug-registry",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "kundenberater-m-w-d-region-basel-80-100-parmag-ag-basel",
+      "locale": "de",
+      "path": "/de/jobs-in-basel/kundenberater-m-w-d-region-basel-80-100-parmag-ag-basel/",
+      "observedPaths": {
+        "de": "/de/jobs-in-basel/kundenberater-m-w-d-region-basel-80-100-parmag-ag-basel/"
+      },
+      "queries": [
+        {
+          "query": "jobs basel quereinsteiger",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "jobs basel quereinsteiger",
+      "title": "Kundenberater region basel parmag ag",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Basel",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "kundenberater-m-w-d-region-basel-80-100-parmag-ag-basel",
+        "en": "kundenberater-m-w-d-region-basel-80-100-parmag-ag-basel",
+        "de": "kundenberater-m-w-d-region-basel-80-100-parmag-ag-basel",
+        "fr": "kundenberater-m-w-d-region-basel-80-100-parmag-ag-basel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-basilea/kundenberater-m-w-d-region-basel-80-100-parmag-ag-basel",
+        "en": "/en/find-jobs-basel/kundenberater-m-w-d-region-basel-80-100-parmag-ag-basel",
+        "de": "/de/jobs-im-basel/kundenberater-m-w-d-region-basel-80-100-parmag-ag-basel",
+        "fr": "/fr/trouver-emploi-bale/kundenberater-m-w-d-region-basel-80-100-parmag-ag-basel"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -42794,10 +42917,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "linienfuhrer-in-backerei-dauernachtschicht-coop-genossenschaft-schafisheim",
-        "en": "linienfuhrer-in-backerei-dauernachtschicht-coop-genossenschaft-schafisheim",
+        "it": "guida-linea-panificio-turno-notturno-permanente-coop-genossenschaft-schafisheim",
+        "en": "line-guide-bakery-permanent-night-shift-coop-genossenschaft-schafisheim",
         "de": "linienfuhrer-in-backerei-dauernachtschicht-coop-genossenschaft-schafisheim",
-        "fr": "linienfuhrer-in-backerei-dauernachtschicht-coop-genossenschaft-schafisheim"
+        "fr": "guide-de-ligne-boulangerie-service-de-nuit-permanent-coop-genossenschaft-schafisheim"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/linienfuhrer-in-backerei-dauernachtschicht-coop-genossenschaft-schafisheim",
@@ -42811,6 +42934,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -47549,10 +47673,10 @@
         "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-sarnen-j7lr1h"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-sarnen-j7lr1h",
-        "en": "/en/find-jobs-lucerne/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-sarnen-j7lr1h",
+        "it": "/cerca-lavoro-obvaldo/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-sarnen-j7lr1h",
+        "en": "/en/find-jobs-obwalden/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-sarnen-j7lr1h",
         "de": "/de/jobs-im-luzern/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-sarnen-j7lr1h",
-        "fr": "/fr/trouver-emploi-lucerne/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-sarnen-j7lr1h"
+        "fr": "/fr/trouver-emploi-obwald/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-sarnen-j7lr1h"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -50444,6 +50568,64 @@
       ]
     },
     {
+      "slug": "operatore-operatrice-prepose-e-alla-levigatura-pemsa-estavayer",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-fribourg/operatore-operatrice-prepose-e-alla-levigatura-pemsa-estavayer/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-fribourg/operatore-operatrice-prepose-e-alla-levigatura-pemsa-estavayer/"
+      },
+      "queries": [
+        {
+          "query": "emploi broye",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "emploi broye",
+      "title": "Operatore operatrice prepose alla levigatura estavayer",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "operatore-operatrice-prepose-e-alla-levigatura-pemsa-estavayer",
+        "en": "operatore-operatrice-prepose-e-alla-levigatura-pemsa-estavayer",
+        "de": "operatore-operatrice-prepose-e-alla-levigatura-pemsa-estavayer",
+        "fr": "operatore-operatrice-prepose-e-alla-levigatura-pemsa-estavayer"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-friburgo/operatore-operatrice-prepose-e-alla-levigatura-pemsa-estavayer",
+        "en": "/en/find-jobs-fribourg/operatore-operatrice-prepose-e-alla-levigatura-pemsa-estavayer",
+        "de": "/de/jobs-im-freiburg/operatore-operatrice-prepose-e-alla-levigatura-pemsa-estavayer",
+        "fr": "/fr/trouver-emploi-fribourg/operatore-operatrice-prepose-e-alla-levigatura-pemsa-estavayer"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "operatore-trice-sociale-i-a-tempo-parziale-80-presso-l-ufficio-degli-invalidi-centro",
       "locale": "it",
       "path": "/cerca-lavoro-basilea/operatore-trice-sociale-i-a-tempo-parziale-80-presso-l-ufficio-degli-invalidi-centro",
@@ -51104,9 +51286,9 @@
       "path": "/fr/trouver-emploi-bale/page-14/",
       "observedPaths": {
         "de": "/de/jobs-im-waadt/page-14",
+        "en": "/en/find-jobs-basel/page-14",
         "fr": "/fr/trouver-emploi-vaud/page-14",
-        "it": "/cerca-lavoro-vaud/page-14",
-        "en": "/en/find-jobs-vaud/page-14"
+        "it": "/cerca-lavoro-vaud/page-14"
       },
       "queries": [
         {
@@ -62088,10 +62270,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "sales-consultant-textile-coop-genossenschaft-olten",
+        "it": "consulente-commerciale-tessile-coop-genossenschaft-olten",
         "en": "sales-consultant-textile-coop-genossenschaft-olten",
-        "de": "sales-consultant-textile-coop-genossenschaft-olten",
-        "fr": "sales-consultant-textile-coop-genossenschaft-olten"
+        "de": "verkaufsberater-in-textil-coop-genossenschaft-olten",
+        "fr": "conseil-en-ventes-textiles-coop-genossenschaft-olten"
       },
       "localePaths": {
         "it": "/cerca-lavoro-soletta/sales-consultant-textile-coop-genossenschaft-olten",
@@ -62105,6 +62287,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -70442,10 +70625,10 @@
         "fr": "stv-branch-manager-in-training-denner-oensingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-soletta/stv-branch-manager-in-training-denner-oensingen",
-        "en": "/en/find-jobs-solothurn/stv-branch-manager-in-training-denner-oensingen",
-        "de": "/de/jobs-in-solothurn/stv-branch-manager-in-training-denner-oensingen",
-        "fr": "/fr/trouver-emploi-soleure/stv-branch-manager-in-training-denner-oensingen"
+        "it": "/cerca-lavoro-zurigo/stv-branch-manager-in-training-denner-oensingen",
+        "en": "/en/find-jobs-zurich/stv-branch-manager-in-training-denner-oensingen",
+        "de": "/de/jobs-in-zurich/stv-branch-manager-in-training-denner-oensingen",
+        "fr": "/fr/trouver-emploi-zurich/stv-branch-manager-in-training-denner-oensingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -77596,10 +77779,10 @@
         "de": "mehrzweckverkaufer-societe-cooperative-migros-neuchatel-fribourg-neuchatel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-friburgo/vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-neuchatel",
-        "en": "/en/find-jobs-fribourg/vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-neuchatel",
+        "it": "/cerca-lavoro-neuchatel/vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-neuchatel",
+        "en": "/en/find-jobs-neuchatel/vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-neuchatel",
         "de": "/de/jobs-im-neuenburg/vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-neuchatel",
-        "fr": "/fr/trouver-emploi-fribourg/vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-neuchatel"
+        "fr": "/fr/trouver-emploi-neuchatel/vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-neuchatel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -78601,10 +78784,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "de": "verkaufer-in-frischprodukte-coop-opfikon-zurich-u1n2rs",
-        "en": "seller-fresh-products-coop-genossenschaft-opfikon-u1n2rs",
-        "fr": "vendeur-produits-frais-coop-genossenschaft-opfikon-u1n2rs",
-        "it": "vendita-prodotti-freschi-coop-genossenschaft-opfikon"
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-opfikon",
+        "en": "seller-fresh-products-coop-genossenschaft-opfikon",
+        "de": "verkaufer-in-frischprodukte-coop-genossenschaft-opfikon",
+        "fr": "vendeur-de-produits-frais-coop-genossenschaft-opfikon"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/vendita-prodotti-freschi-coop-genossenschaft-opfikon",
@@ -79181,8 +79364,8 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "venditore-denner-zurich",
-        "en": "seller-denner-zurich",
-        "de": "verkaufer-in-denner-zurich",
+        "en": "shop-assistant-denner-zurich",
+        "de": "verkaufer-in-denner-umuug6",
         "fr": "vendeur-denner-zurich"
       },
       "localePaths": {
@@ -81531,10 +81714,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-genossenschaft-kloten",
-        "en": "verkaufer-in-frischprodukte-coop-genossenschaft-kloten",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-kloten-072aea",
+        "en": "seller-fresh-products-coop-genossenschaft-kloten-072aea",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-kloten",
-        "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-kloten"
+        "fr": "vendeur-de-produits-frais-coop-genossenschaft-kloten-072aea"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/verkaufer-in-frischprodukte-coop-genossenschaft-kloten",
@@ -81548,6 +81731,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -81742,10 +81926,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-produktion-coop-genossenschaft-zurich",
-        "en": "verkaufer-in-frischprodukte-produktion-coop-genossenschaft-zurich",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-zurich",
+        "en": "seller-fresh-products-production-coop-genossenschaft-zurich",
         "de": "verkaufer-in-frischprodukte-produktion-coop-genossenschaft-zurich",
-        "fr": "verkaufer-in-frischprodukte-produktion-coop-genossenschaft-zurich"
+        "fr": "vendeur-de-produits-frais-production-coop-genossenschaft-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/verkaufer-in-frischprodukte-produktion-coop-genossenschaft-zurich",
@@ -81759,6 +81943,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -81801,10 +81986,10 @@
         "fr": "verkaufer-in-im-stundenlohn-denner-8"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/verkaufer-in-im-stundenlohn-denner-8",
-        "en": "/en/find-jobs-aargau/verkaufer-in-im-stundenlohn-denner-8",
-        "de": "/de/jobs-im-aargau/verkaufer-in-im-stundenlohn-denner-8",
-        "fr": "/fr/trouver-emploi-argovie/verkaufer-in-im-stundenlohn-denner-8"
+        "it": "/cerca-lavoro-turgovia/verkaufer-in-im-stundenlohn-denner-8",
+        "en": "/en/find-jobs-thurgau/verkaufer-in-im-stundenlohn-denner-8",
+        "de": "/de/jobs-im-thurgau/verkaufer-in-im-stundenlohn-denner-8",
+        "fr": "/fr/trouver-emploi-thurgovie/verkaufer-in-im-stundenlohn-denner-8"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -81847,16 +82032,16 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-genossenschaft-dielsdorf",
-        "en": "verkaufer-in-kassen-services-coop-genossenschaft-dielsdorf",
+        "it": "vendita-cassa-servizi-coop-genossenschaft-dielsdorf",
+        "en": "seller-cash-register-services-coop-genossenschaft-dielsdorf",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-dielsdorf",
-        "fr": "verkaufer-in-kassen-services-coop-genossenschaft-dielsdorf"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-dielsdorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/verkaufer-in-kassen-services-coop-genossenschaft-dielsdorf",
-        "en": "/en/find-jobs-bern/verkaufer-in-kassen-services-coop-genossenschaft-dielsdorf",
-        "de": "/de/jobs-in-bern/verkaufer-in-kassen-services-coop-genossenschaft-dielsdorf",
-        "fr": "/fr/trouver-emploi-berne/verkaufer-in-kassen-services-coop-genossenschaft-dielsdorf"
+        "it": "/cerca-lavoro-zurigo/verkaufer-in-kassen-services-coop-genossenschaft-dielsdorf",
+        "en": "/en/find-jobs-zurich/verkaufer-in-kassen-services-coop-genossenschaft-dielsdorf",
+        "de": "/de/jobs-in-zurich/verkaufer-in-kassen-services-coop-genossenschaft-dielsdorf",
+        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-kassen-services-coop-genossenschaft-dielsdorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -81864,6 +82049,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -81953,10 +82139,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-genossenschaft-emmen",
-        "en": "verkaufer-in-kassen-services-coop-genossenschaft-emmen",
+        "it": "vendita-cassa-servizi-coop-genossenschaft-emmen",
+        "en": "seller-cash-register-services-coop-emmen-ceoprv",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-emmen",
-        "fr": "verkaufer-in-kassen-services-coop-genossenschaft-emmen"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-emmen-ceoprv"
       },
       "localePaths": {
         "it": "/cerca-lavoro-lucerna/verkaufer-in-kassen-services-coop-genossenschaft-emmen",
@@ -81970,6 +82156,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
