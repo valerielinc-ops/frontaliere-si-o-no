@@ -105,6 +105,12 @@ const sourceTreeLintTests = new Map([
   // Elenchi di run per `branch` senza finestra `created`: l'API li restituisce
   // a tratti fermi a settimane prima (resolver dell'artifact Pages, 02-10).
   ['tests/run-listing-created-window.test.ts', /^(?:\.github|scripts|bin|functions)\//],
+  // Il guard del nome del check vitest legge da disco ogni script sotto
+  // `scripts/ci/`: un file NUOVO che scrive a mano il literal non importa
+  // niente che il test conosca. La PR 11667 l'ha introdotto in
+  // `scripts/ci/lib/followup-ci-suite-proof.mjs` e main e' rimasto rosso in
+  // latenza finche' la 11705 non ha fatto selezionare il test.
+  ['tests/ci-vitest-check-name.test.ts', /^scripts\/ci\//],
   // Lint del token App su TUTTI i workflow (issue 10114): un workflow nuovo
   // che pusha con `env.APP_TOKEN || ...` non importa niente, e uno script in
   // `scripts/` puo' cominciare a pushare o a leggere APP_TOKEN senza che il
@@ -161,6 +167,11 @@ const sourceTreeLintTests = new Map([
   // import del test. Senza questa voce il budget restava stantio sulla PR che
   // cambia il conteggio e il rosso `RATCHET STALE` cadeva sulla PR successiva.
   ['tests/crawler-zero-path-contract.test.ts', /^scripts\/(?:update-[^/]*-jobs\.mjs|lib\/crawler-template\.mjs)$/],
+  // Contratto statico dei parser (issue 11674): il lint legge da disco ogni
+  // parser e runner e li confronta con la baseline a ratchet; nessun import
+  // lega il test al parser che giudica, e un parser senza test proprio non
+  // selezionava niente. La baseline e' letta da disco anche lei.
+  ['tests/parser-diff-contract.test.ts', /^scripts\/(?:lib\/.*-job-parser|update-.*-jobs)\.mjs$|^scripts\/ci\/parser-contract-baseline\.json$/],
   // Lo scan copre scripts/lib/** piu' un file nominato fuori da lib.
   ['tests/sanitize-control-chars.test.ts', /^scripts\/(?:lib\/.+\.(?:mjs|cjs|js)|publish-article-fast\.mjs)$/],
   ['tests/bounded-parallel.test.ts', /^scripts\/lib\/[^/]+\.sh$/],

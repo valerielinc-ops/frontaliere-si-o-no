@@ -78,7 +78,7 @@ describe('market report source timestamps', () => {
     const generatedAt = '2020-09-27T22:15:00.000Z';
     const html = await buildItHtml({ generatedAt, totals: { activeJobs: 500 } });
     const schemas = flattenSchemas(extractJsonLdBlocks(html));
-    for (const type of ['Article', 'Dataset']) {
+    for (const type of ['WebPage', 'Dataset']) {
       const schema = schemas.find((item) => item['@type'] === type);
       expect(schema).toBeDefined();
       expect(schema?.dateModified).toBe(generatedAt);
@@ -91,7 +91,7 @@ describe('market report source timestamps', () => {
   it.each([undefined, 'invalid', '2999-01-01T00:00:00.000Z'])('does not replace unknown or invalid dates (%s) with build time', async (generatedAt) => {
     const html = await buildItHtml({ generatedAt, totals: { activeJobs: 500 } });
     const schemas = flattenSchemas(extractJsonLdBlocks(html));
-    for (const type of ['Article', 'Dataset']) {
+    for (const type of ['WebPage', 'Dataset']) {
       const schema = schemas.find((item) => item['@type'] === type);
       expect(schema).toBeDefined();
       expect(schema?.dateModified).toBeUndefined();

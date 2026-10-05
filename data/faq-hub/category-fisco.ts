@@ -68,7 +68,7 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
     sources: [
       'https://www.fedlex.admin.ch/eli/cc/2023/694/it',
       'https://www.agenziaentrate.gov.it/portale/documents/20143/5984217/1_TU_Redditi.pdf',
-      'https://www4.ti.ch/dfe/dc/imposta-alla-fonte',
+      'https://www4.ti.ch/dfe/dc/dichiarazione/imposte-alla-fonte-1/tabelle-di-calcolo-dellimposta-alla-fonte/',
     ],
   },
   {
@@ -280,7 +280,7 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
         "Le canton du Tessin publie chaque année les barèmes d'impôt à la source pour célibataires (A), mariés mono-revenu (B), bi-revenu (C), familles monoparentales (H) et mineurs multi-employeurs (L) [source : AFC Tessin, Directives impôt à la source 2026]. Taux progressifs incluant cantonal, communal et IFD. Exemple 2026 pour célibataire sans enfants résidant en Italie (code A0N), revenu mensuel brut CHF 6 500 : ~11,9 % effectif. Baisse 2026 suite à la réforme cantonale du 15/03/2024 (suppression du palier 15 %). L'employeur suisse applique le barème selon le certificat de résidence italien.",
     },
     sources: [
-      'https://www4.ti.ch/dfe/dc/imposta-alla-fonte',
+      'https://www4.ti.ch/dfe/dc/dichiarazione/imposte-alla-fonte-1/tabelle-di-calcolo-dellimposta-alla-fonte/',
     ],
   },
   {
@@ -515,7 +515,7 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
     ],
     sources: [
       'https://www.fedlex.admin.ch/eli/cc/2023/694/it',
-      'https://www4.ti.ch/dfe/dc/imposta-alla-fonte',
+      'https://www4.ti.ch/dfe/dc/dichiarazione/imposte-alla-fonte-1/tabelle-di-calcolo-dellimposta-alla-fonte/',
     ],
   },
   {

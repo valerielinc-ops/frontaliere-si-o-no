@@ -31,6 +31,10 @@
  * 6. New PR writes can opt into a strict decision-deferral check: `per scelta`,
  *    `by construction` and the owner-decision state require concrete `Motivo:`
  *    and `Prossimo passo:` fields.
+ * 7. The same strict mode (`strictClaims`, default = `strictDecisionDeferrals`)
+ *    blocks a performance claim in `## Implementato` with no evidence in the
+ *    body (`unvalidated-perf-claim`, #11675) and warns on an unmeasured bounded
+ *    I/O claim (`unvalidated-io-bound-claim`). See `unvalidatedPerfClaims`.
  *
  * Usage:
  *   node scripts/lib/pr-body-sections-check.mjs "$BODY"   # exit 1 on violation
@@ -421,6 +425,169 @@ export function filesUncitedInBody(diffPaths, body) {
 }
 
 // ---------------------------------------------------------------------------
+// Claim di prestazione non validato (escalation #11675)
+// ---------------------------------------------------------------------------
+
+/**
+ * AGENTS.md («Claim build/perf/memoria non validabile pre-merge → dichiara il
+ * trigger di revert») e REVIEW.md step 7 erano solo prosa: il reviewer li
+ * applicava dopo, con un 🔴 e un giro di review in più. Bucket
+ * `reviewer-finding/unvalidated-claim` del lessons-harvester, 6 PR in 14 giorni
+ * (#11641, #11053, #10464, #10292, #9959, #9950), tutte con un 🔴 corretto
+ * prima di `## LGTM`. Qui la stessa regola diventa deterministica e scatta
+ * prima della review: in `## Implementato` una frase che dichiara un guadagno
+ * di tempo, memoria, disco o CI, senza nel body nessuna delle prove che il
+ * reviewer accetta.
+ *
+ * Due livelli, tarati sul body che il reviewer ha giudicato (la versione in
+ * vigore alla prima review, dalla cronologia degli edit) e su 145 body
+ * originali di PR mergiate dal 21-09 al 05-10 con `## LGTM` finale e senza quel
+ * finding (10 per giorno):
+ *   - `unvalidated-perf-claim` (VIOLAZIONE): quantità con unità di tempo o di
+ *     dimensione accanto a un verbo di guadagno, oppure un verbo di guadagno
+ *     accanto a un sostantivo di risorsa (suite completa, wall-time, memoria,
+ *     RSS, OOM, disco, pack, margine del job…). Segnala 4 esempi su 6
+ *     (#10292, #11641, #10464, #9959); 1 body su 145 (#10653, «riducendo la
+ *     crescita della memoria del build» senza misura, cioè proprio la classe
+ *     della regola, che il reviewer non ha segnalato).
+ *   - `unvalidated-io-bound-claim` (WARNING): lavoro di I/O limitato o evitato
+ *     (fetch, download, prefetch, preflight; limitato, bounded). Prende gli altri
+ *     2 esempi (#9950, #11053), ma su 145 body ne segnala altri 3 (#9552,
+ *     #10272, #10430): sopra la tolleranza di un falso positivo su 50, quindi
+ *     resta advisory.
+ *
+ * Prova = una qualunque delle forme che il reviewer accetta, associata allo
+ * stesso bullet del claim (oppure alla sezione dei residui per il rimedio
+ * `blocked: misura post-merge`): link a una run `/actions/runs/<id>`, una riga
+ * `Misura:` / `Comando:` con un valore, risultato o comando sostanziale, una
+ * «misura pre/post» o «prima/dopo» con il risultato, una coppia di quantità
+ * confrontate («308 MB contro 203 MB», «da 216 s a 9 s»), «non validato
+ * pre-merge», un trigger o un rischio di revert con i suoi dettagli,
+ * `blocked: misura post-merge` con un contesto concreto, una baseline con un
+ * valore. Una prova in un bullet diverso non autorizza un claim indipendente.
+ */
+const PERF_QTY = String.raw`\d+(?:[.,']\d+)*\s*(?:ms|s|sec|secondi|minut[oi]|min|ore|h|MB|GB|KB|MiB|GiB|%)(?!\w)`;
+const PERF_BENEFIT_ALT = String.raw`in meno|risparmi\w*|riduc\w*|ridott\w*|dimezz\w*|più veloc\w*|piu' veloc\w*|accelera\w*|velocizz\w*|faster|speed-?up|saves?\b|reduc\w*|abbass\w*|tagli\w*|converg\w*|evit\w*|elimin\w*|non (?:consuma|satura|sfora)\w*|sotto (?:il|i|la|le)\b`;
+// `\b` iniziale: senza, `tagli\w*` matchava dentro «dettaglio» e un body del
+// prospector che descrive il gate di qualita' («85% delle pagine di dettaglio»)
+// diventava un claim di prestazione.
+const PERF_BENEFIT = `\\b(?:${PERF_BENEFIT_ALT})`;
+const PERF_RESOURCE = String.raw`\b(?:suite (?:completa|intera)|wall[- ]?time|durata|tempi? (?:di|del|della)|memoria|rss|oom|heap|disco|disk|spazio su disco|leak|pack|margine del job|minuti|secondi|quota|latenza|throughput|ci(?:/cd)?|build|pipeline)\b`;
+const PERF_CLAIM_RE = new RegExp(
+  String.raw`${PERF_QTY}[^.\n]{0,120}${PERF_BENEFIT}|${PERF_BENEFIT}[^.\n]{0,120}${PERF_QTY}`
+  + String.raw`|${PERF_BENEFIT}[^.\n]{0,100}${PERF_RESOURCE}|${PERF_RESOURCE}[^.\n]{0,100}${PERF_BENEFIT}`,
+  'i',
+);
+const IO_BENEFIT = String.raw`\b(?:${PERF_BENEFIT_ALT}|limitat\w*|bound\w*)`;
+const IO_RESOURCE = String.raw`(?:download|prefetch|preflight|fetch)`;
+const IO_BOUND_CLAIM_RE = new RegExp(
+  String.raw`${IO_BENEFIT}[^.\n]{0,100}${IO_RESOURCE}|${IO_RESOURCE}[^.\n]{0,100}${IO_BENEFIT}`,
+  'i',
+);
+const PERF_EVIDENCE_LABEL_RE = /\b(?:misura|comando|measure(?:ment)?|command)(?:\*\*)?\s*:\s*(.*)$/i;
+const PERF_EVIDENCE_RUN_RE = /\/actions\/runs\/\d+/i;
+const PERF_EVIDENCE_MEASURE_RE = /\bmisur[ae]\s+(?:pre\/post|prima\/dopo|prima e dopo|pre-?merge)\b([^\n.;]*)/i;
+const PERF_EVIDENCE_REVERT_RE = /\b(?:trigger\s+di\s+revert|revert[- ]trigger|rischio\s+di\s+revert)\b\s*(?::|[-–—])?\s*([^\n.;]*)/i;
+const PERF_EVIDENCE_BLOCKED_RE = /\bblocked\s*:\s*misura\s+post-?merge\b([^\n.;]*)/i;
+const PERF_EVIDENCE_BASELINE_RE = /\bbaseline\b\s*(?::|[-–—])?\s*([^\n.;]*)/i;
+const PERF_EVIDENCE_NON_VALIDATED_RE = /\bnon\s+validat[oaie]\s+pre-?merge\b/i;
+const PERF_PAIR_RE = new RegExp(
+  String.raw`${PERF_QTY}[^.\n]{0,40}(?:\bcontro\b|\bvs\.?(?!\w)|→|->)[^.\n]{0,20}?${PERF_QTY}`
+  + String.raw`|\bda\s+(?:circa\s+|~)?${PERF_QTY}\s+a\s+(?:circa\s+|~)?${PERF_QTY}`,
+  'i',
+);
+
+const PERF_EMPTY_EVIDENCE_RE = /^(?:[-–—_.…]+|tbd|n\/?a|na|nessun[oa]?|non\s+disponibil[ei]|senza\s+(?:dati|misura|valore)|no\s+(?:data|measurement|value))\.?$/i;
+
+function hasSubstantialEvidenceValue(value) {
+  const clean = String(value ?? '')
+    .replace(/[`*_~]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return clean.length >= 2
+    && /[\p{L}\p{N}]/u.test(clean)
+    && !PERF_EMPTY_EVIDENCE_RE.test(clean);
+}
+
+function hasSubstantialEvidenceTail(match) {
+  return match ? hasSubstantialEvidenceValue(match[1]) : false;
+}
+
+/**
+ * True when `text` contains evidence with a real value/result/command. Empty
+ * labels and a bare `baseline` are deliberately not evidence. This is kept as
+ * a predicate instead of one broad regex so each alternative can enforce the
+ * same non-empty contract.
+ */
+function hasSubstantialPerfEvidence(text) {
+  const clean = stripNonContent(text);
+  if (PERF_EVIDENCE_RUN_RE.test(clean) || PERF_PAIR_RE.test(stripCode(clean))) return true;
+
+  return clean.split('\n').some((line) => {
+    const label = PERF_EVIDENCE_LABEL_RE.exec(line);
+    if (label && hasSubstantialEvidenceValue(label[1])) return true;
+    if (hasSubstantialEvidenceTail(PERF_EVIDENCE_MEASURE_RE.exec(line))) return true;
+    if (hasSubstantialEvidenceTail(PERF_EVIDENCE_REVERT_RE.exec(line))) return true;
+    if (hasSubstantialEvidenceTail(PERF_EVIDENCE_BLOCKED_RE.exec(line))) return true;
+    if (hasSubstantialEvidenceTail(PERF_EVIDENCE_BASELINE_RE.exec(line))) return true;
+    return PERF_EVIDENCE_NON_VALIDATED_RE.test(line);
+  });
+}
+
+function stripCode(text) {
+  return stripNonContent(text).replace(/`[^`\n]*`/g, ' ');
+}
+
+/**
+ * Le frasi di `## Implementato` che dichiarano un guadagno di prestazione senza
+ * che il body porti una prova (vedi sopra). `blocking` sono i claim del livello
+ * violazione, `advisory` quelli del solo livello I/O.
+ *
+ * @param {string} body full PR body text
+ * @returns {{ blocking: string[], advisory: string[] }}
+ */
+export function unvalidatedPerfClaims(body = '') {
+  const s = String(body ?? '');
+  const empty = { blocking: [], advisory: [] };
+  const impl = extractSection(s, IMPL_RE);
+  if (!impl) return empty;
+
+  // Group claims by the top-level Implementato bullet. Evidence is local to
+  // that group, so a measured second bullet cannot silence an independent
+  // first bullet. A single claim may also be discharged by the prescribed
+  // post-merge/revert evidence in Non implementato (ancora).
+  const units = topLevelBullets(impl, { includePreamble: true });
+  const claimUnits = units.length > 0
+    ? units.map((unit) => unit.text)
+    : [impl];
+  const blocking = [];
+  const advisory = [];
+  const claims = [];
+
+  for (const unit of claimUnits) {
+    const textWithEvidence = stripNonContent(unit);
+    const text = stripCode(textWithEvidence);
+    const localEvidence = hasSubstantialPerfEvidence(textWithEvidence);
+    for (const sentence of text.split(/(?<=[.;])\s+/)) {
+      const claim = sentence.replace(/^[ \t]*[-*+][ \t]*/, '').trim();
+      if (!claim) continue;
+      if (PERF_CLAIM_RE.test(claim)) claims.push({ text: claim, localEvidence });
+      else if (IO_BOUND_CLAIM_RE.test(claim)) claims.push({ text: claim, localEvidence, io: true });
+    }
+  }
+
+  const residualEvidence = hasSubstantialPerfEvidence(extractSection(s, NON_IMPL_ANCORA_RE) ?? '');
+  const singleClaimHasResidualEvidence = claims.length === 1 && residualEvidence;
+  for (const claim of claims) {
+    if (claim.localEvidence || singleClaimHasResidualEvidence) continue;
+    if (claim.io) advisory.push(claim.text);
+    else blocking.push(claim.text);
+  }
+
+  return { blocking, advisory };
+}
+
+// ---------------------------------------------------------------------------
 // Combined validator
 // ---------------------------------------------------------------------------
 
@@ -453,12 +620,14 @@ const NON_IMPL_NO_ANCORA_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato\b/im
  * da fare quando la misura sarà 0/13.
  *
  * @param {string} body full PR body text
- * @param {{ diffPaths?: string[], strictDecisionDeferrals?: boolean }} [opts] `diffPaths` (optional): repo-relative paths
+ * @param {{ diffPaths?: string[], strictDecisionDeferrals?: boolean, strictClaims?: boolean }} [opts] `diffPaths` (optional): repo-relative paths
  *   changed by the PR, to power the diff-vs-body citation check (#6301). Omitted →
  *   that check simply doesn't run (no diff to compare against).
  * @returns {{ ok: boolean, violations: Array<{type:string,section?:string,message:string}>, warnings: Array<{type:string,section?:string,message:string}> }}
  */
-export function checkPrBodySections(body = '', { diffPaths, strictDecisionDeferrals = false } = {}) {
+export function checkPrBodySections(body = '', {
+  diffPaths, strictDecisionDeferrals = false, strictClaims = strictDecisionDeferrals,
+} = {}) {
   const s = String(body ?? '');
   const violations = [];
   const warnings = [];
@@ -607,6 +776,38 @@ export function checkPrBodySections(body = '', { diffPaths, strictDecisionDeferr
             + '`Motivo: <causa concreta>` e `Prossimo passo: <azione concreta>`.',
         });
       }
+    }
+  }
+
+  // --- 5c. STRICT: claim di prestazione senza prova (#11675) ------------------
+  // Solo per le scritture nuove (stessa opzione delle deroghe): i lettori di
+  // body storici e il contratto del corpus, che chiama senza opzioni, restano
+  // invariati.
+  if (strictClaims && hasImpl) {
+    const { blocking, advisory } = unvalidatedPerfClaims(s);
+    const remedy = ' Aggiungi nel body una prova: link alla run `/actions/runs/<id>`, una riga'
+      + ' `Misura:` o `Comando:` con l\'output pre/post, oppure dichiara il claim'
+      + ' «non validato pre-merge» con un bullet `blocked: misura post-merge` in'
+      + ' `## Non implementato (ancora)` che nomina workflow, soglia e trigger di revert'
+      + ' (AGENTS.md, Build And Test; REVIEW.md step 7).';
+    if (blocking.length > 0) {
+      violations.push({
+        type: 'unvalidated-perf-claim',
+        section: 'Implementato',
+        message:
+          `${blocking.length} frase di \`## Implementato\` dichiara un guadagno di tempo, memoria,`
+          + ` disco o CI senza misura: "${blocking[0].slice(0, 160)}".` + remedy,
+      });
+    }
+    if (advisory.length > 0) {
+      warnings.push({
+        type: 'unvalidated-io-bound-claim',
+        section: 'Implementato',
+        message:
+          `${advisory.length} frase di \`## Implementato\` limita o evita lavoro di I/O senza misura:`
+          + ` "${advisory[0].slice(0, 160)}". Se è un claim di prestazione, vale la stessa regola.`
+          + remedy,
+      });
     }
   }
 

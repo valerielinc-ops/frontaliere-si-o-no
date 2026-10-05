@@ -25,7 +25,7 @@ it('renders each article revision independently in all four locales', async () =
       title: 'Pensione: ${id}', description: 'Guida alla previdenza per i frontalieri.',
       canonicalPath: '/articoli-frontaliere/${id}/',
       structuredData: {"@context":"https://schema.org","@type":"Article",
-        "headline":"Pensione", "datePublished":"2026-10-01", "dateModified":"2026-10-02"},
+        "headline":"Pensione"${id === 'ticino-rimborso-lpp-2024' ? ', "datePublished":"2026-10-01"' : ''}, "dateModified":"2026-10-02"},
     },`;
   write('services/seo/seo-blog.ts', `export const entries = {${ids.map(entry).join('\n')}};`);
   write('services/routerBlogData.ts', `export const BLOG_SLUGS = ${JSON.stringify(Object.fromEntries(ids.map(id => [id, {it:id,en:id,de:id,fr:id}])))};`);
@@ -37,9 +37,10 @@ it('renders each article revision independently in all four locales', async () =
     for (const file of Object.values(output.paths)) {
     const html = fs.readFileSync(path.join(distDir, file), 'utf8');
     const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
-    const article = schemas.find(schema => ['Article','NewsArticle','BlogPosting'].includes(schema['@type']));
+    const article = schemas.find(schema => ['Article','NewsArticle','BlogPosting','WebPage'].includes(schema['@type']));
     expect(article).toBeDefined();
     expect(article['@id']).toBe(`${article.url}#article`);
+    expect(article.datePublished).toMatch(/^2026-10-01/);
     const expected = output.articleId === 'ticino-rimborso-lpp-2024' ? '2026-10-03' : '2026-10-02';
     expect(article.dateModified.slice(0,10)).toBe(expected);
     expect(html).toContain(`itemprop="dateModified"`);
@@ -112,8 +113,9 @@ it.each([
     for (const file of Object.values(output.paths)) {
       const html = fs.readFileSync(path.join(distDir, file), 'utf8');
       const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
-      const article = schemas.find(schema => ['Article', 'NewsArticle', 'BlogPosting'].includes(schema['@type']));
+      const article = schemas.find(schema => ['Article', 'NewsArticle', 'BlogPosting', 'WebPage'].includes(schema['@type']));
       expect(article).toBeDefined();
+      expect(article!['@type']).toBe(expected.datePublished ? 'NewsArticle' : 'WebPage');
       const byline = html.match(/<p class="article-byline[^\"]*">([\s\S]*?)<\/p>/)?.[1];
       expect(byline).toBeDefined();
       for (const [key, property] of [['datePublished', 'article:published_time'], ['dateModified', 'article:modified_time']] as const) {

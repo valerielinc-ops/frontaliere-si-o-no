@@ -61,8 +61,8 @@ describe('static document and source freshness', () => {
       __renderEducationPageForTest({ locale, eduId: 'universita', dateStamp }),
     ]) {
       expect(result.html).toContain(`${dataset.meta.waveYear} · ${generatedLabels[locale]}:`);
-      expect(schema(result.html, 'Article')?.dateModified).toBe(new Date(dataset.meta.generatedAt).toISOString());
-      expect(schema(result.html, 'Article')?.datePublished).toBeUndefined();
+      expect(schema(result.html, 'WebPage')?.dateModified).toBe(new Date(dataset.meta.generatedAt).toISOString());
+      expect(schema(result.html, 'WebPage')?.datePublished).toBeUndefined();
     }
   });
 
@@ -74,9 +74,9 @@ describe('static document and source freshness', () => {
     ]) {
       expect(result.html).toContain(unknownReview[locale]);
       expect(result.html).toContain(generatedLabels[locale]);
-      expect(schema(result.html, 'Article')).toBeDefined();
-      expect(schema(result.html, 'Article')?.dateModified).toBeUndefined();
-      expect(schema(result.html, 'Article')?.datePublished).toBeUndefined();
+      expect(schema(result.html, 'WebPage')).toBeDefined();
+      expect(schema(result.html, 'WebPage')?.dateModified).toBeUndefined();
+      expect(schema(result.html, 'WebPage')?.datePublished).toBeUndefined();
     }
   });
 

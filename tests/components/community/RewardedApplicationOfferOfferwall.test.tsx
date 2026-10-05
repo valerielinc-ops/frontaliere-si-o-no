@@ -58,6 +58,8 @@ vi.mock('@/services/assistedApplicationExperiment', () => ({
 vi.mock('@/services/offerwallClickGate', () => ({
   offerwallGateStatus: () => mocks.status,
   releaseHeldOfferwall: mocks.releaseHeldOfferwall,
+  parkedOfferwallRoot: () => null,
+  OFFERWALL_STAGED_APPEAR_TIMEOUT_MS: 6000,
 }));
 
 import RewardedApplicationOffer, { OFFERWALL_ADS_SNAPSHOT_DELAY_MS } from '@/components/community/RewardedApplicationOffer';

@@ -18,3 +18,27 @@ export function editorialModifiedDate(serialized: string | undefined, separator:
   }
   return undefined;
 }
+
+/**
+ * Align seeded sitemap freshness with the editorial date exposed by the page.
+ *
+ * A sitemap `<lastmod>` is useful only when it describes the document at the
+ * matching `<loc>`.  Keep entries without an editorial date untouched: a
+ * missing source date is not evidence of a new build and must never turn into
+ * a fabricated freshness signal.
+ */
+export function synchronizeSitemapLastmods(
+  xml: string,
+  dateForLoc: (loc: string) => string | undefined,
+): string {
+  return xml.replace(/<url>[\s\S]*?<\/url>/g, (block) => {
+    const loc = block.match(/<loc>\s*([^<]+?)\s*<\/loc>/)?.[1];
+    if (!loc) return block;
+    const date = dateForLoc(loc)?.match(/^\d{4}-\d{2}-\d{2}/)?.[0];
+    if (!date) return block;
+    if (/<lastmod>/.test(block)) {
+      return block.replace(/<lastmod>[^<]*<\/lastmod>/, `<lastmod>${date}</lastmod>`);
+    }
+    return block.replace(/(\s*<\/url>)/, `\n    <lastmod>${date}</lastmod>$1`);
+  });
+}

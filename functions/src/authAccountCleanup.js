@@ -34,6 +34,7 @@ import {
  APPLICATION_INTENT_REMINDER_DELIVERIES_COLLECTION,
  buildApplicationIntentAccountTombstone,
 } from './applicationIntentPrivacy.js';
+import { eraseJobEmailAffinityProfile } from './lib/jobEmailAffinityStore.js';
 
 const DELETE_PAGE_SIZE = 450;
 const SUBSCRIBER_UID_FIELDS = Object.freeze(['user_id', 'userId', 'uid', 'auth_uid']);
@@ -257,12 +258,15 @@ export async function cleanupSavedJobsForDeletedUser(uid, injectedDb) {
 /**
  * @param {string|null|undefined} rawEmail
  * @param {import('firebase-admin/firestore').Firestore} db
- * @returns {Promise<{tombstonedNewsletter: boolean, tombstonedJobAlert: boolean}>}
+ * @param {{newsletterSecret?: string}} [options] NEWSLETTER_SECRET, for the
+ *        pseudonymous id of the click-affinity profile (read from Remote Config
+ *        when absent).
+ * @returns {Promise<{tombstonedNewsletter: boolean, tombstonedJobAlert: boolean, affinityProfileErased: boolean}>}
  */
-export async function tombstoneEmailKeyedSubscribers(rawEmail, db) {
+export async function tombstoneEmailKeyedSubscribers(rawEmail, db, { newsletterSecret } = {}) {
   const email = typeof rawEmail === 'string' ? rawEmail.trim().toLowerCase() : '';
   if (!email || !email.includes('@')) {
-    return { tombstonedNewsletter: false, tombstonedJobAlert: false };
+    return { tombstonedNewsletter: false, tombstonedJobAlert: false, affinityProfileErased: false };
   }
 
   const stamp = new Date().toISOString();
@@ -284,7 +288,7 @@ export async function tombstoneEmailKeyedSubscribers(rawEmail, db) {
     account_deleted_at: stamp,
   };
 
-  await Promise.all([
+  const [, , , affinity] = await Promise.all([
     db.collection('newsletter_subscribers').doc(email).set(newsletterTombstone, { merge: true }),
     db.collection('job_alert_subscribers').doc(email).set(jobAlertTombstone, { merge: true }),
     // Browsing/application-intent personalization is account-linked private
@@ -292,9 +296,17 @@ export async function tombstoneEmailKeyedSubscribers(rawEmail, db) {
     // tombstone semantics, so remove it rather than leaving a UID-bound copy.
     db.collection('newsletter_subscribers').doc(email)
       .collection('private').doc('personalization').delete(),
+    // The click-affinity profile used to order job ads (privacy policy:
+    // deleted at once when the account is deleted). Keyed by a pseudonym of
+    // the address, so it has no uid to find it by.
+    eraseJobEmailAffinityProfile(db, email, { secret: newsletterSecret }),
   ]);
 
-  return { tombstonedNewsletter: true, tombstonedJobAlert: true };
+  return {
+    tombstonedNewsletter: true,
+    tombstonedJobAlert: true,
+    affinityProfileErased: affinity?.deleted === true,
+  };
 }
 
 /**
@@ -302,17 +314,18 @@ export async function tombstoneEmailKeyedSubscribers(rawEmail, db) {
  * @param {import('firebase-admin/firestore').Firestore} [injectedDb]
  * @returns {Promise<{deletedSavedJobs: number, tombstonedNewsletter: boolean, tombstonedJobAlert: boolean, deletedPetitionSignature: boolean, tombstonedApplicationIntents: number, deletedApplicationIntentReminderDeliveries: number, tombstonedApplicationIntentAccount: boolean}>}
  */
-export async function cleanupUserDataForDeletedAccount(user, injectedDb) {
+export async function cleanupUserDataForDeletedAccount(user, injectedDb, { newsletterSecret } = {}) {
   const db = injectedDb || getFirestore();
  const { uid, email } = user || {};
  const applicationIntent = await tombstoneApplicationIntentDataForDeletedUser(uid, db);
  const subscriberEmails = await collectHistoricalSubscriberEmails(db, uid, email);
  const subscriberResults = await Promise.all(
-  subscriberEmails.map((subscriberEmail) => tombstoneEmailKeyedSubscribers(subscriberEmail, db)),
+  subscriberEmails.map((subscriberEmail) => tombstoneEmailKeyedSubscribers(subscriberEmail, db, { newsletterSecret })),
  );
  const subscribers = {
   tombstonedNewsletter: subscriberResults.some((result) => result.tombstonedNewsletter),
   tombstonedJobAlert: subscriberResults.some((result) => result.tombstonedJobAlert),
+  affinityProfileErased: subscriberResults.some((result) => result.affinityProfileErased),
  };
  // The tombstone is the safety boundary: finish it before best-effort data
  // deletion so a savedJobs failure can never leave the old email lifecycle

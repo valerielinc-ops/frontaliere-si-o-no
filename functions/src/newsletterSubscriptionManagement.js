@@ -60,6 +60,8 @@ import {
 } from './lib/subscriberConsent.js';
 import { REGISTRATION_TERMS_TEXT, REGISTRATION_TERMS_VERSION } from './lib/registrationTermsText.js';
 import { isAccountDeletedTombstone } from './authAccountCleanup.js';
+import { fulfillCompanyFollowIntents } from './companyFollowIntents.js';
+import { eraseJobEmailAffinityProfile } from './lib/jobEmailAffinityStore.js';
 import {
  verifyAutologinCode,
  resolveAutologinPolicy,
@@ -109,10 +111,10 @@ const TEXT_COLOR = '#1f2937';
 const MUTED_COLOR = '#6b7280';
 const BORDER_COLOR = '#dbe2ea';
 
-async function mintNewsletterAuthToken(normalizedEmail) {
+async function mintNewsletterAuthSession(normalizedEmail) {
+ let uid = null;
  try {
  ensureAdminApp();
- let uid = null;
  try {
  const userRecord = await getAuth().getUserByEmail(normalizedEmail);
  uid = userRecord.uid;
@@ -120,11 +122,39 @@ async function mintNewsletterAuthToken(normalizedEmail) {
  const newUser = await getAuth().createUser({ email: normalizedEmail, emailVerified: true });
  uid = newUser.uid;
  }
- return uid ? await getAuth().createCustomToken(uid) : null;
+ return { uid, authToken: uid ? await getAuth().createCustomToken(uid) : null };
  } catch (authErr) {
  console.warn('[newsletterManage] Failed to generate auth token:', authErr?.message);
- return null;
+ return { uid, authToken: null };
  }
+}
+
+/**
+ * The link click is the moment a server-recorded follow intent may become a
+ * CompanyAlert (functions/src/companyFollowIntents.js). Best-effort: the
+ * confirmation/login response never changes because of it, and a failure
+ * leaves the intents pending for the next click (or the browser replay).
+ */
+async function fulfillFollowIntentsOnClick(db, normalizedEmail, uid, via) {
+ if (!uid) return null;
+ try {
+  return await fulfillCompanyFollowIntents({
+   db,
+   email: normalizedEmail,
+   uid,
+   normalizeKey: normalizeCompanyAlertKey,
+   groupKey: companyFollowGroupKey,
+   via,
+  });
+ } catch (err) {
+  console.warn('[newsletterManage] company follow fulfilment failed (non-fatal):', err?.message || err);
+  return null;
+ }
+}
+
+function companyFollowFulfilledSummary(outcome) {
+ if (!outcome || outcome.created + outcome.existing === 0) return null;
+ return { created: outcome.created, existing: outcome.existing, pending: outcome.pending };
 }
 
 function normalizeEmail(value) {
@@ -425,6 +455,20 @@ const BRAND_ALIAS_TO_CANONICAL = Object.freeze({
  'capri-holdings-michael-kors-versace': 'michael-kors',
 });
 
+// Deployment-boundary mirror of build-plugins/shared/companyFollowGroups.mjs
+// (member slug → group key), parity-tested by tests/company-alert.test.ts.
+// Following one member follows the whole group, so a second pin on another
+// member of the same group returns the existing follow instead of a duplicate.
+const COMPANY_FOLLOW_GROUP_KEY = Object.freeze({
+ coop: 'coop',
+ 'coop-genossenschaft': 'coop',
+});
+
+export function companyFollowGroupKey(slug) {
+ const s = String(slug || '');
+ return COMPANY_FOLLOW_GROUP_KEY[s] || s;
+}
+
 export function normalizeCompanyAlertKey(value) {
  const norm = (x) => String(x || '')
  .toLowerCase()
@@ -514,7 +558,7 @@ function serializeAlertDoc(id, data) {
  */
 const RESUBSCRIBE_BURST_WINDOW_MS = 10_000;
 
-export async function handleSubscriptionManagement({ action, email, token, locale, secret, method = 'GET', mode = undefined, autologinPolicy = undefined, tokenPolicy = undefined, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, emailConsentGiven = undefined, dailyBriefFrequency = undefined, advertisingEnabled = undefined, forensics = undefined, db: injectedDb }) {
+export async function handleSubscriptionManagement({ action, email, token, locale, secret, method = 'GET', mode = undefined, autologinPolicy = undefined, tokenPolicy = undefined, mintAuthSession = mintNewsletterAuthSession, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, emailConsentGiven = undefined, dailyBriefFrequency = undefined, advertisingEnabled = undefined, forensics = undefined, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
  // Defaults to GET, i.e. FAIL-CLOSED. A caller that forgets to thread the verb
  // through cannot re-subscribe anybody; the opposite default would make the
@@ -1119,6 +1163,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  ...(desired ? {} : forensicFields),
  });
 
+ // `unsubscribed` ferma ogni canale (emailSuppression.js): e' la
+ // disiscrizione da tutto che cancella subito il profilo di affinita'.
+ if (!desired) await eraseJobEmailAffinityProfile(db, normalizedEmail, { secret });
+
  return { status: 200, json: { success: true, subscribed: desired } };
  } catch (err) {
  console.error('[toggle_newsletter_subscription] Failed:', err?.message);
@@ -1531,6 +1579,24 @@ export async function handleSubscriptionManagement({ action, email, token, local
     json: { success: true, alert: serializeAlertDoc(existingDoc.id, existingDoc.data() || {}) },
    };
   }
+  // Same follow group, different member (`coop` vs `coop-genossenschaft`):
+  // one follow per group, like services/jobAlertService.ts createAlert.
+  if (companyPin) {
+   let groupFollow = null;
+   existing.forEach((d) => {
+    const data = d.data() || {};
+    if (groupFollow || data.active === false || !data.specificCompanyKey) return;
+    const stored = normalizeCompanyAlertKey(data.specificCompanyKey);
+    if (stored !== companyPin && companyFollowGroupKey(stored) === companyFollowGroupKey(companyPin)) groupFollow = d;
+   });
+   if (groupFollow) {
+    await clearCompanyFollowFollowupPending(db, normalizedEmail);
+    return {
+     status: 200,
+     json: { success: true, alert: serializeAlertDoc(groupFollow.id, groupFollow.data() || {}) },
+    };
+   }
+  }
   let activeCount = 0;
  existing.forEach((d) => {
  const data = d.data() || {};
@@ -1646,6 +1712,9 @@ export async function handleSubscriptionManagement({ action, email, token, local
  ...forensicFields,
  });
 
+ // Same cross-channel stop as above: the click-affinity profile goes now.
+ await eraseJobEmailAffinityProfile(db, normalizedEmail, { secret });
+
  return {
  status: 200,
  html: buildResponseHtml({
@@ -1708,6 +1777,8 @@ export async function handleSubscriptionManagement({ action, email, token, local
     ...forensicFields,
    });
 
+   await eraseJobEmailAffinityProfile(db, normalizedEmail, { secret });
+
    return {
     status: 200,
     json: { success: true, allEmailsOptedOut: true },
@@ -1756,7 +1827,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
      }),
     };
    }
-   const authToken = await mintNewsletterAuthToken(normalizedEmail);
+   const { uid: loginUid, authToken } = await mintAuthSession(normalizedEmail);
    if (!authToken) {
     return {
      status: 500,
@@ -1770,11 +1841,16 @@ export async function handleSubscriptionManagement({ action, email, token, local
      }),
     };
    }
+   // A login link requested by the follow prompt for an address that already
+   // has confirmation proof is the same explicit completion act as the DOI.
+   const loginFollowOutcome = await fulfillFollowIntentsOnClick(db, normalizedEmail, loginUid, 'login_link');
+   const loginFollowFulfilled = companyFollowFulfilledSummary(loginFollowOutcome);
    return {
     status: 200,
     authToken,
     alreadyConfirmed: true,
     loginOnly: true,
+    ...(loginFollowFulfilled ? { companyFollowFulfilled: loginFollowFulfilled } : {}),
     html: buildResponseHtml({
      title: t(lang, 'loginSuccessTitle'),
      message: t(lang, 'loginSuccessBody'),
@@ -1933,7 +2009,16 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
 
  // Generate a custom auth token for auto-login after confirmation.
- const authToken = await mintNewsletterAuthToken(normalizedEmail);
+ const { uid: confirmedUid, authToken } = await mintAuthSession(normalizedEmail);
+
+ // The DOI click is the consent boundary the follow was parked for: turn the
+ // server-recorded intents into CompanyAlerts now, whatever device opened the
+ // link. Only an intent set that is entirely satisfied closes the follow-up
+ // action; anything still pending keeps the existing "return to the company"
+ // marker (legacy clients that recorded no server intent included).
+ const followOutcome = await fulfillFollowIntentsOnClick(db, normalizedEmail, confirmedUid, 'confirmation_link');
+ const followFulfilled = companyFollowFulfilledSummary(followOutcome);
+ const followupStillRequired = companyFollowPending && !(followFulfilled && followOutcome.pending === 0);
 
  const confirmTitle = alreadyConfirmed
  ? `${t(lang, 'manageResubscribeTitle')}`
@@ -1946,7 +2031,8 @@ export async function handleSubscriptionManagement({ action, email, token, local
   status: 200,
   authToken,
   alreadyConfirmed,
-  ...(companyFollowPending ? {
+  ...(followFulfilled ? { companyFollowFulfilled: { ...followFulfilled, newsletterActive: !companyFollowOnly } } : {}),
+  ...(followupStillRequired ? {
    companyFollowFollowup: {
     required: true,
     sourcePath: safeFollowupPath(subscriberData.source_page),

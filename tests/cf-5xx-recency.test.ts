@@ -143,6 +143,7 @@ describe('summarizeBursts — the time dimension the feeder never had', () => {
 describe('issue triage for #8839, #8840 and #10342', () => {
   const reports = [
     { url: 'gh-default.frontaliereticino.ch/github/webhook', surface: 'github-webhook-default' },
+    { url: 'gh-default-agenti.frontaliereticino.ch/github/webhook', surface: 'github-webhook-default-agenti' },
     { url: 'gh-nanako.frontaliereticino.ch/github/webhook', surface: 'github-webhook-nanako' },
     { url: 'frontaliereticino.ch/fr/trouver-emploi-suisse/recherche-kurs-basel/', surface: 'worker-shard' },
   ];
@@ -156,7 +157,7 @@ describe('issue triage for #8839, #8840 and #10342', () => {
   });
 
   it('includes only URL-correlated origin/cache rows when hourly evidence is complete', () => {
-    const url = reports[2].url;
+    const url = reports.find((report) => report.surface === 'worker-shard')!.url;
     const shape = summarizeBursts([
       {
         status: 503,
@@ -340,6 +341,13 @@ describe('webhook tunnel offline (530) non conia nel sito', () => {
     expect(body).toContain('bin/github-webhook-receiver.mjs');
     expect(body).toContain('bin/github-coordinator-health.mjs');
     expect(body).not.toContain('**REPO**: sito');
+  });
+
+  it('recognizes the observed default-agenti hostname as a webhook tunnel for 530 handling', () => {
+    expect(cfSync.isTunnelOffline530({
+      status: 530,
+      url: 'gh-default-agenti.frontaliereticino.ch/github/webhook',
+    })).toBe(true);
   });
 
   it('il triage nomina l\'osservatore a cui e\' passato l\'allarme', () => {
