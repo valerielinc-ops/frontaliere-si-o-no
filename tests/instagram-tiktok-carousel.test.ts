@@ -6,8 +6,10 @@
  * the same fail-soft file-content guards.
  */
 import { describe, it, expect } from 'vitest';
+import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import sharp from 'sharp';
 
 import { pickTopNUnposted } from '../scripts/lib/daily-top-content.mjs';
 import { formatDayIt, buildCarouselCaption, buildTikTokCaption, TIKTOK_CAPTION_MAX_CHARS } from '../scripts/lib/social-post-utils.mjs';
@@ -17,6 +19,7 @@ import {
   TIKTOK_VIDEO_HEIGHT,
   TIKTOK_VIDEO_WIDTH,
   buildCarouselVideoFfmpegArgs,
+  renderCarouselVideo,
 } from '../scripts/lib/social-carousel-video.mjs';
 import {
   instagramUrl,
@@ -146,6 +149,8 @@ describe('buildTikTokCaption', () => {
 });
 
 describe('TikTok video queue contract', () => {
+  const hasFfmpeg = spawnSync('ffmpeg', ['-version'], { stdio: 'ignore' }).status === 0
+    && spawnSync('ffprobe', ['-version'], { stdio: 'ignore' }).status === 0;
   const video = {
     url: 'https://cdn.frontaliereticino.ch/images/social/tiktok/article-2026-08-23.mp4',
     bytes: 123456,
@@ -176,9 +181,11 @@ describe('TikTok video queue contract', () => {
     expect(args.filter((arg) => arg === '-loop')).toHaveLength(2);
     expect(args.filter((arg) => arg === '-i')).toHaveLength(3);
     expect(filter).toContain(`scale=${TIKTOK_VIDEO_WIDTH}:${TIKTOK_VIDEO_HEIGHT}:force_original_aspect_ratio=decrease`);
+    expect(filter).toContain('in_range=full:out_range=tv');
     expect(filter).toContain(`pad=${TIKTOK_VIDEO_WIDTH}:${TIKTOK_VIDEO_HEIGHT}`);
     expect(filter).toContain(BRAND_VIDEO_BACKGROUND);
     expect(filter).toContain('xfade=transition=fade');
+    expect(filter).toContain('setrange=tv');
     expect(args).toContain('anullsrc=channel_layout=stereo:sample_rate=44100');
     expect(args).toEqual(expect.arrayContaining(['-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-r', '30', '-c:a', 'aac', '-movflags', '+faststart']));
     expect(args.at(-1)).toBe('carousel.mp4');
@@ -187,6 +194,33 @@ describe('TikTok video queue contract', () => {
   it('uploads MP4 with the video MIME type used by the robot download check', () => {
     const uploader = fs.readFileSync(path.resolve(__dirname, '../scripts/lib/upload-cdn-file.sh'), 'utf8');
     expect(uploader).toContain('mp4) printf \'%s\' "video/mp4"');
+  });
+
+  it.skipIf(!hasFfmpeg)('renders an H.264 yuv420p MP4 with 30 fps and silent AAC', async () => {
+    const slide = await sharp({
+      create: { width: 1080, height: 1080, channels: 3, background: '#0F2557' },
+    }).jpeg().toBuffer();
+    const rendered = renderCarouselVideo([slide, slide]);
+    const probe = spawnSync('ffprobe', [
+      '-v', 'error',
+      '-show_entries', 'stream=codec_type,codec_name,pix_fmt,width,height,r_frame_rate,sample_rate,channels:format=duration',
+      '-of', 'json',
+      'pipe:0',
+    ], { input: rendered.buffer, encoding: 'utf8' });
+    expect(probe.status).toBe(0);
+    const parsed = JSON.parse(probe.stdout);
+    const videoStream = parsed.streams.find((stream) => stream.codec_type === 'video');
+    const audioStream = parsed.streams.find((stream) => stream.codec_type === 'audio');
+    expect(videoStream).toMatchObject({
+      codec_name: 'h264',
+      pix_fmt: 'yuv420p',
+      width: TIKTOK_VIDEO_WIDTH,
+      height: TIKTOK_VIDEO_HEIGHT,
+      r_frame_rate: '30/1',
+    });
+    expect(audioStream).toMatchObject({ codec_name: 'aac', sample_rate: '44100', channels: 2 });
+    expect(Number(parsed.format.duration)).toBeGreaterThan(7);
+    expect(Number(parsed.format.duration)).toBeLessThan(8.5);
   });
 });
 

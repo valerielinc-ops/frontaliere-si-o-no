@@ -22,7 +22,7 @@ export const TIKTOK_VIDEO_CONTENT_TYPE = 'video/mp4';
 const SILENT_AUDIO_INPUT = 'anullsrc=channel_layout=stereo:sample_rate=44100';
 
 function slideFilter(index) {
-  return `[${index}:v]scale=${TIKTOK_VIDEO_WIDTH}:${TIKTOK_VIDEO_HEIGHT}:force_original_aspect_ratio=decrease,pad=${TIKTOK_VIDEO_WIDTH}:${TIKTOK_VIDEO_HEIGHT}:(ow-iw)/2:(oh-ih)/2:color=${BRAND_VIDEO_BACKGROUND},setsar=1,fps=${TIKTOK_VIDEO_FPS},format=yuv420p,settb=1/${TIKTOK_VIDEO_FPS}[v${index}]`;
+  return `[${index}:v]scale=${TIKTOK_VIDEO_WIDTH}:${TIKTOK_VIDEO_HEIGHT}:force_original_aspect_ratio=decrease:in_range=full:out_range=tv,pad=${TIKTOK_VIDEO_WIDTH}:${TIKTOK_VIDEO_HEIGHT}:(ow-iw)/2:(oh-ih)/2:color=${BRAND_VIDEO_BACKGROUND},setsar=1,fps=${TIKTOK_VIDEO_FPS},format=yuv420p,setrange=tv,settb=1/${TIKTOK_VIDEO_FPS}[v${index}]`;
 }
 
 /**
