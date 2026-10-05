@@ -623,8 +623,11 @@ export function isGenuineCanonicalSitemapFinding(text) {
 }
 
 // Crawler-side code: the per-source crawlers and the parsers/feeds/ATS clients
-// they share. Anchored on the repo-relative path, so a site emitter
-// (`build-plugins/jobsSeoPagesPlugin.ts`, `services/seo/*`) never matches.
+// they share. Anchored on the repo-relative path, so a site emitter (the jobs
+// SEO pages build plugin, the SEO service modules) never matches. Emitter
+// paths are named in words on purpose: checkout-profile-analyzer.mjs reads
+// this file as text, and a quoted `services/<dir>` alias here would add the
+// articles bucket to the lessons-harvester.yml sparse profile.
 const CRAWLER_PARSER_PATH_RE = /^scripts\/(?:update-[\w-]+-jobs\.mjs|lib\/(?:ats-clients\/[\w./-]+|[\w-]*(?:parser|crawler|feed)[\w-]*\.mjs|federal-job-[\w-]+\.mjs))$/;
 const LOCATED_PATH_RE = /(?:^|[\s`(,;'"])((?:[\w.-]+\/)+[\w.-]+\.(?:mjs|cjs|js|tsx?|json|ya?ml))(?=[:\s`),;'"]|$)/g;
 
