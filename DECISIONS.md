@@ -2,7 +2,7 @@
 
 | Data | Decisione | Fonte |
 |---|---|---|
-| 2026-10-05 | Eventi: MySwitzerland non si spegne, si studia il passaggio del 406 come i crawler di lavoro (D1); fonti a consenso tenute (D2); classicAscona solo fatti e prezzi H5 da OpenAgenda gratuit, Eventfrog lowestTicketPrice, classicAscona offers (D3/D4); Eventfrog con pagine effimere, testi non tradotti, dati fuori dai repo pubblici (D5) | 05-10 |
+| 2026-10-05 | Eventi: MySwitzerland: UA da browser autorizzato SOLO per i dettagli (eccezione alla regola dello UA identificativo dei crawler; 1 req/s, stop a 403/429/challenge) (D1); fonti a consenso tenute (D2); classicAscona solo fatti e prezzi H5 da OpenAgenda gratuit, Eventfrog lowestTicketPrice, classicAscona offers (D3/D4); Eventfrog con pagine effimere, testi non tradotti, dati fuori dai repo pubblici (D5) | 05-10 |
 | 2026-10-05 | Traduzioni lavori: Codex Luna Max di riserva se falliscono le chiavi, tetto per run (H7); copie sorgente marcate tenute (I2) | 05-10 |
 | 2026-10-05 | Monitor: GA4 invece di PostHog (H9); CTR senza query promo/operatori, soglia invariata (I5); argomenti harvester solo nel report (I3); GA4 non si archivia (H4) | 05-10 |
 | 2026-10-05 | Item bloccato solo dalla guardia locale: done con CI required verde (I4); prezzi eventi senza fonte nascosti (H5); dato senza fonte ammessa: chiuso non ottenibile (#8705) | 05-10 |
