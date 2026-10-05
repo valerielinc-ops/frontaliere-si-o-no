@@ -404,7 +404,7 @@
       "slugByLocale": {
         "it": "infermierein-cure-domiciliari-all-80-100-in-contratto-a-tempo-indeterminato-imad-geneva",
         "en": "nurse-in-home-care-at-80-100-on-permanent-contract-imad-geneva",
-        "de": "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva",
+        "de": "pflegefachfrau-pflegefachmann-spitex-80-100-unbefristet-imad-geneva",
         "fr": "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
       },
       "company": "imad",
@@ -468,6 +468,9 @@
           "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
         ],
         "en": [
+          "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
+        ],
+        "de": [
           "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
         ]
       },
@@ -862,13 +865,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee",
-        "infermiere-a-di-riferimento-a-domicilio-all-80-o-al-100-in-contratti-a-tempo-indeterminato-all-interno-del-team"
+        "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee",
-          "infermiere-a-di-riferimento-a-domicilio-all-80-o-al-100-in-contratti-a-tempo-indeterminato-all-interno-del-team"
+          "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee"
         ],
         "en": [
           "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee"

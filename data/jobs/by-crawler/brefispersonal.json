@@ -70,11 +70,11 @@
     },
     {
       "id": "brefispersonal-554e7c9c44e1",
-      "slug": "sanitarinstallateur-in-efz-brefis-personal-ag-zh",
+      "slug": "sanitarinstallateur-in-cfc-brefis-personal-ag-zh",
       "slugByLocale": {
-        "it": "sanitarinstallateur-in-efz-brefis-personal-ag-zh",
-        "en": "sanitarinstallateur-in-efz-brefis-personal-ag-zh",
         "de": "sanitarinstallateur-in-efz-zh-brefispersonal-ch",
+        "it": "sanitarinstallateur-in-cfc-brefis-personal-ag-zh",
+        "en": "sanitarinstallateur-in-efz-brefis-personal-ag-zh",
         "fr": "sanitarinstallateur-in-efz-brefis-personal-ag-zh"
       },
       "company": "brefis personal ag",
@@ -112,22 +112,21 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-07-16",
       "postedDate": "2026-07-16",
-      "postingDateSource": "reported",
       "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46131",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sanitarinstallateur-in-efz-zh-brefispersonal-ch"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "sanitarinstallateur-in-efz-zh-brefispersonal-ch"
+          "sanitarinstallateur-in-efz-zh-brefispersonal-ch",
+          "sanitarinstallateur-in-efz-brefis-personal-ag-zh"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-27T05:22:20.064Z",
+      "previousSlugs": [
+        "sanitarinstallateur-in-efz-zh-brefispersonal-ch",
+        "sanitarinstallateur-in-efz-brefis-personal-ag-zh"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -140,15 +139,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-27T05:22:20.064Z",
+      "datePosted": "2026-07-16",
+      "postingDateSource": "reported"
     },
     {
       "id": "brefispersonal-c97c198a6dcd",
-      "slug": "sanitarinstallateur-in-efz-brefis-personal-ag-zurich",
+      "slug": "sanitarinstallateur-in-cfc-brefis-personal-ag-zurich",
       "slugByLocale": {
-        "it": "sanitarinstallateur-in-efz-brefis-personal-ag-zurich",
-        "en": "sanitarinstallateur-in-efz-brefis-personal-ag-zurich",
         "de": "sanitarinstallateur-in-efz-zurich-brefispersonal-ch",
+        "it": "sanitarinstallateur-in-cfc-brefis-personal-ag-zurich",
+        "en": "sanitarinstallateur-in-efz-brefis-personal-ag-zurich",
         "fr": "sanitarinstallateur-in-efz-brefis-personal-ag-zurich"
       },
       "company": "brefis personal ag",
@@ -186,22 +188,23 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-07-12",
       "postedDate": "2026-07-12",
-      "postingDateSource": "reported",
       "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46132",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "installatore-sanitario-edc-brefis-personal-ag-zurich",
         "edc-sanitary-installer-brefis-personal-ag-zurich",
         "edc-installateur-sanitaire-brefis-personal-ag-zurich",
-        "sanitarinstallateur-in-efz-zurich-brefispersonal-ch"
+        "sanitarinstallateur-in-efz-zurich-brefispersonal-ch",
+        "sanitarinstallateur-in-efz-brefis-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "installatore-sanitario-edc-brefis-personal-ag-zurich",
-          "sanitarinstallateur-in-efz-zurich-brefispersonal-ch"
+          "sanitarinstallateur-in-efz-zurich-brefispersonal-ch",
+          "sanitarinstallateur-in-efz-brefis-personal-ag-zurich"
         ],
         "en": [
           "edc-sanitary-installer-brefis-personal-ag-zurich"
@@ -210,8 +213,6 @@
           "edc-installateur-sanitaire-brefis-personal-ag-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-27T05:22:20.051Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -224,7 +225,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-27T05:22:20.051Z",
+      "datePosted": "2026-07-12",
+      "postingDateSource": "reported"
     },
     {
       "id": "brefispersonal-da7fa6f8b6c7",
@@ -412,20 +416,16 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-07-12",
       "postedDate": "2026-07-12",
-      "postingDateSource": "reported",
       "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46974",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "luftungsmonteur-in-gelernt-zurich-brefispersonal-ch",
-        "luftungsmonteur-in-gelernt-brefis-personal-ag-zurich"
+        "luftungsmonteur-in-gelernt-zurich-brefispersonal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "luftungsmonteur-in-gelernt-zurich-brefispersonal-ch",
-          "luftungsmonteur-in-gelernt-brefis-personal-ag-zurich"
+          "luftungsmonteur-in-gelernt-zurich-brefispersonal-ch"
         ]
       },
       "needsRetranslation": true,
@@ -442,7 +442,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-12",
+      "postingDateSource": "reported"
     },
     {
       "id": "brefispersonal-0eaebad873d4",

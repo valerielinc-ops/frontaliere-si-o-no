@@ -297,9 +297,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-08-21",
       "postedDate": "2026-08-21",
-      "postingDateSource": "reported",
       "applyUrl": "https://www.pageexecutive.com/job-detail/compliance-director/ref/jn-082026-7087874",
       "requirements": [],
       "requirementsByLocale": {},
@@ -338,7 +336,6 @@
           "directeur-de-la-conformite-michael-page-zurich-switzerland"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T23:19:59.319Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -352,7 +349,10 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "datePosted": "2026-08-21",
+      "postingDateSource": "reported"
     },
     {
       "id": "michaelpage-389a8a294925",
@@ -474,9 +474,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-18",
       "postedDate": "2026-09-18",
-      "postingDateSource": "reported",
       "applyUrl": "https://www.pageexecutive.com/job-detail/chief-compliance-officer/ref/jn-092026-7107201",
       "requirements": [],
       "requirementsByLocale": {},
@@ -498,7 +496,6 @@
           "responsable-de-la-conformite-michael-page-geneva-switzerland-7005ae53"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:12:29.317Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -512,7 +509,10 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "datePosted": "2026-09-18",
+      "postingDateSource": "reported"
     },
     {
       "id": "michaelpage-5f0a8b0d61ab",
@@ -639,9 +639,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-08-20",
       "postedDate": "2026-08-20",
-      "postingDateSource": "reported",
       "applyUrl": "https://www.pageexecutive.com/job-detail/senior-private-bankers-swiss-private-bank/ref/jn-082026-7087025",
       "requirements": [],
       "requirementsByLocale": {},
@@ -667,7 +665,6 @@
           "senior-private-banker-s-banque-privee-suisse-michael-page-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T23:19:58.112Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -681,7 +678,10 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "datePosted": "2026-08-20",
+      "postingDateSource": "reported"
     },
     {
       "id": "michaelpage-8cb76800c484",
@@ -755,7 +755,7 @@
         "it": "director-of-rooms-luxury-5-star-hotel-lake-geneva-region-michael-page-geneva-switzerland-ca8e7c62",
         "en": "director-of-rooms-luxury-5-star-hotel-lake-geneva-region-michael-page-geneva-switzerland-ca8e7c62",
         "de": "director-of-rooms-luxury-5-star-hotel-lake-geneva-region-michael-page-geneva-switzerland-ca8e7c62",
-        "fr": "director-of-rooms-luxury-5-star-hotel-lake-geneva-region-michael-page-geneva-ca8e7c62"
+        "fr": "directeur-de-chambres-hotel-de-luxe-5-etoiles-region-lemanique-michael-page-geneva-switzerland-ca8e7c62"
       },
       "slugDisambiguator": "ca8e7c62",
       "company": "Michael Page",
@@ -800,11 +800,13 @@
       "firstSeenAt": "2026-09-26T14:25:33.111Z",
       "previousSlugsByLocale": {
         "fr": [
-          "directeur-des-chambres-hotel-5-etoiles-de-luxe-lake-leman-region-michael-page-geneva-switzerland-ca8e7c62"
+          "directeur-des-chambres-hotel-5-etoiles-de-luxe-lake-leman-region-michael-page-geneva-switzerland-ca8e7c62",
+          "director-of-rooms-luxury-5-star-hotel-lake-geneva-region-michael-page-geneva-ca8e7c62"
         ]
       },
       "previousSlugs": [
-        "directeur-des-chambres-hotel-5-etoiles-de-luxe-lake-leman-region-michael-page-geneva-switzerland-ca8e7c62"
+        "directeur-des-chambres-hotel-5-etoiles-de-luxe-lake-leman-region-michael-page-geneva-switzerland-ca8e7c62",
+        "director-of-rooms-luxury-5-star-hotel-lake-geneva-region-michael-page-geneva-ca8e7c62"
       ],
       "salaryMin": 83500,
       "salaryMax": 126500,
