@@ -1743,12 +1743,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  de: 'Startseite',
  fr: 'Accueil',
  };
- const openPositionsUnit: Record<'it' | 'en' | 'de' | 'fr', string> = {
- it: 'posizioni aperte',
- en: 'open positions',
- de: 'offene Stellen',
- fr: 'postes ouverts',
- };
  const localeCopy: Record<'it' | 'en' | 'de' | 'fr', {
  suffix: string;
  sectionName: string;
@@ -4774,13 +4768,6 @@ ${staticAnalyticsHtml}
  },
  } : {}),
  };
- if (companyJobs.length > 0) {
- orgLdObj.numberOfEmployees = {
- '@type': 'QuantitativeValue',
- value: companyJobs.length,
- unitText: openPositionsUnit[locale],
- };
- }
  // Curated employer brand overlay (EOC, Lidl, …). When present, we
  // (a) override the generic organization JSON-LD with a richer one,
  // (b) emit FAQPage + ItemList JSON-LD, and
@@ -4820,7 +4807,6 @@ ${staticAnalyticsHtml}
  addressCountry: curatedBrand.headquarters.addressCountry,
  },
  description: brandCopy.paragraphs[0] ?? brandCopy.tagline,
- numberOfEmployees: { '@type': 'QuantitativeValue', value: companyJobs.length, unitText: openPositionsUnit[locale] },
  ...(curatedSameAs.length > 0 ? { sameAs: [...new Set(curatedSameAs)] } : {}),
  };
  organizationLd = JSON.stringify(curatedOrgLd);
@@ -9167,11 +9153,6 @@ ${staticAnalyticsHtml}
  addressCountry: 'CH',
  },
  } : {}),
- numberOfEmployees: {
- '@type': 'QuantitativeValue',
- value: companyJobs.length,
- unitText: openPositionsUnit[locale],
- },
  ...(companyHubSameAs ? { sameAs: companyHubSameAs } : {}),
  ...(companyHubLogo ? { logo: companyHubLogo } : {}),
  };
@@ -9458,11 +9439,6 @@ ${staticAnalyticsHtml}
  addressCountry: 'CH',
  },
  } : {}),
- numberOfEmployees: {
- '@type': 'QuantitativeValue',
- value: ccJobs.length,
- unitText: openPositionsUnit[locale],
- },
  ...(companyCitySameAs ? { sameAs: companyCitySameAs } : {}),
  ...(companyCityLogo ? { logo: companyCityLogo } : {}),
  };
