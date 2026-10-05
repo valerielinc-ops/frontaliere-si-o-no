@@ -38,12 +38,18 @@ export const CSVP_POSCHIAVO_EMPTY_CATEGORY_RE = /Non ci sono articoli in questa 
 
 const CSVP_POSCHIAVO_CATEGORY_CONTAINER_SELECTOR =
   '.com-content-category-blog, .blog, [itemtype*="schema.org/Blog"]';
+// The live site runs the YOOtheme Warp / UIkit 2 template: the category blog
+// renders straight into `main#tm-content` with no `.blog` wrapper, and Warp
+// marks the blog view with `tm-isblog` on <body>. That pair identifies the
+// category component as precisely as `.com-content-category-blog` does.
+const CSVP_POSCHIAVO_WARP_BLOG_CONTENT_SELECTOR = 'body.tm-isblog #tm-content';
 const CSVP_POSCHIAVO_CONTENT_ROOT_SELECTOR =
   'main, [role="main"], #sp-main-body, #sp-component, .sp-component';
 const CSVP_POSCHIAVO_NON_CONTENT_ANCESTOR_SELECTOR =
   'header, footer, nav, aside, [role="banner"], [role="navigation"], [role="complementary"], [role="contentinfo"]';
 const CSVP_POSCHIAVO_CATEGORY_TITLE_RE = /^Cerchiamo$/i;
-const CSVP_POSCHIAVO_EMPTY_STATE_SELECTOR = '.alert, [role="alert"], p';
+const CSVP_POSCHIAVO_EMPTY_STATE_SELECTOR = '.alert, .uk-alert, [role="alert"], p';
+const CSVP_POSCHIAVO_ALERT_SELECTOR = '.alert, .uk-alert, [role="alert"]';
 const CSVP_POSCHIAVO_HIDDEN_CLASS_RE =
   /(?:^|\s)(?:d-none|hidden|invisible|visually-hidden|sr-only)(?:\s|$)/i;
 const CSVP_POSCHIAVO_HIDDEN_STYLE_RE =
@@ -100,7 +106,9 @@ export function isCsvpPoschiavoAuthoritativeEmptyPage(html = '') {
     // rather than a semantic <main> on the live CSVP page. Keep the scope at
     // the category component itself and exclude navigation/footer modules so
     // an identical phrase outside the listing cannot prove an empty source.
-    const categoryContainers = [...document.querySelectorAll(CSVP_POSCHIAVO_CATEGORY_CONTAINER_SELECTOR)]
+    const categoryContainers = [...document.querySelectorAll(
+      `${CSVP_POSCHIAVO_CATEGORY_CONTAINER_SELECTOR}, ${CSVP_POSCHIAVO_WARP_BLOG_CONTENT_SELECTOR}`,
+    )]
       .filter(isCsvpPoschiavoListingRoot);
 
     for (const category of categoryContainers) {
@@ -120,7 +128,7 @@ export function isCsvpPoschiavoAuthoritativeEmptyPage(html = '') {
         .find((node) => {
           const parent = node.parentElement;
           const isDirectCategoryState = parent === category
-            || parent?.matches('.alert, [role="alert"]');
+            || parent?.matches(CSVP_POSCHIAVO_ALERT_SELECTOR);
           return isDirectCategoryState
             && isVisibleCsvpNode(node)
             && CSVP_POSCHIAVO_EMPTY_CATEGORY_RE.test(normalizeSpace(node.textContent || ''));
@@ -148,6 +156,7 @@ function isCsvpPoschiavoListingRoot(node) {
   // Joomla's concrete category-blog class is the authoritative component
   // marker, even when the template omits a semantic main/content wrapper.
   if (node.matches('.com-content-category-blog')) return true;
+  if (node.matches(CSVP_POSCHIAVO_WARP_BLOG_CONTENT_SELECTOR)) return true;
 
   // The generic Joomla/YOOtheme markers are valid only inside a known content
   // root; otherwise a layout module can mimic the same `.blog` markup.
