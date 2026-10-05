@@ -8,6 +8,7 @@
  * the Pages publish.
  */
 import { intFromEnv } from '../lib/int-from-env.mjs';
+import { DEFAULT_LIVE_CHECK_USER_AGENT } from '../lib/live-link-check.mjs';
 export const LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
 
 function text(value) {
@@ -55,7 +56,10 @@ async function fetchStatus(url, fetchImpl, timeoutMs) {
   try {
     const response = await fetchImpl(url, {
       redirect: 'manual',
-      headers: { 'cache-control': 'no-cache' },
+      headers: {
+        'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT,
+        'cache-control': 'no-cache',
+      },
       signal: controller.signal,
     });
     return { status: response.status };
