@@ -12583,6 +12583,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gianpaolo-calzi-solbiatese.title': 'Solbiatese calcio: gianpaolo calzi nuovo area tecnica',
     'blog.article.gianpaolo-calzi-solbiatese.excerpt': 'La Solbiatese Calcio annuncia l\'ingresso di Gianpaolo Calzi come nuovo Responsabile dell\'Area Tecnica, puntando a rafforzare la struttura societaria.',
     'blog.article.gianpaolo-calzi-solbiatese.imageAlt': 'Stadio di calcio moderno in un contesto paesaggistico del Ticino.',
+    'blog.article.sequestro-contanti-como-brogeda.title': 'Sequestro di contanti a Como-Brogeda: oltre 240 mila euro',
+    'blog.article.sequestro-contanti-como-brogeda.excerpt': 'Oltre 240.000 euro in contanti sequestrati al valico di Como-Brogeda da ADM e Guardia di Finanza in due distinti interventi.',
+    'blog.article.sequestro-contanti-como-brogeda.imageAlt': 'Controlli doganali e sequestro di denaro al valico di Como-Brogeda',
 };
 
 export default blogMetaIt;

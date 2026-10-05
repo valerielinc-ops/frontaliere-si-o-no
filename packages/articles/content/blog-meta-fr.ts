@@ -12584,6 +12584,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gianpaolo-calzi-solbiatese.title': 'Solbiatese calcio : gianpaolo calzi, nouveau responsable du secteur technique',
     'blog.article.gianpaolo-calzi-solbiatese.excerpt': 'La Solbiatese Calcio annonce l’arrivée de Gianpaolo Calzi en tant que nouveau responsable du secteur technique, avec pour objectif de renforcer la structure du club.',
     'blog.article.gianpaolo-calzi-solbiatese.imageAlt': 'Stade de football moderne dans un cadre paysager au Tessin.',
+    'blog.article.sequestro-contanti-como-brogeda.title': 'Saisie d\'espèces à Como-Brogeda : plus de 240 mila euro',
+    'blog.article.sequestro-contanti-como-brogeda.excerpt': 'Plus de 240.000 euro en espèces saisis au poste-frontière de Como-Brogeda par ADM et Guardia di Finanza lors de deux interventions distinctes.',
+    'blog.article.sequestro-contanti-como-brogeda.imageAlt': 'Contrôles douaniers et saisie de liquidités à la frontière de Como-Brogeda',
 };
 
 export default blogMetaFr;

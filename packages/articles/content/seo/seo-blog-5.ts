@@ -99027,6 +99027,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sequestro-contanti-como-brogeda': {
+    title: 'Sequestro di contanti a Como-Brogeda: oltre 240 mila euro',
+    description: 'Scopri i dettagli dei controlli doganali a Como-Brogeda dove ADM e Guardia di Finanza hanno sequestrato oltre 240.000 euro in contanti in due interventi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sequestro, contanti, como-brogeda, oltre',
+    ogTitle: 'Sequestro di contanti a Como-Brogeda: oltre 240 mila euro',
+    ogDescription: 'Intercettati oltre 240.000 euro in contanti al valico autostradale di Como-Brogeda nei controlli di ADM e Guardia di Finanza. Scopri tutti i dettagli degli interventi.',
+    canonicalPath: '/articoli-frontaliere/sequestro-contanti-como-brogeda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sequestro di contanti a Como-Brogeda: oltre 240 mila euro",
+      "description": "Scopri i dettagli dei controlli doganali a Como-Brogeda dove ADM e Guardia di Finanza hanno sequestrato oltre 240.000 euro in contanti in due interventi.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sequestro-contanti-como-brogeda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Controlli doganali e sequestro di denaro al valico di Como-Brogeda"
+      },
+      "datePublished": "2026-10-05T06:29:04+00:00",
+      "dateModified": "2026-10-05T06:29:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sequestro-contanti-como-brogeda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
