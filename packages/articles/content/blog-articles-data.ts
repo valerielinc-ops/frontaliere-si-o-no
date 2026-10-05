@@ -56,7 +56,8 @@ export interface Article {
  authorName?: string;
 }
 
-const RAW_ARTICLES = [
+const RAW_ARTICLES: Article[] = [
+  ...([
  {
  id: 'stipendio-netto-2026',
  category: 'fiscale',
@@ -9107,6 +9108,8 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+  ] as Article[]),
+  ...([
   {
  id: 'verdi-ticino-cantonali-2026',
  category: 'novita',
@@ -18107,6 +18110,8 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+  ] as Article[]),
+  ...([
  {
  id: 'thun-vince-calcio-programmazione',
  category: 'novita',
@@ -27129,6 +27134,8 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+  ] as Article[]),
+  ...([
  {
  id: 'trasferirsi-a-valsolda-da-frontaliere-pro-e-contro',
  category: 'pratico',
@@ -36367,6 +36374,8 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+  ] as Article[]),
+  ...([
  {
  id: 'trenta-viaggiatori-gallarate-malpensa',
  category: 'pratico',
@@ -37778,7 +37787,9 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
-] satisfies Article[];
+
+  ] as Article[]),
+];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
 // instead of the Pages artifact — see services/seo/blogImageCdn.ts. The raw
