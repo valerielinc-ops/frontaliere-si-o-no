@@ -72,6 +72,7 @@ import { isSectionPagePath, parseSectionPagePath } from '../build-plugins/sectio
 import { isFiscalHubPath, parseFiscalHubPath, parseFiscalMunicipalityPath } from '../build-plugins/fiscalMunicipalityData';
 import { buildPharmacyPath, parsePharmacyRoute, type PharmacyPath } from './pharmacies/routePaths';
 import { buildPlateAuctionPath, parsePlateAuctionPath } from './plateAuctions/paths';
+import { documentOwnedByCorpus, isCantonArticlePath } from './cantonArticlePaths';
 import type { PlateVehicleType } from './plateAuctions/types';
 import {
   isFrenchBorderMunicipalityHubPath,
@@ -2649,6 +2650,17 @@ export function parsePath(pathname: string): ParseResult {
  // shorter: `/articoli-frontaliere/argomenti/` reads as `blogSlug:
  // 'argomenti'` exactly, so without this the page would 404 into the SPA's
  // deferred-article view after hydration even though the static HTML is there.
+ // Canton article sections (piano «sezioni articoli per cantone», S2): pages
+ // served by the CORPUS from R2, with no React view. Same slug trap as the
+ // topic hubs below — the blog parser would read `/articoli-<cantone>/<x>/` as an
+ // article slug or fall to notFoundPath, hiding the static HTML. Claimed only
+ // when the booted document is corpus-owned (route-owner meta): a section that
+ // is not live yet 404s, the 404 page restores the path on the homepage
+ // document, and that must keep resolving to notFoundPath as before.
+ if (isCantonArticlePath(pathname) && documentOwnedByCorpus()) {
+   return { route: { activeTab: 'blog', staticOverlay: true }, locale };
+ }
+
  if (isTopicClusterHubPath(pathname) || isTopicIndexPath(pathname)) {
    const section =
      resolveTopicClusterHubSection(pathname) ?? resolveTopicIndexSection(pathname);

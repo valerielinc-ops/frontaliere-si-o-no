@@ -44,14 +44,14 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
 
-      # Env for build-evidence-index.mjs (GA4_PROPERTY_ID, POSTHOG_*) +
+      # Env for build-evidence-index.mjs (GA4_PROPERTY_ID; no PostHog since H9) +
       # build-article-embeddings.mjs (OPENAI_API_KEY) is populated via
       # load-rc-env.mjs above, which writes RC keys to $GITHUB_ENV.
       # No explicit `env:` here — that would shadow RC values with empty
       # GitHub secret references. FIREBASE_SERVICE_ACCOUNT_JSON also
       # already in env via the first step.
       #
-      # The evidence index (GA4/PostHog network fetch) and the article
+      # The evidence index (GSC/GA4 network fetch) and the article
       # embeddings (local ONNX CPU work) are independent and write disjoint
       # files (data/evidence-index.json vs data/article-embeddings*.{bin,json}),
       # so they run as ordinary shell processes in parallel. The explicit waits

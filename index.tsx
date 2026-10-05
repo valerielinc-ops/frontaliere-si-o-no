@@ -4,7 +4,11 @@ import './index.css';
 import { installDomReconciliationGuard } from './services/domReconciliationGuard';
 import { maybeHandleCvDownload } from './services/cvDownloadIntercept';
 import { clearAssetCaches } from './services/resilientImport';
-import { adoptStaticFallbackIntoRoot } from './services/staticFallbackHandoff';
+import {
+ adoptStaticFallbackIntoRoot,
+ hideRootForCrossfade,
+ waitForStaticFirstPaint,
+} from './services/staticFallbackHandoff';
 
 // Harden the DOM against third-party mutation (Google Translate, extensions)
 // crashing React's reconciler with NotFoundError on insertBefore/removeChild.
@@ -128,6 +132,12 @@ const mountApp = async () => {
 
  const homeCritical = isHomeCriticalPath(window.location.pathname);
  let staticPage = hasStaticContent();
+ // Let the browser present the static HTML once before anything below can
+ // hide it (adoption into #root + opacity crossfade). Started now so the wait
+ // overlaps the App chunk download; awaited right before the first hide.
+ // Without it the hide could win the race against the first frame and the
+ // page stayed blank until React rendered (issue 11666).
+ const staticFirstPaint = waitForStaticFirstPaint();
 
  const [{ default: RootPage }, { ChunkLoadErrorBoundary }, i18n] = await Promise.all([
  import('./App'),
@@ -160,6 +170,8 @@ const mountApp = async () => {
  // chunk — it is already loaded with App above, so this resolves from cache.
  // Gated on staticOverlay so true static landings keep their overlay; crawlers
  // (no JS) still get the fallback verbatim.
+ await staticFirstPaint;
+
  try {
    const { parsePath } = await import('./services/router');
    if (!parsePath(window.location.pathname).route.staticOverlay
@@ -204,10 +216,7 @@ const mountApp = async () => {
  // the layout SHIFT. Reserve #root's prerendered height as a min-height floor so
  // its transient collapse can't move the blocks below; released after the React
  // content paints (heights match — same page — so the release is shift-free).
- const reservedRootHeight = rootElement.offsetHeight;
- if (reservedRootHeight > 0) rootElement.style.minHeight = `${reservedRootHeight}px`;
- rootElement.style.transition = 'opacity 80ms ease-out';
- rootElement.style.opacity = '0';
+ hideRootForCrossfade(rootElement);
 
  // Wait for the fade-out to complete before React replaces content
  await new Promise<void>((resolve) => {

@@ -159,7 +159,7 @@
       "slug": "cuoco-ausiliario-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "cuoco-ausiliario-weisse-arena-gruppe-laax",
-        "en": "hilfskoch-hilfskochin-weisse-arena-gruppe-laax",
+        "en": "auxiliary-cook-weisse-arena-gruppe-laax",
         "de": "hilfskoch-hilfskochin-weisse-arena-ch",
         "fr": "cuisiniere-auxiliaire-weisse-arena-gruppe-laax"
       },
@@ -169,7 +169,7 @@
       "title": "Hilfskoch/Hilfsköchin",
       "titleByLocale": {
         "it": "Cuoco ausiliario",
-        "en": "Hilfskoch/Hilfsköchin",
+        "en": "Auxiliary cook",
         "de": "Hilfskoch/Hilfsköchin",
         "fr": "Cuisinière auxiliaire"
       },
@@ -211,7 +211,6 @@
         "hilfskoch-hilfskochin-weisse-arena-ch",
         "cuisiniere-kochin-weisse-arena-gruppe-laax",
         "cook-kochin-weisse-arena-gruppe-laax",
-        "auxiliary-cook-weisse-arena-gruppe-laax",
         "hilfskoch-hilfskochin-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
@@ -222,7 +221,6 @@
         ],
         "en": [
           "hilfskoch-hilfskochin-weisse-arena-ch",
-          "auxiliary-cook-weisse-arena-gruppe-laax",
           "hilfskoch-hilfskochin-weisse-arena-gruppe-laax"
         ],
         "fr": [
@@ -230,7 +228,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:47:08.545Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -346,7 +343,7 @@
       "title": "Hilfskoch/Hilfsköchin Capalari",
       "titleByLocale": {
         "it": "Assistente cuoco / cuoco ausiliario Capalari",
-        "en": "Hilfskoch/Hilfsköchin Capalari",
+        "en": "Assistant cook/auxiliary cook Capalari",
         "de": "Hilfskoch/Hilfsköchin Capalari",
         "fr": "Cuisinier adjoint/cuisinier auxiliaire Capalari"
       },
@@ -403,7 +400,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:33:53.070Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -651,7 +647,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T21:29:12.113Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -916,7 +911,7 @@
       "slug": "manopole-in-weisse-arena-gruppe-laax-9ee6bc",
       "slugByLocale": {
         "it": "manopole-in-weisse-arena-gruppe-laax-9ee6bc",
-        "en": "shift-leader-weisse-arena-gruppe-laax",
+        "en": "shiftleader-in-weisse-arena-ch-2",
         "de": "shiftleader-in-weisse-arena-ch",
         "fr": "chef-de-quart-en-weisse-arena-gruppe-laax-9ee6bc"
       },
@@ -966,7 +961,6 @@
       "contractLabel": "Saisonanstellung",
       "previousSlugs": [
         "shiftleader-in-weisse-arena-ch",
-        "shiftleader-in-weisse-arena-ch-2",
         "shift-leader-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
@@ -974,7 +968,6 @@
           "shiftleader-in-weisse-arena-ch"
         ],
         "en": [
-          "shiftleader-in-weisse-arena-ch-2",
           "shift-leader-weisse-arena-gruppe-laax"
         ]
       },
@@ -1000,7 +993,7 @@
       "slug": "manopole-in-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "manopole-in-weisse-arena-gruppe-laax",
-        "en": "shift-league-weisse-arena-gruppe-laax",
+        "en": "shiftleader-in-weisse-arena-ch-2-ctf0gg",
         "de": "shiftleader-in-weisse-arena-ch",
         "fr": "chef-de-quart-en-weisse-arena-gruppe-laax"
       },
@@ -1052,7 +1045,6 @@
         "shiftleader-in-weisse-arena-ch",
         "shiftleader-in-weisse-arena-ch-2",
         "shiftleader-in-weisse-arena-ch-ctf0gg",
-        "shiftleader-in-weisse-arena-ch-2-ctf0gg",
         "shift-league-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
@@ -1062,7 +1054,6 @@
         ],
         "en": [
           "shiftleader-in-weisse-arena-ch-2",
-          "shiftleader-in-weisse-arena-ch-2-ctf0gg",
           "shift-league-weisse-arena-gruppe-laax"
         ],
         "de": [
@@ -1367,9 +1358,9 @@
       "slug": "pizzaiolo-a-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "pizzaiolo-a-weisse-arena-gruppe-laax",
-        "en": "pizzaiolo-a-weisse-arena-gruppe-laax",
+        "en": "pizza-maker-weisse-arena-gruppe-laax",
         "de": "pizzaiolo-a-weisse-arena-ch",
-        "fr": "pizzaiolo-a-weisse-arena-gruppe-laax"
+        "fr": "fabrication-de-pizza-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -1416,21 +1407,17 @@
       "pensum": "60 - 100%",
       "contractLabel": "Saisonanstellung",
       "previousSlugs": [
-        "pizzaiolo-a-weisse-arena-ch",
-        "pizza-maker-weisse-arena-gruppe-laax",
-        "fabrication-de-pizza-weisse-arena-gruppe-laax"
+        "pizzaiolo-a-weisse-arena-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pizzaiolo-a-weisse-arena-ch"
         ],
         "en": [
-          "pizzaiolo-a-weisse-arena-ch",
-          "pizza-maker-weisse-arena-gruppe-laax"
+          "pizzaiolo-a-weisse-arena-ch"
         ],
         "fr": [
-          "pizzaiolo-a-weisse-arena-ch",
-          "fabrication-de-pizza-weisse-arena-gruppe-laax"
+          "pizzaiolo-a-weisse-arena-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1522,7 +1509,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:40:02.606Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -1543,7 +1529,7 @@
       "slug": "restauro-integrale-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "restauro-integrale-weisse-arena-gruppe-laax",
-        "en": "allrounder-in-restauration-weisse-arena-gruppe-laax",
+        "en": "all-rounder-restoration-weisse-arena-gruppe-laax",
         "de": "allrounder-in-restauration-weisse-arena-ch",
         "fr": "restauration-complete-weisse-arena-gruppe-laax"
       },
@@ -1593,7 +1579,6 @@
       "contractLabel": "Saisonanstellung",
       "previousSlugs": [
         "allrounder-in-restauration-weisse-arena-ch",
-        "all-rounder-restoration-weisse-arena-gruppe-laax",
         "allrounder-in-restauration-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
@@ -1601,7 +1586,6 @@
           "allrounder-in-restauration-weisse-arena-ch"
         ],
         "en": [
-          "all-rounder-restoration-weisse-arena-gruppe-laax",
           "allrounder-in-restauration-weisse-arena-gruppe-laax"
         ]
       },
@@ -1791,7 +1775,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:40:02.616Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -2060,7 +2043,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:40:02.623Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -2146,7 +2128,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:59:47.375Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -2167,7 +2148,7 @@
       "slug": "cucina-cucina-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "cucina-cucina-weisse-arena-gruppe-laax",
-        "en": "koch-kochin-weisse-arena-gruppe-laax",
+        "en": "cook-cook-weisse-arena-gruppe-laax",
         "de": "koch-kochin-weisse-arena-ch",
         "fr": "cuire-faire-cuire-weisse-arena-gruppe-laax"
       },
@@ -2177,7 +2158,7 @@
       "title": "Koch /Köchin",
       "titleByLocale": {
         "it": "Cucina / cucina",
-        "en": "Koch /Köchin",
+        "en": "Cook / cook",
         "de": "Koch /Köchin",
         "fr": "Cuire / faire cuire"
       },
@@ -2219,8 +2200,8 @@
         "koch-kochin-weisse-arena-ch",
         "koch-kochin-weisse-arena-ch-2",
         "koch-kochin-weisse-arena-ch-7ljqqk",
-        "cook-cook-weisse-arena-gruppe-laax",
-        "koch-kochin-weisse-arena-gruppe-laax"
+        "koch-kochin-weisse-arena-gruppe-laax",
+        "koch-kochin-weisse-arena-gruppe-laax-7ljqqk"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2229,8 +2210,8 @@
         ],
         "en": [
           "koch-kochin-weisse-arena-ch-2",
-          "cook-cook-weisse-arena-gruppe-laax",
-          "koch-kochin-weisse-arena-gruppe-laax"
+          "koch-kochin-weisse-arena-gruppe-laax",
+          "koch-kochin-weisse-arena-gruppe-laax-7ljqqk"
         ],
         "de": [
           "koch-kochin-weisse-arena-ch-7ljqqk"
@@ -2240,7 +2221,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:28:06.627Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -2261,9 +2241,9 @@
       "slug": "koch-kochin-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "de": "koch-kochin-weisse-arena-ch",
-        "it": "koch-kochin-weisse-arena-gruppe-laax",
-        "en": "koch-kochin-weisse-arena-gruppe-laax",
-        "fr": "koch-kochin-weisse-arena-gruppe-laax"
+        "it": "cucina-chef-weisse-arena-gruppe-laax",
+        "en": "cook-chef-weisse-arena-gruppe-laax",
+        "fr": "cuisson-chef-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -2271,9 +2251,9 @@
       "title": "Koch/Köchin",
       "titleByLocale": {
         "de": "Koch/Köchin",
-        "en": "Koch/Köchin",
-        "it": "Koch/Köchin",
-        "fr": "Koch/Köchin"
+        "en": "cook",
+        "it": "Cuoco/cuoca",
+        "fr": "Chef / cuisinier"
       },
       "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Mit Bergbahnen, Hotels, Gastronomie, Sport- und Rental-Shops sowie der LAAX School schaffen wir unvergessliche Erlebnisse für unsere Gäste - und attraktive Arbeitsplätze für unsere Mitarbeitenden. | Im Restaurant IKIGAI mit seinen 100 Sitzplätzen und Aussenbereich im Sommer laden wir unsere Gäste ein auf eine kulinarische Reise durch Asien – mit Gerichten aus der japanischen, koreanischen, thailändischen, chinesischen und indischen Küche. In entspannter, urbaner Atmosphäre verarbeiten wir authentische Aromen sowie frische Zutaten zu klassischen Speisen und kreativen Interpretationen. Ob würzige Currys, dampfende Dumplings, knuspriges Streetfood oder farbenfrohe Bowls – im IKIGAI findet jeder sein neues asiatisches Lieblingsgericht. | Stell dir vor, du verstärkst unser Team als Koch/Köchin mit viel Sinn für unkomplizierte Asiatische Kulinarik in unserem Restaurant IKIGAI im rocksresort. | Was du bewegst:\n• Du bereitest asiatische Speisen in der offenen Küche zu\n• Du hast gute Kenntnisse in der Zubereitung von Sushi-Variationen\n• Du kümmerst dich um das Mise en place\n• Du bist für die Warenannahme und Lagerbewirtschaftung zuständig\n• Du hälst die Hygienevorschriften ein\n• Du unterstützt bei den Reinigungsarbeiten in der Küche | Was dich ausmacht:\n• Du hast eine abgeschlossene Berufsbildung als Koch\n• Du hast 2-3 Jahre Berufserfahrung, Kenntnisse der asiatischen Küche sind von Vorteil\n• Du hast idealerweise eine Weiterbildung oder gute Erfahrung als Sushi- Koch\n• Du arbeitest selbstständig und hast ein hohes Engagement und Zuverlässigkeit\n• Du bewahrst Ruhe in hektischen Situationen\n• Du bist ein Teamplayer\n• Du hast gute Deutschkenntnisse, English ist von Vorteil | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung von LAAX mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Weisse Arena Hospitality AG Restaurant IKIGAI Vanessa Becker www.weissearena.com I www.laax.com",
       "descriptionByLocale": {
@@ -2317,25 +2297,19 @@
         "cucina-chef-weisse-arena-gruppe-laax-952c80",
         "cook-chef-weisse-arena-gruppe-laax-952c80",
         "cuisson-chef-weisse-arena-gruppe-laax-952c80",
-        "koch-kochin-weisse-arena-ch",
-        "cucina-chef-weisse-arena-gruppe-laax",
-        "cook-chef-weisse-arena-gruppe-laax",
-        "cuisson-chef-weisse-arena-gruppe-laax"
+        "koch-kochin-weisse-arena-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cucina-kochin-weisse-arena-gruppe-laax",
           "cucina-chef-weisse-arena-gruppe-laax-952c80",
-          "koch-kochin-weisse-arena-ch",
-          "cucina-chef-weisse-arena-gruppe-laax"
+          "koch-kochin-weisse-arena-ch"
         ],
         "en": [
-          "cook-chef-weisse-arena-gruppe-laax-952c80",
-          "cook-chef-weisse-arena-gruppe-laax"
+          "cook-chef-weisse-arena-gruppe-laax-952c80"
         ],
         "fr": [
-          "cuisson-chef-weisse-arena-gruppe-laax-952c80",
-          "cuisson-chef-weisse-arena-gruppe-laax"
+          "cuisson-chef-weisse-arena-gruppe-laax-952c80"
         ]
       },
       "salaryMin": 62000,
@@ -2422,7 +2396,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:28:06.628Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -2835,7 +2808,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:51:52.360Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -3003,7 +2975,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:51:52.361Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -3172,7 +3143,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T15:57:39.646Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -3304,7 +3274,7 @@
         "it": "capo-squadra-di-servizio-weisse-arena-gruppe-laax",
         "en": "service-team-lead-weisse-arena-gruppe-laax",
         "de": "service-teamlead-weisse-arena-ch",
-        "fr": "service-teamlead-weisse-arena-gruppe-laax"
+        "fr": "chef-d-equipe-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -3352,7 +3322,6 @@
       "contractLabel": "Saisonanstellung",
       "previousSlugs": [
         "service-teamlead-weisse-arena-ch",
-        "chef-d-equipe-weisse-arena-gruppe-laax",
         "service-teamlead-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
@@ -3363,7 +3332,6 @@
           "service-teamlead-weisse-arena-ch"
         ],
         "fr": [
-          "chef-d-equipe-weisse-arena-gruppe-laax",
           "service-teamlead-weisse-arena-gruppe-laax"
         ]
       },
@@ -3712,12 +3680,12 @@
     },
     {
       "id": "weisse-arena-4ffc2139dab2",
-      "slug": "allrounder-kuchenhilfe-weisse-arena-ch",
+      "slug": "allrounder-cucina-aiuto-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "de": "allrounder-kuchenhilfe-weisse-arena-ch",
-        "it": "allrounder-kuchenhilfe-weisse-arena-ch",
-        "en": "allrounder-kuchenhilfe-weisse-arena-ch",
-        "fr": "allrounder-kuchenhilfe-weisse-arena-ch"
+        "it": "allrounder-cucina-aiuto-weisse-arena-gruppe-laax",
+        "en": "allrounder-kitchen-help-weisse-arena-gruppe-laax",
+        "fr": "allrounder-aide-cuisine-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -3725,9 +3693,9 @@
       "title": "Allrounder / Küchenhilfe",
       "titleByLocale": {
         "de": "Allrounder / Küchenhilfe",
-        "it": "Allrounder / Küchenhilfe",
-        "en": "Allrounder / Küchenhilfe",
-        "fr": "Allrounder / Küchenhilfe"
+        "it": "Allrounder / cucina aiuto",
+        "en": "Allrounder / kitchen help",
+        "fr": "Allrounder / aide cuisine"
       },
       "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Mit Bergbahnen, Hotels, Gastronomie, Sport- und Rental-Shops sowie der LAAX School schaffen wir unvergessliche Erlebnisse für unsere Gäste - und attraktive Arbeitsplätze für unsere Mitarbeitenden. | Auf 1980 Metern über Meer befindet sich die Stalla Alp Nagens , wo das frisch umgebaute Restaurant Stalla im rustikalen Kuhstall das ganze Jahr über zum Geniessen einlädt. Hier erwarten dich regionale Spezialitäten mit eigenem Alpkäse, feines Fondue, Raclette und weitere Schweizer Klassiker. Die Sonnenterrasse lädt zum Verweilen ein und nach einem Tag auf der Piste oder einer Winterwanderung geniesst du hier die letzten Sonnenstrahlen bevor es zurück ins Tal geht. | Für die Alp Stalla in Laax suchen wir motivierte Unterstützung an unserer Raclette-Station. Du hast Freude am Kontakt mit Gästen, arbeitest gerne sauber und speditiv und bringst gute Laune mit? Dann bist du bei uns genau richtig. | Was du bewegst:\n• Du bereitest Raclette zu und richtest es an\n• Du bedienst unsere Gäste freundlich und aufmerksam\n• Du hältst die Station sauber und organisiert\n• Du hilfst mit, dass unsere Gäste einen unvergesslichen Bergmoment erleben | Was dich ausmacht:\n• Du bist dir bewusst, dass du den ganzen Tag am Feuer arbeitest, und fühlst dich dabei wohl\n• Du hast Freude an Gastronomie und Gästekontakt\n• Du bist zuverlässig und arbeitest gerne im Team\n• Du arbeitest sauber und sorgfältig\n• Du bleibst motiviert und behältst auch an lebhaften Tagen den Überblick | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung von LAAX mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Weisse Arena Hospitality AG Stalla Alp Nagens Viviene Tonitz www.weissearena.com I www.laax.com I Stalla - Alp Nagens",
       "descriptionByLocale": {
@@ -3780,7 +3748,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-05T09:19:22.212Z"
+      "firstSeenAt": "2026-10-05T09:19:22.212Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "allrounder-kuchenhilfe-weisse-arena-ch"
+        ],
+        "en": [
+          "allrounder-kuchenhilfe-weisse-arena-ch"
+        ],
+        "fr": [
+          "allrounder-kuchenhilfe-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-kuchenhilfe-weisse-arena-ch"
+      ]
     }
   ]
 }

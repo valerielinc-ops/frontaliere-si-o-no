@@ -1,10 +1,13 @@
 {
   "bardonnex": {
     "morning": "0-5 min",
-    "evening": "0-4 min"
+    "evening": "0-6 min"
   },
   "basel-weil-am-rhein-autostrada-a2-a5": {
     "evening": "0-3 min"
+  },
+  "basel-weil-am-rhein-hiltalingerstrasse": {
+    "evening": "0-2 min"
   },
   "chiasso-brogeda": {
     "morning": "0-8 min",
@@ -12,11 +15,11 @@
   },
   "chiasso-centro": {
     "morning": "0-2 min",
-    "evening": "0-3 min"
+    "evening": "0-4 min"
   },
   "chiasso-strada": {
     "morning": "0-29 min",
-    "evening": "1-5 min"
+    "evening": "1-8 min"
   },
   "gaggiolo": {
     "morning": "0-8 min",
@@ -58,6 +61,7 @@
     "evening": "0-2 min"
   },
   "waldshut-tiengen-koblenz-ag": {
-    "morning": "0-2 min"
+    "morning": "0-2 min",
+    "evening": "0-2 min"
   }
 }

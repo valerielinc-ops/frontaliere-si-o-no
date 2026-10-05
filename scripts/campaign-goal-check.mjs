@@ -22,8 +22,11 @@
  *                only — NEVER opens an issue by itself (a single broken goal
  *                must not spam issues on a live-still-maturing metric).
  *   unmeasurable → the goal's data source doesn't support the query on this
- *                plan/endpoint (currently only possible for bing_clicks).
- *                Logged with a note, no issue.
+ *                plan/endpoint (bing_clicks), its source is not alive over
+ *                the goal's window (GA4 vitality guard), or the goal has no
+ *                GA4 equivalent since PostHog stopped being a monitor source
+ *                (decision H9, 2026-10-05: dead_clicks_reduction,
+ *                calc_deeplink_input_start). Logged with a note, no issue.
  *
  * Anti-watchdog-dead guard (mirrors scripts/cwv-monitor-check.mjs): a single
  * goal's provider failure is soft (state=error, no issue) — but if EVERY
@@ -42,8 +45,12 @@
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { existsSync, readFileSync } from 'node:fs';
-import { runHogQL } from './lib/posthog-client.mjs';
-import { checkPostHogLiveness, declareNotMeasurable, evaluateLiveness } from './lib/source-liveness.mjs';
+import {
+  checkGa4Liveness,
+  declareNotMeasurable,
+  evaluateLiveness,
+  GA4_LIVENESS_LAG_DAYS,
+} from './lib/source-liveness.mjs';
 import { aggregateFamilyRows } from './lib/seo-ctr-curve.mjs';
 import { computeCtr } from './lib/analytics-opportunity-utils.mjs';
 import { getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
@@ -61,10 +68,9 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 // from this + matureAfterDays, never from a second hardcoded date.
 export const CAMPAIGN_START = '2026-07-17';
 
-// Widest lookback any PostHog goal queries (evalErrorRate /
-// evalCalcDeeplinkInputStart use 30 DAY; the two 14d goals declare
-// `windowDays: 14` and are ruled on over their own window).
-const POSTHOG_MAX_GOAL_WINDOW_DAYS = 30;
+// Widest window of a liveness-guarded goal (error_rate, 30d; the alert
+// funnel declares `windowDays: 14` and is ruled on over its own window).
+const LIVENESS_MAX_GOAL_WINDOW_DAYS = 30;
 
 // ---------------------------------------------------------------------------
 // Pure date/state-machine helpers (exported for unit tests — no I/O, no env).
@@ -91,15 +97,12 @@ export function decideGoalAction({ matureAt, now, priorState }) {
 }
 
 // ---------------------------------------------------------------------------
-// PostHog goals (#4298, #4304 x2, #4307) — HogQL via scripts/lib/posthog-client.mjs
+// Product-event goals (#4298, #4304 x2, #4307). Until decision H9
+// (2026-10-05, «rimpiazza PostHog con GA4») they were PostHog HogQL goals
+// with a GA4 fallback; GA4 is now their only source. The two goals with no
+// GA4 equivalent stay declared but never read PostHog again — see
+// `noGa4Equivalent` below.
 // ---------------------------------------------------------------------------
-
-async function hogqlRow(query) {
-  const res = await runHogQL(query);
-  const row = res?.results?.[0];
-  if (!row) throw new Error('PostHog query returned no rows');
-  return row;
-}
 
 function fmtPct(n) {
   return n === null || n === undefined || Number.isNaN(n) ? 'n/a' : `${(n * 100).toFixed(2)}%`;
@@ -129,23 +132,6 @@ export const ALERT_CTA_SURFACE_NOT_SET = '(not set)';
 // tighten it only after the scheduled preflight has produced evidence.
 export const ALERT_CTA_SURFACE_MAX_NOT_SET_SHARE = 0.05;
 
-function alertCtaSurfaceHogqlFilter() {
-  const values = ALERT_CTA_SURFACES.map((surface) => `'${surface}'`).join(', ');
-  return `properties.cta_surface IN (${values})`;
-}
-
-/** The person-scoped alert funnel, restricted to impression-bearing surfaces. */
-export function buildAlertFunnelHogqlQuery() {
-  return `
-    SELECT
-      uniqIf(person_id, event = 'job_alert_created') AS created,
-      uniqIf(person_id, event = 'job_alert_cta_shown') AS shown
-    FROM events
-    WHERE timestamp >= now() - INTERVAL 14 DAY
-      AND ${alertCtaSurfaceHogqlFilter()}
-  `;
-}
-
 // #4298 — funnel: job_alert_cta_shown → job_alert_created, 14d, target >= 5%.
 //
 // Counted per PERSON, not per event (fix #7311). A funnel conversion answers
@@ -163,9 +149,8 @@ export function buildAlertFunnelHogqlQuery() {
 // This is a measurement-correctness fix, NOT a threshold relaxation: the
 // target stays 5% and the goal still fails at 4.51% (same posture as the
 // instrumentation fix in tests/job-alert-impression-contract.test.tsx). The
-// two other funnel goals in this file were already person/session-scoped —
-// `evalErrorRate` counts persons and `evalCalcDeeplinkInputStart` counts
-// `uniq($session_id)`; the alert funnel was the only one left on raw events.
+// error-rate goal is person-scoped too (`totalUsers`). `viaGa4: false` keeps
+// the historical PostHog wording ("persone") for records written before H9.
 export function alertFunnelOutcome({ created, shown, viaGa4 = false, ctaSurfaceNotSetShare = null }) {
   const shownN = Number(shown) || 0;
   const createdN = Number(created) || 0;
@@ -182,27 +167,19 @@ export function alertFunnelOutcome({ created, shown, viaGa4 = false, ctaSurfaceN
       shown: shownN,
       ...(viaGa4 && ctaSurfaceNotSetShare !== null ? { ctaSurfaceNotSetShare } : {}),
     },
-    targetDescription: `>= 5% (${unit} job_alert_created / ${unit} job_alert_cta_shown, 14gg${viaGa4 ? ', fallback GA4' : ''})`,
-    detail: `${createdN}/${shownN} ${unit} = ${fmtPct(rate)}${coverageDetail}${viaGa4 ? ' [GA4 fallback — PostHog non misurabile]' : ''}`,
+    targetDescription: `>= 5% (${unit} job_alert_created / ${unit} job_alert_cta_shown, 14gg${viaGa4 ? ', GA4' : ''})`,
+    detail: `${createdN}/${shownN} ${unit} = ${fmtPct(rate)}${coverageDetail}${viaGa4 ? ' [GA4]' : ''}`,
   };
 }
 
-async function evalAlertFunnelConversion() {
-  const [created, shown] = await hogqlRow(buildAlertFunnelHogqlQuery());
-  return alertFunnelOutcome({ created, shown });
-}
-
-// GA4 fallback for #4298, used only when the PostHog vitality guard says the
-// primary source is dead (2026-08-25 owner decision, issue #6463: fall back
-// to GA4 instead of leaving the goal `unmeasurable` for the whole duration
-// of an outage). job_alert_cta_shown and job_alert_created are mirrored to
-// GA4 verbatim by Analytics.log() (services/analytics.ts — the same call
+// #4298 on GA4 (primary since H9; GA4 fallback since the 2026-08-25 owner
+// decision, issue #6463). job_alert_cta_shown and job_alert_created reach GA4
+// verbatim through Analytics.log() (services/analytics.ts — the same call
 // fires both posthogCapture() and the Firebase/GA4 log), so GA4's
-// per-eventName `totalUsers` is a faithful substitute for the PostHog
-// uniqIf(person_id, ...) once the read-only cta_surface preflight succeeds and
-// the same seven-surface allowlist is applied. #4304's
-// native $dead_click (PostHog-only autocapture) and #4307's session-scoped
-// funnel have no GA4 equivalent and are not given a fallback — see GOALS.
+// per-eventName `totalUsers` measures the person-scoped funnel once the
+// read-only cta_surface preflight succeeds and the same seven-surface
+// allowlist is applied. #4304's native $dead_click (PostHog-only autocapture)
+// and #4307's session-scoped funnel have no GA4 equivalent — see GOALS.
 export async function evalAlertFunnelConversionGa4({
   token = null,
   runReportImpl = ga4RunReport,
@@ -212,7 +189,7 @@ export async function evalAlertFunnelConversionGa4({
   const preflight = await checkAlertCtaSurfaceDimension(accessToken, 14, { runReportImpl, logImpl });
   if (!preflight.ready) return { unmeasurable: true, note: preflight.reason };
   // `totalUsers` broken down by eventName = distinct users who fired that
-  // event, GA4's equivalent of the HogQL uniqIf(person_id, ...) above.
+  // event: the person-scoped count the funnel needs.
   const counts = await ga4EventCountByName(
     accessToken,
     ALERT_FUNNEL_EVENT_NAMES,
@@ -228,33 +205,11 @@ export async function evalAlertFunnelConversionGa4({
   });
 }
 
-// #4304 — PostHog's native $dead_click, 14d, target < 5,991 (baseline 25,675
-// at 30d, -50% target reproportioned to the 14d maturation window: 25675 *
-// 14/30 * 0.5 ≈ 5,991). Note: a separate custom `dead_click` event also
-// exists (2,746/30d per #4304) but the issue's declared target tracks the
-// native $dead_click count specifically.
-async function evalDeadClicksReduction() {
-  const [deadClicks] = await hogqlRow(`
-    SELECT count() AS dead_clicks
-    FROM events
-    WHERE event = '$dead_click'
-      AND timestamp >= now() - INTERVAL 14 DAY
-  `);
-  const n = Number(deadClicks) || 0;
-  const TARGET = 5991;
-  return {
-    passed: n < TARGET,
-    value: { deadClicks: n },
-    targetDescription: `< ${TARGET} $dead_click events (14gg, -50% su baseline riproporzionata da 25.675/30gg)`,
-    detail: `${n} $dead_click (14gg)`,
-  };
-}
-
-// #4304/#7312 — error rate, 30d, target < 1%. The PostHog primary counts all
-// app_error/exception/$exception persons. The GA4 fallback is narrower because
-// GA4 retains historical self-healed module-link noise; its filter keeps only
-// actionable error types and mirrors the proven non-actionable classes from
-// scripts/lib/error-issue-sync.mjs. Neither provider exposes an ad_blocker
+// #4304/#7312 — error rate, 30d, target < 1%, on GA4 (primary since H9). The
+// retired PostHog query counted all app_error/exception/$exception persons;
+// the GA4 numerator is narrower because GA4 retains historical self-healed
+// module-link noise: its filter keeps only actionable error types and mirrors
+// the proven non-actionable classes from scripts/lib/error-issue-sync.mjs. Neither provider exposes an ad_blocker
 // dimension on these events, so that separate noise remains tolerated by the
 // goal rather than hidden behind an unavailable filter.
 export const GA4_ERROR_RATE_EVENT_NAMES = Object.freeze(['app_error', 'exception']);
@@ -286,7 +241,7 @@ function ga4NotStringFilter(fieldName, { value, matchType }) {
 }
 
 /**
- * GA4 fallback filter for #7312. Raw telemetry stays available in GA4; only
+ * GA4 filter for #7312. Raw telemetry stays available in GA4; only
  * the goal's person-level numerator removes known recovery/environment noise.
  */
 export function buildErrorRateGa4Filter() {
@@ -299,42 +254,12 @@ export function buildErrorRateGa4Filter() {
   );
 }
 
-async function evalErrorRate() {
-  const [errorPersons, pageviewPersons] = await hogqlRow(`
-    SELECT
-      uniqIf(person_id, event IN ('app_error', 'exception', '$exception')) AS error_persons,
-      uniqIf(person_id, event = '$pageview') AS pageview_persons
-    FROM events
-    WHERE timestamp >= now() - INTERVAL 30 DAY
-  `);
-  const pv = Number(pageviewPersons) || 0;
-  const ep = Number(errorPersons) || 0;
-  const rate = pv > 0 ? ep / pv : null;
-  if (rate === null) {
-    // 0 pageview-person su 30gg = blip/risposta vuota PostHog, non un sito
-    // senza traffico: unmeasurable, niente FAILED spurio (review PR #4362).
-    return {
-      passed: false,
-      unmeasurable: true,
-      value: { rate: null, errorPersons: ep, pageviewPersons: pv },
-      targetDescription: '< 1% (persone con errori / persone con $pageview, 30gg)',
-      detail: 'risposta PostHog vuota (0 pageview persons) — riprovo al prossimo run',
-    };
-  }
-  return {
-    passed: rate < 0.01,
-    value: { rate, errorPersons: ep, pageviewPersons: pv },
-    targetDescription: '< 1% (persone con app_error|exception|$exception / persone con $pageview, 30gg)',
-    detail: `${ep}/${pv} = ${fmtPct(rate)} (nota: nessuno dei 3 event type porta il tag ad_blocker, solo resource_load_error — tolleranza rumore ad-blocker non filtrabile accettata)`,
-  };
-}
-
-// GA4 fallback for #4304's error-rate goal (same 2026-08-25 decision as
-// above, issue #6463). app_error and exception are mirrored to GA4 by
+// #4304's error-rate goal on GA4 (primary since H9; fallback since the
+// 2026-08-25 decision, issue #6463). app_error and exception reach GA4 through
 // Analytics.log() like the funnel events above; PostHog's native $exception
-// has no GA4 equivalent, so this fallback's numerator is narrower than the
-// primary query — disclosed in the detail string, not hidden. page_view is
-// GA4's own automatically-collected pageview event, the direct analogue of
+// has no GA4 equivalent, so the numerator is narrower than the retired
+// PostHog query — disclosed in the detail string, not hidden. page_view is
+// GA4's own automatically-collected pageview event, the analogue of
 // PostHog's $pageview.
 export async function evalErrorRateGa4({ tokenImpl = getGoogleAccessToken, runReportImpl = ga4RunReport } = {}) {
   const token = await tokenImpl();
@@ -351,42 +276,42 @@ export async function evalErrorRateGa4({ tokenImpl = getGoogleAccessToken, runRe
       passed: false,
       unmeasurable: true,
       value: { rate: null, errorPersons: errorUsers, pageviewPersons: pageviewUsers },
-      targetDescription: '< 1% (persone con errori azionabili / persone con page_view, 30gg, fallback GA4)',
+      targetDescription: '< 1% (persone con errori azionabili / persone con page_view, 30gg, GA4)',
       detail: 'risposta GA4 vuota (0 pageview users) — riprovo al prossimo run',
+      note: 'risposta GA4 vuota (0 pageview users) — riprovo al prossimo run',
     };
   }
   return {
     passed: rate < 0.01,
     value: { rate, errorPersons: errorUsers, pageviewPersons: pageviewUsers },
-    targetDescription: '< 1% (persone con errori azionabili / persone con page_view, 30gg, fallback GA4)',
-    detail: `${errorUsers}/${pageviewUsers} = ${fmtPct(rate)} [GA4 fallback — PostHog non misurabile; app_error|exception, tipi azionabili, classi self-healed note escluse; non include $exception nativo PostHog]`,
+    targetDescription: '< 1% (persone con errori azionabili / persone con page_view, 30gg, GA4)',
+    detail: `${errorUsers}/${pageviewUsers} = ${fmtPct(rate)} [GA4; app_error|exception, tipi azionabili, classi self-healed note escluse; non include $exception nativo PostHog]`,
   };
 }
 
-// #4307 — calculator_deep_link_arrival sessions that also fire input_change
-// or simulation_complete in the same $session_id, 30d, target >= 25%.
-async function evalCalcDeeplinkInputStart() {
-  const [arrivals, converted] = await hogqlRow(`
-    SELECT
-      uniq($session_id) AS arrivals,
-      uniqIf($session_id, $session_id IN (
-        SELECT DISTINCT $session_id FROM events
-        WHERE event IN ('input_change', 'simulation_complete')
-          AND timestamp >= now() - INTERVAL 30 DAY
-      )) AS converted
-    FROM events
-    WHERE event = 'calculator_deep_link_arrival'
-      AND timestamp >= now() - INTERVAL 30 DAY
-  `);
-  const a = Number(arrivals) || 0;
-  const c = Number(converted) || 0;
-  const rate = a > 0 ? c / a : null;
-  return {
-    passed: rate !== null && rate >= 0.25,
-    value: { rate, arrivals: a, converted: c },
-    targetDescription: '>= 25% (sessioni calculator_deep_link_arrival con input_change|simulation_complete stessa sessione, 30gg)',
-    detail: `${c}/${a} = ${fmtPct(rate)}`,
-  };
+/**
+ * Goals whose PostHog measurement has no GA4 equivalent. Since H9
+ * (2026-10-05) PostHog is not a monitor source, and GA4 does not receive the
+ * same quantity:
+ *
+ *  - #4304 dead_clicks_reduction tracks PostHog's NATIVE `$dead_click`
+ *    autocapture (baseline 25,675/30d). GA4 only receives the custom
+ *    `dead_click` from Analytics.log() (services/analytics.ts), a different
+ *    heuristic capped at 3 per page with a ~2,747/30d baseline: a different
+ *    metric, not a substitute for this target.
+ *  - #4307 calc_deeplink_input_start joins `calculator_deep_link_arrival`
+ *    with `input_change`/`simulation_complete` inside the SAME session. GA4
+ *    receives all three events, but runReport cannot intersect sessions
+ *    across events without a session-id dimension, and the 50 EVENT-scoped
+ *    custom dimensions are full (owner decision H4: none freed for now).
+ *
+ * Inventing a proxy would be a new metric against an old target, so the
+ * goal stays declared and reports `unmeasurable` with this reason: no issue,
+ * no pass/fail, no PostHog query.
+ */
+export function noGa4Equivalent(reason) {
+  const note = `nessun equivalente GA4 — sorgente PostHog ritirata dai monitor (decisione H9 2026-10-05): ${reason}`;
+  return async () => ({ unmeasurable: true, note, detail: note });
 }
 
 // ---------------------------------------------------------------------------
@@ -879,10 +804,12 @@ async function evalBingClicks() {
 // ---------------------------------------------------------------------------
 
 export const GOALS = [
-  { id: 'alert_funnel_conversion', title: 'Alert funnel conversion (shown→created)', source: 'posthog', windowDays: 14, matureAfterDays: 14, issueRef: '#4298', evaluate: evalAlertFunnelConversion, ga4Fallback: evalAlertFunnelConversionGa4 },
-  { id: 'dead_clicks_reduction', title: 'Dead click $dead_click -50% (14gg)', source: 'posthog', windowDays: 14, matureAfterDays: 14, issueRef: '#4304', evaluate: evalDeadClicksReduction },
-  { id: 'error_rate', title: 'Error rate < 1% (30gg)', source: 'posthog', windowDays: 30, matureAfterDays: 30, issueRef: '#4304', evaluate: evalErrorRate, ga4Fallback: evalErrorRateGa4 },
-  { id: 'calc_deeplink_input_start', title: 'Calcolatore deep-link → input start >= 25%', source: 'posthog', windowDays: 30, matureAfterDays: 30, issueRef: '#4307', evaluate: evalCalcDeeplinkInputStart },
+  // `livenessGuarded`: the goal reads GA4 product events over its own
+  // `windowDays`, so the GA4 vitality guard rules on that window first.
+  { id: 'alert_funnel_conversion', title: 'Alert funnel conversion (shown→created)', source: 'ga4', livenessGuarded: true, windowDays: 14, matureAfterDays: 14, issueRef: '#4298', evaluate: evalAlertFunnelConversionGa4 },
+  { id: 'dead_clicks_reduction', title: 'Dead click $dead_click -50% (14gg)', source: 'none', windowDays: 14, matureAfterDays: 14, issueRef: '#4304', evaluate: noGa4Equivalent('$dead_click e\' autocapture nativo PostHog; il dead_click custom in GA4 e\' un\'altra metrica') },
+  { id: 'error_rate', title: 'Error rate < 1% (30gg)', source: 'ga4', livenessGuarded: true, windowDays: 30, matureAfterDays: 30, issueRef: '#4304', evaluate: evalErrorRateGa4 },
+  { id: 'calc_deeplink_input_start', title: 'Calcolatore deep-link → input start >= 25%', source: 'none', windowDays: 30, matureAfterDays: 30, issueRef: '#4307', evaluate: noGa4Equivalent('funnel per sessione senza dimensione session id in GA4 (dimensioni EVENT piene, decisione H4)') },
   { id: 'canton_hub_positions', title: 'Hub cantonali: svizzera<20 E zurigo<14', source: 'gsc', matureAfterDays: 30, issueRef: '#4303', evaluate: evalCantonHubPositions },
   { id: 'brand_query_ctr', title: 'CTR query brand > 2%', source: 'gsc', matureAfterDays: 30, issueRef: '#4306', evaluate: evalBrandQueryCtr },
   { id: 'email_sessions', title: 'Sessioni canale Email >= 7.350 (90gg)', source: 'ga4', matureAfterDays: 90, issueRef: '#4299', evaluate: evalEmailSessions },
@@ -967,7 +894,7 @@ export async function runCampaignGoalCheck({
   loadStateImpl = loadState,
   saveStateImpl = (path, state) => writeJsonAtomic(path, state),
   createIssueImpl = defaultCreateIssue,
-  checkLivenessImpl = checkPostHogLiveness,
+  checkLivenessImpl = checkGa4Liveness,
   dryRun = false,
 } = {}) {
   const state = loadStateImpl(stateFilePath);
@@ -976,24 +903,24 @@ export async function runCampaignGoalCheck({
   const sourceStats = new Map(); // source -> {attempted, errored}
 
   // Vitality guard (scripts/lib/source-liveness.mjs), probed lazily so a run
-  // where no PostHog goal is mature never pays for the query.
+  // where no guarded goal is mature never pays for the query.
   //
-  // Only evalErrorRate had a zero-events guard; evalAlertFunnelConversion and
+  // History (2026-07-23 → 08-10 PostHog outage): evalAlertFunnelConversion and
   // evalCalcDeeplinkInputStart turned "0 events" into rate=null → passed:false
   // → a "Campaign goal FAILED" issue, and evalDeadClicksReduction read 0 as
   // beating its 5991 target and latched `passed` forever (skip-passed never
-  // re-evaluates). During the 2026-07-23 → 08-10 outage all three were reading
-  // a dead source. `unmeasurable` is the honest verdict and opens no issue.
-  // Probed once at the widest goal window; each goal is then ruled on over
-  // its OWN window from the same daily counts, so a hole older than a 14d
+  // re-evaluates). The same hole exists on GA4: a runReport over an empty
+  // window is an HTTP 200. `unmeasurable` is the honest verdict and opens no
+  // issue. Probed once at the widest goal window; each goal is then ruled on
+  // over its OWN window from the same daily counts, so a hole older than a 14d
   // goal's lookback doesn't make that goal abstain for nothing.
-  let posthogProbe;
-  // Declared at most once per run per window: four goals sharing one dead
-  // source is one outage, not four alarms.
+  let livenessProbe;
+  // Declared at most once per run per window: several goals sharing one dead
+  // source is one outage, not several alarms.
   const declaredWindows = new Set();
-  const posthogNotMeasurable = async (goalWindowDays) => {
-    if (posthogProbe === undefined) {
-      posthogProbe = await checkLivenessImpl({ windowDays: POSTHOG_MAX_GOAL_WINDOW_DAYS, now });
+  const sourceNotMeasurable = async (goalWindowDays) => {
+    if (livenessProbe === undefined) {
+      livenessProbe = await checkLivenessImpl({ windowDays: LIVENESS_MAX_GOAL_WINDOW_DAYS, now });
     }
     const declareOnce = (verdict) => {
       if (!declaredWindows.has(verdict.windowDays)) {
@@ -1002,19 +929,20 @@ export async function runCampaignGoalCheck({
       }
       return verdict;
     };
-    if (posthogProbe.credentialsMissing || posthogProbe.probeFailed) return declareOnce(posthogProbe);
+    if (livenessProbe.credentialsMissing || livenessProbe.probeFailed) return declareOnce(livenessProbe);
     // Per-window re-ruling needs the daily counts. Without them (an injected
-    // probe in a test, or a future source that reports only a verdict) the
-    // probe's own answer stands — re-deriving from an empty map would read
-    // "no data" as "dead" and abstain on a healthy source.
-    if (!(posthogProbe.dailyCounts instanceof Map) || posthogProbe.dailyCounts.size === 0) {
-      return posthogProbe.alive ? null : declareOnce(posthogProbe);
+    // probe in a test, or a source that reports only a verdict) the probe's
+    // own answer stands — re-deriving from an empty map would read "no data"
+    // as "dead" and abstain on a healthy source.
+    if (!(livenessProbe.dailyCounts instanceof Map) || livenessProbe.dailyCounts.size === 0) {
+      return livenessProbe.alive ? null : declareOnce(livenessProbe);
     }
     const verdict = evaluateLiveness({
-      dailyCounts: posthogProbe.dailyCounts,
-      windowDays: goalWindowDays ?? POSTHOG_MAX_GOAL_WINDOW_DAYS,
+      dailyCounts: livenessProbe.dailyCounts,
+      windowDays: goalWindowDays ?? LIVENESS_MAX_GOAL_WINDOW_DAYS,
+      lagDays: GA4_LIVENESS_LAG_DAYS,
       now,
-      source: 'posthog',
+      source: livenessProbe.source ?? 'ga4',
     });
     return verdict.alive ? null : declareOnce(verdict);
   };
@@ -1022,7 +950,13 @@ export async function runCampaignGoalCheck({
   for (const goal of goals) {
     const prior = state.goals[goal.id] || {};
     const matureAt = computeMatureAt(campaignStart, goal.matureAfterDays);
-    const action = decideGoalAction({ matureAt, now, priorState: prior.state });
+    // A goal with no measurable source (`source: 'none'`, H9) cannot keep a
+    // `passed` latched by an earlier run: nothing can re-confirm it, and the
+    // one on record for dead_clicks_reduction ("0 $dead_click (14gg)") was
+    // read off the dead PostHog window described above. It is re-ruled and
+    // lands on its honest `unmeasurable` verdict instead.
+    const priorState = goal.source === 'none' && prior.state === 'passed' ? undefined : prior.state;
+    const action = decideGoalAction({ matureAt, now, priorState });
     const base = { title: goal.title, source: goal.source, issueRef: goal.issueRef, matureAt };
 
     if (action === 'skip-passed') {
@@ -1038,26 +972,17 @@ export async function runCampaignGoalCheck({
     }
 
     // action === 'evaluate'
-    let evaluate = goal.evaluate;
-    let statSource = goal.source;
-    if (goal.source === 'posthog') {
-      const dead = await posthogNotMeasurable(goal.windowDays);
+    if (goal.livenessGuarded) {
+      const dead = await sourceNotMeasurable(goal.windowDays);
       if (dead) {
-        if (typeof goal.ga4Fallback !== 'function') {
-          const note = `sorgente non misurabile: ${dead.reason}`;
-          state.goals[goal.id] = { ...prior, ...base, state: 'unmeasurable', lastCheckAt: now.toISOString(), note };
-          results.push({ id: goal.id, state: 'unmeasurable', detail: note, matureAt });
-          continue;
-        }
-        // GA4 fallback (2026-08-25 owner decision, issue #6463): keep
-        // evaluating instead of going permanently unmeasurable for the
-        // outage's whole duration. Bucketed under its own source key so a
-        // fallback success never masks PostHog itself still being dead in
-        // `deadSources`.
-        evaluate = goal.ga4Fallback;
-        statSource = `${goal.source}-ga4-fallback`;
+        const note = `sorgente non misurabile: ${dead.reason}`;
+        state.goals[goal.id] = { ...prior, ...base, state: 'unmeasurable', lastCheckAt: now.toISOString(), note };
+        results.push({ id: goal.id, state: 'unmeasurable', detail: note, matureAt });
+        continue;
       }
     }
+    const evaluate = goal.evaluate;
+    const statSource = goal.source;
 
     const stat = sourceStats.get(statSource) || { attempted: 0, errored: 0 };
     stat.attempted += 1;
@@ -1067,8 +992,9 @@ export async function runCampaignGoalCheck({
       const outcome = await evaluate();
 
       if (outcome.unmeasurable) {
-        state.goals[goal.id] = { ...prior, ...base, state: 'unmeasurable', lastCheckAt: now.toISOString(), note: outcome.note };
-        results.push({ id: goal.id, state: 'unmeasurable', detail: outcome.note, matureAt });
+        const note = outcome.note ?? outcome.detail;
+        state.goals[goal.id] = { ...prior, ...base, state: 'unmeasurable', lastCheckAt: now.toISOString(), note };
+        results.push({ id: goal.id, state: 'unmeasurable', detail: note, matureAt });
         continue;
       }
 

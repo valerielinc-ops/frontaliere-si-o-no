@@ -227,8 +227,9 @@ export const EMPTY_OK_CRAWLERS = new Set([
   'answerconsulting',
   // No jobs/careers page exists anywhere on chiccodoro.com.
   'chicco-doro',
-  // jobs.ch profile shows "Jobs (0)"; no jobs/career page on citypop.com.
-  'city-pop',
+  // `city-pop` left this list on 2026-10-05 (issue 11653): it now proves its
+  // zero every run from the jobs.ch search API's own `totalHits: 0`
+  // (`jobsChAuthoritativeEmptyOrNull`, scripts/lib/jobs-ch-search-common.mjs).
   // Official page states "Al momento non sono disponibili offerte di lavoro".
   'csc-costruzioni',
   // TUTTOJOB.ch "0 annunci"; official ATS also empty; last known ref inactive.
