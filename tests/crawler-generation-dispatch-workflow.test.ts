@@ -18,6 +18,7 @@ const observerPath = '.github/corpus-workflows/observers/workflows/crawler-gener
 const uploadArtifactV7Sha = '043fb46d1a93c77aae656e7c1c64a875d1fc6a0a';
 const shadowFinalizeName = 'Finalize translation shadow preflight v2 observation';
 const shadowUploadName = 'Upload translation shadow preflight v2 artifacts';
+const CODEX_MAX_CALLS_EXPR = "${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS || '30' }}";
 const shadowCascadeEnv = {
   SHADOW_RUN_ATTEMPT: '${{ github.run_attempt }}',
   SHADOW_RUN_ID: '${{ github.run_id }}',
@@ -286,7 +287,8 @@ describe('crawler generation PR B workflow wiring', () => {
       expect(setupIndex).toBeLessThan(cascade.index);
       const cascadeEnv = steps[cascade.index].env ?? {};
       expect(cascadeEnv.CODEX_AUTH_BROKER_SOCKET).toBeDefined();
-      const maxCalls = Number(cascadeEnv.FREE_TRANSLATE_CODEX_MAX_CALLS);
+      expect(cascadeEnv.FREE_TRANSLATE_CODEX_MAX_CALLS).toBe(CODEX_MAX_CALLS_EXPR);
+      const maxCalls = 30;
       expect(Number.isInteger(maxCalls) && maxCalls > 0).toBe(true);
       expect(cascadeEnv.TRANSLATION_THINKING_AB).toBeUndefined();
       // The experiment is intentionally declared as an opt-in input by the

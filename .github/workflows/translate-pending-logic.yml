@@ -486,13 +486,13 @@ jobs:
           AZURE_TRANSLATOR_KEY: ''
           AZURE_TRANSLATOR_KEY_2: ''
           # Codex reserve (see the broker step above): default tier position,
-          # at most 30 requests and 15 minutes of the 30-minute window per
-          # run. The jobs queue is traffic-ordered, so the budget goes to the
-          # most visited jobs first. The phase writes its counters to
+          # at most the configured number of requests (30 by default) and 15
+          # minutes of the 30-minute window per run. The jobs queue is traffic-
+          # ordered, so the budget goes to the most visited jobs first. The phase writes its counters to
           # TRANSLATE_CODEX_RESERVE_DIR for the stats row and the credential
           # alert (scripts/lib/codex-reserve-report.mjs).
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          FREE_TRANSLATE_CODEX_MAX_CALLS: '30'
+          FREE_TRANSLATE_CODEX_MAX_CALLS: ${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS || '30' }}
           FREE_TRANSLATE_CODEX_MAX_MS: '900000'
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
           MT_LOCAL_OPUSMT: '1'
@@ -625,12 +625,12 @@ jobs:
           # slug commit after 109min of queue. Healthy runs currently close in
           # ~125-155min, so this lane gets ~55-85min before it stops.
           UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '12600000' # 210 * 60 * 1000; 140min remain.
-          # Codex last resort (see the broker step above): at most 30 calls
-          # and 15 minutes per run, because the subscription is shared with
-          # the owner's interactive use and this lane runs every day.
+          # Codex last resort (see the broker step above): at most the configured
+          # number of calls (30 by default) and 15 minutes per run, because the
+          # subscription is shared with the owner's interactive use and this lane runs every day.
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           FREE_TRANSLATE_CODEX_TIER: last
-          FREE_TRANSLATE_CODEX_MAX_CALLS: '30'
+          FREE_TRANSLATE_CODEX_MAX_CALLS: ${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS || '30' }}
           FREE_TRANSLATE_CODEX_MAX_MS: '900000'
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-titles.mjs
@@ -663,7 +663,7 @@ jobs:
           # phases never run in the same run).
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           FREE_TRANSLATE_CODEX_TIER: last
-          FREE_TRANSLATE_CODEX_MAX_CALLS: '30'
+          FREE_TRANSLATE_CODEX_MAX_CALLS: ${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS || '30' }}
           FREE_TRANSLATE_CODEX_MAX_MS: '900000'
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-descriptions.mjs --max "$UNTRANSLATED_DESCRIPTION_FIX_MAX"

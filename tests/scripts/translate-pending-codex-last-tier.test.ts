@@ -30,6 +30,7 @@ const TARGETS = [
 const PHASE_2B = 'Phase 2b: Translate pending jobs (cascade top-up)';
 const PHASE_2D = 'Phase 2d: Fix untranslated titles (free cascade)';
 const PHASE_2E = 'Phase 2e: Fix untranslated descriptions (free cascade)';
+const CODEX_MAX_CALLS_EXPR = "${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS || '30' }}";
 
 function stepsOf(rel: string): Step[] {
   const workflow = YAML.parse(fs.readFileSync(path.resolve(process.cwd(), rel), 'utf8')) as {
@@ -38,8 +39,14 @@ function stepsOf(rel: string): Step[] {
   return workflow.jobs.translate.steps;
 }
 
+function effectiveMaxCalls(raw: unknown, workflowVars: Record<string, string> = {}) {
+  if (raw === CODEX_MAX_CALLS_EXPR) return Number(workflowVars.FREE_TRANSLATE_CODEX_MAX_CALLS ?? '30');
+  return Number(raw);
+}
+
 function expectBudget(step: Step) {
-  const calls = Number(step.env?.FREE_TRANSLATE_CODEX_MAX_CALLS);
+  expect(step.env?.FREE_TRANSLATE_CODEX_MAX_CALLS, step.name).toBe(CODEX_MAX_CALLS_EXPR);
+  const calls = effectiveMaxCalls(step.env?.FREE_TRANSLATE_CODEX_MAX_CALLS);
   const ms = Number(step.env?.FREE_TRANSLATE_CODEX_MAX_MS);
   expect(calls, step.name).toBeGreaterThan(0);
   expect(calls, step.name).toBeLessThanOrEqual(40);

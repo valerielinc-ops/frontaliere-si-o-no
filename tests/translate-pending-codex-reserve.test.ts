@@ -32,6 +32,7 @@ type Messages = Array<{ role: string; content: string }>;
 const WORKFLOW = '.github/workflows/translate-pending-logic.yml';
 const PHASE_2B = 'Phase 2b: Translate pending jobs (cascade top-up)';
 const SOCKET_EXPR = '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}';
+const CODEX_MAX_CALLS_EXPR = "${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS || '30' }}";
 
 const IT = 'Cerchiamo un impiegato amministrativo con esperienza nella contabilita\' per il nostro ufficio di Lugano.';
 const EN = 'We are looking for an administrative clerk with accounting experience for our Lugano office.';
@@ -41,8 +42,8 @@ const SOCKET = path.join(tmp, 'broker.sock');
 fs.writeFileSync(SOCKET, '');
 const RUNNER_TEMP = path.join(tmp, 'runner');
 
-/** L'env della fase 2b dal workflow: i letterali, il socket e runner.temp sostituiti. */
-function phase2bEnv(): Record<string, string> {
+/** L'env della fase 2b dal workflow, con le vars GitHub Actions renderizzate. */
+function phase2bEnv(workflowVars: Record<string, string> = {}): Record<string, string> {
   const workflow = YAML.parse(fs.readFileSync(path.resolve(process.cwd(), WORKFLOW), 'utf8')) as {
     jobs: Record<string, { steps: Array<{ name?: string; env?: Record<string, unknown> }> }>;
   };
@@ -53,6 +54,7 @@ function phase2bEnv(): Record<string, string> {
     const value = String(raw);
     if (value === SOCKET_EXPR) env[key] = SOCKET;
     else if (value.startsWith('${{ runner.temp }}')) env[key] = value.replace('${{ runner.temp }}', RUNNER_TEMP);
+    else if (value === CODEX_MAX_CALLS_EXPR) env[key] = workflowVars.FREE_TRANSLATE_CODEX_MAX_CALLS ?? '30';
     else if (!value.includes('${{')) env[key] = value;
   }
   return env;
@@ -88,7 +90,11 @@ function stubFetch() {
  * ogni caso parte da un modulo nuovo. `withoutReserve` toglie il socket, cioe'
  * la 2b di prima della decisione H7.
  */
-async function loadCascade({ withoutReserve = false, overrides = {} as Record<string, string> } = {}) {
+async function loadCascade({
+  withoutReserve = false,
+  overrides = {} as Record<string, string>,
+  workflowVars = {} as Record<string, string>,
+} = {}) {
   for (const key of [
     'DEEPL_API_KEY_2', 'GOOGLE_APPLICATION_CREDENTIALS', 'HF_TOKEN', 'HUGGINGFACE_API_KEY',
     'LIBRETRANSLATE_SELF_HOSTED_URL', 'ENABLE_CODEX_ARTICLE_FALLBACK', 'AI_MODELS_PREFER', 'AI_MODELS_FORCE_CHAIN',
@@ -102,7 +108,7 @@ async function loadCascade({ withoutReserve = false, overrides = {} as Record<st
   vi.stubEnv('GSC_CLIENT_ID', 'id-finto');
   vi.stubEnv('GSC_CLIENT_SECRET', 'secret-finto');
   vi.stubEnv('GSC_REFRESH_TOKEN', 'refresh-finto');
-  for (const [key, value] of Object.entries(phase2bEnv())) vi.stubEnv(key, value);
+  for (const [key, value] of Object.entries(phase2bEnv(workflowVars))) vi.stubEnv(key, value);
   // Opus-MT locale e' un tier gratuito (dopo Codex): qui non si carica il modello.
   vi.stubEnv('MT_LOCAL_OPUSMT', '');
   if (withoutReserve) vi.stubEnv('CODEX_AUTH_BROKER_SOCKET', '');
@@ -164,6 +170,20 @@ describe('translate-pending 2b: riserva Codex quando falliscono le chiavi', () =
     expect(calls).toHaveLength(1);
     const stats = ft.getCodexTierStats();
     expect(stats).toMatchObject({ position: 'after-premium', lanePresent: true, premiumDown: true, calls: 1, accepted: 1, rejected: 0 });
+    ft.setCodexTranslateCallForTests(null);
+  });
+
+  it('con FREE_TRANSLATE_CODEX_MAX_CALLS=0 la riserva rende zero chiamate', async () => {
+    quiet();
+    const rendered = phase2bEnv({ FREE_TRANSLATE_CODEX_MAX_CALLS: '0' });
+    expect(rendered.FREE_TRANSLATE_CODEX_MAX_CALLS).toBe('0');
+    const ft = await loadCascade({ workflowVars: { FREE_TRANSLATE_CODEX_MAX_CALLS: '0' } });
+    const calls = stubCodex(ft, (messages) => translatedAnswer(messages));
+    const outcome: Record<string, unknown> = {};
+    expect(await translate(ft, IT, outcome)).toBe('');
+    expect(outcome.incomplete).toBeTruthy();
+    expect(calls).toHaveLength(0);
+    expect(ft.getCodexTierStats()).toMatchObject({ maxCalls: 0, calls: 0 });
     ft.setCodexTranslateCallForTests(null);
   });
 
