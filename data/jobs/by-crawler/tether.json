@@ -3372,12 +3372,12 @@
     },
     {
       "id": "tether-4a918d0959bc",
-      "slug": "usat-institutional-associate-junior-mid-tether-ch",
+      "slug": "associato-istituzionale-usat-junior-mid-tether-operations-san-francisco-california",
       "slugByLocale": {
-        "it": "usat-institutional-associate-junior-mid-tether-ch",
+        "it": "associato-istituzionale-usat-junior-mid-tether-operations-san-francisco-california",
         "en": "usat-institutional-associate-junior-mid-tether-ch",
         "de": "usat-institutional-associate-junior-mid-tether-ch",
-        "fr": "usat-institutional-associate-junior-mid-tether-ch"
+        "fr": "associe-institutionnel-de-l-usat-junior-mid-tether-operations-san-francisco-california"
       },
       "company": "Tether Operations",
       "companyKey": "tether",
@@ -3436,7 +3436,18 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "usat-institutional-associate-junior-mid-tether-ch"
+        ],
+        "fr": [
+          "usat-institutional-associate-junior-mid-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "usat-institutional-associate-junior-mid-tether-ch"
+      ]
     },
     {
       "id": "tether-90948e16497b",

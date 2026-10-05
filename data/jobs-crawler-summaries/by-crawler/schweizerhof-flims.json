@@ -1,7 +1,7 @@
 {
   "key": "schweizerhof-flims",
   "label": "Schweizerhof",
-  "generatedAt": "2026-10-05T09:11:34.118Z",
+  "generatedAt": "2026-10-05T21:22:54.520Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 34588,
-  "avgDurationMs": 34588,
+  "unchangedCount": 4,
+  "durationMs": 34197,
+  "avgDurationMs": 34197,
   "durationHistory": [
-    34588
+    34197
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "schweizerhof-flims-f2f02441a96d",
       "slug": "housekeeping-collaboratore-trice-m-w-d-schweizerhof-flims",
@@ -35,7 +37,7 @@
       "url": "https://romantikhotels.hcm4all.de/list/18877",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:11:25.337Z",
+      "crawledAt": "2026-10-05T21:22:46.350Z",
       "addressLocality": "Flims",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -78,7 +80,7 @@
       "url": "https://romantikhotels.hcm4all.de/list/18879",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:11:25.335Z",
+      "crawledAt": "2026-10-05T21:22:46.348Z",
       "addressLocality": "Flims",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -121,7 +123,7 @@
       "url": "https://romantikhotels.hcm4all.de/list/19839",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:11:25.333Z",
+      "crawledAt": "2026-10-05T21:22:46.346Z",
       "addressLocality": "Flims",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -164,7 +166,7 @@
       "url": "https://romantikhotels.hcm4all.de/list/18876",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:11:25.331Z",
+      "crawledAt": "2026-10-05T21:22:46.344Z",
       "addressLocality": "Flims",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -195,7 +197,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }

@@ -562,7 +562,7 @@ export function attributionCoverage(docs, { experimentId }) {
   return { tagged, untaggedFromGate, coverage: total > 0 ? tagged / total : null, untaggedByComponent };
 }
 
-/** `jobgate-v3:<braccio>` → `<braccio>`; null se il prefisso non combacia. */
+/** `<id esperimento>:<braccio>` (es. `jobgate-v4:spotlight`) → `<braccio>`; null se il prefisso non combacia. */
 export function armFromVariantTag(tag, experimentId) {
   const prefix = `${experimentId}:`;
   if (typeof tag !== 'string' || !tag.startsWith(prefix)) return null;

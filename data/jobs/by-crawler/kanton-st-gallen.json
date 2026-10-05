@@ -6282,12 +6282,12 @@
     },
     {
       "id": "kanton-st-gallen-98cfffd172ea",
-      "slug": "arbeitsagoge-in-m-w-d-kanton-st-gallen-ch",
+      "slug": "esecutore-trice-m-f-d-kanton-st-gallen-9607-mosnang",
       "slugByLocale": {
-        "it": "arbeitsagoge-in-m-w-d-kanton-st-gallen-ch",
-        "en": "arbeitsagoge-in-m-w-d-kanton-st-gallen-ch",
+        "it": "esecutore-trice-m-f-d-kanton-st-gallen-9607-mosnang",
+        "en": "worker-m-f-d-kanton-st-gallen-9607-mosnang",
         "de": "arbeitsagoge-in-m-w-d-kanton-st-gallen-ch",
-        "fr": "arbeitsagoge-in-m-w-d-kanton-st-gallen-ch"
+        "fr": "agents-de-travail-h-f-d-kanton-st-gallen-9607-mosnang"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -6346,16 +6346,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arbeitsagoge-in-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "arbeitsagoge-in-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "arbeitsagoge-in-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arbeitsagoge-in-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-8d737c80edc8",
-      "slug": "praktikant-in-kreisgericht-toggenburg-m-w-d-kanton-st-gallen-ch",
+      "slug": "tirocinante-tribunale-distrettuale-del-toggenburgo-m-f-d-kanton-st-gallen-lichtensteig",
       "slugByLocale": {
-        "it": "praktikant-in-kreisgericht-toggenburg-m-w-d-kanton-st-gallen-ch",
-        "en": "praktikant-in-kreisgericht-toggenburg-m-w-d-kanton-st-gallen-ch",
+        "it": "tirocinante-tribunale-distrettuale-del-toggenburgo-m-f-d-kanton-st-gallen-lichtensteig",
+        "en": "intern-toggenburg-district-court-m-f-d-kanton-st-gallen-lichtensteig",
         "de": "praktikant-in-kreisgericht-toggenburg-m-w-d-kanton-st-gallen-ch",
-        "fr": "praktikant-in-kreisgericht-toggenburg-m-w-d-kanton-st-gallen-ch"
+        "fr": "stagiaire-tribunal-d-arrondissement-de-toggenburg-h-f-d-kanton-st-gallen-lichtensteig"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -6414,7 +6428,21 @@
           "maxValue": 76000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-kreisgericht-toggenburg-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "praktikant-in-kreisgericht-toggenburg-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "praktikant-in-kreisgericht-toggenburg-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-kreisgericht-toggenburg-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-6e9e732c5f3b",
@@ -6585,9 +6613,9 @@
       "slug": "collaboratore-trice-im-sekretariat-m-w-d-kanton-st-gallen",
       "slugByLocale": {
         "it": "collaboratore-trice-im-sekretariat-m-w-d-kanton-st-gallen",
-        "en": "mitarbeiter-in-im-sekretariat-m-w-d-kanton-st-gallen-ch",
+        "en": "employee-in-the-secretariat-m-f-d-kanton-st-gallen-st-gallen",
         "de": "mitarbeiter-in-im-sekretariat-m-w-d-kanton-st-gallen-ch",
-        "fr": "mitarbeiter-in-im-sekretariat-m-w-d-kanton-st-gallen-ch"
+        "fr": "collaborateur-trice-au-secretariat-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -6636,6 +6664,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-im-sekretariat-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-im-sekretariat-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-im-sekretariat-m-w-d-kanton-st-gallen-ch"
         ]
       },
