@@ -83,6 +83,12 @@ import {
   withRemovalGroups,
 } from './lib/retired-locale-groups.mjs';
 import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
+import { countFiles, isCantonCorpusPath, mirrorTree } from './lib/corpus-canton-exclusion.mjs';
+
+// Canton article sections stay in the corpus: served from R2 by the Worker,
+// never compiled here. Excluded from the copy AND from the counts that gate it
+// (scripts/lib/corpus-canton-exclusion.mjs explains why both).
+const TREE_OPTS = { exclude: isCantonCorpusPath };
 
 // Opt-in, never the default. See MAX_DELETIONS: removing content this repo
 // published is an editorial decision, not a step in a routine sync.
@@ -112,21 +118,6 @@ function run(cmd, args, opts = {}) {
     throw new Error(`${cmd} ${args.join(' ')} failed (${r.status}): ${r.stderr || r.stdout}`);
   }
   return r.stdout;
-}
-
-function countFiles(dir) {
-  let n = 0;
-  const walk = (d) => {
-    let entries;
-    try { entries = fs.readdirSync(d, { withFileTypes: true }); } catch { return; }
-    for (const e of entries) {
-      if (e.name === '.git') continue;
-      const p = path.join(d, e.name);
-      if (e.isDirectory()) walk(p); else n++;
-    }
-  };
-  walk(dir);
-  return n;
 }
 
 /**
@@ -205,35 +196,6 @@ async function fetchManifest(attempts = 3) {
   return null;
 }
 
-/** Recursive copy of `src` onto `dst`, deleting anything in `dst` that src lacks. */
-function mirrorTree(src, dst) {
-  fs.mkdirSync(dst, { recursive: true });
-  const want = new Set(fs.readdirSync(src));
-  for (const name of fs.readdirSync(dst)) {
-    if (name === '.git') continue;
-    if (!want.has(name)) fs.rmSync(path.join(dst, name), { recursive: true, force: true });
-  }
-  for (const e of fs.readdirSync(src, { withFileTypes: true })) {
-    const s = path.join(src, e.name);
-    const d = path.join(dst, e.name);
-    if (e.isDirectory()) {
-      mirrorTree(s, d);
-    } else {
-      // Skip an identical file so the mtime (and any downstream cache keyed on
-      // it) does not churn on every sync.
-      let same = false;
-      try {
-        const a = fs.statSync(s), b = fs.statSync(d);
-        same = a.size === b.size && fs.readFileSync(s).equals(fs.readFileSync(d));
-      } catch { same = false; }
-      if (!same) {
-        if (fs.existsSync(d)) fs.rmSync(d, { force: true });
-        fs.copyFileSync(s, d);
-      }
-    }
-  }
-}
-
 // ── Which corpus commit this sync is pinned to (issue #5298) ─────────────────
 //
 // Resolved BEFORE the clone, because a manifest we cannot read is a sync we must
@@ -297,8 +259,8 @@ try {
   const src = path.join(tmp, 'content');
   if (!fs.existsSync(src)) throw new Error(`upstream has no content/ on ${BRANCH}`);
 
-  const srcN = countFiles(src);
-  const dstN = fs.existsSync(DEST) ? countFiles(DEST) : 0;
+  const srcN = countFiles(src, TREE_OPTS);
+  const dstN = fs.existsSync(DEST) ? countFiles(DEST, TREE_OPTS) : 0;
 
   if (srcN < MIN_BODY_FILES) {
     console.error(`[pull-articles-corpus] upstream corpus has only ${srcN} files (< ${MIN_BODY_FILES}) — refusing`);
@@ -481,7 +443,7 @@ try {
     }
 
 
-  mirrorTree(src, DEST);
+  mirrorTree(src, DEST, TREE_OPTS);
   console.log(`[pull-articles-corpus] synced ${srcN} files into packages/articles/content/`);
 
     // ── Put the local-only entries back ──────────────────────────────────
