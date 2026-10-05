@@ -17272,9 +17272,6 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USZ&career_ns=job_application&career_job_req_id=50960",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "bma-fur-die-klinische-chemie-80-100-usz-ch"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "bma-fur-die-klinische-chemie-80-100-usz-ch"
@@ -17286,7 +17283,9 @@
           "bma-fur-die-klinische-chemie-80-100-usz-ch"
         ]
       },
-      "firstSeenAt": "2026-10-05T09:16:10.685Z",
+      "previousSlugs": [
+        "bma-fur-die-klinische-chemie-80-100-usz-ch"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -17299,7 +17298,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-05T09:16:10.685Z"
     },
     {
       "id": "usz-18bfe3158f51",
@@ -17498,7 +17498,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-05T09:16:10.683Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -17511,7 +17510,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-05T09:16:10.683Z"
     },
     {
       "id": "usz-9d536f7f8214",
@@ -17637,21 +17637,6 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USZ&career_ns=job_application&career_job_req_id=50989",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistenzarztin-assistenzarzt-w-m-d-curriculum-hausarztmedizin-50-100-usz-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistenzarztin-assistenzarzt-w-m-d-curriculum-hausarztmedizin-50-100-usz-ch"
-        ],
-        "en": [
-          "assistenzarztin-assistenzarzt-w-m-d-curriculum-hausarztmedizin-50-100-usz-ch"
-        ],
-        "fr": [
-          "assistenzarztin-assistenzarzt-w-m-d-curriculum-hausarztmedizin-50-100-usz-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-05T09:16:10.682Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -17664,7 +17649,22 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-05T09:16:10.682Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-w-m-d-curriculum-hausarztmedizin-50-100-usz-ch"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-w-m-d-curriculum-hausarztmedizin-50-100-usz-ch"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-w-m-d-curriculum-hausarztmedizin-50-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-w-m-d-curriculum-hausarztmedizin-50-100-usz-ch"
+      ]
     },
     {
       "id": "usz-17304e0a70b4",
@@ -17716,16 +17716,15 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USZ&career_ns=job_application&career_job_req_id=50990",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verwaltungssekretar-in-fur-die-klinik-fur-medizinische-onkologie-und-hamatologie-80-100"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "verwaltungssekretar-in-fur-die-klinik-fur-medizinische-onkologie-und-hamatologie-80-100"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-05T09:16:10.680Z",
+      "previousSlugs": [
+        "verwaltungssekretar-in-fur-die-klinik-fur-medizinische-onkologie-und-hamatologie-80-100"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -17738,7 +17737,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-05T09:16:10.680Z"
     },
     {
       "id": "usz-c257e31e0713",

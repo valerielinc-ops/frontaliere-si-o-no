@@ -254,7 +254,13 @@ import {
 } from '../services/seo/meta-descriptions';
 import { COMPANY_HQ_ADDRESSES, CANTON_CAPITAL_ADDRESSES, localityMatchesHq } from './shared/companyHqAddresses';
 import { normalizePostalCityKey } from './shared/postalCodes';
-import { buildJobPostingFacts, buildJobPostingSchema, sanitizeLocalityForRegion, type JobInput } from './shared/jobPostingSchema';
+import {
+  buildCompanyOrganization,
+  buildJobPostingFacts,
+  buildJobPostingSchema,
+  sanitizeLocalityForRegion,
+  type JobInput,
+} from './shared/jobPostingSchema';
 import { normalizeCantonCode, inferAnyCanton } from '../scripts/lib/target-swiss-locations.mjs';
 import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location-display.mjs';
 import { buildJobListEntry } from './shared/jobListEntry';
@@ -1736,12 +1742,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  en: 'Home',
  de: 'Startseite',
  fr: 'Accueil',
- };
- const openPositionsUnit: Record<'it' | 'en' | 'de' | 'fr', string> = {
- it: 'posizioni aperte',
- en: 'open positions',
- de: 'offene Stellen',
- fr: 'postes ouverts',
  };
  const localeCopy: Record<'it' | 'en' | 'de' | 'fr', {
  suffix: string;
@@ -4747,28 +4747,27 @@ ${staticAnalyticsHtml}
  const companyLocations = [...new Set(companyJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
  const primaryLocation = companyLocations[0] || '';
  const cWebsite = companyWebsite(companyJobs[0]);
+ const companyHq = COMPANY_HQ_ADDRESSES[cSlug as keyof typeof COMPANY_HQ_ADDRESSES];
+ const orgIdentity = buildCompanyOrganization({
+ company: companyName,
+ companyKey: cSlug,
+ companyDomain: cWebsite !== BASE_URL ? cWebsite : undefined,
+ }, {
+ locale,
+ baseUrl: BASE_URL,
+ fallbackUrl: canonicalUrl,
+ });
  const orgLdObj: Record<string, unknown> = {
  '@context': 'https://schema.org',
- '@type': 'Organization',
- name: companyName,
- url: cWebsite !== BASE_URL ? cWebsite : undefined,
+ ...orgIdentity,
+ ...(companyHq ? {
  address: {
  '@type': 'PostalAddress',
- ...(primaryLocation ? { addressLocality: primaryLocation } : {}),
- addressRegion: companyDisplayCanton,
+ ...companyHq,
  addressCountry: 'CH',
  },
+ } : {}),
  };
- // Add number of open positions as a signal
- if (companyJobs.length > 0) {
- orgLdObj.numberOfEmployees = {
- '@type': 'QuantitativeValue',
- value: companyJobs.length,
- unitText: openPositionsUnit[locale],
- };
- }
- // Remove undefined values before serialization
- if (!orgLdObj.url) delete orgLdObj.url;
  // Curated employer brand overlay (EOC, Lidl, …). When present, we
  // (a) override the generic organization JSON-LD with a richer one,
  // (b) emit FAQPage + ItemList JSON-LD, and
@@ -4781,13 +4780,24 @@ ${staticAnalyticsHtml}
  let curatedMetaDescription: string | undefined;
  if (curatedBrand) {
  const brandCopy = curatedBrand.copy[locale];
+ const curatedIdentity = buildCompanyOrganization({
+ company: curatedBrand.name,
+ companyKey: cSlug,
+ companyWebsite: curatedBrand.website,
+ }, {
+ locale,
+ baseUrl: BASE_URL,
+ fallbackUrl: canonicalUrl,
+ });
+ const curatedSameAs = [
+ curatedIdentity.sameAs,
+ ...(curatedBrand.sameAs || []),
+ ].filter((value): value is string => Boolean(value));
  const curatedOrgLd: Record<string, unknown> = {
  '@context': 'https://schema.org',
- '@type': 'Organization',
- name: curatedBrand.name,
+ ...curatedIdentity,
  legalName: curatedBrand.fullName,
  alternateName: curatedBrand.shortName,
- url: curatedBrand.website,
  address: {
  '@type': 'PostalAddress',
  streetAddress: curatedBrand.headquarters.streetAddress,
@@ -4797,8 +4807,7 @@ ${staticAnalyticsHtml}
  addressCountry: curatedBrand.headquarters.addressCountry,
  },
  description: brandCopy.paragraphs[0] ?? brandCopy.tagline,
- numberOfEmployees: { '@type': 'QuantitativeValue', value: companyJobs.length, unitText: openPositionsUnit[locale] },
- ...(curatedBrand.sameAs && curatedBrand.sameAs.length > 0 ? { sameAs: [...curatedBrand.sameAs] } : {}),
+ ...(curatedSameAs.length > 0 ? { sameAs: [...new Set(curatedSameAs)] } : {}),
  };
  organizationLd = JSON.stringify(curatedOrgLd);
 
@@ -4988,7 +4997,6 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  const companyLocations = [...new Set(companyJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
  const companySectors = [...new Set(companyJobs.map((j: any) => String(j.category || j.sector || '')).filter(Boolean))];
  const companyContracts = [...new Set(companyJobs.map((j: any) => String(j.contract || '')).filter(Boolean))];
- const primaryLocation = companyLocations[0] || '';
  const displayCanton = companyDisplayCanton;
  const locationListStr = companyLocations.slice(0, 5).join(', ');
  const locationListLinkedHtml = companyLocations
@@ -9125,23 +9133,28 @@ ${staticAnalyticsHtml}
  // (never the generic OG placeholder or an initials SVG) — see
  // resolveCompanyHubOrgExtras above.
  const companyLocations = [...new Set(cappedJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
- const primaryLocation = companyLocations[0] || '';
  const { sameAs: companyHubSameAs, logo: companyHubLogo } = resolveCompanyHubOrgExtras(cappedJobs);
+ const companyHq = COMPANY_HQ_ADDRESSES[cSlug as keyof typeof COMPANY_HQ_ADDRESSES];
+ const orgIdentity = buildCompanyOrganization({
+ company: companyName,
+ companyKey: cSlug,
+ companyDomain: companyHubSameAs,
+ companyLogoUrl: companyHubLogo,
+ }, {
+ locale,
+ baseUrl: BASE_URL,
+ fallbackUrl: canonicalUrl,
+ });
  const orgLdObj: Record<string, unknown> = {
  '@context': 'https://schema.org',
- '@type': 'Organization',
- name: companyName,
+ ...orgIdentity,
+ ...(companyHq ? {
  address: {
  '@type': 'PostalAddress',
- ...(primaryLocation ? { addressLocality: primaryLocation } : {}),
- addressRegion: cDisplay,
+ ...companyHq,
  addressCountry: 'CH',
  },
- numberOfEmployees: {
- '@type': 'QuantitativeValue',
- value: companyJobs.length,
- unitText: openPositionsUnit[locale],
- },
+ } : {}),
  ...(companyHubSameAs ? { sameAs: companyHubSameAs } : {}),
  ...(companyHubLogo ? { logo: companyHubLogo } : {}),
  };
@@ -9408,21 +9421,27 @@ ${staticAnalyticsHtml}
  // sameAs/logo (issue #4306) — real, derived values only. See
  // resolveCompanyHubOrgExtras above (shared with Phase 3.3).
  const { sameAs: companyCitySameAs, logo: companyCityLogo } = resolveCompanyHubOrgExtras(cappedJobs);
+ const companyHq = COMPANY_HQ_ADDRESSES[cSlug as keyof typeof COMPANY_HQ_ADDRESSES];
+ const orgIdentity = buildCompanyOrganization({
+ company: companyName,
+ companyKey: cSlug,
+ companyDomain: companyCitySameAs,
+ companyLogoUrl: companyCityLogo,
+ }, {
+ locale,
+ baseUrl: BASE_URL,
+ fallbackUrl: canonicalUrl,
+ });
  const orgLdObj: Record<string, unknown> = {
  '@context': 'https://schema.org',
- '@type': 'Organization',
- name: companyName,
+ ...orgIdentity,
+ ...(companyHq ? {
  address: {
  '@type': 'PostalAddress',
- addressLocality: cityDisplay,
- addressRegion: cDisplay,
+ ...companyHq,
  addressCountry: 'CH',
  },
- numberOfEmployees: {
- '@type': 'QuantitativeValue',
- value: ccJobs.length,
- unitText: openPositionsUnit[locale],
- },
+ } : {}),
  ...(companyCitySameAs ? { sameAs: companyCitySameAs } : {}),
  ...(companyCityLogo ? { logo: companyCityLogo } : {}),
  };
@@ -13835,6 +13854,10 @@ ${staticAnalyticsHtml}
  description: finalDescription,
  company: realCompany,
  companyKey: ejData?.companyKey || slugInfo?.companyKey,
+ companySlug: ejData?.companySlug || ejData?.companyKey || slugInfo?.companyKey,
+ companyWebsite: ejData?.companyWebsite,
+ companyDomain: ejData?.companyDomain,
+ companyLogoUrl: ejData?.companyLogoUrl,
  addressLocality: jobLocation || undefined,
  addressRegion: jobCanton || undefined,
  postalCode: ejData?.postalCode || slugInfo?.postalCode,

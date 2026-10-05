@@ -31,6 +31,11 @@
  *      different events that happen to share a generic title and a
  *      low-confidence region-fallback comune) is left untouched — merging
  *      those would risk silently dropping a genuine event.
+ *   3b. Superseded HTML twins: while `ge-agenda` (geneve.ch HTML) runs next
+ *      to its licensed API replacement `openagenda`, a duplicate pair keeps
+ *      the OpenAgenda record, also when the two date a running event
+ *      differently, but only when a physical-location key agrees — see
+ *      `SUPERSEDED_EVENT_SOURCES`/`dedupeSupersededTwins`.
  *   4. Italian frontier comuni geo-link (issue #3125): every assembled event
  *      that carries `geo` but has no `italianFrontierComuni` yet (a crawler
  *      may already have attached it) gets `resolveItalianFrontierComuni`
@@ -128,12 +133,32 @@ export function eventRichnessScore(ev) {
 // tourism-board catalog (good imagery, but skews toward touristy/generic
 // listings over hyper-local ones) — lowest priority of the three. Any future
 // source not listed here sorts last (lowest priority) rather than crashing.
-const SOURCE_PRIORITY = ['tio-agenda', 'guidle', 'myswitzerland'];
+// openagenda comes before the catalog sources: it is data under an open
+// licence (Licence Ouverte 2.0), so on a tie the licensed record wins.
+const SOURCE_PRIORITY = ['tio-agenda', 'openagenda', 'guidle', 'myswitzerland'];
+
+function eventSourceKey(ev) {
+  return ev.sourceKey || String(ev.id || '').split(':')[0];
+}
 
 function sourcePriorityRank(ev) {
-  const key = ev.sourceKey || String(ev.id || '').split(':')[0];
-  const idx = SOURCE_PRIORITY.indexOf(key);
+  const idx = SOURCE_PRIORITY.indexOf(eventSourceKey(ev));
   return idx === -1 ? SOURCE_PRIORITY.length : idx;
+}
+
+/**
+ * An HTML crawler kept running only until its licensed API twin has proved
+ * itself in production: `ge-agenda` scrapes geneve.ch, whose agenda IS the
+ * Ville de Genève OpenAgenda. While both run, a duplicate pair always keeps
+ * the OpenAgenda record — richness and SOURCE_PRIORITY only decide among the
+ * rest. Retiring `ge-agenda` (its crawl step) is a separate change; its slice
+ * stays as an archive either way.
+ */
+export const SUPERSEDED_EVENT_SOURCES = Object.freeze({ 'ge-agenda': 'openagenda' });
+
+function isSupersededIn(ev, groupSources) {
+  const replacement = SUPERSEDED_EVENT_SOURCES[eventSourceKey(ev)];
+  return Boolean(replacement && groupSources.has(replacement));
 }
 
 function knownPrice(price) {
@@ -185,6 +210,8 @@ function structuredGroupPrice(group) {
 
 /**
  * Pick the single best record out of a group of fuzzy-duplicate events:
+ * a record whose source is superseded by another source of the same group
+ * (SUPERSEDED_EVENT_SOURCES) never wins; then the
  * highest richness score wins; ties broken by SOURCE_PRIORITY; any remaining
  * tie (same source, e.g. a future multi-slice source) is broken by the
  * lexicographically smaller id, so the result is deterministic run-to-run.
@@ -197,7 +224,10 @@ function structuredGroupPrice(group) {
  * identity.
  */
 export function pickRichestEvent(group) {
+  const groupSources = new Set(group.map(eventSourceKey));
   const winner = [...group].sort((a, b) => {
+    const supersededDiff = Number(isSupersededIn(a, groupSources)) - Number(isSupersededIn(b, groupSources));
+    if (supersededDiff !== 0) return supersededDiff;
     const scoreDiff = eventRichnessScore(b) - eventRichnessScore(a);
     if (scoreDiff !== 0) return scoreDiff;
     const prioDiff = sourcePriorityRank(a) - sourcePriorityRank(b);
@@ -362,6 +392,110 @@ export function dedupeFuzzy(events) {
   return { events: out, mergedAway };
 }
 
+function dateCoveredBy(day, ev) {
+  return typeof day === 'string' && day >= ev.startDate && day <= (ev.endDate || ev.startDate);
+}
+
+function normalizeLocationPart(value) {
+  if (typeof value !== 'string') return '';
+  return normalizeText(value).replace(/[^\p{L}\p{N}]+/gu, ' ').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Physical-location dimensions shared by the event sources. A missing
+ * dimension is unknown, not a wildcard: only dimensions present on both
+ * records may establish a match, and conflicting shared dimensions reject it.
+ * This keeps a same-title/same-comune event at another venue from being
+ * swallowed by the superseded-source rule.
+ */
+function physicalLocationKey(event) {
+  const venue = normalizeLocationPart(event?.venue);
+  const address = event?.address && typeof event.address === 'object' ? event.address : {};
+  const street = normalizeLocationPart(address.street || (typeof event?.address === 'string' ? event.address : ''));
+  const postalCode = normalizeLocationPart(address.postalCode);
+  const locality = normalizeLocationPart(address.locality);
+  const lat = typeof event?.geo?.lat === 'number' && Number.isFinite(event.geo.lat)
+    ? event.geo.lat.toFixed(6)
+    : '';
+  const lng = typeof event?.geo?.lng === 'number' && Number.isFinite(event.geo.lng)
+    ? event.geo.lng.toFixed(6)
+    : '';
+  const geo = lat && lng ? `${lat},${lng}` : '';
+  return { venue, street, postalCode, locality, geo };
+}
+
+function samePhysicalLocation(left, right) {
+  const a = physicalLocationKey(left);
+  const b = physicalLocationKey(right);
+  const dimensions = ['venue', 'street', 'postalCode', 'locality', 'geo'].filter(
+    (dimension) => a[dimension] && b[dimension],
+  );
+  return dimensions.length > 0 && dimensions.every((dimension) => a[dimension] === b[dimension]);
+}
+
+/**
+ * Second pass for SUPERSEDED_EVENT_SOURCES, after `dedupeFuzzy`: the HTML
+ * twin and its API replacement describe the same event with the same title in
+ * the same comune and physical location, but not always with the same
+ * `startDate` — geneve.ch prints «jusqu'au 25 octobre» for a running
+ * exhibition, which ge-agenda dates from the crawl day, while OpenAgenda
+ * dates it from its first timing. A superseded record collapses into the ONE
+ * replacement record whose date range covers its start; with no location key
+ * or zero/several candidates it is left alone, since an ambiguous match could
+ * eat a genuine second event.
+ */
+export function dedupeSupersededTwins(events) {
+  const replacementsByKey = new Map();
+  for (const ev of events) {
+    if (!Object.values(SUPERSEDED_EVENT_SOURCES).includes(eventSourceKey(ev))) continue;
+    const key = `${eventSourceKey(ev)}|${normalizeText(ev.title)}|${normalizeText(ev.comune || '')}`;
+    if (!replacementsByKey.has(key)) replacementsByKey.set(key, []);
+    replacementsByKey.get(key).push(ev);
+  }
+  const absorbed = new Map();
+  const dropped = new Set();
+  for (const ev of events) {
+    const replacementSource = SUPERSEDED_EVENT_SOURCES[eventSourceKey(ev)];
+    if (!replacementSource) continue;
+    const key = `${replacementSource}|${normalizeText(ev.title)}|${normalizeText(ev.comune || '')}`;
+    const candidates = (replacementsByKey.get(key) || []).filter(
+      (candidate) => dateCoveredBy(ev.startDate, candidate) && samePhysicalLocation(ev, candidate),
+    );
+    if (candidates.length !== 1) continue;
+    const [replacement] = candidates;
+    if (!absorbed.has(replacement)) absorbed.set(replacement, []);
+    absorbed.get(replacement).push(ev);
+    dropped.add(ev);
+  }
+  if (!dropped.size) return { events, mergedAway: 0 };
+  const out = [];
+  for (const ev of events) {
+    if (dropped.has(ev)) continue;
+    const twins = absorbed.get(ev);
+    if (!twins) {
+      out.push(ev);
+      continue;
+    }
+    // Pick the OpenAgenda replacement using the normal richness/source rules,
+    // but merge route history explicitly from every dropped ge-agenda twin.
+    // The picker receives history-free candidates so it cannot turn a dropped
+    // record's route into an implicit current-route fallback.
+    const candidates = [ev, ...twins].map((candidate) => {
+      if (!Array.isArray(candidate.previousRoutes)) return candidate;
+      const { previousRoutes: _previousRoutes, ...withoutHistory } = candidate;
+      return withoutHistory;
+    });
+    const replacement = pickRichestEvent(candidates);
+    const previousRoutes = [ev, ...twins].flatMap((candidate) => (
+      Array.isArray(candidate.previousRoutes) ? candidate.previousRoutes : []
+    ));
+    out.push(previousRoutes.length
+      ? preserveEventHistory({ ...replacement, previousRoutes }, [])
+      : replacement);
+  }
+  return { events: out, mergedAway: dropped.size };
+}
+
 // ── Italian frontier comuni attachment ──────────────────────────────────
 /**
  * Attach `italianFrontierComuni` to every event that has `geo` but doesn't
@@ -429,7 +563,10 @@ function assemble() {
   }
 
   const merged = [...byId.values()].map(({ __ts, ...ev }) => ev);
-  const { events: deduped, mergedAway } = dedupeFuzzy(merged);
+  const fuzzy = dedupeFuzzy(merged);
+  const twins = dedupeSupersededTwins(fuzzy.events);
+  const deduped = twins.events;
+  const mergedAway = fuzzy.mergedAway + twins.mergedAway;
   const cantonlessBefore = deduped.filter((event) => !(typeof event.canton === 'string' && event.canton.trim())).length;
   const cantonFromGeo = attachCantonFromGeo(deduped);
   const frontierAttached = attachItalianFrontierComuni(deduped);

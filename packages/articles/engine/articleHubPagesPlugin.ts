@@ -75,6 +75,13 @@ import {
   TOPIC_INDEX_TITLE,
 } from './topicTaxonomy';
 import { assignArticlesToTopics, type TopicAssignment } from './topicClusters';
+import {
+  cantonArchiveCopy,
+  cantonSectionMethodology,
+  cantonTopicHubLabel,
+  cantonTopicHubPath,
+} from './shared/cantonSectionCopy.mjs';
+import { CANTON_HUB_TOPIC_KEYS } from './shared/cantonArticleSectionCore.generated.mjs';
 
 /** Alias kept so the extracted bodies below read exactly as they did upstream. */
 type HubLocale = ArticleLocale;
@@ -126,7 +133,7 @@ function paginatedPath(basePath: string, page: number): string {
   return `${trimmed}/page-${page}/`;
 }
 
-const LOCALE_OG: Record<HubLocale, string> = {
+export const LOCALE_OG: Record<HubLocale, string> = {
   it: 'it_CH',
   en: 'en_US',
   de: 'de_CH',
@@ -785,6 +792,13 @@ interface ArticleSectionOverride {
   readonly sectionLabel: string;
   readonly h1: string;
   readonly hreflangBases: Record<HubLocale, string>;
+  /**
+   * Replaces the long-prose accordion. Set only for canton sections: the
+   * default methodology/FAQ copy speaks of the Italian cross-border worker in
+   * Ticino, which is wrong on `/articoli-zurigo/tutti/`. Absent → the
+   * historical accordion, byte for byte.
+   */
+  readonly proseAccordionHtml?: string;
 }
 
 function buildHtml(args: BuildHtmlArgs): string {
@@ -952,7 +966,8 @@ function buildHtml(args: BuildHtmlArgs): string {
     de: 'Mehr erfahren · Methodik, Grenzgänger-Kontext und FAQ',
     fr: 'En savoir plus · méthodologie, contexte frontalier et FAQ',
   }[locale];
-  const proseAccordionHtml = `<details class="s-HieO_5"><summary class="s--3WWBp">${esc(proseSummaryLabel)} <span class="s-FxywTT" aria-hidden="true"> ▾</span></summary><div class="s-2Hpb5V">${buildHubMethodologyHtml(locale, hubKey)}${buildHubFooterHtml(locale, hubKey)}${buildHubFaqHtml(locale, hubKey)}${buildHubClosingHtml(locale)}</div></details>`;
+  const proseAccordionHtml = sectionOverride?.proseAccordionHtml
+    ?? `<details class="s-HieO_5"><summary class="s--3WWBp">${esc(proseSummaryLabel)} <span class="s-FxywTT" aria-hidden="true"> ▾</span></summary><div class="s-2Hpb5V">${buildHubMethodologyHtml(locale, hubKey)}${buildHubFooterHtml(locale, hubKey)}${buildHubFaqHtml(locale, hubKey)}${buildHubClosingHtml(locale)}</div></details>`;
 
   return `<!doctype html>
 <html lang="${locale}">
@@ -1213,10 +1228,9 @@ interface RenderArticleHubCoreArgs {
  * The `buildHtml` override for a section's archive, by kind. Frontaliere
  * renders through `buildHtml`'s DEFAULT codepath (no override — byte-identical
  * to the pre-#4881 inline branch); the national section uses
- * SVIZZERA_ARTICLES_COPY. A canton section has no archive copy yet, and
- * borrowing another section's title/H1 would publish a wrong page, so it fails
- * loudly instead: canton archives are rendered by the corpus R2 publisher,
- * which brings its own copy before any canton is activated.
+ * SVIZZERA_ARTICLES_COPY; a canton section uses its own copy, derived from
+ * the core and the canton display name (`shared/cantonSectionCopy.mjs`), and
+ * replaces the frontaliere methodology accordion with the section's own.
  */
 function archiveSectionOverride(
   section: ArticleSection,
@@ -1237,9 +1251,65 @@ function archiveSectionOverride(
         hreflangBases: archiveBases,
       };
     }
+    case 'canton': {
+      const copy = cantonArchiveCopy(section, locale);
+      return {
+        title: copy.title,
+        description: copy.description,
+        sectionLabel: copy.sectionLabel,
+        h1: copy.h1,
+        hreflangBases: archiveBases,
+        proseAccordionHtml: cantonMethodologyAccordionHtml(section, locale),
+      };
+    }
     default:
       throw new Error(`[article-hubs] nessuna copy d'archivio per la sezione "${section}" (tipo ${kind})`);
   }
+}
+
+/**
+ * The methodology accordion of a canton section page (archive and landing):
+ * same collapsed `<details>` chrome as the historical accordion, the
+ * section's own prose inside.
+ */
+export function cantonMethodologyAccordionHtml(section: ArticleSection, locale: HubLocale): string {
+  const { summary, paragraphs } = cantonSectionMethodology(section, locale);
+  return `<details class="s-HieO_5"><summary class="s--3WWBp">${esc(summary)} <span class="s-FxywTT" aria-hidden="true"> ▾</span></summary><div class="s-2Hpb5V">${paragraphs.map((p) => `<p>${esc(p)}</p>`).join('')}</div></details>`;
+}
+
+/**
+ * The 6 topic hubs of a canton section (D2) in canonical theme order, as
+ * root-relative hrefs + localized labels — the canton counterpart of
+ * {@link archiveTopicHubLinks}. A canton section has no
+ * `/<section>/argomenti/<topic>/` hubs: its themes are direct children of the
+ * section (`/articoli-ticino/carburanti/`).
+ */
+export function cantonTopicHubLinks(
+  section: ArticleSection,
+  locale: HubLocale,
+): ReadonlyArray<{ topic: string; href: string; label: string }> {
+  return CANTON_HUB_TOPIC_KEYS.map((topic) => ({
+    topic,
+    href: cantonTopicHubPath(section, topic, locale),
+    label: cantonTopicHubLabel(section, topic, locale),
+  }));
+}
+
+/**
+ * Archive nav of a canton section: its 6 topic hubs + the cross-link to the
+ * twin (svizzera) archive, in the same chrome as {@link buildArchiveTopicsNavHtml}.
+ * Every hub is always linked: the owner's decision (2026-10-05) keeps every
+ * canton hub indexable, so there is no eligibility floor to apply here.
+ */
+function buildCantonArchiveNavHtml(locale: HubLocale, section: ArticleSection, twinArchivePath: string): string {
+  const links = cantonTopicHubLinks(section, locale);
+  const label = TOPICS_NAV_LABEL[locale];
+  const topicsBlock = `<details class="s-Ery2Xe"><summary class="s-goeAUL">${label} (${links.length})</summary><div class="s-6_t7LY">${links
+    .map((l) => `<a href="${l.href}" class="hp">${esc(l.label)}</a>`)
+    .join('')}</div></details>`;
+  const twinKind = articleSectionKind(twinOf(section)) as Exclude<ArticleSectionKind, 'canton'>;
+  const twinLink = `<p class="s-Sn0UIv">${esc(TWIN_SEE_ALSO_LABEL[locale])} <a class="s-7DS5hj" href="${twinArchivePath}">${esc(TWIN_ARCHIVE_LINK_LABEL[locale][twinKind])}</a></p>`;
+  return `<nav class="s-4nYHgH" aria-label="${label}">${topicsBlock}${twinLink}</nav>`;
 }
 
 function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
@@ -1261,8 +1331,11 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
   // One membership pass per section render, shared by all locales — the
   // eligible set is locale-independent by construction (membership is
   // computed once, on the Italian corpus; see topicClusters.ts).
-  const eligibleTopicKeys = args.eligibleTopicKeys
-    ?? computeEligibleTopicKeys(fs, np, rootDir, section);
+  // A canton section links its 6 own hubs instead (buildCantonArchiveNavHtml),
+  // so the 14-topic membership pass is not computed for it.
+  const eligibleTopicKeys = kind === 'canton'
+    ? new Set<string>()
+    : args.eligibleTopicKeys ?? computeEligibleTopicKeys(fs, np, rootDir, section);
   const pageSize = ARTICLES_PAGE_SIZE;
   // Canonical union slug set, computed once via the SHARED helper that
   // `staticPagesPlugin.ts`'s page-N navigator also uses — so the emitted
@@ -1274,12 +1347,14 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
     const basePath = archiveBases[locale];
     const prefix = locale === 'it' ? '' : `/${locale}`;
     const blogSection = cfg.indexSlug[locale];
-    const topicsNavHtml = buildArchiveTopicsNavHtml({
-      locale,
-      section,
-      eligibleTopicKeys,
-      twinArchivePath: twinArchiveBases[locale],
-    });
+    const topicsNavHtml = kind === 'canton'
+      ? buildCantonArchiveNavHtml(locale, section, twinArchiveBases[locale])
+      : buildArchiveTopicsNavHtml({
+        locale,
+        section,
+        eligibleTopicKeys,
+        twinArchivePath: twinArchiveBases[locale],
+      });
 
     // Master list = UNION of `{metaPrefix}-it.ts` slugs and `{slugConst}`
     // keys — same orphan-avoidance contract for both sections.
