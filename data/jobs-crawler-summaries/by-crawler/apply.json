@@ -1,7 +1,7 @@
 {
   "key": "apply",
   "label": "LEITpuls AG",
-  "generatedAt": "2026-10-04T21:23:42.573Z",
+  "generatedAt": "2026-10-05T06:24:52.377Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -14,10 +14,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3599,
-  "avgDurationMs": 3599,
+  "durationMs": 3723,
+  "avgDurationMs": 3723,
   "durationHistory": [
-    3599
+    3723
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/968123/1468/pub/5/index.html",
       "source": "LEITpuls AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:23:35.432Z",
+      "crawledAt": "2026-10-05T06:24:43.434Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -45,7 +45,9 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-27",
+      "datePosted": "2026-03-23T13:34:18.762978+00:00",
+      "postedDate": "2026-03-23T13:34:18.762978+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/968123/1468/pub/5/index.html",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:45:13.709Z",
@@ -63,5 +65,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
 }

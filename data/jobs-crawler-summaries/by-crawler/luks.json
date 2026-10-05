@@ -1,10 +1,10 @@
 {
   "key": "luks",
   "label": "Luzerner Kantonsspital (LUKS)",
-  "generatedAt": "2026-10-04T21:20:04.929Z",
+  "generatedAt": "2026-10-05T06:23:06.857Z",
   "total": 194,
   "discovered": null,
-  "parsed": 194,
+  "parsed": 193,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -14,10 +14,10 @@
   "updatedCount": 194,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6219,
-  "avgDurationMs": 6219,
+  "durationMs": 6389,
+  "avgDurationMs": 6389,
   "durationHistory": [
-    6219
+    6389
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/weiterbildungsplaetze-zur-zum-dipl-expertin-experten-notfallpflege-nds-hf/8fe07d13-0d8c-4022-a760-dcfa7a11fdd5",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.781Z",
+      "crawledAt": "2026-10-05T06:22:55.955Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -48,18 +48,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2021-12-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8aa8ac86739fb30b0173d74fe13f36e1&j=jobexchange",
       "firstSeenAt": "2026-06-17T13:14:12.615Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -75,7 +77,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/fachfrau-fachmann-gesundheit-fuer-op-pflege-und-gipszimmer/0fdf32ee-2113-40bc-ac55-aaa2ce8528b3",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.779Z",
+      "crawledAt": "2026-10-05T06:22:55.953Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -89,18 +91,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2024-02-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8aa8ac868ba4fdd2018d783618087a4e&j=jobexchange",
       "firstSeenAt": "2026-06-25T22:51:52.610Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -116,7 +120,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/dipl-radiologiefachfrau-radiologiefachmann-hf-fh/4da73bcc-f748-4795-8108-564954292250",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.778Z",
+      "crawledAt": "2026-10-05T06:22:55.952Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -130,18 +134,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2023-11-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8aa8ac868a2057cc018b85ef950d2b4a&j=jobexchange",
       "firstSeenAt": "2026-08-18T10:07:42.691Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -157,7 +163,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/weiterbildungsplatz-zur-zum-dipl-expertin-experten-intensivpflege-nds-hf-mit-schwerpunkt-paediatrie/3135cfbf-b265-4e9f-bdb4-8e5a45663314",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.777Z",
+      "crawledAt": "2026-10-05T06:22:55.951Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -171,18 +177,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2024-10-09",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a888302909d2aba019267647a9966ef&j=jobexchange",
       "firstSeenAt": "2026-05-19T13:05:07.989Z",
       "salaryMin": 77500,
       "salaryMax": 108000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -198,7 +206,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/praktikantin-praktikant-pflege/d08ad386-2893-4556-973c-e86a581929f7",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.776Z",
+      "crawledAt": "2026-10-05T06:22:55.949Z",
       "addressLocality": "Wolhusen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -212,18 +220,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2024-04-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8aa8ac868ba4fdd2018c85d730606803&j=jobexchange",
       "firstSeenAt": "2026-08-11T21:52:36.280Z",
       "salaryMin": 77500,
       "salaryMax": 108000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -239,7 +249,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fuer-op-lagerung-und-gipszimmer/fccf74c5-0e12-446d-ab41-b6d26643c5ea",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.774Z",
+      "crawledAt": "2026-10-05T06:22:55.947Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -253,18 +263,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2024-08-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a888302909d2aba019174981cb275dc&j=jobexchange",
       "firstSeenAt": "2026-05-19T13:05:07.992Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -280,7 +292,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/vorpraktikanten-in-physio-ergotherapie/ce12bae8-5a82-4413-9817-0d40faeb5603",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.772Z",
+      "crawledAt": "2026-10-05T06:22:55.945Z",
       "addressLocality": "Wolhusen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -294,18 +306,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2024-05-07",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a8883028f295f3b018f4cfbc36942a2&j=jobexchange",
       "firstSeenAt": "2026-05-19T13:05:07.980Z",
       "salaryMin": 77500,
       "salaryMax": 108000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -321,7 +335,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/teamleiter-in-pflege-fuer-bettenstation-mit-nephrologie-haematologie-gastroenterologie-und-allgemeine-innere-medizin/450bed11-8513-47c7-9966-356ad1d347a9",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.771Z",
+      "crawledAt": "2026-10-05T06:22:55.943Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -335,18 +349,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-11-21",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8aa8ac8680940805018586678c8a6647&j=jobexchange",
       "firstSeenAt": "2026-05-19T13:05:07.978Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -362,7 +378,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/zivildienstleistende-als-allrounder-hausdienst-reinigungsdienst-pflichtenheft-50971/4e34c59c-2de4-4d08-9cca-25a2900695df",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.769Z",
+      "crawledAt": "2026-10-05T06:22:55.941Z",
       "addressLocality": "Wolhusen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -376,18 +392,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2023-12-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8aa8ac868ba4fdd2018c7ce38e325983&j=jobexchange",
       "firstSeenAt": "2026-07-23T22:08:11.111Z",
       "salaryMin": 69000,
       "salaryMax": 86500,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -403,7 +421,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-hf-fh-radio-onkologie/bccb2e65-795e-4e8c-a1f8-fc5b02a367fa",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.768Z",
+      "crawledAt": "2026-10-05T06:22:55.939Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -417,18 +435,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-06-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a88830296e8575c0197351b91907565&j=jobexchange",
       "firstSeenAt": "2026-05-19T13:05:07.966Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -444,7 +464,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/medizinische-praxisassistentin-medizinischer-praxisassistent/1c4fc3a8-00c2-4a9b-8a2a-c821918b04fd",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.766Z",
+      "crawledAt": "2026-10-05T06:22:55.938Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -458,18 +478,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-02-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a888302930635130194cbc4c9940bb4&j=jobexchange",
       "firstSeenAt": "2026-07-04T11:37:36.406Z",
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -485,7 +507,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/praktikant-in-pflege-interdisziplinaere-abteilung/19f8829d-d080-4d22-bf8c-96e57877f969",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.765Z",
+      "crawledAt": "2026-10-05T06:22:55.936Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -499,18 +521,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2024-04-17",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a88830267cc8d2f016a9cebbbb858e8&j=jobexchange",
       "firstSeenAt": "2026-05-19T13:05:07.963Z",
       "salaryMin": 77500,
       "salaryMax": 108000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -526,7 +550,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-im-rehazentrum-interdisziplinaere-privatabteilung/2342462f-499c-4b4f-85e1-e4f001da0b3e",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.764Z",
+      "crawledAt": "2026-10-05T06:22:55.935Z",
       "addressLocality": "Wolhusen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -540,18 +564,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-05",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a8883029c2784ef019cb96169705384&j=jobexchange",
       "firstSeenAt": "2026-05-19T13:05:07.954Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -567,7 +593,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/oberaerztin-oberarzt-interdisziplinaere-notfallstation/7c7484ae-d7eb-4636-a0cd-8fb01c312b1a",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.762Z",
+      "crawledAt": "2026-10-05T06:22:55.933Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -581,18 +607,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a8883029c2784ef019cfc1346451ffe&j=jobexchange",
       "firstSeenAt": "2026-05-19T13:05:07.928Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -608,7 +636,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/fachfrau-gesundheit-fachmann-gesundheit/fabf33c6-ff80-41f4-a0b4-a4f9f2bc2b88",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.761Z",
+      "crawledAt": "2026-10-05T06:22:55.932Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -622,18 +650,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-11-12",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a888302995d3524019a76fc36af4a14&j=jobexchange",
       "firstSeenAt": "2026-05-19T13:05:07.964Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -649,7 +679,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-viszeral-und-gefaesschirurgie/4ec4dd0c-0063-49d8-ad70-5bb986dbc202",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.759Z",
+      "crawledAt": "2026-10-05T06:22:55.930Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -663,18 +693,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-15",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a88830296e8575c0196ed68e18b4478&j=jobexchange",
       "firstSeenAt": "2026-05-19T13:05:07.948Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -690,7 +722,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/fachfrau-fachmann-operationstechnik-hf-augenklinik/a77d48ec-7404-42ef-8df6-87dc2262d5a6",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.758Z",
+      "crawledAt": "2026-10-05T06:22:55.929Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -704,18 +736,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-11-13",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a8883029628c4f8019681cac91f268f&j=jobexchange",
       "firstSeenAt": "2026-05-19T13:05:07.900Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -731,7 +765,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/weiterbildungsplaetze-zur-zum-dipl-expertin-experten-intensivpflege-nds-hf/ccb717d6-09c1-49b2-9da5-acca16db9333",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.757Z",
+      "crawledAt": "2026-10-05T06:22:55.928Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -745,18 +779,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a8883029c2784ef019db57dd8863efe&j=jobexchange",
       "firstSeenAt": "2026-05-19T13:05:07.897Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -772,7 +808,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/oberaerztin-oberarzt-innere-medizin/64dc9749-ce15-4b12-bb60-7c74e7cf2117",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.756Z",
+      "crawledAt": "2026-10-05T06:22:55.927Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -786,18 +822,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a8883029c2784ef019dbe0fffb64fba&j=jobexchange",
       "firstSeenAt": "2026-05-19T13:05:07.896Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -813,7 +851,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/pflegeexpertin-pflegeexperte-stufe-1-10-west/28b67ae8-0387-4ae6-abec-fe8376ff4aaa",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.755Z",
+      "crawledAt": "2026-10-05T06:22:55.925Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -827,18 +865,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-08-28",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a88830298309bd80198e69670ef1d53&j=jobexchange",
       "firstSeenAt": "2026-05-19T13:05:07.870Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -854,7 +894,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/pflegefachfrau-pflegefachmann-10-west/eed20a3c-65a9-467c-a43b-fd4e123d7701",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.753Z",
+      "crawledAt": "2026-10-05T06:22:55.924Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -868,18 +908,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-07-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a88830297641efb0197c4aeb35d39e0&j=jobexchange",
       "firstSeenAt": "2026-05-19T13:05:07.864Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -895,7 +937,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-fuer-zentrum-fuer-intensivmedizin/8a4d0a5b-8496-47ee-b46b-affc7c00826f",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.752Z",
+      "crawledAt": "2026-10-05T06:22:55.923Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -909,18 +951,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-02-17",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a8883029c2784ef019c51ec3caa2b39&j=jobexchange",
       "firstSeenAt": "2026-05-19T13:05:07.960Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -936,7 +980,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie/019a580d-7b9d-4e1a-89ba-20b60bafea0c",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.751Z",
+      "crawledAt": "2026-10-05T06:22:55.921Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -950,18 +994,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-02-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a88830293063513019497e6f53e15c6&j=jobexchange",
       "firstSeenAt": "2026-05-19T13:05:07.823Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -977,7 +1023,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/weiterbildungsplaetze-zur-zum-dipl-expertin-experten-intensivpflege-nds-hf/86d70555-db7e-4a53-a65d-4e605c7a5753",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.750Z",
+      "crawledAt": "2026-10-05T06:22:55.920Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -991,18 +1037,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-28",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a8883029c2784ef019db58047d93f4a&j=jobexchange",
       "firstSeenAt": "2026-05-19T13:05:07.893Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1018,7 +1066,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/oberaerztin-oberarzt-brustzentrum/6ccae7ee-e19e-4924-a810-5acac49aafb7",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.749Z",
+      "crawledAt": "2026-10-05T06:22:55.918Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1032,18 +1080,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-02-13",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a888302930635130194f8e5ca753a52&j=jobexchange",
       "firstSeenAt": "2026-05-19T13:05:07.961Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1059,7 +1109,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/zivildienstleistende-als-pflegeassistenz-pflichtenheft-50966/526fe431-545a-4ac1-ad0e-8e71dea5eec1",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.747Z",
+      "crawledAt": "2026-10-05T06:22:55.917Z",
       "addressLocality": "Wolhusen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1073,18 +1123,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2024-05-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8aa8ac867ff8459201802182915d346a&j=jobexchange",
       "firstSeenAt": "2026-08-12T22:08:28.277Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -1100,7 +1152,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/zivildienstleistende-als-hilfspfleger-chirurgische-klinik-pflichtenheft-101140/0d0ebf33-78a5-4be1-b93e-ae69dce9a180",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.746Z",
+      "crawledAt": "2026-10-05T06:22:55.915Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1114,18 +1166,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2020-11-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a888302713b87fc01720e290627705f&j=jobexchange",
       "firstSeenAt": "2026-05-29T23:48:25.929Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1141,7 +1195,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/zivildienstleistende-als-mitarbeiter-logistik-zentrum-fuer-intensivmedizin-pflichtenheft-115187/fe551982-40aa-4edc-80af-c9592b0b6799",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.744Z",
+      "crawledAt": "2026-10-05T06:22:55.914Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1155,18 +1209,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2024-12-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a888302930635130193921e84ef7a28&j=jobexchange",
       "firstSeenAt": "2026-07-16T11:10:13.111Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1182,7 +1238,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/zivildienstleistende-als-hilfspfleger-tagesklinik-chirurgie-pflichtenheft-115192/f1a5fa63-a501-48e9-b93b-6b99cbfc49df",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.743Z",
+      "crawledAt": "2026-10-05T06:22:55.913Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1196,18 +1252,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2024-10-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a88830292bae33b0192ddf392c76110&j=jobexchange",
       "firstSeenAt": "2026-05-27T23:40:51.969Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -1223,7 +1281,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/dipl-fachperson-operationstechnik-hf-fuer-kinderspital-und-frauenklinik/71f0e253-9cbb-45e9-af41-ebcab85309a8",
       "source": "Luzerner Kantonsspital (LUKS) Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:47.742Z",
+      "crawledAt": "2026-10-05T06:22:55.912Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1237,22 +1295,24 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-17",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a8883029e222cb9019ed5685df92a73&j=jobexchange",
       "firstSeenAt": "2026-06-18T12:57:13.768Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
 }
