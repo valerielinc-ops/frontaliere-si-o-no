@@ -48,7 +48,7 @@
  */
 
 import { createHash } from 'node:crypto';
-import { fetchGscByPage, fetchGscPageQueryRows } from './perf-sources/gsc.mjs';
+import { fetchGscByPage, fetchGscPageQueryRows, countGscPageQueryRows, GSC_ROW_CAP } from './perf-sources/gsc.mjs';
 
 /** La misura prima di questo modulo: CTR di pagina su tutte le query. */
 export const LEGACY_CTR_MEASURE_VERSION = 'page-all-queries';
@@ -477,4 +477,88 @@ export async function fetchSegmentedFamilyRows({
   const pageRows = [...perPath.entries()].map(([path, metrics]) => ({ path, ...metrics }));
   const { rows: queryRows } = await fetchPageQuery({ windowDays, pathContains, queryRegex: segmentPrefilterRegex(segments) });
   return { rawRowCount, pageRows, ...segmentFamilyRows(pageRows, queryRows, { segments, minImpressions }) };
+}
+
+/**
+ * Misura di cardinalita' del prefiltro, alias per alias: quante righe
+ * pagina×query scarica davvero il monitor (filtrate) contro quante ne
+ * scaricherebbe senza prefiltro (non filtrate), e in quanto tempo.
+ *
+ * `fetchGscPageQueryRows` lancia «gsc response incomplete» quando un alias
+ * raggiunge il tetto di `GSC_ROW_CAP` righe, e il monitor salta quella
+ * famiglia come un errore GSC: e' la prova pre-merge che non succede. Un
+ * alias filtrato al tetto, o con un errore, e' un fallimento; le righe non
+ * filtrate sono solo il termine di confronto e possono superare il tetto
+ * (contate fino a `unfilteredMaxPages` pagine, poi riportate come «≥»).
+ *
+ * @param {{
+ *   families: Array<{ id: string, monitored?: boolean, aliases: string[], segments: string[] }>,
+ *   windowDays?: number,
+ *   count?: typeof countGscPageQueryRows,
+ *   cap?: number,
+ *   unfilteredMaxPages?: number,
+ * }} options
+ */
+export async function measurePrefilterCardinality({
+  families,
+  windowDays = 14,
+  count = countGscPageQueryRows,
+  cap = GSC_ROW_CAP,
+  unfilteredMaxPages,
+} = {}) {
+  const rows = [];
+  const failures = [];
+  for (const family of families || []) {
+    const queryRegex = segmentPrefilterRegex(family.segments);
+    for (const alias of family.aliases) {
+      const row = { familyId: family.id, monitored: Boolean(family.monitored), alias, segments: normalizeSegments(family.segments) };
+      try {
+        row.filtered = await count({ windowDays, pathContains: alias, queryRegex });
+      } catch (e) {
+        row.filtered = { error: e.message };
+      }
+      try {
+        row.unfiltered = await count({ windowDays, pathContains: alias, queryRegex: null, ...(unfilteredMaxPages ? { maxPages: unfilteredMaxPages } : {}) });
+      } catch (e) {
+        row.unfiltered = { error: e.message };
+      }
+      const label = `${family.id} ${alias}`;
+      if (row.filtered.error) failures.push(`${label}: righe filtrate non lette — ${row.filtered.error}`);
+      else if (!row.filtered.complete || row.filtered.rows >= cap) failures.push(`${label}: righe filtrate al tetto di ${cap} (gsc response incomplete)`);
+      if (row.unfiltered.error) failures.push(`${label}: righe non filtrate non lette — ${row.unfiltered.error}`);
+      rows.push(row);
+    }
+  }
+  return { rows, failures, cap };
+}
+
+function countCell(m) {
+  if (!m) return '—';
+  if (m.error) return `errore: ${String(m.error).replace(/\|/g, '/').slice(0, 120)}`;
+  return m.complete ? String(m.rows) : `≥ ${m.rows}`;
+}
+
+function msCell(m) {
+  return m && Number.isFinite(m.ms) ? `${(m.ms / 1000).toFixed(1)} s` : '—';
+}
+
+/** Tabella markdown della misura di cardinalita', per il log e lo step summary. */
+export function renderPrefilterCardinalityTable({ rows, failures, cap }) {
+  const lines = [
+    `### Cardinalita' del prefiltro pagina×query (tetto ${cap} righe per alias)`,
+    '',
+    '| Famiglia | Monitorata | Segmenti | Alias | Righe filtrate | Tempo | Righe non filtrate | Tempo | Filtrate / non filtrate |',
+    '|---|---|---|---|---:|---:|---:|---:|---:|',
+  ];
+  for (const r of rows) {
+    const ratio = r.filtered?.complete && r.unfiltered?.rows > 0
+      ? `${((r.filtered.rows / r.unfiltered.rows) * 100).toFixed(1)}%${r.unfiltered.complete ? '' : ' (al più)'}`
+      : '—';
+    lines.push(`| ${r.familyId} | ${r.monitored ? 'si' : 'no'} | ${r.segments.join('+')} | \`${r.alias}\` | ${countCell(r.filtered)} | ${msCell(r.filtered)} | ${countCell(r.unfiltered)} | ${msCell(r.unfiltered)} | ${ratio} |`);
+  }
+  const maxFiltered = Math.max(0, ...rows.filter((r) => Number.isFinite(r.filtered?.rows)).map((r) => r.filtered.rows));
+  lines.push('', `Alias misurati: ${rows.length}. Massimo di righe filtrate: ${maxFiltered} su ${cap}.`);
+  lines.push(failures.length === 0 ? 'Esito: nessun alias al tetto, nessuna risposta incompleta.' : `Esito: ${failures.length} fallimenti.`);
+  for (const f of failures) lines.push(`- ${f}`);
+  return lines.join('\n');
 }

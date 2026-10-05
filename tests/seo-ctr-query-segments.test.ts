@@ -14,6 +14,8 @@ import {
   PROMO_TOKENS,
   PHRASE_QUOTES,
   splitQuotedPhrases,
+  measurePrefilterCardinality,
+  renderPrefilterCardinalityTable,
 } from '../scripts/lib/seo-ctr-query-segments.mjs';
 import {
   aggregateFamilyRows,
@@ -21,7 +23,7 @@ import {
   isJobBoardFamily,
   SEO_CTR_FAMILIES,
 } from '../scripts/lib/seo-ctr-curve.mjs';
-import { fetchGscPageQueryRows } from '../scripts/lib/perf-sources/gsc.mjs';
+import { fetchGscPageQueryRows, countGscPageQueryRows, GSC_ROW_CAP } from '../scripts/lib/perf-sources/gsc.mjs';
 
 // Decisione I5 del 2026-10-05 (caso guida: issue 11198). Fixture anonimizzate:
 // «brillex» e' un marchio inventato, i numeri sono di forma, non misure.
@@ -385,5 +387,81 @@ describe('segmento promo solo sulle famiglie di ricerca lavoro', () => {
     );
     expect(seg.allQueries).toEqual({ impressions: 100, clicks: 1, ctr: 0.01 });
     expect(seg.allQueries.ctr).toBe(aggregateFamilyRows(seg.rows, { minImpressions: 5 }).avgCtr);
+  });
+});
+
+describe('misura di cardinalita\' del prefiltro (finding della review sulla PR 11661)', () => {
+  // Una risposta GSC finta: `total` righe per richiesta, servite a pagine di
+  // 25 000 come fa l'API.
+  function pagedFetch(totalFor: (body: any) => number) {
+    const bodies: any[] = [];
+    const fetchImpl = async (_url: string, init: any) => {
+      const body = JSON.parse(init.body);
+      bodies.push(body);
+      const remaining = Math.max(0, totalFor(body) - body.startRow);
+      const n = Math.min(body.rowLimit, remaining);
+      return { ok: true, json: async () => ({ rows: Array.from({ length: n }, () => ({ keys: ['https://frontaliereticino.ch/x/', 'q'] })) }) };
+    };
+    return { bodies, fetchImpl };
+  }
+
+  it('countGscPageQueryRows conta tutte le pagine e senza regex non mette il filtro query', async () => {
+    const { bodies, fetchImpl } = pagedFetch((body) => (body.dimensionFilterGroups[0].filters.length === 2 ? 30 : 60_001));
+    const filtered = await countGscPageQueryRows({ pathContains: '/a/', queryRegex: '(?i)(x)', fetchImpl: fetchImpl as any, getTokenImpl: async () => 'token' });
+    expect(filtered).toMatchObject({ rows: 30, complete: true });
+    const unfiltered = await countGscPageQueryRows({ pathContains: '/a/', fetchImpl: fetchImpl as any, getTokenImpl: async () => 'token' });
+    expect(unfiltered).toMatchObject({ rows: 60_001, complete: true });
+    expect(bodies.at(-1).dimensionFilterGroups[0].filters.map((f: any) => f.dimension)).toEqual(['page']);
+  });
+
+  it('countGscPageQueryRows al tetto restituisce complete=false invece di lanciare', async () => {
+    const { fetchImpl } = pagedFetch(() => GSC_ROW_CAP + 1);
+    const out = await countGscPageQueryRows({ pathContains: '/a/', fetchImpl: fetchImpl as any, getTokenImpl: async () => 'token' });
+    expect(out).toMatchObject({ rows: GSC_ROW_CAP, complete: false });
+  });
+
+  it('fetchGscPageQueryRows al tetto lancia «gsc response incomplete», come prima', async () => {
+    const { fetchImpl } = pagedFetch(() => GSC_ROW_CAP + 1);
+    await expect(fetchGscPageQueryRows({ pathContains: '/a/', queryRegex: '(?i)(x)', fetchImpl: fetchImpl as any, getTokenImpl: async () => 'token' }))
+      .rejects.toThrow('gsc response incomplete');
+  });
+
+  const families = [
+    { id: 'lavoro', monitored: true, aliases: ['/cerca-lavoro-x/', '/jobs-x/'], segments: ['operator', 'promo'] },
+    { id: 'guida', monitored: false, aliases: ['/guida-x/'], segments: ['operator'] },
+  ];
+
+  it('misura ogni famiglia e ogni alias, filtrate col prefiltro della famiglia e non filtrate', async () => {
+    const calls: any[] = [];
+    const count = async (args: any) => {
+      calls.push(args);
+      return { rows: args.queryRegex ? 10 : 1000, complete: true, ms: 5 };
+    };
+    const result = await measurePrefilterCardinality({ families, count: count as any });
+    expect(result.failures).toEqual([]);
+    expect(result.rows.map((r: any) => r.alias)).toEqual(families.flatMap((f) => f.aliases));
+    expect(calls.filter((c) => c.queryRegex)).toHaveLength(result.rows.length);
+    expect(calls.filter((c) => c.queryRegex === null)).toHaveLength(result.rows.length);
+    expect(calls.find((c) => c.pathContains === '/guida-x/' && c.queryRegex).queryRegex).toBe(segmentPrefilterRegex(['operator']));
+    expect(calls.find((c) => c.pathContains === '/jobs-x/' && c.queryRegex).queryRegex).toBe(segmentPrefilterRegex(['operator', 'promo']));
+    const md = renderPrefilterCardinalityTable(result);
+    expect(md).toContain('| lavoro | si | operator+promo | `/jobs-x/` | 10 |');
+    expect(md).toContain('nessun alias al tetto');
+  });
+
+  it('fallisce su un alias filtrato al tetto o con un errore, non sulle non filtrate oltre il tetto', async () => {
+    const count = async (args: any) => {
+      if (args.queryRegex === null) return { rows: GSC_ROW_CAP, complete: false, ms: 1 };
+      if (args.pathContains === '/jobs-x/') return { rows: GSC_ROW_CAP, complete: false, ms: 1 };
+      if (args.pathContains === '/guida-x/') throw new Error('gsc 500: boom');
+      return { rows: 3, complete: true, ms: 1 };
+    };
+    const result = await measurePrefilterCardinality({ families, count: count as any });
+    expect(result.failures).toHaveLength(2);
+    expect(result.failures.join('\n')).toContain('lavoro /jobs-x/: righe filtrate al tetto');
+    expect(result.failures.join('\n')).toContain('guida /guida-x/: righe filtrate non lette');
+    const md = renderPrefilterCardinalityTable(result);
+    expect(md).toContain(`≥ ${GSC_ROW_CAP}`);
+    expect(md).toContain('Esito: 2 fallimenti.');
   });
 });

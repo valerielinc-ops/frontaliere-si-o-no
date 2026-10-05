@@ -53,11 +53,21 @@
  *        (`tsx`, not `node`: seo-ctr-curve.mjs imports .ts leaf modules)
  *
  * Always exits 0 — monitoring only, never blocks CI.
+ *
+ * `--measure-cardinality` is a separate, side-effect-free mode (no state
+ * write, no issue, no discovery): for every family in SEO_CTR_FAMILIES and
+ * every path alias it counts the page×query rows the query prefilter lets
+ * through against the rows an unfiltered read would return, with timings,
+ * and exits 1 if any alias's filtered read reaches the per-alias row cap
+ * (the `gsc response incomplete` that would make the monitor skip the
+ * family) or fails. It is the pre-merge proof that the prefiltered fetch
+ * fits; the workflow runs it on `workflow_dispatch` with
+ * `measure_cardinality: true`.
  */
 
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import { existsSync, readFileSync } from 'node:fs';
+import { appendFileSync, existsSync, readFileSync } from 'node:fs';
 import { fetchGscByPage } from './lib/perf-sources/gsc.mjs';
 import {
   SEO_CTR_FAMILIES,
@@ -84,6 +94,8 @@ import {
   excludedSegmentsForState,
   renderExcludedSegmentsSection,
   describeMeasureChange,
+  measurePrefilterCardinality,
+  renderPrefilterCardinalityTable,
 } from './lib/seo-ctr-query-segments.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -98,6 +110,7 @@ const MIN_PAGE_IMPRESSIONS = 5;
 const DRY_RUN_COMMAND = 'npx --no-install tsx scripts/monitor-seo-ctr-by-template.mjs --dry-run';
 
 const dryRun = process.argv.includes('--dry-run');
+const measureCardinality = process.argv.includes('--measure-cardinality');
 
 function pct(n) {
   return n === null || n === undefined ? 'n/a' : `${(n * 100).toFixed(2)}%`;
@@ -456,7 +469,45 @@ async function main() {
   await discoverNewFamilies();
 }
 
-main().catch((e) => {
-  console.error('monitor-seo-ctr-by-template failed (non-blocking):', e.message);
-  process.exitCode = 0;
-});
+/**
+ * Misura di cardinalita' del prefiltro (vedi l'intestazione): nessuna
+ * scrittura di state, nessuna issue, nessuna scoperta. Esce 1 su un alias al
+ * tetto o con un errore: qui il rosso e' il punto, non un monitor da tenere
+ * verde.
+ */
+async function runMeasureCardinality() {
+  const families = SEO_CTR_FAMILIES.map((family) => ({
+    id: family.id,
+    monitored: Boolean(family.monitored),
+    aliases: familyPathPrefixes(family),
+    segments: ctrExcludedSegmentsForFamily(family),
+  }));
+  const aliasCount = families.reduce((n, f) => n + f.aliases.length, 0);
+  console.log(`📏 Cardinalita' del prefiltro pagina×query: ${families.length} famiglie, ${aliasCount} alias, finestra ${WINDOW_DAYS}gg`);
+  const startedAt = Date.now();
+  const result = await measurePrefilterCardinality({
+    families,
+    windowDays: WINDOW_DAYS,
+    unfilteredMaxPages: Number(process.env.CTR_CARDINALITY_UNFILTERED_MAX_PAGES) || undefined,
+  });
+  const table = renderPrefilterCardinalityTable(result);
+  const footer = `\nDurata totale: ${((Date.now() - startedAt) / 1000).toFixed(1)} s. HEAD: ${process.env.GITHUB_SHA || 'locale'}.`;
+  console.log(`\n${table}${footer}`);
+  if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${table}\n${footer}\n`);
+  if (result.failures.length > 0) {
+    console.error(`\n❌ ${result.failures.length} alias oltre il tetto o non misurati`);
+    process.exitCode = 1;
+  }
+}
+
+if (measureCardinality) {
+  runMeasureCardinality().catch((e) => {
+    console.error('misura di cardinalita\' fallita:', e.message);
+    process.exitCode = 1;
+  });
+} else {
+  main().catch((e) => {
+    console.error('monitor-seo-ctr-by-template failed (non-blocking):', e.message);
+    process.exitCode = 0;
+  });
+}

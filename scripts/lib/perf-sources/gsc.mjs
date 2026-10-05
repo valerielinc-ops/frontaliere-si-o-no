@@ -162,6 +162,43 @@ export async function fetchGscByPage({
 }
 
 /**
+ * Pagina le righe pagina×query di UN alias (`expression`, filtro `contains`
+ * sulla pagina; null = tutto il sito) con l'eventuale `queryRegex` (RE2,
+ * `includingRegex`) nello stesso gruppo, quindi in AND. Chiama `onRows` per
+ * ogni pagina di risposta. `exhausted` e' false quando il tetto
+ * `maxPages × ROW_LIMIT` e' stato raggiunto senza una pagina corta, cioe'
+ * quando la risposta potrebbe essere troncata.
+ */
+async function paginatePageQueryRows({ token, start, end, expression, queryRegex, maxPages = MAX_PAGES, fetchImpl, onRows }) {
+  let startRow = 0;
+  for (let page = 0; page < maxPages; page++) {
+    const filters = [];
+    if (expression) filters.push({ dimension: 'page', operator: 'contains', expression });
+    if (queryRegex) filters.push({ dimension: 'query', operator: 'includingRegex', expression: queryRegex });
+    const data = await gscQuery(
+      token,
+      {
+        startDate: start,
+        endDate: end,
+        dimensions: ['page', 'query'],
+        ...(filters.length > 0 ? { dimensionFilterGroups: [{ filters }] } : {}),
+        rowLimit: ROW_LIMIT,
+        startRow,
+      },
+      fetchImpl,
+    );
+    const pageRows = data.rows || [];
+    onRows(pageRows);
+    if (pageRows.length < ROW_LIMIT) return { rowCount: startRow + pageRows.length, exhausted: true };
+    startRow += pageRows.length;
+  }
+  return { rowCount: startRow, exhausted: false };
+}
+
+/** Il tetto di righe di una lettura paginata per alias. */
+export const GSC_ROW_CAP = MAX_PAGES * ROW_LIMIT;
+
+/**
  * Righe pagina×query per le pagine che contengono `pathContains` (stringa o
  * array, una richiesta per alias come in `fetchGscByPage`), limitate alle
  * query che soddisfano `queryRegex` (RE2, operatore `includingRegex` della
@@ -171,6 +208,8 @@ export async function fetchGscByPage({
  * Usata dal monitor CTR per template per segmentare le query escluse dalla
  * metrica principale (scripts/lib/seo-ctr-query-segments.mjs): il prefiltro
  * tiene il volume a poche righe invece dell'intero prodotto pagina×query.
+ * Quanto poche, per ogni famiglia e alias, lo misura
+ * `monitor-seo-ctr-by-template.mjs --measure-cardinality`.
  *
  * Le query anonimizzate non compaiono mai in queste righe. Returns
  * { rows: Array<{path, query, clicks, impressions, ctr, position}> }.
@@ -189,44 +228,68 @@ export async function fetchGscPageQueryRows({
   const expressions = Array.isArray(pathContains) ? pathContains : [pathContains];
   const rows = [];
   for (const expression of expressions) {
-    let startRow = 0;
-    let exhausted = false;
-    for (let page = 0; page < MAX_PAGES; page++) {
-      const filters = [{ dimension: 'query', operator: 'includingRegex', expression: queryRegex }];
-      if (expression) filters.unshift({ dimension: 'page', operator: 'contains', expression });
-      const data = await gscQuery(
-        token,
-        {
-          startDate: start,
-          endDate: end,
-          dimensions: ['page', 'query'],
-          dimensionFilterGroups: [{ filters }],
-          rowLimit: ROW_LIMIT,
-          startRow,
-        },
-        fetchImpl,
-      );
-      const pageRows = data.rows || [];
-      for (const r of pageRows) {
-        let pathname;
-        try {
-          pathname = new URL(r.keys?.[0] || '').pathname;
-        } catch {
-          continue;
+    const { exhausted } = await paginatePageQueryRows({
+      token,
+      start,
+      end,
+      expression,
+      queryRegex,
+      fetchImpl,
+      onRows: (pageRows) => {
+        for (const r of pageRows) {
+          let pathname;
+          try {
+            pathname = new URL(r.keys?.[0] || '').pathname;
+          } catch {
+            continue;
+          }
+          rows.push({
+            path: pathname,
+            query: r.keys?.[1] || '',
+            clicks: r.clicks || 0,
+            impressions: r.impressions || 0,
+            ctr: r.ctr ?? null,
+            position: r.position ?? null,
+          });
         }
-        rows.push({
-          path: pathname,
-          query: r.keys?.[1] || '',
-          clicks: r.clicks || 0,
-          impressions: r.impressions || 0,
-          ctr: r.ctr ?? null,
-          position: r.position ?? null,
-        });
-      }
-      if (pageRows.length < ROW_LIMIT) { exhausted = true; break; }
-      startRow += pageRows.length;
-    }
-    if (!exhausted) throw new Error(`gsc response incomplete: cap of ${MAX_PAGES * ROW_LIMIT} page×query rows reached for ${expression}`);
+      },
+    });
+    if (!exhausted) throw new Error(`gsc response incomplete: cap of ${GSC_ROW_CAP} page×query rows reached for ${expression}`);
   }
   return { rows };
+}
+
+/**
+ * Conta le righe pagina×query di UN alias, con o senza `queryRegex`, senza
+ * tenerle in memoria. Serve alla misura di cardinalita' del monitor CTR: le
+ * righe filtrate dal prefiltro contro quelle che si scaricherebbero senza.
+ * Non lancia al tetto: restituisce `complete: false`, e chi misura decide.
+ *
+ * @returns {Promise<{ rows: number, complete: boolean, ms: number }>}
+ */
+export async function countGscPageQueryRows({
+  windowDays = 14,
+  pathContains,
+  queryRegex = null,
+  maxPages = MAX_PAGES,
+  fetchImpl = fetch,
+  getTokenImpl = getServiceAccountToken,
+  now = () => Date.now(),
+} = {}) {
+  if (Array.isArray(pathContains)) throw new Error('countGscPageQueryRows: un alias per volta');
+  const token = await getTokenImpl({ fetchImpl });
+  if (!token) throw new Error('no service-account token (set FIREBASE_SERVICE_ACCOUNT_JSON or GOOGLE_APPLICATION_CREDENTIALS)');
+  const { start, end } = windowDates(windowDays);
+  const t0 = now();
+  const { rowCount, exhausted } = await paginatePageQueryRows({
+    token,
+    start,
+    end,
+    expression: pathContains,
+    queryRegex,
+    maxPages,
+    fetchImpl,
+    onRows: () => {},
+  });
+  return { rows: rowCount, complete: exhausted, ms: now() - t0 };
 }
