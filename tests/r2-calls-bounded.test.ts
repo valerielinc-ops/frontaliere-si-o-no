@@ -133,7 +133,7 @@ describe('static: no rclone/aws call on the deploy path without a time limit', (
   });
 
   it('purge-changed-cdn-assets.mjs bounds each cf-purge-cache.mjs call', () => {
-    expect(read('scripts/ci/purge-changed-cdn-assets.mjs')).toMatch(/execFileSync\('node', \[purgeScript[\s\S]{0,200}timeout: batchTimeout/);
+    expect(read('scripts/ci/purge-changed-cdn-assets.mjs')).toMatch(/execFileSync\('node', \[purgeScript[\s\S]{0,200}timeout: Math\.max\(1000, Math\.min\(batchTimeout, remainingMs\)\)/);
   });
 
   it('deploy.yml: the CDN push step has a timeout-minutes coherent with its measured duration', () => {
