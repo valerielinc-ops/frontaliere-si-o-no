@@ -1499,9 +1499,9 @@
       "slug": "wissenschaftliche-r-collaboratore-trice-in-hydrometrie-40-60-kanton-solothurn",
       "slugByLocale": {
         "it": "wissenschaftliche-r-collaboratore-trice-in-hydrometrie-40-60-kanton-solothurn",
-        "en": "wissenschaftliche-r-mitarbeiter-in-hydrometrie-40-60-kanton-solothurn-solothurn",
+        "en": "scientific-employee-in-hydrometry-40-60-kanton-solothurn-solothurn",
         "de": "wissenschaftliche-r-mitarbeiter-in-hydrometrie-40-60-kanton-solothurn-solothurn",
-        "fr": "wissenschaftliche-r-mitarbeiter-in-hydrometrie-40-60-kanton-solothurn-solothurn"
+        "fr": "collaborateur-trice-scientifique-en-hydrometrie-40-60-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1550,6 +1550,12 @@
       "previousSlugsByLocale": {
         "it": [
           "wissenschaftliche-r-mitarbeiter-in-hydrometrie-40-60-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "wissenschaftliche-r-mitarbeiter-in-hydrometrie-40-60-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "wissenschaftliche-r-mitarbeiter-in-hydrometrie-40-60-kanton-solothurn-solothurn"
         ]
       },
       "firstSeenAt": "2026-09-25T14:53:21.889Z",
@@ -1569,12 +1575,12 @@
     },
     {
       "id": "kanton-solothurn-38b136945c9f",
-      "slug": "jurist-in-60-kanton-solothurn-solothurn",
+      "slug": "giurista-60-kanton-solothurn-solothurn",
       "slugByLocale": {
-        "it": "jurist-in-60-kanton-solothurn-solothurn",
-        "en": "jurist-in-60-kanton-solothurn-solothurn",
+        "it": "giurista-60-kanton-solothurn-solothurn",
+        "en": "lawyer-60-kanton-solothurn-solothurn",
         "de": "jurist-in-60-kanton-solothurn-solothurn",
-        "fr": "jurist-in-60-kanton-solothurn-solothurn"
+        "fr": "juriste-60-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1629,13 +1635,27 @@
           "maxValue": 62400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "jurist-in-60-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "jurist-in-60-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "jurist-in-60-kanton-solothurn-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "jurist-in-60-kanton-solothurn-solothurn"
+      ]
     },
     {
       "id": "kanton-solothurn-16a7037ef985",
-      "slug": "specialista-fiscale-privati-80-100-kanton-solothurn-solothurn",
+      "slug": "commercialista-commercialista-privati-80-100-kanton-solothurn-solothurn",
       "slugByLocale": {
-        "it": "specialista-fiscale-privati-80-100-kanton-solothurn-solothurn",
+        "it": "commercialista-commercialista-privati-80-100-kanton-solothurn-solothurn",
         "en": "tax-specialist-private-individuals-80-100-kanton-solothurn-solothurn",
         "de": "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn",
         "fr": "specialiste-fiscal-particuliers-80-100-kanton-solothurn-solothurn"
@@ -1681,11 +1701,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn"
+        "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn",
+        "specialista-fiscale-privati-80-100-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn"
+          "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn",
+          "specialista-fiscale-privati-80-100-kanton-solothurn-solothurn"
         ],
         "en": [
           "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn"

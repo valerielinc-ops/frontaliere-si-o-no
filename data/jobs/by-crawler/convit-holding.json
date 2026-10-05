@@ -495,7 +495,7 @@
       "slugByLocale": {
         "it": "consulente-previdenziale-cambio-di-carriera-zona-massagno-convit-massagno",
         "en": "prevident-consultant-career-change-zone-massagno-convit-holding-gmbh-massagno",
-        "de": "sozialversicherungsberater-vbv-lebensprofil-schwimmbereich-convit-holding-gmbh-massagno",
+        "de": "prevident-consultant-karrierewechsel-zone-massagno-convit-holding-gmbh-massagno",
         "fr": "consultant-precedent-changement-de-carriere-zone-massagno-convit-holding-gmbh-massagno"
       },
       "salaryMin": 59000,
@@ -514,24 +514,25 @@
       },
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "previousSlugsByLocale": {
+        "it": [
+          "consulente-previdenziale-vbv-profilo-vita-zona-massagno-convit-massagno"
+        ],
         "en": [
           "social-security-consultant-vbv-life-profile-swimming-area-convit-holding-gmbh-massagno"
         ],
         "de": [
-          "prevident-consultant-karrierewechsel-zone-massagno-convit-holding-gmbh-massagno"
+          "sozialversicherungsberater-vbv-lebensprofil-schwimmbereich-convit-holding-gmbh-massagno"
         ],
         "fr": [
           "consultant-en-securite-sociale-vbv-life-profile-zone-de-baignade-convit-holding-gmbh-massagno"
-        ],
-        "it": [
-          "consulente-previdenziale-vbv-profilo-vita-zona-massagno-convit-massagno"
         ]
       },
       "previousSlugs": [
         "social-security-consultant-vbv-life-profile-swimming-area-convit-holding-gmbh-massagno",
         "consultant-en-securite-sociale-vbv-life-profile-zone-de-baignade-convit-holding-gmbh-massagno",
         "prevident-consultant-karrierewechsel-zone-massagno-convit-holding-gmbh-massagno",
-        "consulente-previdenziale-vbv-profilo-vita-zona-massagno-convit-massagno"
+        "consulente-previdenziale-vbv-profilo-vita-zona-massagno-convit-massagno",
+        "sozialversicherungsberater-vbv-lebensprofil-schwimmbereich-convit-holding-gmbh-massagno"
       ],
       "needsRetranslation": true,
       "datePosted": "2026-09-27T20:50:11.834045+00:00",

@@ -4260,12 +4260,12 @@
     },
     {
       "id": "liebherr-be2c769e14fa",
-      "slug": "group-internal-auditor-m-f-d-liebherr-nussbaumen",
+      "slug": "auditor-interno-di-gruppo-m-f-d-liebherr-nussbaumen",
       "slugByLocale": {
-        "it": "group-internal-auditor-m-f-d-liebherr-nussbaumen",
+        "it": "auditor-interno-di-gruppo-m-f-d-liebherr-nussbaumen",
         "en": "group-internal-auditor-m-f-d-liebherr-nussbaumen",
         "de": "group-internal-auditor-m-f-d-liebherr-nussbaumen",
-        "fr": "group-internal-auditor-m-f-d-liebherr-nussbaumen"
+        "fr": "auditeur-interne-groupe-h-f-d-liebherr-nussbaumen"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -4320,10 +4320,17 @@
       "previousSlugsByLocale": {
         "de": [
           "group-internal-auditor-m-w-d-liebherr-nussbaumen"
+        ],
+        "it": [
+          "group-internal-auditor-m-f-d-liebherr-nussbaumen"
+        ],
+        "fr": [
+          "group-internal-auditor-m-f-d-liebherr-nussbaumen"
         ]
       },
       "previousSlugs": [
-        "group-internal-auditor-m-w-d-liebherr-nussbaumen"
+        "group-internal-auditor-m-w-d-liebherr-nussbaumen",
+        "group-internal-auditor-m-f-d-liebherr-nussbaumen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-24T00:11:41.284Z",

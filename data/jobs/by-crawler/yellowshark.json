@@ -5361,7 +5361,7 @@
         "it": "it-product-manager-digitalisierung-m-w-80-100-baden-ag-yellowshark-ch",
         "en": "it-product-manager-digitalisierung-m-w-80-100-baden-ag-yellowshark-ch",
         "de": "it-product-manager-digitalisierung-m-w-80-100-baden-ag-yellowshark-ch",
-        "fr": "it-product-manager-digitalisierung-m-w-80-100-baden-ag-yellowshark-ch"
+        "fr": "chef-de-produit-informatique-numerisation-h-f-80-100-yellowshark-ag-baden-ag"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -31078,12 +31078,12 @@
     },
     {
       "id": "yellowshark-6c8d3da2cd8d",
-      "slug": "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch",
+      "slug": "giardiniere-nuovi-impianti-m-f-yellowshark-ag-zurich-zh",
       "slugByLocale": {
-        "it": "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch",
-        "en": "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch",
+        "it": "giardiniere-nuovi-impianti-m-f-yellowshark-ag-zurich-zh",
+        "en": "gardener-new-plants-m-f-yellowshark-ag-zurich-zh",
         "de": "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch",
-        "fr": "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch"
+        "fr": "jardinier-nouvelles-installations-h-f-yellowshark-ag-zurich-zh"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -31127,19 +31127,23 @@
       "previousSlugs": [
         "giardini-nuovi-m-f-yellowshark-ag-zurich-zh",
         "gardeners-new-m-f-yellowshark-ag-zurich-zh",
-        "jardiniers-nouveau-h-f-yellowshark-ag-zurich-zh"
+        "jardiniers-nouveau-h-f-yellowshark-ag-zurich-zh",
+        "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "giardini-nuovi-m-f-yellowshark-ag-zurich-zh",
           "gardeners-new-m-f-yellowshark-ag-zurich-zh",
-          "jardiniers-nouveau-h-f-yellowshark-ag-zurich-zh"
+          "jardiniers-nouveau-h-f-yellowshark-ag-zurich-zh",
+          "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch"
         ],
         "en": [
-          "gardeners-new-m-f-yellowshark-ag-zurich-zh"
+          "gardeners-new-m-f-yellowshark-ag-zurich-zh",
+          "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch"
         ],
         "fr": [
-          "jardiniers-nouveau-h-f-yellowshark-ag-zurich-zh"
+          "jardiniers-nouveau-h-f-yellowshark-ag-zurich-zh",
+          "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch"
         ]
       },
       "needsRetranslation": true,
@@ -50472,12 +50476,12 @@
     },
     {
       "id": "yellowshark-4a07cdf8fa35",
-      "slug": "gartner-unterhalt-m-w-schwyz-sz-yellowshark-ch",
+      "slug": "manutenzione-giardiniere-m-f-yellowshark-ag-schwyz-sz",
       "slugByLocale": {
-        "it": "gartner-unterhalt-m-w-schwyz-sz-yellowshark-ch",
-        "en": "gartner-unterhalt-m-w-schwyz-sz-yellowshark-ch",
+        "it": "manutenzione-giardiniere-m-f-yellowshark-ag-schwyz-sz",
+        "en": "gardener-maintenance-m-f-yellowshark-ag-schwyz-sz",
         "de": "gartner-unterhalt-m-w-schwyz-sz-yellowshark-ch",
-        "fr": "gartner-unterhalt-m-w-schwyz-sz-yellowshark-ch"
+        "fr": "entretien-du-jardinier-h-f-yellowshark-ag-schwyz-sz"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -50532,7 +50536,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-unterhalt-m-w-schwyz-sz-yellowshark-ch"
+        ],
+        "en": [
+          "gartner-unterhalt-m-w-schwyz-sz-yellowshark-ch"
+        ],
+        "fr": [
+          "gartner-unterhalt-m-w-schwyz-sz-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gartner-unterhalt-m-w-schwyz-sz-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-4a5675a50ba5",
@@ -53333,12 +53351,12 @@
     },
     {
       "id": "yellowshark-e443f87f1cde",
-      "slug": "operative-r-einkaufer-in-80-100-regensdorf-zh-yellowshark-ch",
+      "slug": "acquirente-operativo-80-100-yellowshark-ag-regensdorf-zh",
       "slugByLocale": {
-        "it": "operative-r-einkaufer-in-80-100-regensdorf-zh-yellowshark-ch",
+        "it": "acquirente-operativo-80-100-yellowshark-ag-regensdorf-zh",
         "en": "operative-r-einkaufer-in-80-100-regensdorf-zh-yellowshark-ch",
         "de": "operative-r-einkaufer-in-80-100-regensdorf-zh-yellowshark-ch",
-        "fr": "operative-r-einkaufer-in-80-100-regensdorf-zh-yellowshark-ch"
+        "fr": "acheteur-operationnel-80-100-yellowshark-ag-regensdorf-zh"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -53382,19 +53400,22 @@
       "previousSlugs": [
         "acquirente-operativo-80-100-yellowshark-ag-regensdorf",
         "operational-purchaser-80-100-yellowshark-ag-regensdorf",
-        "acheteur-operationnel-80-100-yellowshark-ag-regensdorf"
+        "acheteur-operationnel-80-100-yellowshark-ag-regensdorf",
+        "operative-r-einkaufer-in-80-100-regensdorf-zh-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "acquirente-operativo-80-100-yellowshark-ag-regensdorf",
           "operational-purchaser-80-100-yellowshark-ag-regensdorf",
-          "acheteur-operationnel-80-100-yellowshark-ag-regensdorf"
+          "acheteur-operationnel-80-100-yellowshark-ag-regensdorf",
+          "operative-r-einkaufer-in-80-100-regensdorf-zh-yellowshark-ch"
         ],
         "en": [
           "operational-purchaser-80-100-yellowshark-ag-regensdorf"
         ],
         "fr": [
-          "acheteur-operationnel-80-100-yellowshark-ag-regensdorf"
+          "acheteur-operationnel-80-100-yellowshark-ag-regensdorf",
+          "operative-r-einkaufer-in-80-100-regensdorf-zh-yellowshark-ch"
         ]
       },
       "needsRetranslation": true,
@@ -55410,12 +55431,12 @@
     },
     {
       "id": "yellowshark-cae2e86154d8",
-      "slug": "operativer-einkaufer-8211-industrie-m-w-80-100-langenthal-be-yellowshark-ch",
+      "slug": "acquirente-operativo-industria-m-f-80-100-yellowshark-ag-langenthal-be",
       "slugByLocale": {
-        "it": "operativer-einkaufer-8211-industrie-m-w-80-100-langenthal-be-yellowshark-ch",
-        "en": "operativer-einkaufer-8211-industrie-m-w-80-100-langenthal-be-yellowshark-ch",
+        "it": "acquirente-operativo-industria-m-f-80-100-yellowshark-ag-langenthal-be",
+        "en": "operational-purchaser-industry-m-f-80-100-yellowshark-ag-langenthal-be",
         "de": "operativer-einkaufer-8211-industrie-m-w-80-100-langenthal-be-yellowshark-ch",
-        "fr": "operativer-einkaufer-8211-industrie-m-w-80-100-langenthal-be-yellowshark-ch"
+        "fr": "acheteur-operationnel-industrie-h-f-80-100-yellowshark-ag-langenthal-be"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -55456,21 +55477,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "acquirente-operativo-industria-m-f-80-100-yellowshark-ag-langenthal-be",
         "operational-purchaser-industry-m-f-80-100-yellowshark-ag-langenthal-be",
-        "acheteur-operationnel-industrie-h-f-80-100-yellowshark-ag-langenthal-be"
+        "acheteur-operationnel-industrie-h-f-80-100-yellowshark-ag-langenthal-be",
+        "operativer-einkaufer-8211-industrie-m-w-80-100-langenthal-be-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "acquirente-operativo-industria-m-f-80-100-yellowshark-ag-langenthal-be",
           "operational-purchaser-industry-m-f-80-100-yellowshark-ag-langenthal-be",
-          "acheteur-operationnel-industrie-h-f-80-100-yellowshark-ag-langenthal-be"
+          "acheteur-operationnel-industrie-h-f-80-100-yellowshark-ag-langenthal-be",
+          "operativer-einkaufer-8211-industrie-m-w-80-100-langenthal-be-yellowshark-ch"
         ],
         "en": [
-          "operational-purchaser-industry-m-f-80-100-yellowshark-ag-langenthal-be"
+          "operativer-einkaufer-8211-industrie-m-w-80-100-langenthal-be-yellowshark-ch"
         ],
         "fr": [
-          "acheteur-operationnel-industrie-h-f-80-100-yellowshark-ag-langenthal-be"
+          "operativer-einkaufer-8211-industrie-m-w-80-100-langenthal-be-yellowshark-ch"
         ]
       },
       "needsRetranslation": true,
@@ -55494,9 +55515,9 @@
       "slug": "konstrukteur-maschinenbautechniker-mit-avor-aufgaben-m-w-80-100-baar-zg-yellowshark-ch",
       "slugByLocale": {
         "it": "konstrukteur-maschinenbautechniker-mit-avor-aufgaben-m-w-80-100-baar-zg-yellowshark-ch",
-        "en": "konstrukteur-maschinenbautechniker-mit-avor-aufgaben-m-w-80-100-baar-zg-yellowshark-ch",
+        "en": "designer-mechanical-engineer-with-avor-tasks-m-f-80-100-yellowshark-ag-baar-zg",
         "de": "konstrukteur-maschinenbautechniker-mit-avor-aufgaben-m-w-80-100-baar-zg-yellowshark-ch",
-        "fr": "konstrukteur-maschinenbautechniker-mit-avor-aufgaben-m-w-80-100-baar-zg-yellowshark-ch"
+        "fr": "concepteur-technicien-en-genie-mecanique-avec-taches-prealables-h-f-80-100-yellowshark-ag-baar-zg"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -55809,12 +55830,12 @@
     },
     {
       "id": "yellowshark-4443309053cf",
-      "slug": "it-supporter-it-systemtechniker-8211-ms-cloud-m-w-80-100-ebikon-lu-yellowshark-ch",
+      "slug": "supporto-it-tecnico-di-sistema-it-ms-cloud-m-f-80-100-yellowshark-ag-ebikon-lu",
       "slugByLocale": {
-        "it": "it-supporter-it-systemtechniker-8211-ms-cloud-m-w-80-100-ebikon-lu-yellowshark-ch",
-        "en": "it-supporter-it-systemtechniker-8211-ms-cloud-m-w-80-100-ebikon-lu-yellowshark-ch",
+        "it": "supporto-it-tecnico-di-sistema-it-ms-cloud-m-f-80-100-yellowshark-ag-ebikon-lu",
+        "en": "it-supporter-it-system-technician-ms-cloud-m-f-80-100-yellowshark-ag-ebikon-lu",
         "de": "it-supporter-it-systemtechniker-8211-ms-cloud-m-w-80-100-ebikon-lu-yellowshark-ch",
-        "fr": "it-supporter-it-systemtechniker-8211-ms-cloud-m-w-80-100-ebikon-lu-yellowshark-ch"
+        "fr": "support-informatique-technicien-systeme-informatique-ms-cloud-h-f-80-100-yellowshark-ag-ebikon-lu"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -55858,19 +55879,23 @@
       "previousSlugs": [
         "it-supporter-it-system-engineer-ms-cloud-m-f-80-100-yellowshark-ag-ebikon-lu",
         "it-supporter-it-system-engineer-ms-cloud-m-f-80-100-yellowshark-ag-ebikon",
-        "supporteur-informatique-ingenieur-systeme-informatique-ms-cloud-h-f-80-100-yellowshark-ag-ebikon-lu"
+        "supporteur-informatique-ingenieur-systeme-informatique-ms-cloud-h-f-80-100-yellowshark-ag-ebikon-lu",
+        "it-supporter-it-systemtechniker-8211-ms-cloud-m-w-80-100-ebikon-lu-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-supporter-it-system-engineer-ms-cloud-m-f-80-100-yellowshark-ag-ebikon-lu",
           "it-supporter-it-system-engineer-ms-cloud-m-f-80-100-yellowshark-ag-ebikon",
-          "supporteur-informatique-ingenieur-systeme-informatique-ms-cloud-h-f-80-100-yellowshark-ag-ebikon-lu"
+          "supporteur-informatique-ingenieur-systeme-informatique-ms-cloud-h-f-80-100-yellowshark-ag-ebikon-lu",
+          "it-supporter-it-systemtechniker-8211-ms-cloud-m-w-80-100-ebikon-lu-yellowshark-ch"
         ],
         "en": [
-          "it-supporter-it-system-engineer-ms-cloud-m-f-80-100-yellowshark-ag-ebikon"
+          "it-supporter-it-system-engineer-ms-cloud-m-f-80-100-yellowshark-ag-ebikon",
+          "it-supporter-it-systemtechniker-8211-ms-cloud-m-w-80-100-ebikon-lu-yellowshark-ch"
         ],
         "fr": [
-          "supporteur-informatique-ingenieur-systeme-informatique-ms-cloud-h-f-80-100-yellowshark-ag-ebikon-lu"
+          "supporteur-informatique-ingenieur-systeme-informatique-ms-cloud-h-f-80-100-yellowshark-ag-ebikon-lu",
+          "it-supporter-it-systemtechniker-8211-ms-cloud-m-w-80-100-ebikon-lu-yellowshark-ch"
         ]
       },
       "needsRetranslation": true,
@@ -56378,12 +56403,12 @@
     },
     {
       "id": "yellowshark-dc28cb9e9f06",
-      "slug": "cnc-dreher-polymechaniker-m-w-80-100-uster-zh-yellowshark-ch",
+      "slug": "tornitore-cnc-polimeccanico-m-f-80-100-yellowshark-ag-uster-zh",
       "slugByLocale": {
-        "it": "cnc-dreher-polymechaniker-m-w-80-100-uster-zh-yellowshark-ch",
-        "en": "cnc-dreher-polymechaniker-m-w-80-100-uster-zh-yellowshark-ch",
+        "it": "tornitore-cnc-polimeccanico-m-f-80-100-yellowshark-ag-uster-zh",
+        "en": "cnc-lathe-polymechanic-m-f-80-100-yellowshark-ag-uster-zh",
         "de": "cnc-dreher-polymechaniker-m-w-80-100-uster-zh-yellowshark-ch",
-        "fr": "cnc-dreher-polymechaniker-m-w-80-100-uster-zh-yellowshark-ch"
+        "fr": "tourneur-cnc-polymecanicien-h-f-80-100-yellowshark-ag-uster-zh"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -56426,15 +56451,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "cnc-turner-polymechanic-m-f-80-100-yellowshark-ag-uster-zh",
-        "cnc-turner-polymecanique-h-f-80-100-yellowshark-ag-uster-zh"
+        "cnc-turner-polymecanique-h-f-80-100-yellowshark-ag-uster-zh",
+        "cnc-dreher-polymechaniker-m-w-80-100-uster-zh-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cnc-turner-polymechanic-m-f-80-100-yellowshark-ag-uster-zh",
-          "cnc-turner-polymecanique-h-f-80-100-yellowshark-ag-uster-zh"
+          "cnc-turner-polymecanique-h-f-80-100-yellowshark-ag-uster-zh",
+          "cnc-dreher-polymechaniker-m-w-80-100-uster-zh-yellowshark-ch"
         ],
         "fr": [
-          "cnc-turner-polymecanique-h-f-80-100-yellowshark-ag-uster-zh"
+          "cnc-turner-polymecanique-h-f-80-100-yellowshark-ag-uster-zh",
+          "cnc-dreher-polymechaniker-m-w-80-100-uster-zh-yellowshark-ch"
+        ],
+        "en": [
+          "cnc-dreher-polymechaniker-m-w-80-100-uster-zh-yellowshark-ch"
         ]
       },
       "needsRetranslation": true,

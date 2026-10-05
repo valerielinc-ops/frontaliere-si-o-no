@@ -2701,9 +2701,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-genossenschaft-arlesheim",
-        "en": "verkaufer-in-food-coop-genossenschaft-arlesheim",
+        "en": "food-salesperson-coop-genossenschaft-arlesheim",
         "de": "verkaufer-in-food-coop-genossenschaft-arlesheim",
-        "fr": "verkaufer-in-food-coop-genossenschaft-arlesheim"
+        "fr": "vendeur-e-dans-l-alimentation-coop-genossenschaft-arlesheim"
       },
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
@@ -4732,9 +4732,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "informatiker-in-cfc-applikationsentwicklung-coop-basel-vuv1w8",
-        "en": "informatiker-in-efz-applikationsentwicklung-coop-basel-vuv1w8",
+        "en": "computer-scientistin-efz-application-development-coop-basel",
         "de": "informatiker-in-efz-applikationsentwicklung-coop-basel-vuv1w8",
-        "fr": "informatiker-in-efz-applikationsentwicklung-coop-basel-vuv1w8"
+        "fr": "informaticien-ne-cfc-developpement-d-applications-coop-basel"
       },
       "requirementsByLocale": {
         "de": [
@@ -4770,10 +4770,12 @@
           "computer-scientist-efz-application-development-coop-muttenz"
         ],
         "en": [
-          "computer-scientist-efz-application-development-coop-basel-4k40j3"
+          "computer-scientist-efz-application-development-coop-basel-4k40j3",
+          "informatiker-in-efz-applikationsentwicklung-coop-basel-vuv1w8"
         ],
         "fr": [
-          "computer-scientist-efz-developpement-des-applications-coop-basel"
+          "computer-scientist-efz-developpement-des-applications-coop-basel",
+          "informatiker-in-efz-applikationsentwicklung-coop-basel-vuv1w8"
         ]
       },
       "previousSlugs": [
@@ -4784,7 +4786,8 @@
         "informatiker-in-cfc-applikationsentwicklung-coop-basel-4k40j3",
         "informatiker-in-efz-applikationsentwicklung-coop-basel-4k40j3",
         "informatiker-in-efz-applikationsentwicklung-coop-muttenz",
-        "computer-scientist-efz-application-development-coop-muttenz"
+        "computer-scientist-efz-application-development-coop-muttenz",
+        "informatiker-in-efz-applikationsentwicklung-coop-basel-vuv1w8"
       ],
       "salaryMin": 64500,
       "salaryMax": 110000
@@ -7591,9 +7594,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-genossenschaft-luzern",
-        "en": "verkaufer-in-food-coop-genossenschaft-luzern",
+        "en": "food-salesperson-coop-genossenschaft-luzern",
         "de": "verkaufer-in-food-coop-genossenschaft-luzern",
-        "fr": "verkaufer-in-food-coop-genossenschaft-luzern"
+        "fr": "vendeur-e-dans-l-alimentation-coop-genossenschaft-luzern"
       },
       "addressLocality": "Luzern",
       "addressRegion": "LU",
@@ -8975,9 +8978,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-genossenschaft-bern",
-        "en": "verkaufer-in-food-coop-genossenschaft-bern",
+        "en": "food-salesperson-coop-genossenschaft-bern",
         "de": "verkaufer-in-food-coop-genossenschaft-bern",
-        "fr": "verkaufer-in-food-coop-genossenschaft-bern"
+        "fr": "vendeur-e-dans-l-alimentation-coop-genossenschaft-bern"
       },
       "requirementsByLocale": {
         "de": [
@@ -16733,9 +16736,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-genossenschaft-freienbach",
-        "en": "verkaufer-in-food-coop-genossenschaft-freienbach",
+        "en": "food-salesperson-coop-genossenschaft-freienbach",
         "de": "verkaufer-in-food-coop-genossenschaft-freienbach",
-        "fr": "verkaufer-in-food-coop-genossenschaft-freienbach"
+        "fr": "vendeur-e-dans-l-alimentation-coop-genossenschaft-freienbach"
       },
       "addressLocality": "Freienbach",
       "addressRegion": "SZ",
@@ -22176,7 +22179,7 @@
     },
     {
       "id": "company-jqer8j",
-      "slug": "kochin-koch-m-w-d-coop-ristorante-zurich-jqer8j",
+      "slug": "cuoco-a-m-f-d-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Köchin / Koch (w/m/d)",
       "location": "Zürich",
@@ -22223,10 +22226,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "kochin-koch-m-w-d-coop-ristorante-zurich-jqer8j",
+        "it": "cuoco-a-m-f-d-coop-genossenschaft-zurich",
         "en": "kochin-koch-w-m-d-coop-genossenschaft-zurich",
         "de": "kochin-koch-m-w-d-coop-ristorante-zurich-jqer8j",
-        "fr": "kochin-koch-m-w-d-coop-ristorante-zurich-jqer8j"
+        "fr": "cuisiniere-cuisinier-h-f-d-coop-genossenschaft-zurich"
       },
       "needsRetranslation": true,
       "addressLocality": "Zürich",
@@ -22249,11 +22252,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-m-w-d-coop-ristorante-zurich-2"
+          "kochin-koch-m-w-d-coop-ristorante-zurich-2",
+          "kochin-koch-m-w-d-coop-ristorante-zurich-jqer8j"
+        ],
+        "fr": [
+          "kochin-koch-m-w-d-coop-ristorante-zurich-jqer8j"
         ]
       },
       "previousSlugs": [
-        "kochin-koch-m-w-d-coop-ristorante-zurich-2"
+        "kochin-koch-m-w-d-coop-ristorante-zurich-2",
+        "kochin-koch-m-w-d-coop-ristorante-zurich-jqer8j"
       ]
     },
     {
@@ -22352,7 +22360,7 @@
     },
     {
       "id": "company-55jsrk",
-      "slug": "kochin-koch-m-w-d-coop-ristorante-zurich-55jsrk",
+      "slug": "cuoco-a-m-f-d-coop-genossenschaft-zurich-95ca1a",
       "company": "Coop Genossenschaft",
       "title": "Köchin / Koch (w/m/d)",
       "location": "Zürich",
@@ -22399,10 +22407,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "kochin-koch-m-w-d-coop-ristorante-zurich-55jsrk",
+        "it": "cuoco-a-m-f-d-coop-genossenschaft-zurich-95ca1a",
         "en": "kochin-koch-w-m-d-coop-genossenschaft-zurich",
         "de": "kochin-koch-m-w-d-coop-ristorante-zurich-55jsrk",
-        "fr": "kochin-koch-m-w-d-coop-ristorante-zurich-55jsrk"
+        "fr": "cuisiniere-cuisinier-h-f-d-coop-genossenschaft-zurich-95ca1a"
       },
       "needsRetranslation": true,
       "addressLocality": "Zürich",
@@ -22425,11 +22433,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-m-w-d-coop-ristorante-zurich-3"
+          "kochin-koch-m-w-d-coop-ristorante-zurich-3",
+          "kochin-koch-m-w-d-coop-ristorante-zurich-55jsrk"
+        ],
+        "fr": [
+          "kochin-koch-m-w-d-coop-ristorante-zurich-55jsrk"
         ]
       },
       "previousSlugs": [
-        "kochin-koch-m-w-d-coop-ristorante-zurich-3"
+        "kochin-koch-m-w-d-coop-ristorante-zurich-3",
+        "kochin-koch-m-w-d-coop-ristorante-zurich-55jsrk"
       ]
     },
     {
@@ -25403,9 +25416,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-genossenschaft-zollikerberg",
-        "en": "verkaufer-in-food-coop-genossenschaft-zollikerberg",
+        "en": "food-salesperson-coop-genossenschaft-zollikerberg",
         "de": "verkaufer-in-food-coop-genossenschaft-zollikerberg",
-        "fr": "verkaufer-in-food-coop-genossenschaft-zollikerberg"
+        "fr": "vendeur-e-dans-l-alimentation-coop-genossenschaft-zollikerberg"
       },
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",

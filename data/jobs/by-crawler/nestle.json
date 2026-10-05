@@ -241,10 +241,10 @@
     },
     {
       "id": "nestle-1437826133",
-      "slug": "stagiaire-ingenieur-e-engineering-nestle-ch",
+      "slug": "tirocinante-ingegnere-e-engineering-nestle-avenches",
       "slugByLocale": {
-        "it": "stagiaire-ingenieur-e-engineering-nestle-ch",
-        "en": "stagiaire-ingenieur-e-engineering-nestle-ch",
+        "it": "tirocinante-ingegnere-e-engineering-nestle-avenches",
+        "en": "intern-engineer-e-engineering-nestle-avenches",
         "de": "stagiaire-ingenieur-e-ingenieurwesen-nestle-avenches",
         "fr": "stagiaire-ingenieur-e-engineering-nestle-ch"
       },
@@ -300,14 +300,25 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-ingenieur-e-engineering-nestle-ch"
+        ],
+        "en": [
+          "stagiaire-ingenieur-e-engineering-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-ingenieur-e-engineering-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1437201133",
       "slug": "stagiaire-ingenieur-e-production-et-ou-logistique-amelioration-continua-nestle-avenches",
       "slugByLocale": {
         "it": "stagiaire-ingenieur-e-production-et-ou-logistique-amelioration-continua-nestle-avenches",
-        "en": "stagiaire-ingenieur-e-production-et-ou-logistique-amelioration-continue-nestle-ch",
+        "en": "production-and-or-logistics-engineer-intern-continuous-improvement-nestle-avenches",
         "de": "stagiaire-ingenieur-e-production-et-ou-logistique-amelioration-weiter-nestle-avenches",
         "fr": "stagiaire-ingenieur-e-production-et-ou-logistique-amelioration-continue-nestle-ch"
       },
@@ -358,6 +369,9 @@
           "stagiaire-ingenieur-e-production-et-ou-logistique-amelioration-continua-nestle-avenches"
         ],
         "de": [
+          "stagiaire-ingenieur-e-production-et-ou-logistique-amelioration-continue-nestle-ch"
+        ],
+        "en": [
           "stagiaire-ingenieur-e-production-et-ou-logistique-amelioration-continue-nestle-ch"
         ]
       },
@@ -4042,10 +4056,10 @@
     },
     {
       "id": "nestle-1437672033",
-      "slug": "anlagenfuhrer-in-100-nestle-ch",
+      "slug": "operatore-trice-dell-impianto-100-nestle-konolfingen",
       "slugByLocale": {
-        "it": "anlagenfuhrer-in-100-nestle-ch",
-        "en": "anlagenfuhrer-in-100-nestle-ch",
+        "it": "operatore-trice-dell-impianto-100-nestle-konolfingen",
+        "en": "plant-operator-100-nestle-konolfingen",
         "de": "anlagenfuhrer-in-100-nestle-ch",
         "fr": "anlagenfuhrer-dans-100-nestle-konolfingen"
       },
@@ -4088,12 +4102,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "anlagenfuhrer-in-100-nestle-konolfingen",
-        "1-781-t-in-100-nestle-konolfingen"
+        "1-781-t-in-100-nestle-konolfingen",
+        "anlagenfuhrer-in-100-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "de": [
           "anlagenfuhrer-in-100-nestle-konolfingen",
           "1-781-t-in-100-nestle-konolfingen"
+        ],
+        "it": [
+          "anlagenfuhrer-in-100-nestle-ch"
+        ],
+        "en": [
+          "anlagenfuhrer-in-100-nestle-ch"
         ]
       },
       "needsRetranslation": true,

@@ -22129,8 +22129,8 @@
       "slugByLocale": {
         "de": "sachbearbeiter-in-warenfluss-import-interdiscount-jegenstorf",
         "it": "sachbearbeiter-in-warenfluss-import-interdiscount-jegenstorf",
-        "en": "sachbearbeiter-in-warenfluss-import-interdiscount-jegenstorf",
-        "fr": "sachbearbeiter-in-warenfluss-import-interdiscount-jegenstorf"
+        "en": "goods-flow-import-clerk-interdiscount-jegenstorf",
+        "fr": "responsable-dans-le-flux-de-marchandises-importation-interdiscount-jegenstorf"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -22491,12 +22491,12 @@
     },
     {
       "id": "interdiscount-982afb85-2d4",
-      "slug": "auxiliaire-de-noel-interdiscount-geneve",
+      "slug": "ausiliario-natalizio-interdiscount-geneve",
       "slugByLocale": {
         "fr": "auxiliaire-de-noel-interdiscount-geneve",
-        "it": "auxiliaire-de-noel-interdiscount-geneve",
-        "en": "auxiliaire-de-noel-interdiscount-geneve",
-        "de": "auxiliaire-de-noel-interdiscount-geneve"
+        "it": "ausiliario-natalizio-interdiscount-geneve",
+        "en": "christmas-auxiliary-interdiscount-geneve",
+        "de": "weihnachtshelferin-interdiscount-geneve"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -22567,7 +22567,21 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "auxiliaire-de-noel-interdiscount-geneve"
+        ],
+        "en": [
+          "auxiliaire-de-noel-interdiscount-geneve"
+        ],
+        "de": [
+          "auxiliaire-de-noel-interdiscount-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "auxiliaire-de-noel-interdiscount-geneve"
+      ]
     },
     {
       "id": "interdiscount-4d72e017-fa7",

@@ -747,12 +747,12 @@
     },
     {
       "id": "livit-2e95b6dc2fee",
-      "slug": "immobilienbewirtschafter-in-livit-st-gallen",
+      "slug": "gestore-immobiliare-livit-ag-st-gallen",
       "slugByLocale": {
-        "it": "immobilienbewirtschafter-in-livit-st-gallen",
-        "en": "immobilienbewirtschafter-in-livit-st-gallen",
+        "it": "gestore-immobiliare-livit-ag-st-gallen",
+        "en": "propertymanager-livit-ag-st-gallen",
         "de": "immobilienbewirtschafter-in-livit-st-gallen",
-        "fr": "immobilienbewirtschafter-in-livit-st-gallen"
+        "fr": "gerant-e-immobilier-e-livit-ag-st-gallen"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -808,7 +808,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienbewirtschafter-in-livit-st-gallen"
+        ],
+        "en": [
+          "immobilienbewirtschafter-in-livit-st-gallen"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-in-livit-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienbewirtschafter-in-livit-st-gallen"
+      ]
     },
     {
       "id": "livit-e38aa2cd8b47",
@@ -896,9 +910,9 @@
       "slug": "senior-immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich",
       "slugByLocale": {
         "it": "senior-immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich",
-        "en": "senior-immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich",
+        "en": "senior-property-managerin-commercial-properties-livit-ag-zurich",
         "de": "senior-immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich",
-        "fr": "senior-immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich"
+        "fr": "gestionnaire-immobilier-senior-dans-les-immeubles-commerciaux-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -1121,9 +1135,9 @@
       "slug": "sachbearbeiter-in-immobilienbewirtschaftung-deutschschweiz-livit-zurich",
       "slugByLocale": {
         "it": "sachbearbeiter-in-immobilienbewirtschaftung-deutschschweiz-livit-zurich",
-        "en": "sachbearbeiter-in-immobilienbewirtschaftung-deutschschweiz-livit-zurich",
+        "en": "property-managementclerk-german-speaking-switzerland-livit-ag-zurich",
         "de": "sachbearbeiter-in-immobilienbewirtschaftung-deutschschweiz-livit-zurich",
-        "fr": "sachbearbeiter-in-immobilienbewirtschaftung-deutschschweiz-livit-zurich"
+        "fr": "responsable-de-la-gestion-immobiliereen-suisse-alemanique-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -1352,9 +1366,9 @@
       "slug": "junior-bewirtschafter-in-geschaftsflachen-livit-zurich",
       "slugByLocale": {
         "it": "junior-bewirtschafter-in-geschaftsflachen-livit-zurich",
-        "en": "junior-bewirtschafter-in-geschaftsflachen-livit-zurich",
+        "en": "junior-managerbusiness-space-livit-ag-zurich",
         "de": "junior-bewirtschafter-in-geschaftsflachen-livit-zurich",
-        "fr": "junior-bewirtschafter-in-geschaftsflachen-livit-zurich"
+        "fr": "gestionnaire-junior-dans-les-surfaces-commerciales-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -1437,9 +1451,9 @@
       "slug": "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich",
       "slugByLocale": {
         "it": "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich",
-        "en": "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich",
+        "en": "property-manager-commercial-space-livit-ag-zurich",
         "de": "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich",
-        "fr": "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich"
+        "fr": "gerant-immobilier-dans-les-surfaces-commerciales-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -1502,9 +1516,9 @@
       "slug": "sachbearbeiter-in-immobilienbewirtschaftung-livit-st-gallen",
       "slugByLocale": {
         "it": "sachbearbeiter-in-immobilienbewirtschaftung-livit-st-gallen",
-        "en": "sachbearbeiter-in-immobilienbewirtschaftung-livit-st-gallen",
+        "en": "property-management-clerk-livit-ag-st-gallen",
         "de": "sachbearbeiter-in-immobilienbewirtschaftung-livit-st-gallen",
-        "fr": "sachbearbeiter-in-immobilienbewirtschaftung-livit-st-gallen"
+        "fr": "responsable-dela-gestion-immobiliere-livit-ag-st-gallen"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -1629,12 +1643,12 @@
     },
     {
       "id": "livit-102291ae7251",
-      "slug": "immobilienbewirtschafter-in-livit-basel",
+      "slug": "gestore-immobiliare-livit-ag-basel",
       "slugByLocale": {
-        "it": "immobilienbewirtschafter-in-livit-basel",
-        "en": "immobilienbewirtschafter-in-livit-basel",
+        "it": "gestore-immobiliare-livit-ag-basel",
+        "en": "propertymanager-livit-ag-basel",
         "de": "immobilienbewirtschafter-in-livit-basel",
-        "fr": "immobilienbewirtschafter-in-livit-basel"
+        "fr": "gerant-e-immobilier-e-livit-ag-basel"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -1696,20 +1710,24 @@
           "gestione-delle-proprieta-livit-ag-basel",
           "property-managers-livit-ag-basel",
           "gestionnaires-de-biens-livit-ag-basel-0f28e5",
-          "immobilienbewirtschafter-in-livit-basel-v0eup1"
+          "immobilienbewirtschafter-in-livit-basel-v0eup1",
+          "immobilienbewirtschafter-in-livit-basel"
         ],
         "en": [
-          "property-managers-livit-ag-basel"
+          "property-managers-livit-ag-basel",
+          "immobilienbewirtschafter-in-livit-basel"
         ],
         "fr": [
-          "gestionnaires-de-biens-livit-ag-basel-0f28e5"
+          "gestionnaires-de-biens-livit-ag-basel-0f28e5",
+          "immobilienbewirtschafter-in-livit-basel"
         ]
       },
       "previousSlugs": [
         "gestione-delle-proprieta-livit-ag-basel",
         "property-managers-livit-ag-basel",
         "gestionnaires-de-biens-livit-ag-basel-0f28e5",
-        "immobilienbewirtschafter-in-livit-basel-v0eup1"
+        "immobilienbewirtschafter-in-livit-basel-v0eup1",
+        "immobilienbewirtschafter-in-livit-basel"
       ]
     },
     {
