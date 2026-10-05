@@ -606,6 +606,38 @@ service cloud.firestore {
         || isTermsBasedExplicitReactivation(email)
         || isVerifiedLegacyResubscribe(email));
 
+      // Company follow intents of an anonymous visitor ("Segui azienda" before
+      // the address is confirmed). The browser can only APPEND a pending
+      // intent with a fixed shape; it can never read, edit or close one. The
+      // confirmation endpoint (Admin SDK, functions/src/companyFollowIntents.js)
+      // turns it into the CompanyAlert when the mailbox owner clicks the link,
+      // so an intent written for somebody else's address stays inert.
+      match /company_follow_intents/{intentId} {
+        allow read, update, delete: if false;
+        allow create: if request.resource.data.keys().hasOnly([
+            'company_key', 'company', 'locale', 'source_job_slug',
+            'source_job_url', 'source_job_title', 'source_page',
+            'status', 'created_at'
+          ])
+          && request.resource.data.keys().hasAll(['company_key', 'locale', 'status', 'created_at'])
+          && request.resource.data.status == 'pending'
+          && request.resource.data.created_at == request.time
+          && request.resource.data.company_key is string
+          && request.resource.data.company_key.size() > 0
+          && request.resource.data.company_key.size() <= 160
+          && request.resource.data.locale in ['it', 'en', 'de', 'fr']
+          && (!('company' in request.resource.data) || request.resource.data.company == null
+            || (request.resource.data.company is string && request.resource.data.company.size() <= 200))
+          && (!('source_job_slug' in request.resource.data) || request.resource.data.source_job_slug == null
+            || (request.resource.data.source_job_slug is string && request.resource.data.source_job_slug.size() <= 300))
+          && (!('source_job_url' in request.resource.data) || request.resource.data.source_job_url == null
+            || (request.resource.data.source_job_url is string && request.resource.data.source_job_url.size() <= 500))
+          && (!('source_job_title' in request.resource.data) || request.resource.data.source_job_title == null
+            || (request.resource.data.source_job_title is string && request.resource.data.source_job_title.size() <= 300))
+          && (!('source_page' in request.resource.data) || request.resource.data.source_page == null
+            || (request.resource.data.source_page is string && request.resource.data.source_page.size() <= 500));
+      }
+
       // Engagement events (subscribe, confirm, click, open) — append-only, and
       // never readable by a client.
       //
