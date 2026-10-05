@@ -7760,6 +7760,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lugano-trasparenza-partecipate.title': 'Lugano: the UDC proposes greater transparency regarding compensation',
     'blog.article.lugano-trasparenza-partecipate.excerpt': 'A motion by the UDC calls for the annual publication of the salaries of CEOs and boards of directors of companies owned by the City of Lugano.',
     'blog.article.lugano-trasparenza-partecipate.imageAlt': 'The LAC cultural center in Lugano overlooking the lake.',
+    'blog.article.tamedia-taglio-posti-lavoro.title': 'Tamedia cuts 34 jobs: reorganization ahead',
+    'blog.article.tamedia-taglio-posti-lavoro.excerpt': 'The publishing company announces the elimination of 34 full-time positions, affecting 41 employees across German- and French-speaking Switzerland by the end of October.',
+    'blog.article.tamedia-taglio-posti-lavoro.imageAlt': 'Headquarters of a Swiss media company in an urban setting',
 };
 
 export default blogMetaChEn;
