@@ -1,7 +1,7 @@
 {
   "key": "michel-gruppe-ag",
   "label": "Michel Gruppe AG",
-  "generatedAt": "2026-10-05T10:31:45.810Z",
+  "generatedAt": "2026-10-05T21:28:38.253Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 7628,
-  "avgDurationMs": 7628,
+  "durationMs": 6220,
+  "avgDurationMs": 6220,
   "durationHistory": [
-    7628
+    6220
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://my.jobalino.ch/job/a3e800c4b889aa753df4eb03b9bb3625/fachfrau-fachmann-betreuung-efz-kind_9709",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T10:31:38.167Z",
+      "crawledAt": "2026-10-05T21:28:30.278Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "url": "https://my.jobalino.ch/job/02c12a9b6e9a78159bc4e9f054112918/hr-business-partner-in_5649",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T10:31:37.725Z",
+      "crawledAt": "2026-10-05T21:28:29.875Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -125,7 +125,7 @@
       "url": "https://my.jobalino.ch/job/0d4624e88fa73af4e35b88b0086f28e1/elektroinstallateur-in-efz_9614",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T10:31:37.142Z",
+      "crawledAt": "2026-10-05T21:28:29.381Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -169,7 +169,7 @@
       "url": "https://my.jobalino.ch/job/4da43dc0116f1c31265b4d1d07b4d31e/sommer-2027-lehrstelle-koechin-efz-koch-efz",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T10:31:36.558Z",
+      "crawledAt": "2026-10-05T21:28:28.879Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -213,7 +213,7 @@
       "url": "https://my.jobalino.ch/job/ebe7f6c4dac84f997e31421a186d8033/stv-leiter-in-bau-und-technik",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T10:31:35.971Z",
+      "crawledAt": "2026-10-05T21:28:28.387Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -257,7 +257,7 @@
       "url": "https://my.jobalino.ch/job/39e7ce71b9c6861ff653f74e0636078b/sommer-2027-lehrstelle-fachfrau-fachmann-betreuung-efz-fachrichtung-kinder",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T10:31:35.386Z",
+      "crawledAt": "2026-10-05T21:28:27.892Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -301,7 +301,7 @@
       "url": "https://my.jobalino.ch/job/8533e277f138525befd8580c9b046915/standortleiter-in-kueche-hasliberg-mit-diaetkochausbildung",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T10:31:34.938Z",
+      "crawledAt": "2026-10-05T21:28:27.484Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -334,5 +334,5 @@
       }
     }
   ],
-  "codeCommit": "19297c3c741a31519d5900b250809a82ac6f3dc8"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }

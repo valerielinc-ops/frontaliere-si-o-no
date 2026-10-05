@@ -314,6 +314,17 @@ jobs:
         continue-on-error: true
         run: node scripts/crawl-icms-agenda.mjs --source lu-stadt-agenda
 
+      # Organizer JSON-LD (owner decision D3, 2026-10-05): classicAscona
+      # concerts, facts only — no organizer text, no images. Same isolation
+      # contract as the agendas above, surfaced by its own "Surface …" step.
+      - name: Crawl classicAscona concerts (TI, organizer JSON-LD)
+        id: crawl-classicascona
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
+        continue-on-error: true
+        # ~60 pages at 2 s each: a stuck host must not eat the job budget.
+        timeout-minutes: 10
+        run: node scripts/crawl-classicascona-events.mjs
+
       - name: Persist nationwide checkpoints + slices (survives downstream failures)
         id: persist-nationwide
         # The "Persist geo/translation caches" step above runs BEFORE guidle and
@@ -466,7 +477,7 @@ jobs:
             --path data/events-image-manifest.json
             --path data/events/checkpoints/
           )
-          for source in ge-agenda openagenda fr-agenda nw-agenda ow-agenda lu-stadt-agenda; do
+          for source in ge-agenda openagenda fr-agenda nw-agenda ow-agenda lu-stadt-agenda classicascona; do
             if [ -f "data/events/by-source/${source}.json" ]; then
               paths+=(--path "data/events/by-source/${source}.json")
             fi
@@ -521,6 +532,17 @@ jobs:
             exit 1
           fi
 
+      - name: Surface classicAscona crawl failures (continue-on-error must not hide them)
+        # Twin of the GE/MySwitzerland steps for "Crawl classicAscona concerts":
+        # runs after publication either way and fails the job when that step
+        # failed, so the classicascona slice cannot age silently.
+        if: always()
+        run: |
+          if [ "${{ steps.crawl-classicascona.outcome }}" = "failure" ]; then
+            echo "::error::Crawl classicAscona concerts (TI, organizer JSON-LD) failed this run — previous classicascona slice kept, the other sources were published via continue-on-error; this needs investigation."
+            exit 1
+          fi
+
       - name: Surface cantonal agenda crawl failures (continue-on-error must not hide them)
         # Twin of the GE/MySwitzerland steps above for the P9a cantonal
         # agendas: runs after publication either way and fails the job when
@@ -571,6 +593,7 @@ jobs:
           - Crawl nw.ch agenda (NW): ${{ steps.crawl-nw.outcome }}
           - Crawl ow.ch agenda (OW): ${{ steps.crawl-ow.outcome }}
           - Crawl stadtluzern.ch agenda (LU): ${{ steps.crawl-lu.outcome }}
+          - Crawl classicAscona concerts (TI): ${{ steps.crawl-classicascona.outcome }}
           - Assemble events dataset: ${{ steps.assemble.outcome }}
           - Refresh weekend-digest article: ${{ steps.digest.outcome }}
           - Gate (vitest): ${{ steps.gate.outcome }}

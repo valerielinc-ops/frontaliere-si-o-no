@@ -1,12 +1,12 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-10-05T10:34:20.889Z",
+  "assembledAt": "2026-10-05T21:31:00.505Z",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
       "slug": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
       "slugByLocale": {
-        "it": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
+        "it": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "de": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "fr": "sous-assistant-e-diplome-e-pj-en-chirurgie-see-spital-horgen"
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/301/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T10:34:15.366Z",
+      "crawledAt": "2026-10-05T21:30:54.518Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -45,7 +45,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/301/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -54,11 +56,13 @@
       "previousSlugs": [
         "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "pj-absolvens-in-chirurgie-see-spital-horgen",
-        "pj-absolvent-in-chirurgies-see-spital-horgen"
+        "pj-absolvent-in-chirurgies-see-spital-horgen",
+        "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
+          "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
         ],
         "en": [
           "pj-absolvent-in-chirurgies-see-spital-horgen"
@@ -81,9 +85,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-dd3f1efb3f84",
@@ -117,7 +119,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:34:14.290Z",
+      "crawledAt": "2026-10-05T21:30:53.469Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -205,7 +207,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-05T10:34:13.197Z",
+      "crawledAt": "2026-10-05T21:30:52.413Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -284,7 +286,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:34:12.071Z",
+      "crawledAt": "2026-10-05T21:30:51.350Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -426,7 +428,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:34:10.988Z",
+      "crawledAt": "2026-10-05T21:30:50.288Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -561,7 +563,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:34:09.868Z",
+      "crawledAt": "2026-10-05T21:30:49.240Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -658,7 +660,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/696/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T10:34:08.811Z",
+      "crawledAt": "2026-10-05T21:30:48.193Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -670,7 +672,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/696/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -733,18 +737,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-74bfb782fc7e",
       "slug": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
       "slugByLocale": {
         "it": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
-        "en": "emergency-medical-technician-in-training-see-spital-horgen",
+        "en": "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
         "de": "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "fr": "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
+        "fr": "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -769,7 +771,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:34:07.694Z",
+      "crawledAt": "2026-10-05T21:30:47.144Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -822,6 +824,8 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "rettungssanitater-in-in-ausbildung-see-spital-ch",
+        "emergency-medical-technician-in-training-see-spital-horgen",
+        "technicien-en-soins-d-urgence-en-formation-see-spital-horgen",
         "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
         "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
       ],
@@ -830,9 +834,11 @@
           "rettungssanitater-in-in-ausbildung-see-spital-ch"
         ],
         "en": [
+          "emergency-medical-technician-in-training-see-spital-horgen",
           "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen"
         ],
         "fr": [
+          "technicien-en-soins-d-urgence-en-formation-see-spital-horgen",
           "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
         ]
       },
@@ -884,7 +890,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:34:06.557Z",
+      "crawledAt": "2026-10-05T21:30:46.125Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -987,7 +993,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1058/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T10:34:05.424Z",
+      "crawledAt": "2026-10-05T21:30:45.092Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -999,7 +1005,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1058/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -1051,9 +1059,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-50f9b4fcb057",
@@ -1087,7 +1093,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:34:04.344Z",
+      "crawledAt": "2026-10-05T21:30:44.042Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1194,7 +1200,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:34:03.154Z",
+      "crawledAt": "2026-10-05T21:30:43.054Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1304,7 +1310,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:34:02.026Z",
+      "crawledAt": "2026-10-05T21:30:41.980Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1412,7 +1418,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:34:00.899Z",
+      "crawledAt": "2026-10-05T21:30:40.951Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1522,7 +1528,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:33:59.756Z",
+      "crawledAt": "2026-10-05T21:30:39.920Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1619,7 +1625,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T10:33:58.664Z",
+      "crawledAt": "2026-10-05T21:30:38.901Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1631,7 +1637,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -1694,9 +1702,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-ee0a2e2dc56b",
@@ -1730,7 +1736,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:33:57.528Z",
+      "crawledAt": "2026-10-05T21:30:37.896Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1836,7 +1842,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:33:56.404Z",
+      "crawledAt": "2026-10-05T21:30:36.907Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1943,7 +1949,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:33:55.346Z",
+      "crawledAt": "2026-10-05T21:30:35.903Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2048,7 +2054,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:33:54.216Z",
+      "crawledAt": "2026-10-05T21:30:34.858Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2151,7 +2157,7 @@
       "companyDomain": "see-spital.ch",
       "title": "Radiologiefachfrau*mann HF",
       "titleByLocale": {
-        "it": "Specialista di radiologia* HF",
+        "it": "Radiologiefachfrau*mann HF",
         "en": "Radiologist HF",
         "de": "Radiologiefachfrau*mann HF",
         "fr": "Radiologue HF"
@@ -2168,7 +2174,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T10:33:53.094Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-10-05T21:30:33.848Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2277,7 +2284,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:33:51.965Z",
+      "crawledAt": "2026-10-05T21:30:32.851Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2361,7 +2368,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:33:50.865Z",
+      "crawledAt": "2026-10-05T21:30:31.789Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2443,7 +2450,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-05T10:33:49.766Z",
+      "crawledAt": "2026-10-05T21:30:30.747Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2525,7 +2532,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:33:48.687Z",
+      "crawledAt": "2026-10-05T21:30:29.681Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2606,7 +2613,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1262/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T10:33:47.544Z",
+      "crawledAt": "2026-10-05T21:30:28.614Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2618,7 +2625,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1262/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -2652,16 +2661,14 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-981ac5a06760",
       "slug": "esperto-di-cura-see-spital-horgen",
       "slugByLocale": {
         "it": "esperto-di-cura-see-spital-horgen",
-        "en": "nursing-expert-see-spital-horgen",
+        "en": "pflegeexpert-in-see-spital-horgen",
         "de": "pflegeexpert-in-see-spital-ch",
         "fr": "specialiste-des-soins-see-spital-horgen"
       },
@@ -2688,7 +2695,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:33:46.411Z",
+      "crawledAt": "2026-10-05T21:30:27.563Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2711,6 +2718,7 @@
       "previousSlugs": [
         "pflegeexpert-in-see-spital-ch",
         "care-expert-see-spital-horgen",
+        "nursing-expert-see-spital-horgen",
         "pflegeexpert-in-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
@@ -2719,6 +2727,7 @@
         ],
         "en": [
           "care-expert-see-spital-horgen",
+          "nursing-expert-see-spital-horgen",
           "pflegeexpert-in-see-spital-horgen"
         ],
         "fr": [
@@ -2773,7 +2782,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:33:45.314Z",
+      "crawledAt": "2026-10-05T21:30:26.545Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2857,7 +2866,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:33:44.180Z",
+      "crawledAt": "2026-10-05T21:30:25.518Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2954,7 +2963,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:33:43.060Z",
+      "crawledAt": "2026-10-05T21:30:24.472Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3036,7 +3045,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:33:41.944Z",
+      "crawledAt": "2026-10-05T21:30:23.429Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3087,90 +3096,6 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "see-spital-7a1ef1458a64",
-      "slug": "dipendenti-nella-gestione-degli-edifici-see-spital-horgen",
-      "slugByLocale": {
-        "it": "dipendenti-nella-gestione-degli-edifici-see-spital-horgen",
-        "en": "employee-in-building-management-see-spital-horgen",
-        "de": "mitarbeiter-in-gebaudemanagement-see-spital-ch",
-        "fr": "employe-en-gestion-des-batiments-see-spital-horgen"
-      },
-      "company": "See-Spital",
-      "companyKey": "see-spital",
-      "companyDomain": "see-spital.ch",
-      "title": "Mitarbeiter*in Gebäudemanagement",
-      "titleByLocale": {
-        "it": "Dipendenti* nella gestione degli edifici",
-        "en": "Building management staff",
-        "de": "Mitarbeiter*in Gebäudemanagement",
-        "fr": "Employé* en gestion des bâtiments"
-      },
-      "description": "Per 1. Dezember 2026 oder nach Vereinbarung suchen wir eine*n Mitarbeiter*in Gebäudemanagement\n100%\n\nIhr Aufgabengebiet:\n\n• Sie stellen den zuverlässigen Betrieb und einwandfreien Zustand unserer technischen Infrastruktur sicher. Dazu gehören insbesondere die Bereiche Elektrik, Sanitär, Klima/Lüftung, Meldetechnik, Mobiliar und Immobilien sowie der gesamte Unterhalt der Haustechnik (HLKSE).\n• Sie gewährleisten die fachgerechte und effiziente Störungsbehebung an sämtlichen technischen Anlagen und Apparaturen\n• Sie überzeugen uns durch Ihre Kenntnisse im sicheren Umgang mit und in der fachgerechten Lagerung von chemischen Giften und Gasen\n• Sie schulen unsere Mitarbeiter*innen in den Bereichen Arbeitssicherheit und weiteren technischen Themen\n• Sie gewährleisten im Rahmen des Pikettdienstes eine kurzfristige Verfügbarkeit und sind innerhalb von 30–60 Minuten am Einsatzort\n\nIhr Profil:\n\n• Sie verfügen über eine abgeschlossene technische Ausbildung EFZ (von Vorteil Elektroinstallateur*in)\n• Sie haben sich im Bereich Heizung, Lüftung, Klima und Sanitär (HLKS) erfolgreich weitergebildet\n• Sie zeichnen sich durch Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit aus\n• Eine hohe Leistungs- und Lernbereitschaft sowie die Bereitschaft, sich kontinuierlich weiterzubilden, gehören zu Ihren Stärken\n• Sie verfügen über Grundkenntnisse in MS Office und gängigen PC-Anwendungen und überzeugen durch Ihre organisatorischen und kommunikativen Fähigkeiten im Umgang mit Mitarbeitenden und externen Stellen\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
-      "descriptionByLocale": {
-        "it": "La vostra area di responsabilità:\n\n• Garantiscono il funzionamento affidabile e la perfetta condizione della nostra infrastruttura tecnica. Questo include in particolare le aree di elettrici, igienico-sanitari, aria condizionata/ventilazione, tecnologia di reporting, mobili e immobili, nonché l'intera manutenzione della tecnologia di costruzione (HLKSE).\n• Garantiscono la risoluzione di problemi professionali ed efficienti di tutte le installazioni e attrezzature tecniche\n• Ci convinci con la tua conoscenza nella gestione sicura e nella corretta conservazione di veleni e gas chimici\n• Formano i nostri dipendenti nei settori della sicurezza del lavoro e di altri temi tecnici\n• Garantiscono la disponibilità a breve termine nell'ambito del servizio Pikett e sono al sito entro 30-60 minuti.\n\nIl tuo profilo:\n\n• Hai completato la formazione tecnica EFZ (utilmente elettricista)\n• Hai completato con successo ulteriori allenamenti nelle aree di riscaldamento, ventilazione, clima e servizi igienici (HLKS).\n• Sono caratterizzati da flessibilità, senso di responsabilità e lavoro di squadra.\n• Un'alta disponibilità a eseguire e imparare, così come la volontà di allenarsi continuamente sono tra i vostri punti di forza\n• Hai conoscenza di base di MS Office e applicazioni PC comuni e convincere attraverso le tue capacità organizzative e di comunicazione nel trattare con dipendenti e posizioni esterne\n\nCosa ti offriamo:\n\n• Lavorare in modo indipendente in un team motivato e collegiale che si sostiene a vicenda.\n• Un luogo di lavoro con la migliore connessione ai trasporti pubblici, così come i posti di parcheggio del personale economicamente vantaggiosi.\n• Infrastrutture moderne e un ambiente di lavoro in cui si può sentire a casa – vista lago incluso.\n• Vari vantaggi – dai grandi sconti ai dipendenti per ulteriori offerte di istruzione.\n• Un ambiente di lavoro piacevole in una posizione attraente vicino a Zurigo, che ha molto da offrire sia professionalmente che privatamente. Le applicazioni fisiche non possono essere considerate o restituite.",
-        "en": "Your area of responsibility:\n\n• They ensure the reliable operation and perfect condition of our technical infrastructure. This includes in particular the areas of electrics, sanitation, air conditioning/ventilation, reporting technology, furniture and real estate as well as the entire maintenance of building technology (HLKSE).\n• They ensure professional and efficient troubleshooting of all technical installations and equipment\n• You convince us with your knowledge in the safe handling and proper storage of chemical poisons and gases\n• They train our employees in the areas of occupational safety and other technical topics\n• They guarantee short-term availability within the framework of the Pikett service and are at the site within 30-60 minutes.\n\nYour profile:\n\n• You have completed technical training EFZ (advantageously electrician)\n• You have successfully completed further training in the areas of heating, ventilation, climate and sanitation (HLKS).\n• They are characterized by flexibility, a sense of responsibility and teamwork.\n• A high willingness to perform and learn as well as the willingness to continuously train yourself are among your strengths\n• You have basic knowledge of MS Office and common PC applications and convince through your organizational and communication skills in dealing with employees and external positions\n\nWhat we offer you:\n\n• Working independently in a motivated and collegial team that supports each other.\n• A place of work with the best connection to public transport, as well as cost-effective staff parking spaces.\n• Modern infrastructure and a working environment in which you can feel at home – lake views included.\n• Various benefits – from great employee discounts to further education offers.\n• A pleasant working atmosphere in an attractive location near Zurich, which has a lot to offer you both professionally and privately. Physical applications cannot be considered or returned.",
-        "de": "Per 1. Dezember 2026 oder nach Vereinbarung suchen wir eine*n Mitarbeiter*in Gebäudemanagement\n100%\n\nIhr Aufgabengebiet:\n\n• Sie stellen den zuverlässigen Betrieb und einwandfreien Zustand unserer technischen Infrastruktur sicher. Dazu gehören insbesondere die Bereiche Elektrik, Sanitär, Klima/Lüftung, Meldetechnik, Mobiliar und Immobilien sowie der gesamte Unterhalt der Haustechnik (HLKSE).\n• Sie gewährleisten die fachgerechte und effiziente Störungsbehebung an sämtlichen technischen Anlagen und Apparaturen\n• Sie überzeugen uns durch Ihre Kenntnisse im sicheren Umgang mit und in der fachgerechten Lagerung von chemischen Giften und Gasen\n• Sie schulen unsere Mitarbeiter*innen in den Bereichen Arbeitssicherheit und weiteren technischen Themen\n• Sie gewährleisten im Rahmen des Pikettdienstes eine kurzfristige Verfügbarkeit und sind innerhalb von 30–60 Minuten am Einsatzort\n\nIhr Profil:\n\n• Sie verfügen über eine abgeschlossene technische Ausbildung EFZ (von Vorteil Elektroinstallateur*in)\n• Sie haben sich im Bereich Heizung, Lüftung, Klima und Sanitär (HLKS) erfolgreich weitergebildet\n• Sie zeichnen sich durch Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit aus\n• Eine hohe Leistungs- und Lernbereitschaft sowie die Bereitschaft, sich kontinuierlich weiterzubilden, gehören zu Ihren Stärken\n• Sie verfügen über Grundkenntnisse in MS Office und gängigen PC-Anwendungen und überzeugen durch Ihre organisatorischen und kommunikativen Fähigkeiten im Umgang mit Mitarbeitenden und externen Stellen\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
-        "fr": "Votre domaine de responsabilité :\n\n• Ils assurent le fonctionnement fiable et l'état parfait de notre infrastructure technique. Il s'agit en particulier de l'électricité, de l'assainissement, de la climatisation/ventilation, de la technologie de rapport, du mobilier et de l'immobilier, ainsi que de l'ensemble de l'entretien de la technologie du bâtiment (HLKSE).\n• Ils assurent le dépannage professionnel et efficace de toutes les installations et équipements techniques\n• Vous nous convainquez de vos connaissances dans la manipulation sûre et le stockage approprié des poisons et des gaz chimiques\n• Ils forment nos employés dans les domaines de la sécurité au travail et d'autres sujets techniques\n• Ils garantissent la disponibilité à court terme dans le cadre du service Pikett et sont sur le site dans les 30-60 minutes.\n\nVotre profil:\n\n• Vous avez suivi une formation technique EFZ (électricien avant tout)\n• Vous avez suivi avec succès une formation complémentaire dans les domaines du chauffage, de la ventilation, du climat et de l'assainissement (HLKS).\n• Ils se caractérisent par la flexibilité, un sens des responsabilités et un travail d'équipe.\n• Une grande volonté d'accomplir et d'apprendre ainsi que la volonté de s'entraîner en permanence sont parmi vos forces\n• Vous avez une connaissance de base de MS Office et d'applications PC communes et convainquez grâce à vos compétences organisationnelles et de communication dans le traitement des employés et des postes externes\n\nCe que nous vous offrons:\n\n• Travailler de façon indépendante dans une équipe motivée et collégiale qui se soutient mutuellement.\n• Un lieu de travail avec la meilleure connexion aux transports en commun, ainsi que des places de stationnement économiques pour le personnel.\n• Infrastructure moderne et environnement de travail dans lequel vous pouvez vous sentir à la maison – vue sur le lac inclus.\n• Divers avantages – de grandes réductions pour les employés aux offres de formation continue.\n• Une ambiance de travail agréable dans un endroit attrayant près de Zurich, qui a beaucoup à vous offrir à la fois professionnellement et en privé. Les applications physiques ne peuvent être envisagées ou retournées."
-      },
-      "location": "Horgen",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1287/Description/1",
-      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
-      "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:33:40.859Z",
-      "addressLocality": "Horgen",
-      "postalCode": "8810",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1287/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "See-Spital",
-      "contractDuration": "permanent",
-      "previousSlugs": [
-        "mitarbeiter-in-gebaudemanagement-see-spital-ch",
-        "collaboratore-trice-in-gebaudemanagement-see-spital-horgen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-gebaudemanagement-see-spital-ch",
-          "collaboratore-trice-in-gebaudemanagement-see-spital-horgen"
-        ],
-        "en": [
-          "mitarbeiter-in-gebaudemanagement-see-spital-ch"
-        ],
-        "fr": [
-          "mitarbeiter-in-gebaudemanagement-see-spital-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-04T13:48:28.064Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
       "id": "see-spital-aabb90cb3137",
       "slug": "dipl-fisioterapista-sportiva-policlinic-see-spital-horgen",
       "slugByLocale": {
@@ -3202,7 +3127,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:33:39.752Z",
+      "crawledAt": "2026-10-05T21:30:22.423Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3284,7 +3209,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:33:38.604Z",
+      "crawledAt": "2026-10-05T21:30:21.361Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3366,7 +3291,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:33:37.470Z",
+      "crawledAt": "2026-10-05T21:30:20.326Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3448,7 +3373,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:33:36.296Z",
+      "crawledAt": "2026-10-05T21:30:19.312Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3530,7 +3455,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-05T10:33:35.169Z",
+      "crawledAt": "2026-10-05T21:30:18.277Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3614,7 +3539,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T10:33:34.048Z",
+      "crawledAt": "2026-10-05T21:30:17.226Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3645,6 +3570,90 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
+    },
+    {
+      "id": "see-spital-7a1ef1458a64",
+      "slug": "dipendenti-nella-gestione-degli-edifici-see-spital-horgen",
+      "slugByLocale": {
+        "it": "dipendenti-nella-gestione-degli-edifici-see-spital-horgen",
+        "en": "employee-in-building-management-see-spital-horgen",
+        "de": "mitarbeiter-in-gebaudemanagement-see-spital-ch",
+        "fr": "employe-en-gestion-des-batiments-see-spital-horgen"
+      },
+      "company": "See-Spital",
+      "companyKey": "see-spital",
+      "companyDomain": "see-spital.ch",
+      "title": "Mitarbeiter*in Gebäudemanagement",
+      "titleByLocale": {
+        "it": "Dipendenti* nella gestione degli edifici",
+        "en": "Building management staff",
+        "de": "Mitarbeiter*in Gebäudemanagement",
+        "fr": "Employé* en gestion des bâtiments"
+      },
+      "description": "Per 1. Dezember 2026 oder nach Vereinbarung suchen wir eine*n Mitarbeiter*in Gebäudemanagement\n100%\n\nIhr Aufgabengebiet:\n\n• Sie stellen den zuverlässigen Betrieb und einwandfreien Zustand unserer technischen Infrastruktur sicher. Dazu gehören insbesondere die Bereiche Elektrik, Sanitär, Klima/Lüftung, Meldetechnik, Mobiliar und Immobilien sowie der gesamte Unterhalt der Haustechnik (HLKSE).\n• Sie gewährleisten die fachgerechte und effiziente Störungsbehebung an sämtlichen technischen Anlagen und Apparaturen\n• Sie überzeugen uns durch Ihre Kenntnisse im sicheren Umgang mit und in der fachgerechten Lagerung von chemischen Giften und Gasen\n• Sie schulen unsere Mitarbeiter*innen in den Bereichen Arbeitssicherheit und weiteren technischen Themen\n• Sie gewährleisten im Rahmen des Pikettdienstes eine kurzfristige Verfügbarkeit und sind innerhalb von 30–60 Minuten am Einsatzort\n\nIhr Profil:\n\n• Sie verfügen über eine abgeschlossene technische Ausbildung EFZ (von Vorteil Elektroinstallateur*in)\n• Sie haben sich im Bereich Heizung, Lüftung, Klima und Sanitär (HLKS) erfolgreich weitergebildet\n• Sie zeichnen sich durch Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit aus\n• Eine hohe Leistungs- und Lernbereitschaft sowie die Bereitschaft, sich kontinuierlich weiterzubilden, gehören zu Ihren Stärken\n• Sie verfügen über Grundkenntnisse in MS Office und gängigen PC-Anwendungen und überzeugen durch Ihre organisatorischen und kommunikativen Fähigkeiten im Umgang mit Mitarbeitenden und externen Stellen\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
+      "descriptionByLocale": {
+        "it": "La vostra area di responsabilità:\n\n• Garantiscono il funzionamento affidabile e la perfetta condizione della nostra infrastruttura tecnica. Questo include in particolare le aree di elettrici, igienico-sanitari, aria condizionata/ventilazione, tecnologia di reporting, mobili e immobili, nonché l'intera manutenzione della tecnologia di costruzione (HLKSE).\n• Garantiscono la risoluzione di problemi professionali ed efficienti di tutte le installazioni e attrezzature tecniche\n• Ci convinci con la tua conoscenza nella gestione sicura e nella corretta conservazione di veleni e gas chimici\n• Formano i nostri dipendenti nei settori della sicurezza del lavoro e di altri temi tecnici\n• Garantiscono la disponibilità a breve termine nell'ambito del servizio Pikett e sono al sito entro 30-60 minuti.\n\nIl tuo profilo:\n\n• Hai completato la formazione tecnica EFZ (utilmente elettricista)\n• Hai completato con successo ulteriori allenamenti nelle aree di riscaldamento, ventilazione, clima e servizi igienici (HLKS).\n• Sono caratterizzati da flessibilità, senso di responsabilità e lavoro di squadra.\n• Un'alta disponibilità a eseguire e imparare, così come la volontà di allenarsi continuamente sono tra i vostri punti di forza\n• Hai conoscenza di base di MS Office e applicazioni PC comuni e convincere attraverso le tue capacità organizzative e di comunicazione nel trattare con dipendenti e posizioni esterne\n\nCosa ti offriamo:\n\n• Lavorare in modo indipendente in un team motivato e collegiale che si sostiene a vicenda.\n• Un luogo di lavoro con la migliore connessione ai trasporti pubblici, così come i posti di parcheggio del personale economicamente vantaggiosi.\n• Infrastrutture moderne e un ambiente di lavoro in cui si può sentire a casa – vista lago incluso.\n• Vari vantaggi – dai grandi sconti ai dipendenti per ulteriori offerte di istruzione.\n• Un ambiente di lavoro piacevole in una posizione attraente vicino a Zurigo, che ha molto da offrire sia professionalmente che privatamente. Le applicazioni fisiche non possono essere considerate o restituite.",
+        "en": "Your area of responsibility:\n\n• They ensure the reliable operation and perfect condition of our technical infrastructure. This includes in particular the areas of electrics, sanitation, air conditioning/ventilation, reporting technology, furniture and real estate as well as the entire maintenance of building technology (HLKSE).\n• They ensure professional and efficient troubleshooting of all technical installations and equipment\n• You convince us with your knowledge in the safe handling and proper storage of chemical poisons and gases\n• They train our employees in the areas of occupational safety and other technical topics\n• They guarantee short-term availability within the framework of the Pikett service and are at the site within 30-60 minutes.\n\nYour profile:\n\n• You have completed technical training EFZ (advantageously electrician)\n• You have successfully completed further training in the areas of heating, ventilation, climate and sanitation (HLKS).\n• They are characterized by flexibility, a sense of responsibility and teamwork.\n• A high willingness to perform and learn as well as the willingness to continuously train yourself are among your strengths\n• You have basic knowledge of MS Office and common PC applications and convince through your organizational and communication skills in dealing with employees and external positions\n\nWhat we offer you:\n\n• Working independently in a motivated and collegial team that supports each other.\n• A place of work with the best connection to public transport, as well as cost-effective staff parking spaces.\n• Modern infrastructure and a working environment in which you can feel at home – lake views included.\n• Various benefits – from great employee discounts to further education offers.\n• A pleasant working atmosphere in an attractive location near Zurich, which has a lot to offer you both professionally and privately. Physical applications cannot be considered or returned.",
+        "de": "Per 1. Dezember 2026 oder nach Vereinbarung suchen wir eine*n Mitarbeiter*in Gebäudemanagement\n100%\n\nIhr Aufgabengebiet:\n\n• Sie stellen den zuverlässigen Betrieb und einwandfreien Zustand unserer technischen Infrastruktur sicher. Dazu gehören insbesondere die Bereiche Elektrik, Sanitär, Klima/Lüftung, Meldetechnik, Mobiliar und Immobilien sowie der gesamte Unterhalt der Haustechnik (HLKSE).\n• Sie gewährleisten die fachgerechte und effiziente Störungsbehebung an sämtlichen technischen Anlagen und Apparaturen\n• Sie überzeugen uns durch Ihre Kenntnisse im sicheren Umgang mit und in der fachgerechten Lagerung von chemischen Giften und Gasen\n• Sie schulen unsere Mitarbeiter*innen in den Bereichen Arbeitssicherheit und weiteren technischen Themen\n• Sie gewährleisten im Rahmen des Pikettdienstes eine kurzfristige Verfügbarkeit und sind innerhalb von 30–60 Minuten am Einsatzort\n\nIhr Profil:\n\n• Sie verfügen über eine abgeschlossene technische Ausbildung EFZ (von Vorteil Elektroinstallateur*in)\n• Sie haben sich im Bereich Heizung, Lüftung, Klima und Sanitär (HLKS) erfolgreich weitergebildet\n• Sie zeichnen sich durch Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit aus\n• Eine hohe Leistungs- und Lernbereitschaft sowie die Bereitschaft, sich kontinuierlich weiterzubilden, gehören zu Ihren Stärken\n• Sie verfügen über Grundkenntnisse in MS Office und gängigen PC-Anwendungen und überzeugen durch Ihre organisatorischen und kommunikativen Fähigkeiten im Umgang mit Mitarbeitenden und externen Stellen\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
+        "fr": "Votre domaine de responsabilité :\n\n• Ils assurent le fonctionnement fiable et l'état parfait de notre infrastructure technique. Il s'agit en particulier de l'électricité, de l'assainissement, de la climatisation/ventilation, de la technologie de rapport, du mobilier et de l'immobilier, ainsi que de l'ensemble de l'entretien de la technologie du bâtiment (HLKSE).\n• Ils assurent le dépannage professionnel et efficace de toutes les installations et équipements techniques\n• Vous nous convainquez de vos connaissances dans la manipulation sûre et le stockage approprié des poisons et des gaz chimiques\n• Ils forment nos employés dans les domaines de la sécurité au travail et d'autres sujets techniques\n• Ils garantissent la disponibilité à court terme dans le cadre du service Pikett et sont sur le site dans les 30-60 minutes.\n\nVotre profil:\n\n• Vous avez suivi une formation technique EFZ (électricien avant tout)\n• Vous avez suivi avec succès une formation complémentaire dans les domaines du chauffage, de la ventilation, du climat et de l'assainissement (HLKS).\n• Ils se caractérisent par la flexibilité, un sens des responsabilités et un travail d'équipe.\n• Une grande volonté d'accomplir et d'apprendre ainsi que la volonté de s'entraîner en permanence sont parmi vos forces\n• Vous avez une connaissance de base de MS Office et d'applications PC communes et convainquez grâce à vos compétences organisationnelles et de communication dans le traitement des employés et des postes externes\n\nCe que nous vous offrons:\n\n• Travailler de façon indépendante dans une équipe motivée et collégiale qui se soutient mutuellement.\n• Un lieu de travail avec la meilleure connexion aux transports en commun, ainsi que des places de stationnement économiques pour le personnel.\n• Infrastructure moderne et environnement de travail dans lequel vous pouvez vous sentir à la maison – vue sur le lac inclus.\n• Divers avantages – de grandes réductions pour les employés aux offres de formation continue.\n• Une ambiance de travail agréable dans un endroit attrayant près de Zurich, qui a beaucoup à vous offrir à la fois professionnellement et en privé. Les applications physiques ne peuvent être envisagées ou retournées."
+      },
+      "location": "Horgen",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1287/Description/1",
+      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
+      "sourceLang": "de",
+      "needsRetranslation": true,
+      "crawledAt": "2026-10-05T21:30:16.188Z",
+      "addressLocality": "Horgen",
+      "postalCode": "8810",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1287/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "See-Spital",
+      "contractDuration": "permanent",
+      "previousSlugs": [
+        "mitarbeiter-in-gebaudemanagement-see-spital-ch",
+        "collaboratore-trice-in-gebaudemanagement-see-spital-horgen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-gebaudemanagement-see-spital-ch",
+          "collaboratore-trice-in-gebaudemanagement-see-spital-horgen"
+        ],
+        "en": [
+          "mitarbeiter-in-gebaudemanagement-see-spital-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-gebaudemanagement-see-spital-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-04T13:48:28.064Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
           "unitText": "YEAR"
         }
       },

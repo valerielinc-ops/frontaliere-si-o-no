@@ -1,6 +1,6 @@
 {
   "crawlerKey": "matterhorn-gotthard-bahn",
-  "assembledAt": "2026-10-05T09:27:19.584Z",
+  "assembledAt": "2026-10-05T21:49:34.440Z",
   "jobs": [
     {
       "id": "matterhorn-gotthard-bahn-9428927fd6a7",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bvzholding.ch/Teamleiter-Fahrzeugtechnik-mwd-de-j706.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:27:09.090Z",
+      "crawledAt": "2026-10-05T21:49:30.201Z",
       "addressLocality": "Brig, Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
@@ -136,7 +136,7 @@
       "url": "https://jobs.bvzholding.ch/Lokfuehrerin-MGBahn-mwd-de-j725.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:27:08.024Z",
+      "crawledAt": "2026-10-05T21:49:29.201Z",
       "addressLocality": "Brig, Zermatt, Oberwald, Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -235,7 +235,7 @@
       "url": "https://jobs.bvzholding.ch/Lehrstelle-Polymechaniker-mwd-in-Andermatt-de-j719.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:27:07.086Z",
+      "crawledAt": "2026-10-05T21:49:28.327Z",
       "addressLocality": "Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -339,7 +339,7 @@
       "url": "https://jobs.bvzholding.ch/Lehrstelle-Logistiker-EFZ-Lager-mwd-de-j710.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:27:06.016Z",
+      "crawledAt": "2026-10-05T21:49:27.328Z",
       "addressLocality": "Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
@@ -434,7 +434,7 @@
       "url": "https://jobs.bvzholding.ch/Lehrstelle-Automatiker-EFZ-mwd-de-j730.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:27:04.932Z",
+      "crawledAt": "2026-10-05T21:49:26.322Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -537,7 +537,7 @@
       "url": "https://jobs.bvzholding.ch/Ingenieur-Bahninfrastruktur-mwd-de-j731.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:27:03.995Z",
+      "crawledAt": "2026-10-05T21:49:25.446Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -606,7 +606,7 @@
       "id": "matterhorn-gotthard-bahn-e957ff653084",
       "slug": "strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
       "slugByLocale": {
-        "it": "specialista-stradale-lunedi-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
+        "it": "strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
         "en": "specialist-road-surface-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
         "de": "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
         "fr": "surface-routiere-specialisee-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
@@ -633,7 +633,7 @@
       "url": "https://jobs.bvzholding.ch/Fachspezialist-Fahrbahn-mwd-de-j623.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:27:03.045Z",
+      "crawledAt": "2026-10-05T21:49:24.553Z",
       "addressLocality": "Ulrichen, Fiesch",
       "addressCountry": "CH",
       "country": "CH",
@@ -675,12 +675,14 @@
       },
       "previousSlugs": [
         "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
+        "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
+        "specialista-stradale-lunedi-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-          "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
+          "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
+          "specialista-stradale-lunedi-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
         ]
       },
       "needsRetranslation": true,
@@ -730,7 +732,7 @@
       "url": "https://jobs.bvzholding.ch/Elektroinstallateur-Fachspezialist-Elektro-und-Sicherungsa-de-j624.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:27:01.997Z",
+      "crawledAt": "2026-10-05T21:49:23.659Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",

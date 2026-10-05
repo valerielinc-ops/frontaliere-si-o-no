@@ -1,21 +1,59 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-10-05T09:27:52.135Z",
+  "generatedAt": "2026-10-05T21:36:16.076Z",
   "total": 10,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 10,
-  "durationMs": 23248,
-  "avgDurationMs": 23248,
+  "removedCount": 1,
+  "unchangedCount": 9,
+  "durationMs": 21513,
+  "avgDurationMs": 21513,
   "durationHistory": [
-    23248
+    21513
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Junior Immobilienmakler/in 50-100%",
+      "slug": "junior-immobilienmakler-in-50-100-buutiq-immobilien-ag-st-gallen",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/557bf4f6-cce2-4bd1-92fd-7228c45dafb7",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/557bf4f6-cce2-4bd1-92fd-7228c45dafb7",
+      "company": "buutiq Immobilien AG",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "St. Gallen",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "engel-voelkers-aa68475ac16c",
+      "needsRetranslation": true,
+      "salaryMin": 54000,
+      "salaryMax": 82500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 76,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Communication Manager | Team Support (Ascona/Lugano)",
       "slug": "communication-manager-team-support-ascona-lugano-engel-voelkers-lugano",
@@ -57,7 +95,9 @@
         "translation": 25,
         "completeness": 23
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "title": "Immobilienberater:In (m/w/d) 100% - Rheinfelden",
       "slug": "consulente-immobiliare-in-m-w-d-100-rheinfelden-ev-rheinfelden-immobilien-ag-rheinfelden",
@@ -382,7 +422,7 @@
     },
     {
       "title": "Junior Immobilienmakler/in 100%",
-      "slug": "junior-immobilienmakler-in-100-buutiq-immobilien-ag-schaffhausen",
+      "slug": "agente-immobiliare-junior-100-buutiq-immobilien-ag-schaffhausen",
       "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/d73b3b54-fa87-47ce-b04b-ed260187c751",
       "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/d73b3b54-fa87-47ce-b04b-ed260187c751",
       "company": "buutiq Immobilien AG",
@@ -411,14 +451,14 @@
       "firstSeenAt": "2026-09-28T21:20:02.340Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 76,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 21,
         "completeness": 17
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }

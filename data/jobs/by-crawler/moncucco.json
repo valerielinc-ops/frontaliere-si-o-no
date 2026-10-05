@@ -1,6 +1,6 @@
 {
   "crawlerKey": "moncucco",
-  "assembledAt": "2026-10-05T09:17:00.060Z",
+  "assembledAt": "2026-10-05T21:39:07.223Z",
   "jobs": [
     {
       "id": "moncucco-d958fe9db290",
@@ -48,7 +48,7 @@
       "applyUrl": "https://www.moncucco.ch/capoclinica_chirurgia_viscerale.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-05T09:16:54.768Z",
+      "crawledAt": "2026-10-05T21:39:01.538Z",
       "firstSeenAt": "2026-09-25T14:43:35.632Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -126,7 +126,8 @@
           "maxValue": 132500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
