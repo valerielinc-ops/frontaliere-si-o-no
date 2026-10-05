@@ -27,6 +27,14 @@
  * producer uses — imported, not reimplemented — so there is no second definition
  * of the statistic to drift.
  *
+ * Every crossing also carries `canton`: the URL group code of
+ * data/canton-url-slugs.json (BS/BL → BASILEA, AI/AR → APPENZELLO), taken from
+ * the collector registry functions/src/borderCrossingsData.js (itself pinned to
+ * data/borderCrossings.ts by tests/trafficScheduler.test.ts). The articles repo
+ * builds one ranking per canton from it. A slug still in the history but no
+ * longer in the registry (a crossing since closed) gets `canton: null` and is
+ * simply in no canton's ranking.
+ *
  * Usage:
  *   node scripts/publish-border-wait-window.mjs
  *   node scripts/publish-border-wait-window.mjs --check    # validate, write nothing
@@ -36,6 +44,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { BORDER_CROSSINGS, slugifyCrossingName } from '../functions/src/borderCrossingsData.js';
 import {
   DEFAULT_WINDOW_DAYS,
   aggregateCrossingStats,
@@ -67,6 +76,22 @@ if (!fs.existsSync(HISTORY_DIR)) {
 
 const days = DEFAULT_WINDOW_DAYS;
 
+const cantonUrlSlugs = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'data', 'canton-url-slugs.json'), 'utf8'));
+const groupOf = new Map();
+for (const [group, def] of Object.entries(cantonUrlSlugs.cantonGroups ?? {})) {
+  for (const member of def?.members ?? []) groupOf.set(member, group);
+}
+const cantonBySlug = new Map(
+  BORDER_CROSSINGS.map((c) => [slugifyCrossingName(c.name), groupOf.get(c.canton) ?? c.canton]),
+);
+
+/** perCrossing with each crossing's canton URL group attached (null when unknown). */
+function withCanton(perCrossing) {
+  return Object.fromEntries(
+    Object.entries(perCrossing).map(([slug, stats]) => [slug, { ...stats, canton: cantonBySlug.get(slug) ?? null }]),
+  );
+}
+
 /** ISO "today" for the previous window: the current window shifted back `days`. */
 function isoDayOffset(iso, delta) {
   const d = new Date(`${iso}T00:00:00Z`);
@@ -90,8 +115,8 @@ if (Object.keys(current).length === 0) {
 const payload = {
   generatedFor: todayIso,
   windowDays: days,
-  current: { ...computeWeekWindow(todayIso, days), perCrossing: current },
-  previous: { ...computeWeekWindow(previousTodayIso, days), perCrossing: previous },
+  current: { ...computeWeekWindow(todayIso, days), perCrossing: withCanton(current) },
+  previous: { ...computeWeekWindow(previousTodayIso, days), perCrossing: withCanton(previous) },
 };
 
 const body = `${JSON.stringify(payload, null, 2)}\n`;

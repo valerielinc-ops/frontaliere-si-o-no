@@ -83,12 +83,12 @@
     },
     {
       "id": "patek-philippe-d20884e1117f",
-      "slug": "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates",
+      "slug": "responsabile-officina-bracciale-m-f-patek-philippe-plan-les-ouates",
       "slugByLocale": {
         "fr": "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates",
-        "it": "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates",
-        "en": "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates",
-        "de": "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates"
+        "it": "responsabile-officina-bracciale-m-f-patek-philippe-plan-les-ouates",
+        "en": "head-of-workshop-bracelet-m-f-patek-philippe-plan-les-ouates",
+        "de": "werkstattleiter-armband-m-w-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
       "companyKey": "patek-philippe",
@@ -96,9 +96,9 @@
       "title": "Responsable Atelier Bracelet (H/F)",
       "titleByLocale": {
         "fr": "Responsable Atelier Bracelet (H/F)",
-        "it": "Responsable Atelier Bracelet (H/F)",
-        "en": "Responsable Atelier Bracelet (H/F)",
-        "de": "Responsable Atelier Bracelet (H/F)"
+        "it": "Responsabile Officina Bracciale (M/F)",
+        "en": "Head of Workshop Bracelet (M/F)",
+        "de": "Werkstattleiter Armband (M/W)"
       },
       "description": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Habillement, vous assurerez la gestion de l’équipe et de l’ensemble des activités de production de l’atelier Bracelet 1 regroupant les opérations de satinage et de polissage. En étroite collaboration avec l’atelier Bracelet 2, Fabrication Composant Bracelet et les autres ateliers de la Division, ainsi que les services support, vous veillerez à la performance de votre atelier en garantissant l’attente des objectifs de production et le respect des standards Patek Philippe, tout en favorisant l’expérience collaborateur.\n\nResponsabilités\n\n• Guider, motiver et développer une équipe de termineurs en habillage, tout en maximisant la productivité et les délais pour atteindre les objectifs.\n\n• Assurer l’accompagnement de la formation et le développement de la polyvalence au sein de l’Atelier.\n\n• Analyser les procédés opérationnels, prendre des mesures de correction afin d’améliorer la qualité, de diminuer les taux de déchets et d'optimiser les temps d’opération.\n\n• Assurer le respect du plan de production et garantir l’application des standards Patek Philippe.\n\n• Faire progresser l’activité et les procédés opérationnels de l’Atelier en étroite coordination avec les autres ateliers, ainsi qu’en collaboration avec les services support, les clients internes et les autres Divisions.\n\nProfil recherché\n\n• Technicien ES ou autre diplôme jugé équivalent.\n\n• Expérience de 5 à 8 ans dans un poste similaire.\n\n• Connaissance des métiers de satinage et de polissage. Connaissances des métiers de l’usinage un plus.\n\n• Connaissance en gestion de production et des outils Lean.\n\n• Maîtrise des outils bureautique (Pack Office) et d’un ERP (idéalement SAP).\n\n• Sens de l'écoute, aisance en communication écrite et orale.\n\n• Esprit fédérateur, force de proposition, capacités décisionnelles et organisationnelles.\n\n• Rigueur, esprit d’analyse et de synthèse.\n\n• Esprit d’équipe et capacité d’adaptation.\n\nRéférence du poste\n\n3744",
       "descriptionByLocale": {
@@ -149,7 +149,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-07T15:07:37.249Z"
+      "firstSeenAt": "2026-09-07T15:07:37.249Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bracciale-da-laboratorio-responsabile-m-f-patek-philippe-plan-les-ouates",
+          "responsible-workshop-bracelet-m-f-patek-philippe-plan-les-ouates",
+          "verantwortliches-workshop-armband-m-w-patek-philippe-plan-les-ouates",
+          "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "en": [
+          "responsible-workshop-bracelet-m-f-patek-philippe-plan-les-ouates",
+          "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "de": [
+          "verantwortliches-workshop-armband-m-w-patek-philippe-plan-les-ouates",
+          "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "bracciale-da-laboratorio-responsabile-m-f-patek-philippe-plan-les-ouates",
+        "responsible-workshop-bracelet-m-f-patek-philippe-plan-les-ouates",
+        "verantwortliches-workshop-armband-m-w-patek-philippe-plan-les-ouates",
+        "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates"
+      ]
     },
     {
       "id": "patek-philippe-e2d4eb47555e",
@@ -871,7 +893,7 @@
       "slugByLocale": {
         "it": "gestione-ruote-speciali-h-f-patek-philippe-plan-les-ouates",
         "en": "special-wheels-manager-h-f-patek-philippe-plan-les-ouates",
-        "de": "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates",
+        "de": "spezialradmanager-h-f-patek-philippe-plan-les-ouates",
         "fr": "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
@@ -920,7 +942,6 @@
       "previousSlugs": [
         "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates",
         "responsable-rouages-speciaux-m-w-d-patek-philippe-plan-les-ouates",
-        "spezialradmanager-h-f-patek-philippe-plan-les-ouates",
         "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
@@ -932,7 +953,6 @@
         ],
         "de": [
           "responsable-rouages-speciaux-m-w-d-patek-philippe-plan-les-ouates",
-          "spezialradmanager-h-f-patek-philippe-plan-les-ouates",
           "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates"
         ]
       },

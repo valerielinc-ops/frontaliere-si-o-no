@@ -14,7 +14,6 @@ import {
   ALERT_CTA_SURFACE_DIMENSION,
   ALERT_CTA_SURFACE_NOT_SET,
   ALERT_CTA_SURFACE_MAX_NOT_SET_SHARE,
-  buildAlertFunnelHogqlQuery,
   buildAlertFunnelGa4Filter,
   checkAlertCtaSurfaceDimension,
   evalAlertFunnelConversionGa4,
@@ -23,6 +22,8 @@ import {
   GA4_ERROR_RATE_NON_ACTIONABLE_MESSAGE_FILTERS,
   buildErrorRateGa4Filter,
   evalErrorRateGa4,
+  GOALS,
+  noGa4Equivalent,
 } from '../scripts/campaign-goal-check.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -116,20 +117,20 @@ describe('isJobIntentBrandQuery', () => {
 });
 
 describe('runCampaignGoalCheck (orchestration, injected goals — no network)', () => {
-  // The PostHog vitality guard (scripts/lib/source-liveness.mjs) now runs
-  // before any `source: 'posthog'` goal is evaluated, and abstains when the
-  // source is dead. These orchestration tests are about the state machine,
+  // The GA4 vitality guard (scripts/lib/source-liveness.mjs) runs before any
+  // `livenessGuarded` goal is evaluated, and abstains when the source is
+  // dead. These orchestration tests are about the state machine,
   // not the guard, so they inject a live source; the guard's own abstention
   // behaviour is covered in tests/monitor-source-liveness-guard.test.ts and
   // by the dedicated case at the end of this block.
   const aliveSource = async () => ({
     alive: true, reason: 'test: source alive', windowDays: 30, floor: 500,
-    daysEvaluated: [], deadDays: [], totalEvents: 1_000_000, source: 'posthog',
+    daysEvaluated: [], deadDays: [], totalEvents: 1_000_000, source: 'ga4',
     dailyCounts: new Map(),
   });
   it('marks immature goals as observing without calling evaluate', async () => {
     const evaluate = vi.fn();
-    const goals = [{ id: 'g1', title: 'G1', source: 'posthog', matureAfterDays: 14, issueRef: '#1', evaluate }];
+    const goals = [{ id: 'g1', title: 'G1', source: 'ga4', matureAfterDays: 14, issueRef: '#1', evaluate }];
     const { results, state } = await runCampaignGoalCheck({
       goals,
       now: NOW,
@@ -146,7 +147,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
 
   it('marks a passing goal as passed and does not open an issue', async () => {
     const evaluate = vi.fn().mockResolvedValue({ passed: true, value: { x: 1 }, targetDescription: 't', detail: 'd' });
-    const goals = [{ id: 'g2', title: 'G2', source: 'posthog', matureAfterDays: 14, issueRef: '#1', evaluate }];
+    const goals = [{ id: 'g2', title: 'G2', source: 'ga4', matureAfterDays: 14, issueRef: '#1', evaluate }];
     const createIssueImpl = vi.fn();
     const { results, state } = await runCampaignGoalCheck({
       goals,
@@ -164,7 +165,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
 
   it('opens an issue and marks failing when a mature goal misses target', async () => {
     const evaluate = vi.fn().mockResolvedValue({ passed: false, value: { x: 0 }, targetDescription: 't', detail: 'd' });
-    const goals = [{ id: 'g3', title: 'G3', source: 'posthog', matureAfterDays: 14, issueRef: '#1', evaluate }];
+    const goals = [{ id: 'g3', title: 'G3', source: 'ga4', matureAfterDays: 14, issueRef: '#1', evaluate }];
     const createIssueImpl = vi.fn().mockResolvedValue({ number: 1 });
     const { results } = await runCampaignGoalCheck({
       goals,
@@ -182,7 +183,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
 
   it('never re-evaluates a goal already marked passed in prior state', async () => {
     const evaluate = vi.fn();
-    const goals = [{ id: 'g4', title: 'G4', source: 'posthog', matureAfterDays: 14, issueRef: '#1', evaluate }];
+    const goals = [{ id: 'g4', title: 'G4', source: 'ga4', matureAfterDays: 14, issueRef: '#1', evaluate }];
     const priorState = { goals: { g4: { state: 'passed', lastValue: { x: 1 }, detail: 'ok' } } };
     const { results } = await runCampaignGoalCheck({
       goals,
@@ -202,8 +203,8 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
     const failing = vi.fn().mockRejectedValue(new Error('boom'));
     const ok = vi.fn().mockResolvedValue({ passed: true, value: {}, targetDescription: 't', detail: 'd' });
     const goals = [
-      { id: 'g5', title: 'G5', source: 'posthog', matureAfterDays: 14, issueRef: '#1', evaluate: failing },
-      { id: 'g6', title: 'G6', source: 'posthog', matureAfterDays: 14, issueRef: '#1', evaluate: ok },
+      { id: 'g5', title: 'G5', source: 'ga4', matureAfterDays: 14, issueRef: '#1', evaluate: failing },
+      { id: 'g6', title: 'G6', source: 'ga4', matureAfterDays: 14, issueRef: '#1', evaluate: ok },
     ];
     const createIssueImpl = vi.fn();
     const { results, deadSources } = await runCampaignGoalCheck({
@@ -217,19 +218,20 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
     });
     expect(results.find((r) => r.id === 'g5')?.state).toBe('error');
     expect(createIssueImpl).not.toHaveBeenCalled();
-    // g6 (same source) succeeded, so posthog is NOT flagged dead this run.
+    // g6 (same source) succeeded, so ga4 is NOT flagged dead this run.
     expect(deadSources).toEqual([]);
   });
 
-  it('never evaluates a PostHog goal when the vitality guard says the source is dead', async () => {
+  it('never evaluates a guarded GA4 goal when the vitality guard says the source is dead', async () => {
     // Regression cover for #5606/#5607/#5608: during the 2026-07-23 → 08-10
-    // outage evalAlertFunnelConversion and evalCalcDeeplinkInputStart turned
-    // "0 events" into passed:false and opened "Campaign goal FAILED" issues,
-    // while evalDeadClicksReduction read 0 as beating its target and latched
-    // `passed` permanently. The goal must not be evaluated at all.
+    // PostHog outage the funnel goals turned "0 events" into passed:false and
+    // opened "Campaign goal FAILED" issues, while the dead-click goal read 0
+    // as beating its target and latched `passed` permanently. A GA4 runReport
+    // over an empty window is the same HTTP 200: the goal must not be
+    // evaluated at all.
     const evaluate = vi.fn();
     const goals = [
-      { id: 'ph1', title: 'PH1', source: 'posthog', windowDays: 14, matureAfterDays: 14, issueRef: '#1', evaluate },
+      { id: 'ga1', title: 'GA1', source: 'ga4', livenessGuarded: true, windowDays: 14, matureAfterDays: 14, issueRef: '#1', evaluate },
       { id: 'gsc1', title: 'GSC1', source: 'gsc', matureAfterDays: 14, issueRef: '#2', evaluate: vi.fn().mockResolvedValue({ passed: true, value: {}, targetDescription: 't', detail: 'd' }) },
     ];
     const createIssueImpl = vi.fn();
@@ -241,47 +243,110 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
       saveStateImpl: vi.fn(),
       createIssueImpl,
       checkLivenessImpl: async () => ({
-        alive: false, reason: 'posthog ingested < 500 events/day on 14 of 14 complete day(s)',
+        alive: false, reason: 'ga4 ingested < 500 events/day on 14 of 14 complete day(s)',
         windowDays: 30, floor: 500, daysEvaluated: [], deadDays: [], totalEvents: 70,
-        source: 'posthog', dailyCounts: new Map(),
+        source: 'ga4', dailyCounts: new Map(),
       }),
     });
 
     expect(evaluate).not.toHaveBeenCalled();
-    expect(results.find((r) => r.id === 'ph1')?.state).toBe('unmeasurable');
+    expect(results.find((r) => r.id === 'ga1')?.state).toBe('unmeasurable');
     expect(createIssueImpl).not.toHaveBeenCalled();
-    // A dead PostHog must not blind the goals sourced from somewhere else.
+    // A dead GA4 must not blind the goals sourced from somewhere else.
     expect(results.find((r) => r.id === 'gsc1')?.state).toBe('passed');
   });
 
-  it('routes to ga4Fallback instead of unmeasurable when the goal declares one and PostHog is dead', async () => {
-    // Issue #6463 (owner decision 2026-08-25): a goal with a real GA4
-    // equivalent must keep evaluating through the outage, not sit
-    // `unmeasurable` for its whole duration like the regression covered
-    // above (goals with no ga4Fallback keep that exact behaviour).
-    const evaluate = vi.fn();
-    const ga4Fallback = vi.fn().mockResolvedValue({ passed: true, value: { x: 1 }, targetDescription: 't', detail: 'd [GA4 fallback]' });
-    const goals = [
-      { id: 'ph2', title: 'PH2', source: 'posthog', windowDays: 14, matureAfterDays: 14, issueRef: '#1', evaluate, ga4Fallback },
-    ];
-    const createIssueImpl = vi.fn();
+  it('evaluates a guarded GA4 goal when the vitality guard says the source is alive', async () => {
+    // Positive control for the case above: without it, a guard that always
+    // abstains would pass the abstention test for the wrong reason.
+    const evaluate = vi.fn().mockResolvedValue({ passed: true, value: { x: 1 }, targetDescription: 't', detail: 'd [GA4]' });
+    const checkLivenessImpl = vi.fn(aliveSource);
     const { results } = await runCampaignGoalCheck({
-      goals,
+      goals: [{ id: 'ga2', title: 'GA2', source: 'ga4', livenessGuarded: true, windowDays: 14, matureAfterDays: 14, issueRef: '#1', evaluate }],
       now: NOW,
       campaignStart: isoDaysAgo(20),
       loadStateImpl: () => ({ goals: {} }),
       saveStateImpl: vi.fn(),
-      createIssueImpl,
-      checkLivenessImpl: async () => ({
-        alive: false, reason: 'posthog ingested < 500 events/day on 14 of 14 complete day(s)',
-        windowDays: 30, floor: 500, daysEvaluated: [], deadDays: [], totalEvents: 70,
-        source: 'posthog', dailyCounts: new Map(),
-      }),
+      createIssueImpl: vi.fn(),
+      checkLivenessImpl,
     });
 
+    expect(checkLivenessImpl).toHaveBeenCalledTimes(1);
+    expect(evaluate).toHaveBeenCalledTimes(1);
+    expect(results[0].state).toBe('passed');
+  });
+
+  it('no product-event goal reads PostHog any more (decision H9, 2026-10-05)', async () => {
+    expect(GOALS.some((goal) => goal.source === 'posthog')).toBe(false);
+    for (const id of ['alert_funnel_conversion', 'error_rate']) {
+      const goal = GOALS.find((g) => g.id === id);
+      expect(goal?.source, id).toBe('ga4');
+      expect(goal?.livenessGuarded, id).toBe(true);
+    }
+    const src = fs.readFileSync(
+      path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../scripts/campaign-goal-check.mjs'),
+      'utf8',
+    );
+    expect(src).not.toMatch(/posthog-client\.mjs|runHogQL|checkPostHogLiveness/);
+  });
+
+  it('goals with no GA4 equivalent stay unmeasurable: no pass/fail, no issue, even on a live source', async () => {
+    const retired = GOALS.filter((g) => ['dead_clicks_reduction', 'calc_deeplink_input_start'].includes(g.id));
+    expect(retired.map((g) => g.id).sort()).toEqual(['calc_deeplink_input_start', 'dead_clicks_reduction']);
+    const createIssueImpl = vi.fn();
+    const { results } = await runCampaignGoalCheck({
+      goals: retired,
+      now: NOW,
+      campaignStart: isoDaysAgo(60),
+      loadStateImpl: () => ({ goals: {} }),
+      saveStateImpl: vi.fn(),
+      createIssueImpl,
+      checkLivenessImpl: aliveSource,
+    });
+
+    expect(results.length).toBe(retired.length);
+    for (const r of results) {
+      expect(r.state, r.id).toBe('unmeasurable');
+      expect(r.detail, r.id).toContain('nessun equivalente GA4');
+    }
+    expect(createIssueImpl).not.toHaveBeenCalled();
+    const outcome = await noGa4Equivalent('x')();
+    expect(outcome.unmeasurable).toBe(true);
+  });
+
+  it('keeps a goal already passed under PostHog as passed (state file compatibility)', async () => {
+    const evaluate = vi.fn();
+    const { results } = await runCampaignGoalCheck({
+      goals: [{ id: 'old', title: 'Old', source: 'ga4', livenessGuarded: true, windowDays: 14, matureAfterDays: 14, issueRef: '#1', evaluate }],
+      now: NOW,
+      campaignStart: isoDaysAgo(20),
+      loadStateImpl: () => ({ goals: { old: { state: 'passed', source: 'posthog', detail: 'storico' } } }),
+      saveStateImpl: vi.fn(),
+      createIssueImpl: vi.fn(),
+      checkLivenessImpl: vi.fn(),
+    });
     expect(evaluate).not.toHaveBeenCalled();
-    expect(ga4Fallback).toHaveBeenCalledTimes(1);
-    expect(results.find((r) => r.id === 'ph2')?.state).toBe('passed');
+    expect(results[0].state).toBe('passed');
+  });
+
+  it('un goal senza sorgente non tiene un passed letto da PostHog morto: torna unmeasurable', async () => {
+    // Stato reale in data/campaign-goal-status.json al 2026-10-05:
+    // dead_clicks_reduction "passed" con "0 $dead_click (14gg)", letto sulla
+    // finestra PostHog morta. Senza sorgente nessuno puo' riconfermarlo.
+    const createIssueImpl = vi.fn();
+    const deadClicks = GOALS.find((g: { id: string }) => g.id === 'dead_clicks_reduction');
+    const { results } = await runCampaignGoalCheck({
+      goals: [deadClicks],
+      now: NOW,
+      campaignStart: isoDaysAgo(60),
+      loadStateImpl: () => ({ goals: { dead_clicks_reduction: { state: 'passed', source: 'posthog', detail: '0 $dead_click (14gg)' } } }),
+      saveStateImpl: vi.fn(),
+      createIssueImpl,
+      checkLivenessImpl: aliveSource,
+    });
+    expect(results[0].state).toBe('unmeasurable');
+    expect(results[0].detail).toContain('nessun equivalente GA4');
+    expect(createIssueImpl).not.toHaveBeenCalled();
   });
 
   it('flags a source as dead when every attempted goal for it errors this run', async () => {
@@ -321,7 +386,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
 
   it('never calls saveStateImpl or createIssueImpl in dry-run mode', async () => {
     const evaluate = vi.fn().mockResolvedValue({ passed: false, value: {}, targetDescription: 't', detail: 'd' });
-    const goals = [{ id: 'g10', title: 'G10', source: 'posthog', matureAfterDays: 14, issueRef: '#1', evaluate }];
+    const goals = [{ id: 'g10', title: 'G10', source: 'ga4', matureAfterDays: 14, issueRef: '#1', evaluate }];
     const saveStateImpl = vi.fn();
     const createIssueImpl = vi.fn();
     const { results } = await runCampaignGoalCheck({
@@ -385,23 +450,22 @@ describe('alertFunnelOutcome (#7311 — person-scoped funnel)', () => {
     expect(out.passed).toBe(false);
   });
 
-  it('labels the unit in target and detail, and marks the GA4 fallback', () => {
+  it('labels the unit in target and detail, and marks GA4 as the source', () => {
     const hog = alertFunnelOutcome({ created: 163, shown: 3612 });
     expect(hog.detail).toContain('163/3612 persone');
     expect(hog.targetDescription).toContain('persone job_alert_created');
     const ga4 = alertFunnelOutcome({ created: 163, shown: 3612, viaGa4: true });
     expect(ga4.detail).toContain('utenti');
-    expect(ga4.detail).toContain('GA4 fallback');
-    expect(ga4.targetDescription).toContain('fallback GA4');
+    expect(ga4.detail).toContain('[GA4]');
+    expect(ga4.detail).not.toContain('fallback');
+    expect(ga4.targetDescription).toContain(', GA4');
   });
 
-  it('queries both providers per person, not per event', () => {
+  it('queries GA4 per person, not per event', () => {
     const src = fs.readFileSync(
       path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../scripts/campaign-goal-check.mjs'),
       'utf8',
     );
-    expect(src).toContain("uniqIf(person_id, event = 'job_alert_created')");
-    expect(src).toContain("uniqIf(person_id, event = 'job_alert_cta_shown')");
     expect(src).toContain('ga4EventCountByName');
     expect(src).toContain("'totalUsers'");
     expect(src).not.toContain("countIf(event = 'job_alert_cta_shown')");
@@ -409,7 +473,7 @@ describe('alertFunnelOutcome (#7311 — person-scoped funnel)', () => {
 });
 
 describe('alert funnel surface attribution (#7763/#7764)', () => {
-  it('keeps one seven-surface allowlist across HogQL and GA4', () => {
+  it('keeps one seven-surface allowlist on the GA4 filter', () => {
     expect(ALERT_CTA_SURFACES).toEqual([
       'inline_card',
       'job_detail_button',
@@ -420,11 +484,6 @@ describe('alert funnel surface attribution (#7763/#7764)', () => {
       'end_card',
     ]);
     expect(ALERT_FUNNEL_EVENT_NAMES).toEqual(['job_alert_cta_shown', 'job_alert_created']);
-
-    const hogql = buildAlertFunnelHogqlQuery();
-    expect(hogql).toContain("uniqIf(person_id, event = 'job_alert_created')");
-    expect(hogql).toContain("uniqIf(person_id, event = 'job_alert_cta_shown')");
-    expect(hogql).toContain(`properties.cta_surface IN (${ALERT_CTA_SURFACES.map((surface) => `'${surface}'`).join(', ')})`);
 
     const filter = buildAlertFunnelGa4Filter();
     expect(filter.andGroup.expressions).toContainEqual({
@@ -449,10 +508,7 @@ describe('alert funnel surface attribution (#7763/#7764)', () => {
     expect(ALERT_CTA_SURFACES).not.toContain('post_auth_replay');
 
     // One filter, both sides: the created and the shown counts are read
-    // through the very same surface predicate in HogQL and in GA4.
-    const hogql = buildAlertFunnelHogqlQuery();
-    expect(hogql.match(/properties\.cta_surface IN/g)).toHaveLength(1);
-    expect(hogql.indexOf('WHERE')).toBeLessThan(hogql.indexOf('properties.cta_surface IN'));
+    // through the very same surface predicate.
     const filter = buildAlertFunnelGa4Filter();
     expect(filter.andGroup.expressions).toHaveLength(2);
   });

@@ -6,10 +6,14 @@
 import { describe, it, expect } from 'vitest';
 import {
   buildBorderWaitRankingArticle,
+  BORDER_RANKING_CANTONS,
   RANKING_ARTICLE_ID,
   RANKING_ARTICLE_SLUGS,
+  rankingArticleIdentity,
 } from '../scripts/lib/border-wait-ranking-content.mjs';
 import { BORDER_WAIT_CROSSINGS, buildOggiPath } from '../build-plugins/borderWaitData';
+import { borderCrossings } from '../data/borderCrossings';
+import cantonUrlSlugs from '../data/canton-url-slugs.json';
 
 const ranking = BORDER_WAIT_CROSSINGS.slice(0, 8).map((slug, i) => ({
   slug,
@@ -112,3 +116,61 @@ describe('border-wait ranking content builder', () => {
     expect(article.content.it.body2).not.toMatch(/NaN/);
   });
 });
+
+describe('border-wait ranking per canton', () => {
+  const GROUP: Record<string, string> = { BS: 'BASILEA', BL: 'BASILEA', AI: 'APPENZELLO', AR: 'APPENZELLO' };
+  const cantonsWithCrossings = [...new Set(borderCrossings.map((c) => GROUP[c.canton] ?? c.canton))].sort();
+
+  it('Ticino keeps the original stable identity', () => {
+    expect(rankingArticleIdentity('TI')).toEqual({ id: RANKING_ARTICLE_ID, slugs: RANKING_ARTICLE_SLUGS });
+    const article = buildBorderWaitRankingArticle({ ranking, trend, funFacts, todayIso: '2026-07-03' });
+    expect(article.id).toBe(RANKING_ARTICLE_ID);
+  });
+
+  it('has a profile for exactly the cantons that have crossings', () => {
+    expect(Object.keys(BORDER_RANKING_CANTONS).sort()).toEqual(cantonsWithCrossings);
+  });
+
+  it('derives every identity from the canton URL slugs, with no collision', () => {
+    const ids = new Set<string>();
+    for (const canton of cantonsWithCrossings) {
+      const { id, slugs } = rankingArticleIdentity(canton);
+      const urlSlugs = (cantonUrlSlugs as { cantons: Record<string, Record<string, string>> }).cantons[canton];
+      expect(slugs.it).toBe(`classifica-dogane-${urlSlugs.it}`);
+      expect(slugs.en).toBe(`${urlSlugs.en}-border-crossing-ranking`);
+      expect(slugs.de).toBe(`rangliste-grenzuebergaenge-${urlSlugs.de}`);
+      expect(slugs.fr).toBe(`classement-douanes-${urlSlugs.fr}`);
+      expect(id).toBe(slugs.it);
+      ids.add(id);
+    }
+    expect(ids.size).toBe(cantonsWithCrossings.length);
+  });
+
+  it('names the canton, never Ticino, in a non-Ticino ranking', () => {
+    const genevaSlugs = BORDER_WAIT_CROSSINGS.filter((s) => ['bardonnex', 'moillesulaz', 'anieres', 'hermance'].includes(s));
+    expect(genevaSlugs.length).toBeGreaterThanOrEqual(2);
+    const geRanking = genevaSlugs.map((slug, i) => ({ slug, avgMinutes: 3 + i * 4, totalSamples: 300, rank: i + 1 }));
+    const article = buildBorderWaitRankingArticle({ ranking: geRanking, trend: {}, funFacts: null, todayIso: '2026-07-03', canton: 'GE' });
+    expect(article.id).toBe('classifica-dogane-ginevra');
+    expect(article._rankedCount).toBe(genevaSlugs.length);
+    expect(article.content.it.title).toContain('Canton Ginevra');
+    expect(article.content.de.title).toContain('Genf');
+    expect(article.content.fr.title).toContain('Genève');
+    expect(article.content.en.title).toContain('Geneva');
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const c = article.content[locale];
+      const all = [c.title, c.excerpt, c.body1, c.body2, c.body3, c.body4, ...c.faq.flatMap((f) => [f.q, f.a]), article.imageAlt[locale]].join('\n');
+      expect(all).not.toMatch(/Ticino|Tessin|ticines|tessinois/);
+      expect(all).not.toMatch(/undefined/);
+    }
+    // Zones of a non-Ticino canton are the foreign country, localised.
+    expect(article.content.it.body2).toContain('| Francia |');
+    expect(article.content.de.body2).toContain('| Frankreich |');
+  });
+
+  it('refuses a canton without crossings instead of inventing a ranking', () => {
+    expect(() => rankingArticleIdentity('ZG')).toThrow(/no border-wait ranking/);
+    expect(() => buildBorderWaitRankingArticle({ ranking, trend, funFacts, todayIso: '2026-07-03', canton: 'ZG' })).toThrow(/no border-wait ranking/);
+  });
+});
+
