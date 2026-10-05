@@ -39,6 +39,11 @@ import { getVariantFallback, listVariantIds, DEFAULT_EPSILON } from '../services
 import { assignSubjectVariant } from '../services/newsletter-subject-assign.mjs';
 import { pickWinner, resolveWinnersByProvider } from '../services/newsletter-ab-stats.mjs';
 import { loadCampaignVariantTotals, previousCampaignIds, weeklyCampaignId } from './lib/newsletter-ab-data.mjs';
+import {
+  JOB_ALERT_COOLDOWN_MS as JOB_ALERT_COOLDOWN_DEFAULT_MS,
+  JOB_ALERT_COOLDOWN_MAX_DEFER_DAYS,
+  jobAlertCooldownApplies,
+} from './lib/newsletterJobAlertCooldown.mjs';
 import { createResumeWriter, fetchAlreadySent as fetchCampaignAlreadySent, resumeChunkState } from './lib/campaignResumeLog.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { recordMailerooRef } from '../functions/src/lib/mailerooRef.js';
@@ -2386,7 +2391,14 @@ async function main() {
     // emails within the same ~1.5-day window. Reads job_alert_subscribers/
     // {email}.last_sent_at, written by send-job-alerts.mjs after each send.
     // SKIP_JOB_ALERT_COOLDOWN=1 bypasses this (manual/test sends).
-    const JOB_ALERT_COOLDOWN_MS = process.env.SKIP_JOB_ALERT_COOLDOWN === '1' ? 0 : 36 * 60 * 60 * 1000;
+    // Bounded deferral: after the first days of the campaign week the cooldown
+    // is lifted, or daily job-alert recipients would never get the issue
+    // (scripts/lib/newsletterJobAlertCooldown.mjs).
+    const cooldownApplies = jobAlertCooldownApplies({ campaignId, nowMs: Date.now() });
+    if (!cooldownApplies) {
+      console.log(`\ud83d\udce8 Job-alert cooldown lifted: ${campaignId} is past its ${JOB_ALERT_COOLDOWN_MAX_DEFER_DAYS}-day deferral window`);
+    }
+    const JOB_ALERT_COOLDOWN_MS = process.env.SKIP_JOB_ALERT_COOLDOWN === '1' || !cooldownApplies ? 0 : JOB_ALERT_COOLDOWN_DEFAULT_MS;
     if (JOB_ALERT_COOLDOWN_MS > 0 && db) {
       const nowMs = Date.now();
       const cooldownSet = new Set();
