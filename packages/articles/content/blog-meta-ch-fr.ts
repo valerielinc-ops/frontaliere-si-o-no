@@ -7703,6 +7703,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guida-voto-zurigo-referendum.title': 'Vote cantonal à Zurich : guide des initiatives et référendums',
     'blog.article.guida-voto-zurigo-referendum.excerpt': 'Vote cantonal à Zurich : initiatives, référendum, calendrier et ayants droit. Seuils fédéraux : 100\'000 signatures en 18 mois et 50\'000 en 100 jours.',
     'blog.article.guida-voto-zurigo-referendum.imageAlt': 'Bulletins pour une votation cantonale dans le canton de Zurich',
+    'blog.article.elezioni-cantonali-zurigo-vademecum.title': 'Élections cantonales à Zurich : guide du calendrier et du vote',
+    'blog.article.elezioni-cantonali-zurigo-vademecum.excerpt': 'Guide pratique des élections cantonales dans le canton de Zurich : ce qu\'il faut vérifier concernant le calendrier, les modalités de vote, les listes et les informations officielles.',
+    'blog.article.elezioni-cantonali-zurigo-vademecum.imageAlt': 'Documents d\'information pour les élections cantonales à Zurich',
 };
 
 export default blogMetaChFr;
