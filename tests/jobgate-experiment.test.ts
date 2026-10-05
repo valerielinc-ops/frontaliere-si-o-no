@@ -9,16 +9,14 @@ import {
   getJobGateSubscriberVariant,
   getJobGateTelemetryParams,
   isJobGateNewsletterCta,
-  jobGateEmailFirst,
-  jobGateEmailFormOpen,
   jobGateNewsletterTags,
   parseJobGateWeights,
   pickJobGateArm,
   resolveJobGateAssignment,
   setActiveJobGateAssignment,
   validateJobGateWeights,
-  type JobGateArm,
 } from '@/services/jobGateExperiment';
+import { jobGateSkin } from '@/components/community/jobGateSkin';
 import { PUBLIC_CONFIG_KEYS } from '../functions/src/publicConfigKeys.js';
 
 const ROOT = path.resolve(__dirname, '..');
@@ -35,9 +33,9 @@ function shareByArm(ids: string[], weights: Record<string, number>): Record<stri
   return Object.fromEntries(Object.entries(counts).map(([arm, c]) => [arm, c / ids.length]));
 }
 
-describe('jobgate-v3 contract constants', () => {
+describe('jobgate contract constants', () => {
   it('uses the experiment id and the three Remote Config keys agreed with the readout', () => {
-    expect(JOBGATE_EXPERIMENT_ID).toBe('jobgate-v3');
+    expect(JOBGATE_EXPERIMENT_ID).toBe('jobgate-v4');
     expect(JOBGATE_RC_KEYS).toEqual({
       enabled: 'JOBGATE_EXPERIMENT_ENABLED',
       arms: 'JOBGATE_EXPERIMENT_ARMS',
@@ -60,7 +58,7 @@ describe('jobgate-v3 contract constants', () => {
 });
 
 describe('deterministic assignment', () => {
-  const weights = { control: 25, similar_alerts: 25, social_first: 25, email_first: 25 };
+  const weights = { control: 25, navy_panel: 25, spotlight: 25, actions_first: 25 };
 
   it('gives the same visitor the same arm every time', () => {
     for (const id of syntheticIds(200)) {
@@ -69,13 +67,13 @@ describe('deterministic assignment', () => {
   });
 
   it('does not depend on the key order of the weights JSON', () => {
-    const reordered = { email_first: 25, social_first: 25, similar_alerts: 25, control: 25 };
+    const reordered = { actions_first: 25, spotlight: 25, navy_panel: 25, control: 25 };
     for (const id of syntheticIds(500)) expect(pickJobGateArm(id, reordered)).toBe(pickJobGateArm(id, weights));
   });
 
   it('salts the hash with the experiment id (independent of other splits)', () => {
     const ids = syntheticIds(2000);
-    const same = ids.filter((id) => pickJobGateArm(id, weights, 'jobgate-v3') === pickJobGateArm(id, weights, 'other-exp')).length;
+    const same = ids.filter((id) => pickJobGateArm(id, weights, 'jobgate-v4') === pickJobGateArm(id, weights, 'other-exp')).length;
     // Independent 4-way splits agree ~25% of the time, not ~100%.
     expect(same / ids.length).toBeGreaterThan(0.2);
     expect(same / ids.length).toBeLessThan(0.3);
@@ -87,11 +85,11 @@ describe('deterministic assignment', () => {
   });
 
   it('splits 10k synthetic visitors within ±2pp of uneven weights 50/30/20/0', () => {
-    const share = shareByArm(syntheticIds(10000), { control: 50, similar_alerts: 30, social_first: 20, email_first: 0 });
+    const share = shareByArm(syntheticIds(10000), { control: 50, navy_panel: 30, spotlight: 20, actions_first: 0 });
     expect(Math.abs(share.control - 0.5)).toBeLessThan(0.02);
-    expect(Math.abs(share.similar_alerts - 0.3)).toBeLessThan(0.02);
-    expect(Math.abs(share.social_first - 0.2)).toBeLessThan(0.02);
-    expect(share.email_first ?? 0).toBe(0);
+    expect(Math.abs(share.navy_panel - 0.3)).toBeLessThan(0.02);
+    expect(Math.abs(share.spotlight - 0.2)).toBeLessThan(0.02);
+    expect(share.actions_first ?? 0).toBe(0);
   });
 
   it('also stays within ±2pp on uuid-shaped ids (the production id format)', () => {
@@ -111,11 +109,11 @@ describe('weights parsing', () => {
     ['an array', '[25,25]'],
     ['null', 'null'],
     ['a number', '100'],
-    ['a negative weight', '{"control":50,"social_first":-5}'],
-    ['a fractional weight', '{"control":50.5,"social_first":49.5}'],
-    ['a string weight', '{"control":"50","social_first":50}'],
+    ['a negative weight', '{"control":50,"spotlight":-5}'],
+    ['a fractional weight', '{"control":50.5,"spotlight":49.5}'],
+    ['a string weight', '{"control":"50","spotlight":50}'],
     ['an unknown arm', '{"control":50,"apply_now":50}'],
-    ['all zero', '{"control":0,"social_first":0}'],
+    ['all zero', '{"control":0,"spotlight":0}'],
     ['an absurd weight', '{"control":1000000}'],
   ])('falls back to all-control on %s', (_label, raw) => {
     const result = validateJobGateWeights(raw);
@@ -125,10 +123,10 @@ describe('weights parsing', () => {
   });
 
   it('accepts a valid weights object', () => {
-    expect(validateJobGateWeights('{"control":25,"similar_alerts":25,"social_first":25,"email_first":25}')).toEqual({
+    expect(validateJobGateWeights('{"control":25,"navy_panel":25,"spotlight":25,"actions_first":25}')).toEqual({
       valid: true,
       problems: [],
-      weights: { control: 25, similar_alerts: 25, social_first: 25, email_first: 25 },
+      weights: { control: 25, navy_panel: 25, spotlight: 25, actions_first: 25 },
     });
   });
 
@@ -144,11 +142,11 @@ describe('weights parsing', () => {
 });
 
 describe('kill switch, force and fallbacks', () => {
-  const arms = '{"control":25,"similar_alerts":25,"social_first":25,"email_first":25}';
+  const arms = '{"control":25,"navy_panel":25,"spotlight":25,"actions_first":25}';
 
   it.each(['false', '', 'FALSE', '0', 'yes', undefined])('keeps everybody out when ENABLED=%s', (enabled) => {
     for (const id of syntheticIds(100)) {
-      expect(resolveJobGateAssignment({ enabled, arms, force: 'social_first', visitorId: id })).toEqual({
+      expect(resolveJobGateAssignment({ enabled, arms, force: 'spotlight', visitorId: id })).toEqual({
         ready: true,
         enrolled: false,
         arm: 'control',
@@ -162,10 +160,10 @@ describe('kill switch, force and fallbacks', () => {
 
   it('forces a valid arm for every visitor, even without a visitor id', () => {
     for (const id of [...syntheticIds(100), null, '']) {
-      expect(resolveJobGateAssignment({ enabled: 'true', arms, force: ' Email_First ', visitorId: id })).toEqual({
+      expect(resolveJobGateAssignment({ enabled: 'true', arms, force: ' Actions_First ', visitorId: id })).toEqual({
         ready: true,
         enrolled: true,
-        arm: 'email_first',
+        arm: 'actions_first',
       });
     }
   });
@@ -196,10 +194,10 @@ describe('telemetry and subscriber tags', () => {
   });
 
   it('tags the gate subscribe event and the subscriber document for an enrolled visitor', () => {
-    setActiveJobGateAssignment({ ready: true, enrolled: true, arm: 'similar_alerts' });
-    expect(getJobGateTelemetryParams()).toEqual({ experiment_id: 'jobgate-v3', variant: 'similar_alerts' });
-    expect(getJobGateSubscriberVariant()).toBe('jobgate-v3:similar_alerts');
-    expect(jobGateNewsletterTags('job_board_email_unlock')).toEqual({ experiment_id: 'jobgate-v3', variant: 'similar_alerts' });
+    setActiveJobGateAssignment({ ready: true, enrolled: true, arm: 'navy_panel' });
+    expect(getJobGateTelemetryParams()).toEqual({ experiment_id: 'jobgate-v4', variant: 'navy_panel' });
+    expect(getJobGateSubscriberVariant()).toBe('jobgate-v4:navy_panel');
+    expect(jobGateNewsletterTags('job_board_email_unlock')).toEqual({ experiment_id: 'jobgate-v4', variant: 'navy_panel' });
     // Other job_gate-channel surfaces do not render the experiment UI.
     for (const cta of ['job_expired_email_unlock', 'job_orphan_email_unlock', 'job_bridge_email_unlock', 'saved_jobs_alert_nudge']) {
       expect(jobGateNewsletterTags(cta)).toEqual({});
@@ -253,27 +251,70 @@ describe('telemetry and subscriber tags', () => {
   });
 });
 
-describe('arm render knobs', () => {
-  it('keeps control identical to the pre-experiment gate (email form open, below the providers)', () => {
-    expect(jobGateEmailFormOpen('control')).toBe(true);
-    expect(jobGateEmailFirst('control')).toBe(false);
+describe('jobgate-v4 arms: visual treatment only', () => {
+  it('runs the four arms of round 4, control first', () => {
+    expect(JOBGATE_ARMS).toEqual(['control', 'navy_panel', 'spotlight', 'actions_first']);
   });
 
-  it('changes exactly one layout knob per challenger (similar_alerts is copy-only)', () => {
-    const arms: JobGateArm[] = ['similar_alerts', 'social_first', 'email_first'];
-    expect(arms.map((arm) => ({ arm, emailCollapsed: !jobGateEmailFormOpen(arm), emailFirst: jobGateEmailFirst(arm) }))).toEqual([
-      { arm: 'similar_alerts', emailCollapsed: false, emailFirst: false },
-      { arm: 'social_first', emailCollapsed: true, emailFirst: false },
-      { arm: 'email_first', emailCollapsed: false, emailFirst: true },
-    ]);
+  it('keeps control on the exact classes and order the gate shipped with', () => {
+    const control = jobGateSkin('control');
+    expect(control.container).toBe('relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6');
+    expect(control.headerBand).toBeNull();
+    expect(control.actionsFirst).toBe(false);
+    expect(control.previewFade).toBe(false);
+    expect(control.emailSubmitDisabledWhenEmpty).toBe(true);
+    expect(control.consentNotice).toBeNull();
+    expect(control.linkedInButton).toContain('bg-brand-linkedin');
   });
 
-  it('only the similar_alerts arm changes the pending-confirmation notice', () => {
+  it('gives every challenger its own container and keeps the gate a single region', () => {
+    const containers = JOBGATE_ARMS.map((arm) => jobGateSkin(arm).container);
+    expect(new Set(containers).size).toBe(JOBGATE_ARMS.length);
+    for (const c of containers) expect(c).toContain('scroll-mt-20');
+  });
+
+  it('changes one lever per challenger: panel colour, colour hierarchy, block order', () => {
+    const navy = jobGateSkin('navy_panel');
+    expect(navy.container).toContain('bg-navy-900');
+    expect(navy.actionsFirst).toBe(false);
+    expect(navy.emailSubmitDisabledWhenEmpty).toBe(true);
+    // On the dark panel secondary text and the notice link are white-tinted, never grey or teal.
+    expect(navy.subtitle).toContain('text-on-accent');
+    expect(navy.consentNotice).toContain('[&_a]:text-on-accent');
+    expect(navy.authError).toContain('text-on-accent');
+
+    const spot = jobGateSkin('spotlight');
+    expect(spot.container).toContain('bg-surface');
+    expect(spot.previewFade).toBe(true);
+    expect(spot.emailSubmitDisabledWhenEmpty).toBe(false);
+    expect(spot.linkedInButton).not.toContain('bg-brand-linkedin');
+    expect(spot.linkedInIcon).toBe('text-brand-linkedin');
+    expect(spot.actionsFirst).toBe(false);
+
+    const first = jobGateSkin('actions_first');
+    expect(first.headerBand).toContain('bg-stripe-700');
+    expect(first.heading).toContain('text-on-accent');
+    expect(first.actionsFirst).toBe(true);
+    expect(first.emailSubmitDisabledWhenEmpty).toBe(true);
+  });
+
+  it('uses no inline hex and no dark: colour classes', () => {
+    for (const arm of JOBGATE_ARMS) {
+      for (const value of Object.values(jobGateSkin(arm))) {
+        if (typeof value !== 'string') continue;
+        expect(value, arm).not.toMatch(/#[0-9a-f]{3,8}\b/i);
+        expect(value, arm).not.toMatch(/(^|\s)dark:/);
+      }
+    }
+  });
+
+  it('JobBoard renders the gate through the skin and keeps the notice next to the buttons in actions_first', () => {
     const src = read('components/community/JobBoard.tsx');
-    expect(src).toContain("const jobGateSimilarAlerts = jobGate.arm === 'similar_alerts';");
-    expect(src).toMatch(/const jobGateMailbox = jobGateSimilarAlerts && authNotice\?\.kind === 'pending'/);
-    expect(src).toMatch(/const jobGatePendingJobTitle = jobGateSimilarAlerts && selectedJob/);
-    expect(src).toMatch(/\{jobGateMailbox && \(\s*<button/);
+    expect(src).toContain('const gateSkin = jobGateSkin(jobGate.arm);');
+    expect(src).toMatch(/className=\{gateSkin\.container\}/);
+    const band = src.slice(src.indexOf('{gateSkin.headerBand ? ('), src.indexOf(') : (', src.indexOf('{gateSkin.headerBand ? (')));
+    expect(band.indexOf('{gateActions}')).toBeLessThan(band.indexOf('{gateConsent}'));
+    expect(band.indexOf('{gateConsent}')).toBeLessThan(band.indexOf('{gateExplanation}'));
   });
 
   it('does not re-test the longer teaser already dropped as authgate-model-v1', () => {
@@ -281,21 +322,16 @@ describe('arm render knobs', () => {
     expect(JOBGATE_ARMS).not.toContain('value_first');
   });
 
-  it('translates the arm copy in all four locales', () => {
+  it('drops the round-3 copy keys from all four locales (v4 changes no copy)', () => {
     for (const locale of ['it', 'en', 'de', 'fr']) {
-      const src = read(`services/locales/${locale}-core.ts`);
-      expect(src, locale).toContain("'jobBoard.gate.v3.similarAlerts.title':");
-      expect(src, locale).toContain("'jobBoard.gate.v3.similarAlerts.benefit':");
-      expect(src, locale).toContain("'jobBoard.gate.v3.emailFirst.orProvider':");
-      expect(src, locale).toMatch(/'jobBoard\.gate\.v3\.similarAlerts\.pendingTitle': '.*\{title\}.*',/);
-      expect(src, locale).toMatch(/'jobBoard\.gate\.v3\.similarAlerts\.openMailbox': '.*\{provider\}.*',/);
+      expect(read(`services/locales/${locale}-core.ts`), locale).not.toContain("'jobBoard.gate.v3.");
     }
   });
 });
 
-describe('scripts/experiments/jobgate-v3-rc.mjs (pure parts, no network)', () => {
+describe('scripts/experiments/jobgate-rc.mjs (pure parts, no network)', () => {
   it('defaults to a dry-run of the launch configuration', async () => {
-    const { parseArgs, buildJobGateValues, JOBGATE_LAUNCH_ARMS } = await import('../scripts/experiments/jobgate-v3-rc.mjs');
+    const { parseArgs, buildJobGateValues, JOBGATE_LAUNCH_ARMS } = await import('../scripts/experiments/jobgate-rc.mjs');
     const opts = parseArgs([]);
     expect(opts.apply).toBe(false);
     expect(buildJobGateValues(opts)).toEqual({
@@ -306,7 +342,7 @@ describe('scripts/experiments/jobgate-v3-rc.mjs (pure parts, no network)', () =>
   });
 
   it('refuses weights the browser would read as all-control, and unknown forced arms', async () => {
-    const { parseArgs, buildJobGateValues } = await import('../scripts/experiments/jobgate-v3-rc.mjs');
+    const { parseArgs, buildJobGateValues } = await import('../scripts/experiments/jobgate-rc.mjs');
     expect(() => buildJobGateValues(parseArgs(['--arms', '{"control":50,"apply_now":50}']))).toThrow(/unknown arm/);
     expect(() => buildJobGateValues(parseArgs(['--force-arm', 'apply_now']))).toThrow(/not a known arm/);
     expect(() => buildJobGateValues(parseArgs(['--enabled', 'maybe']))).toThrow(/true\|false/);
@@ -314,7 +350,7 @@ describe('scripts/experiments/jobgate-v3-rc.mjs (pure parts, no network)', () =>
   });
 
   it('stages only the three jobgate keys and keeps their conditional values', async () => {
-    const { buildJobGateValues, parseArgs, stageJobGateValues } = await import('../scripts/experiments/jobgate-v3-rc.mjs');
+    const { buildJobGateValues, parseArgs, stageJobGateValues } = await import('../scripts/experiments/jobgate-rc.mjs');
     const template = {
       parameters: {
         OTHER_KEY: { defaultValue: { value: 'untouched' } },
@@ -337,7 +373,7 @@ describe('scripts/experiments/jobgate-v3-rc.mjs (pure parts, no network)', () =>
   });
 
   it('publishes without force (etag-guarded) and only behind --apply', () => {
-    const src = read('scripts/experiments/jobgate-v3-rc.mjs')
+    const src = read('scripts/experiments/jobgate-rc.mjs')
       .replace(/\/\*[\s\S]*?\*\//g, '')
       .replace(/\/\/.*$/gm, '');
     expect(src).not.toMatch(/force:\s*true/);

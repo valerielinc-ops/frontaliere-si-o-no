@@ -21,7 +21,7 @@ function remoteConfig(values: Record<string, string>) {
   getConfigValueMock.mockImplementation(async (key: string) => values[key] ?? '');
 }
 
-const ARMS_4 = '{"control":25,"similar_alerts":25,"social_first":25,"email_first":25}';
+const ARMS_4 = '{"control":25,"navy_panel":25,"spotlight":25,"actions_first":25}';
 
 describe('useJobGateExperiment', () => {
   beforeEach(() => {
@@ -54,18 +54,18 @@ describe('useJobGateExperiment', () => {
     const second = renderHook(() => useJobGateExperiment());
     await waitFor(() => expect(second.result.current.ready).toBe(true));
     expect(second.result.current.arm).toBe(arm);
-    expect(getJobGateTelemetryParams()).toEqual({ experiment_id: 'jobgate-v3', variant: arm });
+    expect(getJobGateTelemetryParams()).toEqual({ experiment_id: 'jobgate-v4', variant: arm });
   });
 
   it('honours JOBGATE_EXPERIMENT_FORCE', async () => {
-    remoteConfig({ JOBGATE_EXPERIMENT_ENABLED: 'true', JOBGATE_EXPERIMENT_ARMS: ARMS_4, JOBGATE_EXPERIMENT_FORCE: 'social_first' });
+    remoteConfig({ JOBGATE_EXPERIMENT_ENABLED: 'true', JOBGATE_EXPERIMENT_ARMS: ARMS_4, JOBGATE_EXPERIMENT_FORCE: 'spotlight' });
     const { result } = renderHook(() => useJobGateExperiment());
     await waitFor(() => expect(result.current.ready).toBe(true));
-    expect(result.current).toEqual({ ready: true, enrolled: true, arm: 'social_first' });
+    expect(result.current).toEqual({ ready: true, enrolled: true, arm: 'spotlight' });
   });
 
   it('keeps crawlers/bots out without reading Remote Config', async () => {
-    remoteConfig({ JOBGATE_EXPERIMENT_ENABLED: 'true', JOBGATE_EXPERIMENT_FORCE: 'email_first' });
+    remoteConfig({ JOBGATE_EXPERIMENT_ENABLED: 'true', JOBGATE_EXPERIMENT_FORCE: 'actions_first' });
     const { result } = renderHook(() => useJobGateExperiment(true));
     await waitFor(() => expect(result.current.ready).toBe(true));
     expect(result.current.enrolled).toBe(false);
@@ -100,18 +100,18 @@ describe('recordJobGateExposure', () => {
   });
 
   it('emits experiment_assigned once per visitor with the contract params', () => {
-    recordJobGateExposure({ ready: true, enrolled: true, arm: 'email_first' });
-    recordJobGateExposure({ ready: true, enrolled: true, arm: 'email_first' });
+    recordJobGateExposure({ ready: true, enrolled: true, arm: 'actions_first' });
+    recordJobGateExposure({ ready: true, enrolled: true, arm: 'actions_first' });
     expect(trackExperimentEvent).toHaveBeenCalledTimes(1);
     expect(trackExperimentEvent).toHaveBeenCalledWith('experiment_assigned', {
-      experiment_id: 'jobgate-v3',
-      variant: 'email_first',
+      experiment_id: 'jobgate-v4',
+      variant: 'actions_first',
     });
-    expect(window.localStorage.getItem(JOBGATE_ASSIGNED_STORAGE_KEY)).toBe('email_first');
+    expect(window.localStorage.getItem(JOBGATE_ASSIGNED_STORAGE_KEY)).toBe('actions_first');
 
     // Next session (module memo reset) — already recorded for this browser.
     resetJobGateAssignmentForTests();
-    recordJobGateExposure({ ready: true, enrolled: true, arm: 'email_first' });
+    recordJobGateExposure({ ready: true, enrolled: true, arm: 'actions_first' });
     expect(trackExperimentEvent).toHaveBeenCalledTimes(1);
   });
 

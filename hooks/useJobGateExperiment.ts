@@ -1,5 +1,5 @@
 /**
- * jobgate-v3 — Remote Config loader + React hook for the job-detail auth gate.
+ * jobgate — Remote Config loader + React hook for the job-detail auth gate.
  *
  * The browser never reads Remote Config directly: `getConfigValue` serves the
  * allowlisted keys from `getPublicConfig` (functions/src/publicConfigKeys.js)
@@ -32,8 +32,12 @@ import {
 /** Past this the page keeps today's gate for the whole session (no late flip). */
 export const JOBGATE_LOAD_TIMEOUT_MS = 3000;
 
-/** Remembers which arm already produced `experiment_assigned` for this browser. */
-export const JOBGATE_ASSIGNED_STORAGE_KEY = 'frontaliere_jobgate_v3_assigned';
+/**
+ * Remembers which arm already produced `experiment_assigned` for this browser.
+ * Versioned with the round: a v3 entry must not swallow the v4 exposure of a
+ * visitor whose new arm happens to share a name.
+ */
+export const JOBGATE_ASSIGNED_STORAGE_KEY = 'frontaliere_jobgate_v4_assigned';
 
 let assignmentPromise: Promise<JobGateAssignment> | null = null;
 const assignedThisSession = new Set<string>();
@@ -73,7 +77,7 @@ export function loadJobGateAssignment(): Promise<JobGateAssignment> {
  * The assignment the hook already started loading, or "not enrolled" when it
  * never did (crawler/bot bypass). The subscriber write awaits this instead of
  * starting its own load, so a bypassed visitor — shown today's gate and sending
- * untagged events — can never get a `jobgate-v3:*` document either.
+ * untagged events — can never get a `jobgate-v4:*` document either.
  */
 export function currentJobGateAssignment(): Promise<JobGateAssignment> {
   return assignmentPromise ?? Promise.resolve(JOBGATE_NOT_ENROLLED);
@@ -108,7 +112,7 @@ export function recordJobGateExposure(assignment: JobGateAssignment): void {
 }
 
 /**
- * The visitor's jobgate-v3 assignment. Starts at `JOBGATE_PENDING` (renders as
+ * The visitor's jobgate assignment. Starts at `JOBGATE_PENDING` (renders as
  * control, not enrolled) and settles once; `bypass` keeps crawlers and bots out.
  */
 export function useJobGateExperiment(bypass = false): JobGateAssignment {

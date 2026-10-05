@@ -384,7 +384,7 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     // difetto della PR che la introduce, ed e' li' che va fermata.
     ['tests/company-alert.test.ts', ['services/locales/'], 'legge i quattro chunk {locale}-core.ts (traccia: 4 letture, tutte chunk di interfaccia), mai blog-meta o blog-body'],
     ['tests/irpef-brackets-2026.test.ts', ['services/locales/'], 'legge i chunk {locale}-core.ts e {locale}-stats.ts (traccia: 8 letture, tutte chunk di interfaccia), mai blog-meta o blog-body'],
-    ['tests/jobgate-v3-experiment.test.ts', ['services/locales/'], 'legge i quattro chunk {locale}-core.ts (traccia: 4 letture, tutte chunk di interfaccia), mai blog-meta o blog-body'],
+    ['tests/jobgate-experiment.test.ts', ['services/locales/'], 'legge i quattro chunk {locale}-core.ts (traccia: 4 letture, tutte chunk di interfaccia), mai blog-meta o blog-body'],
     ['tests/newsletter-title-neutrality.test.ts', ['services/locales/'], 'legge i quattro chunk {locale}-core.ts (traccia: 4 letture, tutte chunk di interfaccia), mai blog-meta o blog-body'],
     ['tests/signup-prompt-funnel.test.ts', ['services/locales/'], 'legge i quattro chunk {locale}-core.ts (traccia: 4 letture, tutte chunk di interfaccia), mai blog-meta o blog-body'],
   ].map(([file, roots, reason]) => ({ file, roots, reason, since: '2026-10-03', evidence: 'trace' })),
