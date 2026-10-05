@@ -11,6 +11,8 @@
 import { describe, it, expect } from 'vitest';
 import {
   dedupeFuzzy,
+  dedupeOrganizerAgainstTio,
+  distinctiveTitleWords,
   eventRichnessScore,
   pickRichestEvent,
   attachItalianFrontierComuni,
@@ -26,6 +28,17 @@ function ev(overrides: Record<string, any> = {}): Record<string, any> {
     ...overrides,
   };
 }
+
+describe('organizer vs tio dedup title signals', () => {
+  it('does not treat the generic festival label as a match', () => {
+    expect(distinctiveTitleWords('Festival')).not.toContain('festival');
+    const events = [
+      { id: 'tio-agenda:t', sourceKey: 'tio-agenda', title: 'Festival', startDate: '2026-10-07', comune: 'Ascona' },
+      { id: 'classicascona:c', sourceKey: 'classicascona', title: 'Festival', url: 'https://classicascona.ch/concerti/festival/', startDate: '2026-10-07', comune: 'Ascona' },
+    ];
+    expect(dedupeOrganizerAgainstTio(events).mergedAway).toBe(0);
+  });
+});
 
 describe('eventRichnessScore', () => {
   it('counts populated optional fields only', () => {
