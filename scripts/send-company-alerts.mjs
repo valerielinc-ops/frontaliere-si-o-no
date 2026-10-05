@@ -1464,7 +1464,7 @@ async function main() {
   // DEFERRED, never fail-open.
   const emailsInScope = [...new Set(alerts.map((a) => String(a.email || '').toLowerCase()))];
   const representativeAlertByEmail = new Map();
-  for (const alert of alerts) {
+  for (const alert of alerts || []) {
     const email = String(alert.email || '').toLowerCase();
     if (email && !representativeAlertByEmail.has(email)) representativeAlertByEmail.set(email, alert);
   }
@@ -1542,8 +1542,7 @@ async function main() {
   let capLogged = false;
   for (let i = 0; i < recipients.length; i += 1) {
     const recipient = recipients[i];
-    const plannedSections = buildRecipientSections(
-      alertsByRecipient.get(recipient),
+    const plannedSections = buildRecipientSections(alertsByRecipient.get(recipient),
       newJobs,
       now,
       DEDUP_WINDOW_MS,
