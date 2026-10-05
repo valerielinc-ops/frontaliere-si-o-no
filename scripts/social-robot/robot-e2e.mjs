@@ -39,30 +39,45 @@ const CAPTION = '📰 I 5 articoli più letti di ieri su frontaliereticino.ch\n\
 
 const page = (title, body, script = '') => `<!doctype html><html lang="it"><head><meta charset="utf-8"><title>${title}</title></head><body>${body}<script>${script}</script></body></html>`;
 
-function instagramPage({ confirm = true, afterShare = '' } = {}) {
-  return page('Instagram', `
-<nav><a href="#" id="create" role="link">Crea</a><a href="/">Home</a></nav>
-<div id="menu" hidden><a href="#" id="post-item" role="link">Post</a><a href="#">Diretta</a></div>
-<div id="dialog" role="dialog" hidden>
+function instagramPage({ confirm = true, afterShare = '', createMenu = true } = {}) {
+  const createMenuMarkup = createMenu ? `
+<div id="menu" hidden>
+  <a href="#" id="post-item" role="link"><span>Post</span><svg aria-label="Post" role="img"><title>Post</title></svg></a>
+  <a href="#"><span>Video in diretta</span><svg aria-label="Video in diretta" role="img"><title>Video in diretta</title></svg></a>
+  <a href="#"><span>Inserzione</span><svg aria-label="Inserzione" role="img"><title>Inserzione</title></svg></a>
+</div>` : '';
+  const dialogContent = `
   <h2>Crea nuovo post</h2>
   <div id="pick"><form enctype="multipart/form-data"><input id="file" type="file" accept="image/jpeg,image/png,image/heic" multiple style="display:none"></form><button type="button">Seleziona dal computer</button></div>
   <div id="crop" hidden><p>Ritaglia</p><div role="button" tabindex="0" class="next">Avanti</div></div>
   <div id="edit" hidden><p>Modifica</p><div role="button" tabindex="0" class="next">Avanti</div></div>
   <div id="share-step" hidden><div id="caption" contenteditable="true" role="textbox" aria-label="Scrivi una didascalia..."></div><div role="button" tabindex="0" id="share">Condividi</div></div>
-  <div id="done" hidden><img alt="" src="data:,"><span>Il tuo post è stato condiviso.</span></div>
-</div>`, `
+  <div id="done" hidden><img alt="" src="data:,"><span>Il tuo post è stato condiviso.</span></div>`;
+  const dialogMarkup = createMenu
+    ? '<div id="dialog" role="dialog" hidden></div>'
+    : `<div id="dialog" role="dialog" hidden>${dialogContent}</div>`;
+  const openDialog = `$('dialog').innerHTML = ${JSON.stringify(dialogContent)}; $('dialog').hidden = false; bindDialog();`;
+  const createAction = createMenu ? "$('menu').hidden = false;" : openDialog;
+  const postAction = createMenu ? `$('post-item').onclick = (e) => { e.preventDefault(); $('menu').hidden = true; ${openDialog} };` : '';
+  return page('Instagram', `
+<nav><a href="#" id="create" role="link">Crea</a><a href="/">Home</a></nav>
+${createMenuMarkup}
+${dialogMarkup}`, `
 const $ = (id) => document.getElementById(id);
 let count = 0;
-$('create').onclick = (e) => { e.preventDefault(); $('menu').hidden = false; };
-$('post-item').onclick = (e) => { e.preventDefault(); $('menu').hidden = true; $('dialog').hidden = false; };
-$('file').onchange = () => { count = $('file').files.length; $('pick').hidden = true; $('crop').hidden = false; };
-const steps = ['crop', 'edit', 'share-step'];
-document.querySelectorAll('.next').forEach((b) => b.onclick = () => { const i = steps.findIndex((s) => !$(s).hidden); $(steps[i]).hidden = true; $(steps[i + 1]).hidden = false; });
-$('share').onclick = async () => {
-  await fetch('/api/ig/share', { method: 'POST', body: JSON.stringify({ caption: $('caption').innerText, files: count }) });
-  $('share-step').hidden = true;
-  ${afterShare ? `location.href = '${afterShare}';` : confirm ? "$('done').hidden = false;" : ''}
-};`);
+$('create').onclick = (e) => { e.preventDefault(); ${createAction} };
+${postAction}
+function bindDialog() {
+  $('file').onchange = () => { count = $('file').files.length; $('pick').hidden = true; $('crop').hidden = false; };
+  const steps = ['crop', 'edit', 'share-step'];
+  document.querySelectorAll('.next').forEach((b) => b.onclick = () => { const i = steps.findIndex((s) => !$(s).hidden); $(steps[i]).hidden = true; $(steps[i + 1]).hidden = false; });
+  $('share').onclick = async () => {
+    await fetch('/api/ig/share', { method: 'POST', body: JSON.stringify({ caption: $('caption').innerText, files: count }) });
+    $('share-step').hidden = true;
+    ${afterShare ? `location.href = '${afterShare}';` : confirm ? "$('done').hidden = false;" : ''}
+  };
+}
+${createMenu ? '' : 'bindDialog();'}`);
 }
 
 const instagramLogin = () => page('Login • Instagram', '<form><input name="username" aria-label="Username"><input name="password" type="password" aria-label="Password"><button>Accedi</button></form>');
@@ -120,6 +135,7 @@ function fakePlatforms() {
     const url = new URL(req.url, 'http://x');
     switch (url.pathname) {
       case '/ig/': return send(200, instagramPage());
+      case '/ig-direct/': return send(200, instagramPage({ createMenu: false }));
       case '/ig-silent/': return send(200, instagramPage({ confirm: false }));
       case '/ig-challenge-after-share/': return send(200, instagramPage({ afterShare: '/challenge/' }));
       case '/challenge/': return send(200, page('Instagram', '<h1>Help us confirm it\'s you</h1>'));
@@ -175,8 +191,12 @@ async function main() {
     console.log('Instagram (it)');
     let r = await run('instagram', `${base}/ig/`, { dryRun: true, label: 'ig-dry' });
     check(r.result?.status === 'dry-run', `dry run stops at the Share button (${r.error?.message || 'ok'})`);
+    check(existsSync(path.join(r.dir, 'create-menu.png')), 'submenu leaves a screenshot before Post is selected');
     check(existsSync(path.join(r.dir, 'ready-to-publish.png')), 'dry run leaves a screenshot of the ready post');
     check(state.igShares.length === 0, 'dry run shares nothing');
+
+    r = await run('instagram', `${base}/ig-direct/`, { dryRun: true, label: 'ig-direct-dry' });
+    check(r.result?.status === 'dry-run', `legacy direct dialog remains supported (${r.error?.message || 'ok'})`);
 
     r = await run('instagram', `${base}/ig/`, { dryRun: false, label: 'ig-publish' });
     check(r.result?.status === 'published' && /condiviso/i.test(r.result.evidence), `publish returns only with the confirmation (${r.result?.evidence || r.error?.message})`);
