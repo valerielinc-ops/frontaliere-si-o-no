@@ -92,6 +92,15 @@ const LEGIT_DESCRIPTION_OPENERS = [
   'We need to keep our customers at the centre of everything we do.',
   // Un apostrofo in un'apertura legittima non la rende una meta-risposta.
   "We need to translate our clients' ideas into working products.",
+  // Review della PR corpus 2166 su 144b89b227: prosa in prima persona che non
+  // parla dell'input («Non vedo alcun motivo…» → «I don't see any reason…»).
+  "I don't see any reason why you should not apply.",
+  'I cannot find a better job in Ticino than this one.',
+  "I can't see myself working anywhere else.",
+  'I need to understand the needs of our customers.',
+  'I need more information about your experience in the interview.',
+  'Ho bisogno di più tempo per decidere.',
+  "J'ai besoin de plus de temps.",
 ];
 
 const DE_DESC = 'Als Detailhandelsfachfrau oder Detailhandelsfachmann beraten Sie unsere Kundinnen und Kunden kompetent und freundlich. '
@@ -131,6 +140,18 @@ describe('detectAiMetaResponse — casi reali pubblicati', () => {
     "Sorry; I can't help with that.", "I'm sorry - I cannot translate this.", 'Désolé — je ne peux pas traduire ce texte.',
   ])('riconosce il rifiuto con qualunque separatore: %s', (refusal) => {
     expect(detectAiMetaResponse(refusal)?.kind).toBe('refusal');
+  });
+
+  it.each([
+    'I need to see the job data to provide an accurate translation.',
+    'I need to check the existing translations in the repository.',
+    'I need to see the context of where this job title is used.',
+    'I need to see the actual job file to identify which title needs translation.',
+    'Non vedo alcun titolo nel messaggio.',
+    'Ich sehe keinen Stellentitel in Ihrer Nachricht.',
+    'Je ne vois pas de titre à traduire.',
+  ])('una richiesta che parla dell\'input resta una meta-risposta: %s', (text) => {
+    expect(detectAiMetaResponse(text)?.kind).toBe('clarification');
   });
 
   it('riconosce il dump di tool-use di un agente', () => {

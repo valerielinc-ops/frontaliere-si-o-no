@@ -33,6 +33,17 @@ const LEADING_WINDOW_CHARS = 320;
 
 const A = "['’]"; // apostrophe, ASCII or typographic
 
+// What a clarification request is ABOUT: the input the model was handed (the
+// title, the text, the message, the translation, the job data…), after at most
+// three words («the actual job title», «the existing translations», «the
+// context of»). «I don't see any reason», «I cannot find a better job in
+// Ticino» or «Ho bisogno di più tempo» are first-person prose of a real ad or
+// letter, not a model asking for its input.
+const EN_INPUT = String.raw`(?:(?:the|a|an|any|your|this|that|which)\s+)?(?:[\w'’-]+\s+){0,3}?(?:job\s+)?(?:titles?|text|message|input|content|translations?|source|document|files?|data|repository|context|description|posting)\b`;
+const IT_INPUT = String.raw`(?:(?:il|lo|la|i|gli|le|un|uno|una|alcun|nessun)\s+)?(?:[\wàèéìòù'’-]+\s+){0,3}?(?:titol[oi]|test[oi]|messaggio|traduzion[ei]|dati|file|contesto|annuncio)\b`;
+const DE_INPUT = String.raw`(?:[\wäöüß-]+\s+){0,3}?(?:titel|stellentitel|text|nachricht|übersetzung|kontext|daten|datei)\b`;
+const FR_INPUT = String.raw`(?:(?:le|la|les|l['’]|un|une|du|de|des|d['’])\s*)?(?:[\wàâçéèêëîïôûù'’-]+\s+){0,3}?(?:titre|texte|message|traduction|contexte|données|fichier|annonce)s?\b`;
+
 /** Openers: how the answer STARTS. Each is a meta-response by construction. */
 const LEADING_PATTERNS = [
   // ── refusal: an apology or an inability, in the FIRST person, whatever
@@ -47,10 +58,10 @@ const LEADING_PATTERNS = [
   // first-person openers: «Can you provide investment recommendations?» or
   // «Non vedo l'ora» open real ads; a request for the missing title or text
   // anywhere in the answer is matched further down.
-  ['clarification', new RegExp(`^(?:i need (?:to (?:see|check|know|look|find|verify|search|read|understand|review|confirm)|more (?:context|information|details))|i (?:don${A}t|do not|can${A}t|cannot|could not|couldn${A}t) (?:see|find) (?:a|an|the|any)\\b)`, 'i')],
-  ['clarification', /^(?:ho bisogno di (?:vedere|sapere|controllare|conoscere|più)|non vedo (?:alcun|nessun|il|un) (?:titolo|testo|messaggio))/i],
-  ['clarification', /^(?:ich benötige (?:den|die|das|mehr|weitere)|ich brauche (?:den|die|das|mehr) (?:titel|text|kontext|informationen)|ich sehe (?:keinen|keine|kein) (?:titel|text|stellentitel))/i],
-  ['clarification', new RegExp(`^(?:j${A}ai besoin de (?:voir|savoir|vérifier|plus)|je ne vois (?:pas|aucun) (?:de |le |d${A})?(?:titre|texte|message))`, 'i')],
+  ['clarification', new RegExp(`^(?:i need more context\\b|(?:i need to (?:see|check|know|look at|find|verify|search|read|understand|review|confirm) |i (?:don${A}t|do not|can${A}t|cannot|could not|couldn${A}t) (?:see|find) )${EN_INPUT})`, 'i')],
+  ['clarification', new RegExp(`^(?:ho bisogno di (?:vedere|sapere|controllare|conoscere|più) |non (?:vedo|trovo) )${IT_INPUT}`, 'i')],
+  ['clarification', new RegExp(`^(?:ich benötige |ich brauche |ich sehe (?:keinen|keine|kein) |ich finde (?:keinen|keine|kein) )${DE_INPUT}`, 'i')],
+  ['clarification', new RegExp(`^(?:j${A}ai besoin de (?:voir |savoir |vérifier |plus de )|je ne (?:vois|trouve) (?:pas|aucun|aucune) )${FR_INPUT}`, 'i')],
   // ── agent narration: the model announces work instead of doing it ─────────
   ['agent-narration', new RegExp(`^(?:i${A}ll|i will|i${A}m going to|i am going to) (?:translate|check|help|look|search|read|start|first|need|find|review|provide|examine)\\b`, 'i')],
   ['agent-narration', /^(?:let me (?:check|see|look|find|search|first|read|translate|help|examine|review|verify)|looking at (?:the|this|your) (?:git|repo|files?|job|title|data|translation|text|message|request)|the user (?:wants|asks|is asking|would like) (?:me|us) to)\b/i],
