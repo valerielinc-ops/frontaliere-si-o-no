@@ -1,7 +1,7 @@
 {
   "key": "1a-hunkeler",
   "label": "1a-hunkeler",
-  "generatedAt": "2026-10-05T06:26:23.649Z",
+  "generatedAt": "2026-10-05T09:18:00.643Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -9,18 +9,22 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 1,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5386,
-  "avgDurationMs": 5386,
+  "unchangedCount": 1,
+  "durationMs": 4788,
+  "avgDurationMs": 4788,
   "durationHistory": [
-    5386
+    4788
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "1a-hunkeler-7dfb52e69867",
       "slug": "assemblatori-per-finestre-1a-hunkeler-ebikon",
@@ -33,7 +37,7 @@
       "url": "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur",
       "source": "1a-hunkeler Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T06:26:16.085Z",
+      "crawledAt": "2026-10-05T09:17:52.553Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -64,7 +68,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

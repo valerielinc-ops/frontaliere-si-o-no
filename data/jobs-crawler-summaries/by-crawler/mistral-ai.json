@@ -1,7 +1,7 @@
 {
   "key": "mistral-ai",
   "label": "Mistral AI",
-  "generatedAt": "2026-10-04T21:37:12.647Z",
+  "generatedAt": "2026-10-05T09:36:19.519Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 1,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2814,
-  "avgDurationMs": 2814,
+  "durationMs": 2345,
+  "avgDurationMs": 2345,
   "durationHistory": [
-    2814
+    2345
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +35,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:37:00.221Z",
+      "crawledAt": "2026-10-05T09:36:12.012Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,7 +46,9 @@
       "sector": "Intelligenza Artificiale / Ricerca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-10",
+      "datePosted": "2026-07-10T14:03:48.234+00:00",
+      "postedDate": "2026-07-10T14:03:48.234+00:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "firstSeenAt": "2026-07-14T22:36:36.714Z",
       "salaryMin": 73500,
@@ -62,5 +66,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

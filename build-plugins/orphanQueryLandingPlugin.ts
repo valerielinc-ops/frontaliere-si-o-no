@@ -38,6 +38,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { truncateToClauseNonEmpty } from './shared/clauseTail.mjs';
+import { truncateHeadline } from './shared/titleSuffix';
 import { WriteCollector } from './batchWrite';
 import { shouldEmitLocale, EMIT_LOCALES } from './shared/localeEmitFilter';
 import {
@@ -484,7 +485,9 @@ function buildEditorialDescription(query: string, locale: OrphanLandingLocale, e
     de: `${q} — `,
     fr: `${q} — `,
   };
-  return (prefix[locale] + editorial).slice(0, 155);
+  // Word-aware, like the shared meta clamp: a raw `.slice(0, 155)` shipped the
+  // snippet cut mid-word (issue 11198 sibling of the cluster description fix).
+  return truncateHeadline(prefix[locale] + editorial, 155);
 }
 
 async function loadLocaleStrings(rootDir: string, locale: OrphanLandingLocale): Promise<Record<string, string>> {

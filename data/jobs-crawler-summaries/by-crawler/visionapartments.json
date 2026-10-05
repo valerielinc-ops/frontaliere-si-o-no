@@ -1,7 +1,7 @@
 {
   "key": "visionapartments",
   "label": "VISIONAPARTMENTS",
-  "generatedAt": "2026-10-04T21:34:38.919Z",
+  "generatedAt": "2026-10-05T09:34:25.548Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -9,18 +9,22 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 1,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4633,
-  "avgDurationMs": 4633,
+  "unchangedCount": 1,
+  "durationMs": 3924,
+  "avgDurationMs": 3924,
   "durationHistory": [
-    4633
+    3924
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "visionapartments-e3a15eb09025",
       "slug": "servizi-di-costruzione-tecnici-all-rounder-m-f-100-vision-management-services-gmbh-zurich",
@@ -34,7 +38,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/8bbb2905-8b67-4ba8-b8e0-b0925f727b12/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:34:29.722Z",
+      "crawledAt": "2026-10-05T09:34:17.684Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -65,7 +69,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

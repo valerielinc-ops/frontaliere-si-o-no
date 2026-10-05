@@ -37,6 +37,13 @@
  *
  * Both readers degrade to empty on missing/unparseable sources (preserving the
  * "emit a single empty archive page" contract: `totalPages = max(1, …)`).
+ *
+ * The parameterized path is table-driven: any ACTIVE section of
+ * `ARTICLE_SECTIONS` (a canton section included, once activated) reads its
+ * own `metaPrefix`/`slugDataFile`/`slugConst`; nothing here branches on the
+ * section name. The per-section wrappers at the bottom are call-site sugar for
+ * the two historical sections only. An id that is not active fails loudly —
+ * the open `ArticleSection` type admits every `canton-*` id, the data does not.
  */
 
 import type fsT from 'node:fs';
@@ -44,7 +51,7 @@ import type npT from 'node:path';
 import { getSiteShell } from '../siteShell';
 import { readArticleSlugs, readBlogUrlSlugs } from './articleReaders';
 import {
-  ARTICLE_SECTIONS,
+  activeArticleSection,
   type ArticleSection,
 } from '../../articleSections';
 
@@ -66,7 +73,7 @@ export function readArticleArchiveUnionSlugs(
   rootDir: string,
   section: ArticleSection,
 ): Set<string> {
-  const cfg = ARTICLE_SECTIONS[section];
+  const cfg = activeArticleSection(section);
   const slugs = new Set<string>();
 
   // 1. Meta title-keys from `{metaPrefix}-it.ts`.

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pictet",
-  "assembledAt": "2026-10-05T08:12:00.005Z",
+  "assembledAt": "2026-10-05T09:20:45.035Z",
   "jobs": [
     {
       "id": "pictet-8872eca504a7",
@@ -33,7 +33,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125052&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T08:11:55.337Z",
+      "crawledAt": "2026-10-05T09:20:39.771Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125071&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T08:11:54.204Z",
+      "crawledAt": "2026-10-05T09:20:38.732Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -121,9 +121,7 @@
       "sector": "Finanza / Banca privata",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125071&selected_lang=en_GB",
       "jobReqId": "125071",
       "requirements": [],
@@ -144,7 +142,6 @@
           "collaborateur-trice-production-support-pictet-geneva"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:03:32.266Z",
       "salaryMin": 104500,
       "salaryMax": 183500,
@@ -158,7 +155,9 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "pictet-206a06b28cff",
@@ -191,7 +190,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125106&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T08:11:53.529Z",
+      "crawledAt": "2026-10-05T09:20:38.149Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -203,9 +202,7 @@
       "sector": "Finanza / Banca privata",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "",
       "postedDate": "",
-      "postingDateSource": "unknown",
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125106&selected_lang=en_GB",
       "jobReqId": "125106",
       "requirements": [],
@@ -226,7 +223,6 @@
           "private-assets-operations-specialist-pictet-geneva"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T14:49:40.787Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -240,7 +236,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "pictet-ee9854e45583",
@@ -273,7 +271,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125130&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T08:11:52.384Z",
+      "crawledAt": "2026-10-05T09:20:36.879Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -339,7 +337,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125075&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T08:11:51.749Z",
+      "crawledAt": "2026-10-05T09:20:36.291Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",

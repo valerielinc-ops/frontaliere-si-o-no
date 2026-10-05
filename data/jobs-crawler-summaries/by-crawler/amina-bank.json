@@ -1,7 +1,7 @@
 {
   "key": "amina-bank",
   "label": "AMINA Bank",
-  "generatedAt": "2026-10-04T21:36:27.481Z",
+  "generatedAt": "2026-10-05T09:35:48.510Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -9,18 +9,22 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4333,
-  "avgDurationMs": 4333,
+  "unchangedCount": 2,
+  "durationMs": 4722,
+  "avgDurationMs": 4722,
   "durationHistory": [
-    4333
+    4722
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "amina-bank-43d485a2b0f5",
       "slug": "strategie-di-pagamento-e-sviluppo-commerciale-amina-bank-zug",
@@ -33,7 +37,7 @@
       "url": "https://amina.jobs.personio.com/job/2752820",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:36:20.865Z",
+      "crawledAt": "2026-10-05T09:35:43.201Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -75,7 +79,7 @@
       "url": "https://amina.jobs.personio.com/job/2558847",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:36:20.662Z",
+      "crawledAt": "2026-10-05T09:35:42.278Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -91,8 +95,8 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://amina.jobs.personio.com/job/2558847",
-      "firstSeenAt": "2026-07-03T21:21:14.959Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T21:21:14.959Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -106,7 +110,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-10-04T21:12:23.222Z",
+  "assembledAt": "2026-10-05T09:10:35.810Z",
   "jobs": [
     {
       "id": "efg-6488",
@@ -51,7 +51,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-04T21:12:16.982Z",
+      "crawledAt": "2026-10-05T09:10:30.309Z",
       "slugByLocale": {
         "it": "global-regulatory-reporting-specialista-efg-international-ag-geneve",
         "en": "global-regulatory-reporting-specialist-efg-geneve",
@@ -211,7 +211,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-04T21:12:16.979Z",
+      "crawledAt": "2026-10-05T09:10:30.305Z",
       "slugByLocale": {
         "it": "responsabile-del-rischio-efg-international-ag-geneve",
         "en": "risk-manager-efg-geneve",
@@ -422,7 +422,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-04T21:12:16.974Z",
+      "crawledAt": "2026-10-05T09:10:30.299Z",
       "slugByLocale": {
         "it": "it-analista-and-software-ingegnere-efg-international-ag-lugano",
         "en": "it-analyst-and-software-engineer-efg-lugano",
@@ -514,7 +514,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-04T21:12:16.967Z",
+      "crawledAt": "2026-10-05T09:10:30.289Z",
       "slugByLocale": {
         "it": "finanza-internship-efg-international-ag-geneve",
         "en": "finance-internship-efg-geneve",
@@ -607,7 +607,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-04T21:12:16.960Z",
+      "crawledAt": "2026-10-05T09:10:30.284Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
         "en": "it-data-service-manager-efg-geneve",
@@ -793,7 +793,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-04T21:12:16.955Z",
+      "crawledAt": "2026-10-05T09:10:30.280Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -886,7 +886,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-04T21:12:16.951Z",
+      "crawledAt": "2026-10-05T09:10:30.276Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -1075,7 +1075,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-04T21:12:16.933Z",
+      "crawledAt": "2026-10-05T09:10:30.258Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-zurich",
         "en": "foundation-manager-efg-international-ag-lugano-n93k14",
@@ -1283,7 +1283,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-04T21:12:16.927Z",
+      "crawledAt": "2026-10-05T09:10:30.252Z",
       "slugByLocale": {
         "it": "digital-marketing-manager-campagne-efg-international-ag-zurich",
         "en": "digital-marketing-manager-campaigns-efg-zurich",
@@ -1395,7 +1395,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-04T21:12:16.888Z",
+      "crawledAt": "2026-10-05T09:10:30.205Z",
       "slugByLocale": {
         "it": "client-services-officer-altoparlante-russo-efg-international-ag-geneve",
         "en": "client-services-officer-russian-speaker-efg-geneve",
@@ -2405,7 +2405,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "General Services Employee",
-        "de": "Mitarbeiter für allgemeine Dienstleistungen",
+        "de": "General Services Employee",
         "it": "Servizi generali Dipendenti",
         "fr": "Services généraux Employé"
       },
@@ -2437,7 +2437,7 @@
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
-        "de": "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
+        "de": "general-services-employee-efg-international-ag-geneve",
         "fr": "services-generaux-employe-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -2470,18 +2470,21 @@
         ],
         "de": [
           "general-services-employee-efg-geneve",
+          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
           "general-services-employee-efg-international-ag-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
+        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "general-services-employee-efg-international-ag-geneve"
       ],
       "salarySource": "reported",
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6210",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6219",
@@ -3101,7 +3104,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Group Financial Controller",
-        "fr": "Contrôleur financier du groupe",
+        "fr": "Group Financial Controller",
         "it": "Gruppo Controllore finanziario",
         "de": "Konzern Finanzverantwortlicher"
       },
@@ -3277,7 +3280,8 @@
       "salarySource": "reported",
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/4543",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5984",
@@ -3300,7 +3304,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Switchboard operator",
-        "it": "Operatore di commutazione",
+        "it": "Switchboard operator",
         "de": "Schaltstelle-Operator",
         "fr": "Opérateur de central"
       },
@@ -3330,9 +3334,9 @@
       },
       "crawledAt": "2026-08-25T09:44:22.596Z",
       "slugByLocale": {
-        "it": "operatore-di-commutazione-efg-international-ag-lugano",
+        "it": "switchboard-operator-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
-        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
+        "de": "schaltstelle-operator-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -3364,6 +3368,7 @@
         ],
         "de": [
           "switchboard-operator-efg-lugano",
+          "schaltnetzbetreiber-efg-international-ag-lugano",
           "schaltstelle-operator-efg-international-ag-lugano"
         ]
       },
@@ -3371,13 +3376,14 @@
         "switchboard-operator-efg-lugano",
         "operatore-di-commutazione-efg-international-ag-lugano",
         "schaltnetzbetreiber-efg-international-ag-lugano",
-        "schaltstelle-operator-efg-international-ag-lugano",
-        "switchboard-operator-efg-international-ag-lugano"
+        "switchboard-operator-efg-international-ag-lugano",
+        "schaltstelle-operator-efg-international-ag-lugano"
       ],
       "salarySource": "estimated",
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/5984",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6046",
@@ -4189,231 +4195,6 @@
       "salarySource": "reported",
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6064",
-      "postingDateSource": "unknown"
-    },
-    {
-      "id": "efg-5969",
-      "slug": "it-trading-treasury-solutions-specialista-efg-international-ag-lugano-n93k12",
-      "company": "EFG International AG",
-      "title": "IT Trading & Treasury Solutions Specialist",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "## Job Description\n\nThe IT Treasury and Trading team delivers efficient, effective support and IT solutions for applications and processes in client order execution, trading, treasury,  and lending/collateral management. The team comprises both functional and technical experts supporting a Trading/Treasury room of approximately 50 traders.  This role ensures continuity in client services and drives ongoing improvements in deliverable quality.\n\n## Main responsibilities\n\n- Run the Bank: end-to-end support on the IT trading platforms used for Securities Lending & Collateral, Islamic Finance, Securities and Derivatives execution and trading, spanning from application maintenance to analysis and resolution on daily incidents, liaising with external vendors where applicable.\n\n- Run the Bank: act as entry point to trading desk for broader issues that require liaising with other IT departments to cover the full stack (core banking and other linked applications, IT infa server, database, network, …) or with Operations teams (Securities, Derivatives, FX back office, middle office)\n\n- Change the Bank: coordinate and execute various IT projects aimed at evolving or upgrading the IT trading platforms, either developed and released internally or by application providers: collection of business needs, solution design and documentation, development where applicable and/or vendor coordination, creation of test cases catalogue and execution of IT tests, support to user acceptance test, rollout and post production support\n\n- Change the Bank: development of departmental applications aimed at covering gaps of the existing IT applications, mainly in the area of system integration and reporting\n\n- Change the Bank: management of tools for the automation of health checks on trading IT platforms to eventually guarantee the service to internal clients\n\n## Skills and experience\n\n- A university degree, preferably in computer science, finance or an equivalent educational background\n\n- Very good knowledge of programming languages (Java; Pyton; C++, SQL, Powershell, …), application server (Windows mainly, Linux) and database systems (Oracle, MS SQL)\n\n- Good knowledge of financial products (Forex, Securities, Derivatives, Sec Lending) and main bank processes (order/execution on the market of the plain vanilla products)\n\n- Very good analytic skill, tech curiosity, proactivity in identifying the best tech solution to a business need\n\n- Capability to work under constant pressure\n\n- Flexibility (request to work by shift; during bank-holiday or Saturday)\n\n- Capability to integrate in a wider IT team and good team player\n\n- Good communication skills (Italian-English are a must, French is a plus)\n\n## Our Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-      "requirements": [
-        "A university degree, preferably in computer science, finance or an equivalent educational background",
-        "Very good knowledge of programming languages (Java; Pyton; C++, SQL, Powershell, …), application server (Windows mainly, Linux) and database systems (Oracle, MS SQL)",
-        "Good knowledge of financial products (Forex, Securities, Derivatives, Sec Lending) and main bank processes (order/execution on the market of the plain vanilla products)",
-        "Very good analytic skill, tech curiosity, proactivity in identifying the best tech solution to a business need",
-        "Capability to work under constant pressure",
-        "Flexibility (request to work by shift; during bank-holiday or Saturday)",
-        "Capability to integrate in a wider IT team and good team player",
-        "Good communication skills (Italian-English are a must, French is a plus)"
-      ],
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5969",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "IT Trading & Treasury Solutions Specialist",
-        "it": "Specialista in soluzioni IT di trading e tesoreria",
-        "de": "Spezialist für IT-Handels- und Treasury-Lösungen",
-        "fr": "Spécialiste des solutions informatiques de trading et de trésorerie"
-      },
-      "descriptionByLocale": {
-        "en": "## Job Description\n\nThe IT Treasury and Trading team delivers efficient, effective support and IT solutions for applications and processes in client order execution, trading, treasury,  and lending/collateral management. The team comprises both functional and technical experts supporting a Trading/Treasury room of approximately 50 traders.  This role ensures continuity in client services and drives ongoing improvements in deliverable quality.\n\n## Main responsibilities\n\n- Run the Bank: end-to-end support on the IT trading platforms used for Securities Lending & Collateral, Islamic Finance, Securities and Derivatives execution and trading, spanning from application maintenance to analysis and resolution on daily incidents, liaising with external vendors where applicable.\n\n- Run the Bank: act as entry point to trading desk for broader issues that require liaising with other IT departments to cover the full stack (core banking and other linked applications, IT infa server, database, network, …) or with Operations teams (Securities, Derivatives, FX back office, middle office)\n\n- Change the Bank: coordinate and execute various IT projects aimed at evolving or upgrading the IT trading platforms, either developed and released internally or by application providers: collection of business needs, solution design and documentation, development where applicable and/or vendor coordination, creation of test cases catalogue and execution of IT tests, support to user acceptance test, rollout and post production support\n\n- Change the Bank: development of departmental applications aimed at covering gaps of the existing IT applications, mainly in the area of system integration and reporting\n\n- Change the Bank: management of tools for the automation of health checks on trading IT platforms to eventually guarantee the service to internal clients\n\n## Skills and experience\n\n- A university degree, preferably in computer science, finance or an equivalent educational background\n\n- Very good knowledge of programming languages (Java; Pyton; C++, SQL, Powershell, …), application server (Windows mainly, Linux) and database systems (Oracle, MS SQL)\n\n- Good knowledge of financial products (Forex, Securities, Derivatives, Sec Lending) and main bank processes (order/execution on the market of the plain vanilla products)\n\n- Very good analytic skill, tech curiosity, proactivity in identifying the best tech solution to a business need\n\n- Capability to work under constant pressure\n\n- Flexibility (request to work by shift; during bank-holiday or Saturday)\n\n- Capability to integrate in a wider IT team and good team player\n\n- Good communication skills (Italian-English are a must, French is a plus)\n\n## Our Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "## Descrizione del lavoro\n\nIl team IT Treasury and Trading offre soluzioni IT efficienti, efficaci e di supporto per applicazioni e processi nell'esecuzione di ordini client, trading, tesoreria e gestione dei prestiti/collaterali. Il team comprende sia esperti funzionali che tecnici che supportano una sala Trading/Treasury di circa 50 operatori. Questo ruolo garantisce continuità nei servizi client e migliora costantemente la qualità.\n\n## Principali responsabilità\n\n- Eseguire la Banca: supporto end-to-end sulle piattaforme di trading IT utilizzate per le operazioni di prestito di titoli & Collaterali, Finanza Islamica, Esecuzione e negoziazione di titoli e titoli azionari, che spaziano dalla manutenzione delle applicazioni all'analisi e alla risoluzione sugli incidenti quotidiani, legandosi con fornitori esterni ove applicabile.\n\n- Eseguire la Banca: fungere da punto di ingresso al banco di trading per questioni più ampie che richiedono l'accesso con altri dipartimenti IT per coprire l'intero stack (core banking e altre applicazioni collegate, server IT infa, database, rete, ...) o con i team Operazioni (Securities, Derivatives, FX back office, middle office)\n\n- Modificare la Banca: coordinare ed eseguire vari progetti IT volti a evolvere o aggiornare le piattaforme di trading IT, sviluppati e rilasciati internamente o da fornitori di applicazioni: raccolta di esigenze aziendali, progettazione e documentazione della soluzione, sviluppo in caso di coordinamento applicabile e/o del fornitore, creazione di casi di prova catalogo e esecuzione di test IT, supporto al test di accettazione dell'utente, rollout e supporto post produzione\n\n- Cambiare la Banca: sviluppo di applicazioni dipartimentali finalizzate a coprire le lacune delle applicazioni IT esistenti, principalmente nel settore dell'integrazione e della reportistica del sistema\n\n- Cambiare la Banca: gestione degli strumenti per l'automazione dei controlli sanitari sulle piattaforme IT di trading per garantire infine il servizio ai clienti interni\n\n## Competenze ed esperienza\n\n- Una laurea, preferibilmente in informatica, finanza o un background educativo equivalente\n\n- Ottima conoscenza dei linguaggi di programmazione (Java; Pyton; C++, SQL, Powershell, ...), server applicazioni (Windows principalmente, Linux) e sistemi di database (Oracle, MS SQL)\n\n- Buona conoscenza dei prodotti finanziari (Forex, Securities, Derivatives, Sec Lending) e dei principali processi bancari (ordine/esecuzione sul mercato dei semplici prodotti di vaniglia)\n\n- AbilitÃ analitica molto buona, curiositÃ tecnica, proattivitÃ nell'identificazione della migliore soluzione tecnologica ad un bisogno aziendale\n\n- Capacità di lavorare sotto pressione costante\n\n- Flessibilità (richiesta di lavoro a turno; durante il giorno della banca o il sabato)\n\n- Capacità di integrare in un team IT più ampio e un buon giocatore di squadra\n\n- Buone capacità di comunicazione (italiano-inglese sono un must, francese è un plus)\n\n## I nostri valori\n\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n\n- Passionato: Impegnarsi e lottare per l'eccellenza\n\n- Soluzione-driven: Focusing sui risultati del cliente e il trattamento dei clienti abbastanza con una mentalità di rischio-consapevole\n\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
-        "de": "## Stellenbeschreibung\n\nDas IT Treasury and Trading Team liefert effiziente, effektive Support- und IT-Lösungen für Anwendungen und Prozesse in den Bereichen Kundenauftragsausführung, Handel, Treasury und Kredit- / Sicherheitenmanagement. Das Team besteht aus funktionalen und technischen Experten, die einen Trading / Treasury-Raum mit etwa 50 Händlern unterstützen. Diese Rolle sichert die Kontinuität der Kundendienste und führt zu kontinuierlichen Verbesserungen der lieferbaren Qualität.\n\n## Hauptzuständigkeiten\n\n- Run the Bank: End-to-End-Support auf den IT-Handelsplattformen, die für die Ausführung und den Handel von Wertpapieren und Derivaten, Islamic Finance, Securities and Derivatives, verwendet werden, von der Anwendungspflege bis zur Analyse und Lösung täglicher Vorfälle, gegebenenfalls in Verbindung mit externen Anbietern.\n\n- Führen Sie die Bank: fungieren Sie als Einstiegspunkt zum Trading Desk für breitere Themen, die eine Verbindung mit anderen IT-Abteilungen erfordern, um den gesamten Stack abzudecken (Core Banking und andere verknüpfte Anwendungen, IT-Infa-Server, Datenbank, Netzwerk, ...) oder mit Operations-Teams (Wertpapiere, Derivate, FX Back Office, Middle Office)\n\n- Wechseln Sie die Bank: koordinieren und führen Sie verschiedene IT-Projekte aus, die darauf abzielen, die IT-Handelsplattformen zu entwickeln oder zu aktualisieren, die entweder intern oder von Anwendungsanbietern entwickelt und veröffentlicht werden: Sammlung von Geschäftsanforderungen, Lösungsdesign und -dokumentation, gegebenenfalls Entwicklung und / oder Herstellerkoordination, Erstellung von Testfällen Katalog und Durchführung von IT-Tests, Unterstützung für Benutzerakzeptanztests, Rollout und Postproduktionsunterstützung\n\n- Change the Bank: Entwicklung von Abteilungsanwendungen zur Schließung von Lücken der bestehenden IT-Anwendungen, vor allem im Bereich Systemintegration und Reporting\n\n- Ändern Sie die Bank: Management von Tools zur Automatisierung von Gesundheitschecks auf Handels-IT-Plattformen, um schließlich den Service für interne Kunden zu garantieren\n\n## Fähigkeiten und Erfahrung\n\n- Ein Hochschulabschluss, vorzugsweise in Informatik, Finanzen oder einem gleichwertigen Bildungshintergrund\n\n- Sehr gute Kenntnisse in Programmiersprachen (Java; Pyton; C++, SQL, Powershell, ...), Anwendungsserver (Windows hauptsächlich, Linux) und Datenbanksystemen (Oracle, MS SQL)\n\n- Gute Kenntnisse über Finanzprodukte (Forex, Wertpapiere, Derivate, Sec Lending) und Hauptbankprozesse (Auftrag / Ausführung auf dem Markt der Plain Vanilla-Produkte)\n\n- Sehr gute analytische Fähigkeiten, technische Neugier, Proaktivität bei der Identifizierung der besten technischen Lösung für ein Unternehmen\n\n- Fähigkeit, unter konstantem Druck zu arbeiten\n\n- Flexibilität (Antrag auf Arbeit in der Schicht; während Bank-Urlaub oder Samstag)\n\n- Fähigkeit zur Integration in ein breiteres IT-Team und einen guten Teamplayer\n\n- Gute Kommunikationsfähigkeiten (Italienisch-Englisch sind ein Muss, Französisch ist ein Plus)\n\n## Unsere Werte\n\n- Verantwortlichkeit: Übernahme von Verantwortung für Aufgaben und Herausforderungen sowie Suche nach kontinuierlicher Verbesserung\n\n- Hands-on: Proaktiv sein, um schnell qualitativ hochwertige Ergebnisse zu liefern\n\n- Leidenschaftlich: Engagiert sein und nach Exzellenz streben\n\n- Lösungsorientiert: Fokussierung auf Kundenergebnisse und faire Behandlung von Kunden mit einer risikobewussten Denkweise\n\n- Partnerschaftsorientiert: Zusammenarbeit und Teamwork fördern. Zusammenarbeit mit Unternehmergeist.",
-        "fr": "## Description de l'emploi\n\nL'équipe IT Treasury and Trading fournit un soutien et des solutions informatiques efficaces et efficaces pour les applications et les processus d'exécution des ordres de clients, de négociation, de trésorerie et de gestion des prêts et des garanties. L'équipe est composée d'experts fonctionnels et techniques qui soutiennent une salle de trading/trésorerie d'environ 50 traders. Ce rôle assure la continuité des services à la clientèle et favorise l'amélioration continue de la qualité des produits.\n\n## Principales responsabilités\n\n- Exécuter la Banque: support de bout en bout sur les plateformes de trading informatique utilisées pour l'exécution et le trading de valeurs mobilières et collatérales, de la finance islamique, des valeurs mobilières et dérivés, allant de la maintenance de l'application à l'analyse et à la résolution des incidents quotidiens, en liaison avec des fournisseurs externes le cas échéant.\n\n- Exécuter la Banque: agir comme point d'entrée vers le bureau de négociation pour les questions plus larges qui nécessitent la liaison avec d'autres services informatiques pour couvrir la pile complète (carrière bancaire et autres applications liées, serveur informatique infa, base de données, réseau, ...) ou avec les équipes d'opérations (titres, dérivés, back office FX, intermédiaire)\n\n- Modifier la Banque : coordonner et exécuter divers projets informatiques visant à développer ou à moderniser les plates-formes de négociation informatique, soit développées et diffusées en interne, soit par des fournisseurs d'applications : collecte de besoins commerciaux, conception et documentation de solutions, développement, le cas échéant, et/ou coordination des fournisseurs, création d'un catalogue de cas d'essai et exécution de tests informatiques, soutien aux tests d'acceptation par les utilisateurs, déploiement et support après production\n\n- Modifier la Banque : élaboration d'applications départementales visant à combler les lacunes des applications informatiques existantes, principalement dans le domaine de l'intégration des systèmes et de l'établissement de rapports\n\n- Changer la Banque: gestion des outils pour l'automatisation des contrôles de santé sur les plateformes informatiques de négociation pour finalement garantir le service aux clients internes\n\n## Compétences et expérience\n\n- Diplôme universitaire, de préférence en informatique, en finance ou d'une formation équivalente\n\n- Très bonne connaissance des langages de programmation (Java; Pyton; C++, SQL, Powershell, ...), serveur d'application (Windows principalement, Linux) et systèmes de base de données (Oracle, MS SQL)\n\n- Bonne connaissance des produits financiers (forex, valeurs mobilières, dérivés, prêts spéciaux) et des principaux processus bancaires (commande/exécution sur le marché des produits à base de vanille)\n\n- Très bonne compétence analytique, curiosité technologique, proactivité dans l'identification de la meilleure solution technologique à un besoin d'entreprise\n\n- Capacité de travailler sous pression constante\n\n- Flexibilité (demande de travail par poste; pendant la journée de banque ou le samedi)\n\n- Capacité à s'intégrer dans une équipe plus large et un bon joueur d'équipe\n\n- Bonnes compétences en communication (l'italien-anglais est un must, le français est un plus)\n\n## Nos valeurs\n\n- Responsabilité : prise en charge des tâches et des défis, et recherche d'amélioration continue\n\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité\n\n- Passionné : être engagé et rechercher l'excellence\n\n- Une solution axée sur les résultats des clients et le traitement équitable des clients avec un état d'esprit conscient des risques\n\n- Orientation vers le partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
-      },
-      "requirementsByLocale": {
-        "en": [
-          "A university degree, preferably in computer science, finance or an equivalent educational background",
-          "Very good knowledge of programming languages (Java; Pyton; C++, SQL, Powershell, …), application server (Windows mainly, Linux) and database systems (Oracle, MS SQL)",
-          "Good knowledge of financial products (Forex, Securities, Derivatives, Sec Lending) and main bank processes (order/execution on the market of the plain vanilla products)",
-          "Very good analytic skill, tech curiosity, proactivity in identifying the best tech solution to a business need",
-          "Capability to work under constant pressure",
-          "Flexibility (request to work by shift; during bank-holiday or Saturday)",
-          "Capability to integrate in a wider IT team and good team player",
-          "Good communication skills (Italian-English are a must, French is a plus)"
-        ],
-        "it": [
-          "A university degree, preferably in computer science, finance or an equivalent educational background",
-          "Very good analytic skill, tech curiosity, proactivity in identifying the best tech solution to a business need",
-          "Capability to work under constant pressure",
-          "Flexibility (request to work by shift; during bank-holiday or Saturday)",
-          "Capability to integrate in a wider IT team and good team player",
-          "Good communication skills (Italian-English are a must, French is a plus)"
-        ],
-        "de": [
-          "A university degree, preferably in computer science, finance or an equivalent educational background",
-          "Very good analytic skill, tech curiosity, proactivity in identifying the best tech solution to a business need",
-          "Capability to work under constant pressure",
-          "Flexibility (request to work by shift; during bank-holiday or Saturday)",
-          "Capability to integrate in a wider IT team and good team player",
-          "Good communication skills (Italian-English are a must, French is a plus)"
-        ],
-        "fr": [
-          "A university degree, preferably in computer science, finance or an equivalent educational background",
-          "Very good analytic skill, tech curiosity, proactivity in identifying the best tech solution to a business need",
-          "Capability to work under constant pressure",
-          "Flexibility (request to work by shift; during bank-holiday or Saturday)",
-          "Capability to integrate in a wider IT team and good team player",
-          "Good communication skills (Italian-English are a must, French is a plus)"
-        ]
-      },
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "The IT Treasury and Trading team delivers efficient, effective support and IT solutions for applications and processes in client order execution, trading, treasury, and lending/collateral management. The team comprises both functional and technical experts supporting a Trading/Treasury room of approximately 50 traders. This role ensures continuity in client services and drives ongoing improvements in deliverable quality."
-            ],
-            "responsibilities": [
-              "Run the Bank: end-to-end support on the IT trading platforms used for Securities Lending & Collateral, Islamic Finance, Securities and Derivatives execution and trading, spanning from application maintenance to analysis and resolution on daily incidents, liaising with external vendors where applicable.",
-              "Run the Bank: act as entry point to trading desk for broader issues that require liaising with other IT departments to cover the full stack (core banking and other linked applications, IT infa server, database, network, …) or with Operations teams (Securities, Derivatives, FX back office, middle office)",
-              "Change the Bank: coordinate and execute various IT projects aimed at evolving or upgrading the IT trading platforms, either developed and released internally or by application providers: collection of business needs, solution design and documentation, development where applicable and/or vendor coordination, creation of test cases catalogue and execution of IT tests, support to user acceptance test, rollout and post production support",
-              "Change the Bank: development of departmental applications aimed at covering gaps of the existing IT applications, mainly in the area of system integration and reporting",
-              "Change the Bank: management of tools for the automation of health checks on trading IT platforms to eventually guarantee the service to internal clients"
-            ],
-            "requirements": [
-              "A university degree, preferably in computer science, finance or an equivalent educational background",
-              "Very good knowledge of programming languages (Java; Pyton; C++, SQL, Powershell, …), application server (Windows mainly, Linux) and database systems (Oracle, MS SQL)",
-              "Good knowledge of financial products (Forex, Securities, Derivatives, Sec Lending) and main bank processes (order/execution on the market of the plain vanilla products)",
-              "Very good analytic skill, tech curiosity, proactivity in identifying the best tech solution to a business need",
-              "Capability to work under constant pressure",
-              "Flexibility (request to work by shift; during bank-holiday or Saturday)",
-              "Capability to integrate in a wider IT team and good team player",
-              "Good communication skills (Italian-English are a must, French is a plus)"
-            ],
-            "benefits": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "<p>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</p><p style=\"margin-left: 0.375in; text-align: justify;\"> </p>"
-            ],
-            "process": [],
-            "highlights": [
-              "Run the Bank: end-to-end support on the IT trading platforms used for Securities Lending & Collateral, Islamic Finance, Securities and Derivatives execution and trading, spanning from application maintenance to analysis and resolution on daily incidents, liaising with external vendors where applicable.",
-              "Run the Bank: act as entry point to trading desk for broader issues that require liaising with other IT departments to cover the full stack (core banking and other linked applications, IT infa server, database, network, …) or with Operations teams (Securities, Derivatives, FX back office, middle office)",
-              "Change the Bank: coordinate and execute various IT projects aimed at evolving or upgrading the IT trading platforms, either developed and released internally or by application providers: collection of business needs, solution design and documentation, development where applicable and/or vendor coordination, creation of test cases catalogue and execution of IT tests, support to user acceptance test, rollout and post production support",
-              "A university degree, preferably in computer science, finance or an equivalent educational background",
-              "Very good knowledge of programming languages (Java; Pyton; C++, SQL, Powershell, …), application server (Windows mainly, Linux) and database systems (Oracle, MS SQL)",
-              "Good knowledge of financial products (Forex, Securities, Derivatives, Sec Lending) and main bank processes (order/execution on the market of the plain vanilla products)",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "A university degree",
-              "Very good knowledge of programming languages (Java",
-              "Good knowledge of financial products (Forex",
-              "Very good analytic skill",
-              "Capability to work under constant pressure",
-              "Run the Bank",
-              "Change the Bank"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-08-05T22:24:24.579Z",
-      "slugByLocale": {
-        "it": "it-trading-treasury-solutions-specialista-efg-international-ag-lugano-n93k12",
-        "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
-        "de": "it-trading-treasury-solutions-spezialist-efg-international-ag-lugano-n93k12",
-        "fr": "it-trading-treasury-solutions-specialiste-efg-international-ag-lugano-n93k12"
-      },
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "sourceLang": "en",
-      "previousSlugs": [
-        "it-trading-treasury-solutions-specialista-efg-international-ag-lugano",
-        "it-trading-treasury-solutions-spezialist-efg-international-ag-lugano-n93k12",
-        "it-trading-treasury-solutions-specialiste-efg-international-ag-lugano-n93k12",
-        "specialista-soluzioni-it-trading-e-tesoreria-efg-international-ag-lugano",
-        "specialista-in-soluzioni-it-per-trading-e-tesoreria-efg-international-ag-lugano",
-        "specialista-in-soluzioni-per-il-trading-e-la-tesoreria-it-efg-international-ag-lugano",
-        "specialista-in-soluzioni-it-di-trading-e-tesoreria-efg-international-ag-lugano",
-        "it-trading-treasury-solutions-specialist-efg-international-lugano-ticino-switzerland",
-        "spezialist-fur-it-handels-und-treasury-losungen-efg-international-ag-lugano",
-        "specialiste-des-solutions-informatiques-de-trading-et-de-tresorerie-efg-international-ag-lugano",
-        "specialista-soluzioni-it-trading-treasury-efg-international-ag-lugano",
-        "specialiste-des-solutions-informatiques-de-trading-et-de-tresorerie-efg-international-ag-l",
-        "specialiste-des-solutions-it-pour-le-trading-et-la-tresorerie-efg-international-ag-lugano",
-        "it-trading-treasury-solutions-spezialist-efg-international-ag-lugano",
-        "it-trading-treasury-solutions-specialist-efg-international-ag-lugano",
-        "specialiste-solutions-it-trading-et-tresorerie-efg-international-ag-lugano"
-      ],
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 97500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "datePosted": "",
-      "previousSlugsByLocale": {
-        "it": [
-          "it-trading-treasury-solutions-specialista-efg-international-ag-lugano",
-          "it-trading-treasury-solutions-spezialist-efg-international-ag-lugano-n93k12",
-          "it-trading-treasury-solutions-specialiste-efg-international-ag-lugano-n93k12",
-          "specialista-soluzioni-it-trading-e-tesoreria-efg-international-ag-lugano",
-          "specialista-in-soluzioni-it-per-trading-e-tesoreria-efg-international-ag-lugano",
-          "specialista-in-soluzioni-per-il-trading-e-la-tesoreria-it-efg-international-ag-lugano",
-          "specialista-in-soluzioni-it-di-trading-e-tesoreria-efg-international-ag-lugano"
-        ],
-        "en": [
-          "it-trading-treasury-solutions-spezialist-efg-international-ag-lugano-n93k12",
-          "it-trading-treasury-solutions-specialiste-efg-international-ag-lugano-n93k12",
-          "it-trading-treasury-solutions-specialist-efg-international-lugano-ticino-switzerland"
-        ],
-        "de": [
-          "it-trading-treasury-solutions-specialiste-efg-international-ag-lugano-n93k12",
-          "spezialist-fur-it-handels-und-treasury-losungen-efg-international-ag-lugano"
-        ],
-        "fr": [
-          "it-trading-treasury-solutions-spezialist-efg-international-ag-lugano-n93k12",
-          "specialiste-des-solutions-informatiques-de-trading-et-de-tresorerie-efg-international-ag-lugano"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH",
-      "salarySource": "reported",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/5969",
       "postingDateSource": "unknown"
     }
   ]

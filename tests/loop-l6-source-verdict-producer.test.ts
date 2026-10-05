@@ -123,6 +123,25 @@ describe('selection from RAW_ARTICLES', () => {
     expect(selected.at(-1)?.id).toBe('notizia-antica');
   });
 
+  it('keeps an article when a quoted field contains braces', () => {
+    const withBraces = DATA_FIXTURE.replace(
+      "id: 'notizia-recente',",
+      "id: 'notizia-recente',\n title: 'Aliquota { speciale }',",
+    );
+    expect(parseRawArticles(withBraces).map((entry) => entry.id)).toContain('notizia-recente');
+  });
+
+  it('does not read a field name inside another quoted value as the field', () => {
+    const decoy = DATA_FIXTURE.replace(
+      "id: 'notizia-recente',",
+      "title: \"Promo category: 'pratico', date: '1999-01-01'\",\n id: 'notizia-recente',",
+    );
+    const real = parseRawArticles(DATA_FIXTURE).find((entry) => entry.id === 'notizia-recente');
+    const parsed = parseRawArticles(decoy).find((entry) => entry.id === 'notizia-recente');
+    expect(real).toBeDefined();
+    expect(parsed).toEqual(real);
+  });
+
   it('--select prints the four body paths of each selected article, one per line', async () => {
     const root = tempRoot([]);
     let printed = '';

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-10-04T21:36:55.527Z",
+  "assembledAt": "2026-10-05T09:36:51.999Z",
   "jobs": [
     {
       "id": "sfs-group-d28e368a8b5c",
@@ -33,7 +33,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/techniker-in-wärmebehandlung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:51.637Z",
+      "crawledAt": "2026-10-05T09:36:47.718Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -47,7 +47,9 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/2930/Application/CheckLogin/1?lang=eng",
       "jobReqId": "2930",
       "legalEntity": "SFS Group Schweiz AG",
@@ -86,12 +88,12 @@
     },
     {
       "id": "sfs-group-0d3da9babeb0",
-      "slug": "steuerungstechniker-in-anlagentechniker-in-support-m-f-d-sfs-group-hallau",
+      "slug": "tecnico-di-controllo-tecnico-d-impianto-supporto-m-f-d-sfs-group-hallau",
       "slugByLocale": {
-        "it": "steuerungstechniker-in-anlagentechniker-in-support-m-f-d-sfs-group-hallau",
+        "it": "tecnico-di-controllo-tecnico-d-impianto-supporto-m-f-d-sfs-group-hallau",
         "en": "steuerungstechniker-in-anlagentechniker-in-support-m-f-d-sfs-group-hallau",
         "de": "steuerungstechniker-in-anlagentechniker-in-support-m-f-d-sfs-group-hallau",
-        "fr": "steuerungstechniker-in-anlagentechniker-in-support-m-f-d-sfs-group-hallau"
+        "fr": "technicien-ne-de-commande-technicien-ne-d-installation-support-h-f-d-sfs-group-hallau"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
@@ -115,7 +117,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/steuerungstechniker-in-anlagentechniker-in-support-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:51.504Z",
+      "crawledAt": "2026-10-05T09:36:47.556Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -129,13 +131,12 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-26",
+      "postedDate": "",
       "applyUrl": "https://join.sfs.com/ch/en/vacancies/steuerungstechniker-in-anlagentechniker-in-support-(m-f-d).html",
       "jobReqId": null,
       "legalEntity": "Tegra Medical",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:11:50.513Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -149,7 +150,20 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "previousSlugsByLocale": {
+        "it": [
+          "steuerungstechniker-in-anlagentechniker-in-support-m-f-d-sfs-group-hallau"
+        ],
+        "fr": [
+          "steuerungstechniker-in-anlagentechniker-in-support-m-f-d-sfs-group-hallau"
+        ]
+      },
+      "previousSlugs": [
+        "steuerungstechniker-in-anlagentechniker-in-support-m-f-d-sfs-group-hallau"
+      ]
     },
     {
       "id": "sfs-group-662128c7600a",
@@ -182,7 +196,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/projektleiter-kunststofftechnik-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:51.370Z",
+      "crawledAt": "2026-10-05T09:36:47.394Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "streetAddress": "Altstätten",
@@ -196,7 +210,7 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-08",
+      "postedDate": "",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/3022/Application/CheckLogin/1?lang=eng",
       "jobReqId": "3022",
       "legalEntity": "SFS Group Schweiz AG",
@@ -221,7 +235,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:49:47.672Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -234,7 +247,9 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sfs-group-fe2f64ca13aa",
@@ -267,7 +282,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/project-manager-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:51.240Z",
+      "crawledAt": "2026-10-05T09:36:47.226Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -281,7 +296,9 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/3017/Application/CheckLogin/1?lang=eng",
       "jobReqId": "3017",
       "legalEntity": "SFS Group Schweiz AG",
@@ -349,7 +366,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/product-manager-rainscreen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:51.108Z",
+      "crawledAt": "2026-10-05T09:36:47.069Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -363,7 +380,9 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/2748/Application/CheckLogin/1?lang=eng",
       "jobReqId": "2748",
       "legalEntity": "SFS Group Schweiz AG",
@@ -429,7 +448,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/process-engineer-aerospace-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:50.974Z",
+      "crawledAt": "2026-10-05T09:36:46.911Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -443,14 +462,13 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-11",
+      "postedDate": "",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/2978/Application/CheckLogin/1?lang=eng",
       "jobReqId": "2978",
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-11T13:52:15.375Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -463,7 +481,9 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sfs-group-e53ccccd56ba",
@@ -496,7 +516,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-erosion-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:50.836Z",
+      "crawledAt": "2026-10-05T09:36:46.754Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -510,7 +530,7 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-16",
+      "postedDate": "",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/2983/Application/CheckLogin/1?lang=eng",
       "jobReqId": "2983",
       "legalEntity": "SFS Group Schweiz AG",
@@ -564,7 +584,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:34.456Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -577,7 +596,9 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sfs-group-106532f039ac",
@@ -610,7 +631,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/messtechniker-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:50.701Z",
+      "crawledAt": "2026-10-05T09:36:46.596Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -624,7 +645,9 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-18",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://join.sfs.com/ch/en/vacancies/messtechniker-in-(m-f-d).html",
       "jobReqId": null,
       "legalEntity": "Tegra Medical",
@@ -692,7 +715,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/maschinenbediener-in-umformtechnik-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:50.566Z",
+      "crawledAt": "2026-10-05T09:36:46.437Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -706,7 +729,9 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/2816/Application/CheckLogin/1?lang=eng",
       "jobReqId": "2816",
       "legalEntity": "SFS Group Schweiz AG",
@@ -774,7 +799,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/logistiker-in-kommissionierung-(2-schicht)-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:50.435Z",
+      "crawledAt": "2026-10-05T09:36:46.280Z",
       "addressLocality": "Rotkreuz",
       "addressRegion": "SG",
       "streetAddress": "Rotkreuz",
@@ -788,7 +813,9 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/2999/Application/CheckLogin/1?lang=eng",
       "jobReqId": "2999",
       "legalEntity": "SFS Group Schweiz AG",
@@ -832,7 +859,7 @@
       "title": "Lead Konstrukteur Umformwerkzeuge (m/f/d) 80–",
       "titleByLocale": {
         "it": "Ingegnere di progettazione di piombo che forma gli strumenti (m/f/d) 80–",
-        "en": "Lead designer forming tools (m/f/d) 80–",
+        "en": "Lead Konstrukteur Umformwerkzeuge (m/f/d) 80–",
         "de": "Lead Konstrukteur Umformwerkzeuge (m/f/d) 80–",
         "fr": "Ingénieur de conception principal formant des outils (h/f/d) 80–"
       },
@@ -848,7 +875,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/lead-konstrukteur-umformwerkzeuge-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:50.303Z",
+      "crawledAt": "2026-10-05T09:36:46.118Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -862,7 +889,9 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/3034/Application/CheckLogin/1?lang=eng",
       "jobReqId": "3034",
       "legalEntity": "SFS Group Schweiz AG",
@@ -885,6 +914,7 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:53:56.944Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -930,7 +960,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-für-verfahrenstechnik-spritzgiessen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:50.169Z",
+      "crawledAt": "2026-10-05T09:36:45.960Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "streetAddress": "Altstätten",
@@ -944,7 +974,9 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-07",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/3018/Application/CheckLogin/1?lang=eng",
       "jobReqId": "3018",
       "legalEntity": "SFS Group Schweiz AG",
@@ -1014,7 +1046,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:50.039Z",
+      "crawledAt": "2026-10-05T09:36:45.803Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -1028,7 +1060,7 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-09",
+      "postedDate": "",
       "applyUrl": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "jobReqId": null,
       "legalEntity": "Tegra Medical",
@@ -1052,7 +1084,6 @@
         ]
       },
       "firstSeenAt": "2026-08-09T21:42:09.947Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1065,7 +1096,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sfs-group-d5628f00a1be",
@@ -1098,7 +1131,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kaltmassivumformer-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:49.909Z",
+      "crawledAt": "2026-10-05T09:36:45.645Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1112,7 +1145,9 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-20",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/2829/Application/CheckLogin/1?lang=eng",
       "jobReqId": "2829",
       "legalEntity": "SFS Group Schweiz AG",
@@ -1203,7 +1238,7 @@
         "it": "Junior costruttore-formatore strumenti (m/f/d) 80–",
         "en": "Junior constructor–forming tools (m/f/d) 80–",
         "de": "Junior Konstrukteur–Umformwerkzeuge (m/f/d) 80–",
-        "fr": "Outils de formage de concepteur junior (h/f/d) 80–"
+        "fr": "Junior Konstrukteur–Umformwerkzeuge (m/f/d) 80–"
       },
       "description": "Du möchtest deinen Karriereweg in einer dynamischen Engineering-Umgebung ausbauen und Verantwortung in der Werkzeugkonstruktion übernehmen? Als Junior-Konstrukteur Umformwerkzeuge gestaltest du innovative Prozesse in der Kaltmassivumformung aktiv mit und setzt präzise Lösungen erfolgreich um. Your Tasks:\n• Konstruktion und Modifikation von Umformwerkzeugen mittels modernem CAD-System (MSTK, MSTG)\n• Auslegung der Stadienfolge nach vorgegebenen Spezifikationen\n• Mitarbeit bei der Prozessentwicklung sowie beim Contract Review für den Bereich Kaltumformen\n• Erstellung und Verantwortung von präzisen Fertigungsunterlagen für Werkzeuge\n• Betreuung und Optimierung über die gesamte Produktelebensdauer Your profile:\n• Abgeschlossene technische Ausbildung und idealerweise erster Berufserfahrung als Konstrukteur\n• Kenntnisse in der Anwendung von CAD-Programmen sowie MS-Office. PLM/PDM-Kenntnisse von Vorteil\n• Erfahrung im allgemeinen Werkzeugbau sowie in der Umformtechnik und Mehrstufen-Pressen-Technik wünschenswert\n• Sehr gute Deutschkenntnisse und gute Englischkenntnisse\n• Lösungsorientierte Arbeitsweise mit hohem Qualitäts- und Verantwortungsbewusstsein We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
       "descriptionByLocale": {
@@ -1217,7 +1252,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/junior-konstrukteur-–-umformwerkzeuge-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:49.779Z",
+      "crawledAt": "2026-10-05T09:36:45.483Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1231,7 +1266,9 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/3035/Application/CheckLogin/1?lang=eng",
       "jobReqId": "3035",
       "legalEntity": "SFS Group Schweiz AG",
@@ -1254,6 +1291,7 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:53:56.333Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -1299,7 +1337,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/hr-specialist-recruiting-administration-–-befristet-bis-31.12.2027-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:49.644Z",
+      "crawledAt": "2026-10-05T09:36:45.325Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1313,7 +1351,7 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "postedDate": "",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/3033/Application/CheckLogin/1?lang=eng",
       "jobReqId": "3033",
       "legalEntity": "SFS Group Schweiz AG",
@@ -1330,7 +1368,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:05:36.939Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1343,7 +1380,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sfs-group-b1aea85da9d5",
@@ -1376,7 +1415,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/filialleiter-in-handwerkstadt-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:49.506Z",
+      "crawledAt": "2026-10-05T09:36:45.165Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "streetAddress": "Hinwil",
@@ -1390,7 +1429,7 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-21",
+      "postedDate": "",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/3010/Application/CheckLogin/1?lang=eng",
       "jobReqId": "3010",
       "legalEntity": "SFS Group Schweiz AG",
@@ -1413,7 +1452,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T10:08:10.879Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1426,7 +1464,9 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sfs-group-8b08e282ac9a",
@@ -1459,7 +1499,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-labor-(metallographie-werkstoffprüfung)-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:49.377Z",
+      "crawledAt": "2026-10-05T09:36:45.005Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1473,7 +1513,9 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/3013/Application/CheckLogin/1?lang=eng",
       "jobReqId": "3013",
       "legalEntity": "SFS Group Schweiz AG",
@@ -1541,7 +1583,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-debitorenbuchhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:49.242Z",
+      "crawledAt": "2026-10-05T09:36:44.846Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1555,7 +1597,7 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-31",
+      "postedDate": "",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/3009/Application/CheckLogin/1?lang=eng",
       "jobReqId": "3009",
       "legalEntity": "SFS Group Schweiz AG",
@@ -1609,7 +1651,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:32:13.503Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1622,7 +1663,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "sfs-group-8e63d8a49f76",
@@ -1655,7 +1698,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/conseiller-de-vente-cité-de-l'artisan-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:36:49.112Z",
+      "crawledAt": "2026-10-05T09:36:44.689Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "streetAddress": "Sion",
@@ -1669,7 +1712,9 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-12",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/2890/Application/CheckLogin/1?lang=eng",
       "jobReqId": "2890",
       "legalEntity": "SFS Group Schweiz AG",
@@ -1737,7 +1782,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:48.981Z",
+      "crawledAt": "2026-10-05T09:36:44.531Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1751,7 +1796,9 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/2926/Application/CheckLogin/1?lang=eng",
       "jobReqId": "2926",
       "legalEntity": "SFS Group Schweiz AG",
@@ -1819,7 +1866,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-oder-betriebselektriker-in-–-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:48.848Z",
+      "crawledAt": "2026-10-05T09:36:44.373Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1833,7 +1880,9 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-21",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/2900/Application/CheckLogin/1?lang=eng",
       "jobReqId": "2900",
       "legalEntity": "SFS Group Schweiz AG",
@@ -1903,7 +1952,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-instandhaltung-im-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:36:48.696Z",
+      "crawledAt": "2026-10-05T09:36:44.196Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1917,7 +1966,9 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobapplication.sfs.com/Vacancies/3032/Application/CheckLogin/1?lang=eng",
       "jobReqId": "3032",
       "legalEntity": "SFS Group Schweiz AG",

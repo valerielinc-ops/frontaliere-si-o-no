@@ -1,7 +1,7 @@
 {
   "key": "anybotics",
   "label": "ANYbotics",
-  "generatedAt": "2026-10-04T21:17:17.367Z",
+  "generatedAt": "2026-10-05T09:10:40.352Z",
   "total": 17,
   "discovered": null,
   "parsed": 17,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 17,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 17,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10632,
-  "avgDurationMs": 10632,
+  "durationMs": 8455,
+  "avgDurationMs": 8455,
   "durationHistory": [
-    10632
+    8455
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +35,7 @@
       "url": "https://jobs.lever.co/anybotics/8ba5fd36-edfb-4040-8369-fb16996d3c3e",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:17:08.815Z",
+      "crawledAt": "2026-10-05T09:10:31.801Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,7 +46,9 @@
       "sector": "Robotica / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/anybotics/8ba5fd36-edfb-4040-8369-fb16996d3c3e",
       "firstSeenAt": "2026-09-02T13:34:53.991Z",
       "needsRetranslation": true,
@@ -52,12 +56,12 @@
       "salaryMax": 172000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 23,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -72,7 +76,7 @@
       "url": "https://jobs.lever.co/anybotics/dfae4234-0ca9-4ea9-85ff-7d1ec557540b",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:17:08.513Z",
+      "crawledAt": "2026-10-05T09:10:31.497Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -83,7 +87,9 @@
       "sector": "Robotica / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/anybotics/dfae4234-0ca9-4ea9-85ff-7d1ec557540b",
       "firstSeenAt": "2026-09-29T21:12:07.822Z",
       "needsRetranslation": true,
@@ -91,12 +97,12 @@
       "salaryMax": 126000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -111,7 +117,7 @@
       "url": "https://jobs.lever.co/anybotics/d5ae4dd1-c48d-41da-ba50-60ce3b44ceb0",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:17:08.211Z",
+      "crawledAt": "2026-10-05T09:10:31.195Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -122,19 +128,21 @@
       "sector": "Robotica / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/anybotics/d5ae4dd1-c48d-41da-ba50-60ce3b44ceb0",
       "firstSeenAt": "2026-09-10T23:05:23.420Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -149,7 +157,7 @@
       "url": "https://jobs.lever.co/anybotics/7e305a48-4628-4a6a-b054-0367b6f6e586",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:17:07.908Z",
+      "crawledAt": "2026-10-05T09:10:30.892Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -160,7 +168,9 @@
       "sector": "Robotica / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-28",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/anybotics/7e305a48-4628-4a6a-b054-0367b6f6e586",
       "firstSeenAt": "2026-07-28T11:50:16.522Z",
       "needsRetranslation": true,
@@ -168,12 +178,12 @@
       "salaryMax": 126000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -188,7 +198,7 @@
       "url": "https://jobs.lever.co/anybotics/d78ed750-b7fa-41a1-8691-0091b9df4169",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:17:07.605Z",
+      "crawledAt": "2026-10-05T09:10:30.589Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -199,19 +209,21 @@
       "sector": "Robotica / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/anybotics/d78ed750-b7fa-41a1-8691-0091b9df4169",
       "firstSeenAt": "2026-10-03T09:13:51.637Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 91,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -226,7 +238,7 @@
       "url": "https://jobs.lever.co/anybotics/63f0c6db-0a1f-4a4a-87dd-9a43c9c2bdd2",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:17:07.303Z",
+      "crawledAt": "2026-10-05T09:10:30.287Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -237,19 +249,21 @@
       "sector": "Robotica / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/anybotics/63f0c6db-0a1f-4a4a-87dd-9a43c9c2bdd2",
       "firstSeenAt": "2026-07-03T21:18:39.397Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -264,7 +278,7 @@
       "url": "https://jobs.lever.co/anybotics/16980988-bb5a-44f8-b688-ef7053de2899",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:17:07.000Z",
+      "crawledAt": "2026-10-05T09:10:29.984Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -275,20 +289,21 @@
       "sector": "Robotica / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-06",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/anybotics/16980988-bb5a-44f8-b688-ef7053de2899",
       "firstSeenAt": "2026-07-06T12:59:44.319Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -303,7 +318,7 @@
       "url": "https://jobs.lever.co/anybotics/e893a06a-66ad-4068-a95b-3d26fa2e52a1",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:17:06.698Z",
+      "crawledAt": "2026-10-05T09:10:29.682Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -314,7 +329,9 @@
       "sector": "Robotica / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/anybotics/e893a06a-66ad-4068-a95b-3d26fa2e52a1",
       "firstSeenAt": "2026-07-03T21:18:39.094Z",
       "needsRetranslation": true,
@@ -322,12 +339,12 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -342,7 +359,7 @@
       "url": "https://jobs.lever.co/anybotics/fd173f45-9f01-40b2-b46a-aca5133f6861",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:17:06.394Z",
+      "crawledAt": "2026-10-05T09:10:29.380Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -353,19 +370,21 @@
       "sector": "Robotica / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-21",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/anybotics/fd173f45-9f01-40b2-b46a-aca5133f6861",
       "firstSeenAt": "2026-07-21T22:23:36.678Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -380,7 +399,7 @@
       "url": "https://jobs.lever.co/anybotics/f13a84f8-23ff-489f-ad1a-aa56a8c7eb6d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:17:06.093Z",
+      "crawledAt": "2026-10-05T09:10:29.078Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -391,19 +410,21 @@
       "sector": "Robotica / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-08",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/anybotics/f13a84f8-23ff-489f-ad1a-aa56a8c7eb6d",
       "firstSeenAt": "2026-07-08T11:20:16.925Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -418,7 +439,7 @@
       "url": "https://jobs.lever.co/anybotics/3b337f71-7867-45a7-9efa-ad08cbe84cd5",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:17:05.791Z",
+      "crawledAt": "2026-10-05T09:10:28.776Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -429,7 +450,9 @@
       "sector": "Robotica / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-26",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/anybotics/3b337f71-7867-45a7-9efa-ad08cbe84cd5",
       "firstSeenAt": "2026-09-26T13:53:32.195Z",
       "needsRetranslation": true,
@@ -437,12 +460,12 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -457,7 +480,7 @@
       "url": "https://jobs.lever.co/anybotics/53462ccd-2b76-4cd5-b8c5-32c329e3c05d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:17:05.489Z",
+      "crawledAt": "2026-10-05T09:10:28.474Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -468,19 +491,21 @@
       "sector": "Robotica / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-21",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/anybotics/53462ccd-2b76-4cd5-b8c5-32c329e3c05d",
       "firstSeenAt": "2026-07-21T22:23:35.470Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -495,7 +520,7 @@
       "url": "https://jobs.lever.co/anybotics/41220f43-53f8-4336-94a1-eaed97c34784",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:17:05.187Z",
+      "crawledAt": "2026-10-05T09:10:28.172Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -506,19 +531,21 @@
       "sector": "Robotica / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/anybotics/41220f43-53f8-4336-94a1-eaed97c34784",
       "firstSeenAt": "2026-07-03T21:18:38.185Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -533,7 +560,7 @@
       "url": "https://jobs.lever.co/anybotics/f687dc6d-d6d4-4111-a564-ae3369cca6b4",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:17:04.886Z",
+      "crawledAt": "2026-10-05T09:10:27.870Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -544,7 +571,9 @@
       "sector": "Robotica / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-08",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/anybotics/f687dc6d-d6d4-4111-a564-ae3369cca6b4",
       "firstSeenAt": "2026-09-08T13:32:26.383Z",
       "needsRetranslation": true,
@@ -552,12 +581,12 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -572,7 +601,7 @@
       "url": "https://jobs.lever.co/anybotics/b8d4bf79-20ea-44b0-84e2-cd644dc8e58a",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:17:04.584Z",
+      "crawledAt": "2026-10-05T09:10:27.567Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -583,7 +612,9 @@
       "sector": "Robotica / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/anybotics/b8d4bf79-20ea-44b0-84e2-cd644dc8e58a",
       "firstSeenAt": "2026-07-24T11:13:06.190Z",
       "needsRetranslation": true,
@@ -591,12 +622,12 @@
       "salaryMax": 126000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -611,7 +642,7 @@
       "url": "https://jobs.lever.co/anybotics/971da75c-46e5-40a1-b5d9-d49f17996027",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:17:04.283Z",
+      "crawledAt": "2026-10-05T09:10:27.265Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -622,7 +653,9 @@
       "sector": "Robotica / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/anybotics/971da75c-46e5-40a1-b5d9-d49f17996027",
       "firstSeenAt": "2026-09-23T23:37:31.035Z",
       "needsRetranslation": true,
@@ -630,12 +663,12 @@
       "salaryMax": 180500,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -650,7 +683,7 @@
       "url": "https://jobs.lever.co/anybotics/df94dc1d-e83d-4008-a6ee-46c7a54d5572",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:17:03.979Z",
+      "crawledAt": "2026-10-05T09:10:26.959Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -661,7 +694,9 @@
       "sector": "Robotica / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/anybotics/df94dc1d-e83d-4008-a6ee-46c7a54d5572",
       "firstSeenAt": "2026-09-19T22:51:16.192Z",
       "needsRetranslation": true,
@@ -669,16 +704,16 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "addressRegion": "ZH",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

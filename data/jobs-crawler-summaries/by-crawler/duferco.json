@@ -1,7 +1,7 @@
 {
   "key": "duferco",
   "label": "Duferco",
-  "generatedAt": "2026-10-04T21:20:08.722Z",
+  "generatedAt": "2026-10-05T09:26:31.370Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 4,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2291,
-  "avgDurationMs": 2291,
+  "durationMs": 3330,
+  "avgDurationMs": 3330,
   "durationHistory": [
-    2291
+    3330
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +35,7 @@
       "url": "https://duferco.talentics.ai/job/3ce2e723-cfe3-46ff-92cc-cd3f49dde19b",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:02.685Z",
+      "crawledAt": "2026-10-05T09:26:22.370Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -46,18 +48,20 @@
       "department": "Innovation",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-16",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://duferco.talentics.ai/job/3ce2e723-cfe3-46ff-92cc-cd3f49dde19b",
       "firstSeenAt": "2026-06-16T13:16:07.116Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -72,7 +76,7 @@
       "url": "https://duferco.talentics.ai/job/ce2e4e2d-3560-47d1-8655-400dce5e2d9f",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:02.683Z",
+      "crawledAt": "2026-10-05T09:26:22.365Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -85,18 +89,20 @@
       "department": "Innovation",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-16",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://duferco.talentics.ai/job/ce2e4e2d-3560-47d1-8655-400dce5e2d9f",
       "firstSeenAt": "2026-06-16T13:16:07.097Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -111,7 +117,7 @@
       "url": "https://duferco.talentics.ai/job/1cf7268a-a1ec-4fda-8e3a-94da072587c4",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:02.681Z",
+      "crawledAt": "2026-10-05T09:26:22.361Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -124,18 +130,20 @@
       "department": "Innovation",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-15",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://duferco.talentics.ai/job/1cf7268a-a1ec-4fda-8e3a-94da072587c4",
       "firstSeenAt": "2026-09-19T22:59:32.207Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -150,7 +158,7 @@
       "url": "https://duferco.talentics.ai/job/0865d71c-96fa-4a55-83a0-dfff85adb141",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:02.671Z",
+      "crawledAt": "2026-10-05T09:26:22.337Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -163,22 +171,24 @@
       "department": "Innovation",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-16",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://duferco.talentics.ai/job/0865d71c-96fa-4a55-83a0-dfff85adb141",
       "firstSeenAt": "2026-06-10T06:06:36.064Z",
       "salaryMin": 79500,
       "salaryMax": 120500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

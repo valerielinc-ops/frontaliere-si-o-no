@@ -1,7 +1,7 @@
 {
   "key": "palliativklinik",
   "label": "Palliativklinik im Park",
-  "generatedAt": "2026-10-04T21:16:49.278Z",
+  "generatedAt": "2026-10-05T09:15:16.174Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 5,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7838,
-  "avgDurationMs": 7838,
+  "durationMs": 9450,
+  "avgDurationMs": 9450,
   "durationHistory": [
-    7838
+    9450
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +36,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/12/PKiP_Medizinstudenten_Dez25.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:41.696Z",
+      "crawledAt": "2026-10-05T09:15:03.337Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -47,18 +49,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-21",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://palliativklinik.ch/offene-stellen/",
       "firstSeenAt": "2026-05-21T12:54:26.185Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -74,7 +78,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/11/PKiP_Pflege_FAGE-fach_Nov25.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:40.651Z",
+      "crawledAt": "2026-10-05T09:15:02.164Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -87,18 +91,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-21",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://palliativklinik.ch/offene-stellen/",
       "firstSeenAt": "2026-05-21T12:54:25.155Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -114,7 +120,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/11/PKiP_Pflegefach_Nov25-1.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:39.610Z",
+      "crawledAt": "2026-10-05T09:15:01.144Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -127,18 +133,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-21",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://palliativklinik.ch/offene-stellen/",
       "firstSeenAt": "2026-05-21T12:54:24.123Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -154,7 +162,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2026/04/PKiP_Spitalarzt_April-26.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:38.571Z",
+      "crawledAt": "2026-10-05T09:15:00.118Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -167,18 +175,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-21",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://palliativklinik.ch/offene-stellen/",
       "firstSeenAt": "2026-05-21T12:54:23.076Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -194,7 +204,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/12/PKiP_AerztIn_Dez25.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:16:37.512Z",
+      "crawledAt": "2026-10-05T09:14:59.091Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -207,22 +217,24 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-21",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://palliativklinik.ch/offene-stellen/",
       "firstSeenAt": "2026-05-21T12:54:22.033Z",
       "salaryMin": 70400,
       "salaryMax": 98400,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

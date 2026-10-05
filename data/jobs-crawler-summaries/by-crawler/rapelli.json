@@ -1,16 +1,16 @@
 {
   "key": "rapelli",
   "label": "Rapelli",
-  "generatedAt": "2026-10-04T21:43:58.948Z",
+  "generatedAt": "2026-10-05T09:28:59.945Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5497,
-  "avgDurationMs": 5497,
+  "durationMs": 4647,
+  "avgDurationMs": 4647,
   "durationHistory": [
-    5497
+    4647
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,24 +30,26 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-08",
+      "postedDate": "",
       "url": "https://careers.orior.ch/job/Stabio-Digital-Order-&-EDI-Specialist-%2850-80%29-TI/1389772533/",
       "applyUrl": "https://careers.orior.ch/job/Stabio-Digital-Order-&-EDI-Specialist-%2850-80%29-TI/1389772533/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:43:51.388Z",
-      "firstSeenAt": "2026-09-08T23:33:45.493Z",
+      "crawledAt": "2026-10-05T09:28:51.515Z",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-08T23:33:45.493Z",
       "salaryMin": 44400,
       "salaryMax": 60000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -66,24 +68,26 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-19",
+      "postedDate": "",
       "url": "https://careers.orior.ch/job/Stabio-Collaboratore-Confezionamento-Crudi-%28100%29-TI/1408373633/",
       "applyUrl": "https://careers.orior.ch/job/Stabio-Collaboratore-Confezionamento-Crudi-%28100%29-TI/1408373633/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:43:50.910Z",
-      "firstSeenAt": "2026-09-19T23:17:53.063Z",
+      "crawledAt": "2026-10-05T09:28:51.193Z",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:17:53.063Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -102,23 +106,25 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-31",
+      "postedDate": "",
       "url": "https://careers.orior.ch/job/Stabio-Responsabile-Intermedio-Produzione%2C-100-%28mwd%29-TI/1431352833/",
       "applyUrl": "https://careers.orior.ch/job/Stabio-Responsabile-Intermedio-Produzione%2C-100-%28mwd%29-TI/1431352833/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:43:50.455Z",
+      "crawledAt": "2026-10-05T09:28:50.889Z",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "firstSeenAt": "2026-08-31T17:32:26.004Z",
       "salaryMin": 98000,
       "salaryMax": 132000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     },
     {
@@ -137,28 +143,30 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "postedDate": "",
       "url": "https://careers.orior.ch/job/Stabio-Head-of-Logistics-&-Shipping-%28100%29-TI/1441755033/",
       "applyUrl": "https://careers.orior.ch/job/Stabio-Head-of-Logistics-&-Shipping-%28100%29-TI/1441755033/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:43:49.987Z",
-      "firstSeenAt": "2026-09-28T21:24:44.993Z",
+      "crawledAt": "2026-10-05T09:28:50.565Z",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-28T21:24:44.993Z",
       "salaryMin": 98000,
       "salaryMax": 132000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 17
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

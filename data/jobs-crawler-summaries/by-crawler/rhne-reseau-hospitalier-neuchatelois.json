@@ -1,7 +1,7 @@
 {
   "key": "rhne-reseau-hospitalier-neuchatelois",
   "label": "Réseau hospitalier neuchâtelois (RHNE)",
-  "generatedAt": "2026-10-04T21:19:58.556Z",
+  "generatedAt": "2026-10-05T09:26:02.959Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8783,
-  "avgDurationMs": 8783,
+  "durationMs": 10728,
+  "avgDurationMs": 10728,
   "durationHistory": [
-    8783
+    10728
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +36,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2d51ebb7-5339-4287-9ce2-925fa72c4c7e&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:19:53.003Z",
+      "crawledAt": "2026-10-05T09:25:53.167Z",
       "addressLocality": "Le Locle",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -47,7 +49,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-04",
+      "datePosted": "2026-10-05",
+      "postedDate": "2026-10-05",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.jobup.ch/fr/application/create/2d51ebb7-5339-4287-9ce2-925fa72c4c7e?utm_source=relationship&utm_medium=referral&utm_campaign=wb%3Ajobup%7Ctg%3Ab2c%7Ccn%3Ach%7Clg%3A%7Cmg%3Ajob-application%2Cnonbrand%2Cjob%7Ccd%3Akombi",
       "externalId": "2",
       "firstSeenAt": "2026-09-04T13:33:18.483Z",
@@ -75,7 +79,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=9a57e6a7-3ea3-45bb-bd24-c01c38e6d3df&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T21:19:50.748Z",
+      "crawledAt": "2026-10-05T09:25:50.930Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -88,7 +92,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "2026-10-01",
+      "postedDate": "2026-10-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.jobup.ch/fr/application/create/9a57e6a7-3ea3-45bb-bd24-c01c38e6d3df?utm_source=relationship&utm_medium=referral&utm_campaign=wb%3Ajobup%7Ctg%3Ab2c%7Ccn%3Ach%7Clg%3A%7Cmg%3Ajob-application%2Cnonbrand%2Cjob%7Ccd%3Akombi",
       "externalId": "9",
       "firstSeenAt": "2026-09-03T13:43:49.657Z",
@@ -106,5 +112,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

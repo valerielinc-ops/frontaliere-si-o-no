@@ -7,10 +7,10 @@ const ROOT = resolve(import.meta.dirname, '..');
 const SETUP = readFileSync(resolve(ROOT, 'scripts/cf-locale-failover-setup.mjs'), 'utf8');
 
 describe('CDN source maps are not publicly served', () => {
-  it('manages a blocking rule for asset source maps on the CDN host', () => {
-    const marker = 'cdn-source-maps-block (managed by scripts/cf-locale-failover-setup.mjs)';
+  it('keeps asset source maps in the existing blocking rule on the CDN host', () => {
+    const marker = 'locale-bot-throttle-noindex-scrapers (managed by scripts/cf-locale-failover-setup.mjs)';
     const start = SETUP.indexOf(marker);
-    expect(start, 'source-map firewall rule is missing').toBeGreaterThan(-1);
+    expect(start, 'crawler/source-map firewall rule is missing').toBeGreaterThan(-1);
     const block = SETUP.slice(start, start + 900);
 
     expect(block).toContain('action: \'block\'');
@@ -19,11 +19,16 @@ describe('CDN source maps are not publicly served', () => {
     expect(block).toContain('ends_with(http.request.uri.path, ".map")');
   });
 
-  it('keeps the source-map rule before the crawler skip rule', () => {
-    const sourceMaps = SETUP.indexOf('cdn-source-maps-block (managed by scripts/cf-locale-failover-setup.mjs)');
+  it('keeps the combined block before the crawler skip rule and within the managed rule set', () => {
+    const sourceMaps = SETUP.indexOf('locale-bot-throttle-noindex-scrapers (managed by scripts/cf-locale-failover-setup.mjs)');
     const skip = SETUP.indexOf('Allowlist verified SEO + AI crawlers — skip ALL security');
     expect(sourceMaps).toBeGreaterThan(-1);
     expect(skip).toBeGreaterThan(-1);
     expect(sourceMaps).toBeLessThan(skip);
+
+    const managedRulesStart = SETUP.indexOf('const MANAGED_FIREWALL_RULES = [');
+    const managedRulesEnd = SETUP.indexOf('async function assertFirewallRules', managedRulesStart);
+    const managedRules = SETUP.slice(managedRulesStart, managedRulesEnd);
+    expect(managedRules).not.toContain('description: \'cdn-source-maps-block');
   });
 });

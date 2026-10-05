@@ -139,7 +139,7 @@ const MAX_LENGTH = Object.freeze({ authorName: 150, attribution: 200, title: 255
  *   curation: ImageCreditCuration | null,
  * }} ImageCreditRecord
  * @typedef {{
- *   creator: { '@type': 'Person' | 'Organization', name: string, url?: string },
+ *   creator: { '@type': 'Person' | 'Organization', '@id'?: string, name: string, url?: string },
  *   creditText: string,
  *   copyrightNotice: string,
  *   license: string,
@@ -752,7 +752,8 @@ function namesWikimediaCommons(name) {
  * (the Commons file page: the cover is a cropped/resized derivative).
  *
  *   creator           Person/Organization from the record, never the site,
- *                     Commons or the uploader
+ *                     Commons or the uploader; a known profile URL is also
+ *                     emitted as its stable @id
  *   creditText        «{attribution ?? author} / Wikimedia Commons»
  *   copyrightNotice   the attribution when it is a «©» line, else «© {author}»;
  *                     CC0 / Public domain / No known copyright restrictions
@@ -776,6 +777,10 @@ export function imageObjectCreditFields(record) {
   return {
     creator: {
       '@type': record.author.type,
+      // The profile URL is the only stable identity available for a credited
+      // Wikimedia author. Emit it as @id as well as url so crawlers do not
+      // merge the same Person by name while omitting its identity.
+      ...(authorName && record.author.url ? { '@id': record.author.url } : {}),
       name: authorName ?? UNKNOWN_AUTHOR_NAME,
       ...(authorName && record.author.url ? { url: record.author.url } : {}),
     },

@@ -105,6 +105,36 @@ export const EVENT_SOURCES = {
     homepage: 'https://www.geneve.ch/agenda',
     canton: 'GE',
   },
+  // Cantonal agendas from the P9a source survey (2026-10-05), on the same
+  // createAgendaCrawler factory. Structured feeds only: an agenda that is
+  // reachable only as listing HTML is not added here.
+  'fr-agenda': {
+    key: 'fr-agenda',
+    label: 'Etat de Fribourg — Evénements',
+    homepage: 'https://www.fr.ch/evenements',
+    canton: 'FR',
+  },
+  // iCMS platform agendas (scripts/crawl-icms-agenda.mjs). `canton` is the
+  // agenda's own canton: a row whose locality names a comune elsewhere is
+  // attributed to that comune's canton instead (scripts/lib/icms-agenda.mjs).
+  'nw-agenda': {
+    key: 'nw-agenda',
+    label: 'Kanton Nidwalden — Veranstaltungskalender',
+    homepage: 'https://www.nw.ch/anlaesseaktuelles',
+    canton: 'NW',
+  },
+  'ow-agenda': {
+    key: 'ow-agenda',
+    label: 'Kanton Obwalden — Anlässe',
+    homepage: 'https://www.ow.ch/anlaesseaktuelles',
+    canton: 'OW',
+  },
+  'lu-stadt-agenda': {
+    key: 'lu-stadt-agenda',
+    label: 'Stadt Luzern — Termine',
+    homepage: 'https://www.stadtluzern.ch/aktuelles/termine',
+    canton: 'LU',
+  },
 };
 
 // ── Localized URL path config (single source of truth, §6) ───
