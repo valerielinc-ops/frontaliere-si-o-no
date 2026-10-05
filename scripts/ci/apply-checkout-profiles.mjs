@@ -45,6 +45,11 @@ export const TYPECHECK_REQUIRED_SPARSE_PATHS = [
  * `tests.yml`, il verifier e i test possano divergere.
  */
 export const GLOBAL_TESTS_REQUIRED_SPARSE_PATHS = Object.freeze([
+  '/package.json',
+  '/scripts/ci/check-below-floor-bridge.mjs',
+  '/scripts/ci/check-sibling-patterns.mjs',
+  '/scripts/ci/identical-twin-import-gate.mjs',
+  '/scripts/ci/sample-mem-during.sh',
   '/data/blog-articles-data.ts',
   '/data/blogImageCdnMirror.ts',
   '/data/swiss-articles-data.ts',
@@ -306,7 +311,9 @@ export function computeProfiledText(workflowPath, npmScripts) {
   for (const job of analysis.jobs) {
     if (!job.hasCheckout) continue;
     const runsTypecheck = [...(job.entries ?? []), ...(job.closure ?? [])].includes('scripts/ci/check-typecheck-baseline.mjs');
-    const include = runsTypecheck && job.exclude.length ? TYPECHECK_REQUIRED_SPARSE_PATHS : [];
+    const include = job.jobId === 'vitest' && job.exclude.length
+      ? [...new Set([...TYPECHECK_REQUIRED_SPARSE_PATHS, ...GLOBAL_TESTS_REQUIRED_SPARSE_PATHS])]
+      : runsTypecheck && job.exclude.length ? TYPECHECK_REQUIRED_SPARSE_PATHS : [];
     const r = patchJobCheckout(text, job.jobId, job.exclude.length ? sparsePatterns(job.exclude, include) : []);
     if (r.status === 'manual') { manual.push(job.jobId); continue; }
     if (r.status === 'multi') { multi.push(job.jobId); continue; }
