@@ -1,6 +1,6 @@
 import { estimateAnnualFrontierSsnEUR, normalizeFrontierSsnRate } from './frontierHealthContribution';
 import { SimulationInputs, SimulationResult, TaxResult, TaxBreakdownItem, ExpenseItem } from '../types';
-import { FRANCHIGIA_NUOVI_FRONTALIERI, SWISS_CHILD_ALLOWANCE_ANNUAL, LINKS, LOMBARDIA_ADDIZIONALE_REGIONALE, DEFAULT_TECH_PARAMS } from '../constants';
+import { AC_SALARY_CAP_CHF, FRANCHIGIA_NUOVI_FRONTALIERI, SWISS_CHILD_ALLOWANCE_ANNUAL, LINKS, LOMBARDIA_ADDIZIONALE_REGIONALE, DEFAULT_TECH_PARAMS } from '../constants';
 
 // Accordo 2024 concurrent-taxation split: only this share of the ordinary CH
 // source tax is withheld for a "nuovo frontaliere" resident within 20km of the
@@ -80,7 +80,7 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
  const EXCHANGE_RATE = customExchangeRate;
 
  const avsAmount = annualIncomeCHF * avsRate;
- const acAmount = Math.min(annualIncomeCHF, 148200) * acRate;
+ const acAmount = Math.min(annualIncomeCHF, AC_SALARY_CAP_CHF) * acRate;
  const laaAmount = annualIncomeCHF * laaRate;
  const ijmAmount = annualIncomeCHF * ijmRate;
  
@@ -717,7 +717,7 @@ export function calculateSeasonalScenario(input: SeasonalScenarioInput): Seasona
   const familyAllowanceCHF = children * SWISS_CHILD_ALLOWANCE_ANNUAL * (monthsWorked / 12);
 
   const avsAmount = grossWorkedCHF * avsRate;
-  const acAmount = Math.min(grossWorkedCHF, 148200) * acRate;
+  const acAmount = Math.min(grossWorkedCHF, AC_SALARY_CAP_CHF) * acRate;
   const laaAmount = grossWorkedCHF * laaRate;
   const ijmAmount = grossWorkedCHF * ijmRate;
   const lppAmount = grossWorkedCHF * lppRate;
