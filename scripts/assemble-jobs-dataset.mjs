@@ -98,6 +98,7 @@ import {
   getRetranslationBaseline,
   recordRetranslationBaseline,
 } from './lib/crawler-retranslation-baseline.mjs';
+import { previousRunSliceJobs, recordPreviousRunSlice } from './lib/crawler-previous-run-slice.mjs';
 import { isIncomplete } from './lib/translation-incomplete.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -1030,6 +1031,9 @@ async function parseSlicesInParallel(paths) {
  */
 export function readExistingCrawlerJobs(crawlerKey, dataJobsPath) {
   const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
+  // The previous run's slice, before the seed can replace it
+  // (lib/crawler-previous-run-slice.mjs). Later reads never replace it.
+  recordPreviousRunSlice(slicePath);
   if (fs.existsSync(slicePath)) {
     const data = readJson(slicePath);
     const jobs = data?.jobs || (Array.isArray(data) ? data : []);
@@ -2686,12 +2690,18 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   fs.mkdirSync(JOBS_SLICES_DIR, { recursive: true });
   const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
   const existingSlice = fs.existsSync(slicePath) ? readJson(slicePath) : null;
+  // The slice the previous run committed. In the dedicated-runner path the
+  // seed (seedCrawlerSlicesFromDataJobs) has already replaced the file on disk
+  // with this run's working set, so `existingSlice` would compare the run
+  // with itself: the record taken before the seed is the one to compare with
+  // (lib/crawler-previous-run-slice.mjs). A fresh parse, never mutated here.
+  const previousRunJobs = previousRunSliceJobs(slicePath);
   // The slice this process started from, kept untouched for the summary
   // partition (scripts/lib/crawler-summary-partition.mjs). Only the first
   // write of a key in a process defines it, so later writes skip the copy.
   const beforeJobsForSummary = publishedSliceFor(crawlerKey)
     ? null
-    : structuredClone(Array.isArray(existingSlice?.jobs) ? existingSlice.jobs : []);
+    : (previousRunJobs ?? structuredClone(Array.isArray(existingSlice?.jobs) ? existingSlice.jobs : []));
   const previousSliceRaw = options.housekeepingProof && fs.existsSync(slicePath)
     ? fs.readFileSync(slicePath, 'utf8')
     : null;
@@ -2869,11 +2879,12 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
 
   // ── Soglia di ammissione agenzie (decisione del proprietario 2026-10-03) ──
   // Timbra qui, sui job che stanno davvero per essere scritti e contro lo slice
-  // su disco, chi arriva non tradotto: resta nello slice (coda di
+  // del run precedente, chi arriva non tradotto: resta nello slice (coda di
   // translate-pending) ma l'assemblatore non lo pubblica finché i titoli non
   // sono tradotti. I job già presenti non vengono mai ritirati. Vedi
-  // scripts/lib/translation-publication-hold.mjs.
-  const hold = applyTranslationHold(crawlerKey, finalJobs, existingSlice?.jobs || []);
+  // scripts/lib/translation-publication-hold.mjs. Non il file su disco: dopo
+  // il seed contiene già ogni arrivo di questo run.
+  const hold = applyTranslationHold(crawlerKey, finalJobs, previousRunJobs ?? (existingSlice?.jobs || []));
   if (hold.gated) {
     console.log(
       `  ⏸️  Soglia di ammissione: ${hold.held} job trattenuti in attesa di traduzione `
