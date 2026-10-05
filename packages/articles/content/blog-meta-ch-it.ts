@@ -7709,6 +7709,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.protezione-civile-zurigo.title': 'Protezione civile Canton Zurigo: requisiti e indennità',
     'blog.article.protezione-civile-zurigo.excerpt': 'Nel Cantone di Zurigo la protezione civile è coordinata a livello cantonale. Convocazioni e indennità si verificano presso l\'autorità competente.',
     'blog.article.protezione-civile-zurigo.imageAlt': 'Operatori della protezione civile davanti a un edificio pubblico svizzero',
+    'blog.article.assicurazione-immobili-zurigo.title': 'Assicurazione immobili Canton Zurigo: obbligo e premi',
+    'blog.article.assicurazione-immobili-zurigo.excerpt': 'In Svizzera l\'assicurazione degli edifici è obbligatoria o organizzata diversamente secondo il Cantone: guida pratica per Zurigo su premi e sinistri.',
+    'blog.article.assicurazione-immobili-zurigo.imageAlt': 'Edificio residenziale nel Canton Zurigo per una guida sull\'assicurazione immobili',
 };
 
 export default blogMetaChIt;

@@ -97357,6 +97357,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assicurazione-immobili-zurigo': {
+    title: 'Assicurazione immobili Canton Zurigo: obbligo e premi',
+    description: 'Guida all\'assicurazione immobili nel Canton Zurigo: obbligo secondo il Cantone, ente o assicuratore autorizzato, coperture, premi e sinistri da verificare.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, immobili, canton, zurigo',
+    ogTitle: 'Assicurazione edifici a Zurigo: obbligo e premi',
+    ogDescription: 'Nel Canton Zurigo l\'obbligo per l\'assicurazione degli edifici dipende dal Cantone. La guida separa ente cantonale e assicuratore autorizzato e offre una traccia pratica per verificare coperture, premi e procedura in caso di sinistro.',
+    canonicalPath: '/articoli-svizzera/assicurazione-immobili-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assicurazione immobili Canton Zurigo: obbligo e premi",
+      "description": "Guida all'assicurazione immobili nel Canton Zurigo: obbligo secondo il Cantone, ente o assicuratore autorizzato, coperture, premi e sinistri da verificare.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/assicurazione-immobili-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio residenziale nel Canton Zurigo per una guida sull'assicurazione immobili"
+      },
+      "datePublished": "2026-10-05T02:31:44+00:00",
+      "dateModified": "2026-10-05T02:31:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assicurazione-immobili-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
