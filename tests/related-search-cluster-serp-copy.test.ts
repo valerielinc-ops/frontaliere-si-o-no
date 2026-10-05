@@ -143,6 +143,14 @@ describe('cluster <title> carries job intent (issue 11198)', () => {
     expect(title).toMatch(/Operatore\/Operatrice Socio/);
   });
 
+  it('treats "stelle" as job intent only in German', () => {
+    const italianTitle = buildClusterTitle('stelle', 'Lugano', 'it');
+    expect(italianTitle).toMatch(/offerte di lavoro/);
+    expect(escapeForBudget(italianTitle).length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+
+    expect(buildClusterTitle('stelle', 'Lugano', 'de')).not.toMatch(/offene Stellen/);
+  });
+
   it('a keyword too long for the framing keeps the old within-budget headline title', () => {
     const kw = 'addetto al commercio al dettaglio efz creare esperienze di acquisto';
     const title = buildClusterTitle(kw, 'Lugano', 'it');
@@ -190,5 +198,26 @@ describe('cluster meta description is complete and job-specific (issue 11198)', 
     const desc = buildClusterDescription({ keyword: 'fielmann', city: 'Spreitenbach', jobCount: 0, topCompanies: [] }, 'it');
     expect(desc).not.toMatch(/\b0 offerte/);
     expect(desc.length).toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
+  });
+
+  it('reserves room for a complete closing when the English tagline is 118 or 119 chars', () => {
+    for (const keywordLength of [84, 85]) {
+      const desc = buildClusterDescription({
+        keyword: 'x'.repeat(keywordLength),
+        city: null,
+        jobCount: 1,
+        topCompanies: [],
+      }, 'en');
+      expect(desc.length).toBeGreaterThanOrEqual(META_DESCRIPTION_MIN_CHARS);
+      expect(desc.length).toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
+      expect(desc).toMatch(/[.!]$/);
+    }
+  });
+});
+
+describe('cluster title escaped fallback budget', () => {
+  it('keeps escaped entity-heavy fallback titles within the cap', () => {
+    const title = buildClusterTitle('a & '.repeat(20), null, 'it');
+    expect(escapeForBudget(title).length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
   });
 });

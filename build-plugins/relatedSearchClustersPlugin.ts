@@ -65,6 +65,7 @@ import {
   META_DESCRIPTION_MIN_CHARS,
   TITLE_MAX_CHARS,
   truncateHeadline,
+  truncateHeadlineToMeasuredBudget,
 } from './shared/titleSuffix';
 import {
   getTrafficEvidenceFilter,
@@ -2599,7 +2600,13 @@ const TITLE_JOB_FRAMING: Record<Locale, (headline: string, hasCity: boolean) => 
  * "Stellen Pflege", "offres d'emploi …") keeps its bare headline: framing it
  * again would stack two job phrases in a 66-char budget.
  */
-const KEYWORD_JOB_INTENT_RE = /(^|[^\p{L}])(lavor[oi]|offert[ae]|impieg[oh]i?|jobs?|stellen\w*|stelle|emplois?|offres?|careers?|karriere|vacanc\w*)(?=$|[^\p{L}])/iu;
+const KEYWORD_JOB_INTENT_RE = /(^|[^\p{L}])(lavor[oi]|offert[ae]|impieg[oh]i?|jobs?|stellen\w*|emplois?|offres?|careers?|karriere|vacanc\w*)(?=$|[^\p{L}])/iu;
+const GERMAN_KEYWORD_JOB_INTENT_RE = /(^|[^\p{L}])stelle(?=$|[^\p{L}])/iu;
+
+function keywordHasJobIntent(keyword: string, locale: Locale): boolean {
+  return KEYWORD_JOB_INTENT_RE.test(keyword)
+    || (locale === 'de' && GERMAN_KEYWORD_JOB_INTENT_RE.test(keyword));
+}
 
 /**
  * The cluster `<title>`, shared by the page render and the incremental
@@ -2611,7 +2618,7 @@ const KEYWORD_JOB_INTENT_RE = /(^|[^\p{L}])(lavor[oi]|offert[ae]|impieg[oh]i?|jo
 export function buildClusterTitle(keyword: string, city: string | null, locale: Locale): string {
   const measure = (s: string) => escapeForBudget(s).length;
   const headline = buildHeadline(keyword, city, locale);
-  if (String(keyword || '').trim() && !KEYWORD_JOB_INTENT_RE.test(keyword)) {
+  if (String(keyword || '').trim() && !keywordHasJobIntent(keyword, locale)) {
     // Suffix, not prefix: the title keeps starting with the same localized
     // headline as the H1 (tests/related-search-clusters-shell.test.ts).
     const framed = TITLE_JOB_FRAMING[locale](headline, Boolean(city));
@@ -2620,7 +2627,11 @@ export function buildClusterTitle(keyword: string, city: string | null, locale: 
     }
   }
   return buildTitleWithBrand(
-    capForTitle(headline, TITLE_MAX_CHARS),
+    truncateHeadlineToMeasuredBudget(
+      capForTitle(headline, TITLE_MAX_CHARS),
+      TITLE_MAX_CHARS,
+      measure,
+    ),
     undefined,
     TITLE_MAX_CHARS,
     measure,
@@ -2678,22 +2689,32 @@ export function buildClusterDescription(
   // word-aware with the shared helper, never mid-word.
   if (out.length > max) return truncateHeadline(out, max);
 
+  const closings = DESCRIPTION_CLOSINGS[locale];
+  // Keep enough room for at least the shortest complete closing sentence. A
+  // tagline at 118–119 chars otherwise leaves every whole closing over the
+  // 160-char cap, making the result violate the 120-char floor.
+  const ordered = input.jobCount === 0
+    ? [closings.calculator, closings.audience]
+    : [closings.apply, closings.calculator, closings.audience];
+  const shortestClosingLength = Math.min(...ordered.map((sentence) => sentence.length));
+  const maxTaglineWithClosing = max - shortestClosingLength - 1;
+  if (out.length < META_DESCRIPTION_MIN_CHARS && out.length > maxTaglineWithClosing) {
+    out = truncateHeadline(out, maxTaglineWithClosing);
+  }
+
   const companies = input.topCompanies
     .map((c) => String(c || '').trim().replace(/\.+$/, ''))
     .filter(Boolean);
   for (let k = Math.min(2, companies.length); k > 0; k--) {
     const candidate = `${out} ${companies.slice(0, k).join(', ')}.`;
-    if (candidate.length <= max) {
+    const leavesClosingRoom = candidate.length + shortestClosingLength + 1 <= max;
+    if (candidate.length <= max && (candidate.length >= META_DESCRIPTION_MIN_CHARS || leavesClosingRoom)) {
       out = candidate;
       break;
     }
   }
 
-  const closings = DESCRIPTION_CLOSINGS[locale];
   // "Apply directly" promises a listing to apply to: not on the zero-job copy.
-  const ordered = input.jobCount === 0
-    ? [closings.calculator, closings.audience]
-    : [closings.apply, closings.calculator, closings.audience];
   for (const sentence of ordered) {
     if (out.length >= META_DESCRIPTION_MIN_CHARS) break;
     const candidate = `${out} ${sentence}`;
