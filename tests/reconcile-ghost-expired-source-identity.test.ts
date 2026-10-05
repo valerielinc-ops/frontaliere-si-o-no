@@ -22,6 +22,7 @@
  */
 import { describe, it, expect } from 'vitest';
 import { reconcileGhostExpired } from '../scripts/assemble-jobs-dataset.mjs';
+import { reconcileExpiredSlugs } from '../scripts/reconcile-job-slugs.mjs';
 
 const BASE = 'https://careers.example-hospital.test/jobs/sub-assistant-medicine';
 const ACTIVE_URL = `${BASE}/11111111-1111-4111-8111-111111111111`;
@@ -127,5 +128,55 @@ describe('reconcileGhostExpired — source identity guard (#11596)', () => {
     const { ghostCount } = reconcileGhostExpired([active], expired);
 
     expect(ghostCount).toBe(1);
+  });
+});
+
+describe('reconcileExpiredSlugs — same source identity guard (#11596 sibling)', () => {
+  // The fuzzy slug-Jaccard matcher reaches the same merge with only the
+  // archive record's own disambiguated slug: nothing is shared with the
+  // active job, so the "already attributed" shortcut does not apply.
+  function fuzzyPair(sourceIdentity: string) {
+    const active = {
+      title: 'Unterassistent/in Medizin (a)',
+      company: 'Example Hospital',
+      companyKey: 'example-hospital',
+      location: 'Liestal',
+      addressLocality: 'Liestal',
+      url: ACTIVE_URL,
+      slug: 'medicina-subassista-a-example-hospital-liestal',
+      slugByLocale: { it: 'medicina-subassista-a-example-hospital-liestal' },
+      previousSlugs: [] as string[],
+    };
+    const expired = {
+      title: 'Unterassistent/in Medizin (a)',
+      company: 'Example Hospital',
+      companyKey: 'example-hospital',
+      location: 'Liestal',
+      addressLocality: 'Liestal',
+      slug: 'medicina-subassista-a-example-hospital-liestal-s9bict',
+      slugByLocale: { it: 'medicina-subassista-a-example-hospital-liestal-s9bict' },
+      dedupArchive: true,
+      sourceIdentity,
+    };
+    return { active, expired };
+  }
+
+  it('does not merge the archived sibling posting into its fuzzy best match', () => {
+    const { active, expired } = fuzzyPair(`url:${ARCHIVED_URL}`);
+
+    const result = reconcileExpiredSlugs([active], [expired], { dryRun: false });
+
+    expect(result.mergedCount).toBe(0);
+    expect(active.previousSlugs).toEqual([]);
+    expect(result.updatedExpired).toEqual([expired]);
+  });
+
+  it('still merges an archive record of the same posting', () => {
+    const { active, expired } = fuzzyPair(`url:${ACTIVE_URL}`);
+
+    const result = reconcileExpiredSlugs([active], [expired], { dryRun: false });
+
+    expect(result.mergedCount).toBe(1);
+    expect(active.previousSlugs).toContain('medicina-subassista-a-example-hospital-liestal-s9bict');
   });
 });

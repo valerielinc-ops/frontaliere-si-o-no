@@ -51,7 +51,7 @@ import {
   readCrawlerSummaryStore,
   writeCrawlerSummaryStore,
 } from './lib/crawler-summary-store.mjs';
-import { buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
+import { archiveRecordNamesPosting, buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
 import { applyDeclaredBrandRelabel } from './lib/crawler-brand-relabel.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
 import { carryForwardMarks, dedupeByIdentityPreservingMarks, mergeBaselinePublicationEvidence } from './lib/job-mark-persistence.mjs';
@@ -3859,34 +3859,6 @@ export function trackSlugHistoryDrift(priorJobs, activeJobs) {
 /* ── Ghost expired reconciliation ──────────────────────────────────── */
 
 /**
- * Source-posting identities an expired archive record declares: its own URL
- * when present, the `sourceIdentity` written by the archivers, and every
- * identity a dedup merge recorded in `sourceIdentityHistory`.
- */
-function expiredSourceIdentities(expiredJob) {
-  const ids = new Set();
-  const add = (value) => {
-    const id = String(value ?? '').trim();
-    if (id) ids.add(id);
-  };
-  if (String(expiredJob?.url ?? '').trim()) add(buildStableJobIdentity(expiredJob));
-  add(expiredJob?.sourceIdentity);
-  const history = Array.isArray(expiredJob?.sourceIdentityHistory) ? expiredJob.sourceIdentityHistory : [];
-  for (const entry of history) add(entry?.sourceIdentity);
-  return ids;
-}
-
-/**
- * True unless both records carry a source identity and the archive record's
- * identities do not include the active job's one.
- */
-function expiredNamesActivePosting(expiredJob, activeJob) {
-  const expiredIds = expiredSourceIdentities(expiredJob);
-  if (expiredIds.size === 0 || !String(activeJob?.url ?? '').trim()) return true;
-  return expiredIds.has(buildStableJobIdentity(activeJob));
-}
-
-/**
  * Cross-reference expired jobs against active jobs to find "ghosts" —
  * expired entries that refer to jobs still active under a different slug
  * (due to title retranslation). Removes ghosts from expired, merges their
@@ -4035,7 +4007,7 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     // active job another posting's routes, including its hash-tailed slug,
     // which becomes cross-job contamination once that posting is re-listed
     // (#11596). Records without any identity keep the legacy evidence rules.
-    if (!expiredNamesActivePosting(ej, match)) continue;
+    if (!archiveRecordNamesPosting(ej, match)) continue;
 
     // Mark as ghost
     const ghostId = expiredGhostIdentity(ej);
