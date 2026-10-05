@@ -61,7 +61,7 @@ import {
   sourceBodyForJob,
 } from './lib/stored-source-body.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { fetchSourceViaRelay } from './lib/source-relay-fetch.mjs';
+import { assertSourceRelayReady, fetchSourceViaRelay } from './lib/source-relay-fetch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -523,6 +523,10 @@ async function main() {
   console.log(`\n⚡ Stadt Chur — Dedicated Job Crawler`);
   console.log(`   Source: Rexx Systems ATS (jobs.chur.ch)`);
   console.log(`   Company key: ${COMPANY_KEY}\n`);
+  // The crawler group marks this member relay-required: a failed Google
+  // ID-token step fails this crawler loudly instead of crawling without the
+  // only path that reaches jobs.chur.ch from CI.
+  assertSourceRelayReady();
 
   // Validate adapter
   const adapter = readJson(ADAPTER_PATH, null);

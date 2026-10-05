@@ -298,6 +298,77 @@ const SITE_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
 const CROSS_REPO_BACKOFF_SECONDS = 30;
 const SHA1_COMMIT_RE = /^[a-f0-9]{40}$/u;
 
+// Private Firebase relay for the two sources that refuse CI egress (FU-015,
+// site 10831; function in functions/src/jobsSourceRelay.js, PR 10631). The
+// owner provisioned Workload Identity Federation on 2026-10-05: pool
+// `github-actions`, provider `github` (repository condition: the corpus and
+// this site), and a service account whose only grant is `roles/run.invoker`
+// on `jobsSourceRelay`. Cloud Run accepts as ID-token audience "the URL of the
+// receiving service or a configured custom audience" (Cloud Run docs,
+// authenticating/service-to-service); the default accepted audience is the
+// Google-generated `run.app` URL (configuring/custom-audiences). The
+// cloudfunctions.net alias is not documented as an audience, so the relay is
+// both called and targeted through its run.app URL.
+export const SOURCE_RELAY_CRAWLER_SLUGS = Object.freeze(['stadt-chur', 'has-healthcare']);
+export const SOURCE_RELAY_URL = 'https://jobssourcerelay-cekssc5eoa-oa.a.run.app';
+export const SOURCE_RELAY_WORKLOAD_IDENTITY_PROVIDER =
+  'projects/957502085858/locations/global/workloadIdentityPools/github-actions/providers/github';
+export const SOURCE_RELAY_SERVICE_ACCOUNT = 'jobs-source-relay-ci@frontaliere-ticino.iam.gserviceaccount.com';
+// google-github-actions/auth v2.1.13 (the commit the `v2` tag points to),
+// pinned by SHA because this third-party action handles a credential.
+export const SOURCE_RELAY_AUTH_ACTION = 'google-github-actions/auth@c200f3691d83b41bf9bbd8638997a462592937ed';
+export const SOURCE_RELAY_AUTH_STEP_ID = 'source_relay_auth';
+const SOURCE_RELAY_SLUG_SET = new Set(SOURCE_RELAY_CRAWLER_SLUGS);
+
+function sourceRelayMembers(members) {
+  return members.filter((crawler) => SOURCE_RELAY_SLUG_SET.has(crawler.slug));
+}
+
+/**
+ * Mint the Google ID token for the relay's private Cloud Run invoker gate.
+ * `continue-on-error` keeps a failed exchange inside the relay members: every
+ * sibling crawler still launches, while each relay member receives an empty
+ * token and its assertSourceRelayReady() fails it loudly. No credentials file
+ * and no exported variables: GOOGLE_APPLICATION_CREDENTIALS already points at
+ * the Firebase service account for every crawler of the group.
+ */
+export function sourceRelayAuthStep(relaySlugs) {
+  return {
+    name: `Authenticate the jobs source relay (${relaySlugs.join(', ')})`,
+    id: SOURCE_RELAY_AUTH_STEP_ID,
+    if: "steps.crawler_group_setup.outcome == 'success'",
+    'continue-on-error': true,
+    uses: SOURCE_RELAY_AUTH_ACTION,
+    with: {
+      workload_identity_provider: SOURCE_RELAY_WORKLOAD_IDENTITY_PROVIDER,
+      service_account: SOURCE_RELAY_SERVICE_ACCOUNT,
+      token_format: 'id_token',
+      id_token_audience: SOURCE_RELAY_URL,
+      id_token_include_email: true,
+      create_credentials_file: false,
+      export_environment_variables: false,
+    },
+  };
+}
+
+/** Env added only to a relay member's launch step (read by scripts/lib/source-relay-fetch.mjs). */
+export function sourceRelayStepEnv() {
+  return {
+    JOBS_SOURCE_RELAY_URL: SOURCE_RELAY_URL,
+    JOBS_SOURCE_RELAY_ID_TOKEN: `\${{ steps.${SOURCE_RELAY_AUTH_STEP_ID}.outputs.id_token }}`,
+    JOBS_SOURCE_RELAY_REQUIRED: '1',
+  };
+}
+
+/**
+ * A job-level `permissions:` block replaces the workflow-level one, so the job
+ * that needs `id-token: write` restates its entry point's own permissions and
+ * adds only that scope. Groups without a relay member keep no job block.
+ */
+export function withSourceRelayJobPermissions(workflowPermissions) {
+  return { ...workflowPermissions, 'id-token': 'write' };
+}
+
 // Group 07 has two legacy source slugs whose data-slice identities are the
 // canonical names consumed by the generation observer. Keep this translation
 // explicit and closed: every other crawler keeps its source slug as its step
@@ -1229,6 +1300,11 @@ function isCrawlerLaunchStep(step) {
 export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
   const nn = String(groupIndex).padStart(2, '0');
   const slug = crawler.slug;
+  // A relay member must use its one-hour Google ID token soon after the auth
+  // step minted it, so it never queues behind the group's shared slots: it
+  // takes a private one-process slot and starts as soon as it is launched.
+  // Launch order (and therefore the pinned member order) stays unchanged.
+  const dedicatedSlot = SOURCE_RELAY_SLUG_SET.has(slug);
   const body = buildCrawlerShellBody(crawler);
   // Keyed by the roster crawler id (JOBS_HOUSEKEEPING_SCOPE, the identity the
   // receipts carry), not by the slug: for the step-id overrides the two differ
@@ -1268,7 +1344,9 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     `  echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default ${watchdogMinutes})"`,
     `  worker_watchdog_minutes=${watchdogMinutes}`,
     'fi',
-    `max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-${CRAWLER_GROUP_MAX_PARALLEL}}"`,
+    dedicatedSlot
+      ? 'max_parallel=1'
+      : `max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-${CRAWLER_GROUP_MAX_PARALLEL}}"`,
     'if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then',
     '  echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"',
     '  printf \'1\\n\' > "$status_tmp"',
@@ -1298,7 +1376,9 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     'fi',
     'while :; do',
     '  for slot_index in $(seq 1 "$max_parallel"); do',
-    '    slot_path="$state_dir/slots/slot-${slot_index}.lock"',
+    dedicatedSlot
+      ? `    slot_path="$state_dir/slots/relay-${slug}.lock"`
+      : '    slot_path="$state_dir/slots/slot-${slot_index}.lock"',
     '    flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"',
     '    flock_exit=$?',
     '    if [ "$flock_exit" -eq 0 ]; then',
@@ -1962,6 +2042,10 @@ function npmScriptsForAnalyzer() {
 }
 
 /** Build the YAML object (as a JS object, serialized via `yaml` lib) for one group workflow. */
+const GENERATED_GROUP_PERMISSIONS = Object.freeze({ contents: 'write', issues: 'write' });
+const LOGIC_GROUP_PERMISSIONS = Object.freeze({ contents: 'read' });
+const STANDALONE_PERMISSIONS = Object.freeze({ actions: 'read', contents: 'read', issues: 'write' });
+
 function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCommand, { quarantine = null } = {}) {
   const groupName = `crawler-group-${String(groupIndex).padStart(2, '0')}`;
   const runtimeInputs = crawlerRuntimeInputsForGroup(group.members);
@@ -2083,6 +2167,14 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCom
     run: 'true',
   });
 
+  // The token is minted right before the launch steps, which all fire within
+  // a minute or two; relay members then start at once on a private slot (see
+  // buildCrawlerLaunchShellBody), so the one-hour token is used fresh.
+  const relayMembers = sourceRelayMembers(group.members);
+  if (relayMembers.length > 0) {
+    steps.push(sourceRelayAuthStep(relayMembers.map((crawler) => crawler.slug)));
+  }
+
   for (const crawler of group.members) {
     const launchStepId = `crawler-launch-${crawler.slug}`;
     const summaryFile = `/tmp/slug-history-summary-${crawler.slug}.txt`;
@@ -2099,7 +2191,10 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCom
       // env value the crawler's runStep/postSteps declared lives here, in the
       // step's own YAML env: map, instead of being text-spliced into the
       // shell body — see buildCrawlerStepEnv().
-      env: buildCrawlerStepEnv(crawler, summaryFile),
+      env: {
+        ...buildCrawlerStepEnv(crawler, summaryFile),
+        ...(SOURCE_RELAY_SLUG_SET.has(crawler.slug) ? sourceRelayStepEnv() : {}),
+      },
       run: buildCrawlerLaunchShellBody(crawler, groupIndex),
     });
   }
@@ -2189,10 +2284,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCom
       group: `jobs-${groupName}`,
       'cancel-in-progress': false,
     },
-    permissions: {
-      contents: 'write',
-      issues: 'write',
-    },
+    permissions: GENERATED_GROUP_PERMISSIONS,
     env: {
       NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169',
     },
@@ -2200,6 +2292,9 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, installCom
       [groupName.replace(/-/g, '_')]: {
         'runs-on': 'ubuntu-latest',
         'timeout-minutes': JOB_TIMEOUT_MINUTES,
+        ...(relayMembers.length > 0
+          ? { permissions: withSourceRelayJobPermissions(GENERATED_GROUP_PERMISSIONS) }
+          : {}),
         env: {
           // Job-level env is inherited by every crawler launcher and avoids
           // hundreds of identical step overrides. The receipt CLIs resolve the
@@ -2775,7 +2870,13 @@ export function buildCrawlerLogicWorkflow(generatedWorkflowText, {
     },
   };
   delete workflow.concurrency;
-  workflow.permissions = { contents: 'read' };
+  workflow.permissions = { ...LOGIC_GROUP_PERMISSIONS };
+  if (job.permissions !== undefined) {
+    if (canonicalJson(job.permissions) !== canonicalJson(withSourceRelayJobPermissions(GENERATED_GROUP_PERMISSIONS))) {
+      throw new Error(`crawler-group-${nn}: undeclared job-level permissions`);
+    }
+    job.permissions = withSourceRelayJobPermissions(workflow.permissions);
+  }
 
   const checkoutAt = job.steps.findIndex((step) => step?.uses?.startsWith('actions/checkout@'));
   const rcAt = job.steps.findIndex((step) => step?.name === 'Load secrets from Remote Config');
@@ -2935,6 +3036,14 @@ function normalizedJobContract(workflow, side, fileName) {
   if (jobEntries.length !== 1) throw new Error(`${fileName}: expected exactly one job`);
   const [jobName, job] = jobEntries[0];
   const normalizedJob = structuredClone(job);
+  // The only allowed job-level block is the relay's: the side's own workflow
+  // permissions plus `id-token: write`. Compare it as that single scope.
+  if (normalizedJob.permissions !== undefined) {
+    if (canonicalJson(normalizedJob.permissions) !== canonicalJson(withSourceRelayJobPermissions(workflow.permissions))) {
+      throw new Error(`${fileName}: ${side} job permissions are not the relay form`);
+    }
+    normalizedJob.permissions = { 'id-token': 'write' };
+  }
   const members = (job.steps ?? []).filter(isCrawlerLaunchStep).length;
   const steps = (job.steps ?? [])
     .map((step) => normalizedContractStep(step, side, fileName, members))
@@ -3229,12 +3338,19 @@ export function buildStandaloneCrossRepoWorkflow({
     job.concurrency = concurrency;
   }
 
+  if (job.permissions !== undefined) {
+    if (job.permissions?.['id-token'] !== 'write') {
+      throw new Error(`${name}: undeclared job-level permissions`);
+    }
+    job.permissions = withSourceRelayJobPermissions(STANDALONE_PERMISSIONS);
+  }
+
   const standalone = {
     name,
     ...(runName ? { 'run-name': runName } : {}),
     on: trigger,
     ...(isTranslatePendingArtifact ? {} : { concurrency }),
-    permissions: { actions: 'read', contents: 'read', issues: 'write' },
+    permissions: { ...STANDALONE_PERMISSIONS },
     env: workflow.env,
     jobs: isTranslatePendingArtifact
       ? { translate_queue_guard: translatePendingQueueGuardJob(), translate: job }

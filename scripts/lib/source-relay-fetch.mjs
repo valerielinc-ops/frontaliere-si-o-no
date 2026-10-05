@@ -8,6 +8,10 @@ export const SOURCE_RELAY_MAX_ATTEMPTS = 3;
 export const SOURCE_RELAY_RETRY_DELAY_MS = 1_200;
 export const SOURCE_RELAY_MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
 const GITHUB_OIDC_REQUEST_HOST = 'token.actions.githubusercontent.com';
+/** Workflow flag set only on the relay members' launch steps (see the crawler group generator). */
+export const SOURCE_RELAY_REQUIRED_ENV = 'JOBS_SOURCE_RELAY_REQUIRED';
+/** Google ID token minted by google-github-actions/auth for the private Cloud Run invoker gate. */
+export const SOURCE_RELAY_ID_TOKEN_ENV = 'JOBS_SOURCE_RELAY_ID_TOKEN';
 
 function positiveNumber(value, fallback) {
   const parsed = Number(value);
@@ -119,6 +123,51 @@ function relayErrorCode(text) {
   } catch {
     return '';
   }
+}
+
+/**
+ * Two independent credentials travel on every relay call. Cloud Run checks the
+ * Google ID token in X-Serverless-Authorization (IAM `run.invoker`, first gate)
+ * and, when that header is present, forwards the Authorization header untouched
+ * to the handler, which verifies the GitHub OIDC token (second factor).
+ */
+function relayRequestHeaders(githubToken, env) {
+  const headers = {
+    Authorization: `Bearer ${githubToken}`,
+    Accept: 'text/html, application/json',
+  };
+  const googleIdToken = envValue(env, SOURCE_RELAY_ID_TOKEN_ENV);
+  if (googleIdToken) headers['X-Serverless-Authorization'] = `Bearer ${googleIdToken}`;
+  return headers;
+}
+
+/**
+ * Fail closed before crawling when the workflow declared the relay mandatory
+ * for this member but did not deliver every credential it needs: a failed
+ * google-github-actions/auth step must surface as a red member, not as a crawl
+ * that silently loses its only working path to the source.
+ */
+export function assertSourceRelayReady(env = process.env) {
+  if (envValue(env, SOURCE_RELAY_REQUIRED_ENV) !== '1') return false;
+  const missing = [];
+  const relayUrl = envValue(env, 'JOBS_SOURCE_RELAY_URL');
+  if (!relayUrl) missing.push('JOBS_SOURCE_RELAY_URL');
+  else {
+    let protocol = '';
+    try { protocol = new URL(relayUrl).protocol; } catch { /* reported below */ }
+    if (protocol !== 'https:') missing.push('JOBS_SOURCE_RELAY_URL (https)');
+  }
+  if (!envValue(env, SOURCE_RELAY_ID_TOKEN_ENV)) missing.push(SOURCE_RELAY_ID_TOKEN_ENV);
+  if (!envValue(env, 'ACTIONS_ID_TOKEN_REQUEST_URL') || !envValue(env, 'ACTIONS_ID_TOKEN_REQUEST_TOKEN')) {
+    missing.push('ACTIONS_ID_TOKEN_REQUEST_URL/ACTIONS_ID_TOKEN_REQUEST_TOKEN (permissions: id-token: write)');
+  }
+  if (missing.length === 0) return true;
+  const error = new Error(
+    `source_relay_auth_unavailable: ${SOURCE_RELAY_REQUIRED_ENV}=1 but missing ${missing.join(', ')}; `
+      + 'the google-github-actions/auth step of this crawler group did not deliver the relay credentials',
+  );
+  error.code = 'source_relay_auth_unavailable';
+  throw error;
 }
 
 async function readRelayBody(response, deadline) {
@@ -233,10 +282,7 @@ export async function fetchSourceViaRelay(
     let response = await fetchWithinRelayDeadline(fetchImpl, endpoint, {
       method: 'GET',
       redirect: 'error',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: 'text/html, application/json',
-      },
+      headers: relayRequestHeaders(token, env),
     }, deadline);
     let text = await readRelayBody(response, deadline);
 
@@ -248,10 +294,7 @@ export async function fetchSourceViaRelay(
       response = await fetchWithinRelayDeadline(fetchImpl, endpoint, {
         method: 'GET',
         redirect: 'error',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          Accept: 'text/html, application/json',
-        },
+        headers: relayRequestHeaders(token, env),
       }, deadline);
       text = await readRelayBody(response, deadline);
     }
@@ -266,4 +309,4 @@ export async function fetchSourceViaRelay(
   }
 }
 
-export { requestGithubOidcToken };
+export { requestGithubOidcToken, relayRequestHeaders };
