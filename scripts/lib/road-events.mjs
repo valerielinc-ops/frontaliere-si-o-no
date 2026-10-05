@@ -424,38 +424,46 @@ function lookupPhrase(phrase, byName) {
 
 /**
  * Canton (BFS code) of a DATEX situation from its texts, or null.
- * Order: postal code in an address → typed place names (interchange,
- * locality, tunnel, …) → any known name in the head. Each stage reads ALL the
- * texts, and all resolved places must agree: two different cantons (a stretch
- * across a cantonal border, or two texts that disagree) → null.
+ * Signals: postal codes in an address, typed place names (interchange,
+ * locality, tunnel, …) and — only when no typed place resolves — any known
+ * name in the head. All of them are accumulated over ALL the texts and must
+ * agree: two different cantons (a stretch across a cantonal border, a CAP and
+ * a descriptor that disagree, two texts that disagree) → null.
  */
 export function resolveCantonFromTexts(texts, gazetteer) {
   const found = new Set();
-  for (const raw of texts) {
-    const text = decodeEntities(String(raw ?? ''));
+  const decoded = texts.map((raw) => decodeEntities(String(raw ?? '')));
+  // 1. Postal codes of an address.
+  for (const text of decoded) {
     for (const m of text.matchAll(CAP_RE)) {
       const canton = gazetteer.byCap.get(m[1]);
       if (canton) found.add(canton);
     }
   }
-  if (found.size === 0) {
-    for (const raw of texts) {
-      const head = decodeEntities(String(raw ?? '')).replace(PREFIX_RE, '').split(STATUS_SPLIT_RE)[0];
-      for (const m of head.matchAll(TYPED_PLACE_RE)) {
-        const canton = lookupPhrase(m[1], gazetteer.byName);
-        if (canton) found.add(canton);
+  // 2. Typed places (interchange, locality, tunnel, …) — always, on top of 1.
+  let typed = 0;
+  for (const text of decoded) {
+    const head = text.replace(PREFIX_RE, '').split(STATUS_SPLIT_RE)[0];
+    for (const m of head.matchAll(TYPED_PLACE_RE)) {
+      const canton = lookupPhrase(m[1], gazetteer.byName);
+      if (canton) {
+        found.add(canton);
+        typed += 1;
       }
     }
   }
-  if (found.size === 0) {
-    for (const raw of texts) {
-      const canton = lookupPhrase(decodeEntities(String(raw ?? '')).split(STATUS_SPLIT_RE)[0], gazetteer.byName);
+  // 3. Any known name in the head, only when no typed place resolved: with a
+  //    typed place present the remaining names are the route's END POINTS
+  //    ("A2 Basel -> Luzern"), not the location. Still added on top of 1.
+  if (typed === 0) {
+    for (const text of decoded) {
+      const canton = lookupPhrase(text.split(STATUS_SPLIT_RE)[0], gazetteer.byName);
       if (canton) found.add(canton);
     }
   }
   // Every text of the situation is consulted (de/fr/it comments, point
-  // descriptors): two of them naming different cantons is a disagreement,
-  // and a disagreement is dropped, never settled by whichever came first.
+  // descriptors) at every stage: two of them naming different cantons is a
+  // disagreement, and a disagreement is dropped, never settled by order.
   return found.size === 1 ? [...found][0] : null;
 }
 

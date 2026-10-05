@@ -131,6 +131,9 @@ describe('road events — canton gazetteer', () => {
     expect(resolveCantonFromTexts(['Svincolo autostradale Foo', 'Svincolo autostradale Bar'], g)).toBeNull();
     expect(resolveCantonFromTexts(['Foo', 'Bar'], g)).toBeNull();
     expect(resolveCantonFromTexts(['Svincolo autostradale Foo', 'Anschluss Foo'], g)).toBe('GE');
+    const withCap = { byCap: new Map([['1000', 'VD']]), byName: new Map([['Foo', 'GE']]) };
+    expect(resolveCantonFromTexts(['1000 Lausanne', 'Svincolo Foo'], withCap)).toBeNull();
+    expect(resolveCantonFromTexts(['1000 Lausanne', 'Svincolo autostradale Foo'], withCap)).toBeNull();
   });
 
   it('maps exonyms the DATEX texts use', () => {
