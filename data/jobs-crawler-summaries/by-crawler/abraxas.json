@@ -1,7 +1,7 @@
 {
   "key": "abraxas",
   "label": "Abraxas Informatik AG",
-  "generatedAt": "2026-10-04T21:22:20.452Z",
+  "generatedAt": "2026-10-05T06:26:08.907Z",
   "total": 16,
   "discovered": null,
   "parsed": 16,
@@ -14,10 +14,10 @@
   "updatedCount": 16,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10823,
-  "avgDurationMs": 10823,
+  "durationMs": 14203,
+  "avgDurationMs": 14203,
   "durationHistory": [
-    10823
+    14203
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/system-engineer-mit-projekterfahrung-80-100-8712",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:10.760Z",
+      "crawledAt": "2026-10-05T06:25:56.804Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -48,7 +48,9 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://apply.refline.ch/215876/2155/index.html?lang=de&cid=1",
       "externalId": "215876-2155",
       "pensumMin": 80,
@@ -58,12 +60,12 @@
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -78,7 +80,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-solution-architektin-80-100-mit-schwerpunkt-pre-sales-7856",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:10.328Z",
+      "crawledAt": "2026-10-05T06:25:56.314Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -93,7 +95,9 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://apply.refline.ch/215876/2066/index.html?lang=de&cid=1",
       "externalId": "215876-2066",
       "pensumMin": 80,
@@ -103,12 +107,12 @@
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -123,8 +127,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-data-migration-80-100-6005",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:09.889Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-05T06:25:55.824Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -138,7 +141,9 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://apply.refline.ch/215876/2505/index.html?lang=de&cid=1",
       "externalId": "215876-2505",
       "pensumMin": 80,
@@ -148,12 +153,12 @@
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -168,7 +173,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-im-steuerbereich-80-100-6610",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:09.458Z",
+      "crawledAt": "2026-10-05T06:25:55.333Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -183,7 +188,9 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://apply.refline.ch/215876/2336/index.html?lang=de&cid=1",
       "externalId": "215876-2336",
       "pensumMin": 80,
@@ -193,12 +200,12 @@
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -213,8 +220,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-ki-solutions-engineer-80-100-3109",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:09.029Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-05T06:25:54.827Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -228,7 +234,9 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-18",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://apply.refline.ch/215876/2522/index.html?lang=de&cid=1",
       "externalId": "215876-2522",
       "pensumMin": 80,
@@ -238,12 +246,12 @@
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -258,7 +266,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-projektleitung-im-bereich-steuerloesungen-80-100-6736",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:08.596Z",
+      "crawledAt": "2026-10-05T06:25:54.336Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -273,7 +281,9 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-02",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://apply.refline.ch/215876/2537/index.html?lang=de&cid=1",
       "externalId": "215876-2537",
       "pensumMin": 80,
@@ -283,12 +293,12 @@
       "salaryMin": 92000,
       "salaryMax": 156500,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -303,8 +313,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-openstack-engineer-80-100-6985",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:08.163Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-05T06:25:53.843Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -318,7 +327,9 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-18",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://apply.refline.ch/215876/2523/index.html?lang=de&cid=1",
       "externalId": "215876-2523",
       "pensumMin": 80,
@@ -328,12 +339,12 @@
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -348,7 +359,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-2438",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:07.728Z",
+      "crawledAt": "2026-10-05T06:25:53.347Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -363,7 +374,9 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-10",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://apply.refline.ch/215876/2539/index.html?lang=de&cid=1",
       "externalId": "215876-2539",
       "pensumMin": 80,
@@ -373,12 +386,12 @@
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -393,7 +406,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-services-engineer-windows-server-100-4522",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:07.291Z",
+      "crawledAt": "2026-10-05T06:25:52.856Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -408,7 +421,9 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://apply.refline.ch/215876/2548/index.html?lang=de&cid=1",
       "externalId": "215876-2548",
       "pensumMin": 100,
@@ -418,12 +433,12 @@
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -438,7 +453,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-operations-engineer-engineer-staedte-amp-gemeinden-80-100-8816",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:06.859Z",
+      "crawledAt": "2026-10-05T06:25:52.360Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -453,7 +468,9 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://apply.refline.ch/215876/2547/index.html?lang=de&cid=1",
       "externalId": "215876-2547",
       "pensumMin": 80,
@@ -463,12 +480,12 @@
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -483,7 +500,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-6332",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:06.424Z",
+      "crawledAt": "2026-10-05T06:25:51.870Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -498,7 +515,9 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-09",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://apply.refline.ch/215876/2516/index.html?lang=de&cid=1",
       "externalId": "215876-2516",
       "pensumMin": 100,
@@ -508,12 +527,12 @@
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -528,8 +547,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-9599",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:05.987Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-05T06:25:51.384Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -543,7 +561,9 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-13",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://apply.refline.ch/215876/2412/index.html?lang=de&cid=1",
       "externalId": "215876-2412",
       "pensumMin": 80,
@@ -553,12 +573,12 @@
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -573,7 +593,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/dwh-softwareengineer-80-100-9720",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:05.554Z",
+      "crawledAt": "2026-10-05T06:25:50.885Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -588,7 +608,9 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://apply.refline.ch/215876/2538/index.html?lang=de&cid=1",
       "externalId": "215876-2538",
       "pensumMin": 80,
@@ -598,12 +620,12 @@
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -618,7 +640,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/business-analyst-80-100-4539",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:05.117Z",
+      "crawledAt": "2026-10-05T06:25:50.394Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -633,7 +655,9 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-30",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://apply.refline.ch/215876/2549/index.html?lang=de&cid=1",
       "externalId": "215876-2549",
       "pensumMin": 80,
@@ -643,12 +667,12 @@
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -663,8 +687,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-7621",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:04.674Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-05T06:25:49.754Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -678,7 +701,9 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://apply.refline.ch/215876/2470/index.html?lang=de&cid=1",
       "externalId": "215876-2470",
       "pensumMin": 80,
@@ -688,12 +713,12 @@
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     },
     {
@@ -708,7 +733,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-amp-abareport-80-100-4304",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:22:04.145Z",
+      "crawledAt": "2026-10-05T06:25:49.102Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -723,7 +748,9 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://apply.refline.ch/215876/2383/index.html?lang=de&cid=1",
       "externalId": "215876-2383",
       "pensumMin": 80,
@@ -733,16 +760,16 @@
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 23
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
 }

@@ -1,7 +1,7 @@
 {
   "key": "kuhn-rikon",
   "label": "Kuhn Rikon",
-  "generatedAt": "2026-10-04T21:25:19.827Z",
+  "generatedAt": "2026-10-05T06:24:39.355Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -11,16 +11,18 @@
   "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3857,
-  "avgDurationMs": 3857,
+  "unchangedCount": 2,
+  "durationMs": 3922,
+  "avgDurationMs": 3922,
   "durationHistory": [
-    3857
+    3922
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "kuhn-rikon-4edc9ba1b5a5",
       "slug": "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
@@ -34,7 +36,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:25:11.711Z",
+      "crawledAt": "2026-10-05T06:24:30.881Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -48,7 +50,9 @@
       "sector": "Retail / Produzione casalinghi",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-04-27",
       "postedDate": "2026-04-27",
+      "postingDateSource": "reported",
       "applyUrl": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "externalId": "7ae949ca06781987fbd101ae9e246d6a",
       "hiringOrganizationName": "Kuhn Rikon",
@@ -78,7 +82,7 @@
       "url": "https://my.jobalino.ch/job/093cd182d6b09fd293edc53c732daa2d/lehrstelle-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-haushalt",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:25:11.305Z",
+      "crawledAt": "2026-10-05T06:24:30.420Z",
       "addressLocality": "Rikon im Tösstal",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -92,7 +96,9 @@
       "sector": "Retail / Produzione casalinghi",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-21",
       "postedDate": "2026-09-21",
+      "postingDateSource": "reported",
       "applyUrl": "https://my.jobalino.ch/job/093cd182d6b09fd293edc53c732daa2d/lehrstelle-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-haushalt",
       "externalId": "093cd182d6b09fd293edc53c732daa2d",
       "hiringOrganizationName": "Kuhn Rikon",
@@ -109,7 +115,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
 }

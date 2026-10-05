@@ -1,7 +1,7 @@
 {
   "key": "sophia-genetics",
   "label": "SOPHiA GENETICS",
-  "generatedAt": "2026-10-04T21:24:57.202Z",
+  "generatedAt": "2026-10-05T06:25:47.695Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -11,16 +11,18 @@
   "written": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 7,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4537,
-  "avgDurationMs": 4537,
+  "unchangedCount": 7,
+  "durationMs": 7041,
+  "avgDurationMs": 7041,
   "durationHistory": [
-    4537
+    7041
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "sophia-genetics-69b5583b6d1c",
       "slug": "senior-program-leader-ivd-cdx-sophia-genetics-rolle",
@@ -33,7 +35,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/2BC999723E/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:24:48.365Z",
+      "crawledAt": "2026-10-05T06:25:37.835Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -52,8 +54,8 @@
       "postingDateSource": "reported",
       "applyUrl": "https://apply.workable.com/sophia-genetics/j/2BC999723E/",
       "jobReqId": "2BC999723E",
-      "firstSeenAt": "2026-09-03T23:15:21.698Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T23:15:21.698Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -77,7 +79,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/8FED2C584F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:24:48.294Z",
+      "crawledAt": "2026-10-05T06:25:37.707Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -97,7 +99,6 @@
       "applyUrl": "https://apply.workable.com/sophia-genetics/j/8FED2C584F/",
       "jobReqId": "8FED2C584F",
       "firstSeenAt": "2026-08-12T10:21:43.616Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -121,7 +122,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/AC77213E76/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:24:48.139Z",
+      "crawledAt": "2026-10-05T06:25:37.425Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -164,7 +165,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/F52E4089C5/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:24:48.072Z",
+      "crawledAt": "2026-10-05T06:25:37.294Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -207,7 +208,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/29E6DA069F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:24:47.950Z",
+      "crawledAt": "2026-10-05T06:25:37.021Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -250,7 +251,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/FE69530EC2/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:24:47.755Z",
+      "crawledAt": "2026-10-05T06:25:36.607Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -294,7 +295,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/0514367146/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:24:47.204Z",
+      "crawledAt": "2026-10-05T06:25:35.355Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -326,7 +327,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
 }
