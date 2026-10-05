@@ -932,6 +932,100 @@ describe('checkFabricatedNormAcronyms', () => {
     expect(codes(res.blocking)).toContain('fabricated-norm-acronym');
   });
 
+  // `LTF` ha un omonimo VERO (Legge sul Tribunale federale, RS 173.110). Le
+  // frasi sotto sono le forme reali del corpus, anonimizzate: leggi fiscali,
+  // sui frontalieri, sul lavoro e sul tirocinio che non esistono, arrivate
+  // anche nelle traduzioni en/de/fr.
+  it('flags LTF cited as a tax, cross-border or labour law, in every locale', () => {
+    const frasiInventate = [
+      'Potrai beneficiare della franchigia di 10\'000 CHF, come stabilito dalla legge federale del 1982 sulla tassazione dei redditi dei frontalieri (LTF).',
+      'La legge federale sul lavoro transfrontaliero (LTF) stabilisce che i frontalieri devono avere un contratto di lavoro scritto e firmato.',
+      'La legge sul tirocinio del 15 giugno 2011 (LTF) stabilisce che il contratto di tirocinio debba essere firmato entro tre giorni (art. 1, § 2 LTF).',
+      'La legge ticinese sulla tassazione dei redditi da lavoro (LTF-TI) consente una franchigia di 10.000 euro.',
+      'La normativa che regola i lavoratori frontalieri in Ticino è la legge federale sul lavoro (LTF) del 3 ottobre 1947.',
+      'You will have to declare your income in both countries, as required by the 1992 Federal Act on the Taxation of Cross-Border Workers\' Income (LTF).',
+      'Nach dem Bundesgesetz von 1982 über die Besteuerung der Einkommen der Grenzgänger (LTF) gilt ein Freibetrag.',
+      'La Loi fédérale du travail (LTF) du 13 mars 1946 consacre les droits des travailleurs en Suisse.',
+    ];
+    for (const frase of frasiInventate) {
+      expect(codes(checkFabricatedNormAcronyms(frase)), frase).toContain('fabricated-norm-acronym');
+    }
+  });
+
+  it('leaves the real LTF (Federal Supreme Court Act) alone, even in a tax judgment', () => {
+    const frasiVere = [
+      'In materia di assistenza amministrativa fiscale, non ricorre una questione di diritto di importanza fondamentale ai sensi dell\'art. 84a LTF quando il contribuente contesta soltanto lo scambio di informazioni.',
+      'Im Bereich der steuerlichen Amtshilfe ist eine Rechtsfrage von grundlegender Bedeutung im Sinne von Art. 84a LTF nicht gegeben.',
+      'Il ricorso contro la decisione fiscale dell\'AFC è disciplinato dagli art. 82 segg. LTF.',
+      'La Legge sul Tribunale federale (LTF) disciplina anche i ricorsi in materia fiscale.',
+      'Il contribuente frontaliere può impugnare la tassazione davanti al Tribunale federale secondo la LTF.',
+    ];
+    for (const frase of frasiVere) {
+      expect(checkFabricatedNormAcronyms(frase), frase).toEqual([]);
+    }
+  });
+
+  // Il `veto` del Tribunale federale assolve solo la SUA finestra: una legge
+  // fiscale inventata piu' in basso nello stesso testo resta rilevata.
+  it('still flags a fabricated LTF that follows a judicial mention outside its window', () => {
+    const issues = checkFabricatedNormAcronyms(
+      'Il Tribunale federale ha dichiarato inammissibile il ricorso ai sensi dell\'art. 84a LTF. '
+      + 'La decisione riguardava lo scambio di informazioni con l\'Italia e non cambia nulla per chi lavora '
+      + 'in Svizzera e vive oltre confine. Un altro paragrafo sostiene invece che la legge federale '
+      + 'sulla tassazione dei redditi dei frontalieri (LTF) preveda una franchigia.',
+    );
+    expect(codes(issues)).toContain('fabricated-norm-acronym');
+  });
+
+  it('does not let a judicial sentence veto a later fabricated LTF', () => {
+    const issues = checkFabricatedNormAcronyms(
+      'Il Tribunale federale ha deciso il ricorso. '
+      + 'La legge federale sul lavoro transfrontaliero (LTF) stabilisce i requisiti.',
+    );
+    expect(issues).toHaveLength(1);
+    expect(issues[0].code).toBe('fabricated-norm-acronym');
+  });
+
+  it('flags the invented LMA, LRF and OT citations and leaves their homonyms alone', () => {
+    const frasiInventate = [
+      'Secondo la legge federale sulla migrazione (LMA), il permesso di dimora B può essere concesso dopo due anni.',
+      'La legge federale sulla migrazione e sull\'asilo (LMA) stabilisce un reddito minimo di 3\'000 CHF al mese.',
+      'Normative: Legge federale sul reddito (LRF) del 8 ottobre 1952.',
+      'Secondo la legge federale sulla tassazione dei redditi (LRF) del 22 marzo 1925, i redditi sono tassati in base al loro ammontare.',
+      'Ordinanza sulla tassazione del reddito (OT): 1993.',
+    ];
+    for (const frase of frasiInventate) {
+      expect(codes(checkFabricatedNormAcronyms(frase)), frase).toContain('fabricated-norm-acronym');
+    }
+    const omonimi = [
+      'La crescente convergenza tra IT e OT (Operational Technology) rende vulnerabili gli impianti industriali.',
+      'Identificare i punti deboli nei sistemi IT e OT prima di un audit.',
+      'La legge federale sugli stranieri e la loro integrazione (LStrI) regola il permesso di dimora B.',
+    ];
+    for (const frase of omonimi) {
+      expect(checkFabricatedNormAcronyms(frase), frase).toEqual([]);
+    }
+  });
+
+  it('does not combine allOf cues across separate sentences', () => {
+    expect(checkFabricatedNormAcronyms(
+      'IT e OT sono usati nella sicurezza. La nuova ordinanza sulla tassazione è stata pubblicata.',
+    )).toEqual([]);
+    expect(checkFabricatedNormAcronyms(
+      'La nuova ordinanza sulla tassazione è stata pubblicata. La legge cantonale sul turismo (LRF) è contestata.',
+    )).toEqual([]);
+  });
+
+  it('matches the new normative acronym guards case-insensitively', () => {
+    const frasi = [
+      'La legge federale sul lavoro transfrontaliero (ltf)',
+      'La legge federale sulla migrazione (lma)',
+      'La legge federale sul reddito (lrf)',
+      'Ordinanza sulla tassazione del reddito (ot)',
+    ];
+    expect(frasi.map((frase) => checkFabricatedNormAcronyms(frase).length)).toEqual([1, 1, 1, 1]);
+  });
+
   // Le regex della tabella sono module-level e condivise fra le chiamate: con
   // il flag `g` porterebbero `lastIndex` da una chiamata all'altra e il gate
   // salterebbe un articolo si' e uno no. Difetto invisibile a un test a
