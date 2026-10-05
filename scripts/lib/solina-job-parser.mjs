@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Stiftung Solina job parser — custom TYPO3 careers portal.
  *
@@ -233,7 +235,6 @@ export async function fetchAllSolinaJobs() {
   console.log(`  📋 Total unique job URLs: ${urls.length}`);
   if (!urls.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
 
   for (const url of urls) {
@@ -295,7 +296,7 @@ export async function fetchAllSolinaJobs() {
         sector: 'Sanità / Ospedali',
         currency: 'CHF',
         featured: false,
-        postedDate: todayIso,
+        ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted),
         applyUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

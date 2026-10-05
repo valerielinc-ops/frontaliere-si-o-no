@@ -46,6 +46,8 @@
  * HQ (used only as a last-resort fallback, city-gated — never leaked onto
  * a job in a different canton): Römerstrasse 38, 8401 Winterthur, ZH.
  */
+import { extractJsonLd as extractPostingRecords } from './prospector/extract.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -215,9 +217,6 @@ async function collectAllJobUrls() {
       html = await fetchHtml(listUrl, { headers: { Accept: 'text/html,application/xhtml+xml' } });
     } catch (err) {
       console.warn(`  ⚠️  Listing fetch failed at offset=${offset}: ${err?.message || err}`);
-      // A fetch failure is not the end of the listing: let the crawler pipeline
-      // classify it (connection-level soft exit or HTTP error) instead of
-      // publishing a partial or cause-less empty result.
       throw err;
     }
 
@@ -293,12 +292,13 @@ export async function fetchAllSwicaJobs() {
     const jobSlug = slugify(`${title} swica ${city}`);
     const urlHash = createHash('sha1').update(jobUrl).digest('hex').slice(0, 12);
 
-    const postedDate = (() => {
-      const parsed = new Date(String(jsonLd.datePosted || ''));
-      return Number.isNaN(parsed.getTime())
-        ? new Date().toISOString().slice(0, 10)
-        : parsed.toISOString().slice(0, 10);
-    })();
+    const records = extractPostingRecords(html, jobUrl);
+    const explicitPublicationUrl = jsonLd.url || jsonLd.sameAs;
+    let matchingPublication = !explicitPublicationUrl && records.length === 1;
+    if (explicitPublicationUrl) {
+      try { matchingPublication = new URL(explicitPublicationUrl, jobUrl).href === new URL(jobUrl).href; } catch { matchingPublication = false; }
+    }
+    const publication = sourcePostingDateFields(matchingPublication ? jsonLd.datePosted : '');
 
     const job = {
       id: `${SWICA_KEY}-${urlHash}`,
@@ -332,7 +332,7 @@ export async function fetchAllSwicaJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
