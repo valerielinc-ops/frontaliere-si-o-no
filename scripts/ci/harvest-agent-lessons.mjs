@@ -224,9 +224,22 @@ const ADSENSE_BOT_GATE_RE = new RegExp(
 // authentication or capability evidence.
 const WORKFLOW_SCOPE_CREDS_RE = /workflows? scope|github_pat|github[_ .-]?token|gh[_ .-]?token|\bpat\b|app[_ .-]?token|persist-credentials|branch protection|token\s+(?:scope|permission|capabilit)|(?:\b(?:github|workflow|actions\/checkout|checkout|branch protection|app installation)\b[\s\S]{0,100}\b(?:credential|credentials|secret|token)\b|\b(?:credential|credentials|secret|token)\b[\s\S]{0,100}\b(?:github|workflow|actions\/checkout|checkout|branch protection|app installation)\b)/i;
 
-// A canonical (canonicalPath, canonical URL) and its missing trailing slash in
-// the same finding line, in either order and in either review language.
+// Candidate: a canonical (canonicalPath, canonical URL) and a trailing slash in
+// the same finding line, in either order and in either review language. The
+// semantic guard below also requires an explicit missing-slash signal.
 const CANONICAL_TRAILING_SLASH_RE = /\bcanonical\w*\b[^\n]{0,200}?(?:\btrailing[- ]slash|\bslash finale|\bbarra finale)|(?:\btrailing[- ]slash|\bslash finale|\bbarra finale)[^\n]{0,200}?\bcanonical\w*\b/i;
+const CANONICAL_MISSING_SLASH_RE = /\b(?:without|missing|omit\w*|remove\w*|lack\w*|absent|fail\w*\s+to|(?:do|does|did)\s+not|(?:does|did)n['’]?t|senza|manc\w*|omett\w*|rimuov\w*|assent\w*)\b/i;
+const CANONICAL_NO_TRAILING_SLASH_RE = /\bno\b[^\n]{0,32}\b(?:trailing[- ]slash|slash finale|barra finale)\b/i;
+
+function isMissingCanonicalTrailingSlash(text) {
+  const s = String(text || '');
+  if (!CANONICAL_TRAILING_SLASH_RE.test(s)) return false;
+  return [...s.matchAll(/\b(?:trailing[- ]slash|slash finale|barra finale)\b/gi)].some((match) => {
+    const context = sentenceAround(s, match.index, match.index + match[0].length);
+    return /\bcanonical\w*\b/i.test(context) &&
+      (CANONICAL_MISSING_SLASH_RE.test(context) || CANONICAL_NO_TRAILING_SLASH_RE.test(context));
+  });
+}
 
 // `structured-data` is a lexicon, and the same words name two classes with two
 // different structural fixes (issue 9108, reopened 2026-10-04 with 11 findings
@@ -672,8 +685,15 @@ export function bucketFinding(text) {
   // discriminante e' la frase completa (affermazioni, location label, falsi
   // positivi dichiarati), non il solo vocabolario del topic.
   const scannable = stripNegatedImpactClauses(text);
+  // Reviews sometimes name sitemap concepts only inside camelCase identifiers
+  // (for example `discoverGeSitemapListDocuments` and `sitemapError`). Split
+  // those boundaries for this topic so genuine sitemap failures still reach
+  // its explicit-defect guard.
+  const canonicalSitemapScannable = scannable.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
   for (const t of TAXONOMY) {
-    if (!t.re.test(scannable)) continue;
+    const candidate = t.key === 'canonical-sitemap' ? canonicalSitemapScannable : scannable;
+    if (!t.re.test(candidate)) continue;
+    if (t.key === 'canonical-trailing-slash' && !isMissingCanonicalTrailingSlash(scannable)) continue;
     if (t.key === 'structured-data-parser' && !isCrawlerParserFinding(text)) continue;
     // A review line starts with one or more file locations before its severity
     // marker. Do not let a path such as `unsubscribe-credential-monitor.yml`
@@ -699,7 +719,7 @@ export function bucketFinding(text) {
     // canonicalizers, canonical replacements, route URLs). Keep those lines in
     // the fingerprint safety-net instead of inflating the canonical-sitemap
     // topic with unrelated reviewer findings.
-    if (t.key === 'canonical-sitemap' && !isGenuineCanonicalSitemapFinding(scannable)) continue;
+    if (t.key === 'canonical-sitemap' && !isGenuineCanonicalSitemapFinding(candidate)) continue;
     return t.key;
   }
   // La rete fingerprint riceve il testo INTERO, non quello strippato. Lo strip e'

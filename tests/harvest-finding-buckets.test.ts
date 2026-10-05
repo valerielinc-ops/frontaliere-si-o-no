@@ -501,8 +501,8 @@ describe('bucketFinding — structured-data separa emettitori del sito e parser 
   });
 });
 
-// Verbatim (troncate dopo i token che decidono il bucket) dalle review degli 11
-// esempi dopo il cutoff della riapertura di 10112 del 2026-10-04. Due PR su
+// Verbatim (troncate dopo i token che decidono il bucket) dalle review di 11 PR
+// dopo il cutoff della riapertura di 10112 del 2026-10-04. Due PR su
 // undici violano UNA regola, lo slash finale del canonicalPath che il generatore
 // di articoli del corpus scrive nelle voci SEO; le altre nove condividono solo il
 // lessico (sitemap, noindex, canonical) e restano nel bucket di argomento.
@@ -541,17 +541,30 @@ describe('bucketFinding — canonical-sitemap separa la regola dello slash final
   it('la regola non scatta su uno slash finale senza canonical, né su un canonical senza slash', () => {
     expect(bucketFinding('🔴 Important: il link della newsletter omette lo slash finale e finisce su un 301.')).not.toBe('canonical-trailing-slash');
     expect(bucketFinding('🔴 Important: il canonical della pagina punta alla variante sbagliata (canonical mismatch).')).toBe('canonical-sitemap');
+    expect(bucketFinding('🔴 Important: `canonicalPath` includes the required trailing slash and matches the route URL.')).not.toBe('canonical-trailing-slash');
+    expect(bucketFinding('🔴 Important: `canonicalPath` is stable. The newsletter link omits the trailing slash.')).not.toBe('canonical-trailing-slash');
   });
 
-  it('la tally conta le due classi separate, senza perdere un finding', () => {
+  it('la tally separa le classi e conta una sola occorrenza per PR', () => {
     const all = [...CANONICAL_TRAILING_SLASH_FINDINGS, ...CANONICAL_SITEMAP_TOPIC_FINDINGS];
-    const prs = all.map(([number, line], i) => ({
-      number: Number(number.slice(1)) * 100 + i,
-      mergedAt: '2026-10-04T00:00:00Z',
-      reviews: [{ author: { login: 'claude' }, body: `## Findings\n${line}\n` }],
+    const byPr = new Map<number, { number: number; mergedAt: string; body: string }>();
+    for (const [pr, line] of all) {
+      const number = Number(pr.slice(1));
+      const existing = byPr.get(number);
+      if (existing) existing.body += `\n${line}`;
+      else byPr.set(number, {
+        number,
+        mergedAt: '2026-10-04T00:00:00Z',
+        body: `## Findings\n${line}`,
+      });
+    }
+    const prs = [...byPr.values()].map(({ number, mergedAt, body }) => ({
+      number,
+      mergedAt,
+      reviews: [{ author: { login: 'claude' }, body }],
     }));
     const { counts } = tallyFindings(prs);
-    expect(counts['canonical-trailing-slash']).toBe(CANONICAL_TRAILING_SLASH_FINDINGS.length);
-    expect(counts['canonical-sitemap']).toBe(CANONICAL_SITEMAP_TOPIC_FINDINGS.length);
+    expect(counts['canonical-trailing-slash']).toBe(2);
+    expect(counts['canonical-sitemap']).toBe(9);
   });
 });
