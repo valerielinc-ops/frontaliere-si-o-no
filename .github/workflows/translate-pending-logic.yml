@@ -565,7 +565,10 @@ jobs:
       # Restored after the corpus review of the transport (PR 2232 there): the
       # scripts of Phases 2d/2e read slices, but their import closure includes
       # libraries that can read data/jobs.json, and "never at runtime" was not
-      # proven; the ~5 minutes are not worth a stale dataset.
+      # proven. Measured cost of this step: 300 s on corpus run 37272320066
+      # (2026-10-05, job 111641824967, step 34, 09:19:01-09:24:01 UTC; the
+      # other three assembles of that run took 313, 312 and 309 s). That is
+      # the baseline the removal would have saved, not worth a stale dataset.
       - name: Re-assemble dataset after Phase 2c mop-up
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
         env:
