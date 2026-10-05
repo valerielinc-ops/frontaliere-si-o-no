@@ -435,7 +435,10 @@ editoriale e SEO che resta aperta. Non è stato fatto qui.
 L'osservatore è `tests/profession-city-insights.test.ts`: due sorelle con dati
 diversi producono blocchi diversi, una pagina senza dati non produce il blocco,
 i link puntano solo a coppie sopra il floor, e su un corpus sintetico la coorte
-con il blocco sta sopra la soglia pinnata mentre senza resta sotto.
+con il blocco sta sopra la soglia pinnata (misurato 18,3-20,3 %, soglia 17,3 %)
+mentre senza resta sotto (12,5-13,3 %). Il corpus sintetico vale per la
+relazione con/senza blocco, non per l'assoluto: `data/jobs.json` lo assembla la
+CI.
 
 ## I calcolatori di stipendio: le leve, non le cifre (#7385)
 
