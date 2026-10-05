@@ -7730,6 +7730,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.startup-ticinesi-top100-2026.title': 'Tre aziende ticinesi nella Top100 Swiss Startup Award 2026',
     'blog.article.startup-ticinesi-top100-2026.excerpt': 'InkVivo, Jaipur Robotics e In Virtuo Laboratories rappresentano il Ticino nella classifica delle cento startup svizzere più promettenti del 2026.',
     'blog.article.startup-ticinesi-top100-2026.imageAlt': 'Tre startup ticinesi tra le cento più promettenti al Top100 Swiss Startup Award 2026',
+    'blog.article.autisti-uber-svizzera-condizioni.title': 'Settanta franchi per nove ore di lavoro: la protesta',
+    'blog.article.autisti-uber-svizzera-condizioni.excerpt': 'I conducenti di Uber in Svizzera denunciano condizioni peggiorate e chiedono maggiori diritti e tutele. Tra tariffe basse e l\'arrivo di Bolt.',
+    'blog.article.autisti-uber-svizzera-condizioni.imageAlt': 'Autisti di Uber in Svizzera chiedono condizioni di lavoro migliori',
 };
 
 export default blogMetaChIt;
