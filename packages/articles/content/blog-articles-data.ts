@@ -56,7 +56,7 @@ export interface Article {
  authorName?: string;
 }
 
-const RAW_ARTICLES: Article[] = [
+const RAW_ARTICLES_CHUNK_01: Article[] = [
  {
  id: 'stipendio-netto-2026',
  category: 'fiscale',
@@ -2348,6 +2348,9 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+];
+
+const RAW_ARTICLES_CHUNK_02: Article[] = [
   {
  id: 'benzina-ticino-oriente',
  category: 'novita',
@@ -3518,8 +3521,7 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
-
- // Evergreen SEO articles — March 2026
+// Evergreen SEO articles — March 2026
  {
  id: 'guida-cambio-franco-euro-frontaliere',
  category: 'pratico',
@@ -4602,6 +4604,9 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+];
+
+const RAW_ARTICLES_CHUNK_03: Article[] = [
   {
  id: 'gestione-scontri-frontali-ticino',
  category: 'novita',
@@ -6853,6 +6858,9 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+];
+
+const RAW_ARTICLES_CHUNK_04: Article[] = [
   {
  id: 'svizzera-canada-mercati-alternativi-trump',
  category: 'novita',
@@ -9107,6 +9115,9 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+];
+
+const RAW_ARTICLES_CHUNK_05: Article[] = [
   {
  id: 'verdi-ticino-cantonali-2026',
  category: 'novita',
@@ -11357,6 +11368,9 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+];
+
+const RAW_ARTICLES_CHUNK_06: Article[] = [
   {
  id: 'petrolio-gas-svizzera-approvvigionamento-sicuro',
  category: 'novita',
@@ -13607,6 +13621,9 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+];
+
+const RAW_ARTICLES_CHUNK_07: Article[] = [
   {
  id: 'ponte-brivio-cantiere-14-milioni',
  category: 'novita',
@@ -15857,6 +15874,9 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+];
+
+const RAW_ARTICLES_CHUNK_08: Article[] = [
  {
  id: 'parcheggio-abusivo-como-villa-olmo',
  category: 'novita',
@@ -18107,6 +18127,9 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+];
+
+const RAW_ARTICLES_CHUNK_09: Article[] = [
  {
  id: 'thun-vince-calcio-programmazione',
  category: 'novita',
@@ -20357,6 +20380,9 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+];
+
+const RAW_ARTICLES_CHUNK_10: Article[] = [
  {
  id: 'registro-imprese-varese-30-anni',
  category: 'pratico',
@@ -22607,6 +22633,9 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+];
+
+const RAW_ARTICLES_CHUNK_11: Article[] = [
  {
  id: 'tassa-salute-frontalieri-ticino-2026',
  category: 'fiscale',
@@ -24860,6 +24889,9 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+];
+
+const RAW_ARTICLES_CHUNK_12: Article[] = [
  {
  id: 'sicurezza-gallarate-fedi-cons',
  category: 'pratico',
@@ -27129,6 +27161,9 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+];
+
+const RAW_ARTICLES_CHUNK_13: Article[] = [
  {
  id: 'trasferirsi-a-valsolda-da-frontaliere-pro-e-contro',
  category: 'pratico',
@@ -29431,6 +29466,9 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+];
+
+const RAW_ARTICLES_CHUNK_14: Article[] = [
  {
  id: 'quadro-rw-conto-corrente-svizzero',
  category: 'fiscale',
@@ -31744,6 +31782,9 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+];
+
+const RAW_ARTICLES_CHUNK_15: Article[] = [
  {
  id: 'carate-urio-frontaliere-ticino',
  category: 'fiscale',
@@ -34083,6 +34124,9 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+];
+
+const RAW_ARTICLES_CHUNK_16: Article[] = [
  {
  id: 'costo-vita-lugano-milano-scelta',
  category: 'pratico',
@@ -36367,6 +36411,9 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+];
+
+const RAW_ARTICLES_CHUNK_17: Article[] = [
  {
  id: 'trenta-viaggiatori-gallarate-malpensa',
  category: 'pratico',
@@ -37818,9 +37865,6 @@ const RAW_ARTICLES: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
-];
-
-const RAW_ARTICLES_CHUNK_18: Article[] = [
  {
  id: 'osservatorio-varese-spettacolo-galileo',
  category: 'novita',
@@ -37831,9 +37875,6 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
-];
-
-const RAW_ARTICLES_CHUNK_19: Article[] = [
  {
  id: 'valuta-intercettata-brogeda',
  category: 'novita',
@@ -37844,9 +37885,6 @@ const RAW_ARTICLES_CHUNK_19: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
-];
-
-const RAW_ARTICLES_CHUNK_20: Article[] = [
  {
  id: 'unione-confronto-pilastro-ch-it',
  category: 'pensione',
@@ -37857,9 +37895,6 @@ const RAW_ARTICLES_CHUNK_20: Article[] = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
-];
-
-const RAW_ARTICLES_CHUNK_21: Article[] = [
  {
  id: 'avs-13a-rendita-iva-aumento',
  category: 'pensione',
@@ -37870,9 +37905,6 @@ const RAW_ARTICLES_CHUNK_21: Article[] = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
-];
-
-const RAW_ARTICLES_CHUNK_22: Article[] = [
  {
  id: 'bollettino-frontaliere-2026-10-05',
  category: 'novita',
@@ -37883,9 +37915,6 @@ const RAW_ARTICLES_CHUNK_22: Article[] = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
-];
-
-const RAW_ARTICLES_CHUNK_23: Article[] = [
  {
  id: 'pedemontana-avviso-truffa',
  category: 'pratico',
@@ -37897,6 +37926,7 @@ const RAW_ARTICLES_CHUNK_23: Article[] = [
  authorName: 'Redazione Frontaliere Ticino',
  },
 ];
+
 const RAW_ARTICLES: Article[] = [
  ...RAW_ARTICLES_CHUNK_01,
  ...RAW_ARTICLES_CHUNK_02,
@@ -37915,12 +37945,6 @@ const RAW_ARTICLES: Article[] = [
  ...RAW_ARTICLES_CHUNK_15,
  ...RAW_ARTICLES_CHUNK_16,
  ...RAW_ARTICLES_CHUNK_17,
- ...RAW_ARTICLES_CHUNK_18,
- ...RAW_ARTICLES_CHUNK_19,
- ...RAW_ARTICLES_CHUNK_20,
- ...RAW_ARTICLES_CHUNK_21,
- ...RAW_ARTICLES_CHUNK_22,
- ...RAW_ARTICLES_CHUNK_23,
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

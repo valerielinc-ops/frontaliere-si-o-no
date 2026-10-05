@@ -7760,6 +7760,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lugano-trasparenza-partecipate.title': 'Lugano: l\'UDC propone più trasparenza sui compensi',
     'blog.article.lugano-trasparenza-partecipate.excerpt': 'Una mozione dell\'UDC chiede la pubblicazione annuale delle retribuzioni di CEO e Cda delle società partecipate dalla Città di Lugano.',
     'blog.article.lugano-trasparenza-partecipate.imageAlt': 'Il centro culturale LAC di Lugano affacciato sul lago.',
+    'blog.article.tamedia-taglio-posti-lavoro.title': 'Tamedia taglia 34 posti: riorganizzazione in vista',
+    'blog.article.tamedia-taglio-posti-lavoro.excerpt': 'L\'azienda editoriale annuncia la soppressione di 34 posti a tempo pieno coinvolgendo 41 collaboratori tra Svizzera tedesca e romanda entro fine ottobre.',
+    'blog.article.tamedia-taglio-posti-lavoro.imageAlt': 'Sede di un\'azienda editoriale svizzera in un contesto urbano',
 };
 
 export default blogMetaChIt;

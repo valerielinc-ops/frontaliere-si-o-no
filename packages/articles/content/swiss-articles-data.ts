@@ -23336,6 +23336,16 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tamedia-taglio-posti-lavoro',
+    category: 'novita',
+    date: '2026-10-05T12:36:39.114Z',
+    image: '/images/blog/tamedia-taglio-posti-lavoro.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
