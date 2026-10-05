@@ -24,10 +24,12 @@
  * `resolveMeta`), because the site has its SEO map and the corpus has its
  * `blog-meta-<locale>` chunks.
  *
- * Pure by construction — no imports at all, so it stays inside the
- * `packages/articles` confinement boundary
- * (`tests/packages-articles-confinement.test.ts`).
+ * Pure by construction — its only import is the sibling, import-free
+ * `./shared/sourceDates`, so it stays inside the `packages/articles`
+ * confinement boundary (`tests/packages-articles-confinement.test.ts`).
  */
+
+import { articleSourceDate } from './shared/sourceDates';
 
 export type HubCardLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -131,15 +133,21 @@ export function renderArticleHubCards(args: RenderArticleHubCardsArgs): string {
     // runner's zone — `2026-06-30` renders "29 giu 2026" under TZ=America/*.
     // Dormant on GitHub runners (UTC) and exactly the drift to avoid now that
     // two different machines emit this same markup.
-    const dateStr = new Date(art.date).toLocaleDateString(
-      locale === 'it' ? 'it-IT' : locale,
-      { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' },
-    );
+    //
+    // `date: ''` is the corpus saying the publication date is UNKNOWN (corpus
+    // PR 2082): no date span at all, never `new Date('')` → "Invalid Date".
+    const sourceDate = articleSourceDate(art.date);
+    const dateHtml = sourceDate
+      ? `<span class="ssg-art-date">${new Date(sourceDate).toLocaleDateString(
+        locale === 'it' ? 'it-IT' : locale,
+        { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' },
+      )}</span>`
+      : '';
     // First two cards are above-the-fold on the hub — mark them
     // fetchpriority="high" (eager load, but flagged to the browser as LCP
     // candidates) so `audit-page-weight` sees the required loading signal.
     const imgLoadingAttrs = idx < 2 ? ' fetchpriority="high"' : ' loading="lazy"';
-    return `<a href="${artPath}" aria-label="${title}" class="ssg-art-card"><img src="${art.image}" alt="${title}" width="400" height="200" class="ssg-art-img"${imgLoadingAttrs}><div class="ssg-art-body"><span class="ssg-art-cat" style="${catColor}">${esc(catLabel)}</span><span class="ssg-art-date">${dateStr}</span><h3 class="ssg-art-title">${title}</h3>${desc ? `<p class="ssg-art-desc">${desc}</p>` : ''}</div></a>`;
+    return `<a href="${artPath}" aria-label="${title}" class="ssg-art-card"><img src="${art.image}" alt="${title}" width="400" height="200" class="ssg-art-img"${imgLoadingAttrs}><div class="ssg-art-body"><span class="ssg-art-cat" style="${catColor}">${esc(catLabel)}</span>${dateHtml}<h3 class="ssg-art-title">${title}</h3>${desc ? `<p class="ssg-art-desc">${desc}</p>` : ''}</div></a>`;
   }).join('');
 }
 

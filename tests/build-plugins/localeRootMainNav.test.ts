@@ -159,6 +159,21 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     }
   });
 
+  it('keeps the homepage discovery rails together before the long SEO block', () => {
+    const html = injectHomepageSeoContent(SHELL, 'it');
+    const discoveryStart = html.indexOf('id="homepage-discovery"');
+    const seoStart = html.indexOf('id="hp-seo-block"');
+    const discovery = html.match(/<section\b[^>]*\bid="homepage-discovery"[^>]*>[\s\S]*?<\/section>/i)?.[0] ?? '';
+
+    expect(discoveryStart).toBeGreaterThan(-1);
+    expect(discoveryStart).toBeLessThan(seoStart);
+    expect(discovery).toContain('id="hp-lang-switch"');
+    expect(discovery).toContain('id="hp-related-guides"');
+    expect(discovery).toContain('id="hp-directory-hubs"');
+    expect(discovery).toContain('id="hp-canton-nav"');
+    expect(discovery).not.toContain(' style=');
+  });
+
   it('keeps the root rail when the real Vite template has a styled root and visible h1', () => {
     const template = fs.readFileSync(new URL('../../index.html', import.meta.url), 'utf8');
     expect(template).toContain('<div id="root" style="min-height:100vh">');

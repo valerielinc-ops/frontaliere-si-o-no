@@ -1,10 +1,12 @@
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { buildPharmacyDirectoryPage, pharmacyDirectoryPagesPlugin, pharmacyPageDescriptors, pharmacyUrlAliasDescriptors } from '../build-plugins/pharmacyDirectoryPagesPlugin';
 import { auditPage } from '../scripts/adsense-prereview-audit.mjs';
 import { AD_SLOTS } from '../services/adsenseSlots';
+import { currentDutyWeekStart } from '../services/pharmacies/dutyWeek';
+import { currentItalyDutyWeekStart } from '../services/pharmacies/italyDuty';
 import catalogueJson from '../data/pharmacies-ticino-complete.json';
 import dutiesJson from '../data/pharmacy-duties-ticino.json';
 import type { PharmacyDutiesDataset } from '../services/pharmacies/types';
@@ -101,6 +103,78 @@ describe('pharmacy directory static pages', () => {
     expect(robotsOf(guardedHub.html).replace(/\s+/g, '')).toBe('noindex,follow');
     expect(guardedHub.html).not.toContain('"@type":"CollectionPage"');
     expect(guardedHub.html).not.toContain('"@type":"ItemList"');
+  });
+
+  it('keeps the French weekly artifact aligned with the Italian sitemap across Zurich midnight', async () => {
+    const sharedBuildId = Math.max(
+      Date.parse(dutiesJson._fetchedAt),
+      Date.parse(catalogueJson._fetchedAt),
+    ) + 60_000;
+    const frenchRoot = makeTempRoot();
+    const italianRoot = makeTempRoot();
+
+    vi.useFakeTimers();
+    vi.stubEnv('DEPLOY_BUILD_ID', String(sharedBuildId));
+    try {
+      vi.stubEnv('BUILD_LOCALE', 'fr');
+      vi.setSystemTime(new Date('2026-10-04T21:59:59.000Z'));
+      vi.resetModules();
+      const frenchBuild = await import('../build-plugins/pharmacyDirectoryPagesPlugin');
+      const frenchWeek = frenchBuild.pharmacyPageDescriptors().find((page) => page.kind === 'duty-week');
+      const frenchItalyWeek = frenchBuild.pharmacyPageDescriptors().find((page) => page.kind === 'italy-duty-week');
+      await (frenchBuild.pharmacyDirectoryPagesPlugin(frenchRoot) as unknown as {
+        closeBundle: () => Promise<void>;
+      }).closeBundle();
+
+      vi.stubEnv('BUILD_LOCALE', 'it');
+      vi.setSystemTime(new Date('2026-10-05T02:01:01.000Z'));
+      vi.resetModules();
+      const italianBuild = await import('../build-plugins/pharmacyDirectoryPagesPlugin');
+      const italianWeek = italianBuild.pharmacyPageDescriptors().find((page) => page.kind === 'duty-week');
+      const italianItalyWeek = italianBuild.pharmacyPageDescriptors().find((page) => page.kind === 'italy-duty-week');
+      await (italianBuild.pharmacyDirectoryPagesPlugin(italianRoot) as unknown as {
+        closeBundle: () => Promise<void>;
+      }).closeBundle();
+
+      expect(frenchWeek?.weekStart).toBe(italianWeek?.weekStart);
+      expect(frenchWeek?.weekStart).toBe(currentDutyWeekStart(new Date(sharedBuildId)));
+      expect(frenchItalyWeek?.weekStart).toBe(italianItalyWeek?.weekStart);
+      expect(frenchItalyWeek?.weekStart).toBe(currentItalyDutyWeekStart(new Date(sharedBuildId)));
+
+      const sitemap = fs.readFileSync(path.join(italianRoot, 'dist', 'sitemap-farmacie.xml'), 'utf8');
+      const sitemapRoutes = new Set(
+        [...sitemap.matchAll(/<loc>[^<]+<\/loc>/g)].map((match) => new URL(match[0].slice(5, -6)).pathname),
+      );
+      const weeklyRoutes = [
+        {
+          root: frenchRoot,
+          route: `/fr/pharmacies-de-garde/semaine/${frenchWeek!.weekStart}/`,
+        },
+        {
+          root: italianRoot,
+          route: `/farmacie-di-turno/settimana/${italianWeek!.weekStart}/`,
+        },
+        {
+          root: frenchRoot,
+          route: `/fr/pharmacies/italie/de-garde/semaine/${frenchItalyWeek!.weekStart}/`,
+        },
+        {
+          root: italianRoot,
+          route: `/farmacie/italia/di-turno/settimana/${italianItalyWeek!.weekStart}/`,
+        },
+      ];
+      for (const { root, route } of weeklyRoutes) {
+        const pageFile = path.join(root, 'dist', route.replace(/^\/+/, ''), 'index.html');
+        expect(fs.existsSync(pageFile), route).toBe(true);
+        const html = fs.readFileSync(pageFile, 'utf8');
+        const indexable = robotsOf(html).replace(/\s+/g, '').toLowerCase() === 'index,follow';
+        expect(sitemapRoutes.has(route), route).toBe(indexable);
+      }
+    } finally {
+      vi.useRealTimers();
+      vi.unstubAllEnvs();
+      vi.resetModules();
+    }
   });
 
   it('keeps HTML, robots, sitemap and end-of-content ads on one indexability contract', async () => {

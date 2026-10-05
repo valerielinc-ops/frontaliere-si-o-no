@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import type { Plugin } from 'vite';
-import { BASE_URL, BUILD_DATE_STAMP, MIN_INDEXABLE_WORDS, SPA_ACTION_REDIRECT_SCRIPT, buildCanonicalBridgePage, countHtmlBodyWords } from './constants';
+import { BASE_URL, BUILD_DATE_STAMP, BUILD_ID, MIN_INDEXABLE_WORDS, SPA_ACTION_REDIRECT_SCRIPT, buildCanonicalBridgePage, countHtmlBodyWords } from './constants';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
@@ -44,6 +44,13 @@ const dutiesDataset = dutiesJson as PharmacyDutiesDataset;
 const completeTicinoSnapshot = completeTicinoJson as unknown as PharmacyCatalogueDataset;
 const dutySource = 'https://www.ofct.ch/farmacieturno/';
 const osmLicense = 'OpenStreetMap contributors, ODbL 1.0';
+
+// Every locale shard in the deploy matrix receives the same DEPLOY_BUILD_ID.
+// Use that exact instant for date-sensitive pharmacy routes and freshness
+// gates, rather than each runner's wall clock (which can cross Zurich midnight).
+function pharmacyBuildNow(): Date {
+  return new Date(Number(BUILD_ID));
+}
 
 function decisionMomentActionAttributes(action: string): string {
   return ` ${DECISION_MOMENT_SURFACE_ATTRIBUTE}="pharmacy" ${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="${action}"`;
@@ -953,14 +960,14 @@ function hreflang(descriptor: PageDescriptor): string {
   return [...LOCALES.map((locale) => `<link rel="alternate" hreflang="${locale}" href="${esc(`${BASE_URL}${buildPharmacyPath(descriptorPath(descriptor, locale), locale)}`)}" />`), `<link rel="alternate" hreflang="x-default" href="${esc(`${BASE_URL}${buildPharmacyPath(descriptorPath(descriptor, 'it'), 'it')}`)}" />`].join('\n');
 }
 
-function descriptors(): PageDescriptor[] {
+function descriptors(now: Date = pharmacyBuildNow()): PageDescriptor[] {
   return [
     { kind: 'hub' },
     { kind: 'canton', country: 'CH' },
     { kind: 'duty-hub' },
-    { kind: 'duty-week', weekStart: currentDutyWeekStart(new Date()) },
+    { kind: 'duty-week', weekStart: currentDutyWeekStart(now) },
     { kind: 'italy-duty-hub', country: 'IT' },
-    { kind: 'italy-duty-week', country: 'IT', weekStart: currentItalyDutyWeekStart(new Date()) },
+    { kind: 'italy-duty-week', country: 'IT', weekStart: currentItalyDutyWeekStart(now) },
     { kind: 'country', country: 'IT' },
     ...ITALY_BORDER_PROVINCES.map((area) => ({ kind: 'area' as const, country: 'IT' as const, areaSlug: area.slug, areaName: area.name })),
     ...TICINO_CITIES.map((city) => ({ kind: 'city' as const, country: 'CH' as const, citySlug: city.slug, cityName: city.name })),
@@ -978,7 +985,7 @@ function buildPage(
   // This is a build-time snapshot by design. The duty workflow checks known
   // start/end transitions every 15 minutes and commits a status marker, so a
   // static build is requested before its crawlable card can become stale.
-  now = new Date(),
+  now = pharmacyBuildNow(),
   emittedPaths: ReadonlySet<string> = emittedPathsForLocale(locale),
 ) {
   const title = pageTitle(descriptor.kind, locale, descriptor);
@@ -1030,7 +1037,8 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
       const distDir = path.resolve(rootDir, 'dist');
       const collector = new WriteCollector({ distDir, pluginName: 'pharmacyDirectoryPagesPlugin' });
       const urls: string[] = [];
-      const allDescriptors = descriptors();
+      const buildNow = pharmacyBuildNow();
+      const allDescriptors = descriptors(buildNow);
       const emittedPathsByLocale = new Map<Locale, ReadonlySet<string>>();
       for (const locale of LOCALES) {
         const emittedPaths = emittedPathsForLocale(locale, allDescriptors);
@@ -1043,7 +1051,7 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
       let excludedNoindexRoutes = 0;
       for (const locale of LOCALES) {
         for (const descriptor of allDescriptors) {
-          const built = buildPage(descriptor, locale, distDir, dutiesDataset, new Date(), emittedPathsByLocale.get(locale)!);
+          const built = buildPage(descriptor, locale, distDir, dutiesDataset, buildNow, emittedPathsByLocale.get(locale)!);
           collector.add(path.join(distDir, `${built.path.replace(/^\/+/, '').replace(/\/+$/, '')}/index.html`), built.html);
           // The IT/main shard owns the shared sitemap and must list every
           // locale URL, even though its collector writes only its own pages.

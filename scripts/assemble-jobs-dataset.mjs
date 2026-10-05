@@ -51,7 +51,7 @@ import {
   readCrawlerSummaryStore,
   writeCrawlerSummaryStore,
 } from './lib/crawler-summary-store.mjs';
-import { buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
+import { archiveRecordNamesPosting, buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
 import { applyDeclaredBrandRelabel } from './lib/crawler-brand-relabel.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
 import { carryForwardMarks, dedupeByIdentityPreservingMarks, mergeBaselinePublicationEvidence } from './lib/job-mark-persistence.mjs';
@@ -98,6 +98,7 @@ import {
   getRetranslationBaseline,
   recordRetranslationBaseline,
 } from './lib/crawler-retranslation-baseline.mjs';
+import { previousRunSliceJobs, recordPreviousRunSlice } from './lib/crawler-previous-run-slice.mjs';
 import { isIncomplete } from './lib/translation-incomplete.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -1030,6 +1031,9 @@ async function parseSlicesInParallel(paths) {
  */
 export function readExistingCrawlerJobs(crawlerKey, dataJobsPath) {
   const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
+  // The previous run's slice, before the seed can replace it
+  // (lib/crawler-previous-run-slice.mjs). Later reads never replace it.
+  recordPreviousRunSlice(slicePath);
   if (fs.existsSync(slicePath)) {
     const data = readJson(slicePath);
     const jobs = data?.jobs || (Array.isArray(data) ? data : []);
@@ -2686,12 +2690,29 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   fs.mkdirSync(JOBS_SLICES_DIR, { recursive: true });
   const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
   const existingSlice = fs.existsSync(slicePath) ? readJson(slicePath) : null;
+  // The slice the previous run committed. In the dedicated-runner path the
+  // seed (seedCrawlerSlicesFromDataJobs) has already replaced the file on disk
+  // with this run's working set, so `existingSlice` would compare the run
+  // with itself: the record taken before the seed is the one to compare with
+  // (lib/crawler-previous-run-slice.mjs). Every check below that carries
+  // something over from the previous run, or measures this run against it,
+  // reads `priorJobs`: firstSeenAt and postedDate carry-forward, the
+  // prev-slug safety net, the anti-shrink guard, the slug-identity restore
+  // and the admission threshold. Without a record it is the file on disk, as
+  // before. Measured over 7 days of crawler-group commits (234.900 continuing
+  // jobs) while these checks read the seeded file: 1.789 firstSeenAt moved and
+  // 1.527 postedDate moved later; reproduced, together with a 40→5 collapse
+  // the shrink guard let through, in tests/scripts/assemble-translation-hold.
+  const previousRunJobs = previousRunSliceJobs(slicePath);
+  const priorJobs = previousRunJobs ?? (Array.isArray(existingSlice?.jobs) ? existingSlice.jobs : null);
   // The slice this process started from, kept untouched for the summary
   // partition (scripts/lib/crawler-summary-partition.mjs). Only the first
   // write of a key in a process defines it, so later writes skip the copy.
+  // Its own parse: the checks below may hand prior objects on to the jobs
+  // being written, and the partition must compare two independent sets.
   const beforeJobsForSummary = publishedSliceFor(crawlerKey)
     ? null
-    : structuredClone(Array.isArray(existingSlice?.jobs) ? existingSlice.jobs : []);
+    : (previousRunSliceJobs(slicePath) ?? structuredClone(Array.isArray(existingSlice?.jobs) ? existingSlice.jobs : []));
   const previousSliceRaw = options.housekeepingProof && fs.existsSync(slicePath)
     ? fs.readFileSync(slicePath, 'utf8')
     : null;
@@ -2709,7 +2730,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // here (not in 90 parsers) so the whole class is fixed by-construction.
   const existingPostedDate = new Map();
   const existingPostingEvidence = new Map();
-  for (const ej of (existingSlice?.jobs || [])) {
+  for (const ej of (priorJobs || [])) {
     const identity = buildStableJobIdentity(ej);
     if (!identity) continue;
     if (ej.firstSeenAt) existingFirstSeen.set(identity, ej.firstSeenAt);
@@ -2718,7 +2739,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   }
   const expiredSlice = readJson(path.join(EXPIRED_SLICES_DIR, `${crawlerKey}.json`), []);
   const firstSeenHistory = carryForwardFirstSeenAt(hardened.jobs, {
-    existingJobs: existingSlice?.jobs || [],
+    existingJobs: priorJobs || [],
     archivedJobs: Array.isArray(expiredSlice) ? expiredSlice : [],
   });
   if (firstSeenHistory.restored > 0 || firstSeenHistory.suppressed > 0) {
@@ -2750,10 +2771,11 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // Even with the writer fixes (shared-jobs-crawler.ensureLocaleFields →
   // addPreviousSlugForLocale, pre-AI captureLostSlugs), a missed mutation
   // site or future regression could drop a historical slug. Compare the
-  // jobs we are about to persist against the prior slice on disk and
-  // restore any previousSlugs the new payload would otherwise lose.
-  if (existingSlice && Array.isArray(existingSlice.jobs) && existingSlice.jobs.length > 0) {
-    const drift = trackSlugHistoryDrift(existingSlice.jobs, hardened.jobs);
+  // jobs we are about to persist against the previous run's slice
+  // (`priorJobs`) and restore any previousSlugs the new payload would
+  // otherwise lose.
+  if (priorJobs && priorJobs.length > 0) {
+    const drift = trackSlugHistoryDrift(priorJobs, hardened.jobs);
     if (drift.mergedSlugs > 0) {
       console.log(`  🛟 prev-slug safety-net: restored ${drift.mergedSlugs} slugs across ${drift.driftCount} jobs from prior slice`);
     }
@@ -2766,13 +2788,13 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // returning a degraded/error result (broken pagination, changed markup)
   // still exits 0. Observed: axa-svizzera 152→5 jobs in one run. Centralized
   // here (not in 90 parsers) so the whole class is fixed by-construction.
-  if (!process.env.SKIP_SHRINK_GUARD && !options.skipShrinkGuard && existingSlice && Array.isArray(existingSlice.jobs)) {
-    const priorCount = existingSlice.jobs.length;
+  if (!process.env.SKIP_SHRINK_GUARD && !options.skipShrinkGuard && priorJobs) {
+    const priorCount = priorJobs.length;
     const newCount = hardened.jobs.length;
     const shrinkWouldBlock = shouldBlockShrink(priorCount, newCount);
     const safeSourceGeographyPrune = shrinkWouldBlock && isSafeSourceGeographyPruneJobs(
       slicePath,
-      existingSlice.jobs,
+      priorJobs,
       hardened.jobs,
     );
     if (shrinkWouldBlock && !safeSourceGeographyPrune) {
@@ -2793,7 +2815,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
         crawlerKey,
         priorCount,
         newCount,
-        priorJobs: existingSlice.jobs,
+        priorJobs,
         finalJobs: hardened.jobs,
       };
       throw shrinkErr;
@@ -2807,8 +2829,8 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     }
   }
 
-  const mergedJobs = options.preserveExistingSlugs && Array.isArray(existingSlice?.jobs)
-    ? restoreExistingSlugIdentity(existingSlice.jobs, hardened.jobs).jobs
+  const mergedJobs = options.preserveExistingSlugs && priorJobs
+    ? restoreExistingSlugIdentity(priorJobs, hardened.jobs).jobs
     : hardened.jobs;
 
   // ── Duplicate-identity guard (issue #6759) ────────────────────────────
@@ -2869,11 +2891,12 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
 
   // ── Soglia di ammissione agenzie (decisione del proprietario 2026-10-03) ──
   // Timbra qui, sui job che stanno davvero per essere scritti e contro lo slice
-  // su disco, chi arriva non tradotto: resta nello slice (coda di
+  // del run precedente, chi arriva non tradotto: resta nello slice (coda di
   // translate-pending) ma l'assemblatore non lo pubblica finché i titoli non
   // sono tradotti. I job già presenti non vengono mai ritirati. Vedi
-  // scripts/lib/translation-publication-hold.mjs.
-  const hold = applyTranslationHold(crawlerKey, finalJobs, existingSlice?.jobs || []);
+  // scripts/lib/translation-publication-hold.mjs. Non il file su disco: dopo
+  // il seed contiene già ogni arrivo di questo run.
+  const hold = applyTranslationHold(crawlerKey, finalJobs, priorJobs || []);
   if (hold.gated) {
     console.log(
       `  ⏸️  Soglia di ammissione: ${hold.held} job trattenuti in attesa di traduzione `
@@ -3988,6 +4011,15 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
       && !overlapCandidate,
     );
     if (!match || (!hasSlugOverlap && !hasSameItSlug && !legacySamePosting)) continue;
+    // A ghost is the SAME posting under another slug. An archive record that
+    // names its source posting (url, sourceIdentity, or the history a dedup
+    // merge leaves) and does not name the matched job is a different posting
+    // that happens to share title/company/location — typically a sibling
+    // vacancy housekeeping archived as a duplicate. Merging it would hand the
+    // active job another posting's routes, including its hash-tailed slug,
+    // which becomes cross-job contamination once that posting is re-listed
+    // (#11596). Records without any identity keep the legacy evidence rules.
+    if (!archiveRecordNamesPosting(ej, match)) continue;
 
     // Mark as ghost
     const ghostId = expiredGhostIdentity(ej);

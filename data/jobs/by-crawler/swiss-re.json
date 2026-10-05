@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-re",
-  "assembledAt": "2026-10-04T21:20:34.989Z",
+  "assembledAt": "2026-10-05T06:23:45.291Z",
   "jobs": [
     {
       "id": "swiss-re-18c8d97acf43",
@@ -33,7 +33,7 @@
       "url": "https://www.swissre.com/careers/job/Senior-Structurer-Credit-and-Surety-Hybrid-80-100-/1426628933",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:26.707Z",
+      "crawledAt": "2026-10-05T06:23:36.808Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -62,8 +62,8 @@
           "credito-e-sovranita-per-gli-strumentatori-anziani-hybrid-80-100-swiss-re-zurich-ch"
         ]
       },
-      "firstSeenAt": "2026-08-15T09:38:17.285Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-15T09:38:17.285Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -110,7 +110,7 @@
       "url": "https://www.swissre.com/careers/job/Sous-Chef-de-Cuisine-m-f-x-d-80-100/1431057633",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:21.612Z",
+      "crawledAt": "2026-10-05T06:23:31.613Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -187,7 +187,7 @@
       "url": "https://www.swissre.com/careers/job/Lehrstelle-Entwickler-in-digitales-Business-EFZ-2027/1420965533",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:20.170Z",
+      "crawledAt": "2026-10-05T06:23:30.181Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -222,8 +222,8 @@
           "lehrstelle-entwickler-in-digitales-business-efz-2027-swiss-re-ch"
         ]
       },
-      "firstSeenAt": "2026-08-01T10:51:34.967Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-01T10:51:34.967Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -270,7 +270,7 @@
       "url": "https://www.swissre.com/careers/job/Financial-Reporting-Analyst-Graduate/1437841033",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:15.704Z",
+      "crawledAt": "2026-10-05T06:23:24.251Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -303,8 +303,8 @@
           "financial-reporting-analyst-graduate-swiss-re-ch"
         ]
       },
-      "firstSeenAt": "2026-09-23T23:44:12.536Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T23:44:12.536Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -351,7 +351,7 @@
       "url": "https://www.swissre.com/careers/job/SST-Reporting-Analyst-Graduate/1437841533",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:14.318Z",
+      "crawledAt": "2026-10-05T06:23:22.681Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -384,8 +384,8 @@
           "sst-reporting-analyst-graduate-swiss-re-ch"
         ]
       },
-      "firstSeenAt": "2026-09-23T23:44:11.057Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T23:44:11.057Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -432,7 +432,7 @@
       "url": "https://www.swissre.com/careers/job/Financial-Analyst-Group-Finance-Capital-Markets-Graduate/1439461033",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:07.453Z",
+      "crawledAt": "2026-10-05T06:23:17.124Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -465,6 +465,7 @@
           "financial-analyst-group-finance-capital-markets-graduate-swiss-re-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:43:51.493Z",
       "salaryMin": 77000,
       "salaryMax": 136000,
@@ -479,8 +480,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "swiss-re-b41de9f40ebb",
@@ -496,7 +496,7 @@
       "companyDomain": "swissre.com",
       "title": "Group Strategy - Graduate",
       "titleByLocale": {
-        "it": "Strategia di gruppo - Laureato",
+        "it": "Group Strategy - Graduate",
         "en": "Group Strategy - Graduate",
         "de": "Gruppenstrategie - Absolvent",
         "fr": "Stratégie de groupe - Diplômé"
@@ -513,7 +513,7 @@
       "url": "https://www.swissre.com/careers/job/Group-Strategy-Graduate/1439448933",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:06.007Z",
+      "crawledAt": "2026-10-05T06:23:15.669Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -524,7 +524,9 @@
       "sector": "Assicurazioni",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.swissre.com/careers/job/Group-Strategy-Graduate/1439448933",
       "requirements": [],
       "requirementsByLocale": {},
@@ -539,6 +541,7 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:43:50.122Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -552,9 +555,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      "addressRegion": "ZH"
     },
     {
       "id": "swiss-re-b6652f82d62f",
@@ -587,7 +588,7 @@
       "url": "https://www.swissre.com/careers/job/Group-Financial-Performance-Management-and-Planning-Graduate/1439468933",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:20:03.015Z",
+      "crawledAt": "2026-10-05T06:23:13.840Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -667,7 +668,7 @@
       "url": "https://www.swissre.com/careers/job/Event-and-Guest-Experience-Manager-m-f-x-d-80-100-/1441318733",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:20:01.588Z",
+      "crawledAt": "2026-10-05T06:23:11.101Z",
       "addressLocality": "Rüschlikon, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -732,7 +733,7 @@
       "url": "https://www.swissre.com/careers/job/Lehrstelle-Mediamatiker-in-EFZ-2027/1420961933",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:19:59.078Z",
+      "crawledAt": "2026-10-05T06:23:07.943Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -807,7 +808,7 @@
       "url": "https://www.swissre.com/careers/job/Captive-Centre-of-Excellence-Intern-Hybrid-m-f-x-d-80-100-/1442458333",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:57.711Z",
+      "crawledAt": "2026-10-05T06:23:06.483Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -840,6 +841,7 @@
           "captive-centre-of-excellence-intern-hybrid-m-f-x-d-80-100-swiss-re-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:14:16.537Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -854,8 +856,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "swiss-re-be4773c61f12",
@@ -888,7 +889,7 @@
       "url": "https://www.swissre.com/careers/job/Intern-P-and-C-Underwriting-Transformation-Advance-with-AI-4-6-months-m-f-x-d-80-100-/1443368133",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:56.166Z",
+      "crawledAt": "2026-10-05T06:23:03.668Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -971,7 +972,7 @@
       "url": "https://www.swissre.com/careers/job/Underwriting-Governance-Project-Assistant-12-months-temporary-contract-Hybrid-m-f-x-d-/1443855233",
       "source": "Swiss Re Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:19:51.975Z",
+      "crawledAt": "2026-10-05T06:23:01.087Z",
       "addressLocality": "Zurich, CH",
       "addressCountry": "CH",
       "country": "CH",

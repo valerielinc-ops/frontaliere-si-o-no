@@ -932,6 +932,169 @@ describe('checkFabricatedNormAcronyms', () => {
     expect(codes(res.blocking)).toContain('fabricated-norm-acronym');
   });
 
+  // `LTF` ha un omonimo VERO (Legge sul Tribunale federale, RS 173.110). Le
+  // frasi sotto sono le forme reali del corpus, anonimizzate: leggi fiscali,
+  // sui frontalieri, sul lavoro e sul tirocinio che non esistono, arrivate
+  // anche nelle traduzioni en/de/fr.
+  it('flags LTF cited as a tax, cross-border or labour law, in every locale', () => {
+    const frasiInventate = [
+      'Potrai beneficiare della franchigia di 10\'000 CHF, come stabilito dalla legge federale del 1982 sulla tassazione dei redditi dei frontalieri (LTF).',
+      'La legge federale sul lavoro transfrontaliero (LTF) stabilisce che i frontalieri devono avere un contratto di lavoro scritto e firmato.',
+      'La legge sul tirocinio del 15 giugno 2011 (LTF) stabilisce che il contratto di tirocinio debba essere firmato entro tre giorni (art. 1, § 2 LTF).',
+      'La legge ticinese sulla tassazione dei redditi da lavoro (LTF-TI) consente una franchigia di 10.000 euro.',
+      'La normativa che regola i lavoratori frontalieri in Ticino è la legge federale sul lavoro (LTF) del 3 ottobre 1947.',
+      'You will have to declare your income in both countries, as required by the 1992 Federal Act on the Taxation of Cross-Border Workers\' Income (LTF).',
+      'Nach dem Bundesgesetz von 1982 über die Besteuerung der Einkommen der Grenzgänger (LTF) gilt ein Freibetrag.',
+      'La Loi fédérale du travail (LTF) du 13 mars 1946 consacre les droits des travailleurs en Suisse.',
+    ];
+    for (const frase of frasiInventate) {
+      expect(codes(checkFabricatedNormAcronyms(frase)), frase).toContain('fabricated-norm-acronym');
+    }
+  });
+
+  it('leaves the real LTF (Federal Supreme Court Act) alone, even in a tax judgment', () => {
+    const frasiVere = [
+      'In materia di assistenza amministrativa fiscale, non ricorre una questione di diritto di importanza fondamentale ai sensi dell\'art. 84a LTF quando il contribuente contesta soltanto lo scambio di informazioni.',
+      'Im Bereich der steuerlichen Amtshilfe ist eine Rechtsfrage von grundlegender Bedeutung im Sinne von Art. 84a LTF nicht gegeben.',
+      'Il ricorso contro la decisione fiscale dell\'AFC è disciplinato dagli art. 82 segg. LTF.',
+      'La Legge sul Tribunale federale (LTF) disciplina anche i ricorsi in materia fiscale.',
+      'Il contribuente frontaliere può impugnare la tassazione davanti al Tribunale federale secondo la LTF.',
+    ];
+    for (const frase of frasiVere) {
+      expect(checkFabricatedNormAcronyms(frase), frase).toEqual([]);
+    }
+  });
+
+  it('accepts a spelled-out article citation before a traffic sentence', () => {
+    expect(checkFabricatedNormAcronyms(
+      'Secondo l\'articolo 84a della LTF. La circolazione stradale è regolata dalla LCStr.',
+    )).toEqual([]);
+  });
+
+  // Il `veto` del Tribunale federale assolve solo la SUA finestra: una legge
+  // fiscale inventata piu' in basso nello stesso testo resta rilevata.
+  it('still flags a fabricated LTF that follows a judicial mention outside its window', () => {
+    const issues = checkFabricatedNormAcronyms(
+      'Il Tribunale federale ha dichiarato inammissibile il ricorso ai sensi dell\'art. 84a LTF. '
+      + 'La decisione riguardava lo scambio di informazioni con l\'Italia e non cambia nulla per chi lavora '
+      + 'in Svizzera e vive oltre confine. Un altro paragrafo sostiene invece che la legge federale '
+      + 'sulla tassazione dei redditi dei frontalieri (LTF) preveda una franchigia.',
+    );
+    expect(codes(issues)).toContain('fabricated-norm-acronym');
+  });
+
+  it('does not let a judicial sentence veto a later fabricated LTF', () => {
+    const issues = checkFabricatedNormAcronyms(
+      'Il Tribunale federale ha deciso il ricorso. '
+      + 'La legge federale sul lavoro transfrontaliero (LTF) stabilisce i requisiti.',
+    );
+    expect(issues).toHaveLength(1);
+    expect(issues[0].code).toBe('fabricated-norm-acronym');
+  });
+
+  it('flags the invented LMA, LRF and OT citations and leaves their homonyms alone', () => {
+    const frasiInventate = [
+      'Secondo la legge federale sulla migrazione (LMA), il permesso di dimora B può essere concesso dopo due anni.',
+      'La legge federale sulla migrazione e sull\'asilo (LMA) stabilisce un reddito minimo di 3\'000 CHF al mese.',
+      'Normative: Legge federale sul reddito (LRF) del 8 ottobre 1952.',
+      'Secondo la legge federale sulla tassazione dei redditi (LRF) del 22 marzo 1925, i redditi sono tassati in base al loro ammontare.',
+      'Ordinanza sulla tassazione del reddito (OT): 1993.',
+    ];
+    for (const frase of frasiInventate) {
+      expect(codes(checkFabricatedNormAcronyms(frase)), frase).toContain('fabricated-norm-acronym');
+    }
+    const omonimi = [
+      'La crescente convergenza tra IT e OT (Operational Technology) rende vulnerabili gli impianti industriali.',
+      'Identificare i punti deboli nei sistemi IT e OT prima di un audit.',
+      'La legge federale sugli stranieri e la loro integrazione (LStrI) regola il permesso di dimora B.',
+    ];
+    for (const frase of omonimi) {
+      expect(checkFabricatedNormAcronyms(frase), frase).toEqual([]);
+    }
+  });
+
+  // ED-FAB-3. La seconda famiglia di `LTF` inventate: la «legge federale sul
+  // traffico (LTF)» al posto della LCStr (RS 741.01), con le varianti
+  // ferroviaria e aerea, nelle forme reali del corpus anonimizzate. Nessuna di
+  // queste frasi ha un cue fiscale o del lavoro: la guardia della ED-FAB-2 le
+  // lasciava passare tutte.
+  it('flags LTF cited as a road, rail or air traffic law, in every locale', () => {
+    const frasiInventate = [
+      'Secondo la legge federale sul traffico (LTF), i ciclisti devono indossare un casco in caso di incidente.',
+      'La legge federale sul traffico stradale (LTF) stabilisce che la velocità massima sulle autostrade è di 120 km/h.',
+      'Riferimenti: la legge federale sul trasporto ferroviario del 20 ottobre 2005 (LTF).',
+      'Le normative sui biglietti sono cambiate quando è entrata in vigore la legge federale sul traffico aereo (LTF).',
+      'Il progetto è stato approvato in base alla Legge federale sul traffico (LTF) del 1958.',
+      'References: The Federal Rail Transport Act of 20 October 2005 (LTF).',
+      'What is the speed limit on motorways in Switzerland according to the LTF?',
+      'Die Bestimmungen haben sich geändert, als das Bundesgesetz über den Luftverkehr (LTF) in Kraft trat.',
+      'Selon la loi fédérale sur la circulation (LTF), les voitures de plus de 15 ans ne peuvent pas circuler en Suisse.',
+    ];
+    for (const frase of frasiInventate) {
+      expect(codes(checkFabricatedNormAcronyms(frase)), frase).toContain('fabricated-norm-acronym');
+    }
+  });
+
+  it('leaves the real LTF alone in a road traffic judgment', () => {
+    const frasiVere = [
+      'Il Tribunale federale ha respinto il ricorso del conducente contro la revoca della licenza di condurre (art. 82 segg. LTF).',
+      'Secondo la LTF, il Tribunale federale giudica i ricorsi in materia di circolazione stradale.',
+      'Das Bundesgericht trat auf die Beschwerde des Autofahrers nach Art. 42 Abs. 2 LTF nicht ein.',
+    ];
+    for (const frase of frasiVere) {
+      expect(checkFabricatedNormAcronyms(frase), frase).toEqual([]);
+    }
+  });
+
+  // ED-FAB-3. Leggi federali inventate con un'altra sigla: `LFA` (apprendistato,
+  // stranieri, frontalieri), `LSM` (salario minimo federale, che in Svizzera non
+  // esiste), `LCE` (commercio estero). Ognuna ha un contesto, perche' la sigla
+  // da sola ha omonimi leciti: un'azienda, la legge ticinese sul salario
+  // minimo, la legge belga sulle comunicazioni elettroniche.
+  it('flags the invented federal LFA, LSM and LCE citations and leaves their homonyms alone', () => {
+    const frasiInventate = [
+      'Secondo la legge federale sull\'apprendistato (LFA) del 24 marzo 2017, l\'apprendistato deve durare almeno tre anni.',
+      'The short-term L permit is regulated by article 14 of the Federal Law on Foreigners (LFA) of 16 December 2008.',
+      'Das Bundesgesetz über die Lehre (LFA) von 2019 legt die Vorschriften für die Lehre fest.',
+      'Secondo la legge federale sul salario minimo (LSM) del 17 giugno 2015, la retribuzione minima di un apprendista è di 2.500 franchi.',
+      'According to the Federal Minimum Wage Act (LSM) of 17 June 2015, the minimum wage for an apprentice is CHF 2,500.',
+      'La legge federale sul commercio estero (LCE) del 10 ottobre 1977 regola le importazioni e le esportazioni in Svizzera.',
+      'La Loi fédérale sur le commerce extérieur (LCE) du 10 octobre 1977 réglemente les importations.',
+    ];
+    for (const frase of frasiInventate) {
+      expect(codes(checkFabricatedNormAcronyms(frase)), frase).toContain('fabricated-norm-acronym');
+    }
+    const omonimi = [
+      'Il gruppo LFA ha aperto una nuova sede a Lugano.',
+      'La LFA Engineering di Mendrisio ha assunto venti apprendisti.',
+      'In Ticino il salario minimo è fissato dalla legge cantonale (Lsm) e varia per settore.',
+      'La loi belge relative aux communications électroniques (LCE) encadre les opérateurs.',
+      'La legge federale sulla formazione professionale (LFPr) disciplina il tirocinio.',
+    ];
+    for (const frase of omonimi) {
+      expect(checkFabricatedNormAcronyms(frase), frase).toEqual([]);
+    }
+  });
+
+  it('does not combine allOf cues across separate sentences', () => {
+    expect(checkFabricatedNormAcronyms(
+      'IT e OT sono usati nella sicurezza. La nuova ordinanza sulla tassazione è stata pubblicata.',
+    )).toEqual([]);
+    expect(checkFabricatedNormAcronyms(
+      'La nuova ordinanza sulla tassazione è stata pubblicata. La legge cantonale sul turismo (LRF) è contestata.',
+    )).toEqual([]);
+  });
+
+  it('matches the new normative acronym guards case-insensitively', () => {
+    const frasi = [
+      'La legge federale sul lavoro transfrontaliero (ltf)',
+      'La legge federale sulla migrazione (lma)',
+      'La legge federale sul reddito (lrf)',
+      'Ordinanza sulla tassazione del reddito (ot)',
+    ];
+    expect(frasi.map((frase) => checkFabricatedNormAcronyms(frase).length)).toEqual([1, 1, 1, 1]);
+  });
+
   // Le regex della tabella sono module-level e condivise fra le chiamate: con
   // il flag `g` porterebbero `lastIndex` da una chiamata all'altra e il gate
   // salterebbe un articolo si' e uno no. Difetto invisibile a un test a

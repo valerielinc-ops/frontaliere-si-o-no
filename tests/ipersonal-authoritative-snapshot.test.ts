@@ -309,7 +309,9 @@ describe('iPersonal sister crawlers authoritative snapshots', () => {
       path.join(process.cwd(), 'scripts/lib/crawler-template.mjs'),
       'utf8',
     );
-    expect(template).toContain('const { authoritativeSnapshotVerified, authoritativeEmptySnapshot } = evaluateAuthoritativeSnapshot(');
+    expect(template).toMatch(
+      /const\s*\{\s*authoritativeSnapshotVerified\s*,\s*authoritativeEmptySnapshot\b[^}]*\}\s*=\s*evaluateAuthoritativeSnapshot\(/,
+    );
     expect(template).toContain('skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified');
     expect(template).toContain('...(authoritativeSnapshotVerified ? { retainMissingJobs: false } : {}),');
   });

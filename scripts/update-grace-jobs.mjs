@@ -30,6 +30,7 @@ import {
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import {
+  parseGracePublicationLabel,
   selectGraceDescription,
   parseDeclaredJobTotal,
   reconcileGraceListings,
@@ -339,7 +340,7 @@ async function discoverListings() {
 // Detail page scraping
 // ──────────────────────────────────────────────────────────────
 
-async function fetchJobDetails(listings) {
+export async function fetchJobDetails(listings) {
   return withBrowser(async (context) => {
     const jobs = [];
 
@@ -363,7 +364,7 @@ async function fetchJobDetails(listings) {
         // Wait for the main container that hotelcareer renders
         await page.waitForSelector('#jobDesignerContainer, .job_container, h1', { timeout: 15000 }).catch(() => {});
 
-        const detail = await page.evaluate(() => {
+        const detail = await page.evaluate((expectedTitle) => {
           const compact = (t) => (t || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
 
           const title = compact(document.querySelector('h1, h2.job-title, .offer-title')?.textContent || '');
@@ -427,21 +428,20 @@ async function fetchJobDetails(listings) {
           // location and employment type extracted from visible meta info
           const loc = (document.querySelector('.location')?.textContent || '').trim();
           const emp = (document.querySelector('.employment')?.textContent || '').trim();
-          // posted date
-          const postedRaw = (document.querySelector('.date')?.textContent || '').trim();
-
-          let postedDate = '';
-          const m = postedRaw.match(/(\d{2}\/\d{2}\/\d{4})/);
-          if (m) {
-            const parts = m[1].split('/');
-            if (parts.length === 3) postedDate = `${parts[2]}-${parts[0]}-${parts[1]}`;
-          }
+          // Publication must belong to this job container, never navigation or related jobs.
+          const jobContainers = document.querySelectorAll('#jobDesignerContainer, .job_container');
+          const jobContainer = jobContainers.length === 1 ? jobContainers[0] : null;
+          const containerTitle = compact(jobContainer?.querySelector('h1, h2.job-title, .offer-title')?.textContent || '');
+          const dates = jobContainer?.querySelectorAll('.date');
+          const postedRaw = containerTitle && containerTitle === title
+            && title === compact(expectedTitle) && dates?.length === 1
+            ? (dates[0].textContent || '').trim() : '';
 
           return {
             title: compact(title || ''),
             location: loc || 'St. Moritz',
             empType: emp || '',
-            postedDate,
+            postedRaw,
             descriptionParts: {
               metaDesc: metaDesc?.trim() || '',
               sectionTexts,
@@ -450,7 +450,7 @@ async function fetchJobDetails(listings) {
               bodyText: bodyText.trim(),
             },
           };
-        });
+        }, listing.title);
 
         const parsedDescription = selectGraceDescription(detail.descriptionParts || {});
 
@@ -565,7 +565,7 @@ function buildJobFromListing(listing) {
   };
 }
 
-function buildJobFromDetail(listing, detail) {
+export function buildJobFromDetail(listing, detail) {
   const title = detail.title || listing.title;
   const slug = normalizeKey(title);
   const category = inferCategory(title, detail.description);
@@ -600,7 +600,7 @@ function buildJobFromDetail(listing, detail) {
     contractType: empType === 'internship' ? 'stage' : 'permanent',
     sourceLang: srcLang,
     description: description.substring(0, 5000),
-    ...sourcePostingDateFields(detail.postedDate),
+    ...sourcePostingDateFields(parseGracePublicationLabel(detail.postedRaw)),
     validThrough: '',
     titleByLocale: { [srcLang]: title },
     descriptionByLocale: description ? { [srcLang]: description.substring(0, 5000) } : {},

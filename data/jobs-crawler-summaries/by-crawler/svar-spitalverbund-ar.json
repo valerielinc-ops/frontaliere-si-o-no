@@ -1,7 +1,7 @@
 {
   "key": "svar-spitalverbund-ar",
   "label": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-  "generatedAt": "2026-10-04T21:15:39.735Z",
+  "generatedAt": "2026-10-05T06:24:09.397Z",
   "total": 10,
   "discovered": null,
   "parsed": 10,
@@ -14,10 +14,10 @@
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10985,
-  "avgDurationMs": 10985,
+  "durationMs": 13613,
+  "avgDurationMs": 13613,
   "durationHistory": [
-    10985
+    13613
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,13 +28,12 @@
       "companyKey": "svar-spitalverbund-ar",
       "companyDomain": "svar.ch",
       "title": "Oberarzt / Oberärztin Chirugie",
-      "needsRetranslation": true,
       "location": "Herisau",
       "canton": "AR",
       "url": "https://live.solique.ch/svar/job/details/4070324",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:15:28.660Z",
+      "crawledAt": "2026-10-05T06:24:00.343Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -47,19 +46,21 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/svar/job/details/4070324",
       "externalId": "4070324",
       "firstSeenAt": "2026-09-23T23:39:10.032Z",
       "salaryMin": 109000,
       "salaryMax": 152500,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -75,7 +76,7 @@
       "url": "https://live.solique.ch/svar/job/details/4075860",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:15:28.037Z",
+      "crawledAt": "2026-10-05T06:23:59.350Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -88,18 +89,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/svar/job/details/4075860",
       "externalId": "4075860",
       "salaryMin": 81000,
       "salaryMax": 113000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 20,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -109,13 +112,12 @@
       "companyKey": "svar-spitalverbund-ar",
       "companyDomain": "svar.ch",
       "title": "Landschaftsgärtner / Landschaftsgärtnerin (m,w,d)",
-      "needsRetranslation": true,
       "location": "Herisau",
       "canton": "AR",
       "url": "https://live.solique.ch/svar/job/details/4075573",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:15:27.418Z",
+      "crawledAt": "2026-10-05T06:23:58.360Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -128,19 +130,21 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/svar/job/details/4075573",
       "externalId": "4075573",
       "firstSeenAt": "2026-09-28T21:14:15.886Z",
       "salaryMin": 81000,
       "salaryMax": 113000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -156,7 +160,7 @@
       "url": "https://live.solique.ch/svar/job/details/4075887",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:15:26.798Z",
+      "crawledAt": "2026-10-05T06:23:57.554Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -169,18 +173,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-28",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/svar/job/details/4075887",
       "externalId": "4075887",
       "salaryMin": 69500,
       "salaryMax": 118500,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 20,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -196,7 +202,7 @@
       "url": "https://live.solique.ch/svar/job/details/4078501",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:15:26.179Z",
+      "crawledAt": "2026-10-05T06:23:56.712Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -209,19 +215,21 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/svar/job/details/4078501",
       "externalId": "4078501",
       "firstSeenAt": "2026-10-03T09:10:40.473Z",
       "salaryMin": 55000,
       "salaryMax": 83000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 20,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -237,7 +245,7 @@
       "url": "https://live.solique.ch/svar/job/details/4078449",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:15:25.460Z",
+      "crawledAt": "2026-10-05T06:23:55.685Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -250,19 +258,21 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/svar/job/details/4078449",
       "externalId": "4078449",
       "firstSeenAt": "2026-10-03T09:10:39.861Z",
       "salaryMin": 81000,
       "salaryMax": 113000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -272,13 +282,12 @@
       "companyKey": "svar-spitalverbund-ar",
       "companyDomain": "svar.ch",
       "title": "Med. Praxisassistenz Kardiologie / Angiologie (m/w/d)",
-      "needsRetranslation": true,
       "location": "Herisau",
       "canton": "AR",
       "url": "https://live.solique.ch/svar/job/details/4078466",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:15:24.834Z",
+      "crawledAt": "2026-10-05T06:23:54.785Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -291,19 +300,21 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/svar/job/details/4078466",
       "externalId": "4078466",
       "firstSeenAt": "2026-10-03T09:10:39.155Z",
       "salaryMin": 81000,
       "salaryMax": 113000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -319,7 +330,7 @@
       "url": "https://live.solique.ch/svar/job/details/4075488",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:15:24.208Z",
+      "crawledAt": "2026-10-05T06:23:53.553Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -332,19 +343,21 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/svar/job/details/4075488",
       "externalId": "4075488",
       "firstSeenAt": "2026-10-01T09:14:46.401Z",
       "salaryMin": 81000,
       "salaryMax": 113000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 20,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -360,7 +373,7 @@
       "url": "https://live.solique.ch/svar/job/details/4078537",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:15:23.586Z",
+      "crawledAt": "2026-10-05T06:23:52.581Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -373,19 +386,21 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/svar/job/details/4078537",
       "externalId": "4078537",
       "firstSeenAt": "2026-10-03T09:10:37.923Z",
       "salaryMin": 81000,
       "salaryMax": 113000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -395,13 +410,12 @@
       "companyKey": "svar-spitalverbund-ar",
       "companyDomain": "svar.ch",
       "title": "Assistenzärztin / Assistenzarzt Anästhesiologie",
-      "needsRetranslation": true,
       "location": "Herisau",
       "canton": "AR",
       "url": "https://live.solique.ch/svar/job/details/4078768",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:15:22.821Z",
+      "crawledAt": "2026-10-05T06:23:51.569Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -414,23 +428,25 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/svar/job/details/4078768",
       "externalId": "4078768",
       "firstSeenAt": "2026-10-03T09:10:37.173Z",
       "salaryMin": 81000,
       "salaryMax": 113000,
       "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
 }

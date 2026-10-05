@@ -17,8 +17,7 @@ import { fileURLToPath } from 'node:url';
 import { callLLM, flushScores, flushScoresBeforeExit } from './lib/ai-models.mjs';
 import { detectLanguage, detectLanguageWithConfidence } from './lib/detect-language.mjs';
 import { isSourcePassthrough } from './lib/free-translate.mjs';
-import { isAcceptableTranslation } from './lib/translation-quality.mjs';
-import { detectAiReasoningLeak } from './lib/ai-output-fidelity.mjs';
+import { isAcceptableTranslation, isModelMetaAnswer } from './lib/translation-quality.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -164,9 +163,10 @@ async function translateDescription(description, locale, sourceLang) {
     jsonMode: false,
   });
   const translated = cleanDescription(String(text || ''));
-  // Same leak guard as the pipeline's translation steps (ai-output-fidelity.mjs).
+  // Same leak/meta-answer guard as the pipeline's translation steps
+  // (translation-quality isModelMetaAnswer): reasoning, prompt echo, refusal.
   if (translated.length >= 120 && translated.toLowerCase() !== clean.toLowerCase()
-      && !detectAiReasoningLeak(translated)) {
+      && !isModelMetaAnswer(translated, clean)) {
     return translated;
   }
   return '';
