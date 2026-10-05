@@ -152,7 +152,7 @@ function renderSalaryTable(copy: ComparisonsHubCopy, rows: readonly SalarySector
         <td class="s-RgFW0A">—</td>
         <td class="s-RgFW0A">—</td>
       </tr>`;
-  const tbody = rows === null || rows.length === 0
+  const tbody = rows === null
     ? unavailableRow
     : rows.length > 0
     ? rows
@@ -167,7 +167,7 @@ function renderSalaryTable(copy: ComparisonsHubCopy, rows: readonly SalarySector
             </tr>`,
         )
         .join('')
-    : unavailableRow;
+    : '';
   return `<figure class="s-KZc0LQ" data-speakable>
   <figcaption class="s-USTxiS">${esc(copy.tSalaryCaption)}</figcaption>
   <div class="s-hrA9tN">
