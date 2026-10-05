@@ -1,7 +1,7 @@
 {
   "key": "pictet",
   "label": "Pictet Group",
-  "generatedAt": "2026-10-05T06:26:22.322Z",
+  "generatedAt": "2026-10-05T08:12:02.351Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -9,18 +9,22 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 5,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 13345,
-  "avgDurationMs": 13345,
+  "unchangedCount": 5,
+  "durationMs": 14289,
+  "avgDurationMs": 14289,
   "durationHistory": [
-    13345
+    14289
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "pictet-8872eca504a7",
       "slug": "junior-researcher-contratto-a-tempo-determinato-programma-2-anni-pictet-group-geneva",
@@ -33,7 +37,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125052&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T06:26:13.271Z",
+      "crawledAt": "2026-10-05T08:11:55.337Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -50,8 +54,8 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125052&selected_lang=en_GB",
       "jobReqId": "125052",
-      "firstSeenAt": "2026-09-23T23:44:45.090Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T23:44:45.090Z",
       "salaryMin": 57000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -75,7 +79,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125071&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T06:26:12.199Z",
+      "crawledAt": "2026-10-05T08:11:54.204Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -117,7 +121,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125106&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T06:26:11.693Z",
+      "crawledAt": "2026-10-05T08:11:53.529Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -159,7 +163,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125130&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T06:26:10.544Z",
+      "crawledAt": "2026-10-05T08:11:52.384Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -201,7 +205,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125075&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T06:26:09.821Z",
+      "crawledAt": "2026-10-05T08:11:51.749Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -232,7 +236,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
+  "codeCommit": "21813a55c13b693c6bc3b96ebf7755119b32c8ef"
 }
