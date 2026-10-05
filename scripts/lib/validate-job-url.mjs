@@ -288,74 +288,90 @@ export async function validateJobUrl(rawUrl, { timeoutMs, userAgent, id } = {}) 
   const targetUrl = guest || url;
 
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), timeout);
+  let timeoutId;
+  // AbortController normally bounds fetch(), but a response body can ignore the
+  // abort and leave res.text() pending. Race the complete probe as well so one
+  // hostile portal cannot strand the crawler before it writes its slice.
+  const deadline = new Promise((resolve) => {
+    timeoutId = setTimeout(() => {
+      controller.abort();
+      // Keep the validator fail-open: an unproven URL must never be archived.
+      resolve({ id, valid: true, status: 0, reason: 'network-timeout' });
+    }, timeout);
+  });
+
+  const validation = (async () => {
+    try {
+      const res = await fetch(targetUrl, {
+        method: 'GET',
+        redirect: 'follow',
+        signal: controller.signal,
+        headers: {
+          Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+          'User-Agent': ua,
+        },
+      });
+
+      // Strong HTTP-level signal: 404 / 410 — definitive, bypasses fresh protection
+      if (res.status === 404 || res.status === 410) {
+        return { id, valid: false, status: res.status, reason: `http-${res.status}`, definitive: true };
+      }
+
+      // Rate limit / auth block: fail-open (never delete)
+      if (res.status === 429 || res.status === 403 || res.status === 999) {
+        return { id, valid: true, status: res.status, reason: `blocked-${res.status}` };
+      }
+
+      // Other error codes: fail-open
+      if (res.status < 200 || res.status >= 400) {
+        return { id, valid: true, status: res.status, reason: `nonfatal-${res.status}` };
+      }
+
+      // Check for redirect to generic landing page
+      const finalUrl = res.url || targetUrl;
+      if (isGenericLandingPage(url, finalUrl)) {
+        return { id, valid: false, status: res.status, reason: 'redirect-to-generic-listing', definitive: true };
+      }
+
+      // Read body for content-level signals
+      const text = await res.text();
+      const htmlLower = normalizeStrongPhraseText(text.slice(0, 300_000));
+
+      // Strong "job closed" phrases — definitive, bypasses fresh protection
+      for (const phrase of STRONG_PHRASES) {
+        if (htmlLower.includes(phrase)) {
+          return { id, valid: false, status: res.status, reason: `phrase:${phrase}`, definitive: true };
+        }
+      }
+
+      // Portal-specific signals — definitive, bypasses fresh protection
+      if (hasSuccessFactorsClosedSignal(htmlLower, url)) {
+        return { id, valid: false, status: res.status, reason: 'portal:successfactors-closed', definitive: true };
+      }
+      if (hasWorkdayClosedSignal(htmlLower, url)) {
+        return { id, valid: false, status: res.status, reason: 'portal:workday-closed', definitive: true };
+      }
+      if (hasUmantisClosedSignal(htmlLower, url)) {
+        return { id, valid: false, status: res.status, reason: 'portal:umantis-closed', definitive: true };
+      }
+      if (hasTiChClosedSignal(htmlLower, url)) {
+        return { id, valid: false, status: res.status, reason: 'portal:tich-closed', definitive: true };
+      }
+
+      // Auth wall (LinkedIn etc.): fail-open
+      if (looksLikeAuthWall(htmlLower)) {
+        return { id, valid: true, status: res.status, reason: 'authwall' };
+      }
+
+      return { id, valid: true, status: res.status, reason: 'ok' };
+    } catch (err) {
+      // Fail-open on network/timeout errors
+      return { id, valid: true, status: 0, reason: 'network-error' };
+    }
+  })();
 
   try {
-    const res = await fetch(targetUrl, {
-      method: 'GET',
-      redirect: 'follow',
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'User-Agent': ua,
-      },
-    });
-
-    // Strong HTTP-level signal: 404 / 410 — definitive, bypasses fresh protection
-    if (res.status === 404 || res.status === 410) {
-      return { id, valid: false, status: res.status, reason: `http-${res.status}`, definitive: true };
-    }
-
-    // Rate limit / auth block: fail-open (never delete)
-    if (res.status === 429 || res.status === 403 || res.status === 999) {
-      return { id, valid: true, status: res.status, reason: `blocked-${res.status}` };
-    }
-
-    // Other error codes: fail-open
-    if (res.status < 200 || res.status >= 400) {
-      return { id, valid: true, status: res.status, reason: `nonfatal-${res.status}` };
-    }
-
-    // Check for redirect to generic landing page
-    const finalUrl = res.url || targetUrl;
-    if (isGenericLandingPage(url, finalUrl)) {
-      return { id, valid: false, status: res.status, reason: 'redirect-to-generic-listing', definitive: true };
-    }
-
-    // Read body for content-level signals
-    const text = await res.text();
-    const htmlLower = normalizeStrongPhraseText(text.slice(0, 300_000));
-
-    // Strong "job closed" phrases — definitive, bypasses fresh protection
-    for (const phrase of STRONG_PHRASES) {
-      if (htmlLower.includes(phrase)) {
-        return { id, valid: false, status: res.status, reason: `phrase:${phrase}`, definitive: true };
-      }
-    }
-
-    // Portal-specific signals — definitive, bypasses fresh protection
-    if (hasSuccessFactorsClosedSignal(htmlLower, url)) {
-      return { id, valid: false, status: res.status, reason: 'portal:successfactors-closed', definitive: true };
-    }
-    if (hasWorkdayClosedSignal(htmlLower, url)) {
-      return { id, valid: false, status: res.status, reason: 'portal:workday-closed', definitive: true };
-    }
-    if (hasUmantisClosedSignal(htmlLower, url)) {
-      return { id, valid: false, status: res.status, reason: 'portal:umantis-closed', definitive: true };
-    }
-    if (hasTiChClosedSignal(htmlLower, url)) {
-      return { id, valid: false, status: res.status, reason: 'portal:tich-closed', definitive: true };
-    }
-
-    // Auth wall (LinkedIn etc.): fail-open
-    if (looksLikeAuthWall(htmlLower)) {
-      return { id, valid: true, status: res.status, reason: 'authwall' };
-    }
-
-    return { id, valid: true, status: res.status, reason: 'ok' };
-  } catch (err) {
-    // Fail-open on network/timeout errors
-    return { id, valid: true, status: 0, reason: 'network-error' };
+    return await Promise.race([validation, deadline]);
   } finally {
     clearTimeout(timeoutId);
   }
