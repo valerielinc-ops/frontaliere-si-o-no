@@ -161,8 +161,16 @@ export async function fetchLocations(ids, ctx) {
     if (!body || !Array.isArray(body.locations)) {
       throw new Error('Eventfrog /public/v1/locations: unexpected response shape');
     }
+    const returnedIds = new Set();
     for (const location of body.locations) {
-      if (location && typeof location.id === 'string') byId.set(location.id, location);
+      if (location && typeof location.id === 'string') {
+        returnedIds.add(location.id);
+        byId.set(location.id, location);
+      }
+    }
+    const missingCount = batch.reduce((count, id) => count + (returnedIds.has(id) ? 0 : 1), 0);
+    if (missingCount > 0) {
+      throw new Error(`Eventfrog /public/v1/locations: incomplete batch (${batch.length - missingCount} of ${batch.length} requested)`);
     }
   }
   return byId;

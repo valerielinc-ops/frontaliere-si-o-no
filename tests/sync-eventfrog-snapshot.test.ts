@@ -88,7 +88,7 @@ const LOCATIONS = new Map([
 ]);
 
 /** A fake Public API: `events` per call, locations by id, request log. */
-function fakeApi(eventsPerCall: Array<Array<Record<string, unknown>>>, opts: { status?: number; total?: number } = {}) {
+function fakeApi(eventsPerCall: Array<Array<Record<string, unknown>>>, opts: { status?: number; total?: number; locations?: typeof LOCATIONS } = {}) {
   const calls: Array<{ url: string; auth: string | undefined }> = [];
   let call = 0;
   const fetchImpl = async (url: string, init: { headers: Record<string, string> }) => {
@@ -102,7 +102,7 @@ function fakeApi(eventsPerCall: Array<Array<Record<string, unknown>>>, opts: { s
     }
     if (u.pathname === '/public/v1/locations') {
       const ids = u.searchParams.getAll('id');
-      const locations = ids.map((id) => LOCATIONS.get(id)).filter(Boolean);
+      const locations = ids.map((id) => (opts.locations ?? LOCATIONS).get(id)).filter(Boolean);
       return Response.json({ totalNumberOfResources: locations.length, locations });
     }
     return new Response('not found', { status: 404 });
@@ -261,6 +261,22 @@ describe('sync run()', () => {
     expect(writes).toHaveLength(0);
     expect(lines.join('\n')).not.toContain(API_KEY);
     expect(lines.join('\n')).toContain('HTTP 401');
+  });
+
+  it('keeps the previous snapshot and exits 1 when a location batch is incomplete', async () => {
+    const { store, writes } = memoryStore();
+    const previous = { schemaVersion: 1, source: 'eventfrog', events: [{ id: 'eventfrog:previous' }] };
+    await store.write(previous);
+    const partialLocations = new Map([['a', location('a', LUGANO)]]);
+    const { fetchImpl } = fakeApi(
+      [[apiEvent('partial', { locationIds: ['a', 'b'] })]],
+      { locations: partialLocations },
+    );
+
+    const outcome = await run({ env: ENABLED, fetchImpl, store, sleep: noSleep, log: () => {}, argv: [] });
+
+    expect(outcome).toMatchObject({ status: 'failed', exitCode: 1 });
+    expect(writes).toEqual([previous]);
   });
 
   it('logs counts only: no title, venue or organizer reaches the (public) Actions log', async () => {
