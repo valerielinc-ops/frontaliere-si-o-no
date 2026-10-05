@@ -1,5 +1,5 @@
 import { identifiedPostingPublication } from './identified-posting-publication.mjs';
-import { mergeSourcePostingDates, sourcePostingDateFields } from './source-posting-date.mjs';
+import { mergeSourcePostingDates, sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { TLS_ERROR_CODES } from './transient-fetch.mjs';
@@ -627,7 +627,7 @@ export function buildMcdoJob(parsed) {
     postalCode,
     streetAddress,
     description,
-    ...mergeSourcePostingDates({}, parsed),
+    ...withLegacyPostingDay(mergeSourcePostingDates({}, parsed)),
     validThrough: parsed.validThrough || '',
     employmentType: parsed.employmentType,
     jobReqId: parsed.jobReqId,

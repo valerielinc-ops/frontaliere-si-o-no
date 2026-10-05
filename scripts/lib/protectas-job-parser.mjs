@@ -8,7 +8,7 @@
  * into the same source would make the physical-security landing ambiguous.
  */
 import { extractJobPostingsLd } from './jsonld-jobposting.mjs';
-import { sourcePostingDateCandidatesFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { sourcePostingDateCandidatesFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, fetchJson, slugify, stripHtml } from './crawler-template.mjs';
@@ -694,7 +694,7 @@ export function parseProtectasJobDetail(html = '', detailUrl = '') {
     addressCountry: location.country || 'CH',
     postalCode: location.postalCode,
     streetAddress: location.streetAddress,
-    ...publication,
+    ...withLegacyPostingDay(publication),
     postedAt: publication.postedDate,
     validThrough: normalizeSpace(jsonLd?.validThrough || extractItemPropText(html, 'validThrough')).slice(0, 10),
     employmentType: detectEmploymentType(
@@ -721,7 +721,7 @@ function toParsedJob(detail) {
   const jobSlug = slugify(`${detail.title} ${detail.location} protectas ch`);
   const urlHash = createHash('sha1').update(detail.publicUrl).digest('hex').slice(0, 12);
   const description = detail.description;
-  const publication = mergeSourcePostingDates({}, detail);
+  const publication = withLegacyPostingDay(mergeSourcePostingDates({}, detail));
 
   return {
     id: `protectas-${urlHash}`,

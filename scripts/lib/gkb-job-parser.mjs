@@ -30,7 +30,7 @@
  *   - isTrustedDomain()   — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
-import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import {
@@ -522,7 +522,7 @@ export async function fetchAllGkbJobs(runtime = {}) {
       sector: 'Finanza / Banca',
       currency: 'CHF',
       featured: false,
-      ...mergeSourcePostingDates({}, listing),
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, listing)),
       applyUrl: listing.applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

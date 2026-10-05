@@ -12,7 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { extractJobPostingLd } from './jsonld-jobposting.mjs';
-import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import {
   slugify,
@@ -411,7 +411,7 @@ export async function fetchAllCoopersJobs() {
       sector: 'Farmaceutica / Life Sciences',
       currency: 'CHF',
       featured: false,
-      ...mergeSourcePostingDates({}, detail),
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, detail)),
       applyUrl: listing.url,
 
       // ── Requirements ──

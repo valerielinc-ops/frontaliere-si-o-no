@@ -58,7 +58,7 @@
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
 import { extractJobPostingLd } from './jsonld-jobposting.mjs';
-import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchWithRetry, RETRYABLE_STATUS } from './crawler-template.mjs';
@@ -557,7 +557,7 @@ export async function fetchAllGaviJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      ...publication,
+      ...withLegacyPostingDay(publication),
       applyUrl: publicUrl,
       jobReqId: row.vacancyNo || null,
       requirements: [],

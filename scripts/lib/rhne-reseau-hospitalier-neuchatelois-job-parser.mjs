@@ -33,7 +33,7 @@
  *
  * As of July 2026 the listing exposes ~13 active openings.
  */
-import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -254,7 +254,7 @@ export async function fetchAllRhneJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      ...mergeSourcePostingDates({}, detail || {}),
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, detail || {})),
       applyUrl: detail?.applyUrl || it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

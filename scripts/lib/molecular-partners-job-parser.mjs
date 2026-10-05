@@ -19,7 +19,7 @@
  * HQ, so location/canton default to Schlieren/ZH unless the detail page
  * states otherwise.
  */
-import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { extractJobPostingsLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -321,7 +321,7 @@ export async function fetchAllMolecularPartnersJobs() {
       sector: 'Biotecnologie / Farmaceutica',
       currency: 'CHF',
       featured: false,
-      ...sourcePostingDateFields(detail.datePosted),
+      ...withLegacyPostingDay(sourcePostingDateFields(detail.datePosted)),
       applyUrl: r.detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

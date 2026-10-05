@@ -90,7 +90,7 @@
  * and no per-job address is available at all.
  */
 import { identifiedPostingPublication } from './identified-posting-publication.mjs';
-import { mergeSourcePostingDates, sourcePostingDateFields } from './source-posting-date.mjs';
+import { mergeSourcePostingDates, sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { fetchHtml, slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract, decodeHtmlEntities } from './dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -425,7 +425,7 @@ export async function fetchAllNewYorkerJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      ...mergeSourcePostingDates({}, detail || {}),
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, detail || {})),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

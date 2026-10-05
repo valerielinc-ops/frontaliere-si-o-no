@@ -32,7 +32,7 @@
  *
  * Source: https://giardinohotels.ch/talents/
  */
-import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, fetchHtml } from './crawler-template.mjs';
@@ -777,7 +777,7 @@ export async function fetchAllGiardinoJobs({ fetchPage = fetchTalentsPage } = {}
       sector: 'Ospitalità / Hotellerie',
       currency: 'CHF',
       featured: false,
-      ...publication,
+      ...withLegacyPostingDay(publication),
       applyUrl: publicUrl,
       requirements: sections.aboutYou,
       requirementsByLocale: { [sourceLang]: sections.aboutYou },

@@ -51,7 +51,7 @@
  *   - isTrustedDomain()         — Validate URLs belong to this company
  */
 import { identifiedPostingPublication } from './identified-posting-publication.mjs';
-import { mergeSourcePostingDates } from './source-posting-date.mjs';
+import { mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, fetchHtml, warnIfListingAtCap } from './crawler-template.mjs';
@@ -303,7 +303,7 @@ export async function fetchAllValiantBankJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      ...publication,
+      ...withLegacyPostingDay(publication),
       applyUrl: listing.url,
       hiringOrganizationName,
       needsRetranslation: true,

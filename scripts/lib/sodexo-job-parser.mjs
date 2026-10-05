@@ -28,6 +28,7 @@
  * Polite delay: 300 ms between detail fetches.
  */
 import { identifiedPostingPublication } from './identified-posting-publication.mjs';
+import { withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { guessCategory } from './dedicated-crawler-common.mjs';
@@ -294,7 +295,7 @@ export async function fetchAllSodexoJobs() {
       sector: 'Ristorazione collettiva / Facility Management',
       currency: 'CHF',
       featured: false,
-      ...publication,
+      ...withLegacyPostingDay(publication),
       applyUrl: p.detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

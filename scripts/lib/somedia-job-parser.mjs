@@ -17,6 +17,7 @@
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
 import { identifiedPostingPublication } from './identified-posting-publication.mjs';
+import { withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
@@ -355,7 +356,7 @@ function buildJobFromJsonLd(jsonLd, detailUrl, rexxId, html) {
     experienceLevel: detectExperienceLevel(title),
     currency: 'CHF',
     featured: false,
-    ...publication,
+    ...withLegacyPostingDay(publication),
     validThrough: validThrough || '',
     applyUrl: detailUrl.replace(/-de-j(\d+)\.html$/, `-de-f$1.html`),
     requirements,

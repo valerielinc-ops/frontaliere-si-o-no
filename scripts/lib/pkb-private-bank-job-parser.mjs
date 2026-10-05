@@ -1,4 +1,4 @@
-import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
@@ -366,7 +366,7 @@ export function buildPkbJob(url, parsed) {
     postalCode: HQ.postalCode,
     streetAddress: parsed.streetAddress || HQ.streetAddress,
     description,
-    ...mergeSourcePostingDates({}, parsed),
+    ...withLegacyPostingDay(mergeSourcePostingDates({}, parsed)),
     validThrough: parsed.validThrough || '',
     sector: parsed.sector || '',
     role: parsed.role || '',

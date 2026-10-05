@@ -18,7 +18,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
-import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
@@ -311,7 +311,7 @@ export async function fetchAllRebootMonkeyJobs() {
       sector: 'Tecnologia / Data Center',
       currency: 'CHF',
       featured: false,
-      ...publication,
+      ...withLegacyPostingDay(publication),
       applyUrl: listing.careers_apply_url || publicUrl,
       requirements,
       requirementsByLocale: { [sourceLang]: requirements },

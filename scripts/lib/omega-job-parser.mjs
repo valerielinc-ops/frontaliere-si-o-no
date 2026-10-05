@@ -47,7 +47,7 @@
  * plus parseListPage()/parseDetailPage() for fixture tests.
  */
 import { identifiedPostingPublication } from './identified-posting-publication.mjs';
-import { mergeSourcePostingDates, sourcePostingDateFields } from './source-posting-date.mjs';
+import { mergeSourcePostingDates, sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
@@ -575,7 +575,7 @@ export async function fetchAllOmegaJobs() {
       sector: 'Orologeria di lusso',
       currency: 'CHF',
       featured: false,
-      ...mergeSourcePostingDates({}, detail),
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, detail)),
       applyUrl,
 
       // ── Requirements ──

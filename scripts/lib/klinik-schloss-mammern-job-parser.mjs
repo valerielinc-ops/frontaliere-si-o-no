@@ -17,7 +17,7 @@
  */
 import { createHash } from 'node:crypto';
 import { extractJobPostingLd } from './jsonld-jobposting.mjs';
-import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
@@ -284,7 +284,7 @@ export async function fetchAllKlinikSchlossMammernJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      ...publication,
+      ...withLegacyPostingDay(publication),
       applyUrl: detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

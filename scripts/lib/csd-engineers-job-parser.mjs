@@ -11,7 +11,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { sourcePostingDateFields, sourcePostingDateCandidatesFields, sourceRssPostingDateFields } from './source-posting-date.mjs';
+import { sourcePostingDateFields, sourcePostingDateCandidatesFields, sourceRssPostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
 import { jsonLdBlocks } from './prospector/extract.mjs';
@@ -438,7 +438,7 @@ export async function fetchAllCsdEngineersJobs() {
       sector: 'Ingegneria / Ambiente',
       currency: 'CHF',
       featured: false,
-      ...publication,
+      ...withLegacyPostingDay(publication),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

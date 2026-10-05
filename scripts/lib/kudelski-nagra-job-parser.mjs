@@ -11,7 +11,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.ts';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson } from './crawler-template.mjs';
@@ -421,7 +421,7 @@ export async function fetchAllKudelskiNagraJobs() {
       sector: 'Sicurezza digitale / Media technology',
       currency: 'CHF',
       featured: false,
-      ...mergeSourcePostingDates({}, listing),
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, listing)),
       applyUrl: listing.absolute_url || publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

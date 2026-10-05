@@ -22,7 +22,7 @@
  */
 import { createHash } from 'node:crypto';
 import { extractJobPostingLd } from './jsonld-jobposting.mjs';
-import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {
@@ -251,7 +251,7 @@ export async function fetchAllIgsBernJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      ...mergeSourcePostingDates({}, detail),
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, detail)),
       applyUrl: detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

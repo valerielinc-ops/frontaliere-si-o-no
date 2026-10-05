@@ -20,7 +20,7 @@
  *   - isTrustedDomain()     — Validate URLs belong to this company
  *   - parseCsebPublication() — Parse a single API publication into a job (testable)
  */
-import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -336,7 +336,7 @@ export function parseCsebPublication(pub) {
     sector: 'Sanità / Assistenza',
     currency: 'CHF',
     featured: false,
-    ...postingDates,
+    ...withLegacyPostingDay(postingDates),
     applyUrl,
     requirements: [],
     requirementsByLocale: { [sourceLang]: [] },

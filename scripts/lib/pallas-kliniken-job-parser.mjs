@@ -16,7 +16,7 @@
  *
  * Polite delay: 250 ms between detail fetches.
  */
-import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { extractJobPostingsLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -276,7 +276,7 @@ export async function fetchAllPallasKlinikenJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      ...publication,
+      ...withLegacyPostingDay(publication),
       applyUrl: p.detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

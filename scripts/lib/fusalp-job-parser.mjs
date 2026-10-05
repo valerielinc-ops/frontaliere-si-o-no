@@ -11,7 +11,7 @@
  */
 import { createHash } from 'node:crypto';
 import { extractJobPostingLd } from './jsonld-jobposting.mjs';
-import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
@@ -337,7 +337,7 @@ export async function fetchAllFusalpJobs() {
         sector: 'Moda / Abbigliamento sportivo',
         currency: country === 'CH' ? 'CHF' : 'EUR',
         featured: false,
-        ...publication,
+        ...withLegacyPostingDay(publication),
         applyUrl: publicUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },

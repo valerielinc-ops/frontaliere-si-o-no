@@ -14,7 +14,7 @@
  * job title in an <h1> + Aufgaben / Profil / Wir bieten sections in
  * `<div class="ce_text">` blocks.
  */
-import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { extractJobPostingsLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -208,7 +208,7 @@ export async function fetchAllModellstationSomosaJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      ...publication,
+      ...withLegacyPostingDay(publication),
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

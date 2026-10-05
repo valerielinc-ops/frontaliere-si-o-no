@@ -28,7 +28,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { identifiedPostingPublication } from './identified-posting-publication.mjs';
-import { mergeSourcePostingDates, sourcePostingDateFields } from './source-posting-date.mjs';
+import { mergeSourcePostingDates, sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -297,7 +297,7 @@ export async function fetchAllNovelisJobs() {
       sector: 'Metallurgia / Alluminio',
       currency: 'CHF',
       featured: false,
-      ...mergeSourcePostingDates({}, detail),
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, detail)),
       url: listing.url,
       applyUrl: listing.url,
       source: 'Novelis Dedicated Parser (iCIMS)',

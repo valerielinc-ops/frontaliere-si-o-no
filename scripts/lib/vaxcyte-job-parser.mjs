@@ -16,7 +16,7 @@
  *   - isTrustedDomain()      — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
-import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -262,7 +262,7 @@ function buildJob(ghJob, swissLocation) {
     sector: 'Biotecnologia / Farmaceutica',
     currency: 'CHF',
     featured: false,
-    ...publication,
+    ...withLegacyPostingDay(publication),
     applyUrl: publicUrl,
     department: departments.join(', '),
     requirements: [],

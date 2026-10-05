@@ -17,6 +17,7 @@
  * majority nursing/medical, all German-language.
  */
 import { wordpressPublicationDateFields } from './wordpress-publication-date.mjs';
+import { withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, warnIfListingAtCap, fetchJson } from './crawler-template.mjs';
@@ -207,7 +208,7 @@ export async function fetchAllSpitalLachenJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      ...publication,
+      ...withLegacyPostingDay(publication),
       applyUrl: link,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
