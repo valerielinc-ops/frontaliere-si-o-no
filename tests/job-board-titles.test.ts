@@ -316,6 +316,30 @@ describe('buildEmployerHubTitle — employer hub', () => {
     expect(isValidTitleLength(bern), bern).toBe(true);
     expect(isValidTitleLength(zurich), zurich).toBe(true);
   });
+
+  it('preserves identity when long employer names share a prefix', () => {
+    const sharedPrefix = 'International Research and Development Corporation ';
+    const alpha = buildEmployerHubTitle({
+      locale: 'it',
+      companyDisplay: `${sharedPrefix}Alpha`,
+      location: 'Berna',
+      count: 12,
+      year: YEAR,
+    });
+    const beta = buildEmployerHubTitle({
+      locale: 'it',
+      companyDisplay: `${sharedPrefix}Beta`,
+      location: 'Berna',
+      count: 12,
+      year: YEAR,
+    });
+
+    expect(alpha).not.toBe(beta);
+    expect(alpha).toContain('Alpha');
+    expect(beta).toContain('Beta');
+    expect(isValidTitleLength(alpha), alpha).toBe(true);
+    expect(isValidTitleLength(beta), beta).toBe(true);
+  });
 });
 
 describe('buildRecencyHubTitle — recency hub (last N days / since yesterday)', () => {

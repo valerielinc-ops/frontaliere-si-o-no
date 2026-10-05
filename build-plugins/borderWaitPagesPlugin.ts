@@ -95,7 +95,11 @@ import { adSlotHtml } from './lib/adSlotHtml';
 import { imageObjectLdDocument } from '../services/seo/imageObjectLd';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { getCantonDisplayName, type CantonDisplayLocale } from './shared/cantonDisplay';
-import { buildTitleWithBrand, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import {
+  buildTitleWithBrand,
+  TITLE_MAX_CHARS,
+  truncateToClauseNonEmpty,
+} from './shared/titleSuffix';
 import {
   DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE,
   DECISION_MOMENT_SURFACE_ATTRIBUTE,
@@ -154,6 +158,21 @@ function crossingTitleParts(crossingDisplay: string): { corridor: string; route:
 }
 
 /**
+ * Keep both ends of an overlong proper name so a capped fallback still
+ * carries a useful corridor/road discriminator.  Current registry labels fit
+ * without this rung; it protects future data and adversarial inputs without
+ * inventing a keyword.
+ */
+function compactBorderTitlePart(value: string, maxChars: number): string {
+  const normalized = String(value || '').replace(/\s+/g, ' ').trim();
+  const chars = [...normalized];
+  if (chars.length <= maxChars) return normalized;
+  const headChars = Math.ceil((maxChars - 1) / 2);
+  const tailChars = Math.floor((maxChars - 1) / 2);
+  return `${chars.slice(0, headChars).join('')}…${chars.slice(-tailChars).join('')}`;
+}
+
+/**
  * Build the leaf `<title>` without allowing a long corridor prefix to erase
  * the road name. The previous implementation truncated the full H1 at a
  * clause boundary, so three Basel routes all became “Basel – Weil am Rhein”.
@@ -168,21 +187,43 @@ export function buildBorderWaitLeafTitle(
   const place = route ? `${route} — ${corridor}` : corridor;
   const candidatesByLocale: Record<BorderWaitLocale, string[]> = {
     it: route
-      ? [`Tempi attesa ${place}`, `Dogana ${place}`, `Tempi ${route}`, `Dogana ${route}`]
+      ? [`Tempi attesa ${place}`, `Dogana ${place}`]
       : [`Tempi attesa alla dogana ${place}`, `Dogana ${place}`, `Tempi attesa ${place}`],
     en: route
-      ? [`${place} border wait`, `Border crossing ${place}`, `${route} border wait`, `Border wait ${route}`]
+      ? [`${place} border wait`, `Border crossing ${place}`]
       : [`${place} border wait`, `Border crossing ${place}`, `Border wait ${place}`],
     de: route
-      ? [`Wartezeit ${place}`, `Grenzübergang ${place}`, `Wartezeit ${route}`, `Grenze ${route}`]
+      ? [`Wartezeit ${place}`, `Grenzübergang ${place}`]
       : [`Wartezeit ${place}`, `Grenzübergang ${place}`, `Wartezeit ${corridor}`],
     fr: route
-      ? [`Attente douane ${place}`, `Poste frontière ${place}`, `Attente ${route}`, `Douane ${route}`]
+      ? [`Attente douane ${place}`, `Poste frontière ${place}`]
       : [`Attente douane ${place}`, `Poste frontière ${place}`, `Attente ${corridor}`],
   };
   const candidates = candidatesByLocale[locale];
-  return candidates.find((candidate) => [...candidate].length <= TITLE_MAX_CHARS)
-    ?? candidates[candidates.length - 1];
+  const firstFit = candidates.find((candidate) => [...candidate].length <= TITLE_MAX_CHARS);
+  if (firstFit) return firstFit;
+
+  // Preserve a bounded corridor alongside the route in the final rung.  A
+  // route-only fallback made two long corridors with the same road token
+  // indistinguishable, while returning the raw candidate could exceed the
+  // shared title cap.
+  const compactRoute = compactBorderTitlePart(route, 28);
+  const compactCorridor = compactBorderTitlePart(corridor, 30);
+  const overflowFallback: Record<BorderWaitLocale, string> = {
+    it: route
+      ? `Dogana ${compactRoute} — ${compactCorridor}`
+      : `Dogana ${compactCorridor}`,
+    en: route
+      ? `Border wait ${compactRoute} — ${compactCorridor}`
+      : `Border wait ${compactCorridor}`,
+    de: route
+      ? `Grenze ${compactRoute} — ${compactCorridor}`
+      : `Grenze ${compactCorridor}`,
+    fr: route
+      ? `Douane ${compactRoute} — ${compactCorridor}`
+      : `Douane ${compactCorridor}`,
+  };
+  return truncateToClauseNonEmpty(overflowFallback[locale], TITLE_MAX_CHARS);
 }
 
 function buildDiscoverMoreCtas(locale: BorderWaitLocale): ReadonlyArray<DiscoverMoreCta> {

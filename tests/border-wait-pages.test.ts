@@ -278,6 +278,22 @@ describe('borderWaitPagesPlugin — page generation', () => {
       expect(titles.join('\n')).toContain('Freiburgerstrasse');
       expect(titles.join('\n')).toContain('Hiltalingerstrasse');
     }
+
+    const oversizedRouteTitle = buildBorderWaitLeafTitle(
+      'it',
+      `Road, ${'R'.repeat(70)}`,
+    );
+    expect([...oversizedRouteTitle].length).toBeLessThanOrEqual(66);
+
+    const alphaCorridorTitle = buildBorderWaitLeafTitle(
+      'en',
+      `Corridor Alpha ${'A'.repeat(70)}, A2`,
+    );
+    const betaCorridorTitle = buildBorderWaitLeafTitle(
+      'en',
+      `Corridor Beta ${'A'.repeat(70)}, A2`,
+    );
+    expect(alphaCorridorTitle).not.toBe(betaCorridorTitle);
   });
 
   it('emits one final title per localized crossing leaf', () => {

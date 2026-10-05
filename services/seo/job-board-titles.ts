@@ -443,14 +443,14 @@ function compactEmployerName(companyDisplay: string): string {
   if (!raw) return '';
   const beforeQualifier = raw.split(/\s+[—–-]\s+/, 1)[0]?.trim() || raw;
   if (visibleLength(beforeQualifier) <= 32) return beforeQualifier;
-  const words = beforeQualifier.split(' ');
-  let compact = '';
-  for (const word of words) {
-    const candidate = compact ? `${compact} ${word}` : word;
-    if (visibleLength(candidate) > 32) break;
-    compact = candidate;
-  }
-  return compact || [...beforeQualifier].slice(0, 32).join('').trimEnd();
+  const chars = [...beforeQualifier];
+  const head = chars.slice(0, 20).join('');
+  const tail = chars.slice(-11).join('');
+  // Keep the tail as well as the familiar prefix: two long legal names may
+  // share their first 32 characters while differing in the identity-bearing
+  // suffix. The ellipsis marks the editorial abbreviation without adding a
+  // synthetic keyword.
+  return `${head}…${tail}`;
 }
 
 export function buildEmployerHubTitle({
