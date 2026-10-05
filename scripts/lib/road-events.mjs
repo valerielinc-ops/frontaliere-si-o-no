@@ -425,8 +425,9 @@ function lookupPhrase(phrase, byName) {
 /**
  * Canton (BFS code) of a DATEX situation from its texts, or null.
  * Order: postal code in an address → typed place names (interchange,
- * locality, tunnel, …) → named point descriptors. All resolved places must
- * agree: two different cantons (a stretch across a cantonal border) → null.
+ * locality, tunnel, …) → any known name in the head. Each stage reads ALL the
+ * texts, and all resolved places must agree: two different cantons (a stretch
+ * across a cantonal border, or two texts that disagree) → null.
  */
 export function resolveCantonFromTexts(texts, gazetteer) {
   const found = new Set();
@@ -444,18 +445,17 @@ export function resolveCantonFromTexts(texts, gazetteer) {
         const canton = lookupPhrase(m[1], gazetteer.byName);
         if (canton) found.add(canton);
       }
-      if (found.size) break;
     }
   }
   if (found.size === 0) {
     for (const raw of texts) {
       const canton = lookupPhrase(decodeEntities(String(raw ?? '')).split(STATUS_SPLIT_RE)[0], gazetteer.byName);
-      if (canton) {
-        found.add(canton);
-        break;
-      }
+      if (canton) found.add(canton);
     }
   }
+  // Every text of the situation is consulted (de/fr/it comments, point
+  // descriptors): two of them naming different cantons is a disagreement,
+  // and a disagreement is dropped, never settled by whichever came first.
   return found.size === 1 ? [...found][0] : null;
 }
 
@@ -592,6 +592,35 @@ export function dedupeRoadEvents(events) {
       String(b.publishedAt ?? b.validFrom ?? '').localeCompare(String(a.publishedAt ?? a.validFrom ?? '')) ||
       a.id.localeCompare(b.id),
   );
+}
+
+/**
+ * Stamps `lastSuccessAt` on every source result (now for `ok`, the previous
+ * file's value otherwise) and returns the previous events of each source that
+ * ERRORED this run, but only while its own last success is within `maxHours`.
+ * Measuring the age of the whole snapshot instead would let a healthy sibling,
+ * which rewrites the file every run, keep a dead source's events alive forever.
+ * Mutates `results` (lastSuccessAt, carriedForward).
+ */
+export function carryForwardFailedSources(results, previous, { now = new Date(), maxHours = 24 } = {}) {
+  const previousSource = new Map((previous?.sources ?? []).map((s) => [s.id, s]));
+  const carried = [];
+  for (const r of results) {
+    if (r.status === 'ok') {
+      r.lastSuccessAt = now.toISOString();
+      continue;
+    }
+    const last = previousSource.get(r.id)?.lastSuccessAt ?? null;
+    if (last) r.lastSuccessAt = last;
+    if (r.status !== 'error' || !last || !Array.isArray(previous?.events)) continue;
+    if (!((now.getTime() - Date.parse(last)) / 3_600_000 <= maxHours)) continue;
+    const mine = previous.events.filter((e) => e.source === r.id);
+    if (mine.length) {
+      carried.push(...mine);
+      r.carriedForward = mine.length;
+    }
+  }
+  return carried;
 }
 
 /** Structural gate shared by the collector (before writing) and the tests. */

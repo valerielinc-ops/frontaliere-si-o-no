@@ -18,7 +18,9 @@
  *   - Cantonal mobility / police feeds (ROAD_EVENT_FEEDS).
  *
  * A source that fails this run keeps its events from the previous file for up
- * to CARRY_FORWARD_HOURS, so one unreachable feed does not blank a canton.
+ * to CARRY_FORWARD_HOURS after ITS OWN last success (`sources[].lastSuccessAt`),
+ * so one unreachable feed does not blank a canton — and a feed that stays down
+ * is not kept alive indefinitely by the other sources rewriting the file.
  * Nothing is written when every source failed or the payload fails the gate.
  *
  * Usage:
@@ -37,6 +39,7 @@ import {
   ROAD_EVENT_FEEDS,
   buildCantonGazetteer,
   buildCantonGroupMap,
+  carryForwardFailedSources,
   datexPullRequestBody,
   dedupeRoadEvents,
   feedItemsToEvents,
@@ -159,18 +162,12 @@ if (ok.length === 0) {
   fail(`every source failed or was skipped — ${results.map((r) => `${r.id}: ${r.reason}`).join('; ')}`);
 }
 
-// Carry forward the previous events of a source that errored this run.
-const previous = previousPayload();
-const previousAgeH = previous?.generatedAt ? (now.getTime() - Date.parse(previous.generatedAt)) / 3_600_000 : Infinity;
-const events = results.flatMap((r) => r.events);
-for (const r of results.filter((x) => x.status === 'error')) {
-  if (!(previousAgeH <= CARRY_FORWARD_HOURS) || !Array.isArray(previous?.events)) continue;
-  const carried = previous.events.filter((e) => e.source === r.id);
-  if (carried.length) {
-    events.push(...carried);
-    r.carriedForward = carried.length;
-  }
-}
+// Each source records its own last success; a failing source is carried
+// forward from the previous file only while that timestamp is recent.
+const events = [
+  ...results.flatMap((r) => r.events),
+  ...carryForwardFailedSources(results, previousPayload(), { now, maxHours: CARRY_FORWARD_HOURS }),
+];
 
 const payload = {
   schemaVersion: ROAD_EVENTS_SCHEMA_VERSION,

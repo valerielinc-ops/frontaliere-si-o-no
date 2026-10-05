@@ -10,6 +10,7 @@ import {
   ROAD_EVENT_FEEDS,
   buildCantonGazetteer,
   buildCantonGroupMap,
+  carryForwardFailedSources,
   classifyRoadEventType,
   dedupeRoadEvents,
   feedItemsToEvents,
@@ -125,6 +126,13 @@ describe('road events — canton gazetteer', () => {
     expect(resolveCantonFromTexts(['Freigegeben: X Ortschaft Buchs Sachlage: gesperrt'], gazetteer)).toBeNull();
   });
 
+  it('drops a situation whose texts name different cantons, at every stage', () => {
+    const g = { byCap: new Map(), byName: new Map([['Foo', 'GE'], ['Bar', 'VD']]) };
+    expect(resolveCantonFromTexts(['Svincolo autostradale Foo', 'Svincolo autostradale Bar'], g)).toBeNull();
+    expect(resolveCantonFromTexts(['Foo', 'Bar'], g)).toBeNull();
+    expect(resolveCantonFromTexts(['Svincolo autostradale Foo', 'Anschluss Foo'], g)).toBe('GE');
+  });
+
   it('maps exonyms the DATEX texts use', () => {
     expect(resolveCantonFromTexts(['Approvato: A12 Vevey <-> Friborgo tra Svincolo autostradale Friborgo-Sud E Luogo Matran Situazione:'], gazetteer)).toBe('FR');
   });
@@ -201,5 +209,31 @@ describe('road events — payload gate', () => {
     const a = { ...ok.events[0], id: 'a', validFrom: '2026-10-01T00:00:00.000Z', validTo: '2026-10-03T00:00:00.000Z' };
     const b = { ...ok.events[0], id: 'b', validFrom: '2026-09-30T00:00:00.000Z', validTo: '2026-10-02T00:00:00.000Z' };
     expect(dedupeRoadEvents([a, b])).toEqual([{ ...a, validFrom: '2026-09-30T00:00:00.000Z' }]);
+  });
+});
+
+describe('road events — carry-forward of a failing source', () => {
+  const ev = (source: string) => ({ id: `${source}:1`, canton: 'FR', type: 'traffico', title: 't', url: 'https://x.ch/a', validFrom: null, validTo: null, publishedAt: null, source, observedAt: '2026-10-04T00:00:00.000Z' });
+
+  it('carries a failing source only while ITS last success is recent, whatever its siblings do', () => {
+    const t0 = Date.parse('2026-10-04T00:00:00Z');
+    // Hour 0: both ok.
+    let previous: any = { sources: [], events: [] };
+    const run = (hour: number, aOk: boolean) => {
+      const now = new Date(t0 + hour * 3_600_000);
+      const results: any[] = [
+        { id: 'a', status: aOk ? 'ok' : 'error', events: aOk ? [ev('a')] : [] },
+        { id: 'b', status: 'ok', events: [ev('b')] },
+      ];
+      const carried = carryForwardFailedSources(results, previous, { now, maxHours: 24 });
+      const events = [...results.flatMap((r) => r.events), ...carried];
+      previous = { sources: results.map(({ events: _e, ...rest }) => rest), events };
+      return events.filter((e) => e.source === 'a').length;
+    };
+    expect(run(0, true)).toBe(1);
+    // Source A down from hour 3 on, B healthy every 3 hours.
+    for (let h = 3; h <= 24; h += 3) expect(run(h, false), `hour ${h}`).toBe(1);
+    expect(run(27, false)).toBe(0);
+    expect(previous.sources.find((s: any) => s.id === 'a').lastSuccessAt).toBe('2026-10-04T00:00:00.000Z');
   });
 });
