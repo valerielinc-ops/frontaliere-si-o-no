@@ -378,6 +378,23 @@ export function buildCarouselCaption({ kind, dayLabel, picks }) {
   ].join('\n');
 }
 
+/**
+ * Build the shared cover and item copy for the Instagram/TikTok carousel
+ * renderer. Keeping these strings here prevents the two posters from drifting.
+ *
+ * @param {{ kind: 'job'|'article'|'border', dayLabel: string, items: Array<{title:string, statLabel?:string, statValue?:string, footerNote?:string}> }} params
+ */
+export function buildCarouselSlideCopy({ kind, dayLabel, items }) {
+  const isJob = kind === 'job';
+  const isBorder = kind === 'border';
+  return {
+    kicker: isBorder ? 'CLASSIFICA DOGANE' : isJob ? 'LAVORI PIÙ CLICCATI' : 'ARTICOLI PIÙ LETTI',
+    title: isBorder ? 'Le dogane più veloci' : isJob ? 'I lavori più cliccati' : 'Gli articoli più letti',
+    subtitle: dayLabel,
+    items,
+  };
+}
+
 export const TIKTOK_CAPTION_MAX_CHARS = 2_200;
 
 const TIKTOK_HASHTAGS = Object.freeze({
@@ -407,9 +424,9 @@ function tiktokLead(kind) {
 }
 
 function tiktokSummary(kind, dayLabel) {
-  if (kind === 'job') return `Le offerte di lavoro piu cliccate dai frontalieri il ${dayLabel}, in una classifica rapida.`;
-  if (kind === 'border') return `La classifica delle dogane piu veloci del Ticino nella settimana ${dayLabel}.`;
-  return `Gli articoli e gli aggiornamenti piu letti dai frontalieri il ${dayLabel}, in sintesi.`;
+  if (kind === 'job') return `Le offerte di lavoro più cliccate dai frontalieri il ${dayLabel}, in una classifica rapida.`;
+  if (kind === 'border') return `La classifica delle dogane più veloci del Ticino nella settimana ${dayLabel}.`;
+  return `Gli articoli e gli aggiornamenti più letti dai frontalieri il ${dayLabel}, in sintesi.`;
 }
 
 /**
