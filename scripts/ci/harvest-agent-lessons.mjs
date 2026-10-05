@@ -224,6 +224,23 @@ const ADSENSE_BOT_GATE_RE = new RegExp(
 // authentication or capability evidence.
 const WORKFLOW_SCOPE_CREDS_RE = /workflows? scope|github_pat|github[_ .-]?token|gh[_ .-]?token|\bpat\b|app[_ .-]?token|persist-credentials|branch protection|token\s+(?:scope|permission|capabilit)|(?:\b(?:github|workflow|actions\/checkout|checkout|branch protection|app installation)\b[\s\S]{0,100}\b(?:credential|credentials|secret|token)\b|\b(?:credential|credentials|secret|token)\b[\s\S]{0,100}\b(?:github|workflow|actions\/checkout|checkout|branch protection|app installation)\b)/i;
 
+// Candidate: a canonical (canonicalPath, canonical URL) and a trailing slash in
+// the same finding line, in either order and in either review language. The
+// semantic guard below also requires an explicit missing-slash signal.
+const CANONICAL_TRAILING_SLASH_RE = /\bcanonical\w*\b[^\n]{0,200}?(?:\btrailing[- ]slash|\bslash finale|\bbarra finale)|(?:\btrailing[- ]slash|\bslash finale|\bbarra finale)[^\n]{0,200}?\bcanonical\w*\b/i;
+const CANONICAL_MISSING_SLASH_RE = /\b(?:without|missing|omit\w*|remove\w*|lack\w*|absent|fail\w*\s+to|(?:do|does|did)\s+not|(?:does|did)n['’]?t|senza|manc\w*|omett\w*|rimuov\w*|assent\w*)\b/i;
+const CANONICAL_NO_TRAILING_SLASH_RE = /\bno\b[^\n]{0,32}\b(?:trailing[- ]slash|slash finale|barra finale)\b/i;
+
+function isMissingCanonicalTrailingSlash(text) {
+  const s = String(text || '');
+  if (!CANONICAL_TRAILING_SLASH_RE.test(s)) return false;
+  return [...s.matchAll(/\b(?:trailing[- ]slash|slash finale|barra finale)\b/gi)].some((match) => {
+    const context = sentenceAround(s, match.index, match.index + match[0].length);
+    return /\bcanonical\w*\b/i.test(context) &&
+      (CANONICAL_MISSING_SLASH_RE.test(context) || CANONICAL_NO_TRAILING_SLASH_RE.test(context));
+  });
+}
+
 // `structured-data` is a lexicon, and the same words name two classes with two
 // different structural fixes (issue 9108, reopened 2026-10-04 with 11 findings
 // after the cutoff): the site EMITTERS that write JSON-LD (build-plugins,
@@ -270,6 +287,16 @@ const TAXONOMY = [
   { key: 'adsense-loader-contract', re: /(?:(?:adsense|adsbygoogle|auto ?ads)[\s\S]{0,220}(?:loader|script|asset|chunk|cdn|same[- ]origin|missing|absent|drop|zero|offload)|(?:loader|script|asset|chunk|cdn|same[- ]origin|missing|absent|drop|zero|offload)[\s\S]{0,220}(?:adsense|adsbygoogle|auto ?ads))/i, docKeys: ['auto ads', 'adsense'] },
   { key: 'cls-layout', re: /\bcls\b|layout shift|reflow|reserve space|min-h-|aspect-ratio/i, docKeys: ['cls', 'reserve space', 'layout shift'] },
   { key: 'auto-ads', re: /auto ?ads|adsense|anchor ad|vignette|in-page ad/i, docKeys: ['auto ads', 'adsense'] },
+  // Split out of `canonical-sitemap` by the RULE it violates, not by its words
+  // (issue 10112, triage of the 11 findings after the 2026-09-27 cutoff): an
+  // article canonicalPath written without the trailing slash the site's URL
+  // contract requires (AGENTS.md, "Trailing slash obbligatorio"). Two of the
+  // eleven (#11114, #10987) were this one rule, both on the SEO entries the
+  // corpus article generator writes; that generator now refuses a no-slash
+  // canonicalPath in its post-write validation, so this bucket measures that
+  // gate alone. The other nine stay in the topic bucket below: they share
+  // vocabulary, not a rule. Threshold unchanged.
+  { key: 'canonical-trailing-slash', re: CANONICAL_TRAILING_SLASH_RE, docKeys: ['trailing slash obbligatorio', 'trailing slash'] },
   // Precedence is intentional: when a finding mentions both surfaces, the
   // topic bucket wins before the sibling-sweep process bucket below.
   { key: 'canonical-sitemap', re: /\b(?:canonical|sitemaps?|noindex|cross-section)\b/i, docKeys: ['canonical', 'sitemap', 'noindex'] },
@@ -602,8 +629,10 @@ const SITEMAP_SEO_DEFECT_RE =
 // remain in the fingerprint safety net instead of inflating this topic bucket.
 const SITEMAP_NEUTRAL_ACTIVITY_RE =
   /\b(?:coverage|include(?:s|d)?|listed|update(?:s|d)?|aggiorna\w*|publish(?:es|ed)?|pubblic\w*|republish(?:es|ed)?|ripubblic\w*|emit(?:s|ted)?|emett\w*)\b/i;
+// `coverage` alone is neutral, but a report that claims sitemap-only coverage
+// while a discovered frontier was never crawled states an explicit defect.
 const SITEMAP_EXPLICIT_DEFECT_RE =
-  /\b(?:sitemaps?|noindex)\b[^.\n]{0,100}\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|non|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|noindex|non[- ]canonical|unreachable|leak\w*)\b|\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|non|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|noindex|non[- ]canonical|unreachable|leak\w*)[^.\n]{0,100}\b(?:sitemaps?|noindex)\b/i;
+  /\b(?:sitemaps?|noindex)\b[^.\n]{0,100}\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|non|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|noindex|non[- ]canonical|unreachable|leak\w*|never\s+crawled|not\s+crawled|mai\s+crawled)\b|\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|non|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|noindex|non[- ]canonical|unreachable|leak\w*|never\s+crawled|not\s+crawled|mai\s+crawled)[^.\n]{0,100}\b(?:sitemaps?|noindex)\b/i;
 
 export function isGenuineCanonicalSitemapFinding(text) {
   const s = String(text || '');
@@ -658,8 +687,20 @@ export function bucketFinding(text) {
   // discriminante e' la frase completa (affermazioni, location label, falsi
   // positivi dichiarati), non il solo vocabolario del topic.
   const scannable = stripNegatedImpactClauses(text);
+  // Reviews sometimes name sitemap concepts only inside camelCase identifiers
+  // (for example `discoverGeSitemapListDocuments` and `sitemapError`). Split
+  // those boundaries for this topic so genuine sitemap failures still reach
+  // its explicit-defect guard. Only identifiers that contain "sitemap" are
+  // split: splitting every identifier turned `coverageOk` into a neutral
+  // "coverage" activity word and dropped a real coverage finding (#10819).
+  const canonicalSitemapScannable = scannable.replace(
+    /\b\w*[Ss]itemap\w*\b/g,
+    (id) => id.replace(/([a-z0-9])([A-Z])/g, '$1 $2'),
+  );
   for (const t of TAXONOMY) {
-    if (!t.re.test(scannable)) continue;
+    const candidate = t.key === 'canonical-sitemap' ? canonicalSitemapScannable : scannable;
+    if (!t.re.test(candidate)) continue;
+    if (t.key === 'canonical-trailing-slash' && !isMissingCanonicalTrailingSlash(scannable)) continue;
     if (t.key === 'structured-data-parser' && !isCrawlerParserFinding(text)) continue;
     // A review line starts with one or more file locations before its severity
     // marker. Do not let a path such as `unsubscribe-credential-monitor.yml`
@@ -685,7 +726,7 @@ export function bucketFinding(text) {
     // canonicalizers, canonical replacements, route URLs). Keep those lines in
     // the fingerprint safety-net instead of inflating the canonical-sitemap
     // topic with unrelated reviewer findings.
-    if (t.key === 'canonical-sitemap' && !isGenuineCanonicalSitemapFinding(scannable)) continue;
+    if (t.key === 'canonical-sitemap' && !isGenuineCanonicalSitemapFinding(candidate)) continue;
     return t.key;
   }
   // La rete fingerprint riceve il testo INTERO, non quello strippato. Lo strip e'
