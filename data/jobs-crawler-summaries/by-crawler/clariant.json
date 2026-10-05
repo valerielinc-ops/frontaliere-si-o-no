@@ -1,7 +1,7 @@
 {
   "key": "clariant",
   "label": "Clariant",
-  "generatedAt": "2026-10-04T21:15:35.273Z",
+  "generatedAt": "2026-10-05T09:09:17.615Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4513,
-  "avgDurationMs": 4513,
+  "durationMs": 4457,
+  "avgDurationMs": 4457,
   "durationHistory": [
-    4513
+    4457
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +35,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-Senior-Manager-National-Tax-&-Tax-Governance/1421384933/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:15:27.201Z",
+      "crawledAt": "2026-10-05T09:09:08.511Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -46,7 +48,9 @@
       "sector": "Chimica Speciale",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-29",
+      "datePosted": "2026-09-27T02:00:00Z",
+      "postedDate": "2026-09-27T02:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://careers.clariant.com/job/Pratteln-Senior-Manager-National-Tax-&-Tax-Governance/1421384933/",
       "jobReqId": "41654",
       "needsRetranslation": true,
@@ -74,7 +78,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-Intern-AI-for-Sustainability-reporting/1442415333/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:15:26.569Z",
+      "crawledAt": "2026-10-05T09:09:07.942Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -87,7 +91,9 @@
       "sector": "Chimica Speciale",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-29",
+      "datePosted": "2026-09-29T00:00:00Z",
+      "postedDate": "2026-09-29T00:00:00Z",
+      "postingDateSource": "reported",
       "applyUrl": "https://careers.clariant.com/job/Pratteln-Intern-AI-for-Sustainability-reporting/1442415333/",
       "jobReqId": "41889",
       "firstSeenAt": "2026-09-29T21:14:00.480Z",
@@ -105,5 +111,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

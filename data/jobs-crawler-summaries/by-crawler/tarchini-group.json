@@ -1,16 +1,16 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-10-04T21:12:56.881Z",
+  "generatedAt": "2026-10-05T09:10:52.230Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4418,
-  "avgDurationMs": 4418,
+  "durationMs": 4105,
+  "avgDurationMs": 4105,
   "durationHistory": [
-    4418
+    4105
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -45,7 +45,7 @@
       "firstSeenAt": "2026-10-01T09:14:30.664Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T21:12:49.378Z",
+      "crawledAt": "2026-10-05T09:10:45.669Z",
       "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -91,7 +91,7 @@
       "applicationEmail": "info@tarchinigroup.com",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T21:12:49.393Z",
+      "crawledAt": "2026-10-05T09:10:45.690Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -131,7 +131,7 @@
       "firstSeenAt": "2026-09-29T21:13:20.401Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-04T21:12:49.397Z",
+      "crawledAt": "2026-10-05T09:10:45.698Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -141,5 +141,5 @@
       }
     }
   ],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
