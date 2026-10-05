@@ -12604,6 +12604,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.valuta-intercettata-brogeda.title': 'Doppio sequestro di valuta al valico di Brogeda',
     'blog.article.valuta-intercettata-brogeda.excerpt': 'Al valico di Brogeda, in due operazioni distinte, doganieri e finanzieri di Ponte Chiasso hanno intercettato oltre 240mila euro nei giorni scorsi.',
     'blog.article.valuta-intercettata-brogeda.imageAlt': 'Valico di Brogeda, teatro di due operazioni con oltre 240mila euro intercettati',
+    'blog.article.unione-confronto-pilastro-ch-it.title': 'Secondo pilastro: l\'Unione chiede confronto CH-IT',
+    'blog.article.unione-confronto-pilastro-ch-it.excerpt': 'L\'Unione Frontalieri Italiani chiede un confronto tra Italia e Svizzera sul secondo pilastro, tema centrale per la previdenza dei frontalieri.',
+    'blog.article.unione-confronto-pilastro-ch-it.imageAlt': 'Documenti sul secondo pilastro e una borsa da pendolare in Ticino',
 };
 
 export default blogMetaIt;

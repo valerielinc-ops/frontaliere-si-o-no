@@ -12602,6 +12602,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.valuta-intercettata-brogeda.title': 'Zweifache Beschlagnahmung von Devisen am Grenzübergang Brogeda',
     'blog.article.valuta-intercettata-brogeda.excerpt': 'Am Grenzübergang Brogeda haben Zollbeamte und Finanzpolizisten aus Ponte Chiasso in zwei getrennten Vorgängen in den vergangenen Tagen über 240mila euro abgefangen.',
     'blog.article.valuta-intercettata-brogeda.imageAlt': 'Grenzübergang Brogeda mit zwei Einsätzen und über 240.000 abgefangenen Euro',
+    'blog.article.unione-confronto-pilastro-ch-it.title': 'Zweite Säule: Die Union fordert einen CH-IT-Austausch',
+    'blog.article.unione-confronto-pilastro-ch-it.excerpt': 'Die Unione Frontalieri Italiani fordert einen Vergleich zwischen Italien und der Schweiz zur zweiten Säule, einem zentralen Thema für die Vorsorge der Grenzgänger.',
+    'blog.article.unione-confronto-pilastro-ch-it.imageAlt': 'Unterlagen zur zweiten Säule und eine Pendler-Tasche im Tessin',
 };
 
 export default blogMetaDe;

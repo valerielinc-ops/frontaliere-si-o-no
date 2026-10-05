@@ -23306,6 +23306,16 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'india-aels-protezione-capitali',
+    category: 'novita',
+    date: '2026-10-05T11:04:37.058Z',
+    image: '/images/blog/india-aels-protezione-capitali.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

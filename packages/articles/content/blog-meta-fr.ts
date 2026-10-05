@@ -12605,6 +12605,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.valuta-intercettata-brogeda.title': 'Double saisie de devises au poste-frontière de Brogeda',
     'blog.article.valuta-intercettata-brogeda.excerpt': 'Au poste-frontière de Brogeda, lors de deux opérations distinctes, des douaniers et des agents de la Guardia di Finanza de Ponte Chiasso ont intercepté plus de 240mila euro ces derniers jours.',
     'blog.article.valuta-intercettata-brogeda.imageAlt': 'Poste-frontière de Brogeda, avec deux opérations et plus de 240 000 euros interceptés',
+    'blog.article.unione-confronto-pilastro-ch-it.title': 'Deuxième pilier : l\'Union demande une comparaison CH-IT',
+    'blog.article.unione-confronto-pilastro-ch-it.excerpt': 'L\'Union Frontalière Italienne demande une confrontation entre l\'Italie et la Suisse sur le deuxième pilier, thème central pour la prévoyance des frontaliers.',
+    'blog.article.unione-confronto-pilastro-ch-it.imageAlt': 'Documents sur le deuxième pilier et sac de pendulaire au Tessin',
 };
 
 export default blogMetaFr;

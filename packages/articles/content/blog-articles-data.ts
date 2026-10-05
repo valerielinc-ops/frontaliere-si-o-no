@@ -37838,6 +37838,16 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'unione-confronto-pilastro-ch-it',
+ category: 'pensione',
+ date: '2026-10-05T10:48:06.796Z',
+ image: '/images/blog/unione-confronto-pilastro-ch-it.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
