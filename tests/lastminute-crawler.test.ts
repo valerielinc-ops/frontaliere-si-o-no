@@ -136,7 +136,7 @@ describe('lastminute parser — parseSmartRecruitersDetail', () => {
     });
 
     it('extracts posted date in ISO format', () => {
-      expect(detail.postedDate).toBe('2026-01-15');
+      expect(detail.postedDate).toBe('2026-01-15T10:00:00.000Z');
     });
 
     it('tracks source text length', () => {

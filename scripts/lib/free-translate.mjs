@@ -776,6 +776,21 @@ async function translateChunkGoogle(text, sourceLang, targetLang, outcome = null
   return '';
 }
 
+/**
+ * Il verdetto di UNA istanza dentro `raceInstances`: la sua risposta puo'
+ * vincere la gara solo se e' una traduzione. Un eco della sorgente o una
+ * meta-risposta («Sorry, I can't help with that.», «Traduzione:») resta qui e
+ * vale '': non vince, non ferma le altre istanze ancora in corsa e non marca
+ * l'istanza come sana. Scartarla dopo, in `tryTier`, era troppo tardi: la gara
+ * aveva gia' abortito i candidati validi.
+ */
+function acceptedRaceAnswer(tierName, source, translated, attemptOutcome) {
+  if (!translated) return '';
+  if (rejectedAsPassthrough(tierName, source, translated, attemptOutcome)) return '';
+  if (rejectedAsMetaResponse(tierName, source, translated, attemptOutcome)) return '';
+  return translated;
+}
+
 // ── Parallel Race Helper ─────────────────────────────────────────────────────
 // Probe multiple instances in parallel, return the first valid translation.
 // Much faster than sequential probing when some instances are slow/down.
@@ -873,8 +888,7 @@ async function translateWithLingva(text, sourceLang, targetLang, outcome = null)
     // Dentro `raceInstances`: se questa istanza rende l'eco NON deve vincere la
     // gara, le altre stanno ancora provando. Percio' il rifiuto resta qui e non
     // sale in `tryTier` — ma passa dalla formula condivisa e viene contato.
-    if (translated && !rejectedAsPassthrough('lingva', q, translated, attemptOutcome)) return translated;
-    return '';
+    return acceptedRaceAnswer('lingva', q, translated, attemptOutcome);
   }, outcome);
 }
 
@@ -897,8 +911,7 @@ async function translateWithSimplyTranslate(text, sourceLang, targetLang, outcom
     if (!res.ok) return '';
     const data = await res.json();
     const translated = normalizeBlock(data?.translated_text || '');
-    if (translated && !rejectedAsPassthrough('simplyTranslate', q, translated, attemptOutcome)) return translated;
-    return '';
+    return acceptedRaceAnswer('simplyTranslate', q, translated, attemptOutcome);
   }, outcome);
 }
 
@@ -956,8 +969,7 @@ async function translateWithLibreTranslate(text, sourceLang, targetLang, outcome
     if (!res.ok) return '';
     const data = await res.json();
     const translated = normalizeBlock(data?.translatedText || '');
-    if (translated && !rejectedAsPassthrough('libreTranslate', q, translated, attemptOutcome)) return translated;
-    return '';
+    return acceptedRaceAnswer('libreTranslate', q, translated, attemptOutcome);
   }, outcome);
 }
 
@@ -985,8 +997,7 @@ async function translateWithMozhiEngine(text, sourceLang, targetLang, engine = '
     // nomi diversi (`mozhiDdg`, `mozhiGoogle`, `mozhiYandex`, `mozhiDeepL`) e da
     // qui dentro non sono ricostruibili, quindi il bucket usa `mozhi:<engine>`
     // invece di inventare una corrispondenza che poi deriva.
-    if (translated && !rejectedAsPassthrough(`mozhi:${engine}`, q, translated, attemptOutcome)) return translated;
-    return '';
+    return acceptedRaceAnswer(`mozhi:${engine}`, q, translated, attemptOutcome);
   }, outcome);
 }
 
@@ -1558,8 +1569,11 @@ async function _translateGroupWithCodex(group) {
   // passthrough della sorgente, quindi `tryTier` non la riconoscerebbe da
   // solo. Filtrare la mappa prima di costruire i risultati copre sia la
   // risposta singola sia quella batch senza scartare gli item sani del gruppo.
+  // Una meta-risposta (rifiuto, richiesta dell'input) vale come l'eco del
+  // prompt: '' qui, cosi' conta anche come fallimento della lane qui sotto e
+  // una batch di soli rifiuti non azzera lo streak dello stop.
   for (const [source, out] of byText) {
-    if (out && codexPromptEchoMarker(out, source)) byText.set(source, '');
+    if (out && (codexPromptEchoMarker(out, source) || detectAiMetaResponse(out, { source }))) byText.set(source, '');
   }
   const results = group.map((item) => byText.get(item.clean) || '');
   group.forEach((item, index) => {

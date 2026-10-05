@@ -49,6 +49,7 @@
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { appendSlugDisambiguator } from './dedicated-crawler-common.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
@@ -179,14 +180,6 @@ function buildDescription({ firmenportrait, aufgaben, anforderungen, wirBieten }
   if (normalizeSpace(wirBieten)) parts.push(`${headers.wirBieten}\n${wirBieten.trim()}`);
   const raw = parts.join('\n\n');
   return normalizeDescriptionSpace(normalizeDescriptionBullets(raw));
-}
-
-/* ── Date helper ──────────────────────────────────────────── */
-
-function parseKsmlTimestamp(raw = '') {
-  // "2026-06-23 06:57:25.495" → "2026-06-23"
-  const m = String(raw || '').trim().match(/^(\d{4}-\d{2}-\d{2})/);
-  return m ? m[1] : new Date().toISOString().split('T')[0];
 }
 
 /* ── HTTP ─────────────────────────────────────────────────── */
@@ -335,7 +328,8 @@ export async function fetchAllKsmlJobs() {
       sector: 'Istruzione / Scuola pubblica',
       currency: 'CHF',
       featured: false,
-      postedDate: parseKsmlTimestamp(sb.erfassungTs),
+      // erfassungTs records creation, not publication.
+      ...sourcePostingDateFields(),
       applyUrl: detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

@@ -1,7 +1,7 @@
 {
   "key": "prosenectute-ti",
   "label": "Pro Senectute Ticino e Moesano",
-  "generatedAt": "2026-10-04T21:15:03.278Z",
+  "generatedAt": "2026-10-05T06:27:58.702Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -14,10 +14,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4532,
-  "avgDurationMs": 4532,
+  "durationMs": 4461,
+  "avgDurationMs": 4461,
   "durationHistory": [
-    4532
+    4461
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:8cf58760-f8fd-4d50-bdda-32a602558644/Concorso%20generale%202026_Infermieri.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:14:54.737Z",
+      "crawledAt": "2026-10-05T06:27:51.559Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -47,18 +47,20 @@
       "sector": "Sanità / Assistenza / Sociale",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://ti.prosenectute.ch/dam/jcr:8cf58760-f8fd-4d50-bdda-32a602558644/Concorso%20generale%202026_Infermieri.pdf",
       "firstSeenAt": "2026-09-03T13:31:32.153Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -74,7 +76,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:a071b88f-e067-4c3d-a090-ae4e7a288402/Concorso%20generale%202026%20educatori.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:14:54.583Z",
+      "crawledAt": "2026-10-05T06:27:51.368Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -87,18 +89,20 @@
       "sector": "Sanità / Assistenza / Sociale",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://ti.prosenectute.ch/dam/jcr:a071b88f-e067-4c3d-a090-ae4e7a288402/Concorso%20generale%202026%20educatori.pdf",
       "firstSeenAt": "2026-05-19T16:48:11.686Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -114,7 +118,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:a5bb2937-0e37-4696-b1fe-abe3c778aa15/Concorso%20generale%202026_Assistenti%20Sociali.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:14:54.428Z",
+      "crawledAt": "2026-10-05T06:27:51.104Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -127,18 +131,20 @@
       "sector": "Sanità / Assistenza / Sociale",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://ti.prosenectute.ch/dam/jcr:a5bb2937-0e37-4696-b1fe-abe3c778aa15/Concorso%20generale%202026_Assistenti%20Sociali.pdf",
       "firstSeenAt": "2026-09-03T13:31:31.393Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     },
     {
@@ -154,7 +160,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:23640a07-34bb-4681-90f3-c7d9ee01290a/Concorso%20generale%202026_Op.socio-assistenziali.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T21:14:54.170Z",
+      "crawledAt": "2026-10-05T06:27:50.749Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -167,22 +173,24 @@
       "sector": "Sanità / Assistenza / Sociale",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-03",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://ti.prosenectute.ch/dam/jcr:23640a07-34bb-4681-90f3-c7d9ee01290a/Concorso%20generale%202026_Op.socio-assistenziali.pdf",
       "firstSeenAt": "2026-09-03T13:31:30.156Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
       "salarySource": "estimated",
-      "_qualityScore": 92,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 22
+        "completeness": 20
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
 }
