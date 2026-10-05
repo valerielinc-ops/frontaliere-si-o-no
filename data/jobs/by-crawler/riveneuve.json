@@ -1,6 +1,6 @@
 {
   "crawlerKey": "riveneuve",
-  "assembledAt": "2026-10-05T09:16:16.705Z",
+  "assembledAt": "2026-10-05T21:41:39.951Z",
   "jobs": [
     {
       "id": "riveneuve-6211b5c5e83a",
@@ -33,7 +33,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32273/fr/un-e-infirmier-ere-a-100-taux-negociable",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:16:12.554Z",
+      "crawledAt": "2026-10-05T21:41:33.879Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -46,7 +46,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.riveneuve.ch/jcms/rivd_32273/fr/un-e-infirmier-ere-a-100-taux-negociable",
       "requirements": [],
       "requirementsByLocale": {
@@ -106,9 +108,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      }
     },
     {
       "id": "riveneuve-dfb61271a2a1",
@@ -141,7 +141,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32285/fr/un-e-assistant-e-en-soins-et-sante-communautaire-a-80",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:16:11.611Z",
+      "crawledAt": "2026-10-05T21:41:32.728Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -240,7 +240,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32286/fr/un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:16:10.534Z",
+      "crawledAt": "2026-10-05T21:41:31.782Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -253,7 +253,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "",
       "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.riveneuve.ch/jcms/rivd_32286/fr/un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere",
       "requirements": [],
       "requirementsByLocale": {
@@ -304,9 +306,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "datePosted": "",
-      "postingDateSource": "unknown"
+      }
     },
     {
       "id": "riveneuve-f9adaf7dd0d2",
@@ -339,7 +339,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32287/fr/un-e-infirmier-ere-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:16:09.081Z",
+      "crawledAt": "2026-10-05T21:41:30.758Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
