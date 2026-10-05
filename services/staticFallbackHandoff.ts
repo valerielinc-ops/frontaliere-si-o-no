@@ -63,3 +63,79 @@ export function adoptStaticFallbackIntoRoot(
   if (railWrap) railWrap.style.display = 'none';
   return { subnav, railWrap };
 }
+
+/**
+ * User-timing mark set right before `#root` (the static HTML, after the
+ * adoption above) goes to `opacity: 0` for the crossfade. The Lighthouse CI
+ * check `scripts/ci/lighthouse-first-paint-order.mjs` reads it from the LHR
+ * `user-timings` audit and compares it with the observed first contentful
+ * paint: the static HTML must have painted BEFORE this mark.
+ */
+export const STATIC_HANDOFF_HIDE_MARK = 'ft:static-handoff-hide';
+
+/** Upper bound on how long the mount waits for the static HTML's first frame. */
+export const STATIC_FIRST_PAINT_TIMEOUT_MS = 100;
+
+export interface StaticFirstPaintEnv {
+  doc?: Pick<Document, 'visibilityState'>;
+  requestFrame?: (cb: () => void) => unknown;
+  setTimer?: (cb: () => void, ms: number) => unknown;
+  timeoutMs?: number;
+}
+
+/**
+ * Resolve once the browser has presented at least one frame of the static
+ * HTML (double `requestAnimationFrame`: the first callback runs in the
+ * rendering step of the next frame, the second one after that frame painted).
+ *
+ * Why: the SPA mount hides the static HTML (`opacity: 0` on `#root`, see
+ * {@link hideRootForCrossfade}). When that hide ran before the browser's first
+ * frame, the page stayed blank until React had rendered — observed first
+ * paint 1.3-2.4 s instead of ~0.3 s on `/` and `/cerca-lavoro-ticino/`, and a
+ * simulated mobile FCP of 8-13 s instead of 4.6 s (Lighthouse runs of
+ * 2026-10-02..05, issue 11666). Whether the frame won the race depended only
+ * on network timing; waiting for it makes the static paint come first by
+ * construction.
+ *
+ * Bounded: a hidden document (background tab, speculation-rules prerender)
+ * never runs animation frames, so it does not wait at all, and a visible one
+ * waits at most `timeoutMs`.
+ */
+export function waitForStaticFirstPaint(env: StaticFirstPaintEnv = {}): Promise<void> {
+  const doc = env.doc ?? document;
+  if (doc.visibilityState !== 'visible') return Promise.resolve();
+  const requestFrame = env.requestFrame ?? ((cb: () => void) => window.requestAnimationFrame(cb));
+  const setTimer = env.setTimer ?? ((cb: () => void, ms: number) => window.setTimeout(cb, ms));
+  const timeoutMs = env.timeoutMs ?? STATIC_FIRST_PAINT_TIMEOUT_MS;
+  return new Promise<void>((resolve) => {
+    let done = false;
+    const finish = () => {
+      if (done) return;
+      done = true;
+      resolve();
+    };
+    setTimer(finish, timeoutMs);
+    requestFrame(() => requestFrame(finish));
+  });
+}
+
+/**
+ * Start the static → React crossfade: reserve `#root`'s painted height as a
+ * min-height floor (CLS #886/#855 — createRoot().render() empties #root for a
+ * moment), mark {@link STATIC_HANDOFF_HIDE_MARK}, then fade `#root` out.
+ * Call only after {@link waitForStaticFirstPaint}.
+ */
+export function hideRootForCrossfade(
+  root: HTMLElement,
+  perf: Pick<Performance, 'mark'> | undefined = typeof performance === 'undefined' ? undefined : performance,
+): void {
+  const reservedRootHeight = root.offsetHeight;
+  if (reservedRootHeight > 0) root.style.minHeight = `${reservedRootHeight}px`;
+  try {
+    perf?.mark(STATIC_HANDOFF_HIDE_MARK);
+  } catch {
+    /* user timing unavailable — the mark is diagnostics only */
+  }
+  root.style.transition = 'opacity 80ms ease-out';
+  root.style.opacity = '0';
+}
