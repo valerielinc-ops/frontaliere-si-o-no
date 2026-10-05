@@ -372,6 +372,7 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     ['tests/dist-hash-manifest-deploy-perimeter.test.ts', ['data/jobs.json'], 'data/jobs.json e` un file sintetico scritto in una cartella mkdtemp e un nome atteso nel perimetro; nessuna lettura dal checkout'],
     ['tests/git-commit-data-append-only-sets.test.ts', ['data/jobs/', 'data/seo-404-compat/'], 'ogni slice vive in repository git creati sotto os.tmpdir(); dal checkout si legge solo lo script sotto test'],
     ['tests/git-commit-data-grouped-isolation.test.ts', ['data/jobs/'], 'ogni slice vive in repository git creati sotto os.tmpdir(); dal checkout si legge solo lo script sotto test'],
+    ['tests/git-commit-data-skip-identical.test.ts', ['data/jobs/'], 'ogni slice vive in repository git creati sotto os.tmpdir(); dal checkout si legge solo lo script sotto test'],
     ['tests/git-commit-data-slice-scoping.test.ts', ['data/jobs-crawler-summaries/', 'data/jobs/'], 'ogni slice vive in repository git creati sotto os.tmpdir(); dal checkout si legge solo lo script sotto test'],
     ['tests/job-locale-mark-persistence.test.ts', ['data/jobs/'], 'la variabile root e` una cartella temporanea: le slice by-crawler sono fixture scritte dal test stesso'],
     ['tests/slug-active-loss-regression-5229.test.ts', ['data/jobs/'], 'data/jobs/by-crawler/banca-cler.json e` il path relativo di una slice scritta in un repository temporaneo'],
@@ -389,7 +390,7 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     // difetto della PR che la introduce, ed e' li' che va fermata.
     ['tests/company-alert.test.ts', ['services/locales/'], 'legge i quattro chunk {locale}-core.ts (traccia: 4 letture, tutte chunk di interfaccia), mai blog-meta o blog-body'],
     ['tests/irpef-brackets-2026.test.ts', ['services/locales/'], 'legge i chunk {locale}-core.ts e {locale}-stats.ts (traccia: 8 letture, tutte chunk di interfaccia), mai blog-meta o blog-body'],
-    ['tests/jobgate-v3-experiment.test.ts', ['services/locales/'], 'legge i quattro chunk {locale}-core.ts (traccia: 4 letture, tutte chunk di interfaccia), mai blog-meta o blog-body'],
+    ['tests/jobgate-experiment.test.ts', ['services/locales/'], 'legge i quattro chunk {locale}-core.ts (traccia: 4 letture, tutte chunk di interfaccia), mai blog-meta o blog-body'],
     ['tests/newsletter-title-neutrality.test.ts', ['services/locales/'], 'legge i quattro chunk {locale}-core.ts (traccia: 4 letture, tutte chunk di interfaccia), mai blog-meta o blog-body'],
     ['tests/signup-prompt-funnel.test.ts', ['services/locales/'], 'legge i quattro chunk {locale}-core.ts (traccia: 4 letture, tutte chunk di interfaccia), mai blog-meta o blog-body'],
   ].map(([file, roots, reason]) => ({ file, roots, reason, since: '2026-10-03', evidence: 'trace' })),

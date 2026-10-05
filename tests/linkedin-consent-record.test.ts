@@ -196,17 +196,17 @@ describe('enrichSubscriberProfile — the consent record of a LinkedIn login', (
     expect(d).not.toHaveProperty('created_at');
   });
 
-  it('a gate login of an enrolled visitor creates the subscriber with its jobgate-v3 arm', async () => {
-    await enrichSubscriberProfile(EMAIL, PROFILE, measured({ surface: 'job_gate', displayed: true, variant: 'jobgate-v3:social_first' }));
-    expect(state.sets[0].data.variant).toBe('jobgate-v3:social_first');
-    expect(state.adds[0].data.variant).toBe('jobgate-v3:social_first');
+  it('a gate login of an enrolled visitor creates the subscriber with its jobgate-v4 arm', async () => {
+    await enrichSubscriberProfile(EMAIL, PROFILE, measured({ surface: 'job_gate', displayed: true, variant: 'jobgate-v4:spotlight' }));
+    expect(state.sets[0].data.variant).toBe('jobgate-v4:spotlight');
+    expect(state.adds[0].data.variant).toBe('jobgate-v4:spotlight');
   });
 
   it('the arm never lands on a relationship that already existed, and a malformed tag is dropped', async () => {
     state.docs[PATH] = { status: 'confirmed', registration_terms_accepted: true, consent_text: 'x', created_at: 'then' };
-    await enrichSubscriberProfile(EMAIL, PROFILE, measured({ variant: 'jobgate-v3:social_first' }));
+    await enrichSubscriberProfile(EMAIL, PROFILE, measured({ variant: 'jobgate-v4:spotlight' }));
     expect(state.sets[0].data).not.toHaveProperty('variant');
-    expect(resolveLinkedInExperimentVariant({ consent: { variant: 'jobgate-v3:<script>' } })).toBeNull();
+    expect(resolveLinkedInExperimentVariant({ consent: { variant: 'jobgate-v4:<script>' } })).toBeNull();
     expect(resolveLinkedInExperimentVariant({ page: '/' })).toBeNull();
   });
 

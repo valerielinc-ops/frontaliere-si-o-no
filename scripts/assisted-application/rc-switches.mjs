@@ -14,7 +14,7 @@
  * re-applied unseen.
  *
  * Default = dry run: the plan, which Remote Config checks without writing it
- * (`?validate_only=true`, the validateTemplate of jobgate-v3-rc.mjs), so a
+ * (`?validate_only=true`, the validateTemplate of jobgate-rc.mjs), so a
  * change it would refuse fails here and not at --apply. The values are not
  * secrets: they are printed here, and the loader never masks them
  * (PLAIN_WORD_RC_KEYS in scripts/load-rc-env.mjs).

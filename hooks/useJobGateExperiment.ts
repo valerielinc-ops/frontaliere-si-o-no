@@ -1,5 +1,5 @@
 /**
- * jobgate-v3 — Remote Config loader + React hook for the job-detail auth gate.
+ * jobgate — Remote Config loader + React hook for the job-detail auth gate.
  *
  * The browser never reads Remote Config directly: `getConfigValue` serves the
  * allowlisted keys from `getPublicConfig` (functions/src/publicConfigKeys.js)
@@ -13,6 +13,12 @@
  *   - Remote Config slower than LOAD_TIMEOUT_MS or throwing;
  *   - no stable visitor id (storage blocked) and no forced arm;
  *   - crawlers/bots (the caller passes `bypass`).
+ *
+ * A gate rendered before the assignment settles starts as control and switches
+ * to its arm when Remote Config answers. That switch must not move the page:
+ * every arm keeps the gate at the control's height (jobGateSkin.ts), so the ad
+ * slot below it stays put. A settled assignment is served synchronously, so a
+ * gate rendered after it never starts as pending.
  */
 
 import { useEffect, useState } from 'react';
@@ -32,10 +38,16 @@ import {
 /** Past this the page keeps today's gate for the whole session (no late flip). */
 export const JOBGATE_LOAD_TIMEOUT_MS = 3000;
 
-/** Remembers which arm already produced `experiment_assigned` for this browser. */
-export const JOBGATE_ASSIGNED_STORAGE_KEY = 'frontaliere_jobgate_v3_assigned';
+/**
+ * Remembers which arm already produced `experiment_assigned` for this browser.
+ * Versioned with the round: a v3 entry must not swallow the v4 exposure of a
+ * visitor whose new arm happens to share a name.
+ */
+export const JOBGATE_ASSIGNED_STORAGE_KEY = 'frontaliere_jobgate_v4_assigned';
 
 let assignmentPromise: Promise<JobGateAssignment> | null = null;
+/** The settled assignment, readable synchronously so a gate rendered after it never starts as pending. */
+let settledAssignment: JobGateAssignment | null = null;
 const assignedThisSession = new Set<string>();
 
 async function readAssignment(): Promise<JobGateAssignment> {
@@ -63,6 +75,7 @@ export function loadJobGateAssignment(): Promise<JobGateAssignment> {
       .then(resolve, () => resolve(JOBGATE_NOT_ENROLLED))
       .finally(() => clearTimeout(timer));
   }).then((assignment) => {
+    settledAssignment = assignment;
     setActiveJobGateAssignment(assignment);
     return assignment;
   });
@@ -73,7 +86,7 @@ export function loadJobGateAssignment(): Promise<JobGateAssignment> {
  * The assignment the hook already started loading, or "not enrolled" when it
  * never did (crawler/bot bypass). The subscriber write awaits this instead of
  * starting its own load, so a bypassed visitor — shown today's gate and sending
- * untagged events — can never get a `jobgate-v3:*` document either.
+ * untagged events — can never get a `jobgate-v4:*` document either.
  */
 export function currentJobGateAssignment(): Promise<JobGateAssignment> {
   return assignmentPromise ?? Promise.resolve(JOBGATE_NOT_ENROLLED);
@@ -82,6 +95,7 @@ export function currentJobGateAssignment(): Promise<JobGateAssignment> {
 /** Test seam: forget the memoized assignment and the session exposure set. */
 export function resetJobGateAssignmentForTests(): void {
   assignmentPromise = null;
+  settledAssignment = null;
   assignedThisSession.clear();
   setActiveJobGateAssignment(null);
 }
@@ -108,11 +122,11 @@ export function recordJobGateExposure(assignment: JobGateAssignment): void {
 }
 
 /**
- * The visitor's jobgate-v3 assignment. Starts at `JOBGATE_PENDING` (renders as
+ * The visitor's jobgate assignment. Starts at `JOBGATE_PENDING` (renders as
  * control, not enrolled) and settles once; `bypass` keeps crawlers and bots out.
  */
 export function useJobGateExperiment(bypass = false): JobGateAssignment {
-  const [assignment, setAssignment] = useState<JobGateAssignment>(JOBGATE_PENDING);
+  const [assignment, setAssignment] = useState<JobGateAssignment>(() => settledAssignment ?? JOBGATE_PENDING);
 
   useEffect(() => {
     if (bypass) {
@@ -128,5 +142,8 @@ export function useJobGateExperiment(bypass = false): JobGateAssignment {
     };
   }, [bypass]);
 
-  return assignment;
+  if (bypass) return JOBGATE_NOT_ENROLLED;
+  // Already settled (e.g. by an earlier mount or before this render): use it
+  // synchronously, so the gate's first paint is already the final arm.
+  return settledAssignment ?? assignment;
 }

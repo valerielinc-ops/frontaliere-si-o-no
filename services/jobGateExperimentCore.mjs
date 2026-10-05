@@ -1,13 +1,15 @@
 /**
- * jobgate-v3 — multi-arm A/B test on the job-detail auth gate.
+ * jobgate — multi-arm A/B test on the job-detail auth gate (round 4,
+ * `jobgate-v4`: the gate's visual treatment; round history in
+ * docs/AUTHGATE-HEADLINE-EXPERIMENT.md).
  *
  * Pure, dependency-free core shared by the SPA (services/jobGateExperiment.ts,
  * which adds types and the browser state) and by the Remote Config publisher
- * (scripts/experiments/jobgate-v3-rc.mjs), so the weights the script validates
+ * (scripts/experiments/jobgate-rc.mjs), so the weights the script validates
  * are parsed by exactly the code the browser runs.
  *
  * Contract (shared with the readout, scripts/analytics/job-gate-experiment-readout.mjs):
- *   - experiment_id `jobgate-v3`;
+ *   - experiment_id `jobgate-v4`;
  *   - Remote Config strings JOBGATE_EXPERIMENT_ENABLED / _ARMS / _FORCE;
  *   - ENABLED other than `true` → nobody is enrolled, the page is unchanged;
  *   - ARMS = JSON object of non-negative integer weights over the known arms;
@@ -18,7 +20,11 @@
  *     so a returning visitor keeps the same arm across sessions.
  */
 
-export const JOBGATE_EXPERIMENT_ID = 'jobgate-v3';
+/**
+ * The id salts the visitor hash, so a new round reshuffles every visitor
+ * instead of inheriting the previous round's buckets.
+ */
+export const JOBGATE_EXPERIMENT_ID = 'jobgate-v4';
 
 export const JOBGATE_RC_KEYS = Object.freeze({
   enabled: 'JOBGATE_EXPERIMENT_ENABLED',
@@ -31,7 +37,7 @@ export const JOBGATE_RC_KEYS = Object.freeze({
  * JSON key order, so re-ordering keys in Remote Config cannot reshuffle
  * visitors between arms.
  */
-export const JOBGATE_ARMS = Object.freeze(['control', 'similar_alerts', 'social_first', 'email_first']);
+export const JOBGATE_ARMS = Object.freeze(['control', 'navy_panel', 'spotlight', 'actions_first']);
 
 export const JOBGATE_DEFAULT_WEIGHTS = Object.freeze({ control: 100 });
 export const JOBGATE_DEFAULT_ARMS_JSON = '{"control":100}';
@@ -39,7 +45,7 @@ export const JOBGATE_DEFAULT_ARMS_JSON = '{"control":100}';
 /** Upper bound per weight: large enough for basis points, small enough to catch typos. */
 const MAX_WEIGHT = 10000;
 
-/** @param {unknown} value @returns {value is 'control'|'similar_alerts'|'social_first'|'email_first'} */
+/** @param {unknown} value @returns {value is 'control'|'navy_panel'|'spotlight'|'actions_first'} */
 export function isJobGateArm(value) {
   return typeof value === 'string' && JOBGATE_ARMS.includes(value);
 }

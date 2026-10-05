@@ -1,19 +1,21 @@
 #!/usr/bin/env node
 /**
  * job-gate-experiment-readout.mjs — lettura dei risultati del test A/B del
- * job gate (`jobgate-v3`) e baseline pre-test. SOLA LETTURA su GA4 Data API,
+ * job gate (`jobgate-v4`, id in scripts/experiments/jobgate-plan.mjs) e baseline pre-test. SOLA LETTURA su GA4 Data API,
  * Firestore e Remote Config: nessuna scrittura, nessun publish.
  *
  * Uso:
  *   node scripts/analytics/job-gate-experiment-readout.mjs [--since 2026-09-26] \
- *     [--until 2026-10-09] [--experiment jobgate-v3] [--control control] \
+ *     [--until 2026-10-09] [--experiment jobgate-v4] [--control control] \
  *     [--weights '{"control":50,"challenger":50}'] [--json out.json] [--md out.md]
  *   node scripts/analytics/job-gate-experiment-readout.mjs --baseline --days 14 [--json out.json]
  *   [--include-bots]  disattiva l'esclusione del traffico automatico (confronto)
  *
- * Per `jobgate-v3` `--since` vale di default 2026-09-26 (analysisStart in
- * scripts/experiments/jobgate-v3-plan.mjs): il 25/09 04:55–06:30 UTC un guasto
- * CDN ha servito il sito a metà proprio nel giorno del lancio.
+ * Per l'esperimento del piano `--since` vale di default il suo `analysisStart`
+ * (scripts/experiments/jobgate-plan.mjs): il giorno dopo il lancio, così il
+ * giorno della pubblicazione di Remote Config (traffico a metà) resta fuori.
+ * Per un round chiuso (es. `jobgate-v3`, analisi dal 2026-09-26) passa
+ * `--experiment` e `--since` a mano.
  *
  * Fonti:
  *  - GA4: `experiment_assigned` (persone per braccio → SRM), `job_auth_funnel`
@@ -62,7 +64,7 @@ import {
   renderExperimentMarkdown,
   sumGa4Metric,
 } from '../lib/experiment-stats.mjs';
-import { JOBGATE_V3_PLAN } from '../experiments/jobgate-v3-plan.mjs';
+import { JOBGATE_PLAN } from '../experiments/jobgate-plan.mjs';
 
 const JOB_GATE_CTAS = ['job_board_email_unlock', 'job_board_social_unlock', 'job_expired_email_unlock'];
 const SUBSCRIBER_FIELDS = [
@@ -75,7 +77,7 @@ const SUBSCRIBER_FIELDS = [
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 /** Primo giorno analizzabile per esperimento, quando `--since` manca. */
-const DEFAULT_SINCE = { [JOBGATE_V3_PLAN.experimentId]: JOBGATE_V3_PLAN.analysisStart };
+const DEFAULT_SINCE = { [JOBGATE_PLAN.experimentId]: JOBGATE_PLAN.analysisStart };
 
 // ── Argomenti ────────────────────────────────────────────────
 
@@ -84,7 +86,7 @@ const { values: args } = parseArgs({
     since: { type: 'string' },
     until: { type: 'string' },
     days: { type: 'string' },
-    experiment: { type: 'string', default: 'jobgate-v3' },
+    experiment: { type: 'string', default: JOBGATE_PLAN.experimentId },
     control: { type: 'string', default: 'control' },
     weights: { type: 'string' },
     json: { type: 'string' },
