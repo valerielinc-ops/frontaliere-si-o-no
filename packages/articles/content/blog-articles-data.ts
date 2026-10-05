@@ -37718,6 +37718,16 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bellucci-finale-jingshan-2026',
+ category: 'novita',
+ date: '2026-10-05T03:15:22.403Z',
+ image: '/images/blog/bellucci-finale-jingshan-2026.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
