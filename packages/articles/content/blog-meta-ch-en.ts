@@ -7739,6 +7739,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-svizzera-aumento-asi.title': 'Rents in Switzerland: 32% increase in twenty years',
     'blog.article.affitti-svizzera-aumento-asi.excerpt': 'The Swiss Tenants Association reports rent increases of 32,1% between 2005 and 2025. Pressure on low and middle incomes and new political demands.',
     'blog.article.affitti-svizzera-aumento-asi.imageAlt': 'Residential buildings in Switzerland with rising rents',
+    'blog.article.voto-iva-avs-novembre-2026.title': 'VAT vote for AHV: date and details of the federal vote',
+    'blog.article.voto-iva-avs-novembre-2026.excerpt': 'On November 26, 2026, a vote will be held on financing the AVS 13th monthly payment through the VAT increase. Discover rates, deadlines, and impacts on the budget.',
+    'blog.article.voto-iva-avs-novembre-2026.imageAlt': 'Federal Palace in Bern for the VAT vote',
 };
 
 export default blogMetaChEn;
