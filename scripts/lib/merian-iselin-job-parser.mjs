@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Merian Iselin Klinik Basel job parser.
  *
@@ -116,9 +118,10 @@ export function parseMerianDetailContent(html = '') {
 
 async function fetchDetailContent(detailUrl) {
   try {
-    return parseMerianDetailContent(await fetchHtml(detailUrl));
+    const html = await fetchHtml(detailUrl);
+    return { description: parseMerianDetailContent(html), ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) };
   } catch {
-    return '';
+    return { description: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -131,11 +134,11 @@ export async function fetchAllMerianIselinJobs() {
   if (!items.length) return [];
   console.log(`  📄 Fetching detail pages for rich descriptions...`);
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (const it of items) {
-    const detailContent = await fetchDetailContent(it.url);
+    const detail = await fetchDetailContent(it.url);
+    const detailContent = detail.description;
     if (detailContent) detailHits++;
     await new Promise((r) => setTimeout(r, 200));
     const description = [
@@ -185,7 +188,7 @@ export async function fetchAllMerianIselinJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

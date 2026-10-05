@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 /**
  * Reha Andeer — small private rehabilitation clinic in Andeer (GR).
  *
@@ -221,7 +222,6 @@ export async function fetchAllRehaAndeerJobs() {
     return [];
   }
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const listing of listings) {
     console.log(`  📄 Processing: ${listing.filename}`);
@@ -277,7 +277,7 @@ export async function fetchAllRehaAndeerJobs() {
       sector: 'Gesundheitswesen / Rehabilitation',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(''),
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     });

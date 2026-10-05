@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Pflegezentrum Sonnweid (Wetzikon, ZH) job parser — Custom HTML.
  *
@@ -118,10 +120,10 @@ function extractDetailBody(html) {
 async function fetchDetail(url) {
   try {
     const html = await fetchHtml(url);
-    return { body: extractDetailBody(html) };
+    return { body: extractDetailBody(html), ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) };
   } catch (err) {
     console.warn(`  ⚠️ Detail fetch failed (${url}): ${err?.message || err}`);
-    return { body: '' };
+    return { body: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -134,16 +136,12 @@ export async function fetchAllSonnweidJobs() {
     listingHtml = await fetchHtml(LISTING_URL);
   } catch (err) {
     console.warn(`  ⚠️ Listing fetch failed: ${err?.message || err}`);
-    // A fetch failure is not an empty listing: let the crawler pipeline
-    // classify it (connection-level soft exit or HTTP error) instead of
-    // publishing a cause-less no-jobs-parsed abort.
     throw err;
   }
   const rows = parseListing(listingHtml);
   console.log(`  ✓ listing: ${rows.length} jobs`);
   if (!rows.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
     const r = rows[i];
@@ -198,7 +196,7 @@ export async function fetchAllSonnweidJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: r.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

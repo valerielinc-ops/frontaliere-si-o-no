@@ -6,6 +6,7 @@ import { isSufficientVacancyDescription } from './prospector/extract.mjs';
 import { resolveDetailOrListingSwissGeography } from './prospector/location-evidence.mjs';
 import { resolveProspectorFetch } from './prospector/public-fetch-policy.mjs';
 import { runSpecInProduction, templateToRegex } from './prospector/spec-crawler.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import {
   applyDetailFailureReuse,
   isDetailFailureWithinGrace,
@@ -79,6 +80,9 @@ function previousDetailFallbackRow(job = {}) {
     || !isSufficientVacancyDescription(description)
     || !/^\s*[-•*]\s/m.test(description)) return null;
 
+  // The reuse policy admits this row only for its exact attempted URL identity.
+  // A stored date without explicit source evidence must remain unknown.
+  const publication = mergeSourcePostingDates({}, job);
   return {
     title,
     url,
@@ -92,8 +96,8 @@ function previousDetailFallbackRow(job = {}) {
     ...(job?.postalCode ? { postalCode: String(job.postalCode).trim() } : {}),
     ...(job?.streetAddress ? { streetAddress: String(job.streetAddress).trim() } : {}),
     description,
-    postedAt: job?.postedDate || job?.datePosted || null,
-    postedDate: job?.postedDate || job?.datePosted || null,
+    ...publication,
+    postedAt: publication.postedDate || null,
     company: String(job?.company || '').trim(),
   };
 }

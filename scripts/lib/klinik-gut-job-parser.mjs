@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { readClosedElement } from './html-balanced-element.mjs';
 /**
  * Klinik Gut AG (Gruppe) — orthopaedic / accident private clinic group in
  * Graubünden + Ascona. HQ in St. Moritz (postal 7500).
@@ -177,11 +180,16 @@ export function parseKlinikGutOpenings(html = '') {
 
     const idIdx = html.indexOf(`id="${btn.domId}"`, btn.pos);
     let body = '';
+    let publication = sourcePostingDateFields('');
     if (idIdx >= 0) {
       const bodyOpen = /<div[^>]*\baccordion-body\b[^>]*>/i.exec(html.slice(idIdx));
       const bodyStart = bodyOpen ? idIdx + bodyOpen.index + bodyOpen[0].length : idIdx;
       const next = boundaries.find((p) => p > btn.pos) ?? html.length;
-      body = htmlToText(html.slice(bodyStart, Math.max(bodyStart, next)));
+      const vacancyHtml = html.slice(bodyStart, Math.max(bodyStart, next));
+      body = htmlToText(vacancyHtml);
+      const collapse = readClosedElement(html, `id="${btn.domId}"`);
+      const publicationHtml = readClosedElement(collapse, 'class="[^"]*\\baccordion-body\\b[^"]*"');
+      publication = sourcePostingDateFields(extractJobPostingLd(publicationHtml)?.datePosted);
       // Trim a trailing contact card ("Zuständige Personen …") if it leaked past
       // the bound, then strip the file-download artifact a Drupal
       // `paragraph--type--document` leaves inline ("Datei <file>.pdf (288 KB)").
@@ -204,7 +212,7 @@ export function parseKlinikGutOpenings(html = '') {
     }
 
     const detailUrl = `${PUBLIC_CAREER_URL}#${btn.domId}`;
-    out.push({ id: btn.domId, num: btn.num, title: btn.title, body, detailUrl, location });
+    out.push({ id: btn.domId, num: btn.num, title: btn.title, body, detailUrl, location, ...publication });
   }
 
   return out;
@@ -234,7 +242,6 @@ export async function fetchAllKlinikGutJobs() {
     return [];
   }
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
 
   for (const opening of openings) {
@@ -289,7 +296,7 @@ export async function fetchAllKlinikGutJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, opening),
       applyUrl: url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

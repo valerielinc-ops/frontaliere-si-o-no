@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 /**
  * Pro Senectute Ticino e Moesano — yearly "concorsi generali".
  *
@@ -143,7 +144,6 @@ export async function fetchAllProSenectuteTiJobs() {
   console.log(`  ✓ ${items.length} concorsi trovati`);
   if (!items.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const it of items) {
     const title = it.title;
@@ -198,7 +198,7 @@ export async function fetchAllProSenectuteTiJobs() {
       sector: 'Sanità / Assistenza / Sociale',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...sourcePostingDateFields(''),
       applyUrl: it.pdfUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

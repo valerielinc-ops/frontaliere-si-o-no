@@ -304,7 +304,7 @@ describe('Victorinox crawler parser', () => {
       expect(jobs.length).toBeGreaterThan(0);
       const structuredDataInputs = [
         'title', 'description', 'addressLocality', 'addressCountry',
-        'employmentType', 'postedDate',
+        'employmentType',
       ];
       for (const job of jobs) {
         for (const field of structuredDataInputs) {
@@ -312,6 +312,18 @@ describe('Victorinox crawler parser', () => {
           // by design (thin-source path, issue 5253; see the test above).
           if (field === 'description' && (job as any).title === 'Sales Assistant - Zermatt m/w/d') continue;
           expect((job as any)[field]).toBeTruthy();
+        }
+        // The fixture has no source publication metadata. The parser must
+        // expose publication fields while keeping them explicitly unknown
+        // instead of substituting the crawl date.
+        expect(job).toHaveProperty('datePosted');
+        expect(job).toHaveProperty('postedDate');
+        expect(job).toHaveProperty('postingDateSource');
+        if ((job as any).postingDateSource === 'unknown') {
+          expect((job as any).datePosted).toBe('');
+          expect((job as any).postedDate).toBe('');
+        } else {
+          expect((job as any).postedDate).toBeTruthy();
         }
         // postalCode/streetAddress are safe-defaulted (never omitted) even
         // when a secondary site legitimately has no HQ street on record.

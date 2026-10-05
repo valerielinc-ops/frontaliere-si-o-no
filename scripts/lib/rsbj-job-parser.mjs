@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 /**
  * Réseau Santé Balcon du Jura Vaudois (RSBJ) job parser.
  *
@@ -197,9 +199,10 @@ export function extractRsbjDetailText(html = '') {
 
 async function fetchDetailContent(detailUrl) {
   try {
-    return extractRsbjDetailText(await fetchHtml(detailUrl));
+    const html = await fetchHtml(detailUrl);
+    return { body: extractRsbjDetailText(html), ...sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) };
   } catch {
-    return '';
+    return { body: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -214,12 +217,12 @@ export async function fetchAllRsbjJobs() {
 
   if (!entries.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (const e of entries) {
     const title = e.title;
-    const detailContent = await fetchDetailContent(e.url);
+    const detail = await fetchDetailContent(e.url);
+    const detailContent = detail.body;
     if (detailContent) detailHits++;
     await new Promise((r) => setTimeout(r, 250));
     // The offer page carries contract/rate itself; the listing meta
@@ -268,7 +271,7 @@ export async function fetchAllRsbjJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...mergeSourcePostingDates({}, detail),
       applyUrl: e.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

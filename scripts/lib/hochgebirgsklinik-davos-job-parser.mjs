@@ -22,6 +22,8 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
@@ -182,15 +184,6 @@ function extractPensum(title = '') {
     return { min: val, max: val };
   }
   return null;
-}
-
-/**
- * Parse DD.MM.YYYY, HH:MM:SS → YYYY-MM-DD.
- */
-function parseDate(raw = '') {
-  const m = String(raw || '').match(/^(\d{2})\.(\d{2})\.(\d{4})/);
-  if (!m) return '';
-  return `${m[3]}-${m[2]}-${m[1]}`;
 }
 
 /* ── Typesense API Key Extraction ────────────────────────── */
@@ -551,7 +544,18 @@ export async function fetchAllHochgebirgsklinikDavosJobs() {
     const contract = pensum && pensum.max < 80 ? 'part-time' : 'full-time';
 
     // Dates
-    const postedDate = parseDate(doc.create_date) || new Date().toISOString().split('T')[0];
+    let publication = sourcePostingDateFields('');
+    // Typesense creation/start/modification are not publication evidence. The
+    // vacancy's public SSR page explicitly labels its JobPosting.datePosted.
+    try {
+      const detailUrl = new URL(publicUrl);
+      if (detailUrl.origin === new URL(CAREER_URL).origin && detailUrl.pathname.startsWith('/jobs/')) {
+        const detailHtml = await fetchHtml(detailUrl.href);
+        publication = sourcePostingDateFields(extractJobPostingLd(detailHtml)?.datePosted);
+      }
+    } catch {
+      // Preserve the API's genuine body/application URL when publication is unavailable.
+    }
 
     // Postal code from full_address
     const fullAddress = (doc.full_address || [])[0] || '';
@@ -593,7 +597,7 @@ export async function fetchAllHochgebirgsklinikDavosJobs() {
       sector: 'Sanità / Assistenza',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
