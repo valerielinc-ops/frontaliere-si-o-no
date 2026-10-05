@@ -7724,6 +7724,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.veicoli-berna-calcolo-pratico.title': 'Taxe automobile à Berne : calcul et paiement',
     'blog.article.veicoli-berna-calcolo-pratico.excerpt': 'Dans le canton de Berne, les critères, les délais, les montants et le bureau compétent pour l\'impôt sur les véhicules automobiles dépendent des règles cantonales.',
     'blog.article.veicoli-berna-calcolo-pratico.imageAlt': 'Voiture et documents pour l\'impôt cantonal sur les véhicules à Berne.',
+    'blog.article.prezzi-pellet-ticino-aumenti.title': 'Prix du pellet au Tessin : hausses et conseils',
+    'blog.article.prezzi-pellet-ticino-aumenti.excerpt': 'Analyse des prix du pellet au Tessin avec des hausses estimées entre 5% et 10% et des recommandations pour les achats avant l\'hiver.',
+    'blog.article.prezzi-pellet-ticino-aumenti.imageAlt': 'Stockage de pellets de bois au Tessin avec sacs et vrac',
 };
 
 export default blogMetaChFr;
