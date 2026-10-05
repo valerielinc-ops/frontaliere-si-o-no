@@ -273,14 +273,11 @@ async function boundedBodyCleanup(cleanup) {
 async function readResponseText(response, setCleanup, deadlineSignal) {
   const body = response?.body;
   if (!body || typeof body.getReader !== 'function') {
-    if (typeof body?.cancel === 'function') {
-      setCleanup(() => body.cancel('job URL validation timeout'));
-    }
-    try {
-      return await Promise.race([response.text(), deadlineSignal]);
-    } finally {
-      setCleanup(null);
-    }
+    // A non-standard response without a readable stream cannot provide
+    // cancellable body semantics. Do not call an unbounded response.text()
+    // fallback: treat it as unknown and release the body if it exposes cancel.
+    await boundedBodyCleanup(() => body?.cancel?.('job URL validation timeout'));
+    return RESPONSE_TIMEOUT;
   }
 
   const reader = body.getReader();

@@ -80,13 +80,13 @@ describe('validateJobUrl response deadline', () => {
   it('does not strand the concurrent batch behind one hung response body', async () => {
     vi.stubGlobal(
       'fetch',
-      vi.fn((input) => Promise.resolve({
-        status: 200,
-        url: String(input),
-        text: () => String(input).endsWith('/hung')
-          ? new Promise(() => {})
-          : Promise.resolve('<h1>Live job</h1>'),
-      })),
+      vi.fn((input) => String(input).endsWith('/hung')
+        ? Promise.resolve({
+          status: 200,
+          url: String(input),
+          text: () => new Promise(() => {}),
+        })
+        : Promise.resolve(new Response('<h1>Live job</h1>', { status: 200 }))),
     );
 
     await expect(
