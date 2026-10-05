@@ -611,6 +611,16 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     expect(lines.filter((l) => l.includes('3 fallimenti consecutivi'))).toHaveLength(1);
   });
 
+  it('tre rifiuti di fila fermano il tier come tre fallimenti (review della PR corpus 2166)', async () => {
+    // Un rifiuto non e' un eco della sorgente: prima di questa guardia la lane
+    // lo contava come traduzione riuscita, azzerava lo streak e non si fermava.
+    const calls = stubCodex("Sorry, I can't help with that.");
+    const { value, lines } = await captureLog(async () => [await tr(), await tr(), await tr(), await tr()]);
+    expect(value).toEqual(Array(4).fill(`MYMEMORY ${EN}`));
+    expect(calls).toHaveLength(3);
+    expect(lines.filter((l) => l.includes('3 fallimenti consecutivi'))).toHaveLength(1);
+  });
+
   it('FREE_TRANSLATE_CODEX_TIER=last: Codex non prende il testo prima dei tier senza quota', async () => {
     // DeepL e Azure sono fuori gioco dai casi precedenti: nella posizione di
     // default Codex risponderebbe qui, prima di MyMemory.

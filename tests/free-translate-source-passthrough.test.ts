@@ -366,6 +366,52 @@ function runUnconfiguredTierScenario(service: 'googleCloud' | 'huggingFace') {
   });
 }
 
+/**
+ * Gara fra istanze (review della PR corpus 2166): la prima istanza Mozhi
+ * risponde con un rifiuto, le altre con la traduzione. Processo figlio con il
+ * modulo vero: lo stato di salute delle istanze e' globale di modulo.
+ */
+function runMozhiRaceWithRefusal() {
+  const moduleUrl = new URL('../scripts/lib/free-translate.mjs', import.meta.url).href;
+  const childScript = `
+    const mod = await import(${JSON.stringify(moduleUrl)});
+    let mozhiCalls = 0;
+    globalThis.fetch = async (url) => {
+      const u = String(url);
+      if (u.includes('/api/translate?') && u.includes('engine=duckduckgo')) {
+        const text = mozhiCalls++ === 0 ? "Sorry, I can't help with that." : 'The cross-border worker pays withholding tax in Switzerland.';
+        return { ok: true, json: async () => ({ 'translated-text': text }) };
+      }
+      return { ok: false, status: 503, json: async () => ({}), text: async () => '' };
+    };
+    globalThis.console.log = () => {};
+    globalThis.console.warn = () => {};
+    const out = await mod.freeTranslate({ text: 'Il frontaliere paga le imposte alla fonte in Svizzera.', sourceLang: 'it', targetLang: 'en', fieldType: 'description' });
+    const mozhiFailed = Object.entries(mod.getInstanceHealthStats()).filter(([u, h]) => u.includes('mozhi') && h.failures > 0).length;
+    process.stdout.write(JSON.stringify({ out, mozhiFailed, meta: mod.getCascadeStats().tierMetaResponses['mozhi:duckduckgo'] || 0 }));
+  `;
+  return spawnSync(process.execPath, ['--input-type=module', '--eval', childScript], {
+    encoding: 'utf8',
+    env: {
+      ...process.env,
+      AZURE_TRANSLATOR_KEY: '',
+      AZURE_TRANSLATOR_KEY_2: '',
+      CODEX_AUTH_BROKER_SOCKET: '',
+      DEEPL_API_KEY: '',
+      DEEPL_API_KEY_2: '',
+      GOOGLE_APPLICATION_CREDENTIALS: '',
+      GSC_CLIENT_ID: '',
+      GSC_CLIENT_SECRET: '',
+      GSC_REFRESH_TOKEN: '',
+      HF_TOKEN: '',
+      HUGGINGFACE_API_KEY: '',
+      LIBRETRANSLATE_SELF_HOSTED_URL: '',
+      MT_LOCAL_OPUSMT: '',
+      VITEST: '1',
+    },
+  });
+}
+
 const EN = [
   '## In brief',
   '- Cross-border workers living within twenty kilometres of the border stay in the old tax regime',
@@ -643,6 +689,17 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     vi.mocked(translateWithMyMemory).mockResolvedValue('Translation Trainee (m/w/x) – 100%');
     const out = await freeTranslate({ text: 'Übersetzungspraktikant/in (m/w/x) – 100%', sourceLang: 'de', targetLang: 'en' });
     expect(out).toContain('Translation Trainee');
+  });
+
+  it('nella gara fra istanze un rifiuto non vince, non ferma le altre e non promuove la sua istanza', () => {
+    const child = runMozhiRaceWithRefusal();
+
+    expect(child.status, child.stderr).toBe(0);
+    const result = JSON.parse(child.stdout);
+    expect(result.out).toBe('The cross-border worker pays withholding tax in Switzerland.');
+    expect(result.meta).toBeGreaterThan(0);
+    // Solo l'istanza del rifiuto e' segnata guasta: le altre hanno tradotto.
+    expect(result.mozhiFailed).toBe(1);
   });
 
   it('con la cascata reale, il rifiuto di un tier passa la mano al tier successivo', () => {
