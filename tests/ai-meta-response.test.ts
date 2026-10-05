@@ -94,6 +94,8 @@ const LEGIT_DESCRIPTION_OPENERS = [
   "We need to translate our clients' ideas into working products.",
   // Una traduzione vera con virgolette tipografiche singole non e' narrazione.
   'Il ‘Chef d’équipe’ coordina il turno.',
+  'Il ‘Chef’ e il ‘vice’ coordinano il turno.',
+  'I need to see the phrase you wrote.',
   // Review della PR corpus 2166 su 144b89b227: prosa in prima persona che non
   // parla dell'input («Non vedo alcun motivo…» → «I don't see any reason…»).
   "I don't see any reason why you should not apply.",
@@ -150,6 +152,7 @@ describe('detectAiMetaResponse — casi reali pubblicati', () => {
     'I need to see the context of where this job title is used.',
     'I need to see the actual job file to identify which title needs translation.',
     'I need to see the phrase to translate.',
+    'I need to see a phrase to translate.',
     'Non vedo alcun titolo nel messaggio.',
     'Ich sehe keinen Stellentitel in Ihrer Nachricht.',
     'Je ne vois pas de titre à traduire.',
@@ -167,6 +170,9 @@ describe('detectAiMetaResponse — casi reali pubblicati', () => {
     "We need to translate 'Chef d'équipe' to English.",
     "We need to translate ‘Chef d'équipe’ into English.",
     'We need to translate ‘Chef d’équipe’ into English.',
+    'We need to translate ‘rock ’n’ roll’ to English.',
+    "We need to translate 'rock 'n' roll' to English.",
+    'The user has provided the phrase "x" for translation.',
     'We need to translate the phrase "GL & VAT Accountant" to English.',
   ])('riconosce la narrazione con input citato e lingua target: %s', (text) => {
     expect(detectAiMetaResponse(text)).toMatchObject({ kind: 'agent-narration' });
