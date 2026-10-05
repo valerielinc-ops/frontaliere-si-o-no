@@ -74,6 +74,10 @@ function copyOfChunk(value) {
   throw new GitHubActionsReadError('github_api_invalid', 'response chunk is not bytes');
 }
 
+async function cancelReaderOnReadError(reader) {
+  try { await reader.cancel(); } catch { /* the chunk-copy error remains authoritative */ }
+}
+
 async function readBoundedResponse(response, maxBytes) {
   const declared = Number(response.headers.get('content-length'));
   if (Number.isFinite(declared) && declared > maxBytes) {
@@ -87,7 +91,13 @@ async function readBoundedResponse(response, maxBytes) {
     while (true) {
       const { done, value } = await reader.read();
       if (done) break;
-      const chunk = copyOfChunk(value);
+      let chunk;
+      try {
+        chunk = copyOfChunk(value);
+      } catch (error) {
+        await cancelReaderOnReadError(reader);
+        throw error;
+      }
       size += chunk.byteLength;
       if (size > maxBytes) {
         try { await reader.cancel(); } catch { /* the cap remains authoritative */ }
