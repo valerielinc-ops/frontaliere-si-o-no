@@ -13,6 +13,7 @@ import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-libra
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import CompanyFollowButton from '@/components/community/CompanyFollowButton';
 import { readPendingCompanyFollows } from '@/services/companyFollowIntent';
+import { companyAlertKey } from '@/services/jobAlertService';
 
 const EMAIL = 'company-follow-storage@example.test';
 
@@ -20,14 +21,16 @@ async function submitAnonymousFollow(props: {
   onOptInRequested: (email: string) => void;
   onErrored: (error: unknown) => void;
   recordIntent?: (intent: unknown) => Promise<boolean>;
+  company?: string;
+  companyKey?: string;
 }) {
   const recordIntent = props.recordIntent || vi.fn(async () => false);
   const captureEmail = vi.fn(async () => undefined);
   const subscribe = vi.fn(async () => ({ id: 'unexpected' }) as never);
   render(
     <CompanyFollowButton
-      company="Acme"
-      companyKey="acme"
+      company={props.company ?? 'Acme'}
+      companyKey={props.companyKey ?? 'acme'}
       userId={null}
       email={null}
       locale="it"
@@ -108,6 +111,22 @@ describe('CompanyFollowButton: parked follow gates the opt-in callback', () => {
       company: 'Acme',
       locale: 'it',
     });
+  });
+
+  it('records the canonical follow key, not the raw crawler key', async () => {
+    // One crawler key can publish several employers (the Migros crawler also
+    // publishes Galaxus): the follow is the employer label's canonical slug,
+    // exactly what subscribeCompanyAlert pins.
+    const onOptInRequested = vi.fn();
+    const recordIntent = vi.fn(async () => true);
+
+    await submitAnonymousFollow({ onOptInRequested, onErrored: vi.fn(), recordIntent, company: 'Galaxus', companyKey: 'migros' });
+
+    await waitFor(() => expect(onOptInRequested).toHaveBeenCalledWith(EMAIL));
+    expect(recordIntent.mock.calls[0][0]).toMatchObject({
+      companyKey: companyAlertKey('Galaxus', 'migros'),
+    });
+    expect(companyAlertKey('Galaxus', 'migros')).toBe('galaxus');
   });
 
   it('continues when only the server holds the follow (storage refused)', async () => {

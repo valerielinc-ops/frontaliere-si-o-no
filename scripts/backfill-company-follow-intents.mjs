@@ -95,7 +95,10 @@ export function companyKeyFromFollowPage({ sourcePage, jobCompany, normalizeKey 
     const companyKey = normalizeKey(String(jobCompany || ''));
     const rawCompanySlug = String(jobCompany || '').toLowerCase().normalize('NFD')
       .replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-    if (companyKey && (leaf.includes(companyKey) || (rawCompanySlug && leaf.includes(rawCompanySlug)))) {
+    // Whole hyphen-delimited tokens only: a bare substring would let a short
+    // key (`ab`) "match" an unrelated slug (`laboratory-job`).
+    const namesToken = (slug) => Boolean(slug) && `-${leaf}-`.includes(`-${slug}-`);
+    if (companyKey && (namesToken(companyKey) || namesToken(rawCompanySlug))) {
       return { key: companyKey, basis: 'job_page_company_match', jobSlug: leaf };
     }
   }

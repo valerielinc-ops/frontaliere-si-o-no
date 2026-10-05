@@ -202,6 +202,11 @@ export default function CompanyFollowButton({
     // on another device; the local one is the fallback when this write fails.
     const recorded = await recordIntent({
       email: requestedEmail,
+      // `slug` IS the canonical CompanyAlert key: companyAlertKey(company,
+      // companyKey), the value subscribeCompanyAlert pins. The raw crawler
+      // `companyKey` is not — one crawler key can publish several employers
+      // (see companyAlertKey's docblock), so recording it would follow the
+      // wrong one and diverge from the local replay.
       companyKey: slug,
       company,
       locale: followLocale,

@@ -396,6 +396,12 @@ describe('backfill: the employer is reconstructed only from a page that names it
     expect(companyKeyFromFollowPage({ sourcePage, jobCompany })).toMatchObject({ key, basis });
   });
 
+  it('matches whole slug tokens only, never a substring of another word', () => {
+    expect(companyKeyFromFollowPage({ sourcePage: '/jobs/laboratory-job/', jobCompany: 'AB' })).toBeNull();
+    expect(companyKeyFromFollowPage({ sourcePage: '/cerca-lavoro-ticino/impiegato-ab-lugano/', jobCompany: 'AB' }))
+      .toMatchObject({ key: 'ab', basis: 'job_page_company_match' });
+  });
+
   it.each([
     ['/cerca-lavoro-ticino/operatori-socioassistenziali-infanza/', 'Città di Lugano'],
     ['/en/find-jobs-ticino/', 'Spital Limmattal'],
