@@ -59,6 +59,11 @@ on:
       - 'data/seo-health/**'
       - 'data/border-wait-averages.json'
       - 'public/data/border-wait-averages.json'
+      # collect-road-events.yml commits these every 3 hours; no build plugin
+      # reads them (the articles repo reads the CDN copy), so they ride the
+      # next deploy instead of starting one each.
+      - 'data/road-events.json'
+      - 'public/data/road-events.json'
       - 'data/weather-snapshot.json'
       # Telemetria/evidence-only: se lo stesso push contiene anche data/jobs,
       # articoli o altri input della build, GitHub non applica paths-ignore.
