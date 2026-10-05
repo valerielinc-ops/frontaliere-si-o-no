@@ -290,7 +290,7 @@ export async function fetchAllAbraxasJobs() {
     listingHtml = await fetchHtml(CAREER_URL, { timeoutMs });
   } catch (err) {
     console.warn(`⚠️ Abraxas listing fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
 
   const listings = parseAbraxasListing(listingHtml);

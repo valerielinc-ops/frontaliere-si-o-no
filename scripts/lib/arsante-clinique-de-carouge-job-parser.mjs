@@ -188,7 +188,7 @@ export async function fetchAllArsanteJobs() {
       html = await fetchHtml(url);
     } catch (err) {
       console.warn(`  ⚠️ Listing page ${page} fetch failed: ${err?.message || err}`);
-      break;
+      throw err;
     }
     const rows = parseListing(html);
     console.log(`  ✓ page ${page}: ${rows.length} jobs`);

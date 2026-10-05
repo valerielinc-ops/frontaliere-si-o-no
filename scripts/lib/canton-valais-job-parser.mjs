@@ -156,7 +156,7 @@ async function fetchOtbListings() {
     html = await fetchHtml(OTB_PORTLET_URL, { timeoutMs: 20000 });
   } catch (err) {
     console.warn(`   ⚠️ Failed to fetch État du Valais job portlet: ${err.message}`);
-    return [];
+    throw err;
   }
   return parseOtbListings(html);
 }

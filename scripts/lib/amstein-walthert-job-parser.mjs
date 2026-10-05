@@ -343,7 +343,7 @@ export async function fetchAllAmsteinWalthertJobs() {
     listings = await fetchJobListings();
   } catch (err) {
     console.warn(`⚠️ Amstein + Walthert listing fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
 
   if (!listings || listings.length === 0) {

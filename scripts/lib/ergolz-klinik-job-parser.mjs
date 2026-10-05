@@ -149,7 +149,7 @@ export async function fetchAllErgolzKlinikJobs() {
     listingHtml = await fetchHtml(ERGOLZ_KLINIK_CAREERS_URL);
   } catch (err) {
     console.warn(`⚠️ Listing fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
   const rows = parseListing(listingHtml);
   console.log(`  ✓ ${rows.length} PDF postings detected`);

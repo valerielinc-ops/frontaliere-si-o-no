@@ -54,7 +54,12 @@ const DETAIL_DELAY_MS = 250;
 
 function assertUsableMaskHtml(html, url) {
   if (looksLikeAntiBotChallenge(html)) {
-    throw new Error(`Unrecovered anti-bot challenge from ${url}`);
+    // Direct fetch and the Jina clean-IP rescue are both challenged: the same
+    // exhausted-fence signal as fachkraft/jobup, which the crawler pipeline
+    // records as a connection-level soft exit instead of an empty listing.
+    const error = new Error(`Unrecovered anti-bot challenge from ${url}`);
+    error.antiBotExhausted = true;
+    throw error;
   }
   return html;
 }
@@ -192,7 +197,7 @@ export async function fetchAllCicJobs() {
     html = await fetchMaskHtml(MASK_URL);
   } catch (err) {
     console.warn(`⚠️ Mask fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
   const rows = parseMaskHtml(html);
   console.log(`  ✓ ${rows.length} real openings (spontaneous-application rows dropped)`);

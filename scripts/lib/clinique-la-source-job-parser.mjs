@@ -59,7 +59,7 @@ export async function fetchAllCliniqueLaSourceJobs() {
     rss = await fetchErecruitRss(RSS_URL);
   } catch (err) {
     console.warn(`  ⚠️ RSS feed fetch failed: ${err?.message || err}`);
-    return [];
+    throw err;
   }
   const items = parseErecruitRss(rss, { includePublication: true });
   console.log(`  ✓ ${items.length} annunci nel feed RSS`);
