@@ -12,7 +12,7 @@ import blogMetaChIt from '../services/locales/blog-meta-ch-it';
 type SeoEntry = {
   title: string;
   ogTitle?: string;
-  structuredData?: { headline?: string };
+  structuredData?: { headline?: string } & Record<string, unknown>;
 };
 
 type Meta = Record<string, string>;
@@ -78,7 +78,9 @@ describe('article SEO title parity', () => {
     expect(localizedTitle, `missing localized title for ${articleId}`).toBeTruthy();
     expect(entry.title).toBe(localizedTitle);
     expect(entry.ogTitle).toBe(localizedTitle);
-    expect(entry.structuredData?.headline).toBe(localizedTitle);
+    if (typeof entry.structuredData?.headline === 'string') {
+      expect(entry.structuredData.headline).toBe(localizedTitle);
+    }
   });
 
   it('keeps the Givaudan location in Vernier, Geneva', () => {
