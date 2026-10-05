@@ -105,11 +105,12 @@
  *   - normalizeHolmesPlaceListing() — raw DOM-scrape row -> clean listing
  *   - detectCategory() / detectEmploymentType()
  */
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, normalizeSpace } from './crawler-template.mjs';
-import { bodyTextOf } from './prospector/extract.mjs';
+import { bodyTextOf, extractJsonLd } from './prospector/extract.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
@@ -364,8 +365,8 @@ export function detectEmploymentType(text = '') {
  * no network/Playwright involved — so it is unit-testable with fixture rows
  * without spinning up a browser.
  *
- * @param {{ title?: string, location?: string, category?: string, url?: string, description?: string }} raw
- * @returns {{ title: string, location: string, category: string, description?: string, url?: string } | null}
+ * @param {{ title?: string, location?: string, category?: string, url?: string, description?: string, postedDate?: string, datePosted?: string, postingDateSource?: string }} raw
+ * @returns {{ title: string, location: string, category: string, description?: string, url?: string, postedDate?: string, datePosted?: string, postingDateSource?: string } | null}
  */
 export function normalizeHolmesPlaceListing(raw = {}) {
   const title = normalizeSpace(raw.title || '');
@@ -374,6 +375,7 @@ export function normalizeHolmesPlaceListing(raw = {}) {
     title,
     location: normalizeSpace(raw.location || ''),
     category: normalizeSpace(raw.category || ''),
+    ...(raw.postingDateSource ? mergeSourcePostingDates({}, raw) : {}),
   };
   const url = normalizeSpace(raw.url || '');
   if (url) listing.url = url;
@@ -723,8 +725,9 @@ export function extractHolmesPlaceDetailDescriptionFromHtml(html = '', baseUrl =
   }
 }
 
-async function fetchHolmesPlaceDetailDescription(context, detailUrl) {
-  if (!isJobDetailHref(detailUrl)) return '';
+async function fetchHolmesPlaceDetailFields(context, detailUrl, title) {
+  const empty = { description: '', ...mergeSourcePostingDates({}, {}) };
+  if (!isJobDetailHref(detailUrl)) return empty;
   let page = null;
   try {
     page = await fetchWithRateLimit(context, detailUrl, { minDelayMs: PER_DETAIL_DELAY_MS });
@@ -733,17 +736,18 @@ async function fetchHolmesPlaceDetailDescription(context, detailUrl) {
     } catch {
       /* networkidle is best-effort; inspect the rendered DOM regardless */
     }
-    const description = extractHolmesPlaceDetailDescriptionFromHtml(
-      await page.content(),
-      page.url() || detailUrl,
-    );
+    const html = await page.content();
+    const description = extractHolmesPlaceDetailDescriptionFromHtml(html, page.url() || detailUrl);
+    const records = extractJsonLd(html, detailUrl);
+    const record = records.find((candidate) => normalizeSpace(candidate.title).toLowerCase() === title.toLowerCase()
+      && (candidate.urlExplicit ? candidate.url === detailUrl : records.length === 1));
     if (!description) {
       console.warn(`   ⚠️ Holmes Place detail page has no source body: ${detailUrl}`);
     }
-    return description;
+    return { description, ...mergeSourcePostingDates({}, record || {}) };
   } catch (err) {
     console.warn(`   ⚠️ Holmes Place detail fetch failed for ${detailUrl}: ${err?.message || err}`);
-    return '';
+    return empty;
   } finally {
     await page?.close().catch(() => undefined);
   }
@@ -753,11 +757,13 @@ async function enrichHolmesPlaceListings(context, listings) {
   const enriched = [];
   for (const listing of listings) {
     let description = listing.description || '';
+    let publication = mergeSourcePostingDates({}, listing);
     if (listing.url) {
-      const detailDescription = await fetchHolmesPlaceDetailDescription(context, listing.url);
-      if (meetsSourceBodyFloor(detailDescription)) description = detailDescription;
+      const detail = await fetchHolmesPlaceDetailFields(context, listing.url, listing.title);
+      publication = mergeSourcePostingDates(publication, detail);
+      if (meetsSourceBodyFloor(detail.description)) description = detail.description;
     }
-    enriched.push(description ? { ...listing, description } : listing);
+    enriched.push({ ...listing, ...(description ? { description } : {}), ...publication });
   }
   return enriched;
 }
@@ -931,7 +937,7 @@ export async function fetchAllHolmesPlaceJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, listing),
       applyUrl: jobUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

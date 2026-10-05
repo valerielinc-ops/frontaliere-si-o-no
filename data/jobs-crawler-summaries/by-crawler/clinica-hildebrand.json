@@ -1,7 +1,7 @@
 {
   "key": "clinica-hildebrand",
   "label": "Clinica Hildebrand Centro di riabilitazione",
-  "generatedAt": "2026-10-04T09:24:25.268Z",
+  "generatedAt": "2026-10-04T21:22:48.627Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -14,10 +14,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2955,
-  "avgDurationMs": 2955,
+  "durationMs": 3855,
+  "avgDurationMs": 3855,
   "durationHistory": [
-    2955
+    3855
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,14 +28,14 @@
       "companyKey": "clinica-hildebrand",
       "companyDomain": "clinica-hildebrand.ch",
       "title": "Medico Assistente 25",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Brissago",
       "canton": "TI",
       "url": "https://www.clinica-hildebrand.ch/uploads/1/4/1/4/141459406/annuncio_medico_assistente_25.pdf",
       "applyUrl": "https://www.clinica-hildebrand.ch/collaborazione.html",
       "source": "Clinica Hildebrand Dedicated Parser (HTML + PDF annunci)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-04T09:24:18.128Z",
+      "crawledAt": "2026-10-04T21:22:40.624Z",
       "addressLocality": "Brissago",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -50,16 +50,19 @@
       "featured": false,
       "postedDate": "2026-05-20",
       "firstSeenAt": "2026-05-20T05:41:00.668Z",
-      "_qualityScore": 87,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "salarySource": "estimated",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

@@ -31,6 +31,7 @@
  *   - isTrustedDomain()
  *   - SRO_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
@@ -231,7 +232,6 @@ export async function fetchAllSroJobs() {
   console.log(`  ✓ ${tiles.length} job tiles parsed from SRO listing`);
   if (!tiles.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   const pageDescribed = new Set();
   let detailHits = 0;
@@ -293,12 +293,7 @@ export async function fetchAllSroJobs() {
       : 'OTHER';
 
     const pensum = pensumFromTitle(title);
-    const postedDate = (() => {
-      const raw = ld?.datePosted || ld?.dateCreated || '';
-      const d = new Date(String(raw || ''));
-      if (!Number.isNaN(d.getTime())) return d.toISOString().slice(0, 10);
-      return todayIso;
-    })();
+    const publication = sourcePostingDateFields(ld?.datePosted);
     const validThrough = ld?.validThrough || '';
 
     const job = {
@@ -332,7 +327,7 @@ export async function fetchAllSroJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

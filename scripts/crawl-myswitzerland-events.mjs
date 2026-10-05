@@ -125,7 +125,16 @@ const SITE_ORIGIN = 'https://www.myswitzerland.com';
 const USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch)';
 const FETCH_TIMEOUT_MS = 20000;
 const ALGOLIA_DELAY_MS = 120; // between Algolia queries (index enumeration)
-const DETAIL_DELAY_MS = 500; // between myswitzerland.com origin detail-page fetches
+// Pause between two requests to www.myswitzerland.com detail pages — between
+// events AND between the locale URLs of one event. robots.txt of
+// www.myswitzerland.com asks `Crawl-delay: 1`, so this must never go below
+// 1000 ms (tests/crawl-myswitzerland-events.test.ts pins the floor).
+export const DETAIL_DELAY_MS = 1000;
+// HTTP 406 is how the www.myswitzerland.com CDN refuses this client (measured
+// 2026-10-04: empty body on every uncached detail page). The refusal is per
+// client, not per URL: the other locale URLs of the same event answer 406 too,
+// so asking for them only repeats a refused request.
+const DETAIL_REFUSED_STATUS = 406;
 const RUN_BUDGET_MS = Number(process.env.MYSWITZERLAND_CRAWL_BUDGET_MS) || 8 * 60_000; // per-run wall-clock cap
 // Caps the locale-fallback translation pass that runs AFTER the visit loop.
 // RUN_BUDGET_MS never covered it, so the process routinely outlived its stated
@@ -172,19 +181,22 @@ async function algoliaQuery(index, body) {
   }
 }
 
-async function fetchHtml(url) {
+/** Detail page fetch: `{ status, html }`, html null unless 2xx; status 0 on network error. */
+async function fetchDetailPage(url) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
   try {
     const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT }, signal: controller.signal });
-    if (!res.ok) return null;
-    return await res.text();
+    if (!res.ok) return { status: res.status, html: null };
+    return { status: res.status, html: await res.text() };
   } catch {
-    return null;
+    return { status: 0, html: null };
   } finally {
     clearTimeout(timer);
   }
 }
+
+let detailRefusedCount = 0;
 
 /**
  * Enumerate ALL "Event"-type records in one locale index via recursive
@@ -776,9 +788,21 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
   };
 }
 
-/** Fetch the first usable detail page and fill optional metadata from later locales when needed. */
-async function fetchDetailEnrichment(perLocaleHits) {
+/**
+ * Fetch the first usable detail page and fill optional metadata from later locales when needed.
+ *
+ * Courtesy towards www.myswitzerland.com (robots.txt `Crawl-delay: 1`): every
+ * locale URL after the first waits `delayMs`, and an HTTP 406 stops the locale
+ * walk for this event — the event falls back to the index-only fields and is
+ * counted as a detail failure by the caller, never as a disappeared event.
+ */
+export async function fetchDetailEnrichment(perLocaleHits, {
+  fetchPage = fetchDetailPage,
+  pause = sleep,
+  delayMs = DETAIL_DELAY_MS,
+} = {}) {
   let enrichment = null;
+  let requests = 0;
   const sourcePeople = extractEventPeopleFromText(
     LOCALES.flatMap((locale) => [perLocaleHits[locale]?.content, perLocaleHits[locale]?.leadText]).filter(Boolean).join('. '),
   );
@@ -791,7 +815,13 @@ async function fetchDetailEnrichment(perLocaleHits) {
     if (!hit?.url) continue;
     const path_ = String(hit.url).startsWith('/') ? hit.url : `/${hit.url}`;
     const url = `${SITE_ORIGIN}/${LOCALE_URL_PREFIX[locale]}${path_}`;
-    const html = await fetchHtml(url);
+    if (requests > 0) await pause(delayMs);
+    requests += 1;
+    const { status, html } = await fetchPage(url);
+    if (status === DETAIL_REFUSED_STATUS) {
+      detailRefusedCount += 1;
+      break;
+    }
     if (!html) continue;
     const ld = extractEventJsonLd(html);
     const candidateAddress = extractAddress(ld) || extractDetailAddress(html);
@@ -917,6 +947,45 @@ export function targetedMySwitzerlandResumeIndex(checkpoint, selectionKey) {
     ? checkpoint.nextIndex : 0;
 }
 
+/**
+ * Write one crawl batch: slice first, cursor second, and only if the shared
+ * detail-failure policy accepts the batch. mergeEventsIntoSlice throws BEFORE
+ * writing when the policy rejects it (e.g. the 2026-10-04 HTTP 406 wave,
+ * 52/139 detail failures > 15%), so a rejected batch leaves the previous slice
+ * byte-for-byte on disk and the cursor where it was: the next run retries the
+ * same records. `goneIds` is always empty: a refused detail page is a detail
+ * failure, never evidence that the event disappeared.
+ */
+export function commitMySwitzerlandBatch({
+  slicePath,
+  freshEvents,
+  crawledAt,
+  detailFailureIds,
+  detailAttemptCount,
+  nextIndex,
+  targeted = null,
+  checkpointDir = CHECKPOINT_DIR,
+}) {
+  const total = mergeEventsIntoSlice({
+    slicePath,
+    sourceKey: SOURCE.key,
+    sourceName: SOURCE.label,
+    freshEvents,
+    goneIds: [],
+    crawledAt,
+    detailFailureIds,
+    detailAttemptCount,
+  });
+  if (nextIndex !== null && nextIndex !== undefined) {
+    if (targeted) {
+      saveGenericCursor(targeted.checkpointPath, { selectionKey: targeted.selectionKey, nextIndex, updatedAt: crawledAt });
+    } else {
+      saveCursor(SOURCE.key, nextIndex, crawledAt, checkpointDir);
+    }
+  }
+  return total;
+}
+
 async function main() {
   const { dryRun, limit, ids } = parseMySwitzerlandArgs(process.argv.slice(2));
   const crawledAt = new Date().toISOString();
@@ -1018,7 +1087,7 @@ async function main() {
   const resolved = events.filter((e) => e.comune).length;
   console.log(
     `[myswitzerland] visited ${visited}/${records.length} event(s) this run — ${events.length} mapped — ` +
-      `detail-page enrichment ${detailOk} ok / ${detailFail} fallback (index-only fields) — comune resolved ${resolved}/${events.length}`,
+      `detail-page enrichment ${detailOk} ok / ${detailFail} fallback (index-only fields; ${detailRefusedCount} refused with HTTP 406) — comune resolved ${resolved}/${events.length}`,
   );
 
   // #7328: myswitzerland's own `addressRegion` plus venue/title text-matching
@@ -1085,22 +1154,15 @@ async function main() {
     if (indexedPriceBackfills.length === 0 && bookingPriceBackfills.length === 0) return;
   }
 
-  const total = mergeEventsIntoSlice({
+  const total = commitMySwitzerlandBatch({
     slicePath,
-    sourceKey: SOURCE.key,
-    sourceName: SOURCE.label,
-    freshEvents: freshEvents,
-    goneIds: [],
+    freshEvents,
     crawledAt,
     detailFailureIds,
     detailAttemptCount: visited,
+    nextIndex: !limit && records.length > 0 ? cursor : null,
+    targeted: ids ? { checkpointPath: targetedCheckpointPath, selectionKey: selection.selectionKey } : null,
   });
-  // Advance the catalog only after the detail-failure policy accepts and
-  // writes this slice. A rejected batch must be retried from the same cursor.
-  if (!limit && records.length > 0) {
-    if (ids) saveGenericCursor(targetedCheckpointPath, { selectionKey: selection.selectionKey, nextIndex: cursor, updatedAt: crawledAt });
-    else saveCursor(SOURCE.key, cursor, crawledAt);
-  }
   console.log(`[myswitzerland] merged ${events.length} detail record(s) + ${indexedPriceBackfills.length} indexed / ${bookingPriceBackfills.length} booking price backfill(s) → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
 }
 

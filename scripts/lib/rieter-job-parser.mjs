@@ -56,6 +56,8 @@
  * actually matching Winterthur (never applied canton-wide) so a Bräcker
  * (Pfäffikon ZH) job never inherits the Rieter Winterthur street address.
  */
+import { extractJsonLd } from './prospector/extract.mjs';
+import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { fetchHtml, slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract, decodeHtmlEntities } from './dedicated-crawler-common.mjs';
@@ -410,7 +412,12 @@ export async function fetchAllRieterJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const contract = normalizeContract(facts.contractType || '', title, description);
     const employmentType = contract === 'part-time' ? 'PART_TIME' : 'FULL_TIME';
-    const postedDate = new Date().toISOString().split('T')[0];
+    const records = extractJsonLd(detailHtml, publicUrl);
+    const matched = records.find(record => {
+      if (normalizeSpace(record.title || '').toLowerCase() !== normalizeSpace(title).toLowerCase()) return false;
+      if (!record.urlExplicit) return records.length === 1;
+      try { return new URL(record.url, publicUrl).href === new URL(publicUrl).href; } catch { return false; }
+    });
 
     const job = {
       // ── Required fields ──
@@ -444,7 +451,7 @@ export async function fetchAllRieterJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, matched),
       applyUrl: publicUrl,
       jobReqId: facts.jobId || null,
       employerBrand: brandEntity !== RIETER_COMPANY_NAME ? brandEntity : undefined,

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "crr-suva-sion",
-  "assembledAt": "2026-10-04T09:15:33.942Z",
+  "assembledAt": "2026-10-05T08:09:27.902Z",
   "jobs": [
     {
       "id": "crr-suva-sion-a1375f10b321",
@@ -34,7 +34,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/maitre-socioprofessionnel-2428.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-04T09:15:29.586Z",
+      "crawledAt": "2026-10-05T08:09:24.019Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -47,7 +47,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-14",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "applyUrl": "https://www.crr-suva.ch/clinique-readaptation/maitre-socioprofessionnel-2428.html",
       "requirements": [],
       "requirementsByLocale": {},

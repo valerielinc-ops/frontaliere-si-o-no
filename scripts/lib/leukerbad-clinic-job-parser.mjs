@@ -30,6 +30,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { textFragmentUrl } from './text-fragment-url.mjs';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -284,15 +285,13 @@ function buildJob(doc) {
   const publicUrl = textFragmentUrl(`https://leukerbadclinic.ch/${sitePath}/page/jobs/?jobid=${urlHash}`, title);
 
   const jobSlug = slugify(`${title} ${LEUKERBAD_CLINIC_COMPANY_NAME} ${workplace}`);
-  const postedDate = (() => {
-    const candidates = [doc.last_publication_date, doc.first_publication_date];
-    for (const c of candidates) {
-      if (!c) continue;
-      const d = new Date(c);
-      if (!Number.isNaN(d.getTime())) return d.toISOString().slice(0, 10);
-    }
-    return new Date().toISOString().slice(0, 10);
-  })();
+  // Prismic first_publication_date is immutable first publication of this job
+  // document. last_publication_date is its later republication, not a new opening.
+  // Preserve the timestamp and only normalize Prismic's numeric offset syntax.
+  const sourceDate = typeof doc.first_publication_date === 'string'
+    ? doc.first_publication_date.replace(/([+-]\d{2})(\d{2})$/, '$1:$2')
+    : '';
+  const publication = sourcePostingDateFields(sourceDate);
 
   return {
     id: `${LEUKERBAD_CLINIC_KEY}-${urlHash}`,
@@ -319,7 +318,7 @@ function buildJob(doc) {
     experienceLevel: detectExperienceLevel(title),
     currency: 'CHF',
     featured: false,
-    postedDate,
+    ...publication,
     url: publicUrl,
     applyUrl: publicUrl,
     source: 'Leukerbad Clinic Dedicated Parser (Prismic REST API)',

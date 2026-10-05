@@ -27,7 +27,7 @@ import { loadJobsJson } from './shared/loadJobsJson';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippableSections';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
-
+import { BORDER_WAIT_LEGACY_REDIRECTS } from './shared/borderWaitLegacyRedirects';
 /** Hreflang entry extracted from sitemap XML. */
 interface HreflangEntry {
  hreflang: string;
@@ -92,6 +92,24 @@ function hreflangLinksHtml(entries: HreflangEntry[]): string {
  .join('\n');
 }
 
+function pruneRedirectedPageSitemap(sitemapPath: string, redirectedPaths: Set<string>): number {
+ if (!fs.existsSync(sitemapPath)) return 0;
+ const xml = fs.readFileSync(sitemapPath, 'utf-8');
+ let dropped = 0;
+ const pruned = xml.replace(/[ \t]*<url>[\s\S]*?<\/url>\n?/g, (block) => {
+   const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1]?.trim();
+   if (!loc) return block;
+   let pathname = loc;
+   try { pathname = new URL(loc).pathname; } catch { /* root-relative loc */ }
+   const normalized = `${pathname.replace(/\/+$/, '')}/`;
+   if (!redirectedPaths.has(normalized)) return block;
+   dropped += 1;
+   return '';
+ });
+ if (pruned !== xml) fs.writeFileSync(sitemapPath, pruned, 'utf-8');
+ return dropped;
+}
+
 export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // The hand-authored redirect map. `data/article-redirects.json` is merged into
  // it at closeBundle time (issue #5352) — a `from` declared here wins, and
@@ -111,9 +129,9 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // primo canonical su una pagina noindex. Misurato in produzione prima della
  // fix: /comparatori/traffico-valichi/ → 200 noindex,follow canonical
  // /statistiche/traffico-dogane/ → 200 noindex,follow canonical
- // /guida-frontaliere/tempi-attesa-dogana/ (200 index,follow, la pagina vera).
+ // /traffico-dogane/ is the current indexable data-driven page.
  // Stessa destinazione di /guida-frontaliere/traffico-valichi/ piu' sotto.
- '/comparatori/traffico-valichi/': '/guida-frontaliere/tempi-attesa-dogana/',
+ '/comparatori/traffico-valichi/': '/traffico-dogane/',
  '/comparatori/banche/': '/compara-servizi/confronta-banche/',
  '/comparatori/operatori-mobili/': '/compara-servizi/confronta-operatori-mobili/',
  '/comparatori/mappa-comuni/': '/guida-frontaliere/mappa-confine/',
@@ -289,7 +307,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // entries that previously resolved via SECTION_FALLBACKS to section roots. Each now
  // redirects to its active equivalent with a proper "Pagina spostata" bridge page.
  '/vivere-in-ticino/vivere-in-svizzera/': '/vivere-in-ticino/',
- '/statistiche/traffico-dogane/': '/guida-frontaliere/tempi-attesa-dogana/',
+ '/statistiche/traffico-dogane/': '/traffico-dogane/',
  '/guida-frontaliere/comuni-di-frontiera/': '/vivere-in-ticino/comuni-di-frontiera/',
  '/calcola-stipendio/confronta-permesso-g-vs-b/': '/guida-frontaliere/confronta-permesso-g-vs-b/',
  // EN: old slugs
@@ -342,7 +360,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/guida-frontaliere/permesso-g/': '/guida-frontaliere/permessi-di-lavoro/',
  '/guida-frontaliere/permessi-lavoro/': '/guida-frontaliere/permessi-di-lavoro/',
  '/guida-frontaliere/trasferimento-auto/': '/guida-frontaliere/trasferire-auto-svizzera/',
- '/guida-frontaliere/traffico-valichi/': '/guida-frontaliere/tempi-attesa-dogana/',
+ '/guida-frontaliere/traffico-valichi/': '/traffico-dogane/',
  '/guida-frontaliere/assegni-familiari-frontalieri/': '/guida-frontaliere/',
  // DE old/missing slugs → current DE canonicals
  '/de/dienste-vergleichen': '/de/service-vergleich/',
@@ -380,15 +398,13 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // ── Cloudflare-confirmed feature-page 404s (2026-06-17 edge sweep) ──
  // Real-traffic 404s on renamed/section-root non-job pages. Destinations
  // verified 200 live. Only the OBSERVED paths are mapped (not the full
- // crossing list) — /tempi-attesa-confine/ and bare /traffico-dogane/.../oggi/
- // were never our own emitted paths, so enumerating all 26 crossings would be
- // speculative (AGENTS.md #6). Border-wait pages were renamed to
- // /guida-frontaliere/tempi-attesa-dogana/<crossing>/ (cf. the section redirect
- // at /statistiche/traffico-dogane/ above); the old slugs also dropped the
- // d-hyphen (ditalia → d-italia, dintelvi → d-intelvi), normalized here.
- '/tempi-attesa-confine/chiasso-brogeda/': '/guida-frontaliere/tempi-attesa-dogana/chiasso-brogeda/',
- '/traffico-dogane/campione-ditalia-bissone/oggi/': '/guida-frontaliere/tempi-attesa-dogana/campione-d-italia-bissone/',
- '/traffico-dogane/lanzo-dintelvi-arogno/oggi/': '/guida-frontaliere/tempi-attesa-dogana/lanzo-d-intelvi-arogno/',
+ // crossing list) — these are compatibility observations outside the four
+ // published guide roots. All sitemap-backed legacy routes are generated from
+ // the crossing registry above; the old slugs also dropped the d-hyphen
+ // (ditalia → d-italia, dintelvi → d-intelvi), normalized here.
+ '/tempi-attesa-confine/chiasso-brogeda/': '/traffico-dogane/chiasso-brogeda/oggi/',
+ '/traffico-dogane/campione-ditalia-bissone/oggi/': '/traffico-dogane/campione-d-italia-bissone/oggi/',
+ '/traffico-dogane/lanzo-dintelvi-arogno/oggi/': '/traffico-dogane/lanzo-d-intelvi-arogno/oggi/',
  // Fuel section-root (no index) → that fuel's localized "today" landing,
  // keeping benzina↔benzina / diesel↔diesel (never cross fuels).
  '/prezzi-benzina/': '/prezzi-benzina/oggi/',
@@ -436,6 +452,13 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // each localized path, so cold visits return 200 and retain the signed query.
  // The SPA and API still enforce the token before accessing preferences.
  };
+
+ // Border-wait pages moved from the evergreen guide to the data-driven
+ // `/traffico-dogane/` vertical. Add the generated compatibility map before
+ // chain validation so every old source is checked and bridged consistently.
+ for (const [from, to] of BORDER_WAIT_LEGACY_REDIRECTS) {
+   if (!redirects[from]) redirects[from] = to;
+ }
 
  const normalize = (p: string): string => {
  if (!p.startsWith('/')) return `/${p.replace(/^\/+/, '')}`;
@@ -614,7 +637,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  fs.mkdirSync(outDir, { recursive: true });
  // Normal redirects preserve already emitted pages. These four historical
  // directory headings were never vacancies and must replace their stale detail HTML.
- if (fs.existsSync(path.join(outDir, 'index.html')) && !LEGACY_LUGANO_COMPETITION_REDIRECTS[from]) continue;
+ if (fs.existsSync(path.join(outDir, 'index.html')) && !LEGACY_LUGANO_COMPETITION_REDIRECTS[from] && !BORDER_WAIT_LEGACY_REDIRECTS.has(from)) continue;
  const fromUrl = `${BASE_URL}${from}`;
  const toUrl = `${BASE_URL}${to}`;
  const hreflangTags = getHreflangHtml(to);
@@ -759,6 +782,14 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  }
  compatCount++;
  }
+ }
+
+ const prunedBorderSitemapUrls = pruneRedirectedPageSitemap(
+   path.join(distDir, 'sitemap-pages.xml'),
+   new Set(BORDER_WAIT_LEGACY_REDIRECTS.keys()),
+ );
+ if (prunedBorderSitemapUrls > 0) {
+   console.log(`\x1b[36m[legacy-redirects]\x1b[0m Removed ${prunedBorderSitemapUrls} legacy border-wait URL(s) from sitemap-pages.xml`);
  }
 
  if (count > 0) {

@@ -30,10 +30,12 @@
  *   - isTrustedDomain()              — Validate URLs belong to Umantis tenant
  *   - SPITAL_MAENNEDORF_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
-import { fetchUmantisDetailContentResult } from './umantis-detail-helpers.mjs';
+import { fetchUmantisDetailResult, extractUmantisDetailContent } from './umantis-detail-helpers.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -308,9 +310,6 @@ export async function fetchAllSpitalMaennedorfJobs() {
         pageHtml = await fetchPage(pageUrl, cookieJar);
       } catch (err) {
         console.warn(`  ⚠️ Page ${pageNum} fetch failed: ${err?.message}`);
-        // A fetch failure is not the end of the listing: let the crawler pipeline
-        // classify it (connection-level soft exit or HTTP error) instead of
-        // publishing a partial or cause-less empty result.
         throw err;
       }
       const pageListings = parseSpitalMaennedorfListingPage(pageHtml);
@@ -347,10 +346,15 @@ export async function fetchAllSpitalMaennedorfJobs() {
     // fall back to the listing snippet only on network failure or
     // unexpected layout.
     let detailContent = '';
+    let postingDates = sourcePostingDateFields('');
     let deadDetail = false;
     try {
-      ({ content: detailContent, deadDetail } =
-        await fetchUmantisDetailContentResult(BASE_URL, listing.vacancyId, { lang: 'ger' }));
+      const detail = await fetchUmantisDetailResult(BASE_URL, listing.vacancyId, { lang: 'ger' });
+      deadDetail = detail.deadDetail;
+      detailContent = deadDetail ? '' : extractUmantisDetailContent(detail.html);
+      postingDates = sourcePostingDateFields(deadDetail ? undefined : extractJobPostingField(detail.html, 'datePosted'));
+      // Preserve the pacing of fetchUmantisDetailContentResult without another request.
+      await new Promise((resolve) => setTimeout(resolve, 250));
     } catch (err) {
       detailContent = '';
       deadDetail = false;
@@ -419,7 +423,7 @@ export async function fetchAllSpitalMaennedorfJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...postingDates,
       applyUrl: listing.applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

@@ -54,7 +54,7 @@
  *       served HIT instead of BYPASS (#5176).
  *
  * 3. FIREWALL RULES — the managed entries in MANAGED_FIREWALL_RULES (keyed by
- *    `description`; foreign rules on the entrypoint preserved). Three today:
+ *    `description`; foreign rules on the entrypoint preserved). Four today:
  *    a) locale-bot-throttle-noindex-scrapers — blocks non-search/non-AI
  *       scraper bots (BLOCKED_CRAWLER_UAS) ZONE-WIDE (2026-07-20: widened from
  *       /en|/de|/fr only — the ticino/svizzera/zurigo IT-prefix sections are
@@ -73,16 +73,21 @@
  *       2026-07-20 found these are ~42% of Worker invocations on the routed
  *       sections, never a real browser (which always sends a UA) and never a
  *       named crawler (every welcomed crawler below self-identifies).
- *    c) the owner's "Allowlist verified SEO + AI crawlers" skip-all-security
+ *    c) cdn-source-maps-block — blocks public access to Vite source maps on
+ *       the asset host. Production builds do not emit new maps, but R2 sync is
+ *       additive and old objects can remain until the owner-gated janitor runs;
+ *       blocking the path closes that exposure immediately without deleting an
+ *       object or touching the CDN's normal JS/CSS delivery.
+ *    d) the owner's "Allowlist verified SEO + AI crawlers" skip-all-security
  *       rule — adopted under management 2026-07-20 (was a "foreign" rule) to
  *       remove Amazonbot/Bytespider from it: that rule exempted them from
  *       ALL security (rateLimit/WAF/UA-block) outside the block rule's old
  *       narrow scope, directly contradicting (a)'s policy. VERIFIED_CRAWLER_UAS
  *       is exactly the intended-welcome list; OWNER_IP is never
  *       challenged/rate-limited.
- *    Rules (a) and (b) are PREPENDED ahead of (c) so a bad/ambiguous UA is
- *    blocked or challenged before the skip can short-circuit it (same
- *    reasoning as the original comment below).
+ *    Rules (a), (b), and (c) are PREPENDED ahead of (d) so a bad/ambiguous UA
+ *    or a source-map request is blocked/challenged before the skip can
+ *    short-circuit it (same reasoning as the original comment below).
  *
  * 4. REDIRECT RULES — the managed entries in MANAGED_REDIRECT_RULES (keyed by
  *    `description`; foreign rules on the entrypoint — e.g. the image→CDN
@@ -110,7 +115,7 @@
  *
  * 5. RESPONSE HEADERS — the apex-security-headers entry in
  *    MANAGED_RESPONSE_HEADER_RULES. It upgrades the existing zone rule from
- *    180-day HSTS to one year and adds a deliberately narrow CSP, clickjacking
+ *    180-day HSTS to one year and adds a compatibility CSP, clickjacking
  *    protection, and the already-deployed baseline headers. The legacy rule is
  *    matched by description and migrated in place; foreign response-header
  *    rules remain untouched.
@@ -236,6 +241,14 @@ const VERIFIED_CRAWLER_UAS = [
 const OWNER_IP = '178.197.238.144';
 
 const MANAGED_FIREWALL_RULES = [
+  {
+    description: 'cdn-source-maps-block (managed by scripts/cf-locale-failover-setup.mjs)',
+    action: 'block',
+    expression:
+      '(http.host eq "cdn.frontaliereticino.ch" and ' +
+      'starts_with(http.request.uri.path, "/assets/") and ' +
+      'ends_with(http.request.uri.path, ".map"))',
+  },
   {
     description: 'locale-bot-throttle-noindex-scrapers (managed by scripts/cf-locale-failover-setup.mjs)',
     action: 'block',
@@ -563,11 +576,15 @@ const MANAGED_REDIRECT_RULES = [
 const LEGACY_APEX_SECURITY_HEADERS_DESCRIPTION =
   'apex-security-headers: HSTS + nosniff + Referrer-Policy on HTML responses (issue #3507; CSP/XFO deliberately excluded pending AdSense validation)';
 
-// Keep this rule intentionally narrow. `default-src`/`script-src` would turn
-// this into a CSP allowlist for the analytics, consent, AdSense, and CDN
-// surfaces and would be a separate compatibility project. These directives
-// close concrete browser attack classes without changing the resource origins
-// the application is allowed to load.
+// The site has first-party, consent-gated, and dynamically selected third-party
+// resources. The scheme source on resource directives preserves those runtime
+// integrations (including Partnerize's rotating hostnames) while the policy
+// still blocks HTTP subresources, plugins, cross-origin framing, and unlisted
+// data/blob types by default. Tightening the source lists further requires a
+// browser inventory and a nonce/hash migration for the existing inline scripts.
+const APEX_CONTENT_SECURITY_POLICY =
+  "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; img-src 'self' data: blob: https:; connect-src 'self' https: wss:; frame-src 'self' https:; worker-src 'self' blob:; manifest-src 'self'; form-action 'self' https:; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests";
+
 const MANAGED_RESPONSE_HEADER_RULES = [
   {
     description:
@@ -577,7 +594,7 @@ const MANAGED_RESPONSE_HEADER_RULES = [
     headers: {
       'Content-Security-Policy': {
         operation: 'set',
-        value: "base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests",
+        value: APEX_CONTENT_SECURITY_POLICY,
       },
       'Referrer-Policy': {
         operation: 'set',
@@ -788,9 +805,9 @@ async function assertFirewallRules(zoneId) {
   }));
   // Foreign rules (e.g. the Ghana mitigation) are preserved verbatim, in their
   // existing order. OUR rules are PREPENDED, in MANAGED_FIREWALL_RULES array
-  // order: block, then challenge, then the (now-managed) verified-crawler
-  // allowlist skip — both the block and challenge rules MUST run before the
-  // skip, else it short-circuits a bad/ambiguous UA before our rule fires.
+  // order: source-map block, crawler block, challenge, then the (now-managed)
+  // verified-crawler allowlist skip — all blocking/challenge rules MUST run
+  // before the skip, else it can short-circuit a request before our rule fires.
   // Order-sensitive — that's why we compare the full list, not per-rule.
   const foreign = stripped.filter((r) => !managedDescriptions.has(r.description));
   const desired = [...desiredManaged, ...foreign];

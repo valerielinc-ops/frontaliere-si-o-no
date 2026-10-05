@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nsn-medical",
-  "assembledAt": "2026-10-04T09:23:27.781Z",
+  "assembledAt": "2026-10-05T06:27:27.995Z",
   "jobs": [
     {
       "id": "nsn-medical-75557ee37143",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/750/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:21.706Z",
+      "crawledAt": "2026-10-05T06:27:22.557Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -48,7 +48,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2024-05-07",
       "postedDate": "2024-05-07",
+      "postingDateSource": "reported",
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/750/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -99,7 +101,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/788/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:21.131Z",
+      "crawledAt": "2026-10-05T06:27:21.933Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,7 +115,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2025-07-24",
       "postedDate": "2025-07-24",
+      "postingDateSource": "reported",
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/788/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -178,7 +182,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/787/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:20.696Z",
+      "crawledAt": "2026-10-05T06:27:21.504Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -192,7 +196,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2025-07-24",
       "postedDate": "2025-07-24",
+      "postingDateSource": "reported",
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/787/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -256,7 +262,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/817/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:20.117Z",
+      "crawledAt": "2026-10-05T06:27:20.852Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -270,27 +276,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2025-12-10",
       "postedDate": "2025-12-10",
+      "postingDateSource": "reported",
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/817/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-01T14:18:54.321Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
+      "previousSlugs": [
+        "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie",
+        "dirigente-medico-oncologia-zio-lago-di-zurigo-60-100-nsn-medical-group-onkologie"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie"
+          "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie",
+          "dirigente-medico-oncologia-zio-lago-di-zurigo-60-100-nsn-medical-group-onkologie"
         ],
         "en": [
           "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie"
@@ -299,9 +298,20 @@
           "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie"
         ]
       },
-      "previousSlugs": [
-        "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie"
-      ]
+      "firstSeenAt": "2026-09-01T14:18:54.321Z",
+      "salaryMin": 124000,
+      "salaryMax": 173000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 124000,
+          "maxValue": 173000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "nsn-medical-a79485ca05f1",
@@ -335,7 +345,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/822/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:19.516Z",
+      "crawledAt": "2026-10-05T06:27:20.197Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -349,7 +359,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-01-28",
       "postedDate": "2026-01-28",
+      "postingDateSource": "reported",
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/822/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -376,11 +388,13 @@
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-80-100-nsn-medical-onkologie"
+        "medizinische-r-praxisassistent-in-80-100-nsn-medical-onkologie",
+        "assistente-di-studio-medico-80-100-nsn-medical-group-onkologie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-80-100-nsn-medical-onkologie"
+          "medizinische-r-praxisassistent-in-80-100-nsn-medical-onkologie",
+          "assistente-di-studio-medico-80-100-nsn-medical-group-onkologie"
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:07.348Z",
@@ -429,7 +443,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/827/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:18.919Z",
+      "crawledAt": "2026-10-05T06:27:19.574Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -443,7 +457,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-03-23",
       "postedDate": "2026-03-23",
+      "postingDateSource": "reported",
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/827/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -479,11 +495,13 @@
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-anasthesiologie-mit-fuhrungsverantwortung-stv-arztliche-leitung-nsn"
+        "facharztin-facharzt-anasthesiologie-mit-fuhrungsverantwortung-stv-arztliche-leitung-nsn",
+        "medico-specialista-in-anestesiologia-con-responsabilita-di-leadership-vice-direttore-medico-nsn-medical-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-anasthesiologie-mit-fuhrungsverantwortung-stv-arztliche-leitung-nsn"
+          "facharztin-facharzt-anasthesiologie-mit-fuhrungsverantwortung-stv-arztliche-leitung-nsn",
+          "medico-specialista-in-anestesiologia-con-responsabilita-di-leadership-vice-direttore-medico-nsn-medical-group-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:06.939Z",
@@ -533,7 +551,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/828/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:18.305Z",
+      "crawledAt": "2026-10-05T06:27:18.932Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -547,7 +565,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-04-07",
       "postedDate": "2026-04-07",
+      "postingDateSource": "reported",
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/828/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -588,7 +608,8 @@
         "dipl-oncology-nurse-60-100-zurich-with-perspective-zurich-oerlikon-nsn-medical-group-onkologie",
         "dipl-pflegefachperson-onkologie-60-100-zurich-mit-perspektive-zurich-oerlikon-nsn-medical",
         "dipl-infirmier-en-oncologie-60-100-zurich-avec-perspective-zurich-oerlikon-nsn-medical-group-onkologie",
-        "assistente-di-studio-medico-80-100-zurigo-con-prospettiva-zurigo-oerlikon-nsn-medical-group-zurich"
+        "assistente-di-studio-medico-80-100-zurigo-con-prospettiva-zurigo-oerlikon-nsn-medical-group-zurich",
+        "assistente-di-studio-medico-80-100-zurigo-con-prospettiva-zurigo-oerlikon-nsn-medical-group-onkologie"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -597,7 +618,8 @@
           "dipl-oncology-nurse-60-100-zurich-with-perspective-zurich-oerlikon-nsn-medical-group-onkologie",
           "dipl-pflegefachperson-onkologie-60-100-zurich-mit-perspektive-zurich-oerlikon-nsn-medical",
           "dipl-infirmier-en-oncologie-60-100-zurich-avec-perspective-zurich-oerlikon-nsn-medical-group-onkologie",
-          "assistente-di-studio-medico-80-100-zurigo-con-prospettiva-zurigo-oerlikon-nsn-medical-group-zurich"
+          "assistente-di-studio-medico-80-100-zurigo-con-prospettiva-zurigo-oerlikon-nsn-medical-group-zurich",
+          "assistente-di-studio-medico-80-100-zurigo-con-prospettiva-zurigo-oerlikon-nsn-medical-group-onkologie"
         ],
         "en": [
           "dipl-oncology-nurse-60-100-zurich-with-perspective-zurich-oerlikon-nsn-medical-group-onkologie"
@@ -656,7 +678,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/830/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:17.557Z",
+      "crawledAt": "2026-10-05T06:27:18.135Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -670,7 +692,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-05-18",
       "postedDate": "2026-05-18",
+      "postingDateSource": "reported",
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/830/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -707,12 +731,14 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-onkologie-50-80-nsn-medical-onkologie",
-        "dipl-infermiere-a-hf-fh-oncologia-50-80-nsn-medical-group-richterswil"
+        "dipl-infermiere-a-hf-fh-oncologia-50-80-nsn-medical-group-richterswil",
+        "dipl-infermiere-a-hf-fh-oncologia-50-80-nsn-medical-group-onkologie"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-onkologie-50-80-nsn-medical-onkologie",
-          "dipl-infermiere-a-hf-fh-oncologia-50-80-nsn-medical-group-richterswil"
+          "dipl-infermiere-a-hf-fh-oncologia-50-80-nsn-medical-group-richterswil",
+          "dipl-infermiere-a-hf-fh-oncologia-50-80-nsn-medical-group-onkologie"
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:05.135Z",
@@ -762,7 +788,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/823/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:16.940Z",
+      "crawledAt": "2026-10-05T06:27:17.505Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -776,18 +802,22 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-06-17",
       "postedDate": "2026-06-17",
+      "postingDateSource": "reported",
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/823/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-fakturierung-100-nsn-medical-zurich",
-        "specialiste-facturation-100-nsn-medical-group-zurich"
+        "specialiste-facturation-100-nsn-medical-group-zurich",
+        "collaboratore-trice-fakturierung-100-nsn-medical-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-fakturierung-100-nsn-medical-zurich",
-          "specialiste-facturation-100-nsn-medical-group-zurich"
+          "specialiste-facturation-100-nsn-medical-group-zurich",
+          "collaboratore-trice-fakturierung-100-nsn-medical-group-zurich"
         ],
         "en": [
           "mitarbeiter-in-fakturierung-100-nsn-medical-zurich"
@@ -844,7 +874,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/836/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:16.375Z",
+      "crawledAt": "2026-10-05T06:27:16.872Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -858,7 +888,9 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-07-20",
       "postedDate": "2026-07-20",
+      "postingDateSource": "reported",
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/836/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -866,14 +898,16 @@
         "medizinische-r-praxisassistent-in-100-nsn-medical-onkologie",
         "assistente-medico-100-nsn-medical-group-zurich",
         "medizinische-r-praxisassistent-in-80-100-nsn-medical-onkologie-2",
-        "medizinische-r-praxisassistent-in-80-100-nsn-medical-onkologie"
+        "medizinische-r-praxisassistent-in-80-100-nsn-medical-onkologie",
+        "assistente-medico-100-nsn-medical-group-onkologie"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-100-nsn-medical-onkologie",
           "assistente-medico-100-nsn-medical-group-zurich",
           "medizinische-r-praxisassistent-in-80-100-nsn-medical-onkologie-2",
-          "medizinische-r-praxisassistent-in-80-100-nsn-medical-onkologie"
+          "medizinische-r-praxisassistent-in-80-100-nsn-medical-onkologie",
+          "assistente-medico-100-nsn-medical-group-onkologie"
         ],
         "en": [
           "medizinische-r-praxisassistent-in-100-nsn-medical-onkologie"
@@ -929,7 +963,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/838/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:15.694Z",
+      "crawledAt": "2026-10-05T06:27:16.064Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -943,18 +977,22 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-25",
       "postedDate": "2026-08-25",
+      "postingDateSource": "reported",
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/838/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-group-uster",
-        "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-onkologie"
+        "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-onkologie",
+        "specialista-medico-fmh-zio-uster-60-100-nsn-medical-group-onkologie"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-group-uster",
-          "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-onkologie"
+          "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-onkologie",
+          "specialista-medico-fmh-zio-uster-60-100-nsn-medical-group-onkologie"
         ],
         "en": [
           "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-onkologie"
@@ -1010,7 +1048,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/839/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:15.095Z",
+      "crawledAt": "2026-10-05T06:27:15.416Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1024,16 +1062,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-08-31",
       "postedDate": "2026-08-31",
+      "postingDateSource": "reported",
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/839/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitung-controlling-im-gesundheitswesen-80-100-nsn-medical-zurich"
+        "leitung-controlling-im-gesundheitswesen-80-100-nsn-medical-zurich",
+        "responsabile-del-controllo-sanitario-80-100-nsn-medical-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitung-controlling-im-gesundheitswesen-80-100-nsn-medical-zurich"
+          "leitung-controlling-im-gesundheitswesen-80-100-nsn-medical-zurich",
+          "responsabile-del-controllo-sanitario-80-100-nsn-medical-group-zurich"
         ],
         "en": [
           "leitung-controlling-im-gesundheitswesen-80-100-nsn-medical-zurich"
@@ -1089,7 +1131,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/840/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:14.500Z",
+      "crawledAt": "2026-10-05T06:27:14.778Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1103,16 +1145,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-14",
       "postedDate": "2026-09-14",
+      "postingDateSource": "reported",
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/840/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-onkologie-60-100-zurich-nsn-medical-onkologie"
+        "dipl-pflegefachperson-onkologie-60-100-zurich-nsn-medical-onkologie",
+        "dipl-infermiera-oncologia-60-100-zurigo-nsn-medical-group-onkologie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-onkologie-60-100-zurich-nsn-medical-onkologie"
+          "dipl-pflegefachperson-onkologie-60-100-zurich-nsn-medical-onkologie",
+          "dipl-infermiera-oncologia-60-100-zurigo-nsn-medical-group-onkologie"
         ],
         "en": [
           "dipl-pflegefachperson-onkologie-60-100-zurich-nsn-medical-onkologie"
@@ -1168,7 +1214,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/841/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T09:23:13.818Z",
+      "crawledAt": "2026-10-05T06:27:14.038Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1182,16 +1228,20 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-23",
       "postedDate": "2026-09-23",
+      "postingDateSource": "reported",
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/841/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "co-leitung-ernahrungsberatung-60-80-nsn-medical-onkologie"
+        "co-leitung-ernahrungsberatung-60-80-nsn-medical-onkologie",
+        "consulenza-nutrizionale-leader-60-80-nsn-medical-group-onkologie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "co-leitung-ernahrungsberatung-60-80-nsn-medical-onkologie"
+          "co-leitung-ernahrungsberatung-60-80-nsn-medical-onkologie",
+          "consulenza-nutrizionale-leader-60-80-nsn-medical-group-onkologie"
         ],
         "en": [
           "co-leitung-ernahrungsberatung-60-80-nsn-medical-onkologie"

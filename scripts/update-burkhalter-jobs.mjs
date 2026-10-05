@@ -18,6 +18,7 @@
  *   4. Builds standardized job objects and merges into data/jobs.json.
  *   5. Translates missing locales.
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -190,9 +191,8 @@ function buildJob(raw, detailOrDescription = '') {
   const detailUrl = raw.url
     ? (raw.url.startsWith('http') ? raw.url : `${BASE_URL}${raw.url}`)
     : `${BASE_URL}/en/jobs-and-careers/vacancies`;
-  const postedDate = raw.issueDate
-    ? new Date(raw.issueDate * 1000).toISOString().slice(0, 10)
-    : new Date().toISOString().slice(0, 10);
+  // issueDate has no verified publication contract; creation/operational dates are not substitutes.
+  const publication = sourcePostingDateFields();
   const sourceLang = detectLang(`${title} ${description}`, 'de');
 
   // Determine employment type from title
@@ -240,7 +240,7 @@ function buildJob(raw, detailOrDescription = '') {
     sector: 'Impiantistica & Tecnologia Edilizia',
     source: 'burkhalter-dedicated-crawler',
     sourceLang,
-    postedDate,
+    ...publication,
     employmentType,
     contractType: employmentType,
     // Only text read from the source: '' when the detail page could not be
@@ -276,6 +276,7 @@ function mergeJobs(discoveredJobs) {
   const mergeLocales = (prev, job) => ({
     ...prev,
     ...job,
+    ...mergeSourcePostingDates(prev, job),
     titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
     descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
     slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),

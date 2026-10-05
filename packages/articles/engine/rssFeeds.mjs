@@ -196,7 +196,10 @@ function parseSeoBlogs(fs, path, rootDir, seoDir, seoFiles) {
           ? unescapeQuoted(authorBlock.match(/"name":\s*"((?:[^"\\]|\\.)*)"/)?.[1], '"')
           : '';
 
-      if (!headline || !datePublished) continue;
+      // An item needs a REAL date: `<pubDate>` and the newest-first sort are
+      // built from it, and `new Date('garbage').toUTCString()` is the literal
+      // "Invalid Date" — it does not throw, so toRfc822's catch never fires.
+      if (!headline || !datePublished || !Number.isFinite(Date.parse(datePublished))) continue;
 
       articles.set(articleId, {
         headline,
@@ -455,8 +458,9 @@ ${itemsXml}
  * `[filename, xml]` list — the caller decides where the bytes land (public/ in
  * the site, dist/api/ in the publisher). Nothing is written here.
  *
- * `registry` is the section's article array; only `id` and `image` are read,
- * to resolve `media:content` without touching the filesystem.
+ * `registry` is the section's article array; `id` and `image` are read to
+ * resolve `media:content` without touching the filesystem, and `date === ''`
+ * (publication date unknown) keeps that article out of the feed.
  */
 export function buildSectionFeeds({ fs, path, rootDir, section, registry = [], layout = {}, repairSerpSnippet }) {
   // NON opzionale, e senza fallback identita'. Il produttore reale dei feed e'
@@ -507,6 +511,20 @@ export function buildSectionFeeds({ fs, path, rootDir, section, registry = [], l
     if (credit) credits.set(a.id, credit);
   }
 
+  // `date: ''` in the registry is the corpus stating that the publication date
+  // is UNKNOWN (corpus PR 2082, "omit unverified historical article dates").
+  // A feed item cannot exist without a `<pubDate>`, so such an article stays
+  // out of every feed even if a stale `datePublished` literal survives in its
+  // SEO entry: the registry is the editorial decision, the SEO literal is not.
+  // Only the explicit '' marker counts — a registry row without a `date` field
+  // at all (image-only callers) says nothing about the date.
+  const unknownDateIds = new Set(
+    registry.filter((a) => a && a.id && a.date === '').map((a) => a.id),
+  );
+  const feedArticles = unknownDateIds.size
+    ? new Map([...articles].filter(([id]) => !unknownDateIds.has(id)))
+    : articles;
+
   const feeds = [];
   for (const locale of RSS_LOCALES) {
     const metaFileName = section.metaFile(locale);
@@ -514,7 +532,7 @@ export function buildSectionFeeds({ fs, path, rootDir, section, registry = [], l
     const excerpts = parseLocalizedField(fs, path, rootDir, localesDir, metaFileName, 'excerpt');
     const bodies = parseBlogBodies(fs, path, rootDir, localesDir, section.bodyDir, locale);
 
-    const xml = renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, images, credits, repairSerpSnippet);
+    const xml = renderFeed(section, locale, feedArticles, slugs, titles, excerpts, bodies, images, credits, repairSerpSnippet);
     if (!xml) continue;
 
     feeds.push([section.feedFile(locale), xml]);

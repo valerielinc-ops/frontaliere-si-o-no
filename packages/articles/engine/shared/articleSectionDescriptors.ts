@@ -114,9 +114,9 @@ export const ARTICLE_SECTION_DESCRIPTORS: OgSection[] = [
  * Find every `'blog-<slug>': {` entry-key position in a `seoFiles` source
  * file. Shared (issue #4881 Fase 4, AGENTS.md #6) between `ogPagesPlugin.ts`'s
  * entries-building loop (the render-time, byte-identity-critical use) and the
- * corpus re-render driver's id-enumeration (a superset-safe use — see
- * `blogKeyToArticleId` below). One literal regex, not two copies that could
- * silently diverge if the `blog-` key convention ever changed.
+ * article-id enumerators (see `blogKeyToArticleId` below). One literal regex,
+ * not two copies that could silently diverge if the `blog-` key convention ever
+ * changed.
  */
 export function extractBlogEntryPositions(source: string): Array<{ key: string; start: number; end: number }> {
  return findAllSeoEntryMatches(source).map(({ id, index, closeIdx }) => ({
@@ -132,21 +132,12 @@ export function blogKeyToArticleId(key: string): string {
 }
 
 /**
- * Superset-safe enumeration of every known article id in a section: union of
- * (a) `'blog-<slug>'` keys found across the section's `seoFiles` and (b)
- * every locale's body-directory file listing. Shared (issue #4881 Fase 4,
- * AGENTS.md #6) between the corpus re-render driver
- * (`scripts/rerender-article-corpus.mjs`, batching source) and the
- * drift-audit script (`scripts/audit-article-corpus-drift.mjs`, sampling
- * source) — both need "every article id in this section" and neither single
- * source is guaranteed exhaustive on its own. A superset is always safe for
- * both callers: extra ids are harmless no-ops (`renderArticlePages`'s
- * `onlyArticleIds` silently skips anything that isn't a real entry — see
- * `tests/render-article-pages-single-vs-full.test.ts`'s phantom-id case;
- * the audit script would at worst log an early liveness failure from
- * `check-article-byte-identity.mjs` for a phantom id, never crash).
+ * Read the SEO entry ids that `renderArticlePages` can actually render. Body
+ * directories are deliberately not consulted here: a body chunk can outlive
+ * its SEO entry during an article refresh/retirement, but it is not a live page
+ * that the byte-identity audit can compare.
  */
-export function enumerateSectionArticleIds(section: OgSection, rootDir: string): string[] {
+function enumerateSeoArticleIds(section: OgSection, rootDir: string): Set<string> {
  const ids = new Set<string>();
 
  for (const seoFile of section.seoFiles) {
@@ -159,6 +150,30 @@ export function enumerateSectionArticleIds(section: OgSection, rootDir: string):
   }
   for (const { key } of extractBlogEntryPositions(src)) ids.add(blogKeyToArticleId(key));
  }
+
+ return ids;
+}
+
+/**
+ * Enumerate only ids with a renderable SEO entry. This is the population for
+ * live byte-identity checks: sampling body-only ids would produce no locale
+ * verdict because `renderArticlePages` correctly treats them as no-ops.
+ */
+export function enumerateRenderableSectionArticleIds(section: OgSection, rootDir: string): string[] {
+ return [...enumerateSeoArticleIds(section, rootDir)];
+}
+
+/**
+ * Superset-safe enumeration of every known article id in a section: union of
+ * renderable `'blog-<slug>'` keys and every locale's body-directory file
+ * listing. The corpus re-render driver keeps this broader population because
+ * its batching input must remain tolerant of a body/SEO sync race; extra ids
+ * are harmless no-ops (`renderArticlePages`'s `onlyArticleIds` silently skips
+ * anything that isn't a real entry — see
+ * `tests/render-article-pages-single-vs-full.test.ts`'s phantom-id case).
+ */
+export function enumerateSectionArticleIds(section: OgSection, rootDir: string): string[] {
+ const ids = enumerateSeoArticleIds(section, rootDir);
 
  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
   const dir = path.resolve(rootDir, 'services', 'locales', section.bodyDir, locale);

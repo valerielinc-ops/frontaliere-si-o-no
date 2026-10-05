@@ -6,7 +6,8 @@
  * generator — goes through this one module, so its rules are pinned here once:
  * the schema-1 validator, the reader, the ImageObject projection that replaces
  * the site's false «© Frontaliere Ticino» claim, and the visible line at the end
- * of the article in the four locales.
+ * of the article in the four locales — which public domain and CC0 covers do
+ * not get (owner decision 2026-10-05), while their ImageObject stays whole.
  *
  * The reference record is the design's worked example (kuhne-nagel-tagli-posti-
  * ticino-2026 → Commons «Locarno 1.jpg», CC BY-SA 3.0, by Riessdo), built from the
@@ -19,6 +20,7 @@ import {
   UNKNOWN_AUTHOR_NAME,
   coverKey,
   createImageCreditReader,
+  hasVisibleImageCredit,
   imageCreditParts,
   imageObjectCreditFields,
   isAllowedAuthorUrl,
@@ -208,13 +210,10 @@ describe('every licence family', () => {
 
   it('public domain without a licence URL links the file page and is named in the locale', () => {
     expect(imageObjectCreditFields(PD).license).toBe('https://commons.wikimedia.org/wiki/File:Lugano_prokudin.jpg');
-    const html = renderImageCreditHtml(PD, 'it');
-    expect(html).toContain(
-      '<a href="https://commons.wikimedia.org/wiki/File:Lugano_prokudin.jpg" target="_blank" rel="noopener" class="underline underline-offset-2">pubblico dominio</a>',
-    );
-    expect(LOCALES.map((l) => imageCreditParts(PD, l)!.segments.find((s) => s.kind === 'licence')!.text))
+    // No visible line (owner decision 2026-10-05): the localised name lives on
+    // in the Media RSS licence.
+    expect(LOCALES.map((l) => mediaRssCreditXml(PD, l).match(/>([^<]+)<\/media:license>$/)![1]))
       .toEqual(['pubblico dominio', 'public domain', 'gemeinfrei', 'domaine public']);
-    expect(imageCreditParts(PD, 'it')!.text).toContain('(ritagliata e ridimensionata).');
   });
 
   it('Flickr Commons is described, not named, in every locale', () => {
@@ -228,7 +227,7 @@ describe('every licence family', () => {
   });
 
   it('other licence names stay as published', () => {
-    expect(imageCreditParts(FAMILY_RECORDS.cc0, 'de')!.text).toContain(', CC0, via Wikimedia Commons');
+    expect(imageCreditParts(FAMILY_RECORDS['cc-by'], 'de')!.text).toContain(', CC BY 4.0, via Wikimedia Commons');
     expect(imageCreditParts(FAMILY_RECORDS['other-attribution'], 'fr')!.text).toContain(', Attribution-Swisstopo, via');
   });
 });
@@ -302,13 +301,16 @@ describe('unknown author (courtesy credit only)', () => {
     }
   });
 
-  it('says so in every locale', () => {
-    expect(LOCALES.map((l) => imageCreditParts(UNKNOWN_PD, l)!.text)).toEqual([
-      'Immagine di copertina: «Swiss vote», autore sconosciuto, pubblico dominio, tramite Wikimedia Commons (ridimensionata).',
-      'Cover image: “Swiss vote”, author unknown, public domain, via Wikimedia Commons (resized).',
-      'Titelbild: „Swiss vote“, Urheber unbekannt, gemeinfrei, via Wikimedia Commons (skaliert).',
-      'Image de couverture : « Swiss vote », auteur inconnu, domaine public, via Wikimedia Commons (redimensionnée).',
+  it('says so in every locale where a line is shown (Flickr Commons; public domain and CC0 have none)', () => {
+    const unknownFlickr = record({ ...UNKNOWN_PD, licence: FAMILY_RECORDS['no-known-restrictions'].licence });
+    const nbsp = '\u00a0';
+    expect(LOCALES.map((l) => imageCreditParts(unknownFlickr, l)!.text)).toEqual([
+      'Immagine di copertina: «Swiss vote», autore sconosciuto, nessuna restrizione di copyright nota, tramite Wikimedia Commons (ridimensionata).',
+      'Cover image: “Swiss vote”, author unknown, no known copyright restrictions, via Wikimedia Commons (resized).',
+      'Titelbild: „Swiss vote“, Urheber unbekannt, keine bekannten urheberrechtlichen Beschränkungen, via Wikimedia Commons (skaliert).',
+      `Image de couverture${nbsp}: «${nbsp}Swiss vote${nbsp}», auteur inconnu, aucune restriction de droit d’auteur connue, via Wikimedia Commons (redimensionnée).`,
     ]);
+    for (const l of LOCALES) expect(imageCreditParts(UNKNOWN_PD, l), l).toBeNull();
   });
 
   it('never falls back to the site, Commons or the uploader as creator', () => {
@@ -327,6 +329,103 @@ describe('unknown author (courtesy credit only)', () => {
   it('is rejected where the licence requires attribution', () => {
     const ccBy = record({ ...UNKNOWN_PD, licence: FAMILY_RECORDS['cc-by'].licence });
     expect(validateImageCreditRecord(ccBy).errors).toContain('author.name is required when the licence requires attribution');
+  });
+});
+
+/**
+ * Owner decision, 2026-10-05: «Credito per le immagini in pubblico dominio o
+ * CC0 (la licenza non lo richiede): cosa facciamo?» → «Togliere il credito».
+ * No visible line for those two families, on any surface (they all render
+ * `imageCreditParts`); the structured data does not change.
+ */
+describe('public domain and CC0: no visible credit, same structured data (owner decision 2026-10-05)', () => {
+  const CC0_WITHOUT_URL = record({ ...FAMILY_RECORDS.cc0, licence: { ...FAMILY_RECORDS.cc0.licence, url: null } });
+  const HIDDEN: Array<[string, ImageCreditRecord]> = [
+    ['public domain', PD],
+    ['public domain, unknown author', UNKNOWN_PD],
+    ['CC0', FAMILY_RECORDS.cc0],
+    ['CC0 without a licence URL', CC0_WITHOUT_URL],
+  ];
+
+  it.each(HIDDEN)('%s: no line and no footer, in every locale', (_label, rec) => {
+    expect(validateImageCreditRecord(rec).errors).toEqual([]);
+    expect(hasVisibleImageCredit(rec)).toBe(false);
+    for (const locale of [...LOCALES, 'xx']) {
+      expect(imageCreditParts(rec, locale), locale).toBeNull();
+      expect(renderImageCreditHtml(rec, locale), locale).toBe('');
+    }
+  });
+
+  it('public domain keeps exactly the ImageObject fields it had', () => {
+    expect(imageObjectCreditFields(PD)).toEqual({
+      creator: { '@type': 'Person', name: 'Sergei Mikhailovich Prokudin-Gorskii' },
+      creditText: 'Sergei Mikhailovich Prokudin-Gorskii / Wikimedia Commons',
+      copyrightNotice: 'Public domain',
+      license: 'https://commons.wikimedia.org/wiki/File:Lugano_prokudin.jpg',
+      acquireLicensePage: 'https://commons.wikimedia.org/wiki/File:Lugano_prokudin.jpg',
+      isBasedOn: 'https://commons.wikimedia.org/wiki/File:Lugano_prokudin.jpg',
+    });
+    expect(imageObjectCreditFields(UNKNOWN_PD)).toEqual({
+      creator: { '@type': 'Person', name: UNKNOWN_AUTHOR_NAME },
+      creditText: `${UNKNOWN_AUTHOR_NAME} / Wikimedia Commons`,
+      copyrightNotice: 'Public domain',
+      license: 'https://commons.wikimedia.org/wiki/File:Swiss_vote.png',
+      acquireLicensePage: 'https://commons.wikimedia.org/wiki/File:Swiss_vote.png',
+      isBasedOn: 'https://commons.wikimedia.org/wiki/File:Swiss_vote.png',
+    });
+  });
+
+  it('CC0 keeps exactly the ImageObject fields it had', () => {
+    const page = 'https://commons.wikimedia.org/wiki/File:AI_Classroom_at_Universal_Ai_University.jpg';
+    const expected = {
+      creator: { '@type': 'Person', name: 'ManoBV16' },
+      creditText: 'ManoBV16 / Wikimedia Commons',
+      copyrightNotice: 'CC0',
+      license: 'https://creativecommons.org/publicdomain/zero/1.0/',
+      acquireLicensePage: page,
+      isBasedOn: page,
+    };
+    expect(imageObjectCreditFields(FAMILY_RECORDS.cc0)).toEqual(expected);
+    expect(imageObjectCreditFields(CC0_WITHOUT_URL)).toEqual(expected);
+  });
+
+  it('keeps the Media RSS credit and licence (metadata, not the visible line)', () => {
+    expect(mediaRssCreditXml(PD, 'it')).toBe(
+      '<media:credit role="author" scheme="urn:ebu">Sergei Mikhailovich Prokudin-Gorskii</media:credit>'
+      + '<media:license type="text/html" href="https://commons.wikimedia.org/wiki/File:Lugano_prokudin.jpg">pubblico dominio</media:license>',
+    );
+    expect(mediaRssCreditXml(FAMILY_RECORDS.cc0, 'en')).toBe(
+      '<media:credit role="author" scheme="urn:ebu">ManoBV16</media:credit>'
+      + '<media:license type="text/html" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</media:license>',
+    );
+  });
+
+  it('still shows the line when a public domain or CC0 record says attribution is required', () => {
+    for (const rec of [PD, FAMILY_RECORDS.cc0]) {
+      const required = record({ ...rec, licence: { ...rec.licence, attributionRequired: true } });
+      expect(hasVisibleImageCredit(required)).toBe(true);
+      expect(renderImageCreditHtml(required, 'it')).toMatch(/^<footer class="ft-image-credit/);
+    }
+  });
+
+  it('CC BY and CC BY-SA keep the visible line unchanged', () => {
+    expect(hasVisibleImageCredit(FAMILY_RECORDS['cc-by'])).toBe(true);
+    expect(hasVisibleImageCredit(FAMILY_RECORDS['cc-by-sa'])).toBe(true);
+    expect(imageCreditParts(FAMILY_RECORDS['cc-by'], 'it')!.text).toBe(
+      'Immagine di copertina: «Economic growth of Germany» di Max Roser, CC BY 4.0, tramite Wikimedia Commons (ridimensionata).',
+    );
+    expect(imageCreditParts(FAMILY_RECORDS['cc-by-sa'], 'it')!.text).toBe(
+      'Immagine di copertina: «Locarno 1» di Riessdo, CC BY-SA 3.0, tramite Wikimedia Commons (ridimensionata).',
+    );
+  });
+
+  it('every other family keeps its line', () => {
+    const shown = Object.entries(FAMILY_RECORDS).filter(([family]) => family !== 'pd' && family !== 'cc0');
+    expect(shown.map(([family]) => family).sort()).toEqual(['cc-by', 'cc-by-sa', 'fal', 'no-known-restrictions', 'other-attribution']);
+    for (const [family, rec] of shown) {
+      expect(hasVisibleImageCredit(rec), family).toBe(true);
+      for (const locale of LOCALES) expect(renderImageCreditHtml(rec, locale), `${family} ${locale}`).toMatch(/^<footer class="ft-image-credit/);
+    }
   });
 });
 
@@ -359,7 +458,7 @@ describe('markup safety', () => {
   });
 
   it('links with target=_blank rel=noopener only: no nofollow, license or author rel', () => {
-    for (const rec of Object.values(FAMILY_RECORDS)) {
+    for (const rec of Object.values(FAMILY_RECORDS).filter(hasVisibleImageCredit)) {
       const html = renderImageCreditHtml(rec, 'de');
       const anchors = html.match(/<a\b[^>]*>/g) ?? [];
       expect(anchors.length).toBeGreaterThanOrEqual(2);

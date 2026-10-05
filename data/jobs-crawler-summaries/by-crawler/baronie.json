@@ -1,25 +1,27 @@
 {
   "key": "baronie",
   "label": "Baronie",
-  "generatedAt": "2026-10-04T09:26:20.533Z",
+  "generatedAt": "2026-10-04T21:22:50.213Z",
   "total": 2,
   "discovered": 5,
   "parsed": 2,
   "written": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 8682,
-  "avgDurationMs": 8682,
+  "unchangedCount": 2,
+  "durationMs": 9731,
+  "avgDurationMs": 9731,
   "durationHistory": [
-    8682
+    9731
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Quality Assurance Specialist & Safety Coordinator",
-      "slug": "quality-assurance-specialist-safety-coordinator-baronie-caslano-lugano",
+      "slug": "quality-assurance-specialista-safety-coordinatore-chocolat-alprose-sa-comod-trading-sa-caslano-lugano",
       "url": "https://www.baronie.com/en/jobs/quality-assurance-specialist-safety-coordiantor-caslano",
       "applyUrl": "https://www.baronie.com/en/jobs/quality-assurance-specialist-safety-coordiantor-caslano",
       "company": "Chocolat Alprose SA / Comod Trading SA",
@@ -48,7 +50,6 @@
       "sourceIdentity": "url:https://www.baronie.com/en/jobs/quality-assurance-specialist-safety-coordiantor-caslano",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -59,7 +60,7 @@
     },
     {
       "title": "Plant Manager",
-      "slug": "plant-manager-baronie-caslano-lugano",
+      "slug": "responsabile-impianti-chocolat-alprose-sa-comod-trading-sa-caslano-lugano",
       "url": "https://www.baronie.com/en/jobs/plant-manager-caslano",
       "applyUrl": "https://www.baronie.com/en/jobs/plant-manager-caslano",
       "company": "Chocolat Alprose SA / Comod Trading SA",
@@ -88,7 +89,6 @@
       "sourceIdentity": "url:https://www.baronie.com/en/jobs/plant-manager-caslano",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -98,7 +98,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

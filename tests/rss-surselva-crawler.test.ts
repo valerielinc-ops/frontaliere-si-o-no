@@ -383,8 +383,8 @@ describe('parseOstendisJob', () => {
   };
 
   const sampleDetail = {
+    ...parseDetailPageJsonLd('<script type="application/ld+json">{"@type":"JobPosting","datePosted":"2024-06-25"}</script>'),
     description: 'Selbständige Patientenversorgung in einer modernen Gruppenpraxis. Wir bieten ein motiviertes Team, flexible Arbeitszeiten und die Möglichkeit zur fachlichen Weiterentwicklung in einem angenehmen Arbeitsumfeld. Sie arbeiten eng mit Kolleginnen und Kollegen aus mehreren Bereichen zusammen, dokumentieren Ihre Arbeit sorgfältig und bringen Ideen zur Verbesserung der Abläufe ein. Wir bieten flexible Arbeitszeiten, Weiterbildungen und ein kollegiales Team in einem modernen Umfeld.',
-    datePosted: '2024-06-25',
     employmentType: 'FULL_TIME',
     streetAddress: 'Spitalstrasse 6',
     addressLocality: 'Ilanz',
@@ -584,8 +584,8 @@ describe('job shape', () => {
   };
 
   const validJob = parseOstendisJob(sampleEntry, {
+    ...parseDetailPageJsonLd('<script type="application/ld+json">{"@type":"JobPosting","datePosted":"2026-04-01"}</script>'),
     description: 'Wir suchen eine erfahrene Pflegefachperson HF für unser Team in Ilanz. Gute Deutschkenntnisse und Freude an der Arbeit mit Menschen runden Ihr Profil ab. Sie arbeiten eng mit Kolleginnen und Kollegen aus mehreren Bereichen zusammen, dokumentieren Ihre Arbeit sorgfältig und bringen Ideen zur Verbesserung der Abläufe ein. Wir bieten flexible Arbeitszeiten, Weiterbildungen und ein kollegiales Team in einem modernen Umfeld.',
-    datePosted: '2026-04-01',
     employmentType: 'FULL_TIME',
     streetAddress: 'Spitalstrasse 6',
     addressLocality: 'Ilanz',

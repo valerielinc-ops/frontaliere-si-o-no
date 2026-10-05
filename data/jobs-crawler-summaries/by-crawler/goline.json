@@ -1,16 +1,16 @@
 {
   "key": "goline",
   "label": "GOLINE SA",
-  "generatedAt": "2026-10-04T09:30:53.005Z",
+  "generatedAt": "2026-10-04T21:38:49.710Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2059,
-  "avgDurationMs": 2059,
+  "durationMs": 2413,
+  "avgDurationMs": 2413,
   "durationHistory": [
-    2059
+    2413
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -18,7 +18,7 @@
       "title": "Sviluppatore Web Full Stack (Backend e Frontend)",
       "slug": "sviluppatore-web-full-stack-backend-e-frontend-goline-sa-stabio-ticino-svizzera",
       "url": "https://www.goline.ch/opportunities/",
-      "applyUrl": "https://www.goline.ch/self-application/",
+      "applyUrl": "https://www.goline.ch/self-application/?position=Web%20Full%20Stack%20Developer#application-form",
       "company": "GOLINE SA",
       "companyKey": "goline",
       "companyDomain": "goline.ch",
@@ -40,16 +40,21 @@
       "validThrough": "",
       "id": "goline-d98f0d9c911f",
       "firstSeenAt": "2026-04-13T21:46:49.616Z",
-      "_qualityScore": 86,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 12
+        "completeness": 17
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

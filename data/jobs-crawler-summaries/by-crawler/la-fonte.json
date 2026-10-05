@@ -1,20 +1,109 @@
 {
   "key": "la-fonte",
   "label": "La Fonte",
-  "generatedAt": "2026-10-04T09:22:07.728Z",
+  "generatedAt": "2026-10-04T21:24:38.351Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 2214,
-  "avgDurationMs": 2214,
+  "unchangedCount": 1,
+  "durationMs": 1955,
+  "avgDurationMs": 1955,
   "durationHistory": [
-    2214
+    1955
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "title": "Stagiaire",
+      "slug": "apprendistato-fondazione-la-fonte-luganese-malcantone",
+      "company": "Fondazione La Fonte",
+      "companyKey": "la-fonte",
+      "location": "Luganese, Malcantone",
+      "canton": "TI",
+      "country": "CH",
+      "url": "https://www.lafonte.ch/inizia-con-noi?role=stagiaire-la-fonte-luganese-malcantone#:~:text=Stagiaire",
+      "applyUrl": "mailto:recruiting@lafonte.ch",
+      "category": "internship",
+      "sector": "Servizi sociali / Non-profit",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "source": "la-fonte-crawler",
+      "postedDate": "",
+      "sourceLang": "it",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "",
+      "id": "la-fonte-fbf80dc4d87c",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "streetAddress": "",
+      "postalCode": "6500",
+      "addressLocality": "Luganese, Malcantone",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-05-17T10:35:50.358Z",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "unchangedJobs": [
+    {
+      "title": "Apprendisti/e operatori/trici socioassistenziali AFC",
+      "slug": "apprendisti-e-operatori-trici-socioassistenziali-afc-la-fonte-lugano-neggio",
+      "company": "Fondazione La Fonte",
+      "companyKey": "la-fonte",
+      "location": "Lugano, Neggio",
+      "canton": "TI",
+      "country": "CH",
+      "url": "https://www.lafonte.ch/inizia-con-noi?role=apprendisti-e-operatori-trici-socioassistenziali-afc-la-fonte-lugano-neggio#:~:text=Apprendisti%2Fe%20operatori%2Ftrici%20socioassistenziali%20AFC",
+      "applyUrl": "mailto:recruiting@lafonte.ch",
+      "category": "apprenticeship",
+      "sector": "Servizi sociali / Non-profit",
+      "employmentType": "INTERN",
+      "experienceLevel": "ENTRY",
+      "source": "la-fonte-crawler",
+      "postedDate": "",
+      "sourceLang": "it",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "",
+      "id": "la-fonte-95d0ab9a541b",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "streetAddress": "Via Lavizzari 2",
+      "postalCode": "6900",
+      "addressLocality": "Lugano, Neggio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-05-17T10:35:50.358Z",
+      "salarySource": "estimated",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

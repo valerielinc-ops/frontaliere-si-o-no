@@ -83,6 +83,7 @@
  *   - isTrustedDomain()          — Validate URLs belong to a trusted host
  *   - resolveAddress()           — City-gated HQ address fallback
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { fetchHtml, slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
@@ -276,7 +277,7 @@ export function parseJosefMuellerDetail(html = '') {
   return {
     title,
     description,
-    datePosted: normalizeSpace(String(posting.datePosted || '')),
+    datePosted: typeof posting.datePosted === 'string' ? posting.datePosted : '',
     employmentTypeRaw: normalizeSpace(String(posting.employmentType || '')),
     city: cityRaw,
     postalCode,
@@ -371,7 +372,7 @@ export async function fetchAllJosefMuellerJobs({ fetchPage = fetchHtml } = {}) {
     const jobSlug = slugify(`${title} josef mueller gemuese ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const { contract, employmentType } = mapEmploymentType(employmentTypeRaw, title, finalDescription);
-    const postedDate = datePosted ? datePosted.slice(0, 10) : new Date().toISOString().split('T')[0];
+    const publication = sourcePostingDateFields(datePosted);
 
     const job = {
       // ── Required fields ──
@@ -405,7 +406,7 @@ export async function fetchAllJosefMuellerJobs({ fetchPage = fetchHtml } = {}) {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: sourceUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

@@ -42,6 +42,8 @@
  *   - isTrustedDomain()                  — Validate URLs belong to this company
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
@@ -223,7 +225,6 @@ export async function fetchAllChamSwissPropertiesJobs() {
   if (!items.length) return [];
   console.log(`  📄 Fetching detail pages for rich descriptions...`);
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   const seenSlugs = new Set();
   let detailHits = 0;
@@ -231,7 +232,14 @@ export async function fetchAllChamSwissPropertiesJobs() {
   for (let i = 0; i < items.length; i += 1) {
     const it = items[i];
     if (i > 0) await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
-    const detailContent = await fetchDualooDetail(it.url);
+    let publication = sourcePostingDateFields('');
+    const detailContent = await fetchDualooDetail(it.url, {
+      fetchPage: async (url) => {
+        const html = await fetchHtml(url);
+        publication = sourcePostingDateFields(extractJobPostingLd(html)?.datePosted);
+        return html;
+      },
+    });
     if (detailContent) detailHits += 1;
 
     const city = extractCity(it.location);
@@ -290,7 +298,7 @@ export async function fetchAllChamSwissPropertiesJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...publication,
       applyUrl: it.url,
       hiringOrganizationName: `${CHAM_SWISS_PROPERTIES_COMPANY_NAME} AG`,
       requirements: [],

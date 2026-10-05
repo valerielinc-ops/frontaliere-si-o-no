@@ -12,6 +12,8 @@
  *
  * Modelled on `klinik-arlesheim-job-parser.mjs`.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -147,13 +149,17 @@ export async function fetchAllUrovivaJobs() {
   if (!items.length) return [];
   console.log(`  📄 Fetching detail pages for rich descriptions...`);
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (let i = 0; i < items.length; i += 1) {
     const it = items[i];
     if (i > 0) await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
-    const detailContent = await fetchDualooDetail(it.url);
+    let publication = sourcePostingDateFields('');
+    const detailContent = await fetchDualooDetail(it.url, { fetchPage: async (url) => {
+      const detailHtml = await fetchHtml(url);
+      publication = sourcePostingDateFields(extractJobPostingLd(detailHtml)?.datePosted);
+      return detailHtml;
+    } });
     if (detailContent) detailHits += 1;
 
     const city = extractCity(it.location);
@@ -203,7 +209,7 @@ export async function fetchAllUrovivaJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...publication,
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

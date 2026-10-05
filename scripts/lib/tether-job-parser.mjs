@@ -17,6 +17,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang, isLocationExplicitlyForeign, geocodeCountry } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -277,9 +278,7 @@ export async function fetchAllTetherJobs() {
     const employmentType = EMPLOYMENT_TYPE_MAP[offer.employment_type_code] || 'FULL_TIME';
 
     // Date
-    const datePosted = offer.published_at
-      ? String(offer.published_at).slice(0, 10)
-      : new Date().toISOString().slice(0, 10);
+    const postingDates = sourcePostingDateFields(offer.published_at);
 
     // Build detail + apply URLs
     const detailUrl = `${detailUrlBase}/${offer.slug}`;
@@ -328,8 +327,7 @@ export async function fetchAllTetherJobs() {
       sector: 'Fintech / Blockchain',
       currency: 'CHF',
       featured: false,
-      datePosted,
-      postedDate: datePosted,
+      ...postingDates,
       applyUrl,
       department: offer.department || '',
       requirements: [],

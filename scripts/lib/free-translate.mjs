@@ -37,6 +37,7 @@ import { finalizeTranslatedText, maskProtectedTokens, normalizeGermanGenderForms
 import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';
 import { hasStructuredContent, preserveStructuredTranslation } from './translation-quality.mjs';
 import { getKeyFactsHeading, getTldrHeading } from './ai-search-template.mjs';
+import { detectAiMetaResponse } from './ai-meta-response.mjs';
 
 // ── Config ──────────────────────────────────────────────────────────────────
 // DeepL: support multiple API keys with automatic rotation on quota exhaustion.
@@ -246,6 +247,13 @@ const _cascadeStats = {
   // bucket canonico `tierPassthroughs` (contratto #1210); questo sotto-bucket
   // conserva la cardinalità per segmento per la calibrazione del pavimento.
   tierPassthroughChunks: {},
+  // Tier che hanno risposto PARLANDO della richiesta invece di tradurla: un
+  // rifiuto («Sorry, I can't help with that.»), una richiesta dell'input («I
+  // need to see the actual job title…»), la narrazione di un agente («Let me
+  // check the translation cache files…»), un'etichetta del template rimasta
+  // senza valore («Traduzione:»). Vedi `rejectedAsMetaResponse`. Stessa unita'
+  // di `tierPassthroughs`: tentativi di tier, non campi.
+  tierMetaResponses: {},
   // Per-field-type split of calls/successes. The cumulative `successes` above is
   // summed across every field type, so a run that translates short titles fine
   // but has every (long) description rejected by all providers still reports
@@ -320,6 +328,10 @@ export function logCascadeSummary() {
     .sort((a, b) => b[1] - a[1]);
   if (passChunks.length) {
     console.log('   Tier passthrough (chunk, sorgente resa verbatim): ' + passChunks.map(([k, v]) => `${k}=${v}`).join(', '));
+  }
+  const meta = Object.entries(s.tierMetaResponses).filter(([, v]) => v > 0).sort((a, b) => b[1] - a[1]);
+  if (meta.length) {
+    console.log('   Tier meta-risposta (rifiuto/richiesta/narrazione, scartata): ' + meta.map(([k, v]) => `${k}=${v}`).join(', '));
   }
   const health = getInstanceHealthStats();
   const down = Object.entries(health).filter(([, h]) => h.failures >= HEALTH_FAILURE_THRESHOLD);
@@ -492,6 +504,30 @@ function rejectedAsPassthrough(tierName, source, out, outcome = null, granularit
     _cascadeStats.tierPassthroughChunks[tierName] = (_cascadeStats.tierPassthroughChunks[tierName] || 0) + 1;
   }
   noteTranslationOutcome(outcome, 'passthroughs');
+  return true;
+}
+
+/**
+ * Un tier che risponde CON UNA META-RISPOSTA non ha tradotto (scheda AI-REFUSAL,
+ * trovato da PR 11540): «I need to see the actual job title you want
+ * translated…» e' finito in `titleByLocale.en` di un annuncio interdiscount e
+ * pubblicato sotto /en/. Il testo e' non vuoto, diverso dalla sorgente e in una
+ * lingua plausibile, quindi nessun altro controllo della cascata lo scarta.
+ * Vale un MISS, come il passthrough: il tier successivo prova, e se rispondono
+ * cosi' tutti la cascata rende '' e il campo resta da tradurre. NON conta come
+ * passthrough nell'esito (`incomplete`): una meta-risposta non prova che la
+ * sorgente sia intraducibile, e il memo negativo del passthrough non deve
+ * scattare.
+ *
+ * @param {string} tierName
+ * @param {string} source  testo dato in pasto al motore
+ * @param {string} out     testo reso dal motore
+ * @returns {boolean} true se `out` e' una meta-risposta (e il tier e' stato contato)
+ */
+function rejectedAsMetaResponse(tierName, source, out, outcome = null) {
+  if (!out || !detectAiMetaResponse(out, { source })) return false;
+  _cascadeStats.tierMetaResponses[tierName] = (_cascadeStats.tierMetaResponses[tierName] || 0) + 1;
+  noteTranslationOutcome(outcome, 'incomplete');
   return true;
 }
 
@@ -740,6 +776,21 @@ async function translateChunkGoogle(text, sourceLang, targetLang, outcome = null
   return '';
 }
 
+/**
+ * Il verdetto di UNA istanza dentro `raceInstances`: la sua risposta puo'
+ * vincere la gara solo se e' una traduzione. Un eco della sorgente o una
+ * meta-risposta («Sorry, I can't help with that.», «Traduzione:») resta qui e
+ * vale '': non vince, non ferma le altre istanze ancora in corsa e non marca
+ * l'istanza come sana. Scartarla dopo, in `tryTier`, era troppo tardi: la gara
+ * aveva gia' abortito i candidati validi.
+ */
+function acceptedRaceAnswer(tierName, source, translated, attemptOutcome) {
+  if (!translated) return '';
+  if (rejectedAsPassthrough(tierName, source, translated, attemptOutcome)) return '';
+  if (rejectedAsMetaResponse(tierName, source, translated, attemptOutcome)) return '';
+  return translated;
+}
+
 // ── Parallel Race Helper ─────────────────────────────────────────────────────
 // Probe multiple instances in parallel, return the first valid translation.
 // Much faster than sequential probing when some instances are slow/down.
@@ -837,8 +888,7 @@ async function translateWithLingva(text, sourceLang, targetLang, outcome = null)
     // Dentro `raceInstances`: se questa istanza rende l'eco NON deve vincere la
     // gara, le altre stanno ancora provando. Percio' il rifiuto resta qui e non
     // sale in `tryTier` — ma passa dalla formula condivisa e viene contato.
-    if (translated && !rejectedAsPassthrough('lingva', q, translated, attemptOutcome)) return translated;
-    return '';
+    return acceptedRaceAnswer('lingva', q, translated, attemptOutcome);
   }, outcome);
 }
 
@@ -861,8 +911,7 @@ async function translateWithSimplyTranslate(text, sourceLang, targetLang, outcom
     if (!res.ok) return '';
     const data = await res.json();
     const translated = normalizeBlock(data?.translated_text || '');
-    if (translated && !rejectedAsPassthrough('simplyTranslate', q, translated, attemptOutcome)) return translated;
-    return '';
+    return acceptedRaceAnswer('simplyTranslate', q, translated, attemptOutcome);
   }, outcome);
 }
 
@@ -920,8 +969,7 @@ async function translateWithLibreTranslate(text, sourceLang, targetLang, outcome
     if (!res.ok) return '';
     const data = await res.json();
     const translated = normalizeBlock(data?.translatedText || '');
-    if (translated && !rejectedAsPassthrough('libreTranslate', q, translated, attemptOutcome)) return translated;
-    return '';
+    return acceptedRaceAnswer('libreTranslate', q, translated, attemptOutcome);
   }, outcome);
 }
 
@@ -949,8 +997,7 @@ async function translateWithMozhiEngine(text, sourceLang, targetLang, engine = '
     // nomi diversi (`mozhiDdg`, `mozhiGoogle`, `mozhiYandex`, `mozhiDeepL`) e da
     // qui dentro non sono ricostruibili, quindi il bucket usa `mozhi:<engine>`
     // invece di inventare una corrispondenza che poi deriva.
-    if (translated && !rejectedAsPassthrough(`mozhi:${engine}`, q, translated, attemptOutcome)) return translated;
-    return '';
+    return acceptedRaceAnswer(`mozhi:${engine}`, q, translated, attemptOutcome);
   }, outcome);
 }
 
@@ -1522,8 +1569,11 @@ async function _translateGroupWithCodex(group) {
   // passthrough della sorgente, quindi `tryTier` non la riconoscerebbe da
   // solo. Filtrare la mappa prima di costruire i risultati copre sia la
   // risposta singola sia quella batch senza scartare gli item sani del gruppo.
+  // Una meta-risposta (rifiuto, richiesta dell'input) vale come l'eco del
+  // prompt: '' qui, cosi' conta anche come fallimento della lane qui sotto e
+  // una batch di soli rifiuti non azzera lo streak dello stop.
   for (const [source, out] of byText) {
-    if (out && codexPromptEchoMarker(out, source)) byText.set(source, '');
+    if (out && (codexPromptEchoMarker(out, source) || detectAiMetaResponse(out, { source }))) byText.set(source, '');
   }
   const results = group.map((item) => byText.get(item.clean) || '');
   group.forEach((item, index) => {
@@ -2076,6 +2126,11 @@ async function freeTranslateCore({ text, sourceLang, targetLang, fieldType = 'ti
       // rimandano la sorgente TUTTI, `freeTranslate` esce '' e il chiamante
       // legge quello che ha sempre letto: traduzione non avvenuta.
       if (rejectedAsPassthrough(tierName, clean, result, _outcome)) {
+        return '';
+      }
+      // Un rifiuto o una domanda del modello non e' una traduzione: MISS, il
+      // tier successivo prova (vedi `rejectedAsMetaResponse`).
+      if (rejectedAsMetaResponse(tierName, sourceClean, result, _outcome)) {
         return '';
       }
       if (result) {

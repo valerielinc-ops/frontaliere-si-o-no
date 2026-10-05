@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   parseAplusListings,
   parseAplusJobDetail,
+  isAplusEmptyListingPage,
   isAplusSwissLocation,
   inferAplusCanton,
   buildAplusLocalizedContent,
@@ -105,6 +106,34 @@ describe('parseAplusListings', () => {
 
   it('returns empty array when no vacancy cards present', () => {
     expect(parseAplusListings('<html><body><p>No jobs.</p></body></html>')).toHaveLength(0);
+  });
+
+  it('proves the explicit InRecruiting empty state without trusting a bare selector miss', () => {
+    const emptyHtml = '<main><div class="vacancy__empty"><p>No vacancies available.</p></div></main>';
+    const rows = parseAplusListings(emptyHtml);
+
+    expect(isAplusEmptyListingPage(emptyHtml, rows)).toBe(true);
+    expect(isAplusEmptyListingPage('<main>Nessun annuncio disponibile</main>', [])).toBe(true);
+    expect(isAplusEmptyListingPage('<main><p>No jobs.</p></main>', [])).toBe(false);
+  });
+
+  it('does not accept an empty-state copy hidden in a template or alongside a live card', () => {
+    const hidden = '<template><p>No vacancies available</p></template>';
+    expect(isAplusEmptyListingPage(hidden, [])).toBe(false);
+    const hiddenAncestor = '<div hidden><p>No vacancies available</p></div>';
+    expect(isAplusEmptyListingPage(hiddenAncestor, [])).toBe(false);
+    const hiddenDescendant = '<div><span hidden>Nessun annuncio disponibile</span></div>';
+    expect(isAplusEmptyListingPage(hiddenDescendant, [])).toBe(false);
+    const hiddenClass = '<div class="hidden"><p>No vacancies available</p></div>';
+    expect(isAplusEmptyListingPage(hiddenClass, [])).toBe(false);
+
+    const splitVisibleMarker = '<div><span>No vacancies</span><span> available</span></div>';
+    expect(isAplusEmptyListingPage(splitVisibleMarker, [])).toBe(true);
+
+    const live = `${LISTING_HTML}<p>No vacancies available</p>`;
+    const rows = parseAplusListings(live);
+    expect(rows).toHaveLength(3);
+    expect(isAplusEmptyListingPage(live, rows)).toBe(false);
   });
 });
 

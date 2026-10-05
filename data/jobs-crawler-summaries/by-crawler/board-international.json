@@ -1,24 +1,65 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-10-04T09:26:00.918Z",
+  "generatedAt": "2026-10-04T21:24:48.326Z",
   "total": 4,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 2055,
-  "avgDurationMs": 2055,
+  "unchangedCount": 4,
+  "durationMs": 2749,
+  "avgDurationMs": 2749,
   "durationHistory": [
-    2055
+    2749
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "title": "Cloud Operations Specialist",
+      "slug": "cloud-operations-specialist-board-international-chiasso-switzerland",
+      "url": "https://boardinternationalsa.applytojob.com/apply/PBWVu8B7lS/Cloud-Operations-Specialist",
+      "applyUrl": "https://boardinternationalsa.applytojob.com/apply/PBWVu8B7lS/Cloud-Operations-Specialist",
+      "company": "Board International",
+      "companyKey": "board-international",
+      "companyDomain": "board.com",
+      "location": "Chiasso, Switzerland",
+      "addressLocality": "Chiasso, Switzerland",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "board-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-07",
+      "employmentType": "full time",
+      "contractType": "full-time",
+      "validThrough": "2026-12-06",
+      "id": "board-international-b5c143f2ad82",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-07T15:18:49.624Z",
+      "sourceIdentity": "url:https://boardinternationalsa.applytojob.com/apply/pbwvu8b7ls/cloud-operations-specialist",
+      "datePosted": "2026-09-07",
+      "postingDateSource": "reported",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
     {
       "title": "Software Engineer",
-      "slug": "software-engineer-board-international-chiasso-ticino-switzerland",
+      "slug": "software-ingegnere-board-international-chiasso-ticino-switzerland",
       "url": "https://boardinternationalsa.applytojob.com/apply/0Vdeq1quPP/Software-Engineer",
       "applyUrl": "https://boardinternationalsa.applytojob.com/apply/0Vdeq1quPP/Software-Engineer",
       "company": "Board International",
@@ -57,7 +98,7 @@
     },
     {
       "title": "Solution Developer",
-      "slug": "solution-developer-board-international-chiasso-switzerland",
+      "slug": "solution-sviluppatore-board-international-chiasso-switzerland",
       "url": "https://boardinternationalsa.applytojob.com/apply/900TWKeik9/Solution-Developer",
       "applyUrl": "https://boardinternationalsa.applytojob.com/apply/900TWKeik9/Solution-Developer",
       "company": "Board International",
@@ -85,52 +126,10 @@
       "firstSeenAt": "2026-08-07T22:06:14.144Z",
       "datePosted": "2026-08-14",
       "postingDateSource": "reported",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Cloud Operations Specialist",
-      "slug": "cloud-operations-specialist-board-international-chiasso-switzerland",
-      "url": "https://boardinternationalsa.applytojob.com/apply/PBWVu8B7lS/Cloud-Operations-Specialist",
-      "applyUrl": "https://boardinternationalsa.applytojob.com/apply/PBWVu8B7lS/Cloud-Operations-Specialist",
-      "company": "Board International",
-      "companyKey": "board-international",
-      "companyDomain": "board.com",
-      "location": "Chiasso, Switzerland",
-      "addressLocality": "Chiasso, Switzerland",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "board-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-09-07",
-      "employmentType": "full time",
-      "contractType": "full-time",
-      "validThrough": "2026-12-06",
-      "id": "board-international-b5c143f2ad82",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-07T15:18:49.624Z",
-      "sourceIdentity": "url:https://boardinternationalsa.applytojob.com/apply/pbwvu8b7ls/cloud-operations-specialist",
-      "datePosted": "2026-09-07",
-      "postingDateSource": "reported",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 22,
+        "richness": 24,
         "translation": 25,
         "completeness": 19
       }
@@ -175,5 +174,5 @@
       }
     }
   ],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

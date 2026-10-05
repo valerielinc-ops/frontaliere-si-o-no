@@ -1,3 +1,4 @@
+import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 /**
  * JobExpiredView — view for jobs found in /data/expired-jobs.json.
  *
@@ -51,6 +52,8 @@ interface RelatedJob {
  location?: string;
  canton?: string;
  contract?: string;
+ datePosted?: string;
+ postingDateSource?: string;
  postedDate?: string;
  crawledAt?: string;
  salaryMin?: number;
@@ -558,7 +561,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const rjLogo = cdnImageUrl(resolveCompanyLogoUrl({ company: rj.company, companyKey: rj.companyKey, companyDomain: rj.companyDomain, url: rj.url }));
  const rjSalary = formatRelatedSalary(rj);
  const rjContract = formatContractLabel(rj.contract, locale);
- const rjPosted = formatDaysAgo(rj.postedDate ?? rj.crawledAt, locale);
+ const rjPosted = formatDaysAgo(resolveReportedPostingDate(rj) ?? undefined, locale);
  const card = (
  <article
  key={rjSlug}

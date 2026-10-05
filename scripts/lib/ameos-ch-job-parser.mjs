@@ -22,6 +22,9 @@
  *   - Zürich (ZH), PC 8001 — AMEOS Holding corporate office
  */
 import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields, sourcePostingDateCandidatesFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
@@ -237,23 +240,32 @@ export async function fetchAllAmeosChJobs() {
   console.log(`  ✓ ${chRows.length} rows match an AMEOS Swiss site slug`);
   if (chRows.length === 0) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < chRows.length; i += 1) {
     const row = chRows[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
     const site = resolveAmeosChSite(row.slug);
     let detail = { title: '', body: '', adUrl: '' };
+    let publication = sourcePostingDateFields('');
     try {
       const html = await fetchHtml(row.url);
       detail = parseDetail(html);
+      const dom = new JSDOM(html);
+      try {
+        const dateElement = dom.window.document.querySelector('[itemtype="https://schema.org/JobPosting"] [itemprop="datePosted"]');
+        publication = sourcePostingDateCandidatesFields([extractJobPostingLd(html)?.datePosted, dateElement?.getAttribute('content'), dateElement?.textContent]);
+      } finally {
+        dom.window.close();
+      }
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${row.url}: ${err?.message || err}`);
     }
     let adText = '';
     if (detail.adUrl) {
       try {
-        adText = parseAmeosSoliqueAd(await fetchHtml(detail.adUrl));
+        const adHtml = await fetchHtml(detail.adUrl);
+        adText = parseAmeosSoliqueAd(adHtml);
+        publication = mergeSourcePostingDates(publication, sourcePostingDateFields(extractJobPostingLd(adHtml)?.datePosted));
       } catch (err) {
         console.warn(`  ⚠️ Ad fetch failed for ${detail.adUrl}: ${err?.message || err}`);
       }
@@ -306,7 +318,7 @@ export async function fetchAllAmeosChJobs() {
       sector: site.city === 'Zürich' ? 'Verwaltung / Holding' : 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...publication,
       applyUrl: row.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

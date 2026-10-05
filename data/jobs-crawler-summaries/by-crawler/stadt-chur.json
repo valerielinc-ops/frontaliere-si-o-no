@@ -1,22 +1,24 @@
 {
   "key": "stadt-chur",
   "label": "stadt-chur",
-  "generatedAt": "2026-10-04T09:38:40.271Z",
+  "generatedAt": "2026-10-04T21:34:54.471Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 895295,
-  "avgDurationMs": 895295,
+  "unchangedCount": 1,
+  "durationMs": 895219,
+  "avgDurationMs": 895219,
   "durationHistory": [
-    895295
+    895219
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Lehrstelle als Fachfrau / Fachmann Betreuung EFZ (Fachrichtung Kinderbetreuung)",
-      "slug": "lehrstelle-als-fachfrau-fachmann-betreuung-efz-fachrichtung-kinderbetreuung-stadt-chur-1705",
+      "slug": "apprendistato-come-fachfrau-fachmann-betreuung-cfc-specializzazione-kinderbetreuung-stadt-chur",
       "url": "https://jobs.chur.ch/Lehrstelle-als-Fachfrau-Fachmann-Betreuung-EFZ-Fachrichtun-de-j1705.html",
       "applyUrl": "https://jobs.chur.ch/Lehrstelle-als-Fachfrau-Fachmann-Betreuung-EFZ-Fachrichtun-de-j1705.html",
       "company": "Stadt Chur",
@@ -37,7 +39,7 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "stage",
-      "crawledAt": "2026-10-04T09:38:34.616Z",
+      "crawledAt": "2026-10-04T21:34:50.965Z",
       "id": "stadt-chur-6baf9a5642b8",
       "salaryMin": 41600,
       "salaryMax": 76000,
@@ -55,7 +57,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "9f75f4d47864263cb76ef878ed8a1d039de745da"
+  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
 }

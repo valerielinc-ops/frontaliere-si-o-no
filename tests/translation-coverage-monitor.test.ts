@@ -216,7 +216,8 @@ describe('incomplete-predicate-version — impronta del predicato', () => {
 
   it('l\'audit vede un helper nuovo non coperto', () => {
     const predicate = isIncomplete.toString().replace('return false;\n}', 'return sortByPriority(job);\n}');
-    const audit = auditPredicateCoverage({ predicateSource: predicate, entrySource, readFile });
+    const entryWithHelper = `${entrySource}\nfunction sortByPriority() { return false; }\n`;
+    const audit = auditPredicateCoverage({ predicateSource: predicate, entrySource: entryWithHelper, readFile });
     expect(audit.uncovered.some((name: string) => name.startsWith('sortByPriority'))).toBe(true);
   });
 

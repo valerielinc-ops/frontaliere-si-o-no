@@ -21,6 +21,7 @@
  * equivalent so both translation paths reject the same defect.
  */
 import { detectAiReasoningLeak, detectDegenerateRepetition } from './ai-output-fidelity.mjs';
+import { detectAiMetaResponse } from './ai-meta-response.mjs';
 import { decodeEntities } from './prospector/entities.mjs';
 
 // The deploy validator rejects locale titles shorter than three characters.
@@ -30,6 +31,23 @@ export const MIN_TITLE_CHARS = 3;
 
 export function hasUsableTitle(value) {
   return String(value || '').trim().length >= MIN_TITLE_CHARS;
+}
+
+/**
+ * True when `text` is a model's answer ABOUT the request instead of the
+ * requested title or description: its reasoning or an echo of our prompt
+ * (`detectAiReasoningLeak`), or a refusal, a request for the input, the
+ * narration of its own tool use, a bare template label
+ * (`detectAiMetaResponse`, ai-meta-response.mjs). One predicate for every
+ * writer that accepts a translation and for the repair selector
+ * (translation-incomplete.mjs), so what one rejects the other re-queues.
+ *
+ * @param {string} text
+ * @param {string} [source] the text it was translated from: meta-response
+ *   wording that the source itself carries does not count
+ */
+export function isModelMetaAnswer(text, source = '') {
+  return Boolean(detectAiReasoningLeak(text) || detectAiMetaResponse(text, { source }));
 }
 
 // A faithful translation stays within a reasonable band of the source length.
@@ -201,7 +219,8 @@ export function isAcceptableTranslation(source, translated) {
   // A model answer carrying its reasoning or echoing the prompt is not a
   // translation, however long (see ai-output-fidelity.mjs). This predicate also
   // judges localize-job-v2 cache hits, so a stored leak is busted on read.
-  if (detectAiReasoningLeak(candidate)) return false;
+  // Nor is a refusal or a request for the input («I need to see the text…»).
+  if (isModelMetaAnswer(candidate, typeof source === 'string' ? source : '')) return false;
   // Nor is a candidate that loops («Risk-Lights-Lights-Lights-…») or collapses
   // onto a handful of words compared with its source.
   if (detectDegenerateRepetition(candidate, { references: [typeof source === 'string' ? source : ''] })) return false;

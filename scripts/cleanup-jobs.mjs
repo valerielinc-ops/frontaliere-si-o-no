@@ -529,7 +529,11 @@ async function main() {
     writeJson(tempPath, sliceJobs);
     try {
       if (!skipHardening) {
-        const lh = hardenJobLocaleFields({ dataJobsPath: tempPath });
+        // This slice goes back to git: an empty locale slot must stay empty
+        // ("to translate"), never become a source copy that looks translated.
+        // The publish-gate fill happens on the build-time dataset (standard
+        // mode below, deploy.yml prep), which is not committed.
+        const lh = hardenJobLocaleFields({ dataJobsPath: tempPath, fillEmptyWithSourceCopy: false });
         if (lh.changed) console.log(`🛡️ Locale hardening: repaired ${lh.repaired}/${lh.total} jobs in slice.`);
       }
       const hardenedJobs = readJson(tempPath);

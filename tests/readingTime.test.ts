@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { estimateReadingMinutes } from '@/components/community/BlogArticles';
 import { ARTICLES } from '@/data/blog-articles-data';
+import { isUnknownArticleDate } from '@/services/articleSourceDates';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 // ── Mock translation function ───────────────────────────────
@@ -60,7 +61,9 @@ describe.skipIf(SKIP_LIVE_DATA)('ARTICLES integrity', () => {
     for (const article of ARTICLES) {
       expect(article.id).toBeTruthy();
       expect(article.category).toBeTruthy();
-      expect(article.date).toMatch(/^\d{4}-\d{2}-\d{2}/);
+      // `date: ''` = publication date unknown (corpus PR 2082), a valid
+      // state; anything else must still start with a calendar date.
+      if (!isUnknownArticleDate(article.date)) expect(article.date).toMatch(/^\d{4}-\d{2}-\d{2}/);
       expect(article.image).toBeTruthy();
       expect(typeof article.hasCalculator).toBe('boolean');
     }

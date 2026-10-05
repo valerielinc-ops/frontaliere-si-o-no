@@ -12,6 +12,7 @@
  * crawler receives proper HTML from the Arca24 host.
  */
 import fs from 'node:fs';
+import { mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
 import { createHash } from 'node:crypto';
@@ -981,7 +982,7 @@ function runBaseCrawler() {
  *
  * This function bypasses those issues by scraping Arca24 directly.
  */
-async function crawlArca24Direct() {
+export async function crawlArca24Direct() {
   console.log('\n🔍 Direct Arca24 scraping: discovering job URLs...');
   const discovery = await fetchLisJobUrls({
     userAgent: LIS_USER_AGENT,
@@ -1081,6 +1082,7 @@ async function crawlArca24Direct() {
     const merged = {
       ...prev,
       ...job,
+      ...mergeSourcePostingDates(prev, job),
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30, job.sourceLang),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
