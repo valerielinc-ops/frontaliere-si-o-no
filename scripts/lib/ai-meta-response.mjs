@@ -33,6 +33,11 @@ const LEADING_WINDOW_CHARS = 320;
 
 const A = "['’]"; // apostrophe, ASCII or typographic
 
+// A single-quoted input can contain an apostrophe between letters (for
+// example, `Chef d'équipe`); only allow that internal form so the final quote
+// remains the delimiter. Double and typographic quotes close on their own mark.
+const TRANSLATION_QUOTED_INPUT = String.raw`(?:"[^"\n]{1,160}"|“[^”\n]{1,160}”|«[^»\n]{1,160}»|'(?:[^'\n]|(?<=[\p{L}\p{N}])'(?=[\p{L}\p{N}])){1,160}')`;
+
 // What a clarification request is ABOUT: the input the model was handed (the
 // title, the text, the message, the translation, the job data…), after at most
 // three words («the actual job title», «the existing translations», «the
@@ -68,9 +73,10 @@ const LEADING_PATTERNS = [
   // «We need to translate "GL & VAT Accountant" to English.»: only with the
   // quoted input AND the target language. «We need to produce…», «We need to
   // translate our software into German» open real ads and articles.
-  // Each quote style closes on its own mark, so an apostrophe inside double or
-  // typographic quotes («"Chef d'équipe"») stays part of the quoted input.
-  ['agent-narration', /^we need to (?:translate|output|return) (?:(?:the )?(?:job )?title\s+)?(?:"[^"\n]{1,160}"|“[^”\n]{1,160}”|«[^»\n]{1,160}»|'[^'\n]{1,160}') (?:from (?:the )?[a-z]+(?:[ -][a-z]+)*\s+)?(?:in)?to (?:english|italian|german|french|en|it|de|fr)\b/i],
+  ['agent-narration', new RegExp(
+    String.raw`^we need to (?:translate|output|return) (?:(?:(?:the )?(?:job )?title|the phrase)\s+)?${TRANSLATION_QUOTED_INPUT} (?:from (?:the )?[a-z]+(?:[ -][a-z]+)*\s+)?(?:in(?:to)?|to) (?:english|italian|german|french|en|it|de|fr)\b`,
+    'iu',
+  )],
   ['agent-narration', /^(?:the |here(?:'s| is) the )?translat(?:ed|ion)(?: (?:job )?title| text)? (?:is|would be)\b/i],
   ['agent-narration', /^(?:procedo a tradurre|traduco (?:il|questo)|ich übersetze (?:den|diesen)|je vais traduire)\b/i],
   // ── the answer opens with a template label («Traduzione:», «Traduzione:

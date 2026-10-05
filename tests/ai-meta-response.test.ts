@@ -158,10 +158,13 @@ describe('detectAiMetaResponse — casi reali pubblicati', () => {
     expect(detectAiMetaResponse(REAL_AGENT_DUMP)).not.toBeNull();
   });
 
-  it('riconosce la narrazione con titolo e lingua sorgente', () => {
-    expect(detectAiMetaResponse(
-      'We need to translate the job title "GL & VAT Accountant" from German to English.',
-    )).toMatchObject({ kind: 'agent-narration' });
+  it.each([
+    'We need to translate the job title "GL & VAT Accountant" from German to English.',
+    'We need to translate "GL & VAT Accountant" in English.',
+    "We need to translate 'Chef d'équipe' to English.",
+    'We need to translate the phrase "GL & VAT Accountant" to English.',
+  ])('riconosce la narrazione con input citato e lingua target: %s', (text) => {
+    expect(detectAiMetaResponse(text)).toMatchObject({ kind: 'agent-narration' });
   });
 
   it('riconosce la descrizione che si chiude con l\'etichetta del template', () => {
