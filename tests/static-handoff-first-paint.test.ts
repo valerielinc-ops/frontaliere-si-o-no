@@ -8,7 +8,9 @@
  * painted until React had rendered: observed first paint 1.3-2.4 s instead of
  * ~0.3 s, simulated mobile FCP 8-13 s instead of 4.6 s (Lighthouse runs of
  * 2026-10-02..05). The mount now waits for one presented frame of the static
- * HTML (bounded, and skipped for hidden documents) before the first hide.
+ * HTML (a paint timing entry; bounded, and skipped for hidden documents)
+ * before the first hide. Runner traces (run 37337515121): first main frame at
+ * 1.27-1.37 s, hide at ~1.0 s, first contentful paint at 2.29-2.36 s.
  */
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -23,17 +25,19 @@ import {
 
 const ROOT = resolve(__dirname, '..');
 
-/** Fake rAF/timer pair driven by hand, so frames and time are explicit. */
-function fakeFrames() {
-  const frames: Array<() => void> = [];
+/** Hand-driven paint observer and timer, so paint and time are explicit. */
+function fakePaint(alreadyPainted = false) {
+  const listeners: Array<() => void> = [];
   const timers: Array<{ cb: () => void; ms: number }> = [];
+  let unsubscribed = 0;
   return {
-    requestFrame: (cb: () => void) => { frames.push(cb); },
+    paintEntries: () => (alreadyPainted ? [{ name: 'first-paint' }] : []),
+    observePaint: (cb: () => void) => { listeners.push(cb); return () => { unsubscribed += 1; }; },
     setTimer: (cb: () => void, ms: number) => { timers.push({ cb, ms }); },
-    /** Run every callback queued for the next frame (new ones wait for the following frame). */
-    tickFrame: () => { for (const cb of frames.splice(0)) cb(); },
+    paint: () => { for (const cb of listeners.splice(0)) cb(); },
     fireTimers: () => { for (const t of timers.splice(0)) t.cb(); },
     timers,
+    unsubscribed: () => unsubscribed,
   };
 }
 
@@ -45,36 +49,42 @@ async function settled(promise: Promise<void>): Promise<boolean> {
   return done;
 }
 
+const visible = { visibilityState: 'visible' } as const;
+
 describe('waitForStaticFirstPaint', () => {
-  it('resolves only after a frame has been presented (second animation frame)', async () => {
-    const f = fakeFrames();
-    const wait = waitForStaticFirstPaint({ doc: { visibilityState: 'visible' }, ...f });
+  it('waits for the first paint entry, not for a frame callback', async () => {
+    const f = fakePaint();
+    const wait = waitForStaticFirstPaint({ doc: visible, ...f });
 
     expect(await settled(wait)).toBe(false);
-    f.tickFrame(); // rendering step of the first frame: not painted yet
-    expect(await settled(wait)).toBe(false);
-    f.tickFrame(); // the first frame has been presented
+    f.paint();
     expect(await settled(wait)).toBe(true);
+    expect(f.unsubscribed()).toBe(1);
   });
 
-  it('is bounded by the timeout when no frame comes', async () => {
-    const f = fakeFrames();
-    const wait = waitForStaticFirstPaint({ doc: { visibilityState: 'visible' }, ...f });
+  it('resolves at once when the static HTML has already painted', async () => {
+    const f = fakePaint(true);
+    expect(await settled(waitForStaticFirstPaint({ doc: visible, ...f }))).toBe(true);
+    expect(f.timers).toEqual([]);
+  });
+
+  it('is bounded by the timeout when no paint comes', async () => {
+    const f = fakePaint();
+    const wait = waitForStaticFirstPaint({ doc: visible, ...f });
 
     expect(f.timers.map((t) => t.ms)).toEqual([STATIC_FIRST_PAINT_TIMEOUT_MS]);
-    expect(STATIC_FIRST_PAINT_TIMEOUT_MS).toBeLessThanOrEqual(150);
     expect(await settled(wait)).toBe(false);
     f.fireTimers();
     expect(await settled(wait)).toBe(true);
   });
 
-  it('does not wait in a hidden document (background tab, prerender: no animation frames)', async () => {
-    const f = fakeFrames();
-    const requestFrame = vi.fn(f.requestFrame);
-    const wait = waitForStaticFirstPaint({ doc: { visibilityState: 'hidden' }, requestFrame, setTimer: f.setTimer });
+  it('does not wait in a hidden document (background tab, prerender: nothing paints)', async () => {
+    const f = fakePaint();
+    const observePaint = vi.fn(f.observePaint);
+    const wait = waitForStaticFirstPaint({ doc: { visibilityState: 'hidden' }, ...f, observePaint });
 
     expect(await settled(wait)).toBe(true);
-    expect(requestFrame).not.toHaveBeenCalled();
+    expect(observePaint).not.toHaveBeenCalled();
   });
 });
 

@@ -20,8 +20,13 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 export const HIDE_MARK = 'ft:static-handoff-hide';
-/** Pathnames whose route has no `staticOverlay`, i.e. the mount hides the static HTML. */
-export const CHECKED_PATHS = ['/', '/cerca-lavoro-ticino/'];
+/**
+ * Pages where the mount hides prerendered static HTML (route without
+ * `staticOverlay`, static fallback present). `/` is NOT one of them: it ships
+ * `#loading-shell`, so `hasStaticContent()` is false and nothing is hidden —
+ * the mark would never be set there.
+ */
+export const CHECKED_PATHS = ['/cerca-lavoro-ticino/'];
 
 /** One verdict per LHR of a checked page; `null` for pages this check ignores. */
 export function evaluateLhr(lhr) {
@@ -52,7 +57,7 @@ export function evaluateLhr(lhr) {
 }
 
 export function evaluateDir(dir) {
-  const files = readdirSync(dir).filter((name) => /^lhr-.*\.json$/.test(name)).sort();
+  const files = readdirSync(dir).filter((name) => /^(lhr-.*|.*\.report)\.json$/.test(name)).sort();
   const verdicts = [];
   for (const name of files) {
     const verdict = evaluateLhr(JSON.parse(readFileSync(join(dir, name), 'utf8')));
