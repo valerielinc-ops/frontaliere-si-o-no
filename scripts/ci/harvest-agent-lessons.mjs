@@ -690,8 +690,13 @@ export function bucketFinding(text) {
   // Reviews sometimes name sitemap concepts only inside camelCase identifiers
   // (for example `discoverGeSitemapListDocuments` and `sitemapError`). Split
   // those boundaries for this topic so genuine sitemap failures still reach
-  // its explicit-defect guard.
-  const canonicalSitemapScannable = scannable.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
+  // its explicit-defect guard. Only identifiers that contain "sitemap" are
+  // split: splitting every identifier turned `coverageOk` into a neutral
+  // "coverage" activity word and dropped a real coverage finding (#10819).
+  const canonicalSitemapScannable = scannable.replace(
+    /\b\w*[Ss]itemap\w*\b/g,
+    (id) => id.replace(/([a-z0-9])([A-Z])/g, '$1 $2'),
+  );
   for (const t of TAXONOMY) {
     const candidate = t.key === 'canonical-sitemap' ? canonicalSitemapScannable : scannable;
     if (!t.re.test(candidate)) continue;
