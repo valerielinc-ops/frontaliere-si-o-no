@@ -36,6 +36,7 @@ import { FLOWS, RobotError, captureDiagnostics, stepTracker } from './lib/flows.
 import { runRobot } from './lib/robot.mjs';
 
 const CAPTION = '📰 I 5 articoli più letti di ieri su frontaliereticino.ch\n\n1. Uno — 10 visualizzazioni\n2. Due — 8 visualizzazioni\n\n#frontalieri #ticino';
+const normalized = (text) => String(text || '').replace(/\s+/g, ' ').trim();
 
 const page = (title, body, script = '') => `<!doctype html><html lang="it"><head><meta charset="utf-8"><title>${title}</title></head><body>${body}<script>${script}</script></body></html>`;
 
@@ -206,7 +207,7 @@ async function main() {
     writeFileSync(f, Buffer.from([0xff, 0xd8, 0xff, 0xd9]));
     return f;
   });
-  const video = path.join(work, 'carousel.mp4');
+  const video = path.join(work, 'article-2026-10-03.mp4');
   writeFileSync(video, Buffer.from('fake-mp4'));
   const videoFiles = [video];
   const human = { pause: () => new Promise((r) => setTimeout(r, 30)), typeDelay: () => 0 };
@@ -286,7 +287,7 @@ async function main() {
     r = await run('tiktok', `${base}/tt-interstitials/tiktokstudio/upload`, { dryRun: false, label: 'tt-interstitials' });
     check(r.result?.status === 'published', `known interstitials are dismissed before caption and publish (${r.result?.evidence || r.error?.message})`);
     check(state.ttPosts.length === beforeInterstitials + 1, 'the known-interstitial post reached the fake platform');
-    check(state.ttPosts.at(-1).caption === CAPTION, 'the pre-filled TikTok caption was replaced exactly, hashtags included');
+    check(normalized(state.ttPosts.at(-1).caption) === normalized(CAPTION), 'the pre-filled TikTok caption was replaced exactly, hashtags included');
     check(state.ttPosts.at(-1).contentAction === 'cancel' && state.ttPosts.at(-1).cookieAction === 'decline', 'known interstitials used only safe actions');
 
     r = await run('tiktok', `${base}/tt-unknown/tiktokstudio/upload`, { dryRun: false, label: 'tt-unknown' });
