@@ -98721,6 +98721,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chef-nazionale-ristoratori-de-filippi': {
+    title: 'Sport e legalità al De Filippi con la Nazionale Ristoratori',
+    description: 'L\'Istituto De Filippi di Varese ha ospitato la Nazionale Ristoratori per una giornata di sport, legalità e alta cucina con gli studenti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, sport, legalità, filippi, nazionale',
+    ogTitle: 'Gli chef della Nazionale Ristoratori incontrano il De Filippi',
+    ogDescription: 'Una giornata speciale all\'insegna dello sport, del valore educativo delle regole e dell\'alta cucina presso l\'Istituto alberghiero De Filippi di Varese con la Nazionale Italiana Ristoratori.',
+    canonicalPath: '/articoli-frontaliere/chef-nazionale-ristoratori-de-filippi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sport e legalità al De Filippi con la Nazionale Ristoratori",
+      "description": "L'Istituto De Filippi di Varese ha ospitato la Nazionale Ristoratori per una giornata di sport, legalità e alta cucina con gli studenti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chef-nazionale-ristoratori-de-filippi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incontro tra gli chef della Nazionale Ristoratori e gli studenti del De Filippi"
+      },
+      "datePublished": "2026-10-05T00:59:39+00:00",
+      "dateModified": "2026-10-05T00:59:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chef-nazionale-ristoratori-de-filippi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
