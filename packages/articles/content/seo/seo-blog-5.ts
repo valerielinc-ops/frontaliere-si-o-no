@@ -99163,6 +99163,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prevenzione-salute-aziende-ticinesi': {
+    title: 'Salute mentale: il DSS porta la prevenzione nelle aziende',
+    description: 'Il DSS e il Forum GSA Ticino promuovono la salute mentale nelle aziende. Scopri i dati su stress e apprendisti e come partecipare agli eventi di prevenzione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salute, mentale, porta, prevenzione',
+    ogTitle: 'Salute mentale sul lavoro: nuove iniziative in Ticino',
+    ogDescription: 'Il DSS e il Forum GSA Ticino lanciano programmi di prevenzione aziendale. Analisi dei dati sullo stress lavorativo e dettagli sugli appuntamenti formativi del 16 ottobre.',
+    canonicalPath: '/articoli-frontaliere/prevenzione-salute-aziende-ticinesi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salute mentale: il DSS porta la prevenzione nelle aziende",
+      "description": "Il DSS e il Forum GSA Ticino promuovono la salute mentale nelle aziende. Scopri i dati su stress e apprendisti e come partecipare agli eventi di prevenzione.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/prevenzione-salute-aziende-ticinesi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ambiente di lavoro professionale in un ufficio ticinese."
+      },
+      "datePublished": "2026-10-05T08:37:00+00:00",
+      "dateModified": "2026-10-05T08:37:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/prevenzione-salute-aziende-ticinesi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
