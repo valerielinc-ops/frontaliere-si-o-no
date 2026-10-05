@@ -7709,6 +7709,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.protezione-civile-zurigo.title': 'Zivilschutz Kanton Zürich: Voraussetzungen und Entschädigungen',
     'blog.article.protezione-civile-zurigo.excerpt': 'Im Kanton Zürich ist der Zivilschutz kantonal koordiniert. Einberufungen und Entschädigungen erfolgen bei der zuständigen Behörde.',
     'blog.article.protezione-civile-zurigo.imageAlt': 'Zivilschutzpersonal vor einem öffentlichen Gebäude in der Schweiz',
+    'blog.article.assicurazione-immobili-zurigo.title': 'Gebäudeversicherung im Kanton Zürich: Pflicht und Prämien',
+    'blog.article.assicurazione-immobili-zurigo.excerpt': 'In der Schweiz ist die Gebäudeversicherung obligatorisch oder je nach Kanton anders organisiert: Praktischer Leitfaden für Zürich zu Prämien und Schadenfällen.',
+    'blog.article.assicurazione-immobili-zurigo.imageAlt': 'Wohngebäude im Kanton Zürich für einen Ratgeber zur Gebäudeversicherung',
 };
 
 export default blogMetaChDe;

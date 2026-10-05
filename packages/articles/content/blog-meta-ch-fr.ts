@@ -7709,6 +7709,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.protezione-civile-zurigo.title': 'Protection civile Canton de Zurich : conditions et indemnités',
     'blog.article.protezione-civile-zurigo.excerpt': 'Dans le canton de Zurich, la protection civile est coordonnée au niveau cantonal. Les convocations et les indemnités sont à vérifier auprès de l\'autorité compétente.',
     'blog.article.protezione-civile-zurigo.imageAlt': 'Personnel de la protection civile devant un bâtiment public suisse',
+    'blog.article.assicurazione-immobili-zurigo.title': 'Assurance des immeubles dans le canton de Zurich : obligation et primes',
+    'blog.article.assicurazione-immobili-zurigo.excerpt': 'En Suisse, l\'assurance des bâtiments est obligatoire ou organisée différemment selon le canton : guide pratique pour Zurich sur les primes et les sinistres.',
+    'blog.article.assicurazione-immobili-zurigo.imageAlt': 'Immeuble résidentiel du canton de Zurich pour un guide d\'assurance',
 };
 
 export default blogMetaChFr;
