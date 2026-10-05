@@ -1,4 +1,4 @@
-import { buildStableJobIdentity } from './job-identity.mjs';
+import { buildAssembledJobIdentity, buildStableJobIdentity } from './job-identity.mjs';
 
 function normalizeTitle(value) {
   return String(value || '')
@@ -276,7 +276,7 @@ function postingKey(record = {}) {
 }
 
 /**
- * Source identities that name MORE THAN ONE posting inside a single list.
+ * Source identities that name MORE THAN ONE posting.
  *
  * `buildStableJobIdentity` strips the URL fragment and keeps whatever URL the
  * crawler wrote, so a crawler whose only URL is the listing page gives every
@@ -288,28 +288,42 @@ function postingKey(record = {}) {
  * a month, all carrying the 2026-04-13 firstSeenAt of the crawler's first run,
  * so no follower of Amavita/Sun Store/Coop Vitality could ever be alerted.
  *
- * Two records with the same identity and the same id/slug are the same posting
- * seen twice (e.g. archived twice) and do not make it ambiguous.
+ * Two signals, so the verdict does not depend on how many postings happen to be
+ * open on each side of the comparison:
+ *  - ACROSS all the lists, two different raw URLs (fragment kept,
+ *    `buildAssembledJobIdentity`) under one identity: one listing page that
+ *    still tells its postings apart in the fragment, even when the previous run
+ *    had one posting and this run has another.
+ *  - INSIDE one list, two different ids (else slugs) under one identity: the
+ *    bare listing URL, where only the crawler's own id separates postings.
+ * A single posting whose crawler id changed while its URL stayed identical is
+ * NOT ambiguous: that is the id churn the URL-first identity exists to absorb.
+ * Two records of the same posting (e.g. archived twice) are not ambiguous.
  *
  * @param {...object[]} lists
  * @returns {Set<string>}
  */
 export function ambiguousJobIdentities(...lists) {
   const ambiguous = new Set();
+  const rawUrlsByIdentity = new Map();
+  const note = (index, identity, value) => {
+    if (!identity || !value) return;
+    const values = index.get(identity) || new Set();
+    values.add(value);
+    index.set(identity, values);
+    if (values.size > 1) ambiguous.add(identity);
+  };
   for (const list of lists) {
     const postingsByIdentity = new Map();
     for (const record of Array.isArray(list) ? list : []) {
       if (!record || typeof record !== 'object') continue;
+      const rawUrl = String(record.url ?? '').trim() ? buildAssembledJobIdentity(record) : '';
       const posting = postingKey(record);
-      if (!posting) continue;
       // Both spellings a caller may look the record up by: the archived
       // `sourceIdentity` and the identity derived from its current URL.
       for (const identity of new Set([record.sourceIdentity, buildStableJobIdentity(record)])) {
-        if (!identity) continue;
-        const postings = postingsByIdentity.get(identity) || new Set();
-        postings.add(posting);
-        postingsByIdentity.set(identity, postings);
-        if (postings.size > 1) ambiguous.add(identity);
+        note(rawUrlsByIdentity, identity, rawUrl);
+        note(postingsByIdentity, identity, posting);
       }
     }
   }

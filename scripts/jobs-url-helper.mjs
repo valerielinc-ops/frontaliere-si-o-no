@@ -22,6 +22,7 @@ import {
   buildStableJobIdentity,
   jobsDiffer,
 } from './lib/job-identity.mjs';
+import { ambiguousJobIdentities } from './lib/first-seen-history.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -218,8 +219,10 @@ function snapshotPostingKey(job) {
  * État de Vaud and several clinics write the bare listing URL. Keyed on it
  * alone, the map kept one posting per page, so a posting that left the source
  * was never in `removedJobs` and never reached its soft-landing archive. Every
- * posting of such an identity is kept in the non-enumerable `collided` side
- * map, which {@link computeCrawlDiff} compares by id (else slug).
+ * posting is also kept, grouped by identity, in the non-enumerable `groups`
+ * side map: {@link computeCrawlDiff} classifies the identities that name more
+ * than one posting across BOTH snapshots (ambiguousJobIdentities) and compares
+ * those by id (else slug).
  *
  * @param {Array<{slug?: string; id?: string}>} jobs
  * @returns {Map<string, object>}
@@ -235,20 +238,20 @@ export function snapshotJobSlugs(jobs) {
     group.push(job);
     byIdentity.set(identity, group);
   }
-  const collided = new Map();
-  for (const [identity, group] of byIdentity) {
-    const postings = new Set(group.map(snapshotPostingKey).filter(Boolean));
-    if (postings.size > 1) collided.set(identity, group);
-  }
-  Object.defineProperty(map, 'collided', { value: collided, enumerable: false });
+  Object.defineProperty(map, 'groups', { value: byIdentity, enumerable: false });
   return map;
 }
 
 function snapshotGroup(snapshot, identity) {
-  const group = snapshot?.collided?.get(identity);
+  const group = snapshot?.groups?.get(identity);
   if (group) return group;
   const job = snapshot?.get(identity);
   return job ? [job] : [];
+}
+
+function snapshotJobs(snapshot) {
+  if (snapshot?.groups) return [...snapshot.groups.values()].flat();
+  return [...(snapshot?.values?.() || [])];
 }
 
 /**
@@ -265,10 +268,7 @@ export function computeCrawlDiff(beforeMap, afterMap) {
 
   // Identities that name several postings on either side are compared
   // posting by posting (see snapshotJobSlugs); the rest keep the 1:1 lookup.
-  const collided = new Set([
-    ...(beforeMap?.collided?.keys() || []),
-    ...(afterMap?.collided?.keys() || []),
-  ]);
+  const collided = ambiguousJobIdentities(snapshotJobs(beforeMap), snapshotJobs(afterMap));
   for (const identity of collided) {
     const beforeByPosting = new Map(snapshotGroup(beforeMap, identity).map((job) => [snapshotPostingKey(job), job]));
     const afterGroup = snapshotGroup(afterMap, identity);

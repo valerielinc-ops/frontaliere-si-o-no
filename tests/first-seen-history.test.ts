@@ -223,6 +223,13 @@ describe('carryForwardFirstSeenAt — identity shared by several postings', () =
     expect(result.restored).toBeGreaterThanOrEqual(1);
   });
 
+  it('does not hand the only prior posting\'s firstSeenAt to the only new one (review #11732)', () => {
+    const existingJobs = [galenica(1, { firstSeenAt: daysAgo(170) })];
+    const arrival = galenica(2, { title: galenica(1).title as string });
+    carryForwardFirstSeenAt([arrival], { existingJobs });
+    expect(arrival).not.toHaveProperty('firstSeenAt');
+  });
+
   it('does not suppress a new posting because an archived sibling shares the listing URL', () => {
     const arrival = galenica(9, { firstSeenAt: daysAgo(0) });
     const result = carryForwardFirstSeenAt([arrival, galenica(1)], {
