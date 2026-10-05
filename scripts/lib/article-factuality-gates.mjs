@@ -1572,6 +1572,27 @@ function statementContaining(text, index, spans) {
   return span ? text.slice(span.start, span.end) : '';
 }
 
+// Il `veto` assolve un'occorrenza per il segno dell'omonimo reale, quindi deve
+// guardare la clausola che la contiene, non la frase intera. `SENTENCE_BREAK_RE`
+// taglia al `;` solo se segue una maiuscola: in «Il Tribunale federale ha
+// respinto il ricorso; la legge federale sul traffico (LTF) …» la frase resta
+// una sola e il Tribunale della prima clausola assolveva la LTF inventata della
+// seconda. Qui la frase si restringe ancora al `;` e all'a capo che circondano
+// l'occorrenza, qualunque lettera segua.
+const CLAUSE_BREAK_RE = /[;\n]/g;
+function clauseContaining(text, index, spans) {
+  const span = spans.find(({ start, end }) => index >= start && index < end);
+  if (!span) return '';
+  let start = span.start;
+  let end = span.end;
+  for (const m of text.slice(span.start, span.end).matchAll(CLAUSE_BREAK_RE)) {
+    const at = span.start + m.index;
+    if (at < index) start = at + 1;
+    else { end = at; break; }
+  }
+  return text.slice(start, end);
+}
+
 export const FABRICATED_NORM_ACRONYMS = [
   {
     acronym: 'LFW',
@@ -1782,11 +1803,11 @@ export function checkFabricatedNormAcronyms(text, opts = {}) {
           ? statementContaining(text, m.index, statements)
           : '';
         if (benign?.test(throughMatch)) continue;
-        // `veto`: il segno dell'omonimo REALE nella frase/clausola corrente
-        // (per `LTF` il Tribunale federale). Assolve solo l'occorrenza
-        // corrente: lo scan prosegue e una fabbricazione piu' in basso viene
-        // ancora vista.
-        if (veto?.test(vetoScope === 'statement' ? statement : nearby)) continue;
+        // `veto`: il segno dell'omonimo REALE nella clausola corrente (per
+        // `LTF` il Tribunale federale), delimitata anche da `;` e a capo che
+        // `statementSpans` non taglia. Assolve solo l'occorrenza corrente: lo
+        // scan prosegue e una fabbricazione piu' in basso viene ancora vista.
+        if (veto?.test(vetoScope === 'statement' ? clauseContaining(text, m.index, statements) : nearby)) continue;
         if (context && !context.test(contextScope === 'statement' ? statement : nearby)) continue;
       }
       issues.push(issue(
