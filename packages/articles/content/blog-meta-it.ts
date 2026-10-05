@@ -12577,6 +12577,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.magrini-cultura-provincia-varese.title': 'Varese, Magrini: \'La Provincia investe già sulla cultura\'',
     'blog.article.magrini-cultura-provincia-varese.excerpt': 'Il presidente Magrini risponde alla Regione: stanziato un fondo da 100 mila euro per la candidatura a Capitale italiana della cultura e progetti sul territorio.',
     'blog.article.magrini-cultura-provincia-varese.imageAlt': 'Il presidente della Provincia di Varese Marco Magrini durante una conferenza stampa',
+    'blog.article.castellanzese-vittoria-santangelo.title': 'Serie D: la Castellanzese vince 2-1 contro il Sant\'Angelo',
+    'blog.article.castellanzese-vittoria-santangelo.excerpt': 'Terzo successo consecutivo per la formazione di Bolzoni, che espugna lo stadio Chiesa grazie alle reti di Chessa e Valmori.',
+    'blog.article.castellanzese-vittoria-santangelo.imageAlt': 'Partita di calcio della Castellanzese allo stadio Chiesa',
 };
 
 export default blogMetaIt;
