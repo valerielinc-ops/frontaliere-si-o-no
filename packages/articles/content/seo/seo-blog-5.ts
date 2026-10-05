@@ -99129,6 +99129,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sequestri-contanti-brogeda': {
+    title: 'Contanti non dichiarati: sequestri a Brogeda | Frontaliere Ticino',
+    description: 'A Como-Brogeda la Guardia di Finanza ha sequestrato 128.500 e 113.450 euro dopo due controlli su contanti oltre la soglia di 10.000 euro. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, contanti, dichiarati, sequestri, brogeda',
+    ogTitle: 'Oltre 240 mila euro sequestrati a Brogeda',
+    ogDescription: 'Due controlli al valico autostradale di Como-Brogeda hanno portato al ritrovamento di oltre 240 mila euro in contanti. Le somme eccedenti la soglia di 10.000 euro sono state sequestrate come garanzia per le sanzioni amministrative.',
+    canonicalPath: '/articoli-frontaliere/sequestri-contanti-brogeda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Contanti non dichiarati: sequestri a Brogeda",
+      "description": "A Como-Brogeda la Guardia di Finanza ha sequestrato 128.500 e 113.450 euro dopo due controlli su contanti oltre la soglia di 10.000 euro. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sequestri-contanti-brogeda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veicoli al valico autostradale di Como-Brogeda"
+      },
+      "datePublished": "2026-10-05T08:04:32+00:00",
+      "dateModified": "2026-10-05T08:04:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sequestri-contanti-brogeda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
