@@ -707,4 +707,49 @@ describe('the candidate keeps the documents', () => {
     await orderRef().collection('automation').doc('flow').set({ state: 'owner_review' }, { merge: true });
     await expect(handleAutomationAdminAction(store.db, edit, 'owner@example.com', { runEffect, nowMs: T0 })).resolves.toMatchObject({ ok: true });
   });
+
+  // Owner decision 2026-10-05, «Fino a fine consenso»: a talent-pool order's link lasts as long as the consent.
+  describe('the link of an order kept for the talent pool', () => {
+    const consentToken = () => mintReviewToken({ secret: SECRET, orderId: ORDER, round: 1, nowMs: T0 - 200 * DAY, untilConsentEnds: true });
+    const at = (nowMs: number, t = consentToken()) => handleAssistedApplicationReview({ method: 'GET', query: { t } }, { ...keptDeps(), nowMs }) as Promise<any>;
+
+    it('opens while the consent lasts, well beyond 30 days and the purge', async () => {
+      await seed({ order: { talentPoolConsent: true, cvUploadedAt: new Date(T0 - 200 * DAY) }, flow: { state: 'submitted' } });
+      const opened = await at(T0 + 400 * DAY);
+      expect(opened.status).toBe(200);
+      expect(opened.body.keptDocuments.files.length).toBeGreaterThan(0);
+      expect((await word('cv.docx', consentToken())).status).toBe(200);
+    });
+
+    it('answers as an expired link once the consent is withdrawn, the documents are gone or the order is not kept', async () => {
+      await seed({ order: { talentPoolConsent: true }, flow: { state: 'submitted' } });
+      expect((await at(T0)).status).toBe(200);
+      for (const order of [{ talentPoolConsent: false }, { talentPoolConsent: true, retentionPurgedAt: new Date(T0) }]) {
+        await orderRef().set({ talentPoolConsent: true, retentionPurgedAt: null, ...order }, { merge: true });
+        expect(await at(T0)).toEqual({ status: 403, body: { ok: false, error: 'link_expired' } });
+        const post = await handleAssistedApplicationReview({ method: 'POST', body: { t: consentToken(), action: 'approve' } }, keptDeps());
+        expect(post).toEqual({ status: 403, body: { ok: false, error: 'link_expired' } });
+      }
+      // The flow is no longer the sent one (or no longer there): the same answer.
+      await orderRef().set({ talentPoolConsent: true, retentionPurgedAt: null }, { merge: true });
+      await orderRef().collection('automation').doc('flow').set({ state: 'candidate_review' }, { merge: true });
+      expect(await at(T0)).toEqual({ status: 403, body: { ok: false, error: 'link_expired' } });
+      await orderRef().collection('automation').doc('flow').delete();
+      expect(await at(T0)).toEqual({ status: 403, body: { ok: false, error: 'link_expired' } });
+    });
+
+    it('leaves every other link as it was: the expiry signed in it decides', async () => {
+      // A consent given later does not stretch a link minted with an end.
+      await seed({ order: { talentPoolConsent: true }, flow: { state: 'submitted' } });
+      const ended = mintReviewToken({ secret: SECRET, orderId: ORDER, round: 1, nowMs: T0 - 200 * DAY, ttlMs: 90 * DAY });
+      expect(await at(T0, ended)).toEqual({ status: 403, body: { ok: false, error: 'link_expired' } });
+      // Without the consent an ordinary link opens until its expiry (the purge), nothing more is read.
+      await orderRef().set({ talentPoolConsent: false }, { merge: true });
+      const ordinary = mintReviewToken({ secret: SECRET, orderId: ORDER, round: 1, nowMs: T0, ttlMs: 90 * DAY });
+      expect((await at(T0 + 89 * DAY, ordinary)).status).toBe(200);
+      expect(await at(T0 + 91 * DAY, ordinary)).toEqual({ status: 403, body: { ok: false, error: 'link_expired' } });
+      // A follow-up link is never bound to the consent.
+      expect(() => mintReviewToken({ secret: SECRET, orderId: ORDER, round: 1, kind: 'followup', untilConsentEnds: true })).toThrow('invalid_token_kind');
+    });
+  });
 });

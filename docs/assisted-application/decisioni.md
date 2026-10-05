@@ -78,13 +78,19 @@ Fonti: [`fonti/permesso-e-dati-personali.md`](fonti/permesso-e-dati-personali.md
 - Dopo l'invio, la pagina di revisione mostra «I tuoi documenti»: i file partiti (o, per WhatsApp, quelli da usare nella chat). L'e-mail «candidatura inviata» porta un pulsante a quella pagina. Nessun allegato nelle e-mail.
 - Il candidato può scaricare una **copia Word da tenere** della lettera e del CV adattato. È costruita al momento dagli stessi dati del PDF, non viene salvata, non può essere scelta come CV da inviare. Non contiene la foto.
 - Il link a quella pagina nell'e-mail «candidatura inviata» vale finché i file dell'ordine esistono, cioè fino alla cancellazione automatica (decisione del proprietario).
+- Per un ordine con il consenso al talent pool il link vale «Fino a fine consenso»: finché dura il consenso; alla revoca o alla cancellazione smette di funzionare (decisione del proprietario, 5 ottobre 2026).
 - Per una candidatura WhatsApp è il candidato a scegliere, tra «I tuoi documenti», quale CV mandare nella chat: il proprio o quello preparato (decisione del proprietario).
 - Limite dichiarato: la copia Word è verificata con LibreOffice e con un lettore di DOCX, non con Microsoft Word.
 
 **Attuazione (4 ottobre 2026).** PR #11539, elencata nel §9 del [report](report-cv-lettera.md).
 - Il link scade quando è prevista la cancellazione: dalla data del rimborso o, se non c'è, dal caricamento del CV, più 90 giorni.
-- Un ordine che la cancellazione non raggiunge (consenso al talent pool, nessuna data) riceve un link di 30 giorni come gli altri, non un link senza scadenza.
+- Un ordine senza alcuna data da cui contare la cancellazione riceve un link di 30 giorni, non un link senza scadenza.
 - Su WhatsApp il CV adattato è segnalato come «Proposto da noi»; quale CV il candidato manda non viene registrato.
+
+**Attuazione (5 ottobre 2026).** PR #11574, elencata nel §9 del [report](report-cv-lettera.md).
+- Il link di un ordine con il consenso al talent pool porta una scadenza tecnica fissa, firmata come le altre, che significa «fino a fine consenso» (31 dicembre 9999): non introduce una durata.
+- A ogni apertura il server rilegge l'ordine e risponde come a un link scaduto quando il consenso non c'è più, la cancellazione automatica è già passata, o la candidatura inviata non c'è più. Un link già emesso con una scadenza non si allunga se il consenso arriva dopo; gli altri ordini restano come sopra.
+- Limite dichiarato: al 5 ottobre 2026 nessun codice scrive `talentPoolConsent`. Il consenso è un solo campo sì/no, letto dalla cancellazione automatica, e non sono modellati né il modo di darlo, né la revoca, né una durata. La regola vale da quando il talent pool esisterà; fino ad allora nessun ordine riceve questo link.
 
 ## 5. Allegati di una candidatura via e-mail
 
