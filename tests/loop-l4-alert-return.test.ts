@@ -148,7 +148,9 @@ describe('L4 Alert → Return', () => {
   });
 
   it('keeps a maturing return cohort in the awaiting-sample issue state', async () => {
+    const cohortNow = new Date('2026-10-05T00:00:00.000Z');
     const source = tempSource(outcomes({
+      generatedAt: cohortNow.toISOString(),
       returningUsers7d: null,
       export: {
         consentChecked: true,
@@ -162,13 +164,13 @@ describe('L4 Alert → Return', () => {
           source: 'GA4 Data API',
           dimension: 'sessionCampaignName',
           metric: 'totalUsers',
-          insufficientUntil: '2026-09-21T09:00:00.000Z',
+          insufficientUntil: '2026-10-14T00:00:00.000Z',
         },
       },
     }));
     const issues: Array<Record<string, unknown>> = [];
     const result = await runL4({
-      now: NOW,
+      now: cohortNow,
       configPath: source.configPath,
       snoozesPath: source.snoozesPath,
       outcomePath: source.outcomePath,

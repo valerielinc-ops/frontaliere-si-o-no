@@ -270,8 +270,8 @@ function awaitingReturnCohort({ outcomeVerdict, issues }) {
   ));
 }
 
-function returnCohortWaitSample(verdict, now) {
-  const insufficientUntil = finiteDate(verdict.snapshot?.outcomes?.returnMeasurement?.insufficientUntil);
+function returnCohortWaitSample(snapshot, now) {
+  const insufficientUntil = finiteDate(snapshot?.returnMeasurement?.insufficientUntil);
   const daysUntil = insufficientUntil
     ? Math.max(1, Math.ceil((insufficientUntil.getTime() - now.getTime()) / 86_400_000))
     : 1;
@@ -585,7 +585,7 @@ export async function runL4({
       loopTitles: [ISSUE_TITLE],
       ...(verdict.awaitingReturnCohort ? {
         state: LOOP_STATE_AWAITING_SAMPLE,
-        sample: returnCohortWaitSample(verdict, now),
+        sample: returnCohortWaitSample(verdict.snapshot?.outcomes, now),
       } : {}),
     });
     issued = true;
