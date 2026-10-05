@@ -9,7 +9,7 @@ import { describe, it, expect } from 'vitest';
  * a stdlib `unittest` file and this wrapper makes them part of `npm test`.
  */
 describe('local-mt-translate.py — batched Argos engine', () => {
-  it('python3 tests/python/local_mt_translate_batched_test.py exits 0 (9 unittest cases)', () => {
+  it('python3 tests/python/local_mt_translate_batched_test.py exits 0 (10 unittest cases)', () => {
     const script = path.join(__dirname, 'python', 'local_mt_translate_batched_test.py');
     const proc = spawnSync('python3', [script], { encoding: 'utf-8' });
 
@@ -17,7 +17,7 @@ describe('local-mt-translate.py — batched Argos engine', () => {
       throw new Error(`failed to spawn python3: ${proc.error.message}`);
     }
     expect(proc.status, `stderr:\n${proc.stderr}\nstdout:\n${proc.stdout}`).toBe(0);
-    expect(proc.stderr).toMatch(/Ran 9 tests/);
+    expect(proc.stderr).toMatch(/Ran 10 tests/);
     expect(proc.stderr).toMatch(/\bOK\b/);
   });
 });

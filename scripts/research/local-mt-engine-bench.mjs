@@ -207,6 +207,14 @@ async function main() {
     '|---|---|---|---|---|---|---|',
   ];
   const comparisons = {};
+  // A bench with a crashed worker or an unusable judge is not a measurement:
+  // the report is still printed, the step fails.
+  const failures = [];
+  for (const [name, run] of Object.entries(runs)) {
+    const done = [...run.responses.values()].filter((x) => x.text).length;
+    if (run.status !== 0 && !run.timedOut) failures.push(`${name} exited ${run.status}`);
+    else if (done === 0) failures.push(`${name} produced no response`);
+  }
   for (const [name, run] of Object.entries(runs)) {
     if (name === 'base') {
       lines.push(row(name, run, '—', '—'));
@@ -238,6 +246,9 @@ async function main() {
     );
     for (const [name, run] of Object.entries(runs)) {
       const j = await judgeRun(judge, sample, run, runs.base);
+      // A judge that cannot score (model or native binaries missing) must not
+      // leave a table that reads like a measurement.
+      if (j.n === 0) failures.push(`semantic judge scored no response of ${name}`);
       lines.push(`| ${name} | ${j.n} | ${j.mean.toFixed(4)} | ${j.accepted} (${j.n ? ((100 * j.accepted) / j.n).toFixed(1) : '0.0'}%) | ${name === 'base' ? '—' : j.differing} | ${name === 'base' ? '—' : j.higher} | ${name === 'base' ? '—' : j.lower} |`);
     }
   }
@@ -247,6 +258,10 @@ async function main() {
   const report = lines.join('\n') + '\n';
   process.stdout.write(report);
   if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, report);
+  if (failures.length) {
+    console.error(`❌ bench not valid: ${failures.join('; ')}`);
+    process.exitCode = 1;
+  }
 }
 
 main().catch((error) => {
