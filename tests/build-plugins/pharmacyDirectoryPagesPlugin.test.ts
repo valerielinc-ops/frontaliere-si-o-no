@@ -127,6 +127,16 @@ describe('pharmacy directory page matrix', () => {
     expect(page.path).toContain('/');
   });
 
+  it('feeds the static detail renderer from the enriched catalogue', () => {
+    const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'pharmacy' && candidate.pharmacy?.id === 'it-msal-3907');
+    expect(descriptor).toBeDefined();
+    const page = buildPharmacyDirectoryPage(descriptor!, 'it', '');
+
+    expect(page.html).toContain('farmaciadicasciago@enterpoint.it');
+    expect(page.html).toContain('08:30');
+    expect(page.html).toContain('data-pharmacy-facts');
+  });
+
   it('keeps the directory H1 distinct from the emitted title', () => {
     const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'canton');
     expect(descriptor).toBeDefined();

@@ -21,7 +21,7 @@ import { buildDutyCoverageMatrix, type DutyCoverageMatrixModel } from './dutyCov
 import { buildItalyDutyWeekModel, currentItalyDutyWeekStart, type ItalyDutySourceRegistry, type ItalyDutyWeekModel } from './italyDuty';
 import { currentDutyForRegion } from './duties';
 import { buildPharmacyTitle } from './title';
-import { safePharmacyUrl, type Pharmacy, type PharmacyCatalogueDataset, type PharmacyDutiesDataset } from './types';
+import { pharmacyGoogleMapsUrl, safePharmacyUrl, type Pharmacy, type PharmacyCatalogueDataset, type PharmacyDutiesDataset } from './types';
 import dutiesJson from '../../data/pharmacy-duties-ticino.json';
 import completeTicinoJson from '../../data/pharmacies-ticino-complete.json';
 import italyDutiesJson from '../../data/pharmacy-duties-italy.json';
@@ -245,6 +245,14 @@ function pharmacyDetailStructuredData(pharmacy: Pharmacy, locale: Locale): Recor
   const path = pharmacyPathForRecord(pharmacy, locale);
   const website = safePharmacyUrl(pharmacy.website);
   const addressRegion = pharmacy.canton || pharmacy.province || pharmacy.region;
+  const sameAs = [...new Set([
+    ...(website ? [website] : []),
+    ...(pharmacyGoogleMapsUrl(pharmacy.googlePlaceId) ? [pharmacyGoogleMapsUrl(pharmacy.googlePlaceId)!] : []),
+    ...(pharmacy.externalSources || [])
+      .filter((source) => source.status !== 'not_found' && source.status !== 'unavailable' && ['official', 'google_business_profile', 'facebook', 'pharmacy'].includes(source.sourceType))
+      .map((source) => pharmacyGoogleMapsUrl(source.placeId) || safePharmacyUrl(source.url))
+      .filter((url): url is string => Boolean(url)),
+  ])];
   const openingHoursSpecification = pharmacy.openingHours
     ?.filter((hour) => !hour.isClosed)
     .map((hour) => ({
@@ -253,11 +261,13 @@ function pharmacyDetailStructuredData(pharmacy: Pharmacy, locale: Locale): Recor
       opens: hour.opens,
       closes: hour.closes,
     }));
+  const descriptiveName = pharmacy.name.replace(/[.!?]+$/, '');
   return {
     '@context': 'https://schema.org',
     '@type': 'Pharmacy',
     name: pharmacy.name,
     url: `${BASE_URL}${buildPharmacyPath(path, locale)}`,
+    description: `${descriptiveName}. ${pharmacy.address}, ${pharmacy.postalCode} ${pharmacy.city}.`,
     address: {
       '@type': 'PostalAddress',
       streetAddress: pharmacy.address,
@@ -267,10 +277,13 @@ function pharmacyDetailStructuredData(pharmacy: Pharmacy, locale: Locale): Recor
       addressCountry: pharmacy.country,
     },
     ...(pharmacy.phone ? { telephone: pharmacy.phone } : {}),
-    ...(website ? { sameAs: website } : {}),
+    ...(pharmacy.contactEmail ? { email: pharmacy.contactEmail } : {}),
+    ...(sameAs.length ? { sameAs: sameAs.length === 1 ? sameAs[0] : sameAs } : {}),
+    ...(pharmacy.latitude !== undefined && pharmacy.longitude !== undefined ? { hasMap: `https://www.openstreetmap.org/?mlat=${encodeURIComponent(String(pharmacy.latitude))}&mlon=${encodeURIComponent(String(pharmacy.longitude))}` } : {}),
     ...(pharmacy.latitude !== undefined && pharmacy.longitude !== undefined
       ? { geo: { '@type': 'GeoCoordinates', latitude: pharmacy.latitude, longitude: pharmacy.longitude } }
       : {}),
+    ...(pharmacy.services?.length ? { amenityFeature: pharmacy.services.map((service) => ({ '@type': 'LocationFeatureSpecification', name: service })) } : {}),
     ...(openingHoursSpecification?.length ? { openingHoursSpecification } : {}),
   };
 }
@@ -452,7 +465,11 @@ export function resolvePharmacySeoMetadata(
       : coverageMatrix
         ? coverageMatrix.releaseReady
         : true);
-  const description = model
+  const pharmacyPhoneLabel = locale === 'it' ? 'Telefono' : locale === 'de' ? 'Telefon' : locale === 'fr' ? 'Téléphone' : 'Phone';
+  const pharmacyHoursLabel = locale === 'it' ? 'Orari pubblicati' : locale === 'de' ? 'Veröffentlichte Öffnungszeiten' : locale === 'fr' ? 'Horaires publiés' : 'Published hours';
+  const description = pharmacy
+    ? `${title}. ${pharmacy.address}, ${pharmacy.postalCode} ${pharmacy.city}.${pharmacy.phone ? ` ${pharmacyPhoneLabel}: ${pharmacy.phone}.` : ''}${pharmacy.openingHours?.length ? ` ${pharmacyHoursLabel}: ${pharmacy.openingHours[0].opens}–${pharmacy.openingHours[0].closes}.` : ''}`
+    : model
     ? copy.dutyWeekDescription
     : italyModel
       ? copy.italyDutyDescription

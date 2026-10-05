@@ -33,6 +33,11 @@ import {
   buildTicinoCompleteRecords,
   parseTicinoPdfText,
 } from './lib/pharmacy-border-parser.mjs';
+import {
+  buildPharmacyEnrichmentSnapshot,
+  enrichPharmacyRecords,
+  validatePharmacyEnrichmentConfig,
+} from './lib/pharmacy-enrichment.mjs';
 import { TICINO_DUTY_REGIONS } from './lib/pharmacy-duty-regions.mjs';
 
 const execFileAsync = promisify(execFile);
@@ -41,6 +46,8 @@ const DATA_DIR = resolve(REPO_ROOT, 'data');
 const TICINO_CURRENT_PATH = resolve(DATA_DIR, 'pharmacies-ticino.json');
 const TICINO_OUTPUT_PATH = resolve(DATA_DIR, 'pharmacies-ticino-complete.json');
 const ITALY_OUTPUT_PATH = resolve(DATA_DIR, 'pharmacies-italy-border.json');
+const ENRICHMENT_OUTPUT_PATH = resolve(DATA_DIR, 'pharmacy-enrichment.json');
+const ENRICHMENT_SOURCES_PATH = resolve(DATA_DIR, 'pharmacy-enrichment-sources.json');
 const DUTIES_PATH = resolve(DATA_DIR, 'pharmacy-duties-ticino.json');
 const DUTIES_STATUS_PATH = resolve(DATA_DIR, 'pharmacy-duties-ticino-status.json');
 const DUTY_STAGE_DIR = process.env.PHARMACY_DUTY_STAGE_DIR ? resolve(process.env.PHARMACY_DUTY_STAGE_DIR) : null;
@@ -319,11 +326,13 @@ function recordsFromPayload(payload) {
   return [];
 }
 
-export async function fetchText(url, { timeoutMs = 60_000, accept = '*/*' } = {}) {
+export async function fetchText(url, { timeoutMs = 60_000, accept = '*/*', method = 'GET', body, headers = {} } = {}) {
   let response;
   try {
     response = await httpFetchWithRetry(url, {
-      headers: { 'User-Agent': USER_AGENT, Accept: accept, 'Accept-Language': 'it,en;q=0.8' },
+      method,
+      headers: { 'User-Agent': USER_AGENT, Accept: accept, 'Accept-Language': 'it,en;q=0.8', ...headers },
+      ...(body === undefined ? {} : { body }),
       redirect: 'follow',
     }, {
       timeout: timeoutMs,
@@ -343,6 +352,10 @@ export async function fetchText(url, { timeoutMs = 60_000, accept = '*/*' } = {}
     throw error;
   }
   return response.text();
+}
+
+async function fetchJson(url, init = {}) {
+  return JSON.parse(await fetchText(url, { ...init, accept: 'application/json' }));
 }
 
 async function fetchBuffer(url) {
@@ -456,6 +469,19 @@ export async function readPreviousTicinoSnapshots({ completePath = TICINO_OUTPUT
 
 export async function readPreviousItaly(filePath = ITALY_OUTPUT_PATH) {
   return (await readPreviousSnapshot(filePath, 'Italy')) || { pharmacies: [] };
+}
+
+async function readPreviousPharmacyEnrichment(filePath = ENRICHMENT_OUTPUT_PATH) {
+  const snapshot = await readOptionalJsonFile(filePath, {
+    schemaVersion: 1,
+    generatedAt: new Date(0).toISOString(),
+    records: {},
+    warnings: [],
+  });
+  if (!snapshot || snapshot.schemaVersion !== 1 || typeof snapshot.records !== 'object' || Array.isArray(snapshot.records)) {
+    throw new Error('Pharmacy enrichment snapshot must contain schemaVersion 1 and a records object');
+  }
+  return snapshot;
 }
 
 export async function readDutySnapshot(filePath = DUTIES_PATH) {
@@ -572,7 +598,7 @@ export function buildTicinoCatalogueSnapshot({ parsed, previous, fetchedAt, osmE
 }
 
 async function main() {
-  const [italy, osm, ticinoInput, previous, previousAtomicCatalogue, previousItaly, stagedStatus] = await Promise.all([
+  const [italy, osm, ticinoInput, previous, previousAtomicCatalogue, previousItaly, stagedStatus, enrichmentSources, previousEnrichment] = await Promise.all([
     readItalyInput(),
     readOsmInput(),
     readTicinoPdfText(),
@@ -580,7 +606,11 @@ async function main() {
     readPreviousSnapshot(TICINO_OUTPUT_PATH, 'Ticino complete'),
     readPreviousItaly(),
     readOptionalJsonFile(DUTIES_STATUS_INPUT_PATH, null),
+    readJsonFile(ENRICHMENT_SOURCES_PATH),
+    readPreviousPharmacyEnrichment(),
   ]);
+  const enrichmentConfigErrors = validatePharmacyEnrichmentConfig(enrichmentSources);
+  if (enrichmentConfigErrors.length > 0) throw new Error(`Invalid pharmacy enrichment source registry:\n${enrichmentConfigErrors.join('\n')}`);
   if (DUTY_STAGE_DIR && (!stagedStatus || typeof stagedStatus !== 'object' || Array.isArray(stagedStatus))) {
     throw new Error('Atomic pharmacy finalizer requires the duty status artifact from the same fetch job');
   }
@@ -671,6 +701,21 @@ async function main() {
   }
   assertBorderRecords([...ticinoPharmacies, ...italianPharmacies]);
 
+  const enrichmentResult = await enrichPharmacyRecords(
+    [...ticinoPharmacies, ...italianPharmacies],
+    enrichmentSources,
+    {
+      previous: previousEnrichment,
+      checkedAt: fetchedAt,
+      fetchDocument: (url) => fetchText(url, { accept: 'text/html' }),
+      fetchJson,
+      googleApiKey: process.env.GOOGLE_MAPS_API_KEY,
+      facebookPageId: process.env.PHARMACY_FACEBOOK_PAGE_ID,
+      facebookAccessToken: process.env.PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN,
+    },
+  );
+  const enrichmentOutput = buildPharmacyEnrichmentSnapshot(previousEnrichment, enrichmentResult, fetchedAt);
+
   if (!allDutiesFailed) {
     const atomic = buildAtomicPharmacySnapshots({
       catalogue: ticinoOutput,
@@ -690,8 +735,10 @@ async function main() {
     await writeJson(DUTIES_STATUS_PATH, atomic.status);
   }
   await writeJson(ITALY_OUTPUT_PATH, italyOutput);
+  await writeJson(ENRICHMENT_OUTPUT_PATH, enrichmentOutput);
 
-  console.log(`[import-pharmacies-border] Ticino: ${ticinoPharmacies.length}; Italy CO/VA/VB: ${italianPharmacies.length}; OSM enrichment records: ${osm.elements.length}`);
+  console.log(`[import-pharmacies-border] Ticino: ${ticinoPharmacies.length}; Italy CO/VA/VB: ${italianPharmacies.length}; OSM enrichment records: ${osm.elements.length}; external pharmacy sources: ${Object.keys(enrichmentOutput.records).length}`);
+  for (const warning of enrichmentOutput.warnings) console.warn(`[import-pharmacies-border] ${warning}`);
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

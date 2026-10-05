@@ -71,6 +71,25 @@ function receipt(locale: 'it' | 'en' | 'de' | 'fr', buildId = BUILD_ID) {
   });
 }
 
+function legacyReceipt(locale: 'en' | 'de' | 'fr') {
+  const current = receipt(locale);
+  const { sourceArtifact: _sourceArtifact, tailBudget: _tailBudget, ...outcomes } = current.outcomes;
+  return {
+    ...current,
+    outputBuildId: '',
+    buildId: '',
+    cdnBuildId: '',
+    cdnStatus: 'unknown',
+    payloadStatus: 'incomplete',
+    publishStatus: 'not-published',
+    published: false,
+    stale: true,
+    fallback: 'last-known-good',
+    crossLocaleSkew: 'not-admitted',
+    outcomes,
+  };
+}
+
 function manifests(...locales: Array<'it' | 'en' | 'de' | 'fr'>) {
   return locales.map((locale) => ({ file: `${locale}.json`, manifest: receipt(locale) }));
 }
@@ -179,7 +198,33 @@ describe('locale publish admission plan', () => {
       buildId: BUILD_ID,
       healthyLocales: ['it', 'en', 'de', 'fr'],
       staleLocales: [],
+      recoveryRequired: false,
     });
+  });
+
+  it('requests a current build when a legacy non-IT receipt cannot cross the split', () => {
+    const plan = resolveLocalePublishPlan({
+      runConclusion: 'success',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      jobs: jobs(),
+      provenance: [
+        { file: 'it.json', manifest: receipt('it') },
+        ...(['en', 'de', 'fr'] as const).map((locale) => ({
+          file: `${locale}.json`,
+          manifest: legacyReceipt(locale),
+        })),
+      ],
+    });
+    expect(plan).toMatchObject({
+      allowed: true,
+      mode: 'partial',
+      healthyLocales: ['it'],
+      tailLocales: [],
+      recoveryRequired: true,
+      legacySourceLocales: ['en', 'de', 'fr'],
+    });
+    expect(plan.reason).toContain('dispatch a current build to replay the split handoff');
   });
 
   it('publishes healthy locales when one matrix leg is cancelled and declares it stale', () => {
@@ -355,6 +400,7 @@ describe('locale publish workflow wiring', () => {
     const validateDist = publish.jobs['validate-dist'];
     expect(resolver).toBeDefined();
     expect(resolver.outputs.allowed).toContain('steps.plan.outputs.allowed');
+    expect(resolver.outputs.recovery_required).toContain('steps.plan.outputs.recovery_required');
     expect(deployJob.needs).toBe('resolve-publish-plan');
     expect(String(deployJob.if)).toContain('outputs.allowed');
     expect(String(deployJob.if)).toContain("needs.resolve-publish-plan.outputs.it_admitted == 'true'");
@@ -362,6 +408,16 @@ describe('locale publish workflow wiring', () => {
     expect(validateDist.needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish']);
     expect(validateDist.with.shard_artifact_run_id).toContain('github.run_id');
     expect(publish.jobs['resolve-nonit-publish'].needs).toEqual(['resolve-publish-plan', 'publish-nonit-shards']);
+    const recovery = publish.jobs['recover-legacy-publish-contract'];
+    expect(recovery.needs).toBe('resolve-publish-plan');
+    expect(String(recovery.if)).toContain('outputs.recovery_required');
+    expect(recovery.permissions.actions).toBe('write');
+    expect((recovery.steps as Array<Record<string, any>>)
+      .find((step) => step.name === 'Dispatch a current build')?.run)
+      .toContain('gh workflow run deploy.yml');
+    expect((publish.jobs['resolve-nonit-publish'].steps as Array<Record<string, any>>)
+      .find((step) => step.name === 'Checkout current publish resolver')?.with?.ref)
+      .toBe('refs/heads/main');
     const tailJob = publish.jobs['publish-nonit-shards'];
     expect(String(tailJob.strategy.matrix.locale)).toContain(
       'fromJSON(needs.resolve-publish-plan.outputs.tail_locales)',

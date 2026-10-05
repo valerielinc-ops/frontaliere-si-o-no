@@ -43,6 +43,7 @@ export const RC_TO_ENV = {
   BING_API_KEY:                   ['BING_API_KEY'],
   PAGESPEED_API_KEY:              ['PAGESPEED_API_KEY'],
   FB_PAGE_ID:                     ['FB_PAGE_ID'],
+  PHARMACY_FACEBOOK_PAGE_ID:      ['PHARMACY_FACEBOOK_PAGE_ID'],
   GITHUB_PAT:                     ['GITHUB_PAT', 'GH_MODELS_PAT'],
   // Provisioned in Remote Config for the nanako-side pushes but never mapped
   // here, which made it inert: this file is the ONLY Remote Config → env
@@ -181,6 +182,7 @@ export const RC_TO_ENV = {
 
   // Server-only keys (stored with SERVER_ prefix in RC)
   SERVER_FB_PAGE_ACCESS_TOKEN:    ['FB_PAGE_ACCESS_TOKEN'],
+  SERVER_PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN: ['PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN'],
   SERVER_GA4_PROPERTY_ID:         ['GA4_PROPERTY_ID'],
   SERVER_GSC_CLIENT_SECRET:       ['GSC_CLIENT_SECRET'],
   SERVER_GSC_REFRESH_TOKEN:       ['GSC_REFRESH_TOKEN'],
