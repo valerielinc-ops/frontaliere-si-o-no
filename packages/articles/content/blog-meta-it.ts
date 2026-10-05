@@ -12556,6 +12556,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gran-fondo-varese-2025.title': 'Varese: Gran Fondo da record con 5.000 iscritti',
     'blog.article.gran-fondo-varese-2025.excerpt': 'Decima edizione chiusa il 4 ottobre: 2.000 stranieri e vittorie di Ferraro Morey e Rumasaite.',
     'blog.article.gran-fondo-varese-2025.imageAlt': 'Ciclisti in gara sulla strada di Varese durante la Gran Fondo Tre Valli Varesine',
+    'blog.article.chef-nazionale-ristoratori-de-filippi.title': 'Sport e legalità al De Filippi con la Nazionale Ristoratori',
+    'blog.article.chef-nazionale-ristoratori-de-filippi.excerpt': 'Giornata tra formazione, calcio e alta cucina all\'Istituto alberghiero De Filippi di Varese con gli chef della Nazionale Italiana Ristoratori.',
+    'blog.article.chef-nazionale-ristoratori-de-filippi.imageAlt': 'Incontro tra gli chef della Nazionale Ristoratori e gli studenti del De Filippi',
 };
 
 export default blogMetaIt;
