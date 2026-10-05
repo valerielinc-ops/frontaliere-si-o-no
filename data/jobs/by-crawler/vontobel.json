@@ -1601,12 +1601,12 @@
     },
     {
       "id": "vontobel-ce88a0e9a728",
-      "slug": "institutional-sales-support-asset-management-vontobel-ch",
+      "slug": "supporto-per-le-vendite-istituzionali-asset-management-vontobel-zurich-genferstrasse-27",
       "slugByLocale": {
         "en": "institutional-sales-support-asset-management-vontobel-ch",
-        "it": "institutional-sales-support-asset-management-vontobel-ch",
-        "de": "institutional-sales-support-asset-management-vontobel-ch",
-        "fr": "institutional-sales-support-asset-management-vontobel-ch"
+        "it": "supporto-per-le-vendite-istituzionali-asset-management-vontobel-zurich-genferstrasse-27",
+        "de": "institutionelle-verkaufsunterstutzung-asset-management-vontobel-zurich-genferstrasse-27",
+        "fr": "soutien-aux-ventes-institutionnelles-gestion-de-l-ensemble-vontobel-zurich-genferstrasse-27"
       },
       "company": "Vontobel",
       "companyKey": "vontobel",
@@ -1665,7 +1665,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:34:08.529Z"
+      "firstSeenAt": "2026-10-05T09:34:08.529Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "institutional-sales-support-asset-management-vontobel-ch"
+        ],
+        "de": [
+          "institutional-sales-support-asset-management-vontobel-ch"
+        ],
+        "fr": [
+          "institutional-sales-support-asset-management-vontobel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "institutional-sales-support-asset-management-vontobel-ch"
+      ]
     }
   ]
 }

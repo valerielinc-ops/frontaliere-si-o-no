@@ -22,6 +22,15 @@
  * State persisted in data/seo-ctr-monitor-state.json so consecutive-check
  * counting survives across scheduled workflow invocations.
  *
+ * The CTR is measured on queries with a plausible job intent only (owner
+ * decision I5, 2026-10-05; guiding case issue 11198): queries with search
+ * operators (`-site:`, `inurl:`…) and promotional/shop queries without job
+ * words («fielmann offerta») are subtracted from the page totals and reported
+ * as separate segments — in the log, in the state file and in the issue body —
+ * by scripts/lib/seo-ctr-query-segments.mjs. The threshold is unchanged. Every
+ * family entry carries `measureVersion`, so a jump caused by the change of
+ * measure is never read as a real SERP improvement.
+ *
  * Also runs a family-discovery pass each week: pulls site-wide GSC pages
  * over a trailing 90-day window and flags any path segment carrying
  * MIN_IMPRESSIONS_TO_MONITOR+ impressions that isn't in the registry yet
@@ -44,11 +53,21 @@
  *        (`tsx`, not `node`: seo-ctr-curve.mjs imports .ts leaf modules)
  *
  * Always exits 0 — monitoring only, never blocks CI.
+ *
+ * `--measure-cardinality` is a separate, side-effect-free mode (no state
+ * write, no issue, no discovery): for every family in SEO_CTR_FAMILIES and
+ * every path alias it counts the page×query rows the query prefilter lets
+ * through against the rows an unfiltered read would return, with timings,
+ * and exits 1 if any alias's filtered read reaches the per-alias row cap
+ * (the `gsc response incomplete` that would make the monitor skip the
+ * family) or fails. It is the pre-merge proof that the prefiltered fetch
+ * fits; the workflow runs it on `workflow_dispatch` with
+ * `measure_cardinality: true`.
  */
 
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import { existsSync, readFileSync } from 'node:fs';
+import { appendFileSync, existsSync, readFileSync } from 'node:fs';
 import { fetchGscByPage } from './lib/perf-sources/gsc.mjs';
 import {
   SEO_CTR_FAMILIES,
@@ -62,12 +81,22 @@ import {
   discoverUnregisteredFamilies,
   familyPathPrefixes,
   shadowingManualPrefixes,
+  ctrExcludedSegmentsForFamily,
   classifyUnregisteredFamilyCandidate,
   loadAutoRegisteredFamilies,
   AUTO_FAMILIES_PATH,
 } from './lib/seo-ctr-curve.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
+import {
+  CTR_MEASURE_VERSION,
+  fetchSegmentedFamilyRows,
+  excludedSegmentsForState,
+  renderExcludedSegmentsSection,
+  describeMeasureChange,
+  measurePrefilterCardinality,
+  renderPrefilterCardinalityTable,
+} from './lib/seo-ctr-query-segments.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -75,9 +104,13 @@ const STATE_PATH = resolve(ROOT, 'data', 'seo-ctr-monitor-state.json');
 const WINDOW_DAYS = 14;
 const CONSECUTIVE_RUNS_TO_ESCALATE = 2;
 const DISCOVERY_WINDOW_DAYS = 90;
+// Pagine sotto questo numero di impressioni non entrano nell'aggregato di
+// famiglia: vale per la misura segmentata e per «tutte le query».
+const MIN_PAGE_IMPRESSIONS = 5;
 const DRY_RUN_COMMAND = 'npx --no-install tsx scripts/monitor-seo-ctr-by-template.mjs --dry-run';
 
 const dryRun = process.argv.includes('--dry-run');
+const measureCardinality = process.argv.includes('--measure-cardinality');
 
 function pct(n) {
   return n === null || n === undefined ? 'n/a' : `${(n * 100).toFixed(2)}%`;
@@ -136,7 +169,7 @@ function loadState() {
   }
 }
 
-async function openOrCommentIssue({ family, ctr, target, position, run, belowCurvePages }) {
+async function openOrCommentIssue({ family, ctr, target, position, run, belowCurvePages, segmentation, measureChange }) {
   if (dryRun) {
     console.log(`   [dry-run] avrei aperto/commentato issue per ${family.label}`);
     return;
@@ -151,7 +184,8 @@ async function openOrCommentIssue({ family, ctr, target, position, run, belowCur
       description: `## CTR sotto target — ${family.label}
 
 **Path family:** \`${family.pathContains}\`
-**CTR attuale (14gg):** ${pct(ctr)}
+**CTR attuale (14gg, senza le query escluse):** ${pct(ctr)}
+**CTR su tutte le query (misura precedente):** ${pct(segmentation.allQueries.ctr)}
 **Target:** ${pct(target)} (${targetBasis})
 **Posizione media ponderata (14gg):** ${position === null ? 'n/a' : Number(position).toFixed(2)}
 **Check consecutivi sotto soglia:** ${run}
@@ -159,8 +193,10 @@ async function openOrCommentIssue({ family, ctr, target, position, run, belowCur
 Il monitor CTR-per-template (issue #4300, scripts/monitor-seo-ctr-by-template.mjs)
 ha rilevato che questa famiglia di pagine resta sotto la soglia CTR attesa per
 ${run} controlli settimanali consecutivi (~${run} settimane).
-
+${measureChange ? `\n> ${measureChange}\n` : ''}
 ${renderBelowCurvePagesSection(belowCurvePages)}
+
+${renderExcludedSegmentsSection({ segments: segmentation.segments, allQueries: segmentation.allQueries, measureVersion: segmentation.measureVersion })}
 
 Prossimi passi suggeriti: rivedere title/description generator per questa
 famiglia (services/seo/seo-pages.ts per guida/tasse, build-plugins/ogPagesPlugin.ts
@@ -340,15 +376,36 @@ async function main() {
     // the measured position instead of being frozen in the registry.
     let target = effectiveTargetCtr(family, null);
     let belowCurvePages = [];
+    let segmentation = null;
     try {
-      const { perPath } = await fetchGscByPage({ windowDays: WINDOW_DAYS, pathContains: familyPathPrefixes(family) });
-      const pageRows = [...perPath.entries()].map(([path, metrics]) => ({ path, ...metrics }));
-      const agg = aggregateFamilyRows(pageRows, { minImpressions: 5 });
+      // Segmentazione per query (decisione I5 del 2026-10-05): un errore sulle
+      // righe pagina×query ricade nel ramo di errore sotto, come un errore GSC
+      // — un controllo misurato con la misura vecchia non va conteggiato con
+      // quella nuova.
+      segmentation = await fetchSegmentedFamilyRows({
+        windowDays: WINDOW_DAYS,
+        pathContains: familyPathPrefixes(family),
+        segments: ctrExcludedSegmentsForFamily(family),
+        minImpressions: MIN_PAGE_IMPRESSIONS,
+      });
+      const { pageRows } = segmentation;
+      const agg = aggregateFamilyRows(segmentation.rows, { minImpressions: MIN_PAGE_IMPRESSIONS });
       ctr = agg.avgCtr;
       position = agg.avgPosition;
       belowCurvePages = agg.belowCurvePages;
       target = effectiveTargetCtr(family, position);
-      console.log(`   CTR (${WINDOW_DAYS}gg): ${pct(ctr)} | target: ${pct(target)} | pos: ${position === null ? 'n/a' : position.toFixed(2)} | pagine: ${agg.pageCount}`);
+      console.log(`   CTR (${WINDOW_DAYS}gg, senza le query escluse): ${pct(ctr)} | target: ${pct(target)} | pos: ${position === null ? 'n/a' : position.toFixed(2)} | pagine: ${agg.pageCount}`);
+      // La misura precedente, rifatta sulle stesse righe: CTR, target e click
+      // persi stimati (impressioni × (target − CTR)) con e senza segmentazione.
+      const lost = (a, t) => (a.avgCtr === null || t === null ? 0 : Math.max(0, a.totalImpressions * (t - a.avgCtr)));
+      const allAgg = aggregateFamilyRows(pageRows, { minImpressions: MIN_PAGE_IMPRESSIONS });
+      const allTarget = effectiveTargetCtr(family, allAgg.avgPosition);
+      console.log(`   misura precedente (tutte le query): CTR ${pct(allAgg.avgCtr)} | target ${pct(allTarget)} | pos ${allAgg.avgPosition === null ? 'n/a' : allAgg.avgPosition.toFixed(2)} | click persi ${lost(allAgg, allTarget).toFixed(0)}`);
+      console.log(`   misura attuale (senza escluse):      CTR ${pct(agg.avgCtr)} | target ${pct(target)} | pos ${position === null ? 'n/a' : position.toFixed(2)} | click persi ${lost(agg, target).toFixed(0)}`);
+      for (const [name, s] of Object.entries(segmentation.segments)) {
+        const top = s.topQueries.map((q) => `«${q.query}» ${q.impressions}`).join(', ');
+        console.log(`   escluse (${name}): ${s.impressions} impressioni, ${s.clicks} click${top ? ` — ${top}` : ''}`);
+      }
     } catch (e) {
       console.warn(`   ⚠️ errore GSC, salto questo giro: ${e.message}`);
       // Don't touch the counter on a fetch failure — avoid false escalation
@@ -364,6 +421,12 @@ async function main() {
       continue;
     }
 
+    const measureChange = describeMeasureChange(prior, {
+      measureVersion: segmentation.measureVersion,
+      allQueriesCtr: segmentation.allQueries.ctr,
+    });
+    if (measureChange) console.log(`   ℹ️ ${measureChange}`);
+
     const belowTarget = ctr !== null && target !== null && ctr < target;
     const { counted, consecutiveBelowRuns, lastCountedIso } = nextCtrMonitorCounter(prior, { belowTarget, nowIso });
     const offCadence = `controllo fuori cadenza, non conteggiato (ultimo conteggiato: ${lastCountedIso}; contatore fermo a ${consecutiveBelowRuns})`;
@@ -376,7 +439,7 @@ async function main() {
       // Escalation only on a counted check: the issue text says "N controlli
       // settimanali consecutivi" and an off-cadence run is not one of them.
       if (counted && consecutiveBelowRuns >= CONSECUTIVE_RUNS_TO_ESCALATE) {
-        await openOrCommentIssue({ family, ctr, target, position, run: consecutiveBelowRuns, belowCurvePages });
+        await openOrCommentIssue({ family, ctr, target, position, run: consecutiveBelowRuns, belowCurvePages, segmentation, measureChange });
       }
     } else {
       console.log(counted ? '   ✅ CTR nella norma' : `   ✅ CTR nella norma — ${offCadence}`);
@@ -384,7 +447,10 @@ async function main() {
 
     state.families[family.id] = {
       consecutiveBelowRuns,
+      measureVersion: segmentation.measureVersion,
       lastCtr: ctr,
+      lastCtrAllQueries: segmentation.allQueries.ctr,
+      lastExcludedSegments: excludedSegmentsForState(segmentation.segments),
       lastPosition: position,
       lastTargetCtr: target,
       lastBelowCurvePages: belowCurvePagesForState(belowCurvePages),
@@ -394,6 +460,7 @@ async function main() {
     };
   }
 
+  state.measureVersion = CTR_MEASURE_VERSION;
   if (!dryRun) {
     writeJsonAtomic(STATE_PATH, state);
     console.log(`\n💾 Stato monitor salvato: ${STATE_PATH}`);
@@ -402,7 +469,45 @@ async function main() {
   await discoverNewFamilies();
 }
 
-main().catch((e) => {
-  console.error('monitor-seo-ctr-by-template failed (non-blocking):', e.message);
-  process.exitCode = 0;
-});
+/**
+ * Misura di cardinalita' del prefiltro (vedi l'intestazione): nessuna
+ * scrittura di state, nessuna issue, nessuna scoperta. Esce 1 su un alias al
+ * tetto o con un errore: qui il rosso e' il punto, non un monitor da tenere
+ * verde.
+ */
+async function runMeasureCardinality() {
+  const families = SEO_CTR_FAMILIES.map((family) => ({
+    id: family.id,
+    monitored: Boolean(family.monitored),
+    aliases: familyPathPrefixes(family),
+    segments: ctrExcludedSegmentsForFamily(family),
+  }));
+  const aliasCount = families.reduce((n, f) => n + f.aliases.length, 0);
+  console.log(`📏 Cardinalita' del prefiltro pagina×query: ${families.length} famiglie, ${aliasCount} alias, finestra ${WINDOW_DAYS}gg`);
+  const startedAt = Date.now();
+  const result = await measurePrefilterCardinality({
+    families,
+    windowDays: WINDOW_DAYS,
+    unfilteredMaxPages: Number(process.env.CTR_CARDINALITY_UNFILTERED_MAX_PAGES) || undefined,
+  });
+  const table = renderPrefilterCardinalityTable(result);
+  const footer = `\nDurata totale: ${((Date.now() - startedAt) / 1000).toFixed(1)} s. HEAD: ${process.env.GITHUB_SHA || 'locale'}.`;
+  console.log(`\n${table}${footer}`);
+  if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${table}\n${footer}\n`);
+  if (result.failures.length > 0) {
+    console.error(`\n❌ ${result.failures.length} alias oltre il tetto o non misurati`);
+    process.exitCode = 1;
+  }
+}
+
+if (measureCardinality) {
+  runMeasureCardinality().catch((e) => {
+    console.error('misura di cardinalita\' fallita:', e.message);
+    process.exitCode = 1;
+  });
+} else {
+  main().catch((e) => {
+    console.error('monitor-seo-ctr-by-template failed (non-blocking):', e.message);
+    process.exitCode = 0;
+  });
+}

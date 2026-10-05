@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { buildCompetitionSummary } from '../build-plugins/careerLandingsPlugin';
+import { buildCompetitionSummary, renderCareerPageForTest } from '../build-plugins/careerLandingsPlugin';
 import { buildSectorHubSeo } from '../build-plugins/jobSectorLanding';
 import { fuelObservation } from '../build-plugins/shared/fuelObservation';
 import { hasMatchingArticleHeadline } from '../scripts/audit-h1-title-duplicates.mjs';
@@ -75,5 +75,19 @@ describe('public competition snippet and source notices', () => {
     expect(copy.html).toContain('https://www.lugano.ch/concorsi/');
     const missing = buildCompetitionSummary(locale, { ...snapshot, competitionNotices: [{ title: 'Assistente' }] });
     expect(missing.description).not.toMatch(/\d{4}-\d{2}-\d{2}/);
+  });
+
+  it('shows the snapshot date when Article.dateModified is emitted', () => {
+    const snapshot = {
+      liveCount: 1, fresh30Count: 1, medianSalaryChf: null, featured: [],
+      topCities: ['Lugano'], topEmployers: [{ name: 'EOC', count: 1 }],
+      dataCollectedAt: '2026-10-04T21:37:03.487Z',
+    };
+    const page = renderCareerPageForTest({
+      locale: 'it', id: 'concorsi-pubblici-lugano', dateStamp: '2026-10-05',
+      snapshot, agencyCount: 0, concorsiCount: 0,
+    });
+    expect(page.html).toContain('Pagina generata · 4 ottobre 2026');
+    expect(page.html).toContain('"dateModified":"2026-10-04T21:37:03.487Z"');
   });
 });

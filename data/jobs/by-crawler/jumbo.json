@@ -10428,7 +10428,6 @@
           "verkaufsberater-in-do-it-jumbo-kusnacht"
         ],
         "de": [
-          "verkaufsberater-in-do-it-jumbo-kusnacht-p73eh7",
           "verkaufsberater-in-do-it-jumbo-kusnacht"
         ]
       },
@@ -14664,7 +14663,6 @@
           "verkaufsberater-in-deco-jumbo-chur"
         ],
         "de": [
-          "verkaufsberater-in-deco-jumbo-chur-t2oe1t",
           "verkaufsberater-in-deco-jumbo-chur"
         ]
       },
@@ -18070,7 +18068,7 @@
       "id": "jumbo-cad0f8b5-390",
       "slug": "verkaufsberater-in-deco-jumbo-chur-2",
       "slugByLocale": {
-        "de": "verkaufsberater-in-deco-jumbo-chur",
+        "de": "verkaufsberater-in-deco-jumbo-chur-pkl1fu",
         "it": "verkaufsberater-in-deco-jumbo-chur-2",
         "en": "verkaufsberater-in-deco-jumbo-chur-2",
         "fr": "verkaufsberater-in-deco-jumbo-chur-2"
@@ -18147,7 +18145,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:42:44.350Z"
+      "firstSeenAt": "2026-09-23T23:42:44.350Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "verkaufsberater-in-deco-jumbo-chur"
+        ],
+        "it": [
+          "verkaufsberater-in-deco-jumbo-chur"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-deco-jumbo-chur"
+      ]
     },
     {
       "id": "jumbo-58026324-186",
@@ -18246,8 +18255,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-stans",
         "it": "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-stans",
-        "en": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-stans",
-        "fr": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-stans"
+        "en": "associate-sales-administration-und-kundendienst-jumbo-stans",
+        "fr": "collaborateur-trice-vente-administration-und-kundendienst-jumbo-stans"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18310,6 +18319,12 @@
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-stans"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-stans"
+        ],
+        "fr": [
           "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-stans"
         ]
       },

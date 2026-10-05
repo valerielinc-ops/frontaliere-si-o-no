@@ -40,6 +40,7 @@ import {
   getCrawlerElapsedMs,
 } from './jobs-url-helper.mjs';
 import {
+  writeJobsCrawlerSlice,
   writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
@@ -68,9 +69,15 @@ import {
   sourceBodyForJob,
 } from './lib/stored-source-body.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
-import { fetchSourceViaRelay } from './lib/source-relay-fetch.mjs';
+import { assertSourceRelayReady, fetchSourceViaRelay } from './lib/source-relay-fetch.mjs';
 import { isRetryBudgetExhausted } from './lib/transient-fetch.mjs';
 import { CRAWLER_TRANSPORT_FAILURE_OUTCOMES } from './lib/crawler-fetch-outcome.mjs';
+import {
+  isAuthoritativeEmptySnapshot,
+  markAuthoritativeEmptySnapshot,
+} from './lib/authoritative-empty-snapshot.mjs';
+import { ELAVORO_EMPTY_MESSAGE, normalizeElavoroText } from './lib/elavoro-empty-state.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -221,12 +228,19 @@ export function classifyHasHealthcareDiscovery({
   discovered = 0,
   parsed = 0,
   detailFetchOutcomes = [],
+  authoritativeEmpty = false,
 } = {}) {
   if (listingFetchOutcome) {
     return {
       lastFetchOutcome: listingFetchOutcome,
       abortKind: abortKindForFetchOutcome(listingFetchOutcome),
     };
+  }
+
+  // The listing region rendered the portal's own empty state: the fetch
+  // worked and the source says it has nothing, which is not a selector miss.
+  if (authoritativeEmpty && discovered === 0) {
+    return { lastFetchOutcome: 'ok', abortKind: null };
   }
 
   const detailOutcomes = Array.isArray(detailFetchOutcomes)
@@ -266,6 +280,50 @@ export function classifyHasHealthcareDiscovery({
 // ─────────────────────────────────────────────────────────────
 
 const NON_JOB_NODE_IDS = new Set(['75', '76', '104']);
+
+// The micro-site page template renders the postings view in this Drupal
+// region. Its header menu ("Home" → /has, "Annunci pubblicati" → /node/104,
+// "Login" → /node/103) also links to /node/NNN, and on 2026-10-05 the Login
+// node was taken for a posting titled "Annunci pubblicati" (issue 11083).
+const LISTING_REGION_SELECTOR = '.region-list-microsite';
+// Micro-site chrome, dropped only when the listing region is not found: it
+// carries node links that are navigation, never postings.
+const MICROSITE_CHROME_SELECTOR = [
+  '#main-header',
+  '.wrapper-top-menu-microsite',
+  '.region-pulsanti-top-microsite',
+  '.main-menu-microsite',
+  'footer',
+].join(', ');
+const AUTHORITATIVE_EMPTY_EVIDENCE =
+  'e-lavoro.ch/node/104 rendered the portal no-open-offers message in the listing region (view-empty)';
+
+/**
+ * The part of the page that lists the postings. With the listing region
+ * present, nothing outside it can be a posting. Without it (a template
+ * change) the page minus its known chrome is searched, but the result can
+ * never be a proven zero: `region` is null.
+ */
+function listingScope(document) {
+  const region = document.querySelector(LISTING_REGION_SELECTOR);
+  if (region) return { root: region, region };
+  for (const element of [...document.querySelectorAll(MICROSITE_CHROME_SELECTOR)]) {
+    element.remove();
+  }
+  return { root: document.body || document.documentElement, region: null };
+}
+
+/**
+ * True only when the listing region itself shows the portal's empty state.
+ * The same copy elsewhere on the page, a different `view-empty` text, or a
+ * missing region prove nothing.
+ */
+function listingRegionIsEmpty(region) {
+  if (!region) return false;
+  return [...region.querySelectorAll('.view-empty')].some((element) =>
+    normalizeElavoroText(element.textContent).includes(ELAVORO_EMPTY_MESSAGE),
+  );
+}
 
 function normalizeListingText(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -397,8 +455,15 @@ export function parseListingPage(html) {
   if (!html || typeof html !== 'string') return [];
 
   const { document } = new JSDOM(html).window;
-  const detailLinks = [...document.querySelectorAll('a[href]')]
+  const { root, region } = listingScope(document);
+  const detailLinks = [...root.querySelectorAll('a[href]')]
     .filter((anchor) => detailNodeId(anchor));
+
+  // A posting link always wins over the empty-state copy.
+  if (detailLinks.length === 0 && listingRegionIsEmpty(region)) {
+    return markAuthoritativeEmptySnapshot([], AUTHORITATIVE_EMPTY_EVIDENCE);
+  }
+
   const actionLinks = detailLinks.filter(isListingActionLink);
   // Prefer the explicit “view posting” links so a card's title/category links
   // cannot be mistaken for a second listing. If the portal renames that label,
@@ -583,6 +648,14 @@ async function fetchJobs(counts) {
   const listings = parseListingPage(listingHtml);
   counts.discovered = listings.length;
   console.log(`📋 Found ${listings.length} job listing(s) on page.`);
+  if (isAuthoritativeEmptySnapshot(listings)) {
+    Object.assign(counts, {
+      parsed: 0,
+      ...classifyHasHealthcareDiscovery({ discovered: 0, parsed: 0, authoritativeEmpty: true }),
+    });
+    console.log(`ℹ️ ${listings.authoritativeEmptyEvidence}.`);
+    return markAuthoritativeEmptySnapshot([], listings.authoritativeEmptyEvidence);
+  }
 
   const jobs = [];
   const detailFetchOutcomes = [];
@@ -889,6 +962,52 @@ function validateLocales() {
   });
 }
 
+/**
+ * The listing region proved the source has no open postings: publish the
+ * zero with its evidence (same shape as the Helsinn e-lavoro runner), retire
+ * any stored HAS row to the expired archive, and let the health monitor read
+ * `authoritativeEmptySnapshot` instead of a selector miss.
+ */
+async function publishAuthoritativeEmptySnapshot({ beforeSnapshot, evidence }) {
+  const priorJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
+  const emptyDiff = computeCrawlDiff(beforeSnapshot, new Map());
+  const archived = archiveRemovedJobsToSlice(priorJobs, COMPANY_KEY);
+  writeJobsCrawlerSlice(COMPANY_KEY, [], {
+    skipShrinkGuard: true,
+    preserveExistingSlugs: true,
+  });
+  printCrawlChangeSummary(emptyDiff, 'HAS Healthcare');
+  writeCrawlChangeSummaryToGH(emptyDiff, 'HAS Healthcare');
+  const durationMs = getCrawlerElapsedMs();
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY,
+    label: 'HAS Healthcare',
+    generatedAt: new Date().toISOString(),
+    total: 0,
+    discovered: 0,
+    parsed: 0,
+    written: 0,
+    lastFetchOutcome: 'ok',
+    abortKind: null,
+    authoritativeEmptySnapshot: true,
+    authoritativeSnapshotVerified: true,
+    authoritativeEmptyEvidence: evidence,
+    newCount: 0,
+    updatedCount: 0,
+    removedCount: emptyDiff.removedJobs.length,
+    unchangedCount: 0,
+    durationMs,
+    avgDurationMs: durationMs,
+    durationHistory: [durationMs],
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: emptyDiff.removedJobs.slice(0, 30),
+    unchangedJobs: [],
+  });
+  await assembleJobsDataset();
+  console.log(`ℹ️ Persisted authoritative HAS Healthcare zero; archived ${archived} expired route(s).`);
+}
+
 // ─────────────────────────────────────────────────────────────
 // Main
 // ─────────────────────────────────────────────────────────────
@@ -902,12 +1021,25 @@ async function main() {
   console.log('  HAS Healthcare Advanced Synthesis — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);
+  // The crawler group marks this member relay-required: a failed Google
+  // ID-token step fails this crawler loudly instead of crawling without the
+  // only path that reaches e-lavoro.ch from CI.
+  assertSourceRelayReady();
 
   // Snapshot before
   const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob))
 
   // Phase 1: Fetch and parse jobs
   const discoveredJobs = await fetchJobs(counts);
+
+  if (isAuthoritativeEmptySnapshot(discoveredJobs)) {
+    console.log('\nℹ️ HAS Healthcare has no open postings on e-lavoro.ch; publishing an authoritative empty snapshot.');
+    await publishAuthoritativeEmptySnapshot({
+      beforeSnapshot,
+      evidence: discoveredJobs.authoritativeEmptyEvidence,
+    });
+    return;
+  }
 
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No HAS Healthcare jobs discovered.');

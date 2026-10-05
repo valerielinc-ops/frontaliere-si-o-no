@@ -247,12 +247,25 @@ describe('assisted application JobBoard handoff', () => {
     const offer = jobBoardSource.slice(start, end);
     expect(start).toBeGreaterThan(-1);
     expect(offer).toMatch(
-      /paidChoice=\{offerwallPaidFallbackEnabled \? \{\s*onChoosePaid: \(\) => startAssistedCheckout\(rewardedApplicationJob, \{ trigger: 'offerwall_first' \}\),\s*paidLoading: assistedCheckoutBusy,\s*error: assistedCheckoutError,\s*\} : undefined\}/,
+      /paidChoice=\{offerwallPaidFallbackEnabled && !rewardedApplicationFreeChosen \? \{\s*onChoosePaid: \(\) => startAssistedCheckout\(rewardedApplicationJob, \{ trigger: 'offerwall_first' \}\),\s*paidLoading: assistedCheckoutBusy,\s*error: assistedCheckoutError,\s*\} : undefined\}\s*paidOfferSeen=\{rewardedApplicationFreeChosen\}/,
     );
     // Closing the choice also clears a checkout it started.
     expect(offer).toMatch(
       /onDismiss=\{\(\) => \{\s*setRewardedApplicationJob\(null\);\s*setAssistedCheckoutBusy\(false\);\s*setAssistedCheckoutError\(null\);\s*\}\}/,
     );
+  });
+
+  it('resumes a free choice straight to the Offerwall, and loads the offers ahead of the click', () => {
+    // A free choice that needed the recovery reload: the resumed click skips the choice.
+    expect(jobBoardSource).toMatch(
+      /'rewarded_application_offer_resumed', context\);\s*applicationOfferOpenRef\.current = true;\s*setRewardedApplicationFreeChosen\(resume\.choice === 'free'\);/,
+    );
+    // The offers' code is loaded while the job is read, and a click never looks dead meanwhile.
+    expect(jobBoardSource).toMatch(
+      /if \(!shouldPreloadRewardedApplicationAd\) return undefined;\s*const warm = \(\) => \{\s*void import\('@\/components\/community\/RewardedApplicationOffer'\)/,
+    );
+    expect(jobBoardSource).toContain('<Suspense fallback={applicationOfferCodeLoadingJsx}>\n   <RewardedApplicationOffer');
+    expect(jobBoardSource).toContain('<Suspense fallback={applicationOfferCodeLoadingJsx}>\n   <AssistedApplicationOffer');
   });
 
   it('forces the rewarded treatment on every job-board section', () => {

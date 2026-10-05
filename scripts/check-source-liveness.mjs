@@ -5,8 +5,12 @@
  *
  * WHY THIS IS A SEPARATE SCRIPT
  * -----------------------------
- * The vitality guard (scripts/lib/source-liveness.mjs) makes every PostHog
- * monitor ABSTAIN when its source is dead. Abstention alone would be a
+ * The vitality guard (scripts/lib/source-liveness.mjs) makes every monitor
+ * ABSTAIN when its source is dead. Since decision H9 (2026-10-05, «rimpiazza
+ * PostHog con GA4») that source is GA4: PostHog is under quota by choice
+ * (owner decision 2026-08-25) and is no longer a source the fleet expects
+ * alive, so probing it here reopened the PostHog outage issue (5921)
+ * forever while the monitors were already reading GA4. Abstention alone would be a
  * regression: silence is precisely how the 2026-07-23 → 2026-08-10 outage
  * survived three weeks unnoticed while twelve monitors kept exiting 0.
  *
@@ -31,26 +35,34 @@
  *   node scripts/check-source-liveness.mjs --dry-run  # never opens an issue
  *   node scripts/check-source-liveness.mjs --strict   # exit 2 when dead
  *
- * ENV: POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID / POSTHOG_HOST
- *      SOURCE_LIVENESS_WINDOW_DAYS (default 7)
+ * ENV: GOOGLE_APPLICATION_CREDENTIALS or FIREBASE_SERVICE_ACCOUNT_JSON (GA4
+ *      Data API, read-only), GA4_PROPERTY_ID (optional)
+ *      SOURCE_LIVENESS_WINDOW_DAYS (default 7, settled GA4 days)
  */
 
 import { pathToFileURL } from 'node:url';
-import { checkPostHogLiveness, POSTHOG_MONITORS, DEFAULT_MIN_EVENTS_PER_DAY } from './lib/source-liveness.mjs';
+import { checkGa4Liveness, GA4_MONITORS, DEFAULT_MIN_EVENTS_PER_DAY } from './lib/source-liveness.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
 
 // Discriminant FIRST: issue dedup truncates the title at 60 chars, so a
 // trailing discriminant is the token that gets dropped and collides.
-export const ISSUE_TITLE = 'PostHog ingestion down — monitors are abstaining';
+export const ISSUE_TITLE = 'GA4 ingestion down — monitors are abstaining';
+
+/**
+ * Titles this script used to open for a source the fleet no longer expects
+ * alive. Never created nor resolved from here again: the PostHog one stays in
+ * the issue history (5921) and is closed by the H9 migration itself.
+ */
+export const RETIRED_ISSUE_TITLES = Object.freeze(['PostHog ingestion down — monitors are abstaining']);
 
 export function buildIssueBody(verdict) {
-  const affected = POSTHOG_MONITORS.map(
+  const affected = GA4_MONITORS.map(
     (m) => `- \`${m.path}\` — ${m.emits}${m.guarded ? '' : ' _(guard non ancora cablato)_'}`,
   ).join('\n');
 
   return [
-    `La sorgente PostHog non risulta viva sulla finestra misurata, quindi i monitor che la leggono si sono **astenuti**: nessun numero emesso, nessuna issue di regressione aperta.`,
+    `La sorgente GA4 non risulta viva sulla finestra misurata, quindi i monitor che la leggono si sono **astenuti**: nessun numero emesso, nessuna issue di regressione aperta.`,
     '',
     `**Verdetto:** ${verdict.reason}`,
     `**Soglia:** ${verdict.floor} eventi/giorno su ogni giorno completo della finestra di ${verdict.windowDays}gg`,
@@ -61,7 +73,7 @@ export function buildIssueBody(verdict) {
     '**Monitor che leggono questa sorgente:**',
     affected,
     '',
-    '**Cosa NON fare:** non chiudere le issue aperte da questi monitor con la motivazione «PostHog e\' cieco» senza rimisurare. E\' esattamente cosi\' che #5607 e #5670 sono state chiuse il 2026-08-08 su una premessa gia\' falsa, e riaperte il 2026-08-14.',
+    '**Cosa NON fare:** non chiudere le issue aperte da questi monitor con la motivazione «la sorgente e\' cieca» senza rimisurare. E\' esattamente cosi\' che #5607 e #5670 sono state chiuse il 2026-08-08 su una premessa gia\' falsa (allora la sorgente era PostHog), e riaperte il 2026-08-14.',
     '',
     '**Come rimisurare a mano:**',
     '```',
@@ -87,7 +99,7 @@ export function buildIssueBody(verdict) {
         '`--dry-run` non e\' decorativo: senza, con la sorgente ancora morta questo stesso',
         'script conia la issue invece di limitarsi a misurarla. Stampa il verdetto: la issue si',
         'chiude quando `alive` torna',
-        'vero. Vuole le credenziali della sorgente — dalla root del workspace,',
+        'vero. Vuole il service account GA4 (Data API, sola lettura) — dalla root del workspace,',
         '`source bin/rc-env.sh`.',
       ],
       osservatore: [
@@ -104,7 +116,7 @@ export function buildIssueBody(verdict) {
 
 export async function main({
   argv = process.argv.slice(2),
-  checkImpl = checkPostHogLiveness,
+  checkImpl = checkGa4Liveness,
   createIssueImpl,
   resolveIssueImpl,
   logger = console,
@@ -136,7 +148,7 @@ export async function main({
     return { verdict, issued: false, resolved: true };
   }
 
-  logger.log(`::error title=PostHog not measurable::${verdict.reason}`);
+  logger.log(`::error title=GA4 not measurable::${verdict.reason}`);
 
   if (dryRun) return { verdict, issued: false };
 

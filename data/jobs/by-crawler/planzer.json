@@ -56,13 +56,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen",
-        "tecnico-operativo-a-2-turni-m-f-d-planzer-harkingen"
+        "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen",
-          "tecnico-operativo-a-2-turni-m-f-d-planzer-harkingen"
+          "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen"
         ],
         "en": [
           "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen"
@@ -139,13 +137,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "paketsortierer-spatschicht-m-w-d-planzer-seewen",
-        "sorter-pacchetto-strato-tardivo-m-f-d-planzer-seewen"
+        "paketsortierer-spatschicht-m-w-d-planzer-seewen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "paketsortierer-spatschicht-m-w-d-planzer-seewen",
-          "sorter-pacchetto-strato-tardivo-m-f-d-planzer-seewen"
+          "paketsortierer-spatschicht-m-w-d-planzer-seewen"
         ],
         "en": [
           "paketsortierer-spatschicht-m-w-d-planzer-seewen"
@@ -222,13 +218,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "paketsortierer-fruhschicht-m-w-d-planzer-seewen",
-        "sorter-del-pacchetto-strato-iniziale-m-f-d-planzer-seewen"
+        "paketsortierer-fruhschicht-m-w-d-planzer-seewen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "paketsortierer-fruhschicht-m-w-d-planzer-seewen",
-          "sorter-del-pacchetto-strato-iniziale-m-f-d-planzer-seewen"
+          "paketsortierer-fruhschicht-m-w-d-planzer-seewen"
         ],
         "en": [
           "paketsortierer-fruhschicht-m-w-d-planzer-seewen"
@@ -305,13 +299,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
-        "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen"
+        "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
-          "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen"
+          "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"
         ],
         "en": [
           "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"
@@ -388,13 +380,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-lager-m-w-d-planzer-wikon",
-        "collaboratore-trice-magazzino-m-w-d-planzer-wikon"
+        "mitarbeiter-lager-m-w-d-planzer-wikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-lager-m-w-d-planzer-wikon",
-          "collaboratore-trice-magazzino-m-w-d-planzer-wikon"
+          "mitarbeiter-lager-m-w-d-planzer-wikon"
         ],
         "en": [
           "mitarbeiter-lager-m-w-d-planzer-wikon"
@@ -471,13 +461,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-fuhrpark-m-w-d-planzer-schmerikon",
-        "collaboratore-trice-fuhrpark-m-w-d-planzer-schmerikon"
+        "mitarbeiter-fuhrpark-m-w-d-planzer-schmerikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-fuhrpark-m-w-d-planzer-schmerikon",
-          "collaboratore-trice-fuhrpark-m-w-d-planzer-schmerikon"
+          "mitarbeiter-fuhrpark-m-w-d-planzer-schmerikon"
         ],
         "en": [
           "mitarbeiter-fuhrpark-m-w-d-planzer-schmerikon"
@@ -579,12 +567,12 @@
     },
     {
       "id": "planzer-32678d0a91f5",
-      "slug": "chauffeur-kat-c-m-w-d-planzer-domat-ems",
+      "slug": "chauffeur-cat-c-m-f-d-planzer-domat-ems",
       "slugByLocale": {
         "de": "chauffeur-kat-c-m-w-d-planzer-domat-ems",
-        "it": "chauffeur-kat-c-m-w-d-planzer-domat-ems",
+        "it": "chauffeur-cat-c-m-f-d-planzer-domat-ems",
         "en": "chauffeur-kat-c-m-w-d-planzer-domat-ems",
-        "fr": "chauffeur-kat-c-m-w-d-planzer-domat-ems"
+        "fr": "chauffeur-cat-c-h-f-d-planzer-domat-ems"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -644,16 +632,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:14:42.641Z"
+      "firstSeenAt": "2026-10-05T09:14:42.641Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-c-m-w-d-planzer-domat-ems"
+        ],
+        "fr": [
+          "chauffeur-kat-c-m-w-d-planzer-domat-ems"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-c-m-w-d-planzer-domat-ems"
+      ]
     },
     {
       "id": "planzer-595b7cd1abfe",
       "slug": "apprendisto-impiegato-a-in-logistica-afc-indirizzo-magazzino-planzer-bioggio",
       "slugByLocale": {
         "it": "apprendisto-impiegato-a-in-logistica-afc-indirizzo-magazzino-planzer-bioggio",
-        "en": "apprendisto-impiegato-a-in-logistica-afc-indirizzo-magazzino-planzer-bioggio",
-        "de": "apprendisto-impiegato-a-in-logistica-afc-indirizzo-magazzino-planzer-bioggio",
-        "fr": "apprendisto-impiegato-a-in-logistica-afc-indirizzo-magazzino-planzer-bioggio"
+        "en": "apprendisto-employee-a-in-logistics-afc-indirizzo-warehouse-planzer-bioggio",
+        "de": "apprendisto-angestellter-a-in-logistik-afc-indirizzo-lager-planzer-bioggio",
+        "fr": "apprendisto-employe-a-in-logistique-afc-indirizzo-entrepot-planzer-bioggio"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -720,9 +719,9 @@
       "slug": "apprendisto-autista-di-veicoli-pesanti-afc-planzer-bioggio",
       "slugByLocale": {
         "it": "apprendisto-autista-di-veicoli-pesanti-afc-planzer-bioggio",
-        "en": "apprendisto-autista-di-veicoli-pesanti-afc-planzer-bioggio",
-        "de": "apprendisto-autista-di-veicoli-pesanti-afc-planzer-bioggio",
-        "fr": "apprendisto-autista-di-veicoli-pesanti-afc-planzer-bioggio"
+        "en": "learning-afc-heavy-vehicle-driver-planzer-bioggio",
+        "de": "lernen-afc-heavy-vehicle-driver-planzer-bioggio",
+        "fr": "apprentissage-du-conducteur-de-vehicules-lourds-afc-planzer-bioggio"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -836,13 +835,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "disponent-stuckgut-m-w-d-planzer-villmergen",
-        "carico-generale-m-f-d-planzer-villmergen"
+        "disponent-stuckgut-m-w-d-planzer-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disponent-stuckgut-m-w-d-planzer-villmergen",
-          "carico-generale-m-f-d-planzer-villmergen"
+          "disponent-stuckgut-m-w-d-planzer-villmergen"
         ],
         "en": [
           "disponent-stuckgut-m-w-d-planzer-villmergen"
@@ -997,13 +994,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-technik-m-w-d-planzer-zurich",
-        "responsabile-della-tecnologia-m-f-d-planzer-zurich"
+        "leiter-technik-m-w-d-planzer-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-technik-m-w-d-planzer-zurich",
-          "responsabile-della-tecnologia-m-f-d-planzer-zurich"
+          "leiter-technik-m-w-d-planzer-zurich"
         ],
         "en": [
           "leiter-technik-m-w-d-planzer-zurich"
@@ -1082,13 +1077,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-kat-c-m-w-d-planzer-marstetten",
-        "chauffeur-cat-c-m-f-d-planzer-marstetten"
+        "chauffeur-kat-c-m-w-d-planzer-marstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-kat-c-m-w-d-planzer-marstetten",
-          "chauffeur-cat-c-m-f-d-planzer-marstetten"
+          "chauffeur-kat-c-m-w-d-planzer-marstetten"
         ],
         "en": [
           "chauffeur-kat-c-m-w-d-planzer-marstetten"

@@ -25,6 +25,7 @@ import { createHmac, timingSafeEqual } from 'node:crypto';
 import { FieldValue } from 'firebase-admin/firestore';
 import { ensureAdminApp, getAdminDb } from './newsletterResendWebhookCore.js';
 import { forensicsFields } from './lib/requestForensics.js';
+import { eraseJobEmailAffinityProfileIfNoEmailLeft } from './lib/jobEmailAffinityStore.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
@@ -148,6 +149,9 @@ export async function handleJobAlertUnsubscribe({ alertId, email, token, secret,
  .get();
 
  if (alertsSnap.empty) {
+ // All alerts off: the click-affinity profile goes only if the newsletter
+ // no longer mails this address either (otherwise a partial opt-out).
+ await eraseJobEmailAffinityProfileIfNoEmailLeft(db, email.toLowerCase().trim(), { secret });
  return {
  status: 200,
  html: buildConfirmationHtml({
@@ -169,6 +173,9 @@ export async function handleJobAlertUnsubscribe({ alertId, email, token, secret,
  });
  }
  await batch.commit();
+ // All alerts off: the click-affinity profile goes only if the newsletter
+ // no longer mails this address either (otherwise a partial opt-out).
+ await eraseJobEmailAffinityProfileIfNoEmailLeft(db, email.toLowerCase().trim(), { secret });
 
  return {
  status: 200,

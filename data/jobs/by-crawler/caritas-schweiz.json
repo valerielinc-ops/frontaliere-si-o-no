@@ -1,6 +1,6 @@
 {
   "crawlerKey": "caritas-schweiz",
-  "assembledAt": "2026-10-05T09:18:25.160Z",
+  "assembledAt": "2026-10-05T16:18:56.452Z",
   "jobs": [
     {
       "id": "caritas-schweiz-55efd0d16fa5",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/126757/2359/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:18:20.402Z",
+      "crawledAt": "2026-10-05T16:18:49.469Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       "url": "https://apply.refline.ch/126757/2360/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:18:19.934Z",
+      "crawledAt": "2026-10-05T16:18:48.992Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -207,7 +207,7 @@
       "url": "https://apply.refline.ch/126757/2020/pub/4/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:18:19.443Z",
+      "crawledAt": "2026-10-05T16:18:48.515Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -292,7 +292,7 @@
       "url": "https://apply.refline.ch/126757/2370/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:18:18.978Z",
+      "crawledAt": "2026-10-05T16:18:48.045Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -377,7 +377,7 @@
       "url": "https://apply.refline.ch/126757/2338/pub/8/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:18:18.515Z",
+      "crawledAt": "2026-10-05T16:18:47.577Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -462,7 +462,7 @@
       "url": "https://apply.refline.ch/126757/2369/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:18:18.051Z",
+      "crawledAt": "2026-10-05T16:18:47.106Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -531,7 +531,7 @@
       "url": "https://apply.refline.ch/126757/2366/pub/3/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:18:17.586Z",
+      "crawledAt": "2026-10-05T16:18:46.629Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -616,7 +616,7 @@
       "url": "https://apply.refline.ch/126757/2363/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:18:17.113Z",
+      "crawledAt": "2026-10-05T16:18:46.156Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -701,7 +701,7 @@
       "url": "https://apply.refline.ch/126757/2345/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:18:16.646Z",
+      "crawledAt": "2026-10-05T16:18:45.668Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -834,7 +834,7 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "caritas-schweiz-f37936fb3d2d",
@@ -920,7 +920,7 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "caritas-schweiz-50e544e6d175",
@@ -989,7 +989,7 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     }
   ]

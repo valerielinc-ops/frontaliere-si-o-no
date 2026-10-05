@@ -163,6 +163,11 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/article-body-wordcount.test.ts', roots: ['services/locales/'] },
   { file: 'tests/article-fabrication-guard.test.ts', roots: ['services/locales/'] },
   { file: 'tests/article-frontaliere-density.test.ts', roots: ['services/locales/'] },
+  // Misura il peso del writer usando il record Lugano dello snapshot pubblicato
+  // e verifica che il parser conservi i campi aggiunti dal giro meteo. Il dato
+  // vivo e` quindi parte intenzionale dell'asserzione: il test va nel monitor,
+  // non nel gate riproducibile delle PR.
+  { file: 'tests/weather-canton-capitals.test.ts', roots: ['data/weather-snapshot.json'], since: '2026-10-05', evidence: 'review', runtime: true },
   // `runtime`: il percorso vivo e' costruito su `rootDir`, un alias della root
   // del checkout, e il file crea anche cartelle temporanee: a solo testo ha la
   // forma di una fixture. Traccia del 2026-10-03: sonda
@@ -478,6 +483,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     file: 'tests/build-plugins/cantonArticleSectionCore.test.ts',
     roots: ['packages/articles/content/'],
     reason: 'packages/articles/content/cantons/<section>/registry.ts and slugs.ts are the EXPECTED values of the generated canton entries (`registryFile`/`slugDataFile`), compared as strings; the files do not exist and nothing opens them. From the checkout the test reads only data/canton-url-slugs.json (curated, not rewritten by the pipeline), the generated module, the generator, services/router.ts and the Worker source (PR 11623)',
+  },
+  {
+    file: 'tests/seo/blog-meta-it-shard-coverage.test.ts',
+    roots: ['packages/articles/'],
+    reason: 'the test verifies the synchronized live article metadata and SEO shards; those files are rewritten by the corpus sync pipeline and are intentionally the subject of the assertion',
   },
 ]);
 
