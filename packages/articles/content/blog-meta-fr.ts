@@ -12616,6 +12616,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-05.imageAlt': 'Les chiffres du jour pour les frontaliers – 5 octobre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-10-05.seoDescription': 'Bulletin du frontalier du 5 octobre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-10-05.ogDescription': 'Les chiffres du 5 octobre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.pedemontana-avviso-truffa.title': 'Arnaque Pedemontana : faux avis de 6,95 euro',
+    'blog.article.pedemontana-avviso-truffa.excerpt': 'Un SMS concernant un prétendu péage impayé circule : le lien mène vers un site clone et vise les données bancaires ou celles de la carte.',
+    'blog.article.pedemontana-avviso-truffa.imageAlt': 'Fausse demande de paiement Pedemontana sur un smartphone',
 };
 
 export default blogMetaFr;

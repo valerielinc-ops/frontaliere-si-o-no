@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides pour les frontaliers au Tessin</description>
     <language>fr</language>
-    <lastBuildDate>Mon, 05 Oct 2026 12:09:11 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 05 Oct 2026 12:20:02 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Français</title>
@@ -17,6 +17,79 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Arnaque Pedemontana : faux avis de 6,95 euro</title>
+      <link>https://frontaliereticino.ch/fr/articles-frontalier/alerte-arnaque-pedemontana/</link>
+      <description><![CDATA[Un SMS concernant un prétendu péage impayé circule : le lien mène vers un site clone et vise les données bancaires ou celles de la carte.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Un SMS signalant un péage impayé
+- Le montant indiqué est de 6,95 euro
+- Le lien mène vers un clone de Pedemontana
+- Les données bancaires ou celles de la carte sont ciblées
+
+## Faits clés
+- Zone → provinces de Côme et de Varèse
+- Montant → 6,95 euro
+- Échéance indiquée → 24 heures
+- Canal → SMS avec lien hypertexte
+- Risque → saisie de données bancaires ou de carte
+
+Un SMS annonçant un prétendu péage impayé circule ces dernières heures et peut également concerner des conducteurs tessinois. Il fait référence à Pedemontana, l'autoroute sans barrières de péage qui traverse les provinces de Côme et de Varèse. Les personnes qui y ont circulé peuvent recevoir un avis qui, à première vue, paraît plausible : le montant est modeste, le texte fait référence à un service de péage et le lien semble mener précisément au site de Pedemontana.
+
+> « Service de péage impayé, montant de 6,95 euro. Payez sous 24h pour éviter des amendes ».
+
+La demande combine une somme précise et une échéance rapprochée. Le message invite en effet à payer sous 24 heures pour éviter des amendes. La source signale toutefois qu'il ne s'agit pas d'un avis de paiement ordinaire. Il s'agit d'une tentative de phishing, conçue pour pousser le destinataire vers une page qui reproduit l'apparence du site de Pedemontana.
+
+Le risque décrit ne concerne pas seulement le versement des 6,95 euro. Selon ce que rapporte le portail comasque QuiComo, l'objectif est surtout de s'emparer des données de l'utilisateur qui suivrait le lien et saisirait ses informations. Les données bancaires ou celles de la carte de crédit, demandées sur la page qui accompagne le faux impayé, peuvent être ciblées.
+
+Le signalement revêt une importance locale, car la route concernée traverse Côme et Varèse et parce que le message peut atteindre les personnes qui se déplacent du Tessin vers cette région. Le signalement concerne un message qui associe un avis de péage, une somme précise et un lien apparemment lié à Pedemontana. C'est l'ensemble de ces éléments qui rend le message plausible pour la personne qui reçoit le SMS ; le risque apparaît lorsque le lien mène à une demande de données.
+
+### Le faux avis
+
+Le mécanisme commence donc par un contact par SMS. Le lien hypertexte est l'étape décisive : au lieu de se contenter d'informer sur un péage, il dirige l'utilisateur vers un site conçu pour ressembler au site authentique. Les logos et les informations de paiement renforcent l'impression de se trouver face à une demande réelle. C'est précisément cette ressemblance qui rend la tentative plus élaborée que d'autres cas observés ces dernières années.
+## Pourquoi le lien peut sembler authentique
+
+La tentative est décrite comme assez sophistiquée par rapport à d'autres observées ces dernières années. Elle ne se contente pas d'envoyer une demande générique ou facilement identifiable : le texte contient un hyperlien qui mène à une page conçue pour imiter le véritable site de Pedemontana. La construction du message réunit des éléments présents dans la source : le montant de 6,95 euros, l'avertissement concernant les amendes et un environnement en ligne avec des logos et des informations de paiement.
+
+Cette combinaison peut troubler les personnes qui ont effectivement emprunté l'autoroute sans péages entre les provinces de Como et Varese. Le message mentionne un péage, un montant à régler et un délai de 24 heures. Le lien redirige donc la demande vers une page qui semble être celle de Pedemontana. C'est précisément le passage de la crédibilité initiale à la demande de données qui transforme le prétendu avis en tentative de phishing.
+
+### Le point à vérifier
+
+La différence entre l'adresse authentique et celle insérée dans le message peut être minime, mais décisive. La source invite à comparer l'adresse indiquée dans le SMS avec celle fournie par les moteurs de recherche. Le contrôle ne concerne pas seulement l'aspect graphique de la page : des logos et des informations de paiement peuvent également être présents sur le site clone. L'adresse, en revanche, peut révéler ces petites différences qui aident à démasquer le lien frauduleux.
+
+| Élément | Ce que décrit la source |
+|---|---|
+| Message | Avis de péage impayé |
+| Page | Imitation du véritable site de Pedemontana |
+| Aspect | Logos et informations de paiement |
+| Finalité | Obtenir des données bancaires ou celles de la carte |
+
+Le portail comasque QuiComo présente cet épisode comme une tentative de phishing ciblée. La cible n'est donc pas indiquée uniquement par le paiement de la somme demandée. La source souligne que le montant n'est pas élevé et que le message semble plausible ; l'objectif de la tentative, toutefois, réside dans les données que l'utilisateur pourrait saisir.
+
+Pour ceux qui ont emprunté la Pedemontana, la question ne se résume pas à reconnaître une apparence familière. Le signalement montre que même les détails apparemment convaincants doivent être vérifiés, car la ressemblance avec le véritable site fait partie de la supercherie. La vérification de l'adresse devient ainsi le critère concret pour distinguer le message suspect d'une communication fiable.
+## Comment se comporter face au message
+
+La recommandation indiquée par la source part d'un geste simple : ne pas cliquer directement sur le lien reçu par SMS. Si le destinataire a emprunté la Pedemontana et souhaite vérifier sa situation, il doit utiliser les canaux officiels ou saisir manuellement l'adresse du site dans le navigateur. De cette manière, la vérification ne passe pas par le lien contenu dans le message, c'est-à-dire par l'élément qui mène à la page conçue pour imiter la véritable.
+
+L'étape suivante consiste à comparer l'adresse. La source suggère de mettre en parallèle celle indiquée dans le SMS avec l'adresse affichée dans les moteurs de recherche. Dans les tentatives de phishing, explique le signalement, il peut y avoir de petites différences, mais déterminantes. Ce sont précisément ces variations qui permettent de reconnaître le site frauduleux, même lorsque la page présente des logos et des informations de paiement.
+
+### Si les données ont déjà été saisies
+
+La prudence vaut également pour la phase du paiement. En cas de doute, l'indication finale est de ne pas payer et de ne fournir aucune donnée. La recommandation concerne donc à la fois la somme de 6,95 euro et les informations demandées par la page : il ne faut pas suivre le lien simplement parce que le texte menace d'infliger des amendes dans les 24 heures.
+
+Si, en revanche, les données de la carte ont déjà été saisies, la source indique une action précise. Il faut contacter immédiatement sa banque ou l'émetteur de la carte et envisager le blocage du moyen de paiement. Il s'agit des données de la carte déjà communiquées, et non d'une vérification ultérieure générique.
+
+Le signalement se conclut par cette mise en garde : en cas de doute, le paiement ne doit pas être effectué et aucune donnée ne doit être fournie. La page atteinte par le lien peut reproduire des logos et des informations de paiement, mais la source la décrit comme un site frauduleux. Pour les conducteurs qui ont emprunté l'autoroute sans péages entre Como et Varese, la vérification manuelle de l'adresse reste l'étape indiquée pour éviter de transmettre des données au site frauduleux.
+
+*Source: [tio.ch](https://www.tio.ch/ticino/cronaca/1954626/un-avviso-di-pagamento-da-pedemontana-occhio-alla-possibile-truffa)*
+
+<footer class="ft-image-credit mt-8 text-sm text-subtle" data-image-credit="wikimedia-commons"><small>Image de couverture : <a href="https://commons.wikimedia.org/wiki/File:Credit_Suisse_und_Nationalbank_in_Bern_01.jpg" target="_blank" rel="noopener" class="underline underline-offset-2">« <bdi>Credit Suisse und Nationalbank in Bern 01</bdi> »</a> par <a href="https://commons.wikimedia.org/wiki/User:Hadi" target="_blank" rel="noopener" class="underline underline-offset-2"><bdi>Hadi</bdi></a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" class="underline underline-offset-2">CC BY-SA 4.0</a>, via Wikimedia Commons (recadrée et redimensionnée).</small></footer>]]></content:encoded>
+      <pubDate>Mon, 05 Oct 2026 12:20:02 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/pedemontana-avviso-truffa</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/pedemontana-avviso-truffa.webp" medium="image"><media:credit role="author" scheme="urn:ebu">Hadi</media:credit><media:license type="text/html" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</media:license></media:content>
+    </item>
     <item>
       <title>Bulletin du frontalier – 5 octobre 2026 : 1&apos;336 nouvelles offres d&apos;emploi hier</title>
       <link>https://frontaliereticino.ch/fr/articles-frontalier/bulletin-frontalier-2026-10-05/</link>
@@ -3324,75 +3397,6 @@ Si une communication sur le Fonds indique ultérieurement les étapes manquantes
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/fondo-13esima-avs-giovani</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/fondo-13esima-avs-giovani.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Hockey, l&apos;Ambrì s&apos;impose à la BCF Arena : Friborgo battu 2-1</title>
-      <link>https://frontaliereticino.ch/fr/articles-frontalier/ambri-gagne-fribourg-2-1/</link>
-      <description><![CDATA[Après deux défaites, l'Ambrì retrouve son efficacité et s'impose 2-1 à Friborgo. Les buts de Müller et Schnarr ont été décisifs lors d'une soirée marquée par un grand sacrifice défensif.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Ambrì s'impose 2-1 sur la patinoire de Fribourg
-- Müller et Schnarr signent les buts décisifs
-- Pestoni revient à la place du suspendu Borradori
-- À la 12e minute, Miles Müller donne l'avantage aux biancoblù
-
-## Faits marquants
-- Résultat → 2-1 pour Ambrì
-- Arène → BCF Arena
-- Retour → Inti Pestoni
-- Absence → Tim Heed
-- Défense → six défenseurs de métier
-- Boxplay → 66,6% avant le match
-- Choix dans les buts → Galley préféré à Waeber
-
-Après deux défaites consécutives à domicile, Ambrì cherchait des points précieux dans l'antre des champions suisses. À la BCF Arena, la réponse est arrivée avec une victoire 2-1, construite sur la solidité, le sacrifice et le réalisme, soit les éléments que Tapola voulait retrouver. La formation biancoblù a ainsi conquis la patinoire de Fribourg avec mérite.
-
-### Une réponse après les défaites à domicile
-
-L'équipe présentait également quelques difficultés. Inti Pestoni est revenu dans l'alignement à la place du suspendu Borradori, aux côtés de Joly et Kodytek. De plus, Tapola a dû composer avec l'absence de Tim Heed, se présentant avec seulement six défenseurs de métier.
-
-Malgré une défense réduite, Ambrì a commencé fort, mettant immédiatement les champions suisses en difficulté. Pestoni s'est également montré dangereux, mais n'a pas réussi à battre Galley, préféré à Waeber. Une pénalité de Grassi en zone offensive a momentanément interrompu la poussée léventine.
-
-Le powerplay suivant de Fribourg a cependant été neutralisé par le boxplay biancoblù, non sans quelques frissons. Avant le match, cette situation spéciale était la pire de la Ligue, avec seulement 66,6% de réussite.
-
-À la 12e minute, Ambrì a pris l'avantage. Une erreur de Streule a ouvert la voie à Miles Müller, qui n'a pas pardonné. Peu après, Schmid a touché un poteau retentissant, mais ce sont les visiteurs qui ont continué à créer les meilleures occasions. Le premier tiers s'est terminé avec Ambrì en tête, retrouvé après ses deux dernières sorties. Les buts de Müller et Schnarr ont ensuite décidé d'une soirée qui s'est terminée par le succès 2-1 des biancoblù.
-## La clé tactique de la victoire
-
-### Compacité, transitions et gestion des moments
-
-Le 2-1 de l'Ambrì se lit à travers une ligne de jeu restée reconnaissable durant les trois périodes. L'équipe a démarré fort, a conservé une attitude compacte et agressive dans la période centrale et a gardé la même identité au début de la troisième période. La volonté de repartir a accompagné la phase défensive sans la transformer en attitude passive.
-
-Le premier élément concerne précisément la capacité à rester fidèle au plan de Tapola lorsque Friborgo a accru la pression. Durant la période centrale, les champions suisses ont pris de l'ampleur, mais Wüthrich a répondu présent face aux tirs de Sörensen et Bertschy. Dans le même temps, les biancoblù n'ont pas renoncé aux contres : Järventie s'est retrouvé seul face à Galley, avec le palet du 2-0 sur la crosse, sans parvenir à conclure.
-
-Le deuxième élément est la gestion de l'infériorité numérique. La pénalité de Grassi en zone offensive avait donné à Friborgo l'occasion de profiter de la supériorité numérique. L'unité biancoblù a toutefois neutralisé le jeu de puissance, malgré quelques moments d'appréhension. Le chiffre de 66,6% rend ce passage encore plus significatif dans le récit du match, car l'infériorité numérique abordait cette rencontre avec le pire bilan de la Ligue.
-
-Le troisième élément est la résistance dans la troisième période. Friborgo a accéléré, surtout porté par la ligne de Sörensen, mais l'Ambrì a répondu par des changements courts, une grande intensité et une attention maximale. Quand la défense et Wüthrich n'ont pas suffi, le poteau est encore intervenu : le tir de Nemeth, peu avant la moitié de la période, a fait trembler la cage visiteuse. La prestation repose donc sur l'équilibre entre occasions créées, pression absorbée et capacité à rester fidèle au plan de jeu.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le change CHF-EUR et les banques pour frontaliers.
-## Comment lire la performance d'Ambrì
-
-### Quatre vérifications dans le récit du match
-
-Pour suivre le match sans se limiter au seul résultat, il convient de partir des choix qui ont défini la soirée. La chronique offre une séquence précise, utile pour relier les formations, les épisodes et la réaction de l'équipe.
-
-- Formation et absences. La première étape consiste à considérer le retour d'Inti Pestoni, inséré à la place du suspendu Borradori, aux côtés de Joly et Kodytek. Dans le même cadre, il faut placer l'absence de Tim Heed et la présence d'à peine six défenseurs de métier.
-
-- Début et situation spéciale. La deuxième étape est d'observer le début agressif d'Ambrì, la dangerosité de Pestoni et la pénalité de Grassi en zone offensive. Le boxplay doit être lu avec la donnée de 66,6% enregistrée avant le défi et la capacité à neutraliser le powerplay de Fribourg.
-
-- Épisodes offensifs. La troisième étape concerne la concrétisation. L'erreur de Streule a ouvert la voie à Miles Müller à la 12e minute, tandis que le poteau touché par Schmid et l'occasion eue par Järventie devant Galley montrent les autres opportunités construites par les biancoblù.
-
-- Pression finale. La dernière vérification concerne la réponse au rythme imposé par Fribourg. La ligne de Sörensen a poussé, mais Ambrì a maintenu des changements courts, de l'intensité et de l'attention. Wüthrich a répondu sur les conclusions adverses et le poteau a également arrêté Nemeth.
-
-Cette grille permet de lire la prestation à travers ses passages essentiels, sans séparer le retour de Pestoni de la performance collective et sans perdre le poids des occasions non transformées. Suivez les prochaines chroniques sportives d'Ambrì sur Frontaliere Ticino.
-
-Découvrez les offres d'emploi au Tessin mises à jour quotidiennement : plus de 4.000 postes.
-
-*Source: [laregione.ch](https://www.laregione.ch/sport/hockey/1954540/l-ambri-sbanca-la-tana-dei-campioni)*]]></content:encoded>
-      <pubDate>Sun, 04 Oct 2026 00:51:52 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/ambri-vince-friborgo-2-1</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/ambri-vince-friborgo-2-1.webp" medium="image"/>
     </item>
   </channel>
 </rss>

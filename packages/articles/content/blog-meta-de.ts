@@ -12613,6 +12613,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-05.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 5. Oktober 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-10-05.seoDescription': 'Grenzgänger-Bulletin vom 5. Oktober 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-10-05.ogDescription': 'Die Zahlen vom 5. Oktober 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.pedemontana-avviso-truffa.title': 'Pedemontana-Betrug: gefälschte Mitteilung über 6,95 euro',
+    'blog.article.pedemontana-avviso-truffa.excerpt': 'Eine SMS über eine angeblich nicht bezahlte Maut ist im Umlauf: Der Link führt zu einer Klon-Website und zielt auf Bank- oder Kartendaten ab.',
+    'blog.article.pedemontana-avviso-truffa.imageAlt': 'Gefälschte Pedemontana-Zahlungsaufforderung auf einem Smartphone',
 };
 
 export default blogMetaDe;
