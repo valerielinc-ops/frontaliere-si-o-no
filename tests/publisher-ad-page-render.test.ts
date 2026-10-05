@@ -1,6 +1,15 @@
 import { buildReportedJobPostingFixture } from './helpers/reported-job-schema';
 import { describe, it, expect } from 'vitest';
-import { applyTarget, renderBody, resolveSlugCollisions, isCanaryOrTestAd } from '../build-plugins/publisherAdPagesPlugin';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import {
+  applyTarget,
+  publisherAdPagesPlugin,
+  renderBody,
+  resolveSlugCollisions,
+  isCanaryOrTestAd,
+} from '../build-plugins/publisherAdPagesPlugin';
 import { buildJobPostingSchema, MANDATORY_JOBPOSTING_FIELDS } from '../build-plugins/shared/jobPostingSchema';
 
 const BASE_REC = {
@@ -225,6 +234,56 @@ describe('publisher-ads JobPosting structured data — AGENTS #3 mandatory field
       // Cross-check against the canonical mandatory-field list so this test
       // regresses if the shared list ever grows without a matching assertion.
       expect(MANDATORY_JOBPOSTING_FIELDS.length).toBeGreaterThanOrEqual(9);
+    }
+  });
+});
+
+describe('publisherAdPagesPlugin — emitted employer profile identity', () => {
+  it('passes the emitted profile registry to static JobPosting schemas', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'publisher-ad-profile-'));
+    try {
+      fs.mkdirSync(path.join(root, 'data', 'jobs', 'by-crawler'), { recursive: true });
+      fs.mkdirSync(path.join(root, 'dist'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'dist', 'index.html'), '<!doctype html><html></html>');
+      fs.writeFileSync(
+        path.join(root, 'data', 'employer-profiles.json'),
+        JSON.stringify({
+          profiles: [{ slug: 'acme-corp', name: 'Acme Corp' }],
+          belowFloor: [],
+        }),
+      );
+      fs.writeFileSync(
+        path.join(root, 'data', 'jobs', 'by-crawler', 'publisher-submitted.json'),
+        JSON.stringify([{
+          slug: 'acme-sviluppatore-lugano',
+          title: 'Sviluppatore software',
+          company: 'Acme Corp',
+          companyKey: 'acme-corp',
+          location: 'Lugano',
+          canton: 'TI',
+          postingDateSource: 'reported',
+          postedDate: new Date(Date.now() - 86400000).toISOString(),
+          description: 'Ruolo software presso Acme Corp con responsabilità su prodotti digitali e collaborazione con il team di Lugano.',
+          employmentType: 'FULL_TIME',
+          tier: 'free',
+        }]),
+      );
+
+      const plugin = publisherAdPagesPlugin(root) as unknown as { closeBundle: () => Promise<void> };
+      await plugin.closeBundle();
+      const html = fs.readFileSync(
+        path.join(root, 'dist', 'lavoro', 'acme-sviluppatore-lugano', 'index.html'),
+        'utf8',
+      );
+      const jobPosting = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+        .map((match) => JSON.parse(match[1]) as Record<string, unknown>)
+        .find((schema) => schema['@type'] === 'JobPosting');
+      expect(jobPosting?.hiringOrganization).toMatchObject({
+        '@id': 'https://frontaliereticino.ch/aziende/acme-corp/#organization',
+        url: 'https://frontaliereticino.ch/aziende/acme-corp/',
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
     }
   });
 });

@@ -28,6 +28,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildJobPostingSchema } from './shared/jobPostingSchema';
+import { loadKnownEmployerProfileSlugs } from './shared/employerLinks';
 import { composeSerpJobTitle, truncateHeadline } from './shared/titleSuffix';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { WriteCollector } from './batchWrite';
@@ -393,6 +394,11 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
 
       const dateStamp = new Date().toISOString().slice(0, 10);
       const collector = new WriteCollector({ distDir, pluginName: 'publisherAdPagesPlugin' });
+      // The JobPosting builder must only use `/aziende/<slug>/` when that
+      // profile is emitted by this build. Publisher ads can name any company,
+      // so passing the registry prevents a guessed profile URL from becoming
+      // a broken Organization identity (or falling back to the publisher page).
+      const knownEmployerProfileSlugs = loadKnownEmployerProfileSlugs(rootDir);
       const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
       const emittedAds: EmittedPublisherAd[] = [];
       let pagesWritten = 0;
@@ -419,7 +425,11 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
           const bodyHtml = renderBody(rec, locale);
           const wordCount = countHtmlBodyWords(bodyHtml);
 
-          const jobPosting = buildJobPostingSchema(rec, { locale, url: canonicalUrl });
+          const jobPosting = buildJobPostingSchema(rec, {
+            locale,
+            url: canonicalUrl,
+            knownSlugs: knownEmployerProfileSlugs,
+          });
           const jobPostingLd = jobPosting ? inlineScriptJson(jobPosting) : null;
           const breadcrumbLd = inlineScriptJson({
             '@context': 'https://schema.org',
