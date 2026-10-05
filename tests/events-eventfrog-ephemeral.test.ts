@@ -21,6 +21,7 @@ import {
   selectEphemeralEvents,
   SNAPSHOT_MAX_AGE_HOURS,
 } from '../scripts/lib/private-event-snapshots.mjs';
+import { slugifyEvent } from '../scripts/lib/events-utils.mjs';
 
 function dayOffset(days: number): string {
   return new Date(Date.now() + days * 86_400_000).toISOString().slice(0, 10);
@@ -108,6 +109,24 @@ describe('selectEphemeralEvents', () => {
     });
     expect(events.map((e) => e.id)).toEqual(['eventfrog:d']);
     expect(counts).toMatchObject({ duplicates: 1, slugCollisions: 1 });
+  });
+
+  it('drops an ephemeral event whose slug is claimed by a public historical route', () => {
+    const candidate = frogEvent('history-collision', 'Jazz al lago', dayOffset(6));
+    const publicEvents = [
+      publicEvent('history', 'Old public title', dayOffset(8), 'Lugano', {
+        previousRoutes: [{ canton: 'TI', comune: 'Lugano', slug: slugifyEvent(candidate) }],
+      }),
+    ];
+
+    const result = selectEphemeralEvents({
+      publicEvents,
+      dateStamp: TODAY,
+      snapshotEvents: [candidate],
+    });
+
+    expect(result.events).toEqual([]);
+    expect(result.counts).toMatchObject({ slugCollisions: 1 });
   });
 });
 

@@ -104,6 +104,15 @@ function slugKey(event) {
   return `${String(event.canton || '').toUpperCase()}|${normalizeText(event.comune || '')}|${slugifyEvent(event)}`;
 }
 
+function historicalSlugKey(route, event) {
+  if (!route || typeof route !== 'object') return null;
+  const slug = typeof route.slug === 'string' ? route.slug.trim() : '';
+  if (!slug) return null;
+  const canton = typeof route.canton === 'string' && route.canton.trim() ? route.canton : event?.canton;
+  const comune = typeof route.comune === 'string' && route.comune.trim() ? route.comune : event?.comune;
+  return `${String(canton || '').toUpperCase()}|${normalizeText(comune || '')}|${slug}`;
+}
+
 /**
  * Snapshot events that may get a page next to the public dataset.
  *
@@ -114,9 +123,9 @@ function slugKey(event) {
  *      date and comune as `fuzzyDedupKey` of assemble-events-dataset.mjs
  *      (tio-agenda, classicAscona and every other public source): the page
  *      stays the public source's;
- *   4. events whose detail slug would equal a public event's slug in the same
- *      canton and comune, past events included, so a public URL can never be
- *      displaced or shadowed by an ephemeral page.
+ *   4. events whose detail slug would equal a public event's current or
+ *      historical route in the same canton and comune, past events included,
+ *      so a public URL can never be displaced or shadowed by an ephemeral page.
  *
  * @param {{ snapshotEvents: any[], publicEvents: any[], dateStamp: string }} params
  * @returns {{ events: any[], counts: { snapshot: number, upcoming: number, duplicates: number, slugCollisions: number } }}
@@ -127,9 +136,15 @@ export function selectEphemeralEvents({ snapshotEvents, publicEvents, dateStamp 
   const publicFuzzy = new Set();
   const publicSlugs = new Set();
   for (const event of Array.isArray(publicEvents) ? publicEvents : []) {
-    if (!event || typeof event.title !== 'string' || typeof event.startDate !== 'string') continue;
-    publicFuzzy.add(fuzzyKey(event));
-    publicSlugs.add(slugKey(event));
+    if (!event) continue;
+    if (typeof event.title === 'string' && typeof event.startDate === 'string') {
+      publicFuzzy.add(fuzzyKey(event));
+      publicSlugs.add(slugKey(event));
+    }
+    for (const route of Array.isArray(event.previousRoutes) ? event.previousRoutes : []) {
+      const key = historicalSlugKey(route, event);
+      if (key) publicSlugs.add(key);
+    }
   }
   let duplicates = 0;
   let slugCollisions = 0;
