@@ -56,7 +56,7 @@ export interface Article {
  authorName?: string;
 }
 
-const RAW_ARTICLES = [
+const RAW_ARTICLES: Article[] = [
  {
  id: 'stipendio-netto-2026',
  category: 'fiscale',
@@ -37871,7 +37871,6 @@ const RAW_ARTICLES_CHUNK_21: Article[] = [
  authorName: 'Laura Bianchi',
  },
 ];
-
 const RAW_ARTICLES: Article[] = [
  ...RAW_ARTICLES_CHUNK_01,
  ...RAW_ARTICLES_CHUNK_02,
