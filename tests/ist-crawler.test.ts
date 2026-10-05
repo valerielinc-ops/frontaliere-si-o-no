@@ -87,6 +87,13 @@ describe('IST empty-source proof', () => {
     })).toBe(false);
   });
 
+  it('does not certify a foreign detail when tenant identity fields are missing', () => {
+    expect(hasCompleteIstDetailEvidence({
+      title: 'Teacher',
+      location: 'Milan, IT',
+    })).toBe(false);
+  });
+
   it('keeps an unrecognized country-like suffix fail-closed', () => {
     expect(hasCompleteIstDetailEvidence({
       title: 'Teacher',

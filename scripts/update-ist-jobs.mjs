@@ -469,13 +469,6 @@ export function hasCompleteIstDetailEvidence(detail = {}) {
   const countryCode = parseCountryCode(location);
   const explicitlyForeign = (countryCode && countryCode !== 'CH')
     || isLocationExplicitlyForeign(location);
-  if (explicitlyForeign) return true;
-
-  // A generic country signal such as `Switzerland` is insufficient: the
-  // detail walk must resolve the actual Swiss canton before it can certify
-  // that a page was classifiable.
-  if (!resolvedCanton || !locationFieldHasSwissSignal(location)) return false;
-  if (isIstDetailJob(detail)) return true;
 
   const identityValues = [
     detail.company,
@@ -492,6 +485,19 @@ export function hasCompleteIstDetailEvidence(detail = {}) {
   ]
     .map((value) => normalize(value))
     .filter(Boolean);
+  const hasIstTenantEvidence = isIstDetailJob(detail);
+
+  // A foreign location is not enough on its own: if tenant/identity fields
+  // disappear after a schema change, the detail must remain fail-closed.
+  // Keep the shared portal identity as evidence for the global foreign walk;
+  // Swiss rows still require a non-shared tenant below.
+  if (explicitlyForeign) return identityValues.length > 0 || hasIstTenantEvidence;
+
+  // A generic country signal such as `Switzerland` is insufficient: the
+  // detail walk must resolve the actual Swiss canton before it can certify
+  // that a page was classifiable.
+  if (!resolvedCanton || !locationFieldHasSwissSignal(location)) return false;
+  if (hasIstTenantEvidence) return true;
 
   // `Inspired Education` is the shared portal owner, not a tenant identity.
   // Any other populated identity field is enough to prove that a Swiss row
