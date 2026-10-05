@@ -83,7 +83,7 @@ export function parseSnapshot(raw) {
       return null;
     }
   }
-  if (!doc || doc.schemaVersion !== SNAPSHOT_SCHEMA_VERSION || doc.source !== 'eventfrog') return null;
+  if (!doc || doc.schemaVersion !== SNAPSHOT_SCHEMA_VERSION || doc.source !== 'eventfrog' || doc.scope !== 'TI') return null;
   if (!Array.isArray(doc.events) || typeof doc.fetchedAt !== 'string' || Number.isNaN(Date.parse(doc.fetchedAt))) return null;
   return doc;
 }

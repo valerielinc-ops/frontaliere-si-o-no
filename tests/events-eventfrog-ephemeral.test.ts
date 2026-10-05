@@ -18,6 +18,7 @@ import {
   buildSnapshot,
   isEventfrogEnabled,
   loadEphemeralEvents,
+  parseSnapshot,
   selectEphemeralEvents,
   SNAPSHOT_MAX_AGE_HOURS,
 } from '../scripts/lib/private-event-snapshots.mjs';
@@ -85,6 +86,18 @@ describe('freshness (aggiornamento giornaliero)', () => {
     const bad = path.join(dir, 'x.json');
     fs.writeFileSync(bad, '{"schemaVersion":1,"source":"other","events":[]}');
     expect(loadEphemeralEvents({ publicEvents: [], dateStamp: TODAY, env: ON, file: bad })).toEqual([]);
+  });
+});
+
+describe('snapshot scope', () => {
+  it('rejects a valid-looking snapshot outside Ticino', () => {
+    expect(parseSnapshot({
+      schemaVersion: 1,
+      source: 'eventfrog',
+      scope: 'CH',
+      fetchedAt: new Date().toISOString(),
+      events: [],
+    })).toBeNull();
   });
 });
 
