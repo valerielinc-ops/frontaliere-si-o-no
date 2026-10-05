@@ -1,19 +1,21 @@
 {
   "key": "bracco",
   "label": "Bracco Suisse",
-  "generatedAt": "2026-10-04T21:15:32.833Z",
+  "generatedAt": "2026-10-05T09:13:38.166Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 11578,
-  "avgDurationMs": 11578,
+  "unchangedCount": 1,
+  "durationMs": 13406,
+  "avgDurationMs": 13406,
   "durationHistory": [
-    11578
+    13406
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Cadempino/MEDICAL-DEVICE-SPECIALIST---ACIST-PORTFOLIO_JR100400",
       "applyUrl": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Cadempino/MEDICAL-DEVICE-SPECIALIST---ACIST-PORTFOLIO_JR100400",
@@ -57,7 +59,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
