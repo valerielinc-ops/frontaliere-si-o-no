@@ -97,7 +97,7 @@
       "companyDomain": "edmond-de-rothschild.com",
       "title": "Compliance Project & Data Officer",
       "titleByLocale": {
-        "it": "Compliance Project & Data Officer",
+        "it": "Responsabile del Progetto di Conformità e dei Dati",
         "en": "Compliance Project & Data Officer",
         "de": "Compliance Projekt & Data Officer",
         "fr": "Compliance Project & Data Officer"
@@ -129,9 +129,7 @@
       "sector": "Banca / Gestione patrimoniale",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-07-02",
       "postedDate": "2026-07-02",
-      "postingDateSource": "reported",
       "applyUrl": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2818",
       "jobReqId": "2818",
       "requirements": [],
@@ -149,7 +147,9 @@
           "maxValue": 118000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-07-02",
+      "postingDateSource": "reported"
     },
     {
       "id": "edmond-de-rothschild-bbe9897fcbd0",

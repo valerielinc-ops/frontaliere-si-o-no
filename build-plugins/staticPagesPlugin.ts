@@ -15,6 +15,7 @@ import { renderAuthorEditorial, renderAuthorRosterItems, resolveAuthorStaticSeo 
 import { localizeStaticPageStructuredData } from './shared/localeStaticStructuredData';
 import { editorialModifiedDate } from './shared/editorialDates';
 import { renderBorderDashboardLink } from './shared/borderDashboardLink';
+import { canonicalizeBorderWaitLinks } from './shared/borderWaitLegacyRedirects';
 import { BASE_URL, ANALYTICS_SNIPPET, OFFERWALL_FC_SNIPPET, DARK_MODE_SCRIPT, SEO_STATIC_CSS_LINK, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT, ROBOTS_INDEX_ENHANCED_CONTENT, FAVICON_LINKS } from './constants';
 import { asyncCssLink, rootShell, ASYNC_CSS_FALLBACK_SCRIPT } from './htmlTemplate';
 import { WriteCollector } from './batchWrite';
@@ -870,7 +871,7 @@ export function injectHomepageSeoContent(html: string, locale: HpSeoLocale): str
   }
   return html;
  }
- const block = collapsifySeoBlock(HOMEPAGE_SEO_BLOCK_HTML[locale] ?? HOMEPAGE_SEO_BLOCK_HTML.it);
+ const block = collapsifySeoBlock(canonicalizeBorderWaitLinks(HOMEPAGE_SEO_BLOCK_HTML[locale] ?? HOMEPAGE_SEO_BLOCK_HTML.it));
  // Place the static navigation and SEO block after </body>'s React-owned
  // siblings so they stay outside hydration. The discovery section keeps the
  // crawlable rails together visually while preserving each marker id used by
@@ -3445,7 +3446,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  contextualLinks.push(
  { href: '/guida-frontaliere/primo-giorno-lavoro/', label: 'Primo Giorno' },
  { href: '/guida-frontaliere/permessi-di-lavoro/', label: 'Permessi Lavoro' },
- { href: '/guida-frontaliere/tempi-attesa-dogana/', label: 'Tempi Dogana' },
+ { href: '/traffico-dogane/', label: 'Tempi Dogana' },
  // Hub-root cross-links — same depth-shortening rationale as above.
  { href: '/traffico-dogane/', label: 'Tempi attesa dogane (live)' },
  { href: '/prezzi-diesel/oggi/', label: 'Prezzi diesel oggi' },
@@ -5147,7 +5148,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // contains any HTML tag at all (e.g. paragraphs that begin with text but
  // embed `<strong>` / `<a>` / `<em>`). Without the second check those tags
  // were escaped to literal `&lt;strong&gt;` text on the rendered page.
- const editorialHtml = `<div class="s-0DwxlR">${dateLine}${authorLine}${editorialBlocks.map((b) => {
+ const editorialHtml = `<div class="s-0DwxlR">${dateLine}${authorLine}${editorialBlocks.map((block) => {
+   const b = canonicalizeBorderWaitLinks(block);
    if (/^<(h[1-6]|p|nav|div|details|section|ul|ol|table|figure|aside|blockquote)\b/.test(b)) return b;
    if (/<[a-zA-Z][^>]*>/.test(b)) return `<p class="s-F2hp6o">${b}</p>`;
    return `<p class="s-F2hp6o">${esc(b)}</p>`;

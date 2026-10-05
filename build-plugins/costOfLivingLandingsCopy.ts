@@ -293,7 +293,7 @@ const LS: Record<ColLocale, LocaleStrings> = {
       { href: '/compara-servizi/confronta-prezzi-spesa/', label: 'Confronto prezzi spesa CH vs IT' },
       { href: '/calcola-stipendio/', label: 'Simulatore stipendio frontaliere' },
       { href: '/statistiche/confronta-stipendi/', label: 'Confronto stipendi CH vs IT' },
-      { href: '/guida-frontaliere/tempi-attesa-dogana/', label: 'Tempi di attesa alla dogana' },
+      { href: '/traffico-dogane/', label: 'Tempi di attesa alla dogana' },
     ],
     eyebrow: (city) => `Costo della vita · ${city} · 2026`,
     denseLedeTemplate: ({ city, rentMedianChf, pairedProvince, pairedDeltaPct, liveJobs }) =>
@@ -371,7 +371,7 @@ const LS: Record<ColLocale, LocaleStrings> = {
       },
       { href: '/en/calculate-salary/', label: 'Cross-border salary simulator' },
       { href: '/en/statistics/compare-salaries/', label: 'CH vs IT salary comparison' },
-      { href: '/en/cross-border-guide/border-waiting-times/', label: 'Border waiting times' },
+      { href: '/en/border-wait/', label: 'Border waiting times' },
     ],
     eyebrow: (city) => `Cost of living · ${city} · 2026`,
     denseLedeTemplate: ({ city, rentMedianChf, pairedProvince, pairedDeltaPct, liveJobs }) =>
@@ -449,7 +449,7 @@ const LS: Record<ColLocale, LocaleStrings> = {
       },
       { href: '/de/gehalt-berechnen/', label: 'Grenzgänger-Gehaltsrechner' },
       { href: '/de/statistiken/gehaelter-vergleichen/', label: 'Lohnvergleich CH vs IT' },
-      { href: '/de/grenzgaenger-ratgeber/wartezeiten-grenze/', label: 'Grenzwartezeiten' },
+      { href: '/de/wartezeit-grenze/', label: 'Grenzwartezeiten' },
     ],
     eyebrow: (city) => `Lebenshaltungskosten · ${city} · 2026`,
     denseLedeTemplate: ({ city, rentMedianChf, pairedProvince, pairedDeltaPct, liveJobs }) =>
@@ -527,7 +527,7 @@ const LS: Record<ColLocale, LocaleStrings> = {
       },
       { href: '/fr/calculer-salaire/', label: 'Simulateur salaire frontalier' },
       { href: '/fr/statistiques/comparer-salaires/', label: 'Comparaison des salaires CH vs IT' },
-      { href: '/fr/guide-frontalier/temps-attente-douane/', label: "Temps d'attente aux douanes" },
+      { href: '/fr/temps-attente-douane/', label: "Temps d'attente aux douanes" },
     ],
     eyebrow: (city) => `Coût de la vie · ${city} · 2026`,
     denseLedeTemplate: ({ city, rentMedianChf, pairedProvince, pairedDeltaPct, liveJobs }) =>
