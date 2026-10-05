@@ -698,6 +698,30 @@ export function familyPathPrefixes(family) {
   return [family?.pathContains, ...(family?.pathAliases || [])].filter(Boolean);
 }
 
+/**
+ * Una famiglia di ricerca lavoro: uno dei suoi prefissi e' uno slug di job
+ * board (cantonale o aggregatore) in una delle locale del router. Stessa
+ * fonte di verita' della scoperta automatica (`parseJobBoardSlug`), cosi' una
+ * famiglia auto-registrata domani e' riconosciuta senza toccare questa lista.
+ */
+export function isJobBoardFamily(family) {
+  return familyPathPrefixes(family).some((prefix) => {
+    const segment = String(prefix).split('/').filter(Boolean)[0];
+    return Boolean(segment) && ROUTER_LOCALES.some((locale) => parseJobBoardSlug(segment, locale));
+  });
+}
+
+/**
+ * I segmenti di query che la misura del monitor CTR esclude per una famiglia
+ * (scripts/lib/seo-ctr-query-segments.mjs, decisione I5 del 2026-10-05): le
+ * query con operatori ovunque, quelle promozionali solo dove la pagina e' una
+ * ricerca di lavoro. Su una guida o un articolo «orari», «outlet», «apertura»
+ * sono l'intento stesso della pagina.
+ */
+export function ctrExcludedSegmentsForFamily(family) {
+  return isJobBoardFamily(family) ? ['operator', 'promo'] : ['operator'];
+}
+
 // Locale prefixes stripped before segmenting a path into a candidate family,
 // same set the `locale`-kind exemption in SEO_CTR_FAMILIES is pinned to
 // (`/en/`, `/de/`, `/fr/` — Italian has no prefix, it's the default locale).

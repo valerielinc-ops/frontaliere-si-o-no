@@ -30,8 +30,12 @@
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { existsSync, readFileSync } from 'node:fs';
-import { SEO_CTR_FAMILIES, aggregateFamilyRows, effectiveTargetCtr, familyPathPrefixes } from './lib/seo-ctr-curve.mjs';
+import { SEO_CTR_FAMILIES, aggregateFamilyRows, effectiveTargetCtr, familyPathPrefixes, ctrExcludedSegmentsForFamily } from './lib/seo-ctr-curve.mjs';
 import { CTR_MEASURE_VERSION, fetchSegmentedFamilyRows, excludedSegmentsForState } from './lib/seo-ctr-query-segments.mjs';
+
+// Lo stesso floor di default di `aggregateFamilyRows`, passato esplicito anche
+// alla segmentazione perche' «tutte le query» conti le stesse pagine.
+const MIN_PAGE_IMPRESSIONS = 20;
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -62,8 +66,13 @@ async function main() {
     try {
       // Stessa misura del monitor (decisione I5 del 2026-10-05): CTR sulle
       // query con intento di lavoro, segmenti esclusi riportati a parte.
-      const segmentation = await fetchSegmentedFamilyRows({ windowDays: DAYS, pathContains: familyPathPrefixes(family) });
-      const agg = aggregateFamilyRows(segmentation.rows);
+      const segmentation = await fetchSegmentedFamilyRows({
+        windowDays: DAYS,
+        pathContains: familyPathPrefixes(family),
+        segments: ctrExcludedSegmentsForFamily(family),
+        minImpressions: MIN_PAGE_IMPRESSIONS,
+      });
+      const agg = aggregateFamilyRows(segmentation.rows, { minImpressions: MIN_PAGE_IMPRESSIONS });
       // Same floor the scheduled monitor judges against — resolved through the
       // shared helper so the one-off baseline and the weekly monitor cannot
       // disagree on what "below target" means for a curve-derived family.
@@ -73,6 +82,7 @@ async function main() {
         pathContains: family.pathContains,
         targetCtr,
         targetCtrCurveMultiple: family.targetCtrCurveMultiple ?? null,
+        measureVersion: segmentation.measureVersion,
         rawRowCount: segmentation.rawRowCount,
         ...agg,
         ctrAllQueries: segmentation.allQueries.ctr,
@@ -97,7 +107,8 @@ async function main() {
 
   // `measureVersion` come `predicateVersion` nella history delle traduzioni:
   // due snapshot con versioni diverse non si confrontano senza ricalcolo. Gli
-  // snapshot precedenti, senza il campo, sono `page-all-queries`.
+  // snapshot precedenti, senza il campo, sono `page-all-queries`. La versione
+  // di ogni famiglia aggiunge i segmenti applicati (`:operator+promo`).
   const snapshot = { generatedAt: nowIso, windowDays: DAYS, measureVersion: CTR_MEASURE_VERSION, families };
 
   try {

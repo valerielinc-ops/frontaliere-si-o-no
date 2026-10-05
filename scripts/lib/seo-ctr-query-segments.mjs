@@ -19,6 +19,11 @@
  * o descrizione puo' correggere. La correzione e' della MISURA, dichiarata: la
  * soglia (`effectiveTargetCtr`) NON cambia.
  *
+ * Il segmento `operator` vale per ogni famiglia; `promo` solo per le famiglie
+ * di ricerca lavoro (`ctrExcludedSegmentsForFamily` in seo-ctr-curve.mjs): su
+ * una guida alle dogane «dogana gaggiolo orari» e' esattamente l'intento della
+ * pagina, non rumore. Nel dubbio una query resta nella metrica principale.
+ *
  * ─── La misura ──────────────────────────────────────────────────────────────
  * metrica principale per pagina = totali di pagina − segmenti esclusi.
  *
@@ -61,11 +66,13 @@ export const SEARCH_OPERATOR_NAMES = Object.freeze([
 /**
  * Parole promozionali o di negozio, in it/de/fr/en. Prese da sole indicano chi
  * cerca il negozio o lo sconto, non un posto di lavoro. Token interi: «offerta»
- * si', «stellenangebote» no (e' fra le parole di lavoro).
+ * si', «stellenangebote» no (e' fra le parole di lavoro). I plurali «offerte» e
+ * «offres» mancano di proposito: «pizzaiolo svizzera offerte» e «je cherche
+ * des offres au tessin» sono domande di lavoro senza la parola «lavoro».
  */
 export const PROMO_TOKENS = Object.freeze([
   // it
-  'offerta', 'offerte', 'sconto', 'sconti', 'scontato', 'scontati', 'promo',
+  'offerta', 'sconto', 'sconti', 'scontato', 'scontati', 'promo',
   'promozione', 'promozioni', 'coupon', 'buono', 'buoni', 'saldi', 'volantino',
   'aperto', 'aperti', 'aperta', 'apertura', 'aperture', 'orari', 'orario',
   'outlet', 'catalogo',
@@ -74,7 +81,7 @@ export const PROMO_TOKENS = Object.freeze([
   'gutschein', 'gutscheine', 'gutscheincode', 'ausverkauf', 'prospekt',
   'öffnungszeiten', 'oeffnungszeiten', 'geöffnet', 'geoeffnet', 'offen',
   // fr
-  'offre', 'offres', 'promotion', 'promotions', 'réduction', 'reduction',
+  'offre', 'promotion', 'promotions', 'réduction', 'reduction',
   'réductions', 'reductions', 'solde', 'soldes', 'horaire', 'horaires',
   'ouvert', 'ouverte', 'ouverture',
   // en
@@ -93,7 +100,7 @@ export const JOB_TOKENS = Object.freeze([
   'assunzione', 'assunzioni', 'assume', 'assumono', 'carriera', 'carriere',
   'candidatura', 'candidature', 'candidarsi', 'colloquio', 'stage', 'tirocinio',
   'apprendistato', 'apprendista', 'stipendio', 'stipendi', 'salario', 'salari',
-  'personale', 'cercasi', 'annunci', 'annuncio', 'frontaliere', 'frontalieri',
+  'personale', 'cercasi', 'cerco', 'annunci', 'annuncio', 'frontaliere', 'frontalieri',
   'commessa', 'commesso', 'commesse', 'commessi', 'addetto', 'addetta',
   'impiegato', 'impiegata', 'mansione',
   // de
@@ -101,16 +108,17 @@ export const JOB_TOKENS = Object.freeze([
   'stellenanzeige', 'stellenanzeigen', 'arbeit', 'arbeiten', 'karriere',
   'lehrstelle', 'lehrstellen', 'lehre', 'ausbildung', 'praktikum', 'bewerbung',
   'bewerben', 'gehalt', 'lohn', 'löhne', 'mitarbeiter', 'mitarbeiterin',
-  'verkäufer', 'verkäuferin', 'grenzgänger', 'teilzeit', 'vollzeit',
+  'verkäufer', 'verkäuferin', 'grenzgänger', 'teilzeit', 'vollzeit', 'suche',
   // fr
-  'emploi', 'emplois', 'travail', 'travailler', 'carrière', 'carrières',
+  'emploi', 'emplois', 'emploie', 'emploies', 'travail', 'travailler', 'carrière', 'carrières',
   'recrutement', 'recrute', 'embauche', 'poste', 'postes',
   'salaire', 'salaires', 'apprentissage', 'candidature', 'frontalier',
-  'frontaliers', 'vendeur', 'vendeuse',
+  'frontaliers', 'vendeur', 'vendeuse', 'cherche', 'rh',
   // en
   'career', 'careers', 'hiring', 'hire', 'vacancy', 'vacancies', 'work',
   'working', 'employment', 'position', 'positions', 'internship',
-  'apprenticeship', 'salary', 'recruitment', 'recruiting',
+  'apprenticeship', 'salary', 'recruitment', 'recruiting', 'role', 'roles',
+  'hr',
 ]);
 
 /** Le parole di lavoro che hanno senso solo dentro una locuzione. */
@@ -161,8 +169,13 @@ export function classifyCtrQuery(query) {
   return 'promo';
 }
 
-/** I segmenti esclusi dalla metrica principale, nell'ordine del report. */
+/** I segmenti che la misura sa escludere, nell'ordine del report. */
 export const EXCLUDED_CTR_SEGMENTS = Object.freeze(['operator', 'promo']);
+
+function normalizeSegments(segments) {
+  const wanted = new Set(segments || EXCLUDED_CTR_SEGMENTS);
+  return EXCLUDED_CTR_SEGMENTS.filter((name) => wanted.has(name));
+}
 
 const SEGMENT_LABEL = Object.freeze({
   operator: 'Query con operatori di ricerca (automatiche)',
@@ -180,10 +193,13 @@ function escapeRe2(text) {
  * un soprainsieme per costruzione (sottostringhe dei token, senza confini di
  * parola): la decisione resta a `classifyCtrQuery`, e il test lo verifica.
  */
-export function segmentPrefilterRegex() {
-  const operators = SEARCH_OPERATOR_NAMES.map((name) => `${name}:`);
-  const alternatives = [...operators, '"', ...PROMO_TOKENS].map(escapeRe2);
-  return `(?i)(${alternatives.join('|')})`;
+export function segmentPrefilterRegex(segments = EXCLUDED_CTR_SEGMENTS) {
+  const applied = normalizeSegments(segments);
+  const alternatives = [];
+  if (applied.includes('operator')) alternatives.push(...SEARCH_OPERATOR_NAMES.map((name) => `${name}:`), '"');
+  if (applied.includes('promo')) alternatives.push(...PROMO_TOKENS);
+  if (alternatives.length === 0) throw new Error('segmentPrefilterRegex: nessun segmento da escludere');
+  return `(?i)(${alternatives.map(escapeRe2).join('|')})`;
 }
 
 function codeOnly(text) {
@@ -214,6 +230,15 @@ export function ctrMeasureVersion() {
 
 export const CTR_MEASURE_VERSION = ctrMeasureVersion();
 
+/**
+ * La versione della misura di UNA famiglia: l'impronta del classificatore piu'
+ * i segmenti applicati. Spostare una famiglia dentro o fuori dal segmento
+ * `promo` e' un cambio di misura quanto cambiare una parola della lista.
+ */
+export function ctrMeasureVersionFor(segments = EXCLUDED_CTR_SEGMENTS) {
+  return `${CTR_MEASURE_VERSION}:${normalizeSegments(segments).join('+')}`;
+}
+
 function emptySegment() {
   return { impressions: 0, clicks: 0, positionWeight: 0, queries: new Map() };
 }
@@ -231,15 +256,17 @@ function emptySegment() {
  *   allQueries: {impressions: number, clicks: number, ctr: number|null},
  * }}
  *   `rows` sono le righe di pagina della metrica principale, da passare a
- *   `aggregateFamilyRows`; `segments` i totali di famiglia dei segmenti esclusi;
- *   `allQueries` la misura di prima, per confrontare i due numeri.
+ *   `aggregateFamilyRows` con lo stesso `minImpressions`; `segments` i totali
+ *   di famiglia dei soli segmenti applicati; `allQueries` la misura di prima
+ *   (pagine sopra `minImpressions`), per confrontare i due numeri.
  */
-export function segmentFamilyRows(pageRows, queryRows, { topQueries = 5 } = {}) {
+export function segmentFamilyRows(pageRows, queryRows, { segments: applied = EXCLUDED_CTR_SEGMENTS, minImpressions = 0, topQueries = 5 } = {}) {
+  const appliedSegments = normalizeSegments(applied);
   const excludedByPath = new Map();
-  const segments = Object.fromEntries(EXCLUDED_CTR_SEGMENTS.map((name) => [name, emptySegment()]));
+  const segments = Object.fromEntries(appliedSegments.map((name) => [name, emptySegment()]));
   for (const row of queryRows || []) {
     const segment = classifyCtrQuery(row.query);
-    if (segment === 'job') continue;
+    if (!Object.hasOwn(segments, segment)) continue;
     const impressions = Number(row.impressions || 0);
     const clicks = Number(row.clicks || 0);
     const position = Number(row.position);
@@ -264,8 +291,12 @@ export function segmentFamilyRows(pageRows, queryRows, { topQueries = 5 } = {}) 
   const rows = (pageRows || []).map((page) => {
     const impressions = Number(page.impressions || 0);
     const clicks = Number(page.clicks || 0);
-    allImpressions += impressions;
-    allClicks += clicks;
+    // Stesso floor di `aggregateFamilyRows`, cosi' «tutte le query» e' il
+    // numero che il monitor avrebbe stampato con la misura precedente.
+    if (impressions >= minImpressions) {
+      allImpressions += impressions;
+      allClicks += clicks;
+    }
     const excluded = excludedByPath.get(page.path);
     if (!excluded) return page;
     // Le righe pagina×query omettono le anonimizzate, quindi la loro somma
@@ -298,6 +329,7 @@ export function segmentFamilyRows(pageRows, queryRows, { topQueries = 5 } = {}) 
   return {
     rows,
     segments: summarized,
+    measureVersion: ctrMeasureVersionFor(appliedSegments),
     allQueries: {
       impressions: allImpressions,
       clicks: allClicks,
@@ -311,8 +343,8 @@ export function segmentFamilyRows(pageRows, queryRows, { topQueries = 5 } = {}) 
  * prime query, abbastanza per ritrovarle senza riaprire la Search Console.
  */
 export function excludedSegmentsForState(segments, { topQueries = 3 } = {}) {
-  return Object.fromEntries(EXCLUDED_CTR_SEGMENTS.map((name) => {
-    const s = segments?.[name] || { impressions: 0, clicks: 0, ctr: null, topQueries: [] };
+  return Object.fromEntries(EXCLUDED_CTR_SEGMENTS.filter((name) => segments?.[name]).map((name) => {
+    const s = segments[name];
     return [name, {
       impressions: s.impressions,
       clicks: s.clicks,
@@ -335,7 +367,7 @@ function mdQuery(query) {
  * principale e quanto pesava. Senza, una famiglia che risale sopra la soglia
  * perche' la misura e' cambiata sembrerebbe guarita.
  */
-export function renderExcludedSegmentsSection({ segments, allQueries, measureVersion = CTR_MEASURE_VERSION } = {}) {
+export function renderExcludedSegmentsSection({ segments, allQueries, measureVersion = ctrMeasureVersionFor() } = {}) {
   const lines = [
     '### Query escluse dalla metrica principale',
     '',
@@ -347,7 +379,11 @@ export function renderExcludedSegmentsSection({ segments, allQueries, measureVer
     '|---|---:|---:|---:|---|',
   ];
   for (const name of EXCLUDED_CTR_SEGMENTS) {
-    const s = segments?.[name] || { impressions: 0, clicks: 0, ctr: null, topQueries: [] };
+    const s = segments?.[name];
+    if (!s) {
+      lines.push(`| ${SEGMENT_LABEL[name]} | — | — | — | non applicato a questa famiglia (non e' di ricerca lavoro) |`);
+      continue;
+    }
     const top = (s.topQueries || []).map((q) => `${mdQuery(q.query)} (${q.impressions})`).join(', ') || '—';
     lines.push(`| ${SEGMENT_LABEL[name]} | ${s.impressions} | ${s.clicks} | ${pctCell(s.ctr)} | ${top} |`);
   }
@@ -361,7 +397,7 @@ export function renderExcludedSegmentsSection({ segments, allQueries, measureVer
  * Riga che dichiara un cambio di misura fra il controllo precedente e questo.
  * Restituisce null quando la misura e' la stessa.
  */
-export function describeMeasureChange(prior, { measureVersion = CTR_MEASURE_VERSION, allQueriesCtr = null } = {}) {
+export function describeMeasureChange(prior, { measureVersion = ctrMeasureVersionFor(), allQueriesCtr = null } = {}) {
   const priorVersion = prior?.measureVersion || LEGACY_CTR_MEASURE_VERSION;
   if (priorVersion === measureVersion) return null;
   const priorCtr = typeof prior?.lastCtr === 'number' ? pctCell(prior.lastCtr) : 'n/a';
@@ -380,11 +416,13 @@ export function describeMeasureChange(prior, { measureVersion = CTR_MEASURE_VERS
 export async function fetchSegmentedFamilyRows({
   windowDays,
   pathContains,
+  segments = EXCLUDED_CTR_SEGMENTS,
+  minImpressions = 0,
   fetchByPage = fetchGscByPage,
   fetchPageQuery = fetchGscPageQueryRows,
 } = {}) {
   const { rows: rawRowCount, perPath } = await fetchByPage({ windowDays, pathContains });
   const pageRows = [...perPath.entries()].map(([path, metrics]) => ({ path, ...metrics }));
-  const { rows: queryRows } = await fetchPageQuery({ windowDays, pathContains, queryRegex: segmentPrefilterRegex() });
-  return { rawRowCount, pageRows, ...segmentFamilyRows(pageRows, queryRows) };
+  const { rows: queryRows } = await fetchPageQuery({ windowDays, pathContains, queryRegex: segmentPrefilterRegex(segments) });
+  return { rawRowCount, pageRows, ...segmentFamilyRows(pageRows, queryRows, { segments, minImpressions }) };
 }

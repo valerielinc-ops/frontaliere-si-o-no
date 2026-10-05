@@ -7,12 +7,18 @@ import {
   renderExcludedSegmentsSection,
   describeMeasureChange,
   ctrMeasureVersion,
+  ctrMeasureVersionFor,
   CTR_MEASURE_VERSION,
   fetchSegmentedFamilyRows,
   LEGACY_CTR_MEASURE_VERSION,
   PROMO_TOKENS,
 } from '../scripts/lib/seo-ctr-query-segments.mjs';
-import { aggregateFamilyRows } from '../scripts/lib/seo-ctr-curve.mjs';
+import {
+  aggregateFamilyRows,
+  ctrExcludedSegmentsForFamily,
+  isJobBoardFamily,
+  SEO_CTR_FAMILIES,
+} from '../scripts/lib/seo-ctr-curve.mjs';
 import { fetchGscPageQueryRows } from '../scripts/lib/perf-sources/gsc.mjs';
 
 // Decisione I5 del 2026-10-05 (caso guida: issue 11198). Fixture anonimizzate:
@@ -62,6 +68,10 @@ const JOB = [
   '"lavoro in ticino"', // virgolette senza operatori
   'brillex orari di lavoro',
   'brillex aperto assunzioni',
+  'pizzaiolo svizzera offerte', // plurale ambiguo: resta dentro
+  'je cherche des offres au tessin',
+  'offre d\'emploie geneve', // refuso frequente
+  'can you show me open roles at brillex switzerland',
   '',
 ];
 
@@ -205,6 +215,12 @@ describe('versione della misura (sul modello di predicateVersion)', () => {
     expect(CTR_MEASURE_VERSION).not.toBe(LEGACY_CTR_MEASURE_VERSION);
   });
 
+  it('la versione di famiglia dichiara i segmenti applicati', () => {
+    expect(ctrMeasureVersionFor(['promo', 'operator'])).toBe(`${CTR_MEASURE_VERSION}:operator+promo`);
+    expect(ctrMeasureVersionFor(['operator'])).toBe(`${CTR_MEASURE_VERSION}:operator`);
+    expect(ctrMeasureVersionFor(['operator'])).not.toBe(ctrMeasureVersionFor(['operator', 'promo']));
+  });
+
   it('dichiara il cambio di misura rispetto a uno stato senza versione', () => {
     const line = describeMeasureChange({ lastCtr: 0.018 }, { allQueriesCtr: 0.017 });
     expect(line).toContain(LEGACY_CTR_MEASURE_VERSION);
@@ -213,7 +229,10 @@ describe('versione della misura (sul modello di predicateVersion)', () => {
   });
 
   it('tace quando la misura e\' la stessa', () => {
-    expect(describeMeasureChange({ measureVersion: CTR_MEASURE_VERSION, lastCtr: 0.02 })).toBeNull();
+    const version = ctrMeasureVersionFor(['operator', 'promo']);
+    expect(describeMeasureChange({ measureVersion: version, lastCtr: 0.02 }, { measureVersion: version })).toBeNull();
+    // stessa impronta, segmenti diversi: e' un cambio di misura
+    expect(describeMeasureChange({ measureVersion: ctrMeasureVersionFor(['operator']) }, { measureVersion: version })).not.toBeNull();
   });
 });
 
@@ -268,5 +287,58 @@ describe('fetchSegmentedFamilyRows — un solo percorso per monitor e baseline',
     expect(out.pageRows[0].impressions).toBe(50);
     expect(out.rows[0].impressions).toBe(20);
     expect(out.segments.promo.impressions).toBe(30);
+  });
+});
+
+describe('segmento promo solo sulle famiglie di ricerca lavoro', () => {
+  const byId = (id: string) => SEO_CTR_FAMILIES.find((f: any) => f.id === id);
+
+  it('le famiglie job board escludono operatori e promo, le altre solo operatori', () => {
+    // caso guida della issue 11198
+    expect(ctrExcludedSegmentsForFamily(byId('cerca-lavoro-svizzera'))).toEqual(['operator', 'promo']);
+    expect(ctrExcludedSegmentsForFamily(byId('cerca-lavoro-ticino'))).toEqual(['operator', 'promo']);
+    // su una guida «dogana … orari» e' l'intento della pagina
+    expect(ctrExcludedSegmentsForFamily(byId('guida-frontaliere'))).toEqual(['operator']);
+    expect(ctrExcludedSegmentsForFamily(byId('articoli-frontaliere'))).toEqual(['operator']);
+  });
+
+  it('riconosce una famiglia job board anche solo da un alias di locale', () => {
+    expect(isJobBoardFamily({ pathContains: '/qualcosa/', pathAliases: ['/jobs-in-schweiz/'] })).toBe(true);
+    expect(isJobBoardFamily({ pathContains: '/eventi/' })).toBe(false);
+  });
+
+  it('con il solo segmento operatori le query promozionali restano nella metrica principale', () => {
+    const seg = segmentFamilyRows(
+      [{ path: '/g/', clicks: 5, impressions: 100, ctr: 0.05, position: 4 }],
+      [
+        { path: '/g/', query: 'dogana brillex orari', clicks: 2, impressions: 30, position: 4 },
+        { path: '/g/', query: 'site:example.ch', clicks: 0, impressions: 10, position: 4 },
+      ],
+      { segments: ['operator'] },
+    );
+    expect(seg.rows[0].impressions).toBe(90);
+    expect(Object.keys(seg.segments)).toEqual(['operator']);
+    expect(seg.measureVersion).toBe(ctrMeasureVersionFor(['operator']));
+    expect(renderExcludedSegmentsSection(seg)).toContain('non applicato a questa famiglia');
+    expect(Object.keys(excludedSegmentsForState(seg.segments))).toEqual(['operator']);
+  });
+
+  it('il prefiltro dei soli operatori non scarica le query promozionali', () => {
+    const re = new RegExp(segmentPrefilterRegex(['operator']).replace(/^\(\?i\)/, ''), 'iu');
+    expect(re.test('brillex offerta')).toBe(false);
+    expect(re.test('brillex -site:example.ch')).toBe(true);
+  });
+
+  it('«tutte le query» usa lo stesso floor di impressioni dell\'aggregato', () => {
+    const seg = segmentFamilyRows(
+      [
+        { path: '/a/', clicks: 1, impressions: 100, ctr: 0.01, position: 4 },
+        { path: '/b/', clicks: 3, impressions: 3, ctr: 1, position: 1 },
+      ],
+      [],
+      { minImpressions: 5 },
+    );
+    expect(seg.allQueries).toEqual({ impressions: 100, clicks: 1, ctr: 0.01 });
+    expect(seg.allQueries.ctr).toBe(aggregateFamilyRows(seg.rows, { minImpressions: 5 }).avgCtr);
   });
 });

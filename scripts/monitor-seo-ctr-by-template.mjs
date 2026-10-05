@@ -71,6 +71,7 @@ import {
   discoverUnregisteredFamilies,
   familyPathPrefixes,
   shadowingManualPrefixes,
+  ctrExcludedSegmentsForFamily,
   classifyUnregisteredFamilyCandidate,
   loadAutoRegisteredFamilies,
   AUTO_FAMILIES_PATH,
@@ -91,6 +92,9 @@ const STATE_PATH = resolve(ROOT, 'data', 'seo-ctr-monitor-state.json');
 const WINDOW_DAYS = 14;
 const CONSECUTIVE_RUNS_TO_ESCALATE = 2;
 const DISCOVERY_WINDOW_DAYS = 90;
+// Pagine sotto questo numero di impressioni non entrano nell'aggregato di
+// famiglia: vale per la misura segmentata e per «tutte le query».
+const MIN_PAGE_IMPRESSIONS = 5;
 const DRY_RUN_COMMAND = 'npx --no-install tsx scripts/monitor-seo-ctr-by-template.mjs --dry-run';
 
 const dryRun = process.argv.includes('--dry-run');
@@ -168,7 +172,7 @@ async function openOrCommentIssue({ family, ctr, target, position, run, belowCur
 
 **Path family:** \`${family.pathContains}\`
 **CTR attuale (14gg, query con intento di lavoro):** ${pct(ctr)}
-**CTR su tutte le query (misura precedente):** ${pct(segmentation?.allQueries?.ctr)}
+**CTR su tutte le query (misura precedente):** ${pct(segmentation.allQueries.ctr)}
 **Target:** ${pct(target)} (${targetBasis})
 **Posizione media ponderata (14gg):** ${position === null ? 'n/a' : Number(position).toFixed(2)}
 **Check consecutivi sotto soglia:** ${run}
@@ -179,7 +183,7 @@ ${run} controlli settimanali consecutivi (~${run} settimane).
 ${measureChange ? `\n> ${measureChange}\n` : ''}
 ${renderBelowCurvePagesSection(belowCurvePages)}
 
-${renderExcludedSegmentsSection({ segments: segmentation?.segments, allQueries: segmentation?.allQueries })}
+${renderExcludedSegmentsSection({ segments: segmentation.segments, allQueries: segmentation.allQueries, measureVersion: segmentation.measureVersion })}
 
 Prossimi passi suggeriti: rivedere title/description generator per questa
 famiglia (services/seo/seo-pages.ts per guida/tasse, build-plugins/ogPagesPlugin.ts
@@ -365,9 +369,14 @@ async function main() {
       // righe pagina×query ricade nel ramo di errore sotto, come un errore GSC
       // — un controllo misurato con la misura vecchia non va conteggiato con
       // quella nuova.
-      segmentation = await fetchSegmentedFamilyRows({ windowDays: WINDOW_DAYS, pathContains: familyPathPrefixes(family) });
+      segmentation = await fetchSegmentedFamilyRows({
+        windowDays: WINDOW_DAYS,
+        pathContains: familyPathPrefixes(family),
+        segments: ctrExcludedSegmentsForFamily(family),
+        minImpressions: MIN_PAGE_IMPRESSIONS,
+      });
       const { pageRows } = segmentation;
-      const agg = aggregateFamilyRows(segmentation.rows, { minImpressions: 5 });
+      const agg = aggregateFamilyRows(segmentation.rows, { minImpressions: MIN_PAGE_IMPRESSIONS });
       ctr = agg.avgCtr;
       position = agg.avgPosition;
       belowCurvePages = agg.belowCurvePages;
@@ -376,7 +385,7 @@ async function main() {
       // La misura precedente, rifatta sulle stesse righe: CTR, target e click
       // persi stimati (impressioni × (target − CTR)) con e senza segmentazione.
       const lost = (a, t) => (a.avgCtr === null || t === null ? 0 : Math.max(0, a.totalImpressions * (t - a.avgCtr)));
-      const allAgg = aggregateFamilyRows(pageRows, { minImpressions: 5 });
+      const allAgg = aggregateFamilyRows(pageRows, { minImpressions: MIN_PAGE_IMPRESSIONS });
       const allTarget = effectiveTargetCtr(family, allAgg.avgPosition);
       console.log(`   misura precedente (tutte le query): CTR ${pct(allAgg.avgCtr)} | target ${pct(allTarget)} | pos ${allAgg.avgPosition === null ? 'n/a' : allAgg.avgPosition.toFixed(2)} | click persi ${lost(allAgg, allTarget).toFixed(0)}`);
       console.log(`   misura attuale (query di lavoro):   CTR ${pct(agg.avgCtr)} | target ${pct(target)} | pos ${position === null ? 'n/a' : position.toFixed(2)} | click persi ${lost(agg, target).toFixed(0)}`);
@@ -399,7 +408,10 @@ async function main() {
       continue;
     }
 
-    const measureChange = describeMeasureChange(prior, { allQueriesCtr: segmentation?.allQueries?.ctr ?? null });
+    const measureChange = describeMeasureChange(prior, {
+      measureVersion: segmentation.measureVersion,
+      allQueriesCtr: segmentation.allQueries.ctr,
+    });
     if (measureChange) console.log(`   ℹ️ ${measureChange}`);
 
     const belowTarget = ctr !== null && target !== null && ctr < target;
@@ -422,7 +434,7 @@ async function main() {
 
     state.families[family.id] = {
       consecutiveBelowRuns,
-      measureVersion: CTR_MEASURE_VERSION,
+      measureVersion: segmentation.measureVersion,
       lastCtr: ctr,
       lastCtrAllQueries: segmentation.allQueries.ctr,
       lastExcludedSegments: excludedSegmentsForState(segmentation.segments),
