@@ -28,6 +28,7 @@ import cantonSlugFile from '../data/canton-url-slugs.json';
 import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippableSections';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 import { BORDER_WAIT_LEGACY_REDIRECTS } from './shared/borderWaitLegacyRedirects';
+import { isSafeDistPath } from './shared/distPathSafety';
 /** Hreflang entry extracted from sitemap XML. */
 interface HreflangEntry {
  hreflang: string;
@@ -512,6 +513,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // exactly the kind of drift the derived-from-SECTION_ROUTES set avoids.
  const unshippablePrefixes = unshippableSectionPrefixes();
  let skippedUnshippable = 0;
+ let skippedUnsafeDistPaths = 0;
  // `/cerca-lavoro-ticino/azienda-{slug}/` (and per-locale equivalents) is the
  // RESERVED company-hub namespace (see isCompanyHubNamespaceSlug). A job whose
  // OWN slug happens to start with that prefix must not get a cathedral bridge
@@ -627,6 +629,12 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  const to = withSlash(toRaw);
  if (from === to || from === '/') continue;
 
+ // Search Console and other compatibility inputs can contain dot-prefixed
+ // segments. Reject them before any filesystem path is derived: a trailing
+ // slash path such as `/foo/.env.bak/` would otherwise create the forbidden
+ // `dist/foo/.env.bak.html` flat twin (and a hidden directory beside it).
+ if (!isSafeDistPath(from)) { skippedUnsafeDistPaths++; continue; }
+
  // Do not emit a bridge onto a prefix this build cannot ship: the file
  // would be written, deleted by the shard rehydrate, and never served.
  // BEFORE mkdirSync on purpose — emitting nothing must also leave no
@@ -718,9 +726,10 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  {
  const compatPaths = readCompatPaths(rootDir).paths;
  for (const compatPathRaw of compatPaths) {
+ const from = normalize(String(compatPathRaw || ''));
+ if (!isSafeDistPath(from)) { skippedUnsafeDistPaths++; continue; }
  const resolution = resolveSearchConsoleCompatTarget(String(compatPathRaw || ''));
  if (!resolution) continue;
- const from = normalize(String(compatPathRaw || ''));
  // Target-existence gap-fill (PR #4252 review): a self-mapped target is not always
  // unconditionally emitted (e.g. an events canton hub only exists when that canton
  // has an upcoming event THIS build — see fallbackPath doc in searchConsoleCompat.ts).
@@ -804,6 +813,11 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  if (skippedUnshippable > 0) {
  console.log(
  `\x1b[33m[legacy-redirects]\x1b[0m Skipped ${skippedUnshippable} bridge page(s) under BUILD_EMIT_SKIP section prefixes (${unshippablePrefixes.join(', ')}) — this build does not push those shards, so an emitted bridge there is never served. The table entries stay; only the emission is skipped.`,
+ );
+ }
+ if (skippedUnsafeDistPaths > 0) {
+ console.log(
+ `\x1b[33m[legacy-redirects]\x1b[0m Skipped ${skippedUnsafeDistPaths} bridge page(s) with dot-prefixed URL path segments before dist emission.`,
  );
  }
    },

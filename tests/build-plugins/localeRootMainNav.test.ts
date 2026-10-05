@@ -196,6 +196,12 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     expect(inlineCss).toMatch(/#homepage-static-h1\s*\{[^}]*\bmargin\s*:\s*0\s*;?\s*\}/);
   });
 
+  it('keeps static shell navigation targets at least 44px', () => {
+    const template = fs.readFileSync(new URL('../../index.html', import.meta.url), 'utf8');
+    expect(template.match(/<a[^>]+style="display:block;width:44px;height:44px/g) ?? []).toHaveLength(6);
+    expect(template.match(/<a[^>]+style="display:flex;[^\"]*min-height:44px/g) ?? []).toHaveLength(6);
+  });
+
   it.each(NON_IT_LOCALES)('localizes the server-rendered homepage h1 for /%s/', (locale) => {
     const template = fs.readFileSync(new URL('../../index.html', import.meta.url), 'utf8');
     const html = renderLocaleRootShell(template, locale);

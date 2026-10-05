@@ -77,6 +77,10 @@ import {
 } from './salaryDefaults';
 import { truncateCodeUnits } from './safeTruncate';
 import { sanitizeBrowserJobTitle } from './literalMarkdown';
+import {
+  buildEmployerProfilePath,
+  canonicalCompanyProfileSlug,
+} from './companyProfileSlug.mjs';
 export { MANDATORY_JOBPOSTING_FIELDS } from '../../scripts/lib/jobposting-mandatory-fields.mjs';
 
 // ── Types ───────────────────────────────────────────────────────────────────
@@ -191,7 +195,11 @@ export interface BaseSalarySchema {
 /** Strict schema.org `Organization` shape emitted by the builder. */
 export interface HiringOrganizationSchema {
   readonly '@type': 'Organization';
+  /** Stable first-party identity shared by every locale and employer surface. */
+  readonly '@id': string;
   readonly name: string;
+  /** Canonical employer profile URL (always a real first-party route). */
+  readonly url: string;
   readonly sameAs?: string;
   readonly logo?: string;
 }
@@ -511,6 +519,63 @@ function resolveCompanyName(job: JobInput, locale: string): string {
   }
 }
 
+export interface BuildCompanyOrganizationOptions {
+  /** Locale is used only for the localized confidential-employer fallback. */
+  readonly locale: string;
+  /** First-party origin used to build the canonical employer profile URL. */
+  readonly baseUrl?: string;
+  /** Real page URL used when the source does not carry a company identity. */
+  readonly fallbackUrl?: string;
+}
+
+/**
+ * Build one stable Organization identity for every job/company emitter.
+ *
+ * Employer pages exist under `/aziende/<canonical-slug>/` for both full
+ * profiles and below-floor bridges. Using the Italian profile as the
+ * canonical URL keeps the same employer entity shared by all four locale
+ * pages and by canton/company hubs. The source website remains `sameAs` so
+ * the schema keeps its external provenance without making a locale-specific
+ * page URL the identity of the company.
+ */
+export function buildCompanyOrganization(
+  job: JobInput,
+  opts: BuildCompanyOrganizationOptions,
+): HiringOrganizationSchema {
+  if (!opts?.locale) throw new Error('buildCompanyOrganization: opts.locale is required');
+
+  const baseUrl = String(opts.baseUrl || CANONICAL_ORIGIN).replace(/\/+$/, '');
+  const companyName = resolveCompanyName(job, opts.locale);
+  const rawCompany = String(job.company || job.companySlug || job.companyKey || '').trim();
+  const companySlug = rawCompany
+    ? canonicalCompanyProfileSlug(String(job.company || job.companySlug || rawCompany), String(job.companyKey || ''))
+    : '';
+  const profileUrl = companySlug
+    ? `${baseUrl}${buildEmployerProfilePath('it', companySlug)}`
+    : String(opts.fallbackUrl || `${baseUrl}/`);
+  const identityUrl = profileUrl.endsWith('/') ? profileUrl : `${profileUrl}/`;
+
+  const rawWebsite = String(job.companyWebsite || job.companyDomain || '').trim();
+  const sameAs = rawWebsite
+    ? (/^https?:\/\//i.test(rawWebsite) ? rawWebsite : `https://${rawWebsite}`)
+    : undefined;
+  const rawLogo = job.companyLogoUrl && String(job.companyLogoUrl).trim().length > 0
+    ? String(job.companyLogoUrl).trim()
+    : undefined;
+  const logo = rawLogo && rawLogo.startsWith('/') && !rawLogo.startsWith('//')
+    ? `${baseUrl}${rawLogo}`
+    : rawLogo;
+
+  return {
+    '@type': 'Organization',
+    '@id': `${identityUrl}#organization`,
+    name: companyName,
+    url: identityUrl,
+    ...(sameAs ? { sameAs } : {}),
+    ...(logo ? { logo } : {}),
+  };
+}
+
 /** Derive the schema.org canton code for the job. */
 function resolveCanton(job: JobInput): string {
   const explicit = normalizeCantonCode(String(job.addressRegion || job.canton || ''));
@@ -756,7 +821,11 @@ export function buildJobPostingFacts(job: JobInput, locale: string): JobPostingF
   return {
     baseSalary: resolveBaseSalary(job),
     employmentType: normaliseEmploymentType(job.employmentType || job.contractType || job.contract),
-    hiringOrganization: { '@type': 'Organization', name: companyName },
+    hiringOrganization: buildCompanyOrganization(job, {
+      locale,
+      baseUrl: CANONICAL_ORIGIN,
+      fallbackUrl: `${CANONICAL_ORIGIN}/`,
+    }),
     jobLocation: { '@type': 'Place', address: resolveAddress(job, companyName, locale) },
   };
 }
@@ -798,33 +867,11 @@ export function buildJobPostingSchema(
   const occupationalCategory = resolveOccupationalCategory(job);
   const applicantLocationRequirements = resolveApplicantLocationRequirements(job);
 
-  const rawLogo = job.companyLogoUrl && String(job.companyLogoUrl).trim().length > 0
-    ? String(job.companyLogoUrl).trim()
-    : undefined;
-  // Schema.org `logo` is URL-typed: Google's job rich-result pipeline expects a
-  // fully-qualified absolute URL and can ignore a root-relative path like the
-  // curated `/images/brands/<key>.png` assets (issue #3473). Absolutize
-  // same-origin root-relative paths against the caller's canonical base (in
-  // prod those paths 301 to the image CDN, so the URL is always fetchable);
-  // already-absolute URLs pass through verbatim. `//`-prefixed values are
-  // protocol-relative, not root-relative — never prefix those.
-  const logo = rawLogo && rawLogo.startsWith('/') && !rawLogo.startsWith('//')
-    ? `${(opts.baseUrl || CANONICAL_ORIGIN).replace(/\/+$/, '')}${rawLogo}`
-    : rawLogo;
-  // Keep the dedicated website for job-page callers, while preserving the
-  // legacy sameAs signal for other consumers that only provide companyDomain.
-  // Ownership proof remains isolated in isEmployerOwnedApplyUrl().
-  const companyWebsite = String(job.companyWebsite || job.companyDomain || '').trim();
-  const sameAs = companyWebsite
-    ? (/^https?:\/\//i.test(companyWebsite) ? companyWebsite : `https://${companyWebsite}`)
-    : undefined;
-
-  const hiringOrganization: HiringOrganizationSchema = {
-    '@type': 'Organization',
-    name: companyName,
-    ...(sameAs ? { sameAs } : {}),
-    ...(logo ? { logo } : {}),
-  };
+  const hiringOrganization = buildCompanyOrganization(job, {
+    locale: opts.locale,
+    baseUrl: opts.baseUrl,
+    fallbackUrl: opts.url,
+  });
 
   const schema: JobPostingSchema = {
     '@context': 'https://schema.org',
