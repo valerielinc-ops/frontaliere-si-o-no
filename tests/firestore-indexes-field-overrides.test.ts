@@ -204,6 +204,17 @@ function scanSources(): GroupQueryField[] {
 }
 
 describe('firestore.indexes.json — query collection-group', () => {
+  it('preferred send-hour events query has a collection-scope composite index', () => {
+    expect(config.indexes).toContainEqual({
+      collectionGroup: 'events',
+      queryScope: 'COLLECTION',
+      fields: [
+        { fieldPath: 'event_type', order: 'ASCENDING' },
+        { fieldPath: 'occurred_at', order: 'DESCENDING' },
+      ],
+    });
+  });
+
   it('private.applicationIntentAuthUid ha un indice COLLECTION_GROUP', () => {
     const override = overrides.find((o) => o.collectionGroup === 'private' && o.fieldPath === 'applicationIntentAuthUid');
     expect(
