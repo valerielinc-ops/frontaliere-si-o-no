@@ -27,6 +27,8 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { identifiedPostingPublication } from './identified-posting-publication.mjs';
+import { mergeSourcePostingDates, sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -200,15 +202,22 @@ export function parseLocationCode(rawLocation = '') {
 /**
  * Fetch and parse a single job's detail page for its full description.
  */
-async function fetchJobDescription(detailUrl) {
+async function fetchJobDescription(detailUrl, expectedTitle) {
   try {
     const html = await fetchHtml(detailUrl, { timeoutMs: 20000 });
-    const { document } = new JSDOM(html).window;
-    const container = document.querySelector('.iCIMS_JobContent');
-    return stripHtml(container?.innerHTML || '');
+    const dom = new JSDOM(html);
+    try {
+      const container = dom.window.document.querySelector('.iCIMS_JobContent');
+      return {
+        description: stripHtml(container?.innerHTML || ''),
+        ...identifiedPostingPublication(html, detailUrl, expectedTitle),
+      };
+    } finally {
+      dom.window.close();
+    }
   } catch (err) {
     console.warn(`  ⚠️ Failed to fetch job detail ${detailUrl}: ${err.message}`);
-    return '';
+    return { description: '', ...sourcePostingDateFields('') };
   }
 }
 
@@ -249,7 +258,8 @@ export async function fetchAllNovelisJobs() {
     }
 
     console.log(`  📄 Fetching detail: ${listing.title}`);
-    const descriptionText = await fetchJobDescription(listing.url);
+    const detail = await fetchJobDescription(listing.url, listing.title);
+    const descriptionText = detail.description;
 
     const descText = descriptionText
       ? `${descriptionText}\n\nNovelis is the world leader in aluminium rolling and recycling, with a major production facility in Sierre (Valais), Switzerland. The company produces flat-rolled aluminium products for the automotive, beverage can, and specialty markets.`.trim()
@@ -287,7 +297,7 @@ export async function fetchAllNovelisJobs() {
       sector: 'Metallurgia / Alluminio',
       currency: 'CHF',
       featured: false,
-      postedDate: new Date().toISOString().split('T')[0],
+      ...mergeSourcePostingDates({}, detail),
       url: listing.url,
       applyUrl: listing.url,
       source: 'Novelis Dedicated Parser (iCIMS)',

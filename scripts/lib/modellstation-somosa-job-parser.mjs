@@ -14,6 +14,8 @@
  * job title in an <h1> + Aufgaben / Profil / Wir bieten sections in
  * `<div class="ce_text">` blocks.
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingsLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -141,16 +143,25 @@ export async function fetchAllModellstationSomosaJobs() {
   console.log(`  ✓ ${items.length} listing entries parsed`);
   if (!items.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   let detailHits = 0;
   for (let i = 0; i < items.length; i += 1) {
     const it = items[i];
     if (i > 0) await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
     let detailContent = '';
+    let publication = sourcePostingDateFields();
     try {
       const detailHtml = await fetchHtml(it.url);
       detailContent = extractDetailContent(detailHtml);
+      const postings = extractJobPostingsLd(detailHtml);
+      const matching = postings.filter((posting) => {
+        if (normalizeSpace(posting.title || '').toLowerCase() !== normalizeSpace(it.title).toLowerCase()) return false;
+        const urls = [posting.url, posting.sameAs].filter(Boolean);
+        if (!urls.length) return postings.length === 1;
+        try { return urls.every((value) => new URL(value, it.url).href === new URL(it.url).href); }
+        catch { return false; }
+      });
+      publication = sourcePostingDateFields(matching.length === 1 ? matching[0].datePosted : '');
       if (detailContent) detailHits += 1;
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${it.url}: ${err?.message || err}`);
@@ -197,7 +208,7 @@ export async function fetchAllModellstationSomosaJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      ...publication,
       applyUrl: it.url,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

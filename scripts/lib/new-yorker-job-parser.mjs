@@ -89,6 +89,8 @@
  * is a last-resort path exercised only if a detail-page fetch/parse fails
  * and no per-job address is available at all.
  */
+import { identifiedPostingPublication } from './identified-posting-publication.mjs';
+import { mergeSourcePostingDates, sourcePostingDateFields } from './source-posting-date.mjs';
 import { fetchHtml, slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract, decodeHtmlEntities } from './dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -248,7 +250,7 @@ export function parseNewYorkerListing(html = '') {
  *   region: string, postalCode: string, country: string,
  * } | null}
  */
-export function extractNewYorkerJsonLd(html = '') {
+export function extractNewYorkerJsonLd(html = '', pageUrl = '', expectedTitle = '') {
   if (!html || typeof html !== 'string') return null;
   const scriptMatch = html.match(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/i);
   if (!scriptMatch) return null;
@@ -269,7 +271,8 @@ export function extractNewYorkerJsonLd(html = '') {
   return {
     title: cleanText(data.title || ''),
     description: descParts.join('\n\n'),
-    datePosted: typeof data.datePosted === 'string' ? data.datePosted : '',
+    ...(cleanText(data.title || '').toLowerCase() === cleanText(expectedTitle).toLowerCase()
+      ? identifiedPostingPublication(html, pageUrl, expectedTitle) : sourcePostingDateFields()),
     validThrough: typeof data.validThrough === 'string' ? data.validThrough : '',
     employmentTypeRaw: typeof data.employmentType === 'string' ? data.employmentType : '',
     hiringOrganizationName: cleanText(data.hiringOrganization?.name || '') || NEW_YORKER_COMPANY_NAME,
@@ -355,7 +358,7 @@ export async function fetchAllNewYorkerJobs() {
       console.warn(`  ⚠️ Detail fetch failed for ${row.title}: ${err?.message || err}`);
     }
 
-    const detail = extractNewYorkerJsonLd(detailHtml);
+    const detail = extractNewYorkerJsonLd(detailHtml, publicUrl, row.title);
 
     if (detail && detail.country && !isSwissCountry(detail.country)) {
       console.warn(`  ⏭️ Skipping non-Swiss posting (${detail.country}): ${row.title}`);
@@ -389,7 +392,6 @@ export async function fetchAllNewYorkerJobs() {
     const id = `${NEW_YORKER_KEY}-${idSeed}`;
     const contract = normalizeContract('', title, description);
     const employmentType = contract === 'part-time' ? 'PART_TIME' : 'FULL_TIME';
-    const postedDate = detail?.datePosted || new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -423,7 +425,7 @@ export async function fetchAllNewYorkerJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...mergeSourcePostingDates({}, detail || {}),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

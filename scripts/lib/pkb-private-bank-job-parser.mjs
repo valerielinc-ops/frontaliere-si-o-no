@@ -1,3 +1,4 @@
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
@@ -217,7 +218,10 @@ export function parsePkbDetailPage(html, pageUrl = '') {
   const sector = extractItemprop(html, 'industry') || '';
   const role = extractItemprop(html, 'occupationalCategory') || '';
 
-  const datePosted = parseArca24Date(extractItemprop(html, 'datePosted'));
+  const rawPublication = extractItemprop(stripScriptsAndStyles(html), 'datePosted');
+  const localPublication = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(rawPublication);
+  const publication = sourcePostingDateFields(localPublication
+    ? `${localPublication[3]}-${localPublication[2]}-${localPublication[1]}` : rawPublication);
   const validThrough = parseArca24Date(extractItemprop(html, 'validThrough'));
 
   let description = '';
@@ -252,7 +256,7 @@ export function parsePkbDetailPage(html, pageUrl = '') {
     region: region || 'Ticino',
     sector,
     role,
-    datePosted,
+    ...publication,
     validThrough,
     description,
     url: pageUrl,
@@ -362,10 +366,7 @@ export function buildPkbJob(url, parsed) {
     postalCode: HQ.postalCode,
     streetAddress: parsed.streetAddress || HQ.streetAddress,
     description,
-    // Canonical pipeline field is `postedDate` (the Arca24 microdata itemprop
-    // is `datePosted`, but every downstream consumer — JobBoard, sitemap,
-    // newsletter, assemble-jobs-dataset churn guard — reads `postedDate`).
-    postedDate: parsed.datePosted || new Date().toISOString().split('T')[0],
+    ...mergeSourcePostingDates({}, parsed),
     validThrough: parsed.validThrough || '',
     sector: parsed.sector || '',
     role: parsed.role || '',

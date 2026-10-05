@@ -32,6 +32,7 @@
  *
  * Source: https://giardinohotels.ch/talents/
  */
+import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, fetchHtml } from './crawler-template.mjs';
@@ -495,10 +496,10 @@ function findJobPosting(node) {
  * JSON-LD: an unknown job-*.html answers 301 to the board, and the board is
  * not an ad.
  *
- * @returns {null|{ title: string, intro: string, datePosted: string,
+ * @returns {null|{ title: string, intro: string, datePosted: string, postedDate: string, postingDateSource: string,
  *   sections: ReturnType<typeof parseContentSections> }}
  */
-export function parseTalentsJobPage(html = '') {
+export function parseTalentsJobPage(html = '', expectedUrl = '') {
   const page = String(html || '');
   let posting = null;
   const ldRe = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
@@ -517,7 +518,13 @@ export function parseTalentsJobPage(html = '') {
   const introMatch = page.match(/<p[^>]*class="[^"]*\bintro\b[^"]*"[^>]*>([\s\S]*?)<\/p>/i);
   const leadMatch = page.match(/<p[^>]*class="[^"]*\blead\b[^"]*"[^>]*>([\s\S]*?)<\/p>/i);
   const aboutUsMatch = page.match(/<p[^>]*class="[^"]*\bbig\b[^"]*"[^>]*>([\s\S]*?)<\/p>/i);
-  const datePosted = String(posting.datePosted || '').slice(0, 10);
+  const identities = [posting.url, posting.sameAs].flat().filter((value) => value != null);
+  const sameVacancy = expectedUrl && identities.length > 0 && identities.every((value) => {
+    if (typeof value !== 'string' || !value.trim()) return false;
+    try { return new URL(value, expectedUrl).href === new URL(expectedUrl).href; }
+    catch { return false; }
+  });
+  const publication = sourcePostingDateFields(sameVacancy ? posting.datePosted : '');
 
   return {
     title,
@@ -525,7 +532,7 @@ export function parseTalentsJobPage(html = '') {
     lead: leadMatch ? normalizeSpace(decodeWpEntities(stripHtml(leadMatch[1]))) : '',
     aboutUs: aboutUsMatch ? normalizeSpace(decodeWpEntities(stripHtml(aboutUsMatch[1]))) : '',
     facts: parseJobFacts(page),
-    datePosted: /^\d{4}-\d{2}-\d{2}$/.test(datePosted) ? datePosted : '',
+    ...publication,
     sections: parseContentSections(page),
   };
 }
@@ -616,7 +623,7 @@ async function fetchEnglishCards(fetchPage) {
     const listing = parseTalentsListing(await fetchPage(TALENTS_EN_URL), TALENTS_EN_URL);
     return listing.cards;
   } catch (err) {
-    // fetch-failure-empty-ok: optional English permalink enrichment; the German board is the source of truth and its own fetch failure still propagates
+    // fetch-failure-empty-ok: English cards only enrich permalinks; German cards remain authoritative.
     console.warn(`⚠️ English Talents board unavailable (${err?.message || err}) — falling back to German permalinks.`);
     return [];
   }
@@ -678,7 +685,7 @@ export async function fetchAllGiardinoJobs({ fetchPage = fetchTalentsPage } = {}
 
   const readDetail = async (url) => {
     try {
-      return parseTalentsJobPage(await fetchPage(url));
+      return parseTalentsJobPage(await fetchPage(url), url);
     } catch (err) {
       console.warn(`⚠️ ${url}: detail page unavailable (${err?.message || err}).`);
       return null;
@@ -735,8 +742,8 @@ export async function fetchAllGiardinoJobs({ fetchPage = fetchTalentsPage } = {}
 
     const jobSlug = slugify(`${title} giardino-group ${city}`);
 
-    // Posted date from the JobPosting JSON-LD
-    const postedDate = detail.datePosted || new Date().toISOString().split('T')[0];
+    // Evidence belongs to the actual linked language page, including fallback.
+    const publication = mergeSourcePostingDates({}, detail);
 
     const job = {
       // ── Required fields ──
@@ -770,7 +777,7 @@ export async function fetchAllGiardinoJobs({ fetchPage = fetchTalentsPage } = {}
       sector: 'Ospitalità / Hotellerie',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       requirements: sections.aboutYou,
       requirementsByLocale: { [sourceLang]: sections.aboutYou },
