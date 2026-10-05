@@ -350,6 +350,11 @@ export const RC_TO_ENV = {
   FAL_KEY:                        ['FAL_KEY'],
   PEXELS_API_KEY:                 ['PEXELS_API_KEY'],
 
+  // Events crawler (scripts/crawl-openagenda-events.mjs, crawl-events.yml):
+  // OpenAgenda public read key (`oa_pk_…`), created by the owner at
+  // openagenda.com/settings/apiKey. Absent → the crawl step is a no-op notice.
+  OPENAGENDA_PUBLIC_KEY:          ['OPENAGENDA_PUBLIC_KEY'],
+
   // Resend webhook (newsletter delivery tracking)
   RESEND_WEBHOOK_SECRET:          ['RESEND_WEBHOOK_SECRET'],
 

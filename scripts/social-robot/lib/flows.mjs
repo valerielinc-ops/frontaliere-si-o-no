@@ -32,10 +32,13 @@ export const DEFAULT_TIMEOUTS = Object.freeze({
 });
 
 const ANY_OF = (...words) => new RegExp(`^\\s*(?:${words.join('|')})\\s*$`, 'i');
+const ACCESSIBLE_LABEL_WITH_ICON = (...words) => new RegExp(`^\\s*(${words.join('|')})(?:\\s*\\1)?\\s*$`, 'i');
 
 export const RX = Object.freeze({
   igCreate: ANY_OF('New post', 'Create', 'Crea', 'Nuovo post', 'Neuer Beitrag', 'Erstellen', 'Créer', 'Nouvelle publication'),
-  igPostMenu: ANY_OF('Post', 'Beitrag', 'Publication'),
+  // Instagram repeats the item label in the accessible name when its icon has
+  // the same aria-label as the visible text (for example: "PostPost").
+  igPostMenu: ACCESSIBLE_LABEL_WITH_ICON('Post', 'Beitrag', 'Publication'),
   igNext: ANY_OF('Next', 'Avanti', 'Weiter', 'Suivant'),
   igShare: ANY_OF('Share', 'Condividi', 'Teilen', 'Partager'),
   igCaption: /caption|didascalia|bildunterschrift|légende/i,
@@ -299,10 +302,16 @@ export async function instagramFlow({ page, files, caption, dryRun, human, snap,
   await create.click();
   await human.pause();
   // Newer layouts open a small menu (Post / Live / Ad) before the dialog.
-  await optionalClick([
+  step.set('create-menu');
+  const postMenu = await findFirst([
     page.getByRole('link', { name: RX.igPostMenu }),
     page.getByRole('menuitem', { name: RX.igPostMenu }),
-  ], { guard });
+  ], { guard, timeout: t.optional });
+  if (postMenu) {
+    await snap('create-menu');
+    await postMenu.click();
+    await human.pause();
+  }
 
   const input = await required(step, 'upload', [
     page.locator('div[role="dialog"] input[type="file"]'),

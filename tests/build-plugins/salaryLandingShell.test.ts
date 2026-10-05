@@ -156,6 +156,7 @@ describe('salaryLandingShell · buildSalaryLandingBody', () => {
     expect(html).toContain('Imposta alla fonte CH');
     expect(html).toContain('Consiglio');
     expect(html).toContain('Calcola il tuo netto');
+    expect(html).toContain('min-height:44px');
     expect(html).toContain('<table');
     expect(html).toContain('<details');
     expect(html).toContain('Domande frequenti');

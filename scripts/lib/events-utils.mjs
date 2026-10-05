@@ -135,6 +135,16 @@ export const EVENT_SOURCES = {
     homepage: 'https://www.stadtluzern.ch/aktuelles/termine',
     canton: 'LU',
   },
+  // OpenAgenda API v2 (scripts/crawl-openagenda-events.mjs): Ville de Genève,
+  // Association des communes genevoises and Région de Nyon, under the Licence
+  // Ouverte 2.0. `canton: null` — the canton comes from the venue's comune or,
+  // failing that, from the coordinates in assemble (rule 4b).
+  openagenda: {
+    key: 'openagenda',
+    label: 'OpenAgenda',
+    homepage: 'https://openagenda.com/',
+    canton: null,
+  },
 };
 
 // ── Localized URL path config (single source of truth, §6) ───

@@ -1839,18 +1839,16 @@ commit_isolated_from_worktree() {
   local snapshot_operation snapshot_state registry_status
   local ownership_root ownership_base_path ownership_output_path ownership_result crawler_key ownership_helper
   local has_primary_slice=false delay
+  local -a effective_files
+  local skipped_identical
   local result_key result_cacheable ownership_verdict proof_digest owned_blob reused_count computed_count
 
   base_sha="$(git rev-parse HEAD)"
   tmp_index="$(mktemp /tmp/crawler-commit-index.XXXXXX)"
   merge_dir="$(mktemp -d /tmp/crawler-commit-merge.XXXXXX)"
   ownership_helper="$(dirname "$0")/crawler-commit-ownership.mjs"
-  for f in "${RESOLVED_FILES[@]}"; do
-    if [[ "$f" == data/jobs/by-crawler/*.json ]]; then
-      has_primary_slice=true
-      break
-    fi
-  done
+  # has_primary_slice is recomputed per attempt on the effective file list
+  # (see the identical-to-remote filter inside the retry loop).
   # shellcheck disable=SC2064
   trap "rm -f '$tmp_index'; rm -rf '$merge_dir'" RETURN
 
@@ -1883,6 +1881,33 @@ commit_isolated_from_worktree() {
     remote_sha="$(git rev-parse origin/main)"
     remote_tree="$(git rev-parse "${remote_sha}^{tree}")"
 
+    # HEAD (base_sha) deliberately never advances after a push, so a directory
+    # path expands on every later commit of the run to ALL the slices touched
+    # since the run began, including those already published and byte-identical
+    # to origin/main. The private index is seeded from remote_sha, so staging
+    # such a file is a no-op by construction: skip it before it costs an
+    # ownership check, a 3-way merge and an integrity check (and, when no
+    # primary slice is left, the remote ownership archive). Absent files
+    # (explicit deletions), ignored files and files missing on the remote are
+    # never skipped; --group-batch is snapshot-bound and is left untouched.
+    effective_files=()
+    skipped_identical=0
+    has_primary_slice=false
+    for f in "${RESOLVED_FILES[@]}"; do
+      if [ "$GROUP_BATCH" != true ] && [ -f "$f" ] && ! git check-ignore -q "$f" 2>/dev/null; then
+        remote_blob="$(git rev-parse -q --verify "${remote_sha}:${f}" 2>/dev/null || true)"
+        if [ -n "$remote_blob" ] && [ "$(git hash-object -- "$f")" = "$remote_blob" ]; then
+          skipped_identical=$((skipped_identical + 1))
+          continue
+        fi
+      fi
+      effective_files+=("$f")
+      if [[ "$f" == data/jobs/by-crawler/*.json ]]; then
+        has_primary_slice=true
+      fi
+    done
+    echo "ℹ️ grouped-isolated attempt ${push_attempt}: ${skipped_identical} file(s) skipped because identical to origin/main, ${#effective_files[@]} candidate(s)"
+
     # Private index seeded from the CURRENT remote head — never the shared
     # .git/index (GIT_INDEX_FILE scopes every index operation below).
     GIT_INDEX_FILE="$tmp_index" git read-tree "$remote_sha"
@@ -1908,7 +1933,7 @@ commit_isolated_from_worktree() {
       fi
     fi
 
-    for f in "${RESOLVED_FILES[@]}"; do
+    for f in ${effective_files[@]+"${effective_files[@]}"}; do
       remote_blob="$(git rev-parse -q --verify "${remote_sha}:${f}" 2>/dev/null || true)"
       local_merge_path="$f"
       candidate_path="$local_merge_path"
