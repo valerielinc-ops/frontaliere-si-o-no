@@ -264,10 +264,26 @@ describe('ARTICLE_SECTION_CORE (canonical article-section registry)', () => {
     ]);
   });
 
+  it('rssFeeds.mjs gives every canton its own feed profile, never svizzera\'s (P7a)', () => {
+    for (const entry of Object.values(ARTICLE_SECTION_CORE_ALL)) {
+      if (entry.kind !== 'canton') continue;
+      const row = rssSectionFor(entry);
+      expect(row.id).toBe(entry.section);
+      expect(row.seoFiles).toEqual([`seo-blog-${entry.section}.ts`]);
+      expect(row.mainFeed).toBe(`rss-${entry.section}.xml`);
+      expect(['it', 'en', 'de', 'fr'].map((l) => row.feedFile(l))).toEqual(
+        ['it', 'en', 'de', 'fr'].map((l) => `rss-${entry.section}-${l}.xml`),
+      );
+      for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+        const meta = row.localeMeta[locale];
+        expect(meta.articlePrefix).toBe(locale === 'it' ? `/${entry.indexSlug.it}/` : `/${locale}/${entry.indexSlug[locale]}/`);
+        expect(meta.title).not.toMatch(/Svizzera|Switzerland|Schweiz|Suisse/);
+      }
+    }
+  });
+
   it('rssFeeds.mjs refuses a section kind without a feed profile instead of inventing channel copy', () => {
-    // Activating a canton section must bring its RSS profile in the same
-    // change; until then the canton kind has none, by construction.
-    expect(() => rssSectionFor(ARTICLE_SECTION_CORE_ALL['canton-ti'])).toThrow(/profilo RSS/);
+    expect(() => rssSectionFor({ ...ARTICLE_SECTION_CORE_ALL['canton-ti'], kind: 'regione' } as never)).toThrow(/profilo RSS/);
   });
 
   it('scripts/schedule-fb-articles-daily.mjs SECTIONS carries the core fields unchanged', async () => {

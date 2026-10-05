@@ -1,27 +1,27 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-10-05T09:14:56.571Z",
+  "assembledAt": "2026-10-05T21:23:54.670Z",
   "jobs": [
     {
       "id": "srg-ssr-4295227a1917",
       "slug": "posizione-srg-ssr-cuira",
       "slugByLocale": {
-        "rm": "praticanta-praticant-srg-ssr-cuira",
         "it": "posizione-srg-ssr-cuira",
         "en": "job-opening-srg-ssr-cuira",
         "de": "stellenangebot-srg-ssr-cuira",
-        "fr": "offre-d-emploi-srg-ssr-cuira"
+        "fr": "offre-d-emploi-srg-ssr-cuira",
+        "rm": "praticanta-praticant-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
       "companyDomain": "srgssr.ch",
       "title": "Praticanta / praticant",
       "titleByLocale": {
-        "rm": "Praticanta / praticant",
         "it": "Posizione",
         "en": "Job opening",
         "de": "Stellenangebot",
-        "fr": "Offre d'emploi"
+        "fr": "Offre d'emploi",
+        "rm": "Praticanta / praticant"
       },
       "description": "RTR è in'unitad d'interpresa da la SRG SSR e la chasa da medias per la Svizra rumantscha. Di per di procuran passa 160 collavuraturas e collavuraturs en 30 differentas professiuns per infurmaziuns actualas, novitads regiunalas, rapportaziuns da sport e divertiment.\n\n## Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista?\n\nHas ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica?\n\nNus sustegnain e scolain tai!\n\nTi pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas.\n\n## Tge spetgain nus?\n\nVegliadetgna: da circa 18 onns fin 30 onns\nScolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta\nDurada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn.\n\n## E suenter il praticum?\n\nSuenter il praticum pudess tes viadi schurnalistic cuntinuar tar RTR cun la scolaziun schurnalistica al MAZ, la scola da medias a Lucerna.\n\nSco tecnicistA pudess tia via cuntinuar cun la scolaziun “digital film production diploma” a la SAE a Turitg.\n\nBetg propi quai che ta plascha? Nus essan flexibels e pudain gugent chattar ensemen cun tai la via optimala.\n\nSche ti has anc ina u l'autra dumonda? T'annunzia, nus respundain gugent ellas!\n\n## Nossa purschida\nTge dovri per cuntanscher cun formats da gronda qualitad ils umans en Svizra? Savida d'experts, entusiassem ed in ambient inspirant sco er animant, en il qual tuts pon sa posiziunar e sa sviluppar vinavant. Per ch'ils megliers possian dar il meglier da sasez dovran els ina patria inspiranta: Bainvegni en il mund da RTR!\n- Far medias: Schurnalissem da qualitad è nossa fatschenta principala e nossa passiun. Nus essan redacziunalmain libers, promovain la creativitad e purschain bler spazi per concepir chaussas novas e d'auta qualitad.\n- Concepir la digitalisaziun: Il schurnalissem da qualitad è tar nus era digital. Perquai sondain nus novas pussaivladads ed experimentain cun novas furmas e novs formats: digital, interactiv e crossmedial. Nus concepin al puls dal temp ed al gnerv dal public.\n- Esser uman: Nus inscuntrain in l'auter a moda colleghiala, lavurain autonom e gidain individualmain a furmar noss clima da lavur. Noss success sa basa era sin las fermezzas persunalas e sin las qualitads professiunalas da tuttas collavuraturas e tuts collavuraturs.\n- Crear senn: Nus cuntanschain e muventain cun noss programs l'entira Svizra. Nus agin cun respect ed a moda independenta; uschia promovain nus la furmaziun da l'opiniun e rinforzain la diversitad. Nus essan loschs da nossa lavur e da nossa contribuziun a la Svizra.",
       "descriptionByLocale": {
@@ -34,7 +34,7 @@
       "sourceLang": "rm",
       "sourceLangOriginal": "rm",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T09:14:29.180Z",
+      "crawledAt": "2026-10-05T21:23:26.896Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -52,9 +52,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "requirements": [],
-      "requirementsByLocale": {
-        "rm": []
-      },
+      "requirementsByLocale": {},
       "_srgMeta": {
         "uuid": "4a660497-3bdc-452a-ab3f-d9b8493cc46f",
         "org": "rtr",
@@ -62,14 +60,15 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
+      "previousSlugs": [
+        "praticanta-praticant-srg-ssr-cuira"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "praticanta-praticant-srg-ssr-cuira"
         ]
       },
-      "previousSlugs": [
-        "praticanta-praticant-srg-ssr-cuira"
-      ],
+      "firstSeenAt": "2026-09-26T13:53:52.796Z",
       "salaryMin": 50500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -82,8 +81,7 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-26T13:53:52.796Z"
+      }
     },
     {
       "id": "srg-ssr-5022fb7a0f73",
@@ -116,7 +114,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:14:28.635Z",
+      "crawledAt": "2026-10-05T21:23:26.077Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -211,7 +209,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte/c19f548f-3961-4b5a-9ad8-a4d3d9ad42a4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:14:28.108Z",
+      "crawledAt": "2026-10-05T21:23:25.557Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -312,7 +310,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/controleur-se-strategique-de-projets-et-d-investissements/e949b34a-1f5a-49f0-8b9a-3bee723d0545",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:14:27.566Z",
+      "crawledAt": "2026-10-05T21:23:25.022Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -411,7 +409,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:14:26.880Z",
+      "crawledAt": "2026-10-05T21:23:24.408Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -513,7 +511,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:14:26.320Z",
+      "crawledAt": "2026-10-05T21:23:23.875Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -615,7 +613,7 @@
       "url": "https://jobs.srgssr.ch/swi/offene-stellen/fachverantwortliche-r-produktentwicklung-swissinfo/62bdb575-3d14-49e3-a8ab-e8c69e6e5425",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:14:25.765Z",
+      "crawledAt": "2026-10-05T21:23:23.347Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -715,7 +713,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nella-redazione-radiofonica-di-rete-uno/f0713e91-8f0d-45e7-97e7-594e453d4471",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-05T09:14:25.241Z",
+      "crawledAt": "2026-10-05T21:23:22.839Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -810,7 +808,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-social-media-content-creator-rete-uno-e-rete-tre/c9783f6a-a253-43f3-9ef7-6a679c49914d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-05T09:14:24.568Z",
+      "crawledAt": "2026-10-05T21:23:22.172Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -906,7 +904,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/leiter-in-immobilien-srg-co-leitung-moeglich/246cbef0-8690-40df-9455-e2d6560d25f6",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:14:23.912Z",
+      "crawledAt": "2026-10-05T21:23:21.561Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1011,7 +1009,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsabile-immobili-ssr-co-conduzione-possibile/481ef3ff-0df3-4c4a-b1f9-f0bfad4ca28e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-05T09:14:23.220Z",
+      "crawledAt": "2026-10-05T21:23:20.961Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1100,7 +1098,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsable-immobilier-ssr-codirection-possible/097acdb0-f182-452a-a7ee-ebf96ae0bc74",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:14:22.513Z",
+      "crawledAt": "2026-10-05T21:23:20.283Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1203,7 +1201,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-52-settimane-impiegata-impiegato-di-commercio-o-per-accesso-supsi/2bc061f3-bb09-4558-9388-63711380a1aa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-05T09:14:21.822Z",
+      "crawledAt": "2026-10-05T21:23:19.646Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1292,7 +1290,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/hms-praktikum-kauffrau-kaufmann/003650d2-1ad9-4ad4-85aa-e9c6dd4dfa99",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:14:21.128Z",
+      "crawledAt": "2026-10-05T21:23:19.017Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1378,7 +1376,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/ingenieure-broadcast-control-orchestration-specialiste-evs-cerebrum/2cbe24ea-3523-43a2-92f1-a3b7315b8ea1",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:14:20.578Z",
+      "crawledAt": "2026-10-05T21:23:18.501Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1492,7 +1490,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/ingenieure-reseau-ip-infrastructures-media-temps-reel/fc5de56b-9152-4519-84ee-dbc172b578c0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:14:19.890Z",
+      "crawledAt": "2026-10-05T21:23:17.907Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1610,7 +1608,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/business-controller-offerta-regionale-rsi/2e5e1327-93ea-4d65-a7ba-e6047f6f0d31",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-05T09:14:19.194Z",
+      "crawledAt": "2026-10-05T21:23:17.301Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1700,7 +1698,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/chargee-de-securite-specialisee-protection-incendie-region-ouest/a66dcccb-63bb-4cb2-b0aa-17fba32d0ca3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:14:18.613Z",
+      "crawledAt": "2026-10-05T21:23:16.755Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1798,7 +1796,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/fachspezialist-in-public-affairs/de58e2c4-0538-466a-a2c0-a3eef4373fde",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:14:17.934Z",
+      "crawledAt": "2026-10-05T21:23:16.129Z",
       "addressLocality": "Genève 8",
       "addressCountry": "CH",
       "country": "CH",
@@ -1811,7 +1809,9 @@
       "sector": "Media / Broadcasting",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-09-25",
       "postedDate": "2026-09-25",
+      "postingDateSource": "reported",
       "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/fachspezialist-in-public-affairs/de58e2c4-0538-466a-a2c0-a3eef4373fde",
       "requirements": [
         "Ausgewiesene mehrjährige Erfahrung im Bereich Public Affairs in einem Unternehmen, einem Verband oder einer Agentur",
@@ -1847,9 +1847,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE",
-      "datePosted": "2026-09-25",
-      "postingDateSource": "reported"
+      "addressRegion": "GE"
     },
     {
       "id": "srg-ssr-79793e4d072f",
@@ -1882,7 +1880,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/specialiste-affaires-publiques-f-h-d/39b75d80-f61a-4051-98f3-1c876d1dd2a5",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:14:17.259Z",
+      "crawledAt": "2026-10-05T21:23:15.502Z",
       "addressLocality": "Genève 8",
       "addressCountry": "CH",
       "country": "CH",
@@ -1966,7 +1964,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/chef-fe-d-antenne-rts-couleur-3/d486de8e-446e-4247-bdbb-7b10376a7750",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:14:16.527Z",
+      "crawledAt": "2026-10-05T21:23:14.838Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2080,7 +2078,7 @@
       "sourceLang": "rm",
       "sourceLangOriginal": "rm",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T09:14:15.860Z",
+      "crawledAt": "2026-10-05T21:23:14.226Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2187,7 +2185,7 @@
       "sourceLang": "rm",
       "sourceLangOriginal": "rm",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-05T09:14:15.212Z",
+      "crawledAt": "2026-10-05T21:23:13.635Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2293,7 +2291,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/moderatorin-moderator-arena/3fe096fe-a5ab-4b2d-bd02-ffeb5e319232",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:14:14.550Z",
+      "crawledAt": "2026-10-05T21:23:12.689Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2387,7 +2385,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/entwicklungsleiter-in/4c51d657-381a-4cee-b9db-3f63090b7e24",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:14:13.854Z",
+      "crawledAt": "2026-10-05T21:23:12.088Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2460,6 +2458,458 @@
         }
       },
       "addressRegion": "ZH"
+    },
+    {
+      "id": "srg-ssr-a56f15fe76f0",
+      "slug": "unternehmensjurist-in-legal-counsel-im-gesellschafts-e-vertragsrecht-srg-ssr-geneve-8",
+      "slugByLocale": {
+        "de": "unternehmensjurist-in-legal-counsel-im-gesellschafts-und-vertragsrecht-srg-ssr-geneve-8",
+        "it": "unternehmensjurist-in-legal-counsel-im-gesellschafts-e-vertragsrecht-srg-ssr-geneve-8",
+        "en": "unternehmensjurist-in-legal-counsel-im-gesellschafts-und-vertragsrecht-srg-ssr-geneve-8",
+        "fr": "unternehmensjurist-in-legal-counsel-im-gesellschafts-und-vertragsrecht-srg-ssr-geneve-8"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Unternehmensjurist:in (Legal Counsel) im Gesellschafts- und Vertragsrecht",
+      "titleByLocale": {
+        "de": "Unternehmensjurist:in (Legal Counsel) im Gesellschafts- und Vertragsrecht",
+        "it": "Unternehmensjurist:in (Legal Counsel) im Gesellschafts- e Vertragsrecht",
+        "en": "Unternehmensjurist:in (Legal Counsel) im Gesellschafts- und Vertragsrecht",
+        "fr": "Unternehmensjurist:in (Legal Counsel) im Gesellschafts- und Vertragsrecht"
+      },
+      "description": "Der Rechtsdienst der SRG lenkt das Unternehmen und dessen Mitarbeitende sicher durch das Gesetzes- und Regulierungswerk und sichert die juristische Integrität des Unternehmens.\n\n## Das ist Ihr Beitrag\n\nIm Rechtsdienst engagieren Sie sich für folgende Themen:\n\n• Sie beraten und unterstützen Verwaltungsrat, Generaldirektorin und Geschäftsleitung bei gesellschaftsrechtlichen und regulatorischen Fragen an der Schnittstelle von Medien, Politik und Recht. Idealerweise bringen Sie Kenntnisse im Rundfunkrecht mit.\n\n• Sie gestalten die Corporate Governance der SRG mit und begleiten Organisations-, Struktur- und Transformationsprojekte rechtlich.\n\n• Sie unterstützen die Entscheidträger:innen der SRG bei der Anwendung interner Regelwerke und entwickeln diese Regelwerke weiter.\n\n• Sie redigieren und prüfen Verträge, beraten und unterstützen interne Kundinnen und Kunden bei Vertragsverhandlungen vor allem im Bereich der Beschaffung von Infrastruktur, Hardware und Software.\n\n## Damit begeistern Sie uns\n\n• Sie bringen Erfahrung in einem Unternehmen, in der öffentlichen Verwaltung oder in einer Anwaltskanzlei in den Bereichen Gesellschaftsrecht und/oder Vertragsrecht mit, idealerweise mit Schweizer Anwaltspatent.\n\n• Sie verfügen über sehr gute digitale Kenntnisse und eine hohe Affinität für neue Technologien.\n\n• Sie sind eine aufgeschlossene, anpackende und belastbare Persönlichkeit mit ausgeprägter Kommunikationsfähigkeit und Kundenorientierung und wissen sich sicher gegenüber verschiedenster Anspruchsgruppen zu bewegen.\n\n• Sie arbeiten gerne pragmatisch und lösungsorientiert, haben analytische, redaktionelle und konzeptionelle Fähigkeiten, verhandeln geschickt und zielstrebig.\n\n• Sie sind deutscher Muttersprache, kommunizieren mündlich und schriftlich sicher auf Französisch und verfügen über gute Englischkenntnisse.\n\n• Sie zeichnen sich durch Teamgeist aus und schätzen eine kooperative und interdisziplinäre Arbeitsweise, wobei Sie Interesse an den verschiedenen Sprachregionen der Schweiz haben.\n\n## Damit begeistern wir Sie\n\n• Abwechslungsreiche Aufgaben im spannenden und dynamischen Umfeld des medialen Service public.\n\n• Rechtsberatung im Zentrum der unternehmerischen Entscheidfindungsprozesse und unternehmensweiten Beschaffung.\n\n• Dynamisches, kollegiales Umfeld mit Jurist:innen aus allen Sprachregionen der Schweiz.\n\n• Selbständiges Arbeiten, verbunden mit den Vorteilen erfolgreicher Teamarbeit.\n\nBewerbungsfrist: 25. Oktober 2026\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz.",
+      "descriptionByLocale": {
+        "de": "Der Rechtsdienst der SRG lenkt das Unternehmen und dessen Mitarbeitende sicher durch das Gesetzes- und Regulierungswerk und sichert die juristische Integrität des Unternehmens.\n\n## Das ist Ihr Beitrag\n\nIm Rechtsdienst engagieren Sie sich für folgende Themen:\n\n• Sie beraten und unterstützen Verwaltungsrat, Generaldirektorin und Geschäftsleitung bei gesellschaftsrechtlichen und regulatorischen Fragen an der Schnittstelle von Medien, Politik und Recht. Idealerweise bringen Sie Kenntnisse im Rundfunkrecht mit.\n\n• Sie gestalten die Corporate Governance der SRG mit und begleiten Organisations-, Struktur- und Transformationsprojekte rechtlich.\n\n• Sie unterstützen die Entscheidträger:innen der SRG bei der Anwendung interner Regelwerke und entwickeln diese Regelwerke weiter.\n\n• Sie redigieren und prüfen Verträge, beraten und unterstützen interne Kundinnen und Kunden bei Vertragsverhandlungen vor allem im Bereich der Beschaffung von Infrastruktur, Hardware und Software.\n\n## Damit begeistern Sie uns\n\n• Sie bringen Erfahrung in einem Unternehmen, in der öffentlichen Verwaltung oder in einer Anwaltskanzlei in den Bereichen Gesellschaftsrecht und/oder Vertragsrecht mit, idealerweise mit Schweizer Anwaltspatent.\n\n• Sie verfügen über sehr gute digitale Kenntnisse und eine hohe Affinität für neue Technologien.\n\n• Sie sind eine aufgeschlossene, anpackende und belastbare Persönlichkeit mit ausgeprägter Kommunikationsfähigkeit und Kundenorientierung und wissen sich sicher gegenüber verschiedenster Anspruchsgruppen zu bewegen.\n\n• Sie arbeiten gerne pragmatisch und lösungsorientiert, haben analytische, redaktionelle und konzeptionelle Fähigkeiten, verhandeln geschickt und zielstrebig.\n\n• Sie sind deutscher Muttersprache, kommunizieren mündlich und schriftlich sicher auf Französisch und verfügen über gute Englischkenntnisse.\n\n• Sie zeichnen sich durch Teamgeist aus und schätzen eine kooperative und interdisziplinäre Arbeitsweise, wobei Sie Interesse an den verschiedenen Sprachregionen der Schweiz haben.\n\n## Damit begeistern wir Sie\n\n• Abwechslungsreiche Aufgaben im spannenden und dynamischen Umfeld des medialen Service public.\n\n• Rechtsberatung im Zentrum der unternehmerischen Entscheidfindungsprozesse und unternehmensweiten Beschaffung.\n\n• Dynamisches, kollegiales Umfeld mit Jurist:innen aus allen Sprachregionen der Schweiz.\n\n• Selbständiges Arbeiten, verbunden mit den Vorteilen erfolgreicher Teamarbeit.\n\nBewerbungsfrist: 25. Oktober 2026\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz.",
+        "it": "Der Rechtsdienst der SRG lenkt das Unternehmen und dessen Mitarbeitende sicher durch das Gesetzes- und Regulierungswerk und sichert die juristische Integrität des Unternehmens.\n\n## Das ist Ihr Beitrag\n\nIm Rechtsdienst engagieren Sie sich für folgende Themen:\n\n• Sie beraten und unterstützen Verwaltungsrat, Generaldirektorin und Geschäftsleitung bei gesellschaftsrechtlichen und regulatorischen Fragen an der Schnittstelle von Medien, Politik und Recht. Idealerweise bringen Sie Kenntnisse im Rundfunkrecht mit.\n\n• Sie gestalten die Corporate Governance der SRG mit und begleiten Organisations-, Struktur- und Transformationsprojekte rechtlich.\n\n• Sie unterstützen die Entscheidträger:innen der SRG bei der Anwendung interner Regelwerke und entwickeln diese Regelwerke weiter.\n\n• Sie redigieren und prüfen Verträge, beraten und unterstützen interne Kundinnen und Kunden bei Vertragsverhandlungen vor allem im Bereich der Beschaffung von Infrastruktur, Hardware und Software.\n\n## Damit begeistern Sie uns\n\n• Sie bringen Erfahrung in einem Unternehmen, in der öffentlichen Verwaltung oder in einer Anwaltskanzlei in den Bereichen Gesellschaftsrecht und/oder Vertragsrecht mit, idealerweise mit Schweizer Anwaltspatent.\n\n• Sie verfügen über sehr gute digitale Kenntnisse und eine hohe Affinität für neue Technologien.\n\n• Sie sind eine aufgeschlossene, anpackende und belastbare Persönlichkeit mit ausgeprägter Kommunikationsfähigkeit und Kundenorientierung und wissen sich sicher gegenüber verschiedenster Anspruchsgruppen zu bewegen.\n\n• Sie arbeiten gerne pragmatisch und lösungsorientiert, haben analytische, redaktionelle und konzeptionelle Fähigkeiten, verhandeln geschickt und zielstrebig.\n\n• Sie sind deutscher Muttersprache, kommunizieren mündlich und schriftlich sicher auf Französisch und verfügen über gute Englischkenntnisse.\n\n• Sie zeichnen sich durch Teamgeist aus und schätzen eine kooperative und interdisziplinäre Arbeitsweise, wobei Sie Interesse an den verschiedenen Sprachregionen der Schweiz haben.\n\n## Damit begeistern wir Sie\n\n• Abwechslungsreiche Aufgaben im spannenden und dynamischen Umfeld des medialen Service public.\n\n• Rechtsberatung im Zentrum der unternehmerischen Entscheidfindungsprozesse und unternehmensweiten Beschaffung.\n\n• Dynamisches, kollegiales Umfeld mit Jurist:innen aus allen Sprachregionen der Schweiz.\n\n• Selbständiges Arbeiten, verbunden mit den Vorteilen erfolgreicher Teamarbeit.\n\nBewerbungsfrist: 25. Oktober 2026\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz.",
+        "en": "Der Rechtsdienst der SRG lenkt das Unternehmen und dessen Mitarbeitende sicher durch das Gesetzes- und Regulierungswerk und sichert die juristische Integrität des Unternehmens.\n\n## Das ist Ihr Beitrag\n\nIm Rechtsdienst engagieren Sie sich für folgende Themen:\n\n• Sie beraten und unterstützen Verwaltungsrat, Generaldirektorin und Geschäftsleitung bei gesellschaftsrechtlichen und regulatorischen Fragen an der Schnittstelle von Medien, Politik und Recht. Idealerweise bringen Sie Kenntnisse im Rundfunkrecht mit.\n\n• Sie gestalten die Corporate Governance der SRG mit und begleiten Organisations-, Struktur- und Transformationsprojekte rechtlich.\n\n• Sie unterstützen die Entscheidträger:innen der SRG bei der Anwendung interner Regelwerke und entwickeln diese Regelwerke weiter.\n\n• Sie redigieren und prüfen Verträge, beraten und unterstützen interne Kundinnen und Kunden bei Vertragsverhandlungen vor allem im Bereich der Beschaffung von Infrastruktur, Hardware und Software.\n\n## Damit begeistern Sie uns\n\n• Sie bringen Erfahrung in einem Unternehmen, in der öffentlichen Verwaltung oder in einer Anwaltskanzlei in den Bereichen Gesellschaftsrecht und/oder Vertragsrecht mit, idealerweise mit Schweizer Anwaltspatent.\n\n• Sie verfügen über sehr gute digitale Kenntnisse und eine hohe Affinität für neue Technologien.\n\n• Sie sind eine aufgeschlossene, anpackende und belastbare Persönlichkeit mit ausgeprägter Kommunikationsfähigkeit und Kundenorientierung und wissen sich sicher gegenüber verschiedenster Anspruchsgruppen zu bewegen.\n\n• Sie arbeiten gerne pragmatisch und lösungsorientiert, haben analytische, redaktionelle und konzeptionelle Fähigkeiten, verhandeln geschickt und zielstrebig.\n\n• Sie sind deutscher Muttersprache, kommunizieren mündlich und schriftlich sicher auf Französisch und verfügen über gute Englischkenntnisse.\n\n• Sie zeichnen sich durch Teamgeist aus und schätzen eine kooperative und interdisziplinäre Arbeitsweise, wobei Sie Interesse an den verschiedenen Sprachregionen der Schweiz haben.\n\n## Damit begeistern wir Sie\n\n• Abwechslungsreiche Aufgaben im spannenden und dynamischen Umfeld des medialen Service public.\n\n• Rechtsberatung im Zentrum der unternehmerischen Entscheidfindungsprozesse und unternehmensweiten Beschaffung.\n\n• Dynamisches, kollegiales Umfeld mit Jurist:innen aus allen Sprachregionen der Schweiz.\n\n• Selbständiges Arbeiten, verbunden mit den Vorteilen erfolgreicher Teamarbeit.\n\nBewerbungsfrist: 25. Oktober 2026\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz.",
+        "fr": "Der Rechtsdienst der SRG lenkt das Unternehmen und dessen Mitarbeitende sicher durch das Gesetzes- und Regulierungswerk und sichert die juristische Integrität des Unternehmens.\n\n## Das ist Ihr Beitrag\n\nIm Rechtsdienst engagieren Sie sich für folgende Themen:\n\n• Sie beraten und unterstützen Verwaltungsrat, Generaldirektorin und Geschäftsleitung bei gesellschaftsrechtlichen und regulatorischen Fragen an der Schnittstelle von Medien, Politik und Recht. Idealerweise bringen Sie Kenntnisse im Rundfunkrecht mit.\n\n• Sie gestalten die Corporate Governance der SRG mit und begleiten Organisations-, Struktur- und Transformationsprojekte rechtlich.\n\n• Sie unterstützen die Entscheidträger:innen der SRG bei der Anwendung interner Regelwerke und entwickeln diese Regelwerke weiter.\n\n• Sie redigieren und prüfen Verträge, beraten und unterstützen interne Kundinnen und Kunden bei Vertragsverhandlungen vor allem im Bereich der Beschaffung von Infrastruktur, Hardware und Software.\n\n## Damit begeistern Sie uns\n\n• Sie bringen Erfahrung in einem Unternehmen, in der öffentlichen Verwaltung oder in einer Anwaltskanzlei in den Bereichen Gesellschaftsrecht und/oder Vertragsrecht mit, idealerweise mit Schweizer Anwaltspatent.\n\n• Sie verfügen über sehr gute digitale Kenntnisse und eine hohe Affinität für neue Technologien.\n\n• Sie sind eine aufgeschlossene, anpackende und belastbare Persönlichkeit mit ausgeprägter Kommunikationsfähigkeit und Kundenorientierung und wissen sich sicher gegenüber verschiedenster Anspruchsgruppen zu bewegen.\n\n• Sie arbeiten gerne pragmatisch und lösungsorientiert, haben analytische, redaktionelle und konzeptionelle Fähigkeiten, verhandeln geschickt und zielstrebig.\n\n• Sie sind deutscher Muttersprache, kommunizieren mündlich und schriftlich sicher auf Französisch und verfügen über gute Englischkenntnisse.\n\n• Sie zeichnen sich durch Teamgeist aus und schätzen eine kooperative und interdisziplinäre Arbeitsweise, wobei Sie Interesse an den verschiedenen Sprachregionen der Schweiz haben.\n\n## Damit begeistern wir Sie\n\n• Abwechslungsreiche Aufgaben im spannenden und dynamischen Umfeld des medialen Service public.\n\n• Rechtsberatung im Zentrum der unternehmerischen Entscheidfindungsprozesse und unternehmensweiten Beschaffung.\n\n• Dynamisches, kollegiales Umfeld mit Jurist:innen aus allen Sprachregionen der Schweiz.\n\n• Selbständiges Arbeiten, verbunden mit den Vorteilen erfolgreicher Teamarbeit.\n\nBewerbungsfrist: 25. Oktober 2026\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz."
+      },
+      "location": "Genève 8",
+      "canton": "GE",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/unternehmensjurist-in-legal-counsel-im-gesellschafts-und-vertragsrecht/d0ac4654-6e4d-4ff2-8f33-ac4c851739af",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T21:23:11.479Z",
+      "addressLocality": "Genève 8",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1211",
+      "streetAddress": "Quai Ernest-Ansermet 20",
+      "category": "Media / Giornalismo",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-05",
+      "postedDate": "2026-10-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/unternehmensjurist-in-legal-counsel-im-gesellschafts-und-vertragsrecht/d0ac4654-6e4d-4ff2-8f33-ac4c851739af",
+      "requirements": [
+        "Sie bringen Erfahrung in einem Unternehmen, in der öffentlichen Verwaltung oder in einer Anwaltskanzlei in den Bereichen Gesellschaftsrecht und/oder Vertragsrecht mit, idealerweise mit Schweizer Anwaltspatent.",
+        "Sie verfügen über sehr gute digitale Kenntnisse und eine hohe Affinität für neue Technologien.",
+        "Sie sind eine aufgeschlossene, anpackende und belastbare Persönlichkeit mit ausgeprägter Kommunikationsfähigkeit und Kundenorientierung und wissen sich sicher gegenüber verschiedenster Anspruchsgruppen zu bewegen.",
+        "Sie arbeiten gerne pragmatisch und lösungsorientiert, haben analytische, redaktionelle und konzeptionelle Fähigkeiten, verhandeln geschickt und zielstrebig.",
+        "Sie sind deutscher Muttersprache, kommunizieren mündlich und schriftlich sicher auf Französisch und verfügen über gute Englischkenntnisse.",
+        "Sie zeichnen sich durch Teamgeist aus und schätzen eine kooperative und interdisziplinäre Arbeitsweise, wobei Sie Interesse an den verschiedenen Sprachregionen der Schweiz haben."
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Sie bringen Erfahrung in einem Unternehmen, in der öffentlichen Verwaltung oder in einer Anwaltskanzlei in den Bereichen Gesellschaftsrecht und/oder Vertragsrecht mit, idealerweise mit Schweizer Anwaltspatent.",
+          "Sie verfügen über sehr gute digitale Kenntnisse und eine hohe Affinität für neue Technologien.",
+          "Sie sind eine aufgeschlossene, anpackende und belastbare Persönlichkeit mit ausgeprägter Kommunikationsfähigkeit und Kundenorientierung und wissen sich sicher gegenüber verschiedenster Anspruchsgruppen zu bewegen.",
+          "Sie arbeiten gerne pragmatisch und lösungsorientiert, haben analytische, redaktionelle und konzeptionelle Fähigkeiten, verhandeln geschickt und zielstrebig.",
+          "Sie sind deutscher Muttersprache, kommunizieren mündlich und schriftlich sicher auf Französisch und verfügen über gute Englischkenntnisse.",
+          "Sie zeichnen sich durch Teamgeist aus und schätzen eine kooperative und interdisziplinäre Arbeitsweise, wobei Sie Interesse an den verschiedenen Sprachregionen der Schweiz haben."
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "d0ac4654-6e4d-4ff2-8f33-ac4c851739af",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 80,
+        "pensumMax": 100
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "unternehmensjurist-in-legal-counsel-im-gesellschafts-und-vertragsrecht-srg-ssr-geneve-8"
+        ]
+      },
+      "previousSlugs": [
+        "unternehmensjurist-in-legal-counsel-im-gesellschafts-und-vertragsrecht-srg-ssr-geneve-8"
+      ],
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GE",
+      "firstSeenAt": "2026-10-05T21:23:11.479Z"
+    },
+    {
+      "id": "srg-ssr-ef33ef8bd29b",
+      "slug": "juriste-d-39-entreprise-legal-counsel-specialise-e-en-droit-des-societes-et-des-contrats-f",
+      "slugByLocale": {
+        "fr": "juriste-d-39-entreprise-legal-counsel-specialise-e-en-droit-des-societes-et-des-contrats-f",
+        "it": "juriste-d-39-entreprise-legal-counsel-specialise-e-en-droit-des-societes-et-des-contrats-f",
+        "en": "juriste-d-39-entreprise-legal-counsel-specialise-e-en-droit-des-societes-et-des-contrats-f",
+        "de": "juriste-d-39-entreprise-legal-counsel-specialise-e-en-droit-des-societes-et-des-contrats-f"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Juriste d'entreprise (Legal Counsel) spécialisé.e en droit des sociétés et des contrats (f/h/d)",
+      "titleByLocale": {
+        "fr": "Juriste d'entreprise (Legal Counsel) spécialisé.e en droit des sociétés et des contrats (f/h/d)",
+        "it": "Juriste d'entreprise (Legal Counsel) spécialisé.e en droit des sociétés et des contrats (f/m/d)",
+        "en": "Juriste d'entreprise (Legal Counsel) spécialisé.e en droit des sociétés et des contrats (f/h/d)",
+        "de": "Juriste d'entreprise (Legal Counsel) spécialisé.e en droit des sociétés et des contrats (f/h/d)"
+      },
+      "description": "Le Service juridique guide l'entreprise et son personnel à travers les méandres du cadre légal et réglementaire et garantit l'intégrité juridique de la SSR.\n\n## Votre mission\n\nAu sein du Service juridique, votre cahier des charges englobe notamment les tâches suivantes:\n• conseil et assistance au Conseil d'administration, à la directrice générale et au Comité de direction pour les questions relevant du droit des sociétés et de la réglementation, à l'intersection entre les médias, la politique et le droit (des connaissances en droit de la radiodiffusion constituent un atout),\n\n• participation à l'élaboration de la gouvernance d'entreprise de la SSR et accompagnement de projets d'organisation, de restructuration et de transformation sous l'angle juridique,\n\n• assistance aux décideur.ses de la SSR dans l'application des réglementations internes; contribution au développement de celles-ci,\n\n• rédaction et vérification de contrats; conseil et accompagnement des client.es internes lors des négociations contractuelles, notamment dans le domaine de l'acquisition d'infrastructures, de matériel informatique et de logiciels.\n\n## Votre profil\n\n• Expérience acquise au sein d'une entreprise, d'une administration publique ou d'un cabinet d'avocats dans les domaines du droit des sociétés et/ou du droit des contrats; idéalement, titularité d'un brevet d'avocat suisse\n\n• Excellentes connaissances numériques; goût marqué pour les nouvelles technologies\n\n• Ouverture et vivacité d'esprit, résistance au stress, talent de communicateur.trice et orientation client; aisance relationnelle, quel que soit le groupe d'intérêt\n\n• Méthode de travail pragmatique et orientée solution; aptitudes analytiques, rédactionnelles et conceptuelles; talent pour la négociation\n\n• Langue maternelle allemande; maîtrise du français à l'oral comme à l'écrit assortie de bonnes connaissances de l'anglais\n\n• Esprit d'équipe; goût pour les approches collaboratives et interdisciplinaires; intérêt pour les différentes régions linguistiques de la Suisse\n\n## Ce que nous vous offrons\n\n• Des tâches variées dans l'environnement passionnant et dynamique du service public média\n\n• La dispense d'un conseil juridique au cœur des processus décisionnels de l'entreprise et des achats à l'échelle de l'entreprise\n\n• Un environnement dynamique et convivial, avec des juristes issu.es de toutes les régions linguistiques de la Suisse\n\n• Une activité autonome, associée aux avantages d'un travail en équipe performant\n\nDépôt de candidature: 25 octobre 2026\n\n## Notre promesse\nToucher l'ensemble de la population Suisse avec des formats de grande qualité nécessite de l'expertise, de l'enthousiasme et un environnement stimulant et propice à la création, au sein duquel tout le monde peut s'investir et évoluer. Pour que les meilleurs donnent le meilleur d'eux-mêmes, ils ont besoin d'avoir une source d'inspiration: Bienvenue dans l'univers de la SSR!\n- Créer du contenu: Le journalisme de qualité constitue le cœur de notre activité et notre passion. Nous jouissons d’une liberté totale de rédaction, encourageons la créativité et accordons une autonomie favorisant la nouveauté et la qualité.\n- Vivre le numérique: Chez nous, le journalisme de qualité peut aussi revêtir une forme numérique. C’est pourquoi nous explorons de nouvelles opportunités et expérimentons de nouveaux formats et pratiques: numériques, interactifs et cross-médias. Nos contenus s’inscrivent dans l’air du temps et répondent aux préoccupations du public.\n- Etre humain: Nous entretenons des relations informelles, travaillons de manière autonome et contribuons à une bonne atmosphère de travail. Notre réussite repose aussi bien sur les points forts de chacun que sur les compétences techniques de l’ensemble de nos collaborateurs.\n- Donner du sens: Avec notre programme, nous touchons toute la Suisse. Nous agissons de manière indépendante et respectueuse pour encourager la formation de l’opinion et renforcer la diversité culturelle. Nous sommes fiers de notre travail et de ce que nous apportons à la Suisse.",
+      "descriptionByLocale": {
+        "fr": "Le Service juridique guide l'entreprise et son personnel à travers les méandres du cadre légal et réglementaire et garantit l'intégrité juridique de la SSR.\n\n## Votre mission\n\nAu sein du Service juridique, votre cahier des charges englobe notamment les tâches suivantes:\n• conseil et assistance au Conseil d'administration, à la directrice générale et au Comité de direction pour les questions relevant du droit des sociétés et de la réglementation, à l'intersection entre les médias, la politique et le droit (des connaissances en droit de la radiodiffusion constituent un atout),\n\n• participation à l'élaboration de la gouvernance d'entreprise de la SSR et accompagnement de projets d'organisation, de restructuration et de transformation sous l'angle juridique,\n\n• assistance aux décideur.ses de la SSR dans l'application des réglementations internes; contribution au développement de celles-ci,\n\n• rédaction et vérification de contrats; conseil et accompagnement des client.es internes lors des négociations contractuelles, notamment dans le domaine de l'acquisition d'infrastructures, de matériel informatique et de logiciels.\n\n## Votre profil\n\n• Expérience acquise au sein d'une entreprise, d'une administration publique ou d'un cabinet d'avocats dans les domaines du droit des sociétés et/ou du droit des contrats; idéalement, titularité d'un brevet d'avocat suisse\n\n• Excellentes connaissances numériques; goût marqué pour les nouvelles technologies\n\n• Ouverture et vivacité d'esprit, résistance au stress, talent de communicateur.trice et orientation client; aisance relationnelle, quel que soit le groupe d'intérêt\n\n• Méthode de travail pragmatique et orientée solution; aptitudes analytiques, rédactionnelles et conceptuelles; talent pour la négociation\n\n• Langue maternelle allemande; maîtrise du français à l'oral comme à l'écrit assortie de bonnes connaissances de l'anglais\n\n• Esprit d'équipe; goût pour les approches collaboratives et interdisciplinaires; intérêt pour les différentes régions linguistiques de la Suisse\n\n## Ce que nous vous offrons\n\n• Des tâches variées dans l'environnement passionnant et dynamique du service public média\n\n• La dispense d'un conseil juridique au cœur des processus décisionnels de l'entreprise et des achats à l'échelle de l'entreprise\n\n• Un environnement dynamique et convivial, avec des juristes issu.es de toutes les régions linguistiques de la Suisse\n\n• Une activité autonome, associée aux avantages d'un travail en équipe performant\n\nDépôt de candidature: 25 octobre 2026\n\n## Notre promesse\nToucher l'ensemble de la population Suisse avec des formats de grande qualité nécessite de l'expertise, de l'enthousiasme et un environnement stimulant et propice à la création, au sein duquel tout le monde peut s'investir et évoluer. Pour que les meilleurs donnent le meilleur d'eux-mêmes, ils ont besoin d'avoir une source d'inspiration: Bienvenue dans l'univers de la SSR!\n- Créer du contenu: Le journalisme de qualité constitue le cœur de notre activité et notre passion. Nous jouissons d’une liberté totale de rédaction, encourageons la créativité et accordons une autonomie favorisant la nouveauté et la qualité.\n- Vivre le numérique: Chez nous, le journalisme de qualité peut aussi revêtir une forme numérique. C’est pourquoi nous explorons de nouvelles opportunités et expérimentons de nouveaux formats et pratiques: numériques, interactifs et cross-médias. Nos contenus s’inscrivent dans l’air du temps et répondent aux préoccupations du public.\n- Etre humain: Nous entretenons des relations informelles, travaillons de manière autonome et contribuons à une bonne atmosphère de travail. Notre réussite repose aussi bien sur les points forts de chacun que sur les compétences techniques de l’ensemble de nos collaborateurs.\n- Donner du sens: Avec notre programme, nous touchons toute la Suisse. Nous agissons de manière indépendante et respectueuse pour encourager la formation de l’opinion et renforcer la diversité culturelle. Nous sommes fiers de notre travail et de ce que nous apportons à la Suisse.",
+        "it": "Le Service juridique guide l'entreprise et son personnel à travers les méandres du cadre légal et réglementaire et garantit l'intégrité juridique de la SSR.\n\n## Votre mission\n\nAu sein du Service juridique, votre cahier des charges englobe notamment les tâches suivantes:\n• conseil et assistance au Conseil d'administration, à la directrice générale et au Comité de direction pour les questions relevant du droit des sociétés et de la réglementation, à l'intersection entre les médias, la politique et le droit (des connaissances en droit de la radiodiffusion constituent un atout),\n\n• participation à l'élaboration de la gouvernance d'entreprise de la SSR et accompagnement de projets d'organisation, de restructuration et de transformation sous l'angle juridique,\n\n• assistance aux décideur.ses de la SSR dans l'application des réglementations internes; contribution au développement de celles-ci,\n\n• rédaction et vérification de contrats; conseil et accompagnement des client.es internes lors des négociations contractuelles, notamment dans le domaine de l'acquisition d'infrastructures, de matériel informatique et de logiciels.\n\n## Votre profil\n\n• Expérience acquise au sein d'une entreprise, d'une administration publique ou d'un cabinet d'avocats dans les domaines du droit des sociétés et/ou du droit des contrats; idéalement, titularité d'un brevet d'avocat suisse\n\n• Excellentes connaissances numériques; goût marqué pour les nouvelles technologies\n\n• Ouverture et vivacité d'esprit, résistance au stress, talent de communicateur.trice et orientation client; aisance relationnelle, quel que soit le groupe d'intérêt\n\n• Méthode de travail pragmatique et orientée solution; aptitudes analytiques, rédactionnelles et conceptuelles; talent pour la négociation\n\n• Langue maternelle allemande; maîtrise du français à l'oral comme à l'écrit assortie de bonnes connaissances de l'anglais\n\n• Esprit d'équipe; goût pour les approches collaboratives et interdisciplinaires; intérêt pour les différentes régions linguistiques de la Suisse\n\n## Ce que nous vous offrons\n\n• Des tâches variées dans l'environnement passionnant et dynamique du service public média\n\n• La dispense d'un conseil juridique au cœur des processus décisionnels de l'entreprise et des achats à l'échelle de l'entreprise\n\n• Un environnement dynamique et convivial, avec des juristes issu.es de toutes les régions linguistiques de la Suisse\n\n• Une activité autonome, associée aux avantages d'un travail en équipe performant\n\nDépôt de candidature: 25 octobre 2026\n\n## Notre promesse\nToucher l'ensemble de la population Suisse avec des formats de grande qualité nécessite de l'expertise, de l'enthousiasme et un environnement stimulant et propice à la création, au sein duquel tout le monde peut s'investir et évoluer. Pour que les meilleurs donnent le meilleur d'eux-mêmes, ils ont besoin d'avoir une source d'inspiration: Bienvenue dans l'univers de la SSR!\n- Créer du contenu: Le journalisme de qualité constitue le cœur de notre activité et notre passion. Nous jouissons d’une liberté totale de rédaction, encourageons la créativité et accordons une autonomie favorisant la nouveauté et la qualité.\n- Vivre le numérique: Chez nous, le journalisme de qualité peut aussi revêtir une forme numérique. C’est pourquoi nous explorons de nouvelles opportunités et expérimentons de nouveaux formats et pratiques: numériques, interactifs et cross-médias. Nos contenus s’inscrivent dans l’air du temps et répondent aux préoccupations du public.\n- Etre humain: Nous entretenons des relations informelles, travaillons de manière autonome et contribuons à une bonne atmosphère de travail. Notre réussite repose aussi bien sur les points forts de chacun que sur les compétences techniques de l’ensemble de nos collaborateurs.\n- Donner du sens: Avec notre programme, nous touchons toute la Suisse. Nous agissons de manière indépendante et respectueuse pour encourager la formation de l’opinion et renforcer la diversité culturelle. Nous sommes fiers de notre travail et de ce que nous apportons à la Suisse.",
+        "en": "Le Service juridique guide l'entreprise et son personnel à travers les méandres du cadre légal et réglementaire et garantit l'intégrité juridique de la SSR.\n\n## Votre mission\n\nAu sein du Service juridique, votre cahier des charges englobe notamment les tâches suivantes:\n• conseil et assistance au Conseil d'administration, à la directrice générale et au Comité de direction pour les questions relevant du droit des sociétés et de la réglementation, à l'intersection entre les médias, la politique et le droit (des connaissances en droit de la radiodiffusion constituent un atout),\n\n• participation à l'élaboration de la gouvernance d'entreprise de la SSR et accompagnement de projets d'organisation, de restructuration et de transformation sous l'angle juridique,\n\n• assistance aux décideur.ses de la SSR dans l'application des réglementations internes; contribution au développement de celles-ci,\n\n• rédaction et vérification de contrats; conseil et accompagnement des client.es internes lors des négociations contractuelles, notamment dans le domaine de l'acquisition d'infrastructures, de matériel informatique et de logiciels.\n\n## Votre profil\n\n• Expérience acquise au sein d'une entreprise, d'une administration publique ou d'un cabinet d'avocats dans les domaines du droit des sociétés et/ou du droit des contrats; idéalement, titularité d'un brevet d'avocat suisse\n\n• Excellentes connaissances numériques; goût marqué pour les nouvelles technologies\n\n• Ouverture et vivacité d'esprit, résistance au stress, talent de communicateur.trice et orientation client; aisance relationnelle, quel que soit le groupe d'intérêt\n\n• Méthode de travail pragmatique et orientée solution; aptitudes analytiques, rédactionnelles et conceptuelles; talent pour la négociation\n\n• Langue maternelle allemande; maîtrise du français à l'oral comme à l'écrit assortie de bonnes connaissances de l'anglais\n\n• Esprit d'équipe; goût pour les approches collaboratives et interdisciplinaires; intérêt pour les différentes régions linguistiques de la Suisse\n\n## Ce que nous vous offrons\n\n• Des tâches variées dans l'environnement passionnant et dynamique du service public média\n\n• La dispense d'un conseil juridique au cœur des processus décisionnels de l'entreprise et des achats à l'échelle de l'entreprise\n\n• Un environnement dynamique et convivial, avec des juristes issu.es de toutes les régions linguistiques de la Suisse\n\n• Une activité autonome, associée aux avantages d'un travail en équipe performant\n\nDépôt de candidature: 25 octobre 2026\n\n## Notre promesse\nToucher l'ensemble de la population Suisse avec des formats de grande qualité nécessite de l'expertise, de l'enthousiasme et un environnement stimulant et propice à la création, au sein duquel tout le monde peut s'investir et évoluer. Pour que les meilleurs donnent le meilleur d'eux-mêmes, ils ont besoin d'avoir une source d'inspiration: Bienvenue dans l'univers de la SSR!\n- Créer du contenu: Le journalisme de qualité constitue le cœur de notre activité et notre passion. Nous jouissons d’une liberté totale de rédaction, encourageons la créativité et accordons une autonomie favorisant la nouveauté et la qualité.\n- Vivre le numérique: Chez nous, le journalisme de qualité peut aussi revêtir une forme numérique. C’est pourquoi nous explorons de nouvelles opportunités et expérimentons de nouveaux formats et pratiques: numériques, interactifs et cross-médias. Nos contenus s’inscrivent dans l’air du temps et répondent aux préoccupations du public.\n- Etre humain: Nous entretenons des relations informelles, travaillons de manière autonome et contribuons à une bonne atmosphère de travail. Notre réussite repose aussi bien sur les points forts de chacun que sur les compétences techniques de l’ensemble de nos collaborateurs.\n- Donner du sens: Avec notre programme, nous touchons toute la Suisse. Nous agissons de manière indépendante et respectueuse pour encourager la formation de l’opinion et renforcer la diversité culturelle. Nous sommes fiers de notre travail et de ce que nous apportons à la Suisse.",
+        "de": "Le Service juridique guide l'entreprise et son personnel à travers les méandres du cadre légal et réglementaire et garantit l'intégrité juridique de la SSR.\n\n## Votre mission\n\nAu sein du Service juridique, votre cahier des charges englobe notamment les tâches suivantes:\n• conseil et assistance au Conseil d'administration, à la directrice générale et au Comité de direction pour les questions relevant du droit des sociétés et de la réglementation, à l'intersection entre les médias, la politique et le droit (des connaissances en droit de la radiodiffusion constituent un atout),\n\n• participation à l'élaboration de la gouvernance d'entreprise de la SSR et accompagnement de projets d'organisation, de restructuration et de transformation sous l'angle juridique,\n\n• assistance aux décideur.ses de la SSR dans l'application des réglementations internes; contribution au développement de celles-ci,\n\n• rédaction et vérification de contrats; conseil et accompagnement des client.es internes lors des négociations contractuelles, notamment dans le domaine de l'acquisition d'infrastructures, de matériel informatique et de logiciels.\n\n## Votre profil\n\n• Expérience acquise au sein d'une entreprise, d'une administration publique ou d'un cabinet d'avocats dans les domaines du droit des sociétés et/ou du droit des contrats; idéalement, titularité d'un brevet d'avocat suisse\n\n• Excellentes connaissances numériques; goût marqué pour les nouvelles technologies\n\n• Ouverture et vivacité d'esprit, résistance au stress, talent de communicateur.trice et orientation client; aisance relationnelle, quel que soit le groupe d'intérêt\n\n• Méthode de travail pragmatique et orientée solution; aptitudes analytiques, rédactionnelles et conceptuelles; talent pour la négociation\n\n• Langue maternelle allemande; maîtrise du français à l'oral comme à l'écrit assortie de bonnes connaissances de l'anglais\n\n• Esprit d'équipe; goût pour les approches collaboratives et interdisciplinaires; intérêt pour les différentes régions linguistiques de la Suisse\n\n## Ce que nous vous offrons\n\n• Des tâches variées dans l'environnement passionnant et dynamique du service public média\n\n• La dispense d'un conseil juridique au cœur des processus décisionnels de l'entreprise et des achats à l'échelle de l'entreprise\n\n• Un environnement dynamique et convivial, avec des juristes issu.es de toutes les régions linguistiques de la Suisse\n\n• Une activité autonome, associée aux avantages d'un travail en équipe performant\n\nDépôt de candidature: 25 octobre 2026\n\n## Notre promesse\nToucher l'ensemble de la population Suisse avec des formats de grande qualité nécessite de l'expertise, de l'enthousiasme et un environnement stimulant et propice à la création, au sein duquel tout le monde peut s'investir et évoluer. Pour que les meilleurs donnent le meilleur d'eux-mêmes, ils ont besoin d'avoir une source d'inspiration: Bienvenue dans l'univers de la SSR!\n- Créer du contenu: Le journalisme de qualité constitue le cœur de notre activité et notre passion. Nous jouissons d’une liberté totale de rédaction, encourageons la créativité et accordons une autonomie favorisant la nouveauté et la qualité.\n- Vivre le numérique: Chez nous, le journalisme de qualité peut aussi revêtir une forme numérique. C’est pourquoi nous explorons de nouvelles opportunités et expérimentons de nouveaux formats et pratiques: numériques, interactifs et cross-médias. Nos contenus s’inscrivent dans l’air du temps et répondent aux préoccupations du public.\n- Etre humain: Nous entretenons des relations informelles, travaillons de manière autonome et contribuons à une bonne atmosphère de travail. Notre réussite repose aussi bien sur les points forts de chacun que sur les compétences techniques de l’ensemble de nos collaborateurs.\n- Donner du sens: Avec notre programme, nous touchons toute la Suisse. Nous agissons de manière indépendante et respectueuse pour encourager la formation de l’opinion et renforcer la diversité culturelle. Nous sommes fiers de notre travail et de ce que nous apportons à la Suisse."
+      },
+      "location": "Genève 8",
+      "canton": "GE",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/juriste-d-entreprise-legal-counsel-specialise-e-en-droit-des-societes-et-des-contrats-f-h-d/1a8b4ad5-4f61-4536-84fd-ea89fdef4dd5",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-05T21:23:10.854Z",
+      "addressLocality": "Genève 8",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1211",
+      "streetAddress": "Quai Ernest-Ansermet 20",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/juriste-d-entreprise-legal-counsel-specialise-e-en-droit-des-societes-et-des-contrats-f-h-d/1a8b4ad5-4f61-4536-84fd-ea89fdef4dd5",
+      "requirements": [
+        "Expérience acquise au sein d'une entreprise, d'une administration publique ou d'un cabinet d'avocats dans les domaines du droit des sociétés et/ou du droit des contrats; idéalement, titularité d'un brevet d'avocat suisse",
+        "Excellentes connaissances numériques; goût marqué pour les nouvelles technologies",
+        "Ouverture et vivacité d'esprit, résistance au stress, talent de communicateur.trice et orientation client; aisance relationnelle, quel que soit le groupe d'intérêt",
+        "Méthode de travail pragmatique et orientée solution; aptitudes analytiques, rédactionnelles et conceptuelles; talent pour la négociation",
+        "Langue maternelle allemande; maîtrise du français à l'oral comme à l'écrit assortie de bonnes connaissances de l'anglais",
+        "Esprit d'équipe; goût pour les approches collaboratives et interdisciplinaires; intérêt pour les différentes régions linguistiques de la Suisse"
+      ],
+      "requirementsByLocale": {
+        "fr": [
+          "Expérience acquise au sein d'une entreprise, d'une administration publique ou d'un cabinet d'avocats dans les domaines du droit des sociétés et/ou du droit des contrats; idéalement, titularité d'un brevet d'avocat suisse",
+          "Excellentes connaissances numériques; goût marqué pour les nouvelles technologies",
+          "Ouverture et vivacité d'esprit, résistance au stress, talent de communicateur.trice et orientation client; aisance relationnelle, quel que soit le groupe d'intérêt",
+          "Méthode de travail pragmatique et orientée solution; aptitudes analytiques, rédactionnelles et conceptuelles; talent pour la négociation",
+          "Langue maternelle allemande; maîtrise du français à l'oral comme à l'écrit assortie de bonnes connaissances de l'anglais",
+          "Esprit d'équipe; goût pour les approches collaboratives et interdisciplinaires; intérêt pour les différentes régions linguistiques de la Suisse"
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "1a8b4ad5-4f61-4536-84fd-ea89fdef4dd5",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 80,
+        "pensumMax": 100
+      },
+      "needsRetranslation": true,
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GE",
+      "firstSeenAt": "2026-10-05T21:23:10.854Z"
+    },
+    {
+      "id": "srg-ssr-5ce27a0a1c61",
+      "slug": "jurist-in-mit-anwaltspatent-srg-ssr-lausanne",
+      "slugByLocale": {
+        "de": "jurist-in-mit-anwaltspatent-srg-ssr-lausanne",
+        "it": "jurist-in-mit-anwaltspatent-srg-ssr-lausanne",
+        "en": "jurist-in-mit-anwaltspatent-srg-ssr-lausanne",
+        "fr": "jurist-in-mit-anwaltspatent-srg-ssr-lausanne"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Jurist:in mit Anwaltspatent",
+      "titleByLocale": {
+        "de": "Jurist:in mit Anwaltspatent",
+        "it": "Jurist:in con Anwaltspatent",
+        "en": "Jurist:in mit Anwaltspatent",
+        "fr": "Jurist:in mit Anwaltspatent"
+      },
+      "description": "Der Rechtsdienst der SRG lenkt das Unternehmen und dessen Mitarbeitende sicher durch das Gesetzes- und Regulierungswerk und sichert die juristische Integrität des Unternehmens.\n\n## Das ist Ihr Beitrag\n\nIm Rechtsdienst übernehmen Sie folgende Aufgaben:\n• Beratung der Redaktionen in medienrechtlichen Fragen\n\n• Verfassen von Stellungnahmen zuhanden der Unabhängigen Beschwerdeinstanz für Radio und Fernsehen und des Presserats\n\n• Begleitung von Verfahren im Rahmen des Öffentlichkeitsgesetzes\n\n• Bearbeitung der Rechtsstreitigkeiten des Unternehmens, gegebenenfalls in Abstimmung mit externen Auftragnehmer:innen\n\n• Begleitung von Technologieprojekten des Unternehmens, die die Bearbeitung von Personendaten erfordern\n\n• Erarbeitung von Verträgen, Rechtsgutachten, internen Notizen und anderen Dokumenten im Zusammenhang mit den betreffenden Geschäftsfeldern\n\n## Damit begeistern Sie uns\n\n• Sie verfügen über ein Anwaltspatent und haben mindestens zwei Jahre Erfahrung in einem Unternehmen oder einer Anwaltskanzlei in den oben genannten Rechtsbereichen.\n\n• Muttersprache Französisch, sehr gute schriftliche wie mündliche Deutschkenntnisse, Italienisch- und Englischkenntnisse von Vorteil.\n\n• Sie sind aufgeschlossen, dynamisch und belastbar, haben ausgeprägte Kommunikationskompetenzen und können mühelos mit den unterschiedlichsten Stakeholdern umgehen.\n\n• Sie arbeiten pragmatisch und lösungsorientiert, verfügen über analytische, redaktionelle und konzeptionelle Fähigkeiten und verhandeln geschickt und zielstrebig.\n\n• Sie sind teamfähig, schätzen eine kooperative und interdisziplinäre Arbeitsweise und interessieren sich für die verschiedenen Sprachregionen der Schweiz.\n\n## Damit begeistern wir Sie\n\n• Eine juristische Tätigkeit im Dienst der Pressefreiheit und nahe an den Redaktionen\n\n• Vielseitige Aufgaben im spannenden und dynamischen Umfeld des audiovisuellen Service public\n\n• Ein engagiertes, kollegiales und vielfältiges Team von Jurist:innen aus allen Sprachregionen.\n\n• Selbstständiges Arbeiten in einem erfolgreichen Teamumfeld\n\nBewerbungsfrist: 25. Oktober 2026\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz.",
+      "descriptionByLocale": {
+        "de": "Der Rechtsdienst der SRG lenkt das Unternehmen und dessen Mitarbeitende sicher durch das Gesetzes- und Regulierungswerk und sichert die juristische Integrität des Unternehmens.\n\n## Das ist Ihr Beitrag\n\nIm Rechtsdienst übernehmen Sie folgende Aufgaben:\n• Beratung der Redaktionen in medienrechtlichen Fragen\n\n• Verfassen von Stellungnahmen zuhanden der Unabhängigen Beschwerdeinstanz für Radio und Fernsehen und des Presserats\n\n• Begleitung von Verfahren im Rahmen des Öffentlichkeitsgesetzes\n\n• Bearbeitung der Rechtsstreitigkeiten des Unternehmens, gegebenenfalls in Abstimmung mit externen Auftragnehmer:innen\n\n• Begleitung von Technologieprojekten des Unternehmens, die die Bearbeitung von Personendaten erfordern\n\n• Erarbeitung von Verträgen, Rechtsgutachten, internen Notizen und anderen Dokumenten im Zusammenhang mit den betreffenden Geschäftsfeldern\n\n## Damit begeistern Sie uns\n\n• Sie verfügen über ein Anwaltspatent und haben mindestens zwei Jahre Erfahrung in einem Unternehmen oder einer Anwaltskanzlei in den oben genannten Rechtsbereichen.\n\n• Muttersprache Französisch, sehr gute schriftliche wie mündliche Deutschkenntnisse, Italienisch- und Englischkenntnisse von Vorteil.\n\n• Sie sind aufgeschlossen, dynamisch und belastbar, haben ausgeprägte Kommunikationskompetenzen und können mühelos mit den unterschiedlichsten Stakeholdern umgehen.\n\n• Sie arbeiten pragmatisch und lösungsorientiert, verfügen über analytische, redaktionelle und konzeptionelle Fähigkeiten und verhandeln geschickt und zielstrebig.\n\n• Sie sind teamfähig, schätzen eine kooperative und interdisziplinäre Arbeitsweise und interessieren sich für die verschiedenen Sprachregionen der Schweiz.\n\n## Damit begeistern wir Sie\n\n• Eine juristische Tätigkeit im Dienst der Pressefreiheit und nahe an den Redaktionen\n\n• Vielseitige Aufgaben im spannenden und dynamischen Umfeld des audiovisuellen Service public\n\n• Ein engagiertes, kollegiales und vielfältiges Team von Jurist:innen aus allen Sprachregionen.\n\n• Selbstständiges Arbeiten in einem erfolgreichen Teamumfeld\n\nBewerbungsfrist: 25. Oktober 2026\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz.",
+        "it": "Der Rechtsdienst der SRG lenkt das Unternehmen und dessen Mitarbeitende sicher durch das Gesetzes- und Regulierungswerk und sichert die juristische Integrität des Unternehmens.\n\n## Das ist Ihr Beitrag\n\nIm Rechtsdienst übernehmen Sie folgende Aufgaben:\n• Beratung der Redaktionen in medienrechtlichen Fragen\n\n• Verfassen von Stellungnahmen zuhanden der Unabhängigen Beschwerdeinstanz für Radio und Fernsehen und des Presserats\n\n• Begleitung von Verfahren im Rahmen des Öffentlichkeitsgesetzes\n\n• Bearbeitung der Rechtsstreitigkeiten des Unternehmens, gegebenenfalls in Abstimmung mit externen Auftragnehmer:innen\n\n• Begleitung von Technologieprojekten des Unternehmens, die die Bearbeitung von Personendaten erfordern\n\n• Erarbeitung von Verträgen, Rechtsgutachten, internen Notizen und anderen Dokumenten im Zusammenhang mit den betreffenden Geschäftsfeldern\n\n## Damit begeistern Sie uns\n\n• Sie verfügen über ein Anwaltspatent und haben mindestens zwei Jahre Erfahrung in einem Unternehmen oder einer Anwaltskanzlei in den oben genannten Rechtsbereichen.\n\n• Muttersprache Französisch, sehr gute schriftliche wie mündliche Deutschkenntnisse, Italienisch- und Englischkenntnisse von Vorteil.\n\n• Sie sind aufgeschlossen, dynamisch und belastbar, haben ausgeprägte Kommunikationskompetenzen und können mühelos mit den unterschiedlichsten Stakeholdern umgehen.\n\n• Sie arbeiten pragmatisch und lösungsorientiert, verfügen über analytische, redaktionelle und konzeptionelle Fähigkeiten und verhandeln geschickt und zielstrebig.\n\n• Sie sind teamfähig, schätzen eine kooperative und interdisziplinäre Arbeitsweise und interessieren sich für die verschiedenen Sprachregionen der Schweiz.\n\n## Damit begeistern wir Sie\n\n• Eine juristische Tätigkeit im Dienst der Pressefreiheit und nahe an den Redaktionen\n\n• Vielseitige Aufgaben im spannenden und dynamischen Umfeld des audiovisuellen Service public\n\n• Ein engagiertes, kollegiales und vielfältiges Team von Jurist:innen aus allen Sprachregionen.\n\n• Selbstständiges Arbeiten in einem erfolgreichen Teamumfeld\n\nBewerbungsfrist: 25. Oktober 2026\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz.",
+        "en": "Der Rechtsdienst der SRG lenkt das Unternehmen und dessen Mitarbeitende sicher durch das Gesetzes- und Regulierungswerk und sichert die juristische Integrität des Unternehmens.\n\n## Das ist Ihr Beitrag\n\nIm Rechtsdienst übernehmen Sie folgende Aufgaben:\n• Beratung der Redaktionen in medienrechtlichen Fragen\n\n• Verfassen von Stellungnahmen zuhanden der Unabhängigen Beschwerdeinstanz für Radio und Fernsehen und des Presserats\n\n• Begleitung von Verfahren im Rahmen des Öffentlichkeitsgesetzes\n\n• Bearbeitung der Rechtsstreitigkeiten des Unternehmens, gegebenenfalls in Abstimmung mit externen Auftragnehmer:innen\n\n• Begleitung von Technologieprojekten des Unternehmens, die die Bearbeitung von Personendaten erfordern\n\n• Erarbeitung von Verträgen, Rechtsgutachten, internen Notizen und anderen Dokumenten im Zusammenhang mit den betreffenden Geschäftsfeldern\n\n## Damit begeistern Sie uns\n\n• Sie verfügen über ein Anwaltspatent und haben mindestens zwei Jahre Erfahrung in einem Unternehmen oder einer Anwaltskanzlei in den oben genannten Rechtsbereichen.\n\n• Muttersprache Französisch, sehr gute schriftliche wie mündliche Deutschkenntnisse, Italienisch- und Englischkenntnisse von Vorteil.\n\n• Sie sind aufgeschlossen, dynamisch und belastbar, haben ausgeprägte Kommunikationskompetenzen und können mühelos mit den unterschiedlichsten Stakeholdern umgehen.\n\n• Sie arbeiten pragmatisch und lösungsorientiert, verfügen über analytische, redaktionelle und konzeptionelle Fähigkeiten und verhandeln geschickt und zielstrebig.\n\n• Sie sind teamfähig, schätzen eine kooperative und interdisziplinäre Arbeitsweise und interessieren sich für die verschiedenen Sprachregionen der Schweiz.\n\n## Damit begeistern wir Sie\n\n• Eine juristische Tätigkeit im Dienst der Pressefreiheit und nahe an den Redaktionen\n\n• Vielseitige Aufgaben im spannenden und dynamischen Umfeld des audiovisuellen Service public\n\n• Ein engagiertes, kollegiales und vielfältiges Team von Jurist:innen aus allen Sprachregionen.\n\n• Selbstständiges Arbeiten in einem erfolgreichen Teamumfeld\n\nBewerbungsfrist: 25. Oktober 2026\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz.",
+        "fr": "Der Rechtsdienst der SRG lenkt das Unternehmen und dessen Mitarbeitende sicher durch das Gesetzes- und Regulierungswerk und sichert die juristische Integrität des Unternehmens.\n\n## Das ist Ihr Beitrag\n\nIm Rechtsdienst übernehmen Sie folgende Aufgaben:\n• Beratung der Redaktionen in medienrechtlichen Fragen\n\n• Verfassen von Stellungnahmen zuhanden der Unabhängigen Beschwerdeinstanz für Radio und Fernsehen und des Presserats\n\n• Begleitung von Verfahren im Rahmen des Öffentlichkeitsgesetzes\n\n• Bearbeitung der Rechtsstreitigkeiten des Unternehmens, gegebenenfalls in Abstimmung mit externen Auftragnehmer:innen\n\n• Begleitung von Technologieprojekten des Unternehmens, die die Bearbeitung von Personendaten erfordern\n\n• Erarbeitung von Verträgen, Rechtsgutachten, internen Notizen und anderen Dokumenten im Zusammenhang mit den betreffenden Geschäftsfeldern\n\n## Damit begeistern Sie uns\n\n• Sie verfügen über ein Anwaltspatent und haben mindestens zwei Jahre Erfahrung in einem Unternehmen oder einer Anwaltskanzlei in den oben genannten Rechtsbereichen.\n\n• Muttersprache Französisch, sehr gute schriftliche wie mündliche Deutschkenntnisse, Italienisch- und Englischkenntnisse von Vorteil.\n\n• Sie sind aufgeschlossen, dynamisch und belastbar, haben ausgeprägte Kommunikationskompetenzen und können mühelos mit den unterschiedlichsten Stakeholdern umgehen.\n\n• Sie arbeiten pragmatisch und lösungsorientiert, verfügen über analytische, redaktionelle und konzeptionelle Fähigkeiten und verhandeln geschickt und zielstrebig.\n\n• Sie sind teamfähig, schätzen eine kooperative und interdisziplinäre Arbeitsweise und interessieren sich für die verschiedenen Sprachregionen der Schweiz.\n\n## Damit begeistern wir Sie\n\n• Eine juristische Tätigkeit im Dienst der Pressefreiheit und nahe an den Redaktionen\n\n• Vielseitige Aufgaben im spannenden und dynamischen Umfeld des audiovisuellen Service public\n\n• Ein engagiertes, kollegiales und vielfältiges Team von Jurist:innen aus allen Sprachregionen.\n\n• Selbstständiges Arbeiten in einem erfolgreichen Teamumfeld\n\nBewerbungsfrist: 25. Oktober 2026\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/jurist-in-mit-anwaltspatent/c1a435fd-99fa-44fd-bf14-6da029589827",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-05T21:23:10.190Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1010",
+      "streetAddress": "Avenue du Temple 40",
+      "category": "Media / Giornalismo",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-05",
+      "postedDate": "2026-10-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/jurist-in-mit-anwaltspatent/c1a435fd-99fa-44fd-bf14-6da029589827",
+      "requirements": [
+        "Sie verfügen über ein Anwaltspatent und haben mindestens zwei Jahre Erfahrung in einem Unternehmen oder einer Anwaltskanzlei in den oben genannten Rechtsbereichen.",
+        "Muttersprache Französisch, sehr gute schriftliche wie mündliche Deutschkenntnisse, Italienisch- und Englischkenntnisse von Vorteil.",
+        "Sie sind aufgeschlossen, dynamisch und belastbar, haben ausgeprägte Kommunikationskompetenzen und können mühelos mit den unterschiedlichsten Stakeholdern umgehen.",
+        "Sie arbeiten pragmatisch und lösungsorientiert, verfügen über analytische, redaktionelle und konzeptionelle Fähigkeiten und verhandeln geschickt und zielstrebig.",
+        "Sie sind teamfähig, schätzen eine kooperative und interdisziplinäre Arbeitsweise und interessieren sich für die verschiedenen Sprachregionen der Schweiz."
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Sie verfügen über ein Anwaltspatent und haben mindestens zwei Jahre Erfahrung in einem Unternehmen oder einer Anwaltskanzlei in den oben genannten Rechtsbereichen.",
+          "Muttersprache Französisch, sehr gute schriftliche wie mündliche Deutschkenntnisse, Italienisch- und Englischkenntnisse von Vorteil.",
+          "Sie sind aufgeschlossen, dynamisch und belastbar, haben ausgeprägte Kommunikationskompetenzen und können mühelos mit den unterschiedlichsten Stakeholdern umgehen.",
+          "Sie arbeiten pragmatisch und lösungsorientiert, verfügen über analytische, redaktionelle und konzeptionelle Fähigkeiten und verhandeln geschickt und zielstrebig.",
+          "Sie sind teamfähig, schätzen eine kooperative und interdisziplinäre Arbeitsweise und interessieren sich für die verschiedenen Sprachregionen der Schweiz."
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "c1a435fd-99fa-44fd-bf14-6da029589827",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 80,
+        "pensumMax": 100
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-10-05T21:23:10.190Z"
+    },
+    {
+      "id": "srg-ssr-704bd07eb509",
+      "slug": "juriste-titulaire-du-brevet-d-39-avocat-e-srg-ssr-lausanne",
+      "slugByLocale": {
+        "fr": "juriste-titulaire-du-brevet-d-39-avocat-e-srg-ssr-lausanne",
+        "it": "juriste-titulaire-du-brevet-d-39-avocat-e-srg-ssr-lausanne",
+        "en": "juriste-titulaire-du-brevet-d-39-avocat-e-srg-ssr-lausanne",
+        "de": "juriste-titulaire-du-brevet-d-39-avocat-e-srg-ssr-lausanne"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Juriste, titulaire du brevet d'avocat.e",
+      "titleByLocale": {
+        "fr": "Juriste, titulaire du brevet d'avocat.e",
+        "it": "Juriste, titulaire du brevet d'avocat.e",
+        "en": "Juriste, titulaire du brevet d'avocat.e",
+        "de": "Juriste, titulaire du brevet d'avocat.e"
+      },
+      "description": "Le Service juridique guide l'entreprise et son personnel à travers les méandres du cadre légal et réglementaire et garantit l'intégrité juridique de la SSR.\n\n## Votre mission\n\nAu sein de l'équipe du Service juridique, vous assumez les responsabilités suivantes :\n• Conseil aux rédactions en matière de droit des médias ;\n\n• Rédaction de réponses aux plaintes destinées à l'Instance indépendante de recours en matière de radio et de télévision ainsi qu'au Conseil de la presse;\n\n• Suivi des procédures dans le cadre de la loi en matière de transparence de l'administration;\n\n• Gestion des dossiers contentieux de l'entreprise, le cas échéant en concertation avec les mandataires externes ;\n\n• Accompagnement juridique de projets technologiques de l'entreprise impliquant le traitement de données personnelles ;\n\n• Elaboration de contrats, avis juridiques, notes internes et autres documents afférents aux domaines d'activités concernés ;\n\n## Votre profil\n\n• Vous êtes au bénéfice d'un brevet d'avocat.e, avec une expérience de minimum 2 ans au sein d'une entreprise ou d'un cabinet d'avocats dans les domaines juridiques susmentionnés ;\n\n• Vous êtes de langue maternelle française. Vous avez de très bonnes connaissances de l'allemand, à l'écrit et à l'oral. Des connaissances d'italien et d'anglais seraient un atout.\n\n• Vous êtes une personne ouverte d'esprit, dynamique et résistante, dotée de solides compétences en communication et vous savez interagir avec aisance avec des parties prenantes très diverses.\n\n• Vous aimez travailler de manière pragmatique et axée sur les solutions ; vous possédez des compétences analytiques, rédactionnelles et conceptuelles, et vous négociez avec habileté et détermination.\n\n• Vous faites preuve d'un esprit d'équipe et appréciez une approche collaborative et interdisciplinaire du travail, tout en manifestant un intérêt pour les différentes régions linguistiques de la Suisse.\n\n## Ce que nous vous offrons\n\n• Une activité juridique au service de la liberté de presse, au plus proche de métiers éditoriaux ;\n\n• Des missions variées dans le cadre passionnant et dynamique du service public audiovisuel.\n\n• Une équipe dynamique, collégiale et diversifiée, composée de juristes issus de toutes les régions linguistiques de Suisse.\n\n• Travail autonome, associé aux avantages d'un travail d'équipe fructueux.\n\nDélai de dépôt de candidature: 25 octobre 2026\n\n## Notre promesse\nToucher l'ensemble de la population Suisse avec des formats de grande qualité nécessite de l'expertise, de l'enthousiasme et un environnement stimulant et propice à la création, au sein duquel tout le monde peut s'investir et évoluer. Pour que les meilleurs donnent le meilleur d'eux-mêmes, ils ont besoin d'avoir une source d'inspiration: Bienvenue dans l'univers de la SSR!\n- Créer du contenu: Le journalisme de qualité constitue le cœur de notre activité et notre passion. Nous jouissons d’une liberté totale de rédaction, encourageons la créativité et accordons une autonomie favorisant la nouveauté et la qualité.\n- Vivre le numérique: Chez nous, le journalisme de qualité peut aussi revêtir une forme numérique. C’est pourquoi nous explorons de nouvelles opportunités et expérimentons de nouveaux formats et pratiques: numériques, interactifs et cross-médias. Nos contenus s’inscrivent dans l’air du temps et répondent aux préoccupations du public.\n- Etre humain: Nous entretenons des relations informelles, travaillons de manière autonome et contribuons à une bonne atmosphère de travail. Notre réussite repose aussi bien sur les points forts de chacun que sur les compétences techniques de l’ensemble de nos collaborateurs.\n- Donner du sens: Avec notre programme, nous touchons toute la Suisse. Nous agissons de manière indépendante et respectueuse pour encourager la formation de l’opinion et renforcer la diversité culturelle. Nous sommes fiers de notre travail et de ce que nous apportons à la Suisse.",
+      "descriptionByLocale": {
+        "fr": "Le Service juridique guide l'entreprise et son personnel à travers les méandres du cadre légal et réglementaire et garantit l'intégrité juridique de la SSR.\n\n## Votre mission\n\nAu sein de l'équipe du Service juridique, vous assumez les responsabilités suivantes :\n• Conseil aux rédactions en matière de droit des médias ;\n\n• Rédaction de réponses aux plaintes destinées à l'Instance indépendante de recours en matière de radio et de télévision ainsi qu'au Conseil de la presse;\n\n• Suivi des procédures dans le cadre de la loi en matière de transparence de l'administration;\n\n• Gestion des dossiers contentieux de l'entreprise, le cas échéant en concertation avec les mandataires externes ;\n\n• Accompagnement juridique de projets technologiques de l'entreprise impliquant le traitement de données personnelles ;\n\n• Elaboration de contrats, avis juridiques, notes internes et autres documents afférents aux domaines d'activités concernés ;\n\n## Votre profil\n\n• Vous êtes au bénéfice d'un brevet d'avocat.e, avec une expérience de minimum 2 ans au sein d'une entreprise ou d'un cabinet d'avocats dans les domaines juridiques susmentionnés ;\n\n• Vous êtes de langue maternelle française. Vous avez de très bonnes connaissances de l'allemand, à l'écrit et à l'oral. Des connaissances d'italien et d'anglais seraient un atout.\n\n• Vous êtes une personne ouverte d'esprit, dynamique et résistante, dotée de solides compétences en communication et vous savez interagir avec aisance avec des parties prenantes très diverses.\n\n• Vous aimez travailler de manière pragmatique et axée sur les solutions ; vous possédez des compétences analytiques, rédactionnelles et conceptuelles, et vous négociez avec habileté et détermination.\n\n• Vous faites preuve d'un esprit d'équipe et appréciez une approche collaborative et interdisciplinaire du travail, tout en manifestant un intérêt pour les différentes régions linguistiques de la Suisse.\n\n## Ce que nous vous offrons\n\n• Une activité juridique au service de la liberté de presse, au plus proche de métiers éditoriaux ;\n\n• Des missions variées dans le cadre passionnant et dynamique du service public audiovisuel.\n\n• Une équipe dynamique, collégiale et diversifiée, composée de juristes issus de toutes les régions linguistiques de Suisse.\n\n• Travail autonome, associé aux avantages d'un travail d'équipe fructueux.\n\nDélai de dépôt de candidature: 25 octobre 2026\n\n## Notre promesse\nToucher l'ensemble de la population Suisse avec des formats de grande qualité nécessite de l'expertise, de l'enthousiasme et un environnement stimulant et propice à la création, au sein duquel tout le monde peut s'investir et évoluer. Pour que les meilleurs donnent le meilleur d'eux-mêmes, ils ont besoin d'avoir une source d'inspiration: Bienvenue dans l'univers de la SSR!\n- Créer du contenu: Le journalisme de qualité constitue le cœur de notre activité et notre passion. Nous jouissons d’une liberté totale de rédaction, encourageons la créativité et accordons une autonomie favorisant la nouveauté et la qualité.\n- Vivre le numérique: Chez nous, le journalisme de qualité peut aussi revêtir une forme numérique. C’est pourquoi nous explorons de nouvelles opportunités et expérimentons de nouveaux formats et pratiques: numériques, interactifs et cross-médias. Nos contenus s’inscrivent dans l’air du temps et répondent aux préoccupations du public.\n- Etre humain: Nous entretenons des relations informelles, travaillons de manière autonome et contribuons à une bonne atmosphère de travail. Notre réussite repose aussi bien sur les points forts de chacun que sur les compétences techniques de l’ensemble de nos collaborateurs.\n- Donner du sens: Avec notre programme, nous touchons toute la Suisse. Nous agissons de manière indépendante et respectueuse pour encourager la formation de l’opinion et renforcer la diversité culturelle. Nous sommes fiers de notre travail et de ce que nous apportons à la Suisse.",
+        "it": "Le Service juridique guide l'entreprise et son personnel à travers les méandres du cadre légal et réglementaire et garantit l'intégrité juridique de la SSR.\n\n## Votre mission\n\nAu sein de l'équipe du Service juridique, vous assumez les responsabilités suivantes :\n• Conseil aux rédactions en matière de droit des médias ;\n\n• Rédaction de réponses aux plaintes destinées à l'Instance indépendante de recours en matière de radio et de télévision ainsi qu'au Conseil de la presse;\n\n• Suivi des procédures dans le cadre de la loi en matière de transparence de l'administration;\n\n• Gestion des dossiers contentieux de l'entreprise, le cas échéant en concertation avec les mandataires externes ;\n\n• Accompagnement juridique de projets technologiques de l'entreprise impliquant le traitement de données personnelles ;\n\n• Elaboration de contrats, avis juridiques, notes internes et autres documents afférents aux domaines d'activités concernés ;\n\n## Votre profil\n\n• Vous êtes au bénéfice d'un brevet d'avocat.e, avec une expérience de minimum 2 ans au sein d'une entreprise ou d'un cabinet d'avocats dans les domaines juridiques susmentionnés ;\n\n• Vous êtes de langue maternelle française. Vous avez de très bonnes connaissances de l'allemand, à l'écrit et à l'oral. Des connaissances d'italien et d'anglais seraient un atout.\n\n• Vous êtes une personne ouverte d'esprit, dynamique et résistante, dotée de solides compétences en communication et vous savez interagir avec aisance avec des parties prenantes très diverses.\n\n• Vous aimez travailler de manière pragmatique et axée sur les solutions ; vous possédez des compétences analytiques, rédactionnelles et conceptuelles, et vous négociez avec habileté et détermination.\n\n• Vous faites preuve d'un esprit d'équipe et appréciez une approche collaborative et interdisciplinaire du travail, tout en manifestant un intérêt pour les différentes régions linguistiques de la Suisse.\n\n## Ce que nous vous offrons\n\n• Une activité juridique au service de la liberté de presse, au plus proche de métiers éditoriaux ;\n\n• Des missions variées dans le cadre passionnant et dynamique du service public audiovisuel.\n\n• Une équipe dynamique, collégiale et diversifiée, composée de juristes issus de toutes les régions linguistiques de Suisse.\n\n• Travail autonome, associé aux avantages d'un travail d'équipe fructueux.\n\nDélai de dépôt de candidature: 25 octobre 2026\n\n## Notre promesse\nToucher l'ensemble de la population Suisse avec des formats de grande qualité nécessite de l'expertise, de l'enthousiasme et un environnement stimulant et propice à la création, au sein duquel tout le monde peut s'investir et évoluer. Pour que les meilleurs donnent le meilleur d'eux-mêmes, ils ont besoin d'avoir une source d'inspiration: Bienvenue dans l'univers de la SSR!\n- Créer du contenu: Le journalisme de qualité constitue le cœur de notre activité et notre passion. Nous jouissons d’une liberté totale de rédaction, encourageons la créativité et accordons une autonomie favorisant la nouveauté et la qualité.\n- Vivre le numérique: Chez nous, le journalisme de qualité peut aussi revêtir une forme numérique. C’est pourquoi nous explorons de nouvelles opportunités et expérimentons de nouveaux formats et pratiques: numériques, interactifs et cross-médias. Nos contenus s’inscrivent dans l’air du temps et répondent aux préoccupations du public.\n- Etre humain: Nous entretenons des relations informelles, travaillons de manière autonome et contribuons à une bonne atmosphère de travail. Notre réussite repose aussi bien sur les points forts de chacun que sur les compétences techniques de l’ensemble de nos collaborateurs.\n- Donner du sens: Avec notre programme, nous touchons toute la Suisse. Nous agissons de manière indépendante et respectueuse pour encourager la formation de l’opinion et renforcer la diversité culturelle. Nous sommes fiers de notre travail et de ce que nous apportons à la Suisse.",
+        "en": "Le Service juridique guide l'entreprise et son personnel à travers les méandres du cadre légal et réglementaire et garantit l'intégrité juridique de la SSR.\n\n## Votre mission\n\nAu sein de l'équipe du Service juridique, vous assumez les responsabilités suivantes :\n• Conseil aux rédactions en matière de droit des médias ;\n\n• Rédaction de réponses aux plaintes destinées à l'Instance indépendante de recours en matière de radio et de télévision ainsi qu'au Conseil de la presse;\n\n• Suivi des procédures dans le cadre de la loi en matière de transparence de l'administration;\n\n• Gestion des dossiers contentieux de l'entreprise, le cas échéant en concertation avec les mandataires externes ;\n\n• Accompagnement juridique de projets technologiques de l'entreprise impliquant le traitement de données personnelles ;\n\n• Elaboration de contrats, avis juridiques, notes internes et autres documents afférents aux domaines d'activités concernés ;\n\n## Votre profil\n\n• Vous êtes au bénéfice d'un brevet d'avocat.e, avec une expérience de minimum 2 ans au sein d'une entreprise ou d'un cabinet d'avocats dans les domaines juridiques susmentionnés ;\n\n• Vous êtes de langue maternelle française. Vous avez de très bonnes connaissances de l'allemand, à l'écrit et à l'oral. Des connaissances d'italien et d'anglais seraient un atout.\n\n• Vous êtes une personne ouverte d'esprit, dynamique et résistante, dotée de solides compétences en communication et vous savez interagir avec aisance avec des parties prenantes très diverses.\n\n• Vous aimez travailler de manière pragmatique et axée sur les solutions ; vous possédez des compétences analytiques, rédactionnelles et conceptuelles, et vous négociez avec habileté et détermination.\n\n• Vous faites preuve d'un esprit d'équipe et appréciez une approche collaborative et interdisciplinaire du travail, tout en manifestant un intérêt pour les différentes régions linguistiques de la Suisse.\n\n## Ce que nous vous offrons\n\n• Une activité juridique au service de la liberté de presse, au plus proche de métiers éditoriaux ;\n\n• Des missions variées dans le cadre passionnant et dynamique du service public audiovisuel.\n\n• Une équipe dynamique, collégiale et diversifiée, composée de juristes issus de toutes les régions linguistiques de Suisse.\n\n• Travail autonome, associé aux avantages d'un travail d'équipe fructueux.\n\nDélai de dépôt de candidature: 25 octobre 2026\n\n## Notre promesse\nToucher l'ensemble de la population Suisse avec des formats de grande qualité nécessite de l'expertise, de l'enthousiasme et un environnement stimulant et propice à la création, au sein duquel tout le monde peut s'investir et évoluer. Pour que les meilleurs donnent le meilleur d'eux-mêmes, ils ont besoin d'avoir une source d'inspiration: Bienvenue dans l'univers de la SSR!\n- Créer du contenu: Le journalisme de qualité constitue le cœur de notre activité et notre passion. Nous jouissons d’une liberté totale de rédaction, encourageons la créativité et accordons une autonomie favorisant la nouveauté et la qualité.\n- Vivre le numérique: Chez nous, le journalisme de qualité peut aussi revêtir une forme numérique. C’est pourquoi nous explorons de nouvelles opportunités et expérimentons de nouveaux formats et pratiques: numériques, interactifs et cross-médias. Nos contenus s’inscrivent dans l’air du temps et répondent aux préoccupations du public.\n- Etre humain: Nous entretenons des relations informelles, travaillons de manière autonome et contribuons à une bonne atmosphère de travail. Notre réussite repose aussi bien sur les points forts de chacun que sur les compétences techniques de l’ensemble de nos collaborateurs.\n- Donner du sens: Avec notre programme, nous touchons toute la Suisse. Nous agissons de manière indépendante et respectueuse pour encourager la formation de l’opinion et renforcer la diversité culturelle. Nous sommes fiers de notre travail et de ce que nous apportons à la Suisse.",
+        "de": "Le Service juridique guide l'entreprise et son personnel à travers les méandres du cadre légal et réglementaire et garantit l'intégrité juridique de la SSR.\n\n## Votre mission\n\nAu sein de l'équipe du Service juridique, vous assumez les responsabilités suivantes :\n• Conseil aux rédactions en matière de droit des médias ;\n\n• Rédaction de réponses aux plaintes destinées à l'Instance indépendante de recours en matière de radio et de télévision ainsi qu'au Conseil de la presse;\n\n• Suivi des procédures dans le cadre de la loi en matière de transparence de l'administration;\n\n• Gestion des dossiers contentieux de l'entreprise, le cas échéant en concertation avec les mandataires externes ;\n\n• Accompagnement juridique de projets technologiques de l'entreprise impliquant le traitement de données personnelles ;\n\n• Elaboration de contrats, avis juridiques, notes internes et autres documents afférents aux domaines d'activités concernés ;\n\n## Votre profil\n\n• Vous êtes au bénéfice d'un brevet d'avocat.e, avec une expérience de minimum 2 ans au sein d'une entreprise ou d'un cabinet d'avocats dans les domaines juridiques susmentionnés ;\n\n• Vous êtes de langue maternelle française. Vous avez de très bonnes connaissances de l'allemand, à l'écrit et à l'oral. Des connaissances d'italien et d'anglais seraient un atout.\n\n• Vous êtes une personne ouverte d'esprit, dynamique et résistante, dotée de solides compétences en communication et vous savez interagir avec aisance avec des parties prenantes très diverses.\n\n• Vous aimez travailler de manière pragmatique et axée sur les solutions ; vous possédez des compétences analytiques, rédactionnelles et conceptuelles, et vous négociez avec habileté et détermination.\n\n• Vous faites preuve d'un esprit d'équipe et appréciez une approche collaborative et interdisciplinaire du travail, tout en manifestant un intérêt pour les différentes régions linguistiques de la Suisse.\n\n## Ce que nous vous offrons\n\n• Une activité juridique au service de la liberté de presse, au plus proche de métiers éditoriaux ;\n\n• Des missions variées dans le cadre passionnant et dynamique du service public audiovisuel.\n\n• Une équipe dynamique, collégiale et diversifiée, composée de juristes issus de toutes les régions linguistiques de Suisse.\n\n• Travail autonome, associé aux avantages d'un travail d'équipe fructueux.\n\nDélai de dépôt de candidature: 25 octobre 2026\n\n## Notre promesse\nToucher l'ensemble de la population Suisse avec des formats de grande qualité nécessite de l'expertise, de l'enthousiasme et un environnement stimulant et propice à la création, au sein duquel tout le monde peut s'investir et évoluer. Pour que les meilleurs donnent le meilleur d'eux-mêmes, ils ont besoin d'avoir une source d'inspiration: Bienvenue dans l'univers de la SSR!\n- Créer du contenu: Le journalisme de qualité constitue le cœur de notre activité et notre passion. Nous jouissons d’une liberté totale de rédaction, encourageons la créativité et accordons une autonomie favorisant la nouveauté et la qualité.\n- Vivre le numérique: Chez nous, le journalisme de qualité peut aussi revêtir une forme numérique. C’est pourquoi nous explorons de nouvelles opportunités et expérimentons de nouveaux formats et pratiques: numériques, interactifs et cross-médias. Nos contenus s’inscrivent dans l’air du temps et répondent aux préoccupations du public.\n- Etre humain: Nous entretenons des relations informelles, travaillons de manière autonome et contribuons à une bonne atmosphère de travail. Notre réussite repose aussi bien sur les points forts de chacun que sur les compétences techniques de l’ensemble de nos collaborateurs.\n- Donner du sens: Avec notre programme, nous touchons toute la Suisse. Nous agissons de manière indépendante et respectueuse pour encourager la formation de l’opinion et renforcer la diversité culturelle. Nous sommes fiers de notre travail et de ce que nous apportons à la Suisse."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/juriste-titulaire-du-brevet-d-avocat-e/e400fda6-acbd-4989-ac0c-f212974ede9c",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-05T21:23:09.586Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1010",
+      "streetAddress": "Avenue du Temple 40",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/juriste-titulaire-du-brevet-d-avocat-e/e400fda6-acbd-4989-ac0c-f212974ede9c",
+      "requirements": [
+        "Vous êtes au bénéfice d'un brevet d'avocat.e, avec une expérience de minimum 2 ans au sein d'une entreprise ou d'un cabinet d'avocats dans les domaines juridiques susmentionnés ;",
+        "Vous êtes de langue maternelle française. Vous avez de très bonnes connaissances de l'allemand, à l'écrit et à l'oral. Des connaissances d'italien et d'anglais seraient un atout.",
+        "Vous êtes une personne ouverte d'esprit, dynamique et résistante, dotée de solides compétences en communication et vous savez interagir avec aisance avec des parties prenantes très diverses.",
+        "Vous aimez travailler de manière pragmatique et axée sur les solutions ; vous possédez des compétences analytiques, rédactionnelles et conceptuelles, et vous négociez avec habileté et détermination.",
+        "Vous faites preuve d'un esprit d'équipe et appréciez une approche collaborative et interdisciplinaire du travail, tout en manifestant un intérêt pour les différentes régions linguistiques de la Suisse."
+      ],
+      "requirementsByLocale": {
+        "fr": [
+          "Vous êtes au bénéfice d'un brevet d'avocat.e, avec une expérience de minimum 2 ans au sein d'une entreprise ou d'un cabinet d'avocats dans les domaines juridiques susmentionnés ;",
+          "Vous êtes de langue maternelle française. Vous avez de très bonnes connaissances de l'allemand, à l'écrit et à l'oral. Des connaissances d'italien et d'anglais seraient un atout.",
+          "Vous êtes une personne ouverte d'esprit, dynamique et résistante, dotée de solides compétences en communication et vous savez interagir avec aisance avec des parties prenantes très diverses.",
+          "Vous aimez travailler de manière pragmatique et axée sur les solutions ; vous possédez des compétences analytiques, rédactionnelles et conceptuelles, et vous négociez avec habileté et détermination.",
+          "Vous faites preuve d'un esprit d'équipe et appréciez une approche collaborative et interdisciplinaire du travail, tout en manifestant un intérêt pour les différentes régions linguistiques de la Suisse."
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "e400fda6-acbd-4989-ac0c-f212974ede9c",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 80,
+        "pensumMax": 100
+      },
+      "needsRetranslation": true,
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-10-05T21:23:09.586Z"
+    },
+    {
+      "id": "srg-ssr-1ced9200a5bc",
+      "slug": "giurista-titolare-del-brevetto-di-avvocato-a-srg-ssr-lausanne",
+      "slugByLocale": {
+        "it": "giurista-titolare-del-brevetto-di-avvocato-a-srg-ssr-lausanne",
+        "en": "giurista-titolare-del-brevetto-di-avvocato-a-srg-ssr-lausanne",
+        "de": "giurista-titolare-del-brevetto-di-avvocato-a-srg-ssr-lausanne",
+        "fr": "giurista-titolare-del-brevetto-di-avvocato-a-srg-ssr-lausanne"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Giurista, titolare del brevetto di avvocato/a",
+      "titleByLocale": {
+        "it": "Giurista, titolare del brevetto di avvocato/a",
+        "en": "Giurista, titolare del brevetto di avvocato/a",
+        "de": "Giurista, titolare del brevetto di avvocato/a",
+        "fr": "Giurista, titolare del brevetto di avvocato/a"
+      },
+      "description": "Il Servizio giuridico guida l'azienda e il suo personale attraverso i meandri del quadro legale e regolamentare e garantisce l'integrità giuridica della SSR.\n\n## Mansioni\n\nNell'ambito del team del Servizio giuridico, assumi le seguenti responsabilità:\n• consulenza alle redazioni in materia di diritto dei media;\n\n• redazione di risposte ai reclami destinati all'Autorità indipendente di ricorso in materia radiotelevisiva nonché al Consiglio della stampa;\n\n• gestione delle procedure nell'ambito della legge sul principio di trasparenza dell'amministrazione;\n\n• gestione dei dossier contenziosi dell'azienda, se del caso in concertazione con i mandatari esterni;\n\n• accompagnamento giuridico di progetti tecnologici dell'azienda che comportano il trattamento di dati personali;\n\n• elaborazione di contratti, pareri giuridici, note interne e altri documenti relativi agli ambiti di attività interessati.\n\n## Requisiti\n\n• Sei titolare di un brevetto di avvocata o avvocato, con un'esperienza minima di 2 anni maturata in un'azienda o in uno studio legale negli ambiti giuridici sopracitati.\n\n• Sei di madrelingua francese. Hai ottime conoscenze del tedesco, scritto e parlato. Conoscenze di italiano e inglese costituiscono un vantaggio.\n\n• Sei una persona di mentalità aperta, dinamica e resiliente, dotata di solide competenze comunicative, e sai interagire con disinvoltura con interlocutrici e interlocutori molto diversi tra loro.\n\n• Ami lavorare in modo pragmatico e orientato alle soluzioni; possiedi competenze analitiche, redazionali e concettuali, e sai negoziare con abilità e determinazione.\n\n• Dimostri spirito di squadra e apprezzi un approccio collaborativo e interdisciplinare al lavoro, manifestando al contempo interesse per le diverse regioni linguistiche della Svizzera.\n\n## Cosa offriamo\n\n• Un'attività giuridica al servizio della libertà di stampa, a stretto contatto con le professioni redazionali.\n\n• Mansioni variegate nel contesto appassionante e dinamico del servizio pubblico audiovisivo.\n\n• Un team dinamico, collegiale e diversificato, composto da giuriste e giuristi provenienti da tutte le regioni linguistiche della Svizzera.\n\n• Lavoro autonomo, associato ai vantaggi di una proficua collaborazione di squadra.\n\n## La nostra promessa\nQuali sono gli ingredienti per raggiungere gli abitanti della Svizzera con format di qualità? Know-how, entusiasmo e un ambiente ricco di stimoli, nel quale tutti possono crescere. Per dare il meglio ci vuole una fonte d'ispirazione: Benvenuta*o nel mondo della SSR!\n- Produrre contenuti: Il giornalismo di qualità è la nostra attività principale e la nostra passione. Godiamo di libertà redazionale, promuoviamo la creatività e diamo ampio spazio alla produzione di contenuti nuovi e di alto livello.\n- Dare forma al digitale: Il giornalismo di qualità è da noi anche digitale. Esploriamo quindi nuove possibilità e sperimentiamo forme innovative: digitali, interattive e crossmediali. Uno sguardo al domani per i nostri spettatori di oggi.\n- Valorizzare la persona: Coltiviamo rapporti solidali, lavoriamo in modo autonomo e contribuiamo insieme a un buon clima di lavoro. Il nostro successo si fonda anche sulle qualità personali e professionali di tutti i collaboratori.\n- Dare senso: Con i nostri programmi raggiungiamo ed emozioniamo la Svizzera intera. Agiamo con rispetto e senso di indipendenza; promuoviamo così la libera formazione delle opinioni e rafforziamo il pluralismo. Siamo fieri del contributo che diamo alla Svizzera.",
+      "descriptionByLocale": {
+        "it": "Il Servizio giuridico guida l'azienda e il suo personale attraverso i meandri del quadro legale e regolamentare e garantisce l'integrità giuridica della SSR.\n\n## Mansioni\n\nNell'ambito del team del Servizio giuridico, assumi le seguenti responsabilità:\n• consulenza alle redazioni in materia di diritto dei media;\n\n• redazione di risposte ai reclami destinati all'Autorità indipendente di ricorso in materia radiotelevisiva nonché al Consiglio della stampa;\n\n• gestione delle procedure nell'ambito della legge sul principio di trasparenza dell'amministrazione;\n\n• gestione dei dossier contenziosi dell'azienda, se del caso in concertazione con i mandatari esterni;\n\n• accompagnamento giuridico di progetti tecnologici dell'azienda che comportano il trattamento di dati personali;\n\n• elaborazione di contratti, pareri giuridici, note interne e altri documenti relativi agli ambiti di attività interessati.\n\n## Requisiti\n\n• Sei titolare di un brevetto di avvocata o avvocato, con un'esperienza minima di 2 anni maturata in un'azienda o in uno studio legale negli ambiti giuridici sopracitati.\n\n• Sei di madrelingua francese. Hai ottime conoscenze del tedesco, scritto e parlato. Conoscenze di italiano e inglese costituiscono un vantaggio.\n\n• Sei una persona di mentalità aperta, dinamica e resiliente, dotata di solide competenze comunicative, e sai interagire con disinvoltura con interlocutrici e interlocutori molto diversi tra loro.\n\n• Ami lavorare in modo pragmatico e orientato alle soluzioni; possiedi competenze analitiche, redazionali e concettuali, e sai negoziare con abilità e determinazione.\n\n• Dimostri spirito di squadra e apprezzi un approccio collaborativo e interdisciplinare al lavoro, manifestando al contempo interesse per le diverse regioni linguistiche della Svizzera.\n\n## Cosa offriamo\n\n• Un'attività giuridica al servizio della libertà di stampa, a stretto contatto con le professioni redazionali.\n\n• Mansioni variegate nel contesto appassionante e dinamico del servizio pubblico audiovisivo.\n\n• Un team dinamico, collegiale e diversificato, composto da giuriste e giuristi provenienti da tutte le regioni linguistiche della Svizzera.\n\n• Lavoro autonomo, associato ai vantaggi di una proficua collaborazione di squadra.\n\n## La nostra promessa\nQuali sono gli ingredienti per raggiungere gli abitanti della Svizzera con format di qualità? Know-how, entusiasmo e un ambiente ricco di stimoli, nel quale tutti possono crescere. Per dare il meglio ci vuole una fonte d'ispirazione: Benvenuta*o nel mondo della SSR!\n- Produrre contenuti: Il giornalismo di qualità è la nostra attività principale e la nostra passione. Godiamo di libertà redazionale, promuoviamo la creatività e diamo ampio spazio alla produzione di contenuti nuovi e di alto livello.\n- Dare forma al digitale: Il giornalismo di qualità è da noi anche digitale. Esploriamo quindi nuove possibilità e sperimentiamo forme innovative: digitali, interattive e crossmediali. Uno sguardo al domani per i nostri spettatori di oggi.\n- Valorizzare la persona: Coltiviamo rapporti solidali, lavoriamo in modo autonomo e contribuiamo insieme a un buon clima di lavoro. Il nostro successo si fonda anche sulle qualità personali e professionali di tutti i collaboratori.\n- Dare senso: Con i nostri programmi raggiungiamo ed emozioniamo la Svizzera intera. Agiamo con rispetto e senso di indipendenza; promuoviamo così la libera formazione delle opinioni e rafforziamo il pluralismo. Siamo fieri del contributo che diamo alla Svizzera.",
+        "en": "Il Servizio giuridico guida l'azienda e il suo personale attraverso i meandri del quadro legale e regolamentare e garantisce l'integrità giuridica della SSR.\n\n## Mansioni\n\nNell'ambito del team del Servizio giuridico, assumi le seguenti responsabilità:\n• consulenza alle redazioni in materia di diritto dei media;\n\n• redazione di risposte ai reclami destinati all'Autorità indipendente di ricorso in materia radiotelevisiva nonché al Consiglio della stampa;\n\n• gestione delle procedure nell'ambito della legge sul principio di trasparenza dell'amministrazione;\n\n• gestione dei dossier contenziosi dell'azienda, se del caso in concertazione con i mandatari esterni;\n\n• accompagnamento giuridico di progetti tecnologici dell'azienda che comportano il trattamento di dati personali;\n\n• elaborazione di contratti, pareri giuridici, note interne e altri documenti relativi agli ambiti di attività interessati.\n\n## Requisiti\n\n• Sei titolare di un brevetto di avvocata o avvocato, con un'esperienza minima di 2 anni maturata in un'azienda o in uno studio legale negli ambiti giuridici sopracitati.\n\n• Sei di madrelingua francese. Hai ottime conoscenze del tedesco, scritto e parlato. Conoscenze di italiano e inglese costituiscono un vantaggio.\n\n• Sei una persona di mentalità aperta, dinamica e resiliente, dotata di solide competenze comunicative, e sai interagire con disinvoltura con interlocutrici e interlocutori molto diversi tra loro.\n\n• Ami lavorare in modo pragmatico e orientato alle soluzioni; possiedi competenze analitiche, redazionali e concettuali, e sai negoziare con abilità e determinazione.\n\n• Dimostri spirito di squadra e apprezzi un approccio collaborativo e interdisciplinare al lavoro, manifestando al contempo interesse per le diverse regioni linguistiche della Svizzera.\n\n## Cosa offriamo\n\n• Un'attività giuridica al servizio della libertà di stampa, a stretto contatto con le professioni redazionali.\n\n• Mansioni variegate nel contesto appassionante e dinamico del servizio pubblico audiovisivo.\n\n• Un team dinamico, collegiale e diversificato, composto da giuriste e giuristi provenienti da tutte le regioni linguistiche della Svizzera.\n\n• Lavoro autonomo, associato ai vantaggi di una proficua collaborazione di squadra.\n\n## La nostra promessa\nQuali sono gli ingredienti per raggiungere gli abitanti della Svizzera con format di qualità? Know-how, entusiasmo e un ambiente ricco di stimoli, nel quale tutti possono crescere. Per dare il meglio ci vuole una fonte d'ispirazione: Benvenuta*o nel mondo della SSR!\n- Produrre contenuti: Il giornalismo di qualità è la nostra attività principale e la nostra passione. Godiamo di libertà redazionale, promuoviamo la creatività e diamo ampio spazio alla produzione di contenuti nuovi e di alto livello.\n- Dare forma al digitale: Il giornalismo di qualità è da noi anche digitale. Esploriamo quindi nuove possibilità e sperimentiamo forme innovative: digitali, interattive e crossmediali. Uno sguardo al domani per i nostri spettatori di oggi.\n- Valorizzare la persona: Coltiviamo rapporti solidali, lavoriamo in modo autonomo e contribuiamo insieme a un buon clima di lavoro. Il nostro successo si fonda anche sulle qualità personali e professionali di tutti i collaboratori.\n- Dare senso: Con i nostri programmi raggiungiamo ed emozioniamo la Svizzera intera. Agiamo con rispetto e senso di indipendenza; promuoviamo così la libera formazione delle opinioni e rafforziamo il pluralismo. Siamo fieri del contributo che diamo alla Svizzera.",
+        "de": "Il Servizio giuridico guida l'azienda e il suo personale attraverso i meandri del quadro legale e regolamentare e garantisce l'integrità giuridica della SSR.\n\n## Mansioni\n\nNell'ambito del team del Servizio giuridico, assumi le seguenti responsabilità:\n• consulenza alle redazioni in materia di diritto dei media;\n\n• redazione di risposte ai reclami destinati all'Autorità indipendente di ricorso in materia radiotelevisiva nonché al Consiglio della stampa;\n\n• gestione delle procedure nell'ambito della legge sul principio di trasparenza dell'amministrazione;\n\n• gestione dei dossier contenziosi dell'azienda, se del caso in concertazione con i mandatari esterni;\n\n• accompagnamento giuridico di progetti tecnologici dell'azienda che comportano il trattamento di dati personali;\n\n• elaborazione di contratti, pareri giuridici, note interne e altri documenti relativi agli ambiti di attività interessati.\n\n## Requisiti\n\n• Sei titolare di un brevetto di avvocata o avvocato, con un'esperienza minima di 2 anni maturata in un'azienda o in uno studio legale negli ambiti giuridici sopracitati.\n\n• Sei di madrelingua francese. Hai ottime conoscenze del tedesco, scritto e parlato. Conoscenze di italiano e inglese costituiscono un vantaggio.\n\n• Sei una persona di mentalità aperta, dinamica e resiliente, dotata di solide competenze comunicative, e sai interagire con disinvoltura con interlocutrici e interlocutori molto diversi tra loro.\n\n• Ami lavorare in modo pragmatico e orientato alle soluzioni; possiedi competenze analitiche, redazionali e concettuali, e sai negoziare con abilità e determinazione.\n\n• Dimostri spirito di squadra e apprezzi un approccio collaborativo e interdisciplinare al lavoro, manifestando al contempo interesse per le diverse regioni linguistiche della Svizzera.\n\n## Cosa offriamo\n\n• Un'attività giuridica al servizio della libertà di stampa, a stretto contatto con le professioni redazionali.\n\n• Mansioni variegate nel contesto appassionante e dinamico del servizio pubblico audiovisivo.\n\n• Un team dinamico, collegiale e diversificato, composto da giuriste e giuristi provenienti da tutte le regioni linguistiche della Svizzera.\n\n• Lavoro autonomo, associato ai vantaggi di una proficua collaborazione di squadra.\n\n## La nostra promessa\nQuali sono gli ingredienti per raggiungere gli abitanti della Svizzera con format di qualità? Know-how, entusiasmo e un ambiente ricco di stimoli, nel quale tutti possono crescere. Per dare il meglio ci vuole una fonte d'ispirazione: Benvenuta*o nel mondo della SSR!\n- Produrre contenuti: Il giornalismo di qualità è la nostra attività principale e la nostra passione. Godiamo di libertà redazionale, promuoviamo la creatività e diamo ampio spazio alla produzione di contenuti nuovi e di alto livello.\n- Dare forma al digitale: Il giornalismo di qualità è da noi anche digitale. Esploriamo quindi nuove possibilità e sperimentiamo forme innovative: digitali, interattive e crossmediali. Uno sguardo al domani per i nostri spettatori di oggi.\n- Valorizzare la persona: Coltiviamo rapporti solidali, lavoriamo in modo autonomo e contribuiamo insieme a un buon clima di lavoro. Il nostro successo si fonda anche sulle qualità personali e professionali di tutti i collaboratori.\n- Dare senso: Con i nostri programmi raggiungiamo ed emozioniamo la Svizzera intera. Agiamo con rispetto e senso di indipendenza; promuoviamo così la libera formazione delle opinioni e rafforziamo il pluralismo. Siamo fieri del contributo che diamo alla Svizzera.",
+        "fr": "Il Servizio giuridico guida l'azienda e il suo personale attraverso i meandri del quadro legale e regolamentare e garantisce l'integrità giuridica della SSR.\n\n## Mansioni\n\nNell'ambito del team del Servizio giuridico, assumi le seguenti responsabilità:\n• consulenza alle redazioni in materia di diritto dei media;\n\n• redazione di risposte ai reclami destinati all'Autorità indipendente di ricorso in materia radiotelevisiva nonché al Consiglio della stampa;\n\n• gestione delle procedure nell'ambito della legge sul principio di trasparenza dell'amministrazione;\n\n• gestione dei dossier contenziosi dell'azienda, se del caso in concertazione con i mandatari esterni;\n\n• accompagnamento giuridico di progetti tecnologici dell'azienda che comportano il trattamento di dati personali;\n\n• elaborazione di contratti, pareri giuridici, note interne e altri documenti relativi agli ambiti di attività interessati.\n\n## Requisiti\n\n• Sei titolare di un brevetto di avvocata o avvocato, con un'esperienza minima di 2 anni maturata in un'azienda o in uno studio legale negli ambiti giuridici sopracitati.\n\n• Sei di madrelingua francese. Hai ottime conoscenze del tedesco, scritto e parlato. Conoscenze di italiano e inglese costituiscono un vantaggio.\n\n• Sei una persona di mentalità aperta, dinamica e resiliente, dotata di solide competenze comunicative, e sai interagire con disinvoltura con interlocutrici e interlocutori molto diversi tra loro.\n\n• Ami lavorare in modo pragmatico e orientato alle soluzioni; possiedi competenze analitiche, redazionali e concettuali, e sai negoziare con abilità e determinazione.\n\n• Dimostri spirito di squadra e apprezzi un approccio collaborativo e interdisciplinare al lavoro, manifestando al contempo interesse per le diverse regioni linguistiche della Svizzera.\n\n## Cosa offriamo\n\n• Un'attività giuridica al servizio della libertà di stampa, a stretto contatto con le professioni redazionali.\n\n• Mansioni variegate nel contesto appassionante e dinamico del servizio pubblico audiovisivo.\n\n• Un team dinamico, collegiale e diversificato, composto da giuriste e giuristi provenienti da tutte le regioni linguistiche della Svizzera.\n\n• Lavoro autonomo, associato ai vantaggi di una proficua collaborazione di squadra.\n\n## La nostra promessa\nQuali sono gli ingredienti per raggiungere gli abitanti della Svizzera con format di qualità? Know-how, entusiasmo e un ambiente ricco di stimoli, nel quale tutti possono crescere. Per dare il meglio ci vuole una fonte d'ispirazione: Benvenuta*o nel mondo della SSR!\n- Produrre contenuti: Il giornalismo di qualità è la nostra attività principale e la nostra passione. Godiamo di libertà redazionale, promuoviamo la creatività e diamo ampio spazio alla produzione di contenuti nuovi e di alto livello.\n- Dare forma al digitale: Il giornalismo di qualità è da noi anche digitale. Esploriamo quindi nuove possibilità e sperimentiamo forme innovative: digitali, interattive e crossmediali. Uno sguardo al domani per i nostri spettatori di oggi.\n- Valorizzare la persona: Coltiviamo rapporti solidali, lavoriamo in modo autonomo e contribuiamo insieme a un buon clima di lavoro. Il nostro successo si fonda anche sulle qualità personali e professionali di tutti i collaboratori.\n- Dare senso: Con i nostri programmi raggiungiamo ed emozioniamo la Svizzera intera. Agiamo con rispetto e senso di indipendenza; promuoviamo così la libera formazione delle opinioni e rafforziamo il pluralismo. Siamo fieri del contributo che diamo alla Svizzera."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/giurista-titolare-del-brevetto-di-avvocato-a/fa28bc97-35d7-4ab2-86d8-a17dd0947695",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-10-05T21:23:08.962Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1010",
+      "streetAddress": "Avenue du Temple 40",
+      "category": "Produzione Media",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-05",
+      "postedDate": "2026-10-05",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/giurista-titolare-del-brevetto-di-avvocato-a/fa28bc97-35d7-4ab2-86d8-a17dd0947695",
+      "requirements": [
+        "Sei titolare di un brevetto di avvocata o avvocato, con un'esperienza minima di 2 anni maturata in un'azienda o in uno studio legale negli ambiti giuridici sopracitati.",
+        "Sei di madrelingua francese. Hai ottime conoscenze del tedesco, scritto e parlato. Conoscenze di italiano e inglese costituiscono un vantaggio.",
+        "Sei una persona di mentalità aperta, dinamica e resiliente, dotata di solide competenze comunicative, e sai interagire con disinvoltura con interlocutrici e interlocutori molto diversi tra loro.",
+        "Ami lavorare in modo pragmatico e orientato alle soluzioni; possiedi competenze analitiche, redazionali e concettuali, e sai negoziare con abilità e determinazione.",
+        "Dimostri spirito di squadra e apprezzi un approccio collaborativo e interdisciplinare al lavoro, manifestando al contempo interesse per le diverse regioni linguistiche della Svizzera."
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Sei titolare di un brevetto di avvocata o avvocato, con un'esperienza minima di 2 anni maturata in un'azienda o in uno studio legale negli ambiti giuridici sopracitati.",
+          "Sei di madrelingua francese. Hai ottime conoscenze del tedesco, scritto e parlato. Conoscenze di italiano e inglese costituiscono un vantaggio.",
+          "Sei una persona di mentalità aperta, dinamica e resiliente, dotata di solide competenze comunicative, e sai interagire con disinvoltura con interlocutrici e interlocutori molto diversi tra loro.",
+          "Ami lavorare in modo pragmatico e orientato alle soluzioni; possiedi competenze analitiche, redazionali e concettuali, e sai negoziare con abilità e determinazione.",
+          "Dimostri spirito di squadra e apprezzi un approccio collaborativo e interdisciplinare al lavoro, manifestando al contempo interesse per le diverse regioni linguistiche della Svizzera."
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "fa28bc97-35d7-4ab2-86d8-a17dd0947695",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 80,
+        "pensumMax": 100
+      },
+      "needsRetranslation": true,
+      "salaryMin": 61500,
+      "salaryMax": 109000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 61500,
+          "maxValue": 109000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-10-05T21:23:08.962Z"
     }
   ]
 }

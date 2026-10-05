@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * jobgate-v3-rc.mjs — prepare (and, with --apply, publish) the Remote Config
- * values of the jobgate-v3 auth-gate experiment.
+ * jobgate-rc.mjs — prepare (and, with --apply, publish) the Remote Config
+ * values of the jobgate auth-gate experiment (round: JOBGATE_EXPERIMENT_ID).
  *
  * Touches ONLY the three keys JOBGATE_EXPERIMENT_ENABLED / _ARMS / _FORCE:
  * reads the live template with firebase-admin, stages the requested values,
@@ -17,11 +17,11 @@
  * Usage (credentials: Application Default Credentials, e.g.
  * GOOGLE_APPLICATION_CREDENTIALS=~/.config/frontaliere/sa-frontaliere-ticino.json):
  *
- *   node scripts/experiments/jobgate-v3-rc.mjs                      # dry-run of the launch config
- *   node scripts/experiments/jobgate-v3-rc.mjs --apply              # publish the launch config
- *   node scripts/experiments/jobgate-v3-rc.mjs --kill --apply       # ENABLED=false (kill switch)
- *   node scripts/experiments/jobgate-v3-rc.mjs --force-arm similar_alerts --apply   # promote/QA
- *   node scripts/experiments/jobgate-v3-rc.mjs --arms '{"control":50,"social_first":50}'
+ *   node scripts/experiments/jobgate-rc.mjs                      # dry-run of the launch config
+ *   node scripts/experiments/jobgate-rc.mjs --apply              # publish the launch config
+ *   node scripts/experiments/jobgate-rc.mjs --kill --apply       # ENABLED=false (kill switch)
+ *   node scripts/experiments/jobgate-rc.mjs --force-arm spotlight --apply   # promote/QA
+ *   node scripts/experiments/jobgate-rc.mjs --arms '{"control":50,"spotlight":50}'
  *
  * Remote Config changes reach the browser only through getPublicConfig
  * (functions/src/publicConfigKeys.js): the three keys must be deployed in that
@@ -30,18 +30,20 @@
 
 import { pathToFileURL } from 'node:url';
 import {
+  JOBGATE_ARMS,
+  JOBGATE_EXPERIMENT_ID,
   JOBGATE_RC_KEYS,
   normalizeJobGateArm,
   validateJobGateWeights,
 } from '../../services/jobGateExperimentCore.mjs';
 
 /** Launch configuration proposed in the PR that introduced the experiment. */
-export const JOBGATE_LAUNCH_ARMS = '{"control":25,"similar_alerts":25,"social_first":25,"email_first":25}';
+export const JOBGATE_LAUNCH_ARMS = '{"control":25,"navy_panel":25,"spotlight":25,"actions_first":25}';
 
 const DESCRIPTIONS = {
-  [JOBGATE_RC_KEYS.enabled]: 'jobgate-v3 kill switch: "true" enrols visitors, anything else = today\'s gate for everybody.',
-  [JOBGATE_RC_KEYS.arms]: 'jobgate-v3 integer weights per arm (control, similar_alerts, social_first, email_first). Invalid JSON = all control.',
-  [JOBGATE_RC_KEYS.force]: 'jobgate-v3 QA/promotion: a valid arm name forces it for every visitor while ENABLED=true; empty = weighted split.',
+  [JOBGATE_RC_KEYS.enabled]: `${JOBGATE_EXPERIMENT_ID} kill switch: "true" enrols visitors, anything else = today's gate for everybody.`,
+  [JOBGATE_RC_KEYS.arms]: `${JOBGATE_EXPERIMENT_ID} integer weights per arm (${JOBGATE_ARMS.join(', ')}). Invalid JSON = all control.`,
+  [JOBGATE_RC_KEYS.force]: `${JOBGATE_EXPERIMENT_ID} QA/promotion: a valid arm name forces it for every visitor while ENABLED=true; empty = weighted split.`,
 };
 
 export function parseArgs(argv) {
@@ -150,7 +152,7 @@ async function main() {
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((error) => {
-    console.error(`jobgate-v3-rc: ${error?.message || error}`);
+    console.error(`jobgate-rc: ${error?.message || error}`);
     process.exit(1);
   });
 }

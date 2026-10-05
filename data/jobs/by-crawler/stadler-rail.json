@@ -9256,9 +9256,9 @@
     },
     {
       "id": "stadler-rail-3c20f8312515",
-      "slug": "senior-project-manager-railway-signalling-stadler-rail-ch",
+      "slug": "senior-project-manager-segnalamento-ferroviario-stadler-rail-wallisellen",
       "slugByLocale": {
-        "it": "senior-project-manager-railway-signalling-stadler-rail-ch",
+        "it": "senior-project-manager-segnalamento-ferroviario-stadler-rail-wallisellen",
         "en": "senior-project-manager-railway-signalling-stadler-rail-ch",
         "de": "senior-projektmanager-eisenbahnsignal-stadler-rail-wallisellen",
         "fr": "directeur-principal-de-projet-signalisation-ferroviaire-stadler-rail-wallisellen"
@@ -9317,7 +9317,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-project-manager-railway-signalling-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-project-manager-railway-signalling-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-322bcbd24554",

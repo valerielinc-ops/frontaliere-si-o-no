@@ -2073,7 +2073,7 @@ function renderCtaBlock(
   secondary: SalaryLandingData['ctaSecondary'],
 ): string {
   const secondaryHtml = secondary
-    ? `<a href="${esc(secondary.href)}" style="${LINK_ACCENT_STYLE};font-weight:600;font-size:15px;align-self:center">${esc(secondary.label)} →</a>`
+    ? `<a href="${esc(secondary.href)}" style="${LINK_ACCENT_STYLE};font-weight:600;font-size:15px;display:inline-flex;align-items:center;min-height:44px;padding:8px 0;align-self:center">${esc(secondary.label)} →</a>`
     : '';
   return `<div class="s-iB_-rV"><a href="${esc(primary.href)}" class="s-cta">${esc(primary.label)} →</a>${secondaryHtml}</div>`;
 }

@@ -1107,7 +1107,7 @@ function generateHubPage(
 
   const amountLinks = EXCHANGE_AMOUNTS.map(
     (amount) =>
-      `<li style="display:inline-block;margin:0 8px 8px 0"><a href="${buildExchangeAmountPath(locale, amount)}" class="${CARD_BODY_CLASS}" style="display:inline-block;padding:8px 14px;text-decoration:none;font-weight:600">${fmtNum(locale, amount)} CHF</a></li>`,
+      `<li style="display:inline-block;margin:0 8px 8px 0"><a href="${buildExchangeAmountPath(locale, amount)}" class="${CARD_BODY_CLASS}" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 14px;text-decoration:underline;text-underline-offset:2px;font-weight:600">${fmtNum(locale, amount)} CHF</a></li>`,
   ).join('');
 
   const contentHtml = `<article class="max-w-5xl mx-auto px-4 py-6">
@@ -1295,7 +1295,7 @@ function generateAmountPage(
   const neighbourLinks = neighbours
     .map(
       (a) =>
-        `<li style="display:inline-block;margin:0 8px 8px 0"><a href="${buildExchangeAmountPath(locale, a)}" class="${CARD_BODY_CLASS}" style="display:inline-block;padding:8px 14px;text-decoration:none;font-weight:600">${fmtNum(locale, a)} CHF</a></li>`,
+        `<li style="display:inline-block;margin:0 8px 8px 0"><a href="${buildExchangeAmountPath(locale, a)}" class="${CARD_BODY_CLASS}" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 14px;text-decoration:underline;text-underline-offset:2px;font-weight:600">${fmtNum(locale, a)} CHF</a></li>`,
     )
     .join('');
 

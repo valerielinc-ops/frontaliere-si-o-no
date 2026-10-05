@@ -1,65 +1,19 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-10-05T09:08:52.315Z",
+  "generatedAt": "2026-10-05T21:20:30.367Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 9846,
-  "avgDurationMs": 9846,
+  "durationMs": 10084,
+  "avgDurationMs": 10084,
   "durationHistory": [
-    9846
+    10084
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "url": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
-      "applyUrl": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
-      "title": "Regulatory Affairs Specialist - Mendrisio site (Ticino)",
-      "company": "Sintetica SA",
-      "companyKey": "sintetica",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate 5",
-      "slug": "regulatory-affairs-specialista-mendrisio-site-ticino-sintetica-sa-mendrisio",
-      "category": "pharma",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T09:08:43.497Z",
-      "source": "sintetica-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Farmaceutica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "sourceLang": "en",
-      "id": "sintetica-1dee0615eb96",
-      "firstSeenAt": "2026-10-02T21:09:48.334Z",
-      "salaryMin": 66500,
-      "salaryMax": 110500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/778848/quality-control-microbiological-laboratory-technician-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/778848/quality-control-microbiological-laboratory-technician-ch/sintetica",
@@ -79,7 +33,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T09:08:43.546Z",
+      "crawledAt": "2026-10-05T21:20:20.293Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -99,6 +53,52 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "url": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
+      "title": "Regulatory Affairs Specialist - Mendrisio site (Ticino)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate 5",
+      "slug": "regulatory-affairs-specialista-mendrisio-site-ticino-sintetica-sa-mendrisio",
+      "category": "pharma",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-05T21:20:20.236Z",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "sourceLang": "en",
+      "id": "sintetica-1dee0615eb96",
+      "firstSeenAt": "2026-10-02T21:09:48.334Z",
+      "salaryMin": 66500,
+      "salaryMax": 110500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
         "translation": 25,
         "completeness": 20
       }
@@ -122,7 +122,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T09:08:42.464Z",
+      "crawledAt": "2026-10-05T21:20:19.415Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -165,7 +165,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T09:08:41.439Z",
+      "crawledAt": "2026-10-05T21:20:18.473Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -208,7 +208,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T09:08:40.668Z",
+      "crawledAt": "2026-10-05T21:20:17.904Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -251,7 +251,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T09:08:39.794Z",
+      "crawledAt": "2026-10-05T21:20:17.060Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -294,7 +294,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T09:08:38.972Z",
+      "crawledAt": "2026-10-05T21:20:16.191Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -337,7 +337,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-05T09:08:38.120Z",
+      "crawledAt": "2026-10-05T21:20:15.322Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -362,5 +362,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }

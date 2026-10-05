@@ -36,7 +36,8 @@ import type { AppRoute, BlogArticleId } from '@/services/router';
 import { loadSwissArticleCanonicalOverrides } from '@/build-plugins/shared/swissArticleCanonicalOverrides';
 import { ARTICLE_SECTION_DESCRIPTORS } from '@/build-plugins/shared/articleSectionDescriptors';
 import { GLOSSARY_TERM_DEFINITIONS, GLOSSARY_PLACEHOLDER_DESCRIPTION_RX } from '@/services/seo/glossaryTermDefinitions';
-import { buildOggiPath, type BorderCrossingSlug } from '@/build-plugins/borderWaitData';
+import { BORDER_WAIT_ROUTES, buildOggiPath, type BorderCrossingSlug } from '@/build-plugins/borderWaitData';
+import { BORDER_WAIT_LEGACY_REDIRECTS } from '@/build-plugins/shared/borderWaitLegacyRedirects';
 
 // Preload blog data so buildPath can resolve blog slugs (both sections)
 await preloadBlogData();
@@ -186,6 +187,24 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const ALL_ROUTES = getAllRoutes();
+
+type SitemapLocale = 'it' | 'en' | 'de' | 'fr';
+
+/** Normalize the route-builder output to the key shape used by the redirect registry. */
+function normalizeSitemapPath(path: string): string {
+  const pathWithoutHash = path.split('#', 1)[0];
+  return `${pathWithoutHash.replace(/\/+$/, '')}/`;
+}
+
+/** Resolve a route's legacy bridge from the same registry used by the build plugin. */
+function getBorderWaitBridgeTarget(route: AppRoute, locale: SitemapLocale): string | undefined {
+  return BORDER_WAIT_LEGACY_REDIRECTS.get(normalizeSitemapPath(buildPath(route, locale)));
+}
+
+// `sitemap-border-wait.xml` is emitted at build time, so it is not a committed
+// public/ input for this live-data test. BORDER_WAIT_ROUTES is the route set
+// consumed by that emitter; post-build sitemap tests validate the physical XML.
+const BORDER_WAIT_CANONICAL_SITEMAP_PATHS = new Set(BORDER_WAIT_ROUTES);
 
 /** Border crossing leaves are emitted by borderWaitPagesPlugin into its own sitemap. */
 function isGeneratedBorderWaitRoute(route: AppRoute): boolean {
@@ -520,7 +539,7 @@ describe('Sitemap — every IT canonical URL is in sitemap.xml', () => {
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES.has(activeTab)) continue;
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
-    if (isGeneratedBorderWaitRoute(route)) continue;
+    if (getBorderWaitBridgeTarget(route, 'it')) continue;
 
     it(`${label} → sitemap has ${buildPath(route, 'it')}`, () => {
       const itPath = buildPath(route, 'it');
@@ -605,7 +624,7 @@ describe('IndexNow — submit-indexnow.js reads sitemap and submits to Bing', ()
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES_INDEXNOW.has(activeTab)) continue;
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
-    if (isGeneratedBorderWaitRoute(route)) continue;
+    if (getBorderWaitBridgeTarget(route, 'it')) continue;
 
     it(`${label} → sitemap contains ${buildPath(route, 'it')} (indexed via IndexNow)`, () => {
       const itPath = buildPath(route, 'it');
@@ -651,7 +670,7 @@ describe('llms.txt — content-rich pages are listed for AI crawlers', () => {
 // ── Sitemap ↔ Router consistency ─────────────────────────────────────────────
 
 describe('Sitemap URLs match router buildPath for all locales', () => {
-  const locales = ['it', 'en', 'de', 'fr'] as const;
+  const locales: readonly SitemapLocale[] = ['it', 'en', 'de', 'fr'];
 
   // Utility/legal pages intentionally excluded from sitemap (noindex — thin content by design).
   // Removed from sitemap to fix Bing "insufficient content" audit warnings.
@@ -661,19 +680,23 @@ describe('Sitemap URLs match router buildPath for all locales', () => {
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES.has(activeTab)) continue;
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
-    if (isGeneratedBorderWaitRoute(route)) {
-      for (const locale of locales) {
+    for (const locale of locales) {
+      const bridgeTarget = getBorderWaitBridgeTarget(route, locale);
+      if (isGeneratedBorderWaitRoute(route)) {
         it(`${label} [${locale}] → uses the data-driven border-wait path`, () => {
-          expect(buildOggiPath(locale, (route as { borderCrossing: string }).borderCrossing as BorderCrossingSlug))
+          expect(bridgeTarget, `${label} [${locale}] is missing from the legacy bridge registry`).toBeTruthy();
+          expect(bridgeTarget).toBe(
+            buildOggiPath(locale, (route as { borderCrossing: string }).borderCrossing as BorderCrossingSlug),
+          );
+          expect(bridgeTarget)
             .toMatch(locale === 'it'
               ? /^\/traffico-dogane\/.+\/oggi\/$/
               : new RegExp(`^\\/${locale}\\/[^/]+\\/.+\\/$`));
         });
+        continue;
       }
-      continue;
-    }
+      if (bridgeTarget) continue;
 
-    for (const locale of locales) {
       it(`${label} [${locale}] → sitemap hreflang URL matches buildPath`, () => {
         const path = buildPath(route, locale);
         const fullUrl = `${BASE_URL}${path}`;
@@ -684,6 +707,17 @@ describe('Sitemap URLs match router buildPath for all locales', () => {
       });
     }
   }
+});
+
+describe('Sitemap — legacy border-wait bridges target canonical generated pages', () => {
+  it('every registry bridge points to a page emitted in the canonical border-wait sitemap', () => {
+    for (const [legacyPath, canonicalPath] of BORDER_WAIT_LEGACY_REDIRECTS) {
+      expect(
+        BORDER_WAIT_CANONICAL_SITEMAP_PATHS.has(canonicalPath),
+        `${legacyPath} redirects to ${canonicalPath}, which is not in BORDER_WAIT_ROUTES`,
+      ).toBe(true);
+    }
+  });
 });
 
 // ── Structured Data Compliance Summary ───────────────────────────────────────

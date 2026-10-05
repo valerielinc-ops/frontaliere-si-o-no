@@ -11648,9 +11648,9 @@
       "slug": "gruppenleiter-in-pflege-e-betreuung-tertianum-lenzburg",
       "slugByLocale": {
         "it": "gruppenleiter-in-pflege-e-betreuung-tertianum-lenzburg",
-        "en": "gruppenleiter-in-pflege-und-betreuung-tertianum-lenzburg",
+        "en": "group-leader-nursing-and-care-tertianum-lenzburg",
         "de": "gruppenleiter-in-pflege-und-betreuung-tertianum-lenzburg",
-        "fr": "gruppenleiter-in-pflege-und-betreuung-tertianum-lenzburg"
+        "fr": "chef-fe-de-groupe-soins-et-encadrement-tertianum-lenzburg"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -11699,6 +11699,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "gruppenleiter-in-pflege-und-betreuung-tertianum-lenzburg"
+        ],
+        "en": [
+          "gruppenleiter-in-pflege-und-betreuung-tertianum-lenzburg"
+        ],
+        "fr": [
           "gruppenleiter-in-pflege-und-betreuung-tertianum-lenzburg"
         ]
       },
@@ -18681,12 +18687,12 @@
     },
     {
       "id": "tertianum-baf4d95787df",
-      "slug": "aktivierungstherapeut-in-tertianum-lenzburg",
+      "slug": "terapista-dell-attivazione-tertianum-lenzburg",
       "slugByLocale": {
-        "it": "aktivierungstherapeut-in-tertianum-lenzburg",
-        "en": "aktivierungstherapeut-in-tertianum-lenzburg",
+        "it": "terapista-dell-attivazione-tertianum-lenzburg",
+        "en": "activation-therapist-tertianum-lenzburg",
         "de": "aktivierungstherapeut-in-tertianum-lenzburg",
-        "fr": "aktivierungstherapeut-in-tertianum-lenzburg"
+        "fr": "therapeute-en-activation-tertianum-lenzburg"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -18742,7 +18748,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "aktivierungstherapeut-in-tertianum-lenzburg"
+        ],
+        "en": [
+          "aktivierungstherapeut-in-tertianum-lenzburg"
+        ],
+        "fr": [
+          "aktivierungstherapeut-in-tertianum-lenzburg"
+        ]
+      },
+      "previousSlugs": [
+        "aktivierungstherapeut-in-tertianum-lenzburg"
+      ]
     },
     {
       "id": "tertianum-a59fc7214479",

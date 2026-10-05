@@ -1,7 +1,7 @@
 {
   "key": "barry-callebaut",
   "label": "Barry Callebaut",
-  "generatedAt": "2026-10-05T09:31:53.137Z",
+  "generatedAt": "2026-10-05T21:39:51.474Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3080,
-  "avgDurationMs": 3080,
+  "unchangedCount": 4,
+  "durationMs": 3464,
+  "avgDurationMs": 3464,
   "durationHistory": [
-    3080
+    3464
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "barry-callebaut-c7e75d02d8f9",
       "slug": "direttore-digital-finanza-co-barry-callebaut-zurich",
@@ -35,7 +37,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Director-Digital-Finance-%28CO%29-8005/1382505200/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:31:46.998Z",
+      "crawledAt": "2026-10-05T21:39:40.678Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,8 +52,8 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barry-callebaut.com/job/Zurich-Director-Digital-Finance-%28CO%29-8005/1382505200/",
-      "firstSeenAt": "2026-09-24T14:28:51.136Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-24T14:28:51.136Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -76,7 +78,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Cocoa-Trader-8005/1435276200/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:31:46.997Z",
+      "crawledAt": "2026-10-05T21:39:40.676Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -117,7 +119,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Director%2C-Group-Accounting-&-Reporting-Accounting-Policies-8005/1430935500/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:31:46.996Z",
+      "crawledAt": "2026-10-05T21:39:40.674Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -157,7 +159,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Cocoa-Derivatives-Trader-8005/1428373800/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:31:46.993Z",
+      "crawledAt": "2026-10-05T21:39:40.665Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -172,8 +174,8 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.barry-callebaut.com/job/Zurich-Cocoa-Derivatives-Trader-8005/1428373800/",
-      "firstSeenAt": "2026-09-10T21:57:23.365Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-10T21:57:23.365Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -187,7 +189,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }

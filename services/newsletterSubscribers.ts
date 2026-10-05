@@ -170,7 +170,7 @@ export type NewsletterUpsertInput = {
  status?: NewsletterSubscriberStatus;
  metadata?: Record<string, any> | null;
  /**
-  * Experiment arm of the capture (`jobgate-v3:<arm>`). Stored only when this
+  * Experiment arm of the capture (`jobgate-v4:<arm>`). Stored only when this
   * write creates the relationship; an existing value is never replaced.
   */
  variant?: string | null;
@@ -1661,7 +1661,7 @@ export async function captureNewsletterSubscriber(
  status: preserveExistingConfirmedConsent
  ? (existingData?.status ?? subscriptionState.status)
  : subscriptionState.status,
- // The experiment arm that PRODUCED the relationship (`jobgate-v3:<arm>`, the
+ // The experiment arm that PRODUCED the relationship (`jobgate-v4:<arm>`, the
  // readout's join key for a new subscriber). Written with the creation stamp
  // and never rewritten: a later capture from another arm, or a login from the
  // gate on an address that already had a relationship, is not a conversion of

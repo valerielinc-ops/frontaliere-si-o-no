@@ -219,6 +219,15 @@ describe('exchange page generation', () => {
     expect(enAmount!.html).toContain('href="/en/service-comparison/chf-eur-exchange-rate/"');
   });
 
+  it('gives amount navigation links underlines and 44px touch targets', () => {
+    const itHub = pages.find((p) => p.relPath === buildExchangeHubPath('it'))!;
+    const itAmount = pages.find((p) => p.relPath === buildExchangeAmountPath('it', 4000))!;
+    expect(itHub.html).toMatch(/min-height:44px/);
+    expect(itHub.html).toMatch(/text-decoration:underline/);
+    expect(itAmount.html).toMatch(/min-height:44px/);
+    expect(itAmount.html).toMatch(/text-decoration:underline/);
+  });
+
   it('hub links every amount page + the embed widget (backlink magnet)', () => {
     const itHub = pages.find((p) => p.relPath === buildExchangeHubPath('it'))!;
     for (const amount of EXCHANGE_AMOUNTS) {

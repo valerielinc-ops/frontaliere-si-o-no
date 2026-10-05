@@ -87,7 +87,7 @@ const TITLE_DECIDERS: Record<string, Entry> = {
     calls: 1,
     why: '`--resolve` del reporter generico: il workflow verde chiude il suo `FAILURE_TITLE`, nessun numero letto',
   },
-  'scripts/experiments/jobgate-v3-monitor.mjs': {
+  'scripts/experiments/jobgate-monitor.mjs': {
     calls: 1,
     why: 'un allarme rientrato nel diff di stato chiude il titolo stabile di quell\'allarme',
   },

@@ -13042,7 +13042,7 @@
         "it": "teamleader-nella-logistica-interna-die-schweizerische-post-zurich-mulligen",
         "en": "teamleader-in-house-logistics-die-schweizerische-post-zurich-mulligen",
         "de": "teamleader-in-inhouselogistik-die-schweizerische-post-zurich-mulligen",
-        "fr": "teamleader-in-inhouselogistik-die-schweizerische-post-zurich-mulligen"
+        "fr": "chef-d-equipe-en-logistique-interne-die-schweizerische-post-zurich-mulligen"
       },
       "sourceLang": "de",
       "department": "",
@@ -13084,6 +13084,9 @@
           "teamleader-in-inhouselogistik-die-schweizerische-post-zurich-mulligen"
         ],
         "en": [
+          "teamleader-in-inhouselogistik-die-schweizerische-post-zurich-mulligen"
+        ],
+        "fr": [
           "teamleader-in-inhouselogistik-die-schweizerische-post-zurich-mulligen"
         ]
       },
@@ -13186,16 +13189,16 @@
       },
       "titleByLocale": {
         "it": "Lettere di consegna e pacchetti sera",
-        "en": "Zusteller:in Briefe und Pakete Abend",
+        "en": "Letter and parcel delivery person evening",
         "de": "Zusteller:in Briefe und Pakete Abend",
-        "fr": "Zusteller:in Briefe und Pakete Abend"
+        "fr": "Soirée pour le livreur de lettres et de colis"
       },
       "slug": "lettere-di-consegna-e-pacchetti-sera-die-schweizerische-post-niederurnen",
       "slugByLocale": {
         "it": "lettere-di-consegna-e-pacchetti-sera-die-schweizerische-post-niederurnen",
-        "en": "zusteller-in-briefe-und-pakete-abend-post",
+        "en": "letter-and-parcel-delivery-person-evening-die-schweizerische-post-niederurnen",
         "de": "zusteller-in-briefe-und-pakete-abend-post",
-        "fr": "zusteller-in-briefe-und-pakete-abend-post"
+        "fr": "soiree-pour-le-livreur-de-lettres-et-de-colis-die-schweizerische-post-niederurnen"
       },
       "sourceLang": "de",
       "department": "",
@@ -13235,6 +13238,12 @@
         "it": [
           "zusteller-in-briefe-und-pakete-abend-post",
           "zusteller-in-lettere-e-pacchi-abend-die-schweizerische-post-niederurnen"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-abend-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-abend-post"
         ]
       },
       "previousSlugs": [
@@ -13344,16 +13353,16 @@
       },
       "titleByLocale": {
         "it": "Serata di consegna",
-        "en": "Zusteller:in Abend",
+        "en": "Evening delivery person",
         "de": "Zusteller:in Abend",
-        "fr": "Zusteller:in Abend"
+        "fr": "Livreur du soir"
       },
       "slug": "serata-di-consegna-die-schweizerische-post-kriens",
       "slugByLocale": {
         "it": "serata-di-consegna-die-schweizerische-post-kriens",
-        "en": "zusteller-in-abend-post",
+        "en": "evening-delivery-person-die-schweizerische-post-kriens",
         "de": "zusteller-in-abend-die-schweizerische-post-kriens",
-        "fr": "zusteller-in-abend-post"
+        "fr": "livreur-du-soir-die-schweizerische-post-kriens"
       },
       "sourceLang": "de",
       "department": "",
@@ -13391,6 +13400,12 @@
       "firstSeenAt": "2026-09-28T21:43:52.751Z",
       "previousSlugsByLocale": {
         "it": [
+          "zusteller-in-abend-post"
+        ],
+        "en": [
+          "zusteller-in-abend-post"
+        ],
+        "fr": [
           "zusteller-in-abend-post"
         ]
       },
