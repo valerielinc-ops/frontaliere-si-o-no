@@ -12590,6 +12590,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.raduno-auto-moto-cocquio.title': 'Cocquio Trevisago : rassemblement non autorisé dans la via Appennini',
     'blog.article.raduno-auto-moto-cocquio.excerpt': 'Dimanche 4 octobre, une vingtaine de motos et trois voitures ont occupé la via Appennini pour des courses de vitesse et des wheelings. Les carabiniers de Besozzo sont intervenus.',
     'blog.article.raduno-auto-moto-cocquio.imageAlt': 'Intervention des carabiniers dans la Via Appennini à Cocquio Trevisago',
+    'blog.article.camion-avaria-san-nicolao.title': 'Camion en panne dans le tunnel San Nicolao',
+    'blog.article.camion-avaria-san-nicolao.excerpt': 'Un camion en panne dans le tunnel San Nicolao crée des perturbations sur l\'A2 : voie de gauche praticable vers le sud et retards pouvant aller jusqu\'à 20 minutes vers le nord.',
+    'blog.article.camion-avaria-san-nicolao.imageAlt': 'Camion en panne dans le tunnel San Nicolao, circulation perturbée sur l\'A2',
 };
 
 export default blogMetaFr;

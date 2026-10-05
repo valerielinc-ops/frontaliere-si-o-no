@@ -12589,6 +12589,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.raduno-auto-moto-cocquio.title': 'Cocquio Trevisago: raduno non autorizzato in via Appennini',
     'blog.article.raduno-auto-moto-cocquio.excerpt': 'Domenica 4 ottobre, una ventina di moto e tre auto hanno occupato via Appennini per gare di velocità e impennate. Intervenuti i carabinieri di Besozzo.',
     'blog.article.raduno-auto-moto-cocquio.imageAlt': 'Intervento dei carabinieri in via Appennini a Cocquio Trevisago',
+    'blog.article.camion-avaria-san-nicolao.title': 'Camion in avaria nella galleria San Nicolao',
+    'blog.article.camion-avaria-san-nicolao.excerpt': 'Un camion in avaria nella galleria San Nicolao crea disagi sull\'A2: corsia sinistra percorribile verso sud e ritardi fino a 20 minuti verso nord.',
+    'blog.article.camion-avaria-san-nicolao.imageAlt': 'Camion in avaria nella galleria San Nicolao e disagi sull\'A2',
 };
 
 export default blogMetaIt;
