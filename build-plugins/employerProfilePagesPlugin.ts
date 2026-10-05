@@ -63,6 +63,7 @@ import { buildSectorHubPath, SECTOR_HUB_KEYS, type SectorHubKey } from './jobSec
 import { buildEmployerProfilePath, canonicalCompanyProfileSlug } from './shared/companyProfileSlug.mjs';
 import { BRIDGE_FLOOR, MIN_ACTIVE_JOBS } from './shared/employerProfileConfig.mjs';
 import { loadEmployerDemandSlugs } from './shared/employerDemandSignal.mjs';
+import { buildCompanyOrganization } from './shared/jobPostingSchema';
 import { resolveEmployerProfilesFlushed, type EmittedEmployerProfile } from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { JOBLIST_AD_EVERY_N, JOBLIST_AD_MAX_PER_LIST } from '../services/adsenseSlots';
@@ -864,11 +865,19 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
             })
             .filter((p): p is Record<string, unknown> => p !== null)
             .map((posting, idx) => ({ '@type': 'ListItem', position: idx + 1, item: posting }));
+          const representativeJob = listed.find((job) => String(job.companyDomain || '').trim()) || listed[0];
+          const organization = buildCompanyOrganization({
+            company: profile.name,
+            companyKey: profile.companyKey,
+            companyDomain: representativeJob?.companyDomain,
+          }, {
+            locale,
+            baseUrl: BASE_URL,
+            fallbackUrl: `${BASE_URL}${profilePath('it', slug)}`,
+          });
           const jsonLdScripts = [breadcrumbLd(locale, slug, profile.name), inlineScriptJson({
             '@context': 'https://schema.org',
-            '@type': 'Organization',
-            name: profile.name,
-            url: canonicalUrl,
+            ...organization,
           })];
           if (itemListElements.length > 0) {
             jsonLdScripts.push(inlineScriptJson({

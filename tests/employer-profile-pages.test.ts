@@ -184,6 +184,20 @@ describe('employerProfilePagesPlugin', () => {
     expect(crumb.itemListElement[1].name).toBe('Offerte di lavoro Acme Corp');
     const itemList = scripts.find((s) => s['@type'] === 'ItemList');
     expect(itemList.name).toBe('Offerte di lavoro Acme Corp');
+    const organization = scripts.find((s) => s['@type'] === 'Organization');
+    expect(organization).toMatchObject({
+      '@id': 'https://frontaliereticino.ch/aziende/acme-corp/#organization',
+      name: 'Acme Corp',
+      url: 'https://frontaliereticino.ch/aziende/acme-corp/',
+    });
+    for (const locale of ['en/', 'de/', 'fr/']) {
+      const localizedScripts = [...read(`${locale}aziende/acme-corp/index.html`).matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+        .map((m) => JSON.parse(m[1]));
+      expect(localizedScripts.find((s) => s['@type'] === 'Organization')).toMatchObject({
+        '@id': 'https://frontaliereticino.ch/aziende/acme-corp/#organization',
+        url: 'https://frontaliereticino.ch/aziende/acme-corp/',
+      });
+    }
   });
 
   // text-html-ratio follow-up (validate-dist run 29794187475, PR #4611
