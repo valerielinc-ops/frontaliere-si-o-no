@@ -61,6 +61,12 @@ import { renderHubChromeSplit, type HubKey, type HubLocale, type HubHero } from 
 import { normalizeShellTitle } from './titleSuffix';
 import { minifyHtml } from './htmlMinify';
 import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from './spaEntryFilenames';
+import {
+  SITE_URL,
+  WEBSITE_ID,
+  TICINO_CUSTOMS_DEPARTMENT_ID,
+  TICINO_CUSTOMS_DEPARTMENT_NAME,
+} from '../../services/seo/organizationLd';
 
 // `normalizeShellTitle` vive ora in ./titleSuffix.ts (modulo foglia), cosi'
 // che l'invariante di round-trip col confronto h1/title di
@@ -75,6 +81,72 @@ import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from './spaEntryFilenam
 // non importato perche' titleSuffix.ts e' `mode: identical` e va copiato a
 // mano sul corpus, dove `shared/htmlEscape.ts` non esiste — vedi il suo
 // docblock. L'equivalenza fra le due copie e' pinnata dal test.
+
+type JsonLdRecord = Record<string, unknown>;
+
+function hasSchemaType(value: JsonLdRecord, expected: string): boolean {
+  const type = value['@type'];
+  return Array.isArray(type) ? type.includes(expected) : type === expected;
+}
+
+function isSiteWebSite(value: JsonLdRecord): boolean {
+  if (!hasSchemaType(value, 'WebSite')) return false;
+  if (value['@id'] === WEBSITE_ID) return true;
+  return value.name === 'Frontaliere Ticino'
+    && (value.url === SITE_URL || value.url === SITE_URL.slice(0, -1));
+}
+
+/**
+ * Add stable identities to the two repeated entities emitted by static SEO
+ * generators. The shell receives already-serialized JSON-LD, so this one
+ * pass also covers generators whose source is on another workstream (for
+ * example job and border-wait pages) without changing their emitters.
+ */
+export function normalizeStaticJsonLdScripts(
+  scripts: readonly string[] | undefined,
+): string[] {
+  return (scripts ?? []).map((raw) => {
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(raw);
+    } catch {
+      return raw;
+    }
+
+    let changed = false;
+    const visit = (value: unknown): void => {
+      if (Array.isArray(value)) {
+        value.forEach(visit);
+        return;
+      }
+      if (!value || typeof value !== 'object') return;
+      const record = value as JsonLdRecord;
+
+      if (isSiteWebSite(record) && record['@id'] !== WEBSITE_ID) {
+        record['@id'] = WEBSITE_ID;
+        changed = true;
+      }
+      if (
+        hasSchemaType(record, 'Organization')
+        && record.name === TICINO_CUSTOMS_DEPARTMENT_NAME
+        && (!record['@id'] || record['@id'] === TICINO_CUSTOMS_DEPARTMENT_ID)
+      ) {
+        if (record['@id'] !== TICINO_CUSTOMS_DEPARTMENT_ID) {
+          record['@id'] = TICINO_CUSTOMS_DEPARTMENT_ID;
+          changed = true;
+        }
+        if (record.url !== TICINO_CUSTOMS_DEPARTMENT_ID) {
+          record.url = TICINO_CUSTOMS_DEPARTMENT_ID;
+          changed = true;
+        }
+      }
+
+      Object.values(record).forEach(visit);
+    };
+    visit(parsed);
+    return changed ? JSON.stringify(parsed).replace(/</g, '\\u003c') : raw;
+  });
+}
 
 /** Cached entry-asset resolution, keyed by distDir absolute path. */
 interface EntryAssets {
@@ -274,7 +346,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     ogImageType,
     ogImageAlt,
     extraHeadHtml: `${extraHeadHtml ?? ''}${jobBoardHeadTags(canonicalUrl)}`,
-    jsonLdScripts: jsonLdScripts ?? [],
+    jsonLdScripts: normalizeStaticJsonLdScripts(jsonLdScripts),
     entryJs: assets.entryJs || undefined,
     entryCss: assets.entryCss || undefined,
     bodyHtml: wrappedBody,

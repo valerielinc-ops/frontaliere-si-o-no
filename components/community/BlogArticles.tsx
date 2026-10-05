@@ -31,6 +31,7 @@ import { resolveArticleAdDensity, inlineSlotIndex, STANDARD_ARTICLE_AD_DENSITY, 
 import { collectArticleBodySegments, countArticleBodyChars, countArticleBodyWords } from '@/services/articleBodySegments';
 import { isAdStraddleBlock, isListBlock, isTableBlock, LIST_ITEM_RE, TABLE_SEPARATOR_RE } from '@/services/adPlacement';
 import { CDN_BLOG_BASE } from '@/services/seo/blogImageCdn';
+import { EDITORIAL_TEAM_ID, WEBSITE_ID } from '@/services/seo/organizationLd';
 
 // Re-export the parser predicates for the focused renderer tests and existing
 // callers; the implementation lives in the shared, JSX-free module so the
@@ -1679,7 +1680,7 @@ function BlogArticles({
  }
  : {
  '@type': 'Organization',
- '@id': 'https://frontaliereticino.ch/#organization',
+ '@id': EDITORIAL_TEAM_ID,
  name: 'Redazione Frontaliere Ticino',
  url: 'https://frontaliereticino.ch/chi-siamo/',
  },
@@ -1693,7 +1694,7 @@ function BlogArticles({
  url: 'https://frontaliereticino.ch/icons/icon-512x512.png',
  },
  },
- isPartOf: { '@type': 'WebSite', '@id': 'https://frontaliereticino.ch/#website', name: 'Frontaliere Ticino' },
+ isPartOf: { '@type': 'WebSite', '@id': WEBSITE_ID, name: 'Frontaliere Ticino' },
  mainEntityOfPage: canonicalUrl,
  // The photo's own creator and licence when the cover is credited (P14),
  // else the bare URL as before (services/imageCredits.ts).
