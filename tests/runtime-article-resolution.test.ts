@@ -344,7 +344,7 @@ describe('articleBodyPartsFromStaticArticle', () => {
     ]);
 
     expect(articleBodyPartsFromStaticArticle(staticArticle())).toEqual([
-      '## Sezione\n\n### Dettaglio\n\nAltro testo.',
+      '## Sezione\n\nTesto.\n\n### Dettaglio\n\nAltro testo.',
     ]);
   });
 
