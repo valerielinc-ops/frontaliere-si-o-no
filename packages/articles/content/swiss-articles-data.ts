@@ -23176,6 +23176,16 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'formazione-continua-zurigo-contributi',
+    category: 'pratico',
+    date: '2026-10-05T03:02:04.320Z',
+    image: '/images/blog/formazione-continua-zurigo-contributi.webp',
+    hasCalculator: true,
+    articleType: 'evergreen',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -7712,6 +7712,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assicurazione-immobili-zurigo.title': 'Gebäudeversicherung im Kanton Zürich: Pflicht und Prämien',
     'blog.article.assicurazione-immobili-zurigo.excerpt': 'In der Schweiz ist die Gebäudeversicherung obligatorisch oder je nach Kanton anders organisiert: Praktischer Leitfaden für Zürich zu Prämien und Schadenfällen.',
     'blog.article.assicurazione-immobili-zurigo.imageAlt': 'Wohngebäude im Kanton Zürich für einen Ratgeber zur Gebäudeversicherung',
+    'blog.article.formazione-continua-zurigo-contributi.title': 'Weiterbildung im Kanton Zürich: Anforderungen und Beiträge',
+    'blog.article.formazione-continua-zurigo-contributi.excerpt': 'Im Kanton Zürich müssen anerkannte Programme, Anforderungen, Fristen und Beiträge anhand der offiziellen kantonalen Quelle überprüft werden.',
+    'blog.article.formazione-continua-zurigo-contributi.imageAlt': 'Schweizer Kursraum für berufliche Weiterbildung mit erwachsenen Lernenden.',
 };
 
 export default blogMetaChDe;
