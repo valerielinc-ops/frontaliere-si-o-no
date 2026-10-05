@@ -68,9 +68,9 @@
     {
       "key": "reviewer-finding/fp:scripts-scripts-scripts-scripts",
       "outcome": "declined",
-      "decidedAt": "2026-10-01T11:46:17Z",
-      "ref": "#10479, #10393, #10105",
-      "reason": "Fingerprint catch-all creato dalla ripetizione di `scripts/`: gli esempi coprono thin-content/quarantine, prova snapshot e metadata stale, senza un pattern preventivo comune oltre le regole gia' presenti."
+      "decidedAt": "2026-10-05T12:25:34Z",
+      "ref": "#11577, #11125, #10805",
+      "reason": "Fingerprint catch-all creato dalla ripetizione di `scripts/`: gli esempi nuovi coprono contesto di una guardia, selettore crawler e telemetria GCP, senza una bug class preventiva comune."
     },
     {
       "key": "reviewer-finding/fp:scripts-scripts-scripts-funnel",
