@@ -520,6 +520,53 @@ describe('the «inviata» e-mail and the candidate’s documents', () => {
     }
   });
 
+  it('tells an order with an active alias how the employer answer reaches them, instead of inviting replies to Valerie', () => {
+    const alias = { candidateAlias: { address: 'mario.rossi.ab2c@candidature.frontaliereticino.ch', active: true } };
+    const ASK_VALERIE = "Se ricevi una risposta o hai bisogno di altro, scrivimi pure rispondendo a questa email.";
+    const PHONE = "L'azienda può chiamarti al numero di telefono che mi hai dato oppure scriverti per email.";
+    const FORWARD = 'te lo inoltro subito in questa casella. Per rispondere all\'azienda basta rispondere all\'email inoltrata';
+    const NEXT = 'Se qualcosa non funziona, scrivimi rispondendo a questa email. In bocca al lupo!';
+
+    const withPhone = buildCustomerEmail('submitted', submitted({ ...alias, applicantPhone: '+41 79 000 00 00' }), 'order-1', { nowMs: NOW });
+    for (const body of [withPhone.text, withPhone.html.replace(/&#39;/g, "'")]) {
+      expect(body).toContain(PHONE);
+      expect(body).toContain(FORWARD);
+      expect(body).toContain(NEXT);
+      expect(body).not.toContain(ASK_VALERIE);
+    }
+    // The text never names the alias itself: it would only confuse the candidate.
+    expect(withPhone.text).not.toContain('candidature.frontaliereticino.ch');
+    expect(withPhone.text.indexOf(PHONE)).toBeLessThan(withPhone.text.indexOf(FORWARD));
+
+    // No phone in the order (it may come from the CV): the phone is not promised.
+    const noPhone = buildCustomerEmail('submitted', submitted(alias), 'order-1', { nowMs: NOW });
+    expect(noPhone.text).not.toContain(PHONE);
+    expect(noPhone.text).toContain(FORWARD);
+
+    // No active alias (concierge, or the rule not created yet): the employer has the candidate's own address.
+    for (const order of [submitted(), submitted({ candidateAlias: { ...alias.candidateAlias, active: false }, applicantPhone: '+41 79 000 00 00' })]) {
+      const email = buildCustomerEmail('submitted', order, 'order-1', { nowMs: NOW });
+      expect(email.text).toContain(ASK_VALERIE);
+      expect(email.text).not.toContain(FORWARD);
+    }
+    // WhatsApp keeps its own closing: the chat starts from the candidate's phone.
+    expect(buildCustomerEmail('submitted', whatsapp(alias), 'order-1', { nowMs: NOW }).text).not.toContain(FORWARD);
+
+    const LOCALIZED: Record<string, [string, string, string]> = {
+      it: ['numero di telefono', 'te lo inoltro subito', 'scrivimi pure rispondendo'],
+      fr: ['numéro de téléphone', 'je vous le transfère aussitôt', "avez besoin d'autre chose"],
+      de: ['Telefonnummer', 'ich leite sie dir sofort', 'noch etwas brauchst'],
+      en: ['phone number', 'I forward it to this inbox right away', 'need anything else'],
+    };
+    for (const [locale, page] of Object.entries(PAGES)) {
+      const localized = { ...alias, applicantPhone: '+41 79 000 00 00', orderPageUrl: `https://frontaliereticino.ch${page}?assisted_application_order_id=order-1` };
+      const email = buildCustomerEmail('submitted', submitted(localized), 'order-1', { nowMs: NOW });
+      const [phone, forward, askValerie] = LOCALIZED[locale];
+      expect([locale, email.text.includes(phone), email.text.includes(forward), email.text.includes(askValerie)]).toEqual([locale, true, true, false]);
+      expect(email.html).not.toMatch(/undefined|\[object/);
+    }
+  });
+
   it('links the review page of an automated order marked submitted until the purge; a failed mint never stops the e-mail', async () => {
     const cvUploadedAt = new Date(NOW - 10 * DAY);
     const before = submitted({ submissionStatus: 'in_progress', automationState: 'submitted' });
