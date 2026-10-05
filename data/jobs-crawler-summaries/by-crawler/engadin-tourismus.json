@@ -1,7 +1,7 @@
 {
   "key": "engadin-tourismus",
   "label": "Engadin Tourismus AG",
-  "generatedAt": "2026-10-05T09:18:05.811Z",
+  "generatedAt": "2026-10-05T21:24:25.461Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6668,
-  "avgDurationMs": 6668,
+  "unchangedCount": 2,
+  "durationMs": 4707,
+  "avgDurationMs": 4707,
   "durationHistory": [
-    6668
+    4707
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "engadin-tourismus-ee296fc03357",
       "slug": "guest-experience-specialista-m-w-d-70-tourist-information-sils-engadin-tourismus-ag-st-moritz",
@@ -50,7 +52,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/guest-experience-specialist-m-w-d-70-tourist-information-sils",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:58.837Z",
+      "crawledAt": "2026-10-05T21:24:14.888Z",
       "firstSeenAt": "2026-08-12T21:56:51.841Z",
       "salaryMin": 40300,
       "salaryMax": 60900,
@@ -91,7 +93,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/mitarbeiter-in-human-resources-80-100",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:17:57.754Z",
+      "crawledAt": "2026-10-05T21:24:14.612Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:19:13.663Z",
       "salaryMin": 57500,
@@ -107,7 +109,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }
