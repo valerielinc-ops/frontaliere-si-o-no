@@ -37926,7 +37926,6 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorName: 'Redazione Frontaliere Ticino',
  },
 ];
-
 const RAW_ARTICLES: Article[] = [
  ...RAW_ARTICLES_CHUNK_01,
  ...RAW_ARTICLES_CHUNK_02,
