@@ -7754,6 +7754,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.india-aels-protezione-capitali.title': 'Parmelin in Indien: Abkommen zum Schutz von Investitionen',
     'blog.article.india-aels-protezione-capitali.excerpt': 'Aus Neu-Delhi berichtet Guy Parmelin, dass Bern ein Abkommen zum Schutz der Investitionen anstrebt und die Bedeutung des geistigen Eigentums hervorhebt.',
     'blog.article.india-aels-protezione-capitali.imageAlt': 'Guy Parmelin in Neu-Delhi bei Gesprächen über Investitionsschutz und das Handelsabkommen Indien-AELS.',
+    'blog.article.aumento-iva-finanziamento-13esima-avs.title': 'Erhöhung der Mehrwertsteuer für die 13. AHV-Rente',
+    'blog.article.aumento-iva-finanziamento-13esima-avs.excerpt': 'Am 29. November wird über die Erhöhung der Mehrwertsteuer von 8,1% auf 8,5% zur Finanzierung der 13. AHV-Rente abgestimmt, für die jährlich 4,2 Milliarden Franken benötigt werden.',
+    'blog.article.aumento-iva-finanziamento-13esima-avs.imageAlt': 'Bundeshaus in Bern, Sitz von Regierung und Parlament der Schweiz.',
 };
 
 export default blogMetaChDe;

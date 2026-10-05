@@ -23316,6 +23316,16 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aumento-iva-finanziamento-13esima-avs',
+    category: 'fiscale',
+    date: '2026-10-05T11:44:07.380Z',
+    image: '/images/blog/aumento-iva-finanziamento-13esima-avs.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

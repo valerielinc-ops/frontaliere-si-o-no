@@ -7754,6 +7754,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.india-aels-protezione-capitali.title': 'Parmelin en Inde : accord pour protéger les investissements',
     'blog.article.india-aels-protezione-capitali.excerpt': 'Depuis New Delhi, Guy Parmelin indique que Berne souhaite un accord sur la protection des investissements et accorde de l\'importance à la propriété intellectuelle.',
     'blog.article.india-aels-protezione-capitali.imageAlt': 'Guy Parmelin à New Delhi pour des discussions sur les investissements et l’accord commercial Inde-AELE.',
+    'blog.article.aumento-iva-finanziamento-13esima-avs.title': 'Hausse de la TVA pour la 13e rente AVS',
+    'blog.article.aumento-iva-finanziamento-13esima-avs.excerpt': 'Le 29 novembre, un vote aura lieu sur l\'augmentation de la TVA de 8,1% à 8,5% pour financer la 13e rente AVS, qui nécessite 4,2 milliards de francs par an.',
+    'blog.article.aumento-iva-finanziamento-13esima-avs.imageAlt': 'Palais fédéral à Berne, siège du gouvernement et du parlement suisses.',
 };
 
 export default blogMetaChFr;

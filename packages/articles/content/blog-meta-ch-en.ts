@@ -7754,6 +7754,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.india-aels-protezione-capitali.title': 'Parmelin in India: agreement to protect investments',
     'blog.article.india-aels-protezione-capitali.excerpt': 'From New Delhi, Guy Parmelin reports that Bern hopes for an agreement on investment protection and highlights the importance of intellectual property.',
     'blog.article.india-aels-protezione-capitali.imageAlt': 'Guy Parmelin in New Delhi for talks on investment protection and the India-AELS trade agreement.',
+    'blog.article.aumento-iva-finanziamento-13esima-avs.title': 'VAT increase for the 13th AVS pension',
+    'blog.article.aumento-iva-finanziamento-13esima-avs.excerpt': 'On 29 November, voters will decide on increasing VAT from 8,1% to 8,5% to finance the 13th AVS pension, which requires 4,2 billion francs annually.',
+    'blog.article.aumento-iva-finanziamento-13esima-avs.imageAlt': 'Swiss Federal Palace in Bern, seat of the government and parliament.',
 };
 
 export default blogMetaChEn;

@@ -7754,6 +7754,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.india-aels-protezione-capitali.title': 'Parmelin in India: accordo per proteggere gli investimenti',
     'blog.article.india-aels-protezione-capitali.excerpt': 'Da Nuova Delhi, Guy Parmelin riferisce che Berna auspica un accordo sulla protezione degli investimenti e valorizza la proprietà intellettuale.',
     'blog.article.india-aels-protezione-capitali.imageAlt': 'Guy Parmelin a Nuova Delhi per colloqui su investimenti e accordo commerciale India-AELS.',
+    'blog.article.aumento-iva-finanziamento-13esima-avs.title': 'Aumento IVA per la 13esima AVS',
+    'blog.article.aumento-iva-finanziamento-13esima-avs.excerpt': 'Il 29 novembre si vota sull\'aumento dell\'IVA dall\'8,1% all\'8,5% per finanziare la 13esima rendita AVS, che necessita di 4,2 miliardi di franchi annui.',
+    'blog.article.aumento-iva-finanziamento-13esima-avs.imageAlt': 'Palazzo federale svizzero a Berna, sede del governo e del parlamento.',
 };
 
 export default blogMetaChIt;

@@ -2607,6 +2607,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'porte-aperte-login-ticino': { it: 'porte-aperte-login-ticino', en: 'open-doors-login-ticino', de: 'offene-tueren-login-ticino', fr: 'portes-ouvertes-login-ticino' },
  'rischi-cyber-pmi-svizzere': { it: 'rischi-cyber-pmi-svizzere', en: 'swiss-sme-cyber-risks', de: 'cyberrisiken-schweizer-kmu', fr: 'cyber-risques-pme-suisses' },
  'india-aels-protezione-capitali': { it: 'india-aels-protezione-capitali', en: 'parmelin-india-investment-protection', de: 'parmelin-indien-investitionsschutz', fr: 'parmelin-inde-protection-investissements' },
+ 'aumento-iva-finanziamento-13esima-avs': { it: 'aumento-iva-finanziamento-13esima-avs', en: 'vat-increase-13th-pillar-ahv-financing', de: 'mwst-erhoehung-13-ahv-finanzierung', fr: 'hausse-tva-financement-13e-avs' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
