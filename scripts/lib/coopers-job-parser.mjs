@@ -11,6 +11,8 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import {
   slugify,
@@ -148,17 +150,8 @@ async function fetchHtml(url) {
 }
 
 /**
- * Parse DD.MM.YYYY date format → YYYY-MM-DD.
- */
-function parseEuDate(raw = '') {
-  const m = String(raw).trim().match(/(\d{2})\.(\d{2})\.(\d{4})/);
-  return m ? `${m[3]}-${m[2]}-${m[1]}` : '';
-}
-
-
-/**
  * Parse the Coopers listing page HTML to extract job cards.
- * Each job card has: title, location, contractType, hours, refCode, date, url.
+ * Each job card has: title, location, contractType, hours, refCode, url.
  */
 function parseListingPage(html) {
   const listings = [];
@@ -194,17 +187,12 @@ function parseListingPage(html) {
     const hoursMatch = metaText.match(/\b(Full\s*Time|Part\s*Time|\d+\s*%)\b/i);
     const hours = hoursMatch ? hoursMatch[1] : 'Full Time';
 
-    // Posted date
-    const dateMatch = metaText.match(/(\d{2}\.\d{2}\.\d{4})/);
-    const dateRaw = dateMatch ? dateMatch[1] : '';
-
     listings.push({
       title,
       location,
       contractType,
       hours,
       refCode,
-      postedDate: parseEuDate(dateRaw),
       url: `${COOPERS_BASE}${detailPath}`,
     });
   }
@@ -295,6 +283,15 @@ async function fetchJobDetail(detailUrl) {
     if (!html) return { description: '', requirements: [] };
 
     const descriptionText = parseCoopersDetailDescription(html);
+    const posting = extractJobPostingLd(html);
+    const identities = [posting?.url, posting?.sameAs].flat().filter((value) => value != null);
+    // The provider's refCode query identifies the vacancy; never ignore it.
+    const sameVacancy = identities.length > 0 && identities.every((value) => {
+      if (typeof value !== 'string' || !value.trim()) return false;
+      try { return new URL(value, detailUrl).href === new URL(detailUrl).href; }
+      catch { return false; }
+    });
+    const publication = sourcePostingDateFields(sameVacancy ? posting?.datePosted : '');
 
     // Extract requirements from list items
     const requirements = [];
@@ -311,6 +308,7 @@ async function fetchJobDetail(detailUrl) {
     return {
       description: descriptionText || '',
       requirements,
+      ...publication,
     };
   } catch (err) {
     console.warn(`  ⚠️ Error fetching detail: ${err.message}`);
@@ -413,7 +411,7 @@ export async function fetchAllCoopersJobs() {
       sector: 'Farmaceutica / Life Sciences',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, detail)),
       applyUrl: listing.url,
 
       // ── Requirements ──

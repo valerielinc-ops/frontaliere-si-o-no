@@ -83,7 +83,7 @@ const {
   NOTIFICATION_KEYS,
 } = await import('../functions/src/assistedApplicationNotifications.js');
 const { renderBrandedEmail } = await import('../functions/src/assistedApplicationEmailLayout.js');
-const { verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
+const { CONSENT_BOUND_EXPIRES_AT, verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 
 const NOW = Date.parse('2026-09-30T10:00:00Z');
 const HOUR = 60 * 60 * 1000;
@@ -562,8 +562,17 @@ describe('the «inviata» e-mail and the candidate’s documents', () => {
     // A refund anchors the purge.
     const refunded = await submittedReviewUrl({ db, orderId: 'order-1', order: { automationState: 'submitted', cvUploadedAt: new Date(NOW - 80 * DAY), refundedAt: new Date(NOW) }, nowMs: NOW, getSecret });
     expect(verifyReviewToken({ secret: SECRET, token: new URL(refunded).searchParams.get('assisted_application_review'), nowMs: NOW })).toMatchObject({ ok: true, expiresAt: NOW + 90 * DAY });
-    // An order the purge never reaches (the talent pool) keeps the usual 30 days.
-    const kept = await submittedReviewUrl({ db, orderId: 'order-1', order: { automationState: 'submitted', cvUploadedAt: new Date(NOW), talentPoolConsent: true }, nowMs: NOW, getSecret });
-    expect(verifyReviewToken({ secret: SECRET, token: new URL(kept).searchParams.get('assisted_application_review'), nowMs: NOW })).toMatchObject({ ok: true, expiresAt: NOW + 30 * DAY });
+    // An order kept for the talent pool: as long as the consent (owner decision 2026-10-05), which the
+    // review endpoint checks at every access — well beyond 30 days and the 90 of the purge.
+    const kept = await submittedReviewUrl({ db, orderId: 'order-1', order: { automationState: 'submitted', cvUploadedAt: new Date(NOW - 200 * DAY), talentPoolConsent: true }, nowMs: NOW, getSecret });
+    const keptToken = new URL(kept).searchParams.get('assisted_application_review');
+    expect(verifyReviewToken({ secret: SECRET, token: keptToken, nowMs: NOW + 400 * DAY }))
+      .toMatchObject({ ok: true, kind: 'review', consentBound: true, expiresAt: CONSENT_BOUND_EXPIRES_AT });
+    // Without a date for the purge and without the consent: the usual 30 days, never bound to a consent.
+    const undated = await submittedReviewUrl({ db, orderId: 'order-1', order: { automationState: 'submitted' }, nowMs: NOW, getSecret });
+    expect(verifyReviewToken({ secret: SECRET, token: new URL(undated).searchParams.get('assisted_application_review'), nowMs: NOW }))
+      .toMatchObject({ ok: true, expiresAt: NOW + 30 * DAY, consentBound: false });
+    // An order the purge already emptied is no longer kept for the pool: its documents are gone.
+    expect(await submittedReviewUrl({ db, orderId: 'order-1', order: { automationState: 'submitted', talentPoolConsent: true, retentionPurgedAt: new Date(NOW) }, nowMs: NOW, getSecret })).not.toContain('assisted_application_review');
   });
 });

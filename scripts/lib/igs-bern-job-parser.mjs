@@ -21,6 +21,8 @@
  * description is fetched from there.
  */
 import { createHash } from 'node:crypto';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {
@@ -129,28 +131,26 @@ async function fetchAllPastaHrJobs() {
   return all;
 }
 
-/* ── Date helper ──────────────────────────────────────────── */
-
-function parseSwissDate(raw = '') {
-  const trimmed = String(raw || '').trim().replace(/^1(\d{2}\.)/, '$1');
-  const m = trimmed.match(/^(\d{1,2})\.(\d{1,2})\.(\d{2,4})$/);
-  if (!m) return null;
-  const dd = m[1].padStart(2, '0');
-  const mm = m[2].padStart(2, '0');
-  const yyyy = m[3].length === 2 ? `20${m[3]}` : m[3];
-  return `${yyyy}-${mm}-${dd}`;
-}
-
 /* ── Detail fetcher ──────────────────────────────────────── */
 
 async function fetchPublicJobsDetail(detailUrl) {
   try {
     const html = await fetchHtml(detailUrl);
-    if (!html) return '';
-    return extractPublicjobsDetailDescription(html);
+    if (!html) return { description: '' };
+    const posting = extractJobPostingLd(html);
+    const identities = [posting?.url, posting?.sameAs].flat().filter((value) => value != null);
+    const sameVacancy = identities.length > 0 && identities.every((value) => {
+      if (typeof value !== 'string' || !value.trim()) return false;
+      try { return new URL(value, detailUrl).href === new URL(detailUrl).href; }
+      catch { return false; }
+    });
+    return {
+      description: extractPublicjobsDetailDescription(html),
+      ...sourcePostingDateFields(sameVacancy ? posting?.datePosted : ''),
+    };
   } catch (err) {
     console.warn(`  ⚠️ IGS Bern detail fetch failed (${detailUrl}): ${err?.message || err}`);
-    return '';
+    return { description: '' };
   }
 }
 
@@ -212,10 +212,9 @@ export async function fetchAllIgsBernJobs() {
     const employmentType = detectHealthcareEmploymentType(title);
     const contract = pensum && pensum.max < 80 ? 'part-time' : 'full-time';
 
-    const postedDate = parseSwissDate(row?.job_booking_start || '')
-      || new Date().toISOString().split('T')[0];
-
-    const detailDescription = await fetchPublicJobsDetail(detailUrl);
+    // Booking-window metadata is not proof of the vacancy's publication date.
+    const detail = await fetchPublicJobsDetail(detailUrl);
+    const detailDescription = detail.description;
     // Only source text (issue 5253): no "<title> — <company>, <place>." stub
     // in place of a thin body. A body under the common 50-word floor gives no
     // description (the shared pipeline's thin-source path).
@@ -252,7 +251,7 @@ export async function fetchAllIgsBernJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, detail)),
       applyUrl: detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

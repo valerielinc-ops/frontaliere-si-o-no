@@ -27,6 +27,8 @@
  *
  * Polite delay: 300 ms between detail fetches.
  */
+import { identifiedPostingPublication } from './identified-posting-publication.mjs';
+import { withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { guessCategory } from './dedicated-crawler-common.mjs';
@@ -215,7 +217,6 @@ export async function fetchAllSodexoJobs() {
   console.log(`  ✓ ${positions.length} Concludis positions parsed`);
   if (!positions.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (let i = 0; i < positions.length; i += 1) {
     const p = positions[i];
@@ -251,9 +252,7 @@ export async function fetchAllSodexoJobs() {
       : HQ.streetAddress;
     const canton = pickCanton(city, postalCode);
 
-    const datePosted = (ld?.datePosted && /^\d{4}-\d{2}-\d{2}$/.test(ld.datePosted))
-      ? ld.datePosted
-      : todayIso;
+    const publication = identifiedPostingPublication(html, p.detailUrl, p.title);
 
     const jobSlug = slugify(`${title} ${SODEXO_KEY} ${city}`);
     const urlHash = createHash('sha1').update(p.detailUrl).digest('hex').slice(0, 12);
@@ -296,7 +295,7 @@ export async function fetchAllSodexoJobs() {
       sector: 'Ristorazione collettiva / Facility Management',
       currency: 'CHF',
       featured: false,
-      postedDate: datePosted,
+      ...withLegacyPostingDay(publication),
       applyUrl: p.detailUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

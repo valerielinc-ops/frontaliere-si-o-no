@@ -18,6 +18,7 @@
  * "Spontanbewerbung" which we skip.
  */
 import { createHash } from 'node:crypto';
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { textFragmentUrl } from './text-fragment-url.mjs';
@@ -181,7 +182,6 @@ export async function fetchAllKlinikSeeschauJobs() {
   console.log(`  ✓ ${items.length} job entries parsed (skipping Spontanbewerbung)`);
   if (!items.length) return [];
 
-  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
   for (const it of items) {
     const baseText = it.descriptionText || it.title;
@@ -234,7 +234,8 @@ export async function fetchAllKlinikSeeschauJobs() {
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate: todayIso,
+      // The parsed vacancy record carries no verified publication date.
+      ...sourcePostingDateFields(''),
       applyUrl: KLINIK_SEESCHAU_CAREERS_URL,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
