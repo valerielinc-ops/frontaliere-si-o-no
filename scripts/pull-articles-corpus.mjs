@@ -221,6 +221,21 @@ function readBlogSeoKeys(file) {
   );
 }
 
+/** Read the complete blog SEO surface, including numbered lazy-loaded shards. */
+function readBlogSeoKeysInTree(contentRoot) {
+  let files;
+  try {
+    files = fs.readdirSync(path.join(contentRoot, 'seo'));
+  } catch {
+    return new Set();
+  }
+  const keys = new Set();
+  for (const file of files.filter((name) => /^seo-blog(?:-\d+)?\.ts$/.test(name))) {
+    for (const key of readBlogSeoKeys(path.join(contentRoot, 'seo', file))) keys.add(key);
+  }
+  return keys;
+}
+
 // ── Which corpus commit this sync is pinned to (issue #5298) ─────────────────
 //
 // Resolved BEFORE the clone, because a manifest we cannot read is a sync we must
@@ -460,10 +475,8 @@ try {
 
     const snapshots = [];
     const preserveIdsForSnapshots = new Set(preserveIds);
-    const localSeoFile = path.join(DEST, 'seo', 'seo-blog.ts');
-    const incomingSeoFile = path.join(src, 'seo', 'seo-blog.ts');
-    const incomingSeoKeys = readBlogSeoKeys(incomingSeoFile);
-    const localSeoKeys = readBlogSeoKeys(localSeoFile);
+    const incomingSeoKeys = readBlogSeoKeysInTree(src);
+    const localSeoKeys = readBlogSeoKeysInTree(DEST);
     for (const key of localSeoKeys) {
       if (!incomingSeoKeys.has(key)) preserveIdsForSnapshots.add(key);
     }
