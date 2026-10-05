@@ -535,7 +535,9 @@ async function resolveJobSeoBySlug(
  isTicino,
  isRemote,
  };
- const jobFaqPairs = buildJobPostingFaqPairs(buildJobPostingFacts(canonicalInput, locale), faqOpts);
+ const jobFaqPairs = buildJobPostingFaqPairs(buildJobPostingFacts(canonicalInput, locale, {
+ fallbackUrl: canonicalUrl,
+ }), faqOpts);
  const faqPageSchema: Record<string, any> | null = jobFaqPairs.length > 0
  ? {
  '@context': 'https://schema.org',
