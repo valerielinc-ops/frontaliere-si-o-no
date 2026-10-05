@@ -12,14 +12,14 @@ import { readArticleRegistryMetadata } from './shared/articleRegistryMetadata';
 import { decodeHtmlText } from './shared/htmlEntities';
 import { buildRelatedArticlesIndex } from './relatedArticlesIndex';
 import type { Plugin } from 'vite';
-import { getSiteShell } from './siteShell';
+import { getSiteShell, type SiteShellContract } from './siteShell';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml, renderArticleInlineMarkup } from './articleSeoFallback';
 import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl, resolveShadowedArticleWinnerSlug } from './shared/swissArticleCanonicalOverrides';
 import { loadArticleReviewOverrides, resolveArticleReviewerSlug } from './shared/articleReviewOverrides';
 import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
 import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
-import { ARTICLE_SECTION_DESCRIPTORS, extractBlogEntryPositions, blogKeyToArticleId } from './shared/articleSectionDescriptors';
+import { ARTICLE_SECTION_DESCRIPTORS, extractBlogEntryPositions, blogKeyToArticleId, type OgSection as OgSectionDescriptor } from './shared/articleSectionDescriptors';
 import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
 import { readImageIntrinsicSize } from './shared/imageIntrinsicSize';
 import { decodeTsStringEscapes, repairLegacyDoubleEscapedBreaks } from './shared/tsStringEscapes';
@@ -131,10 +131,26 @@ export interface RenderedArticleEntry {
  img: string;
 }
 
+type OgSectionId = OgSectionDescriptor['name'];
+
+/**
+ * Where each section kind's hub slugs come from. The two historical kinds keep
+ * reading the site shell (same values, same source as before the table); a
+ * canton section reads the core entry carried by its descriptor, because
+ * SiteShellContract deliberately has no per-canton field (changing it would
+ * force the corpus `host/` half to ship in the same round).
+ */
+const SHELL_INDEX_SLUGS_BY_KIND: Record<OgSectionDescriptor['kind'], (shell: SiteShellContract, section: OgSectionDescriptor) => Record<string, string>> = {
+ frontaliere: (shell) => ({ ...shell.blogIndexSlugs }),
+ national: (shell) => ({ ...shell.swissBlogIndexSlugs }),
+ canton: (_shell, section) => ({ ...section.indexSlug }),
+};
+
 export interface RenderArticlePagesOptions {
  rootDir: string;
  distDir: string;
- section: 'frontaliere' | 'svizzera';
+ /** Section id (`frontaliere`, `svizzera`, or an active `canton-<code>`). */
+ section: OgSectionId;
  /**
  * When set, render/write ONLY this article's 4 locale pages instead of the
  * whole section (near-instant single-article publish, #4837 stream A).
@@ -510,7 +526,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  seoSrc = seoSrc === null ? chunk : seoSrc + '\n' + chunk;
  }
  if (seoSrc === null) {
- if (SECTION.name === 'frontaliere') {
+ if (SECTION.kind === 'frontaliere') {
  try {
  seoSrc = fs.readFileSync(np.resolve(rootDir, 'services/seoService.ts'), 'utf-8');
  } catch (err) {
@@ -732,9 +748,10 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // site shell's narrowed SLUG_TABLES projection (#4315 originally, #4881
  // Fase 6 routed through SiteShellContract instead of importing
  // routeSlugs.data directly). `blogIndexSlugs` for the frontaliere section,
- // `swissBlogIndexSlugs` for svizzera.
- const blogIndexSlug: Record<string, string> =
- SECTION.name === 'frontaliere' ? { ...shell.blogIndexSlugs } : { ...shell.swissBlogIndexSlugs };
+ // `swissBlogIndexSlugs` for svizzera — looked up by kind. A canton section
+ // is not in SiteShellContract (deliberately: no host/ round-trip in the
+ // corpus) and reads its slugs from the core entry the descriptor carries.
+ const blogIndexSlug: Record<string, string> = SHELL_INDEX_SLUGS_BY_KIND[SECTION.kind](shell, SECTION);
 
  // Both were chains of .replace() until 2026-08-11, which cannot decode
  // escapes: each pass re-reads the previous pass's output, and `\\` — the
@@ -1774,20 +1791,36 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  async closeBundle() {
  const np = await import('node:path');
  const distDir = np.resolve(rootDir, 'dist');
- const skipFrontaliere = process.env.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP === 'true';
- const skipSvizzera = process.env.ARTICOLISVIZZERA_BUILD_EMIT_SKIP === 'true';
- const frontaliere = skipFrontaliere
+ // One render per active Pages-shard section, in core order (frontaliere,
+ // svizzera), keyed by the section's shardKey. The flags stay literal,
+ // strict `=== 'true'` reads (tests/build-emit-skip-gate.test.ts pins both),
+ // so a shard section without its own flag fails loudly instead of being
+ // emitted or skipped by guesswork. Canton sections have no shard (shardKey
+ // null): the corpus prerenders them to R2, so the monolith build never
+ // emits them.
+ const emitSkipByShard: Record<string, boolean> = {
+ articolifrontaliere: process.env.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP === 'true',
+ articolisvizzera: process.env.ARTICOLISVIZZERA_BUILD_EMIT_SKIP === 'true',
+ };
+ const results: Array<{ name: string; skipped: boolean; written: number; entries: number }> = [];
+ for (const descriptor of ARTICLE_SECTION_DESCRIPTORS) {
+ if (descriptor.shardKey === null) continue;
+ if (!Object.prototype.hasOwnProperty.call(emitSkipByShard, descriptor.shardKey)) {
+ throw new Error(`[og-pages] nessun flag BUILD_EMIT_SKIP per lo shard "${descriptor.shardKey}" (sezione ${descriptor.name})`);
+ }
+ const skipped = emitSkipByShard[descriptor.shardKey];
+ const out = skipped
  ? { written: 0, entries: [] }
- : await renderArticlePages({ rootDir, distDir, section: 'frontaliere' });
- const svizzera = skipSvizzera
- ? { written: 0, entries: [] }
- : await renderArticlePages({ rootDir, distDir, section: 'svizzera' });
- const written = frontaliere.written + svizzera.written;
- const totalArticles = frontaliere.entries.length + svizzera.entries.length;
- const skipNote = skipFrontaliere || skipSvizzera
- ? ` (build-time emit SKIPPED for ${[skipFrontaliere && 'frontaliere', skipSvizzera && 'svizzera'].filter(Boolean).join(', ')} — served from shard, see ARTICOLI*_BUILD_EMIT_SKIP)`
+ : await renderArticlePages({ rootDir, distDir, section: descriptor.name });
+ results.push({ name: descriptor.name, skipped, written: out.written, entries: out.entries.length });
+ }
+ const written = results.reduce((sum, r) => sum + r.written, 0);
+ const totalArticles = results.reduce((sum, r) => sum + r.entries, 0);
+ const skippedNames = results.filter((r) => r.skipped).map((r) => r.name);
+ const skipNote = skippedNames.length > 0
+ ? ` (build-time emit SKIPPED for ${skippedNames.join(', ')} — served from shard, see ARTICOLI*_BUILD_EMIT_SKIP)`
  : '';
- console.log(`\x1b[36m[og-pages]\x1b[0m Done — wrote ${written} files across ${totalArticles} article(s) total (frontaliere + svizzera).${skipNote}`);
+ console.log(`\x1b[36m[og-pages]\x1b[0m Done — wrote ${written} files across ${totalArticles} article(s) total (${results.map((r) => r.name).join(' + ')}).${skipNote}`);
  },
  };
 }

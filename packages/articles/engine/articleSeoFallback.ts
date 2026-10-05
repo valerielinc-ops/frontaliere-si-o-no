@@ -1,4 +1,5 @@
 import { getSiteShell } from './siteShell';
+import { articleSectionKind } from './shared/articleSectionCore.mjs';
 import {
  markdownFenceCloses,
  markdownFenceFor,
@@ -8,7 +9,7 @@ import {
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
-type ArticleSection = 'frontaliere' | 'svizzera';
+type ArticleSection = 'frontaliere' | 'svizzera' | `canton-${string}`;
 
 type SeoSection = {
  heading: string;
@@ -61,16 +62,23 @@ const SECTION_LABELS: Record<Locale, { intro: string; why: string; checks: strin
  },
 };
 
-// Switzerland-resident framing overrides for the "svizzera" section. Only the
-// `impact` heading label and the intro-paragraph residence clause differ from
-// the default (frontaliere) copy; everything else is shared. Frontaliere output
-// stays byte-identical because these are applied only when section==='svizzera'.
+// Switzerland-resident framing overrides for the national ("svizzera")
+// section. Only the `impact` heading label and the intro-paragraph residence
+// clause differ from the default (frontaliere) copy; everything else is
+// shared. Frontaliere output stays byte-identical because these are applied
+// only to the kinds in SWISS_RESIDENT_FRAMING_KINDS.
 const SVIZZERA_IMPACT_LABEL: Record<Locale, string> = {
  it: 'Impatto pratico per chi vive in Svizzera',
  en: 'Practical impact for people living in Switzerland',
  de: 'Praktische Folgen fur Menschen mit Wohnsitz in der Schweiz',
  fr: 'Impact concret pour les residents en Suisse',
 };
+
+// Section kinds whose readers live in Switzerland, looked up from the section
+// core instead of comparing the name (`section === 'svizzera'`). A canton
+// section addresses residents of that canton, so it takes the Swiss-resident
+// framing rather than the frontaliere one (Italy-resident, Ticino-employed).
+const SWISS_RESIDENT_FRAMING_KINDS: ReadonlySet<string> = new Set(['national', 'canton']);
 
 const LEGACY_HTML_ANCHOR_RX = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
 const HTML_HREF_ATTR_RX = /\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/i;
@@ -448,7 +456,7 @@ const formatTopicList = (locale: Locale, topics: string[]): string => {
 };
 
 export function buildArticleSeoSections(locale: Locale, title: string, desc: string, keywords: string, section: ArticleSection = 'frontaliere'): SeoSection[] {
- const isSvizzera = section === 'svizzera';
+ const isSvizzera = SWISS_RESIDENT_FRAMING_KINDS.has(articleSectionKind(section));
  const labels = isSvizzera
    ? { ...SECTION_LABELS[locale], impact: SVIZZERA_IMPACT_LABEL[locale] }
    : SECTION_LABELS[locale];

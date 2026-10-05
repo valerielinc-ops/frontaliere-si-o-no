@@ -31,7 +31,7 @@
  * been mirrored to the deploying checkout no longer silently degrades to the
  * app icon in the feed.
  */
-import { ARTICLE_SECTION_CORE } from './shared/articleSectionCore.mjs';
+import { ARTICLE_SECTION_CORE_LIST } from './shared/articleSectionCore.mjs';
 import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
 import { findAllSeoEntryMatches } from './shared/seo-entry.mjs';
 import { createImageCreditReader, mediaRssCreditXml, renderImageCreditHtml } from './shared/imageCredits.mjs';
@@ -70,51 +70,91 @@ const FRONTALIERE_SEO_CHUNKS = [
 ];
 
 /**
- * Section table. `slugFile`/`bodyDir`/`metaPrefix`/`indexSlug` come from
- * ARTICLE_SECTION_CORE (the canonical tuple); `seoFiles` stays local to this
- * table rather than joining the shared tuple, since no other consumer needs
- * exactly this list.
+ * Per-kind feed profile: the fields that are local to the RSS table (no other
+ * consumer needs them) — which SEO chunks hold the items, the slug fallback,
+ * the feed file names and the channel copy. Keyed by the section `kind` from
+ * ARTICLE_SECTION_CORE, not by the section name. The two rows are the two
+ * hand-written entries this table held before it became table-driven, value
+ * for value.
+ *
+ * There is deliberately no `canton` row yet: a canton channel needs its own
+ * title/description per locale, and inventing them here would ship a wrong
+ * channel. `rssSectionFor` therefore fails loudly when an ACTIVE section has
+ * no profile — activating a canton section has to bring its feed profile in
+ * the same change (the test in tests/build-plugins/articleSectionCore.test.ts
+ * checks every active section resolves).
  */
-export const RSS_SECTIONS = [
-  {
-    id: 'frontaliere',
+const RSS_KIND_PROFILES = {
+  frontaliere: {
     seoFiles: FRONTALIERE_SEO_CHUNKS,
-    slugFile: ARTICLE_SECTION_CORE.frontaliere.slugDataFile,
-    slugConst: ARTICLE_SECTION_CORE.frontaliere.slugConst,
-    metaFile: (locale) => `${ARTICLE_SECTION_CORE.frontaliere.metaPrefix}-${locale}.ts`,
-    bodyDir: ARTICLE_SECTION_CORE.frontaliere.bodyDir,
     // Localized slug fallback: missing locale → IT slug → articleId.
     slugFallback: 'it',
-    mainFeed: 'rss.xml',
-    feedFile: (locale) => `rss-${locale}.xml`,
-    localeMeta: {
-      it: { title: 'Frontaliere Ticino', description: 'Notizie e guide per frontalieri italiani in Ticino', language: 'it', articlePrefix: `/${ARTICLE_SECTION_CORE.frontaliere.indexSlug.it}/` },
-      en: { title: 'Frontaliere Ticino — English', description: 'News and guides for cross-border workers in Ticino', language: 'en', articlePrefix: `/en/${ARTICLE_SECTION_CORE.frontaliere.indexSlug.en}/` }, // locale-segment-ok: voce di una mappa localeMeta indicizzata per locale — il prefisso /en/ e il branch per-locale, non un path costruito dinamicamente
-      de: { title: 'Frontaliere Ticino — Deutsch', description: 'Nachrichten und Leitfaden für Grenzgänger im Tessin', language: 'de', articlePrefix: `/de/${ARTICLE_SECTION_CORE.frontaliere.indexSlug.de}/` }, // locale-segment-ok: voce di una mappa localeMeta indicizzata per locale — il prefisso /de/ e il branch per-locale, non un path costruito dinamicamente
-      fr: { title: 'Frontaliere Ticino — Français', description: 'Actualités et guides pour les frontaliers au Tessin', language: 'fr', articlePrefix: `/fr/${ARTICLE_SECTION_CORE.frontaliere.indexSlug.fr}/` }, // locale-segment-ok: voce di una mappa localeMeta indicizzata per locale — il prefisso /fr/ e il branch per-locale, non un path costruito dinamicamente
+    mainFeed: () => 'rss.xml',
+    feedFile: () => (locale) => `rss-${locale}.xml`,
+    channel: {
+      it: { title: 'Frontaliere Ticino', description: 'Notizie e guide per frontalieri italiani in Ticino' },
+      en: { title: 'Frontaliere Ticino — English', description: 'News and guides for cross-border workers in Ticino' },
+      de: { title: 'Frontaliere Ticino — Deutsch', description: 'Nachrichten und Leitfaden für Grenzgänger im Tessin' },
+      fr: { title: 'Frontaliere Ticino — Français', description: 'Actualités et guides pour les frontaliers au Tessin' },
     },
   },
-  {
-    id: 'svizzera',
+  national: {
     seoFiles: ['seo-blog-ch.ts'],
-    slugFile: ARTICLE_SECTION_CORE.svizzera.slugDataFile,
-    slugConst: ARTICLE_SECTION_CORE.svizzera.slugConst,
-    metaFile: (locale) => `${ARTICLE_SECTION_CORE.svizzera.metaPrefix}-${locale}.ts`,
-    bodyDir: ARTICLE_SECTION_CORE.svizzera.bodyDir,
     // National slugs default to the article id per-locale (matches the
     // indexing-api URL resolution in generate-article.yml: SWISS_SLUGS[id][loc]
     // with an id fallback, NOT an IT-slug fallback).
     slugFallback: 'id',
-    mainFeed: 'rss-svizzera.xml',
-    feedFile: (locale) => `rss-svizzera-${locale}.xml`,
-    localeMeta: {
-      it: { title: 'Frontaliere Ticino — Svizzera', description: 'Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana', language: 'it', articlePrefix: `/${ARTICLE_SECTION_CORE.svizzera.indexSlug.it}/` },
-      en: { title: 'Frontaliere Ticino — Switzerland', description: 'News and guides about Switzerland: economy, work, taxes and daily life', language: 'en', articlePrefix: `/en/${ARTICLE_SECTION_CORE.svizzera.indexSlug.en}/` }, // locale-segment-ok: voce di una mappa localeMeta indicizzata per locale — il prefisso /en/ e il branch per-locale, non un path costruito dinamicamente
-      de: { title: 'Frontaliere Ticino — Schweiz', description: 'Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag', language: 'de', articlePrefix: `/de/${ARTICLE_SECTION_CORE.svizzera.indexSlug.de}/` }, // locale-segment-ok: voce di una mappa localeMeta indicizzata per locale — il prefisso /de/ e il branch per-locale, non un path costruito dinamicamente
-      fr: { title: 'Frontaliere Ticino — Suisse', description: 'Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne', language: 'fr', articlePrefix: `/fr/${ARTICLE_SECTION_CORE.svizzera.indexSlug.fr}/` }, // locale-segment-ok: voce di una mappa localeMeta indicizzata per locale — il prefisso /fr/ e il branch per-locale, non un path costruito dinamicamente
+    mainFeed: (core) => `rss-${core.section}.xml`,
+    feedFile: (core) => (locale) => `rss-${core.section}-${locale}.xml`,
+    channel: {
+      it: { title: 'Frontaliere Ticino — Svizzera', description: 'Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana' },
+      en: { title: 'Frontaliere Ticino — Switzerland', description: 'News and guides about Switzerland: economy, work, taxes and daily life' },
+      de: { title: 'Frontaliere Ticino — Schweiz', description: 'Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag' },
+      fr: { title: 'Frontaliere Ticino — Suisse', description: 'Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne' },
     },
   },
-];
+};
+
+/** Root-relative prefix of a section's article URLs in one locale (IT has no locale segment). */
+function articlePrefixFor(core, locale) {
+  return locale === 'it' ? `/${core.indexSlug.it}/` : `/${locale}/${core.indexSlug[locale]}/`;
+}
+
+/**
+ * One RSS table row for a core section entry. `slugFile`/`slugConst`/
+ * `metaFile`/`bodyDir`/`articlePrefix` come from the core (the canonical
+ * tuple); the rest from the section kind's profile.
+ */
+export function rssSectionFor(core) {
+  const profile = Object.prototype.hasOwnProperty.call(RSS_KIND_PROFILES, core.kind) ? RSS_KIND_PROFILES[core.kind] : undefined;
+  if (!profile) {
+    throw new Error(`rssFeeds: nessun profilo RSS per la sezione attiva "${core.section}" (tipo ${core.kind})`);
+  }
+  return {
+    id: core.section,
+    seoFiles: profile.seoFiles,
+    slugFile: core.slugDataFile,
+    slugConst: core.slugConst,
+    metaFile: (locale) => `${core.metaPrefix}-${locale}.ts`,
+    bodyDir: core.bodyDir,
+    slugFallback: profile.slugFallback,
+    mainFeed: profile.mainFeed(core),
+    feedFile: profile.feedFile(core),
+    localeMeta: Object.fromEntries(RSS_LOCALES.map((locale) => [locale, {
+      title: profile.channel[locale].title,
+      description: profile.channel[locale].description,
+      language: locale,
+      articlePrefix: articlePrefixFor(core, locale),
+    }])),
+  };
+}
+
+/**
+ * Section table: one row per ACTIVE section of ARTICLE_SECTION_CORE_LIST, in
+ * core order (frontaliere, svizzera). Inactive canton sections are not in the
+ * list, so the ten feeds are unchanged.
+ */
+export const RSS_SECTIONS = ARTICLE_SECTION_CORE_LIST.map(rssSectionFor);
 
 const DEFAULT_LAYOUT = { seoDir: 'services/seo', localesDir: 'services/locales', slugDir: null };
 

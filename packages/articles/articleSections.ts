@@ -25,12 +25,42 @@
 import type { ArticleLocale as Locale } from './engine/siteShell';
 import { ARTICLE_SECTION_CORE } from './engine/shared/articleSectionCore.mjs';
 
-export type ArticleSection = 'frontaliere' | 'svizzera';
+/** The two historical sections, always active. */
+export type HistoricalArticleSection = 'frontaliere' | 'svizzera';
+
+/**
+ * Canton section ids (`canton-ti`, `canton-basilea`, …), generated from
+ * `data/canton-url-slugs.json` into `engine/shared/cantonArticleSectionCore.generated.mjs`.
+ * Open on purpose: the closed set lives in the generated data, not in a type
+ * someone has to keep in step with it.
+ */
+export type CantonArticleSection = `canton-${string}`;
+
+/**
+ * Any article section id. Open (was the closed `'frontaliere' | 'svizzera'`)
+ * so table-driven code can name a canton section; which sections are ACTIVE
+ * is data (`ARTICLE_SECTIONS`), not this type.
+ */
+export type ArticleSection = HistoricalArticleSection | CantonArticleSection;
+
+/** Editorial family of a section — what engine branches look up instead of the section name. */
+export type ArticleSectionKind = 'frontaliere' | 'national' | 'canton';
 
 export const DEFAULT_ARTICLE_SECTION: ArticleSection = 'frontaliere';
 
 export interface ArticleSectionConfig {
   readonly section: ArticleSection;
+  /** Editorial family (`frontaliere` | `national` | `canton`). */
+  readonly kind: ArticleSectionKind;
+  /**
+   * Pages-shard token serving the section (`articolifrontaliere`,
+   * `articolisvizzera`); `null` for canton sections, served from R2.
+   */
+  readonly shardKey: string | null;
+  /** Canton URL-group code (`TI`, `BASILEA`, …). Canton sections only. */
+  readonly canton?: string;
+  /** Reserved topic-hub slugs (theme id → slug per locale). Canton sections only. */
+  readonly topicHubs?: Readonly<Record<string, Record<Locale, string>>>;
   /** Localized URL slug for the section hub (e.g. `articoli-frontaliere`). */
   readonly indexSlug: Record<Locale, string>;
   /**
@@ -55,13 +85,29 @@ export interface ArticleSectionConfig {
   readonly slugConst: string;
 }
 
+/**
+ * ACTIVE sections only (today frontaliere + svizzera; a canton joins when it
+ * is listed in `ACTIVE_CANTON_SECTIONS`). The historical keys are always
+ * present, so `ARTICLE_SECTIONS.svizzera` stays a non-optional lookup.
+ */
 export const ARTICLE_SECTIONS: Record<ArticleSection, ArticleSectionConfig> =
   ARTICLE_SECTION_CORE as unknown as Record<ArticleSection, ArticleSectionConfig>;
 
 export const ARTICLE_SECTION_LIST: readonly ArticleSectionConfig[] =
   Object.values(ARTICLE_SECTIONS);
 
-/** All four localized hub slugs across both sections (for route detection). */
+/**
+ * Config of an ACTIVE section, failing loudly otherwise. `ArticleSection`
+ * admits every `canton-*` id while only the active ones are in
+ * `ARTICLE_SECTIONS`; an inactive id must not read as `undefined` fields.
+ */
+export function activeArticleSection(section: ArticleSection): ArticleSectionConfig {
+  const cfg = Object.prototype.hasOwnProperty.call(ARTICLE_SECTIONS, section) ? ARTICLE_SECTIONS[section] : undefined;
+  if (!cfg) throw new Error(`sezione articoli non attiva: "${section}"`);
+  return cfg;
+}
+
+/** All four localized hub slugs across the active sections (for route detection). */
 export function allArticleHubSlugs(): string[] {
   const slugs: string[] = [];
   for (const cfg of ARTICLE_SECTION_LIST) {

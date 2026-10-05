@@ -19,7 +19,7 @@ import {
 } from '@/packages/articles/engine/shared/normalizeArticleMarkdown';
 import { isFaqQuestionHeading } from '@/build-plugins/shared/faqQuestionPrefixes';
 import type { BlogArticleId, AppRoute } from '@/services/router';
-import type { ArticleSection } from '@/services/articleSections';
+import type { HistoricalArticleSection } from '@/services/articleSections';
 import { NAV_ACTION_ROUTES, KEYWORD_LINKS, type NavAction, type NavigatorMap } from '@/services/internalLinks';
 import { useNavigation } from '@/services/NavigationContext';
 import { cdnDataUrl } from '@/services/cdnDataBase';
@@ -1172,9 +1172,11 @@ interface BlogArticlesProps {
  /**
   * Which article section to render: the cross-border hub (`frontaliere`,
   * default) or the Switzerland-wide mirror (`svizzera`). Drives the registry,
-  * body directory, meta chunk and URL the shared component reads.
+  * body directory, meta chunk and URL the shared component reads. Only the
+  * two historical sections: the SPA has no canton-section view (canton
+  * sections are prerendered pages served from R2).
   */
- section?: ArticleSection;
+ section?: HistoricalArticleSection;
 }
 
 /* CTA widget config */
