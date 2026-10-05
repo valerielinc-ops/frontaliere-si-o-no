@@ -68,14 +68,13 @@ Env:
                      CTranslate2 whole chunks of units instead of one line per call.
   LOCAL_MT_WORKERS — thread-pool size of the legacy path (default: CPU count,
                      capped to [1, 8]). Set 1 to force the sequential path.
-  LOCAL_MT_BATCH_UNITS  — units per batched chunk (default 1024): the emit
+  LOCAL_MT_BATCH_UNITS  — units per batched chunk (default 256): the emit
                      granularity, so a timeout kill loses at most one chunk.
-  LOCAL_MT_BATCH_MODE — `equal-length` (default): a CTranslate2 batch holds only
-                     sentences with the same number of tokens (no padding, so a
-                     translation does not depend on its batch neighbours), up to
-                     LOCAL_MT_BATCH_EXAMPLES (default 64) per batch. `tokens`:
-                     batches filled up to LOCAL_MT_BATCH_TOKENS (default 4096)
-                     whatever the lengths; kept to reproduce the measurement.
+  LOCAL_MT_BATCH_MODE — `tokens` (default): CTranslate2 batches filled up to
+                     LOCAL_MT_BATCH_TOKENS (default 4096). `equal-length`: a
+                     batch holds only sentences with the same number of tokens,
+                     up to LOCAL_MT_BATCH_EXAMPLES (default 64); measured
+                     slower and no more stable (see _translate_sentences).
   LOCAL_MT_STANZA_BULK — `0` (default) calls the sentencizer per paragraph, as
                      Argos does; `1` segments a chunk's paragraphs with one
                      Stanza call. Measured (local-mt-bench run 37354644699):
@@ -239,9 +238,8 @@ class _BatchedEngine:
     per (package, text), so the it->en leg of it->de and it->fr is computed
     once. Sentence splitting stays per paragraph.
 
-    Batches are equal-length (see _translate_sentences): padded batches made
-    the same sentence translate differently from one batch composition to the
-    next, which no downstream guard could tell from a real change.
+    Outputs are not byte-identical to the per-unit path (see
+    _translate_sentences): the bench reports their semantic score instead.
 
     Any exception building the chain or running a leg is raised to the caller,
     which falls back to the legacy per-unit path for that chunk."""
@@ -252,8 +250,8 @@ class _BatchedEngine:
         self._chains = {}
         self._memo = {}   # (leg key, text) -> translated text
         self.stanza_bulk = os.environ.get("LOCAL_MT_STANZA_BULK", "0").strip() == "1"
-        mode = os.environ.get("LOCAL_MT_BATCH_MODE", "equal-length").strip().lower()
-        self.batch_mode = "tokens" if mode == "tokens" else "equal-length"
+        mode = os.environ.get("LOCAL_MT_BATCH_MODE", "tokens").strip().lower()
+        self.batch_mode = "equal-length" if mode == "equal-length" else "tokens"
         self.batch_examples = _env_int("LOCAL_MT_BATCH_EXAMPLES", 64, 1, 1024)
         for name in ("get_translation_from_codes", "CachedTranslation",
                      "CompositeTranslation", "IdentityTranslation", "PackageTranslation"):
@@ -357,15 +355,18 @@ class _BatchedEngine:
     def _translate_sentences(self, leg, sentences):
         """Token lists for tokenized sentences, in input order.
 
-        `equal-length` (default) sends CTranslate2 only batches of sentences
-        with the SAME number of tokens, so nothing is padded and a sentence's
-        translation does not depend on what else is in its batch. `tokens`
-        fills batches up to `batch_tokens` regardless of length: measured on
-        the pipeline's runner (local-mt-bench runs 37354644699 and
-        37362597052) the same title then came back different from one batch
-        composition to the next (92.7% and 61.3% of responses identical to the
-        per-unit path on two samples), e.g. "Tecnico Edificio HLKS …" against
-        "HLKS …"."""
+        A sentence's translation is not a function of the sentence alone: the
+        models are int8 and CTranslate2 quantizes a batch's activations
+        together, so the beam search can settle on another hypothesis when the
+        batch changes. That is already true of Argos, which batches the
+        sentences of one paragraph. Measured on the pipeline's runner
+        (local-mt-bench runs 37354644699, 37362597052, 37365181312): against
+        the per-unit path, `tokens` batches gave 61-93% byte-identical
+        responses depending on the sample; `equal-length` batches (no padding)
+        79.7%, and two runs of it with different chunk sizes agreed on 89.2%,
+        at half the speed. So the mode is chosen on throughput, and quality is
+        judged on the outputs (semantic score in the bench), not on equality
+        with one particular batching."""
         pkg = leg.pkg
         translator = self._translator(leg)
         options = dict(
@@ -696,7 +697,7 @@ def translate_stream():
         _run_legacy(keys)
         translated_units = len(keys)
     else:
-        chunk_units = _env_int("LOCAL_MT_BATCH_UNITS", 1024, 1, 100000)
+        chunk_units = _env_int("LOCAL_MT_BATCH_UNITS", 256, 1, 100000)
         fallback_warmed = False
         last_report = time.time()
         # Units keep request order (titles first, traffic order inside), so the

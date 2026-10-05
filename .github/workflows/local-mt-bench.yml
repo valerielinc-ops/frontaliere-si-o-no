@@ -62,7 +62,12 @@ jobs:
           node-version: 22
 
       - name: Install dependencies
-        run: npm ci --ignore-scripts
+        # --ignore-scripts keeps the sparse checkout out of the repo's
+        # lifecycle scripts; the semantic judge needs the native binaries of
+        # onnxruntime-node (and sharp, its image dependency), rebuilt here.
+        run: |
+          npm ci --ignore-scripts
+          npm rebuild onnxruntime-node sharp || true
 
       - name: Cache Argos Translate models
         uses: actions/cache@v6
@@ -70,6 +75,16 @@ jobs:
           path: ~/.local/share/argos-translate/packages
           key: argos-translate-models-v1
           restore-keys: argos-translate-models-
+
+      # e5 model of the semantic judge (restore only: translate-pending owns
+      # the save of this key).
+      - name: Restore semantic judge model
+        continue-on-error: true
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/transformers
+          key: local-mt-models-v2-opus-e5
+          restore-keys: local-mt-models-
 
       - name: Install Argos Translate
         run: |
@@ -86,12 +101,12 @@ jobs:
         env:
           BENCH_REQUESTS: ${{ inputs.requests || '400' }}
           BENCH_CAP: ${{ inputs.cap_seconds || '600' }}
-          # Extra head runs. Default: the same engine with another chunk size
-          # (its output must equal head's: translations do not depend on how
-          # units are grouped) and with padded batches (the mode that did).
-          BENCH_VARIANTS: ${{ inputs.variants || '--variant chunk-256:LOCAL_MT_BATCH_UNITS=256 --variant padded-batches:LOCAL_MT_BATCH_MODE=tokens' }}
+          # Extra head runs. Default: the same engine with another chunk size,
+          # to show how much of the difference from base is batch composition.
+          BENCH_VARIANTS: ${{ inputs.variants || '--variant chunk-1024:LOCAL_MT_BATCH_UNITS=1024' }}
+          TRANSFORMERS_CACHE: .cache/transformers
         run: |
           node scripts/research/local-mt-engine-bench.mjs \
             --base "$RUNNER_TEMP/base-worker.py" \
             --requests "$BENCH_REQUESTS" \
-            --cap-seconds "$BENCH_CAP" $BENCH_VARIANTS
+            --cap-seconds "$BENCH_CAP" --judge $BENCH_VARIANTS

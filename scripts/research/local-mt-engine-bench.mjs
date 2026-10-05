@@ -17,6 +17,12 @@
  * Each `--variant` runs the HEAD worker once more with its own environment, so
  * one bench can tell which part of a change moves the output.
  *
+ * `--judge` scores every response with the mop-up's semantic judge (e5 cosine
+ * between source and translation, the gate in front of every mop-up write).
+ * The worker's output depends on how CTranslate2 batches the sentences, so
+ * byte-equality with the base says only "same batching"; the score says
+ * whether the translations are as good.
+ *
  * Writes a Markdown report to stdout and, when set, to $GITHUB_STEP_SUMMARY.
  */
 import fs from 'node:fs';
@@ -26,6 +32,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { listSliceFileNames } from '../lib/crawler-slice-files.mjs';
 import { buildMopupRequest, missingSlots, needsWork } from '../local-mt-mopup.mjs';
+import { createLocalMtSemanticJudge, DEFAULT_LOCAL_MT_SEMANTIC_THRESHOLD } from '../lib/local-mt-semantic-judge.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -106,7 +113,37 @@ function runWorker(script, input, { capSeconds, env }) {
   return { seconds, timedOut: proc.error?.code === 'ETIMEDOUT', status: proc.status, responses, summary, stderr };
 }
 
-function main() {
+/**
+ * Semantic score of the responses of `run`, on the requests `reference` also
+ * answered, and who scores higher where the two texts differ.
+ */
+async function judgeRun(judge, sample, run, reference) {
+  let n = 0;
+  let sum = 0;
+  let accepted = 0;
+  let differing = 0;
+  let higher = 0;
+  let lower = 0;
+  for (const r of sample) {
+    const mine = run.responses.get(r.id)?.text;
+    const theirs = reference.responses.get(r.id)?.text;
+    if (!mine || !theirs) continue;
+    const verdict = await judge({ sourceText: r.text, candidateText: mine });
+    if (!Number.isFinite(verdict?.score)) continue;
+    n++;
+    sum += verdict.score;
+    if (verdict.score >= DEFAULT_LOCAL_MT_SEMANTIC_THRESHOLD) accepted++;
+    if (run === reference || mine === theirs) continue;
+    const other = await judge({ sourceText: r.text, candidateText: theirs });
+    if (!Number.isFinite(other?.score)) continue;
+    differing++;
+    if (verdict.score > other.score + 0.005) higher++;
+    else if (verdict.score < other.score - 0.005) lower++;
+  }
+  return { n, mean: n ? sum / n : 0, accepted, differing, higher, lower };
+}
+
+async function main() {
   const base = opt('--base');
   if (!base || !fs.existsSync(base)) throw new Error('--base <worker.py> is required');
   const total = Number(opt('--requests', '600'));
@@ -188,6 +225,22 @@ function main() {
     for (const d of c.diffs) lines.push(`- \`${d.dir}\` (lines ${d.lines}, first differing line)  \n  base: ${JSON.stringify(d.base)}  \n  ${name}: ${JSON.stringify(d.head)}`);
     lines.push('', '</details>');
   }
+  if (process.argv.includes('--judge')) {
+    const judge = createLocalMtSemanticJudge({ cacheMax: 20000 });
+    lines.push(
+      '',
+      `### Semantic judge (e5 cosine source/translation, write threshold ${DEFAULT_LOCAL_MT_SEMANTIC_THRESHOLD})`,
+      '',
+      'On the requests both the worker and base answered. "differing" = responses whose text is not base\'s; higher/lower = score against base\'s text for the same request (±0.005 is a tie).',
+      '',
+      '| worker | scored | mean score | at or above threshold | differing from base | scores higher | scores lower |',
+      '|---|---|---|---|---|---|---|',
+    );
+    for (const [name, run] of Object.entries(runs)) {
+      const j = await judgeRun(judge, sample, run, runs.base);
+      lines.push(`| ${name} | ${j.n} | ${j.mean.toFixed(4)} | ${j.accepted} (${j.n ? ((100 * j.accepted) / j.n).toFixed(1) : '0.0'}%) | ${name === 'base' ? '—' : j.differing} | ${name === 'base' ? '—' : j.higher} | ${name === 'base' ? '—' : j.lower} |`);
+    }
+  }
   for (const [name, run] of Object.entries(runs)) {
     if (run.status !== 0 && !run.timedOut) lines.push('', `⚠️ ${name} exited ${run.status}:`, '```', run.stderr.slice(-2000), '```');
   }
@@ -196,4 +249,7 @@ function main() {
   if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, report);
 }
 
-main();
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

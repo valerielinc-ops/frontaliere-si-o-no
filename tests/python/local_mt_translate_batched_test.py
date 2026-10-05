@@ -223,9 +223,9 @@ class BatchedEngineMatchesArgosComposition(unittest.TestCase):
         self.assertEqual(stats["sentences"]["iten"], 5)
 
     def test_a_batch_holds_only_sentences_of_the_same_length(self):
-        # No padding: a sentence's translation cannot depend on its neighbours.
+        # The opt-in mode: no sentence is padded to a longer neighbour.
         stats = _install_fake_argos()
-        _run_stream(self.mod, REQUESTS, {"LOCAL_MT_ENGINE": "batched"})
+        _run_stream(self.mod, REQUESTS, {"LOCAL_MT_ENGINE": "batched", "LOCAL_MT_BATCH_MODE": "equal-length"})
         self.assertTrue(stats["lengths"])
         for lengths in stats["lengths"]:
             self.assertEqual(len(lengths), 1, stats["lengths"])
@@ -234,11 +234,9 @@ class BatchedEngineMatchesArgosComposition(unittest.TestCase):
         iten = [c for c in stats["calls"] if c[0] == "iten"]
         self.assertLess(len(iten), stats["sentences"]["iten"])
 
-    def test_tokens_mode_fills_one_batch_whatever_the_lengths(self):
+    def test_default_mode_fills_one_batch_whatever_the_lengths(self):
         stats = _install_fake_argos()
-        _run_stream(self.mod, REQUESTS, {
-            "LOCAL_MT_ENGINE": "batched", "LOCAL_MT_BATCH_MODE": "tokens", "LOCAL_MT_BATCH_TOKENS": "2048",
-        })
+        _run_stream(self.mod, REQUESTS, {"LOCAL_MT_ENGINE": "batched", "LOCAL_MT_BATCH_TOKENS": "2048"})
         iten = [c for c in stats["calls"] if c[0] == "iten"]
         self.assertEqual(len(iten), 1)
         self.assertEqual(iten[0][2], 2048)
