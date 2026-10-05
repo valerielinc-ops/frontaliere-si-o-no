@@ -2606,6 +2606,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'villa-principe-leopoldo-chiude': { it: 'villa-principe-leopoldo-chiude', en: 'villa-principe-leopoldo-closes', de: 'villa-principe-leopoldo-schliesst', fr: 'villa-principe-leopoldo-ferme' },
  'porte-aperte-login-ticino': { it: 'porte-aperte-login-ticino', en: 'open-doors-login-ticino', de: 'offene-tueren-login-ticino', fr: 'portes-ouvertes-login-ticino' },
  'rischi-cyber-pmi-svizzere': { it: 'rischi-cyber-pmi-svizzere', en: 'swiss-sme-cyber-risks', de: 'cyberrisiken-schweizer-kmu', fr: 'cyber-risques-pme-suisses' },
+ 'india-aels-protezione-capitali': { it: 'india-aels-protezione-capitali', en: 'parmelin-india-investment-protection', de: 'parmelin-indien-investitionsschutz', fr: 'parmelin-inde-protection-investissements' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

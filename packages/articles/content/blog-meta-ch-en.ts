@@ -7751,6 +7751,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.rischi-cyber-pmi-svizzere.title': 'Cyber risks: Swiss SMEs underestimate the dangers',
     'blog.article.rischi-cyber-pmi-svizzere.excerpt': 'A VZ-HSLU analysis indicates that cyber incidents are the top global risk: nearly 58\'000 digital crimes in Switzerland in 2025.',
     'blog.article.rischi-cyber-pmi-svizzere.imageAlt': 'Swiss SME team reviews cyber risks in an office',
+    'blog.article.india-aels-protezione-capitali.title': 'Parmelin in India: agreement to protect investments',
+    'blog.article.india-aels-protezione-capitali.excerpt': 'From New Delhi, Guy Parmelin reports that Bern hopes for an agreement on investment protection and highlights the importance of intellectual property.',
+    'blog.article.india-aels-protezione-capitali.imageAlt': 'Guy Parmelin in New Delhi for talks on investment protection and the India-AELS trade agreement.',
 };
 
 export default blogMetaChEn;

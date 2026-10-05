@@ -97833,6 +97833,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-india-aels-protezione-capitali': {
+    title: 'Parmelin in India: accordo per proteggere gli investimenti',
+    description: 'Guy Parmelin in India: Berna cerca un accordo sugli investimenti; India-AELS punta su accesso al mercato, certezza del diritto, proprietà intellettuale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, parmelin, india, accordo, proteggere',
+    ogTitle: 'Parmelin in India: accordo per proteggere gli investimenti',
+    ogDescription: 'La visita di Stato di tre giorni porta a Nuova Delhi il dossier economico svizzero: Berna chiede di accelerare la protezione degli investimenti, mentre l\'accordo India-AELS e la dichiarazione su mobilità e formazione definiscono gli altri fronti.',
+    canonicalPath: '/articoli-svizzera/india-aels-protezione-capitali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parmelin in India: accordo per proteggere gli investimenti",
+      "description": "Guy Parmelin in India: Berna cerca un accordo sugli investimenti; India-AELS punta su accesso al mercato, certezza del diritto, proprietà intellettuale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/india-aels-protezione-capitali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Guy Parmelin a Nuova Delhi per colloqui su investimenti e accordo commerciale India-AELS."
+      },
+      "datePublished": "2026-10-05T11:04:37+00:00",
+      "dateModified": "2026-10-05T11:04:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/india-aels-protezione-capitali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -7751,6 +7751,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.rischi-cyber-pmi-svizzere.title': 'Cyberrisiken: Schweizer KMU unterschätzen die Gefahren',
     'blog.article.rischi-cyber-pmi-svizzere.excerpt': 'Eine VZ-HSLU-Analyse zeigt, dass Cybervorfälle das weltweit größte Risiko darstellen: In der Schweiz gab es im Jahr 2025 knapp 58\'000 digitale Straftaten.',
     'blog.article.rischi-cyber-pmi-svizzere.imageAlt': 'Schweizer KMU prüft Cyberrisiken im Büro',
+    'blog.article.india-aels-protezione-capitali.title': 'Parmelin in Indien: Abkommen zum Schutz von Investitionen',
+    'blog.article.india-aels-protezione-capitali.excerpt': 'Aus Neu-Delhi berichtet Guy Parmelin, dass Bern ein Abkommen zum Schutz der Investitionen anstrebt und die Bedeutung des geistigen Eigentums hervorhebt.',
+    'blog.article.india-aels-protezione-capitali.imageAlt': 'Guy Parmelin in Neu-Delhi bei Gesprächen über Investitionsschutz und das Handelsabkommen Indien-AELS.',
 };
 
 export default blogMetaChDe;
