@@ -385,6 +385,16 @@ describe('the SPA NewsArticle image (P14)', () => {
     renderArticle();
     expect((await spaNewsArticle()).image).toBe(fixture.cover);
   });
+
+  it('keeps the hydrated NewsArticle identified by its canonical URL', async () => {
+    stubNetwork(false);
+    renderArticle();
+    const ld = await spaNewsArticle();
+    expect(ld.mainEntityOfPage).toBe(
+      `https://frontaliereticino.ch/articoli-frontaliere/${fixture.id}/`,
+    );
+    expect(ld['@id']).toBe(`${ld.mainEntityOfPage}#article`);
+  });
 });
 
 describe('the credit survives the article’s Print button', () => {

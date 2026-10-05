@@ -1655,6 +1655,7 @@ function BlogArticles({
  const jsonLd: Record<string, unknown> = {
  '@context': 'https://schema.org',
  '@type': 'NewsArticle',
+ '@id': `${canonicalUrl}#article`,
  headline: title,
  description: excerpt.startsWith('blog.article.') ? title : excerpt,
  ...articleSchemaDates(article),
