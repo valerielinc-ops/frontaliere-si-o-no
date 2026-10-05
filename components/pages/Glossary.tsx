@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { useTranslation } from '@/services/i18n';
+import { useTranslation, type Locale } from '@/services/i18n';
+import { buildGlossaryHubSchema } from '@/services/seo/glossaryHubSchema';
 import { Analytics } from '@/services/analytics';
 import { BookOpen, Search, ChevronDown, ChevronUp, Tag } from 'lucide-react';
 import type { GlossaryTermId } from '@/services/router';
@@ -11,30 +12,16 @@ import DataFreshness from '@/components/shared/DataFreshness';
  * improving organic visibility for definition-related searches like
  *"cos'è l'imposta alla fonte" or"cosa significa permesso G".
  */
-function useGlossaryStructuredData(entries: GlossaryEntry[], t: (key: string) => string) {
+function useGlossaryStructuredData(entries: GlossaryEntry[], t: (key: string) => string, locale: Locale) {
  useEffect(() => {
  const id = 'glossary-structured-data';
  const existing = document.getElementById(id);
  if (existing) existing.remove();
 
- const definedTerms = entries.map(entry => ({
- '@type': 'DefinedTerm',
+ const schema = buildGlossaryHubSchema(entries.map(entry => ({
  name: t(`glossary.terms.${entry.key}.title`),
  description: t(`glossary.terms.${entry.key}.desc`),
- inDefinedTermSet: {
- '@type': 'DefinedTermSet',
- name: 'Glossario del Frontaliere',
- },
- }));
-
- const schema = {
- '@context': 'https://schema.org',
- '@type': 'DefinedTermSet',
- name: 'Glossario del Frontaliere - Termini Fiscali, Previdenziali e Legali',
- description: 'Glossario completo dei termini fiscali, previdenziali e legali per i lavoratori frontalieri in Svizzera.',
- url: 'https://frontaliereticino.ch/glossario-frontaliere',
- hasDefinedTerm: definedTerms,
- };
+ })), locale);
 
  const script = document.createElement('script');
  script.id = id;
@@ -46,7 +33,7 @@ function useGlossaryStructuredData(entries: GlossaryEntry[], t: (key: string) =>
  const el = document.getElementById(id);
  if (el) el.remove();
  };
- }, [entries, t]);
+ }, [entries, t, locale]);
 }
 
 interface GlossaryEntry {
@@ -118,7 +105,7 @@ interface GlossaryProps {
 }
 
 const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
- const { t } = useTranslation();
+ const { t, locale } = useTranslation();
  const [searchTerm, setSearchTerm] = useState('');
  const [selectedCategory, setSelectedCategory] = useState<string>('all');
  const [expandedEntry, setExpandedEntry] = useState<string | null>(null);
@@ -149,7 +136,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
  }, [searchTerm, selectedCategory, t]);
 
  // Inject DefinedTermSet JSON-LD for SEO
- useGlossaryStructuredData(GLOSSARY_ENTRIES, t);
+ useGlossaryStructuredData(GLOSSARY_ENTRIES, t, locale);
 
  return (
  <div className="space-y-6">

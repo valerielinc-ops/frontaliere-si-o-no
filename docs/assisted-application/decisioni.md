@@ -25,7 +25,7 @@ Due regole reggono tutte le altre:
 | 12 | A/B test dei template | Non ora: il volume non lo consente. |
 | 13 | Interruttori Remote Config | `PDF_RENDERER` = typst, `DOSSIER_MODE` = separate, `DOCX_INPLACE` = off. |
 | 14 | Orario d'invio | Nessuna finestra: una candidatura parte appena approvata. |
-| 15 | Immagini di terzi negli articoli | Autore e licenza recuperati da Commons, dati strutturati corretti, credito in fondo all'articolo. |
+| 15 | Immagini di terzi negli articoli | Autore e licenza recuperati da Commons, dati strutturati corretti, credito in fondo all'articolo (non per pubblico dominio e CC0). |
 
 ---
 
@@ -215,9 +215,12 @@ Un parametro assente vale come il valore deciso. I valori di questi tre parametr
 
 - Copertine con persone riconoscibili (restrizione di personalità su Commons), con insegne o con funzionari (licenza GODL-India): sostituite da foto Commons senza persone, ognuna con il suo credito (25 file, 55 articoli).
 - Copertine non prese da Commons (Pixabay, Pexels, generate): restano con la dicitura del sito, perché la loro provenienza non si ricostruisce dal repository.
-- Una rilettura mensile di Commons, in sola lettura, apre una sola issue se un file è stato cancellato o ne sono cambiati licenza, autore o restrizioni.
 - I file delle copertine sostituite restano su disco.
 - Lo stesso file Commons non va su un secondo articolo finché ce n'è uno libero (il controllo è per file, non per indirizzo).
-- Il credito compare anche per le immagini in pubblico dominio o CC0, come cortesia.
 - Le 44 pagine degli articoli scritte a mano mostrano il credito come le altre.
 - La mappa delle copertine del sito resta, perché due script legacy la leggono ancora; la storia completa è nel corpus.
+
+**Decisione del proprietario (5 ottobre 2026).** Due delle scelte applicate il 4 ottobre cambiano:
+
+- Immagini in pubblico dominio o CC0: nessun credito visibile in fondo all'articolo, perché la licenza non lo richiede. Vale per tutte le pagine che mostrano il credito: le pagine statiche degli articoli, le 44 scritte a mano, la SPA e il testo degli articoli nei feed RSS. I dati strutturati restano come sono: autore, licenza e link alla pagina del file (`imageObjectLd`, e `media:credit`/`media:license` nei feed). Il credito resta visibile per tutte le altre licenze, comprese le immagini Flickr «nessuna restrizione di copyright nota», che non sono né pubblico dominio né CC0, e per un file in pubblico dominio o CC0 il cui record dice che l'attribuzione è richiesta.
+- La rilettura mensile di Commons è eliminata. La rimozione è nella PR nanakokyobashi-rgb/frontaliere-articles#2170.

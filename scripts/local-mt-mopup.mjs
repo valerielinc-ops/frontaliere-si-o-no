@@ -65,7 +65,7 @@ import {
   normalizeProtectedTokenSentinels,
 } from './lib/translation-glossary.mjs';
 import { buildTrafficPriority, formatPriorityReport, isFreshJob, TRAFFIC_SOURCE_PATH } from './lib/job-traffic-priority.mjs';
-import { isStructureFlattenedCopy, MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
+import { isModelMetaAnswer, isStructureFlattenedCopy, MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import { translateWithLocalOpusMt } from './lib/local-opus-mt.mjs';
 import {
   interpretSemanticVerdict,
@@ -314,14 +314,16 @@ export function missingSlots(job) {
       company: job.company || '',
       location: job.location || '',
     }).untranslated;
-    if (tooShortOrCopy || lexicallyUntranslated) {
+    // A model's refusal or request for the input sitting in the slot (the
+    // same verdict as isIncomplete): long, not a copy, lexically "English".
+    if (tooShortOrCopy || lexicallyUntranslated || isModelMetaAnswer(title, sourceTitle)) {
       slots.push({ locale, field: 'title' });
     }
 
     // Description missing, too short, or an untranslated copy of the source desc.
     if (sourceDesc.length >= MIN_DESC_CHARS &&
         (desc.length < MIN_DESC_CHARS || desc.toLowerCase() === sourceDescLc ||
-         isStructureFlattenedCopy(sourceDesc, desc))) {
+         isStructureFlattenedCopy(sourceDesc, desc) || isModelMetaAnswer(desc, sourceDesc))) {
       slots.push({ locale, field: 'description' });
     }
   }

@@ -402,8 +402,9 @@ export const manageRedazioneAdmin = onRequest(
 );
 
 // Owner-only operational queue for paid assisted applications. The endpoint
-// returns signed CV links and performs every status/refund mutation server-side;
-// `firestore.rules` keeps the candidate-facing collection non-listable.
+// returns signed CV links, exposes a read-only candidate status preview, and
+// performs every status/refund mutation server-side; `firestore.rules` keeps
+// the candidate-facing collection non-listable.
 export const manageAssistedApplicationAdmin = onRequest(
   // 512MiB and 60 s, as assistedApplicationReview: the owner's edit of the letter
   // compiles it with Typst here, and a process killed for memory cannot fall

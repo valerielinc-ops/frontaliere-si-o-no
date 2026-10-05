@@ -224,8 +224,39 @@ const ADSENSE_BOT_GATE_RE = new RegExp(
 // authentication or capability evidence.
 const WORKFLOW_SCOPE_CREDS_RE = /workflows? scope|github_pat|github[_ .-]?token|gh[_ .-]?token|\bpat\b|app[_ .-]?token|persist-credentials|branch protection|token\s+(?:scope|permission|capabilit)|(?:\b(?:github|workflow|actions\/checkout|checkout|branch protection|app installation)\b[\s\S]{0,100}\b(?:credential|credentials|secret|token)\b|\b(?:credential|credentials|secret|token)\b[\s\S]{0,100}\b(?:github|workflow|actions\/checkout|checkout|branch protection|app installation)\b)/i;
 
+// Candidate: a canonical (canonicalPath, canonical URL) and a trailing slash in
+// the same finding line, in either order and in either review language. The
+// semantic guard below also requires an explicit missing-slash signal.
+const CANONICAL_TRAILING_SLASH_RE = /\bcanonical\w*\b[^\n]{0,200}?(?:\btrailing[- ]slash|\bslash finale|\bbarra finale)|(?:\btrailing[- ]slash|\bslash finale|\bbarra finale)[^\n]{0,200}?\bcanonical\w*\b/i;
+const CANONICAL_MISSING_SLASH_RE = /\b(?:without|missing|omit\w*|remove\w*|lack\w*|absent|fail\w*\s+to|(?:do|does|did)\s+not|(?:does|did)n['’]?t|senza|manc\w*|omett\w*|rimuov\w*|assent\w*)\b/i;
+const CANONICAL_NO_TRAILING_SLASH_RE = /\bno\b[^\n]{0,32}\b(?:trailing[- ]slash|slash finale|barra finale)\b/i;
+
+function isMissingCanonicalTrailingSlash(text) {
+  const s = String(text || '');
+  if (!CANONICAL_TRAILING_SLASH_RE.test(s)) return false;
+  return [...s.matchAll(/\b(?:trailing[- ]slash|slash finale|barra finale)\b/gi)].some((match) => {
+    const context = sentenceAround(s, match.index, match.index + match[0].length);
+    return /\bcanonical\w*\b/i.test(context) &&
+      (CANONICAL_MISSING_SLASH_RE.test(context) || CANONICAL_NO_TRAILING_SLASH_RE.test(context));
+  });
+}
+
+// `structured-data` is a lexicon, and the same words name two classes with two
+// different structural fixes (issue 9108, reopened 2026-10-04 with 11 findings
+// after the cutoff): the site EMITTERS that write JSON-LD (build-plugins,
+// services/seo: #11328, #10992, #10753, #11021) and the crawler PARSERS that
+// READ a source's JSON-LD/JobPosting or fill the fields it is built from
+// (scripts/update-*-jobs.mjs, scripts/lib/*-job-parser.mjs: #11406, #11303,
+// #11297, #11281, #11206, #11126). One bucket summed them, so an emitter gate
+// could never bring the count down and the escalation re-fired on parser work.
+// Split by WHERE the finding is located, threshold unchanged: a finding whose
+// located paths are ALL crawler parsers counts in `structured-data-parser`;
+// anything else (emitter paths, mixed, or no path) stays `structured-data`.
+const STRUCTURED_DATA_RE = /structured data|json-?ld|basesalary|postalcode|hiringorganization|jobposting/i;
+
 const TAXONOMY = [
-  { key: 'structured-data', re: /structured data|json-?ld|basesalary|postalcode|hiringorganization|jobposting/i, docKeys: ['structured data', 'json-ld', 'basesalary'] },
+  { key: 'structured-data-parser', re: STRUCTURED_DATA_RE, docKeys: ['structured data', 'json-ld', 'jobposting'] },
+  { key: 'structured-data', re: STRUCTURED_DATA_RE, docKeys: ['structured data', 'json-ld', 'basesalary'] },
   { key: 'missing-test-funnel', re: /missing test|test mancant|no test|senza test|test coverage/i, docKeys: ['test coverage', 'test mancant', 'senza test'] },
   { key: 'time-bomb-hardcoded', re: /hardcoded|time-?bomb|absolute date|aged? out|invecchia|date assolut/i, docKeys: ['date assolut', 'time-bomb', 'daysago'] },
   // AdSense findings need a structural subtype before the generic topic bucket.
@@ -256,6 +287,16 @@ const TAXONOMY = [
   { key: 'adsense-loader-contract', re: /(?:(?:adsense|adsbygoogle|auto ?ads)[\s\S]{0,220}(?:loader|script|asset|chunk|cdn|same[- ]origin|missing|absent|drop|zero|offload)|(?:loader|script|asset|chunk|cdn|same[- ]origin|missing|absent|drop|zero|offload)[\s\S]{0,220}(?:adsense|adsbygoogle|auto ?ads))/i, docKeys: ['auto ads', 'adsense'] },
   { key: 'cls-layout', re: /\bcls\b|layout shift|reflow|reserve space|min-h-|aspect-ratio/i, docKeys: ['cls', 'reserve space', 'layout shift'] },
   { key: 'auto-ads', re: /auto ?ads|adsense|anchor ad|vignette|in-page ad/i, docKeys: ['auto ads', 'adsense'] },
+  // Split out of `canonical-sitemap` by the RULE it violates, not by its words
+  // (issue 10112, triage of the 11 findings after the 2026-09-27 cutoff): an
+  // article canonicalPath written without the trailing slash the site's URL
+  // contract requires (AGENTS.md, "Trailing slash obbligatorio"). Two of the
+  // eleven (#11114, #10987) were this one rule, both on the SEO entries the
+  // corpus article generator writes; that generator now refuses a no-slash
+  // canonicalPath in its post-write validation, so this bucket measures that
+  // gate alone. The other nine stay in the topic bucket below: they share
+  // vocabulary, not a rule. Threshold unchanged.
+  { key: 'canonical-trailing-slash', re: CANONICAL_TRAILING_SLASH_RE, docKeys: ['trailing slash obbligatorio', 'trailing slash'] },
   // Precedence is intentional: when a finding mentions both surfaces, the
   // topic bucket wins before the sibling-sweep process bucket below.
   { key: 'canonical-sitemap', re: /\b(?:canonical|sitemaps?|noindex|cross-section)\b/i, docKeys: ['canonical', 'sitemap', 'noindex'] },
@@ -588,8 +629,10 @@ const SITEMAP_SEO_DEFECT_RE =
 // remain in the fingerprint safety net instead of inflating this topic bucket.
 const SITEMAP_NEUTRAL_ACTIVITY_RE =
   /\b(?:coverage|include(?:s|d)?|listed|update(?:s|d)?|aggiorna\w*|publish(?:es|ed)?|pubblic\w*|republish(?:es|ed)?|ripubblic\w*|emit(?:s|ted)?|emett\w*)\b/i;
+// `coverage` alone is neutral, but a report that claims sitemap-only coverage
+// while a discovered frontier was never crawled states an explicit defect.
 const SITEMAP_EXPLICIT_DEFECT_RE =
-  /\b(?:sitemaps?|noindex)\b[^.\n]{0,100}\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|non|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|noindex|non[- ]canonical|unreachable|leak\w*)\b|\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|non|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|noindex|non[- ]canonical|unreachable|leak\w*)[^.\n]{0,100}\b(?:sitemaps?|noindex)\b/i;
+  /\b(?:sitemaps?|noindex)\b[^.\n]{0,100}\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|non|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|noindex|non[- ]canonical|unreachable|leak\w*|never\s+crawled|not\s+crawled|mai\s+crawled)\b|\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|non|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|noindex|non[- ]canonical|unreachable|leak\w*|never\s+crawled|not\s+crawled|mai\s+crawled)[^.\n]{0,100}\b(?:sitemaps?|noindex)\b/i;
 
 export function isGenuineCanonicalSitemapFinding(text) {
   const s = String(text || '');
@@ -608,6 +651,35 @@ export function isGenuineCanonicalSitemapFinding(text) {
   return CANONICAL_SEO_DEFECT_RE.test(s);
 }
 
+// Crawler-side code: the per-source crawlers and the parsers/feeds/ATS clients
+// they share. Anchored on the repo-relative path, so a site emitter (the jobs
+// SEO pages build plugin, the SEO service modules) never matches. Emitter
+// paths are named in words on purpose: checkout-profile-analyzer.mjs reads
+// this file as text, and a quoted `services/<dir>` alias here would add the
+// articles bucket to the lessons-harvester.yml sparse profile.
+const CRAWLER_PARSER_PATH_RE = /^scripts\/(?:update-[\w-]+-jobs\.mjs|lib\/(?:ats-clients\/[\w./-]+|[\w-]*(?:parser|crawler|feed)[\w-]*\.mjs|federal-job-[\w-]+\.mjs))$/;
+const LOCATED_PATH_RE = /(?:^|[\s`(,;'"])((?:[\w.-]+\/)+[\w.-]+\.(?:mjs|cjs|js|tsx?|json|ya?ml))(?=[:\s`),;'"]|$)/g;
+
+/**
+ * The repo paths a review line is LOCATED at: the ones before its severity
+ * marker (`path:Lnn[, path:Lnn…]: 🔴 Important: …`). Paths named in the
+ * finding's prose are not its location.
+ * @param {string} text
+ * @returns {string[]}
+ */
+export function findingLocationPaths(text) {
+  const s = String(text || '');
+  const severity = /🔴|🟡|❓/u.exec(s);
+  const lead = severity ? s.slice(0, severity.index) : '';
+  return [...lead.matchAll(LOCATED_PATH_RE)].map((m) => m[1]);
+}
+
+/** True when every located path of the finding is crawler parser code. */
+export function isCrawlerParserFinding(text) {
+  const paths = findingLocationPaths(text);
+  return paths.length > 0 && paths.every((p) => CRAWLER_PARSER_PATH_RE.test(p));
+}
+
 export function bucketFinding(text) {
   // I bucket si scelgono sul testo SENZA le ricognizioni negate: una sitemap
   // nominata solo per dire che non e' stata toccata non e' un finding su di lei.
@@ -615,8 +687,21 @@ export function bucketFinding(text) {
   // discriminante e' la frase completa (affermazioni, location label, falsi
   // positivi dichiarati), non il solo vocabolario del topic.
   const scannable = stripNegatedImpactClauses(text);
+  // Reviews sometimes name sitemap concepts only inside camelCase identifiers
+  // (for example `discoverGeSitemapListDocuments` and `sitemapError`). Split
+  // those boundaries for this topic so genuine sitemap failures still reach
+  // its explicit-defect guard. Only identifiers that contain "sitemap" are
+  // split: splitting every identifier turned `coverageOk` into a neutral
+  // "coverage" activity word and dropped a real coverage finding (#10819).
+  const canonicalSitemapScannable = scannable.replace(
+    /\b\w*[Ss]itemap\w*\b/g,
+    (id) => id.replace(/([a-z0-9])([A-Z])/g, '$1 $2'),
+  );
   for (const t of TAXONOMY) {
-    if (!t.re.test(scannable)) continue;
+    const candidate = t.key === 'canonical-sitemap' ? canonicalSitemapScannable : scannable;
+    if (!t.re.test(candidate)) continue;
+    if (t.key === 'canonical-trailing-slash' && !isMissingCanonicalTrailingSlash(scannable)) continue;
+    if (t.key === 'structured-data-parser' && !isCrawlerParserFinding(text)) continue;
     // A review line starts with one or more file locations before its severity
     // marker. Do not let a path such as `unsubscribe-credential-monitor.yml`
     // provide the workflow/auth context for an unrelated finding.
@@ -641,7 +726,7 @@ export function bucketFinding(text) {
     // canonicalizers, canonical replacements, route URLs). Keep those lines in
     // the fingerprint safety-net instead of inflating the canonical-sitemap
     // topic with unrelated reviewer findings.
-    if (t.key === 'canonical-sitemap' && !isGenuineCanonicalSitemapFinding(scannable)) continue;
+    if (t.key === 'canonical-sitemap' && !isGenuineCanonicalSitemapFinding(candidate)) continue;
     return t.key;
   }
   // La rete fingerprint riceve il testo INTERO, non quello strippato. Lo strip e'

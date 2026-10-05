@@ -30,6 +30,7 @@
  *   - isTrustedDomain()   — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import {
@@ -68,7 +69,7 @@ function normalize(value = '') {
 
 /** Merge duplicate Umantis rows without letting a sparse view erase metadata. */
 export function mergeGkbListing(existing = {}, incoming = {}) {
-  return mergeUmantisListing(existing, incoming, 'GKB');
+  return { ...mergeUmantisListing(existing, incoming, 'GKB'), ...mergeSourcePostingDates(existing, incoming) };
 }
 
 /**
@@ -208,9 +209,9 @@ function extractPensum(title = '') {
  * Parse DD.MM.YYYY → YYYY-MM-DD. Returns '' on failure.
  */
 export function parseDate(raw = '') {
-  const m = String(raw || '').match(/(\d{2})\.(\d{2})\.(\d{4})/);
+  const m = String(raw || '').trim().match(/^(?:\|?\s*Online seit:\s*)?(\d{2})\.(\d{2})\.(\d{4})$/i);
   if (!m) return '';
-  return `${m[3]}-${m[2]}-${m[1]}`;
+  return sourcePostingDateFields(`${m[3]}-${m[2]}-${m[1]}`).postedDate;
 }
 
 /**
@@ -280,7 +281,7 @@ export function parseGkbListingPage(html = '') {
     const art = normalizeSpace(artText.replace(/^\|?\s*Art:\s*/i, ''));
     const div = normalizeSpace(division.replace(/^\|?\s*/, ''));
     const entry = normalizeSpace(entryLevel.replace(/^\|?\s*Einstieg als:\s*/i, ''));
-    const postedDate = parseDate(postedRaw);
+    const postingDates = sourcePostingDateFields(/Online seit:/i.test(postedRaw) ? parseDate(postedRaw) : '');
 
     results.push({
       vacancyId,
@@ -290,7 +291,7 @@ export function parseGkbListingPage(html = '') {
       division: div,
       artText: art,
       entryLevel: entry,
-      postedDate,
+      ...postingDates,
       detailUrl: `${BASE_URL}/Vacancies/${vacancyId}/Description/1`,
       // /Default forces the standard Umantis template; without it, Lehrstellen
       // (e.g. vacancy 1909) render a Foundation-themed page with no customdatablock
@@ -521,7 +522,7 @@ export async function fetchAllGkbJobs(runtime = {}) {
       sector: 'Finanza / Banca',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      ...withLegacyPostingDay(mergeSourcePostingDates({}, listing)),
       applyUrl: listing.applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },

@@ -295,6 +295,24 @@ export function mergeSourceIdentityHistory(survivor, removed) {
  * @param {string} [opts.dir] - Override directory (default: data/jobs/expired/by-crawler)
  * @returns {number} added count
  */
+/**
+ * Read a crawler's expired slice (read-only; missing or corrupt → `[]`).
+ *
+ * @param {string} crawlerKey
+ * @param {{ dir?: string }} [opts]
+ * @returns {object[]}
+ */
+export function readExpiredSlice(crawlerKey, opts = {}) {
+  if (!crawlerKey) return [];
+  const dir = opts.dir || DEFAULT_EXPIRED_SLICES_DIR;
+  try {
+    const raw = JSON.parse(fs.readFileSync(path.join(dir, `${crawlerKey}.json`), 'utf-8'));
+    return Array.isArray(raw) ? raw : [];
+  } catch {
+    return [];
+  }
+}
+
 export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
   if (!crawlerKey) return 0;
   if (!Array.isArray(removedJobs)) return 0;

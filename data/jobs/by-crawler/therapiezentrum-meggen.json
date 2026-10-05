@@ -1,6 +1,6 @@
 {
   "crawlerKey": "therapiezentrum-meggen",
-  "assembledAt": "2026-10-04T21:14:11.438Z",
+  "assembledAt": "2026-10-05T06:23:19.405Z",
   "jobs": [
     {
       "id": "therapiezentrum-meggen-psychotherapie-stellenausschreibung-erfahren-mit-z-7c520020f93c",
@@ -35,7 +35,7 @@
       "applyUrl": "https://www.tzm.ch/offene-stellen/",
       "source": "Therapiezentrum Meggen Dedicated Parser (Jimdo HTML + PDF)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:04.834Z",
+      "crawledAt": "2026-10-05T06:23:12.347Z",
       "addressLocality": "Meggen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -48,7 +48,9 @@
       "sector": "Gesundheitswesen / Psychotherapie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-20",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
       "requirements": [],
       "requirementsByLocale": {
         "it": [

@@ -3402,8 +3402,12 @@ const App: React.FC = () => {
  {/* Footer weather widget */}
  <SafeLazy boundary="footer-weather" fallback={<SkeletonFooterSlot height="min-h-[36px]" />}><FooterWeather /></SafeLazy>
 
+ {/* Support and conversion actions share one responsive rail: two columns on
+     wide screens, one readable stack on mobile. Each child keeps its original
+     component, lazy boundary, and analytics contract. */}
+ <div className="grid w-full max-w-5xl mx-auto grid-cols-1 lg:grid-cols-2 gap-4 items-stretch">
  {/* Newsletter signup — inline in footer for persistent visibility */}
- <div id="footer-newsletter" className="max-w-xl mx-auto scroll-mt-24">
+ <div id="footer-newsletter" className="w-full max-w-xl mx-auto scroll-mt-24">
  <SafeLazy boundary="footer-newsletter">
   <NewsletterInline
    compact
@@ -3415,7 +3419,7 @@ const App: React.FC = () => {
  </div>
 
  {/* Donation banner */}
- <div className="max-w-xl mx-auto">
+ <div className="w-full max-w-xl mx-auto">
  <SafeLazy boundary="footer-donation" fallback={<SkeletonFooterSlot height="min-h-[48px]" />}><DonationBanner variant="inline" /></SafeLazy>
  </div>
 
@@ -3423,7 +3427,7 @@ const App: React.FC = () => {
    * tecnica (schema, robots, sitemap, entita' organization) e' completa, ma
    * la selezione come fonte preferita la fa l'utente dal proprio account
    * Google: senza un deep link visibile non la fa nessuno. */}
- <div className="max-w-xl mx-auto">
+ <div className="w-full max-w-xl mx-auto">
  <SafeLazy boundary="footer-preferred-source" fallback={<SkeletonFooterSlot height="min-h-[48px]" />}><PreferredSourceCTA variant="inline" /></SafeLazy>
  </div>
 
@@ -3431,7 +3435,7 @@ const App: React.FC = () => {
    * data-employer-cta feeds the PostHog funnel (employer_cta_view /
    * employer_cta_click via the global hook in services/analytics.ts).
    * Fixed min-height reserves space → zero CLS. */}
- <div className="max-w-xl mx-auto mt-3">
+ <div className="w-full max-w-xl mx-auto">
  <a
  href={buildPath({ activeTab: 'for-employers' })}
  data-employer-cta="spa_footer"
@@ -3441,6 +3445,7 @@ const App: React.FC = () => {
  <Briefcase className="w-4 h-4 shrink-0" aria-hidden="true" />
  <span>{t('seoLinks.footer.employerCta')}</span>
  </a>
+ </div>
  </div>
 
  {/* Version badge with GitHub link */}
@@ -3768,8 +3773,13 @@ const App: React.FC = () => {
      </nav>
    );
  })()}
- {/* Footer links — desktop: flat flex-wrap, mobile: accordion */}
- <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+ {/* Footer links — grouped by purpose so the full link inventory stays
+     discoverable without becoming one undifferentiated ribbon. */}
+ <nav aria-label={t('footer.linksTitle')} className="mt-8 pt-6 border-t border-edge/50 text-left">
+ <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+ <section aria-labelledby="footer-project-links" className="rounded-md border border-edge/70 bg-surface p-4">
+ <h3 id="footer-project-links" className="text-sm font-semibold text-strong mb-3">{t('footer.projectLinks')}</h3>
+ <div className="flex flex-wrap items-center justify-start gap-x-3 gap-y-1 [&>span]:hidden">
  <a
  href={buildPath({ activeTab: 'chi-siamo' as any })}
  onClick={(e) => { e.preventDefault(); navigateTo('chi-siamo' as any); }}
@@ -3841,6 +3851,11 @@ const App: React.FC = () => {
  {t('footer.apiStatus')}
  </a>
  <span className="text-edge">·</span>
+ </div>
+ </section>
+ <section aria-labelledby="footer-services-links" className="rounded-md border border-edge/70 bg-surface p-4">
+ <h3 id="footer-services-links" className="text-sm font-semibold text-strong mb-3">{t('footer.servicesLinks')}</h3>
+ <div className="flex flex-wrap items-center justify-start gap-x-3 gap-y-1 [&>span]:hidden">
  <a
  href={buildPath({ activeTab: 'partners' as any })}
  onClick={(e) => { e.preventDefault(); navigateTo('partners' as any); }}
@@ -3892,6 +3907,11 @@ const App: React.FC = () => {
  {t('footer.morningDashboard')}
  </a>
  <span className="text-edge">·</span>
+ </div>
+ </section>
+ <section aria-labelledby="footer-guides-links" className="rounded-md border border-edge/70 bg-surface p-4">
+ <h3 id="footer-guides-links" className="text-sm font-semibold text-strong mb-3">{t('footer.guidesLinks')}</h3>
+ <div className="flex flex-wrap items-center justify-start gap-x-3 gap-y-1 [&>span]:hidden">
  <a
  href={buildPath({ activeTab: 'faq' })}
  onClick={(e) => { e.preventDefault(); navigateTo('faq' as any); }}
@@ -3992,10 +4012,14 @@ const App: React.FC = () => {
  Facebook
  </a>
  </div>
+ </section>
+ </div>
+ </nav>
 
  {/* SEO Sitemap — desktop: full grid, mobile: collapsed accordion */}
- <nav aria-label="Mappa del sito" className="mt-6 pt-4 border-t border-edge/50">
- <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4 text-left">
+ <nav aria-label={t('sitemap.title')} aria-labelledby="footer-sitemap-title" className="mt-8 pt-6 border-t border-edge/50 text-left">
+ <h3 id="footer-sitemap-title" className="text-sm font-semibold text-strong mb-4">{t('sitemap.title')}</h3>
+ <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-x-5 gap-y-6 text-left">
  {/* Calcolatore */}
  <div>
  <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleTabChange('calculator'); }} className="text-xs font-bold text-accent no-underline hover:underline">{t('nav.simulator')}</a>
