@@ -58,7 +58,7 @@
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { existsSync, readFileSync } from 'node:fs';
-import { fetchGscByPage, fetchGscPageQueryRows } from './lib/perf-sources/gsc.mjs';
+import { fetchGscByPage } from './lib/perf-sources/gsc.mjs';
 import {
   SEO_CTR_FAMILIES,
   MIN_IMPRESSIONS_TO_MONITOR,
@@ -79,8 +79,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
 import {
   CTR_MEASURE_VERSION,
-  segmentPrefilterRegex,
-  segmentFamilyRows,
+  fetchSegmentedFamilyRows,
   excludedSegmentsForState,
   renderExcludedSegmentsSection,
   describeMeasureChange,
@@ -362,18 +361,12 @@ async function main() {
     let belowCurvePages = [];
     let segmentation = null;
     try {
-      const pathContains = familyPathPrefixes(family);
-      const { perPath } = await fetchGscByPage({ windowDays: WINDOW_DAYS, pathContains });
-      const pageRows = [...perPath.entries()].map(([path, metrics]) => ({ path, ...metrics }));
-      // Segmentazione per query (decisione I5 del 2026-10-05): un errore qui
-      // ricade nel ramo di errore sotto, come un errore GSC — un controllo
-      // misurato con la misura vecchia non va conteggiato con quella nuova.
-      const { rows: queryRows } = await fetchGscPageQueryRows({
-        windowDays: WINDOW_DAYS,
-        pathContains,
-        queryRegex: segmentPrefilterRegex(),
-      });
-      segmentation = segmentFamilyRows(pageRows, queryRows);
+      // Segmentazione per query (decisione I5 del 2026-10-05): un errore sulle
+      // righe pagina×query ricade nel ramo di errore sotto, come un errore GSC
+      // — un controllo misurato con la misura vecchia non va conteggiato con
+      // quella nuova.
+      segmentation = await fetchSegmentedFamilyRows({ windowDays: WINDOW_DAYS, pathContains: familyPathPrefixes(family) });
+      const { pageRows } = segmentation;
       const agg = aggregateFamilyRows(segmentation.rows, { minImpressions: 5 });
       ctr = agg.avgCtr;
       position = agg.avgPosition;

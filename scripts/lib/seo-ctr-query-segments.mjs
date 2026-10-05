@@ -43,6 +43,7 @@
  */
 
 import { createHash } from 'node:crypto';
+import { fetchGscByPage, fetchGscPageQueryRows } from './perf-sources/gsc.mjs';
 
 /** La misura prima di questo modulo: CTR di pagina su tutte le query. */
 export const LEGACY_CTR_MEASURE_VERSION = 'page-all-queries';
@@ -366,4 +367,24 @@ export function describeMeasureChange(prior, { measureVersion = CTR_MEASURE_VERS
   const priorCtr = typeof prior?.lastCtr === 'number' ? pctCell(prior.lastCtr) : 'n/a';
   return `Cambio di misura: il controllo precedente (${priorCtr}) usava \`${priorVersion}\`, questo \`${measureVersion}\`; `
     + `i due numeri non sono confrontabili. Sulla misura precedente (tutte le query) oggi: ${pctCell(allQueriesCtr)}.`;
+}
+
+/**
+ * Scarica e segmenta una famiglia in un colpo: totali di pagina, righe
+ * pagina×query del prefiltro, segmentazione. Unico punto usato dal monitor
+ * settimanale e dalla baseline (scripts/seo-ctr-baseline.mjs), che non devono
+ * dare due verdetti diversi su «sotto target» per la stessa famiglia.
+ *
+ * @returns {Promise<{rawRowCount: number, pageRows: Array<object>} & ReturnType<typeof segmentFamilyRows>>}
+ */
+export async function fetchSegmentedFamilyRows({
+  windowDays,
+  pathContains,
+  fetchByPage = fetchGscByPage,
+  fetchPageQuery = fetchGscPageQueryRows,
+} = {}) {
+  const { rows: rawRowCount, perPath } = await fetchByPage({ windowDays, pathContains });
+  const pageRows = [...perPath.entries()].map(([path, metrics]) => ({ path, ...metrics }));
+  const { rows: queryRows } = await fetchPageQuery({ windowDays, pathContains, queryRegex: segmentPrefilterRegex() });
+  return { rawRowCount, pageRows, ...segmentFamilyRows(pageRows, queryRows) };
 }

@@ -8,6 +8,7 @@ import {
   describeMeasureChange,
   ctrMeasureVersion,
   CTR_MEASURE_VERSION,
+  fetchSegmentedFamilyRows,
   LEGACY_CTR_MEASURE_VERSION,
   PROMO_TOKENS,
 } from '../scripts/lib/seo-ctr-query-segments.mjs';
@@ -243,5 +244,29 @@ describe('fetchGscPageQueryRows', () => {
       expect(body.dimensionFilterGroups[0].filters[1].operator).toBe('includingRegex');
     }
     expect(rows[0]).toMatchObject({ path: '/cerca-lavoro-svizzera/x/', query: 'brillex offerta', impressions: 9 });
+  });
+});
+
+describe('fetchSegmentedFamilyRows — un solo percorso per monitor e baseline', () => {
+  it('passa alias e prefiltro alle due letture e restituisce le righe segmentate', async () => {
+    const calls: any[] = [];
+    const out = await fetchSegmentedFamilyRows({
+      windowDays: 14,
+      pathContains: ['/a/', '/b/'],
+      fetchByPage: async (args: any) => {
+        calls.push(['page', args]);
+        return { rows: 1, perPath: new Map([['/a/x/', { clicks: 1, impressions: 50, ctr: 0.02, position: 4 }]]) };
+      },
+      fetchPageQuery: async (args: any) => {
+        calls.push(['query', args]);
+        return { rows: [{ path: '/a/x/', query: 'brillex offerta', clicks: 0, impressions: 30, position: 4 }] };
+      },
+    });
+    expect(calls.map(([kind]) => kind)).toEqual(['page', 'query']);
+    expect(calls[1][1]).toEqual({ windowDays: 14, pathContains: ['/a/', '/b/'], queryRegex: segmentPrefilterRegex() });
+    expect(out.rawRowCount).toBe(1);
+    expect(out.pageRows[0].impressions).toBe(50);
+    expect(out.rows[0].impressions).toBe(20);
+    expect(out.segments.promo.impressions).toBe(30);
   });
 });
