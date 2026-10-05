@@ -7757,6 +7757,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aumento-iva-finanziamento-13esima-avs.title': 'VAT increase for the 13th AVS pension',
     'blog.article.aumento-iva-finanziamento-13esima-avs.excerpt': 'On 29 November, voters will decide on increasing VAT from 8,1% to 8,5% to finance the 13th AVS pension, which requires 4,2 billion francs annually.',
     'blog.article.aumento-iva-finanziamento-13esima-avs.imageAlt': 'Swiss Federal Palace in Bern, seat of the government and parliament.',
+    'blog.article.lugano-trasparenza-partecipate.title': 'Lugano: the UDC proposes greater transparency regarding compensation',
+    'blog.article.lugano-trasparenza-partecipate.excerpt': 'A motion by the UDC calls for the annual publication of the salaries of CEOs and boards of directors of companies owned by the City of Lugano.',
+    'blog.article.lugano-trasparenza-partecipate.imageAlt': 'The LAC cultural center in Lugano overlooking the lake.',
 };
 
 export default blogMetaChEn;

@@ -7757,6 +7757,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aumento-iva-finanziamento-13esima-avs.title': 'Aumento IVA per la 13esima AVS',
     'blog.article.aumento-iva-finanziamento-13esima-avs.excerpt': 'Il 29 novembre si vota sull\'aumento dell\'IVA dall\'8,1% all\'8,5% per finanziare la 13esima rendita AVS, che necessita di 4,2 miliardi di franchi annui.',
     'blog.article.aumento-iva-finanziamento-13esima-avs.imageAlt': 'Palazzo federale svizzero a Berna, sede del governo e del parlamento.',
+    'blog.article.lugano-trasparenza-partecipate.title': 'Lugano: l\'UDC propone più trasparenza sui compensi',
+    'blog.article.lugano-trasparenza-partecipate.excerpt': 'Una mozione dell\'UDC chiede la pubblicazione annuale delle retribuzioni di CEO e Cda delle società partecipate dalla Città di Lugano.',
+    'blog.article.lugano-trasparenza-partecipate.imageAlt': 'Il centro culturale LAC di Lugano affacciato sul lago.',
 };
 
 export default blogMetaChIt;

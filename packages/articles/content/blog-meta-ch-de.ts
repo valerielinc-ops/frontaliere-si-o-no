@@ -7757,6 +7757,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aumento-iva-finanziamento-13esima-avs.title': 'Erhöhung der Mehrwertsteuer für die 13. AHV-Rente',
     'blog.article.aumento-iva-finanziamento-13esima-avs.excerpt': 'Am 29. November wird über die Erhöhung der Mehrwertsteuer von 8,1% auf 8,5% zur Finanzierung der 13. AHV-Rente abgestimmt, für die jährlich 4,2 Milliarden Franken benötigt werden.',
     'blog.article.aumento-iva-finanziamento-13esima-avs.imageAlt': 'Bundeshaus in Bern, Sitz von Regierung und Parlament der Schweiz.',
+    'blog.article.lugano-trasparenza-partecipate.title': 'Lugano: Die UDC schlägt mehr Transparenz bei den Vergütungen vor',
+    'blog.article.lugano-trasparenza-partecipate.excerpt': 'Eine Motion der UDC fordert die jährliche Veröffentlichung der Vergütungen der CEOs und Verwaltungsratsmitglieder der Unternehmen, an denen die Stadt Lugano beteiligt ist.',
+    'blog.article.lugano-trasparenza-partecipate.imageAlt': 'Das Kulturzentrum LAC in Lugano mit Blick auf den See.',
 };
 
 export default blogMetaChDe;
