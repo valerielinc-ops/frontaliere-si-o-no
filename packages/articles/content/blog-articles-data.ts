@@ -56,11 +56,7 @@ export interface Article {
  authorName?: string;
 }
 
-<<<<<<< HEAD
 const RAW_ARTICLES_CHUNK_01: Article[] = [
-=======
-const RAW_ARTICLES: Article[] = [
->>>>>>> 5d412936061 (fix(typecheck): bound raw article registry inference)
  {
  id: 'stipendio-netto-2026',
  category: 'fiscale',
