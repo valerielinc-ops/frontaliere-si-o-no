@@ -7,7 +7,7 @@
  * live PolCa / ASTRA webcam GIF. When users share the URL on WhatsApp, Telegram
  * or Facebook, the preview currently shows the generic site OG image
  * (`/og-image.png`). The goal of this script is to capture the FIRST webcam
- * frame at build-time and save it as a 640×360 JPEG to
+ * frame at build-time and save it as a 1200×675 JPEG to
  * `dist/og/border-wait/{crossing-slug}.jpg`, so the border-wait plugin can use
  * it as a per-page `og:image`. Sharing a page now previews the REAL traffic
  * state at the crossing → viral social shares + higher CTR.
@@ -16,8 +16,9 @@
  * ────────────
  * - Identifies itself with `User-Agent: FrontaliereTicino-OGBot` and a 10s
  *   timeout so the script never blocks a production build beyond that.
- * - Resizes to 640×360 (most social previews max at 600–1200 px wide; 640 is a
- *   safe upper-bound for WhatsApp / Telegram, well under the 8MB Facebook cap).
+ * - Resizes to 1200×675, the standard 16:9 social-share size. The source
+ *   webcam frame remains the same; the larger canvas prevents social crawlers
+ *   from classifying the preview as undersized.
  * - JPEG quality 80 keeps the output ≤200 KB per file.
  * - Stores provenance in `{slug}.jpg.meta.json` with source URL + fetched
  *   timestamp so we can attribute correctly.
@@ -48,8 +49,8 @@ const USER_AGENT = 'FrontaliereTicino-OGBot';
 // (5 crossings × 30s = 150s upper bound, all skipped) while letting the
 // usual 1-3s warm responses succeed reliably.
 const FETCH_TIMEOUT_MS = 30_000;
-const TARGET_WIDTH = 640;
-const TARGET_HEIGHT = 360;
+const TARGET_WIDTH = 1200;
+const TARGET_HEIGHT = 675;
 const JPEG_QUALITY = 80;
 const MAX_BYTES = 200 * 1024; // 200 KB per file
 
@@ -101,7 +102,7 @@ export async function fetchImageBytes(url, timeoutMs = FETCH_TIMEOUT_MS, fetchFn
 }
 
 /**
- * Resize a raw image buffer to 640×360 JPEG at quality 80.
+ * Resize a raw image buffer to 1200×675 JPEG at quality 80.
  *
  * @param {Buffer} buf
  * @returns {Promise<Buffer>}
@@ -112,7 +113,7 @@ export async function resizeToOgJpeg(buf) {
     .resize(TARGET_WIDTH, TARGET_HEIGHT, { fit: 'cover', position: 'centre' })
     .jpeg({ quality, progressive: true })
     .toBuffer();
-  // Belt-and-suspenders: if the output still exceeds 200 KB (shouldn't at 640×360
+  // Belt-and-suspenders: if the output still exceeds 200 KB (shouldn't at 1200×675
   // Q80, but webcam frames with heavy noise can balloon), step quality down.
   while (out.byteLength > MAX_BYTES && quality > 50) {
     quality -= 10;

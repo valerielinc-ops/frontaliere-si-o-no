@@ -3,6 +3,7 @@ import { useExchangeRate } from '@/services/exchangeRateService';
 import { useTranslation } from '@/services/i18n';
 import { buildPath } from '@/services/router';
 import { lazyRetry } from '@/services/lazyRetry';
+import { LPP_COORDINATION_DEDUCTION_CHF, LPP_MAX_INSURED_SALARY_CHF, LPP_MIN_CONVERSION_RATE, LPP_MIN_INTEREST_RATE } from '@/services/pensionParameters';
 
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import {
@@ -21,17 +22,13 @@ const LPP_RATES: { minAge: number; maxAge: number; rate: number }[] = [
  { minAge: 55, maxAge: 65, rate: 0.18 },
 ];
 
-/** BVG/LPP minimum interest rate (2026) */
-const LPP_INTEREST_RATE = 0.0125;
-
-/** LPP coordination deduction 2026 */
-const LPP_COORD_DEDUCTION = 25_725;
-
-/** LPP maximum insured salary 2026 */
-const LPP_MAX_INSURED = 88_200;
-
-/** LPP conversion rate at age 65 */
-const LPP_CONVERSION_RATE = 0.068;
+// BVG/LPP parameters from the official dataset (services/pensionParameters.ts):
+// minimum interest rate, coordination deduction, maximum insured salary and
+// minimum conversion rate at 65 for the year the sources declare.
+const LPP_INTEREST_RATE = LPP_MIN_INTEREST_RATE;
+const LPP_COORD_DEDUCTION = LPP_COORDINATION_DEDUCTION_CHF;
+const LPP_MAX_INSURED = LPP_MAX_INSURED_SALARY_CHF;
+const LPP_CONVERSION_RATE = LPP_MIN_CONVERSION_RATE;
 
 /** Italian TFR formula constants */
 const TFR_DIVISOR = 13.5;

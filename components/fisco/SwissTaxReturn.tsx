@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { FileText, CheckCircle2, Calendar, Euro, Building2, ArrowRight, Info, Clock, AlertTriangle, Scale, Calculator, ExternalLink, Lightbulb, TrendingDown, FileCheck, Users, Shield, BadgeCheck } from 'lucide-react';
 import { getHashSection } from '@/services/router';
+import { PILLAR_3A_MAX_WITH_LPP_CHF } from '@/services/pensionParameters';
 
 type SwissTaxStep = 'overview' | 'quellensteuer' | 'correction' | 'tdr' | 'deductions' | 'documents' | 'deadlines' | 'faq';
 
 const SWISS_TAX_STEPS = ['overview', 'quellensteuer', 'correction', 'tdr', 'deductions', 'documents', 'deadlines', 'faq'] as const;
 
 const SWISS_DEDUCTIONS = [
- { key: 'pillar3a', maxCHF: 7258, category: 'pension' },
+ { key: 'pillar3a', maxCHF: PILLAR_3A_MAX_WITH_LPP_CHF, category: 'pension' },
  { key: 'lppBuyback', maxCHF: null, category: 'pension' },
  { key: 'commuting', maxCHF: 3200, category: 'work' },
  { key: 'meals', maxCHF: 3200, category: 'work' },

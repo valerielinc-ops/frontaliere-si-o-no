@@ -3,7 +3,7 @@
  *
  * Static SEO heads do NOT carry index.html's inline Offerwall block. Article
  * pages keep the small inline carrier; job-board emitters reference the same
- * publisher-id MESSAGING loader through a cacheable asset at PARSE TIME.
+ * publisher-id MESSAGING loader through an ordered, deferred cacheable asset.
  * Relying on the network-code loader pulled in by adsbygoogle.js AFTER
  * hydration can fetch the Offerwall message without rendering its overlay.
  * The custom newsletter choice is intentionally not emitted; Ad Manager owns

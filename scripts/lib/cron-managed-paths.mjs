@@ -46,6 +46,8 @@ export const CRON_MANAGED_GLOBS = Object.freeze([
   'public/data/health-premiums-eu/*',
   'data/canton-tax/*',
   'public/data/canton-tax/*',
+  'data/pension-parameters/*',
+  'public/data/pension-parameters/*',
   'data/border-wait-current.json',
   'data/border-wait-history/*',
   'public/data/switzerland-unemployment-rate.json',

@@ -64,7 +64,12 @@ import {
   sourceLocaleDescription,
 } from './lib/source-locale-description.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import {
+  inferAnyCanton,
+  isTargetSwissLocation,
+  locationFieldHasSwissSignal,
+} from './lib/target-swiss-locations.mjs';
+import { ISO_ALPHA2_COUNTRY_CODES } from './lib/prospector/country-inventory.mjs';
 import {
   exitCrawlerOnError,
   fetchHtml as fetchHtmlShared,
@@ -130,6 +135,7 @@ const IST_SHARED_PORTAL_COMPANIES = new Set([
 ]);
 const IST_DETAIL_TENANT_RE = /\b(?:international\s+school\s+of\s+ticino|scuola\s+internazionale\s+(?:di|del)\s+ticino|école\s+internationale\s+du\s+tessin|internationale\s+schule\s+des\s+tessins)\b/i;
 const IST_ROLE_TENANT_SIGNAL_RE = /(?:\b(?:the\s+)?international\s+school\s+of\s+ticino\s+(?:\([^)]*\)\s+)?(?:is\s+(?:seeking|looking\s+for|recruiting|hiring))\b|\bscuola\s+internazionale\s+(?:di|del)\s+ticino\s+(?:cerca|sta\s+cercando)\b|\bécole\s+internationale\s+du\s+tessin\s+(?:recherche|cherche)\b|\binternationale\s+schule\s+des\s+tessins\s+sucht\b)/i;
+const TRAILING_COUNTRY_CODE_RE = /,\s*([A-Za-z]{2})\s*$/;
 
 function hasVerifiedIstRoleTenantSignal(detail = {}) {
   return IST_ROLE_TENANT_SIGNAL_RE.test(normalizeSpace(detail.description));
@@ -426,10 +432,11 @@ function parseLocation(locText = '') {
  * ambiguous city names that the shared location table can recognize.
  */
 export function parseCountryCode(locText = '') {
-  const parts = String(locText || '').split(',');
-  if (parts.length < 2) return '';
-  const tail = parts[parts.length - 1].trim().toUpperCase();
-  if (!/^[A-Z]{2}$/.test(tail)) return '';
+  const source = String(locText || '');
+  const suffixMatch = source.match(TRAILING_COUNTRY_CODE_RE);
+  if (!suffixMatch) return '';
+  const parts = source.split(',');
+  const tail = suffixMatch[1].toUpperCase();
   // Inspired's location field also uses the final component for Swiss
   // canton codes (for example, "St. Gallen, SG" and "Fribourg, FR"). A
   // matching canton is Swiss evidence, not a foreign-country code. Resolve
@@ -437,6 +444,88 @@ export function parseCountryCode(locText = '') {
   // (for example, "Zurich, FR").
   const locality = parts.slice(0, -1).join(',').trim();
   return inferAnyCanton(locality) === tail ? 'CH' : tail;
+}
+
+/**
+ * A detail walk can prove that the global portal has no IST opening only when
+ * every fetched page is classifiable. A title alone is not enough: a missing
+ * location or tenant marker can be selector drift on an IST posting and must
+ * keep the run fail-closed.
+ */
+export function hasCompleteIstDetailEvidence(detail = {}) {
+  const location = normalizeSpace(detail.location);
+  if (!normalizeSpace(detail.title) || !location) return false;
+
+  const resolvedCanton = inferAnyCanton(location);
+  const suffixMatch = location.match(TRAILING_COUNTRY_CODE_RE);
+  const suffix = suffixMatch?.[1]?.toUpperCase() || '';
+  // `parseCountryCode` is intentionally permissive for the publication
+  // filter, but an unassigned/malformed suffix is not evidence that a detail
+  // was classified. Keep it fail-closed for the empty-source receipt. A
+  // recognized Swiss canton suffix is valid even when it is not an ISO country
+  // code (for example `Lugano, TI`).
+  if (suffix && !ISO_ALPHA2_COUNTRY_CODES.has(suffix) && suffix !== resolvedCanton) return false;
+
+  const countryCode = parseCountryCode(location);
+  const explicitlyForeign = (countryCode && countryCode !== 'CH')
+    || isLocationExplicitlyForeign(location);
+
+  const identityValues = [
+    detail.company,
+    detail.tenant,
+    detail.tenantName,
+    detail.facility,
+    detail.facilityName,
+    detail.school,
+    detail.schoolName,
+    detail.organization,
+    detail.site,
+    detail.siteName,
+    detail.hiringOrganization,
+  ]
+    .map((value) => normalize(value))
+    .filter(Boolean);
+  const hasIstTenantEvidence = isIstDetailJob(detail);
+
+  // A foreign location is not enough on its own: if tenant/identity fields
+  // disappear after a schema change, the detail must remain fail-closed.
+  // Keep the shared portal identity as evidence for the global foreign walk;
+  // Swiss rows still require a non-shared tenant below.
+  if (explicitlyForeign) return identityValues.length > 0 || hasIstTenantEvidence;
+
+  // A generic country signal such as `Switzerland` is insufficient: the
+  // detail walk must resolve the actual Swiss canton before it can certify
+  // that a page was classifiable.
+  if (!resolvedCanton || !locationFieldHasSwissSignal(location)) return false;
+  if (hasIstTenantEvidence) return true;
+
+  // `Inspired Education` is the shared portal owner, not a tenant identity.
+  // Any other populated identity field is enough to prove that a Swiss row
+  // was classified as another school rather than silently discarded.
+  return identityValues.some((value) => !IST_SHARED_PORTAL_COMPANIES.has(value));
+}
+
+/**
+ * Classify the source/detail boundary for the crawler-health receipt.
+ *
+ * A complete global detail walk with zero IST jobs is a source-backed empty
+ * snapshot. If any detail was not classifiable, keep `selector_miss` so a
+ * changed detail schema cannot be mistaken for a quiet school.
+ */
+export function classifyIstDetailWalk({ discoveredCount, parsedCount, completeDetailCount }) {
+  const validCounts = [discoveredCount, parsedCount, completeDetailCount]
+    .every((value) => Number.isInteger(value) && value >= 0);
+  if (!validCounts || completeDetailCount > discoveredCount || parsedCount > discoveredCount) {
+    return { authoritativeEmptySnapshot: false, lastFetchOutcome: 'selector_miss' };
+  }
+  const complete = discoveredCount === 0 || completeDetailCount === discoveredCount;
+  if (!complete) {
+    return { authoritativeEmptySnapshot: false, lastFetchOutcome: 'selector_miss' };
+  }
+  return {
+    authoritativeEmptySnapshot: parsedCount === 0 && complete,
+    lastFetchOutcome: parsedCount > 0 ? 'ok' : 'filtered_empty',
+  };
 }
 
 /* ── Job building ──────────────────────────────────────────── */
@@ -503,6 +592,7 @@ export async function fetchIstJobs() {
 
   const jobs = [];
   let titledDetails = 0;
+  let completeDetailCount = 0;
   for (const url of jobUrls) {
     const detail = await fetchJobDetail(url);
     if (!detail || !detail.title) {
@@ -510,6 +600,7 @@ export async function fetchIstJobs() {
       continue;
     }
     titledDetails++;
+    if (hasCompleteIstDetailEvidence(detail)) completeDetailCount++;
 
     if (!isIstDetailJob(detail)) {
       console.log(`  ⏭️  Skipped — detail belongs to another Inspired tenant: ${detail.title}`);
@@ -579,9 +670,19 @@ export async function fetchIstJobs() {
   }
 
   SUMMARY_COUNTS.parsed = jobs.length;
-  SUMMARY_COUNTS.lastFetchOutcome = jobs.length > 0
-    ? 'ok'
-    : (titledDetails > 0 ? 'filtered_empty' : 'selector_miss');
+  const detailWalk = classifyIstDetailWalk({
+    discoveredCount: jobUrls.length,
+    parsedCount: jobs.length,
+    completeDetailCount,
+  });
+  SUMMARY_COUNTS.authoritativeEmptySnapshot = detailWalk.authoritativeEmptySnapshot;
+  SUMMARY_COUNTS.lastFetchOutcome = detailWalk.lastFetchOutcome;
+  if (jobs.length === 0 && titledDetails > 0 && !detailWalk.authoritativeEmptySnapshot) {
+    console.warn(
+      `⚠️ IST detail walk was incomplete (${completeDetailCount}/${jobUrls.length} pages classifiable); `
+      + 'keeping the empty result fail-closed.',
+    );
+  }
   console.log(`\n📋 Total unique IST jobs discovered: ${jobs.length}`);
   return jobs;
 }

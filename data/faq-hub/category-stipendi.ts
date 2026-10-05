@@ -76,7 +76,7 @@ export const FAQ_stipendi: ReadonlyArray<FaqHubEntry> = [
       },
     ],
     sources: [
-      'https://www4.ti.ch/can/rl/ricerca-banche-dati/',
+      'https://www4.ti.ch/can/sgcds/legislazione/legislazione/',
       'https://www.seco.admin.ch/it/contratti-collettivi-di-lavoro',
     ],
   },
@@ -111,7 +111,7 @@ export const FAQ_stipendi: ReadonlyArray<FaqHubEntry> = [
       },
     ],
     sources: [
-      'https://www4.ti.ch/dfe/dc/imposta-alla-fonte',
+      'https://www4.ti.ch/dfe/dc/dichiarazione/imposte-alla-fonte-1/tabelle-di-calcolo-dellimposta-alla-fonte/',
     ],
   },
   {
@@ -205,7 +205,7 @@ export const FAQ_stipendi: ReadonlyArray<FaqHubEntry> = [
       },
     ],
     sources: [
-      'https://www4.ti.ch/dfe/dc/imposta-alla-fonte',
+      'https://www4.ti.ch/dfe/dc/dichiarazione/imposte-alla-fonte-1/tabelle-di-calcolo-dellimposta-alla-fonte/',
     ],
   },
   {
