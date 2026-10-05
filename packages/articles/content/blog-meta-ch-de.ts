@@ -7766,6 +7766,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guy-parmelin-visita-india.title': 'Parmelin in Indien: Fokus auf Wirtschaft und Investitionen',
     'blog.article.guy-parmelin-visita-india.excerpt': 'Bundesrat Guy Parmelin in New Delhi zur Stärkung der wirtschaftlichen Zusammenarbeit, des Schutzes des geistigen Eigentums und der Vereinbarungen zur Migration.',
     'blog.article.guy-parmelin-visita-india.imageAlt': 'Bundesrat Guy Parmelin auf offiziellem Besuch',
+    'blog.article.bern-risanamento-energia.title': 'Energieförderung im Kanton Bern: Voraussetzungen und Gesuch',
+    'blog.article.bern-risanamento-energia.excerpt': 'Im Kanton Bern betreffen die Programme Gebäude und Anlagen: technische Voraussetzungen, Gesuch vor Beginn der Arbeiten und zuständige kantonale Stelle.',
+    'blog.article.bern-risanamento-energia.imageAlt': 'Schweizer Gebäude bei einer energetischen Sanierung',
 };
 
 export default blogMetaChDe;

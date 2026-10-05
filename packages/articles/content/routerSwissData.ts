@@ -2611,6 +2611,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lugano-trasparenza-partecipate': { it: 'lugano-trasparenza-partecipate', en: 'lugano-transparency-municipal-companies', de: 'lugano-transparenz-beteiligungen', fr: 'lugano-transparence-societes-participations' },
  'tamedia-taglio-posti-lavoro': { it: 'tamedia-taglio-posti-lavoro', en: 'tamedia-job-cuts-announcement', de: 'tamedia-stellenabbau-ankuendigung', fr: 'tamedia-suppression-postes-travail' },
  'guy-parmelin-visita-india': { it: 'guy-parmelin-visita-india', en: 'guy-parmelin-india-visit', de: 'guy-parmelin-indien-besuch', fr: 'guy-parmelin-visite-inde' },
+ 'bern-risanamento-energia': { it: 'bern-risanamento-energia', en: 'bern-energy-incentives-requirements', de: 'energiefoerderung-bern-voraussetzungen', fr: 'subventions-energie-berne-conditions' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

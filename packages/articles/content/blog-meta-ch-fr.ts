@@ -7766,6 +7766,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guy-parmelin-visita-india.title': 'Parmelin en Inde : l’accent sur l’économie et les investissements',
     'blog.article.guy-parmelin-visita-india.excerpt': 'Le conseiller fédéral Guy Parmelin à New Delhi pour renforcer la coopération économique, la protection de la propriété intellectuelle et les accords sur la migration.',
     'blog.article.guy-parmelin-visita-india.imageAlt': 'Le conseiller fédéral Guy Parmelin en visite officielle',
+    'blog.article.bern-risanamento-energia.title': 'Incitations énergétiques du canton de Berne : exigences et demande',
+    'blog.article.bern-risanamento-energia.excerpt': 'Dans le canton de Berne, les programmes concernent les bâtiments et les installations : exigences techniques, demande avant les travaux et office cantonal compétent.',
+    'blog.article.bern-risanamento-energia.imageAlt': 'Bâtiment suisse en cours de rénovation énergétique',
 };
 
 export default blogMetaChFr;

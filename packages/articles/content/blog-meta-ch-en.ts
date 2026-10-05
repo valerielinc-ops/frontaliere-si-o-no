@@ -7766,6 +7766,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guy-parmelin-visita-india.title': 'Parmelin in India: focus on the economy and investment',
     'blog.article.guy-parmelin-visita-india.excerpt': 'Federal Councillor Guy Parmelin in New Delhi to strengthen economic cooperation, intellectual property protection and migration agreements.',
     'blog.article.guy-parmelin-visita-india.imageAlt': 'Federal Councillor Guy Parmelin on an official visit',
+    'blog.article.bern-risanamento-energia.title': 'Energy incentives in the Canton of Bern: requirements and application',
+    'blog.article.bern-risanamento-energia.excerpt': 'In the Canton of Bern, the programs concern buildings and installations: technical requirements, application before work begins, and the competent cantonal office.',
+    'blog.article.bern-risanamento-energia.imageAlt': 'Swiss building undergoing energy renovation',
 };
 
 export default blogMetaChEn;
