@@ -98789,6 +98789,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-openjobmetis-scafati-vittoria-basket': {
+    title: 'Openjobmetis vince a Scafati: primo successo ufficiale',
+    description: 'La Openjobmetis vince 78-85 a Scafati e conquista la prima vittoria ufficiale della stagione. Migliore in campo Hale con 25 punti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, openjobmetis, vince, scafati, primo',
+    ogTitle: 'Openjobmetis vince a Scafati: primo successo ufficiale',
+    ogDescription: 'La Openjobmetis supera Scafati per 78-85 al PalaMangano e conquista la prima vittoria ufficiale della stagione. Protagonista Hunter Hale con 25 punti e 7 assist.',
+    canonicalPath: '/articoli-frontaliere/openjobmetis-scafati-vittoria-basket/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Openjobmetis vince a Scafati: primo successo ufficiale",
+      "description": "La Openjobmetis vince 78-85 a Scafati e conquista la prima vittoria ufficiale della stagione. Migliore in campo Hale con 25 punti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/openjobmetis-scafati-vittoria-basket.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partita di basket della Openjobmetis a Scafati"
+      },
+      "datePublished": "2026-10-05T02:06:47+00:00",
+      "dateModified": "2026-10-05T02:06:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/openjobmetis-scafati-vittoria-basket/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
