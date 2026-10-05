@@ -56,10 +56,10 @@ describe('publish-article-chunks isolated esbuild rebuild', () => {
       `${registry.source} rebuilds standalone and its "${registry.exportName}" id set matches the source registry exactly`,
       async () => {
         const outFile = path.join(makeTmpDir(), path.basename(registry.cdnKey));
-        await buildRegistryChunk(ROOT_DIR, registry.source, outFile);
+        await buildRegistryChunk(ROOT_DIR, registry.source, outFile, { namespaceExport: registry.namespaceExport });
         expect(fs.existsSync(outFile)).toBe(true);
 
-        const rebuilt = await validateRegistryChunk(outFile, registry.exportName);
+        const rebuilt = await validateRegistryChunk(outFile, registry.exportName, 'array', registry.namespaceExport);
         const truth = SOURCE_OF_TRUTH[registry.exportName];
         expect(truth).toBeDefined();
 
@@ -73,6 +73,40 @@ describe('publish-article-chunks isolated esbuild rebuild', () => {
       30_000,
     );
   }
+
+  it('publishes the registry with the namespace the SPA dynamic imports pick', () => {
+    // Rollup rewrites the dynamic imports of the statically-imported registry to
+    // `.then((m) => m.blogArticlesData)` (JobBoard, SiteSearch, seoService). A
+    // chunk without it made every job page reload itself (2026-10-05).
+    const blog = REGISTRIES.find((registry) => registry.exportName === 'ARTICLES');
+    expect(blog?.namespaceExport).toBe('blogArticlesData');
+  });
+
+  it('rejects a rebuilt registry whose namespace export is missing or carries another list', async () => {
+    const dir = makeTmpDir();
+    const plain = path.join(dir, 'plain.js');
+    fs.writeFileSync(plain, 'export const ARTICLES = [{ id: "a" }];\n');
+    await expect(validateRegistryChunk(plain, 'ARTICLES', 'array', 'blogArticlesData')).rejects.toThrow(/blogArticlesData\.ARTICLES/);
+
+    const other = path.join(dir, 'other.js');
+    fs.writeFileSync(other, 'export const ARTICLES = [{ id: "a" }];\nexport const blogArticlesData = { ARTICLES: [{ id: "a" }] };\n');
+    await expect(validateRegistryChunk(other, 'ARTICLES', 'array', 'blogArticlesData')).rejects.toThrow(/blogArticlesData\.ARTICLES/);
+
+    const good = path.join(dir, 'good.js');
+    fs.writeFileSync(good, 'const ARTICLES = [{ id: "a" }];\nconst blogArticlesData = Object.freeze({ ARTICLES });\nexport { ARTICLES, blogArticlesData };\n');
+    await expect(validateRegistryChunk(good, 'ARTICLES', 'array', 'blogArticlesData')).resolves.toEqual([{ id: 'a' }]);
+  });
+
+  it('builds the namespace export next to the module exports through a generated entry', async () => {
+    const dir = makeTmpDir();
+    fs.mkdirSync(path.join(dir, 'data'));
+    fs.writeFileSync(path.join(dir, 'data', 'registry.ts'), 'export const ARTICLES = [{ id: "x" }, { id: "y" }];\n');
+    const outFile = path.join(dir, 'registry.js');
+    await buildRegistryChunk(dir, 'data/registry.ts', outFile, { namespaceExport: 'registry' });
+
+    const value = await validateRegistryChunk(outFile, 'ARTICLES', 'array', 'registry');
+    expect(value.map((a: { id: string }) => a.id)).toEqual(['x', 'y']);
+  }, 30_000);
 
   it('rejects a rebuilt module whose export is missing, empty, or not an array', async () => {
     const dir = makeTmpDir();
