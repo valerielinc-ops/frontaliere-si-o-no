@@ -7733,6 +7733,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.autisti-uber-svizzera-condizioni.title': 'Seventy francs for nine hours of work: the protest',
     'blog.article.autisti-uber-svizzera-condizioni.excerpt': 'Uber drivers in Switzerland denounce worsening conditions and demand greater rights and protections. Amid low fares and Bolt\'s arrival.',
     'blog.article.autisti-uber-svizzera-condizioni.imageAlt': 'Uber drivers in Switzerland demand better working conditions',
+    'blog.article.allarme-aumento-affitti-svizzera.title': 'Rents in Switzerland: +32% in twenty years, ASI sounds the alarm',
+    'blog.article.allarme-aumento-affitti-svizzera.excerpt': 'The Swiss Tenants\' Association reports a 32,1% increase between 2005 and 2025. Low incomes are under pressure: those earning less than 4\'000 francs spend 37,8% on housing.',
+    'blog.article.allarme-aumento-affitti-svizzera.imageAlt': 'Residential building in a Swiss city',
 };
 
 export default blogMetaChEn;

@@ -97629,6 +97629,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-allarme-aumento-affitti-svizzera': {
+    title: 'Affitti in Svizzera: +32% in vent\'anni, l\'allarme dell\'ASI',
+    description: 'L\'Associazione svizzera inquilini segnala un rincaro del 32,1% dal 2005. Sotto pressione i redditi bassi: chi guadagna meno di 4\'000 franchi spende il 37,8%',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, vent, anni, allarme',
+    ogTitle: 'Affitti in Svizzera: +32% in vent\'anni, l\'allarme dell\'ASI',
+    ogDescription: 'L\'Associazione svizzera inquilini lancia l\'allarme: gli affitti sono cresciuti del 32,1% in vent\'anni. Particolarmente colpite le famiglie con redditi bassi, che destinano oltre il 37% del budget alla casa.',
+    canonicalPath: '/articoli-svizzera/allarme-aumento-affitti-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti in Svizzera: +32% in vent'anni, l'allarme dell'ASI",
+      "description": "L'Associazione svizzera inquilini segnala un rincaro del 32,1% dal 2005. Sotto pressione i redditi bassi: chi guadagna meno di 4'000 franchi spende il 37,8%",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/allarme-aumento-affitti-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio residenziale urbano in Svizzera"
+      },
+      "datePublished": "2026-10-05T07:13:59+00:00",
+      "dateModified": "2026-10-05T07:13:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/allarme-aumento-affitti-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
