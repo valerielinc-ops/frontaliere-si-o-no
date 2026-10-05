@@ -7742,6 +7742,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.voto-iva-avs-novembre-2026.title': 'VAT vote for AHV: date and details of the federal vote',
     'blog.article.voto-iva-avs-novembre-2026.excerpt': 'On November 26, 2026, a vote will be held on financing the AVS 13th monthly payment through the VAT increase. Discover rates, deadlines, and impacts on the budget.',
     'blog.article.voto-iva-avs-novembre-2026.imageAlt': 'Federal Palace in Bern for the VAT vote',
+    'blog.article.villa-principe-leopoldo-chiude.title': 'Villa Principe Leopoldo closes for renovations and lays off staff',
+    'blog.article.villa-principe-leopoldo-chiude.excerpt': 'The Hotel Villa Principe Leopoldo in Collina d\'Oro will close from December 30 for 12 million in renovation work. 76 layoffs out of 81 employees are expected, with reopening in May.',
+    'blog.article.villa-principe-leopoldo-chiude.imageAlt': 'Hotel Villa Principe Leopoldo in Collina d\'Oro',
 };
 
 export default blogMetaChEn;
