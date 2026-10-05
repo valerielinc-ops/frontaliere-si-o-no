@@ -12607,6 +12607,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.unione-confronto-pilastro-ch-it.title': 'Secondo pilastro: l\'Unione chiede confronto CH-IT',
     'blog.article.unione-confronto-pilastro-ch-it.excerpt': 'L\'Unione Frontalieri Italiani chiede un confronto tra Italia e Svizzera sul secondo pilastro, tema centrale per la previdenza dei frontalieri.',
     'blog.article.unione-confronto-pilastro-ch-it.imageAlt': 'Documenti sul secondo pilastro e una borsa da pendolare in Ticino',
+    'blog.article.avs-13a-rendita-iva-aumento.title': '13a rendita AVS: il Consiglio federale: «Ecco perché aumenteremo l’IVA»',
+    'blog.article.avs-13a-rendita-iva-aumento.excerpt': 'A dicembre arriva la prima 13a rendita AVS per 2,6 milioni di pensionati. Il Parlamento ha deciso un aumento dell\'IVA per finanziare la misura, con un voto popolare il 29 novembre.',
+    'blog.article.avs-13a-rendita-iva-aumento.imageAlt': 'Castel Grande di Bellinzona, simbolo della Svizzera, sotto un cielo sereno.',
 };
 
 export default blogMetaIt;

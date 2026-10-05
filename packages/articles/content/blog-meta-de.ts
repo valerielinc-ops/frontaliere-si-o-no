@@ -12605,6 +12605,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.unione-confronto-pilastro-ch-it.title': 'Zweite Säule: Die Union fordert einen CH-IT-Austausch',
     'blog.article.unione-confronto-pilastro-ch-it.excerpt': 'Die Unione Frontalieri Italiani fordert einen Vergleich zwischen Italien und der Schweiz zur zweiten Säule, einem zentralen Thema für die Vorsorge der Grenzgänger.',
     'blog.article.unione-confronto-pilastro-ch-it.imageAlt': 'Unterlagen zur zweiten Säule und eine Pendler-Tasche im Tessin',
+    'blog.article.avs-13a-rendita-iva-aumento.title': '13. AHV-Rente: Bundesrat: «Deshalb erhöhen wir die Mehrwertsteuer»',
+    'blog.article.avs-13a-rendita-iva-aumento.excerpt': 'Im Dezember kommt die erste 13. AHV-Rente für 2,6 Millionen Rentner. Das Parlament hat am 29. November in einer Volksabstimmung eine Mehrwertsteuererhöhung zur Finanzierung der Massnahme beschlossen.',
+    'blog.article.avs-13a-rendita-iva-aumento.imageAlt': 'Die Burg von Bellinzona unter einem klaren Himmel, ein Symbol der Schweizer Politik.',
 };
 
 export default blogMetaDe;

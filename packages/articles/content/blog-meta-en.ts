@@ -12606,6 +12606,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.unione-confronto-pilastro-ch-it.title': 'Second pillar: the Union calls for a CH-IT comparison',
     'blog.article.unione-confronto-pilastro-ch-it.excerpt': 'The Unione Frontalieri Italiani calls for a comparison between Italy and Switzerland on the second pillar, a central issue for cross-border workers\' pension provision.',
     'blog.article.unione-confronto-pilastro-ch-it.imageAlt': 'Second-pillar documents and a commuter bag in Ticino',
+    'blog.article.avs-13a-rendita-iva-aumento.title': '13th AHV pension: Federal Council: “Here’s why we will increase VAT”',
+    'blog.article.avs-13a-rendita-iva-aumento.excerpt': 'In December, the first 13th AVS pension arrives for 2,6 million pensioners. Parliament has decided on a VAT increase to finance the measure, with a popular vote on November 29.',
+    'blog.article.avs-13a-rendita-iva-aumento.imageAlt': 'Bellinzona\'s Castel Grande under a clear sky, a symbol of Swiss governance.',
 };
 
 export default blogMetaEn;
