@@ -152,6 +152,7 @@ describe('detectAiMetaResponse — casi reali pubblicati', () => {
     'I need to see the context of where this job title is used.',
     'I need to see the actual job file to identify which title needs translation.',
     'I need to see the phrase to translate.',
+    'I need to see a phrase to translate.',
     'Non vedo alcun titolo nel messaggio.',
     'Ich sehe keinen Stellentitel in Ihrer Nachricht.',
     'Je ne vois pas de titre à traduire.',
