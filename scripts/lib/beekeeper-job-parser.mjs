@@ -23,6 +23,7 @@
  *   - isBeekeeperJob()        — Match jobs belonging to this company
  *   - isTrustedDomain()       — Validate URLs belong to this company
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -181,8 +182,7 @@ export async function fetchAllBeekeeperJobs() {
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} beekeeper ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    const postedDate = (item.date_published && String(item.date_published).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
+    const publication = sourcePostingDateFields(item.date_published);
 
     const job = {
       // ── Required fields ──
@@ -218,7 +218,7 @@ export async function fetchAllBeekeeperJobs() {
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
+      ...publication,
       applyUrl: publicUrl,
       jobReqId: item.id || null,
       requirements: [],

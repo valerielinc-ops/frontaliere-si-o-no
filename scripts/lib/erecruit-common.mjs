@@ -28,6 +28,8 @@ import {
   htmlToText,
   USER_AGENT,
 } from './hospital-custom-html-helpers.mjs';
+import { sourcePostingDateFields, sourceRssPostingDateFields } from './source-posting-date.mjs';
+import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 // eRecruit hosts (Apache + custom CGI) reset the connection if the Accept
@@ -64,7 +66,7 @@ export async function fetchErecruitRss(rssUrl) {
 }
 
 /** Parse RSS feed and extract the list of {id, link} pairs. */
-export function parseErecruitRss(xml) {
+export function parseErecruitRss(xml, { includePublication = false } = {}) {
   const out = [];
   const seen = new Set();
   const itemRx = /<item>([\s\S]*?)<\/item>/g;
@@ -78,7 +80,8 @@ export function parseErecruitRss(xml) {
     const link = decodeEntities(normalizeSpace(linkMatch[1]));
     if (!id || !link || seen.has(id)) continue;
     seen.add(id);
-    out.push({ id, link });
+    const pubDate = body.match(/<pubDate>([^<]*)<\/pubDate>/)?.[1];
+    out.push({ id, link, ...(includePublication ? sourceRssPostingDateFields(pubDate) : {}) });
   }
   return out;
 }
@@ -86,9 +89,9 @@ export function parseErecruitRss(xml) {
 /**
  * Fetch and parse one advertisement_display detail page.
  *
- * @returns {{title: string, description: string} | null}
+ * @returns {{title: string, description: string, datePosted?: string, postedDate?: string, postingDateSource?: string} | null}
  */
-export async function fetchErecruitDetail(detailUrl) {
+export async function fetchErecruitDetail(detailUrl, { includePublication = false } = {}) {
   let html;
   try {
     html = await fetchErecruitText(detailUrl, 'text/html');
@@ -137,5 +140,5 @@ export async function fetchErecruitDetail(detailUrl) {
   }
   // Keep only useful prose: strip the leading nav crumbs and trailing apply boilerplate.
   description = description.replace(/\n{3,}/g, '\n\n').trim();
-  return { title, description };
+  return { title, description, ...(includePublication ? sourcePostingDateFields(extractJobPostingLd(html)?.datePosted) : {}) };
 }
