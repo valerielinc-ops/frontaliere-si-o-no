@@ -22,6 +22,7 @@ import {
   isKnownSwissMunicipalityInCanton,
   isKnownSwissCity,
 } from './target-swiss-locations.mjs';
+import { officialPostalCodeForLocation } from './swiss-locality-directory.mjs';
 import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 let _aiModels = null;
 try { _aiModels = await import('./ai-models.mjs'); } catch { /* ai-models not available */ }
@@ -3990,7 +3991,8 @@ export const COMPANY_DEFAULTS = {
   'has-healthcare':                       { streetAddress: 'Via Motta 4',              postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
   'la-fonte':                             { streetAddress: 'Via Lavizzari 2',          postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
   'manor':                                { streetAddress: 'Piazza Dante',             postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
-  'oscam':                                { streetAddress: 'Via Industria 10',         postalCode: '6807', addressLocality: 'Taverne',           addressRegion: 'TI', addressCountry: 'CH' },
+  'oscam':                                { streetAddress: 'Nucleo 30',                postalCode: '6980', addressLocality: 'Castelrotto',         addressRegion: 'TI', addressCountry: 'CH' },
+  'oscam-castelrotto':                    { streetAddress: 'Nucleo 30',                postalCode: '6980', addressLocality: 'Castelrotto',         addressRegion: 'TI', addressCountry: 'CH' },
   'schindler':                            { streetAddress: 'Via Industria 11',         postalCode: '6934', addressLocality: 'Bioggio',           addressRegion: 'TI', addressCountry: 'CH' },
   'tarchini-group':                       { streetAddress: 'Via Cantonale 12',         postalCode: '6533', addressLocality: 'Lumino',            addressRegion: 'TI', addressCountry: 'CH' },
   'axpo-group':                           { streetAddress: 'Viale Stazione 31',        postalCode: '6500', addressLocality: 'Bellinzona',        addressRegion: 'TI', addressCountry: 'CH' },
@@ -4460,37 +4462,48 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
     console.log(`  🧭 Cross-canton/locality heal: stripped HQ address from ${crossCantonHealed} jobs outside the HQ city (CAP/street re-derived from city).`);
   }
 
-  // ── PostalCode enrichment from swiss-postal-codes.json ──
+  // ── PostalCode enrichment ──
+  // Resolve a named locality from the official Swiss directory first. The
+  // canton-capital fallback remains for legacy/free-text locations, but must
+  // never overwrite a known locality with an unrelated town's CAP.
   let postalFilled = 0;
   const plzPath = path.join(path.dirname(dataJobsPath), 'swiss-postal-codes.json');
-  if (fs.existsSync(plzPath)) {
-    const plz = JSON.parse(fs.readFileSync(plzPath, 'utf-8'));
-    const cantonCapitals = { TI: '6500', GR: '7000', VS: '1950', ZH: '8001', BE: '3001', SG: '9000', LU: '6003', AG: '5000', GE: '1204', VD: '1003', BS: '4001', SO: '4500', ZG: '6300', TG: '8500', SH: '8200', FR: '1700', NE: '2000' };
-    for (const job of hardened) {
-      if (job.postalCode) continue;
-      const loc = (job.addressLocality || job.location || '').trim();
-      if (!loc) continue;
-      // Direct match
-      if (plz[loc]) { job.postalCode = plz[loc]; postalFilled++; continue; }
-      // First segment (e.g. "Chur, Graubünden" → "Chur")
-      const parts = loc.split(/[,·\-/]/).map(s => s.trim()).filter(Boolean);
-      let found = false;
-      for (const part of parts) {
-        if (plz[part]) { job.postalCode = plz[part]; postalFilled++; found = true; break; }
+  const plz = fs.existsSync(plzPath)
+    ? JSON.parse(fs.readFileSync(plzPath, 'utf-8'))
+    : {};
+  const cantonCapitals = { TI: '6500', GR: '7000', VS: '1950', ZH: '8001', BE: '3001', SG: '9000', LU: '6003', AG: '5000', GE: '1204', VD: '1003', BS: '4001', SO: '4500', ZG: '6300', TG: '8500', SH: '8200', FR: '1700', NE: '2000' };
+  for (const job of hardened) {
+    const loc = (job.addressLocality || job.location || '').trim();
+    if (!loc) continue;
+    const official = officialPostalCodeForLocation(loc, job.canton);
+    if (official.postalCode) {
+      if (job.postalCode !== official.postalCode) {
+        job.postalCode = official.postalCode;
+        postalFilled++;
       }
-      if (found) continue;
-      // Extract 4-digit PLZ from location string
-      const plzMatch = loc.match(/\b(\d{4})\b/);
-      // Skip years (2020-2039) that look like postal codes
-      if (plzMatch && Number(plzMatch[1]) >= 2020 && Number(plzMatch[1]) <= 2039) plzMatch[1] = '';
-      if (plzMatch) { job.postalCode = plzMatch[1]; postalFilled++; continue; }
-      // Canton capital fallback
-      const canton = (job.canton || '').toUpperCase();
-      if (canton && cantonCapitals[canton]) { job.postalCode = cantonCapitals[canton]; postalFilled++; }
+      continue;
     }
-    if (postalFilled > 0) {
-      console.log(`  📮 PostalCode enrichment: filled ${postalFilled} jobs from swiss-postal-codes.json`);
+    if (official.known || job.postalCode) continue;
+    // Direct match
+    if (plz[loc]) { job.postalCode = plz[loc]; postalFilled++; continue; }
+    // First segment (e.g. "Chur, Graubünden" → "Chur")
+    const parts = loc.split(/[,·\-/]/).map(s => s.trim()).filter(Boolean);
+    let found = false;
+    for (const part of parts) {
+      if (plz[part]) { job.postalCode = plz[part]; postalFilled++; found = true; break; }
     }
+    if (found) continue;
+    // Extract 4-digit PLZ from location string
+    const plzMatch = loc.match(/\b(\d{4})\b/);
+    // Skip years (2020-2039) that look like postal codes
+    if (plzMatch && Number(plzMatch[1]) >= 2020 && Number(plzMatch[1]) <= 2039) plzMatch[1] = '';
+    if (plzMatch) { job.postalCode = plzMatch[1]; postalFilled++; continue; }
+    // Canton capital fallback only applies to an unknown free-text locality.
+    const canton = (job.canton || '').toUpperCase();
+    if (canton && cantonCapitals[canton]) { job.postalCode = cantonCapitals[canton]; postalFilled++; }
+  }
+  if (postalFilled > 0) {
+    console.log(`  📮 PostalCode enrichment: corrected/filled ${postalFilled} jobs from official Swiss locality data and legacy fallbacks`);
   }
 
   // ── Canton inference: fill missing canton from location/addressLocality ──
