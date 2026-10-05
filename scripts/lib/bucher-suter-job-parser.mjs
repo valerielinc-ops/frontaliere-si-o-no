@@ -74,7 +74,7 @@ import {
 } from './crawler-template.mjs';
 import { fetchViaJinaWithRetry, detectJinaErrorBody } from './jina-proxy.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { inferSwissTargetCanton, canonicalSwissCityName, findSwissCityInText } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, swissCityFromLocationField } from './target-swiss-locations.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -286,8 +286,8 @@ export async function fetchAllBucherSuterJobs() {
     // Swiss municipality; never fall back to the raw (possibly foreign)
     // location string.
     const canton = inferSwissTargetCanton(rawLocation) || (/switzerland/i.test(rawLocation) ? HQ.canton : '');
-    const cityToken = findSwissCityInText(rawLocation);
-    const city = cityToken ? canonicalSwissCityName(cityToken) : (/switzerland/i.test(rawLocation) ? HQ.city : '');
+    const city = swissCityFromLocationField(rawLocation)
+      || (/switzerland/i.test(rawLocation) ? HQ.city : '');
     if (!canton || !city) {
       skippedNonSwiss += 1;
       continue;

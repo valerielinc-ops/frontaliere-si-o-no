@@ -1353,6 +1353,7 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   const titles = [title, renderedTitle];
   chromeRanges.push(...vacancyChromeRanges(html, semanticIndex, titles));
   let blocks = distinctBodyTexts(html, bodyRanges, chromeRanges);
+  const structuredDescriptions = structuredRecords.map((record) => record.description || '');
   // A detail page with no useful class still commonly puts the vacancy body
   // in its main/article container. Use it only when it is materially larger
   // than the page's structured teaser, avoiding a navigation-only shell.
@@ -1366,10 +1367,15 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   // client-side and serves the same 2240-character sample ad (another
   // vacancy) in it on every page.
   const main = vacancyContainerRegion(html, title);
-  if (!blocks.length && main) {
+  const fallbackRegions = main
+    ? [main]
+    : structuredDescriptions.some(Boolean)
+      ? []
+      : vacancyContainerOutermostRegions(html, title);
+  if (!blocks.length && fallbackRegions.length) {
     const isThisVacancy = (region) => !isPrintLayout(region.raw)
       || printRegionCarriesTitle(html, semanticIndex, region.start, region.end, titles);
-    const regions = (main.owned ? [main] : main.outermost).filter(isThisVacancy);
+    const regions = fallbackRegions.filter(isThisVacancy);
     const mainText = distinctBodyTexts(
       html,
       regions.map((region) => ({ start: region.start, contentStart: region.start, contentEnd: region.end })),
@@ -1377,7 +1383,6 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
     ).join('\n');
     if (mainText) blocks.push(mainText);
   }
-  const structuredDescriptions = structuredRecords.map((record) => record.description || '');
   const [structuredBody = ''] = [...structuredDescriptions].sort((a, b) => b.length - a.length);
   // A row identified by an inline `#job-…` fragment lives on a page that
   // lists many vacancies: its rendered text is every posting at once, and only
@@ -1568,12 +1573,12 @@ const SWISS_POSTAL_ADDRESS_RX = /(?:^|[\s,;(])(?:CH[\s-]?)?(\d{4})\s+(\p{Lu}[\p{
  * @param {string} html
  * @param {string} [title] vacancy title as rendered/structured on the page
  * @returns {{
- *   raw: string, start: number, end: number, content: string,
- *   owned: boolean,
+ *   chosen: { raw: string, start: number, end: number, content: string } | null,
  *   outermost: Array<{ raw: string, start: number, end: number, content: string }>,
- * } | null}
+ *   regions: Array<{ raw: string, start: number, end: number, content: string }>,
+ * }}
  */
-function vacancyContainerRegion(html = '', title = '') {
+function vacancyContainerAnalysis(html = '', title = '') {
   const source = String(html);
   const index = indexHtmlTags(source);
   const regions = [];
@@ -1613,14 +1618,39 @@ function vacancyContainerRegion(html = '', title = '') {
   for (const region of owning) {
     if (chosen && region.start > chosen.start && region.end <= chosen.end) chosen = region;
   }
-  const picked = chosen ?? regions[0];
-  if (!picked) return null;
   // The containers no other container wraps, for a caller that has to read a
   // vacancy split across sibling <article> sections when none of them carries
   // the title (the heading sits above them).
   const outermost = regions.filter((region) => !regions.some((other) => other !== region
     && other.start <= region.start && region.end <= other.end && (other.start < region.start || other.end > region.end)));
-  return { ...picked, owned: Boolean(chosen), outermost };
+  return { chosen, outermost, regions };
+}
+
+/**
+ * The main/article container that holds THIS vacancy, or null when no title
+ * evidence selects one. See {@link vacancyContainerAnalysis}.
+ *
+ * @param {string} html
+ * @param {string} [title] vacancy title as rendered/structured on the page
+ * @returns {{
+ *   raw: string, start: number, end: number, content: string,
+ *   owned: boolean,
+ *   outermost: Array<{ raw: string, start: number, end: number, content: string }>,
+ * } | null}
+ */
+export function vacancyContainerRegion(html = '', title = '') {
+  const { chosen, outermost } = vacancyContainerAnalysis(html, title);
+  // A page can contain several main/article regions without identifying which
+  // one owns THIS vacancy. Returning the first one is a first-match guess: it
+  // can be a contact portlet, an application form or a sibling posting. Keep
+  // the selection fail-closed; callers may use explicit structured/range
+  // evidence or, where their contract already allows it, all unowned siblings.
+  if (!chosen) return null;
+  return { ...chosen, owned: true, outermost };
+}
+
+function vacancyContainerOutermostRegions(html = '', title = '') {
+  return vacancyContainerAnalysis(html, title).outermost;
 }
 
 /**
@@ -1632,7 +1662,7 @@ function vacancyContainerRegion(html = '', title = '') {
  * @returns {string}
  */
 function vacancyContainerContent(html = '', title = '') {
-  return vacancyContainerRegion(html, title)?.content ?? '';
+  return vacancyContainerAnalysis(html, title).chosen?.content ?? '';
 }
 
 /**
@@ -1647,7 +1677,14 @@ function vacancyContainerContent(html = '', title = '') {
  * @returns {string}
  */
 function vacancyContentRegion(html = '', title = '') {
-  return (vacancyContainerContent(html, title) || String(html))
+  const analysis = vacancyContainerAnalysis(html, title);
+  // A page-level main/article is not a vacancy region unless its title proves
+  // ownership. When no owner exists, expose all outermost candidates to the
+  // caller as a set; never silently reduce them to the first one. Pages with
+  // no main/article keep the document fallback used by label-only templates.
+  const source = analysis.chosen?.content
+    || (analysis.regions.length ? analysis.outermost.map((region) => region.content).join('\n') : String(html));
+  return source
     .replace(/<footer\b[\s\S]*?<\/footer>/gi, ' ')
     .replace(/<header\b[\s\S]*?<\/header>/gi, ' ')
     .replace(/<nav\b[\s\S]*?<\/nav>/gi, ' ');

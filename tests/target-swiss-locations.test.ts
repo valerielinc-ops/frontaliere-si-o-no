@@ -10,6 +10,8 @@ import {
   isTargetSwissLocation,
   isTicinoRelevant,
   isWorkModeLocationLabel,
+  normalizeSwissCantonCode,
+  swissCityFromLocationField,
   TICINO_MUNICIPALITIES,
 } from '../scripts/lib/target-swiss-locations.mjs';
 import { ALL_CANTON_CODES, TARGET_CANTONS } from '../scripts/lib/crawler-location-config.mjs';
@@ -85,6 +87,28 @@ describe('target swiss locations', () => {
   it('keeps legacy locality aliases used by job boards after municipal mergers', () => {
     expect(isTicinoRelevant('Giubiasco, CH')).toBe(true);
     expect(inferSwissTargetCanton('Coira, Switzerland')).toBe('GR');
+  });
+
+  it('resolves Swiss city exonyms and structured canton-country pairs centrally', () => {
+    for (const [city, canton] of [
+      ['Geneva', 'GE'],
+      ['Zurich', 'ZH'],
+      ['Lucerne', 'LU'],
+      ['Berne', 'BE'],
+      ['Basle', 'BS'],
+    ]) {
+      expect(isKnownSwissMunicipalityInCanton(city, canton), `${city}/${canton}`).toBe(true);
+    }
+    expect(normalizeSwissCantonCode('ZH,CH')).toBe('ZH');
+    expect(normalizeSwissCantonCode('CH-ZH')).toBe('ZH');
+    expect(normalizeSwissCantonCode('ZH,US')).toBe('');
+    expect(normalizeSwissCantonCode('NY,US')).toBe('');
+    expect(normalizeSwissCantonCode('Buchs')).toBe('');
+  });
+
+  it('rejects an English exonym paired with a different canton code', () => {
+    expect(swissCityFromLocationField('Geneva, NE')).toBe('');
+    expect(swissCityFromLocationField('Geneva, GE')).toBe('Geneva');
   });
 
   it('canonicalizes Davos sub-localities to their BFS municipality parent', () => {

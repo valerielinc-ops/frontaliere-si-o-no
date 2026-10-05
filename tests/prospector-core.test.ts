@@ -358,9 +358,9 @@ describe('vacancy extraction', () => {
 
   // Il <main> avvolge sia la vacancy sia il blocco di annunci correlati: fra i
   // container ANNIDATI che contengono il titolo vince il più interno, l'unico
-  // che esclude i vicini. Senza titolo riconoscibile si ricade sul primo, come
-  // prima.
-  it('prefers the innermost title-bearing region and falls back to the first', () => {
+  // che esclude i vicini. Senza titolo riconoscibile nessun container diventa
+  // owner; i candidati top-level restano disponibili tutti insieme.
+  it('prefers the innermost title-bearing region and keeps all unowned siblings', () => {
     const html = `<main><article itemscope itemtype="https://schema.org/JobPosting">`
       + `<h1 itemprop="title">Comptable</h1>`
       + `<div itemprop="description"><p>Poste de comptable à pourvoir.</p></div>`
@@ -371,7 +371,8 @@ describe('vacancy extraction', () => {
       .toEqual([expect.objectContaining({ location: '1201 Genève' })]);
     expect(extractDetailFields(html, 'https://www.arsante.ch/emploi/comptable-96').locationCandidates)
       .toEqual([expect.objectContaining({ location: '1201 Genève' })]);
-    // Nessun titolo: comportamento invariato, primo container del documento.
+    // Nessun titolo: nessun owner viene scelto; i candidati top-level restano
+    // tutti visibili senza ridurli al primo container.
     expect(renderedPostalAddressCandidates(html))
       .toEqual([
         expect.objectContaining({ location: '1201 Genève' }),
@@ -2045,6 +2046,40 @@ describe('production spec runtime', () => {
       location: 'St. Gallen SG, CH',
       canton: 'SG',
     });
+    for (const [addressLocality, addressRegion] of [
+      ['Geneva', 'GE'],
+      ['Lucerne', 'LU'],
+      ['Berne', 'BE'],
+      ['Basle', 'BS'],
+    ]) {
+      const candidate = {
+        location: `${addressLocality}, ${addressRegion}`,
+        addressLocality,
+        addressRegion,
+        addressCountry: 'CH',
+      };
+      expect(resolveSourceBackedSwissGeography(candidate), addressLocality).toEqual({
+        location: candidate.location,
+        canton: addressRegion,
+        addressCountry: 'CH',
+      });
+    }
+    expect(resolveSourceBackedSwissGeography({
+      location: 'Zürich, ZH,CH',
+      addressLocality: 'Zürich',
+      addressRegion: 'ZH,CH',
+    })).toEqual({ location: 'Zürich, ZH,CH', canton: 'ZH' });
+    expect(resolveSourceBackedSwissGeography({
+      location: 'Geneva, NY',
+      addressLocality: 'Geneva',
+      addressRegion: 'NY',
+      addressCountry: 'CH',
+    })).toBeNull();
+    expect(resolveSourceBackedSwissGeography({
+      location: 'Geneva',
+      addressLocality: 'Geneva',
+      addressCountry: 'US',
+    })).toBeNull();
     for (const [location, canton] of [
       ['St. Gallen', 'SG'],
       ['St Gallen', 'SG'],

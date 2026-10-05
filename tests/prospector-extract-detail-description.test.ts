@@ -22,7 +22,12 @@
  *   a listing page with inline postings lent its whole text to every row.
  */
 import { describe, expect, it } from 'vitest';
-import { extractDetailFields, extractJsonLd, extractMicrodata } from '../scripts/lib/prospector/extract.mjs';
+import {
+  extractDetailFields,
+  extractJsonLd,
+  extractMicrodata,
+  vacancyContainerRegion,
+} from '../scripts/lib/prospector/extract.mjs';
 
 const occurrences = (haystack: string, needle: string) => haystack.split(needle).length - 1;
 
@@ -31,6 +36,31 @@ const TASKS = '<ul><li>Mitarbeit in der Filiale bei Warenbereitstellung, Kasse u
   + '<li>Führung der Filiale in Vertretung der Filialleitung</li></ul>';
 const PROFILE = '<ul><li>Berufserfahrung im Verkauf oder einem ähnlichen Umfeld</li>'
   + '<li>Hohe Motivation, Einsatzbereitschaft und Belastbarkeit</li></ul>';
+
+describe('unowned vacancy containers fail closed', () => {
+  it('uses the structured description when the rendered main has no title evidence', () => {
+    const title = 'Koch / Köchin EFZ 100 %';
+    const structuredDescription = 'Die strukturierte Quelle beschreibt die Aufgaben und das Profil der ausgeschriebenen Stelle.';
+    const html = `<html><head><script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'JobPosting',
+      title,
+      description: structuredDescription,
+    })}</script></head><body>
+      <h1>${title}</h1>
+      <main>
+        <div class="portlet_content_description"><h2>Auskunft:</h2><p>Vorname Nachname, Küchenchef, +41 27 000 00 00</p></div>
+        <div class="source-copy"><h2>Aufgabenbereich</h2><p>Produktion der Speisen und Unterstützung des Küchenteams im Tagesbetrieb.</p></div>
+      </main>
+    </body></html>`;
+
+    expect(vacancyContainerRegion(html, title)).toBeNull();
+    expect(extractDetailFields(html, 'https://www.lhm.ch/de/allgemein/jobs/koch')).toMatchObject({
+      title,
+      description: structuredDescription,
+    });
+  });
+});
 
 describe('nested vacancy containers are read once', () => {
   it('counts a body wrapped in three matching containers once (retail jobs2web skin)', () => {
