@@ -59,6 +59,23 @@ describe('A++ listing classification', () => {
     expect(isAplusClassifiableLocation('')).toBe(false);
   });
 
+  it('keeps a missing location out of the Swiss slice and fail-closes', () => {
+    const result = classifyAplusListings([{ location: '' }]);
+
+    expect(result.listings).toEqual([]);
+    expect(result.unclassifiedLocationCount).toBe(1);
+    expect(result.lastFetchOutcome).toBe('filtered_empty');
+    expect(result.authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('lets an explicit foreign country override a Swiss city name', () => {
+    const result = classifyAplusListings([{ location: 'Lugano, Germany' }]);
+
+    expect(result.listings).toEqual([]);
+    expect(result.lastFetchOutcome).toBe('filtered_empty');
+    expect(result.authoritativeEmptySnapshot).toBe(true);
+  });
+
   it('publishes a filtered-empty discovery through the empty merge path', () => {
     expect(APLUS_UPDATER).toContain('fetchListings(summaryCounts)');
     expect(APLUS_UPDATER).toContain("summaryCounts.lastFetchOutcome = 'selector_miss';");

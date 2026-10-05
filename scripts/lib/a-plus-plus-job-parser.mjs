@@ -175,7 +175,7 @@ export function isAplusEmptyListingPage(html = '', listings = parseAplusListings
  */
 export function classifyAplusListings(listings = [], { sourceEmpty = false } = {}) {
   const rows = Array.isArray(listings) ? listings : [];
-  const swissListings = rows.filter((row) => !row.location || isAplusSwissLocation(row.location));
+  const swissListings = rows.filter((row) => isAplusSwissLocation(row.location));
   const unclassifiedLocationCount = rows.filter(
     (row) => !isAplusClassifiableLocation(row.location),
   ).length;
@@ -282,6 +282,8 @@ function parseAplusHtmlDetail(html = '', pageUrl = '') {
  * A++ Group is headquartered in Ticino and may have other Swiss positions.
  */
 export function isAplusSwissLocation(raw = '') {
+  if (isLocationExplicitlyForeign(raw)) return false;
+
   const lower = normalizeSpace(raw)
     .toLowerCase()
     .normalize('NFD')
