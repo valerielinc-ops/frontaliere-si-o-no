@@ -295,6 +295,16 @@ class UnitCacheKeepsInterruptedWork(unittest.TestCase):
         for rid, resp in first.items():
             self.assertEqual(second[rid]["text"], resp["text"], rid)
 
+    def test_the_cache_directory_is_created_on_a_first_run(self):
+        # After an actions/cache miss `.cache/local-mt-units/` does not exist.
+        root = tempfile.mkdtemp()
+        self.addCleanup(lambda: __import__("shutil").rmtree(root, ignore_errors=True))
+        cache = os.path.join(root, "local-mt-units", "units.jsonl")
+        _install_fake_argos()
+        _, err = _run_stream(self.mod, REQUESTS, {"LOCAL_MT_UNIT_CACHE": cache})
+        self.assertNotIn("not writable", err)
+        self.assertTrue(os.path.getsize(cache) > 0)
+
     def test_rows_of_another_engine_signature_and_torn_lines_are_ignored(self):
         with open(self.cache, "w", encoding="utf-8") as handle:
             handle.write(json.dumps({"s": "argos-0.0|beam-1", "k": ["Responsabile vendite", "it", "en"], "v": "STALE"}) + "\n")
