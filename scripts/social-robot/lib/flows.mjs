@@ -33,6 +33,8 @@ export const DEFAULT_TIMEOUTS = Object.freeze({
 
 const ANY_OF = (...words) => new RegExp(`^\\s*(?:${words.join('|')})\\s*$`, 'i');
 const ACCESSIBLE_LABEL_WITH_ICON = (...words) => new RegExp(`^\\s*(${words.join('|')})(?:\\s*\\1)?\\s*$`, 'i');
+const escapeRegExp = (text) => String(text).replace(/[.*+?^${}()|[\\]\\]/g, '\\$&');
+const EXACT_TEXT_ONE_OF = (...words) => new RegExp(`^\\s*(?:${words.map(escapeRegExp).join('|')})\\s*$`, 'i');
 
 export const RX = Object.freeze({
   igCreate: ANY_OF('New post', 'Create', 'Crea', 'Nuovo post', 'Neuer Beitrag', 'Erstellen', 'Créer', 'Nouvelle publication'),
@@ -46,6 +48,10 @@ export const RX = Object.freeze({
   notNow: ANY_OF('Not now', 'Not Now', 'Non ora', 'Jetzt nicht', 'Plus tard'),
   ttPost: ANY_OF('Post', 'Pubblica', 'Posten', 'Veröffentlichen', 'Publier'),
   ttPostNow: ANY_OF('Post now', 'Pubblica ora', 'Jetzt posten', 'Publier maintenant'),
+  ttContentChecksTitle: /Attivare i controlli automatici dei contenuti\?|Turn on automatic content checks\?|Automatische Inhaltsprüfungen aktivieren\?|Automatische Inhaltskontrollen aktivieren\?|Activer les contrôles automatiques du contenu\s*\?/i,
+  ttContentChecksCancel: EXACT_TEXT_ONE_OF('Annulla', 'Cancel', 'Abbrechen', 'Annuler'),
+  ttCookieTitle: /Consentire i cookie da TikTok su questo browser\?|Allow cookies from TikTok on this browser\?|Cookies von TikTok in diesem Browser zulassen\?|Autoriser les cookies de TikTok sur ce navigateur\s*\?/i,
+  ttCookieDecline: EXACT_TEXT_ONE_OF('Rifiuta i cookie opzionali', 'Reject optional cookies', 'Optionale Cookies ablehnen', 'Refuser les cookies facultatifs'),
   // Success wording only, matched ONLY inside TT_SUCCESS_TOAST: TikTok Studio
   // keeps "Manage your posts" in its navigation on every page, so neither that
   // phrase nor a page-wide text search can prove a press was published.
@@ -67,7 +73,7 @@ export const TT_PROCESSING = '[role="progressbar"], [data-e2e="upload-progress"]
 export class RobotError extends Error {
   /**
    * @param {'login-required'|'challenge'|'selector-missing'|'upload-unsupported'|
-   *   'confirmation-missing'|'download'|'browser'|'unexpected'} errorClass
+   *   'confirmation-missing'|'download'|'browser'|'interstitial-unknown'|'unexpected'} errorClass
    * @param {string} message
    * @param {{ step?: string, pressed?: boolean }} [extra]
    */
@@ -173,6 +179,15 @@ export async function typeCaption(page, editor, caption, { human, clear = false,
   if (clear) {
     await page.keyboard.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
     await page.keyboard.press('Backspace');
+    let cleared;
+    try {
+      cleared = await editor.innerText();
+    } catch {
+      throw new RobotError('selector-missing', 'the caption editor could not be read after clearing', { step: 'caption' });
+    }
+    if (normalize(cleared)) {
+      throw new RobotError('selector-missing', 'the caption editor is not empty after clearing', { step: 'caption' });
+    }
   }
   const lines = String(caption).split('\n');
   for (let i = 0; i < lines.length; i++) {
@@ -182,10 +197,14 @@ export async function typeCaption(page, editor, caption, { human, clear = false,
     }
     if (i < lines.length - 1) await page.keyboard.press('Enter');
   }
-  const firstLine = normalize(lines.find((l) => l.trim()) || '');
-  const written = normalize(await editor.innerText().catch(() => ''));
-  if (firstLine && !written.includes(firstLine.slice(0, 40))) {
-    throw new RobotError('selector-missing', 'the caption editor does not hold the caption after typing');
+  let written;
+  try {
+    written = normalize(await editor.innerText());
+  } catch {
+    throw new RobotError('selector-missing', 'the caption editor could not be read after typing', { step: 'caption' });
+  }
+  if (written !== normalize(caption)) {
+    throw new RobotError('selector-missing', 'the caption editor does not exactly match the queued caption', { step: 'caption' });
   }
 }
 
@@ -318,6 +337,114 @@ export function tiktokGuard(page, step) {
   };
 }
 
+/**
+ * Interstitials that the robot may close without changing account settings.
+ * Dialogs are matched by role plus title; the title alternatives cover the
+ * four account languages. TikTok's cookie banner is a custom element whose
+ * visible shadow-DOM text is backed by `#tiktok-cookie-banner-config`.
+ */
+export const INTERSTITIAL_REGISTRY = Object.freeze({
+  instagram: Object.freeze([
+    Object.freeze({ id: 'instagram-not-now', surface: 'button', name: RX.notNow, safeAction: 'click' }),
+  ]),
+  tiktok: Object.freeze([
+    Object.freeze({
+      id: 'tiktok-content-checks',
+      surface: 'dialog',
+      role: 'dialog',
+      title: RX.ttContentChecksTitle,
+      safeAction: 'cancel-or-close',
+    }),
+    Object.freeze({
+      id: 'tiktok-cookie-banner',
+      surface: 'banner',
+      role: 'banner',
+      title: RX.ttCookieTitle,
+      rootSelectors: Object.freeze(['tiktok-cookie-banner', '[data-e2e="cookie-banner"]', '[role="banner"]']),
+      name: RX.ttCookieDecline,
+      safeAction: 'decline-optional-cookies',
+    }),
+  ]),
+});
+
+async function visible(locator) {
+  return Boolean(locator && await locator.isVisible().catch(() => false));
+}
+
+async function findKnownInterstitial(page, entry, timeout = DEFAULT_TIMEOUTS.optional) {
+  if (entry.surface === 'button') {
+    const button = await findFirst([page.getByRole('button', { name: entry.name })], { timeout });
+    return await visible(button) ? { root: button, action: button } : null;
+  }
+
+  if (entry.surface === 'dialog') {
+    const dialog = page.getByRole(entry.role).filter({ hasText: entry.title }).first();
+    return await visible(dialog) ? { root: dialog } : null;
+  }
+
+  for (const selector of entry.rootSelectors) {
+    const root = page.locator(selector).first();
+    if (!await visible(root)) continue;
+    const title = root.getByText(entry.title).first();
+    const titleInConfig = page.locator('#tiktok-cookie-banner-config').filter({ hasText: entry.title }).first();
+    if (!await visible(title) && (await titleInConfig.count().catch(() => 0)) === 0) continue;
+    const action = root.getByRole('button', { name: entry.name }).first();
+    if (await visible(action)) return { root, action };
+  }
+  return null;
+}
+
+async function dismissKnownInterstitial(target, entry, step) {
+  if (entry.safeAction === 'click' || entry.safeAction === 'decline-optional-cookies') {
+    if (!await visible(target.action)) {
+      throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe action`, { step: step.get() });
+    }
+    await target.action.click();
+    return;
+  }
+
+  if (entry.safeAction === 'cancel-or-close') {
+    const cancel = target.root.getByRole('button', { name: RX.ttContentChecksCancel }).first();
+    if (await visible(cancel)) {
+      await cancel.click();
+      return;
+    }
+    const close = target.root.locator('.common-modal-close, [data-e2e="modal-close"]').first();
+    if (await visible(close)) {
+      await close.click();
+      return;
+    }
+    throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe cancel or close control`, { step: step.get() });
+  }
+
+  throw new RobotError('interstitial-unknown', `interstitial "${entry.id}" has no registered safe action`, { step: step.get() });
+}
+
+/** Dismiss registered interstitials and fail closed on any other visible dialog. */
+export async function dismissKnownInterstitials({ page, platform, step, snap = async () => {}, timeout = DEFAULT_TIMEOUTS.optional }) {
+  const entries = INTERSTITIAL_REGISTRY[platform] || [];
+  for (const entry of entries) {
+    const target = await findKnownInterstitial(page, entry, timeout);
+    if (!target) continue;
+    await snap(`interstitial-${entry.id}`);
+    await dismissKnownInterstitial(target, entry, step);
+  }
+
+  if (platform !== 'tiktok') return;
+  const dialogs = page.locator('[role="dialog"]');
+  for (let i = 0, count = await dialogs.count().catch(() => 0); i < count; i += 1) {
+    const dialog = dialogs.nth(i);
+    if (!await visible(dialog)) continue;
+    await snap('interstitial-unknown');
+    const text = normalize(await dialog.innerText().catch(() => ''));
+    throw new RobotError(
+      'interstitial-unknown',
+      `TikTok shows an unrecognized dialog${text ? `: "${text.slice(0, 240)}"` : ''}`,
+      { step: step.get() },
+    );
+  }
+}
+
 async function required(step, name, candidates, opts) {
   step.set(name);
   const loc = await findFirst(candidates, opts);
@@ -344,7 +471,7 @@ export async function instagramFlow({ page, files, caption, dryRun, human, snap,
   await page.goto(startUrl, { waitUntil: 'domcontentloaded' });
   await guard();
   await human.pause();
-  await optionalClick([page.getByRole('button', { name: RX.notNow })], { guard });
+  await dismissKnownInterstitials({ page, platform: 'instagram', step, snap });
 
   const create = await required(step, 'create', [
     page.getByRole('link', { name: RX.igCreate }),
@@ -370,6 +497,7 @@ export async function instagramFlow({ page, files, caption, dryRun, human, snap,
     page.locator('form[enctype="multipart/form-data"] input[type="file"]'),
     page.locator('input[type="file"][accept*="image"]'),
   ], { guard, timeout: t.ui, state: 'attached' });
+  await dismissKnownInterstitials({ page, platform: 'instagram', step, snap, timeout: 0 });
   await input.setInputFiles(files);
   await human.pause();
 
@@ -383,6 +511,7 @@ export async function instagramFlow({ page, files, caption, dryRun, human, snap,
     page.getByRole('textbox', { name: RX.igCaption }),
     page.locator('div[role="dialog"] div[contenteditable="true"][aria-label]'),
   ], { guard, timeout: t.ui });
+  await dismissKnownInterstitials({ page, platform: 'instagram', step, snap, timeout: 0 });
   await typeCaption(page, editor, caption, { human });
   await human.pause();
 
@@ -397,6 +526,7 @@ export async function instagramFlow({ page, files, caption, dryRun, human, snap,
 
   step.set('publish');
   return pressed(async () => {
+    await dismissKnownInterstitials({ page, platform: 'instagram', step, snap, timeout: 0 });
     await share.click();
     step.set('confirmation');
     const confirmation = await findFirst([page.getByText(RX.igConfirm)], { timeout: t.confirm, guard });
@@ -419,6 +549,8 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
   await guard();
   await human.pause();
 
+  step.set('upload');
+  await dismissKnownInterstitials({ page, platform: 'tiktok', step, snap });
   const input = await required(step, 'upload', [page.locator('input[type="file"]')], { guard, timeout: t.ui, state: 'attached' });
   const accept = String((await input.getAttribute('accept').catch(() => '')) || '');
   if (accept && !/video(?:\/|,|\s|$)/i.test(accept)) {
@@ -427,12 +559,14 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
   await input.setInputFiles(files);
   await human.pause();
   await waitForTikTokProcessing(page, { timeout: t.upload, guard });
+  await dismissKnownInterstitials({ page, platform: 'tiktok', step, snap });
 
   const editor = await required(step, 'caption', [
     page.locator('[data-e2e="caption_container"] [contenteditable="true"]'),
     page.locator('.public-DraftEditor-content[contenteditable="true"]'),
     page.getByRole('combobox').and(page.locator('[contenteditable="true"]')),
   ], { guard, timeout: t.upload });
+  await dismissKnownInterstitials({ page, platform: 'tiktok', step, snap });
   await typeCaption(page, editor, caption, { human, clear: true, hashtagSuggestions: true });
   await human.pause();
 
@@ -443,6 +577,7 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
   if (!(await waitEnabled(post, { timeout: t.upload, guard }))) {
     throw new RobotError('selector-missing', 'the Post button stays disabled (upload not processed?)', { step: 'post-button' });
   }
+  await dismissKnownInterstitials({ page, platform: 'tiktok', step, snap });
   await snap('ready-to-publish');
   if (dryRun) return { status: 'dry-run', step: 'post-button' };
 

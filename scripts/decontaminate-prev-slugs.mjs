@@ -146,8 +146,9 @@ function collectRedirectPlans(jobs, owners, { sourceEntry = null, ownerEntry = n
  *
  * `entries` supplies every slice used to resolve a hash tail; `sourceEntries`
  * selects the slices whose previous-slug claims are scanned and removed. The
- * writer uses one fresh source entry plus the existing fleet, which closes the
- * cross-file regrowth gap without rewriting unrelated claimants in each crawl.
+ * direct writer passes the fresh entry plus the existing fleet as sources; only
+ * entries with a confirmed redirect or empty-bucket cleanup are written, which
+ * closes cross-file regrowth without rewriting unrelated claimants.
  * Cross-file targets are persisted before source removal, so a failed target
  * write leaves the old route recoverable for a retry.
  *
@@ -190,12 +191,25 @@ export function decontaminateEntries(entries, {
   for (const entry of validEntries) {
     if (!sourceSet.has(entry)) continue;
     const owners = new Map(globallyUnique);
+    const sameSliceOwners = new Map();
+    const sameSliceAmbiguous = new Set();
     for (const job of entry.slice.jobs) {
       if (!job || typeof job !== 'object') continue;
       const hash = stableSlugHash(job);
-      if (hash && !owners.has(hash)) owners.set(hash, job);
-      // A same-slice owner is stronger than a unique global fallback.
-      if (hash && ownerEntry.get(owners.get(hash)) !== entry) owners.set(hash, job);
+      if (!hash || sameSliceAmbiguous.has(hash)) continue;
+      if (sameSliceOwners.has(hash)) {
+        sameSliceOwners.delete(hash);
+        sameSliceAmbiguous.add(hash);
+        continue;
+      }
+      sameSliceOwners.set(hash, job);
+    }
+    // A same-slice owner is stronger than a unique global fallback, but only
+    // when that hash occurs once in the slice. The old first-owner fallback
+    // made a same-hash pair depend on array order and could redirect a route
+    // to either sibling; ambiguity is evidence for no move, not a guess.
+    for (const [hash, job] of sameSliceOwners) {
+      owners.set(hash, job);
     }
 
     const entryPlans = collectRedirectPlans(entry.slice.jobs, owners, { sourceEntry: entry, ownerEntry });
@@ -260,10 +274,11 @@ export function decontaminateEntries(entries, {
 /**
  * Decontaminate one crawler slice already held in memory.
  *
- * This is the write-side form of the fleet pass below. It keeps the same
- * first-owner semantics used for jobs sharing a slice, and only redirects a
- * previous slug when its hash tail positively identifies another current job.
- * Unknown tails stay untouched because they are not evidence of contamination.
+ * This is the write-side form of the fleet pass below. It only redirects a
+ * previous slug when its hash tail positively identifies one current job; a
+ * hash shared by multiple jobs stays untouched instead of depending on array
+ * order. Unknown tails stay untouched because they are not evidence of
+ * contamination.
  *
  * @param {object[]} jobs jobs about to be persisted in one crawler slice
  * @returns {{moved: number, emptyLocaleBucketsPruned: number}}
@@ -286,7 +301,7 @@ export function decontaminateJobs(jobs) {
  * the claimant and a retry can safely finish the move; successful earlier
  * files are already idempotent. Hashes with more than one global record are
  * deliberately not used for cross-file routing, while same-file resolution
- * retains the historical first-owner behavior.
+ * uses a unique owner only and leaves ambiguous hashes untouched.
  */
 export function processFiles(filePaths, options = {}) {
   const payloadKinds = new Map();
