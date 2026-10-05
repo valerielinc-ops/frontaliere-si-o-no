@@ -1925,16 +1925,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-tredicesima-avs-stipendi-iva': {
- title: '13esima AVS: cosa cambia per lo stipendio dei frontalieri',
+ title: '13esima AVS: stipendio più basso per i frontalieri?',
  description: 'La 13esima AVS costerà 4,2 miliardi. Si profila un aumento dei contributi salariali e dell\'IVA. Scopri l\'impatto diretto sul tuo stipendio netto da frontaliere in Ticino.',
  keywords: 'tredicesima avs, finanziamento avs, contributi salariali svizzera, aumento iva svizzera, stipendio netto frontaliere, frontalieri ticino, pensione svizzera',
- ogTitle: '13esima AVS: cosa cambia per lo stipendio dei frontalieri',
+ ogTitle: '13esima AVS: stipendio più basso per i frontalieri?',
  ogDescription: 'La Commissione degli Stati vuole aumentare contributi e IVA per finanziare la 13esima AVS. Ecco l\'impatto previsto sulla tua busta paga da frontaliere.',
  canonicalPath: '/articoli-frontaliere/tredicesima-avs-finanziamento-impatto-stipendio-frontalieri-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "13esima AVS: cosa cambia per lo stipendio dei frontalieri",
+ "headline": "13esima AVS: stipendio più basso per i frontalieri?",
  "description": "La 13esima AVS costerà 4,2 miliardi. Si profila un aumento dei contributi salariali e dell'IVA. Scopri l'impatto diretto sul tuo stipendio netto da frontaliere in Ticino.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/tredicesima-avs-stipendi-iva.webp`,
@@ -3448,16 +3448,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-salario-minimo-ticino-accordo': {
- title: 'Salario minimo in Ticino: accordo a 22 CHF',
+ title: 'Salario minimo in Ticino: proposta a 22 CHF l\'ora',
  description: 'Scopri i dettagli della bozza di accordo sul salario minimo in Ticino: aumento graduale da 20.50 a 22 CHF orari entro il 2029. Cosa cambia per i frontalieri.',
  keywords: 'salario minimo ticino, stipendio frontalieri, aumento salario svizzera, lavoro ticino, 22 franchi ora, contratti collettivi, busta paga svizzera',
- ogTitle: 'Salario minimo in Ticino: accordo a 22 CHF',
+ ogTitle: 'Salario minimo in Ticino: proposta a 22 CHF l\'ora',
  ogDescription: 'Un accordo politico potrebbe portare il salario minimo ticinese a 4\'000 CHF mensili. Ecco il piano di aumento e le novità per i frontalieri.',
  canonicalPath: '/articoli-frontaliere/salario-minimo-ticino-accordo-aumento-22-franchi/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Salario minimo in Ticino: accordo a 22 CHF",
+ "headline": "Salario minimo in Ticino: proposta a 22 CHF l'ora",
  "description": "Scopri i dettagli della bozza di accordo sul salario minimo in Ticino: aumento graduale da 20.50 a 22 CHF orari entro il 2029. Cosa cambia per i frontalieri.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/salario-minimo-ticino-accordo.webp`,
