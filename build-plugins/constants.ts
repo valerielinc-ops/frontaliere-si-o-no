@@ -644,7 +644,7 @@ const POSTHOG_BEFORE_SEND_FN = `function(ev){try{if(!ev||ev.event!=='$exception'
 const POSTHOG_QUOTA_BEFORE_SEND_FN = `function(ev){if(!ev)return null;var e=ev.event;if(${POSTHOG_QUOTA_EXEMPT_EVENTS_LITERAL}.indexOf(e)>=0)return ev;if(e==='$exception')return (${POSTHOG_BEFORE_SEND_FN})(ev);var p=ev.properties||{};var sampleKey=p.$session_id||p.distinct_id||ev.distinct_id;if(!sampleKey&&${POSTHOG_EVENT_SAMPLE_RATE}<=0)return null;if(sampleKey){var sampleText=String(sampleKey),sampleHash=2166136261;for(var i=0;i<sampleText.length;i++){sampleHash^=sampleText.charCodeAt(i);sampleHash=Math.imul(sampleHash,16777619);}if((sampleHash>>>0)/4294967296>=${POSTHOG_EVENT_SAMPLE_RATE})return null;}return (${POSTHOG_BEFORE_SEND_FN})(ev);}`;
 export const POSTHOG_INIT_CONTENT = `if(!(${POSTHOG_LOCAL_HOST_GATE_FN})()&&!(${BOT_GATE_FN})()){window.__frRawStacks=window.__frRawStacks||[];function __frRec(m,st){if(!st)return;window.__frRawStacks.push([String(m||''),String(st)]);if(window.__frRawStacks.length>8)window.__frRawStacks.shift();}window.addEventListener('error',function(e){var er=e&&e.error;if(er&&er.stack)__frRec(er.message||e.message,er.stack);});window.addEventListener('unhandledrejection',function(e){var r=e&&e.reason;if(r&&r.stack)__frRec(r.message,r.stack);});!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags identify setPersonProperties group resetGroups reset opt_in_capturing opt_out_capturing".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init('${POSTHOG_KEY}',{api_host:'${POSTHOG_HOST}',capture_pageview:true,capture_pageleave:true,autocapture:false,persistence:'localStorage',session_recording:{sampleRate:${POSTHOG_SESSION_REPLAY_SAMPLE_RATE}},before_send:${POSTHOG_QUOTA_BEFORE_SEND_FN}});}`;
 export const POSTHOG_INIT_FILENAME = 'posthog-init.js';
-export const POSTHOG_SNIPPET = `<script src="/assets/${POSTHOG_INIT_FILENAME}"></script>`;
+export const POSTHOG_SNIPPET = `<script defer src="/assets/${POSTHOG_INIT_FILENAME}"></script>`;
 
 /**
  * Google AdSense loader snippet. Included in every statically-generated page
@@ -823,8 +823,8 @@ export const FC_ADBLOCK_SIGNAL_EVENT = 'frontaliere:adblock-data';
  *
  * Carried by index.html (inline copy), OFFERWALL_FC_SNIPPET,
  * ADSENSE_LOADER_CONTENT and GPT_LOADER_CONTENT (build-plugins/jobBoardGpt.ts,
- * synchronous, so it precedes a gpt.js injected during parsing), so every
- * page that loads Funding Choices installs it first. The loader matters most:
+ * deferred but ordered before DOMContentLoaded), so every page that loads
+ * Funding Choices installs it before user interaction. The loader matters most:
  * most job-board URLs (listing, company, search, sector pages) and every
  * static page without the snippet load Funding Choices only through it. The
  * first copy to run installs the gate and the others step aside.
@@ -838,8 +838,8 @@ export const FC_ADBLOCK_BRIDGE_JS = `(function(){if(window.__ftFcAdBlockBridge)r
 /**
  * Inline lazy-loader injected at the bottom of every static page (and also
  * emitted from index.html). Runs once per page and:
- *  -1. Installs FC_JOBBOARD_OFFERWALL_GATE_JS before anything can load
- *     Funding Choices, so on every static page the Offerwall waits for
+ *  -1. Installs FC_JOBBOARD_OFFERWALL_GATE_JS before its deferred Funding
+ *     Choices carrier can load, so on every static page the Offerwall waits for
  *     "Candidati" (job-board sections) or stays suppressed (every other
  *     page), not only where OFFERWALL_FC_SNIPPET is injected.
  *  0.3. Starts the per-page ad diagnosis (AD_PAGE_DIAG_CALL → one GA4
@@ -953,8 +953,10 @@ export const ADSENSE_LOADER_FILENAME = 'adsense-loader.js';
 export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_FILENAME}"></script>`;
 
 /**
- * Funding Choices MESSAGING loader, injected PARSE-TIME into the <head> of
- * in-scope STATIC pages. The custom newsletter choice is disabled globally;
+ * Funding Choices MESSAGING loader, injected into the <head> of in-scope
+ * STATIC pages. The article carrier remains inline; the cacheable job-board
+ * carrier is ordered with `defer` so it runs before DOMContentLoaded without
+ * blocking the parser. The custom newsletter choice is disabled globally;
  * on every job-board section FC_JOBBOARD_OFFERWALL_GATE_JS holds the native
  * Offerwall until the visitor clicks "Candidati", and on article and every
  * other page it suppresses the Offerwall alone (the CMP still shows).
@@ -967,12 +969,11 @@ export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_
  * but never instantiates the overlay. The publisher-id
  * MESSAGING loader (`/i/pub-XXX`) — the one index.html uses on SPA roots and the
  * one that actually renders FC messages — is absent. Injecting the pub-id
- * loader at PARSE TIME (before hydration and before adsbygoogle's
- * network-code loader claims the singleton FC instance) brings article pages to
- * parity with index.html's proven render path. (#2312 injected the same loader
+ * loader in the head, before hydration and before adsbygoogle's network-code
+ * loader claims the singleton FC instance, brings article pages to parity with
+ * index.html's proven render path. (#2312 injected the same loader
  * POST-hydration via the React gate and it never rendered, because FC was
- * already singleton-initialised by the network-code loader — parse-time is the
- * differentiator.)
+ * already singleton-initialised by the network-code loader.)
  *
  * MUST stay aligned with index.html's loadFc() on the essentials
  * (same pub-id loader URL, `data-fc-loader` dedup marker, NO crossOrigin — see
@@ -996,7 +997,7 @@ export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_
  */
 /**
  * Script body shared by the inline article carrier and the cacheable job-board
- * asset. Keeping the body in one value prevents the two parse-time carriers
+ * asset. Keeping the body in one value prevents the two carriers
  * from drifting while removing several KB from every job-board HTML page.
  */
 export const OFFERWALL_FC_SCRIPT_CONTENT = `${FC_JOBBOARD_OFFERWALL_GATE_JS}(function(){function loadFc(){if(!document.querySelector('script[data-fc-loader]')){var s=document.createElement('script');s.async=true;s.src='https://fundingchoicesmessages.google.com/i/${FC_PUBLISHER_ID}?ers=1';s.setAttribute('data-fc-loader','1');document.head.appendChild(s);}(function sig(){if(!window.frames['googlefcPresent']){if(document.body){var f=document.createElement('iframe');f.style='width:0;height:0;border:none;z-index:-1000;left:-1000px;top:-1000px;';f.style.display='none';f.name='googlefcPresent';document.body.appendChild(f);}else{setTimeout(sig,0);}}})();}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function schedule(){(window.requestIdleCallback||ricFb)(loadFc,{timeout:4000});}if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',schedule,{once:true});}else{schedule();}})();`;
