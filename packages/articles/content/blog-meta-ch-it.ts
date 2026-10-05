@@ -7706,6 +7706,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.elezioni-cantonali-zurigo-vademecum.title': 'Elezioni cantonali a Zurigo: guida a calendario e voto',
     'blog.article.elezioni-cantonali-zurigo-vademecum.excerpt': 'Guida pratica alle elezioni cantonali nel Cantone di Zurigo: cosa controllare su calendario, modalità di voto, liste e informazioni ufficiali.',
     'blog.article.elezioni-cantonali-zurigo-vademecum.imageAlt': 'Materiale informativo per le elezioni cantonali nel Cantone di Zurigo',
+    'blog.article.protezione-civile-zurigo.title': 'Protezione civile Canton Zurigo: requisiti e indennità',
+    'blog.article.protezione-civile-zurigo.excerpt': 'Nel Cantone di Zurigo la protezione civile è coordinata a livello cantonale. Convocazioni e indennità si verificano presso l\'autorità competente.',
+    'blog.article.protezione-civile-zurigo.imageAlt': 'Operatori della protezione civile davanti a un edificio pubblico svizzero',
 };
 
 export default blogMetaChIt;

@@ -7706,6 +7706,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.elezioni-cantonali-zurigo-vademecum.title': 'Élections cantonales à Zurich : guide du calendrier et du vote',
     'blog.article.elezioni-cantonali-zurigo-vademecum.excerpt': 'Guide pratique des élections cantonales dans le canton de Zurich : ce qu\'il faut vérifier concernant le calendrier, les modalités de vote, les listes et les informations officielles.',
     'blog.article.elezioni-cantonali-zurigo-vademecum.imageAlt': 'Documents d\'information pour les élections cantonales à Zurich',
+    'blog.article.protezione-civile-zurigo.title': 'Protection civile Canton de Zurich : conditions et indemnités',
+    'blog.article.protezione-civile-zurigo.excerpt': 'Dans le canton de Zurich, la protection civile est coordonnée au niveau cantonal. Les convocations et les indemnités sont à vérifier auprès de l\'autorité compétente.',
+    'blog.article.protezione-civile-zurigo.imageAlt': 'Personnel de la protection civile devant un bâtiment public suisse',
 };
 
 export default blogMetaChFr;

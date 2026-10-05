@@ -7706,6 +7706,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.elezioni-cantonali-zurigo-vademecum.title': 'Kantonswahlen in Zürich: Kalender- und Abstimmungsleitfaden',
     'blog.article.elezioni-cantonali-zurigo-vademecum.excerpt': 'Praktischer Leitfaden zu den Kantonswahlen im Kanton Zürich: Was ist in Kalender, Abstimmungsmodalitäten, Listen und amtlichen Informationen zu beachten?',
     'blog.article.elezioni-cantonali-zurigo-vademecum.imageAlt': 'Informationsmaterial für Kantonswahlen im Kanton Zürich',
+    'blog.article.protezione-civile-zurigo.title': 'Zivilschutz Kanton Zürich: Voraussetzungen und Entschädigungen',
+    'blog.article.protezione-civile-zurigo.excerpt': 'Im Kanton Zürich ist der Zivilschutz kantonal koordiniert. Einberufungen und Entschädigungen erfolgen bei der zuständigen Behörde.',
+    'blog.article.protezione-civile-zurigo.imageAlt': 'Zivilschutzpersonal vor einem öffentlichen Gebäude in der Schweiz',
 };
 
 export default blogMetaChDe;
