@@ -61,9 +61,17 @@ export function extractJsonLdNodes(html) {
   return nodes;
 }
 
+function schemaTypeName(value) {
+  const type = value.trim().replace(/[\/#]+$/, '');
+  return type.slice(Math.max(type.lastIndexOf('/'), type.lastIndexOf('#')) + 1);
+}
+
 function typesOf(node) {
   const value = node?.['@type'];
-  return (Array.isArray(value) ? value : [value]).filter((entry) => typeof entry === 'string');
+  return (Array.isArray(value) ? value : [value])
+    .filter((entry) => typeof entry === 'string')
+    .map(schemaTypeName)
+    .filter(Boolean);
 }
 
 /** schema.org Event and its subtypes (MusicEvent, TheaterEvent, …). */

@@ -23,7 +23,7 @@ import {
   shownTariffs,
   urlsToFetch,
 } from '../scripts/crawl-classicascona-events.mjs';
-import { parseJsonLdBlock } from '../scripts/lib/organizer-jsonld.mjs';
+import { extractEventNodes, extractOrganizerOfferPrice, parseJsonLdBlock } from '../scripts/lib/organizer-jsonld.mjs';
 import { EVENT_SOURCES, hasConfidentPrice, isFromEventPrice } from '../scripts/lib/events-utils.mjs';
 import { dedupeOrganizerAgainstTio } from '../scripts/assemble-events-dataset.mjs';
 
@@ -168,6 +168,14 @@ describe('concert page → event (facts only)', () => {
   it('tolerates raw line breaks inside JSON-LD strings', () => {
     expect(parseJsonLdBlock('{"@type":"MusicEvent","name":"Riga\nspezzata"}')).toEqual({ '@type': 'MusicEvent', name: 'Riga\nspezzata' });
     expect(parseJsonLdBlock('{not json')).toBeUndefined();
+  });
+
+  it('normalizes schema.org IRIs for events and aggregate offers', () => {
+    const html = '<script type="application/ld+json">{"@type":"https://schema.org/MusicEvent","name":"x","startDate":"2026-10-07"}</script>';
+    expect(extractEventNodes(html)).toHaveLength(1);
+    expect(extractOrganizerOfferPrice({
+      offers: { '@type': 'https://schema.org/AggregateOffer', lowPrice: 40, priceCurrency: 'CHF' },
+    }, { priceSource: 'classicascona', shownTariffs: [40] })).toMatchObject({ price: { amount: 40, priceField: 'offers.lowPrice' } });
   });
 });
 

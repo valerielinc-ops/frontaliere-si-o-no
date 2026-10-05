@@ -383,6 +383,7 @@ const NON_DISTINCTIVE_TITLE_WORDS = new Set([
   'alla', 'alle', 'agli', 'allo', 'della', 'delle', 'dello', 'degli', 'dalla', 'dalle', 'nella', 'nelle', 'sulla', 'sulle',
   'with', 'from', 'that', 'this', 'their', 'into', 'uber', 'dans', 'pour', 'avec', 'sous',
   'concerto', 'concerti', 'concert', 'concerts', 'konzert', 'konzerte', 'musica', 'music', 'musik', 'musique',
+  'festival', 'festivals',
   'settimane', 'musicali', 'classicascona', 'ascona', 'locarno', 'chiesa', 'church', 'kirche', 'eglise',
 ]);
 
