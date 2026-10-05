@@ -1,15 +1,15 @@
 {
   "crawlerKey": "orell-fuessli-thalia",
-  "assembledAt": "2026-10-04T21:38:58.351Z",
+  "assembledAt": "2026-10-05T09:36:53.249Z",
   "jobs": [
     {
       "id": "orell-fuessli-thalia-e4da5ba34cd3",
       "slug": "libreria-in-30-a-orell-fussli-thalia-wurenlos",
       "slugByLocale": {
         "it": "libreria-in-30-a-orell-fussli-thalia-wurenlos",
-        "en": "buchhandler-in-30-a-orell-fussli-thalia-wurenlos",
+        "en": "bookseller-30-a-orell-fussli-thalia-wurenlos",
         "de": "buchhandler-in-30-a-orell-fuessli-thalia-wurenlos",
-        "fr": "libraire30-a-orell-fussli-thalia-wurenlos"
+        "fr": "librairie-en-30-a-orell-fussli-thalia-wurenlos"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -33,7 +33,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-30",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.488Z",
+      "crawledAt": "2026-10-05T09:36:47.304Z",
       "addressLocality": "Würenlos",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -62,9 +62,7 @@
         "buchhandler-in-30-a-orell-fuessli-thalia-wurenlos",
         "bookseller-in-30-a-orell-fussli-thalia-wurenlos",
         "buchhandler-in-30-a-orell-fussli-thalia-wurenlos",
-        "bookseller-30-a-orell-fussli-thalia-wurenlos",
-        "librairie-en-30-a-orell-fussli-thalia-wurenlos",
-        "libreria-in-30-a-orell-fussli-thalia-wurenlos"
+        "libraire30-a-orell-fussli-thalia-wurenlos"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -72,13 +70,11 @@
           "bookseller-in-30-a-wurenlos-resting-place-orell-fussli-thalia-wurenlos",
           "buchhandler-in-30-a-wurenlos-raststatte-orell-fuessli-thalia-wurenlos",
           "librairie-en-30-a-wurenlos-lieu-de-repos-orell-fussli-thalia-wurenlos",
-          "buchhandler-in-30-a-orell-fuessli-thalia-wurenlos",
-          "libreria-in-30-a-orell-fussli-thalia-wurenlos"
+          "buchhandler-in-30-a-orell-fuessli-thalia-wurenlos"
         ],
         "en": [
           "bookseller-in-30-a-wurenlos-resting-place-orell-fussli-thalia-wurenlos",
           "bookseller-in-30-a-orell-fussli-thalia-wurenlos",
-          "bookseller-30-a-orell-fussli-thalia-wurenlos",
           "buchhandler-in-30-a-orell-fussli-thalia-wurenlos"
         ],
         "de": [
@@ -88,7 +84,7 @@
           "librairie-en-30-a-wurenlos-lieu-de-repos-orell-fussli-thalia-wurenlos",
           "buchhandler-in-30-a-orell-fuessli-thalia-wurenlos",
           "buchhandler-in-30-a-orell-fussli-thalia-wurenlos",
-          "librairie-en-30-a-orell-fussli-thalia-wurenlos"
+          "libraire30-a-orell-fussli-thalia-wurenlos"
         ]
       },
       "needsRetranslation": true,
@@ -138,7 +134,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-buchhandel-efz-region-bern",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.487Z",
+      "crawledAt": "2026-10-05T09:36:47.302Z",
       "addressLocality": "Bern",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -160,13 +156,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-buchhandel-efz-region-bern-orell-fuessli-thalia-bern",
-        "apprendista-r-buchhandel-cfc-region-bern-orell-fussli-thalia-bern"
+        "lernende-r-buchhandel-efz-region-bern-orell-fuessli-thalia-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-buchhandel-efz-region-bern-orell-fuessli-thalia-bern",
-          "apprendista-r-buchhandel-cfc-region-bern-orell-fussli-thalia-bern"
+          "lernende-r-buchhandel-efz-region-bern-orell-fuessli-thalia-bern"
         ],
         "en": [
           "lernende-r-buchhandel-efz-region-bern-orell-fuessli-thalia-bern"
@@ -176,7 +170,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:32:27.319Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -222,7 +215,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/filialleitung-80-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.487Z",
+      "crawledAt": "2026-10-05T09:36:47.303Z",
       "addressLocality": "Rapperswil",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -245,8 +238,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "filialleitung-80-100-a-orell-fuessli-thalia-rapperswil",
-          "filialleitung-80-100-a-orell-fuessli-thalia-uster"
+          "filialleitung-80-100-a-orell-fuessli-thalia-rapperswil"
         ],
         "it": [
           "filialleitung-80-100-a-orell-fuessli-thalia-uster",
@@ -264,8 +256,7 @@
           "filialleitung-80-90-a-orell-fuessli-thalia-spreitenbach",
           "gestion-de-la-direction-generale-80-90-a-orell-fussli-thalia-spreitenbach",
           "store-manager-80-90-a-orell-fussli-thalia-spreitenbach",
-          "responsable-de-magasin-80-90-a-orell-fussli-thalia-spreitenbach",
-          "direzione-della-filiale-80-100-a-orell-fussli-thalia-uster"
+          "responsable-de-magasin-80-90-a-orell-fussli-thalia-spreitenbach"
         ],
         "en": [
           "filialleitung-80-100-a-orell-fuessli-thalia-uster",
@@ -292,8 +283,7 @@
         "filialleitung-80-90-a-orell-fuessli-thalia-spreitenbach",
         "gestion-de-la-direction-generale-80-90-a-orell-fussli-thalia-spreitenbach",
         "store-manager-80-90-a-orell-fussli-thalia-spreitenbach",
-        "responsable-de-magasin-80-90-a-orell-fussli-thalia-spreitenbach",
-        "direzione-della-filiale-80-100-a-orell-fussli-thalia-uster"
+        "responsable-de-magasin-80-90-a-orell-fussli-thalia-spreitenbach"
       ],
       "firstSeenAt": "2026-07-04T11:26:42.543Z",
       "salaryMin": 79000,
@@ -341,7 +331,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-buchhandel-efz-region-zuerichnordwestschweiz",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.486Z",
+      "crawledAt": "2026-10-05T09:36:47.302Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Dietzingerstrasse 3",
@@ -363,13 +353,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-buchhandel-efz-region-zurich-nordwestschweiz-orell-fuessli-thalia-zurich",
-        "apprendista-r-buchhandel-cfc-region-zurich-nordwestschweiz-orell-fussli-thalia-zurich"
+        "lernende-r-buchhandel-efz-region-zurich-nordwestschweiz-orell-fuessli-thalia-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-buchhandel-efz-region-zurich-nordwestschweiz-orell-fuessli-thalia-zurich",
-          "apprendista-r-buchhandel-cfc-region-zurich-nordwestschweiz-orell-fussli-thalia-zurich"
+          "lernende-r-buchhandel-efz-region-zurich-nordwestschweiz-orell-fuessli-thalia-zurich"
         ],
         "en": [
           "lernende-r-buchhandel-efz-region-zurich-nordwestschweiz-orell-fuessli-thalia-zurich"
@@ -425,7 +413,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-buchhandel-efz-region-winterthurostschweiz",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.485Z",
+      "crawledAt": "2026-10-05T09:36:47.301Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -447,13 +435,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-buchhandel-efz-region-winterthur-ostschweiz-orell-fuessli-thalia-winterthur",
-        "apprendista-r-buchhandel-cfc-region-winterthur-ostschweiz-orell-fussli-thalia-winterthur"
+        "lernende-r-buchhandel-efz-region-winterthur-ostschweiz-orell-fuessli-thalia-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-buchhandel-efz-region-winterthur-ostschweiz-orell-fuessli-thalia-winterthur",
-          "apprendista-r-buchhandel-cfc-region-winterthur-ostschweiz-orell-fussli-thalia-winterthur"
+          "lernende-r-buchhandel-efz-region-winterthur-ostschweiz-orell-fuessli-thalia-winterthur"
         ],
         "en": [
           "lernende-r-buchhandel-efz-region-winterthur-ostschweiz-orell-fuessli-thalia-winterthur"
@@ -509,7 +495,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/hms-praktikantin-marketing-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.484Z",
+      "crawledAt": "2026-10-05T09:36:47.300Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Dietzingerstrasse 3",
@@ -531,13 +517,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hms-praktikant-in-marketing-100-a-orell-fuessli-thalia-zurich",
-        "professionista-hms-in-marketing-100-a-orell-fussli-thalia-zurich"
+        "hms-praktikant-in-marketing-100-a-orell-fuessli-thalia-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hms-praktikant-in-marketing-100-a-orell-fuessli-thalia-zurich",
-          "professionista-hms-in-marketing-100-a-orell-fussli-thalia-zurich"
+          "hms-praktikant-in-marketing-100-a-orell-fuessli-thalia-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -587,7 +571,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-fachfrau-mann-kundendialog-efz",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.484Z",
+      "crawledAt": "2026-10-05T09:36:47.300Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Dietzingerstrasse 3",
@@ -611,15 +595,13 @@
       "previousSlugs": [
         "lernende-r-fachfrau-mann-kundendialog-efz-orell-fuessli-thalia-zurich",
         "apprendista-r-fachmann-frau-kundendialog-cfc-orell-fussli-thalia-zurich",
-        "lernende-r-fachmann-frau-kundendialog-efz-orell-fuessli-thalia-zurich",
-        "apprendista-r-fachfrau-mann-kundendialog-cfc-orell-fussli-thalia-zurich"
+        "lernende-r-fachmann-frau-kundendialog-efz-orell-fuessli-thalia-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-r-fachfrau-mann-kundendialog-efz-orell-fuessli-thalia-zurich",
           "apprendista-r-fachmann-frau-kundendialog-cfc-orell-fussli-thalia-zurich",
-          "lernende-r-fachmann-frau-kundendialog-efz-orell-fuessli-thalia-zurich",
-          "apprendista-r-fachfrau-mann-kundendialog-cfc-orell-fussli-thalia-zurich"
+          "lernende-r-fachmann-frau-kundendialog-efz-orell-fuessli-thalia-zurich"
         ],
         "en": [
           "lernende-r-fachfrau-mann-kundendialog-efz-orell-fuessli-thalia-zurich"
@@ -630,7 +612,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:54:30.573Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -652,7 +633,7 @@
         "it": "libreria-in-20-40-a-orell-fussli-thalia-winterthur",
         "en": "buchhandler-in-20-40-a-orell-fussli-thalia-winterthur",
         "de": "buchhandler-in-20-40-a-orell-fuessli-thalia-winterthur",
-        "fr": "librairies-20-40-a-orell-fussli-thalia-winterthur"
+        "fr": "librairie-en-20-40-a-orell-fussli-thalia-winterthur"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -676,7 +657,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-20-40",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.483Z",
+      "crawledAt": "2026-10-05T09:36:47.299Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -702,14 +683,11 @@
         "bookseller-in-20-40-a-orell-fussli-thalia-winterthur",
         "buchhandler-en-20-40-a-orell-fussli-thalia-winterthur",
         "buchhandler-in-20-40-a-orell-fussli-thalia-winterthur",
-        "librairie-en-20-40-a-orell-fussli-thalia-winterthur",
-        "libreria-in-20-40-a-orell-fussli-thalia-winterthur",
         "librairies-20-40-a-orell-fussli-thalia-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "buchhandler-in-20-40-a-orell-fuessli-thalia-winterthur",
-          "libreria-in-20-40-a-orell-fussli-thalia-winterthur"
+          "buchhandler-in-20-40-a-orell-fuessli-thalia-winterthur"
         ],
         "en": [
           "bookseller-in-20-40-a-orell-fussli-thalia-winterthur",
@@ -719,7 +697,6 @@
           "buchhandler-in-20-40-a-orell-fuessli-thalia-winterthur",
           "buchhandler-en-20-40-a-orell-fussli-thalia-winterthur",
           "buchhandler-in-20-40-a-orell-fussli-thalia-winterthur",
-          "librairie-en-20-40-a-orell-fussli-thalia-winterthur",
           "librairies-20-40-a-orell-fussli-thalia-winterthur"
         ]
       },
@@ -770,7 +747,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/stv-filialleitung-80",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.482Z",
+      "crawledAt": "2026-10-05T09:36:47.298Z",
       "addressLocality": "Langnau im Emmental",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -793,18 +770,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "stv-filialleitung-80-a-orell-fuessli-thalia-langnau-im-emmental",
-          "stv-filialleitung-80-orell-fuessli-thalia-ebikon"
+          "stv-filialleitung-80-a-orell-fuessli-thalia-langnau-im-emmental"
         ],
         "it": [
-          "stv-filialleitung-80-a-orell-fuessli-thalia-langnau-im-emmental",
-          "gestione-del-ramo-stv-80-orell-fussli-thalia-ebikon"
+          "stv-filialleitung-80-a-orell-fuessli-thalia-langnau-im-emmental"
         ]
       },
       "previousSlugs": [
-        "stv-filialleitung-80-a-orell-fuessli-thalia-langnau-im-emmental",
-        "stv-filialleitung-80-orell-fuessli-thalia-ebikon",
-        "gestione-del-ramo-stv-80-orell-fussli-thalia-ebikon"
+        "stv-filialleitung-80-a-orell-fuessli-thalia-langnau-im-emmental"
       ],
       "firstSeenAt": "2026-08-24T10:17:59.705Z",
       "salaryMin": 54800,
@@ -852,7 +825,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-detailhandel-papeterie-efz",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.479Z",
+      "crawledAt": "2026-10-05T09:36:47.293Z",
       "addressLocality": "Thalwil",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -874,13 +847,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-detailhandel-papeterie-efz-orell-fuessli-thalia-thalwil",
-        "apprendista-r-commercio-al-dettaglio-papeterie-cfc-orell-fussli-thalia-thalwil"
+        "lernende-r-detailhandel-papeterie-efz-orell-fuessli-thalia-thalwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-detailhandel-papeterie-efz-orell-fuessli-thalia-thalwil",
-          "apprendista-r-commercio-al-dettaglio-papeterie-cfc-orell-fussli-thalia-thalwil"
+          "lernende-r-detailhandel-papeterie-efz-orell-fuessli-thalia-thalwil"
         ],
         "en": [
           "lernende-r-detailhandel-papeterie-efz-orell-fuessli-thalia-thalwil"
@@ -890,7 +861,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:19:30.111Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -936,7 +906,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-detailhandel-papeterie-efz-0",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.477Z",
+      "crawledAt": "2026-10-05T09:36:47.291Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -958,13 +928,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-detailhandel-papeterie-efz-orell-fuessli-thalia-wadenswil",
-        "apprendista-r-commercio-al-dettaglio-papeterie-cfc-orell-fussli-thalia-wadenswil"
+        "lernende-r-detailhandel-papeterie-efz-orell-fuessli-thalia-wadenswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-detailhandel-papeterie-efz-orell-fuessli-thalia-wadenswil",
-          "apprendista-r-commercio-al-dettaglio-papeterie-cfc-orell-fussli-thalia-wadenswil"
+          "lernende-r-detailhandel-papeterie-efz-orell-fuessli-thalia-wadenswil"
         ],
         "en": [
           "lernende-r-detailhandel-papeterie-efz-orell-fuessli-thalia-wadenswil"
@@ -974,7 +942,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:19:30.108Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1020,7 +987,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-detailhandel-papeterie-efz-1",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.475Z",
+      "crawledAt": "2026-10-05T09:36:47.287Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1042,13 +1009,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-detailhandel-papeterie-efz-orell-fuessli-thalia-kusnacht",
-        "apprendista-r-commercio-al-dettaglio-papeterie-cfc-orell-fussli-thalia-kusnacht"
+        "lernende-r-detailhandel-papeterie-efz-orell-fuessli-thalia-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-detailhandel-papeterie-efz-orell-fuessli-thalia-kusnacht",
-          "apprendista-r-commercio-al-dettaglio-papeterie-cfc-orell-fussli-thalia-kusnacht"
+          "lernende-r-detailhandel-papeterie-efz-orell-fuessli-thalia-kusnacht"
         ],
         "en": [
           "lernende-r-detailhandel-papeterie-efz-orell-fuessli-thalia-kusnacht"
@@ -1058,7 +1023,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T14:19:28.901Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1075,22 +1039,22 @@
     },
     {
       "id": "orell-fuessli-thalia-11b8f7d2df1e",
-      "slug": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-brig",
+      "slug": "specialista-in-commercio-al-dettaglio-uomo-cartoleria-40-a-orell-fussli-thalia-brig",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-brig",
-        "en": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-brig",
+        "it": "specialista-in-commercio-al-dettaglio-uomo-cartoleria-40-a-orell-fussli-thalia-brig",
+        "en": "retail-specialist-man-stationery-40-a-orell-fussli-thalia-brig",
         "de": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-brig",
-        "fr": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-brig"
+        "fr": "specialiste-du-commerce-de-detail-homme-papeterie-40-a-orell-fussli-thalia-brig"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
       "companyDomain": "orellfuessli.ch",
       "title": "Detailhandelsfachfrau/mann Papeterie 40% (a)",
       "titleByLocale": {
-        "it": "Detailhandelsfachfrau/mann Papeterie 40% (a)",
-        "en": "Detailhandelsfachfrau/mann Papeterie 40% (a)",
+        "it": "Specialista in commercio al dettaglio/uomo cartoleria 40% (a)",
+        "en": "Retail specialist/man stationery 40% (a)",
         "de": "Detailhandelsfachfrau/mann Papeterie 40% (a)",
-        "fr": "Detailhandelsfachfrau/mann Papeterie 40% (a)"
+        "fr": "Spécialiste du commerce de détail/homme papeterie 40 % (a)"
       },
       "description": "Mögen Sie Geschichten ebenso wie wir?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unsere ZAP* Filiale in Brig suchen wir per 1. Oktober 2026 eine*n Detailhandelsfachfrau/-mann Papeterie 40% (a)\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt der Papeterie\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Mitarbeit an Abholfach und Kasse\n\n• Präsentation von Papeterie-Artikeln, Geschenken und Spielwaren\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Detailhandelsfachfrau/-mann Papeterie\n\n• Affinität zu Papeterie, Schenken und Spielwaren\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
       "descriptionByLocale": {
@@ -1104,7 +1068,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/detailhandelsfachfraumann-papeterie-40-0",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.473Z",
+      "crawledAt": "2026-10-05T09:36:47.285Z",
       "addressLocality": "Brig",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1133,9 +1097,14 @@
         "it": [
           "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-brig",
           "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-brig"
+        ],
+        "en": [
+          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-brig"
+        ],
+        "fr": [
+          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-brig"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:19:28.899Z",
       "salaryMin": 28800,
       "salaryMax": 44400,
@@ -1182,7 +1151,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/detailhandelsfachfraumann-papeterie-40",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.472Z",
+      "crawledAt": "2026-10-05T09:36:47.284Z",
       "addressLocality": "Thalwil",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1205,18 +1174,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-thalwil",
-          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-bern"
+          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-thalwil"
         ],
         "it": [
-          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-thalwil",
-          "specialista-al-dettaglio-uomo-papeterie-40-a-orell-fussli-thalia-bern"
+          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-thalwil"
         ]
       },
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-thalwil",
-        "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-bern",
-        "specialista-al-dettaglio-uomo-papeterie-40-a-orell-fussli-thalia-bern"
+        "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-thalwil"
       ],
       "firstSeenAt": "2026-09-02T13:49:03.919Z",
       "salaryMin": 33200,
@@ -1264,7 +1229,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/detailhandelsfachfraumann-papeterie-40-1",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.470Z",
+      "crawledAt": "2026-10-05T09:36:47.281Z",
       "addressLocality": "Adliswil",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1287,14 +1252,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-adliswil",
-          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-thalwil"
+          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-adliswil"
         ],
         "it": [
           "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-thalwil",
           "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-thalwil",
-          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-adliswil",
-          "specialista-al-dettaglio-uomo-papeterie-40-a-orell-fussli-thalia-thalwil"
+          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-adliswil"
         ],
         "en": [
           "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-thalwil"
@@ -1306,8 +1269,7 @@
       "previousSlugs": [
         "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-thalwil",
         "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-thalwil",
-        "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-adliswil",
-        "specialista-al-dettaglio-uomo-papeterie-40-a-orell-fussli-thalia-thalwil"
+        "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-adliswil"
       ],
       "firstSeenAt": "2026-09-02T13:49:03.919Z",
       "salaryMin": 33200,
@@ -1355,7 +1317,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/abteilungsleitung-80-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.468Z",
+      "crawledAt": "2026-10-05T09:36:47.278Z",
       "addressLocality": "Würenlos",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1377,13 +1339,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "abteilungsleitung-80-100-a-orell-fuessli-thalia-wurenlos",
-        "capo-reparto-80-100-a-orell-fussli-thalia-wurenlos"
+        "abteilungsleitung-80-100-a-orell-fuessli-thalia-wurenlos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleitung-80-100-a-orell-fuessli-thalia-wurenlos",
-          "capo-reparto-80-100-a-orell-fussli-thalia-wurenlos"
+          "abteilungsleitung-80-100-a-orell-fuessli-thalia-wurenlos"
         ],
         "en": [
           "abteilungsleitung-80-100-a-orell-fuessli-thalia-wurenlos"
@@ -1393,7 +1353,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:15.701Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -1439,7 +1398,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/detailhandelsfachfraumann-papeterie-40-50",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.467Z",
+      "crawledAt": "2026-10-05T09:36:47.277Z",
       "addressLocality": "Stäfa",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1462,14 +1421,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fuessli-thalia-stafa",
-        "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fussli-thalia-stafa",
-        "specialista-al-dettaglio-papeterie-40-50-a-orell-fussli-thalia-stafa"
+        "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fussli-thalia-stafa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fuessli-thalia-stafa",
-          "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fussli-thalia-stafa",
-          "specialista-al-dettaglio-papeterie-40-50-a-orell-fussli-thalia-stafa"
+          "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fussli-thalia-stafa"
         ],
         "en": [
           "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fuessli-thalia-stafa"
@@ -1524,7 +1481,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/detailhandelsfachfraumann-papeterie-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.463Z",
+      "crawledAt": "2026-10-05T09:36:47.274Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1547,14 +1504,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "detailhandelsfachfrau-mann-papeterie-100-a-orell-fuessli-thalia-kusnacht",
-        "detailhandelsfachfrau-mann-papeterie-100-a-orell-fussli-thalia-kusnacht",
-        "commercio-al-dettaglio-papeterie-100-a-orell-fussli-thalia-kusnacht"
+        "detailhandelsfachfrau-mann-papeterie-100-a-orell-fussli-thalia-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsfachfrau-mann-papeterie-100-a-orell-fuessli-thalia-kusnacht",
-          "detailhandelsfachfrau-mann-papeterie-100-a-orell-fussli-thalia-kusnacht",
-          "commercio-al-dettaglio-papeterie-100-a-orell-fussli-thalia-kusnacht"
+          "detailhandelsfachfrau-mann-papeterie-100-a-orell-fussli-thalia-kusnacht"
         ],
         "en": [
           "detailhandelsfachfrau-mann-papeterie-100-a-orell-fuessli-thalia-kusnacht"
@@ -1585,7 +1540,7 @@
         "it": "libreria-70-90-a-orell-fussli-thalia-bern",
         "en": "buchhandler-in-70-90-a-orell-fussli-thalia-bern",
         "de": "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
-        "fr": "libraire-70-90-a-orell-fussli-thalia-bern"
+        "fr": "librairie-70-90-a-orell-fussli-thalia-bern"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -1609,7 +1564,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-70-90",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.432Z",
+      "crawledAt": "2026-10-05T09:36:47.245Z",
       "addressLocality": "Bern",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1633,7 +1588,7 @@
       "previousSlugs": [
         "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
         "buchhandler-in-70-90-a-orell-fussli-thalia-bern",
-        "librairie-70-90-a-orell-fussli-thalia-bern"
+        "libraire-70-90-a-orell-fussli-thalia-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1641,7 +1596,7 @@
           "buchhandler-in-70-90-a-orell-fussli-thalia-bern"
         ],
         "fr": [
-          "librairie-70-90-a-orell-fussli-thalia-bern"
+          "libraire-70-90-a-orell-fussli-thalia-bern"
         ]
       },
       "needsRetranslation": true,
@@ -1691,7 +1646,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/mitarbeiterin-versandlogistik-80-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.430Z",
+      "crawledAt": "2026-10-05T09:36:47.243Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1713,13 +1668,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-versandlogistik-80-100-a-orell-fuessli-thalia-winterthur",
-        "collaboratore-trice-in-versandlogistik-80-100-a-orell-fussli-thalia-winterthur"
+        "mitarbeiter-in-versandlogistik-80-100-a-orell-fuessli-thalia-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-versandlogistik-80-100-a-orell-fuessli-thalia-winterthur",
-          "collaboratore-trice-in-versandlogistik-80-100-a-orell-fussli-thalia-winterthur"
+          "mitarbeiter-in-versandlogistik-80-100-a-orell-fuessli-thalia-winterthur"
         ]
       },
       "needsRetranslation": true,
@@ -1769,7 +1722,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/stv-filialleitung-buchhaendlerin-80",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.429Z",
+      "crawledAt": "2026-10-05T09:36:47.241Z",
       "addressLocality": "Wil SG",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1791,13 +1744,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-filialleitung-buchhandler-in-80-a-orell-fuessli-thalia-wil-sg",
-        "vice-direttore-libraio-a-80-orell-fussli-thalia-wil-sg"
+        "stv-filialleitung-buchhandler-in-80-a-orell-fuessli-thalia-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleitung-buchhandler-in-80-a-orell-fuessli-thalia-wil-sg",
-          "vice-direttore-libraio-a-80-orell-fussli-thalia-wil-sg"
+          "stv-filialleitung-buchhandler-in-80-a-orell-fuessli-thalia-wil-sg"
         ],
         "en": [
           "stv-filialleitung-buchhandler-in-80-a-orell-fuessli-thalia-wil-sg"
@@ -1835,10 +1786,10 @@
       "companyDomain": "orellfuessli.ch",
       "title": "Buchhändler*in 80 - 100% (a)",
       "titleByLocale": {
-        "it": "Buchhändler*in 80 - 100% (a)",
-        "en": "Buchhändler*in 80 - 100% (a)",
+        "it": "Libreria in 80 - 100% (a)",
+        "en": "Bookseller 80 - 100% (a)",
         "de": "Buchhändler*in 80 - 100% (a)",
-        "fr": "Buchhändler*in 80 - 100% (a)"
+        "fr": "Libraire 80 - 100 % (a)"
       },
       "description": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unsere Filiale Rösslitor in St. Gallen suchen wir nach Vereinbarung eine*n Buchhändler*in 80 - 100 % (a) in der Abteilung Belletristik .\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Mitarbeit an Abholfach und Kasse\n\n• Präsentation von Büchern und Non-Books\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in oder Detailhändler*in mit fundierter Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guter ÖV-Anbindung\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten\n\n• Filial- und bereichsübergreifende Entwicklungsoptionen\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool.",
       "descriptionByLocale": {
@@ -1852,7 +1803,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-80-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.428Z",
+      "crawledAt": "2026-10-05T09:36:47.240Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1875,23 +1826,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "buchhandler-in-80-100-a-orell-fuessli-thalia-st-gallen",
-          "buchhandler-in-80-100-a-orell-fuessli-thalia-bern"
+          "buchhandler-in-80-100-a-orell-fuessli-thalia-st-gallen"
         ],
         "it": [
-          "buchhandler-in-80-100-a-orell-fuessli-thalia-st-gallen",
-          "libreria-in-80-100-a-orell-fussli-thalia-bern"
+          "buchhandler-in-80-100-a-orell-fuessli-thalia-st-gallen"
         ],
         "en": [
           "buchhandler-in-80-100-a-orell-fuessli-thalia-st-gallen"
         ]
       },
       "previousSlugs": [
-        "buchhandler-in-80-100-a-orell-fuessli-thalia-st-gallen",
-        "buchhandler-in-80-100-a-orell-fuessli-thalia-bern",
-        "libreria-in-80-100-a-orell-fussli-thalia-bern"
+        "buchhandler-in-80-100-a-orell-fuessli-thalia-st-gallen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:08:01.487Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -1938,7 +1884,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-buchhandel-efz-region-aargau",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.426Z",
+      "crawledAt": "2026-10-05T09:36:47.239Z",
       "addressLocality": "Aarau",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1960,13 +1906,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-buchhandel-efz-region-aargau-orell-fuessli-thalia-aarau",
-        "apprendista-r-buchhandel-cfc-region-aargau-orell-fussli-thalia-aarau"
+        "lernende-r-buchhandel-efz-region-aargau-orell-fuessli-thalia-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-buchhandel-efz-region-aargau-orell-fuessli-thalia-aarau",
-          "apprendista-r-buchhandel-cfc-region-aargau-orell-fussli-thalia-aarau"
+          "lernende-r-buchhandel-efz-region-aargau-orell-fuessli-thalia-aarau"
         ],
         "en": [
           "lernende-r-buchhandel-efz-region-aargau-orell-fuessli-thalia-aarau"
@@ -1976,7 +1920,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:32:27.283Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -2022,7 +1965,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-buchhandel-efz-region-luzern",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.425Z",
+      "crawledAt": "2026-10-05T09:36:47.237Z",
       "addressLocality": "Emmenbrücke",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -2044,13 +1987,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-buchhandel-efz-region-luzern-orell-fuessli-thalia-emmenbrucke",
-        "apprendista-r-buchhandel-cfc-region-luzern-orell-fussli-thalia-emmenbrucke"
+        "lernende-r-buchhandel-efz-region-luzern-orell-fuessli-thalia-emmenbrucke"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-buchhandel-efz-region-luzern-orell-fuessli-thalia-emmenbrucke",
-          "apprendista-r-buchhandel-cfc-region-luzern-orell-fussli-thalia-emmenbrucke"
+          "lernende-r-buchhandel-efz-region-luzern-orell-fuessli-thalia-emmenbrucke"
         ],
         "en": [
           "lernende-r-buchhandel-efz-region-luzern-orell-fuessli-thalia-emmenbrucke"
@@ -2060,7 +2001,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:32:27.281Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2106,7 +2046,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/weihnachtsaushilfe-30-40",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.389Z",
+      "crawledAt": "2026-10-05T09:36:47.206Z",
       "addressLocality": "Zug",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -2129,14 +2069,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "weihnachtsaushilfe-30-40-a-orell-fuessli-thalia-zug",
-        "weihnachtsaushilfe-30-40-a-orell-fussli-thalia-zug",
-        "aiuto-di-natale-30-40-a-orell-fussli-thalia-zug"
+        "weihnachtsaushilfe-30-40-a-orell-fussli-thalia-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "weihnachtsaushilfe-30-40-a-orell-fuessli-thalia-zug",
-          "weihnachtsaushilfe-30-40-a-orell-fussli-thalia-zug",
-          "aiuto-di-natale-30-40-a-orell-fussli-thalia-zug"
+          "weihnachtsaushilfe-30-40-a-orell-fussli-thalia-zug"
         ],
         "en": [
           "weihnachtsaushilfe-30-40-a-orell-fussli-thalia-zug"
@@ -2146,7 +2084,6 @@
         ]
       },
       "firstSeenAt": "2026-09-30T21:31:42.374Z",
-      "needsRetranslation": true,
       "salaryMin": 31600,
       "salaryMax": 48600,
       "salarySource": "estimated",
@@ -2192,7 +2129,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/weihnachtsaushilfe-40-60",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.388Z",
+      "crawledAt": "2026-10-05T09:36:47.204Z",
       "addressLocality": "Bern",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -2215,14 +2152,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "weihnachtsaushilfe-40-60-a-orell-fuessli-thalia-bern",
-        "weihnachtsaushilfe-40-60-a-orell-fussli-thalia-bern",
-        "aiuto-di-natale-40-60-a-orell-fussli-thalia-bern"
+        "weihnachtsaushilfe-40-60-a-orell-fussli-thalia-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "weihnachtsaushilfe-40-60-a-orell-fuessli-thalia-bern",
-          "weihnachtsaushilfe-40-60-a-orell-fussli-thalia-bern",
-          "aiuto-di-natale-40-60-a-orell-fussli-thalia-bern"
+          "weihnachtsaushilfe-40-60-a-orell-fussli-thalia-bern"
         ],
         "en": [
           "weihnachtsaushilfe-40-60-a-orell-fussli-thalia-bern"
@@ -2232,7 +2167,6 @@
         ]
       },
       "firstSeenAt": "2026-09-30T21:31:42.373Z",
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71100,
       "salarySource": "estimated",
@@ -2278,7 +2212,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/weihnachtsaushilfe-30-40-0",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:38:52.385Z",
+      "crawledAt": "2026-10-05T09:36:47.200Z",
       "addressLocality": "Bern",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -2301,14 +2235,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "weihnachtsaushilfe-30-40-a-orell-fuessli-thalia-bern",
-        "weihnachtsaushilfe-30-40-a-orell-fussli-thalia-bern",
-        "aiuto-di-natale-30-40-a-orell-fussli-thalia-bern"
+        "weihnachtsaushilfe-30-40-a-orell-fussli-thalia-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "weihnachtsaushilfe-30-40-a-orell-fuessli-thalia-bern",
-          "weihnachtsaushilfe-30-40-a-orell-fussli-thalia-bern",
-          "aiuto-di-natale-30-40-a-orell-fussli-thalia-bern"
+          "weihnachtsaushilfe-30-40-a-orell-fussli-thalia-bern"
         ],
         "en": [
           "weihnachtsaushilfe-30-40-a-orell-fussli-thalia-bern"
@@ -2318,7 +2250,6 @@
         ]
       },
       "firstSeenAt": "2026-09-30T21:31:42.369Z",
-      "needsRetranslation": true,
       "salaryMin": 31000,
       "salaryMax": 47400,
       "salarySource": "estimated",

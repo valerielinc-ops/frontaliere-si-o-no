@@ -79,6 +79,7 @@ jobs:
             /scripts/lib/blog-body-io.mjs
             /scripts/lib/unescape-ts-string.mjs
             /packages/articles/content/blog-articles-data.ts
+            /packages/articles/engine/shared/articleRegistryObjectBodies.mjs
             /.github/workflows/loop-l6-content-factuality.yml
           sparse-checkout-cone-mode: false
       - name: Setup Node.js

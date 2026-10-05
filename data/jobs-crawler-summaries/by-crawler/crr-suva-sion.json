@@ -1,7 +1,7 @@
 {
   "key": "crr-suva-sion",
   "label": "Clinique romande de réadaptation (CRR Suva)",
-  "generatedAt": "2026-10-05T06:25:14.423Z",
+  "generatedAt": "2026-10-05T10:32:56.124Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -9,18 +9,22 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 1,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 2639,
-  "avgDurationMs": 2639,
+  "unchangedCount": 1,
+  "durationMs": 3167,
+  "avgDurationMs": 3167,
   "durationHistory": [
-    2639
+    3167
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "crr-suva-sion-a1375f10b321",
       "slug": "socioprofessional-master-the-clinique-romande-de-readaptation-crr-suva-sion",
@@ -34,7 +38,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/maitre-socioprofessionnel-2428.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T06:25:06.736Z",
+      "crawledAt": "2026-10-05T10:32:49.412Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -47,10 +51,10 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "",
-      "applyUrl": "https://www.crr-suva.ch/clinique-readaptation/maitre-socioprofessionnel-2428.html",
       "datePosted": "",
+      "postedDate": "",
       "postingDateSource": "unknown",
+      "applyUrl": "https://www.crr-suva.ch/clinique-readaptation/maitre-socioprofessionnel-2428.html",
       "firstSeenAt": "2026-09-17T03:47:43.613Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
@@ -64,7 +68,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
+  "codeCommit": "19297c3c741a31519d5900b250809a82ac6f3dc8"
 }

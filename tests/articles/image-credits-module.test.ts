@@ -134,7 +134,7 @@ describe('the design worked example (Locarno 1.jpg, CC BY-SA 3.0)', () => {
 
   it('projects exactly the ImageObject fields of the design, §4.2', () => {
     expect(JSON.stringify(imageObjectCreditFields(locarno()))).toBe(
-      '{"creator":{"@type":"Person","name":"Riessdo","url":"https://de.wikipedia.org/wiki/User:Riessdo"},'
+      '{"creator":{"@type":"Person","@id":"https://de.wikipedia.org/wiki/User:Riessdo","name":"Riessdo","url":"https://de.wikipedia.org/wiki/User:Riessdo"},'
       + '"creditText":"Riessdo / Wikimedia Commons","copyrightNotice":"© Riessdo",'
       + '"license":"https://creativecommons.org/licenses/by-sa/3.0/",'
       + '"acquireLicensePage":"https://commons.wikimedia.org/wiki/File:Locarno_1.jpg",'
@@ -250,6 +250,16 @@ describe('attribution requested by the licensor', () => {
     expect(ld.creditText).toBe('FOTO:FORTEPAN / Angyalföldi Helytörténeti Gyűjtemény / Wikimedia Commons');
     expect(ld.creator).toEqual({ '@type': 'Organization', name: 'Fortepan' });
     expect(ld.copyrightNotice).toBe('© Fortepan');
+  });
+
+  it('gives a credited Person a stable Schema.org identity', () => {
+    const credited = imageObjectCreditFields(locarno()).creator;
+    expect(credited).toMatchObject({
+      '@type': 'Person',
+      '@id': 'https://de.wikipedia.org/wiki/User:Riessdo',
+      name: 'Riessdo',
+      url: 'https://de.wikipedia.org/wiki/User:Riessdo',
+    });
   });
 
   it('a ©-prefixed attribution is the copyright notice verbatim', () => {

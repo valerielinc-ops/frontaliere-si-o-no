@@ -40,9 +40,11 @@ async function emit(jobs?: unknown) {
     const dataset = [...doc.querySelectorAll('script[type="application/ld+json"]')]
       .map((el) => JSON.parse(el.textContent || '{}'))
       .find((entry) => entry['@type'] === 'Dataset');
+    const tableLabels = [...doc.querySelectorAll('table')]
+      .map((table) => table.getAttribute('aria-label'));
     const text = doc.body.textContent;
     dom.window.close();
-    return { html, text, dataset };
+    return { html, text, dataset, tableLabels };
   });
   return { pages, csv: fs.readFileSync(path.join(root, 'dist/data/jobs-salary-aggregate.csv'), 'utf8') };
 }
@@ -64,7 +66,9 @@ describe('annual report statistics provenance', () => {
     expect(csv).toContain('overall,All sectors,12,90000,90000,,');
     expect(csv).toContain('sector,"Engineering",12,90000,90000,90000,90000');
     expect(csv).toContain('region,"Lugano",12,90000,90000,,');
-    for (const { text, dataset } of pages) {
+    for (const { text, dataset, tableLabels } of pages) {
+      expect(tableLabels).toHaveLength(2);
+      expect(tableLabels.every((label) => !!label?.trim())).toBe(true);
       expect(dataset.variableMeasured.map((entry: { value: number }) => entry.value)).toEqual([90000, 12]);
       expect(dataset.variableMeasured.some((entry: { unitText?: string }) => entry.unitText === 'percent')).toBe(false);
       expect(text).not.toMatch(/3\.2%|1\.7-2\.2|95\s*%|bimodal|7-10\s*%|1\.25|duemila|thousand|zweitausend|deux mille/);

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+                   xmlns:ev="http://purl.org/rss/1.0/modules/event/">
+
+<channel>
+
+    <title>Termine Feed</title>
+    <link>https://www.stadtluzern.ch/</link>
+    <atom:link href="https://www.stadtluzern.ch/aktuelles/termine.rss" rel="self" type="application/rss+xml" />
+    <description>Aktuelle Termine</description>
+    <language>de</language>     <pubDate>Mon, 05 Oct 2026 08:20:49 +0200</pubDate>
+    <ttl>10</ttl>
+    <item>
+        <title>Kunstausstellung Weltformat</title>
+        <description>
+            <![CDATA[<div class="icms-wysiwyg"><p class="icmsPContent icms-wysiwyg-first">Das Weltformat Graphic Design Festival ist eine mehrtägige Veranstaltung, die seit 2009 jährlich stattfindet. Anfang Oktober lassen sich jeweils durch die Stadt Luzern verteilt, zahlreiche Ausstellungen und Events finden. Die Festivalwoche bietet eine lebendige Austauschplattform für Grafikschaffende und Interessierte weltweit.</p>
+
+<p class="icmsPContent"><strong>Ausstellungsdauer</strong><br />
+03.-10. Oktober&nbsp;2026</p>
+
+<p class="icmsPContent icms-wysiwyg-last"><strong>Kornschütte Luzern // Kornmarkt 3</strong><br />
+12 - 18 Uhr</p>
+</div>             ]]>
+        </description>
+        <link>https://www.stadtluzern.ch/_rte/anlass/6840391</link>
+        <author>redacted@example.invalid</author>
+        <guid isPermaLink="false">iweb_g340_a6840391</guid>
+        <pubDate>Sat, 03 Oct 2026 00:00:00 +0200</pubDate>
+        <ev:startdate>2026-10-03 </ev:startdate>
+        <ev:enddate>2026-10-10 </ev:enddate>
+    </item>
+
+    
+    <item>
+        <title>Wissen am Mittag</title>
+        <description>
+            <![CDATA[<img src="https://pcdn1.i-web.ch/fgqN9bXDvd_TXlqEBU3tp4LX2rw=/0x0/smart/filters:strip_exif()/g340/0/0/6a7dd6e8aab88" /><br><div class="icms-wysiwyg"><p class="icmsPContent icms-wysiwyg-first"><strong>«Luzerner Stadthonig - Bienenweiden und Imkerfreuden»</strong></p>
+
+<p class="icmsPContent">mit Luki Riechsteiner, Imker seit bald 20 Jahren mitten in der Stadt Luzern</p>
+
+<p class="icmsPContent icms-wysiwyg-last">Veranstaltungen zu verschiedensten Themen in und um Luzern unter dem Aspekt&nbsp;«Was ich schon immer mal wissen wollte.»</p>
+</div>             ]]>
+        </description>
+        <link>https://www.stadtluzern.ch/_rte/anlass/7649719</link>
+        <author>redacted@example.invalid</author>
+        <guid isPermaLink="false">iweb_g340_a7649719</guid>
+        <pubDate>Fri, 09 Oct 2026 00:00:00 +0200</pubDate>
+        <ev:startdate>2026-10-09 12:00:00</ev:startdate>
+        <ev:enddate>2026-10-09 13:00:00</ev:enddate>
+    </item>
+
+    
+    
+</channel>
+</rss>

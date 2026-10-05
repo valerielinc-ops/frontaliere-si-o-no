@@ -474,6 +474,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     roots: ['data/jobs/'],
     reason: 'data/jobs/by-crawler is written and read under an fs.mkdtempSync root, and seedCrawlerSlicesFromDataJobs resolves every slice under the root it is given. From the checkout the test reads only the pinned pairs in tests/fixtures/crawler-retranslation-flag/ and the source of three scripts/ files (PR 11540)',
   },
+  {
+    file: 'tests/build-plugins/cantonArticleSectionCore.test.ts',
+    roots: ['packages/articles/content/'],
+    reason: 'packages/articles/content/cantons/<section>/registry.ts and slugs.ts are the EXPECTED values of the generated canton entries (`registryFile`/`slugDataFile`), compared as strings; the files do not exist and nothing opens them. From the checkout the test reads only data/canton-url-slugs.json (curated, not rewritten by the pipeline), the generated module, the generator, services/router.ts and the Worker source (PR 11623)',
+  },
 ]);
 
 
@@ -569,6 +574,10 @@ export const LIVE_DATA_PARTIAL_TESTS = Object.freeze([
   // nessun conteggio letterale). Tutti gli altri casi usano fixture e restano
   // nel gate delle PR.
   { file: "tests/loop-l6-source-verdict-producer.test.ts", roots: ["packages/articles/content/"], since: "2026-10-04", evidence: "review", runtime: true },
+  // ─── 2026-10-05. Solo il blocco `live registry coverage` legge i due
+  // registri riscritti dalla pipeline; le altre prove del file usano una
+  // sorgente sintetica e devono restare nel gate delle PR.
+  { file: "tests/article-registry-entries.test.ts", roots: ["packages/articles/content/"], since: "2026-10-05", evidence: "review", runtime: true },
 ]);
 
 /**

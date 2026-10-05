@@ -44,6 +44,9 @@ describe('annual report source dates', () => {
           .filter((entry) => ['Article', 'Dataset'].includes(entry['@type']));
         expect(entries).toHaveLength(2);
         for (const entry of entries) {
+          if (entry['@type'] === 'Article') {
+            expect(entry['@id']).toBe(`${entry.url}#article`);
+          }
           expect(entry).not.toHaveProperty('datePublished');
           expect(entry).not.toHaveProperty('dateModified');
         }

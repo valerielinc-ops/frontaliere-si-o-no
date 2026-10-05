@@ -1,7 +1,7 @@
 {
   "key": "moncucco",
   "label": "Gruppo Ospedaliero Moncucco",
-  "generatedAt": "2026-10-05T06:23:12.111Z",
+  "generatedAt": "2026-10-05T09:17:03.029Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -9,18 +9,22 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3422,
-  "avgDurationMs": 3422,
+  "unchangedCount": 2,
+  "durationMs": 4468,
+  "avgDurationMs": 4468,
   "durationHistory": [
-    3422
+    4468
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "moncucco-d958fe9db290",
       "slug": "capoclinica-di-chirurgia-viscerale-lugano-moncucco",
@@ -48,7 +52,7 @@
       "applyUrl": "https://www.moncucco.ch/capoclinica_chirurgia_viscerale.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-05T06:23:03.821Z",
+      "crawledAt": "2026-10-05T09:16:54.768Z",
       "firstSeenAt": "2026-09-25T14:43:35.632Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -89,7 +93,7 @@
       "applyUrl": "https://www.moncucco.ch/infermiere_capo_reparto_area_internistica.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-05T06:23:03.507Z",
+      "crawledAt": "2026-10-05T09:16:54.413Z",
       "firstSeenAt": "2026-08-05T11:36:52.216Z",
       "salaryMin": 95000,
       "salaryMax": 132500,
@@ -104,7 +108,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "26472d2466b23f2ece2911f7a3ac20fa44471bc2"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

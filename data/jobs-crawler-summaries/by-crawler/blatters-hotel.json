@@ -1,7 +1,7 @@
 {
   "key": "blatters-hotel",
   "label": "Blatter",
-  "generatedAt": "2026-10-04T21:15:03.272Z",
+  "generatedAt": "2026-10-05T09:20:36.378Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -9,15 +9,17 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 3,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 7076,
-  "avgDurationMs": 7076,
+  "unchangedCount": 1,
+  "durationMs": 36469,
+  "avgDurationMs": 36469,
   "durationHistory": [
-    7076
+    36469
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +35,7 @@
       "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-rang-f%C3%BCr-verk%C3%BCrzte-wintersaison-anfang-dez-bis-ende-feb-4038982?rltr=comp",
       "source": "Blatter's Arosa Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:55.753Z",
+      "crawledAt": "2026-10-05T09:20:29.191Z",
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -45,7 +47,9 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-03",
+      "datePosted": "2026-10-01",
+      "postedDate": "2026-10-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-rang-f%C3%BCr-verk%C3%BCrzte-wintersaison-anfang-dez-bis-ende-feb-4038982?rltr=comp",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:16:53.438Z",
@@ -72,7 +76,7 @@
       "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-rang-f%C3%BCr-die-wintersaison-3926747?rltr=comp",
       "source": "Blatter's Arosa Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:55.751Z",
+      "crawledAt": "2026-10-05T09:20:29.189Z",
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -84,7 +88,9 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-25",
+      "datePosted": "2026-10-01",
+      "postedDate": "2026-10-01",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-rang-f%C3%BCr-die-wintersaison-3926747?rltr=comp",
       "firstSeenAt": "2026-09-25T14:42:51.132Z",
       "salaryMin": 57500,
@@ -97,7 +103,10 @@
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "blatters-hotel-28c8df98464e",
       "slug": "barpianist-m-w-d-ab-dezember-per-la-wintersaison-blatter-arosa",
@@ -110,7 +119,7 @@
       "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/barpianist-m-w-ab-dezember-f%C3%BCr-die-wintersaison-4033816?rltr=comp",
       "source": "Blatter's Arosa Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:14:55.748Z",
+      "crawledAt": "2026-10-05T09:20:29.188Z",
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -122,23 +131,23 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2026-10-03",
       "postedDate": "2026-10-03",
+      "postingDateSource": "reported",
       "applyUrl": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/barpianist-m-w-ab-dezember-f%C3%BCr-die-wintersaison-4033816?rltr=comp",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T19:52:06.103Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 21,
         "completeness": 19
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }
