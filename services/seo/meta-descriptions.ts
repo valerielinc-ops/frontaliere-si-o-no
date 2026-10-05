@@ -176,6 +176,11 @@ interface CityHubArgs {
 export function buildCityHubMeta({ locale, cityDisplay, count, cantonDisplay }: CityHubArgs): string {
   const n = safeCount(count);
   const city = cityDisplay;
+  // Italian city slugs can repeat across cantons (for example Lengnau and
+  // Roggwil). Include the supplied canton only for those generated pages so
+  // their descriptions identify the actual location. Omitted canton data
+  // preserves the existing Ticino copy byte-for-byte.
+  const italianLocation = cantonDisplay ? `${city} (Canton ${cantonDisplay})` : city;
   const region = {
     en: cantonDisplay ?? 'Ticino',
     de: cantonDisplay ?? 'Tessin',
@@ -185,8 +190,8 @@ export function buildCityHubMeta({ locale, cityDisplay, count, cantonDisplay }: 
   switch (locale) {
     case 'it':
       base = n > 0
-        ? `Cerca tra ${n} offerte di lavoro a ${city} aggiornate oggi: sanità, banche, uffici, commercio.`
-        : `Cerca offerte di lavoro a ${city} aggiornate ogni giorno: sanità, banche, uffici, commercio.`;
+        ? `Cerca tra ${n} offerte di lavoro a ${italianLocation} aggiornate oggi: sanità, banche, uffici, commercio.`
+        : `Cerca offerte di lavoro a ${italianLocation} aggiornate ogni giorno: sanità, banche, uffici, commercio.`;
       break;
     case 'en':
       base = n > 0
