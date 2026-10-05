@@ -10915,19 +10915,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaboratore-back-office-raiffeisen-nyon",
-        "collaborateur-trice-back-office-raiffeisen-nyon"
+        "collaboratore-back-office-raiffeisen-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaboratore-back-office-raiffeisen-nyon",
-          "collaborateur-trice-back-office-raiffeisen-nyon"
-        ],
-        "en": [
-          "collaborateur-trice-back-office-raiffeisen-nyon"
-        ],
-        "de": [
-          "collaborateur-trice-back-office-raiffeisen-nyon"
+          "collaboratore-back-office-raiffeisen-nyon"
         ]
       },
       "firstSeenAt": "2026-09-29T21:23:41.762Z",
@@ -11544,16 +11536,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "consultant-strategie-und-spezialthemen-w-m-d-raiffeisen-st-gallen",
-        "consultant-strategy-and-special-topics-m-f-d-raiffeisen-st-gallen",
-        "consulente-strategie-e-spezialthemen-m-w-d-raiffeisen-st-gallen"
+        "consultant-strategy-and-special-topics-m-f-d-raiffeisen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consultant-strategie-und-spezialthemen-w-m-d-raiffeisen-st-gallen"
         ],
         "en": [
-          "consultant-strategy-and-special-topics-m-f-d-raiffeisen-st-gallen",
-          "consultant-strategie-und-spezialthemen-w-m-d-raiffeisen-st-gallen"
+          "consultant-strategy-and-special-topics-m-f-d-raiffeisen-st-gallen"
         ],
         "fr": [
           "consultant-strategie-und-spezialthemen-w-m-d-raiffeisen-st-gallen"
@@ -12864,12 +12854,12 @@
     },
     {
       "id": "raiffeisen-997ff8559355",
-      "slug": "fachspezialist-dienstleistung-amp-prozesse-w-m-d-raiffeisen-st-gallen",
+      "slug": "servizio-specialistico-e-processi-m-f-d-raiffeisen-st-gallen",
       "slugByLocale": {
         "de": "fachspezialist-dienstleistung-amp-prozesse-w-m-d-raiffeisen-st-gallen",
-        "it": "fachspezialist-dienstleistung-amp-prozesse-w-m-d-raiffeisen-st-gallen",
-        "en": "fachspezialist-dienstleistung-amp-prozesse-w-m-d-raiffeisen-st-gallen",
-        "fr": "fachspezialist-dienstleistung-amp-prozesse-w-m-d-raiffeisen-st-gallen"
+        "it": "servizio-specialistico-e-processi-m-f-d-raiffeisen-st-gallen",
+        "en": "specialist-service-processes-m-f-d-raiffeisen-st-gallen",
+        "fr": "service-specialise-et-processus-h-f-d-raiffeisen-st-gallen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12929,7 +12919,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:18:19.177Z"
+      "firstSeenAt": "2026-10-05T09:18:19.177Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-dienstleistung-amp-prozesse-w-m-d-raiffeisen-st-gallen"
+        ],
+        "en": [
+          "fachspezialist-dienstleistung-amp-prozesse-w-m-d-raiffeisen-st-gallen"
+        ],
+        "fr": [
+          "fachspezialist-dienstleistung-amp-prozesse-w-m-d-raiffeisen-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-dienstleistung-amp-prozesse-w-m-d-raiffeisen-st-gallen"
+      ]
     },
     {
       "id": "raiffeisen-25012f831d3e",

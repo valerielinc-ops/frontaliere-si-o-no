@@ -134,9 +134,12 @@
     },
     {
       "id": "alpiq-f86495c1bdcc",
-      "slug": "da-id-power-trader-uk-focus-alpiq-switzerland",
+      "slug": "da-id-power-trader-centro-uk-alpiq-lausanne",
       "slugByLocale": {
-        "en": "da-id-power-trader-uk-focus-alpiq-switzerland"
+        "en": "da-id-power-trader-uk-focus-alpiq-switzerland",
+        "it": "da-id-power-trader-centro-uk-alpiq-lausanne",
+        "de": "da-id-power-trader-uk-fokus-alpiq-lausanne",
+        "fr": "da-id-power-trader-coordonne-au-royaume-uni-alpiq-lausanne"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -190,7 +193,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:28:37.523Z"
+      "firstSeenAt": "2026-10-05T09:28:37.523Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "da-id-power-trader-uk-focus-alpiq-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "da-id-power-trader-uk-focus-alpiq-switzerland"
+      ]
     },
     {
       "id": "alpiq-8ca59717291e",

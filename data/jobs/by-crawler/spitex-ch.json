@@ -328,13 +328,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleitung-pflege-hf-fh-80-100-spitex-ch-weiningen-zh",
-        "gestione-del-team-hf-fh-80-100-spitex-rechtes-limmattal-weiningen-zh"
+        "teamleitung-pflege-hf-fh-80-100-spitex-ch-weiningen-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-pflege-hf-fh-80-100-spitex-ch-weiningen-zh",
-          "gestione-del-team-hf-fh-80-100-spitex-rechtes-limmattal-weiningen-zh"
+          "teamleitung-pflege-hf-fh-80-100-spitex-ch-weiningen-zh"
         ],
         "en": [
           "teamleitung-pflege-hf-fh-80-100-spitex-ch-weiningen-zh"
@@ -740,9 +738,7 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fachbereich-demenz-60-90-spitex-ch-reinach-bl",
-        "infermiera-hf-dipartimento-di-demenza-60-90-spitex-region-birs-gmbh-reinach-bl",
-        "dipl-pflegefachperson-hf-oder-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-ch"
+        "dipl-pflegefachperson-hf-fachbereich-demenz-60-90-spitex-ch-reinach-bl"
       ],
       "salaryMin": 79200,
       "salaryMax": 110700,
@@ -813,7 +809,6 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-m-w-d-40-80-spitex-ch-grosshochstetten",
-          "infermiera-hf-m-f-d-80-spitex-region-konolfingen-grosshochstetten",
           "dipl-pflegefachperson-hf-m-w-d-40-80-spitex-region-konolfingen-grosshochstetten"
         ],
         "de": [
@@ -822,7 +817,6 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-m-w-d-40-80-spitex-ch-grosshochstetten",
-        "infermiera-hf-m-f-d-80-spitex-region-konolfingen-grosshochstetten",
         "dipl-pflegefachperson-hf-m-w-d-40-80-spitex-region-konolfingen-grosshochstetten"
       ],
       "salaryMin": 68000,
@@ -921,9 +915,9 @@
       "slug": "pflegefachperson-fage-o-hf-per-den-abenddienst-con-einem-arbeitspensum-von-ca-20-40-spitex-mittleres-tosstal-turbenthal",
       "slugByLocale": {
         "it": "pflegefachperson-fage-o-hf-per-den-abenddienst-con-einem-arbeitspensum-von-ca-20-40-spitex-mittleres-tosstal-turbenthal",
-        "en": "pflegefachperson-fage-o-hf-per-den-abenddienst-con-einem-arbeitspensum-von-ca-20-40-spitex-mittleres-tosstal-turbenthal",
+        "en": "nurse-fage-or-hf-for-the-evening-service-with-a-workload-of-approx-20-40-spitex-mittleres-tosstal-turbenthal",
         "de": "pflegefachperson-fage-oder-hf-fur-den-abenddienst-mit-einem-arbeitspensum-von-ca-20-40",
-        "fr": "pflegefachperson-fage-o-hf-per-den-abenddienst-con-einem-arbeitspensum-von-ca-20-40-spitex-mittleres-tosstal-turbenthal"
+        "fr": "infirmiere-fage-ou-hf-pour-le-service-du-soir-avec-une-charge-de-travail-d-environ-20-40-spitex-mittleres-tosstal"
       },
       "company": "Spitex Mittleres Tösstal",
       "companyKey": "spitex-ch",
@@ -1769,12 +1763,12 @@
     },
     {
       "id": "spitex-ch-2844bc8abde4",
-      "slug": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal",
+      "slug": "infermiere-sss-sup-servizio-notturno-regionale-spitex-regio-liestal-liestal",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal",
-        "en": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal",
+        "it": "infermiere-sss-sup-servizio-notturno-regionale-spitex-regio-liestal-liestal",
+        "en": "qualified-nurse-hf-fh-regional-night-service-spitex-regio-liestal-liestal",
         "de": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal",
-        "fr": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal"
+        "fr": "infirmier-diplome-hf-fh-service-regional-de-nuit-spitex-regio-liestal-liestal"
       },
       "company": "Spitex Regio Liestal",
       "companyKey": "spitex-ch",
@@ -1832,7 +1826,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal"
+      ]
     },
     {
       "id": "spitex-ch-cc3625820d60",
@@ -1913,9 +1921,9 @@
       "slug": "dipl-pflegefachperson-hf-specializzazione-psychiatrie-40-60-spitex-pratteln-augst-giebenach-gmbh-pratteln",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-hf-specializzazione-psychiatrie-40-60-spitex-pratteln-augst-giebenach-gmbh-pratteln",
-        "en": "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-40-60-spitex-ch-pratteln",
+        "en": "dipl-nurse-hf-department-of-psychiatry-40-60-spitex-pratteln-augst-giebenach-gmbh-pratteln",
         "de": "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-40-60-spitex-ch-pratteln",
-        "fr": "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-40-60-spitex-ch-pratteln"
+        "fr": "dipl-infirmiere-hf-departement-de-psychiatrie-40-60-spitex-pratteln-augst-giebenach-gmbh-pratteln"
       },
       "company": "Spitex Pratteln-Augst-Giebenach GmbH",
       "companyKey": "spitex-ch",
@@ -1966,6 +1974,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-40-60-spitex-ch-pratteln"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-40-60-spitex-ch-pratteln"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-40-60-spitex-ch-pratteln"
         ]
       },
       "firstSeenAt": "2026-10-05T08:07:06.004Z",
@@ -1985,12 +1999,12 @@
     },
     {
       "id": "spitex-ch-42e83d4b6d60",
-      "slug": "bildungsverantwortliche-r-60-80-spitex-glattal-dietlikon",
+      "slug": "responsabile-dell-istruzione-60-80-spitex-glattal-dietlikon",
       "slugByLocale": {
-        "it": "bildungsverantwortliche-r-60-80-spitex-glattal-dietlikon",
-        "en": "bildungsverantwortliche-r-60-80-spitex-glattal-dietlikon",
+        "it": "responsabile-dell-istruzione-60-80-spitex-glattal-dietlikon",
+        "en": "responsible-for-education-60-80-spitex-glattal-dietlikon",
         "de": "bildungsverantwortliche-r-60-80-spitex-ch-dietlikon",
-        "fr": "bildungsverantwortliche-r-60-80-spitex-glattal-dietlikon"
+        "fr": "responsable-de-l-education-60-80-spitex-glattal-dietlikon"
       },
       "company": "Spitex Glattal",
       "companyKey": "spitex-ch",
@@ -2036,11 +2050,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bildungsverantwortliche-r-60-80-spitex-ch-dietlikon"
+        "bildungsverantwortliche-r-60-80-spitex-ch-dietlikon",
+        "bildungsverantwortliche-r-60-80-spitex-glattal-dietlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bildungsverantwortliche-r-60-80-spitex-ch-dietlikon"
+          "bildungsverantwortliche-r-60-80-spitex-ch-dietlikon",
+          "bildungsverantwortliche-r-60-80-spitex-glattal-dietlikon"
+        ],
+        "en": [
+          "bildungsverantwortliche-r-60-80-spitex-glattal-dietlikon"
+        ],
+        "fr": [
+          "bildungsverantwortliche-r-60-80-spitex-glattal-dietlikon"
         ]
       },
       "firstSeenAt": "2026-10-05T08:07:03.788Z",
@@ -2275,12 +2297,12 @@
     },
     {
       "id": "spitex-ch-951de3bb6073",
-      "slug": "dipl-pflegefachperson-hf-fh-40-100-regiospitex-limmattal-schlieren",
+      "slug": "infermiera-hf-fh-40-100-regiospitex-limmattal-schlieren",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-40-100-regiospitex-limmattal-schlieren",
-        "en": "dipl-pflegefachperson-hf-fh-40-100-regiospitex-limmattal-schlieren",
         "de": "dipl-pflegefachperson-hf-fh-40-100-spitex-ch-schlieren",
-        "fr": "dipl-pflegefachperson-hf-fh-40-100-regiospitex-limmattal-schlieren"
+        "it": "infermiera-hf-fh-40-100-regiospitex-limmattal-schlieren",
+        "en": "dipl-pflegefachperson-hf-fh-40-100-regiospitex-limmattal-schlieren",
+        "fr": "infirmiere-diplomee-hf-fh-40-100-regiospitex-limmattal-schlieren"
       },
       "company": "RegioSpitex Limmattal",
       "companyKey": "spitex-ch",
@@ -2327,11 +2349,16 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-40-100-spitex-ch-schlieren"
+          "dipl-pflegefachperson-hf-fh-40-100-spitex-ch-schlieren",
+          "dipl-pflegefachperson-hf-fh-40-100-regiospitex-limmattal-schlieren"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-40-100-regiospitex-limmattal-schlieren"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-40-100-spitex-ch-schlieren"
+        "dipl-pflegefachperson-hf-fh-40-100-spitex-ch-schlieren",
+        "dipl-pflegefachperson-hf-fh-40-100-regiospitex-limmattal-schlieren"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -2352,10 +2379,10 @@
       "id": "spitex-ch-d72eeff702e6",
       "slug": "dipl-pflegefachperson-hf-fh-per-den-fachbereich-psychiatrie-60-100-regiospitex-limmattal-schlieren",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-per-den-fachbereich-psychiatrie-60-100-regiospitex-limmattal-schlieren",
-        "en": "dipl-pflegefachperson-hf-fh-per-den-fachbereich-psychiatrie-60-100-regiospitex-limmattal-schlieren",
         "de": "dipl-pflegefachperson-hf-fh-fur-den-fachbereich-psychiatrie-60-100-spitex-ch-schlieren",
-        "fr": "dipl-pflegefachperson-hf-fh-per-den-fachbereich-psychiatrie-60-100-regiospitex-limmattal-schlieren"
+        "it": "dipl-pflegefachperson-hf-fh-per-den-fachbereich-psychiatrie-60-100-regiospitex-limmattal-schlieren",
+        "en": "dipl-nurse-hf-fh-for-the-department-of-psychiatry-60-100-regiospitex-limmattal-schlieren",
+        "fr": "dipl-infirmiere-hf-fh-pour-le-departement-de-psychiatrie-60-100-regiospitex-limmattal-schlieren"
       },
       "company": "RegioSpitex Limmattal",
       "companyKey": "spitex-ch",

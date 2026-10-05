@@ -5947,7 +5947,6 @@
       "previousSlugsByLocale": {
         "it": [
           "sales-associate-van-cleef-arpels-zurich",
-          "vendite-van-cleef-arpels-zurich",
           "sales-associate-richemont-zurich"
         ],
         "fr": [
@@ -5963,7 +5962,6 @@
       "previousSlugs": [
         "sales-associate-richemont-zurich-t0sdvd",
         "sales-associate-van-cleef-arpels-zurich",
-        "vendite-van-cleef-arpels-zurich",
         "sales-associate-richemont-zurich"
       ],
       "firstSeenAt": "2026-08-19T21:42:09.964Z",
@@ -6043,8 +6041,7 @@
         ],
         "fr": [
           "sales-associate-richemont-geneva",
-          "sales-associate-buccellati-geneva",
-          "associe-de-vente-buccellati-geneva"
+          "sales-associate-buccellati-geneva"
         ]
       },
       "previousSlugs": [
@@ -10219,7 +10216,7 @@
       "slug": "apprendista-operatore-di-orologeria-afp-cartier-manufacture-villars-sur-glane",
       "slugByLocale": {
         "it": "apprendista-operatore-di-orologeria-afp-cartier-manufacture-villars-sur-glane",
-        "en": "apprentice-watch-operator-afp-cartier-manufacture-villars-sur-glane",
+        "en": "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane",
         "de": "anwendende-operateur-en-horlogerie-afp-cartier-manufacture-villars-sur-glane",
         "fr": "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
       },
@@ -10265,14 +10262,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
+        "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane",
+        "apprentice-watch-operator-afp-cartier-manufacture-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
         ],
         "en": [
-          "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
+          "apprentice-watch-operator-afp-cartier-manufacture-villars-sur-glane"
         ]
       },
       "needsRetranslation": true,
@@ -14120,8 +14118,8 @@
       "slug": "responsabile-sviluppo-orologi-panerai-neuchatel",
       "slugByLocale": {
         "fr": "responsable-developpement-montres-panerai-neuchatel",
-        "de": "responsable-developpement-montres-panerai-neuchatel",
-        "en": "responsable-developpement-montres-panerai-neuchatel",
+        "de": "leiter-uhrentwicklung-panerai-neuchatel",
+        "en": "watch-development-manager-panerai-neuchatel",
         "it": "responsabile-sviluppo-orologi-panerai-neuchatel"
       },
       "company": "Panerai",
@@ -14176,16 +14174,15 @@
           "responsable-developpement-montres-richemont-neuchatel"
         ],
         "en": [
-          "watch-development-manager-panerai-neuchatel"
+          "responsable-developpement-montres-panerai-neuchatel"
         ],
         "de": [
-          "leiter-uhrentwicklung-panerai-neuchatel"
+          "responsable-developpement-montres-panerai-neuchatel"
         ]
       },
       "previousSlugs": [
         "responsable-developpement-montres-richemont-neuchatel",
-        "watch-development-manager-panerai-neuchatel",
-        "leiter-uhrentwicklung-panerai-neuchatel"
+        "responsable-developpement-montres-panerai-neuchatel"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -14203,12 +14200,12 @@
     },
     {
       "id": "richemont-85c1fde9fb49",
-      "slug": "group-compensation-manager-richemont-bellevue",
+      "slug": "responsabile-compensazioni-di-gruppo-richemont-bellevue",
       "slugByLocale": {
         "en": "group-compensation-manager-richemont-bellevue",
-        "it": "group-compensation-manager-richemont-bellevue",
-        "de": "group-compensation-manager-richemont-bellevue",
-        "fr": "group-compensation-manager-richemont-bellevue"
+        "it": "responsabile-compensazioni-di-gruppo-richemont-bellevue",
+        "de": "gruppenvergutungsmanager-richemont-bellevue",
+        "fr": "gestionnaire-de-la-remuneration-de-groupe-richemont-bellevue"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -14267,16 +14264,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:29:13.696Z"
+      "firstSeenAt": "2026-10-05T09:29:13.696Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-compensation-manager-richemont-bellevue"
+        ],
+        "de": [
+          "group-compensation-manager-richemont-bellevue"
+        ],
+        "fr": [
+          "group-compensation-manager-richemont-bellevue"
+        ]
+      },
+      "previousSlugs": [
+        "group-compensation-manager-richemont-bellevue"
+      ]
     },
     {
       "id": "richemont-3d7d39c7e54e",
-      "slug": "client-retail-solutions-manager-richemont-plan-les-ouates",
+      "slug": "gestione-clienti-e-soluzioni-al-dettaglio-vacheron-constantin-plan-les-ouates",
       "slugByLocale": {
         "en": "client-retail-solutions-manager-richemont-plan-les-ouates",
-        "it": "client-retail-solutions-manager-richemont-plan-les-ouates",
+        "it": "gestione-clienti-e-soluzioni-al-dettaglio-vacheron-constantin-plan-les-ouates",
         "de": "client-retail-solutions-manager-richemont-plan-les-ouates",
-        "fr": "client-retail-solutions-manager-richemont-plan-les-ouates"
+        "fr": "gestionnaire-de-solutions-client-et-de-detail-vacheron-constantin-plan-les-ouates"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -14335,7 +14346,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:29:13.661Z"
+      "firstSeenAt": "2026-10-05T09:29:13.661Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-retail-solutions-manager-richemont-plan-les-ouates"
+        ],
+        "fr": [
+          "client-retail-solutions-manager-richemont-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "client-retail-solutions-manager-richemont-plan-les-ouates"
+      ]
     }
   ]
 }

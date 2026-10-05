@@ -125205,16 +125205,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatiker-in-fur-montage-und-schaltschrankverdrahtung-schaffhausen-schaffhausen-sta-ch",
-        "automatiker-in-fur-montage-und-schaltschrankverdrahtung-sta-personal-ag-schaffhausen",
-        "automatic-operator-for-assembly-and-control-cabinet-wiring-sta-personal-ag-schaffhausen-schaffhausen"
+        "automatiker-in-fur-montage-und-schaltschrankverdrahtung-sta-personal-ag-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-fur-montage-und-schaltschrankverdrahtung-schaffhausen-schaffhausen-sta-ch"
         ],
         "en": [
-          "automatiker-in-fur-montage-und-schaltschrankverdrahtung-sta-personal-ag-schaffhausen",
-          "automatic-operator-for-assembly-and-control-cabinet-wiring-sta-personal-ag-schaffhausen-schaffhausen"
+          "automatiker-in-fur-montage-und-schaltschrankverdrahtung-sta-personal-ag-schaffhausen"
         ]
       },
       "needsRetranslation": true,
@@ -128149,8 +128147,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "previousSlugs": [
-        "electrical-installer-mit-serviceerfahrung-sta-personal-ag-zurich-zurich",
-        "installateur-trice-electricien-ne-mit-serviceerfahrung-sta-personal-ag-zurich-zurich",
         "installatore-elettrico-con-esperienza-di-servizio-sta-personal-ag-zurich-zurich",
         "electrical-installer-with-service-experience-sta-personal-ag-zurich-zurich",
         "installation-electrique-avec-experience-de-service-sta-personal-ag-zurich-zurich",
@@ -128164,13 +128160,11 @@
           "elektroinstallateur-in-mit-serviceerfahrung-zurich-zurich-sta-ch"
         ],
         "en": [
-          "electrical-installer-mit-serviceerfahrung-sta-personal-ag-zurich-zurich",
           "electrical-installer-with-service-experience-sta-personal-ag-zurich-zurich",
           "elektroinstallateur-in-mit-serviceerfahrung-zurich-zurich-sta-ch",
           "electrical-installer-mit-serviceerfahrung-sta-personal-ag-zurich"
         ],
         "fr": [
-          "installateur-trice-electricien-ne-mit-serviceerfahrung-sta-personal-ag-zurich-zurich",
           "installation-electrique-avec-experience-de-service-sta-personal-ag-zurich-zurich",
           "elektroinstallateur-in-mit-serviceerfahrung-zurich-zurich-sta-ch",
           "installateur-trice-electricien-ne-mit-serviceerfahrung-sta-personal-ag-zurich"
@@ -128432,8 +128426,8 @@
       "slugByLocale": {
         "de": "maler-in-fur-renovations-und-neubauprojekte-sta-personal-ag-langenthal",
         "it": "maler-in-per-renovations-e-neubauprojekte-sta-personal-ag-langenthal",
-        "en": "maler-in-fur-renovations-und-neubauprojekte-langenthal-bern-sta-ch",
-        "fr": "maler-in-fur-renovations-und-neubauprojekte-langenthal-bern-sta-ch"
+        "en": "painter-for-renovation-and-new-construction-projects-sta-personal-ag-langenthal-bern",
+        "fr": "peintre-pour-les-projets-de-renovation-et-de-construction-neuve-sta-personal-ag-langenthal-bern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -128484,6 +128478,12 @@
         ],
         "de": [
           "maler-in-fur-renovations-und-neubauprojekte-langenthal-bern-sta-ch"
+        ],
+        "en": [
+          "maler-in-fur-renovations-und-neubauprojekte-langenthal-bern-sta-ch"
+        ],
+        "fr": [
+          "maler-in-fur-renovations-und-neubauprojekte-langenthal-bern-sta-ch"
         ]
       },
       "previousSlugs": [
@@ -128503,7 +128503,7 @@
         }
       },
       "firstSeenAt": "2026-09-21T16:07:55.160Z",
-      "translationHoldSince": "2026-10-05T09:58:33.629Z"
+      "translationHoldReleasedAt": "2026-10-05T13:42:00.569Z"
     }
   ]
 }

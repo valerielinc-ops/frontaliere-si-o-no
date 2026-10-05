@@ -214,12 +214,20 @@
       "jobReqId": "17851",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "global-leiter-crm-msc-group-geneva",
-        "global-responsable-crm-msc-group-geneva",
-        "global-head-of-crm-msc-geneva",
-        "global-responsabile-crm-msc-group-geneva"
-      ],
+      "salaryMin": 92000,
+      "salaryMax": 163000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 92000,
+          "maxValue": 163000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-04T21:27:42.538Z",
       "previousSlugsByLocale": {
         "it": [
           "global-leiter-crm-msc-group-geneva",
@@ -236,20 +244,12 @@
           "global-responsable-crm-msc-group-geneva"
         ]
       },
-      "firstSeenAt": "2026-10-04T21:27:42.538Z",
-      "salaryMin": 92000,
-      "salaryMax": 163000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 92000,
-          "maxValue": 163000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "global-leiter-crm-msc-group-geneva",
+        "global-responsable-crm-msc-group-geneva",
+        "global-head-of-crm-msc-geneva",
+        "global-responsabile-crm-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-c0a3fef0fd77",
@@ -303,6 +303,24 @@
       "requirementsByLocale": {
         "en": []
       },
+      "previousSlugs": [
+        "responsable-product-category-watches-jewellery-msc-group-geneva",
+        "leiter-product-category-watches-jewellery-msc-group-geneva",
+        "responsabile-product-category-watches-jewellery-msc-group-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-product-category-watches-jewellery-msc-group-geneva",
+          "leiter-product-category-watches-jewellery-msc-group-geneva",
+          "responsabile-product-category-watches-jewellery-msc-group-geneva"
+        ],
+        "de": [
+          "leiter-product-category-watches-jewellery-msc-group-geneva"
+        ],
+        "fr": [
+          "responsable-product-category-watches-jewellery-msc-group-geneva"
+        ]
+      },
       "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 163000,
@@ -316,29 +334,7 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "responsable-product-category-watches-jewellery-msc-group-geneva",
-          "leiter-product-category-watches-jewellery-msc-group-geneva",
-          "responsabile-product-category-watches-jewellery-msc-group-geneva",
-          "head-of-product-category-watches-jewellery-msc-geneva"
-        ],
-        "de": [
-          "leiter-product-category-watches-jewellery-msc-group-geneva",
-          "head-of-product-category-watches-jewellery-msc-geneva"
-        ],
-        "fr": [
-          "responsable-product-category-watches-jewellery-msc-group-geneva",
-          "head-of-product-category-watches-jewellery-msc-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "responsable-product-category-watches-jewellery-msc-group-geneva",
-        "leiter-product-category-watches-jewellery-msc-group-geneva",
-        "responsabile-product-category-watches-jewellery-msc-group-geneva",
-        "head-of-product-category-watches-jewellery-msc-geneva"
-      ]
+      }
     },
     {
       "id": "msc-cargo-50d293b9d6b0",
@@ -472,12 +468,20 @@
       "jobReqId": "17779",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "global-leiter-brand-marketing-msc-group-geneva",
-        "global-responsable-brand-marketing-msc-group-geneva",
-        "global-head-of-brand-marketing-msc-geneva",
-        "global-responsabile-brand-marketing-msc-group-geneva"
-      ],
+      "salaryMin": 92000,
+      "salaryMax": 163000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 92000,
+          "maxValue": 163000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-04T21:27:39.222Z",
       "previousSlugsByLocale": {
         "it": [
           "global-responsable-brand-marketing-msc-group-geneva",
@@ -494,29 +498,21 @@
           "global-responsable-brand-marketing-msc-group-geneva"
         ]
       },
-      "firstSeenAt": "2026-10-04T21:27:39.222Z",
-      "salaryMin": 92000,
-      "salaryMax": 163000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 92000,
-          "maxValue": 163000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "global-leiter-brand-marketing-msc-group-geneva",
+        "global-responsable-brand-marketing-msc-group-geneva",
+        "global-head-of-brand-marketing-msc-geneva",
+        "global-responsabile-brand-marketing-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-cc1a353fd70d",
-      "slug": "manager-cruise-development-and-execution-msc-geneva",
+      "slug": "manager-sviluppo-ed-esecuzione-crociere-msc-group-geneva",
       "slugByLocale": {
-        "it": "manager-cruise-development-and-execution-msc-geneva",
         "en": "manager-cruise-development-and-execution-msc-geneva",
-        "de": "manager-cruise-development-and-execution-msc-geneva",
-        "fr": "manager-cruise-development-and-execution-msc-geneva"
+        "it": "manager-sviluppo-ed-esecuzione-crociere-msc-group-geneva",
+        "de": "manager-entwicklung-und-umsetzung-der-kreuzfahrt-msc-group-geneva",
+        "fr": "responsable-du-developpement-et-de-l-execution-des-croisieres-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -573,7 +569,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-27T11:33:51.809Z"
+      "firstSeenAt": "2026-09-27T11:33:51.809Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-cruise-development-and-execution-msc-geneva"
+        ],
+        "de": [
+          "manager-cruise-development-and-execution-msc-geneva"
+        ],
+        "fr": [
+          "manager-cruise-development-and-execution-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "manager-cruise-development-and-execution-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-b97d5d608b1c",
@@ -962,7 +972,21 @@
       "requirementsByLocale": {
         "en": []
       },
+      "previousSlugs": [
+        "responsabile-marketing-al-dettaglio-msc-group-geneva",
+        "directeur-du-marketing-de-detail-msc-group-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-marketing-al-dettaglio-msc-group-geneva",
+          "directeur-du-marketing-de-detail-msc-group-geneva"
+        ],
+        "fr": [
+          "directeur-du-marketing-de-detail-msc-group-geneva"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-02T09:22:11.341Z",
       "salaryMin": 92000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -976,23 +1000,6 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T09:22:11.341Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "responsabile-marketing-al-dettaglio-msc-group-geneva",
-          "directeur-du-marketing-de-detail-msc-group-geneva",
-          "retail-marketing-manager-msc-geneva"
-        ],
-        "fr": [
-          "directeur-du-marketing-de-detail-msc-group-geneva",
-          "retail-marketing-manager-msc-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "responsabile-marketing-al-dettaglio-msc-group-geneva",
-        "directeur-du-marketing-de-detail-msc-group-geneva",
-        "retail-marketing-manager-msc-geneva"
-      ],
       "crawlerMissStreak": 1
     },
     {
@@ -1126,17 +1133,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "responsabile-dell-apprendimento-e-dello-sviluppo-al-dettaglio-msc-group-geneva",
-        "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
-        "retail-learning-development-manager-msc-geneva"
+        "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-dell-apprendimento-e-dello-sviluppo-al-dettaglio-msc-group-geneva",
-          "retail-learning-development-manager-msc-geneva"
+          "responsabile-dell-apprendimento-e-dello-sviluppo-al-dettaglio-msc-group-geneva"
         ],
         "fr": [
-          "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
-          "retail-learning-development-manager-msc-geneva"
+          "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva"
         ]
       },
       "needsRetranslation": true,

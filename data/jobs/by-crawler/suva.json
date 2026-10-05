@@ -9,7 +9,7 @@
         "de": "business-content-manager-in-80-100-suva-luzern",
         "it": "business-content-manager-in-80-100-suva-luzern",
         "en": "business-content-manager-in-80-100-suva-luzern",
-        "fr": "business-content-manager-in-80-100-suva-luzern"
+        "fr": "gestionnaire-de-contenu-d-entreprise-80-100-suva-luzern"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -121,14 +121,12 @@
       "sfJobId": "1436462033",
       "previousSlugs": [
         "stagiaire-mpe-100-suva-lausanne",
-        "stagiaire-mp-3-1-100-suva-lausanne",
-        "interno-mpe-100-suva-lausanne"
+        "stagiaire-mp-3-1-100-suva-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stagiaire-mpe-100-suva-lausanne",
-          "stagiaire-mp-3-1-100-suva-lausanne",
-          "interno-mpe-100-suva-lausanne"
+          "stagiaire-mp-3-1-100-suva-lausanne"
         ],
         "en": [
           "stagiaire-mpe-100-suva-lausanne"
@@ -204,13 +202,11 @@
       "pensum": "80-100%",
       "sfJobId": "1437162333",
       "previousSlugs": [
-        "specialiste-conduite-des-cas-80-100-suva-delemont",
-        "specialista-della-gestione-dei-casi-80-100-per-cento-suva-delemont-fribourg-geneve-la-chaux-de-fonds-lausanne"
+        "specialiste-conduite-des-cas-80-100-suva-delemont"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-conduite-des-cas-80-100-suva-delemont",
-          "specialista-della-gestione-dei-casi-80-100-per-cento-suva-delemont-fribourg-geneve-la-chaux-de-fonds-lausanne"
+          "specialiste-conduite-des-cas-80-100-suva-delemont"
         ],
         "en": [
           "specialiste-conduite-des-cas-80-100-suva-delemont"
@@ -237,12 +233,12 @@
     },
     {
       "id": "suva-206d4253b2ab",
-      "slug": "gestionnaire-centre-de-competence-80-100-suva-delemont",
+      "slug": "centre-manager-80-100-suva-delemont",
       "slugByLocale": {
         "fr": "gestionnaire-centre-de-competence-80-100-suva-delemont",
-        "it": "gestionnaire-centre-de-competence-80-100-suva-delemont",
+        "it": "centre-manager-80-100-suva-delemont",
         "en": "gestionnaire-centre-de-competence-80-100-suva-delemont",
-        "de": "gestionnaire-centre-de-competence-80-100-suva-delemont"
+        "de": "center-manager-80-100-suva-delemont"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -298,7 +294,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "JU"
+      "addressRegion": "JU",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-centre-de-competence-80-100-suva-delemont"
+        ],
+        "de": [
+          "gestionnaire-centre-de-competence-80-100-suva-delemont"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-centre-de-competence-80-100-suva-delemont"
+      ]
     },
     {
       "id": "suva-3112d031e592",
@@ -374,7 +381,7 @@
         "de": "spezialist-in-public-affairs-80-100-suva-luzern",
         "it": "spezialist-in-public-affairs-80-100-suva-luzern",
         "en": "spezialist-in-public-affairs-80-100-suva-luzern",
-        "fr": "spezialist-in-public-affairs-80-100-suva-luzern"
+        "fr": "affaires-publiques-specialisees-80-100-suva-luzern"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -503,12 +510,12 @@
     },
     {
       "id": "suva-39d14dfc124e",
-      "slug": "teamleiter-in-heilkosten-ambulant-80-100-suva-luzern",
+      "slug": "team-leader-costi-di-guarigione-ambulatorio-80-100-suva-luzern",
       "slugByLocale": {
         "de": "teamleiter-in-heilkosten-ambulant-80-100-suva-luzern",
-        "it": "teamleiter-in-heilkosten-ambulant-80-100-suva-luzern",
-        "en": "teamleiter-in-heilkosten-ambulant-80-100-suva-luzern",
-        "fr": "teamleiter-in-heilkosten-ambulant-80-100-suva-luzern"
+        "it": "team-leader-costi-di-guarigione-ambulatorio-80-100-suva-luzern",
+        "en": "team-leader-healing-costs-ambulatory-80-100-suva-luzern",
+        "fr": "chef-d-equipe-couts-de-guerison-ambulatoire-80-100-suva-luzern"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -566,7 +573,21 @@
         }
       },
       "addressRegion": "LU",
-      "firstSeenAt": "2026-10-05T09:19:48.059Z"
+      "firstSeenAt": "2026-10-05T09:19:48.059Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-heilkosten-ambulant-80-100-suva-luzern"
+        ],
+        "en": [
+          "teamleiter-in-heilkosten-ambulant-80-100-suva-luzern"
+        ],
+        "fr": [
+          "teamleiter-in-heilkosten-ambulant-80-100-suva-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-heilkosten-ambulant-80-100-suva-luzern"
+      ]
     },
     {
       "id": "suva-4e9b1f78cbdf",
@@ -838,12 +859,12 @@
     },
     {
       "id": "suva-baf55943dd7d",
-      "slug": "scrum-master-all-genders-80-100-suva-luzern",
+      "slug": "scrum-master-tutti-i-sessi-80-100-suva-luzern",
       "slugByLocale": {
         "de": "scrum-master-all-genders-80-100-suva-luzern",
-        "it": "scrum-master-all-genders-80-100-suva-luzern",
+        "it": "scrum-master-tutti-i-sessi-80-100-suva-luzern",
         "en": "scrum-master-all-genders-80-100-suva-luzern",
-        "fr": "scrum-master-all-genders-80-100-suva-luzern"
+        "fr": "scrum-master-tous-les-sexes-80-100-suva-luzern"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -901,7 +922,18 @@
         }
       },
       "addressRegion": "LU",
-      "firstSeenAt": "2026-10-05T09:19:42.589Z"
+      "firstSeenAt": "2026-10-05T09:19:42.589Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scrum-master-all-genders-80-100-suva-luzern"
+        ],
+        "fr": [
+          "scrum-master-all-genders-80-100-suva-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "scrum-master-all-genders-80-100-suva-luzern"
+      ]
     },
     {
       "id": "suva-7f6448aca2ba",
@@ -972,12 +1004,12 @@
     },
     {
       "id": "suva-598a3d9bcdeb",
-      "slug": "syrius-parametrierer-in-applikationsentwickler-in-80-100-suva-luzern",
+      "slug": "syrius-parameterizer-applicazione-sviluppatore-80-100-suva-luzern",
       "slugByLocale": {
         "de": "syrius-parametrierer-in-applikationsentwickler-in-80-100-suva-luzern",
-        "it": "syrius-parametrierer-in-applikationsentwickler-in-80-100-suva-luzern",
-        "en": "syrius-parametrierer-in-applikationsentwickler-in-80-100-suva-luzern",
-        "fr": "syrius-parametrierer-in-applikationsentwickler-in-80-100-suva-luzern"
+        "it": "syrius-parameterizer-applicazione-sviluppatore-80-100-suva-luzern",
+        "en": "syrius-parameterizer-application-developer-80-100-suva-luzern",
+        "fr": "parametre-syrius-developpeur-d-application-80-100-suva-luzern"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -1035,7 +1067,21 @@
         }
       },
       "addressRegion": "LU",
-      "firstSeenAt": "2026-10-05T09:19:38.034Z"
+      "firstSeenAt": "2026-10-05T09:19:38.034Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "syrius-parametrierer-in-applikationsentwickler-in-80-100-suva-luzern"
+        ],
+        "en": [
+          "syrius-parametrierer-in-applikationsentwickler-in-80-100-suva-luzern"
+        ],
+        "fr": [
+          "syrius-parametrierer-in-applikationsentwickler-in-80-100-suva-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "syrius-parametrierer-in-applikationsentwickler-in-80-100-suva-luzern"
+      ]
     },
     {
       "id": "suva-4cc9edc37d3b",
@@ -1155,13 +1201,11 @@
       "pensum": "80-100%",
       "sfJobId": "1383023233",
       "previousSlugs": [
-        "bauingenieur-in-baumeister-in-80-100-suva-luzern",
-        "ingegnere-civile-in-baumeister-in-80-100-suva-luzern"
+        "bauingenieur-in-baumeister-in-80-100-suva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauingenieur-in-baumeister-in-80-100-suva-luzern",
-          "ingegnere-civile-in-baumeister-in-80-100-suva-luzern"
+          "bauingenieur-in-baumeister-in-80-100-suva-luzern"
         ],
         "en": [
           "bauingenieur-in-baumeister-in-80-100-suva-luzern"
@@ -1238,13 +1282,11 @@
       "pensum": "60-80%",
       "sfJobId": "1434835333",
       "previousSlugs": [
-        "projektassistent-in-baumanagement-60-80-suva-luzern",
-        "project-assistant-construction-management-60-80-suva-luzern"
+        "projektassistent-in-baumanagement-60-80-suva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektassistent-in-baumanagement-60-80-suva-luzern",
-          "project-assistant-construction-management-60-80-suva-luzern"
+          "projektassistent-in-baumanagement-60-80-suva-luzern"
         ],
         "en": [
           "projektassistent-in-baumanagement-60-80-suva-luzern"
@@ -1320,13 +1362,11 @@
       "pensum": "100%",
       "sfJobId": "1423913333",
       "previousSlugs": [
-        "praktikant-in-wms-customer-service-center-100-suva-luzern",
-        "praktikant-in-wms-servizio-clienti-center-100-suva-luzern"
+        "praktikant-in-wms-customer-service-center-100-suva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-wms-customer-service-center-100-suva-luzern",
-          "praktikant-in-wms-servizio-clienti-center-100-suva-luzern"
+          "praktikant-in-wms-customer-service-center-100-suva-luzern"
         ],
         "fr": [
           "praktikant-in-wms-customer-service-center-100-suva-luzern"
@@ -1399,13 +1439,11 @@
       "pensum": "100%",
       "sfJobId": "1423913433",
       "previousSlugs": [
-        "praktikant-in-wms-hr-nachwuchsentwicklung-100-suva-luzern",
-        "internship-wms-hr-junior-sviluppo-100-suva-luzern"
+        "praktikant-in-wms-hr-nachwuchsentwicklung-100-suva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-wms-hr-nachwuchsentwicklung-100-suva-luzern",
-          "internship-wms-hr-junior-sviluppo-100-suva-luzern"
+          "praktikant-in-wms-hr-nachwuchsentwicklung-100-suva-luzern"
         ]
       },
       "firstSeenAt": "2026-08-17T10:09:52.233Z",
@@ -1475,13 +1513,11 @@
       "pensum": "100%",
       "sfJobId": "1431768333",
       "previousSlugs": [
-        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-lausanne",
-        "apprendistato-2027-dipendente-commerciale-cfc-100-suva-lausanne"
+        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-lausanne",
-          "apprendistato-2027-dipendente-commerciale-cfc-100-suva-lausanne"
+          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-lausanne"
         ],
         "en": [
           "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-lausanne"
@@ -1558,13 +1594,11 @@
       "pensum": "80-100%",
       "sfJobId": "1433250833",
       "previousSlugs": [
-        "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-st-gallen",
-        "costi-di-assistenza-sanitaria-del-personale-agguato-80-100-suva-st-gallen"
+        "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-st-gallen",
-          "costi-di-assistenza-sanitaria-del-personale-agguato-80-100-suva-st-gallen"
+          "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-st-gallen"
         ],
         "en": [
           "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-st-gallen"
@@ -1640,13 +1674,11 @@
       "pensum": "80-100%",
       "sfJobId": "1371896633",
       "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau",
-        "psichiatria-specialistica-tutti-i-sessi-80-100-suva-ticino"
+        "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau",
-          "psichiatria-specialistica-tutti-i-sessi-80-100-suva-ticino"
+          "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau"
         ],
         "en": [
           "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau"
@@ -1722,14 +1754,12 @@
       "sfJobId": "1437526633",
       "previousSlugs": [
         "praktikant-in-wms-100-freiburg-suva-freiburg",
-        "praktikant-in-wms-100-suva-freiburg",
-        "interno-wms-100-friburgo-suva-freiburg"
+        "praktikant-in-wms-100-suva-freiburg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-wms-100-freiburg-suva-freiburg",
-          "praktikant-in-wms-100-suva-freiburg",
-          "interno-wms-100-friburgo-suva-freiburg"
+          "praktikant-in-wms-100-suva-freiburg"
         ],
         "en": [
           "praktikant-in-wms-100-freiburg-suva-freiburg"
@@ -1806,14 +1836,12 @@
       "sfJobId": "1437526533",
       "previousSlugs": [
         "stagiaire-mpe-100-fribourg-suva-fribourg",
-        "stagiaire-mpe-100-suva-fribourg",
-        "interno-mpe-100-fribourg-suva-fribourg"
+        "stagiaire-mpe-100-suva-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stagiaire-mpe-100-fribourg-suva-fribourg",
-          "stagiaire-mpe-100-suva-fribourg",
-          "interno-mpe-100-fribourg-suva-fribourg"
+          "stagiaire-mpe-100-suva-fribourg"
         ],
         "en": [
           "stagiaire-mpe-100-fribourg-suva-fribourg"
@@ -2011,13 +2039,11 @@
       "pensum": "100%",
       "sfJobId": "1431769833",
       "previousSlugs": [
-        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-sion",
-        "apprendistato-2027-dipendente-commerciale-cfc-100-suva-sion"
+        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-sion",
-          "apprendistato-2027-dipendente-commerciale-cfc-100-suva-sion"
+          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-sion"
         ],
         "en": [
           "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-sion"
@@ -2094,13 +2120,11 @@
       "pensum": "100%",
       "sfJobId": "1436461733",
       "previousSlugs": [
-        "stagiaire-mpe-100-suva-sion",
-        "interno-mpe-100-suva-sion"
+        "stagiaire-mpe-100-suva-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-mpe-100-suva-sion",
-          "interno-mpe-100-suva-sion"
+          "stagiaire-mpe-100-suva-sion"
         ],
         "en": [
           "stagiaire-mpe-100-suva-sion"
@@ -2176,13 +2200,11 @@
       "pensum": "100%",
       "sfJobId": "1431769133",
       "previousSlugs": [
-        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-geneve",
-        "apprendistato-2027-dipendente-commerciale-cfc-100-suva-geneve"
+        "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-geneve",
-          "apprendistato-2027-dipendente-commerciale-cfc-100-suva-geneve"
+          "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-geneve"
         ],
         "en": [
           "apprenti-e-2027-employe-e-de-commerce-cfc-100-suva-geneve"
@@ -2259,13 +2281,11 @@
       "pensum": "100%",
       "sfJobId": "1436461933",
       "previousSlugs": [
-        "stagiaire-mpe-100-suva-geneve",
-        "interno-mpe-100-suva-geneve"
+        "stagiaire-mpe-100-suva-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-mpe-100-suva-geneve",
-          "interno-mpe-100-suva-geneve"
+          "stagiaire-mpe-100-suva-geneve"
         ],
         "en": [
           "stagiaire-mpe-100-suva-geneve"
@@ -2342,18 +2362,14 @@
       "sfJobId": "1399745833",
       "previousSlugsByLocale": {
         "de": [
-          "teamleiter-in-versicherungsmedizin-80-100-suva-lausanne",
-          "teamleiter-in-versicherungsmedizin-80-100-suva-genf"
+          "teamleiter-in-versicherungsmedizin-80-100-suva-lausanne"
         ],
         "it": [
-          "teamleiter-in-versicherungsmedizin-80-100-suva-lausanne",
-          "team-leader-in-medicina-assicurativa-80-100-suva-genf-lausanne"
+          "teamleiter-in-versicherungsmedizin-80-100-suva-lausanne"
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-versicherungsmedizin-80-100-suva-lausanne",
-        "teamleiter-in-versicherungsmedizin-80-100-suva-genf",
-        "team-leader-in-medicina-assicurativa-80-100-suva-genf-lausanne"
+        "teamleiter-in-versicherungsmedizin-80-100-suva-lausanne"
       ],
       "firstSeenAt": "2026-09-19T22:52:14.698Z",
       "salaryMin": 65500,
@@ -2499,13 +2515,11 @@
       "pensum": "80-100%",
       "sfJobId": "1415800833",
       "previousSlugs": [
-        "rechtsanwaltin-rechtsanwalt-militarversicherung-alle-geschlechter-80-100-suva-bern",
-        "avvocato-avvocato-assicurazione-militare-tutti-i-sessi-80-100-suva-bern"
+        "rechtsanwaltin-rechtsanwalt-militarversicherung-alle-geschlechter-80-100-suva-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rechtsanwaltin-rechtsanwalt-militarversicherung-alle-geschlechter-80-100-suva-bern",
-          "avvocato-avvocato-assicurazione-militare-tutti-i-sessi-80-100-suva-bern"
+          "rechtsanwaltin-rechtsanwalt-militarversicherung-alle-geschlechter-80-100-suva-bern"
         ],
         "en": [
           "rechtsanwaltin-rechtsanwalt-militarversicherung-alle-geschlechter-80-100-suva-bern"
@@ -2582,13 +2596,11 @@
       "pensum": "80-100%",
       "sfJobId": "1437666533",
       "previousSlugs": [
-        "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-winterthur",
-        "danni-al-centro-di-competenza-80-100-suva-winterthur"
+        "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-winterthur",
-          "danni-al-centro-di-competenza-80-100-suva-winterthur"
+          "sachbearbeiter-in-kompetenz-center-schaden-80-100-suva-winterthur"
         ]
       },
       "needsRetranslation": true,
@@ -2794,14 +2806,12 @@
       "sfJobId": "1424876233",
       "previousSlugs": [
         "spezialist-in-bekampfung-versicherungsmissbrauch-80-100-suva-aarau",
-        "spezialist-in-bekampfung-versicherungsmissbrauch-80-100-suva-aarau-basel-bellinzona-bern-chur-delemont-freiburg-genf-la-chaux-de-fonds-lausanne-luzern-root-sion-solothurn-st-gallen",
-        "specialista-nella-lotta-contro-l-abuso-di-assicurazione-80-100-suva-argovia"
+        "spezialist-in-bekampfung-versicherungsmissbrauch-80-100-suva-aarau-basel-bellinzona-bern-chur-delemont-freiburg-genf-la-chaux-de-fonds-lausanne-luzern-root-sion-solothurn-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialist-in-bekampfung-versicherungsmissbrauch-80-100-suva-aarau",
-          "spezialist-in-bekampfung-versicherungsmissbrauch-80-100-suva-aarau-basel-bellinzona-bern-chur-delemont-freiburg-genf-la-chaux-de-fonds-lausanne-luzern-root-sion-solothurn-st-gallen",
-          "specialista-nella-lotta-contro-l-abuso-di-assicurazione-80-100-suva-argovia"
+          "spezialist-in-bekampfung-versicherungsmissbrauch-80-100-suva-aarau-basel-bellinzona-bern-chur-delemont-freiburg-genf-la-chaux-de-fonds-lausanne-luzern-root-sion-solothurn-st-gallen"
         ],
         "en": [
           "spezialist-in-bekampfung-versicherungsmissbrauch-80-100-suva-aarau"
@@ -2877,13 +2887,11 @@
       "pensum": "80-100%",
       "sfJobId": "1435309533",
       "previousSlugs": [
-        "spezialist-in-heilkosten-stationar-80-100-suva-aarau",
-        "costi-medici-specialistici-stazionari-80-100-suva-aarau-solothurn"
+        "spezialist-in-heilkosten-stationar-80-100-suva-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-heilkosten-stationar-80-100-suva-aarau",
-          "costi-medici-specialistici-stazionari-80-100-suva-aarau-solothurn"
+          "spezialist-in-heilkosten-stationar-80-100-suva-aarau"
         ],
         "en": [
           "spezialist-in-heilkosten-stationar-80-100-suva-aarau"
@@ -2958,13 +2966,11 @@
       "pensum": "80-100%",
       "sfJobId": "1424797533",
       "previousSlugs": [
-        "leiter-in-centermanagement-d4-business-village-80-100-suva-root",
-        "responsabile-centermanagement-d4-business-village-80-100-suva-root"
+        "leiter-in-centermanagement-d4-business-village-80-100-suva-root"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-centermanagement-d4-business-village-80-100-suva-root",
-          "responsabile-centermanagement-d4-business-village-80-100-suva-root"
+          "leiter-in-centermanagement-d4-business-village-80-100-suva-root"
         ],
         "en": [
           "leiter-in-centermanagement-d4-business-village-80-100-suva-root"
@@ -3040,13 +3046,11 @@
       "pensum": "40-60%",
       "sfJobId": "1440313633",
       "previousSlugs": [
-        "spezialist-in-datenschutz-40-60-befristet-6-monate-suva-luzern",
-        "protezione-dei-dati-specialistica-40-60-temporaneo-6-mesi-suva-luzern"
+        "spezialist-in-datenschutz-40-60-befristet-6-monate-suva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-datenschutz-40-60-befristet-6-monate-suva-luzern",
-          "protezione-dei-dati-specialistica-40-60-temporaneo-6-mesi-suva-luzern"
+          "spezialist-in-datenschutz-40-60-befristet-6-monate-suva-luzern"
         ],
         "en": [
           "spezialist-in-datenschutz-40-60-befristet-6-monate-suva-luzern"
@@ -3124,15 +3128,13 @@
       "previousSlugs": [
         "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern",
         "spezialist-in-arbeitssicherheit-e-gesundheitsschutz-60-100-suva-luzern",
-        "bauingenieur-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern",
-        "specialista-sicurezza-e-protezione-della-salute-60-100-suva-luzern"
+        "bauingenieur-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern",
           "spezialist-in-arbeitssicherheit-e-gesundheitsschutz-60-100-suva-luzern",
-          "bauingenieur-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern",
-          "specialista-sicurezza-e-protezione-della-salute-60-100-suva-luzern"
+          "bauingenieur-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern"
         ],
         "en": [
           "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern"
@@ -3212,13 +3214,11 @@
       "pensum": "80-100%",
       "sfJobId": "1437227333",
       "previousSlugs": [
-        "bereichsleiter-in-facharztleistungen-arbeitsmedizin-80-100-suva-luzern",
-        "divisione-head-specialist-services-medicina-del-lavoro-80-100-suva-luzern"
+        "bereichsleiter-in-facharztleistungen-arbeitsmedizin-80-100-suva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bereichsleiter-in-facharztleistungen-arbeitsmedizin-80-100-suva-luzern",
-          "divisione-head-specialist-services-medicina-del-lavoro-80-100-suva-luzern"
+          "bereichsleiter-in-facharztleistungen-arbeitsmedizin-80-100-suva-luzern"
         ],
         "en": [
           "bereichsleiter-in-facharztleistungen-arbeitsmedizin-80-100-suva-luzern"
@@ -3296,14 +3296,12 @@
       "sfJobId": "1422839033",
       "previousSlugs": [
         "quereinsteiger-in-pravention-100-suva-quereinsteiger-in-pravention-100",
-        "quereinsteiger-in-pravention-100-suva-luzern",
-        "candidato-a-in-riqualificazione-pravention-100-suva-quereinsteiger-in-pravention-100"
+        "quereinsteiger-in-pravention-100-suva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quereinsteiger-in-pravention-100-suva-quereinsteiger-in-pravention-100",
-          "quereinsteiger-in-pravention-100-suva-luzern",
-          "candidato-a-in-riqualificazione-pravention-100-suva-quereinsteiger-in-pravention-100"
+          "quereinsteiger-in-pravention-100-suva-luzern"
         ],
         "en": [
           "quereinsteiger-in-pravention-100-suva-quereinsteiger-in-pravention-100"

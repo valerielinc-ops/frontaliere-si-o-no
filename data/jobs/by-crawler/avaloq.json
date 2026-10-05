@@ -951,8 +951,7 @@
         "fr": [
           "partenaire-financier-dans-le-controle-avaloq-zurich",
           "partenaire-financier-en-gestion-avaloq-zurich",
-          "partenaire-commercial-financier-dans-le-controle-de-gestion-avaloq-zurich",
-          "financial-business-partner-in-controlling-avaloq-zurich"
+          "partenaire-commercial-financier-dans-le-controle-de-gestion-avaloq-zurich"
         ]
       },
       "previousSlugs": [
@@ -2117,7 +2116,7 @@
     },
     {
       "title": "Test Specialist",
-      "slug": "test-specialist-avaloq-bioggio",
+      "slug": "test-specialista-avaloq-bioggio",
       "url": "https://jobs.smartrecruiters.com/Avaloq1/744000153413909-test-specialist",
       "applyUrl": "https://jobs.smartrecruiters.com/Avaloq1/744000153413909-test-specialist?oga=true",
       "company": "Avaloq",
@@ -2155,9 +2154,9 @@
       },
       "slugByLocale": {
         "en": "test-specialist-avaloq-bioggio",
-        "it": "test-specialist-avaloq-bioggio",
-        "de": "test-specialist-avaloq-bioggio",
-        "fr": "test-specialist-avaloq-bioggio"
+        "it": "test-specialista-avaloq-bioggio",
+        "de": "test-spezialist-avaloq-bioggio",
+        "fr": "test-specialiste-avaloq-bioggio"
       },
       "id": "avaloq-05332f83b4aa",
       "needsRetranslation": true,
@@ -2176,7 +2175,21 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "firstSeenAt": "2026-08-31T17:18:54.604Z"
+      "firstSeenAt": "2026-08-31T17:18:54.604Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "test-specialist-avaloq-bioggio"
+        ],
+        "de": [
+          "test-specialist-avaloq-bioggio"
+        ],
+        "fr": [
+          "test-specialist-avaloq-bioggio"
+        ]
+      },
+      "previousSlugs": [
+        "test-specialist-avaloq-bioggio"
+      ]
     }
   ]
 }

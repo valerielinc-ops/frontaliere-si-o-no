@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "brefispersonal-9e2094d3d481",
-      "slug": "schreiner-in-gelernt-zurich-brefispersonal-ch",
+      "slug": "formazione-come-falegname-brefis-personal-ag-zurich",
       "slugByLocale": {
-        "it": "schreiner-in-gelernt-zurich-brefispersonal-ch",
-        "en": "schreiner-in-gelernt-zurich-brefispersonal-ch",
+        "it": "formazione-come-falegname-brefis-personal-ag-zurich",
+        "en": "trained-as-a-carpenter-brefis-personal-ag-zurich",
         "de": "schreiner-in-gelernt-zurich-brefispersonal-ch",
-        "fr": "schreiner-in-gelernt-zurich-brefispersonal-ch"
+        "fr": "forme-comme-charpentier-brefis-personal-ag-zurich"
       },
       "company": "brefis personal ag",
       "companyKey": "brefispersonal",
@@ -66,7 +66,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-in-gelernt-zurich-brefispersonal-ch"
+        ],
+        "en": [
+          "schreiner-in-gelernt-zurich-brefispersonal-ch"
+        ],
+        "fr": [
+          "schreiner-in-gelernt-zurich-brefispersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-in-gelernt-zurich-brefispersonal-ch"
+      ]
     },
     {
       "id": "brefispersonal-554e7c9c44e1",
@@ -74,8 +88,8 @@
       "slugByLocale": {
         "de": "sanitarinstallateur-in-efz-zh-brefispersonal-ch",
         "it": "sanitarinstallateur-in-cfc-brefis-personal-ag-zh",
-        "en": "sanitarinstallateur-in-efz-brefis-personal-ag-zh",
-        "fr": "sanitarinstallateur-in-efz-brefis-personal-ag-zh"
+        "en": "plumber-efz-brefis-personal-ag-zh",
+        "fr": "plombier-efz-brefis-personal-ag-zh"
       },
       "company": "brefis personal ag",
       "companyKey": "brefispersonal",
@@ -121,6 +135,12 @@
         "it": [
           "sanitarinstallateur-in-efz-zh-brefispersonal-ch",
           "sanitarinstallateur-in-efz-brefis-personal-ag-zh"
+        ],
+        "en": [
+          "sanitarinstallateur-in-efz-brefis-personal-ag-zh"
+        ],
+        "fr": [
+          "sanitarinstallateur-in-efz-brefis-personal-ag-zh"
         ]
       },
       "previousSlugs": [
@@ -150,8 +170,8 @@
       "slugByLocale": {
         "de": "sanitarinstallateur-in-efz-zurich-brefispersonal-ch",
         "it": "sanitarinstallateur-in-cfc-brefis-personal-ag-zurich",
-        "en": "sanitarinstallateur-in-efz-brefis-personal-ag-zurich",
-        "fr": "sanitarinstallateur-in-efz-brefis-personal-ag-zurich"
+        "en": "plumber-efz-brefis-personal-ag-zurich",
+        "fr": "plombier-efz-brefis-personal-ag-zurich"
       },
       "company": "brefis personal ag",
       "companyKey": "brefispersonal",
@@ -207,10 +227,12 @@
           "sanitarinstallateur-in-efz-brefis-personal-ag-zurich"
         ],
         "en": [
-          "edc-sanitary-installer-brefis-personal-ag-zurich"
+          "edc-sanitary-installer-brefis-personal-ag-zurich",
+          "sanitarinstallateur-in-efz-brefis-personal-ag-zurich"
         ],
         "fr": [
-          "edc-installateur-sanitaire-brefis-personal-ag-zurich"
+          "edc-installateur-sanitaire-brefis-personal-ag-zurich",
+          "sanitarinstallateur-in-efz-brefis-personal-ag-zurich"
         ]
       },
       "salaryMin": 73500,
@@ -232,10 +254,10 @@
     },
     {
       "id": "brefispersonal-da7fa6f8b6c7",
-      "slug": "elektromonteur-in-gelernt-zh-brefispersonal-ch",
+      "slug": "elettricista-qualificato-brefis-personal-ag-zh",
       "slugByLocale": {
-        "it": "elektromonteur-in-gelernt-zh-brefispersonal-ch",
-        "en": "elektromonteur-in-gelernt-zh-brefispersonal-ch",
+        "it": "elettricista-qualificato-brefis-personal-ag-zh",
+        "en": "trained-electrician-brefis-personal-ag-zh",
         "de": "elektromonteur-in-gelernt-zh-brefispersonal-ch",
         "fr": "monteur-electrique-appris-brefis-personal-ag-zh"
       },
@@ -294,7 +316,18 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "elektromonteur-in-gelernt-zh-brefispersonal-ch"
+        ],
+        "en": [
+          "elektromonteur-in-gelernt-zh-brefispersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektromonteur-in-gelernt-zh-brefispersonal-ch"
+      ]
     },
     {
       "id": "brefispersonal-4ed95dee0226",
@@ -303,7 +336,7 @@
         "de": "heizungsinstallateur-in-efz-zurich-brefispersonal-ch",
         "it": "installatore-di-riscaldamento-efz-brefis-personal-ag-zurich",
         "en": "heating-installer-efz-brefis-personal-ag-zurich",
-        "fr": "heizungsinstallateur-in-efz-brefis-personal-ag-zurich"
+        "fr": "installateur-de-chauffage-efz-brefis-personal-ag-zurich"
       },
       "company": "brefis personal ag",
       "companyKey": "brefispersonal",
@@ -349,11 +382,15 @@
         "it": [
           "heizungsinstallateur-in-efz-zurich-brefispersonal-ch",
           "installatore-di-riscaldamento-efz-brefis-personal-ag-zurich-1fw5di"
+        ],
+        "fr": [
+          "heizungsinstallateur-in-efz-brefis-personal-ag-zurich"
         ]
       },
       "previousSlugs": [
         "heizungsinstallateur-in-efz-zurich-brefispersonal-ch",
-        "installatore-di-riscaldamento-efz-brefis-personal-ag-zurich-1fw5di"
+        "installatore-di-riscaldamento-efz-brefis-personal-ag-zurich-1fw5di",
+        "heizungsinstallateur-in-efz-brefis-personal-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -374,10 +411,10 @@
     },
     {
       "id": "brefispersonal-9ba34ddead20",
-      "slug": "luftungsmonteur-in-gelernt-brefis-personal-ag-zurich",
+      "slug": "tecnico-di-ventilazione-formato-brefis-personal-ag-zurich",
       "slugByLocale": {
-        "it": "luftungsmonteur-in-gelernt-brefis-personal-ag-zurich",
-        "en": "luftungsmonteur-in-gelernt-brefis-personal-ag-zurich",
+        "it": "tecnico-di-ventilazione-formato-brefis-personal-ag-zurich",
+        "en": "ventilation-technician-trained-brefis-personal-ag-zurich",
         "de": "luftungsmonteur-in-gelernt-zurich-brefispersonal-ch",
         "fr": "ingenieur-de-ventilation-appris-brefis-personal-ag-zurich"
       },
@@ -421,11 +458,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "luftungsmonteur-in-gelernt-zurich-brefispersonal-ch"
+        "luftungsmonteur-in-gelernt-zurich-brefispersonal-ch",
+        "luftungsmonteur-in-gelernt-brefis-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "luftungsmonteur-in-gelernt-zurich-brefispersonal-ch"
+          "luftungsmonteur-in-gelernt-zurich-brefispersonal-ch",
+          "luftungsmonteur-in-gelernt-brefis-personal-ag-zurich"
+        ],
+        "en": [
+          "luftungsmonteur-in-gelernt-brefis-personal-ag-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -609,10 +651,10 @@
     },
     {
       "id": "brefispersonal-f64c2fc42acc",
-      "slug": "sanitarmonteur-in-gelernt-brefis-personal-ag-zurich",
+      "slug": "installatore-sanitario-formato-brefis-personal-ag-zurich",
       "slugByLocale": {
-        "it": "sanitarmonteur-in-gelernt-brefis-personal-ag-zurich",
-        "en": "sanitarmonteur-in-gelernt-zurich-brefispersonal-ch",
+        "it": "installatore-sanitario-formato-brefis-personal-ag-zurich",
+        "en": "trained-sanitary-fitter-brefis-personal-ag-zurich",
         "de": "sanitarmonteur-in-gelernt-zurich-brefispersonal-ch",
         "fr": "les-installateurs-sanitaires-appris-brefis-personal-ag-zurich"
       },
@@ -657,14 +699,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sanitarmonteur-in-gelernt-zurich-brefispersonal-ch",
-        "infissi-sanitari-imparati-brefis-personal-ag-zurich"
+        "infissi-sanitari-imparati-brefis-personal-ag-zurich",
+        "sanitarmonteur-in-gelernt-brefis-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sanitarmonteur-in-gelernt-zurich-brefispersonal-ch",
-          "infissi-sanitari-imparati-brefis-personal-ag-zurich"
+          "infissi-sanitari-imparati-brefis-personal-ag-zurich",
+          "sanitarmonteur-in-gelernt-brefis-personal-ag-zurich"
         ],
         "fr": [
+          "sanitarmonteur-in-gelernt-zurich-brefispersonal-ch"
+        ],
+        "en": [
           "sanitarmonteur-in-gelernt-zurich-brefispersonal-ch"
         ]
       },
@@ -689,12 +736,12 @@
     },
     {
       "id": "brefispersonal-c6bc4777f57e",
-      "slug": "schreiner-in-gelernt-zh-brefispersonal-ch",
+      "slug": "formazione-come-falegname-brefis-personal-ag-zh",
       "slugByLocale": {
-        "it": "schreiner-in-gelernt-zh-brefispersonal-ch",
-        "en": "schreiner-in-gelernt-zh-brefispersonal-ch",
+        "it": "formazione-come-falegname-brefis-personal-ag-zh",
+        "en": "trained-as-a-carpenter-brefis-personal-ag-zh",
         "de": "schreiner-in-gelernt-zh-brefispersonal-ch",
-        "fr": "schreiner-in-gelernt-zh-brefispersonal-ch"
+        "fr": "forme-comme-charpentier-brefis-personal-ag-zh"
       },
       "company": "brefis personal ag",
       "companyKey": "brefispersonal",
@@ -752,16 +799,30 @@
       },
       "crawlerMissStreak": 2,
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-in-gelernt-zh-brefispersonal-ch"
+        ],
+        "en": [
+          "schreiner-in-gelernt-zh-brefispersonal-ch"
+        ],
+        "fr": [
+          "schreiner-in-gelernt-zh-brefispersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-in-gelernt-zh-brefispersonal-ch"
+      ]
     },
     {
       "id": "brefispersonal-a2ade1aa873e",
-      "slug": "metallbauer-in-efz-zurich-brefispersonal-ch",
+      "slug": "metallbauer-in-cfc-brefis-personal-ag-zurich",
       "slugByLocale": {
         "de": "metallbauer-in-efz-zurich-brefispersonal-ch",
-        "it": "metallbauer-in-efz-zurich-brefispersonal-ch",
-        "en": "metallbauer-in-efz-zurich-brefispersonal-ch",
-        "fr": "metallbauer-in-efz-zurich-brefispersonal-ch"
+        "it": "metallbauer-in-cfc-brefis-personal-ag-zurich",
+        "en": "metal-worker-efz-brefis-personal-ag-zurich",
+        "fr": "efz-pour-metallurgistes-brefis-personal-ag-zurich"
       },
       "company": "brefis personal ag",
       "companyKey": "brefispersonal",
@@ -811,18 +872,20 @@
         "lavoratori-di-metalli-efz-brefis-personal-ag-zurich",
         "efz-metalworkers-brefis-personal-ag-zurich",
         "efz-metaux-brefis-personal-ag-zurich",
-        "metallbauer-in-cfc-brefis-personal-ag-zurich"
+        "metallbauer-in-efz-zurich-brefispersonal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lavoratori-di-metalli-efz-brefis-personal-ag-zurich",
-          "metallbauer-in-cfc-brefis-personal-ag-zurich"
+          "metallbauer-in-efz-zurich-brefispersonal-ch"
         ],
         "en": [
-          "efz-metalworkers-brefis-personal-ag-zurich"
+          "efz-metalworkers-brefis-personal-ag-zurich",
+          "metallbauer-in-efz-zurich-brefispersonal-ch"
         ],
         "fr": [
-          "efz-metaux-brefis-personal-ag-zurich"
+          "efz-metaux-brefis-personal-ag-zurich",
+          "metallbauer-in-efz-zurich-brefispersonal-ch"
         ]
       },
       "salaryMin": 73500,

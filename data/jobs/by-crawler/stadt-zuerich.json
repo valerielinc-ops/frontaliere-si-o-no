@@ -8349,8 +8349,7 @@
       "previousSlugs": [
         "gastro-allrounder-in-stadt-zuerich-zurigo-51367",
         "gastro-allrounder-in-stadt-zuerich-zurigo-51788",
-        "gastro-allrounder-in-stadt-zurich",
-        "gastronomia-stadt-zurich-zurich"
+        "gastro-allrounder-in-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11524,9 +11523,7 @@
       "previousSlugs": [
         "kindheitspadagog-in-hf-stadt-zuerich-zurigo-50694",
         "kindheitspadagog-in-hf-stadt-zurich",
-        "kindheitspadagog-in-hf-stadt-zurich-et7nyg",
-        "insegnante-di-infanzia-in-hf-stadt-zurich-zurich",
-        "professeur-d-enfance-en-hf-stadt-zurich-zurich"
+        "kindheitspadagog-in-hf-stadt-zurich-et7nyg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11538,8 +11535,7 @@
         ],
         "fr": [
           "kindheitspadagog-in-hf-stadt-zurich-et7nyg",
-          "kindheitspadagog-in-hf-stadt-zurich",
-          "professeur-d-enfance-en-hf-stadt-zurich-zurich"
+          "kindheitspadagog-in-hf-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-09-26T14:28:23.273Z",
@@ -33581,13 +33577,11 @@
           "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136"
         ],
         "en": [
-          "childhood-education-hf-stadt-zurich-zurich",
           "kindheitspadagog-in-hf-stadt-zurich",
           "childhoodeducator-hf-stadt-zurich"
         ],
         "fr": [
-          "kindheitspadagog-in-hf-stadt-zurich",
-          "professeur-d-enfance-en-hf-stadt-zurich-zurich-efd09d"
+          "kindheitspadagog-in-hf-stadt-zurich"
         ]
       },
       "previousSlugs": [
@@ -33989,19 +33983,15 @@
           "gartner-in-stadt-zuerich-zurigo-51523"
         ],
         "en": [
-          "gartner-in-stadt-zurich",
-          "gardener-stadt-zurich-zurich"
+          "gartner-in-stadt-zurich"
         ],
         "fr": [
-          "gartner-in-stadt-zurich",
-          "jardinier-stadt-zurich-zurich"
+          "gartner-in-stadt-zurich"
         ]
       },
       "previousSlugs": [
         "gartner-in-stadt-zuerich-zurigo-51523",
-        "gartner-in-stadt-zurich",
-        "gardener-stadt-zurich-zurich",
-        "jardinier-stadt-zurich-zurich"
+        "gartner-in-stadt-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -34178,12 +34168,12 @@
     },
     {
       "id": "stadt-zuerich-0006c6a0dff8",
-      "slug": "reinigungsfachperson-schule-untermoos-stadt-zurich-zurich",
+      "slug": "specialista-di-pulizia-scuola-untermoos-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "reinigungsfachperson-schule-untermoos-stadt-zuerich-zurigo-51754",
-        "it": "reinigungsfachperson-schule-untermoos-stadt-zurich-zurich",
-        "en": "reinigungsfachperson-schule-untermoos-stadt-zurich-zurich",
-        "fr": "reinigungsfachperson-schule-untermoos-stadt-zurich-zurich"
+        "it": "specialista-di-pulizia-scuola-untermoos-stadt-zurich-zurich",
+        "en": "cleaning-specialist-school-untermoos-stadt-zurich-zurich",
+        "fr": "specialiste-du-nettoyage-ecole-untermoos-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -34235,11 +34225,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "reinigungsfachperson-schule-untermoos-stadt-zuerich-zurigo-51754"
+          "reinigungsfachperson-schule-untermoos-stadt-zuerich-zurigo-51754",
+          "reinigungsfachperson-schule-untermoos-stadt-zurich-zurich"
+        ],
+        "en": [
+          "reinigungsfachperson-schule-untermoos-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "reinigungsfachperson-schule-untermoos-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "reinigungsfachperson-schule-untermoos-stadt-zuerich-zurigo-51754"
+        "reinigungsfachperson-schule-untermoos-stadt-zuerich-zurigo-51754",
+        "reinigungsfachperson-schule-untermoos-stadt-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -34261,8 +34259,8 @@
       "slug": "kindheitspadagog-in-hf-stadt-zurich",
       "slugByLocale": {
         "de": "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
-        "it": "kindheitspadagog-in-hf-stadt-zurich",
-        "en": "kindheitspadagog-in-hf-stadt-zurich",
+        "it": "educazione-dell-infanzia-hf-stadt-zurich-zurich-e49b8a",
+        "en": "childhood-education-hf-stadt-zurich-zurich-e49b8a",
         "fr": "kindheitspadagog-in-hf-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -34318,9 +34316,6 @@
           "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
           "educazione-dell-infanzia-hf-stadt-zurich-zurich-e49b8a",
           "kindheitspadagog-in-hf-stadt-zurich-0coqg4"
-        ],
-        "en": [
-          "childhood-education-hf-stadt-zurich-zurich-e49b8a"
         ]
       },
       "previousSlugs": [

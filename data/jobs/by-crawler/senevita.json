@@ -707,7 +707,7 @@
         "it": "cuocere-cuocere-dietetico-80-senevita-be-muri-b",
         "en": "diet-cook-diet-cook-80-senevita-be-muri-b",
         "de": "diatkochin-diatkoch-80-senevita-be-muri-b-bern",
-        "fr": "cuisinier-cuisiniere-dietetique-80-senevita-be-muri-b-bern"
+        "fr": "diete-cuisine-diete-cuisine-80-senevita-be-muri-b"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -757,7 +757,7 @@
         "cook-culinary-80-senevita-be-muri-b",
         "cuisson-culinaire-80-senevita-be-muri-b",
         "diatkochin-diatkoch-80-senevita-be-muri-b-bern",
-        "diete-cuisine-diete-cuisine-80-senevita-be-muri-b"
+        "cuisinier-cuisiniere-dietetique-80-senevita-be-muri-b-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -777,7 +777,7 @@
           "koch-kochin-80-senevita-be-muri-b-bern",
           "cuisson-culinaire-80-senevita-be-muri-b",
           "diatkochin-diatkoch-80-senevita-be-muri-b-bern",
-          "diete-cuisine-diete-cuisine-80-senevita-be-muri-b"
+          "cuisinier-cuisiniere-dietetique-80-senevita-be-muri-b-bern"
         ]
       },
       "firstSeenAt": "2026-07-30T11:30:14.913Z",
@@ -8690,7 +8690,7 @@
       "slug": "cuocere-cucinare-80-senevita-be-bern",
       "slugByLocale": {
         "it": "cuocere-cucinare-80-senevita-be-bern",
-        "en": "kochin-koch-80-senevita-be-bern",
+        "en": "cook-cook-80-senevita-be-bern",
         "de": "kochin-koch-80-senevita-be-bern",
         "fr": "cuire-cuir-80-senevita-be-bern"
       },
@@ -8738,15 +8738,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-80-senevita-be-bern",
-        "cook-cook-80-senevita-be-bern"
+        "kochin-koch-80-senevita-be-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-80-senevita-be-bern"
         ],
         "en": [
-          "cook-cook-80-senevita-be-bern",
           "kochin-koch-80-senevita-be-bern"
         ],
         "fr": [
@@ -13847,12 +13845,12 @@
     },
     {
       "id": "senevita-aad27c21741c",
-      "slug": "mitarbeiterin-hauswirtschaft-50-senevita-be-lenk",
+      "slug": "pulizia-dei-dipendenti-50-senevita-be-lenk",
       "slugByLocale": {
         "de": "mitarbeiterin-hauswirtschaft-50-senevita-be-lenk",
-        "it": "mitarbeiterin-hauswirtschaft-50-senevita-be-lenk",
-        "en": "mitarbeiterin-hauswirtschaft-50-senevita-be-lenk",
-        "fr": "mitarbeiterin-hauswirtschaft-50-senevita-be-lenk"
+        "it": "pulizia-dei-dipendenti-50-senevita-be-lenk",
+        "en": "employee-housekeeping-50-senevita-be-lenk",
+        "fr": "menage-des-employes-50-senevita-be-lenk"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -13912,7 +13910,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:25:03.528Z"
+      "firstSeenAt": "2026-10-05T09:25:03.528Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-hauswirtschaft-50-senevita-be-lenk"
+        ],
+        "en": [
+          "mitarbeiterin-hauswirtschaft-50-senevita-be-lenk"
+        ],
+        "fr": [
+          "mitarbeiterin-hauswirtschaft-50-senevita-be-lenk"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-hauswirtschaft-50-senevita-be-lenk"
+      ]
     },
     {
       "id": "senevita-d95a8c2e3e3f",
@@ -17146,12 +17158,12 @@
     },
     {
       "id": "senevita-60e02993c9a2",
-      "slug": "teamleitung-hauswirtschaft-100-senevita-bl-pratteln",
+      "slug": "gestione-del-team-senevita-bl-pratteln",
       "slugByLocale": {
         "de": "teamleitung-hauswirtschaft-100-senevita-bl-pratteln",
-        "it": "teamleitung-hauswirtschaft-100-senevita-bl-pratteln",
-        "en": "teamleitung-hauswirtschaft-100-senevita-bl-pratteln",
-        "fr": "teamleitung-hauswirtschaft-100-senevita-bl-pratteln"
+        "it": "gestione-del-team-senevita-bl-pratteln",
+        "en": "team-management-housekeeping-100-senevita-bl-pratteln",
+        "fr": "gestion-d-equipe-entretien-100-senevita-bl-pratteln"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -17211,7 +17223,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:24:37.154Z"
+      "firstSeenAt": "2026-10-05T09:24:37.154Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-hauswirtschaft-100-senevita-bl-pratteln"
+        ],
+        "en": [
+          "teamleitung-hauswirtschaft-100-senevita-bl-pratteln"
+        ],
+        "fr": [
+          "teamleitung-hauswirtschaft-100-senevita-bl-pratteln"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-hauswirtschaft-100-senevita-bl-pratteln"
+      ]
     },
     {
       "id": "senevita-1323cb3d3783",

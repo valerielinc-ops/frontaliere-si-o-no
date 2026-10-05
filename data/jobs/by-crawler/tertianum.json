@@ -2633,24 +2633,17 @@
         ]
       },
       "previousSlugs": [
-        "cuocere-chef-60-tertianum-solothurn",
-        "cuisson-chef-60-tertianum-solothurn",
         "kochin-koch-60-tertianum-solothurn",
-        "cook-chef-60-tertianum-solothurn",
-        "cuoco-cuoca-60-tertianum-solothurn",
         "cuisinier-cuisiniere-60-tertianum-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cuocere-chef-60-tertianum-solothurn",
-          "kochin-koch-60-tertianum-solothurn",
-          "cuoco-cuoca-60-tertianum-solothurn"
+          "kochin-koch-60-tertianum-solothurn"
         ],
         "en": [
           "kochin-koch-60-tertianum-solothurn"
         ],
         "fr": [
-          "cuisson-chef-60-tertianum-solothurn",
           "kochin-koch-60-tertianum-solothurn",
           "cuisinier-cuisiniere-60-tertianum-solothurn"
         ]
@@ -3194,16 +3187,11 @@
         ]
       },
       "previousSlugs": [
-        "80-laurea-in-infermiera-tertianum-delemont",
-        "infirmier-ere-diplome-e-a-80-tertianum-delemont",
-        "80-diplom-krankenschwester-tertianum-delemont",
-        "infermiere-a-diplomato-a-all-80-tertianum-delemont"
+        "infirmier-ere-diplome-e-a-80-tertianum-delemont"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "80-laurea-in-infermiera-tertianum-delemont",
-          "infirmier-ere-diplome-e-a-80-tertianum-delemont",
-          "infermiere-a-diplomato-a-all-80-tertianum-delemont"
+          "infirmier-ere-diplome-e-a-80-tertianum-delemont"
         ],
         "en": [
           "infirmier-ere-diplome-e-a-80-tertianum-delemont"
@@ -19287,7 +19275,7 @@
         "it": "specialista-ristorante-20-60-tertianum-solothurn",
         "en": "restaurant-specialist-20-60-tertianum-solothurn",
         "de": "restaurantfachmann-frau-20-60-tertianum-solothurn",
-        "fr": "restaurantfachmann-frau-20-60-tertianum-solothurn"
+        "fr": "specialiste-en-restauration-20-60-tertianum-solothurn"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -19330,9 +19318,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "restaurantfachmann-frau-20-60-tertianum-solothurn",
-        "specialiste-des-restaurants-20-60-tertianum-solothurn",
-        "specialiste-en-restauration-20-60-tertianum-solothurn",
-        "specialista-ristorante-20-60-tertianum-solothurn"
+        "specialiste-des-restaurants-20-60-tertianum-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19343,7 +19329,6 @@
         ],
         "fr": [
           "specialiste-des-restaurants-20-60-tertianum-solothurn",
-          "specialiste-en-restauration-20-60-tertianum-solothurn",
           "restaurantfachmann-frau-20-60-tertianum-solothurn"
         ]
       },

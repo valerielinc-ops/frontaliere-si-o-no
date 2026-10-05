@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "med-ipersonal-d44f1b296b10",
-      "slug": "heizungsinstallateur-region-zumikon-ipersonal-ag-zumikon-zurich",
+      "slug": "installatore-di-riscaldamento-regione-di-zumikon-ipersonal-ag-zumikon-zurich",
       "slugByLocale": {
         "de": "heizungsinstallateur-region-zumikon-ipersonal-ag-zumikon-zurich",
-        "it": "heizungsinstallateur-region-zumikon-ipersonal-ag-zumikon-zurich",
-        "en": "heizungsinstallateur-region-zumikon-ipersonal-ag-zumikon-zurich",
-        "fr": "heizungsinstallateur-region-zumikon-ipersonal-ag-zumikon-zurich"
+        "it": "installatore-di-riscaldamento-regione-di-zumikon-ipersonal-ag-zumikon-zurich",
+        "en": "heating-installer-zumikon-region-ipersonal-ag-zumikon-zurich",
+        "fr": "installateur-de-chauffage-region-de-zumikon-ipersonal-ag-zumikon-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -64,16 +64,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:33:44.638Z"
+      "firstSeenAt": "2026-10-05T09:33:44.638Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-region-zumikon-ipersonal-ag-zumikon-zurich"
+        ],
+        "en": [
+          "heizungsinstallateur-region-zumikon-ipersonal-ag-zumikon-zurich"
+        ],
+        "fr": [
+          "heizungsinstallateur-region-zumikon-ipersonal-ag-zumikon-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-region-zumikon-ipersonal-ag-zumikon-zurich"
+      ]
     },
     {
       "id": "med-ipersonal-a0e1419ac585",
-      "slug": "automatiker-region-weisslingen-ipersonal-ag-weisslingen-zurich",
+      "slug": "automatico-regione-weisslingen-ipersonal-ag-weisslingen-zurich",
       "slugByLocale": {
         "de": "automatiker-region-weisslingen-ipersonal-ag-weisslingen-zurich",
-        "it": "automatiker-region-weisslingen-ipersonal-ag-weisslingen-zurich",
-        "en": "automatiker-region-weisslingen-ipersonal-ag-weisslingen-zurich",
-        "fr": "automatiker-region-weisslingen-ipersonal-ag-weisslingen-zurich"
+        "it": "automatico-regione-weisslingen-ipersonal-ag-weisslingen-zurich",
+        "en": "automatician-region-weisslingen-ipersonal-ag-weisslingen-zurich",
+        "fr": "automatique-region-weisslingen-ipersonal-ag-weisslingen-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -128,16 +142,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:33:44.337Z"
+      "firstSeenAt": "2026-10-05T09:33:44.337Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-region-weisslingen-ipersonal-ag-weisslingen-zurich"
+        ],
+        "en": [
+          "automatiker-region-weisslingen-ipersonal-ag-weisslingen-zurich"
+        ],
+        "fr": [
+          "automatiker-region-weisslingen-ipersonal-ag-weisslingen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-region-weisslingen-ipersonal-ag-weisslingen-zurich"
+      ]
     },
     {
       "id": "med-ipersonal-1c2c0a714923",
-      "slug": "immobilienbewerter-region-mannedorf-ipersonal-ag-mannedorf-zurich",
+      "slug": "valore-immobiliare-regione-mannedorf-ipersonal-ag-mannedorf-zurich",
       "slugByLocale": {
         "de": "immobilienbewerter-region-mannedorf-ipersonal-ag-mannedorf-zurich",
-        "it": "immobilienbewerter-region-mannedorf-ipersonal-ag-mannedorf-zurich",
-        "en": "immobilienbewerter-region-mannedorf-ipersonal-ag-mannedorf-zurich",
-        "fr": "immobilienbewerter-region-mannedorf-ipersonal-ag-mannedorf-zurich"
+        "it": "valore-immobiliare-regione-mannedorf-ipersonal-ag-mannedorf-zurich",
+        "en": "real-estate-valuer-region-mannedorf-ipersonal-ag-mannedorf-zurich",
+        "fr": "valeurur-immobilier-region-mannedorf-ipersonal-ag-mannedorf-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -192,16 +220,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:33:44.036Z"
+      "firstSeenAt": "2026-10-05T09:33:44.036Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienbewerter-region-mannedorf-ipersonal-ag-mannedorf-zurich"
+        ],
+        "en": [
+          "immobilienbewerter-region-mannedorf-ipersonal-ag-mannedorf-zurich"
+        ],
+        "fr": [
+          "immobilienbewerter-region-mannedorf-ipersonal-ag-mannedorf-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienbewerter-region-mannedorf-ipersonal-ag-mannedorf-zurich"
+      ]
     },
     {
       "id": "med-ipersonal-392c2ea73c85",
-      "slug": "produktionsmechaniker-betriebs-mechaniker-region-mauensee-ipersonal-ag-mauensee-luzern",
+      "slug": "meccanico-di-produzione-meccanico-aziendale-regione-mauensee-ipersonal-ag-mauensee-luzern",
       "slugByLocale": {
         "de": "produktionsmechaniker-betriebs-mechaniker-region-mauensee-ipersonal-ag-mauensee-luzern",
-        "it": "produktionsmechaniker-betriebs-mechaniker-region-mauensee-ipersonal-ag-mauensee-luzern",
-        "en": "produktionsmechaniker-betriebs-mechaniker-region-mauensee-ipersonal-ag-mauensee-luzern",
-        "fr": "produktionsmechaniker-betriebs-mechaniker-region-mauensee-ipersonal-ag-mauensee-luzern"
+        "it": "meccanico-di-produzione-meccanico-aziendale-regione-mauensee-ipersonal-ag-mauensee-luzern",
+        "en": "production-mechanic-company-mechanic-region-mauensee-ipersonal-ag-mauensee-luzern",
+        "fr": "mecanicien-de-production-mecanicien-de-l-entreprise-region-mauessee-ipersonal-ag-mauensee-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -256,16 +298,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:33:43.735Z"
+      "firstSeenAt": "2026-10-05T09:33:43.735Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "produktionsmechaniker-betriebs-mechaniker-region-mauensee-ipersonal-ag-mauensee-luzern"
+        ],
+        "en": [
+          "produktionsmechaniker-betriebs-mechaniker-region-mauensee-ipersonal-ag-mauensee-luzern"
+        ],
+        "fr": [
+          "produktionsmechaniker-betriebs-mechaniker-region-mauensee-ipersonal-ag-mauensee-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "produktionsmechaniker-betriebs-mechaniker-region-mauensee-ipersonal-ag-mauensee-luzern"
+      ]
     },
     {
       "id": "med-ipersonal-ddde6e1baaff",
-      "slug": "automatiker-region-wadenswil-ipersonal-ag-wadenswil-zurich",
+      "slug": "automatico-regione-wadenswil-ipersonal-ag-wadenswil-zurich",
       "slugByLocale": {
         "de": "automatiker-region-wadenswil-ipersonal-ag-wadenswil-zurich",
-        "it": "automatiker-region-wadenswil-ipersonal-ag-wadenswil-zurich",
-        "en": "automatiker-region-wadenswil-ipersonal-ag-wadenswil-zurich",
-        "fr": "automatiker-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+        "it": "automatico-regione-wadenswil-ipersonal-ag-wadenswil-zurich",
+        "en": "automatics-region-wadenswil-ipersonal-ag-wadenswil-zurich",
+        "fr": "automatique-region-wadenswil-ipersonal-ag-wadenswil-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -320,16 +376,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:33:43.434Z"
+      "firstSeenAt": "2026-10-05T09:33:43.434Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+        ],
+        "en": [
+          "automatiker-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+        ],
+        "fr": [
+          "automatiker-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+      ]
     },
     {
       "id": "med-ipersonal-79f8e8eba600",
-      "slug": "progettista-elettrico-a-region-flawil-ipersonal-ag-flawil",
+      "slug": "progettista-elettrico-a-region-flawil-ipersonal-ag-flawil-st-gallen",
       "slugByLocale": {
         "de": "elektroplaner-region-flawil-ipersonal-ag-flawil-st-gallen",
-        "it": "progettista-elettrico-a-region-flawil-ipersonal-ag-flawil",
-        "en": "elektroplaner-region-flawil-ipersonal-ag-flawil-st-gallen",
-        "fr": "elektroplaner-region-flawil-ipersonal-ag-flawil-st-gallen"
+        "it": "progettista-elettrico-a-region-flawil-ipersonal-ag-flawil-st-gallen",
+        "en": "electrical-planner-region-flawil-ipersonal-ag-flawil-st-gallen",
+        "fr": "planificateur-trice-electrique-region-flawil-ipersonal-ag-flawil-st-gallen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -373,11 +443,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroplaner-region-flawil-ipersonal-ag-flawil-st-gallen",
+          "progettista-elettrico-a-region-flawil-ipersonal-ag-flawil"
+        ],
+        "en": [
+          "elektroplaner-region-flawil-ipersonal-ag-flawil-st-gallen"
+        ],
+        "fr": [
           "elektroplaner-region-flawil-ipersonal-ag-flawil-st-gallen"
         ]
       },
       "previousSlugs": [
-        "elektroplaner-region-flawil-ipersonal-ag-flawil-st-gallen"
+        "elektroplaner-region-flawil-ipersonal-ag-flawil-st-gallen",
+        "progettista-elettrico-a-region-flawil-ipersonal-ag-flawil"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -396,12 +474,12 @@
     },
     {
       "id": "med-ipersonal-4d44cb586162",
-      "slug": "automatiker-region-freienbach-ipersonal-ag-freienbach-zurich",
+      "slug": "automaticians-regione-di-freienbach-ipersonal-ag-freienbach-zurich",
       "slugByLocale": {
         "de": "automatiker-region-freienbach-ipersonal-ag-freienbach-zurich",
-        "it": "automatiker-region-freienbach-ipersonal-ag-freienbach-zurich",
-        "en": "automatiker-region-freienbach-ipersonal-ag-freienbach-zurich",
-        "fr": "automatiker-region-freienbach-ipersonal-ag-freienbach-zurich"
+        "it": "automaticians-regione-di-freienbach-ipersonal-ag-freienbach-zurich",
+        "en": "automaticians-freienbach-region-ipersonal-ag-freienbach-zurich",
+        "fr": "automatique-region-de-freienbach-ipersonal-ag-freienbach-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -455,16 +533,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:33:42.832Z"
+      "firstSeenAt": "2026-10-05T09:33:42.832Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-region-freienbach-ipersonal-ag-freienbach-zurich"
+        ],
+        "en": [
+          "automatiker-region-freienbach-ipersonal-ag-freienbach-zurich"
+        ],
+        "fr": [
+          "automatiker-region-freienbach-ipersonal-ag-freienbach-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-region-freienbach-ipersonal-ag-freienbach-zurich"
+      ]
     },
     {
       "id": "med-ipersonal-5946565232ee",
-      "slug": "immobilienvermarkter-region-bachenbulach-ipersonal-ag-bachenbulach-zurich",
+      "slug": "mercato-immobiliare-regione-di-bachenbulach-ipersonal-ag-bachenbulach-zurich",
       "slugByLocale": {
         "de": "immobilienvermarkter-region-bachenbulach-ipersonal-ag-bachenbulach-zurich",
-        "it": "immobilienvermarkter-region-bachenbulach-ipersonal-ag-bachenbulach-zurich",
-        "en": "immobilienvermarkter-region-bachenbulach-ipersonal-ag-bachenbulach-zurich",
-        "fr": "immobilienvermarkter-region-bachenbulach-ipersonal-ag-bachenbulach-zurich"
+        "it": "mercato-immobiliare-regione-di-bachenbulach-ipersonal-ag-bachenbulach-zurich",
+        "en": "real-estate-marketer-bachenbulach-region-ipersonal-ag-bachenbulach-zurich",
+        "fr": "marche-immobilier-region-de-bachenbulach-ipersonal-ag-bachenbulach-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -519,16 +611,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:33:42.531Z"
+      "firstSeenAt": "2026-10-05T09:33:42.531Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienvermarkter-region-bachenbulach-ipersonal-ag-bachenbulach-zurich"
+        ],
+        "en": [
+          "immobilienvermarkter-region-bachenbulach-ipersonal-ag-bachenbulach-zurich"
+        ],
+        "fr": [
+          "immobilienvermarkter-region-bachenbulach-ipersonal-ag-bachenbulach-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienvermarkter-region-bachenbulach-ipersonal-ag-bachenbulach-zurich"
+      ]
     },
     {
       "id": "med-ipersonal-906e645e23a1",
-      "slug": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-mels-ipersonal-ag-mels-st-gallen",
+      "slug": "camion-autista-silo-chauffeur-cat-c-e-da-dietikon-m-f-d-regione-mels-ipersonal-ag-mels-st-gallen",
       "slugByLocale": {
         "de": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-mels-ipersonal-ag-mels-st-gallen",
-        "it": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-mels-ipersonal-ag-mels-st-gallen",
-        "en": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-mels-ipersonal-ag-mels-st-gallen",
-        "fr": "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-mels-ipersonal-ag-mels-st-gallen"
+        "it": "camion-autista-silo-chauffeur-cat-c-e-da-dietikon-m-f-d-regione-mels-ipersonal-ag-mels-st-gallen",
+        "en": "truck-chauffeur-silo-chauffeur-cat-c-e-from-dietikon-m-f-d-region-mels-ipersonal-ag-mels-st-gallen",
+        "fr": "chauffeur-de-camion-silo-chauffeur-cat-c-e-de-dietikon-h-f-d-region-mels-ipersonal-ag-mels-st-gallen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -583,16 +689,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:33:42.230Z"
+      "firstSeenAt": "2026-10-05T09:33:42.230Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-mels-ipersonal-ag-mels-st-gallen"
+        ],
+        "en": [
+          "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-mels-ipersonal-ag-mels-st-gallen"
+        ],
+        "fr": [
+          "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-mels-ipersonal-ag-mels-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "lastwagenchauffeur-silo-chauffeur-kat-c-e-ab-dietikon-m-w-d-region-mels-ipersonal-ag-mels-st-gallen"
+      ]
     },
     {
       "id": "med-ipersonal-0d1dfdafc248",
-      "slug": "fachmann-gesundheit-region-schotz-ipersonal-ag-schotz-luzern",
+      "slug": "specialista-della-salute-regione-di-schotz-ipersonal-ag-schotz-luzern",
       "slugByLocale": {
         "de": "fachmann-gesundheit-region-schotz-ipersonal-ag-schotz-luzern",
-        "it": "fachmann-gesundheit-region-schotz-ipersonal-ag-schotz-luzern",
-        "en": "fachmann-gesundheit-region-schotz-ipersonal-ag-schotz-luzern",
-        "fr": "fachmann-gesundheit-region-schotz-ipersonal-ag-schotz-luzern"
+        "it": "specialista-della-salute-regione-di-schotz-ipersonal-ag-schotz-luzern",
+        "en": "health-specialist-schotz-region-ipersonal-ag-schotz-luzern",
+        "fr": "specialiste-de-la-sante-region-de-schotz-ipersonal-ag-schotz-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -647,16 +767,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:33:41.928Z"
+      "firstSeenAt": "2026-10-05T09:33:41.928Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmann-gesundheit-region-schotz-ipersonal-ag-schotz-luzern"
+        ],
+        "en": [
+          "fachmann-gesundheit-region-schotz-ipersonal-ag-schotz-luzern"
+        ],
+        "fr": [
+          "fachmann-gesundheit-region-schotz-ipersonal-ag-schotz-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "fachmann-gesundheit-region-schotz-ipersonal-ag-schotz-luzern"
+      ]
     },
     {
       "id": "med-ipersonal-1012aaa823b1",
-      "slug": "anlagenfuhrer-sussmittel-produktion-w-m-d-region-weisslingen-ipersonal-ag-weisslingen-zurich",
+      "slug": "impianti-di-produzione-di-dolcificanti-m-f-d-regione-weisslingen-ipersonal-ag-weisslingen-zurich",
       "slugByLocale": {
         "de": "anlagenfuhrer-sussmittel-produktion-w-m-d-region-weisslingen-ipersonal-ag-weisslingen-zurich",
-        "it": "anlagenfuhrer-sussmittel-produktion-w-m-d-region-weisslingen-ipersonal-ag-weisslingen-zurich",
-        "en": "anlagenfuhrer-sussmittel-produktion-w-m-d-region-weisslingen-ipersonal-ag-weisslingen-zurich",
-        "fr": "anlagenfuhrer-sussmittel-produktion-w-m-d-region-weisslingen-ipersonal-ag-weisslingen-zurich"
+        "it": "impianti-di-produzione-di-dolcificanti-m-f-d-regione-weisslingen-ipersonal-ag-weisslingen-zurich",
+        "en": "plant-manager-sweetener-production-m-f-d-weisslingen-region-ipersonal-ag-weisslingen-zurich",
+        "fr": "directeur-de-l-usine-production-d-edulcorants-h-f-d-ipersonal-ag-weisslingen-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -711,16 +845,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:33:41.627Z"
+      "firstSeenAt": "2026-10-05T09:33:41.627Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-sussmittel-produktion-w-m-d-region-weisslingen-ipersonal-ag-weisslingen-zurich"
+        ],
+        "en": [
+          "anlagenfuhrer-sussmittel-produktion-w-m-d-region-weisslingen-ipersonal-ag-weisslingen-zurich"
+        ],
+        "fr": [
+          "anlagenfuhrer-sussmittel-produktion-w-m-d-region-weisslingen-ipersonal-ag-weisslingen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-sussmittel-produktion-w-m-d-region-weisslingen-ipersonal-ag-weisslingen-zurich"
+      ]
     },
     {
       "id": "med-ipersonal-3cad2c52ef28",
-      "slug": "reifenpraktiker-region-grolley-ipersonal-ag-grolley-freiburg",
+      "slug": "praticanti-pneumatici-regione-grolley-ipersonal-ag-grolley-freiburg",
       "slugByLocale": {
         "de": "reifenpraktiker-region-grolley-ipersonal-ag-grolley-freiburg",
-        "it": "reifenpraktiker-region-grolley-ipersonal-ag-grolley-freiburg",
-        "en": "reifenpraktiker-region-grolley-ipersonal-ag-grolley-freiburg",
-        "fr": "reifenpraktiker-region-grolley-ipersonal-ag-grolley-freiburg"
+        "it": "praticanti-pneumatici-regione-grolley-ipersonal-ag-grolley-freiburg",
+        "en": "tyre-practitioners-region-grolley-ipersonal-ag-grolley-freiburg",
+        "fr": "pratiques-du-pneumatique-region-grolley-ipersonal-ag-grolley-freiburg"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -774,7 +922,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:33:41.325Z"
+      "firstSeenAt": "2026-10-05T09:33:41.325Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reifenpraktiker-region-grolley-ipersonal-ag-grolley-freiburg"
+        ],
+        "en": [
+          "reifenpraktiker-region-grolley-ipersonal-ag-grolley-freiburg"
+        ],
+        "fr": [
+          "reifenpraktiker-region-grolley-ipersonal-ag-grolley-freiburg"
+        ]
+      },
+      "previousSlugs": [
+        "reifenpraktiker-region-grolley-ipersonal-ag-grolley-freiburg"
+      ]
     }
   ]
 }
