@@ -59,6 +59,7 @@ import {
   loadJobIndex,
   formatDayIt,
   buildCarouselCaption,
+  buildCarouselSlideCopy,
 } from './lib/social-post-utils.mjs';
 import {
   instagramUrl,
@@ -203,7 +204,8 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
     return { title, statLabel: 'Visualizzazioni', statValue: String(p.views), footerNote: job?.location || '' };
   });
   const captionPicks = picks.map((p, i) => ({ title: slideItems[i].title, statValue: `${p.views} visualizzazioni` }));
-  const caption = buildCarouselCaption({ kind, dayLabel: formatDayIt(day), picks: captionPicks });
+  const dayLabel = formatDayIt(day);
+  const caption = buildCarouselCaption({ kind, dayLabel, picks: captionPicks });
 
   console.log(`\n─── ${kind} carousel (${picks.length} slides) ───`);
   console.log(caption);
@@ -216,12 +218,7 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
     return;
   }
 
-  const slides = await renderCarouselSlides({
-    kicker: kind === 'job' ? 'LAVORI PIÙ CLICCATI' : 'ARTICOLI PIÙ LETTI',
-    title: kind === 'job' ? 'I lavori più cliccati' : 'Gli articoli più letti',
-    subtitle: formatDayIt(day),
-    items: slideItems,
-  });
+  const slides = await renderCarouselSlides(buildCarouselSlideCopy({ kind, dayLabel, items: slideItems }));
   if (!slides) {
     console.log('⚠️  card fonts unavailable (public/fonts) — skipping (soft)');
     return;
@@ -293,12 +290,7 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
     return;
   }
 
-  const slides = await renderCarouselSlides({
-    kicker: 'CLASSIFICA DOGANE',
-    title: 'Le dogane più veloci',
-    subtitle: dayLabel,
-    items: slideItems,
-  });
+  const slides = await renderCarouselSlides(buildCarouselSlideCopy({ kind: 'border', dayLabel, items: slideItems }));
   if (!slides) {
     console.log('⚠️  card fonts unavailable (public/fonts) — skipping (soft)');
     return;

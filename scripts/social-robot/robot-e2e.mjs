@@ -36,6 +36,7 @@ import { FLOWS, RobotError, captureDiagnostics, stepTracker } from './lib/flows.
 import { runRobot } from './lib/robot.mjs';
 
 const CAPTION = '📰 I 5 articoli più letti di ieri su frontaliereticino.ch\n\n1. Uno — 10 visualizzazioni\n2. Due — 8 visualizzazioni\n\n#frontalieri #ticino';
+const normalized = (text) => String(text || '').replace(/\s+/g, ' ').trim();
 
 const page = (title, body, script = '') => `<!doctype html><html lang="it"><head><meta charset="utf-8"><title>${title}</title></head><body>${body}<script>${script}</script></body></html>`;
 
@@ -82,7 +83,16 @@ ${createMenu ? '' : 'bindDialog();'}`);
 
 const instagramLogin = () => page('Login • Instagram', '<form><input name="username" aria-label="Username"><input name="password" type="password" aria-label="Password"><button>Accedi</button></form>');
 
-function tiktokPage({ accept = 'video/*', captcha = false, captchaAfterPost = false, afterPost = 'redirect' } = {}) {
+function tiktokPage({
+  accept = 'video/*',
+  captcha = false,
+  captchaAfterPost = false,
+  afterPost = 'redirect',
+  cookieBanner = false,
+  contentChecks = false,
+  unknownDialog = false,
+  prefilledCaption = 'video',
+} = {}) {
   const after = {
     redirect: "location.href = '/tiktokstudio/content';",
     // The POST answers 200 and the page stays where it is: no toast, no redirect.
@@ -99,14 +109,29 @@ function tiktokPage({ accept = 'video/*', captcha = false, captchaAfterPost = fa
     <div data-e2e="caption_container"><div class="public-DraftEditor-content" contenteditable="true" role="combobox" id="caption"></div><div id="hashtag-suggestions" role="listbox" hidden><div role="option">different-suggestion</div></div></div>
     <button data-e2e="post_video_button" id="post" disabled>Post</button>
   </div>
+  ${cookieBanner ? '<tiktok-cookie-banner id="cookie-banner" role="banner" style="position:fixed;left:0;right:0;bottom:0;z-index:20;background:#0aa;padding:16px"><h2>Consentire i cookie da TikTok su questo browser?</h2><button id="cookie-decline">Rifiuta i cookie opzionali</button><button id="cookie-accept">Consenti tutti</button></tiktok-cookie-banner>' : ''}
+  ${contentChecks ? '<div id="content-checks" role="dialog" hidden style="position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.4);padding:25% 20%"><h2>Attivare i controlli automatici dei contenuti?</h2><p>Esamineremo automaticamente il tuo video per escludere problemi con il copyright e altre possibili violazioni.</p><label><input type="checkbox" checked>Controllo a campione dei contenuti</label><button id="content-cancel">Annulla</button><button id="content-activate">Attiva</button><button id="content-close" aria-label="Close">×</button></div>' : ''}
+  ${unknownDialog ? '<div id="unknown-dialog" role="dialog" hidden style="position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.4);padding:25% 20%"><h2>Conferma il tuo account creator</h2><button id="unknown-continue">Continua</button></div>' : ''}
 </main>`, `
 const $ = (id) => document.getElementById(id);
 let count = 0;
 let popupEscapes = 0;
+let contentAction = 'none';
+let cookieAction = 'none';
+$('cookie-decline')?.addEventListener('click', () => { cookieAction = 'decline'; $('cookie-banner').hidden = true; });
+$('cookie-accept')?.addEventListener('click', () => { cookieAction = 'accept'; $('cookie-banner').hidden = true; });
+$('content-cancel')?.addEventListener('click', () => { contentAction = 'cancel'; $('content-checks').hidden = true; });
+$('content-activate')?.addEventListener('click', () => { contentAction = 'activate'; $('content-checks').hidden = true; });
+$('content-close')?.addEventListener('click', () => { contentAction = 'close'; $('content-checks').hidden = true; });
 $('file').onchange = () => {
   count = $('file').files.length;
   $('processing').hidden = false;
-  setTimeout(() => { $('editor').hidden = false; $('caption').innerText = 'carousel.mp4'; }, 400);
+  setTimeout(() => {
+    $('editor').hidden = false;
+    $('caption').innerText = ${JSON.stringify(prefilledCaption)};
+    if (${contentChecks}) $('content-checks').hidden = false;
+    if (${unknownDialog}) $('unknown-dialog').hidden = false;
+  }, 400);
   setTimeout(() => { $('processing').hidden = true; $('post').disabled = false; }, 1200);
 };
 $('caption').addEventListener('input', () => {
@@ -118,7 +143,7 @@ $('caption').addEventListener('keydown', (e) => {
   if (e.key === ' ') $('hashtag-suggestions').hidden = true;
 });
 $('post').onclick = async () => {
-  await fetch('/api/tt/post', { method: 'POST', body: JSON.stringify({ caption: $('caption').innerText, files: count, popupEscapes }) });
+  await fetch('/api/tt/post', { method: 'POST', body: JSON.stringify({ caption: $('caption').innerText, files: count, popupEscapes, contentAction, cookieAction }) });
   ${captchaAfterPost
     ? "document.querySelector('main').insertAdjacentHTML('afterbegin', '<div id=\"captcha-verify-container\"><p>Drag the slider to fit the puzzle</p></div>');"
     : after}
@@ -158,6 +183,8 @@ function fakePlatforms() {
       case '/tt-captcha-after-post/tiktokstudio/upload': return send(200, tiktokPage({ captchaAfterPost: true }));
       case '/tt-silent/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'stay' }));
       case '/tt-toast/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'toast' }));
+      case '/tt-interstitials/tiktokstudio/upload': return send(200, tiktokPage({ cookieBanner: true, contentChecks: true }));
+      case '/tt-unknown/tiktokstudio/upload': return send(200, tiktokPage({ unknownDialog: true }));
       case '/tiktokstudio/content': return send(200, page('Manage posts', '<h1>Manage your posts</h1>'));
       default: return send(404, 'not found', 'text/plain');
     }
@@ -180,7 +207,7 @@ async function main() {
     writeFileSync(f, Buffer.from([0xff, 0xd8, 0xff, 0xd9]));
     return f;
   });
-  const video = path.join(work, 'carousel.mp4');
+  const video = path.join(work, 'article-2026-10-03.mp4');
   writeFileSync(video, Buffer.from('fake-mp4'));
   const videoFiles = [video];
   const human = { pause: () => new Promise((r) => setTimeout(r, 30)), typeDelay: () => 0 };
@@ -255,6 +282,18 @@ async function main() {
       `the persistent "Manage your posts" navigation is no confirmation: confirmation-missing, pressed (${r.result?.status || r.error?.errorClass}, pressed=${r.error?.pressed})`);
     r = await run('tiktok', `${base}/tt-toast/tiktokstudio/upload`, { dryRun: false, label: 'tt-toast' });
     check(r.result?.status === 'published' && /has been published/i.test(r.result.evidence), `the success toast confirms without a redirect (${r.result?.evidence || r.error?.message})`);
+
+    const beforeInterstitials = state.ttPosts.length;
+    r = await run('tiktok', `${base}/tt-interstitials/tiktokstudio/upload`, { dryRun: false, label: 'tt-interstitials' });
+    check(r.result?.status === 'published', `known interstitials are dismissed before caption and publish (${r.result?.evidence || r.error?.message})`);
+    check(state.ttPosts.length === beforeInterstitials + 1, 'the known-interstitial post reached the fake platform');
+    check(normalized(state.ttPosts.at(-1).caption) === normalized(CAPTION), 'the pre-filled TikTok caption was replaced exactly, hashtags included');
+    check(state.ttPosts.at(-1).contentAction === 'cancel' && state.ttPosts.at(-1).cookieAction === 'decline', 'known interstitials used only safe actions');
+
+    r = await run('tiktok', `${base}/tt-unknown/tiktokstudio/upload`, { dryRun: false, label: 'tt-unknown' });
+    check(r.error?.errorClass === 'interstitial-unknown', `an unknown dialog stops without a guessed click (${r.error?.errorClass || r.error?.message})`);
+    check(state.ttPosts.length === beforeInterstitials + 1, 'the unknown-dialog scenario never posted');
+    check(existsSync(path.join(r.dir, 'interstitial-unknown.png')), 'the unknown dialog leaves a dedicated screenshot');
 
     console.log('runRobot, persistent profile');
     const entry = buildQueueEntry({
