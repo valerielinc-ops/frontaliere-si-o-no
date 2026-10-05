@@ -351,7 +351,10 @@ const buildArticleBodyBlocks = (text: string): string[] => {
  // Single `#` is rare in body markdown and would collide with the section's own <h2> wrapper
  // (see articleBodyHtml in ogPagesPlugin.ts), so clamp # and ## to the same h3 level.
  const level = Math.min(Math.max(heading[1].length, 2) + 1, 4);
- out.push(`<h${level}>${renderArticleInlineMarkup(heading[2])}</h${level}>`);
+ const sourceLevelAttr = heading[1].length >= 3
+  ? ` data-source-heading-level="${heading[1].length}"`
+  : '';
+ out.push(`<h${level}${sourceLevelAttr}>${renderArticleInlineMarkup(heading[2])}</h${level}>`);
  i++;
  continue;
  }
@@ -651,6 +654,22 @@ export function articleBodySectionLabel(locale: string, n: number): string {
 export type ArticleDerivedSection = { heading: string; html: string };
 
 /**
+ * Body markdown headings are rendered one level below their section wrapper.
+ * A body can still start at `###`, though, which otherwise produces `<h4>`
+ * immediately after the wrapper's `<h2>`. Clamp skipped levels in the final
+ * static markup while keeping the section content and styling unchanged.
+ */
+function normalizeHeadingOrder(html: string): string {
+ let previousLevel = 1;
+ return html.replace(/<h([2-6])([^>]*)>([\s\S]*?)<\/h\1>/g, (_match, rawLevel, attrs, body) => {
+ const requestedLevel = Number(rawLevel);
+ const level = Math.min(requestedLevel, previousLevel + 1);
+ previousLevel = level;
+ return `<h${level}${attrs}>${body}</h${level}>`;
+ });
+}
+
+/**
  * Renders derived article sections, emitting each distinct heading as an <h2>
  * only on its FIRST occurrence. bodyN sections with n >= 3 all share the same
  * generic positional label, so long articles repeated `<h2>Punti chiave</h2>`
@@ -668,7 +687,7 @@ export function renderArticleDerivedSectionsHtml(
  const sectionCls = opts.sectionClass ? ` class="${opts.sectionClass}"` : '';
  const headingCls = opts.headingClass ? ` class="${opts.headingClass}"` : '';
  const seen = new Set<string>();
- return sections
+ const html = sections
  .map((section) => {
  if (seen.has(section.heading)) {
  return `<section${sectionCls} aria-label="${esc(section.heading)}">${section.html}</section>`;
@@ -677,4 +696,5 @@ export function renderArticleDerivedSectionsHtml(
  return `<section${sectionCls}><h2${headingCls}>${esc(section.heading)}</h2>${section.html}</section>`;
  })
  .join('');
+ return normalizeHeadingOrder(html);
 }
