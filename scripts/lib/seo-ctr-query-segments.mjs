@@ -133,9 +133,55 @@ const JOB_SET = new Set(JOB_TOKENS);
 
 const OPERATOR_RE = new RegExp(`(?:^|[\\s(])-?(?:${SEARCH_OPERATOR_NAMES.join('|')}):\\S`, 'u');
 // Virgolette usate da operatore: una frase esatta combinata con un'esclusione
-// (`"x" -y`) o con un OR booleano. Le virgolette da sole restano dentro.
-const QUOTED_WITH_OPERATOR_RE = /"[^"]+"/u;
-const EXCLUSION_OR_BOOLEAN_RE = /(?:^|\s)-[^\s-]|\s(?:OR|\|)\s/u;
+// (`"x" -y`) o con un booleano (`"x" OR y`, `AND`, `|`). Le virgolette da sole
+// restano dentro.
+const EXCLUSION_OR_BOOLEAN_RE = /(?:^|\s)-[^\s-]|\s(?:OR|AND|\|)\s/u;
+
+/**
+ * Le virgolette che aprono o chiudono una frase esatta: dritte e tipografiche
+ * (it/de/en). Aperte e chiuse si accoppiano in ordine, senza distinguere il
+ * verso: chi scrive «„x“» o «“x”» intende la stessa frase.
+ */
+export const PHRASE_QUOTES = Object.freeze(['"', '“', '”', '„', '‟']);
+const PHRASE_QUOTE_SET = new Set(PHRASE_QUOTES);
+// Segnaposto di una frase quotata nel testo «fuori dalle virgolette»: un solo
+// carattere non spazio, cosi' `intitle:"x"` resta un operatore (`intitle:\S`)
+// e `"x" OR "y"` resta un booleano fra due termini.
+const PHRASE_PLACEHOLDER = '￼';
+
+/**
+ * Separa una query nelle frasi quotate CHIUSE e nel testo fuori dalle
+ * virgolette. Un operatore (`site:`, `-x`, `OR`…) dentro una frase esatta e'
+ * testo cercato alla lettera, non un operatore: `"lavoro OR frontaliere"` e'
+ * una domanda di lavoro. Una virgoletta rimasta aperta chiude la query: il
+ * resto e' trattato come frase (nel dubbio la query resta dentro), ma non
+ * conta come frase esatta.
+ *
+ * @param {string} query
+ * @returns {{ outside: string, phrases: string[] }}
+ */
+export function splitQuotedPhrases(query) {
+  const raw = String(query || '');
+  let outside = '';
+  let current = null;
+  const phrases = [];
+  for (const char of raw) {
+    if (PHRASE_QUOTE_SET.has(char)) {
+      if (current === null) {
+        current = '';
+      } else {
+        phrases.push(current);
+        outside += PHRASE_PLACEHOLDER;
+        current = null;
+      }
+    } else if (current === null) {
+      outside += char;
+    } else {
+      current += char;
+    }
+  }
+  return { outside, phrases: phrases.filter((phrase) => phrase.trim() !== '') };
+}
 
 function tokens(query) {
   return String(query || '')
@@ -160,8 +206,10 @@ function tokens(query) {
 export function classifyCtrQuery(query) {
   const raw = String(query || '');
   const lower = raw.toLowerCase();
-  if (OPERATOR_RE.test(lower)) return 'operator';
-  if (QUOTED_WITH_OPERATOR_RE.test(raw) && EXCLUSION_OR_BOOLEAN_RE.test(raw)) return 'operator';
+  // Gli operatori si cercano solo fuori dalle frasi quotate.
+  const { outside, phrases } = splitQuotedPhrases(raw);
+  if (OPERATOR_RE.test(outside.toLowerCase())) return 'operator';
+  if (phrases.length > 0 && EXCLUSION_OR_BOOLEAN_RE.test(outside)) return 'operator';
   const words = tokens(raw);
   if (!words.some((word) => PROMO_SET.has(word))) return 'job';
   if (words.some((word) => JOB_SET.has(word))) return 'job';
@@ -196,7 +244,9 @@ function escapeRe2(text) {
 export function segmentPrefilterRegex(segments = EXCLUDED_CTR_SEGMENTS) {
   const applied = normalizeSegments(segments);
   const alternatives = [];
-  if (applied.includes('operator')) alternatives.push(...SEARCH_OPERATOR_NAMES.map((name) => `${name}:`), '"');
+  // Un operatore riconosciuto contiene `<nome>:` oppure una frase quotata:
+  // ogni virgoletta di PHRASE_QUOTES, non solo quella dritta.
+  if (applied.includes('operator')) alternatives.push(...SEARCH_OPERATOR_NAMES.map((name) => `${name}:`), ...PHRASE_QUOTES);
   if (applied.includes('promo')) alternatives.push(...PROMO_TOKENS);
   if (alternatives.length === 0) throw new Error('segmentPrefilterRegex: nessun segmento da escludere');
   return `(?i)(${alternatives.map(escapeRe2).join('|')})`;
@@ -219,11 +269,13 @@ export function ctrMeasureVersion() {
   const material = JSON.stringify({
     classify: codeOnly(classifyCtrQuery.toString()),
     tokens: codeOnly(tokens.toString()),
+    quotes: codeOnly(splitQuotedPhrases.toString()),
+    quoteChars: PHRASE_QUOTES,
     operators: SEARCH_OPERATOR_NAMES,
     promo: PROMO_TOKENS,
     job: JOB_TOKENS,
     phrases: JOB_PHRASES.map(String),
-    patterns: [OPERATOR_RE, QUOTED_WITH_OPERATOR_RE, EXCLUSION_OR_BOOLEAN_RE].map(String),
+    patterns: [OPERATOR_RE, EXCLUSION_OR_BOOLEAN_RE].map(String),
   });
   return `query-segmented-${createHash('sha256').update(material).digest('hex').slice(0, 12)}`;
 }

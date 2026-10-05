@@ -12,6 +12,8 @@ import {
   fetchSegmentedFamilyRows,
   LEGACY_CTR_MEASURE_VERSION,
   PROMO_TOKENS,
+  PHRASE_QUOTES,
+  splitQuotedPhrases,
 } from '../scripts/lib/seo-ctr-query-segments.mjs';
 import {
   aggregateFamilyRows,
@@ -52,6 +54,16 @@ const OPERATORS = [
   '"lavoro ticino" -indeed',
   'allinurl:lavoro svizzera',
   'filetype:pdf stipendi ticino',
+  // frase quotata + operatore fuori dalle virgolette, anche tipografiche
+  '"brillex" OR "lavoro"',
+  '"lavoro" AND ticino',
+  '"lavoro" | ticino',
+  '\u201Clavoro ticino\u201D -indeed',
+  '\u201Estellen tessin\u201C OR jobs',
+  'intitle:\u201Cofferte di lavoro\u201D ticino',
+  // un operatore dentro le virgolette e uno fuori: decide quello fuori
+  '"lavoro OR frontaliere" -indeed',
+  '"lavoro -site:example.ch" inurl:jobs',
 ];
 
 const JOB = [
@@ -73,6 +85,17 @@ const JOB = [
   'offre d\'emploie geneve', // refuso frequente
   'can you show me open roles at brillex switzerland',
   '',
+  // operatori DENTRO una frase esatta: testo cercato alla lettera
+  '"lavoro OR frontaliere"',
+  '"lavoro AND ticino"',
+  '"cerco lavoro | ticino"',
+  '"brillex -site:brillex.ch"',
+  '"site:example.ch lavoro ticino"',
+  '\u201Clavoro OR frontaliere\u201D',
+  '\u201Earbeit -stelle tessin\u201C',
+  '\u201Cinurl:lavoro ticino\u201D',
+  // virgoletta rimasta aperta: nel dubbio resta dentro
+  '"lavoro ticino -site:example.ch',
 ];
 
 describe('classifyCtrQuery', () => {
@@ -94,6 +117,28 @@ describe('classifyCtrQuery', () => {
     expect(classifyCtrQuery('brillex stellenangebote')).toBe('job');
     expect(classifyCtrQuery('brillex offertissima')).toBe('job');
     expect(classifyCtrQuery('promozione interna brillex')).toBe('promo');
+  });
+
+  it('un OR dentro una frase esatta non e\' un operatore (finding della review sulla PR 11661)', () => {
+    expect(classifyCtrQuery('"lavoro OR frontaliere"')).toBe('job');
+    expect(classifyCtrQuery('"lavoro OR frontaliere" -indeed')).toBe('operator');
+  });
+});
+
+describe('splitQuotedPhrases', () => {
+  it('separa le frasi chiuse dal testo fuori, con virgolette dritte e tipografiche', () => {
+    expect(splitQuotedPhrases('"a OR b" -c')).toEqual({ outside: '\uFFFC -c', phrases: ['a OR b'] });
+    expect(splitQuotedPhrases('\u201Ea b\u201C site:x')).toEqual({ outside: '\uFFFC site:x', phrases: ['a b'] });
+    expect(splitQuotedPhrases('\u201Ca\u201D OR \u201Cb\u201D').phrases).toEqual(['a', 'b']);
+  });
+
+  it('una virgoletta aperta nasconde il resto ma non conta come frase', () => {
+    expect(splitQuotedPhrases('x "y -site:z')).toEqual({ outside: 'x ', phrases: [] });
+  });
+
+  it('ogni virgoletta riconosciuta passa il prefiltro degli operatori', () => {
+    const re = new RegExp(segmentPrefilterRegex(['operator']).replace(/^\(\?i\)/, ''), 'iu');
+    for (const quote of PHRASE_QUOTES) expect(re.test(`${quote}x${quote} -y`)).toBe(true);
   });
 });
 
