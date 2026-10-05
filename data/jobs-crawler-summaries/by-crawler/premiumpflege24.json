@@ -1,7 +1,7 @@
 {
   "key": "premiumpflege24",
   "label": "PremiumPflege24 GmbH",
-  "generatedAt": "2026-10-04T21:41:48.730Z",
+  "generatedAt": "2026-10-05T09:36:31.092Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -9,21 +9,23 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 1,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8896,
-  "avgDurationMs": 8896,
+  "durationMs": 7805,
+  "avgDurationMs": 7805,
   "durationHistory": [
-    8896
+    7805
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "premiumpflege24-7a7d139b5aeb",
-      "slug": "jobs-in-der-seniorenbetreuung-premiumpflege24-schweiz-premiumpflege24-ch",
+      "slug": "lavori-nell-assistenza-agli-anziani-premiumpflege24-premiumpflege24-gmbh-schweiz",
       "company": "PremiumPflege24 GmbH",
       "companyKey": "premiumpflege24",
       "companyDomain": "premiumpflege24.ch",
@@ -33,7 +35,7 @@
       "url": "https://premiumpflege24.ch/job-registrierung/",
       "source": "PremiumPflege24 GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:41:40.268Z",
+      "crawledAt": "2026-10-05T09:36:23.331Z",
       "addressLocality": "Schweiz",
       "addressRegion": "",
       "addressCountry": "CH",
@@ -47,23 +49,25 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
+      "datePosted": "2025-10-30",
       "postedDate": "2025-10-30",
+      "postingDateSource": "reported",
       "applyUrl": "https://premiumpflege24.ch/job-registrierung/",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:26:12.841Z",
-      "_qualityScore": 78,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 21,
         "completeness": 19
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c4fcb136aa18ec88720bcc41e97d6fc087c8a557"
+  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
 }

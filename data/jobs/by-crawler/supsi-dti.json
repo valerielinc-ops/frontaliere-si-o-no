@@ -49,9 +49,9 @@
       },
       "slugByLocale": {
         "it": "assistente-risorse-umane-supsi-dti-manno",
-        "en": "assistente-risorse-umane-supsi-dti-manno",
-        "de": "assistente-risorse-umane-supsi-dti-manno",
-        "fr": "assistente-risorse-umane-supsi-dti-manno"
+        "en": "human-resources-assistant-supsi-dti-manno",
+        "de": "personalassistent-supsi-dti-manno",
+        "fr": "assistant-aux-ressources-humaines-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -112,22 +112,12 @@
           "assistente-risorse-umane-supsi-manno"
         ],
         "en": [
-          "human-resources-assistant-supsi-dti-manno",
           "human-resource-assistant-supsi-dti-manno"
-        ],
-        "de": [
-          "personalassistent-supsi-dti-manno"
-        ],
-        "fr": [
-          "assistant-aux-ressources-humaines-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
         "assistente-risorse-umane-supsi-manno",
-        "human-resources-assistant-supsi-dti-manno",
-        "personalassistent-supsi-dti-manno",
-        "human-resource-assistant-supsi-dti-manno",
-        "assistant-aux-ressources-humaines-supsi-dti-manno"
+        "human-resource-assistant-supsi-dti-manno"
       ],
       "datePosted": "",
       "postingDateSource": "unknown"
@@ -180,9 +170,9 @@
       },
       "slugByLocale": {
         "it": "generalista-risorse-umane-supsi-dti-lugano",
-        "en": "generalista-risorse-umane-supsi-dti-lugano",
+        "en": "generalist-human-resources-supsi-dti-lugano",
         "de": "generalista-risorse-umane-supsi-dti-lugano",
-        "fr": "generalista-risorse-umane-supsi-dti-lugano"
+        "fr": "generaliste-ressources-humaines-supsi-dti-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -243,18 +233,10 @@
       "previousSlugsByLocale": {
         "it": [
           "generalista-risorse-umane-supsi-lugano"
-        ],
-        "en": [
-          "generalist-human-resources-supsi-dti-lugano"
-        ],
-        "fr": [
-          "generaliste-ressources-humaines-supsi-dti-lugano"
         ]
       },
       "previousSlugs": [
-        "generalista-risorse-umane-supsi-lugano",
-        "generalist-human-resources-supsi-dti-lugano",
-        "generaliste-ressources-humaines-supsi-dti-lugano"
+        "generalista-risorse-umane-supsi-lugano"
       ],
       "datePosted": "",
       "postingDateSource": "unknown"
@@ -443,7 +425,7 @@
         "it": "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-dti-manno",
         "en": "senior-researcher-in-trustworthy-artificial-intelligence-supsi-dti-manno",
         "de": "senior-researcher-fur-zuverlassige-kunstliche-intelligenz-supsi-dti-manno",
-        "fr": "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-dti-manno"
+        "fr": "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -535,14 +517,10 @@
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno"
-        ],
-        "fr": [
-          "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno",
-        "chercheur-principal-en-intelligence-artificielle-fiable-supsi-dti-manno"
+        "ricercatore-senior-in-intelligenza-artificiale-affidabile-supsi-manno"
       ],
       "datePosted": "",
       "postingDateSource": "unknown"
@@ -738,9 +716,9 @@
       },
       "slugByLocale": {
         "it": "docente-professionista-in-ergoterapia-supsi-dti-manno",
-        "en": "docente-professionista-in-ergoterapia-supsi-dti-manno",
-        "de": "docente-professionista-in-ergoterapia-supsi-dti-manno",
-        "fr": "docente-professionista-in-ergoterapia-supsi-dti-manno"
+        "en": "professional-teacher-in-ergotherapy-supsi-dti-manno",
+        "de": "professioneller-lehrer-in-ergotherapie-supsi-dti-manno",
+        "fr": "professeur-professionnel-en-ergotherapie-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -798,22 +776,10 @@
           "professional-teacher-in-ergotherapy-supsi-dti-manno",
           "professioneller-lehrer-in-ergotherapie-supsi-dti-manno",
           "professeur-professionnel-en-ergotherapie-supsi-dti-manno"
-        ],
-        "en": [
-          "professional-teacher-in-ergotherapy-supsi-dti-manno"
-        ],
-        "de": [
-          "professioneller-lehrer-in-ergotherapie-supsi-dti-manno"
-        ],
-        "fr": [
-          "professeur-professionnel-en-ergotherapie-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "docente-professionista-in-ergoterapia-supsi-manno",
-        "professional-teacher-in-ergotherapy-supsi-dti-manno",
-        "professioneller-lehrer-in-ergotherapie-supsi-dti-manno",
-        "professeur-professionnel-en-ergotherapie-supsi-dti-manno"
+        "docente-professionista-in-ergoterapia-supsi-manno"
       ],
       "applyUrl": "https://www.supsi.ch/bando26_2015",
       "datePosted": "",

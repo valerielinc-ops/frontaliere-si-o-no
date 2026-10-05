@@ -16,6 +16,7 @@ import {
   parseLedger,
   parseTransferredKeys,
   planPurge,
+  purgeDeadline,
   purgeInBatches,
   selectPurgeKeys,
 } from '@/scripts/ci/purge-changed-cdn-assets.mjs';
@@ -142,6 +143,61 @@ describe('purge follows R2 state, not one run\'s upload log', () => {
     const ok = runOnce({ current: stateOf({ 'a.js': NEW }), ledger: failed.next });
     expect(ok.selected).toEqual(['assets/a.js']);
     expect(ok.next!.keys['assets/a.js']).toBe(NEW);
+  });
+});
+
+describe('a purge budget keeps the progress (deploy 37271618085: 27,177 keys, 12,570 in 300 s)', () => {
+  it('stops starting batches at the deadline; the ledger keeps the purged keys and the next run finishes the rest', () => {
+    const current = stateOf({ 'a.js': NEW, 'b.js': NEW, 'c.js': NEW, 'd.js': NEW });
+    const bootstrap = parseLedger(BOOTSTRAP_LEDGER);
+    let clock = 0;
+    const seen: number[] = [];
+    const first = purgeInBatches(Object.keys(current).sort(), {
+      size: 2,
+      deadline: 1,
+      now: () => clock,
+      purgeBatch: (_urls: string[], { remainingMs }: { remainingMs: number }) => {
+        seen.push(remainingMs);
+        clock += 1;
+      },
+    });
+    expect(first.purgedKeys).toEqual(['assets/a.js', 'assets/b.js']);
+    expect(first.notAttempted).toEqual(['assets/c.js', 'assets/d.js']);
+    expect(first.failed).toEqual([]);
+    expect(seen, 'a batch never gets more time than the budget has left').toEqual([1]);
+
+    const afterFirst = mergeLedger({ previous: bootstrap, current, purgedKeys: first.purgedKeys, buildId: 'r1', now: NOW });
+    expect(diffAgainstLedger(current, afterFirst)).toEqual(['assets/c.js', 'assets/d.js']);
+
+    const second = runOnce({ current, ledger: afterFirst });
+    expect(second.selected).toEqual(['assets/c.js', 'assets/d.js']);
+    expect(diffAgainstLedger(current, second.next)).toEqual([]);
+  });
+
+  it('a budget only applies with a ledger to remember what it left untried (review of #11641)', () => {
+    expect(purgeDeadline('ledger', 255_000, 1_000)).toBe(256_000);
+    expect(purgeDeadline('ledger', 0, 1_000)).toBe(Infinity);
+    expect(purgeDeadline('log-only', 255_000, 1_000)).toBe(Infinity);
+
+    // Acceptance: log-only, budget already spent, an executable key in the
+    // log → it is still attempted, not dropped with the log.
+    const logText = JSON.stringify({ level: 'info', msg: 'Copied (replaced existing)', object: 'router.js' });
+    const plan = planPurge({ logKeys: parseTransferredKeys(logText, 'assets'), current: null, ledger: null });
+    expect(plan.mode).toBe('log-only');
+    let clock = 10;
+    const r = purgeInBatches(plan.candidates, {
+      deadline: purgeDeadline(plan.mode, 1, 0),
+      now: () => clock,
+      purgeBatch: () => { clock += 1; },
+    });
+    expect(r.purgedKeys).toEqual(['assets/router.js']);
+    expect(r.notAttempted).toEqual([]);
+  });
+
+  it('without a deadline every batch is attempted', () => {
+    const r = purgeInBatches(['assets/a.js', 'assets/b.js', 'assets/c.js'], { size: 1, purgeBatch: () => {} });
+    expect(r.purgedKeys).toHaveLength(3);
+    expect(r.notAttempted).toEqual([]);
   });
 });
 
@@ -300,6 +356,21 @@ describe('deploy-it-pages-prep.sh — the purge is driven by state, not gated on
     expect(conds.filter((c) => /"\$ok"/.test(c)), 'purge gated on the whole-payload ok').toEqual([]);
     expect(conds.filter((c) => /-s "\$_assets_log"/.test(c)), 'purge gated on a non-empty upload log').toEqual([]);
     expect(conds.some((c) => /"\$assets_sync_ok" = 1/.test(c) && /"\$_ledger_state" = present/.test(c))).toBe(true);
+  });
+
+  it('the log-only fallback gets no budget (nothing would remember the keys it left)', () => {
+    const fallbackAt = body.findIndex(
+      (l, i) => /purge-changed-cdn-assets\.mjs "\$_assets_log" assets \\$/.test(l) && !(body[i + 1] ?? '').includes('--stage-dir='),
+    );
+    expect(fallbackAt, 'log-only purge call not found').toBeGreaterThan(-1);
+    expect(body[fallbackAt]).not.toMatch(/CDN_PURGE_BUDGET_MS/);
+    expect(body[fallbackAt - 1]).not.toMatch(/CDN_PURGE_BUDGET_MS/);
+  });
+
+  it('the stateful purge runs under its own budget, 45 s below the outer timeout', () => {
+    expect(statefulAt).toBeGreaterThan(0);
+    expect(body[statefulAt - 1]).toMatch(/CDN_PURGE_BUDGET_MS="\$\(\( \(_t_purge > 90 \? _t_purge - 45 : _t_purge \/ 2\) \* 1000 \)\)"/);
+    expect(body[statefulAt]).toMatch(/timeout -k 10 "\$_t_purge" node scripts\/ci\/purge-changed-cdn-assets\.mjs/);
   });
 
   it('reads the ledger BEFORE the assets sync; a missing one starts empty, with no R2 listing and no seed', () => {

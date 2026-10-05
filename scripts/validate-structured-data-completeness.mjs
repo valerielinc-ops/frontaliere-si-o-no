@@ -220,18 +220,21 @@ function validateEvent(schema, filePath) {
     }
   }
 
-  // Offers are optional when the source has no verifiable price. When present,
-  // they must be source-backed, numeric and complete.
+  // Detail pages may emit an Offer shell when the source has no verifiable
+  // price. A missing price is valid only for that fallback shell; any price
+  // that is present must remain source-backed, numeric and non-negative.
   if (schema.offers !== undefined && schema.offers !== null) {
     if (typeof schema.offers !== 'object') {
       errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
     } else {
-      if (typeof schema.offers.price !== 'number' || !Number.isFinite(schema.offers.price)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price must be a finite number' });
-      } else if (schema.offers.price < 0) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price must not be negative' });
-      } else if (schema.offers.price === 0 && schema.isAccessibleForFree !== true) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price 0 requires isAccessibleForFree=true' });
+      if (Object.prototype.hasOwnProperty.call(schema.offers, 'price')) {
+        if (typeof schema.offers.price !== 'number' || !Number.isFinite(schema.offers.price)) {
+          errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price must be a finite number' });
+        } else if (schema.offers.price < 0) {
+          errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price must not be negative' });
+        } else if (schema.offers.price === 0 && schema.isAccessibleForFree !== true) {
+          errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price 0 requires isAccessibleForFree=true' });
+        }
       }
       if (!isNonEmpty(schema.offers.priceCurrency)) {
         errors.push({ file: filePath, type: 'Event', field: 'offers.priceCurrency', message: 'Event offers missing "priceCurrency"' });

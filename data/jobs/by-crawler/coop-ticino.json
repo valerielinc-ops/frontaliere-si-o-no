@@ -1402,7 +1402,6 @@
         ],
         "de": [
           "kundenberater-in-depositenkasse-im-stundenlohn-30-40-coop-cassa-depositi-basel-oez8oo",
-          "kundenberater-in-depositenkasse-im-stundenlohn-30-40-coop-cassa-depositi-basel-tga393",
           "kundenberater-in-depositenkasse-im-stundenlohn-30-40-coop-genossenschaft-basel"
         ],
         "fr": [
@@ -2358,8 +2357,7 @@
         ],
         "de": [
           "verkaufer-in-kassen-services-coop-zurich-yzp8qy",
-          "verkaufer-in-kassen-services-coop-genossenschaft-zurich",
-          "verkaufer-in-kassen-services-coop-genossenschaft-zurich-yzp8qy"
+          "verkaufer-in-kassen-services-coop-genossenschaft-zurich"
         ],
         "fr": [
           "verkaufer-in-kassen-services-coop-zurich-yzp8qy",
@@ -2369,8 +2367,7 @@
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-zurich-yzp8qy",
         "verkaufer-in-kassen-services-coop-zurich",
-        "verkaufer-in-kassen-services-coop-genossenschaft-zurich",
-        "verkaufer-in-kassen-services-coop-genossenschaft-zurich-yzp8qy"
+        "verkaufer-in-kassen-services-coop-genossenschaft-zurich"
       ],
       "postalCode": "8047",
       "streetAddress": "Albisriederstrasse 334",
@@ -3095,7 +3092,6 @@
           "stellvertretende-rayonleitung-grundnahrungsmittel-coop-thun-12y81b"
         ],
         "de": [
-          "stellvertretende-rayonleitung-grundnahrungsmittel-coop-thun-12y81b",
           "stellvertretende-rayonleitung-grundnahrungsmittel-coop-genossenschaft-thun"
         ]
       },
@@ -3189,7 +3185,6 @@
           "2-stellvertretung-der-geschaftsfuhrung-coop-madiswil-v5tfc7"
         ],
         "de": [
-          "2-stellvertretung-der-geschaftsfuhrung-coop-madiswil-v5tfc7",
           "2-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-madiswil"
         ]
       },
@@ -3283,7 +3278,6 @@
           "verkaufer-in-frischprodukte-coop-oberdorf-1jy6os"
         ],
         "de": [
-          "verkaufer-in-frischprodukte-coop-oberdorf-1jy6os",
           "verkaufer-in-frischprodukte-coop-genossenschaft-oberdorf"
         ]
       },
@@ -3463,7 +3457,6 @@
           "rayonleiter-in-grundnahrungsmittel-coop-ebikon-t74wip"
         ],
         "de": [
-          "rayonleiter-in-grundnahrungsmittel-coop-ebikon-t74wip",
           "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-ebikon"
         ]
       },
@@ -3640,18 +3633,15 @@
           "leiter-in-abo-adressmanagement-coop-basel-8rr4np"
         ],
         "it": [
-          "leiter-in-abo-adressmanagement-coop-basel",
-          "responsabile-abo-adressmanagement-coop-genossenschaft-basel"
+          "leiter-in-abo-adressmanagement-coop-basel"
         ],
         "de": [
-          "leiter-in-abo-adressmanagement-coop-basel-8rr4np",
           "leiter-in-abo-adressmanagement-coop-genossenschaft-basel"
         ]
       },
       "previousSlugs": [
         "leiter-in-abo-adressmanagement-coop-basel-8rr4np",
         "leiter-in-abo-adressmanagement-coop-basel",
-        "responsabile-abo-adressmanagement-coop-genossenschaft-basel",
         "leiter-in-abo-adressmanagement-coop-genossenschaft-basel"
       ]
     },
@@ -3789,8 +3779,8 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "venditrice-venditore-produits-frais-m-w-d-coop-crans-montana-yiv7si",
-        "en": "vendeuse-vendeur-produits-frais-m-w-d-coop-crans-montana-yiv7si",
-        "de": "vendeuse-vendeur-produits-frais-m-w-d-coop-crans-montana-yiv7si",
+        "en": "salesperson-fresh-products-m-f-d-coop-genossenschaft-crans-montana",
+        "de": "verkauferin-verkaufer-frischprodukte-m-w-d-coop-genossenschaft-crans-montana",
         "fr": "vendeuse-vendeur-produits-frais-m-w-d-coop-crans-montana-yiv7si"
       },
       "requirementsByLocale": {
@@ -3831,10 +3821,12 @@
           "vendeuse-vendeur-produits-frais-f-h-d-coop-genossenschaft-crans-montana"
         ],
         "en": [
-          "seller-products-costs-m-f-d-coop-genossenschaft-crans-montana"
+          "seller-products-costs-m-f-d-coop-genossenschaft-crans-montana",
+          "vendeuse-vendeur-produits-frais-m-w-d-coop-crans-montana-yiv7si"
         ],
         "de": [
-          "verkauferprodukte-kosten-m-w-d-coop-genossenschaft-crans-montana"
+          "verkauferprodukte-kosten-m-w-d-coop-genossenschaft-crans-montana",
+          "vendeuse-vendeur-produits-frais-m-w-d-coop-crans-montana-yiv7si"
         ]
       },
       "previousSlugs": [
@@ -3844,7 +3836,8 @@
         "verkauferprodukte-kosten-m-w-d-coop-genossenschaft-crans-montana",
         "vendeuse-vendeur-produits-frais-m-w-d-coop-crans-montana-wxdn6q",
         "venditrice-venditore-produits-frais-m-w-d-coop-crans-montana-wxdn6q",
-        "vendeuse-vendeur-produits-frais-f-h-d-coop-genossenschaft-crans-montana"
+        "vendeuse-vendeur-produits-frais-f-h-d-coop-genossenschaft-crans-montana",
+        "vendeuse-vendeur-produits-frais-m-w-d-coop-crans-montana-yiv7si"
       ]
     },
     {
@@ -7959,7 +7952,7 @@
       "slugByLocale": {
         "it": "macellaio-charcutier-ere-coop-genossenschaft-suisse",
         "en": "butcher-charcutier-ere-coop-genossenschaft-suisse",
-        "de": "metzger-charcutier-ere-coop-genossenschaft-suisse",
+        "de": "metzger-in-coop-genossenschaft-suisse",
         "fr": "boucher-ere-charcutier-ere-coop-suisse-7q27hd"
       },
       "requirementsByLocale": {
@@ -7993,12 +7986,14 @@
           "boucher-ere-charcutier-ere-coop-suisse-7q27hd"
         ],
         "de": [
-          "boucher-ere-charcutier-ere-coop-suisse-7q27hd"
+          "boucher-ere-charcutier-ere-coop-suisse-7q27hd",
+          "metzger-charcutier-ere-coop-genossenschaft-suisse"
         ]
       },
       "previousSlugs": [
         "boucher-ere-charcutier-ere-coop-suisse-7q27hd",
-        "boucher-ere-charcutier-ere-coop-suisse"
+        "boucher-ere-charcutier-ere-coop-suisse",
+        "metzger-charcutier-ere-coop-genossenschaft-suisse"
       ],
       "needsRetranslation": true,
       "salaryMin": 68500,
@@ -8272,8 +8267,7 @@
         ],
         "de": [
           "verkaufer-in-food-coop-basel-4f3274",
-          "verkaufer-in-food-coop-genossenschaft-basel",
-          "verkaufer-in-food-coop-genossenschaft-basel-4f3274"
+          "verkaufer-in-food-coop-genossenschaft-basel"
         ],
         "fr": [
           "verkaufer-in-food-coop-basel-4f3274",
@@ -8283,8 +8277,7 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-basel-4f3274",
         "verkaufer-in-food-coop-genossenschaft-basel",
-        "verkaufer-in-food-coop-basel",
-        "verkaufer-in-food-coop-genossenschaft-basel-4f3274"
+        "verkaufer-in-food-coop-basel"
       ],
       "postalCode": "4058",
       "streetAddress": "Greifengasse 3",
@@ -8540,8 +8533,7 @@
         ],
         "de": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-bern-ropxwh",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern-ropxwh"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern"
         ],
         "fr": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-bern-ropxwh",
@@ -8551,8 +8543,7 @@
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-bern-ropxwh",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-bern",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern-ropxwh"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-bern"
       ],
       "postalCode": "3014",
       "streetAddress": "Stauffacherstrasse 2",
@@ -10290,8 +10281,7 @@
         ],
         "de": [
           "verkaufer-in-food-coop-koniz-un773y",
-          "verkaufer-in-food-coop-genossenschaft-koniz",
-          "verkaufer-in-food-coop-genossenschaft-koniz-un773y"
+          "verkaufer-in-food-coop-genossenschaft-koniz"
         ],
         "fr": [
           "verkaufer-in-food-coop-koniz-un773y"
@@ -10300,8 +10290,7 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-koniz-un773y",
         "verkaufer-in-food-coop-koniz",
-        "verkaufer-in-food-coop-genossenschaft-koniz",
-        "verkaufer-in-food-coop-genossenschaft-koniz-un773y"
+        "verkaufer-in-food-coop-genossenschaft-koniz"
       ],
       "postalCode": "3084",
       "streetAddress": "Seftigenstrasse 240",
@@ -11411,8 +11400,7 @@
         ],
         "de": [
           "verkaufer-in-frischprodukte-coop-zurich-bpdmzh",
-          "verkaufer-in-frischprodukte-coop-genossenschaft-zurich",
-          "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-bpdmzh"
+          "verkaufer-in-frischprodukte-coop-genossenschaft-zurich"
         ],
         "fr": [
           "verkaufer-in-frischprodukte-coop-zurich-bpdmzh"
@@ -11421,8 +11409,7 @@
       "previousSlugs": [
         "verkaufer-in-frischprodukte-coop-zurich-bpdmzh",
         "verkaufer-in-frischprodukte-coop-zurich",
-        "verkaufer-in-frischprodukte-coop-genossenschaft-zurich",
-        "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-bpdmzh"
+        "verkaufer-in-frischprodukte-coop-genossenschaft-zurich"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte/8d0762d0-a242-48dc-b771-533f1b0fadc8",
       "postalCode": "8048",
@@ -17216,7 +17203,6 @@
         ],
         "de": [
           "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen-auptcw",
-          "verkaufer-in-food-coop-rapperswil-jona-6nkxl6",
           "verkaufer-in-food-coop-genossenschaft-rapperswil-jona",
           "verkaufer-in-food-coop-genossenschaft-rapperswil-jona-6nkxl6"
         ]
@@ -17481,8 +17467,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-2",
-          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms"
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-2"
         ],
         "en": [
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h"
@@ -17497,8 +17482,7 @@
       "previousSlugs": [
         "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-2",
         "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
-        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
-        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms"
+        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms"
       ],
       "retranslationAttempts": 1
     },
@@ -17586,7 +17570,6 @@
           "verkaufer-in-food-getranke-coop-basel-68if07"
         ],
         "de": [
-          "verkaufer-in-food-getranke-coop-basel-68if07",
           "verkaufer-in-food-getranke-coop-genossenschaft-basel"
         ]
       },
@@ -21698,7 +21681,6 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-luzern-gg5ksv"
         ],
         "de": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-luzern-gg5ksv",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-luzern"
         ]
       },
@@ -21879,7 +21861,6 @@
           "verkaufer-in-food-coop-aarau-bahnhofplatz-3d-6vnoov"
         ],
         "de": [
-          "verkaufer-in-food-coop-aarau-bahnhofplatz-3d-6vnoov",
           "verkaufer-in-food-coop-genossenschaft-aarau-bahnhofplatz-3d"
         ]
       },
@@ -27452,8 +27433,7 @@
         ],
         "de": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-bb1xvi",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur-bb1xvi"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur"
         ],
         "fr": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-bb1xvi"
@@ -27462,8 +27442,7 @@
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-bb1xvi",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur-bb1xvi"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/f1a5e2ea-4ef6-44b0-8d6b-1f786cacfba8",
       "postalCode": "8408",
@@ -28293,7 +28272,6 @@
           "verkaufer-in-food-coop-arlesheim-2yxvl2"
         ],
         "de": [
-          "verkaufer-in-food-coop-arlesheim-2yxvl2",
           "verkaufer-in-food-coop-genossenschaft-arlesheim"
         ]
       },
@@ -28387,7 +28365,6 @@
           "verkaufer-in-food-coop-city-chur-87p8lj"
         ],
         "de": [
-          "verkaufer-in-food-coop-city-chur-87p8lj",
           "verkaufer-in-food-coop-genossenschaft-chur"
         ]
       },
@@ -31671,8 +31648,7 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-z30for",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-horgen-zurich-22tiwu",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-regensdorf-zurich-s2h0vx",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zurich",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zurich-z30for"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zurich"
         ],
         "fr": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-z30for",
@@ -31705,8 +31681,7 @@
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zell",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zollikofen",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zurich",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zurich-z30for"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/16157f61-3545-49d4-87d6-580c8f0ca455",
       "postalCode": "8038",
@@ -39168,8 +39143,7 @@
         ],
         "de": [
           "verkaufer-in-frischprodukte-coop-kloten-6vytch",
-          "verkaufer-in-frischprodukte-coop-genossenschaft-kloten",
-          "verkaufer-in-frischprodukte-coop-genossenschaft-kloten-6vytch"
+          "verkaufer-in-frischprodukte-coop-genossenschaft-kloten"
         ],
         "fr": [
           "verkaufer-in-frischprodukte-coop-kloten-6vytch"
@@ -39179,8 +39153,7 @@
         "verkaufer-in-frischprodukte-coop-kloten-6vytch",
         "verkaufer-in-frischprodukte-coop-kloten-2",
         "verkaufer-in-frischprodukte-coop-kloten",
-        "verkaufer-in-frischprodukte-coop-genossenschaft-kloten",
-        "verkaufer-in-frischprodukte-coop-genossenschaft-kloten-6vytch"
+        "verkaufer-in-frischprodukte-coop-genossenschaft-kloten"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte/10369765-6c72-465f-85c5-a4d933f706f0",
       "postalCode": "8058",
@@ -40245,7 +40218,6 @@
           "verkaufer-in-food-coop-thun-678kip"
         ],
         "de": [
-          "verkaufer-in-food-coop-thun-678kip",
           "verkaufer-in-food-coop-genossenschaft-thun",
           "verkaufer-in-food-coop-genossenschaft-thun-678kip"
         ]
@@ -54085,14 +54057,6 @@
       "streetAddress": "Zürichstrasse 3",
       "salaryMin": 68500,
       "salaryMax": 104000,
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-food-coop-genossenschaft-kirchberg"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufer-in-food-coop-genossenschaft-kirchberg"
-      ],
       "retranslationAttempts": 1
     },
     {
@@ -54168,14 +54132,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-food-coop-genossenschaft-interlaken"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufer-in-food-coop-genossenschaft-interlaken"
-      ],
       "retranslationAttempts": 1
     },
     {
@@ -54251,14 +54207,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-food-coop-genossenschaft-langenthal"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufer-in-food-coop-genossenschaft-langenthal"
-      ],
       "retranslationAttempts": 1
     },
     {
@@ -58623,15 +58571,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-food-coop-genossenschaft-thun"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufer-in-food-coop-genossenschaft-thun"
-      ]
+      }
     },
     {
       "id": "company-cfcqv3",
@@ -58697,14 +58637,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-koniz"
-        ]
-      },
-      "previousSlugs": [
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-koniz"
-      ],
       "retranslationAttempts": 1
     },
     {
@@ -58853,14 +58785,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-food-coop-genossenschaft-zollikon"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufer-in-food-coop-genossenschaft-zollikon"
-      ],
       "retranslationAttempts": 1
     },
     {
@@ -62118,14 +62042,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-food-coop-genossenschaft-koniz"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufer-in-food-coop-genossenschaft-koniz"
-      ],
       "retranslationAttempts": 1
     },
     {
@@ -68869,14 +68785,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-winterthur"
-        ]
-      },
-      "previousSlugs": [
-        "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-winterthur"
-      ],
       "retranslationAttempts": 1
     },
     {

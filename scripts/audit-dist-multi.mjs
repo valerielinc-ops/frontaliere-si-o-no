@@ -841,8 +841,8 @@ function sdValidateEvent(schema, filePath) {
       errors.push({ file: filePath, type: 'Event', field: 'location.address.addressLocality', message: 'Event missing "location.address.addressLocality"' });
     }
   }
-  // Image, organizer and performer remain required Event fields. Offers are
-  // optional because an unknown source price must not become a fabricated 0.
+  // Image, organizer and performer remain required Event fields. Detail-page
+  // Offer shells may omit price when the source has no verifiable amount.
   for (const field of ['image', 'organizer', 'performer']) {
     if (schema[field] === undefined || schema[field] === null) {
       errors.push({ file: filePath, type: 'Event', field, message: `Event missing required structured-data field "${field}"` });
@@ -861,20 +861,22 @@ function sdValidateEvent(schema, filePath) {
       errors.push({ file: filePath, type: 'Event', field, message: `Event "${field}" must include a named Person or Organization when present` });
     }
   }
-  // Offers are optional when the source has no verifiable price. When present,
-  // they must be source-backed, numeric and complete.
+  // A missing price is valid only for the detail-page fallback shell. Any
+  // price that is present must remain source-backed, numeric and non-negative.
   // Kept in lockstep with the same rule in
   // scripts/validate-structured-data-completeness.mjs (shared Event contract).
   if (schema.offers !== undefined && schema.offers !== null) {
     if (typeof schema.offers !== 'object') {
       errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
     } else {
-      if (typeof schema.offers.price !== 'number' || !Number.isFinite(schema.offers.price)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price must be a finite number' });
-      } else if (schema.offers.price < 0) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price must not be negative' });
-      } else if (schema.offers.price === 0 && schema.isAccessibleForFree !== true) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price 0 requires isAccessibleForFree=true' });
+      if (Object.prototype.hasOwnProperty.call(schema.offers, 'price')) {
+        if (typeof schema.offers.price !== 'number' || !Number.isFinite(schema.offers.price)) {
+          errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price must be a finite number' });
+        } else if (schema.offers.price < 0) {
+          errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price must not be negative' });
+        } else if (schema.offers.price === 0 && schema.isAccessibleForFree !== true) {
+          errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price 0 requires isAccessibleForFree=true' });
+        }
       }
       if (!sdIsNonEmpty(schema.offers.priceCurrency)) {
         errors.push({ file: filePath, type: 'Event', field: 'offers.priceCurrency', message: 'Event offers missing "priceCurrency"' });
