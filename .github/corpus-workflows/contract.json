@@ -4,20 +4,20 @@
   "generatorSha256": "4fa8b5f0bcb6ff83692e85cf966f429d1095ea85d67c9ee74509053fe69c271a",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "d36f69330efd0d21879279b4005e1ce808dd2db1",
+  "sourceCommit": "fedeafaa9248831ca8983b76b1a66170cd2a905b",
   "artifactObservation": {
     "generatorSha256": "4fa8b5f0bcb6ff83692e85cf966f429d1095ea85d67c9ee74509053fe69c271a",
     "sourceRef": "main",
-    "sourceCommit": "d36f69330efd0d21879279b4005e1ce808dd2db1"
+    "sourceCommit": "fedeafaa9248831ca8983b76b1a66170cd2a905b"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 622,
+  "crawlerCount": 623,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:76d05f831f70c398a342bdea173433081a9fe891b8869ac3f225db0b834b8900",
+    "rosterDigest": "sha256:74ac58984cda44b0c30573df3a13e0bfca2d49619177e36f9ceabf1ad81d0b8a",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -361,6 +361,7 @@
     "scripts/update-med-ipersonal-jobs.mjs",
     "scripts/update-medartis-jobs.mjs",
     "scripts/update-medbase-jobs.mjs",
+    "scripts/update-mediamarkt-jobs.mjs",
     "scripts/update-medics-labor-jobs.mjs",
     "scripts/update-medtronic-jobs.mjs",
     "scripts/update-merian-iselin-jobs.mjs",
@@ -1442,8 +1443,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "76870d62c499189cb9673666c2569111bd1990f90fb3c1888045229183d92d27",
-      "artifactSha256": "d7c45e844a1c6d81ecf36f7b6984b96816ecc160995863af542c5337d59df0ed",
+      "sourceSha256": "4daa7f02515e7cf1e05e82f9ed0045f5e2b33c5e78e442b7ea2a051535721c9c",
+      "artifactSha256": "8b8c71e0045154212dfede9e4b0a7f56ff7091ceb70ef85d50bd1b4d9642620e",
       "generatorSha256": "4fa8b5f0bcb6ff83692e85cf966f429d1095ea85d67c9ee74509053fe69c271a",
       "members": [
         "albergo-gardenia",
@@ -1468,7 +1469,8 @@
         "fisba",
         "postauto",
         "pantr-ch",
-        "confederazione"
+        "confederazione",
+        "mediamarkt"
       ]
     },
     {

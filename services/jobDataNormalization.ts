@@ -342,6 +342,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'mcdonald-s-switzerland': '/images/brands/mcdonald-s-switzerland.png',
  'medacta-international': 'https://www.medacta.com/images/header/Logo_Medacta.svg',
  'medartis': cLogo('medartis.com'),
+ 'mediamarkt': cLogo('mediamarkt.ch'),
  'medics-labor': cLogo('medics.ch'),
  'medtronic': cLogo('medtronic.com'),
  'merian-iselin': cLogo('merianiselin.ch'),
