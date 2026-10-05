@@ -63,7 +63,7 @@
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-brugg"
       ],
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:23:52.270Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -77,7 +77,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "migrolino-f15f6cd99346",
@@ -246,7 +247,7 @@
           "personnel-de-vente-migrolino-wilderswil-1abf98"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T21:31:54.597Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -260,16 +261,17 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "migrolino-fa41171abbf1",
       "slug": "assistente-alle-vendite-migrolino-dietikon",
       "slugByLocale": {
-        "it": "assistente-alle-vendite-migrolino-dietikon",
+        "it": "personale-di-vendita-migrolino-dietikon",
         "en": "sales-staff-migrolino-dietikon",
         "de": "verkaufsmitarbeiter-in-migrolino-dietikon",
-        "fr": "assistant-aux-ventes-migrolino-dietikon"
+        "fr": "personnel-de-vente-migrolino-dietikon"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -315,15 +317,12 @@
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-dietikon-cipu2v",
         "verkaufsmitarbeiter-in-migrolino-dietikon",
-        "personale-di-vendita-migrolino-dietikon",
-        "personnel-de-vente-migrolino-dietikon",
         "assistant-aux-ventes-migrolino-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-dietikon-cipu2v",
-          "verkaufsmitarbeiter-in-migrolino-dietikon",
-          "personale-di-vendita-migrolino-dietikon"
+          "verkaufsmitarbeiter-in-migrolino-dietikon"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-dietikon-cipu2v",
@@ -335,7 +334,6 @@
         "fr": [
           "verkaufsmitarbeiter-in-migrolino-dietikon-cipu2v",
           "verkaufsmitarbeiter-in-migrolino-dietikon",
-          "personnel-de-vente-migrolino-dietikon",
           "assistant-aux-ventes-migrolino-dietikon"
         ]
       },

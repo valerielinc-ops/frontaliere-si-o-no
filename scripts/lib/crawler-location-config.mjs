@@ -461,6 +461,7 @@ export const COMPANY_HQ = {
   'liebherr': { city: 'Bulle', canton: 'FR', postalCode: '1630', addressRegion: 'FR' },
   'decathlon': { city: 'Vernier', canton: 'GE', postalCode: '1214', addressRegion: 'GE' },
   'geberit': { city: 'Rapperswil-Jona', canton: 'SG', postalCode: '8645', addressRegion: 'SG' },
+  'mediamarkt': { city: 'Dietikon', canton: 'ZH', postalCode: '8953', addressRegion: 'ZH' },
   'bkw': { city: 'Bern', canton: 'BE', postalCode: '3013', addressRegion: 'BE' },
   'hermes': { city: 'Genève', canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
   'hilti': { city: 'Adliswil', canton: 'ZH', postalCode: '8134', addressRegion: 'ZH' },

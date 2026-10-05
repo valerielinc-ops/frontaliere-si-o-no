@@ -78,6 +78,38 @@
  */
 
 import { runHogQL } from './posthog-client.mjs';
+import {
+  GA4_READONLY_SCOPE,
+  PRODUCTION_HOST_REGEXP,
+  getServiceAccountToken,
+  runGa4Report,
+} from './ga4-service-account.mjs';
+
+/**
+ * THE SOURCE THE MONITORS READ (decisione H9 del proprietario, 2026-10-05)
+ * ------------------------------------------------------------------------
+ * «Rimpiazza PostHog con GA4». PostHog is under quota on purpose (owner
+ * decision 2026-08-25: the paid quota is not bought), so it ingests 4-87
+ * events/day against the 500/day floor — permanently, by choice, not as an
+ * outage. Probing it as the fleet's expected source made Source Liveness
+ * reopen issue 5921 forever while every monitor was already reading GA4
+ * through its fallback branch.
+ *
+ * So the monitors read GA4 as their PRIMARY source, the vitality guard probes
+ * GA4 (`checkGa4Liveness`), and `scripts/check-source-liveness.mjs` raises its
+ * single outage issue for GA4. `checkPostHogLiveness` stays for the remaining
+ * declared PostHog readers (`POSTHOG_MONITORS`) and for manual diagnosis; the
+ * client-side PostHog code keeps sending historical telemetry (CLAUDE.md).
+ */
+export const MONITOR_SOURCE = 'ga4';
+
+/**
+ * GA4 days settle after ~48h: yesterday is still being processed and reads
+ * low. The GA4 probe therefore judges the same settled window every GA4
+ * monitor queries (`ga4DateRange(windowDays, 2)`), i.e. the days ending two
+ * days ago.
+ */
+export const GA4_LIVENESS_LAG_DAYS = 2;
 
 /**
  * Events/day below which the source counts as not ingesting. See the header
@@ -95,9 +127,12 @@ const utcDayString = (date) => date.toISOString().slice(0, 10);
  * "now" — i.e. yesterday going back `windowDays` days. Today is excluded
  * (partial). Oldest first.
  */
-export function completeDaysInWindow(windowDays, now = new Date()) {
+export function completeDaysInWindow(windowDays, now = new Date(), lagDays = 1) {
   const days = [];
-  for (let back = windowDays; back >= 1; back -= 1) {
+  // `lagDays` = how many trailing days are not yet judgeable: 1 drops only
+  // today (PostHog, UTC), 2 also drops yesterday (GA4 processing lag).
+  const lag = Math.max(1, Number(lagDays) || 1);
+  for (let back = Number(windowDays) + lag - 1; back >= lag; back -= 1) {
     const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
     d.setUTCDate(d.getUTCDate() - back);
     days.push(utcDayString(d));
@@ -115,6 +150,7 @@ export function completeDaysInWindow(windowDays, now = new Date()) {
  * @param {number} opts.windowDays          window the caller is about to judge
  * @param {number} [opts.minEventsPerDay]   floor, default 500
  * @param {number} [opts.maxDeadDays]       tolerated days below floor, default 0
+ * @param {number} [opts.lagDays]           trailing days not yet judgeable, default 1 (today)
  * @param {Date}   [opts.now]
  * @returns {{alive: boolean, reason: string, windowDays: number, floor: number,
  *            daysEvaluated: string[], deadDays: Array<{date: string, count: number}>,
@@ -125,6 +161,7 @@ export function evaluateLiveness({
   windowDays,
   minEventsPerDay = DEFAULT_MIN_EVENTS_PER_DAY,
   maxDeadDays = 0,
+  lagDays = 1,
   now = new Date(),
   source = 'posthog',
 }) {
@@ -133,7 +170,7 @@ export function evaluateLiveness({
       ? dailyCounts
       : new Map(Array.isArray(dailyCounts) ? dailyCounts : Object.entries(dailyCounts ?? {}));
 
-  const days = completeDaysInWindow(Number(windowDays), now);
+  const days = completeDaysInWindow(Number(windowDays), now, lagDays);
   const deadDays = [];
   let totalEvents = 0;
 
@@ -212,6 +249,86 @@ export async function checkPostHogLiveness({
   return { ...evaluateLiveness({ dailyCounts, windowDays, minEventsPerDay, maxDeadDays, now, source: 'posthog' }), dailyCounts };
 }
 
+const ga4DateToIso = (value) => {
+  const v = String(value ?? '');
+  return /^\d{8}$/.test(v) ? `${v.slice(0, 4)}-${v.slice(4, 6)}-${v.slice(6, 8)}` : v.slice(0, 10);
+};
+
+/**
+ * Ask GA4 how many events the production host sent per day over the settled
+ * window, then rule on it with the same `evaluateLiveness` floor. A GA4
+ * runReport over an empty window is an HTTP 200 with no rows — the exact
+ * failure mode of the 2026-07-23 PostHog outage — so missing days count as
+ * zero, and a probe that cannot run (no service account, API error) is "not
+ * measurable", never "alive".
+ *
+ * Production host only: the property also receives dev-server events, which
+ * would keep a dead production stream looking alive.
+ *
+ * @returns {Promise<object>} the `evaluateLiveness` verdict plus `dailyCounts`,
+ *   or `credentialsMissing` / `probeFailed` for the two non-verdict outcomes.
+ */
+export async function checkGa4Liveness({
+  windowDays = 7,
+  minEventsPerDay = DEFAULT_MIN_EVENTS_PER_DAY,
+  maxDeadDays = 0,
+  lagDays = GA4_LIVENESS_LAG_DAYS,
+  now = new Date(),
+  getTokenImpl = getServiceAccountToken,
+  runReportImpl = runGa4Report,
+  propertyId,
+} = {}) {
+  const days = completeDaysInWindow(Number(windowDays), now, lagDays);
+  const base = {
+    alive: false,
+    windowDays: Number(windowDays),
+    floor: minEventsPerDay,
+    daysEvaluated: days,
+    deadDays: [],
+    totalEvents: 0,
+    source: 'ga4',
+  };
+
+  let token;
+  try {
+    token = await getTokenImpl([GA4_READONLY_SCOPE]);
+  } catch (e) {
+    token = null;
+  }
+  if (!token) {
+    return { ...base, credentialsMissing: true, reason: 'GA4 service account (GOOGLE_APPLICATION_CREDENTIALS / FIREBASE_SERVICE_ACCOUNT_JSON) missing or not authorised — liveness cannot be established' };
+  }
+
+  // A small margin before the window, like the PostHog probe, so a caller can
+  // re-rule a shorter sub-window from the same counts.
+  const start = new Date(`${days[0]}T00:00:00Z`);
+  start.setUTCDate(start.getUTCDate() - PROBE_MARGIN_DAYS);
+  const body = {
+    dateRanges: [{ startDate: start.toISOString().slice(0, 10), endDate: days[days.length - 1] }],
+    dimensions: [{ name: 'date' }],
+    metrics: [{ name: 'eventCount' }],
+    dimensionFilter: { filter: { fieldName: 'hostName', stringFilter: { value: PRODUCTION_HOST_REGEXP, matchType: 'FULL_REGEXP' } } },
+    orderBys: [{ dimension: { dimensionName: 'date' } }],
+    limit: 400,
+  };
+
+  let rows;
+  try {
+    const data = await runReportImpl({ token, body, propertyId });
+    rows = data?.rows ?? [];
+  } catch (e) {
+    return { ...base, probeFailed: true, reason: `GA4 liveness probe failed (${e.message}) — source cannot be confirmed alive` };
+  }
+
+  const dailyCounts = new Map(
+    rows.map((row) => [ga4DateToIso(row?.dimensionValues?.[0]?.value), Number(row?.metricValues?.[0]?.value) || 0]),
+  );
+  return {
+    ...evaluateLiveness({ dailyCounts, windowDays, minEventsPerDay, maxDeadDays, lagDays, now, source: 'ga4' }),
+    dailyCounts,
+  };
+}
+
 /**
  * The loud half of abstaining. Prints a banner that cannot be mistaken for a
  * normal "nothing to report" line, plus a GitHub Actions `::warning::`
@@ -255,38 +372,55 @@ export function declareNotMeasurable(monitorName, verdict, { logger = defaultDia
  * the verdict. `null` means "alive, go ahead".
  */
 export async function abstainIfSourceDead(monitorName, opts = {}) {
-  const verdict = await checkPostHogLiveness(opts);
+  const verdict = await checkGa4Liveness(opts);
   if (verdict.alive) return null;
   return declareNotMeasurable(monitorName, verdict, { logger: opts.logger ?? defaultDiagnosticLogger });
 }
 
 /**
- * The monitors that read PostHog and emit a judgement (open an issue, fail a
- * run, or write an artefact other things judge from). The guard test walks
- * this list, so a new PostHog monitor added without a vitality guard fails CI
- * instead of quietly becoming the next #5606.
- *
- * `guarded: true`  — wired to the guard in this PR.
- * `guarded: false` — known reader, guard still to be wired (chained PR); the
- *                    test asserts these are *declared*, so they cannot be
- *                    forgotten, and asserts the guarded ones actually import
- *                    and call the guard.
+ * The monitors that read GA4 as their source and emit a judgement (open an
+ * issue, fail a run, or write an artefact other things judge from). They were
+ * PostHog-primary with a GA4 fallback until decision H9 (2026-10-05); now GA4
+ * is the only source they read, guarded by `checkGa4Liveness` before any
+ * judgement. `scripts/check-source-liveness.mjs` lists them in its outage
+ * issue, and the guard test walks this list: each entry must call the GA4
+ * guard and must not reach PostHog any more.
+ */
+export const GA4_MONITORS = [
+  { path: 'scripts/posthog-error-issue-sync.mjs', guarded: true, emits: 'opens GitHub issues (stability/app-error) from GA4 app_error/exception' },
+  { path: 'scripts/cwv-monitor-check.mjs', guarded: true, emits: 'opens GitHub issues (performance/cwv-regression) from GA4 web_vitals' },
+  { path: 'scripts/campaign-goal-check.mjs', guarded: true, emits: 'opens GitHub issues (campaign-goal) + exit 1, GA4 goals' },
+  { path: 'scripts/profession-keyword-opportunities.mjs', guarded: true, emits: 'workflow opens a deduped SEO issue, signal A from GA4 search' },
+  { path: 'scripts/revenue-monitor.mjs', guarded: true, emits: 'CLS verdict table + history jsonl from GA4 web_vitals' },
+];
+
+/**
+ * The data scripts that used to union PostHog into GSC/GA4 artefacts. Since
+ * H9 they read GA4 (+ GSC) only; listed so the move is explicit and the guard
+ * test can hold them to "no PostHog read". They emit artefacts, not
+ * judgements, and judge GA4 completeness with their own guards
+ * (`guardCompleteGa4Report`, exit codes), so they carry no liveness guard.
+ */
+export const GA4_DATA_MIRRORS = [
+  { path: 'scripts/build-evidence-index.mjs', emits: 'data/evidence-index.json (drives thin-page filtering); GSC + GA4' },
+  { path: 'scripts/fetch-thin-page-promotions.mjs', emits: 'exit 2/3 + promotion URL set; GA4 + GSC thin_page_view' },
+  { path: 'scripts/fetch-article-performance.mjs', emits: 'data/article-performance.json (winners/losers); GSC + GA4 + AdSense' },
+  { path: 'scripts/refresh-noslash-keep.mjs', emits: 'data/noslash-keep.json URL keep-list; GSC + GA4' },
+  { path: 'scripts/refresh-indexed-cluster-urls.mjs', emits: 'data/indexed-cluster-urls.json; GSC + GA4' },
+];
+
+/**
+ * The scheduled scripts that still reach PostHog. PostHog is no longer a
+ * source the fleet expects to be alive (H9), so none of these is a reason for
+ * Source Liveness to raise an outage: each entry says why it may still read
+ * PostHog. The guard test fails when a scheduled PostHog reader is missing
+ * from here AND when an entry no longer reads PostHog, so the list can only
+ * shrink.
  */
 export const POSTHOG_MONITORS = [
-  { path: 'scripts/posthog-error-issue-sync.mjs', guarded: true, emits: 'opens GitHub issues (stability/app-error)' },
-  { path: 'scripts/cwv-monitor-check.mjs', guarded: true, emits: 'opens GitHub issues (performance/cwv-regression)' },
-  { path: 'scripts/campaign-goal-check.mjs', guarded: true, emits: 'opens GitHub issues (campaign-goal) + exit 1' },
-  { path: 'scripts/profession-keyword-opportunities.mjs', guarded: true, emits: 'workflow opens a deduped SEO issue' },
-  { path: 'scripts/revenue-monitor.mjs', guarded: true, emits: 'CLS verdict table + history jsonl' },
-  { path: 'scripts/build-employer-insights.mjs', guarded: false, emits: 'scheduled employer-insights snapshot (GA4/PostHog source)' },
-  { path: 'scripts/ci/export-l7-experiment-outcomes.mjs', guarded: false, emits: 'scheduled L7 experiment outcome ledger (source evidence)' },
-  { path: 'scripts/ci/export-l2-demand-outcomes.mjs', guarded: false, emits: 'scheduled L2 demand/utility outcome ledger (source evidence)' },
-  { path: 'scripts/ci/export-l8-affiliate-outcomes.mjs', guarded: false, emits: 'scheduled L8 affiliate attribution outcome ledger (source evidence)' },
-  { path: 'scripts/funnel-metrics-snapshot.mjs', guarded: false, emits: 'comments on tracker issues #886/#855/#888/#857' },
-  { path: 'scripts/build-evidence-index.mjs', guarded: true, emits: 'data/evidence-index.json (drives thin-page filtering)' },
-  { path: 'scripts/fetch-thin-page-promotions.mjs', guarded: false, emits: 'exit 2/3 + promotion URL set' },
-  { path: 'scripts/fetch-article-performance.mjs', guarded: true, emits: 'data/article-performance.json (winners/losers)' },
-  { path: 'scripts/refresh-noslash-keep.mjs', guarded: false, emits: 'data/noslash-keep.json URL keep-list' },
-  { path: 'scripts/refresh-indexed-cluster-urls.mjs', guarded: false, emits: 'data/indexed-cluster-urls.json' },
-  { path: 'scripts/quality-alerts.mjs', guarded: false, emits: 'alert exit code 8 (email channel), reads evidence-index' },
+  { path: 'scripts/build-employer-insights.mjs', guarded: false, emits: 'scheduled employer-insights snapshot; the workflow defaults to --source ga4, PostHog only on a manual --source posthog' },
+  { path: 'scripts/ci/export-l7-experiment-outcomes.mjs', guarded: false, emits: 'L7 experiment outcome ledger; reads PostHog only when an experiment is declared, today none (tests/loop-fleet-source-liveness.test.ts)' },
+  { path: 'scripts/ci/export-l8-affiliate-outcomes.mjs', guarded: false, emits: 'L8 affiliate outcome ledger; main reads GA4, PostHog helpers kept for historical exports' },
+  { path: 'scripts/employer-traffic-report.mjs', guarded: false, emits: 'employer traffic report; both scheduled workflows pass --source ga4, PostHog only on a manual --source posthog' },
+  { path: 'scripts/adsense-format-ab-report.mjs', guarded: false, emits: 'AdSense format A/B report; CWV guardrail reads GA4 web_vitals first, PostHog $web_vitals is the second fallback before CrUX' },
 ];

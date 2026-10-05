@@ -4,8 +4,11 @@
  * gap ranking (#3396). Feeder for generate-keyword-pages-config.mjs (#3393).
  *
  * Demand signals:
- *   A. on-site search — PostHog `search` events, `search_term` property,
+ *   A. on-site search — GA4 `search` events (`search_term`), settled
  *      rolling window (default 60 days). Pure intent, unfiltered by Google.
+ *      PostHog was the source until decision H9 (2026-10-05, «rimpiazza
+ *      PostHog con GA4»): it is under quota by choice, and the GA4 mirror
+ *      was already the branch that ran.
  *   B. crawler job titles — data/jobs.json when present, otherwise the
  *      committed data/jobs/by-crawler/*.json shards. Real market supply.
  *   C. (optional, free) GSC impressions/clicks from the committed
@@ -21,16 +24,18 @@
  *     .github/workflows/profession-keyword-opportunities.yml)
  *   - markdown report on stdout (workflow pipes it into the dedup issue)
  *
- * Zero-Claude by contract: HogQL + parsing + regex only (AGENTS.md quota
- * frugality). Deterministic given the same inputs.
+ * Zero-Claude by contract: GA4 Data API + parsing + regex only (AGENTS.md
+ * quota frugality). Deterministic given the same inputs.
  *
  * Usage:
- *   node scripts/profession-keyword-opportunities.mjs [--skip-posthog]
+ *   node scripts/profession-keyword-opportunities.mjs [--skip-onsite-search]
  *     [--window-days=60] [--markdown-out=path.md]
  *
- * Auth (signal A only): POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID /
- * POSTHOG_HOST via scripts/load-rc-env.mjs. --skip-posthog (or missing
- * creds with SKIP allowed) degrades to signals B+C only.
+ * Auth (signal A only): the GA4 read-only service account
+ * (GOOGLE_APPLICATION_CREDENTIALS or FIREBASE_SERVICE_ACCOUNT_JSON).
+ * --skip-onsite-search (deprecated alias: --skip-posthog), a missing service
+ * account or a GA4 source that is not alive over the window degrade to
+ * signals B+C only — reported as disabled, never as zero.
  */
 
 import fs from 'node:fs';
@@ -55,8 +60,7 @@ import {
 } from './lib/keyword-page-paths.mjs';
 import { professionPageIdForJob } from './lib/keyword-page-match.mjs';
 import { extractTsStringArray } from './lib/ts-array-extract.mjs';
-import { fetchOnsiteSearchTerms as fetchOnsiteSearchTermsShared } from './lib/posthog-search-terms.mjs';
-import { checkPostHogLiveness, declareNotMeasurable } from './lib/source-liveness.mjs';
+import { checkGa4Liveness, declareNotMeasurable } from './lib/source-liveness.mjs';
 import {
   fetchGa4SearchTerms,
   GA4_READONLY_SCOPE,
@@ -90,13 +94,12 @@ const opt = (name, dflt) => {
   const hit = args.find((a) => a.startsWith(`--${name}=`));
   return hit ? hit.split('=').slice(1).join('=') : dflt;
 };
-const SKIP_POSTHOG = flag('skip-posthog');
+// `--skip-posthog` stays as a deprecated alias for manual invocations.
+const SKIP_ONSITE_SEARCH = flag('skip-onsite-search') || flag('skip-posthog');
 const WINDOW_DAYS = Math.max(1, Number(opt('window-days', '60')) || 60);
 const MARKDOWN_OUT = opt('markdown-out', '');
 
-// ── Signal A: on-site search (PostHog HogQL) ─────────────────────────────
-// Query + auth handling live in scripts/lib/posthog-search-terms.mjs —
-// shared with scripts/mine-search-location-gaps.mjs (issue #4301).
+// ── Signal A: on-site search (GA4 `search`) ──────────────────────────────
 
 export async function fetchGa4ProfessionSearchTerms({
   windowDays = WINDOW_DAYS,
@@ -112,32 +115,38 @@ export async function fetchGa4ProfessionSearchTerms({
   return fetchGa4SearchTerms({ token, startDate, endDate, limit: 1000, fetchImpl });
 }
 
-async function fetchOnsiteSearchTerms() {
-  if (SKIP_POSTHOG) {
-    console.error('[signal A] --skip-posthog: on-site search signal disabled');
+export async function fetchOnsiteSearchTerms({
+  skip = SKIP_ONSITE_SEARCH,
+  windowDays = WINDOW_DAYS,
+  checkLivenessImpl = checkGa4Liveness,
+  fetchTermsImpl = fetchGa4ProfessionSearchTerms,
+} = {}) {
+  if (skip) {
+    console.error('[signal A] --skip-onsite-search: on-site search signal disabled');
     return null;
   }
-  // Vitality guard (scripts/lib/source-liveness.mjs): a dead PostHog returns
-  // an empty term list on an HTTP 200, which reads as "no user searched for
-  // this profession" — the opposite of the truth, and the workflow then opens
-  // a deduped SEO issue built on it. Returning null puts the signal in the
-  // same state as --skip-posthog: reported as disabled, never as zero.
-  const liveness = await checkPostHogLiveness({ windowDays: WINDOW_DAYS });
-  if (!liveness.alive) {
-    try {
-      const ga4Terms = await fetchGa4ProfessionSearchTerms({ windowDays: WINDOW_DAYS });
-      if (ga4Terms?.length) {
-        console.error('[signal A] PostHog non misurabile: uso GA4 `search` come fallback');
-        return ga4Terms;
-      }
-    } catch (error) {
-      declareNotMeasurable('profession-keyword-opportunities', { ...liveness, reason: `${liveness.reason}; GA4 fallback failed: ${error.message}` });
-      return null;
-    }
+  // Vitality guard (scripts/lib/source-liveness.mjs) on the same settled GA4
+  // window the report reads: a dead source returns an empty term list on an
+  // HTTP 200, which reads as "no user searched for this profession" — the
+  // opposite of the truth, and the workflow then opens a deduped SEO issue
+  // built on it. Returning null puts the signal in the same state as
+  // --skip-onsite-search: reported as disabled, never as zero.
+  const liveness = await checkLivenessImpl({ windowDays });
+  if (!liveness?.alive) {
     declareNotMeasurable('profession-keyword-opportunities', liveness);
     return null;
   }
-  return fetchOnsiteSearchTermsShared({ windowDays: WINDOW_DAYS, limit: 1000 });
+  try {
+    const terms = await fetchTermsImpl({ windowDays });
+    if (!Array.isArray(terms)) {
+      declareNotMeasurable('profession-keyword-opportunities', { ...liveness, alive: false, reason: 'GA4 search report unavailable (no service-account token)' });
+      return null;
+    }
+    return terms;
+  } catch (error) {
+    declareNotMeasurable('profession-keyword-opportunities', { ...liveness, alive: false, reason: `GA4 search report failed: ${error.message}` });
+    return null;
+  }
 }
 
 // ── Signal B: crawler job titles ─────────────────────────────────────────

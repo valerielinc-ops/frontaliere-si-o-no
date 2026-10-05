@@ -1506,6 +1506,527 @@ export function apexLegacyResponse(url) {
   return null;
 }
 
+// ────────────────────────────────────────────────────────────────────────────
+// CORPUS-OWNED ARTICLE SECTIONS (piano «sezioni articoli per cantone», S2)
+// ────────────────────────────────────────────────────────────────────────────
+//
+// The 24 canton article sections (22 cantons + APPENZELLO + BASILEA, × 4
+// locales) are NOT served from GitHub Pages shards. The corpus repo
+// (nanakokyobashi-rgb/frontaliere-articles) prerenders every page with the
+// shared engine and PUTs it to R2 under `edge/sections/<path>/index.html`; it
+// also publishes `edge/sections/registry.json`, which says which section is
+// `live`, `draft` or `retired`. This Worker owns only the RULE that applies
+// that registry. So once this branch is deployed, a canton, its articles and
+// its topic hubs go live from the corpus alone — no site deploy, no Worker
+// deploy.
+//
+// FAIL-CLOSED. Until the registry names a section `live`, every one of its URLs
+// answers exactly as it did before this branch existed: `serveCorpusSection`
+// returns null and the request continues down the dispatch chain (IT → the
+// apex Pages passthrough, which answers its 404.html; en/de/fr → origin-<loc>,
+// which answers 404). Same for a registry that is missing, unreachable, or
+// fails validation and no last-known-good copy is in memory.
+//
+// CLOSED SET. The prefixes below MIRROR
+// packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs
+// (`indexSlug` of each `canton-*` entry). This file cannot import it (single
+// self-contained script, see the header), so
+// tests/locale-router-corpus-sections.test.ts fails on any drift between the
+// two — the same arrangement as SECTION_ROUTES vs section-shard-slugs.json.
+// IT lives at the apex like the two historical article sections
+// (`/articoli-<it>/`), the other locales under their prefix
+// (`/en/<en>-articles/`, `/de/<de>-artikel/`, `/fr/articles-<fr>/`). The
+// slugs appear nowhere else in this file: tests/build-plugins/
+// cantonArticleSectionCore.test.ts treats any other occurrence as a collision.
+export const CORPUS_CANTON_SECTION_SLUGS = {
+  'canton-ag': { it: 'articoli-argovia', en: 'aargau-articles', de: 'aargau-artikel', fr: 'articles-argovie' },
+  'canton-appenzello': { it: 'articoli-appenzello', en: 'appenzell-articles', de: 'appenzell-artikel', fr: 'articles-appenzell' },
+  'canton-basilea': { it: 'articoli-basilea', en: 'basel-articles', de: 'basel-artikel', fr: 'articles-bale' },
+  'canton-be': { it: 'articoli-berna', en: 'bern-articles', de: 'bern-artikel', fr: 'articles-berne' },
+  'canton-fr': { it: 'articoli-friburgo', en: 'fribourg-articles', de: 'freiburg-artikel', fr: 'articles-fribourg' },
+  'canton-ge': { it: 'articoli-ginevra', en: 'geneva-articles', de: 'genf-artikel', fr: 'articles-geneve' },
+  'canton-gl': { it: 'articoli-glarona', en: 'glarus-articles', de: 'glarus-artikel', fr: 'articles-glaris' },
+  'canton-gr': { it: 'articoli-grigioni', en: 'graubunden-articles', de: 'graubunden-artikel', fr: 'articles-grisons' },
+  'canton-ju': { it: 'articoli-giura', en: 'jura-articles', de: 'jura-artikel', fr: 'articles-jura' },
+  'canton-lu': { it: 'articoli-lucerna', en: 'lucerne-articles', de: 'luzern-artikel', fr: 'articles-lucerne' },
+  'canton-ne': { it: 'articoli-neuchatel', en: 'neuchatel-articles', de: 'neuenburg-artikel', fr: 'articles-neuchatel' },
+  'canton-nw': { it: 'articoli-nidvaldo', en: 'nidwalden-articles', de: 'nidwalden-artikel', fr: 'articles-nidwald' },
+  'canton-ow': { it: 'articoli-obvaldo', en: 'obwalden-articles', de: 'obwalden-artikel', fr: 'articles-obwald' },
+  'canton-sg': { it: 'articoli-san-gallo', en: 'st-gallen-articles', de: 'st-gallen-artikel', fr: 'articles-saint-gall' },
+  'canton-sh': { it: 'articoli-sciaffusa', en: 'schaffhausen-articles', de: 'schaffhausen-artikel', fr: 'articles-schaffhouse' },
+  'canton-so': { it: 'articoli-soletta', en: 'solothurn-articles', de: 'solothurn-artikel', fr: 'articles-soleure' },
+  'canton-sz': { it: 'articoli-svitto', en: 'schwyz-articles', de: 'schwyz-artikel', fr: 'articles-schwytz' },
+  'canton-tg': { it: 'articoli-turgovia', en: 'thurgau-articles', de: 'thurgau-artikel', fr: 'articles-thurgovie' },
+  'canton-ti': { it: 'articoli-ticino', en: 'ticino-articles', de: 'tessin-artikel', fr: 'articles-tessin' },
+  'canton-ur': { it: 'articoli-uri', en: 'uri-articles', de: 'uri-artikel', fr: 'articles-uri' },
+  'canton-vd': { it: 'articoli-vaud', en: 'vaud-articles', de: 'waadt-artikel', fr: 'articles-vaud' },
+  'canton-vs': { it: 'articoli-vallese', en: 'valais-articles', de: 'wallis-artikel', fr: 'articles-valais' },
+  'canton-zg': { it: 'articoli-zugo', en: 'zug-articles', de: 'zug-artikel', fr: 'articles-zoug' },
+  'canton-zh': { it: 'articoli-zurigo', en: 'zurich-articles', de: 'zurich-artikel', fr: 'articles-zurich' },
+};
+
+/** The 96 section prefixes ({ section, locale, prefix }), derived from the slug table above. */
+export const CORPUS_SECTION_ROUTES = Object.freeze(
+  Object.entries(CORPUS_CANTON_SECTION_SLUGS).flatMap(([section, slugs]) =>
+    ['it', 'en', 'de', 'fr'].map((locale) =>
+      Object.freeze({
+        section,
+        locale,
+        prefix: locale === 'it' ? `/${slugs.it}` : `/${locale}/${slugs[locale]}`,
+      }),
+    ),
+  ),
+);
+
+/**
+ * The corpus section route a path belongs to (section root, its `.html` flat
+ * form, or anything below it), or null. Prefix-exact like matchSection, so a
+ * look-alike such as `/articoli-<canton>-altro` never matches.
+ */
+export function matchCorpusSection(pathname) {
+  for (const route of CORPUS_SECTION_ROUTES) {
+    if (
+      pathname === route.prefix ||
+      pathname === `${route.prefix}.html` ||
+      pathname.startsWith(`${route.prefix}/`)
+    ) {
+      return route;
+    }
+  }
+  return null;
+}
+
+export const CORPUS_SECTIONS_REGISTRY_KEY = '/edge/sections/registry.json';
+export const CORPUS_SECTIONS_EDGE_PREFIX = '/edge/sections';
+export const CORPUS_SECTION_STATUSES = Object.freeze(['live', 'draft', 'retired']);
+// How long one isolate trusts the registry it holds before asking again, and
+// the CDN-side TTL of that subrequest. Both short: flipping a section is a
+// corpus commit, and it must reach the edge in about a minute, not in hours.
+export const CORPUS_REGISTRY_TTL_MS = 60_000;
+const CORPUS_REGISTRY_CDN_TTL = 60;
+// After a FAILED refresh the last-known-good copy keeps serving and the next
+// attempt waits this long, so an R2 outage is not one extra subrequest per
+// request.
+const CORPUS_REGISTRY_RETRY_MS = 15_000;
+const CORPUS_EDGE_FETCH_TIMEOUT_MS = 2000;
+// Pages: 10 minutes at the eyeball, against the 6h of shard pages
+// (CACHE_MAX_AGE). Section landings and topic hubs change on every publish,
+// and the corpus purges the CDN key it wrote — only this header can hold a
+// stale landing in a browser.
+export const CORPUS_PAGE_CACHE_CONTROL = 'public, max-age=600';
+// A section page that does not exist (R2 miss): a real 404 with a SHORT
+// negative TTL — not the 2h of NOT_FOUND_CACHE_CONTROL — because a page that
+// 404s now is typically one the corpus is about to publish.
+export const CORPUS_NOT_FOUND_CACHE_CONTROL = 'public, max-age=60, s-maxage=60';
+// The R2 subrequest itself: 5 min for content (the publisher purges the
+// cdn key on every write), 30 s for a miss, never for a 5xx.
+const CORPUS_EDGE_FETCH_CF = {
+  cacheEverything: true,
+  cacheTtlByStatus: { '200-299': 300, '300-399': 300, '400-499': 30, '500-599': -1 },
+};
+// Path segments a corpus page may have below its section prefix: lowercase
+// slug words, at most four levels (article, hub, archive, page-N). Anything
+// else cannot have been written by the publisher and is answered 404 without
+// a subrequest.
+const CORPUS_SEGMENT_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const CORPUS_MAX_SEGMENTS = 4;
+const CORPUS_MAX_PATH_LENGTH = 512;
+const CORPUS_COMMIT_RE = /^[0-9a-f]{7,40}$/;
+
+/**
+ * The canonical directory form of a corpus section path, or null when the path
+ * cannot be a published page. `/x` and `/x.html` and `/x/index.html` all name
+ * `/x/` (the form canonicals, sitemaps and hreflang use), mirroring how GitHub
+ * Pages resolves the shard prefixes that matchSection serves.
+ */
+export function corpusSectionCanonicalDir(pathname, route) {
+  let dir = pathname;
+  if (dir.endsWith('/index.html')) dir = dir.slice(0, -'index.html'.length);
+  else if (dir.endsWith('.html')) dir = `${dir.slice(0, -'.html'.length)}/`;
+  else if (!dir.endsWith('/')) dir = `${dir}/`;
+  if (dir.length > CORPUS_MAX_PATH_LENGTH) return null;
+  if (dir !== `${route.prefix}/` && !dir.startsWith(`${route.prefix}/`)) return null;
+  const rest = dir.slice(route.prefix.length + 1, -1);
+  if (rest === '') return dir;
+  const segments = rest.split('/');
+  if (segments.length > CORPUS_MAX_SEGMENTS) return null;
+  return segments.every((seg) => CORPUS_SEGMENT_RE.test(seg)) ? dir : null;
+}
+
+/** R2 key of the page served at a canonical directory path. */
+export function corpusSectionCdnKey(canonicalDir) {
+  return `${CORPUS_SECTIONS_EDGE_PREFIX}${canonicalDir}index.html`;
+}
+
+// A site path a registry redirect may point at: same-origin, absolute,
+// slash-terminated — the site root `/` included. No scheme, no `//host`, no
+// backslash or whitespace: a registry entry must never be able to turn this
+// Worker into an open redirect.
+const CORPUS_REDIRECT_TARGET_RE = /^\/(?:(?!\/)[^\s\\?#]*\/)?$/;
+
+/**
+ * True when following the registry redirects can come back to a path already
+ * visited (`a → b → a`, also across sections): served as-is that is a
+ * permanent 301 loop on live URLs, so the whole registry is refused instead.
+ */
+function hasRedirectCycle(sections) {
+  const next = new Map();
+  for (const entry of Object.values(sections)) {
+    for (const [from, to] of entry.redirects) next.set(from, to);
+  }
+  for (const start of next.keys()) {
+    const seen = new Set([start]);
+    let cur = next.get(start);
+    while (cur !== undefined && next.has(cur)) {
+      if (seen.has(cur)) return true;
+      seen.add(cur);
+      cur = next.get(cur);
+    }
+  }
+  return false;
+}
+
+function isPlainObject(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+/**
+ * Validate and normalise `edge/sections/registry.json`. Returns the frozen
+ * registry, or null when ANYTHING in it is off — a half-trusted registry is
+ * worse than none, because "none" is the fail-closed state.
+ *
+ * Contract (schema 1), written by the corpus publisher:
+ *
+ *   {
+ *     "schema": 1,
+ *     "commit": "<corpus commit sha, 7-40 hex>",
+ *     "sections": {
+ *       "canton-ti": {
+ *         "status": "live" | "draft" | "retired",
+ *         "redirects": { "/articoli-<it>/vecchio/": "/articoli-<it>/nuovo/" },   // optional
+ *         "gone": ["/articoli-<it>/ritirato/"]                                  // optional
+ *       }
+ *     }
+ *   }
+ *
+ * Section ids must be known canton sections (CORPUS_CANTON_SECTION_SLUGS); a
+ * section absent from the map behaves like `draft`. Redirect sources and gone
+ * paths must be canonical directory paths INSIDE that section; redirect
+ * targets any same-origin slash-terminated path.
+ */
+export function parseCorpusSectionRegistry(raw) {
+  if (!isPlainObject(raw) || raw.schema !== 1) return null;
+  if (typeof raw.commit !== 'string' || !CORPUS_COMMIT_RE.test(raw.commit)) return null;
+  if (!isPlainObject(raw.sections)) return null;
+  const sections = {};
+  for (const [id, entry] of Object.entries(raw.sections)) {
+    if (!Object.prototype.hasOwnProperty.call(CORPUS_CANTON_SECTION_SLUGS, id)) return null;
+    if (!isPlainObject(entry) || !CORPUS_SECTION_STATUSES.includes(entry.status)) return null;
+    const insideSection = (p) => {
+      if (typeof p !== 'string') return false;
+      const route = matchCorpusSection(p);
+      return Boolean(route && route.section === id && corpusSectionCanonicalDir(p, route) === p);
+    };
+    const redirects = new Map();
+    if (entry.redirects !== undefined) {
+      if (!isPlainObject(entry.redirects)) return null;
+      for (const [from, to] of Object.entries(entry.redirects)) {
+        if (!insideSection(from)) return null;
+        if (typeof to !== 'string' || to.length > CORPUS_MAX_PATH_LENGTH || !CORPUS_REDIRECT_TARGET_RE.test(to)) return null;
+        if (to === from) return null;
+        redirects.set(from, to);
+      }
+    }
+    const gone = new Set();
+    if (entry.gone !== undefined) {
+      if (!Array.isArray(entry.gone)) return null;
+      for (const p of entry.gone) {
+        if (!insideSection(p) || redirects.has(p)) return null;
+        gone.add(p);
+      }
+    }
+    sections[id] = Object.freeze({ status: entry.status, redirects, gone });
+  }
+  if (hasRedirectCycle(sections)) return null;
+  return Object.freeze({ commit: raw.commit, sections: Object.freeze(sections) });
+}
+
+// Isolate-global memo. `value` is the last-known-good registry: it survives a
+// failed or invalid refresh for as long as the isolate lives, so a transient
+// R2 error or a bad publish never turns live sections back into 404s.
+const corpusRegistryMemo = { value: null, checkedAt: 0, nextAttemptAt: 0, inflight: null };
+
+/** Test seam: forget the memoised registry (each test starts from a cold isolate). */
+export function __resetCorpusRegistryForTests() {
+  corpusRegistryMemo.value = null;
+  corpusRegistryMemo.checkedAt = 0;
+  corpusRegistryMemo.nextAttemptAt = 0;
+  corpusRegistryMemo.inflight = null;
+}
+
+async function fetchCorpusRegistry() {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), CORPUS_EDGE_FETCH_TIMEOUT_MS);
+  try {
+    const resp = await fetch(new URL(CORPUS_SECTIONS_REGISTRY_KEY, CDN_BASE).toString(), {
+      signal: controller.signal,
+      cf: cacheEverythingWithout5xx(CORPUS_REGISTRY_CDN_TTL),
+    });
+    if (!resp.ok) return null;
+    return parseCorpusSectionRegistry(await resp.json());
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
+ * The registry this isolate should act on: fresh within CORPUS_REGISTRY_TTL_MS,
+ * otherwise refreshed once (concurrent requests share the same subrequest),
+ * falling back to the last-known-good copy — or null if there has never been a
+ * valid one, which is the fail-closed answer.
+ */
+export async function loadCorpusSectionRegistry(now = Date.now()) {
+  const memo = corpusRegistryMemo;
+  if (memo.value && now - memo.checkedAt < CORPUS_REGISTRY_TTL_MS) return memo.value;
+  if (now < memo.nextAttemptAt) return memo.value;
+  if (!memo.inflight) {
+    memo.inflight = fetchCorpusRegistry()
+      .then((fresh) => {
+        if (fresh) {
+          memo.value = fresh;
+          memo.checkedAt = now;
+          memo.nextAttemptAt = 0;
+        } else {
+          memo.nextAttemptAt = now + CORPUS_REGISTRY_RETRY_MS;
+        }
+        return memo.value;
+      })
+      .finally(() => {
+        memo.inflight = null;
+      });
+  }
+  return memo.inflight;
+}
+
+// 404 copy for a missing page inside a LIVE section. Same deliberately tiny,
+// asset-free shape as GONE_COPY: one status, one robots meta, one live link.
+const CORPUS_NOT_FOUND_COPY = {
+  it: { title: 'Pagina non trovata', lede: 'Questa pagina non esiste o non è più disponibile.', cta: 'Vai agli articoli della sezione' },
+  en: { title: 'Page not found', lede: 'This page does not exist or is no longer available.', cta: 'Browse this section' },
+  de: { title: 'Seite nicht gefunden', lede: 'Diese Seite existiert nicht oder ist nicht mehr verfügbar.', cta: 'Zu den Artikeln dieses Bereichs' },
+  fr: { title: 'Page introuvable', lede: "Cette page n'existe pas ou n'est plus disponible.", cta: 'Voir les articles de la rubrique' },
+};
+
+function corpusStatusPage(route, copy) {
+  return `<!doctype html>
+<html lang="${route.locale}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>${copy.title} — Frontaliere Ticino</title>
+</head>
+<body>
+<main>
+<h1>${copy.title}</h1>
+<p>${copy.lede}</p>
+<p><a href="${route.prefix}/">${copy.cta}</a></p>
+</main>
+</body>
+</html>
+`;
+}
+
+function corpusResponse(request, body, init) {
+  return new Response(request.method === 'HEAD' ? null : body, init);
+}
+
+function corpusNotFound(request, route) {
+  return corpusResponse(request, corpusStatusPage(route, CORPUS_NOT_FOUND_COPY[route.locale]), {
+    status: 404,
+    headers: {
+      'Content-Type': 'text/html; charset=utf-8',
+      'Cache-Control': CORPUS_NOT_FOUND_CACHE_CONTROL,
+      'X-Robots-Tag': 'noindex',
+    },
+  });
+}
+
+function corpusGone(request, route) {
+  return corpusResponse(request, corpusStatusPage(route, GONE_COPY[route.locale]), {
+    status: 410,
+    headers: {
+      'Content-Type': 'text/html; charset=utf-8',
+      'Cache-Control': NOT_FOUND_CACHE_CONTROL,
+      'X-Robots-Tag': 'noindex',
+    },
+  });
+}
+
+function corpusMoved(url, target) {
+  return new Response(null, {
+    status: 301,
+    headers: { Location: target + url.search + url.hash, 'Cache-Control': RETIRED_MOVED_CACHE_CONTROL },
+  });
+}
+
+/**
+ * Serve a canton article section page from R2, or return null to let the
+ * request continue exactly as before this branch existed (fail-closed: no
+ * registry, section absent or `draft`, or a method other than GET/HEAD).
+ *
+ * live    → registry redirect (301) / gone (410) first, then the canonical
+ *           directory form (301 from `/x`, `/x.html`, `/x/index.html`), then
+ *           the R2 object: 200, or a real 404 + noindex with a short TTL.
+ * retired → registry redirect if one is declared, 410 Gone otherwise.
+ */
+export async function serveCorpusSection(request, url, ctx) {
+  const route = matchCorpusSection(url.pathname);
+  if (!route) return null;
+  if (request.method !== 'GET' && request.method !== 'HEAD') return null;
+
+  const registry = await loadCorpusSectionRegistry();
+  const entry = registry?.sections[route.section];
+  if (!entry || entry.status === 'draft') return null;
+
+  const dir = corpusSectionCanonicalDir(url.pathname, route);
+  if (dir) {
+    const redirect = entry.redirects.get(dir);
+    if (redirect) return corpusMoved(url, redirect);
+    if (entry.gone.has(dir)) return corpusGone(request, route);
+  }
+  if (entry.status === 'retired') return corpusGone(request, route);
+  if (!dir) return corpusNotFound(request, route);
+  if (dir !== url.pathname) return corpusMoved(url, dir);
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), ORIGIN_TIMEOUT_MS);
+  let resp;
+  try {
+    resp = await fetch(new URL(corpusSectionCdnKey(dir), CDN_BASE).toString(), {
+      signal: controller.signal,
+      cf: CORPUS_EDGE_FETCH_CF,
+    });
+  } catch {
+    resp = null;
+  } finally {
+    clearTimeout(timer);
+  }
+
+  if (!resp || resp.status >= 500) {
+    // Stale-if-error, same contract as serveShard: the last-good apex-keyed
+    // copy beats an error page for a crawler or a reader.
+    if (request.method === 'GET') {
+      const stale = await serveStaleOnError(url, resp ? `corpus-${resp.status}` : 'corpus-timeout');
+      if (stale) return stale;
+    }
+    return new Response('Section origin unavailable', {
+      status: 503,
+      headers: { 'Retry-After': '30', 'Cache-Control': 'no-store' },
+    });
+  }
+  if (!resp.ok) return corpusNotFound(request, route);
+
+  const body = await resp.arrayBuffer();
+  const headers = {
+    'Content-Type': 'text/html; charset=utf-8',
+    'Cache-Control': CORPUS_PAGE_CACHE_CONTROL,
+  };
+  // Apex-keyed copy for stale-if-error and the over-cap fail-open path,
+  // exactly as serveShard stores one (explicit buffer, never a tee).
+  if (ctx && request.method === 'GET' && !url.search) {
+    ctx.waitUntil(
+      caches.default
+        .put(
+          new Request(url.toString(), { method: 'GET' }),
+          new Response(body, {
+            status: 200,
+            headers: { ...headers, 'Cache-Control': `public, max-age=300, s-maxage=${FAIL_OPEN_CACHE_TTL}` },
+          }),
+        )
+        .catch(() => {}),
+    );
+  }
+  return corpusResponse(request, body, { status: 200, headers });
+}
+
+// Per-section sitemaps and their index, published by the corpus to R2 next to
+// the pages. EDGE_PUSHED_FILES is exact-path by design; these follow ONE rule,
+// validated against the closed set, so a new canton needs no entry here:
+//
+//   /sitemap-cantons.xml               → edge/sitemap-cantons.xml (index, in robots.txt)
+//   /sitemap-articles-<canton-id>.xml  → edge/sitemap-articles-<canton-id>.xml
+//
+// A per-section sitemap is served only while that section is `live` (same
+// fail-closed rule as its pages). Not published yet → a plain 404 with a short
+// TTL, which is what these URLs answered before (Pages 404) and what a
+// robots.txt-declared sitemap may answer without any Search Console error: GSC
+// only reports sitemaps that were SUBMITTED, and an empty <sitemapindex>
+// would instead violate the schema (a sitemapindex needs ≥1 <sitemap>).
+export const CORPUS_SITEMAP_INDEX_PATH = '/sitemap-cantons.xml';
+const CORPUS_SECTION_SITEMAP_RE = /^\/sitemap-articles-(canton-[a-z]+)\.xml$/;
+
+/** `{ cdnKey, section }` for a corpus sitemap path, or null for any other path. */
+export function corpusEdgeFileForPath(pathname) {
+  if (pathname === CORPUS_SITEMAP_INDEX_PATH) {
+    return { cdnKey: '/edge/sitemap-cantons.xml', section: null };
+  }
+  const m = CORPUS_SECTION_SITEMAP_RE.exec(pathname);
+  if (m && Object.prototype.hasOwnProperty.call(CORPUS_CANTON_SECTION_SLUGS, m[1])) {
+    return { cdnKey: `/edge/sitemap-articles-${m[1]}.xml`, section: m[1] };
+  }
+  return null;
+}
+
+function corpusSitemapNotFound(request) {
+  return corpusResponse(request, 'Not found\n', {
+    status: 404,
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': CORPUS_NOT_FOUND_CACHE_CONTROL,
+      'X-Robots-Tag': 'noindex',
+    },
+  });
+}
+
+/** Serve a corpus sitemap from R2; null for every other path or method. */
+export async function serveCorpusEdgeFile(request, url) {
+  const file = corpusEdgeFileForPath(url.pathname);
+  if (!file) return null;
+  if (request.method !== 'GET' && request.method !== 'HEAD') return null;
+  if (file.section) {
+    const registry = await loadCorpusSectionRegistry();
+    if (registry?.sections[file.section]?.status !== 'live') return corpusSitemapNotFound(request);
+  }
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), CORPUS_EDGE_FETCH_TIMEOUT_MS);
+  try {
+    const resp = await fetch(new URL(file.cdnKey, CDN_BASE).toString(), {
+      signal: controller.signal,
+      cf: CORPUS_EDGE_FETCH_CF,
+    });
+    if (resp.status >= 500) throw new Error(`edge ${resp.status}`);
+    if (!resp.ok) return corpusSitemapNotFound(request);
+    const body = await resp.arrayBuffer();
+    return corpusResponse(request, body, {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/xml; charset=utf-8',
+        'Cache-Control': `public, max-age=${EDGE_PUSHED_CACHE_TTL}`,
+      },
+    });
+  } catch {
+    return new Response('Sitemap origin unavailable', {
+      status: 503,
+      headers: { 'Retry-After': '60', 'Cache-Control': 'no-store' },
+    });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 
 // Returns a within-locale 301 Response when the requested path is a company-hub
 // orphaned only by a wrong-locale company prefix (e.g. the IT `azienda-` prefix
@@ -1906,6 +2427,13 @@ export default {
     const pushedEdgeResponse = await servePushedEdgeFile(url.pathname);
     if (pushedEdgeResponse) return pushedEdgeResponse;
 
+    // Corpus sitemaps (sitemap-cantons.xml + sitemap-articles-<canton>.xml):
+    // one regex-validated rule instead of an exact EDGE_PUSHED_FILES entry per
+    // canton. Disjoint from the table above (canton ids only), so the order
+    // between the two changes nothing.
+    const corpusEdgeFile = await serveCorpusEdgeFile(request, url);
+    if (corpusEdgeFile) return corpusEdgeFile;
+
     // Retired paths (issue #5369 §4) — 301 to a substitute, or 410 Gone. Must
     // run BEFORE matchSection: every one of these lives under a section prefix,
     // so matchSection would hand it to the append-only shard, which still holds
@@ -1917,6 +2445,14 @@ export default {
     // fail-open ordering untouched.
     const retiredResponse = retiredEdgeResponse(url);
     if (retiredResponse) return retiredResponse;
+
+    // Canton article sections served by the corpus from R2 (see the CORPUS-OWNED
+    // ARTICLE SECTIONS block). BEFORE matchSection for symmetry with the shard
+    // sections, although the two prefix sets are disjoint (tested). Fail-closed:
+    // null for any section the registry does not declare `live`/`retired`, so
+    // those paths fall through to exactly the handling they had before.
+    const corpusSection = await serveCorpusSection(request, url, ctx);
+    if (corpusSection) return corpusSection;
 
     // Section shard — checked BEFORE the locale match so an /en|/de|/fr section
     // path (e.g. /en/find-jobs-ticino/..., /en/find-jobs-zurich/...) resolves to
@@ -1936,8 +2472,11 @@ export default {
       // the Worker to locale routes + section prefixes + the exact
       // EDGE_PUSHED_FILES paths above (issue #4881 Fase 3), so this branch is
       // only reached today by (a) an EDGE_PUSHED_FILES path whose R2 copy
-      // missed/errored just above, falling through here on purpose, or (b) a
-      // route scope expansion. Every other IT path bypasses the Worker
+      // missed/errored just above, falling through here on purpose, (b) an IT
+      // `/articoli-*` path that is not a live corpus section (canton section
+      // still draft / no registry, or a look-alike) — the fail-closed path, so
+      // it gets the very Pages answer it got before that route existed — or
+      // (c) a route scope expansion. Every other IT path bypasses the Worker
       // entirely as a pure CF passthrough. The timeout+retry guard mirrors the
       // shard-origin layer. No cf caching opts: this passthrough must respect
       // the zone's own cache rules.

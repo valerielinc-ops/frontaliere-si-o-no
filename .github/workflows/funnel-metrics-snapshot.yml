@@ -2,7 +2,7 @@ name: Funnel Metrics Snapshot (weekly)
 
 # Collects the field metrics the open RPM/CLS tracker issues need so they stop
 # being "blocked on unavailable data":
-#   #886 / #855 — CLS p75 mobile/desktop (PostHog $web_vitals)
+#   #886 / #855 — CLS p75 mobile/desktop (GA4 web_vitals, via revenue-monitor)
 #   #888        — GSC avg position + CTR by URL bucket (high-CPC ranking)
 #   #857        — AdSense RPM (content-mix dilution proxy)
 #

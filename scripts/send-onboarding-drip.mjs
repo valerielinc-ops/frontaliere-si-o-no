@@ -24,7 +24,7 @@
  *   --dry-run (default)  scan + report what WOULD send, no provider call, no writes
  *   --test --target-email <addr>   send one sample step to one address, no state writes
  *   --send               real run: send due steps + persist state
- *   --max <n>            cap emails this run (default 200; also bounded by cascade quota)
+ *   --max <n>            cap emails this run (default: no cap — only the cascade quota bounds it)
  *   --enroll-window-days <n>   only enroll subscribers confirmed within N days (default 4)
  *   --test-step <0-3>   which step to render in --test (default 0)
  *
@@ -38,6 +38,7 @@ import {
   buildDripEmail,
   resolveDripSegment,
   computeNextStep,
+  dripStepDueAtMs,
   DRIP_STEP_COUNT,
 } from '../services/newsletter/onboardingDrip.mjs';
 import { makeOneClickUnsubscribeUrl, makePreferencesUrl } from '../services/newsletterUrls.mjs';
@@ -66,7 +67,10 @@ const IS_SEND = flag('send');
 const IS_TEST = flag('test');
 const IS_DRY_RUN = !IS_SEND && !IS_TEST; // default
 const TARGET_EMAIL = opt('target-email');
-const MAX = Number(opt('max', '200')) || 200;
+// No default cap: a fixed 200/run fell behind the ~250/day the signup rate
+// generates and left 1.150 subscribers overdue (Oct 2026). The cascade quota
+// is the only bound; whatever it cannot carry fails and is retried next run.
+const MAX = Number(opt('max', '0')) > 0 ? Number(opt('max', '0')) : Infinity;
 const ENROLL_WINDOW_DAYS = Number(opt('enroll-window-days', '4')) || 4;
 const TEST_STEP = Math.max(0, Math.min(DRIP_STEP_COUNT - 1, Number(opt('test-step', '0')) || 0));
 
@@ -143,10 +147,16 @@ function resolveDueStep(data, now, enrollWindowMs) {
   }
 
   const lastStep = Number.isInteger(data.drip_last_step) ? data.drip_last_step : -1;
-  const nextStep = computeNextStep({ startedAtMs: startedAt.getTime(), lastStep, nowMs: now.getTime() });
+  const lastSentAt = toDate(data.drip_last_sent_at);
+  const nextStep = computeNextStep({
+    startedAtMs: startedAt.getTime(),
+    lastStep,
+    nowMs: now.getTime(),
+    lastSentAtMs: lastSentAt ? lastSentAt.getTime() : null,
+  });
   if (nextStep == null) return null;
 
-  return { step: nextStep, startedAt, newlyEnrolled };
+  return { step: nextStep, startedAt, newlyEnrolled, dueAtMs: dripStepDueAtMs(startedAt.getTime(), nextStep) };
 }
 
 // ── Build the queue of due drip emails ───────────────────────
@@ -197,6 +207,7 @@ async function buildQueue(globalHour, now) {
       cardId,
       startedAt: due.startedAt,
       newlyEnrolled: due.newlyEnrolled,
+      dueAtMs: due.dueAtMs,
       segment: resolveDripSegment(interest),
       payload: {
         from: FROM_EMAIL,
@@ -219,6 +230,10 @@ async function buildQueue(globalHour, now) {
       meta: { step: due.step, cardId },
     });
   });
+  // Most overdue first. The collection reads in document-id (= email) order, so
+  // whenever the quota cut the queue it was always the same end of the
+  // alphabet that waited — 930 of 1.150 overdue subscribers, 26,6 days late.
+  queue.sort((a, b) => a.dueAtMs - b.dueAtMs);
   return queue;
 }
 
@@ -297,7 +312,7 @@ async function runScan() {
   const byStep = queue.reduce((acc, q) => { acc[q.step] = (acc[q.step] || 0) + 1; return acc; }, {});
   console.log(`📊 Onboarding drip: ${queue.length} subscribers due (by step: ${JSON.stringify(byStep)})`);
 
-  const capped = queue.slice(0, MAX);
+  const capped = Number.isFinite(MAX) ? queue.slice(0, MAX) : queue;
   if (capped.length < queue.length) {
     console.log(`⏱️  Capped to ${capped.length}/${queue.length} this run (--max ${MAX}); the rest go next run.`);
   }

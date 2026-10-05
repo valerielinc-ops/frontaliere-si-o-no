@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "answerconsulting-010b54d7365f",
-      "slug": "r-d-software-engineer-answerconsulting-mendrisio",
+      "slug": "r-d-software-ingegnere-answerconsulting-sa-mendrisio",
       "slugByLocale": {
         "en": "r-d-software-engineer-answerconsulting-mendrisio",
-        "it": "r-d-software-engineer-answerconsulting-mendrisio",
-        "de": "r-d-software-engineer-answerconsulting-mendrisio",
+        "it": "r-d-software-ingegnere-answerconsulting-sa-mendrisio",
+        "de": "r-d-software-ingenieur-answerconsulting-sa-mendrisio",
         "fr": "r-d-software-engineer-answerconsulting-mendrisio"
       },
       "company": "AnswerConsulting SA",
@@ -70,7 +70,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:19:45.396Z"
+      "firstSeenAt": "2026-10-05T09:19:45.396Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "r-d-software-engineer-answerconsulting-mendrisio"
+        ],
+        "de": [
+          "r-d-software-engineer-answerconsulting-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "r-d-software-engineer-answerconsulting-mendrisio"
+      ]
     }
   ]
 }

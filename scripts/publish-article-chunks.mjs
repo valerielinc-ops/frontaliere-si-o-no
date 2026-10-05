@@ -146,6 +146,18 @@ const ESBUILD_VERSION = '0.28.2';
  * companion that failed its OWN upload (caught, warned, non-fatal) must not
  * let the registry publish anyway, or the #4881 incident reproduces for that
  * one article even with the companions-first ordering in place.
+ *
+ * `namespaceExport`: the module namespace the Rollup chunk ALSO exports. The
+ * registry is statically imported (BlogArticles, AdminPanel) and dynamically
+ * imported (JobBoard, SiteSearch, seoService), so Rollup rewrites the dynamic
+ * sites to `import('./blog-articles-data.js').then((m) => m.blogArticlesData)`.
+ * A chunk rebuilt here with `ARTICLES` alone resolves those to `undefined`:
+ * resilientImport reads that as a stale chunk, clears the caches and reloads
+ * the page, once per tab, a few seconds after it opens (live 2026-10-05: every
+ * job page reloaded after the 09:04 UTC article sync, cutting the "Candidati"
+ * flow mid-way). Rollup names the namespace after the module, so the name is
+ * stable; the swiss one has no dynamic pick today and is exported for the
+ * same shape.
  */
 export const REGISTRIES = [
   {
@@ -153,6 +165,7 @@ export const REGISTRIES = [
     source: 'data/blog-articles-data.ts',
     cdnKey: 'assets/blog-articles-data.js',
     exportName: 'ARTICLES',
+    namespaceExport: 'blogArticlesData',
     requiredCompanionKeys: [
       ...['it', 'en', 'de', 'fr'].map((loc) => `assets/blog-meta-${loc}.js`),
       'assets/routerBlogData.js',
@@ -163,6 +176,7 @@ export const REGISTRIES = [
     source: 'data/swiss-articles-data.ts',
     cdnKey: 'assets/swiss-articles-data.js',
     exportName: 'SWISS_ARTICLES',
+    namespaceExport: 'swissArticlesData',
     requiredCompanionKeys: [
       ...['it', 'en', 'de', 'fr'].map((loc) => `assets/blog-meta-ch-${loc}.js`),
       'assets/routerSwissData.js',
@@ -246,9 +260,30 @@ function getEsbuildApi() {
  * Rebuild one registry module standalone with esbuild — no Rollup/vite.config
  * involved. Pure/testable: caller supplies rootDir + outFile so vitest can
  * point this at the real repo without any network/CDN side effect.
+ * `namespaceExport` (see REGISTRIES) adds the module namespace under that
+ * name, next to the module's own exports, through a generated entry.
  */
-export async function buildRegistryChunk(rootDir, sourceRel, outFile) {
-  const src = path.join(rootDir, sourceRel);
+export async function buildRegistryChunk(rootDir, sourceRel, outFile, { namespaceExport } = {}) {
+  const moduleFile = path.join(rootDir, sourceRel);
+  let src = moduleFile;
+  let entryDir = null;
+  if (namespaceExport) {
+    entryDir = fs.mkdtempSync(path.join(os.tmpdir(), 'publish-article-chunks-entry-'));
+    src = path.join(entryDir, 'entry.mjs');
+    const specifier = JSON.stringify(moduleFile);
+    fs.writeFileSync(
+      src,
+      `export * from ${specifier};\nimport * as namespace from ${specifier};\nexport { namespace as ${namespaceExport} };\n`,
+    );
+  }
+  try {
+    await bundleRegistryEntry(rootDir, src, outFile);
+  } finally {
+    if (entryDir) fs.rmSync(entryDir, { recursive: true, force: true });
+  }
+}
+
+async function bundleRegistryEntry(rootDir, src, outFile) {
   const api = await getEsbuildApi();
   if (api) {
     await api.build({
@@ -285,9 +320,14 @@ export async function buildRegistryChunk(rootDir, sourceRel, outFile) {
  * `main()` below treats it as non-fatal, per this script's best-effort
  * posture; the vitest test treats it as a real failure).
  */
-export async function validateRegistryChunk(outFile, exportName, shape = 'array') {
+export async function validateRegistryChunk(outFile, exportName, shape = 'array', namespaceExport = undefined) {
   const mod = await import(pathToFileURL(outFile).href);
   const value = mod[exportName];
+  // The namespace the SPA's dynamic imports pick must carry the very same
+  // registry, or those pages reload (see REGISTRIES).
+  if (namespaceExport && mod[namespaceExport]?.[exportName] !== value) {
+    throw new Error(`[publish-article-chunks] ${outFile} export "${namespaceExport}.${exportName}" is missing or not the same as "${exportName}"`);
+  }
   if (shape === 'object') {
     // Translation tables and slug maps are keyed objects, not arrays. Empty is
     // still a failure: shipping an empty table is exactly the state that makes
@@ -409,8 +449,8 @@ async function main() {
     const outFile = path.join(tmpDir, path.basename(registry.cdnKey));
     try {
       console.log(`[publish-article-chunks] rebuilding ${registry.source} -> ${outFile}`);
-      await buildRegistryChunk(ROOT_DIR, registry.source, outFile);
-      const value = await validateRegistryChunk(outFile, registry.exportName);
+      await buildRegistryChunk(ROOT_DIR, registry.source, outFile, { namespaceExport: registry.namespaceExport });
+      const value = await validateRegistryChunk(outFile, registry.exportName, 'array', registry.namespaceExport);
       console.log(`[publish-article-chunks] ${registry.exportName}: ${value.length} entries`);
       if (registry.exportName === 'ARTICLES') blogArticles = value;
 

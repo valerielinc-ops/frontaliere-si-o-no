@@ -1,7 +1,9 @@
 /**
  * Deterministic, quota-free content builder for the weekly "best/worst dogane"
  * ranking digest (evergreen sibling of events-digest-content.mjs, same
- * pattern: single stable id/slug, body refreshed weekly, no LLM/no quota).
+ * pattern: one stable id/slug per canton, body refreshed weekly, no LLM/no
+ * quota). Ticino is the original article and the default; the other border
+ * cantons are listed in BORDER_RANKING_CANTONS.
  *
  * Needs crossing display names / regions / per-crossing page links from
  * `build-plugins/borderWaitData.ts` (a `.ts` module) — so, unlike the pure
@@ -15,19 +17,92 @@ import {
   BORDER_WAIT_CROSSINGS,
   BORDER_CROSSING_DISPLAY,
   CROSSING_TO_REGION,
+  REGION_TO_COUNTRY,
   isTicinoCrossing,
   buildOggiPath,
   buildRootHubPath,
 } from '../../build-plugins/borderWaitData.ts';
 import { fmtMinutes, fmtSignedMinutesDelta } from '../../services/borderWaitFormat.ts';
 
-/** Stable, evergreen identity — never changes (no date in id/slug → no flooding). */
+/**
+ * Stable, evergreen identity of the Ticino ranking — never changes (no date in
+ * id/slug → no flooding). Equal to rankingArticleIdentity('TI').
+ */
 export const RANKING_ARTICLE_ID = 'classifica-dogane-ticino';
 export const RANKING_ARTICLE_SLUGS = {
   it: 'classifica-dogane-ticino',
   en: 'ticino-border-crossing-ranking',
   de: 'rangliste-grenzuebergaenge-tessin',
   fr: 'classement-douanes-tessin',
+};
+
+/**
+ * Place phrases of each border canton (URL group code of
+ * data/canton-url-slugs.json), one slot per spot where the copy names the
+ * canton. Ticino's slots reproduce the original Ticino-only wording byte for
+ * byte, so `classifica-dogane-ticino` does not change by being parametrised.
+ * `slug` is the per-locale canton slug of data/canton-url-slugs.json: the
+ * article identity is derived from it (see rankingArticleIdentity).
+ *
+ * The other twelve are the cantons that have crossings in
+ * data/borderCrossings.ts; there is no ranking for a canton without one.
+ */
+export const BORDER_RANKING_CANTONS = Object.freeze({
+  TI: {
+    slug: { it: 'ticino', en: 'ticino', de: 'tessin', fr: 'tessin' },
+    it: { in: 'in Ticino', of: 'del Ticino', ofCanton: 'del Canton Ticino', eachCrossing: 'ogni dogana ticinese', atCrossings: 'sulle dogane ticinesi' },
+    en: { name: 'Ticino', in: 'in Ticino', cantonCrossing: 'a Canton Ticino border crossing', everyCrossing: 'every Ticino border crossing', atCrossings: 'at Ticino border crossings' },
+    de: { in: 'im Tessin', inCanton: 'im Kanton Tessin', everyCrossing: 'an jedem Tessiner Grenzübergang', atCrossings: 'an den Tessiner Grenzübergängen' },
+    fr: { titleOf: 'des douanes tessinoises', of: 'du Tessin', ofCanton: 'du canton du Tessin', eachCrossing: 'chaque douane tessinoise', atCrossings: 'aux douanes tessinoises' },
+  },
+  GR: place({ it: 'grigioni', en: 'graubunden', de: 'graubunden', fr: 'grisons' }, ['nei Grigioni', 'dei Grigioni', 'del Canton Grigioni'], ['Graubünden', 'Canton Graubünden'], ['in Graubünden', 'im Kanton Graubünden'], ['des Grisons', 'du canton des Grisons']),
+  VS: place({ it: 'vallese', en: 'valais', de: 'wallis', fr: 'valais' }, ['in Vallese', 'del Vallese', 'del Canton Vallese'], ['Valais', 'Canton Valais'], ['im Wallis', 'im Kanton Wallis'], ['du Valais', 'du canton du Valais']),
+  GE: place({ it: 'ginevra', en: 'geneva', de: 'genf', fr: 'geneve' }, ['nel Canton Ginevra', 'del Canton Ginevra', 'del Canton Ginevra'], ['Geneva', 'Canton Geneva'], ['im Kanton Genf', 'im Kanton Genf'], ['du canton de Genève', 'du canton de Genève']),
+  VD: place({ it: 'vaud', en: 'vaud', de: 'waadt', fr: 'vaud' }, ['nel Canton Vaud', 'del Canton Vaud', 'del Canton Vaud'], ['Vaud', 'Canton Vaud'], ['in der Waadt', 'im Kanton Waadt'], ['du canton de Vaud', 'du canton de Vaud']),
+  NE: place({ it: 'neuchatel', en: 'neuchatel', de: 'neuenburg', fr: 'neuchatel' }, ['nel Canton Neuchâtel', 'del Canton Neuchâtel', 'del Canton Neuchâtel'], ['Neuchâtel', 'Canton Neuchâtel'], ['in Neuenburg', 'im Kanton Neuenburg'], ['de Neuchâtel', 'du canton de Neuchâtel']),
+  JU: place({ it: 'giura', en: 'jura', de: 'jura', fr: 'jura' }, ['nel Giura', 'del Giura', 'del Canton Giura'], ['Jura', 'Canton Jura'], ['im Jura', 'im Kanton Jura'], ['du Jura', 'du canton du Jura']),
+  BASILEA: place({ it: 'basilea', en: 'basel', de: 'basel', fr: 'bale' }, ['nella regione di Basilea', 'della regione di Basilea', 'della regione di Basilea'], ['Basel', 'the Basel region'], ['in der Region Basel', 'in der Region Basel'], ['de la région de Bâle', 'de la région de Bâle']),
+  AG: place({ it: 'argovia', en: 'aargau', de: 'aargau', fr: 'argovie' }, ['in Argovia', "dell'Argovia", 'del Canton Argovia'], ['Aargau', 'Canton Aargau'], ['im Aargau', 'im Kanton Aargau'], ["d'Argovie", "du canton d'Argovie"]),
+  ZH: place({ it: 'zurigo', en: 'zurich', de: 'zurich', fr: 'zurich' }, ['nel Canton Zurigo', 'del Canton Zurigo', 'del Canton Zurigo'], ['Zurich', 'Canton Zurich'], ['im Kanton Zürich', 'im Kanton Zürich'], ['du canton de Zurich', 'du canton de Zurich']),
+  SH: place({ it: 'sciaffusa', en: 'schaffhausen', de: 'schaffhausen', fr: 'schaffhouse' }, ['nel Canton Sciaffusa', 'del Canton Sciaffusa', 'del Canton Sciaffusa'], ['Schaffhausen', 'Canton Schaffhausen'], ['im Kanton Schaffhausen', 'im Kanton Schaffhausen'], ['du canton de Schaffhouse', 'du canton de Schaffhouse']),
+  TG: place({ it: 'turgovia', en: 'thurgau', de: 'thurgau', fr: 'thurgovie' }, ['in Turgovia', 'della Turgovia', 'del Canton Turgovia'], ['Thurgau', 'Canton Thurgau'], ['im Thurgau', 'im Kanton Thurgau'], ['de Thurgovie', 'du canton de Thurgovie']),
+  SG: place({ it: 'san-gallo', en: 'st-gallen', de: 'st-gallen', fr: 'saint-gall' }, ['nel Canton San Gallo', 'del Canton San Gallo', 'del Canton San Gallo'], ['St. Gallen', 'Canton St. Gallen'], ['im Kanton St. Gallen', 'im Kanton St. Gallen'], ['du canton de Saint-Gall', 'du canton de Saint-Gall']),
+});
+
+/** Slots of a non-Ticino canton from its few irregular phrases. */
+function place(slug, [itIn, itOf, itOfCanton], [enName, enCanton], [deIn, deInCanton], [frOf, frOfCanton]) {
+  return {
+    slug,
+    it: { in: itIn, of: itOf, ofCanton: itOfCanton, eachCrossing: `ogni dogana ${itOf}`, atCrossings: `sulle dogane ${itOf}` },
+    en: { name: enName, in: `in ${enName}`, cantonCrossing: `a ${enCanton} border crossing`, everyCrossing: `every border crossing in ${enName}`, atCrossings: `at border crossings in ${enName}` },
+    de: { in: deIn, inCanton: deInCanton, everyCrossing: `an jedem Grenzübergang ${deIn}`, atCrossings: `an den Grenzübergängen ${deIn}` },
+    fr: { titleOf: `des douanes ${frOf}`, of: frOf, ofCanton: frOfCanton, eachCrossing: `chaque douane ${frOf}`, atCrossings: `aux douanes ${frOf}` },
+  };
+}
+
+/**
+ * Stable evergreen identity of a canton's ranking. Ticino keeps the original
+ * id/slugs (asserted equal to RANKING_ARTICLE_ID/SLUGS by the tests).
+ */
+export function rankingArticleIdentity(canton = 'TI') {
+  const profile = BORDER_RANKING_CANTONS[canton];
+  if (!profile) throw new Error(`no border-wait ranking for canton ${canton}`);
+  return {
+    id: `classifica-dogane-${profile.slug.it}`,
+    slugs: {
+      it: `classifica-dogane-${profile.slug.it}`,
+      en: `${profile.slug.en}-border-crossing-ranking`,
+      de: `rangliste-grenzuebergaenge-${profile.slug.de}`,
+      fr: `classement-douanes-${profile.slug.fr}`,
+    },
+  };
+}
+
+const COUNTRY_LABEL = {
+  it: { IT: 'Italia', FR: 'Francia', DE: 'Germania', AT: 'Austria', LI: 'Liechtenstein' },
+  en: { IT: 'Italy', FR: 'France', DE: 'Germany', AT: 'Austria', LI: 'Liechtenstein' },
+  de: { IT: 'Italien', FR: 'Frankreich', DE: 'Deutschland', AT: 'Österreich', LI: 'Liechtenstein' },
+  fr: { IT: 'Italie', FR: 'France', DE: 'Allemagne', AT: 'Autriche', LI: 'Liechtenstein' },
 };
 
 const LOCALES = ['it', 'en', 'de', 'fr'];
@@ -78,9 +153,25 @@ function crossingLink(locale, slug) {
   return `[${displayName(slug)}](${buildOggiPath(locale, slug)})`;
 }
 
-function regionLabel(locale, slug) {
+/**
+ * Zone of a crossing inside one canton's ranking. Ticino keeps its three
+ * lake/province regions; every other canton's regions are named after the
+ * foreign country they lead into (a canton has at most one region per
+ * country, and the Italian-only BORDER_REGION_DISPLAY has no other locales).
+ */
+function zoneKey(canton, slug) {
   const region = CROSSING_TO_REGION[slug];
-  return (region && REGION_LABEL[locale][region]) || '';
+  if (!region) return null;
+  return canton === 'TI' ? region : REGION_TO_COUNTRY[region] ?? null;
+}
+
+function zoneLabel(canton, locale, key) {
+  if (!key) return '';
+  return (canton === 'TI' ? REGION_LABEL[locale][key] : COUNTRY_LABEL[locale][key]) || '';
+}
+
+function regionLabel(locale, slug, canton = 'TI') {
+  return zoneLabel(canton, locale, zoneKey(canton, slug));
 }
 
 function trendArrow(direction) {
@@ -89,11 +180,11 @@ function trendArrow(direction) {
   return '→';
 }
 
-/** Fastest vs. slowest crossing within each region that has ≥2 ranked crossings. */
-function regionBreakdown(known) {
+/** Fastest vs. slowest crossing within each zone that has ≥2 ranked crossings. */
+function regionBreakdown(known, canton = 'TI') {
   const byRegion = new Map();
   for (const r of known) {
-    const region = CROSSING_TO_REGION[r.slug];
+    const region = zoneKey(canton, r.slug);
     if (!region) continue;
     if (!byRegion.has(region)) byRegion.set(region, []);
     byRegion.get(region).push(r);
@@ -109,14 +200,14 @@ function regionBreakdown(known) {
 
 const T = {
   it: {
-    title: () => 'Classifica delle dogane in Ticino: le migliori e le peggiori per tempo di attesa',
-    excerpt: () =>
-      'Ogni dogana del Ticino, classificata per tempo medio di attesa: qual è la più veloce, qual è la più lenta, e quanti minuti di vita si guadagnano (o si perdono) a sceglierne una piuttosto che un’altra.',
-    imageAlt: 'Traffico in coda a una dogana del Canton Ticino',
-    h1: 'Le dogane del Ticino, dalla più veloce alla più lenta',
+    title: (p) => `Classifica delle dogane ${p.in}: le migliori e le peggiori per tempo di attesa`,
+    excerpt: (p) =>
+      `Ogni dogana ${p.of}, classificata per tempo medio di attesa: qual è la più veloce, qual è la più lenta, e quanti minuti di vita si guadagnano (o si perdono) a sceglierne una piuttosto che un’altra.`,
+    imageAlt: (p) => `Traffico in coda a una dogana ${p.ofCanton}`,
+    h1: (p) => `Le dogane ${p.of}, dalla più veloce alla più lenta`,
     weekOf: (rangeLabel) => `📅 Settimana del **${rangeLabel}** — dati aggiornati ogni 15 minuti su tutti i valichi.`,
-    intro:
-      'Ecco chi vince e chi perde questa settimana. La classifica confronta il tempo medio totale (avvicinamento + attesa al varco) di ogni dogana ticinese, così sai in anticipo dove rischi di perdere tempo e dove invece puoi risparmiarlo.',
+    intro: (p) =>
+      `Ecco chi vince e chi perde questa settimana. La classifica confronta il tempo medio totale (avvicinamento + attesa al varco) di ${p.eachCrossing}, così sai in anticipo dove rischi di perdere tempo e dove invece puoi risparmiarlo.`,
     noData:
       'Non ci sono ancora abbastanza dati raccolti per stilare una classifica affidabile. Torna tra qualche giorno: la raccolta è continua e la pagina si aggiorna automaticamente.',
     bestH: 'Le 5 dogane più veloci',
@@ -149,12 +240,12 @@ const T = {
       if (improved === 0 && worsened === 0) return 'Questa settimana la situazione è rimasta sostanzialmente stabile su tutti i valichi monitorati.';
       return `Questa settimana ${improved} ${improved === 1 ? 'valico è migliorato' : 'valichi sono migliorati'} e ${worsened} ${worsened === 1 ? 'è peggiorato' : 'sono peggiorati'} in modo significativo rispetto alla settimana precedente — il traffico di confine cambia più spesso di quanto si pensi, per questo la classifica si aggiorna ogni settimana invece di restare fissa.`;
     },
-    faq: (fact) => [
+    faq: (fact, p) => [
       {
-        q: 'Qual è la dogana più veloce del Ticino oggi?',
+        q: `Qual è la dogana più veloce ${p.of} oggi?`,
         a: fact
           ? `In base agli ultimi 7 giorni di dati, ${displayName(fact.bestSlug)} è la dogana con il tempo di attesa medio più basso. La classifica completa qui sopra si aggiorna ogni settimana.`
-          : 'La classifica si aggiorna ogni settimana in base ai dati di traffico raccolti sulle dogane ticinesi.',
+          : `La classifica si aggiorna ogni settimana in base ai dati di traffico raccolti ${p.atCrossings}.`,
       },
       {
         q: 'Con che frequenza vengono aggiornati i tempi di attesa?',
@@ -169,14 +260,14 @@ const T = {
     ],
   },
   en: {
-    title: () => 'Ticino border crossing ranking: the fastest and slowest for wait times',
-    excerpt: () =>
-      "Every border crossing in Ticino, ranked by average wait time: which one is fastest, which is slowest, and how many minutes of your life you gain (or lose) picking one over another.",
-    imageAlt: 'Queuing traffic at a Canton Ticino border crossing',
-    h1: 'Ticino border crossings, from fastest to slowest',
+    title: (p) => `${p.name} border crossing ranking: the fastest and slowest for wait times`,
+    excerpt: (p) =>
+      `Every border crossing ${p.in}, ranked by average wait time: which one is fastest, which is slowest, and how many minutes of your life you gain (or lose) picking one over another.`,
+    imageAlt: (p) => `Queuing traffic at ${p.cantonCrossing}`,
+    h1: (p) => `${p.name} border crossings, from fastest to slowest`,
     weekOf: (rangeLabel) => `📅 Week of **${rangeLabel}** — data refreshed every 15 minutes at every crossing.`,
-    intro:
-      "Here's who wins and who loses this week. The ranking compares the average total time (approach + checkpoint queue) at every Ticino border crossing, so you know in advance where you're likely to lose time — and where you can save it.",
+    intro: (p) =>
+      `Here's who wins and who loses this week. The ranking compares the average total time (approach + checkpoint queue) at ${p.everyCrossing}, so you know in advance where you're likely to lose time — and where you can save it.`,
     noData:
       "Not enough data has been collected yet for a reliable ranking. Check back in a few days — collection is continuous and this page refreshes automatically.",
     bestH: 'The 5 fastest crossings',
@@ -209,12 +300,12 @@ const T = {
       if (improved === 0 && worsened === 0) return 'This week the situation stayed largely stable across every monitored crossing.';
       return `This week ${improved} ${improved === 1 ? 'crossing' : 'crossings'} improved and ${worsened} ${worsened === 1 ? 'crossing' : 'crossings'} got significantly worse versus the previous week — border traffic shifts more often than people assume, which is why this ranking refreshes weekly instead of staying fixed.`;
     },
-    faq: (fact) => [
+    faq: (fact, p) => [
       {
-        q: "What's the fastest border crossing in Ticino today?",
+        q: `What's the fastest border crossing ${p.in} today?`,
         a: fact
           ? `Based on the last 7 days of data, ${displayName(fact.bestSlug)} has the lowest average wait time. The full ranking above refreshes weekly.`
-          : 'The ranking refreshes weekly based on traffic data collected at Ticino border crossings.',
+          : `The ranking refreshes weekly based on traffic data collected ${p.atCrossings}.`,
       },
       {
         q: 'How often are wait times updated?',
@@ -229,14 +320,14 @@ const T = {
     ],
   },
   de: {
-    title: () => 'Rangliste der Grenzübergänge im Tessin: die schnellsten und langsamsten Wartezeiten',
-    excerpt: () =>
-      'Jeder Grenzübergang im Tessin, nach durchschnittlicher Wartezeit sortiert: welcher ist am schnellsten, welcher am langsamsten — und wie viele Minuten Lebenszeit man gewinnt (oder verliert), wenn man den einen statt den anderen wählt.',
-    imageAlt: 'Stau an einem Grenzübergang im Kanton Tessin',
-    h1: 'Die Grenzübergänge im Tessin, vom schnellsten zum langsamsten',
+    title: (p) => `Rangliste der Grenzübergänge ${p.in}: die schnellsten und langsamsten Wartezeiten`,
+    excerpt: (p) =>
+      `Jeder Grenzübergang ${p.in}, nach durchschnittlicher Wartezeit sortiert: welcher ist am schnellsten, welcher am langsamsten — und wie viele Minuten Lebenszeit man gewinnt (oder verliert), wenn man den einen statt den anderen wählt.`,
+    imageAlt: (p) => `Stau an einem Grenzübergang ${p.inCanton}`,
+    h1: (p) => `Die Grenzübergänge ${p.in}, vom schnellsten zum langsamsten`,
     weekOf: (rangeLabel) => `📅 Woche vom **${rangeLabel}** — Daten alle 15 Minuten an jedem Übergang aktualisiert.`,
-    intro:
-      'Wer gewinnt diese Woche, wer verliert? Die Rangliste vergleicht die durchschnittliche Gesamtzeit (Anfahrt + Wartezeit am Übergang) an jedem Tessiner Grenzübergang — so weisst du im Voraus, wo du Zeit verlierst und wo du sie sparen kannst.',
+    intro: (p) =>
+      `Wer gewinnt diese Woche, wer verliert? Die Rangliste vergleicht die durchschnittliche Gesamtzeit (Anfahrt + Wartezeit am Übergang) ${p.everyCrossing} — so weisst du im Voraus, wo du Zeit verlierst und wo du sie sparen kannst.`,
     noData:
       'Es liegen noch nicht genug Daten für eine verlässliche Rangliste vor. Schau in ein paar Tagen wieder vorbei — die Erhebung läuft kontinuierlich, die Seite aktualisiert sich automatisch.',
     bestH: 'Die 5 schnellsten Übergänge',
@@ -269,12 +360,12 @@ const T = {
       if (improved === 0 && worsened === 0) return 'Diese Woche blieb die Lage an allen erfassten Übergängen weitgehend stabil.';
       return `Diese Woche haben sich ${improved} ${improved === 1 ? 'Übergang' : 'Übergänge'} verbessert und ${worsened} ${worsened === 1 ? 'Übergang' : 'Übergänge'} gegenüber der Vorwoche deutlich verschlechtert — der Grenzverkehr ändert sich öfter, als man denkt, deshalb wird diese Rangliste wöchentlich statt starr aktualisiert.`;
     },
-    faq: (fact) => [
+    faq: (fact, p) => [
       {
-        q: 'Welcher Grenzübergang im Tessin ist heute am schnellsten?',
+        q: `Welcher Grenzübergang ${p.in} ist heute am schnellsten?`,
         a: fact
           ? `Basierend auf den letzten 7 Tagen hat ${displayName(fact.bestSlug)} die niedrigste durchschnittliche Wartezeit. Die vollständige Rangliste oben wird wöchentlich aktualisiert.`
-          : 'Die Rangliste wird wöchentlich anhand der an den Tessiner Grenzübergängen erhobenen Verkehrsdaten aktualisiert.',
+          : `Die Rangliste wird wöchentlich anhand der ${p.atCrossings} erhobenen Verkehrsdaten aktualisiert.`,
       },
       {
         q: 'Wie oft werden die Wartezeiten aktualisiert?',
@@ -289,14 +380,14 @@ const T = {
     ],
   },
   fr: {
-    title: () => 'Classement des douanes tessinoises : les plus rapides et les plus lentes',
-    excerpt: () =>
-      "Chaque douane du Tessin, classée selon son temps d'attente moyen : laquelle est la plus rapide, laquelle est la plus lente, et combien de minutes de vie on gagne (ou on perd) en choisissant l'une plutôt que l'autre.",
-    imageAlt: 'File de voitures à une douane du canton du Tessin',
-    h1: 'Les douanes du Tessin, de la plus rapide à la plus lente',
+    title: (p) => `Classement ${p.titleOf} : les plus rapides et les plus lentes`,
+    excerpt: (p) =>
+      `Chaque douane ${p.of}, classée selon son temps d'attente moyen : laquelle est la plus rapide, laquelle est la plus lente, et combien de minutes de vie on gagne (ou on perd) en choisissant l'une plutôt que l'autre.`,
+    imageAlt: (p) => `File de voitures à une douane ${p.ofCanton}`,
+    h1: (p) => `Les douanes ${p.of}, de la plus rapide à la plus lente`,
     weekOf: (rangeLabel) => `📅 Semaine du **${rangeLabel}** — données actualisées toutes les 15 minutes à chaque douane.`,
-    intro:
-      "Voici qui gagne et qui perd cette semaine. Le classement compare le temps total moyen (approche + attente au poste) de chaque douane tessinoise, pour savoir à l'avance où vous risquez de perdre du temps — et où vous pouvez en gagner.",
+    intro: (p) =>
+      `Voici qui gagne et qui perd cette semaine. Le classement compare le temps total moyen (approche + attente au poste) de ${p.eachCrossing}, pour savoir à l'avance où vous risquez de perdre du temps — et où vous pouvez en gagner.`,
     noData:
       "Pas encore assez de données collectées pour un classement fiable. Revenez dans quelques jours : la collecte est continue et cette page se met à jour automatiquement.",
     bestH: 'Les 5 douanes les plus rapides',
@@ -329,12 +420,12 @@ const T = {
       if (improved === 0 && worsened === 0) return "Cette semaine, la situation est restée globalement stable sur toutes les douanes surveillées.";
       return `Cette semaine, ${improved} ${improved === 1 ? 'douane s\'est améliorée' : 'douanes se sont améliorées'} et ${worsened} ${worsened === 1 ? 's\'est nettement dégradée' : 'se sont nettement dégradées'} par rapport à la semaine précédente — le trafic frontalier change plus souvent qu'on ne le pense, c'est pourquoi ce classement est actualisé chaque semaine plutôt que figé.`;
     },
-    faq: (fact) => [
+    faq: (fact, p) => [
       {
-        q: "Quelle est la douane la plus rapide du Tessin aujourd'hui ?",
+        q: `Quelle est la douane la plus rapide ${p.of} aujourd'hui ?`,
         a: fact
           ? `Sur la base des 7 derniers jours, ${displayName(fact.bestSlug)} affiche le temps d'attente moyen le plus bas. Le classement complet ci-dessus est mis à jour chaque semaine.`
-          : "Le classement est mis à jour chaque semaine à partir des données de trafic collectées aux douanes tessinoises.",
+          : `Le classement est mis à jour chaque semaine à partir des données de trafic collectées ${p.atCrossings}.`,
       },
       {
         q: "À quelle fréquence les temps d'attente sont-ils mis à jour ?",
@@ -351,7 +442,7 @@ const T = {
 };
 
 /** Render a markdown ranking table for a slice of the sorted ranking array. */
-function renderTable(locale, rows, trend, t) {
+function renderTable(locale, rows, trend, t, canton = 'TI') {
   const header = `| ${t.colRank} | ${t.colCrossing} | ${t.colRegion} | ${t.colWait} | ${t.colDelta} | ${t.colTrend} |`;
   const sep = '|---|---|---|---|---|---|';
   const body = rows
@@ -359,32 +450,40 @@ function renderTable(locale, rows, trend, t) {
       const tr = trend[r.slug];
       const arrow = tr ? trendArrow(tr.direction) : '–';
       const delta = tr && typeof tr.deltaMinutes === 'number' ? fmtSignedMinutesDelta(tr.deltaMinutes) : '–';
-      return `| ${r.rank} | ${crossingLink(locale, r.slug)} | ${regionLabel(locale, r.slug)} | ${fmtMinutes(r.avgMinutes)} | ${delta} | ${arrow} |`;
+      return `| ${r.rank} | ${crossingLink(locale, r.slug)} | ${regionLabel(locale, r.slug, canton)} | ${fmtMinutes(r.avgMinutes)} | ${delta} | ${arrow} |`;
     })
     .join('\n');
   return [header, sep, body].join('\n');
 }
 
 /**
- * Build the full 4-locale article payload for the border-wait ranking digest.
- * @param {{ ranking: Array<{slug:string, avgMinutes:number, totalSamples:number, rank:number}>, trend: Record<string, {direction:string, deltaMinutes:number}>, funFacts: object|null, weekStart?: string, weekEnd?: string, movers?: {improved: Array, worsened: Array}, todayIso: string }} params
+ * Build the full 4-locale article payload for the border-wait ranking digest
+ * of ONE canton (default Ticino, the original article).
+ * @param {{ ranking: Array<{slug:string, avgMinutes:number, totalSamples:number, rank:number}>, trend: Record<string, {direction:string, deltaMinutes:number}>, funFacts: object|null, weekStart?: string, weekEnd?: string, movers?: {improved: Array, worsened: Array}, todayIso: string, canton?: string }} params
  */
-export function buildBorderWaitRankingArticle({ ranking, trend, funFacts, weekStart, weekEnd, movers, todayIso }) {
-  // Evergreen id/copy is Ticino-only ("Classifica delle dogane in Ticino") —
-  // BORDER_WAIT_CROSSINGS now also covers the 108 non-Ticino Germany/
-  // Austria/Liechtenstein/France-corridor crossings (#4889/#4952), so this
-  // must additionally exclude non-Ticino slugs or a foreign crossing could
-  // surface as this Ticino-only article's best/worst.
-  const known = ranking.filter((r) => BORDER_WAIT_CROSSINGS.includes(r.slug) && isTicinoCrossing(r.slug));
+export function buildBorderWaitRankingArticle({ ranking, trend, funFacts, weekStart, weekEnd, movers, todayIso, canton = 'TI' }) {
+  const profile = BORDER_RANKING_CANTONS[canton];
+  if (!profile) throw new Error(`no border-wait ranking for canton ${canton}`);
+  const identity = rankingArticleIdentity(canton);
+  // BORDER_WAIT_CROSSINGS covers every corridor (#4889/#4952). For Ticino the
+  // builder itself excludes the non-Ticino slugs, as it always has. For any
+  // other canton the CALLER passes a ranking already restricted to that
+  // canton (the `canton` field of each crossing in the published ranking
+  // window): regions do not map 1:1 to cantons (a Schaffhausen-corridor
+  // crossing can sit in Thurgau), so the builder cannot re-derive it.
+  const known = ranking.filter(
+    (r) => BORDER_WAIT_CROSSINGS.includes(r.slug) && (canton !== 'TI' || isTicinoCrossing(r.slug)),
+  );
   const best = known.slice(0, MAX_TOP);
   const worst = known.slice(-MAX_TOP).reverse();
   const tableRows = known.slice(0, MAX_TABLE_ROWS);
-  const regions = regionBreakdown(known);
+  const regions = regionBreakdown(known, canton);
 
   const content = {};
   const imageAlt = {};
   for (const locale of LOCALES) {
     const t = T[locale];
+    const p = profile[locale];
     const hasData = known.length >= 2;
     const rangeLabel = weekStart && weekEnd ? humanDateRange(weekStart, weekEnd, locale) : humanDate(todayIso, locale);
 
@@ -398,11 +497,11 @@ export function buildBorderWaitRankingArticle({ ranking, trend, funFacts, weekSt
 
     const body1 = hasData
       ? [
-          `## ${t.h1}`,
+          `## ${t.h1(p)}`,
           '',
           t.weekOf(rangeLabel),
           '',
-          t.intro,
+          t.intro(p),
           '',
           funFacts ? t.funFactCallout(funFacts) : '',
           '',
@@ -412,23 +511,23 @@ export function buildBorderWaitRankingArticle({ ranking, trend, funFacts, weekSt
         ]
           .filter(Boolean)
           .join('\n')
-      : `## ${t.h1}\n\n${t.noData}`;
+      : `## ${t.h1(p)}\n\n${t.noData}`;
 
     const body2 = hasData
       ? [
           `## ${t.bestH}`,
           '',
-          renderTable(locale, best, trend, t),
+          renderTable(locale, best, trend, t, canton),
           '',
           `## ${t.worstH}`,
           '',
-          renderTable(locale, worst, trend, t),
+          renderTable(locale, worst, trend, t, canton),
           '',
           `## ${t.tableH}`,
           '',
           t.tableIntro,
           '',
-          renderTable(locale, tableRows, trend, t),
+          renderTable(locale, tableRows, trend, t, canton),
         ].join('\n')
       : '';
 
@@ -436,7 +535,7 @@ export function buildBorderWaitRankingArticle({ ranking, trend, funFacts, weekSt
 
     const regionLines = regions.map((r) =>
       t.regionIntro(
-        REGION_LABEL[locale][r.region],
+        zoneLabel(canton, locale, r.region),
         crossingLink(locale, r.fastest.slug),
         fmtMinutes(r.fastest.avgMinutes),
         crossingLink(locale, r.slowest.slug),
@@ -462,20 +561,20 @@ export function buildBorderWaitRankingArticle({ ranking, trend, funFacts, weekSt
       : '';
 
     content[locale] = {
-      title: t.title(),
-      excerpt: t.excerpt(),
+      title: t.title(p),
+      excerpt: t.excerpt(p),
       body1,
       body2,
       body3,
       body4,
-      faq: t.faq(funFacts).map(({ q, a }) => ({ q, a })),
+      faq: t.faq(funFacts, p).map(({ q, a }) => ({ q, a })),
     };
-    imageAlt[locale] = t.imageAlt;
+    imageAlt[locale] = t.imageAlt(p);
   }
 
   return {
-    id: RANKING_ARTICLE_ID,
-    slugs: { ...RANKING_ARTICLE_SLUGS },
+    id: identity.id,
+    slugs: { ...identity.slugs },
     imageAlt,
     content,
     _rankedCount: known.length,

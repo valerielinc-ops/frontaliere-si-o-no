@@ -125,8 +125,7 @@
         "dipl-medecine-specialisee-en-soins-infirmiers-pour-les-services-precoces-et-tardifs-service-de-nuit-facultatif-spital",
         "dipl-nursing-specialist-spital-sts-thun",
         "dipl-medicina-specialistica-dell-allattamento-spital-sts-thun",
-        "infermiere-a-diplomato-a-in-medicina-spital-sts-thun",
-        "dipl-pflegefachfrau-mann-medizin-spital-sts-thun"
+        "infermiere-a-diplomato-a-in-medicina-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -136,8 +135,7 @@
           "dipl-medecine-specialisee-en-soins-infirmiers-pour-les-services-precoces-et-tardifs-service-de-nuit-facultatif-spital",
           "dipl-nursing-specialist-spital-sts-thun",
           "dipl-medicina-specialistica-dell-allattamento-spital-sts-thun",
-          "infermiere-a-diplomato-a-in-medicina-spital-sts-thun",
-          "dipl-pflegefachfrau-mann-medizin-spital-sts-thun"
+          "infermiere-a-diplomato-a-in-medicina-spital-sts-thun"
         ],
         "en": [
           "dipl-nursing-specialist-medicine-for-early-and-late-service-night-service-optional-spital-sts-thun"
@@ -707,12 +705,12 @@
     },
     {
       "id": "spital-sts-6b06021ab08b",
-      "slug": "dipl-hebamme-im-gebarsaal-spital-sts-thun",
+      "slug": "ostetrica-dipl-in-sala-parto-spital-sts-thun",
       "slugByLocale": {
         "de": "dipl-hebamme-im-gebarsaal-spital-sts-thun",
-        "it": "dipl-hebamme-im-gebarsaal-spital-sts-thun",
-        "en": "dipl-hebamme-im-gebarsaal-spital-sts-thun",
-        "fr": "dipl-hebamme-im-gebarsaal-spital-sts-thun"
+        "it": "ostetrica-dipl-in-sala-parto-spital-sts-thun",
+        "en": "certified-midwife-in-the-childbirth-room-spital-sts-thun",
+        "fr": "sage-femme-diplomee-en-salle-d-accouchement-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -720,9 +718,9 @@
       "title": "Dipl. Hebamme im Gebärsaal",
       "titleByLocale": {
         "de": "Dipl. Hebamme im Gebärsaal",
-        "it": "Dipl. Hebamme im Gebärsaal",
-        "en": "Dipl. Hebamme im Gebärsaal",
-        "fr": "Dipl. Hebamme im Gebärsaal"
+        "it": "Ostetrica dipl. in sala parto",
+        "en": "Certified midwife in the childbirth room",
+        "fr": "Sage-femme diplômée en salle d'accouchement"
       },
       "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDie professionelle, individuelle und familienorientierte Betreuung von Schwangeren, Müttern, Neugeborenen und ihren Familien steht im Zentrum deiner Tätigkeit. Du begleitest und betreust Frauen und ihre Familien während der Schwangerschaft, rund um die Geburt sowie im frühen Wochenbett und gewährleistest dabei eine ganzheitliche, bedürfnisorientierte und fachkompetente Versorgung. In enger Zusammenarbeit mit dem interdisziplinären Team begleitest du die Frauen von der Aufnahme über die Geburt bis zur Verlegung ins Wochenbett und stellst eine kontinuierliche, sichere und einfühlsame Betreuung sicher. Dabei unterstützt und stärkst du die Familien in ihrer individuellen Situation und trägst zu einem positiven und vertrauensvollen Geburtserlebnis bei.\n\nEintritt per 1. November 2026 oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Sorgfältige Einführung in die Geburtenabteilung\n\n• Spannendes und abwechslungsreiches Arbeitsumfeld\n\n• Gute Anstellungsbedingungen nach GAV\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\nSo wirst du Teil unseres Teams\n\n• Hebamme FH/HF\n\n• Mehrjährige Berufserfahrung als Hebamme wird vorausgesetzt\n\n• Exakte und selbständige Arbeitsweise\n\n• Hohes Verantwortungsbewusstsein",
       "descriptionByLocale": {
@@ -771,7 +769,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T13:28:13.113Z"
+      "firstSeenAt": "2026-09-04T13:28:13.113Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-hebamme-im-gebarsaal-spital-sts-thun"
+        ],
+        "en": [
+          "dipl-hebamme-im-gebarsaal-spital-sts-thun"
+        ],
+        "fr": [
+          "dipl-hebamme-im-gebarsaal-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-hebamme-im-gebarsaal-spital-sts-thun"
+      ]
     },
     {
       "id": "spital-sts-383c1c35c376",

@@ -1,12 +1,13 @@
 name: Profession Keyword Opportunities
 
 # Weekly "professioni da attaccare" gap ranking (#3396).
-# Signals: PostHog on-site search (60d) ∪ crawler job titles − existing
+# Signals: GA4 on-site search (60d, PostHog until decision H9 2026-10-05)
+# ∪ crawler job titles − existing
 # landing coverage → data/profession-keyword-opportunities.json + one
 # dedup GitHub issue with the top opportunities.
 #
 # Zero-Claude by contract (AGENTS.md quota frugality): the script is pure
-# HogQL + parsing + regex. Deterministic given the same inputs.
+# GA4 Data API + parsing + regex. Deterministic given the same inputs.
 #
 # Scheduling: Monday 03:00 UTC — after the Sunday 14:30 UTC GSC orphan
 # sync (sync-gsc-orphans.yml) and before refresh-keyword-config.yml at
@@ -14,8 +15,9 @@ name: Profession Keyword Opportunities
 # generator the same morning.
 #
 # Secrets pattern mirrors refresh-thin-promotions.yml: the only GH-Actions
-# secret needed is FIREBASE_SERVICE_ACCOUNT_JSON; POSTHOG_* are loaded
-# from Firebase Remote Config at runtime via scripts/load-rc-env.mjs.
+# secret needed is FIREBASE_SERVICE_ACCOUNT_JSON (also the GA4 read-only
+# credential); other settings are loaded from Firebase Remote Config at
+# runtime via scripts/load-rc-env.mjs.
 
 on:
   schedule:

@@ -119,7 +119,7 @@ function inferCategory(detail = {}) {
   return 'construction';
 }
 
-async function fetchPizzarottiListings() {
+async function fetchPizzarottiListings(summaryCounts = null) {
   console.log('🔍 Fetching Pizzarotti jobs from InRecruiting listing...');
   const firstPageHtml = await fetchText(LISTING_BASE_URL);
   const totalPages = parsePizzarottiPageCount(firstPageHtml);
@@ -143,13 +143,33 @@ async function fetchPizzarottiListings() {
   });
 
   const discovery = classifyPizzarottiListings(allListings);
+  if (summaryCounts) {
+    summaryCounts.discovered = discovery.discovered;
+    summaryCounts.parsed = discovery.listings.length;
+    summaryCounts.lastFetchOutcome = discovery.lastFetchOutcome;
+  }
   console.log(`📋 Total unique listing rows: ${discovery.discovered}`);
   console.log(`📋 Swiss-located rows: ${discovery.listings.length}`);
   for (const row of discovery.listings) {
     console.log(`  📄 ${row.title} (${row.location})`);
   }
   if (discovery.discovered === 0) {
+    if (summaryCounts) {
+      summaryCounts.parsed = 0;
+      summaryCounts.lastFetchOutcome = 'selector_miss';
+      summaryCounts.abortKind = 'no-jobs-parsed';
+    }
     throw new Error('Pizzarotti listing page produced no vacancy cards; refusing to publish an empty snapshot.');
+  }
+  if (discovery.listings.length === 0 && discovery.unclassifiedLocationCount > 0) {
+    if (summaryCounts) {
+      summaryCounts.parsed = 0;
+      summaryCounts.lastFetchOutcome = 'selector_miss';
+      summaryCounts.abortKind = 'no-jobs-parsed';
+    }
+    throw new Error(
+      `Pizzarotti listing page left ${discovery.unclassifiedLocationCount}/${discovery.discovered} vacancy location(s) unclassified; refusing to publish a filtered-empty snapshot.`,
+    );
   }
   if (discovery.listings.length < 1) {
     console.warn(`⚠️  No Swiss-located Pizzarotti jobs found. Current listings are all in Italy.`);
@@ -293,7 +313,7 @@ async function main() {
   console.log('═══════════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);
 
-  const discovery = await fetchPizzarottiListings();
+  const discovery = await fetchPizzarottiListings(summaryCounts);
   const listings = discovery.listings;
   summaryCounts.discovered = discovery.discovered;
   summaryCounts.parsed = listings.length;
@@ -339,6 +359,8 @@ async function main() {
     parsed: summaryCounts.parsed,
     written: _sliceJobs.length,
     lastFetchOutcome: summaryCounts.lastFetchOutcome,
+    authoritativeEmptySnapshot: discovery.authoritativeEmptySnapshot === true,
+    authoritativeSnapshotVerified: discovery.authoritativeEmptySnapshot === true,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

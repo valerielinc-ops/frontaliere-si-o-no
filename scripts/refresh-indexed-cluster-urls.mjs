@@ -5,7 +5,11 @@
  * (non-aggregator) section. Sourced from:
  *   1. Google Search Console (impressions)
  *   2. Google Analytics 4 (pageviews)
- *   3. PostHog (pageviews)
+ *
+ * PostHog `$pageview` was a third source until decisione H9 del 2026-10-05
+ * («rimpiazza PostHog con GA4»): GA4 `screenPageViews` per pagePath measures
+ * the same pageviews, and PostHog is under quota by choice. Paths it kept in
+ * earlier runs stay in the list through the previous-list union below.
  *
  * Background:
  *   `build-plugins/relatedSearchClustersPlugin.ts` canonicalizes every cluster
@@ -22,7 +26,6 @@
  * Auth:
  *   - GSC: Firebase Service Account
  *   - GA4: GA4_PROPERTY_ID env + GOOGLE_APPLICATION_CREDENTIALS or FIREBASE_SERVICE_ACCOUNT_JSON
- *   - PostHog: POSTHOG_PERSONAL_API_KEY + POSTHOG_PROJECT_ID env
  *
  *   Missing sources are silently skipped (best-effort union — mirrors the
  *   refresh-noslash-keep.mjs sibling).
@@ -34,8 +37,7 @@
  *     "minImpressions": 1,
  *     "sources": {
  *       "gsc":     { "ok": true,  "rowsScanned": 12000, "clusterSeen": 580, "kept": 412 },
- *       "ga4":     { "ok": false, "reason": "missing creds" },
- *       "posthog": { "ok": false, "reason": "missing creds" }
+ *       "ga4":     { "ok": false, "reason": "missing creds" }
  *     },
  *     "indexedCount": 412,
  *     "indexedPaths": [ "/cerca-lavoro-zurigo/ricerca-data-center-technician/", ... ]
@@ -236,42 +238,6 @@ async function fetchGa4(sa, startDate, endDate) {
   return { rows, complete: report.complete, reportedRows: report.rowCount };
 }
 
-async function fetchPosthog(startDate, endDate) {
-  const apiKey = process.env.POSTHOG_PERSONAL_API_KEY;
-  const projectId = process.env.POSTHOG_PROJECT_ID;
-  const host = (process.env.POSTHOG_HOST || 'https://eu.posthog.com').replace(/\/$/, '');
-  if (!apiKey || !projectId) throw new Error('POSTHOG_PERSONAL_API_KEY/POSTHOG_PROJECT_ID unset');
-  // Restrict to cluster prefixes (ricerca/search/suche/recherche) under any
-  // job-section root, so the HogQL query stays under PostHog's 60s timeout
-  // on the full pageview firehose.
-  const query = `
-    SELECT properties.$pathname AS path, count() AS views
-    FROM events
-    WHERE event = '$pageview'
-      AND properties.$pathname IS NOT NULL
-      AND (
-        properties.$pathname LIKE '/cerca-lavoro-%/ricerca-%'
-        OR properties.$pathname LIKE '/en/find-jobs-%/search-%'
-        OR properties.$pathname LIKE '/de/jobs-im-%/suche-%'
-        OR properties.$pathname LIKE '/de/jobs-in-%/suche-%'
-        OR properties.$pathname LIKE '/fr/trouver-emploi-%/recherche-%'
-      )
-      AND timestamp >= toDateTime('${startDate} 00:00:00')
-      AND timestamp <= toDateTime('${endDate} 23:59:59')
-    GROUP BY path
-    LIMIT 10000
-  `.trim();
-  const url = `${host}/api/projects/${projectId}/query/`;
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query: { kind: 'HogQLQuery', query } }),
-  });
-  if (!res.ok) throw new Error(`PostHog ${res.status}: ${await res.text()}`);
-  const data = await res.json();
-  return (data.results || []).map((row) => ({ path: row[0], views: row[1] }));
-}
-
 async function main() {
   const today = new Date();
   const endDate = today.toISOString().slice(0, 10);
@@ -281,7 +247,7 @@ async function main() {
   console.error(`[indexed-cluster-urls] lookback ${startDate} → ${endDate} (${days} days), min impressions/views = ${minImpressions}`);
 
   const indexedClusterUrlsByKey = new Map();
-  const sources = { gsc: { ok: false }, ga4: { ok: false }, posthog: { ok: false } };
+  const sources = { gsc: { ok: false }, ga4: { ok: false } };
   const sa = loadServiceAccount();
 
   // ─── GSC ───────────────────────────────────────────────────────────────
@@ -339,30 +305,6 @@ async function main() {
     console.error('[indexed-cluster-urls] GA4: skipped (missing credentials)');
   }
 
-  // ─── PostHog ───────────────────────────────────────────────────────────
-  if (process.env.POSTHOG_PERSONAL_API_KEY && process.env.POSTHOG_PROJECT_ID) {
-    try {
-      const rows = await fetchPosthog(startDate, endDate);
-      let clusterSeen = 0, kept = 0;
-      for (const row of rows) {
-        const normalized = normalizeClusterPath(row.path);
-        if (!normalized) continue;
-        clusterSeen += 1;
-        if (row.views < minImpressions) continue;
-        addIndexedClusterPath(indexedClusterUrlsByKey, normalized);
-        kept += 1;
-      }
-      sources.posthog = { ok: true, rowsScanned: rows.length, clusterSeen, kept };
-      console.error(`[indexed-cluster-urls] PostHog: ${kept} non-aggregator cluster paths kept from ${clusterSeen} cluster URLs (${rows.length} rows)`);
-    } catch (err) {
-      sources.posthog = { ok: false, reason: err.message };
-      console.error(`[indexed-cluster-urls] PostHog: ${err.message}`);
-    }
-  } else {
-    sources.posthog = { ok: false, reason: 'missing POSTHOG_* env' };
-    console.error('[indexed-cluster-urls] PostHog: skipped (missing credentials)');
-  }
-
   // Merge previous indexed list so a temporarily-unavailable source can't
   // shrink the mirror set. Same UNION policy as refresh-noslash-keep.mjs:
   // paths only disappear when all sources agree they're dead AND we
@@ -396,7 +338,7 @@ async function main() {
     indexedPaths,
   };
   writeJsonAtomic(OUT_PATH, output);
-  console.error(`[indexed-cluster-urls] Wrote ${OUT_PATH} — ${indexedPaths.length} indexed cluster paths total (union of GSC/GA4/PostHog + previous list)`);
+  console.error(`[indexed-cluster-urls] Wrote ${OUT_PATH} — ${indexedPaths.length} indexed cluster paths total (union of GSC/GA4 + previous list)`);
 }
 
 const invokedDirectly = process.argv[1]

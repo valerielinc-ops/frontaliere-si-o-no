@@ -61,6 +61,14 @@ const STORE_VERSION = 2;
  */
 export const MAX_REJECTED_TOMBSTONES = 10_000;
 
+/**
+ * A trace failure caused by transport or source discovery is not proof that
+ * the employer has no careers surface. Keep the candidate in `new` and let a
+ * later run retry it instead of turning one outage into a 90-day tombstone.
+ */
+const RETRYABLE_TRACE_REASON_RX = /(?:sito|dominio|pagina|rete|host|dns|timeout|http|fetch).*(?:irraggiungibile|non risolto|non raggiungibile|tempor|errore|blocc|timeout)|(?:irraggiungibile|non raggiungibile|timeout)/i;
+const TRACE_RETRY_DELAYS_DAYS = [1, 3, 7, 14, 30];
+
 const EMPTY = { version: STORE_VERSION, updatedAt: null, candidates: {}, rejectedTombstones: {} };
 const TOMBSTONE_COUNTS = new WeakMap();
 
@@ -161,6 +169,81 @@ export function loadCandidates(file = CANDIDATES_PATH) {
   } catch {
     return structuredClone(EMPTY);
   }
+}
+
+/**
+ * Legacy diagnostic classifier for trace reasons. It is retained for reports
+ * and compatibility, but it is deliberately not authorization to reopen a
+ * dead candidate: revival requires the persisted `traceRetryable: true`
+ * verdict below.
+ *
+ * @param {string} reason
+ * @returns {boolean}
+ */
+export function isRetryableTraceReason(reason = '') {
+  return RETRYABLE_TRACE_REASON_RX.test(String(reason || '').trim());
+}
+
+/**
+ * A candidate with a future retry timestamp is intentionally absent from the
+ * TRACE queue. `--key=…` remains an explicit operator override in the stage
+ * script, so a stuck candidate can still be inspected immediately.
+ *
+ * @param {Record<string, any>} candidate
+ * @param {number} [now]
+ * @returns {boolean}
+ */
+export function isTraceRetryDue(candidate, now = Date.now()) {
+  const at = Date.parse(String(candidate?.traceRetryAt || ''));
+  return !Number.isFinite(at) || at <= now;
+}
+
+/**
+ * Build bounded exponential backoff metadata for one retryable trace attempt.
+ *
+ * @param {Record<string, any>} candidate
+ * @param {string} reason
+ * @param {number} [now]
+ * @returns {Record<string, any>}
+ */
+export function scheduleTraceRetry(candidate, reason, now = Date.now()) {
+  const attempts = Math.max(0, Number(candidate?.traceAttempts) || 0);
+  const delayDays = TRACE_RETRY_DELAYS_DAYS[Math.min(attempts, TRACE_RETRY_DELAYS_DAYS.length - 1)];
+  const attemptedAt = new Date(now).toISOString();
+  return {
+    reason,
+    traceRetryable: true,
+    traceAttempts: attempts + 1,
+    traceLastAttemptAt: attemptedAt,
+    traceRetryAt: new Date(now + delayDays * 86_400_000).toISOString(),
+  };
+}
+
+/**
+ * Reopen a retryable dead candidate when a new discovery source sees it again.
+ * The explicit `traceRetryable` verdict is required: the human-readable
+ * reason is deliberately not authoritative, because old generic reasons such
+ * as "sito irraggiungibile" also described permanent 404 responses. A new
+ * careers URL remains an independent, stronger discovery signal.
+ *
+ * @param {ReturnType<typeof loadCandidates>} store
+ * @param {string} key
+ * @param {Record<string, any>} [incoming]
+ * @param {string|null} [ledgerFile]
+ * @returns {Record<string, any>|null}
+ */
+export function reviveRetryableDeadCandidate(store, key, incoming = {}, ledgerFile = LEDGER_PATH) {
+  const candidate = store.candidates[key];
+  if (!candidate || candidate.status !== 'dead') return candidate || null;
+  const hasNewCareerUrl = Boolean(incoming?.careersUrl)
+    && String(incoming.careersUrl) !== String(candidate.careersUrl || '');
+  if (candidate.traceRetryable !== true && !hasNewCareerUrl) return candidate;
+  const revived = setStatus(store, key, 'new', {
+    ...incoming,
+    reason: 'riscontro dopo una nuova scoperta',
+    traceRetryAt: null,
+  }, ledgerFile);
+  return revived;
 }
 
 /**

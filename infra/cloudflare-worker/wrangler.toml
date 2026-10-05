@@ -140,6 +140,28 @@ routes = [
   { pattern = "frontaliereticino.ch/cerca-lavoro-san-gallo*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/articoli-frontaliere*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/articoli-svizzera*", zone_name = "frontaliereticino.ch" },
+  # Canton article sections served by the CORPUS from R2 (locale-router.js
+  # CORPUS_SECTION_ROUTES / serveCorpusSection): 24 IT apex prefixes
+  # /articoli-<canton>/, the en/de/fr ones already reach the Worker through the
+  # /en|/de|/fr routes above. ONE wildcard on the shared `/articoli-` stem
+  # instead of 24 routes, so the closed set lives in one place (the Worker's
+  # table, parity-tested against the generated section core) and not in a
+  # third copy here.
+  #
+  # It also matches /articoli-frontaliere* and /articoli-svizzera*, which keep
+  # their own (more specific) routes above to the SAME Worker: matchSection
+  # still sends them to their shards, unchanged. Any other /articoli-* path —
+  # a canton still `draft`, no registry yet, a look-alike — is fail-closed in
+  # code (serveCorpusSection returns null) and falls through to the apex
+  # passthrough, i.e. the same Pages answer it got before this route existed.
+  { pattern = "frontaliereticino.ch/articoli-*", zone_name = "frontaliereticino.ch" },
+  # Corpus sitemaps (serveCorpusEdgeFile): the index declared in robots.txt and
+  # one /sitemap-articles-<canton-id>.xml per section. Wildcards for the same
+  # query-string reason as every sitemap route below. /sitemap-articles-* also
+  # matches /sitemap-articles-archive.xml, which keeps its explicit route and its
+  # exact EDGE_PUSHED_FILES entry (checked first in code).
+  { pattern = "frontaliereticino.ch/sitemap-cantons*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/sitemap-articles-*", zone_name = "frontaliereticino.ch" },
   # Job-alert one-click unsubscribe (RFC 8058). Deliberate non-locale exception to
   # the "locale paths only" scoping above: the unsubscribe links + List-Unsubscribe
   # header in job-alert emails MUST live on the sending domain (frontaliereticino.ch)

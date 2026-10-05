@@ -3,10 +3,8 @@
  * cwv-monitor-check.mjs — weekly real-user CLS/INP regression watchdog for
  * the #4302 money-page target list.
  *
- * Companion to scripts/monitor-cls-posthog.mjs (interactive polling tool for
- * watching a metric converge right after a deploy) but built for scheduled
- * CI: one-shot per page/metric HogQL query against PostHog `$web_vitals`,
- * persisted into data/cwv-monitor-history.json (kept unpruned — see project
+ * Built for scheduled CI: one GA4 Data API report over the `web_vitals`
+ * event (mirrored to GA4 by Analytics.log()) for the target pages, persisted into data/cwv-monitor-history.json (kept unpruned — see project
  * convention on tracking files staying fat in the repo, not CI-only), and a
  * GitHub backlog issue opened via the shared scripts/lib/error-issue-sync.mjs
  * "top-N over threshold" sync when a page/metric has been over its target on
@@ -18,11 +16,15 @@
  * green, because a missing page is not evidence that the page had no
  * regression.
  *
- * Env (loaded via load-rc-env.mjs, same as monitor-cls-posthog.mjs):
- *   POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID — primary source (optional
- *                              when the GA4 fallback is configured)
- *   POSTHOG_HOST             — optional, default https://eu.posthog.com
- *   CWV_MONITOR_WINDOW_DAYS  — optional, default 7 (HogQL lookback per query)
+ * Source: GA4 only, since decision H9 (2026-10-05, «rimpiazza PostHog con
+ * GA4»). PostHog is under quota by choice (2026-08-25) and was already
+ * unmeasurable on every run; the former PostHog-primary branch is gone and
+ * the GA4 vitality guard (`checkGa4Liveness`) is consulted before any verdict.
+ *
+ * Env (loaded via load-rc-env.mjs):
+ *   GOOGLE_APPLICATION_CREDENTIALS / FIREBASE_SERVICE_ACCOUNT_JSON — GA4 Data
+ *                              API service account (read-only)
+ *   CWV_MONITOR_WINDOW_DAYS  — optional, default 7 (settled GA4 days, lag 2)
  *   CWV_MONITOR_HISTORY_FILE — optional, default data/cwv-monitor-history.json
  *                              (in CI richiede CWV_MONITOR_HISTORY_FILE_ALLOW_CI=1,
  *                               vedi scripts/lib/resolve-output-path.mjs)
@@ -34,8 +36,7 @@ import { resolveOutputPath } from './lib/resolve-output-path.mjs';
 import { syncErrorIssues } from './lib/error-issue-sync.mjs';
 import { reconcileMonitorIssues } from './lib/monitor-issue-reconcile.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
-import { runHogQL } from './lib/posthog-client.mjs';
-import { checkPostHogLiveness, declareNotMeasurable } from './lib/source-liveness.mjs';
+import { checkGa4Liveness, declareNotMeasurable } from './lib/source-liveness.mjs';
 import {
   fetchGa4WebVitals,
   GA4_READONLY_SCOPE,
@@ -74,30 +75,6 @@ const normalizeDevice = (value) => {
   const device = String(value || '').toLowerCase();
   return DEVICES.includes(device) ? device : 'unknown';
 };
-
-/**
- * Single query per page pulling both metrics at once (halves the API calls
- * vs. querying CLS and INP separately) — PostHog's web-vitals autocapture
- * fires one `$web_vitals` event per metric, so a row only ever populates one
- * of the two `properties.$web_vitals_*_value` columns; ClickHouse's
- * quantile()/count() aggregates ignore the NULL rows for the other column.
- */
-export function buildQuery(path, window) {
-  return `
-    SELECT
-      quantile(0.75)(toFloat(properties.$web_vitals_CLS_value)) AS cls_p75,
-      countIf(properties.$web_vitals_CLS_value IS NOT NULL) AS cls_n,
-      quantile(0.75)(toFloat(properties.$web_vitals_INP_value)) AS inp_p75,
-      countIf(properties.$web_vitals_INP_value IS NOT NULL) AS inp_n,
-      lower(coalesce(properties.$device_type, 'unknown')) AS device
-    FROM events
-    WHERE event = '$web_vitals'
-      AND timestamp >= toDateTime('${window.startDate} 00:00:00', 'UTC')
-      AND timestamp < toDateTime('${window.endDate} 00:00:00', 'UTC') + INTERVAL 1 DAY
-      AND properties.$pathname = '${path.replace(/'/g, "\\'")}'
-    GROUP BY device
-  `.trim();
-}
 
 export function loadHistory(file) {
   if (!existsSync(file)) return { pages: {} };
@@ -393,7 +370,7 @@ export function buildIssueBody(e) {
       `- ${e.current.date}: ${e.fmt(e.current[e.metric === 'CLS' ? 'cls_p75' : 'inp_p75'])} (n=${e.current[e.metric === 'CLS' ? 'cls_n' : 'inp_n'] ?? 'unknown'})`,
       `**Window:** ${e.current.window?.startDate || 'unknown'} — ${e.current.window?.endDate || 'unknown'}; ${e.current.window?.timezone || 'unknown'}`,
       '',
-      `_Source: ${e.sourceLabel || 'PostHog `$web_vitals` real-user events'}, scripts/cwv-monitor-check.mjs weekly regression check. History: data/cwv-monitor-history.json._`,
+      `_Source: ${e.sourceLabel || 'GA4 `web_vitals` real-user events'}, scripts/cwv-monitor-check.mjs weekly regression check. History: data/cwv-monitor-history.json._`,
       '',
       buildScheda({
         causa: [
@@ -411,9 +388,9 @@ export function buildIssueBody(e) {
         metrica: `prima=${e.fmt(e.current[e.metric === 'CLS' ? 'cls_p75' : 'inp_p75'])} atteso=<${e.threshold}${e.metric === 'CLS' ? '' : 'ms'}`,
         comando: 'node scripts/cwv-monitor-check.mjs --dry-run',
         note: [
-          'Il comando rigira la stessa query PostHog senza scrivere la storia e senza coniare,',
-          'e stampa la decisione di chiusura per ogni issue aperta della famiglia. Vuole le',
-          'credenziali PostHog — dalla root del workspace, `source bin/rc-env.sh`. La serie sta',
+          'Il comando rigira la stessa query GA4 senza scrivere la storia e senza coniare,',
+          'e stampa la decisione di chiusura per ogni issue aperta della famiglia. Vuole il',
+          'service account GA4 — dalla root del workspace, `source bin/rc-env.sh`. La serie sta',
           'in `data/cwv-monitor-history.json`.',
         ],
         osservatore: [
@@ -443,6 +420,12 @@ export function ga4CwvSnapshot(rows, pagePath, device) {
   return { cls_p75: cls.p75, cls_n: cls.n, inp_p75: inp.p75, inp_n: inp.n };
 }
 
+/**
+ * The GA4 `web_vitals` rows for the target pages over the settled window, or
+ * `null` when the report is not usable (no token, a significant `(other)`
+ * bucket, truncated or incomplete distribution). Exported under its
+ * historical name: it was the fallback until H9 made GA4 the only source.
+ */
 export async function fetchGa4CwvFallback({
   windowDays,
   now = new Date(),
@@ -460,14 +443,10 @@ export async function fetchGa4CwvFallback({
 
 export async function main({
   ga4FallbackImpl = fetchGa4CwvFallback,
-  checkLivenessImpl = checkPostHogLiveness,
-  runHogQLImpl = runHogQL,
+  checkLivenessImpl = checkGa4Liveness,
   now = new Date(),
   reconcileIo,
 } = {}) {
-  const HOST = process.env.POSTHOG_HOST || 'https://eu.posthog.com';
-  const PID = process.env.POSTHOG_PROJECT_ID;
-  const KEY = process.env.POSTHOG_PERSONAL_API_KEY;
   const rawWindowDays = process.env.CWV_MONITOR_WINDOW_DAYS || '7';
   const WINDOW_DAYS = Number(rawWindowDays);
   if (!Number.isInteger(WINDOW_DAYS) || WINDOW_DAYS < 1 || WINDOW_DAYS > 90) {
@@ -491,38 +470,37 @@ export async function main({
   // below suppresses a low-sample p75, which is right for a quiet page but is
   // exactly what turned the 2026-07-23 → 08-10 PostHog outage into three weeks
   // of green runs recording n=0. A dead source is not "no regression", it is
-  // no measurement. GA4 receives the same `web_vitals` event through
-  // Analytics.log(), so it is a faithful alternate source for this monitor.
-  // The liveness helper evaluates complete UTC days ending yesterday.
-  // Shift its reference by one day so it judges exactly our lag-2 range.
-  const liveness = await checkLivenessImpl({ windowDays: WINDOW_DAYS, now: new Date(now.getTime() - 86400000) });
-  let source = 'posthog';
-  let ga4Rows = null;
+  // no measurement. The GA4 guard judges the same settled lag-2 days that
+  // `ga4DateRange(WINDOW_DAYS, 2, now)` queries below, so `now` goes in as is.
+  const liveness = await checkLivenessImpl({ windowDays: WINDOW_DAYS, now });
   if (!liveness.alive) {
-    try {
-      ga4Rows = await ga4FallbackImpl({ windowDays: WINDOW_DAYS, now });
-      const hasTargetObservation = ga4Rows?.some((row) =>
-        TARGET_PAGES.some((page) => page.path === row.path && (row.metric === 'CLS' || row.metric === 'INP')),
-      );
-      if (!hasTargetObservation) {
-        const reason = `${liveness.reason}; GA4 fallback returned no target CLS/INP observations`;
-        return sourceUnavailableResult({
-          history, file: HISTORY_FILE, date: today, reason, dryRun, liveness,
-        });
-      }
-      source = 'ga4';
-      console.warn('[cwv-monitor-check] PostHog non misurabile: uso GA4 `web_vitals` come fallback');
-    } catch (error) {
-      const reason = `${liveness.reason}; GA4 fallback failed: ${error.message}`;
-      return sourceUnavailableResult({
-        history, file: HISTORY_FILE, date: today, reason, dryRun, liveness,
-      });
-    }
+    return sourceUnavailableResult({
+      history, file: HISTORY_FILE, date: today, reason: liveness.reason, dryRun, liveness,
+    });
+  }
+  const source = 'ga4';
+  let ga4Rows = null;
+  try {
+    ga4Rows = await ga4FallbackImpl({ windowDays: WINDOW_DAYS, now });
+  } catch (error) {
+    const reason = `${liveness.reason}; GA4 web_vitals report failed: ${error.message}`;
+    return sourceUnavailableResult({
+      history, file: HISTORY_FILE, date: today, reason, dryRun, liveness,
+    });
+  }
+  const hasTargetObservation = ga4Rows?.some((row) =>
+    TARGET_PAGES.some((page) => page.path === row.path && (row.metric === 'CLS' || row.metric === 'INP')),
+  );
+  if (!hasTargetObservation) {
+    const reason = `${liveness.reason}; GA4 web_vitals report returned no usable target CLS/INP observations`;
+    return sourceUnavailableResult({
+      history, file: HISTORY_FILE, date: today, reason, dryRun, liveness,
+    });
   }
 
   const measurement = {
     source,
-    window: { ...dateRange, days: WINDOW_DAYS, lagDays: 2, timezone: source === 'posthog' ? 'UTC' : ga4Rows.coverage?.timeZone || 'unknown' },
+    window: { ...dateRange, days: WINDOW_DAYS, lagDays: 2, timezone: ga4Rows.coverage?.timeZone || 'unknown' },
     monitorBuild: process.env.GITHUB_SHA || null,
     deployedBuild: process.env.CWV_DEPLOYED_BUILD || null,
     minimumSamples: MIN_SAMPLES_PER_METRIC,
@@ -534,19 +512,7 @@ export async function main({
   for (const page of TARGET_PAGES) {
     let snapshot;
     try {
-      if (source === 'ga4') {
-        snapshot = { ...ga4CwvSnapshot(ga4Rows, page.path), devices: Object.fromEntries(DEVICES.map((device) => [device, ga4CwvSnapshot(ga4Rows, page.path, device)])) };
-      } else {
-        const result = await runHogQLImpl(buildQuery(page.path, dateRange), { apiKey: KEY, projectId: PID, host: HOST });
-        const devices = Object.fromEntries((result.results || []).map((row) => [normalizeDevice(row[4]), {
-          cls_p75: row[0], cls_n: Number(row[1]), inp_p75: row[2], inp_n: Number(row[3]),
-        }]));
-        // Quantiles cannot be averaged across devices. Keep legacy pooled
-        // fields null; counts remain useful and devices hold the real p75.
-        snapshot = { cls_p75: null, inp_p75: null,
-          cls_n: Object.values(devices).reduce((n, row) => n + row.cls_n, 0),
-          inp_n: Object.values(devices).reduce((n, row) => n + row.inp_n, 0), devices };
-      }
+      snapshot = { ...ga4CwvSnapshot(ga4Rows, page.path), devices: Object.fromEntries(DEVICES.map((device) => [device, ga4CwvSnapshot(ga4Rows, page.path, device)])) };
     } catch (e) {
       console.error(`[cwv-monitor-check] ${page.key} (${page.path}) query failed: ${e.message}`);
       queryFailures += 1;
@@ -633,7 +599,7 @@ export async function main({
   if (!dryRun) saveHistory(HISTORY_FILE, history);
   console.log(`[cwv-monitor-check] snapshot recorded for ${today} — ${regressions.length} regression(s) detected`);
 
-  const workflow = `CWV Monitor — ${source === 'ga4' ? 'GA4 fallback' : 'PostHog'} weekly regression check (#4302), ${WINDOW_DAYS}d window`;
+  const workflow = `CWV Monitor — GA4 weekly regression check (#4302), ${WINDOW_DAYS}d window`;
   // La riconciliazione gira dopo OGNI snapshot valido, anche senza
   // regressioni: una issue guarita si chiude proprio nelle run in cui il
   // monitor non trova nulla (prima qui c'era un `return` anticipato).
@@ -657,14 +623,14 @@ export async function main({
     // regression dedupes onto the SAME issue via createGithubIssue's
     // title-prefix match instead of opening a fresh one every week.
     titleFor: cwvIssueTitle,
-    bodyFor: (entry) => buildIssueBody({ ...entry, sourceLabel: source === 'ga4' ? 'GA4 `web_vitals` real-user events (fallback — PostHog non misurabile)' : undefined }),
+    bodyFor: (entry) => buildIssueBody(entry),
   });
   const reconciled = await reconcile();
   return { status: 'ok', date: today, source, regressions, synced, reconciled };
 }
 
 // Run only when invoked directly (not when imported by the test suite), so
-// importing main()/TARGET_PAGES/etc. here never fires a real PostHog/gh
+// importing main()/TARGET_PAGES/etc. here never fires a real GA4/gh
 // call — same guard as scripts/posthog-error-issue-sync.mjs / dmarc-monitor.mjs.
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const result = await main();

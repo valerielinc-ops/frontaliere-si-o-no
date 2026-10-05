@@ -2466,7 +2466,6 @@
         "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g",
         "system-engineer-cbtc-stadler-rail-ch",
         "system-engineer-cbtc-stadler-rail-ch-2",
-        "system-ingegnere-cbtc-stadler-rail-wallisellen",
         "system-ingegnere-cbtc-stadler-rail-wallisellen-3kv6vv",
         "system-engineer-cbtc-stadler-rail-ch-3kv6vv"
       ],
@@ -2475,7 +2474,6 @@
           "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g",
           "system-engineer-cbtc-stadler-rail-ch",
           "system-engineer-cbtc-stadler-rail-ch-2",
-          "system-ingegnere-cbtc-stadler-rail-wallisellen",
           "system-ingegnere-cbtc-stadler-rail-wallisellen-3kv6vv",
           "system-engineer-cbtc-stadler-rail-ch-3kv6vv"
         ],
@@ -5393,9 +5391,7 @@
       "previousSlugsByLocale": {
         "it": [
           "elektriker-in-fertigstellung-stadler-rail-ch",
-          "elettricista-in-completamento-stadler-rail-bussnang",
-          "anderungselektriker-in-fertigstellung-stadler-rail-ch",
-          "cambiare-la-conformita-elettrica-stadler-rail-bussnang"
+          "anderungselektriker-in-fertigstellung-stadler-rail-ch"
         ],
         "en": [
           "elektriker-in-fertigstellung-stadler-rail-ch"
@@ -5409,9 +5405,7 @@
       },
       "previousSlugs": [
         "elektriker-in-fertigstellung-stadler-rail-ch",
-        "elettricista-in-completamento-stadler-rail-bussnang",
-        "anderungselektriker-in-fertigstellung-stadler-rail-ch",
-        "cambiare-la-conformita-elettrica-stadler-rail-bussnang"
+        "anderungselektriker-in-fertigstellung-stadler-rail-ch"
       ],
       "firstSeenAt": "2026-07-21T11:24:44.736Z",
       "salaryMin": 64500,
@@ -12959,12 +12953,12 @@
     },
     {
       "id": "stadler-rail-198c9b8b934b",
-      "slug": "data-analyst-stadler-rail-ch",
+      "slug": "data-analista-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "data-analyst-stadler-rail-ch",
-        "it": "data-analyst-stadler-rail-ch",
+        "it": "data-analista-stadler-rail-bussnang",
         "en": "data-analyst-stadler-rail-ch",
-        "fr": "data-analyst-stadler-rail-ch"
+        "fr": "data-analyste-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13023,7 +13017,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-05T09:27:16.707Z"
+      "firstSeenAt": "2026-10-05T09:27:16.707Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-analyst-stadler-rail-ch"
+        ],
+        "fr": [
+          "data-analyst-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "data-analyst-stadler-rail-ch"
+      ]
     }
   ]
 }

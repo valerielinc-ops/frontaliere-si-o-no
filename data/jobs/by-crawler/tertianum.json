@@ -2633,24 +2633,17 @@
         ]
       },
       "previousSlugs": [
-        "cuocere-chef-60-tertianum-solothurn",
-        "cuisson-chef-60-tertianum-solothurn",
         "kochin-koch-60-tertianum-solothurn",
-        "cook-chef-60-tertianum-solothurn",
-        "cuoco-cuoca-60-tertianum-solothurn",
         "cuisinier-cuisiniere-60-tertianum-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cuocere-chef-60-tertianum-solothurn",
-          "kochin-koch-60-tertianum-solothurn",
-          "cuoco-cuoca-60-tertianum-solothurn"
+          "kochin-koch-60-tertianum-solothurn"
         ],
         "en": [
           "kochin-koch-60-tertianum-solothurn"
         ],
         "fr": [
-          "cuisson-chef-60-tertianum-solothurn",
           "kochin-koch-60-tertianum-solothurn",
           "cuisinier-cuisiniere-60-tertianum-solothurn"
         ]
@@ -3194,16 +3187,11 @@
         ]
       },
       "previousSlugs": [
-        "80-laurea-in-infermiera-tertianum-delemont",
-        "infirmier-ere-diplome-e-a-80-tertianum-delemont",
-        "80-diplom-krankenschwester-tertianum-delemont",
-        "infermiere-a-diplomato-a-all-80-tertianum-delemont"
+        "infirmier-ere-diplome-e-a-80-tertianum-delemont"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "80-laurea-in-infermiera-tertianum-delemont",
-          "infirmier-ere-diplome-e-a-80-tertianum-delemont",
-          "infermiere-a-diplomato-a-all-80-tertianum-delemont"
+          "infirmier-ere-diplome-e-a-80-tertianum-delemont"
         ],
         "en": [
           "infirmier-ere-diplome-e-a-80-tertianum-delemont"
@@ -19287,7 +19275,7 @@
         "it": "specialista-ristorante-20-60-tertianum-solothurn",
         "en": "restaurant-specialist-20-60-tertianum-solothurn",
         "de": "restaurantfachmann-frau-20-60-tertianum-solothurn",
-        "fr": "restaurantfachmann-frau-20-60-tertianum-solothurn"
+        "fr": "specialiste-en-restauration-20-60-tertianum-solothurn"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -19330,9 +19318,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "restaurantfachmann-frau-20-60-tertianum-solothurn",
-        "specialiste-des-restaurants-20-60-tertianum-solothurn",
-        "specialiste-en-restauration-20-60-tertianum-solothurn",
-        "specialista-ristorante-20-60-tertianum-solothurn"
+        "specialiste-des-restaurants-20-60-tertianum-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19343,7 +19329,6 @@
         ],
         "fr": [
           "specialiste-des-restaurants-20-60-tertianum-solothurn",
-          "specialiste-en-restauration-20-60-tertianum-solothurn",
           "restaurantfachmann-frau-20-60-tertianum-solothurn"
         ]
       },
@@ -22855,7 +22840,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-31T17:34:52.447Z"
+      "firstSeenAt": "2026-08-31T17:34:52.447Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendista-specialista-in-economia-domestica-alberghiera-afc-tertianum-winterthur",
+          "apprentice-specialist-in-the-hotel-industry-and-home-economics-efz-tertianum-winterthur",
+          "apprenti-e-specialiste-en-economie-domestique-hoteliere-cfc-tertianum-winterthur",
+          "apprendista-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-tertianum-winterthur"
+        ],
+        "en": [
+          "apprentice-specialist-in-the-hotel-industry-and-home-economics-efz-tertianum-winterthur"
+        ],
+        "fr": [
+          "apprenti-e-specialiste-en-economie-domestique-hoteliere-cfc-tertianum-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "apprendista-specialista-in-economia-domestica-alberghiera-afc-tertianum-winterthur",
+        "apprentice-specialist-in-the-hotel-industry-and-home-economics-efz-tertianum-winterthur",
+        "apprenti-e-specialiste-en-economie-domestique-hoteliere-cfc-tertianum-winterthur",
+        "apprendista-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-tertianum-winterthur"
+      ]
     },
     {
       "id": "tertianum-b2a047d1d3ca",
@@ -22873,8 +22878,8 @@
       "titleByLocale": {
         "de": "Lehrstelle als Fachfrau / Fachmann Gesundheit EFZ",
         "it": "Apprendistato come Fachfrau / Fachmann Gesundheit CFC",
-        "en": "Lehrstelle als Fachfrau / Fachmann Gesundheit EFZ",
-        "fr": "Lehrstelle als Fachfrau / Fachmann Gesundheit EFZ"
+        "en": "Apprenticeship as a specialist / health professional EFZ",
+        "fr": "Apprentissage en tant que spécialiste / professionnel de la santé EFZ"
       },
       "description": "Du bist bereit für eine FaGe Lehrstelle? Hol dir dein EFZ über eine Ausbildung in der Pflege. Bei uns startest du eine abwechslungsreiche und sinnvolle Lehre mit Zukunft, denn als Fachfrau / Fachmann Gesundheit erwartet dich ab Tag eins ein unterstützendes Arbeitsumfeld, in dem du zugleich Menschen helfen kannst und durch unsere erfahrenen Berufsbildnerinnen und Berufsbildner begleitet und unterstützt wirst.\n\nFür das Haus Tertianum Residenz Segeten in Zürich suchen wir dich per 1. August 2027 für die\n\nLehrstelle als Fachfrau / Fachmann Gesundheit EFZ\n\nDas lernst du bei uns\n\n• Pflege, Betreuung und Begleitung der Gäste in alltäglichen und anspruchsvollen Situationen\n\n• Unterstützung bei der Körperpflege, beim Aufstehen, An- und Ausziehen, Essen und Trinken\n\n• Medizinaltechnische Verrichtungen wie Blutdruck, Puls und Temperatur messen, Blutentnahme, Verbandswechsel und vieles mehr\n\n• Alltagsbegleitung der Gäste mit Spielen, Basteln, Singen, usw.\n\n• Hauswirtschaftliche, administrative und logistische Aufgaben\n\n• Einhaltung und Umsetzung der Hygiene- und Sicherheitsvorschriften\n\n• Elektronische Pflegedokumentation\n\nDas bringst du mit\n\n• Abgeschlossene Schulbildung (Sekundarschule A oder B) mit guten schulischen Leistungen\n\n• Grosse Lernbereitschaft und Verantwortungsbewusstsein\n\n• Einfühlungsvermögen und Geduld sowie Interesse am Umgang mit unseren Gästen\n\n• Hilfsbereit, kontaktfreudig und teamorientiert, mit einem starken Sinn für Sorgfalt und Gewissenhaftigkeit\n\n• Bereitschaft zu unregelmässigen Arbeitszeiten\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen und praktischen Arbeiten\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWelche Benefits bieten wir dir?\nDu bist uns genauso wichtig wie dir deine Ausbildung! Deshalb bieten wir dir folgende Vorteile:\n\n• An deinem Geburtstag bekommst du frei\n\n• CHF 500 an dein obligatorisches Schulmaterial\n\n• Gratis SBB-Halbtaxabonnement\n\n• Jedes Mittagessen für CHF 5\n\n• Vergünstigte Handy-Abos bei Sunrise\n\n• Vergünstigungen und Angebote rund um Fitness, Freizeit und dein Wellbeing\n\n• Bis zu 10 % Rabatt auf deine Krankenkassen-Zusatzversicherung\n\n• Und noch vieles mehr…\n\nDu startest direkt mit einem spannenden Einführungstag und in der Hälfte deiner Ausbildung laden wir dich eine ganze Woche lang zu unserem Summer Camp ein. Natürlich muss dein Ausbildungsabschluss gebührend gefeiert werden, dafür organisieren wir für alle Absolventinnen und Absolventen eine unvergessliche Abschlussfeier. Und vielleicht ist das dann auch erst der Anfang deiner Karriere bei uns! Wir bieten zahlreiche Möglichkeiten direkt nach Lehrabschluss innerhalb unseres Unternehmens zu arbeiten.\n\nWeitere Vorteile und Einblicke findest du auf unserer Website .\n\nNa, interessiert?\n Sobald wir deine vollständigen Bewerbungsunterlagen haben, werden sie von unserem Team geprüft. Wenn dein Dossier uns überzeugt, freuen wir uns dich bei einem ersten Gespräch persönlich kennenzulernen. Danach darfst du schon direkt an einem oder mehreren Schnuppertagen in die Tertianum-Welt eintauchen und dir ein Bild zum Alltag bei uns machen.\n\nWas brauchen wir für deine vollständige Bewerbung?\n\n• Lebenslauf\n\n• Schulzeugnisse\n\n• Resultate des Stellwerktests und sofern vorhanden des Multichecks\n\nKönnte diese Lehre etwas für dich sein?\n Dann klicke auf «Jetzt bewerben» und erstelle dein persönliches Konto, um uns deine vollständige Bewerbung zukommen zu lassen.\n\nWir freuen uns auf deine Bewerbung!\n\nNoch Fragen? Kein Problem, melde dich ganz einfach bei: Jelena Gutcke Berufsbildnerin, unter der Telefonnummer 044 388 19 92\n\n​",
       "descriptionByLocale": {

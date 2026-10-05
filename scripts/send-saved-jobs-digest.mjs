@@ -16,8 +16,9 @@
  * only when the digest was never decided. The switch in /profilo/ is the
  * other writer. `optedOut === true` is the person's explicit stop (the link
  * below, the switch, "stop all") and a later save never overrides it; see
- * services/savedJobsDigestActivation.mjs for the three states. No backfill:
- * accounts that saved before the change and never used the switch stay off.
+ * services/savedJobsDigestActivation.mjs for the three states. Accounts that
+ * saved before the change were activated once on 2026-10-05 by
+ * scripts/backfill-saved-jobs-digest-optin.mjs (never-decided digests only).
  * An application intent is only a recommendation signal here and cannot
  * activate this recurring digest.
  *
@@ -122,7 +123,8 @@ export const APPLICATION_INTENT_COLLECTION = APPLICATION_INTENTS_COLLECTION;
  * The user profile is the channel activation/opt-out source; the email-keyed
  * subscriber is the registration/suppression source. `savedJobsDigest.optedIn`
  * is required: the save path or the switch in /profilo/ writes it. A saved-job
- * document alone (saves made before activation-on-save, no backfill) and an
+ * document alone (without the activation the save path or the 2026-10-05
+ * backfill writes) and an
  * application intent are not an activation.
  */
 export function isSavedJobsDigestEligible(userData, subscriberData, _legacyOptions = undefined) {
