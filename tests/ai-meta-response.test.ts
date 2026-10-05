@@ -7,6 +7,7 @@ import {
   isLowQualityLocalizedTitle,
 } from '@/scripts/lib/dedicated-crawler-common.mjs';
 import { freeTranslateWithRetry } from '@/scripts/lib/free-translate.mjs';
+import { sanitizeAssembledLocaleValue } from '@/scripts/relocalize-pending-jobs.mjs';
 
 vi.mock('@/scripts/lib/free-translate.mjs', async (importOriginal) => {
   const actual = await importOriginal<typeof import('@/scripts/lib/free-translate.mjs')>();
@@ -78,6 +79,10 @@ const LEGIT_DESCRIPTION_OPENERS = [
   'Can you provide comprehensive and concise investment recommendations in a clear and timely manner?',
   "Pouvez-vous fournir des recommandations d'investissement complètes et concises de façon claire et en temps opportun?",
   'We need a motivated team player who enjoys working with customers. Sorry, no agencies.',
+  // Review di #11578: una riga d'annuncio che chiede «il titolo» non e' una
+  // richiesta del modello finche' non parla di tradurlo.
+  'Please provide the actual job title you are applying for.',
+  'Can you provide the text of your cover letter in German or Italian?',
 ];
 
 const DE_DESC = 'Als Detailhandelsfachfrau oder Detailhandelsfachmann beraten Sie unsere Kundinnen und Kunden kompetent und freundlich. '
@@ -136,6 +141,13 @@ describe('detectAiMetaResponse — testi legittimi che condividono le parole', (
     expect(detectAiMetaResponse(text)).toBeNull();
   });
 
+  it('una riga d\'annuncio che chiede il titolo non e\' una meta-risposta (sorgente italiana)', () => {
+    expect(detectAiMetaResponse('Please provide the actual job title you are applying for.', {
+      source: 'Indicare il titolo della posizione a cui ti candidi.',
+    })).toBeNull();
+    expect(detectAiMetaResponse('I need to see the actual job title you want translated.')?.kind).toBe('clarification');
+  });
+
   it('non conta un marcatore che la sorgente stessa contiene', () => {
     const source = 'Translation: German > Italian, 80% (m/w/d)';
     expect(detectAiMetaResponse(source)).not.toBeNull();
@@ -181,6 +193,24 @@ describe('isIncomplete — una meta-risposta pubblicata torna in coda', () => {
     const job = completeJob();
     job.titleByLocale.en = '<think> Okay, let\'s tackle this translation. The job title is "GL Accountant".';
     expect(isIncomplete(job)).toBe(true);
+  });
+});
+
+describe('sync di relocalize — un valore assemblato che e\' una meta-risposta non viene scritto', () => {
+  const crawlerJob = { title: 'Operaio specializzato', description: IT_DESC };
+  const meta = 'I need to see the actual job title you want translated';
+
+  it('un titolo-meta diventa il titolo canonico del crawler, mai la meta-risposta', () => {
+    expect(sanitizeAssembledLocaleValue('titleByLocale', meta, crawlerJob)).toBe('Operaio specializzato');
+  });
+
+  it('una descrizione-meta non viene scritta', () => {
+    expect(sanitizeAssembledLocaleValue('descriptionByLocale', `${IT_DESC}\n\nTraduzione:`, crawlerJob)).toBe('');
+  });
+
+  it('un valore buono passa intatto', () => {
+    expect(sanitizeAssembledLocaleValue('titleByLocale', 'Skilled worker', crawlerJob)).toBe('Skilled worker');
+    expect(sanitizeAssembledLocaleValue('descriptionByLocale', IT_DESC, crawlerJob)).toBe(IT_DESC);
   });
 });
 

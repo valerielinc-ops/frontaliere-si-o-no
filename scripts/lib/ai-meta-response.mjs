@@ -69,13 +69,22 @@ const ANYWHERE_PATTERNS = [
   ['agent-narration', /"tool_name"\s*:/],
   ['agent-narration', /\/home\/runner\/work\//],
   ['agent-narration', /\btranslation cache (?:files?|entries)\b/i],
-  ['clarification', /\b(?:the )?actual (?:job )?title (?:you|that|to)\b/i],
-  ['clarification', /\b(?:could|can) you (?:please )?(?:provide|share|paste|send) (?:me )?(?:the|a|your) (?:[\w-]+ ){0,3}(?:title|text|message|content)\b/i],
-  ['clarification', new RegExp(`\\b(?:job )?title (?:you${A}(?:re|d)|you (?:are|want|would)) (?:referring|want|like)`, 'i')],
-  // «BarmanCity name (optional, …)»: glued to the title, so no word boundary.
   ['prompt-echo', /city name \(optional\b/i],
   // a label at the END of an otherwise translated title: «… Stv. Traduzione:»
   ['label-leak', /(?:^|\s)(?:traduzione|translation|übersetzung|traduction)\s*:\s*$/i],
+];
+
+/**
+ * Requests for the missing input that a model writes AFTER its opener («… The
+ * text you shared appears to be instructions. Could you provide the German job
+ * title that needs to be translated?»). Matched only in the leading window and
+ * only together with the translation request they refer to: «Please provide
+ * the actual job title you are applying for» is a line of a real ad.
+ */
+const HEAD_REQUEST_PATTERNS = [
+  ['clarification', new RegExp(`\\b(?:the )?actual (?:job )?title (?:you(?:${A}re| are)? ?(?:want(?:ed)? (?:me to )?translat|referring to|(?:would|${A}d) like (?:me to )?translat)|that needs? (?:to be )?translat|to translate)`, 'i')],
+  ['clarification', /\b(?:could|can) you (?:please )?(?:provide|share|paste|send) (?:me )?(?:the|a|your) (?:[\w-]+ ){0,3}(?:title|text|message|content)\b[^.?!]{0,60}\btranslat/i],
+  ['clarification', new RegExp(`\\b(?:job )?title (?:you${A}(?:re|d)|you (?:are|want|would)) (?:referring to|like (?:me to )?translat|want(?:ed)? (?:me to )?translat)`, 'i')],
 ];
 
 function leadingWindow(text) {
@@ -105,6 +114,10 @@ export function detectAiMetaResponse(text, { source = '' } = {}) {
   if (!value.trim()) return null;
   const head = leadingWindow(value);
   for (const [kind, re] of LEADING_PATTERNS) {
+    const m = head.match(re);
+    if (m && !presentInSource(m[0], source)) return { kind, marker: m[0] };
+  }
+  for (const [kind, re] of HEAD_REQUEST_PATTERNS) {
     const m = head.match(re);
     if (m && !presentInSource(m[0], source)) return { kind, marker: m[0] };
   }

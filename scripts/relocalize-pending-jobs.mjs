@@ -1203,6 +1203,23 @@ export function carryForwardMissingSlugBridges(crawlerJob, assembled) {
   return missingBridges.length > 0;
 }
 
+/**
+ * The assembled value a locale slot may receive, or '' when it must not be
+ * written. A model meta-answer («I need to see the actual job title you want
+ * translated…», «Sorry, I can't help with that.») is never synced: a title one
+ * becomes the canonical crawled title — still flagged by isIncomplete as an
+ * untranslated copy, but never the refusal — and a description one is dropped
+ * (the empty-value guard skips it). Exported for tests.
+ */
+export function sanitizeAssembledLocaleValue(field, value, crawlerJob = {}) {
+  const text = String(value || '').trim();
+  if (field === 'titleByLocale' && isModelMetaAnswer(text, crawlerJob.title || '')) {
+    return String(crawlerJob.title || '').trim();
+  }
+  if (field === 'descriptionByLocale' && isModelMetaAnswer(text, crawlerJob.description || '')) return '';
+  return value;
+}
+
 function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs) {
   const crawlerFilePath = path.join(BY_CRAWLER_DIR, `${companyKey}.json`);
 
@@ -1255,8 +1272,9 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs
         }
         continue;
       }
-      for (const [locale, value] of Object.entries(assembled[field])) {
+      for (const [locale, assembledValue] of Object.entries(assembled[field])) {
         const existing = crawlerJob[field][locale];
+        const value = sanitizeAssembledLocaleValue(field, assembledValue, crawlerJob);
         const trimmedValue = String(value || '').trim();
         const trimmedExisting = String(existing || '').trim();
         // NEVER write empty assembled values (safety guard: AI may have failed).
