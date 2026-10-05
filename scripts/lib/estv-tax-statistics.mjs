@@ -209,8 +209,11 @@ export function parseCapitalTaxExport(json, { capitals }) {
       bfsId: Number(row.bfsId) || null,
       taxCHF: new Array(capitals.length).fill(null),
     });
+    // Una sola riga per (cantone, importo): come per l'onere, un duplicato e'
+    // un cambio di formato dell'export, non una riga da scegliere in silenzio.
+    if (entry.taxCHF[i] !== null) throw new Error(`ESTV capital tax export: riga duplicata ${code} ${row.income}`);
     const v = Number(Array.isArray(row.values) ? row.values[0] : NaN);
-    entry.taxCHF[i] = Number.isFinite(v) ? Math.round(v) : null;
+    entry.taxCHF[i] = Number.isFinite(v) ? Math.round(v) : NaN;
   }
   return out;
 }

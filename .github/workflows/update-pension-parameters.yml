@@ -74,6 +74,12 @@ jobs:
           PENSION_PARAMETERS_OUT_DIR="$RUNNER_TEMP/pension-preview" node scripts/fetch-pension-parameters.mjs
           ls -la "$RUNNER_TEMP/pension-preview/public/data/pension-parameters"
 
+      # Prima di entrambi i caricamenti Remote Config: con l'SDK installato il
+      # loader non dipende dal ripiego REST.
+      - name: Install firebase-admin for Remote Config
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: npm install firebase-admin@14.5.0
+
       - name: Prepare Firebase credentials for push auth
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
@@ -108,10 +114,6 @@ jobs:
           fi
 
       # Trigger deploy after data push (GITHUB_TOKEN pushes don't trigger workflows)
-      - name: Install firebase-admin for Remote Config
-        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
-        run: npm install firebase-admin@14.5.0
-
       - name: Load secrets from Remote Config
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
