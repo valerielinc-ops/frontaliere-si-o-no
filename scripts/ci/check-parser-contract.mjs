@@ -500,7 +500,9 @@ export function writeBaseline(root, files) {
  * Valuta i file contro la baseline. `files` assenti dal disco sono ignorati
  * (cancellazioni). Ritorna regressioni e miglioramenti non registrati.
  */
-export function checkParserContract(root, { files = listParserFiles(root), baseline = readBaseline(root), readFile } = {}) {
+export function checkParserContract(root, { files, baseline = readBaseline(root), readFile } = {}) {
+  const whole = !files;
+  if (whole) files = listParserFiles(root);
   const read = readFile || ((file) => readFileSync(path.join(root, file), 'utf8'));
   const regressions = [];
   const improvements = [];
@@ -516,6 +518,15 @@ export function checkParserContract(root, { files = listParserFiles(root), basel
     const result = compareFile(file, scanParserFile(file, source, read), baseline[file]);
     regressions.push(...result.regressions);
     improvements.push(...result.improvements);
+  }
+  // Una voce per un file che non esiste piu' va tolta: altrimenti un file
+  // ricreato con lo stesso nome erediterebbe le violazioni ammesse.
+  if (whole) {
+    const present = new Set(files);
+    for (const [file, entry] of Object.entries(baseline)) {
+      if (present.has(file)) continue;
+      for (const [rule, allowed] of Object.entries(entry)) improvements.push({ file, rule, allowed, now: 0 });
+    }
   }
   return { regressions, improvements };
 }
