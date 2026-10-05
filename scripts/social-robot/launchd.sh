@@ -41,7 +41,7 @@ max_log_lines=4000
 # The robot's import closure, extracted from origin/main for every run.
 # tests/social-robot.test.ts checks that it covers every relative import of
 # run.mjs and of the loader, so a new import cannot silently break the Mac host.
-snapshot_paths="scripts/social-robot scripts/lib/social-publish-queue.mjs scripts/lib/github-issue-creator.mjs scripts/load-rc-env.mjs scripts/lib/google-service-account-token.mjs"
+snapshot_paths="scripts/social-robot scripts/lib/social-publish-queue.mjs scripts/lib/social-carousel-video.mjs scripts/lib/github-issue-creator.mjs scripts/load-rc-env.mjs scripts/lib/google-service-account-token.mjs"
 
 script_dir=$(CDPATH="" cd -- "$(dirname -- "$0")" && pwd -P) || exit 1
 site=${SR_SITE_REPO:-$(CDPATH="" cd -- "$script_dir/../.." && pwd -P)}

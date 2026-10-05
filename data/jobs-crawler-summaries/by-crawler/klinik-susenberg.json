@@ -1,7 +1,7 @@
 {
   "key": "klinik-susenberg",
   "label": "Klinik Susenberg",
-  "generatedAt": "2026-10-05T09:25:50.819Z",
+  "generatedAt": "2026-10-05T21:43:23.161Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6031,
-  "avgDurationMs": 6031,
+  "unchangedCount": 5,
+  "durationMs": 5346,
+  "avgDurationMs": 5346,
   "durationHistory": [
-    6031
+    5346
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "klinik-susenberg-dc8381234762",
       "slug": "ottobre-a-dicembre-2026-klinik-susenberg-zurich",
@@ -36,7 +38,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/02-Unterassistent_Oktobr-Dezember2026_2026-10-01.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:25:42.077Z",
+      "crawledAt": "2026-10-05T21:43:14.389Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -80,7 +82,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/05-Koch-Koechin-50-60_befristetJuni2027-2026-09-03.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:25:41.901Z",
+      "crawledAt": "2026-10-05T21:43:14.231Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -124,7 +126,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-Berufsbildner-in_HF_FH-40-60-2026-08-28.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:25:41.682Z",
+      "crawledAt": "2026-10-05T21:43:14.033Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -168,7 +170,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-dipl._Pflegefachperson_HF_FH_mit_Zusatzfunktion_BB_80-100_2026-08-05.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:25:41.346Z",
+      "crawledAt": "2026-10-05T21:43:13.726Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -212,7 +214,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/16-FAGE-BB-80-100-per_sofort_2026-07-02-.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:25:40.579Z",
+      "crawledAt": "2026-10-05T21:43:13.137Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -244,7 +246,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2bab70a6a52506bf78d2562bb4495ae5728a5454"
 }

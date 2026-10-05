@@ -108,6 +108,7 @@ _content_type_for() {
   local ext="${1##*.}"
   ext="$(printf '%s' "$ext" | tr 'A-Z' 'a-z')"
   case "$ext" in
+    mp4) printf '%s' "video/mp4" ;;
     webp) printf '%s' "image/webp" ;;
     png) printf '%s' "image/png" ;;
     jpg|jpeg) printf '%s' "image/jpeg" ;;
