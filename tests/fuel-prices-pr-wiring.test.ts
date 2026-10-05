@@ -23,6 +23,33 @@ describe('fuel price refresh publication', () => {
     expect(workflow).not.toMatch(/\bgit\s+push\b/);
   });
 
+  it('builds the canton dataset from the daily hand-off without blocking the main cache PR', () => {
+    const workflow = read('.github/workflows/update-fuel-prices.yml');
+    const gitignore = read('.gitignore');
+
+    // The generator hands its full station lists over instead of the canton
+    // step re-fetching TCS/MIMIT.
+    expect(workflow).toContain('--save-local --cantons-input-out "$RUNNER_TEMP/fuel-cantons-input.json"');
+    expect(workflow).toContain('node scripts/build-fuel-cantons-dataset.mjs --input "$RUNNER_TEMP/fuel-cantons-input.json"');
+    const step = workflow.slice(workflow.indexOf('- name: Build cantonal fuel dataset (P9b)'));
+    expect(step.slice(0, step.indexOf('run:'))).toContain('continue-on-error: true');
+    // Its failure is still surfaced, under a title of its own.
+    expect(workflow).toContain("if: steps.fuel_cantons.outcome == 'failure'");
+    expect(workflow).toContain('--title "Dataset carburanti per cantone rifiutato (update-fuel-prices)"');
+    // ...and closed by the next accepted build (custom title: no generic closer).
+    expect(workflow).toContain("if: steps.fuel_cantons.outputs.built == 'true'");
+    expect(workflow).not.toContain("if: steps.fuel_cantons.outcome == 'success'");
+    expect(workflow).toMatch(/github-issue-creator\.mjs --resolve \\\n\s+--title "Dataset carburanti per cantone rifiutato \(update-fuel-prices\)"/);
+    // Joins the same refresh PR only once the file exists (untracked before
+    // its first successful build), with the same ignored-cache contract.
+    expect(workflow).toContain('if [ -f data/fuel-prices-cantons.json ] && [ -f public/data/fuel-prices-cantons.json ]; then');
+    expect(workflow).toContain('"${cantons_paths[@]}"');
+    expect(workflow.indexOf('Build cantonal fuel dataset (P9b)')).toBeLessThan(workflow.indexOf('Open PR with fuel price cache'));
+    // Line-anchored: the ignore entries, not a mention in a comment.
+    expect(gitignore).toMatch(/^data\/fuel-prices-cantons\.json$/m);
+    expect(gitignore).toMatch(/^public\/data\/fuel-prices-cantons\.json$/m);
+  });
+
   it('supports force-staging only when a refresh explicitly opts in', () => {
     const publisher = read('scripts/lib/open-data-refresh-pr.sh');
 

@@ -119,7 +119,7 @@ jobs:
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
           if [ "${{ steps.schedule.outputs.daily }}" = "true" ]; then
-            node scripts/generate-fuel-prices-dataset.mjs --save-local
+            node scripts/generate-fuel-prices-dataset.mjs --save-local --cantons-input-out "$RUNNER_TEMP/fuel-cantons-input.json"
           else
             node scripts/generate-fuel-prices-dataset.mjs
           fi
@@ -133,6 +133,17 @@ jobs:
       - name: Snapshot fuel history for SEO pages (F6)
         if: steps.schedule.outputs.daily == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/snapshot-fuel-history.mjs
+
+      # P9b: per-canton averages (CH border strip + FR/AT/IT, DE when the
+      # Tankerkönig key exists) from the generator hand-off above plus the
+      # foreign open-data feeds. Its own failure must not cost the main fuel
+      # cache its PR, so the step is non-blocking here and reported below; a
+      # refused dataset writes nothing and the published file stays.
+      - name: Build cantonal fuel dataset (P9b)
+        id: fuel_cantons
+        if: steps.schedule.outputs.daily == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        run: node scripts/build-fuel-cantons-dataset.mjs --input "$RUNNER_TEMP/fuel-cantons-input.json"
 
       # Daily: publish the cache through a PR so the required Vitest check
       # validates generated data before it reaches main. This removes the
@@ -151,17 +162,56 @@ jobs:
           - Pubblica il cache giornaliero dei prezzi carburante tramite una PR stabile, così il required check \`vitest (unit + integration)\` valida i dati prima dell'ingresso su \`main\`.
 
           ## Non implementato (ancora)
-          Nessuno — il dataset generato e la sua cronologia vengono pubblicati atomically through the refresh PR.
+          Nessuno — il dataset generato e la sua cronologia vengono pubblicati atomically through the refresh PR (insieme a \`fuel-prices-cantons.json\` quando la build per cantone è passata).
           EOF
+          # The canton dataset joins the same PR once it exists: before its
+          # first successful build the path is untracked and absent, and
+          # `git add` would reject the pathspec.
+          cantons_paths=()
+          if [ -f data/fuel-prices-cantons.json ] && [ -f public/data/fuel-prices-cantons.json ]; then
+            cantons_paths=(--path data/fuel-prices-cantons.json --path public/data/fuel-prices-cantons.json)
+          fi
           bash scripts/lib/open-data-refresh-pr.sh \
             --force \
             --path data/fuel-prices.json \
             --path public/data/fuel-prices.json \
             --path data/fuel-prices-history/ \
+            "${cantons_paths[@]}" \
             --branch chore/refresh-fuel-prices \
             --commit-message "chore(data): refresh fuel prices" \
             --title "chore(data): refresh fuel prices" \
             --body-file "$body"
+
+      - name: Report cantonal fuel dataset failure
+        if: steps.fuel_cantons.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Dataset carburanti per cantone rifiutato (update-fuel-prices)" \
+            --description "## Dataset carburanti per cantone rifiutato o fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          Lo step \`Build cantonal fuel dataset (P9b)\` è fallito: il file pubblicato \`data/fuel-prices-cantons.json\` resta quello precedente. Il log dello step elenca lo stato di ogni fonte e la copertura dei cantoni attesi." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
+
+      # Recovery mirror: the title above is custom, so neither
+      # close-recovered-failure-issues.mjs nor the generic report closes it;
+      # the next accepted canton build does (model: rpm-canary.yml). Gated on
+      # the script's own `built` output, not on the step outcome: a run whose
+      # generator hand-off was missing exits 0 without building anything.
+      - name: Resolve cantonal fuel dataset issue on accepted build
+        if: steps.fuel_cantons.outputs.built == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "Dataset carburanti per cantone rifiutato (update-fuel-prices)" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Report failure to GitHub Issues
         if: failure()
