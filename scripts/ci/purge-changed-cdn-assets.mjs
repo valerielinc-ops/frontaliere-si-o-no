@@ -113,7 +113,9 @@
  * Env: CF_API_TOKEN (needs Zone→Cache Purge) — absent means nothing is purged
  *      and no key is marked clean. CDN_PURGE_BASE overrides the public origin
  *      (default https://cdn.frontaliereticino.ch). CDN_PURGE_BATCH_TIMEOUT_MS
- *      bounds one cf-purge-cache.mjs call (default 60000).
+ *      bounds one cf-purge-cache.mjs call (default 60000). CDN_PURGE_BUDGET_MS
+ *      bounds the whole purge (default: none): batches past it are not
+ *      started and stay dirty, and the ledger keeps what was purged.
  */
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -409,19 +411,34 @@ export function planPurge({ logKeys, current, ledger }) {
  * @param {{ purgeBatch: (urls: string[]) => void, base?: string, size?: number }} opts
  * @returns {{ purgedKeys: string[], failed: { index: number, keys: string[], error: string }[], batches: number }}
  */
-export function purgeInBatches(keys, { purgeBatch, base = DEFAULT_CDN_BASE, size = PURGE_BATCH_SIZE }) {
+export function purgeInBatches(keys, {
+  purgeBatch,
+  base = DEFAULT_CDN_BASE,
+  size = PURGE_BATCH_SIZE,
+  deadline = Infinity,
+  now = Date.now,
+}) {
   const groups = batch(keys, size);
   const purgedKeys = [];
   const failed = [];
+  const notAttempted = [];
   for (const [index, group] of groups.entries()) {
+    // A budget that runs out leaves the remaining batches untried, not failed:
+    // the caller still writes the ledger with what WAS purged, so the next
+    // deploy continues from there instead of starting over.
+    const remainingMs = deadline - now();
+    if (remainingMs <= 0) {
+      for (const rest of groups.slice(index)) notAttempted.push(...rest);
+      break;
+    }
     try {
-      purgeBatch(group.map((k) => keyToUrl(k, base)));
+      purgeBatch(group.map((k) => keyToUrl(k, base)), { remainingMs });
       purgedKeys.push(...group);
     } catch (err) {
       failed.push({ index, keys: group, error: err?.message || String(err) });
     }
   }
-  return { purgedKeys, failed, batches: groups.length };
+  return { purgedKeys, failed, notAttempted, batches: groups.length };
 }
 
 function parseFlags(args) {
@@ -557,15 +574,30 @@ function main(argv) {
   // 36088944074). cf-purge-cache.mjs has no fetch timeout of its own, so a
   // wedged call is killed here and counted as a failed batch (keys stay dirty).
   const batchTimeout = Number(process.env.CDN_PURGE_BATCH_TIMEOUT_MS) || 60000;
-  const { purgedKeys, failed, batches } = purgeInBatches(keys, {
+  // CDN_PURGE_BUDGET_MS: wall-clock budget for the whole purge, set by the
+  // caller below its own `timeout`. Past it no batch starts, and the ledger is
+  // still written with the keys that were purged. Without it, an outside kill
+  // threw away every batch that had succeeded: the first deploy with an empty
+  // ledger (37271618085, 27,177 keys) purged 12,570 in 300 s, was killed, wrote
+  // no ledger, and the next deploy would have started from zero again.
+  const budgetMs = Number(process.env.CDN_PURGE_BUDGET_MS) || 0;
+  const deadline = budgetMs > 0 ? Date.now() + budgetMs : Infinity;
+  const { purgedKeys, failed, notAttempted, batches } = purgeInBatches(keys, {
     base,
-    purgeBatch: (urls) =>
+    deadline,
+    purgeBatch: (urls, { remainingMs }) =>
       execFileSync('node', [purgeScript, `--files=${urls.join(',')}`], {
         stdio: 'inherit',
-        timeout: batchTimeout,
+        timeout: Math.max(1000, Math.min(batchTimeout, remainingMs)),
         killSignal: 'SIGKILL',
       }),
   });
+  if (notAttempted.length > 0) {
+    const where = mode === 'ledger' ? 'left dirty in the ledger; the next deploy continues from here' : 'not tracked (log-only run)';
+    console.log(
+      `::warning::${TAG} purge budget of ${Math.round(budgetMs / 1000)}s reached — ${notAttempted.length} ${keyPrefix}/ key(s) not attempted, ${where}`,
+    );
+  }
   for (const f of failed) {
     console.log(`${TAG} batch ${f.index + 1}/${batches} failed (${f.error})`);
   }
