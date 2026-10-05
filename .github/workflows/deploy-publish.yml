@@ -69,6 +69,7 @@ jobs:
       stale_locales: ${{ steps.plan.outputs.stale_locales }}
       stale_reasons: ${{ steps.plan.outputs.stale_reasons }}
       tail_locales: ${{ steps.plan.outputs.tail_locales }}
+      recovery_required: ${{ steps.plan.outputs.recovery_required }}
       reason: ${{ steps.plan.outputs.reason }}
     steps:
       - name: Checkout admission validator
@@ -142,6 +143,59 @@ jobs:
             --source-run-id "$SOURCE_RUN_ID" \
             --source-sha "$SOURCE_SHA" \
             --github-output "$GITHUB_OUTPUT" | tee -a "$GITHUB_STEP_SUMMARY"
+
+  # A source run created before the build→publish split can leave non-IT
+  # receipts in the old full-publish shape. Keep that payload fail-closed, but
+  # recover automatically by dispatching one current build; a current build
+  # emits the source artifacts required by publish-nonit-shards.
+  recover-legacy-publish-contract:
+    name: Recover legacy publish contract
+    needs: resolve-publish-plan
+    if: >-
+      ${{ needs.resolve-publish-plan.result == 'success' &&
+          needs.resolve-publish-plan.outputs.recovery_required == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name: Checkout recovery dispatcher
+        uses: actions/checkout@v7
+        with:
+          ref: refs/heads/main
+          sparse-checkout: |
+            scripts/ci/mint-app-token.mjs
+            scripts/lib/githubApiHeaders.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Mint GitHub App token
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Require verified workflow dispatch capability
+        if: env.APP_TOKEN_ACTIONS != 'true'
+        run: |
+          echo '::error::legacy publish recovery requires an App token with actions: write'
+          exit 1
+
+      - name: Dispatch a current build
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN }}
+          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+          SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -euo pipefail
+          gh workflow run deploy.yml --repo "$GITHUB_REPOSITORY" --ref main
+          echo "Dispatched current deploy after legacy source run $SOURCE_RUN_ID ($SOURCE_SHA)"
 
   # ───────────────────────────────────────────────────────────────────────
   # ───────────────────────────────────────────────────────────────────────
@@ -1272,10 +1326,13 @@ jobs:
       ready_locales: ${{ steps.plan.outputs.ready_locales }}
       reason: ${{ steps.plan.outputs.reason }}
     steps:
-      - name: Checkout resolver at source SHA
+      - name: Checkout current publish resolver
         uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          # The receipts come from the source run, but this resolver belongs to
+          # the current publisher contract. A source SHA from before the split
+          # does not contain resolve-nonit-publish-plan.mjs at all.
+          ref: refs/heads/main
           sparse-checkout: |
             scripts/ci/locale-publish-provenance.mjs
             scripts/ci/resolve-nonit-publish-plan.mjs
