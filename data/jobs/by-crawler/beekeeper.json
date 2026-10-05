@@ -1,6 +1,6 @@
 {
   "crawlerKey": "beekeeper",
-  "assembledAt": "2026-10-04T21:44:56.674Z",
+  "assembledAt": "2026-10-05T09:38:50.050Z",
   "jobs": [
     {
       "id": "beekeeper-ad4c568442b2",
@@ -34,7 +34,7 @@
       "url": "https://job.lumapps.com/jobs/8081204-senior-account-manager",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:44:51.803Z",
+      "crawledAt": "2026-10-05T09:38:45.455Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -48,7 +48,9 @@
       "sector": "Tecnologia / Software",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-16",
+      "datePosted": "2026-07-16T14:43:00+02:00",
+      "postedDate": "2026-07-16T14:43:00+02:00",
+      "postingDateSource": "reported",
       "applyUrl": "https://job.lumapps.com/jobs/8081204-senior-account-manager",
       "jobReqId": "8bfece5f-35a3-4792-801e-9b9d07ea15e6",
       "requirements": [],
@@ -112,7 +114,7 @@
       "url": "https://job.lumapps.com/jobs/8483000-senior-account-executive-germany",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:44:51.802Z",
+      "crawledAt": "2026-10-05T09:38:45.452Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -126,7 +128,7 @@
       "sector": "Tecnologia / Software",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "postedDate": "2026-10-01T08:53:49+02:00",
       "applyUrl": "https://job.lumapps.com/jobs/8483000-senior-account-executive-germany",
       "jobReqId": "5fc108a3-d274-433d-9a59-17a2f335b244",
       "requirements": [],
@@ -144,7 +146,9 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-10-01T08:53:49+02:00",
+      "postingDateSource": "reported"
     }
   ]
 }

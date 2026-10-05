@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ricola",
-  "assembledAt": "2026-10-04T21:41:32.932Z",
+  "assembledAt": "2026-10-05T09:39:16.289Z",
   "jobs": [
     {
       "id": "ricola-6e3762cab55f",
@@ -33,7 +33,7 @@
       "url": "https://career.ricola.com/Vacancies/1062/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:41:28.264Z",
+      "crawledAt": "2026-10-05T09:39:11.485Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -47,7 +47,7 @@
       "sector": "Industria alimentare / Dolciumi",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-09",
+      "postedDate": "",
       "applyUrl": "https://career.ricola.com/Vacancies/1062/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
@@ -80,7 +80,9 @@
           "maxValue": 103600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     },
     {
       "id": "ricola-c78588f1aa2b",
@@ -113,7 +115,7 @@
       "url": "https://career.ricola.com/Vacancies/1064/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:41:27.832Z",
+      "crawledAt": "2026-10-05T09:39:11.062Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -127,7 +129,7 @@
       "sector": "Industria alimentare / Dolciumi",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-24",
+      "postedDate": "",
       "applyUrl": "https://career.ricola.com/Vacancies/1064/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
@@ -160,7 +162,9 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "",
+      "postingDateSource": "unknown"
     }
   ]
 }

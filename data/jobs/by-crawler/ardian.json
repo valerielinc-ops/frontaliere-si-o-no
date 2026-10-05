@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ardian",
-  "assembledAt": "2026-10-04T21:44:44.979Z",
+  "assembledAt": "2026-10-05T09:40:54.278Z",
   "jobs": [
     {
       "id": "ardian-9f5eec77bfad",
@@ -33,7 +33,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Investor-Relations-Intern---January-2027-I-Zurich_JR1002219",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:44:39.172Z",
+      "crawledAt": "2026-10-05T09:40:49.749Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -78,7 +78,9 @@
           "maxValue": 138500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-28",
+      "postingDateSource": "reported"
     },
     {
       "id": "ardian-06257c7ac5a7",
@@ -111,7 +113,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Secondaries---Primaries-Intern---January-2027-I-Zurich_JR1002220",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:44:38.438Z",
+      "crawledAt": "2026-10-05T09:40:49.049Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -156,7 +158,9 @@
           "maxValue": 138500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-08-28",
+      "postingDateSource": "reported"
     },
     {
       "id": "ardian-97a387c526de",
@@ -189,7 +193,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Fund-Finance-Secondaries---Primaries-Intern---February-2027-I-Zurich--M-F-_JR1002246",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-04T21:44:37.697Z",
+      "crawledAt": "2026-10-05T09:40:48.335Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -234,7 +238,9 @@
           "maxValue": 138500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "datePosted": "2026-09-23",
+      "postingDateSource": "reported"
     }
   ]
 }
