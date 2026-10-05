@@ -97493,6 +97493,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-veicoli-berna-calcolo-pratico': {
+    title: 'Imposta sugli autoveicoli a Berna: calcolo e pagamento',
+    description: 'Imposta sugli autoveicoli nel Cantone di Berna: calcolo, pagamento, scadenze, cambio di veicolo e aggiornamento dell\'indirizzo secondo le regole cantonali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, sugli, autoveicoli, berna',
+    ogTitle: 'Imposta sugli autoveicoli a Berna: calcolo e pagamento',
+    ogDescription: 'Criteri di calcolo, pagamento e scadenze non si leggono con una regola nazionale: per Berna contano la fonte ufficiale del cantone e l\'ufficio della circolazione, soprattutto dopo un cambio di veicolo o di indirizzo.',
+    canonicalPath: '/articoli-svizzera/veicoli-berna-calcolo-pratico/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta sugli autoveicoli a Berna: calcolo e pagamento",
+      "description": "Imposta sugli autoveicoli nel Cantone di Berna: calcolo, pagamento, scadenze, cambio di veicolo e aggiornamento dell'indirizzo secondo le regole cantonali.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/veicoli-berna-calcolo-pratico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti e auto per l'imposta cantonale sugli autoveicoli a Berna."
+      },
+      "datePublished": "2026-10-05T04:37:57+00:00",
+      "dateModified": "2026-10-05T04:37:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/veicoli-berna-calcolo-pratico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

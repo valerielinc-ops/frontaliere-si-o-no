@@ -7721,6 +7721,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sostegno-sociale-berna-procedura.title': 'Assistenza sociale a Berna: requisiti e domanda',
     'blog.article.sostegno-sociale-berna-procedura.excerpt': 'Nel Cantone di Berna l\'assistenza sociale segue il bisogno: domanda all\'ufficio competente, documenti e termini da verificare presso il Cantone.',
     'blog.article.sostegno-sociale-berna-procedura.imageAlt': 'Sportello svizzero per una domanda di assistenza sociale cantonale',
+    'blog.article.veicoli-berna-calcolo-pratico.title': 'Imposta sugli autoveicoli a Berna: calcolo e pagamento',
+    'blog.article.veicoli-berna-calcolo-pratico.excerpt': 'Nel Cantone di Berna criteri, scadenze, importi e ufficio per l\'imposta sugli autoveicoli dipendono dalle regole cantonali.',
+    'blog.article.veicoli-berna-calcolo-pratico.imageAlt': 'Documenti e auto per l\'imposta cantonale sugli autoveicoli a Berna.',
 };
 
 export default blogMetaChIt;

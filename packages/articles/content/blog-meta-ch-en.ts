@@ -7721,6 +7721,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sostegno-sociale-berna-procedura.title': 'Social assistance in Bern: requirements and application',
     'blog.article.sostegno-sociale-berna-procedura.excerpt': 'In the Canton of Bern, social assistance is based on need: application to the competent office, documents, and deadlines to be verified with the Canton.',
     'blog.article.sostegno-sociale-berna-procedura.imageAlt': 'Swiss public service desk for a cantonal social assistance application',
+    'blog.article.veicoli-berna-calcolo-pratico.title': 'Motor vehicle tax in Bern: calculation and payment',
+    'blog.article.veicoli-berna-calcolo-pratico.excerpt': 'In the Canton of Bern, the criteria, deadlines, amounts and office responsible for motor vehicle tax depend on cantonal rules.',
+    'blog.article.veicoli-berna-calcolo-pratico.imageAlt': 'Car and documents for the cantonal motor vehicle tax in Bern.',
 };
 
 export default blogMetaChEn;
