@@ -22,27 +22,21 @@
  */
 import { cleanEventText } from './events-utils.mjs';
 import { extractEventOfferMetadata, eventOfferPriceAmount } from './event-metadata.mjs';
+import { parseJsonLdText } from './json-ld-text.mjs';
 
 const JSON_LD_SCRIPT_RE = /<script\b[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
 
 /**
- * Parse one JSON-LD block, tolerating the raw control characters (line breaks
- * inside strings) that WordPress plugins emit. Returns undefined when the
- * block is not JSON even after that repair.
+ * Parse one JSON-LD block with the shared tolerant parser (raw line breaks
+ * inside strings, BOM, comment wrapper: scripts/lib/json-ld-text.mjs).
+ * Returns undefined when the block is not JSON even after that repair.
  */
 export function parseJsonLdBlock(raw) {
-  const text = String(raw ?? '').trim();
-  if (!text) return undefined;
+  if (!String(raw ?? '').trim()) return undefined;
   try {
-    return JSON.parse(text);
+    return parseJsonLdText(raw);
   } catch {
-    try {
-      // A raw newline/tab is whitespace between tokens and an invalid
-      // character inside a string: a space is correct in both places.
-      return JSON.parse(text.replace(/[\u0000-\u001f]+/g, ' '));
-    } catch {
-      return undefined;
-    }
+    return undefined;
   }
 }
 

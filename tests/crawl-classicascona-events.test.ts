@@ -166,7 +166,7 @@ describe('concert page → event (facts only)', () => {
   });
 
   it('tolerates raw line breaks inside JSON-LD strings', () => {
-    expect(parseJsonLdBlock('{"@type":"MusicEvent","name":"Riga\nspezzata"}')).toEqual({ '@type': 'MusicEvent', name: 'Riga spezzata' });
+    expect(parseJsonLdBlock('{"@type":"MusicEvent","name":"Riga\nspezzata"}')).toEqual({ '@type': 'MusicEvent', name: 'Riga\nspezzata' });
     expect(parseJsonLdBlock('{not json')).toBeUndefined();
   });
 });
