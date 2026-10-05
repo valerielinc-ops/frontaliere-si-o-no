@@ -105,6 +105,7 @@ function stubFilter(answer: Record<string, unknown>): ClusterTrafficFilter & {
 }
 
 const NO_MIRRORS = new Map<string, string[]>();
+const INDEXABLE_INTRO = Array.from({ length: 50 }, (_, i) => `parola-${i}`).join(' ');
 
 function decide(
   over: Record<string, unknown>,
@@ -193,7 +194,7 @@ describe('decideClusterEmission — sitemap membership derives from noindex', ()
 
 // ── 2. The enriched-intro exemption (the thin-content offender) ─────────────
 
-describe('hasUsableEnrichedIntro — a prompt echo is not editorial value', () => {
+describe('hasUsableEnrichedIntro — only substantive prose is editorial value', () => {
   const PLACEHOLDER = '<80-120 word prose paragraph, single paragraph, no line breaks>';
 
   it('rejects the literal prompt placeholder shipped by 76 corpus entries', () => {
@@ -206,9 +207,13 @@ describe('hasUsableEnrichedIntro — a prompt echo is not editorial value', () =
     expect(hasUsableEnrichedIntro(undefined)).toBe(false);
   });
 
-  it('accepts real prose, including short prose and prose containing "<"', () => {
-    expect(hasUsableEnrichedIntro({ intro: 'Offerte reali a Lugano.' } as any)).toBe(true);
-    expect(hasUsableEnrichedIntro({ intro: 'Stipendi < 60k in Ticino.' } as any)).toBe(true);
+  it('rejects short real prose, including prose containing "<"', () => {
+    expect(hasUsableEnrichedIntro({ intro: 'Offerte reali a Lugano.' } as any)).toBe(false);
+    expect(hasUsableEnrichedIntro({ intro: 'Stipendi < 60k in Ticino.' } as any)).toBe(false);
+  });
+
+  it('accepts real prose that clears the shared indexability floor', () => {
+    expect(hasUsableEnrichedIntro({ intro: INDEXABLE_INTRO } as any)).toBe(true);
   });
 
   /**
@@ -225,8 +230,13 @@ describe('hasUsableEnrichedIntro — a prompt echo is not editorial value', () =
     expect(em.sitemapEligible).toBe(false);
   });
 
-  it('still exempts a below-floor cluster that has a REAL enriched intro', () => {
+  it('does not let short real prose exempt a below-floor cluster', () => {
     const real = { slug: 's', locale: 'en', intro: 'Una introduzione vera.', faqs: [] } as any;
+    expect(isClusterBelowFloor(makeCtx({ matchingJobs: [] }), real)).toBe(true);
+  });
+
+  it('still exempts a below-floor cluster with substantive enriched prose', () => {
+    const real = { slug: 's', locale: 'en', intro: INDEXABLE_INTRO, faqs: [] } as any;
     expect(isClusterBelowFloor(makeCtx({ matchingJobs: [] }), real)).toBe(false);
   });
 });

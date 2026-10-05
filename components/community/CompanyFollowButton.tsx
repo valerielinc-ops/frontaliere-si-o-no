@@ -8,7 +8,7 @@ import {
   type findCompanyAlert,
   subscribeCompanyAlert,
 } from '@/services/jobAlertService';
-import { savePendingCompanyFollow } from '@/services/companyFollowIntent';
+import { recordServerCompanyFollowIntent, savePendingCompanyFollow } from '@/services/companyFollowIntent';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import CompanyFollowPlaceholder from './CompanyFollowPlaceholder';
 import { lazyRetry } from '@/services/lazyRetry';
@@ -55,6 +55,8 @@ export interface CompanyFollowButtonProps {
   subscribe?: typeof subscribeCompanyAlert;
   unfollow?: typeof deleteAlert;
   captureEmail?: (email: string, intent: { company: string; companyKey?: string | null }) => Promise<void>;
+  /** Injected for tests; defaults to the server-side intent write. */
+  recordIntent?: typeof recordServerCompanyFollowIntent;
 }
 
 /**
@@ -116,6 +118,7 @@ export default function CompanyFollowButton({
   subscribe = subscribeCompanyAlert,
   unfollow = deleteAlert,
   captureEmail,
+  recordIntent = recordServerCompanyFollowIntent,
 }: CompanyFollowButtonProps) {
   const { t } = useTranslation();
   const [status, setStatus] = useState<CompanyFollowButtonStatus>(userId ? 'loading' : 'idle');
@@ -184,28 +187,46 @@ export default function CompanyFollowButton({
    * unified relationship and access-link request; this callback owns only the
    * company-specific replay intent.
    */
-  const handleEmailRequested = useCallback((requestedEmail: string) => {
+  const handleEmailRequested = useCallback(async (requestedEmail: string) => {
+    const followLocale = locale as 'it' | 'en' | 'de' | 'fr';
     const parked = savePendingCompanyFollow({
       company,
       companyKey: companyKey ?? null,
-      locale: locale as 'it' | 'en' | 'de' | 'fr',
+      locale: followLocale,
       sourceJobSlug: sourceJobSlug ?? null,
       sourceJobUrl: sourceJobUrl ?? null,
       sourceJobTitle: sourceJobTitle ?? null,
       email: requestedEmail,
     });
-    // Issue 9575: storage refused the follow, so the confirmation link will
-    // replay nothing. Stop the flow here: `onOptInRequested` is the parent's
-    // "accept" (email flow continues) and must not fire for a follow that was
-    // never parked. Throwing moves the shared prompt to its error state instead
-    // of the "open the link to follow {company}" success card, and its catch
-    // reports the error once through `onEmailError` (= `onErrored`).
-    if (!parked) {
+    // The server copy is what makes the follow survive a confirmation opened
+    // on another device; the local one is the fallback when this write fails.
+    const recorded = await recordIntent({
+      email: requestedEmail,
+      // `slug` IS the canonical CompanyAlert key: companyAlertKey(company,
+      // companyKey), the value subscribeCompanyAlert pins. The raw crawler
+      // `companyKey` is not — one crawler key can publish several employers
+      // (see companyAlertKey's docblock), so recording it would follow the
+      // wrong one and diverge from the local replay.
+      companyKey: slug,
+      company,
+      locale: followLocale,
+      sourceJobSlug: sourceJobSlug ?? null,
+      sourceJobUrl: sourceJobUrl ?? null,
+      sourceJobTitle: sourceJobTitle ?? null,
+    });
+    // Issue 9575: neither the browser nor the server holds the follow, so the
+    // confirmation link will complete nothing. Stop the flow here:
+    // `onOptInRequested` is the parent's "accept" (email flow continues) and
+    // must not fire for a follow that was never parked. Throwing moves the
+    // shared prompt to its error state instead of the "open the link to follow
+    // {company}" success card, and its catch reports the error once through
+    // `onEmailError` (= `onErrored`).
+    if (!parked && !recorded) {
       setStatus('error');
       throw new Error('pending_follow_storage_unavailable');
     }
     onOptInRequested?.(requestedEmail);
-  }, [company, companyKey, locale, onOptInRequested, sourceJobSlug, sourceJobTitle, sourceJobUrl]);
+  }, [company, companyKey, locale, onOptInRequested, recordIntent, slug, sourceJobSlug, sourceJobTitle, sourceJobUrl]);
 
   // Social sign-in completes in the shared prompt. Once the parent supplies
   // the authenticated identity, close the prompt and perform the same follow

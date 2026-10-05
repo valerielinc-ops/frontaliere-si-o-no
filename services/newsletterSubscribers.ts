@@ -2435,6 +2435,8 @@ export async function confirmNewsletterSubscription(
  alreadyConfirmed?: boolean;
  authToken?: string;
  companyFollowFollowup?: { required: true; sourcePath: string | null; newsletterActive?: boolean };
+ /** Follows the endpoint completed from server-recorded intents on this click. */
+ companyFollowFulfilled?: { created: number; existing: number; pending: number; newsletterActive?: boolean };
  loginOnly?: boolean;
 }> {
  try {
@@ -2449,6 +2451,7 @@ export async function confirmNewsletterSubscription(
  alreadyConfirmed: data.alreadyConfirmed || false,
  authToken: data.authToken || undefined,
  companyFollowFollowup: data.companyFollowFollowup || undefined,
+ companyFollowFulfilled: data.companyFollowFulfilled || undefined,
  loginOnly: data.loginOnly || false,
  };
  }

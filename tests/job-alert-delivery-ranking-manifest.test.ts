@@ -21,13 +21,12 @@ import { matchJobsForSubscriber } from '../services/newsletter-content.mjs';
 // job_email_ranking_deliveries already stores for the same delivery.
 
 const MANIFEST_KEYS = [
+  'affinity_score',
   'canton',
   'category',
   'company_key',
-  'ctr_shrink',
   'job_id',
   'position',
-  'random_boost',
   'ranking_score',
   'relevance_score',
   'sector',
@@ -64,8 +63,7 @@ function fullJob(index: number) {
       position: index + 1,
       rankingScore: 0.9 - index * 0.01,
       relevanceScore: 0.8,
-      ctrShrink: 0.05,
-      randomBoost: 0.001,
+      affinityScore: 0.333333,
     },
   };
 }
@@ -201,8 +199,7 @@ describe('job alert delivery record — ranking_jobs is the lean manifest', () =
       position: 5,
       ranking_score: 0.9 - 4 * 0.01,
       relevance_score: 0.8,
-      ctr_shrink: 0.05,
-      random_boost: 0.001,
+      affinity_score: 0.333333,
       category: 'administration',
       canton: 'TI',
       company_key: 'azienda-esempio-sa',
